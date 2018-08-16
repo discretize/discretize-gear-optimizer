@@ -1,0 +1,23 @@
+.modal > .modal-dialog > .modal-content {
+  > .modal-header {
+    position: relative;
+    display: block;
+    text-align: center;
+
+    > .close {
+      top: 1rem;
+    }
+  }
+
+  > .modal-body {
+    padding-top: 2 * $modal-inner-padding;
+    padding-bottom: 2 * $modal-inner-padding;
+
+    tr {
+      th:first-child {
+        width: auto;
+        white-space: normal;
+      }
+    }
+  }
+}

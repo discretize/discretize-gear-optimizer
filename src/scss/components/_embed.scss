@@ -1,0 +1,30 @@
+span[data-armory-ids] {
+  > div:not(.gw2a-specializations-embed) {
+    display: inline-block;
+    line-height: $line-height-base;
+
+    > div,
+    span > div {
+      @include valign-middle;
+    }
+
+    a {
+      @extend .ml-1;
+
+      span {
+        vertical-align: initial !important;
+      }
+    }
+  }
+
+  .gw2a-specializations-embed {
+    > div {
+      > div:not(:first-child) {
+        &,
+        > div {
+          z-index: $zindex-dropdown;
+        }
+      }
+    }
+  }
+}

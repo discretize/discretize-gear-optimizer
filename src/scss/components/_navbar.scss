@@ -1,0 +1,30 @@
+.navbar {
+  background-color: $gray-darker;
+  box-shadow: 0 1px 1px $gray-darkest;
+
+  @include media-breakpoint-up(lg) {
+    .nav-item {
+      letter-spacing: 2px;
+
+      .nav-link {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  .navbar-brand {
+    line-height: $icon-size-base;
+    font-family: $headings-font-family;
+  }
+
+  .nav-item {
+    text-transform: uppercase;
+  }
+
+  .nav-link,
+  .navbar-brand,
+  .navbar-toggler {
+    @include a-inverse;
+  }
+}

@@ -1,0 +1,13 @@
+dl.row {
+  dt {
+    @extend .text-center;
+    @extend .text-lg-left;
+    @extend .mb-3;
+    @extend .mb-lg-0;
+  }
+
+  dd {
+    @extend .mb-4;
+    @extend .mb-lg-3;
+  }
+}

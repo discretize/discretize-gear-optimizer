@@ -1,0 +1,145 @@
+@mixin card($theme-color: theme-color("primary"), $border-color: $card-border-color, $bg-primary: $card-bg, $bg-secondary: theme-color("secondary")) {
+  background-color: $bg-primary;
+  border-color: $border-color;
+
+  > .card-header {
+    background-color: rgba($theme-color, 0.5);
+    border-color: $border-color;
+  }
+
+  > .card-nav {
+    border-color: $border-color;
+
+    > .nav-tabs > .nav-item > .nav-link {
+      color: $link-hover-color;
+
+      &:hover,
+      &:focus,
+      &.active {
+        color: $theme-color;
+        box-shadow: inset 0 5px 0 0 $theme-color;
+        background-color: $bg-secondary;
+      }
+    }
+
+    @if ($theme-color != theme-color("primary")) {
+      &.card-nav-header {
+        > .nav-tabs > .nav-item > .nav-link {
+          color: $headings-color;
+
+          &:hover,
+          &:focus,
+          &.active {
+            color: $headings-color;
+            background-color: rgba($theme-color, 0.5);
+          }
+        }
+      }
+    }
+  }
+
+  > .card-body {
+    &.tab-content > .tab-pane.active + .btn.scroll-top {
+      @include hover {
+        background-color: $bg-secondary;
+      }
+    }
+
+    .table-inverse,
+    .form-control,
+    .form-control:focus,
+    .btn-outline-primary,
+    .dropdown-select > .dropdown-toggle,
+    .dropdown-select > .dropdown-menu {
+      background-color: $bg-secondary;
+    }
+
+    .dropdown-select > .dropdown-menu > .dropdown-item {
+      &:hover,
+      &:focus {
+        background-color: $bg-primary;
+      }
+    }
+  }
+}
+
+.card {
+  @include card;
+  @extend .mb-3;
+
+  > .card-header {
+    text-align: center;
+    color: $gray-lightest;
+
+    &:not(.card-header-small) {
+      @extend .lead;
+    }
+
+    &.card-header-small {
+      @extend .p-1;
+    }
+  }
+
+  > .card-nav {
+    border-bottom: 1px solid $card-border-color;
+
+    &.card-nav-header {
+      font-size: 1.1rem;
+
+      .nav-link {
+        padding: 0.75rem 1.5rem;
+      }
+    }
+  }
+
+  > .card-body {
+    @extend .text-left;
+
+    &.tab-content {
+      padding: 0;
+
+      > .tab-pane.container,
+      > .tab-pane > .container {
+        padding: $card-spacer-y $card-spacer-x;
+      }
+
+      > .tab-pane:not(.active) + .btn.scroll-top {
+        display: none;
+      }
+    }
+
+    &:not(.tab-content),
+    &.tab-content > .tab-pane {
+      > table {
+        @extend .mb-0;
+      }
+
+      > .dropdown-select > .btn.dropdown-toggle {
+        border: none;
+      }
+
+      > .card {
+        @extend .mb-0;
+        border: none;
+      }
+    }
+  }
+
+  &.section-content {
+    > .card-body.tab-content > .tab-pane {
+      &.container,
+      > .container {
+        @extend .pt-4;
+        @extend .pt-lg-5;
+        @extend .px-2;
+        @extend .px-sm-3;
+        @extend .px-md-4;
+        @extend .px-lg-5;
+      }
+    }
+  }
+}
+
+.card-inverse {
+  @include card($bg-primary: $gray-darker, $bg-secondary: $gray-dark);
+}

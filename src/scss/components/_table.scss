@@ -1,0 +1,27 @@
+.table-skills {
+  @extend .table-inverse;
+  @extend .mx-auto;
+  width: auto;
+  border: 1px solid $gray-darkest;
+
+  tr {
+    td,
+    th {
+      padding: .25rem;
+      text-align: center;
+
+      &:not(first-child) {
+        border-left: 1px solid $gray-darkest;
+      }
+    }
+
+    th:first-child {
+      width: auto;
+      white-space: normal;
+    }
+  }
+}
+
+.table-small {
+  font-size: 0.9rem;
+}

@@ -1,0 +1,45 @@
+@mixin button-outline-variant($color, $color-hover: $gray-lightest) {
+  color: $body-color;
+  background: transparent none;
+  border-color: rgba($color, 0.3);
+
+  cursor: pointer;
+
+  @include hover {
+    color: $color-hover;
+    background-color: $color;
+    border-color: $color;
+  }
+
+  &:focus,
+  &.focus {
+    box-shadow: 0 0 0 3px rgba($color, .5);
+  }
+
+  &.disabled,
+  &:disabled {
+    color: $body-color;
+    background-color: transparent;
+
+    cursor: not-allowed;
+
+    &:hover,
+    &:active,
+    &.active,
+    &:focus,
+    &.focus {
+      box-shadow: none;
+      background-color: transparent;
+      border-color: rgba($color, 0.3);
+      color: $body-color;
+    }
+  }
+
+  &:active,
+  &.active,
+  .show > &.dropdown-toggle {
+    color: $color-hover;
+    background-color: $color;
+    border-color: $color;
+  }
+}

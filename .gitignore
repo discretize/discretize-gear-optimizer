@@ -1,0 +1,9 @@
+node_modules/
+_backup/
+.idea/
+dist/
+misc/
+
+src/.idea
+install.bat
+*.iml

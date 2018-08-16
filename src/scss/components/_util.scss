@@ -1,0 +1,79 @@
+// Utils
+@mixin a-inverse {
+  color: $link-hover-color;
+
+  &:hover,
+  &:focus,
+  &.active {
+    color: $link-color;
+  }
+}
+
+@mixin valign-middle {
+  position: relative;
+  top: -2px;
+  vertical-align: middle;
+}
+
+.last-updated {
+  @extend .mt-4;
+  @extend .text-muted;
+  @extend .font-italic;
+}
+
+.btn.scroll-top {
+  color: $gray-lightest;
+  float: right;
+  background: transparent;
+}
+
+.close {
+  font-size: 1.2rem;
+  position: absolute;
+  right: 1em;
+
+  background: transparent;
+  padding: 0;
+  border: 0;
+
+  float: right;
+  color: $close-color;
+  opacity: .5;
+
+  @include hover-focus {
+    color: $close-color;
+    text-decoration: none;
+    opacity: .75;
+  }
+}
+
+.d-none + .hint {
+  display: block;
+}
+
+.hint {
+  display: none;
+}
+
+.character-tags {
+  > div {
+    display: inline-block;
+  }
+}
+
+[data-go-priorities],
+[data-go-buffs] {
+  @include hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.text-boon,
+.text-condition,
+.text-instability,
+.text-control,
+.text-misc {
+  display: inline-block;
+}
+

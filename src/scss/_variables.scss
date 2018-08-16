@@ -1,0 +1,44 @@
+/* ==================================================
+   Variables
+================================================== */
+$icon-size-base: 24px;
+$icon-size-lg: 40px;
+$icons: "discretize", "discord",
+"boss", "redboss", "instability", "weaponswap",
+"mesmer", "chronomancer", "mirage",
+"warrior", "berserker", "spellbreaker",
+"guardian", "dragonhunter", "firebrand",
+"thief", "daredevil", "deadeye",
+"elementalist", "tempest", "weaver",
+"engineer", "scrapper", "holosmith",
+"ranger", "druid", "soulbeast",
+"necromancer", "reaper", "scourge",
+"revenant", "herald", "renegade",
+"aegis", "fury", "might", "protection", "quickness", "regeneration", "resistance", "retaliation", "stability", "swiftness", "vigor",
+"bleeding", "blind", "burning", "chilled", "confusion", "crippled", "fear", "immobile", "poison", "slow", "taunt", "torment", "vulnerability", "weakness",
+"daze", "float", "knockback", "knockdown", "launch", "pull", "sink", "stun",
+"agony", "food", "utility", "alacrity", "invulnerability", "revealed", "stealth", "superspeed";
+
+$hr-width: 95%;
+
+$gw2-colors: (
+        guardian: #8af7f5,
+        revenant: #ff866e,
+        warrior: #ffa144,
+        engineer: #ffbb65,
+        ranger: #bee42c,
+        thief: #ff7688,
+        elementalist: #ff6a42,
+        mesmer: #db95ff,
+        necromancer: #78ff66,
+        boon: #e5b97a,
+        condition: #ea3131,
+        control: #ecdfd7,
+        misc: $kbd-color,
+        physical: #f3ebe5,
+        burning: #ef341e,
+        bleeding: #ef0b52,
+        poison: #004a19,
+        torment: #fdbb6b,
+        confusion: #bd2466
+);

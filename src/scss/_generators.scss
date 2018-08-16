@@ -1,0 +1,61 @@
+// Themes
+@each $gw2, $color in $gw2-colors {
+  .card-#{$gw2} {
+    @include card($color, $gray-darkest);
+
+    > .card-body {
+      @include theme($color);
+    }
+  }
+  .card-inverse-#{$gw2} {
+    @include card($color, $gray-darkest, $gray-darker, $gray-dark);
+
+    > .card-body {
+      @include theme($color);
+    }
+  }
+
+  .theme-#{$gw2} {
+    @include theme($color);
+  }
+
+  .text-#{$gw2} {
+    color: $color;
+
+    a {
+      color: $color !important;
+
+      @include hover {
+        color: $link-hover-color !important;
+      }
+    }
+
+    @at-root {
+      a#{&} {
+        color: $color !important;
+
+        @include hover {
+          color: $link-hover-color !important;
+        }
+      }
+    }
+
+    &.nav-link {
+      color: $link-hover-color;
+
+      &:hover,
+      &:focus,
+      &.active {
+        color: $color !important;
+        box-shadow: inset 0 5px 0 0 $color !important;
+      }
+    }
+  }
+}
+
+// Icons
+@each $icon in $icons {
+  .icon-#{$icon} {
+    background-image: url("img/icon/" + $icon + ".png");
+  }
+}

@@ -1,0 +1,175 @@
+/* ==================================================
+   Sections
+================================================== */
+body > header,
+body > section,
+body > footer {
+  box-shadow: inset 0 1px 0 0 $shamrock-lightest;
+
+  .container .row {
+    justify-content: center;
+  }
+
+  .overlay {
+    background-color: $gray-darker;
+    opacity: 0.7;
+    position: absolute;
+  }
+}
+
+body > header,
+body > section {
+  > .container {
+    @extend .py-5;
+    @extend .py-lg-6;
+  }
+}
+
+body > footer {
+  @extend .pt-4;
+  @extend .pt-lg-5;
+  @extend .pb-3;
+}
+
+body > header,
+#mechanics,
+#fractals,
+#contact {
+  background: no-repeat center bottom;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ==================================================
+   Header
+================================================== */
+body > header {
+  background-image: url(img/bg/bg-main.jpg);
+}
+
+/* ==================================================
+   Mechanics
+================================================== */
+#mechanics {
+  background-image: url(img/bg/bg-mechanics.jpg);
+
+  #gear-optimizer {
+    #go-input-class {
+      small {
+        @extend .text-muted;
+        @extend .font-italic;
+
+        &:before {
+          content: "(";
+        }
+        &:after {
+          content: ")";
+        }
+      }
+    }
+
+    #go-input {
+
+      #go-input-affixes {
+        .input {
+          margin-right: 1rem;
+        }
+      }
+
+      #go-condition-distribution {
+        height: 70px;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+
+        #go-condition-distribution-slider {
+          background-color: $gray-dark;
+          border-color: $gray-darkest;
+
+          .noUi-handle {
+            background-color: $gray-lighter;
+            border-color: $gray-darkest;
+            box-shadow: inset 0 0 1px $gray-lighter, inset 0 1px 7px $gray-lightest, 0 3px 6px -3px $gray-darkest;
+            width: 18px;
+            left: -9px;
+
+            &:before,
+            &:after {
+              color: $gray-lightest;
+              left: 7px;
+            }
+            &:after {
+              left: 8px;
+            }
+          }
+
+          .slider-bar-0 {
+            background: rgba(map-get($gw2-colors, physical), 0.5);
+          }
+          .slider-bar-1 {
+            background: rgba(map-get($gw2-colors, burning), 0.5);
+          }
+          .slider-bar-2 {
+            background: rgba(map-get($gw2-colors, bleeding), 0.5);
+          }
+          .slider-bar-3 {
+            background: rgba(map-get($gw2-colors, poison), 0.5);
+          }
+          .slider-bar-4 {
+            background: rgba(map-get($gw2-colors, torment), 0.5);
+          }
+          .slider-bar-5 {
+            background: rgba(map-get($gw2-colors, confusion), 0.5);
+          }
+        }
+      }
+
+      #go-condition-distribution-input {
+        .input-group {
+          @extend .input-group-sm;
+
+          width: auto;
+
+          .input-group-addon {
+            color: $gray-lightest;
+            width: 5.5rem;
+
+            &.addon-power {
+              background-color: rgba(map-get($gw2-colors, physical), 0.5);
+            }
+            &.addon-burning {
+              background-color: rgba(map-get($gw2-colors, burning), 0.5);
+            }
+            &.addon-bleeding {
+              background-color: rgba(map-get($gw2-colors, bleeding), 0.5);
+            }
+            &.addon-poison {
+              background-color: rgba(map-get($gw2-colors, poison), 0.5);
+            }
+            &.addon-torment {
+              background-color: rgba(map-get($gw2-colors, torment), 0.5);
+            }
+            &.addon-confusion {
+              background-color: rgba(map-get($gw2-colors, confusion), 0.5);
+            }
+          }
+
+          .form-control {
+            max-width: 3rem;
+            padding-right: 0;
+          }
+        }
+      }
+    }
+
+    #go-output {
+      tr {
+        @include hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

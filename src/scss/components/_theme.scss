@@ -1,0 +1,22 @@
+// Theme
+@mixin theme($theme-color: theme-color("primary")) {
+  a {
+    color: $theme-color;
+
+    @include hover {
+      color: $link-hover-color;
+    }
+  }
+
+  hr,
+  .heading-special .heading-separator:before,
+  .heading-special .heading-separator:after {
+    border-color: rgba($theme-color, 0.2);
+  }
+
+  .heading-hr:before,
+  .heading-hr:after {
+    background-color: rgba($theme-color, 0.2);
+  }
+}
+

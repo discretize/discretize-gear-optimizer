@@ -1,0 +1,70 @@
+.heading-special {
+  display: inline-block;
+  text-align: center !important;
+
+  @include media-breakpoint-down(md) {
+    overflow: hidden;
+  }
+
+  .heading-separator {
+    display: block;
+    width: 120%;
+    left: -10%;
+    position: relative;
+    margin: -$headings-margin-bottom auto $headings-margin-bottom;
+
+    .icon {
+      width: 22px;
+      height: 22px;
+    }
+
+    &::before,
+    &::after {
+      display: block;
+      content: " ";
+      border: 1px solid $shamrock-transparent;
+      width: calc(50% - 22px);
+      margin-top: 12px;
+    }
+    &::before {
+      float: left;
+    }
+    &::after {
+      float: right;
+    }
+  }
+}
+
+.heading-hr {
+  @extend .mt-3;
+  @extend .mb-4;
+
+  width: $hr-width;
+  display: block;
+
+  overflow: hidden;
+  text-align: center;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:before,
+  &:after {
+    display: inline-block;
+    content: "";
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    background-color: $shamrock-transparent;
+    width: 50%;
+  }
+
+  &:before {
+    margin-left: -50%;
+    right: 1.25rem;
+  }
+  &:after {
+    margin-right: -50%;
+    left: 1.25rem;
+  }
+}
