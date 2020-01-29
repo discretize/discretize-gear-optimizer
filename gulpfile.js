@@ -17,7 +17,7 @@ var dist = {
 }
 
 var src = {
-	copy: [base.src + '.htaccess', 
+	copy: [/*base.src + '.htaccess', */
 		base.src + 'favicon.ico',
 		base.src + 'sitemap.xml',
 		base.src + 'robots.txt'],
@@ -226,7 +226,7 @@ gulp.task('css', function() {
    Build
 ================================================== */
 gulp.task('build', function(callback) {
-	runSequence('clean', ['copy', 'dl', 'css', 'fonts', 'html', 'js', 'gojs'], 'img', callback);
+	runSequence('clean', ['copy', /*'dl',*/ 'css', 'fonts', 'html', 'js', 'gojs'], 'img', callback);
 });
 
 /* ==================================================
@@ -256,7 +256,7 @@ function swallowError(error) {
 ================================================== */
 gulp.task('watch', ['build', 'sync'], function() {
 	gulp.watch(src.copy, function() { runSequence('copy', 'refresh') });
-	gulp.watch(src.dl, function() { runSequence('dl', 'refresh') });
+	/*gulp.watch(src.dl, function() { runSequence('dl', 'refresh') });*/
 	gulp.watch(src.img, function() { runSequence('img', 'refresh') });
 	gulp.watch(src.fonts, function() { runSequence('fonts', 'refresh') });
 	gulp.watch(src.html, function() { runSequence('html', 'refresh') });

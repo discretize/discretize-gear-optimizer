@@ -4,7 +4,8 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "aws s3 sync dist s3://discretize-old --delete",
+    "postdeploy": "aws cloudfront create-invalidation --distribution-id E22O3UGN9AHU0U --paths /*"
   },
   "author": "",
   "license": "ISC",

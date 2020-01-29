@@ -308,9 +308,65 @@ let Optimizer = function($) {
         'major': ['Toughness'],
         'minor': ['Power', 'Precision']
       }
+    },
+    'Trailblazer': {
+      type: 'quadruple',
+      bonuses: {
+        'major': ['Toughness', 'Condition Damage'],
+        'minor': ['Vitality', 'Expertise']
+      }
+    },
+    'Plaguedoctor': {
+      type: 'quadruple',
+      bonuses: {
+        'major': ['Vitality', 'Condition Damage'],
+        'minor': ['Healing Power', 'Concentration']
+      }
+    },
+    'Vigilant': {
+      type: 'quadruple',
+      bonuses: {
+        'major': ['Power', 'Toughness'],
+        'minor': ['Concentration', 'Expertise']
+      }
+    },
+    'Valkyrie': {
+      type: 'triple',
+      bonuses: {
+        'major': ['Power'],
+        'minor': ['Vitality', 'Ferocity']
+      }
+    },
+    'Cavalier': {
+      type: 'triple',
+      bonuses: {
+        'major': ['Toughness'],
+        'minor': ['Power', 'Ferocity']
+      }
+    },
+    'Berserker+Valkyrie': {
+      type: 'bervalk',
+      bonuses: {
+        'major': ['Power'],
+        'minor': ['Vitality', 'Ferocity']
+      }
+    },
+    'Celestial': {
+      type: 'celestial',
+      bonuses: {
+        'major': ['Power'],
+        'minor': ['Vitality', 'Ferocity']
+      }
+    },
+    'Diviner': {
+      type: 'quadruple',
+      bonuses: {
+        'major': ['Power', 'Concentration'],
+        'minor': ['Precision', 'Ferocity']
+      }
     }
   });
-
+ 
   const Item = Object.freeze({
     HELM: {
       'triple': {
@@ -931,7 +987,6 @@ let Optimizer = function($) {
             [_optimizer.primaryInfusion]: primaryBonus / INFUSION_BONUS,
             [_optimizer.secondaryInfusion]: (INFUSION_TOTAL - primaryBonus) / INFUSION_BONUS
           };
-          console.log(temp);
           if (_optimizer._characterLT(best, temp)) {
             best = temp;
           }
@@ -1095,7 +1150,7 @@ let Optimizer = function($) {
       }
 
       $.each(modifiers, function(type, modifier) {
-        if (type && modifier) {
+        if (type && modifier !== undefined) {
           if (!_character.modifiers[type]) {
             _character.modifiers[type] = {};
           }
@@ -1263,7 +1318,7 @@ let Optimizer = function($) {
           && _character.modifiers['multiplier']['Critical Damage']) {
         // Applies multiplicative
         for (let multiplier of _character.modifiers['multiplier']['Critical Damage']) {
-          critDmg = Math.round(critDmg * (1.0 + multiplier));
+          critDmg = critDmg * (1.0 + multiplier);
         }
       }
 
@@ -1283,8 +1338,11 @@ let Optimizer = function($) {
             + (_character.attributes['Concentration'] > 0 ? _character.attributes['Concentration']
                 * 0.8 / 10000 : 0);
         if (bonus) {
-          _multipliers['Effective Healing'] = _multipliers['Effective Healing'] > 0
-              ? _multipliers['Effective Healing'] + bonus : bonus;
+          if (!_multipliers['Effective Healing']) {
+            _multipliers['Effective Healing'] = [];
+          }
+
+          _multipliers['Effective Healing'].push(bonus);
         }
       }
 
@@ -1349,7 +1407,7 @@ let Optimizer = function($) {
     Character.prototype.toModal = function() {
       let _character = this;
 
-      console.debug(JSON.stringify(_character));
+      console.debug(_character);
 
       let modal = '<div class="modal">';
       modal += '<div class="modal-dialog modal-lg">';
@@ -1594,7 +1652,7 @@ let Optimizer = function($) {
       'min': [0],
       'max': [100]
     },
-    start: [92, 97, 100, 100, 100],
+    start: [100, 100, 100, 100, 100],
     connect: [true, true, true, true, true, true],
     step: 1,
     pips: {
