@@ -1651,7 +1651,7 @@
                                             class="input-checkbox"
                                             type="checkbox"
                                             id="go-checkbox-guardian-zealous-blade"
-                                            data-go-modifier='{"multiplier": {"Power": 180}}'
+                                            data-go-modifier='{"buff": {"Power": 180}}'
                                     />
                                     <label
                                             class="input-label"
@@ -3280,7 +3280,7 @@
                                       class="input-checkbox"
                                       type="checkbox"
                                       id="go-checkbox-ranger-hunters-tactics"
-                                      data-go-modifier='{"buff": {"Critical Chance": 10}}'
+                                      data-go-modifier='{"buff": {"Critical Chance": 10}, "multiplier": {"Effective Power": 0.1}}'
                                     />
                                     <label
                                       class="input-label"
@@ -3392,7 +3392,29 @@
                                         data-armory-embed="traits"
                                         data-armory-ids="1101"
                                       ></span>
-                                      Ambidexterity</label
+                                      Ambidexterity
+                                    <small>base</small></label
+                                    >
+                                  </div>
+                                  <div class="input">
+                                    <input
+                                            class="input-checkbox"
+                                            type="checkbox"
+                                            id="go-checkbox-ranger-ambidexterity-2"
+                                            data-go-modifier='{"buff": {"Condition Damage": 150}}'
+                                    />
+                                    <label
+                                            class="input-label"
+                                            for="go-checkbox-ranger-ambidexterity-2"
+                                    >
+                                      <span
+                                              data-armory-size="24"
+                                              data-armory-embed="traits"
+                                              data-armory-ids="1101"
+                                      ></span>
+                                      Ambidexterity
+                                      <small>with torch/dagger - check both</small>
+                                    </label
                                     >
                                   </div>
                                   <div class="input">
@@ -3509,7 +3531,7 @@
                                       class="input-checkbox"
                                       type="checkbox"
                                       id="go-checkbox-ranger-honed-axes"
-                                      data-go-modifier='{"buff": {"Ferocity": 250}}'
+                                      data-go-modifier='{"buff": {"Ferocity": 120}}'
                                     />
                                     <label
                                       class="input-label"
@@ -3520,7 +3542,28 @@
                                         data-armory-embed="traits"
                                         data-armory-ids="1066"
                                       ></span>
-                                      Honed Axes</label
+                                      Honed Axes
+                                    <small>Mainhand</small></label
+                                    >
+                                  </div>
+                                  <div class="input">
+                                    <input
+                                            class="input-checkbox"
+                                            type="checkbox"
+                                            id="go-checkbox-ranger-honed-axes-2"
+                                            data-go-modifier='{"buff": {"Ferocity": 120}}'
+                                    />
+                                    <label
+                                            class="input-label"
+                                            for="go-checkbox-ranger-honed-axes-2"
+                                    >
+                                      <span
+                                              data-armory-size="24"
+                                              data-armory-embed="traits"
+                                              data-armory-ids="1066"
+                                      ></span>
+                                      Honed Axes
+                                      <small>offhand - tick both for two axes</small></label
                                     >
                                   </div>
                                 </div>
@@ -3579,7 +3622,7 @@
                                       class="input-checkbox"
                                       type="checkbox"
                                       id="go-checkbox-ranger-twice-as-vicious"
-                                      data-go-modifier='{"multiplier": {"Effective Power": 0.05, "Condition Damage": 0.05}}'
+                                      data-go-modifier='{"multiplier": {"Effective Power": 0.1, "Condition Damage": 0.1}}'
                                     />
                                     <label
                                       class="input-label"
@@ -3771,7 +3814,7 @@
                                       class="input-checkbox"
                                       type="checkbox"
                                       id="go-checkbox-rev-1"
-                                      data-go-modifier='{"buff": {"Poison Duration": 50}}'
+                                      data-go-modifier='{"multiplier": {"Torment Damage": 0.1}}'
                                     />
                                     <label
                                       class="input-label"
@@ -3780,9 +3823,66 @@
                                       <span
                                         data-armory-size="24"
                                         data-armory-embed="traits"
-                                        data-armory-ids="1741"
+                                        data-armory-ids="1793"
                                       ></span>
-                                      Venom Enhancement
+                                      Acolyte of Torment
+                                    </label>
+                                  </div>
+                                  <div class="input">
+                                    <input
+                                            class="input-checkbox"
+                                            type="checkbox"
+                                            id="go-checkbox-rev-seething-malice"
+                                            data-go-modifier='{"buff": {"Condition Damage": 120}}'
+                                    />
+                                    <label
+                                            class="input-label"
+                                            for="go-checkbox-rev-seething-malice"
+                                    >
+                                      <span
+                                              data-armory-size="24"
+                                              data-armory-embed="traits"
+                                              data-armory-ids="1801"
+                                      ></span>
+                                      Seething Malice
+                                    </label>
+                                  </div>
+                                  <div class="input">
+                                    <input
+                                            class="input-checkbox"
+                                            type="checkbox"
+                                            id="go-checkbox-rev-demonic-resistance"
+                                            data-go-modifier='{"multiplier": {"Effective Health: 0.33}}'
+                                    />
+                                    <label
+                                            class="input-label"
+                                            for="go-checkbox-rev-demonic-resistance"
+                                    >
+                                      <span
+                                              data-armory-size="24"
+                                              data-armory-embed="traits"
+                                              data-armory-ids="1726"
+                                      ></span>
+                                      Demonic Resistance
+                                    </label>
+                                  </div>
+                                  <div class="input">
+                                    <input
+                                            class="input-checkbox"
+                                            type="checkbox"
+                                            id="go-checkbox-rev-pact-of-pain"
+                                            data-go-modifier='{"buff": {"Condition Duration": 15}}'
+                                    />
+                                    <label
+                                            class="input-label"
+                                            for="go-checkbox-rev-pact-of-pain"
+                                    >
+                                      <span
+                                              data-armory-size="24"
+                                              data-armory-embed="traits"
+                                              data-armory-ids="1714"
+                                      ></span>
+                                      Pact of Pain
                                     </label>
                                   </div>
 
@@ -3791,7 +3891,7 @@
                                       class="input-checkbox"
                                       type="checkbox"
                                       id="go-checkbox-rev-2"
-                                      data-go-modifier='{"buff": {"Torment Duration": 20}, "multiplier": {"Torment Damage": 0.2}}'
+                                      data-go-modifier='{"buff": {"Condition Duration": 10}}'
                                     />
                                     <label
                                       class="input-label"
@@ -3813,10 +3913,29 @@
                                   <strong>Retribution</strong>
                                   <div class="input">
                                     <input
+                                            class="input-checkbox"
+                                            type="checkbox"
+                                            id="go-checkbox-rev-dwarven-battle-training"
+                                            data-go-modifier='{"multiplier": {"Effective Power": 0.1}}'
+                                    />
+                                    <label
+                                            class="input-label"
+                                            for="go-checkbox-rev-dwarven-battle-training"
+                                    >
+                                      <span
+                                              data-armory-size="24"
+                                              data-armory-embed="traits"
+                                              data-armory-ids="1740"
+                                      ></span>
+                                      Dwarven Battle Training
+                                    </label>
+                                  </div>
+                                  <div class="input">
+                                    <input
                                       class="input-checkbox"
                                       type="checkbox"
                                       id="go-checkbox-rev-51"
-                                      data-go-modifier='{"multiplier": {"Effective Power": 0.1}}'
+                                      data-go-modifier='{"multiplier": {"Effective Health": 0.15}}'
                                     />
                                     <label
                                       class="input-label"
@@ -3825,9 +3944,9 @@
                                       <span
                                         data-armory-size="24"
                                         data-armory-embed="traits"
-                                        data-armory-ids="1779"
+                                        data-armory-ids="1713"
                                       ></span>
-                                      Vicious Reprisal
+                                      Determined Resolution
                                     </label>
                                   </div>
 
@@ -3836,7 +3955,7 @@
                                       class="input-checkbox"
                                       type="checkbox"
                                       id="go-checkbox-rev-52"
-                                      data-go-modifier='{"convert": {"Power": {"Toughness": 0.04}}}'
+                                      data-go-modifier='{"multiplier": {"Effective Power": 0.1}}'
                                     />
                                     <label
                                       class="input-label"
@@ -3845,9 +3964,9 @@
                                       <span
                                         data-armory-size="24"
                                         data-armory-embed="traits"
-                                        data-armory-ids="1770"
+                                        data-armory-ids="1779"
                                       ></span>
-                                      Versed in Stone
+                                      Vicious Reprisal
                                     </label>
                                   </div>
                                 </div>
@@ -3926,7 +4045,7 @@
                                       class="input-checkbox"
                                       type="checkbox"
                                       id="go-checkbox-rev-4"
-                                      data-go-modifier='{"flat": {"Ferocity": 150}}'
+                                      data-go-modifier='{"multiplier": {"Effective Power ": 0.05}}'
                                     />
                                     <label
                                       class="input-label"
@@ -3935,9 +4054,9 @@
                                       <span
                                         data-armory-size="24"
                                         data-armory-embed="traits"
-                                        data-armory-ids="1776"
+                                        data-armory-ids="1767"
                                       ></span>
-                                      Ferocious Strikes
+                                      Unsuspecting Strikes
                                     </label>
                                   </div>
 
@@ -3946,7 +4065,7 @@
                                       class="input-checkbox"
                                       type="checkbox"
                                       id="go-checkbox-rev-5"
-                                      data-go-modifier='{"multiplier": {"Effective Power": 0.09}}'
+                                      data-go-modifier='{"multiplier": {"Effective Power": 0.1}}'
                                     />
                                     <label
                                       class="input-label"
@@ -3955,10 +4074,31 @@
                                       <span
                                         data-armory-size="24"
                                         data-armory-embed="traits"
-                                        data-armory-ids="1767"
+                                        data-armory-ids="1724"
                                       ></span>
-                                      Vicious Lacerations
-                                      <small>3x</small>
+                                      Destructive Impulses
+                                      <small>Dual wielded</small>
+                                    </label>
+                                  </div>
+
+                                  <div class="input">
+                                    <input
+                                            class="input-checkbox"
+                                            type="checkbox"
+                                            id="go-checkbox-rev-destructive-impulses"
+                                            data-go-modifier='{"multiplier": {"Effective Power": 0.05}}'
+                                    />
+                                    <label
+                                            class="input-label"
+                                            for="go-checkbox-rev-destructive-impulses"
+                                    >
+                                      <span
+                                              data-armory-size="24"
+                                              data-armory-embed="traits"
+                                              data-armory-ids="1724"
+                                      ></span>
+                                      Destructive Impulses
+                                      <small>Two handed</small>
                                     </label>
                                   </div>
 
@@ -3967,7 +4107,7 @@
                                       class="input-checkbox"
                                       type="checkbox"
                                       id="go-checkbox-rev-6"
-                                      data-go-modifier='{"multiplier": {"Effective Power": 0.07}}'
+                                      data-go-modifier='{"multiplier": {"Effective Power": 0.125}}'
                                     />
                                     <label
                                       class="input-label"
@@ -3976,7 +4116,7 @@
                                       <span
                                         data-armory-size="24"
                                         data-armory-embed="traits"
-                                        data-armory-ids="1724"
+                                        data-armory-ids="1792"
                                       ></span>
                                       Targeted Destruction
                                     </label>
@@ -3996,7 +4136,7 @@
                                       <span
                                         data-armory-size="24"
                                         data-armory-embed="traits"
-                                        data-armory-ids="1715"
+                                        data-armory-ids="1800"
                                       ></span>
                                       Swift Termination
                                     </label>
@@ -4007,6 +4147,26 @@
                                   class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3"
                                 >
                                   <strong>Salvation</strong>
+                                  <div class="input">
+                                    <input
+                                            class="input-checkbox"
+                                            type="checkbox"
+                                            id="go-checkbox-rev-tranquil-balance"
+                                            data-go-modifier='{"multiplier": {"Effective Healing": 0.2}}'
+                                    />
+                                    <label
+                                            class="input-label"
+                                            for="go-checkbox-rev-tranquil-balance"
+                                    >
+                                      <span
+                                              data-armory-size="24"
+                                              data-armory-embed="traits"
+                                              data-armory-ids="1822"
+                                      ></span>
+                                      Tranquil Balance
+                                    </label>
+                                  </div>
+
                                   <div class="input">
                                     <input
                                       class="input-checkbox"
@@ -4024,6 +4184,25 @@
                                         data-armory-ids="1821"
                                       ></span>
                                       Life Attunement
+                                    </label>
+                                  </div>
+                                  <div class="input">
+                                    <input
+                                            class="input-checkbox"
+                                            type="checkbox"
+                                            id="go-checkbox-rev-invoking-harmony"
+                                            data-go-modifier='{"multiplier": {"Effective Healing": 0.2}}'
+                                    />
+                                    <label
+                                            class="input-label"
+                                            for="go-checkbox-rev-invoking-harmony"
+                                    >
+                                        <span
+                                                data-armory-size="24"
+                                                data-armory-embed="traits"
+                                                data-armory-ids="1818"
+                                        ></span>
+                                      Invoking Harmony
                                     </label>
                                   </div>
                                 </div>
@@ -5095,12 +5274,12 @@
                                     <input
                                       class="input-checkbox"
                                       type="checkbox"
-                                      id="go-checkbox-guardian-x1"
+                                      id="go-checkbox-buff-bane-signet"
                                       data-go-modifier='{"buff": {"Power": 216}}'
                                     />
                                     <label
                                       class="input-label"
-                                      for="go-checkbox-guardian-x1"
+                                      for="go-checkbox-buff-bane-signet"
                                     >
                                       <span
                                         data-armory-size="24"
