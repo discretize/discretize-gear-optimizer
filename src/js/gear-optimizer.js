@@ -1694,8 +1694,9 @@ let Optimizer = function ($) {
             $('#go-checkbox-ranger-twice-as-vicious').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-ranger-signet-of-the-wild').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-ranger-archetype-ferocious').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-sb-1').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-sb-2').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-sb-3').prop(PropertyName.CHECKED, true);
-
         }
     });
 
