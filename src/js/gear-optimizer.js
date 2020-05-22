@@ -246,6 +246,13 @@ let Optimizer = function ($) {
                 'minor': ['Vitality', 'Precision']
             }
         },
+        'Marauder': {
+            type: 'quadruple',
+            bonuses: {
+                'major': ['Power', 'Precision'],
+                'minor': ['Vitality', 'Ferocity']
+            }
+        },
         'Cleric': {
             type: 'triple',
             bonuses: {
