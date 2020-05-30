@@ -1180,7 +1180,8 @@ let Optimizer = function ($) {
                                         if (attribute !== 'Condition Damage' && attribute !== 'Critical Damage'
                                             && !Attributes.EFFECTIVE.includes(attribute)
                                             && !Attributes.CONDITION_DAMAGE.includes(attribute) && attribute
-                                            !== 'pre: Condition Damage') {
+                                            !== 'add: Condition Damage' && attribute !== 'pre: Condition Damage' &&
+                                            attribute !== 'add: Effective Power') {
                                             throw 'Multipliers can only modify primary, secondary or effective attributes, not '
                                             + attribute;
                                         }
@@ -1242,8 +1243,7 @@ let Optimizer = function ($) {
                     ? _character.attributes[attribute] + bonus : bonus;
             });
 
-            // This is basically only Sigil of Bursting+Omnipotion
-            // This seems to be not relevant any longer.
+            // This is basically only Omnipotion
             // https://discordapp.com/channels/301270513093967872/370538919118503947/716156322348793877
             if (_character.attributes['Condition Damage'] && _character.modifiers['multiplier']
                 && _character.modifiers['multiplier']['pre: Condition Damage']) {
@@ -1362,13 +1362,21 @@ let Optimizer = function ($) {
                 }
             }
 
+            let additivePowerModis = 1.0;
             $.each(_multipliers, function (attribute, multipliers) {
                 if (Attributes.EFFECTIVE.includes(attribute) && _character.attributes[attribute]) {
                     for (let multiplier of multipliers) {
                         _character.attributes[attribute] *= 1.0 + multiplier;
                     }
+                } else {
+                    if(attribute === 'add: Effective Power') {
+                        for (let multiplier of multipliers){
+                            additivePowerModis += multiplier;
+                        }
+                    }
                 }
             });
+            _character.attributes['Effective Power'] *= additivePowerModis;
 
             // Conditions
             $.each(Condition, function (condition, data) {
@@ -1376,11 +1384,26 @@ let Optimizer = function ($) {
                 > 0 ? data.factor * _character.attributes['Condition Damage'] : 0) + data.baseDamage;
             });
 
-            if (_character.attributes['Condition Damage'] && _multipliers
-                && _multipliers['Condition Damage']) {
-                for (let multiplier of _multipliers['Condition Damage']) {
+            if (_character.attributes['Condition Damage'] && _multipliers &&
+                (_multipliers['Condition Damage'] || _multipliers['add: Condition Damage'])) {
+
+                if(_multipliers['add: Condition Damage']) {
+                    // Sums up all additive condition damage modifiers
+                    let additiveCondiDmg = 1.0;
+                    for (let multiplier of _multipliers['add: Condition Damage']) {
+                        additiveCondiDmg += multiplier;
+                    }
+                    // multiply the sum of all additive modifiers on the characters condition ticks
                     for (let conditionDamage of Attributes.CONDITION_DAMAGE) {
-                        _character.attributes[conditionDamage] *= 1.0 + multiplier;
+                        _character.attributes[conditionDamage] *= additiveCondiDmg;
+                    }
+                }
+
+                if (_multipliers['Condition Damage']) {
+                    for (let multiplier of _multipliers['Condition Damage']) {
+                        for (let conditionDamage of Attributes.CONDITION_DAMAGE) {
+                            _character.attributes[conditionDamage] *= 1.0 + multiplier;
+                        }
                     }
                 }
             }
