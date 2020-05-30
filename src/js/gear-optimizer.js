@@ -1243,6 +1243,8 @@ let Optimizer = function ($) {
             });
 
             // This is basically only Sigil of Bursting+Omnipotion
+            // This seems to be not relevant any longer.
+            // https://discordapp.com/channels/301270513093967872/370538919118503947/716156322348793877
             if (_character.attributes['Condition Damage'] && _character.modifiers['multiplier']
                 && _character.modifiers['multiplier']['pre: Condition Damage']) {
                 // Applies multiplicative
