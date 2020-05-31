@@ -1726,9 +1726,20 @@ let Optimizer = function ($) {
             $('#go-checkbox-ranger-twice-as-vicious').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-ranger-signet-of-the-wild').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-ranger-archetype-ferocious').prop(PropertyName.CHECKED, true);
-            $('#go-checkbox-sb-1').prop(PropertyName.CHECKED, true);
-            $('#go-checkbox-sb-2').prop(PropertyName.CHECKED, true);
-            $('#go-checkbox-sb-3').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-sb-1').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-sb-2').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-sb-3').prop(PropertyName.CHECKED, true);
+
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'pren' ){
+            $('[id^="go-checkbox-rev-"]').prop(PropertyName.CHECKED, false);
+            $('#go-checkbox-rev-53').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-13').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-4').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-5').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-6').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-7').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-8').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-11').prop(PropertyName.CHECKED, true);
         }
     });
 
