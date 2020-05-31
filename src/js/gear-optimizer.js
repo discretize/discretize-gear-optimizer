@@ -1302,12 +1302,15 @@ let Optimizer = function ($) {
                 });
             }
 
+            // Critical Chance (%) = 5 + [ (Precision - 1000) / 21 ]
+            // Same formula but written differently
             let criticalChanceBonus = _character.attributes['Precision'] > 0
-                ? (_character.attributes['Precision'] - 895) / 21 : 0;
+                ? ((_character.attributes['Precision'] - 895) / 21) : 0;
             if (criticalChanceBonus) {
+                // what does this do?
                 _character.attributes['Critical Chance'] = Math.min(
-                    _character.attributes['Critical Chance'] > 0 ? _character.attributes['Critical Chance']
-                        + criticalChanceBonus : criticalChanceBonus, 100.0);
+                    _character.attributes['Critical Chance'] > 0
+                        ? _character.attributes['Critical Chance'] + criticalChanceBonus : criticalChanceBonus, 100.0);
             }
 
             let criticalDamageBonus = _character.attributes['Ferocity'] > 0
@@ -1486,6 +1489,7 @@ let Optimizer = function ($) {
 
             modal += _character._toCard('Stat Infusions', _character.infusions);
 
+            // effective gain from adding +5 infusions
             let effectiveValues = {};
             $.each(["Power", "Precision", "Ferocity", "Condition Damage", "Expertise"],
                 function (index, value) {
@@ -1502,6 +1506,7 @@ let Optimizer = function ($) {
                 });
             modal += _character._toCard('Damage increase from +5 of attribute', effectiveValues);
 
+            // effective loss by not having +5 infusions
             let effectiveNegativeValues = {};
             $.each(["Power", "Precision", "Ferocity", "Condition Damage", "Expertise"],
                 function (index, value) {
@@ -1693,9 +1698,7 @@ let Optimizer = function ($) {
             $('#go-checkbox-warrior-berserkers-power').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-warrior-warriors-sprint').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-warrior-double-standards').prop(PropertyName.CHECKED, true);
-            $('#go-checkbox-warrior-axe-mastery-one').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-warrior-axe-mastery-two').prop(PropertyName.CHECKED, true);
-            $('#go-checkbox-warrior-blood-reaction-no').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-warrior-blood-reaction-with').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-warrior-fatal-frenzy').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-warrior-bloody-roar').prop(PropertyName.CHECKED, true);
