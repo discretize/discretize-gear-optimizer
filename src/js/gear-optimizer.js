@@ -725,6 +725,9 @@ let Optimizer = function ($) {
      */
 
     let Optimizer = function () {
+
+        // Constructor.
+        // Fetches values from the html file, selected checkboxes and optimization goals.
         function Optimizer() {
             let _optimizer = this;
 
@@ -1183,7 +1186,7 @@ let Optimizer = function ($) {
                                             && !Attributes.EFFECTIVE.includes(attribute)
                                             && !Attributes.CONDITION_DAMAGE.includes(attribute) && attribute
                                             !== 'add: Condition Damage' && attribute !== 'pre: Condition Damage' &&
-                                            attribute !== 'add: Effective Power') {
+                                            attribute !== 'post: Condition Damage' && attribute !== 'add: Effective Power' ) {
                                             throw 'Multipliers can only modify primary, secondary or effective attributes, not '
                                             + attribute;
                                         }
@@ -1274,7 +1277,7 @@ let Optimizer = function ($) {
 
             // Apply 15% outgoing condi dmg from omnipot
             // https://discordapp.com/channels/301270513093967872/370538919118503947/716949463423516713
-            if(_character.modifiers['multiplier']['post: Condition Damage']) {
+            if (_character.modifiers['multiplier']['post: Condition Damage']) {
                 for (let multiplier of _character.modifiers['multiplier']['post: Condition Damage']) {
                     _character.attributes['Condition Damage'] = Math.round(_character.attributes['Condition Damage']
                         * (1.0 + multiplier));
@@ -1377,6 +1380,9 @@ let Optimizer = function ($) {
                 }
             }
 
+            // Handles all multipliers.
+            // Respect additive modifiers. Sums all additive ones and multiplies the sum with the previously
+            //  calculated multiplicative multipliers
             let additivePowerModis = 1.0;
             $.each(_multipliers, function (attribute, multipliers) {
                 if (Attributes.EFFECTIVE.includes(attribute) && _character.attributes[attribute]) {
@@ -1384,8 +1390,8 @@ let Optimizer = function ($) {
                         _character.attributes[attribute] *= 1.0 + multiplier;
                     }
                 } else {
-                    if(attribute === 'add: Effective Power') {
-                        for (let multiplier of multipliers){
+                    if (attribute === 'add: Effective Power') {
+                        for (let multiplier of multipliers) {
                             additivePowerModis += multiplier;
                         }
                     }
@@ -1402,7 +1408,7 @@ let Optimizer = function ($) {
             if (_character.attributes['Condition Damage'] && _multipliers &&
                 (_multipliers['Condition Damage'] || _multipliers['add: Condition Damage'])) {
 
-                if(_multipliers['add: Condition Damage']) {
+                if (_multipliers['add: Condition Damage']) {
                     // Sums up all additive condition damage modifiers
                     let additiveCondiDmg = 1.0;
                     for (let multiplier of _multipliers['add: Condition Damage']) {
@@ -1458,6 +1464,7 @@ let Optimizer = function ($) {
             return this;
         };
 
+        // Generates the card, that shows up when one clicks on the result.
         Character.prototype.toModal = function () {
             let _character = this;
 
@@ -1660,7 +1667,7 @@ let Optimizer = function ($) {
             $(Selector.CHECKBOX.AFFIX.DIVINER).prop(PropertyName.CHECKED, true);
             $(Selector.CHECKBOX.AFFIX.HARRIER).prop(PropertyName.CHECKED, true);
             $(Selector.INPUT.MIN_BOON_DURATION).val(100);
-        }else if ($(this).data(DataAttribute.PRIORITIES) === 'condi-dps'){
+        } else if ($(this).data(DataAttribute.PRIORITIES) === 'condi-dps') {
             $('[id^=go-checkbox-affix-]').prop(PropertyName.CHECKED, false);
             $(Selector.CHECKBOX.AFFIX.VIPER).prop(PropertyName.CHECKED, true);
             $(Selector.CHECKBOX.AFFIX.SINISTER).prop(PropertyName.CHECKED, true);
@@ -1670,7 +1677,7 @@ let Optimizer = function ($) {
 
     $('[data-' + DataAttribute.PRESELECTION + ']').on(Event.CLICK, function () {
 
-        if ($(this).data(DataAttribute.PRESELECTION) === 'dh' || $(this).data(DataAttribute.PRESELECTION) === 'qfb' ) {
+        if ($(this).data(DataAttribute.PRESELECTION) === 'dh' || $(this).data(DataAttribute.PRESELECTION) === 'qfb') {
             $('[id^="go-checkbox-guardian-"]').prop(PropertyName.CHECKED, false);
             $('#go-checkbox-guardian-bane-signet').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-guardian-fiery-wrath').prop(PropertyName.CHECKED, true);
@@ -1680,15 +1687,15 @@ let Optimizer = function ($) {
             $('#go-checkbox-guardian-retribution').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-guardian-radiant-power').prop(PropertyName.CHECKED, true);
 
-            if ($(this).data(DataAttribute.PRESELECTION) === 'dh'){
+            if ($(this).data(DataAttribute.PRESELECTION) === 'dh') {
                 $('#go-checkbox-guardian-zealots-aggression').prop(PropertyName.CHECKED, true);
                 $('#go-checkbox-guardian-pure-of-sight').prop(PropertyName.CHECKED, true);
                 $('#go-checkbox-guardian-big-game-hunter').prop(PropertyName.CHECKED, true);
-            }else{
+            } else {
                 $('#go-checkbox-guardian-imbued-haste').prop(PropertyName.CHECKED, true);
             }
 
-        } else if ($(this).data(DataAttribute.PRESELECTION) === 'cfb' ){
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'cfb') {
             $('[id^="go-checkbox-guardian-"]').prop(PropertyName.CHECKED, false);
             $('#go-checkbox-guardian-signet-of-wrath').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-guardian-fiery-wrath').prop(PropertyName.CHECKED, true);
@@ -1701,7 +1708,7 @@ let Optimizer = function ($) {
             $('#go-checkbox-guardian-amplified-wrath').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-guardian-imbued-haste').prop(PropertyName.CHECKED, true);
 
-        }else if ($(this).data(DataAttribute.PRESELECTION) === 'pbers' ){
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'pbers') {
             $('[id^="go-checkbox-warrior-"]').prop(PropertyName.CHECKED, false);
             $('#go-checkbox-warrior-peak-performance').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-warrior-signet-of-might').prop(PropertyName.CHECKED, true);
@@ -1715,7 +1722,7 @@ let Optimizer = function ($) {
             $('#go-checkbox-warrior-fatal-frenzy').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-warrior-bloody-roar').prop(PropertyName.CHECKED, true);
 
-        } else if ($(this).data(DataAttribute.PRESELECTION) === 'pwea' ){
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'pwea') {
             $('[id^="go-checkbox-elementalist-"]').prop(PropertyName.CHECKED, false);
             $('#go-checkbox-elementalist-empowering-flame').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-elementalist-burning-precision').prop(PropertyName.CHECKED, true);
@@ -1731,7 +1738,7 @@ let Optimizer = function ($) {
             $('#go-checkbox-elementalist-swift-revenge').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-elementalist-elemental-polyphony-fire').prop(PropertyName.CHECKED, true);
 
-        } else if ($(this).data(DataAttribute.PRESELECTION) === 'pslb' ){
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'pslb') {
             $('[id^="go-checkbox-ranger-"]').prop(PropertyName.CHECKED, false);
             $('#go-checkbox-ranger-farsighted').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-ranger-predators-onslaught').prop(PropertyName.CHECKED, true);
@@ -1745,7 +1752,7 @@ let Optimizer = function ($) {
             $('#go-checkbox-ranger-sb-2').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-ranger-sb-3').prop(PropertyName.CHECKED, true);
 
-        } else if ($(this).data(DataAttribute.PRESELECTION) === 'pren' ){
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'pren') {
             $('[id^="go-checkbox-rev-"]').prop(PropertyName.CHECKED, false);
             $('#go-checkbox-rev-53').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-rev-13').prop(PropertyName.CHECKED, true);
@@ -1847,6 +1854,19 @@ let Optimizer = function ($) {
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     });
+
+    $("#go-input-mesmer").load('html/input-mesmer.html');
+    $("#go-input-warrior").load('html/input-warrior.html');
+    $("#go-input-guardian").load('html/input-guardian.html');
+    $("#go-input-elementalist").load('html/input-elementalist.html');
+    $("#go-input-ranger").load('html/input-ranger.html');
+    $("#go-input-revenant").load('html/input-revenant.html');
+    $("#go-input-runes").load('html/input-runes.html');
+    $('div[id^="go-input-sigil"]').load('html/input-sigil.html');
+    $("#go-input-food").load('html/input-food.html');
+    $("#go-input-utility").load('html/input-utility.html');
+    $("#go-input-infusion").load('html/input-infusion.html');
+    $("#go-input-buffs").load('html/input-buffs.html');
 
     return Optimizer;
 }(jQuery);
