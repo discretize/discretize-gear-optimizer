@@ -647,9 +647,11 @@ let Optimizer = function ($) {
     });
 
     const Omnipotion = Object.freeze({
+        // Re: condi dmg from omnipot https://discordapp.com/channels/301270513093967872/370538919118503947/716949463423516713
         'multiplier': {
             'Effective Power': 0.15,
-            'pre: Condition Damage': 0.15,
+            'pre: Condition Damage': 0.15, // stat increase before utility but after everything else
+            'post: Condition Damage': 0.15, // outgoing condi dmg after utility
             'Effective Health': 0.25
         },
         'convert': {
@@ -1269,6 +1271,16 @@ let Optimizer = function ($) {
                 _character.attributes[attribute] = _character.attributes[attribute] > 0
                     ? _character.attributes[attribute] + bonus : bonus;
             });
+
+            // Apply 15% outgoing condi dmg from omnipot
+            // https://discordapp.com/channels/301270513093967872/370538919118503947/716949463423516713
+            if(_character.modifiers['multiplier']['post: Condition Damage']) {
+                for (let multiplier of _character.modifiers['multiplier']['post: Condition Damage']) {
+                    _character.attributes['Condition Damage'] = Math.round(_character.attributes['Condition Damage']
+                        * (1.0 + multiplier));
+                }
+            }
+
 
             // Derive attributes
             let conditionDurationBonus = _character.attributes['Expertise'] > 0
