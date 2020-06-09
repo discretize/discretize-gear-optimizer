@@ -1855,18 +1855,18 @@ let Optimizer = function ($) {
         $('[data-toggle="tooltip"]').tooltip()
     });
 
-    $("#go-input-mesmer").load('html/input-mesmer.html');
-    $("#go-input-warrior").load('html/input-warrior.html');
-    $("#go-input-guardian").load('html/input-guardian.html');
-    $("#go-input-elementalist").load('html/input-elementalist.html');
-    $("#go-input-ranger").load('html/input-ranger.html');
-    $("#go-input-revenant").load('html/input-revenant.html');
-    $("#go-input-runes").load('html/input-runes.html');
-    $('div[id^="go-input-sigil"]').load('html/input-sigil.html');
-    $("#go-input-food").load('html/input-food.html');
-    $("#go-input-utility").load('html/input-utility.html');
-    $("#go-input-infusion").load('html/input-infusion.html');
-    $("#go-input-buffs").load('html/input-buffs.html');
+    $("#go-mesmer").load('html/input-mesmer.html');
+    $("#go-warrior").load('html/input-warrior.html');
+    $("#go-guardian").load('html/input-guardian.html');
+    $("#go-elementalist").load('html/input-elementalist.html');
+    $("#go-ranger").load('html/input-ranger.html');
+    $("#go-revenant").load('html/input-revenant.html');
+    //$("#go-runes").load('html/input-runes.html');
+    //$('div[id^="go-sigil"]').load('html/input-sigil.html');
+    //$("#go-food").load('html/input-food.html');
+    //$("#go-utility").load('html/input-utility.html');
+    //$("#go-infusion").load('html/input-infusion.html');
+    $("#go-buffs").load('html/input-buffs.html');
 
     return Optimizer;
 }(jQuery);

@@ -193,7 +193,7 @@
                       <a
                         class="nav-link text-mesmer"
                         data-toggle="tab"
-                        href="#go-input-mesmer"
+                        href="#go-mesmer"
                         data-go-class="mesmer"
                       >
                         <span class="icon icon-mesmer"></span> Mesmer</a
@@ -203,7 +203,7 @@
                       <a
                         class="nav-link text-warrior"
                         data-toggle="tab"
-                        href="#go-input-warrior"
+                        href="#go-warrior"
                         data-go-class="warrior"
                       >
                         <span class="icon icon-warrior"></span> Warrior</a
@@ -213,7 +213,7 @@
                       <a
                         class="nav-link text-guardian"
                         data-toggle="tab"
-                        href="#go-input-guardian"
+                        href="#go-guardian"
                         data-go-class="guardian"
                       >
                         <span class="icon icon-guardian"></span> Guardian</a
@@ -223,7 +223,7 @@
                       <a
                         class="nav-link text-elementalist"
                         data-toggle="tab"
-                        href="#go-input-elementalist"
+                        href="#go-elementalist"
                         data-go-class="elementalist"
                       >
                         <span class="icon icon-elementalist"></span>
@@ -234,7 +234,7 @@
                       <a
                         class="nav-link text-ranger"
                         data-toggle="tab"
-                        href="#go-input-ranger"
+                        href="#go-ranger"
                         data-go-class="ranger"
                       >
                         <span class="icon icon-ranger"></span> Ranger</a
@@ -244,7 +244,7 @@
                       <a
                         class="nav-link text-revenant"
                         data-toggle="tab"
-                        href="#go-input-revenant"
+                        href="#go-revenant"
                         data-go-class="revenant"
                       >
                         <span class="icon icon-revenant"></span> Revenant</a
@@ -256,17 +256,17 @@
                 <div class="card-body">
                   <div class="container">
                     <div class="tab-content" id="go-input-class">
-                      <div class="tab-pane fade" id="go-input-mesmer">
+                      <div class="tab-pane fade" id="go-mesmer">
                       </div>
-                      <div class="tab-pane fade" id="go-input-warrior">
+                      <div class="tab-pane fade" id="go-warrior">
                       </div>
-                      <div class="tab-pane fade" id="go-input-guardian">
+                      <div class="tab-pane fade" id="go-guardian">
                       </div>
-                      <div class="tab-pane fade" id="go-input-elementalist">
+                      <div class="tab-pane fade" id="go-elementalist">
                       </div>
-                      <div class="tab-pane fade" id="go-input-ranger">
+                      <div class="tab-pane fade" id="go-ranger">
                       </div>
-                      <div class="tab-pane fade" id="go-input-revenant">
+                      <div class="tab-pane fade" id="go-revenant">
                       </div>
                     </div>
 
@@ -597,7 +597,7 @@
                                   <strong>Warning:</strong> Selecting more than
                                   3 affixes will take a long time as the number
                                   of combinations increases exponentially.
-                                </div>
+                 }               </div>
                               </div>
 
                               <hr class="my-4" />
@@ -962,31 +962,2127 @@
                         </div>
 
                         <!-- Buffs -->
-                        <div id="go-input-buffs" class="col-12">
+                        <div id="go-buffs" class="col-12">
                         </div>
 
                         <!-- Runes -->
-                        <div id="go-input-runes" class="col-12 col-lg-4">
+                        <div id="go-runes" class="col-12 col-lg-4">
+                          <div class="card">
+                            <div class="card-header card-header-small">
+                              Runes
+                              <span
+                                      class="fa fa-question-circle"
+                                      data-toggle="tooltip"
+                                      data-html="true"
+                                      title="Select armor runes. Conditional procs like 'apply burning when you use an elite skill' are <strong>not</strong> included in the output."
+                              ></span>
+                            </div>
+                            <div class="card-body p-0">
+                              <div
+                                      class="dropdown dropdown-select"
+                                      id="go-select-runes"
+                              >
+                                <button
+                                        class="btn dropdown-toggle"
+                                        type="button"
+                                        data-toggle="dropdown"
+                                >
+                                  None
+                                </button>
+                                <div class="dropdown-menu">
+                                  <div class="dropdown-item active">None</div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">Power Runes</h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 175, "Ferocity": 225}, "multiplier": {"Effective Power": 0.05}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24836"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Scholar<br />
+                                    <small>(with active bonus)</small>
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 175, "Ferocity": 225}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24836"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Scholar<br />
+                                    <small>(without active bonus)</small>
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 175, "Precision": 100}, "multiplier": {"Effective Power": 0.07}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="84749"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Spellbreaker
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 175, "Burning Duration": 50}, "multiplier": {"Effective Power": 0.07}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24797"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Flame Legion
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 175, "Might Duration": 50}, "multiplier": {"Effective Power": 0.05}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24714"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of Strength
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Precision": 175, "Ferocity": 225}, "multiplier": {"Effective Power": 0.05}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24723"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Eagle
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Vitality": 175}, "convert": {"Healing Power": {"Vitality": 0.03}, "Precision": {"Vitality": 0.05}, "Power": {"Vitality": 0.07}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="44951"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of Exuberance
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 175, "Boon Duration": 15, "Precision": 125}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24702"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Pack
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 175, "Ferocity": 100}, "multiplier": {"Effective Power": 0.04}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24756"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Ogre
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Precision": 300, "Condition Damage": 100}, "multiplier": {"Effective Power": 0.1}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24818"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Thief
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">Support Runes</h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Condition Damage": 175, "Boon Duration": 10, "Quickness Duration": 30}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="83338"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Firebrand
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 36, "Precision": 36, "Toughness": 36, "Vitality": 36, "Ferocity": 36, "Condition Damage": 36, "Healing Power": 36, "Boon Duration": 25}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="70600"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of Leadership
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 195, "Precision": 14, "Ferocity": 14, "Boon Duration": 15}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="76813"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of Surging (5x)
+                                    <br />&
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24508"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Ruby Orb (1x)
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Toughness": 175, "Boon Duration": 15}, "multiplier": {"Effective Health": 0.1}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="73653"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of Durability
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Toughness": 175, "Boon Duration": 15}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="76100"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Herald
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 175, "Precision": 100}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="73399"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Chronomancer
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 78, "Precision": 78, "Toughness": 78, "Vitality": 78, "Condition Damage": 78, "Ferocity": 78, "Healing Power": 78}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="69370"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Revenant
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 175, "Boon Duration": 15}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="76813"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of Surging
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 78, "Precision": 78, "Toughness": 78, "Vitality": 78, "Ferocity": 78, "Condition Damage": 78, "Healing Power": 78}, "multiplier": {"Effective Health": 0.1}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24732"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of Divinity
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Healing Power": 300, "Boon Duration": 15}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="84171"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Rebirth
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Vitality": 175, "Boon Duration": 15}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24857"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of Sanctuary
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Vitality": 175, "Boon Duration": 25}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="67342"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of Radiance
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">Heal Runes</h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Healing Power": 175, "Boon Duration": 15}, "multiplier": {"Effective Healing": 0.2}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24842"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Monk
+                                    <small>(10x)</small>
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Healing Power": 175, "Boon Duration": 25}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24839"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Water
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Healing Power": 300, "Boon Duration": 15}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="38206"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of Altruism
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">
+                                    Condition Runes
+                                  </h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Condition Damage": 175, "Power": 100}, "multiplier": {"Effective Power": 0.05, "Add: Condition Damage": 0.05}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="71425"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Berserker
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Condition Damage": 175, "Ferocity": 100}, "multiplier": {"Add: Condition Damage": 0.07}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="83502"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Renegade
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 175, "Condition Duration": 10, "Burning Duration": 30}, "convert": {"Expertise": {"Power": 0.07}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24854"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Baelfire
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Vitality": 175, "Condition Duration": 15}, "multiplier": {"Condition Damage": 0.04}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24688"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Lich
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Condition Duration": 25, "Power": 36, "Precision": 36, "Toughness": 36, "Vitality": 36, "Ferocity": 36, "Condition Damage": 36, "Healing Power": 36}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="76166"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Tempest
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 175, "Toughness": 225}, "convert": {"Condition Damage": {"Toughness": 0.07}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24757"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Undead
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Condition Damage": 300, "Vitality": 100, "Fear Duration": 20}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24806"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Necromancer
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Condition Damage": 175, "Condition Duration": 20, "Fear Duration": 10}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24848"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Nightmare
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Condition Damage": 175, "Condition Duration": 15}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="67339"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Trapper
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Condition Damage": 175, "Burning Duration": 50}, "multiplier": {"Effective Health": 0.1}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24765"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of Balthazar
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Condition Damage": 175, "Bleeding Duration": 50}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24762"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Krait
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Condition Damage": 175, "Bleeding Duration": 20, "Poison Duration": 10, "Condition Duration": 10}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24687"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Afflicted
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Condition Damage": 175, "Confusion Duration": 50}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="44957"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of Perplexity
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Condition Damage": 175, "Torment Duration": 50}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="44956"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of Tormenting
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Condition Damage": 300, "Poison Duration": 50}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="72912"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of Thorns
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 175, "Condition Damage": 225, "Condition Duration": 10}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24800"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Elementalist
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Condition Damage": 175, "Power": 100}, "convert": {"Condition Damage": {"Power": 0.07}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="83964"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Rune of the Soulbeast<br />
+                                    <small class="text-muted font-italic"
+                                    >(Active Bonus)</small
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
 
                         <!-- Sigil 1 -->
-                        <div id="go-input-sigil1" class="col-12 col-lg-4">
+                        <div id="go-sigil1" class="col-12 col-lg-4">
+                          <div class="card">
+                            <div class="card-header card-header-small">
+                              Sigil 1
+                              <span
+                                      class="fa fa-question-circle"
+                                      data-toggle="tooltip"
+                                      data-html="true"
+                                      title="Select sigil. Conditional modifiers like 'deal 10% more damage at night' are calculated <strong>with 100% uptime</strong> of the condition."
+                              ></span>
+                            </div>
+                            <div class="card-body p-0">
+                              <div
+                                      class="dropdown dropdown-select"
+                                      id="go-select-sigil-1"
+                              >
+                                <button
+                                        class="btn dropdown-toggle"
+                                        type="button"
+                                        data-toggle="dropdown"
+                                >
+                                  None
+                                </button>
+                                <div class="dropdown-menu">
+                                  <div class="dropdown-item active">None</div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">Power Sigils</h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"multiplier": {"add: Effective Power": 0.05}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24615"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Force
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Critical Chance": 7}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24618"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Accuracy
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"multiplier": {"add: Effective Power": 0.10}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="36053"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of the
+                                    Night/Impact/Slaying<br />
+                                    <small>(Both 7%/3%)</small>
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"multiplier": {"add: Effective Power": 0.03}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="36053"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of the
+                                    Night/Impact/Slaying<br />
+                                    <small>(Only 3%)</small>
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">
+                                    Support Sigils
+                                  </h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Boon Duration": 10}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="72339"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Concentration
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">Heal Sigils</h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"multiplier": {"Effective Healing": 0.1}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="74326"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Transference
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">
+                                    Condition Sigils
+                                  </h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Condition Duration": 10}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="44950"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Malice
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"multiplier": {"add: Condition Damage": 0.05}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="44944"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Bursting
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"multiplier": {"add: Condition Damage": 0.03}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="44943"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Major Sigil of Bursting
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Bleeding Duration": 20}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24612"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Agony
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Burning Duration": 20}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24624"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Smoldering
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Poison Duration": 20}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24632"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Venom
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Torment Duration": 20}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24583"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Demons
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">
+                                    Stacking Sigils (25x)
+                                  </h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"buff": {"Power": 250}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24575"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Bloodlust
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"buff": {"Ferocity": 250}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="67341"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Cruelty
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"buff": {"Precision": 250}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24580"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Perception
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"buff": {"Condition Damage": 250}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24578"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Corruption
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"buff": {"Healing Power": 250}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24582"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Life
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"buff": {"Concentration": 225}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="81045"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Bounty
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"multiplier": {"Effective Healing": 0.125}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24584"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Benevolence
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 50, "Precision": 50, "Toughness": 50, "Vitality": 50, "Ferocity": 50, "Condition Damage": 50, "Healing Power": 50}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="86170"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of the Stars
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">Gemstones</h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Concentration": 40}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24773"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Platinum Doubloon
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
 
                         <!-- Sigil 2 -->
-                        <div id="go-input-sigil2" class="col-12 col-lg-4">
+                        <div id="go-sigil2" class="col-12 col-lg-4">
+                          <div class="card">
+                            <div class="card-header card-header-small">
+                              Sigil 1
+                              <span
+                                      class="fa fa-question-circle"
+                                      data-toggle="tooltip"
+                                      data-html="true"
+                                      title="Select sigil. Conditional modifiers like 'deal 10% more damage at night' are calculated <strong>with 100% uptime</strong> of the condition."
+                              ></span>
+                            </div>
+                            <div class="card-body p-0">
+                              <div
+                                      class="dropdown dropdown-select"
+                                      id="go-select-sigil-2"
+                              >
+                                <button
+                                        class="btn dropdown-toggle"
+                                        type="button"
+                                        data-toggle="dropdown"
+                                >
+                                  None
+                                </button>
+                                <div class="dropdown-menu">
+                                  <div class="dropdown-item active">None</div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">Power Sigils</h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"multiplier": {"add: Effective Power": 0.05}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24615"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Force
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Critical Chance": 7}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24618"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Accuracy
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"multiplier": {"add: Effective Power": 0.10}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="36053"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of the
+                                    Night/Impact/Slaying<br />
+                                    <small>(Both 7%/3%)</small>
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"multiplier": {"add: Effective Power": 0.03}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="36053"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of the
+                                    Night/Impact/Slaying<br />
+                                    <small>(Only 3%)</small>
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">
+                                    Support Sigils
+                                  </h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Boon Duration": 10}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="72339"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Concentration
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">Heal Sigils</h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"multiplier": {"Effective Healing": 0.1}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="74326"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Transference
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">
+                                    Condition Sigils
+                                  </h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Condition Duration": 10}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="44950"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Malice
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"multiplier": {"add: Condition Damage": 0.05}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="44944"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Bursting
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"multiplier": {"add: Condition Damage": 0.03}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="44943"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Major Sigil of Bursting
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Bleeding Duration": 20}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24612"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Agony
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Burning Duration": 20}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24624"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Smoldering
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Poison Duration": 20}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24632"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Venom
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Torment Duration": 20}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24583"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Demons
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">
+                                    Stacking Sigils (25x)
+                                  </h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"buff": {"Power": 250}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24575"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Bloodlust
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"buff": {"Ferocity": 250}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="67341"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Cruelty
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"buff": {"Precision": 250}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24580"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Perception
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"buff": {"Condition Damage": 250}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24578"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Corruption
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"buff": {"Healing Power": 250}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24582"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Life
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"buff": {"Concentration": 225}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="81045"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Bounty
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"multiplier": {"Effective Healing": 0.125}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24584"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of Benevolence
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 50, "Precision": 50, "Toughness": 50, "Vitality": 50, "Ferocity": 50, "Condition Damage": 50, "Healing Power": 50}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="86170"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sigil of the Stars
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">Gemstones</h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Concentration": 40}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="24773"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Platinum Doubloon
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
 
                         <!-- Food -->
-                        <div id="go-input-food" class="col-12 col-lg-4">
+                        <div id="go-food" class="col-12 col-lg-4">
+                          <div class="card">
+                            <div class="card-header card-header-small">
+                              <span class="icon icon-food"></span> Food
+                              <span
+                                      class="fa fa-question-circle"
+                                      data-toggle="tooltip"
+                                      data-html="true"
+                                      title="Select food. Procs like 'steal life on crit' are <strong>not</strong> included in the calculation."
+                              ></span>
+                            </div>
+                            <div class="card-body p-0">
+                              <div
+                                      class="dropdown dropdown-select"
+                                      id="go-select-food"
+                              >
+                                <button
+                                        class="btn dropdown-toggle"
+                                        type="button"
+                                        data-toggle="dropdown"
+                                >
+                                  None
+                                </button>
+                                <div class="dropdown-menu">
+                                  <div class="dropdown-item active">None</div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">Power Food</h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 150}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="71797"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Plate of Jerk Poultry
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 100, "Precision": 70}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="12467"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Plate of Truffle Steak
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 100, "Ferocity": 70}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="41569"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Bowl of Sweet and Spicy Butternut Squash
+                                    Soup
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Ferocity": 100}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="66536"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Plate of Roasted Cactus
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Precision": 150}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="75010"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Bowl of Sawgill Mushroom Risotto
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Precision": 100, "Ferocity": 70}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="12486"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Bowl of Curry Butternut Squash Soup
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"multiplier": {"Effective Power": 0.045}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="12471"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Bowl of Seaweed Salad
+                                    <small class="text-muted font-italic"
+                                    >(90% uptime)
+                                    </small>
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 200, "Ferocity": 70}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="43360"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Dragon's Breath Bun
+                                    <small class="text-muted font-italic"
+                                    >(100% uptime)
+                                    </small>
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 200, "Condition Damage": 140}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="68635"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Steamed Red Dumpling
+                                    <small class="text-muted font-italic"
+                                    >(100% uptime)
+                                    </small>
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">Support Food</h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Healing": 100, "Concentration": 70}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="87076"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Bowl of Poultry Satay
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Concentration": 100, "Healing": 70}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="91746"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Creme Brulee
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Concentration": 100, "Expertise": 70}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="91842"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Plate of Eggs Benedict
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Concentration": 100, "Power": 70}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="89002"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Soul Pastry
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Concentration": 100}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="68633"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Fried Golden Dumpling
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Concentration": 100, "Toughness": 70}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="66530"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Bowl of Nopalitos Sauté
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Concentration": 70}, "multiplier": {"Effective Health": 0.1}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="74969"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Plate of Mussels Gnashblade
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">Heal Food</h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Healing Power": 100}, "multiplier": {"Effective Healing": 0.1}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="68634"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Delicious Rice Ball
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">
+                                    Condition Food
+                                  </h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Expertise": 100, "Condition Damage": 70}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="12464"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Rare Veggie Pizza
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Precision": 70, "Condition Damage": 200}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="12476"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Saffron Stuffed Mushroom (100% uptime)
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Condition Damage": 100, "Expertise": 70}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="86997"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Plate of Beef Rendang
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Expertise": 100}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="66538"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Prickly Pear Pie
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Poison Duration": 15, "Precision": 70}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="12463"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Fancy Truffle Burger
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Burning Duration": 15, "Precision": 70}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="12484"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Bowl of Fire Meat Chili
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">Hybrid Food</h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 100, "Toughness": 70}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="41563"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Spicy Marinated Mushroom
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 70, "Toughness": 100}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="41567"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Plate of Spicy Herbed Chicken
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"buff": {"Power": 45, "Precision": 45, "Toughness": 45, "Vitality": 45, "Concentration": 45, "Condition Damage": 45, "Expertise": 45, "Ferocity": 45, "Healing Power": 45}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="43550"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Dragon's Revelry Starcake
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"buff": {"Power": 45, "Precision": 45, "Toughness": 45, "Vitality": 45, "Concentration": 45, "Condition Damage": 45, "Expertise": 45, "Ferocity": 45, "Healing Power": 45}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="82657"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Red Lentil and Flatbread Feast
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Power": 100, "Condition Damage": 70}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="12466"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Plate of Fire Flank Steak
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Precision": 100, "Condition Damage": 70}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="12485"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Bowl of Fancy Potato and Leek Soup
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Expertise": 100, "Power": 70}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="66528"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Bowl of Sweet and Spicy Beans
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"flat": {"Condition Damage": 100, "Precision": 70}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="12465"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Bowl of Truffle Risotto
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"buff": {"Power": 40, "Precision": 40, "Toughness": 40, "Vitality": 40, "Condition Damage": 40, "Expertise": 40, "Ferocity": 80, "Healing Power": 40}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="66961"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Birthday Blaster
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
 
                         <!-- Utility -->
-                        <div id="go-input-utility" class="col-12 col-lg-4">
+                        <div id="go-utility" class="col-12 col-lg-4">
+                          <div class="card">
+                            <div class="card-header card-header-small">
+                              <span class="icon icon-utility"></span>
+                              Utility
+                              <span
+                                      class="fa fa-question-circle"
+                                      data-toggle="tooltip"
+                                      title="Select utility consumables."
+                              ></span>
+                            </div>
+                            <div class="card-body p-0">
+                              <div
+                                      class="dropdown dropdown-select"
+                                      id="go-select-utility"
+                              >
+                                <button
+                                        class="btn dropdown-toggle"
+                                        type="button"
+                                        data-toggle="dropdown"
+                                >
+                                  None
+                                </button>
+                                <div class="dropdown-menu">
+                                  <div class="dropdown-item active">None</div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">
+                                    Power Utilities
+                                  </h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"multiplier": {"Effective Power": 0.1, "Effective Health": 0.1}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="50082"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Slaying Potion
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Power": {"Precision": 0.03}, "Ferocity": {"Precision": 0.03}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="67530"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Furious Sharpening Stone
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Power": {"Precision": 0.03, "Ferocity": 0.06}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="9443"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Superior Sharpening Stone
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Power": {"Condition Damage": 0.06, "Expertise": 0.08}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="48915"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Toxic Sharpening Stone
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Power": {"Vitality": 0.03, "Toughness": 0.03}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="81034"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Magnanimous Sharpening Stone
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Power": {"Healing Power": 0.06, "Concentration": 0.08}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="67531"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Bountiful Sharpening Stone
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">
+                                    Support Utilities
+                                  </h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Concentration": {"Power": 0.03, "Precision": 0.03}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="89203"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Potent Lucent Oil
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Concentration": {"Power": 0.03, "Condition Damage": 0.06}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="48916"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Toxic Maintenance Oil
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Concentration": {"Precision": 0.03, "Condition Damage": 0.06}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="89157"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Enhanced Lucent Oil
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Concentration": {"Precision": 0.03}, "Healing Power": {"Precision": 0.03}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="67529"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Furious Maintenance Oil
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Concentration": {"Vitality": 0.03, "Toughness": 0.03}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="81157"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Magnanimous Maintenance Oil
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Concentration": {"Precision": 0.03, "Healing Power": 0.06}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="9461"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Master Maintenance Oil
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Concentration": {"Toughness": 0.03}, "Expertise": {"Toughness": 0.03}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="86016"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Corsair Maintenance Oil
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">
+                                    Heal Utilities
+                                  </h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"bountiful-maintenance-oil": 0}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="67528"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Bountiful Maintenance Oil
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">
+                                    Condition Utilities
+                                  </h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Condition Damage": {"Power": 0.03, "Precision": 0.03}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="48917"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Toxic Focusing Crystal
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Condition Damage": {"Precision": 0.03}, "Expertise": {"Precision": 0.03}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="67524"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Furious Tuning Crystal
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Condition Damage": {"Precision": 0.03, "Expertise": 0.08}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="9476"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Master Tuning Crystal
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Condition Damage": {"Vitality": 0.03, "Toughness": 0.03}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="81079"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Magnanimous Tuning Crystal
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Condition Damage": {"Healing Power": 0.06, "Concentration": 0.08}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="67522"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Bountiful Tuning Crystal
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">SAB Utilities</h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Condition Damage": {"Concentration": 0.08}, "Concentration": {"Precision": 0.03}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="87336"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Holographic Super Apple
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Healing Power": {"Concentration": 0.08}, "Concentration": {"Precision": 0.03}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="87329"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Holographic Super Drumstick
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"convert": {"Power": {"Concentration": 0.08}, "Concentration": {"Precision": 0.03}}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="87358"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Holographic Super Cheese
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">Writs</h6>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"buff": {"Precision": 200}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="76833"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Writ of Masterful Accuracy
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"buff": {"Condition Damage": 200}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="72510"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Writ of Masterful Malice
+                                  </div>
+                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='{"buff": {"Power": 200}}'
+                                  >
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="73191"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Writ of Masterful Strength
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
 
                         <!-- Infusions -->
-                        <div id="go-input-infusion" class="col-12 col-lg-4">
+                        <div id="go-infusion" class="col-12 col-lg-4">
+                          <div class="card">
+                            <div class="card-header card-header-small">
+                              Stat Infusions
+                              <span
+                                      class="fa fa-question-circle"
+                                      data-toggle="tooltip"
+                                      title="Select stat infusion combinations. The optimizer will generate the best distribution between 18x stat infusions."
+                              ></span>
+                            </div>
+                            <div class="card-body p-0">
+                              <div
+                                      class="dropdown dropdown-select"
+                                      id="go-select-infusions"
+                              >
+                                <button
+                                        class="btn dropdown-toggle"
+                                        type="button"
+                                        data-toggle="dropdown"
+                                >
+                                  None
+                                </button>
+                                <div class="dropdown-menu">
+                                  <div class="dropdown-item active">None</div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">
+                                    Damage Infusions
+                                  </h6>
+                                  <div class="dropdown-item">
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="37131"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Power
+                                  </div>
+                                  <div class="dropdown-item">
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="37132"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Precision
+                                  </div>
+                                  <div class="dropdown-item">
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="37131"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Power +
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="37132"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Precision
+                                  </div>
+                                  <div class="dropdown-item">
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="37130"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Condition Damage
+                                  </div>
+                                  <div class="dropdown-item">
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="86113"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Expertise
+                                  </div>
+                                  <div class="dropdown-item">
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="37130"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Condition Damage +
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="86113"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Expertise
+                                  </div>
+                                  <div class="dropdown-item">
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="37130"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Condition Damage +
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="37132"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Precision
+                                  </div>
+                                  <div class="dropdown-item">
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="86180"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Concentration
+                                  </div>
+                                  <div class="dropdown-item">
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="37131"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Power +
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="86180"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Concentration
+                                  </div>
+                                  <div class="dropdown-item">
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="37132"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Precision +
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="86180"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Concentration
+                                  </div>
+                                  <div class="dropdown-item">
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="86113"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Expertise +
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="86180"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Concentration
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">
+                                    Survivability Infusions
+                                  </h6>
+                                  <div class="dropdown-item">
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="37135"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Toughness
+                                  </div>
+                                  <div class="dropdown-item">
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="37135"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Toughness +
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="37136"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Vitality
+                                  </div>
+                                  <div class="dropdown-item">
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="37135"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Toughness +
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="86180"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Concentration
+                                  </div>
+                                  <div class="dropdown-item">
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="37136"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Vitality
+                                  </div>
+                                  <div class="dropdown-item">
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="37136"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Vitality +
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="86180"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Concentration
+                                  </div>
+
+                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">
+                                    Healing Infusions
+                                  </h6>
+                                  <div class="dropdown-item">
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="37125"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Healing Power
+                                  </div>
+                                  <div class="dropdown-item">
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="37125"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Healing Power +
+                                    <span
+                                            data-armory-embed="items"
+                                            data-armory-ids="86180"
+                                            data-armory-size="24"
+                                    ></span>
+                                    Concentration
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
                         </div>
                       </div>
 
@@ -1057,7 +3153,7 @@
               </div>
             </div>
             <p class="last-updated">
-              Last updated: June 02, 2020
+              Last updated: June 09, 2020
               <br />
               Want to open the <a href="https://discretize.eu">main page</a>?
             </p>
