@@ -1855,18 +1855,18 @@ let Optimizer = function ($) {
         $('[data-toggle="tooltip"]').tooltip()
     });
 
-    $("#go-mesmer").load('html/input-mesmer.html');
-    $("#go-warrior").load('html/input-warrior.html');
-    $("#go-guardian").load('html/input-guardian.html');
-    $("#go-elementalist").load('html/input-elementalist.html');
-    $("#go-ranger").load('html/input-ranger.html');
-    $("#go-revenant").load('html/input-revenant.html');
+    //$("#go-mesmer").load('html/input-mesmer.html');
+    //$("#go-warrior").load('html/input-warrior.html');
+    //$("#go-guardian").load('html/input-guardian.html');
+    //$("#go-elementalist").load('html/input-elementalist.html');
+    //$("#go-ranger").load('html/input-ranger.html');
+    //$("#go-revenant").load('html/input-revenant.html');
     //$("#go-runes").load('html/input-runes.html');
     //$('div[id^="go-sigil"]').load('html/input-sigil.html');
     //$("#go-food").load('html/input-food.html');
     //$("#go-utility").load('html/input-utility.html');
     //$("#go-infusion").load('html/input-infusion.html');
-    $("#go-buffs").load('html/input-buffs.html');
+    //$("#go-buffs").load('html/input-buffs.html');
 
     return Optimizer;
 }(jQuery);
