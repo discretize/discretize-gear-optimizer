@@ -477,8 +477,8 @@ let Optimizer = function ($) {
                 'minor': 71
             },
             'celestial': {
-                'major': 71,
-                'minor': 71
+                'major': 72,
+                'minor': 72
             }
         },
         RING: {
@@ -491,8 +491,8 @@ let Optimizer = function ($) {
                 'minor': 56
             },
             'celestial': {
-                'major': 56,
-                'minor': 56
+                'major': 57,
+                'minor': 57
             }
         },
         ACCESSORY: {
@@ -505,8 +505,8 @@ let Optimizer = function ($) {
                 'minor': 49
             },
             'celestial': {
-                'major': 49,
-                'minor': 49
+                'major': 50,
+                'minor': 50
             }
         },
         BACK_ITEM: {
@@ -519,8 +519,8 @@ let Optimizer = function ($) {
                 'minor': 27
             },
             'celestial': {
-                'major': 27,
-                'minor': 27
+                'major': 28,
+                'minor': 28
             }
         },
         ONEHANDED_WEAPON: {
