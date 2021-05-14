@@ -368,8 +368,8 @@ let Optimizer = function ($) {
         'Celestial': {
             type: 'celestial',
             bonuses: {
-                'major': ['Power'],
-                'minor': ['Vitality', 'Ferocity']
+                'major': ['Power','Precision','Toughness','Vitality'],
+                'minor': ['Ferocity','Condition Damage','Expertise','Concentration','Healing Power']
             }
         },
         'Diviner': {
@@ -390,6 +390,10 @@ let Optimizer = function ($) {
             'quadruple': {
                 'major': 54,
                 'minor': 30
+            },
+            'celestial': {
+                'major': 30,
+                'minor': 30
             }
         },
         SHOULDERS: {
@@ -399,6 +403,10 @@ let Optimizer = function ($) {
             },
             'quadruple': {
                 'major': 40,
+                'minor': 22
+            },
+            'celestial': {
+                'major': 22,
                 'minor': 22
             }
         },
@@ -410,6 +418,10 @@ let Optimizer = function ($) {
             'quadruple': {
                 'major': 121,
                 'minor': 67
+            },
+            'celestial': {
+                'major': 67,
+                'minor': 67
             }
         },
         GLOVES: {
@@ -419,6 +431,10 @@ let Optimizer = function ($) {
             },
             'quadruple': {
                 'major': 40,
+                'minor': 22
+            },
+            'celestial': {
+                'major': 22,
                 'minor': 22
             }
         },
@@ -430,6 +446,10 @@ let Optimizer = function ($) {
             'quadruple': {
                 'major': 81,
                 'minor': 44
+            },
+            'celestial': {
+                'major': 44,
+                'minor': 44
             }
         },
         BOOTS: {
@@ -440,7 +460,12 @@ let Optimizer = function ($) {
             'quadruple': {
                 'major': 40,
                 'minor': 22
+            },
+            'celestial': {
+                'major': 22,
+                'minor': 22
             }
+            
         },
         AMULET: {
             'triple': {
@@ -449,6 +474,10 @@ let Optimizer = function ($) {
             },
             'quadruple': {
                 'major': 133,
+                'minor': 71
+            },
+            'celestial': {
+                'major': 71,
                 'minor': 71
             }
         },
@@ -460,6 +489,10 @@ let Optimizer = function ($) {
             'quadruple': {
                 'major': 106,
                 'minor': 56
+            },
+            'celestial': {
+                'major': 56,
+                'minor': 56
             }
         },
         ACCESSORY: {
@@ -469,6 +502,10 @@ let Optimizer = function ($) {
             },
             'quadruple': {
                 'major': 92,
+                'minor': 49
+            },
+            'celestial': {
+                'major': 49,
                 'minor': 49
             }
         },
@@ -480,6 +517,10 @@ let Optimizer = function ($) {
             'quadruple': {
                 'major': 52,
                 'minor': 27
+            },
+            'celestial': {
+                'major': 27,
+                'minor': 27
             }
         },
         ONEHANDED_WEAPON: {
@@ -490,6 +531,10 @@ let Optimizer = function ($) {
             'quadruple': {
                 'major': 108,
                 'minor': 59
+            },
+            'celestial': {
+                'major': 59,
+                'minor': 59
             }
         },
         TWOHANDED_WEAPON: {
@@ -499,6 +544,10 @@ let Optimizer = function ($) {
             },
             'quadruple': {
                 'major': 215,
+                'minor': 118
+            },
+            'celestial': {
+                'major': 118,
                 'minor': 118
             }
         }
