@@ -1277,7 +1277,7 @@ let Optimizer = function ($) {
 
             // Apply 15% outgoing condi dmg from omnipot
             // https://discordapp.com/channels/301270513093967872/370538919118503947/716949463423516713
-            if (_character.modifiers['multiplier']['post: Condition Damage']) {
+            if (_character.modifiers['multiplier'] && _character.modifiers['multiplier']['post: Condition Damage']) {
                 for (let multiplier of _character.modifiers['multiplier']['post: Condition Damage']) {
                     _character.attributes['Condition Damage'] = Math.round(_character.attributes['Condition Damage']
                         * (1.0 + multiplier));
