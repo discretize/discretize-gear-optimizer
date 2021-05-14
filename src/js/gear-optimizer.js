@@ -705,8 +705,8 @@ let Optimizer = function ($) {
             factor: 0.06
         },
         'Torment': {
-            baseDamage: 22,
-            factor: 0.06
+            baseDamage: 31.8,
+            factor: 0.09
         },
         'Confusion': {
             baseDamage: 22,
