@@ -368,8 +368,8 @@ let Optimizer = function ($) {
         'Celestial': {
             type: 'celestial',
             bonuses: {
-                'major': ['Power'],
-                'minor': ['Vitality', 'Ferocity']
+                'major': ['Power','Precision','Toughness','Vitality'],
+                'minor': ['Ferocity','Condition Damage','Expertise','Concentration','Healing Power']
             }
         },
         'Diviner': {
@@ -390,6 +390,10 @@ let Optimizer = function ($) {
             'quadruple': {
                 'major': 54,
                 'minor': 30
+            },
+            'celestial': {
+                'major': 30,
+                'minor': 30
             }
         },
         SHOULDERS: {
@@ -399,6 +403,10 @@ let Optimizer = function ($) {
             },
             'quadruple': {
                 'major': 40,
+                'minor': 22
+            },
+            'celestial': {
+                'major': 22,
                 'minor': 22
             }
         },
@@ -410,6 +418,10 @@ let Optimizer = function ($) {
             'quadruple': {
                 'major': 121,
                 'minor': 67
+            },
+            'celestial': {
+                'major': 67,
+                'minor': 67
             }
         },
         GLOVES: {
@@ -419,6 +431,10 @@ let Optimizer = function ($) {
             },
             'quadruple': {
                 'major': 40,
+                'minor': 22
+            },
+            'celestial': {
+                'major': 22,
                 'minor': 22
             }
         },
@@ -430,6 +446,10 @@ let Optimizer = function ($) {
             'quadruple': {
                 'major': 81,
                 'minor': 44
+            },
+            'celestial': {
+                'major': 44,
+                'minor': 44
             }
         },
         BOOTS: {
@@ -440,7 +460,12 @@ let Optimizer = function ($) {
             'quadruple': {
                 'major': 40,
                 'minor': 22
+            },
+            'celestial': {
+                'major': 22,
+                'minor': 22
             }
+            
         },
         AMULET: {
             'triple': {
@@ -450,6 +475,10 @@ let Optimizer = function ($) {
             'quadruple': {
                 'major': 133,
                 'minor': 71
+            },
+            'celestial': {
+                'major': 72,
+                'minor': 72
             }
         },
         RING: {
@@ -460,6 +489,10 @@ let Optimizer = function ($) {
             'quadruple': {
                 'major': 106,
                 'minor': 56
+            },
+            'celestial': {
+                'major': 57,
+                'minor': 57
             }
         },
         ACCESSORY: {
@@ -470,6 +503,10 @@ let Optimizer = function ($) {
             'quadruple': {
                 'major': 92,
                 'minor': 49
+            },
+            'celestial': {
+                'major': 50,
+                'minor': 50
             }
         },
         BACK_ITEM: {
@@ -480,6 +517,10 @@ let Optimizer = function ($) {
             'quadruple': {
                 'major': 52,
                 'minor': 27
+            },
+            'celestial': {
+                'major': 28,
+                'minor': 28
             }
         },
         ONEHANDED_WEAPON: {
@@ -490,6 +531,10 @@ let Optimizer = function ($) {
             'quadruple': {
                 'major': 108,
                 'minor': 59
+            },
+            'celestial': {
+                'major': 59,
+                'minor': 59
             }
         },
         TWOHANDED_WEAPON: {
@@ -499,6 +544,10 @@ let Optimizer = function ($) {
             },
             'quadruple': {
                 'major': 215,
+                'minor': 118
+            },
+            'celestial': {
+                'major': 118,
                 'minor': 118
             }
         }
@@ -705,8 +754,8 @@ let Optimizer = function ($) {
             factor: 0.06
         },
         'Torment': {
-            baseDamage: 22,
-            factor: 0.06
+            baseDamage: 31.8,
+            factor: 0.09
         },
         'Confusion': {
             baseDamage: 22,
@@ -1277,7 +1326,7 @@ let Optimizer = function ($) {
 
             // Apply 15% outgoing condi dmg from omnipot
             // https://discordapp.com/channels/301270513093967872/370538919118503947/716949463423516713
-            if (_character.modifiers['multiplier']['post: Condition Damage']) {
+            if (_character.modifiers['multiplier'] && _character.modifiers['multiplier']['post: Condition Damage']) {
                 for (let multiplier of _character.modifiers['multiplier']['post: Condition Damage']) {
                     _character.attributes['Condition Damage'] = Math.round(_character.attributes['Condition Damage']
                         * (1.0 + multiplier));
