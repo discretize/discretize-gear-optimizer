@@ -1557,6 +1557,57 @@ let Optimizer = function ($) {
 
             modal += _character._toCard('Stat Infusions', _character.infusions);
 
+            if (_character.distribution["Power"] != 100) {
+                // effective damage distribution
+                let effectiveDamageDistribution = {};
+                $.each(_character.distribution, function (key, percentage) {
+                    let score;
+                    switch (key) {
+                        case "Power":
+                            effectiveDamageDistribution["Power"] = (_character.attributes['Effective Power'] / 1025
+                                / _character.attributes['Damage'] * percentage * 100)
+                                .toFixed(1) + '%';
+                            break;
+                        case "Burning":
+                        case "Bleeding":
+                        case "Poison":
+                        case "Torment":
+                        case "Confusion":
+                            effectiveDamageDistribution[key + ' Damage'] = ((_character.attributes[key + ' Damage'] / Condition[key].baseDamage)
+                                * (1 + (_character.attributes[key + ' Duration'] > 0 ? _character.attributes[key + ' Duration'] / 100 : 0))
+                                / _character.attributes['Damage'] * percentage * 100)
+                                .toFixed(1) + '%';
+                            break;
+                    }
+                });
+                modal += _character._toCard('Effective Damage Distribution', effectiveDamageDistribution);
+
+                // damage indicator breakdown
+                let damageIndicatorBreakdown = {};
+                $.each(_character.distribution, function (key, percentage) {
+                    let score;
+                    switch (key) {
+                        case "Power":
+                            damageIndicatorBreakdown["Power"] = Number((_character.attributes['Effective Power'] / 1025 * percentage)
+                                .toFixed(2))
+                                .toLocaleString('en-US');
+                            break;
+                        case "Burning":
+                        case "Bleeding":
+                        case "Poison":
+                        case "Torment":
+                        case "Confusion":
+                            damageIndicatorBreakdown[key + ' Damage'] = Number(((_character.attributes[key + ' Damage'] / Condition[key].baseDamage) * (1
+                                + (_character.attributes[key + ' Duration'] > 0 ? _character.attributes[key
+                                + ' Duration'] / 100 : 0)) * percentage)
+                                .toFixed(2))
+                                .toLocaleString('en-US');
+                            break;
+                    }
+                });
+                modal += _character._toCard('Damage indicator breakdown', damageIndicatorBreakdown);
+            }
+
             // effective gain from adding +5 infusions
             let effectiveValues = {};
             $.each(["Power", "Precision", "Ferocity", "Condition Damage", "Expertise"],
