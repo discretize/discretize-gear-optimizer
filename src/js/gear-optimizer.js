@@ -1236,6 +1236,7 @@ let Optimizer = function ($) {
                                             && !Attributes.CONDITION_DAMAGE.includes(attribute) && attribute
                                             !== 'add: Condition Damage' && attribute !== 'pre: Condition Damage' &&
                                             attribute !== 'post: Condition Damage' && attribute !== 'add: Effective Power' ) {
+                                            console.error(modifier);
                                             throw 'Multipliers can only modify primary, secondary or effective attributes, not '
                                             + attribute;
                                         }
@@ -1252,6 +1253,7 @@ let Optimizer = function ($) {
                                             && !Attributes.DERIVED.includes(attribute)
                                             && !Attributes.BOON_DURATION.includes(attribute)
                                             && !Attributes.CONDITION_DURATION.includes(attribute)) {
+                                            console.error(modifier);
                                             throw 'Flat or buff modifiers can only increase primary, secondary or derived attributes, not '
                                             + attribute;
                                         }
@@ -1262,6 +1264,7 @@ let Optimizer = function ($) {
                                     case 'convert':
                                         if (!Attributes.PRIMARY.includes(attribute) && !Attributes.SECONDARY.includes(
                                             (attribute))) {
+                                            console.error(modifier);
                                             throw 'Conversions can only modify primary or secondary attributes, not '
                                             + attribute;
                                         }
