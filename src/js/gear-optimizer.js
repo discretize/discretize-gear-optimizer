@@ -465,7 +465,6 @@ let Optimizer = function ($) {
                 'major': 22,
                 'minor': 22
             }
-            
         },
         AMULET: {
             'triple': {
