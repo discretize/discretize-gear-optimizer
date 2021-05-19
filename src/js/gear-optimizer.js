@@ -830,7 +830,7 @@ let Optimizer = function ($) {
 
             _optimizer.affixes = $(Selector.INPUT.AFFIXES).find(Selector.CHECKBOXES_CHECKED).map(
                 function () {
-                    return $(this).siblings(Selector.LABEL).text().trim()
+                    return $(this).siblings(Selector.LABEL).text().trim();
                 }).get();
 
             _optimizer.rankby = $(Selector.SELECT.RANKBY).children(
@@ -1222,6 +1222,7 @@ let Optimizer = function ($) {
                         _character.modifiers[type] = {};
                     }
 
+                    // eslint-disable-next-line no-empty
                     if (!type) {
                     } else if (type === 'bountiful-maintenance-oil') {
                         _character.modifiers[type] = modifier;
@@ -1563,7 +1564,6 @@ let Optimizer = function ($) {
                 // effective damage distribution
                 let effectiveDamageDistribution = {};
                 $.each(_character.distribution, function (key, percentage) {
-                    let score;
                     switch (key) {
                         case "Power":
                             effectiveDamageDistribution["Power"] = (_character.attributes['Effective Power'] / 1025
@@ -1587,7 +1587,6 @@ let Optimizer = function ($) {
                 // damage indicator breakdown
                 let damageIndicatorBreakdown = {};
                 $.each(_character.distribution, function (key, percentage) {
-                    let score;
                     switch (key) {
                         case "Power":
                             damageIndicatorBreakdown["Power"] = Number((_character.attributes['Effective Power'] / 1025 * percentage)
@@ -1908,6 +1907,7 @@ let Optimizer = function ($) {
         $('#go-input-class').siblings().removeClass('d-none');
     });
 
+    // eslint-disable-next-line no-undef
     noUiSlider.create($('#go-condition-distribution-slider')[0], {
         range: {
             'min': [0],
@@ -1954,7 +1954,7 @@ let Optimizer = function ($) {
     });
 
     $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
+        $('[data-toggle="tooltip"]').tooltip();
     });
 
     //$("#go-mesmer").load('html/input-mesmer.html');
