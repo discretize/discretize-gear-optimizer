@@ -1,0 +1,23 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "no-prototype-builtins": "off",
+        "linebreak-style": "off",
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "comma-spacing": "off",
+        "no-shadow": "off",
+        "space-before-function-paren": "off",
+        "id-length": "off",
+        "dot-notation": "off"
+    }
+}
