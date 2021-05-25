@@ -337,6 +337,27 @@ let Optimizer = function ($) {
                 'minor': ['Healing Power', 'Concentration']
             }
         },
+        'Carrion': {
+            type: 'triple',
+            bonuses: {
+                'major': ['Condition Damage'],
+                'minor': ['Power', 'Vitality']
+            }
+        },
+        'Rabid': {
+            type: 'triple',
+            bonuses: {
+                'major': ['Condition Damage'],
+                'minor': ['Toughness', 'Precision']
+            }
+        },
+        'Dire': {
+            type: 'triple',
+            bonuses: {
+                'major': ['Condition Damage'],
+                'minor': ['Toughness', 'Vitality']
+            }
+        },
         'Vigilant': {
             type: 'quadruple',
             bonuses: {
