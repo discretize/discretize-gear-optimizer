@@ -1582,9 +1582,11 @@
                             <span class="font-italic text-lighter small">
                               <span data-go-preselection="dh">DH</span>
                               |
-                              <span data-go-preselection="qfb">QFB</span>
+                              <span data-go-preselection="pqfb">pQFB</span>
                               |
-                              <span data-go-preselection="cfb">CFB</span>
+                              <span data-go-preselection="cfb">CFB Virtues</span>
+                              |
+                              <span data-go-preselection="cfb2">CFB Zeal</span>
                               </span>
                           </div>
                           <div class="card-body">
@@ -1617,6 +1619,26 @@
                                     <input
                                             class="input-checkbox"
                                             type="checkbox"
+                                            id="go-checkbox-guardian-bane-signet-2"
+                                            data-go-modifier='{"buff": {"Power": 216}}'
+                                    />
+                                    <label
+                                            class="input-label"
+                                            for="go-checkbox-guardian-bane-signet-2"
+                                    >
+                                      <span
+                                              data-armory-size="24"
+                                              data-armory-embed="skills"
+                                              data-armory-ids="9093"
+                                      ></span>
+                                      Bane Signet
+                                      <small>traited</small>
+                                      </label>
+                                  </div>
+                                  <div class="input">
+                                    <input
+                                            class="input-checkbox"
+                                            type="checkbox"
                                             id="go-checkbox-guardian-signet-of-judgement"
                                             data-go-modifier='{"multiplier": {"Effective Health": 0.1}}'
                                     />
@@ -1636,8 +1658,28 @@
                                     <input
                                             class="input-checkbox"
                                             type="checkbox"
+                                            id="go-checkbox-guardian-signet-of-judgement-2"
+                                            data-go-modifier='{"multiplier": {"Effective Health": 0.12}}'
+                                    />
+                                    <label
+                                            class="input-label"
+                                            for="go-checkbox-guardian-signet-of-judgement-2"
+                                    >
+                                      <span
+                                              data-armory-size="24"
+                                              data-armory-embed="skills"
+                                              data-armory-ids="9150"
+                                      ></span>
+                                      Signet of Judgement
+                                      <small>traited</small>
+                                    </label>
+                                  </div>
+                                  <div class="input">
+                                    <input
+                                            class="input-checkbox"
+                                            type="checkbox"
                                             id="go-checkbox-guardian-signet-of-mercy"
-                                            data-go-modifier='{"buff": {"Boon Duration: 180}}'
+                                            data-go-modifier='{"buff": {"Concentration": 120}}'
                                     />
                                     <label
                                             class="input-label"
@@ -1650,6 +1692,26 @@
                                       ></span>
                                       Signet of Mercy</label
                                     >
+                                  </div>
+                                  <div class="input">
+                                    <input
+                                            class="input-checkbox"
+                                            type="checkbox"
+                                            id="go-checkbox-guardian-signet-of-mercy-2"
+                                            data-go-modifier='{"buff": {"Concentration": 150}}'
+                                    />
+                                    <label
+                                            class="input-label"
+                                            for="go-checkbox-guardian-signet-of-mercy-2"
+                                    >
+                                      <span
+                                              data-armory-size="24"
+                                              data-armory-embed="skills"
+                                              data-armory-ids="9163"
+                                      ></span>
+                                      Signet of Mercy
+                                      <small>traited</small>
+                                    </label>
                                   </div>
                                   <div class="input">
                                     <input
@@ -1669,6 +1731,26 @@
                                       ></span>
                                       Signet of Wrath</label
                                     >
+                                  </div>
+                                  <div class="input">
+                                    <input
+                                            class="input-checkbox"
+                                            type="checkbox"
+                                            id="go-checkbox-guardian-signet-of-wrath-2"
+                                            data-go-modifier='{"buff": {"Condition Damage": 216}}'
+                                    />
+                                    <label
+                                            class="input-label"
+                                            for="go-checkbox-guardian-signet-of-wrath-2"
+                                    >
+                                      <span
+                                              data-armory-size="24"
+                                              data-armory-embed="skills"
+                                              data-armory-ids="9151"
+                                      ></span>
+                                      Signet of Wrath
+                                      <small>traited</small>
+                                      </label>
                                   </div>
                                 </div>
 
@@ -1795,7 +1877,7 @@
                                               data-armory-ids="566"
                                       ></span>
                                       Right-Hand Strength
-                                      <small>Two-handed (+80 Prec)</small>
+                                      <small>base (+80 prec)</small>
                                     </label>
                                   </div>
                                   <div class="input">
@@ -1803,7 +1885,7 @@
                                             class="input-checkbox"
                                             type="checkbox"
                                             id="go-checkbox-guardian-right-hand-strength-2"
-                                            data-go-modifier='{"buff": {"Power": 80}}'
+                                            data-go-modifier='{"buff": {"Power": 40}}'
                                     />
                                     <label
                                             class="input-label"
@@ -1815,7 +1897,27 @@
                                               data-armory-ids="566"
                                       ></span>
                                       Right-Hand Strength
-                                      <small>One-handed (+80 Power) - tick Two-handed as well</small>
+                                      <small>50% one-handed (+40 Power)</small>
+                                    </label>
+                                  </div>
+                                  <div class="input">
+                                    <input
+                                            class="input-checkbox"
+                                            type="checkbox"
+                                            id="go-checkbox-guardian-right-hand-strength-3"
+                                            data-go-modifier='{"buff": {"Power": 40}}'
+                                    />
+                                    <label
+                                            class="input-label"
+                                            for="go-checkbox-guardian-right-hand-strength-3"
+                                    >
+                                      <span
+                                              data-armory-size="24"
+                                              data-armory-embed="traits"
+                                              data-armory-ids="566"
+                                      ></span>
+                                      Right-Hand Strength
+                                      <small>100% one-handed (+80 Power)</small>
                                     </label>
                                   </div>
                                   <div class="input">
@@ -1980,7 +2082,7 @@
                                               data-armory-ids="557"
                                       ></span>
                                       Honorable Staff
-                                      <small>perma</small>
+                                      <small>base</small>
                                     </label>
                                   </div>
                                   <div class="input">
@@ -2000,7 +2102,7 @@
                                               data-armory-ids="557"
                                       ></span>
                                       Honorable Staff
-                                      <small>on staff - tick both</small>
+                                      <small>with staff - check both boxes</small>
                                     </label>
                                   </div>
                                   <div class="input">
