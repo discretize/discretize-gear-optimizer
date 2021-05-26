@@ -1799,9 +1799,8 @@ let Optimizer = function ($) {
 
     $('[data-' + DataAttribute.PRESELECTION + ']').on(Event.CLICK, function () {
 
-        if ($(this).data(DataAttribute.PRESELECTION) === 'dh' || $(this).data(DataAttribute.PRESELECTION) === 'qfb') {
+        if ($(this).data(DataAttribute.PRESELECTION) === 'dh' || $(this).data(DataAttribute.PRESELECTION) === 'pqfb') {
             $('[id^="go-checkbox-guardian-"]').prop(PropertyName.CHECKED, false);
-            $('#go-checkbox-guardian-bane-signet').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-guardian-fiery-wrath').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-guardian-symbolic-avenger').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-guardian-symbolic-exposure').prop(PropertyName.CHECKED, true);
@@ -1820,11 +1819,24 @@ let Optimizer = function ($) {
         } else if ($(this).data(DataAttribute.PRESELECTION) === 'cfb') {
             $('[id^="go-checkbox-guardian-"]').prop(PropertyName.CHECKED, false);
             $('#go-checkbox-guardian-signet-of-wrath').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-guardian-right-hand-strength').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-guardian-right-hand-strength-3').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-guardian-radiant-fire').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-guardian-radiant-power').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-guardian-amplified-wrath').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-guardian-inspired-virtue-9').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-guardian-virtue-of-retribution').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-guardian-power-of-the-virtuous').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-guardian-imbued-haste').prop(PropertyName.CHECKED, true);
+
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'cfb2') {
+            $('[id^="go-checkbox-guardian-"]').prop(PropertyName.CHECKED, false);
+            $('#go-checkbox-guardian-signet-of-wrath').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-guardian-fiery-wrath').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-guardian-symbolic-exposure').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-guardian-kindled-zeal').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-guardian-right-hand-strength').prop(PropertyName.CHECKED, true);
-            $('#go-checkbox-guardian-right-hand-strength-2').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-guardian-right-hand-strength-3').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-guardian-radiant-fire').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-guardian-radiant-power').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-guardian-amplified-wrath').prop(PropertyName.CHECKED, true);
