@@ -1916,6 +1916,21 @@ let Optimizer = function ($) {
             $('#go-checkbox-rev-7').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-rev-8').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-rev-11').prop(PropertyName.CHECKED, true);
+
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'cren-deva') {
+            $('[id^="go-checkbox-rev-"]').prop(PropertyName.CHECKED, false);
+            $('#go-checkbox-rev-1').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-seething-malice').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-pact-of-pain').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-2').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-4').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-destructive-impulses-3').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-6').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-8').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-9').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-10').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-11').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-12').prop(PropertyName.CHECKED, true);
         }
     });
 
