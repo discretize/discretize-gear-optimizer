@@ -1891,6 +1891,21 @@ let Optimizer = function ($) {
             $('#go-checkbox-elementalist-swift-revenge').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-elementalist-elemental-polyphony-fire').prop(PropertyName.CHECKED, true);
 
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'cwea') {
+            $('[id^="go-checkbox-elementalist-"]').prop(PropertyName.CHECKED, false);
+            $('#go-checkbox-elementalist-empowering-flame').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-elementalist-burning-precision').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-elementalist-burning-rage').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-elementalist-pyromancers-training').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-elementalist-stone-flesh').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-elementalist-serrated-stones').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-elementalist-strength-of-stone').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-elementalist-geomancers-defense').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-elementalist-superior-elements').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-elementalist-weavers-prowess').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-elementalist-elemental-polyphony-fire').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-elementalist-elements-of-rage').prop(PropertyName.CHECKED, true);
+
         } else if ($(this).data(DataAttribute.PRESELECTION) === 'pslb') {
             $('[id^="go-checkbox-ranger-"]').prop(PropertyName.CHECKED, false);
             $('#go-checkbox-ranger-farsighted').prop(PropertyName.CHECKED, true);
@@ -1906,6 +1921,19 @@ let Optimizer = function ($) {
             $('#go-checkbox-ranger-sb-3').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-ranger-sb-4').prop(PropertyName.CHECKED, true);
 
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'cslb') {
+            $('[id^="go-checkbox-ranger-"]').prop(PropertyName.CHECKED, false);
+            $('#go-checkbox-ranger-hidden-barbs').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-hunters-tactics').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-light-on-your-feet').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-taste-for-danger').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-ambidexterity').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-ambidexterity-2').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-poison-master').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-furious-strength').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-twice-as-vicious').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-archetype-deadly').prop(PropertyName.CHECKED, true);
+
         } else if ($(this).data(DataAttribute.PRESELECTION) === 'pren') {
             $('[id^="go-checkbox-rev-"]').prop(PropertyName.CHECKED, false);
             $('#go-checkbox-rev-53').prop(PropertyName.CHECKED, true);
@@ -1916,6 +1944,21 @@ let Optimizer = function ($) {
             $('#go-checkbox-rev-7').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-rev-8').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-rev-11').prop(PropertyName.CHECKED, true);
+
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'cren-deva') {
+            $('[id^="go-checkbox-rev-"]').prop(PropertyName.CHECKED, false);
+            $('#go-checkbox-rev-1').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-seething-malice').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-pact-of-pain').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-2').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-4').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-destructive-impulses-3').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-6').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-8').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-9').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-10').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-11').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-rev-12').prop(PropertyName.CHECKED, true);
         }
     });
 
