@@ -1834,11 +1834,12 @@ let Optimizer = function ($) {
             $('[id^="go-checkbox-warrior-"]').prop(PropertyName.CHECKED, false);
             $('#go-checkbox-warrior-peak-performance').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-warrior-signet-of-might').prop(PropertyName.CHECKED, true);
-            $('#go-checkbox-warrior-forceful-greatsword').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-warrior-great-fortitude').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-warrior-pinnacle-of-strength').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-warrior-berserkers-power').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-warrior-warriors-sprint').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-warrior-double-standards').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-warrior-axe-mastery-one').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-warrior-axe-mastery-two').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-warrior-blood-reaction-with').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-warrior-fatal-frenzy').prop(PropertyName.CHECKED, true);
