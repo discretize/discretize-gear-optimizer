@@ -1799,7 +1799,25 @@ let Optimizer = function ($) {
 
     $('[data-' + DataAttribute.PRESELECTION + ']').on(Event.CLICK, function () {
 
-        if ($(this).data(DataAttribute.PRESELECTION) === 'dh' || $(this).data(DataAttribute.PRESELECTION) === 'pqfb') {
+        if ($(this).data(DataAttribute.PRESELECTION) === 'pchrono') {
+            $('[id^="go-checkbox-mesmer-"]').prop(PropertyName.CHECKED, false);
+            $('#go-checkbox-mesmer-fragility').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-mesmer-egotism').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-mesmer-vicious-expression').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-mesmer-fencers-finesse').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-mesmer-superiority-complex').prop(PropertyName.CHECKED, true);
+
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'staffmirage') {
+            $('[id^="go-checkbox-mesmer-"]').prop(PropertyName.CHECKED, false);
+            $('#go-checkbox-mesmer-signet-of-domination').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-mesmer-signet-of-midnight').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-mesmer-illusionary-membrane').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-mesmer-chaotic-potency').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-mesmer-chaotic-potency-2').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-mesmer-chaotic-persistence').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-mesmer-nomads-endurance').prop(PropertyName.CHECKED, true);
+
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'dh' || $(this).data(DataAttribute.PRESELECTION) === 'pqfb') {
             $('[id^="go-checkbox-guardian-"]').prop(PropertyName.CHECKED, false);
             $('#go-checkbox-guardian-fiery-wrath').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-guardian-symbolic-avenger').prop(PropertyName.CHECKED, true);
