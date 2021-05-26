@@ -1906,6 +1906,19 @@ let Optimizer = function ($) {
             $('#go-checkbox-ranger-sb-3').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-ranger-sb-4').prop(PropertyName.CHECKED, true);
 
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'cslb') {
+            $('[id^="go-checkbox-ranger-"]').prop(PropertyName.CHECKED, false);
+            $('#go-checkbox-ranger-hidden-barbs').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-hunters-tactics').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-light-on-your-feet').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-taste-for-danger').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-ambidexterity').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-ambidexterity-2').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-poison-master').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-furious-strength').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-twice-as-vicious').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-archetype-deadly').prop(PropertyName.CHECKED, true);
+
         } else if ($(this).data(DataAttribute.PRESELECTION) === 'pren') {
             $('[id^="go-checkbox-rev-"]').prop(PropertyName.CHECKED, false);
             $('#go-checkbox-rev-53').prop(PropertyName.CHECKED, true);
