@@ -1257,15 +1257,30 @@ let Optimizer = function ($) {
             let _character = this;
 
             _character.profession = profession;
-            _character.addModifiers({'flat': {'Health': Classes[_character.profession].health}});
-            _character.addModifiers({'flat': {'Armor': Classes[_character.profession].defense}});
 
             _character.weapontype = weapontype;
 
-            $.each(Attributes.PRIMARY, function (index, attribute) {
-                _character.addModifiers({'flat': {[attribute]: 1000}});
-            });
-            _character.addModifiers({'flat': {'Critical Damage': 150}});
+            _character.baseAttributes = {};
+            _character.baseAttributes.Health = Classes[_character.profession].health;
+            _character.baseAttributes.Armor = Classes[_character.profession].defense;
+
+            for (let attribute of Attributes.PRIMARY) {
+                _character.baseAttributes[attribute] = 1000;
+            }
+            for (let attribute of Attributes.SECONDARY) {
+                _character.baseAttributes[attribute] = 0;
+            }
+            for (let attribute of Attributes.BOON_DURATION) {
+                _character.baseAttributes[attribute] = 0;
+            }
+            for (let attribute of Attributes.CONDITION_DURATION) {
+                _character.baseAttributes[attribute] = 0;
+            }
+
+            _character.baseAttributes['Condition Duration'] = 0;
+            _character.baseAttributes['Boon Duration'] = 0;
+            _character.baseAttributes['Critical Chance'] = 5;
+            _character.baseAttributes['Critical Damage'] = 150;
 
             $.each(modifiers, function (index, modifier) {
                 _character.addModifiers(modifier);
@@ -1285,7 +1300,7 @@ let Optimizer = function ($) {
             $.each(_character.gear, function (index, affix) {
                 $.each(Slots[_character.weapontype][index].item[Affix[affix].type], function (type, bonus) {
                     $.each(Affix[affix].bonuses[type], function (index, stat) {
-                        _character.addModifiers({'flat': {[stat]: bonus}});
+                        _character.baseAttributes[stat] += bonus;
                     });
                 });
             });
@@ -1381,12 +1396,13 @@ let Optimizer = function ($) {
         Character.prototype.updateAttributes = function () {
             let _character = this;
 
-            _character.attributes = {};
+            _character.attributes = Object.assign({}, _character.baseAttributes);
 
             $.each(_character.modifiers['flat'], function (attribute, bonus) {
-                _character.attributes[attribute] = _character.attributes[attribute] > 0
-                    ? _character.attributes[attribute] + bonus : bonus;
+                _character.attributes[attribute] += bonus;
             });
+
+            let preConversionAttributes = Object.assign({}, _character.attributes);
 
             // This is basically only Omnipotion
             // https://discordapp.com/channels/301270513093967872/370538919118503947/716156322348793877
@@ -1401,18 +1417,12 @@ let Optimizer = function ($) {
 
             $.each(_character.modifiers['convert'], function (attribute, conversion) {
                 $.each(conversion, function (source, percent) {
-                    let bonus = _character.modifiers['flat'][source] > 0
-                        ? Math.round(_character.modifiers['flat'][source] * percent) : 0;
-                    if (bonus) {
-                        _character.attributes[attribute] = _character.attributes[attribute] > 0
-                            ? _character.attributes[attribute] + bonus : bonus;
-                    }
+                    _character.attributes[attribute] += Math.round(preConversionAttributes[source] * percent);
                 });
             });
 
             $.each(_character.modifiers['buff'], function (attribute, bonus) {
-                _character.attributes[attribute] = _character.attributes[attribute] > 0
-                    ? _character.attributes[attribute] + bonus : bonus;
+                _character.attributes[attribute] += bonus;
             });
 
             // Apply 15% outgoing condi dmg from omnipot
@@ -1426,66 +1436,36 @@ let Optimizer = function ($) {
 
 
             // Derive attributes
-            let conditionDurationBonus = _character.attributes['Expertise'] > 0
-                ? _character.attributes['Expertise'] / 15 : 0;
-            if (conditionDurationBonus) {
-                _character.attributes['Condition Duration'] = Math.min(
-                    _character.attributes['Condition Duration'] > 0
-                        ? _character.attributes['Condition Duration'] + conditionDurationBonus
-                        : conditionDurationBonus, 100.0);
-            }
-            if (_character.attributes['Condition Duration']) {
-                $.each(Attributes.CONDITION_DURATION, function (index, stat) {
-                    _character.attributes[stat] = _character.attributes[stat] > 0
-                        ? Math.min(_character.attributes[stat] + _character.attributes['Condition Duration'],
-                            100.0) : _character.attributes['Condition Duration'];
-                });
+            _character.attributes['Condition Duration'] = Math.min(
+                _character.attributes['Condition Duration'] + _character.attributes['Expertise'] / 15
+                , 100.0);
+
+            for (const stat of Attributes.CONDITION_DURATION) {
+                _character.attributes[stat] = Math.min(
+                    _character.attributes[stat] + _character.attributes['Condition Duration']
+                    , 100);
             }
 
-            let boonDurationBonus = _character.attributes['Concentration'] > 0
-                ? _character.attributes['Concentration'] / 15 : 0;
-            if (boonDurationBonus) {
-                _character.attributes['Boon Duration'] = Math.min(
-                    _character.attributes['Boon Duration'] > 0 ? _character.attributes['Boon Duration']
-                        + boonDurationBonus : boonDurationBonus, 100.0);
-            }
-            if (_character.attributes['Boon Duration']) {
-                $.each(Attributes.BOON_DURATION, function (index, stat) {
-                    _character.attributes[stat] = _character.attributes[stat] > 0
-                        ? Math.min(_character.attributes[stat] + _character.attributes['Boon Duration'],
-                            100.0) : _character.attributes['Boon Duration'];
-                });
+            _character.attributes['Boon Duration'] = Math.min(
+                _character.attributes['Boon Duration'] + _character.attributes['Concentration'] / 15
+                , 100.0);
+
+            for (const stat of Attributes.BOON_DURATION) {
+                _character.attributes[stat] = Math.min(
+                    _character.attributes[stat] + _character.attributes['Boon Duration']
+                    , 100);
             }
 
-            // Critical Chance (%) = 5 + [ (Precision - 1000) / 21 ]
-            // Same formula but written differently
-            let criticalChanceBonus = _character.attributes['Precision'] > 0
-                ? ((_character.attributes['Precision'] - 895) / 21) : 0;
-            if (criticalChanceBonus) {
-                // what does this do?
-                _character.attributes['Critical Chance'] = Math.min(
-                    _character.attributes['Critical Chance'] > 0
-                        ? _character.attributes['Critical Chance'] + criticalChanceBonus : criticalChanceBonus, 100.0);
-            }
+            // base critical chance is already set to 5
+            _character.attributes['Critical Chance'] = Math.min(
+                (_character.attributes['Precision'] - 1000) / 21 + _character.attributes['Critical Chance']
+                , 100);
 
-            let criticalDamageBonus = _character.attributes['Ferocity'] > 0
-                ? _character.attributes['Ferocity'] / 15 : 0;
-            if (criticalDamageBonus) {
-                _character.attributes['Critical Damage'] = _character.attributes['Critical Damage'] > 0
-                    ? _character.attributes['Critical Damage'] + criticalDamageBonus : criticalDamageBonus;
-            }
+            _character.attributes['Critical Damage'] += _character.attributes['Ferocity'] / 15;
 
-            if (_character.attributes['Vitality']) {
-                _character.attributes['Health'] = _character.attributes['Health'] > 0
-                    ? _character.attributes['Health'] + _character.attributes['Vitality'] * 10
-                    : _character.attributes['Vitality'] * 10;
-            }
+            _character.attributes['Health'] += _character.attributes['Vitality'] * 10;
 
-            if (_character.attributes['Toughness']) {
-                _character.attributes['Armor'] = _character.attributes['Armor'] > 0
-                    ? _character.attributes['Armor'] + _character.attributes['Toughness']
-                    : _character.attributes['Toughness'];
-            }
+            _character.attributes['Armor'] += _character.attributes['Toughness'];
 
             let critDmg = _character.attributes['Critical Damage'];
             if (critDmg && _character.modifiers['multiplier']
@@ -1545,7 +1525,7 @@ let Optimizer = function ($) {
                 > 0 ? data.factor * _character.attributes['Condition Damage'] : 0) + data.baseDamage;
             });
 
-            if (_character.attributes['Condition Damage'] && _multipliers &&
+            if (_multipliers &&
                 (_multipliers['Condition Damage'] || _multipliers['add: Condition Damage'])) {
 
                 if (_multipliers['add: Condition Damage']) {
