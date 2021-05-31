@@ -31,6 +31,10 @@ let Optimizer = function ($) {
                 VIPER: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'affix-viper',
                 GRIEVING: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'affix-grieving',
                 SINISTER: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'affix-sinister',
+                MINSTREL: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'affix-minstrel',
+                MAGI: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'affix-magi',
+                SERAPH: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'affix-seraph',
+                CELESTIAL: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'affix-celestial',
 
             },
 
@@ -398,6 +402,48 @@ let Optimizer = function ($) {
             bonuses: {
                 'major': ['Power', 'Concentration'],
                 'minor': ['Precision', 'Ferocity']
+            }
+        },
+        'Soldier': {
+            type: 'triple',
+            bonuses: {
+                'major': ['Power'],
+                'minor': ['Toughness', 'Vitality']
+            }
+        },
+        'Sentinel': {
+            type: 'triple',
+            bonuses: {
+                'major': ['Vitality'],
+                'minor': ['Power', 'Toughness']
+            }
+        },
+        'Wanderer': {
+            type: 'quadruple',
+            bonuses: {
+                'major': ['Power', 'Vitality'],
+                'minor': ['Toughness', 'Concentration']
+            }
+        },
+        'Apothecary': {
+            type: 'triple',
+            bonuses: {
+                'major': ['Healing Power'],
+                'minor': ['Condition Damage', 'Toughness']
+            }
+        },
+        'Shaman': {
+            type: 'triple',
+            bonuses: {
+                'major': ['Vitality'],
+                'minor': ['Condition Damage', 'Healing Power']
+            }
+        },
+        'Crusader': {
+            type: 'quadruple',
+            bonuses: {
+                'major': ['Power', 'Toughness'],
+                'minor': ['Ferocity', 'Healing Power']
             }
         }
     });
@@ -1782,18 +1828,31 @@ let Optimizer = function ($) {
             $(Selector.CHECKBOX.AFFIX.BERSERKER).prop(PropertyName.CHECKED, true);
             $(Selector.CHECKBOX.AFFIX.ASSASSIN).prop(PropertyName.CHECKED, true);
             $(Selector.INPUT.MIN_BOON_DURATION).val(0);
-        } else if ($(this).data(DataAttribute.PRIORITIES) === 'power-support') {
+        } else if ($(this).data(DataAttribute.PRIORITIES) === 'power-boon') {
             $('[id^=go-checkbox-affix-]').prop(PropertyName.CHECKED, false);
             $(Selector.CHECKBOX.AFFIX.BERSERKER).prop(PropertyName.CHECKED, true);
             $(Selector.CHECKBOX.AFFIX.ASSASSIN).prop(PropertyName.CHECKED, true);
             $(Selector.CHECKBOX.AFFIX.DIVINER).prop(PropertyName.CHECKED, true);
-            $(Selector.CHECKBOX.AFFIX.HARRIER).prop(PropertyName.CHECKED, true);
+            //$(Selector.CHECKBOX.AFFIX.HARRIER).prop(PropertyName.CHECKED, true);
             $(Selector.INPUT.MIN_BOON_DURATION).val(100);
         } else if ($(this).data(DataAttribute.PRIORITIES) === 'condi-dps') {
             $('[id^=go-checkbox-affix-]').prop(PropertyName.CHECKED, false);
             $(Selector.CHECKBOX.AFFIX.VIPER).prop(PropertyName.CHECKED, true);
             $(Selector.CHECKBOX.AFFIX.SINISTER).prop(PropertyName.CHECKED, true);
             $(Selector.CHECKBOX.AFFIX.GRIEVING).prop(PropertyName.CHECKED, true);
+            $(Selector.INPUT.MIN_BOON_DURATION).val(0);
+        } else if ($(this).data(DataAttribute.PRIORITIES) === 'heal') {
+            $('[id^=go-checkbox-affix-]').prop(PropertyName.CHECKED, false);
+            $(Selector.CHECKBOX.AFFIX.HARRIER).prop(PropertyName.CHECKED, true);
+            $(Selector.CHECKBOX.AFFIX.MINSTREL).prop(PropertyName.CHECKED, true);
+            $(Selector.CHECKBOX.AFFIX.MAGI).prop(PropertyName.CHECKED, true);
+            $(Selector.INPUT.MIN_BOON_DURATION).val(100);
+        } else if ($(this).data(DataAttribute.PRIORITIES) === 'condi-boon') {
+            $('[id^=go-checkbox-affix-]').prop(PropertyName.CHECKED, false);
+            $(Selector.CHECKBOX.AFFIX.VIPER).prop(PropertyName.CHECKED, true);
+            $(Selector.CHECKBOX.AFFIX.SERAPH).prop(PropertyName.CHECKED, true);
+            $(Selector.CHECKBOX.AFFIX.CELESTIAL).prop(PropertyName.CHECKED, true);
+            $(Selector.INPUT.MIN_BOON_DURATION).val(79);
         }
     });
 
