@@ -445,7 +445,28 @@ let Optimizer = function ($) {
                 'major': ['Power', 'Toughness'],
                 'minor': ['Ferocity', 'Healing Power']
             }
-        }
+        },
+        'Rampager': {
+            type: 'triple',
+            bonuses: {
+                'major': ['Precision'],
+                'minor': ['Condition Damage', 'Power']
+            }
+        },
+        'Settler': {
+            type: 'triple',
+            bonuses: {
+                'major': ['Toughness'],
+                'minor': ['Condition Damage', 'Healing Power']
+            }
+        },
+        'Bringer': {
+            type: 'triple',
+            bonuses: {
+                'major': ['Expertise'],
+                'minor': ['Precision', 'Vitality']
+            }
+        },
     });
 
     const Item = Object.freeze({
