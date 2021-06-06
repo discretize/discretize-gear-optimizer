@@ -45,7 +45,7 @@ var src = {
 		base.src + 'js/vendor/bootstrap/tooltip.js',
 		base.src + 'js/vendor/bootstrap/tab.js',
 		base.assets + dist.js
-	],
+	],	
 	js: [base.src + 'js/discretize.js'],
 	gojs: [base.src + 'js/gear-optimizer.js'],
 	scss: base.src + 'scss/*.scss'
@@ -108,12 +108,12 @@ gulp.task('dl', function() {
 ================================================== */
 gulp.task('img', function(){
 	return gulp.src(src.img)
-		// .pipe(imagemin([
-		// 	imagemin.gifsicle({interlaced: true}),
-		// 	imagemin.jpegtran({progressive: true}),
-		// 	imagemin.optipng({optimizationLevel: 5})
-		// ]))
-		// 	.on('error', swallowError)
+		.pipe(imagemin([
+			imagemin.gifsicle({interlaced: true}),
+			imagemin.jpegtran({progressive: true}),
+			imagemin.optipng({optimizationLevel: 5})
+		]))
+			.on('error', swallowError)
 		.pipe(gulp.dest(dist.img));
 });
 
@@ -149,7 +149,7 @@ gulp.task('html', function(){
 			removeScriptTypeAttributes: true,
 			removeStyleLinkTypeAttributes: true,
 			trimCustomFragments: true,
-			useShortDoctype: true
+			useShortDoctype: true			
 		}))
 			.on('error', swallowError)
 		.pipe(gulp.dest(base.dist));
@@ -188,8 +188,8 @@ gulp.task('gojs', function(){
 			.on('error', swallowError)
 		.pipe(concat(dist.gojs))
 			.on('error', swallowError)
-		// .pipe(uglify())
-		// 	.on('error', swallowError)
+		.pipe(uglify())
+			.on('error', swallowError)
 		.pipe(gulp.dest(base.assets))
 });
 
