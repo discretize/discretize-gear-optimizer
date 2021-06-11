@@ -1999,6 +1999,44 @@ let Optimizer = function ($) {
             $('#go-checkbox-rev-10').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-rev-11').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-rev-12').prop(PropertyName.CHECKED, true);
+
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'pholo') {
+            $('[id^="go-checkbox-engy-"]').prop(PropertyName.CHECKED, false);
+            $('#go-checkbox-engy-glass-cannon').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-explosive-temper').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-shaped-charge').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-big-boomer').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-high-caliber').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-hematic-focus').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-no-scope').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-serrated-steel').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-modified-ammunition-10').prop(PropertyName.CHECKED, true);
+
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'pscrap') {
+            $('[id^="go-checkbox-engy-"]').prop(PropertyName.CHECKED, false);
+            $('#go-checkbox-engy-glass-cannon').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-explosive-temper').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-shaped-charge').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-big-boomer').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-high-caliber').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-hematic-focus').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-no-scope').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-serrated-steel').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-modified-ammunition-10').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-object-in-motion-2').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-impact-savant').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-applied-force"').prop(PropertyName.CHECKED, true);
+
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'cholo') {
+            $('[id^="go-checkbox-engy-"]').prop(PropertyName.CHECKED, false);
+            $('#go-checkbox-engy-glass-cannon').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-explosive-temper').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-shaped-charge').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-chemical-rounds').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-hematic-focus').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-thermal-vision').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-serrated-steel').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-incendiary-powder').prop(PropertyName.CHECKED, true);
         }
     });
 
