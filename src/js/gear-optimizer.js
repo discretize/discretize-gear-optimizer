@@ -2025,7 +2025,7 @@ let Optimizer = function ($) {
             $('#go-checkbox-engy-modified-ammunition-10').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-engy-object-in-motion-2').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-engy-impact-savant').prop(PropertyName.CHECKED, true);
-            $('#go-checkbox-engy-applied-force"').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-engy-applied-force').prop(PropertyName.CHECKED, true);
 
         } else if ($(this).data(DataAttribute.PRESELECTION) === 'cholo') {
             $('[id^="go-checkbox-engy-"]').prop(PropertyName.CHECKED, false);
