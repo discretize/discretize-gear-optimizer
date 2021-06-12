@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true,
+        "jquery": true
     },
     "extends": "eslint:recommended",
     "rules": {
@@ -18,6 +19,12 @@
         "no-shadow": "off",
         "space-before-function-paren": "off",
         "id-length": "off",
-        "dot-notation": "off"
+        "dot-notation": "off",
+        "no-unused-vars": [
+            "error",
+            {
+                "vars": "local"
+            }
+        ]
     }
 }
