@@ -2093,7 +2093,7 @@ let Optimizer = function ($) {
         $('#go-input-class').siblings().removeClass('d-none');
     });
 
-    // eslint-disable-next-line no-undef
+    /* global noUiSlider */
     noUiSlider.create($('#go-condition-distribution-slider')[0], {
         range: {
             'min': [0],
