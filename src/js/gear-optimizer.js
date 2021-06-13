@@ -786,8 +786,7 @@ let Optimizer = function ($) {
         // Re: condi dmg from omnipot https://discordapp.com/channels/301270513093967872/370538919118503947/716949463423516713
         'multiplier': {
             'Effective Power': 0.15,
-            'pre: Condition Damage': 0.15, // stat increase before utility but after everything else
-            'post: Condition Damage': 0.15, // outgoing condi dmg after utility
+            'add: Condition Damage': 0.15, // stacks additively
             'Effective Health': 0.25
         },
         'convert': {
@@ -799,6 +798,9 @@ let Optimizer = function ($) {
             },
             'Concentration': {
                 'Agony Resistance': 1.5
+            },
+            'Condition Damage': {
+                'Condition Damage': 0.15 // undocumented condition damage stat bonus
             }
         }
     });
@@ -1403,18 +1405,6 @@ let Optimizer = function ($) {
             });
 
             let preConversionAttributes = Object.assign({}, _character.attributes);
-
-            // This is basically only Omnipotion
-            // https://discordapp.com/channels/301270513093967872/370538919118503947/716156322348793877
-            if (_character.attributes['Condition Damage'] && _character.modifiers['multiplier']
-                && _character.modifiers['multiplier']['pre: Condition Damage']) {
-                // Applies multiplicative
-                for (let multiplier of _character.modifiers['multiplier']['pre: Condition Damage']) {
-                    _character.attributes['Condition Damage'] = Math.round(_character.attributes['Condition Damage']
-                        * (1.0 + multiplier));
-                }
-            }
-
             $.each(_character.modifiers['convert'], function (attribute, conversion) {
                 $.each(conversion, function (source, percent) {
                     _character.attributes[attribute] += Math.round(preConversionAttributes[source] * percent);
@@ -1424,16 +1414,6 @@ let Optimizer = function ($) {
             $.each(_character.modifiers['buff'], function (attribute, bonus) {
                 _character.attributes[attribute] += bonus;
             });
-
-            // Apply 15% outgoing condi dmg from omnipot
-            // https://discordapp.com/channels/301270513093967872/370538919118503947/716949463423516713
-            if (_character.modifiers['multiplier'] && _character.modifiers['multiplier']['post: Condition Damage']) {
-                for (let multiplier of _character.modifiers['multiplier']['post: Condition Damage']) {
-                    _character.attributes['Condition Damage'] = Math.round(_character.attributes['Condition Damage']
-                        * (1.0 + multiplier));
-                }
-            }
-
 
             // Derive attributes; store uncapped
             _character.attributes['Condition Duration'] += _character.attributes['Expertise'] / 15;
