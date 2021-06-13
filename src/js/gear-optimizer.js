@@ -2039,7 +2039,7 @@ let Optimizer = function ($) {
     $('[data-' + DataAttribute.BUFFS + ']').on(Event.CLICK, function () {
         if ($(this).data(DataAttribute.BUFFS) === 'none') {
             $(Selector.INPUT.BUFFS).find(Selector.CHECKBOXES).prop(PropertyName.CHECKED, false);
-        } else if ($(this).data(DataAttribute.BUFFS) === 'realistic') {
+        } else if ($(this).data(DataAttribute.BUFFS) === 'fractal') {
             $(Selector.INPUT.BUFFS).find(Selector.CHECKBOXES).prop(PropertyName.CHECKED, false);
             $(Selector.CHECKBOX.BUFF.MIGHT).prop(PropertyName.CHECKED, true);
             $(Selector.CHECKBOX.BUFF.FURY).prop(PropertyName.CHECKED, true);
