@@ -1895,6 +1895,20 @@ let Optimizer = function ($) {
             $('#go-checkbox-warrior-fatal-frenzy').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-warrior-bloody-roar').prop(PropertyName.CHECKED, true);
 
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'cbers') {
+            $('[id^="go-checkbox-warrior-"]').prop(PropertyName.CHECKED, false);
+            $('#go-checkbox-warrior-wounding-precision').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-warrior-deep-strikes').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-warrior-blade-master').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-warrior-blade-master-2').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-warrior-bloodlust').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-warrior-furious').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-warrior-double-standards').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-warrior-heat-the-soul').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-warrior-heat-the-soul-with').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-warrior-fatal-frenzy').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-warrior-king-of-fires').prop(PropertyName.CHECKED, true);
+
         } else if ($(this).data(DataAttribute.PRESELECTION) === 'pwea') {
             $('[id^="go-checkbox-elementalist-"]').prop(PropertyName.CHECKED, false);
             $('#go-checkbox-elementalist-empowering-flame').prop(PropertyName.CHECKED, true);
