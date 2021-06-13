@@ -5911,7 +5911,7 @@
                                 class="fa fa-question-circle"
                                 data-toggle="tooltip"
                                 data-html="true"
-                                title="Specify the damage distribution of your build. We will provide exact presets for popular builds at a later point, for now just use an estimation."
+                                title="Specify the damage distribution of your build."
                               ></span>
                             </div>
                             <div class="card-body container">
@@ -6015,6 +6015,70 @@
                                       readonly
                                     />
                                   </div>
+                                </div>
+                              </div>
+                              <hr class="my-4" />
+                              <div class="form-group row">
+                                <label class="col-form-label col-3"
+                                  >Presets (Approximate; based on raid benchmarks)
+                                  <span
+                                    class="fa fa-question-circle"
+                                    data-toggle="tooltip"
+                                    title="Created with the June 8, 2021 patch balance. Assumes sigil setup and rotation from raid benchmarks."
+                                  ></span>
+                                </label>
+                                <div
+                                  class="col-9 d-flex flex-wrap"
+                                  id="go-input-distribution-presets"
+                                >
+                                  <button
+                                    class="btn btn-outline-primary"
+                                    data-go-distribution="power"
+                                  >
+                                   100% Power
+                                  </button>
+                                  <button
+                                    class="btn btn-outline-primary"
+                                    data-go-distribution="cwarr"
+                                  >
+                                    Condi Banner Warrior
+                                  </button>
+                                  <button
+                                    class="btn btn-outline-primary"
+                                    data-go-distribution="cfb"
+                                  >
+                                    Condi Firebrand (Virtues, 5 page)
+                                  </button>
+                                  <button
+                                    class="btn btn-outline-primary"
+                                    data-go-distribution="cfb2"
+                                  >
+                                    Condi Firebrand (Virtues, 8 page)
+                                  </button>
+                                  <button
+                                    class="btn btn-outline-primary"
+                                    data-go-distribution="cweasw"
+                                  >
+                                    Condi Weaver (Sword)
+                                  </button>
+                                  <button
+                                    class="btn btn-outline-primary"
+                                    data-go-distribution="cweadagg"
+                                  >
+                                    Condi Weaver (Dagger)
+                                  </button>
+                                  <button
+                                    class="btn btn-outline-primary"
+                                    data-go-distribution="cren-deva"
+                                  >
+                                    Condi Renegade (Devastation)
+                                  </button>
+                                  <button
+                                    class="btn btn-outline-primary"
+                                    data-go-distribution="cren-invo"
+                                  >
+                                    Condi Renegade (Invocation)
+                                  </button>
                                 </div>
                               </div>
                             </div>
@@ -8636,7 +8700,7 @@
               </div>
             </div>
             <p class="last-updated">
-              Last updated: June 12, 2021
+              Last updated: June 13, 2021
               <br />
               Want to open the <a href="https://discretize.eu">main page</a>?
             </p>

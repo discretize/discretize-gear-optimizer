@@ -208,5 +208,12 @@ $input-size: 1rem;
         }
       }
     }
+
+    #go-input-distribution-presets {
+      .btn {
+        margin: 6px;
+        padding: .3rem .8rem;
+      }
+    }
   }
 }
