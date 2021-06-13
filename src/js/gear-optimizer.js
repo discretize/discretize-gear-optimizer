@@ -118,7 +118,8 @@ let Optimizer = function ($) {
         BUFFS: 'go-buffs',
         MODIFIER: 'go-modifier',
         CLASS: 'go-class',
-        PRESELECTION: 'go-preselection'
+        PRESELECTION: 'go-preselection',
+        DISTRIBUTION: 'go-distribution'
     });
 
     let STOP_SIGNAL = false;
@@ -2064,6 +2065,36 @@ let Optimizer = function ($) {
             $(Selector.CHECKBOX.BUFF.ASSASSINS_PRESENCE).prop(PropertyName.CHECKED, false);
         } else if ($(this).data(DataAttribute.BUFFS) === 'all') {
             $(Selector.INPUT.BUFFS).find(Selector.CHECKBOXES).prop(PropertyName.CHECKED, true);
+        }
+    });
+
+    // Distribution presets
+    $('[data-' + DataAttribute.DISTRIBUTION + ']').on(Event.CLICK, function () {
+        switch ($(this).data(DataAttribute.DISTRIBUTION)) {
+            case 'power':
+                $('#go-condition-distribution-slider')[0].noUiSlider.set([100, 100, 100, 100, 100]);
+                break;
+            case 'cwarr':
+                $('#go-condition-distribution-slider')[0].noUiSlider.set([27, 81, 96, 99, 100]);
+                break;
+            case 'cfb':
+                $('#go-condition-distribution-slider')[0].noUiSlider.set([31, 96, 99, 99, 100]);
+                break;
+            case 'cfb2':
+                $('#go-condition-distribution-slider')[0].noUiSlider.set([24, 96, 99, 99, 100]);
+                break;
+            case 'cweasw':
+                $('#go-condition-distribution-slider')[0].noUiSlider.set([36, 89, 100, 100, 100]);
+                break;
+            case 'cweadagg':
+                $('#go-condition-distribution-slider')[0].noUiSlider.set([29, 84, 100, 100, 100]);
+                break;
+            case 'cren-deva':
+                $('#go-condition-distribution-slider')[0].noUiSlider.set([44, 64, 75, 80, 100]);
+                break;
+            case 'cren-invo':
+                $('#go-condition-distribution-slider')[0].noUiSlider.set([42, 64, 75, 80, 100]);
+                break;
         }
     });
 
