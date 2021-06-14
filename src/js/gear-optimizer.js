@@ -1166,8 +1166,7 @@ let Optimizer = function ($) {
                     }
 
                     if (nextSlot >= Slots[_optimizer.baseCharacter.weapontype].length) {
-                        _optimizer._insertCharacter(
-                            clone(_optimizer.baseCharacter).applyGear(gear));
+                        _optimizer._insertCharacter(gear)
                         continue;
                     }
 
@@ -1194,12 +1193,28 @@ let Optimizer = function ($) {
             }
         };
 
-        Optimizer.prototype._insertCharacter = function (character) {
+        Optimizer.prototype._insertCharacter = function (gear) {
             let _optimizer = this;
 
             let percent = Math.floor(++_optimizer.calculationRuns * 100 / _optimizer.calculationTotal);
             $(Selector.OUTPUT.PROGRESS_BAR).css('width', percent + '%').find(Selector.SPAN).text(percent
                 + '%');
+
+            if (!gear) {
+                return;
+            }
+
+            let character = clone(_optimizer.baseCharacter);
+
+            // apply gear
+            character.gear = gear;
+            $.each(gear, function (index, affix) {
+                $.each(Slots[character.weapontype][index].item[Affix[affix].type], function (type, bonus) {
+                    $.each(Affix[affix].bonuses[type], function (index, stat) {
+                        character.baseAttributes[stat] += bonus;
+                    });
+                });
+            });
 
             character.updateAttributes();
 
@@ -1397,25 +1412,6 @@ let Optimizer = function ($) {
         function Character() {
 
         }
-
-        Character.prototype.applyGear = function (gear) {
-            if (!gear) {
-                return;
-            }
-
-            let _character = this;
-            _character.gear = gear;
-
-            $.each(_character.gear, function (index, affix) {
-                $.each(Slots[_character.weapontype][index].item[Affix[affix].type], function (type, bonus) {
-                    $.each(Affix[affix].bonuses[type], function (index, stat) {
-                        _character.baseAttributes[stat] += bonus;
-                    });
-                });
-            });
-
-            return this;
-        };
 
         Character.prototype.updateAttributes = function () {
             let _character = this;
