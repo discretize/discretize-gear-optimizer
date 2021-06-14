@@ -941,6 +941,23 @@ let Optimizer = function ($) {
                 _optimizer.primaryInfusion = _optimizer.statInfusions.split('+')[0].trim();
                 _optimizer.secondaryInfusion = _optimizer.statInfusions.indexOf('+') !== -1
                     ? _optimizer.statInfusions.split('+')[1].trim() : null;
+
+                if (!Attributes.PRIMARY.includes(_optimizer.primaryInfusion) && !Attributes.SECONDARY.includes(
+                    _optimizer.primaryInfusion)
+                    && !Attributes.DERIVED.includes(_optimizer.primaryInfusion)
+                    && !Attributes.BOON_DURATION.includes(_optimizer.primaryInfusion)
+                    && !Attributes.CONDITION_DURATION.includes(_optimizer.primaryInfusion)) {
+                    throw 'Infusions can only increase primary, secondary or derived attributes, not '
+                    + _optimizer.primaryInfusion;
+                }
+                if (_optimizer.secondaryInfusion && !Attributes.PRIMARY.includes(_optimizer.secondaryInfusion) && !Attributes.SECONDARY.includes(
+                    _optimizer.secondaryInfusion)
+                    && !Attributes.DERIVED.includes(_optimizer.secondaryInfusion)
+                    && !Attributes.BOON_DURATION.includes(_optimizer.secondaryInfusion)
+                    && !Attributes.CONDITION_DURATION.includes(_optimizer.secondaryInfusion)) {
+                    throw 'Infusions can only increase primary, secondary or derived attributes, not '
+                    + _optimizer.secondaryInfusion;
+                }
             }
 
             _optimizer.baseCharacter.distribution = {};
@@ -1031,7 +1048,7 @@ let Optimizer = function ($) {
 
                     if (nextSlot >= Slots[_optimizer.baseCharacter.weapontype].length) {
                         _optimizer._insertCharacter(
-                            $.extend(true, {}, _optimizer.baseCharacter).applyGear(gear));
+                            clone(_optimizer.baseCharacter).applyGear(gear));
                         continue;
                     }
 
@@ -1067,14 +1084,17 @@ let Optimizer = function ($) {
 
             character.updateAttributes();
 
+            // used to skip calculating infusions if they don't contribute at all
+            let testInfusionUsefulness = function() {
+                let temp = clone(character);
+                addStats(temp, _optimizer.primaryInfusion, INFUSION_TOTAL);
+                addStats(temp, _optimizer.secondaryInfusion, INFUSION_TOTAL);
+                temp.updateAttributes();
+                return temp.attributes[_optimizer.rankby] > _optimizer.worstScore;
+            }
+
             if (_optimizer.primaryInfusion &&
-                (!_optimizer.worstScore || !_optimizer.secondaryInfusion || $.extend(true, {},
-                    character).addModifiers({
-                    'flat': {
-                        [_optimizer.primaryInfusion]: INFUSION_TOTAL,
-                        [_optimizer.secondaryInfusion]: INFUSION_TOTAL
-                    }
-                }).updateAttributes().attributes[_optimizer.rankby] > _optimizer.worstScore)) {
+                (!_optimizer.worstScore || !_optimizer.secondaryInfusion || testInfusionUsefulness())) {
                 character = _optimizer._applyInfusions(character);
             }
 
@@ -1122,29 +1142,28 @@ let Optimizer = function ($) {
             }
         };
 
+        let addStats = function (character, stat, amount) {
+            character.baseAttributes[stat] += amount;
+        };
         Optimizer.prototype._applyInfusions = function (character) {
             let _optimizer = this;
 
             if (!_optimizer.secondaryInfusion) {
-                let best = $.extend(true, {}, character);
-                best.addModifiers(
-                    {'flat': {[_optimizer.primaryInfusion]: INFUSION_TOTAL}}).updateAttributes();
-                best.infusions = {[_optimizer.primaryInfusion]: INFUSION_AMOUNT};
-                return best;
+                character.infusions = {[_optimizer.primaryInfusion]: INFUSION_AMOUNT};
+                addStats(character, _optimizer.primaryInfusion, INFUSION_TOTAL);
+                character.updateAttributes();
+                return character;
             } else {
-                let best = $.extend(true, {}, character);
-                let base = $.extend(true, {}, character);
+                let best = clone(character);
                 for (let primaryBonus = INFUSION_TOTAL; primaryBonus >= 0; primaryBonus -= INFUSION_BONUS) {
-                    let temp = $.extend(true, {}, base).addModifiers({
-                        'flat': {
-                            [_optimizer.primaryInfusion]: primaryBonus,
-                            [_optimizer.secondaryInfusion]: INFUSION_TOTAL - primaryBonus
-                        }
-                    }).updateAttributes();
+                    let temp = clone(character);
                     temp.infusions = {
                         [_optimizer.primaryInfusion]: primaryBonus / INFUSION_BONUS,
                         [_optimizer.secondaryInfusion]: (INFUSION_TOTAL - primaryBonus) / INFUSION_BONUS
                     };
+                    addStats(temp, _optimizer.primaryInfusion, primaryBonus);
+                    addStats(temp, _optimizer.secondaryInfusion, INFUSION_TOTAL - primaryBonus);
+                    temp.updateAttributes();
                     if (_optimizer._characterLT(best, temp)) {
                         best = temp;
                     }
@@ -1163,7 +1182,7 @@ let Optimizer = function ($) {
                     return '<td><samp>' + value.substring(0, 4) + '</samp></td>';
                 }).join('')
                 + '</tr>')
-                .data('character', $.extend(true, {}, character));
+                .data('character', clone(character));
         };
 
         Optimizer.prototype._characterLT = function (a, b) {
@@ -1549,6 +1568,10 @@ let Optimizer = function ($) {
         return Character;
     }();
 
+    let clone = function(character) {
+        return $.extend(true, {}, character);
+    }
+
     // Generates the card, that shows up when one clicks on the result.
     let toModal = function (_character) {
 
@@ -1640,16 +1663,12 @@ let Optimizer = function ($) {
         let effectiveValues = {};
         $.each(["Power", "Precision", "Ferocity", "Condition Damage", "Expertise"],
             function (index, value) {
-                if (_character.attributes[value]) {
-                    let temp = $.extend(true, {}, _character).addModifiers({
-                        'flat': {
-                            [value]: 5
-                        }
-                    }).updateAttributes();
-                    effectiveValues[value] = Number(
-                        (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(
-                            5)).toLocaleString('en-US');
-                }
+                let temp = clone(_character);
+                temp.baseAttributes[value] += 5;
+                temp.updateAttributes();
+                effectiveValues[value] = Number(
+                    (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(
+                        5)).toLocaleString('en-US');
             });
         modal += _toCard('Damage increase from +5 of attribute', effectiveValues);
 
@@ -1657,16 +1676,12 @@ let Optimizer = function ($) {
         let effectiveNegativeValues = {};
         $.each(["Power", "Precision", "Ferocity", "Condition Damage", "Expertise"],
             function (index, value) {
-                if (_character.attributes[value]) {
-                    let temp = $.extend(true, {}, _character).addModifiers({
-                        'flat': {
-                            [value]: -5
-                        }
-                    }).updateAttributes();
-                    effectiveNegativeValues[value] = Number(
-                        (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(
-                            5)).toLocaleString('en-US');
-                }
+                let temp = clone(_character);
+                temp.baseAttributes[value] = Math.max(temp.baseAttributes[value] - 5, 0);
+                temp.updateAttributes();
+                effectiveNegativeValues[value] = Number(
+                    (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(
+                        5)).toLocaleString('en-US');
             });
         modal += _toCard('Damage loss from -5 of attribute', effectiveNegativeValues);
 
