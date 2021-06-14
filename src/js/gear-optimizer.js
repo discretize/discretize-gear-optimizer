@@ -1546,211 +1546,14 @@ let Optimizer = function ($) {
             return this;
         };
 
-        // Generates the card, that shows up when one clicks on the result.
-        Character.prototype.toModal = function () {
-            let _character = this;
+        return Character;
+    }();
 
-            console.debug(_character);
+    // Generates the card, that shows up when one clicks on the result.
+    let toModal = function (_character) {
 
-            let modal = '<div class="modal">';
-            modal += '<div class="modal-dialog modal-lg">';
-            modal += '<div class="modal-content">';
-
-            // Header
-            modal += '<div class="modal-header">';
-            modal += '<h5 class="modal-title">Character Overview</h5>';
-            modal += '<button type="button" class="close" data-dismiss="modal"><span class="fa fa-times"></span></button>';
-            modal += '</div>';
-
-            // Body
-            modal += '<div class="modal-body">';
-            modal += '<div class="container-fluid">';
-            modal += '<div class="row">';
-
-            // Tags
-            modal += '<div class="col-12 text-center"><div class="card card-' + _character.profession
-                + ' mb-3"><div class="card-header card-header-small">Modifiers</div><div' +
-                ' class="card-body character-tags">' + _character.tags.join('') + '</div></div></div>';
-
-            // First column
-            modal += '<div class="col-12 col-lg-6">';
-
-            let indicators = {};
-            $.each(Attributes.INDICATORS, function (index, attribute) {
-                indicators[attribute] = Number(_character.attributes[attribute].toFixed(4)).toLocaleString(
-                    'en-US');
-            });
-            modal += _character._toCard('Indicators', indicators);
-
-            let gear = {};
-            $.each(_character.gear, function (index, value) {
-                gear[Slots[_character.weapontype][index].name] = value;
-            });
-            modal += _character._toCard('Gear', gear);
-
-            modal += _character._toCard('Stat Infusions', _character.infusions);
-
-            if (_character.distribution["Power"] != 100) {
-                // effective damage distribution
-                let effectiveDamageDistribution = {};
-                let totalDamage = _character.attributes['Damage'];
-                $.each(_character.distribution, function (key, percentage) {
-                    if (key === "Power") {
-                        let damage = percentage * _character.attributes['Effective Power'] / 1025;
-                        effectiveDamageDistribution["Power"] = (damage / totalDamage * 100).toFixed(1) + '%';
-                    } else {
-                        let duration = 1 + Math.min(_character.attributes[key + ' Duration'] / 100, 1);
-                        let damage = percentage * duration * (_character.attributes[key + ' Damage'] / Condition[key].baseDamage);
-                        effectiveDamageDistribution[key + ' Damage'] = (damage / totalDamage * 100).toFixed(1) + '%';
-                    }
-                });
-                modal += _character._toCard('Effective Damage Distribution', effectiveDamageDistribution);
-
-                // damage indicator breakdown
-                let damageIndicatorBreakdown = {};
-                $.each(_character.distribution, function (key, percentage) {
-
-                    if (key === "Power") {
-                        let damage = percentage * _character.attributes['Effective Power'] / 1025;
-                        damageIndicatorBreakdown["Power"] = Number(damage).toFixed(2).toLocaleString('en-US');
-                    } else {
-                        let duration = 1 + Math.min(_character.attributes[key + ' Duration'] / 100, 1);
-                        let damage = percentage * duration * (_character.attributes[key + ' Damage'] / Condition[key].baseDamage);
-                        damageIndicatorBreakdown[key + ' Damage'] =  Number(damage).toFixed(2).toLocaleString('en-US');
-                    }
-                });
-                modal += _character._toCard('Damage indicator breakdown', damageIndicatorBreakdown);
-            }
-
-            // effective gain from adding +5 infusions
-            let effectiveValues = {};
-            $.each(["Power", "Precision", "Ferocity", "Condition Damage", "Expertise"],
-                function (index, value) {
-                    if (_character.attributes[value]) {
-                        let temp = $.extend(true, {}, _character).addModifiers({
-                            'flat': {
-                                [value]: 5
-                            }
-                        }).updateAttributes();
-                        effectiveValues[value] = Number(
-                            (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(
-                                5)).toLocaleString('en-US');
-                    }
-                });
-            modal += _character._toCard('Damage increase from +5 of attribute', effectiveValues);
-
-            // effective loss by not having +5 infusions
-            let effectiveNegativeValues = {};
-            $.each(["Power", "Precision", "Ferocity", "Condition Damage", "Expertise"],
-                function (index, value) {
-                    if (_character.attributes[value]) {
-                        let temp = $.extend(true, {}, _character).addModifiers({
-                            'flat': {
-                                [value]: -5
-                            }
-                        }).updateAttributes();
-                        effectiveNegativeValues[value] = Number(
-                            (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(
-                                5)).toLocaleString('en-US');
-                    }
-                });
-            modal += _character._toCard('Damage loss from -5 of attribute', effectiveNegativeValues);
-
-            modal += '</div>';
-            // End of first column
-
-            // Second column
-            modal += '<div class="col-12 col-lg-6">';
-
-            let primaryAttributes = {};
-            $.each(Attributes.PRIMARY, function (index, attribute) {
-                primaryAttributes[attribute] = _character.attributes[attribute] > 0
-                    ? _character.attributes[attribute] : 0;
-            });
-            modal += _character._toCard('Primary Attributes', primaryAttributes);
-
-            let secondaryAttributes = {};
-            $.each(Attributes.SECONDARY, function (index, attribute) {
-                secondaryAttributes[attribute] = _character.attributes[attribute] > 0
-                    ? _character.attributes[attribute] : 0;
-            });
-            modal += _character._toCard('Secondary Attributes', secondaryAttributes);
-
-            let derivedAttributes = {};
-            $.each(Attributes.DERIVED, function (index, attribute) {
-                switch (attribute) {
-                    case 'Critical Chance':
-                    case 'Boon Duration':
-                    case 'Condition Duration':
-                        derivedAttributes[attribute] = _character.attributes[attribute] > 100 ?
-                            `100.00% (${_character.attributes[attribute].toFixed(2)})` :
-                            `${_character.attributes[attribute].toFixed(2)}%`;
-                        break;
-                    case 'Critical Damage':
-                        derivedAttributes[attribute] = `${_character.attributes[attribute].toFixed(2)}%`;
-                        break;
-                    default:
-                        derivedAttributes[attribute] = _character.attributes[attribute];
-                        break;
-                }
-            });
-            modal += _character._toCard('Derived Attributes', derivedAttributes);
-
-            let effectiveAttributes = {};
-            $.each(Attributes.EFFECTIVE, function (index, attribute) {
-                let value = _character.attributes[attribute] > 0 ? _character.attributes[attribute] : 0;
-                effectiveAttributes[attribute] = Number(value.toFixed(5)).toLocaleString('en-US');
-            });
-            modal += _character._toCard('Effective Attributes', effectiveAttributes);
-
-            let durationAttributes = {};
-            let showDurations = false;
-            $.each(Attributes.BOON_DURATION, function (index, attribute) {
-                let value = _character.attributes[attribute];
-                if (value && value !== _character.attributes['Boon Duration']) {
-                    showDurations = true;
-                    durationAttributes[attribute] = value > 100 ?
-                        `100.00% (${value.toFixed(2)})` :
-                        `${value.toFixed(2)}`;
-                }
-            });
-            $.each(Attributes.CONDITION_DURATION, function (index, attribute) {
-                let value = _character.attributes[attribute] > 0 ? _character.attributes[attribute] : 0;
-                if (value && value !== _character.attributes['Condition Duration']) {
-                    showDurations = true;
-                    durationAttributes[attribute] = value > 100 ?
-                        `100.00% (${value.toFixed(2)})` :
-                        `${value.toFixed(2)}`;
-                }
-            });
-            if (showDurations) {
-                modal += _character._toCard('Special Durations', durationAttributes);
-            }
-
-            let conditionAttributes = {};
-            $.each(Attributes.CONDITION_DAMAGE, function (index, attribute) {
-                conditionAttributes[attribute] = _character.attributes[attribute] > 0
-                    ? _character.attributes[attribute].toFixed(2) : 0;
-            });
-            modal += _character._toCard('Condition Damage Ticks', conditionAttributes);
-
-            modal += '</div>';
-            // End of second column
-
-            modal += '</div>';
-            modal += '</div>';
-            modal += '</div>';
-            // End of Body
-
-            modal += '</div>';
-            modal += '</div>';
-            modal += '</div>';
-
-            return $(modal);
-        };
-
-        Character.prototype._toCard = function (title, items) {
-            let card = '<div class="card card-' + this.profession
+        let _toCard = function (title, items) {
+            let card = '<div class="card card-' + _character.profession
                 + ' mb-3"><div class="card-header card-header-small">' + title
                 + '</div><div class="card-body p-0"><table' +
                 ' class="table table-sm table-hover">';
@@ -1761,8 +1564,204 @@ let Optimizer = function ($) {
             return card;
         };
 
-        return Character;
-    }();
+        console.debug(_character);
+
+        let modal = '<div class="modal">';
+        modal += '<div class="modal-dialog modal-lg">';
+        modal += '<div class="modal-content">';
+
+        // Header
+        modal += '<div class="modal-header">';
+        modal += '<h5 class="modal-title">Character Overview</h5>';
+        modal += '<button type="button" class="close" data-dismiss="modal"><span class="fa fa-times"></span></button>';
+        modal += '</div>';
+
+        // Body
+        modal += '<div class="modal-body">';
+        modal += '<div class="container-fluid">';
+        modal += '<div class="row">';
+
+        // Tags
+        modal += '<div class="col-12 text-center"><div class="card card-' + _character.profession
+            + ' mb-3"><div class="card-header card-header-small">Modifiers</div><div' +
+            ' class="card-body character-tags">' + _character.tags.join('') + '</div></div></div>';
+
+        // First column
+        modal += '<div class="col-12 col-lg-6">';
+
+        let indicators = {};
+        $.each(Attributes.INDICATORS, function (index, attribute) {
+            indicators[attribute] = Number(_character.attributes[attribute].toFixed(4)).toLocaleString(
+                'en-US');
+        });
+        modal += _toCard('Indicators', indicators);
+
+        let gear = {};
+        $.each(_character.gear, function (index, value) {
+            gear[Slots[_character.weapontype][index].name] = value;
+        });
+        modal += _toCard('Gear', gear);
+
+        modal += _toCard('Stat Infusions', _character.infusions);
+
+        if (_character.distribution["Power"] != 100) {
+            // effective damage distribution
+            let effectiveDamageDistribution = {};
+            let totalDamage = _character.attributes['Damage'];
+            $.each(_character.distribution, function (key, percentage) {
+                if (key === "Power") {
+                    let damage = percentage * _character.attributes['Effective Power'] / 1025;
+                    effectiveDamageDistribution["Power"] = (damage / totalDamage * 100).toFixed(1) + '%';
+                } else {
+                    let duration = 1 + Math.min(_character.attributes[key + ' Duration'] / 100, 1);
+                    let damage = percentage * duration * (_character.attributes[key + ' Damage'] / Condition[key].baseDamage);
+                    effectiveDamageDistribution[key + ' Damage'] = (damage / totalDamage * 100).toFixed(1) + '%';
+                }
+            });
+            modal += _toCard('Effective Damage Distribution', effectiveDamageDistribution);
+
+            // damage indicator breakdown
+            let damageIndicatorBreakdown = {};
+            $.each(_character.distribution, function (key, percentage) {
+
+                if (key === "Power") {
+                    let damage = percentage * _character.attributes['Effective Power'] / 1025;
+                    damageIndicatorBreakdown["Power"] = Number(damage).toFixed(2).toLocaleString('en-US');
+                } else {
+                    let duration = 1 + Math.min(_character.attributes[key + ' Duration'] / 100, 1);
+                    let damage = percentage * duration * (_character.attributes[key + ' Damage'] / Condition[key].baseDamage);
+                    damageIndicatorBreakdown[key + ' Damage'] =  Number(damage).toFixed(2).toLocaleString('en-US');
+                }
+            });
+            modal += _toCard('Damage indicator breakdown', damageIndicatorBreakdown);
+        }
+
+        // effective gain from adding +5 infusions
+        let effectiveValues = {};
+        $.each(["Power", "Precision", "Ferocity", "Condition Damage", "Expertise"],
+            function (index, value) {
+                if (_character.attributes[value]) {
+                    let temp = $.extend(true, {}, _character).addModifiers({
+                        'flat': {
+                            [value]: 5
+                        }
+                    }).updateAttributes();
+                    effectiveValues[value] = Number(
+                        (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(
+                            5)).toLocaleString('en-US');
+                }
+            });
+        modal += _toCard('Damage increase from +5 of attribute', effectiveValues);
+
+        // effective loss by not having +5 infusions
+        let effectiveNegativeValues = {};
+        $.each(["Power", "Precision", "Ferocity", "Condition Damage", "Expertise"],
+            function (index, value) {
+                if (_character.attributes[value]) {
+                    let temp = $.extend(true, {}, _character).addModifiers({
+                        'flat': {
+                            [value]: -5
+                        }
+                    }).updateAttributes();
+                    effectiveNegativeValues[value] = Number(
+                        (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(
+                            5)).toLocaleString('en-US');
+                }
+            });
+        modal += _toCard('Damage loss from -5 of attribute', effectiveNegativeValues);
+
+        modal += '</div>';
+        // End of first column
+
+        // Second column
+        modal += '<div class="col-12 col-lg-6">';
+
+        let primaryAttributes = {};
+        $.each(Attributes.PRIMARY, function (index, attribute) {
+            primaryAttributes[attribute] = _character.attributes[attribute] > 0
+                ? _character.attributes[attribute] : 0;
+        });
+        modal += _toCard('Primary Attributes', primaryAttributes);
+
+        let secondaryAttributes = {};
+        $.each(Attributes.SECONDARY, function (index, attribute) {
+            secondaryAttributes[attribute] = _character.attributes[attribute] > 0
+                ? _character.attributes[attribute] : 0;
+        });
+        modal += _toCard('Secondary Attributes', secondaryAttributes);
+
+        let derivedAttributes = {};
+        $.each(Attributes.DERIVED, function (index, attribute) {
+            switch (attribute) {
+                case 'Critical Chance':
+                case 'Boon Duration':
+                case 'Condition Duration':
+                    derivedAttributes[attribute] = _character.attributes[attribute] > 100 ?
+                        `100.00% (${_character.attributes[attribute].toFixed(2)})` :
+                        `${_character.attributes[attribute].toFixed(2)}%`;
+                    break;
+                case 'Critical Damage':
+                    derivedAttributes[attribute] = `${_character.attributes[attribute].toFixed(2)}%`;
+                    break;
+                default:
+                    derivedAttributes[attribute] = _character.attributes[attribute];
+                    break;
+            }
+        });
+        modal += _toCard('Derived Attributes', derivedAttributes);
+
+        let effectiveAttributes = {};
+        $.each(Attributes.EFFECTIVE, function (index, attribute) {
+            let value = _character.attributes[attribute] > 0 ? _character.attributes[attribute] : 0;
+            effectiveAttributes[attribute] = Number(value.toFixed(5)).toLocaleString('en-US');
+        });
+        modal += _toCard('Effective Attributes', effectiveAttributes);
+
+        let durationAttributes = {};
+        let showDurations = false;
+        $.each(Attributes.BOON_DURATION, function (index, attribute) {
+            let value = _character.attributes[attribute];
+            if (value && value !== _character.attributes['Boon Duration']) {
+                showDurations = true;
+                durationAttributes[attribute] = value > 100 ?
+                    `100.00% (${value.toFixed(2)})` :
+                    `${value.toFixed(2)}`;
+            }
+        });
+        $.each(Attributes.CONDITION_DURATION, function (index, attribute) {
+            let value = _character.attributes[attribute] > 0 ? _character.attributes[attribute] : 0;
+            if (value && value !== _character.attributes['Condition Duration']) {
+                showDurations = true;
+                durationAttributes[attribute] = value > 100 ?
+                    `100.00% (${value.toFixed(2)})` :
+                    `${value.toFixed(2)}`;
+            }
+        });
+        if (showDurations) {
+            modal += _toCard('Special Durations', durationAttributes);
+        }
+
+        let conditionAttributes = {};
+        $.each(Attributes.CONDITION_DAMAGE, function (index, attribute) {
+            conditionAttributes[attribute] = _character.attributes[attribute] > 0
+                ? _character.attributes[attribute].toFixed(2) : 0;
+        });
+        modal += _toCard('Condition Damage Ticks', conditionAttributes);
+
+        modal += '</div>';
+        // End of second column
+
+        modal += '</div>';
+        modal += '</div>';
+        modal += '</div>';
+        // End of Body
+
+        modal += '</div>';
+        modal += '</div>';
+        modal += '</div>';
+
+        return $(modal);
+    };
 
     /**
      * ------------------------------------------------------------------------
@@ -2109,7 +2108,7 @@ let Optimizer = function ($) {
 
     // Modal window
     $(Selector.OUTPUT.LIST).on(Event.CLICK, 'tr', function () {
-        $(this).data('character').toModal().modal('show');
+        toModal($(this).data('character')).modal('show');
         $.getScript('https://unpkg.com/armory-embeds/armory-embeds.js');
     });
 
