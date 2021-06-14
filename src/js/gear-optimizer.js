@@ -1304,8 +1304,89 @@ let Optimizer = function ($) {
             _character.baseAttributes['Critical Chance'] = 5;
             _character.baseAttributes['Critical Damage'] = 150;
 
+            let addModifiers = function (modifiers) {
+                if (!modifiers) {
+                    return;
+                }
+
+                if (!_character.modifiers) {
+                    _character.modifiers = {};
+                }
+
+                $.each(modifiers, function (type, modifier) {
+                    if (type && modifier !== undefined) {
+                        if (!_character.modifiers[type]) {
+                            _character.modifiers[type] = {};
+                        }
+
+                        // eslint-disable-next-line no-empty
+                        if (!type) {
+                        } else if (type === 'bountiful-maintenance-oil') {
+                            _character.modifiers[type] = modifier;
+                        } else {
+                            $.each(modifier, function (attribute, value) {
+                                if (attribute && value) {
+                                    switch (type) {
+                                        case 'multiplier':
+                                            if (attribute !== 'Condition Damage' && attribute !== 'Critical Damage'
+                                                && !Attributes.EFFECTIVE.includes(attribute)
+                                                && !Attributes.CONDITION_DAMAGE.includes(attribute) && attribute
+                                                !== 'add: Condition Damage' && attribute !== 'pre: Condition Damage' &&
+                                                attribute !== 'post: Condition Damage' && attribute !== 'add: Effective Power' ) {
+                                                console.error(modifier);
+                                                throw 'Multipliers can only modify primary, secondary or effective attributes, not '
+                                                + attribute;
+                                            }
+                                            if (!_character.modifiers[type][attribute]) {
+                                                _character.modifiers[type][attribute] = [];
+                                            }
+
+                                            _character.modifiers[type][attribute].push(value);
+                                            break;
+                                        case 'flat':
+                                        case 'buff':
+                                            if (!Attributes.PRIMARY.includes(attribute) && !Attributes.SECONDARY.includes(
+                                                attribute)
+                                                && !Attributes.DERIVED.includes(attribute)
+                                                && !Attributes.BOON_DURATION.includes(attribute)
+                                                && !Attributes.CONDITION_DURATION.includes(attribute)) {
+                                                console.error(modifier);
+                                                throw 'Flat or buff modifiers can only increase primary, secondary or derived attributes, not '
+                                                + attribute;
+                                            }
+
+                                            _character.modifiers[type][attribute] = _character.modifiers[type][attribute]
+                                            > 0 ? _character.modifiers[type][attribute] + value : value;
+                                            break;
+                                        case 'convert':
+                                            if (!Attributes.PRIMARY.includes(attribute) && !Attributes.SECONDARY.includes(
+                                                (attribute))) {
+                                                console.error(modifier);
+                                                throw 'Conversions can only modify primary or secondary attributes, not '
+                                                + attribute;
+                                            }
+
+                                            if (!_character.modifiers[type][attribute]) {
+                                                _character.modifiers[type][attribute] = {};
+                                            }
+
+                                            $.each(value, function (source, conversion) {
+                                                _character.modifiers[type][attribute][source] =
+                                                    _character.modifiers[type][attribute][source] > 0
+                                                        ? _character.modifiers[type][attribute][source] + conversion
+                                                        : conversion;
+                                            });
+                                            break;
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            };
+
             $.each(modifiers, function (index, modifier) {
-                _character.addModifiers(modifier);
+                addModifiers(modifier);
             });
 
             _character.tags = tags;
@@ -1325,91 +1406,6 @@ let Optimizer = function ($) {
                         _character.baseAttributes[stat] += bonus;
                     });
                 });
-            });
-
-            return this;
-        };
-
-        Character.prototype.addModifiers = function (modifiers) {
-            if (!modifiers) {
-                return;
-            }
-
-            let _character = this;
-
-            if (!_character.modifiers) {
-                _character.modifiers = {};
-            }
-
-            $.each(modifiers, function (type, modifier) {
-                if (type && modifier !== undefined) {
-                    if (!_character.modifiers[type]) {
-                        _character.modifiers[type] = {};
-                    }
-
-                    // eslint-disable-next-line no-empty
-                    if (!type) {
-                    } else if (type === 'bountiful-maintenance-oil') {
-                        _character.modifiers[type] = modifier;
-                    } else {
-                        $.each(modifier, function (attribute, value) {
-                            if (attribute && value) {
-                                switch (type) {
-                                    case 'multiplier':
-                                        if (attribute !== 'Condition Damage' && attribute !== 'Critical Damage'
-                                            && !Attributes.EFFECTIVE.includes(attribute)
-                                            && !Attributes.CONDITION_DAMAGE.includes(attribute) && attribute
-                                            !== 'add: Condition Damage' && attribute !== 'pre: Condition Damage' &&
-                                            attribute !== 'post: Condition Damage' && attribute !== 'add: Effective Power' ) {
-                                            console.error(modifier);
-                                            throw 'Multipliers can only modify primary, secondary or effective attributes, not '
-                                            + attribute;
-                                        }
-                                        if (!_character.modifiers[type][attribute]) {
-                                            _character.modifiers[type][attribute] = [];
-                                        }
-
-                                        _character.modifiers[type][attribute].push(value);
-                                        break;
-                                    case 'flat':
-                                    case 'buff':
-                                        if (!Attributes.PRIMARY.includes(attribute) && !Attributes.SECONDARY.includes(
-                                            attribute)
-                                            && !Attributes.DERIVED.includes(attribute)
-                                            && !Attributes.BOON_DURATION.includes(attribute)
-                                            && !Attributes.CONDITION_DURATION.includes(attribute)) {
-                                            console.error(modifier);
-                                            throw 'Flat or buff modifiers can only increase primary, secondary or derived attributes, not '
-                                            + attribute;
-                                        }
-
-                                        _character.modifiers[type][attribute] = _character.modifiers[type][attribute]
-                                        > 0 ? _character.modifiers[type][attribute] + value : value;
-                                        break;
-                                    case 'convert':
-                                        if (!Attributes.PRIMARY.includes(attribute) && !Attributes.SECONDARY.includes(
-                                            (attribute))) {
-                                            console.error(modifier);
-                                            throw 'Conversions can only modify primary or secondary attributes, not '
-                                            + attribute;
-                                        }
-
-                                        if (!_character.modifiers[type][attribute]) {
-                                            _character.modifiers[type][attribute] = {};
-                                        }
-
-                                        $.each(value, function (source, conversion) {
-                                            _character.modifiers[type][attribute][source] =
-                                                _character.modifiers[type][attribute][source] > 0
-                                                    ? _character.modifiers[type][attribute][source] + conversion
-                                                    : conversion;
-                                        });
-                                        break;
-                                }
-                            }
-                        });
-                    }
-                }
             });
 
             return this;
