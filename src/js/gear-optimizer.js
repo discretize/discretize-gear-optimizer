@@ -991,8 +991,7 @@ let Optimizer = function ($) {
                                                     + attribute;
                                                 }
 
-                                                _character.modifiers[type][attribute] = _character.modifiers[type][attribute]
-                                                > 0 ? _character.modifiers[type][attribute] + value : value;
+                                                _character.modifiers[type][attribute] = (_character.modifiers[type][attribute] || 0) + value;
                                                 break;
                                             case 'convert':
                                                 if (!Attributes.PRIMARY.includes(attribute) && !Attributes.SECONDARY.includes(
@@ -1008,9 +1007,7 @@ let Optimizer = function ($) {
 
                                                 $.each(value, function (source, conversion) {
                                                     _character.modifiers[type][attribute][source] =
-                                                        _character.modifiers[type][attribute][source] > 0
-                                                            ? _character.modifiers[type][attribute][source] + conversion
-                                                            : conversion;
+                                                        (_character.modifiers[type][attribute][source] || 0) + conversion;
                                                 });
                                                 break;
                                         }
@@ -1472,16 +1469,13 @@ let Optimizer = function ($) {
             * ((critDmg - 100) / 100);
         _character.attributes['Effective Health'] = _character.attributes['Health']
             * _character.attributes['Armor'];
-        _character.attributes['Effective Healing'] = _character.attributes['Healing Power'] > 0
-            ? _character.attributes['Healing Power'] : 0;
+        _character.attributes['Effective Healing'] = _character.attributes['Healing Power'] || 0;
 
         let _multipliers = _character.modifiers['multiplier'];
 
         if (_character.modifiers.hasOwnProperty('bountiful-maintenance-oil')) {
-            let bonus = (_character.attributes['Healing Power'] > 0
-                ? _character.attributes['Healing Power'] * 0.6 / 10000 : 0)
-                + (_character.attributes['Concentration'] > 0 ? _character.attributes['Concentration']
-                    * 0.8 / 10000 : 0);
+            let bonus = ((_character.attributes['Healing Power'] || 0) * 0.6 / 10000)
+                + ((_character.attributes['Concentration'] || 0) * 0.8 / 10000);
             if (bonus) {
                 _character.attributes['Effective Healing'] *= 1.0 + bonus;
             }
@@ -1690,15 +1684,13 @@ let Optimizer = function ($) {
 
         let primaryAttributes = {};
         $.each(Attributes.PRIMARY, function (index, attribute) {
-            primaryAttributes[attribute] = _character.attributes[attribute] > 0
-                ? _character.attributes[attribute] : 0;
+            primaryAttributes[attribute] = _character.attributes[attribute] || 0;
         });
         modal += _toCard('Primary Attributes', primaryAttributes);
 
         let secondaryAttributes = {};
         $.each(Attributes.SECONDARY, function (index, attribute) {
-            secondaryAttributes[attribute] = _character.attributes[attribute] > 0
-                ? _character.attributes[attribute] : 0;
+            secondaryAttributes[attribute] = _character.attributes[attribute] || 0;
         });
         modal += _toCard('Secondary Attributes', secondaryAttributes);
 
@@ -1724,7 +1716,7 @@ let Optimizer = function ($) {
 
         let effectiveAttributes = {};
         $.each(Attributes.EFFECTIVE, function (index, attribute) {
-            let value = _character.attributes[attribute] > 0 ? _character.attributes[attribute] : 0;
+            let value = _character.attributes[attribute] || 0;
             effectiveAttributes[attribute] = Number(value.toFixed(5)).toLocaleString('en-US');
         });
         modal += _toCard('Effective Attributes', effectiveAttributes);
@@ -1742,7 +1734,7 @@ let Optimizer = function ($) {
             }
         });
         $.each(Attributes.CONDITION_DURATION, function (index, attribute) {
-            let value = _character.attributes[attribute] > 0 ? _character.attributes[attribute] : 0;
+            let value = _character.attributes[attribute] || 0;
             if (value) {
                 showDurations = true;
                 value += _character.attributes['Condition Duration'];
@@ -1757,8 +1749,7 @@ let Optimizer = function ($) {
 
         let conditionAttributes = {};
         $.each(Attributes.CONDITION_DAMAGE, function (index, attribute) {
-            conditionAttributes[attribute] = _character.attributes[attribute] > 0
-                ? _character.attributes[attribute].toFixed(2) : 0;
+            conditionAttributes[attribute] = (_character.attributes[attribute] || 0).toFixed(2);
         });
         modal += _toCard('Condition Damage Ticks', conditionAttributes);
 
