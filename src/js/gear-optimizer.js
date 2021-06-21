@@ -1147,7 +1147,7 @@ let Optimizer = function ($) {
             let _optimizer = this;
 
             try {
-                let cycles = 1000;
+                let cycles = 2000;
                 while (_optimizer.calculationQueue.length && cycles--) {
                     if (STOP_SIGNAL) {
                         throw 0;
@@ -1188,6 +1188,9 @@ let Optimizer = function ($) {
 
                     setTimeout(_optimizer._advanceCalculation.bind(_optimizer), 0);
                 } else {
+                    let percent = Math.floor(_optimizer.calculationRuns * 100 / _optimizer.calculationTotal);
+                    $(Selector.OUTPUT.PROGRESS_BAR).css('width', percent + '%');
+
                     _optimizer._lock(false);
                 }
             } catch (e) {
