@@ -1469,18 +1469,15 @@ let Optimizer = function ($) {
         _character.attributes['Effective Healing'] = _character.attributes['Healing Power'] > 0
             ? _character.attributes['Healing Power'] : 0;
 
-        let _multipliers = $.extend({}, _character.modifiers['multiplier']);
+        let _multipliers = _character.modifiers['multiplier'];
+
         if (_character.modifiers.hasOwnProperty('bountiful-maintenance-oil')) {
             let bonus = (_character.attributes['Healing Power'] > 0
                 ? _character.attributes['Healing Power'] * 0.6 / 10000 : 0)
                 + (_character.attributes['Concentration'] > 0 ? _character.attributes['Concentration']
                     * 0.8 / 10000 : 0);
             if (bonus) {
-                if (!_multipliers['Effective Healing']) {
-                    _multipliers['Effective Healing'] = [];
-                }
-
-                _multipliers['Effective Healing'].push(bonus);
+                _character.attributes['Effective Healing'] *= 1.0 + bonus;
             }
         }
 
