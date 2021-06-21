@@ -929,12 +929,6 @@ let Optimizer = function ($) {
                 for (let attribute of Attributes.SECONDARY) {
                     _character.baseAttributes[attribute] = 0;
                 }
-                for (let attribute of Attributes.BOON_DURATION) {
-                    _character.baseAttributes[attribute] = 0;
-                }
-                for (let attribute of Attributes.CONDITION_DURATION) {
-                    _character.baseAttributes[attribute] = 0;
-                }
 
                 _character.baseAttributes['Condition Duration'] = 0;
                 _character.baseAttributes['Boon Duration'] = 0;
@@ -1282,7 +1276,7 @@ let Optimizer = function ($) {
         };
 
         let addStats = function (character, stat, amount) {
-            character.baseAttributes[stat] += amount;
+            character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + amount;
         };
         Optimizer.prototype._applyInfusions = function (character) {
             let _optimizer = this;
@@ -1425,35 +1419,27 @@ let Optimizer = function ($) {
 
         _character.attributes = Object.assign({}, _character.baseAttributes);
 
-        // _character.attributes = {..._character.baseAttributes};
-
         $.each(_character.modifiers['flat'], function (attribute, bonus) {
-            _character.attributes[attribute] += bonus;
+            _character.attributes[attribute] = (_character.attributes[attribute] || 0) + bonus;
         });
+
+        //_character.attributes[attribute] = (_character.attributes[attribute] || 0) + bonus;
 
         let preConversionAttributes = Object.assign({}, _character.attributes);
         $.each(_character.modifiers['convert'], function (attribute, conversion) {
             $.each(conversion, function (source, percent) {
-                _character.attributes[attribute] += Math.round(preConversionAttributes[source] * percent);
+                _character.attributes[attribute] = (_character.attributes[attribute] || 0) + Math.round(preConversionAttributes[source] * percent);
             });
         });
 
         $.each(_character.modifiers['buff'], function (attribute, bonus) {
-            _character.attributes[attribute] += bonus;
+            _character.attributes[attribute] = (_character.attributes[attribute] || 0) + bonus;
         });
 
         // Derive attributes; store uncapped
         _character.attributes['Condition Duration'] += _character.attributes['Expertise'] / 15;
 
-        for (const stat of Attributes.CONDITION_DURATION) {
-            _character.attributes[stat] += _character.attributes['Condition Duration'];
-        }
-
         _character.attributes['Boon Duration'] += _character.attributes['Concentration'] / 15;
-
-        for (const stat of Attributes.BOON_DURATION) {
-            _character.attributes[stat] += _character.attributes['Boon Duration'];
-        }
 
         // base critical chance is already set to 5
         _character.attributes['Critical Chance'] =
@@ -1560,7 +1546,7 @@ let Optimizer = function ($) {
                 _character.attributes['Damage'] += percentage *
                     (_character.attributes['Effective Power'] / 1025);
             } else {
-                let duration = 1 + Math.min(_character.attributes[key + ' Duration'] / 100, 1);
+                let duration = 1 + Math.min(((_character.attributes[key + ' Duration'] || 0) + _character.attributes['Condition Duration']) / 100, 1);
                 _character.attributes['Damage'] += percentage * duration *
                     (_character.attributes[key + ' Damage'] / Condition[key].baseDamage);
             }
@@ -1639,7 +1625,7 @@ let Optimizer = function ($) {
                     let damage = percentage * _character.attributes['Effective Power'] / 1025;
                     effectiveDamageDistribution["Power"] = (damage / totalDamage * 100).toFixed(1) + '%';
                 } else {
-                    let duration = 1 + Math.min(_character.attributes[key + ' Duration'] / 100, 1);
+                    let duration = 1 + Math.min(((_character.attributes[key + ' Duration'] || 0) + _character.attributes['Condition Duration']) / 100, 1);
                     let damage = percentage * duration * (_character.attributes[key + ' Damage'] / Condition[key].baseDamage);
                     effectiveDamageDistribution[key + ' Damage'] = (damage / totalDamage * 100).toFixed(1) + '%';
                 }
@@ -1654,7 +1640,7 @@ let Optimizer = function ($) {
                     let damage = percentage * _character.attributes['Effective Power'] / 1025;
                     damageIndicatorBreakdown["Power"] = Number(damage).toFixed(2).toLocaleString('en-US');
                 } else {
-                    let duration = 1 + Math.min(_character.attributes[key + ' Duration'] / 100, 1);
+                    let duration = 1 + Math.min(((_character.attributes[key + ' Duration'] || 0) + _character.attributes['Condition Duration']) / 100, 1);
                     let damage = percentage * duration * (_character.attributes[key + ' Damage'] / Condition[key].baseDamage);
                     damageIndicatorBreakdown[key + ' Damage'] =  Number(damage).toFixed(2).toLocaleString('en-US');
                 }
@@ -1739,8 +1725,9 @@ let Optimizer = function ($) {
         let showDurations = false;
         $.each(Attributes.BOON_DURATION, function (index, attribute) {
             let value = _character.attributes[attribute];
-            if (value && value !== _character.attributes['Boon Duration']) {
+            if (value) {
                 showDurations = true;
+                value += _character.attributes['Boon Duration'];
                 durationAttributes[attribute] = value > 100 ?
                     `100.00% (${value.toFixed(2)})` :
                     `${value.toFixed(2)}`;
@@ -1748,8 +1735,9 @@ let Optimizer = function ($) {
         });
         $.each(Attributes.CONDITION_DURATION, function (index, attribute) {
             let value = _character.attributes[attribute] > 0 ? _character.attributes[attribute] : 0;
-            if (value && value !== _character.attributes['Condition Duration']) {
+            if (value) {
                 showDurations = true;
+                value += _character.attributes['Condition Duration'];
                 durationAttributes[attribute] = value > 100 ?
                     `100.00% (${value.toFixed(2)})` :
                     `${value.toFixed(2)}`;
