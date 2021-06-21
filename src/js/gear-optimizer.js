@@ -1323,6 +1323,7 @@ let Optimizer = function ($) {
                 .data('character', clone(character));
         };
 
+        // returns true if B is better than A (or if it's the only valid option of the two)
         Optimizer.prototype._characterLT = function (a, b) {
             let _optimizer = this;
 
@@ -1331,11 +1332,11 @@ let Optimizer = function ($) {
                     < _optimizer.minBoonDuration)
                     && b.attributes['Boon Duration'] && b.attributes['Boon Duration']
                     >= _optimizer.minBoonDuration) {
+                    // A is invalid, B is valid -> replace A
                     return true;
-                } else if ((!b.attributes['Boon Duration'] || a.attributes['Boon Duration']
-                    < _optimizer.minBoonDuration)
-                    && a.attributes['Boon Duration'] && a.attributes['Boon Duration']
-                    >= _optimizer.minBoonDuration) {
+                } else if ((!b.attributes['Boon Duration'] || b.attributes['Boon Duration']
+                    < _optimizer.minBoonDuration)) {
+                    // B is invalid -> do not replace A
                     return false;
                 }
             }
@@ -1345,11 +1346,11 @@ let Optimizer = function ($) {
                     < _optimizer.minHealingPower)
                     && b.attributes['Healing Power'] && b.attributes['Healing Power']
                     >= _optimizer.minHealingPower) {
+                    // A is invalid, B is valid -> replace A
                     return true;
-                } else if ((!b.attributes['Healing Power'] || a.attributes['Healing Power']
-                    < _optimizer.minHealingPower)
-                    && a.attributes['Healing Power'] && a.attributes['Healing Power']
-                    >= _optimizer.minHealingPower) {
+                } else if ((!b.attributes['Healing Power'] || b.attributes['Healing Power']
+                    < _optimizer.minHealingPower)) {
+                    // B is invalid -> do not replace A
                     return false;
                 }
             }
@@ -1357,10 +1358,10 @@ let Optimizer = function ($) {
             if (_optimizer.minToughness > 0) {
                 if ((!a.attributes['Toughness'] || a.attributes['Toughness'] < _optimizer.minToughness)
                     && b.attributes['Toughness'] && b.attributes['Toughness'] >= _optimizer.minToughness) {
+                    // A is invalid, B is valid -> replace A
                     return true;
-                } else if ((!b.attributes['Toughness'] || a.attributes['Toughness']
-                    < _optimizer.minBoonDuration)
-                    && a.attributes['Toughness'] && a.attributes['Toughness'] >= _optimizer.minToughness) {
+                } else if ((!b.attributes['Toughness'] || b.attributes['Toughness'] < _optimizer.minToughness)) {
+                    // B is invalid -> do not replace A
                     return false;
                 }
             }
@@ -1369,11 +1370,11 @@ let Optimizer = function ($) {
                 if (a.attributes['Toughness'] && a.attributes['Toughness'] > _optimizer.maxToughness
                     && (!b.attributes['Toughness'] || b.attributes['Toughness']
                         <= _optimizer.maxToughness)) {
-                    return false;
-                } else if (b.attributes['Toughness'] && b.attributes['Toughness'] > _optimizer.maxToughness
-                    && (!a.attributes['Toughness'] || a.attributes['Toughness']
-                        <= _optimizer.maxToughness)) {
+                    // A is invalid, B is valid -> replace A
                     return true;
+                } else if (b.attributes['Toughness'] && b.attributes['Toughness'] > _optimizer.maxToughness) {
+                    // B is invalid -> do not replace A
+                    return false;
                 }
             }
 
