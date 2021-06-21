@@ -929,12 +929,6 @@ let Optimizer = function ($) {
                 for (let attribute of Attributes.SECONDARY) {
                     _character.baseAttributes[attribute] = 0;
                 }
-                for (let attribute of Attributes.BOON_DURATION) {
-                    _character.baseAttributes[attribute] = 0;
-                }
-                for (let attribute of Attributes.CONDITION_DURATION) {
-                    _character.baseAttributes[attribute] = 0;
-                }
 
                 _character.baseAttributes['Condition Duration'] = 0;
                 _character.baseAttributes['Boon Duration'] = 0;
@@ -976,9 +970,14 @@ let Optimizer = function ($) {
                                                 }
                                                 if (!_character.modifiers[type][attribute]) {
                                                     _character.modifiers[type][attribute] = [];
+                                                    _character.modifiers[type][attribute].push(value);
+                                                } else {
+                                                    if (attribute.startsWith('add: ')) {
+                                                        _character.modifiers[type][attribute][0] += value;
+                                                    } else {
+                                                        _character.modifiers[type][attribute][0] = ((_character.modifiers[type][attribute][0] + 1.0) * (value + 1.0)) - 1;
+                                                    }
                                                 }
-
-                                                _character.modifiers[type][attribute].push(value);
                                                 break;
                                             case 'flat':
                                             case 'buff':
@@ -1282,7 +1281,7 @@ let Optimizer = function ($) {
         };
 
         let addStats = function (character, stat, amount) {
-            character.baseAttributes[stat] += amount;
+            character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + amount;
         };
         Optimizer.prototype._applyInfusions = function (character) {
             let _optimizer = this;
@@ -1425,35 +1424,27 @@ let Optimizer = function ($) {
 
         _character.attributes = Object.assign({}, _character.baseAttributes);
 
-        // _character.attributes = {..._character.baseAttributes};
-
         $.each(_character.modifiers['flat'], function (attribute, bonus) {
-            _character.attributes[attribute] += bonus;
+            _character.attributes[attribute] = (_character.attributes[attribute] || 0) + bonus;
         });
+
+        //_character.attributes[attribute] = (_character.attributes[attribute] || 0) + bonus;
 
         let preConversionAttributes = Object.assign({}, _character.attributes);
         $.each(_character.modifiers['convert'], function (attribute, conversion) {
             $.each(conversion, function (source, percent) {
-                _character.attributes[attribute] += Math.round(preConversionAttributes[source] * percent);
+                _character.attributes[attribute] = (_character.attributes[attribute] || 0) + Math.round(preConversionAttributes[source] * percent);
             });
         });
 
         $.each(_character.modifiers['buff'], function (attribute, bonus) {
-            _character.attributes[attribute] += bonus;
+            _character.attributes[attribute] = (_character.attributes[attribute] || 0) + bonus;
         });
 
         // Derive attributes; store uncapped
         _character.attributes['Condition Duration'] += _character.attributes['Expertise'] / 15;
 
-        for (const stat of Attributes.CONDITION_DURATION) {
-            _character.attributes[stat] += _character.attributes['Condition Duration'];
-        }
-
         _character.attributes['Boon Duration'] += _character.attributes['Concentration'] / 15;
-
-        for (const stat of Attributes.BOON_DURATION) {
-            _character.attributes[stat] += _character.attributes['Boon Duration'];
-        }
 
         // base critical chance is already set to 5
         _character.attributes['Critical Chance'] =
@@ -1483,18 +1474,15 @@ let Optimizer = function ($) {
         _character.attributes['Effective Healing'] = _character.attributes['Healing Power'] > 0
             ? _character.attributes['Healing Power'] : 0;
 
-        let _multipliers = $.extend({}, _character.modifiers['multiplier']);
+        let _multipliers = _character.modifiers['multiplier'];
+
         if (_character.modifiers.hasOwnProperty('bountiful-maintenance-oil')) {
             let bonus = (_character.attributes['Healing Power'] > 0
                 ? _character.attributes['Healing Power'] * 0.6 / 10000 : 0)
                 + (_character.attributes['Concentration'] > 0 ? _character.attributes['Concentration']
                     * 0.8 / 10000 : 0);
             if (bonus) {
-                if (!_multipliers['Effective Healing']) {
-                    _multipliers['Effective Healing'] = [];
-                }
-
-                _multipliers['Effective Healing'].push(bonus);
+                _character.attributes['Effective Healing'] *= 1.0 + bonus;
             }
         }
 
@@ -1560,7 +1548,7 @@ let Optimizer = function ($) {
                 _character.attributes['Damage'] += percentage *
                     (_character.attributes['Effective Power'] / 1025);
             } else {
-                let duration = 1 + Math.min(_character.attributes[key + ' Duration'] / 100, 1);
+                let duration = 1 + Math.min(((_character.attributes[key + ' Duration'] || 0) + _character.attributes['Condition Duration']) / 100, 1);
                 _character.attributes['Damage'] += percentage * duration *
                     (_character.attributes[key + ' Damage'] / Condition[key].baseDamage);
             }
@@ -1572,7 +1560,12 @@ let Optimizer = function ($) {
     };
 
     let clone = function(character) {
-        return $.extend(true, {}, character);
+        let newBaseAttributes = Object.assign({}, character.baseAttributes);
+        let newInfusions = Object.assign({}, character.infusions);
+        let newGear = Object.assign({}, character.gear);
+
+        // return { ...character, baseAttributes: newBaseAttributes, infusions: newInfusions, gear: newGear};
+        return Object.assign({}, character, {baseAttributes: newBaseAttributes, infusions: newInfusions, gear: newGear});
     };
 
     // Generates the card, that shows up when one clicks on the result.
@@ -1639,7 +1632,7 @@ let Optimizer = function ($) {
                     let damage = percentage * _character.attributes['Effective Power'] / 1025;
                     effectiveDamageDistribution["Power"] = (damage / totalDamage * 100).toFixed(1) + '%';
                 } else {
-                    let duration = 1 + Math.min(_character.attributes[key + ' Duration'] / 100, 1);
+                    let duration = 1 + Math.min(((_character.attributes[key + ' Duration'] || 0) + _character.attributes['Condition Duration']) / 100, 1);
                     let damage = percentage * duration * (_character.attributes[key + ' Damage'] / Condition[key].baseDamage);
                     effectiveDamageDistribution[key + ' Damage'] = (damage / totalDamage * 100).toFixed(1) + '%';
                 }
@@ -1654,7 +1647,7 @@ let Optimizer = function ($) {
                     let damage = percentage * _character.attributes['Effective Power'] / 1025;
                     damageIndicatorBreakdown["Power"] = Number(damage).toFixed(2).toLocaleString('en-US');
                 } else {
-                    let duration = 1 + Math.min(_character.attributes[key + ' Duration'] / 100, 1);
+                    let duration = 1 + Math.min(((_character.attributes[key + ' Duration'] || 0) + _character.attributes['Condition Duration']) / 100, 1);
                     let damage = percentage * duration * (_character.attributes[key + ' Damage'] / Condition[key].baseDamage);
                     damageIndicatorBreakdown[key + ' Damage'] =  Number(damage).toFixed(2).toLocaleString('en-US');
                 }
@@ -1739,8 +1732,9 @@ let Optimizer = function ($) {
         let showDurations = false;
         $.each(Attributes.BOON_DURATION, function (index, attribute) {
             let value = _character.attributes[attribute];
-            if (value && value !== _character.attributes['Boon Duration']) {
+            if (value) {
                 showDurations = true;
+                value += _character.attributes['Boon Duration'];
                 durationAttributes[attribute] = value > 100 ?
                     `100.00% (${value.toFixed(2)})` :
                     `${value.toFixed(2)}`;
@@ -1748,8 +1742,9 @@ let Optimizer = function ($) {
         });
         $.each(Attributes.CONDITION_DURATION, function (index, attribute) {
             let value = _character.attributes[attribute] > 0 ? _character.attributes[attribute] : 0;
-            if (value && value !== _character.attributes['Condition Duration']) {
+            if (value) {
                 showDurations = true;
+                value += _character.attributes['Condition Duration'];
                 durationAttributes[attribute] = value > 100 ?
                     `100.00% (${value.toFixed(2)})` :
                     `${value.toFixed(2)}`;
