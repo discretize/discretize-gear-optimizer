@@ -1166,6 +1166,7 @@ let Optimizer = function ($) {
                     }
 
                     if (nextSlot >= Slots[_optimizer.baseCharacter.weapontype].length) {
+                        _optimizer.calculationRuns++;
                         _optimizer._insertCharacter(gear);
                         continue;
                     }
@@ -1181,6 +1182,10 @@ let Optimizer = function ($) {
                 }
 
                 if (_optimizer.calculationQueue.length) {
+                    let percent = Math.floor(_optimizer.calculationRuns * 100 / _optimizer.calculationTotal);
+                    $(Selector.OUTPUT.PROGRESS_BAR).css('width', percent + '%').find(Selector.SPAN).text(percent
+                        + '%');
+
                     setTimeout(_optimizer._advanceCalculation.bind(_optimizer), 0);
                 } else {
                     _optimizer._lock(false);
@@ -1196,9 +1201,6 @@ let Optimizer = function ($) {
         Optimizer.prototype._insertCharacter = function (gear) {
             let _optimizer = this;
 
-            let percent = Math.floor(++_optimizer.calculationRuns * 100 / _optimizer.calculationTotal);
-            $(Selector.OUTPUT.PROGRESS_BAR).css('width', percent + '%').find(Selector.SPAN).text(percent
-                + '%');
 
             if (!gear) {
                 return;
