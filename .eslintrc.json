@@ -6,6 +6,7 @@
     },
     "extends": "eslint:recommended",
     "rules": {
+        "semi": 1,
         "no-prototype-builtins": "off",
         "linebreak-style": "off",
         "indent": [

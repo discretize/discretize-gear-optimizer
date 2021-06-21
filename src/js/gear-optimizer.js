@@ -1027,7 +1027,7 @@ let Optimizer = function ($) {
                 });
 
                 _character.tags = tags;
-            }
+            };
 
             initCharacter(
                 $(Selector.TOTAL).find('a.nav-link[data-' + DataAttribute.CLASS + '].'
@@ -1166,7 +1166,7 @@ let Optimizer = function ($) {
                     }
 
                     if (nextSlot >= Slots[_optimizer.baseCharacter.weapontype].length) {
-                        _optimizer._insertCharacter(gear)
+                        _optimizer._insertCharacter(gear);
                         continue;
                     }
 
@@ -1225,7 +1225,7 @@ let Optimizer = function ($) {
                 addStats(temp, _optimizer.secondaryInfusion, INFUSION_TOTAL);
                 updateAttributes(temp);
                 return temp.attributes[_optimizer.rankby] > _optimizer.worstScore;
-            }
+            };
 
             if (_optimizer.primaryInfusion &&
                 (!_optimizer.worstScore || !_optimizer.secondaryInfusion || testInfusionUsefulness())) {
@@ -1568,7 +1568,7 @@ let Optimizer = function ($) {
 
     let clone = function(character) {
         return $.extend(true, {}, character);
-    }
+    };
 
     // Generates the card, that shows up when one clicks on the result.
     let toModal = function (_character) {
