@@ -1560,7 +1560,12 @@ let Optimizer = function ($) {
     };
 
     let clone = function(character) {
-        return $.extend(true, {}, character);
+        let newBaseAttributes = Object.assign({}, character.baseAttributes);
+        let newInfusions = Object.assign({}, character.infusions);
+        let newGear = Object.assign({}, character.gear);
+
+        // return { ...character, baseAttributes: newBaseAttributes, infusions: newInfusions, gear: newGear};
+        return Object.assign({}, character, {baseAttributes: newBaseAttributes, infusions: newInfusions, gear: newGear});
     };
 
     // Generates the card, that shows up when one clicks on the result.
