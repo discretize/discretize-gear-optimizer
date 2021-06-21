@@ -970,9 +970,14 @@ let Optimizer = function ($) {
                                                 }
                                                 if (!_character.modifiers[type][attribute]) {
                                                     _character.modifiers[type][attribute] = [];
+                                                    _character.modifiers[type][attribute].push(value);
+                                                } else {
+                                                    if (attribute.startsWith('add: ')) {
+                                                        _character.modifiers[type][attribute][0] += value;
+                                                    } else {
+                                                        _character.modifiers[type][attribute][0] = ((_character.modifiers[type][attribute][0] + 1.0) * (value + 1.0)) - 1;
+                                                    }
                                                 }
-
-                                                _character.modifiers[type][attribute].push(value);
                                                 break;
                                             case 'flat':
                                             case 'buff':
