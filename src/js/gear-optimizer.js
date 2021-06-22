@@ -1076,6 +1076,8 @@ let Optimizer = function ($) {
                     _optimizer.settings.distribution[$(this).data('go-distribution')] = percentage;
                 }
             });
+
+            Object.freeze(_optimizer.settings);
         }
 
         Optimizer.prototype.calculate = function () {
@@ -1110,8 +1112,6 @@ let Optimizer = function ($) {
 
             _optimizer.calculationQueue = [];
             _optimizer.calculationQueue.push([]);
-
-            Object.freeze(_optimizer.settings);
 
             setTimeout(_optimizer._advanceCalculation.bind(_optimizer), 0);
         };
