@@ -1150,7 +1150,9 @@ let Optimizer = function ($) {
             let {settings} = _optimizer;
 
             try {
-                let cycles = 2000;
+                // pause more frequently to update progress bar/allow cancellation if needed
+                let cycles = Math.min(Math.ceil(_optimizer.calculationTotal * 3 / 5), settings.secondaryInfusion ? 4000 : 8000);
+
                 while (_optimizer.calculationQueue.length && cycles--) {
                     if (STOP_SIGNAL) {
                         throw 0;
@@ -1211,6 +1213,7 @@ let Optimizer = function ($) {
                     let percent = Math.floor(_optimizer.calculationRuns * 100 / _optimizer.calculationTotal);
                     $(Selector.OUTPUT.PROGRESS_BAR).css('width', percent + '%').find(Selector.SPAN).text(percent
                         + '%');
+                    //console.log(`${percent}%: ${_optimizer.calculationRuns}/${_optimizer.calculationTotal}`);
 
                     setTimeout(_optimizer._advanceCalculation.bind(_optimizer), 0);
                 } else {
