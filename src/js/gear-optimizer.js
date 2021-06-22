@@ -1072,10 +1072,14 @@ let Optimizer = function ($) {
             }
 
             settings.distribution = {};
+            settings.relevantConditions = [];
             $.each($('#go-condition-distribution-input').find('input[data-go-distribution]'), function () {
                 let percentage = parseInt($(this).val());
                 if (percentage) {
                     settings.distribution[$(this).data('go-distribution')] = percentage;
+                    if ($(this).data('go-distribution') != "Power") {
+                        settings.relevantConditions.push($(this).data('go-distribution'));
+                    }
                 }
             });
 
@@ -1435,7 +1439,7 @@ let Optimizer = function ($) {
         return Optimizer;
     }();
 
-    let updateAttributes = function (_character) {
+    let updateAttributes = function (_character, alwaysCalculateAll = false) {
         let {settings} = _character;
 
         _character.attributes = Object.assign({}, _character.baseAttributes);
@@ -1518,41 +1522,49 @@ let Optimizer = function ($) {
         _character.attributes['Effective Power'] *= additivePowerModis;
 
         // Conditions
-        $.each(Condition, function (condition, data) {
-            _character.attributes[condition + ' Damage']
-                = (data.factor * _character.attributes['Condition Damage']) + data.baseDamage;
-        });
+        if (alwaysCalculateAll || settings.relevantConditions.length) {
 
-        if (_multipliers
-            && (_multipliers['Condition Damage'] || _multipliers['add: Condition Damage'])) {
-
-            if (_multipliers['add: Condition Damage']) {
-                // Sums up all additive condition damage modifiers
-                let additiveCondiDmg = 1.0;
-                for (let multiplier of _multipliers['add: Condition Damage']) {
-                    additiveCondiDmg += multiplier;
-                }
-                // multiply the sum of all additive modifiers on the characters condition ticks
-                for (let conditionDamage of Attributes.CONDITION_DAMAGE) {
-                    _character.attributes[conditionDamage] *= additiveCondiDmg;
-                }
+            for (const condition of alwaysCalculateAll ? Object.keys(Condition) : settings.relevantConditions) {
+                _character.attributes[condition + ' Damage']
+                    = (Condition[condition].factor * _character.attributes['Condition Damage'])
+                    + Condition[condition].baseDamage;
             }
+            // $.each(Condition, function (condition, data) {
+            //     _character.attributes[condition + ' Damage']
+            //         = (data.factor * _character.attributes['Condition Damage']) + data.baseDamage;
+            // });
 
-            if (_multipliers['Condition Damage']) {
-                for (let multiplier of _multipliers['Condition Damage']) {
+            if (_multipliers
+                && (_multipliers['Condition Damage'] || _multipliers['add: Condition Damage'])) {
+
+                if (_multipliers['add: Condition Damage']) {
+                    // Sums up all additive condition damage modifiers
+                    let additiveCondiDmg = 1.0;
+                    for (let multiplier of _multipliers['add: Condition Damage']) {
+                        additiveCondiDmg += multiplier;
+                    }
+                    // multiply the sum of all additive modifiers on the characters condition ticks
                     for (let conditionDamage of Attributes.CONDITION_DAMAGE) {
-                        _character.attributes[conditionDamage] *= 1.0 + multiplier;
+                        _character.attributes[conditionDamage] *= additiveCondiDmg;
+                    }
+                }
+
+                if (_multipliers['Condition Damage']) {
+                    for (let multiplier of _multipliers['Condition Damage']) {
+                        for (let conditionDamage of Attributes.CONDITION_DAMAGE) {
+                            _character.attributes[conditionDamage] *= 1.0 + multiplier;
+                        }
                     }
                 }
             }
-        }
-        $.each(_multipliers, function (attribute, multipliers) {
-            if (Attributes.CONDITION_DAMAGE.includes(attribute) && _character.attributes[attribute]) {
-                for (let multiplier of multipliers) {
-                    _character.attributes[attribute] *= 1.0 + multiplier;
+            $.each(_multipliers, function (attribute, multipliers) {
+                if (Attributes.CONDITION_DAMAGE.includes(attribute) && _character.attributes[attribute]) {
+                    for (let multiplier of multipliers) {
+                        _character.attributes[attribute] *= 1.0 + multiplier;
+                    }
                 }
-            }
-        });
+            });
+        }
 
         // Calculate scores
         _character.attributes['Damage'] = 0;
@@ -1598,6 +1610,7 @@ let Optimizer = function ($) {
             return card;
         };
 
+        updateAttributes(_character, true);
         console.debug(_character);
 
         let modal = '<div class="modal">';
