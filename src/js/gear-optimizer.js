@@ -1115,6 +1115,8 @@ let Optimizer = function ($) {
 
             _optimizer.calculationQueue = [];
             _optimizer.calculationQueue.push([]);
+            _optimizer.calculationStatsQueue = [];
+            _optimizer.calculationStatsQueue.push({});
 
             setTimeout(_optimizer._advanceCalculation.bind(_optimizer), 0);
         };
@@ -1151,6 +1153,7 @@ let Optimizer = function ($) {
                     }
 
                     let gear = _optimizer.calculationQueue.pop();
+                    let gearStats = _optimizer.calculationStatsQueue.pop();
                     let nextSlot = gear.length;
 
                     if (
@@ -1164,18 +1167,40 @@ let Optimizer = function ($) {
 
                     if (nextSlot >= Slots[settings.weapontype].length) {
                         _optimizer.calculationRuns++;
-                        _optimizer._insertCharacter(gear);
+                        _optimizer._insertCharacter(gear, gearStats);
                         continue;
                     }
 
                     // Recycle for Affix 0, clone for 1+
                     for (let i = 1; i < settings.affixes.length; i++) {
                         let newGear = gear.slice();
-                        newGear[nextSlot] = settings.affixes[i];
+                        let newGearStats = Object.assign({}, gearStats);
+
+                        let currentAffix = settings.affixes[i];
+                        newGear[nextSlot] = currentAffix;
+
+                        // add gear stats
+                        $.each(Slots[settings.weapontype][nextSlot].item[Affix[currentAffix].type], function (type, bonus) {
+                            for (let stat of Affix[currentAffix].bonuses[type]) {
+                                newGearStats[stat] = (newGearStats[stat] || 0) + bonus;
+                            }
+                        });
+
                         _optimizer.calculationQueue.push(newGear);
+                        _optimizer.calculationStatsQueue.push(newGearStats);
                     }
-                    gear[nextSlot] = settings.affixes[0];
+                    let currentAffix = settings.affixes[0];
+                    gear[nextSlot] = currentAffix;
+
+                    // add gear stats
+                    $.each(Slots[settings.weapontype][nextSlot].item[Affix[currentAffix].type], function (type, bonus) {
+                        for (let stat of Affix[currentAffix].bonuses[type]) {
+                            gearStats[stat] = (gearStats[stat] || 0) + bonus;
+                        }
+                    });
+
                     _optimizer.calculationQueue.push(gear);
+                    _optimizer.calculationStatsQueue.push(gearStats);
                 }
 
                 if (_optimizer.calculationQueue.length) {
@@ -1198,7 +1223,7 @@ let Optimizer = function ($) {
             }
         };
 
-        Optimizer.prototype._insertCharacter = function (gear) {
+        Optimizer.prototype._insertCharacter = function (gear, gearStats) {
             let _optimizer = this;
             let {settings} = _optimizer;
 
@@ -1209,14 +1234,17 @@ let Optimizer = function ($) {
                 baseAttributes: Object.assign({}, settings.baseAttributes)};
 
             // apply gear
-            $.each(gear, function (index, affix) {
-                $.each(Slots[character.settings.weapontype][index].item[Affix[affix].type], function (type, bonus) {
-                    //$.each(Affix[affix].bonuses[type], function (index, stat) {
-                    for (let stat of Affix[affix].bonuses[type]) {
-                        character.baseAttributes[stat] += bonus;
-                    }
-                });
-            });
+            for (const stat in gearStats) {
+                character.baseAttributes[stat] += gearStats[stat];
+            }
+            // $.each(gear, function (index, affix) {
+            //     $.each(Slots[character.settings.weapontype][index].item[Affix[affix].type], function (type, bonus) {
+            //         //$.each(Affix[affix].bonuses[type], function (index, stat) {
+            //         for (let stat of Affix[affix].bonuses[type]) {
+            //             character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + bonus;
+            //         }
+            //     });
+            // });
 
             updateAttributes(character);
 
