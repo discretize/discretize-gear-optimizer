@@ -1973,6 +1973,33 @@ let Optimizer = function ($) {
             $('#go-checkbox-ranger-twice-as-vicious').prop(PropertyName.CHECKED, true);
             $('#go-checkbox-ranger-archetype-deadly').prop(PropertyName.CHECKED, true);
 
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'cslb2') {
+            $('[id^="go-checkbox-ranger-"]').prop(PropertyName.CHECKED, false);
+            $('#go-checkbox-ranger-hidden-barbs').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-hunters-tactics').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-taste-for-danger').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-ambidexterity').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-ambidexterity-2').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-poison-master').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-furious-strength').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-twice-as-vicious').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-archetype-deadly').prop(PropertyName.CHECKED, true);
+
+        } else if ($(this).data(DataAttribute.PRESELECTION) === 'hslb') {
+            $('[id^="go-checkbox-ranger-"]').prop(PropertyName.CHECKED, false);
+            $('#go-checkbox-ranger-hidden-barbs').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-hunters-tactics').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-vicious-quarry').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-honed-axes').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-honed-axes-3').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-furious-strength').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-twice-as-vicious').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-archetype-deadly').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-sb-1').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-sb-2').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-sb-3').prop(PropertyName.CHECKED, true);
+            $('#go-checkbox-ranger-sb-4').prop(PropertyName.CHECKED, true);
+
         } else if ($(this).data(DataAttribute.PRESELECTION) === 'pren') {
             $('[id^="go-checkbox-rev-"]').prop(PropertyName.CHECKED, false);
             $('#go-checkbox-rev-53').prop(PropertyName.CHECKED, true);
@@ -2098,6 +2125,15 @@ let Optimizer = function ($) {
                 break;
             case 'cren-invo':
                 $('#go-condition-distribution-slider')[0].noUiSlider.set([42, 64, 75, 80, 100]);
+                break;
+            case 'cslb':
+                $('#go-condition-distribution-slider')[0].noUiSlider.set([30, 45, 75, 100, 100]);
+                break;
+            case 'cslb2':
+                $('#go-condition-distribution-slider')[0].noUiSlider.set([30, 52, 78, 100, 100]);
+                break;
+            case 'hslb':
+                $('#go-condition-distribution-slider')[0].noUiSlider.set([43, 61, 89, 100, 100]);
                 break;
         }
     });
