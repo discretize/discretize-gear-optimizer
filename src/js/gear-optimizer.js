@@ -1211,9 +1211,10 @@ let Optimizer = function ($) {
             // apply gear
             $.each(gear, function (index, affix) {
                 $.each(Slots[character.settings.weapontype][index].item[Affix[affix].type], function (type, bonus) {
-                    $.each(Affix[affix].bonuses[type], function (index, stat) {
+                    //$.each(Affix[affix].bonuses[type], function (index, stat) {
+                    for (let stat of Affix[affix].bonuses[type]) {
                         character.baseAttributes[stat] += bonus;
-                    });
+                    }
                 });
             });
 
