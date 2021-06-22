@@ -1110,6 +1110,8 @@ let Optimizer = function ($) {
             _optimizer.calculationQueue = [];
             _optimizer.calculationQueue.push([]);
 
+            Object.freeze(_optimizer.settings);
+
             setTimeout(_optimizer._advanceCalculation.bind(_optimizer), 0);
         };
 
@@ -1199,7 +1201,9 @@ let Optimizer = function ($) {
                 return;
             }
 
-            let character = {settings: _optimizer.settings, gear: gear, baseAttributes: Object.assign({}, _optimizer.settings.baseAttributes)};
+            let character = {gear: gear, //passed by reference
+                settings: _optimizer.settings, //passed by reference
+                baseAttributes: Object.assign({}, _optimizer.settings.baseAttributes)};
 
             // apply gear
             $.each(gear, function (index, affix) {
@@ -1397,20 +1401,6 @@ let Optimizer = function ($) {
         return Optimizer;
     }();
 
-    /**
-     * ------------------------------------------------------------------------
-     * Character definition
-     * ------------------------------------------------------------------------
-     */
-
-    let Character = function () {
-        function Character() {
-
-        }
-
-        return Character;
-    }();
-
     let updateAttributes = function (_character) {
 
         _character.attributes = Object.assign({}, _character.baseAttributes);
@@ -1548,12 +1538,13 @@ let Optimizer = function ($) {
     };
 
     let clone = function(character) {
-        let newBaseAttributes = Object.assign({}, character.baseAttributes);
-        let newInfusions = Object.assign({}, character.infusions);
-        let newGear = Object.assign({}, character.gear);
 
-        // return { ...character, baseAttributes: newBaseAttributes, infusions: newInfusions, gear: newGear};
-        return Object.assign({}, character, {baseAttributes: newBaseAttributes, infusions: newInfusions, gear: newGear});
+        return {settings: character.settings, //passed by reference
+            attributes: character.attributes, //passed by reference
+            gear: character.gear, //passed by reference
+
+            baseAttributes: Object.assign({}, character.baseAttributes),
+            infusions: Object.assign({}, character.infusions)};
     };
 
     // Generates the card, that shows up when one clicks on the result.
