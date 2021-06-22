@@ -13,8 +13,13 @@
             "error",
             4,
             {
-                "SwitchCase": 1
+                "SwitchCase": 1,
+                "MemberExpression": 1
             }
+        ],
+        "operator-linebreak": [
+            "warn",
+            "before"
         ],
         "comma-spacing": "off",
         "no-shadow": "off",
@@ -25,6 +30,12 @@
             "error",
             {
                 "vars": "local"
+            }
+        ],
+        "no-multiple-empty-lines": [
+            "warn",
+            {
+                "max": 1
             }
         ]
     }
