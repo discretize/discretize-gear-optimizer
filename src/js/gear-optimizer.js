@@ -911,50 +911,52 @@ let Optimizer = function ($) {
                 {'flat': {'Agony Resistance': parseInt($(Selector.INPUT.AGONY_RESISTANCE).val())}});
 
             _optimizer.settings = {};
-            _optimizer.settings.parentOptimizer = this;
+            let {settings} = _optimizer;
 
-            _optimizer.settings.profession = $(Selector.TOTAL)
+            settings.parentOptimizer = this;
+
+            settings.profession = $(Selector.TOTAL)
                 .find('a.nav-link[data-' + DataAttribute.CLASS + '].' + ClassName.ACTIVE)
                 .data(DataAttribute.CLASS);
-            _optimizer.settings.weapontype = $(Selector.SELECT.WEAPON_TYPE)
+            settings.weapontype = $(Selector.SELECT.WEAPON_TYPE)
                 .children(Selector.DROPDOWN_MENU).children(Selector.DROPDOWN_ITEM + '.' + ClassName.ACTIVE)
                 .text().trim();
 
-            _optimizer.settings.baseAttributes = {};
-            _optimizer.settings.baseAttributes.Health = Classes[_optimizer.settings.profession].health;
-            _optimizer.settings.baseAttributes.Armor = Classes[_optimizer.settings.profession].defense;
+            settings.baseAttributes = {};
+            settings.baseAttributes.Health = Classes[settings.profession].health;
+            settings.baseAttributes.Armor = Classes[settings.profession].defense;
 
             for (let attribute of Attributes.PRIMARY) {
-                _optimizer.settings.baseAttributes[attribute] = 1000;
+                settings.baseAttributes[attribute] = 1000;
             }
             for (let attribute of Attributes.SECONDARY) {
-                _optimizer.settings.baseAttributes[attribute] = 0;
+                settings.baseAttributes[attribute] = 0;
             }
 
-            _optimizer.settings.baseAttributes['Condition Duration'] = 0;
-            _optimizer.settings.baseAttributes['Boon Duration'] = 0;
-            _optimizer.settings.baseAttributes['Critical Chance'] = 5;
-            _optimizer.settings.baseAttributes['Critical Damage'] = 150;
+            settings.baseAttributes['Condition Duration'] = 0;
+            settings.baseAttributes['Boon Duration'] = 0;
+            settings.baseAttributes['Critical Chance'] = 5;
+            settings.baseAttributes['Critical Damage'] = 150;
 
             let addModifiers = function (modifiers) {
                 if (!modifiers) {
                     return;
                 }
 
-                if (!_optimizer.settings.modifiers) {
-                    _optimizer.settings.modifiers = {};
+                if (!settings.modifiers) {
+                    settings.modifiers = {};
                 }
 
                 $.each(modifiers, function (type, modifier) {
                     if (type && modifier !== undefined) {
-                        if (!_optimizer.settings.modifiers[type]) {
-                            _optimizer.settings.modifiers[type] = {};
+                        if (!settings.modifiers[type]) {
+                            settings.modifiers[type] = {};
                         }
 
                         // eslint-disable-next-line no-empty
                         if (!type) {
                         } else if (type === 'bountiful-maintenance-oil') {
-                            _optimizer.settings.modifiers[type] = modifier;
+                            settings.modifiers[type] = modifier;
                         } else {
                             $.each(modifier, function (attribute, value) {
                                 if (attribute && value) {
@@ -969,15 +971,15 @@ let Optimizer = function ($) {
                                                 throw 'Multipliers can only modify primary, secondary or effective attributes, not '
                                                 + attribute;
                                             }
-                                            if (!_optimizer.settings.modifiers[type][attribute]) {
-                                                _optimizer.settings.modifiers[type][attribute] = [];
-                                                _optimizer.settings.modifiers[type][attribute].push(value);
+                                            if (!settings.modifiers[type][attribute]) {
+                                                settings.modifiers[type][attribute] = [];
+                                                settings.modifiers[type][attribute].push(value);
                                             } else {
                                                 if (attribute.startsWith('add: ')) {
-                                                    _optimizer.settings.modifiers[type][attribute][0] += value;
+                                                    settings.modifiers[type][attribute][0] += value;
                                                 } else {
-                                                    _optimizer.settings.modifiers[type][attribute][0]
-                                                        = ((_optimizer.settings.modifiers[type][attribute][0] + 1.0) * (value + 1.0)) - 1;
+                                                    settings.modifiers[type][attribute][0]
+                                                        = ((settings.modifiers[type][attribute][0] + 1.0) * (value + 1.0)) - 1;
                                                 }
                                             }
                                             break;
@@ -993,8 +995,8 @@ let Optimizer = function ($) {
                                                 + attribute;
                                             }
 
-                                            _optimizer.settings.modifiers[type][attribute]
-                                                = (_optimizer.settings.modifiers[type][attribute] || 0) + value;
+                                            settings.modifiers[type][attribute]
+                                                = (settings.modifiers[type][attribute] || 0) + value;
                                             break;
                                         case 'convert':
                                             if (!Attributes.PRIMARY.includes(attribute) && !Attributes.SECONDARY.includes(
@@ -1004,13 +1006,13 @@ let Optimizer = function ($) {
                                                 + attribute;
                                             }
 
-                                            if (!_optimizer.settings.modifiers[type][attribute]) {
-                                                _optimizer.settings.modifiers[type][attribute] = {};
+                                            if (!settings.modifiers[type][attribute]) {
+                                                settings.modifiers[type][attribute] = {};
                                             }
 
                                             $.each(value, function (source, conversion) {
-                                                _optimizer.settings.modifiers[type][attribute][source]
-                                                    = (_optimizer.settings.modifiers[type][attribute][source] || 0) + conversion;
+                                                settings.modifiers[type][attribute][source]
+                                                    = (settings.modifiers[type][attribute][source] || 0) + conversion;
                                             });
                                             break;
                                     }
@@ -1025,55 +1027,55 @@ let Optimizer = function ($) {
                 addModifiers(modifier);
             });
 
-            _optimizer.settings.tags = _tags;
+            settings.tags = _tags;
 
-            _optimizer.settings.affixes = $(Selector.INPUT.AFFIXES).find(Selector.CHECKBOXES_CHECKED).map(
+            settings.affixes = $(Selector.INPUT.AFFIXES).find(Selector.CHECKBOXES_CHECKED).map(
                 function () {
                     return $(this).siblings(Selector.LABEL).text().trim();
                 }).get();
 
-            _optimizer.settings.rankby = $(Selector.SELECT.RANKBY).children(
+            settings.rankby = $(Selector.SELECT.RANKBY).children(
                 Selector.DROPDOWN_MENU).children(Selector.DROPDOWN_ITEM + '.'
                 + ClassName.ACTIVE).text().trim();
 
-            _optimizer.settings.minBoonDuration = parseFloat($(Selector.INPUT.MIN_BOON_DURATION).val());
-            _optimizer.settings.minHealingPower = parseInt($(Selector.INPUT.MIN_HEALING_POWER).val());
-            _optimizer.settings.minToughness = parseInt($(Selector.INPUT.MIN_TOUGHNESS).val());
-            _optimizer.settings.maxToughness = parseInt($(Selector.INPUT.MAX_TOUGHNESS).val());
-            _optimizer.settings.maxResults = parseInt($(Selector.INPUT.MAX_RESULTS).val());
+            settings.minBoonDuration = parseFloat($(Selector.INPUT.MIN_BOON_DURATION).val());
+            settings.minHealingPower = parseInt($(Selector.INPUT.MIN_HEALING_POWER).val());
+            settings.minToughness = parseInt($(Selector.INPUT.MIN_TOUGHNESS).val());
+            settings.maxToughness = parseInt($(Selector.INPUT.MAX_TOUGHNESS).val());
+            settings.maxResults = parseInt($(Selector.INPUT.MAX_RESULTS).val());
 
-            _optimizer.settings.statInfusions = $(Selector.SELECT.INFUSIONS).children(
+            settings.statInfusions = $(Selector.SELECT.INFUSIONS).children(
                 Selector.DROPDOWN_MENU).children(Selector.DROPDOWN_ITEM + '.'
                 + ClassName.ACTIVE).text().trim();
-            if (_optimizer.settings.statInfusions !== 'None') {
-                _optimizer.settings.primaryInfusion = _optimizer.settings.statInfusions.split('+')[0].trim();
-                _optimizer.settings.secondaryInfusion = _optimizer.settings.statInfusions.indexOf('+') !== -1
-                    ? _optimizer.settings.statInfusions.split('+')[1].trim() : null;
+            if (settings.statInfusions !== 'None') {
+                settings.primaryInfusion = settings.statInfusions.split('+')[0].trim();
+                settings.secondaryInfusion = settings.statInfusions.indexOf('+') !== -1
+                    ? settings.statInfusions.split('+')[1].trim() : null;
 
-                if (!Attributes.PRIMARY.includes(_optimizer.settings.primaryInfusion)
-                    && !Attributes.SECONDARY.includes(_optimizer.settings.primaryInfusion)
-                    && !Attributes.DERIVED.includes(_optimizer.settings.primaryInfusion)
-                    && !Attributes.BOON_DURATION.includes(_optimizer.settings.primaryInfusion)
-                    && !Attributes.CONDITION_DURATION.includes(_optimizer.settings.primaryInfusion)) {
+                if (!Attributes.PRIMARY.includes(settings.primaryInfusion)
+                    && !Attributes.SECONDARY.includes(settings.primaryInfusion)
+                    && !Attributes.DERIVED.includes(settings.primaryInfusion)
+                    && !Attributes.BOON_DURATION.includes(settings.primaryInfusion)
+                    && !Attributes.CONDITION_DURATION.includes(settings.primaryInfusion)) {
                     throw 'Infusions can only increase primary, secondary or derived attributes, not '
-                    + _optimizer.settings.primaryInfusion;
+                    + settings.primaryInfusion;
                 }
-                if (_optimizer.settings.secondaryInfusion
-                    && !Attributes.PRIMARY.includes(_optimizer.settings.secondaryInfusion)
-                    && !Attributes.SECONDARY.includes(_optimizer.settings.secondaryInfusion)
-                    && !Attributes.DERIVED.includes(_optimizer.settings.secondaryInfusion)
-                    && !Attributes.BOON_DURATION.includes(_optimizer.settings.secondaryInfusion)
-                    && !Attributes.CONDITION_DURATION.includes(_optimizer.settings.secondaryInfusion)) {
+                if (settings.secondaryInfusion
+                    && !Attributes.PRIMARY.includes(settings.secondaryInfusion)
+                    && !Attributes.SECONDARY.includes(settings.secondaryInfusion)
+                    && !Attributes.DERIVED.includes(settings.secondaryInfusion)
+                    && !Attributes.BOON_DURATION.includes(settings.secondaryInfusion)
+                    && !Attributes.CONDITION_DURATION.includes(settings.secondaryInfusion)) {
                     throw 'Infusions can only increase primary, secondary or derived attributes, not '
-                    + _optimizer.settings.secondaryInfusion;
+                    + settings.secondaryInfusion;
                 }
             }
 
-            _optimizer.settings.distribution = {};
+            settings.distribution = {};
             $.each($('#go-condition-distribution-input').find('input[data-go-distribution]'), function () {
                 let percentage = parseInt($(this).val());
                 if (percentage) {
-                    _optimizer.settings.distribution[$(this).data('go-distribution')] = percentage;
+                    settings.distribution[$(this).data('go-distribution')] = percentage;
                 }
             });
 
@@ -1082,16 +1084,17 @@ let Optimizer = function ($) {
 
         Optimizer.prototype.calculate = function () {
             let _optimizer = this;
+            let {settings} = _optimizer;
 
-            let freeSlots = _optimizer.settings.weapontype === 'Dual wield' ? 5 : 6;
-            let pairs = _optimizer.settings.weapontype === 'Dual wield' ? 3 : 2;
+            let freeSlots = settings.weapontype === 'Dual wield' ? 5 : 6;
+            let pairs = settings.weapontype === 'Dual wield' ? 3 : 2;
             let triplets = 1;
-            _optimizer.calculationTotal = Math.pow(_optimizer.settings.affixes.length, freeSlots)
-                * Math.pow(_optimizer.settings.affixes.length
-                + _optimizer._choose(_optimizer.settings.affixes.length, 2), pairs)
-                * (_optimizer.settings.affixes.length + _optimizer.settings.affixes.length
-                * (_optimizer.settings.affixes.length - triplets)
-                + _optimizer._choose(_optimizer.settings.affixes.length, 3));
+            _optimizer.calculationTotal = Math.pow(settings.affixes.length, freeSlots)
+                * Math.pow(settings.affixes.length
+                + _optimizer._choose(settings.affixes.length, 2), pairs)
+                * (settings.affixes.length + settings.affixes.length
+                * (settings.affixes.length - triplets)
+                + _optimizer._choose(settings.affixes.length, 3));
 
             STOP_SIGNAL = false;
             _optimizer.calculationRuns = 0;
@@ -1099,12 +1102,12 @@ let Optimizer = function ($) {
             _optimizer.list.empty();
 
             $(Selector.OUTPUT.PROGRESS_BAR).closest('td').attr(
-                'colspan', Slots[_optimizer.settings.weapontype].length + 1);
+                'colspan', Slots[settings.weapontype].length + 1);
             $(Selector.OUTPUT.PROGRESS_BAR).css('width', 0 + '%').children(Selector.SPAN).text('0%');
             $(Selector.OUTPUT.PROGRESS_BAR).parent().show();
 
-            $(Selector.OUTPUT.HEADER).html('<th>' + _optimizer.settings.rankby + '</th>' + $.map(
-                Slots[_optimizer.settings.weapontype], function (index) {
+            $(Selector.OUTPUT.HEADER).html('<th>' + settings.rankby + '</th>' + $.map(
+                Slots[settings.weapontype], function (index) {
                     return '<th title="' + index.name + '">' + index.short + '</th>';
                 }).join(''));
 
@@ -1138,6 +1141,7 @@ let Optimizer = function ($) {
 
         Optimizer.prototype._advanceCalculation = function () {
             let _optimizer = this;
+            let {settings} = _optimizer;
 
             try {
                 let cycles = 2000;
@@ -1158,19 +1162,19 @@ let Optimizer = function ($) {
                         continue;
                     }
 
-                    if (nextSlot >= Slots[_optimizer.settings.weapontype].length) {
+                    if (nextSlot >= Slots[settings.weapontype].length) {
                         _optimizer.calculationRuns++;
                         _optimizer._insertCharacter(gear);
                         continue;
                     }
 
                     // Recycle for Affix 0, clone for 1+
-                    for (let i = 1; i < _optimizer.settings.affixes.length; i++) {
+                    for (let i = 1; i < settings.affixes.length; i++) {
                         let newGear = gear.slice();
-                        newGear[nextSlot] = _optimizer.settings.affixes[i];
+                        newGear[nextSlot] = settings.affixes[i];
                         _optimizer.calculationQueue.push(newGear);
                     }
-                    gear[nextSlot] = _optimizer.settings.affixes[0];
+                    gear[nextSlot] = settings.affixes[0];
                     _optimizer.calculationQueue.push(gear);
                 }
 
@@ -1196,12 +1200,13 @@ let Optimizer = function ($) {
 
         Optimizer.prototype._insertCharacter = function (gear) {
             let _optimizer = this;
+            let {settings} = _optimizer;
 
             if (!gear) { return; }
 
             let character = {gear: gear, //passed by reference
                 settings: _optimizer.settings, //passed by reference
-                baseAttributes: Object.assign({}, _optimizer.settings.baseAttributes)};
+                baseAttributes: Object.assign({}, settings.baseAttributes)};
 
             // apply gear
             $.each(gear, function (index, affix) {
@@ -1217,27 +1222,27 @@ let Optimizer = function ($) {
             // used to skip calculating infusions if they don't contribute at all
             let testInfusionUsefulness = function() {
                 let temp = clone(character);
-                addStats(temp, _optimizer.settings.primaryInfusion, INFUSION_TOTAL);
-                addStats(temp, _optimizer.settings.secondaryInfusion, INFUSION_TOTAL);
+                addStats(temp, settings.primaryInfusion, INFUSION_TOTAL);
+                addStats(temp, settings.secondaryInfusion, INFUSION_TOTAL);
                 updateAttributes(temp);
-                return temp.attributes[_optimizer.settings.rankby] > _optimizer.worstScore;
+                return temp.attributes[settings.rankby] > _optimizer.worstScore;
             };
 
-            if (_optimizer.settings.primaryInfusion
-                && (!_optimizer.worstScore || !_optimizer.settings.secondaryInfusion || testInfusionUsefulness())) {
+            if (settings.primaryInfusion
+                && (!_optimizer.worstScore || !settings.secondaryInfusion || testInfusionUsefulness())) {
                 character = _optimizer._applyInfusions(character);
             }
 
-            if ((_optimizer.settings.minBoonDuration > 0 && (!character.attributes['Boon Duration']
-                || character.attributes['Boon Duration'] < _optimizer.settings.minBoonDuration))
-                || (_optimizer.settings.minToughness > 0 && (!character.attributes['Toughness']
-                    || character.attributes['Toughness'] < _optimizer.settings.minToughness))
-                || (_optimizer.settings.minHealingPower > 0 && (!character.attributes['Healing Power']
-                    || character.attributes['Healing Power'] < _optimizer.settings.minHealingPower))
+            if ((settings.minBoonDuration > 0 && (!character.attributes['Boon Duration']
+                || character.attributes['Boon Duration'] < settings.minBoonDuration))
+                || (settings.minToughness > 0 && (!character.attributes['Toughness']
+                    || character.attributes['Toughness'] < settings.minToughness))
+                || (settings.minHealingPower > 0 && (!character.attributes['Healing Power']
+                    || character.attributes['Healing Power'] < settings.minHealingPower))
                 || (character.attributes['Toughness'] && character.attributes['Toughness']
-                    > _optimizer.settings.maxToughness)
+                    > settings.maxToughness)
                 || (_optimizer.worstScore && _optimizer.worstScore
-                    > character.attributes[_optimizer.settings.rankby])) {
+                    > character.attributes[settings.rankby])) {
                 return;
             }
 
@@ -1250,7 +1255,7 @@ let Optimizer = function ($) {
                     position--;
                 }
 
-                if (position > _optimizer.settings.maxResults) {
+                if (position > settings.maxResults) {
                     return;
                 }
 
@@ -1258,16 +1263,16 @@ let Optimizer = function ($) {
                     _optimizer._characterToRow(character).insertBefore(
                         _optimizer.list.children().eq(position - 1));
 
-                    if (_optimizer.list.children().length > _optimizer.settings.maxResults) {
+                    if (_optimizer.list.children().length > settings.maxResults) {
                         _optimizer.list.children().last().remove();
                     }
                 } else {
                     _optimizer.list.append(_optimizer._characterToRow(character));
                 }
 
-                if (_optimizer.list.children().length === _optimizer.settings.maxResults) {
+                if (_optimizer.list.children().length === settings.maxResults) {
                     _optimizer.worstScore = _optimizer.list.children().last().data(
-                        'character').attributes[_optimizer.settings.rankby];
+                        'character').attributes[settings.rankby];
                 }
             }
         };
@@ -1277,10 +1282,11 @@ let Optimizer = function ($) {
         };
         Optimizer.prototype._applyInfusions = function (character) {
             let _optimizer = this;
+            let {settings} = _optimizer;
 
-            if (!_optimizer.settings.secondaryInfusion) {
-                character.infusions = {[_optimizer.settings.primaryInfusion]: INFUSION_AMOUNT};
-                addStats(character, _optimizer.settings.primaryInfusion, INFUSION_TOTAL);
+            if (!settings.secondaryInfusion) {
+                character.infusions = {[settings.primaryInfusion]: INFUSION_AMOUNT};
+                addStats(character, settings.primaryInfusion, INFUSION_TOTAL);
                 updateAttributes(character);
                 return character;
             } else {
@@ -1288,11 +1294,11 @@ let Optimizer = function ($) {
                 for (let primaryBonus = INFUSION_TOTAL; primaryBonus >= 0; primaryBonus -= INFUSION_BONUS) {
                     let temp = clone(character);
                     temp.infusions = {
-                        [_optimizer.settings.primaryInfusion]: primaryBonus / INFUSION_BONUS,
-                        [_optimizer.settings.secondaryInfusion]: (INFUSION_TOTAL - primaryBonus) / INFUSION_BONUS
+                        [settings.primaryInfusion]: primaryBonus / INFUSION_BONUS,
+                        [settings.secondaryInfusion]: (INFUSION_TOTAL - primaryBonus) / INFUSION_BONUS
                     };
-                    addStats(temp, _optimizer.settings.primaryInfusion, primaryBonus);
-                    addStats(temp, _optimizer.settings.secondaryInfusion, INFUSION_TOTAL - primaryBonus);
+                    addStats(temp, settings.primaryInfusion, primaryBonus);
+                    addStats(temp, settings.secondaryInfusion, INFUSION_TOTAL - primaryBonus);
                     updateAttributes(temp);
                     if (_optimizer._characterLT(best, temp)) {
                         best = temp;
@@ -1303,10 +1309,10 @@ let Optimizer = function ($) {
         };
 
         Optimizer.prototype._characterToRow = function (character) {
-            let _optimizer = this;
+            let {settings} = character;
 
             return $('<tr><td><strong>' + Number(
-                character.attributes[_optimizer.settings.rankby].toFixed(2)).toLocaleString('en-US')
+                character.attributes[settings.rankby].toFixed(2)).toLocaleString('en-US')
                 + '</strong></td>'
                 + $.map(character.gear, function (value) {
                     return '<td><samp>' + value.substring(0, 4) + '</samp></td>';
@@ -1318,59 +1324,60 @@ let Optimizer = function ($) {
         // returns true if B is better than A (or if it's the only valid option of the two)
         Optimizer.prototype._characterLT = function (a, b) {
             let _optimizer = this;
+            let {settings} = _optimizer;
 
-            if (_optimizer.settings.minBoonDuration > 0) {
+            if (settings.minBoonDuration > 0) {
                 if ((!a.attributes['Boon Duration'] || a.attributes['Boon Duration']
-                    < _optimizer.settings.minBoonDuration)
+                    < settings.minBoonDuration)
                     && b.attributes['Boon Duration'] && b.attributes['Boon Duration']
-                    >= _optimizer.settings.minBoonDuration) {
+                    >= settings.minBoonDuration) {
                     // A is invalid, B is valid -> replace A
                     return true;
                 } else if ((!b.attributes['Boon Duration'] || b.attributes['Boon Duration']
-                    < _optimizer.settings.minBoonDuration)) {
+                    < settings.minBoonDuration)) {
                     // B is invalid -> do not replace A
                     return false;
                 }
             }
 
-            if (_optimizer.settings.minHealingPower > 0) {
+            if (settings.minHealingPower > 0) {
                 if ((!a.attributes['Healing Power'] || a.attributes['Healing Power']
-                    < _optimizer.settings.minHealingPower)
+                    < settings.minHealingPower)
                     && b.attributes['Healing Power'] && b.attributes['Healing Power']
-                    >= _optimizer.settings.minHealingPower) {
+                    >= settings.minHealingPower) {
                     // A is invalid, B is valid -> replace A
                     return true;
                 } else if ((!b.attributes['Healing Power'] || b.attributes['Healing Power']
-                    < _optimizer.settings.minHealingPower)) {
+                    < settings.minHealingPower)) {
                     // B is invalid -> do not replace A
                     return false;
                 }
             }
 
-            if (_optimizer.settings.minToughness > 0) {
-                if ((!a.attributes['Toughness'] || a.attributes['Toughness'] < _optimizer.settings.minToughness)
-                    && b.attributes['Toughness'] && b.attributes['Toughness'] >= _optimizer.settings.minToughness) {
+            if (settings.minToughness > 0) {
+                if ((!a.attributes['Toughness'] || a.attributes['Toughness'] < settings.minToughness)
+                    && b.attributes['Toughness'] && b.attributes['Toughness'] >= settings.minToughness) {
                     // A is invalid, B is valid -> replace A
                     return true;
-                } else if ((!b.attributes['Toughness'] || b.attributes['Toughness'] < _optimizer.settings.minToughness)) {
+                } else if ((!b.attributes['Toughness'] || b.attributes['Toughness'] < settings.minToughness)) {
                     // B is invalid -> do not replace A
                     return false;
                 }
             }
 
-            if (_optimizer.settings.maxToughness) {
-                if (a.attributes['Toughness'] && a.attributes['Toughness'] > _optimizer.settings.maxToughness
+            if (settings.maxToughness) {
+                if (a.attributes['Toughness'] && a.attributes['Toughness'] > settings.maxToughness
                     && (!b.attributes['Toughness'] || b.attributes['Toughness']
-                        <= _optimizer.settings.maxToughness)) {
+                        <= settings.maxToughness)) {
                     // A is invalid, B is valid -> replace A
                     return true;
-                } else if (b.attributes['Toughness'] && b.attributes['Toughness'] > _optimizer.settings.maxToughness) {
+                } else if (b.attributes['Toughness'] && b.attributes['Toughness'] > settings.maxToughness) {
                     // B is invalid -> do not replace A
                     return false;
                 }
             }
 
-            if (a.attributes[_optimizer.settings.rankby] === b.attributes[_optimizer.settings.rankby]) {
+            if (a.attributes[settings.rankby] === b.attributes[settings.rankby]) {
                 let sumA = 0;
                 let sumB = 0;
                 for (let attribute of Attributes.PRIMARY.concat(Attributes.SECONDARY)) {
@@ -1381,7 +1388,7 @@ let Optimizer = function ($) {
                 return sumA < sumB;
             }
 
-            return a.attributes[_optimizer.settings.rankby] < b.attributes[_optimizer.settings.rankby];
+            return a.attributes[settings.rankby] < b.attributes[settings.rankby];
         };
 
         Optimizer.prototype._choose = function (n, k) {
@@ -1400,22 +1407,23 @@ let Optimizer = function ($) {
     }();
 
     let updateAttributes = function (_character) {
+        let {settings} = _character;
 
         _character.attributes = Object.assign({}, _character.baseAttributes);
 
-        $.each(_character.settings.modifiers['flat'], function (attribute, bonus) {
+        $.each(settings.modifiers['flat'], function (attribute, bonus) {
             _character.attributes[attribute] = (_character.attributes[attribute] || 0) + bonus;
         });
 
         let preConversionAttributes = Object.assign({}, _character.attributes);
-        $.each(_character.settings.modifiers['convert'], function (attribute, conversion) {
+        $.each(settings.modifiers['convert'], function (attribute, conversion) {
             $.each(conversion, function (source, percent) {
                 _character.attributes[attribute] = (_character.attributes[attribute] || 0)
                     + Math.round(preConversionAttributes[source] * percent);
             });
         });
 
-        $.each(_character.settings.modifiers['buff'], function (attribute, bonus) {
+        $.each(settings.modifiers['buff'], function (attribute, bonus) {
             _character.attributes[attribute] = (_character.attributes[attribute] || 0) + bonus;
         });
 
@@ -1435,10 +1443,10 @@ let Optimizer = function ($) {
         _character.attributes['Armor'] += _character.attributes['Toughness'];
 
         let critDmg = _character.attributes['Critical Damage'];
-        if (critDmg && _character.settings.modifiers['multiplier']
-            && _character.settings.modifiers['multiplier']['Critical Damage']) {
+        if (critDmg && settings.modifiers['multiplier']
+            && settings.modifiers['multiplier']['Critical Damage']) {
             // Applies multiplicative
-            for (let multiplier of _character.settings.modifiers['multiplier']['Critical Damage']) {
+            for (let multiplier of settings.modifiers['multiplier']['Critical Damage']) {
                 critDmg = critDmg * (1.0 + multiplier);
             }
         }
@@ -1451,9 +1459,9 @@ let Optimizer = function ($) {
             * _character.attributes['Armor'];
         _character.attributes['Effective Healing'] = _character.attributes['Healing Power'] || 0;
 
-        let _multipliers = _character.settings.modifiers['multiplier'];
+        let _multipliers = settings.modifiers['multiplier'];
 
-        if (_character.settings.modifiers.hasOwnProperty('bountiful-maintenance-oil')) {
+        if (settings.modifiers.hasOwnProperty('bountiful-maintenance-oil')) {
             let bonus = ((_character.attributes['Healing Power'] || 0) * 0.6 / 10000)
                 + ((_character.attributes['Concentration'] || 0) * 0.8 / 10000);
             if (bonus) {
@@ -1519,7 +1527,7 @@ let Optimizer = function ($) {
 
         // Calculate scores
         _character.attributes['Damage'] = 0;
-        $.each(_character.settings.distribution, function (key, percentage) {
+        $.each(settings.distribution, function (key, percentage) {
             if (key === "Power") {
                 _character.attributes['Damage'] += percentage
                     * (_character.attributes['Effective Power'] / 1025);
