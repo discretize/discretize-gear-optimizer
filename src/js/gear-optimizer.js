@@ -2135,6 +2135,9 @@ let Optimizer = function ($) {
             case 'hslb':
                 $('#go-condition-distribution-slider')[0].noUiSlider.set([43, 61, 89, 100, 100]);
                 break;
+            case 'cholo':
+                $('#go-condition-distribution-slider')[0].noUiSlider.set([31, 77, 86, 95, 95]);
+                break;
         }
     });
 
