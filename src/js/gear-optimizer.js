@@ -3,7 +3,7 @@
  * Gear Optimizer
  * --------------------------------------------------------------------------
  */
-let Optimizer = function ($) {
+const Optimizer = function ($) {
 
     /**
      * ------------------------------------------------------------------------
@@ -863,26 +863,26 @@ let Optimizer = function ($) {
      * ------------------------------------------------------------------------
      */
 
-    let Optimizer = function () {
+    const Optimizer = function () {
 
         // Constructor.
         // Fetches values from the html file, selected checkboxes and optimization goals.
         function Optimizer () {
-            let _optimizer = this;
+            const _optimizer = this;
 
             _optimizer.startTime = new Date();
 
-            let _modifiers = [];
-            let _tags = [];
+            const _modifiers = [];
+            const _tags = [];
 
             // Checkbox modifiers
             $.each($([Selector.INPUT.CLASS + ' ' + Selector.INPUT.TAB_PANE_ACTIVE,
                 Selector.INPUT.BUFFS].join(',')).find(Selector.CHECKBOXES_CHECKED + '[data-'
                 + DataAttribute.MODIFIER + ']'), function () {
                 _modifiers.push($(this).data(DataAttribute.MODIFIER));
-                let span = $(this).siblings(Selector.LABEL).children(Selector.SPAN);
+                const span = $(this).siblings(Selector.LABEL).children(Selector.SPAN);
                 if (span.is('[data-armory-ids]')) {
-                    let type = span.children('div').attr('class').split(' ')[1];
+                    const type = span.children('div').attr('class').split(' ')[1];
                     _tags.push('<div data-armory-size="40" data-armory-embed="' + type.substring(
                         5, type.length - 6) + '" data-armory-ids="' + span.data('armory-ids') + '"></div>');
                 } else if (span.hasClass('icon')) {
@@ -911,7 +911,7 @@ let Optimizer = function ($) {
                 { 'flat': { 'Agony Resistance': parseInt($(Selector.INPUT.AGONY_RESISTANCE).val()) } });
 
             _optimizer.settings = {};
-            let { settings } = _optimizer;
+            const { settings } = _optimizer;
 
             settings.parentOptimizer = this;
 
@@ -926,10 +926,10 @@ let Optimizer = function ($) {
             settings.baseAttributes.Health = Classes[settings.profession].health;
             settings.baseAttributes.Armor = Classes[settings.profession].defense;
 
-            for (let attribute of Attributes.PRIMARY) {
+            for (const attribute of Attributes.PRIMARY) {
                 settings.baseAttributes[attribute] = 1000;
             }
-            for (let attribute of Attributes.SECONDARY) {
+            for (const attribute of Attributes.SECONDARY) {
                 settings.baseAttributes[attribute] = 0;
             }
 
@@ -938,7 +938,7 @@ let Optimizer = function ($) {
             settings.baseAttributes['Critical Chance'] = 5;
             settings.baseAttributes['Critical Damage'] = 150;
 
-            let addModifiers = function (modifiers) {
+            const addModifiers = function (modifiers) {
                 if (!modifiers) {
                     return;
                 }
@@ -1075,7 +1075,7 @@ let Optimizer = function ($) {
             settings.distribution = {};
             settings.relevantConditions = [];
             $.each($('#go-condition-distribution-input').find('input[data-go-distribution]'), function () {
-                let percentage = parseInt($(this).val());
+                const percentage = parseInt($(this).val());
                 if (percentage) {
                     settings.distribution[$(this).data('go-distribution')] = percentage;
                     if ($(this).data('go-distribution') !== 'Power') {
@@ -1088,12 +1088,12 @@ let Optimizer = function ($) {
         }
 
         Optimizer.prototype.calculate = function () {
-            let _optimizer = this;
-            let { settings } = _optimizer;
+            const _optimizer = this;
+            const { settings } = _optimizer;
 
-            let freeSlots = settings.weapontype === 'Dual wield' ? 5 : 6;
-            let pairs = settings.weapontype === 'Dual wield' ? 3 : 2;
-            let triplets = 1;
+            const freeSlots = settings.weapontype === 'Dual wield' ? 5 : 6;
+            const pairs = settings.weapontype === 'Dual wield' ? 3 : 2;
+            const triplets = 1;
             _optimizer.calculationTotal = Math.pow(settings.affixes.length, freeSlots)
                 * Math.pow(settings.affixes.length
                 + _optimizer._choose(settings.affixes.length, 2), pairs)
@@ -1147,8 +1147,8 @@ let Optimizer = function ($) {
         };
 
         Optimizer.prototype._advanceCalculation = function () {
-            let _optimizer = this;
-            let { settings } = _optimizer;
+            const _optimizer = this;
+            const { settings } = _optimizer;
 
             try {
                 // pause more frequently to update progress bar/allow cancellation if needed
@@ -1159,9 +1159,9 @@ let Optimizer = function ($) {
                         throw 0;
                     }
 
-                    let gear = _optimizer.calculationQueue.pop();
-                    let gearStats = _optimizer.calculationStatsQueue.pop();
-                    let nextSlot = gear.length;
+                    const gear = _optimizer.calculationQueue.pop();
+                    const gearStats = _optimizer.calculationStatsQueue.pop();
+                    const nextSlot = gear.length;
 
                     if (
                         // Rings/Accs/Weapons
@@ -1180,15 +1180,15 @@ let Optimizer = function ($) {
 
                     // Recycle for Affix 0, clone for 1+
                     for (let i = 1; i < settings.affixes.length; i++) {
-                        let newGear = gear.slice();
-                        let newGearStats = Object.assign({}, gearStats);
+                        const newGear = gear.slice();
+                        const newGearStats = Object.assign({}, gearStats);
 
-                        let currentAffix = settings.affixes[i];
+                        const currentAffix = settings.affixes[i];
                         newGear[nextSlot] = currentAffix;
 
                         // add gear stats
                         $.each(Slots[settings.weapontype][nextSlot].item[Affix[currentAffix].type], function (type, bonus) {
-                            for (let stat of Affix[currentAffix].bonuses[type]) {
+                            for (const stat of Affix[currentAffix].bonuses[type]) {
                                 newGearStats[stat] = (newGearStats[stat] || 0) + bonus;
                             }
                         });
@@ -1196,12 +1196,12 @@ let Optimizer = function ($) {
                         _optimizer.calculationQueue.push(newGear);
                         _optimizer.calculationStatsQueue.push(newGearStats);
                     }
-                    let currentAffix = settings.affixes[0];
+                    const currentAffix = settings.affixes[0];
                     gear[nextSlot] = currentAffix;
 
                     // add gear stats
                     $.each(Slots[settings.weapontype][nextSlot].item[Affix[currentAffix].type], function (type, bonus) {
-                        for (let stat of Affix[currentAffix].bonuses[type]) {
+                        for (const stat of Affix[currentAffix].bonuses[type]) {
                             gearStats[stat] = (gearStats[stat] || 0) + bonus;
                         }
                     });
@@ -1211,14 +1211,14 @@ let Optimizer = function ($) {
                 }
 
                 if (_optimizer.calculationQueue.length) {
-                    let percent = Math.floor(_optimizer.calculationRuns * 100 / _optimizer.calculationTotal);
+                    const percent = Math.floor(_optimizer.calculationRuns * 100 / _optimizer.calculationTotal);
                     $(Selector.OUTPUT.PROGRESS_BAR).css('width', percent + '%').find(Selector.SPAN).text(percent
                         + '%');
                     // console.log(`${percent}%: ${_optimizer.calculationRuns}/${_optimizer.calculationTotal}`);
 
                     setTimeout(_optimizer._advanceCalculation.bind(_optimizer), 0);
                 } else {
-                    let percent = Math.floor(_optimizer.calculationRuns * 100 / _optimizer.calculationTotal);
+                    const percent = Math.floor(_optimizer.calculationRuns * 100 / _optimizer.calculationTotal);
                     $(Selector.OUTPUT.PROGRESS_BAR).css('width', percent + '%');
 
                     _optimizer._lock(false);
@@ -1232,8 +1232,8 @@ let Optimizer = function ($) {
         };
 
         Optimizer.prototype._insertCharacter = function (gear, gearStats) {
-            let _optimizer = this;
-            let { settings } = _optimizer;
+            const _optimizer = this;
+            const { settings } = _optimizer;
 
             if (!gear) { return; }
 
@@ -1257,8 +1257,8 @@ let Optimizer = function ($) {
             updateAttributes(character);
 
             // used to skip calculating infusions if they don't contribute at all
-            let testInfusionUsefulness = function () {
-                let temp = clone(character);
+            const testInfusionUsefulness = function () {
+                const temp = clone(character);
                 addStats(temp, settings.primaryInfusion, INFUSION_TOTAL);
                 addStats(temp, settings.secondaryInfusion, INFUSION_TOTAL);
                 updateAttributes(temp);
@@ -1314,12 +1314,12 @@ let Optimizer = function ($) {
             }
         };
 
-        let addStats = function (character, stat, amount) {
+        const addStats = function (character, stat, amount) {
             character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + amount;
         };
         Optimizer.prototype._applyInfusions = function (character) {
-            let _optimizer = this;
-            let { settings } = _optimizer;
+            const _optimizer = this;
+            const { settings } = _optimizer;
 
             if (!settings.secondaryInfusion) {
                 character.infusions = { [settings.primaryInfusion]: INFUSION_AMOUNT };
@@ -1329,7 +1329,7 @@ let Optimizer = function ($) {
             } else {
                 let best = clone(character);
                 for (let primaryBonus = INFUSION_TOTAL; primaryBonus >= 0; primaryBonus -= INFUSION_BONUS) {
-                    let temp = clone(character);
+                    const temp = clone(character);
                     temp.infusions = {
                         [settings.primaryInfusion]: primaryBonus / INFUSION_BONUS,
                         [settings.secondaryInfusion]: (INFUSION_TOTAL - primaryBonus) / INFUSION_BONUS
@@ -1346,7 +1346,7 @@ let Optimizer = function ($) {
         };
 
         Optimizer.prototype._characterToRow = function (character) {
-            let { settings } = character;
+            const { settings } = character;
 
             return $('<tr><td><strong>' + Number(
                 character.attributes[settings.rankby].toFixed(2)).toLocaleString('en-US')
@@ -1360,8 +1360,8 @@ let Optimizer = function ($) {
 
         // returns true if B is better than A (or if it's the only valid option of the two)
         Optimizer.prototype._characterLT = function (a, b) {
-            let _optimizer = this;
-            let { settings } = _optimizer;
+            const _optimizer = this;
+            const { settings } = _optimizer;
 
             if (settings.minBoonDuration > 0) {
                 if ((!a.attributes['Boon Duration'] || a.attributes['Boon Duration']
@@ -1417,7 +1417,7 @@ let Optimizer = function ($) {
             if (a.attributes[settings.rankby] === b.attributes[settings.rankby]) {
                 let sumA = 0;
                 let sumB = 0;
-                for (let attribute of Attributes.PRIMARY.concat(Attributes.SECONDARY)) {
+                for (const attribute of Attributes.PRIMARY.concat(Attributes.SECONDARY)) {
                     sumA += a.attributes.hasOwnProperty(attribute) ? a.attributes[attribute] : 0;
                     sumB += b.attributes.hasOwnProperty(attribute) ? b.attributes[attribute] : 0;
                 }
@@ -1443,8 +1443,8 @@ let Optimizer = function ($) {
         return Optimizer;
     }();
 
-    let updateAttributes = function (_character, alwaysCalculateAll = false) {
-        let { settings } = _character;
+    const updateAttributes = function (_character, alwaysCalculateAll = false) {
+        const { settings } = _character;
 
         _character.attributes = Object.assign({}, _character.baseAttributes);
 
@@ -1452,7 +1452,7 @@ let Optimizer = function ($) {
             _character.attributes[attribute] = (_character.attributes[attribute] || 0) + bonus;
         });
 
-        let preConversionAttributes = Object.assign({}, _character.attributes);
+        const preConversionAttributes = Object.assign({}, _character.attributes);
         $.each(settings.modifiers['convert'], function (attribute, conversion) {
             $.each(conversion, function (source, percent) {
                 _character.attributes[attribute] = (_character.attributes[attribute] || 0)
@@ -1483,7 +1483,7 @@ let Optimizer = function ($) {
         if (critDmg && settings.modifiers['multiplier']
             && settings.modifiers['multiplier']['Critical Damage']) {
             // Applies multiplicative
-            for (let multiplier of settings.modifiers['multiplier']['Critical Damage']) {
+            for (const multiplier of settings.modifiers['multiplier']['Critical Damage']) {
                 critDmg = critDmg * (1.0 + multiplier);
             }
         }
@@ -1496,10 +1496,10 @@ let Optimizer = function ($) {
             * _character.attributes['Armor'];
         _character.attributes['Effective Healing'] = _character.attributes['Healing Power'] || 0;
 
-        let _multipliers = settings.modifiers['multiplier'];
+        const _multipliers = settings.modifiers['multiplier'];
 
         if (settings.modifiers.hasOwnProperty('bountiful-maintenance-oil')) {
-            let bonus = ((_character.attributes['Healing Power'] || 0) * 0.6 / 10000)
+            const bonus = ((_character.attributes['Healing Power'] || 0) * 0.6 / 10000)
                 + ((_character.attributes['Concentration'] || 0) * 0.8 / 10000);
             if (bonus) {
                 _character.attributes['Effective Healing'] *= 1.0 + bonus;
@@ -1512,12 +1512,12 @@ let Optimizer = function ($) {
         let additivePowerModis = 1.0;
         $.each(_multipliers, function (attribute, multipliers) {
             if (Attributes.EFFECTIVE.includes(attribute) && _character.attributes[attribute]) {
-                for (let multiplier of multipliers) {
+                for (const multiplier of multipliers) {
                     _character.attributes[attribute] *= 1.0 + multiplier;
                 }
             } else {
                 if (attribute === 'add: Effective Power') {
-                    for (let multiplier of multipliers) {
+                    for (const multiplier of multipliers) {
                         additivePowerModis += multiplier;
                     }
                 }
@@ -1544,18 +1544,18 @@ let Optimizer = function ($) {
                 if (_multipliers['add: Condition Damage']) {
                     // Sums up all additive condition damage modifiers
                     let additiveCondiDmg = 1.0;
-                    for (let multiplier of _multipliers['add: Condition Damage']) {
+                    for (const multiplier of _multipliers['add: Condition Damage']) {
                         additiveCondiDmg += multiplier;
                     }
                     // multiply the sum of all additive modifiers on the characters condition ticks
-                    for (let conditionDamage of Attributes.CONDITION_DAMAGE) {
+                    for (const conditionDamage of Attributes.CONDITION_DAMAGE) {
                         _character.attributes[conditionDamage] *= additiveCondiDmg;
                     }
                 }
 
                 if (_multipliers['Condition Damage']) {
-                    for (let multiplier of _multipliers['Condition Damage']) {
-                        for (let conditionDamage of Attributes.CONDITION_DAMAGE) {
+                    for (const multiplier of _multipliers['Condition Damage']) {
+                        for (const conditionDamage of Attributes.CONDITION_DAMAGE) {
                             _character.attributes[conditionDamage] *= 1.0 + multiplier;
                         }
                     }
@@ -1563,7 +1563,7 @@ let Optimizer = function ($) {
             }
             $.each(_multipliers, function (attribute, multipliers) {
                 if (Attributes.CONDITION_DAMAGE.includes(attribute) && _character.attributes[attribute]) {
-                    for (let multiplier of multipliers) {
+                    for (const multiplier of multipliers) {
                         _character.attributes[attribute] *= 1.0 + multiplier;
                     }
                 }
@@ -1577,7 +1577,7 @@ let Optimizer = function ($) {
                 _character.attributes['Damage'] += percentage
                     * (_character.attributes['Effective Power'] / 1025);
             } else {
-                let duration = 1 + Math.min(((_character.attributes[key + ' Duration'] || 0)
+                const duration = 1 + Math.min(((_character.attributes[key + ' Duration'] || 0)
                     + _character.attributes['Condition Duration']) / 100, 1);
                 _character.attributes['Damage'] += percentage * duration
                     * (_character.attributes[key + ' Damage'] / Condition[key].baseDamage);
@@ -1589,7 +1589,7 @@ let Optimizer = function ($) {
 
     };
 
-    let clone = function (character) {
+    const clone = function (character) {
 
         return { settings: character.settings, // passed by reference
             attributes: character.attributes, // passed by reference
@@ -1600,9 +1600,9 @@ let Optimizer = function ($) {
     };
 
     // Generates the card, that shows up when one clicks on the result.
-    let toModal = function (_character) {
+    const toModal = function (_character) {
 
-        let _toCard = function (title, items) {
+        const _toCard = function (title, items) {
             let card = '<div class="card card-' + _character.settings.profession
                 + ' mb-3"><div class="card-header card-header-small">' + title
                 + '</div><div class="card-body p-0"><table'
@@ -1640,14 +1640,14 @@ let Optimizer = function ($) {
         // First column
         modal += '<div class="col-12 col-lg-6">';
 
-        let indicators = {};
+        const indicators = {};
         $.each(Attributes.INDICATORS, function (index, attribute) {
             indicators[attribute] = Number(_character.attributes[attribute].toFixed(4)).toLocaleString(
                 'en-US');
         });
         modal += _toCard('Indicators', indicators);
 
-        let gear = {};
+        const gear = {};
         $.each(_character.gear, function (index, value) {
             gear[Slots[_character.settings.weapontype][index].name] = value;
         });
@@ -1657,16 +1657,16 @@ let Optimizer = function ($) {
 
         if (_character.settings.distribution['Power'] !== 100) {
             // effective damage distribution
-            let effectiveDamageDistribution = {};
-            let totalDamage = _character.attributes['Damage'];
+            const effectiveDamageDistribution = {};
+            const totalDamage = _character.attributes['Damage'];
             $.each(_character.settings.distribution, function (key, percentage) {
                 if (key === 'Power') {
-                    let damage = percentage * _character.attributes['Effective Power'] / 1025;
+                    const damage = percentage * _character.attributes['Effective Power'] / 1025;
                     effectiveDamageDistribution['Power'] = (damage / totalDamage * 100).toFixed(1) + '%';
                 } else {
-                    let duration = 1 + Math.min(((_character.attributes[key + ' Duration'] || 0)
+                    const duration = 1 + Math.min(((_character.attributes[key + ' Duration'] || 0)
                         + _character.attributes['Condition Duration']) / 100, 1);
-                    let damage = percentage * duration
+                    const damage = percentage * duration
                         * (_character.attributes[key + ' Damage'] / Condition[key].baseDamage);
                     effectiveDamageDistribution[key + ' Damage'] = (damage / totalDamage * 100).toFixed(1) + '%';
                 }
@@ -1674,16 +1674,16 @@ let Optimizer = function ($) {
             modal += _toCard('Effective Damage Distribution', effectiveDamageDistribution);
 
             // damage indicator breakdown
-            let damageIndicatorBreakdown = {};
+            const damageIndicatorBreakdown = {};
             $.each(_character.settings.distribution, function (key, percentage) {
 
                 if (key === 'Power') {
-                    let damage = percentage * _character.attributes['Effective Power'] / 1025;
+                    const damage = percentage * _character.attributes['Effective Power'] / 1025;
                     damageIndicatorBreakdown['Power'] = Number(damage).toFixed(2).toLocaleString('en-US');
                 } else {
-                    let duration = 1 + Math.min(((_character.attributes[key + ' Duration'] || 0)
+                    const duration = 1 + Math.min(((_character.attributes[key + ' Duration'] || 0)
                         + _character.attributes['Condition Duration']) / 100, 1);
-                    let damage = percentage * duration
+                    const damage = percentage * duration
                         * (_character.attributes[key + ' Damage'] / Condition[key].baseDamage);
                     damageIndicatorBreakdown[key + ' Damage'] = Number(damage).toFixed(2).toLocaleString('en-US');
                 }
@@ -1692,10 +1692,10 @@ let Optimizer = function ($) {
         }
 
         // effective gain from adding +5 infusions
-        let effectiveValues = {};
+        const effectiveValues = {};
         $.each(['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'],
             function (index, value) {
-                let temp = clone(_character);
+                const temp = clone(_character);
                 temp.baseAttributes[value] += 5;
                 updateAttributes(temp);
                 effectiveValues[value] = Number(
@@ -1705,10 +1705,10 @@ let Optimizer = function ($) {
         modal += _toCard('Damage increase from +5 of attribute', effectiveValues);
 
         // effective loss by not having +5 infusions
-        let effectiveNegativeValues = {};
+        const effectiveNegativeValues = {};
         $.each(['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'],
             function (index, value) {
-                let temp = clone(_character);
+                const temp = clone(_character);
                 temp.baseAttributes[value] = Math.max(temp.baseAttributes[value] - 5, 0);
                 updateAttributes(temp);
                 effectiveNegativeValues[value] = Number(
@@ -1723,19 +1723,19 @@ let Optimizer = function ($) {
         // Second column
         modal += '<div class="col-12 col-lg-6">';
 
-        let primaryAttributes = {};
+        const primaryAttributes = {};
         $.each(Attributes.PRIMARY, function (index, attribute) {
             primaryAttributes[attribute] = _character.attributes[attribute] || 0;
         });
         modal += _toCard('Primary Attributes', primaryAttributes);
 
-        let secondaryAttributes = {};
+        const secondaryAttributes = {};
         $.each(Attributes.SECONDARY, function (index, attribute) {
             secondaryAttributes[attribute] = _character.attributes[attribute] || 0;
         });
         modal += _toCard('Secondary Attributes', secondaryAttributes);
 
-        let derivedAttributes = {};
+        const derivedAttributes = {};
         $.each(Attributes.DERIVED, function (index, attribute) {
             switch (attribute) {
                 case 'Critical Chance':
@@ -1755,14 +1755,14 @@ let Optimizer = function ($) {
         });
         modal += _toCard('Derived Attributes', derivedAttributes);
 
-        let effectiveAttributes = {};
+        const effectiveAttributes = {};
         $.each(Attributes.EFFECTIVE, function (index, attribute) {
-            let value = _character.attributes[attribute] || 0;
+            const value = _character.attributes[attribute] || 0;
             effectiveAttributes[attribute] = Number(value.toFixed(5)).toLocaleString('en-US');
         });
         modal += _toCard('Effective Attributes', effectiveAttributes);
 
-        let durationAttributes = {};
+        const durationAttributes = {};
         let showDurations = false;
         $.each(Attributes.BOON_DURATION, function (index, attribute) {
             let value = _character.attributes[attribute];
@@ -1788,7 +1788,7 @@ let Optimizer = function ($) {
             modal += _toCard('Special Durations', durationAttributes);
         }
 
-        let conditionAttributes = {};
+        const conditionAttributes = {};
         $.each(Attributes.CONDITION_DAMAGE, function (index, attribute) {
             conditionAttributes[attribute] = (_character.attributes[attribute] || 0).toFixed(2);
         });

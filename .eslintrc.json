@@ -61,6 +61,12 @@
         "object-curly-spacing": [
             "warn",
             "always"
+        ],
+        "prefer-const": [
+            "warn",
+            {
+                "destructuring": "all"
+            }
         ]
     }
 }
