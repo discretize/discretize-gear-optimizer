@@ -4,6 +4,9 @@
         "es6": true,
         "jquery": true
     },
+    "ignorePatterns": [
+        "gulpfile.js"
+    ],
     "extends": "eslint:recommended",
     "rules": {
         "semi": 1,
