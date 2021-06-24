@@ -1122,7 +1122,8 @@ const Optimizer = function ($) {
             _optimizer.list.empty();
 
             $(Selector.OUTPUT.PROGRESS_BAR)
-                .closest('td').attr('colspan', Slots[settings.weapontype].length + 1);
+                .closest('td').attr('colspan', Slots[settings.weapontype].length + 1
+                    + !!settings.primaryInfusion + !!settings.secondaryInfusion);
             $(Selector.OUTPUT.PROGRESS_BAR)
                 .css('width', 0 + '%').children(Selector.SPAN).text('0%');
             $(Selector.OUTPUT.PROGRESS_BAR).parent().show();
@@ -1131,7 +1132,14 @@ const Optimizer = function ($) {
                 .html('<th>' + settings.rankby + '</th>'
                 + $.map(Slots[settings.weapontype], function (index) {
                     return '<th title="' + index.name + '">' + index.short + '</th>';
-                }).join(''));
+                }).join('')
+                + (settings.primaryInfusion
+                    ? ('<th title="' + settings.primaryInfusion + '">' + settings.primaryInfusion.substring(0, 4) + '</th>')
+                    : '')
+                + (settings.secondaryInfusion
+                    ? ('<th title="' + settings.secondaryInfusion + '">' + settings.secondaryInfusion.substring(0, 4) + '</th>')
+                    : '')
+                );
 
             _optimizer._lock(true);
 
@@ -1380,6 +1388,9 @@ const Optimizer = function ($) {
                 + '</strong></td>'
                 + $.map(character.gear, function (value) {
                     return '<td><samp>' + value.substring(0, 4) + '</samp></td>';
+                }).join('')
+                + $.map(character.infusions, function (value) {
+                    return '<td><samp>' + value + '</samp></td>';
                 }).join('')
                 + '</tr>')
                 .data('character', clone(character));
