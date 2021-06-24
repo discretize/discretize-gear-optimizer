@@ -1140,6 +1140,7 @@ const Optimizer = function ($) {
             _optimizer.calculationStatsQueue = [];
             _optimizer.calculationStatsQueue.push({});
 
+            _optimizer.timer = _optimizer.startTime;
             setTimeout(_optimizer._advanceCalculation.bind(_optimizer), 0);
         };
 
@@ -1168,15 +1169,15 @@ const Optimizer = function ($) {
             const { settings } = _optimizer;
 
             try {
-                // pause more frequently to update progress bar/allow cancellation if needed
-                let cycles = Math.min(
-                    Math.ceil((_optimizer.calculationTotal * 3) / 5),
-                    settings.secondaryInfusion ? 4000 : 8000
-                );
-
+                let cycles = 1000;
                 while (_optimizer.calculationQueue.length && cycles--) {
                     if (STOP_SIGNAL) {
                         throw 0;
+                    }
+
+                    // only update UI at around 15fps
+                    if (cycles === 1 && new Date() - _optimizer.timer < 55) {
+                        cycles = 1000;
                     }
 
                     const gear = _optimizer.calculationQueue.pop();
@@ -1237,8 +1238,7 @@ const Optimizer = function ($) {
                     $(Selector.OUTPUT.PROGRESS_BAR)
                         .css('width', percent + '%').find(Selector.SPAN).text(percent + '%');
 
-                    // console.log(`${percent}%: ${_optimizer.calculationRuns}/${_optimizer.calculationTotal}`);
-
+                    _optimizer.timer = new Date();
                     setTimeout(_optimizer._advanceCalculation.bind(_optimizer), 0);
                 } else {
                     const percent = Math.floor((_optimizer.calculationRuns * 100)
