@@ -44,7 +44,7 @@
         "comma-dangle": "warn",
         "space-in-parens": "warn",
         "multiline-ternary": [
-            "warn", 
+            "warn",
             "always-multiline"
         ],
         "eqeqeq": [
@@ -53,17 +53,24 @@
         ],
         "quotes": [
             "warn",
-            "single", 
+            "single",
             {
                 "avoidEscape": true,
                 "allowTemplateLiterals": false
-                }
-            ],
+            }
+        ],
         "spaced-comment": "warn",
         "no-multi-spaces": "warn",
         "object-curly-spacing": [
             "warn",
             "always"
+        ],
+        "object-curly-newline": [
+            "error",
+            {
+                "multiline": true,
+                "consistent": true
+            }
         ],
         "prefer-const": [
             "warn",

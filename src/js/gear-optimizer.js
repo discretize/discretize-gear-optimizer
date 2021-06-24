@@ -1237,9 +1237,11 @@ const Optimizer = function ($) {
 
             if (!gear) { return; }
 
-            let character = { gear: gear, // passed by reference
+            let character = {
+                gear: gear, // passed by reference
                 settings: _optimizer.settings, // passed by reference
-                baseAttributes: Object.assign({}, settings.baseAttributes) };
+                baseAttributes: Object.assign({}, settings.baseAttributes)
+            };
 
             // apply gear
             for (const stat in gearStats) {
@@ -1590,13 +1592,14 @@ const Optimizer = function ($) {
     };
 
     const clone = function (character) {
-
-        return { settings: character.settings, // passed by reference
+        return {
+            settings: character.settings, // passed by reference
             attributes: character.attributes, // passed by reference
             gear: character.gear, // passed by reference
 
             baseAttributes: Object.assign({}, character.baseAttributes),
-            infusions: Object.assign({}, character.infusions) };
+            infusions: Object.assign({}, character.infusions)
+        };
     };
 
     // Generates the card, that shows up when one clicks on the result.
