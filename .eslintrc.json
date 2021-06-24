@@ -4,6 +4,9 @@
         "es6": true,
         "jquery": true
     },
+    "ignorePatterns": [
+        "gulpfile.js"
+    ],
     "extends": "eslint:recommended",
     "rules": {
         "semi": 1,
@@ -21,9 +24,9 @@
             "warn",
             "before"
         ],
-        "comma-spacing": "off",
+        "comma-spacing": "warn",
         "no-shadow": "off",
-        "space-before-function-paren": "off",
+        "space-before-function-paren": "warn",
         "id-length": "off",
         "dot-notation": "off",
         "no-unused-vars": [
@@ -36,6 +39,43 @@
             "warn",
             {
                 "max": 1
+            }
+        ],
+        "comma-dangle": "warn",
+        "space-in-parens": "warn",
+        "multiline-ternary": [
+            "warn",
+            "always-multiline"
+        ],
+        "eqeqeq": [
+            "warn",
+            "smart"
+        ],
+        "quotes": [
+            "warn",
+            "single",
+            {
+                "avoidEscape": true,
+                "allowTemplateLiterals": false
+            }
+        ],
+        "spaced-comment": "warn",
+        "no-multi-spaces": "warn",
+        "object-curly-spacing": [
+            "warn",
+            "always"
+        ],
+        "object-curly-newline": [
+            "error",
+            {
+                "multiline": true,
+                "consistent": true
+            }
+        ],
+        "prefer-const": [
+            "warn",
+            {
+                "destructuring": "all"
             }
         ]
     }
