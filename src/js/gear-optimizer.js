@@ -912,7 +912,7 @@ const Optimizer = function ($) {
             _optimizer.settings = {};
             const { settings } = _optimizer;
 
-            settings.parentOptimizer = this;
+            // settings.parentOptimizer = this;
 
             settings.profession = $(Selector.TOTAL)
                 .find('a.nav-link[data-' + DataAttribute.CLASS + '].' + ClassName.ACTIVE)
@@ -981,6 +981,7 @@ const Optimizer = function ($) {
                                                 if (attribute.startsWith('add: ')) {
                                                     settings.modifiers[type][attribute][0] += value;
                                                 } else {
+                                                    // combine multiplicative modifiers
                                                     settings.modifiers[type][attribute][0]
                                                         = ((settings.modifiers[type][attribute][0] + 1.0) * (value + 1.0)) - 1;
                                                 }
@@ -1283,7 +1284,7 @@ const Optimizer = function ($) {
             }
             // $.each(gear, function (index, affix) {
             //     $.each(Slots[character.settings.weapontype][index].item[Affix[affix].type], function (type, bonus) {
-            //         //$.each(Affix[affix].bonuses[type], function (index, stat) {
+            //         $.each(Affix[affix].bonuses[type], function (index, stat) {
             //         for (let stat of Affix[affix].bonuses[type]) {
             //             character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + bonus;
             //         }
@@ -1402,7 +1403,7 @@ const Optimizer = function ($) {
                 .data('character', character);
         };
 
-        // returns true if B is better than A (or if it's the only valid option of the two)
+        // returns true if B is better than A
         Optimizer.prototype._characterLT = function (a, b) {
             const _optimizer = this;
             const { settings } = _optimizer;
@@ -1568,10 +1569,6 @@ const Optimizer = function ($) {
                     = (Condition[condition].factor * _character.attributes['Condition Damage'])
                     + Condition[condition].baseDamage;
             }
-            // $.each(Condition, function (condition, data) {
-            //     _character.attributes[condition + ' Damage']
-            //         = (data.factor * _character.attributes['Condition Damage']) + data.baseDamage;
-            // });
 
             if (_multipliers
                 && (_multipliers['Condition Damage'] || _multipliers['add: Condition Damage'])) {
