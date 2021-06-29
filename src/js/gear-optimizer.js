@@ -2321,30 +2321,11 @@ const Optimizer = function ($) {
             if (modifier.includes('"Effective Condition Damage')) {
                 $(inputElement).css('color', 'green');
             }
+            if (modifier.includes('add: ') && (modifier.includes('"Effective Power') || modifier.includes('"Effective Condition Damage'))) {
+                $(inputElement).css('color', 'purple');
+            }
         });
     });
-
-    // $('#go-input-class .input').each((index, inputElement) => {
-    //     const modifier = $(inputElement).find('input').attr('data-go-modifier');
-    //     if (!modifier) {
-    //         return;
-    //     }
-    //     if (modifier.includes('Condition Damage')) {
-    //         $(inputElement).css('border', '1px solid grey');
-    //     }
-    //     if (modifier.includes('"Condition Damage') && (modifier.includes('buff') || modifier.includes('flat'))) {
-    //         $(inputElement).css('color', 'green');
-    //     }
-    //     if (modifier.includes('add: Effective Condition Damage')) {
-    //         $(inputElement).css('color', 'blue');
-    //     }
-    //     if (modifier.includes('Condition Damage') && modifier.includes('convert')) {
-    //         $(inputElement).css('color', 'yellow');
-    //     }
-    //     if (modifier.includes('"Condition Damage') && modifier.includes('multiplier')) {
-    //         $(inputElement).css('color', 'red');
-    //     }
-    // });
 
     $('#debug-converted').click(function () {
         if (!$('.debug-legend').length) {
@@ -2367,10 +2348,13 @@ const Optimizer = function ($) {
                 return;
             }
             if (modifier.includes('flat')) {
-                $(inputElement).css('color', 'orange');
+                $(inputElement).css('color', 'yellow');
             }
             if (modifier.includes('buff')) {
-                $(inputElement).css('color', 'yellow');
+                $(inputElement).css('color', 'orange');
+            }
+            if (modifier.includes('flat') && modifier.includes('buff')) {
+                $(inputElement).css('color', 'purple');
             }
         });
     });
