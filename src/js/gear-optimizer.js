@@ -912,7 +912,7 @@ const Optimizer = function ($) {
             _optimizer.settings = {};
             const { settings } = _optimizer;
 
-            settings.parentOptimizer = this;
+            // settings.parentOptimizer = this;
 
             settings.profession = $(Selector.TOTAL)
                 .find('a.nav-link[data-' + DataAttribute.CLASS + '].' + ClassName.ACTIVE)
@@ -981,6 +981,7 @@ const Optimizer = function ($) {
                                                 if (attribute.startsWith('add: ')) {
                                                     settings.modifiers[type][attribute][0] += value;
                                                 } else {
+                                                    // combine multiplicative modifiers
                                                     settings.modifiers[type][attribute][0]
                                                         = ((settings.modifiers[type][attribute][0] + 1.0) * (value + 1.0)) - 1;
                                                 }
@@ -1204,7 +1205,7 @@ const Optimizer = function ($) {
 
                     if (nextSlot >= Slots[settings.weapontype].length) {
                         _optimizer.calculationRuns++;
-                        _optimizer._insertCharacter(gear, gearStats);
+                        _optimizer._testCharacter(gear, gearStats);
                         continue;
                     }
 
@@ -1263,15 +1264,17 @@ const Optimizer = function ($) {
             }
         };
 
-        Optimizer.prototype._insertCharacter = function (gear, gearStats) {
+        Optimizer.prototype._testCharacter = function (gear, gearStats) {
             const _optimizer = this;
             const { settings } = _optimizer;
 
             if (!gear) { return; }
 
-            let character = {
+            const character = {
                 gear: gear, // passed by reference
                 settings: _optimizer.settings, // passed by reference
+                attributes: null,
+                valid: true,
                 baseAttributes: Object.assign({}, settings.baseAttributes)
             };
 
@@ -1281,39 +1284,45 @@ const Optimizer = function ($) {
             }
             // $.each(gear, function (index, affix) {
             //     $.each(Slots[character.settings.weapontype][index].item[Affix[affix].type], function (type, bonus) {
-            //         //$.each(Affix[affix].bonuses[type], function (index, stat) {
+            //         $.each(Affix[affix].bonuses[type], function (index, stat) {
             //         for (let stat of Affix[affix].bonuses[type]) {
             //             character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + bonus;
             //         }
             //     });
             // });
 
-            updateAttributes(character);
-
             // used to skip calculating infusions if they don't contribute at all
             const testInfusionUsefulness = function () {
                 const temp = clone(character);
-                addStats(temp, settings.primaryInfusion, INFUSION_TOTAL);
-                addStats(temp, settings.secondaryInfusion, INFUSION_TOTAL);
-                updateAttributes(temp);
+                addBaseStats(temp, settings.primaryInfusion, INFUSION_TOTAL);
+                addBaseStats(temp, settings.secondaryInfusion, INFUSION_TOTAL);
+                updateAttributes(temp, true);
                 return temp.attributes[settings.rankby] > _optimizer.worstScore;
             };
 
-            if (settings.primaryInfusion
-                && (!_optimizer.worstScore || !settings.secondaryInfusion || testInfusionUsefulness())) {
-                character = _optimizer._applyInfusions(character);
+            if (!settings.primaryInfusion) {
+                updateAttributes(character);
+                _optimizer._insertCharacter(character);
+            } else {
+                if (!settings.secondaryInfusion) {
+                    character.infusions = { [settings.primaryInfusion]: INFUSION_AMOUNT };
+                    addBaseStats(character, settings.primaryInfusion, INFUSION_TOTAL);
+                    updateAttributes(character);
+                    _optimizer._insertCharacter(character);
+                } else {
+                    if (!_optimizer.worstScore || testInfusionUsefulness()) {
+                        _optimizer._applySecondaryInfusions(character);
+                    }
+                }
             }
+        };
 
-            if ((settings.minBoonDuration > 0 && (!character.attributes['Boon Duration']
-                || character.attributes['Boon Duration'] < settings.minBoonDuration))
-                || (settings.minToughness > 0 && (!character.attributes['Toughness']
-                    || character.attributes['Toughness'] < settings.minToughness))
-                || (settings.minHealingPower > 0 && (!character.attributes['Healing Power']
-                    || character.attributes['Healing Power'] < settings.minHealingPower))
-                || (character.attributes['Toughness'] && character.attributes['Toughness']
-                    > settings.maxToughness)
-                || (_optimizer.worstScore && _optimizer.worstScore
-                    > character.attributes[settings.rankby])) {
+        Optimizer.prototype._insertCharacter = function (character) {
+            const _optimizer = this;
+            const { settings } = _optimizer;
+
+            if (!character.valid
+                || (_optimizer.worstScore && _optimizer.worstScore > character.attributes[settings.rankby])) {
                 return;
             }
 
@@ -1349,34 +1358,32 @@ const Optimizer = function ($) {
             }
         };
 
-        const addStats = function (character, stat, amount) {
+        const addBaseStats = function (character, stat, amount) {
             character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + amount;
         };
-        Optimizer.prototype._applyInfusions = function (character) {
+        Optimizer.prototype._applySecondaryInfusions = function (character) {
             const _optimizer = this;
             const { settings } = _optimizer;
 
-            if (!settings.secondaryInfusion) {
-                character.infusions = { [settings.primaryInfusion]: INFUSION_AMOUNT };
-                addStats(character, settings.primaryInfusion, INFUSION_TOTAL);
-                updateAttributes(character);
-                return character;
-            } else {
-                let best = clone(character);
-                for (let primaryBonus = INFUSION_TOTAL; primaryBonus >= 0; primaryBonus -= INFUSION_BONUS) {
-                    const temp = clone(character);
-                    temp.infusions = {
-                        [settings.primaryInfusion]: primaryBonus / INFUSION_BONUS,
-                        [settings.secondaryInfusion]: (INFUSION_TOTAL - primaryBonus) / INFUSION_BONUS
-                    };
-                    addStats(temp, settings.primaryInfusion, primaryBonus);
-                    addStats(temp, settings.secondaryInfusion, INFUSION_TOTAL - primaryBonus);
-                    updateAttributes(temp);
-                    if (_optimizer._characterLT(best, temp)) {
-                        best = temp;
-                    }
+            let best = null;
+            for (let primaryBonus = INFUSION_TOTAL; primaryBonus >= 0; primaryBonus -= INFUSION_BONUS) {
+                const temp = clone(character);
+                addBaseStats(temp, settings.primaryInfusion, primaryBonus);
+                addBaseStats(temp, settings.secondaryInfusion, INFUSION_TOTAL - primaryBonus);
+                updateAttributes(temp);
+                if (!temp.valid) {
+                    continue;
                 }
-                return best;
+                temp.infusions = {
+                    [settings.primaryInfusion]: primaryBonus / INFUSION_BONUS,
+                    [settings.secondaryInfusion]: (INFUSION_TOTAL - primaryBonus) / INFUSION_BONUS
+                };
+                if (!best || _optimizer._characterLT(best, temp)) {
+                    best = temp;
+                }
+            }
+            if (best) {
+                _optimizer._insertCharacter(best);
             }
         };
 
@@ -1393,64 +1400,21 @@ const Optimizer = function ($) {
                     return '<td><samp>' + value + '</samp></td>';
                 }).join('')
                 + '</tr>')
-                .data('character', clone(character));
+                .data('character', character);
         };
 
-        // returns true if B is better than A (or if it's the only valid option of the two)
+        // returns true if B is better than A
         Optimizer.prototype._characterLT = function (a, b) {
             const _optimizer = this;
             const { settings } = _optimizer;
 
-            if (settings.minBoonDuration > 0) {
-                if ((!a.attributes['Boon Duration'] || a.attributes['Boon Duration']
-                    < settings.minBoonDuration)
-                    && b.attributes['Boon Duration'] && b.attributes['Boon Duration']
-                    >= settings.minBoonDuration) {
-                    // A is invalid, B is valid -> replace A
-                    return true;
-                } else if ((!b.attributes['Boon Duration'] || b.attributes['Boon Duration']
-                    < settings.minBoonDuration)) {
-                    // B is invalid -> do not replace A
-                    return false;
-                }
-            }
-
-            if (settings.minHealingPower > 0) {
-                if ((!a.attributes['Healing Power'] || a.attributes['Healing Power']
-                    < settings.minHealingPower)
-                    && b.attributes['Healing Power'] && b.attributes['Healing Power']
-                    >= settings.minHealingPower) {
-                    // A is invalid, B is valid -> replace A
-                    return true;
-                } else if ((!b.attributes['Healing Power'] || b.attributes['Healing Power']
-                    < settings.minHealingPower)) {
-                    // B is invalid -> do not replace A
-                    return false;
-                }
-            }
-
-            if (settings.minToughness > 0) {
-                if ((!a.attributes['Toughness'] || a.attributes['Toughness'] < settings.minToughness)
-                    && b.attributes['Toughness'] && b.attributes['Toughness'] >= settings.minToughness) {
-                    // A is invalid, B is valid -> replace A
-                    return true;
-                } else if ((!b.attributes['Toughness'] || b.attributes['Toughness'] < settings.minToughness)) {
-                    // B is invalid -> do not replace A
-                    return false;
-                }
-            }
-
-            if (settings.maxToughness) {
-                if (a.attributes['Toughness'] && a.attributes['Toughness'] > settings.maxToughness
-                    && (!b.attributes['Toughness'] || b.attributes['Toughness']
-                        <= settings.maxToughness)) {
-                    // A is invalid, B is valid -> replace A
-                    return true;
-                } else if (b.attributes['Toughness'] && b.attributes['Toughness'] > settings.maxToughness) {
-                    // B is invalid -> do not replace A
-                    return false;
-                }
-            }
+            // if (!a.valid && b.valid) {
+            //     // A is invalid, B is valid -> replace A
+            //     return true;
+            // } else if (!b.valid) {
+            //     // B is invalid -> do not replace A
+            //     return false;
+            // }
 
             if (a.attributes[settings.rankby] === b.attributes[settings.rankby]) {
                 let sumA = 0;
@@ -1481,10 +1445,19 @@ const Optimizer = function ($) {
         return Optimizer;
     }();
 
+    /**
+     * Creates an {attributes} object parameter in the given character object and calculates stats
+     * and damage/healing/survivability scores.
+     *
+     * If alwaysCalculateAll is not set, this function will cancel itself early if the character's
+     * boon duration/toughness/healing power are not valid according to the optimizer settings.
+     */
     const updateAttributes = function (_character, alwaysCalculateAll = false) {
         const { settings } = _character;
 
         _character.attributes = Object.assign({}, _character.baseAttributes);
+
+        _character.valid = true;
 
         $.each(settings.modifiers['flat'], function (attribute, bonus) {
             _character.attributes[attribute] = (_character.attributes[attribute] || 0) + bonus;
@@ -1503,10 +1476,28 @@ const Optimizer = function ($) {
             _character.attributes[attribute] = (_character.attributes[attribute] || 0) + bonus;
         });
 
-        // Derive attributes; store uncapped
-        _character.attributes['Condition Duration'] += _character.attributes['Expertise'] / 15;
-
+        // durations are stored uncapped; be sure to cap at 100% when using
         _character.attributes['Boon Duration'] += _character.attributes['Concentration'] / 15;
+
+        // Check if build is valid
+        if (!alwaysCalculateAll) {
+            const invalid = ((settings.minBoonDuration
+                && _character.attributes['Boon Duration'] < settings.minBoonDuration))
+                || ((settings.minHealingPower
+                && _character.attributes['Healing Power'] < settings.minHealingPower))
+                || ((settings.minToughness
+                && _character.attributes['Toughness'] < settings.minToughness))
+                || ((settings.maxToughness
+                && _character.attributes['Toughness'] > settings.maxToughness));
+
+            if (invalid) {
+                _character.valid = false;
+                return false;
+            }
+        }
+
+        // durations are stored uncapped; be sure to cap at 100% when using
+        _character.attributes['Condition Duration'] += _character.attributes['Expertise'] / 15;
 
         // base critical chance is already set to 5
         _character.attributes['Critical Chance']
@@ -1516,7 +1507,6 @@ const Optimizer = function ($) {
         _character.attributes['Critical Damage'] += _character.attributes['Ferocity'] / 15;
 
         _character.attributes['Health'] += _character.attributes['Vitality'] * 10;
-
         _character.attributes['Armor'] += _character.attributes['Toughness'];
 
         let critDmg = _character.attributes['Critical Damage'];
@@ -1549,7 +1539,7 @@ const Optimizer = function ($) {
             }
         }
 
-        // Handles all multipliers.
+        // Power multipliers
         // Respect additive modifiers. Sums all additive ones and multiplies the sum with the previously
         //  calculated multiplicative multipliers
         let additivePowerModis = 1.0;
@@ -1568,7 +1558,7 @@ const Optimizer = function ($) {
         });
         _character.attributes['Effective Power'] *= additivePowerModis;
 
-        // Conditions
+        // Conditions (skipped if there are no relevant conditions)
         if (alwaysCalculateAll || settings.relevantConditions.length) {
 
             for (const condition of alwaysCalculateAll
@@ -1579,10 +1569,6 @@ const Optimizer = function ($) {
                     = (Condition[condition].factor * _character.attributes['Condition Damage'])
                     + Condition[condition].baseDamage;
             }
-            // $.each(Condition, function (condition, data) {
-            //     _character.attributes[condition + ' Damage']
-            //         = (data.factor * _character.attributes['Condition Damage']) + data.baseDamage;
-            // });
 
             if (_multipliers
                 && (_multipliers['Condition Damage'] || _multipliers['add: Condition Damage'])) {
@@ -1634,6 +1620,7 @@ const Optimizer = function ($) {
         _character.attributes['Survivability'] = _character.attributes['Effective Health'] / 1967;
         _character.attributes['Healing'] = _character.attributes['Effective Healing'];
 
+        return true;
     };
 
     const clone = function (character) {
@@ -1641,6 +1628,7 @@ const Optimizer = function ($) {
             settings: character.settings, // passed by reference
             attributes: character.attributes, // passed by reference
             gear: character.gear, // passed by reference
+            valid: character.valid,
 
             baseAttributes: Object.assign({}, character.baseAttributes),
             infusions: Object.assign({}, character.infusions)
@@ -1747,7 +1735,7 @@ const Optimizer = function ($) {
             function (index, value) {
                 const temp = clone(_character);
                 temp.baseAttributes[value] += 5;
-                updateAttributes(temp);
+                updateAttributes(temp, true);
                 effectiveValues[value] = Number(
                     (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(
                         5)).toLocaleString('en-US');
@@ -1760,7 +1748,7 @@ const Optimizer = function ($) {
             function (index, value) {
                 const temp = clone(_character);
                 temp.baseAttributes[value] = Math.max(temp.baseAttributes[value] - 5, 0);
-                updateAttributes(temp);
+                updateAttributes(temp, true);
                 effectiveNegativeValues[value] = Number(
                     (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(
                         5)).toLocaleString('en-US');
