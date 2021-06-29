@@ -2294,6 +2294,67 @@ const Optimizer = function ($) {
         $('[data-toggle="tooltip"]').tooltip();
     });
 
+    $('#debug-additive').click(function () {
+        if (!$('.debug-legend').length) {
+            $('#go-input-class .card-body').prepend($('<div class="debug-legend"></div>'));
+        } else {
+            $('#debug-legend').empty();
+        }
+
+        $('.debug-legend').html(`
+            Damage bonus stacks: `
+            // <span style="color: green">multiplicatively (normal)</span> ///
+            + `<span style="color: blue">additively with other additive mods</span>
+        `);
+
+        $('#go-input-class .input').css('color', 'inherit');
+
+        $('#go-input-class .input').each((index, inputElement) => {
+            const modifier = $(inputElement).find('input').attr('data-go-modifier');
+            if (!modifier) {
+                return;
+            }
+            if (modifier.includes('add: ')) {
+                $(inputElement).css('color', 'blue');
+            }
+            // if (modifier.includes('"Effective Power')) {
+            //     $(inputElement).css('color', 'green');
+            // }
+            // if (modifier.includes('"Condition Damage')) {
+            //     $(inputElement).css('color', 'green');
+            // }
+        });
+    });
+
+    $('#debug-converted').click(function () {
+        if (!$('.debug-legend').length) {
+            $('#go-input-class .card-body').prepend($('<div class="debug-legend"></div>'));
+        } else {
+            $('#debug-legend').empty();
+        }
+
+        $('.debug-legend').html(`
+            Added buff stats will be:
+            <span style="color: yellow">converted by e.g. sharpening stones</span> ///
+            <span style="color: orange">not converted by e.g. sharpening stones</span>
+        `);
+
+        $('#go-input-class .input').css('color', 'inherit');
+
+        $('#go-input-class .input').each((index, inputElement) => {
+            const modifier = $(inputElement).find('input').attr('data-go-modifier');
+            if (!modifier) {
+                return;
+            }
+            if (modifier.includes('flat')) {
+                $(inputElement).css('color', 'orange');
+            }
+            if (modifier.includes('buff')) {
+                $(inputElement).css('color', 'yellow');
+            }
+        });
+    });
+
     // $("#go-mesmer").load('html/input-mesmer.html');
     // $("#go-warrior").load('html/input-warrior.html');
     // $("#go-guardian").load('html/input-guardian.html');
