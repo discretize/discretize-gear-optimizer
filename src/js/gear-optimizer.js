@@ -786,7 +786,7 @@ const Optimizer = function ($) {
         // Re: condi dmg from omnipot https://discordapp.com/channels/301270513093967872/370538919118503947/716949463423516713
         'multiplier': {
             'Effective Power': 0.15,
-            'add: Condition Damage': 0.15, // stacks additively
+            'add: Effective Condition Damage': 0.15, // stacks additively
             'Effective Health': 0.25
         },
         'convert': {
@@ -961,13 +961,11 @@ const Optimizer = function ($) {
                                 if (attribute && value) {
                                     switch (type) {
                                         case 'multiplier':
-                                            if (attribute !== 'Condition Damage'
+                                            if (attribute !== 'Effective Condition Damage'
                                                 && attribute !== 'Critical Damage'
                                                 && !Attributes.EFFECTIVE.includes(attribute)
                                                 && !Attributes.CONDITION_DAMAGE.includes(attribute)
-                                                && attribute !== 'add: Condition Damage'
-                                                && attribute !== 'pre: Condition Damage'
-                                                && attribute !== 'post: Condition Damage'
+                                                && attribute !== 'add: Effective Condition Damage'
                                                 && attribute !== 'add: Effective Power')
                                             {
                                                 console.error(modifier);
@@ -1571,12 +1569,12 @@ const Optimizer = function ($) {
             }
 
             if (_multipliers
-                && (_multipliers['Condition Damage'] || _multipliers['add: Condition Damage'])) {
+                && (_multipliers['Effective Condition Damage'] || _multipliers['add: Effective Condition Damage'])) {
 
-                if (_multipliers['add: Condition Damage']) {
+                if (_multipliers['add: Effective Condition Damage']) {
                     // Sums up all additive condition damage modifiers
                     let additiveCondiDmg = 1.0;
-                    for (const multiplier of _multipliers['add: Condition Damage']) {
+                    for (const multiplier of _multipliers['add: Effective Condition Damage']) {
                         additiveCondiDmg += multiplier;
                     }
                     // multiply the sum of all additive modifiers on the characters condition ticks
@@ -1585,8 +1583,8 @@ const Optimizer = function ($) {
                     }
                 }
 
-                if (_multipliers['Condition Damage']) {
-                    for (const multiplier of _multipliers['Condition Damage']) {
+                if (_multipliers['Effective Condition Damage']) {
+                    for (const multiplier of _multipliers['Effective Condition Damage']) {
                         for (const conditionDamage of Attributes.CONDITION_DAMAGE) {
                             _character.attributes[conditionDamage] *= 1.0 + multiplier;
                         }
@@ -2292,6 +2290,73 @@ const Optimizer = function ($) {
 
     $(function () {
         $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    $('#debug-additive').click(function () {
+        if (!$('.debug-legend').length) {
+            $('#go-input-class .card-body').prepend($('<div class="debug-legend"></div>'));
+        } else {
+            $('#debug-legend').empty();
+        }
+
+        $('.debug-legend').html(`
+            Damage bonus stacks:
+            <span style="color: green">multiplicatively (normal)</span> ///
+            <span style="color: blue">additively with other additive mods</span>
+        `);
+
+        $('#go-input-class .input').css('color', 'inherit');
+
+        $('#go-input-class .input').each((index, inputElement) => {
+            const modifier = $(inputElement).find('input').attr('data-go-modifier');
+            if (!modifier) {
+                return;
+            }
+            if (modifier.includes('add: ')) {
+                $(inputElement).css('color', 'blue');
+            }
+            if (modifier.includes('"Effective Power')) {
+                $(inputElement).css('color', 'green');
+            }
+            if (modifier.includes('"Effective Condition Damage')) {
+                $(inputElement).css('color', 'green');
+            }
+            if (modifier.includes('add: ') && (modifier.includes('"Effective Power') || modifier.includes('"Effective Condition Damage'))) {
+                $(inputElement).css('color', 'purple');
+            }
+        });
+    });
+
+    $('#debug-converted').click(function () {
+        if (!$('.debug-legend').length) {
+            $('#go-input-class .card-body').prepend($('<div class="debug-legend"></div>'));
+        } else {
+            $('#debug-legend').empty();
+        }
+
+        $('.debug-legend').html(`
+            Added buff stats will be:
+            <span style="color: yellow">converted by e.g. sharpening stones</span> ///
+            <span style="color: orange">not converted by e.g. sharpening stones</span>
+        `);
+
+        $('#go-input-class .input').css('color', 'inherit');
+
+        $('#go-input-class .input').each((index, inputElement) => {
+            const modifier = $(inputElement).find('input').attr('data-go-modifier');
+            if (!modifier) {
+                return;
+            }
+            if (modifier.includes('flat')) {
+                $(inputElement).css('color', 'yellow');
+            }
+            if (modifier.includes('buff')) {
+                $(inputElement).css('color', 'orange');
+            }
+            if (modifier.includes('flat') && modifier.includes('buff')) {
+                $(inputElement).css('color', 'purple');
+            }
+        });
     });
 
     // $("#go-mesmer").load('html/input-mesmer.html');
