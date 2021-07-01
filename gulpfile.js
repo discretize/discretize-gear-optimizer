@@ -164,7 +164,7 @@ gulp.task('js', function(callback) {
 gulp.task('customjs', function(){
 	return gulp.src(src.js)
 		.pipe(babel({
-			presets: [ 'es2015' ]
+			presets: [ '@babel/preset-env' ]
 		}))
 			.on('error', swallowError)
 		.pipe(concat(dist.js))
@@ -183,7 +183,7 @@ gulp.task('vendorjs', function() {
 gulp.task('gojs', function(){
 	return gulp.src(src.gojs)
 		.pipe(babel({
-			presets: [ 'es2015' ]
+			presets: [ '@babel/preset-env' ]
 		}))
 			.on('error', swallowError)
 		.pipe(concat(dist.gojs))
