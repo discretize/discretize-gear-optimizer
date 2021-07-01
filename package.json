@@ -10,15 +10,14 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.14.7",
     "autoprefixer": "^7.1.2",
-    "babel-core": "^6.26.0",
     "babel-loader": "^8.2.2",
-    "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.26.0",
     "browser-sync": "^2.27.4",
     "cssnano": "^4",
     "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.0",
+    "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.1",
     "gulp-htmlmin": "^3.0.0",
@@ -34,5 +33,9 @@
   },
   "engines": {
     "node": "10"
-  }
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "dependencies": {}
 }
