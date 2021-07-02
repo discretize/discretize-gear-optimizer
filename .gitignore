@@ -7,3 +7,5 @@ misc/
 src/.idea
 install.bat
 *.iml
+
+.DS_Store
