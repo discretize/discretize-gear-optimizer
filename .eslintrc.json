@@ -18,6 +18,13 @@
         "dot-notation": "off",
         "no-prototype-builtins": "off",
         "wrap-iife": "off",
-        "no-unused-vars": "warn"
+        "no-unused-vars": "warn",
+        "max-len": [
+            "warn",
+            { 
+                "code": 100,
+                "ignoreComments": true
+            }
+        ]
     }
 }
