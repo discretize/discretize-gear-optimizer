@@ -112,7 +112,7 @@ const img = function () {
 	return gulp.src(src.img)
 		// .pipe(imagemin([
 		// 	imagemin.gifsicle({interlaced: true}),
-		// 	imagemin.jpegtran({progressive: true}),
+		// 	imagemin.mozjpeg({progressive: true}),
 		// 	imagemin.optipng({optimizationLevel: 5})
 		// ]))
 		// 	.on('error', swallowError)
