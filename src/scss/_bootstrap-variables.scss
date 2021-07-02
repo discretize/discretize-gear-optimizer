@@ -408,14 +408,14 @@ $nav-pills-link-active-bg: $component-active-bg;
 /* ==================================================
 	Navbar
 ================================================== */
-$navbar-padding-y: ($spacer / 2);
-$navbar-padding-x: ($spacer / 2);
+$navbar-padding-y: ($spacer * 0.5);
+$navbar-padding-x: ($spacer * 0.5);
 
 $navbar-brand-font-size: $font-size-lg;
 // Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
 $nav-link-height: $navbar-brand-font-size * $line-height-base;
 $navbar-brand-height: ($font-size-base * $line-height-base + $nav-link-padding-y * 2);
-$navbar-brand-padding-y: ($navbar-brand-height - $nav-link-height) / 2;
+$navbar-brand-padding-y: ($navbar-brand-height - $nav-link-height) * 0.5;
 
 $navbar-toggler-padding-y: .25rem;
 $navbar-toggler-padding-x: .75rem;
@@ -450,7 +450,7 @@ $card-bg: $gray-dark;
 
 $card-img-overlay-padding: 1.25rem;
 
-$card-deck-margin: ($grid-gutter-width / 2);
+$card-deck-margin: ($grid-gutter-width * 0.5);
 
 $card-columns-count: 3;
 $card-columns-gap: 1.25rem;
