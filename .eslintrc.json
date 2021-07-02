@@ -9,18 +9,6 @@
     ],
     "extends": "semistandard",
     "rules": {
-        "indent": [
-            "error",
-            4,
-            {
-                "SwitchCase": 1,
-                "MemberExpression": 1
-            }
-        ],
-        "quote-props": [
-            "warn",
-            "consistent"
-        ],
         "padded-blocks": "off",
         "operator-linebreak": [
             "warn",
