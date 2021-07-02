@@ -783,7 +783,8 @@ const Optimizer = function ($) {
   });
 
   const Omnipotion = Object.freeze({
-    // Re: condi dmg from omnipot https://discordapp.com/channels/301270513093967872/370538919118503947/716949463423516713
+    // Re: condi dmg from omnipot
+    // https://discordapp.com/channels/301270513093967872/370538919118503947/716949463423516713
     multiplier: {
       'Effective Power': 0.15,
       'add: Effective Condition Damage': 0.15, // stacks additively
@@ -968,7 +969,8 @@ const Optimizer = function ($) {
                         && attribute !== 'add: Effective Power'
                       ) {
                         console.error(modifier);
-                        throw 'Multipliers can only modify primary, secondary or effective attributes, not '
+                        throw 'Multipliers can only modify primary, secondary or'
+                          + 'effective attributes, not '
                           + attribute;
                       }
                       if (!settings.modifiers[type][attribute]) {
@@ -980,7 +982,8 @@ const Optimizer = function ($) {
                         } else {
                           // combine multiplicative modifiers
                           settings.modifiers[type][attribute][0]
-                            = ((settings.modifiers[type][attribute][0] + 1.0) * (value + 1.0)) - 1;
+                            = ((settings.modifiers[type][attribute][0] + 1.0) * (value + 1.0))
+                            - 1;
                         }
                       }
                       break;
@@ -994,7 +997,8 @@ const Optimizer = function ($) {
                         && !Attributes.CONDITION_DURATION.includes(attribute)
                       ) {
                         console.error(modifier);
-                        throw 'Flat or buff modifiers can only increase primary, secondary or derived attributes, not '
+                        throw 'Flat or buff modifiers can only increase primary, secondary or'
+                          + 'derived attributes, not '
                           + attribute;
                       }
 
@@ -1086,15 +1090,18 @@ const Optimizer = function ($) {
 
       settings.distribution = {};
       settings.relevantConditions = [];
-      $.each($('#go-condition-distribution-input').find('input[data-go-distribution]'), function () {
-        const percentage = parseInt($(this).val());
-        if (percentage) {
-          settings.distribution[$(this).data('go-distribution')] = percentage;
-          if ($(this).data('go-distribution') !== 'Power') {
-            settings.relevantConditions.push($(this).data('go-distribution'));
+      $.each(
+        $('#go-condition-distribution-input').find('input[data-go-distribution]'),
+        function () {
+          const percentage = parseInt($(this).val());
+          if (percentage) {
+            settings.distribution[$(this).data('go-distribution')] = percentage;
+            if ($(this).data('go-distribution') !== 'Power') {
+              settings.relevantConditions.push($(this).data('go-distribution'));
+            }
           }
         }
-      });
+      );
 
       Object.freeze(_optimizer.settings);
     }
@@ -1126,18 +1133,26 @@ const Optimizer = function ($) {
         .css('width', 0 + '%').children(Selector.SPAN).text('0%');
       $(Selector.OUTPUT.PROGRESS_BAR).parent().show();
 
-      $(Selector.OUTPUT.HEADER)
-        .html('<th>' + settings.rankby + '</th>'
+      $(Selector.OUTPUT.HEADER).html(
+        '<th>' + settings.rankby + '</th>'
           + $.map(Slots[settings.weapontype], function (index) {
             return '<th title="' + index.name + '">' + index.short + '</th>';
           }).join('')
           + (settings.primaryInfusion
-            ? ('<th title="' + settings.primaryInfusion + '">' + settings.primaryInfusion.substring(0, 4) + '</th>')
+            ? '<th title="'
+              + settings.primaryInfusion
+              + '">'
+              + settings.primaryInfusion.substring(0, 4)
+              + '</th>'
             : '')
           + (settings.secondaryInfusion
-            ? ('<th title="' + settings.secondaryInfusion + '">' + settings.secondaryInfusion.substring(0, 4) + '</th>')
+            ? '<th title="'
+              + settings.secondaryInfusion
+              + '">'
+              + settings.secondaryInfusion.substring(0, 4)
+              + '</th>'
             : '')
-        );
+      );
 
       _optimizer._lock(true);
 
@@ -1215,11 +1230,14 @@ const Optimizer = function ($) {
             newGear[nextSlot] = currentAffix;
 
             // add gear stats
-            $.each(Slots[settings.weapontype][nextSlot].item[Affix[currentAffix].type], function (type, bonus) {
-              for (const stat of Affix[currentAffix].bonuses[type]) {
-                newGearStats[stat] = (newGearStats[stat] || 0) + bonus;
+            $.each(
+              Slots[settings.weapontype][nextSlot].item[Affix[currentAffix].type],
+              function (type, bonus) {
+                for (const stat of Affix[currentAffix].bonuses[type]) {
+                  newGearStats[stat] = (newGearStats[stat] || 0) + bonus;
+                }
               }
-            });
+            );
 
             _optimizer.calculationQueue.push(newGear);
             _optimizer.calculationStatsQueue.push(newGearStats);
@@ -1228,11 +1246,13 @@ const Optimizer = function ($) {
           gear[nextSlot] = currentAffix;
 
           // add gear stats
-          $.each(Slots[settings.weapontype][nextSlot].item[Affix[currentAffix].type], function (type, bonus) {
-            for (const stat of Affix[currentAffix].bonuses[type]) {
-              gearStats[stat] = (gearStats[stat] || 0) + bonus;
-            }
-          });
+          $.each(
+            Slots[settings.weapontype][nextSlot].item[Affix[currentAffix].type],
+            function (type, bonus) {
+              for (const stat of Affix[currentAffix].bonuses[type]) {
+                gearStats[stat] = (gearStats[stat] || 0) + bonus;
+              }
+            });
 
           _optimizer.calculationQueue.push(gear);
           _optimizer.calculationStatsQueue.push(gearStats);
@@ -1318,8 +1338,11 @@ const Optimizer = function ($) {
       const _optimizer = this;
       const { settings } = _optimizer;
 
-      if (!character.valid
-        || (_optimizer.worstScore && _optimizer.worstScore > character.attributes[settings.rankby])) {
+      if (
+        !character.valid
+        || (_optimizer.worstScore
+          && _optimizer.worstScore > character.attributes[settings.rankby])
+      ) {
         return;
       }
 
@@ -1537,8 +1560,8 @@ const Optimizer = function ($) {
     }
 
     // Power multipliers
-    // Respect additive modifiers. Sums all additive ones and multiplies the sum with the previously
-    //  calculated multiplicative multipliers
+    // Respect additive modifiers. Sums all additive ones and multiply the sum with
+    // the previously calculated multiplicative multipliers
     let additivePowerModis = 1.0;
     $.each(_multipliers, function (attribute, multipliers) {
       if (Attributes.EFFECTIVE.includes(attribute) && _character.attributes[attribute]) {
@@ -1567,9 +1590,11 @@ const Optimizer = function ($) {
           + Condition[condition].baseDamage;
       }
 
-      if (_multipliers
-        && (_multipliers['Effective Condition Damage'] || _multipliers['add: Effective Condition Damage'])) {
-
+      if (
+        _multipliers
+        && (_multipliers['Effective Condition Damage']
+          || _multipliers['add: Effective Condition Damage'])
+      ) {
         if (_multipliers['add: Effective Condition Damage']) {
           // Sums up all additive condition damage modifiers
           let additiveCondiDmg = 1.0;
@@ -1657,7 +1682,8 @@ const Optimizer = function ($) {
     // Header
     modal += '<div class="modal-header">';
     modal += '<h5 class="modal-title">Character Overview</h5>';
-    modal += '<button type="button" class="close" data-dismiss="modal"><span class="fa fa-times"></span></button>';
+    modal += '<button type="button" class="close" data-dismiss="modal">'
+      + '<span class="fa fa-times"></span></button>';
     modal += '</div>';
 
     // Body
@@ -1919,7 +1945,10 @@ const Optimizer = function ($) {
       $('#go-checkbox-mesmer-chaotic-persistence').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-mesmer-nomads-endurance').prop(PropertyName.CHECKED, true);
 
-    } else if ($(this).data(DataAttribute.PRESELECTION) === 'dh' || $(this).data(DataAttribute.PRESELECTION) === 'pqfb') {
+    } else if (
+      $(this).data(DataAttribute.PRESELECTION) === 'dh'
+      || $(this).data(DataAttribute.PRESELECTION) === 'pqfb'
+    ) {
       $('[id^="go-checkbox-guardian-"]').prop(PropertyName.CHECKED, false);
       $('#go-checkbox-guardian-fiery-wrath').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-guardian-symbolic-avenger').prop(PropertyName.CHECKED, true);
@@ -2320,7 +2349,11 @@ const Optimizer = function ($) {
       if (modifier.includes('"Effective Condition Damage')) {
         $(inputElement).css('color', 'green');
       }
-      if (modifier.includes('add: ') && (modifier.includes('"Effective Power') || modifier.includes('"Effective Condition Damage'))) {
+      if (
+        modifier.includes('add: ')
+        && (modifier.includes('"Effective Power')
+          || modifier.includes('"Effective Condition Damage'))
+      ) {
         $(inputElement).css('color', 'purple');
       }
     });
