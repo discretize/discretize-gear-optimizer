@@ -961,13 +961,14 @@ const Optimizer = function ($) {
                                 if (attribute && value) {
                                     switch (type) {
                                         case 'multiplier':
-                                            if (attribute !== 'Effective Condition Damage'
+                                            if (
+                                                attribute !== 'Effective Condition Damage'
                                                 && attribute !== 'Critical Damage'
                                                 && !Attributes.EFFECTIVE.includes(attribute)
                                                 && !Attributes.CONDITION_DAMAGE.includes(attribute)
                                                 && attribute !== 'add: Effective Condition Damage'
-                                                && attribute !== 'add: Effective Power')
-                                            {
+                                                && attribute !== 'add: Effective Power'
+                                            ) {
                                                 console.error(modifier);
                                                 throw 'Multipliers can only modify primary, secondary or effective attributes, not '
                                                 + attribute;
