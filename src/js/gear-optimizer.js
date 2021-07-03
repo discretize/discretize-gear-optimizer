@@ -982,14 +982,12 @@ const Optimizer = function ($) {
                       if (!settings.modifiers[type][attribute]) {
                         settings.modifiers[type][attribute] = [];
                         settings.modifiers[type][attribute].push(value);
+                      } else if (attribute.startsWith('add: ')) {
+                        settings.modifiers[type][attribute][0] += value;
                       } else {
-                        if (attribute.startsWith('add: ')) {
-                          settings.modifiers[type][attribute][0] += value;
-                        } else {
-                          // combine multiplicative modifiers
-                          settings.modifiers[type][attribute][0]
+                        // combine multiplicative modifiers
+                        settings.modifiers[type][attribute][0]
                             = (settings.modifiers[type][attribute][0] + 1.0) * (value + 1.0) - 1;
-                        }
                       }
                       break;
                     case 'flat':
@@ -1347,17 +1345,13 @@ const Optimizer = function ($) {
       if (!settings.primaryInfusion) {
         updateAttributes(character);
         _optimizer._insertCharacter(character);
-      } else {
-        if (!settings.secondaryInfusion) {
-          character.infusions = { [settings.primaryInfusion]: INFUSION_AMOUNT };
-          addBaseStats(character, settings.primaryInfusion, INFUSION_TOTAL);
-          updateAttributes(character);
-          _optimizer._insertCharacter(character);
-        } else {
-          if (!_optimizer.worstScore || testInfusionUsefulness()) {
-            _optimizer._applySecondaryInfusions(character);
-          }
-        }
+      } else if (!settings.secondaryInfusion) {
+        character.infusions = { [settings.primaryInfusion]: INFUSION_AMOUNT };
+        addBaseStats(character, settings.primaryInfusion, INFUSION_TOTAL);
+        updateAttributes(character);
+        _optimizer._insertCharacter(character);
+      } else if (!_optimizer.worstScore || testInfusionUsefulness()) {
+        _optimizer._applySecondaryInfusions(character);
       }
     };
 
@@ -1597,11 +1591,9 @@ const Optimizer = function ($) {
         for (const multiplier of multipliers) {
           _character.attributes[attribute] *= 1.0 + multiplier;
         }
-      } else {
-        if (attribute === 'add: Effective Power') {
-          for (const multiplier of multipliers) {
-            additivePowerModis += multiplier;
-          }
+      } else if (attribute === 'add: Effective Power') {
+        for (const multiplier of multipliers) {
+          additivePowerModis += multiplier;
         }
       }
     });

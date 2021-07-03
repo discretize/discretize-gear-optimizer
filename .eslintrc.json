@@ -25,6 +25,7 @@
                 "code": 100,
                 "ignoreComments": true
             }
-        ]
+        ],
+        "no-lonely-if": "warn"
     }
 }
