@@ -40,7 +40,7 @@
     "node": "10"
   },
   "browserslist": [
-    "last 2 chrome versions, last 2 edge versions, last 2 firefox versions, last 2 safari versions, last 2 iOS versions, last 2 and_ff versions, last 2 android versions"
-  ],
+      "Chrome >= 60,  Safari >= 10.1,  iOS >= 10.3,  Firefox >= 54,  Edge >= 15"
+    ],
   "dependencies": {}
 }
