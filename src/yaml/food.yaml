@@ -8,14 +8,14 @@
     armory-type: 'items'
 
   truffle-steak:
-    text: 'Plate of Truffle Steak'
+    text: 'Plate of Truffle Steak / Coq Au Vin'
     modifiers:
       flat: {'Power': 100, 'Precision': 70}
     gw2-id: 12467
     armory-type: 'items'
 
   sweet-and-spicy-butternut-squash-soup:
-    text: 'Bowl of Sweet and Spicy Butternut Squash Soup'
+    text: 'Bowl of Sweet and Spicy Butternut Squash Soup <br>/ Sous-Vide Steak '
     modifiers:
       flat: {'Power': 100, 'Ferocity': 70}
     gw2-id: 41569
@@ -72,7 +72,7 @@
 - SECTION: 'Support Food'
 
   poultry-satay:
-    text: 'Bowl of Poultry Satay'
+    text: 'Bowl of Poultry Satay / Fruit Salad'
     modifiers:
       flat: {'Healing Power': 100, 'Concentration': 70}
     gw2-id: 87076
@@ -93,21 +93,21 @@
     armory-type: 'items'
 
   soul-pastry:
-    text: 'Soul Pastry'
+    text: 'Soul Pastry / Beef Carpaccio'
     modifiers:
       flat: {'Concentration': 100, 'Power': 70}
     gw2-id: 89002
     armory-type: 'items'
 
   fried-golden-dumpling:
-    text: 'Fried Golden Dumpling'
+    text: 'Fried Golden Dumpling / Cheesecake'
     modifiers:
       flat: {'Concentration': 100}
     gw2-id: 68633
     armory-type: 'items'
 
   nopalitos-saute:
-    text: 'Bowl of Nopalitos Sauté'
+    text: 'Bowl of Nopalitos Sauté / Poultry Aspic'
     modifiers:
       flat: {'Concentration': 100, 'Toughness': 70}
     gw2-id: 66530
@@ -134,7 +134,7 @@
 - SECTION: 'Condition Food'
 
   rare-veggie-pizza:
-    text: 'Rare Veggie Pizza'
+    text: 'Rare Veggie Pizza / Veggie Flatbread'
     modifiers:
       flat: {'Expertise': 100, 'Condition Damage': 70}
     gw2-id: 12464
@@ -150,7 +150,7 @@
     armory-type: 'items'
 
   beef-rendang:
-    text: 'Plate of Beef Rendang'
+    text: 'Plate of Beef Rendang / Cured Meat Flatbread'
     modifiers:
       flat: {'Condition Damage': 100, 'Expertise': 70}
     gw2-id: 86997
@@ -201,21 +201,12 @@
     armory-type: 'items'
 
   dragon's-revelry-starcake:
-    text: 'Dragon''s Revelry Starcake'
+    text: 'Dragon''s Revelry Starcake / Oyster Soup'
     modifiers:
       flat: {'Power': 45, 'Precision': 45, 'Toughness': 45, 'Vitality': 45,
         'Concentration': 45, 'Condition Damage': 45, 'Expertise': 45,
         'Ferocity': 45, 'Healing Power': 45}
     gw2-id: 43550
-    armory-type: 'items'
-
-  red-lentil-and-flatbread-feast:
-    text: 'Red Lentil and Flatbread Feast'
-    modifiers:
-      flat: {'Power': 45, 'Precision': 45, 'Toughness': 45, 'Vitality': 45,
-        'Concentration': 45, 'Condition Damage': 45, 'Expertise': 45,
-        'Ferocity': 45, 'Healing Power': 45}
-    gw2-id: 82657
     armory-type: 'items'
 
   fire-flank-steak:
