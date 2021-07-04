@@ -3,7 +3,7 @@
   scholar:
     text: >
       Superior Rune of the Scholar<br> 
-      <small class="text-muted font-italic">(with active bonus)</small>
+      <small class="text-muted font-italic">(100% active bonus)</small>
     modifiers:
       flat: {'Power': 175, 'Ferocity': 225}
       multiplier: {'Effective Power': 0.05}
@@ -19,6 +19,22 @@
     gw2-id: 24836
     armory-type: 'items'
 
+  eagle:
+    text: 'Superior Rune of the Eagle'
+    modifiers:
+      flat: {'Precision': 175, 'Ferocity': 225}
+      multiplier: {'Effective Power': 0.05}
+    gw2-id: 24723
+    armory-type: 'items'
+
+  thief:
+    text: 'Superior Rune of the Thief'
+    modifiers:
+      flat: {'Precision': 300, 'Condition Damage': 100}
+      multiplier: {'Effective Power': 0.1}
+    gw2-id: 24818
+    armory-type: 'items'
+
   spellbreaker:
     text: 'Superior Rune of the Spellbreaker'
     modifiers:
@@ -27,7 +43,7 @@
     gw2-id: 84749
     armory-type: 'items'
 
-  flame-legion:
+  flame-legion: &flame-legion
     text: 'Superior Rune of the Flame Legion'
     modifiers:
       flat: {'Power': 175, 'Burning Duration': 50}
@@ -43,29 +59,6 @@
     gw2-id: 24714
     armory-type: 'items'
 
-  eagle:
-    text: 'Superior Rune of the Eagle'
-    modifiers:
-      flat: {'Precision': 175, 'Ferocity': 225}
-      multiplier: {'Effective Power': 0.05}
-    gw2-id: 24723
-    armory-type: 'items'
-
-  exuberance:
-    text: 'Superior Rune of Exuberance'
-    modifiers:
-      flat: {'Vitality': 175}
-      convert: {'Healing Power': {'Vitality': 0.03}, 'Precision': {'Vitality': 0.05}, 'Power': {'Vitality': 0.07}}
-    gw2-id: 44951
-    armory-type: 'items'
-
-  pack:
-    text: 'Superior Rune of the Pack'
-    modifiers:
-      flat: {'Power': 175, 'Boon Duration': 15, 'Precision': 125}
-    gw2-id: 24702
-    armory-type: 'items'
-
   ogre:
     text: 'Superior Rune of the Ogre'
     modifiers:
@@ -74,21 +67,20 @@
     gw2-id: 24756
     armory-type: 'items'
 
-  thief:
-    text: 'Superior Rune of the Thief'
+  chronomancer:
+    text: 'Superior Rune of the Chronomancer'
     modifiers:
-      flat: {'Precision': 300, 'Condition Damage': 100}
-      multiplier: {'Effective Power': 0.1}
-    gw2-id: 24818
+      flat: {'Power': 175, 'Precision': 100}
+    gw2-id: 73399
     armory-type: 'items'
 
 - SECTION: 'Support Runes'
 
-  firebrand:
-    text: 'Superior Rune of the Firebrand'
+  pack:
+    text: 'Superior Rune of the Pack'
     modifiers:
-      flat: {'Condition Damage': 175, 'Boon Duration': 10, 'Quickness Duration': 30}
-    gw2-id: 83338
+      flat: {'Power': 175, 'Boon Duration': 15, 'Precision': 125}
+    gw2-id: 24702
     armory-type: 'items'
 
   leadership:
@@ -101,6 +93,13 @@
     gw2-id: 70600
     armory-type: 'items'
 
+  firebrand:
+    text: 'Superior Rune of the Firebrand'
+    modifiers:
+      flat: {'Condition Damage': 175, 'Boon Duration': 10, 'Quickness Duration': 30}
+    gw2-id: 83338
+    armory-type: 'items'
+
   surging-and-ruby-orb:
     text: > 
       Superior Rune of Surging (5x) <br>
@@ -111,37 +110,6 @@
     gw2-id: 76813
     armory-type: 'items'
 
-  durability:
-    text: 'Superior Rune of Durability'
-    modifiers:
-      flat: {'Toughness': 175, 'Boon Duration': 15}
-      multiplier: {'Effective Health': 0.1}
-    gw2-id: 73653
-    armory-type: 'items'
-
-  herald:
-    text: 'Superior Rune of the Herald'
-    modifiers:
-      flat: {'Toughness': 175, 'Boon Duration': 15}
-    gw2-id: 76100
-    armory-type: 'items'
-
-  chronomancer:
-    text: 'Superior Rune of the Chronomancer'
-    modifiers:
-      flat: {'Power': 175, 'Precision': 100}
-    gw2-id: 73399
-    armory-type: 'items'
-
-  revenant:
-    text: 'Superior Rune of the Revenant'
-    modifiers:
-      flat: {'Power': 78, 'Precision': 78, 'Toughness': 78, 'Vitality': 78,
-        'Concentration': 78, 'Condition Damage': 78, 'Expertise': 78,
-        'Ferocity': 78, 'Healing Power': 78}
-    gw2-id: 69370
-    armory-type: 'items'
-
   surging:
     text: 'Superior Rune of Surging'
     modifiers:
@@ -149,21 +117,21 @@
     gw2-id: 76813
     armory-type: 'items'
 
-  divinity:
-    text: 'Superior Rune of Divinity'
+  radiance:
+    text: 'Superior Rune of Radiance'
     modifiers:
-      flat: {'Power': 78, 'Precision': 78, 'Toughness': 78, 'Vitality': 78,
-        'Concentration': 78, 'Condition Damage': 78, 'Expertise': 78,
-        'Ferocity': 78, 'Healing Power': 78}
-      multiplier: {'Effective Health': 0.1}
-    gw2-id: 24732
+      flat: {'Vitality': 175, 'Boon Duration': 25}
+    gw2-id: 67342
     armory-type: 'items'
 
-  rebirth:
-    text: 'Superior Rune of the Rebirth'
+- SECTION: 'Defensive Runes'
+
+  durability:
+    text: 'Superior Rune of Durability'
     modifiers:
-      flat: {'Healing Power': 300, 'Boon Duration': 15}
-    gw2-id: 84171
+      flat: {'Toughness': 175, 'Boon Duration': 15}
+      multiplier: {'Effective Health': 0.1}
+    gw2-id: 73653
     armory-type: 'items'
 
   sanctuary:
@@ -173,11 +141,18 @@
     gw2-id: 24857
     armory-type: 'items'
 
-  radiance:
-    text: 'Superior Rune of Radiance'
+  herald:
+    text: 'Superior Rune of the Herald'
     modifiers:
-      flat: {'Vitality': 175, 'Boon Duration': 25}
-    gw2-id: 67342
+      flat: {'Toughness': 175, 'Boon Duration': 15}
+    gw2-id: 76100
+    armory-type: 'items'
+
+  rebirth: &rebirth
+    text: 'Superior Rune of the Rebirth'
+    modifiers:
+      flat: {'Healing Power': 300, 'Boon Duration': 15}
+    gw2-id: 84171
     armory-type: 'items'
 
 - SECTION: 'Heal Runes'
@@ -206,7 +181,9 @@
     gw2-id: 38206
     armory-type: 'items'
 
-- SECTION: 'Condition Runes'
+  rebirth: *rebirth
+
+- SECTION: 'Condition Runes (Generic)'
 
   berserker:
     text: 'Superior Rune of the Berserker'
@@ -224,12 +201,11 @@
     gw2-id: 83502
     armory-type: 'items'
 
-  baelfire:
-    text: 'Superior Rune of the Baelfire'
+  elementalist:
+    text: 'Superior Rune of the Elementalist'
     modifiers:
-      flat: {'Power': 175, 'Condition Duration': 10, 'Burning Duration': 30}
-      convert: {'Expertise': {'Power': 0.07}}
-    gw2-id: 24854
+      flat: {'Power': 175, 'Condition Damage': 225, 'Condition Duration': 10}
+    gw2-id: 24800
     armory-type: 'items'
 
   lich:
@@ -238,6 +214,20 @@
       flat: {'Vitality': 175, 'Condition Duration': 15}
       multiplier: {'add: Effective Condition Damage': 0.04}
     gw2-id: 24688
+    armory-type: 'items'
+
+  trapper:
+    text: 'Superior Rune of the Trapper'
+    modifiers:
+      flat: {'Condition Damage': 175, 'Condition Duration': 15}
+    gw2-id: 67339
+    armory-type: 'items'
+
+  nightmare:
+    text: 'Superior Rune of the Nightmare'
+    modifiers:
+      flat: {'Condition Damage': 175, 'Condition Duration': 20, 'Fear Duration': 10}
+    gw2-id: 24848
     armory-type: 'items'
 
   tempest:
@@ -265,19 +255,19 @@
     gw2-id: 24806
     armory-type: 'items'
 
-  nightmare:
-    text: 'Superior Rune of the Nightmare'
+  soulbeast:
+    text: > 
+      Superior Rune of the Soulbeast<br>
+      <small class="text-muted font-italic">(Active Bonus)</small>
     modifiers:
-      flat: {'Condition Damage': 175, 'Condition Duration': 20, 'Fear Duration': 10}
-    gw2-id: 24848
+      flat: {'Condition Damage': 175, 'Power': 100}
+      convert: {'Condition Damage': {'Power': 0.07}}
+    gw2-id: 83964
     armory-type: 'items'
 
-  trapper:
-    text: 'Superior Rune of the Trapper'
-    modifiers:
-      flat: {'Condition Damage': 175, 'Condition Duration': 15}
-    gw2-id: 67339
-    armory-type: 'items'
+- SECTION: 'Condition Runes (Specific)'
+
+# burning
 
   balthazar:
     text: 'Superior Rune of Balthazar'
@@ -287,11 +277,30 @@
     gw2-id: 24765
     armory-type: 'items'
 
+  flame-legion: *flame-legion
+
+  baelfire:
+    text: 'Superior Rune of the Baelfire'
+    modifiers:
+      flat: {'Power': 175, 'Condition Duration': 10, 'Burning Duration': 30}
+      convert: {'Expertise': {'Power': 0.07}}
+    gw2-id: 24854
+    armory-type: 'items'
+
+# bleeding
+
   krait:
     text: 'Superior Rune of the Krait'
     modifiers:
       flat: {'Condition Damage': 175, 'Bleeding Duration': 50}
     gw2-id: 24762
+    armory-type: 'items'
+
+  mad-king:
+    text: 'Superior Rune of the Mad King'
+    modifiers:
+      flat: {'Condition Duration': 5, 'Power': 175, 'Bleeding Duration': 40}
+    gw2-id: 36044
     armory-type: 'items'
 
   afflicted:
@@ -302,19 +311,7 @@
     gw2-id: 24687
     armory-type: 'items'
 
-  perplexity:
-    text: 'Superior Rune of Perplexity'
-    modifiers:
-      flat: {'Condition Damage': 175, 'Confusion Duration': 50}
-    gw2-id: 44957
-    armory-type: 'items'
-
-  tormenting:
-    text: 'Superior Rune of Tormenting'
-    modifiers:
-      flat: {'Condition Damage': 175, 'Torment Duration': 50}
-    gw2-id: 44956
-    armory-type: 'items'
+# poison
 
   thorns:
     text: 'Superior Rune of Thorns'
@@ -323,21 +320,22 @@
     gw2-id: 72912
     armory-type: 'items'
 
-  elementalist:
-    text: 'Superior Rune of the Elementalist'
+# torment
+
+  tormenting:
+    text: 'Superior Rune of Tormenting'
     modifiers:
-      flat: {'Power': 175, 'Condition Damage': 225, 'Condition Duration': 10}
-    gw2-id: 24800
+      flat: {'Condition Damage': 175, 'Torment Duration': 50}
+    gw2-id: 44956
     armory-type: 'items'
 
-  soulbeast:
-    text: > 
-      Superior Rune of the Soulbeast<br>
-      <small class="text-muted font-italic">(Active Bonus)</small>
+# confusion
+
+  perplexity:
+    text: 'Superior Rune of Perplexity'
     modifiers:
-      flat: {'Condition Damage': 175, 'Power': 100}
-      convert: {'Condition Damage': {'Power': 0.07}}
-    gw2-id: 83964
+      flat: {'Condition Damage': 175, 'Confusion Duration': 50}
+    gw2-id: 44957
     armory-type: 'items'
 
 - SECTION: 'Hybrid Runes'
@@ -352,10 +350,30 @@
     gw2-id: 24691
     armory-type: 'items'
 
-  mad-king:
-    text: 'Superior Rune of the Mad King'
+  divinity:
+    text: 'Superior Rune of Divinity'
     modifiers:
-      flat: {'Condition Duration': 5, 'Power': 175, 'Bleeding Duration': 40}
-    gw2-id: 36044
+      flat: {'Power': 78, 'Precision': 78, 'Toughness': 78, 'Vitality': 78,
+        'Concentration': 78, 'Condition Damage': 78, 'Expertise': 78,
+        'Ferocity': 78, 'Healing Power': 78}
+      multiplier: {'Effective Health': 0.1}
+    gw2-id: 24732
+    armory-type: 'items'
+
+  revenant:
+    text: 'Superior Rune of the Revenant'
+    modifiers:
+      flat: {'Power': 78, 'Precision': 78, 'Toughness': 78, 'Vitality': 78,
+        'Concentration': 78, 'Condition Damage': 78, 'Expertise': 78,
+        'Ferocity': 78, 'Healing Power': 78}
+    gw2-id: 69370
+    armory-type: 'items'
+
+  exuberance:
+    text: 'Superior Rune of Exuberance'
+    modifiers:
+      flat: {'Vitality': 175}
+      convert: {'Healing Power': {'Vitality': 0.03}, 'Precision': {'Vitality': 0.05}, 'Power': {'Vitality': 0.07}}
+    gw2-id: 44951
     armory-type: 'items'
 
