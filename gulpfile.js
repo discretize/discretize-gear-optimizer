@@ -406,147 +406,136 @@ const initWatch = function (done) {
 
 const watch = series(build, sync, initWatch);
 
-// gulp.task('watch', ['build', 'sync'], function() {
-// 	gulp.watch(src.copy, function() { runSequence('copy', 'refresh') });
-// 	/*gulp.watch(src.dl, function() { runSequence('dl', 'refresh') });*/
-// 	gulp.watch(src.img, function() { runSequence('img', 'refresh') });
-// 	gulp.watch(src.fonts, function() { runSequence('fonts', 'refresh') });
-// 	gulp.watch(src.html, function() { runSequence('html', 'refresh') });
-// 	gulp.watch(src.js, function() { runSequence('js', 'refresh') });
-// 	gulp.watch(src.gojs, function() { runSequence('gojs', 'refresh') });
-// 	gulp.watch([src.scss, base.src + 'scss/**/*.scss'], function() { runSequence('css', 'refresh') });
-// });
+// this was used to transition to YAML
+// const cheerio = require('cheerio');
+// const generateYaml = function (done) {
+//   try {
+//     del.sync([base.src + 'yaml/**/*']);
+//     const html = fs.readFileSync(base.src + 'index_html_backup', 'utf8');
+//     const $ = cheerio.load(html);
 
-// this was used to transition to YAML and does not actually need to be here anymore
-const cheerio = require('cheerio');
-const generateYaml = function (done) {
-  try {
-    del.sync([base.src + 'yaml/**/*']);
-    const html = fs.readFileSync(base.src + 'index_html_backup', 'utf8');
-    const $ = cheerio.load(html);
+//     const generate = function (mode) {
+//       const result = [];
+//       $(`#insert-${mode}-data`).children().each(function () {
+//         const section = $(this);
+//         let sectionName = section.find('strong').first().html() || '';
+//         sectionName = sectionName.replace(/\s+/g, ' ').trim();
+//         const sectionItems = { SECTION: sectionName };
+//         section.children('.input').each(function () {
+//           const item = $(this);
+//           const input = item.children('input');
+//           const label = item.children('label');
+//           const span = label.children('span').filter('[data-armory-ids]');
 
-    const generate = function (mode) {
-      const result = [];
-      $(`#insert-${mode}-data`).children().each(function () {
-        const section = $(this);
-        let sectionName = section.find('strong').first().html() || '';
-        sectionName = sectionName.replace(/\s+/g, ' ').trim();
-        const sectionItems = { SECTION: sectionName };
-        section.children('.input').each(function () {
-          const item = $(this);
-          const input = item.children('input');
-          const label = item.children('label');
-          const span = label.children('span').filter('[data-armory-ids]');
+//           let id = input.attr('id').replace(`go-checkbox-${mode}-`, 'X-X-X-X');
+//           // console.log(id);
+//           id = id.replace('X-X-X-X', '');
+//           // const modifiers = input.attr('data-go-modifier');
+//           let modifiers = '';
+//           try {
+//             modifiers = JSON.parse(input.attr('data-go-modifier'));
+//           } catch (e) {
+//             console.log('JSON parse error');
+//             console.log(e);
+//             console.log(id);
+//           }
+//           const dataArmoryEmbed = span.attr('data-armory-embed');
+//           const dataArmoryId = parseInt(span.attr('data-armory-ids'), 10);
+//           const text = label.html().replace(/<span.*?data-armory-ids.*?><\/span>/s, '').replace(/\s+/g, ' ').trim();
+//           const enabled = input.attr('checked');
+//           const extraCSS = item.attr('class').split(/\s+/).filter((item) => item != 'input').join(' ');
 
-          let id = input.attr('id').replace(`go-checkbox-${mode}-`, 'X-X-X-X');
-          // console.log(id);
-          id = id.replace('X-X-X-X', '');
-          // const modifiers = input.attr('data-go-modifier');
-          let modifiers = '';
-          try {
-            modifiers = JSON.parse(input.attr('data-go-modifier'));
-          } catch (e) {
-            console.log('JSON parse error');
-            console.log(e);
-            console.log(id);
-          }
-          const dataArmoryEmbed = span.attr('data-armory-embed');
-          const dataArmoryId = parseInt(span.attr('data-armory-ids'), 10);
-          const text = label.html().replace(/<span.*?data-armory-ids.*?><\/span>/s, '').replace(/\s+/g, ' ').trim();
-          const enabled = input.attr('checked');
-          const extraCSS = item.attr('class').split(/\s+/).filter((item) => item != 'input').join(' ');
+//           const resultItem = { text, modifiers };
+//           if (dataArmoryEmbed) {
+//             resultItem['gw2-id'] = dataArmoryId;
+//             resultItem['armory-type'] = dataArmoryEmbed;
+//           }
+//           if (enabled) {
+//             resultItem['default-enabled'] = true;
+//           }
+//           if (extraCSS) {
+//             resultItem.extraCSS = extraCSS;
+//           }
+//           sectionItems[id] = resultItem;
+//         });
+//         result.push(sectionItems);
+//       });
+//       let resultYaml = yaml.dump(result, {
+//         forceQuotes: true,
+//         lineWidth: -1,
+//         flowLevel: 4
+//       });
+//       resultYaml = resultYaml.replace(/\n/g, '\n\n').replace(/\n\n    /g, '\n    ')
 
-          const resultItem = { text, modifiers };
-          if (dataArmoryEmbed) {
-            resultItem['gw2-id'] = dataArmoryId;
-            resultItem['armory-type'] = dataArmoryEmbed;
-          }
-          if (enabled) {
-            resultItem['default-enabled'] = true;
-          }
-          if (extraCSS) {
-            resultItem.extraCSS = extraCSS;
-          }
-          sectionItems[id] = resultItem;
-        });
-        result.push(sectionItems);
-      });
-      let resultYaml = yaml.dump(result, {
-        forceQuotes: true,
-        lineWidth: -1,
-        flowLevel: 4
-      });
-      resultYaml = resultYaml.replace(/\n/g, '\n\n').replace(/\n\n    /g, '\n    ')
+//       fs.writeFileSync(base.src + 'yaml/' + mode + '.yaml', resultYaml, 'utf8');
+//     };
 
-      fs.writeFileSync(base.src + 'yaml/' + mode + '.yaml', resultYaml, 'utf8');
-    };
+//     ['mesmer', 'warrior', 'guardian', 'elementalist', 'ranger', 'revenant', 'engineer', 'buff'].forEach((mode) => {
+//       generate(mode);
+//     });
 
-    ['mesmer', 'warrior', 'guardian', 'elementalist', 'ranger', 'revenant', 'engineer', 'buff'].forEach((mode) => {
-      generate(mode);
-    });
+//     const generateUpgrade = function (mode) {
+//       const result = [];
+//       $(`#go-select-${mode}`).children('.dropdown-menu').children().each(function () {
+//         const item = $(this);
+//         if (item.hasClass('dropdown-divider')) {
+//           return;
+//         }
+//         if (item.hasClass('dropdown-header')) {
+//           result.push({ SECTION: item.text().replace(/\s+/g, ' ').trim() });
+//           return;
+//         }
+//         const span = item.children('span').filter('[data-armory-ids]');
+//         let modifiers = '';
+//         try {
+//           if (item.attr('data-go-modifier')) {
+//             modifiers = JSON.parse(item.attr('data-go-modifier'));
+//           }
+//         } catch (e) {
+//           console.log('JSON parse error');
+//           console.log(e);
+//         }
+//         const dataArmoryEmbed = span.attr('data-armory-embed');
+//         const dataArmoryId = parseInt(span.attr('data-armory-ids'), 10);
+//         const text = item.html().replace(/<span.*?data-armory-ids.*?><\/span>/s, '').replace(/\s+/g, ' ').trim();
+//         const id = text.replace(/<*?>/s, '')
+//           .replace('Superior Sigil of the ', '')
+//           .replace('Superior Sigil of ', '')
+//           .replace('Superior Rune of the ', '')
+//           .replace('Superior Rune of ', '')
+//           .replace('Bowl of ', '')
+//           .replace('Plate of ', '')
+//           .replace(/\s+/g, '-').trim().toLowerCase();
 
-    const generateUpgrade = function (mode) {
-      const result = [];
-      $(`#go-select-${mode}`).children('.dropdown-menu').children().each(function () {
-        const item = $(this);
-        if (item.hasClass('dropdown-divider')) {
-          return;
-        }
-        if (item.hasClass('dropdown-header')) {
-          result.push({ SECTION: item.text().replace(/\s+/g, ' ').trim() });
-          return;
-        }
-        const span = item.children('span').filter('[data-armory-ids]');
-        let modifiers = '';
-        try {
-          if (item.attr('data-go-modifier')) {
-            modifiers = JSON.parse(item.attr('data-go-modifier'));
-          }
-        } catch (e) {
-          console.log('JSON parse error');
-          console.log(e);
-        }
-        const dataArmoryEmbed = span.attr('data-armory-embed');
-        const dataArmoryId = parseInt(span.attr('data-armory-ids'), 10);
-        const text = item.html().replace(/<span.*?data-armory-ids.*?><\/span>/s, '').replace(/\s+/g, ' ').trim();
-        const id = text.replace(/<*?>/s, '')
-          .replace('Superior Sigil of the ', '')
-          .replace('Superior Sigil of ', '')
-          .replace('Superior Rune of the ', '')
-          .replace('Superior Rune of ', '')
-          .replace('Bowl of ', '')
-          .replace('Plate of ', '')
-          .replace(/\s+/g, '-').trim().toLowerCase();
+//         const resultItem = { text, modifiers };
+//         if (dataArmoryEmbed) {
+//           resultItem['gw2-id'] = dataArmoryId;
+//           resultItem['armory-type'] = dataArmoryEmbed;
+//         }
+//         if (result.length) {
+//           // no ids, so using text label as key
+//           result[result.length - 1][id] = resultItem;
+//         }
+//       });
+//       let resultYaml = yaml.dump(result, {
+//         forceQuotes: true,
+//         lineWidth: -1,
+//         flowLevel: 4
+//       });
+//       resultYaml = resultYaml.replace(/\n/g, '\n\n').replace(/\n\n    /g, '\n    ');
 
-        const resultItem = { text, modifiers };
-        if (dataArmoryEmbed) {
-          resultItem['gw2-id'] = dataArmoryId;
-          resultItem['armory-type'] = dataArmoryEmbed;
-        }
-        if (result.length) {
-          // no ids, so using text label as key
-          result[result.length - 1][id] = resultItem;
-        }
-      });
-      let resultYaml = yaml.dump(result, {
-        forceQuotes: true,
-        lineWidth: -1,
-        flowLevel: 4
-      });
-      resultYaml = resultYaml.replace(/\n/g, '\n\n').replace(/\n\n    /g, '\n    ');
+//       fs.writeFileSync(base.src + 'yaml/' + mode + '.yaml', resultYaml, 'utf8');
+//     };
 
-      fs.writeFileSync(base.src + 'yaml/' + mode + '.yaml', resultYaml, 'utf8');
-    };
-
-    ['runes', 'sigils-1', 'food', 'utility'].forEach((mode) => {
-      generateUpgrade(mode);
-    });
-  } catch (err) {
-    console.log(err);
-  }
-  done();
-};
+//     ['runes', 'sigils-1', 'food', 'utility'].forEach((mode) => {
+//       generateUpgrade(mode);
+//     });
+//   } catch (err) {
+//     console.log(err);
+//   }
+//   done();
+// };
 
 exports.build = build;
 exports.watch = watch;
-exports.generateYaml = generateYaml;
+// exports.generateYaml = generateYaml;
