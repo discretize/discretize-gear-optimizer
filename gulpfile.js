@@ -28,7 +28,6 @@ var src = {
 	fonts: base.src + 'fonts/*.+(woff2|woff|eot|ttf)',
 	html: [base.src + '*.html',
 		base.src + '**/*.html'],
-  yaml: base.src + 'yaml/**/*.yaml',
 	vendorjs: [base.src + 'js/vendor/jquery-3.2.1.min.js',
 		base.src + 'js/vendor/jquery.scrollTo.min.js',
 		base.src + 'js/vendor/jquery-inview.js',
@@ -94,7 +93,7 @@ const cleandist = function (done) {
    Copy static resources and fonts
 ================================================== */
 const copy = function () {
-	return gulp.src(src.copy, { 'allowEmpty': true })
+	return gulp.src(src.copy, { allowEmpty: true })
 		.pipe(gulp.dest(base.dist));
 };
 const fonts = function () {
@@ -121,10 +120,136 @@ const img = function () {
 };
 
 /* ==================================================
+   Get YAML data for index.HTML
+================================================== */
+
+const fs = require('fs');
+const yaml = require('js-yaml');
+const getYaml = function (mode) {
+  const yamlData = fs.readFileSync(base.src + 'yaml/' + mode + '.yaml', 'utf8');
+  const data = yaml.load(yamlData);
+  let output = '';
+
+  if (['mesmer', 'warrior', 'guardian', 'elementalist', 'ranger', 'revenant', 'engineer', 'buff'].includes(mode)) {
+    data.forEach((section) => {
+      const sectionName = section.SECTION;
+      output +=
+`                                <div
+                                        class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3"
+                                >
+                                <strong>${sectionName}</strong>
+`;
+
+      Object.entries(section).forEach(([id, resultItem]) => {
+        if (id === 'SECTION') {
+          return;
+        }
+        output +=
+`                                  <div class="input">
+                                    <input
+                                            class="input-checkbox"
+                                            type="checkbox"
+                                            id="go-checkbox-${mode}-${id}"
+                                            data-go-modifier='${JSON.stringify(resultItem.modifiers).replace(/:/g, ': ').replace(/ {2}/g, ' ')}'${resultItem['default-enabled'] ? '\n                                            checked' : ''}
+                                    />
+                                    <label
+                                            class="input-label"
+                                            for="go-checkbox-${mode}-${id}"
+                                    >
+`;
+        if (resultItem['armory-embed']) {
+          output +=
+`                                      <span
+                                              data-armory-size="24"
+                                              data-armory-embed="${resultItem['armory-embed']}"
+                                              data-armory-ids="${resultItem['armory-id']}"
+                                      ></span>
+`;
+        }
+        output +=
+`                                      ${resultItem.text}
+                                    </label>
+                                  </div>
+`;
+
+      });
+      output +=
+`                                </div>
+
+`;
+    });
+    return output;
+
+  } else if (['runes', 'sigils', 'food', 'utility'].includes(mode)) {
+    output +=
+`                                  <div class="dropdown-item active">None</div>
+
+`;
+    data.forEach((section) => {
+      const sectionName = section.SECTION;
+      output +=
+`                                  <div class="dropdown-divider"></div>
+                                  <h6 class="dropdown-header">${sectionName}</h6>
+`;
+      Object.entries(section).forEach(([text, resultItem]) => {
+        if (text === 'SECTION') {
+          return;
+        }
+        output +=
+`                                  <div
+                                          class="dropdown-item"
+                                          data-go-modifier='${JSON.stringify(resultItem.modifiers).replace(/:/g, ': ').replace(/ {2}/g, ' ')}'
+                                  >
+`;
+        if (resultItem['armory-embed']) {
+          output +=
+`                                    <span
+                                            data-armory-embed="${resultItem['armory-embed']}"
+                                            data-armory-ids="${resultItem['armory-id']}"
+                                            data-armory-size="24"
+                                    ></span>
+`;
+        }
+        output +=
+`                                    ${text}
+                                  </div>
+`;
+
+      });
+    });
+    return output;
+  }
+};
+
+/* ==================================================
    HTML
 ================================================== */
 const html = function () {
 	return gulp.src(src.html)
+    .pipe(replace(/                                <!-- INSERT MESMER DATA-->/g, getYaml('mesmer')))
+      .on('error', swallowError)
+    .pipe(replace(/                                <!-- INSERT WARRIOR DATA-->/g, getYaml('warrior')))
+      .on('error', swallowError)
+    .pipe(replace(/                                <!-- INSERT GUARDIAN DATA-->/g, getYaml('guardian')))
+      .on('error', swallowError)
+    .pipe(replace(/                                <!-- INSERT ELEMENTALIST DATA-->/g, getYaml('elementalist')))
+      .on('error', swallowError)
+    .pipe(replace(/                                <!-- INSERT RANGER DATA-->/g, getYaml('ranger')))
+      .on('error', swallowError)
+    .pipe(replace(/                                <!-- INSERT REVENANT DATA-->/g, getYaml('revenant')))
+      .on('error', swallowError)
+    .pipe(replace(/                                <!-- INSERT ENGINEER DATA-->/g, getYaml('engineer')))
+      .on('error', swallowError)
+    .pipe(replace(/                                <!-- INSERT BUFF DATA-->/g, getYaml('buff')))
+      .on('error', swallowError)
+    .pipe(replace(/                                  <!-- INSERT RUNES DATA-->/g, getYaml('runes')))
+      .on('error', swallowError)
+    .pipe(replace(/                                  <!-- INSERT SIGILS DATA-->/g, getYaml('sigils')))
+      .on('error', swallowError)
+    .pipe(replace(/                                  <!-- INSERT FOOD DATA-->/g, getYaml('food')))
+      .on('error', swallowError)
+    .pipe(replace(/                                  <!-- INSERT UTILITY DATA-->/g, getYaml('utility')))
+      .on('error', swallowError)
 		.pipe(replace(/<a\s+?data-wiki>(.+?)<\/a>/g, function(match, p1, offset, string) {
 			return '<a href=\"' + gw2wikihost + encodeURIComponent(p1) + '\" target=\"_blank\" rel=\"external\">' + p1 + '</a>';
 		}))
@@ -195,7 +320,7 @@ const gojs = function () {
 			.on('error', swallowError)
 		.pipe(uglify())
 			.on('error', swallowError)
-		.pipe(gulp.dest(base.assets))
+		.pipe(gulp.dest(base.assets));
 };
 
 /* ==================================================
@@ -277,7 +402,7 @@ const initWatch = function (done) {
     gulp.watch(src.gojs, series(gojs, refresh));
     gulp.watch([src.scss, base.src + 'scss/**/*.scss'], series(css, refresh));
     done();
-}
+};
 
 const watch = series(build, sync, initWatch);
 
@@ -292,13 +417,12 @@ const watch = series(build, sync, initWatch);
 // 	gulp.watch([src.scss, base.src + 'scss/**/*.scss'], function() { runSequence('css', 'refresh') });
 // });
 
-const fs = require('fs');
+// this was used to transition to YAML and does not actually need to be here anymore
 const cheerio = require('cheerio');
-const yaml = require('js-yaml');
-const generateYaml = function(done) {
+const generateYaml = function (done) {
   try {
     del.sync([base.src + 'yaml/**/*']);
-    let html = fs.readFileSync(base.src + 'index_backup.html', 'utf8');
+    const html = fs.readFileSync(base.src + 'index_backup.html', 'utf8');
     const $ = cheerio.load(html);
 
     const generate = function (mode) {
@@ -314,10 +438,10 @@ const generateYaml = function(done) {
           const label = item.children('label');
           const span = label.children('span').filter('[data-armory-ids]');
 
-          let id = input.attr('id').replace(`go-checkbox-${mode}-`,'X-X-X-X');
+          let id = input.attr('id').replace(`go-checkbox-${mode}-`, 'X-X-X-X');
           // console.log(id);
           id = id.replace('X-X-X-X', '');
-          //const modifiers = input.attr('data-go-modifier');
+          // const modifiers = input.attr('data-go-modifier');
           let modifiers = '';
           try {
             modifiers = JSON.parse(input.attr('data-go-modifier'));
@@ -328,10 +452,10 @@ const generateYaml = function(done) {
           }
           const dataArmoryEmbed = span.attr('data-armory-embed');
           const dataArmoryId = parseInt(span.attr('data-armory-ids'), 10);
-          const text = label.html().replace(/\<span.*?data-armory-ids.*?><\/span>/s, '').replace(/\s+/g, ' ').trim();
+          const text = label.html().replace(/<span.*?data-armory-ids.*?><\/span>/s, '').replace(/\s+/g, ' ').trim();
           const enabled = input.attr('checked');
 
-          let resultItem = { text, modifiers }
+          const resultItem = { text, modifiers };
           if (dataArmoryEmbed) {
             resultItem['armory-embed'] = dataArmoryEmbed;
             resultItem['armory-id'] = dataArmoryId;
@@ -347,7 +471,7 @@ const generateYaml = function(done) {
         forceQuotes: true,
         lineWidth: -1,
         flowLevel: 4
-      })
+      });
       fs.writeFileSync(base.src + 'yaml/' + mode + '.yaml', resultYaml, 'utf8');
     };
 
@@ -363,7 +487,7 @@ const generateYaml = function(done) {
           return;
         }
         if (item.hasClass('dropdown-header')) {
-          result.push( { SECTION: item.text().replace(/\s+/g, ' ').trim() } );
+          result.push({ SECTION: item.text().replace(/\s+/g, ' ').trim() });
           return;
         }
         const span = item.children('span').filter('[data-armory-ids]');
@@ -378,15 +502,15 @@ const generateYaml = function(done) {
         }
         const dataArmoryEmbed = span.attr('data-armory-embed');
         const dataArmoryId = parseInt(span.attr('data-armory-ids'), 10);
-        const text = item.html().replace(/\<span.*?data-armory-ids.*?><\/span>/s, '').replace(/\s+/g, ' ').trim();
+        const text = item.html().replace(/<span.*?data-armory-ids.*?><\/span>/s, '').replace(/\s+/g, ' ').trim();
 
-        let resultItem = { modifiers }
+        const resultItem = { modifiers };
         if (dataArmoryEmbed) {
           resultItem['armory-embed'] = dataArmoryEmbed;
           resultItem['armory-id'] = dataArmoryId;
         }
         if (result.length) {
-          //no ids, so using text label as key
+          // no ids, so using text label as key
           result[result.length - 1][text] = resultItem;
         }
       });
@@ -394,7 +518,7 @@ const generateYaml = function(done) {
         forceQuotes: true,
         lineWidth: -1,
         flowLevel: 4
-      })
+      });
       fs.writeFileSync(base.src + 'yaml/' + mode + '.yaml', resultYaml, 'utf8');
     };
 
@@ -405,7 +529,7 @@ const generateYaml = function(done) {
     console.log(err);
   }
   done();
-}
+};
 
 exports.build = build;
 exports.watch = watch;
