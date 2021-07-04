@@ -195,14 +195,18 @@
   dragon's-revelry-starcake:
     text: 'Dragon''s Revelry Starcake'
     modifiers:
-      flat: {'Power': 45, 'Precision': 45, 'Toughness': 45, 'Vitality': 45, 'Concentration': 45, 'Condition Damage': 45, 'Expertise': 45, 'Ferocity': 45, 'Healing Power': 45}
+      flat: {'Power': 45, 'Precision': 45, 'Toughness': 45, 'Vitality': 45,
+        'Concentration': 45, 'Condition Damage': 45, 'Expertise': 45,
+        'Ferocity': 45, 'Healing Power': 45}
     gw2-id: 43550
     armory-type: 'items'
 
   red-lentil-and-flatbread-feast:
     text: 'Red Lentil and Flatbread Feast'
     modifiers:
-      flat: {'Power': 45, 'Precision': 45, 'Toughness': 45, 'Vitality': 45, 'Concentration': 45, 'Condition Damage': 45, 'Expertise': 45, 'Ferocity': 45, 'Healing Power': 45}
+      flat: {'Power': 45, 'Precision': 45, 'Toughness': 45, 'Vitality': 45,
+        'Concentration': 45, 'Condition Damage': 45, 'Expertise': 45,
+        'Ferocity': 45, 'Healing Power': 45}
     gw2-id: 82657
     armory-type: 'items'
 
@@ -237,7 +241,9 @@
   birthday-blaster:
     text: 'Birthday Blaster'
     modifiers:
-      flat: {'Power': 40, 'Precision': 40, 'Toughness': 40, 'Vitality': 40, 'Condition Damage': 40, 'Expertise': 40, 'Ferocity': 80, 'Healing Power': 40}
+      flat: {'Power': 40, 'Precision': 40, 'Toughness': 40, 'Vitality': 40,
+        'Concentration': 40, 'Condition Damage': 40, 'Expertise': 40,
+        'Ferocity': 40, 'Healing Power': 40}
     gw2-id: 66961
     armory-type: 'items'
 
