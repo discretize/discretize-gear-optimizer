@@ -157,12 +157,12 @@ const getYaml = function (mode) {
                                             for="go-checkbox-${mode}-${id}"
                                     >
 `;
-        if (resultItem['armory-embed']) {
+        if (resultItem['armory-type']) {
           output +=
 `                                      <span
                                               data-armory-size="24"
-                                              data-armory-embed="${resultItem['armory-embed']}"
-                                              data-armory-ids="${resultItem['armory-id']}"
+                                              data-armory-embed="${resultItem['armory-type']}"
+                                              data-armory-ids="${resultItem['gw2-id']}"
                                       ></span>
 `;
         }
@@ -201,11 +201,11 @@ const getYaml = function (mode) {
                                           data-go-modifier='${JSON.stringify(resultItem.modifiers).replace(/:/g, ': ').replace(/,/g, ', ').replace(/ {2}/g, ' ')}'
                                   >
 `;
-        if (resultItem['armory-embed']) {
+        if (resultItem['armory-type']) {
           output +=
 `                                    <span
-                                            data-armory-embed="${resultItem['armory-embed']}"
-                                            data-armory-ids="${resultItem['armory-id']}"
+                                            data-armory-embed="${resultItem['armory-type']}"
+                                            data-armory-ids="${resultItem['gw2-id']}"
                                             data-armory-size="24"
                                     ></span>
 `;
@@ -458,8 +458,8 @@ const generateYaml = function (done) {
 
           const resultItem = { text, modifiers };
           if (dataArmoryEmbed) {
-            resultItem['armory-embed'] = dataArmoryEmbed;
-            resultItem['armory-id'] = dataArmoryId;
+            resultItem['gw2-id'] = dataArmoryId;
+            resultItem['armory-type'] = dataArmoryEmbed;
           }
           if (enabled) {
             resultItem['default-enabled'] = true;
@@ -520,8 +520,8 @@ const generateYaml = function (done) {
 
         const resultItem = { text, modifiers };
         if (dataArmoryEmbed) {
-          resultItem['armory-embed'] = dataArmoryEmbed;
-          resultItem['armory-id'] = dataArmoryId;
+          resultItem['gw2-id'] = dataArmoryId;
+          resultItem['armory-type'] = dataArmoryEmbed;
         }
         if (result.length) {
           // no ids, so using text label as key

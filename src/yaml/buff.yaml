@@ -29,31 +29,31 @@
     text: 'Banner of Strength'
     modifiers:
       buff: {'Power': 100, 'Condition Damage': 100}
-    armory-embed: 'skills'
-    armory-id: 14405
+    gw2-id: 14405
+    armory-type: 'skills'
     default-enabled: true
 
   banner-of-discipline:
     text: 'Banner of Discipline'
     modifiers:
       buff: {'Precision': 100, 'Ferocity': 100}
-    armory-embed: 'skills'
-    armory-id: 14407
+    gw2-id: 14407
+    armory-type: 'skills'
     default-enabled: true
 
   banner-of-tactics:
     text: 'Banner of Tactics'
     modifiers:
       buff: {'Healing Power': 100, 'Boon Duration': 10}
-    armory-embed: 'skills'
-    armory-id: 14408
+    gw2-id: 14408
+    armory-type: 'skills'
 
   empower-allies:
     text: 'Empower Allies'
     modifiers:
       buff: {'Power': 100}
-    armory-embed: 'traits'
-    armory-id: 1482
+    gw2-id: 1482
+    armory-type: 'traits'
 
 - SECTION: ''
 
@@ -61,16 +61,16 @@
     text: 'Spotter'
     modifiers:
       buff: {'Precision': 100}
-    armory-embed: 'traits'
-    armory-id: 1016
+    gw2-id: 1016
+    armory-type: 'traits'
     extraCSS: 'text-ranger'
 
   frost-spirit:
     text: 'Frost Spirit'
     modifiers:
       multiplier: {'add: Effective Power': 0.05}
-    armory-embed: 'skills'
-    armory-id: 12497
+    gw2-id: 12497
+    armory-type: 'skills'
     default-enabled: true
     extraCSS: 'text-ranger'
 
@@ -78,16 +78,16 @@
     text: 'Pinpoint Distribution'
     modifiers:
       buff: {'Condition Damage': 100}
-    armory-embed: 'traits'
-    armory-id: 1984
+    gw2-id: 1984
+    armory-type: 'traits'
     extraCSS: 'text-engineer'
 
   strength-in-numbers:
     text: 'Strength in Numbers'
     modifiers:
       buff: {'Toughness': 100}
-    armory-embed: 'traits'
-    armory-id: 584
+    gw2-id: 584
+    armory-type: 'traits'
     extraCSS: 'text-guardian'
 
 - SECTION: 'Guardian <span data-armory-size="24" data-armory-embed="traits" data-armory-ids="579"></span> Perfect Inscriptions (Assuming 100% uptime!)'
@@ -96,30 +96,30 @@
     text: 'Bane Signet'
     modifiers:
       buff: {'Power': 216}
-    armory-embed: 'skills'
-    armory-id: 9093
+    gw2-id: 9093
+    armory-type: 'skills'
     default-enabled: true
 
   guardian-x2:
     text: 'Signet of Judgement'
     modifiers:
       multiplier: {'Effective Health': 0.12}
-    armory-embed: 'skills'
-    armory-id: 9150
+    gw2-id: 9150
+    armory-type: 'skills'
 
   guardian-x3:
     text: 'Signet of Mercy'
     modifiers:
       buff: {'Boon Duration': 10}
-    armory-embed: 'skills'
-    armory-id: 9163
+    gw2-id: 9163
+    armory-type: 'skills'
 
   guardian-x4:
     text: 'Signet of Wrath'
     modifiers:
       buff: {'Condition Damage': 216}
-    armory-embed: 'skills'
-    armory-id: 9151
+    gw2-id: 9151
+    armory-type: 'skills'
 
 - SECTION: ''
 
@@ -127,21 +127,21 @@
     text: 'Assassin''s Presence'
     modifiers:
       buff: {'Ferocity': 150}
-    armory-embed: 'traits'
-    armory-id: 1786
+    gw2-id: 1786
+    armory-type: 'traits'
     default-enabled: true
 
   facet-of-nature:
     text: 'Facet of Nature—Dragon'
     modifiers:
       buff: {'Boon Duration': 20}
-    armory-embed: 'skills'
-    armory-id: 29371
+    gw2-id: 29371
+    armory-type: 'skills'
 
   rite-of-the-great-dwarf:
     text: 'Rite of the Great Dwarf'
     modifiers:
       multiplier: {'Effective Health': 0.5}
-    armory-embed: 'skills'
-    armory-id: 27975
+    gw2-id: 27975
+    armory-type: 'skills'
 

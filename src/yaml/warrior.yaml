@@ -4,22 +4,22 @@
     text: 'Signet of Might'
     modifiers:
       buff: {'Power': 180}
-    armory-embed: 'skills'
-    armory-id: 14404
+    gw2-id: 14404
+    armory-type: 'skills'
 
   signet-of-fury:
     text: 'Signet of Fury'
     modifiers:
       buff: {'Precision': 180}
-    armory-embed: 'skills'
-    armory-id: 14410
+    gw2-id: 14410
+    armory-type: 'skills'
 
   dolyak-signet:
     text: 'Dolyak Signet'
     modifiers:
       buff: {'Toughness': 180}
-    armory-embed: 'skills'
-    armory-id: 14413
+    gw2-id: 14413
+    armory-type: 'skills'
 
 - SECTION: 'Strength'
 
@@ -27,50 +27,50 @@
     text: 'Peak Performance <small>passive</small>'
     modifiers:
       multiplier: {'add: Effective Power': 0.05}
-    armory-embed: 'traits'
-    armory-id: 1444
+    gw2-id: 1444
+    armory-type: 'traits'
 
   peak-performance-2:
     text: 'Peak Performance <small>active, 100% uptime - check both boxes</small>'
     modifiers:
       multiplier: {'add: Effective Power': 0.1}
-    armory-embed: 'traits'
-    armory-id: 1444
+    gw2-id: 1444
+    armory-type: 'traits'
 
   forceful-greatsword:
     text: 'Forceful Greatsword <small>base</small>'
     modifiers:
       buff: {'Power': 120}
-    armory-embed: 'traits'
-    armory-id: 1338
+    gw2-id: 1338
+    armory-type: 'traits'
 
   forceful-greatsword-2:
     text: 'Forceful Greatsword <small>with greatsword/spear - check both boxes</small>'
     modifiers:
       buff: {'Power': 120}
-    armory-embed: 'traits'
-    armory-id: 1338
+    gw2-id: 1338
+    armory-type: 'traits'
 
   great-fortitude:
     text: 'Great Fortitude'
     modifiers:
       convert: {'Vitality': {'Power': 0.1}, 'Ferocity': {'Power': 0.1}}
-    armory-embed: 'traits'
-    armory-id: 1449
+    gw2-id: 1449
+    armory-type: 'traits'
 
   pinnacle-of-strength:
     text: 'Pinnacle Of Strength <small>25 might</small>'
     modifiers:
       buff: {'Power': 250}
-    armory-embed: 'traits'
-    armory-id: 1453
+    gw2-id: 1453
+    armory-type: 'traits'
 
   berserkers-power:
     text: 'Berserker''s Power <small>100% 3x</small>'
     modifiers:
       multiplier: {'add: Effective Power': 0.21}
-    armory-embed: 'traits'
-    armory-id: 1437
+    gw2-id: 1437
+    armory-type: 'traits'
 
 - SECTION: 'Arms'
 
@@ -78,50 +78,50 @@
     text: 'Wounding Precision'
     modifiers:
       convert: {'Expertise': {'Precision': 0.07}}
-    armory-embed: 'traits'
-    armory-id: 1455
+    gw2-id: 1455
+    armory-type: 'traits'
 
   signet-mastery:
     text: 'Signet Mastery <small>5x</small>'
     modifiers:
       flat: {'Ferocity': 500}
-    armory-embed: 'traits'
-    armory-id: 1344
+    gw2-id: 1344
+    armory-type: 'traits'
 
   deep-strikes:
     text: 'Deep Strikes'
     modifiers:
       buff: {'Condition Damage': 180}
-    armory-embed: 'traits'
-    armory-id: 1343
+    gw2-id: 1343
+    armory-type: 'traits'
 
   blade-master:
     text: 'Blademaster <small>base</small>'
     modifiers:
       buff: {'Expertise': 120}
-    armory-embed: 'traits'
-    armory-id: 1333
+    gw2-id: 1333
+    armory-type: 'traits'
 
   blade-master-2:
     text: 'Blademaster <small>with sword 50% - check both boxes</small>'
     modifiers:
       buff: {'Condition Damage': 60}
-    armory-embed: 'traits'
-    armory-id: 1333
+    gw2-id: 1333
+    armory-type: 'traits'
 
   bloodlust:
     text: 'Bloodlust'
     modifiers:
       buff: {'Bleeding Duration': 33}
-    armory-embed: 'traits'
-    armory-id: 1337
+    gw2-id: 1337
+    armory-type: 'traits'
 
   furious:
     text: 'Furious <small>25x</small>'
     modifiers:
       buff: {'Condition Damage': 250}
-    armory-embed: 'traits'
-    armory-id: 1346
+    gw2-id: 1346
+    armory-type: 'traits'
 
 - SECTION: 'Defense'
 
@@ -129,29 +129,29 @@
     text: 'Thick Skin <small>100% uptime</small>'
     modifiers:
       multiplier: {'Effective Health': 0.05}
-    armory-embed: 'traits'
-    armory-id: 1350
+    gw2-id: 1350
+    armory-type: 'traits'
 
   cull-the-weak:
     text: 'Cull the Weak'
     modifiers:
       multiplier: {'Effective Power': 0.1}
-    armory-embed: 'traits'
-    armory-id: 1372
+    gw2-id: 1372
+    armory-type: 'traits'
 
   armored-attack:
     text: 'Armored Attack'
     modifiers:
       convert: {'Power': {'Toughness': 0.1}}
-    armory-embed: 'traits'
-    armory-id: 1379
+    gw2-id: 1379
+    armory-type: 'traits'
 
   hardened-armor:
     text: 'Hardened Armor <small>100%</small>'
     modifiers:
       multiplier: {'Effective Health': 0.1}
-    armory-embed: 'traits'
-    armory-id: 1380
+    gw2-id: 1380
+    armory-type: 'traits'
 
 - SECTION: 'Tactics'
 
@@ -159,50 +159,50 @@
     text: 'Leg Specialist'
     modifiers:
       multiplier: {'Effective Power': 0.1}
-    armory-embed: 'traits'
-    armory-id: 1469
+    gw2-id: 1469
+    armory-type: 'traits'
 
   roaring-reveille:
     text: 'Roaring Reveille'
     modifiers:
       buff: {'Concentration': 120}
-    armory-embed: 'traits'
-    armory-id: 1471
+    gw2-id: 1471
+    armory-type: 'traits'
 
   empowered:
     text: 'Empowered <small>6x</small>'
     modifiers:
       multiplier: {'Effective Power': 0.06}
-    armory-embed: 'traits'
-    armory-id: 1485
+    gw2-id: 1485
+    armory-type: 'traits'
 
   empowered-9:
     text: 'Empowered <small>9x</small>'
     modifiers:
       multiplier: {'Effective Power': 0.09}
-    armory-embed: 'traits'
-    armory-id: 1485
+    gw2-id: 1485
+    armory-type: 'traits'
 
   empowered-11:
     text: 'Empowered <small>11x</small>'
     modifiers:
       multiplier: {'Effective Power': 0.11}
-    armory-embed: 'traits'
-    armory-id: 1485
+    gw2-id: 1485
+    armory-type: 'traits'
 
   warriors-cunning:
     text: 'Warrior''s Cunning <small>20% uptime -&gt; +5% Damage</small>'
     modifiers:
       multiplier: {'Effective Power': 0.05}
-    armory-embed: 'traits'
-    armory-id: 1486
+    gw2-id: 1486
+    armory-type: 'traits'
 
   vigorous-shouts:
     text: 'Vigorous Shouts'
     modifiers:
       convert: {'Healing Power': {'Power': 0.13}}
-    armory-embed: 'traits'
-    armory-id: 1470
+    gw2-id: 1470
+    armory-type: 'traits'
 
 - SECTION: 'Discipline'
 
@@ -210,29 +210,29 @@
     text: 'Warrior''s Sprint'
     modifiers:
       multiplier: {'add: Effective Power': 0.1}
-    armory-embed: 'traits'
-    armory-id: 1413
+    gw2-id: 1413
+    armory-type: 'traits'
 
   double-standards:
     text: 'Doubled Standards <small>+50 Pwr/Prc/Fer/Con</small>'
     modifiers:
       buff: {'Power': 50, 'Precision': 50, 'Ferocity': 50, 'Condition Damage': 50}
-    armory-embed: 'traits'
-    armory-id: 1484
+    gw2-id: 1484
+    armory-type: 'traits'
 
   axe-mastery-one:
     text: 'Axe Mastery <small>without axe</small>'
     modifiers:
       buff: {'Ferocity': 120}
-    armory-embed: 'traits'
-    armory-id: 1369
+    gw2-id: 1369
+    armory-type: 'traits'
 
   axe-mastery-two:
     text: 'Axe Mastery <small>with axe - check both boxes</small>'
     modifiers:
       buff: {'Ferocity': 120}
-    armory-embed: 'traits'
-    armory-id: 1369
+    gw2-id: 1369
+    armory-type: 'traits'
 
 - SECTION: 'Berserker'
 
@@ -240,57 +240,57 @@
     text: 'Blood Reaction <small>with 0% berserker mode</small>'
     modifiers:
       convert: {'Ferocity': {'Precision': 0.07}}
-    armory-embed: 'traits'
-    armory-id: 2011
+    gw2-id: 2011
+    armory-type: 'traits'
 
   blood-reaction-with:
     text: 'Blood Reaction <small>with 100% berserker mode</small>'
     modifiers:
       convert: {'Ferocity': {'Precision': 0.14}}
-    armory-embed: 'traits'
-    armory-id: 2011
+    gw2-id: 2011
+    armory-type: 'traits'
 
   heat-the-soul:
     text: 'Heat the Soul <small>without torch</small>'
     modifiers:
       buff: {'Condition Damage': 120}
-    armory-embed: 'traits'
-    armory-id: 2042
+    gw2-id: 2042
+    armory-type: 'traits'
 
   heat-the-soul-with:
     text: 'Heat the Soul <small>with torch 50% - check both boxes</small>'
     modifiers:
       buff: {'Condition Damage': 60}
-    armory-embed: 'traits'
-    armory-id: 2042
+    gw2-id: 2042
+    armory-type: 'traits'
 
   fatal-frenzy:
     text: 'Fatal Frenzy'
     modifiers:
       buff: {'Power': 300, 'Condition Damage': 300, 'Toughness': -300}
-    armory-embed: 'traits'
-    armory-id: 2046
+    gw2-id: 2046
+    armory-type: 'traits'
 
   bloody-roar:
     text: 'Bloody Roar'
     modifiers:
       multiplier: {'Effective Power': 0.2}
-    armory-embed: 'traits'
-    armory-id: 1928
+    gw2-id: 1928
+    armory-type: 'traits'
 
   king-of-fires:
     text: 'King of Fires'
     modifiers:
       buff: {'Burning Duration': 33}
-    armory-embed: 'traits'
-    armory-id: 2038
+    gw2-id: 2038
+    armory-type: 'traits'
 
   eternal-champion:
     text: 'Eternal Champion'
     modifiers:
       buff: {'Toughness': 300}
-    armory-embed: 'traits'
-    armory-id: 2043
+    gw2-id: 2043
+    armory-type: 'traits'
 
 - SECTION: 'Spellbreaker'
 
@@ -298,27 +298,27 @@
     text: 'Pure Strike <small>Against boonless</small>'
     modifiers:
       multiplier: {'Critical Damage': 0.14}
-    armory-embed: 'traits'
-    armory-id: 2107
+    gw2-id: 2107
+    armory-type: 'traits'
 
   sun-and-moon-style:
     text: 'Sun and Moon Style <small>100% onhand dagger; no boons</small>'
     modifiers:
       multiplier: {'Effective Power': 0.1}
-    armory-embed: 'traits'
-    armory-id: 2095
+    gw2-id: 2095
+    armory-type: 'traits'
 
   attackers-insight:
     text: 'Attacker''s Insight <small>5x</small>'
     modifiers:
       buff: {'Ferocity': 250, 'Power': 250, 'Precision': 250}
-    armory-embed: 'traits'
-    armory-id: 2130
+    gw2-id: 2130
+    armory-type: 'traits'
 
   magebane-tether:
     text: 'Magebane Tether <small>75% uptime -&gt; +7.5% Damage</small>'
     modifiers:
       multiplier: {'Effective Power': 0.075}
-    armory-embed: 'traits'
-    armory-id: 2060
+    gw2-id: 2060
+    armory-type: 'traits'
 

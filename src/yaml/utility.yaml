@@ -4,43 +4,43 @@
     text: 'Slaying Potion'
     modifiers:
       multiplier: {'Effective Power': 0.1, 'Effective Health': 0.1}
-    armory-embed: 'items'
-    armory-id: 50082
+    gw2-id: 50082
+    armory-type: 'items'
 
   furious-sharpening-stone:
     text: 'Furious Sharpening Stone'
     modifiers:
       convert: {'Power': {'Precision': 0.03}, 'Ferocity': {'Precision': 0.03}}
-    armory-embed: 'items'
-    armory-id: 67530
+    gw2-id: 67530
+    armory-type: 'items'
 
   superior-sharpening-stone:
     text: 'Superior Sharpening Stone'
     modifiers:
       convert: {'Power': {'Precision': 0.03, 'Ferocity': 0.06}}
-    armory-embed: 'items'
-    armory-id: 9443
+    gw2-id: 9443
+    armory-type: 'items'
 
   toxic-sharpening-stone:
     text: 'Toxic Sharpening Stone'
     modifiers:
       convert: {'Power': {'Condition Damage': 0.06, 'Expertise': 0.08}}
-    armory-embed: 'items'
-    armory-id: 48915
+    gw2-id: 48915
+    armory-type: 'items'
 
   magnanimous-sharpening-stone:
     text: 'Magnanimous Sharpening Stone'
     modifiers:
       convert: {'Power': {'Vitality': 0.03, 'Toughness': 0.03}}
-    armory-embed: 'items'
-    armory-id: 81034
+    gw2-id: 81034
+    armory-type: 'items'
 
   bountiful-sharpening-stone:
     text: 'Bountiful Sharpening Stone'
     modifiers:
       convert: {'Power': {'Healing Power': 0.06, 'Concentration': 0.08}}
-    armory-embed: 'items'
-    armory-id: 67531
+    gw2-id: 67531
+    armory-type: 'items'
 
 - SECTION: 'Support Utilities'
 
@@ -48,50 +48,50 @@
     text: 'Potent Lucent Oil'
     modifiers:
       convert: {'Concentration': {'Power': 0.03, 'Precision': 0.03}}
-    armory-embed: 'items'
-    armory-id: 89203
+    gw2-id: 89203
+    armory-type: 'items'
 
   toxic-maintenance-oil:
     text: 'Toxic Maintenance Oil'
     modifiers:
       convert: {'Concentration': {'Power': 0.03, 'Condition Damage': 0.06}}
-    armory-embed: 'items'
-    armory-id: 48916
+    gw2-id: 48916
+    armory-type: 'items'
 
   enhanced-lucent-oil:
     text: 'Enhanced Lucent Oil'
     modifiers:
       convert: {'Concentration': {'Precision': 0.03, 'Condition Damage': 0.06}}
-    armory-embed: 'items'
-    armory-id: 89157
+    gw2-id: 89157
+    armory-type: 'items'
 
   furious-maintenance-oil:
     text: 'Furious Maintenance Oil'
     modifiers:
       convert: {'Concentration': {'Precision': 0.03}, 'Healing Power': {'Precision': 0.03}}
-    armory-embed: 'items'
-    armory-id: 67529
+    gw2-id: 67529
+    armory-type: 'items'
 
   magnanimous-maintenance-oil:
     text: 'Magnanimous Maintenance Oil'
     modifiers:
       convert: {'Concentration': {'Vitality': 0.03, 'Toughness': 0.03}}
-    armory-embed: 'items'
-    armory-id: 81157
+    gw2-id: 81157
+    armory-type: 'items'
 
   master-maintenance-oil:
     text: 'Master Maintenance Oil'
     modifiers:
       convert: {'Concentration': {'Precision': 0.03, 'Healing Power': 0.06}}
-    armory-embed: 'items'
-    armory-id: 9461
+    gw2-id: 9461
+    armory-type: 'items'
 
   corsair-maintenance-oil:
     text: 'Corsair Maintenance Oil'
     modifiers:
       convert: {'Concentration': {'Toughness': 0.03}, 'Expertise': {'Toughness': 0.03}}
-    armory-embed: 'items'
-    armory-id: 86016
+    gw2-id: 86016
+    armory-type: 'items'
 
 - SECTION: 'Heal Utilities'
 
@@ -99,8 +99,8 @@
     text: 'Bountiful Maintenance Oil'
     modifiers:
       bountiful-maintenance-oil: 0
-    armory-embed: 'items'
-    armory-id: 67528
+    gw2-id: 67528
+    armory-type: 'items'
 
 - SECTION: 'Condition Utilities'
 
@@ -108,36 +108,36 @@
     text: 'Toxic Focusing Crystal'
     modifiers:
       convert: {'Condition Damage': {'Power': 0.03, 'Precision': 0.03}}
-    armory-embed: 'items'
-    armory-id: 48917
+    gw2-id: 48917
+    armory-type: 'items'
 
   furious-tuning-crystal:
     text: 'Furious Tuning Crystal'
     modifiers:
       convert: {'Condition Damage': {'Precision': 0.03}, 'Expertise': {'Precision': 0.03}}
-    armory-embed: 'items'
-    armory-id: 67524
+    gw2-id: 67524
+    armory-type: 'items'
 
   master-tuning-crystal:
     text: 'Master Tuning Crystal'
     modifiers:
       convert: {'Condition Damage': {'Precision': 0.03, 'Expertise': 0.08}}
-    armory-embed: 'items'
-    armory-id: 9476
+    gw2-id: 9476
+    armory-type: 'items'
 
   magnanimous-tuning-crystal:
     text: 'Magnanimous Tuning Crystal'
     modifiers:
       convert: {'Condition Damage': {'Vitality': 0.03, 'Toughness': 0.03}}
-    armory-embed: 'items'
-    armory-id: 81079
+    gw2-id: 81079
+    armory-type: 'items'
 
   bountiful-tuning-crystal:
     text: 'Bountiful Tuning Crystal'
     modifiers:
       convert: {'Condition Damage': {'Healing Power': 0.06, 'Concentration': 0.08}}
-    armory-embed: 'items'
-    armory-id: 67522
+    gw2-id: 67522
+    armory-type: 'items'
 
 - SECTION: 'SAB Utilities'
 
@@ -145,22 +145,22 @@
     text: 'Holographic Super Apple'
     modifiers:
       convert: {'Condition Damage': {'Concentration': 0.08}, 'Concentration': {'Precision': 0.03}}
-    armory-embed: 'items'
-    armory-id: 87336
+    gw2-id: 87336
+    armory-type: 'items'
 
   holographic-super-drumstick:
     text: 'Holographic Super Drumstick'
     modifiers:
       convert: {'Healing Power': {'Concentration': 0.08}, 'Concentration': {'Precision': 0.03}}
-    armory-embed: 'items'
-    armory-id: 87329
+    gw2-id: 87329
+    armory-type: 'items'
 
   holographic-super-cheese:
     text: 'Holographic Super Cheese'
     modifiers:
       convert: {'Power': {'Concentration': 0.08}, 'Concentration': {'Precision': 0.03}}
-    armory-embed: 'items'
-    armory-id: 87358
+    gw2-id: 87358
+    armory-type: 'items'
 
 - SECTION: 'Writs'
 
@@ -168,22 +168,22 @@
     text: 'Writ of Masterful Accuracy'
     modifiers:
       flat: {'Precision': 200}
-    armory-embed: 'items'
-    armory-id: 76833
+    gw2-id: 76833
+    armory-type: 'items'
 
   writ-of-masterful-malice:
     text: 'Writ of Masterful Malice'
     modifiers:
       flat: {'Condition Damage': 200}
-    armory-embed: 'items'
-    armory-id: 72510
+    gw2-id: 72510
+    armory-type: 'items'
 
   writ-of-masterful-strength:
     text: 'Writ of Masterful Strength'
     modifiers:
       flat: {'Power': 200}
-    armory-embed: 'items'
-    armory-id: 73191
+    gw2-id: 73191
+    armory-type: 'items'
 
 - SECTION: 'Misc'
 
@@ -191,6 +191,6 @@
     text: 'Potion Of Karka Toughness'
     modifiers:
       flat: {'Toughness': 150}
-    armory-embed: 'items'
-    armory-id: 42428
+    gw2-id: 42428
+    armory-type: 'items'
 

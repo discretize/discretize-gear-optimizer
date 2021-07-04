@@ -4,15 +4,15 @@
     text: 'Signet of Stone'
     modifiers:
       buff: {'Toughness': 180}
-    armory-embed: 'skills'
-    armory-id: 12500
+    gw2-id: 12500
+    armory-type: 'skills'
 
   signet-of-the-wild:
     text: 'Signet of the Wild'
     modifiers:
       buff: {'Ferocity': 180}
-    armory-embed: 'skills'
-    armory-id: 12491
+    gw2-id: 12491
+    armory-type: 'skills'
 
 - SECTION: 'Marksmanship'
 
@@ -20,22 +20,22 @@
     text: 'Farsighted <small>Melee</small>'
     modifiers:
       multiplier: {'Effective Power': 0.05}
-    armory-embed: 'traits'
-    armory-id: 1000
+    gw2-id: 1000
+    armory-type: 'traits'
 
   farsighted-2:
     text: 'Farsighted <small>Ranged</small>'
     modifiers:
       multiplier: {'Effective Power': 0.15}
-    armory-embed: 'traits'
-    armory-id: 1000
+    gw2-id: 1000
+    armory-type: 'traits'
 
   predators-onslaught:
     text: 'Predator''s Onslaught <small>100% uptime</small>'
     modifiers:
       multiplier: {'Effective Power': 0.15}
-    armory-embed: 'traits'
-    armory-id: 996
+    gw2-id: 996
+    armory-type: 'traits'
 
 - SECTION: 'Skirmishing'
 
@@ -43,31 +43,31 @@
     text: 'Hidden Barbs'
     modifiers:
       multiplier: {'Bleeding Damage': 0.33}
-    armory-embed: 'traits'
-    armory-id: 1846
+    gw2-id: 1846
+    armory-type: 'traits'
 
   hunters-tactics:
     text: 'Hunter''s Tactics'
     modifiers:
       buff: {'Critical Chance': 10}
       multiplier: {'Effective Power': 0.1}
-    armory-embed: 'traits'
-    armory-id: 1068
+    gw2-id: 1068
+    armory-type: 'traits'
 
   light-on-your-feet:
     text: 'Light on your Feet <small>100% uptime</small>'
     modifiers:
       multiplier: {'Effective Power': 0.1}
       buff: {'Condition Duration': 10}
-    armory-embed: 'traits'
-    armory-id: 1912
+    gw2-id: 1912
+    armory-type: 'traits'
 
   vicious-quarry:
     text: 'Vicious Quarry'
     modifiers:
       buff: {'Ferocity': 250, 'Critical Chance': 10}
-    armory-embed: 'traits'
-    armory-id: 1888
+    gw2-id: 1888
+    armory-type: 'traits'
 
 - SECTION: 'Wilderness Survival'
 
@@ -75,37 +75,37 @@
     text: 'Oakheart Salve'
     modifiers:
       multiplier: {'Effective Health': 0.05}
-    armory-embed: 'traits'
-    armory-id: 1086
+    gw2-id: 1086
+    armory-type: 'traits'
 
   taste-for-danger:
     text: 'Taste for Danger'
     modifiers:
       buff: {'Vitality': 120}
       convert: {'Expertise': {'Vitality': 0.07}}
-    armory-embed: 'traits'
-    armory-id: 1099
+    gw2-id: 1099
+    armory-type: 'traits'
 
   ambidexterity:
     text: 'Ambidexterity <small>base</small>'
     modifiers:
       buff: {'Condition Damage': 120}
-    armory-embed: 'traits'
-    armory-id: 1101
+    gw2-id: 1101
+    armory-type: 'traits'
 
   ambidexterity-2:
     text: 'Ambidexterity <small>with torch/dagger - check both boxes</small>'
     modifiers:
       buff: {'Condition Damage': 120}
-    armory-embed: 'traits'
-    armory-id: 1101
+    gw2-id: 1101
+    armory-type: 'traits'
 
   poison-master:
     text: 'Poison Master'
     modifiers:
       multiplier: {'Poison Damage': 0.25}
-    armory-embed: 'traits'
-    armory-id: 1701
+    gw2-id: 1701
+    armory-type: 'traits'
 
 - SECTION: 'Nature Magic'
 
@@ -113,29 +113,29 @@
     text: 'Bountiful Hunter <small>6x</small>'
     modifiers:
       multiplier: {'Effective Power': 0.06}
-    armory-embed: 'traits'
-    armory-id: 1062
+    gw2-id: 1062
+    armory-type: 'traits'
 
   bountiful-hunter-9:
     text: 'Bountiful Hunter <small>9x</small>'
     modifiers:
       multiplier: {'Effective Power': 0.09}
-    armory-embed: 'traits'
-    armory-id: 1062
+    gw2-id: 1062
+    armory-type: 'traits'
 
   instinctive-reaction:
     text: 'Instinctive Reaction'
     modifiers:
       convert: {'Healing Power': {'Power': 0.07}}
-    armory-embed: 'traits'
-    armory-id: 978
+    gw2-id: 978
+    armory-type: 'traits'
 
   lingering-magic:
     text: 'Lingering Magic'
     modifiers:
       buff: {'Concentration': 240}
-    armory-embed: 'traits'
-    armory-id: 1059
+    gw2-id: 1059
+    armory-type: 'traits'
 
 - SECTION: 'Beastmastery'
 
@@ -143,22 +143,22 @@
     text: 'Honed Axes <small>base</small>'
     modifiers:
       buff: {'Ferocity': 120}
-    armory-embed: 'traits'
-    armory-id: 1066
+    gw2-id: 1066
+    armory-type: 'traits'
 
   honed-axes-2:
     text: 'Honed Axes <small>with axe 50% - also check base</small>'
     modifiers:
       buff: {'Ferocity': 60}
-    armory-embed: 'traits'
-    armory-id: 1066
+    gw2-id: 1066
+    armory-type: 'traits'
 
   honed-axes-3:
     text: 'Honed Axes <small>with axe 100% - also check base</small>'
     modifiers:
       buff: {'Ferocity': 120}
-    armory-embed: 'traits'
-    armory-id: 1066
+    gw2-id: 1066
+    armory-type: 'traits'
 
 - SECTION: 'Druid'
 
@@ -166,8 +166,8 @@
     text: 'Natural Mender <small>10x</small>'
     modifiers:
       multiplier: {'Effective Healing': 0.2}
-    armory-embed: 'traits'
-    armory-id: 1992
+    gw2-id: 1992
+    armory-type: 'traits'
 
 - SECTION: 'Soulbeast'
 
@@ -175,23 +175,23 @@
     text: 'Furious Strength'
     modifiers:
       multiplier: {'add: Effective Power': 0.15}
-    armory-embed: 'traits'
-    armory-id: 2156
+    gw2-id: 2156
+    armory-type: 'traits'
 
   twice-as-vicious:
     text: 'Twice as Vicious'
     modifiers:
       multiplier: {'add: Effective Power': 0.1, 'add: Effective Condition Damage': 0.1}
-    armory-embed: 'traits'
-    armory-id: 2127
+    gw2-id: 2127
+    armory-type: 'traits'
 
   oppressive-superiority:
     text: 'Oppressive Superiority'
     modifiers:
       multiplier: {'Effective Power': 0.1}
       buff: {'Condition Duration': 10}
-    armory-embed: 'traits'
-    armory-id: 2143
+    gw2-id: 2143
+    armory-type: 'traits'
 
 - SECTION: 'Soulbeast Pet Archetypes'
 
@@ -227,27 +227,27 @@
     text: 'Pack Alpha'
     modifiers:
       buff: {'Power': 150, 'Precision': 150, 'Condition Damage': 150, 'Toughness': 150, 'Vitality': 150}
-    armory-embed: 'traits'
-    armory-id: 1900
+    gw2-id: 1900
+    armory-type: 'traits'
 
   sb-2:
     text: 'Loud Whistle'
     modifiers:
       multiplier: {'Effective Power': 0.1}
-    armory-embed: 'traits'
-    armory-id: 974
+    gw2-id: 974
+    armory-type: 'traits'
 
   sb-3:
     text: 'Pet''s Prowess'
     modifiers:
       buff: {'Ferocity': 300}
-    armory-embed: 'traits'
-    armory-id: 1065
+    gw2-id: 1065
+    armory-type: 'traits'
 
   sb-4:
     text: 'Honed Axes <small>base</small>'
     modifiers:
       buff: {'Ferocity': 120}
-    armory-embed: 'traits'
-    armory-id: 1066
+    gw2-id: 1066
+    armory-type: 'traits'
 
