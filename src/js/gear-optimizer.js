@@ -40,7 +40,7 @@ const Optimizer = function ($) {
       BUFF: {
         MIGHT: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'buff-might',
         FURY: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'buff-fury',
-        VULNERABILITY: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'condition-vulnerability',
+        VULNERABILITY: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'buff-vulnerability',
         BANNER_OF_STRENGTH: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'buff-banner-of-strength',
         BANNER_OF_DISCIPLINE: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'buff-banner-of-discipline',
         EMPOWER_ALLIES: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'buff-empower-allies',
@@ -77,8 +77,8 @@ const Optimizer = function ($) {
       RANKBY: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'rank-by',
       WEAPON_TYPE: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'weapon-type',
       RUNES: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'runes',
-      SIGIL_1: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'sigil-1',
-      SIGIL_2: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'sigil-2',
+      SIGIL_1: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'sigils-1',
+      SIGIL_2: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'sigils-2',
       FOOD: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'food',
       UTILITY: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'utility',
       INFUSIONS: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'infusions'
