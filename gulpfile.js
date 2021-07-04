@@ -191,8 +191,8 @@ const getYaml = function (mode) {
 `                                  <div class="dropdown-divider"></div>
                                   <h6 class="dropdown-header">${sectionName}</h6>
 `;
-      Object.entries(section).forEach(([text, resultItem]) => {
-        if (text === 'SECTION') {
+      Object.entries(section).forEach(([id, resultItem]) => {
+        if (id === 'SECTION') {
           return;
         }
         output +=
@@ -211,7 +211,7 @@ const getYaml = function (mode) {
 `;
         }
         output +=
-`                                    ${text}
+`                                    ${resultItem.text}
                                   </div>
 `;
 
@@ -471,11 +471,13 @@ const generateYaml = function (done) {
         });
         result.push(sectionItems);
       });
-      const resultYaml = yaml.dump(result, {
+      let resultYaml = yaml.dump(result, {
         forceQuotes: true,
         lineWidth: -1,
         flowLevel: 4
       });
+      resultYaml = resultYaml.replace(/\n/g, '\n\n').replace(/\n\n    /g, '\n    ')
+
       fs.writeFileSync(base.src + 'yaml/' + mode + '.yaml', resultYaml, 'utf8');
     };
 
@@ -507,22 +509,32 @@ const generateYaml = function (done) {
         const dataArmoryEmbed = span.attr('data-armory-embed');
         const dataArmoryId = parseInt(span.attr('data-armory-ids'), 10);
         const text = item.html().replace(/<span.*?data-armory-ids.*?><\/span>/s, '').replace(/\s+/g, ' ').trim();
+        const id = text.replace(/<*?>/s, '')
+          .replace('Superior Sigil of the ', '')
+          .replace('Superior Sigil of ', '')
+          .replace('Superior Rune of the ', '')
+          .replace('Superior Rune of ', '')
+          .replace('Bowl of ', '')
+          .replace('Plate of ', '')
+          .replace(/\s+/g, '-').trim().toLowerCase();
 
-        const resultItem = { modifiers };
+        const resultItem = { text, modifiers };
         if (dataArmoryEmbed) {
           resultItem['armory-embed'] = dataArmoryEmbed;
           resultItem['armory-id'] = dataArmoryId;
         }
         if (result.length) {
           // no ids, so using text label as key
-          result[result.length - 1][text] = resultItem;
+          result[result.length - 1][id] = resultItem;
         }
       });
-      const resultYaml = yaml.dump(result, {
+      let resultYaml = yaml.dump(result, {
         forceQuotes: true,
         lineWidth: -1,
         flowLevel: 4
       });
+      resultYaml = resultYaml.replace(/\n/g, '\n\n').replace(/\n\n    /g, '\n    ');
+
       fs.writeFileSync(base.src + 'yaml/' + mode + '.yaml', resultYaml, 'utf8');
     };
 

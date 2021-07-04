@@ -1,36 +1,42 @@
 - SECTION: 'Power Utilities'
 
-  Slaying Potion:
+  slaying-potion:
+    text: 'Slaying Potion'
     modifiers:
       multiplier: {'Effective Power': 0.1, 'Effective Health': 0.1}
     armory-embed: 'items'
     armory-id: 50082
 
-  Furious Sharpening Stone:
+  furious-sharpening-stone:
+    text: 'Furious Sharpening Stone'
     modifiers:
       convert: {'Power': {'Precision': 0.03}, 'Ferocity': {'Precision': 0.03}}
     armory-embed: 'items'
     armory-id: 67530
 
-  Superior Sharpening Stone:
+  superior-sharpening-stone:
+    text: 'Superior Sharpening Stone'
     modifiers:
       convert: {'Power': {'Precision': 0.03, 'Ferocity': 0.06}}
     armory-embed: 'items'
     armory-id: 9443
 
-  Toxic Sharpening Stone:
+  toxic-sharpening-stone:
+    text: 'Toxic Sharpening Stone'
     modifiers:
       convert: {'Power': {'Condition Damage': 0.06, 'Expertise': 0.08}}
     armory-embed: 'items'
     armory-id: 48915
 
-  Magnanimous Sharpening Stone:
+  magnanimous-sharpening-stone:
+    text: 'Magnanimous Sharpening Stone'
     modifiers:
       convert: {'Power': {'Vitality': 0.03, 'Toughness': 0.03}}
     armory-embed: 'items'
     armory-id: 81034
 
-  Bountiful Sharpening Stone:
+  bountiful-sharpening-stone:
+    text: 'Bountiful Sharpening Stone'
     modifiers:
       convert: {'Power': {'Healing Power': 0.06, 'Concentration': 0.08}}
     armory-embed: 'items'
@@ -38,43 +44,50 @@
 
 - SECTION: 'Support Utilities'
 
-  Potent Lucent Oil:
+  potent-lucent-oil:
+    text: 'Potent Lucent Oil'
     modifiers:
       convert: {'Concentration': {'Power': 0.03, 'Precision': 0.03}}
     armory-embed: 'items'
     armory-id: 89203
 
-  Toxic Maintenance Oil:
+  toxic-maintenance-oil:
+    text: 'Toxic Maintenance Oil'
     modifiers:
       convert: {'Concentration': {'Power': 0.03, 'Condition Damage': 0.06}}
     armory-embed: 'items'
     armory-id: 48916
 
-  Enhanced Lucent Oil:
+  enhanced-lucent-oil:
+    text: 'Enhanced Lucent Oil'
     modifiers:
       convert: {'Concentration': {'Precision': 0.03, 'Condition Damage': 0.06}}
     armory-embed: 'items'
     armory-id: 89157
 
-  Furious Maintenance Oil:
+  furious-maintenance-oil:
+    text: 'Furious Maintenance Oil'
     modifiers:
       convert: {'Concentration': {'Precision': 0.03}, 'Healing Power': {'Precision': 0.03}}
     armory-embed: 'items'
     armory-id: 67529
 
-  Magnanimous Maintenance Oil:
+  magnanimous-maintenance-oil:
+    text: 'Magnanimous Maintenance Oil'
     modifiers:
       convert: {'Concentration': {'Vitality': 0.03, 'Toughness': 0.03}}
     armory-embed: 'items'
     armory-id: 81157
 
-  Master Maintenance Oil:
+  master-maintenance-oil:
+    text: 'Master Maintenance Oil'
     modifiers:
       convert: {'Concentration': {'Precision': 0.03, 'Healing Power': 0.06}}
     armory-embed: 'items'
     armory-id: 9461
 
-  Corsair Maintenance Oil:
+  corsair-maintenance-oil:
+    text: 'Corsair Maintenance Oil'
     modifiers:
       convert: {'Concentration': {'Toughness': 0.03}, 'Expertise': {'Toughness': 0.03}}
     armory-embed: 'items'
@@ -82,7 +95,8 @@
 
 - SECTION: 'Heal Utilities'
 
-  Bountiful Maintenance Oil:
+  bountiful-maintenance-oil:
+    text: 'Bountiful Maintenance Oil'
     modifiers:
       bountiful-maintenance-oil: 0
     armory-embed: 'items'
@@ -90,31 +104,36 @@
 
 - SECTION: 'Condition Utilities'
 
-  Toxic Focusing Crystal:
+  toxic-focusing-crystal:
+    text: 'Toxic Focusing Crystal'
     modifiers:
       convert: {'Condition Damage': {'Power': 0.03, 'Precision': 0.03}}
     armory-embed: 'items'
     armory-id: 48917
 
-  Furious Tuning Crystal:
+  furious-tuning-crystal:
+    text: 'Furious Tuning Crystal'
     modifiers:
       convert: {'Condition Damage': {'Precision': 0.03}, 'Expertise': {'Precision': 0.03}}
     armory-embed: 'items'
     armory-id: 67524
 
-  Master Tuning Crystal:
+  master-tuning-crystal:
+    text: 'Master Tuning Crystal'
     modifiers:
       convert: {'Condition Damage': {'Precision': 0.03, 'Expertise': 0.08}}
     armory-embed: 'items'
     armory-id: 9476
 
-  Magnanimous Tuning Crystal:
+  magnanimous-tuning-crystal:
+    text: 'Magnanimous Tuning Crystal'
     modifiers:
       convert: {'Condition Damage': {'Vitality': 0.03, 'Toughness': 0.03}}
     armory-embed: 'items'
     armory-id: 81079
 
-  Bountiful Tuning Crystal:
+  bountiful-tuning-crystal:
+    text: 'Bountiful Tuning Crystal'
     modifiers:
       convert: {'Condition Damage': {'Healing Power': 0.06, 'Concentration': 0.08}}
     armory-embed: 'items'
@@ -122,19 +141,22 @@
 
 - SECTION: 'SAB Utilities'
 
-  Holographic Super Apple:
+  holographic-super-apple:
+    text: 'Holographic Super Apple'
     modifiers:
       convert: {'Condition Damage': {'Concentration': 0.08}, 'Concentration': {'Precision': 0.03}}
     armory-embed: 'items'
     armory-id: 87336
 
-  Holographic Super Drumstick:
+  holographic-super-drumstick:
+    text: 'Holographic Super Drumstick'
     modifiers:
       convert: {'Healing Power': {'Concentration': 0.08}, 'Concentration': {'Precision': 0.03}}
     armory-embed: 'items'
     armory-id: 87329
 
-  Holographic Super Cheese:
+  holographic-super-cheese:
+    text: 'Holographic Super Cheese'
     modifiers:
       convert: {'Power': {'Concentration': 0.08}, 'Concentration': {'Precision': 0.03}}
     armory-embed: 'items'
@@ -142,19 +164,22 @@
 
 - SECTION: 'Writs'
 
-  Writ of Masterful Accuracy:
+  writ-of-masterful-accuracy:
+    text: 'Writ of Masterful Accuracy'
     modifiers:
       flat: {'Precision': 200}
     armory-embed: 'items'
     armory-id: 76833
 
-  Writ of Masterful Malice:
+  writ-of-masterful-malice:
+    text: 'Writ of Masterful Malice'
     modifiers:
       flat: {'Condition Damage': 200}
     armory-embed: 'items'
     armory-id: 72510
 
-  Writ of Masterful Strength:
+  writ-of-masterful-strength:
+    text: 'Writ of Masterful Strength'
     modifiers:
       flat: {'Power': 200}
     armory-embed: 'items'
@@ -162,7 +187,8 @@
 
 - SECTION: 'Misc'
 
-  Potion Of Karka Toughness:
+  potion-of-karka-toughness:
+    text: 'Potion Of Karka Toughness'
     modifiers:
       flat: {'Toughness': 150}
     armory-embed: 'items'

@@ -1,24 +1,28 @@
 - SECTION: 'Power Sigils'
 
-  Superior Sigil of Force:
+  force:
+    text: 'Superior Sigil of Force'
     modifiers:
       multiplier: {'add: Effective Power': 0.05}
     armory-embed: 'items'
     armory-id: 24615
 
-  Superior Sigil of Accuracy:
+  accuracy:
+    text: 'Superior Sigil of Accuracy'
     modifiers:
       flat: {'Critical Chance': 7}
     armory-embed: 'items'
     armory-id: 24618
 
-  Superior Sigil of the Night/Impact/Slaying<br> <small>(Both 7%/3%)</small>:
+  night/impact/slaying<br-<small>(both-7%/3%)</small>:
+    text: 'Superior Sigil of the Night/Impact/Slaying<br> <small>(Both 7%/3%)</small>'
     modifiers:
       multiplier: {'add: Effective Power': 0.1}
     armory-embed: 'items'
     armory-id: 36053
 
-  Superior Sigil of the Night/Impact/Slaying<br> <small>(Only 3%)</small>:
+  night/impact/slaying<br-<small>(only-3%)</small>:
+    text: 'Superior Sigil of the Night/Impact/Slaying<br> <small>(Only 3%)</small>'
     modifiers:
       multiplier: {'add: Effective Power': 0.03}
     armory-embed: 'items'
@@ -26,7 +30,8 @@
 
 - SECTION: 'Support Sigils'
 
-  Superior Sigil of Concentration:
+  concentration:
+    text: 'Superior Sigil of Concentration'
     modifiers:
       flat: {'Boon Duration': 10}
     armory-embed: 'items'
@@ -34,7 +39,8 @@
 
 - SECTION: 'Heal Sigils'
 
-  Superior Sigil of Transference:
+  transference:
+    text: 'Superior Sigil of Transference'
     modifiers:
       multiplier: {'Effective Healing': 0.1}
     armory-embed: 'items'
@@ -42,37 +48,43 @@
 
 - SECTION: 'Condition Sigils'
 
-  Superior Sigil of Malice:
+  malice:
+    text: 'Superior Sigil of Malice'
     modifiers:
       flat: {'Condition Duration': 10}
     armory-embed: 'items'
     armory-id: 44950
 
-  Superior Sigil of Bursting:
+  bursting:
+    text: 'Superior Sigil of Bursting'
     modifiers:
       multiplier: {'add: Effective Condition Damage': 0.05}
     armory-embed: 'items'
     armory-id: 44944
 
-  Superior Sigil of Agony:
+  agony:
+    text: 'Superior Sigil of Agony'
     modifiers:
       flat: {'Bleeding Duration': 20}
     armory-embed: 'items'
     armory-id: 24612
 
-  Superior Sigil of Smoldering:
+  smoldering:
+    text: 'Superior Sigil of Smoldering'
     modifiers:
       flat: {'Burning Duration': 20}
     armory-embed: 'items'
     armory-id: 24624
 
-  Superior Sigil of Venom:
+  venom:
+    text: 'Superior Sigil of Venom'
     modifiers:
       flat: {'Poison Duration': 20}
     armory-embed: 'items'
     armory-id: 24632
 
-  Superior Sigil of Demons:
+  demons:
+    text: 'Superior Sigil of Demons'
     modifiers:
       flat: {'Torment Duration': 20}
     armory-embed: 'items'
@@ -80,49 +92,57 @@
 
 - SECTION: 'Stacking Sigils (25x)'
 
-  Superior Sigil of Bloodlust:
+  bloodlust:
+    text: 'Superior Sigil of Bloodlust'
     modifiers:
       flat: {'Power': 250}
     armory-embed: 'items'
     armory-id: 24575
 
-  Superior Sigil of Cruelty:
+  cruelty:
+    text: 'Superior Sigil of Cruelty'
     modifiers:
       flat: {'Ferocity': 250}
     armory-embed: 'items'
     armory-id: 67341
 
-  Superior Sigil of Perception:
+  perception:
+    text: 'Superior Sigil of Perception'
     modifiers:
       flat: {'Precision': 250}
     armory-embed: 'items'
     armory-id: 24580
 
-  Superior Sigil of Corruption:
+  corruption:
+    text: 'Superior Sigil of Corruption'
     modifiers:
       flat: {'Condition Damage': 250}
     armory-embed: 'items'
     armory-id: 24578
 
-  Superior Sigil of Life:
+  life:
+    text: 'Superior Sigil of Life'
     modifiers:
       flat: {'Healing Power': 250}
     armory-embed: 'items'
     armory-id: 24582
 
-  Superior Sigil of Bounty:
+  bounty:
+    text: 'Superior Sigil of Bounty'
     modifiers:
       flat: {'Concentration': 225}
     armory-embed: 'items'
     armory-id: 81045
 
-  Superior Sigil of Benevolence:
+  benevolence:
+    text: 'Superior Sigil of Benevolence'
     modifiers:
       multiplier: {'Effective Healing': 0.125}
     armory-embed: 'items'
     armory-id: 24584
 
-  Superior Sigil of the Stars:
+  stars:
+    text: 'Superior Sigil of the Stars'
     modifiers:
       flat: {'Power': 50, 'Precision': 50, 'Toughness': 50, 'Vitality': 50, 'Ferocity': 50, 'Condition Damage': 50, 'Healing Power': 50, 'Concentration': 50, 'Expertise': 50}
     armory-embed: 'items'
@@ -130,7 +150,8 @@
 
 - SECTION: 'Gemstones'
 
-  Platinum Doubloon:
+  platinum-doubloon:
+    text: 'Platinum Doubloon'
     modifiers:
       flat: {'Concentration': 40}
     armory-embed: 'items'
