@@ -1,24 +1,34 @@
 - SECTION: ''
 
   might:
-    text: '<span class="icon icon-might"></span> Might <small class="text-muted font-italic">(25x)</small>'
+    text: > 
+      <span class="icon icon-might"></span>
+      Might
+      <small class="text-muted font-italic">(25x)</small>
     modifiers:
       buff: {'Power': 750, 'Condition Damage': 750}
     default-enabled: true
 
   fury:
-    text: '<span class="icon icon-fury"></span> Fury'
+    text: >
+      <span class="icon icon-fury"></span>
+      Fury
     modifiers:
       buff: {'Critical Chance': 20}
     default-enabled: true
 
   protection:
-    text: '<span class="icon icon-protection"></span> Protection'
+    text: > 
+      <span class="icon icon-protection"></span>
+      Protection
     modifiers:
       multiplier: {'Effective Health': 0.33}
 
   vulnerability:
-    text: '<span class="icon icon-vulnerability"></span> Vulnerability <small class="text-muted font-italic">(25x)</small>'
+    text: >
+      <span class="icon icon-vulnerability"></span>
+      Vulnerability
+      <small class="text-muted font-italic">(25x)</small>
     modifiers:
       multiplier: {'Effective Power': 0.25, 'Effective Condition Damage': 0.25}
     default-enabled: true
@@ -94,7 +104,10 @@
     armory-type: 'traits'
     extraCSS: 'text-guardian'
 
-- SECTION: 'Guardian <span data-armory-size="24" data-armory-embed="traits" data-armory-ids="579"></span> Perfect Inscriptions (Assuming 100% uptime!)'
+- SECTION: > 
+    Guardian
+    <span data-armory-size="24" data-armory-embed="traits" data-armory-ids="579"></span>
+    Perfect Inscriptions (Assuming 100% uptime!)
 
   bane-signet:
     text: 'Bane Signet'
@@ -105,7 +118,7 @@
     default-enabled: true
     extraCSS: 'text-guardian'
 
-  guardian-x2:
+  signet-of-judgement:
     text: 'Signet of Judgement'
     modifiers:
       multiplier: {'Effective Health': 0.12}
@@ -113,7 +126,7 @@
     armory-type: 'skills'
     extraCSS: 'text-guardian'
 
-  guardian-x3:
+  signet-of-mercy:
     text: 'Signet of Mercy'
     modifiers:
       buff: {'Boon Duration': 10}
@@ -121,7 +134,7 @@
     armory-type: 'skills'
     extraCSS: 'text-guardian'
 
-  guardian-x4:
+  signet-of-wrath:
     text: 'Signet of Wrath'
     modifiers:
       buff: {'Condition Damage': 216}

@@ -8,7 +8,7 @@
     armory-type: 'traits'
 
   explosive-temper:
-    text: 'Explosive Temper <small>10</small>'
+    text: 'Explosive Temper <small>10x</small>'
     modifiers:
       buff: {'Ferocity': 200}
     gw2-id: 1892
@@ -22,7 +22,7 @@
     armory-type: 'traits'
 
   shaped-charge:
-    text: 'Shaped Charge <small>25</small>'
+    text: 'Shaped Charge <small>25x</small>'
     modifiers:
       multiplier: {'Effective Power': 0.125}
     gw2-id: 429
@@ -81,14 +81,14 @@
     armory-type: 'traits'
 
   modified-ammunition-10:
-    text: 'Modified Ammunition <small>10</small>'
+    text: 'Modified Ammunition <small>10x</small>'
     modifiers:
       multiplier: {'Effective Power': 0.2}
     gw2-id: 526
     armory-type: 'traits'
 
   modified-ammunition-14:
-    text: 'Modified Ammunition <small>14</small>'
+    text: 'Modified Ammunition <small>14x</small>'
     modifiers:
       multiplier: {'Effective Power': 0.28}
     gw2-id: 526

@@ -42,22 +42,28 @@
     gw2-id: 12486
     armory-type: 'items'
 
-  seaweed-salad-<small-class="text-muted-font-italic"(90%-uptime)-</small>:
-    text: 'Bowl of Seaweed Salad <small class="text-muted font-italic">(90% uptime) </small>'
+  seaweed-salad:
+    text: >
+      Bowl of Seaweed Salad<br> 
+      <small class="text-muted font-italic">(90% uptime) </small>
     modifiers:
       multiplier: {'Effective Power': 0.045}
     gw2-id: 12471
     armory-type: 'items'
 
-  dragon's-breath-bun-<small-class="text-muted-font-italic"(100%-uptime)-</small>:
-    text: 'Dragon''s Breath Bun <small class="text-muted font-italic">(100% uptime) </small>'
+  dragon's-breath-bun:
+    text: >
+      Dragon's Breath Bun<br> 
+      <small class="text-muted font-italic">(100% uptime) </small>
     modifiers:
       flat: {'Power': 200, 'Ferocity': 70}
     gw2-id: 43360
     armory-type: 'items'
 
-  steamed-red-dumpling-<small-class="text-muted-font-italic"(100%-uptime)-</small>:
-    text: 'Steamed Red Dumpling <small class="text-muted font-italic">(100% uptime) </small>'
+  steamed-red-dumpling:
+    text: >
+      Steamed Red Dumpling<br> 
+      <small class="text-muted font-italic">(100% uptime) </small>
     modifiers:
       flat: {'Power': 200, 'Condition Damage': 140}
     gw2-id: 68635
@@ -100,7 +106,7 @@
     gw2-id: 68633
     armory-type: 'items'
 
-  nopalitos-sauté:
+  nopalitos-saute:
     text: 'Bowl of Nopalitos Sauté'
     modifiers:
       flat: {'Concentration': 100, 'Toughness': 70}
@@ -134,8 +140,10 @@
     gw2-id: 12464
     armory-type: 'items'
 
-  saffron-stuffed-mushroom-(100%-uptime):
-    text: 'Saffron Stuffed Mushroom (100% uptime)'
+  saffron-stuffed-mushroom:
+    text: >
+      Saffron Stuffed Mushroom<br> 
+      <small class="text-muted font-italic">(100% uptime) </small>
     modifiers:
       flat: {'Precision': 70, 'Condition Damage': 200}
     gw2-id: 12476

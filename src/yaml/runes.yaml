@@ -1,15 +1,19 @@
 - SECTION: 'Power Runes'
 
-  scholar<br-<small>(with-active-bonus)</small>:
-    text: 'Superior Rune of the Scholar<br> <small>(with active bonus)</small>'
+  scholar:
+    text: >
+      Superior Rune of the Scholar<br> 
+      <small class="text-muted font-italic">(with active bonus)</small>
     modifiers:
       flat: {'Power': 175, 'Ferocity': 225}
       multiplier: {'Effective Power': 0.05}
     gw2-id: 24836
     armory-type: 'items'
 
-  scholar<br-<small>(without-active-bonus)</small>:
-    text: 'Superior Rune of the Scholar<br> <small>(without active bonus)</small>'
+  scholar-without:
+    text: >
+      Superior Rune of the Scholar<br> 
+      <small class="text-muted font-italic">(without active bonus)</small>
     modifiers:
       flat: {'Power': 175, 'Ferocity': 225}
     gw2-id: 24836
@@ -97,8 +101,11 @@
     gw2-id: 70600
     armory-type: 'items'
 
-  surging-(5x)-<br&amp;-<span-data-armory-embed="items"-data-armory-ids="24508"-data-armory-size="24"></span>-ruby-orb-(1x):
-    text: 'Superior Rune of Surging (5x) <br>&amp; <span data-armory-embed="items" data-armory-ids="24508" data-armory-size="24"></span> Ruby Orb (1x)'
+  surging-and-ruby-orb:
+    text: > 
+      Superior Rune of Surging (5x) <br>
+      &amp; <span data-armory-embed="items" data-armory-ids="24508" data-armory-size="24"></span>
+      Ruby Orb (1x)
     modifiers:
       flat: {'Power': 195, 'Precision': 14, 'Ferocity': 14, 'Boon Duration': 15}
     gw2-id: 76813
@@ -175,8 +182,10 @@
 
 - SECTION: 'Heal Runes'
 
-  monk-<small(10x)</small>:
-    text: 'Superior Rune of the Monk <small>(10x)</small>'
+  monk:
+    text: >
+      Superior Rune of the Monk<br> 
+      <small class="text-muted font-italic">(10x)</small>
     modifiers:
       flat: {'Healing Power': 175, 'Boon Duration': 15}
       multiplier: {'Effective Healing': 0.2}
@@ -288,7 +297,8 @@
   afflicted:
     text: 'Superior Rune of the Afflicted'
     modifiers:
-      flat: {'Condition Damage': 175, 'Bleeding Duration': 20, 'Poison Duration': 10, 'Condition Duration': 10}
+      flat: {'Condition Damage': 175,
+        'Bleeding Duration': 20, 'Poison Duration': 10, 'Condition Duration': 10}
     gw2-id: 24687
     armory-type: 'items'
 
@@ -320,8 +330,10 @@
     gw2-id: 24800
     armory-type: 'items'
 
-  soulbeast<br-<small-class="text-muted-font-italic">(active-bonus)</small>:
-    text: 'Superior Rune of the Soulbeast<br> <small class="text-muted font-italic">(Active Bonus)</small>'
+  soulbeast:
+    text: > 
+      Superior Rune of the Soulbeast<br>
+      <small class="text-muted font-italic">(Active Bonus)</small>
     modifiers:
       flat: {'Condition Damage': 175, 'Power': 100}
       convert: {'Condition Damage': {'Power': 0.07}}

@@ -226,7 +226,8 @@
   sb-1:
     text: 'Pack Alpha'
     modifiers:
-      buff: {'Power': 150, 'Precision': 150, 'Condition Damage': 150, 'Toughness': 150, 'Vitality': 150}
+      buff: {'Power': 150, 'Precision': 150, 'Condition Damage': 150,
+        'Toughness': 150, 'Vitality': 150}
     gw2-id: 1900
     armory-type: 'traits'
 
