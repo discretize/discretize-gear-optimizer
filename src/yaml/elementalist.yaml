@@ -15,35 +15,36 @@
     armory-type: 'skills'
 
   flame-axe:
-    text: 'Flame Axe'
+    text: 'Flame Axe <small>when equipped</small>'
     modifiers:
       buff: {'Power': 180, 'Condition Damage': 180}
     gw2-id: 5540
     armory-type: 'skills'
+    extraCSS: 'mt-4'
 
   earth-shield:
-    text: 'Earth Shield'
+    text: 'Earth Shield <small>when equipped</small>'
     modifiers:
       buff: {'Vitality': 180, 'Toughness': 180}
     gw2-id: 5546
     armory-type: 'skills'
 
   fiery-greatsword:
-    text: 'Fiery Greatsword'
+    text: 'Fiery Greatsword <small>when equipped</small>'
     modifiers:
       buff: {'Power': 260, 'Condition Damage': 180}
     gw2-id: 5516
     armory-type: 'skills'
 
   lightning-hammer:
-    text: 'Lightning Hammer'
+    text: 'Lightning Hammer <small>when equipped</small>'
     modifiers:
       buff: {'Precision': 180, 'Ferocity': 75}
     gw2-id: 5624
     armory-type: 'skills'
 
   frost-bow:
-    text: 'Frost Bow'
+    text: 'Frost Bow <small>when equipped</small>'
     modifiers:
       buff: {'Healing Power': 180, 'Condition Duration': 20}
     gw2-id: 5567
