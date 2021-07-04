@@ -1,0 +1,169 @@
+- SECTION: 'Corruption'
+  acolyte-of-torment:
+    text: 'Acolyte of Torment'
+    modifiers:
+      multiplier: {'Torment Damage': 0.1}
+    armory-embed: 'traits'
+    armory-id: 1793
+  seething-malice:
+    text: 'Seething Malice'
+    modifiers:
+      buff: {'Condition Damage': 120}
+    armory-embed: 'traits'
+    armory-id: 1801
+  demonic-resistance:
+    text: 'Demonic Resistance'
+    modifiers:
+      multiplier: {'Effective Health': 0.2}
+    armory-embed: 'traits'
+    armory-id: 1726
+  pact-of-pain:
+    text: 'Pact of Pain'
+    modifiers:
+      buff: {'Condition Duration': 15}
+    armory-embed: 'traits'
+    armory-id: 1714
+  yearning-empowerment:
+    text: 'Yearning Empowerement'
+    modifiers:
+      buff: {'Condition Duration': 10}
+    armory-embed: 'traits'
+    armory-id: 1744
+- SECTION: 'Retribution'
+  dwarven-battle-training:
+    text: 'Dwarven Battle Training'
+    modifiers:
+      multiplier: {'Effective Power': 0.1}
+    armory-embed: 'traits'
+    armory-id: 1740
+  determined-resolution:
+    text: 'Determined Resolution'
+    modifiers:
+      multiplier: {'Effective Health': 0.1}
+    armory-embed: 'traits'
+    armory-id: 1713
+  vicious-reprisal:
+    text: 'Vicious Reprisal <small>100%</small>'
+    modifiers:
+      multiplier: {'add: Effective Power': 0.1, 'add: Effective Condition Damage': 0.1}
+    armory-embed: 'traits'
+    armory-id: 1779
+  versed-in-stone:
+    text: 'Versed in Stone'
+    modifiers:
+      convert: {'Power': {'Toughness': 0.13}}
+    armory-embed: 'traits'
+    armory-id: 1770
+- SECTION: 'Invocation'
+  rising-tide:
+    text: 'Rising Tide'
+    modifiers:
+      multiplier: {'Effective Power': 0.07}
+    armory-embed: 'traits'
+    armory-id: 1761
+  ferocious-aggression:
+    text: 'Ferocious Aggression'
+    modifiers:
+      multiplier: {'add: Effective Power': 0.07, 'add: Effective Condition Damage': 0.07}
+    armory-embed: 'traits'
+    armory-id: 1758
+  roiling-mists:
+    text: 'Roiling Mists'
+    modifiers:
+      buff: {'Critical Chance': 20}
+    armory-embed: 'traits'
+    armory-id: 1719
+- SECTION: 'Devastation'
+  unsuspecting-strikes:
+    text: 'Unsuspecting Strikes <small>20% uptime -&gt; +4% Damage</small>'
+    modifiers:
+      multiplier: {'Effective Power': 0.04}
+    armory-embed: 'traits'
+    armory-id: 1767
+  destructive-impulses-dual:
+    text: 'Destructive Impulses <small>Dual wielded</small>'
+    modifiers:
+      multiplier: {'add: Effective Power': 0.1, 'add: Effective Condition Damage': 0.1}
+    armory-embed: 'traits'
+    armory-id: 1724
+  destructive-impulses:
+    text: 'Destructive Impulses <small>Two handed</small>'
+    modifiers:
+      multiplier: {'add: Effective Power': 0.05, 'add: Effective Condition Damage': 0.05}
+    armory-embed: 'traits'
+    armory-id: 1724
+  destructive-impulses-mix:
+    text: 'Destructive Impulses <small>50% dual wield, 50% 2h</small>'
+    modifiers:
+      multiplier: {'add: Effective Power': 0.075, 'add: Effective Condition Damage': 0.075}
+    armory-embed: 'traits'
+    armory-id: 1724
+  notoriety:
+    text: 'Notoriety <small>25 might</small>'
+    modifiers:
+      buff: {'Power': 250, 'Condition Damage': -250}
+    armory-embed: 'traits'
+    armory-id: 1765
+  targeted-destruction:
+    text: 'Targeted Destruction <small>25 vulnerability</small>'
+    modifiers:
+      multiplier: {'Effective Power': 0.125}
+    armory-embed: 'traits'
+    armory-id: 1792
+  swift-termination:
+    text: 'Swift Termination'
+    modifiers:
+      multiplier: {'Effective Power': 0.1}
+    armory-embed: 'traits'
+    armory-id: 1800
+- SECTION: 'Salvation'
+  tranquil-balance:
+    text: 'Tranquil Balance'
+    modifiers:
+      multiplier: {'Effective Healing': 0.2}
+    armory-embed: 'traits'
+    armory-id: 1822
+  life-attunement:
+    text: 'Life Attunement'
+    modifiers:
+      buff: {'Healing Power': 120}
+      convert: {'Concentration': {'Healing Power': 0.07}}
+    armory-embed: 'traits'
+    armory-id: 1821
+  invoking-harmony:
+    text: 'Invoking Harmony'
+    modifiers:
+      multiplier: {'Effective Healing': 0.2}
+    armory-embed: 'traits'
+    armory-id: 1818
+- SECTION: 'Renegade'
+  ambush-commander:
+    text: 'Ambush Commander <small>5x Kalla''s Fervor</small>'
+    modifiers:
+      multiplier: {'add: Effective Power': 0.1, 'add: Effective Condition Damage': 0.1}
+    armory-embed: 'traits'
+    armory-id: 2181
+  blood-fury:
+    text: 'Blood Fury'
+    modifiers:
+      buff: {'Bleeding Duration': 25}
+    armory-embed: 'traits'
+    armory-id: 2079
+  heartpiercer:
+    text: 'Heartpiercer'
+    modifiers:
+      multiplier: {'Bleeding Damage': 0.25}
+    armory-embed: 'traits'
+    armory-id: 2092
+  brutal-momentum:
+    text: 'Brutal Momentum'
+    modifiers:
+      buff: {'Critical Chance': 33}
+    armory-embed: 'traits'
+    armory-id: 2142
+  lasting-legacy:
+    text: 'Lasting Legacy <small>additional bonus from 5x Kalla''s Fervor</small>'
+    modifiers:
+      multiplier: {'add: Effective Power': 0.05, 'add: Effective Condition Damage': 0.05}
+    armory-embed: 'traits'
+    armory-id: 2100

@@ -1,0 +1,270 @@
+- SECTION: 'Skills'
+  signet-of-fire:
+    text: 'Signet of Fire'
+    modifiers:
+      buff: {'Precision': 180}
+    armory-embed: 'skills'
+    armory-id: 5542
+  signet-of-earth:
+    text: 'Signet of Earth'
+    modifiers:
+      buff: {'Toughness': 180}
+    armory-embed: 'skills'
+    armory-id: 5571
+  flame-axe:
+    text: 'Flame Axe'
+    modifiers:
+      buff: {'Power': 180, 'Condition Damage': 180}
+    armory-embed: 'skills'
+    armory-id: 5540
+  earth-shield:
+    text: 'Earth Shield'
+    modifiers:
+      buff: {'Vitality': 180, 'Toughness': 180}
+    armory-embed: 'skills'
+    armory-id: 5546
+  fiery-greatsword:
+    text: 'Fiery Greatsword'
+    modifiers:
+      buff: {'Power': 260, 'Condition Damage': 180}
+    armory-embed: 'skills'
+    armory-id: 5516
+  lightning-hammer:
+    text: 'Lightning Hammer'
+    modifiers:
+      buff: {'Precision': 180, 'Ferocity': 75}
+    armory-embed: 'skills'
+    armory-id: 5624
+  frost-bow:
+    text: 'Frost Bow'
+    modifiers:
+      buff: {'Healing Power': 180, 'Condition Duration': 20}
+    armory-embed: 'skills'
+    armory-id: 5567
+- SECTION: 'Fire'
+  empowering-flame:
+    text: 'Empowering Flame (100% in <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5492"></span>)'
+    modifiers:
+      buff: {'Power': 150}
+    armory-embed: 'traits'
+    armory-id: 320
+  burning-precision:
+    text: 'Burning Precision'
+    modifiers:
+      buff: {'Burning Duration': 20}
+    armory-embed: 'traits'
+    armory-id: 296
+  burning-rage:
+    text: 'Burning Rage'
+    modifiers:
+      buff: {'Condition Damage': 180}
+    armory-embed: 'traits'
+    armory-id: 325
+  power-overwhelming:
+    text: 'Power Overwhelming <small>perma</small>'
+    modifiers:
+      buff: {'Power': 150}
+    armory-embed: 'traits'
+    armory-id: 334
+  power-overwhelming-2:
+    text: 'Power Overwhelming (100% in <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5492"></span> - tick both)'
+    modifiers:
+      buff: {'Power': 150}
+    armory-embed: 'traits'
+    armory-id: 334
+  pyromancers-training:
+    text: 'Pyromancer''s Training'
+    modifiers:
+      multiplier: {'Effective Power': 0.1}
+    armory-embed: 'traits'
+    armory-id: 319
+- SECTION: 'Air'
+  ferocious-winds:
+    text: 'Ferocious Winds'
+    modifiers:
+      convert: {'Ferocity': {'Precision': 0.07}}
+    armory-embed: 'traits'
+    armory-id: 232
+  raging-storm:
+    text: 'Raging Storm'
+    modifiers:
+      buff: {'Ferocity': 180}
+    armory-embed: 'traits'
+    armory-id: 214
+  stormsoul:
+    text: 'Stormsoul'
+    modifiers:
+      multiplier: {'Effective Power': 0.1}
+    armory-embed: 'traits'
+    armory-id: 1502
+  aeromancers-training:
+    text: 'Aeromancer''s Training <small>perma</small>'
+    modifiers:
+      buff: {'Ferocity': 150}
+    armory-embed: 'traits'
+    armory-id: 223
+  aeromancers-training-2:
+    text: 'Aeromancer''s Training (100% in <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5494"></span> - tick both)'
+    modifiers:
+      buff: {'Ferocity': 150}
+    armory-embed: 'traits'
+    armory-id: 223
+  bolt-to-the-heart:
+    text: 'Bolt to the Heart <small>50% uptime</small>'
+    modifiers:
+      multiplier: {'Effective Power': 0.1}
+    armory-embed: 'traits'
+    armory-id: 226
+  fresh-air:
+    text: 'Fresh Air <small>100% uptime</small>'
+    modifiers:
+      buff: {'Ferocity': 250}
+    armory-embed: 'traits'
+    armory-id: 1503
+- SECTION: 'Earth'
+  stone-flesh:
+    text: 'Stone Flesh (100% in <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5495"></span>)'
+    modifiers:
+      multiplier: {'Effective Health': 0.07}
+    armory-embed: 'traits'
+    armory-id: 278
+  serrated-stones:
+    text: 'Serrated Stones'
+    modifiers:
+      multiplier: {'Effective Power': 0.05}
+      buff: {'Bleeding Duration': 20}
+    armory-embed: 'traits'
+    armory-id: 1507
+  strength-of-stone:
+    text: 'Strength of Stone'
+    modifiers:
+      convert: {'Condition Damage': {'Toughness': 0.1}}
+    armory-embed: 'traits'
+    armory-id: 275
+  geomancers-defense:
+    text: 'Geomancer''s Defense'
+    modifiers:
+      multiplier: {'Effective Health': 0.1}
+    armory-embed: 'traits'
+    armory-id: 280
+- SECTION: 'Water'
+  piercing-blades:
+    text: 'Piercing Shards'
+    modifiers:
+      multiplier: {'Effective Power': 0.1}
+    armory-embed: 'traits'
+    armory-id: 363
+  piercing-blades-2:
+    text: 'Piercing Shards <small>100% in <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5493"></span> - tick both</small>'
+    modifiers:
+      multiplier: {'Effective Power': 0.1}
+    armory-embed: 'traits'
+    armory-id: 363
+  flow-like-water:
+    text: 'Flow like Water'
+    modifiers:
+      multiplier: {'Effective Power': 0.1}
+    armory-embed: 'traits'
+    armory-id: 349
+  aquamancers-training:
+    text: 'Aquamancer''s Training'
+    modifiers:
+      multiplier: {'Effective Healing': 0.15}
+    armory-embed: 'traits'
+    armory-id: 1676
+- SECTION: 'Arcane'
+  elemental-enchantment:
+    text: 'Elemental Enchantment'
+    modifiers:
+      buff: {'Concentration': 180}
+    armory-embed: 'traits'
+    armory-id: 2004
+  elemental-surge:
+    text: 'Elemental Surge (100% uptime)'
+    modifiers:
+      flat: {'Ferocity': 150}
+    armory-embed: 'traits'
+    armory-id: 263
+  bountiful-power:
+    text: 'Bountiful Power <small>6x</small>'
+    modifiers:
+      multiplier: {'Effective Power': 0.12}
+    armory-embed: 'traits'
+    armory-id: 1511
+  bountiful-power-9:
+    text: 'Bountiful Power <small>9x</small>'
+    modifiers:
+      multiplier: {'Effective Power': 0.18}
+    armory-embed: 'traits'
+    armory-id: 1511
+- SECTION: 'Tempest'
+  gathered-focus:
+    text: 'Gathered Focus <small>100%</small>'
+    modifiers:
+      buff: {'Concentration': 240}
+    armory-embed: 'traits'
+    armory-id: 1938
+  hardy-conduit:
+    text: 'Hardy Conduit'
+    modifiers:
+      multiplier: {'Effective Health': 0.1167}
+    armory-embed: 'traits'
+    armory-id: 1948
+  transcendent-tempest:
+    text: 'Transcendent Tempest'
+    modifiers:
+      multiplier: {'add: Effective Power': 0.07, 'add: Effective Condition Damage': 0.07}
+    armory-embed: 'traits'
+    armory-id: 1839
+- SECTION: 'Weaver'
+  superior-elements:
+    text: 'Superior Elements <small>100% uptime</small>'
+    modifiers:
+      buff: {'Critical Chance': 10}
+    armory-embed: 'traits'
+    armory-id: 2177
+  masters-fortitude:
+    text: 'Master''s Fortitude <small>With Sword</small>'
+    modifiers:
+      flat: {'Vitality': 120}
+      convert: {'Vitality': {'Power': 0.05, 'Condition Damage': 0.05}}
+    armory-embed: 'traits'
+    armory-id: 2115
+  masters-fortitude-without:
+    text: 'Master''s Fortitude <small>Without Sword</small>'
+    modifiers:
+      convert: {'Vitality': {'Power': 0.05, 'Condition Damage': 0.05}}
+    armory-embed: 'traits'
+    armory-id: 2115
+  weavers-prowess:
+    text: 'Weaver''s Prowess <small>100% uptime</small>'
+    modifiers:
+      multiplier: {'add: Effective Condition Damage': 0.1}
+      buff: {'Condition Duration': 20}
+    armory-embed: 'traits'
+    armory-id: 2180
+  swift-revenge:
+    text: 'Swift Revenge'
+    modifiers:
+      multiplier: {'add: Effective Power': 0.1}
+    armory-embed: 'traits'
+    armory-id: 2061
+  elemental-polyphony-fire:
+    text: 'Elemental Polyphony (100% in <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5492"></span>)'
+    modifiers:
+      buff: {'Power': 120}
+    armory-embed: 'traits'
+    armory-id: 2081
+  elemental-polyphony-air:
+    text: 'Elemental Polyphony (100% in <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5494"></span>)'
+    modifiers:
+      buff: {'Ferocity': 120}
+    armory-embed: 'traits'
+    armory-id: 2081
+  elements-of-rage:
+    text: 'Elements of Rage'
+    modifiers:
+      multiplier: {'add: Effective Condition Damage': 0.05}
+      convert: {'Precision': {'Vitality': 0.13}}
+    armory-embed: 'traits'
+    armory-id: 2131

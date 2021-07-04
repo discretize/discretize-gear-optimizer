@@ -1,0 +1,272 @@
+- SECTION: 'Skills'
+  signet-of-might:
+    text: 'Signet of Might'
+    modifiers:
+      buff: {'Power': 180}
+    armory-embed: 'skills'
+    armory-id: 14404
+  signet-of-fury:
+    text: 'Signet of Fury'
+    modifiers:
+      buff: {'Precision': 180}
+    armory-embed: 'skills'
+    armory-id: 14410
+  dolyak-signet:
+    text: 'Dolyak Signet'
+    modifiers:
+      buff: {'Toughness': 180}
+    armory-embed: 'skills'
+    armory-id: 14413
+- SECTION: 'Strength'
+  peak-performance:
+    text: 'Peak Performance <small>passive</small>'
+    modifiers:
+      multiplier: {'add: Effective Power': 0.05}
+    armory-embed: 'traits'
+    armory-id: 1444
+  peak-performance-2:
+    text: 'Peak Performance <small>active, 100% uptime - check both boxes</small>'
+    modifiers:
+      multiplier: {'add: Effective Power': 0.1}
+    armory-embed: 'traits'
+    armory-id: 1444
+  forceful-greatsword:
+    text: 'Forceful Greatsword <small>base</small>'
+    modifiers:
+      buff: {'Power': 120}
+    armory-embed: 'traits'
+    armory-id: 1338
+  forceful-greatsword-2:
+    text: 'Forceful Greatsword <small>with greatsword/spear - check both boxes</small>'
+    modifiers:
+      buff: {'Power': 120}
+    armory-embed: 'traits'
+    armory-id: 1338
+  great-fortitude:
+    text: 'Great Fortitude'
+    modifiers:
+      convert: {'Vitality': {'Power': 0.1}, 'Ferocity': {'Power': 0.1}}
+    armory-embed: 'traits'
+    armory-id: 1449
+  pinnacle-of-strength:
+    text: 'Pinnacle Of Strength <small>25 might</small>'
+    modifiers:
+      buff: {'Power': 250}
+    armory-embed: 'traits'
+    armory-id: 1453
+  berserkers-power:
+    text: 'Berserker''s Power <small>100% 3x</small>'
+    modifiers:
+      multiplier: {'add: Effective Power': 0.21}
+    armory-embed: 'traits'
+    armory-id: 1437
+- SECTION: 'Arms'
+  wounding-precision:
+    text: 'Wounding Precision'
+    modifiers:
+      convert: {'Expertise': {'Precision': 0.07}}
+    armory-embed: 'traits'
+    armory-id: 1455
+  signet-mastery:
+    text: 'Signet Mastery <small>5x</small>'
+    modifiers:
+      flat: {'Ferocity': 500}
+    armory-embed: 'traits'
+    armory-id: 1344
+  deep-strikes:
+    text: 'Deep Strikes'
+    modifiers:
+      buff: {'Condition Damage': 180}
+    armory-embed: 'traits'
+    armory-id: 1343
+  blade-master:
+    text: 'Blademaster <small>base</small>'
+    modifiers:
+      buff: {'Expertise': 120}
+    armory-embed: 'traits'
+    armory-id: 1333
+  blade-master-2:
+    text: 'Blademaster <small>with sword 50% - check both boxes</small>'
+    modifiers:
+      buff: {'Condition Damage': 60}
+    armory-embed: 'traits'
+    armory-id: 1333
+  bloodlust:
+    text: 'Bloodlust'
+    modifiers:
+      buff: {'Bleeding Duration': 33}
+    armory-embed: 'traits'
+    armory-id: 1337
+  furious:
+    text: 'Furious <small>25x</small>'
+    modifiers:
+      buff: {'Condition Damage': 250}
+    armory-embed: 'traits'
+    armory-id: 1346
+- SECTION: 'Defense'
+  thick-skin:
+    text: 'Thick Skin <small>100% uptime</small>'
+    modifiers:
+      multiplier: {'Effective Health': 0.05}
+    armory-embed: 'traits'
+    armory-id: 1350
+  cull-the-weak:
+    text: 'Cull the Weak'
+    modifiers:
+      multiplier: {'Effective Power': 0.1}
+    armory-embed: 'traits'
+    armory-id: 1372
+  armored-attack:
+    text: 'Armored Attack'
+    modifiers:
+      convert: {'Power': {'Toughness': 0.1}}
+    armory-embed: 'traits'
+    armory-id: 1379
+  hardened-armor:
+    text: 'Hardened Armor <small>100%</small>'
+    modifiers:
+      multiplier: {'Effective Health': 0.1}
+    armory-embed: 'traits'
+    armory-id: 1380
+- SECTION: 'Tactics'
+  leg-specialist:
+    text: 'Leg Specialist'
+    modifiers:
+      multiplier: {'Effective Power': 0.1}
+    armory-embed: 'traits'
+    armory-id: 1469
+  roaring-reveille:
+    text: 'Roaring Reveille'
+    modifiers:
+      buff: {'Concentration': 120}
+    armory-embed: 'traits'
+    armory-id: 1471
+  empowered:
+    text: 'Empowered <small>6x</small>'
+    modifiers:
+      multiplier: {'Effective Power': 0.06}
+    armory-embed: 'traits'
+    armory-id: 1485
+  empowered-9:
+    text: 'Empowered <small>9x</small>'
+    modifiers:
+      multiplier: {'Effective Power': 0.09}
+    armory-embed: 'traits'
+    armory-id: 1485
+  empowered-11:
+    text: 'Empowered <small>11x</small>'
+    modifiers:
+      multiplier: {'Effective Power': 0.11}
+    armory-embed: 'traits'
+    armory-id: 1485
+  warriors-cunning:
+    text: 'Warrior''s Cunning <small>20% uptime -&gt; +5% Damage</small>'
+    modifiers:
+      multiplier: {'Effective Power': 0.05}
+    armory-embed: 'traits'
+    armory-id: 1486
+  vigorous-shouts:
+    text: 'Vigorous Shouts'
+    modifiers:
+      convert: {'Healing Power': {'Power': 0.13}}
+    armory-embed: 'traits'
+    armory-id: 1470
+- SECTION: 'Discipline'
+  warriors-sprint:
+    text: 'Warrior''s Sprint'
+    modifiers:
+      multiplier: {'add: Effective Power': 0.1}
+    armory-embed: 'traits'
+    armory-id: 1413
+  double-standards:
+    text: 'Doubled Standards <small>+50 Pwr/Prc/Fer/Con</small>'
+    modifiers:
+      buff: {'Power': 50, 'Precision': 50, 'Ferocity': 50, 'Condition Damage': 50}
+    armory-embed: 'traits'
+    armory-id: 1484
+  axe-mastery-one:
+    text: 'Axe Mastery <small>without axe</small>'
+    modifiers:
+      buff: {'Ferocity': 120}
+    armory-embed: 'traits'
+    armory-id: 1369
+  axe-mastery-two:
+    text: 'Axe Mastery <small>with axe - check both boxes</small>'
+    modifiers:
+      buff: {'Ferocity': 120}
+    armory-embed: 'traits'
+    armory-id: 1369
+- SECTION: 'Berserker'
+  blood-reaction-no:
+    text: 'Blood Reaction <small>with 0% berserker mode</small>'
+    modifiers:
+      convert: {'Ferocity': {'Precision': 0.07}}
+    armory-embed: 'traits'
+    armory-id: 2011
+  blood-reaction-with:
+    text: 'Blood Reaction <small>with 100% berserker mode</small>'
+    modifiers:
+      convert: {'Ferocity': {'Precision': 0.14}}
+    armory-embed: 'traits'
+    armory-id: 2011
+  heat-the-soul:
+    text: 'Heat the Soul <small>without torch</small>'
+    modifiers:
+      buff: {'Condition Damage': 120}
+    armory-embed: 'traits'
+    armory-id: 2042
+  heat-the-soul-with:
+    text: 'Heat the Soul <small>with torch 50% - check both boxes</small>'
+    modifiers:
+      buff: {'Condition Damage': 60}
+    armory-embed: 'traits'
+    armory-id: 2042
+  fatal-frenzy:
+    text: 'Fatal Frenzy'
+    modifiers:
+      buff: {'Power': 300, 'Condition Damage': 300, 'Toughness': -300}
+    armory-embed: 'traits'
+    armory-id: 2046
+  bloody-roar:
+    text: 'Bloody Roar'
+    modifiers:
+      multiplier: {'Effective Power': 0.2}
+    armory-embed: 'traits'
+    armory-id: 1928
+  king-of-fires:
+    text: 'King of Fires'
+    modifiers:
+      buff: {'Burning Duration': 33}
+    armory-embed: 'traits'
+    armory-id: 2038
+  eternal-champion:
+    text: 'Eternal Champion'
+    modifiers:
+      buff: {'Toughness': 300}
+    armory-embed: 'traits'
+    armory-id: 2043
+- SECTION: 'Spellbreaker'
+  pure-strike-boonless:
+    text: 'Pure Strike <small>Against boonless</small>'
+    modifiers:
+      multiplier: {'Critical Damage': 0.14}
+    armory-embed: 'traits'
+    armory-id: 2107
+  sun-and-moon-style:
+    text: 'Sun and Moon Style <small>100% onhand dagger; no boons</small>'
+    modifiers:
+      multiplier: {'Effective Power': 0.1}
+    armory-embed: 'traits'
+    armory-id: 2095
+  attackers-insight:
+    text: 'Attacker''s Insight <small>5x</small>'
+    modifiers:
+      buff: {'Ferocity': 250, 'Power': 250, 'Precision': 250}
+    armory-embed: 'traits'
+    armory-id: 2130
+  magebane-tether:
+    text: 'Magebane Tether <small>75% uptime -&gt; +7.5% Damage</small>'
+    modifiers:
+      multiplier: {'Effective Power': 0.075}
+    armory-embed: 'traits'
+    armory-id: 2060

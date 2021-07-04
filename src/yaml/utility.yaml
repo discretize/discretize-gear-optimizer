@@ -1,0 +1,137 @@
+- SECTION: 'Power Utilities'
+  Slaying Potion:
+    modifiers:
+      multiplier: {'Effective Power': 0.1, 'Effective Health': 0.1}
+    armory-embed: 'items'
+    armory-id: 50082
+  Furious Sharpening Stone:
+    modifiers:
+      convert: {'Power': {'Precision': 0.03}, 'Ferocity': {'Precision': 0.03}}
+    armory-embed: 'items'
+    armory-id: 67530
+  Superior Sharpening Stone:
+    modifiers:
+      convert: {'Power': {'Precision': 0.03, 'Ferocity': 0.06}}
+    armory-embed: 'items'
+    armory-id: 9443
+  Toxic Sharpening Stone:
+    modifiers:
+      convert: {'Power': {'Condition Damage': 0.06, 'Expertise': 0.08}}
+    armory-embed: 'items'
+    armory-id: 48915
+  Magnanimous Sharpening Stone:
+    modifiers:
+      convert: {'Power': {'Vitality': 0.03, 'Toughness': 0.03}}
+    armory-embed: 'items'
+    armory-id: 81034
+  Bountiful Sharpening Stone:
+    modifiers:
+      convert: {'Power': {'Healing Power': 0.06, 'Concentration': 0.08}}
+    armory-embed: 'items'
+    armory-id: 67531
+- SECTION: 'Support Utilities'
+  Potent Lucent Oil:
+    modifiers:
+      convert: {'Concentration': {'Power': 0.03, 'Precision': 0.03}}
+    armory-embed: 'items'
+    armory-id: 89203
+  Toxic Maintenance Oil:
+    modifiers:
+      convert: {'Concentration': {'Power': 0.03, 'Condition Damage': 0.06}}
+    armory-embed: 'items'
+    armory-id: 48916
+  Enhanced Lucent Oil:
+    modifiers:
+      convert: {'Concentration': {'Precision': 0.03, 'Condition Damage': 0.06}}
+    armory-embed: 'items'
+    armory-id: 89157
+  Furious Maintenance Oil:
+    modifiers:
+      convert: {'Concentration': {'Precision': 0.03}, 'Healing Power': {'Precision': 0.03}}
+    armory-embed: 'items'
+    armory-id: 67529
+  Magnanimous Maintenance Oil:
+    modifiers:
+      convert: {'Concentration': {'Vitality': 0.03, 'Toughness': 0.03}}
+    armory-embed: 'items'
+    armory-id: 81157
+  Master Maintenance Oil:
+    modifiers:
+      convert: {'Concentration': {'Precision': 0.03, 'Healing Power': 0.06}}
+    armory-embed: 'items'
+    armory-id: 9461
+  Corsair Maintenance Oil:
+    modifiers:
+      convert: {'Concentration': {'Toughness': 0.03}, 'Expertise': {'Toughness': 0.03}}
+    armory-embed: 'items'
+    armory-id: 86016
+- SECTION: 'Heal Utilities'
+  Bountiful Maintenance Oil:
+    modifiers:
+      bountiful-maintenance-oil: 0
+    armory-embed: 'items'
+    armory-id: 67528
+- SECTION: 'Condition Utilities'
+  Toxic Focusing Crystal:
+    modifiers:
+      convert: {'Condition Damage': {'Power': 0.03, 'Precision': 0.03}}
+    armory-embed: 'items'
+    armory-id: 48917
+  Furious Tuning Crystal:
+    modifiers:
+      convert: {'Condition Damage': {'Precision': 0.03}, 'Expertise': {'Precision': 0.03}}
+    armory-embed: 'items'
+    armory-id: 67524
+  Master Tuning Crystal:
+    modifiers:
+      convert: {'Condition Damage': {'Precision': 0.03, 'Expertise': 0.08}}
+    armory-embed: 'items'
+    armory-id: 9476
+  Magnanimous Tuning Crystal:
+    modifiers:
+      convert: {'Condition Damage': {'Vitality': 0.03, 'Toughness': 0.03}}
+    armory-embed: 'items'
+    armory-id: 81079
+  Bountiful Tuning Crystal:
+    modifiers:
+      convert: {'Condition Damage': {'Healing Power': 0.06, 'Concentration': 0.08}}
+    armory-embed: 'items'
+    armory-id: 67522
+- SECTION: 'SAB Utilities'
+  Holographic Super Apple:
+    modifiers:
+      convert: {'Condition Damage': {'Concentration': 0.08}, 'Concentration': {'Precision': 0.03}}
+    armory-embed: 'items'
+    armory-id: 87336
+  Holographic Super Drumstick:
+    modifiers:
+      convert: {'Healing Power': {'Concentration': 0.08}, 'Concentration': {'Precision': 0.03}}
+    armory-embed: 'items'
+    armory-id: 87329
+  Holographic Super Cheese:
+    modifiers:
+      convert: {'Power': {'Concentration': 0.08}, 'Concentration': {'Precision': 0.03}}
+    armory-embed: 'items'
+    armory-id: 87358
+- SECTION: 'Writs'
+  Writ of Masterful Accuracy:
+    modifiers:
+      flat: {'Precision': 200}
+    armory-embed: 'items'
+    armory-id: 76833
+  Writ of Masterful Malice:
+    modifiers:
+      flat: {'Condition Damage': 200}
+    armory-embed: 'items'
+    armory-id: 72510
+  Writ of Masterful Strength:
+    modifiers:
+      flat: {'Power': 200}
+    armory-embed: 'items'
+    armory-id: 73191
+- SECTION: 'Misc'
+  Potion Of Karka Toughness:
+    modifiers:
+      flat: {'Toughness': 150}
+    armory-embed: 'items'
+    armory-id: 42428

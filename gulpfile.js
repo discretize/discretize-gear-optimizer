@@ -28,6 +28,7 @@ var src = {
 	fonts: base.src + 'fonts/*.+(woff2|woff|eot|ttf)',
 	html: [base.src + '*.html',
 		base.src + '**/*.html'],
+  yaml: base.src + 'yaml/**/*.yaml',
 	vendorjs: [base.src + 'js/vendor/jquery-3.2.1.min.js',
 		base.src + 'js/vendor/jquery.scrollTo.min.js',
 		base.src + 'js/vendor/jquery-inview.js',
@@ -291,5 +292,121 @@ const watch = series(build, sync, initWatch);
 // 	gulp.watch([src.scss, base.src + 'scss/**/*.scss'], function() { runSequence('css', 'refresh') });
 // });
 
+const fs = require('fs');
+const cheerio = require('cheerio');
+const yaml = require('js-yaml');
+const generateYaml = function(done) {
+  try {
+    del.sync([base.src + 'yaml/**/*']);
+    let html = fs.readFileSync(base.src + 'index_backup.html', 'utf8');
+    const $ = cheerio.load(html);
+
+    const generate = function (mode) {
+      const result = [];
+      $(`#insert-${mode}-data`).children().each(function () {
+        const section = $(this);
+        let sectionName = section.find('strong').first().html() || '';
+        sectionName = sectionName.replace(/\s+/g, ' ').trim();
+        const sectionItems = { SECTION: sectionName };
+        section.children('.input').each(function () {
+          const item = $(this);
+          const input = item.children('input');
+          const label = item.children('label');
+          const span = label.children('span').filter('[data-armory-ids]');
+
+          let id = input.attr('id').replace(`go-checkbox-${mode}-`,'X-X-X-X');
+          // console.log(id);
+          id = id.replace('X-X-X-X', '');
+          //const modifiers = input.attr('data-go-modifier');
+          let modifiers = '';
+          try {
+            modifiers = JSON.parse(input.attr('data-go-modifier'));
+          } catch (e) {
+            console.log('JSON parse error');
+            console.log(e);
+            console.log(id);
+          }
+          const dataArmoryEmbed = span.attr('data-armory-embed');
+          const dataArmoryId = parseInt(span.attr('data-armory-ids'), 10);
+          const text = label.html().replace(/\<span.*?data-armory-ids.*?><\/span>/s, '').replace(/\s+/g, ' ').trim();
+          const enabled = input.attr('checked');
+
+          let resultItem = { text, modifiers }
+          if (dataArmoryEmbed) {
+            resultItem['armory-embed'] = dataArmoryEmbed;
+            resultItem['armory-id'] = dataArmoryId;
+          }
+          if (enabled) {
+            resultItem['default-enabled'] = true;
+          }
+          sectionItems[id] = resultItem;
+        });
+        result.push(sectionItems);
+      });
+      const resultYaml = yaml.dump(result, {
+        forceQuotes: true,
+        lineWidth: -1,
+        flowLevel: 4
+      })
+      fs.writeFileSync(base.src + 'yaml/' + mode + '.yaml', resultYaml, 'utf8');
+    };
+
+    ['mesmer', 'warrior', 'guardian', 'elementalist', 'ranger', 'revenant', 'engineer', 'buff'].forEach((mode) => {
+      generate(mode);
+    });
+
+    const generateUpgrade = function (mode) {
+      const result = [];
+      $(`#go-select-${mode}`).children('.dropdown-menu').children().each(function () {
+        const item = $(this);
+        if (item.hasClass('dropdown-divider')) {
+          return;
+        }
+        if (item.hasClass('dropdown-header')) {
+          result.push( { SECTION: item.text().replace(/\s+/g, ' ').trim() } );
+          return;
+        }
+        const span = item.children('span').filter('[data-armory-ids]');
+        let modifiers = '';
+        try {
+          if (item.attr('data-go-modifier')) {
+            modifiers = JSON.parse(item.attr('data-go-modifier'));
+          }
+        } catch (e) {
+          console.log('JSON parse error');
+          console.log(e);
+        }
+        const dataArmoryEmbed = span.attr('data-armory-embed');
+        const dataArmoryId = parseInt(span.attr('data-armory-ids'), 10);
+        const text = item.html().replace(/\<span.*?data-armory-ids.*?><\/span>/s, '').replace(/\s+/g, ' ').trim();
+
+        let resultItem = { modifiers }
+        if (dataArmoryEmbed) {
+          resultItem['armory-embed'] = dataArmoryEmbed;
+          resultItem['armory-id'] = dataArmoryId;
+        }
+        if (result.length) {
+          //no ids, so using text label as key
+          result[result.length - 1][text] = resultItem;
+        }
+      });
+      const resultYaml = yaml.dump(result, {
+        forceQuotes: true,
+        lineWidth: -1,
+        flowLevel: 4
+      })
+      fs.writeFileSync(base.src + 'yaml/' + mode + '.yaml', resultYaml, 'utf8');
+    };
+
+    ['runes', 'sigils-1', 'food', 'utility'].forEach((mode) => {
+      generateUpgrade(mode);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+  done();
+}
+
 exports.build = build;
 exports.watch = watch;
+exports.generateYaml = generateYaml;

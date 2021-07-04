@@ -1,0 +1,237 @@
+- SECTION: 'Skills'
+  bane-signet:
+    text: 'Bane Signet'
+    modifiers:
+      buff: {'Power': 180}
+    armory-embed: 'skills'
+    armory-id: 9093
+  bane-signet-2:
+    text: 'Bane Signet <small>traited</small>'
+    modifiers:
+      buff: {'Power': 216}
+    armory-embed: 'skills'
+    armory-id: 9093
+  signet-of-judgement:
+    text: 'Signet of Judgement'
+    modifiers:
+      multiplier: {'Effective Health': 0.1}
+    armory-embed: 'skills'
+    armory-id: 9150
+  signet-of-judgement-2:
+    text: 'Signet of Judgement <small>traited</small>'
+    modifiers:
+      multiplier: {'Effective Health': 0.12}
+    armory-embed: 'skills'
+    armory-id: 9150
+  signet-of-mercy:
+    text: 'Signet of Mercy'
+    modifiers:
+      buff: {'Concentration': 120}
+    armory-embed: 'skills'
+    armory-id: 9163
+  signet-of-mercy-2:
+    text: 'Signet of Mercy <small>traited</small>'
+    modifiers:
+      buff: {'Concentration': 150}
+    armory-embed: 'skills'
+    armory-id: 9163
+  signet-of-wrath:
+    text: 'Signet of Wrath'
+    modifiers:
+      buff: {'Condition Damage': 180}
+    armory-embed: 'skills'
+    armory-id: 9151
+  signet-of-wrath-2:
+    text: 'Signet of Wrath <small>traited</small>'
+    modifiers:
+      buff: {'Condition Damage': 216}
+    armory-embed: 'skills'
+    armory-id: 9151
+- SECTION: 'Zeal'
+  fiery-wrath:
+    text: 'Fiery Wrath'
+    modifiers:
+      multiplier: {'Effective Power': 0.07}
+    armory-embed: 'traits'
+    armory-id: 634
+  symbolic-exposure:
+    text: 'Symbolic Exposure'
+    modifiers:
+      multiplier: {'Effective Power': 0.05}
+    armory-embed: 'traits'
+    armory-id: 646
+  zealous-blade:
+    text: 'Zealous Blade <small>assuming 50% GS</small>'
+    modifiers:
+      buff: {'Power': 180}
+    armory-embed: 'traits'
+    armory-id: 653
+  kindled-zeal:
+    text: 'Kindled Zeal'
+    modifiers:
+      convert: {'Condition Damage': {'Power': 0.1}}
+    armory-embed: 'traits'
+    armory-id: 1556
+  symbolic-avenger:
+    text: 'Symbolic Avenger <small>5x</small>'
+    modifiers:
+      multiplier: {'add: Effective Power': 0.1}
+    armory-embed: 'traits'
+    armory-id: 2017
+- SECTION: 'Radiance'
+  right-hand-strength:
+    text: 'Right-Hand Strength <small>base (+80 prec)</small>'
+    modifiers:
+      buff: {'Precision': 80}
+    armory-embed: 'traits'
+    armory-id: 566
+  right-hand-strength-2:
+    text: 'Right-Hand Strength <small>50% one-handed (+40 Power)</small>'
+    modifiers:
+      buff: {'Power': 40}
+    armory-embed: 'traits'
+    armory-id: 566
+  right-hand-strength-3:
+    text: 'Right-Hand Strength <small>100% one-handed (+80 Power)</small>'
+    modifiers:
+      buff: {'Power': 40}
+    armory-embed: 'traits'
+    armory-id: 566
+  radiant-fire:
+    text: 'Radiant Fire'
+    modifiers:
+      buff: {'Burning Duration': 20}
+    armory-embed: 'traits'
+    armory-id: 567
+  retribution:
+    text: 'Retribution'
+    modifiers:
+      multiplier: {'add: Effective Power': 0.1}
+    armory-embed: 'traits'
+    armory-id: 565
+  radiant-power:
+    text: 'Radiant Power'
+    modifiers:
+      buff: {'Critical Chance': 10, 'Ferocity': 150}
+    armory-embed: 'traits'
+    armory-id: 568
+  amplified-wrath:
+    text: 'Amplified Wrath'
+    modifiers:
+      multiplier: {'Burning Damage': 0.15}
+    armory-embed: 'traits'
+    armory-id: 1686
+  righteous-instincts:
+    text: 'Righteous Instincts'
+    modifiers:
+      buff: {'Critical Chance': 25}
+    armory-embed: 'traits'
+    armory-id: 1683
+- SECTION: 'Valor'
+  stalwart-defender:
+    text: 'Stalwart Defender'
+    modifiers:
+      buff: {'Toughness': 240}
+    armory-embed: 'traits'
+    armory-id: 580
+- SECTION: 'Honor'
+  invigorating-bulwark:
+    text: 'Invigorating Bulwark <small>5x</small>'
+    modifiers:
+      multiplier: {'Effective Healing': 0.25}
+    armory-embed: 'traits'
+    armory-id: 1899
+  honorable-staff:
+    text: 'Honorable Staff <small>base</small>'
+    modifiers:
+      buff: {'Concentration': 120}
+    armory-embed: 'traits'
+    armory-id: 557
+  honorable-staff-2:
+    text: 'Honorable Staff <small>with staff - check both boxes</small>'
+    modifiers:
+      buff: {'Concentration': 120}
+    armory-embed: 'traits'
+    armory-id: 557
+  force-of-will:
+    text: 'Force of Will <small>Assuming 1k vitality</small>'
+    modifiers:
+      buff: {'Vitality': 300}
+      multiplier: {'Effective Healing': 0.1}
+    armory-embed: 'traits'
+    armory-id: 1682
+- SECTION: 'Virtues'
+  inspired-virtue:
+    text: 'Inspired Virtue <small>6x</small>'
+    modifiers:
+      multiplier: {'Effective Power': 0.06}
+    armory-embed: 'traits'
+    armory-id: 621
+  inspired-virtue-9:
+    text: 'Inspired Virtue <small>9x</small>'
+    modifiers:
+      multiplier: {'Effective Power': 0.09}
+    armory-embed: 'traits'
+    armory-id: 621
+  unscathed-contender:
+    text: 'Unscathed Contender'
+    modifiers:
+      multiplier: {'add: Effective Power': 0.2}
+    armory-embed: 'traits'
+    armory-id: 624
+  virtue-of-retribution:
+    text: 'Virtue of Resolution'
+    modifiers:
+      buff: {'Retaliation Duration': 25}
+    armory-embed: 'traits'
+    armory-id: 604
+  inspiring-virtue:
+    text: 'Inspiring Virtue <small>100%</small>'
+    modifiers:
+      multiplier: {'add: Effective Power': 0.1}
+    armory-embed: 'traits'
+    armory-id: 603
+  power-of-the-virtuous:
+    text: 'Power of the Virtuous'
+    modifiers:
+      convert: {'Condition Damage': {'Vitality': 0.13}}
+    armory-embed: 'traits'
+    armory-id: 620
+- SECTION: 'Dragonhunter'
+  zealots-aggression:
+    text: 'Zealot''s Aggression'
+    modifiers:
+      multiplier: {'Effective Power': 0.1}
+    armory-embed: 'traits'
+    armory-id: 1835
+  pure-of-sight:
+    text: 'Pure of Sight <small>Melee</small>'
+    modifiers:
+      multiplier: {'Effective Power': 0.05}
+    armory-embed: 'traits'
+    armory-id: 1926
+  pure-of-sight-ranged:
+    text: 'Pure of Sight <small>Ranged</small>'
+    modifiers:
+      multiplier: {'Effective Power': 0.15}
+    armory-embed: 'traits'
+    armory-id: 1926
+  hunters-fortification:
+    text: 'Hunter''s Fortification'
+    modifiers:
+      multiplier: {'Effective Health': 0.1}
+    armory-embed: 'traits'
+    armory-id: 1908
+  big-game-hunter:
+    text: 'Big Game Hunter'
+    modifiers:
+      multiplier: {'Effective Power': 0.15}
+    armory-embed: 'traits'
+    armory-id: 1955
+- SECTION: 'Firebrand'
+  imbued-haste:
+    text: 'Imbued Haste'
+    modifiers:
+      flat: {'Condition Damage': 250, 'Healing Power': 250, 'Vitality': 250}
+    armory-embed: 'traits'
+    armory-id: 2148
