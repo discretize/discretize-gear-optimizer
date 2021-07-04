@@ -422,7 +422,7 @@ const cheerio = require('cheerio');
 const generateYaml = function (done) {
   try {
     del.sync([base.src + 'yaml/**/*']);
-    const html = fs.readFileSync(base.src + 'index_backup.html', 'utf8');
+    const html = fs.readFileSync(base.src + 'index_html_backup', 'utf8');
     const $ = cheerio.load(html);
 
     const generate = function (mode) {
