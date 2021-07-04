@@ -145,12 +145,12 @@ const getYaml = function (mode) {
           return;
         }
         output +=
-`                                  <div class="input">
+`                                  <div class="input${resultItem.extraCSS ? ' ' + resultItem.extraCSS : ''}">
                                     <input
                                             class="input-checkbox"
                                             type="checkbox"
                                             id="go-checkbox-${mode}-${id}"
-                                            data-go-modifier='${JSON.stringify(resultItem.modifiers).replace(/:/g, ': ').replace(/ {2}/g, ' ')}'${resultItem['default-enabled'] ? '\n                                            checked' : ''}
+                                            data-go-modifier='${JSON.stringify(resultItem.modifiers).replace(/:/g, ': ').replace(/,/g, ', ').replace(/ {2}/g, ' ')}'${resultItem['default-enabled'] ? '\n                                            checked' : ''}
                                     />
                                     <label
                                             class="input-label"
@@ -198,7 +198,7 @@ const getYaml = function (mode) {
         output +=
 `                                  <div
                                           class="dropdown-item"
-                                          data-go-modifier='${JSON.stringify(resultItem.modifiers).replace(/:/g, ': ').replace(/ {2}/g, ' ')}'
+                                          data-go-modifier='${JSON.stringify(resultItem.modifiers).replace(/:/g, ': ').replace(/,/g, ', ').replace(/ {2}/g, ' ')}'
                                   >
 `;
         if (resultItem['armory-embed']) {
@@ -454,6 +454,7 @@ const generateYaml = function (done) {
           const dataArmoryId = parseInt(span.attr('data-armory-ids'), 10);
           const text = label.html().replace(/<span.*?data-armory-ids.*?><\/span>/s, '').replace(/\s+/g, ' ').trim();
           const enabled = input.attr('checked');
+          const extraCSS = item.attr('class').split(/\s+/).filter((item) => item != 'input').join(' ');
 
           const resultItem = { text, modifiers };
           if (dataArmoryEmbed) {
@@ -462,6 +463,9 @@ const generateYaml = function (done) {
           }
           if (enabled) {
             resultItem['default-enabled'] = true;
+          }
+          if (extraCSS) {
+            resultItem.extraCSS = extraCSS;
           }
           sectionItems[id] = resultItem;
         });
