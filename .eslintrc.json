@@ -7,11 +7,8 @@
     "ignorePatterns": [
         "gulpfile.js"
     ],
-    "extends": "eslint:recommended",
+    "extends": "semistandard",
     "rules": {
-        "semi": 1,
-        "no-prototype-builtins": "off",
-        "linebreak-style": "off",
         "indent": [
             "error",
             4,
@@ -20,63 +17,19 @@
                 "MemberExpression": 1
             }
         ],
+        "quote-props": [
+            "warn",
+            "consistent"
+        ],
+        "padded-blocks": "off",
         "operator-linebreak": [
             "warn",
             "before"
         ],
-        "comma-spacing": "warn",
-        "no-shadow": "off",
-        "space-before-function-paren": "warn",
-        "id-length": "off",
+        "no-throw-literal": "off",
         "dot-notation": "off",
-        "no-unused-vars": [
-            "error",
-            {
-                "vars": "local"
-            }
-        ],
-        "no-multiple-empty-lines": [
-            "warn",
-            {
-                "max": 1
-            }
-        ],
-        "comma-dangle": "warn",
-        "space-in-parens": "warn",
-        "multiline-ternary": [
-            "warn",
-            "always-multiline"
-        ],
-        "eqeqeq": [
-            "warn",
-            "smart"
-        ],
-        "quotes": [
-            "warn",
-            "single",
-            {
-                "avoidEscape": true,
-                "allowTemplateLiterals": false
-            }
-        ],
-        "spaced-comment": "warn",
-        "no-multi-spaces": "warn",
-        "object-curly-spacing": [
-            "warn",
-            "always"
-        ],
-        "object-curly-newline": [
-            "error",
-            {
-                "multiline": true,
-                "consistent": true
-            }
-        ],
-        "prefer-const": [
-            "warn",
-            {
-                "destructuring": "all"
-            }
-        ]
+        "no-prototype-builtins": "off",
+        "wrap-iife": "off",
+        "no-unused-vars": "warn"
     }
 }
