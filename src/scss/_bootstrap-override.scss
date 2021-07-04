@@ -43,3 +43,11 @@
     border-color: $color;
   }
 }
+
+$zindex-dropdown:           900;
+$zindex-sticky:             920;
+$zindex-fixed:              930;
+$zindex-modal-backdrop:     940;
+$zindex-modal:              950;
+$zindex-popover:            960;
+$zindex-tooltip:            970;
