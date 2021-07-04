@@ -28,6 +28,7 @@ var src = {
 	fonts: base.src + 'fonts/*.+(woff2|woff|eot|ttf)',
 	html: [base.src + '*.html',
 		base.src + '**/*.html'],
+  yaml: [base.src + 'yaml/*.yaml'],
 	vendorjs: [base.src + 'js/vendor/jquery-3.2.1.min.js',
 		base.src + 'js/vendor/jquery.scrollTo.min.js',
 		base.src + 'js/vendor/jquery-inview.js',
@@ -398,6 +399,7 @@ const initWatch = function (done) {
     gulp.watch(src.img, series(img, refresh));
     gulp.watch(src.fonts, series(fonts, refresh));
     gulp.watch(src.html, series(html, refresh));
+    gulp.watch(src.yaml, series(html, refresh));
     gulp.watch(src.js, series(js, refresh));
     gulp.watch(src.gojs, series(gojs, refresh));
     gulp.watch([src.scss, base.src + 'scss/**/*.scss'], series(css, refresh));
