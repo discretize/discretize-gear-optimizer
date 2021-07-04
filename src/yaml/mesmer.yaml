@@ -1,87 +1,106 @@
 - SECTION: 'Skills'
+
   signet-of-domination:
     text: 'Signet of Domination'
     modifiers:
       buff: {'Condition Damage': 180}
     armory-embed: 'skills'
     armory-id: 10232
+
   signet-of-midnight:
     text: 'Signet of Midnight'
     modifiers:
       buff: {'Expertise': 180}
     armory-embed: 'skills'
     armory-id: 10234
+
 - SECTION: 'Domination'
+
   fragility:
     text: 'Fragility <small>25x</small>'
     modifiers:
       multiplier: {'Effective Power': 0.125}
     armory-embed: 'traits'
     armory-id: 1941
+
   egotism:
     text: 'Egotism'
     modifiers:
       multiplier: {'Effective Power': 0.1}
     armory-embed: 'traits'
     armory-id: 713
+
   vicious-expression:
     text: 'Vicious Expression'
     modifiers:
       multiplier: {'Effective Power': 0.15}
     armory-embed: 'traits'
     armory-id: 681
+
 - SECTION: 'Dueling'
+
   fencers-finesse:
     text: 'Fencer''s Finesse <small>10x</small>'
     modifiers:
       buff: {'Ferocity': 150}
     armory-embed: 'traits'
     armory-id: 708
+
   superiority-complex:
     text: 'Superiority Complex <small>50% uptime -&gt; +20% Critical Damage</small>'
     modifiers:
       multiplier: {'Critical Damage': 0.2}
     armory-embed: 'traits'
     armory-id: 692
+
 - SECTION: 'Chaos'
+
   illusionary-defense:
     text: 'Illusionary Defense <small>5x</small>'
     modifiers:
       multiplier: {'Effective Health': 0.25}
     armory-embed: 'traits'
     armory-id: 675
+
   illusionary-membrane:
     text: 'Illusionary Membrane <small>100%</small>'
     modifiers:
       multiplier: {'add: Effective Condition Damage': 0.1}
     armory-embed: 'traits'
     armory-id: 667
+
   chaotic-potency:
     text: 'Chaotic Potency <small>base</small>'
     modifiers:
       buff: {'Condition Damage': 120}
     armory-embed: 'traits'
     armory-id: 669
+
   chaotic-potency-2:
     text: 'Chaotic Potency <small>with staff - check both boxes</small>'
     modifiers:
       buff: {'Condition Damage': 120}
     armory-embed: 'traits'
     armory-id: 669
+
   chaotic-persistence:
     text: 'Chaotic Persistence <small>100%</small>'
     modifiers:
       buff: {'Concentration': 250, 'Expertise': 250}
     armory-embed: 'traits'
     armory-id: 1865
+
 - SECTION: 'Inspiration'
+
   healing-prism:
     text: 'Healing Prism'
     modifiers:
       convert: {'Healing Power': {'Power': 0.13}}
     armory-embed: 'traits'
     armory-id: 1915
+
 - SECTION: 'Illusions'
+
   compounding-power:
     text: 'Compounding Power <small>5x</small>'
     modifiers:
@@ -89,17 +108,22 @@
       buff: {'Condition Damage': 150}
     armory-embed: 'traits'
     armory-id: 723
+
 - SECTION: 'Chronomancer'
+
   danger-time:
     text: 'Danger Time'
     modifiers:
       buff: {'Critical Chance': 15}
     armory-embed: 'traits'
     armory-id: 2009
+
 - SECTION: 'Mirage'
+
   nomads-endurance:
     text: 'Nomad''s Endurance'
     modifiers:
       buff: {'Condition Damage': 150}
     armory-embed: 'traits'
     armory-id: 2069
+

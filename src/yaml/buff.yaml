@@ -1,24 +1,30 @@
 - SECTION: ''
+
   might:
     text: '<span class="icon icon-might"></span> Might <small class="text-muted font-italic">(25x)</small>'
     modifiers:
       buff: {'Power': 750, 'Condition Damage': 750}
     default-enabled: true
+
   fury:
     text: '<span class="icon icon-fury"></span> Fury'
     modifiers:
       buff: {'Critical Chance': 20}
     default-enabled: true
+
   protection:
     text: '<span class="icon icon-protection"></span> Protection'
     modifiers:
       multiplier: {'Effective Health': 0.33}
+
   vulnerability:
     text: '<span class="icon icon-vulnerability"></span> Vulnerability <small class="text-muted font-italic">(25x)</small>'
     modifiers:
       multiplier: {'Effective Power': 0.25, 'Effective Condition Damage': 0.25}
     default-enabled: true
+
 - SECTION: ''
+
   banner-of-strength:
     text: 'Banner of Strength'
     modifiers:
@@ -26,6 +32,7 @@
     armory-embed: 'skills'
     armory-id: 14405
     default-enabled: true
+
   banner-of-discipline:
     text: 'Banner of Discipline'
     modifiers:
@@ -33,25 +40,30 @@
     armory-embed: 'skills'
     armory-id: 14407
     default-enabled: true
+
   banner-of-tactics:
     text: 'Banner of Tactics'
     modifiers:
       buff: {'Healing Power': 100, 'Boon Duration': 10}
     armory-embed: 'skills'
     armory-id: 14408
+
   empower-allies:
     text: 'Empower Allies'
     modifiers:
       buff: {'Power': 100}
     armory-embed: 'traits'
     armory-id: 1482
+
 - SECTION: ''
+
   spotter:
     text: 'Spotter'
     modifiers:
       buff: {'Precision': 100}
     armory-embed: 'traits'
     armory-id: 1016
+
   frost-spirit:
     text: 'Frost Spirit'
     modifiers:
@@ -59,19 +71,23 @@
     armory-embed: 'skills'
     armory-id: 12497
     default-enabled: true
+
   pinpoint-distribution:
     text: 'Pinpoint Distribution'
     modifiers:
       buff: {'Condition Damage': 100}
     armory-embed: 'traits'
     armory-id: 1984
+
   strength-in-numbers:
     text: 'Strength in Numbers'
     modifiers:
       buff: {'Toughness': 100}
     armory-embed: 'traits'
     armory-id: 584
+
 - SECTION: 'Guardian <span data-armory-size="24" data-armory-embed="traits" data-armory-ids="579"></span> Perfect Inscriptions (Assuming 100% uptime!)'
+
   bane-signet:
     text: 'Bane Signet'
     modifiers:
@@ -79,25 +95,30 @@
     armory-embed: 'skills'
     armory-id: 9093
     default-enabled: true
+
   guardian-x2:
     text: 'Signet of Judgement'
     modifiers:
       multiplier: {'Effective Health': 0.12}
     armory-embed: 'skills'
     armory-id: 9150
+
   guardian-x3:
     text: 'Signet of Mercy'
     modifiers:
       buff: {'Boon Duration': 10}
     armory-embed: 'skills'
     armory-id: 9163
+
   guardian-x4:
     text: 'Signet of Wrath'
     modifiers:
       buff: {'Condition Damage': 216}
     armory-embed: 'skills'
     armory-id: 9151
+
 - SECTION: ''
+
   assassins-presence:
     text: 'Assassin''s Presence'
     modifiers:
@@ -105,15 +126,18 @@
     armory-embed: 'traits'
     armory-id: 1786
     default-enabled: true
+
   facet-of-nature:
     text: 'Facet of Nature—Dragon'
     modifiers:
       buff: {'Boon Duration': 20}
     armory-embed: 'skills'
     armory-id: 29371
+
   rite-of-the-great-dwarf:
     text: 'Rite of the Great Dwarf'
     modifiers:
       multiplier: {'Effective Health': 0.5}
     armory-embed: 'skills'
     armory-id: 27975
+

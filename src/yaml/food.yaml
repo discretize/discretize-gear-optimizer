@@ -1,172 +1,210 @@
 - SECTION: 'Power Food'
+
   Plate of Jerk Poultry:
     modifiers:
       flat: {'Power': 150}
     armory-embed: 'items'
     armory-id: 71797
+
   Plate of Truffle Steak:
     modifiers:
       flat: {'Power': 100, 'Precision': 70}
     armory-embed: 'items'
     armory-id: 12467
+
   Bowl of Sweet and Spicy Butternut Squash Soup:
     modifiers:
       flat: {'Power': 100, 'Ferocity': 70}
     armory-embed: 'items'
     armory-id: 41569
+
   Plate of Roasted Cactus:
     modifiers:
       flat: {'Ferocity': 100}
     armory-embed: 'items'
     armory-id: 66536
+
   Bowl of Sawgill Mushroom Risotto:
     modifiers:
       flat: {'Precision': 150}
     armory-embed: 'items'
     armory-id: 75010
+
   Bowl of Curry Butternut Squash Soup:
     modifiers:
       flat: {'Precision': 100, 'Ferocity': 70}
     armory-embed: 'items'
     armory-id: 12486
+
   Bowl of Seaweed Salad <small class="text-muted font-italic">(90% uptime) </small>:
     modifiers:
       multiplier: {'Effective Power': 0.045}
     armory-embed: 'items'
     armory-id: 12471
+
   Dragon's Breath Bun <small class="text-muted font-italic">(100% uptime) </small>:
     modifiers:
       flat: {'Power': 200, 'Ferocity': 70}
     armory-embed: 'items'
     armory-id: 43360
+
   Steamed Red Dumpling <small class="text-muted font-italic">(100% uptime) </small>:
     modifiers:
       flat: {'Power': 200, 'Condition Damage': 140}
     armory-embed: 'items'
     armory-id: 68635
+
 - SECTION: 'Support Food'
+
   Bowl of Poultry Satay:
     modifiers:
       flat: {'Healing Power': 100, 'Concentration': 70}
     armory-embed: 'items'
     armory-id: 87076
+
   Creme Brulee:
     modifiers:
       flat: {'Concentration': 100, 'Healing Power': 70}
     armory-embed: 'items'
     armory-id: 91746
+
   Plate of Eggs Benedict:
     modifiers:
       flat: {'Concentration': 100, 'Expertise': 70}
     armory-embed: 'items'
     armory-id: 91842
+
   Soul Pastry:
     modifiers:
       flat: {'Concentration': 100, 'Power': 70}
     armory-embed: 'items'
     armory-id: 89002
+
   Fried Golden Dumpling:
     modifiers:
       flat: {'Concentration': 100}
     armory-embed: 'items'
     armory-id: 68633
+
   Bowl of Nopalitos Sauté:
     modifiers:
       flat: {'Concentration': 100, 'Toughness': 70}
     armory-embed: 'items'
     armory-id: 66530
+
   Plate of Mussels Gnashblade:
     modifiers:
       flat: {'Concentration': 70}
       multiplier: {'Effective Health': 0.1}
     armory-embed: 'items'
     armory-id: 74969
+
 - SECTION: 'Heal Food'
+
   Delicious Rice Ball:
     modifiers:
       flat: {'Healing Power': 100}
       multiplier: {'Effective Healing': 0.1}
     armory-embed: 'items'
     armory-id: 68634
+
 - SECTION: 'Condition Food'
+
   Rare Veggie Pizza:
     modifiers:
       flat: {'Expertise': 100, 'Condition Damage': 70}
     armory-embed: 'items'
     armory-id: 12464
+
   Saffron Stuffed Mushroom (100% uptime):
     modifiers:
       flat: {'Precision': 70, 'Condition Damage': 200}
     armory-embed: 'items'
     armory-id: 12476
+
   Plate of Beef Rendang:
     modifiers:
       flat: {'Condition Damage': 100, 'Expertise': 70}
     armory-embed: 'items'
     armory-id: 86997
+
   Prickly Pear Pie:
     modifiers:
       flat: {'Expertise': 100}
     armory-embed: 'items'
     armory-id: 66538
+
   Fancy Truffle Burger:
     modifiers:
       flat: {'Poison Duration': 15, 'Precision': 70}
     armory-embed: 'items'
     armory-id: 12463
+
   Bowl of Fire Meat Chili:
     modifiers:
       flat: {'Burning Duration': 15, 'Precision': 70}
     armory-embed: 'items'
     armory-id: 12484
+
 - SECTION: 'Hybrid Food'
+
   Spicy Marinated Mushroom:
     modifiers:
       flat: {'Power': 100, 'Toughness': 70}
     armory-embed: 'items'
     armory-id: 41563
+
   Plate of Spicy Herbed Chicken:
     modifiers:
       flat: {'Power': 70, 'Toughness': 100}
     armory-embed: 'items'
     armory-id: 41567
+
   Bowl of Truffle Ravioli:
     modifiers:
       flat: {'Precision': 70, 'Toughness': 100}
     armory-embed: 'items'
     armory-id: 12461
+
   Dragon's Revelry Starcake:
     modifiers:
       flat: {'Power': 45, 'Precision': 45, 'Toughness': 45, 'Vitality': 45, 'Concentration': 45, 'Condition Damage': 45, 'Expertise': 45, 'Ferocity': 45, 'Healing Power': 45}
     armory-embed: 'items'
     armory-id: 43550
+
   Red Lentil and Flatbread Feast:
     modifiers:
       flat: {'Power': 45, 'Precision': 45, 'Toughness': 45, 'Vitality': 45, 'Concentration': 45, 'Condition Damage': 45, 'Expertise': 45, 'Ferocity': 45, 'Healing Power': 45}
     armory-embed: 'items'
     armory-id: 82657
+
   Plate of Fire Flank Steak:
     modifiers:
       flat: {'Power': 100, 'Condition Damage': 70}
     armory-embed: 'items'
     armory-id: 12466
+
   Bowl of Fancy Potato and Leek Soup:
     modifiers:
       flat: {'Precision': 100, 'Condition Damage': 70}
     armory-embed: 'items'
     armory-id: 12485
+
   Bowl of Sweet and Spicy Beans:
     modifiers:
       flat: {'Expertise': 100, 'Power': 70}
     armory-embed: 'items'
     armory-id: 66528
+
   Bowl of Truffle Risotto:
     modifiers:
       flat: {'Condition Damage': 100, 'Precision': 70}
     armory-embed: 'items'
     armory-id: 12465
+
   Birthday Blaster:
     modifiers:
       flat: {'Power': 40, 'Precision': 40, 'Toughness': 40, 'Vitality': 40, 'Condition Damage': 40, 'Expertise': 40, 'Ferocity': 80, 'Healing Power': 40}
     armory-embed: 'items'
     armory-id: 66961
+
