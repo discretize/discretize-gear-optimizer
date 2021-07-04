@@ -9,18 +9,6 @@
     ],
     "extends": "semistandard",
     "rules": {
-        "indent": [
-            "error",
-            4,
-            {
-                "SwitchCase": 1,
-                "MemberExpression": 1
-            }
-        ],
-        "quote-props": [
-            "warn",
-            "consistent"
-        ],
         "padded-blocks": "off",
         "operator-linebreak": [
             "warn",
@@ -30,6 +18,14 @@
         "dot-notation": "off",
         "no-prototype-builtins": "off",
         "wrap-iife": "off",
-        "no-unused-vars": "warn"
+        "no-unused-vars": "warn",
+        "max-len": [
+            "warn",
+            { 
+                "code": 100,
+                "ignoreComments": true
+            }
+        ],
+        "no-lonely-if": "warn"
     }
 }
