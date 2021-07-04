@@ -135,87 +135,73 @@ const getYaml = function (mode) {
     data.forEach((section) => {
       const sectionName = section.SECTION;
       output +=
-`                                <div
-                                        class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3"
-                                >
-                                <strong>${sectionName}</strong>
-`;
+        `<div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+          <strong>${sectionName}</strong>`;
 
       Object.entries(section).forEach(([id, resultItem]) => {
         if (id === 'SECTION') {
           return;
         }
         output +=
-`                                  <div class="input${resultItem.extraCSS ? ' ' + resultItem.extraCSS : ''}">
-                                    <input
-                                            class="input-checkbox"
-                                            type="checkbox"
-                                            id="go-checkbox-${mode}-${id}"
-                                            data-go-modifier='${JSON.stringify(resultItem.modifiers).replace(/:/g, ': ').replace(/,/g, ', ').replace(/ {2}/g, ' ')}'${resultItem['default-enabled'] ? '\n                                            checked' : ''}
-                                    />
-                                    <label
-                                            class="input-label"
-                                            for="go-checkbox-${mode}-${id}"
-                                    >
-`;
+          `<div class="input ${resultItem.extraCSS || ''}">
+            <input
+              class="input-checkbox"
+              type="checkbox"
+              id="go-checkbox-${mode}-${id}"
+              data-go-modifier='${JSON.stringify(resultItem.modifiers)}'
+              ${resultItem['default-enabled'] ? 'checked' : ''}
+            />
+            <label
+              class="input-label"
+              for="go-checkbox-${mode}-${id}"
+            >`;
         if (resultItem['armory-type']) {
           output +=
-`                                      <span
-                                              data-armory-size="24"
-                                              data-armory-embed="${resultItem['armory-type']}"
-                                              data-armory-ids="${resultItem['gw2-id']}"
-                                      ></span>
-`;
+            `<span
+              data-armory-size="24"
+              data-armory-embed="${resultItem['armory-type']}"
+              data-armory-ids="${resultItem['gw2-id']}"
+            ></span>`;
         }
         output +=
-`                                      ${resultItem.text}
-                                    </label>
-                                  </div>
-`;
-
+          `   ${resultItem.text}
+            </label>
+          </div>`;
       });
       output +=
-`                                </div>
-
-`;
+        `</div>`;
     });
     return output;
 
   } else if (['runes', 'sigils', 'food', 'utility'].includes(mode)) {
     output +=
-`                                  <div class="dropdown-item active">None</div>
+      `<div class="dropdown-item active">None</div>`;
 
-`;
     data.forEach((section) => {
       const sectionName = section.SECTION;
       output +=
-`                                  <div class="dropdown-divider"></div>
-                                  <h6 class="dropdown-header">${sectionName}</h6>
-`;
+        `<div class="dropdown-divider"></div>
+        <h6 class="dropdown-header">${sectionName}</h6>`;
       Object.entries(section).forEach(([id, resultItem]) => {
         if (id === 'SECTION') {
           return;
         }
         output +=
-`                                  <div
-                                          class="dropdown-item"
-                                          data-go-modifier='${JSON.stringify(resultItem.modifiers).replace(/:/g, ': ').replace(/,/g, ', ').replace(/ {2}/g, ' ')}'
-                                  >
-`;
+          `<div
+            class="dropdown-item"
+            data-go-modifier='${JSON.stringify(resultItem.modifiers)}'
+          >`;
         if (resultItem['armory-type']) {
           output +=
-`                                    <span
-                                            data-armory-embed="${resultItem['armory-type']}"
-                                            data-armory-ids="${resultItem['gw2-id']}"
-                                            data-armory-size="24"
-                                    ></span>
-`;
+            `<span
+              data-armory-embed="${resultItem['armory-type']}"
+              data-armory-ids="${resultItem['gw2-id']}"
+              data-armory-size="24"
+            ></span>`;
         }
         output +=
-`                                    ${resultItem.text}
-                                  </div>
-`;
-
+          ` ${resultItem.text}
+          </div>`;
       });
     });
     return output;
@@ -227,29 +213,29 @@ const getYaml = function (mode) {
 ================================================== */
 const html = function () {
 	return gulp.src(src.html)
-    .pipe(replace(/                                <!-- INSERT MESMER DATA-->/g, getYaml('mesmer')))
+    .pipe(replace(/<!-- INSERT MESMER DATA-->/g, getYaml('mesmer')))
       .on('error', swallowError)
-    .pipe(replace(/                                <!-- INSERT WARRIOR DATA-->/g, getYaml('warrior')))
+    .pipe(replace(/<!-- INSERT WARRIOR DATA-->/g, getYaml('warrior')))
       .on('error', swallowError)
-    .pipe(replace(/                                <!-- INSERT GUARDIAN DATA-->/g, getYaml('guardian')))
+    .pipe(replace(/<!-- INSERT GUARDIAN DATA-->/g, getYaml('guardian')))
       .on('error', swallowError)
-    .pipe(replace(/                                <!-- INSERT ELEMENTALIST DATA-->/g, getYaml('elementalist')))
+    .pipe(replace(/<!-- INSERT ELEMENTALIST DATA-->/g, getYaml('elementalist')))
       .on('error', swallowError)
-    .pipe(replace(/                                <!-- INSERT RANGER DATA-->/g, getYaml('ranger')))
+    .pipe(replace(/<!-- INSERT RANGER DATA-->/g, getYaml('ranger')))
       .on('error', swallowError)
-    .pipe(replace(/                                <!-- INSERT REVENANT DATA-->/g, getYaml('revenant')))
+    .pipe(replace(/<!-- INSERT REVENANT DATA-->/g, getYaml('revenant')))
       .on('error', swallowError)
-    .pipe(replace(/                                <!-- INSERT ENGINEER DATA-->/g, getYaml('engineer')))
+    .pipe(replace(/<!-- INSERT ENGINEER DATA-->/g, getYaml('engineer')))
       .on('error', swallowError)
-    .pipe(replace(/                                <!-- INSERT BUFF DATA-->/g, getYaml('buff')))
+    .pipe(replace(/<!-- INSERT BUFF DATA-->/g, getYaml('buff')))
       .on('error', swallowError)
-    .pipe(replace(/                                  <!-- INSERT RUNES DATA-->/g, getYaml('runes')))
+    .pipe(replace(/<!-- INSERT RUNES DATA-->/g, getYaml('runes')))
       .on('error', swallowError)
-    .pipe(replace(/                                  <!-- INSERT SIGILS DATA-->/g, getYaml('sigils')))
+    .pipe(replace(/<!-- INSERT SIGILS DATA-->/g, getYaml('sigils')))
       .on('error', swallowError)
-    .pipe(replace(/                                  <!-- INSERT FOOD DATA-->/g, getYaml('food')))
+    .pipe(replace(/<!-- INSERT FOOD DATA-->/g, getYaml('food')))
       .on('error', swallowError)
-    .pipe(replace(/                                  <!-- INSERT UTILITY DATA-->/g, getYaml('utility')))
+    .pipe(replace(/<!-- INSERT UTILITY DATA-->/g, getYaml('utility')))
       .on('error', swallowError)
 		.pipe(replace(/<a\s+?data-wiki>(.+?)<\/a>/g, function(match, p1, offset, string) {
 			return '<a href=\"' + gw2wikihost + encodeURIComponent(p1) + '\" target=\"_blank\" rel=\"external\">' + p1 + '</a>';
