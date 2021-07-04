@@ -63,6 +63,7 @@
       buff: {'Precision': 100}
     armory-embed: 'traits'
     armory-id: 1016
+    extraCSS: 'text-ranger'
 
   frost-spirit:
     text: 'Frost Spirit'
@@ -71,6 +72,7 @@
     armory-embed: 'skills'
     armory-id: 12497
     default-enabled: true
+    extraCSS: 'text-ranger'
 
   pinpoint-distribution:
     text: 'Pinpoint Distribution'
@@ -78,6 +80,7 @@
       buff: {'Condition Damage': 100}
     armory-embed: 'traits'
     armory-id: 1984
+    extraCSS: 'text-engineer'
 
   strength-in-numbers:
     text: 'Strength in Numbers'
@@ -85,6 +88,7 @@
       buff: {'Toughness': 100}
     armory-embed: 'traits'
     armory-id: 584
+    extraCSS: 'text-guardian'
 
 - SECTION: 'Guardian <span data-armory-size="24" data-armory-embed="traits" data-armory-ids="579"></span> Perfect Inscriptions (Assuming 100% uptime!)'
 
