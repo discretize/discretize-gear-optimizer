@@ -188,7 +188,7 @@ const getYaml = function (mode) {
         }
         output +=
           `<div
-            class="dropdown-item"
+            class="dropdown-item ${resultItem.extraCSS || ''}"
             data-go-modifier='${JSON.stringify(resultItem.modifiers)}'
           >`;
         if (resultItem['armory-type']) {

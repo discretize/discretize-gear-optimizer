@@ -34,6 +34,9 @@
       multiplier: {"Effective Power": 0.1}
     gw2-id: 24818
     armory-type: "items"
+    extraCSS: "mb-3" # margin-bottom
+
+  #
 
   spellbreaker:
     text: "Superior Rune of the Spellbreaker"
@@ -185,7 +188,7 @@
 
   rebirth: *rebirth
 
-- SECTION: "Condition Runes (Generic)"
+- SECTION: "Condition Runes"
 
   berserker:
     text: "Superior Rune of the Berserker"
@@ -269,7 +272,7 @@
     gw2-id: 83964
     armory-type: "items"
 
-- SECTION: "Condition Runes (Specific)"
+- SECTION: "Specific Condition Runes"
 
   # burning
 
