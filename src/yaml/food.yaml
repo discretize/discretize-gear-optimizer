@@ -1,298 +1,301 @@
-- SECTION: 'Power Food'
+- SECTION: "Power Food"
 
   sweet-and-spicy-butternut-squash-soup:
-    text: 'Bowl of Sweet and Spicy Butternut Squash Soup<br> / Sous-Vide Steak '
+    text: "Bowl of Sweet and Spicy Butternut Squash Soup<br> / Sous-Vide Steak "
     modifiers:
-      flat: {'Power': 100, 'Ferocity': 70}
+      flat: { "Power": 100, "Ferocity": 70 }
     gw2-id: 41569
-    armory-type: 'items'
+    armory-type: "items"
 
   truffle-steak:
-    text: 'Plate of Truffle Steak / Coq Au Vin'
+    text: "Plate of Truffle Steak / Coq Au Vin"
     modifiers:
-      flat: {'Power': 100, 'Precision': 70}
+      flat: { "Power": 100, "Precision": 70 }
     gw2-id: 12467
-    armory-type: 'items'
+    armory-type: "items"
 
   curry-butternut-squash-soup:
-    text: 'Bowl of Curry Butternut Squash Soup'
+    text: "Bowl of Curry Butternut Squash Soup"
     modifiers:
-      flat: {'Precision': 100, 'Ferocity': 70}
+      flat: { "Precision": 100, "Ferocity": 70 }
     gw2-id: 12486
-    armory-type: 'items'
+    armory-type: "items"
 
   dragon's-breath-bun:
     text: >
       Dragon's Breath Bun
       <small class="text-muted font-italic">(100% uptime) </small>
     modifiers:
-      flat: {'Power': 200, 'Ferocity': 70}
+      flat: { "Power": 200, "Ferocity": 70 }
     gw2-id: 43360
-    armory-type: 'items'
+    armory-type: "items"
 
   steamed-red-dumpling: &steamed-red-dumpling
     text: >
       Steamed Red Dumpling
       <small class="text-muted font-italic">(100% uptime) </small>
     modifiers:
-      flat: {'Power': 200, 'Condition Damage': 140}
+      flat: { "Power": 200, "Condition Damage": 140 }
     gw2-id: 68635
-    armory-type: 'items'
+    armory-type: "items"
 
   seaweed-salad:
     text: >
       Bowl of Seaweed Salad
       <small class="text-muted font-italic">(90% uptime) </small>
     modifiers:
-      multiplier: {'Effective Power': 0.045}
+      multiplier: { "Effective Power": 0.045 }
     gw2-id: 12471
-    armory-type: 'items'
+    armory-type: "items"
 
   jerk-poultry:
-    text: 'Plate of Jerk Poultry'
+    text: "Plate of Jerk Poultry"
     modifiers:
-      flat: {'Power': 150}
+      flat: { "Power": 150 }
     gw2-id: 71797
-    armory-type: 'items'
+    armory-type: "items"
 
   sawgill-mushroom-risotto:
-    text: 'Bowl of Sawgill Mushroom Risotto'
+    text: "Bowl of Sawgill Mushroom Risotto"
     modifiers:
-      flat: {'Precision': 150}
+      flat: { "Precision": 150 }
     gw2-id: 75010
-    armory-type: 'items'
+    armory-type: "items"
 
-- SECTION: 'Solo Food'
+- SECTION: "Solo Food"
 
   roasted-cactus:
-    text: 'Plate of Roasted Cactus'
+    text: "Plate of Roasted Cactus"
     modifiers:
-      flat: {'Ferocity': 100}
+      flat: { "Ferocity": 100 }
     gw2-id: 66536
-    armory-type: 'items'
+    armory-type: "items"
 
   fried-golden-dumpling: &fried-golden-dumpling
-    text: 'Fried Golden Dumpling / Cheesecake'
+    text: "Fried Golden Dumpling / Cheesecake"
     modifiers:
-      flat: {'Concentration': 100}
+      flat: { "Concentration": 100 }
     gw2-id: 68633
-    armory-type: 'items'
+    armory-type: "items"
 
-- SECTION: 'Support Food'
+- SECTION: "Support Food"
 
   soul-pastry:
-    text: 'Soul Pastry / Beef Carpaccio'
+    text: "Soul Pastry / Beef Carpaccio"
     modifiers:
-      flat: {'Concentration': 100, 'Power': 70}
+      flat: { "Concentration": 100, "Power": 70 }
     gw2-id: 89002
-    armory-type: 'items'
+    armory-type: "items"
 
   nopalitos-saute:
-    text: 'Bowl of Nopalitos Sauté / Poultry Aspic'
+    text: "Bowl of Nopalitos Sauté / Poultry Aspic"
     modifiers:
-      flat: {'Concentration': 100, 'Toughness': 70}
+      flat: { "Concentration": 100, "Toughness": 70 }
     gw2-id: 66530
-    armory-type: 'items'
+    armory-type: "items"
 
   mussels-gnashblade:
-    text: 'Plate of Mussels Gnashblade'
+    text: "Plate of Mussels Gnashblade"
     modifiers:
-      flat: {'Concentration': 70}
-      multiplier: {'Effective Health': 0.1}
+      flat: { "Concentration": 70 }
+      multiplier: { "Effective Health": 0.1 }
     gw2-id: 74969
-    armory-type: 'items'
+    armory-type: "items"
 
-- SECTION: 'Heal Food'
+- SECTION: "Heal Food"
 
   fruit-salad-mint-garnish:
-    text: 'Bowl of Fruit Salad with Mint Garnish'
+    text: "Bowl of Fruit Salad with Mint Garnish"
     modifiers:
-      flat: {'Healing Power': 100, 'Concentration': 70}
-      multiplier: {'Effective Healing': 0.1}
+      flat: { "Healing Power": 100, "Concentration": 70 }
+      multiplier: { "Effective Healing": 0.1 }
     gw2-id: 91690
-    armory-type: 'items'
+    armory-type: "items"
 
   mint-creme-brulee:
-    text: 'Mint Creme Brulee'
+    text: "Mint Creme Brulee"
     modifiers:
-      flat: {'Concentration': 100, 'Healing Power': 70}
-      multiplier: {'Effective Healing': 0.1}
+      flat: { "Concentration": 100, "Healing Power": 70 }
+      multiplier: { "Effective Healing": 0.1 }
     gw2-id: 91743
-    armory-type: 'items'
+    armory-type: "items"
 
   delicious-rice-ball:
-    text: 'Delicious Rice Ball'
+    text: "Delicious Rice Ball"
     modifiers:
-      flat: {'Healing Power': 100}
-      multiplier: {'Effective Healing': 0.1}
+      flat: { "Healing Power": 100 }
+      multiplier: { "Effective Healing": 0.1 }
     gw2-id: 68634
-    armory-type: 'items'
+    armory-type: "items"
 
   poultry-satay:
-    text: 'Bowl of Poultry Satay'
+    text: "Bowl of Poultry Satay"
     modifiers:
-      flat: {'Healing Power': 100, 'Concentration': 70}
+      flat: { "Healing Power": 100, "Concentration": 70 }
     gw2-id: 87076
-    armory-type: 'items'
+    armory-type: "items"
 
-- SECTION: 'Condition Food'
+- SECTION: "Condition Food"
 
   rare-veggie-pizza:
-    text: 'Rare Veggie Pizza / Veggie Flatbread'
+    text: "Rare Veggie Pizza / Veggie Flatbread"
     modifiers:
-      flat: {'Expertise': 100, 'Condition Damage': 70}
+      flat: { "Expertise": 100, "Condition Damage": 70 }
     gw2-id: 12464
-    armory-type: 'items'
+    armory-type: "items"
 
   beef-rendang:
-    text: 'Plate of Beef Rendang / Cured Meat Flatbread'
+    text: "Plate of Beef Rendang / Cured Meat Flatbread"
     modifiers:
-      flat: {'Condition Damage': 100, 'Expertise': 70}
+      flat: { "Condition Damage": 100, "Expertise": 70 }
     gw2-id: 86997
-    armory-type: 'items'
+    armory-type: "items"
 
   saffron-stuffed-mushroom:
     text: >
       Saffron Stuffed Mushroom
       <small class="text-muted font-italic">(100% uptime) </small>
     modifiers:
-      flat: {'Precision': 70, 'Condition Damage': 200}
+      flat: { "Precision": 70, "Condition Damage": 200 }
     gw2-id: 12476
-    armory-type: 'items'
+    armory-type: "items"
 
   steamed-red-dumpling: *steamed-red-dumpling
 
   fire-meat-chili:
-    text: 'Bowl of Fire Meat Chili'
+    text: "Bowl of Fire Meat Chili"
     modifiers:
-      flat: {'Burning Duration': 15, 'Precision': 70}
+      flat: { "Burning Duration": 15, "Precision": 70 }
     gw2-id: 12484
-    armory-type: 'items'
+    armory-type: "items"
 
   fancy-truffle-burger:
-    text: 'Fancy Truffle Burger'
+    text: "Fancy Truffle Burger"
     modifiers:
-      flat: {'Poison Duration': 15, 'Precision': 70}
+      flat: { "Poison Duration": 15, "Precision": 70 }
     gw2-id: 12463
-    armory-type: 'items'
+    armory-type: "items"
 
   truffle-risotto:
-    text: 'Bowl of Truffle Risotto'
+    text: "Bowl of Truffle Risotto"
     modifiers:
-      flat: {'Condition Damage': 100, 'Precision': 70}
+      flat: { "Condition Damage": 100, "Precision": 70 }
     gw2-id: 12465
-    armory-type: 'items'
+    armory-type: "items"
 
   sweet-and-spicy-beans:
-    text: 'Bowl of Sweet and Spicy Beans'
+    text: "Bowl of Sweet and Spicy Beans"
     modifiers:
-      flat: {'Expertise': 100, 'Power': 70}
+      flat: { "Expertise": 100, "Power": 70 }
     gw2-id: 66528
-    armory-type: 'items'
+    armory-type: "items"
 
   fire-flank-steak:
-    text: 'Plate of Fire Flank Steak'
+    text: "Plate of Fire Flank Steak"
     modifiers:
-      flat: {'Power': 100, 'Condition Damage': 70}
+      flat: { "Power": 100, "Condition Damage": 70 }
     gw2-id: 12466
-    armory-type: 'items'
+    armory-type: "items"
 
   fancy-potato-and-leek-soup:
-    text: 'Bowl of Fancy Potato and Leek Soup'
+    text: "Bowl of Fancy Potato and Leek Soup"
     modifiers:
-      flat: {'Precision': 100, 'Condition Damage': 70}
+      flat: { "Precision": 100, "Condition Damage": 70 }
     gw2-id: 12485
-    armory-type: 'items'
+    armory-type: "items"
 
   prickly-pear-pie:
-    text: 'Prickly Pear Pie'
+    text: "Prickly Pear Pie"
     modifiers:
-      flat: {'Expertise': 100}
+      flat: { "Expertise": 100 }
     gw2-id: 66538
-    armory-type: 'items'
+    armory-type: "items"
 
-- SECTION: 'Hybrid Food'
+- SECTION: "Hybrid Food"
 
   dragon's-revelry-starcake:
-    text: 'Dragon''s Revelry Starcake / Oyster Soup'
+    text: "Dragon's Revelry Starcake / Oyster Soup"
     modifiers:
-      flat: {'Power': 45, 'Precision': 45, 'Toughness': 45, 'Vitality': 45,
-        'Concentration': 45, 'Condition Damage': 45, 'Expertise': 45,
-        'Ferocity': 45, 'Healing Power': 45}
+      flat:
+        {
+          "Power": 45, "Precision": 45, "Toughness": 45, "Vitality": 45,
+          "Concentration": 45, "Condition Damage": 45, "Expertise": 45, "Ferocity": 45, "Healing Power": 45,
+        }
     gw2-id: 43550
-    armory-type: 'items'
+    armory-type: "items"
 
   eggs-benedict:
-    text: 'Plate of Eggs Benedict'
+    text: "Plate of Eggs Benedict"
     modifiers:
-      flat: {'Concentration': 100, 'Expertise': 70}
+      flat: { "Concentration": 100, "Expertise": 70 }
     gw2-id: 91842
-    armory-type: 'items'
+    armory-type: "items"
 
   birthday-blaster:
-    text: 'Birthday Blaster'
+    text: "Birthday Blaster"
     modifiers:
-      flat: {'Power': 40, 'Precision': 40, 'Toughness': 40, 'Vitality': 40,
-        'Concentration': 40, 'Condition Damage': 40, 'Expertise': 40,
-        'Ferocity': 40, 'Healing Power': 40}
+      flat:
+        {
+          "Power": 40, "Precision": 40, "Toughness": 40, "Vitality": 40,
+          "Concentration": 40, "Condition Damage": 40, "Expertise": 40, "Ferocity": 40, "Healing Power": 40,
+        }
     gw2-id: 66961
-    armory-type: 'items'
+    armory-type: "items"
 
-- SECTION: 'Toughness Food'
+- SECTION: "Toughness Food"
 
   spicy-marinated-mushroom:
-    text: 'Spicy Marinated Mushroom'
+    text: "Spicy Marinated Mushroom"
     modifiers:
-      flat: {'Power': 100, 'Toughness': 70}
+      flat: { "Power": 100, "Toughness": 70 }
     gw2-id: 41563
-    armory-type: 'items'
+    armory-type: "items"
 
   spicy-herbed-chicken:
-    text: 'Plate of Spicy Herbed Chicken'
+    text: "Plate of Spicy Herbed Chicken"
     modifiers:
-      flat: {'Power': 70, 'Toughness': 100}
+      flat: { "Power": 70, "Toughness": 100 }
     gw2-id: 41567
-    armory-type: 'items'
+    armory-type: "items"
 
   truffle-ravioli:
-    text: 'Bowl of Truffle Ravioli'
+    text: "Bowl of Truffle Ravioli"
     modifiers:
-      flat: {'Precision': 70, 'Toughness': 100}
+      flat: { "Precision": 70, "Toughness": 100 }
     gw2-id: 12461
-    armory-type: 'items'
+    armory-type: "items"
 
   ascended-ravioli:
-    text: 'Ascended Ravioli'
+    text: "Ascended Ravioli"
     modifiers:
-      flat: {'Vitality': 70, 'Toughness': 70}
+      flat: { "Vitality": 70, "Toughness": 70 }
     gw2-id: 91735
-    armory-type: 'items'
+    armory-type: "items"
 
   kralkachocolate-bar:
-    text: 'Kralkachocolate Bar'
+    text: "Kralkachocolate Bar"
     modifiers:
-      flat: {'Healing Power': 100, 'Toughness': 70}
+      flat: { "Healing Power": 100, "Toughness": 70 }
     gw2-id: 43358
-    armory-type: 'items'
+    armory-type: "items"
 
   chocolate-tapioca-pudding:
-    text: 'Bowl of Chocolate Tapioca Pudding'
+    text: "Bowl of Chocolate Tapioca Pudding"
     modifiers:
-      flat: {'Healing Power': 70, 'Toughness': 100}
+      flat: { "Healing Power": 70, "Toughness": 100 }
     gw2-id: 76415
-    armory-type: 'items'
+    armory-type: "items"
 
   tropical-mousse:
-    text: 'Bowl of Tropical Mousse'
+    text: "Bowl of Tropical Mousse"
     modifiers:
-      flat: {'Condition Damage': 70, 'Toughness': 100}
+      flat: { "Condition Damage": 70, "Toughness": 100 }
     gw2-id: 36841
-    armory-type: 'items'
+    armory-type: "items"
 
   elon-red:
     text: 'Bowl of "Elon Red"'
     modifiers:
-      flat: {'Expertise': 100, 'Toughness': 70}
+      flat: { "Expertise": 100, "Toughness": 70 }
     gw2-id: 82541
-    armory-type: 'items'
-
+    armory-type: "items"

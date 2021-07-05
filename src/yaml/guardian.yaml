@@ -1,283 +1,282 @@
-- SECTION: 'Skills'
+- SECTION: "Skills"
 
   bane-signet:
-    text: 'Bane Signet'
+    text: "Bane Signet"
     modifiers:
-      buff: {'Power': 180}
+      buff: { "Power": 180 }
     gw2-id: 9093
-    armory-type: 'skills'
+    armory-type: "skills"
 
   bane-signet-2:
-    text: 'Bane Signet <small>traited</small>'
+    text: "Bane Signet <small>traited</small>"
     modifiers:
-      buff: {'Power': 216}
+      buff: { "Power": 216 }
     gw2-id: 9093
-    armory-type: 'skills'
+    armory-type: "skills"
 
   signet-of-judgement:
-    text: 'Signet of Judgement'
+    text: "Signet of Judgement"
     modifiers:
-      multiplier: {'Effective Health': 0.1}
+      multiplier: { "Effective Health": 0.1 }
     gw2-id: 9150
-    armory-type: 'skills'
+    armory-type: "skills"
 
   signet-of-judgement-2:
-    text: 'Signet of Judgement <small>traited</small>'
+    text: "Signet of Judgement <small>traited</small>"
     modifiers:
-      multiplier: {'Effective Health': 0.12}
+      multiplier: { "Effective Health": 0.12 }
     gw2-id: 9150
-    armory-type: 'skills'
+    armory-type: "skills"
 
   signet-of-mercy:
-    text: 'Signet of Mercy'
+    text: "Signet of Mercy"
     modifiers:
-      buff: {'Concentration': 120}
+      buff: { "Concentration": 120 }
     gw2-id: 9163
-    armory-type: 'skills'
+    armory-type: "skills"
 
   signet-of-mercy-2:
-    text: 'Signet of Mercy <small>traited</small>'
+    text: "Signet of Mercy <small>traited</small>"
     modifiers:
-      buff: {'Concentration': 150}
+      buff: { "Concentration": 150 }
     gw2-id: 9163
-    armory-type: 'skills'
+    armory-type: "skills"
 
   signet-of-wrath:
-    text: 'Signet of Wrath'
+    text: "Signet of Wrath"
     modifiers:
-      buff: {'Condition Damage': 180}
+      buff: { "Condition Damage": 180 }
     gw2-id: 9151
-    armory-type: 'skills'
+    armory-type: "skills"
 
   signet-of-wrath-2:
-    text: 'Signet of Wrath <small>traited</small>'
+    text: "Signet of Wrath <small>traited</small>"
     modifiers:
-      buff: {'Condition Damage': 216}
+      buff: { "Condition Damage": 216 }
     gw2-id: 9151
-    armory-type: 'skills'
+    armory-type: "skills"
 
-- SECTION: 'Zeal'
+- SECTION: "Zeal"
 
   fiery-wrath:
-    text: 'Fiery Wrath'
+    text: "Fiery Wrath"
     modifiers:
-      multiplier: {'Effective Power': 0.07}
+      multiplier: { "Effective Power": 0.07 }
     gw2-id: 634
-    armory-type: 'traits'
+    armory-type: "traits"
 
   symbolic-exposure:
-    text: 'Symbolic Exposure'
+    text: "Symbolic Exposure"
     modifiers:
-      multiplier: {'Effective Power': 0.05}
+      multiplier: { "Effective Power": 0.05 }
     gw2-id: 646
-    armory-type: 'traits'
+    armory-type: "traits"
 
   zealous-blade:
-    text: 'Zealous Blade <small>assuming 50% GS</small>'
+    text: "Zealous Blade <small>assuming 50% GS</small>"
     modifiers:
-      buff: {'Power': 180}
+      buff: { "Power": 180 }
     gw2-id: 653
-    armory-type: 'traits'
+    armory-type: "traits"
 
   kindled-zeal:
-    text: 'Kindled Zeal'
+    text: "Kindled Zeal"
     modifiers:
-      convert: {'Condition Damage': {'Power': 0.1}}
+      convert: { "Condition Damage": { "Power": 0.1 } }
     gw2-id: 1556
-    armory-type: 'traits'
+    armory-type: "traits"
 
   symbolic-avenger:
-    text: 'Symbolic Avenger <small>5x</small>'
+    text: "Symbolic Avenger <small>5x</small>"
     modifiers:
-      multiplier: {'add: Effective Power': 0.1}
+      multiplier: { "add: Effective Power": 0.1 }
     gw2-id: 2017
-    armory-type: 'traits'
+    armory-type: "traits"
 
-- SECTION: 'Radiance'
+- SECTION: "Radiance"
 
   right-hand-strength:
-    text: 'Right-Hand Strength <small>base (+80 prec)</small>'
+    text: "Right-Hand Strength <small>base (+80 prec)</small>"
     modifiers:
-      buff: {'Precision': 80}
+      buff: { "Precision": 80 }
     gw2-id: 566
-    armory-type: 'traits'
+    armory-type: "traits"
 
   right-hand-strength-2:
-    text: 'Right-Hand Strength <small>50% one-handed (+40 Power)</small>'
+    text: "Right-Hand Strength <small>50% one-handed (+40 Power)</small>"
     modifiers:
-      buff: {'Power': 40}
+      buff: { "Power": 40 }
     gw2-id: 566
-    armory-type: 'traits'
+    armory-type: "traits"
 
   right-hand-strength-3:
-    text: 'Right-Hand Strength <small>100% one-handed (+80 Power)</small>'
+    text: "Right-Hand Strength <small>100% one-handed (+80 Power)</small>"
     modifiers:
-      buff: {'Power': 40}
+      buff: { "Power": 40 }
     gw2-id: 566
-    armory-type: 'traits'
+    armory-type: "traits"
 
   radiant-fire:
-    text: 'Radiant Fire'
+    text: "Radiant Fire"
     modifiers:
-      buff: {'Burning Duration': 20}
+      buff: { "Burning Duration": 20 }
     gw2-id: 567
-    armory-type: 'traits'
+    armory-type: "traits"
 
   retribution:
-    text: 'Retribution'
+    text: "Retribution"
     modifiers:
-      multiplier: {'add: Effective Power': 0.1}
+      multiplier: { "add: Effective Power": 0.1 }
     gw2-id: 565
-    armory-type: 'traits'
+    armory-type: "traits"
 
   radiant-power:
-    text: 'Radiant Power'
+    text: "Radiant Power"
     modifiers:
-      buff: {'Critical Chance': 10, 'Ferocity': 150}
+      buff: { "Critical Chance": 10, "Ferocity": 150 }
     gw2-id: 568
-    armory-type: 'traits'
+    armory-type: "traits"
 
   amplified-wrath:
-    text: 'Amplified Wrath'
+    text: "Amplified Wrath"
     modifiers:
-      multiplier: {'Burning Damage': 0.15}
+      multiplier: { "Burning Damage": 0.15 }
     gw2-id: 1686
-    armory-type: 'traits'
+    armory-type: "traits"
 
   righteous-instincts:
-    text: 'Righteous Instincts'
+    text: "Righteous Instincts"
     modifiers:
-      buff: {'Critical Chance': 25}
+      buff: { "Critical Chance": 25 }
     gw2-id: 1683
-    armory-type: 'traits'
+    armory-type: "traits"
 
-- SECTION: 'Valor'
+- SECTION: "Valor"
 
   stalwart-defender:
-    text: 'Stalwart Defender'
+    text: "Stalwart Defender"
     modifiers:
-      buff: {'Toughness': 240}
+      buff: { "Toughness": 240 }
     gw2-id: 580
-    armory-type: 'traits'
+    armory-type: "traits"
 
-- SECTION: 'Honor'
+- SECTION: "Honor"
 
   invigorating-bulwark:
-    text: 'Invigorating Bulwark <small>5x</small>'
+    text: "Invigorating Bulwark <small>5x</small>"
     modifiers:
-      multiplier: {'Effective Healing': 0.25}
+      multiplier: { "Effective Healing": 0.25 }
     gw2-id: 1899
-    armory-type: 'traits'
+    armory-type: "traits"
 
   honorable-staff:
-    text: 'Honorable Staff <small>base</small>'
+    text: "Honorable Staff <small>base</small>"
     modifiers:
-      buff: {'Concentration': 120}
+      buff: { "Concentration": 120 }
     gw2-id: 557
-    armory-type: 'traits'
+    armory-type: "traits"
 
   honorable-staff-2:
-    text: 'Honorable Staff <small>with staff - check both boxes</small>'
+    text: "Honorable Staff <small>with staff - check both boxes</small>"
     modifiers:
-      buff: {'Concentration': 120}
+      buff: { "Concentration": 120 }
     gw2-id: 557
-    armory-type: 'traits'
+    armory-type: "traits"
 
   force-of-will:
-    text: 'Force of Will <small>Assuming 1k vitality</small>'
+    text: "Force of Will <small>Assuming 1k vitality</small>"
     modifiers:
-      buff: {'Vitality': 300}
-      multiplier: {'Effective Healing': 0.1}
+      buff: { "Vitality": 300 }
+      multiplier: { "Effective Healing": 0.1 }
     gw2-id: 1682
-    armory-type: 'traits'
+    armory-type: "traits"
 
-- SECTION: 'Virtues'
+- SECTION: "Virtues"
 
   inspired-virtue:
-    text: 'Inspired Virtue <small>6x</small>'
+    text: "Inspired Virtue <small>6x</small>"
     modifiers:
-      multiplier: {'Effective Power': 0.06}
+      multiplier: { "Effective Power": 0.06 }
     gw2-id: 621
-    armory-type: 'traits'
+    armory-type: "traits"
 
   inspired-virtue-9:
-    text: 'Inspired Virtue <small>9x</small>'
+    text: "Inspired Virtue <small>9x</small>"
     modifiers:
-      multiplier: {'Effective Power': 0.09}
+      multiplier: { "Effective Power": 0.09 }
     gw2-id: 621
-    armory-type: 'traits'
+    armory-type: "traits"
 
   unscathed-contender:
-    text: 'Unscathed Contender'
+    text: "Unscathed Contender"
     modifiers:
-      multiplier: {'add: Effective Power': 0.2}
+      multiplier: { "add: Effective Power": 0.2 }
     gw2-id: 624
-    armory-type: 'traits'
+    armory-type: "traits"
 
   virtue-of-retribution:
-    text: 'Virtue of Resolution'
+    text: "Virtue of Resolution"
     modifiers:
-      buff: {'Retaliation Duration': 25}
+      buff: { "Retaliation Duration": 25 }
     gw2-id: 604
-    armory-type: 'traits'
+    armory-type: "traits"
 
   inspiring-virtue:
-    text: 'Inspiring Virtue <small>100%</small>'
+    text: "Inspiring Virtue <small>100%</small>"
     modifiers:
-      multiplier: {'add: Effective Power': 0.1}
+      multiplier: { "add: Effective Power": 0.1 }
     gw2-id: 603
-    armory-type: 'traits'
+    armory-type: "traits"
 
   power-of-the-virtuous:
-    text: 'Power of the Virtuous'
+    text: "Power of the Virtuous"
     modifiers:
-      convert: {'Condition Damage': {'Vitality': 0.13}}
+      convert: { "Condition Damage": { "Vitality": 0.13 } }
     gw2-id: 620
-    armory-type: 'traits'
+    armory-type: "traits"
 
-- SECTION: 'Dragonhunter'
+- SECTION: "Dragonhunter"
 
   zealots-aggression:
-    text: 'Zealot''s Aggression'
+    text: "Zealot's Aggression"
     modifiers:
-      multiplier: {'Effective Power': 0.1}
+      multiplier: { "Effective Power": 0.1 }
     gw2-id: 1835
-    armory-type: 'traits'
+    armory-type: "traits"
 
   pure-of-sight:
-    text: 'Pure of Sight <small>Melee</small>'
+    text: "Pure of Sight <small>Melee</small>"
     modifiers:
-      multiplier: {'Effective Power': 0.05}
+      multiplier: { "Effective Power": 0.05 }
     gw2-id: 1926
-    armory-type: 'traits'
+    armory-type: "traits"
 
   pure-of-sight-ranged:
-    text: 'Pure of Sight <small>Ranged</small>'
+    text: "Pure of Sight <small>Ranged</small>"
     modifiers:
-      multiplier: {'Effective Power': 0.15}
+      multiplier: { "Effective Power": 0.15 }
     gw2-id: 1926
-    armory-type: 'traits'
+    armory-type: "traits"
 
   hunters-fortification:
-    text: 'Hunter''s Fortification'
+    text: "Hunter's Fortification"
     modifiers:
-      multiplier: {'Effective Health': 0.1}
+      multiplier: { "Effective Health": 0.1 }
     gw2-id: 1908
-    armory-type: 'traits'
+    armory-type: "traits"
 
   big-game-hunter:
-    text: 'Big Game Hunter'
+    text: "Big Game Hunter"
     modifiers:
-      multiplier: {'Effective Power': 0.15}
+      multiplier: { "Effective Power": 0.15 }
     gw2-id: 1955
-    armory-type: 'traits'
+    armory-type: "traits"
 
-- SECTION: 'Firebrand'
+- SECTION: "Firebrand"
 
   imbued-haste:
-    text: 'Imbued Haste'
+    text: "Imbued Haste"
     modifiers:
-      flat: {'Condition Damage': 250, 'Healing Power': 250, 'Vitality': 250}
+      flat: { "Condition Damage": 250, "Healing Power": 250, "Vitality": 250 }
     gw2-id: 2148
-    armory-type: 'traits'
-
+    armory-type: "traits"

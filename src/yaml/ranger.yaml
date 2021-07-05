@@ -1,254 +1,259 @@
-- SECTION: 'Skills'
+- SECTION: "Skills"
 
   signet-of-stone:
-    text: 'Signet of Stone'
+    text: "Signet of Stone"
     modifiers:
-      buff: {'Toughness': 180}
+      buff: { "Toughness": 180 }
     gw2-id: 12500
-    armory-type: 'skills'
+    armory-type: "skills"
 
   signet-of-the-wild:
-    text: 'Signet of the Wild'
+    text: "Signet of the Wild"
     modifiers:
-      buff: {'Ferocity': 180}
+      buff: { "Ferocity": 180 }
     gw2-id: 12491
-    armory-type: 'skills'
+    armory-type: "skills"
 
-- SECTION: 'Marksmanship'
+- SECTION: "Marksmanship"
 
   farsighted:
-    text: 'Farsighted <small>Melee</small>'
+    text: "Farsighted <small>Melee</small>"
     modifiers:
-      multiplier: {'Effective Power': 0.05}
+      multiplier: { "Effective Power": 0.05 }
     gw2-id: 1000
-    armory-type: 'traits'
+    armory-type: "traits"
 
   farsighted-2:
-    text: 'Farsighted <small>Ranged</small>'
+    text: "Farsighted <small>Ranged</small>"
     modifiers:
-      multiplier: {'Effective Power': 0.15}
+      multiplier: { "Effective Power": 0.15 }
     gw2-id: 1000
-    armory-type: 'traits'
+    armory-type: "traits"
 
   predators-onslaught:
-    text: 'Predator''s Onslaught <small>100% uptime</small>'
+    text: "Predator's Onslaught <small>100% uptime</small>"
     modifiers:
-      multiplier: {'Effective Power': 0.15}
+      multiplier: { "Effective Power": 0.15 }
     gw2-id: 996
-    armory-type: 'traits'
+    armory-type: "traits"
 
-- SECTION: 'Skirmishing'
+- SECTION: "Skirmishing"
 
   hidden-barbs:
-    text: 'Hidden Barbs'
+    text: "Hidden Barbs"
     modifiers:
-      multiplier: {'Bleeding Damage': 0.33}
+      multiplier: { "Bleeding Damage": 0.33 }
     gw2-id: 1846
-    armory-type: 'traits'
+    armory-type: "traits"
 
   hunters-tactics:
-    text: 'Hunter''s Tactics'
+    text: "Hunter's Tactics"
     modifiers:
-      buff: {'Critical Chance': 10}
-      multiplier: {'Effective Power': 0.1}
+      buff: { "Critical Chance": 10 }
+      multiplier: { "Effective Power": 0.1 }
     gw2-id: 1068
-    armory-type: 'traits'
+    armory-type: "traits"
 
   light-on-your-feet:
-    text: 'Light on your Feet <small>100% uptime</small>'
+    text: "Light on your Feet <small>100% uptime</small>"
     modifiers:
-      multiplier: {'Effective Power': 0.1}
-      buff: {'Condition Duration': 10}
+      multiplier: { "Effective Power": 0.1 }
+      buff: { "Condition Duration": 10 }
     gw2-id: 1912
-    armory-type: 'traits'
+    armory-type: "traits"
 
   vicious-quarry:
-    text: 'Vicious Quarry'
+    text: "Vicious Quarry"
     modifiers:
-      buff: {'Ferocity': 250, 'Critical Chance': 10}
+      buff: { "Ferocity": 250, "Critical Chance": 10 }
     gw2-id: 1888
-    armory-type: 'traits'
+    armory-type: "traits"
 
-- SECTION: 'Wilderness Survival'
+- SECTION: "Wilderness Survival"
 
   oakheart-salve:
-    text: 'Oakheart Salve'
+    text: "Oakheart Salve"
     modifiers:
-      multiplier: {'Effective Health': 0.05}
+      multiplier: { "Effective Health": 0.05 }
     gw2-id: 1086
-    armory-type: 'traits'
+    armory-type: "traits"
 
   taste-for-danger:
-    text: 'Taste for Danger'
+    text: "Taste for Danger"
     modifiers:
-      buff: {'Vitality': 120}
-      convert: {'Expertise': {'Vitality': 0.07}}
+      buff: { "Vitality": 120 }
+      convert: { "Expertise": { "Vitality": 0.07 } }
     gw2-id: 1099
-    armory-type: 'traits'
+    armory-type: "traits"
 
   ambidexterity:
-    text: 'Ambidexterity <small>base</small>'
+    text: "Ambidexterity <small>base</small>"
     modifiers:
-      buff: {'Condition Damage': 120}
+      buff: { "Condition Damage": 120 }
     gw2-id: 1101
-    armory-type: 'traits'
+    armory-type: "traits"
 
   ambidexterity-2:
-    text: 'Ambidexterity <small>with torch/dagger - check both boxes</small>'
+    text: "Ambidexterity <small>with torch/dagger - check both boxes</small>"
     modifiers:
-      buff: {'Condition Damage': 120}
+      buff: { "Condition Damage": 120 }
     gw2-id: 1101
-    armory-type: 'traits'
+    armory-type: "traits"
 
   poison-master:
-    text: 'Poison Master'
+    text: "Poison Master"
     modifiers:
-      multiplier: {'Poison Damage': 0.25}
+      multiplier: { "Poison Damage": 0.25 }
     gw2-id: 1701
-    armory-type: 'traits'
+    armory-type: "traits"
 
-- SECTION: 'Nature Magic'
+- SECTION: "Nature Magic"
 
   bountiful-hunter:
-    text: 'Bountiful Hunter <small>6x</small>'
+    text: "Bountiful Hunter <small>6x</small>"
     modifiers:
-      multiplier: {'Effective Power': 0.06}
+      multiplier: { "Effective Power": 0.06 }
     gw2-id: 1062
-    armory-type: 'traits'
+    armory-type: "traits"
 
   bountiful-hunter-9:
-    text: 'Bountiful Hunter <small>9x</small>'
+    text: "Bountiful Hunter <small>9x</small>"
     modifiers:
-      multiplier: {'Effective Power': 0.09}
+      multiplier: { "Effective Power": 0.09 }
     gw2-id: 1062
-    armory-type: 'traits'
+    armory-type: "traits"
 
   instinctive-reaction:
-    text: 'Instinctive Reaction'
+    text: "Instinctive Reaction"
     modifiers:
-      convert: {'Healing Power': {'Power': 0.07}}
+      convert: { "Healing Power": { "Power": 0.07 } }
     gw2-id: 978
-    armory-type: 'traits'
+    armory-type: "traits"
 
   lingering-magic:
-    text: 'Lingering Magic'
+    text: "Lingering Magic"
     modifiers:
-      buff: {'Concentration': 240}
+      buff: { "Concentration": 240 }
     gw2-id: 1059
-    armory-type: 'traits'
+    armory-type: "traits"
 
-- SECTION: 'Beastmastery'
+- SECTION: "Beastmastery"
 
   honed-axes:
-    text: 'Honed Axes <small>base</small>'
+    text: "Honed Axes <small>base</small>"
     modifiers:
-      buff: {'Ferocity': 120}
+      buff: { "Ferocity": 120 }
     gw2-id: 1066
-    armory-type: 'traits'
+    armory-type: "traits"
 
   honed-axes-2:
-    text: 'Honed Axes <small>with axe 50% - also check base</small>'
+    text: "Honed Axes <small>with axe 50% - also check base</small>"
     modifiers:
-      buff: {'Ferocity': 60}
+      buff: { "Ferocity": 60 }
     gw2-id: 1066
-    armory-type: 'traits'
+    armory-type: "traits"
 
   honed-axes-3:
-    text: 'Honed Axes <small>with axe 100% - also check base</small>'
+    text: "Honed Axes <small>with axe 100% - also check base</small>"
     modifiers:
-      buff: {'Ferocity': 120}
+      buff: { "Ferocity": 120 }
     gw2-id: 1066
-    armory-type: 'traits'
+    armory-type: "traits"
 
-- SECTION: 'Druid'
+- SECTION: "Druid"
 
   natural-mender:
-    text: 'Natural Mender <small>10x</small>'
+    text: "Natural Mender <small>10x</small>"
     modifiers:
-      multiplier: {'Effective Healing': 0.2}
+      multiplier: { "Effective Healing": 0.2 }
     gw2-id: 1992
-    armory-type: 'traits'
+    armory-type: "traits"
 
-- SECTION: 'Soulbeast'
+- SECTION: "Soulbeast"
 
   furious-strength:
-    text: 'Furious Strength'
+    text: "Furious Strength"
     modifiers:
-      multiplier: {'add: Effective Power': 0.15}
+      multiplier: { "add: Effective Power": 0.15 }
     gw2-id: 2156
-    armory-type: 'traits'
+    armory-type: "traits"
 
   twice-as-vicious:
-    text: 'Twice as Vicious'
+    text: "Twice as Vicious"
     modifiers:
-      multiplier: {'add: Effective Power': 0.1, 'add: Effective Condition Damage': 0.1}
+      multiplier: { "add: Effective Power": 0.1, "add: Effective Condition Damage": 0.1 }
     gw2-id: 2127
-    armory-type: 'traits'
+    armory-type: "traits"
 
   oppressive-superiority:
-    text: 'Oppressive Superiority'
+    text: "Oppressive Superiority"
     modifiers:
-      multiplier: {'Effective Power': 0.1}
-      buff: {'Condition Duration': 10}
+      multiplier: { "Effective Power": 0.1 }
+      buff: { "Condition Duration": 10 }
     gw2-id: 2143
-    armory-type: 'traits'
+    armory-type: "traits"
 
-- SECTION: 'Soulbeast Pet Archetypes'
+- SECTION: "Soulbeast Pet Archetypes"
 
   archetype-stout:
-    text: 'Stout (Tough/Vit)'
+    text: "Stout (Tough/Vit)"
     modifiers:
-      buff: {'Toughness': 200, 'Vitality': 100}
+      buff: { "Toughness": 200, "Vitality": 100 }
 
   archetype-deadly:
-    text: 'Deadly (ConDmg/Prec)'
+    text: "Deadly (ConDmg/Prec)"
     modifiers:
-      buff: {'Condition Damage': 150, 'Precision': 100}
+      buff: { "Condition Damage": 150, "Precision": 100 }
 
   archetype-versatile:
-    text: 'Versatile (Vit/Conc)'
+    text: "Versatile (Vit/Conc)"
     modifiers:
-      buff: {'Vitality': 200, 'Concentration': 225}
+      buff: { "Vitality": 200, "Concentration": 225 }
 
   archetype-ferocious:
-    text: 'Ferocious (Pwr/Feroc)'
+    text: "Ferocious (Pwr/Feroc)"
     modifiers:
-      buff: {'Power': 150, 'Ferocity': 100}
+      buff: { "Power": 150, "Ferocity": 100 }
 
   archetype-supportive:
-    text: 'Supportive (Vit/Heal)'
+    text: "Supportive (Vit/Heal)"
     modifiers:
-      buff: {'Vitality': 100}
-      multiplier: {'Effective Healing': 0.25}
+      buff: { "Vitality": 100 }
+      multiplier: { "Effective Healing": 0.25 }
 
-- SECTION: 'Soulbeast Pet Buffs To Player'
+- SECTION: "Soulbeast Pet Buffs To Player"
 
   sb-1:
-    text: 'Pack Alpha'
+    text: "Pack Alpha"
     modifiers:
-      buff: {'Power': 150, 'Precision': 150, 'Condition Damage': 150,
-        'Toughness': 150, 'Vitality': 150}
+      buff:
+        {
+          "Power": 150,
+          "Precision": 150,
+          "Condition Damage": 150,
+          "Toughness": 150,
+          "Vitality": 150,
+        }
     gw2-id: 1900
-    armory-type: 'traits'
+    armory-type: "traits"
 
   sb-2:
-    text: 'Loud Whistle'
+    text: "Loud Whistle"
     modifiers:
-      multiplier: {'Effective Power': 0.1}
+      multiplier: { "Effective Power": 0.1 }
     gw2-id: 974
-    armory-type: 'traits'
+    armory-type: "traits"
 
   sb-3:
-    text: 'Pet''s Prowess'
+    text: "Pet's Prowess"
     modifiers:
-      buff: {'Ferocity': 300}
+      buff: { "Ferocity": 300 }
     gw2-id: 1065
-    armory-type: 'traits'
+    armory-type: "traits"
 
   sb-4:
-    text: 'Honed Axes <small>base</small>'
+    text: "Honed Axes <small>base</small>"
     modifiers:
-      buff: {'Ferocity': 120}
+      buff: { "Ferocity": 120 }
     gw2-id: 1066
-    armory-type: 'traits'
-
+    armory-type: "traits"

@@ -1,129 +1,128 @@
-- SECTION: 'Skills'
+- SECTION: "Skills"
 
   signet-of-domination:
-    text: 'Signet of Domination'
+    text: "Signet of Domination"
     modifiers:
-      buff: {'Condition Damage': 180}
+      buff: { "Condition Damage": 180 }
     gw2-id: 10232
-    armory-type: 'skills'
+    armory-type: "skills"
 
   signet-of-midnight:
-    text: 'Signet of Midnight'
+    text: "Signet of Midnight"
     modifiers:
-      buff: {'Expertise': 180}
+      buff: { "Expertise": 180 }
     gw2-id: 10234
-    armory-type: 'skills'
+    armory-type: "skills"
 
-- SECTION: 'Domination'
+- SECTION: "Domination"
 
   fragility:
-    text: 'Fragility <small>25x</small>'
+    text: "Fragility <small>25x</small>"
     modifiers:
-      multiplier: {'Effective Power': 0.125}
+      multiplier: { "Effective Power": 0.125 }
     gw2-id: 1941
-    armory-type: 'traits'
+    armory-type: "traits"
 
   egotism:
-    text: 'Egotism'
+    text: "Egotism"
     modifiers:
-      multiplier: {'Effective Power': 0.1}
+      multiplier: { "Effective Power": 0.1 }
     gw2-id: 713
-    armory-type: 'traits'
+    armory-type: "traits"
 
   vicious-expression:
-    text: 'Vicious Expression'
+    text: "Vicious Expression"
     modifiers:
-      multiplier: {'Effective Power': 0.15}
+      multiplier: { "Effective Power": 0.15 }
     gw2-id: 681
-    armory-type: 'traits'
+    armory-type: "traits"
 
-- SECTION: 'Dueling'
+- SECTION: "Dueling"
 
   fencers-finesse:
-    text: 'Fencer''s Finesse <small>10x</small>'
+    text: "Fencer's Finesse <small>10x</small>"
     modifiers:
-      buff: {'Ferocity': 150}
+      buff: { "Ferocity": 150 }
     gw2-id: 708
-    armory-type: 'traits'
+    armory-type: "traits"
 
   superiority-complex:
-    text: 'Superiority Complex <small>50% uptime -&gt; +20% Critical Damage</small>'
+    text: "Superiority Complex <small>50% uptime -&gt; +20% Critical Damage</small>"
     modifiers:
-      multiplier: {'Critical Damage': 0.2}
+      multiplier: { "Critical Damage": 0.2 }
     gw2-id: 692
-    armory-type: 'traits'
+    armory-type: "traits"
 
-- SECTION: 'Chaos'
+- SECTION: "Chaos"
 
   illusionary-defense:
-    text: 'Illusionary Defense <small>5x</small>'
+    text: "Illusionary Defense <small>5x</small>"
     modifiers:
-      multiplier: {'Effective Health': 0.25}
+      multiplier: { "Effective Health": 0.25 }
     gw2-id: 675
-    armory-type: 'traits'
+    armory-type: "traits"
 
   illusionary-membrane:
-    text: 'Illusionary Membrane <small>100%</small>'
+    text: "Illusionary Membrane <small>100%</small>"
     modifiers:
-      multiplier: {'add: Effective Condition Damage': 0.1}
+      multiplier: { "add: Effective Condition Damage": 0.1 }
     gw2-id: 667
-    armory-type: 'traits'
+    armory-type: "traits"
 
   chaotic-potency:
-    text: 'Chaotic Potency <small>base</small>'
+    text: "Chaotic Potency <small>base</small>"
     modifiers:
-      buff: {'Condition Damage': 120}
+      buff: { "Condition Damage": 120 }
     gw2-id: 669
-    armory-type: 'traits'
+    armory-type: "traits"
 
   chaotic-potency-2:
-    text: 'Chaotic Potency <small>with staff - check both boxes</small>'
+    text: "Chaotic Potency <small>with staff - check both boxes</small>"
     modifiers:
-      buff: {'Condition Damage': 120}
+      buff: { "Condition Damage": 120 }
     gw2-id: 669
-    armory-type: 'traits'
+    armory-type: "traits"
 
   chaotic-persistence:
-    text: 'Chaotic Persistence <small>100%</small>'
+    text: "Chaotic Persistence <small>100%</small>"
     modifiers:
-      buff: {'Concentration': 250, 'Expertise': 250}
+      buff: { "Concentration": 250, "Expertise": 250 }
     gw2-id: 1865
-    armory-type: 'traits'
+    armory-type: "traits"
 
-- SECTION: 'Inspiration'
+- SECTION: "Inspiration"
 
   healing-prism:
-    text: 'Healing Prism'
+    text: "Healing Prism"
     modifiers:
-      convert: {'Healing Power': {'Power': 0.13}}
+      convert: { "Healing Power": { "Power": 0.13 } }
     gw2-id: 1915
-    armory-type: 'traits'
+    armory-type: "traits"
 
-- SECTION: 'Illusions'
+- SECTION: "Illusions"
 
   compounding-power:
-    text: 'Compounding Power <small>5x</small>'
+    text: "Compounding Power <small>5x</small>"
     modifiers:
-      multiplier: {'add: Effective Power': 0.1}
-      buff: {'Condition Damage': 150}
+      multiplier: { "add: Effective Power": 0.1 }
+      buff: { "Condition Damage": 150 }
     gw2-id: 723
-    armory-type: 'traits'
+    armory-type: "traits"
 
-- SECTION: 'Chronomancer'
+- SECTION: "Chronomancer"
 
   danger-time:
-    text: 'Danger Time'
+    text: "Danger Time"
     modifiers:
-      buff: {'Critical Chance': 15}
+      buff: { "Critical Chance": 15 }
     gw2-id: 2009
-    armory-type: 'traits'
+    armory-type: "traits"
 
-- SECTION: 'Mirage'
+- SECTION: "Mirage"
 
   nomads-endurance:
-    text: 'Nomad''s Endurance'
+    text: "Nomad's Endurance"
     modifiers:
-      buff: {'Condition Damage': 150}
+      buff: { "Condition Damage": 150 }
     gw2-id: 2069
-    armory-type: 'traits'
-
+    armory-type: "traits"
