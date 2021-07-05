@@ -1,7 +1,7 @@
 - SECTION: ''
 
   might:
-    text: > 
+    text: >
       <span class="icon icon-might"></span>
       Might
       <small class="text-muted font-italic">(25x)</small>
@@ -18,7 +18,7 @@
     default-enabled: true
 
   protection:
-    text: > 
+    text: >
       <span class="icon icon-protection"></span>
       Protection
     modifiers:
@@ -104,7 +104,7 @@
     armory-type: 'traits'
     extraCSS: 'text-guardian'
 
-- SECTION: > 
+- SECTION: >
     Guardian
     <span data-armory-size="24" data-armory-embed="traits" data-armory-ids="579"></span>
     Perfect Inscriptions (Assuming 100% uptime!)

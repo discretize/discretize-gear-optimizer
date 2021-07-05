@@ -53,8 +53,8 @@
 - SECTION: 'Fire'
 
   empowering-flame:
-    text: > 
-      Empowering Flame <br>(100% in 
+    text: >
+      Empowering Flame <br>(100% in
       <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5492"></span>)
     modifiers:
       buff: {'Power': 150}
@@ -83,8 +83,8 @@
     armory-type: 'traits'
 
   power-overwhelming-2:
-    text: > 
-      Power Overwhelming <br>(100% in 
+    text: >
+      Power Overwhelming <br>(100% in
       <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5492"></span>
        - tick both)
     modifiers:
@@ -130,8 +130,8 @@
     armory-type: 'traits'
 
   aeromancers-training-2:
-    text: > 
-      Aeromancer's Training <br>(100% in 
+    text: >
+      Aeromancer's Training <br>(100% in
       <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5494"></span>
        - tick both)
     modifiers:
@@ -156,8 +156,8 @@
 - SECTION: 'Earth'
 
   stone-flesh:
-    text: > 
-      Stone Flesh (100% in 
+    text: >
+      Stone Flesh (100% in
       <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5495"></span>)
     modifiers:
       multiplier: {'Effective Health': 0.07}
@@ -197,7 +197,7 @@
 
   piercing-blades-2:
     text: >
-      Piercing Shards <small>100% in 
+      Piercing Shards <small>100% in
       <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5493"></span>
        - tick both</small>
     modifiers:
@@ -313,7 +313,7 @@
 
   elemental-polyphony-fire:
     text: >
-      Elemental Polyphony <br>(100% in 
+      Elemental Polyphony <br>(100% in
       <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5492"></span>)
     modifiers:
       buff: {'Power': 120}
@@ -322,7 +322,7 @@
 
   elemental-polyphony-air:
     text: >
-      Elemental Polyphony <br>(100% in 
+      Elemental Polyphony <br>(100% in
       <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5494"></span>)
     modifiers:
       buff: {'Ferocity': 120}

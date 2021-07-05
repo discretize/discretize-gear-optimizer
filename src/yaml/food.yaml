@@ -23,7 +23,7 @@
 
   dragon's-breath-bun:
     text: >
-      Dragon's Breath Bun 
+      Dragon's Breath Bun
       <small class="text-muted font-italic">(100% uptime) </small>
     modifiers:
       flat: {'Power': 200, 'Ferocity': 70}
@@ -32,7 +32,7 @@
 
   steamed-red-dumpling: &steamed-red-dumpling
     text: >
-      Steamed Red Dumpling 
+      Steamed Red Dumpling
       <small class="text-muted font-italic">(100% uptime) </small>
     modifiers:
       flat: {'Power': 200, 'Condition Damage': 140}
@@ -41,7 +41,7 @@
 
   seaweed-salad:
     text: >
-      Bowl of Seaweed Salad 
+      Bowl of Seaweed Salad
       <small class="text-muted font-italic">(90% uptime) </small>
     modifiers:
       multiplier: {'Effective Power': 0.045}
@@ -153,7 +153,7 @@
 
   saffron-stuffed-mushroom:
     text: >
-      Saffron Stuffed Mushroom 
+      Saffron Stuffed Mushroom
       <small class="text-muted font-italic">(100% uptime) </small>
     modifiers:
       flat: {'Precision': 70, 'Condition Damage': 200}

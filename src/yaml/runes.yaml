@@ -2,7 +2,7 @@
 
   scholar:
     text: >
-      Superior Rune of the Scholar<br> 
+      Superior Rune of the Scholar<br>
       <small class="text-muted font-italic">(100% active bonus)</small>
     modifiers:
       flat: {'Power': 175, 'Ferocity': 225}
@@ -12,7 +12,7 @@
 
   scholar-without:
     text: >
-      Superior Rune of the Scholar<br> 
+      Superior Rune of the Scholar<br>
       <small class="text-muted font-italic">(without active bonus)</small>
     modifiers:
       flat: {'Power': 175, 'Ferocity': 225}
@@ -101,7 +101,7 @@
     armory-type: 'items'
 
   surging-and-ruby-orb:
-    text: > 
+    text: >
       Superior Rune of Surging (5x) <br>
       &amp; <span data-armory-embed="items" data-armory-ids="24508" data-armory-size="24"></span>
       Ruby Orb (1x)
@@ -159,7 +159,7 @@
 
   monk:
     text: >
-      Superior Rune of the Monk<br> 
+      Superior Rune of the Monk<br>
       <small class="text-muted font-italic">(10x)</small>
     modifiers:
       flat: {'Healing Power': 175, 'Boon Duration': 15}
@@ -235,7 +235,7 @@
     modifiers:
       flat: {'Power': 36, 'Precision': 36, 'Toughness': 36, 'Vitality': 36,
         'Concentration': 36, 'Condition Damage': 36, 'Expertise': 36,
-        'Ferocity': 36, 'Healing Power': 36, 
+        'Ferocity': 36, 'Healing Power': 36,
         'Condition Duration': 25}
     gw2-id: 76166
     armory-type: 'items'
@@ -256,7 +256,7 @@
     armory-type: 'items'
 
   soulbeast:
-    text: > 
+    text: >
       Superior Rune of the Soulbeast<br>
       <small class="text-muted font-italic">(Active Bonus)</small>
     modifiers:
