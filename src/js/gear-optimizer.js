@@ -40,7 +40,7 @@ const Optimizer = function ($) {
       BUFF: {
         MIGHT: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'buff-might',
         FURY: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'buff-fury',
-        VULNERABILITY: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'condition-vulnerability',
+        VULNERABILITY: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'buff-vulnerability',
         BANNER_OF_STRENGTH: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'buff-banner-of-strength',
         BANNER_OF_DISCIPLINE: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'buff-banner-of-discipline',
         EMPOWER_ALLIES: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'buff-empower-allies',
@@ -77,8 +77,8 @@ const Optimizer = function ($) {
       RANKBY: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'rank-by',
       WEAPON_TYPE: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'weapon-type',
       RUNES: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'runes',
-      SIGIL_1: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'sigil-1',
-      SIGIL_2: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'sigil-2',
+      SIGIL_1: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'sigils-1',
+      SIGIL_2: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'sigils-2',
       FOOD: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'food',
       UTILITY: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'utility',
       INFUSIONS: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'infusions'
@@ -2138,68 +2138,68 @@ const Optimizer = function ($) {
       $('#go-checkbox-ranger-sb-4').prop(PropertyName.CHECKED, true);
 
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'pren') {
-      $('[id^="go-checkbox-rev-"]').prop(PropertyName.CHECKED, false);
-      $('#go-checkbox-rev-53').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-rev-13').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-rev-4').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-rev-5').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-rev-6').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-rev-7').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-rev-8').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-rev-11').prop(PropertyName.CHECKED, true);
+      $('[id^="go-checkbox-revenant-"]').prop(PropertyName.CHECKED, false);
+      $('#go-checkbox-revenant-rising-tide').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-revenant-ferocious-aggression').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-revenant-unsuspecting-strikes').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-revenant-destructive-impulses-dual').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-revenant-targeted-destruction').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-revenant-swift-termination').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-revenant-ambush-commander').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-revenant-brutal-momentum').prop(PropertyName.CHECKED, true);
 
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'cren-deva') {
-      $('[id^="go-checkbox-rev-"]').prop(PropertyName.CHECKED, false);
-      $('#go-checkbox-rev-1').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-rev-seething-malice').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-rev-pact-of-pain').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-rev-2').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-rev-4').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-rev-destructive-impulses-3').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-rev-6').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-rev-8').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-rev-9').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-rev-10').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-rev-11').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-rev-12').prop(PropertyName.CHECKED, true);
+      $('[id^="go-checkbox-revenant-"]').prop(PropertyName.CHECKED, false);
+      $('#go-checkbox-revenant-acolyte-of-torment').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-revenant-seething-malice').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-revenant-pact-of-pain').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-revenant-yearning-empowerment').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-revenant-unsuspecting-strikes').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-revenant-destructive-impulses-mix').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-revenant-targeted-destruction').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-revenant-ambush-commander').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-revenant-blood-fury').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-revenant-heartpiercer').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-revenant-brutal-momentum').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-revenant-lasting-legacy').prop(PropertyName.CHECKED, true);
 
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'pholo') {
-      $('[id^="go-checkbox-engy-"]').prop(PropertyName.CHECKED, false);
-      $('#go-checkbox-engy-glass-cannon').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-explosive-temper').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-shaped-charge').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-big-boomer').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-high-caliber').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-hematic-focus').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-no-scope').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-serrated-steel').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-modified-ammunition-10').prop(PropertyName.CHECKED, true);
+      $('[id^="go-checkbox-engineer-"]').prop(PropertyName.CHECKED, false);
+      $('#go-checkbox-engineer-glass-cannon').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-explosive-temper').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-shaped-charge').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-big-boomer').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-high-caliber').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-hematic-focus').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-no-scope').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-serrated-steel').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-modified-ammunition-10').prop(PropertyName.CHECKED, true);
 
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'pscrap') {
-      $('[id^="go-checkbox-engy-"]').prop(PropertyName.CHECKED, false);
-      $('#go-checkbox-engy-glass-cannon').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-explosive-temper').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-shaped-charge').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-big-boomer').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-high-caliber').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-hematic-focus').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-no-scope').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-serrated-steel').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-modified-ammunition-10').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-object-in-motion-2').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-impact-savant').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-applied-force').prop(PropertyName.CHECKED, true);
+      $('[id^="go-checkbox-engineer-"]').prop(PropertyName.CHECKED, false);
+      $('#go-checkbox-engineer-glass-cannon').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-explosive-temper').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-shaped-charge').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-big-boomer').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-high-caliber').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-hematic-focus').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-no-scope').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-serrated-steel').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-modified-ammunition-10').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-object-in-motion-2').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-impact-savant').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-applied-force').prop(PropertyName.CHECKED, true);
 
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'cholo') {
-      $('[id^="go-checkbox-engy-"]').prop(PropertyName.CHECKED, false);
-      $('#go-checkbox-engy-glass-cannon').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-explosive-temper').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-shaped-charge').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-chemical-rounds').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-hematic-focus').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-thermal-vision').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-serrated-steel').prop(PropertyName.CHECKED, true);
-      $('#go-checkbox-engy-incendiary-powder').prop(PropertyName.CHECKED, true);
+      $('[id^="go-checkbox-engineer-"]').prop(PropertyName.CHECKED, false);
+      $('#go-checkbox-engineer-glass-cannon').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-explosive-temper').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-shaped-charge').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-chemical-rounds').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-hematic-focus').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-thermal-vision').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-serrated-steel').prop(PropertyName.CHECKED, true);
+      $('#go-checkbox-engineer-incendiary-powder').prop(PropertyName.CHECKED, true);
     }
   });
 
