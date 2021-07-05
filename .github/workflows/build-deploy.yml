@@ -6,17 +6,23 @@ on:
       - master
   workflow_dispatch:
 
+env:
+  NODE_VERSION: 10
+  
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Setup Node
-        uses: actions/setup-node@v1
         with:
-          node-version: "10.x"
+          submodules: 'recursive'
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: ${{ env.NODE_VERSION }}
 
       - name: Get yarn cache
         id: yarn-cache-dir-path
