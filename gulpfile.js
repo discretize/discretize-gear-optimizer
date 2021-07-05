@@ -4,7 +4,8 @@
 var base = {
 	src: 'src/',
 	dist: 'dist/',
-	assets: 'dist/_/'
+	assets: 'dist/_/',
+	yaml: 'src/yaml/'
 }
 
 var dist = {
@@ -28,7 +29,7 @@ var src = {
 	fonts: base.src + 'fonts/*.+(woff2|woff|eot|ttf)',
 	html: [base.src + '*.html',
 		base.src + '**/*.html'],
-  yaml: [base.src + 'yaml/*.yaml'],
+  yaml: [base.yaml + '**/*.yaml'],
 	vendorjs: [base.src + 'js/vendor/jquery-3.2.1.min.js',
 		base.src + 'js/vendor/jquery.scrollTo.min.js',
 		base.src + 'js/vendor/jquery-inview.js',
@@ -127,7 +128,7 @@ const img = function () {
 const fs = require('fs');
 const yaml = require('js-yaml');
 const getYaml = function (mode) {
-  const yamlData = fs.readFileSync(base.src + 'yaml/' + mode + '.yaml', 'utf8');
+  const yamlData = fs.readFileSync(base.yaml + mode + '.yaml', 'utf8');
   const data = yaml.load(yamlData);
   let output = '';
 
