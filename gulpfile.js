@@ -5,7 +5,7 @@ var base = {
 	src: 'src/',
 	dist: 'dist/',
 	assets: 'dist/_/',
-	yaml: 'src/yaml/'
+	yaml: 'discretize-guides/data/gear-optimizer/'
 }
 
 var dist = {
