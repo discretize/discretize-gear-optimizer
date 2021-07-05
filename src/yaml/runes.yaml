@@ -5,8 +5,8 @@
       Superior Rune of the Scholar<br>
       <small class="text-muted font-italic">(100% active bonus)</small>
     modifiers:
-      flat: {"Power": 175, "Ferocity": 225}
-      multiplier: {"Effective Power": 0.05}
+      flat: { "Power": 175, "Ferocity": 225 }
+      multiplier: { "Effective Power": 0.05 }
     gw2-id: 24836
     armory-type: "items"
 
@@ -164,7 +164,7 @@
 
   monk:
     text: >
-      Superior Rune of the Monk<br>
+      Superior Rune of the Monk
       <small class="text-muted font-italic">(10x)</small>
     modifiers:
       flat: { "Healing Power": 175, "Boon Duration": 15 }
