@@ -2,11 +2,14 @@
 
 Welcome to the source repository of gear optimizer on the [old.discretize.eu](https://old.discretize.eu) website.
 
+This code is not public, but its source data is being moved to the public [discretize/discretize-guides](https://github.com/discretize/discretize-guides/tree/master/data/gear-optimizer) repository. To update this data, commit changes to/submit pull requests to that repository, then update the submodule link here.
+
 ## 💻 Technologies
 
-- jQuery :O
-- [armory-component-ui](https://github.com/madou/armory-component-ui) for beautiful Guild Wars 2 components and tooltips
-- [ESLint](https://github.com/eslint/eslint), [Prettier](https://github.com/prettier/prettier) and [EditorConfig](https://editorconfig.org/) for linting and formatting
+- [Bootstrap 4](https://getbootstrap.com/docs/4.6/getting-started/introduction/) and [jQuery](https://jquery.com/)
+- [armory-embeds](https://github.com/madou/armory-embeds) for beautiful Guild Wars 2 components and tooltips.
+- [ESLint](https://github.com/eslint/eslint) and [EditorConfig](https://editorconfig.org/) for JavaScript linting. (Formatting can be applied via [Prettier](https://github.com/prettier/prettier), though it is not automatically installed.)
+- [gulp 4](https://github.com/gulpjs/gulp) for build and development scripts.
 
 
 ## 🔄 Continuous integration
@@ -26,9 +29,14 @@ git clone git@github.com:ManuelHaag/discretize-old.git
 cd discretize-old
 git submodule update --init --recursive
 yarn install
+```
+
+To start the browsersync server to see your changes live whenever you save, use:
+
+```sh
 gulp watch
 ```
 
 ## 📞 Communication
 
-Feel free to join our [discord server](https://discord.gg/7C4TBTu) for state-of-the-art team communication.
+Feel free to join our [discord server](https://discord.gg/UDT2W6an2R) for state-of-the-art team communication.
