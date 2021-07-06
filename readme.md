@@ -2,7 +2,7 @@
 
 Welcome to the source repository of gear optimizer on the [old.discretize.eu](https://old.discretize.eu) website.
 
-This code is not public, but its source data is being moved to the public [discretize/discretize-guides](https://github.com/discretize/discretize-guides/tree/master/data/gear-optimizer) repository. To update this data, commit changes to/submit pull requests to that repository, then update the submodule link here.
+This code is not public, but its source data is being moved to the public [discretize/discretize-guides](https://github.com/discretize/discretize-guides/tree/master/data/gear-optimizer) repository. To update the source data, commit changes to or submit pull requests to that repository, then update the submodule link here.
 
 ## 💻 Technologies
 
