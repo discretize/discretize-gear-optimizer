@@ -3,6 +3,7 @@
  * Gear Optimizer
  * --------------------------------------------------------------------------
  */
+// eslint-disable-next-line no-unused-vars
 const Optimizer = function ($) {
 
   /**
@@ -1113,6 +1114,20 @@ const Optimizer = function ($) {
         }
       );
 
+      settings.forced = [];
+      for (let i = 0; i < 12; i++) {
+        const forcedAttrInput = $(`#go-input-force-${i}`).val();
+        if (!forcedAttrInput) {
+          continue;
+        }
+        for (const affix of settings.affixes) {
+          if (affix.toLowerCase().startsWith(forcedAttrInput.toLowerCase())) {
+            settings.forced.push([i, affix]);
+            break;
+          }
+        }
+      }
+
       Object.freeze(_optimizer.settings);
     }
 
@@ -1224,17 +1239,31 @@ const Optimizer = function ($) {
           const nextSlot = gear.length;
 
           if (
-            // Rings/Accs/Weapons
-            ((nextSlot === 9 || nextSlot === 11 || nextSlot === 14)
-              && gear[nextSlot - 2] > gear[nextSlot - 1])
-            // Shoulders/Gloves/Boots
-            || (nextSlot === 6 && (gear[1] > gear[3] || gear[3] > gear[5]))
+            settings.forced.length === 0 && (
+              // Rings/Accs/Weapons
+              ((nextSlot === 9 || nextSlot === 11 || nextSlot === 14)
+                && gear[nextSlot - 2] > gear[nextSlot - 1])
+              // Shoulders/Gloves/Boots
+              || (nextSlot === 6 && (gear[1] > gear[3] || gear[3] > gear[5]))
+            )
           ) {
             continue;
           }
 
           if (nextSlot >= Slots[settings.weapontype].length) {
             _optimizer.calculationRuns++;
+
+            let skip = false;
+            for (const [index, affix] of settings.forced) {
+              if (gear[index] !== affix) {
+                skip = true;
+                break;
+              }
+            }
+            if (skip) {
+              continue;
+            }
+
             _optimizer._testCharacter(gear, gearStats);
             continue;
           }
