@@ -1565,6 +1565,14 @@ const Optimizer = function ($) {
     return Optimizer;
   }();
 
+  /**
+   * Rounds, tie-breaking exact halves to the nearest even integer. Apparently used by GW2
+   * conversions according to ingame testing by Cat.
+   * https://discord.com/channels/301270513093967872/842629146857177098/864564894128275468
+   *
+   * @param {number} any number
+   * @returns {number} the input number rounded to the nearest integer
+   */
   const roundEven = number => {
     if (number % 1 === 0.5) {
       const floor = Math.floor(number);
