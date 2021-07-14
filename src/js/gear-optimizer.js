@@ -1565,6 +1565,19 @@ const Optimizer = function ($) {
     return Optimizer;
   }();
 
+  const roundEven = number => {
+    if (number % 1 === 0.5) {
+      const floor = Math.floor(number);
+      if (floor % 2 === 0) {
+        return floor;
+      } else {
+        return floor + 1;
+      }
+    } else {
+      return Math.round(number);
+    }
+  };
+
   /**
    * Creates an {attributes} object parameter in the given character object and calculates stats
    * and damage/healing/survivability scores.
@@ -1588,7 +1601,7 @@ const Optimizer = function ($) {
       $.each(conversion, function (source, percent) {
         _character.attributes[attribute]
           = (_character.attributes[attribute] || 0)
-          + Math.round(preConversionAttributes[source] * percent);
+          + roundEven(preConversionAttributes[source] * percent);
       });
     });
 
