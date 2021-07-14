@@ -71,7 +71,9 @@ const Optimizer = function ($) {
       MAX_TOUGHNESS: Prefix.GEAR_OPTIMIZER + Prefix.INPUT + 'max-toughness',
       AGONY_RESISTANCE: Prefix.GEAR_OPTIMIZER + Prefix.INPUT + 'agony-resistance',
 
-      MAX_RESULTS: Prefix.GEAR_OPTIMIZER + Prefix.INPUT + 'max-results'
+      MAX_RESULTS: Prefix.GEAR_OPTIMIZER + Prefix.INPUT + 'max-results',
+
+      FORCE: Prefix.GEAR_OPTIMIZER + Prefix.INPUT + 'force-'
     },
 
     SELECT: {
@@ -1114,15 +1116,16 @@ const Optimizer = function ($) {
         }
       );
 
-      settings.forced = [];
-      for (let i = 0; i < 12; i++) {
-        const forcedAttrInput = $(`#go-input-force-${i}`).val();
-        if (!forcedAttrInput) {
+      settings.forcedGear = [];
+      const FORCED_SLOTS = 12;
+      for (let i = 0; i < FORCED_SLOTS; i++) {
+        const forcedGearInput = $(Selector.INPUT.FORCE + i).val();
+        if (!forcedGearInput) {
           continue;
         }
         for (const affix of settings.affixes) {
-          if (affix.toLowerCase().startsWith(forcedAttrInput.toLowerCase())) {
-            settings.forced.push([i, affix]);
+          if (affix.toLowerCase().startsWith(forcedGearInput.toLowerCase())) {
+            settings.forcedGear.push([i, affix]);
             break;
           }
         }
@@ -1229,8 +1232,9 @@ const Optimizer = function ($) {
             throw 0;
           }
 
-          // only update UI at around 15fps
-          if (cycles === 1 && new Date() - _optimizer.timer < 55) {
+          // only update UI at around 15 frames per second
+          const UPDATE_MS = 55;
+          if (cycles === 1 && new Date() - _optimizer.timer < UPDATE_MS) {
             cycles = 1000;
           }
 
@@ -1239,13 +1243,11 @@ const Optimizer = function ($) {
           const nextSlot = gear.length;
 
           if (
-            settings.forced.length === 0 && (
-              // Rings/Accs/Weapons
-              ((nextSlot === 9 || nextSlot === 11 || nextSlot === 14)
-                && gear[nextSlot - 2] > gear[nextSlot - 1])
-              // Shoulders/Gloves/Boots
-              || (nextSlot === 6 && (gear[1] > gear[3] || gear[3] > gear[5]))
-            )
+            // Rings/Accs/Weapons
+            ((nextSlot === 9 || nextSlot === 11 || nextSlot === 14)
+              && gear[nextSlot - 2] > gear[nextSlot - 1])
+            // Shoulders/Gloves/Boots
+            || (nextSlot === 6 && (gear[1] > gear[3] || gear[3] > gear[5]))
           ) {
             continue;
           }
@@ -1253,18 +1255,17 @@ const Optimizer = function ($) {
           if (nextSlot >= Slots[settings.weapontype].length) {
             _optimizer.calculationRuns++;
 
-            let skip = false;
-            for (const [index, affix] of settings.forced) {
+            // check forced gear slots
+            let valid = true;
+            for (const [index, affix] of settings.forcedGear) {
               if (gear[index] !== affix) {
-                skip = true;
+                valid = false;
                 break;
               }
             }
-            if (skip) {
-              continue;
+            if (valid) {
+              _optimizer._testCharacter(gear, gearStats);
             }
-
-            _optimizer._testCharacter(gear, gearStats);
             continue;
           }
 
@@ -2306,6 +2307,30 @@ const Optimizer = function ($) {
         break;
     }
   });
+
+  /**
+   * Default-disabled gear force boxes
+   *
+   * The optimizer deduplicates the shoulder/glove/boot triplet and the ring, accessory, and weapon
+   * combos. If forcing one of these items to a specific stat, one must use the leftmost item of
+   * these combos first, otherwise some combinations get skipped.
+   */
+  const duplicateForceIds = [
+    [1, 3], // shld -> glov
+    [3, 5], // glov -> boot
+    [7, 8], // rng1 -> rng2
+    [9, 10] // acc1 -> acc2
+  ];
+
+  for (const [first, second] of duplicateForceIds) {
+    $(Selector.INPUT.FORCE + first).keyup(function () {
+      if ($(this).val()) {
+        $(Selector.INPUT.FORCE + second).prop('disabled', false);
+      } else {
+        $(Selector.INPUT.FORCE + second).val('').prop('disabled', true);
+      }
+    });
+  }
 
   // Calculate button
   $(Selector.START).on(Event.CLICK, function () {
