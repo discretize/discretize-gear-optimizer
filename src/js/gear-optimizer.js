@@ -1308,17 +1308,7 @@ const Optimizer = function ($) {
 
             || (!settings.forcedArmor && nextSlot === 6
               && (gear[1] > gear[3] || gear[3] > gear[5]))
-
-          // // Rings/Accs/Weapons
-          // ((nextSlot === 9 || nextSlot === 11 || nextSlot === 14)
-          //   && gear[nextSlot - 2] > gear[nextSlot - 1])
-          // // Shoulders/Gloves/Boots
-          // || (nextSlot === 6 && (gear[1] > gear[3] || gear[3] > gear[5]))
           ) {
-            // let skippedRuns = 1;
-            // for (let i = nextSlot; i < settings.affixesArray.length; i++) {
-            //   skippedRuns *= settings.affixesArray[i].length;
-            // }
             _optimizer.calculationRuns += settings.runsAfterThisSlot[nextSlot];
             continue;
           }
@@ -2367,31 +2357,6 @@ const Optimizer = function ($) {
         break;
     }
   });
-
-  /**
-   * Default-disabled gear force boxes
-   *
-   * The optimizer deduplicates the shoulder/glove/boot triplet and the ring, accessory, and weapon
-   * combos. If forcing one of these items to a specific stat, one must use the leftmost item of
-   * these combos first, otherwise some combinations get skipped.
-   */
-  const duplicateForceIds = [
-    ['shld', 'glov'],
-    ['glov', 'boot'],
-    ['shld', 'boot'],
-    ['rng1', 'rng2'],
-    ['acc1', 'acc2']
-  ];
-
-  for (const [first, second] of duplicateForceIds) {
-    $(Selector.INPUT.FORCE + first).keyup(function () {
-      if ($(this).val()) {
-        $(Selector.INPUT.FORCE + second).prop('disabled', false);
-      } else {
-        $(Selector.INPUT.FORCE + second).val('').prop('disabled', true);
-      }
-    });
-  }
 
   // Calculate button
   $(Selector.START).on(Event.CLICK, function () {
