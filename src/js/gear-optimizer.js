@@ -798,7 +798,9 @@ const Optimizer = function ($) {
     'rng2', // 8
     'acc1', // 9
     'acc2', // 10
-    'back' // 11
+    'back', // 11
+    'wep1', // 12
+    'wep2' // 13
   ];
 
   const Omnipotion = Object.freeze({
@@ -1076,7 +1078,8 @@ const Optimizer = function ($) {
       settings.forcedArmor = false;
       settings.forcedRing = false;
       settings.forcedAcc = false;
-      for (let i = 0; i < ForcedSlots.length; i++) {
+      settings.forcedWep = false;
+      for (let i = 0; i < Slots[settings.weapontype].length; i++) {
         const inputValue = $(Selector.INPUT.FORCE + ForcedSlots[i]).val();
         if (!inputValue) {
           continue;
@@ -1090,6 +1093,8 @@ const Optimizer = function ($) {
               settings.forcedRing = true;
             } else if (['acc1', 'acc2'].includes(ForcedSlots[i])) {
               settings.forcedAcc = true;
+            } else if (['wep1', 'wep2'].includes(ForcedSlots[i])) {
+              settings.forcedWep = true;
             }
             break;
           }
@@ -1303,7 +1308,7 @@ const Optimizer = function ($) {
             || (!settings.forcedAcc && nextSlot === 11
               && gear[nextSlot - 2] > gear[nextSlot - 1])
 
-            || (/* !settings.forcedDualWeapon && */ nextSlot === 14
+            || (!settings.forcedWep && nextSlot === 14
               && gear[nextSlot - 2] > gear[nextSlot - 1])
 
             || (!settings.forcedArmor && nextSlot === 6
