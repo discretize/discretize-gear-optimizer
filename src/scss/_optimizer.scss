@@ -215,5 +215,20 @@ $input-size: 1rem;
         padding: .3rem .8rem;
       }
     }
+
+    #go-input-condition {
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
+      input[type=number]{
+        -moz-appearance: textfield;
+      }
+    }
+
+    input.form-control:invalid {
+      border: 1px solid #5e3b3b;
+    }
   }
 }

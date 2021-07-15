@@ -1039,6 +1039,7 @@
                                         class="form-control"
                                         id="go-input-max-results"
                                         type="number"
+                                        min="1"
                                         value="10"
                                       />
                                     </div>
@@ -1061,8 +1062,10 @@
                                         class="form-control"
                                         id="go-input-min-boon-duration"
                                         type="number"
-                                        step="0.01"
-                                        value="0.0"
+                                        step="any"
+                                        min="0"
+                                        max="100"
+                                        placeholder="0.0"
                                       />
                                     </div>
                                   </div>
@@ -1082,7 +1085,8 @@
                                         class="form-control"
                                         id="go-input-min-toughness"
                                         type="number"
-                                        value="0"
+                                        min="1000"
+                                        placeholder="1000"
                                       />
                                     </div>
                                   </div>
@@ -1102,6 +1106,8 @@
                                         class="form-control"
                                         id="go-input-max-toughness"
                                         type="number"
+                                        min="1000"
+                                        placeholder="n/a"
                                       />
                                     </div>
                                   </div>
@@ -1121,7 +1127,8 @@
                                         class="form-control"
                                         id="go-input-min-healing-power"
                                         type="number"
-                                        value="0"
+                                        min="0"
+                                        placeholder="0"
                                       />
                                     </div>
                                   </div>
@@ -1176,6 +1183,7 @@
                                             id="go-input-agony-resistance"
                                             type="number"
                                             value="150"
+                                            min="0"
                                           />
                                         </div>
                                       </div>

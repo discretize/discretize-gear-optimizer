@@ -930,7 +930,7 @@ const Optimizer = function ($) {
       }
 
       _modifiers.push({
-        flat: { 'Agony Resistance': parseInt($(Selector.INPUT.AGONY_RESISTANCE).val()) }
+        flat: { 'Agony Resistance': parseInt($(Selector.INPUT.AGONY_RESISTANCE).val()) || 0 }
       });
 
       _optimizer.settings = {};
@@ -1122,7 +1122,7 @@ const Optimizer = function ($) {
       settings.minHealingPower = parseInt($(Selector.INPUT.MIN_HEALING_POWER).val());
       settings.minToughness = parseInt($(Selector.INPUT.MIN_TOUGHNESS).val());
       settings.maxToughness = parseInt($(Selector.INPUT.MAX_TOUGHNESS).val());
-      settings.maxResults = parseInt($(Selector.INPUT.MAX_RESULTS).val());
+      settings.maxResults = parseInt($(Selector.INPUT.MAX_RESULTS).val()) || 10;
 
       settings.statInfusions = $(Selector.SELECT.INFUSIONS)
         .children(Selector.DROPDOWN_MENU)
