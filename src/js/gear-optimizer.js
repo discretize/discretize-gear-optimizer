@@ -3,6 +3,7 @@
  * Gear Optimizer
  * --------------------------------------------------------------------------
  */
+// eslint-disable-next-line no-unused-vars
 const Optimizer = function ($) {
 
   /**
@@ -70,7 +71,9 @@ const Optimizer = function ($) {
       MAX_TOUGHNESS: Prefix.GEAR_OPTIMIZER + Prefix.INPUT + 'max-toughness',
       AGONY_RESISTANCE: Prefix.GEAR_OPTIMIZER + Prefix.INPUT + 'agony-resistance',
 
-      MAX_RESULTS: Prefix.GEAR_OPTIMIZER + Prefix.INPUT + 'max-results'
+      MAX_RESULTS: Prefix.GEAR_OPTIMIZER + Prefix.INPUT + 'max-results',
+
+      FORCE: Prefix.GEAR_OPTIMIZER + Prefix.INPUT + 'force-'
     },
 
     SELECT: {
@@ -782,6 +785,22 @@ const Optimizer = function ($) {
     ]
   });
 
+  // used for forcing slots to a certain affix
+  const ForcedSlots = [
+    'helm', // 0
+    'shld', // 1
+    'coat', // 2
+    'glov', // 3
+    'legs', // 4
+    'boot', // 5
+    'amul', // 6
+    'rng1', // 7
+    'rng2', // 8
+    'acc1', // 9
+    'acc2', // 10
+    'back' // 11
+  ];
+
   const Omnipotion = Object.freeze({
     // Re: condi dmg from omnipot
     // https://discordapp.com/channels/301270513093967872/370538919118503947/716949463423516713
@@ -1043,12 +1062,50 @@ const Optimizer = function ($) {
 
       settings.tags = _tags;
 
+      // all selected affixes
       settings.affixes = $(Selector.INPUT.AFFIXES)
         .find(Selector.CHECKBOXES_CHECKED)
         .map(function () {
           return $(this).siblings(Selector.LABEL).text().trim();
         })
         .get();
+
+      // valid affixes for each slot, taking forced slots into account
+      settings.affixesArray = new Array(Slots[settings.weapontype].length).fill(settings.affixes);
+
+      settings.forcedArmor = false;
+      settings.forcedRing = false;
+      settings.forcedAcc = false;
+      for (let i = 0; i < ForcedSlots.length; i++) {
+        const inputValue = $(Selector.INPUT.FORCE + ForcedSlots[i]).val();
+        if (!inputValue) {
+          continue;
+        }
+        for (const affix of settings.affixes) {
+          if (affix.toLowerCase().startsWith(inputValue.toLowerCase())) {
+            settings.affixesArray[i] = [affix];
+            if (['shld', 'glov', 'boot'].includes(ForcedSlots[i])) {
+              settings.forcedArmor = true;
+            } else if (['rng1', 'rng2'].includes(ForcedSlots[i])) {
+              settings.forcedRing = true;
+            } else if (['acc1', 'acc2'].includes(ForcedSlots[i])) {
+              settings.forcedAcc = true;
+            }
+            break;
+          }
+        }
+      }
+
+      // used to keep the progress counter in sync when skipping identical gear combinations.
+      settings.runsAfterThisSlot = [];
+      for (let i = 0; i < settings.affixesArray.length; i++) {
+        let counter = 1;
+        for (let j = i; j < settings.affixesArray.length; j++) {
+          counter *= settings.affixesArray[j].length;
+        }
+        settings.runsAfterThisSlot.push(counter);
+      }
+      settings.runsAfterThisSlot.push(1);
 
       settings.rankby = $(Selector.SELECT.RANKBY)
         .children(Selector.DROPDOWN_MENU)
@@ -1120,15 +1177,20 @@ const Optimizer = function ($) {
       const _optimizer = this;
       const { settings } = _optimizer;
 
-      const freeSlots = settings.weapontype === 'Dual wield' ? 5 : 6;
-      const pairs = settings.weapontype === 'Dual wield' ? 3 : 2;
-      const triplets = 1;
-      _optimizer.calculationTotal
-        = Math.pow(settings.affixes.length, freeSlots)
-        * Math.pow(settings.affixes.length + _optimizer._choose(settings.affixes.length, 2), pairs)
-        * (settings.affixes.length
-          + settings.affixes.length * (settings.affixes.length - triplets)
-          + _optimizer._choose(settings.affixes.length, 3));
+      // const freeSlots = settings.weapontype === 'Dual wield' ? 5 : 6;
+      // const pairs = settings.weapontype === 'Dual wield' ? 3 : 2;
+      // const triplets = 1;
+      // _optimizer.calculationTotal
+      //   = Math.pow(settings.affixes.length, freeSlots)
+      //   * Math.pow(settings.affixes.length + _optimizer._choose(settings.affixes.length, 2), pairs)
+      //   * (settings.affixes.length
+      //     + settings.affixes.length * (settings.affixes.length - triplets)
+      //     + _optimizer._choose(settings.affixes.length, 3));
+
+      _optimizer.calculationTotal = 1;
+      for (let i = 0; i < settings.affixesArray.length; i++) {
+        _optimizer.calculationTotal *= settings.affixesArray[i].length;
+      }
 
       STOP_SIGNAL = false;
       _optimizer.calculationRuns = 0;
@@ -1214,8 +1276,9 @@ const Optimizer = function ($) {
             throw 0;
           }
 
-          // only update UI at around 15fps
-          if (cycles === 1 && new Date() - _optimizer.timer < 55) {
+          // only update UI at around 15 frames per second
+          const UPDATE_MS = 55;
+          if (cycles === 1 && new Date() - _optimizer.timer < UPDATE_MS) {
             cycles = 1000;
           }
 
@@ -1223,13 +1286,30 @@ const Optimizer = function ($) {
           const gearStats = _optimizer.calculationStatsQueue.pop();
           const nextSlot = gear.length;
 
+          /**
+           * Deduplicate identical combinations.
+           *
+           * This prevents calculating both e.g.
+           *    berserker ring + assassin ring
+           *    assassin ring + berserker ring
+           * by skipping combinations in which identical-stat items are out of order.
+           *
+           * Each check is disabled if forcing one or more of those slots to a specific gear type.
+           */
           if (
-            // Rings/Accs/Weapons
-            ((nextSlot === 9 || nextSlot === 11 || nextSlot === 14)
+            (!settings.forcedRing && nextSlot === 9
               && gear[nextSlot - 2] > gear[nextSlot - 1])
-            // Shoulders/Gloves/Boots
-            || (nextSlot === 6 && (gear[1] > gear[3] || gear[3] > gear[5]))
+
+            || (!settings.forcedAcc && nextSlot === 11
+              && gear[nextSlot - 2] > gear[nextSlot - 1])
+
+            || (/* !settings.forcedDualWeapon && */ nextSlot === 14
+              && gear[nextSlot - 2] > gear[nextSlot - 1])
+
+            || (!settings.forcedArmor && nextSlot === 6
+              && (gear[1] > gear[3] || gear[3] > gear[5]))
           ) {
+            _optimizer.calculationRuns += settings.runsAfterThisSlot[nextSlot];
             continue;
           }
 
@@ -1240,11 +1320,11 @@ const Optimizer = function ($) {
           }
 
           // Recycle for Affix 0, clone for 1+
-          for (let i = 1; i < settings.affixes.length; i++) {
+          for (let i = 1; i < settings.affixesArray[nextSlot].length; i++) {
             const newGear = gear.slice();
             const newGearStats = Object.assign({}, gearStats);
 
-            const currentAffix = settings.affixes[i];
+            const currentAffix = settings.affixesArray[nextSlot][i];
             newGear[nextSlot] = currentAffix;
 
             // add gear stats
@@ -1260,7 +1340,7 @@ const Optimizer = function ($) {
             _optimizer.calculationQueue.push(newGear);
             _optimizer.calculationStatsQueue.push(newGearStats);
           }
-          const currentAffix = settings.affixes[0];
+          const currentAffix = settings.affixesArray[nextSlot][0];
           gear[nextSlot] = currentAffix;
 
           // add gear stats
