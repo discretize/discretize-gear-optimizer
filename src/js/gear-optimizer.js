@@ -84,7 +84,7 @@ const Optimizer = function ($) {
       SIGIL_2: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'sigils-2',
       FOOD: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'food',
       UTILITY: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'utility',
-      INFUSIONS: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'infusions'
+      INFUSION: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'infusion'
     },
 
     OUTPUT: {
@@ -874,9 +874,8 @@ const Optimizer = function ($) {
     }
   });
 
-  const INFUSION_AMOUNT = 18;
+  const MAX_INFUSIONS = 18;
   const INFUSION_BONUS = 5;
-  const INFUSION_TOTAL = INFUSION_AMOUNT * INFUSION_BONUS;
 
   /**
    * ------------------------------------------------------------------------
@@ -1124,41 +1123,89 @@ const Optimizer = function ($) {
       settings.maxToughness = parseInt($(Selector.INPUT.MAX_TOUGHNESS).val());
       settings.maxResults = parseInt($(Selector.INPUT.MAX_RESULTS).val()) || 10;
 
-      settings.statInfusions = $(Selector.SELECT.INFUSIONS)
+      const primaryInfusionInput = $(Selector.SELECT.INFUSION + '-primary')
+        .children(Selector.DROPDOWN_MENU)
+        .children(Selector.DROPDOWN_ITEM + '.' + ClassName.ACTIVE)
+        .text()
+        .trim();
+      const secondaryInfusionInput = $(Selector.SELECT.INFUSION + '-secondary')
         .children(Selector.DROPDOWN_MENU)
         .children(Selector.DROPDOWN_ITEM + '.' + ClassName.ACTIVE)
         .text()
         .trim();
 
-      if (settings.statInfusions !== 'None') {
-        settings.primaryInfusion = settings.statInfusions.split('+')[0].trim();
-        settings.secondaryInfusion
-          = settings.statInfusions.indexOf('+') !== -1
-            ? settings.statInfusions.split('+')[1].trim()
-            : null;
-
+      let activeInfusions = 0;
+      if (primaryInfusionInput !== 'None') {
         if (
-          !Attributes.PRIMARY.includes(settings.primaryInfusion)
-          && !Attributes.SECONDARY.includes(settings.primaryInfusion)
-          && !Attributes.DERIVED.includes(settings.primaryInfusion)
-          && !Attributes.BOON_DURATION.includes(settings.primaryInfusion)
-          && !Attributes.CONDITION_DURATION.includes(settings.primaryInfusion)
+          !Attributes.PRIMARY.includes(primaryInfusionInput)
+          && !Attributes.SECONDARY.includes(primaryInfusionInput)
+          && !Attributes.DERIVED.includes(primaryInfusionInput)
+          && !Attributes.BOON_DURATION.includes(primaryInfusionInput)
+          && !Attributes.CONDITION_DURATION.includes(primaryInfusionInput)
         ) {
-          throw 'Infusions can only increase primary, secondary or derived attributes, not '
-            + settings.primaryInfusion;
+          throw 'Primary infusion can only increase primary, secondary or derived attributes, not '
+            + primaryInfusionInput;
         }
+        settings.primaryInfusion = primaryInfusionInput;
+        activeInfusions++;
+        settings.primaryMaxInfusions = Math.max(
+          parseInt($(Selector.SELECT.INFUSION + '-primary-max').val()) || MAX_INFUSIONS,
+          0
+        );
+      }
+      if (secondaryInfusionInput !== 'None' && secondaryInfusionInput !== primaryInfusionInput) {
         if (
-          settings.secondaryInfusion
-          && !Attributes.PRIMARY.includes(settings.secondaryInfusion)
-          && !Attributes.SECONDARY.includes(settings.secondaryInfusion)
-          && !Attributes.DERIVED.includes(settings.secondaryInfusion)
-          && !Attributes.BOON_DURATION.includes(settings.secondaryInfusion)
-          && !Attributes.CONDITION_DURATION.includes(settings.secondaryInfusion)
+          !Attributes.PRIMARY.includes(secondaryInfusionInput)
+          && !Attributes.SECONDARY.includes(secondaryInfusionInput)
+          && !Attributes.DERIVED.includes(secondaryInfusionInput)
+          && !Attributes.BOON_DURATION.includes(secondaryInfusionInput)
+          && !Attributes.CONDITION_DURATION.includes(secondaryInfusionInput)
         ) {
-          throw 'Infusions can only increase primary, secondary or derived attributes, not '
-            + settings.secondaryInfusion;
+          throw 'Secondary infusion can only increase '
+            + 'primary, secondary or derived attributes, not '
+            + secondaryInfusionInput;
+        }
+        if (activeInfusions) {
+          settings.secondaryInfusion = secondaryInfusionInput;
+          activeInfusions++;
+          settings.secondaryMaxInfusions = Math.max(
+            parseInt($(Selector.SELECT.INFUSION + '-secondary-max').val()) || MAX_INFUSIONS,
+            0
+          );
+        } else {
+          // pretend secondary is primary
+          settings.primaryInfusion = secondaryInfusionInput;
+          activeInfusions++;
+          settings.primaryMaxInfusions = Math.max(
+            parseInt($(Selector.SELECT.INFUSION + '-secondary-max').val()) || MAX_INFUSIONS,
+            0
+          );
+
         }
       }
+
+      let infusionMode;
+      switch (activeInfusions) {
+        case 0:
+          infusionMode = 'None';
+          break;
+        case 1:
+          infusionMode = 'Primary';
+          break;
+        case 2:
+          if (settings.primaryMaxInfusions + settings.secondaryMaxInfusions <= MAX_INFUSIONS) {
+            infusionMode = 'Few';
+          } else {
+            infusionMode = $('#go-select-infusion-duplicates').prop('checked')
+              ? 'SecondaryNoDuplicates'
+              : 'Secondary';
+          }
+      }
+      console.log('Infusion calculation mode:', infusionMode);
+      if (_optimizer['_applyInfusions' + infusionMode] === undefined) {
+        throw 'Error: optimizer selected invalid infusion calculation mode';
+      }
+      _optimizer._applyInfusions = _optimizer['_applyInfusions' + infusionMode];
 
       settings.distribution = {};
       settings.relevantConditions = [];
@@ -1418,25 +1465,138 @@ const Optimizer = function ($) {
       //     });
       // });
 
-      // used to skip calculating infusions if they don't contribute at all
+      _optimizer._applyInfusions(character);
+    };
+
+    const addBaseStats = function (character, stat, amount) {
+      character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + amount;
+    };
+
+    /**
+     * Applies no infusions
+     */
+    Optimizer.prototype._applyInfusionsNone = function (character) {
+      const _optimizer = this;
+      updateAttributes(character);
+      _optimizer._insertCharacter(character);
+    };
+
+    /**
+     * Just applies the primary infusion
+     */
+    Optimizer.prototype._applyInfusionsPrimary = function (character) {
+      const _optimizer = this;
+      const { settings } = _optimizer;
+      character.infusions = { [settings.primaryInfusion]: settings.primaryMaxInfusions };
+      addBaseStats(
+        character,
+        settings.primaryInfusion,
+        settings.primaryMaxInfusions * INFUSION_BONUS
+      );
+      updateAttributes(character);
+      _optimizer._insertCharacter(character);
+    };
+
+    /**
+     * Just applies the maximum number of primary/secondary infusions, since the total is ≤18
+     */
+    Optimizer.prototype._applyInfusionsFew = function (character) {
+      const _optimizer = this;
+      const { settings } = _optimizer;
+      character.infusions = {
+        [settings.primaryInfusion]: settings.primaryMaxInfusions,
+        [settings.secondaryInfusion]: settings.secondaryMaxInfusions
+      };
+      addBaseStats(
+        character,
+        settings.primaryInfusion,
+        settings.primaryMaxInfusions * INFUSION_BONUS
+      );
+      addBaseStats(
+        character,
+        settings.secondaryInfusion,
+        settings.secondaryMaxInfusions * INFUSION_BONUS
+      );
+      updateAttributes(character);
+      _optimizer._insertCharacter(character);
+    };
+
+    /**
+     * Inserts every valid combination of 18 infusions
+     */
+    Optimizer.prototype._applyInfusionsSecondary = function (character) {
+      const _optimizer = this;
+      const { settings } = _optimizer;
+
       const testInfusionUsefulness = function () {
         const temp = clone(character);
-        addBaseStats(temp, settings.primaryInfusion, INFUSION_TOTAL);
-        addBaseStats(temp, settings.secondaryInfusion, INFUSION_TOTAL);
+        addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
+        addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
         updateAttributes(temp, true);
         return temp.attributes[settings.rankby] > _optimizer.worstScore;
       };
 
-      if (!settings.primaryInfusion) {
-        updateAttributes(character);
-        _optimizer._insertCharacter(character);
-      } else if (!settings.secondaryInfusion) {
-        character.infusions = { [settings.primaryInfusion]: INFUSION_AMOUNT };
-        addBaseStats(character, settings.primaryInfusion, INFUSION_TOTAL);
-        updateAttributes(character);
-        _optimizer._insertCharacter(character);
-      } else if (!_optimizer.worstScore || testInfusionUsefulness()) {
-        _optimizer._applySecondaryInfusions(character);
+      if (!_optimizer.worstScore || testInfusionUsefulness()) {
+        let primaryCount = settings.primaryMaxInfusions;
+        let secondaryCount = MAX_INFUSIONS - primaryCount;
+        while (secondaryCount <= settings.secondaryMaxInfusions) {
+          const temp = clone(character);
+          addBaseStats(temp, settings.primaryInfusion, primaryCount * INFUSION_BONUS);
+          addBaseStats(temp, settings.secondaryInfusion, secondaryCount * INFUSION_BONUS);
+          updateAttributes(temp);
+          if (temp.valid) {
+            temp.infusions = {
+              [settings.primaryInfusion]: primaryCount,
+              [settings.secondaryInfusion]: secondaryCount
+            };
+            _optimizer._insertCharacter(temp);
+          }
+          primaryCount--;
+          secondaryCount++;
+        }
+      }
+    };
+
+    /**
+     *  Tests every valid combination of 18 infusions and inserts the best result
+     */
+    Optimizer.prototype._applyInfusionsSecondaryNoDuplicates = function (character) {
+      const _optimizer = this;
+      const { settings } = _optimizer;
+
+      const testInfusionUsefulness = function () {
+        const temp = clone(character);
+        addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
+        addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
+        updateAttributes(temp, true);
+        return temp.attributes[settings.rankby] > _optimizer.worstScore;
+      };
+
+      if (!_optimizer.worstScore || testInfusionUsefulness()) {
+        let best = null;
+
+        let primaryCount = settings.primaryMaxInfusions;
+        let secondaryCount = MAX_INFUSIONS - primaryCount;
+        while (secondaryCount <= settings.secondaryMaxInfusions) {
+          const temp = clone(character);
+          addBaseStats(temp, settings.primaryInfusion, primaryCount * INFUSION_BONUS);
+          addBaseStats(temp, settings.secondaryInfusion, secondaryCount * INFUSION_BONUS);
+          updateAttributes(temp);
+          if (temp.valid) {
+            temp.infusions = {
+              [settings.primaryInfusion]: primaryCount,
+              [settings.secondaryInfusion]: secondaryCount
+            };
+            if (!best || _optimizer._characterLT(best, temp)) {
+              best = temp;
+            }
+          }
+          primaryCount--;
+          secondaryCount++;
+        }
+        if (best) {
+          _optimizer._insertCharacter(best);
+        }
       }
     };
 
@@ -1480,35 +1640,6 @@ const Optimizer = function ($) {
           _optimizer.worstScore = _optimizer.list.children().last()
             .data('character').attributes[settings.rankby];
         }
-      }
-    };
-
-    const addBaseStats = function (character, stat, amount) {
-      character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + amount;
-    };
-    Optimizer.prototype._applySecondaryInfusions = function (character) {
-      const _optimizer = this;
-      const { settings } = _optimizer;
-
-      let best = null;
-      for (let primaryBonus = INFUSION_TOTAL; primaryBonus >= 0; primaryBonus -= INFUSION_BONUS) {
-        const temp = clone(character);
-        addBaseStats(temp, settings.primaryInfusion, primaryBonus);
-        addBaseStats(temp, settings.secondaryInfusion, INFUSION_TOTAL - primaryBonus);
-        updateAttributes(temp);
-        if (!temp.valid) {
-          continue;
-        }
-        temp.infusions = {
-          [settings.primaryInfusion]: primaryBonus / INFUSION_BONUS,
-          [settings.secondaryInfusion]: (INFUSION_TOTAL - primaryBonus) / INFUSION_BONUS
-        };
-        if (!best || _optimizer._characterLT(best, temp)) {
-          best = temp;
-        }
-      }
-      if (best) {
-        _optimizer._insertCharacter(best);
       }
     };
 
@@ -2307,6 +2438,23 @@ const Optimizer = function ($) {
       $('#go-checkbox-engineer-serrated-steel').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-engineer-incendiary-powder').prop(PropertyName.CHECKED, true);
     }
+  });
+
+  // Infusion presets
+  $(Selector.SELECT.INFUSION + '-presets button').click(function () {
+    const infusions = $(this).text() === 'None'
+      ? ['None', 'None']
+      : $(this).text().split(' + ');
+    $('#go-select-infusion-primary .dropdown-item').each(function () {
+      if ($(this).text().trim() === infusions[0]) {
+        $(this).click();
+      }
+    });
+    $('#go-select-infusion-secondary .dropdown-item').each(function () {
+      if ($(this).text().trim() === infusions[1]) {
+        $(this).click();
+      }
+    });
   });
 
   // Buff presets
