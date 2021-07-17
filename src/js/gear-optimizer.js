@@ -1456,15 +1456,8 @@ const Optimizer = function ($) {
       for (const stat in gearStats) {
         character.baseAttributes[stat] += gearStats[stat];
       }
-      // $.each(gear, function (index, affix) {
-      //     $.each(Slots[character.settings.weapontype][index].item[Affix[affix].type], function (type, bonus) {
-      //         $.each(Affix[affix].bonuses[type], function (index, stat) {
-      //         for (let stat of Affix[affix].bonuses[type]) {
-      //             character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + bonus;
-      //         }
-      //     });
-      // });
 
+      // _applyInfusions is aliased to the correct _applyInfusions[mode] function during setup
       _optimizer._applyInfusions(character);
     };
 
