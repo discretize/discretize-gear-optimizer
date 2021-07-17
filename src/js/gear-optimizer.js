@@ -1314,6 +1314,40 @@ const Optimizer = function ($) {
             .children('span')
             .text('Completed in ' + (new Date() - this.startTime) + 'ms');
         }
+
+        const _optimizer = this;
+        const { settings } = _optimizer;
+
+        // display indicator line under the results identical to the best
+        const bestValue = _optimizer.list.children().eq(0)
+          .data('character').attributes[settings.rankby];
+        _optimizer.list.children().each(function (i, element) {
+          if ($(element).data('character').attributes[settings.rankby] !== bestValue) {
+            $(element).prev().css('border-bottom', '4px solid #2f3238');
+            return false; // jquery loop break
+          }
+        });
+
+        // slightly fade the most common affix
+        const attrCount = {};
+        $('#go-output samp').each(function (i, element) {
+          const attr = $(element).text();
+          attrCount[attr] = (attrCount[attr] || 0) + 1;
+        });
+        const max = Math.max.apply(null, Object.values(attrCount));
+        let mostFrequent = '';
+        Object.entries(attrCount).forEach(([attr, count]) => {
+          if (count === max) {
+            mostFrequent = attr;
+          }
+        });
+        $('#go-output samp').each(function (i, element) {
+          if ($(element).text() === mostFrequent) {
+            $(element).css('opacity', '0.7');
+          } else {
+            $(element).css('color', '#ddd');
+          }
+        });
       }
     };
 
