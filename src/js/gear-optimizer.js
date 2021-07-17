@@ -960,24 +960,29 @@ const Optimizer = function ($) {
       settings.baseAttributes['Critical Chance'] = 5;
       settings.baseAttributes['Critical Damage'] = 150;
 
-      const addModifiers = function (modifiers) {
+      // this needs refactoring, I know
+      settings.modifiers = {
+        multiplier: {
+          'Effective Power': 1,
+          'Effective Condition Damage': 1,
+          'Effective Health': 1,
+          'Effective Healing': 1,
+          'Critical Damage': 1
+        },
+        flat: {},
+        buff: {},
+        convert: {}
+      };
+      let addEffectiveConditionDamage = 1;
+      let addEffectivePower = 1;
+
+      $.each(_modifiers, function (index, modifiers) {
         if (!modifiers) {
           return;
         }
-
-        if (!settings.modifiers) {
-          settings.modifiers = {};
-        }
-
         $.each(modifiers, function (type, modifier) {
           if (type && modifier !== undefined) {
-            if (!settings.modifiers[type]) {
-              settings.modifiers[type] = {};
-            }
-
-            // eslint-disable-next-line no-empty
-            if (!type) {
-            } else if (type === 'bountiful-maintenance-oil') {
+            if (type === 'bountiful-maintenance-oil') {
               settings.modifiers[type] = modifier;
             } else {
               $.each(modifier, function (attribute, value) {
@@ -999,15 +1004,15 @@ const Optimizer = function ($) {
                           + attribute
                         );
                       }
-                      if (!settings.modifiers[type][attribute]) {
-                        settings.modifiers[type][attribute] = [];
-                        settings.modifiers[type][attribute].push(value);
-                      } else if (attribute.startsWith('add: ')) {
-                        settings.modifiers[type][attribute][0] += value;
+                      if (attribute === 'add: Effective Condition Damage') {
+                        addEffectiveConditionDamage += value;
+                      } else if (attribute === 'add: Effective Power') {
+                        addEffectivePower += value;
+
+                      } else if (!settings.modifiers[type][attribute]) {
+                        settings.modifiers[type][attribute] = 1 + value;
                       } else {
-                        // combine multiplicative modifiers
-                        settings.modifiers[type][attribute][0]
-                            = (settings.modifiers[type][attribute][0] + 1.0) * (value + 1.0) - 1;
+                        settings.modifiers[type][attribute] *= (1 + value);
                       }
                       break;
                     case 'flat':
@@ -1055,11 +1060,9 @@ const Optimizer = function ($) {
             }
           }
         });
-      };
-
-      $.each(_modifiers, function (index, modifier) {
-        addModifiers(modifier);
       });
+      settings.modifiers['multiplier']['Effective Condition Damage'] *= addEffectiveConditionDamage;
+      settings.modifiers['multiplier']['Effective Power'] *= addEffectivePower;
 
       settings.tags = _tags;
 
@@ -1140,8 +1143,6 @@ const Optimizer = function ($) {
           !Attributes.PRIMARY.includes(primaryInfusionInput)
           && !Attributes.SECONDARY.includes(primaryInfusionInput)
           && !Attributes.DERIVED.includes(primaryInfusionInput)
-          && !Attributes.BOON_DURATION.includes(primaryInfusionInput)
-          && !Attributes.CONDITION_DURATION.includes(primaryInfusionInput)
         ) {
           throw 'Primary infusion can only increase primary, secondary or derived attributes, not '
             + primaryInfusionInput;
@@ -1158,8 +1159,6 @@ const Optimizer = function ($) {
           !Attributes.PRIMARY.includes(secondaryInfusionInput)
           && !Attributes.SECONDARY.includes(secondaryInfusionInput)
           && !Attributes.DERIVED.includes(secondaryInfusionInput)
-          && !Attributes.BOON_DURATION.includes(secondaryInfusionInput)
-          && !Attributes.CONDITION_DURATION.includes(secondaryInfusionInput)
         ) {
           throw 'Secondary infusion can only increase '
             + 'primary, secondary or derived attributes, not '
@@ -1765,10 +1764,12 @@ const Optimizer = function ($) {
    */
   const updateAttributes = function (_character, alwaysCalculateAll = false) {
     const { settings } = _character;
+    const _multipliers = settings.modifiers['multiplier'];
+    _character.valid = true;
+
+    /* - Attribute Totals - */
 
     _character.attributes = Object.assign({}, _character.baseAttributes);
-
-    _character.valid = true;
 
     $.each(settings.modifiers['flat'], function (attribute, bonus) {
       _character.attributes[attribute] = (_character.attributes[attribute] || 0) + bonus;
@@ -1787,10 +1788,10 @@ const Optimizer = function ($) {
       _character.attributes[attribute] = (_character.attributes[attribute] || 0) + bonus;
     });
 
-    // durations are stored uncapped; be sure to cap at 100% when using
+    /* - Check if build is valid - */
+
     _character.attributes['Boon Duration'] += _character.attributes['Concentration'] / 15;
 
-    // Check if build is valid
     if (!alwaysCalculateAll) {
       const invalid
         = (settings.minBoonDuration
@@ -1808,42 +1809,18 @@ const Optimizer = function ($) {
       }
     }
 
-    // durations are stored uncapped; be sure to cap at 100% when using
-    _character.attributes['Condition Duration'] += _character.attributes['Expertise'] / 15;
+    /* - Health/Armor - */
 
-    // base critical chance is already set to 5
-    _character.attributes['Critical Chance']
-      = (_character.attributes['Precision'] - 1000) / 21 + _character.attributes['Critical Chance'];
-
-    _character.attributes['Critical Damage'] += _character.attributes['Ferocity'] / 15;
-
-    _character.attributes['Health'] += _character.attributes['Vitality'] * 10;
     _character.attributes['Armor'] += _character.attributes['Toughness'];
+    _character.attributes['Health'] += _character.attributes['Vitality'] * 10;
 
-    let critDmg = _character.attributes['Critical Damage'];
-    if (
-      critDmg
-      && settings.modifiers['multiplier']
-      && settings.modifiers['multiplier']['Critical Damage']
-    ) {
-      // Applies multiplicative
-      for (const multiplier of settings.modifiers['multiplier']['Critical Damage']) {
-        critDmg = critDmg * (1.0 + multiplier);
-      }
-    }
-
-    // Effective attributes
-    _character.attributes['Effective Power']
-      = _character.attributes['Power']
-      + _character.attributes['Power']
-        * Math.min(_character.attributes['Critical Chance'] / 100, 1)
-        * ((critDmg - 100) / 100);
     _character.attributes['Effective Health']
-      = _character.attributes['Health'] * _character.attributes['Armor'];
-    _character.attributes['Effective Healing'] = _character.attributes['Healing Power'] || 0;
+      = _character.attributes['Health'] * _character.attributes['Armor']
+        * _multipliers['Effective Health'];
 
-    const _multipliers = settings.modifiers['multiplier'];
-
+    _character.attributes['Effective Healing']
+      = _character.attributes['Healing Power']
+        * _multipliers['Effective Healing'];
     if (settings.modifiers.hasOwnProperty('bountiful-maintenance-oil')) {
       const bonus
         = ((_character.attributes['Healing Power'] || 0) * 0.6) / 10000
@@ -1853,70 +1830,40 @@ const Optimizer = function ($) {
       }
     }
 
-    // Power multipliers
-    // Respect additive modifiers. Sums all additive ones and multiply the sum with
-    // the previously calculated multiplicative multipliers
-    let additivePowerModis = 1.0;
-    $.each(_multipliers, function (attribute, multipliers) {
-      if (Attributes.EFFECTIVE.includes(attribute) && _character.attributes[attribute]) {
-        for (const multiplier of multipliers) {
-          _character.attributes[attribute] *= 1.0 + multiplier;
-        }
-      } else if (attribute === 'add: Effective Power') {
-        for (const multiplier of multipliers) {
-          additivePowerModis += multiplier;
-        }
-      }
-    });
-    _character.attributes['Effective Power'] *= additivePowerModis;
+    /* - Power - */
 
-    // Conditions (skipped if there are no relevant conditions)
+    _character.attributes['Critical Chance'] += (_character.attributes['Precision'] - 1000) / 21;
+    _character.attributes['Critical Damage'] += _character.attributes['Ferocity'] / 15;
+
+    const critDmg = _character.attributes['Critical Damage'] / 100
+      * _multipliers['Critical Damage'];
+    const critChance = Math.min(_character.attributes['Critical Chance'] / 100, 1);
+
+    _character.attributes['Effective Power']
+      = _character.attributes['Power'] * (1 + critChance * (critDmg - 1))
+        * _multipliers['Effective Power'];
+
+    /* - Conditions (skipped if none are relevant)- */
+
     if (alwaysCalculateAll || settings.relevantConditions.length) {
+
+      // durations are stored uncapped; be sure to cap at 100% when using
+      _character.attributes['Condition Duration'] += _character.attributes['Expertise'] / 15;
 
       for (const condition of alwaysCalculateAll
         ? Object.keys(Condition)
         : settings.relevantConditions) {
 
         _character.attributes[condition + ' Damage']
-          = (Condition[condition].factor * _character.attributes['Condition Damage'])
-          + Condition[condition].baseDamage;
+          = ((Condition[condition].factor * _character.attributes['Condition Damage'])
+          + Condition[condition].baseDamage)
+            * _multipliers['Effective Condition Damage']
+            * (_multipliers[condition + ' Damage'] || 1);
       }
-
-      if (
-        _multipliers
-        && (_multipliers['Effective Condition Damage']
-          || _multipliers['add: Effective Condition Damage'])
-      ) {
-        if (_multipliers['add: Effective Condition Damage']) {
-          // Sums up all additive condition damage modifiers
-          let additiveCondiDmg = 1.0;
-          for (const multiplier of _multipliers['add: Effective Condition Damage']) {
-            additiveCondiDmg += multiplier;
-          }
-          // multiply the sum of all additive modifiers on the characters condition ticks
-          for (const conditionDamage of Attributes.CONDITION_DAMAGE) {
-            _character.attributes[conditionDamage] *= additiveCondiDmg;
-          }
-        }
-
-        if (_multipliers['Effective Condition Damage']) {
-          for (const multiplier of _multipliers['Effective Condition Damage']) {
-            for (const conditionDamage of Attributes.CONDITION_DAMAGE) {
-              _character.attributes[conditionDamage] *= 1.0 + multiplier;
-            }
-          }
-        }
-      }
-      $.each(_multipliers, function (attribute, multipliers) {
-        if (Attributes.CONDITION_DAMAGE.includes(attribute) && _character.attributes[attribute]) {
-          for (const multiplier of multipliers) {
-            _character.attributes[attribute] *= 1.0 + multiplier;
-          }
-        }
-      });
     }
 
-    // Calculate scores
+    /* - Calculate scores - */
+
     _character.attributes['Damage'] = 0;
     $.each(settings.distribution, function (key, percentage) {
       if (key === 'Power') {
