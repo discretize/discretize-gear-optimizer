@@ -1016,6 +1016,23 @@ const Optimizer = function ($) {
                       }
                       break;
                     case 'flat':
+                      if (
+                        !Attributes.PRIMARY.includes(attribute)
+                        && !Attributes.SECONDARY.includes(attribute)
+                        && !Attributes.DERIVED.includes(attribute)
+                        && !Attributes.BOON_DURATION.includes(attribute)
+                        && !Attributes.CONDITION_DURATION.includes(attribute)
+                      ) {
+                        console.error(modifier);
+                        throw (
+                          'Flat modifiers can only increase primary, secondary or'
+                          + 'derived attributes, not '
+                          + attribute
+                        );
+                      }
+                      settings.baseAttributes[attribute]
+                        = (settings.baseAttributes[attribute] || 0) + value;
+                      break;
                     case 'buff':
                       if (
                         !Attributes.PRIMARY.includes(attribute)
@@ -1026,7 +1043,7 @@ const Optimizer = function ($) {
                       ) {
                         console.error(modifier);
                         throw (
-                          'Flat or buff modifiers can only increase primary, secondary or'
+                          'Buff modifiers can only increase primary, secondary or'
                           + 'derived attributes, not '
                           + attribute
                         );
@@ -1771,16 +1788,11 @@ const Optimizer = function ($) {
 
     _character.attributes = Object.assign({}, _character.baseAttributes);
 
-    $.each(settings.modifiers['flat'], function (attribute, bonus) {
-      _character.attributes[attribute] = (_character.attributes[attribute] || 0) + bonus;
-    });
-
-    const preConversionAttributes = Object.assign({}, _character.attributes);
     $.each(settings.modifiers['convert'], function (attribute, conversion) {
       $.each(conversion, function (source, percent) {
         _character.attributes[attribute]
           = (_character.attributes[attribute] || 0)
-          + roundEven(preConversionAttributes[source] * percent);
+          + roundEven(_character.baseAttributes[source] * percent);
       });
     });
 
