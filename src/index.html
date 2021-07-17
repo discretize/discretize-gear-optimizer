@@ -1177,7 +1177,7 @@
                                             title="Your combined Agony Resistance (possibly including Tear of Alba)."
                                           ></span>
                                         </label>
-                                        <div class="col">
+                                        <div class="col-4 col-lg">
                                           <input
                                             class="form-control"
                                             id="go-input-agony-resistance"
@@ -1429,7 +1429,7 @@
                         </div>
 
                         <!-- Runes -->
-                        <div id="go-runes" class="col-12 col-lg-4">
+                        <div id="go-runes" class="col-md-7 col-lg-4">
                           <div class="card">
                             <div class="card-header card-header-small">
                               Runes
@@ -1461,7 +1461,7 @@
                         </div>
 
                         <!-- Sigil 1 -->
-                        <div id="go-sigil1" class="col-12 col-lg-4">
+                        <div id="go-sigil1" class="col-md-6 col-lg-4">
                           <div class="card">
                             <div class="card-header card-header-small">
                               Sigil 1
@@ -1493,7 +1493,7 @@
                         </div>
 
                         <!-- Sigil 2 -->
-                        <div id="go-sigil2" class="col-12 col-lg-4">
+                        <div id="go-sigil2" class="col-md-6 col-lg-4">
                           <div class="card">
                             <div class="card-header card-header-small">
                               Sigil 2
@@ -1524,8 +1524,10 @@
                           </div>
                         </div>
 
+                        <div class="w-100"></div>
+
                         <!-- Food -->
-                        <div id="go-food" class="col-12 col-lg-4">
+                        <div id="go-food" class="col-md-6 col-lg-5">
                           <div class="card">
                             <div class="card-header card-header-small">
                               <span class="icon icon-food"></span> Food
@@ -1557,7 +1559,7 @@
                         </div>
 
                         <!-- Utility -->
-                        <div id="go-utility" class="col-12 col-lg-4">
+                        <div id="go-utility" class="col-md-6 col-lg-5">
                           <div class="card">
                             <div class="card-header card-header-small">
                               <span class="icon icon-utility"></span>
@@ -1588,9 +1590,11 @@
                           </div>
                         </div>
 
+                        <div class="w-100"></div>
+
                         <!-- Infusions -->
-                        <div id="go-infusion" class="col-12 col-lg-4">
-                          <div class="card">
+                        <div id="go-infusion" class="col-12">
+                          <div class="card card-inverse">
                             <div class="card-header card-header-small">
                               Stat Infusions
                               <span
@@ -1599,309 +1603,261 @@
                                       title="Select stat infusion combinations. The optimizer will generate the best distribution between 18x stat infusions."
                               ></span>
                             </div>
-                            <div class="card-body p-0">
-                              <div
-                                      class="dropdown dropdown-select"
-                                      id="go-select-infusions"
-                              >
-                                <button
-                                        class="btn dropdown-toggle"
-                                        type="button"
-                                        data-toggle="dropdown"
+                            <div class="card-body container py-2">
+                              <div class="form-group row">
+                                <div class="col-1 d-none d-lg-block"></div>
+                                <label class="col-form-label col-auto my-auto">
+                                  Presets:
+                                </label>
+                                <div
+                                  class="col d-flex flex-wrap"
+                                  id="go-select-infusion-presets"
                                 >
-                                  None
-                                </button>
-                                <div class="dropdown-menu">
-                                  <div class="dropdown-item active">None</div>
+                                  <button class="btn btn-outline-primary m-1">
+                                    None
+                                  </button>
+                                  <button class="btn btn-outline-primary m-1">
+                                    Power + Precision
+                                  </button>
+                                  <button class="btn btn-outline-primary m-1">
+                                    Condition Damage + Expertise
+                                  </button>
+                                </div>
+                              </div>
 
-                                  <div class="dropdown-divider"></div>
-                                  <h6 class="dropdown-header">
-                                    Damage Infusions
-                                  </h6>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37131"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Power
-                                  </div>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37132"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Precision
-                                  </div>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37131"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Power +
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37132"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Precision
-                                  </div>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37130"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Condition Damage
-                                  </div>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="86113"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Expertise
-                                  </div>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37130"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Condition Damage +
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="86113"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Expertise
-                                  </div>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37130"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Condition Damage +
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37132"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Precision
-                                  </div>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="86180"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Concentration
-                                  </div>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37131"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Power +
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="86180"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Concentration
-                                  </div>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37132"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Precision +
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="86180"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Concentration
-                                  </div>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="86113"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Expertise +
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="86180"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Concentration
-                                  </div>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37130"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Condition Damage +
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="86180"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Concentration
-                                  </div>
+                              <div class="row">
 
-                                  <div class="dropdown-divider"></div>
-                                  <h6 class="dropdown-header">
-                                    Survivability Infusions
-                                  </h6>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37135"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Toughness
+                                <!-- Primary Infusion -->
+                                <div class="form-group col-12 col-xl-6">
+                                  <div class="row">
+                                    <label
+                                      class="col-form-label col-5 col-md-4 my-auto"
+                                      for="go-select-infusion-primary"
+                                      >Primary Infusion:
+                                    </label>
+                                    <div class="col col-md-5">
+                                      <div
+                                        class="dropdown dropdown-select"
+                                        id="go-select-infusion-primary"
+                                      >
+                                        <button
+                                          class="btn dropdown-toggle"
+                                          type="button"
+                                          data-toggle="dropdown"
+                                        >
+                                          None
+                                        </button>
+                                        <div class="dropdown-menu">
+                                          <div class="dropdown-item active">
+                                            None
+                                          </div>
+                                          <div class="dropdown-item">
+                                            <span
+                                                    data-armory-embed="items"
+                                                    data-armory-ids="37131"
+                                                    data-armory-size="24"
+                                            ></span>
+                                            Power
+                                          </div>
+                                          <div class="dropdown-item">
+                                            <span
+                                                    data-armory-embed="items"
+                                                    data-armory-ids="37132"
+                                                    data-armory-size="24"
+                                            ></span>
+                                            Precision
+                                          </div>
+                                          <div class="dropdown-item">
+                                            <span
+                                                    data-armory-embed="items"
+                                                    data-armory-ids="37130"
+                                                    data-armory-size="24"
+                                            ></span>
+                                            Condition Damage
+                                          </div>
+                                          <div class="dropdown-item">
+                                            <span
+                                                    data-armory-embed="items"
+                                                    data-armory-ids="86113"
+                                                    data-armory-size="24"
+                                            ></span>
+                                            Expertise
+                                          </div>
+                                          <div class="dropdown-item">
+                                            <span
+                                                    data-armory-embed="items"
+                                                    data-armory-ids="86180"
+                                                    data-armory-size="24"
+                                            ></span>
+                                            Concentration
+                                          </div>
+                                          <div class="dropdown-item">
+                                            <span
+                                                    data-armory-embed="items"
+                                                    data-armory-ids="37125"
+                                                    data-armory-size="24"
+                                            ></span>
+                                            Healing Power
+                                          </div>
+                                          <div class="dropdown-item">
+                                            <span
+                                                    data-armory-embed="items"
+                                                    data-armory-ids="37135"
+                                                    data-armory-size="24"
+                                            ></span>
+                                            Toughness
+                                          </div>
+                                          <div class="dropdown-item">
+                                            <span
+                                                    data-armory-embed="items"
+                                                    data-armory-ids="37136"
+                                                    data-armory-size="24"
+                                            ></span>
+                                            Vitality
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="w-100 d-md-none"></div>
+                                    <div class="col d-md-none"></div>
+                                    <div class="col" style="max-width: 8rem">
+                                      <input
+                                        class="form-control"
+                                        id="go-select-infusion-primary-max"
+                                        type="number"
+                                        min="1"
+                                        max="18"
+                                        placeholder="max #"
+                                      />
+                                    </div>
                                   </div>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37135"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Toughness +
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37136"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Vitality
-                                  </div>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37135"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Toughness +
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="86180"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Concentration
-                                  </div>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37135"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Toughness +
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37131"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Power
-                                  </div>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37135"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Toughness +
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37132"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Precision
-                                  </div>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37135"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Toughness +
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37130"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Condition Damage
-                                  </div>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37135"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Toughness +
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="86113"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Expertise
-                                  </div>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37136"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Vitality
-                                  </div>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37136"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Vitality +
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="86180"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Concentration
-                                  </div>
+                                </div>
 
-                                  <div class="dropdown-divider"></div>
-                                  <h6 class="dropdown-header">
-                                    Healing Infusions
-                                  </h6>
-                                  <div class="dropdown-item">
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37125"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Healing Power
+                                <!-- Secondary Infusion -->
+                                <div class="form-group col-12 col-xl-6">
+                                  <div class="row">
+                                    <label
+                                      class="col-form-label col-5 col-md-4 my-auto"
+                                      for="go-select-infusion-secondary"
+                                      >Secondary Infusion:
+                                    </label>
+                                    <div class="col col-md-5">
+                                      <div
+                                        class="dropdown dropdown-select"
+                                        id="go-select-infusion-secondary"
+                                      >
+                                        <button
+                                          class="btn dropdown-toggle"
+                                          type="button"
+                                          data-toggle="dropdown"
+                                        >
+                                          None
+                                        </button>
+                                        <div class="dropdown-menu">
+                                          <div class="dropdown-item active">
+                                            None
+                                          </div>
+                                          <div class="dropdown-item">
+                                            <span
+                                                    data-armory-embed="items"
+                                                    data-armory-ids="37131"
+                                                    data-armory-size="24"
+                                            ></span>
+                                            Power
+                                          </div>
+                                          <div class="dropdown-item">
+                                            <span
+                                                    data-armory-embed="items"
+                                                    data-armory-ids="37132"
+                                                    data-armory-size="24"
+                                            ></span>
+                                            Precision
+                                          </div>
+                                          <div class="dropdown-item">
+                                            <span
+                                                    data-armory-embed="items"
+                                                    data-armory-ids="37130"
+                                                    data-armory-size="24"
+                                            ></span>
+                                            Condition Damage
+                                          </div>
+                                          <div class="dropdown-item">
+                                            <span
+                                                    data-armory-embed="items"
+                                                    data-armory-ids="86113"
+                                                    data-armory-size="24"
+                                            ></span>
+                                            Expertise
+                                          </div>
+                                          <div class="dropdown-item">
+                                            <span
+                                                    data-armory-embed="items"
+                                                    data-armory-ids="86180"
+                                                    data-armory-size="24"
+                                            ></span>
+                                            Concentration
+                                          </div>
+                                          <div class="dropdown-item">
+                                            <span
+                                                    data-armory-embed="items"
+                                                    data-armory-ids="37125"
+                                                    data-armory-size="24"
+                                            ></span>
+                                            Healing Power
+                                          </div>
+                                          <div class="dropdown-item">
+                                            <span
+                                                    data-armory-embed="items"
+                                                    data-armory-ids="37135"
+                                                    data-armory-size="24"
+                                            ></span>
+                                            Toughness
+                                          </div>
+                                          <div class="dropdown-item">
+                                            <span
+                                                    data-armory-embed="items"
+                                                    data-armory-ids="37136"
+                                                    data-armory-size="24"
+                                            ></span>
+                                            Vitality
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="w-100 d-md-none"></div>
+                                    <div class="col d-md-none"></div>
+                                    <div class="col" style="max-width: 8rem">
+                                      <input
+                                        class="form-control"
+                                        id="go-select-infusion-secondary-max"
+                                        type="number"
+                                        min="1"
+                                        max="18"
+                                        placeholder="max #"
+                                      />
+                                    </div>
                                   </div>
-                                  <div class="dropdown-item">
+                                </div>
+
+                                <div class="col"></div>
+
+                                <div class="input col-auto">
+                                  <input
+                                    class="input-checkbox"
+                                    type="checkbox"
+                                    id="go-select-infusion-duplicates"
+                                  />
+                                  <label
+                                    class="input-label"
+                                    for="go-select-infusion-duplicates"
+                                  >
+                                    Hide identical gear setups w/ differing infusions
                                     <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="37125"
-                                            data-armory-size="24"
+                                      class="fa fa-question-circle"
+                                      data-toggle="tooltip"
+                                      title="Without this checked, the same set of gear may show up multiple times with different infusion amounts."
                                     ></span>
-                                    Healing Power +
-                                    <span
-                                            data-armory-embed="items"
-                                            data-armory-ids="86180"
-                                            data-armory-size="24"
-                                    ></span>
-                                    Concentration
-                                  </div>
+                                  </label>
                                 </div>
                               </div>
                             </div>
@@ -2097,7 +2053,7 @@
               </div>
             </div>
             <p class="last-updated">
-              Last updated: July 15, 2021
+              Last updated: July 16, 2021
               <br />
               Want to open the <a href="https://discretize.eu">main page</a>?
               <br />
