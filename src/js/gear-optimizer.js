@@ -1550,6 +1550,10 @@ const Optimizer = function ($) {
 
     /**
      * Inserts every valid combination of 18 infusions
+     *
+     * (unless changing infusions has no effect at all; this avoids flooding the results with
+     * identical-for-all-practical-purposes setups if you select e.g. condi infusions on a power
+     * build)
      */
     Optimizer.prototype._applyInfusionsSecondary = function (character) {
       const _optimizer = this;
@@ -1564,6 +1568,8 @@ const Optimizer = function ($) {
       };
 
       if (!_optimizer.worstScore || testInfusionUsefulness()) {
+        let resultCache;
+
         let primaryCount = settings.primaryMaxInfusions;
         let secondaryCount = MAX_INFUSIONS - primaryCount;
         while (secondaryCount <= settings.secondaryMaxInfusions) {
@@ -1571,12 +1577,13 @@ const Optimizer = function ($) {
           addBaseStats(temp, settings.primaryInfusion, primaryCount * INFUSION_BONUS);
           addBaseStats(temp, settings.secondaryInfusion, secondaryCount * INFUSION_BONUS);
           updateAttributes(temp);
-          if (temp.valid) {
+          if (temp.valid && temp.attributes[settings.rankby] !== resultCache) {
             temp.infusions = {
               [settings.primaryInfusion]: primaryCount,
               [settings.secondaryInfusion]: secondaryCount
             };
             _optimizer._insertCharacter(temp);
+            resultCache = temp.attributes[settings.rankby];
           }
           primaryCount--;
           secondaryCount++;
