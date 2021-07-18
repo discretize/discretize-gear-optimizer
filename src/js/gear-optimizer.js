@@ -941,6 +941,8 @@ const Optimizer = function ($) {
         .text()
         .trim();
 
+      settings.slots = Slots[settings.weapontype];
+
       settings.baseAttributes = {};
       settings.baseAttributes.Health = Classes[settings.profession].health;
       settings.baseAttributes.Armor = Classes[settings.profession].defense;
@@ -1089,13 +1091,13 @@ const Optimizer = function ($) {
         .get();
 
       // valid affixes for each slot, taking forced slots into account
-      settings.affixesArray = new Array(Slots[settings.weapontype].length).fill(settings.affixes);
+      settings.affixesArray = new Array(settings.slots.length).fill(settings.affixes);
 
       settings.forcedArmor = false;
       settings.forcedRing = false;
       settings.forcedAcc = false;
       settings.forcedWep = false;
-      for (let i = 0; i < Slots[settings.weapontype].length; i++) {
+      for (let i = 0; i < settings.slots.length; i++) {
         const inputValue = $(Selector.INPUT.FORCE + ForcedSlots[i]).val();
         if (!inputValue) {
           continue;
@@ -1116,6 +1118,21 @@ const Optimizer = function ($) {
           }
         }
       }
+
+      settings.affixStatsArray = settings.affixesArray.map((affixes, slotindex) => {
+        return affixes.map(affix => {
+          const statTotals = {};
+          $.each(
+            settings.slots[slotindex].item[Affix[affix].type],
+            function (type, bonus) {
+              for (const stat of Affix[affix].bonuses[type]) {
+                statTotals[stat] = (statTotals[stat] || 0) + bonus;
+              }
+            }
+          );
+          return Object.entries(statTotals);
+        });
+      });
 
       // used to keep the progress counter in sync when skipping identical gear combinations.
       settings.runsAfterThisSlot = [];
@@ -1415,7 +1432,7 @@ const Optimizer = function ($) {
             continue;
           }
 
-          if (nextSlot >= Slots[settings.weapontype].length) {
+          if (nextSlot >= settings.slots.length) {
             _optimizer.calculationRuns++;
             _optimizer._testCharacter(gear, gearStats);
             continue;
@@ -1430,14 +1447,9 @@ const Optimizer = function ($) {
             newGear[nextSlot] = currentAffix;
 
             // add gear stats
-            $.each(
-              Slots[settings.weapontype][nextSlot].item[Affix[currentAffix].type],
-              function (type, bonus) {
-                for (const stat of Affix[currentAffix].bonuses[type]) {
-                  newGearStats[stat] = (newGearStats[stat] || 0) + bonus;
-                }
-              }
-            );
+            for (const [stat, bonus] of settings.affixStatsArray[nextSlot][i]) {
+              newGearStats[stat] = (newGearStats[stat] || 0) + bonus;
+            }
 
             _optimizer.calculationQueue.push(newGear);
             _optimizer.calculationStatsQueue.push(newGearStats);
@@ -1446,14 +1458,9 @@ const Optimizer = function ($) {
           gear[nextSlot] = currentAffix;
 
           // add gear stats
-          $.each(
-            Slots[settings.weapontype][nextSlot].item[Affix[currentAffix].type],
-            function (type, bonus) {
-              for (const stat of Affix[currentAffix].bonuses[type]) {
-                gearStats[stat] = (gearStats[stat] || 0) + bonus;
-              }
-            }
-          );
+          for (const [stat, bonus] of settings.affixStatsArray[nextSlot][0]) {
+            gearStats[stat] = (gearStats[stat] || 0) + bonus;
+          }
 
           _optimizer.calculationQueue.push(gear);
           _optimizer.calculationStatsQueue.push(gearStats);
