@@ -1327,7 +1327,6 @@ const Optimizer = function ($) {
       _optimizer.calculationStatsQueue = [];
       _optimizer.calculationStatsQueue.push({});
 
-      _optimizer.timer = _optimizer.startTime;
       setTimeout(_optimizer._advanceCalculation.bind(_optimizer), 0);
     };
 
@@ -1386,20 +1385,38 @@ const Optimizer = function ($) {
       }
     };
 
-    Optimizer.prototype._advanceCalculation = function () {
+    Optimizer.prototype._advanceCalculation = async function () {
       const _optimizer = this;
       const { settings } = _optimizer;
+
+      // only update UI at around 15 frames per second
+      let timer = Date.now();
+      const UPDATE_MS = 55;
 
       if (STOP_SIGNAL) {
         _optimizer._lock(false);
       } else {
-        let cycles = 1000;
-        while (_optimizer.calculationQueue.length && cycles--) {
+        let cycles = 0;
+        while (_optimizer.calculationQueue.length) {
+          cycles++;
 
-          // only update UI at around 15 frames per second
-          const UPDATE_MS = 55;
-          if (cycles === 1 && new Date() - _optimizer.timer < UPDATE_MS) {
-            cycles = 1000;
+          if ((cycles % 1000 === 0) && Date.now() - timer > UPDATE_MS) {
+
+            // pause to let UI update and register a stop button press
+            const percent = Math.floor(
+              (_optimizer.calculationRuns * 100) / _optimizer.calculationTotal
+            );
+            $(Selector.OUTPUT.PROGRESS_BAR)
+              .css('width', percent + '%')
+              .find(Selector.SPAN)
+              .text(percent + '%');
+            await new Promise(resolve => setTimeout(resolve, 0));
+            timer = Date.now();
+
+            if (STOP_SIGNAL) {
+              _optimizer._lock(false);
+              return;
+            }
           }
 
           const gear = _optimizer.calculationQueue.pop();
@@ -1467,25 +1484,12 @@ const Optimizer = function ($) {
           _optimizer.calculationStatsQueue.push(gearStats);
         }
 
-        if (_optimizer.calculationQueue.length) {
-          const percent = Math.floor(
-            (_optimizer.calculationRuns * 100) / _optimizer.calculationTotal
-          );
-          $(Selector.OUTPUT.PROGRESS_BAR)
-            .css('width', percent + '%')
-            .find(Selector.SPAN)
-            .text(percent + '%');
+        const percent = Math.floor(
+          (_optimizer.calculationRuns * 100) / _optimizer.calculationTotal
+        );
+        $(Selector.OUTPUT.PROGRESS_BAR).css('width', percent + '%');
 
-          _optimizer.timer = new Date();
-          setTimeout(_optimizer._advanceCalculation.bind(_optimizer), 0);
-        } else {
-          const percent = Math.floor(
-            (_optimizer.calculationRuns * 100) / _optimizer.calculationTotal
-          );
-          $(Selector.OUTPUT.PROGRESS_BAR).css('width', percent + '%');
-
-          _optimizer._lock(false);
-        }
+        _optimizer._lock(false);
       }
     };
 
