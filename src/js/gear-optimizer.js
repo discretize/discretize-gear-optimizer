@@ -1892,13 +1892,9 @@ const Optimizer = function ($) {
       _character.attributes['Damage'] = powerDamageScore + condiDamageScore;
     }
 
-    if (
-      alwaysCalculateAll
-      || settings.rankby === 'Healing'
-      || settings.rankby === 'Survivability'
-    ) {
+    /* - Survivability - */
 
-      /* - Health/Healing - */
+    if (alwaysCalculateAll || settings.rankby === 'Survivability') {
 
       _character.attributes['Armor'] += _character.attributes['Toughness'];
       _character.attributes['Health'] += _character.attributes['Vitality'] * 10;
@@ -1907,9 +1903,16 @@ const Optimizer = function ($) {
         = _character.attributes['Health'] * _character.attributes['Armor']
           * _multipliers['Effective Health'];
       _character.attributes['Survivability'] = _character.attributes['Effective Health'] / 1967;
+    }
 
+    /* - Healing - */
+
+    if (alwaysCalculateAll || settings.rankby === 'Healing') {
+
+      // reasonably representative skill: druid celestial avatar 4 pulse
+      // 390 base, 0.3 coefficient
       _character.attributes['Effective Healing']
-        = _character.attributes['Healing Power']
+        = (_character.attributes['Healing Power'] * 0.3 + 390)
           * _multipliers['Effective Healing'];
       if (settings.modifiers.hasOwnProperty('bountiful-maintenance-oil')) {
         const bonus
