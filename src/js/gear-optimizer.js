@@ -1776,8 +1776,9 @@ const Optimizer = function ($) {
    * Creates an {attributes} object parameter in the given character object and calculates stats
    * and damage/healing/survivability scores.
    *
-   * If alwaysCalculateAll is not set, this function will cancel itself early if the character's
-   * boon duration/toughness/healing power are not valid according to the optimizer settings.
+   * If alwaysCalculateAll is not set, this function will do the minimum work to find the optimal
+   * build, including cancelling itself early if the character's boon duration/toughness/healing
+   * power are not valid according to the optimizer settings.
    */
   const updateAttributes = function (_character, alwaysCalculateAll = false) {
     const { settings } = _character;
@@ -1819,74 +1820,83 @@ const Optimizer = function ($) {
       }
     }
 
-    /* - Health/Armor - */
+    if (alwaysCalculateAll || settings.rankby === 'Damage') {
 
-    _character.attributes['Armor'] += _character.attributes['Toughness'];
-    _character.attributes['Health'] += _character.attributes['Vitality'] * 10;
+      /* - Power - */
 
-    _character.attributes['Effective Health']
-      = _character.attributes['Health'] * _character.attributes['Armor']
-        * _multipliers['Effective Health'];
+      _character.attributes['Critical Chance'] += (_character.attributes['Precision'] - 1000) / 21;
+      _character.attributes['Critical Damage'] += _character.attributes['Ferocity'] / 15;
 
-    _character.attributes['Effective Healing']
-      = _character.attributes['Healing Power']
-        * _multipliers['Effective Healing'];
-    if (settings.modifiers.hasOwnProperty('bountiful-maintenance-oil')) {
-      const bonus
-        = ((_character.attributes['Healing Power'] || 0) * 0.6) / 10000
-        + ((_character.attributes['Concentration'] || 0) * 0.8) / 10000;
-      if (bonus) {
-        _character.attributes['Effective Healing'] *= 1.0 + bonus;
+      const critDmg = _character.attributes['Critical Damage'] / 100
+        * _multipliers['Critical Damage'];
+      const critChance = Math.min(_character.attributes['Critical Chance'] / 100, 1);
+
+      _character.attributes['Effective Power']
+        = _character.attributes['Power'] * (1 + critChance * (critDmg - 1))
+          * _multipliers['Effective Power'];
+
+      const powerDamageScore = settings.distribution['Power']
+        * (_character.attributes['Effective Power'] / 1025);
+
+      /* - Conditions (skipped if none are relevant)- */
+
+      let condiDamageScore = 0;
+      if (alwaysCalculateAll || settings.relevantConditions.length) {
+        _character.attributes['Condition Duration'] += _character.attributes['Expertise'] / 15;
+
+        for (const condition of alwaysCalculateAll
+          ? Attributes.CONDITION
+          : settings.relevantConditions) {
+
+          _character.attributes[condition + ' Damage']
+            = ((Condition[condition].factor * _character.attributes['Condition Damage'])
+            + Condition[condition].baseDamage)
+              * _multipliers['Effective Condition Damage']
+              * (_multipliers[condition + ' Damage'] || 1);
+
+          const duration = 1 + Math.min(((_character.attributes[condition + ' Duration'] || 0)
+              + _character.attributes['Condition Duration']) / 100, 1);
+
+          condiDamageScore += settings.distribution[condition]
+            * duration
+            * (_character.attributes[condition + ' Damage'] || 1)
+            / Condition[condition].baseDamage;
+        }
       }
+
+      /* - Combine power + condi - */
+      _character.attributes['Damage'] = powerDamageScore + condiDamageScore;
     }
 
-    /* - Power - */
+    if (
+      alwaysCalculateAll
+      || settings.rankby === 'Healing'
+      || settings.rankby === 'Survivability'
+    ) {
 
-    _character.attributes['Critical Chance'] += (_character.attributes['Precision'] - 1000) / 21;
-    _character.attributes['Critical Damage'] += _character.attributes['Ferocity'] / 15;
+      /* - Health/Healing - */
 
-    const critDmg = _character.attributes['Critical Damage'] / 100
-      * _multipliers['Critical Damage'];
-    const critChance = Math.min(_character.attributes['Critical Chance'] / 100, 1);
+      _character.attributes['Armor'] += _character.attributes['Toughness'];
+      _character.attributes['Health'] += _character.attributes['Vitality'] * 10;
 
-    _character.attributes['Effective Power']
-      = _character.attributes['Power'] * (1 + critChance * (critDmg - 1))
-        * _multipliers['Effective Power'];
+      _character.attributes['Effective Health']
+        = _character.attributes['Health'] * _character.attributes['Armor']
+          * _multipliers['Effective Health'];
+      _character.attributes['Survivability'] = _character.attributes['Effective Health'] / 1967;
 
-    const powerDamageScore = settings.distribution['Power']
-      * (_character.attributes['Effective Power'] / 1025);
-
-    /* - Conditions (skipped if none are relevant)- */
-
-    let condiDamageScore = 0;
-    if (alwaysCalculateAll || settings.relevantConditions.length) {
-      _character.attributes['Condition Duration'] += _character.attributes['Expertise'] / 15;
-
-      for (const condition of alwaysCalculateAll
-        ? Attributes.CONDITION
-        : settings.relevantConditions) {
-
-        _character.attributes[condition + ' Damage']
-          = ((Condition[condition].factor * _character.attributes['Condition Damage'])
-          + Condition[condition].baseDamage)
-            * _multipliers['Effective Condition Damage']
-            * (_multipliers[condition + ' Damage'] || 1);
-
-        const duration = 1 + Math.min(((_character.attributes[condition + ' Duration'] || 0)
-            + _character.attributes['Condition Duration']) / 100, 1);
-
-        condiDamageScore += settings.distribution[condition]
-          * duration
-          * (_character.attributes[condition + ' Damage'] || 1)
-          / Condition[condition].baseDamage;
+      _character.attributes['Effective Healing']
+        = _character.attributes['Healing Power']
+          * _multipliers['Effective Healing'];
+      if (settings.modifiers.hasOwnProperty('bountiful-maintenance-oil')) {
+        const bonus
+          = ((_character.attributes['Healing Power'] || 0) * 0.6) / 10000
+          + ((_character.attributes['Concentration'] || 0) * 0.8) / 10000;
+        if (bonus) {
+          _character.attributes['Effective Healing'] *= 1.0 + bonus;
+        }
       }
+      _character.attributes['Healing'] = _character.attributes['Effective Healing'];
     }
-
-    /* - Calculate scores - */
-
-    _character.attributes['Damage'] = powerDamageScore + condiDamageScore;
-    _character.attributes['Survivability'] = _character.attributes['Effective Health'] / 1967;
-    _character.attributes['Healing'] = _character.attributes['Effective Healing'];
 
     return true;
   };
