@@ -1255,6 +1255,8 @@ const Optimizer = function ($) {
         }
       );
 
+      settings.condiResultCache = new Map();
+
       Object.freeze(_optimizer.settings);
     }
 
@@ -1792,7 +1794,7 @@ const Optimizer = function ($) {
     const _multipliers = settings.modifiers['multiplier'];
     _character.valid = true;
 
-    /* - Attribute Totals - */
+    /* - Stat Point Totals - */
 
     _character.attributes = Object.assign({}, _character.baseAttributes);
 
@@ -1847,8 +1849,14 @@ const Optimizer = function ($) {
 
       /* - Conditions (skipped if none are relevant)- */
 
+      // cache this section's result based on cdmg and expertise and skip calculating it if we
+      // already have
       let condiDamageScore = 0;
-      if (alwaysCalculateAll || settings.relevantConditions.length) {
+      const CONDI_CACHE_ID
+        = _character.attributes['Expertise'] + _character.attributes['Condition Damage'] * 10000;
+      const cached = settings.condiResultCache.get(CONDI_CACHE_ID);
+
+      if (alwaysCalculateAll || (settings.relevantConditions.length && !cached)) {
         _character.attributes['Condition Duration'] += _character.attributes['Expertise'] / 15;
 
         for (const condition of alwaysCalculateAll
@@ -1869,6 +1877,9 @@ const Optimizer = function ($) {
             * (_character.attributes[condition + ' Damage'] || 1)
             / Condition[condition].baseDamage;
         }
+        settings.condiResultCache.set(CONDI_CACHE_ID, condiDamageScore);
+      } else {
+        condiDamageScore = cached || 0;
       }
 
       /* - Combine power + condi - */
