@@ -132,84 +132,6 @@ const Optimizer = function ($) {
    * ------------------------------------------------------------------------
    */
 
-  const Attributes = Object.freeze({
-    PRIMARY: [
-      'Power',
-      'Precision',
-      'Toughness',
-      'Vitality'
-    ],
-
-    SECONDARY: [
-      'Ferocity',
-      'Condition Damage',
-      'Expertise',
-      'Concentration',
-      'Healing Power',
-      'Agony Resistance'
-    ],
-
-    DERIVED: [
-      'Critical Chance',
-      'Critical Damage',
-      'Condition Duration',
-      'Boon Duration',
-      'Health',
-      'Armor'
-    ],
-
-    BOON_DURATION: [
-      'Aegis Duration',
-      'Fury Duration',
-      'Might Duration',
-      'Protection Duration',
-      'Quickness Duration',
-      'Regeneration Duration',
-      'Resistance Duration',
-      'Retaliation Duration',
-      'Stability Duration',
-      'Swiftness Duration',
-      'Vigor Duration'
-    ],
-
-    CONDITION_DURATION: [
-      'Bleeding Duration',
-      'Blind Duration',
-      'Burning Duration',
-      'Chilled Duration',
-      'Confusion Duration',
-      'Crippled Duration',
-      'Fear Duration',
-      'Immobile Duration',
-      'Poison Duration',
-      'Slow Duration',
-      'Taunt Duration',
-      'Torment Duration',
-      'Vulnerability Duration',
-      'Weakness Duration'
-    ],
-
-    EFFECTIVE: [
-      'Effective Power',
-      'Effective Health',
-      'Effective Healing'
-    ],
-
-    CONDITION_DAMAGE: [
-      'Bleeding Damage',
-      'Burning Damage',
-      'Confusion Damage',
-      'Poison Damage',
-      'Torment Damage'
-    ],
-
-    INDICATORS: [
-      'Damage',
-      'Survivability',
-      'Healing'
-    ]
-  });
-
   const Affix = Object.freeze({
     Berserker: {
       type: 'triple',
@@ -874,6 +796,81 @@ const Optimizer = function ($) {
     }
   });
 
+  const Attributes = Object.freeze({
+    PRIMARY: [
+      'Power',
+      'Precision',
+      'Toughness',
+      'Vitality'
+    ],
+
+    SECONDARY: [
+      'Ferocity',
+      'Condition Damage',
+      'Expertise',
+      'Concentration',
+      'Healing Power',
+      'Agony Resistance'
+    ],
+
+    DERIVED: [
+      'Critical Chance',
+      'Critical Damage',
+      'Condition Duration',
+      'Boon Duration',
+      'Health',
+      'Armor'
+    ],
+
+    BOON_DURATION: [
+      'Aegis Duration',
+      'Fury Duration',
+      'Might Duration',
+      'Protection Duration',
+      'Quickness Duration',
+      'Regeneration Duration',
+      'Resistance Duration',
+      'Retaliation Duration',
+      'Stability Duration',
+      'Swiftness Duration',
+      'Vigor Duration'
+    ],
+
+    CONDITION_DURATION: [
+      'Bleeding Duration',
+      'Blind Duration',
+      'Burning Duration',
+      'Chilled Duration',
+      'Confusion Duration',
+      'Crippled Duration',
+      'Fear Duration',
+      'Immobile Duration',
+      'Poison Duration',
+      'Slow Duration',
+      'Taunt Duration',
+      'Torment Duration',
+      'Vulnerability Duration',
+      'Weakness Duration'
+    ],
+
+    CONDITION: Object.keys(Condition),
+
+    CONDITION_DAMAGE: Object.keys(Condition)
+      .map(condition => condition + ' Damage'),
+
+    EFFECTIVE: [
+      'Effective Power',
+      'Effective Health',
+      'Effective Healing'
+    ],
+
+    INDICATORS: [
+      'Damage',
+      'Survivability',
+      'Healing'
+    ]
+  });
+
   const MAX_INFUSIONS = 18;
   const INFUSION_BONUS = 5;
 
@@ -1223,7 +1220,10 @@ const Optimizer = function ($) {
       }
       _optimizer._applyInfusions = _optimizer['_applyInfusions' + infusionMode];
 
-      settings.distribution = {};
+      settings.distribution = {
+        Power: 0,
+        ...Object.fromEntries(Attributes.CONDITION.map((condition) => [condition, 0]))
+      };
       settings.relevantConditions = [];
       $.each(
         $('#go-condition-distribution-input').find('input[data-go-distribution]'),
@@ -1790,9 +1790,7 @@ const Optimizer = function ($) {
 
     $.each(settings.modifiers['convert'], function (attribute, conversion) {
       $.each(conversion, function (source, percent) {
-        _character.attributes[attribute]
-          = (_character.attributes[attribute] || 0)
-          + roundEven(_character.baseAttributes[source] * percent);
+        _character.attributes[attribute] += roundEven(_character.baseAttributes[source] * percent);
       });
     });
 
@@ -1855,15 +1853,17 @@ const Optimizer = function ($) {
       = _character.attributes['Power'] * (1 + critChance * (critDmg - 1))
         * _multipliers['Effective Power'];
 
+    const powerDamageScore = settings.distribution['Power']
+      * (_character.attributes['Effective Power'] / 1025);
+
     /* - Conditions (skipped if none are relevant)- */
 
+    let condiDamageScore = 0;
     if (alwaysCalculateAll || settings.relevantConditions.length) {
-
-      // durations are stored uncapped; be sure to cap at 100% when using
       _character.attributes['Condition Duration'] += _character.attributes['Expertise'] / 15;
 
       for (const condition of alwaysCalculateAll
-        ? Object.keys(Condition)
+        ? Attributes.CONDITION
         : settings.relevantConditions) {
 
         _character.attributes[condition + ' Damage']
@@ -1871,25 +1871,20 @@ const Optimizer = function ($) {
           + Condition[condition].baseDamage)
             * _multipliers['Effective Condition Damage']
             * (_multipliers[condition + ' Damage'] || 1);
+
+        const duration = 1 + Math.min(((_character.attributes[condition + ' Duration'] || 0)
+            + _character.attributes['Condition Duration']) / 100, 1);
+
+        condiDamageScore += settings.distribution[condition]
+          * duration
+          * (_character.attributes[condition + ' Damage'] || 1)
+          / Condition[condition].baseDamage;
       }
     }
 
     /* - Calculate scores - */
 
-    _character.attributes['Damage'] = 0;
-    $.each(settings.distribution, function (key, percentage) {
-      if (key === 'Power') {
-        _character.attributes['Damage']
-          += percentage * (_character.attributes['Effective Power'] / 1025);
-      } else {
-        const duration = 1 + Math.min(((_character.attributes[key + ' Duration'] || 0)
-          + _character.attributes['Condition Duration']) / 100, 1);
-        _character.attributes['Damage']
-          += percentage * duration
-          * (_character.attributes[key + ' Damage'] / Condition[key].baseDamage);
-      }
-    });
-
+    _character.attributes['Damage'] = powerDamageScore + condiDamageScore;
     _character.attributes['Survivability'] = _character.attributes['Effective Health'] / 1967;
     _character.attributes['Healing'] = _character.attributes['Effective Healing'];
 
