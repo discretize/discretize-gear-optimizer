@@ -1627,7 +1627,7 @@ const Optimizer = function ($) {
         const temp = clone(character);
         addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
         addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
-        updateAttributes(temp, true);
+        updateAttributes(temp, false, true);
         return temp.attributes[settings.rankby] > _optimizer.worstScore;
       };
 
