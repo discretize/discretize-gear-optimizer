@@ -1390,12 +1390,11 @@ const Optimizer = function ($) {
       const _optimizer = this;
       const { settings } = _optimizer;
 
-      try {
+      if (STOP_SIGNAL) {
+        _optimizer._lock(false);
+      } else {
         let cycles = 1000;
         while (_optimizer.calculationQueue.length && cycles--) {
-          if (STOP_SIGNAL) {
-            throw 0;
-          }
 
           // only update UI at around 15 frames per second
           const UPDATE_MS = 55;
@@ -1486,11 +1485,6 @@ const Optimizer = function ($) {
           $(Selector.OUTPUT.PROGRESS_BAR).css('width', percent + '%');
 
           _optimizer._lock(false);
-        }
-      } catch (e) {
-        _optimizer._lock(false);
-        if (e !== 0) {
-          throw e;
         }
       }
     };
