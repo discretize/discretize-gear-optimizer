@@ -1328,7 +1328,13 @@ const Optimizer = function ($) {
       _optimizer.calculationStatsQueue.push({});
 
       _optimizer.timer = _optimizer.startTime;
-      setTimeout(_optimizer._advanceCalculation.bind(_optimizer), 0);
+
+      _optimizer.work = [];
+      _optimizer.workAmount = 0;
+      _optimizer.workDone = 0;
+
+      _optimizer._advanceCalculationIterate();
+      _optimizer._advanceCalculationCalculate();
     };
 
     Optimizer.prototype._lock = function (lock) {
@@ -1386,13 +1392,86 @@ const Optimizer = function ($) {
       }
     };
 
-    Optimizer.prototype._advanceCalculation = function () {
+    Optimizer.prototype._advanceCalculationIterate = function () {
       const _optimizer = this;
       const { settings } = _optimizer;
 
+      let count = 0;
+      while (_optimizer.calculationQueue.length && count < 3000) {
+
+        const gear = _optimizer.calculationQueue.pop();
+        const gearStats = _optimizer.calculationStatsQueue.pop();
+        const nextSlot = gear.length;
+
+        /**
+         * Deduplicate identical combinations.
+         *
+         * This prevents calculating both e.g.
+         *    berserker ring + assassin ring
+         *    assassin ring + berserker ring
+         * by skipping combinations in which identical-stat items are out of order.
+         *
+         * Each check is disabled if forcing one or more of those slots to a specific gear type.
+         */
+        if (
+          (!settings.forcedRing && nextSlot === 9
+            && gear[nextSlot - 2] > gear[nextSlot - 1])
+
+          || (!settings.forcedAcc && nextSlot === 11
+            && gear[nextSlot - 2] > gear[nextSlot - 1])
+
+          || (!settings.forcedWep && nextSlot === 14
+            && gear[nextSlot - 2] > gear[nextSlot - 1])
+
+          || (!settings.forcedArmor && nextSlot === 6
+            && (gear[1] > gear[3] || gear[3] > gear[5]))
+        ) {
+          _optimizer.calculationRuns += settings.runsAfterThisSlot[nextSlot];
+          continue;
+        }
+
+        if (nextSlot >= settings.slots.length) {
+          _optimizer.work[_optimizer.workAmount % 3000] = [gear, gearStats];
+          count++;
+          _optimizer.workAmount++;
+          continue;
+        }
+
+        // Recycle for Affix 0, clone for 1+
+        for (let i = 1; i < settings.affixesArray[nextSlot].length; i++) {
+          const newGear = gear.slice();
+          const newGearStats = Object.assign({}, gearStats);
+
+          const currentAffix = settings.affixesArray[nextSlot][i];
+          newGear[nextSlot] = currentAffix;
+
+          // add gear stats
+          for (const [stat, bonus] of settings.affixStatsArray[nextSlot][i]) {
+            newGearStats[stat] = (newGearStats[stat] || 0) + bonus;
+          }
+
+          _optimizer.calculationQueue.push(newGear);
+          _optimizer.calculationStatsQueue.push(newGearStats);
+        }
+        const currentAffix = settings.affixesArray[nextSlot][0];
+        gear[nextSlot] = currentAffix;
+
+        // add gear stats
+        for (const [stat, bonus] of settings.affixStatsArray[nextSlot][0]) {
+          gearStats[stat] = (gearStats[stat] || 0) + bonus;
+        }
+
+        _optimizer.calculationQueue.push(gear);
+        _optimizer.calculationStatsQueue.push(gearStats);
+      }
+    };
+
+    Optimizer.prototype._advanceCalculationCalculate = function () {
+      const _optimizer = this;
+
       try {
-        let cycles = 1000;
-        while (_optimizer.calculationQueue.length && cycles--) {
+        let cycles = 10;
+        while (_optimizer.workDone < _optimizer.workAmount && cycles--) {
           if (STOP_SIGNAL) {
             throw 0;
           }
@@ -1400,92 +1479,36 @@ const Optimizer = function ($) {
           // only update UI at around 15 frames per second
           const UPDATE_MS = 55;
           if (cycles === 1 && new Date() - _optimizer.timer < UPDATE_MS) {
-            cycles = 1000;
+            cycles = 10;
           }
 
-          const gear = _optimizer.calculationQueue.pop();
-          const gearStats = _optimizer.calculationStatsQueue.pop();
-          const nextSlot = gear.length;
+          _optimizer.calculationRuns++;
+          _optimizer._testCharacter(..._optimizer.work[_optimizer.workDone % 3000]);
+          _optimizer.workDone++;
 
-          /**
-           * Deduplicate identical combinations.
-           *
-           * This prevents calculating both e.g.
-           *    berserker ring + assassin ring
-           *    assassin ring + berserker ring
-           * by skipping combinations in which identical-stat items are out of order.
-           *
-           * Each check is disabled if forcing one or more of those slots to a specific gear type.
-           */
-          if (
-            (!settings.forcedRing && nextSlot === 9
-              && gear[nextSlot - 2] > gear[nextSlot - 1])
-
-            || (!settings.forcedAcc && nextSlot === 11
-              && gear[nextSlot - 2] > gear[nextSlot - 1])
-
-            || (!settings.forcedWep && nextSlot === 14
-              && gear[nextSlot - 2] > gear[nextSlot - 1])
-
-            || (!settings.forcedArmor && nextSlot === 6
-              && (gear[1] > gear[3] || gear[3] > gear[5]))
-          ) {
-            _optimizer.calculationRuns += settings.runsAfterThisSlot[nextSlot];
-            continue;
+          if (_optimizer.workDone === _optimizer.workAmount) {
+            _optimizer._advanceCalculationIterate();
           }
-
-          if (nextSlot >= settings.slots.length) {
-            _optimizer.calculationRuns++;
-            _optimizer._testCharacter(gear, gearStats);
-            continue;
-          }
-
-          // Recycle for Affix 0, clone for 1+
-          for (let i = 1; i < settings.affixesArray[nextSlot].length; i++) {
-            const newGear = gear.slice();
-            const newGearStats = Object.assign({}, gearStats);
-
-            const currentAffix = settings.affixesArray[nextSlot][i];
-            newGear[nextSlot] = currentAffix;
-
-            // add gear stats
-            for (const [stat, bonus] of settings.affixStatsArray[nextSlot][i]) {
-              newGearStats[stat] = (newGearStats[stat] || 0) + bonus;
-            }
-
-            _optimizer.calculationQueue.push(newGear);
-            _optimizer.calculationStatsQueue.push(newGearStats);
-          }
-          const currentAffix = settings.affixesArray[nextSlot][0];
-          gear[nextSlot] = currentAffix;
-
-          // add gear stats
-          for (const [stat, bonus] of settings.affixStatsArray[nextSlot][0]) {
-            gearStats[stat] = (gearStats[stat] || 0) + bonus;
-          }
-
-          _optimizer.calculationQueue.push(gear);
-          _optimizer.calculationStatsQueue.push(gearStats);
         }
 
-        if (_optimizer.calculationQueue.length) {
+        if (!_optimizer.calculationQueue.length && _optimizer.workDone === _optimizer.workAmount) {
+          // we are done
           const percent = Math.floor(
             (_optimizer.calculationRuns * 100) / _optimizer.calculationTotal
           );
+          $(Selector.OUTPUT.PROGRESS_BAR).css('width', percent + '%');
+          _optimizer._lock(false);
+
+        } else {
+          const percent = Math.floor(
+            (_optimizer.calculationRuns * 100) / _optimizer.calculationTotal);
           $(Selector.OUTPUT.PROGRESS_BAR)
             .css('width', percent + '%')
             .find(Selector.SPAN)
             .text(percent + '%');
 
           _optimizer.timer = new Date();
-          setTimeout(_optimizer._advanceCalculation.bind(_optimizer), 0);
-        } else {
-          const percent = Math.floor(
-            (_optimizer.calculationRuns * 100) / _optimizer.calculationTotal
-          );
-          $(Selector.OUTPUT.PROGRESS_BAR).css('width', percent + '%');
-
-          _optimizer._lock(false);
+          setTimeout(_optimizer._advanceCalculationCalculate.bind(_optimizer), 0);
         }
       } catch (e) {
         _optimizer._lock(false);
