@@ -1588,7 +1588,7 @@ const Optimizer = function ($) {
         const temp = clone(character);
         addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
         addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
-        updateAttributes(temp, true);
+        updateAttributes(temp, false, true);
         return temp.attributes[settings.rankby] > _optimizer.worstScore;
       };
 
@@ -1788,8 +1788,14 @@ const Optimizer = function ($) {
    * If alwaysCalculateAll is not set, this function will do the minimum work to find the optimal
    * build, including cancelling itself early if the character's boon duration/toughness/healing
    * power are not valid according to the optimizer settings.
+   *
+   * skipValidation just skips the validation check (used in testInfusionUsefulness).
    */
-  const updateAttributes = function (_character, alwaysCalculateAll = false) {
+  const updateAttributes = function (
+    _character,
+    alwaysCalculateAll = false,
+    skipValidation = false
+  ) {
     const { settings } = _character;
     const _multipliers = settings.modifiers['multiplier'];
     _character.valid = true;
@@ -1812,7 +1818,7 @@ const Optimizer = function ($) {
 
     _character.attributes['Boon Duration'] += _character.attributes['Concentration'] / 15;
 
-    if (!alwaysCalculateAll) {
+    if (!alwaysCalculateAll && !skipValidation) {
       const invalid
         = (settings.minBoonDuration
           && _character.attributes['Boon Duration'] < settings.minBoonDuration)
