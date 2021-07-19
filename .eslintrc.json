@@ -9,7 +9,7 @@
     ],
     "extends": "semistandard",
     "rules": {
-        // "padded-blocks": "warn",
+        "padded-blocks": "warn",
         "operator-linebreak": [
             "warn",
             "before"
@@ -45,6 +45,5 @@
         "guard-for-in": "warn",
         "no-underscore-dangle": "warn"
         //"no-throw-literal": "warn",
-        //"prefer-template": "warn",
     }
 }

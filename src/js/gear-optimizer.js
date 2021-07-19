@@ -1,3 +1,4 @@
+/* eslint-disable padded-blocks */
 (function ($) {
   /**
    * ------------------------------------------------------------------------
@@ -850,7 +851,7 @@
     CONDITION: Object.keys(Condition),
 
     CONDITION_DAMAGE: Object.keys(Condition)
-      .map(condition => condition + ' Damage'),
+      .map(condition => `${condition} Damage`),
 
     EFFECTIVE: [
       'Effective Power',
@@ -894,28 +895,28 @@
       const tags = [];
 
       // Checkbox modifiers
-      $.each($([Selector.INPUT.CLASS + ' ' + Selector.INPUT.TAB_PANE_ACTIVE,
-        Selector.INPUT.BUFFS].join(',')).find(Selector.CHECKBOXES_CHECKED + '[data-'
-          + DataAttribute.MODIFIER + ']'), function () {
+      $.each($([`${Selector.INPUT.CLASS} ${Selector.INPUT.TAB_PANE_ACTIVE}`,
+        Selector.INPUT.BUFFS].join(',')).find(`${Selector.CHECKBOXES_CHECKED}[data-${
+           DataAttribute.MODIFIER}]`), function () {
         rawModifiers.push($(this).data(DataAttribute.MODIFIER));
         const span = $(this).siblings(Selector.LABEL).children(Selector.SPAN);
         if (span.is('[data-armory-ids]')) {
           const type = span.children('div').attr('class').split(' ')[1];
-          tags.push('<div data-armory-size="40" data-armory-embed="' + type.substring(
-            5, type.length - 6) + '" data-armory-ids="' + span.data('armory-ids') + '"></div>');
+          tags.push(`<div data-armory-size="40" data-armory-embed="${type.substring(
+            5, type.length - 6)}" data-armory-ids="${span.data('armory-ids')}"></div>`);
         } else if (span.hasClass('icon')) {
-          tags.push('<div class="icon icon-lg ' + span.attr('class').split(' ')[1] + '"></div>');
+          tags.push(`<div class="icon icon-lg ${span.attr('class').split(' ')[1]}"></div>`);
         }
       });
 
       // Select modifiers
       $.each($([Selector.SELECT.RUNES, Selector.SELECT.SIGIL_1, Selector.SELECT.SIGIL_2,
         Selector.SELECT.FOOD, Selector.SELECT.UTILITY].join(','))
-        .children(Selector.DROPDOWN_MENU).children(Selector.DROPDOWN_ITEM + '.' + ClassName.ACTIVE
-          + '[data-' + DataAttribute.MODIFIER + ']'), function () {
+        .children(Selector.DROPDOWN_MENU).children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE
+           }[data-${DataAttribute.MODIFIER}]`), function () {
         rawModifiers.push($(this).data(DataAttribute.MODIFIER));
-        tags.push('<div data-armory-size="40" data-armory-embed="items" data-armory-ids="' + $(
-          this).children(Selector.SPAN).data('armory-ids') + '"></div>');
+        tags.push(`<div data-armory-size="40" data-armory-embed="items" data-armory-ids="${$(
+          this).children(Selector.SPAN).data('armory-ids')}"></div>`);
       });
 
       // Omnipotion
@@ -933,11 +934,11 @@
       settings = {};
 
       settings.profession = $(Selector.TOTAL)
-        .find('a.nav-link[data-' + DataAttribute.CLASS + '].' + ClassName.ACTIVE)
+        .find(`a.nav-link[data-${DataAttribute.CLASS}].${ClassName.ACTIVE}`)
         .data(DataAttribute.CLASS);
       settings.weapontype = $(Selector.SELECT.WEAPON_TYPE)
         .children(Selector.DROPDOWN_MENU)
-        .children(Selector.DROPDOWN_ITEM + '.' + ClassName.ACTIVE)
+        .children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE}`)
         .text()
         .trim();
 
@@ -1147,7 +1148,7 @@
 
       settings.rankby = $(Selector.SELECT.RANKBY)
         .children(Selector.DROPDOWN_MENU)
-        .children(Selector.DROPDOWN_ITEM + '.' + ClassName.ACTIVE)
+        .children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE}`)
         .text()
         .trim();
 
@@ -1157,14 +1158,14 @@
       settings.maxToughness = parseInt($(Selector.INPUT.MAX_TOUGHNESS).val(), 10);
       settings.maxResults = parseInt($(Selector.INPUT.MAX_RESULTS).val(), 10) || 10;
 
-      const primaryInfusionInput = $(Selector.SELECT.INFUSION + '-primary')
+      const primaryInfusionInput = $(`${Selector.SELECT.INFUSION}-primary`)
         .children(Selector.DROPDOWN_MENU)
-        .children(Selector.DROPDOWN_ITEM + '.' + ClassName.ACTIVE)
+        .children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE}`)
         .text()
         .trim();
-      const secondaryInfusionInput = $(Selector.SELECT.INFUSION + '-secondary')
+      const secondaryInfusionInput = $(`${Selector.SELECT.INFUSION}-secondary`)
         .children(Selector.DROPDOWN_MENU)
-        .children(Selector.DROPDOWN_ITEM + '.' + ClassName.ACTIVE)
+        .children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE}`)
         .text()
         .trim();
 
@@ -1181,7 +1182,7 @@
         settings.primaryInfusion = primaryInfusionInput;
         activeInfusions++;
         settings.primaryMaxInfusions = Math.max(
-          parseInt($(Selector.SELECT.INFUSION + '-primary-max').val(), 10) || MAX_INFUSIONS,
+          parseInt($(`${Selector.SELECT.INFUSION}-primary-max`).val(), 10) || MAX_INFUSIONS,
           0
         );
       }
@@ -1199,7 +1200,7 @@
           settings.secondaryInfusion = secondaryInfusionInput;
           activeInfusions++;
           settings.secondaryMaxInfusions = Math.max(
-            parseInt($(Selector.SELECT.INFUSION + '-secondary-max').val(), 10) || MAX_INFUSIONS,
+            parseInt($(`${Selector.SELECT.INFUSION}-secondary-max`).val(), 10) || MAX_INFUSIONS,
             0
           );
         } else {
@@ -1207,7 +1208,7 @@
           settings.primaryInfusion = secondaryInfusionInput;
           activeInfusions++;
           settings.primaryMaxInfusions = Math.max(
-            parseInt($(Selector.SELECT.INFUSION + '-secondary-max').val(), 10) || MAX_INFUSIONS,
+            parseInt($(`${Selector.SELECT.INFUSION}-secondary-max`).val(), 10) || MAX_INFUSIONS,
             0
           );
         }
@@ -1291,31 +1292,29 @@
             + !!settings.primaryInfusion + !!settings.secondaryInfusion
         );
       $(Selector.OUTPUT.PROGRESS_BAR)
-        .css('width', 0 + '%')
+        .css('width', `${0}%`)
         .children(Selector.SPAN)
         .text('0%');
       $(Selector.OUTPUT.PROGRESS_BAR).parent().show();
 
       $(Selector.OUTPUT.HEADER).html(
-        '<th>'
-          + settings.rankby
-          + '</th>'
-          + $.map(Slots[settings.weapontype], function (index) {
-            return '<th title="' + index.name + '">' + index.short + '</th>';
-          }).join('')
+        `<th>
+        ${settings.rankby}
+        </th>`
+          + $.map(Slots[settings.weapontype], slot =>
+            `<th title="${slot.name}">
+            ${slot.short}
+            </th>`
+          ).join('')
           + (settings.primaryInfusion
-            ? '<th title="'
-              + settings.primaryInfusion
-              + '">'
-              + settings.primaryInfusion.substring(0, 4)
-              + '</th>'
+            ? `<th title="${settings.primaryInfusion}">
+                ${settings.primaryInfusion.substring(0, 4)}
+              </th>`
             : '')
           + (settings.secondaryInfusion
-            ? '<th title="'
-              + settings.secondaryInfusion
-              + '">'
-              + settings.secondaryInfusion.substring(0, 4)
-              + '</th>'
+            ? `<th title="${settings.secondaryInfusion}">
+                ${settings.secondaryInfusion.substring(0, 4)}
+              </th>`
             : '')
       );
 
@@ -1340,12 +1339,12 @@
       if (!locked) {
         if (STOP_SIGNAL) {
           $(Selector.OUTPUT.PROGRESS_BAR).children('span')
-            .text('Cancelled after ' + (new Date() - startTime) + 'ms ('
-              + $(Selector.OUTPUT.PROGRESS_BAR).children('span').text() + ')');
+            .text(`Cancelled after ${new Date() - startTime}ms (${
+               $(Selector.OUTPUT.PROGRESS_BAR).children('span').text()})`);
         } else {
           $(Selector.OUTPUT.PROGRESS_BAR)
             .children('span')
-            .text('Completed in ' + (new Date() - startTime) + 'ms');
+            .text(`Completed in ${new Date() - startTime}ms`);
         }
 
         try {
@@ -1404,9 +1403,9 @@
               (calculationRuns * 100) / calculationTotal
             );
             $(Selector.OUTPUT.PROGRESS_BAR)
-              .css('width', percent + '%')
+              .css('width', `${percent}%`)
               .find(Selector.SPAN)
-              .text(percent + '%');
+              .text(`${percent}%`);
             // eslint-disable-next-line no-await-in-loop
             await new Promise(resolve => setTimeout(resolve, 0));
             timer = Date.now();
@@ -1485,7 +1484,7 @@
         const percent = Math.floor(
           (calculationRuns * 100) / calculationTotal
         );
-        $(Selector.OUTPUT.PROGRESS_BAR).css('width', percent + '%');
+        $(Selector.OUTPUT.PROGRESS_BAR).css('width', `${percent}%`);
 
         lock(false);
       }
@@ -1692,16 +1691,17 @@
 
     function characterToRow (character) {
       return $(
-        '<tr><td><strong>'
-          + Number(character.attributes[settings.rankby].toFixed(2)).toLocaleString('en-US')
-          + '</strong></td>'
-          + $.map(character.gear, function (value) {
-            return '<td><samp>' + value.substring(0, 4) + '</samp></td>';
-          }).join('')
-          + $.map(character.infusions, function (value) {
-            return '<td><samp>' + value + '</samp></td>';
-          }).join('')
-          + '</tr>'
+        `<tr>
+          <td><strong>
+            ${Number(character.attributes[settings.rankby].toFixed(2)).toLocaleString('en-US')}
+          </strong></td>
+          ${$.map(character.gear, attribute =>
+            `<td><samp>${attribute.substring(0, 4)}</samp></td>`
+          ).join('')}
+          ${$.map(character.infusions, count =>
+            `<td><samp>${count}</samp></td>`
+          ).join('')}
+        </tr>`
       ).data('character', character);
     }
 
@@ -1848,18 +1848,18 @@
         for (const condition of alwaysCalculateAll
           ? Attributes.CONDITION
           : settings.relevantConditions) {
-          _character.attributes[condition + ' Damage']
+          _character.attributes[`${condition} Damage`]
             = ((Condition[condition].factor * _character.attributes['Condition Damage'])
             + Condition[condition].baseDamage)
               * multipliers['Effective Condition Damage']
-              * (multipliers[condition + ' Damage'] || 1);
+              * (multipliers[`${condition} Damage`] || 1);
 
-          const duration = 1 + Math.min(((_character.attributes[condition + ' Duration'] || 0)
+          const duration = 1 + Math.min(((_character.attributes[`${condition} Duration`] || 0)
               + _character.attributes['Condition Duration']) / 100, 1);
 
           condiDamageScore += settings.distribution[condition]
             * duration
-            * (_character.attributes[condition + ' Damage'] || 1)
+            * (_character.attributes[`${condition} Damage`] || 1)
             / Condition[condition].baseDamage;
         }
         settings.condiResultCache.set(CONDI_CACHE_ID, condiDamageScore);
@@ -1919,20 +1919,19 @@
 
   // Generates the card, that shows up when one clicks on the result.
   const toModal = function (_character) {
-    const toCard = function (title, items) {
-      let card
-        = '<div class="card card-'
-        + _character.settings.profession
-        + ' mb-3"><div class="card-header card-header-small">'
-        + title
-        + '</div><div class="card-body p-0"><table'
-        + ' class="table table-sm table-hover">';
-      $.each(items, function (key, value) {
-        card += '<tr><th>' + key + '</th><td>' + value + '</td></tr>';
-      });
-      card += '</table></div></div>';
-      return card;
-    };
+    const toCard = (title, items) =>
+      `<div class="card card-${_character.settings.profession} mb-3">
+        <div class="card-header card-header-small">${title}</div>
+        <div class="card-body p-0">
+          <table class="table table-sm table-hover">
+            ${items
+              ? Object.entries(items).map(([key, value]) =>
+                  `<tr><th>${key}</th><td>${value}</td></tr>`
+                ).join('')
+              : ''}
+          </table>
+        </div>
+      </div>`;
 
     updateAttributes(_character, true);
     console.debug(_character);
@@ -1954,12 +1953,16 @@
     modal += '<div class="row">';
 
     // Tags
-    modal += '<div class="col-12 text-center"><div class="card card-'
-      + _character.settings.profession
-      + ' mb-3"><div class="card-header card-header-small">Modifiers</div><div'
-      + ' class="card-body character-tags">'
-      + _character.settings.tags.join('')
-      + '</div></div></div>';
+    modal += `<div class="col-12 text-center">
+        <div class="card card-${_character.settings.profession} mb-3">
+          <div class="card-header card-header-small">
+            Modifiers
+          </div>
+          <div class="card-body character-tags">
+            ${_character.settings.tags.join('')}
+          </div>
+        </div>
+      </div>`;
 
     // First column
     modal += '<div class="col-12 col-lg-6">';
@@ -1986,14 +1989,14 @@
       $.each(_character.settings.distribution, function (key, percentage) {
         if (key === 'Power') {
           const damage = (percentage * _character.attributes['Effective Power']) / 1025;
-          effectiveDamageDistribution['Power'] = ((damage / totalDamage) * 100).toFixed(1) + '%';
+          effectiveDamageDistribution['Power'] = `${((damage / totalDamage) * 100).toFixed(1)}%`;
         } else {
-          const duration = 1 + Math.min(((_character.attributes[key + ' Duration'] || 0)
+          const duration = 1 + Math.min(((_character.attributes[`${key} Duration`] || 0)
             + _character.attributes['Condition Duration']) / 100, 1);
           const damage = percentage * duration
-            * (_character.attributes[key + ' Damage'] / Condition[key].baseDamage);
-          effectiveDamageDistribution[key + ' Damage']
-            = ((damage / totalDamage) * 100).toFixed(1) + '%';
+            * (_character.attributes[`${key} Damage`] / Condition[key].baseDamage);
+          effectiveDamageDistribution[`${key} Damage`]
+            = `${((damage / totalDamage) * 100).toFixed(1)}%`;
         }
       });
       modal += toCard('Effective Damage Distribution', effectiveDamageDistribution);
@@ -2005,11 +2008,11 @@
           const damage = percentage * _character.attributes['Effective Power'] / 1025;
           damageIndicatorBreakdown['Power'] = Number(damage).toFixed(2).toLocaleString('en-US');
         } else {
-          const duration = 1 + Math.min(((_character.attributes[key + ' Duration'] || 0)
+          const duration = 1 + Math.min(((_character.attributes[`${key} Duration`] || 0)
             + _character.attributes['Condition Duration']) / 100, 1);
           const damage = percentage * duration
-            * (_character.attributes[key + ' Damage'] / Condition[key].baseDamage);
-          damageIndicatorBreakdown[key + ' Damage'] = Number(damage)
+            * (_character.attributes[`${key} Damage`] / Condition[key].baseDamage);
+          damageIndicatorBreakdown[`${key} Damage`] = Number(damage)
             .toFixed(2)
             .toLocaleString('en-US');
         }
@@ -2162,7 +2165,7 @@
     });
 
   // Priorities presets
-  $('[data-' + DataAttribute.PRIORITIES + ']').on(Event.CLICK, function () {
+  $(`[data-${DataAttribute.PRIORITIES}]`).on(Event.CLICK, function () {
     if ($(this).data(DataAttribute.PRIORITIES) === 'power-dps') {
       $('[id^=go-checkbox-affix-]').prop(PropertyName.CHECKED, false);
       $(Selector.CHECKBOX.AFFIX.BERSERKER).prop(PropertyName.CHECKED, true);
@@ -2195,7 +2198,7 @@
     }
   });
 
-  $('[data-' + DataAttribute.PRESELECTION + ']').on(Event.CLICK, function () {
+  $(`[data-${DataAttribute.PRESELECTION}]`).on(Event.CLICK, function () {
 
     if ($(this).data(DataAttribute.PRESELECTION) === 'pchrono') {
       $('[id^="go-checkbox-mesmer-"]').prop(PropertyName.CHECKED, false);
@@ -2443,7 +2446,7 @@
   });
 
   // Infusion presets
-  $(Selector.SELECT.INFUSION + '-presets button').click(function () {
+  $(`${Selector.SELECT.INFUSION}-presets button`).click(function () {
     const infusions = $(this).text() === 'None'
       ? ['None', 'None']
       : $(this).text().split(' + ');
@@ -2460,7 +2463,7 @@
   });
 
   // Buff presets
-  $('[data-' + DataAttribute.BUFFS + ']').on(Event.CLICK, function () {
+  $(`[data-${DataAttribute.BUFFS}]`).on(Event.CLICK, function () {
     if ($(this).data(DataAttribute.BUFFS) === 'none') {
       $(Selector.INPUT.BUFFS).find(Selector.CHECKBOXES).prop(PropertyName.CHECKED, false);
     } else if ($(this).data(DataAttribute.BUFFS) === 'fractal') {
@@ -2493,7 +2496,7 @@
   });
 
   // Distribution presets
-  $('[data-' + DataAttribute.DISTRIBUTION + ']').on(Event.CLICK, function () {
+  $(`[data-${DataAttribute.DISTRIBUTION}]`).on(Event.CLICK, function () {
     switch ($(this).data(DataAttribute.DISTRIBUTION)) {
       case 'power':
         $('#go-condition-distribution-slider')[0].noUiSlider.set([100, 100, 100, 100, 100]);
@@ -2532,7 +2535,7 @@
         $('#go-condition-distribution-slider')[0].noUiSlider.set([31, 77, 86, 95, 95]);
         break;
       default:
-        throw 'error: unimplemented button: ' + $(this).data(DataAttribute.DISTRIBUTION);
+        throw `error: unimplemented button: ${$(this).data(DataAttribute.DISTRIBUTION)}`;
     }
   });
 
@@ -2577,7 +2580,7 @@
   for (let i = 0; i < 6; i++) {
     $('#go-condition-distribution-slider')[0]
       .querySelectorAll('.noUi-connect')[i]
-      .classList.add('slider-bar-' + i);
+      .classList.add(`slider-bar-${i}`);
   }
 
   $('#go-condition-distribution-slider')[0].noUiSlider.on('update', function (values, handle) {
