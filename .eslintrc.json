@@ -9,7 +9,7 @@
     ],
     "extends": "semistandard",
     "rules": {
-        "padded-blocks": "off",
+        // "padded-blocks": "warn",
         "operator-linebreak": [
             "warn",
             "before"
@@ -42,6 +42,9 @@
         // ],
         "consistent-return": "warn",
         "object-shorthand": "warn",
-        "guard-for-in": "warn"
+        "guard-for-in": "warn",
+        "no-underscore-dangle": "warn"
+        //"no-throw-literal": "warn",
+        //"prefer-template": "warn",
     }
 }

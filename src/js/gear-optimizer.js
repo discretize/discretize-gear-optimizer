@@ -1,10 +1,4 @@
-/**
- * --------------------------------------------------------------------------
- * Gear Optimizer
- * --------------------------------------------------------------------------
- */
 (function ($) {
-
   /**
    * ------------------------------------------------------------------------
    * Constants
@@ -881,7 +875,6 @@
    */
 
   const Optimizer = function () {
-
     let settings;
     let list;
     let calculationQueue;
@@ -895,24 +888,23 @@
     // Fetches values from the html file, selected checkboxes and optimization goals.
     this.initialize = initialize;
     function initialize () {
-
       startTime = new Date();
 
-      const _modifiers = [];
-      const _tags = [];
+      const rawModifiers = [];
+      const tags = [];
 
       // Checkbox modifiers
       $.each($([Selector.INPUT.CLASS + ' ' + Selector.INPUT.TAB_PANE_ACTIVE,
         Selector.INPUT.BUFFS].join(',')).find(Selector.CHECKBOXES_CHECKED + '[data-'
           + DataAttribute.MODIFIER + ']'), function () {
-        _modifiers.push($(this).data(DataAttribute.MODIFIER));
+        rawModifiers.push($(this).data(DataAttribute.MODIFIER));
         const span = $(this).siblings(Selector.LABEL).children(Selector.SPAN);
         if (span.is('[data-armory-ids]')) {
           const type = span.children('div').attr('class').split(' ')[1];
-          _tags.push('<div data-armory-size="40" data-armory-embed="' + type.substring(
+          tags.push('<div data-armory-size="40" data-armory-embed="' + type.substring(
             5, type.length - 6) + '" data-armory-ids="' + span.data('armory-ids') + '"></div>');
         } else if (span.hasClass('icon')) {
-          _tags.push('<div class="icon icon-lg ' + span.attr('class').split(' ')[1] + '"></div>');
+          tags.push('<div class="icon icon-lg ' + span.attr('class').split(' ')[1] + '"></div>');
         }
       });
 
@@ -921,20 +913,20 @@
         Selector.SELECT.FOOD, Selector.SELECT.UTILITY].join(','))
         .children(Selector.DROPDOWN_MENU).children(Selector.DROPDOWN_ITEM + '.' + ClassName.ACTIVE
           + '[data-' + DataAttribute.MODIFIER + ']'), function () {
-        _modifiers.push($(this).data(DataAttribute.MODIFIER));
-        _tags.push('<div data-armory-size="40" data-armory-embed="items" data-armory-ids="' + $(
+        rawModifiers.push($(this).data(DataAttribute.MODIFIER));
+        tags.push('<div data-armory-size="40" data-armory-embed="items" data-armory-ids="' + $(
           this).children(Selector.SPAN).data('armory-ids') + '"></div>');
       });
 
       // Omnipotion
       if ($(Selector.CHECKBOX.OMNIPOTION).prop(PropertyName.CHECKED)) {
-        _modifiers.push(Omnipotion);
-        _tags.push(
+        rawModifiers.push(Omnipotion);
+        tags.push(
           '<div data-armory-size="40" data-armory-embed="items" data-armory-ids="79722"></div>'
         );
       }
 
-      _modifiers.push({
+      rawModifiers.push({
         flat: { 'Agony Resistance': parseInt($(Selector.INPUT.AGONY_RESISTANCE).val(), 10) || 0 }
       });
 
@@ -983,7 +975,7 @@
       let addEffectiveConditionDamage = 1;
       let addEffectivePower = 1;
 
-      $.each(_modifiers, function (index, modifiers) {
+      $.each(rawModifiers, function (index, modifiers) {
         if (!modifiers) {
           return;
         }
@@ -1015,7 +1007,6 @@
                         addEffectiveConditionDamage += value;
                       } else if (attribute === 'add: Effective Power') {
                         addEffectivePower += value;
-
                       } else if (!settings.modifiers[type][attribute]) {
                         settings.modifiers[type][attribute] = 1 + value;
                       } else {
@@ -1089,7 +1080,7 @@
       settings.modifiers['multiplier']['Effective Condition Damage'] *= addEffectiveConditionDamage;
       settings.modifiers['multiplier']['Effective Power'] *= addEffectivePower;
 
-      settings.tags = _tags;
+      settings.tags = tags;
 
       // all selected affixes
       settings.affixes = $(Selector.INPUT.AFFIXES)
@@ -1219,7 +1210,6 @@
             parseInt($(Selector.SELECT.INFUSION + '-secondary-max').val(), 10) || MAX_INFUSIONS,
             0
           );
-
         }
       }
 
@@ -1273,7 +1263,6 @@
     }
 
     function initializeMore () {
-
       // const freeSlots = settings.weapontype === 'Dual wield' ? 5 : 6;
       // const pairs = settings.weapontype === 'Dual wield' ? 3 : 2;
       // const triplets = 1;
@@ -1330,7 +1319,7 @@
             : '')
       );
 
-      _lock(true);
+      lock(true);
 
       calculationQueue = [];
       calculationQueue.push([]);
@@ -1340,15 +1329,15 @@
       setTimeout(calculate, 0);
     }
 
-    function _lock (lock) {
-      $('body').css('cursor', lock ? 'progress' : 'default');
-      $(Selector.INPUT.OPTIMIZER).css('opacity', lock ? 0.5 : 1);
-      $(Selector.INPUT.CLASS).css('opacity', lock ? 0.5 : 1);
-      $(Selector.START).prop(PropertyName.DISABLED, lock);
-      $(Selector.START).find('.fa').toggleClass('fa-spin', lock);
-      $(Selector.STOP).prop(PropertyName.DISABLED, !lock);
+    function lock (locked) {
+      $('body').css('cursor', locked ? 'progress' : 'default');
+      $(Selector.INPUT.OPTIMIZER).css('opacity', locked ? 0.5 : 1);
+      $(Selector.INPUT.CLASS).css('opacity', locked ? 0.5 : 1);
+      $(Selector.START).prop(PropertyName.DISABLED, locked);
+      $(Selector.START).find('.fa').toggleClass('fa-spin', locked);
+      $(Selector.STOP).prop(PropertyName.DISABLED, !locked);
 
-      if (!lock) {
+      if (!locked) {
         if (STOP_SIGNAL) {
           $(Selector.OUTPUT.PROGRESS_BAR).children('span')
             .text('Cancelled after ' + (new Date() - startTime) + 'ms ('
@@ -1398,20 +1387,18 @@
     }
 
     async function calculate () {
-
       // only update UI at around 15 frames per second
       let timer = Date.now();
       const UPDATE_MS = 55;
 
       if (STOP_SIGNAL) {
-        _lock(false);
+        lock(false);
       } else {
         let cycles = 0;
         while (calculationQueue.length) {
           cycles++;
 
           if ((cycles % 1000 === 0) && Date.now() - timer > UPDATE_MS) {
-
             // pause to let UI update and register a stop button press
             const percent = Math.floor(
               (calculationRuns * 100) / calculationTotal
@@ -1425,7 +1412,7 @@
             timer = Date.now();
 
             if (STOP_SIGNAL) {
-              _lock(false);
+              lock(false);
               return;
             }
           }
@@ -1463,7 +1450,7 @@
 
           if (nextSlot >= settings.slots.length) {
             calculationRuns++;
-            _testCharacter(gear, gearStats);
+            testCharacter(gear, gearStats);
             continue;
           }
 
@@ -1500,12 +1487,11 @@
         );
         $(Selector.OUTPUT.PROGRESS_BAR).css('width', percent + '%');
 
-        _lock(false);
+        lock(false);
       }
     }
 
-    function _testCharacter (gear, gearStats) {
-
+    function testCharacter (gear, gearStats) {
       if (!gear) {
         return;
       }
@@ -1534,20 +1520,14 @@
 
     const applyInfusions = {};
 
-    /**
-     * Applies no infusions
-     */
+    // Applies no infusions
     applyInfusions['None'] = function (character) {
-
       updateAttributes(character);
-      _insertCharacter(character);
+      insertCharacter(character);
     };
 
-    /**
-     * Just applies the primary infusion
-     */
+    // Just applies the primary infusion
     applyInfusions['Primary'] = function (character) {
-
       character.infusions = { [settings.primaryInfusion]: settings.primaryMaxInfusions };
       addBaseStats(
         character,
@@ -1555,14 +1535,11 @@
         settings.primaryMaxInfusions * INFUSION_BONUS
       );
       updateAttributes(character);
-      _insertCharacter(character);
+      insertCharacter(character);
     };
 
-    /**
-     * Just applies the maximum number of primary/secondary infusions, since the total is ≤18
-     */
+    // Just applies the maximum number of primary/secondary infusions, since the total is ≤18
     applyInfusions['Few'] = function (character) {
-
       character.infusions = {
         [settings.primaryInfusion]: settings.primaryMaxInfusions,
         [settings.secondaryInfusion]: settings.secondaryMaxInfusions
@@ -1578,7 +1555,7 @@
         settings.secondaryMaxInfusions * INFUSION_BONUS
       );
       updateAttributes(character);
-      _insertCharacter(character);
+      insertCharacter(character);
     };
 
     /**
@@ -1589,7 +1566,6 @@
      * build)
      */
     applyInfusions['Secondary'] = function (character) {
-
       const testInfusionUsefulness = function () {
         const temp = clone(character);
         addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
@@ -1620,7 +1596,7 @@
               [settings.primaryInfusion]: primaryCount,
               [settings.secondaryInfusion]: secondaryCount
             };
-            _insertCharacter(temp);
+            insertCharacter(temp);
             resultCache = temp.attributes[settings.rankby];
           }
           primaryCount--;
@@ -1629,11 +1605,8 @@
       }
     };
 
-    /**
-     *  Tests every valid combination of 18 infusions and inserts the best result
-     */
+    // Tests every valid combination of 18 infusions and inserts the best result
     applyInfusions['SecondaryNoDuplicates'] = function (character) {
-
       const testInfusionUsefulness = function () {
         const temp = clone(character);
         addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
@@ -1665,7 +1638,7 @@
               [settings.primaryInfusion]: primaryCount,
               [settings.secondaryInfusion]: secondaryCount
             };
-            if (!best || _characterLT(best, temp)) {
+            if (!best || characterLT(best, temp)) {
               best = temp;
             }
           }
@@ -1673,13 +1646,12 @@
           secondaryCount++;
         }
         if (best) {
-          _insertCharacter(best);
+          insertCharacter(best);
         }
       }
     };
 
-    function _insertCharacter (character) {
-
+    function insertCharacter (character) {
       if (
         !character.valid
         || (worstScore && worstScore > character.attributes[settings.rankby])
@@ -1688,10 +1660,10 @@
       }
 
       if (list.children().length === 0) {
-        list.append(_characterToRow(character));
+        list.append(characterToRow(character));
       } else {
         let position = list.children().length + 1;
-        while (position > 1 && _characterLT(
+        while (position > 1 && characterLT(
           list.children().eq(position - 2).data('character'), character)) {
           position--;
         }
@@ -1701,14 +1673,14 @@
         }
 
         if (position <= list.children().length) {
-          _characterToRow(character)
+          characterToRow(character)
             .insertBefore(list.children().eq(position - 1));
 
           if (list.children().length > settings.maxResults) {
             list.children().last().remove();
           }
         } else {
-          list.append(_characterToRow(character));
+          list.append(characterToRow(character));
         }
 
         if (list.children().length === settings.maxResults) {
@@ -1718,7 +1690,7 @@
       }
     }
 
-    function _characterToRow (character) {
+    function characterToRow (character) {
       return $(
         '<tr><td><strong>'
           + Number(character.attributes[settings.rankby].toFixed(2)).toLocaleString('en-US')
@@ -1734,8 +1706,7 @@
     }
 
     // returns true if B is better than A
-    function _characterLT (a, b) {
-
+    function characterLT (a, b) {
       // if (!a.valid && b.valid) {
       //     // A is invalid, B is valid -> replace A
       //     return true;
@@ -1769,7 +1740,6 @@
 
     //   return num / denom;
     // }
-
   };
 
   /**
@@ -1807,7 +1777,7 @@
     skipValidation = false
   ) {
     const { settings } = _character;
-    const _multipliers = settings.modifiers['multiplier'];
+    const multipliers = settings.modifiers['multiplier'];
     _character.valid = true;
 
     /* - Stat Point Totals - */
@@ -1853,12 +1823,12 @@
       _character.attributes['Critical Damage'] += _character.attributes['Ferocity'] / 15;
 
       const critDmg = _character.attributes['Critical Damage'] / 100
-        * _multipliers['Critical Damage'];
+        * multipliers['Critical Damage'];
       const critChance = Math.min(_character.attributes['Critical Chance'] / 100, 1);
 
       _character.attributes['Effective Power']
         = _character.attributes['Power'] * (1 + critChance * (critDmg - 1))
-          * _multipliers['Effective Power'];
+          * multipliers['Effective Power'];
 
       const powerDamageScore = settings.distribution['Power']
         * (_character.attributes['Effective Power'] / 1025);
@@ -1878,12 +1848,11 @@
         for (const condition of alwaysCalculateAll
           ? Attributes.CONDITION
           : settings.relevantConditions) {
-
           _character.attributes[condition + ' Damage']
             = ((Condition[condition].factor * _character.attributes['Condition Damage'])
             + Condition[condition].baseDamage)
-              * _multipliers['Effective Condition Damage']
-              * (_multipliers[condition + ' Damage'] || 1);
+              * multipliers['Effective Condition Damage']
+              * (multipliers[condition + ' Damage'] || 1);
 
           const duration = 1 + Math.min(((_character.attributes[condition + ' Duration'] || 0)
               + _character.attributes['Condition Duration']) / 100, 1);
@@ -1905,25 +1874,23 @@
     /* - Survivability - */
 
     if (alwaysCalculateAll || settings.rankby === 'Survivability') {
-
       _character.attributes['Armor'] += _character.attributes['Toughness'];
       _character.attributes['Health'] += _character.attributes['Vitality'] * 10;
 
       _character.attributes['Effective Health']
         = _character.attributes['Health'] * _character.attributes['Armor']
-          * _multipliers['Effective Health'];
+          * multipliers['Effective Health'];
       _character.attributes['Survivability'] = _character.attributes['Effective Health'] / 1967;
     }
 
     /* - Healing - */
 
     if (alwaysCalculateAll || settings.rankby === 'Healing') {
-
       // reasonably representative skill: druid celestial avatar 4 pulse
       // 390 base, 0.3 coefficient
       _character.attributes['Effective Healing']
         = (_character.attributes['Healing Power'] * 0.3 + 390)
-          * _multipliers['Effective Healing'];
+          * multipliers['Effective Healing'];
       if (Object.prototype.hasOwnProperty.call(settings.modifiers, 'bountiful-maintenance-oil')) {
         const bonus
           = ((_character.attributes['Healing Power'] || 0) * 0.6) / 10000
@@ -1952,7 +1919,7 @@
 
   // Generates the card, that shows up when one clicks on the result.
   const toModal = function (_character) {
-    const _toCard = function (title, items) {
+    const toCard = function (title, items) {
       let card
         = '<div class="card card-'
         + _character.settings.profession
@@ -2002,15 +1969,15 @@
       indicators[attribute] = Number(_character.attributes[attribute].toFixed(4))
         .toLocaleString('en-US');
     });
-    modal += _toCard('Indicators', indicators);
+    modal += toCard('Indicators', indicators);
 
     const gear = {};
     $.each(_character.gear, function (index, value) {
       gear[Slots[_character.settings.weapontype][index].name] = value;
     });
-    modal += _toCard('Gear', gear);
+    modal += toCard('Gear', gear);
 
-    modal += _toCard('Stat Infusions', _character.infusions);
+    modal += toCard('Stat Infusions', _character.infusions);
 
     if (_character.settings.distribution['Power'] !== 100) {
       // effective damage distribution
@@ -2029,7 +1996,7 @@
             = ((damage / totalDamage) * 100).toFixed(1) + '%';
         }
       });
-      modal += _toCard('Effective Damage Distribution', effectiveDamageDistribution);
+      modal += toCard('Effective Damage Distribution', effectiveDamageDistribution);
 
       // damage indicator breakdown
       const damageIndicatorBreakdown = {};
@@ -2047,7 +2014,7 @@
             .toLocaleString('en-US');
         }
       });
-      modal += _toCard('Damage indicator breakdown', damageIndicatorBreakdown);
+      modal += toCard('Damage indicator breakdown', damageIndicatorBreakdown);
     }
 
     // effective gain from adding +5 infusions
@@ -2063,7 +2030,7 @@
         ).toLocaleString('en-US');
       }
     );
-    modal += _toCard('Damage increase from +5 of attribute', effectiveValues);
+    modal += toCard('Damage increase from +5 of attribute', effectiveValues);
 
     // effective loss by not having +5 infusions
     const effectiveNegativeValues = {};
@@ -2078,7 +2045,7 @@
         ).toLocaleString('en-US');
       }
     );
-    modal += _toCard('Damage loss from -5 of attribute', effectiveNegativeValues);
+    modal += toCard('Damage loss from -5 of attribute', effectiveNegativeValues);
 
     modal += '</div>';
     // End of first column
@@ -2090,13 +2057,13 @@
     $.each(Attributes.PRIMARY, function (index, attribute) {
       primaryAttributes[attribute] = _character.attributes[attribute] || 0;
     });
-    modal += _toCard('Primary Attributes', primaryAttributes);
+    modal += toCard('Primary Attributes', primaryAttributes);
 
     const secondaryAttributes = {};
     $.each(Attributes.SECONDARY, function (index, attribute) {
       secondaryAttributes[attribute] = _character.attributes[attribute] || 0;
     });
-    modal += _toCard('Secondary Attributes', secondaryAttributes);
+    modal += toCard('Secondary Attributes', secondaryAttributes);
 
     const derivedAttributes = {};
     $.each(Attributes.DERIVED, function (index, attribute) {
@@ -2117,14 +2084,14 @@
           break;
       }
     });
-    modal += _toCard('Derived Attributes', derivedAttributes);
+    modal += toCard('Derived Attributes', derivedAttributes);
 
     const effectiveAttributes = {};
     $.each(Attributes.EFFECTIVE, function (index, attribute) {
       const value = _character.attributes[attribute] || 0;
       effectiveAttributes[attribute] = Number(value.toFixed(5)).toLocaleString('en-US');
     });
-    modal += _toCard('Effective Attributes', effectiveAttributes);
+    modal += toCard('Effective Attributes', effectiveAttributes);
 
     const durationAttributes = {};
     let showDurations = false;
@@ -2149,14 +2116,14 @@
       }
     });
     if (showDurations) {
-      modal += _toCard('Special Durations', durationAttributes);
+      modal += toCard('Special Durations', durationAttributes);
     }
 
     const conditionAttributes = {};
     $.each(Attributes.CONDITION_DAMAGE, function (index, attribute) {
       conditionAttributes[attribute] = (_character.attributes[attribute] || 0).toFixed(2);
     });
-    modal += _toCard('Condition Damage Ticks', conditionAttributes);
+    modal += toCard('Condition Damage Ticks', conditionAttributes);
 
     modal += '</div>';
     // End of second column
