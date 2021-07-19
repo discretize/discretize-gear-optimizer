@@ -875,20 +875,20 @@
    * ------------------------------------------------------------------------
    */
 
+  const list = $(Selector.OUTPUT.LIST);
+
   const Optimizer = function () {
-    let settings;
-    let list;
-    let calculationQueue;
-    let calculationStatsQueue;
-    let startTime;
+
     let applyInfusionsFunction;
-    let calculationRuns;
-    let calculationTotal;
+
+    let startTime;
     let worstScore;
 
     // Fetches values from the html file, selected checkboxes and optimization goals.
-    this.initialize = initialize;
-    function initialize () {
+    // todo: put this comment in right place later lol
+
+    this.run = run;
+    async function run () {
       startTime = new Date();
 
       const rawModifiers = [];
@@ -931,7 +931,7 @@
         flat: { 'Agony Resistance': parseInt($(Selector.INPUT.AGONY_RESISTANCE).val(), 10) || 0 }
       });
 
-      settings = {};
+      const settings = {};
 
       settings.profession = $(Selector.TOTAL)
         .find(`a.nav-link[data-${DataAttribute.CLASS}].${ClassName.ACTIVE}`)
@@ -1260,10 +1260,6 @@
 
       Object.freeze(settings);
 
-      initializeMore();
-    }
-
-    function initializeMore () {
       // const freeSlots = settings.weapontype === 'Dual wield' ? 5 : 6;
       // const pairs = settings.weapontype === 'Dual wield' ? 3 : 2;
       // const triplets = 1;
@@ -1274,14 +1270,13 @@
       //     + settings.affixes.length * (settings.affixes.length - triplets)
       //     + _choose(settings.affixes.length, 3));
 
-      calculationTotal = 1;
+      let calculationTotal = 1;
       for (let i = 0; i < settings.affixesArray.length; i++) {
         calculationTotal *= settings.affixesArray[i].length;
       }
 
       STOP_SIGNAL = false;
-      calculationRuns = 0;
-      list = $(Selector.OUTPUT.LIST);
+      let calculationRuns = 0;
       list.empty();
 
       $(Selector.OUTPUT.PROGRESS_BAR)
@@ -1320,72 +1315,11 @@
 
       lock(true);
 
-      calculationQueue = [];
+      const calculationQueue = [];
       calculationQueue.push([]);
-      calculationStatsQueue = [];
+      const calculationStatsQueue = [];
       calculationStatsQueue.push({});
 
-      setTimeout(calculate, 0);
-    }
-
-    function lock (locked) {
-      $('body').css('cursor', locked ? 'progress' : 'default');
-      $(Selector.INPUT.OPTIMIZER).css('opacity', locked ? 0.5 : 1);
-      $(Selector.INPUT.CLASS).css('opacity', locked ? 0.5 : 1);
-      $(Selector.START).prop(PropertyName.DISABLED, locked);
-      $(Selector.START).find('.fa').toggleClass('fa-spin', locked);
-      $(Selector.STOP).prop(PropertyName.DISABLED, !locked);
-
-      if (!locked) {
-        if (STOP_SIGNAL) {
-          $(Selector.OUTPUT.PROGRESS_BAR).children('span')
-            .text(`Cancelled after ${new Date() - startTime}ms (${
-               $(Selector.OUTPUT.PROGRESS_BAR).children('span').text()})`);
-        } else {
-          $(Selector.OUTPUT.PROGRESS_BAR)
-            .children('span')
-            .text(`Completed in ${new Date() - startTime}ms`);
-        }
-
-        try {
-          // display indicator line under the results identical to the best
-          const bestValue = list.children().eq(0)
-            .data('character').attributes[settings.rankby];
-          // eslint-disable-next-line consistent-return
-          list.children().each(function (i, element) {
-            if ($(element).data('character').attributes[settings.rankby] !== bestValue) {
-              $(element).prev().css('border-bottom', '4px solid #2f3238');
-              return false; // jquery loop break
-            }
-          });
-
-          // slightly fade the most common affix
-          const attrCount = {};
-          $('#go-output samp').each(function (i, element) {
-            const attr = $(element).text();
-            attrCount[attr] = (attrCount[attr] || 0) + 1;
-          });
-          const max = Math.max.apply(null, Object.values(attrCount));
-          let mostFrequent = '';
-          Object.entries(attrCount).forEach(([attr, count]) => {
-            if (count === max) {
-              mostFrequent = attr;
-            }
-          });
-          $('#go-output samp').each(function (i, element) {
-            if ($(element).text() === mostFrequent) {
-              $(element).css('opacity', '0.7');
-            } else {
-              $(element).css('color', '#ddd');
-            }
-          });
-        } catch (e) {
-          // discard error
-        }
-      }
-    }
-
-    async function calculate () {
       // only update UI at around 15 frames per second
       let timer = Date.now();
       const UPDATE_MS = 55;
@@ -1449,7 +1383,7 @@
 
           if (nextSlot >= settings.slots.length) {
             calculationRuns++;
-            testCharacter(gear, gearStats);
+            testCharacter(gear, gearStats, settings);
             continue;
           }
 
@@ -1490,7 +1424,65 @@
       }
     }
 
-    function testCharacter (gear, gearStats) {
+    function lock (locked) {
+      $('body').css('cursor', locked ? 'progress' : 'default');
+      $(Selector.INPUT.OPTIMIZER).css('opacity', locked ? 0.5 : 1);
+      $(Selector.INPUT.CLASS).css('opacity', locked ? 0.5 : 1);
+      $(Selector.START).prop(PropertyName.DISABLED, locked);
+      $(Selector.START).find('.fa').toggleClass('fa-spin', locked);
+      $(Selector.STOP).prop(PropertyName.DISABLED, !locked);
+
+      if (!locked) {
+        if (STOP_SIGNAL) {
+          $(Selector.OUTPUT.PROGRESS_BAR).children('span')
+            .text(`Cancelled after ${new Date() - startTime}ms (${
+               $(Selector.OUTPUT.PROGRESS_BAR).children('span').text()})`);
+        } else {
+          $(Selector.OUTPUT.PROGRESS_BAR)
+            .children('span')
+            .text(`Completed in ${new Date() - startTime}ms`);
+        }
+
+        try {
+          const getSortValue = character => character.attributes[character.settings.rankby];
+
+          // display indicator line under the results identical to the best
+          const bestValue = getSortValue(list.children().eq(0).data('character'));
+          // eslint-disable-next-line consistent-return
+          list.children().each(function (i, element) {
+            if (getSortValue($(element).data('character')) !== bestValue) {
+              $(element).prev().css('border-bottom', '4px solid #2f3238');
+              return false; // jquery loop break
+            }
+          });
+
+          // slightly fade the most common affix
+          const attrCount = {};
+          $('#go-output samp').each(function (i, element) {
+            const attr = $(element).text();
+            attrCount[attr] = (attrCount[attr] || 0) + 1;
+          });
+          const max = Math.max.apply(null, Object.values(attrCount));
+          let mostFrequent = '';
+          Object.entries(attrCount).forEach(([attr, count]) => {
+            if (count === max) {
+              mostFrequent = attr;
+            }
+          });
+          $('#go-output samp').each(function (i, element) {
+            if ($(element).text() === mostFrequent) {
+              $(element).css('opacity', '0.7');
+            } else {
+              $(element).css('color', '#ddd');
+            }
+          });
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    }
+
+    function testCharacter (gear, gearStats, settings) {
       if (!gear) {
         return;
       }
@@ -1527,6 +1519,7 @@
 
     // Just applies the primary infusion
     applyInfusions['Primary'] = function (character) {
+      const { settings } = character;
       character.infusions = { [settings.primaryInfusion]: settings.primaryMaxInfusions };
       addBaseStats(
         character,
@@ -1539,6 +1532,8 @@
 
     // Just applies the maximum number of primary/secondary infusions, since the total is ≤18
     applyInfusions['Few'] = function (character) {
+      const { settings } = character;
+
       character.infusions = {
         [settings.primaryInfusion]: settings.primaryMaxInfusions,
         [settings.secondaryInfusion]: settings.secondaryMaxInfusions
@@ -1565,6 +1560,8 @@
      * build)
      */
     applyInfusions['Secondary'] = function (character) {
+      const { settings } = character;
+
       const testInfusionUsefulness = function () {
         const temp = clone(character);
         addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
@@ -1606,6 +1603,8 @@
 
     // Tests every valid combination of 18 infusions and inserts the best result
     applyInfusions['SecondaryNoDuplicates'] = function (character) {
+      const { settings } = character;
+
       const testInfusionUsefulness = function () {
         const temp = clone(character);
         addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
@@ -1651,6 +1650,8 @@
     };
 
     function insertCharacter (character) {
+      const { settings } = character;
+
       if (
         !character.valid
         || (worstScore && worstScore > character.attributes[settings.rankby])
@@ -1690,6 +1691,8 @@
     }
 
     function characterToRow (character) {
+      const { settings } = character;
+
       return $(
         `<tr>
           <td><strong>
@@ -1707,6 +1710,8 @@
 
     // returns true if B is better than A
     function characterLT (a, b) {
+      const { settings } = a;
+
       // if (!a.valid && b.valid) {
       //     // A is invalid, B is valid -> replace A
       //     return true;
@@ -2541,7 +2546,7 @@
 
   // Calculate button
   $(Selector.START).on(Event.CLICK, function () {
-    new Optimizer().initialize();
+    new Optimizer().run();
   });
 
   $(Selector.STOP).on(Event.CLICK, function () {
