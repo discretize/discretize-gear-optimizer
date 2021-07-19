@@ -881,14 +881,23 @@
    * ------------------------------------------------------------------------
    */
 
-  class Optimizer {
+  const Optimizer = function () {
 
-    // Constructor.
+    let settings;
+    let list;
+    let calculationQueue;
+    let calculationStatsQueue;
+    let startTime;
+    let applyInfusionsFunction;
+    let calculationRuns;
+    let calculationTotal;
+    let worstScore;
+
     // Fetches values from the html file, selected checkboxes and optimization goals.
-    initialize () {
-      const _optimizer = this;
+    this.initialize = initialize;
+    function initialize () {
 
-      _optimizer.startTime = new Date();
+      startTime = new Date();
 
       const _modifiers = [];
       const _tags = [];
@@ -930,8 +939,7 @@
         flat: { 'Agony Resistance': parseInt($(Selector.INPUT.AGONY_RESISTANCE).val()) || 0 }
       });
 
-      _optimizer.settings = {};
-      const { settings } = _optimizer;
+      settings = {};
 
       settings.profession = $(Selector.TOTAL)
         .find('a.nav-link[data-' + DataAttribute.CLASS + '].' + ClassName.ACTIVE)
@@ -1233,10 +1241,10 @@
           }
       }
       console.log('Infusion calculation mode:', infusionMode);
-      if (_optimizer['_applyInfusions' + infusionMode] === undefined) {
+      if (applyInfusions[infusionMode] === undefined) {
         throw 'Error: optimizer selected invalid infusion calculation mode';
       }
-      _optimizer._applyInfusions = _optimizer['_applyInfusions' + infusionMode];
+      applyInfusionsFunction = applyInfusions[infusionMode];
 
       settings.distribution = {
         Power: 0,
@@ -1258,32 +1266,32 @@
 
       settings.condiResultCache = new Map();
 
-      Object.freeze(_optimizer.settings);
+      Object.freeze(settings);
+
+      initializeMore();
     }
 
-    calculate () {
-      const _optimizer = this;
-      const { settings } = _optimizer;
+    function initializeMore () {
 
       // const freeSlots = settings.weapontype === 'Dual wield' ? 5 : 6;
       // const pairs = settings.weapontype === 'Dual wield' ? 3 : 2;
       // const triplets = 1;
-      // _optimizer.calculationTotal
+      // calculationTotal
       //   = Math.pow(settings.affixes.length, freeSlots)
-      //   * Math.pow(settings.affixes.length + _optimizer._choose(settings.affixes.length, 2), pairs)
+      //   * Math.pow(settings.affixes.length + _choose(settings.affixes.length, 2), pairs)
       //   * (settings.affixes.length
       //     + settings.affixes.length * (settings.affixes.length - triplets)
-      //     + _optimizer._choose(settings.affixes.length, 3));
+      //     + _choose(settings.affixes.length, 3));
 
-      _optimizer.calculationTotal = 1;
+      calculationTotal = 1;
       for (let i = 0; i < settings.affixesArray.length; i++) {
-        _optimizer.calculationTotal *= settings.affixesArray[i].length;
+        calculationTotal *= settings.affixesArray[i].length;
       }
 
       STOP_SIGNAL = false;
-      _optimizer.calculationRuns = 0;
-      _optimizer.list = $(Selector.OUTPUT.LIST);
-      _optimizer.list.empty();
+      calculationRuns = 0;
+      list = $(Selector.OUTPUT.LIST);
+      list.empty();
 
       $(Selector.OUTPUT.PROGRESS_BAR)
         .closest('td')
@@ -1321,17 +1329,17 @@
             : '')
       );
 
-      _optimizer._lock(true);
+      _lock(true);
 
-      _optimizer.calculationQueue = [];
-      _optimizer.calculationQueue.push([]);
-      _optimizer.calculationStatsQueue = [];
-      _optimizer.calculationStatsQueue.push({});
+      calculationQueue = [];
+      calculationQueue.push([]);
+      calculationStatsQueue = [];
+      calculationStatsQueue.push({});
 
-      setTimeout(_optimizer._advanceCalculation.bind(_optimizer), 0);
+      setTimeout(calculate, 0);
     }
 
-    _lock (lock) {
+    function _lock (lock) {
       $('body').css('cursor', lock ? 'progress' : 'default');
       $(Selector.INPUT.OPTIMIZER).css('opacity', lock ? 0.5 : 1);
       $(Selector.INPUT.CLASS).css('opacity', lock ? 0.5 : 1);
@@ -1342,21 +1350,18 @@
       if (!lock) {
         if (STOP_SIGNAL) {
           $(Selector.OUTPUT.PROGRESS_BAR).children('span')
-            .text('Cancelled after ' + (new Date() - this.startTime) + 'ms ('
+            .text('Cancelled after ' + (new Date() - startTime) + 'ms ('
               + $(Selector.OUTPUT.PROGRESS_BAR).children('span').text() + ')');
         } else {
           $(Selector.OUTPUT.PROGRESS_BAR)
             .children('span')
-            .text('Completed in ' + (new Date() - this.startTime) + 'ms');
+            .text('Completed in ' + (new Date() - startTime) + 'ms');
         }
 
-        const _optimizer = this;
-        const { settings } = _optimizer;
-
         // display indicator line under the results identical to the best
-        const bestValue = _optimizer.list.children().eq(0)
+        const bestValue = list.children().eq(0)
           .data('character').attributes[settings.rankby];
-        _optimizer.list.children().each(function (i, element) {
+        list.children().each(function (i, element) {
           if ($(element).data('character').attributes[settings.rankby] !== bestValue) {
             $(element).prev().css('border-bottom', '4px solid #2f3238');
             return false; // jquery loop break
@@ -1386,26 +1391,24 @@
       }
     }
 
-    async _advanceCalculation () {
-      const _optimizer = this;
-      const { settings } = _optimizer;
+    async function calculate () {
 
       // only update UI at around 15 frames per second
       let timer = Date.now();
       const UPDATE_MS = 55;
 
       if (STOP_SIGNAL) {
-        _optimizer._lock(false);
+        _lock(false);
       } else {
         let cycles = 0;
-        while (_optimizer.calculationQueue.length) {
+        while (calculationQueue.length) {
           cycles++;
 
           if ((cycles % 1000 === 0) && Date.now() - timer > UPDATE_MS) {
 
             // pause to let UI update and register a stop button press
             const percent = Math.floor(
-              (_optimizer.calculationRuns * 100) / _optimizer.calculationTotal
+              (calculationRuns * 100) / calculationTotal
             );
             $(Selector.OUTPUT.PROGRESS_BAR)
               .css('width', percent + '%')
@@ -1415,13 +1418,13 @@
             timer = Date.now();
 
             if (STOP_SIGNAL) {
-              _optimizer._lock(false);
+              _lock(false);
               return;
             }
           }
 
-          const gear = _optimizer.calculationQueue.pop();
-          const gearStats = _optimizer.calculationStatsQueue.pop();
+          const gear = calculationQueue.pop();
+          const gearStats = calculationStatsQueue.pop();
           const nextSlot = gear.length;
 
           /**
@@ -1447,13 +1450,13 @@
             || (!settings.forcedArmor && nextSlot === 6
               && (gear[1] > gear[3] || gear[3] > gear[5]))
           ) {
-            _optimizer.calculationRuns += settings.runsAfterThisSlot[nextSlot];
+            calculationRuns += settings.runsAfterThisSlot[nextSlot];
             continue;
           }
 
           if (nextSlot >= settings.slots.length) {
-            _optimizer.calculationRuns++;
-            _optimizer._testCharacter(gear, gearStats);
+            calculationRuns++;
+            _testCharacter(gear, gearStats);
             continue;
           }
 
@@ -1470,8 +1473,8 @@
               newGearStats[stat] = (newGearStats[stat] || 0) + bonus;
             }
 
-            _optimizer.calculationQueue.push(newGear);
-            _optimizer.calculationStatsQueue.push(newGearStats);
+            calculationQueue.push(newGear);
+            calculationStatsQueue.push(newGearStats);
           }
           const currentAffix = settings.affixesArray[nextSlot][0];
           gear[nextSlot] = currentAffix;
@@ -1481,22 +1484,20 @@
             gearStats[stat] = (gearStats[stat] || 0) + bonus;
           }
 
-          _optimizer.calculationQueue.push(gear);
-          _optimizer.calculationStatsQueue.push(gearStats);
+          calculationQueue.push(gear);
+          calculationStatsQueue.push(gearStats);
         }
 
         const percent = Math.floor(
-          (_optimizer.calculationRuns * 100) / _optimizer.calculationTotal
+          (calculationRuns * 100) / calculationTotal
         );
         $(Selector.OUTPUT.PROGRESS_BAR).css('width', percent + '%');
 
-        _optimizer._lock(false);
+        _lock(false);
       }
     }
 
-    _testCharacter (gear, gearStats) {
-      const _optimizer = this;
-      const { settings } = _optimizer;
+    function _testCharacter (gear, gearStats) {
 
       if (!gear) {
         return;
@@ -1504,7 +1505,7 @@
 
       const character = {
         gear: gear, // passed by reference
-        settings: _optimizer.settings, // passed by reference
+        settings: settings, // passed by reference
         attributes: null,
         valid: true,
         baseAttributes: Object.assign({}, settings.baseAttributes)
@@ -1515,62 +1516,62 @@
         character.baseAttributes[stat] += gearStats[stat];
       }
 
-      // _applyInfusions is aliased to the correct _applyInfusions[mode] function during setup
-      _optimizer._applyInfusions(character);
+      // applyInfusionsFunction is aliased to the correct applyInfusions[mode] function during setup
+      applyInfusionsFunction(character);
     }
 
-    addBaseStats (character, stat, amount) {
+    function addBaseStats (character, stat, amount) {
       character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + amount;
     }
+
+    const applyInfusions = {};
 
     /**
      * Applies no infusions
      */
-    _applyInfusionsNone (character) {
-      const _optimizer = this;
+    applyInfusions['None'] = function (character) {
+
       updateAttributes(character);
-      _optimizer._insertCharacter(character);
-    }
+      _insertCharacter(character);
+    };
 
     /**
      * Just applies the primary infusion
      */
-    _applyInfusionsPrimary (character) {
-      const _optimizer = this;
-      const { settings } = _optimizer;
+    applyInfusions['Primary'] = function (character) {
+
       character.infusions = { [settings.primaryInfusion]: settings.primaryMaxInfusions };
-      _optimizer.addBaseStats(
+      addBaseStats(
         character,
         settings.primaryInfusion,
         settings.primaryMaxInfusions * INFUSION_BONUS
       );
       updateAttributes(character);
-      _optimizer._insertCharacter(character);
-    }
+      _insertCharacter(character);
+    };
 
     /**
      * Just applies the maximum number of primary/secondary infusions, since the total is ≤18
      */
-    _applyInfusionsFew (character) {
-      const _optimizer = this;
-      const { settings } = _optimizer;
+    applyInfusions['Few'] = function (character) {
+
       character.infusions = {
         [settings.primaryInfusion]: settings.primaryMaxInfusions,
         [settings.secondaryInfusion]: settings.secondaryMaxInfusions
       };
-      _optimizer.addBaseStats(
+      addBaseStats(
         character,
         settings.primaryInfusion,
         settings.primaryMaxInfusions * INFUSION_BONUS
       );
-      _optimizer.addBaseStats(
+      addBaseStats(
         character,
         settings.secondaryInfusion,
         settings.secondaryMaxInfusions * INFUSION_BONUS
       );
       updateAttributes(character);
-      _optimizer._insertCharacter(character);
-    }
+      _insertCharacter(character);
+    };
 
     /**
      * Inserts every valid combination of 18 infusions
@@ -1579,30 +1580,28 @@
      * identical-for-all-practical-purposes setups if you select e.g. condi infusions on a power
      * build)
      */
-    _applyInfusionsSecondary (character) {
-      const _optimizer = this;
-      const { settings } = _optimizer;
+    applyInfusions['Secondary'] = function (character) {
 
       const testInfusionUsefulness = function () {
         const temp = clone(character);
-        _optimizer.addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
-        _optimizer.addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
+        addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
+        addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
         updateAttributes(temp, false, true);
-        return temp.attributes[settings.rankby] > _optimizer.worstScore;
+        return temp.attributes[settings.rankby] > worstScore;
       };
 
-      if (!_optimizer.worstScore || testInfusionUsefulness()) {
+      if (!worstScore || testInfusionUsefulness()) {
         let resultCache;
 
         let primaryCount = settings.primaryMaxInfusions;
         let secondaryCount = MAX_INFUSIONS - primaryCount;
         while (secondaryCount <= settings.secondaryMaxInfusions) {
           const temp = clone(character);
-          _optimizer.addBaseStats(
+          addBaseStats(
             temp,
             settings.primaryInfusion,
             primaryCount * INFUSION_BONUS);
-          _optimizer.addBaseStats(
+          addBaseStats(
             temp,
             settings.secondaryInfusion,
             secondaryCount * INFUSION_BONUS
@@ -1613,43 +1612,41 @@
               [settings.primaryInfusion]: primaryCount,
               [settings.secondaryInfusion]: secondaryCount
             };
-            _optimizer._insertCharacter(temp);
+            _insertCharacter(temp);
             resultCache = temp.attributes[settings.rankby];
           }
           primaryCount--;
           secondaryCount++;
         }
       }
-    }
+    };
 
     /**
      *  Tests every valid combination of 18 infusions and inserts the best result
      */
-    _applyInfusionsSecondaryNoDuplicates (character) {
-      const _optimizer = this;
-      const { settings } = _optimizer;
+    applyInfusions['SecondaryNoDuplicates'] = function (character) {
 
       const testInfusionUsefulness = function () {
         const temp = clone(character);
-        _optimizer.addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
-        _optimizer.addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
+        addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
+        addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
         updateAttributes(temp, false, true);
-        return temp.attributes[settings.rankby] > _optimizer.worstScore;
+        return temp.attributes[settings.rankby] > worstScore;
       };
 
-      if (!_optimizer.worstScore || testInfusionUsefulness()) {
+      if (!worstScore || testInfusionUsefulness()) {
         let best = null;
 
         let primaryCount = settings.primaryMaxInfusions;
         let secondaryCount = MAX_INFUSIONS - primaryCount;
         while (secondaryCount <= settings.secondaryMaxInfusions) {
           const temp = clone(character);
-          _optimizer.addBaseStats(
+          addBaseStats(
             temp,
             settings.primaryInfusion,
             primaryCount * INFUSION_BONUS
           );
-          _optimizer.addBaseStats(
+          addBaseStats(
             temp,
             settings.secondaryInfusion,
             secondaryCount * INFUSION_BONUS
@@ -1660,7 +1657,7 @@
               [settings.primaryInfusion]: primaryCount,
               [settings.secondaryInfusion]: secondaryCount
             };
-            if (!best || _optimizer._characterLT(best, temp)) {
+            if (!best || _characterLT(best, temp)) {
               best = temp;
             }
           }
@@ -1668,28 +1665,26 @@
           secondaryCount++;
         }
         if (best) {
-          _optimizer._insertCharacter(best);
+          _insertCharacter(best);
         }
       }
-    }
+    };
 
-    _insertCharacter (character) {
-      const _optimizer = this;
-      const { settings } = _optimizer;
+    function _insertCharacter (character) {
 
       if (
         !character.valid
-        || (_optimizer.worstScore && _optimizer.worstScore > character.attributes[settings.rankby])
+        || (worstScore && worstScore > character.attributes[settings.rankby])
       ) {
         return;
       }
 
-      if (_optimizer.list.children().length === 0) {
-        _optimizer.list.append(_optimizer._characterToRow(character));
+      if (list.children().length === 0) {
+        list.append(_characterToRow(character));
       } else {
-        let position = _optimizer.list.children().length + 1;
-        while (position > 1 && _optimizer._characterLT(
-          _optimizer.list.children().eq(position - 2).data('character'), character)) {
+        let position = list.children().length + 1;
+        while (position > 1 && _characterLT(
+          list.children().eq(position - 2).data('character'), character)) {
           position--;
         }
 
@@ -1697,26 +1692,25 @@
           return;
         }
 
-        if (position <= _optimizer.list.children().length) {
-          _optimizer
-            ._characterToRow(character)
-            .insertBefore(_optimizer.list.children().eq(position - 1));
+        if (position <= list.children().length) {
+          _characterToRow(character)
+            .insertBefore(list.children().eq(position - 1));
 
-          if (_optimizer.list.children().length > settings.maxResults) {
-            _optimizer.list.children().last().remove();
+          if (list.children().length > settings.maxResults) {
+            list.children().last().remove();
           }
         } else {
-          _optimizer.list.append(_optimizer._characterToRow(character));
+          list.append(_characterToRow(character));
         }
 
-        if (_optimizer.list.children().length === settings.maxResults) {
-          _optimizer.worstScore = _optimizer.list.children().last()
+        if (list.children().length === settings.maxResults) {
+          worstScore = list.children().last()
             .data('character').attributes[settings.rankby];
         }
       }
     }
 
-    _characterToRow (character) {
+    function _characterToRow (character) {
       const { settings } = character;
       return $(
         '<tr><td><strong>'
@@ -1733,9 +1727,7 @@
     }
 
     // returns true if B is better than A
-    _characterLT (a, b) {
-      const _optimizer = this;
-      const { settings } = _optimizer;
+    function _characterLT (a, b) {
 
       // if (!a.valid && b.valid) {
       //     // A is invalid, B is valid -> replace A
@@ -1759,19 +1751,19 @@
       return a.attributes[settings.rankby] < b.attributes[settings.rankby];
     }
 
-    _choose (n, k) {
-      let num = 1;
-      let denom = 1;
+    // function _choose (n, k) {
+    //   let num = 1;
+    //   let denom = 1;
 
-      for (let i = 0; i < k; i++) {
-        num *= (n - i);
-        denom *= (i + 1);
-      }
+    //   for (let i = 0; i < k; i++) {
+    //     num *= (n - i);
+    //     denom *= (i + 1);
+    //   }
 
-      return num / denom;
-    }
+    //   return num / denom;
+    // }
 
-  }
+  };
 
   /**
    * Rounds, tie-breaking exact halves to the nearest even integer. Apparently used by GW2
@@ -2572,9 +2564,7 @@
 
   // Calculate button
   $(Selector.START).on(Event.CLICK, function () {
-    const optimizer = new Optimizer();
-    optimizer.initialize();
-    optimizer.calculate();
+    new Optimizer().initialize();
   });
 
   $(Selector.STOP).on(Event.CLICK, function () {
