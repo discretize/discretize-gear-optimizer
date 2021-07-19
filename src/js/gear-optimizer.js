@@ -118,8 +118,6 @@
     DISTRIBUTION: 'go-distribution'
   });
 
-  let STOP_SIGNAL = false;
-
   /**
    * ------------------------------------------------------------------------
    * GW2 Data
@@ -871,11 +869,18 @@
 
   /**
    * ------------------------------------------------------------------------
-   * Optimizer definition
+   * Globals
    * ------------------------------------------------------------------------
    */
 
+  let STOP_SIGNAL = false;
   const list = $(Selector.OUTPUT.LIST);
+
+  /**
+   * ------------------------------------------------------------------------
+   * Optimizer definition
+   * ------------------------------------------------------------------------
+   */
 
   const Optimizer = function () {
 
@@ -884,63 +889,41 @@
     let startTime;
     let worstScore;
 
-    // Fetches values from the html file, selected checkboxes and optimization goals.
-    // todo: put this comment in right place later lol
-
     this.run = run;
-    async function run () {
+    async function run ({
+      modifiers: rawModifiers,
+      tags,
+      profession,
+      weapontype,
+      affixes,
+      forcedAffixes,
+      rankby,
+      minBoonDuration,
+      minHealingPower,
+      minToughness,
+      maxToughness,
+      maxResults,
+      primaryInfusionInput,
+      secondaryInfusionInput,
+      distribution,
+      relevantConditions
+    }) {
       startTime = new Date();
 
-      const rawModifiers = [];
-      const tags = [];
-
-      // Checkbox modifiers
-      $.each($([`${Selector.INPUT.CLASS} ${Selector.INPUT.TAB_PANE_ACTIVE}`,
-        Selector.INPUT.BUFFS].join(',')).find(`${Selector.CHECKBOXES_CHECKED}[data-${
-           DataAttribute.MODIFIER}]`), function () {
-        rawModifiers.push($(this).data(DataAttribute.MODIFIER));
-        const span = $(this).siblings(Selector.LABEL).children(Selector.SPAN);
-        if (span.is('[data-armory-ids]')) {
-          const type = span.children('div').attr('class').split(' ')[1];
-          tags.push(`<div data-armory-size="40" data-armory-embed="${type.substring(
-            5, type.length - 6)}" data-armory-ids="${span.data('armory-ids')}"></div>`);
-        } else if (span.hasClass('icon')) {
-          tags.push(`<div class="icon icon-lg ${span.attr('class').split(' ')[1]}"></div>`);
-        }
-      });
-
-      // Select modifiers
-      $.each($([Selector.SELECT.RUNES, Selector.SELECT.SIGIL_1, Selector.SELECT.SIGIL_2,
-        Selector.SELECT.FOOD, Selector.SELECT.UTILITY].join(','))
-        .children(Selector.DROPDOWN_MENU).children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE
-           }[data-${DataAttribute.MODIFIER}]`), function () {
-        rawModifiers.push($(this).data(DataAttribute.MODIFIER));
-        tags.push(`<div data-armory-size="40" data-armory-embed="items" data-armory-ids="${$(
-          this).children(Selector.SPAN).data('armory-ids')}"></div>`);
-      });
-
-      // Omnipotion
-      if ($(Selector.CHECKBOX.OMNIPOTION).prop(PropertyName.CHECKED)) {
-        rawModifiers.push(Omnipotion);
-        tags.push(
-          '<div data-armory-size="40" data-armory-embed="items" data-armory-ids="79722"></div>'
-        );
-      }
-
-      rawModifiers.push({
-        flat: { 'Agony Resistance': parseInt($(Selector.INPUT.AGONY_RESISTANCE).val(), 10) || 0 }
-      });
-
-      const settings = {};
-
-      settings.profession = $(Selector.TOTAL)
-        .find(`a.nav-link[data-${DataAttribute.CLASS}].${ClassName.ACTIVE}`)
-        .data(DataAttribute.CLASS);
-      settings.weapontype = $(Selector.SELECT.WEAPON_TYPE)
-        .children(Selector.DROPDOWN_MENU)
-        .children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE}`)
-        .text()
-        .trim();
+      const settings = {
+        profession,
+        weapontype,
+        affixes,
+        forcedAffixes,
+        rankby,
+        minBoonDuration,
+        minHealingPower,
+        minToughness,
+        maxToughness,
+        maxResults,
+        distribution,
+        relevantConditions
+      };
 
       settings.slots = Slots[settings.weapontype];
 
@@ -1083,14 +1066,6 @@
 
       settings.tags = tags;
 
-      // all selected affixes
-      settings.affixes = $(Selector.INPUT.AFFIXES)
-        .find(Selector.CHECKBOXES_CHECKED)
-        .map(function () {
-          return $(this).siblings(Selector.LABEL).text().trim();
-        })
-        .get();
-
       // valid affixes for each slot, taking forced slots into account
       settings.affixesArray = new Array(settings.slots.length).fill(settings.affixes);
 
@@ -1098,8 +1073,8 @@
       settings.forcedRing = false;
       settings.forcedAcc = false;
       settings.forcedWep = false;
-      for (let i = 0; i < settings.slots.length; i++) {
-        const inputValue = $(Selector.INPUT.FORCE + ForcedSlots[i]).val();
+      for (let i = 0; i < forcedAffixes.length; i++) {
+        const inputValue = forcedAffixes[i];
         if (!inputValue) {
           continue;
         }
@@ -1120,8 +1095,8 @@
         }
       }
 
-      settings.affixStatsArray = settings.affixesArray.map((affixes, slotindex) => {
-        return affixes.map(affix => {
+      settings.affixStatsArray = settings.affixesArray.map((possibleAffixes, slotindex) => {
+        return possibleAffixes.map(affix => {
           const statTotals = {};
           $.each(
             settings.slots[slotindex].item[Affix[affix].type],
@@ -1145,29 +1120,6 @@
         settings.runsAfterThisSlot.push(counter);
       }
       settings.runsAfterThisSlot.push(1);
-
-      settings.rankby = $(Selector.SELECT.RANKBY)
-        .children(Selector.DROPDOWN_MENU)
-        .children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE}`)
-        .text()
-        .trim();
-
-      settings.minBoonDuration = parseFloat($(Selector.INPUT.MIN_BOON_DURATION).val());
-      settings.minHealingPower = parseInt($(Selector.INPUT.MIN_HEALING_POWER).val(), 10);
-      settings.minToughness = parseInt($(Selector.INPUT.MIN_TOUGHNESS).val(), 10);
-      settings.maxToughness = parseInt($(Selector.INPUT.MAX_TOUGHNESS).val(), 10);
-      settings.maxResults = parseInt($(Selector.INPUT.MAX_RESULTS).val(), 10) || 10;
-
-      const primaryInfusionInput = $(`${Selector.SELECT.INFUSION}-primary`)
-        .children(Selector.DROPDOWN_MENU)
-        .children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE}`)
-        .text()
-        .trim();
-      const secondaryInfusionInput = $(`${Selector.SELECT.INFUSION}-secondary`)
-        .children(Selector.DROPDOWN_MENU)
-        .children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE}`)
-        .text()
-        .trim();
 
       let activeInfusions = 0;
       if (primaryInfusionInput !== 'None') {
@@ -1237,24 +1189,6 @@
       }
       applyInfusionsFunction = applyInfusions[infusionMode];
 
-      settings.distribution = {
-        Power: 0,
-        ...Object.fromEntries(Attributes.CONDITION.map((condition) => [condition, 0]))
-      };
-      settings.relevantConditions = [];
-      $.each(
-        $('#go-condition-distribution-input').find('input[data-go-distribution]'),
-        function () {
-          const percentage = parseInt($(this).val(), 10);
-          if (percentage) {
-            settings.distribution[$(this).data('go-distribution')] = percentage;
-            if ($(this).data('go-distribution') !== 'Power') {
-              settings.relevantConditions.push($(this).data('go-distribution'));
-            }
-          }
-        }
-      );
-
       settings.condiResultCache = new Map();
 
       Object.freeze(settings);
@@ -1281,43 +1215,9 @@
       // if the calculation is really really fast the main UI won't even flicker 😎
       list.children().css('visibility', 'hidden');
       await new Promise(resolve => setTimeout(resolve, 0));
+
       list.empty();
-
-      $(Selector.OUTPUT.PROGRESS_BAR)
-        .closest('td')
-        .attr(
-          'colspan',
-          Slots[settings.weapontype].length + 1
-            + !!settings.primaryInfusion + !!settings.secondaryInfusion
-        );
-      $(Selector.OUTPUT.PROGRESS_BAR)
-        .css('width', `${0}%`)
-        .children(Selector.SPAN)
-        .text('0%');
-      $(Selector.OUTPUT.PROGRESS_BAR).parent().show();
-
-      $(Selector.OUTPUT.HEADER).html(
-        `<th>
-        ${settings.rankby}
-        </th>`
-          + $.map(Slots[settings.weapontype], slot =>
-            `<th title="${slot.name}">
-            ${slot.short}
-            </th>`
-          ).join('')
-          + (settings.primaryInfusion
-            ? `<th title="${settings.primaryInfusion}">
-                ${settings.primaryInfusion.substring(0, 4)}
-              </th>`
-            : '')
-          + (settings.secondaryInfusion
-            ? `<th title="${settings.secondaryInfusion}">
-                ${settings.secondaryInfusion.substring(0, 4)}
-              </th>`
-            : '')
-      );
-
-      lock(true);
+      lockUI(settings);
 
       const calculationQueue = [];
       calculationQueue.push([]);
@@ -1328,7 +1228,7 @@
       let UPDATE_MS = 90;
 
       if (STOP_SIGNAL) {
-        lock(false);
+        unlockUI();
       } else {
         let cycles = 0;
         while (calculationQueue.length) {
@@ -1348,7 +1248,7 @@
             timer = Date.now();
 
             if (STOP_SIGNAL) {
-              lock(false);
+              unlockUI();
               return;
             }
 
@@ -1426,11 +1326,12 @@
         );
         $(Selector.OUTPUT.PROGRESS_BAR).css('width', `${percent}%`);
 
-        lock(false);
+        unlockUI();
       }
     }
 
-    function lock (locked) {
+    function lockUI (settings) {
+      const locked = true;
       $('body').css('cursor', locked ? 'progress' : 'default');
       $(Selector.INPUT.OPTIMIZER).css('opacity', locked ? 0.5 : 1);
       $(Selector.INPUT.CLASS).css('opacity', locked ? 0.5 : 1);
@@ -1438,23 +1339,65 @@
       $(Selector.START).find('.fa').toggleClass('fa-spin', locked);
       $(Selector.STOP).prop(PropertyName.DISABLED, !locked);
 
-      if (!locked) {
-        if (STOP_SIGNAL) {
-          $(Selector.OUTPUT.PROGRESS_BAR).children('span')
-            .text(`Cancelled after ${new Date() - startTime}ms (${
-               $(Selector.OUTPUT.PROGRESS_BAR).children('span').text()})`);
-        } else {
-          $(Selector.OUTPUT.PROGRESS_BAR)
-            .children('span')
-            .text(`Completed in ${new Date() - startTime}ms`);
-        }
-        if (list.children().length) {
-          prettyUI();
-        }
+      $(Selector.OUTPUT.PROGRESS_BAR)
+        .closest('td')
+        .attr(
+          'colspan',
+          Slots[settings.weapontype].length + 1
+            + !!settings.primaryInfusion + !!settings.secondaryInfusion
+        );
+      $(Selector.OUTPUT.PROGRESS_BAR)
+        .css('width', `${0}%`)
+        .children(Selector.SPAN)
+        .text('0%');
+      $(Selector.OUTPUT.PROGRESS_BAR).parent().show();
+
+      $(Selector.OUTPUT.HEADER).html(
+        `<th>
+        ${settings.rankby}
+        </th>`
+          + $.map(Slots[settings.weapontype], slot =>
+            `<th title="${slot.name}">
+            ${slot.short}
+            </th>`
+          ).join('')
+          + (settings.primaryInfusion
+            ? `<th title="${settings.primaryInfusion}">
+                ${settings.primaryInfusion.substring(0, 4)}
+              </th>`
+            : '')
+          + (settings.secondaryInfusion
+            ? `<th title="${settings.secondaryInfusion}">
+                ${settings.secondaryInfusion.substring(0, 4)}
+              </th>`
+            : '')
+      );
+    }
+
+    function unlockUI () {
+      const locked = false;
+      $('body').css('cursor', locked ? 'progress' : 'default');
+      $(Selector.INPUT.OPTIMIZER).css('opacity', locked ? 0.5 : 1);
+      $(Selector.INPUT.CLASS).css('opacity', locked ? 0.5 : 1);
+      $(Selector.START).prop(PropertyName.DISABLED, locked);
+      $(Selector.START).find('.fa').toggleClass('fa-spin', locked);
+      $(Selector.STOP).prop(PropertyName.DISABLED, !locked);
+
+      if (STOP_SIGNAL) {
+        $(Selector.OUTPUT.PROGRESS_BAR).children('span')
+          .text(`Cancelled after ${new Date() - startTime}ms (${
+              $(Selector.OUTPUT.PROGRESS_BAR).children('span').text()})`);
+      } else {
+        $(Selector.OUTPUT.PROGRESS_BAR)
+          .children('span')
+          .text(`Completed in ${new Date() - startTime}ms`);
+      }
+      if (list.children().length) {
+        prettyResults();
       }
     }
 
-    function prettyUI () {
+    function prettyResults () {
       const getSortValue = character => character.attributes[character.settings.rankby];
 
       // display indicator line under the results identical to the best
@@ -1933,6 +1876,116 @@
   };
 
   const optimizer = new Optimizer();
+
+  // Fetches values from the html file, selected checkboxes and optimization goals.
+  function init () {
+    const input = {};
+    input.modifiers = [];
+    input.tags = [];
+
+    // Checkbox modifiers
+    $.each($([`${Selector.INPUT.CLASS} ${Selector.INPUT.TAB_PANE_ACTIVE}`,
+      Selector.INPUT.BUFFS].join(',')).find(`${Selector.CHECKBOXES_CHECKED}[data-${
+          DataAttribute.MODIFIER}]`), function () {
+      input.modifiers.push($(this).data(DataAttribute.MODIFIER));
+      const span = $(this).siblings(Selector.LABEL).children(Selector.SPAN);
+      if (span.is('[data-armory-ids]')) {
+        const type = span.children('div').attr('class').split(' ')[1];
+        input.tags.push(`<div data-armory-size="40" data-armory-embed="${type.substring(
+          5, type.length - 6)}" data-armory-ids="${span.data('armory-ids')}"></div>`);
+      } else if (span.hasClass('icon')) {
+        input.tags.push(`<div class="icon icon-lg ${span.attr('class').split(' ')[1]}"></div>`);
+      }
+    });
+
+    // Select modifiers
+    $.each($([Selector.SELECT.RUNES, Selector.SELECT.SIGIL_1, Selector.SELECT.SIGIL_2,
+      Selector.SELECT.FOOD, Selector.SELECT.UTILITY].join(','))
+      .children(Selector.DROPDOWN_MENU).children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE
+         }[data-${DataAttribute.MODIFIER}]`), function () {
+      input.modifiers.push($(this).data(DataAttribute.MODIFIER));
+      input.tags.push(`<div data-armory-size="40" data-armory-embed="items" data-armory-ids="${$(
+        this).children(Selector.SPAN).data('armory-ids')}"></div>`);
+    });
+
+    // Omnipotion
+    if ($(Selector.CHECKBOX.OMNIPOTION).prop(PropertyName.CHECKED)) {
+      input.modifiers.push(Omnipotion);
+      input.tags.push(
+        '<div data-armory-size="40" data-armory-embed="items" data-armory-ids="79722"></div>'
+      );
+    }
+
+    input.modifiers.push({
+      flat: { 'Agony Resistance': parseInt($(Selector.INPUT.AGONY_RESISTANCE).val(), 10) || 0 }
+    });
+
+    input.profession = $(Selector.TOTAL)
+      .find(`a.nav-link[data-${DataAttribute.CLASS}].${ClassName.ACTIVE}`)
+      .data(DataAttribute.CLASS);
+
+    input.weapontype = $(Selector.SELECT.WEAPON_TYPE)
+      .children(Selector.DROPDOWN_MENU)
+      .children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE}`)
+      .text()
+      .trim();
+
+    input.affixes = $(Selector.INPUT.AFFIXES)
+      .find(Selector.CHECKBOXES_CHECKED)
+      .map(function () {
+        return $(this).siblings(Selector.LABEL).text().trim();
+      })
+      .get();
+
+    input.forcedAffixes = [];
+    for (let i = 0; i < ForcedSlots.length; i++) {
+      const inputValue = $(Selector.INPUT.FORCE + ForcedSlots[i]).val();
+      input.forcedAffixes.push(inputValue || '');
+    }
+
+    input.rankby = $(Selector.SELECT.RANKBY)
+      .children(Selector.DROPDOWN_MENU)
+      .children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE}`)
+      .text()
+      .trim();
+
+    input.minBoonDuration = parseFloat($(Selector.INPUT.MIN_BOON_DURATION).val());
+    input.minHealingPower = parseInt($(Selector.INPUT.MIN_HEALING_POWER).val(), 10);
+    input.minToughness = parseInt($(Selector.INPUT.MIN_TOUGHNESS).val(), 10);
+    input.maxToughness = parseInt($(Selector.INPUT.MAX_TOUGHNESS).val(), 10);
+    input.maxResults = parseInt($(Selector.INPUT.MAX_RESULTS).val(), 10) || 10;
+
+    input.primaryInfusionInput = $(`${Selector.SELECT.INFUSION}-primary`)
+      .children(Selector.DROPDOWN_MENU)
+      .children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE}`)
+      .text()
+      .trim();
+    input.secondaryInfusionInput = $(`${Selector.SELECT.INFUSION}-secondary`)
+      .children(Selector.DROPDOWN_MENU)
+      .children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE}`)
+      .text()
+      .trim();
+
+    input.distribution = {
+      Power: 0,
+      ...Object.fromEntries(Attributes.CONDITION.map((condition) => [condition, 0]))
+    };
+    input.relevantConditions = [];
+    $.each(
+      $('#go-condition-distribution-input').find('input[data-go-distribution]'),
+      function () {
+        const percentage = parseInt($(this).val(), 10);
+        if (percentage) {
+          input.distribution[$(this).data('go-distribution')] = percentage;
+          if ($(this).data('go-distribution') !== 'Power') {
+            input.relevantConditions.push($(this).data('go-distribution'));
+          }
+        }
+      }
+    );
+
+    optimizer.run(input);
+  }
 
   // Generates the card, that shows up when one clicks on the result.
   const toModal = function (_character) {
@@ -2557,9 +2610,7 @@
   });
 
   // Calculate button
-  $(Selector.START).on(Event.CLICK, function () {
-    new Optimizer().run();
-  });
+  $(Selector.START).on(Event.CLICK, init);
 
   $(Selector.STOP).on(Event.CLICK, function () {
     STOP_SIGNAL = true;
@@ -2701,5 +2752,4 @@
     });
   });
 
-  return Optimizer;
 })(jQuery);
