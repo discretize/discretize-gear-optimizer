@@ -1232,7 +1232,6 @@
           }
         // no default
       }
-      console.log('Infusion calculation mode:', infusionMode);
       if (applyInfusions[infusionMode] === undefined) {
         throw 'Error: optimizer selected invalid infusion calculation mode';
       }
@@ -1277,6 +1276,11 @@
 
       STOP_SIGNAL = false;
       let calculationRuns = 0;
+
+      // the next time the DOM updates after this is after ≥1 iteration loop;
+      // if the calculation is really really fast the main UI won't even flicker 😎
+      list.children().css('visibility', 'hidden');
+      await new Promise(resolve => setTimeout(resolve, 0));
       list.empty();
 
       $(Selector.OUTPUT.PROGRESS_BAR)
@@ -1320,9 +1324,8 @@
       const calculationStatsQueue = [];
       calculationStatsQueue.push({});
 
-      // only update UI at around 15 frames per second
       let timer = Date.now();
-      const UPDATE_MS = 55;
+      let UPDATE_MS = 90;
 
       if (STOP_SIGNAL) {
         lock(false);
@@ -1348,6 +1351,9 @@
               lock(false);
               return;
             }
+
+            // only update UI at around 15 frames per second
+            UPDATE_MS = 55;
           }
 
           const gear = calculationQueue.pop();
@@ -1442,44 +1448,45 @@
             .children('span')
             .text(`Completed in ${new Date() - startTime}ms`);
         }
-
-        try {
-          const getSortValue = character => character.attributes[character.settings.rankby];
-
-          // display indicator line under the results identical to the best
-          const bestValue = getSortValue(list.children().eq(0).data('character'));
-          // eslint-disable-next-line consistent-return
-          list.children().each(function (i, element) {
-            if (getSortValue($(element).data('character')) !== bestValue) {
-              $(element).prev().css('border-bottom', '4px solid #2f3238');
-              return false; // jquery loop break
-            }
-          });
-
-          // slightly fade the most common affix
-          const attrCount = {};
-          $('#go-output samp').each(function (i, element) {
-            const attr = $(element).text();
-            attrCount[attr] = (attrCount[attr] || 0) + 1;
-          });
-          const max = Math.max.apply(null, Object.values(attrCount));
-          let mostFrequent = '';
-          Object.entries(attrCount).forEach(([attr, count]) => {
-            if (count === max) {
-              mostFrequent = attr;
-            }
-          });
-          $('#go-output samp').each(function (i, element) {
-            if ($(element).text() === mostFrequent) {
-              $(element).css('opacity', '0.7');
-            } else {
-              $(element).css('color', '#ddd');
-            }
-          });
-        } catch (e) {
-          console.log(e);
+        if (list.children().length) {
+          prettyUI();
         }
       }
+    }
+
+    function prettyUI () {
+      const getSortValue = character => character.attributes[character.settings.rankby];
+
+      // display indicator line under the results identical to the best
+      const bestValue = getSortValue(list.children().eq(0).data('character'));
+      // eslint-disable-next-line consistent-return
+      list.children().each(function (i, element) {
+        if (getSortValue($(element).data('character')) !== bestValue) {
+          $(element).prev().css('border-bottom', '4px solid #2f3238');
+          return false; // jquery loop break
+        }
+      });
+
+      // slightly fade the most common affix
+      const attrCount = {};
+      $('#go-output samp').each(function (i, element) {
+        const attr = $(element).text();
+        attrCount[attr] = (attrCount[attr] || 0) + 1;
+      });
+      const max = Math.max.apply(null, Object.values(attrCount));
+      let mostFrequent = '';
+      Object.entries(attrCount).forEach(([attr, count]) => {
+        if (count === max) {
+          mostFrequent = attr;
+        }
+      });
+      $('#go-output samp').each(function (i, element) {
+        if ($(element).text() === mostFrequent) {
+          $(element).css('opacity', '0.7');
+        } else {
+          $(element).css('color', '#ddd');
+        }
+      });
     }
 
     function testCharacter (gear, gearStats, settings) {
@@ -1745,182 +1752,187 @@
 
     //   return num / denom;
     // }
-  };
 
-  /**
-   * Rounds, tie-breaking exact halves to the nearest even integer. Apparently used by GW2
-   * conversions according to ingame testing by Cat.
-   * https://discord.com/channels/301270513093967872/842629146857177098/864564894128275468
-   *
-   * @param {number} any number
-   * @returns {number} the input number rounded to the nearest integer
-   */
-  const roundEven = number => {
-    if (number % 1 === 0.5) {
-      const floor = Math.floor(number);
-      if (floor % 2 === 0) {
-        return floor;
-      }
-      return floor + 1;
-    }
-    return Math.round(number);
-  };
-
-  /**
-   * Creates an {attributes} object parameter in the given character object and calculates stats
-   * and damage/healing/survivability scores.
-   *
-   * If alwaysCalculateAll is not set, this function will do the minimum work to find the optimal
-   * build, including cancelling itself early if the character's boon duration/toughness/healing
-   * power are not valid according to the optimizer settings.
-   *
-   * skipValidation just skips the validation check (used in testInfusionUsefulness).
-   */
-  const updateAttributes = function (
-    _character,
-    alwaysCalculateAll = false,
-    skipValidation = false
-  ) {
-    const { settings } = _character;
-    const multipliers = settings.modifiers['multiplier'];
-    _character.valid = true;
-
-    /* - Stat Point Totals - */
-
-    _character.attributes = Object.assign({}, _character.baseAttributes);
-
-    $.each(settings.modifiers['convert'], function (attribute, conversion) {
-      $.each(conversion, function (source, percent) {
-        _character.attributes[attribute] += roundEven(_character.baseAttributes[source] * percent);
-      });
-    });
-
-    $.each(settings.modifiers['buff'], function (attribute, bonus) {
-      _character.attributes[attribute] = (_character.attributes[attribute] || 0) + bonus;
-    });
-
-    /* - Check if build is valid - */
-
-    _character.attributes['Boon Duration'] += _character.attributes['Concentration'] / 15;
-
-    if (!alwaysCalculateAll && !skipValidation) {
-      const invalid
-        = (settings.minBoonDuration
-          && _character.attributes['Boon Duration'] < settings.minBoonDuration)
-        || (settings.minHealingPower
-          && _character.attributes['Healing Power'] < settings.minHealingPower)
-        || (settings.minToughness
-          && _character.attributes['Toughness'] < settings.minToughness)
-        || (settings.maxToughness
-          && _character.attributes['Toughness'] > settings.maxToughness);
-
-      if (invalid) {
-        _character.valid = false;
-        return false;
-      }
-    }
-
-    if (alwaysCalculateAll || settings.rankby === 'Damage') {
-
-      /* - Power - */
-
-      _character.attributes['Critical Chance'] += (_character.attributes['Precision'] - 1000) / 21;
-      _character.attributes['Critical Damage'] += _character.attributes['Ferocity'] / 15;
-
-      const critDmg = _character.attributes['Critical Damage'] / 100
-        * multipliers['Critical Damage'];
-      const critChance = Math.min(_character.attributes['Critical Chance'] / 100, 1);
-
-      _character.attributes['Effective Power']
-        = _character.attributes['Power'] * (1 + critChance * (critDmg - 1))
-          * multipliers['Effective Power'];
-
-      const powerDamageScore = settings.distribution['Power']
-        * (_character.attributes['Effective Power'] / 1025);
-
-      /* - Conditions (skipped if none are relevant)- */
-
-      // cache this section's result based on cdmg and expertise and skip calculating it if we
-      // already have
-      let condiDamageScore = 0;
-      const CONDI_CACHE_ID
-        = _character.attributes['Expertise'] + _character.attributes['Condition Damage'] * 10000;
-      const cached = settings.condiResultCache.get(CONDI_CACHE_ID);
-
-      if (alwaysCalculateAll || (settings.relevantConditions.length && !cached)) {
-        _character.attributes['Condition Duration'] += _character.attributes['Expertise'] / 15;
-
-        for (const condition of alwaysCalculateAll
-          ? Attributes.CONDITION
-          : settings.relevantConditions) {
-          _character.attributes[`${condition} Damage`]
-            = ((Condition[condition].factor * _character.attributes['Condition Damage'])
-            + Condition[condition].baseDamage)
-              * multipliers['Effective Condition Damage']
-              * (multipliers[`${condition} Damage`] || 1);
-
-          const duration = 1 + Math.min(((_character.attributes[`${condition} Duration`] || 0)
-              + _character.attributes['Condition Duration']) / 100, 1);
-
-          condiDamageScore += settings.distribution[condition]
-            * duration
-            * (_character.attributes[`${condition} Damage`] || 1)
-            / Condition[condition].baseDamage;
+    /**
+     * Rounds, tie-breaking exact halves to the nearest even integer. Apparently used by GW2
+     * conversions according to ingame testing by Cat.
+     * https://discord.com/channels/301270513093967872/842629146857177098/864564894128275468
+     *
+     * @param {number} any number
+     * @returns {number} the input number rounded to the nearest integer
+     */
+    const roundEven = number => {
+      if (number % 1 === 0.5) {
+        const floor = Math.floor(number);
+        if (floor % 2 === 0) {
+          return floor;
         }
-        settings.condiResultCache.set(CONDI_CACHE_ID, condiDamageScore);
-      } else {
-        condiDamageScore = cached || 0;
+        return floor + 1;
       }
-
-      /* - Combine power + condi - */
-      _character.attributes['Damage'] = powerDamageScore + condiDamageScore;
-    }
-
-    /* - Survivability - */
-
-    if (alwaysCalculateAll || settings.rankby === 'Survivability') {
-      _character.attributes['Armor'] += _character.attributes['Toughness'];
-      _character.attributes['Health'] += _character.attributes['Vitality'] * 10;
-
-      _character.attributes['Effective Health']
-        = _character.attributes['Health'] * _character.attributes['Armor']
-          * multipliers['Effective Health'];
-      _character.attributes['Survivability'] = _character.attributes['Effective Health'] / 1967;
-    }
-
-    /* - Healing - */
-
-    if (alwaysCalculateAll || settings.rankby === 'Healing') {
-      // reasonably representative skill: druid celestial avatar 4 pulse
-      // 390 base, 0.3 coefficient
-      _character.attributes['Effective Healing']
-        = (_character.attributes['Healing Power'] * 0.3 + 390)
-          * multipliers['Effective Healing'];
-      if (Object.prototype.hasOwnProperty.call(settings.modifiers, 'bountiful-maintenance-oil')) {
-        const bonus
-          = ((_character.attributes['Healing Power'] || 0) * 0.6) / 10000
-          + ((_character.attributes['Concentration'] || 0) * 0.8) / 10000;
-        if (bonus) {
-          _character.attributes['Effective Healing'] *= 1.0 + bonus;
-        }
-      }
-      _character.attributes['Healing'] = _character.attributes['Effective Healing'];
-    }
-
-    return true;
-  };
-
-  const clone = function (character) {
-    return {
-      settings: character.settings, // passed by reference
-      attributes: character.attributes, // passed by reference
-      gear: character.gear, // passed by reference
-      valid: character.valid,
-
-      baseAttributes: Object.assign({}, character.baseAttributes),
-      infusions: Object.assign({}, character.infusions)
+      return Math.round(number);
     };
+
+    this.updateAttributes = updateAttributes;
+    /**
+     * Creates an {attributes} object parameter in the given character object and calculates stats
+     * and damage/healing/survivability scores.
+     *
+     * If alwaysCalculateAll is not set, this function will do the minimum work to find the optimal
+     * build, including cancelling itself early if the character's boon duration/toughness/healing
+     * power are not valid according to the optimizer settings.
+     *
+     * skipValidation just skips the validation check (used in testInfusionUsefulness).
+     */
+    function updateAttributes (
+      _character,
+      alwaysCalculateAll = false,
+      skipValidation = false
+    ) {
+      const { settings } = _character;
+      const multipliers = settings.modifiers['multiplier'];
+      _character.valid = true;
+
+      /* - Stat Point Totals - */
+
+      _character.attributes = Object.assign({}, _character.baseAttributes);
+
+      $.each(settings.modifiers['convert'], function (attribute, conversion) {
+        $.each(conversion, function (source, percent) {
+          _character.attributes[attribute] += roundEven(_character.baseAttributes[source] * percent);
+        });
+      });
+
+      $.each(settings.modifiers['buff'], function (attribute, bonus) {
+        _character.attributes[attribute] = (_character.attributes[attribute] || 0) + bonus;
+      });
+
+      /* - Check if build is valid - */
+
+      _character.attributes['Boon Duration'] += _character.attributes['Concentration'] / 15;
+
+      if (!alwaysCalculateAll && !skipValidation) {
+        const invalid
+          = (settings.minBoonDuration
+            && _character.attributes['Boon Duration'] < settings.minBoonDuration)
+          || (settings.minHealingPower
+            && _character.attributes['Healing Power'] < settings.minHealingPower)
+          || (settings.minToughness
+            && _character.attributes['Toughness'] < settings.minToughness)
+          || (settings.maxToughness
+            && _character.attributes['Toughness'] > settings.maxToughness);
+
+        if (invalid) {
+          _character.valid = false;
+          return false;
+        }
+      }
+
+      if (alwaysCalculateAll || settings.rankby === 'Damage') {
+
+        /* - Power - */
+
+        _character.attributes['Critical Chance'] += (_character.attributes['Precision'] - 1000) / 21;
+        _character.attributes['Critical Damage'] += _character.attributes['Ferocity'] / 15;
+
+        const critDmg = _character.attributes['Critical Damage'] / 100
+          * multipliers['Critical Damage'];
+        const critChance = Math.min(_character.attributes['Critical Chance'] / 100, 1);
+
+        _character.attributes['Effective Power']
+          = _character.attributes['Power'] * (1 + critChance * (critDmg - 1))
+            * multipliers['Effective Power'];
+
+        const powerDamageScore = settings.distribution['Power']
+          * (_character.attributes['Effective Power'] / 1025);
+
+        /* - Conditions (skipped if none are relevant)- */
+
+        // cache this section's result based on cdmg and expertise and skip calculating it if we
+        // already have
+        let condiDamageScore = 0;
+        const CONDI_CACHE_ID
+          = _character.attributes['Expertise'] + _character.attributes['Condition Damage'] * 10000;
+        const cached = settings.condiResultCache.get(CONDI_CACHE_ID);
+
+        if (alwaysCalculateAll || (settings.relevantConditions.length && !cached)) {
+          _character.attributes['Condition Duration'] += _character.attributes['Expertise'] / 15;
+
+          for (const condition of alwaysCalculateAll
+            ? Attributes.CONDITION
+            : settings.relevantConditions) {
+            _character.attributes[`${condition} Damage`]
+              = ((Condition[condition].factor * _character.attributes['Condition Damage'])
+              + Condition[condition].baseDamage)
+                * multipliers['Effective Condition Damage']
+                * (multipliers[`${condition} Damage`] || 1);
+
+            const duration = 1 + Math.min(((_character.attributes[`${condition} Duration`] || 0)
+                + _character.attributes['Condition Duration']) / 100, 1);
+
+            condiDamageScore += settings.distribution[condition]
+              * duration
+              * (_character.attributes[`${condition} Damage`] || 1)
+              / Condition[condition].baseDamage;
+          }
+          settings.condiResultCache.set(CONDI_CACHE_ID, condiDamageScore);
+        } else {
+          condiDamageScore = cached || 0;
+        }
+
+        /* - Combine power + condi - */
+        _character.attributes['Damage'] = powerDamageScore + condiDamageScore;
+      }
+
+      /* - Survivability - */
+
+      if (alwaysCalculateAll || settings.rankby === 'Survivability') {
+        _character.attributes['Armor'] += _character.attributes['Toughness'];
+        _character.attributes['Health'] += _character.attributes['Vitality'] * 10;
+
+        _character.attributes['Effective Health']
+          = _character.attributes['Health'] * _character.attributes['Armor']
+            * multipliers['Effective Health'];
+        _character.attributes['Survivability'] = _character.attributes['Effective Health'] / 1967;
+      }
+
+      /* - Healing - */
+
+      if (alwaysCalculateAll || settings.rankby === 'Healing') {
+        // reasonably representative skill: druid celestial avatar 4 pulse
+        // 390 base, 0.3 coefficient
+        _character.attributes['Effective Healing']
+          = (_character.attributes['Healing Power'] * 0.3 + 390)
+            * multipliers['Effective Healing'];
+        if (Object.prototype.hasOwnProperty.call(settings.modifiers, 'bountiful-maintenance-oil')) {
+          const bonus
+            = ((_character.attributes['Healing Power'] || 0) * 0.6) / 10000
+            + ((_character.attributes['Concentration'] || 0) * 0.8) / 10000;
+          if (bonus) {
+            _character.attributes['Effective Healing'] *= 1.0 + bonus;
+          }
+        }
+        _character.attributes['Healing'] = _character.attributes['Effective Healing'];
+      }
+
+      return true;
+    }
+
+    this.clone = clone;
+    function clone (character) {
+      return {
+        settings: character.settings, // passed by reference
+        attributes: character.attributes, // passed by reference
+        gear: character.gear, // passed by reference
+        valid: character.valid,
+
+        baseAttributes: Object.assign({}, character.baseAttributes),
+        infusions: Object.assign({}, character.infusions)
+      };
+    }
+
   };
+
+  const optimizer = new Optimizer();
 
   // Generates the card, that shows up when one clicks on the result.
   const toModal = function (_character) {
@@ -1938,7 +1950,7 @@
         </div>
       </div>`;
 
-    updateAttributes(_character, true);
+    optimizer.updateAttributes(_character, true);
     console.debug(_character);
 
     let modal = '<div class="modal">';
@@ -2030,9 +2042,9 @@
     $.each(
       ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'],
       function (index, value) {
-        const temp = clone(_character);
+        const temp = optimizer.clone(_character);
         temp.baseAttributes[value] += 5;
-        updateAttributes(temp, true);
+        optimizer.updateAttributes(temp, true);
         effectiveValues[value] = Number(
           (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(5)
         ).toLocaleString('en-US');
@@ -2045,9 +2057,9 @@
     $.each(
       ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'],
       function (index, value) {
-        const temp = clone(_character);
+        const temp = optimizer.clone(_character);
         temp.baseAttributes[value] = Math.max(temp.baseAttributes[value] - 5, 0);
-        updateAttributes(temp, true);
+        optimizer.updateAttributes(temp, true);
         effectiveNegativeValues[value] = Number(
           (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(5)
         ).toLocaleString('en-US');
