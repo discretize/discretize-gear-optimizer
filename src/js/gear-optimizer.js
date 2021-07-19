@@ -3,7 +3,6 @@
  * Gear Optimizer
  * --------------------------------------------------------------------------
  */
-// eslint-disable-next-line no-unused-vars
 (function ($) {
 
   /**
@@ -936,7 +935,7 @@
       }
 
       _modifiers.push({
-        flat: { 'Agony Resistance': parseInt($(Selector.INPUT.AGONY_RESISTANCE).val()) || 0 }
+        flat: { 'Agony Resistance': parseInt($(Selector.INPUT.AGONY_RESISTANCE).val(), 10) || 0 }
       });
 
       settings = {};
@@ -1079,6 +1078,7 @@
                           = (settings.modifiers[type][attribute][source] || 0) + conversion;
                       });
                       break;
+                    // no default
                   }
                 }
               });
@@ -1161,10 +1161,10 @@
         .trim();
 
       settings.minBoonDuration = parseFloat($(Selector.INPUT.MIN_BOON_DURATION).val());
-      settings.minHealingPower = parseInt($(Selector.INPUT.MIN_HEALING_POWER).val());
-      settings.minToughness = parseInt($(Selector.INPUT.MIN_TOUGHNESS).val());
-      settings.maxToughness = parseInt($(Selector.INPUT.MAX_TOUGHNESS).val());
-      settings.maxResults = parseInt($(Selector.INPUT.MAX_RESULTS).val()) || 10;
+      settings.minHealingPower = parseInt($(Selector.INPUT.MIN_HEALING_POWER).val(), 10);
+      settings.minToughness = parseInt($(Selector.INPUT.MIN_TOUGHNESS).val(), 10);
+      settings.maxToughness = parseInt($(Selector.INPUT.MAX_TOUGHNESS).val(), 10);
+      settings.maxResults = parseInt($(Selector.INPUT.MAX_RESULTS).val(), 10) || 10;
 
       const primaryInfusionInput = $(Selector.SELECT.INFUSION + '-primary')
         .children(Selector.DROPDOWN_MENU)
@@ -1190,7 +1190,7 @@
         settings.primaryInfusion = primaryInfusionInput;
         activeInfusions++;
         settings.primaryMaxInfusions = Math.max(
-          parseInt($(Selector.SELECT.INFUSION + '-primary-max').val()) || MAX_INFUSIONS,
+          parseInt($(Selector.SELECT.INFUSION + '-primary-max').val(), 10) || MAX_INFUSIONS,
           0
         );
       }
@@ -1208,7 +1208,7 @@
           settings.secondaryInfusion = secondaryInfusionInput;
           activeInfusions++;
           settings.secondaryMaxInfusions = Math.max(
-            parseInt($(Selector.SELECT.INFUSION + '-secondary-max').val()) || MAX_INFUSIONS,
+            parseInt($(Selector.SELECT.INFUSION + '-secondary-max').val(), 10) || MAX_INFUSIONS,
             0
           );
         } else {
@@ -1216,7 +1216,7 @@
           settings.primaryInfusion = secondaryInfusionInput;
           activeInfusions++;
           settings.primaryMaxInfusions = Math.max(
-            parseInt($(Selector.SELECT.INFUSION + '-secondary-max').val()) || MAX_INFUSIONS,
+            parseInt($(Selector.SELECT.INFUSION + '-secondary-max').val(), 10) || MAX_INFUSIONS,
             0
           );
 
@@ -1239,6 +1239,7 @@
               ? 'SecondaryNoDuplicates'
               : 'Secondary';
           }
+        // no default
       }
       console.log('Infusion calculation mode:', infusionMode);
       if (applyInfusions[infusionMode] === undefined) {
@@ -1254,7 +1255,7 @@
       $.each(
         $('#go-condition-distribution-input').find('input[data-go-distribution]'),
         function () {
-          const percentage = parseInt($(this).val());
+          const percentage = parseInt($(this).val(), 10);
           if (percentage) {
             settings.distribution[$(this).data('go-distribution')] = percentage;
             if ($(this).data('go-distribution') !== 'Power') {
@@ -1358,36 +1359,41 @@
             .text('Completed in ' + (new Date() - startTime) + 'ms');
         }
 
-        // display indicator line under the results identical to the best
-        const bestValue = list.children().eq(0)
-          .data('character').attributes[settings.rankby];
-        list.children().each(function (i, element) {
-          if ($(element).data('character').attributes[settings.rankby] !== bestValue) {
-            $(element).prev().css('border-bottom', '4px solid #2f3238');
-            return false; // jquery loop break
-          }
-        });
+        try {
+          // display indicator line under the results identical to the best
+          const bestValue = list.children().eq(0)
+            .data('character').attributes[settings.rankby];
+          // eslint-disable-next-line consistent-return
+          list.children().each(function (i, element) {
+            if ($(element).data('character').attributes[settings.rankby] !== bestValue) {
+              $(element).prev().css('border-bottom', '4px solid #2f3238');
+              return false; // jquery loop break
+            }
+          });
 
-        // slightly fade the most common affix
-        const attrCount = {};
-        $('#go-output samp').each(function (i, element) {
-          const attr = $(element).text();
-          attrCount[attr] = (attrCount[attr] || 0) + 1;
-        });
-        const max = Math.max.apply(null, Object.values(attrCount));
-        let mostFrequent = '';
-        Object.entries(attrCount).forEach(([attr, count]) => {
-          if (count === max) {
-            mostFrequent = attr;
-          }
-        });
-        $('#go-output samp').each(function (i, element) {
-          if ($(element).text() === mostFrequent) {
-            $(element).css('opacity', '0.7');
-          } else {
-            $(element).css('color', '#ddd');
-          }
-        });
+          // slightly fade the most common affix
+          const attrCount = {};
+          $('#go-output samp').each(function (i, element) {
+            const attr = $(element).text();
+            attrCount[attr] = (attrCount[attr] || 0) + 1;
+          });
+          const max = Math.max.apply(null, Object.values(attrCount));
+          let mostFrequent = '';
+          Object.entries(attrCount).forEach(([attr, count]) => {
+            if (count === max) {
+              mostFrequent = attr;
+            }
+          });
+          $('#go-output samp').each(function (i, element) {
+            if ($(element).text() === mostFrequent) {
+              $(element).css('opacity', '0.7');
+            } else {
+              $(element).css('color', '#ddd');
+            }
+          });
+        } catch (e) {
+          // discard error
+        }
       }
     }
 
@@ -1414,6 +1420,7 @@
               .css('width', percent + '%')
               .find(Selector.SPAN)
               .text(percent + '%');
+            // eslint-disable-next-line no-await-in-loop
             await new Promise(resolve => setTimeout(resolve, 0));
             timer = Date.now();
 
@@ -1504,14 +1511,15 @@
       }
 
       const character = {
-        gear: gear, // passed by reference
-        settings: settings, // passed by reference
+        gear, // passed by reference
+        settings, // passed by reference
         attributes: null,
         valid: true,
         baseAttributes: Object.assign({}, settings.baseAttributes)
       };
 
       // apply gear
+      // eslint-disable-next-line guard-for-in
       for (const stat in gearStats) {
         character.baseAttributes[stat] += gearStats[stat];
       }
@@ -1711,7 +1719,6 @@
     }
 
     function _characterToRow (character) {
-      const { settings } = character;
       return $(
         '<tr><td><strong>'
           + Number(character.attributes[settings.rankby].toFixed(2)).toLocaleString('en-US')
@@ -1741,8 +1748,8 @@
         let sumA = 0;
         let sumB = 0;
         for (const attribute of Attributes.PRIMARY.concat(Attributes.SECONDARY)) {
-          sumA += a.attributes.hasOwnProperty(attribute) ? a.attributes[attribute] : 0;
-          sumB += b.attributes.hasOwnProperty(attribute) ? b.attributes[attribute] : 0;
+          sumA += a.attributes[attribute] || 0;
+          sumB += b.attributes[attribute] || 0;
         }
 
         return sumA < sumB;
@@ -1778,12 +1785,10 @@
       const floor = Math.floor(number);
       if (floor % 2 === 0) {
         return floor;
-      } else {
-        return floor + 1;
       }
-    } else {
-      return Math.round(number);
+      return floor + 1;
     }
+    return Math.round(number);
   };
 
   /**
@@ -1919,7 +1924,7 @@
       _character.attributes['Effective Healing']
         = (_character.attributes['Healing Power'] * 0.3 + 390)
           * _multipliers['Effective Healing'];
-      if (settings.modifiers.hasOwnProperty('bountiful-maintenance-oil')) {
+      if (Object.prototype.hasOwnProperty.call(settings.modifiers, 'bountiful-maintenance-oil')) {
         const bonus
           = ((_character.attributes['Healing Power'] || 0) * 0.6) / 10000
           + ((_character.attributes['Concentration'] || 0) * 0.8) / 10000;
@@ -2559,6 +2564,8 @@
       case 'cholo':
         $('#go-condition-distribution-slider')[0].noUiSlider.set([31, 77, 86, 95, 95]);
         break;
+      default:
+        throw 'error: unimplemented button: ' + $(this).data(DataAttribute.DISTRIBUTION);
     }
   });
 
@@ -2609,7 +2616,7 @@
   $('#go-condition-distribution-slider')[0].noUiSlider.on('update', function (values, handle) {
     switch (handle) {
       case 0:
-        $('#go-input-power-percentage').val(parseInt(values[0]));
+        $('#go-input-power-percentage').val(parseInt(values[0], 10));
         $('#go-input-burning-percentage').val(values[1] - values[0]);
         break;
       case 1:
@@ -2628,6 +2635,7 @@
         $('#go-input-torment-percentage').val(values[4] - values[3]);
         $('#go-input-confusion-percentage').val(100 - values[4]);
         break;
+      // no default
     }
   });
 

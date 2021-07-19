@@ -16,7 +16,6 @@
         ],
         "no-throw-literal": "off",
         "dot-notation": "off",
-        "no-prototype-builtins": "off",
         "no-unused-vars": "warn",
         "max-len": [
             "warn",
@@ -25,6 +24,24 @@
                 "ignoreComments": true
             }
         ],
-        "no-lonely-if": "warn"
+        "no-lonely-if": "warn",
+        "radix": "warn",
+        "default-case": "warn",
+        "no-param-reassign": [
+            "warn", 
+            { 
+                "props": false 
+            }
+        ],
+        "no-else-return": "warn",
+        "no-shadow": "warn",
+        //"no-console": "warn",
+        // "func-names": [
+        //     "warn",
+        //     "as-needed"
+        // ],
+        "consistent-return": "warn",
+        "object-shorthand": "warn",
+        "guard-for-in": "warn"
     }
 }
