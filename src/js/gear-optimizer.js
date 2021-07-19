@@ -830,6 +830,7 @@ const Optimizer = function ($) {
       'Quickness Duration',
       'Regeneration Duration',
       'Resistance Duration',
+      'Resolution Duration',
       'Retaliation Duration',
       'Stability Duration',
       'Swiftness Duration',
