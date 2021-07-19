@@ -4,7 +4,7 @@
  * --------------------------------------------------------------------------
  */
 // eslint-disable-next-line no-unused-vars
-const Optimizer = function ($) {
+(function ($) {
 
   /**
    * ------------------------------------------------------------------------
@@ -881,11 +881,11 @@ const Optimizer = function ($) {
    * ------------------------------------------------------------------------
    */
 
-  const Optimizer = function () {
+  class Optimizer {
 
     // Constructor.
     // Fetches values from the html file, selected checkboxes and optimization goals.
-    function Optimizer () {
+    initialize () {
       const _optimizer = this;
 
       _optimizer.startTime = new Date();
@@ -1261,7 +1261,7 @@ const Optimizer = function ($) {
       Object.freeze(_optimizer.settings);
     }
 
-    Optimizer.prototype.calculate = function () {
+    calculate () {
       const _optimizer = this;
       const { settings } = _optimizer;
 
@@ -1329,9 +1329,9 @@ const Optimizer = function ($) {
       _optimizer.calculationStatsQueue.push({});
 
       setTimeout(_optimizer._advanceCalculation.bind(_optimizer), 0);
-    };
+    }
 
-    Optimizer.prototype._lock = function (lock) {
+    _lock (lock) {
       $('body').css('cursor', lock ? 'progress' : 'default');
       $(Selector.INPUT.OPTIMIZER).css('opacity', lock ? 0.5 : 1);
       $(Selector.INPUT.CLASS).css('opacity', lock ? 0.5 : 1);
@@ -1384,9 +1384,9 @@ const Optimizer = function ($) {
           }
         });
       }
-    };
+    }
 
-    Optimizer.prototype._advanceCalculation = async function () {
+    async _advanceCalculation () {
       const _optimizer = this;
       const { settings } = _optimizer;
 
@@ -1492,9 +1492,9 @@ const Optimizer = function ($) {
 
         _optimizer._lock(false);
       }
-    };
+    }
 
-    Optimizer.prototype._testCharacter = function (gear, gearStats) {
+    _testCharacter (gear, gearStats) {
       const _optimizer = this;
       const { settings } = _optimizer;
 
@@ -1517,60 +1517,60 @@ const Optimizer = function ($) {
 
       // _applyInfusions is aliased to the correct _applyInfusions[mode] function during setup
       _optimizer._applyInfusions(character);
-    };
+    }
 
-    const addBaseStats = function (character, stat, amount) {
+    addBaseStats (character, stat, amount) {
       character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + amount;
-    };
+    }
 
     /**
      * Applies no infusions
      */
-    Optimizer.prototype._applyInfusionsNone = function (character) {
+    _applyInfusionsNone (character) {
       const _optimizer = this;
       updateAttributes(character);
       _optimizer._insertCharacter(character);
-    };
+    }
 
     /**
      * Just applies the primary infusion
      */
-    Optimizer.prototype._applyInfusionsPrimary = function (character) {
+    _applyInfusionsPrimary (character) {
       const _optimizer = this;
       const { settings } = _optimizer;
       character.infusions = { [settings.primaryInfusion]: settings.primaryMaxInfusions };
-      addBaseStats(
+      _optimizer.addBaseStats(
         character,
         settings.primaryInfusion,
         settings.primaryMaxInfusions * INFUSION_BONUS
       );
       updateAttributes(character);
       _optimizer._insertCharacter(character);
-    };
+    }
 
     /**
      * Just applies the maximum number of primary/secondary infusions, since the total is ≤18
      */
-    Optimizer.prototype._applyInfusionsFew = function (character) {
+    _applyInfusionsFew (character) {
       const _optimizer = this;
       const { settings } = _optimizer;
       character.infusions = {
         [settings.primaryInfusion]: settings.primaryMaxInfusions,
         [settings.secondaryInfusion]: settings.secondaryMaxInfusions
       };
-      addBaseStats(
+      _optimizer.addBaseStats(
         character,
         settings.primaryInfusion,
         settings.primaryMaxInfusions * INFUSION_BONUS
       );
-      addBaseStats(
+      _optimizer.addBaseStats(
         character,
         settings.secondaryInfusion,
         settings.secondaryMaxInfusions * INFUSION_BONUS
       );
       updateAttributes(character);
       _optimizer._insertCharacter(character);
-    };
+    }
 
     /**
      * Inserts every valid combination of 18 infusions
@@ -1579,14 +1579,14 @@ const Optimizer = function ($) {
      * identical-for-all-practical-purposes setups if you select e.g. condi infusions on a power
      * build)
      */
-    Optimizer.prototype._applyInfusionsSecondary = function (character) {
+    _applyInfusionsSecondary (character) {
       const _optimizer = this;
       const { settings } = _optimizer;
 
       const testInfusionUsefulness = function () {
         const temp = clone(character);
-        addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
-        addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
+        _optimizer.addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
+        _optimizer.addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
         updateAttributes(temp, false, true);
         return temp.attributes[settings.rankby] > _optimizer.worstScore;
       };
@@ -1598,8 +1598,15 @@ const Optimizer = function ($) {
         let secondaryCount = MAX_INFUSIONS - primaryCount;
         while (secondaryCount <= settings.secondaryMaxInfusions) {
           const temp = clone(character);
-          addBaseStats(temp, settings.primaryInfusion, primaryCount * INFUSION_BONUS);
-          addBaseStats(temp, settings.secondaryInfusion, secondaryCount * INFUSION_BONUS);
+          _optimizer.addBaseStats(
+            temp,
+            settings.primaryInfusion,
+            primaryCount * INFUSION_BONUS);
+          _optimizer.addBaseStats(
+            temp,
+            settings.secondaryInfusion,
+            secondaryCount * INFUSION_BONUS
+          );
           updateAttributes(temp);
           if (temp.valid && temp.attributes[settings.rankby] !== resultCache) {
             temp.infusions = {
@@ -1613,19 +1620,19 @@ const Optimizer = function ($) {
           secondaryCount++;
         }
       }
-    };
+    }
 
     /**
      *  Tests every valid combination of 18 infusions and inserts the best result
      */
-    Optimizer.prototype._applyInfusionsSecondaryNoDuplicates = function (character) {
+    _applyInfusionsSecondaryNoDuplicates (character) {
       const _optimizer = this;
       const { settings } = _optimizer;
 
       const testInfusionUsefulness = function () {
         const temp = clone(character);
-        addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
-        addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
+        _optimizer.addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
+        _optimizer.addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
         updateAttributes(temp, false, true);
         return temp.attributes[settings.rankby] > _optimizer.worstScore;
       };
@@ -1637,8 +1644,16 @@ const Optimizer = function ($) {
         let secondaryCount = MAX_INFUSIONS - primaryCount;
         while (secondaryCount <= settings.secondaryMaxInfusions) {
           const temp = clone(character);
-          addBaseStats(temp, settings.primaryInfusion, primaryCount * INFUSION_BONUS);
-          addBaseStats(temp, settings.secondaryInfusion, secondaryCount * INFUSION_BONUS);
+          _optimizer.addBaseStats(
+            temp,
+            settings.primaryInfusion,
+            primaryCount * INFUSION_BONUS
+          );
+          _optimizer.addBaseStats(
+            temp,
+            settings.secondaryInfusion,
+            secondaryCount * INFUSION_BONUS
+          );
           updateAttributes(temp);
           if (temp.valid) {
             temp.infusions = {
@@ -1656,9 +1671,9 @@ const Optimizer = function ($) {
           _optimizer._insertCharacter(best);
         }
       }
-    };
+    }
 
-    Optimizer.prototype._insertCharacter = function (character) {
+    _insertCharacter (character) {
       const _optimizer = this;
       const { settings } = _optimizer;
 
@@ -1699,9 +1714,9 @@ const Optimizer = function ($) {
             .data('character').attributes[settings.rankby];
         }
       }
-    };
+    }
 
-    Optimizer.prototype._characterToRow = function (character) {
+    _characterToRow (character) {
       const { settings } = character;
       return $(
         '<tr><td><strong>'
@@ -1715,10 +1730,10 @@ const Optimizer = function ($) {
           }).join('')
           + '</tr>'
       ).data('character', character);
-    };
+    }
 
     // returns true if B is better than A
-    Optimizer.prototype._characterLT = function (a, b) {
+    _characterLT (a, b) {
       const _optimizer = this;
       const { settings } = _optimizer;
 
@@ -1742,9 +1757,9 @@ const Optimizer = function ($) {
       }
 
       return a.attributes[settings.rankby] < b.attributes[settings.rankby];
-    };
+    }
 
-    Optimizer.prototype._choose = function (n, k) {
+    _choose (n, k) {
       let num = 1;
       let denom = 1;
 
@@ -1754,10 +1769,9 @@ const Optimizer = function ($) {
       }
 
       return num / denom;
-    };
+    }
 
-    return Optimizer;
-  }();
+  }
 
   /**
    * Rounds, tie-breaking exact halves to the nearest even integer. Apparently used by GW2
@@ -2558,7 +2572,9 @@ const Optimizer = function ($) {
 
   // Calculate button
   $(Selector.START).on(Event.CLICK, function () {
-    new Optimizer().calculate();
+    const optimizer = new Optimizer();
+    optimizer.initialize();
+    optimizer.calculate();
   });
 
   $(Selector.STOP).on(Event.CLICK, function () {
@@ -2701,4 +2717,4 @@ const Optimizer = function ($) {
   });
 
   return Optimizer;
-}(jQuery);
+})(jQuery);
