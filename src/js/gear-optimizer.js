@@ -1634,53 +1634,22 @@
 
         /* - Power - */
 
-        _character.attributes['Critical Chance']
-          += (_character.attributes['Precision'] - 1000) / 21;
-        _character.attributes['Critical Damage'] += _character.attributes['Ferocity'] / 15;
-
-        const critDmg = _character.attributes['Critical Damage'] / 100
-          * multipliers['Critical Damage'];
-        const critChance = Math.min(_character.attributes['Critical Chance'] / 100, 1);
-
-        _character.attributes['Effective Power']
-          = _character.attributes['Power'] * (1 + critChance * (critDmg - 1))
-            * multipliers['Effective Power'];
-
-        const powerDamageScore = settings.distribution['Power']
-          * (_character.attributes['Effective Power'] / 1025);
+        const powerDamageScore = calcPower(_character, multipliers);
 
         /* - Conditions (skipped if none are relevant)- */
 
-        // cache this section's result based on cdmg and expertise and skip calculating it if we
-        // already have
         let condiDamageScore = 0;
-        const CONDI_CACHE_ID
-          = _character.attributes['Expertise'] + _character.attributes['Condition Damage'] * 10000;
-        const cached = settings.condiResultCache.get(CONDI_CACHE_ID);
-
-        if (alwaysCalculateAll || (settings.relevantConditions.length && !cached)) {
-          _character.attributes['Condition Duration'] += _character.attributes['Expertise'] / 15;
-
-          for (const condition of alwaysCalculateAll
-            ? Attributes.CONDITION
-            : settings.relevantConditions) {
-            _character.attributes[`${condition} Damage`]
-              = ((Condition[condition].factor * _character.attributes['Condition Damage'])
-              + Condition[condition].baseDamage)
-                * multipliers['Effective Condition Damage']
-                * (multipliers[`${condition} Damage`] || 1);
-
-            const duration = 1 + Math.min(((_character.attributes[`${condition} Duration`] || 0)
-                + _character.attributes['Condition Duration']) / 100, 1);
-
-            condiDamageScore += settings.distribution[condition]
-              * duration
-              * (_character.attributes[`${condition} Damage`] || 1)
-              / Condition[condition].baseDamage;
-          }
-          settings.condiResultCache.set(CONDI_CACHE_ID, condiDamageScore);
-        } else {
-          condiDamageScore = cached || 0;
+        if (alwaysCalculateAll) {
+          condiDamageScore = calcCondi(_character, multipliers, Attributes.CONDITION);
+        } else if (settings.relevantConditions.length) {
+          // cache this section's result based on cdmg and expertise and skip calculating it if we
+          // already have
+          const CONDI_CACHE_ID = _character.attributes['Expertise']
+              + _character.attributes['Condition Damage'] * 10000;
+          condiDamageScore
+            = _character.settings.condiResultCache.get(CONDI_CACHE_ID)
+              || calcCondi(_character, multipliers, settings.relevantConditions);
+          _character.settings.condiResultCache.set(CONDI_CACHE_ID, condiDamageScore);
         }
 
         /* - Combine power + condi - */
@@ -1719,6 +1688,44 @@
       }
 
       return true;
+    }
+
+    function calcPower (_character, multipliers) {
+      _character.attributes['Critical Chance']
+        += (_character.attributes['Precision'] - 1000) / 21;
+      _character.attributes['Critical Damage'] += _character.attributes['Ferocity'] / 15;
+
+      const critDmg = _character.attributes['Critical Damage'] / 100
+        * multipliers['Critical Damage'];
+      const critChance = Math.min(_character.attributes['Critical Chance'] / 100, 1);
+
+      _character.attributes['Effective Power']
+        = _character.attributes['Power'] * (1 + critChance * (critDmg - 1))
+          * multipliers['Effective Power'];
+
+      return _character.settings.distribution['Power']
+        * (_character.attributes['Effective Power'] / 1025);
+    }
+
+    function calcCondi (_character, multipliers, relevantConditions) {
+      _character.attributes['Condition Duration'] += _character.attributes['Expertise'] / 15;
+      let condiDamageScore = 0;
+      for (const condition of relevantConditions) {
+        _character.attributes[`${condition} Damage`]
+          = ((Condition[condition].factor * _character.attributes['Condition Damage'])
+          + Condition[condition].baseDamage)
+            * multipliers['Effective Condition Damage']
+            * (multipliers[`${condition} Damage`] || 1);
+
+        const duration = 1 + Math.min(((_character.attributes[`${condition} Duration`] || 0)
+            + _character.attributes['Condition Duration']) / 100, 1);
+
+        condiDamageScore += _character.settings.distribution[condition]
+          * duration
+          * (_character.attributes[`${condition} Damage`] || 1)
+          / Condition[condition].baseDamage;
+      }
+      return condiDamageScore;
     }
 
     this.clone = clone;
