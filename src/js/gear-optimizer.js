@@ -1161,6 +1161,22 @@
         }
       }
 
+      // rearrange affixes so you don't always start with e.g. full berserker. Example:
+      // [vipe sini grie] helm
+      // [grie vipe sini] shld
+      // [sini grie vipe] coat
+      // [vipe]           glov (forced to viper)
+      // [grie vipe sini] legs
+      // ...
+      settings.affixesArray = settings.affixesArray.map((affixes, slotindex) => {
+        if (affixes.length === 1) return affixes;
+        return affixes.reduce((newAffixes, affix, i) => {
+          newAffixes[(i + slotindex) % affixes.length] = affix;
+          return newAffixes;
+        }, []);
+      });
+      // console.log(settings.affixesArray.map(item => item.toString()));
+
       // like affixesArray, but each entry is an array of arrays of stats given by that piece with
       // that affix
       // e.g. berserker helm -> [[Power, 63],[Precision, 45],[Ferocity, 45]]
