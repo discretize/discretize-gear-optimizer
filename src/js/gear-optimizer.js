@@ -1593,51 +1593,22 @@
       const multipliers = settings.modifiers['multiplier'];
       _character.valid = true;
 
-      /* - Stat Point Totals - */
-
-      _character.attributes = Object.assign({}, _character.baseAttributes);
-
-      $.each(settings.modifiers['convert'], function (attribute, conversion) {
-        $.each(conversion, function (source, percent) {
-          _character.attributes[attribute] += roundEven(
-            _character.baseAttributes[source] * percent
-          );
-        });
-      });
-
-      $.each(settings.modifiers['buff'], function (attribute, bonus) {
-        _character.attributes[attribute] = (_character.attributes[attribute] || 0) + bonus;
-      });
+      calcStats(_character);
 
       /* - Check if build is valid - */
-
-      _character.attributes['Boon Duration'] += _character.attributes['Concentration'] / 15;
-
       if (!alwaysCalculateAll && !skipValidation) {
-        const invalid
-          = (settings.minBoonDuration
-            && _character.attributes['Boon Duration'] < settings.minBoonDuration)
-          || (settings.minHealingPower
-            && _character.attributes['Healing Power'] < settings.minHealingPower)
-          || (settings.minToughness
-            && _character.attributes['Toughness'] < settings.minToughness)
-          || (settings.maxToughness
-            && _character.attributes['Toughness'] > settings.maxToughness);
-
-        if (invalid) {
-          _character.valid = false;
+        if (checkInvalid(_character)) {
           return false;
         }
       }
 
+      /* - Damage - */
       if (alwaysCalculateAll || settings.rankby === 'Damage') {
 
         /* - Power - */
-
         const powerDamageScore = calcPower(_character, multipliers);
 
         /* - Conditions (skipped if none are relevant)- */
-
         let condiDamageScore = 0;
         if (alwaysCalculateAll) {
           condiDamageScore = calcCondi(_character, multipliers, Attributes.CONDITION);
@@ -1657,37 +1628,49 @@
       }
 
       /* - Survivability - */
-
       if (alwaysCalculateAll || settings.rankby === 'Survivability') {
-        _character.attributes['Armor'] += _character.attributes['Toughness'];
-        _character.attributes['Health'] += _character.attributes['Vitality'] * 10;
-
-        _character.attributes['Effective Health']
-          = _character.attributes['Health'] * _character.attributes['Armor']
-            * multipliers['Effective Health'];
-        _character.attributes['Survivability'] = _character.attributes['Effective Health'] / 1967;
+        calcSurvivability(_character, multipliers);
       }
 
       /* - Healing - */
-
       if (alwaysCalculateAll || settings.rankby === 'Healing') {
-        // reasonably representative skill: druid celestial avatar 4 pulse
-        // 390 base, 0.3 coefficient
-        _character.attributes['Effective Healing']
-          = (_character.attributes['Healing Power'] * 0.3 + 390)
-            * multipliers['Effective Healing'];
-        if (Object.prototype.hasOwnProperty.call(settings.modifiers, 'bountiful-maintenance-oil')) {
-          const bonus
-            = ((_character.attributes['Healing Power'] || 0) * 0.6) / 10000
-            + ((_character.attributes['Concentration'] || 0) * 0.8) / 10000;
-          if (bonus) {
-            _character.attributes['Effective Healing'] *= 1.0 + bonus;
-          }
-        }
-        _character.attributes['Healing'] = _character.attributes['Effective Healing'];
+        calcHealing(_character, multipliers);
       }
-
       return true;
+    }
+
+    function calcStats (_character) {
+      _character.attributes = Object.assign({}, _character.baseAttributes);
+
+      $.each(_character.settings.modifiers['convert'], function (attribute, conversion) {
+        $.each(conversion, function (source, percent) {
+          _character.attributes[attribute] += roundEven(
+            _character.baseAttributes[source] * percent
+          );
+        });
+      });
+
+      $.each(_character.settings.modifiers['buff'], function (attribute, bonus) {
+        _character.attributes[attribute] = (_character.attributes[attribute] || 0) + bonus;
+      });
+
+      _character.attributes['Boon Duration'] += _character.attributes['Concentration'] / 15;
+    }
+
+    function checkInvalid (_character) {
+      const { settings } = _character;
+      const invalid = (settings.minBoonDuration
+            && _character.attributes['Boon Duration'] < settings.minBoonDuration)
+          || (settings.minHealingPower
+            && _character.attributes['Healing Power'] < settings.minHealingPower)
+          || (settings.minToughness
+            && _character.attributes['Toughness'] < settings.minToughness)
+          || (settings.maxToughness
+            && _character.attributes['Toughness'] > settings.maxToughness);
+      if (invalid) {
+        _character.valid = false;
+      }
+      return invalid;
     }
 
     function calcPower (_character, multipliers) {
@@ -1726,6 +1709,39 @@
           / Condition[condition].baseDamage;
       }
       return condiDamageScore;
+    }
+
+    function calcSurvivability (_character, multipliers) {
+      _character.attributes['Armor'] += _character.attributes['Toughness'];
+      _character.attributes['Health'] += _character.attributes['Vitality'] * 10;
+
+      _character.attributes['Effective Health']
+        = _character.attributes['Health'] * _character.attributes['Armor']
+          * multipliers['Effective Health'];
+      _character.attributes['Survivability'] = _character.attributes['Effective Health'] / 1967;
+    }
+
+    function calcHealing (_character, multipliers) {
+      // reasonably representative skill: druid celestial avatar 4 pulse
+      // 390 base, 0.3 coefficient
+      _character.attributes['Effective Healing']
+        = (_character.attributes['Healing Power'] * 0.3 + 390)
+          * multipliers['Effective Healing'];
+      if (
+        Object.prototype.hasOwnProperty.call(
+          _character.settings.modifiers,
+          'bountiful-maintenance-oil'
+        )
+      ) {
+        const bonus
+          = ((_character.attributes['Healing Power'] || 0) * 0.6) / 10000
+          + ((_character.attributes['Concentration'] || 0) * 0.8) / 10000;
+        if (bonus) {
+          _character.attributes['Effective Healing'] *= 1.0 + bonus;
+        }
+      }
+      _character.attributes['Healing'] = _character.attributes['Effective Healing'];
+
     }
 
     this.clone = clone;
