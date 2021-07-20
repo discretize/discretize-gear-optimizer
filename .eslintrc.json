@@ -10,7 +10,6 @@
     "extends": "semistandard",
     "rules": {
         "padded-blocks": "warn",
-        "no-throw-literal": "off",
         "dot-notation": "off",
         "no-case-declarations": "off",
 

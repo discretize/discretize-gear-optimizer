@@ -867,11 +867,7 @@
   const MAX_INFUSIONS = 18;
   const INFUSION_BONUS = 5;
 
-  /**
-   * ------------------------------------------------------------------------
-   * Globals
-   * ------------------------------------------------------------------------
-   */
+  // Globals
 
   let startTime;
   let STOP_SIGNAL = false;
@@ -879,7 +875,7 @@
 
   /**
    * ------------------------------------------------------------------------
-   * Optimizer definition
+   * Core Optimizer Logic
    * ------------------------------------------------------------------------
    */
 
@@ -887,7 +883,7 @@
     let applyInfusionsFunction;
     let worstScore;
 
-    this.run = run;
+    this.run = run; // export
     /**
      * Run the calculation.
      * @param {Object} input
@@ -945,7 +941,6 @@
       settings.baseAttributes['Critical Chance'] = 5;
       settings.baseAttributes['Critical Damage'] = 150;
 
-      // this needs refactoring, I know
       settings.modifiers = {
         multiplier: {
           'Effective Power': 1,
@@ -961,6 +956,33 @@
       let addEffectiveConditionDamage = 1;
       let addEffectivePower = 1;
 
+      const validMultipliers = [
+        'Effective Condition Damage',
+        'Critical Damage',
+        'add: Effective Condition Damage',
+        'add: Effective Power',
+        ...Attributes.EFFECTIVE,
+        ...Attributes.CONDITION_DAMAGE
+      ];
+      const validFlat = [
+        ...Attributes.PRIMARY,
+        ...Attributes.SECONDARY,
+        ...Attributes.DERIVED,
+        ...Attributes.BOON_DURATION,
+        ...Attributes.CONDITION_DURATION
+      ];
+      const validBuff = [
+        ...Attributes.PRIMARY,
+        ...Attributes.SECONDARY,
+        ...Attributes.DERIVED,
+        ...Attributes.BOON_DURATION,
+        ...Attributes.CONDITION_DURATION
+      ];
+      const validConvert = [
+        ...Attributes.PRIMARY,
+        ...Attributes.SECONDARY
+      ];
+
       $.each(modifiersInput, function (index, modifiers) {
         if (!modifiers) {
           return;
@@ -974,82 +996,60 @@
                 if (attribute && value) {
                   switch (type) {
                     case 'multiplier':
-                      if (
-                        attribute !== 'Effective Condition Damage'
-                        && attribute !== 'Critical Damage'
-                        && !Attributes.EFFECTIVE.includes(attribute)
-                        && !Attributes.CONDITION_DAMAGE.includes(attribute)
-                        && attribute !== 'add: Effective Condition Damage'
-                        && attribute !== 'add: Effective Power'
-                      ) {
-                        throw (
-                          'Multipliers can only modify primary, secondary or'
-                          + 'effective attributes, not '
-                          + attribute
-                        );
-                      }
-                      if (attribute === 'add: Effective Condition Damage') {
-                        addEffectiveConditionDamage += value;
-                      } else if (attribute === 'add: Effective Power') {
-                        addEffectivePower += value;
-                      } else if (!settings.modifiers[type][attribute]) {
-                        settings.modifiers[type][attribute] = 1 + value;
+                      if (validMultipliers.includes(attribute)) {
+                        if (attribute === 'add: Effective Condition Damage') {
+                          addEffectiveConditionDamage += value;
+                        } else if (attribute === 'add: Effective Power') {
+                          addEffectivePower += value;
+                        } else if (!settings.modifiers[type][attribute]) {
+                          settings.modifiers['multiplier'][attribute] = 1 + value;
+                        } else {
+                          settings.modifiers['multiplier'][attribute] *= (1 + value);
+                        }
                       } else {
-                        settings.modifiers[type][attribute] *= (1 + value);
+                        throw new Error(
+                          'Multipliers can only modify primary, secondary or '
+                          + 'effective attributes, not ' + attribute
+                        );
                       }
                       break;
                     case 'flat':
-                      if (
-                        !Attributes.PRIMARY.includes(attribute)
-                        && !Attributes.SECONDARY.includes(attribute)
-                        && !Attributes.DERIVED.includes(attribute)
-                        && !Attributes.BOON_DURATION.includes(attribute)
-                        && !Attributes.CONDITION_DURATION.includes(attribute)
-                      ) {
-                        throw (
-                          'Flat modifiers can only increase primary, secondary or'
-                          + 'derived attributes, not '
-                          + attribute
+                      if (validFlat.includes(attribute)) {
+                        settings.baseAttributes[attribute]
+                        = (settings.baseAttributes[attribute] || 0) + value;
+                      } else {
+                        throw new Error(
+                          'Flat modifiers can only increase primary, secondary or '
+                          + 'derived attributes, not ' + attribute
                         );
                       }
-                      settings.baseAttributes[attribute]
-                        = (settings.baseAttributes[attribute] || 0) + value;
                       break;
                     case 'buff':
-                      if (
-                        !Attributes.PRIMARY.includes(attribute)
-                        && !Attributes.SECONDARY.includes(attribute)
-                        && !Attributes.DERIVED.includes(attribute)
-                        && !Attributes.BOON_DURATION.includes(attribute)
-                        && !Attributes.CONDITION_DURATION.includes(attribute)
-                      ) {
-                        throw (
-                          'Buff modifiers can only increase primary, secondary or'
-                          + 'derived attributes, not '
-                          + attribute
+                      if (validBuff.includes(attribute)) {
+                        settings.modifiers['buff'][attribute]
+                        = (settings.modifiers['buff'][attribute] || 0) + value;
+                      } else {
+                        throw new Error(
+                          'Buff modifiers can only increase primary, secondary or '
+                          + 'derived attributes, not ' + attribute
                         );
                       }
-
-                      settings.modifiers[type][attribute]
-                        = (settings.modifiers[type][attribute] || 0) + value;
                       break;
                     case 'convert':
-                      if (
-                        !Attributes.PRIMARY.includes(attribute)
-                        && !Attributes.SECONDARY.includes(attribute)
-                      ) {
-                        throw 'Conversions can only modify primary or secondary attributes, not '
-                          + attribute;
-                      }
+                      if (validConvert.includes(attribute)) {
+                        if (!settings.modifiers['convert'][attribute]) {
+                          settings.modifiers['convert'][attribute] = {};
+                        }
 
-                      if (!settings.modifiers[type][attribute]) {
-                        settings.modifiers[type][attribute] = {};
+                        $.each(value, function (source, conversion) {
+                          settings.modifiers['convert'][attribute][source]
+                            = (settings.modifiers['convert'][attribute][source] || 0) + conversion;
+                        });
+                      } else {
+                        throw new Error(
+                          'Conversions can only modify primary or secondary attributes, not '
+                          + attribute);
                       }
-
-                      $.each(value, function (source, conversion) {
-                        settings.modifiers[type][attribute][source]
-                          = (settings.modifiers[type][attribute][source] || 0) + conversion;
-                      });
                       break;
                     // no default
                   }
@@ -1124,8 +1124,9 @@
           && !Attributes.SECONDARY.includes(primaryInfusionInput)
           && !Attributes.DERIVED.includes(primaryInfusionInput)
         ) {
-          throw 'Primary infusion can only increase primary, secondary or derived attributes, not '
-            + primaryInfusionInput;
+          throw new Error(
+            'Primary infusion can only increase primary, secondary or derived attributes, not '
+            + primaryInfusionInput);
         }
         activeInfusions++;
         settings.primaryInfusion = primaryInfusionInput;
@@ -1137,9 +1138,9 @@
           && !Attributes.SECONDARY.includes(secondaryInfusionInput)
           && !Attributes.DERIVED.includes(secondaryInfusionInput)
         ) {
-          throw 'Secondary infusion can only increase '
+          throw new Error('Secondary infusion can only increase '
             + 'primary, secondary or derived attributes, not '
-            + secondaryInfusionInput;
+            + secondaryInfusionInput);
         }
         activeInfusions++;
         if (activeInfusions) {
@@ -1171,7 +1172,7 @@
         // no default
       }
       if (applyInfusions[infusionMode] === undefined) {
-        throw 'Error: optimizer selected invalid infusion calculation mode';
+        throw new Error('Error: optimizer selected invalid infusion calculation mode');
       }
       applyInfusionsFunction = applyInfusions[infusionMode];
 
@@ -1572,7 +1573,7 @@
       return Math.round(number);
     };
 
-    this.updateAttributes = updateAttributes;
+    this.updateAttributes = updateAttributes; // export
     /**
      * Creates an {attributes} object parameter in the given character object and fills it with
      * calculated stats and damage/healing/survivability scores.
@@ -1744,7 +1745,7 @@
 
     }
 
-    this.clone = clone;
+    this.clone = clone; // export
     /**
      * Clones a character. baseAttributes is cloned by value, so it can be mutated. Please
      * don't directly mutate character.attributes; it's passed by reference so the clone shares
@@ -1893,7 +1894,11 @@
       }
     );
 
-    optimizer.run(input);
+    optimizer.run(input).catch(e => {
+      alert('There was an error in the calculation!\n\n' + e);
+      console.log('Caught error in calculation:');
+      throw e;
+    });
   }
 
   function characterToRow (character) {
@@ -2645,7 +2650,7 @@
         $('#go-condition-distribution-slider')[0].noUiSlider.set([31, 77, 86, 95, 95]);
         break;
       default:
-        throw `error: unimplemented button: ${$(this).data(DataAttribute.DISTRIBUTION)}`;
+        throw new Error(`Error: unimplemented button: ${$(this).data(DataAttribute.DISTRIBUTION)}`);
     }
   });
 
