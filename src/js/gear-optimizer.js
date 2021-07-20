@@ -1225,7 +1225,7 @@
             const percent = Math.floor(
               (calculationRuns * 100) / calculationTotal
             );
-            updateUI(percent, false);
+            updateProgressBar(percent, false);
             // eslint-disable-next-line no-await-in-loop
             await new Promise(resolve => setTimeout(resolve, 0));
             timer = Date.now();
@@ -1304,10 +1304,11 @@
           calculationStatsQueue.push(gearStats);
         }
 
+        // we are done
         const percent = Math.floor(
           (calculationRuns * 100) / calculationTotal
         );
-        updateUI(percent, true);
+        updateProgressBar(percent, true);
         unlockUI();
       }
     }
@@ -1598,7 +1599,7 @@
      * settings.
      *
      * @param {Object} _character
-     * @param {boolean} [skipValidation] - skips the validation check (used in testInfusionUsefulness)
+     * @param {boolean} [skipValidation] - skips the validation check if true
      */
     function updateAttributesFast (_character, skipValidation = false) {
       const { settings } = _character;
@@ -1744,6 +1745,14 @@
     }
 
     this.clone = clone;
+    /**
+     * Clones a character. baseAttributes is cloned by value, so it can be mutated. Please
+     * don't directly mutate character.attributes; it's passed by reference so the clone shares
+     * the old one until upateAttributes is called on it.
+     *
+     * @param {Object} character
+     * @returns {Object} character
+     */
     function clone (character) {
       return {
         settings: character.settings, // passed by reference
@@ -2131,7 +2140,7 @@
     return $(modal);
   }
 
-  function updateUI (percent, done) {
+  function updateProgressBar (percent, done) {
     $(Selector.OUTPUT.PROGRESS_BAR)
       .css('width', `${percent}%`);
 
