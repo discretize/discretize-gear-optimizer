@@ -1792,10 +1792,17 @@
       const span = $(this).siblings(Selector.LABEL).children(Selector.SPAN);
       if (span.is('[data-armory-ids]')) {
         const type = span.children('div').attr('class').split(' ')[1];
-        input.tags.push(`<div data-armory-size="40" data-armory-embed="${type.substring(
-          5, type.length - 6)}" data-armory-ids="${span.data('armory-ids')}"></div>`);
+        input.tags.push(
+          `<div
+            data-armory-size="40"
+            data-armory-embed="${type.substring(5, type.length - 6)}"
+            data-armory-ids="${span.data('armory-ids')}"
+          ></div>`
+        );
       } else if (span.hasClass('icon')) {
-        input.tags.push(`<div class="icon icon-lg ${span.attr('class').split(' ')[1]}"></div>`);
+        input.tags.push(
+          `<div class="icon icon-lg ${span.attr('class').split(' ')[1]}"></div>`
+        );
       }
     });
 
@@ -1805,8 +1812,13 @@
       .children(Selector.DROPDOWN_MENU).children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE
          }[data-${DataAttribute.MODIFIER}]`), function () {
       input.modifiers.push($(this).data(DataAttribute.MODIFIER));
-      input.tags.push(`<div data-armory-size="40" data-armory-embed="items" data-armory-ids="${$(
-        this).children(Selector.SPAN).data('armory-ids')}"></div>`);
+      input.tags.push(
+        `<div
+          data-armory-size="40"
+          data-armory-embed="items"
+          data-armory-ids="${$(this).children(Selector.SPAN).data('armory-ids')}"
+        ></div>`
+      );
     });
 
     // Omnipotion
