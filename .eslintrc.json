@@ -9,23 +9,37 @@
     ],
     "extends": "semistandard",
     "rules": {
-        "padded-blocks": "off",
+        "padded-blocks": "warn",
+        "dot-notation": "off",
+        "no-case-declarations": "off",
+
+        "no-unused-vars": "warn",
         "operator-linebreak": [
             "warn",
             "before"
         ],
-        "no-throw-literal": "off",
-        "dot-notation": "off",
-        "no-prototype-builtins": "off",
-        "wrap-iife": "off",
-        "no-unused-vars": "warn",
         "max-len": [
-            "warn",
+          "warn",
+          { 
+              "code": 100,
+              "ignoreComments": true
+          }
+      ],
+
+        "no-lonely-if": "warn",
+        "radix": "warn",
+        "default-case": "warn",
+        "no-param-reassign": [
+            "warn", 
             { 
-                "code": 100,
-                "ignoreComments": true
+                "props": false 
             }
         ],
-        "no-lonely-if": "warn"
+        "no-else-return": "warn",
+        "no-shadow": "warn",
+        "consistent-return": "warn",
+        "object-shorthand": "warn",
+        "guard-for-in": "warn",
+        "no-underscore-dangle": "warn"
     }
 }
