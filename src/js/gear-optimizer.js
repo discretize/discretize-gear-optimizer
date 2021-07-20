@@ -1365,6 +1365,7 @@
       const character = {
         gear, // passed by reference
         settings, // passed by reference
+        gearStats, // passed by reference
         attributes: null,
         valid: true,
         baseAttributes: Object.assign({}, settings.baseAttributes)
@@ -1793,6 +1794,7 @@
         settings: character.settings, // passed by reference
         attributes: character.attributes, // passed by reference
         gear: character.gear, // passed by reference
+        gearStats: character.gearStats, // passed by reference
         valid: character.valid,
 
         baseAttributes: Object.assign({}, character.baseAttributes),
@@ -2028,7 +2030,19 @@
     });
     modal += toCard('Gear', gear);
 
-    modal += toCard('Stat Infusions', _character.infusions);
+    if (_character.infusions) {
+      modal += toCard('Stat Infusions', _character.infusions);
+    }
+
+    if (_character.infusions) {
+      const statsFromGear = { ..._character.gearStats };
+      Object.entries(_character.infusions).forEach(([stat, value]) => {
+        statsFromGear[stat] = (statsFromGear[stat] || 0) + value * INFUSION_BONUS;
+      });
+      modal += toCard('Total stats from gear + infusions', statsFromGear);
+    } else {
+      modal += toCard('Total stats from gear', _character.gearStats);
+    }
 
     if (_character.settings.distribution['Power'] !== 100) {
       // effective damage distribution
