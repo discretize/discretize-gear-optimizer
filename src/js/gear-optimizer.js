@@ -882,7 +882,7 @@
    * ------------------------------------------------------------------------
    */
 
-  const Optimizer = function () {
+  const OptimizerCore = function () {
 
     let applyInfusionsFunction;
 
@@ -890,40 +890,42 @@
     let worstScore;
 
     this.run = run;
-    async function run ({
-      modifiers: rawModifiers,
-      tags,
-      profession,
-      weapontype,
-      affixes,
-      forcedAffixes,
-      rankby,
-      minBoonDuration,
-      minHealingPower,
-      minToughness,
-      maxToughness,
-      maxResults,
-      primaryInfusionInput,
-      secondaryInfusionInput,
-      distribution,
-      relevantConditions
-    }) {
+    // async function run ({
+    //   modifiers: modifiersInput,
+    //   tags,
+    //   profession,
+    //   weapontype,
+    //   affixes,
+    //   forcedAffixes,
+    //   rankby,
+    //   minBoonDuration,
+    //   minHealingPower,
+    //   minToughness,
+    //   maxToughness,
+    //   maxResults,
+    //   primaryInfusionInput,
+    //   secondaryInfusionInput,
+    //   primaryMaxInfusions,
+    //   secondaryMaxInfusions,
+    //   distribution,
+    //   relevantConditions
+    // }) {
+    async function run (input) {
       startTime = new Date();
+      worstScore = 0;
 
-      const settings = {
-        profession,
-        weapontype,
-        affixes,
-        forcedAffixes,
-        rankby,
-        minBoonDuration,
-        minHealingPower,
-        minToughness,
-        maxToughness,
-        maxResults,
-        distribution,
-        relevantConditions
-      };
+      const {
+        modifiers: modifiersInput,
+        primaryInfusion: primaryInfusionInput,
+        secondaryInfusion: secondaryInfusionInput,
+        primaryMaxInfusions: primaryMaxInfusionsInput,
+        secondaryMaxInfusions: secondaryMaxInfusionsInput,
+        infusionNoDuplicates,
+        ...others
+      } = input;
+
+      const settings = { ...others };
+      console.debug(settings);
 
       settings.slots = Slots[settings.weapontype];
 
@@ -959,7 +961,7 @@
       let addEffectiveConditionDamage = 1;
       let addEffectivePower = 1;
 
-      $.each(rawModifiers, function (index, modifiers) {
+      $.each(modifiersInput, function (index, modifiers) {
         if (!modifiers) {
           return;
         }
@@ -1064,8 +1066,6 @@
       settings.modifiers['multiplier']['Effective Condition Damage'] *= addEffectiveConditionDamage;
       settings.modifiers['multiplier']['Effective Power'] *= addEffectivePower;
 
-      settings.tags = tags;
-
       // valid affixes for each slot, taking forced slots into account
       settings.affixesArray = new Array(settings.slots.length).fill(settings.affixes);
 
@@ -1073,8 +1073,8 @@
       settings.forcedRing = false;
       settings.forcedAcc = false;
       settings.forcedWep = false;
-      for (let i = 0; i < forcedAffixes.length; i++) {
-        const inputValue = forcedAffixes[i];
+      for (let i = 0; i < settings.forcedAffixes.length; i++) {
+        const inputValue = settings.forcedAffixes[i];
         if (!inputValue) {
           continue;
         }
@@ -1131,12 +1131,9 @@
           throw 'Primary infusion can only increase primary, secondary or derived attributes, not '
             + primaryInfusionInput;
         }
-        settings.primaryInfusion = primaryInfusionInput;
         activeInfusions++;
-        settings.primaryMaxInfusions = Math.max(
-          parseInt($(`${Selector.SELECT.INFUSION}-primary-max`).val(), 10) || MAX_INFUSIONS,
-          0
-        );
+        settings.primaryInfusion = primaryInfusionInput;
+        settings.primaryMaxInfusions = primaryMaxInfusionsInput;
       }
       if (secondaryInfusionInput !== 'None' && secondaryInfusionInput !== primaryInfusionInput) {
         if (
@@ -1148,21 +1145,14 @@
             + 'primary, secondary or derived attributes, not '
             + secondaryInfusionInput;
         }
+        activeInfusions++;
         if (activeInfusions) {
           settings.secondaryInfusion = secondaryInfusionInput;
-          activeInfusions++;
-          settings.secondaryMaxInfusions = Math.max(
-            parseInt($(`${Selector.SELECT.INFUSION}-secondary-max`).val(), 10) || MAX_INFUSIONS,
-            0
-          );
+          settings.secondaryMaxInfusions = secondaryMaxInfusionsInput;
         } else {
-          // pretend secondary is primary
+          // only secondary is selected; pretend secondary is primary
           settings.primaryInfusion = secondaryInfusionInput;
-          activeInfusions++;
-          settings.primaryMaxInfusions = Math.max(
-            parseInt($(`${Selector.SELECT.INFUSION}-secondary-max`).val(), 10) || MAX_INFUSIONS,
-            0
-          );
+          settings.primaryMaxInfusions = secondaryMaxInfusionsInput;
         }
       }
 
@@ -1178,7 +1168,7 @@
           if (settings.primaryMaxInfusions + settings.secondaryMaxInfusions <= MAX_INFUSIONS) {
             infusionMode = 'Few';
           } else {
-            infusionMode = $('#go-select-infusion-duplicates').prop('checked')
+            infusionMode = infusionNoDuplicates
               ? 'SecondaryNoDuplicates'
               : 'Secondary';
           }
@@ -1875,7 +1865,7 @@
 
   };
 
-  const optimizer = new Optimizer();
+  const optimizer = new OptimizerCore();
 
   // Fetches values from the html file, selected checkboxes and optimization goals.
   function init () {
@@ -1955,16 +1945,25 @@
     input.maxToughness = parseInt($(Selector.INPUT.MAX_TOUGHNESS).val(), 10);
     input.maxResults = parseInt($(Selector.INPUT.MAX_RESULTS).val(), 10) || 10;
 
-    input.primaryInfusionInput = $(`${Selector.SELECT.INFUSION}-primary`)
+    input.primaryInfusion = $(`${Selector.SELECT.INFUSION}-primary`)
       .children(Selector.DROPDOWN_MENU)
       .children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE}`)
       .text()
       .trim();
-    input.secondaryInfusionInput = $(`${Selector.SELECT.INFUSION}-secondary`)
+    input.secondaryInfusion = $(`${Selector.SELECT.INFUSION}-secondary`)
       .children(Selector.DROPDOWN_MENU)
       .children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE}`)
       .text()
       .trim();
+    input.primaryMaxInfusions = Math.max(
+      parseInt($(`${Selector.SELECT.INFUSION}-primary-max`).val(), 10) || MAX_INFUSIONS,
+      0
+    );
+    input.secondaryMaxInfusions = Math.max(
+      parseInt($(`${Selector.SELECT.INFUSION}-secondary-max`).val(), 10) || MAX_INFUSIONS,
+      0
+    );
+    input.infusionNoDuplicates = $('#go-select-infusion-duplicates').prop('checked');
 
     input.distribution = {
       Power: 0,
