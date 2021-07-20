@@ -873,6 +873,7 @@
    * ------------------------------------------------------------------------
    */
 
+  let startTime;
   let STOP_SIGNAL = false;
   const list = $(Selector.OUTPUT.LIST);
 
@@ -883,10 +884,7 @@
    */
 
   const OptimizerCore = function () {
-
     let applyInfusionsFunction;
-
-    let startTime;
     let worstScore;
 
     this.run = run;
@@ -1316,119 +1314,6 @@
       }
     }
 
-    function updateUI (percent, done) {
-      $(Selector.OUTPUT.PROGRESS_BAR)
-        .css('width', `${percent}%`);
-
-      if (!done) {
-        $(Selector.OUTPUT.PROGRESS_BAR)
-          .find(Selector.SPAN)
-          .text(`${percent}%`);
-      }
-    }
-
-    function lockUI (settings) {
-      const locked = true;
-      $('body').css('cursor', locked ? 'progress' : 'default');
-      $(Selector.INPUT.OPTIMIZER).css('opacity', locked ? 0.5 : 1);
-      $(Selector.INPUT.CLASS).css('opacity', locked ? 0.5 : 1);
-      $(Selector.START).prop(PropertyName.DISABLED, locked);
-      $(Selector.START).find('.fa').toggleClass('fa-spin', locked);
-      $(Selector.STOP).prop(PropertyName.DISABLED, !locked);
-
-      $(Selector.OUTPUT.PROGRESS_BAR)
-        .closest('td')
-        .attr(
-          'colspan',
-          Slots[settings.weapontype].length + 1
-            + !!settings.primaryInfusion + !!settings.secondaryInfusion
-        );
-      $(Selector.OUTPUT.PROGRESS_BAR)
-        .css('width', `${0}%`)
-        .children(Selector.SPAN)
-        .text('0%');
-      $(Selector.OUTPUT.PROGRESS_BAR).parent().show();
-
-      $(Selector.OUTPUT.HEADER).html(
-        `<th>
-        ${settings.rankby}
-        </th>`
-          + $.map(Slots[settings.weapontype], slot =>
-            `<th title="${slot.name}">
-            ${slot.short}
-            </th>`
-          ).join('')
-          + (settings.primaryInfusion
-            ? `<th title="${settings.primaryInfusion}">
-                ${settings.primaryInfusion.substring(0, 4)}
-              </th>`
-            : '')
-          + (settings.secondaryInfusion
-            ? `<th title="${settings.secondaryInfusion}">
-                ${settings.secondaryInfusion.substring(0, 4)}
-              </th>`
-            : '')
-      );
-    }
-
-    function unlockUI () {
-      const locked = false;
-      $('body').css('cursor', locked ? 'progress' : 'default');
-      $(Selector.INPUT.OPTIMIZER).css('opacity', locked ? 0.5 : 1);
-      $(Selector.INPUT.CLASS).css('opacity', locked ? 0.5 : 1);
-      $(Selector.START).prop(PropertyName.DISABLED, locked);
-      $(Selector.START).find('.fa').toggleClass('fa-spin', locked);
-      $(Selector.STOP).prop(PropertyName.DISABLED, !locked);
-
-      if (STOP_SIGNAL) {
-        $(Selector.OUTPUT.PROGRESS_BAR).children('span')
-          .text(`Cancelled after ${new Date() - startTime}ms (${
-              $(Selector.OUTPUT.PROGRESS_BAR).children('span').text()})`);
-      } else {
-        $(Selector.OUTPUT.PROGRESS_BAR)
-          .children('span')
-          .text(`Completed in ${new Date() - startTime}ms`);
-      }
-      if (list.children().length) {
-        prettyResults();
-      }
-    }
-
-    function prettyResults () {
-      const getSortValue = character => character.attributes[character.settings.rankby];
-
-      // display indicator line under the results identical to the best
-      const bestValue = getSortValue(list.children().eq(0).data('character'));
-      // eslint-disable-next-line consistent-return
-      list.children().each(function (i, element) {
-        if (getSortValue($(element).data('character')) !== bestValue) {
-          $(element).prev().css('border-bottom', '4px solid #2f3238');
-          return false; // jquery loop break
-        }
-      });
-
-      // slightly fade the most common affix
-      const attrCount = {};
-      $('#go-output samp').each(function (i, element) {
-        const attr = $(element).text();
-        attrCount[attr] = (attrCount[attr] || 0) + 1;
-      });
-      const max = Math.max.apply(null, Object.values(attrCount));
-      let mostFrequent = '';
-      Object.entries(attrCount).forEach(([attr, count]) => {
-        if (count === max) {
-          mostFrequent = attr;
-        }
-      });
-      $('#go-output samp').each(function (i, element) {
-        if ($(element).text() === mostFrequent) {
-          $(element).css('opacity', '0.7');
-        } else {
-          $(element).css('color', '#ddd');
-        }
-      });
-    }
-
     function testCharacter (gear, gearStats, settings) {
       if (!gear) {
         return;
@@ -1499,13 +1384,7 @@
       insertCharacter(character);
     };
 
-    /**
-     * Inserts every valid combination of 18 infusions
-     *
-     * (unless changing infusions has no effect at all; this avoids flooding the results with
-     * identical-for-all-practical-purposes setups if you select e.g. condi infusions on a power
-     * build)
-     */
+    // Inserts every valid combination of 18 infusions
     applyInfusions['Secondary'] = function (character) {
       const { settings } = character;
 
@@ -1518,7 +1397,7 @@
       };
 
       if (!worstScore || testInfusionUsefulness()) {
-        let resultCache;
+        let previousResult;
 
         let primaryCount = settings.primaryMaxInfusions;
         let secondaryCount = MAX_INFUSIONS - primaryCount;
@@ -1534,13 +1413,13 @@
             secondaryCount * INFUSION_BONUS
           );
           updateAttributes(temp);
-          if (temp.valid && temp.attributes[settings.rankby] !== resultCache) {
+          if (temp.valid && temp.attributes[settings.rankby] !== previousResult) {
             temp.infusions = {
               [settings.primaryInfusion]: primaryCount,
               [settings.secondaryInfusion]: secondaryCount
             };
             insertCharacter(temp);
-            resultCache = temp.attributes[settings.rankby];
+            previousResult = temp.attributes[settings.rankby];
           }
           primaryCount--;
           secondaryCount++;
@@ -1637,24 +1516,6 @@
       }
     }
 
-    function characterToRow (character) {
-      const { settings } = character;
-
-      return $(
-        `<tr>
-          <td><strong>
-            ${Number(character.attributes[settings.rankby].toFixed(2)).toLocaleString('en-US')}
-          </strong></td>
-          ${$.map(character.gear, attribute =>
-            `<td><samp>${attribute.substring(0, 4)}</samp></td>`
-          ).join('')}
-          ${$.map(character.infusions, count =>
-            `<td><samp>${count}</samp></td>`
-          ).join('')}
-        </tr>`
-      ).data('character', character);
-    }
-
     // returns true if B is better than A
     function characterLT (a, b) {
       const { settings } = a;
@@ -1738,7 +1599,9 @@
 
       $.each(settings.modifiers['convert'], function (attribute, conversion) {
         $.each(conversion, function (source, percent) {
-          _character.attributes[attribute] += roundEven(_character.baseAttributes[source] * percent);
+          _character.attributes[attribute] += roundEven(
+            _character.baseAttributes[source] * percent
+          );
         });
       });
 
@@ -1771,7 +1634,8 @@
 
         /* - Power - */
 
-        _character.attributes['Critical Chance'] += (_character.attributes['Precision'] - 1000) / 21;
+        _character.attributes['Critical Chance']
+          += (_character.attributes['Precision'] - 1000) / 21;
         _character.attributes['Critical Damage'] += _character.attributes['Ferocity'] / 15;
 
         const critDmg = _character.attributes['Critical Damage'] / 100
@@ -1869,7 +1733,6 @@
         infusions: Object.assign({}, character.infusions)
       };
     }
-
   };
 
   const optimizer = new OptimizerCore();
@@ -1993,8 +1856,26 @@
     optimizer.run(input);
   }
 
+  function characterToRow (character) {
+    const { settings } = character;
+
+    return $(
+      `<tr>
+        <td><strong>
+          ${Number(character.attributes[settings.rankby].toFixed(2)).toLocaleString('en-US')}
+        </strong></td>
+        ${$.map(character.gear, attribute =>
+          `<td><samp>${attribute.substring(0, 4)}</samp></td>`
+        ).join('')}
+        ${$.map(character.infusions, count =>
+          `<td><samp>${count}</samp></td>`
+        ).join('')}
+      </tr>`
+    ).data('character', character);
+  }
+
   // Generates the card, that shows up when one clicks on the result.
-  const toModal = function (_character) {
+  function toModal (_character) {
     const toCard = (title, items) =>
       `<div class="card card-${_character.settings.profession} mb-3">
         <div class="card-header card-header-small">${title}</div>
@@ -2217,7 +2098,120 @@
     modal += '</div>';
 
     return $(modal);
-  };
+  }
+
+  function updateUI (percent, done) {
+    $(Selector.OUTPUT.PROGRESS_BAR)
+      .css('width', `${percent}%`);
+
+    if (!done) {
+      $(Selector.OUTPUT.PROGRESS_BAR)
+        .find(Selector.SPAN)
+        .text(`${percent}%`);
+    }
+  }
+
+  function lockUI (settings) {
+    const locked = true;
+    $('body').css('cursor', locked ? 'progress' : 'default');
+    $(Selector.INPUT.OPTIMIZER).css('opacity', locked ? 0.5 : 1);
+    $(Selector.INPUT.CLASS).css('opacity', locked ? 0.5 : 1);
+    $(Selector.START).prop(PropertyName.DISABLED, locked);
+    $(Selector.START).find('.fa').toggleClass('fa-spin', locked);
+    $(Selector.STOP).prop(PropertyName.DISABLED, !locked);
+
+    $(Selector.OUTPUT.PROGRESS_BAR)
+      .closest('td')
+      .attr(
+        'colspan',
+        Slots[settings.weapontype].length + 1
+          + !!settings.primaryInfusion + !!settings.secondaryInfusion
+      );
+    $(Selector.OUTPUT.PROGRESS_BAR)
+      .css('width', `${0}%`)
+      .children(Selector.SPAN)
+      .text('0%');
+    $(Selector.OUTPUT.PROGRESS_BAR).parent().show();
+
+    $(Selector.OUTPUT.HEADER).html(
+      `<th>
+      ${settings.rankby}
+      </th>`
+        + $.map(Slots[settings.weapontype], slot =>
+          `<th title="${slot.name}">
+          ${slot.short}
+          </th>`
+        ).join('')
+        + (settings.primaryInfusion
+          ? `<th title="${settings.primaryInfusion}">
+              ${settings.primaryInfusion.substring(0, 4)}
+            </th>`
+          : '')
+        + (settings.secondaryInfusion
+          ? `<th title="${settings.secondaryInfusion}">
+              ${settings.secondaryInfusion.substring(0, 4)}
+            </th>`
+          : '')
+    );
+  }
+
+  function unlockUI () {
+    const locked = false;
+    $('body').css('cursor', locked ? 'progress' : 'default');
+    $(Selector.INPUT.OPTIMIZER).css('opacity', locked ? 0.5 : 1);
+    $(Selector.INPUT.CLASS).css('opacity', locked ? 0.5 : 1);
+    $(Selector.START).prop(PropertyName.DISABLED, locked);
+    $(Selector.START).find('.fa').toggleClass('fa-spin', locked);
+    $(Selector.STOP).prop(PropertyName.DISABLED, !locked);
+
+    if (STOP_SIGNAL) {
+      $(Selector.OUTPUT.PROGRESS_BAR).children('span')
+        .text(`Cancelled after ${new Date() - startTime}ms (${
+            $(Selector.OUTPUT.PROGRESS_BAR).children('span').text()})`);
+    } else {
+      $(Selector.OUTPUT.PROGRESS_BAR)
+        .children('span')
+        .text(`Completed in ${new Date() - startTime}ms`);
+    }
+    if (list.children().length) {
+      prettyResults();
+    }
+  }
+
+  function prettyResults () {
+    const getSortValue = character => character.attributes[character.settings.rankby];
+
+    // display indicator line under the results identical to the best
+    const bestValue = getSortValue(list.children().eq(0).data('character'));
+    // eslint-disable-next-line consistent-return
+    list.children().each(function (i, element) {
+      if (getSortValue($(element).data('character')) !== bestValue) {
+        $(element).prev().css('border-bottom', '4px solid #2f3238');
+        return false; // jquery loop break
+      }
+    });
+
+    // slightly fade the most common affix
+    const attrCount = {};
+    $('#go-output samp').each(function (i, element) {
+      const attr = $(element).text();
+      attrCount[attr] = (attrCount[attr] || 0) + 1;
+    });
+    const max = Math.max.apply(null, Object.values(attrCount));
+    let mostFrequent = '';
+    Object.entries(attrCount).forEach(([attr, count]) => {
+      if (count === max) {
+        mostFrequent = attr;
+      }
+    });
+    $('#go-output samp').each(function (i, element) {
+      if ($(element).text() === mostFrequent) {
+        $(element).css('opacity', '0.7');
+      } else {
+        $(element).css('color', '#ddd');
+      }
+    });
+  }
 
   /**
    * ------------------------------------------------------------------------
@@ -2757,5 +2751,4 @@
       }
     });
   });
-
 })(jQuery);
