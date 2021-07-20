@@ -1229,10 +1229,7 @@
             const percent = Math.floor(
               (calculationRuns * 100) / calculationTotal
             );
-            $(Selector.OUTPUT.PROGRESS_BAR)
-              .css('width', `${percent}%`)
-              .find(Selector.SPAN)
-              .text(`${percent}%`);
+            updateUI(percent, false);
             // eslint-disable-next-line no-await-in-loop
             await new Promise(resolve => setTimeout(resolve, 0));
             timer = Date.now();
@@ -1314,9 +1311,19 @@
         const percent = Math.floor(
           (calculationRuns * 100) / calculationTotal
         );
-        $(Selector.OUTPUT.PROGRESS_BAR).css('width', `${percent}%`);
-
+        updateUI(percent, true);
         unlockUI();
+      }
+    }
+
+    function updateUI (percent, done) {
+      $(Selector.OUTPUT.PROGRESS_BAR)
+        .css('width', `${percent}%`);
+
+      if (!done) {
+        $(Selector.OUTPUT.PROGRESS_BAR)
+          .find(Selector.SPAN)
+          .text(`${percent}%`);
       }
     }
 
