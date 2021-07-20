@@ -1365,6 +1365,7 @@
       const character = {
         gear, // passed by reference
         settings, // passed by reference
+        gearStats, // passed by reference
         attributes: null,
         valid: true,
         baseAttributes: Object.assign({}, settings.baseAttributes)
@@ -1793,6 +1794,7 @@
         settings: character.settings, // passed by reference
         attributes: character.attributes, // passed by reference
         gear: character.gear, // passed by reference
+        gearStats: character.gearStats, // passed by reference
         valid: character.valid,
 
         baseAttributes: Object.assign({}, character.baseAttributes),
@@ -2028,44 +2030,8 @@
     });
     modal += toCard('Gear', gear);
 
-    modal += toCard('Stat Infusions', _character.infusions);
-
-    if (_character.settings.distribution['Power'] !== 100) {
-      // effective damage distribution
-      const effectiveDamageDistribution = {};
-      const totalDamage = _character.attributes['Damage'];
-      $.each(_character.settings.distribution, function (key, percentage) {
-        if (key === 'Power') {
-          const damage = (percentage * _character.attributes['Effective Power']) / 1025;
-          effectiveDamageDistribution['Power'] = `${((damage / totalDamage) * 100).toFixed(1)}%`;
-        } else {
-          const duration = 1 + Math.min(((_character.attributes[`${key} Duration`] || 0)
-            + _character.attributes['Condition Duration']) / 100, 1);
-          const damage = percentage * duration
-            * (_character.attributes[`${key} Damage`] / Condition[key].baseDamage);
-          effectiveDamageDistribution[`${key} Damage`]
-            = `${((damage / totalDamage) * 100).toFixed(1)}%`;
-        }
-      });
-      modal += toCard('Effective Damage Distribution', effectiveDamageDistribution);
-
-      // damage indicator breakdown
-      const damageIndicatorBreakdown = {};
-      $.each(_character.settings.distribution, function (key, percentage) {
-        if (key === 'Power') {
-          const damage = percentage * _character.attributes['Effective Power'] / 1025;
-          damageIndicatorBreakdown['Power'] = Number(damage).toFixed(2).toLocaleString('en-US');
-        } else {
-          const duration = 1 + Math.min(((_character.attributes[`${key} Duration`] || 0)
-            + _character.attributes['Condition Duration']) / 100, 1);
-          const damage = percentage * duration
-            * (_character.attributes[`${key} Damage`] / Condition[key].baseDamage);
-          damageIndicatorBreakdown[`${key} Damage`] = Number(damage)
-            .toFixed(2)
-            .toLocaleString('en-US');
-        }
-      });
-      modal += toCard('Damage indicator breakdown', damageIndicatorBreakdown);
+    if (_character.infusions) {
+      modal += toCard('Stat Infusions', _character.infusions);
     }
 
     // effective gain from adding +5 infusions
@@ -2097,6 +2063,16 @@
       }
     );
     modal += toCard('Damage loss from -5 of attribute', effectiveNegativeValues);
+
+    if (_character.infusions) {
+      const statsFromGear = { ..._character.gearStats };
+      Object.entries(_character.infusions).forEach(([stat, value]) => {
+        statsFromGear[stat] = (statsFromGear[stat] || 0) + value * INFUSION_BONUS;
+      });
+      modal += toCard('Stat total from affixes/infusions only', statsFromGear);
+    } else {
+      modal += toCard('Stat total from affixes only', _character.gearStats);
+    }
 
     modal += '</div>';
     // End of first column
@@ -2175,6 +2151,44 @@
       conditionAttributes[attribute] = (_character.attributes[attribute] || 0).toFixed(2);
     });
     modal += toCard('Condition Damage Ticks', conditionAttributes);
+
+    if (_character.settings.distribution['Power'] !== 100) {
+      // effective damage distribution
+      const effectiveDamageDistribution = {};
+      const totalDamage = _character.attributes['Damage'];
+      $.each(_character.settings.distribution, function (key, percentage) {
+        if (key === 'Power') {
+          const damage = (percentage * _character.attributes['Effective Power']) / 1025;
+          effectiveDamageDistribution['Power'] = `${((damage / totalDamage) * 100).toFixed(1)}%`;
+        } else {
+          const duration = 1 + Math.min(((_character.attributes[`${key} Duration`] || 0)
+            + _character.attributes['Condition Duration']) / 100, 1);
+          const damage = percentage * duration
+            * (_character.attributes[`${key} Damage`] / Condition[key].baseDamage);
+          effectiveDamageDistribution[`${key} Damage`]
+            = `${((damage / totalDamage) * 100).toFixed(1)}%`;
+        }
+      });
+      modal += toCard('Effective Damage Distribution', effectiveDamageDistribution);
+
+      // damage indicator breakdown
+      const damageIndicatorBreakdown = {};
+      $.each(_character.settings.distribution, function (key, percentage) {
+        if (key === 'Power') {
+          const damage = percentage * _character.attributes['Effective Power'] / 1025;
+          damageIndicatorBreakdown['Power'] = Number(damage).toFixed(2).toLocaleString('en-US');
+        } else {
+          const duration = 1 + Math.min(((_character.attributes[`${key} Duration`] || 0)
+            + _character.attributes['Condition Duration']) / 100, 1);
+          const damage = percentage * duration
+            * (_character.attributes[`${key} Damage`] / Condition[key].baseDamage);
+          damageIndicatorBreakdown[`${key} Damage`] = Number(damage)
+            .toFixed(2)
+            .toLocaleString('en-US');
+        }
+      });
+      modal += toCard('Damage indicator breakdown', damageIndicatorBreakdown);
+    }
 
     modal += '</div>';
     // End of second column
