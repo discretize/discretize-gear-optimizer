@@ -923,7 +923,7 @@
       const settings = { ...others };
       console.debug('settings:', settings);
 
-      settings.slots = Slots[settings.weapontype];
+      /* Base Attributes */
 
       settings.baseAttributes = {};
       settings.baseAttributes.Health = Classes[settings.profession].health;
@@ -941,6 +941,8 @@
       settings.baseAttributes['Critical Chance'] = 5;
       settings.baseAttributes['Critical Damage'] = 150;
 
+      /* Modifiers */
+
       settings.modifiers = {
         multiplier: {
           'Effective Power': 1,
@@ -956,7 +958,7 @@
       let addEffectiveConditionDamage = 1;
       let addEffectivePower = 1;
 
-      const validMultipliers = [
+      const validMultiplierStats = [
         'Effective Condition Damage',
         'Critical Damage',
         'add: Effective Condition Damage',
@@ -964,21 +966,21 @@
         ...Attributes.EFFECTIVE,
         ...Attributes.CONDITION_DAMAGE
       ];
-      const validFlat = [
+      const validFlatStats = [
         ...Attributes.PRIMARY,
         ...Attributes.SECONDARY,
         ...Attributes.DERIVED,
         ...Attributes.BOON_DURATION,
         ...Attributes.CONDITION_DURATION
       ];
-      const validBuff = [
+      const validBuffStats = [
         ...Attributes.PRIMARY,
         ...Attributes.SECONDARY,
         ...Attributes.DERIVED,
         ...Attributes.BOON_DURATION,
         ...Attributes.CONDITION_DURATION
       ];
-      const validConvert = [
+      const validConvertStats = [
         ...Attributes.PRIMARY,
         ...Attributes.SECONDARY
       ];
@@ -996,7 +998,7 @@
                 if (attribute && value) {
                   switch (type) {
                     case 'multiplier':
-                      if (validMultipliers.includes(attribute)) {
+                      if (validMultiplierStats.includes(attribute)) {
                         if (attribute === 'add: Effective Condition Damage') {
                           addEffectiveConditionDamage += value;
                         } else if (attribute === 'add: Effective Power') {
@@ -1014,7 +1016,7 @@
                       }
                       break;
                     case 'flat':
-                      if (validFlat.includes(attribute)) {
+                      if (validFlatStats.includes(attribute)) {
                         settings.baseAttributes[attribute]
                         = (settings.baseAttributes[attribute] || 0) + value;
                       } else {
@@ -1025,7 +1027,7 @@
                       }
                       break;
                     case 'buff':
-                      if (validBuff.includes(attribute)) {
+                      if (validBuffStats.includes(attribute)) {
                         settings.modifiers['buff'][attribute]
                         = (settings.modifiers['buff'][attribute] || 0) + value;
                       } else {
@@ -1036,7 +1038,7 @@
                       }
                       break;
                     case 'convert':
-                      if (validConvert.includes(attribute)) {
+                      if (validConvertStats.includes(attribute)) {
                         if (!settings.modifiers['convert'][attribute]) {
                           settings.modifiers['convert'][attribute] = {};
                         }
@@ -1062,7 +1064,75 @@
       settings.modifiers['multiplier']['Effective Condition Damage'] *= addEffectiveConditionDamage;
       settings.modifiers['multiplier']['Effective Power'] *= addEffectivePower;
 
-      // valid affixes for each slot, taking forced slots into account
+      /* Infusions */
+
+      const validInfusionStats = [
+        ...Attributes.PRIMARY,
+        ...Attributes.SECONDARY,
+        ...Attributes.DERIVED
+      ];
+
+      let activeInfusions = 0;
+      if (primaryInfusionInput !== 'None') {
+        if (validInfusionStats.includes(primaryInfusionInput)) {
+          activeInfusions++;
+          settings.primaryInfusion = primaryInfusionInput;
+          settings.primaryMaxInfusions = primaryMaxInfusionsInput;
+        } else {
+          throw new Error(
+            'Primary infusion can only increase primary, secondary or derived attributes, not '
+            + primaryInfusionInput);
+        }
+      }
+      if (secondaryInfusionInput !== 'None' && secondaryInfusionInput !== primaryInfusionInput) {
+        if (validInfusionStats.includes(secondaryInfusionInput)) {
+          activeInfusions++;
+          if (activeInfusions === 2) {
+            settings.secondaryInfusion = secondaryInfusionInput;
+            settings.secondaryMaxInfusions = secondaryMaxInfusionsInput;
+          } else {
+            // only secondary is selected; pretend secondary is primary
+            settings.primaryInfusion = secondaryInfusionInput;
+            settings.primaryMaxInfusions = secondaryMaxInfusionsInput;
+          }
+        } else {
+          throw new Error('Secondary infusion can only increase '
+            + 'primary, secondary or derived attributes, not '
+            + secondaryInfusionInput);
+        }
+      }
+
+      let infusionMode;
+      switch (activeInfusions) {
+        case 0:
+          infusionMode = 'None';
+          break;
+        case 1:
+          infusionMode = 'Primary';
+          break;
+        case 2:
+          if (settings.primaryMaxInfusions + settings.secondaryMaxInfusions <= MAX_INFUSIONS) {
+            infusionMode = 'Few';
+          } else {
+            infusionMode = infusionNoDuplicates
+              ? 'SecondaryNoDuplicates'
+              : 'Secondary';
+          }
+        // no default
+      }
+      if (applyInfusions[infusionMode] === undefined) {
+        throw new Error(
+          'Error: optimizer selected invalid infusion calculation mode: ' + infusionMode
+        );
+      }
+      applyInfusionsFunction = applyInfusions[infusionMode];
+
+      /* Equipment */
+
+      settings.slots = Slots[settings.weapontype];
+
+      // affixesArray: valid affixes for each slot, taking forced slots into account
+      // e.g. [[Berserker, Assassin], [Assassin], [Berserker, Assassin]...]
       settings.affixesArray = new Array(settings.slots.length).fill(settings.affixes);
 
       settings.forcedArmor = false;
@@ -1091,6 +1161,9 @@
         }
       }
 
+      // like affixesArray, but each entry is an array of arrays of stats given by that piece with
+      // that affix
+      // e.g. berserker helm -> [[Power, 63],[Precision, 45],[Ferocity, 45]]
       settings.affixStatsArray = settings.affixesArray.map((possibleAffixes, slotindex) => {
         return possibleAffixes.map(affix => {
           const statTotals = {};
@@ -1117,68 +1190,7 @@
       }
       settings.runsAfterThisSlot.push(1);
 
-      let activeInfusions = 0;
-      if (primaryInfusionInput !== 'None') {
-        if (
-          !Attributes.PRIMARY.includes(primaryInfusionInput)
-          && !Attributes.SECONDARY.includes(primaryInfusionInput)
-          && !Attributes.DERIVED.includes(primaryInfusionInput)
-        ) {
-          throw new Error(
-            'Primary infusion can only increase primary, secondary or derived attributes, not '
-            + primaryInfusionInput);
-        }
-        activeInfusions++;
-        settings.primaryInfusion = primaryInfusionInput;
-        settings.primaryMaxInfusions = primaryMaxInfusionsInput;
-      }
-      if (secondaryInfusionInput !== 'None' && secondaryInfusionInput !== primaryInfusionInput) {
-        if (
-          !Attributes.PRIMARY.includes(secondaryInfusionInput)
-          && !Attributes.SECONDARY.includes(secondaryInfusionInput)
-          && !Attributes.DERIVED.includes(secondaryInfusionInput)
-        ) {
-          throw new Error('Secondary infusion can only increase '
-            + 'primary, secondary or derived attributes, not '
-            + secondaryInfusionInput);
-        }
-        activeInfusions++;
-        if (activeInfusions) {
-          settings.secondaryInfusion = secondaryInfusionInput;
-          settings.secondaryMaxInfusions = secondaryMaxInfusionsInput;
-        } else {
-          // only secondary is selected; pretend secondary is primary
-          settings.primaryInfusion = secondaryInfusionInput;
-          settings.primaryMaxInfusions = secondaryMaxInfusionsInput;
-        }
-      }
-
-      let infusionMode;
-      switch (activeInfusions) {
-        case 0:
-          infusionMode = 'None';
-          break;
-        case 1:
-          infusionMode = 'Primary';
-          break;
-        case 2:
-          if (settings.primaryMaxInfusions + settings.secondaryMaxInfusions <= MAX_INFUSIONS) {
-            infusionMode = 'Few';
-          } else {
-            infusionMode = infusionNoDuplicates
-              ? 'SecondaryNoDuplicates'
-              : 'Secondary';
-          }
-        // no default
-      }
-      if (applyInfusions[infusionMode] === undefined) {
-        throw new Error('Error: optimizer selected invalid infusion calculation mode');
-      }
-      applyInfusionsFunction = applyInfusions[infusionMode];
-
-      settings.condiResultCache = new Map();
-
-      Object.freeze(settings);
+      /* Set up optimizer */
 
       // const freeSlots = settings.weapontype === 'Dual wield' ? 5 : 6;
       // const pairs = settings.weapontype === 'Dual wield' ? 3 : 2;
@@ -1194,9 +1206,13 @@
       for (let i = 0; i < settings.affixesArray.length; i++) {
         calculationTotal *= settings.affixesArray[i].length;
       }
-
-      STOP_SIGNAL = false;
       let calculationRuns = 0;
+
+      settings.condiResultCache = new Map();
+      const calculationQueue = [];
+      calculationQueue.push([]);
+      const calculationStatsQueue = [];
+      calculationStatsQueue.push({});
 
       // the next time the DOM updates after this is after ≥1 iteration loop;
       // if the calculation is really really fast the main UI won't even flicker 😎
@@ -1205,113 +1221,94 @@
 
       list.empty();
       lockUI(settings);
+      STOP_SIGNAL = false;
 
-      const calculationQueue = [];
-      calculationQueue.push([]);
-      const calculationStatsQueue = [];
-      calculationStatsQueue.push({});
-
-      let timer = Date.now();
+      let iterationTimer = Date.now();
       let UPDATE_MS = 90;
+      let cycles = 0;
+      while (calculationQueue.length) {
+        cycles++;
 
-      if (STOP_SIGNAL) {
-        unlockUI();
-      } else {
-        let cycles = 0;
-        while (calculationQueue.length) {
-          cycles++;
+        if ((cycles % 1000 === 0) && Date.now() - iterationTimer > UPDATE_MS) {
+          // pause to let UI update and register a stop button press
+          updateProgressBar(Math.floor((calculationRuns * 100) / calculationTotal), false);
+          // eslint-disable-next-line no-await-in-loop
+          await new Promise(resolve => setTimeout(resolve, 0));
 
-          if ((cycles % 1000 === 0) && Date.now() - timer > UPDATE_MS) {
-            // pause to let UI update and register a stop button press
-            const percent = Math.floor(
-              (calculationRuns * 100) / calculationTotal
-            );
-            updateProgressBar(percent, false);
-            // eslint-disable-next-line no-await-in-loop
-            await new Promise(resolve => setTimeout(resolve, 0));
-            timer = Date.now();
-
-            if (STOP_SIGNAL) {
-              unlockUI();
-              return;
-            }
-
-            // only update UI at around 15 frames per second
-            UPDATE_MS = 55;
+          iterationTimer = Date.now();
+          if (STOP_SIGNAL) {
+            unlockUI();
+            return;
           }
-
-          const gear = calculationQueue.pop();
-          const gearStats = calculationStatsQueue.pop();
-          const nextSlot = gear.length;
-
-          /**
-           * Deduplicate identical combinations.
-           *
-           * This prevents calculating both e.g.
-           *    berserker ring + assassin ring
-           *    assassin ring + berserker ring
-           * by skipping combinations in which identical-stat items are out of order.
-           *
-           * Each check is disabled if forcing one or more of those slots to a specific gear type.
-           */
-          if (
-            (!settings.forcedRing && nextSlot === 9
-              && gear[nextSlot - 2] > gear[nextSlot - 1])
-
-            || (!settings.forcedAcc && nextSlot === 11
-              && gear[nextSlot - 2] > gear[nextSlot - 1])
-
-            || (!settings.forcedWep && nextSlot === 14
-              && gear[nextSlot - 2] > gear[nextSlot - 1])
-
-            || (!settings.forcedArmor && nextSlot === 6
-              && (gear[1] > gear[3] || gear[3] > gear[5]))
-          ) {
-            calculationRuns += settings.runsAfterThisSlot[nextSlot];
-            continue;
-          }
-
-          if (nextSlot >= settings.slots.length) {
-            calculationRuns++;
-            testCharacter(gear, gearStats, settings);
-            continue;
-          }
-
-          // Recycle for Affix 0, clone for 1+
-          for (let i = 1; i < settings.affixesArray[nextSlot].length; i++) {
-            const newGear = gear.slice();
-            const newGearStats = Object.assign({}, gearStats);
-
-            const currentAffix = settings.affixesArray[nextSlot][i];
-            newGear[nextSlot] = currentAffix;
-
-            // add gear stats
-            for (const [stat, bonus] of settings.affixStatsArray[nextSlot][i]) {
-              newGearStats[stat] = (newGearStats[stat] || 0) + bonus;
-            }
-
-            calculationQueue.push(newGear);
-            calculationStatsQueue.push(newGearStats);
-          }
-          const currentAffix = settings.affixesArray[nextSlot][0];
-          gear[nextSlot] = currentAffix;
-
-          // add gear stats
-          for (const [stat, bonus] of settings.affixStatsArray[nextSlot][0]) {
-            gearStats[stat] = (gearStats[stat] || 0) + bonus;
-          }
-
-          calculationQueue.push(gear);
-          calculationStatsQueue.push(gearStats);
+          // only update UI at around 15 frames per second
+          UPDATE_MS = 55;
         }
 
-        // we are done
-        const percent = Math.floor(
-          (calculationRuns * 100) / calculationTotal
-        );
-        updateProgressBar(percent, true);
-        unlockUI();
+        const gear = calculationQueue.pop();
+        const gearStats = calculationStatsQueue.pop();
+        const nextSlot = gear.length;
+
+        /**
+         * Deduplicate identical combinations.
+         *
+         * This prevents calculating both e.g.
+         *    berserker ring + assassin ring
+         *    assassin ring + berserker ring
+         * by skipping combinations in which identical-stat items are out of order.
+         *
+         * Each check is disabled if forcing one or more of those slots to a specific gear type.
+         */
+        if (
+          (!settings.forcedRing && nextSlot === 9 && gear[nextSlot - 2] > gear[nextSlot - 1])
+          || (!settings.forcedAcc && nextSlot === 11 && gear[nextSlot - 2] > gear[nextSlot - 1])
+          || (!settings.forcedWep && nextSlot === 14 && gear[nextSlot - 2] > gear[nextSlot - 1])
+          || (!settings.forcedArmor && nextSlot === 6 && (gear[1] > gear[3] || gear[3] > gear[5]))
+        ) {
+          // bump calculationRuns by the number of runs we just skipped
+          calculationRuns += settings.runsAfterThisSlot[nextSlot];
+          continue;
+        }
+
+        if (nextSlot >= settings.slots.length) {
+          calculationRuns++;
+          testCharacter(gear, gearStats, settings);
+          continue;
+        }
+
+        // Recycle for Affix 0, clone for 1+
+        for (let i = 1; i < settings.affixesArray[nextSlot].length; i++) {
+          const newGear = gear.slice();
+          const newGearStats = Object.assign({}, gearStats);
+
+          const currentAffix = settings.affixesArray[nextSlot][i];
+          newGear[nextSlot] = currentAffix;
+
+          // add gear stats
+          for (const [stat, bonus] of settings.affixStatsArray[nextSlot][i]) {
+            newGearStats[stat] = (newGearStats[stat] || 0) + bonus;
+          }
+
+          calculationQueue.push(newGear);
+          calculationStatsQueue.push(newGearStats);
+        }
+        const currentAffix = settings.affixesArray[nextSlot][0];
+        gear[nextSlot] = currentAffix;
+
+        // add gear stats
+        for (const [stat, bonus] of settings.affixStatsArray[nextSlot][0]) {
+          gearStats[stat] = (gearStats[stat] || 0) + bonus;
+        }
+
+        calculationQueue.push(gear);
+        calculationStatsQueue.push(gearStats);
       }
+
+      // we are done
+      const percent = Math.floor(
+        (calculationRuns * 100) / calculationTotal
+      );
+      updateProgressBar(percent, true);
+      unlockUI();
     }
 
     function testCharacter (gear, gearStats, settings) {
