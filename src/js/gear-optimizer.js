@@ -955,10 +955,10 @@
         buff: {},
         convert: {}
       };
-      let addEffectiveConditionDamage = 1;
-      let addEffectivePower = 1;
-      let targetEffectiveConditionDamage = 1;
-      let targetEffectivePower = 1;
+      let addEffectiveConditionDamage = 0;
+      let addEffectivePower = 0;
+      let targetEffectiveConditionDamage = 0;
+      let targetEffectivePower = 0;
 
       const validMultiplierStats = [
         ...Attributes.EFFECTIVE,
@@ -1074,13 +1074,13 @@
         });
       });
       settings.modifiers['multiplier']['Effective Condition Damage']
-        *= addEffectiveConditionDamage;
+        *= (1 + addEffectiveConditionDamage);
       settings.modifiers['multiplier']['Effective Power']
-        *= addEffectivePower;
+        *= (1 + addEffectivePower);
       settings.modifiers['multiplier']['Effective Condition Damage']
-        *= targetEffectiveConditionDamage;
+        *= (1 + targetEffectiveConditionDamage);
       settings.modifiers['multiplier']['Effective Power']
-        *= targetEffectivePower;
+        *= (1 + targetEffectivePower);
 
       /* Infusions */
 
