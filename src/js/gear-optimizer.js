@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 /* eslint-disable padded-blocks */
 (function ($) {
   /**
@@ -1345,7 +1346,7 @@
 
     // Applies no infusions
     applyInfusions['None'] = function (character) {
-      updateAttributes(character);
+      updateAttributesFast(character);
       insertCharacter(character);
     };
 
@@ -1358,7 +1359,7 @@
         settings.primaryInfusion,
         settings.primaryMaxInfusions * INFUSION_BONUS
       );
-      updateAttributes(character);
+      updateAttributesFast(character);
       insertCharacter(character);
     };
 
@@ -1380,7 +1381,7 @@
         settings.secondaryInfusion,
         settings.secondaryMaxInfusions * INFUSION_BONUS
       );
-      updateAttributes(character);
+      updateAttributesFast(character);
       insertCharacter(character);
     };
 
@@ -1392,7 +1393,7 @@
         const temp = clone(character);
         addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
         addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
-        updateAttributes(temp, false, true);
+        updateAttributesFast(temp, true);
         return temp.attributes[settings.rankby] > worstScore;
       };
 
@@ -1412,7 +1413,7 @@
             settings.secondaryInfusion,
             secondaryCount * INFUSION_BONUS
           );
-          updateAttributes(temp);
+          updateAttributesFast(temp);
           if (temp.valid && temp.attributes[settings.rankby] !== previousResult) {
             temp.infusions = {
               [settings.primaryInfusion]: primaryCount,
@@ -1435,7 +1436,7 @@
         const temp = clone(character);
         addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
         addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
-        updateAttributes(temp, false, true);
+        updateAttributesFast(temp, true);
         return temp.attributes[settings.rankby] > worstScore;
       };
 
@@ -1456,7 +1457,7 @@
             settings.secondaryInfusion,
             secondaryCount * INFUSION_BONUS
           );
-          updateAttributes(temp);
+          updateAttributesFast(temp);
           if (temp.valid) {
             temp.infusions = {
               [settings.primaryInfusion]: primaryCount,
@@ -1577,64 +1578,66 @@
     /**
      * Creates an {attributes} object parameter in the given character object and calculates stats
      * and damage/healing/survivability scores.
-     *
-     * If alwaysCalculateAll is not set, this function will do the minimum work to find the optimal
-     * build, including cancelling itself early if the character's boon duration/toughness/healing
-     * power are not valid according to the optimizer settings.
-     *
-     * skipValidation just skips the validation check (used in testInfusionUsefulness).
      */
-    function updateAttributes (
-      _character,
-      alwaysCalculateAll = false,
-      skipValidation = false
-    ) {
+    function updateAttributes (_character) {
       const { settings } = _character;
       const multipliers = settings.modifiers['multiplier'];
       _character.valid = true;
 
       calcStats(_character);
 
-      /* - Check if build is valid - */
-      if (!alwaysCalculateAll && !skipValidation) {
-        if (checkInvalid(_character)) {
-          return false;
-        }
+      const powerDamageScore = calcPower(_character, multipliers);
+      const condiDamageScore = calcCondi(_character, multipliers, Attributes.CONDITION);
+      _character.attributes['Damage'] = powerDamageScore + condiDamageScore;
+
+      calcSurvivability(_character, multipliers);
+      calcHealing(_character, multipliers);
+    }
+
+    /**
+     * Creates an {attributes} object parameter in the given character object and calculates stats
+     * and damage/healing/survivability scores.
+     *
+     * This function will do the minimum work to find the optimal build, including cancelling itself
+     * early if the character's boon duration/toughness/healing power are not valid according to the
+     * optimizer settings.
+     *
+     * skipValidation just skips the validation check (used in testInfusionUsefulness).
+     */
+    function updateAttributesFast (_character, skipValidation = false) {
+      const { settings } = _character;
+      const multipliers = settings.modifiers['multiplier'];
+      _character.valid = true;
+
+      calcStats(_character);
+
+      if (!skipValidation && checkInvalid(_character)) {
+        return false;
       }
 
-      /* - Damage - */
-      if (alwaysCalculateAll || settings.rankby === 'Damage') {
+      switch (settings.rankby) {
+        case 'Damage':
+          const powerDamageScore = calcPower(_character, multipliers);
 
-        /* - Power - */
-        const powerDamageScore = calcPower(_character, multipliers);
-
-        /* - Conditions (skipped if none are relevant)- */
-        let condiDamageScore = 0;
-        if (alwaysCalculateAll) {
-          condiDamageScore = calcCondi(_character, multipliers, Attributes.CONDITION);
-        } else if (settings.relevantConditions.length) {
-          // cache this section's result based on cdmg and expertise and skip calculating it if we
-          // already have
-          const CONDI_CACHE_ID = _character.attributes['Expertise']
-              + _character.attributes['Condition Damage'] * 10000;
-          condiDamageScore
-            = _character.settings.condiResultCache.get(CONDI_CACHE_ID)
-              || calcCondi(_character, multipliers, settings.relevantConditions);
-          _character.settings.condiResultCache.set(CONDI_CACHE_ID, condiDamageScore);
-        }
-
-        /* - Combine power + condi - */
-        _character.attributes['Damage'] = powerDamageScore + condiDamageScore;
-      }
-
-      /* - Survivability - */
-      if (alwaysCalculateAll || settings.rankby === 'Survivability') {
-        calcSurvivability(_character, multipliers);
-      }
-
-      /* - Healing - */
-      if (alwaysCalculateAll || settings.rankby === 'Healing') {
-        calcHealing(_character, multipliers);
+          // cache condi result based on cdmg and expertise
+          let condiDamageScore = 0;
+          if (settings.relevantConditions.length) {
+            const CONDI_CACHE_ID = _character.attributes['Expertise']
+                + _character.attributes['Condition Damage'] * 10000;
+            condiDamageScore
+              = _character.settings.condiResultCache.get(CONDI_CACHE_ID)
+                || calcCondi(_character, multipliers, settings.relevantConditions);
+            _character.settings.condiResultCache.set(CONDI_CACHE_ID, condiDamageScore);
+          }
+          _character.attributes['Damage'] = powerDamageScore + condiDamageScore;
+          break;
+        case 'Survivability':
+          calcSurvivability(_character, multipliers);
+          break;
+        case 'Healing':
+          calcHealing(_character, multipliers);
+          break;
+          // no default
       }
       return true;
     }
@@ -1913,7 +1916,7 @@
         </div>
       </div>`;
 
-    optimizer.updateAttributes(_character, true);
+    optimizer.updateAttributes(_character);
     console.debug(_character);
 
     let modal = '<div class="modal">';
@@ -2007,7 +2010,7 @@
       function (index, value) {
         const temp = optimizer.clone(_character);
         temp.baseAttributes[value] += 5;
-        optimizer.updateAttributes(temp, true);
+        optimizer.updateAttributes(temp);
         effectiveValues[value] = Number(
           (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(5)
         ).toLocaleString('en-US');
@@ -2022,7 +2025,7 @@
       function (index, value) {
         const temp = optimizer.clone(_character);
         temp.baseAttributes[value] = Math.max(temp.baseAttributes[value] - 5, 0);
-        optimizer.updateAttributes(temp, true);
+        optimizer.updateAttributes(temp);
         effectiveNegativeValues[value] = Number(
           (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(5)
         ).toLocaleString('en-US');
