@@ -10,20 +10,23 @@
     "extends": "semistandard",
     "rules": {
         "padded-blocks": "warn",
+        "no-throw-literal": "off",
+        "dot-notation": "off",
+        "no-case-declarations": "off",
+
+        "no-unused-vars": "warn",
         "operator-linebreak": [
             "warn",
             "before"
         ],
-        "no-throw-literal": "off",
-        "dot-notation": "off",
-        "no-unused-vars": "warn",
         "max-len": [
-            "warn",
-            { 
-                "code": 100,
-                "ignoreComments": true
-            }
-        ],
+          "warn",
+          { 
+              "code": 100,
+              "ignoreComments": true
+          }
+      ],
+
         "no-lonely-if": "warn",
         "radix": "warn",
         "default-case": "warn",
@@ -35,16 +38,9 @@
         ],
         "no-else-return": "warn",
         "no-shadow": "warn",
-        //"no-console": "warn",
-        // "func-names": [
-        //     "warn",
-        //     "as-needed"
-        // ],
         "consistent-return": "warn",
         "object-shorthand": "warn",
         "guard-for-in": "warn",
-        "no-underscore-dangle": "warn",
-        //"no-throw-literal": "warn",
-        "no-case-declarations": "off"
+        "no-underscore-dangle": "warn"
     }
 }

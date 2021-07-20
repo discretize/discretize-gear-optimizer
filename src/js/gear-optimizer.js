@@ -911,8 +911,6 @@
      * @param {String[]} input.relevantConditions - I should remove this tbh
      */
     async function run (input) {
-
-      console.log(input);
       startTime = new Date();
       worstScore = 0;
 
@@ -927,7 +925,7 @@
       } = input;
 
       const settings = { ...others };
-      console.debug(settings);
+      console.debug('settings:', settings);
 
       settings.slots = Slots[settings.weapontype];
 
@@ -984,7 +982,6 @@
                         && attribute !== 'add: Effective Condition Damage'
                         && attribute !== 'add: Effective Power'
                       ) {
-                        console.error(modifier);
                         throw (
                           'Multipliers can only modify primary, secondary or'
                           + 'effective attributes, not '
@@ -1009,7 +1006,6 @@
                         && !Attributes.BOON_DURATION.includes(attribute)
                         && !Attributes.CONDITION_DURATION.includes(attribute)
                       ) {
-                        console.error(modifier);
                         throw (
                           'Flat modifiers can only increase primary, secondary or'
                           + 'derived attributes, not '
@@ -1027,7 +1023,6 @@
                         && !Attributes.BOON_DURATION.includes(attribute)
                         && !Attributes.CONDITION_DURATION.includes(attribute)
                       ) {
-                        console.error(modifier);
                         throw (
                           'Buff modifiers can only increase primary, secondary or'
                           + 'derived attributes, not '
@@ -1043,7 +1038,6 @@
                         !Attributes.PRIMARY.includes(attribute)
                         && !Attributes.SECONDARY.includes(attribute)
                       ) {
-                        console.error(modifier);
                         throw 'Conversions can only modify primary or secondary attributes, not '
                           + attribute;
                       }
@@ -1928,7 +1922,7 @@
       </div>`;
 
     optimizer.updateAttributes(_character);
-    console.debug(_character);
+    console.debug('character:', _character);
 
     let modal = '<div class="modal">';
     modal += '<div class="modal-dialog modal-lg">';
