@@ -43,7 +43,8 @@
         "consistent-return": "warn",
         "object-shorthand": "warn",
         "guard-for-in": "warn",
-        "no-underscore-dangle": "warn"
+        "no-underscore-dangle": "warn",
         //"no-throw-literal": "warn",
+        "no-case-declarations": "off"
     }
 }

@@ -1,4 +1,3 @@
-/* eslint-disable no-case-declarations */
 /* eslint-disable padded-blocks */
 (function ($) {
   /**
@@ -889,27 +888,31 @@
     let worstScore;
 
     this.run = run;
-    // async function run ({
-    //   modifiers: modifiersInput,
-    //   tags,
-    //   profession,
-    //   weapontype,
-    //   affixes,
-    //   forcedAffixes,
-    //   rankby,
-    //   minBoonDuration,
-    //   minHealingPower,
-    //   minToughness,
-    //   maxToughness,
-    //   maxResults,
-    //   primaryInfusionInput,
-    //   secondaryInfusionInput,
-    //   primaryMaxInfusions,
-    //   secondaryMaxInfusions,
-    //   distribution,
-    //   relevantConditions
-    // }) {
+    /**
+     * Run the calculation.
+     * @param {Object} input
+     * @param {Object[]} input.modifiers - array of modifier objects
+     * @param {String[]} input.tags - array of HTML tags representing modifiers
+     * @param {String} input.profession
+     * @param {String} input.weapontype
+     * @param {String[]} input.affixes - all selected gear affixes to iterate over
+     * @param {String[]} input.forcedAffixes - array of '' or specific affix names
+     * @param {String} input.rankby - "Damage"/"Survivability"/"Healing"
+     * @param {Number} input.minBoonDuration
+     * @param {Number} input.minHealingPower
+     * @param {Number} input.minToughness
+     * @param {Number} input.maxToughness
+     * @param {Number} input.maxResults
+     * @param {?String} input.primaryInfusion
+     * @param {?String} input.secondaryInfusionInput
+     * @param {?Number} input.primaryMaxInfusions
+     * @param {?Number} input.secondaryMaxInfusions
+     * @param {Object.<String, Number>} input.distribution
+     * @param {String[]} input.relevantConditions - I should remove this tbh
+     */
     async function run (input) {
+
+      console.log(input);
       startTime = new Date();
       worstScore = 0;
 
@@ -1576,8 +1579,8 @@
 
     this.updateAttributes = updateAttributes;
     /**
-     * Creates an {attributes} object parameter in the given character object and calculates stats
-     * and damage/healing/survivability scores.
+     * Creates an {attributes} object parameter in the given character object and fills it with
+     * calculated stats and damage/healing/survivability scores.
      */
     function updateAttributes (_character) {
       const { settings } = _character;
@@ -1595,14 +1598,13 @@
     }
 
     /**
-     * Creates an {attributes} object parameter in the given character object and calculates stats
-     * and damage/healing/survivability scores.
+     * Creates an {attributes} object parameter in the given character object and does the minimum
+     * minimum calculation to find the optimal build, including cancelling itself early if the
+     * character's boon duration/toughness/healing power are not valid according to the optimizer
+     * settings.
      *
-     * This function will do the minimum work to find the optimal build, including cancelling itself
-     * early if the character's boon duration/toughness/healing power are not valid according to the
-     * optimizer settings.
-     *
-     * skipValidation just skips the validation check (used in testInfusionUsefulness).
+     * @param {Object} _character
+     * @param {boolean} [skipValidation] - skips the validation check (used in testInfusionUsefulness)
      */
     function updateAttributesFast (_character, skipValidation = false) {
       const { settings } = _character;
@@ -1763,8 +1765,17 @@
 
   const optimizer = new OptimizerCore();
 
-  // Fetches values from the html file, selected checkboxes and optimization goals.
-  function init () {
+  /**
+   * ------------------------------------------------------------------------
+   * DOM-handling functions
+   * ------------------------------------------------------------------------
+   */
+
+  /**
+   * Fetches values from the html file, selected checkboxes and optimization goals, then calls
+   * optimizer.run to run the calculation.
+   */
+  function start () {
     const input = {};
     input.modifiers = [];
     input.tags = [];
@@ -2636,8 +2647,7 @@
   });
 
   // Calculate button
-  $(Selector.START).on(Event.CLICK, init);
-
+  $(Selector.START).on(Event.CLICK, start);
   $(Selector.STOP).on(Event.CLICK, function () {
     STOP_SIGNAL = true;
   });
