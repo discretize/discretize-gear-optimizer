@@ -955,15 +955,23 @@
         buff: {},
         convert: {}
       };
-      let addEffectiveConditionDamage = 1;
-      let addEffectivePower = 1;
+      let addEffectiveConditionDamage = 0;
+      let addEffectivePower = 0;
+      let targetEffectiveConditionDamage = 0;
+      let targetEffectivePower = 0;
 
       const validMultiplierStats = [
+        ...Attributes.EFFECTIVE,
         'Effective Condition Damage',
-        'Critical Damage',
+
+        // Additive mods e.g. force sigil + frost spirit are additive with each other
         'add: Effective Condition Damage',
         'add: Effective Power',
-        ...Attributes.EFFECTIVE,
+
+        // Vulnerability and exposed are additive with each other
+        'target: Effective Condition Damage',
+        'target: Effective Power',
+        'Critical Damage',
         ...Attributes.CONDITION_DAMAGE
       ];
       const validFlatStats = [
@@ -1003,6 +1011,10 @@
                           addEffectiveConditionDamage += value;
                         } else if (attribute === 'add: Effective Power') {
                           addEffectivePower += value;
+                        } else if (attribute === 'target: Effective Condition Damage') {
+                          targetEffectiveConditionDamage += value;
+                        } else if (attribute === 'target: Effective Power') {
+                          targetEffectivePower += value;
                         } else if (!settings.modifiers[type][attribute]) {
                           settings.modifiers['multiplier'][attribute] = 1 + value;
                         } else {
@@ -1061,8 +1073,14 @@
           }
         });
       });
-      settings.modifiers['multiplier']['Effective Condition Damage'] *= addEffectiveConditionDamage;
-      settings.modifiers['multiplier']['Effective Power'] *= addEffectivePower;
+      settings.modifiers['multiplier']['Effective Condition Damage']
+        *= (1 + addEffectiveConditionDamage);
+      settings.modifiers['multiplier']['Effective Power']
+        *= (1 + addEffectivePower);
+      settings.modifiers['multiplier']['Effective Condition Damage']
+        *= (1 + targetEffectiveConditionDamage);
+      settings.modifiers['multiplier']['Effective Power']
+        *= (1 + targetEffectivePower);
 
       /* Infusions */
 
