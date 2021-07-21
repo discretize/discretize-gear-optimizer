@@ -1895,8 +1895,43 @@
     await new Promise(resolve => setTimeout(resolve, 0));
 
     list.empty();
-    const parsedSettings = generator.next().value;
-    lockUI(parsedSettings);
+    lockUI(true);
+
+    const settings = generator.next().value;
+
+    $(Selector.OUTPUT.PROGRESS_BAR)
+      .closest('td')
+      .attr(
+        'colspan',
+        Slots[settings.weapontype].length + 1
+          + !!settings.primaryInfusion + !!settings.secondaryInfusion
+      );
+    $(Selector.OUTPUT.PROGRESS_BAR)
+      .css('width', `${0}%`)
+      .children(Selector.SPAN)
+      .text('0%');
+    $(Selector.OUTPUT.PROGRESS_BAR).parent().show();
+
+    $(Selector.OUTPUT.HEADER).html(
+      `<th>
+      ${settings.rankby}
+      </th>`
+        + $.map(Slots[settings.weapontype], slot =>
+          `<th title="${slot.name}">
+          ${slot.short}
+          </th>`
+        ).join('')
+        + (settings.primaryInfusion
+          ? `<th title="${settings.primaryInfusion}">
+              ${settings.primaryInfusion.substring(0, 4)}
+            </th>`
+          : '')
+        + (settings.secondaryInfusion
+          ? `<th title="${settings.secondaryInfusion}">
+              ${settings.secondaryInfusion.substring(0, 4)}
+            </th>`
+          : '')
+    );
 
     STOP_SIGNAL = false;
     let done = false;
@@ -1908,22 +1943,32 @@
       ({ done, value: newPercent } = generator.next());
 
       if (done) {
-        updateProgressBar(newPercent, true);
-        unlockUI();
+        // updateProgressBar(newPercent, true);
+        updateProgressBar(
+          newPercent,
+          `Completed in ${new Date() - startTime}ms`
+        );
         break;
       } else {
         if (newPercent !== oldPercent) {
-          updateProgressBar(newPercent, false);
+          updateProgressBar(newPercent, `${newPercent}%`);
           oldPercent = newPercent;
         }
         // pause to let UI update and register a stop button press
         await new Promise(resolve => setTimeout(resolve, 0));
 
         if (STOP_SIGNAL) {
-          unlockUI();
+          updateProgressBar(
+            newPercent,
+            `Cancelled after ${new Date() - startTime}ms (${newPercent}%)`
+          );
           break;
         }
       }
+    }
+    lockUI(false);
+    if (list.children().length) {
+      prettyResults();
     }
   }
 
@@ -2224,82 +2269,20 @@
     return $(modal);
   }
 
-  function updateProgressBar (percent, done) {
+  function updateProgressBar (percent, text) {
     $(Selector.OUTPUT.PROGRESS_BAR)
-      .css('width', `${percent}%`);
-
-    if (!done) {
-      $(Selector.OUTPUT.PROGRESS_BAR)
-        .find(Selector.SPAN)
-        .text(`${percent}%`);
-    }
+      .css('width', `${percent}%`)
+      .children('span')
+      .text(text);
   }
 
-  function lockUI (settings) {
-    const locked = true;
+  function lockUI (locked) {
     $('body').css('cursor', locked ? 'progress' : 'default');
     $(Selector.INPUT.OPTIMIZER).css('opacity', locked ? 0.5 : 1);
     $(Selector.INPUT.CLASS).css('opacity', locked ? 0.5 : 1);
     $(Selector.START).prop(PropertyName.DISABLED, locked);
     $(Selector.START).find('.fa').toggleClass('fa-spin', locked);
     $(Selector.STOP).prop(PropertyName.DISABLED, !locked);
-
-    $(Selector.OUTPUT.PROGRESS_BAR)
-      .closest('td')
-      .attr(
-        'colspan',
-        Slots[settings.weapontype].length + 1
-          + !!settings.primaryInfusion + !!settings.secondaryInfusion
-      );
-    $(Selector.OUTPUT.PROGRESS_BAR)
-      .css('width', `${0}%`)
-      .children(Selector.SPAN)
-      .text('0%');
-    $(Selector.OUTPUT.PROGRESS_BAR).parent().show();
-
-    $(Selector.OUTPUT.HEADER).html(
-      `<th>
-      ${settings.rankby}
-      </th>`
-        + $.map(Slots[settings.weapontype], slot =>
-          `<th title="${slot.name}">
-          ${slot.short}
-          </th>`
-        ).join('')
-        + (settings.primaryInfusion
-          ? `<th title="${settings.primaryInfusion}">
-              ${settings.primaryInfusion.substring(0, 4)}
-            </th>`
-          : '')
-        + (settings.secondaryInfusion
-          ? `<th title="${settings.secondaryInfusion}">
-              ${settings.secondaryInfusion.substring(0, 4)}
-            </th>`
-          : '')
-    );
-  }
-
-  function unlockUI () {
-    const locked = false;
-    $('body').css('cursor', locked ? 'progress' : 'default');
-    $(Selector.INPUT.OPTIMIZER).css('opacity', locked ? 0.5 : 1);
-    $(Selector.INPUT.CLASS).css('opacity', locked ? 0.5 : 1);
-    $(Selector.START).prop(PropertyName.DISABLED, locked);
-    $(Selector.START).find('.fa').toggleClass('fa-spin', locked);
-    $(Selector.STOP).prop(PropertyName.DISABLED, !locked);
-
-    if (STOP_SIGNAL) {
-      $(Selector.OUTPUT.PROGRESS_BAR).children('span')
-        .text(`Cancelled after ${new Date() - startTime}ms (${
-            $(Selector.OUTPUT.PROGRESS_BAR).children('span').text()})`);
-    } else {
-      $(Selector.OUTPUT.PROGRESS_BAR)
-        .children('span')
-        .text(`Completed in ${new Date() - startTime}ms`);
-    }
-    if (list.children().length) {
-      prettyResults();
-    }
   }
 
   function prettyResults () {
