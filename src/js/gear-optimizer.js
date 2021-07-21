@@ -1502,6 +1502,7 @@
       }
     };
 
+    this.characterLT = characterLT; // export
     // returns true if B is better than A
     function characterLT (a, b) {
       const { settings } = a;
