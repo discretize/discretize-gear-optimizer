@@ -301,7 +301,7 @@ const js = series(customjs, vendorjs);
 const gojs = function () {
 	return gulp.src(src.gojs)
 		.pipe(babel({
-			presets: [ '@babel/preset-env' ]
+			presets: [['@babel/preset-env', { 'modules': false }]]
 		}))
 			.on('error', swallowError)
 		.pipe(concat(dist.gojs))
