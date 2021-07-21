@@ -885,7 +885,10 @@
 
     this.calculate = calculate; // export
     /**
-     * Run the calculation.
+     * A generator function that iterates synchronously through all possible builds, calling
+     *  insertCharacterDOM(character)
+     * on each character. Yields periodically to allow UI to be updated or cancelled.
+     *
      * @param {Object} input
      * @param {Object[]} input.modifiers - array of modifier objects
      * @param {String[]} input.tags - array of HTML tags representing modifiers
@@ -905,6 +908,8 @@
      * @param {?Number} input.secondaryMaxInfusions
      * @param {Object.<String, Number>} input.distribution
      * @param {String[]} input.relevantConditions - I should remove this tbh
+     * @yields {(Object|Number)} - settings object on the first next() call (to set initial UI);
+     *                             subsequently the progress percentage
      */
     function * calculate (input) {
       worstScore = 0;
@@ -1897,6 +1902,7 @@
     let oldPercent = 0;
     let newPercent;
 
+    // calculation loop
     while (true) {
       ({ done, value: newPercent } = generator.next());
 
