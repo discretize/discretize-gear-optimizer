@@ -3,6 +3,9 @@ _backup/
 .idea/
 dist/
 misc/
+.history
+.cache
+public/
 
 src/.idea
 install.bat
