@@ -2721,6 +2721,7 @@
     run().catch(e => {
       alert('There was an error in the calculation!\n\n' + e);
       console.log('Caught error in calculation:');
+      lockUI(false);
       throw e;
     });
   });
