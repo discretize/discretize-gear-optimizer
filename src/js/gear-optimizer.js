@@ -872,6 +872,7 @@
   let startTime;
   let STOP_SIGNAL = false;
   const list = $(Selector.OUTPUT.LIST);
+  let worstScore;
 
   /**
    * ------------------------------------------------------------------------
@@ -881,11 +882,13 @@
 
   const OptimizerCore = function () {
     let applyInfusionsFunction;
-    let worstScore;
 
-    this.run = run; // export
+    this.calculate = calculate; // export
     /**
-     * Run the calculation.
+     * A generator function that iterates synchronously through all possible builds, calling
+     *  insertCharacterDOM(character)
+     * on each character. Yields periodically to allow UI to be updated or cancelled.
+     *
      * @param {Object} input
      * @param {Object[]} input.modifiers - array of modifier objects
      * @param {String[]} input.tags - array of HTML tags representing modifiers
@@ -905,9 +908,10 @@
      * @param {?Number} input.secondaryMaxInfusions
      * @param {Object.<String, Number>} input.distribution
      * @param {String[]} input.relevantConditions - I should remove this tbh
+     * @yields {(Object|Number)} - settings object on the first next() call (to set initial UI);
+     *                             subsequently the progress percentage
      */
-    async function run (input) {
-      startTime = new Date();
+    function * calculate (input) {
       worstScore = 0;
 
       const {
@@ -1260,14 +1264,7 @@
       const calculationStatsQueue = [];
       calculationStatsQueue.push({});
 
-      // the next time the DOM updates after this is after ≥1 iteration loop;
-      // if the calculation is really really fast the main UI won't even flicker 😎
-      list.children().css('visibility', 'hidden');
-      await new Promise(resolve => setTimeout(resolve, 0));
-
-      list.empty();
-      lockUI(settings);
-      STOP_SIGNAL = false;
+      yield settings;
 
       let iterationTimer = Date.now();
       let UPDATE_MS = 90;
@@ -1275,19 +1272,11 @@
       while (calculationQueue.length) {
         cycles++;
 
+        // pause to update UI at around 15 frames per second
         if ((cycles % 1000 === 0) && Date.now() - iterationTimer > UPDATE_MS) {
-          // pause to let UI update and register a stop button press
-          updateProgressBar(Math.floor((calculationRuns * 100) / calculationTotal), false);
-          // eslint-disable-next-line no-await-in-loop
-          await new Promise(resolve => setTimeout(resolve, 0));
-
-          iterationTimer = Date.now();
-          if (STOP_SIGNAL) {
-            unlockUI();
-            return;
-          }
-          // only update UI at around 15 frames per second
+          yield Math.floor((calculationRuns * 100) / calculationTotal);
           UPDATE_MS = 55;
+          iterationTimer = Date.now();
         }
 
         const gear = calculationQueue.pop();
@@ -1348,13 +1337,7 @@
         calculationQueue.push(gear);
         calculationStatsQueue.push(gearStats);
       }
-
-      // we are done
-      const percent = Math.floor(
-        (calculationRuns * 100) / calculationTotal
-      );
-      updateProgressBar(percent, true);
-      unlockUI();
+      return Math.floor((calculationRuns * 100) / calculationTotal);
     }
 
     function testCharacter (gear, gearStats, settings) {
@@ -1519,47 +1502,7 @@
       }
     };
 
-    function insertCharacterDOM (character) {
-      const { settings } = character;
-
-      if (
-        !character.valid
-        || (worstScore && worstScore > character.attributes[settings.rankby])
-      ) {
-        return;
-      }
-
-      if (list.children().length === 0) {
-        list.append(characterToRow(character));
-      } else {
-        let position = list.children().length + 1;
-        while (position > 1 && characterLT(
-          list.children().eq(position - 2).data('character'), character)) {
-          position--;
-        }
-
-        if (position > settings.maxResults) {
-          return;
-        }
-
-        if (position <= list.children().length) {
-          characterToRow(character)
-            .insertBefore(list.children().eq(position - 1));
-
-          if (list.children().length > settings.maxResults) {
-            list.children().last().remove();
-          }
-        } else {
-          list.append(characterToRow(character));
-        }
-
-        if (list.children().length === settings.maxResults) {
-          worstScore = list.children().last()
-            .data('character').attributes[settings.rankby];
-        }
-      }
-    }
-
+    this.characterLT = characterLT; // export
     // returns true if B is better than A
     function characterLT (a, b) {
       const { settings } = a;
@@ -1803,7 +1746,7 @@
     }
   };
 
-  const optimizer = new OptimizerCore();
+  const optimizerCore = new OptimizerCore();
 
   /**
    * ------------------------------------------------------------------------
@@ -1813,9 +1756,11 @@
 
   /**
    * Fetches values from the html file, selected checkboxes and optimization goals, then calls
-   * optimizer.run to run the calculation.
+   * optimizerCore.calculate to run the calculation.
    */
-  function start () {
+  async function run () {
+    startTime = new Date();
+
     const input = {};
     input.modifiers = [];
     input.tags = [];
@@ -1942,11 +1887,89 @@
       }
     );
 
-    optimizer.run(input).catch(e => {
-      alert('There was an error in the calculation!\n\n' + e);
-      console.log('Caught error in calculation:');
-      throw e;
-    });
+    const generator = optimizerCore.calculate(input);
+
+    // the next time the DOM updates after this is after ≥1 iteration loop;
+    // if the calculation is really really fast the main UI won't even flicker 😎
+    list.children().css('visibility', 'hidden');
+    await new Promise(resolve => setTimeout(resolve, 0));
+
+    list.empty();
+    lockUI(true);
+
+    const settings = generator.next().value;
+
+    $(Selector.OUTPUT.PROGRESS_BAR)
+      .closest('td')
+      .attr(
+        'colspan',
+        Slots[settings.weapontype].length + 1
+          + !!settings.primaryInfusion + !!settings.secondaryInfusion
+      );
+    $(Selector.OUTPUT.PROGRESS_BAR)
+      .css('width', `${0}%`)
+      .children(Selector.SPAN)
+      .text('0%');
+    $(Selector.OUTPUT.PROGRESS_BAR).parent().show();
+
+    $(Selector.OUTPUT.HEADER).html(
+      `<th>
+      ${settings.rankby}
+      </th>`
+        + $.map(Slots[settings.weapontype], slot =>
+          `<th title="${slot.name}">
+          ${slot.short}
+          </th>`
+        ).join('')
+        + (settings.primaryInfusion
+          ? `<th title="${settings.primaryInfusion}">
+              ${settings.primaryInfusion.substring(0, 4)}
+            </th>`
+          : '')
+        + (settings.secondaryInfusion
+          ? `<th title="${settings.secondaryInfusion}">
+              ${settings.secondaryInfusion.substring(0, 4)}
+            </th>`
+          : '')
+    );
+
+    STOP_SIGNAL = false;
+    let done = false;
+    let oldPercent = 0;
+    let newPercent;
+
+    // calculation loop
+    while (true) {
+      ({ done, value: newPercent } = generator.next());
+
+      if (done) {
+        // updateProgressBar(newPercent, true);
+        updateProgressBar(
+          newPercent,
+          `Completed in ${new Date() - startTime}ms`
+        );
+        break;
+      } else {
+        if (newPercent !== oldPercent) {
+          updateProgressBar(newPercent, `${newPercent}%`);
+          oldPercent = newPercent;
+        }
+        // pause to let UI update and register a stop button press
+        await new Promise(resolve => setTimeout(resolve, 0));
+
+        if (STOP_SIGNAL) {
+          updateProgressBar(
+            newPercent,
+            `Cancelled after ${new Date() - startTime}ms (${newPercent}%)`
+          );
+          break;
+        }
+      }
+    }
+    lockUI(false);
+    if (list.children().length) {
+      prettyResults();
+    }
   }
 
   function characterToRow (character) {
@@ -1967,6 +1990,47 @@
     ).data('character', character);
   }
 
+  function insertCharacterDOM (character) {
+    const { settings } = character;
+
+    if (
+      !character.valid
+      || (worstScore && worstScore > character.attributes[settings.rankby])
+    ) {
+      return;
+    }
+
+    if (list.children().length === 0) {
+      list.append(characterToRow(character));
+    } else {
+      let position = list.children().length + 1;
+      while (position > 1 && optimizerCore.characterLT(
+        list.children().eq(position - 2).data('character'), character)) {
+        position--;
+      }
+
+      if (position > settings.maxResults) {
+        return;
+      }
+
+      if (position <= list.children().length) {
+        characterToRow(character)
+          .insertBefore(list.children().eq(position - 1));
+
+        if (list.children().length > settings.maxResults) {
+          list.children().last().remove();
+        }
+      } else {
+        list.append(characterToRow(character));
+      }
+
+      if (list.children().length === settings.maxResults) {
+        worstScore = list.children().last()
+          .data('character').attributes[settings.rankby];
+      }
+    }
+  }
+
   // Generates the card, that shows up when one clicks on the result.
   function toModal (_character) {
     const toCard = (title, items) =>
@@ -1983,7 +2047,7 @@
         </div>
       </div>`;
 
-    optimizer.updateAttributes(_character);
+    optimizerCore.updateAttributes(_character);
     console.debug('character:', _character);
 
     let modal = '<div class="modal">';
@@ -2039,9 +2103,9 @@
     $.each(
       ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'],
       function (index, value) {
-        const temp = optimizer.clone(_character);
+        const temp = optimizerCore.clone(_character);
         temp.baseAttributes[value] += 5;
-        optimizer.updateAttributes(temp);
+        optimizerCore.updateAttributes(temp);
         effectiveValues[value] = Number(
           (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(5)
         ).toLocaleString('en-US');
@@ -2054,9 +2118,9 @@
     $.each(
       ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'],
       function (index, value) {
-        const temp = optimizer.clone(_character);
+        const temp = optimizerCore.clone(_character);
         temp.baseAttributes[value] = Math.max(temp.baseAttributes[value] - 5, 0);
-        optimizer.updateAttributes(temp);
+        optimizerCore.updateAttributes(temp);
         effectiveNegativeValues[value] = Number(
           (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(5)
         ).toLocaleString('en-US');
@@ -2205,82 +2269,20 @@
     return $(modal);
   }
 
-  function updateProgressBar (percent, done) {
+  function updateProgressBar (percent, text) {
     $(Selector.OUTPUT.PROGRESS_BAR)
-      .css('width', `${percent}%`);
-
-    if (!done) {
-      $(Selector.OUTPUT.PROGRESS_BAR)
-        .find(Selector.SPAN)
-        .text(`${percent}%`);
-    }
+      .css('width', `${percent}%`)
+      .children('span')
+      .text(text);
   }
 
-  function lockUI (settings) {
-    const locked = true;
+  function lockUI (locked) {
     $('body').css('cursor', locked ? 'progress' : 'default');
     $(Selector.INPUT.OPTIMIZER).css('opacity', locked ? 0.5 : 1);
     $(Selector.INPUT.CLASS).css('opacity', locked ? 0.5 : 1);
     $(Selector.START).prop(PropertyName.DISABLED, locked);
     $(Selector.START).find('.fa').toggleClass('fa-spin', locked);
     $(Selector.STOP).prop(PropertyName.DISABLED, !locked);
-
-    $(Selector.OUTPUT.PROGRESS_BAR)
-      .closest('td')
-      .attr(
-        'colspan',
-        Slots[settings.weapontype].length + 1
-          + !!settings.primaryInfusion + !!settings.secondaryInfusion
-      );
-    $(Selector.OUTPUT.PROGRESS_BAR)
-      .css('width', `${0}%`)
-      .children(Selector.SPAN)
-      .text('0%');
-    $(Selector.OUTPUT.PROGRESS_BAR).parent().show();
-
-    $(Selector.OUTPUT.HEADER).html(
-      `<th>
-      ${settings.rankby}
-      </th>`
-        + $.map(Slots[settings.weapontype], slot =>
-          `<th title="${slot.name}">
-          ${slot.short}
-          </th>`
-        ).join('')
-        + (settings.primaryInfusion
-          ? `<th title="${settings.primaryInfusion}">
-              ${settings.primaryInfusion.substring(0, 4)}
-            </th>`
-          : '')
-        + (settings.secondaryInfusion
-          ? `<th title="${settings.secondaryInfusion}">
-              ${settings.secondaryInfusion.substring(0, 4)}
-            </th>`
-          : '')
-    );
-  }
-
-  function unlockUI () {
-    const locked = false;
-    $('body').css('cursor', locked ? 'progress' : 'default');
-    $(Selector.INPUT.OPTIMIZER).css('opacity', locked ? 0.5 : 1);
-    $(Selector.INPUT.CLASS).css('opacity', locked ? 0.5 : 1);
-    $(Selector.START).prop(PropertyName.DISABLED, locked);
-    $(Selector.START).find('.fa').toggleClass('fa-spin', locked);
-    $(Selector.STOP).prop(PropertyName.DISABLED, !locked);
-
-    if (STOP_SIGNAL) {
-      $(Selector.OUTPUT.PROGRESS_BAR).children('span')
-        .text(`Cancelled after ${new Date() - startTime}ms (${
-            $(Selector.OUTPUT.PROGRESS_BAR).children('span').text()})`);
-    } else {
-      $(Selector.OUTPUT.PROGRESS_BAR)
-        .children('span')
-        .text(`Completed in ${new Date() - startTime}ms`);
-    }
-    if (list.children().length) {
-      prettyResults();
-    }
   }
 
   function prettyResults () {
@@ -2715,7 +2717,14 @@
   });
 
   // Calculate button
-  $(Selector.START).on(Event.CLICK, start);
+  $(Selector.START).on(Event.CLICK, function () {
+    run().catch(e => {
+      alert('There was an error in the calculation!\n\n' + e);
+      console.log('Caught error in calculation:');
+      lockUI(false);
+      throw e;
+    });
+  });
   $(Selector.STOP).on(Event.CLICK, function () {
     STOP_SIGNAL = true;
   });
