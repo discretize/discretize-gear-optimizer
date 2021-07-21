@@ -13,7 +13,8 @@ var dist = {
 	fonts: base.assets + 'fonts/',
 	js: 'min.js',
 	gojs: 'go.js',
-	css: 'min.css',
+  datajs: 'gw2-data.js',
+  css: 'min.css',
 	dl: base.dist + 'dl/'
 }
 
@@ -50,6 +51,7 @@ var src = {
 	],
 	js: [base.src + 'js/discretize.js'],
 	gojs: [base.src + 'js/gear-optimizer.js'],
+  datajs: [base.src + 'js/gw2-data.js'],
 	scss: base.src + 'scss/*.scss'
 }
 
@@ -311,6 +313,19 @@ const gojs = function () {
 		.pipe(gulp.dest(base.assets));
 };
 
+const datajs = function () {
+	return gulp.src(src.datajs)
+		.pipe(babel({
+			presets: [['@babel/preset-env', { 'modules': false }]]
+		}))
+			.on('error', swallowError)
+		.pipe(concat(dist.datajs))
+			.on('error', swallowError)
+		.pipe(uglify())
+			.on('error', swallowError)
+		.pipe(gulp.dest(base.assets));
+};
+
 /* ==================================================
    SASS / CSS
 ================================================== */
@@ -345,7 +360,7 @@ const css = function () {
 ================================================== */
 const build = series(
     cleandist,
-    parallel(copy, /* dl,*/ css, fonts, html, js, gojs),
+    parallel(copy, /* dl,*/ css, fonts, html, js, gojs, datajs),
     img
 );
 
@@ -389,6 +404,7 @@ const initWatch = function (done) {
     gulp.watch(src.yaml, series(html, refresh));
     gulp.watch(src.js, series(js, refresh));
     gulp.watch(src.gojs, series(gojs, refresh));
+    gulp.watch(src.datajs, series(datajs, refresh));
     gulp.watch([src.scss, base.src + 'scss/**/*.scss'], series(css, refresh));
     done();
 };
