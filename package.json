@@ -42,7 +42,7 @@
     "node": "10"
   },
   "browserslist": [
-    "defaults and supports wasm"
+    "defaults and supports es6-module"
   ],
   "dependencies": {}
 }
