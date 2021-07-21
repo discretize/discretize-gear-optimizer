@@ -872,6 +872,7 @@
   let startTime;
   let STOP_SIGNAL = false;
   const list = $(Selector.OUTPUT.LIST);
+  let worstScore;
 
   /**
    * ------------------------------------------------------------------------
@@ -881,10 +882,8 @@
 
   const OptimizerCore = function () {
     let applyInfusionsFunction;
-    let worstScore;
-    let generator;
 
-    this.run = run; // export
+    this.calculate = calculate; // export
     /**
      * Run the calculation.
      * @param {Object} input
@@ -907,13 +906,7 @@
      * @param {Object.<String, Number>} input.distribution
      * @param {String[]} input.relevantConditions - I should remove this tbh
      */
-    function run (input) {
-      generator = runLoop(input);
-      generator.next();
-    }
-
-    function * runLoop (input) {
-      startTime = new Date();
+    function * calculate (input) {
       worstScore = 0;
 
       const {
@@ -1266,18 +1259,7 @@
       const calculationStatsQueue = [];
       calculationStatsQueue.push({});
 
-      // the next time the DOM updates after this is after ≥1 iteration loop;
-      // if the calculation is really really fast the main UI won't even flicker 😎
-      list.children().css('visibility', 'hidden');
-
-      setTimeout(() => generator.next(), 0);
-      yield;
-      setTimeout(() => generator.next(), 0);
-      // await new Promise(resolve => setTimeout(resolve, 0));
-
-      list.empty();
-      lockUI(settings);
-      STOP_SIGNAL = false;
+      yield settings;
 
       let iterationTimer = Date.now();
       let UPDATE_MS = 90;
@@ -1285,20 +1267,11 @@
       while (calculationQueue.length) {
         cycles++;
 
+        // pause to update UI at around 15 frames per second
         if ((cycles % 1000 === 0) && Date.now() - iterationTimer > UPDATE_MS) {
-          // pause to let UI update and register a stop button press
-          updateProgressBar(Math.floor((calculationRuns * 100) / calculationTotal), false);
-
-          yield;
-          setTimeout(() => generator.next(), 0);
-
-          iterationTimer = Date.now();
-          if (STOP_SIGNAL) {
-            unlockUI();
-            return;
-          }
-          // only update UI at around 15 frames per second
+          yield Math.floor((calculationRuns * 100) / calculationTotal);
           UPDATE_MS = 55;
+          iterationTimer = Date.now();
         }
 
         const gear = calculationQueue.pop();
@@ -1359,13 +1332,7 @@
         calculationQueue.push(gear);
         calculationStatsQueue.push(gearStats);
       }
-
-      // we are done
-      const percent = Math.floor(
-        (calculationRuns * 100) / calculationTotal
-      );
-      updateProgressBar(percent, true);
-      unlockUI();
+      return Math.floor((calculationRuns * 100) / calculationTotal);
     }
 
     function testCharacter (gear, gearStats, settings) {
@@ -1529,47 +1496,6 @@
         }
       }
     };
-
-    function insertCharacterDOM (character) {
-      const { settings } = character;
-
-      if (
-        !character.valid
-        || (worstScore && worstScore > character.attributes[settings.rankby])
-      ) {
-        return;
-      }
-
-      if (list.children().length === 0) {
-        list.append(characterToRow(character));
-      } else {
-        let position = list.children().length + 1;
-        while (position > 1 && characterLT(
-          list.children().eq(position - 2).data('character'), character)) {
-          position--;
-        }
-
-        if (position > settings.maxResults) {
-          return;
-        }
-
-        if (position <= list.children().length) {
-          characterToRow(character)
-            .insertBefore(list.children().eq(position - 1));
-
-          if (list.children().length > settings.maxResults) {
-            list.children().last().remove();
-          }
-        } else {
-          list.append(characterToRow(character));
-        }
-
-        if (list.children().length === settings.maxResults) {
-          worstScore = list.children().last()
-            .data('character').attributes[settings.rankby];
-        }
-      }
-    }
 
     // returns true if B is better than A
     function characterLT (a, b) {
@@ -1814,7 +1740,7 @@
     }
   };
 
-  const optimizer = new OptimizerCore();
+  const optimizerCore = new OptimizerCore();
 
   /**
    * ------------------------------------------------------------------------
@@ -1824,9 +1750,11 @@
 
   /**
    * Fetches values from the html file, selected checkboxes and optimization goals, then calls
-   * optimizer.run to run the calculation.
+   * optimizerCore.calculate to run the calculation.
    */
-  function start () {
+  async function run () {
+    startTime = new Date();
+
     const input = {};
     input.modifiers = [];
     input.tags = [];
@@ -1953,11 +1881,43 @@
       }
     );
 
-    optimizer.run(input).catch(e => {
-      alert('There was an error in the calculation!\n\n' + e);
-      console.log('Caught error in calculation:');
-      throw e;
-    });
+    const generator = optimizerCore.calculate(input);
+
+    // the next time the DOM updates after this is after ≥1 iteration loop;
+    // if the calculation is really really fast the main UI won't even flicker 😎
+    list.children().css('visibility', 'hidden');
+    await new Promise(resolve => setTimeout(resolve, 0));
+
+    list.empty();
+    const parsedSettings = generator.next().value;
+    lockUI(parsedSettings);
+
+    STOP_SIGNAL = false;
+    let done = false;
+    let oldPercent = 0;
+    let newPercent;
+
+    while (true) {
+      ({ done, value: newPercent } = generator.next());
+
+      if (done) {
+        updateProgressBar(newPercent, true);
+        unlockUI();
+        break;
+      } else {
+        if (newPercent !== oldPercent) {
+          updateProgressBar(newPercent, false);
+          oldPercent = newPercent;
+        }
+        // pause to let UI update and register a stop button press
+        await new Promise(resolve => setTimeout(resolve, 0));
+
+        if (STOP_SIGNAL) {
+          unlockUI();
+          break;
+        }
+      }
+    }
   }
 
   function characterToRow (character) {
@@ -1978,6 +1938,47 @@
     ).data('character', character);
   }
 
+  function insertCharacterDOM (character) {
+    const { settings } = character;
+
+    if (
+      !character.valid
+      || (worstScore && worstScore > character.attributes[settings.rankby])
+    ) {
+      return;
+    }
+
+    if (list.children().length === 0) {
+      list.append(characterToRow(character));
+    } else {
+      let position = list.children().length + 1;
+      while (position > 1 && optimizerCore.characterLT(
+        list.children().eq(position - 2).data('character'), character)) {
+        position--;
+      }
+
+      if (position > settings.maxResults) {
+        return;
+      }
+
+      if (position <= list.children().length) {
+        characterToRow(character)
+          .insertBefore(list.children().eq(position - 1));
+
+        if (list.children().length > settings.maxResults) {
+          list.children().last().remove();
+        }
+      } else {
+        list.append(characterToRow(character));
+      }
+
+      if (list.children().length === settings.maxResults) {
+        worstScore = list.children().last()
+          .data('character').attributes[settings.rankby];
+      }
+    }
+  }
+
   // Generates the card, that shows up when one clicks on the result.
   function toModal (_character) {
     const toCard = (title, items) =>
@@ -1994,7 +1995,7 @@
         </div>
       </div>`;
 
-    optimizer.updateAttributes(_character);
+    optimizerCore.updateAttributes(_character);
     console.debug('character:', _character);
 
     let modal = '<div class="modal">';
@@ -2050,9 +2051,9 @@
     $.each(
       ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'],
       function (index, value) {
-        const temp = optimizer.clone(_character);
+        const temp = optimizerCore.clone(_character);
         temp.baseAttributes[value] += 5;
-        optimizer.updateAttributes(temp);
+        optimizerCore.updateAttributes(temp);
         effectiveValues[value] = Number(
           (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(5)
         ).toLocaleString('en-US');
@@ -2065,9 +2066,9 @@
     $.each(
       ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'],
       function (index, value) {
-        const temp = optimizer.clone(_character);
+        const temp = optimizerCore.clone(_character);
         temp.baseAttributes[value] = Math.max(temp.baseAttributes[value] - 5, 0);
-        optimizer.updateAttributes(temp);
+        optimizerCore.updateAttributes(temp);
         effectiveNegativeValues[value] = Number(
           (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(5)
         ).toLocaleString('en-US');
@@ -2726,7 +2727,13 @@
   });
 
   // Calculate button
-  $(Selector.START).on(Event.CLICK, start);
+  $(Selector.START).on(Event.CLICK, function () {
+    run().catch(e => {
+      alert('There was an error in the calculation!\n\n' + e);
+      console.log('Caught error in calculation:');
+      throw e;
+    });
+  });
   $(Selector.STOP).on(Event.CLICK, function () {
     STOP_SIGNAL = true;
   });
