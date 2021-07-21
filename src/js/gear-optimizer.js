@@ -877,7 +877,10 @@ import * as optimizerCore from './OptimizerCore.js';
   let startTime;
   let STOP_SIGNAL = false;
   const list = $(Selector.OUTPUT.LIST);
-  let worstScore;
+
+  const worstScore = {
+    value: 0
+  };
 
   /**
    * ------------------------------------------------------------------------
@@ -1018,7 +1021,7 @@ import * as optimizerCore from './OptimizerCore.js';
       }
     );
 
-    const generator = optimizerCore.calculate(input, insertCharacterDOM);
+    const generator = optimizerCore.calculate(input, insertCharacterDOM, worstScore);
 
     // the next time the DOM updates after this is after ≥1 iteration loop;
     // if the calculation is really really fast the main UI won't even flicker 😎
@@ -1126,7 +1129,7 @@ import * as optimizerCore from './OptimizerCore.js';
 
     if (
       !character.valid
-      || (worstScore && worstScore > character.attributes[settings.rankby])
+      || (worstScore.value && worstScore.value > character.attributes[settings.rankby])
     ) {
       return;
     }
@@ -1156,7 +1159,7 @@ import * as optimizerCore from './OptimizerCore.js';
       }
 
       if (list.children().length === settings.maxResults) {
-        worstScore = list.children().last()
+        worstScore.value = list.children().last()
           .data('character').attributes[settings.rankby];
       }
     }

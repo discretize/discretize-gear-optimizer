@@ -728,7 +728,7 @@ const INFUSION_BONUS = 5;
  * ------------------------------------------------------------------------
  */
 
-let worstScore;
+let worstScoreContainer;
 let insertCharacter;
 
 let applyInfusionsFunction;
@@ -763,9 +763,9 @@ let applyInfusionsFunction;
  * @yields {(Object|Number)} - settings object on the first next() call (to set initial UI);
  *                             subsequently the progress percentage
  */
-export function * calculate (input, insertCharacterFunction) {
-  worstScore = 0;
+export function * calculate (input, insertCharacterFunction, worstScoreContainerInput) {
   insertCharacter = insertCharacterFunction;
+  worstScoreContainer = worstScoreContainerInput;
 
   const {
     modifiers: modifiersInput,
@@ -1273,10 +1273,10 @@ applyInfusions['Secondary'] = function (character) {
     addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
     addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
     updateAttributesFast(temp, true);
-    return temp.attributes[settings.rankby] > worstScore;
+    return temp.attributes[settings.rankby] > worstScoreContainer.value;
   };
 
-  if (!worstScore || testInfusionUsefulness()) {
+  if (!worstScoreContainer.value || testInfusionUsefulness()) {
     let previousResult;
 
     let primaryCount = settings.primaryMaxInfusions;
@@ -1316,10 +1316,10 @@ applyInfusions['SecondaryNoDuplicates'] = function (character) {
     addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
     addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
     updateAttributesFast(temp, true);
-    return temp.attributes[settings.rankby] > worstScore;
+    return temp.attributes[settings.rankby] > worstScoreContainer.value;
   };
 
-  if (!worstScore || testInfusionUsefulness()) {
+  if (!worstScoreContainer.value || testInfusionUsefulness()) {
     let best = null;
 
     let primaryCount = settings.primaryMaxInfusions;
