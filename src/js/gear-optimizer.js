@@ -882,6 +882,7 @@
   const OptimizerCore = function () {
     let applyInfusionsFunction;
     let worstScore;
+    let generator;
 
     this.run = run; // export
     /**
@@ -906,7 +907,12 @@
      * @param {Object.<String, Number>} input.distribution
      * @param {String[]} input.relevantConditions - I should remove this tbh
      */
-    async function run (input) {
+    function run (input) {
+      generator = runLoop(input);
+      generator.next();
+    }
+
+    function * runLoop (input) {
       startTime = new Date();
       worstScore = 0;
 
@@ -1263,7 +1269,11 @@
       // the next time the DOM updates after this is after ≥1 iteration loop;
       // if the calculation is really really fast the main UI won't even flicker 😎
       list.children().css('visibility', 'hidden');
-      await new Promise(resolve => setTimeout(resolve, 0));
+
+      setTimeout(() => generator.next(), 0);
+      yield;
+      setTimeout(() => generator.next(), 0);
+      // await new Promise(resolve => setTimeout(resolve, 0));
 
       list.empty();
       lockUI(settings);
@@ -1278,8 +1288,9 @@
         if ((cycles % 1000 === 0) && Date.now() - iterationTimer > UPDATE_MS) {
           // pause to let UI update and register a stop button press
           updateProgressBar(Math.floor((calculationRuns * 100) / calculationTotal), false);
-          // eslint-disable-next-line no-await-in-loop
-          await new Promise(resolve => setTimeout(resolve, 0));
+
+          yield;
+          setTimeout(() => generator.next(), 0);
 
           iterationTimer = Date.now();
           if (STOP_SIGNAL) {
