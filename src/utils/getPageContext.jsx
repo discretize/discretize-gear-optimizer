@@ -1,9 +1,9 @@
 /* eslint-disable no-underscore-dangle */
 
-import { SheetsRegistry } from 'jss';
-import { createGenerateClassName } from '@material-ui/core/styles';
+import { SheetsRegistry } from "jss";
+import { createGenerateClassName } from "@material-ui/core/styles";
 
-import theme from '../styles/theme';
+import theme from "../styles/theme";
 
 const createPageContext = () => ({
   theme,
@@ -21,6 +21,8 @@ export default () => {
   /*if (!process.browser) {
     return createPageContext();
   }*/
+  // no idea why this needs to be commented out. Apparently process only exists when the
+  // server is run with node? Since we have a static page I assume this is a relict from looooong ago. ~pri
 
   // Reuse context on the client-side.
   if (!global.__INIT_MATERIAL_UI__) {

@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import injectSheet from "react-jss";
-import { withStyles, Fab, Zoom } from "@material-ui/core";
-import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
-import { StaticQuery, graphql } from "gatsby";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import { withStyles } from "@material-ui/core";
+import withWidth from "@material-ui/core/withWidth";
 
 import "typeface-raleway";
 import "typeface-muli";

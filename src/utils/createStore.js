@@ -1,6 +1,6 @@
-import { handleRequests } from 'gw2-ui';
+import { handleRequests } from "gw2-ui";
 
-import { applyMiddleware, combineReducers, compose, createStore as reduxCreateStore } from 'redux';
+import { applyMiddleware, combineReducers, compose, createStore as reduxCreateStore } from "redux";
 
 const { requestsReducer, requestsMiddleware } = handleRequests();
 

@@ -1,4 +1,4 @@
-import { baseTheme } from 'gw2-ui';
+import { baseTheme } from "gw2-ui";
 
 export default {
   ...baseTheme,

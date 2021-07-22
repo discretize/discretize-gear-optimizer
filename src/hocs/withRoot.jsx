@@ -1,11 +1,11 @@
-import React from 'react';
-import { MuiThemeProvider, CssBaseline } from '@material-ui/core';
-import { JssProvider } from 'react-jss';
-import { ThemeProvider } from 'theme-ui';
+import React from "react";
+import { CssBaseline, MuiThemeProvider } from "@material-ui/core";
+import { JssProvider } from "react-jss";
+import { ThemeProvider } from "theme-ui";
 
-import baseTheme from '../styles/baseTheme';
+import baseTheme from "../styles/baseTheme";
 
-import getPageContext from '../utils/getPageContext';
+import getPageContext from "../utils/getPageContext";
 
 export default (Component) =>
   class extends React.Component {
