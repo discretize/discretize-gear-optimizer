@@ -2,6 +2,7 @@ import React from "react";
 import { Button, withStyles } from "@material-ui/core";
 
 import { Profession } from "gw2-ui";
+import { PROFESSIONS } from "./GearOptimizer";
 
 const styles = (theme) => ({
   [theme.breakpoints.up("970")]: {
@@ -31,21 +32,12 @@ const styles = (theme) => ({
   }
 });
 
-const gw2Classes = [
-  "Warrior",
-  "Revenant",
-  "Guardian",
-  "Ranger",
-  "Engineer",
-  "Elementalist",
-  "Mesmer"
-];
 
 class ClassSelection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      specialization: ""
+      specialization: "",
     };
   }
 
@@ -60,7 +52,7 @@ class ClassSelection extends React.Component {
   render() {
     return (
       <div className={this.props.classes.buttonGroup}>
-        {gw2Classes.map((elem) => (
+        {PROFESSIONS.map((elem) => (
           <Button
             variant="outlined"
             color="primary"
