@@ -7,6 +7,8 @@ import Runes from "./GW2Select";
 import GW2Select from "./GW2Select";
 import Buffs from "./Buffs";
 
+import { ConsumableEffect, Item, Skill } from "gw2-ui";
+
 const styles = (theme) => ({
   root: {
     // adds padding on bigger (non smartphone) screens
@@ -58,13 +60,12 @@ class GearOptimizer extends React.Component {
         )}
 
         {/* TODO add skill selection here */}
-
         {expertMode && <>
-          <GW2Select name="Runes" />
-          <GW2Select name="Sigil1" />
-          <GW2Select name="Sigil2" />
-          <GW2Select name="Food" />
-          <GW2Select name="Utility" />
+          <GW2Select name="Runes" label={"Runes"} />
+          <GW2Select name="Sigil1" label={"Sigil 1"} />
+          <GW2Select name="Sigil2" label={"Sigil 2"} />
+          <GW2Select name="Nourishment" label={<ConsumableEffect name="Nourishment" />} />
+          <GW2Select name="Enhancement" label={<ConsumableEffect name="Enhancement" />} />
         </>}
 
         {expertMode && <Buffs buffs={(buffs) => this.setState({ ...this.state, buffs: buffs })} />}

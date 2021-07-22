@@ -4,7 +4,7 @@ import { Button, FormControl, InputLabel, MenuItem, Select, withStyles } from "@
 const styles = (theme) => ({
   formControl: {
     margin: theme.spacing.unit,
-    minWidth: 120
+    minWidth: 200
   }
 });
 
@@ -22,7 +22,7 @@ class GW2Select extends React.Component {
 
     return (
       <FormControl className={this.props.classes.formControl}>
-        <InputLabel htmlFor={this.props.name}>{this.props.name}</InputLabel>
+        <InputLabel htmlFor={this.props.name}>{this.props.label}</InputLabel>
         <Select
           value={selected}
           onChange={(e) => this.setState({ ...this.state, selected: e.target.value })}
