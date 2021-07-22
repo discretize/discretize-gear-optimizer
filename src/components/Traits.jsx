@@ -14,7 +14,7 @@ import { Specialization, TraitLine } from "gw2-ui";
 const styles = (theme) => ({
   formControl: {
     minWidth: 120,
-    paddingRight: theme.spacing.unit * 2
+    margin: theme.spacing.unit,
   }
 });
 
