@@ -1,7 +1,8 @@
 import React from "react";
 import {
+  Avatar,
   Button,
-  Checkbox,
+  Checkbox, Chip,
   FormControl, FormControlLabel, FormGroup, FormHelperText,
   FormLabel,
   Grid,
@@ -21,6 +22,9 @@ const styles = (theme) => ({
   },
   tinyNote: {
     fontWeight: 200
+  },
+  templateChip: {
+    margin: theme.spacing.unit
   }
 });
 
@@ -43,6 +47,10 @@ class GW2Select extends React.Component {
   handleChange = name => event => {
     this.setState({ [name]: event.target.checked });
     this.props.buffs(this.state);
+  };
+
+  handleTemplateClick = event => {
+
   };
 
   render() {
@@ -72,6 +80,13 @@ class GW2Select extends React.Component {
 
     return (
       <>
+        <Typography variant="h5">Boons & Buffs </Typography>
+        <Chip
+          label="Template name"
+          variant="outlined"
+          onClick={(e) => this.handleTemplateClick}
+          className={this.props.classes.templateChip}
+        />
         <Grid container>
           <Grid item xs={12} sm={6} md={4}>
             <FormControl component="fieldset" className={this.props.classes.formControl}>
