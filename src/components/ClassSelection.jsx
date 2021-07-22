@@ -64,6 +64,7 @@ class ClassSelection extends React.Component {
             }
             className={this.props.classes.button}
             onClick={() => this.setSpecialization(elem)}
+            key={elem}
           >
             <Profession name={elem} disableLink />
           </Button>

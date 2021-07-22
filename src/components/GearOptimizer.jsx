@@ -29,10 +29,11 @@ class GearOptimizer extends React.Component {
       <div className={this.props.classes.root}>
         <ClassSelection specialization={(prof) => this.setState({ ...this.state, profession: prof })} />
         {PROFESSIONS.map((p) =>
-          <>
-            {this.state.profession === p &&
-            <Traits profession={p} traits={(traits) => this.setState({ ...this.state, traits: traits })} />}
-          </>
+          <React.Fragment key={'traits_' + p}>
+            {this.state.profession === p ?
+              <Traits profession={p} traits={(traits) => this.setState({ ...this.state, traits: traits })} /> : null
+            }
+          </React.Fragment>
         )}
       </div>
     );

@@ -132,7 +132,6 @@ class Traits extends React.Component {
         <FormControl className={this.props.classes.formControl}>
           <InputLabel id="mutiple-checkbox-label">Traitlines</InputLabel>
           <Select
-            labelId="mutiple-checkbox-label"
             id="mutiple-checkbox"
             multiple
             value={traits.filter((elem) => elem.id > 0).map((st) => st.id)}
@@ -140,9 +139,9 @@ class Traits extends React.Component {
             input={<Input />}
             renderValue={(selected) =>
               selected.map((id) => (
-                <>
+                <React.Fragment key={"s_" + id }>
                   <Specialization id={id} disableLink />{" "}
-                </>
+                </React.Fragment>
               ))}
           >
             {traitsAll
@@ -160,14 +159,14 @@ class Traits extends React.Component {
           </Select>
         </FormControl>
 
-        { /* Render the actual trait lines  */ }
+        { /* Render the actual trait lines  */}
+        { /* TODO console error: onUseCallback*/ }
         {traits.filter(line => line.id > 0).map(line => (
-          <>
-            <TraitLine id={line.id}
-                       selectable
-                       selected={line.select}
-                       onSelect={(event) => this.handleTraitChange(line.id, event)} />
-          </>
+          <TraitLine id={line.id}
+                     key={line.id}
+                     selectable
+                     selected={line.select}
+                     onSelect={(event) => this.handleTraitChange(line.id, event)} />
         ))}
       </>
     );
