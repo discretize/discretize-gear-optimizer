@@ -110,8 +110,8 @@ class Traits extends React.Component {
         changedTraits.push({
           id,
           select: elem.select.map((value, index) =>
-            index === event.tier ? event.id : value,
-          ),
+            index === event.tier ? event.id : value
+          )
         });
       } else {
         changedTraits.push(elem);
@@ -160,7 +160,7 @@ class Traits extends React.Component {
           </Select>
         </FormControl>
 
-        <!-- Render the actual trait lines  -->
+        { /* Render the actual trait lines  */ }
         {traits.filter(line => line.id > 0).map(line => (
           <>
             <TraitLine id={line.id}
