@@ -319,6 +319,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
           : '')
     );
 
+    worstScore.value = undefined;
     STOP_SIGNAL = false;
     let done = false;
     let oldPercent = 0;
