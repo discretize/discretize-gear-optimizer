@@ -49,11 +49,11 @@ const styles = (theme) => ({
       }
     }
   },
-  sliderNew0: {
+  sliderNew: {
     "& div": {
       "& .noUi-connects": {
         "& .noUi-connect": {
-          background: "#b1b1b5 !important"
+          background: "#00cccc !important"
         }
       }
     }
@@ -66,7 +66,7 @@ const styles = (theme) => ({
 });
 
 const DISTRIBUTION_NAMES = [
-  { name: "Power", min: 0.001, max: 5, step: 0.001 },
+  { name: "Power", min: 0.001, max: 5, step: 0.001, color: "#b1b1b5" },
   { name: "Burning", min: 0, max: 50, step: 0.1 },
   { name: "Bleeding", min: 0, max: 50, step: 0.1 },
   { name: "Poisoned", min: 0, max: 50, step: 0.1 },
@@ -130,13 +130,13 @@ class DamageDistribution extends React.Component {
           onUpdate={this.onUpdateOld}
         />
         <Grid container>
-          {DISTRIBUTION_NAMES.map((name, index) => (
+          {DISTRIBUTION_NAMES.map((d, index) => (
             <Grid item xs={12} sm={6} md={2}>
               <Typography>
-                {name === "Power" ? (
+                {d.name === "Power" ? (
                   <Attribute name="Power" />
                 ) : (
-                  <Condition name={name} disableLink />
+                  <Condition name={d.name} disableLink />
                 )}{" "}
                 {distribution[index]}%
               </Typography>
@@ -182,7 +182,7 @@ class DamageDistribution extends React.Component {
               </Grid>
               <Grid item xs={12} sm={8}>
                 <Nouislider
-                  className={classNames(this.props.classes.sliderNew1, this.props.classes.slider)}
+                  className={classNames(this.props.classes.sliderNew, this.props.classes.slider)}
                   start={[distribution[index]]}
                   connect={[true, false]}
                   range={{
