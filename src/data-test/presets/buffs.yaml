@@ -1,0 +1,29 @@
+buff:
+
+  - name: None
+    id: none
+    buffs:
+
+  - name: Fractal
+    id: fractal
+    buffs:
+      - MIGHT
+      - FURY
+      - VULNERABILITY
+      - BANNER_OF_STRENGTH
+      - BANNER_OF_DISCIPLINE
+      - BANE_SIGNET
+      - FROST_SPIRIT
+      - ASSASSINS_PRESENCE
+
+  - name: Benchmark
+    id: benchmark
+    buffs:
+      - MIGHT
+      - FURY
+      - VULNERABILITY
+      - BANNER_OF_STRENGTH
+      - BANNER_OF_DISCIPLINE
+      - EMPOWER_ALLIES
+      - SPOTTER
+      - FROST_SPIRIT

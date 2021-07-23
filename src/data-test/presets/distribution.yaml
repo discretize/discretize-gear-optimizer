@@ -1,0 +1,49 @@
+distribution:
+
+  - name: 100% Power
+    id: power
+    distribution: [100, 100, 100, 100, 100]
+
+  - name: Condi Banner Warrior
+    id: cwarr
+    distribution: [27, 81, 96, 99, 100]
+
+  - name: Condi Firebrand (Virtues, 5 page)
+    id: cfb
+    distribution: [31, 96, 99, 99, 100]
+
+  - name: Condi Firebrand (Virtues, 8 page)
+    id: cfb2
+    distribution: [24, 96, 99, 99, 100]
+
+  - name: Condi Weaver (Sword)
+    id: cweasw
+    distribution: [36, 89, 100, 100, 100]
+
+  - name: Condi Weaver (Dagger)
+    id: cweadagg
+    distribution: [29, 84, 100, 100, 100]
+
+  - name: Condi Renegade (Devastation)
+    id: cren-deva
+    distribution: [44, 64, 75, 80, 100]
+
+  - name: Condi Renegade (Invocation)
+    id: cren-invo
+    distribution: [42, 64, 75, 80, 100]
+
+  - name: Condi Slb (D/T SB)
+    id: cslb
+    distribution: [30, 45, 75, 100, 100]
+
+  - name: Condi Slb (D/T A/D)
+    id: cslb2
+    distribution: [30, 52, 78, 100, 100]
+
+  - name: Hybrid Slb (A/T D/A)
+    id: hslb
+    distribution: [43, 61, 89, 100, 100]
+
+  - name: Condi Holo
+    id: cholo
+    distribution: [31, 77, 86, 95, 95]

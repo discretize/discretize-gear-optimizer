@@ -1,0 +1,286 @@
+trait:
+
+  - class: mesmer
+    builds:
+
+      - name: pChrono
+        id: pchrono
+        traits:
+          - fragility
+          - egotism
+          - vicious-expression
+          - fencers-finesse
+          - superiority-complex
+
+      - name: Staff Mirage
+        id: staffmirage
+        traits:
+          - signet-of-domination
+          - signet-of-midnight
+          - illusionary-membrane
+          - chaotic-potency
+          - chaotic-potency-2
+          - chaotic-persistence
+          - nomads-endurance
+
+  - class: guardian
+    builds:
+
+      - name: DH
+        id: dh
+        traits:
+          - fiery-wrath
+          - symbolic-avenger
+          - symbolic-exposure
+          - zealous-blade
+          - retribution
+          - radiant-power
+          - zealots-aggression
+          - pure-of-sight
+          - big-game-hunter
+
+      - name: pQFB
+        id: pqfb
+        traits:
+          - fiery-wrath
+          - symbolic-avenger
+          - symbolic-exposure
+          - zealous-blade
+          - retribution
+          - radiant-power
+          - imbued-haste
+
+      - name: CFB Virtues
+        id: cfb
+        traits:
+          - signet-of-wrath
+          - right-hand-strength
+          - right-hand-strength-3
+          - radiant-fire
+          - radiant-power
+          - amplified-wrath
+          - inspired-virtue-9
+          - virtue-of-retribution
+          - power-of-the-virtuous
+          - imbued-haste
+
+      - name: CFB Zeal
+        id: cfb2
+        traits:
+          - signet-of-wrath
+          - fiery-wrath
+          - symbolic-exposure
+          - kindled-zeal
+          - right-hand-strength
+          - right-hand-strength-3
+          - radiant-fire
+          - radiant-power
+          - amplified-wrath
+          - imbued-haste
+
+  - class: warrior
+    builds:
+
+      - name: Power Banner Bers
+        id: pbers
+        traits:
+          - peak-performance
+          - signet-of-might
+          - great-fortitude
+          - pinnacle-of-strength
+          - berserkers-power
+          - warriors-sprint
+          - double-standards
+          - axe-mastery-one
+          - axe-mastery-two
+          - blood-reaction-with
+          - fatal-frenzy
+          - bloody-roar
+
+      - name: Condi Banner Bers
+        id: cbers
+        traits:
+          - wounding-precision
+          - deep-strikes
+          - blade-master
+          - blade-master-2
+          - bloodlust
+          - furious
+          - double-standards
+          - heat-the-soul
+          - heat-the-soul-with
+          - fatal-frenzy
+          - king-of-fires
+
+  - class: elementalist
+    builds:
+
+      - name: Power Weaver
+        id: pwea
+        traits:
+          - empowering-flame
+          - burning-precision
+          - power-overwhelming
+          - power-overwhelming-2
+          - pyromancers-training
+          - ferocious-winds
+          - stormsoul
+          - aeromancers-training
+          - bolt-to-the-heart
+          - masters-fortitude
+          - elements-of-rage
+          - swift-revenge
+          - elemental-polyphony-fire
+
+      - name: Condi Weaver
+        id: cwea
+        traits:
+          - empowering-flame
+          - burning-precision
+          - burning-rage
+          - pyromancers-training
+          - stone-flesh
+          - serrated-stones
+          - strength-of-stone
+          - geomancers-defense
+          - superior-elements
+          - weavers-prowess
+          - elemental-polyphony-fire
+          - elements-of-rage
+
+  - class: ranger
+    builds:
+
+      - name: Power Slb
+        id: pslb
+        traits:
+          - farsighted
+          - predators-onslaught
+          - honed-axes
+          - honed-axes-2
+          - furious-strength
+          - twice-as-vicious
+          - signet-of-the-wild
+          - archetype-ferocious
+          - sb-1
+          - sb-2
+          - sb-3
+          - sb-4
+
+      - name: Condi Slb (D/T SB)
+        id: cslb
+        traits:
+          - hidden-barbs
+          - hunters-tactics
+          - light-on-your-feet
+          - taste-for-danger
+          - ambidexterity
+          - ambidexterity-2
+          - poison-master
+          - furious-strength
+          - twice-as-vicious
+          - archetype-deadly
+
+      - name: Condi Slb (D/T A/D)
+        id: cslb2
+        traits:
+          - hidden-barbs
+          - hunters-tactics
+          - taste-for-danger
+          - ambidexterity
+          - ambidexterity-2
+          - poison-master
+          - furious-strength
+          - twice-as-vicious
+          - archetype-deadly
+
+      - name: Hybrid Slb (A/T D/A)
+        id: hslb
+        traits:
+          - hidden-barbs
+          - hunters-tactics
+          - vicious-quarry
+          - honed-axes
+          - honed-axes-3
+          - furious-strength
+          - twice-as-vicious
+          - archetype-deadly
+          - sb-1
+          - sb-2
+          - sb-3
+          - sb-4
+
+  - class: revenant
+    builds:
+
+      - name: Power Ren
+        id: pren
+        traits:
+          - rising-tide
+          - ferocious-aggression
+          - unsuspecting-strikes
+          - destructive-impulses-dual
+          - targeted-destruction
+          - swift-termination
+          - ambush-commander
+          - brutal-momentum
+
+      - name: Condi Ren Devastation
+        id: cren-deva
+        traits:
+          - acolyte-of-torment
+          - seething-malice
+          - pact-of-pain
+          - yearning-empowerment
+          - unsuspecting-strikes
+          - destructive-impulses-mix
+          - targeted-destruction
+          - ambush-commander
+          - blood-fury
+          - heartpiercer
+          - brutal-momentum
+          - lasting-legacy
+
+  - class: engineer
+    builds:
+
+      - name: Power Holo
+        id: pholo
+        traits:
+          - glass-cannon
+          - explosive-temper
+          - shaped-charge
+          - big-boomer
+          - high-caliber
+          - hematic-focus
+          - no-scope
+          - serrated-steel
+          - modified-ammunition-10
+
+      - name: Condi Holo
+        id: cholo
+        traits:
+          - glass-cannon
+          - explosive-temper
+          - shaped-charge
+          - chemical-rounds
+          - hematic-focus
+          - thermal-vision
+          - serrated-steel
+          - incendiary-powder
+
+      - name: Power Scrapper
+        id: pscrap
+        traits:
+          - glass-cannon
+          - explosive-temper
+          - shaped-charge
+          - big-boomer
+          - high-caliber
+          - hematic-focus
+          - no-scope
+          - serrated-steel
+          - modified-ammunition-10
+          - object-in-motion-2
+          - impact-savant
+          - applied-force

@@ -1,0 +1,45 @@
+priorities:
+
+  - name: Power DPS
+    id: power-dps
+    affixes:
+      - BERSERKER
+      - ASSASSIN
+    restrictions:
+      MIN_BOON_DURATION: 0
+
+  - name: Power Boon
+    id: power-boon
+    affixes:
+      - BERSERKER
+      - ASSASSIN
+      - DIVINER
+    restrictions:
+      MIN_BOON_DURATION: 100
+
+  - name: Condi DPS
+    id: condi-dps
+    affixes:
+      - VIPER
+      - SINISTER
+      - GRIEVING
+    restrictions:
+      MIN_BOON_DURATION: 0
+
+  - name: Heal
+    id: heal
+    affixes:
+      - HARRIER
+      - MINSTREL
+      - MAGI
+    restrictions:
+      MIN_BOON_DURATION: 100
+
+  - name: Condi Boon
+    id: condi-boon
+    affixes:
+      - VIPER
+      - SERAPH
+      - CELESTIAL
+    restrictions:
+      MIN_BOON_DURATION: 79
