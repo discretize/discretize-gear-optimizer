@@ -6,9 +6,10 @@ import Traits from "./Traits";
 import Runes from "./GW2Select";
 import GW2Select from "./GW2Select";
 import Buffs from "./Buffs";
+import ARinput from "./ARinput";
+import Affixes from "./priorities/Affixes";
 
 import { ConsumableEffect, Item, Skill } from "gw2-ui";
-import ARinput from "./ARinput";
 
 const styles = (theme) => ({
   root: {
@@ -100,6 +101,8 @@ class GearOptimizer extends React.Component {
         {expertMode && <Buffs buffs={(buffs) => this.setState({ ...this.state, buffs: buffs })} />}
 
         <ARinput ar={(ar) => this.setState({ ...this.state, ar: ar })} />
+
+        <Affixes></Affixes>
       </div>
     );
   }
