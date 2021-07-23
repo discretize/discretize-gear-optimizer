@@ -13,6 +13,9 @@ import { Item, Attribute } from "gw2-ui";
 import HelperIcon from "./HelperIcon";
 
 const styles = (theme) => ({
+  root: {
+    marginBottom: theme.spacing.unit * 2
+  },
   margin: {
     width: 190,
     margin: theme.spacing.unit
@@ -44,7 +47,7 @@ class ARinput extends React.Component {
     const { selected } = this.state;
 
     return (
-      <>
+      <div className={this.props.classes.root}>
         <Typography variant="h5">
           <Attribute name="Agony Resistance" />{" "}
         </Typography>
@@ -72,7 +75,7 @@ class ARinput extends React.Component {
             </FormControl>
           </Grid>
         </Grid>
-      </>
+      </div>
     );
   }
 }

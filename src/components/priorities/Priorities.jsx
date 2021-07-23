@@ -17,6 +17,9 @@ import HelperIcon from "../HelperIcon";
 import { Tooltip, Attribute } from "gw2-ui";
 
 const styles = (theme) => ({
+  root: {
+    marginBottom: theme.spacing.unit * 2
+  },
   text: {
     color: "#ddd !important"
   },
@@ -62,7 +65,7 @@ class Priorities extends React.Component {
     } = this.state;
 
     return (
-      <>
+      <div className={this.props.classes.root}>
         <Typography variant="h5">Priorities </Typography>
         <Chip
           label="Template name"
@@ -168,7 +171,7 @@ class Priorities extends React.Component {
             </div>
           </Grid>
         </Grid>
-      </>
+      </div>
     );
   }
 }

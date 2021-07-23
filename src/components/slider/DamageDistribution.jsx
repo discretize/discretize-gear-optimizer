@@ -8,6 +8,9 @@ import HelperIcon from "../HelperIcon";
 //import "./slider.css";
 
 const styles = (theme) => ({
+  root: {
+    marginBottom: theme.spacing.unit * 2
+  },
   slider: {
     marginTop: theme.spacing.unit * 2,
     marginBottom: theme.spacing.unit * 6
@@ -43,7 +46,7 @@ class DamageDistribution extends React.Component {
   render() {
     const { distribution } = this.state;
     return (
-      <>
+      <div className={this.props.classes.root}>
         <div className={this.props.classes.box}>
           <Typography variant="h5">Damage Source Distribution </Typography>
           <HelperIcon text="Damage distribution according to an optimal golem log." />
@@ -78,7 +81,7 @@ class DamageDistribution extends React.Component {
             </Grid>
           ))}
         </Grid>
-      </>
+      </div>
     );
   }
 }
