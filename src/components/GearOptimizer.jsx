@@ -122,6 +122,7 @@ class GearOptimizer extends React.Component {
           </>
         )}
 
+        <Divider />
         <ARinput ar={(ar) => this.setState({ ...this.state, ar: ar })} />
 
         {expertMode && (

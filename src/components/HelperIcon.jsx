@@ -16,7 +16,7 @@ import { Tooltip, Attribute } from "gw2-ui";
 
 const styles = (theme) => ({
   icon: {
-    color: theme.palette.primary.light
+    color: theme.palette.primary.dark
   }
 });
 
