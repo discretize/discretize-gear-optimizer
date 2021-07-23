@@ -10,6 +10,7 @@ buff:
     modifiers: >-
       {
         "buff": { "Power": 750, "Condition Damage": 750 }
+      }
     default-enabled: true
 
   - id: fury
@@ -19,6 +20,7 @@ buff:
     modifiers: >-
       {
         "flat": { "Critical Chance": 20 }
+      }
     default-enabled: true
 
   - id: protection
@@ -28,6 +30,7 @@ buff:
     modifiers: >-
       {
         "multiplier": { "Effective Health": 0.33 }
+      }
 
   - id: vulnerability
     text: >-
@@ -37,6 +40,7 @@ buff:
     modifiers: >-
       {
         "multiplier": { "target: Effective Power": 0.25, "target: Effective Condition Damage": 0.25 }
+      }
     default-enabled: true
 
 # Section
