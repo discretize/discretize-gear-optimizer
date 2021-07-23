@@ -49,7 +49,7 @@ class ARinput extends React.Component {
     return (
       <div className={this.props.classes.root}>
         <Typography variant="h5">
-          <Attribute name="Agony Resistance" />{" "}
+          <Attribute name="Agony Resistance" />
         </Typography>
 
         <Grid container justify="center" alignItems="center">
