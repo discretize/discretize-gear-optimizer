@@ -3,10 +3,10 @@ runes:
 # Section: "Power Runes"
 
   - id: scholar
-    text: >
+    text: >-
       Superior Rune of the Scholar<br>
       <small class="text-muted font-italic">(100% active bonus)</small>
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 175, "Ferocity": 225 },
         "multiplier": { "Effective Power": 0.05 }
@@ -15,10 +15,10 @@ runes:
     armory-type: "items"
 
   - id: scholar-without
-    text: >
+    text: >-
       Superior Rune of the Scholar<br>
       <small class="text-muted font-italic">(without active bonus)</small>
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 175, "Ferocity": 225 }
       }
@@ -27,7 +27,7 @@ runes:
 
   - id: eagle
     text: "Superior Rune of the Eagle"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Precision": 175, "Ferocity": 225 },
         "multiplier": { "Effective Power": 0.05 }
@@ -37,7 +37,7 @@ runes:
 
   - id: thief
     text: "Superior Rune of the Thief"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Precision": 300, "Condition Damage": 100 },
         "multiplier": { "Effective Power": 0.1 }
@@ -50,7 +50,7 @@ runes:
 
   - id: spellbreaker
     text: "Superior Rune of the Spellbreaker"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 175, "Precision": 100 },
         "multiplier": { "Effective Power": 0.07 }
@@ -61,7 +61,7 @@ runes:
   - &flame-legion
     id: flame-legion
     text: "Superior Rune of the Flame Legion"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 175, "Burning Duration": 50 },
         "multiplier": { "Effective Power": 0.07 }
@@ -71,7 +71,7 @@ runes:
 
   - id: strength
     text: "Superior Rune of Strength"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 175, "Might Duration": 50 },
         "multiplier": { "Effective Power": 0.05 }
@@ -81,7 +81,7 @@ runes:
 
   - id: ogre
     text: "Superior Rune of the Ogre"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 175, "Ferocity": 100 },
         "multiplier": { "add: Effective Power": 0.04 }
@@ -91,7 +91,7 @@ runes:
 
   - id: chronomancer
     text: "Superior Rune of the Chronomancer"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 175, "Precision": 100 }
       }
@@ -102,7 +102,7 @@ runes:
 
   - id: pack
     text: "Superior Rune of the Pack"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 175, "Boon Duration": 15 },
         "buff": { "Precision": 125 }
@@ -112,7 +112,7 @@ runes:
 
   - id: leadership
     text: "Superior Rune of Leadership"
-    modifiers: >
+    modifiers: >-
       {
         "flat":
         {
@@ -126,7 +126,7 @@ runes:
 
   - id: firebrand
     text: "Superior Rune of the Firebrand"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 175, "Boon Duration": 10, "Quickness Duration": 30 }
       }
@@ -134,11 +134,11 @@ runes:
     armory-type: "items"
 
   - id: surging-and-ruby-orb
-    text: >
+    text: >-
       Superior Rune of Surging (5x) <br>
       &amp; <span data-armory-embed="items" data-armory-ids="24508" data-armory-size="24"></span>
       Ruby Orb (1x)
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 195, "Precision": 14, "Ferocity": 14, "Boon Duration": 15 }
       }
@@ -147,7 +147,7 @@ runes:
 
   - id: surging
     text: "Superior Rune of Surging"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 175, "Boon Duration": 15 }
       }
@@ -156,7 +156,7 @@ runes:
 
   - id: radiance
     text: "Superior Rune of Radiance"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Vitality": 175, "Boon Duration": 25 }
       }
@@ -167,7 +167,7 @@ runes:
 
   - id: durability
     text: "Superior Rune of Durability"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Toughness": 175, "Boon Duration": 15 },
         "multiplier": { "Effective Health": 0.1 }
@@ -177,7 +177,7 @@ runes:
 
   - id: sanctuary
     text: "Superior Rune of Sanctuary"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Vitality": 175, "Boon Duration": 15 }
       }
@@ -186,7 +186,7 @@ runes:
 
   - id: herald
     text: "Superior Rune of the Herald"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Toughness": 175, "Boon Duration": 15 }
       }
@@ -196,7 +196,7 @@ runes:
   - &rebirth
     id: rebirth
     text: "Superior Rune of the Rebirth"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Healing Power": 300, "Boon Duration": 15 }
       }
@@ -206,10 +206,10 @@ runes:
 # Section: "Heal Runes"
 
   - id: monk
-    text: >
+    text: >-
       Superior Rune of the Monk
       <small class="text-muted font-italic">(10x)</small>
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Healing Power": 175, "Boon Duration": 15 },
         "multiplier": { "Effective Healing": 0.2 }
@@ -219,7 +219,7 @@ runes:
 
   - id: water
     text: "Superior Rune of the Water"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Healing Power": 175, "Boon Duration": 25 }
       }
@@ -228,7 +228,7 @@ runes:
 
   - id: altruism
     text: "Superior Rune of Altruism"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Healing Power": 300, "Boon Duration": 15 }
       }
@@ -241,7 +241,7 @@ runes:
 
   - id: berserker
     text: "Superior Rune of the Berserker"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 175, "Power": 100 },
         "multiplier": { "add: Effective Power": 0.05, "add: Effective Condition Damage": 0.05 }
@@ -251,7 +251,7 @@ runes:
 
   - id: renegade
     text: "Superior Rune of the Renegade"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 175, "Ferocity": 100 },
         "multiplier": { "add: Effective Condition Damage": 0.07 }
@@ -261,7 +261,7 @@ runes:
 
   - id: elementalist
     text: "Superior Rune of the Elementalist"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 175, "Condition Damage": 225, "Condition Duration": 10 }
       }
@@ -270,7 +270,7 @@ runes:
 
   - id: lich
     text: "Superior Rune of the Lich"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Vitality": 175, "Condition Duration": 15 },
         "multiplier": { "add: Effective Condition Damage": 0.04 }
@@ -280,7 +280,7 @@ runes:
 
   - id: trapper
     text: "Superior Rune of the Trapper"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 175, "Condition Duration": 15 }
       }
@@ -289,7 +289,7 @@ runes:
 
   - id: nightmare
     text: "Superior Rune of the Nightmare"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 175, "Condition Duration": 20, "Fear Duration": 10 }
       }
@@ -298,7 +298,7 @@ runes:
 
   - id: tempest
     text: "Superior Rune of the Tempest"
-    modifiers: >
+    modifiers: >-
       {
         "flat":
         {
@@ -312,7 +312,7 @@ runes:
 
   - id: undead
     text: "Superior Rune of the Undead"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 175, "Toughness": 225 },
         "convert": { "Condition Damage": { "Toughness": 0.07 } }
@@ -322,7 +322,7 @@ runes:
 
   - id: necromancer
     text: "Superior Rune of the Necromancer"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 300, "Vitality": 100, "Fear Duration": 20 }
       }
@@ -330,10 +330,10 @@ runes:
     armory-type: "items"
 
   - id: soulbeast
-    text: >
+    text: >-
       Superior Rune of the Soulbeast<br>
       <small class="text-muted font-italic">(Active Bonus)</small>
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 175, "Power": 100 },
         "convert": { "Condition Damage": { "Power": 0.07 } }
@@ -347,7 +347,7 @@ runes:
 
   - id: balthazar
     text: "Superior Rune of Balthazar"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 175, "Burning Duration": 50 },
         "multiplier": { "Effective Health": 0.1 }
@@ -359,7 +359,7 @@ runes:
 
   - id: baelfire
     text: "Superior Rune of the Baelfire"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 175, "Condition Duration": 10, "Burning Duration": 30 },
         "convert": { "Expertise": { "Power": 0.07 } }
@@ -371,7 +371,7 @@ runes:
 
   - id: krait
     text: "Superior Rune of the Krait"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 175, "Bleeding Duration": 50 }
       }
@@ -380,7 +380,7 @@ runes:
 
   - id: mad-king
     text: "Superior Rune of the Mad King"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Duration": 5, "Power": 175, "Bleeding Duration": 40 }
       }
@@ -389,7 +389,7 @@ runes:
 
   - id: afflicted
     text: "Superior Rune of the Afflicted"
-    modifiers: >
+    modifiers: >-
       {
         "flat":
         {
@@ -406,7 +406,7 @@ runes:
 
   - id: thorns
     text: "Superior Rune of Thorns"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 300, "Poison Duration": 50 }
       }
@@ -417,7 +417,7 @@ runes:
 
   - id: tormenting
     text: "Superior Rune of Tormenting"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 175, "Torment Duration": 50 }
       }
@@ -428,7 +428,7 @@ runes:
 
   - id: perplexity
     text: "Superior Rune of Perplexity"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 175, "Confusion Duration": 50 }
       }
@@ -439,7 +439,7 @@ runes:
 
   - id: traveler
     text: "Superior Rune of the Traveler"
-    modifiers: >
+    modifiers: >-
       {
         "flat":
         {
@@ -454,7 +454,7 @@ runes:
 
   - id: divinity
     text: "Superior Rune of Divinity"
-    modifiers: >
+    modifiers: >-
       {
         "flat":
         {
@@ -468,7 +468,7 @@ runes:
 
   - id: revenant
     text: "Superior Rune of the Revenant"
-    modifiers: >
+    modifiers: >-
       {
         "flat":
         {
@@ -481,7 +481,7 @@ runes:
 
   - id: exuberance
     text: "Superior Rune of Exuberance"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Vitality": 175 },
         "convert":

@@ -4,7 +4,7 @@ elementalist:
 
   - id: signet-of-fire
     text: "Signet of Fire"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Precision": 180 }
       }
@@ -13,7 +13,7 @@ elementalist:
 
   - id: signet-of-earth
     text: "Signet of Earth"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Toughness": 180 }
       }
@@ -22,7 +22,7 @@ elementalist:
 
   - id: flame-axe
     text: "Flame Axe <small>when equipped</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 180, "Condition Damage": 180 }
       }
@@ -32,7 +32,7 @@ elementalist:
 
   - id: earth-shield
     text: "Earth Shield <small>when equipped</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Vitality": 180, "Toughness": 180 }
       }
@@ -41,7 +41,7 @@ elementalist:
 
   - id: fiery-greatsword
     text: "Fiery Greatsword <small>when equipped</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 260, "Condition Damage": 180 }
       }
@@ -50,7 +50,7 @@ elementalist:
 
   - id: lightning-hammer
     text: "Lightning Hammer <small>when equipped</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Precision": 180, "Ferocity": 75 }
       }
@@ -59,7 +59,7 @@ elementalist:
 
   - id: frost-bow
     text: "Frost Bow <small>when equipped</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Healing Power": 180 },
         "flat": { "Condition Duration": 20 }
@@ -70,10 +70,10 @@ elementalist:
 # Section: "Fire"
 
   - id: empowering-flame
-    text: >
+    text: >-
       Empowering Flame <br>(100% in
       <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5492"></span>)
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 150 }
       }
@@ -82,7 +82,7 @@ elementalist:
 
   - id: burning-precision
     text: "Burning Precision"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Burning Duration": 20 }
       }
@@ -91,7 +91,7 @@ elementalist:
 
   - id: burning-rage
     text: "Burning Rage"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Condition Damage": 180 }
       }
@@ -100,7 +100,7 @@ elementalist:
 
   - id: power-overwhelming
     text: "Power Overwhelming <small>perma</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 150 }
       }
@@ -108,11 +108,11 @@ elementalist:
     armory-type: "traits"
 
   - id: power-overwhelming-2
-    text: >
+    text: >-
       Power Overwhelming <br>(100% in
       <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5492"></span>
        - tick both)
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 150 }
       }
@@ -121,7 +121,7 @@ elementalist:
 
   - id: pyromancers-training
     text: "Pyromancer's Training"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.1 }
       }
@@ -132,7 +132,7 @@ elementalist:
 
   - id: ferocious-winds
     text: "Ferocious Winds"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Ferocity": { "Precision": 0.07 } }
       }
@@ -141,7 +141,7 @@ elementalist:
 
   - id: raging-storm
     text: "Raging Storm"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Ferocity": 180 }
       }
@@ -150,7 +150,7 @@ elementalist:
 
   - id: stormsoul
     text: "Stormsoul"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.1 }
       }
@@ -159,7 +159,7 @@ elementalist:
 
   - id: aeromancers-training
     text: "Aeromancer's Training <small>perma</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Ferocity": 150 }
       }
@@ -167,11 +167,11 @@ elementalist:
     armory-type: "traits"
 
   - id: aeromancers-training-2
-    text: >
+    text: >-
       Aeromancer's Training <br>(100% in
       <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5494"></span>
        - tick both)
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Ferocity": 150 }
       }
@@ -180,7 +180,7 @@ elementalist:
 
   - id: bolt-to-the-heart
     text: "Bolt to the Heart <small>50% uptime</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.1 }
       }
@@ -189,7 +189,7 @@ elementalist:
 
   - id: fresh-air
     text: "Fresh Air <small>100% uptime</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Ferocity": 250 }
       }
@@ -199,10 +199,10 @@ elementalist:
 # Section: "Earth"
 
   - id: stone-flesh
-    text: >
+    text: >-
       Stone Flesh (100% in
       <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5495"></span>)
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Health": 0.07 }
       }
@@ -211,7 +211,7 @@ elementalist:
 
   - id: serrated-stones
     text: "Serrated Stones"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.05 },
         "flat": { "Bleeding Duration": 20 }
@@ -221,7 +221,7 @@ elementalist:
 
   - id: strength-of-stone
     text: "Strength of Stone"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Condition Damage": { "Toughness": 0.1 } }
       }
@@ -230,7 +230,7 @@ elementalist:
 
   - id: geomancers-defense
     text: "Geomancer's Defense"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Health": 0.1 }
       }
@@ -241,7 +241,7 @@ elementalist:
 
   - id: piercing-blades
     text: "Piercing Shards"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.1 }
       }
@@ -249,11 +249,11 @@ elementalist:
     armory-type: "traits"
 
   - id: piercing-blades-2
-    text: >
+    text: >-
       Piercing Shards <small>100% in
       <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5493"></span>
        - tick both</small>
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.1 }
       }
@@ -262,7 +262,7 @@ elementalist:
 
   - id: flow-like-water
     text: "Flow like Water"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.1 }
       }
@@ -271,7 +271,7 @@ elementalist:
 
   - id: aquamancers-training
     text: "Aquamancer's Training"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Healing": 0.15 }
       }
@@ -282,7 +282,7 @@ elementalist:
 
   - id: elemental-enchantment
     text: "Elemental Enchantment"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Concentration": 180 }
       }
@@ -291,7 +291,7 @@ elementalist:
 
   - id: elemental-surge
     text: "Elemental Surge (100% uptime)"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Ferocity": 150 }
       }
@@ -300,7 +300,7 @@ elementalist:
 
   - id: bountiful-power
     text: "Bountiful Power <small>6x</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.12 }
       }
@@ -309,7 +309,7 @@ elementalist:
 
   - id: bountiful-power-9
     text: "Bountiful Power <small>9x</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.18 }
       }
@@ -320,7 +320,7 @@ elementalist:
 
   - id: gathered-focus
     text: "Gathered Focus <small>100%</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Concentration": 240 }
       }
@@ -329,7 +329,7 @@ elementalist:
 
   - id: hardy-conduit
     text: "Hardy Conduit"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Health": 0.1167 }
       }
@@ -338,7 +338,7 @@ elementalist:
 
   - id: transcendent-tempest
     text: "Transcendent Tempest"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.07, "add: Effective Condition Damage": 0.07 }
       }
@@ -349,7 +349,7 @@ elementalist:
 
   - id: superior-elements
     text: "Superior Elements <small>100% uptime</small>"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Critical Chance": 10 }
       }
@@ -358,7 +358,7 @@ elementalist:
 
   - id: masters-fortitude
     text: "Master's Fortitude <small>With Sword</small>"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Vitality": 120 },
         "convert": { "Vitality": { "Power": 0.05, "Condition Damage": 0.05 } }
@@ -368,7 +368,7 @@ elementalist:
 
   - id: masters-fortitude-without
     text: "Master's Fortitude <small>Without Sword</small>"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Vitality": { "Power": 0.05, "Condition Damage": 0.05 } }
       }
@@ -377,7 +377,7 @@ elementalist:
 
   - id: weavers-prowess
     text: "Weaver's Prowess <small>100% uptime</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Condition Damage": 0.1 },
         "flat": { "Condition Duration": 20 }
@@ -387,7 +387,7 @@ elementalist:
 
   - id: swift-revenge
     text: "Swift Revenge"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.1 }
       }
@@ -395,10 +395,10 @@ elementalist:
     armory-type: "traits"
 
   - id: elemental-polyphony-fire
-    text: >
+    text: >-
       Elemental Polyphony <br>(100% in
       <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5492"></span>)
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 120 }
       }
@@ -406,10 +406,10 @@ elementalist:
     armory-type: "traits"
 
   - id: elemental-polyphony-air
-    text: >
+    text: >-
       Elemental Polyphony <br>(100% in
       <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5494"></span>)
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Ferocity": 120 }
       }
@@ -418,7 +418,7 @@ elementalist:
 
   - id: elements-of-rage
     text: "Elements of Rage"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Condition Damage": 0.05 },
         "convert": { "Precision": { "Vitality": 0.13 } }

@@ -3,11 +3,11 @@ food:
 # Section: "Power Food"
 
   - id: sweet-and-spicy-butternut-squash-soup
-    text: >
+    text: >-
       Bowl of Sweet and Spicy Butternut Squash Soup<br> /
       <span data-armory-ids="91736" data-armory-embed="items" data-armory-size="24"></span>
       Sous-Vide Steak
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 100, "Ferocity": 70 }
       }
@@ -15,11 +15,11 @@ food:
     armory-type: "items"
 
   - id: truffle-steak
-    text: >
+    text: >-
       Plate of Truffle Steak<br> /
       <span data-armory-ids="91711" data-armory-embed="items" data-armory-size="24"></span>
       Coq Au Vin
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 100, "Precision": 70 }
       }
@@ -28,7 +28,7 @@ food:
 
   - id: curry-butternut-squash-soup
     text: "Bowl of Curry Butternut Squash Soup"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Precision": 100, "Ferocity": 70 }
       }
@@ -36,10 +36,10 @@ food:
     armory-type: "items"
 
   - id: dragon's-breath-bun
-    text: >
+    text: >-
       Dragon's Breath Bun
       <small class="text-muted font-italic">(100% uptime) </small>
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 200, "Ferocity": 70 }
       }
@@ -48,10 +48,10 @@ food:
 
   - &steamed-red-dumpling
     id: steamed-red-dumpling 
-    text: >
+    text: >-
       Steamed Red Dumpling
       <small class="text-muted font-italic">(100% uptime) </small>
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 200, "Condition Damage": 140 }
       }
@@ -59,10 +59,10 @@ food:
     armory-type: "items"
 
   - id: seaweed-salad
-    text: >
+    text: >-
       Bowl of Seaweed Salad
       <small class="text-muted font-italic">(90% uptime) </small>
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.045 }
       }
@@ -71,7 +71,7 @@ food:
 
   - id: jerk-poultry
     text: "Plate of Jerk Poultry"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 150 }
       }
@@ -80,7 +80,7 @@ food:
 
   - id: sawgill-mushroom-risotto
     text: "Bowl of Sawgill Mushroom Risotto"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Precision": 150 }
       }
@@ -90,7 +90,7 @@ food:
 
   - id: roasted-cactus
     text: "Plate of Roasted Cactus"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Ferocity": 100 }
       }
@@ -98,11 +98,11 @@ food:
     armory-type: "items"
 
   - id: fried-golden-dumpling
-    text: >
+    text: >-
       Fried Golden Dumpling<br> /
       <span data-armory-ids="91729" data-armory-embed="items" data-armory-size="24"></span>
       Cheesecake
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Concentration": 100 }
       }
@@ -112,11 +112,11 @@ food:
 # Section: "Support Food"
 
   - id: soul-pastry
-    text: >
+    text: >-
       Soul Pastry<br> /
       <span data-armory-ids="91718" data-armory-embed="items" data-armory-size="24"></span>
       Beef Carpaccio
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Concentration": 100, "Power": 70 }
       }
@@ -124,10 +124,10 @@ food:
     armory-type: "items"
 
   - id: eggs-benedict
-    text: >
+    text: >-
       / <span data-armory-ids="91855" data-armory-embed="items" data-armory-size="24"></span>
       Plate of Eggs Benedict
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Concentration": 100, "Expertise": 70 }
       }
@@ -136,11 +136,11 @@ food:
     extraCSS: "mb-3" # margin-bottom
 
   - id: nopalitos-saute
-    text: >
+    text: >-
       Bowl of Nopalitos Sauté<br> /
       <span data-armory-ids="91775" data-armory-embed="items" data-armory-size="24"></span>
       Poultry Aspic
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Concentration": 100, "Toughness": 70 }
       }
@@ -149,7 +149,7 @@ food:
 
   - id: mussels-gnashblade
     text: "Plate of Mussels Gnashblade"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Concentration": 70 },
         "multiplier": { "Effective Health": 0.1 }
@@ -161,7 +161,7 @@ food:
 
   - id: fruit-salad-mint-garnish
     text: "Bowl of Fruit Salad with Mint Garnish"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Healing Power": 100, "Concentration": 70 },
         "multiplier": { "Effective Healing": 0.1 }
@@ -171,7 +171,7 @@ food:
 
   - id: mint-creme-brulee
     text: "Mint Creme Brulee"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Concentration": 100, "Healing Power": 70 },
         "multiplier": { "Effective Healing": 0.1 }
@@ -181,7 +181,7 @@ food:
 
   - id: delicious-rice-ball
     text: "Delicious Rice Ball"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Healing Power": 100 },
         "multiplier": { "Effective Healing": 0.1 }
@@ -191,7 +191,7 @@ food:
 
   - id: poultry-satay
     text: "Bowl of Poultry Satay"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Healing Power": 100, "Concentration": 70 }
       }
@@ -201,11 +201,11 @@ food:
 # Section: "Condition Food"
 
   - id: rare-veggie-pizza
-    text: >
+    text: >-
       Rare Veggie Pizza<br> /
       <span data-armory-ids="91823" data-armory-embed="items" data-armory-size="24"></span>
       Veggie "flat"bread
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Expertise": 100, "Condition Damage": 70 }
       }
@@ -213,11 +213,11 @@ food:
     armory-type: "items"
 
   - id: beef-rendang
-    text: >
+    text: >-
       Plate of Beef Rendang<br> /
       <span data-armory-ids="91867" data-armory-embed="items" data-armory-size="24"></span>
       Cured Meat "flat"bread
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 100, "Expertise": 70 }
       }
@@ -225,10 +225,10 @@ food:
     armory-type: "items"
 
   - id: saffron-stuffed-mushroom
-    text: >
+    text: >-
       Saffron Stuffed Mushroom
       <small class="text-muted font-italic">(100% uptime) </small>
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Precision": 70, "Condition Damage": 200 }
       }
@@ -239,7 +239,7 @@ food:
 
   - id: fire-meat-chili
     text: "Bowl of Fire Meat Chili"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Burning Duration": 15, "Precision": 70 }
       }
@@ -249,7 +249,7 @@ food:
 
   - id: fancy-truffle-burger
     text: "Fancy Truffle Burger"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Poison Duration": 15, "Precision": 70 }
       }
@@ -258,7 +258,7 @@ food:
 
   - id: truffle-risotto
     text: "Bowl of Truffle Risotto"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 100, "Precision": 70 }
       }
@@ -267,7 +267,7 @@ food:
 
   - id: sweet-and-spicy-beans
     text: "Bowl of Sweet and Spicy Beans"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Expertise": 100, "Power": 70 }
       }
@@ -276,7 +276,7 @@ food:
 
   - id: fire-flank-steak
     text: "Plate of Fire Flank Steak"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 100, "Condition Damage": 70 }
       }
@@ -285,7 +285,7 @@ food:
 
   - id: fancy-potato-and-leek-soup
     text: "Bowl of Fancy Potato and Leek Soup"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Precision": 100, "Condition Damage": 70 }
       }
@@ -294,7 +294,7 @@ food:
 
   - id: prickly-pear-pie
     text: "Prickly Pear Pie"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Expertise": 100 }
       }
@@ -304,11 +304,11 @@ food:
 # Section: "Hybrid Food"
 
   - id: dragon's-revelry-starcake
-    text: >
+    text: >-
       Dragon's Revelry Starcake<br> /
       <span data-armory-ids="91756" data-armory-embed="items" data-armory-size="24"></span>
       Oyster Soup
-    modifiers: >
+    modifiers: >-
       {
         "flat":
         {
@@ -321,7 +321,7 @@ food:
 
   - id: birthday-blaster
     text: "Birthday Blaster"
-    modifiers: >
+    modifiers: >-
       {
         "flat":
         {
@@ -335,7 +335,7 @@ food:
 
   - id: passion-fruit-tapioca-pudding
     text: "Bowl of Passion Fruit Tapioca Pudding"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 100, "Healing Power": 70 }
       }
@@ -344,7 +344,7 @@ food:
 
   - id: prickly-pear-tapioca-pudding
     text: "Bowl of Prickly Pear Tapioca Pudding"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 100, "Healing Power": 70 }
       }
@@ -353,7 +353,7 @@ food:
 
   - id: tropical-fruit-salad
     text: "Bowl of Tropical Fruit Salad"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 70, "Healing Power": 100 }
       }
@@ -362,7 +362,7 @@ food:
 
   - id: spicy-chocolate-cookie
     text: "Spicy Chocolate Cookie"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Healing Power": 100, "Precision": 70 }
       }
@@ -373,7 +373,7 @@ food:
 
   - id: spicy-marinated-mushroom
     text: "Spicy Marinated Mushroom"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 100, "Toughness": 70 }
       }
@@ -382,7 +382,7 @@ food:
 
   - id: spicy-herbed-chicken
     text: "Plate of Spicy Herbed Chicken"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 70, "Toughness": 100 }
       }
@@ -391,7 +391,7 @@ food:
 
   - id: truffle-ravioli
     text: "Bowl of Truffle Ravioli"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Precision": 70, "Toughness": 100 }
       }
@@ -400,11 +400,11 @@ food:
     extraCSS: "mb-3" # margin-bottom
 
   - id: omnomberry-bread
-    text: >
+    text: >-
       Loaf of Omnomberry Bread<br> /
       <span data-armory-ids="91798" data-armory-embed="items" data-armory-size="24"></span>
       Ravioli
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Vitality": 100, "Toughness": 70 }
       }
@@ -414,7 +414,7 @@ food:
 
   - id: kralkachocolate-bar
     text: "Kralkachocolate Bar"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Healing Power": 100, "Toughness": 70 }
       }
@@ -423,7 +423,7 @@ food:
 
   - id: chocolate-tapioca-pudding
     text: "Bowl of Chocolate Tapioca Pudding"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Healing Power": 70, "Toughness": 100 }
       }
@@ -433,7 +433,7 @@ food:
 
   - id: tropical-mousse
     text: "Bowl of Tropical Mousse"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 70, "Toughness": 100 }
       }
@@ -442,7 +442,7 @@ food:
 
   - id: elon-red
     text: 'Bowl of "Elon Red"'
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Expertise": 100, "Toughness": 70 }
       }

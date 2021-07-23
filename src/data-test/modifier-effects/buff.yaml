@@ -3,38 +3,38 @@ buff:
 # Section
 
   - id: might
-    text: >
+    text: >-
       <span class="icon icon-might"></span>
       Might
       <small class="text-muted font-italic">(25x)</small>
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 750, "Condition Damage": 750 }
     default-enabled: true
 
   - id: fury
-    text: >
+    text: >-
       <span class="icon icon-fury"></span>
       Fury
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Critical Chance": 20 }
     default-enabled: true
 
   - id: protection
-    text: >
+    text: >-
       <span class="icon icon-protection"></span>
       Protection
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Health": 0.33 }
 
   - id: vulnerability
-    text: >
+    text: >-
       <span class="icon icon-vulnerability"></span>
       Vulnerability
       <small class="text-muted font-italic">(25x)</small>
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "target: Effective Power": 0.25, "target: Effective Condition Damage": 0.25 }
     default-enabled: true
@@ -43,7 +43,7 @@ buff:
 
   - id: banner-of-strength
     text: "Banner of Strength"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 100, "Condition Damage": 100 }
       }
@@ -54,7 +54,7 @@ buff:
 
   - id: banner-of-discipline
     text: "Banner of Discipline"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Precision": 100, "Ferocity": 100 }
       }
@@ -65,7 +65,7 @@ buff:
 
   - id: banner-of-tactics
     text: "Banner of Tactics"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Healing Power": 100},
         "flat": { "Boon Duration": 10 }
@@ -76,7 +76,7 @@ buff:
 
   - id: empower-allies
     text: "Empower Allies"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 100 }
       }
@@ -88,7 +88,7 @@ buff:
 
   - id: spotter
     text: "Spotter"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Precision": 100 }
       }
@@ -98,7 +98,7 @@ buff:
 
   - id: frost-spirit
     text: "Frost Spirit"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.05 }
       }
@@ -109,7 +109,7 @@ buff:
 
   - id: pinpoint-distribution
     text: "Pinpoint Distribution"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Condition Damage": 100 }
       }
@@ -119,7 +119,7 @@ buff:
 
   - id: strength-in-numbers
     text: "Strength in Numbers"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Toughness": 100 }
       }
@@ -127,7 +127,7 @@ buff:
     armory-type: "traits"
     extraCSS: "text-guardian"
 
-# Section: >
+# Section: >-
     # <span class="text-guardian">
     #   Guardian
     #   <span data-armory-size="24" data-armory-embed="traits" data-armory-ids="579"></span>
@@ -136,7 +136,7 @@ buff:
 
   - id: bane-signet
     text: "Bane Signet"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 216 }
       }
@@ -147,7 +147,7 @@ buff:
 
   - id: signet-of-judgement
     text: "Signet of Judgement"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Health": 0.12 }
       }
@@ -157,7 +157,7 @@ buff:
 
   - id: signet-of-mercy
     text: "Signet of Mercy"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Boon Duration": 10 }
       }
@@ -167,7 +167,7 @@ buff:
 
   - id: signet-of-wrath
     text: "Signet of Wrath"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Condition Damage": 216 }
       }
@@ -179,7 +179,7 @@ buff:
 
   - id: assassins-presence
     text: "Assassin's Presence"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Ferocity": 150 }
       }
@@ -190,7 +190,7 @@ buff:
 
   - id: facet-of-nature
     text: "Facet of Nature—Dragon"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Boon Duration": 20 }
       }
@@ -200,7 +200,7 @@ buff:
 
   - id: rite-of-the-great-dwarf
     text: "Rite of the Great Dwarf"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Health": 0.5 }
       }
@@ -211,19 +211,19 @@ buff:
 # Section: "Effects"
 
   - id: exposed
-    text: >
+    text: >-
       <span class="icon icon-exposed"></span>
       Exposed
       <small class="text-muted font-italic">(100% uptime)</small>
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "target: Effective Power": 0.3, "target: Effective Condition Damage": 1.0 }
 
   - id: low-armor
-    text: >
+    text: >-
       Low Boss Armor (VG, KC)
       <small class="text-muted font-italic">1910 vs 2597</small>
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.359685864 }
 

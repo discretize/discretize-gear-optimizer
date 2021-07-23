@@ -1,4 +1,4 @@
-trait:
+traits:
 
   - class: mesmer
     builds:

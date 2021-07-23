@@ -4,7 +4,7 @@ mesmer:
 
   - id: signet-of-domination
     text: "Signet of Domination"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Condition Damage": 180 }
       }
@@ -13,7 +13,7 @@ mesmer:
 
   - id: signet-of-midnight
     text: "Signet of Midnight"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Expertise": 180 }
       }
@@ -24,7 +24,7 @@ mesmer:
 
   - id: fragility
     text: "Fragility <small>25x</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.125 }
       }
@@ -33,7 +33,7 @@ mesmer:
 
   - id: egotism
     text: "Egotism"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.1 }
       }
@@ -42,7 +42,7 @@ mesmer:
 
   - id: vicious-expression
     text: "Vicious Expression"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.15 }
       }
@@ -53,7 +53,7 @@ mesmer:
 
   - id: fencers-finesse
     text: "Fencer's Finesse <small>10x</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Ferocity": 150 }
       }
@@ -62,7 +62,7 @@ mesmer:
 
   - id: superiority-complex
     text: "Superiority Complex <small>50% uptime -&gt; +20% Critical Damage</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Critical Damage": 0.2 }
       }
@@ -73,7 +73,7 @@ mesmer:
 
   - id: illusionary-defense
     text: "Illusionary Defense <small>5x</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Health": 0.25 }
       }
@@ -82,7 +82,7 @@ mesmer:
 
   - id: illusionary-membrane
     text: "Illusionary Membrane <small>100%</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Condition Damage": 0.1 }
       }
@@ -91,7 +91,7 @@ mesmer:
 
   - id: chaotic-potency
     text: "Chaotic Potency <small>base</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Condition Damage": 120 }
       }
@@ -100,7 +100,7 @@ mesmer:
 
   - id: chaotic-potency-2
     text: "Chaotic Potency <small>with staff - check both boxes</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Condition Damage": 120 }
       }
@@ -109,7 +109,7 @@ mesmer:
 
   - id: chaotic-persistence
     text: "Chaotic Persistence <small>100%</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Concentration": 250, "Expertise": 250 }
       }
@@ -120,7 +120,7 @@ mesmer:
 
   - id: healing-prism
     text: "Healing Prism"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Healing Power": { "Power": 0.13 } }
       }
@@ -131,7 +131,7 @@ mesmer:
 
   - id: compounding-power
     text: "Compounding Power <small>5x</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.1 },
         "buff": { "Condition Damage": 150 }
@@ -143,7 +143,7 @@ mesmer:
 
   - id: danger-time
     text: "Danger Time"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Critical Chance": 15 }
       }
@@ -154,7 +154,7 @@ mesmer:
 
   - id: nomads-endurance
     text: "Nomad's Endurance"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Condition Damage": 150 }
       }

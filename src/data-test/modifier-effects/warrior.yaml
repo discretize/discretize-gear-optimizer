@@ -4,7 +4,7 @@ warrior:
 
   - id: signet-of-might
     text: "Signet of Might"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 180 }
       }
@@ -13,7 +13,7 @@ warrior:
 
   - id: signet-of-fury
     text: "Signet of Fury"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Precision": 180 }
       }
@@ -22,7 +22,7 @@ warrior:
 
   - id: dolyak-signet
     text: "Dolyak Signet"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Toughness": 180 }
       }
@@ -33,7 +33,7 @@ warrior:
 
   - id: peak-performance
     text: "Peak Performance <small>passive</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.05 }
       }
@@ -42,7 +42,7 @@ warrior:
 
   - id: peak-performance-2
     text: "Peak Performance <small>active, 100% uptime - check both boxes</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.1 }
       }
@@ -51,7 +51,7 @@ warrior:
 
   - id: forceful-greatsword
     text: "Forceful Greatsword <small>base</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 120 }
       }
@@ -60,7 +60,7 @@ warrior:
 
   - id: forceful-greatsword-2
     text: "Forceful Greatsword <small>with greatsword/spear - check both boxes</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 120 }
       }
@@ -69,7 +69,7 @@ warrior:
 
   - id: great-fortitude
     text: "Great Fortitude"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Vitality": { "Power": 0.1 }, "Ferocity": { "Power": 0.1 } }
       }
@@ -78,7 +78,7 @@ warrior:
 
   - id: pinnacle-of-strength
     text: "Pinnacle Of Strength <small>25 might</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 250 }
       }
@@ -87,7 +87,7 @@ warrior:
 
   - id: berserkers-power
     text: "Berserker's Power <small>100% 3x</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.21 }
       }
@@ -98,7 +98,7 @@ warrior:
 
   - id: wounding-precision
     text: "Wounding Precision"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Expertise": { "Precision": 0.07 } }
       }
@@ -107,7 +107,7 @@ warrior:
 
   - id: signet-mastery
     text: "Signet Mastery <small>5x</small>"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Ferocity": 500 }
       }
@@ -116,7 +116,7 @@ warrior:
 
   - id: deep-strikes
     text: "Deep Strikes"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Condition Damage": 180 }
       }
@@ -125,7 +125,7 @@ warrior:
 
   - id: blade-master
     text: "Blademaster <small>base</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Expertise": 120 }
       }
@@ -134,7 +134,7 @@ warrior:
 
   - id: blade-master-2
     text: "Blademaster <small>with sword 50% - check both boxes</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Condition Damage": 60 }
       }
@@ -143,7 +143,7 @@ warrior:
 
   - id: bloodlust
     text: "Bloodlust"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Bleeding Duration": 33 }
       }
@@ -152,7 +152,7 @@ warrior:
 
   - id: furious
     text: "Furious <small>25x</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Condition Damage": 250 }
       }
@@ -163,7 +163,7 @@ warrior:
 
   - id: thick-skin
     text: "Thick Skin <small>100% uptime</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Health": 0.05 }
       }
@@ -172,7 +172,7 @@ warrior:
 
   - id: cull-the-weak
     text: "Cull the Weak"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.1 }
       }
@@ -181,7 +181,7 @@ warrior:
 
   - id: armored-attack
     text: "Armored Attack"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Power": { "Toughness": 0.1 } }
       }
@@ -190,7 +190,7 @@ warrior:
 
   - id: hardened-armor
     text: "Hardened Armor <small>100%</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Health": 0.1 }
       }
@@ -201,7 +201,7 @@ warrior:
 
   - id: leg-specialist
     text: "Leg Specialist"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.1 }
       }
@@ -210,7 +210,7 @@ warrior:
 
   - id: roaring-reveille
     text: "Roaring Reveille"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Concentration": 120 }
       }
@@ -219,7 +219,7 @@ warrior:
 
   - id: empowered
     text: "Empowered <small>6x</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.06 }
       }
@@ -228,7 +228,7 @@ warrior:
 
   - id: empowered-9
     text: "Empowered <small>9x</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.09 }
       }
@@ -237,7 +237,7 @@ warrior:
 
   - id: empowered-11
     text: "Empowered <small>11x</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.11 }
       }
@@ -246,7 +246,7 @@ warrior:
 
   - id: warriors-cunning
     text: "Warrior's Cunning <small>20% uptime -&gt; +5% Damage</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.05 }
       }
@@ -255,7 +255,7 @@ warrior:
 
   - id: vigorous-shouts
     text: "Vigorous Shouts"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Healing Power": { "Power": 0.13 } }
       }
@@ -266,7 +266,7 @@ warrior:
 
   - id: warriors-sprint
     text: "Warrior's Sprint"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.1 }
       }
@@ -275,7 +275,7 @@ warrior:
 
   - id: double-standards
     text: "Doubled Standards <small>+50 Pwr/Prc/Fer/Con</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 50, "Precision": 50, "Ferocity": 50, "Condition Damage": 50 }
       }
@@ -284,7 +284,7 @@ warrior:
 
   - id: axe-mastery-one
     text: "Axe Mastery <small>without axe</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Ferocity": 120 }
       }
@@ -293,7 +293,7 @@ warrior:
 
   - id: axe-mastery-two
     text: "Axe Mastery <small>with axe - check both boxes</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Ferocity": 120 }
       }
@@ -304,7 +304,7 @@ warrior:
 
   - id: blood-reaction-no
     text: "Blood Reaction <small>with 0% berserker mode</small>"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Ferocity": { "Precision": 0.07 } }
       }
@@ -313,7 +313,7 @@ warrior:
 
   - id: blood-reaction-with
     text: "Blood Reaction <small>with 100% berserker mode</small>"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Ferocity": { "Precision": 0.14 } }
       }
@@ -322,7 +322,7 @@ warrior:
 
   - id: heat-the-soul
     text: "Heat the Soul <small>without torch</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Condition Damage": 120 }
       }
@@ -331,7 +331,7 @@ warrior:
 
   - id: heat-the-soul-with
     text: "Heat the Soul <small>with torch 50% - check both boxes</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Condition Damage": 60 }
       }
@@ -340,7 +340,7 @@ warrior:
 
   - id: fatal-frenzy
     text: "Fatal Frenzy"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 300, "Condition Damage": 300, "Toughness": -300 }
       }
@@ -349,7 +349,7 @@ warrior:
 
   - id: bloody-roar
     text: "Bloody Roar"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.2 }
       }
@@ -358,7 +358,7 @@ warrior:
 
   - id: king-of-fires
     text: "King of Fires"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Burning Duration": 33 }
       }
@@ -367,7 +367,7 @@ warrior:
 
   - id: eternal-champion
     text: "Eternal Champion"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Toughness": 300 }
       }
@@ -378,7 +378,7 @@ warrior:
 
   - id: pure-strike-boonless
     text: "Pure Strike <small>Against boonless</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Critical Damage": 0.14 }
       }
@@ -387,7 +387,7 @@ warrior:
 
   - id: sun-and-moon-style
     text: "Sun and Moon Style <small>100% onhand dagger; no boons</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.1 }
       }
@@ -396,7 +396,7 @@ warrior:
 
   - id: attackers-insight
     text: "Attacker's Insight <small>5x</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Ferocity": 250, "Power": 250, "Precision": 250 }
       }
@@ -405,7 +405,7 @@ warrior:
 
   - id: magebane-tether
     text: "Magebane Tether <small>75% uptime -&gt; +7.5% Damage</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.075 }
       }

@@ -4,7 +4,7 @@ guardian:
 
   - id: bane-signet
     text: "Bane Signet"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 180 }
       }
@@ -13,7 +13,7 @@ guardian:
 
   - id: bane-signet-2
     text: "Bane Signet <small>traited</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 216 }
       }
@@ -22,7 +22,7 @@ guardian:
 
   - id: signet-of-judgement
     text: "Signet of Judgement"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Health": 0.1 }
       }
@@ -31,7 +31,7 @@ guardian:
 
   - id: signet-of-judgement-2
     text: "Signet of Judgement <small>traited</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Health": 0.12 }
       }
@@ -40,7 +40,7 @@ guardian:
 
   - id: signet-of-mercy
     text: "Signet of Mercy"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Concentration": 120 }
       }
@@ -49,7 +49,7 @@ guardian:
 
   - id: signet-of-mercy-2
     text: "Signet of Mercy <small>traited</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Concentration": 150 }
       }
@@ -58,7 +58,7 @@ guardian:
 
   - id: signet-of-wrath
     text: "Signet of Wrath"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Condition Damage": 180 }
       }
@@ -67,7 +67,7 @@ guardian:
 
   - id: signet-of-wrath-2
     text: "Signet of Wrath <small>traited</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Condition Damage": 216 }
       }
@@ -78,7 +78,7 @@ guardian:
 
   - id: fiery-wrath
     text: "Fiery Wrath"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.07 }
       }
@@ -87,7 +87,7 @@ guardian:
 
   - id: symbolic-exposure
     text: "Symbolic Exposure"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.05 }
       }
@@ -96,7 +96,7 @@ guardian:
 
   - id: zealous-blade
     text: "Zealous Blade <small>assuming 50% GS</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 180 }
       }
@@ -105,7 +105,7 @@ guardian:
 
   - id: kindled-zeal
     text: "Kindled Zeal"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Condition Damage": { "Power": 0.1 } }
       }
@@ -114,7 +114,7 @@ guardian:
 
   - id: symbolic-avenger
     text: "Symbolic Avenger <small>5x</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.1 }
       }
@@ -125,7 +125,7 @@ guardian:
 
   - id: right-hand-strength
     text: "Right-Hand Strength <small>base (+80 prec)</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Precision": 80 }
       }
@@ -134,7 +134,7 @@ guardian:
 
   - id: right-hand-strength-2
     text: "Right-Hand Strength <small>50% one-handed (+40 Power)</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 40 }
       }
@@ -143,7 +143,7 @@ guardian:
 
   - id: right-hand-strength-3
     text: "Right-Hand Strength <small>100% one-handed (+80 Power)</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 40 }
       }
@@ -152,7 +152,7 @@ guardian:
 
   - id: radiant-fire
     text: "Radiant Fire"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Burning Duration": 20 }
       }
@@ -161,7 +161,7 @@ guardian:
 
   - id: retribution
     text: "Retribution"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.1 }
       }
@@ -170,7 +170,7 @@ guardian:
 
   - id: radiant-power
     text: "Radiant Power"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Critical Chance": 10 },
         "buff": { "Ferocity": 150 }
@@ -180,7 +180,7 @@ guardian:
 
   - id: amplified-wrath
     text: "Amplified Wrath"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Burning Damage": 0.15 }
       }
@@ -189,7 +189,7 @@ guardian:
 
   - id: righteous-instincts
     text: "Righteous Instincts"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Critical Chance": 25 }
       }
@@ -200,7 +200,7 @@ guardian:
 
   - id: stalwart-defender
     text: "Stalwart Defender"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Toughness": 240 }
       }
@@ -211,7 +211,7 @@ guardian:
 
   - id: invigorating-bulwark
     text: "Invigorating Bulwark <small>5x</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Healing": 0.25 }
       }
@@ -220,7 +220,7 @@ guardian:
 
   - id: honorable-staff
     text: "Honorable Staff <small>base</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Concentration": 120 }
       }
@@ -229,7 +229,7 @@ guardian:
 
   - id: honorable-staff-2
     text: "Honorable Staff <small>with staff - check both boxes</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Concentration": 120 }
       }
@@ -238,7 +238,7 @@ guardian:
 
   - id: force-of-will
     text: "Force of Will <small>Assuming 1k vitality</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Vitality": 300 },
         "multiplier": { "Effective Healing": 0.1 }
@@ -250,7 +250,7 @@ guardian:
 
   - id: inspired-virtue
     text: "Inspired Virtue <small>6x</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.06 }
       }
@@ -259,7 +259,7 @@ guardian:
 
   - id: inspired-virtue-9
     text: "Inspired Virtue <small>9x</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.09 }
       }
@@ -268,7 +268,7 @@ guardian:
 
   - id: unscathed-contender
     text: "Unscathed Contender"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.2 }
       }
@@ -277,7 +277,7 @@ guardian:
 
   - id: virtue-of-retribution
     text: "Virtue of Resolution"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Retaliation Duration": 25 }
       }
@@ -286,7 +286,7 @@ guardian:
 
   - id: inspiring-virtue
     text: "Inspiring Virtue <small>100%</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.1 }
       }
@@ -295,7 +295,7 @@ guardian:
 
   - id: power-of-the-virtuous
     text: "Power of the Virtuous"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Condition Damage": { "Vitality": 0.13 } }
       }
@@ -306,7 +306,7 @@ guardian:
 
   - id: zealots-aggression
     text: "Zealot's Aggression"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.1 }
       }
@@ -315,7 +315,7 @@ guardian:
 
   - id: pure-of-sight
     text: "Pure of Sight <small>Melee</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.05 }
       }
@@ -324,7 +324,7 @@ guardian:
 
   - id: pure-of-sight-ranged
     text: "Pure of Sight <small>Ranged</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.15 }
       }
@@ -333,7 +333,7 @@ guardian:
 
   - id: hunters-fortification
     text: "Hunter's Fortification"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Health": 0.1 }
       }
@@ -342,7 +342,7 @@ guardian:
 
   - id: big-game-hunter
     text: "Big Game Hunter"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.15 }
       }
@@ -353,7 +353,7 @@ guardian:
 
   - id: imbued-haste
     text: "Imbued Haste"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 250, "Healing Power": 250, "Vitality": 250 }
       }

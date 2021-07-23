@@ -4,7 +4,7 @@ revenant:
 
   - id: acolyte-of-torment
     text: "Acolyte of Torment"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Torment Damage": 0.1 }
       }
@@ -13,7 +13,7 @@ revenant:
 
   - id: seething-malice
     text: "Seething Malice"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Condition Damage": 120 }
       }
@@ -22,7 +22,7 @@ revenant:
 
   - id: demonic-resistance
     text: "Demonic Resistance"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Health": 0.2 }
       }
@@ -31,7 +31,7 @@ revenant:
 
   - id: pact-of-pain
     text: "Pact of Pain"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Duration": 15 }
       }
@@ -40,7 +40,7 @@ revenant:
 
   - id: yearning-empowerment
     text: "Yearning Empowerement"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Duration": 10 }
       }
@@ -51,7 +51,7 @@ revenant:
 
   - id: dwarven-battle-training
     text: "Dwarven Battle Training"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.1 }
       }
@@ -60,7 +60,7 @@ revenant:
 
   - id: determined-resolution
     text: "Determined Resolution"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Health": 0.1 }
       }
@@ -69,7 +69,7 @@ revenant:
 
   - id: vicious-reprisal
     text: "Vicious Reprisal <small>100%</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.1, "add: Effective Condition Damage": 0.1 }
       }
@@ -78,7 +78,7 @@ revenant:
 
   - id: versed-in-stone
     text: "Versed in Stone"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Power": { "Toughness": 0.13 } }
       }
@@ -89,7 +89,7 @@ revenant:
 
   - id: rising-tide
     text: "Rising Tide"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.07 }
       }
@@ -98,7 +98,7 @@ revenant:
 
   - id: ferocious-aggression
     text: "Ferocious Aggression"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.07, "add: Effective Condition Damage": 0.07 }
       }
@@ -107,7 +107,7 @@ revenant:
 
   - id: roiling-mists
     text: "Roiling Mists"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Critical Chance": 20 }
       }
@@ -118,7 +118,7 @@ revenant:
 
   - id: unsuspecting-strikes
     text: "Unsuspecting Strikes <small>20% uptime -&gt; +4% Damage</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.04 }
       }
@@ -127,7 +127,7 @@ revenant:
 
   - id: destructive-impulses-dual
     text: "Destructive Impulses <small>Dual wielded</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.1, "add: Effective Condition Damage": 0.1 }
       }
@@ -136,7 +136,7 @@ revenant:
 
   - id: destructive-impulses
     text: "Destructive Impulses <small>Two handed</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.05, "add: Effective Condition Damage": 0.05 }
       }
@@ -145,7 +145,7 @@ revenant:
 
   - id: destructive-impulses-mix
     text: "Destructive Impulses <small>50% dual wield, 50% 2h</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.075, "add: Effective Condition Damage": 0.075 }
       }
@@ -154,7 +154,7 @@ revenant:
 
   - id: notoriety
     text: "Notoriety <small>25 might</small>"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Power": 250, "Condition Damage": -250 }
       }
@@ -163,7 +163,7 @@ revenant:
 
   - id: targeted-destruction
     text: "Targeted Destruction <small>25 vulnerability</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.125 }
       }
@@ -172,7 +172,7 @@ revenant:
 
   - id: swift-termination
     text: "Swift Termination"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.1 }
       }
@@ -183,7 +183,7 @@ revenant:
 
   - id: tranquil-balance
     text: "Tranquil Balance"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Healing": 0.2 }
       }
@@ -192,7 +192,7 @@ revenant:
 
   - id: life-attunement
     text: "Life Attunement"
-    modifiers: >
+    modifiers: >-
       {
         "buff": { "Healing Power": 120 },
         "convert": { "Concentration": { "Healing Power": 0.07 } }
@@ -202,7 +202,7 @@ revenant:
 
   - id: invoking-harmony
     text: "Invoking Harmony"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Healing": 0.2 }
       }
@@ -213,7 +213,7 @@ revenant:
 
   - id: ambush-commander
     text: "Ambush Commander <small>5x Kalla's Fervor</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.1, "add: Effective Condition Damage": 0.1 }
       }
@@ -222,7 +222,7 @@ revenant:
 
   - id: blood-fury
     text: "Blood Fury"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Bleeding Duration": 25 }
       }
@@ -231,7 +231,7 @@ revenant:
 
   - id: heartpiercer
     text: "Heartpiercer"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Bleeding Damage": 0.25 }
       }
@@ -240,7 +240,7 @@ revenant:
 
   - id: brutal-momentum
     text: "Brutal Momentum"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Critical Chance": 33 }
       }
@@ -249,7 +249,7 @@ revenant:
 
   - id: lasting-legacy
     text: "Lasting Legacy <small>additional bonus from 5x Kalla's Fervor</small>"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.05, "add: Effective Condition Damage": 0.05 }
       }

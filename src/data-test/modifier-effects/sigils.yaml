@@ -4,7 +4,7 @@ sigils:
 
   - id: force
     text: "Superior Sigil of Force"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.05 }
       }
@@ -13,7 +13,7 @@ sigils:
 
   - id: accuracy
     text: "Superior Sigil of Accuracy"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Critical Chance": 7 }
       }
@@ -21,10 +21,10 @@ sigils:
     armory-type: "items"
 
   - id: night/impact/slaying-both
-    text: >
+    text: >-
       Superior Sigil of the Night/Impact/Slaying<br>
       <small class="text-muted font-italic">(Both 7%/3%)</small>
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.03, "Effective Power": 0.07 }
       }
@@ -32,10 +32,10 @@ sigils:
     armory-type: "items"
 
   - id: night/impact/slaying-only-3
-    text: >
+    text: >-
       Superior Sigil of the Night/Impact/Slaying<br>
       <small class="text-muted font-italic">(Only 3%)</small>
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.03 }
       }
@@ -46,7 +46,7 @@ sigils:
 
   - id: concentration
     text: "Superior Sigil of Concentration"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Boon Duration": 10 }
       }
@@ -57,7 +57,7 @@ sigils:
 
   - id: transference
     text: "Superior Sigil of Transference"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Healing": 0.1 }
       }
@@ -68,7 +68,7 @@ sigils:
 
   - id: malice
     text: "Superior Sigil of Malice"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Duration": 10 }
       }
@@ -77,7 +77,7 @@ sigils:
 
   - id: bursting
     text: "Superior Sigil of Bursting"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "add: Effective Condition Damage": 0.05 }
       }
@@ -86,7 +86,7 @@ sigils:
 
   - id: agony
     text: "Superior Sigil of Agony"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Bleeding Duration": 20 }
       }
@@ -95,7 +95,7 @@ sigils:
 
   - id: smoldering
     text: "Superior Sigil of Smoldering"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Burning Duration": 20 }
       }
@@ -104,7 +104,7 @@ sigils:
 
   - id: venom
     text: "Superior Sigil of Venom"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Poison Duration": 20 }
       }
@@ -113,7 +113,7 @@ sigils:
 
   - id: demons
     text: "Superior Sigil of Demons"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Torment Duration": 20 }
       }
@@ -124,7 +124,7 @@ sigils:
 
   - id: bloodlust
     text: "Superior Sigil of Bloodlust"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 250 }
       }
@@ -133,7 +133,7 @@ sigils:
 
   - id: cruelty
     text: "Superior Sigil of Cruelty"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Ferocity": 250 }
       }
@@ -142,7 +142,7 @@ sigils:
 
   - id: perception
     text: "Superior Sigil of Perception"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Precision": 250 }
       }
@@ -151,7 +151,7 @@ sigils:
 
   - id: corruption
     text: "Superior Sigil of Corruption"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 250 }
       }
@@ -160,7 +160,7 @@ sigils:
 
   - id: life
     text: "Superior Sigil of Life"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Healing Power": 250 }
       }
@@ -169,7 +169,7 @@ sigils:
 
   - id: bounty
     text: "Superior Sigil of Bounty"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Concentration": 225 }
       }
@@ -178,7 +178,7 @@ sigils:
 
   - id: benevolence
     text: "Superior Sigil of Benevolence"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Healing": 0.125 }
       }
@@ -187,7 +187,7 @@ sigils:
 
   - id: stars
     text: "Superior Sigil of the Stars"
-    modifiers: >
+    modifiers: >-
       {
         "flat":
         {
@@ -202,7 +202,7 @@ sigils:
 
   - id: platinum-doubloon
     text: "Platinum Doubloon"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Concentration": 40 }
       }

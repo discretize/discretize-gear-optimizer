@@ -4,7 +4,7 @@ utility:
 
   - id: slaying-potion
     text: "Slaying Potion"
-    modifiers: >
+    modifiers: >-
       {
         "multiplier": { "Effective Power": 0.1, "Effective Health": 0.1 }
       }
@@ -13,7 +13,7 @@ utility:
 
   - id: furious-sharpening-stone
     text: "Furious Sharpening Stone"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Power": { "Precision": 0.03 }, "Ferocity": { "Precision": 0.03 } }
       }
@@ -22,7 +22,7 @@ utility:
 
   - id: superior-sharpening-stone
     text: "Superior Sharpening Stone"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Power": { "Precision": 0.03, "Ferocity": 0.06 } }
       }
@@ -31,7 +31,7 @@ utility:
 
   - id: toxic-sharpening-stone
     text: "Toxic Sharpening Stone"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Power": { "Condition Damage": 0.06, "Expertise": 0.08 } }
       }
@@ -40,7 +40,7 @@ utility:
 
   - id: magnanimous-sharpening-stone
     text: "Magnanimous Sharpening Stone"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Power": { "Vitality": 0.03, "Toughness": 0.03 } }
       }
@@ -49,7 +49,7 @@ utility:
 
   - id: bountiful-sharpening-stone
     text: "Bountiful Sharpening Stone"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Power": { "Healing Power": 0.06, "Concentration": 0.08 } }
       }
@@ -60,7 +60,7 @@ utility:
 
   - id: potent-lucent-oil
     text: "Potent Lucent Oil"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Concentration": { "Power": 0.03, "Precision": 0.03 } }
       }
@@ -69,7 +69,7 @@ utility:
 
   - id: toxic-maintenance-oil
     text: "Toxic Maintenance Oil"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Concentration": { "Power": 0.03, "Condition Damage": 0.06 } }
       }
@@ -78,7 +78,7 @@ utility:
 
   - id: enhanced-lucent-oil
     text: "Enhanced Lucent Oil"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Concentration": { "Precision": 0.03, "Condition Damage": 0.06 } }
       }
@@ -87,7 +87,7 @@ utility:
 
   - id: furious-maintenance-oil
     text: "Furious Maintenance Oil"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Concentration": { "Precision": 0.03 }, "Healing Power": { "Precision": 0.03 } }
       }
@@ -96,7 +96,7 @@ utility:
 
   - id: magnanimous-maintenance-oil
     text: "Magnanimous Maintenance Oil"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Concentration": { "Vitality": 0.03, "Toughness": 0.03 } }
       }
@@ -105,7 +105,7 @@ utility:
 
   - id: master-maintenance-oil
     text: "Master Maintenance Oil"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Concentration": { "Precision": 0.03, "Healing Power": 0.06 } }
       }
@@ -114,7 +114,7 @@ utility:
 
   - id: corsair-maintenance-oil
     text: "Corsair Maintenance Oil"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Concentration": { "Toughness": 0.03 }, "Expertise": { "Toughness": 0.03 } }
       }
@@ -125,7 +125,7 @@ utility:
 
   - id: bountiful-maintenance-oil
     text: "Bountiful Maintenance Oil"
-    modifiers: >
+    modifiers: >-
       {
         bountiful-maintenance-oil: 0
       }
@@ -136,7 +136,7 @@ utility:
 
   - id: toxic-focusing-crystal
     text: "Toxic Focusing Crystal"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Condition Damage": { "Power": 0.03, "Precision": 0.03 } }
       }
@@ -145,7 +145,7 @@ utility:
 
   - id: furious-tuning-crystal
     text: "Furious Tuning Crystal"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Condition Damage": { "Precision": 0.03 }, "Expertise": { "Precision": 0.03 } }
       }
@@ -154,7 +154,7 @@ utility:
 
   - id: master-tuning-crystal
     text: "Master Tuning Crystal"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Condition Damage": { "Precision": 0.03, "Expertise": 0.08 } }
       }
@@ -163,7 +163,7 @@ utility:
 
   - id: magnanimous-tuning-crystal
     text: "Magnanimous Tuning Crystal"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Condition Damage": { "Vitality": 0.03, "Toughness": 0.03 } }
       }
@@ -172,7 +172,7 @@ utility:
 
   - id: bountiful-tuning-crystal
     text: "Bountiful Tuning Crystal"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Condition Damage": { "Healing Power": 0.06, "Concentration": 0.08 } }
       }
@@ -183,7 +183,7 @@ utility:
 
   - id: holographic-super-apple
     text: "Holographic Super Apple"
-    modifiers: >
+    modifiers: >-
       {
         "convert":
         { "Condition Damage": { "Concentration": 0.08 }, "Concentration": { "Precision": 0.03 } }
@@ -193,7 +193,7 @@ utility:
 
   - id: holographic-super-drumstick
     text: "Holographic Super Drumstick"
-    modifiers: >
+    modifiers: >-
       {
         "convert":
         { "Healing Power": { "Concentration": 0.08 }, "Concentration": { "Precision": 0.03 } }
@@ -203,7 +203,7 @@ utility:
 
   - id: holographic-super-cheese
     text: "Holographic Super Cheese"
-    modifiers: >
+    modifiers: >-
       {
         "convert": { "Power": { "Concentration": 0.08 }, "Concentration": { "Precision": 0.03 } }
       }
@@ -214,7 +214,7 @@ utility:
 
   - id: writ-of-masterful-accuracy
     text: "Writ of Masterful Accuracy"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Precision": 200 }
       }
@@ -223,7 +223,7 @@ utility:
 
   - id: writ-of-masterful-malice
     text: "Writ of Masterful Malice"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Condition Damage": 200 }
       }
@@ -232,7 +232,7 @@ utility:
 
   - id: writ-of-masterful-strength
     text: "Writ of Masterful Strength"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Power": 200 }
       }
@@ -243,7 +243,7 @@ utility:
 
   - id: potion-of-karka-toughness
     text: "Potion Of Karka Toughness"
-    modifiers: >
+    modifiers: >-
       {
         "flat": { "Toughness": 150 }
       }
