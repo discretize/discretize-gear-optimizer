@@ -1,9 +1,8 @@
 import React from "react";
-import { withStyles, Switch, FormControlLabel, Divider } from "@material-ui/core";
+import { withStyles, Switch, FormControlLabel, Divider, Button } from "@material-ui/core";
 
 import ClassSelection from "./ClassSelection";
 import Traits from "./Traits";
-import Runes from "./GW2Select";
 import GW2Select from "./GW2Select";
 import Buffs from "./Buffs";
 import ARinput from "./ARinput";
@@ -11,6 +10,7 @@ import Priorities from "./priorities/Priorities";
 
 import { ConsumableEffect, Item, Skill } from "gw2-ui";
 import DamageDistribution from "./slider/DamageDistribution";
+import { Cancel, Functions } from "@material-ui/icons";
 
 const styles = (theme) => ({
   root: {
@@ -19,6 +19,12 @@ const styles = (theme) => ({
       paddingLeft: 20,
       paddingRight: 20
     }
+  },
+  button: {
+    margin: theme.spacing.unit
+  },
+  icon: {
+    fontSize: 18
   }
 });
 
@@ -32,6 +38,16 @@ class GearOptimizer extends React.Component {
       buffs: {}
     };
   }
+
+  onStartCalculate = (e) => {
+    // TODO do calc
+    console.log("calculate");
+  };
+
+  onCancelCalculate = (e) => {
+    // TODO do cancel calc
+    console.log("cancel calculate");
+  };
 
   render() {
     const { expertMode, profession, traits } = this.state;
@@ -121,6 +137,25 @@ class GearOptimizer extends React.Component {
             <DamageDistribution />
           </>
         )}
+
+        <Divider />
+
+        <Button
+          variant="outlined"
+          color="primary"
+          className={this.props.classes.button}
+          onClick={this.onStartCalculate}
+        >
+          <Functions className={this.props.classes.icon}></Functions> Calculate
+        </Button>
+        <Button
+          variant="outlined"
+          color="primary"
+          className={this.props.classes.button}
+          onClick={this.onCancelCalculate}
+        >
+          <Cancel className={this.props.classes.icon}></Cancel> Stop
+        </Button>
       </div>
     );
   }
