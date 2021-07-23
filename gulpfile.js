@@ -132,7 +132,7 @@ const img = function () {
 const fs = require('fs');
 const yaml = require('js-yaml');
 const getYaml = function (mode) {
-  const yamlData = fs.readFileSync(base.yaml + 'modifier-effects/' + mode + '.yaml', 'utf8');
+  const yamlData = fs.readFileSync(base.yaml + mode + '.yaml', 'utf8');
   const data = yaml.load(yamlData);
   let output = '';
 
