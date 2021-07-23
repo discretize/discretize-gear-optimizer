@@ -10,6 +10,7 @@ import ARinput from "./ARinput";
 import Priorities from "./priorities/Priorities";
 
 import { ConsumableEffect, Item, Skill } from "gw2-ui";
+import DamageDistribution from "./slider/DamageDistribution";
 
 const styles = (theme) => ({
   root: {
@@ -111,6 +112,13 @@ class GearOptimizer extends React.Component {
           <>
             <Divider />
             <Priorities />
+          </>
+        )}
+
+        {expertMode && (
+          <>
+            <Divider />
+            <DamageDistribution />
           </>
         )}
       </div>
