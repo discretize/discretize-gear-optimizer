@@ -8,6 +8,7 @@ import GW2Select from "./GW2Select";
 import Buffs from "./Buffs";
 
 import { ConsumableEffect, Item, Skill } from "gw2-ui";
+import ARinput from "./ARinput";
 
 const styles = (theme) => ({
   root: {
@@ -20,7 +21,6 @@ const styles = (theme) => ({
 });
 
 class GearOptimizer extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -47,33 +47,41 @@ class GearOptimizer extends React.Component {
           label="Expert Mode"
         />
 
-        <ClassSelection specialization={(prof) => this.setState({ ...this.state, profession: prof })} />
+        <ClassSelection
+          specialization={(prof) => this.setState({ ...this.state, profession: prof })}
+        />
 
         {/* TODO add template selection here */}
 
-        {expertMode && PROFESSIONS.map((p) =>
-          <React.Fragment key={"traits_" + p}>
-            {profession === p ?
-              <Traits profession={p} traits={(traits) => this.setState({ ...this.state, traits: traits })} /> : null
-            }
-          </React.Fragment>
-        )}
+        {expertMode &&
+          PROFESSIONS.map((p) => (
+            <React.Fragment key={"traits_" + p}>
+              {profession === p ? (
+                <Traits
+                  profession={p}
+                  traits={(traits) => this.setState({ ...this.state, traits: traits })}
+                />
+              ) : null}
+            </React.Fragment>
+          ))}
 
         {/* TODO add skill selection here */}
-        {expertMode && <>
-          <GW2Select name="Runes" label={"Runes"} />
-          <GW2Select name="Sigil1" label={"Sigil 1"} />
-          <GW2Select name="Sigil2" label={"Sigil 2"} />
-          <GW2Select name="Nourishment" label={<ConsumableEffect name="Nourishment" />} />
-          <GW2Select name="Enhancement" label={<ConsumableEffect name="Enhancement" />} />
-        </>}
+        {expertMode && (
+          <>
+            <GW2Select name="Runes" label={"Runes"} />
+            <GW2Select name="Sigil1" label={"Sigil 1"} />
+            <GW2Select name="Sigil2" label={"Sigil 2"} />
+            <GW2Select name="Nourishment" label={<ConsumableEffect name="Nourishment" />} />
+            <GW2Select name="Enhancement" label={<ConsumableEffect name="Enhancement" />} />
+          </>
+        )}
 
         {expertMode && <Buffs buffs={(buffs) => this.setState({ ...this.state, buffs: buffs })} />}
 
+        <ARinput ar={(ar) => this.setState({ ...this.state, ar: ar })} />
       </div>
     );
   }
-
 }
 
 export const PROFESSIONS = [
@@ -86,6 +94,4 @@ export const PROFESSIONS = [
   "Mesmer"
 ];
 
-
 export default withStyles(styles)(GearOptimizer);
-

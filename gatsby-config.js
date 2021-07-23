@@ -3,13 +3,5 @@ module.exports = {
     "siteUrl": "https://www.yourdomain.tld",
     "title": "Discretize Gear Optimizer"
   },
-  plugins: [
-    "gatsby-plugin-theme-ui",
-    `gatsby-transformer-yaml`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `./src/assets/yaml`
-      }
-    }]
+  plugins: ["gatsby-plugin-theme-ui"]
 };
