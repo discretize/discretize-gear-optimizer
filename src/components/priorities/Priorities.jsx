@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import {
   InputLabel,
   MenuItem,
@@ -12,10 +12,8 @@ import {
   InputAdornment
 } from "@material-ui/core";
 
-import { HelpOutline } from "@material-ui/icons";
-
 import Affixes from "./Affixes";
-
+import HelperIcon from "../HelperIcon";
 import { Tooltip, Attribute } from "gw2-ui";
 
 const styles = (theme) => ({
@@ -35,18 +33,6 @@ const styles = (theme) => ({
     flexWrap: "wrap"
   }
 });
-
-const HelperIcon = ({ text }) => {
-  return (
-    <Tooltip content={text}>
-      <span>
-        <Typography>
-          <HelpOutline />
-        </Typography>
-      </span>
-    </Tooltip>
-  );
-};
 
 class Priorities extends React.Component {
   constructor(props) {
