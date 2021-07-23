@@ -1,5 +1,5 @@
 import React from "react";
-import { withStyles, Switch, FormControlLabel } from "@material-ui/core";
+import { withStyles, Switch, FormControlLabel, Divider } from "@material-ui/core";
 
 import ClassSelection from "./ClassSelection";
 import Traits from "./Traits";
@@ -7,7 +7,7 @@ import Runes from "./GW2Select";
 import GW2Select from "./GW2Select";
 import Buffs from "./Buffs";
 import ARinput from "./ARinput";
-import Affixes from "./priorities/Affixes";
+import Priorities from "./priorities/Priorities";
 
 import { ConsumableEffect, Item, Skill } from "gw2-ui";
 
@@ -98,11 +98,21 @@ class GearOptimizer extends React.Component {
           </>
         )}
 
-        {expertMode && <Buffs buffs={(buffs) => this.setState({ ...this.state, buffs: buffs })} />}
+        {expertMode && (
+          <>
+            <Divider />
+            <Buffs buffs={(buffs) => this.setState({ ...this.state, buffs: buffs })} />
+          </>
+        )}
 
         <ARinput ar={(ar) => this.setState({ ...this.state, ar: ar })} />
 
-        <Affixes></Affixes>
+        {expertMode && (
+          <>
+            <Divider />
+            <Priorities />
+          </>
+        )}
       </div>
     );
   }
