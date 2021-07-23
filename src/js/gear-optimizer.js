@@ -1,6 +1,8 @@
 /* eslint-disable padded-blocks */
 
 import * as optimizerCore from './OptimizerCore.js';
+// eslint-disable-next-line no-unused-vars
+import { html, Component, render } from 'https://unpkg.com/htm/preact/index.mjs?module';
 
 // eslint-disable-next-line no-unused-vars, max-len
 import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, Condition, Attributes, MAX_INFUSIONS, INFUSION_BONUS } from './gw2-data.js';
@@ -128,7 +130,10 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
   let startTime;
   let STOP_SIGNAL = false;
-  const list = $(Selector.OUTPUT.LIST);
+  const jqList = $(Selector.OUTPUT.LIST);
+  let domList = [];
+  let list = [];
+  let oldList = [];
 
   const worstScore = {
     value: 0
@@ -273,14 +278,17 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       }
     );
 
-    const generator = optimizerCore.calculate(input, insertCharacterDOM, worstScore);
+    const generator = optimizerCore.calculate(input, insertCharacterJs, worstScore);
 
     // the next time the DOM updates after this is after ≥1 iteration loop;
     // if the calculation is really really fast the main UI won't even flicker 😎
-    list.children().css('visibility', 'hidden');
+    jqList.children().css('visibility', 'hidden');
     await new Promise(resolve => setTimeout(resolve, 0));
 
-    list.empty();
+    list = [];
+    domList = [];
+    oldList = [];
+    jqList.empty();
     lockUI(true);
 
     const settings = generator.next().value;
@@ -328,6 +336,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     // calculation loop
     while (true) {
       ({ done, value: newPercent } = generator.next());
+      updateDOM();
 
       if (done) {
         // updateProgressBar(newPercent, true);
@@ -354,10 +363,37 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       }
     }
     lockUI(false);
-    if (list.children().length) {
+    if (jqList.children().length) {
       prettyResults();
     }
   }
+
+  // class characterRow extends Component {
+  //   constructor (character) {
+  //     super();
+  //     this.state = { character };
+  //   }
+
+  //   render () {
+  //     const character = this.state.character();
+  //     return html`
+  //       <tr>
+  //         <td>
+  //           <strong>
+  //           ${Number(character.attributes[character.settings.rankby].toFixed(2))
+  //             .toLocaleString('en-US')}
+  //           </strong>
+  //         </td>
+  //       ${$.map(character.gear, attribute =>
+  //         `<td><samp>${attribute.substring(0, 4)}</samp></td>`
+  //       ).join('')}
+  //       ${$.map(character.infusions, count =>
+  //         `<td><samp>${count}</samp></td>`
+  //       ).join('')}
+  //       </tr>
+  //     `;
+  //   }
+  // }
 
   function characterToRow (character) {
     const { settings } = character;
@@ -377,7 +413,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     ).data('character', character);
   }
 
-  function insertCharacterDOM (character) {
+  function insertCharacterJs (character) {
     const { settings } = character;
 
     if (
@@ -387,35 +423,61 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       return;
     }
 
-    if (list.children().length === 0) {
-      list.append(characterToRow(character));
+    // id 01234 [5][6]
+    // #  12345
+    // len = 5
+
+    if (list.length === 0) {
+      list.push(character);
     } else {
-      let position = list.children().length + 1;
-      while (position > 1 && optimizerCore.characterLT(
-        list.children().eq(position - 2).data('character'), character)) {
+      let position = list.length;
+      while (position > 0 && optimizerCore.characterLT(
+        list[position - 1], character)) {
         position--;
       }
 
-      if (position > settings.maxResults) {
+      if (position > settings.maxResults - 1) {
         return;
       }
 
-      if (position <= list.children().length) {
-        characterToRow(character)
-          .insertBefore(list.children().eq(position - 1));
+      if (position <= list.length - 1) {
+        list.splice(position, 0, character);
 
-        if (list.children().length > settings.maxResults) {
-          list.children().last().remove();
+        if (list.length > settings.maxResults) {
+          list.length = settings.maxResults;
         }
       } else {
-        list.append(characterToRow(character));
+        list.push(character);
       }
 
-      if (list.children().length === settings.maxResults) {
-        worstScore.value = list.children().last()
-          .data('character').attributes[settings.rankby];
+      if (list.length === settings.maxResults) {
+        worstScore.value = list[list.length - 1].attributes[settings.rankby];
       }
     }
+  }
+
+  function updateDOM () {
+
+    for (let i = 0; i < list.length; i++) {
+      if (list[i] !== oldList[i]) {
+        if (domList[i]) {
+
+          const oldContent = domList[i];
+          domList[i] = characterToRow(list[i]);
+
+          oldContent.replaceWith(domList[i]);
+
+        } else {
+          const newCharacter = characterToRow(list[i]);
+          jqList.append(newCharacter);
+
+          domList.push(newCharacter);
+        }
+      }
+
+    }
+
+    oldList = list.splice();
   }
 
   // Generates the card, that shows up when one clicks on the result.
@@ -676,9 +738,9 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     const getSortValue = character => character.attributes[character.settings.rankby];
 
     // display indicator line under the results identical to the best
-    const bestValue = getSortValue(list.children().eq(0).data('character'));
+    const bestValue = getSortValue(jqList.children().eq(0).data('character'));
     // eslint-disable-next-line consistent-return
-    list.children().each(function (i, element) {
+    jqList.children().each(function (i, element) {
       if (getSortValue($(element).data('character')) !== bestValue) {
         $(element).prev().css('border-bottom', '4px solid #2f3238');
         return false; // jquery loop break
