@@ -68,9 +68,30 @@ class GearOptimizer extends React.Component {
         {/* TODO add skill selection here */}
         {expertMode && (
           <>
-            <GW2Select name="Runes" label={"Runes"} />
-            <GW2Select name="Sigil1" label={"Sigil 1"} />
-            <GW2Select name="Sigil2" label={"Sigil 2"} />
+            <GW2Select
+              name="Runes"
+              label={
+                <>
+                  <Item id={24836} disableLink disableText disableTooltip /> Rune
+                </>
+              }
+            />
+            <GW2Select
+              name="Sigil1"
+              label={
+                <>
+                  <Item id={24615} disableLink disableText disableTooltip /> Sigil 1
+                </>
+              }
+            />
+            <GW2Select
+              name="Sigil2"
+              label={
+                <>
+                  <Item id={24868} disableLink disableText disableTooltip /> Sigil 2
+                </>
+              }
+            />
             <GW2Select name="Nourishment" label={<ConsumableEffect name="Nourishment" />} />
             <GW2Select name="Enhancement" label={<ConsumableEffect name="Enhancement" />} />
           </>
