@@ -1,8 +1,7 @@
 /* eslint-disable padded-blocks */
 
 import * as optimizerCore from './OptimizerCore.js';
-// eslint-disable-next-line no-unused-vars
-import { html, Component, render } from 'https://unpkg.com/htm/preact/index.mjs?module';
+// import { html, Component, render } from 'https://unpkg.com/htm/preact/index.mjs?module';
 
 // eslint-disable-next-line no-unused-vars, max-len
 import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, Condition, Attributes, MAX_INFUSIONS, INFUSION_BONUS } from './gw2-data.js';
