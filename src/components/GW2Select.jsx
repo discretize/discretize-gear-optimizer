@@ -35,7 +35,7 @@ const styles = (theme) => ({
 
 const GW2Select = ({ classes, name, label, data }) => {
   const dispatch = useDispatch();
-  const bigValue = useSelector((state) => state.gearOptimizer[name]);
+  const bigValue = useSelector(getGeneric(name));
 
   function handleChange(event, name) {
     dispatch(changeGeneric({ toChange: name, value: event.target.value }));

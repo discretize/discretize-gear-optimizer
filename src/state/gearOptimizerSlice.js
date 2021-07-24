@@ -17,7 +17,8 @@ export const gearOptimizerSlice = createSlice({
     Sigil1: "",
     Sigil2: "",
     Enhancement: "",
-    Nourishment: ""
+    Nourishment: "",
+    bannerOfStrength: true,
   },
   reducers: {
     changeProfession: (state, action) => {
@@ -42,7 +43,7 @@ export const getProfession = (state) => state.gearOptimizer.profession;
 export const getAR = (state) => state.gearOptimizer.ar;
 export const getTraitLines = (state) => state.gearOptimizer.traits.lines;
 export const getTraits = (state) => state.gearOptimizer.traits.selected;
-export const getGeneric = (state, key) => state.gearOptimizer[key];
+export const getGeneric = (key) => (state) => state.gearOptimizer[key];
 
 export const { changeProfession, changeAR, changeTraitLine, changeTraits, changeGeneric } =
   gearOptimizerSlice.actions;

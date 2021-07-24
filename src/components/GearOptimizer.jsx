@@ -31,6 +31,105 @@ const styles = (theme) => ({
   }
 });
 
+const Selects = () => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query myEpicQuery {
+          runes: runes {
+            id
+            list {
+              items {
+                text
+                gw2_id
+                subText
+                id
+              }
+              section
+            }
+          }
+          sigils: sigils {
+            id
+            list {
+              items {
+                text
+                gw2_id
+                subText
+                id
+              }
+              section
+            }
+          }
+          nourishment: food {
+            id
+            list {
+              items {
+                text
+                gw2_id
+                subText
+                id
+              }
+              section
+            }
+          }
+          enhancement: utility {
+            id
+            list {
+              items {
+                text
+                gw2_id
+                id
+              }
+              section
+            }
+          }
+        }
+      `}
+      render={(data) => (
+        <>
+          <GW2Select
+            name="Runes"
+            label={
+              <>
+                <Item id={24836} disableLink disableText disableTooltip /> Rune
+              </>
+            }
+            data={data.runes.list}
+          />
+          <GW2Select
+            name="Sigil1"
+            label={
+              <>
+                <Item id={24615} disableLink disableText disableTooltip /> Sigil 1
+              </>
+            }
+            data={data.sigils.list}
+          />
+          <GW2Select
+            name="Sigil2"
+            label={
+              <>
+                <Item id={24868} disableLink disableText disableTooltip /> Sigil 2
+              </>
+            }
+            data={data.sigils.list}
+          />
+          <GW2Select
+            name="Nourishment"
+            label={<ConsumableEffect name="Nourishment" />}
+            data={data.nourishment.list}
+          />
+          <GW2Select
+            name="Enhancement"
+            label={<ConsumableEffect name="Enhancement" data={data.sigils.list} />}
+            data={data.enhancement.list}
+          />
+        </>
+      )}
+    />
+  );
+};
+
 const GearOptimizer = ({ classes }) => {
   const [expertMode, setExpertMode] = useState(true);
   const profession = useSelector(getProfession);
@@ -67,114 +166,23 @@ const GearOptimizer = ({ classes }) => {
         PROFESSIONS.filter((p) => p === profession).map((p) => <Traits profession={p} />)}
 
       {/* TODO add skill selection here */}
+
       {expertMode && (
         <>
-          <StaticQuery
-            query={graphql`
-              query myEpicQuery {
-                runes: runes {
-                  id
-                  list {
-                    items {
-                      text
-                      gw2_id
-                      subText
-                      id
-                    }
-                    section
-                  }
-                }
-                sigils: sigils {
-                  id
-                  list {
-                    items {
-                      text
-                      gw2_id
-                      subText
-                      id
-                    }
-                    section
-                  }
-                }
-                nourishment: food {
-                  id
-                  list {
-                    items {
-                      text
-                      gw2_id
-                      subText
-                      id
-                    }
-                    section
-                  }
-                }
-                enhancement: utility {
-                  id
-                  list {
-                    items {
-                      text
-                      gw2_id
-                      id
-                    }
-                    section
-                  }
-                }
-              }
-            `}
-            render={(data) => (
-              <>
-                <GW2Select
-                  name="Runes"
-                  label={
-                    <>
-                      <Item id={24836} disableLink disableText disableTooltip /> Rune
-                    </>
-                  }
-                  data={data.runes.list}
-                />
-                <GW2Select
-                  name="Sigil1"
-                  label={
-                    <>
-                      <Item id={24615} disableLink disableText disableTooltip /> Sigil 1
-                    </>
-                  }
-                  data={data.sigils.list}
-                />
-                <GW2Select
-                  name="Sigil2"
-                  label={
-                    <>
-                      <Item id={24868} disableLink disableText disableTooltip /> Sigil 2
-                    </>
-                  }
-                  data={data.sigils.list}
-                />
-                <GW2Select
-                  name="Nourishment"
-                  label={<ConsumableEffect name="Nourishment" />}
-                  data={data.nourishment.list}
-                />
-                <GW2Select
-                  name="Enhancement"
-                  label={<ConsumableEffect name="Enhancement" data={data.sigils.list} />}
-                  data={data.enhancement.list}
-                />
-              </>
-            )}
-          />
+          <Divider />
+          <Selects />
         </>
       )}
 
       {expertMode && (
         <>
           <Divider />
-          <Buffs buffs={(buffs) => this.setState({ ...this.state, buffs: buffs })} />
+          <Buffs />
         </>
       )}
 
       <Divider />
-      <ARinput ar={(ar) => this.setState({ ...this.state, ar: ar })} />
+      <ARinput />
 
       {expertMode && (
         <>
