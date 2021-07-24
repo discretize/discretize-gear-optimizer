@@ -1,6 +1,8 @@
-food:
+GraphQL ID: Food
+list:
 
-# Section: "Power Food"
+- section: "Power Food"
+  items:
 
   - id: sweet-and-spicy-butternut-squash-soup
     text: >-
@@ -36,9 +38,8 @@ food:
     armory-type: "items"
 
   - id: dragon's-breath-bun
-    text: >-
-      Dragon's Breath Bun
-      <small class="text-muted font-italic">(100% uptime) </small>
+    text: Dragon's Breath Bun
+    subText: "(100% uptime)"
     modifiers: >-
       {
         "flat": { "Power": 200, "Ferocity": 70 }
@@ -47,10 +48,9 @@ food:
     armory-type: "items"
 
   - &steamed-red-dumpling
-    id: steamed-red-dumpling 
-    text: >-
-      Steamed Red Dumpling
-      <small class="text-muted font-italic">(100% uptime) </small>
+    id: steamed-red-dumpling
+    text: Steamed Red Dumpling
+    subText: "(100% uptime)"
     modifiers: >-
       {
         "flat": { "Power": 200, "Condition Damage": 140 }
@@ -59,9 +59,8 @@ food:
     armory-type: "items"
 
   - id: seaweed-salad
-    text: >-
-      Bowl of Seaweed Salad
-      <small class="text-muted font-italic">(90% uptime) </small>
+    text: Bowl of Seaweed Salad
+    subText: "(90% uptime)"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.045 }
@@ -86,7 +85,8 @@ food:
       }
     gw2-id: 75010
     armory-type: "items"
-    extraCSS: "mb-3" # margin-bottom
+
+  ####
 
   - id: roasted-cactus
     text: "Plate of Roasted Cactus"
@@ -109,7 +109,8 @@ food:
     gw2-id: 68633
     armory-type: "items"
 
-# Section: "Support Food"
+- section: "Support Food"
+  items:
 
   - id: soul-pastry
     text: >-
@@ -133,7 +134,8 @@ food:
       }
     gw2-id: 91842
     armory-type: "items"
-    extraCSS: "mb-3" # margin-bottom
+
+  ####
 
   - id: nopalitos-saute
     text: >-
@@ -157,7 +159,8 @@ food:
     gw2-id: 74969
     armory-type: "items"
 
-# Section: "Heal Food"
+- section: "Heal Food"
+  items:
 
   - id: fruit-salad-mint-garnish
     text: "Bowl of Fruit Salad with Mint Garnish"
@@ -198,13 +201,14 @@ food:
     gw2-id: 87076
     armory-type: "items"
 
-# Section: "Condition Food"
+- section: "Condition Food"
+  items:
 
   - id: rare-veggie-pizza
     text: >-
       Rare Veggie Pizza<br> /
       <span data-armory-ids="91823" data-armory-embed="items" data-armory-size="24"></span>
-      Veggie "flat"bread
+      Veggie flatbread
     modifiers: >-
       {
         "flat": { "Expertise": 100, "Condition Damage": 70 }
@@ -216,7 +220,7 @@ food:
     text: >-
       Plate of Beef Rendang<br> /
       <span data-armory-ids="91867" data-armory-embed="items" data-armory-size="24"></span>
-      Cured Meat "flat"bread
+      Cured Meat flatbread
     modifiers: >-
       {
         "flat": { "Condition Damage": 100, "Expertise": 70 }
@@ -227,7 +231,7 @@ food:
   - id: saffron-stuffed-mushroom
     text: >-
       Saffron Stuffed Mushroom
-      <small class="text-muted font-italic">(100% uptime) </small>
+    subText: "(100% uptime)"
     modifiers: >-
       {
         "flat": { "Precision": 70, "Condition Damage": 200 }
@@ -237,6 +241,8 @@ food:
 
   - *steamed-red-dumpling
 
+  ####
+
   - id: fire-meat-chili
     text: "Bowl of Fire Meat Chili"
     modifiers: >-
@@ -245,7 +251,6 @@ food:
       }
     gw2-id: 12484
     armory-type: "items"
-    extraCSS: "mt-3" # margin-top
 
   - id: fancy-truffle-burger
     text: "Fancy Truffle Burger"
@@ -301,7 +306,8 @@ food:
     gw2-id: 66538
     armory-type: "items"
 
-# Section: "Hybrid Food"
+- section: "Hybrid Food"
+  items:
 
   - id: dragon's-revelry-starcake
     text: >-
@@ -331,7 +337,8 @@ food:
       }
     gw2-id: 66961
     armory-type: "items"
-    extraCSS: "mb-3" # margin-bottom
+
+  ####
 
   - id: passion-fruit-tapioca-pudding
     text: "Bowl of Passion Fruit Tapioca Pudding"
@@ -369,7 +376,8 @@ food:
     gw2-id: 12454
     armory-type: "items"
 
-# Section: "Toughness Food"
+- section: "Toughness Food"
+  items:
 
   - id: spicy-marinated-mushroom
     text: "Spicy Marinated Mushroom"
@@ -397,7 +405,8 @@ food:
       }
     gw2-id: 12461
     armory-type: "items"
-    extraCSS: "mb-3" # margin-bottom
+
+  ####
 
   - id: omnomberry-bread
     text: >-
@@ -410,7 +419,8 @@ food:
       }
     gw2-id: 12473
     armory-type: "items"
-    extraCSS: "mb-3" # margin-bottom
+
+  ####
 
   - id: kralkachocolate-bar
     text: "Kralkachocolate Bar"
@@ -429,7 +439,8 @@ food:
       }
     gw2-id: 76415
     armory-type: "items"
-    extraCSS: "mb-3" # margin-bottom
+
+  ####
 
   - id: tropical-mousse
     text: "Bowl of Tropical Mousse"

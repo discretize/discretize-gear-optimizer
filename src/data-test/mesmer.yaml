@@ -1,6 +1,8 @@
-mesmer:
+GraphQL ID: Mesmer
+list:
 
-# Section: "Skills"
+- section: "Skills"
+  items:
 
   - id: signet-of-domination
     text: "Signet of Domination"
@@ -20,10 +22,12 @@ mesmer:
     gw2-id: 10234
     armory-type: "skills"
 
-# Section: "Domination"
+- section: "Domination"
+  items:
 
   - id: fragility
-    text: "Fragility <small>25x</small>"
+    text: "Fragility"
+    subText: "25x"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.125 }
@@ -49,10 +53,12 @@ mesmer:
     gw2-id: 681
     armory-type: "traits"
 
-# Section: "Dueling"
+- section: "Dueling"
+  items:
 
   - id: fencers-finesse
-    text: "Fencer's Finesse <small>10x</small>"
+    text: "Fencer's Finesse"
+    subText: "10x"
     modifiers: >-
       {
         "buff": { "Ferocity": 150 }
@@ -61,7 +67,8 @@ mesmer:
     armory-type: "traits"
 
   - id: superiority-complex
-    text: "Superiority Complex <small>50% uptime -&gt; +20% Critical Damage</small>"
+    text: "Superiority Complex"
+    subText: "50% uptime -&gt; +20% Critical Damage"
     modifiers: >-
       {
         "multiplier": { "Critical Damage": 0.2 }
@@ -69,10 +76,12 @@ mesmer:
     gw2-id: 692
     armory-type: "traits"
 
-# Section: "Chaos"
+- section: "Chaos"
+  items:
 
   - id: illusionary-defense
-    text: "Illusionary Defense <small>5x</small>"
+    text: "Illusionary Defense"
+    subText: "5x"
     modifiers: >-
       {
         "multiplier": { "Effective Health": 0.25 }
@@ -81,7 +90,8 @@ mesmer:
     armory-type: "traits"
 
   - id: illusionary-membrane
-    text: "Illusionary Membrane <small>100%</small>"
+    text: "Illusionary Membrane"
+    subText: "100%"
     modifiers: >-
       {
         "multiplier": { "add: Effective Condition Damage": 0.1 }
@@ -90,7 +100,8 @@ mesmer:
     armory-type: "traits"
 
   - id: chaotic-potency
-    text: "Chaotic Potency <small>base</small>"
+    text: "Chaotic Potency"
+    subText: "base"
     modifiers: >-
       {
         "buff": { "Condition Damage": 120 }
@@ -99,7 +110,8 @@ mesmer:
     armory-type: "traits"
 
   - id: chaotic-potency-2
-    text: "Chaotic Potency <small>with staff - check both boxes</small>"
+    text: "Chaotic Potency"
+    subText: "with staff - check both boxes"
     modifiers: >-
       {
         "buff": { "Condition Damage": 120 }
@@ -108,7 +120,8 @@ mesmer:
     armory-type: "traits"
 
   - id: chaotic-persistence
-    text: "Chaotic Persistence <small>100%</small>"
+    text: "Chaotic Persistence"
+    subText: "100%"
     modifiers: >-
       {
         "buff": { "Concentration": 250, "Expertise": 250 }
@@ -116,7 +129,8 @@ mesmer:
     gw2-id: 1865
     armory-type: "traits"
 
-# Section: "Inspiration"
+- section: "Inspiration"
+  items:
 
   - id: healing-prism
     text: "Healing Prism"
@@ -127,10 +141,12 @@ mesmer:
     gw2-id: 1915
     armory-type: "traits"
 
-# Section: "Illusions"
+- section: "Illusions"
+  items:
 
   - id: compounding-power
-    text: "Compounding Power <small>5x</small>"
+    text: "Compounding Power"
+    subText: "5x"
     modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.1 },
@@ -139,7 +155,8 @@ mesmer:
     gw2-id: 723
     armory-type: "traits"
 
-# Section: "Chronomancer"
+- section: "Chronomancer"
+  items:
 
   - id: danger-time
     text: "Danger Time"
@@ -150,7 +167,8 @@ mesmer:
     gw2-id: 2009
     armory-type: "traits"
 
-# Section: "Mirage"
+- section: "Mirage"
+  items:
 
   - id: nomads-endurance
     text: "Nomad's Endurance"

@@ -1,6 +1,8 @@
-warrior:
+GraphQL ID: Warrior
+list:
 
-# Section: "Skills"
+- section: "Skills"
+  items:
 
   - id: signet-of-might
     text: "Signet of Might"
@@ -29,10 +31,12 @@ warrior:
     gw2-id: 14413
     armory-type: "skills"
 
-# Section: "Strength"
+- section: "Strength"
+  items:
 
   - id: peak-performance
-    text: "Peak Performance <small>passive</small>"
+    text: "Peak Performance"
+    subText: "passive"
     modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.05 }
@@ -41,7 +45,8 @@ warrior:
     armory-type: "traits"
 
   - id: peak-performance-2
-    text: "Peak Performance <small>active, 100% uptime - check both boxes</small>"
+    text: "Peak Performance"
+    subText: "active, 100% uptime - check both boxes"
     modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.1 }
@@ -50,7 +55,8 @@ warrior:
     armory-type: "traits"
 
   - id: forceful-greatsword
-    text: "Forceful Greatsword <small>base</small>"
+    text: "Forceful Greatsword"
+    subText: "base"
     modifiers: >-
       {
         "buff": { "Power": 120 }
@@ -59,7 +65,8 @@ warrior:
     armory-type: "traits"
 
   - id: forceful-greatsword-2
-    text: "Forceful Greatsword <small>with greatsword/spear - check both boxes</small>"
+    text: "Forceful Greatsword"
+    subText: "with greatsword/spear - check both boxes"
     modifiers: >-
       {
         "buff": { "Power": 120 }
@@ -77,7 +84,8 @@ warrior:
     armory-type: "traits"
 
   - id: pinnacle-of-strength
-    text: "Pinnacle Of Strength <small>25 might</small>"
+    text: "Pinnacle Of Strength"
+    subText: "25 might"
     modifiers: >-
       {
         "buff": { "Power": 250 }
@@ -86,7 +94,8 @@ warrior:
     armory-type: "traits"
 
   - id: berserkers-power
-    text: "Berserker's Power <small>100% 3x</small>"
+    text: "Berserker's Power"
+    subText: "100% 3x"
     modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.21 }
@@ -94,7 +103,8 @@ warrior:
     gw2-id: 1437
     armory-type: "traits"
 
-# Section: "Arms"
+- section: "Arms"
+  items:
 
   - id: wounding-precision
     text: "Wounding Precision"
@@ -106,7 +116,8 @@ warrior:
     armory-type: "traits"
 
   - id: signet-mastery
-    text: "Signet Mastery <small>5x</small>"
+    text: "Signet Mastery"
+    subText: "5x"
     modifiers: >-
       {
         "flat": { "Ferocity": 500 }
@@ -124,7 +135,8 @@ warrior:
     armory-type: "traits"
 
   - id: blade-master
-    text: "Blademaster <small>base</small>"
+    text: "Blademaster"
+    subText: "base"
     modifiers: >-
       {
         "buff": { "Expertise": 120 }
@@ -133,7 +145,8 @@ warrior:
     armory-type: "traits"
 
   - id: blade-master-2
-    text: "Blademaster <small>with sword 50% - check both boxes</small>"
+    text: "Blademaster"
+    subText: "with sword 50% - check both boxes"
     modifiers: >-
       {
         "buff": { "Condition Damage": 60 }
@@ -151,7 +164,8 @@ warrior:
     armory-type: "traits"
 
   - id: furious
-    text: "Furious <small>25x</small>"
+    text: "Furious"
+    subText: "25x"
     modifiers: >-
       {
         "buff": { "Condition Damage": 250 }
@@ -159,10 +173,12 @@ warrior:
     gw2-id: 1346
     armory-type: "traits"
 
-# Section: "Defense"
+- section: "Defense"
+  items:
 
   - id: thick-skin
-    text: "Thick Skin <small>100% uptime</small>"
+    text: "Thick Skin"
+    subText: "100% uptime"
     modifiers: >-
       {
         "multiplier": { "Effective Health": 0.05 }
@@ -189,7 +205,8 @@ warrior:
     armory-type: "traits"
 
   - id: hardened-armor
-    text: "Hardened Armor <small>100%</small>"
+    text: "Hardened Armor"
+    subText: "100%"
     modifiers: >-
       {
         "multiplier": { "Effective Health": 0.1 }
@@ -197,7 +214,8 @@ warrior:
     gw2-id: 1380
     armory-type: "traits"
 
-# Section: "Tactics"
+- section: "Tactics"
+  items:
 
   - id: leg-specialist
     text: "Leg Specialist"
@@ -218,7 +236,8 @@ warrior:
     armory-type: "traits"
 
   - id: empowered
-    text: "Empowered <small>6x</small>"
+    text: "Empowered"
+    subText: "6x"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.06 }
@@ -227,7 +246,8 @@ warrior:
     armory-type: "traits"
 
   - id: empowered-9
-    text: "Empowered <small>9x</small>"
+    text: "Empowered"
+    subText: "9x"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.09 }
@@ -236,7 +256,8 @@ warrior:
     armory-type: "traits"
 
   - id: empowered-11
-    text: "Empowered <small>11x</small>"
+    text: "Empowered"
+    subText: "11x"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.11 }
@@ -245,7 +266,8 @@ warrior:
     armory-type: "traits"
 
   - id: warriors-cunning
-    text: "Warrior's Cunning <small>20% uptime -&gt; +5% Damage</small>"
+    text: "Warrior's Cunning"
+    subText: "20% uptime -&gt; +5% Damage"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.05 }
@@ -262,7 +284,8 @@ warrior:
     gw2-id: 1470
     armory-type: "traits"
 
-# Section: "Discipline"
+- section: "Discipline"
+  items:
 
   - id: warriors-sprint
     text: "Warrior's Sprint"
@@ -274,7 +297,8 @@ warrior:
     armory-type: "traits"
 
   - id: double-standards
-    text: "Doubled Standards <small>+50 Pwr/Prc/Fer/Con</small>"
+    text: "Doubled Standards"
+    subText: "+50 Pwr/Prc/Fer/Con"
     modifiers: >-
       {
         "buff": { "Power": 50, "Precision": 50, "Ferocity": 50, "Condition Damage": 50 }
@@ -283,7 +307,8 @@ warrior:
     armory-type: "traits"
 
   - id: axe-mastery-one
-    text: "Axe Mastery <small>without axe</small>"
+    text: "Axe Mastery"
+    subText: "without axe"
     modifiers: >-
       {
         "buff": { "Ferocity": 120 }
@@ -292,7 +317,8 @@ warrior:
     armory-type: "traits"
 
   - id: axe-mastery-two
-    text: "Axe Mastery <small>with axe - check both boxes</small>"
+    text: "Axe Mastery"
+    subText: "with axe - check both boxes"
     modifiers: >-
       {
         "buff": { "Ferocity": 120 }
@@ -300,10 +326,12 @@ warrior:
     gw2-id: 1369
     armory-type: "traits"
 
-# Section: "Berserker"
+- section: "Berserker"
+  items:
 
   - id: blood-reaction-no
-    text: "Blood Reaction <small>with 0% berserker mode</small>"
+    text: "Blood Reaction"
+    subText: "with 0% berserker mode"
     modifiers: >-
       {
         "convert": { "Ferocity": { "Precision": 0.07 } }
@@ -312,7 +340,8 @@ warrior:
     armory-type: "traits"
 
   - id: blood-reaction-with
-    text: "Blood Reaction <small>with 100% berserker mode</small>"
+    text: "Blood Reaction"
+    subText: "with 100% berserker mode"
     modifiers: >-
       {
         "convert": { "Ferocity": { "Precision": 0.14 } }
@@ -321,7 +350,8 @@ warrior:
     armory-type: "traits"
 
   - id: heat-the-soul
-    text: "Heat the Soul <small>without torch</small>"
+    text: "Heat the Soul"
+    subText: "without torch"
     modifiers: >-
       {
         "buff": { "Condition Damage": 120 }
@@ -330,7 +360,8 @@ warrior:
     armory-type: "traits"
 
   - id: heat-the-soul-with
-    text: "Heat the Soul <small>with torch 50% - check both boxes</small>"
+    text: "Heat the Soul"
+    subText: "with torch 50% - check both boxes"
     modifiers: >-
       {
         "buff": { "Condition Damage": 60 }
@@ -374,10 +405,12 @@ warrior:
     gw2-id: 2043
     armory-type: "traits"
 
-# Section: "Spellbreaker"
+- section: "Spellbreaker"
+  items:
 
   - id: pure-strike-boonless
-    text: "Pure Strike <small>Against boonless</small>"
+    text: "Pure Strike"
+    subText: "Against boonless"
     modifiers: >-
       {
         "multiplier": { "Critical Damage": 0.14 }
@@ -386,7 +419,8 @@ warrior:
     armory-type: "traits"
 
   - id: sun-and-moon-style
-    text: "Sun and Moon Style <small>100% onhand dagger; no boons</small>"
+    text: "Sun and Moon Style"
+    subText: "100% onhand dagger; no boons"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.1 }
@@ -395,7 +429,8 @@ warrior:
     armory-type: "traits"
 
   - id: attackers-insight
-    text: "Attacker's Insight <small>5x</small>"
+    text: "Attacker's Insight"
+    subText: "5x"
     modifiers: >-
       {
         "buff": { "Ferocity": 250, "Power": 250, "Precision": 250 }
@@ -404,7 +439,8 @@ warrior:
     armory-type: "traits"
 
   - id: magebane-tether
-    text: "Magebane Tether <small>75% uptime -&gt; +7.5% Damage</small>"
+    text: "Magebane Tether"
+    subText: "75% uptime -&gt; +7.5% Damage"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.075 }

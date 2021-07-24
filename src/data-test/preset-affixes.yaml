@@ -1,4 +1,5 @@
-priorities:
+GraphQL ID: presetAffixes
+list:
 
   - name: Power DPS
     id: power-dps
@@ -6,7 +7,6 @@ priorities:
       - BERSERKER
       - ASSASSIN
     restrictions:
-      MIN_BOON_DURATION: 0
 
   - name: Power Boon
     id: power-boon
@@ -24,7 +24,6 @@ priorities:
       - SINISTER
       - GRIEVING
     restrictions:
-      MIN_BOON_DURATION: 0
 
   - name: Heal
     id: heal

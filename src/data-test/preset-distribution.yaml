@@ -1,4 +1,5 @@
-distribution:
+GraphQL ID: presetDistribution
+list:
 
   - name: 100% Power
     id: power

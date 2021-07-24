@@ -1,4 +1,5 @@
-buffs:
+GraphQL ID: presetBuffs
+list:
 
   - name: None
     id: none

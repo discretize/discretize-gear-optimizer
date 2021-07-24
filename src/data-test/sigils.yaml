@@ -1,6 +1,8 @@
-sigils:
+GraphQL ID: Sigils
+list:
 
-# Section: "Power Sigils"
+- section: Power Sigils
+  items:
 
   - id: force
     text: "Superior Sigil of Force"
@@ -21,9 +23,8 @@ sigils:
     armory-type: "items"
 
   - id: night/impact/slaying-both
-    text: >-
-      Superior Sigil of the Night/Impact/Slaying<br>
-      <small class="text-muted font-italic">(Both 7%/3%)</small>
+    text: Superior Sigil of the Night/Impact/Slaying
+    subtext: (Both 7%/3%)
     modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.03, "Effective Power": 0.07 }
@@ -32,9 +33,8 @@ sigils:
     armory-type: "items"
 
   - id: night/impact/slaying-only-3
-    text: >-
-      Superior Sigil of the Night/Impact/Slaying<br>
-      <small class="text-muted font-italic">(Only 3%)</small>
+    text: Superior Sigil of the Night/Impact/Slaying
+    subText: (Only 3%)
     modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.03 }
@@ -42,7 +42,8 @@ sigils:
     gw2-id: 36053
     armory-type: "items"
 
-# Section: "Support Sigils"
+- section: Support Sigils
+  items:
 
   - id: concentration
     text: "Superior Sigil of Concentration"
@@ -53,7 +54,8 @@ sigils:
     gw2-id: 72339
     armory-type: "items"
 
-# Section: "Heal Sigils"
+- section: Heal Sigils
+  items:
 
   - id: transference
     text: "Superior Sigil of Transference"
@@ -64,7 +66,8 @@ sigils:
     gw2-id: 74326
     armory-type: "items"
 
-# Section: "Condition Sigils"
+- section: Condition Sigils
+  items:
 
   - id: malice
     text: "Superior Sigil of Malice"
@@ -120,7 +123,8 @@ sigils:
     gw2-id: 24583
     armory-type: "items"
 
-# Section: "Stacking Sigils (25x)"
+- section: Stacking Sigils (25x)
+  items:
 
   - id: bloodlust
     text: "Superior Sigil of Bloodlust"
@@ -198,7 +202,8 @@ sigils:
     gw2-id: 86170
     armory-type: "items"
 
-# Section: "Gemstones"
+- section: Gemstones
+  items:
 
   - id: platinum-doubloon
     text: "Platinum Doubloon"

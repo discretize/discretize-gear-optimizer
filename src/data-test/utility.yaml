@@ -1,6 +1,8 @@
-utility:
+GraphQL ID: Utility
+list:
 
-# Section: "Power Utilities"
+- section: "Power Utilities"
+  items:
 
   - id: slaying-potion
     text: "Slaying Potion"
@@ -56,7 +58,8 @@ utility:
     gw2-id: 67531
     armory-type: "items"
 
-# Section: "Support Utilities"
+- section: "Support Utilities"
+  items:
 
   - id: potent-lucent-oil
     text: "Potent Lucent Oil"
@@ -121,7 +124,8 @@ utility:
     gw2-id: 86016
     armory-type: "items"
 
-# Section: "Heal Utilities"
+- section: "Heal Utilities"
+  items:
 
   - id: bountiful-maintenance-oil
     text: "Bountiful Maintenance Oil"
@@ -132,7 +136,8 @@ utility:
     gw2-id: 67528
     armory-type: "items"
 
-# Section: "Condition Utilities"
+- section: "Condition Utilities"
+  items:
 
   - id: toxic-focusing-crystal
     text: "Toxic Focusing Crystal"
@@ -179,7 +184,8 @@ utility:
     gw2-id: 67522
     armory-type: "items"
 
-# Section: "SAB Utilities"
+- section: "SAB Utilities"
+  items:
 
   - id: holographic-super-apple
     text: "Holographic Super Apple"
@@ -210,7 +216,8 @@ utility:
     gw2-id: 87358
     armory-type: "items"
 
-# Section: "Writs"
+- section: "Writs"
+  items:
 
   - id: writ-of-masterful-accuracy
     text: "Writ of Masterful Accuracy"
@@ -239,7 +246,8 @@ utility:
     gw2-id: 73191
     armory-type: "items"
 
-# Section: "Misc"
+- section: "Misc"
+  items:
 
   - id: potion-of-karka-toughness
     text: "Potion Of Karka Toughness"

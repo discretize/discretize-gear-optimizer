@@ -1,6 +1,8 @@
-ranger:
+GraphQL ID: Ranger
+list:
 
-# Section: "Skills"
+- section: "Skills"
+  items:
 
   - id: signet-of-stone
     text: "Signet of Stone"
@@ -20,10 +22,12 @@ ranger:
     gw2-id: 12491
     armory-type: "skills"
 
-# Section: "Marksmanship"
+- section: "Marksmanship"
+  items:
 
   - id: farsighted
-    text: "Farsighted <small>Melee</small>"
+    text: "Farsighted"
+    subText: "Melee"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.05 }
@@ -32,7 +36,8 @@ ranger:
     armory-type: "traits"
 
   - id: farsighted-2
-    text: "Farsighted <small>Ranged</small>"
+    text: "Farsighted"
+    subText: "Ranged"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.15 }
@@ -41,7 +46,8 @@ ranger:
     armory-type: "traits"
 
   - id: predators-onslaught
-    text: "Predator's Onslaught <small>100% uptime</small>"
+    text: "Predator's Onslaught"
+    subText: "100% uptime"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.15 }
@@ -49,7 +55,8 @@ ranger:
     gw2-id: 996
     armory-type: "traits"
 
-# Section: "Skirmishing"
+- section: "Skirmishing"
+  items:
 
   - id: hidden-barbs
     text: "Hidden Barbs"
@@ -71,7 +78,8 @@ ranger:
     armory-type: "traits"
 
   - id: light-on-your-feet
-    text: "Light on your Feet <small>100% uptime</small>"
+    text: "Light on your Feet"
+    subText: "100% uptime"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.1 },
@@ -90,7 +98,8 @@ ranger:
     gw2-id: 1888
     armory-type: "traits"
 
-# Section: "Wilderness Survival"
+- section: "Wilderness Survival"
+  items:
 
   - id: oakheart-salve
     text: "Oakheart Salve"
@@ -112,7 +121,8 @@ ranger:
     armory-type: "traits"
 
   - id: ambidexterity
-    text: "Ambidexterity <small>base</small>"
+    text: "Ambidexterity"
+    subText: "base"
     modifiers: >-
       {
         "buff": { "Condition Damage": 120 }
@@ -121,7 +131,8 @@ ranger:
     armory-type: "traits"
 
   - id: ambidexterity-2
-    text: "Ambidexterity <small>with torch/dagger - check both boxes</small>"
+    text: "Ambidexterity"
+    subText: "with torch/dagger - check both boxes"
     modifiers: >-
       {
         "buff": { "Condition Damage": 120 }
@@ -138,10 +149,12 @@ ranger:
     gw2-id: 1701
     armory-type: "traits"
 
-# Section: "Nature Magic"
+- section: "Nature Magic"
+  items:
 
   - id: bountiful-hunter
-    text: "Bountiful Hunter <small>6x</small>"
+    text: "Bountiful Hunter"
+    subText: "6x"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.06 }
@@ -150,7 +163,8 @@ ranger:
     armory-type: "traits"
 
   - id: bountiful-hunter-9
-    text: "Bountiful Hunter <small>9x</small>"
+    text: "Bountiful Hunter"
+    subText: "9x"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.09 }
@@ -176,10 +190,12 @@ ranger:
     gw2-id: 1059
     armory-type: "traits"
 
-# Section: "Beastmastery"
+- section: "Beastmastery"
+  items:
 
   - id: honed-axes
-    text: "Honed Axes <small>base</small>"
+    text: "Honed Axes"
+    subText: "base"
     modifiers: >-
       {
         "buff": { "Ferocity": 120 }
@@ -188,7 +204,8 @@ ranger:
     armory-type: "traits"
 
   - id: honed-axes-2
-    text: "Honed Axes <small>with axe 50% - also check base</small>"
+    text: "Honed Axes"
+    subText: "with axe 50% - also check base"
     modifiers: >-
       {
         "buff": { "Ferocity": 60 }
@@ -197,7 +214,8 @@ ranger:
     armory-type: "traits"
 
   - id: honed-axes-3
-    text: "Honed Axes <small>with axe 100% - also check base</small>"
+    text: "Honed Axes"
+    subText: "with axe 100% - also check base"
     modifiers: >-
       {
         "buff": { "Ferocity": 120 }
@@ -205,10 +223,12 @@ ranger:
     gw2-id: 1066
     armory-type: "traits"
 
-# Section: "Druid"
+- section: "Druid"
+  items:
 
   - id: natural-mender
-    text: "Natural Mender <small>10x</small>"
+    text: "Natural Mender"
+    subText: "10x"
     modifiers: >-
       {
         "multiplier": { "Effective Healing": 0.2 }
@@ -216,7 +236,8 @@ ranger:
     gw2-id: 1992
     armory-type: "traits"
 
-# Section: "Soulbeast"
+- section: "Soulbeast"
+  items:
 
   - id: furious-strength
     text: "Furious Strength"
@@ -246,7 +267,8 @@ ranger:
     gw2-id: 2143
     armory-type: "traits"
 
-# Section: "Soulbeast Pet Archetypes"
+- section: "Soulbeast Pet Archetypes"
+  items:
 
   - id: archetype-stout
     text: "Stout (Tough/Vit)"
@@ -279,7 +301,8 @@ ranger:
         "buff": { "Vitality": 100 },
         "multiplier": { "Effective Healing": 0.25 }
 
-# Section: "Soulbeast Pet "buff"s To Player"
+- section: "Soulbeast Pet Buffs To Player"
+  items:
 
   - id: sb-1
     text: "Pack Alpha"
@@ -316,7 +339,8 @@ ranger:
     armory-type: "traits"
 
   - id: sb-4
-    text: "Honed Axes <small>base</small>"
+    text: "Honed Axes"
+    subText: "base"
     modifiers: >-
       {
         "buff": { "Ferocity": 120 }

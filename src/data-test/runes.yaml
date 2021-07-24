@@ -1,11 +1,12 @@
-runes:
+GraphQL ID: Runes
+list:
 
-# Section: "Power Runes"
+- section: Power Runes
+  items:
 
   - id: scholar
-    text: >-
-      Superior Rune of the Scholar<br>
-      <small class="text-muted font-italic">(100% active bonus)</small>
+    text: Superior Rune of the Scholar
+    subText: (100% active bonus)
     modifiers: >-
       {
         "flat": { "Power": 175, "Ferocity": 225 },
@@ -15,9 +16,8 @@ runes:
     armory-type: "items"
 
   - id: scholar-without
-    text: >-
-      Superior Rune of the Scholar<br>
-      <small class="text-muted font-italic">(without active bonus)</small>
+    text: Superior Rune of the Scholar
+    subText: (without active bonus)
     modifiers: >-
       {
         "flat": { "Power": 175, "Ferocity": 225 }
@@ -44,9 +44,8 @@ runes:
       }
     gw2-id: 24818
     armory-type: "items"
-    extraCSS: "mb-3" # margin-bottom
 
-  - id: #
+  ####
 
   - id: spellbreaker
     text: "Superior Rune of the Spellbreaker"
@@ -98,7 +97,8 @@ runes:
     gw2-id: 73399
     armory-type: "items"
 
-# Section: "Support Runes"
+- section: Support Runes
+  items:
 
   - id: pack
     text: "Superior Rune of the Pack"
@@ -163,7 +163,8 @@ runes:
     gw2-id: 67342
     armory-type: "items"
 
-# Section: "Defensive Runes"
+- section: Defensive Runes
+  items:
 
   - id: durability
     text: "Superior Rune of Durability"
@@ -203,12 +204,12 @@ runes:
     gw2-id: 84171
     armory-type: "items"
 
-# Section: "Heal Runes"
+- section: Heal Runes
+  items:
 
   - id: monk
-    text: >-
-      Superior Rune of the Monk
-      <small class="text-muted font-italic">(10x)</small>
+    text: Superior Rune of the Monk
+    subText: (10x)
     modifiers: >-
       {
         "flat": { "Healing Power": 175, "Boon Duration": 15 },
@@ -237,7 +238,8 @@ runes:
 
   - *rebirth
 
-# Section: "Condition Runes"
+- section: Condition Runes
+  items:
 
   - id: berserker
     text: "Superior Rune of the Berserker"
@@ -330,9 +332,8 @@ runes:
     armory-type: "items"
 
   - id: soulbeast
-    text: >-
-      Superior Rune of the Soulbeast<br>
-      <small class="text-muted font-italic">(Active Bonus)</small>
+    text: Superior Rune of the Soulbeast
+    subText: (Active Bonus)
     modifiers: >-
       {
         "flat": { "Condition Damage": 175, "Power": 100 },
@@ -341,9 +342,10 @@ runes:
     gw2-id: 83964
     armory-type: "items"
 
-# Section: "Specific Condition Runes"
+- section: Specific Condition Runes
+  items:
 
-  - id: # burning
+  #### burning
 
   - id: balthazar
     text: "Superior Rune of Balthazar"
@@ -367,7 +369,7 @@ runes:
     gw2-id: 24854
     armory-type: "items"
 
-  - id: # bleeding
+  #### bleeding
 
   - id: krait
     text: "Superior Rune of the Krait"
@@ -402,7 +404,7 @@ runes:
     gw2-id: 24687
     armory-type: "items"
 
-  - id: # poison
+  #### poison
 
   - id: thorns
     text: "Superior Rune of Thorns"
@@ -413,7 +415,7 @@ runes:
     gw2-id: 72912
     armory-type: "items"
 
-  - id: # torment
+  #### torment
 
   - id: tormenting
     text: "Superior Rune of Tormenting"
@@ -424,7 +426,7 @@ runes:
     gw2-id: 44956
     armory-type: "items"
 
-  - id: # confusion
+  #### confusion
 
   - id: perplexity
     text: "Superior Rune of Perplexity"
@@ -435,7 +437,8 @@ runes:
     gw2-id: 44957
     armory-type: "items"
 
-# Section: "Hybrid Runes"
+- section: Hybrid Runes
+  items:
 
   - id: traveler
     text: "Superior Rune of the Traveler"

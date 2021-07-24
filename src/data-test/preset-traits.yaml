@@ -1,4 +1,5 @@
-traits:
+GraphQL ID: presetTraits
+list:
 
   - class: mesmer
     builds:

@@ -1,6 +1,8 @@
-engineer:
+GraphQL ID: Engineer
+list:
 
-# Section: "Explosives"
+- section: "Explosives"
+  items:
 
   - id: glass-cannon
     text: "Glass Cannon"
@@ -12,7 +14,8 @@ engineer:
     armory-type: "traits"
 
   - id: explosive-temper
-    text: "Explosive Temper <small>10x</small>"
+    text: "Explosive Temper"
+    subText: "10x"
     modifiers: >-
       {
         "buff": { "Ferocity": 200 }
@@ -30,7 +33,8 @@ engineer:
     armory-type: "traits"
 
   - id: shaped-charge
-    text: "Shaped Charge <small>25x</small>"
+    text: "Shaped Charge"
+    subText: "25x"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.125 }
@@ -39,7 +43,8 @@ engineer:
     armory-type: "traits"
 
   - id: big-boomer
-    text: "Big Boomer <small>100%</small>"
+    text: "Big Boomer"
+    subText: "100%"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.1 }
@@ -47,7 +52,8 @@ engineer:
     gw2-id: 1947
     armory-type: "traits"
 
-# Section: "Firearms"
+- section: "Firearms"
+  items:
 
   - id: chemical-rounds
     text: "Chemical Rounds"
@@ -105,7 +111,8 @@ engineer:
     armory-type: "traits"
 
   - id: modified-ammunition-10
-    text: "Modified Ammunition <small>10x</small>"
+    text: "Modified Ammunition"
+    subText: "10x"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.2 }
@@ -114,7 +121,8 @@ engineer:
     armory-type: "traits"
 
   - id: modified-ammunition-14
-    text: "Modified Ammunition <small>14x</small>"
+    text: "Modified Ammunition"
+    subText: "14x"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.28 }
@@ -131,7 +139,8 @@ engineer:
     gw2-id: 433
     armory-type: "traits"
 
-# Section: "Inventions"
+- section: "Inventions"
+  items:
 
   - id: over-shield
     text: "Over Shield"
@@ -151,10 +160,12 @@ engineer:
     gw2-id: 519
     armory-type: "traits"
 
-# Section: "Alchemy"
+- section: "Alchemy"
+  items:
 
   - id: health-insurance
-    text: "Health Insurance <small>in med kit</small>"
+    text: "Health Insurance"
+    subText: "in med kit"
     modifiers: >-
       {
         "multiplier": { "Effective Healing": 0.2 }
@@ -171,7 +182,8 @@ engineer:
     gw2-id: 413
     armory-type: "traits"
 
-# Section: "Tools"
+- section: "Tools"
+  items:
 
   - id: excessive-energy
     text: "Excessive Energy"
@@ -182,7 +194,8 @@ engineer:
     gw2-id: 1936
     armory-type: "traits"
 
-# Section: "Scrapper"
+- section: "Scrapper"
+  items:
 
   - id: object-in-motion-1
     text: "Object in Motion (One)"
@@ -221,7 +234,8 @@ engineer:
     armory-type: "traits"
 
   - id: applied-force
-    text: "Applied Force <small>25 might</small>"
+    text: "Applied Force"
+    subText: "25 might"
     modifiers: >-
       {
         "buff": { "Power": 250 }

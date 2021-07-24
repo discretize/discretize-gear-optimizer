@@ -1,6 +1,8 @@
-guardian:
+GraphQL ID: Guardian
+list:
 
-# Section: "Skills"
+- section: "Skills"
+  items:
 
   - id: bane-signet
     text: "Bane Signet"
@@ -12,7 +14,8 @@ guardian:
     armory-type: "skills"
 
   - id: bane-signet-2
-    text: "Bane Signet <small>traited</small>"
+    text: "Bane Signet"
+    subText: "traited"
     modifiers: >-
       {
         "buff": { "Power": 216 }
@@ -30,7 +33,8 @@ guardian:
     armory-type: "skills"
 
   - id: signet-of-judgement-2
-    text: "Signet of Judgement <small>traited</small>"
+    text: "Signet of Judgement"
+    subText: "traited"
     modifiers: >-
       {
         "multiplier": { "Effective Health": 0.12 }
@@ -48,7 +52,8 @@ guardian:
     armory-type: "skills"
 
   - id: signet-of-mercy-2
-    text: "Signet of Mercy <small>traited</small>"
+    text: "Signet of Mercy"
+    subText: "traited"
     modifiers: >-
       {
         "buff": { "Concentration": 150 }
@@ -66,7 +71,8 @@ guardian:
     armory-type: "skills"
 
   - id: signet-of-wrath-2
-    text: "Signet of Wrath <small>traited</small>"
+    text: "Signet of Wrath"
+    subText: "traited"
     modifiers: >-
       {
         "buff": { "Condition Damage": 216 }
@@ -74,7 +80,8 @@ guardian:
     gw2-id: 9151
     armory-type: "skills"
 
-# Section: "Zeal"
+- section: "Zeal"
+  items:
 
   - id: fiery-wrath
     text: "Fiery Wrath"
@@ -95,7 +102,8 @@ guardian:
     armory-type: "traits"
 
   - id: zealous-blade
-    text: "Zealous Blade <small>assuming 50% GS</small>"
+    text: "Zealous Blade"
+    subText: "assuming 50% GS"
     modifiers: >-
       {
         "buff": { "Power": 180 }
@@ -113,7 +121,8 @@ guardian:
     armory-type: "traits"
 
   - id: symbolic-avenger
-    text: "Symbolic Avenger <small>5x</small>"
+    text: "Symbolic Avenger"
+    subText: "5x"
     modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.1 }
@@ -121,10 +130,12 @@ guardian:
     gw2-id: 2017
     armory-type: "traits"
 
-# Section: "Radiance"
+- section: "Radiance"
+  items:
 
   - id: right-hand-strength
-    text: "Right-Hand Strength <small>base (+80 prec)</small>"
+    text: "Right-Hand Strength"
+    subText: "base (+80 prec)"
     modifiers: >-
       {
         "buff": { "Precision": 80 }
@@ -133,7 +144,8 @@ guardian:
     armory-type: "traits"
 
   - id: right-hand-strength-2
-    text: "Right-Hand Strength <small>50% one-handed (+40 Power)</small>"
+    text: "Right-Hand Strength"
+    subText: "50% one-handed (+40 Power)"
     modifiers: >-
       {
         "buff": { "Power": 40 }
@@ -142,7 +154,8 @@ guardian:
     armory-type: "traits"
 
   - id: right-hand-strength-3
-    text: "Right-Hand Strength <small>100% one-handed (+80 Power)</small>"
+    text: "Right-Hand Strength"
+    subText: "100% one-handed (+80 Power)"
     modifiers: >-
       {
         "buff": { "Power": 40 }
@@ -196,7 +209,8 @@ guardian:
     gw2-id: 1683
     armory-type: "traits"
 
-# Section: "Valor"
+- section: "Valor"
+  items:
 
   - id: stalwart-defender
     text: "Stalwart Defender"
@@ -207,10 +221,12 @@ guardian:
     gw2-id: 580
     armory-type: "traits"
 
-# Section: "Honor"
+- section: "Honor"
+  items:
 
   - id: invigorating-bulwark
-    text: "Invigorating Bulwark <small>5x</small>"
+    text: "Invigorating Bulwark"
+    subText: "5x"
     modifiers: >-
       {
         "multiplier": { "Effective Healing": 0.25 }
@@ -219,7 +235,8 @@ guardian:
     armory-type: "traits"
 
   - id: honorable-staff
-    text: "Honorable Staff <small>base</small>"
+    text: "Honorable Staff"
+    subText: "base"
     modifiers: >-
       {
         "buff": { "Concentration": 120 }
@@ -228,7 +245,8 @@ guardian:
     armory-type: "traits"
 
   - id: honorable-staff-2
-    text: "Honorable Staff <small>with staff - check both boxes</small>"
+    text: "Honorable Staff"
+    subText: "with staff - check both boxes"
     modifiers: >-
       {
         "buff": { "Concentration": 120 }
@@ -237,7 +255,8 @@ guardian:
     armory-type: "traits"
 
   - id: force-of-will
-    text: "Force of Will <small>Assuming 1k vitality</small>"
+    text: "Force of Will"
+    subText: "Assuming 1k vitality"
     modifiers: >-
       {
         "buff": { "Vitality": 300 },
@@ -246,10 +265,12 @@ guardian:
     gw2-id: 1682
     armory-type: "traits"
 
-# Section: "Virtues"
+- section: "Virtues"
+  items:
 
   - id: inspired-virtue
-    text: "Inspired Virtue <small>6x</small>"
+    text: "Inspired Virtue"
+    subText: "6x"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.06 }
@@ -258,7 +279,8 @@ guardian:
     armory-type: "traits"
 
   - id: inspired-virtue-9
-    text: "Inspired Virtue <small>9x</small>"
+    text: "Inspired Virtue"
+    subText: "9x"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.09 }
@@ -285,7 +307,8 @@ guardian:
     armory-type: "traits"
 
   - id: inspiring-virtue
-    text: "Inspiring Virtue <small>100%</small>"
+    text: "Inspiring Virtue"
+    subText: "100%"
     modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.1 }
@@ -302,7 +325,8 @@ guardian:
     gw2-id: 620
     armory-type: "traits"
 
-# Section: "Dragonhunter"
+- section: "Dragonhunter"
+  items:
 
   - id: zealots-aggression
     text: "Zealot's Aggression"
@@ -314,7 +338,8 @@ guardian:
     armory-type: "traits"
 
   - id: pure-of-sight
-    text: "Pure of Sight <small>Melee</small>"
+    text: "Pure of Sight"
+    subText: "Melee"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.05 }
@@ -323,7 +348,8 @@ guardian:
     armory-type: "traits"
 
   - id: pure-of-sight-ranged
-    text: "Pure of Sight <small>Ranged</small>"
+    text: "Pure of Sight"
+    subText: "Ranged"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.15 }
@@ -349,7 +375,8 @@ guardian:
     gw2-id: 1955
     armory-type: "traits"
 
-# Section: "Firebrand"
+- section: "Firebrand"
+  items:
 
   - id: imbued-haste
     text: "Imbued Haste"

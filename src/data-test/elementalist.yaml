@@ -1,6 +1,8 @@
-elementalist:
+GraphQL ID: elementalist
+list:
 
-# Section: "Skills"
+- section: Skills
+  items:
 
   - id: signet-of-fire
     text: "Signet of Fire"
@@ -21,17 +23,18 @@ elementalist:
     armory-type: "skills"
 
   - id: flame-axe
-    text: "Flame Axe <small>when equipped</small>"
+    text: "Flame Axe"
+    subText: "when equipped"
     modifiers: >-
       {
         "buff": { "Power": 180, "Condition Damage": 180 }
       }
     gw2-id: 5540
     armory-type: "skills"
-    extraCSS: "mt-4" # margin-top
 
   - id: earth-shield
-    text: "Earth Shield <small>when equipped</small>"
+    text: "Earth Shield"
+    subText: "when equipped"
     modifiers: >-
       {
         "buff": { "Vitality": 180, "Toughness": 180 }
@@ -40,7 +43,8 @@ elementalist:
     armory-type: "skills"
 
   - id: fiery-greatsword
-    text: "Fiery Greatsword <small>when equipped</small>"
+    text: "Fiery Greatsword"
+    subText: "when equipped"
     modifiers: >-
       {
         "buff": { "Power": 260, "Condition Damage": 180 }
@@ -49,7 +53,8 @@ elementalist:
     armory-type: "skills"
 
   - id: lightning-hammer
-    text: "Lightning Hammer <small>when equipped</small>"
+    text: "Lightning Hammer"
+    subText: "when equipped"
     modifiers: >-
       {
         "buff": { "Precision": 180, "Ferocity": 75 }
@@ -58,7 +63,8 @@ elementalist:
     armory-type: "skills"
 
   - id: frost-bow
-    text: "Frost Bow <small>when equipped</small>"
+    text: "Frost Bow"
+    subText: "when equipped"
     modifiers: >-
       {
         "buff": { "Healing Power": 180 },
@@ -67,12 +73,14 @@ elementalist:
     gw2-id: 5567
     armory-type: "skills"
 
-# Section: "Fire"
+- section: Fire
+  items:
 
   - id: empowering-flame
-    text: >-
-      Empowering Flame <br>(100% in
-      <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5492"></span>)
+    text: Empowering Flame
+    subText: >-
+      (100% in
+      <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5492"></span>)"
     modifiers: >-
       {
         "buff": { "Power": 150 }
@@ -99,7 +107,8 @@ elementalist:
     armory-type: "traits"
 
   - id: power-overwhelming
-    text: "Power Overwhelming <small>perma</small>"
+    text: "Power Overwhelming"
+    subText: "perma"
     modifiers: >-
       {
         "buff": { "Power": 150 }
@@ -108,10 +117,11 @@ elementalist:
     armory-type: "traits"
 
   - id: power-overwhelming-2
-    text: >-
-      Power Overwhelming <br>(100% in
+    text: "Power Overwhelming"
+    subtext: >-
+      (100% in
       <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5492"></span>
-       - tick both)
+       - tick both)"
     modifiers: >-
       {
         "buff": { "Power": 150 }
@@ -128,7 +138,8 @@ elementalist:
     gw2-id: 319
     armory-type: "traits"
 
-# Section: "Air"
+- section: Air
+  items:
 
   - id: ferocious-winds
     text: "Ferocious Winds"
@@ -158,7 +169,8 @@ elementalist:
     armory-type: "traits"
 
   - id: aeromancers-training
-    text: "Aeromancer's Training <small>perma</small>"
+    text: "Aeromancer's Training"
+    subText: "perma"
     modifiers: >-
       {
         "buff": { "Ferocity": 150 }
@@ -167,10 +179,11 @@ elementalist:
     armory-type: "traits"
 
   - id: aeromancers-training-2
-    text: >-
-      Aeromancer's Training <br>(100% in
+    text: "Aeromancer's Training"
+    subtext: >-
+      (100% in
       <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5494"></span>
-       - tick both)
+       - tick both)"
     modifiers: >-
       {
         "buff": { "Ferocity": 150 }
@@ -179,7 +192,8 @@ elementalist:
     armory-type: "traits"
 
   - id: bolt-to-the-heart
-    text: "Bolt to the Heart <small>50% uptime</small>"
+    text: "Bolt to the Heart"
+    subText: "50% uptime"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.1 }
@@ -188,7 +202,8 @@ elementalist:
     armory-type: "traits"
 
   - id: fresh-air
-    text: "Fresh Air <small>100% uptime</small>"
+    text: "Fresh Air"
+    subText: "100% uptime"
     modifiers: >-
       {
         "buff": { "Ferocity": 250 }
@@ -196,12 +211,14 @@ elementalist:
     gw2-id: 1503
     armory-type: "traits"
 
-# Section: "Earth"
+- section: Earth
+  items:
 
   - id: stone-flesh
-    text: >-
-      Stone Flesh (100% in
-      <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5495"></span>)
+    text: "Stone Flesh"
+    subText: >-
+      (100% in
+      <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5495"></span>)"
     modifiers: >-
       {
         "multiplier": { "Effective Health": 0.07 }
@@ -237,7 +254,8 @@ elementalist:
     gw2-id: 280
     armory-type: "traits"
 
-# Section: "Water"
+- section: Water
+  items:
 
   - id: piercing-blades
     text: "Piercing Shards"
@@ -249,10 +267,11 @@ elementalist:
     armory-type: "traits"
 
   - id: piercing-blades-2
-    text: >-
-      Piercing Shards <small>100% in
+    text: "Piercing Shards"
+    subText: >-
+      "100% in
       <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5493"></span>
-       - tick both</small>
+       - tick both</small>"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.1 }
@@ -278,7 +297,8 @@ elementalist:
     gw2-id: 1676
     armory-type: "traits"
 
-# Section: "Arcane"
+- section: Arcane
+  items:
 
   - id: elemental-enchantment
     text: "Elemental Enchantment"
@@ -299,7 +319,8 @@ elementalist:
     armory-type: "traits"
 
   - id: bountiful-power
-    text: "Bountiful Power <small>6x</small>"
+    text: "Bountiful Power"
+    subText: "6x"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.12 }
@@ -308,7 +329,8 @@ elementalist:
     armory-type: "traits"
 
   - id: bountiful-power-9
-    text: "Bountiful Power <small>9x</small>"
+    text: "Bountiful Power"
+    subText: "9x"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.18 }
@@ -316,10 +338,12 @@ elementalist:
     gw2-id: 1511
     armory-type: "traits"
 
-# Section: "Tempest"
+- section: Tempest
+  items:
 
   - id: gathered-focus
-    text: "Gathered Focus <small>100%</small>"
+    text: "Gathered Focus"
+    subText: "100%"
     modifiers: >-
       {
         "buff": { "Concentration": 240 }
@@ -345,10 +369,12 @@ elementalist:
     gw2-id: 1839
     armory-type: "traits"
 
-# Section: "Weaver"
+- section: Weaver
+  items:
 
   - id: superior-elements
-    text: "Superior Elements <small>100% uptime</small>"
+    text: "Superior Elements"
+    subText: "100% uptime"
     modifiers: >-
       {
         "flat": { "Critical Chance": 10 }
@@ -357,7 +383,8 @@ elementalist:
     armory-type: "traits"
 
   - id: masters-fortitude
-    text: "Master's Fortitude <small>With Sword</small>"
+    text: "Master's Fortitude"
+    subText: "With Sword"
     modifiers: >-
       {
         "flat": { "Vitality": 120 },
@@ -367,7 +394,8 @@ elementalist:
     armory-type: "traits"
 
   - id: masters-fortitude-without
-    text: "Master's Fortitude <small>Without Sword</small>"
+    text: "Master's Fortitude"
+    subText: "Without Sword"
     modifiers: >-
       {
         "convert": { "Vitality": { "Power": 0.05, "Condition Damage": 0.05 } }
@@ -376,7 +404,8 @@ elementalist:
     armory-type: "traits"
 
   - id: weavers-prowess
-    text: "Weaver's Prowess <small>100% uptime</small>"
+    text: "Weaver's Prowess"
+    subText: "100% uptime"
     modifiers: >-
       {
         "multiplier": { "add: Effective Condition Damage": 0.1 },
@@ -395,9 +424,10 @@ elementalist:
     armory-type: "traits"
 
   - id: elemental-polyphony-fire
-    text: >-
-      Elemental Polyphony <br>(100% in
-      <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5492"></span>)
+    text: "Elemental Polyphony"
+    subtext: >-
+      (100% in
+      <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5492"></span>)"
     modifiers: >-
       {
         "buff": { "Power": 120 }
@@ -406,9 +436,10 @@ elementalist:
     armory-type: "traits"
 
   - id: elemental-polyphony-air
-    text: >-
-      Elemental Polyphony <br>(100% in
-      <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5494"></span>)
+    text: "Elemental Polyphony"
+    subtext: >-
+      (100% in
+      <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5494"></span>)"
     modifiers: >-
       {
         "buff": { "Ferocity": 120 }

@@ -1,6 +1,8 @@
-revenant:
+GraphQL ID: Revenant
+list:
 
-# Section: "Corruption"
+- section: "Corruption"
+  items:
 
   - id: acolyte-of-torment
     text: "Acolyte of Torment"
@@ -47,7 +49,8 @@ revenant:
     gw2-id: 1744
     armory-type: "traits"
 
-# Section: "Retribution"
+- section: "Retribution"
+  items:
 
   - id: dwarven-battle-training
     text: "Dwarven Battle Training"
@@ -68,7 +71,8 @@ revenant:
     armory-type: "traits"
 
   - id: vicious-reprisal
-    text: "Vicious Reprisal <small>100%</small>"
+    text: "Vicious Reprisal"
+    subText: "100%"
     modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.1, "add: Effective Condition Damage": 0.1 }
@@ -85,7 +89,8 @@ revenant:
     gw2-id: 1770
     armory-type: "traits"
 
-# Section: "Invocation"
+- section: "Invocation"
+  items:
 
   - id: rising-tide
     text: "Rising Tide"
@@ -114,10 +119,12 @@ revenant:
     gw2-id: 1719
     armory-type: "traits"
 
-# Section: "Devastation"
+- section: "Devastation"
+  items:
 
   - id: unsuspecting-strikes
-    text: "Unsuspecting Strikes <small>20% uptime -&gt; +4% Damage</small>"
+    text: "Unsuspecting Strikes"
+    subText: "20% uptime -&gt; +4% Damage"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.04 }
@@ -126,7 +133,8 @@ revenant:
     armory-type: "traits"
 
   - id: destructive-impulses-dual
-    text: "Destructive Impulses <small>Dual wielded</small>"
+    text: "Destructive Impulses"
+    subText: "Dual wielded"
     modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.1, "add: Effective Condition Damage": 0.1 }
@@ -135,7 +143,8 @@ revenant:
     armory-type: "traits"
 
   - id: destructive-impulses
-    text: "Destructive Impulses <small>Two handed</small>"
+    text: "Destructive Impulses"
+    subText: "Two handed"
     modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.05, "add: Effective Condition Damage": 0.05 }
@@ -144,7 +153,8 @@ revenant:
     armory-type: "traits"
 
   - id: destructive-impulses-mix
-    text: "Destructive Impulses <small>50% dual wield, 50% 2h</small>"
+    text: "Destructive Impulses"
+    subText: "50% dual wield, 50% 2h"
     modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.075, "add: Effective Condition Damage": 0.075 }
@@ -153,7 +163,8 @@ revenant:
     armory-type: "traits"
 
   - id: notoriety
-    text: "Notoriety <small>25 might</small>"
+    text: "Notoriety"
+    subText: "25 might"
     modifiers: >-
       {
         "buff": { "Power": 250, "Condition Damage": -250 }
@@ -162,7 +173,8 @@ revenant:
     armory-type: "traits"
 
   - id: targeted-destruction
-    text: "Targeted Destruction <small>25 vulnerability</small>"
+    text: "Targeted Destruction"
+    subText: "25 vulnerability"
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.125 }
@@ -179,7 +191,8 @@ revenant:
     gw2-id: 1800
     armory-type: "traits"
 
-# Section: "Salvation"
+- section: "Salvation"
+  items:
 
   - id: tranquil-balance
     text: "Tranquil Balance"
@@ -209,10 +222,12 @@ revenant:
     gw2-id: 1818
     armory-type: "traits"
 
-# Section: "Renegade"
+- section: "Renegade"
+  items:
 
   - id: ambush-commander
-    text: "Ambush Commander <small>5x Kalla's Fervor</small>"
+    text: "Ambush Commander"
+    subText: "5x Kalla's Fervor"
     modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.1, "add: Effective Condition Damage": 0.1 }
@@ -248,7 +263,8 @@ revenant:
     armory-type: "traits"
 
   - id: lasting-legacy
-    text: "Lasting Legacy <small>additional bonus from 5x Kalla's Fervor</small>"
+    text: "Lasting Legacy"
+    subText: "additional bonus from 5x Kalla's Fervor"
     modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.05, "add: Effective Condition Damage": 0.05 }

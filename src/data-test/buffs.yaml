@@ -1,12 +1,14 @@
-buff:
+GraphQL ID: Buffs
+list:
 
-# Section
+- section: ''
+  items:
 
   - id: might
     text: >-
       <span class="icon icon-might"></span>
       Might
-      <small class="text-muted font-italic">(25x)</small>
+    subText: (25x)
     modifiers: >-
       {
         "buff": { "Power": 750, "Condition Damage": 750 }
@@ -36,14 +38,15 @@ buff:
     text: >-
       <span class="icon icon-vulnerability"></span>
       Vulnerability
-      <small class="text-muted font-italic">(25x)</small>
+    subtext: (25x)
     modifiers: >-
       {
         "multiplier": { "target: Effective Power": 0.25, "target: Effective Condition Damage": 0.25 }
       }
     default-enabled: true
 
-# Section
+- section: ''
+  items:
 
   - id: banner-of-strength
     text: "Banner of Strength"
@@ -88,7 +91,8 @@ buff:
     armory-type: "traits"
     extraCSS: "text-warrior"
 
-# Section
+- section: ''
+  items:
 
   - id: spotter
     text: "Spotter"
@@ -131,12 +135,13 @@ buff:
     armory-type: "traits"
     extraCSS: "text-guardian"
 
-# Section: >-
-    # <span class="text-guardian">
-    #   Guardian
-    #   <span data-armory-size="24" data-armory-embed="traits" data-armory-ids="579"></span>
-    #   Perfect Inscriptions (Assuming 100% uptime!)
-    # </span>
+- section: >-
+    <span class="text-guardian">
+      Guardian
+      <span data-armory-size="24" data-armory-embed="traits" data-armory-ids="579"></span>
+      Perfect Inscriptions (Assuming 100% uptime!)
+    </span>
+  items:
 
   - id: bane-signet
     text: "Bane Signet"
@@ -179,7 +184,8 @@ buff:
     armory-type: "skills"
     extraCSS: "text-guardian"
 
-# Section
+- section: ''
+  items:
 
   - id: assassins-presence
     text: "Assassin's Presence"
@@ -212,22 +218,25 @@ buff:
     armory-type: "skills"
     extraCSS: "text-revenant"
 
-# Section: "Effects"
+- section: 'Effects'
+  items:
 
   - id: exposed
     text: >-
       <span class="icon icon-exposed"></span>
       Exposed
-      <small class="text-muted font-italic">(100% uptime)</small>
+    subText: (100% uptime)
     modifiers: >-
       {
         "multiplier": { "target: Effective Power": 0.3, "target: Effective Condition Damage": 1.0 }
+      }
 
   - id: low-armor
     text: >-
       Low Boss Armor (VG, KC)
-      <small class="text-muted font-italic">1910 vs 2597</small>
+    subText: 1910 vs 2597
     modifiers: >-
       {
         "multiplier": { "Effective Power": 0.359685864 }
+      }
 
