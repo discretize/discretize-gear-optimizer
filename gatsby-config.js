@@ -8,13 +8,13 @@ module.exports = {
     {
       resolve: `gatsby-transformer-yaml`,
       options: {
-        typeName: ({ node, object, isArray }) => object['GraphQL ID']
+        typeName: ({ node, object, isArray }) => object["GraphQL ID"]
       }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./src/data-test/`
+        path: `./src/assets/data`
       }
     }
   ]
