@@ -8,15 +8,15 @@ import { Affix, Item, Slots, ForcedSlots, Health, Defense, Classes, Condition, A
  * ------------------------------------------------------------------------
  */
 
-let worstScoreContainer;
-let insertCharacter;
-
 let applyInfusionsFunction;
 
+let worstScore;
+let list;
+
 /**
- * A generator function that iterates synchronously through all possible builds, calling
- *  insertCharacter(character)
- * on each character. Yields periodically to allow UI to be updated or cancelled.
+ * Sets up optimizer with input data
+ *
+ * @param {Object} list - the list to store results in (this will be *mutated* by calculate())
  *
  * @param {Object} input
  * @param {Object[]} input.modifiers - array of modifier objects
@@ -38,14 +38,11 @@ let applyInfusionsFunction;
  * @param {Object.<String, Number>} input.distribution
  * @param {String[]} input.relevantConditions - I should remove this tbh
  *
- * @param {Function} insertCharacterFunction
- *
- * @yields {(Object|Number)} - settings object on the first next() call (to set initial UI);
- *                             subsequently the progress percentage
+ * @returns {Object} - settings
  */
-export function * calculate (input, insertCharacterFunction, worstScoreContainerInput) {
-  insertCharacter = insertCharacterFunction;
-  worstScoreContainer = worstScoreContainerInput;
+export function setup (listInput, input) {
+  worstScore = undefined;
+  list = listInput;
 
   const {
     modifiers: modifiersInput,
@@ -280,7 +277,7 @@ export function * calculate (input, insertCharacterFunction, worstScoreContainer
       'Error: optimizer selected invalid infusion calculation mode: ' + infusionMode
     );
   }
-  applyInfusionsFunction = applyInfusions[infusionMode];
+  settings.infusionMode = infusionMode;
 
   /* Equipment */
 
@@ -385,6 +382,19 @@ export function * calculate (input, insertCharacterFunction, worstScoreContainer
   //   return num / denom;
   // }
 
+  return settings;
+}
+
+/**
+ * A generator function that iterates synchronously through all possible builds, updating the list
+ * object with the best results. Yields periodically to allow UI to be updated or cancelled.
+ *
+ * @param {*} settings
+ * @yields {Number} - the progress percentage
+ */
+export function * calculate (settings) {
+  applyInfusionsFunction = applyInfusions[settings.infusionMode];
+
   let calculationTotal = 1;
   for (let i = 0; i < settings.affixesArray.length; i++) {
     calculationTotal *= settings.affixesArray[i].length;
@@ -396,8 +406,6 @@ export function * calculate (input, insertCharacterFunction, worstScoreContainer
   calculationQueue.push([]);
   const calculationStatsQueue = [];
   calculationStatsQueue.push({});
-
-  yield settings;
 
   let iterationTimer = Date.now();
   let UPDATE_MS = 90;
@@ -553,10 +561,10 @@ applyInfusions['Secondary'] = function (character) {
     addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
     addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
     updateAttributesFast(temp, true);
-    return temp.attributes[settings.rankby] > worstScoreContainer.value;
+    return temp.attributes[settings.rankby] > worstScore;
   };
 
-  if (!worstScoreContainer.value || testInfusionUsefulness()) {
+  if (!worstScore || testInfusionUsefulness()) {
     let previousResult;
 
     let primaryCount = settings.primaryMaxInfusions;
@@ -596,10 +604,10 @@ applyInfusions['SecondaryNoDuplicates'] = function (character) {
     addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
     addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
     updateAttributesFast(temp, true);
-    return temp.attributes[settings.rankby] > worstScoreContainer.value;
+    return temp.attributes[settings.rankby] > worstScore;
   };
 
-  if (!worstScoreContainer.value || testInfusionUsefulness()) {
+  if (!worstScore || testInfusionUsefulness()) {
     let best = null;
 
     let primaryCount = settings.primaryMaxInfusions;
@@ -634,6 +642,46 @@ applyInfusions['SecondaryNoDuplicates'] = function (character) {
     }
   }
 };
+
+function insertCharacter (character) {
+  const { settings } = character;
+
+  if (
+    !character.valid
+    || (worstScore
+      && worstScore > character.attributes[settings.rankby])
+  ) {
+    return;
+  }
+
+  if (list.length === 0) {
+    list.push(character);
+  } else {
+    let position = list.length;
+    while (position > 0 && characterLT(
+      list[position - 1], character)) {
+      position--;
+    }
+
+    if (position > settings.maxResults - 1) {
+      return;
+    }
+
+    if (position <= list.length - 1) {
+      list.splice(position, 0, character);
+
+      if (list.length > settings.maxResults) {
+        list.length = settings.maxResults;
+      }
+    } else {
+      list.push(character);
+    }
+
+    if (list.length === settings.maxResults) {
+      worstScore = list[list.length - 1].attributes[settings.rankby];
+    }
+  }
+}
 
 // returns true if B is better than A
 export function characterLT (a, b) {

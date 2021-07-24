@@ -130,14 +130,9 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
   let startTime;
   let STOP_SIGNAL = false;
-  const jqList = $(Selector.OUTPUT.LIST);
-  let domList = [];
+  const jQueryList = $(Selector.OUTPUT.LIST);
   let list = [];
   let oldList = [];
-
-  const worstScore = {
-    value: 0
-  };
 
   /**
    * ------------------------------------------------------------------------
@@ -278,20 +273,23 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       }
     );
 
-    const generator = optimizerCore.calculate(input, insertCharacterJs, worstScore);
-
     // the next time the DOM updates after this is after ≥1 iteration loop;
     // if the calculation is really really fast the main UI won't even flicker 😎
-    jqList.children().css('visibility', 'hidden');
+    jQueryList.children().css('visibility', 'hidden');
     await new Promise(resolve => setTimeout(resolve, 0));
 
     list = [];
-    domList = [];
     oldList = [];
-    jqList.empty();
+    jQueryList.empty();
     lockUI(true);
 
-    const settings = generator.next().value;
+    STOP_SIGNAL = false;
+    let done = false;
+    let oldPercent = 0;
+    let newPercent;
+
+    const settings = optimizerCore.setup(list, input);
+    const generator = optimizerCore.calculate(settings);
 
     $(Selector.OUTPUT.PROGRESS_BAR)
       .closest('td')
@@ -327,12 +325,6 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
           : '')
     );
 
-    worstScore.value = undefined;
-    STOP_SIGNAL = false;
-    let done = false;
-    let oldPercent = 0;
-    let newPercent;
-
     // calculation loop
     while (true) {
       ({ done, value: newPercent } = generator.next());
@@ -363,7 +355,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       }
     }
     lockUI(false);
-    if (jqList.children().length) {
+    if (jQueryList.children().length) {
       prettyResults();
     }
   }
@@ -413,71 +405,31 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     ).data('character', character);
   }
 
-  function insertCharacterJs (character) {
-    const { settings } = character;
-
-    if (
-      !character.valid
-      || (worstScore.value && worstScore.value > character.attributes[settings.rankby])
-    ) {
-      return;
-    }
-
-    // id 01234 [5][6]
-    // #  12345
-    // len = 5
-
-    if (list.length === 0) {
-      list.push(character);
-    } else {
-      let position = list.length;
-      while (position > 0 && optimizerCore.characterLT(
-        list[position - 1], character)) {
-        position--;
-      }
-
-      if (position > settings.maxResults - 1) {
-        return;
-      }
-
-      if (position <= list.length - 1) {
-        list.splice(position, 0, character);
-
-        if (list.length > settings.maxResults) {
-          list.length = settings.maxResults;
-        }
-      } else {
-        list.push(character);
-      }
-
-      if (list.length === settings.maxResults) {
-        worstScore.value = list[list.length - 1].attributes[settings.rankby];
-      }
-    }
-  }
-
+  // this algorithm assumes you only ever insert into this list
   function updateDOM () {
 
+    // insert all new items
     for (let i = 0; i < list.length; i++) {
+      let newItem = null;
+
       if (list[i] !== oldList[i]) {
-        if (domList[i]) {
+        newItem = characterToRow(list[i]);
+        oldList.splice(i, 0, list[i]);
 
-          const oldContent = domList[i];
-          domList[i] = characterToRow(list[i]);
-
-          oldContent.replaceWith(domList[i]);
-
+        if (i) {
+          jQueryList.children().eq(i - 1).after(newItem);
         } else {
-          const newCharacter = characterToRow(list[i]);
-          jqList.append(newCharacter);
-
-          domList.push(newCharacter);
+          jQueryList.prepend(newItem);
         }
       }
-
     }
 
-    oldList = list.splice();
+    // remove extra items
+    for (let i = oldList.length - 1; i > list.length - 1; i--) {
+      jQueryList.children().eq(i).remove();
+    }
+
+    oldList = list.slice();
   }
 
   // Generates the card, that shows up when one clicks on the result.
@@ -738,9 +690,9 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     const getSortValue = character => character.attributes[character.settings.rankby];
 
     // display indicator line under the results identical to the best
-    const bestValue = getSortValue(jqList.children().eq(0).data('character'));
+    const bestValue = getSortValue(jQueryList.children().eq(0).data('character'));
     // eslint-disable-next-line consistent-return
-    jqList.children().each(function (i, element) {
+    jQueryList.children().each(function (i, element) {
       if (getSortValue($(element).data('character')) !== bestValue) {
         $(element).prev().css('border-bottom', '4px solid #2f3238');
         return false; // jquery loop break
