@@ -76,7 +76,8 @@ const DISTRIBUTION_NAMES = [
 
 class DamageDistribution extends React.Component {
   state = {
-    distribution: [100, 0, 0, 0, 0, 0],
+    distribution: [2, 0, 0, 0, 0, 0], // actual real selected damage distribution at any time
+    textBoxes: ["2", "0", "0", "0", "0", "0"], // locally displayed in the text boxes. Text boxes might contain a string that is not a real number (yet), so we need to store those separately
     enableOld: false
   };
 
@@ -92,20 +93,6 @@ class DamageDistribution extends React.Component {
     // console.log(distribution);
 
     this.setState({ ...this.state, distribution: distribution });
-  };
-
-  onUpdateNew = (render, handle, value, un, percent, num) => {
-    const distribution = this.state.distribution;
-    distribution[num] = value;
-    this.setState({ ...this.state, distribution: distribution });
-  };
-
-  handleChangeTextNew = (e, num) => {
-    const val = e.target.value === "" ? "0" : e.target.value;
-    if (val.match("[+]?([0-9]*[.])?[0-9]+")) {
-      this.state.distribution[num] = val;
-      this.setState({ ...this.state, distribution: this.state.distribution });
-    }
   };
 
   SliderOld = () => {
@@ -147,8 +134,30 @@ class DamageDistribution extends React.Component {
     );
   };
 
+  onUpdateNew = (num) => (render, handle, value, un, percent) => {
+    this.setState({
+      ...this.state,
+      distribution: this.state.distribution.map((n, index) => (num === index ? value : n)),
+      textBoxes: this.state.textBoxes.map((n, index) => (num === index ? value : n))
+    });
+  };
+
+  handleChangeTextNew = (num) => (e) => {
+    let val = e.target.value;
+    let distribution = this.state.distribution;
+    if (val.match("^[-+]?[0-9]*.?[0-9]+([eE][-+]?[0-9]+)?$")) {
+      // only update the actual slider when the number entered is a valid string. The regex matches for integer or floats.
+      distribution = distribution.map((n, index) => (num === index ? val : n));
+    }
+    this.setState({
+      ...this.state,
+      textBoxes: this.state.textBoxes.map((n, index) => (num === index ? val : n)),
+      distribution: distribution
+    });
+  };
+
   SlidersNew = () => {
-    const { distribution } = this.state;
+    const { distribution, textBoxes } = this.state;
 
     return (
       <>
@@ -166,7 +175,7 @@ class DamageDistribution extends React.Component {
                   </InputLabel>
                   <Input
                     id={"input-with-icon-adornment-" + index}
-                    value={distribution[index]}
+                    value={textBoxes[index]}
                     endAdornment={
                       <InputAdornment position="end">
                         {d.name === "Power" ? (
@@ -176,14 +185,14 @@ class DamageDistribution extends React.Component {
                         )}
                       </InputAdornment>
                     }
-                    onChange={(e) => this.handleChangeTextNew(e, index)}
+                    onChange={this.handleChangeTextNew(index)}
                   />
                 </FormControl>
               </Grid>
               <Grid item xs={12} sm={8}>
                 <Nouislider
                   className={classNames(this.props.classes.sliderNew, this.props.classes.slider)}
-                  start={[distribution[index]]}
+                  start={distribution[index]}
                   connect={[true, false]}
                   range={{
                     min: [d.min],
@@ -202,9 +211,7 @@ class DamageDistribution extends React.Component {
                     ],
                     density: 5
                   }}
-                  onUpdate={(render, handle, value, un, percent) =>
-                    this.onUpdateNew(render, handle, value, un, percent, index)
-                  }
+                  onSlide={this.onUpdateNew(index)}
                 />
               </Grid>
             </React.Fragment>
