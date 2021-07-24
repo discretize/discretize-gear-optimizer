@@ -5,7 +5,12 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-theme-ui",
-    `gatsby-transformer-yaml`,
+    {
+      resolve: `gatsby-transformer-yaml`,
+      options: {
+        typeName: ({ node, object, isArray }) => object['GraphQL ID']
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
