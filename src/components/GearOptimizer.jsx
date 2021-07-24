@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { withStyles, Switch, FormControlLabel, Divider, Button } from "@material-ui/core";
+import { useSelector, useDispatch } from "react-redux";
+import { getProfession } from "../state/gearOptimizerSlice";
 
 import ClassSelection from "./ClassSelection";
 import Traits from "./Traits";
@@ -28,139 +30,127 @@ const styles = (theme) => ({
   }
 });
 
-class GearOptimizer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      expertMode: true,
-      profession: undefined,
-      traits: [],
-      buffs: {}
-    };
-  }
+const GearOptimizer = ({ classes }) => {
+  const [expertMode, setExpertMode] = useState(true);
+  const profession = useSelector(getProfession);
 
-  onStartCalculate = (e) => {
+  function onStartCalculate(e) {
     // TODO do calc
     console.log("calculate");
-  };
+  }
 
-  onCancelCalculate = (e) => {
+  function onCancelCalculate(e) {
     // TODO do cancel calc
     console.log("cancel calculate");
-  };
-
-  render() {
-    const { expertMode, profession, traits } = this.state;
-    return (
-      <div className={this.props.classes.root}>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={expertMode}
-              onChange={(e) => this.setState({ ...this.state, expertMode: e.target.checked })}
-              name="checked"
-              color="primary"
-            />
-          }
-          label="Expert Mode"
-        />
-
-        <ClassSelection
-          specialization={(prof) => this.setState({ ...this.state, profession: prof })}
-        />
-
-        {/* TODO add template selection here */}
-
-        {expertMode &&
-          PROFESSIONS.map((p) => (
-            <React.Fragment key={"traits_" + p}>
-              {profession === p ? (
-                <Traits
-                  profession={p}
-                  traits={(traits) => this.setState({ ...this.state, traits: traits })}
-                />
-              ) : null}
-            </React.Fragment>
-          ))}
-
-        {/* TODO add skill selection here */}
-        {expertMode && (
-          <>
-            <GW2Select
-              name="Runes"
-              label={
-                <>
-                  <Item id={24836} disableLink disableText disableTooltip /> Rune
-                </>
-              }
-            />
-            <GW2Select
-              name="Sigil1"
-              label={
-                <>
-                  <Item id={24615} disableLink disableText disableTooltip /> Sigil 1
-                </>
-              }
-            />
-            <GW2Select
-              name="Sigil2"
-              label={
-                <>
-                  <Item id={24868} disableLink disableText disableTooltip /> Sigil 2
-                </>
-              }
-            />
-            <GW2Select name="Nourishment" label={<ConsumableEffect name="Nourishment" />} />
-            <GW2Select name="Enhancement" label={<ConsumableEffect name="Enhancement" />} />
-          </>
-        )}
-
-        {expertMode && (
-          <>
-            <Divider />
-            <Buffs buffs={(buffs) => this.setState({ ...this.state, buffs: buffs })} />
-          </>
-        )}
-
-        <Divider />
-        <ARinput ar={(ar) => this.setState({ ...this.state, ar: ar })} />
-
-        {expertMode && (
-          <>
-            <Divider />
-            <Priorities />
-          </>
-        )}
-
-        {expertMode && (
-          <>
-            <Divider />
-            <DamageDistribution />
-          </>
-        )}
-
-        <Divider />
-
-        <Button
-          variant="outlined"
-          color="primary"
-          className={this.props.classes.button}
-          onClick={this.onStartCalculate}
-        >
-          <Functions className={this.props.classes.icon}></Functions> Calculate
-        </Button>
-        <Button
-          variant="outlined"
-          color="primary"
-          className={this.props.classes.button}
-          onClick={this.onCancelCalculate}
-        >
-          <Cancel className={this.props.classes.icon}></Cancel> Stop
-        </Button>
-      </div>
-    );
   }
-}
+
+  return (
+    <div className={classes.root}>
+      <FormControlLabel
+        control={
+          <Switch
+            checked={expertMode}
+            onChange={(e) => this.setState({ ...this.state, expertMode: e.target.checked })}
+            name="checked"
+            color="primary"
+          />
+        }
+        label="Expert Mode"
+      />
+
+      <ClassSelection />
+
+      {/* TODO add template selection here */}
+
+      {expertMode &&
+        PROFESSIONS.map((p) => (
+          <React.Fragment key={"traits_" + p}>
+            {profession === p ? (
+              <Traits
+                profession={p}
+                traits={(traits) => this.setState({ ...this.state, traits: traits })}
+              />
+            ) : null}
+          </React.Fragment>
+        ))}
+
+      {/* TODO add skill selection here */}
+      {expertMode && (
+        <>
+          <GW2Select
+            name="Runes"
+            label={
+              <>
+                <Item id={24836} disableLink disableText disableTooltip /> Rune
+              </>
+            }
+          />
+          <GW2Select
+            name="Sigil1"
+            label={
+              <>
+                <Item id={24615} disableLink disableText disableTooltip /> Sigil 1
+              </>
+            }
+          />
+          <GW2Select
+            name="Sigil2"
+            label={
+              <>
+                <Item id={24868} disableLink disableText disableTooltip /> Sigil 2
+              </>
+            }
+          />
+          <GW2Select name="Nourishment" label={<ConsumableEffect name="Nourishment" />} />
+          <GW2Select name="Enhancement" label={<ConsumableEffect name="Enhancement" />} />
+        </>
+      )}
+
+      {expertMode && (
+        <>
+          <Divider />
+          <Buffs buffs={(buffs) => this.setState({ ...this.state, buffs: buffs })} />
+        </>
+      )}
+
+      <Divider />
+      <ARinput ar={(ar) => this.setState({ ...this.state, ar: ar })} />
+
+      {expertMode && (
+        <>
+          <Divider />
+          <Priorities />
+        </>
+      )}
+
+      {expertMode && (
+        <>
+          <Divider />
+          <DamageDistribution />
+        </>
+      )}
+
+      <Divider />
+
+      <Button
+        variant="outlined"
+        color="primary"
+        className={classes.button}
+        onClick={onStartCalculate}
+      >
+        <Functions className={classes.icon}></Functions> Calculate
+      </Button>
+      <Button
+        variant="outlined"
+        color="primary"
+        className={classes.button}
+        onClick={onCancelCalculate}
+      >
+        <Cancel className={classes.icon}></Cancel> Stop
+      </Button>
+    </div>
+  );
+};
 
 export const PROFESSIONS = [
   "Warrior",

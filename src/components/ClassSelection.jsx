@@ -1,6 +1,9 @@
 import React from "react";
 import { Button, withStyles } from "@material-ui/core";
 
+import { useSelector, useDispatch } from "react-redux";
+import { changeProfession, getProfession } from "../state/gearOptimizerSlice";
+
 import { Profession } from "gw2-ui";
 import { PROFESSIONS } from "./GearOptimizer";
 
@@ -34,45 +37,29 @@ const styles = (theme) => ({
   }
 });
 
-class ClassSelection extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      specialization: ""
-    };
-  }
+const ClassSelection = ({ classes }) => {
+  const dispatch = useDispatch();
+  const profession = useSelector(getProfession);
 
-  setSpecialization = (val) => {
-    this.setState({
-      specialization: val
-    });
-    // set callback ref in parent component
-    this.props.specialization(val);
-  };
-
-  render() {
-    return (
-      <div className={this.props.classes.buttonGroup}>
-        {PROFESSIONS.map((elem) => (
-          <Button
-            variant="outlined"
-            color="primary"
-            size="medium"
-            style={
-              elem === this.state.specialization
-                ? { backgroundColor: "currentcolor" }
-                : { borderColor: "inherit" }
-            }
-            className={this.props.classes.button}
-            onClick={() => this.setSpecialization(elem)}
-            key={elem}
-          >
-            <Profession name={elem} disableLink />
-          </Button>
-        ))}
-      </div>
-    );
-  }
-}
+  return (
+    <div className={classes.buttonGroup}>
+      {PROFESSIONS.map((elem) => (
+        <Button
+          variant="outlined"
+          color="primary"
+          size="medium"
+          style={
+            elem === profession ? { backgroundColor: "currentcolor" } : { borderColor: "inherit" }
+          }
+          className={classes.button}
+          onClick={() => dispatch(changeProfession(elem))}
+          key={elem}
+        >
+          <Profession name={elem} disableLink />
+        </Button>
+      ))}
+    </div>
+  );
+};
 
 export default withStyles(styles)(ClassSelection);
