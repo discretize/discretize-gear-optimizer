@@ -4,12 +4,15 @@ import { applyMiddleware, combineReducers, compose, createStore as reduxCreateSt
 
 const { requestsReducer, requestsMiddleware } = handleRequests();
 
+import gearOptimizerReducer from "./gearOptimizerSlice";
+
 const reducers = combineReducers({
   requests: requestsReducer,
+  gearOptimizer: gearOptimizerReducer
 });
 
 const composeEnhancers =
-  (typeof window !== 'undefined' &&
+  (typeof window !== "undefined" &&
     // eslint-disable-next-line no-underscore-dangle
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
   compose;
@@ -17,10 +20,8 @@ const composeEnhancers =
 export default () => {
   const store = reduxCreateStore(
     reducers,
-    composeEnhancers(applyMiddleware(...requestsMiddleware)),
+    composeEnhancers(applyMiddleware(...requestsMiddleware))
   );
-
-
 
   return store;
 };

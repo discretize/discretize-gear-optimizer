@@ -1,19 +1,15 @@
 /* eslint-disable react/jsx-filename-extension */
 
-import React from 'react';
-import { Provider } from 'react-redux';
-import { renderToString } from 'react-dom/server';
-import { JssProvider } from 'react-jss';
+import React from "react";
+import { Provider } from "react-redux";
+import { renderToString } from "react-dom/server";
+import { JssProvider } from "react-jss";
 
-import getPageContext from './src/utils/getPageContext';
-import createStore from './src/utils/createStore';
+import getPageContext from "./src/utils/getPageContext";
+import createStore from "./src/state/createStore";
 
 // eslint-disable-next-line import/prefer-default-export
-export const replaceRenderer = ({
-                                  bodyComponent,
-                                  replaceBodyHTMLString,
-                                  setHeadComponents,
-                                }) => {
+export const replaceRenderer = ({ bodyComponent, replaceBodyHTMLString, setHeadComponents }) => {
   const store = createStore();
   const { sheetsRegistry } = getPageContext();
 
@@ -21,8 +17,8 @@ export const replaceRenderer = ({
     renderToString(
       <Provider store={store}>
         <JssProvider registry={sheetsRegistry}>{bodyComponent}</JssProvider>
-      </Provider>,
-    ),
+      </Provider>
+    )
   );
 
   setHeadComponents([
@@ -32,8 +28,8 @@ export const replaceRenderer = ({
       key="jss-server-side"
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{
-        __html: sheetsRegistry.toString(),
+        __html: sheetsRegistry.toString()
       }}
-    />,
+    />
   ]);
 };
