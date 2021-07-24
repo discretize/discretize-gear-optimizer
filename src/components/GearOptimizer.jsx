@@ -63,16 +63,7 @@ const GearOptimizer = ({ classes }) => {
       {/* TODO add template selection here */}
 
       {expertMode &&
-        PROFESSIONS.map((p) => (
-          <React.Fragment key={"traits_" + p}>
-            {profession === p ? (
-              <Traits
-                profession={p}
-                traits={(traits) => this.setState({ ...this.state, traits: traits })}
-              />
-            ) : null}
-          </React.Fragment>
-        ))}
+        PROFESSIONS.filter((p) => p === profession).map((p) => <Traits profession={p} />)}
 
       {/* TODO add skill selection here */}
       {expertMode && (

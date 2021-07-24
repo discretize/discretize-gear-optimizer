@@ -1,20 +1,28 @@
 import React from "react";
 import {
   Checkbox,
-  FormControl, Input,
+  FormControl,
+  Input,
   InputLabel,
   ListItemText,
   MenuItem,
   Select,
   withStyles
 } from "@material-ui/core";
+import { useSelector, useDispatch } from "react-redux";
 
 import { Specialization, TraitLine } from "gw2-ui";
+import {
+  getTraitLines,
+  getTraits,
+  changeTraits,
+  changeTraitLine
+} from "../state/gearOptimizerSlice";
 
 const styles = (theme) => ({
   formControl: {
     minWidth: 120,
-    margin: theme.spacing.unit,
+    margin: theme.spacing.unit
   }
 });
 
@@ -50,50 +58,23 @@ const traitsAll = [
   }
 ];
 
-class Traits extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      traits: [
-        {
-          id: 0,
-          select: [0, 0, 0]
-        },
-        {
-          id: 0,
-          select: [0, 0, 0]
-        },
-        {
-          id: 0,
-          select: [0, 0, 0]
-        }
-      ]
-    };
-  }
-
+const Traits = ({ classes, profession }) => {
+  const dispatch = useDispatch();
+  const traitlines = useSelector(getTraitLines);
+  const traits = useSelector(getTraits);
 
   /**
    * Change handler for the multi-selects, where one can select the traitlines that may be used
    * for the calculation.
    * Prevents more than 3 selections at the same time.
    */
-  handleChangeMultipleSelect = (event) => {
-    const newVals = event.target.value;
-    if (newVals.length < 4) {
-      const selectedTraitLines = [];
-      newVals.forEach((id, index) => {
-        selectedTraitLines[index] = {
-          id,
-          // preserves previous state of existing traitlines
-          select:
-            this.state.traits.filter((elem) => elem.id === id).length === 1
-              ? this.state.traits.filter((elem) => elem.id === id)[0].select
-              : [0, 0, 0]
-        };
-      });
-      this.setState({ traits: selectedTraitLines });
+  function handleChangeMultipleSelect(e) {
+    const val = e.target.value;
+    if (val.length > 3) {
+      return;
     }
-  };
+    dispatch(changeTraitLine(val));
+  }
 
   /**
    * Handles the change in individual traitlines for the actual traits.
@@ -101,76 +82,57 @@ class Traits extends React.Component {
    * @param id the id of the traitline that experienced a change
    * @param event
    */
-  handleTraitChange = (id, event) => {
-    // { tier: number, id: number, index: number }
-    const { traits } = this.state;
-    const changedTraits = [];
-    traits.forEach((elem) => {
-      if (elem.id === Number(id)) {
-        changedTraits.push({
-          id,
-          select: elem.select.map((value, index) =>
-            index === event.tier ? event.id : value
-          )
-        });
-      } else {
-        changedTraits.push(elem);
-      }
-    });
-
-    this.setState({ traits: changedTraits });
-
-    // set callback ref in parent component
-    this.props.traits(changedTraits);
-  };
-
-  render() {
-    const { traits } = this.state;
-
-    return (
-      <>
-        <FormControl className={this.props.classes.formControl}>
-          <InputLabel id="mutiple-checkbox-label">Traitlines</InputLabel>
-          <Select
-            id="mutiple-checkbox"
-            multiple
-            value={traits.filter((elem) => elem.id > 0).map((st) => st.id)}
-            onChange={this.handleChangeMultipleSelect}
-            input={<Input />}
-            renderValue={(selected) =>
-              selected.map((id) => (
-                <React.Fragment key={"s_" + id }>
-                  <Specialization id={id} disableLink />{" "}
-                </React.Fragment>
-              ))}
-          >
-            {traitsAll
-              .filter((elem) => elem.profession === this.props.profession)[0]
-              .traits.map((id) => (
-                <MenuItem key={id} value={id}>
-                  <Checkbox
-                    checked={traits.map((st) => st.id).indexOf(id) > -1}
-                  />
-                  <ListItemText>
-                    <Specialization id={id} disableLink />
-                  </ListItemText>
-                </MenuItem>
-              ))}
-          </Select>
-        </FormControl>
-
-        { /* Render the actual trait lines  */}
-        { /* TODO console error: onUseCallback*/ }
-        {traits.filter(line => line.id > 0).map(line => (
-          <TraitLine id={line.id}
-                     key={line.id}
-                     selectable
-                     selected={line.select}
-                     onSelect={(event) => this.handleTraitChange(line.id, event)} />
-        ))}
-      </>
-    );
+  function handleTraitChange(e, id, index) {
+    const selected = [...traits[index]];
+    selected[e.tier] = e.id;
+    dispatch(changeTraits({ index: index, selected: selected }));
   }
-}
+
+  return (
+    <>
+      <FormControl className={classes.formControl}>
+        <InputLabel id="mutiple-checkbox-label">Traitlines</InputLabel>
+        <Select
+          id="mutiple-checkbox"
+          multiple
+          value={traitlines}
+          onChange={handleChangeMultipleSelect}
+          input={<Input />}
+          renderValue={(selected) =>
+            selected.map((id) => (
+              <React.Fragment key={"s_" + id}>
+                <Specialization id={id} disableLink />{" "}
+              </React.Fragment>
+            ))
+          }
+        >
+          {traitsAll
+            .filter((elem) => elem.profession === profession)[0]
+            .traits.map((e) => e.toString())
+            .map((id) => (
+              <MenuItem key={id} value={id}>
+                <Checkbox checked={traitlines.indexOf(id) > -1} />
+                <ListItemText>
+                  <Specialization id={id} disableLink />
+                </ListItemText>
+              </MenuItem>
+            ))}
+        </Select>
+      </FormControl>
+
+      {/* Render the actual trait lines  */}
+      {/* TODO console error: onUseCallback */}
+      {traitlines.map((line, index) => (
+        <TraitLine
+          id={line}
+          key={line}
+          selectable
+          selected={traits[index]}
+          onSelect={(event) => handleTraitChange(event, line, index)}
+        />
+      ))}
+    </>
+  );
+};
 
 export default withStyles(styles)(Traits);
