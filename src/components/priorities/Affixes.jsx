@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Input,
   FormControlLabel,
@@ -10,11 +10,14 @@ import {
 } from "@material-ui/core";
 
 import { Item, Attribute } from "gw2-ui";
+import { useSelector, useDispatch } from "react-redux";
+import { changeGeneric, getGeneric } from "../../state/gearOptimizerSlice";
 
 const styles = (theme) => ({
   text: {
     color: "#ddd !important"
   },
+
   checkbox: {
     width: 130
   }
@@ -71,57 +74,41 @@ export const AFFIXES = [
   "Celestial"
 ];
 
-class ARinput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      affixes: []
-    };
-  }
+const Affixes = ({ classes }) => {
+  const dispatch = useDispatch();
 
-  handleChange = (name) => (event) => {
-    let newSelected = this.state.affixes;
+  const [selected, setSelected] = useState([]);
+  const affixes = useSelector(getGeneric("affixes"));
 
+  const handleChange = (name) => (event) => {
+    let selectedNew = [...selected];
     if (event.target.checked) {
-      newSelected.push(name);
+      selectedNew.push(name);
     } else {
-      newSelected = newSelected.filter((o) => o !== name);
+      selectedNew = selectedNew.filter((o) => o !== name);
     }
-    this.setState({ affixes: newSelected });
+    setSelected(selectedNew);
+    dispatch(changeGeneric({ toChange: "affixes", value: selectedNew }));
   };
 
-  render() {
-    const { affixes } = this.state;
-
-    return (
-      <>
-        <FormGroup row>
-          {AFFIXES.map((a) => (
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={this.state.checkedA}
-                  value={a}
-                  color="primary"
-                  onChange={this.handleChange(a)}
-                />
-              }
-              className={this.props.classes.checkbox}
-              label={
-                <Item
-                  stat={a}
-                  type="Ring"
-                  disableLink
-                  text={a}
-                  className={this.props.classes.text}
-                />
-              }
+  return (
+    <FormGroup row>
+      {AFFIXES.map((a) => (
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={affixes.indexOf(a) > -1}
+              value={a}
+              color="primary"
+              onChange={handleChange(a)}
             />
-          ))}
-        </FormGroup>
-      </>
-    );
-  }
-}
+          }
+          className={classes.checkbox}
+          label={<Item stat={a} type="Ring" disableLink text={a} className={classes.text} />}
+        />
+      ))}
+    </FormGroup>
+  );
+};
 
-export default withStyles(styles)(ARinput);
+export default withStyles(styles)(Affixes);
