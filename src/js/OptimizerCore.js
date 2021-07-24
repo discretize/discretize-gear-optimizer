@@ -25,21 +25,22 @@ let list;
  * @param {String} input.profession
  * @param {String} input.weapontype
  * @param {String[]} input.affixes - all selected gear affixes to iterate over
- * @param {String[]} input.forcedAffixes - array of '' or specific affix names
+ * @param {String[]} input.forcedAffixes - array of specific affix names for each slot,
+ *                                         or '' for unspecfied
  * @param {String} input.rankby - "Damage"/"Survivability"/"Healing"
- * @param {Number} input.minBoonDuration
- * @param {Number} input.minHealingPower
- * @param {Number} input.minToughness
- * @param {Number} input.maxToughness
- * @param {Number} input.maxResults
+ * @param {number} input.minBoonDuration
+ * @param {number} input.minHealingPower
+ * @param {number} input.minToughness
+ * @param {number} input.maxToughness
+ * @param {number} input.maxResults
  * @param {?String} input.primaryInfusion
- * @param {?String} input.secondaryInfusionInput
- * @param {?Number} input.primaryMaxInfusions
- * @param {?Number} input.secondaryMaxInfusions
- * @param {Object.<String, Number>} input.distribution
+ * @param {?String} input.secondaryInfusion
+ * @param {?Number} input.primaryMaxInfusions - number of infusions, 0-18
+ * @param {?Number} input.secondaryMaxInfusions - number of infusions, 0-18
+ * @param {?Object.<String, Number>} input.distribution - old style distribution
  * @param {String[]} input.relevantConditions - I should remove this tbh
  *
- * @returns {Object} - settings
+ * @returns {Object} settings - parsed settings object
  */
 export function setup (listInput, input) {
   worstScore = undefined;
@@ -359,8 +360,6 @@ export function setup (listInput, input) {
   }
   settings.runsAfterThisSlot.push(1);
 
-  /* Set up optimizer */
-
   // const freeSlots = settings.weapontype === 'Dual wield' ? 5 : 6;
   // const pairs = settings.weapontype === 'Dual wield' ? 3 : 2;
   // const triplets = 1;
@@ -390,8 +389,10 @@ export function setup (listInput, input) {
  * A generator function that iterates synchronously through all possible builds, updating the list
  * object with the best results. Yields periodically to allow UI to be updated or cancelled.
  *
+ * Remember, a generator's next() function returns a plain object { value, done }.
+ *
  * @param {*} settings
- * @yields {Number} - the progress percentage
+ * @yields {number} percent - the progress percentage
  */
 export function * calculate (settings) {
   applyInfusionsFunction = applyInfusions[settings.infusionMode];
@@ -904,7 +905,7 @@ function calcHealing (_character, multipliers) {
 /**
  * Clones a character. baseAttributes is cloned by value, so it can be mutated. Please
  * don't directly mutate character.attributes; it's passed by reference so the clone shares
- * the old one until upateAttributes is called on it.
+ * the old one until updateAttributes is called on it.
  *
  * @param {Object} character
  * @returns {Object} character
