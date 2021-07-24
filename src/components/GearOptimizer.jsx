@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { StaticQuery, graphql } from "gatsby";
 import { withStyles, Switch, FormControlLabel, Divider, Button } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
 import { getProfession } from "../state/gearOptimizerSlice";
@@ -50,7 +51,7 @@ const GearOptimizer = ({ classes }) => {
         control={
           <Switch
             checked={expertMode}
-            onChange={(e) => this.setState({ ...this.state, expertMode: e.target.checked })}
+            onChange={(e) => setExpertMode(e.target.checked)}
             name="checked"
             color="primary"
           />
@@ -68,32 +69,100 @@ const GearOptimizer = ({ classes }) => {
       {/* TODO add skill selection here */}
       {expertMode && (
         <>
-          <GW2Select
-            name="Runes"
-            label={
+          <StaticQuery
+            query={graphql`
+              query myEpicQuery {
+                runes: runes {
+                  id
+                  list {
+                    items {
+                      text
+                      gw2_id
+                      subText
+                      id
+                    }
+                    section
+                  }
+                }
+                sigils: sigils {
+                  id
+                  list {
+                    items {
+                      text
+                      gw2_id
+                      subText
+                      id
+                    }
+                    section
+                  }
+                }
+                nourishment: food {
+                  id
+                  list {
+                    items {
+                      text
+                      gw2_id
+                      subText
+                      id
+                    }
+                    section
+                  }
+                }
+                enhancement: utility {
+                  id
+                  list {
+                    items {
+                      text
+                      gw2_id
+                      id
+                    }
+                    section
+                  }
+                }
+              }
+            `}
+            render={(data) => (
               <>
-                <Item id={24836} disableLink disableText disableTooltip /> Rune
+                <GW2Select
+                  name="Runes"
+                  label={
+                    <>
+                      <Item id={24836} disableLink disableText disableTooltip /> Rune
+                    </>
+                  }
+                  data={data.runes.list}
+                />
+                <GW2Select
+                  name="Sigil1"
+                  label={
+                    <>
+                      <Item id={24615} disableLink disableText disableTooltip /> Sigil 1
+                    </>
+                  }
+                  data={data.sigils.list}
+                />
+                <GW2Select
+                  name="Sigil2"
+                  label={
+                    <>
+                      <Item id={24868} disableLink disableText disableTooltip /> Sigil 2
+                    </>
+                  }
+                  data={data.sigils.list}
+                />
+                <GW2Select
+                  name="Nourishment"
+                  label={<ConsumableEffect name="Nourishment" />}
+                  data={data.nourishment.list}
+                />
+                <GW2Select
+                  name="Enhancement"
+                  label={<ConsumableEffect name="Enhancement" data={data.sigils.list} />}
+                  data={data.enhancement.list}
+                />
               </>
-            }
+            )}
           />
-          <GW2Select
-            name="Sigil1"
-            label={
-              <>
-                <Item id={24615} disableLink disableText disableTooltip /> Sigil 1
-              </>
-            }
-          />
-          <GW2Select
-            name="Sigil2"
-            label={
-              <>
-                <Item id={24868} disableLink disableText disableTooltip /> Sigil 2
-              </>
-            }
-          />
-          <GW2Select name="Nourishment" label={<ConsumableEffect name="Nourishment" />} />
-          <GW2Select name="Enhancement" label={<ConsumableEffect name="Enhancement" />} />
         </>
       )}
 

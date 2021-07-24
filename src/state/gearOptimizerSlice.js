@@ -12,7 +12,12 @@ export const gearOptimizerSlice = createSlice({
         [0, 0, 0],
         [0, 0, 0]
       ]
-    }
+    },
+    Runes: "",
+    Sigil1: "",
+    Sigil2: "",
+    Enhancement: "",
+    Nourishment: ""
   },
   reducers: {
     changeProfession: (state, action) => {
@@ -26,6 +31,9 @@ export const gearOptimizerSlice = createSlice({
     },
     changeTraits: (state, action) => {
       state.traits.selected[action.payload.index] = action.payload.selected;
+    },
+    changeGeneric: (state, action) => {
+      state[action.payload.toChange] = action.payload.value;
     }
   }
 });
@@ -34,8 +42,9 @@ export const getProfession = (state) => state.gearOptimizer.profession;
 export const getAR = (state) => state.gearOptimizer.ar;
 export const getTraitLines = (state) => state.gearOptimizer.traits.lines;
 export const getTraits = (state) => state.gearOptimizer.traits.selected;
+export const getGeneric = (state, key) => state.gearOptimizer[key];
 
-export const { changeProfession, changeAR, changeTraitLine, changeTraits } =
+export const { changeProfession, changeAR, changeTraitLine, changeTraits, changeGeneric } =
   gearOptimizerSlice.actions;
 
 export default gearOptimizerSlice.reducer;
