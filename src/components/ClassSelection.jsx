@@ -23,7 +23,9 @@ const styles = (theme) => ({
     }
   },
   button: {
-    borderRadius: 0
+    borderRadius: 0,
+    paddingLeft: theme.spacing.unit * 1.5,
+    paddingRight: theme.spacing.unit * 1.5
   },
   [theme.breakpoints.down("970")]: {
     button: {
@@ -32,12 +34,11 @@ const styles = (theme) => ({
   }
 });
 
-
 class ClassSelection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      specialization: "",
+      specialization: ""
     };
   }
 
