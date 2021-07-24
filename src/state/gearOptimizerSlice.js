@@ -18,7 +18,7 @@ export const gearOptimizerSlice = createSlice({
     Sigil2: "",
     Enhancement: "",
     Nourishment: "",
-    bannerOfStrength: true,
+    affixes: [],
   },
   reducers: {
     changeProfession: (state, action) => {

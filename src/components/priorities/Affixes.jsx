@@ -76,18 +76,15 @@ export const AFFIXES = [
 
 const Affixes = ({ classes }) => {
   const dispatch = useDispatch();
-
-  const [selected, setSelected] = useState([]);
   const affixes = useSelector(getGeneric("affixes"));
 
   const handleChange = (name) => (event) => {
-    let selectedNew = [...selected];
+    let selectedNew = [...affixes];
     if (event.target.checked) {
       selectedNew.push(name);
     } else {
       selectedNew = selectedNew.filter((o) => o !== name);
     }
-    setSelected(selectedNew);
     dispatch(changeGeneric({ toChange: "affixes", value: selectedNew }));
   };
 
