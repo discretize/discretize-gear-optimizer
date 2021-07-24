@@ -325,11 +325,12 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     );
 
     // calculation loop
+    let count = 0;
     while (true) {
       ({ done, value: newPercent } = generator.next());
-      updateDOM();
 
       if (done) {
+        updateDOM();
         // updateProgressBar(newPercent, true);
         updateProgressBar(
           newPercent,
@@ -337,6 +338,10 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
         );
         break;
       } else {
+        if (count++ % 3 === 0) {
+          updateDOM();
+        }
+
         if (newPercent !== oldPercent) {
           updateProgressBar(newPercent, `${newPercent}%`);
           oldPercent = newPercent;
