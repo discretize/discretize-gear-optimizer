@@ -1,0 +1,273 @@
+GraphQL ID: Revenant
+list:
+
+- section: "Corruption"
+  items:
+
+  - id: acolyte-of-torment
+    text: "Acolyte of Torment"
+    modifiers: >-
+      {
+        "multiplier": { "Torment Damage": 0.1 }
+      }
+    gw2-id: 1793
+    armory-type: "traits"
+
+  - id: seething-malice
+    text: "Seething Malice"
+    modifiers: >-
+      {
+        "buff": { "Condition Damage": 120 }
+      }
+    gw2-id: 1801
+    armory-type: "traits"
+
+  - id: demonic-resistance
+    text: "Demonic Resistance"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Health": 0.2 }
+      }
+    gw2-id: 1726
+    armory-type: "traits"
+
+  - id: pact-of-pain
+    text: "Pact of Pain"
+    modifiers: >-
+      {
+        "flat": { "Condition Duration": 15 }
+      }
+    gw2-id: 1714
+    armory-type: "traits"
+
+  - id: yearning-empowerment
+    text: "Yearning Empowerement"
+    modifiers: >-
+      {
+        "flat": { "Condition Duration": 10 }
+      }
+    gw2-id: 1744
+    armory-type: "traits"
+
+- section: "Retribution"
+  items:
+
+  - id: dwarven-battle-training
+    text: "Dwarven Battle Training"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Power": 0.1 }
+      }
+    gw2-id: 1740
+    armory-type: "traits"
+
+  - id: determined-resolution
+    text: "Determined Resolution"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Health": 0.1 }
+      }
+    gw2-id: 1713
+    armory-type: "traits"
+
+  - id: vicious-reprisal
+    text: "Vicious Reprisal"
+    subText: "100%"
+    modifiers: >-
+      {
+        "multiplier": { "add: Effective Power": 0.1, "add: Effective Condition Damage": 0.1 }
+      }
+    gw2-id: 1779
+    armory-type: "traits"
+
+  - id: versed-in-stone
+    text: "Versed in Stone"
+    modifiers: >-
+      {
+        "convert": { "Power": { "Toughness": 0.13 } }
+      }
+    gw2-id: 1770
+    armory-type: "traits"
+
+- section: "Invocation"
+  items:
+
+  - id: rising-tide
+    text: "Rising Tide"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Power": 0.07 }
+      }
+    gw2-id: 1761
+    armory-type: "traits"
+
+  - id: ferocious-aggression
+    text: "Ferocious Aggression"
+    modifiers: >-
+      {
+        "multiplier": { "add: Effective Power": 0.07, "add: Effective Condition Damage": 0.07 }
+      }
+    gw2-id: 1758
+    armory-type: "traits"
+
+  - id: roiling-mists
+    text: "Roiling Mists"
+    modifiers: >-
+      {
+        "flat": { "Critical Chance": 20 }
+      }
+    gw2-id: 1719
+    armory-type: "traits"
+
+- section: "Devastation"
+  items:
+
+  - id: unsuspecting-strikes
+    text: "Unsuspecting Strikes"
+    subText: "20% uptime -&gt; +4% Damage"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Power": 0.04 }
+      }
+    gw2-id: 1767
+    armory-type: "traits"
+
+  - id: destructive-impulses-dual
+    text: "Destructive Impulses"
+    subText: "Dual wielded"
+    modifiers: >-
+      {
+        "multiplier": { "add: Effective Power": 0.1, "add: Effective Condition Damage": 0.1 }
+      }
+    gw2-id: 1724
+    armory-type: "traits"
+
+  - id: destructive-impulses
+    text: "Destructive Impulses"
+    subText: "Two handed"
+    modifiers: >-
+      {
+        "multiplier": { "add: Effective Power": 0.05, "add: Effective Condition Damage": 0.05 }
+      }
+    gw2-id: 1724
+    armory-type: "traits"
+
+  - id: destructive-impulses-mix
+    text: "Destructive Impulses"
+    subText: "50% dual wield, 50% 2h"
+    modifiers: >-
+      {
+        "multiplier": { "add: Effective Power": 0.075, "add: Effective Condition Damage": 0.075 }
+      }
+    gw2-id: 1724
+    armory-type: "traits"
+
+  - id: notoriety
+    text: "Notoriety"
+    subText: "25 might"
+    modifiers: >-
+      {
+        "buff": { "Power": 250, "Condition Damage": -250 }
+      }
+    gw2-id: 1765
+    armory-type: "traits"
+
+  - id: targeted-destruction
+    text: "Targeted Destruction"
+    subText: "25 vulnerability"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Power": 0.125 }
+      }
+    gw2-id: 1792
+    armory-type: "traits"
+
+  - id: swift-termination
+    text: "Swift Termination"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Power": 0.1 }
+      }
+    gw2-id: 1800
+    armory-type: "traits"
+
+- section: "Salvation"
+  items:
+
+  - id: tranquil-balance
+    text: "Tranquil Balance"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Healing": 0.2 }
+      }
+    gw2-id: 1822
+    armory-type: "traits"
+
+  - id: life-attunement
+    text: "Life Attunement"
+    modifiers: >-
+      {
+        "buff": { "Healing Power": 120 },
+        "convert": { "Concentration": { "Healing Power": 0.07 } }
+      }
+    gw2-id: 1821
+    armory-type: "traits"
+
+  - id: invoking-harmony
+    text: "Invoking Harmony"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Healing": 0.2 }
+      }
+    gw2-id: 1818
+    armory-type: "traits"
+
+- section: "Renegade"
+  items:
+
+  - id: ambush-commander
+    text: "Ambush Commander"
+    subText: "5x Kalla's Fervor"
+    modifiers: >-
+      {
+        "multiplier": { "add: Effective Power": 0.1, "add: Effective Condition Damage": 0.1 }
+      }
+    gw2-id: 2181
+    armory-type: "traits"
+
+  - id: blood-fury
+    text: "Blood Fury"
+    modifiers: >-
+      {
+        "flat": { "Bleeding Duration": 25 }
+      }
+    gw2-id: 2079
+    armory-type: "traits"
+
+  - id: heartpiercer
+    text: "Heartpiercer"
+    modifiers: >-
+      {
+        "multiplier": { "Bleeding Damage": 0.25 }
+      }
+    gw2-id: 2092
+    armory-type: "traits"
+
+  - id: brutal-momentum
+    text: "Brutal Momentum"
+    modifiers: >-
+      {
+        "flat": { "Critical Chance": 33 }
+      }
+    gw2-id: 2142
+    armory-type: "traits"
+
+  - id: lasting-legacy
+    text: "Lasting Legacy"
+    subText: "additional bonus from 5x Kalla's Fervor"
+    modifiers: >-
+      {
+        "multiplier": { "add: Effective Power": 0.05, "add: Effective Condition Damage": 0.05 }
+      }
+    gw2-id: 2100
+    armory-type: "traits"

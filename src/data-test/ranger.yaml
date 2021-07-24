@@ -1,0 +1,349 @@
+GraphQL ID: Ranger
+list:
+
+- section: "Skills"
+  items:
+
+  - id: signet-of-stone
+    text: "Signet of Stone"
+    modifiers: >-
+      {
+        "buff": { "Toughness": 180 }
+      }
+    gw2-id: 12500
+    armory-type: "skills"
+
+  - id: signet-of-the-wild
+    text: "Signet of the Wild"
+    modifiers: >-
+      {
+        "buff": { "Ferocity": 180 }
+      }
+    gw2-id: 12491
+    armory-type: "skills"
+
+- section: "Marksmanship"
+  items:
+
+  - id: farsighted
+    text: "Farsighted"
+    subText: "Melee"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Power": 0.05 }
+      }
+    gw2-id: 1000
+    armory-type: "traits"
+
+  - id: farsighted-2
+    text: "Farsighted"
+    subText: "Ranged"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Power": 0.15 }
+      }
+    gw2-id: 1000
+    armory-type: "traits"
+
+  - id: predators-onslaught
+    text: "Predator's Onslaught"
+    subText: "100% uptime"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Power": 0.15 }
+      }
+    gw2-id: 996
+    armory-type: "traits"
+
+- section: "Skirmishing"
+  items:
+
+  - id: hidden-barbs
+    text: "Hidden Barbs"
+    modifiers: >-
+      {
+        "multiplier": { "Bleeding Damage": 0.33 }
+      }
+    gw2-id: 1846
+    armory-type: "traits"
+
+  - id: hunters-tactics
+    text: "Hunter's Tactics"
+    modifiers: >-
+      {
+        "flat": { "Critical Chance": 10 },
+        "multiplier": { "Effective Power": 0.1 }
+      }
+    gw2-id: 1068
+    armory-type: "traits"
+
+  - id: light-on-your-feet
+    text: "Light on your Feet"
+    subText: "100% uptime"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Power": 0.1 },
+        "flat": { "Condition Duration": 10 }
+      }
+    gw2-id: 1912
+    armory-type: "traits"
+
+  - id: vicious-quarry
+    text: "Vicious Quarry"
+    modifiers: >-
+      {
+        "buff": { "Ferocity": 250 },
+        "flat": { "Critical Chance": 10 }
+      }
+    gw2-id: 1888
+    armory-type: "traits"
+
+- section: "Wilderness Survival"
+  items:
+
+  - id: oakheart-salve
+    text: "Oakheart Salve"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Health": 0.05 }
+      }
+    gw2-id: 1086
+    armory-type: "traits"
+
+  - id: taste-for-danger
+    text: "Taste for Danger"
+    modifiers: >-
+      {
+        "buff": { "Vitality": 120 },
+        "convert": { "Expertise": { "Vitality": 0.07 } }
+      }
+    gw2-id: 1099
+    armory-type: "traits"
+
+  - id: ambidexterity
+    text: "Ambidexterity"
+    subText: "base"
+    modifiers: >-
+      {
+        "buff": { "Condition Damage": 120 }
+      }
+    gw2-id: 1101
+    armory-type: "traits"
+
+  - id: ambidexterity-2
+    text: "Ambidexterity"
+    subText: "with torch/dagger - check both boxes"
+    modifiers: >-
+      {
+        "buff": { "Condition Damage": 120 }
+      }
+    gw2-id: 1101
+    armory-type: "traits"
+
+  - id: poison-master
+    text: "Poison Master"
+    modifiers: >-
+      {
+        "multiplier": { "Poison Damage": 0.25 }
+      }
+    gw2-id: 1701
+    armory-type: "traits"
+
+- section: "Nature Magic"
+  items:
+
+  - id: bountiful-hunter
+    text: "Bountiful Hunter"
+    subText: "6x"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Power": 0.06 }
+      }
+    gw2-id: 1062
+    armory-type: "traits"
+
+  - id: bountiful-hunter-9
+    text: "Bountiful Hunter"
+    subText: "9x"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Power": 0.09 }
+      }
+    gw2-id: 1062
+    armory-type: "traits"
+
+  - id: instinctive-reaction
+    text: "Instinctive Reaction"
+    modifiers: >-
+      {
+        "convert": { "Healing Power": { "Power": 0.07 } }
+      }
+    gw2-id: 978
+    armory-type: "traits"
+
+  - id: lingering-magic
+    text: "Lingering Magic"
+    modifiers: >-
+      {
+        "buff": { "Concentration": 240 }
+      }
+    gw2-id: 1059
+    armory-type: "traits"
+
+- section: "Beastmastery"
+  items:
+
+  - id: honed-axes
+    text: "Honed Axes"
+    subText: "base"
+    modifiers: >-
+      {
+        "buff": { "Ferocity": 120 }
+      }
+    gw2-id: 1066
+    armory-type: "traits"
+
+  - id: honed-axes-2
+    text: "Honed Axes"
+    subText: "with axe 50% - also check base"
+    modifiers: >-
+      {
+        "buff": { "Ferocity": 60 }
+      }
+    gw2-id: 1066
+    armory-type: "traits"
+
+  - id: honed-axes-3
+    text: "Honed Axes"
+    subText: "with axe 100% - also check base"
+    modifiers: >-
+      {
+        "buff": { "Ferocity": 120 }
+      }
+    gw2-id: 1066
+    armory-type: "traits"
+
+- section: "Druid"
+  items:
+
+  - id: natural-mender
+    text: "Natural Mender"
+    subText: "10x"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Healing": 0.2 }
+      }
+    gw2-id: 1992
+    armory-type: "traits"
+
+- section: "Soulbeast"
+  items:
+
+  - id: furious-strength
+    text: "Furious Strength"
+    modifiers: >-
+      {
+        "multiplier": { "add: Effective Power": 0.15 }
+      }
+    gw2-id: 2156
+    armory-type: "traits"
+
+  - id: twice-as-vicious
+    text: "Twice as Vicious"
+    modifiers: >-
+      {
+        "multiplier": { "add: Effective Power": 0.1, "add: Effective Condition Damage": 0.1 }
+      }
+    gw2-id: 2127
+    armory-type: "traits"
+
+  - id: oppressive-superiority
+    text: "Oppressive Superiority"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Power": 0.1 },
+        "flat": { "Condition Duration": 10 }
+      }
+    gw2-id: 2143
+    armory-type: "traits"
+
+- section: "Soulbeast Pet Archetypes"
+  items:
+
+  - id: archetype-stout
+    text: "Stout (Tough/Vit)"
+    modifiers: >-
+      {
+        "buff": { "Toughness": 200, "Vitality": 100 }
+
+  - id: archetype-deadly
+    text: "Deadly (ConDmg/Prec)"
+    modifiers: >-
+      {
+        "buff": { "Condition Damage": 150, "Precision": 100 }
+
+  - id: archetype-versatile
+    text: "Versatile (Vit/Conc)"
+    modifiers: >-
+      {
+        "buff": { "Vitality": 200, "Concentration": 225 }
+
+  - id: archetype-ferocious
+    text: "Ferocious (Pwr/Feroc)"
+    modifiers: >-
+      {
+        "buff": { "Power": 150, "Ferocity": 100 }
+
+  - id: archetype-supportive
+    text: "Supportive (Vit/Heal)"
+    modifiers: >-
+      {
+        "buff": { "Vitality": 100 },
+        "multiplier": { "Effective Healing": 0.25 }
+
+- section: "Soulbeast Pet Buffs To Player"
+  items:
+
+  - id: sb-1
+    text: "Pack Alpha"
+    modifiers: >-
+      {
+        "buff":
+        {
+          "Power": 150,
+          "Precision": 150,
+          "Condition Damage": 150,
+          "Toughness": 150,
+          "Vitality": 150,
+        }
+      }
+    gw2-id: 1900
+    armory-type: "traits"
+
+  - id: sb-2
+    text: "Loud Whistle"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Power": 0.1 }
+      }
+    gw2-id: 974
+    armory-type: "traits"
+
+  - id: sb-3
+    text: "Pet's Prowess"
+    modifiers: >-
+      {
+        "buff": { "Ferocity": 300 }
+      }
+    gw2-id: 1065
+    armory-type: "traits"
+
+  - id: sb-4
+    text: "Honed Axes"
+    subText: "base"
+    modifiers: >-
+      {
+        "buff": { "Ferocity": 120 }
+      }
+    gw2-id: 1066
+    armory-type: "traits"

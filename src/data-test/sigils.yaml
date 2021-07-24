@@ -1,0 +1,215 @@
+GraphQL ID: Sigils
+list:
+
+- section: Power Sigils
+  items:
+
+  - id: force
+    text: "Superior Sigil of Force"
+    modifiers: >-
+      {
+        "multiplier": { "add: Effective Power": 0.05 }
+      }
+    gw2-id: 24615
+    armory-type: "items"
+
+  - id: accuracy
+    text: "Superior Sigil of Accuracy"
+    modifiers: >-
+      {
+        "flat": { "Critical Chance": 7 }
+      }
+    gw2-id: 24618
+    armory-type: "items"
+
+  - id: night/impact/slaying-both
+    text: Superior Sigil of the Night/Impact/Slaying
+    subtext: (Both 7%/3%)
+    modifiers: >-
+      {
+        "multiplier": { "add: Effective Power": 0.03, "Effective Power": 0.07 }
+      }
+    gw2-id: 36053
+    armory-type: "items"
+
+  - id: night/impact/slaying-only-3
+    text: Superior Sigil of the Night/Impact/Slaying
+    subText: (Only 3%)
+    modifiers: >-
+      {
+        "multiplier": { "add: Effective Power": 0.03 }
+      }
+    gw2-id: 36053
+    armory-type: "items"
+
+- section: Support Sigils
+  items:
+
+  - id: concentration
+    text: "Superior Sigil of Concentration"
+    modifiers: >-
+      {
+        "flat": { "Boon Duration": 10 }
+      }
+    gw2-id: 72339
+    armory-type: "items"
+
+- section: Heal Sigils
+  items:
+
+  - id: transference
+    text: "Superior Sigil of Transference"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Healing": 0.1 }
+      }
+    gw2-id: 74326
+    armory-type: "items"
+
+- section: Condition Sigils
+  items:
+
+  - id: malice
+    text: "Superior Sigil of Malice"
+    modifiers: >-
+      {
+        "flat": { "Condition Duration": 10 }
+      }
+    gw2-id: 44950
+    armory-type: "items"
+
+  - id: bursting
+    text: "Superior Sigil of Bursting"
+    modifiers: >-
+      {
+        "multiplier": { "add: Effective Condition Damage": 0.05 }
+      }
+    gw2-id: 44944
+    armory-type: "items"
+
+  - id: agony
+    text: "Superior Sigil of Agony"
+    modifiers: >-
+      {
+        "flat": { "Bleeding Duration": 20 }
+      }
+    gw2-id: 24612
+    armory-type: "items"
+
+  - id: smoldering
+    text: "Superior Sigil of Smoldering"
+    modifiers: >-
+      {
+        "flat": { "Burning Duration": 20 }
+      }
+    gw2-id: 24624
+    armory-type: "items"
+
+  - id: venom
+    text: "Superior Sigil of Venom"
+    modifiers: >-
+      {
+        "flat": { "Poison Duration": 20 }
+      }
+    gw2-id: 24632
+    armory-type: "items"
+
+  - id: demons
+    text: "Superior Sigil of Demons"
+    modifiers: >-
+      {
+        "flat": { "Torment Duration": 20 }
+      }
+    gw2-id: 24583
+    armory-type: "items"
+
+- section: Stacking Sigils (25x)
+  items:
+
+  - id: bloodlust
+    text: "Superior Sigil of Bloodlust"
+    modifiers: >-
+      {
+        "flat": { "Power": 250 }
+      }
+    gw2-id: 24575
+    armory-type: "items"
+
+  - id: cruelty
+    text: "Superior Sigil of Cruelty"
+    modifiers: >-
+      {
+        "flat": { "Ferocity": 250 }
+      }
+    gw2-id: 67341
+    armory-type: "items"
+
+  - id: perception
+    text: "Superior Sigil of Perception"
+    modifiers: >-
+      {
+        "flat": { "Precision": 250 }
+      }
+    gw2-id: 24580
+    armory-type: "items"
+
+  - id: corruption
+    text: "Superior Sigil of Corruption"
+    modifiers: >-
+      {
+        "flat": { "Condition Damage": 250 }
+      }
+    gw2-id: 24578
+    armory-type: "items"
+
+  - id: life
+    text: "Superior Sigil of Life"
+    modifiers: >-
+      {
+        "flat": { "Healing Power": 250 }
+      }
+    gw2-id: 24582
+    armory-type: "items"
+
+  - id: bounty
+    text: "Superior Sigil of Bounty"
+    modifiers: >-
+      {
+        "flat": { "Concentration": 225 }
+      }
+    gw2-id: 81045
+    armory-type: "items"
+
+  - id: benevolence
+    text: "Superior Sigil of Benevolence"
+    modifiers: >-
+      {
+        "multiplier": { "Effective Healing": 0.125 }
+      }
+    gw2-id: 24584
+    armory-type: "items"
+
+  - id: stars
+    text: "Superior Sigil of the Stars"
+    modifiers: >-
+      {
+        "flat":
+        {
+          "Power": 50, "Precision": 50, "Toughness": 50, "Vitality": 50,
+          "Concentration": 50, "Condition Damage": 50, "Expertise": 50, "Ferocity": 50, "Healing Power": 50,
+        }
+      }
+    gw2-id: 86170
+    armory-type: "items"
+
+- section: Gemstones
+  items:
+
+  - id: platinum-doubloon
+    text: "Platinum Doubloon"
+    modifiers: >-
+      {
+        "flat": { "Concentration": 40 }
+      }
+    gw2-id: 24773
+    armory-type: "items"
