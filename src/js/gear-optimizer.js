@@ -359,33 +359,6 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     }
   }
 
-  // class characterRow extends Component {
-  //   constructor (character) {
-  //     super();
-  //     this.state = { character };
-  //   }
-
-  //   render () {
-  //     const character = this.state.character();
-  //     return html`
-  //       <tr>
-  //         <td>
-  //           <strong>
-  //           ${Number(character.attributes[character.settings.rankby].toFixed(2))
-  //             .toLocaleString('en-US')}
-  //           </strong>
-  //         </td>
-  //       ${$.map(character.gear, attribute =>
-  //         `<td><samp>${attribute.substring(0, 4)}</samp></td>`
-  //       ).join('')}
-  //       ${$.map(character.infusions, count =>
-  //         `<td><samp>${count}</samp></td>`
-  //       ).join('')}
-  //       </tr>
-  //     `;
-  //   }
-  // }
-
   function characterToRow (character) {
     const { settings } = character;
 
