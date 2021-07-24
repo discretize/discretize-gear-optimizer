@@ -20,7 +20,8 @@ let list;
  *
  * @param {Object} input
  * @param {Object[]} input.modifiers - array of modifier objects
- * @param {String[]} input.tags - array of HTML tags representing modifiers
+ * @param {?String[]} input.tags - modifier data for the UI
+ *                                 (passed unedited into character.settings)
  * @param {String} input.profession
  * @param {String} input.weapontype
  * @param {String[]} input.affixes - all selected gear affixes to iterate over
