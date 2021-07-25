@@ -12,7 +12,7 @@ import ARinput from "./ARinput";
 import Priorities from "./priorities/Priorities";
 
 import { ConsumableEffect, Item, Skill } from "gw2-ui";
-import DamageDistribution from "./slider/DamageDistribution";
+import DamageDistribution from "./DamageDistribution";
 import { Cancel, Functions } from "@material-ui/icons";
 
 const styles = (theme) => ({

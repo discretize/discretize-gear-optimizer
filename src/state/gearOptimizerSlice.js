@@ -19,6 +19,11 @@ export const gearOptimizerSlice = createSlice({
     Enhancement: "",
     Nourishment: "",
     affixes: [],
+    distribution: {
+      version: 2,
+      values: [2, 0, 0, 0, 0, 0],
+      textBoxes: ["2", "0", "0", "0", "0", "0"]
+    }
   },
   reducers: {
     changeProfession: (state, action) => {
@@ -35,6 +40,18 @@ export const gearOptimizerSlice = createSlice({
     },
     changeGeneric: (state, action) => {
       state[action.payload.toChange] = action.payload.value;
+    },
+    changeDistributionVersion: (state, action) => {
+      state.distribution.version = action.payload;
+    },
+    changeDistribution: (state, action) => {
+      state.distribution.values[action.payload.index] = action.payload.value;
+    },
+    changeTextBoxes: (state, action) => {
+      state.distribution.textBoxes[action.payload.index] = action.payload.value;
+    },
+    changeAllDistributions: (state, action) => {
+      state.distribution.values = action.payload;
     }
   }
 });
@@ -44,8 +61,20 @@ export const getAR = (state) => state.gearOptimizer.ar;
 export const getTraitLines = (state) => state.gearOptimizer.traits.lines;
 export const getTraits = (state) => state.gearOptimizer.traits.selected;
 export const getGeneric = (key) => (state) => state.gearOptimizer[key];
+export const getDistributionVersion = (state) => state.gearOptimizer.distribution.version;
+export const getDistribution = (state) => state.gearOptimizer.distribution.values;
+export const getTextBoxes = (state) => state.gearOptimizer.distribution.textBoxes;
 
-export const { changeProfession, changeAR, changeTraitLine, changeTraits, changeGeneric } =
-  gearOptimizerSlice.actions;
+export const {
+  changeProfession,
+  changeAR,
+  changeTraitLine,
+  changeTraits,
+  changeGeneric,
+  changeDistributionVersion,
+  changeDistribution,
+  changeTextBoxes,
+  changeAllDistributions
+} = gearOptimizerSlice.actions;
 
 export default gearOptimizerSlice.reducer;
