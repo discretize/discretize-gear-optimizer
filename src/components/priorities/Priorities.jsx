@@ -11,10 +11,12 @@ import {
   Input,
   InputAdornment
 } from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
 
 import Affixes from "./Affixes";
 import HelperIcon from "../HelperIcon";
 import { Tooltip, Attribute } from "gw2-ui";
+import { changeGeneric, getGeneric } from "../../state/gearOptimizerSlice";
 
 const styles = (theme) => ({
   root: {
@@ -37,143 +39,132 @@ const styles = (theme) => ({
   }
 });
 
-class Priorities extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      optimizeFor: "damage",
-      weaponType: "dualWielded",
-      minBoonDuration: "",
-      minHealingPower: "",
-      minToughness: "1000",
-      maxToughness: ""
-    };
-  }
+const Priorities = ({ classes }) => {
+  const dispatch = useDispatch();
+  const optimizeFor = useSelector(getGeneric("optimizeFor"));
+  const weaponType = useSelector(getGeneric("weaponType"));
+  const minBoonDuration = useSelector(getGeneric("minBoonDuration"));
+  const minHealingPower = useSelector(getGeneric("minHealingPower"));
+  const minToughness = useSelector(getGeneric("minToughness"));
+  const maxToughness = useSelector(getGeneric("maxToughness"));
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+  const handleChange = (event) => {
+    dispatch(changeGeneric({ toChange: event.target.name, value: event.target.value }));
   };
 
-  render() {
-    const {
-      optimizeFor,
-      weaponType,
-      minBoonDuration,
-      minHealingPower,
-      minToughness,
-      maxToughness
-    } = this.state;
+  return (
+    <div className={classes.root}>
+      <Typography variant="h5">Priorities </Typography>
+      <Chip
+        label="Template name"
+        variant="outlined"
+        onClick={(e) => handleTemplateClick}
+        className={classes.templateChip}
+      />
+      <Affixes />
 
-    return (
-      <div className={this.props.classes.root}>
-        <Typography variant="h5">Priorities </Typography>
-        <Chip
-          label="Template name"
-          variant="outlined"
-          onClick={(e) => this.handleTemplateClick}
-          className={this.props.classes.templateChip}
-        />
-        <Affixes />
+      <Grid container>
+        <Grid item xs={12} sm={6} md={4}>
+          <div className={classes.box}>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="optimizeFor">Optimize for</InputLabel>
+              <Select
+                value={optimizeFor}
+                onChange={handleChange}
+                inputProps={{
+                  name: "optimizeFor",
+                  id: "optimizeFor"
+                }}
+              >
+                <MenuItem value="damage">Damage</MenuItem>
+                <MenuItem value="survival">Survivability</MenuItem>
+                <MenuItem value="healing">Healing</MenuItem>
+              </Select>
+            </FormControl>
+            <HelperIcon text="What to optimize the results for. 'Damage' includes power and condition damage according to the distribution below." />
+          </div>
 
-        <Grid container>
-          <Grid item xs={12} sm={6} md={4}>
-            <div className={this.props.classes.box}>
-              <FormControl className={this.props.classes.formControl}>
-                <InputLabel htmlFor="optimizeFor">Optimize for</InputLabel>
-                <Select
-                  value={optimizeFor}
-                  onChange={this.handleChange}
-                  inputProps={{
-                    name: "optimizeFor",
-                    id: "optimizeFor"
-                  }}
-                >
-                  <MenuItem value="damage">Damage</MenuItem>
-                  <MenuItem value="survival">Survivability</MenuItem>
-                  <MenuItem value="healing">Healing</MenuItem>
-                </Select>
-              </FormControl>
-              <HelperIcon text="What to optimize the results for. 'Damage' includes power and condition damage according to the distribution below." />
-            </div>
-
-            <div className={this.props.classes.box}>
-              <FormControl className={this.props.classes.formControl}>
-                <InputLabel htmlFor="weaponType">Weapon Type</InputLabel>
-                <Select
-                  value={weaponType}
-                  onChange={this.handleChange}
-                  inputProps={{
-                    name: "weaponType",
-                    id: "weaponType"
-                  }}
-                >
-                  <MenuItem value="dualWielded">Dual wielded</MenuItem>
-                  <MenuItem value="twoHanded">Two-handed</MenuItem>
-                </Select>
-              </FormControl>
-              <HelperIcon text="Select 'Dual wield' if you're using weapons in both hands or 'Two-handed' when using a two-handed weapon." />
-            </div>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <div className={this.props.classes.box}>
-              <FormControl className={this.props.classes.formControl}>
-                <InputLabel htmlFor="minBoon-input-with-icon-adornment">
-                  Min. <Attribute name="Boon Duration" disableLink />
-                </InputLabel>
-                <Input
-                  id="minBoon-input-with-icon-adornment"
-                  value={minBoonDuration}
-                  onChange={this.handleChange}
-                />
-              </FormControl>
-              <HelperIcon text="Only show results that fulfill a certain amount of Boon Duration." />
-            </div>
-            <div className={this.props.classes.box}>
-              <FormControl className={this.props.classes.formControl}>
-                <InputLabel htmlFor="minHeal-input-with-icon-adornment">
-                  Min. <Attribute name="Healing Power" disableLink />
-                </InputLabel>
-                <Input
-                  id="minHeal-input-with-icon-adornment"
-                  value={minHealingPower}
-                  onChange={this.handleChange}
-                />
-              </FormControl>
-              <HelperIcon text="Only show results that fulfill a certain amount of Healing Power." />
-            </div>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <div className={this.props.classes.box}>
-              <FormControl className={this.props.classes.formControl}>
-                <InputLabel htmlFor="minToughness-input-with-icon-adornment">
-                  Min. <Attribute name="Toughness" disableLink />
-                </InputLabel>
-                <Input
-                  id="minToughness-input-with-icon-adornment"
-                  value={minToughness}
-                  onChange={this.handleChange}
-                />
-              </FormControl>
-              <HelperIcon text="Only show results that fulfill a minimum amount of Toughness." />
-            </div>
-            <div className={this.props.classes.box}>
-              <FormControl className={this.props.classes.formControl}>
-                <InputLabel htmlFor="maxToughness-input-with-icon-adornment">
-                  Max. <Attribute name="Toughness" disableLink />
-                </InputLabel>
-                <Input
-                  id="maxToughness-input-with-icon-adornment"
-                  value={maxToughness}
-                  onChange={this.handleChange}
-                />
-              </FormControl>
-              <HelperIcon text="Only show results that fulfill a maximum amount of Toughness." />
-            </div>
-          </Grid>
+          <div className={classes.box}>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="weaponType">Weapon Type</InputLabel>
+              <Select
+                value={weaponType}
+                onChange={handleChange}
+                inputProps={{
+                  name: "weaponType",
+                  id: "weaponType"
+                }}
+              >
+                <MenuItem value="dualWielded">Dual wielded</MenuItem>
+                <MenuItem value="twoHanded">Two-handed</MenuItem>
+              </Select>
+            </FormControl>
+            <HelperIcon text="Select 'Dual wield' if you're using weapons in both hands or 'Two-handed' when using a two-handed weapon." />
+          </div>
         </Grid>
-      </div>
-    );
-  }
-}
+        <Grid item xs={12} sm={6} md={4}>
+          <div className={classes.box}>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="minBoon-input-with-icon-adornment">
+                Min. <Attribute name="Boon Duration" disableLink />
+              </InputLabel>
+              <Input
+                id="minBoon-input-with-icon-adornment"
+                value={minBoonDuration}
+                onChange={handleChange}
+                name="minBoonDuration"
+              />
+            </FormControl>
+            <HelperIcon text="Only show results that fulfill a certain amount of Boon Duration." />
+          </div>
+          <div className={classes.box}>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="minHeal-input-with-icon-adornment">
+                Min. <Attribute name="Healing Power" disableLink />
+              </InputLabel>
+              <Input
+                id="minHeal-input-with-icon-adornment"
+                value={minHealingPower}
+                onChange={handleChange}
+                name="minHealingPower"
+              />
+            </FormControl>
+            <HelperIcon text="Only show results that fulfill a certain amount of Healing Power." />
+          </div>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <div className={classes.box}>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="minToughness-input-with-icon-adornment">
+                Min. <Attribute name="Toughness" disableLink />
+              </InputLabel>
+              <Input
+                id="minToughness-input-with-icon-adornment"
+                value={minToughness}
+                onChange={handleChange}
+                name="minToughness"
+              />
+            </FormControl>
+            <HelperIcon text="Only show results that fulfill a minimum amount of Toughness." />
+          </div>
+          <div className={classes.box}>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="maxToughness-input-with-icon-adornment">
+                Max. <Attribute name="Toughness" disableLink />
+              </InputLabel>
+              <Input
+                id="maxToughness-input-with-icon-adornment"
+                value={maxToughness}
+                onChange={handleChange}
+                name="maxToughness"
+              />
+            </FormControl>
+            <HelperIcon text="Only show results that fulfill a maximum amount of Toughness." />
+          </div>
+        </Grid>
+      </Grid>
+    </div>
+  );
+};
 
 export default withStyles(styles)(Priorities);

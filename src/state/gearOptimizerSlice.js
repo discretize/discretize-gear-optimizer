@@ -23,7 +23,13 @@ export const gearOptimizerSlice = createSlice({
       version: 2,
       values: [2, 0, 0, 0, 0, 0],
       textBoxes: ["2", "0", "0", "0", "0", "0"]
-    }
+    },
+    optimizeFor: "damage",
+    weaponType: "dualWielded",
+    minBoonDuration: "",
+    minHealingPower: "",
+    minToughness: "1000",
+    maxToughness: ""
   },
   reducers: {
     changeProfession: (state, action) => {
