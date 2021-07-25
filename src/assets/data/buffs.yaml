@@ -1,7 +1,7 @@
 GraphQL ID: Buffs
 list:
 
-- section: ''
+- section: 'Boons'
   items:
 
   - id: might
@@ -14,6 +14,7 @@ list:
         "buff": { "Power": 750, "Condition Damage": 750 }
       }
     default-enabled: true
+    armory-type: "Boon"
 
   - id: fury
     text: >-
@@ -24,6 +25,7 @@ list:
         "flat": { "Critical Chance": 20 }
       }
     default-enabled: true
+    armory-type: "Boon"
 
   - id: protection
     text: >-
@@ -33,44 +35,46 @@ list:
       {
         "multiplier": { "Effective Health": 0.33 }
       }
+    armory-type: "Boon"
 
   - id: vulnerability
     text: >-
       <span class="icon icon-vulnerability"></span>
       Vulnerability
-    subtext: (25x)
+    subText: (25x)
     modifiers: >-
       {
         "multiplier": { "target: Effective Power": 0.25, "target: Effective Condition Damage": 0.25 }
       }
     default-enabled: true
+    armory-type: "Condition"
 
-- section: ''
+- section: 'Warrior buffs'
   items:
 
-  - id: banner-of-strength
+  - id: bannerOfStrength
     text: "Banner of Strength"
     modifiers: >-
       {
         "buff": { "Power": 100, "Condition Damage": 100 }
       }
     gw2-id: 14405
-    armory-type: "skills"
+    armory-type: "Skill"
     default-enabled: true
     extraCSS: "text-warrior"
 
-  - id: banner-of-discipline
+  - id: bannerOfDiscipline
     text: "Banner of Discipline"
     modifiers: >-
       {
         "buff": { "Precision": 100, "Ferocity": 100 }
       }
     gw2-id: 14407
-    armory-type: "skills"
+    armory-type: "Skill"
     default-enabled: true
     extraCSS: "text-warrior"
 
-  - id: banner-of-tactics
+  - id: bannerOfTactics
     text: "Banner of Tactics"
     modifiers: >-
       {
@@ -78,20 +82,30 @@ list:
         "flat": { "Boon Duration": 10 }
       }
     gw2-id: 14408
-    armory-type: "skills"
+    armory-type: "Skill"
     extraCSS: "text-warrior"
 
-  - id: empower-allies
+  - id: bannerOfDefense
+    text: "Banner of Defense"
+    modifiers: >-
+      {
+        "buff": { "Toughness": 100, "Vitality": 10},
+      }
+    gw2-id: 14528
+    armory-type: "Skill"
+    extraCSS: "text-warrior"
+
+  - id: empowerAllies
     text: "Empower Allies"
     modifiers: >-
       {
         "buff": { "Power": 100 }
       }
     gw2-id: 1482
-    armory-type: "traits"
+    armory-type: "Trait"
     extraCSS: "text-warrior"
 
-- section: ''
+- section: 'Other buffs'
   items:
 
   - id: spotter
@@ -101,121 +115,120 @@ list:
         "buff": { "Precision": 100 }
       }
     gw2-id: 1016
-    armory-type: "traits"
+    armory-type: "Trait"
     extraCSS: "text-ranger"
 
-  - id: frost-spirit
+  - id: frostSpirit
     text: "Frost Spirit"
     modifiers: >-
       {
         "multiplier": { "add: Effective Power": 0.05 }
       }
     gw2-id: 12497
-    armory-type: "skills"
+    armory-type: "Skill"
     default-enabled: true
     extraCSS: "text-ranger"
 
-  - id: pinpoint-distribution
+  - id: pinpointDistribution
     text: "Pinpoint Distribution"
     modifiers: >-
       {
         "buff": { "Condition Damage": 100 }
       }
     gw2-id: 1984
-    armory-type: "traits"
+    armory-type: "Trait"
     extraCSS: "text-engineer"
 
-  - id: strength-in-numbers
+  - id: strengthInNumbers
     text: "Strength in Numbers"
     modifiers: >-
       {
         "buff": { "Toughness": 100 }
       }
     gw2-id: 584
-    armory-type: "traits"
+    armory-type: "Trait"
     extraCSS: "text-guardian"
 
 - section: >-
     <span class="text-guardian">
-      Guardian
-      <span data-armory-size="24" data-armory-embed="traits" data-armory-ids="579"></span>
-      Perfect Inscriptions (Assuming 100% uptime!)
+      Guardian - Perfect Inscriptions (Assuming 100% uptime!)
     </span>
   items:
 
-  - id: bane-signet
+  - id: baneSignet
     text: "Bane Signet"
     modifiers: >-
       {
         "buff": { "Power": 216 }
       }
     gw2-id: 9093
-    armory-type: "skills"
+    armory-type: "Skill"
     default-enabled: true
     extraCSS: "text-guardian"
 
-  - id: signet-of-judgement
+  - id: signetOfJudgment
     text: "Signet of Judgement"
     modifiers: >-
       {
         "multiplier": { "Effective Health": 0.12 }
       }
     gw2-id: 9150
-    armory-type: "skills"
+    armory-type: "Skill"
     extraCSS: "text-guardian"
 
-  - id: signet-of-mercy
+  - id: signetOfMercy
     text: "Signet of Mercy"
     modifiers: >-
       {
         "flat": { "Boon Duration": 10 }
       }
     gw2-id: 9163
-    armory-type: "skills"
+    armory-type: "Skill"
+
     extraCSS: "text-guardian"
 
-  - id: signet-of-wrath
+  - id: signetOfWrath
     text: "Signet of Wrath"
     modifiers: >-
       {
         "buff": { "Condition Damage": 216 }
       }
     gw2-id: 9151
-    armory-type: "skills"
+    armory-type: "Skill"
     extraCSS: "text-guardian"
 
-- section: ''
+- section: 'Revenant buffs'
   items:
 
-  - id: assassins-presence
+  - id: assassinsPresence
     text: "Assassin's Presence"
     modifiers: >-
       {
         "buff": { "Ferocity": 150 }
       }
     gw2-id: 1786
-    armory-type: "traits"
+    armory-type: "Trait"
     default-enabled: true
     extraCSS: "text-revenant"
 
-  - id: facet-of-nature
+  - id: facetOfNature
     text: "Facet of Nature—Dragon"
     modifiers: >-
       {
         "flat": { "Boon Duration": 20 }
       }
     gw2-id: 29371
-    armory-type: "skills"
+    armory-type: "Skill"
     extraCSS: "text-revenant"
 
-  - id: rite-of-the-great-dwarf
+  - id: riteDwarf
     text: "Rite of the Great Dwarf"
     modifiers: >-
       {
         "multiplier": { "Effective Health": 0.5 }
       }
     gw2-id: 27975
-    armory-type: "skills"
+    armory-type: "Skill"
     extraCSS: "text-revenant"
 
 - section: 'Effects'
@@ -230,8 +243,10 @@ list:
       {
         "multiplier": { "target: Effective Power": 0.3, "target: Effective Condition Damage": 1.0 }
       }
+    armory-type: "CommonEffect"
 
-  - id: low-armor
+
+  - id: lightArmor
     text: >-
       Low Boss Armor (VG, KC)
     subText: 1910 vs 2597
@@ -239,4 +254,5 @@ list:
       {
         "multiplier": { "Effective Power": 0.359685864 }
       }
+    armory-type: "Text"
 

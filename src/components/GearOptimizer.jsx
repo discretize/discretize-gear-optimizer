@@ -157,7 +157,7 @@ const MainComponent = ({ classes, data }) => {
           {expertMode && (
             <>
               <Divider />
-              <Buffs presets={data.presetBuffs.list} />
+              <Buffs data={data.buffs.list} presets={data.presetBuffs.list} />
             </>
           )}
 
@@ -384,6 +384,20 @@ const GearOptimizer = ({ classes }) => {
                 id
               }
               section
+            }
+          }
+          buffs: buffs {
+            list {
+              section
+              items {
+                text
+                modifiers
+                gw2_id
+                subText
+                id
+                armory_type
+                text
+              }
             }
           }
           presetBuffs: presetBuffs {
