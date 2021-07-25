@@ -29,7 +29,10 @@ export const gearOptimizerSlice = createSlice({
     minBoonDuration: "",
     minHealingPower: "",
     minToughness: "1000",
-    maxToughness: ""
+    maxToughness: "",
+    skills: {
+      values: []
+    }
   },
   reducers: {
     changeProfession: (state, action) => {
@@ -58,6 +61,12 @@ export const gearOptimizerSlice = createSlice({
     },
     changeAllDistributions: (state, action) => {
       state.distribution.values = action.payload;
+    },
+    addSkill: (state, action) => {
+      state.skills.values = state.skills.values.concat(action.payload.value);
+    },
+    removeSkill: (state, action) => {
+      state.skills.values = state.skills.values.filter((v) => v !== action.payload.value);
     }
   }
 });
@@ -70,6 +79,7 @@ export const getGeneric = (key) => (state) => state.gearOptimizer[key];
 export const getDistributionVersion = (state) => state.gearOptimizer.distribution.version;
 export const getDistribution = (state) => state.gearOptimizer.distribution.values;
 export const getTextBoxes = (state) => state.gearOptimizer.distribution.textBoxes;
+export const getSkills = (state) => state.gearOptimizer.skills.values;
 
 export const {
   changeProfession,
@@ -80,7 +90,9 @@ export const {
   changeDistributionVersion,
   changeDistribution,
   changeTextBoxes,
-  changeAllDistributions
+  changeAllDistributions,
+  addSkill,
+  removeSkill
 } = gearOptimizerSlice.actions;
 
 export default gearOptimizerSlice.reducer;

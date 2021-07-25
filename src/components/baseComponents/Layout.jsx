@@ -9,9 +9,9 @@ import "typeface-muli";
 import "typeface-fira-mono";
 import "typeface-menomonia";
 
-import globals from "../styles/globals";
+import globals from "../../styles/globals";
 
-import withRoot from "../hocs/withRoot";
+import withRoot from "../../hocs/withRoot";
 import Container from "./Container";
 
 const styles = (theme) => ({
@@ -30,12 +30,9 @@ const styles = (theme) => ({
     backgroundColor: theme.palette.background.paper,
     border: `1px solid ${theme.palette.divider}`,
     boxShadow: theme.shadows[8],
-    transition: `${theme.transitions.create(
-      ["background-color", "box-shadow", "transform"],
-      {
-        duration: theme.transitions.duration.shorter
-      }
-    )} !important`,
+    transition: `${theme.transitions.create(["background-color", "box-shadow", "transform"], {
+      duration: theme.transitions.duration.shorter
+    })} !important`,
     "&:hover": {
       backgroundColor: theme.palette.background.default,
       boxShadow: theme.shadows[16]
@@ -47,18 +44,11 @@ class Layout extends Component {
   state = { open: false };
 
   render = () => {
-    const {
-      children,
-      ContainerProps,
-      disableContainer = false
-    } = this.props;
+    const { children, ContainerProps, disableContainer = false } = this.props;
 
     return (
       <>
-        {(!disableContainer && (
-          <Container {...ContainerProps}>{children}</Container>
-        )) ||
-        children}
+        {(!disableContainer && <Container {...ContainerProps}>{children}</Container>) || children}
       </>
     );
   };
@@ -68,6 +58,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-export default withRoot(
-  injectSheet(globals)(withStyles(styles)(withWidth()(Layout)))
-);
+export default withRoot(injectSheet(globals)(withStyles(styles)(withWidth()(Layout))));

@@ -20,6 +20,7 @@ import { Skill, Boon, Condition, Trait, Profession, CommonEffect } from "gw2-ui"
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { changeGeneric, getGeneric } from "../state/gearOptimizerSlice";
+import CheckboxComponent from "./baseComponents/CheckboxComponent";
 
 const styles = (theme) => ({
   formControl: {
@@ -35,15 +36,6 @@ const styles = (theme) => ({
     margin: theme.spacing.unit
   }
 });
-
-const CheckboxComponent = ({ checked, value, label, onChange, ...rest }) => (
-  <FormControlLabel
-    control={
-      <Checkbox color={"primary"} checked={checked} onChange={onChange} value={value} {...rest} />
-    }
-    label={label}
-  />
-);
 
 const GW2Select = ({ classes }) => {
   const dispatch = useDispatch();
