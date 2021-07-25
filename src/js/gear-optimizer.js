@@ -254,7 +254,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     );
     input.infusionNoDuplicates = $('#go-select-infusion-duplicates').prop('checked');
 
-    input.distribution = {
+    input.percentDistribution = {
       Power: 0,
       ...Object.fromEntries(Attributes.CONDITION.map((condition) => [condition, 0]))
     };
@@ -264,7 +264,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       function () {
         const percentage = parseInt($(this).val(), 10);
         if (percentage) {
-          input.distribution[$(this).data('go-distribution')] = percentage;
+          input.percentDistribution[$(this).data('go-distribution')] = percentage;
           if ($(this).data('go-distribution') !== 'Power') {
             input.relevantConditions.push($(this).data('go-distribution'));
           }
@@ -594,11 +594,11 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     });
     modal += toCard('Condition Damage Ticks', conditionAttributes);
 
-    if (_character.settings.distribution['Power'] !== 100) {
+    if (_character.settings.percentDistribution['Power'] !== 100) {
       // effective damage distribution
       const effectiveDamageDistribution = {};
       const totalDamage = _character.attributes['Damage'];
-      $.each(_character.settings.distribution, function (key, percentage) {
+      $.each(_character.settings.percentDistribution, function (key, percentage) {
         if (key === 'Power') {
           const damage = (percentage * _character.attributes['Effective Power']) / 1025;
           effectiveDamageDistribution['Power'] = `${((damage / totalDamage) * 100).toFixed(1)}%`;
@@ -615,7 +615,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
       // damage indicator breakdown
       const damageIndicatorBreakdown = {};
-      $.each(_character.settings.distribution, function (key, percentage) {
+      $.each(_character.settings.percentDistribution, function (key, percentage) {
         if (key === 'Power') {
           const damage = percentage * _character.attributes['Effective Power'] / 1025;
           damageIndicatorBreakdown['Power'] = Number(damage).toFixed(2).toLocaleString('en-US');
