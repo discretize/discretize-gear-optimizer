@@ -150,14 +150,12 @@ const DamageDistribution = ({ classes }) => {
 
   const handleChangeTextNew = (num) => (e) => {
     let value = e.target.value;
-    let distributionNew = [...distribution];
     if (value.match("^[-+]?[0-9]*.?[0-9]+([eE][-+]?[0-9]+)?$")) {
       // only update the actual slider when the number entered is a valid string. The regex matches for integer or floats.
-      distributionNew = distributionNew.map((n, index) => (num === index ? value : n));
+      dispatch(changeDistribution({ index: num, value: value }));
     }
 
     dispatch(changeTextBoxes({ index: num, value: value }));
-    dispatch(changeDistribution({ index: num, value: value }));
   };
 
   const SlidersNew = () => {
