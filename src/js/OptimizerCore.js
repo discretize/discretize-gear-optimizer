@@ -53,7 +53,7 @@ export function setup (listInput, input) {
   worstScore = undefined;
   list = listInput;
 
-  const {
+  let {
     modifiers: modifiersInput,
     primaryInfusion: primaryInfusionInput,
     secondaryInfusion: secondaryInfusionInput,
@@ -94,9 +94,8 @@ export function setup (listInput, input) {
       'Effective Healing': 1,
       'Critical Damage': 1
     },
-    flat: {},
-    buff: {},
-    convert: {}
+    buff: [],
+    convert: []
   };
   let addEffectiveConditionDamage = 0;
   let addEffectivePower = 0;
@@ -136,16 +135,17 @@ export function setup (listInput, input) {
     ...Attributes.SECONDARY
   ];
 
-  $.each(modifiersInput, function (index, modifiers) {
+  modifiersInput = modifiersInput || [];
+  modifiersInput.forEach(modifiers => {
     if (!modifiers) {
       return;
     }
-    $.each(modifiers, function (type, modifier) {
+    Object.entries(modifiers).forEach(([type, modifier]) => {
       if (type && modifier !== undefined) {
         if (type === 'bountiful-maintenance-oil') {
           settings.modifiers[type] = modifier;
         } else {
-          $.each(modifier, function (attribute, value) {
+          Object.entries(modifier).forEach(([attribute, value]) => {
             if (attribute && value) {
               switch (type) {
                 case 'multiplier':
@@ -198,7 +198,7 @@ export function setup (listInput, input) {
                       settings.modifiers['convert'][attribute] = {};
                     }
 
-                    $.each(value, function (source, conversion) {
+                    Object.entries(value).forEach(([source, conversion]) => {
                       settings.modifiers['convert'][attribute][source]
                         = (settings.modifiers['convert'][attribute][source] || 0) + conversion;
                     });
@@ -224,6 +224,11 @@ export function setup (listInput, input) {
     *= (1 + targetEffectiveConditionDamage);
   settings.modifiers['multiplier']['Effective Power']
     *= (1 + targetEffectivePower);
+
+  // convert to arrays for simpler iteration
+  settings.modifiers['buff'] = Object.entries(settings.modifiers['buff'] || {});
+  settings.modifiers['convert'] = Object.entries(settings.modifiers['convert'] || {})
+    .map(([attribute, conversion]) => [attribute, Object.entries(conversion)]);
 
   /* Distribution */
 
@@ -357,14 +362,12 @@ export function setup (listInput, input) {
   settings.affixStatsArray = settings.affixesArray.map((possibleAffixes, slotindex) => {
     return possibleAffixes.map(affix => {
       const statTotals = {};
-      $.each(
-        settings.slots[slotindex].item[Affix[affix].type],
-        function (type, bonus) {
-          for (const stat of Affix[affix].bonuses[type]) {
-            statTotals[stat] = (statTotals[stat] || 0) + bonus;
-          }
+      const bonuses = Object.entries(settings.slots[slotindex].item[Affix[affix].type]);
+      bonuses.forEach(([type, bonus]) => {
+        for (const stat of Affix[affix].bonuses[type]) {
+          statTotals[stat] = (statTotals[stat] || 0) + bonus;
         }
-      );
+      });
       return Object.entries(statTotals);
     });
   });
@@ -820,15 +823,15 @@ function calcStats (_character) {
   _character.attributes = Object.assign({}, _character.baseAttributes);
   const { attributes } = _character;
 
-  $.each(_character.settings.modifiers['convert'], function (attribute, conversion) {
-    $.each(conversion, function (source, percent) {
+  _character.settings.modifiers['convert'].forEach(([attribute, conversion]) => {
+    conversion.forEach(([source, percent]) => {
       attributes[attribute] += roundEven(
         _character.baseAttributes[source] * percent
       );
     });
   });
 
-  $.each(_character.settings.modifiers['buff'], function (attribute, bonus) {
+  _character.settings.modifiers['buff'].forEach(([attribute, bonus]) => {
     attributes[attribute] = (attributes[attribute] || 0) + bonus;
   });
 
