@@ -31,9 +31,7 @@ export const gearOptimizerSlice = createSlice({
     minHealingPower: "",
     minToughness: "1000",
     maxToughness: "",
-    skills: {
-      values: []
-    },
+    skills: [],
     forcedSlots: ["", "", "", "", "", "", "", "", "", "", "", "", ""],
     might: false,
     fury: false,
@@ -60,6 +58,16 @@ export const gearOptimizerSlice = createSlice({
   reducers: {
     changeProfession: (state, action) => {
       state.profession = action.payload;
+      state.modifiers = [];
+      state.traits = {
+        lines: [],
+        selected: [
+          [0, 0, 0],
+          [0, 0, 0],
+          [0, 0, 0]
+        ]
+      };
+      state.skills = [];
     },
     changeAR: (state, action) => {
       state.ar = action.payload;
@@ -86,10 +94,10 @@ export const gearOptimizerSlice = createSlice({
       state.distribution.values = action.payload;
     },
     addSkill: (state, action) => {
-      state.skills.values = state.skills.values.concat(action.payload.value);
+      state.skills = state.skills.concat(action.payload.value);
     },
     removeSkill: (state, action) => {
-      state.skills.values = state.skills.values.filter((v) => v !== action.payload.value);
+      state.skills = state.skills.filter((v) => v !== action.payload.value);
     },
     changeForcedSlot: (state, action) => {
       state.forcedSlots[action.payload.index] = action.payload.value;
@@ -117,7 +125,7 @@ export const getGeneric = (key) => (state) => state.gearOptimizer[key];
 export const getDistributionVersion = (state) => state.gearOptimizer.distribution.version;
 export const getDistribution = (state) => state.gearOptimizer.distribution.values;
 export const getTextBoxes = (state) => state.gearOptimizer.distribution.textBoxes;
-export const getSkills = (state) => state.gearOptimizer.skills.values;
+export const getSkills = (state) => state.gearOptimizer.skills;
 export const getModifiers = (state) => state.gearOptimizer.modifiers;
 
 export const {

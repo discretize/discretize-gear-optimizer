@@ -127,7 +127,6 @@ const Traits = ({ classes, profession, data }) => {
    * @returns null
    */
   const handleModifierChange = (trait, line) => (e) => {
-    console.log(trait);
     if (e.target.checked) {
       dispatch(
         addModifier({

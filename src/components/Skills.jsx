@@ -11,7 +11,7 @@ import {
 
 import { Skill, Attribute } from "gw2-ui";
 import { useSelector, useDispatch } from "react-redux";
-import { addSkill, removeSkill, getSkills } from "../state/gearOptimizerSlice";
+import { addSkill, removeSkill, getSkills, addModifier } from "../state/gearOptimizerSlice";
 import CheckboxComponent from "./baseComponents/CheckboxComponent";
 
 const styles = (theme) => ({
@@ -34,11 +34,18 @@ const Skills = ({ classes, data }) => {
   const dispatch = useDispatch();
   const skills = useSelector(getSkills);
 
-  const onChange = (skillId) => (e) => {
+  const onChange = (skill) => (e) => {
     if (e.target.checked) {
-      dispatch(addSkill({ value: skillId }));
+      dispatch(addSkill({ value: skill.id }));
+      dispatch(
+        addModifier({
+          id: skill.id,
+          modifiers: skill.modifiers,
+          gw2_id: skill.gw2_id
+        })
+      );
     } else {
-      dispatch(removeSkill({ value: skillId }));
+      dispatch(removeSkill({ value: skill.id }));
     }
   };
 
@@ -63,7 +70,7 @@ const Skills = ({ classes, data }) => {
               )}
             </div>
           }
-          onChange={onChange(skill.id)}
+          onChange={onChange(skill)}
         ></CheckboxComponent>
       ))}
     </div>
