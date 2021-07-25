@@ -56,9 +56,12 @@ const GW2Select = ({ classes, name, label, data }) => {
         value={bigValue}
         input={<Input name={name} id={name} />}
         onChange={(e) => handleChange(e, name)}
-        renderValue={(selected) => (
-          <Item id={values.filter((v) => v.id === selected)[0].gw2_id} disableLink></Item>
-        )}
+        renderValue={(selected) => {
+          const item = values.filter((v) => v.id === selected)[0];
+          return (
+            <Item id={item.gw2_id} disableLink text={item.text.replace("Superior ", "")}></Item>
+          );
+        }}
       >
         {values.map((v) => {
           return v.type === "section" ? (
@@ -68,7 +71,7 @@ const GW2Select = ({ classes, name, label, data }) => {
           ) : (
             <MenuItem key={v.id} value={v.id} className={classes.menuItem}>
               <ListItemText
-                primary={<Item id={v.gw2_id} disableLink text={v.text} />}
+                primary={<Item id={v.gw2_id} disableLink text={v.text.replace("Superior ", "")} />}
                 secondary={<Typography className={classes.subText}>{v.subText}</Typography>}
               />
             </MenuItem>
