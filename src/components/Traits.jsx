@@ -33,6 +33,9 @@ const styles = (theme) => ({
 });
 
 // all the trait IDs of available traitlnes for every profession
+{
+  /* TODO refactor this away! all the data is contained in the data props already! */
+}
 const traitsAll = [
   {
     profession: "Warrior",
@@ -64,10 +67,20 @@ const traitsAll = [
   }
 ];
 
+/**
+ *
+ * @param {String} profession   the profession for which to display trait lines
+ * @param {Object} data         Contains all the data regarding modifiers, ids and extra subtexts
+ * @returns
+ */
 const Traits = ({ classes, profession, data }) => {
   const dispatch = useDispatch();
+
+  // selected trait lines
   const traitlines = useSelector(getTraitLines);
+  // 2D array: traits[n] is the n-th selected trait line. So the trait id in traitlines[i] has the selected values traits[i]
   const traits = useSelector(getTraits);
+  // all the currently applied modifiers
   const modifiers = useSelector(getModifiers);
 
   /**
@@ -80,13 +93,11 @@ const Traits = ({ classes, profession, data }) => {
     if (val.length > 3) {
       return;
     }
-    console.log("---");
-    console.log(traitlines);
-    console.log(val);
+
+    // find out which line was removed and clear the correspondign modifiers
     for (let l in traitlines) {
       if (val.indexOf(traitlines[l]) < 0 && traitlines[l] !== 0) {
         // trait line was removed, flush modifiers
-        console.log("removing " + traitlines[l]);
         dispatch(removeTraitModifiersWithTraitlineId(traitlines[l]));
       }
     }
@@ -96,16 +107,25 @@ const Traits = ({ classes, profession, data }) => {
   /**
    * Handles the change in individual traitlines for the actual traits.
    *
-   * @param id the gw2-id of the traitline that experienced a change
    * @param event
+   * @param id the gw2-id of the traitline that experienced a change
+   * @param index the index of the traitline, that was changed (corresponds to id = traits[index])
    */
   function handleTraitChange(e, id, index) {
     const selected = [...traits[index]];
+    // remove modifiers before we dispatch the trait change
     dispatch(removeTraitModifierWithGW2id(selected[e.tier]));
     selected[e.tier] = e.id;
     dispatch(changeTraits({ index: index, selected: selected }));
   }
 
+  /**
+   * Handles the checkboxes, which pop up for selected traits. This is necessary because some traits contain different conditional values.
+   *
+   * @param {Object} trait The trait object, that experienced a change
+   * @param {Number} line the trait line, which the modifier corresponds to
+   * @returns null
+   */
   const handleModifierChange = (trait, line) => (e) => {
     console.log(trait);
     if (e.target.checked) {
