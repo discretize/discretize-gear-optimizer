@@ -37,7 +37,14 @@ let list;
  * @param {?String} input.secondaryInfusion
  * @param {?Number} input.primaryMaxInfusions - number of infusions, 0-18
  * @param {?Number} input.secondaryMaxInfusions - number of infusions, 0-18
- * @param {?Object.<String, Number>} input.distribution - old style distribution
+ *
+ * @param {?Object.<String, Number>} input.percentDistribution - old style distribution
+ *                                                               (sums to 100)
+ * @param {?Object.<String, Number>} input.distribution - new style distribution
+ *                                                        (coefficient per second; average condition
+ *                                                        stacks)
+ *
+ *
  * @param {String[]} input.relevantConditions - I should remove this tbh
  *
  * @returns {Object} settings - parsed settings object
@@ -217,6 +224,19 @@ export function setup (listInput, input) {
     *= (1 + targetEffectiveConditionDamage);
   settings.modifiers['multiplier']['Effective Power']
     *= (1 + targetEffectivePower);
+
+  /* Distribution */
+
+  // legacy percent distribution conversion
+  // see: https://github.com/discretize/discretize-old/discussions/136
+  if (input.percentDistribution) {
+    const { Power, ...rest } = input.percentDistribution;
+    settings.distribution = {};
+    settings.distribution['Power'] = Power / 1025;
+    Object.entries(rest).forEach(([condition, value]) => {
+      settings.distribution[condition] = value / Condition[condition].baseDamage;
+    });
+  }
 
   /* Infusions */
 
@@ -842,7 +862,7 @@ function calcPower (_character, multipliers) {
     * multipliers['Effective Power'];
 
   return _character.settings.distribution['Power']
-    * (attributes['Effective Power'] / 1025);
+    * attributes['Effective Power'];
 }
 
 function calcCondi (_character, multipliers, relevantConditions) {
@@ -862,8 +882,7 @@ function calcCondi (_character, multipliers, relevantConditions) {
 
     condiDamageScore += _character.settings.distribution[condition]
       * duration
-      * (attributes[`${condition} Damage`] || 1)
-      / Condition[condition].baseDamage;
+      * (attributes[`${condition} Damage`] || 1);
   }
   return condiDamageScore;
 }
