@@ -53,7 +53,7 @@ export function setup (listInput, input) {
   worstScore = undefined;
   list = listInput;
 
-  const {
+  let {
     modifiers: modifiersInput,
     primaryInfusion: primaryInfusionInput,
     secondaryInfusion: secondaryInfusionInput,
@@ -94,9 +94,8 @@ export function setup (listInput, input) {
       'Effective Healing': 1,
       'Critical Damage': 1
     },
-    flat: {},
-    buff: {},
-    convert: {}
+    buff: [],
+    convert: []
   };
   let addEffectiveConditionDamage = 0;
   let addEffectivePower = 0;
@@ -136,16 +135,17 @@ export function setup (listInput, input) {
     ...Attributes.SECONDARY
   ];
 
-  $.each(modifiersInput, function (index, modifiers) {
+  modifiersInput = modifiersInput || [];
+  for (const modifiers of modifiersInput) {
     if (!modifiers) {
-      return;
+      continue;
     }
-    $.each(modifiers, function (type, modifier) {
+    for (const [type, modifier] of Object.entries(modifiers)) {
       if (type && modifier !== undefined) {
         if (type === 'bountiful-maintenance-oil') {
           settings.modifiers[type] = modifier;
         } else {
-          $.each(modifier, function (attribute, value) {
+          for (const [attribute, value] of Object.entries(modifier)) {
             if (attribute && value) {
               switch (type) {
                 case 'multiplier':
@@ -198,10 +198,10 @@ export function setup (listInput, input) {
                       settings.modifiers['convert'][attribute] = {};
                     }
 
-                    $.each(value, function (source, conversion) {
+                    for (const [source, conversion] of Object.entries(value)) {
                       settings.modifiers['convert'][attribute][source]
                         = (settings.modifiers['convert'][attribute][source] || 0) + conversion;
-                    });
+                    }
                   } else {
                     throw new Error(
                       'Conversions can only modify primary or secondary attributes, not '
@@ -211,11 +211,11 @@ export function setup (listInput, input) {
                 // no default
               }
             }
-          });
+          }
         }
       }
-    });
-  });
+    }
+  }
   settings.modifiers['multiplier']['Effective Condition Damage']
     *= (1 + addEffectiveConditionDamage);
   settings.modifiers['multiplier']['Effective Power']
@@ -225,6 +225,11 @@ export function setup (listInput, input) {
   settings.modifiers['multiplier']['Effective Power']
     *= (1 + targetEffectivePower);
 
+  // convert to arrays for simpler iteration
+  settings.modifiers['buff'] = Object.entries(settings.modifiers['buff'] || {});
+  settings.modifiers['convert'] = Object.entries(settings.modifiers['convert'] || {})
+    .map(([attribute, conversion]) => [attribute, Object.entries(conversion)]);
+
   /* Distribution */
 
   // legacy percent distribution conversion
@@ -233,9 +238,9 @@ export function setup (listInput, input) {
     const { Power, ...rest } = input.percentDistribution;
     settings.distribution = {};
     settings.distribution['Power'] = Power / 1025;
-    Object.entries(rest).forEach(([condition, value]) => {
+    for (const [condition, value] of Object.entries(rest)) {
       settings.distribution[condition] = value / Condition[condition].baseDamage;
-    });
+    }
   }
 
   /* Infusions */
@@ -357,14 +362,12 @@ export function setup (listInput, input) {
   settings.affixStatsArray = settings.affixesArray.map((possibleAffixes, slotindex) => {
     return possibleAffixes.map(affix => {
       const statTotals = {};
-      $.each(
-        settings.slots[slotindex].item[Affix[affix].type],
-        function (type, bonus) {
-          for (const stat of Affix[affix].bonuses[type]) {
-            statTotals[stat] = (statTotals[stat] || 0) + bonus;
-          }
+      const bonuses = Object.entries(settings.slots[slotindex].item[Affix[affix].type]);
+      for (const [type, bonus] of bonuses) {
+        for (const stat of Affix[affix].bonuses[type]) {
+          statTotals[stat] = (statTotals[stat] || 0) + bonus;
         }
-      );
+      }
       return Object.entries(statTotals);
     });
   });
@@ -820,17 +823,15 @@ function calcStats (_character) {
   _character.attributes = Object.assign({}, _character.baseAttributes);
   const { attributes } = _character;
 
-  $.each(_character.settings.modifiers['convert'], function (attribute, conversion) {
-    $.each(conversion, function (source, percent) {
-      attributes[attribute] += roundEven(
-        _character.baseAttributes[source] * percent
-      );
-    });
-  });
+  for (const [attribute, conversion] of _character.settings.modifiers['convert']) {
+    for (const [source, percent] of conversion) {
+      attributes[attribute] += roundEven(_character.baseAttributes[source] * percent);
+    }
+  }
 
-  $.each(_character.settings.modifiers['buff'], function (attribute, bonus) {
+  for (const [attribute, bonus] of _character.settings.modifiers['buff']) {
     attributes[attribute] = (attributes[attribute] || 0) + bonus;
-  });
+  }
 
   attributes['Boon Duration'] += attributes['Concentration'] / 15;
 }
