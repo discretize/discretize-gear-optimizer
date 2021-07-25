@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { withStyles, Switch, FormControlLabel, Divider, Button } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
-import { getProfession } from "../state/gearOptimizerSlice";
+import { getProfession, getGeneric } from "../state/gearOptimizerSlice";
 
 import ClassSelection from "./ClassSelection";
 import Traits from "./Traits";
@@ -15,6 +15,7 @@ import Priorities from "./priorities/Priorities";
 import { ConsumableEffect, Item, Skill } from "gw2-ui";
 import DamageDistribution from "./DamageDistribution";
 import { Cancel, Functions } from "@material-ui/icons";
+import ForcedSlots from "./ForcedSlots";
 
 const styles = (theme) => ({
   root: {
@@ -101,6 +102,7 @@ const Selects = (data) => {
 const MainComponent = ({ classes, data }) => {
   const [expertMode, setExpertMode] = useState(true);
   const profession = useSelector(getProfession);
+  const dualWielded = useSelector(getGeneric("weaponType"));
 
   function onStartCalculate(e) {
     // TODO do calc
@@ -155,6 +157,13 @@ const MainComponent = ({ classes, data }) => {
             <>
               <Divider />
               <Buffs />
+            </>
+          )}
+
+          {expertMode && (
+            <>
+              <Divider />
+              <ForcedSlots dualWielded={dualWielded === "dualWielded"} />
             </>
           )}
 

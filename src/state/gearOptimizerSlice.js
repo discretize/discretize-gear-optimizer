@@ -32,7 +32,8 @@ export const gearOptimizerSlice = createSlice({
     maxToughness: "",
     skills: {
       values: []
-    }
+    },
+    forcedSlots: ["", "", "", "", "", "", "", "", "", "", "", "", ""]
   },
   reducers: {
     changeProfession: (state, action) => {
@@ -67,6 +68,9 @@ export const gearOptimizerSlice = createSlice({
     },
     removeSkill: (state, action) => {
       state.skills.values = state.skills.values.filter((v) => v !== action.payload.value);
+    },
+    changeForcedSlot: (state, action) => {
+      state.forcedSlots[action.payload.index] = action.payload.value;
     }
   }
 });
@@ -92,7 +96,8 @@ export const {
   changeTextBoxes,
   changeAllDistributions,
   addSkill,
-  removeSkill
+  removeSkill,
+  changeForcedSlot
 } = gearOptimizerSlice.actions;
 
 export default gearOptimizerSlice.reducer;
