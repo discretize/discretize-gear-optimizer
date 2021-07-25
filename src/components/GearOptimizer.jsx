@@ -16,6 +16,7 @@ import { ConsumableEffect, Item, Skill } from "gw2-ui";
 import DamageDistribution from "./DamageDistribution";
 import { Cancel, Functions } from "@material-ui/icons";
 import ForcedSlots from "./ForcedSlots";
+import { prepareInputObject } from "../state/prepareReduxState";
 
 const styles = (theme) => ({
   root: {
@@ -107,6 +108,7 @@ const MainComponent = ({ classes, data }) => {
   function onStartCalculate(e) {
     // TODO do calc
     console.log("calculate");
+    const settings = prepareInputObject();
   }
 
   function onCancelCalculate(e) {

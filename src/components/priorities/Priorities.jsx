@@ -100,9 +100,9 @@ const Priorities = ({ classes, presets }) => {
                   id: "optimizeFor"
                 }}
               >
-                <MenuItem value="damage">Damage</MenuItem>
-                <MenuItem value="survival">Survivability</MenuItem>
-                <MenuItem value="healing">Healing</MenuItem>
+                <MenuItem value="Damage">Damage</MenuItem>
+                <MenuItem value="Survivability">Survivability</MenuItem>
+                <MenuItem value="Healing">Healing</MenuItem>
               </Select>
             </FormControl>
             <HelperIcon text="What to optimize the results for. 'Damage' includes power and condition damage according to the distribution below." />

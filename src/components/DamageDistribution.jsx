@@ -18,10 +18,11 @@ import HelperIcon from "./HelperIcon";
 import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  changeDistribution,
+  changeDistributionNew,
   changeDistributionVersion,
-  changeAllDistributions,
-  getDistribution,
+  changeAllDistributionsOld,
+  getDistributionOld,
+  getDistributionNew,
   getDistributionVersion,
   getTextBoxes,
   changeTextBoxes
@@ -87,7 +88,8 @@ const DISTRIBUTION_NAMES = [
 const DamageDistribution = ({ classes }) => {
   const dispatch = useDispatch();
   const version = useSelector(getDistributionVersion);
-  const distribution = useSelector(getDistribution); // actual real selected damage distribution at any time
+  const distributionOld = useSelector(getDistributionOld); // actual real selected damage distribution at any time
+  const distributionNew = useSelector(getDistributionNew);
 
   // locally displayed in the text boxes. Text boxes might contain a string that is not a real number (yet), so we need to store those separately
   const textBoxes = useSelector(getTextBoxes);
@@ -103,7 +105,7 @@ const DamageDistribution = ({ classes }) => {
     distributionNew.push(100 - prev);
     // console.log(distributionNew);
 
-    dispatch(changeAllDistributions(distributionNew));
+    dispatch(changeAllDistributionsOld(distributionNew));
   };
 
   const SliderOld = () => {
@@ -134,7 +136,7 @@ const DamageDistribution = ({ classes }) => {
                 ) : (
                   <Condition name={d.name} disableLink />
                 )}{" "}
-                {distribution[index]}%
+                {distributionOld[index]}%
               </Typography>
             </Grid>
           ))}
@@ -145,14 +147,14 @@ const DamageDistribution = ({ classes }) => {
 
   const onUpdateNew = (num) => (render, handle, value, un, percent) => {
     dispatch(changeTextBoxes({ index: num, value: value }));
-    dispatch(changeDistribution({ index: num, value: value }));
+    dispatch(changeDistributionNew({ index: num, value: value }));
   };
 
   const handleChangeTextNew = (num) => (e) => {
     let value = e.target.value;
     if (value.match("^[-+]?[0-9]*.?[0-9]+([eE][-+]?[0-9]+)?$")) {
       // only update the actual slider when the number entered is a valid string. The regex matches for integer or floats.
-      dispatch(changeDistribution({ index: num, value: value }));
+      dispatch(changeDistributionNew({ index: num, value: value }));
     }
 
     dispatch(changeTextBoxes({ index: num, value: value }));
@@ -191,7 +193,7 @@ const DamageDistribution = ({ classes }) => {
             <Grid item xs={12} sm={8}>
               <Nouislider
                 className={classNames(classes.sliderNew, classes.slider)}
-                start={distribution[index]}
+                start={distributionNew[index]}
                 connect={[true, false]}
                 range={{
                   min: [d.min],

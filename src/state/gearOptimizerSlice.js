@@ -22,10 +22,11 @@ export const gearOptimizerSlice = createSlice({
     affixes: [],
     distribution: {
       version: 2,
-      values: [2, 0, 0, 0, 0, 0],
+      values1: [100, 0, 0, 0, 0, 0],
+      values2: [2, 0, 0, 0, 0, 0],
       textBoxes: ["2", "0", "0", "0", "0", "0"]
     },
-    optimizeFor: "damage",
+    optimizeFor: "Damage",
     weaponType: "dualWielded",
     minBoonDuration: "",
     minHealingPower: "",
@@ -84,14 +85,17 @@ export const gearOptimizerSlice = createSlice({
     changeDistributionVersion: (state, action) => {
       state.distribution.version = action.payload;
     },
-    changeDistribution: (state, action) => {
-      state.distribution.values[action.payload.index] = action.payload.value;
+    changeDistributionNew: (state, action) => {
+      state.distribution.values2[action.payload.index] = action.payload.value;
     },
     changeTextBoxes: (state, action) => {
       state.distribution.textBoxes[action.payload.index] = action.payload.value;
     },
-    changeAllDistributions: (state, action) => {
-      state.distribution.values = action.payload;
+    changeAllDistributionsOld: (state, action) => {
+      state.distribution.values1 = action.payload;
+    },
+    changeAllDistributionsNew: (state, action) => {
+      state.distribution.values2 = action.payload;
     },
     addSkill: (state, action) => {
       state.skills = state.skills.concat(action.payload.value);
@@ -123,7 +127,8 @@ export const getTraitLines = (state) => state.gearOptimizer.traits.lines;
 export const getTraits = (state) => state.gearOptimizer.traits.selected;
 export const getGeneric = (key) => (state) => state.gearOptimizer[key];
 export const getDistributionVersion = (state) => state.gearOptimizer.distribution.version;
-export const getDistribution = (state) => state.gearOptimizer.distribution.values;
+export const getDistributionOld = (state) => state.gearOptimizer.distribution.values1;
+export const getDistributionNew = (state) => state.gearOptimizer.distribution.values2;
 export const getTextBoxes = (state) => state.gearOptimizer.distribution.textBoxes;
 export const getSkills = (state) => state.gearOptimizer.skills;
 export const getModifiers = (state) => state.gearOptimizer.modifiers;
@@ -135,9 +140,9 @@ export const {
   changeTraits,
   changeGeneric,
   changeDistributionVersion,
-  changeDistribution,
+  changeDistributionNew,
   changeTextBoxes,
-  changeAllDistributions,
+  changeAllDistributionsOld,
   addSkill,
   removeSkill,
   changeForcedSlot,
