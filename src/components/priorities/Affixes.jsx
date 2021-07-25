@@ -92,6 +92,7 @@ const Affixes = ({ classes }) => {
     <FormGroup row>
       {AFFIXES.map((a) => (
         <FormControlLabel
+          key={a}
           control={
             <Checkbox
               checked={affixes.indexOf(a) > -1}

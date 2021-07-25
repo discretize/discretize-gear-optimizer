@@ -102,7 +102,7 @@ const ForcedSlots = ({ classes, dualWielded }) => {
 
       {SLOTS.map((s, index) => (
         <TextField
-          id="standard-dense"
+          key={s.short}
           value={value[index]}
           label={s.short}
           className={classNames(classes.textField, classes.dense)}

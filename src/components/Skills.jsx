@@ -51,6 +51,7 @@ const Skills = ({ classes, data }) => {
       <Typography variant="h5">Skills </Typography>
       {data.map((skill) => (
         <CheckboxComponent
+          key={skill.id}
           value={skill.id}
           checked={skills.indexOf(skill.id) > -1}
           className={classes.checkbox}

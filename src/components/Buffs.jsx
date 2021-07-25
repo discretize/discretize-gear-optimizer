@@ -276,7 +276,7 @@ const Buffs = ({ classes, presets }) => {
                 checked={lightArmor}
                 label={
                   <>
-                    <Typography variant="body1">Low boss armor (VG, KC)</Typography>
+                    <Typography>Low boss armor (VG, KC)</Typography>
                     <Typography variant="caption" className={classes.tinyNote}>
                       1910 vs 2597{" "}
                     </Typography>
