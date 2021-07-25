@@ -74,6 +74,7 @@ list:
     armory-type: "skills"
 
 - section: Fire
+  id: 31
   items:
 
   - id: empowering-flame
@@ -139,6 +140,7 @@ list:
     armory-type: "traits"
 
 - section: Air
+  id: 41
   items:
 
   - id: ferocious-winds
@@ -212,6 +214,7 @@ list:
     armory-type: "traits"
 
 - section: Earth
+  id: 26
   items:
 
   - id: stone-flesh
@@ -255,6 +258,7 @@ list:
     armory-type: "traits"
 
 - section: Water
+  id: 17
   items:
 
   - id: piercing-blades
@@ -298,6 +302,7 @@ list:
     armory-type: "traits"
 
 - section: Arcane
+  id: 37
   items:
 
   - id: elemental-enchantment
@@ -339,6 +344,7 @@ list:
     armory-type: "traits"
 
 - section: Tempest
+  id: 48
   items:
 
   - id: gathered-focus
@@ -370,6 +376,7 @@ list:
     armory-type: "traits"
 
 - section: Weaver
+  id: 56
   items:
 
   - id: superior-elements

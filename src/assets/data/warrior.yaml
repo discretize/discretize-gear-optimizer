@@ -32,6 +32,7 @@ list:
     armory-type: "skills"
 
 - section: "Strength"
+  id: 4
   items:
 
   - id: peak-performance
@@ -104,6 +105,7 @@ list:
     armory-type: "traits"
 
 - section: "Arms"
+  id: 36
   items:
 
   - id: wounding-precision
@@ -174,6 +176,7 @@ list:
     armory-type: "traits"
 
 - section: "Defense"
+  id: 22
   items:
 
   - id: thick-skin
@@ -215,6 +218,7 @@ list:
     armory-type: "traits"
 
 - section: "Tactics"
+  id: 11
   items:
 
   - id: leg-specialist
@@ -285,6 +289,7 @@ list:
     armory-type: "traits"
 
 - section: "Discipline"
+  id: 51
   items:
 
   - id: warriors-sprint
@@ -327,6 +332,7 @@ list:
     armory-type: "traits"
 
 - section: "Berserker"
+  id: 18
   items:
 
   - id: blood-reaction-no
@@ -406,6 +412,7 @@ list:
     armory-type: "traits"
 
 - section: "Spellbreaker"
+  id: 61
   items:
 
   - id: pure-strike-boonless

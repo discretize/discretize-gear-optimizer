@@ -13,6 +13,7 @@ export const gearOptimizerSlice = createSlice({
         [0, 0, 0]
       ]
     },
+    modifiers: [],
     Runes: "",
     Sigil1: "",
     Sigil2: "",
@@ -92,6 +93,18 @@ export const gearOptimizerSlice = createSlice({
     },
     changeForcedSlot: (state, action) => {
       state.forcedSlots[action.payload.index] = action.payload.value;
+    },
+    addModifier: (state, action) => {
+      state.modifiers = state.modifiers.concat(action.payload);
+    },
+    removeModifier: (state, action) => {
+      state.modifiers = state.modifiers.filter((m) => m.id !== action.payload);
+    },
+    removeTraitModifierWithGW2id: (state, action) => {
+      state.modifiers = state.modifiers.filter((m) => m.gw2_id !== action.payload);
+    },
+    removeTraitModifiersWithTraitlineId: (state, action) => {
+      state.modifiers = state.modifiers.filter((m) => m.line !== action.payload);
     }
   }
 });
@@ -105,6 +118,7 @@ export const getDistributionVersion = (state) => state.gearOptimizer.distributio
 export const getDistribution = (state) => state.gearOptimizer.distribution.values;
 export const getTextBoxes = (state) => state.gearOptimizer.distribution.textBoxes;
 export const getSkills = (state) => state.gearOptimizer.skills.values;
+export const getModifiers = (state) => state.gearOptimizer.modifiers;
 
 export const {
   changeProfession,
@@ -118,7 +132,11 @@ export const {
   changeAllDistributions,
   addSkill,
   removeSkill,
-  changeForcedSlot
+  changeForcedSlot,
+  addModifier,
+  removeModifier,
+  removeTraitModifierWithGW2id,
+  removeTraitModifiersWithTraitlineId
 } = gearOptimizerSlice.actions;
 
 export default gearOptimizerSlice.reducer;

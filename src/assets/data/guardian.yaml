@@ -81,6 +81,7 @@ list:
     armory-type: "skills"
 
 - section: "Zeal"
+  id: 42
   items:
 
   - id: fiery-wrath
@@ -131,6 +132,7 @@ list:
     armory-type: "traits"
 
 - section: "Radiance"
+  id: 16
   items:
 
   - id: right-hand-strength
@@ -210,6 +212,7 @@ list:
     armory-type: "traits"
 
 - section: "Valor"
+  id: 13
   items:
 
   - id: stalwart-defender
@@ -266,6 +269,7 @@ list:
     armory-type: "traits"
 
 - section: "Virtues"
+  id: 46
   items:
 
   - id: inspired-virtue
@@ -326,6 +330,7 @@ list:
     armory-type: "traits"
 
 - section: "Dragonhunter"
+  id: 27
   items:
 
   - id: zealots-aggression
@@ -376,6 +381,7 @@ list:
     armory-type: "traits"
 
 - section: "Firebrand"
+  id: 62
   items:
 
   - id: imbued-haste

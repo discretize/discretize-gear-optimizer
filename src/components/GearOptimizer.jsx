@@ -135,12 +135,13 @@ const MainComponent = ({ classes, data }) => {
         <>
           {expertMode &&
             PROFESSIONS.filter((p) => p === profession).map((p) => {
+              const traitData = data[p.toLocaleLowerCase()].edges[0].node.list.slice(1);
               const skillData = data[p.toLowerCase()].edges[0].node.list.filter(
                 (d) => d.section === "Skills"
               );
               return (
                 <React.Fragment key={"TaS_" + p}>
-                  <Traits profession={p} />
+                  <Traits profession={p} data={traitData} />
                   <Skills profession={p} data={skillData[0] ? skillData[0].items : []} />
                 </React.Fragment>
               );
@@ -224,11 +225,13 @@ const GearOptimizer = ({ classes }) => {
               node {
                 list {
                   section
+                  id
                   items {
                     gw2_id
                     subText
                     text
                     id
+                    modifiers
                   }
                 }
               }
@@ -239,11 +242,13 @@ const GearOptimizer = ({ classes }) => {
               node {
                 list {
                   section
+                  id
                   items {
                     gw2_id
                     subText
                     text
                     id
+                    modifiers
                   }
                 }
               }
@@ -254,11 +259,13 @@ const GearOptimizer = ({ classes }) => {
               node {
                 list {
                   section
+                  id
                   items {
                     gw2_id
                     subText
                     text
                     id
+                    modifiers
                   }
                 }
               }
@@ -269,11 +276,13 @@ const GearOptimizer = ({ classes }) => {
               node {
                 list {
                   section
+                  id
                   items {
                     gw2_id
                     subText
                     text
                     id
+                    modifiers
                   }
                 }
               }
@@ -284,11 +293,13 @@ const GearOptimizer = ({ classes }) => {
               node {
                 list {
                   section
+                  id
                   items {
                     gw2_id
                     subText
                     text
                     id
+                    modifiers
                   }
                 }
               }
@@ -299,11 +310,13 @@ const GearOptimizer = ({ classes }) => {
               node {
                 list {
                   section
+                  id
                   items {
                     gw2_id
                     subText
                     text
                     id
+                    modifiers
                   }
                 }
               }
@@ -314,11 +327,13 @@ const GearOptimizer = ({ classes }) => {
               node {
                 list {
                   section
+                  id
                   items {
                     gw2_id
                     subText
                     text
                     id
+                    modifiers
                   }
                 }
               }

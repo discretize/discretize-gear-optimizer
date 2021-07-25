@@ -23,6 +23,7 @@ list:
     armory-type: "skills"
 
 - section: "Marksmanship"
+  id: 8
   items:
 
   - id: farsighted
@@ -56,6 +57,7 @@ list:
     armory-type: "traits"
 
 - section: "Skirmishing"
+  id: 30
   items:
 
   - id: hidden-barbs
@@ -99,6 +101,7 @@ list:
     armory-type: "traits"
 
 - section: "Wilderness Survival"
+  id: 33
   items:
 
   - id: oakheart-salve
@@ -150,6 +153,7 @@ list:
     armory-type: "traits"
 
 - section: "Nature Magic"
+  id: 25
   items:
 
   - id: bountiful-hunter
@@ -191,6 +195,7 @@ list:
     armory-type: "traits"
 
 - section: "Beastmastery"
+  id: 32
   items:
 
   - id: honed-axes
@@ -224,6 +229,7 @@ list:
     armory-type: "traits"
 
 - section: "Druid"
+  id: 5
   items:
 
   - id: natural-mender
@@ -237,6 +243,7 @@ list:
     armory-type: "traits"
 
 - section: "Soulbeast"
+  id: 55
   items:
 
   - id: furious-strength

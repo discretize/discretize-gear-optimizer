@@ -23,6 +23,7 @@ list:
     armory-type: "skills"
 
 - section: "Domination"
+  id: 10
   items:
 
   - id: fragility
@@ -54,6 +55,7 @@ list:
     armory-type: "traits"
 
 - section: "Dueling"
+  id: 1
   items:
 
   - id: fencers-finesse
@@ -77,6 +79,7 @@ list:
     armory-type: "traits"
 
 - section: "Chaos"
+  id: 45
   items:
 
   - id: illusionary-defense
@@ -130,6 +133,7 @@ list:
     armory-type: "traits"
 
 - section: "Inspiration"
+  id: 23
   items:
 
   - id: healing-prism
@@ -142,6 +146,7 @@ list:
     armory-type: "traits"
 
 - section: "Illusions"
+  id: 24
   items:
 
   - id: compounding-power
@@ -156,6 +161,7 @@ list:
     armory-type: "traits"
 
 - section: "Chronomancer"
+  id: 40
   items:
 
   - id: danger-time
@@ -168,6 +174,7 @@ list:
     armory-type: "traits"
 
 - section: "Mirage"
+  id: 59
   items:
 
   - id: nomads-endurance

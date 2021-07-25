@@ -2,6 +2,7 @@ GraphQL ID: Revenant
 list:
 
 - section: "Corruption"
+  id: 14
   items:
 
   - id: acolyte-of-torment
@@ -50,6 +51,7 @@ list:
     armory-type: "traits"
 
 - section: "Retribution"
+  id: 9
   items:
 
   - id: dwarven-battle-training
@@ -90,6 +92,7 @@ list:
     armory-type: "traits"
 
 - section: "Invocation"
+  id: 3
   items:
 
   - id: rising-tide
@@ -120,6 +123,7 @@ list:
     armory-type: "traits"
 
 - section: "Devastation"
+  id: 15
   items:
 
   - id: unsuspecting-strikes
@@ -192,6 +196,7 @@ list:
     armory-type: "traits"
 
 - section: "Salvation"
+  id: 12
   items:
 
   - id: tranquil-balance
@@ -223,6 +228,7 @@ list:
     armory-type: "traits"
 
 - section: "Renegade"
+  id: 63
   items:
 
   - id: ambush-commander

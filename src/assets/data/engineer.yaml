@@ -2,6 +2,7 @@ GraphQL ID: Engineer
 list:
 
 - section: "Explosives"
+  id: 6
   items:
 
   - id: glass-cannon
@@ -53,6 +54,7 @@ list:
     armory-type: "traits"
 
 - section: "Firearms"
+  id: 38
   items:
 
   - id: chemical-rounds
@@ -140,6 +142,7 @@ list:
     armory-type: "traits"
 
 - section: "Inventions"
+  id: 47
   items:
 
   - id: over-shield
@@ -161,6 +164,7 @@ list:
     armory-type: "traits"
 
 - section: "Alchemy"
+  id: 29
   items:
 
   - id: health-insurance
@@ -183,6 +187,7 @@ list:
     armory-type: "traits"
 
 - section: "Tools"
+  id: 21
   items:
 
   - id: excessive-energy
@@ -195,6 +200,7 @@ list:
     armory-type: "traits"
 
 - section: "Scrapper"
+  id: 43
   items:
 
   - id: object-in-motion-1
