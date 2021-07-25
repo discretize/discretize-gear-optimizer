@@ -10,7 +10,12 @@ import {
   Input
 } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
-import { changeGeneric, getGeneric } from "../state/gearOptimizerSlice";
+import {
+  changeGeneric,
+  getGeneric,
+  addModifier,
+  removeModifierWithSource
+} from "../state/gearOptimizerSlice";
 
 import { Item } from "gw2-ui";
 
@@ -37,9 +42,26 @@ const GW2Select = ({ classes, name, label, data }) => {
   const dispatch = useDispatch();
   const bigValue = useSelector(getGeneric(name));
 
-  function handleChange(event, name) {
-    dispatch(changeGeneric({ toChange: name, value: event.target.value }));
-  }
+  const allItems = [].concat.apply(
+    [],
+    data.map((d) => d.items)
+  );
+
+  const handleChange = (event) => {
+    // Remove old modifier
+    console.log(allItems);
+    console.log(event.target.value);
+    dispatch(removeModifierWithSource(event.target.name));
+    dispatch(
+      addModifier({
+        id: event.target.value,
+        modifiers: allItems.filter((a) => a.id === event.target.value)[0].modifiers,
+        source: event.target.name
+      })
+    );
+
+    dispatch(changeGeneric({ toChange: event.target.name, value: event.target.value }));
+  };
 
   const values = [];
   for (let elem in data) {
@@ -55,7 +77,7 @@ const GW2Select = ({ classes, name, label, data }) => {
       <Select
         value={bigValue}
         input={<Input name={name} id={name} />}
-        onChange={(e) => handleChange(e, name)}
+        onChange={handleChange}
         renderValue={(selected) => {
           const item = values.filter((v) => v.id === selected)[0];
           return (

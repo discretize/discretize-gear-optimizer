@@ -111,8 +111,8 @@ export const gearOptimizerSlice = createSlice({
     removeTraitModifierWithGW2id: (state, action) => {
       state.modifiers = state.modifiers.filter((m) => m.gw2_id !== action.payload);
     },
-    removeTraitModifiersWithTraitlineId: (state, action) => {
-      state.modifiers = state.modifiers.filter((m) => m.line !== action.payload);
+    removeModifierWithSource: (state, action) => {
+      state.modifiers = state.modifiers.filter((m) => m.source !== action.payload);
     }
   }
 });
@@ -144,7 +144,7 @@ export const {
   addModifier,
   removeModifier,
   removeTraitModifierWithGW2id,
-  removeTraitModifiersWithTraitlineId
+  removeModifierWithSource
 } = gearOptimizerSlice.actions;
 
 export default gearOptimizerSlice.reducer;

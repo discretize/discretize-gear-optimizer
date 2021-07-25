@@ -22,7 +22,7 @@ import {
   addModifier,
   removeModifier,
   removeTraitModifierWithGW2id,
-  removeTraitModifiersWithTraitlineId
+  removeModifierWithSource
 } from "../state/gearOptimizerSlice";
 
 const styles = (theme) => ({
@@ -98,7 +98,7 @@ const Traits = ({ classes, profession, data }) => {
     for (let l in traitlines) {
       if (val.indexOf(traitlines[l]) < 0 && traitlines[l] !== 0) {
         // trait line was removed, flush modifiers
-        dispatch(removeTraitModifiersWithTraitlineId(traitlines[l]));
+        dispatch(removeModifierWithSource(traitlines[l]));
       }
     }
     dispatch(changeTraitLine(val));
@@ -133,7 +133,7 @@ const Traits = ({ classes, profession, data }) => {
           id: trait.id,
           modifiers: trait.modifiers,
           gw2_id: trait.gw2_id,
-          line: line
+          source: line
         })
       );
     } else {

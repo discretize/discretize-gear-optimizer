@@ -347,6 +347,7 @@ const GearOptimizer = ({ classes }) => {
                 gw2_id
                 subText
                 id
+                modifiers
               }
               section
             }
@@ -359,6 +360,7 @@ const GearOptimizer = ({ classes }) => {
                 gw2_id
                 subText
                 id
+                modifiers
               }
               section
             }
@@ -371,6 +373,7 @@ const GearOptimizer = ({ classes }) => {
                 gw2_id
                 subText
                 id
+                modifiers
               }
               section
             }
@@ -382,6 +385,7 @@ const GearOptimizer = ({ classes }) => {
                 text
                 gw2_id
                 id
+                modifiers
               }
               section
             }
