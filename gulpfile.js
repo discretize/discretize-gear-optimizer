@@ -390,7 +390,8 @@ const sync = function (done) {
 	browserSync.init({
 		server: {
 			baseDir: base.dist
-		}
+		},
+    ghostMode: false
 	});
     done();
 };
