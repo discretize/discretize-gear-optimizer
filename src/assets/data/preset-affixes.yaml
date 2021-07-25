@@ -3,6 +3,7 @@ list:
 
   - name: Power DPS
     id: power-dps
+    type: damage
     affixes:
       - BERSERKER
       - ASSASSIN
@@ -10,15 +11,17 @@ list:
 
   - name: Power Boon
     id: power-boon
+    type: damage
     affixes:
       - BERSERKER
       - ASSASSIN
       - DIVINER
     restrictions:
-      MIN_BOON_DURATION: 100
+      minBoonDuration: 100
 
   - name: Condi DPS
     id: condi-dps
+    type: damage
     affixes:
       - VIPER
       - SINISTER
@@ -27,18 +30,20 @@ list:
 
   - name: Heal
     id: heal
+    type: healing
     affixes:
       - HARRIER
       - MINSTREL
       - MAGI
     restrictions:
-      MIN_BOON_DURATION: 100
+      minBoonDuration: 100
 
   - name: Condi Boon
     id: condi-boon
+    type: damage
     affixes:
       - VIPER
       - SERAPH
       - CELESTIAL
     restrictions:
-      MIN_BOON_DURATION: 79
+      minBoonDuration: 79

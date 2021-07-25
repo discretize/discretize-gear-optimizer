@@ -24,54 +24,54 @@ const styles = (theme) => ({
 });
 
 export const AFFIXES = [
-  "Berserker",
-  "Zealot",
-  "Soldier",
-  "Forsaken",
-  "Valkyrie",
-  "Harrier",
-  "Paladin",
-  "Commander",
-  "Demolisher",
-  "Swashbuckler",
-  "Marauder",
-  "Avatar",
-  "Destroyer",
-  "Vigilant",
-  "Crusader",
-  "Wanderer",
-  "Diviner",
-  "Wizard",
-  "Viper",
-  "Grieving",
-  "Sage",
-  "Marshal",
-  "Captain",
-  "Rampager",
-  "Assassin",
-  "Seraph",
-  "Knight",
-  "Cavalier",
-  "Nomad",
-  "Settler",
-  "Giver",
-  "Trailblazer",
-  "Minstrel",
-  "Giver",
-  "Sentinel",
-  "Shaman",
-  "Sinister",
-  "Giver",
-  "Carrion",
-  "Rabid",
-  "Dire",
-  "Apostate",
-  "Plaguedoctor",
-  "Bringer",
-  "Cleric",
-  "Magi",
-  "Apothecary",
-  "Celestial"
+  "BERSERKER",
+  "ZEALOT",
+  "SOLDIER",
+  "FORSAKEN",
+  "VALKYRIE",
+  "HARRIER",
+  "PALADIN",
+  "COMMANDER",
+  "DEMOLISHER",
+  "SWASHBUCKLER",
+  "MARAUDER",
+  "AVATAR",
+  "DESTROYER",
+  "VIGILANT",
+  "CRUSADER",
+  "WANDERER",
+  "DIVINER",
+  "WIZARD",
+  "VIPER",
+  "GRIEVING",
+  "SAGE",
+  "MARSHAL",
+  "CAPTAIN",
+  "RAMPAGER",
+  "ASSASSIN",
+  "SERAPH",
+  "KNIGHT",
+  "CAVALIER",
+  "NOMAD",
+  "SETTLER",
+  "GIVER",
+  "TRAILBLAZER",
+  "MINSTREL",
+  "GIVER",
+  "SENTINEL",
+  "SHAMAN",
+  "SINISTER",
+  "GIVER",
+  "CARRION",
+  "RABID",
+  "DIRE",
+  "APOSTATE",
+  "PLAGUEDOCTOR",
+  "BRINGER",
+  "CLERIC",
+  "MAGI",
+  "APOTHECARY",
+  "CELESTIAL"
 ];
 
 const Affixes = ({ classes }) => {
@@ -90,21 +90,27 @@ const Affixes = ({ classes }) => {
 
   return (
     <FormGroup row>
-      {AFFIXES.map((a) => (
-        <FormControlLabel
-          key={a}
-          control={
-            <Checkbox
-              checked={affixes.indexOf(a) > -1}
-              value={a}
-              color="primary"
-              onChange={handleChange(a)}
-            />
-          }
-          className={classes.checkbox}
-          label={<Item stat={a} type="Ring" disableLink text={a} className={classes.text} />}
-        />
-      ))}
+      {AFFIXES.map((a) => {
+        const name = a.charAt(0).toUpperCase() + a.slice(1).toLowerCase();
+
+        return (
+          <FormControlLabel
+            key={a}
+            control={
+              <Checkbox
+                checked={affixes.indexOf(a) > -1}
+                value={a}
+                color="primary"
+                onChange={handleChange(a)}
+              />
+            }
+            className={classes.checkbox}
+            label={
+              <Item stat={name} type="Ring" disableLink text={name} className={classes.text} />
+            }
+          />
+        );
+      })}
     </FormGroup>
   );
 };

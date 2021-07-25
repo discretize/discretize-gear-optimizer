@@ -36,10 +36,13 @@ const styles = (theme) => ({
     display: "flex",
     alignItems: "center",
     flexWrap: "wrap"
+  },
+  templateChip: {
+    margin: theme.spacing.unit
   }
 });
 
-const Priorities = ({ classes }) => {
+const Priorities = ({ classes, presets }) => {
   const dispatch = useDispatch();
   const optimizeFor = useSelector(getGeneric("optimizeFor"));
   const weaponType = useSelector(getGeneric("weaponType"));
@@ -52,15 +55,36 @@ const Priorities = ({ classes }) => {
     dispatch(changeGeneric({ toChange: event.target.name, value: event.target.value }));
   };
 
+  const handleTemplateClick = (index) => (event) => {
+    dispatch(changeGeneric({ toChange: "affixes", value: [] }));
+    dispatch(changeGeneric({ toChange: "minBoonDuration", value: 0 }));
+
+    dispatch(changeGeneric({ toChange: "optimizeFor", value: presets[index].type }));
+
+    if (presets[index].affixes)
+      dispatch(changeGeneric({ toChange: "affixes", value: presets[index].affixes }));
+    if (presets[index].restrictions)
+      dispatch(
+        changeGeneric({
+          toChange: "minBoonDuration",
+          value: presets[index].restrictions.minBoonDuration
+        })
+      );
+  };
+
   return (
     <div className={classes.root}>
       <Typography variant="h5">Priorities </Typography>
-      <Chip
-        label="Template name"
-        variant="outlined"
-        onClick={(e) => handleTemplateClick}
-        className={classes.templateChip}
-      />
+      {presets.map((preset, index) => (
+        <Chip
+          id={preset.id}
+          key={preset.id}
+          label={preset.name}
+          variant="outlined"
+          onClick={handleTemplateClick(index)}
+          className={classes.templateChip}
+        />
+      ))}
       <Affixes />
 
       <Grid container>

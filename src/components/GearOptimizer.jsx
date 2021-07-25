@@ -173,7 +173,7 @@ const MainComponent = ({ classes, data }) => {
           {expertMode && (
             <>
               <Divider />
-              <Priorities />
+              <Priorities presets={data.presetAffixes.list} />
             </>
           )}
 
@@ -376,6 +376,17 @@ const GearOptimizer = ({ classes }) => {
               buffs
               id
               name
+            }
+          }
+          presetAffixes: presetAffixes {
+            list {
+              id
+              name
+              affixes
+              type
+              restrictions {
+                minBoonDuration
+              }
             }
           }
         }
