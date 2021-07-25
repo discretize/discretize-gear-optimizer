@@ -22,7 +22,7 @@ We use Github actions for continuous integration and deployment. Any push to the
 
 ## 👨‍💻 Developing
 
-This project requires node 10! Please make sure to select the correct version of node via nvm or a comparable software before running `yarn install`
+This project requires node 16! Please make sure to select the correct version of node via nvm or a comparable software before running `yarn install`
 
 ```sh
 git clone git@github.com:ManuelHaag/discretize-old.git
