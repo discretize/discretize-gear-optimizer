@@ -33,7 +33,28 @@ export const gearOptimizerSlice = createSlice({
     skills: {
       values: []
     },
-    forcedSlots: ["", "", "", "", "", "", "", "", "", "", "", "", ""]
+    forcedSlots: ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+    might: false,
+    fury: false,
+    protection: false,
+    vulnerability: false,
+    bannerOfStrength: false,
+    bannerOfDiscipline: false,
+    bannerOfTactics: false,
+    bannerOfDefense: false,
+    spotter: false,
+    frostSpirit: false,
+    pinpointDistribution: false,
+    assassinsPresence: false,
+    facetOfNature: false,
+    riteDwarf: false,
+    strengthInNumbers: false,
+    baneSignet: false,
+    signetOfJudgment: false,
+    signetOfMercy: false,
+    signetOfWrath: false,
+    exposed: false,
+    lightArmor: false
   },
   reducers: {
     changeProfession: (state, action) => {

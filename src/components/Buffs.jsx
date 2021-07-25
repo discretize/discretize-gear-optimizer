@@ -37,7 +37,7 @@ const styles = (theme) => ({
   }
 });
 
-const GW2Select = ({ classes }) => {
+const Buffs = ({ classes, presets }) => {
   const dispatch = useDispatch();
   const might = useSelector(getGeneric("might"));
   const fury = useSelector(getGeneric("fury"));
@@ -56,10 +56,12 @@ const GW2Select = ({ classes }) => {
   const facetOfNature = useSelector(getGeneric("facetOfNature"));
   const riteDwarf = useSelector(getGeneric("riteDwarf"));
   const strengthInNumbers = useSelector(getGeneric("strengthInNumbers"));
+
   const baneSignet = useSelector(getGeneric("baneSignet"));
   const signetOfJudgment = useSelector(getGeneric("signetOfJudgment"));
   const signetOfMercy = useSelector(getGeneric("signetOfMercy"));
   const signetOfWrath = useSelector(getGeneric("signetOfWrath"));
+
   const exposed = useSelector(getGeneric("exposed"));
   const lightArmor = useSelector(getGeneric("lightArmor"));
 
@@ -67,17 +69,47 @@ const GW2Select = ({ classes }) => {
     dispatch(changeGeneric({ toChange: name, value: event.target.checked }));
   };
 
-  const handleTemplateClick = (event) => {};
+  const handleTemplateClick = (index) => (event) => {
+    dispatch(changeGeneric({ toChange: "might", value: false }));
+    dispatch(changeGeneric({ toChange: "fury", value: false }));
+    dispatch(changeGeneric({ toChange: "protection", value: false }));
+    dispatch(changeGeneric({ toChange: "vulnerability", value: false }));
+    dispatch(changeGeneric({ toChange: "bannerOfStrength", value: false }));
+    dispatch(changeGeneric({ toChange: "bannerOfDiscipline", value: false }));
+    dispatch(changeGeneric({ toChange: "bannerOfTactics", value: false }));
+    dispatch(changeGeneric({ toChange: "bannerOfDefense", value: false }));
+    dispatch(changeGeneric({ toChange: "spotter", value: false }));
+    dispatch(changeGeneric({ toChange: "might", value: false }));
+    dispatch(changeGeneric({ toChange: "frostSpirit", value: false }));
+    dispatch(changeGeneric({ toChange: "pinpointDistribution", value: false }));
+    dispatch(changeGeneric({ toChange: "assassinsPresence", value: false }));
+    dispatch(changeGeneric({ toChange: "facetOfNature", value: false }));
+    dispatch(changeGeneric({ toChange: "riteDwarf", value: false }));
+    dispatch(changeGeneric({ toChange: "strengthInNumbers", value: false }));
+    dispatch(changeGeneric({ toChange: "baneSignet", value: false }));
+    dispatch(changeGeneric({ toChange: "signetOfJudgment", value: false }));
+    dispatch(changeGeneric({ toChange: "signetOfMercy", value: false }));
+    dispatch(changeGeneric({ toChange: "signetOfWrath", value: false }));
+    dispatch(changeGeneric({ toChange: "exposed", value: false }));
+    dispatch(changeGeneric({ toChange: "lightArmor", value: false }));
+    if (presets[index].buffs)
+      presets[index].buffs.forEach((b) => dispatch(changeGeneric({ toChange: b, value: true })));
+  };
 
   return (
     <>
       <Typography variant="h5">Boons & Buffs </Typography>
-      <Chip
-        label="Template name"
-        variant="outlined"
-        onClick={(e) => handleTemplateClick}
-        className={classes.templateChip}
-      />
+      {presets.map((preset, index) => (
+        <Chip
+          id={preset.id}
+          key={preset.id}
+          label={preset.name}
+          variant="outlined"
+          onClick={handleTemplateClick(index)}
+          className={classes.templateChip}
+        />
+      ))}
+
       <Grid container>
         <Grid item xs={12} sm={6} md={4}>
           <FormControl component="fieldset" className={classes.formControl}>
@@ -260,4 +292,4 @@ const GW2Select = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(GW2Select);
+export default withStyles(styles)(Buffs);

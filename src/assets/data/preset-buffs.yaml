@@ -8,23 +8,23 @@ list:
   - name: Fractal
     id: fractal
     buffs:
-      - MIGHT
-      - FURY
-      - VULNERABILITY
-      - BANNER_OF_STRENGTH
-      - BANNER_OF_DISCIPLINE
-      - BANE_SIGNET
-      - FROST_SPIRIT
-      - ASSASSINS_PRESENCE
+      - might
+      - fury
+      - vulnerability
+      - bannerOfStrength
+      - bannerOfDiscipline
+      - baneSignet
+      - frostSpirit
+      - assassinsPresence
 
   - name: Benchmark
     id: benchmark
     buffs:
-      - MIGHT
-      - FURY
-      - VULNERABILITY
-      - BANNER_OF_STRENGTH
-      - BANNER_OF_DISCIPLINE
-      - EMPOWER_ALLIES
-      - SPOTTER
-      - FROST_SPIRIT
+      - might
+      - fury
+      - vulnerability
+      - bannerOfStrength
+      - bannerOfDiscipline
+      - empowerAllies
+      - spotter
+      - frostSpirit

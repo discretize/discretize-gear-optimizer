@@ -156,7 +156,7 @@ const MainComponent = ({ classes, data }) => {
           {expertMode && (
             <>
               <Divider />
-              <Buffs />
+              <Buffs presets={data.presetBuffs.list} />
             </>
           )}
 
@@ -369,6 +369,13 @@ const GearOptimizer = ({ classes }) => {
                 id
               }
               section
+            }
+          }
+          presetBuffs: presetBuffs {
+            list {
+              buffs
+              id
+              name
             }
           }
         }
