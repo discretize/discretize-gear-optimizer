@@ -681,6 +681,7 @@ applyInfusions['SecondaryNoDuplicates'] = function (character) {
   }
 };
 
+let uniqueIDCounter = 0;
 function insertCharacter (character) {
   const { settings } = character;
 
@@ -691,6 +692,8 @@ function insertCharacter (character) {
   ) {
     return;
   }
+
+  character.id = uniqueIDCounter++;
 
   if (list.length === 0) {
     list.push(character);
