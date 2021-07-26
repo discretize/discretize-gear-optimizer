@@ -322,19 +322,19 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
     // calculation loop
     let count = 0;
+    let isChanged = true;
     while (true) {
-      ({ done, value: newPercent } = generator.next());
+      ({ done, value: { percent: newPercent, isChanged } } = generator.next());
 
       if (done) {
         updateDOM();
-        // updateProgressBar(newPercent, true);
         updateProgressBar(
           newPercent,
           `Completed in ${new Date() - startTime}ms`
         );
         break;
       } else {
-        if (count++ % 3 === 0) {
+        if (isChanged && count++ % 3 === 0) {
           updateDOM();
         }
 
