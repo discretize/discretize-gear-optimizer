@@ -20,7 +20,8 @@
         //temp
         "react/prop-types": "off",
         "no-unused-vars": "off",
-
+        "prefer-const": "off",
+        "react/self-closing-comp": "off",
 
         "dot-notation": "off",
         "no-case-declarations": "off",
