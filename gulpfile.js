@@ -428,6 +428,23 @@ const initWatch = function (done) {
 
 const watch = series(build, sync, initWatch);
 
+const initWatchNoRefresh = function (done) {
+  gulp.watch(src.copy, series(copy));
+  /* gulp.watch(src.dl, runSequence(dl) }); */
+  gulp.watch(src.img, series(img));
+  gulp.watch(src.fonts, series(fonts));
+  gulp.watch(src.html, series(html));
+  gulp.watch(src.yaml, series(html));
+  gulp.watch(src.js, series(js));
+  gulp.watch(src.gojs, series(gojs));
+  gulp.watch(src.datajs, series(datajs));
+  gulp.watch(src.modulejs, series(modulejs));
+  gulp.watch([src.scss, base.src + 'scss/**/*.scss'], series(css));
+  done();
+};
+
+const watchNoRefresh = series(build, sync, initWatchNoRefresh);
+
 // this was used to transition to YAML
 // const cheerio = require('cheerio');
 // const generateYaml = function (done) {
@@ -560,4 +577,5 @@ const watch = series(build, sync, initWatch);
 
 exports.build = build;
 exports.watch = watch;
+exports.watchNoRefresh = watchNoRefresh;
 // exports.generateYaml = generateYaml;
