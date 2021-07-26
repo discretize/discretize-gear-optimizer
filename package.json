@@ -42,5 +42,10 @@
     "typeface-menomonia": "^0.1.2",
     "typeface-muli": "^1.1.3",
     "typeface-raleway": "^0.0.75"
+  },
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "eslint-config-standard-react": "^11.0.1",
+    "eslint-plugin-react": "^7.21.5"
   }
 }
