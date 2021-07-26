@@ -420,7 +420,10 @@ export function setup (listInput, input) {
  * Remember, a generator's next() function returns a plain object { value, done }.
  *
  * @param {*} settings
- * @yields {number} percent - the progress percentage
+ * @yields {Object} result
+ * @yields {boolean} result.done - true if the calculation is finished
+ * @yields {number} result.value.isChanged - true if list has been mutated
+ * @yields {number} result.value.percent - the progress percentage
  */
 export function * calculate (settings) {
   applyInfusionsFunction = applyInfusions[settings.infusionMode];
