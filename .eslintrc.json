@@ -7,7 +7,7 @@
     "ignorePatterns": [
         "gulpfile.js"
     ],
-    "extends": "standard-react",
+    "extends": ["standard", "standard-jsx", "standard-react", "prettier"],
     "rules": {
         "semi": [
             "error", 
