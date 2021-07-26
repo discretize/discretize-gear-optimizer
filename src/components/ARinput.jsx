@@ -1,17 +1,16 @@
-import React from "react";
 import {
-  Input,
   FormControl,
-  InputLabel,
-  InputAdornment,
-  Typography,
   Grid,
+  Input,
+  InputAdornment,
+  InputLabel,
+  Typography,
   withStyles
 } from "@material-ui/core";
-import { useSelector, useDispatch } from "react-redux";
+import { Attribute, Item } from "gw2-ui";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { changeAR, getAR } from "../state/gearOptimizerSlice";
-
-import { Item, Attribute } from "gw2-ui";
 import HelperIcon from "./HelperIcon";
 
 const styles = (theme) => ({

@@ -1,18 +1,7 @@
-import React from "react";
+import { Typography, withStyles } from "@material-ui/core";
 import { HelpOutline } from "@material-ui/icons";
-import {
-  InputLabel,
-  MenuItem,
-  FormControl,
-  Chip,
-  Select,
-  withStyles,
-  Typography,
-  Grid,
-  Input,
-  InputAdornment
-} from "@material-ui/core";
-import { Tooltip, Attribute } from "gw2-ui";
+import { Tooltip } from "gw2-ui";
+import React from "react";
 
 const styles = (theme) => ({
   icon: {

@@ -1,21 +1,10 @@
-import React from "react";
-import {
-  TextField,
-  FormControl,
-  TableCell,
-  TableHead,
-  Grid,
-  withStyles,
-  Typography,
-  TableBody
-} from "@material-ui/core";
-import { useSelector, useDispatch } from "react-redux";
-import { changeForcedSlot, getGeneric } from "../state/gearOptimizerSlice";
-
-import { Item } from "gw2-ui";
+import { Grid, TextField, Typography, withStyles } from "@material-ui/core";
 import classNames from "classnames";
-import { AFFIXES } from "./priorities/Affixes";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeForcedSlot, getGeneric } from "../state/gearOptimizerSlice";
 import { firstUppercase } from "../utils/usefulFunctions";
+import { AFFIXES } from "./priorities/Affixes";
 
 export const FORCED_SLOTS = [
   {

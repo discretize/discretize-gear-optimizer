@@ -1,16 +1,7 @@
-import React, { useState } from "react";
-import {
-  Input,
-  FormControlLabel,
-  FormGroup,
-  Checkbox,
-  Select,
-  withStyles,
-  Typography
-} from "@material-ui/core";
-
-import { Item, Attribute } from "gw2-ui";
-import { useSelector, useDispatch } from "react-redux";
+import { Checkbox, FormControlLabel, FormGroup, withStyles } from "@material-ui/core";
+import { Item } from "gw2-ui";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { changeGeneric, getGeneric } from "../../state/gearOptimizerSlice";
 import { firstUppercase } from "../../utils/usefulFunctions";
 
@@ -18,7 +9,6 @@ const styles = (theme) => ({
   text: {
     color: "#ddd !important"
   },
-
   checkbox: {
     width: 130
   }

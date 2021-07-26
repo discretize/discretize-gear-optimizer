@@ -1,10 +1,8 @@
-import React from "react";
 import { Button, withStyles } from "@material-ui/core";
-
-import { useSelector, useDispatch } from "react-redux";
-import { changeProfession, getProfession } from "../state/gearOptimizerSlice";
-
 import { Profession } from "gw2-ui";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeProfession, getProfession } from "../state/gearOptimizerSlice";
 import { PROFESSIONS } from "./GearOptimizer";
 
 const styles = (theme) => ({

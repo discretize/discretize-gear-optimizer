@@ -1,17 +1,14 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import injectSheet from "react-jss";
 import { withStyles } from "@material-ui/core";
 import withWidth from "@material-ui/core/withWidth";
-
-import "typeface-raleway";
-import "typeface-muli";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import injectSheet from "react-jss";
 import "typeface-fira-mono";
 import "typeface-menomonia";
-
-import globals from "../../styles/globals";
-
+import "typeface-muli";
+import "typeface-raleway";
 import withRoot from "../../hocs/withRoot";
+import globals from "../../styles/globals";
 import Container from "./Container";
 
 const styles = (theme) => ({

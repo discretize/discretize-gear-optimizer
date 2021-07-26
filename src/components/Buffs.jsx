@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Chip,
   FormControl,
@@ -8,17 +7,17 @@ import {
   Typography,
   withStyles
 } from "@material-ui/core";
-import { Skill, Boon, Condition, Trait, CommonEffect } from "gw2-ui";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { Boon, CommonEffect, Condition, Skill, Trait } from "gw2-ui";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
+  addModifier,
   changeGeneric,
   getGeneric,
-  addModifier,
   removeModifier
 } from "../state/gearOptimizerSlice";
-import CheckboxComponent from "./baseComponents/CheckboxComponent";
 import { firstUppercase } from "../utils/usefulFunctions";
+import CheckboxComponent from "./baseComponents/CheckboxComponent";
 
 const styles = (theme) => ({
   formControl: {

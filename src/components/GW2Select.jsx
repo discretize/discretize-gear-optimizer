@@ -1,23 +1,22 @@
-import React from "react";
 import {
-  ListItemText,
   FormControl,
+  Input,
   InputLabel,
+  ListItemText,
   MenuItem,
   Select,
-  withStyles,
   Typography,
-  Input
+  withStyles
 } from "@material-ui/core";
-import { useSelector, useDispatch } from "react-redux";
+import { Item } from "gw2-ui";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
+  addModifier,
   changeGeneric,
   getGeneric,
-  addModifier,
   removeModifierWithSource
 } from "../state/gearOptimizerSlice";
-
-import { Item } from "gw2-ui";
 
 const styles = (theme) => ({
   formControl: {

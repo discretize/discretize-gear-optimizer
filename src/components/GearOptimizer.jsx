@@ -1,23 +1,20 @@
-import React, { useState } from "react";
-import { StaticQuery, graphql } from "gatsby";
-import { withStyles, Switch, FormControlLabel, Divider, Button } from "@material-ui/core";
-import { useSelector, useDispatch } from "react-redux";
-import { getProfession, getGeneric } from "../state/gearOptimizerSlice";
-
-import ClassSelection from "./ClassSelection";
-import Traits from "./Traits";
-import GW2Select from "./GW2Select";
-import Buffs from "./Buffs";
-import ARinput from "./ARinput";
-import Skills from "./Skills";
-import Priorities from "./priorities/Priorities";
-
-import { ConsumableEffect, Item, Skill } from "gw2-ui";
-import DamageDistribution from "./DamageDistribution";
+import { Button, Divider, FormControlLabel, Switch, withStyles } from "@material-ui/core";
 import { Cancel, Functions } from "@material-ui/icons";
+import { graphql, StaticQuery } from "gatsby";
+import { ConsumableEffect, Item } from "gw2-ui";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { getGeneric, getProfession } from "../state/gearOptimizerSlice";
+import ARinput from "./ARinput";
+import Buffs from "./Buffs";
+import ClassSelection from "./ClassSelection";
+import DamageDistribution from "./DamageDistribution";
 import ForcedSlots from "./ForcedSlots";
-import { prepareInputObject } from "../state/prepareReduxState";
+import GW2Select from "./GW2Select";
 import Infusions from "./Infusions";
+import Priorities from "./priorities/Priorities";
+import Skills from "./Skills";
+import Traits from "./Traits";
 
 const styles = (theme) => ({
   root: {
@@ -109,7 +106,26 @@ const MainComponent = ({ classes, data }) => {
   function onStartCalculate(e) {
     // TODO do calc
     console.log("calculate");
-    const settings = prepareInputObject();
+    const input = {
+      modifiers: useSelector(getModifiers),
+      tags: undefined,
+      profession: useSelector(getProfession),
+      weapontype: useSelector(getGeneric("weaponType")),
+      affixes: useSelector(getGeneric("affixes")),
+      forcedAffixes: useSelector(getGeneric("forcedSlots")),
+      rankby: useSelector(getGeneric("optimizeFor")),
+      minBoonDuration: useSelector(getGeneric("minBoonDuration")),
+      minHealingPower: useSelector(getGeneric("minHealingPower")),
+      minToughness: useSelector(getGeneric("minToughness")),
+      maxToughness: useSelector(getGeneric("maxToughness")),
+      maxResults: 50, // TODO MAX RESULTS
+      primaryInfusion: useSelector(getGeneric("primaryInfusion")),
+      secondaryInfusion: useSelector(getGeneric("secondaryInfusion")),
+      primaryMaxInfusions: useSelector(getGeneric("primaryMaxInfusions")),
+      secondaryMaxInfusions: useSelector(getGeneric("secondaryMaxInfusions")),
+      percentDistribution: useSelector(getDistributionOld),
+      distribution: useSelector(getDistributionNew)
+    };
   }
 
   function onCancelCalculate(e) {

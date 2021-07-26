@@ -1,32 +1,31 @@
-import React from "react";
-import Nouislider from "nouislider-react";
-import "nouislider/distribute/nouislider.css";
 import {
-  withStyles,
-  Grid,
-  Typography,
-  FormControlLabel,
   FormControl,
+  FormControlLabel,
+  Grid,
+  Input,
+  InputAdornment,
   InputLabel,
   Switch,
-  Input,
-  InputAdornment
+  Typography,
+  withStyles
 } from "@material-ui/core";
-import "nouislider/distribute/nouislider.css";
-import { Condition, Attribute, Skill } from "gw2-ui";
-import HelperIcon from "./HelperIcon";
 import classNames from "classnames";
+import { Attribute, Condition } from "gw2-ui";
+import Nouislider from "nouislider-react";
+import "nouislider/distribute/nouislider.css";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  changeAllDistributionsOld,
   changeDistributionNew,
   changeDistributionVersion,
-  changeAllDistributionsOld,
-  getDistributionOld,
+  changeTextBoxes,
   getDistributionNew,
+  getDistributionOld,
   getDistributionVersion,
-  getTextBoxes,
-  changeTextBoxes
+  getTextBoxes
 } from "../state/gearOptimizerSlice";
+import HelperIcon from "./HelperIcon";
 
 const styles = (theme) => ({
   root: {

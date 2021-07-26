@@ -1,26 +1,17 @@
-import React from "react";
 import {
-  Avatar,
-  Button,
-  Checkbox,
-  Chip,
   FormControl,
-  FormControlLabel,
-  FormGroup,
-  FormHelperText,
-  Input,
   Grid,
+  Input,
   InputLabel,
   MenuItem,
   Select,
   Typography,
   withStyles
 } from "@material-ui/core";
-import { Item, Boon, Condition, Trait, Profession, CommonEffect } from "gw2-ui";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { Item } from "gw2-ui";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { changeGeneric, getGeneric } from "../state/gearOptimizerSlice";
-import CheckboxComponent from "./baseComponents/CheckboxComponent";
 
 const styles = (theme) => ({
   root: {

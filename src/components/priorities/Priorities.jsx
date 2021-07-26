@@ -1,22 +1,20 @@
-import React from "react";
 import {
-  InputLabel,
-  MenuItem,
-  FormControl,
   Chip,
-  Select,
-  withStyles,
-  Typography,
+  FormControl,
   Grid,
   Input,
-  InputAdornment
+  InputLabel,
+  MenuItem,
+  Select,
+  Typography,
+  withStyles
 } from "@material-ui/core";
+import { Attribute } from "gw2-ui";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-
-import Affixes from "./Affixes";
-import HelperIcon from "../HelperIcon";
-import { Tooltip, Attribute } from "gw2-ui";
 import { changeGeneric, getGeneric } from "../../state/gearOptimizerSlice";
+import HelperIcon from "../HelperIcon";
+import Affixes from "./Affixes";
 
 const styles = (theme) => ({
   root: {

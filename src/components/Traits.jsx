@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Checkbox,
   FormControl,
@@ -7,23 +6,23 @@ import {
   ListItemText,
   MenuItem,
   Select,
-  withStyles,
-  Typography
+  withStyles
 } from "@material-ui/core";
-import { useSelector, useDispatch } from "react-redux";
-import CheckboxComponent from "./baseComponents/CheckboxComponent";
-import { Specialization, TraitLine, Trait } from "gw2-ui";
+import { Specialization, Trait, TraitLine } from "gw2-ui";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
+  addModifier,
+  changeTraitLine,
+  changeTraits,
+  getModifiers,
   getTraitLines,
   getTraits,
-  changeTraits,
-  changeTraitLine,
-  getModifiers,
-  addModifier,
   removeModifier,
-  removeTraitModifierWithGW2id,
-  removeModifierWithSource
+  removeModifierWithSource,
+  removeTraitModifierWithGW2id
 } from "../state/gearOptimizerSlice";
+import CheckboxComponent from "./baseComponents/CheckboxComponent";
 
 const styles = (theme) => ({
   formControl: {

@@ -1,17 +1,8 @@
-import React, { useState } from "react";
-import {
-  Input,
-  FormControlLabel,
-  FormGroup,
-  Checkbox,
-  Select,
-  withStyles,
-  Typography
-} from "@material-ui/core";
-
-import { Skill, Attribute } from "gw2-ui";
-import { useSelector, useDispatch } from "react-redux";
-import { addSkill, removeSkill, getSkills, addModifier } from "../state/gearOptimizerSlice";
+import { Typography, withStyles } from "@material-ui/core";
+import { Skill } from "gw2-ui";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addModifier, addSkill, getSkills, removeSkill } from "../state/gearOptimizerSlice";
 import CheckboxComponent from "./baseComponents/CheckboxComponent";
 
 const styles = (theme) => ({

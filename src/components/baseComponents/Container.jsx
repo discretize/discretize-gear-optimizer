@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { Paper, withStyles } from "@material-ui/core";
 import withWidth, { isWidthDown } from "@material-ui/core/withWidth";
+import PropTypes from "prop-types";
+import React from "react";
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
     [theme.breakpoints.up("lg")]: {
       marginLeft: 240
