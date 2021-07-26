@@ -1,9 +1,8 @@
 GraphQL ID: presetAffixes
 list:
-
   - name: Power DPS
     id: power-dps
-    type: damage
+    type: Damage
     affixes:
       - BERSERKER
       - ASSASSIN
@@ -11,7 +10,7 @@ list:
 
   - name: Power Boon
     id: power-boon
-    type: damage
+    type: Damage
     affixes:
       - BERSERKER
       - ASSASSIN
@@ -21,7 +20,7 @@ list:
 
   - name: Condi DPS
     id: condi-dps
-    type: damage
+    type: Damage
     affixes:
       - VIPER
       - SINISTER
@@ -30,7 +29,7 @@ list:
 
   - name: Heal
     id: heal
-    type: healing
+    type: Healing
     affixes:
       - HARRIER
       - MINSTREL
@@ -40,7 +39,7 @@ list:
 
   - name: Condi Boon
     id: condi-boon
-    type: damage
+    type: Damage
     affixes:
       - VIPER
       - SERAPH
