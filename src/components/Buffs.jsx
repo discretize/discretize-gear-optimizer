@@ -18,6 +18,7 @@ import {
   removeModifier
 } from "../state/gearOptimizerSlice";
 import CheckboxComponent from "./baseComponents/CheckboxComponent";
+import { firstUppercase } from "../utils/usefulFunctions";
 
 const styles = (theme) => ({
   formControl: {
@@ -93,7 +94,7 @@ const Buffs = ({ classes, data, presets }) => {
 
       <Grid container>
         {data.map((section) => (
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid key={section.section} item xs={12} sm={6} md={4}>
             <FormControl component="fieldset" className={classes.formControl}>
               <FormLabel component="legend">
                 <div dangerouslySetInnerHTML={{ __html: section.section }}></div>
@@ -106,6 +107,7 @@ const Buffs = ({ classes, data, presets }) => {
                     case "Text":
                       return (
                         <CheckboxComponent
+                          key={buff.id}
                           value={buff.id}
                           checked={useSelector(getGeneric(buff.id))}
                           label={
@@ -125,13 +127,14 @@ const Buffs = ({ classes, data, presets }) => {
                     case "Condition":
                     case "CommonEffect":
                       name = buff.id.toLowerCase();
-                      name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+                      name = firstUppercase(name);
                     default:
                       Component = components[buff.armory_type];
                   }
 
                   return (
                     <CheckboxComponent
+                      key={buff.id}
                       value={buff.id}
                       checked={useSelector(getGeneric(buff.id))}
                       label={

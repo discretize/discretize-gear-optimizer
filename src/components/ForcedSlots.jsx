@@ -4,7 +4,7 @@ import {
   FormControl,
   TableCell,
   TableHead,
-  TableRow,
+  Grid,
   withStyles,
   Typography,
   TableBody
@@ -14,6 +14,8 @@ import { changeForcedSlot, getGeneric } from "../state/gearOptimizerSlice";
 
 import { Item } from "gw2-ui";
 import classNames from "classnames";
+import { AFFIXES } from "./priorities/Affixes";
+import { firstUppercase } from "../utils/usefulFunctions";
 
 export const FORCED_SLOTS = [
   {
@@ -76,10 +78,17 @@ export const FORCED_SLOTS = [
 
 const styles = (theme) => ({
   textField: {
-    width: 62
+    width: 80
   },
   root: {
     marginBottom: theme.spacing.unit * 2
+  },
+  nowrap: {
+    display: "inline",
+    whiteSpace: "nowrap"
+  },
+  helperText: {
+    fontSize: 12
   }
 });
 
@@ -88,7 +97,17 @@ const ForcedSlots = ({ classes, dualWielded }) => {
   const value = useSelector(getGeneric("forcedSlots"));
 
   const handleChange = (index) => (event) => {
-    dispatch(changeForcedSlot({ index: index, value: event.target.value }));
+    const input = event.target.value.toLowerCase();
+    if (!input.match(".*[0-9].*") && input !== "") {
+      // contains number, cant be matched
+      const possibleMatches = AFFIXES.filter((a) => a.toLowerCase().startsWith(input));
+      if (possibleMatches.length > 0)
+        dispatch(changeForcedSlot({ index: index, value: possibleMatches[0] }));
+      // Reset the affix in every other occasion
+      else dispatch(changeForcedSlot({ index: index, value: "" }));
+    } else {
+      dispatch(changeForcedSlot({ index: index, value: "" }));
+    }
   };
 
   let SLOTS = FORCED_SLOTS;
@@ -96,22 +115,32 @@ const ForcedSlots = ({ classes, dualWielded }) => {
     SLOTS = FORCED_SLOTS.slice(0, 13);
   }
 
+  const input = (name, index, offset) => {
+    return (
+      <TextField
+        key={name}
+        label={name}
+        className={classNames(classes.textField, classes.dense)}
+        margin="dense"
+        onChange={handleChange(index + offset)}
+        helperText={firstUppercase(value[index + offset])}
+        FormHelperTextProps={{ className: classes.helperText }}
+      />
+    );
+  };
+
   return (
     <div className={classes.root}>
       <Typography variant="h5">Force Gear Slots </Typography>
 
-      {SLOTS.map((s, index) => (
-        <TextField
-          key={s.short}
-          value={value[index]}
-          label={s.short}
-          className={classNames(classes.textField, classes.dense)}
-          margin="dense"
-          onChange={handleChange(index)}
-        />
-      ))}
-
-      {/* TODO add preview of the matched affix */}
+      <Grid container>
+        <Grid item xs={12} sm={12}>
+          {SLOTS.slice(0, 6).map((s, index) => input(s.short, index, 0))}
+        </Grid>
+        <Grid item xs={12} sm={12}>
+          {SLOTS.slice(6).map((s, index) => input(s.short, index, 6))}
+        </Grid>
+      </Grid>
     </div>
   );
 };

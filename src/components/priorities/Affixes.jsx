@@ -12,6 +12,7 @@ import {
 import { Item, Attribute } from "gw2-ui";
 import { useSelector, useDispatch } from "react-redux";
 import { changeGeneric, getGeneric } from "../../state/gearOptimizerSlice";
+import { firstUppercase } from "../../utils/usefulFunctions";
 
 const styles = (theme) => ({
   text: {
@@ -91,7 +92,7 @@ const Affixes = ({ classes }) => {
   return (
     <FormGroup row>
       {AFFIXES.map((a) => {
-        const name = a.charAt(0).toUpperCase() + a.slice(1).toLowerCase();
+        const name = firstUppercase(a);
 
         return (
           <FormControlLabel
