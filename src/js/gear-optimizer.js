@@ -258,16 +258,12 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       Power: 0,
       ...Object.fromEntries(Attributes.CONDITION.map((condition) => [condition, 0]))
     };
-    input.relevantConditions = [];
     $.each(
       $('#go-condition-distribution-input').find('input[data-go-distribution]'),
       function () {
         const percentage = parseInt($(this).val(), 10);
         if (percentage) {
           input.percentDistribution[$(this).data('go-distribution')] = percentage;
-          if ($(this).data('go-distribution') !== 'Power') {
-            input.relevantConditions.push($(this).data('go-distribution'));
-          }
         }
       }
     );

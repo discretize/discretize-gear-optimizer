@@ -21,12 +21,12 @@ let list;
  * @param {Object} input
  * @param {Object[]} input.modifiers - array of modifier objects
  * @param {?String[]} input.tags - modifier data for the UI
- *                                 (passed unedited into character.settings)
+ *                      (passed unedited into character.settings)
  * @param {String} input.profession
  * @param {String} input.weapontype
  * @param {String[]} input.affixes - all selected gear affixes to iterate over
  * @param {String[]} input.forcedAffixes - array of specific affix names for each slot,
- *                                         or '' for unspecfied
+ *                     or '' for unspecfied
  * @param {String} input.rankby - "Damage"/"Survivability"/"Healing"
  * @param {number} input.minBoonDuration
  * @param {number} input.minHealingPower
@@ -39,13 +39,9 @@ let list;
  * @param {?Number} input.secondaryMaxInfusions - number of infusions, 0-18
  *
  * @param {?Object.<String, Number>} input.percentDistribution - old style distribution
- *                                                               (sums to 100)
+ *                                   (sums to 100)
  * @param {?Object.<String, Number>} input.distribution - new style distribution
- *                                                        (coefficient per second; average condition
- *                                                        stacks)
- *
- *
- * @param {String[]} input.relevantConditions - I should remove this tbh
+ *                                   (coefficient per second; average condition stacks)
  *
  * @returns {Object} settings - parsed settings object
  */
@@ -240,6 +236,13 @@ export function setup (listInput, input) {
     settings.distribution['Power'] = Power / 1025;
     for (const [condition, value] of Object.entries(rest)) {
       settings.distribution[condition] = value / Condition[condition].baseDamage;
+    }
+  }
+
+  settings.relevantConditions = [];
+  for (const [condition, value] of Object.entries(settings.distribution)) {
+    if (condition !== 'Power' && value) {
+      settings.relevantConditions.push(condition);
     }
   }
 
