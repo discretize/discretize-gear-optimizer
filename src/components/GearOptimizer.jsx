@@ -17,6 +17,7 @@ import DamageDistribution from "./DamageDistribution";
 import { Cancel, Functions } from "@material-ui/icons";
 import ForcedSlots from "./ForcedSlots";
 import { prepareInputObject } from "../state/prepareReduxState";
+import Infusions from "./Infusions";
 
 const styles = (theme) => ({
   root: {
@@ -160,6 +161,13 @@ const MainComponent = ({ classes, data }) => {
             <>
               <Divider />
               <Buffs data={data.buffs.list} presets={data.presetBuffs.list} />
+            </>
+          )}
+
+          {expertMode && (
+            <>
+              <Divider />
+              <Infusions />
             </>
           )}
 

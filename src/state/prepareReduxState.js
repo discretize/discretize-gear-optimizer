@@ -22,10 +22,10 @@ export function prepareInputObject() {
     minToughness: useSelector(getGeneric("minToughness")),
     maxToughness: useSelector(getGeneric("maxToughness")),
     maxResults: 50, // TODO MAX RESULTS
-    primaryInfusion: "",
-    secondaryInfusion: "",
-    primaryMaxInfusions: 0,
-    secondaryMaxInfusions: 0,
+    primaryInfusion: useSelector(getGeneric("primaryInfusion")),
+    secondaryInfusion: useSelector(getGeneric("secondaryInfusion")),
+    primaryMaxInfusions: useSelector(getGeneric("primaryMaxInfusions")),
+    secondaryMaxInfusions: useSelector(getGeneric("secondaryMaxInfusions")),
     percentDistribution: useSelector(getDistributionOld),
     distribution: useSelector(getDistributionNew)
   };
