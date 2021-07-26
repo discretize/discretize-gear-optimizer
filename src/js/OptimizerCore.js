@@ -13,6 +13,8 @@ let applyInfusionsFunction;
 let worstScore;
 let list;
 
+let isChanged = true;
+
 /**
  * Sets up optimizer with input data
  *
@@ -438,12 +440,17 @@ export function * calculate (settings) {
   let iterationTimer = Date.now();
   let UPDATE_MS = 90;
   let cycles = 0;
+  isChanged = true;
   while (calculationQueue.length) {
     cycles++;
 
     // pause to update UI at around 15 frames per second
     if ((cycles % 1000 === 0) && Date.now() - iterationTimer > UPDATE_MS) {
-      yield Math.floor((calculationRuns * 100) / calculationTotal);
+      yield {
+        isChanged,
+        percent: Math.floor((calculationRuns * 100) / calculationTotal)
+      };
+      isChanged = false;
       UPDATE_MS = 55;
       iterationTimer = Date.now();
     }
@@ -709,6 +716,7 @@ function insertCharacter (character) {
       worstScore = list[list.length - 1].attributes[settings.rankby];
     }
   }
+  isChanged = true;
 }
 
 // returns true if B is better than A
