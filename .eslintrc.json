@@ -7,24 +7,36 @@
     "ignorePatterns": [
         "gulpfile.js"
     ],
-    "extends": "semistandard",
+    "extends": ["standard", "standard-jsx", "standard-react", "prettier"],
     "rules": {
-        "padded-blocks": "warn",
+        "semi": [
+            "error", 
+            "always"
+        ],
+        "no-extra-semi": "error",
+
+        "padded-blocks": "off",
+
+        //temp
+        "react/prop-types": "off",
+        "no-unused-vars": "off",
+        "prefer-const": "off",
+        "react/self-closing-comp": "off",
+
         "dot-notation": "off",
         "no-case-declarations": "off",
-
-        "no-unused-vars": "warn",
-        "operator-linebreak": [
-            "warn",
-            "before"
-        ],
-        "max-len": [
-          "warn",
-          { 
-              "code": 100,
-              "ignoreComments": true
-          }
-      ],
+   
+    //     "operator-linebreak": [
+    //         "warn",
+    //         "before"
+    //     ],
+    //     "max-len": [
+    //       "warn",
+    //       { 
+    //           "code": 100,
+    //           "ignoreComments": true
+    //       }
+    //   ],
 
         "no-lonely-if": "warn",
         "radix": "warn",
@@ -38,7 +50,7 @@
         "no-else-return": "warn",
         "no-shadow": "warn",
         "consistent-return": "warn",
-        "object-shorthand": "warn",
+        //"object-shorthand": "warn",
         "guard-for-in": "warn",
         "no-underscore-dangle": "warn"
     }
