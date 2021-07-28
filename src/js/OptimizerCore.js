@@ -47,9 +47,9 @@ let isChanged = true;
  *
  * @returns {Object} settings - parsed settings object
  */
-export function setup (listInput, input) {
+export function setup (input) {
   worstScore = undefined;
-  list = listInput;
+  list = [];
 
   let {
     modifiers: modifiersInput,
@@ -451,7 +451,8 @@ export function * calculate (settings) {
     if ((cycles % 1000 === 0) && Date.now() - iterationTimer > UPDATE_MS) {
       yield {
         isChanged,
-        percent: Math.floor((calculationRuns * 100) / calculationTotal)
+        percent: Math.floor((calculationRuns * 100) / calculationTotal),
+        newList: isChanged ? list.slice() : null
       };
       isChanged = false;
       UPDATE_MS = 55;
@@ -516,7 +517,11 @@ export function * calculate (settings) {
     calculationQueue.push(gear);
     calculationStatsQueue.push(gearStats);
   }
-  return Math.floor((calculationRuns * 100) / calculationTotal);
+  return {
+    isChanged,
+    percent: Math.floor((calculationRuns * 100) / calculationTotal),
+    newList: list.slice()
+  };
 }
 
 function testCharacter (gear, gearStats, settings) {
