@@ -422,6 +422,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
     optimizerCore.updateAttributes(_character);
     console.debug('character:', _character);
+    const { attributes } = _character;
 
     let modal = '<div class="modal">';
     modal += '<div class="modal-dialog modal-lg">';
@@ -456,7 +457,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
     const indicators = {};
     $.each(Attributes.INDICATORS, function (index, attribute) {
-      indicators[attribute] = Number(_character.attributes[attribute].toFixed(4))
+      indicators[attribute] = Number(attributes[attribute].toFixed(4))
         .toLocaleString('en-US');
     });
     modal += toCard('Indicators', indicators);
@@ -480,7 +481,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
         temp.baseAttributes[value] += 5;
         optimizerCore.updateAttributes(temp);
         effectiveValues[value] = Number(
-          (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(5)
+          (temp.attributes['Damage'] - attributes['Damage']).toFixed(5)
         ).toLocaleString('en-US');
       }
     );
@@ -495,7 +496,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
         temp.baseAttributes[value] = Math.max(temp.baseAttributes[value] - 5, 0);
         optimizerCore.updateAttributes(temp);
         effectiveNegativeValues[value] = Number(
-          (temp.attributes['Damage'] - _character.attributes['Damage']).toFixed(5)
+          (temp.attributes['Damage'] - attributes['Damage']).toFixed(5)
         ).toLocaleString('en-US');
       }
     );
@@ -519,13 +520,13 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
     const primaryAttributes = {};
     $.each(Attributes.PRIMARY, function (index, attribute) {
-      primaryAttributes[attribute] = _character.attributes[attribute] || 0;
+      primaryAttributes[attribute] = attributes[attribute] || 0;
     });
     modal += toCard('Primary Attributes', primaryAttributes);
 
     const secondaryAttributes = {};
     $.each(Attributes.SECONDARY, function (index, attribute) {
-      secondaryAttributes[attribute] = _character.attributes[attribute] || 0;
+      secondaryAttributes[attribute] = attributes[attribute] || 0;
     });
     modal += toCard('Secondary Attributes', secondaryAttributes);
 
@@ -536,15 +537,15 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
         case 'Boon Duration':
         case 'Condition Duration':
           derivedAttributes[attribute]
-            = _character.attributes[attribute] > 100
-              ? `100.00% (${_character.attributes[attribute].toFixed(2)})`
-              : `${_character.attributes[attribute].toFixed(2)}%`;
+            = attributes[attribute] > 100
+              ? `100.00% (${attributes[attribute].toFixed(2)})`
+              : `${attributes[attribute].toFixed(2)}%`;
           break;
         case 'Critical Damage':
-          derivedAttributes[attribute] = `${_character.attributes[attribute].toFixed(2)}%`;
+          derivedAttributes[attribute] = `${attributes[attribute].toFixed(2)}%`;
           break;
         default:
-          derivedAttributes[attribute] = _character.attributes[attribute];
+          derivedAttributes[attribute] = attributes[attribute];
           break;
       }
     });
@@ -552,7 +553,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
     const effectiveAttributes = {};
     $.each(Attributes.EFFECTIVE, function (index, attribute) {
-      const value = _character.attributes[attribute] || 0;
+      const value = attributes[attribute] || 0;
       effectiveAttributes[attribute] = Number(value.toFixed(5)).toLocaleString('en-US');
     });
     modal += toCard('Effective Attributes', effectiveAttributes);
@@ -560,20 +561,20 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     const durationAttributes = {};
     let showDurations = false;
     $.each(Attributes.BOON_DURATION, function (index, attribute) {
-      let value = _character.attributes[attribute];
+      let value = attributes[attribute];
       if (value) {
         showDurations = true;
-        value += _character.attributes['Boon Duration'];
+        value += attributes['Boon Duration'];
         durationAttributes[attribute] = value > 100
           ? `100.00% (${value.toFixed(2)})`
           : `${value.toFixed(2)}`;
       }
     });
     $.each(Attributes.CONDITION_DURATION, function (index, attribute) {
-      let value = _character.attributes[attribute] || 0;
+      let value = attributes[attribute] || 0;
       if (value) {
         showDurations = true;
-        value += _character.attributes['Condition Duration'];
+        value += attributes['Condition Duration'];
         durationAttributes[attribute] = value > 100
           ? `100.00% (${value.toFixed(2)})`
           : `${value.toFixed(2)}`;
@@ -585,25 +586,21 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
     const conditionAttributes = {};
     $.each(Attributes.CONDITION_DAMAGE, function (index, attribute) {
-      conditionAttributes[attribute] = (_character.attributes[attribute] || 0).toFixed(2);
+      conditionAttributes[attribute] = (attributes[attribute] || 0).toFixed(2);
     });
     modal += toCard('Condition Damage Ticks', conditionAttributes);
 
     if (_character.settings.percentDistribution['Power'] !== 100) {
       // effective damage distribution
       const effectiveDamageDistribution = {};
-      const totalDamage = _character.attributes['Damage'];
       $.each(_character.settings.percentDistribution, function (key, percentage) {
         if (key === 'Power') {
-          const damage = (percentage * _character.attributes['Effective Power']) / 1025;
-          effectiveDamageDistribution['Power'] = `${((damage / totalDamage) * 100).toFixed(1)}%`;
+          const damage = attributes['Power DPS'] / attributes['Damage'];
+          effectiveDamageDistribution['Power'] = `${(damage * 100).toFixed(1)}%`;
         } else {
-          const duration = 1 + Math.min(((_character.attributes[`${key} Duration`] || 0)
-            + _character.attributes['Condition Duration']) / 100, 1);
-          const damage = percentage * duration
-            * (_character.attributes[`${key} Damage`] / Condition[key].baseDamage);
+          const damage = attributes[`${key} DPS`] / attributes['Damage'];
           effectiveDamageDistribution[`${key} Damage`]
-            = `${((damage / totalDamage) * 100).toFixed(1)}%`;
+            = `${(damage * 100).toFixed(1)}%`;
         }
       });
       modal += toCard('Effective Damage Distribution', effectiveDamageDistribution);
@@ -612,14 +609,11 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       const damageIndicatorBreakdown = {};
       $.each(_character.settings.percentDistribution, function (key, percentage) {
         if (key === 'Power') {
-          const damage = percentage * _character.attributes['Effective Power'] / 1025;
-          damageIndicatorBreakdown['Power'] = Number(damage).toFixed(2).toLocaleString('en-US');
+          damageIndicatorBreakdown['Power'] = attributes['Power DPS']
+            .toFixed(2)
+            .toLocaleString('en-US');
         } else {
-          const duration = 1 + Math.min(((_character.attributes[`${key} Duration`] || 0)
-            + _character.attributes['Condition Duration']) / 100, 1);
-          const damage = percentage * duration
-            * (_character.attributes[`${key} Damage`] / Condition[key].baseDamage);
-          damageIndicatorBreakdown[`${key} Damage`] = Number(damage)
+          damageIndicatorBreakdown[`${key} Damage`] = attributes[`${key} DPS`]
             .toFixed(2)
             .toLocaleString('en-US');
         }
