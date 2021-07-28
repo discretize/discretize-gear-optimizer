@@ -28,6 +28,9 @@ const styles = (theme) => ({
   },
   grid: {
     justifyContent: "flex-start"
+  },
+  gridItem: {
+    marginBottom: theme.spacing(2)
   }
 });
 
@@ -90,17 +93,17 @@ const Infusions = ({ classes }) => {
     <div className={classes.root}>
       <Typography variant="h5">Stat Infusions</Typography>
       <Grid container className={classes.grid} direction="row" alignItems="center">
-        <Grid item xs={2} md={4}>
+        <Grid item xs={12} sm={4}>
           <Typography>Primary Infusions</Typography>
         </Grid>
-        <Grid item xs={10} md={8}>
+        <Grid item xs={12} sm={8} className={classes.gridItem}>
           {dropdown("Primary Infusion", "primaryInfusion", primaryInfusion)}
           {input("Max #", "primaryMaxInfusions", primaryMaxInfusions)}
         </Grid>
-        <Grid item xs={2} md={4}>
+        <Grid item xs={12} sm={4}>
           <Typography>Secondary Infusions</Typography>
         </Grid>
-        <Grid item xs={10} md={8}>
+        <Grid item xs={12} sm={8}>
           {dropdown("Secondary Infusion", "secondaryInfusion", secondaryInfusion)}
           {input("Max #", "secondaryMaxInfusions", secondaryMaxInfusions)}
         </Grid>

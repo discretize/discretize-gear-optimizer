@@ -163,7 +163,7 @@ const Traits = ({ classes, profession, data }) => {
             .traits.map((e) => e.toString())
             .map((id) => (
               <MenuItem key={id} value={Number(id)}>
-                <Checkbox checked={traitlines.indexOf(Number(id)) > -1} />
+                <Checkbox color="primary" checked={traitlines.indexOf(Number(id)) > -1} />
                 <ListItemText>
                   <Specialization id={Number(id)} disableLink />
                 </ListItemText>

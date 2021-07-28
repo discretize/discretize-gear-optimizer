@@ -34,7 +34,7 @@ const styles = (theme) => ({
   },
   slider: {
     marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(6)
+    margin: theme.spacing(6)
   },
   sliderOld: {
     "& div": {
@@ -163,7 +163,7 @@ const DamageDistribution = ({ classes }) => {
       <Grid container>
         {DISTRIBUTION_NAMES.map((d, index) => (
           <React.Fragment key={"distriNew_" + index}>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={3}>
               <FormControl className={classes.margin}>
                 <InputLabel htmlFor={"input-with-icon-adornment-" + index}>
                   {d.name === "Power" ? (
@@ -188,7 +188,7 @@ const DamageDistribution = ({ classes }) => {
                 />
               </FormControl>
             </Grid>
-            <Grid item xs={12} sm={8}>
+            <Grid item xs={12} sm={9}>
               <Nouislider
                 className={classNames(classes.sliderNew, classes.slider)}
                 start={distributionNew[index]}
