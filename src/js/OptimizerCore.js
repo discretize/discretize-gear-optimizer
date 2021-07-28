@@ -884,8 +884,11 @@ function calcPower (_character, multipliers) {
   attributes['Effective Power'] = attributes['Power'] * (1 + critChance * (critDmg - 1))
     * multipliers['Effective Power'];
 
-  return _character.settings.distribution['Power']
+  const damage = _character.settings.distribution['Power']
     * attributes['Effective Power'];
+  attributes['Power DPS'] = damage;
+
+  return damage;
 }
 
 function calcCondi (_character, multipliers, relevantConditions) {
@@ -903,9 +906,15 @@ function calcCondi (_character, multipliers, relevantConditions) {
     const duration = 1 + Math.min(((attributes[`${condition} Duration`] || 0)
         + attributes['Condition Duration']) / 100, 1);
 
-    condiDamageScore += _character.settings.distribution[condition]
-      * duration
+    const stacks = _character.settings.distribution[condition]
+      * duration;
+    attributes[`${condition} Stacks`] = stacks;
+
+    const damage = stacks
       * (attributes[`${condition} Damage`] || 1);
+    attributes[`${condition} DPS`] = damage;
+
+    condiDamageScore += damage;
   }
   return condiDamageScore;
 }
