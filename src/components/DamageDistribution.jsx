@@ -13,7 +13,7 @@ import classNames from "classnames";
 import { Attribute, Condition } from "gw2-ui";
 import Nouislider from "nouislider-react";
 import "nouislider/distribute/nouislider.css";
-import React from "react";
+import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   changeAllDistributionsOld,
@@ -26,6 +26,7 @@ import {
   getTextBoxes
 } from "../state/gearOptimizerSlice";
 import HelperIcon from "./HelperIcon";
+import debounce from "lodash.debounce";
 
 const styles = (theme) => ({
   root: {
@@ -95,16 +96,16 @@ const DamageDistribution = ({ classes }) => {
 
   const onUpdateOld = (render, handle, value, un, percent) => {
     // console.log(value);
-    const distributionNew = [];
+    const distributionRecalc = [];
     let prev = 0;
     for (let i = 0; i < value.length; i++) {
-      distributionNew.push(value[i] - prev);
+      distributionRecalc.push(value[i] - prev);
       prev = value[i];
     }
-    distributionNew.push(100 - prev);
-    // console.log(distributionNew);
+    distributionRecalc.push(100 - prev);
+    // console.log(distributionRecalc);
 
-    dispatch(changeAllDistributionsOld(distributionNew));
+    dispatch(changeAllDistributionsOld(distributionRecalc));
   };
 
   const SliderOld = () => {
@@ -128,7 +129,7 @@ const DamageDistribution = ({ classes }) => {
         />
         <Grid container>
           {DISTRIBUTION_NAMES.map((d, index) => (
-            <Grid item xs={12} sm={6} md={2}>
+            <Grid key={d.name} item xs={12} sm={6} md={2}>
               <Typography>
                 {d.name === "Power" ? (
                   <Attribute name="Power" />
@@ -211,7 +212,7 @@ const DamageDistribution = ({ classes }) => {
                   ],
                   density: 5
                 }}
-                onSlide={onUpdateNew(index)}
+                onSlide={debounce(onUpdateNew(index), 50)}
               />
             </Grid>
           </React.Fragment>
@@ -229,7 +230,7 @@ const DamageDistribution = ({ classes }) => {
       <FormControlLabel
         control={
           <Switch
-            checked={version === 1 ? true : false}
+            checked={version === 1}
             onChange={(e) => dispatch(changeDistributionVersion(e.target.checked ? 1 : 2))}
             name="checked"
             color="primary"
