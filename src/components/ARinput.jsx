@@ -26,6 +26,9 @@ const styles = (theme) => ({
     alignItems: "center",
     flexWrap: "wrap",
     justifyContent: "space-evenly"
+  },
+  grid: {
+    justifyContent: "center"
   }
 });
 
@@ -46,7 +49,7 @@ const ARinput = ({ classes }) => {
         <Attribute name="Agony Resistance" />
       </Typography>
 
-      <Grid container justify="center" alignItems="center">
+      <Grid container className={classes.grid} alignItems="center">
         <Grid item xs={12} sm={6}>
           <Typography className={classes.box}>
             Include <Item id={79722} />{" "}
@@ -55,9 +58,9 @@ const ARinput = ({ classes }) => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <FormControl className={classes.margin}>
-            <InputLabel htmlFor="input-with-icon-adornment">Agony Resistance</InputLabel>
+            <InputLabel htmlFor="ar_input-with-icon-adornment">Agony Resistance</InputLabel>
             <Input
-              id="input-with-icon-adornment"
+              id="ar_input-with-icon-adornment"
               value={ar}
               endAdornment={
                 <InputAdornment position="end">

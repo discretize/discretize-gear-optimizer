@@ -48,8 +48,6 @@ const GW2Select = ({ classes, name, label, data }) => {
 
   const handleChange = (event) => {
     // Remove old modifier
-    console.log(allItems);
-    console.log(event.target.value);
     dispatch(removeModifierWithSource(event.target.name));
     dispatch(
       addModifier({

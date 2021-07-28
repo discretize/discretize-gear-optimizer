@@ -13,9 +13,7 @@ const HelperIcon = ({ classes, text }) => {
   return (
     <Tooltip content={text}>
       <span>
-        <Typography>
-          <HelpOutline className={classes.icon} />
-        </Typography>
+        <HelpOutline className={classes.icon} />
       </span>
     </Tooltip>
   );

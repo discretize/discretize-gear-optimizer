@@ -25,6 +25,9 @@ const styles = (theme) => ({
   formControl2: {
     width: 55,
     margin: theme.spacing(1)
+  },
+  grid: {
+    justifyContent: "flex-start"
   }
 });
 
@@ -59,7 +62,7 @@ const Infusions = ({ classes }) => {
         >
           <MenuItem value="None">None </MenuItem>
           {INFUSIONS.map((i) => (
-            <MenuItem value={i}>
+            <MenuItem value={i} key={i}>
               <Item id={i} disableLink />
             </MenuItem>
           ))}
@@ -71,9 +74,9 @@ const Infusions = ({ classes }) => {
   const input = (name, varName, maxInfusions) => {
     return (
       <FormControl className={classes.formControl2}>
-        <InputLabel htmlFor="input-with-icon-adornment">{name}</InputLabel>
+        <InputLabel htmlFor={varName + "_input-with-icon-adornment"}>{name}</InputLabel>
         <Input
-          id="input-with-icon-adornment"
+          id={varName + "_input-with-icon-adornment"}
           value={maxInfusions}
           onChange={(e) =>
             dispatch(changeGeneric({ toChange: varName, value: Number(e.target.value) }))
@@ -86,13 +89,7 @@ const Infusions = ({ classes }) => {
   return (
     <div className={classes.root}>
       <Typography variant="h5">Stat Infusions</Typography>
-      <Grid
-        container
-        className={classes.grid}
-        direction="row"
-        justify="flex-start"
-        alignItems="center"
-      >
+      <Grid container className={classes.grid} direction="row" alignItems="center">
         <Grid item xs={2} md={4}>
           <Typography>Primary Infusions</Typography>
         </Grid>

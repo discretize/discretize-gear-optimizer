@@ -12,7 +12,7 @@ const createPageContext = () => ({
   // This is needed in order to inject the critical CSS.
   sheetsRegistry: new SheetsRegistry(),
   // The standard class name generator.
-  generateClassName: createGenerateClassName(),
+  generateClassName: createGenerateClassName()
 });
 
 export default () => {

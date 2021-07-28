@@ -95,7 +95,6 @@ const DamageDistribution = ({ classes }) => {
   const textBoxes = useSelector(getTextBoxes);
 
   const onUpdateOld = (render, handle, value, un, percent) => {
-    // console.log(value);
     const distributionRecalc = [];
     let prev = 0;
     for (let i = 0; i < value.length; i++) {
@@ -103,7 +102,6 @@ const DamageDistribution = ({ classes }) => {
       prev = value[i];
     }
     distributionRecalc.push(100 - prev);
-    // console.log(distributionRecalc);
 
     dispatch(changeAllDistributionsOld(distributionRecalc));
   };

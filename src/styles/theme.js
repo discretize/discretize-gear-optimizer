@@ -29,42 +29,42 @@ const theme = createTheme({
     fontFamily: "Muli",
     fontSize: 16,
 
-    display4: {
+    h1: {
       fontFamily: "Raleway",
       fontWeight: 500,
       color: "#fff",
       textShadow: "1px 1px 1px #000"
     },
-    display3: {
+    h2: {
       fontFamily: "Raleway",
       fontWeight: 500,
       color: "#fff",
       textShadow: "1px 1px 1px #000"
     },
-    display2: {
+    h3: {
       fontFamily: "Raleway",
       fontWeight: 500,
       color: "#fff",
       textShadow: "1px 1px 1px #000"
     },
-    display1: {
+    h4: {
       fontFamily: "Raleway",
       fontWeight: 500,
       color: "#fff",
       textShadow: "1px 1px 1px #000"
     },
-    headline: {
+    h5: {
       fontFamily: "Raleway",
       fontWeight: 500,
       color: "#fff",
       textShadow: "1px 1px 1px #000"
     },
-    title: {
+    h6: {
       fontFamily: "Raleway",
       fontWeight: 500,
       color: "#fff"
     },
-    subheading: {
+    subtitle1: {
       fontFamily: "Raleway",
       color: "#fff"
     }
@@ -95,6 +95,7 @@ export default createTheme({
           marginBottom: 0,
         },
       }, */
+      /*
       "spacing-xs-8": {
         margin: `-${theme.spacing(0.5)}px !important`
       },
@@ -110,6 +111,7 @@ export default createTheme({
       "spacing-xs-40": {
         margin: `-${theme.spacing(2.5)}px !important`
       }
+      */
     },
     MuiSvgIcon: {
       root: {
@@ -121,25 +123,25 @@ export default createTheme({
         textAlign: "justify",
         hyphens: "auto"
       },
-      display4: {
+      h1: {
         [theme.breakpoints.down("xs")]: {
-          fontSize: theme.typography.display3.fontSize,
-          lineHeight: theme.typography.display3.lineHeight
+          fontSize: theme.typography.h2.fontSize,
+          lineHeight: theme.typography.h2.lineHeight
         }
       },
-      display3: {
+      h2: {
         [theme.breakpoints.down("xs")]: {
-          fontSize: theme.typography.display2.fontSize,
-          lineHeight: theme.typography.display2.lineHeight
+          fontSize: theme.typography.h3.fontSize,
+          lineHeight: theme.typography.h3.lineHeight
         }
       },
-      display2: {
+      h3: {
         [theme.breakpoints.down("xs")]: {
-          fontSize: theme.typography.display1.fontSize,
-          lineHeight: theme.typography.display1.lineHeight
+          fontSize: theme.typography.h4.fontSize,
+          lineHeight: theme.typography.h4.lineHeight
         }
       },
-      display1: {
+      h4: {
         [theme.breakpoints.down("xs")]: {
           fontSize: "1.8125rem",
           lineHeight: "1.280025em"
