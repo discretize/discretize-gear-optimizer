@@ -22,7 +22,7 @@
     "@material-ui/icons": "^4.11.2",
     "@reduxjs/toolkit": "^1.6.1",
     "classnames": "^2.3.1",
-    "gatsby": "^3.9.1",
+    "gatsby": "^3.10.2",
     "gatsby-plugin-theme-ui": "^0.10.1",
     "gatsby-source-filesystem": "^3.10.0",
     "gatsby-transformer-yaml": "^3.10.0",
