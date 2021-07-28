@@ -6,7 +6,7 @@ import withLayout from "../hocs/withLayout";
 
 const styles = (theme) => ({
   headline: {
-    paddingBottom: theme.spacing.unit * 2
+    paddingBottom: theme.spacing(2)
   }
 });
 
@@ -14,7 +14,9 @@ const styles = (theme) => ({
 const IndexPage = ({ classes }) => {
   return (
     <>
-      <Typography variant="h2" className={classes.headline}>Gear Optimizer 2.0</Typography>
+      <Typography variant="h2" className={classes.headline}>
+        Gear Optimizer 2.0
+      </Typography>
       <GearOptimizer />
     </>
   );

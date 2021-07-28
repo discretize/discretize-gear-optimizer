@@ -10,31 +10,31 @@ const styles = (theme) => ({
     },
     // 1200 + 2 * 240
     "@media (min-width: 1680px)": {
-      maxWidth: `calc(100vw - ${2 * 240 + 2 * theme.spacing.unit * 2}px)`,
+      maxWidth: `calc(100vw - ${2 * 240 + 2 * theme.spacing(2)}px)`,
       marginLeft: "auto",
       marginRight: "auto"
     }
   },
   wrapper: {
-    marginTop: theme.spacing.unit * 4,
-    marginBottom: theme.spacing.unit * 4,
+    marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(4),
     marginLeft: "auto",
     marginRight: "auto",
-    paddingLeft: theme.spacing.unit * 2,
-    paddingRight: theme.spacing.unit * 2,
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
     [theme.breakpoints.up("lg")]: {
-      marginTop: theme.spacing.unit * 5,
-      marginBottom: theme.spacing.unit * 5,
+      marginTop: theme.spacing(5),
+      marginBottom: theme.spacing(5),
       maxWidth: 960
     },
     [theme.breakpoints.up("xl")]: {
-      marginTop: theme.spacing.unit * 6,
-      marginBottom: theme.spacing.unit * 6,
+      marginTop: theme.spacing(6),
+      marginBottom: theme.spacing(6),
       maxWidth: 1200
     }
   },
   paper: {
-    padding: theme.spacing.unit * 2,
+    padding: theme.spacing(2),
     backgroundColor: theme.palette.background.default
   }
 });

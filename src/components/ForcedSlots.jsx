@@ -70,7 +70,7 @@ const styles = (theme) => ({
     width: 80
   },
   root: {
-    marginBottom: theme.spacing.unit * 2
+    marginBottom: theme.spacing(2)
   },
   nowrap: {
     display: "inline",

@@ -20,13 +20,13 @@ import {
 
 const styles = (theme) => ({
   formControl: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(1),
     width: 250
   },
   sectionText: {
     fontWeight: 200,
     textAlign: "center",
-    marginTop: theme.spacing.unit
+    marginTop: theme.spacing(1)
   },
   subText: {
     fontWeight: 100,

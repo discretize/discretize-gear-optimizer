@@ -21,7 +21,7 @@ import CheckboxComponent from "./baseComponents/CheckboxComponent";
 
 const styles = (theme) => ({
   formControl: {
-    margin: theme.spacing.unit * 3
+    margin: theme.spacing(3)
   },
   boon: {
     fontSize: 18
@@ -30,7 +30,7 @@ const styles = (theme) => ({
     fontWeight: 200
   },
   templateChip: {
-    margin: theme.spacing.unit
+    margin: theme.spacing(1)
   }
 });
 

@@ -29,11 +29,11 @@ import HelperIcon from "./HelperIcon";
 
 const styles = (theme) => ({
   root: {
-    marginBottom: theme.spacing.unit * 2
+    marginBottom: theme.spacing(2)
   },
   slider: {
-    marginTop: theme.spacing.unit * 2,
-    marginBottom: theme.spacing.unit * 6
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(6)
   },
   sliderOld: {
     "& div": {

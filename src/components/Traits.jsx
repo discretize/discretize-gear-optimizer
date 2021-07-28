@@ -27,7 +27,7 @@ import CheckboxComponent from "./baseComponents/CheckboxComponent";
 const styles = (theme) => ({
   formControl: {
     minWidth: 120,
-    margin: theme.spacing.unit
+    margin: theme.spacing(1)
   }
 });
 

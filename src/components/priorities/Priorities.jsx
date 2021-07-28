@@ -18,25 +18,23 @@ import Affixes from "./Affixes";
 
 const styles = (theme) => ({
   root: {
-    marginBottom: theme.spacing.unit * 2
+    marginBottom: theme.spacing(2)
   },
   text: {
     color: "#ddd !important"
   },
   templateChip: {
-    marginBottom: theme.spacing.unit * 2
+    margin: theme.spacing(1),
+    marginBottom: theme.spacing(2)
   },
   formControl: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(1),
     width: 180
   },
   box: {
     display: "flex",
     alignItems: "center",
     flexWrap: "wrap"
-  },
-  templateChip: {
-    margin: theme.spacing.unit
   }
 });
 

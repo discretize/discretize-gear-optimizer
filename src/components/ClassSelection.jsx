@@ -25,8 +25,8 @@ const styles = (theme) => ({
   },
   button: {
     borderRadius: 0,
-    paddingLeft: theme.spacing.unit * 1.5,
-    paddingRight: theme.spacing.unit * 1.5
+    paddingLeft: theme.spacing(1.5),
+    paddingRight: theme.spacing(1.5)
   },
   [theme.breakpoints.down("970")]: {
     button: {

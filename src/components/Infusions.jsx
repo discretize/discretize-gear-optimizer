@@ -15,16 +15,16 @@ import { changeGeneric, getGeneric } from "../state/gearOptimizerSlice";
 
 const styles = (theme) => ({
   root: {
-    marginBottom: theme.spacing.unit * 2
+    marginBottom: theme.spacing(2)
   },
   formControl: {
     width: 200,
-    margin: theme.spacing.unit,
-    marginRight: theme.spacing.unit * 3
+    margin: theme.spacing(1),
+    marginRight: theme.spacing(3)
   },
   formControl2: {
     width: 55,
-    margin: theme.spacing.unit
+    margin: theme.spacing(1)
   }
 });
 

@@ -16,7 +16,7 @@ const styles = (theme) => ({
     fontWeight: 200
   },
   skill: {
-    marginRight: theme.spacing.unit
+    marginRight: theme.spacing(1)
   },
   checkbox: {}
 });

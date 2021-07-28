@@ -15,11 +15,11 @@ import HelperIcon from "./HelperIcon";
 
 const styles = (theme) => ({
   root: {
-    marginBottom: theme.spacing.unit * 2
+    marginBottom: theme.spacing(2)
   },
   margin: {
     width: 190,
-    margin: theme.spacing.unit
+    margin: theme.spacing(1)
   },
   box: {
     display: "flex",
