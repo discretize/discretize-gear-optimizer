@@ -130,8 +130,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
   let startTime;
   let STOP_SIGNAL = false;
   const jQueryList = $(Selector.OUTPUT.LIST);
-  let list = [];
-  let oldList = [];
+  let currentList = [];
 
   /**
    * ------------------------------------------------------------------------
@@ -273,17 +272,12 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     jQueryList.children().css('visibility', 'hidden');
     await new Promise(resolve => setTimeout(resolve, 0));
 
-    list = [];
-    oldList = [];
     jQueryList.empty();
     lockUI(true);
 
     STOP_SIGNAL = false;
-    let done = false;
-    let oldPercent = 0;
-    let newPercent;
 
-    const settings = optimizerCore.setup(list, input);
+    const settings = optimizerCore.setup(input);
     const generator = optimizerCore.calculate(settings);
 
     $(Selector.OUTPUT.PROGRESS_BAR)
@@ -321,13 +315,18 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     );
 
     // calculation loop
+    let done = false;
+    let oldPercent = 0;
+    let newPercent;
     let count = 0;
     let isChanged = true;
+    currentList = [];
+    let newList;
     while (true) {
-      ({ done, value: { percent: newPercent, isChanged } } = generator.next());
+      ({ done, value: { percent: newPercent, isChanged, newList } } = generator.next());
 
       if (done) {
-        updateDOM();
+        updateDOM(newList);
         updateProgressBar(
           newPercent,
           `Completed in ${new Date() - startTime}ms`
@@ -335,7 +334,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
         break;
       } else {
         if (isChanged && count++ % 3 === 0) {
-          updateDOM();
+          updateDOM(newList);
         }
 
         if (newPercent !== oldPercent) {
@@ -379,15 +378,15 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
   }
 
   // this algorithm assumes you only ever insert into this list
-  function updateDOM () {
+  function updateDOM (newList) {
 
     // insert all new items
-    for (let i = 0; i < list.length; i++) {
-      let newItem = null;
+    let newItem = null;
+    for (let i = 0; i < newList.length; i++) {
 
-      if (list[i] !== oldList[i]) {
-        newItem = characterToRow(list[i]);
-        oldList.splice(i, 0, list[i]);
+      if (newList[i] !== currentList[i]) {
+        newItem = characterToRow(newList[i]);
+        currentList.splice(i, 0, newList[i]);
 
         if (i) {
           jQueryList.children().eq(i - 1).after(newItem);
@@ -398,11 +397,11 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     }
 
     // remove extra items
-    for (let i = oldList.length - 1; i > list.length - 1; i--) {
+    for (let i = currentList.length - 1; i > newList.length - 1; i--) {
       jQueryList.children().eq(i).remove();
     }
 
-    oldList = list.slice();
+    currentList = newList.slice();
   }
 
   // Generates the card, that shows up when one clicks on the result.
