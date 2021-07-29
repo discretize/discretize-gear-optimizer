@@ -28,6 +28,9 @@ const styles = (theme) => ({
   formControl: {
     minWidth: 120,
     margin: theme.spacing(1)
+  },
+  root: {
+    marginBottom: theme.spacing(2)
   }
 });
 
@@ -141,7 +144,7 @@ const Traits = ({ classes, profession, data }) => {
   };
 
   return (
-    <>
+    <div className={classes.margin}>
       <FormControl className={classes.formControl}>
         <InputLabel id="mutiple-checkbox-label">Traitlines</InputLabel>
         <Select
@@ -188,6 +191,7 @@ const Traits = ({ classes, profession, data }) => {
               .items.filter((v) => v.gw2_id === t)
               .map((trait) => (
                 <CheckboxComponent
+                  key={trait.id}
                   value={trait.id}
                   checked={modifiers.filter((m) => m.id === trait.id).length > 0}
                   label={<Trait id={trait.gw2_id} disableLink />}
@@ -197,7 +201,7 @@ const Traits = ({ classes, profession, data }) => {
           )}
         </React.Fragment>
       ))}
-    </>
+    </div>
   );
 };
 

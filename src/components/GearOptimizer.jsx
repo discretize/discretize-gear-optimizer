@@ -36,7 +36,7 @@ const styles = (theme) => ({
   icon: {
     fontSize: 18
   },
-  selects: {
+  margin: {
     marginBottom: theme.spacing(2)
   }
 });
@@ -99,24 +99,32 @@ const MainComponent = ({ classes, data }) => {
       {/* TODO add template selection here */}
       {profession !== "" && (
         <>
-          {expertMode &&
-            PROFESSIONS.map((p) => p.profession)
-              .filter((p) => p === profession)
-              .map((p) => {
-                const traitData = data[p.toLocaleLowerCase()].edges[0].node.list.slice(1);
-                const skillData = data[p.toLowerCase()].edges[0].node.list.filter(
-                  (d) => d.section === "Skills"
-                );
-                return (
-                  <React.Fragment key={"TaS_" + p}>
-                    <Traits profession={p} data={traitData} />
-                    <Skills profession={p} data={skillData[0] ? skillData[0].items : []} />
-                  </React.Fragment>
-                );
-              })}
+          {expertMode && (
+            <>
+              <Divider />
+
+              <Typography variant="h5">Traits</Typography>
+
+              {PROFESSIONS.map((p) => p.profession)
+                .filter((p) => p === profession)
+                .map((p) => {
+                  const traitData = data[p.toLocaleLowerCase()].edges[0].node.list.slice(1);
+                  const skillData = data[p.toLowerCase()].edges[0].node.list.filter(
+                    (d) => d.section === "Skills"
+                  );
+                  return (
+                    <React.Fragment key={"TaS_" + p}>
+                      <Traits profession={p} data={traitData} />
+                      <Divider />
+                      <Skills profession={p} data={skillData[0] ? skillData[0].items : []} />
+                    </React.Fragment>
+                  );
+                })}
+            </>
+          )}
 
           {expertMode && (
-            <div className={classes.selects}>
+            <div className={classes.margin}>
               <Divider />
               <Typography variant="h5">Runes & Sigils & Food</Typography>
 
