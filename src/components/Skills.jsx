@@ -48,21 +48,22 @@ const Skills = ({ classes, data }) => {
     <div className={classes.root}>
       <Typography variant="h5">Skills </Typography>
       {data.map((skill) => (
-        <CheckboxComponent
-          key={skill.id}
-          value={skill.id}
-          checked={skills.indexOf(skill.id) > -1}
-          className={classes.checkbox}
-          label={
-            <div className={classes.label}>
-              <Skill id={skill.gw2_id} disableLink className={classes.skill} />
-              {skill.subText && (
-                <Typography className={classes.subText}>{skill.subText}</Typography>
-              )}
-            </div>
-          }
-          onChange={onChange(skill)}
-        ></CheckboxComponent>
+        <div key={skill.id}>
+          <CheckboxComponent
+            value={skill.id}
+            checked={skills.indexOf(skill.id) > -1}
+            className={classes.checkbox}
+            label={
+              <div className={classes.label}>
+                <Skill id={skill.gw2_id} disableLink className={classes.skill} />
+                {skill.subText && (
+                  <Typography className={classes.subText}>{skill.subText}</Typography>
+                )}
+              </div>
+            }
+            onChange={onChange(skill)}
+          />
+        </div>
       ))}
     </div>
   );
