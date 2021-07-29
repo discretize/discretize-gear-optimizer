@@ -33,7 +33,7 @@ export const gearOptimizerSlice = createSlice({
     minToughness: "1000",
     maxToughness: "",
     skills: [],
-    forcedSlots: ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+    forcedSlots: [null, null, null, null, null, null, null, null, null, null, null, null, null],
     might: false,
     fury: false,
     protection: false,

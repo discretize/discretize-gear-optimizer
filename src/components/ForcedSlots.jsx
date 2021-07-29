@@ -89,16 +89,15 @@ const ForcedSlots = ({ classes, dualWielded }) => {
   }
 
   const handleChange = (index) => (event, newInput) => {
-    dispatch(changeForcedSlot({ index: index, value: newInput === null ? "" : newInput }));
+    dispatch(changeForcedSlot({ index: index, value: newInput }));
   };
 
   const input2 = (name, index, offset) => {
     return (
-      <Grid item xs={6} md={2} sm={4}>
+      <Grid item xs={6} md={2} sm={4} key={name}>
         <Autocomplete
-          key={name}
           options={AFFIXES}
-          value={value}
+          value={value[index + offset]}
           id={name}
           clearOnEscape
           onChange={handleChange(index + offset)}
