@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const gearOptimizerSlice = createSlice({
   name: "go",
   initialState: {
+    expertMode: true,
     profession: "",
     ar: 162,
     traits: {

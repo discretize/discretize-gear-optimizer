@@ -1,15 +1,8 @@
-import {
-  Button,
-  Divider,
-  FormControlLabel,
-  Switch,
-  Typography,
-  withStyles
-} from "@material-ui/core";
+import { Button, Divider, Typography, withStyles } from "@material-ui/core";
 import { Cancel, Functions } from "@material-ui/icons";
 import { graphql, StaticQuery } from "gatsby";
 import { ConsumableEffect, Item } from "gw2-ui";
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import {
   getDistributionNew,
@@ -20,11 +13,11 @@ import {
 } from "../state/gearOptimizerSlice";
 import ARinput from "./ARinput";
 import Buffs from "./Buffs";
-import ClassSelection from "./ClassSelection";
 import DamageDistribution from "./DamageDistribution";
 import ForcedSlots from "./ForcedSlots";
 import GW2Select from "./GW2Select";
 import Infusions from "./Infusions";
+import NavBar from "./NavBar";
 import Priorities from "./priorities/Priorities";
 import Skills from "./Skills";
 import Traits from "./Traits";
@@ -65,7 +58,7 @@ export const PROFESSIONS = [
  * @returns the main ui
  */
 const MainComponent = ({ classes, data }) => {
-  const [expertMode, setExpertMode] = useState(true);
+  const expertMode = useSelector(getGeneric("expertMode"));
   const profession = useSelector(getProfession);
   const dualWielded = useSelector(getGeneric("weaponType"));
 
@@ -101,19 +94,7 @@ const MainComponent = ({ classes, data }) => {
 
   return (
     <div className={classes.root}>
-      <FormControlLabel
-        control={
-          <Switch
-            checked={expertMode}
-            onChange={(e) => setExpertMode(e.target.checked)}
-            name="checked"
-            color="primary"
-          />
-        }
-        label="Expert Mode"
-      />
-
-      <ClassSelection />
+      <NavBar />
 
       {/* TODO add template selection here */}
       {profession !== "" && (
