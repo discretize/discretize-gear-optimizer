@@ -31,7 +31,8 @@ const styles = (theme) => ({
   },
   gridItem: {
     marginBottom: theme.spacing(2)
-  }
+  },
+  item: { lineHeight: "1 !important" }
 });
 
 const INFUSIONS = [
@@ -62,6 +63,7 @@ const Infusions = ({ classes }) => {
           onChange={(e) =>
             dispatch(changeGeneric({ toChange: varName, value: Number(e.target.value) }))
           }
+          renderValue={(value) => <Item id={value} disableLink className={classes.item} />}
         >
           <MenuItem value="">None </MenuItem>
           {INFUSIONS.map((i) => (
