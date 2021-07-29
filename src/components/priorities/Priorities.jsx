@@ -76,9 +76,7 @@ const Priorities = ({ classes, presets }) => {
 
       <Presets data={presets} handleClick={handleTemplateClick} />
 
-      <Affixes />
-
-      <Grid container>
+      <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <FormControl component="fieldset">
             <FormLabel component="legend">
@@ -134,6 +132,11 @@ const Priorities = ({ classes, presets }) => {
             </RadioGroup>
           </FormControl>
         </Grid>
+
+        <Grid item xs={12}>
+          <Affixes />
+        </Grid>
+
         <Grid item xs={12} sm={6}>
           <div className={classes.box}>
             <FormControl className={classes.formControl}>
