@@ -1,9 +1,11 @@
 import { Grid, TextField, Typography, withStyles } from "@material-ui/core";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import classNames from "classnames";
+import Item from "gw2-ui/lib/Item";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeForcedSlot, getGeneric } from "../state/gearOptimizerSlice";
+import { firstUppercase } from "../utils/usefulFunctions";
 import { AFFIXES } from "./priorities/Affixes";
 
 export const FORCED_SLOTS = [
@@ -101,11 +103,20 @@ const ForcedSlots = ({ classes, dualWielded }) => {
           id={name}
           clearOnEscape
           onChange={handleChange(index + offset)}
+          renderOption={(option) => (
+            <Item
+              stat={firstUppercase(option)}
+              type="Ring"
+              disableLink
+              text={firstUppercase(option)}
+              className={classes.text}
+            />
+          )}
           renderInput={(params) => (
             <TextField
               {...params}
               className={classNames(classes.textField, classes.dense)}
-              label={name}
+              label={firstUppercase(name)}
               margin="dense"
             />
           )}
@@ -118,9 +129,9 @@ const ForcedSlots = ({ classes, dualWielded }) => {
       <Typography variant="h5">Force Gear Slots </Typography>
 
       <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start">
-        {SLOTS.slice(0, 6).map((s, index) => input2(s.short, index, 0))}
-        {SLOTS.slice(6, 10).map((s, index) => input2(s.short, index, 6))}
-        {SLOTS.slice(10).map((s, index) => input2(s.short, index, 10))}
+        {SLOTS.slice(0, 6).map((s, index) => input2(s.name, index, 0))}
+        {SLOTS.slice(6, 10).map((s, index) => input2(s.name, index, 6))}
+        {SLOTS.slice(10).map((s, index) => input2(s.name, index, 10))}
       </Grid>
     </div>
   );
