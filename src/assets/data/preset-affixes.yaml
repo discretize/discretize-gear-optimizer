@@ -1,48 +1,38 @@
 GraphQL ID: presetAffixes
 list:
   - name: Power DPS
-    id: power-dps
-    type: Damage
-    affixes:
-      - BERSERKER
-      - ASSASSIN
-    restrictions:
-
+    value: >-
+      {
+        "affixes": ["BERSERKER", "ASSASSIN"],
+        "optimizeFor": "Damage"
+      }
   - name: Power Boon
-    id: power-boon
-    type: Damage
-    affixes:
-      - BERSERKER
-      - ASSASSIN
-      - DIVINER
-    restrictions:
-      minBoonDuration: 100
+    value: >-
+      {
+        "affixes": ["BERSERKER", "ASSASSIN", "DIVINER"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 100
+      }
 
   - name: Condi DPS
-    id: condi-dps
-    type: Damage
-    affixes:
-      - VIPER
-      - SINISTER
-      - GRIEVING
-    restrictions:
+    value: >-
+      {
+        "affixes": ["VIPER", "SINISTER", "GRIEVING"],
+        "optimizeFor": "Damage"
+      }
 
   - name: Heal
-    id: heal
-    type: Healing
-    affixes:
-      - HARRIER
-      - MINSTREL
-      - MAGI
-    restrictions:
-      minBoonDuration: 100
+    value: >-
+      {
+        "affixes": ["HARRIER", "MINSTREL", "MAGI"],
+        "optimizeFor": "Healing",
+        "minBoonDuration": 100        
+      }
 
   - name: Condi Boon
-    id: condi-boon
-    type: Damage
-    affixes:
-      - VIPER
-      - SERAPH
-      - CELESTIAL
-    restrictions:
-      minBoonDuration: 79
+    value: >-
+      {
+        "affixes": ["VIPER", "SERAPH", "CELESTIAL"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 79        
+      }

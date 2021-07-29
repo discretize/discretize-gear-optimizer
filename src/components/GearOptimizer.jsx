@@ -4,7 +4,13 @@ import { graphql, StaticQuery } from "gatsby";
 import { ConsumableEffect, Item } from "gw2-ui";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { getGeneric, getProfession } from "../state/gearOptimizerSlice";
+import {
+  getDistributionNew,
+  getDistributionOld,
+  getGeneric,
+  getModifiers,
+  getProfession
+} from "../state/gearOptimizerSlice";
 import ARinput from "./ARinput";
 import Buffs from "./Buffs";
 import ClassSelection from "./ClassSelection";
@@ -439,13 +445,8 @@ const GearOptimizer = ({ classes }) => {
           }
           presetAffixes: presetAffixes {
             list {
-              id
               name
-              affixes
-              type
-              restrictions {
-                minBoonDuration
-              }
+              value
             }
           }
         }

@@ -52,20 +52,8 @@ const Priorities = ({ classes, presets }) => {
   };
 
   const handleTemplateClick = (index) => (event) => {
-    dispatch(changeGeneric({ toChange: "affixes", value: [] }));
-    dispatch(changeGeneric({ toChange: "minBoonDuration", value: 0 }));
-
-    dispatch(changeGeneric({ toChange: "optimizeFor", value: presets[index].type }));
-
-    if (presets[index].affixes)
-      dispatch(changeGeneric({ toChange: "affixes", value: presets[index].affixes }));
-    if (presets[index].restrictions)
-      dispatch(
-        changeGeneric({
-          toChange: "minBoonDuration",
-          value: presets[index].restrictions.minBoonDuration
-        })
-      );
+    const state = JSON.parse(presets[index].value);
+    Object.keys(state).forEach((k) => dispatch(changeGeneric({ toChange: k, value: state[k] })));
   };
 
   return (
@@ -73,8 +61,8 @@ const Priorities = ({ classes, presets }) => {
       <Typography variant="h5">Priorities </Typography>
       {presets.map((preset, index) => (
         <Chip
-          id={preset.id}
-          key={preset.id}
+          id={preset.name}
+          key={preset.name}
           label={preset.name}
           variant="outlined"
           onClick={handleTemplateClick(index)}
