@@ -39,13 +39,13 @@ const styles = (theme) => ({
 });
 
 export const PROFESSIONS = [
-  "Warrior",
-  "Revenant",
-  "Guardian",
-  "Ranger",
-  "Engineer",
-  "Elementalist",
-  "Mesmer"
+  { profession: "Warrior", eliteSpecializations: ["Spellbreaker", "Berserker"] },
+  { profession: "Revenant", eliteSpecializations: ["Herald", "Renegade"] },
+  { profession: "Guardian", eliteSpecializations: ["Dragonhunter", "Firebrand"] },
+  { profession: "Ranger", eliteSpecializations: ["Druid", "Soulbeast"] },
+  { profession: "Engineer", eliteSpecializations: ["Scrapper", "Holosmith"] },
+  { profession: "Elementalist", eliteSpecializations: ["Tempest", "Weaver"] },
+  { profession: "Mesmer", eliteSpecializations: ["Chronomancer", "Mirage"] }
 ];
 
 /**
@@ -159,18 +159,20 @@ const MainComponent = ({ classes, data }) => {
       {profession !== "" && (
         <>
           {expertMode &&
-            PROFESSIONS.filter((p) => p === profession).map((p) => {
-              const traitData = data[p.toLocaleLowerCase()].edges[0].node.list.slice(1);
-              const skillData = data[p.toLowerCase()].edges[0].node.list.filter(
-                (d) => d.section === "Skills"
-              );
-              return (
-                <React.Fragment key={"TaS_" + p}>
-                  <Traits profession={p} data={traitData} />
-                  <Skills profession={p} data={skillData[0] ? skillData[0].items : []} />
-                </React.Fragment>
-              );
-            })}
+            PROFESSIONS.map((p) => p.profession)
+              .filter((p) => p === profession)
+              .map((p) => {
+                const traitData = data[p.toLocaleLowerCase()].edges[0].node.list.slice(1);
+                const skillData = data[p.toLowerCase()].edges[0].node.list.filter(
+                  (d) => d.section === "Skills"
+                );
+                return (
+                  <React.Fragment key={"TaS_" + p}>
+                    <Traits profession={p} data={traitData} />
+                    <Skills profession={p} data={skillData[0] ? skillData[0].items : []} />
+                  </React.Fragment>
+                );
+              })}
 
           {expertMode && (
             <>

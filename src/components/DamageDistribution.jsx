@@ -25,11 +25,13 @@ import {
   getDistributionNew,
   getDistributionOld,
   getDistributionVersion,
+  getProfession,
   getTextBoxes
 } from "../state/gearOptimizerSlice";
 import Presets from "./baseComponents/Presets";
 import HelperIcon from "./HelperIcon";
 import debounce from "lodash.debounce";
+import { PROFESSIONS } from "./GearOptimizer";
 
 const styles = (theme) => ({
   root: {
@@ -88,17 +90,26 @@ const DISTRIBUTION_NAMES = [
   { name: "Confusion", min: 0, max: 50, step: 0.1 }
 ];
 
-const DamageDistribution = ({ classes, presets }) => {
+const DamageDistribution = ({ classes, presets: presetsRaw }) => {
   const dispatch = useDispatch();
   const version = useSelector(getDistributionVersion);
   const distributionOld = useSelector(getDistributionOld); // actual real selected damage distribution at any time
   const distributionNew = useSelector(getDistributionNew);
+  const profession = useSelector(getProfession);
 
   // locally displayed in the text boxes. Text boxes might contain a string that is not a real number (yet), so we need to store those separately
   const textBoxes = useSelector(getTextBoxes);
 
+  const presets = presetsRaw.filter(
+    (preset) =>
+      PROFESSIONS.find((p) => p.profession === profession).eliteSpecializations.includes(
+        preset.profession
+      ) || preset.profession === null
+  );
+
   const onTemplateClick = (index) => (event) => {
     const state = JSON.parse(presets[index].value);
+    console.log(state);
 
     dispatch(changeAllDistributionsOld(state.values1));
     dispatch(changeAllDistributionsNew(state.values2));

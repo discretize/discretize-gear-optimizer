@@ -41,7 +41,7 @@ const ClassSelection = ({ classes }) => {
 
   return (
     <div className={classes.buttonGroup}>
-      {PROFESSIONS.map((elem) => (
+      {PROFESSIONS.map((p) => p.profession).map((elem) => (
         <Button
           variant="outlined"
           color="primary"
