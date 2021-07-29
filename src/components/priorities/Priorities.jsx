@@ -1,10 +1,14 @@
 import {
   Chip,
   FormControl,
+  FormControlLabel,
+  FormLabel,
   Grid,
   Input,
   InputLabel,
   MenuItem,
+  Radio,
+  RadioGroup,
   Select,
   Typography,
   withStyles
@@ -36,8 +40,17 @@ const styles = (theme) => ({
     display: "flex",
     alignItems: "center",
     flexWrap: "wrap"
+  },
+  helper: {
+    fontSize: 10
   }
 });
+
+const OPTIMIZATION_GOALS = ["Damage", "Survivability", "Healing"];
+const WEAPON_TYPE = [
+  { id: "dualWielded", label: "Dual Wielded" },
+  { id: "twoHanded", label: "Two Handed" }
+];
 
 const Priorities = ({ classes, presets }) => {
   const dispatch = useDispatch();
@@ -66,45 +79,62 @@ const Priorities = ({ classes, presets }) => {
       <Affixes />
 
       <Grid container>
-        <Grid item xs={12} sm={6} md={4}>
-          <div className={classes.box}>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="optimizeFor">Optimize for</InputLabel>
-              <Select
-                value={optimizeFor}
-                onChange={handleChange}
-                inputProps={{
-                  name: "optimizeFor",
-                  id: "optimizeFor"
-                }}
-              >
-                <MenuItem value="Damage">Damage</MenuItem>
-                <MenuItem value="Survivability">Survivability</MenuItem>
-                <MenuItem value="Healing">Healing</MenuItem>
-              </Select>
-            </FormControl>
-            <HelperIcon text="What to optimize the results for. 'Damage' includes power and condition damage according to the distribution below." />
-          </div>
-
-          <div className={classes.box}>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="weaponType">Weapon Type</InputLabel>
-              <Select
-                value={weaponType}
-                onChange={handleChange}
-                inputProps={{
-                  name: "weaponType",
-                  id: "weaponType"
-                }}
-              >
-                <MenuItem value="dualWielded">Dual wielded</MenuItem>
-                <MenuItem value="twoHanded">Two-handed</MenuItem>
-              </Select>
-            </FormControl>
-            <HelperIcon text="Select 'Dual wield' if you're using weapons in both hands or 'Two-handed' when using a two-handed weapon." />
-          </div>
+        <Grid item xs={12} sm={6}>
+          <FormControl component="fieldset">
+            <FormLabel component="legend">
+              Optimize for:{" "}
+              <HelperIcon
+                text="What to optimize the results for. 'Damage' includes power and condition damage according to the distribution below."
+                size="small"
+              />
+            </FormLabel>
+            <RadioGroup
+              aria-label="optimizeFor"
+              name="optimizeFor"
+              value={optimizeFor}
+              onChange={handleChange}
+            >
+              {OPTIMIZATION_GOALS.map((goal) => (
+                <FormControlLabel
+                  key={goal}
+                  value={goal}
+                  control={<Radio color="primary" />}
+                  label={goal}
+                />
+              ))}
+            </RadioGroup>
+          </FormControl>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+
+        <Grid item xs={12} sm={6}>
+          <FormControl component="fieldset">
+            <FormLabel component="legend">
+              Weapon type:{" "}
+              <HelperIcon
+                text="Select 'Dual wield' if you're using weapons in both hands or 'Two-handed' when using a two-handed weapon."
+                size="small"
+              />
+            </FormLabel>
+            <RadioGroup
+              aria-label="weaponType"
+              name="weaponType"
+              value={weaponType}
+              onChange={handleChange}
+            >
+              <FormControlLabel
+                value="dualWielded"
+                control={<Radio color="primary" />}
+                label="Dual wielded"
+              ></FormControlLabel>
+              <FormControlLabel
+                value="twoHanded"
+                control={<Radio color="primary" />}
+                label="Two-handed"
+              ></FormControlLabel>
+            </RadioGroup>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} sm={6}>
           <div className={classes.box}>
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="minBoon-input-with-icon-adornment">
@@ -134,7 +164,7 @@ const Priorities = ({ classes, presets }) => {
             <HelperIcon text="Only show results that fulfill a certain amount of Healing Power." />
           </div>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6}>
           <div className={classes.box}>
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="minToughness-input-with-icon-adornment">

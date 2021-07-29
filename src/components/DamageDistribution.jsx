@@ -109,7 +109,6 @@ const DamageDistribution = ({ classes, presets: presetsRaw }) => {
 
   const onTemplateClick = (index) => (event) => {
     const state = JSON.parse(presets[index].value);
-    console.log(state);
 
     dispatch(changeAllDistributionsOld(state.values1));
     dispatch(changeAllDistributionsNew(state.values2));

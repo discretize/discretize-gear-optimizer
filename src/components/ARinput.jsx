@@ -21,12 +21,6 @@ const styles = (theme) => ({
     width: 190,
     margin: theme.spacing(1)
   },
-  box: {
-    display: "flex",
-    alignItems: "center",
-    flexWrap: "wrap",
-    justifyContent: "space-evenly"
-  },
   grid: {
     justifyContent: "center"
   }
@@ -46,32 +40,22 @@ const ARinput = ({ classes }) => {
   return (
     <div className={classes.root}>
       <Typography variant="h5">
-        <Attribute name="Agony Resistance" />
+        <Attribute name="Agony Resistance" disableLink disableText /> Agony Resistance{" "}
+        <HelperIcon text="Adds 150% of your Agony Resistance to Precision, Toughness and Concentration." />
       </Typography>
-
-      <Grid container className={classes.grid} alignItems="center">
-        <Grid item xs={12} sm={6}>
-          <Typography className={classes.box}>
-            Include <Item id={79722} />{" "}
-            <HelperIcon text="Adds 150% of your Agony Resistance to Precision, Toughness and Concentration." />
-          </Typography>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <FormControl className={classes.margin}>
-            <InputLabel htmlFor="ar_input-with-icon-adornment">Agony Resistance</InputLabel>
-            <Input
-              id="ar_input-with-icon-adornment"
-              value={ar}
-              endAdornment={
-                <InputAdornment position="end">
-                  <Attribute name="Agony Resistance" disableLink disableText />
-                </InputAdornment>
-              }
-              onChange={handleChange}
-            />
-          </FormControl>
-        </Grid>
-      </Grid>
+      <FormControl className={classes.margin}>
+        <InputLabel htmlFor="ar_input-with-icon-adornment">Agony Resistance</InputLabel>
+        <Input
+          id="ar_input-with-icon-adornment"
+          value={ar}
+          endAdornment={
+            <InputAdornment position="end">
+              <Attribute name="Agony Resistance" disableLink disableText />
+            </InputAdornment>
+          }
+          onChange={handleChange}
+        />
+      </FormControl>
     </div>
   );
 };

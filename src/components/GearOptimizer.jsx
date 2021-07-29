@@ -1,4 +1,11 @@
-import { Button, Divider, FormControlLabel, Switch, withStyles } from "@material-ui/core";
+import {
+  Button,
+  Divider,
+  FormControlLabel,
+  Switch,
+  Typography,
+  withStyles
+} from "@material-ui/core";
 import { Cancel, Functions } from "@material-ui/icons";
 import { graphql, StaticQuery } from "gatsby";
 import { ConsumableEffect, Item } from "gw2-ui";
@@ -35,6 +42,9 @@ const styles = (theme) => ({
   },
   icon: {
     fontSize: 18
+  },
+  selects: {
+    marginBottom: theme.spacing(2)
   }
 });
 
@@ -47,56 +57,6 @@ export const PROFESSIONS = [
   { profession: "Elementalist", eliteSpecializations: ["Tempest", "Weaver"] },
   { profession: "Mesmer", eliteSpecializations: ["Chronomancer", "Mirage"] }
 ];
-
-/**
- * Contains the 5 Selects: Rune, Sigil1, Sigil2, Nourishment and Enhancement.
- *
- * @param {data} data from graphiql
- * @returns five selects
- */
-const Selects = (data) => {
-  return (
-    <>
-      <GW2Select
-        name="Runes"
-        label={
-          <>
-            <Item id={24836} disableLink disableText disableTooltip /> Rune
-          </>
-        }
-        data={data.runes.list}
-      />
-      <GW2Select
-        name="Sigil1"
-        label={
-          <>
-            <Item id={24615} disableLink disableText disableTooltip /> Sigil 1
-          </>
-        }
-        data={data.sigils.list}
-      />
-      <GW2Select
-        name="Sigil2"
-        label={
-          <>
-            <Item id={24868} disableLink disableText disableTooltip /> Sigil 2
-          </>
-        }
-        data={data.sigils.list}
-      />
-      <GW2Select
-        name="Nourishment"
-        label={<ConsumableEffect name="Nourishment" />}
-        data={data.nourishment.list}
-      />
-      <GW2Select
-        name="Enhancement"
-        label={<ConsumableEffect name="Enhancement" data={data.sigils.list} />}
-        data={data.enhancement.list}
-      />
-    </>
-  );
-};
 
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
@@ -175,10 +135,37 @@ const MainComponent = ({ classes, data }) => {
               })}
 
           {expertMode && (
-            <>
+            <div className={classes.selects}>
               <Divider />
-              {Selects(data)}
-            </>
+              <Typography variant="h5">Runes & Sigils & Food</Typography>
+
+              <GW2Select
+                name="Runes"
+                label={<Item id={24836} disableLink disableTooltip text="Rune" />}
+                data={data.runes.list}
+              />
+              <GW2Select
+                name="Sigil1"
+                label={<Item id={24615} disableLink disableTooltip text="Sigil 1" />}
+                data={data.sigils.list}
+              />
+              <GW2Select
+                name="Sigil2"
+                label={<Item id={24868} disableLink disableTooltip text="Sigil 2" />}
+                data={data.sigils.list}
+              />
+              <br />
+              <GW2Select
+                name="Nourishment"
+                label={<ConsumableEffect name="Nourishment" />}
+                data={data.nourishment.list}
+              />
+              <GW2Select
+                name="Enhancement"
+                label={<ConsumableEffect name="Enhancement" data={data.sigils.list} />}
+                data={data.enhancement.list}
+              />
+            </div>
           )}
 
           {expertMode && (
