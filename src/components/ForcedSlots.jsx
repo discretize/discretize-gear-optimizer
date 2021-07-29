@@ -1,9 +1,9 @@
 import { Grid, TextField, Typography, withStyles } from "@material-ui/core";
+import Autocomplete from "@material-ui/lab/Autocomplete";
 import classNames from "classnames";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeForcedSlot, getGeneric } from "../state/gearOptimizerSlice";
-import { firstUppercase } from "../utils/usefulFunctions";
 import { AFFIXES } from "./priorities/Affixes";
 
 export const FORCED_SLOTS = [
@@ -66,9 +66,7 @@ export const FORCED_SLOTS = [
 ];
 
 const styles = (theme) => ({
-  textField: {
-    width: 80
-  },
+  textField: {},
   root: {
     marginBottom: theme.spacing(2)
   },
@@ -85,50 +83,45 @@ const ForcedSlots = ({ classes, dualWielded }) => {
   const dispatch = useDispatch();
   const value = useSelector(getGeneric("forcedSlots"));
 
-  const handleChange = (index) => (event) => {
-    const input = event.target.value.toLowerCase();
-    if (!input.match(".*[0-9].*") && input !== "") {
-      // contains number, cant be matched
-      const possibleMatches = AFFIXES.filter((a) => a.toLowerCase().startsWith(input));
-      if (possibleMatches.length > 0)
-        dispatch(changeForcedSlot({ index: index, value: possibleMatches[0] }));
-      // Reset the affix in every other occasion
-      else dispatch(changeForcedSlot({ index: index, value: "" }));
-    } else {
-      dispatch(changeForcedSlot({ index: index, value: "" }));
-    }
-  };
-
   let SLOTS = FORCED_SLOTS;
   if (!dualWielded) {
     SLOTS = FORCED_SLOTS.slice(0, 13);
   }
 
-  const input = (name, index, offset) => {
-    return (
-      <TextField
-        key={name}
-        label={name}
-        className={classNames(classes.textField, classes.dense)}
-        margin="dense"
-        onChange={handleChange(index + offset)}
-        helperText={firstUppercase(value[index + offset])}
-        FormHelperTextProps={{ className: classes.helperText }}
-      />
-    );
+  const handleChange = (index) => (event, newInput) => {
+    dispatch(changeForcedSlot({ index: index, value: newInput === null ? "" : newInput }));
   };
 
+  const input2 = (name, index, offset) => {
+    return (
+      <Grid item xs={6} md={2} sm={4}>
+        <Autocomplete
+          key={name}
+          options={AFFIXES}
+          value={value}
+          id={name}
+          clearOnEscape
+          onChange={handleChange(index + offset)}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              className={classNames(classes.textField, classes.dense)}
+              label={name}
+              margin="dense"
+            />
+          )}
+        />
+      </Grid>
+    );
+  };
   return (
     <div className={classes.root}>
       <Typography variant="h5">Force Gear Slots </Typography>
 
-      <Grid container>
-        <Grid item xs={12} sm={12}>
-          {SLOTS.slice(0, 6).map((s, index) => input(s.short, index, 0))}
-        </Grid>
-        <Grid item xs={12} sm={12}>
-          {SLOTS.slice(6).map((s, index) => input(s.short, index, 6))}
-        </Grid>
+      <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start">
+        {SLOTS.slice(0, 6).map((s, index) => input2(s.short, index, 0))}
+        {SLOTS.slice(6, 10).map((s, index) => input2(s.short, index, 6))}
+        {SLOTS.slice(10).map((s, index) => input2(s.short, index, 10))}
       </Grid>
     </div>
   );
