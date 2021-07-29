@@ -5,67 +5,9 @@ import Item from "gw2-ui/lib/Item";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeForcedSlot, getGeneric } from "../state/gearOptimizerSlice";
+import { GEAR_SLOTS } from "../utils/gw2-data";
 import { firstUppercase } from "../utils/usefulFunctions";
 import { AFFIXES } from "./priorities/Affixes";
-
-export const FORCED_SLOTS = [
-  {
-    name: "Helm",
-    short: "Helm"
-  },
-  {
-    name: "Shoulders",
-    short: "Shld"
-  },
-  {
-    name: "Coat",
-    short: "Coat"
-  },
-  {
-    name: "Gloves",
-    short: "Glov"
-  },
-  {
-    name: "Leggings",
-    short: "Legs"
-  },
-  {
-    name: "Boots",
-    short: "Boot"
-  },
-  {
-    name: "Amulet",
-    short: "Amul"
-  },
-  {
-    name: "Ring 1",
-    short: "Rng1"
-  },
-  {
-    name: "Ring 2",
-    short: "Rng2"
-  },
-  {
-    name: "Accessory 1",
-    short: "Acc1"
-  },
-  {
-    name: "Accessory 2",
-    short: "Acc2"
-  },
-  {
-    name: "Back Item",
-    short: "Back"
-  },
-  {
-    name: "Weapon 1",
-    short: "Wep1"
-  },
-  {
-    name: "Weapon 2",
-    short: "Wep2"
-  }
-];
 
 const styles = (theme) => ({
   textField: {},
@@ -85,9 +27,9 @@ const ForcedSlots = ({ classes, dualWielded }) => {
   const dispatch = useDispatch();
   const value = useSelector(getGeneric("forcedSlots"));
 
-  let SLOTS = FORCED_SLOTS;
+  let SLOTS = GEAR_SLOTS;
   if (!dualWielded) {
-    SLOTS = FORCED_SLOTS.slice(0, 13);
+    SLOTS = GEAR_SLOTS.slice(0, 13);
   }
 
   const handleChange = (index) => (event, newInput) => {

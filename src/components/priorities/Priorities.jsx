@@ -1,15 +1,12 @@
 import {
-  Chip,
   FormControl,
   FormControlLabel,
   FormLabel,
   Grid,
   Input,
   InputLabel,
-  MenuItem,
   Radio,
   RadioGroup,
-  Select,
   Typography,
   withStyles
 } from "@material-ui/core";

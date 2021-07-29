@@ -12,6 +12,7 @@ import { Item } from "gw2-ui";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeGeneric, getGeneric } from "../state/gearOptimizerSlice";
+import { INFUSIONS } from "../utils/gw2-data";
 
 const styles = (theme) => ({
   root: {
@@ -34,17 +35,6 @@ const styles = (theme) => ({
   },
   item: { lineHeight: "1 !important" }
 });
-
-const INFUSIONS = [
-  37131, // power
-  37132, // precision
-  37130, // condi
-  86113, // expertise
-  86180, // concentration
-  37125, // healing power
-  37135, // toughness
-  37136 // vitality
-];
 
 const Infusions = ({ classes }) => {
   const dispatch = useDispatch();

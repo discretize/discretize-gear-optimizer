@@ -11,6 +11,7 @@ import {
   getModifiers,
   getProfession
 } from "../state/gearOptimizerSlice";
+import { PROFESSIONS } from "../utils/gw2-data";
 import ARinput from "./ARinput";
 import Buffs from "./Buffs";
 import DamageDistribution from "./DamageDistribution";
@@ -40,16 +41,6 @@ const styles = (theme) => ({
     marginBottom: theme.spacing(2)
   }
 });
-
-export const PROFESSIONS = [
-  { profession: "Warrior", eliteSpecializations: ["Spellbreaker", "Berserker"] },
-  { profession: "Revenant", eliteSpecializations: ["Herald", "Renegade"] },
-  { profession: "Guardian", eliteSpecializations: ["Dragonhunter", "Firebrand"] },
-  { profession: "Ranger", eliteSpecializations: ["Druid", "Soulbeast"] },
-  { profession: "Engineer", eliteSpecializations: ["Scrapper", "Holosmith"] },
-  { profession: "Elementalist", eliteSpecializations: ["Tempest", "Weaver"] },
-  { profession: "Mesmer", eliteSpecializations: ["Chronomancer", "Mirage"] }
-];
 
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
