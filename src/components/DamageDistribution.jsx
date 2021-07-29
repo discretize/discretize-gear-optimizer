@@ -16,7 +16,9 @@ import "nouislider/distribute/nouislider.css";
 import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  changeAllDistributionsNew,
   changeAllDistributionsOld,
+  changeAllTextBoxes,
   changeDistributionNew,
   changeDistributionVersion,
   changeTextBoxes,
@@ -25,6 +27,7 @@ import {
   getDistributionVersion,
   getTextBoxes
 } from "../state/gearOptimizerSlice";
+import Presets from "./baseComponents/Presets";
 import HelperIcon from "./HelperIcon";
 import debounce from "lodash.debounce";
 
@@ -85,7 +88,7 @@ const DISTRIBUTION_NAMES = [
   { name: "Confusion", min: 0, max: 50, step: 0.1 }
 ];
 
-const DamageDistribution = ({ classes }) => {
+const DamageDistribution = ({ classes, presets }) => {
   const dispatch = useDispatch();
   const version = useSelector(getDistributionVersion);
   const distributionOld = useSelector(getDistributionOld); // actual real selected damage distribution at any time
@@ -93,6 +96,14 @@ const DamageDistribution = ({ classes }) => {
 
   // locally displayed in the text boxes. Text boxes might contain a string that is not a real number (yet), so we need to store those separately
   const textBoxes = useSelector(getTextBoxes);
+
+  const onTemplateClick = (index) => (event) => {
+    const state = JSON.parse(presets[index].value);
+
+    dispatch(changeAllDistributionsOld(state.values1));
+    dispatch(changeAllDistributionsNew(state.values2));
+    dispatch(changeAllTextBoxes(state.values2));
+  };
 
   const onUpdateOld = (render, handle, value, un, percent) => {
     const distributionRecalc = [];
@@ -236,6 +247,9 @@ const DamageDistribution = ({ classes }) => {
         }
         label="Switch to %-wise damage distribution"
       />
+
+      <Presets data={presets} handleClick={onTemplateClick} />
+
       {version === 1 ? SliderOld() : SlidersNew()}
     </div>
   );

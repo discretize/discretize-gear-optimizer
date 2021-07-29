@@ -213,7 +213,7 @@ const MainComponent = ({ classes, data }) => {
           {expertMode && (
             <>
               <Divider />
-              <DamageDistribution />
+              <DamageDistribution presets={data.presetDistribution.list} />
             </>
           )}
 
@@ -446,6 +446,13 @@ const GearOptimizer = ({ classes }) => {
             list {
               name
               value
+            }
+          }
+          presetDistribution: presetDistribution {
+            list {
+              name
+              value
+              profession
             }
           }
         }

@@ -92,6 +92,9 @@ export const gearOptimizerSlice = createSlice({
     changeTextBoxes: (state, action) => {
       state.distribution.textBoxes[action.payload.index] = action.payload.value;
     },
+    changeAllTextBoxes: (state, action) => {
+      state.distribution.textBoxes = action.payload;
+    },
     changeAllDistributionsOld: (state, action) => {
       state.distribution.values1 = action.payload;
     },
@@ -143,7 +146,9 @@ export const {
   changeDistributionVersion,
   changeDistributionNew,
   changeTextBoxes,
+  changeAllTextBoxes,
   changeAllDistributionsOld,
+  changeAllDistributionsNew,
   addSkill,
   removeSkill,
   changeForcedSlot,

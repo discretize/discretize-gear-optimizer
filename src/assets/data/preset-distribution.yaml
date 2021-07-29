@@ -1,50 +1,107 @@
 GraphQL ID: presetDistribution
 list:
-
   - name: 100% Power
-    id: power
-    distribution: [100, 100, 100, 100, 100]
+    value: >-
+      {
+        "values1": [100, 0, 0, 0, 0, 0],
+        "values2": [3.0, 0, 0, 0, 0, 0]
+      }
 
   - name: Condi Banner Warrior
-    id: cwarr
+    profession: Berserker
     distribution: [27, 81, 96, 99, 100]
+    value: >-
+      {
+        "values1": [100, 0, 0, 0, 0, 0],
+        "values2": [3.0, 0, 0, 0, 0, 0]
+      }
 
   - name: Condi Firebrand (Virtues, 5 page)
-    id: cfb
+    profession: Firebrand
     distribution: [31, 96, 99, 99, 100]
+    value: >-
+      {
+        "values1": [100, 0, 0, 0, 0, 0],
+        "values2": [3.0, 0, 0, 0, 0, 0]
+      }
 
   - name: Condi Firebrand (Virtues, 8 page)
-    id: cfb2
+    profession: Firebrand
     distribution: [24, 96, 99, 99, 100]
+    value: >-
+      {
+        "values1": [100, 0, 0, 0, 0, 0],
+        "values2": [3.0, 0, 0, 0, 0, 0]
+      }
 
   - name: Condi Weaver (Sword)
-    id: cweasw
+    profession: Weaver
     distribution: [36, 89, 100, 100, 100]
+    value: >-
+      {
+        "values1": [100, 0, 0, 0, 0, 0],
+        "values2": [3.0, 0, 0, 0, 0, 0]
+      }
 
   - name: Condi Weaver (Dagger)
-    id: cweadagg
+    profession: Weaver
     distribution: [29, 84, 100, 100, 100]
+    value: >-
+      {
+        "values1": [100, 0, 0, 0, 0, 0],
+        "values2": [3.0, 0, 0, 0, 0, 0]
+      }
 
   - name: Condi Renegade (Devastation)
-    id: cren-deva
+    profession: Renegade
     distribution: [44, 64, 75, 80, 100]
+    value: >-
+      {
+        "values1": [100, 0, 0, 0, 0, 0],
+        "values2": [3.0, 0, 0, 0, 0, 0]
+      }
 
   - name: Condi Renegade (Invocation)
-    id: cren-invo
+    profession: Renegade
     distribution: [42, 64, 75, 80, 100]
+    value: >-
+      {
+        "values1": [100, 0, 0, 0, 0, 0],
+        "values2": [3.0, 0, 0, 0, 0, 0]
+      }
 
   - name: Condi Slb (D/T SB)
-    id: cslb
+    profession: Soulbeast
     distribution: [30, 45, 75, 100, 100]
+    value: >-
+      {
+        "values1": [100, 0, 0, 0, 0, 0],
+        "values2": [3.0, 0, 0, 0, 0, 0]
+      }
 
   - name: Condi Slb (D/T A/D)
-    id: cslb2
+    profession: Soulbeast
     distribution: [30, 52, 78, 100, 100]
+    value: >-
+      {
+        "values1": [100, 0, 0, 0, 0, 0],
+        "values2": [3.0, 0, 0, 0, 0, 0]
+      }
 
   - name: Hybrid Slb (A/T D/A)
-    id: hslb
+    profession: Soulbeast
     distribution: [43, 61, 89, 100, 100]
+    value: >-
+      {
+        "values1": [100, 0, 0, 0, 0, 0],
+        "values2": [3.0, 0, 0, 0, 0, 0]
+      }
 
   - name: Condi Holo
-    id: cholo
+    profession: Holosmith
     distribution: [31, 77, 86, 95, 95]
+    value: >-
+      {
+        "values1": [100, 0, 0, 0, 0, 0],
+        "values2": [3.0, 0, 0, 0, 0, 0]
+      }
