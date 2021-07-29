@@ -18,6 +18,7 @@ import {
 } from "../state/gearOptimizerSlice";
 import { firstUppercase } from "../utils/usefulFunctions";
 import CheckboxComponent from "./baseComponents/CheckboxComponent";
+import Presets from "./baseComponents/Presets";
 
 const styles = (theme) => ({
   formControl: {
@@ -80,16 +81,8 @@ const Buffs = ({ classes, data, presets }) => {
   return (
     <>
       <Typography variant="h5">Boons & Buffs </Typography>
-      {presets.map((preset, index) => (
-        <Chip
-          id={preset.name}
-          key={preset.name}
-          label={preset.name}
-          variant="outlined"
-          onClick={handleTemplateClick(index)}
-          className={classes.templateChip}
-        />
-      ))}
+
+      <Presets data={presets} handleClick={handleTemplateClick} />
 
       <Grid container>
         {data.map((section) => (

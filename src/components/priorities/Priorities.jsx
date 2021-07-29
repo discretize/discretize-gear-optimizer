@@ -13,6 +13,7 @@ import { Attribute } from "gw2-ui";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeGeneric, getGeneric } from "../../state/gearOptimizerSlice";
+import Presets from "../baseComponents/Presets";
 import HelperIcon from "../HelperIcon";
 import Affixes from "./Affixes";
 
@@ -59,16 +60,9 @@ const Priorities = ({ classes, presets }) => {
   return (
     <div className={classes.root}>
       <Typography variant="h5">Priorities </Typography>
-      {presets.map((preset, index) => (
-        <Chip
-          id={preset.name}
-          key={preset.name}
-          label={preset.name}
-          variant="outlined"
-          onClick={handleTemplateClick(index)}
-          className={classes.templateChip}
-        />
-      ))}
+
+      <Presets data={presets} handleClick={handleTemplateClick} />
+
       <Affixes />
 
       <Grid container>
