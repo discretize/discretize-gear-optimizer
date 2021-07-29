@@ -438,9 +438,8 @@ const GearOptimizer = ({ classes }) => {
           }
           presetBuffs: presetBuffs {
             list {
-              buffs
-              id
               name
+              value
             }
           }
           presetAffixes: presetAffixes {

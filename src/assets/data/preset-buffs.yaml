@@ -1,30 +1,32 @@
 GraphQL ID: presetBuffs
 list:
-
   - name: None
-    id: none
-    buffs:
+    value: >-
+      {
+      }
 
   - name: Fractal
-    id: fractal
-    buffs:
-      - might
-      - fury
-      - vulnerability
-      - bannerOfStrength
-      - bannerOfDiscipline
-      - baneSignet
-      - frostSpirit
-      - assassinsPresence
+    value: >-
+      {
+        "might": true,
+        "fury": true,
+        "vulnerability": true,
+        "bannerOfStrength": true,
+        "bannerOfDiscipline": true,
+        "baneSignet": true,
+        "frostSpirit": true,
+        "assassinsPresence": true
+      }
 
   - name: Benchmark
-    id: benchmark
-    buffs:
-      - might
-      - fury
-      - vulnerability
-      - bannerOfStrength
-      - bannerOfDiscipline
-      - empowerAllies
-      - spotter
-      - frostSpirit
+    value: >-
+      {
+        "might": true,
+        "fury": true,
+        "vulnerability": true,
+        "bannerOfStrength": true,
+        "bannerOfDiscipline": true,
+        "empowerAllies": true,
+        "frostSpirit": true,
+        "spotter": true
+      }

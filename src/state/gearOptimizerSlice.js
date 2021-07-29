@@ -44,6 +44,7 @@ export const gearOptimizerSlice = createSlice({
     bannerOfDefense: false,
     spotter: false,
     frostSpirit: false,
+    empowerAllies: false,
     pinpointDistribution: false,
     assassinsPresence: false,
     facetOfNature: false,

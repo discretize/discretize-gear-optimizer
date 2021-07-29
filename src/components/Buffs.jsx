@@ -64,8 +64,8 @@ const Buffs = ({ classes, data, presets }) => {
       .forEach((elem) => dispatch(changeGeneric({ toChange: elem.id, value: false })));
 
     // apply the preset
-    if (presets[index].buffs)
-      presets[index].buffs.forEach((b) => dispatch(changeGeneric({ toChange: b, value: true })));
+    const state = JSON.parse(presets[index].value);
+    Object.keys(state).forEach((k) => dispatch(changeGeneric({ toChange: k, value: state[k] })));
   };
 
   // Dynamic component creation for buffs from a string
@@ -82,8 +82,8 @@ const Buffs = ({ classes, data, presets }) => {
       <Typography variant="h5">Boons & Buffs </Typography>
       {presets.map((preset, index) => (
         <Chip
-          id={preset.id}
-          key={preset.id}
+          id={preset.name}
+          key={preset.name}
           label={preset.name}
           variant="outlined"
           onClick={handleTemplateClick(index)}
@@ -120,13 +120,12 @@ const Buffs = ({ classes, data, presets }) => {
                           onChange={handleChange(buff)}
                         />
                       );
-
-                      break;
                     case "Boon":
                     case "Condition":
                     case "CommonEffect":
                       name = buff.id.toLowerCase();
                       name = firstUppercase(name);
+                    // eslint-disable-next-line no-fallthrough
                     default:
                       Component = components[buff.armory_type];
                   }
