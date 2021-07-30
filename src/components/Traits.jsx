@@ -1,11 +1,11 @@
 import {
-  Checkbox,
   FormControl,
   Input,
   InputLabel,
   ListItemText,
   MenuItem,
   Select,
+  Typography,
   withStyles
 } from "@material-ui/core";
 import { Specialization, Trait, TraitLine } from "gw2-ui";
@@ -19,7 +19,6 @@ import {
   getTraitLines,
   getTraits,
   removeModifier,
-  removeModifierWithSource,
   removeTraitModifierWithGW2id
 } from "../state/gearOptimizerSlice";
 import CheckboxComponent from "./baseComponents/CheckboxComponent";
@@ -31,7 +30,8 @@ const styles = (theme) => ({
   },
   root: {
     marginBottom: theme.spacing(2)
-  }
+  },
+  item: { lineHeight: "1 !important" }
 });
 
 // all the trait IDs of available traitlnes for every profession
@@ -85,26 +85,9 @@ const Traits = ({ classes, profession, data }) => {
   // all the currently applied modifiers
   const modifiers = useSelector(getModifiers);
 
-  /**
-   * Change handler for the multi-selects, where one can select the traitlines that may be used
-   * for the calculation.
-   * Prevents more than 3 selections at the same time.
-   */
-  function handleChangeMultipleSelect(e) {
-    const val = e.target.value.map((i) => Number(i));
-    if (val.length > 3) {
-      return;
-    }
-
-    // find out which line was removed and clear the correspondign modifiers
-    for (let l in traitlines) {
-      if (val.indexOf(traitlines[l]) < 0 && traitlines[l] !== 0) {
-        // trait line was removed, flush modifiers
-        dispatch(removeModifierWithSource(traitlines[l]));
-      }
-    }
-    dispatch(changeTraitLine(val));
-  }
+  const handleTraitlineSelect = (index) => (event) => {
+    dispatch(changeTraitLine({ index, value: event.target.value.toString() }));
+  };
 
   /**
    * Handles the change in individual traitlines for the actual traits.
@@ -144,63 +127,67 @@ const Traits = ({ classes, profession, data }) => {
   };
 
   return (
-    <div className={classes.margin}>
-      <FormControl className={classes.formControl}>
-        <InputLabel id="mutiple-checkbox-label">Traitlines</InputLabel>
-        <Select
-          id="mutiple-checkbox"
-          multiple
-          value={traitlines}
-          onChange={handleChangeMultipleSelect}
-          input={<Input />}
-          renderValue={(selected) =>
-            selected.map((id) => (
-              <React.Fragment key={"s_" + id}>
-                <Specialization id={id} disableLink />{" "}
-              </React.Fragment>
-            ))
-          }
-        >
-          {traitsAll
-            .filter((elem) => elem.profession === profession)[0]
-            .traits.map((e) => e.toString())
-            .map((id) => (
-              <MenuItem key={id} value={Number(id)}>
-                <Checkbox color="primary" checked={traitlines.indexOf(Number(id)) > -1} />
-                <ListItemText>
-                  <Specialization id={Number(id)} disableLink />
-                </ListItemText>
-              </MenuItem>
-            ))}
-        </Select>
-      </FormControl>
+    <div className={classes.root}>
+      {[1, 2, 3].map((lineNr, index) => {
+        const name = "traitNr" + lineNr;
+        return (
+          <React.Fragment key={name}>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor={name}>Traitline {lineNr}</InputLabel>
+              <Select
+                value={traitlines[index]}
+                input={<Input name={"Traitline " + lineNr} id={name} />}
+                onChange={handleTraitlineSelect(index)}
+                renderValue={(selected) => {
+                  return <Specialization id={selected} disableLink className={classes.item} />;
+                }}
+              >
+                {traitsAll
+                  .find((tr) => tr.profession === profession)
+                  .traits.filter(
+                    (tr) =>
+                      !traitlines.includes(tr.toString()) || traitlines[index] === tr.toString()
+                  )
+                  .map((v) => (
+                    <MenuItem key={v} value={v} className={classes.menuItem}>
+                      <ListItemText primary={<Specialization id={v} disableLink />} />
+                    </MenuItem>
+                  ))}
+              </Select>
+            </FormControl>
+            {/* Render the actual trait lines  */}
+            {/* TODO console error: onUseCallback */}
+            <TraitLine
+              id={traitlines[index]}
+              selectable
+              selected={traits[index]}
+              onSelect={(event) => handleTraitChange(event, traitlines[index], index)}
+            />
 
-      {/* Render the actual trait lines  */}
-      {/* TODO console error: onUseCallback */}
-      {traitlines.map((line, index) => (
-        <React.Fragment key={line}>
-          <TraitLine
-            id={line}
-            selectable
-            selected={traits[index]}
-            onSelect={(event) => handleTraitChange(event, line, index)}
-          />
-          {traits[index].map((t) =>
-            data
-              .filter((v) => v.id === line)[0]
-              .items.filter((v) => v.gw2_id === t)
-              .map((trait) => (
-                <CheckboxComponent
-                  key={trait.id}
-                  value={trait.id}
-                  checked={modifiers.filter((m) => m.id === trait.id).length > 0}
-                  label={<Trait id={trait.gw2_id} disableLink />}
-                  onChange={handleModifierChange(trait, line)}
-                />
-              ))
-          )}
-        </React.Fragment>
-      ))}
+            {traits[index].map((t) => {
+              const matching = data.find((v) => v.id === Number(traitlines[index]));
+              if (typeof matching === "undefined") return null;
+              return matching.items
+                .filter((v) => v.gw2_id === t)
+                .map((trait) => (
+                  <div key={trait.id}>
+                    <CheckboxComponent
+                      value={trait.id}
+                      checked={modifiers.filter((m) => m.id === trait.id).length > 0}
+                      label={
+                        <>
+                          <Trait id={trait.gw2_id} disableLink />{" "}
+                          <Typography variant="caption">{trait.subText}</Typography>
+                        </>
+                      }
+                      onChange={handleModifierChange(trait, traitlines[index])}
+                    />
+                  </div>
+                ));
+            })}
+          </React.Fragment>
+        );
+      })}
     </div>
   );
 };

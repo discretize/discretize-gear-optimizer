@@ -18,9 +18,9 @@ import {
   getGeneric,
   getProfession
 } from "../state/gearOptimizerSlice";
-import { PROFESSIONS } from "./GearOptimizer";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import MenuIcon from "@material-ui/icons/Menu";
+import { PROFESSIONS } from "../utils/gw2-data";
 
 const styles = (theme) => ({
   topNav: {},

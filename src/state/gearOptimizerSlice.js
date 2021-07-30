@@ -7,7 +7,7 @@ export const gearOptimizerSlice = createSlice({
     profession: "",
     ar: 162,
     traits: {
-      lines: [],
+      lines: ["", "", ""],
       selected: [
         [0, 0, 0],
         [0, 0, 0],
@@ -63,7 +63,7 @@ export const gearOptimizerSlice = createSlice({
       state.profession = action.payload;
       state.modifiers = [];
       state.traits = {
-        lines: [],
+        lines: ["", "", ""],
         selected: [
           [0, 0, 0],
           [0, 0, 0],
@@ -76,7 +76,7 @@ export const gearOptimizerSlice = createSlice({
       state.ar = action.payload;
     },
     changeTraitLine: (state, action) => {
-      state.traits.lines = action.payload;
+      state.traits.lines[action.payload.index] = action.payload.value;
     },
     changeTraits: (state, action) => {
       state.traits.selected[action.payload.index] = action.payload.selected;

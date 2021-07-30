@@ -11,9 +11,10 @@ import {
 } from "@material-ui/core";
 import classNames from "classnames";
 import { Attribute, Condition } from "gw2-ui";
+import debounce from "lodash.debounce";
 import Nouislider from "nouislider-react";
 import "nouislider/distribute/nouislider.css";
-import React, { useMemo } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   changeAllDistributionsNew,
@@ -28,10 +29,9 @@ import {
   getProfession,
   getTextBoxes
 } from "../state/gearOptimizerSlice";
+import { PROFESSIONS } from "../utils/gw2-data";
 import Presets from "./baseComponents/Presets";
 import HelperIcon from "./HelperIcon";
-import debounce from "lodash.debounce";
-import { PROFESSIONS } from "./GearOptimizer";
 
 const styles = (theme) => ({
   root: {
