@@ -165,7 +165,7 @@ const DamageDistribution = ({ classes, presets: presetsRaw }) => {
   };
 
   const onUpdateNew = (num) => (render, handle, value, un, percent) => {
-    dispatch(changeTextBoxes({ index: num, value: value }));
+    dispatch(changeTextBoxes({ index: num, value: Math.round(value * 100) / 100 }));
     dispatch(changeDistributionNew({ index: num, value: value }));
   };
 
