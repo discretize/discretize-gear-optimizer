@@ -105,7 +105,11 @@ const MainComponent = ({ classes, data }) => {
                   );
                   return (
                     <React.Fragment key={"TaS_" + p}>
-                      <Traits profession={p} data={traitData.filter((line) => line.id > 0)} />
+                      <Traits
+                        profession={p}
+                        data={traitData.filter((line) => line.id > 0)}
+                        additionalBuffs={traitData.filter((line) => line.id <= 0)}
+                      />
                       <Divider />
                       <Skills profession={p} data={skillData[0] ? skillData[0].items : []} />
                     </React.Fragment>

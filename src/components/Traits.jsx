@@ -1,5 +1,8 @@
 import {
   FormControl,
+  FormLabel,
+  FormGroup,
+  Grid,
   Input,
   InputLabel,
   ListItemText,
@@ -15,6 +18,7 @@ import {
   addModifier,
   changeTraitLine,
   changeTraits,
+  getGeneric,
   getModifiers,
   getTraitLines,
   getTraits,
@@ -41,7 +45,7 @@ const styles = (theme) => ({
  * @param {Object} data         Contains all the data regarding modifiers, ids and extra subtexts
  * @returns
  */
-const Traits = ({ classes, profession, data }) => {
+const Traits = ({ classes, profession, data, additionalBuffs }) => {
   const dispatch = useDispatch();
 
   // selected trait lines
@@ -51,8 +55,10 @@ const Traits = ({ classes, profession, data }) => {
   // all the currently applied modifiers
   const modifiers = useSelector(getModifiers);
 
+  const soulbeastPetArcheTypes = useSelector(getGeneric("soulbeastPetArcheTypes"));
+  const soulbeastPetBuffs = useSelector(getGeneric("soulbeastPetArcheTypes"));
+
   const handleTraitlineSelect = (index) => (event) => {
-    console.log("Old: " + traitlines[index]);
     if (Number(traitlines[index]) > 0) {
       // remove previously selected modifiers
       dispatch(removeModifierWithSource(Number(traitlines[index])));
@@ -136,7 +142,6 @@ const Traits = ({ classes, profession, data }) => {
           checkboxModis.push(...matchingFiltered);
         });
 
-        console.log(checkboxModis);
         const name = "traitNr" + lineNr;
         return (
           <React.Fragment key={name}>
@@ -190,6 +195,32 @@ const Traits = ({ classes, profession, data }) => {
           </React.Fragment>
         );
       })}
+      {/* TODO add slb buffs */}
+      {additionalBuffs && false && (
+        <Grid container>
+          {additionalBuffs.map((category) => (
+            <Grid key={category.section} item xs={12} sm={6}>
+              <FormControl component="fieldset" className={classes.formControl}>
+                <FormLabel component="legend">{category.section} </FormLabel>
+                <FormGroup>
+                  {category.items.map((item, i) => (
+                    <CheckboxComponent
+                      key={item.id}
+                      value={item.id}
+                      checked={useSelector(getGeneric(category.section))[i]}
+                      label={
+                        <>
+                          <Typography>{item.text}</Typography>
+                        </>
+                      }
+                    />
+                  ))}
+                </FormGroup>
+              </FormControl>
+            </Grid>
+          ))}
+        </Grid>
+      )}
     </div>
   );
 };

@@ -56,7 +56,9 @@ export const gearOptimizerSlice = createSlice({
     signetOfMercy: false,
     signetOfWrath: false,
     exposed: false,
-    lightArmor: false
+    lightArmor: false,
+    soulbeastPetArcheTypes: [false, false, false, false, false],
+    soulbeastPetBuffs: [false, false, false, false]
   },
   reducers: {
     changeProfession: (state, action) => {
