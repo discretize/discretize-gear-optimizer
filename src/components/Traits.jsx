@@ -19,8 +19,10 @@ import {
   getTraitLines,
   getTraits,
   removeModifier,
+  removeModifierWithSource,
   removeTraitModifierWithGW2id
 } from "../state/gearOptimizerSlice";
+import { TRAITS } from "../utils/gw2-data";
 import CheckboxComponent from "./baseComponents/CheckboxComponent";
 
 const styles = (theme) => ({
@@ -33,41 +35,6 @@ const styles = (theme) => ({
   },
   item: { lineHeight: "1 !important" }
 });
-
-// all the trait IDs of available traitlnes for every profession
-{
-  /* TODO refactor this away! all the data is contained in the data props already! */
-}
-const traitsAll = [
-  {
-    profession: "Warrior",
-    traits: [4, 11, 22, 36, 51, 18, 61]
-  },
-  {
-    profession: "Revenant",
-    traits: [3, 9, 12, 14, 15, 52, 63]
-  },
-  {
-    profession: "Guardian",
-    traits: [13, 16, 42, 46, 49, 27, 62]
-  },
-  {
-    profession: "Ranger",
-    traits: [8, 25, 30, 32, 33, 5, 55]
-  },
-  {
-    profession: "Engineer",
-    traits: [6, 21, 29, 38, 47, 43, 57]
-  },
-  {
-    profession: "Elementalist",
-    traits: [17, 26, 31, 37, 41, 48, 56]
-  },
-  {
-    profession: "Mesmer",
-    traits: [1, 10, 23, 24, 45, 40, 59]
-  }
-];
 
 /**
  *
@@ -86,7 +53,32 @@ const Traits = ({ classes, profession, data }) => {
   const modifiers = useSelector(getModifiers);
 
   const handleTraitlineSelect = (index) => (event) => {
-    dispatch(changeTraitLine({ index, value: event.target.value.toString() }));
+    console.log("Old: " + traitlines[index]);
+    if (Number(traitlines[index]) > 0) {
+      // remove previously selected modifiers
+      dispatch(removeModifierWithSource(Number(traitlines[index])));
+    }
+    const newTraitLine = event.target.value;
+    console.log(
+      TRAITS.find((l) => l.profession === profession)
+        .traits.find((l) => l.id === newTraitLine)
+        .minors.filter((minor) => "subText" in minor)
+    );
+    TRAITS.find((l) => l.profession === profession)
+      .traits.find((l) => l.id === newTraitLine)
+      .minors.filter((minor) => !("subText" in minor))
+      .forEach((minor) =>
+        dispatch(
+          addModifier({
+            id: minor.id,
+            modifiers: minor.modifiers,
+            gw2_id: minor.gw2_id,
+            source: newTraitLine
+          })
+        )
+      );
+
+    dispatch(changeTraitLine({ index, value: newTraitLine.toString() }));
   };
 
   /**
@@ -142,15 +134,15 @@ const Traits = ({ classes, profession, data }) => {
                   return <Specialization id={selected} disableLink className={classes.item} />;
                 }}
               >
-                {traitsAll
-                  .find((tr) => tr.profession === profession)
+                {TRAITS.find((tr) => tr.profession === profession)
                   .traits.filter(
                     (tr) =>
-                      !traitlines.includes(tr.toString()) || traitlines[index] === tr.toString()
+                      !traitlines.includes(tr.id.toString()) ||
+                      traitlines[index] === tr.id.toString()
                   )
                   .map((v) => (
-                    <MenuItem key={v} value={v} className={classes.menuItem}>
-                      <ListItemText primary={<Specialization id={v} disableLink />} />
+                    <MenuItem key={v.id} value={v.id} className={classes.menuItem}>
+                      <ListItemText primary={<Specialization id={v.id} disableLink />} />
                     </MenuItem>
                   ))}
               </Select>
@@ -163,6 +155,26 @@ const Traits = ({ classes, profession, data }) => {
               selected={traits[index]}
               onSelect={(event) => handleTraitChange(event, traitlines[index], index)}
             />
+
+            {traitlines[index] !== "" &&
+              TRAITS.find((l) => l.profession === profession)
+                .traits.find((l) => l.id === Number(traitlines[index]))
+                .minors.filter((minor) => "subText" in minor)
+                .map((trait) => (
+                  <div key={trait.id}>
+                    <CheckboxComponent
+                      value={trait.id}
+                      checked={modifiers.filter((m) => m.id === trait.id).length > 0}
+                      label={
+                        <>
+                          <Trait id={trait.gw2_id} disableLink />{" "}
+                          <Typography variant="caption">{trait.subText}</Typography>
+                        </>
+                      }
+                      onChange={handleModifierChange(trait, traitlines[index])}
+                    />
+                  </div>
+                ))}
 
             {traits[index].map((t) => {
               const matching = data.find((v) => v.id === Number(traitlines[index]));
