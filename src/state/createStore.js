@@ -1,10 +1,14 @@
 import { handleRequests } from "gw2-ui";
 
 import { applyMiddleware, combineReducers, compose, createStore as reduxCreateStore } from "redux";
+import createSagaMiddleware from "redux-saga";
+
+import gearOptimizerReducer from "./gearOptimizerSlice";
+import gearOptimizerSaga from '../js/sagas';
 
 const { requestsReducer, requestsMiddleware } = handleRequests();
 
-import gearOptimizerReducer from "./gearOptimizerSlice";
+const saga = createSagaMiddleware();
 
 const reducers = combineReducers({
   requests: requestsReducer,
@@ -20,8 +24,10 @@ const composeEnhancers =
 export default () => {
   const store = reduxCreateStore(
     reducers,
-    composeEnhancers(applyMiddleware(...requestsMiddleware))
+    composeEnhancers(applyMiddleware(saga, ...requestsMiddleware))
   );
+
+  saga.run(gearOptimizerSaga);
 
   return store;
 };

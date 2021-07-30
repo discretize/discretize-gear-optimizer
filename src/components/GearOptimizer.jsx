@@ -3,7 +3,7 @@ import { Cancel, Functions } from "@material-ui/icons";
 import { graphql, StaticQuery } from "gatsby";
 import { ConsumableEffect, Item } from "gw2-ui";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
   getDistributionNew,
   getDistributionOld,
@@ -22,6 +22,7 @@ import NavBar from "./NavBar";
 import Priorities from "./priorities/Priorities";
 import Skills from "./Skills";
 import Traits from "./Traits";
+import ResultTable from "./ResultTable";
 
 const styles = (theme) => ({
   root: {
@@ -53,29 +54,14 @@ const MainComponent = ({ classes, data }) => {
   const profession = useSelector(getProfession);
   const dualWielded = useSelector(getGeneric("weaponType"));
 
+  const dispatch = useDispatch();
+
   function onStartCalculate(e) {
-    // TODO do calc
     console.log("calculate");
-    const input = {
-      modifiers: useSelector(getModifiers),
-      tags: undefined,
-      profession: useSelector(getProfession),
-      weapontype: useSelector(getGeneric("weaponType")),
-      affixes: useSelector(getGeneric("affixes")),
-      forcedAffixes: useSelector(getGeneric("forcedSlots")),
-      rankby: useSelector(getGeneric("optimizeFor")),
-      minBoonDuration: useSelector(getGeneric("minBoonDuration")),
-      minHealingPower: useSelector(getGeneric("minHealingPower")),
-      minToughness: useSelector(getGeneric("minToughness")),
-      maxToughness: useSelector(getGeneric("maxToughness")),
-      maxResults: 50, // TODO MAX RESULTS
-      primaryInfusion: useSelector(getGeneric("primaryInfusion")),
-      secondaryInfusion: useSelector(getGeneric("secondaryInfusion")),
-      primaryMaxInfusions: useSelector(getGeneric("primaryMaxInfusions")),
-      secondaryMaxInfusions: useSelector(getGeneric("secondaryMaxInfusions")),
-      percentDistribution: useSelector(getDistributionOld),
-      distribution: useSelector(getDistributionNew)
-    };
+    dispatch({
+      type: "START"
+    });
+    
   }
 
   function onCancelCalculate(e) {
@@ -204,6 +190,10 @@ const MainComponent = ({ classes, data }) => {
           >
             <Cancel className={classes.icon}></Cancel> Stop
           </Button>
+
+          <Divider />
+
+          <ResultTable />
         </>
       )}
     </div>
