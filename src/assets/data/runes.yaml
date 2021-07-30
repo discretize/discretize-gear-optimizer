@@ -11,7 +11,7 @@ list:
             "multiplier": { "Effective Power": 0.05 }
           }
         gw2-id: 24836
-        armory-type: "items"
+        type: "items"
 
       - id: scholar-without
         text: Superior Rune of the Scholar
@@ -21,7 +21,7 @@ list:
             "flat": { "Power": 175, "Ferocity": 225 }
           }
         gw2-id: 24836
-        armory-type: "items"
+        type: "items"
 
       - id: eagle
         text: "Superior Rune of the Eagle"
@@ -31,7 +31,7 @@ list:
             "multiplier": { "Effective Power": 0.05 }
           }
         gw2-id: 24723
-        armory-type: "items"
+        type: "items"
 
       - id: thief
         text: "Superior Rune of the Thief"
@@ -41,7 +41,7 @@ list:
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 24818
-        armory-type: "items"
+        type: "items"
 
       ####
 
@@ -53,7 +53,7 @@ list:
             "multiplier": { "Effective Power": 0.07 }
           }
         gw2-id: 84749
-        armory-type: "items"
+        type: "items"
 
       - &flame-legion
         id: flame-legion
@@ -64,7 +64,7 @@ list:
             "multiplier": { "Effective Power": 0.07 }
           }
         gw2-id: 24797
-        armory-type: "items"
+        type: "items"
 
       - id: strength
         text: "Superior Rune of Strength"
@@ -74,7 +74,7 @@ list:
             "multiplier": { "Effective Power": 0.05 }
           }
         gw2-id: 24714
-        armory-type: "items"
+        type: "items"
 
       - id: ogre
         text: "Superior Rune of the Ogre"
@@ -84,7 +84,7 @@ list:
             "multiplier": { "add: Effective Power": 0.04 }
           }
         gw2-id: 24756
-        armory-type: "items"
+        type: "items"
 
       - id: chronomancer
         text: "Superior Rune of the Chronomancer"
@@ -93,7 +93,7 @@ list:
             "flat": { "Power": 175, "Precision": 100 }
           }
         gw2-id: 73399
-        armory-type: "items"
+        type: "items"
 
   - section: Support Runes
     items:
@@ -105,7 +105,7 @@ list:
             "buff": { "Precision": 125 }
           }
         gw2-id: 24702
-        armory-type: "items"
+        type: "items"
 
       - id: leadership
         text: "Superior Rune of Leadership"
@@ -119,7 +119,7 @@ list:
             }
           }
         gw2-id: 70600
-        armory-type: "items"
+        type: "items"
 
       - id: firebrand
         text: "Superior Rune of the Firebrand"
@@ -128,7 +128,7 @@ list:
             "flat": { "Condition Damage": 175, "Boon Duration": 10, "Quickness Duration": 30 }
           }
         gw2-id: 83338
-        armory-type: "items"
+        type: "items"
 
       - id: surging-and-ruby-orb
         text: >-
@@ -138,7 +138,7 @@ list:
             "flat": { "Power": 195, "Precision": 14, "Ferocity": 14, "Boon Duration": 15 }
           }
         gw2-id: 76813
-        armory-type: "items"
+        type: "items"
 
       - id: surging
         text: "Superior Rune of Surging"
@@ -147,7 +147,7 @@ list:
             "flat": { "Power": 175, "Boon Duration": 15 }
           }
         gw2-id: 76813
-        armory-type: "items"
+        type: "items"
 
       - id: radiance
         text: "Superior Rune of Radiance"
@@ -156,7 +156,7 @@ list:
             "flat": { "Vitality": 175, "Boon Duration": 25 }
           }
         gw2-id: 67342
-        armory-type: "items"
+        type: "items"
 
   - section: Defensive Runes
     items:
@@ -168,7 +168,7 @@ list:
             "multiplier": { "Effective Health": 0.1 }
           }
         gw2-id: 73653
-        armory-type: "items"
+        type: "items"
 
       - id: sanctuary
         text: "Superior Rune of Sanctuary"
@@ -177,7 +177,7 @@ list:
             "flat": { "Vitality": 175, "Boon Duration": 15 }
           }
         gw2-id: 24857
-        armory-type: "items"
+        type: "items"
 
       - id: herald
         text: "Superior Rune of the Herald"
@@ -186,7 +186,7 @@ list:
             "flat": { "Toughness": 175, "Boon Duration": 15 }
           }
         gw2-id: 76100
-        armory-type: "items"
+        type: "items"
 
       - &rebirth
         id: rebirth
@@ -196,7 +196,7 @@ list:
             "flat": { "Healing Power": 300, "Boon Duration": 15 }
           }
         gw2-id: 84171
-        armory-type: "items"
+        type: "items"
 
   - section: Heal Runes
     items:
@@ -209,7 +209,7 @@ list:
             "multiplier": { "Effective Healing": 0.2 }
           }
         gw2-id: 24842
-        armory-type: "items"
+        type: "items"
 
       - id: water
         text: "Superior Rune of the Water"
@@ -218,7 +218,7 @@ list:
             "flat": { "Healing Power": 175, "Boon Duration": 25 }
           }
         gw2-id: 24839
-        armory-type: "items"
+        type: "items"
 
       - id: altruism
         text: "Superior Rune of Altruism"
@@ -227,7 +227,7 @@ list:
             "flat": { "Healing Power": 300, "Boon Duration": 15 }
           }
         gw2-id: 38206
-        armory-type: "items"
+        type: "items"
 
       - *rebirth
 
@@ -241,7 +241,7 @@ list:
             "multiplier": { "add: Effective Power": 0.05, "add: Effective Condition Damage": 0.05 }
           }
         gw2-id: 71425
-        armory-type: "items"
+        type: "items"
 
       - id: renegade
         text: "Superior Rune of the Renegade"
@@ -251,7 +251,7 @@ list:
             "multiplier": { "add: Effective Condition Damage": 0.07 }
           }
         gw2-id: 83502
-        armory-type: "items"
+        type: "items"
 
       - id: elementalist
         text: "Superior Rune of the Elementalist"
@@ -260,7 +260,7 @@ list:
             "flat": { "Power": 175, "Condition Damage": 225, "Condition Duration": 10 }
           }
         gw2-id: 24800
-        armory-type: "items"
+        type: "items"
 
       - id: lich
         text: "Superior Rune of the Lich"
@@ -270,7 +270,7 @@ list:
             "multiplier": { "add: Effective Condition Damage": 0.04 }
           }
         gw2-id: 24688
-        armory-type: "items"
+        type: "items"
 
       - id: trapper
         text: "Superior Rune of the Trapper"
@@ -279,7 +279,7 @@ list:
             "flat": { "Condition Damage": 175, "Condition Duration": 15 }
           }
         gw2-id: 67339
-        armory-type: "items"
+        type: "items"
 
       - id: nightmare
         text: "Superior Rune of the Nightmare"
@@ -288,7 +288,7 @@ list:
             "flat": { "Condition Damage": 175, "Condition Duration": 20, "Fear Duration": 10 }
           }
         gw2-id: 24848
-        armory-type: "items"
+        type: "items"
 
       - id: tempest
         text: "Superior Rune of the Tempest"
@@ -302,7 +302,7 @@ list:
             }
           }
         gw2-id: 76166
-        armory-type: "items"
+        type: "items"
 
       - id: undead
         text: "Superior Rune of the Undead"
@@ -312,7 +312,7 @@ list:
             "convert": { "Condition Damage": { "Toughness": 0.07 } }
           }
         gw2-id: 24757
-        armory-type: "items"
+        type: "items"
 
       - id: necromancer
         text: "Superior Rune of the Necromancer"
@@ -321,7 +321,7 @@ list:
             "flat": { "Condition Damage": 300, "Vitality": 100, "Fear Duration": 20 }
           }
         gw2-id: 24806
-        armory-type: "items"
+        type: "items"
 
       - id: soulbeast
         text: Superior Rune of the Soulbeast
@@ -332,7 +332,7 @@ list:
             "convert": { "Condition Damage": { "Power": 0.07 } }
           }
         gw2-id: 83964
-        armory-type: "items"
+        type: "items"
 
   - section: Specific Condition Runes
     items:
@@ -346,7 +346,7 @@ list:
             "multiplier": { "Effective Health": 0.1 }
           }
         gw2-id: 24765
-        armory-type: "items"
+        type: "items"
 
       - *flame-legion
 
@@ -358,7 +358,7 @@ list:
             "convert": { "Expertise": { "Power": 0.07 } }
           }
         gw2-id: 24854
-        armory-type: "items"
+        type: "items"
 
       #### bleeding
 
@@ -369,7 +369,7 @@ list:
             "flat": { "Condition Damage": 175, "Bleeding Duration": 50 }
           }
         gw2-id: 24762
-        armory-type: "items"
+        type: "items"
 
       - id: mad-king
         text: "Superior Rune of the Mad King"
@@ -378,7 +378,7 @@ list:
             "flat": { "Condition Duration": 5, "Power": 175, "Bleeding Duration": 40 }
           }
         gw2-id: 36044
-        armory-type: "items"
+        type: "items"
 
       - id: afflicted
         text: "Superior Rune of the Afflicted"
@@ -393,7 +393,7 @@ list:
             }
           }
         gw2-id: 24687
-        armory-type: "items"
+        type: "items"
 
       #### poison
 
@@ -404,7 +404,7 @@ list:
             "flat": { "Condition Damage": 300, "Poison Duration": 50 }
           }
         gw2-id: 72912
-        armory-type: "items"
+        type: "items"
 
       #### torment
 
@@ -415,7 +415,7 @@ list:
             "flat": { "Condition Damage": 175, "Torment Duration": 50 }
           }
         gw2-id: 44956
-        armory-type: "items"
+        type: "items"
 
       #### confusion
 
@@ -426,7 +426,7 @@ list:
             "flat": { "Condition Damage": 175, "Confusion Duration": 50 }
           }
         gw2-id: 44957
-        armory-type: "items"
+        type: "items"
 
   - section: Hybrid Runes
     items:
@@ -443,7 +443,7 @@ list:
             }
           }
         gw2-id: 24691
-        armory-type: "items"
+        type: "items"
 
       - id: divinity
         text: "Superior Rune of Divinity"
@@ -457,7 +457,7 @@ list:
             "multiplier": { "Effective Health": 0.1 }
           }
         gw2-id: 24732
-        armory-type: "items"
+        type: "items"
 
       - id: revenant
         text: "Superior Rune of the Revenant"
@@ -470,7 +470,7 @@ list:
             }
           }
         gw2-id: 69370
-        armory-type: "items"
+        type: "items"
 
       - id: exuberance
         text: "Superior Rune of Exuberance"
@@ -485,4 +485,4 @@ list:
             }
           }
         gw2-id: 44951
-        armory-type: "items"
+        type: "items"

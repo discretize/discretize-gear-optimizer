@@ -9,7 +9,7 @@ list:
             "buff": { "Toughness": 180 }
           }
         gw2-id: 12500
-        armory-type: "skills"
+        type: "skills"
 
       - id: signet-of-the-wild
         text: "Signet of the Wild"
@@ -18,7 +18,7 @@ list:
             "buff": { "Ferocity": 180 }
           }
         gw2-id: 12491
-        armory-type: "skills"
+        type: "skills"
 
   - section: "Marksmanship"
     id: 8
@@ -31,7 +31,7 @@ list:
             "multiplier": { "Effective Power": 0.05 }
           }
         gw2-id: 1000
-        armory-type: "traits"
+        type: "traits"
 
       - id: farsighted-2
         text: "Farsighted"
@@ -41,7 +41,7 @@ list:
             "multiplier": { "Effective Power": 0.15 }
           }
         gw2-id: 1000
-        armory-type: "traits"
+        type: "traits"
 
       - id: predators-onslaught
         text: "Predator's Onslaught"
@@ -51,7 +51,7 @@ list:
             "multiplier": { "Effective Power": 0.15 }
           }
         gw2-id: 996
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Skirmishing"
     id: 30
@@ -63,7 +63,7 @@ list:
             "multiplier": { "Bleeding Damage": 0.33 }
           }
         gw2-id: 1846
-        armory-type: "traits"
+        type: "traits"
 
       - id: hunters-tactics
         text: "Hunter's Tactics"
@@ -74,7 +74,7 @@ list:
           }
         minor: true
         gw2-id: 1068
-        armory-type: "traits"
+        type: "traits"
 
       - id: light-on-your-feet
         text: "Light on your Feet"
@@ -85,7 +85,7 @@ list:
             "flat": { "Condition Duration": 10 }
           }
         gw2-id: 1912
-        armory-type: "traits"
+        type: "traits"
 
       - id: vicious-quarry
         text: "Vicious Quarry"
@@ -95,7 +95,7 @@ list:
             "flat": { "Critical Chance": 10 }
           }
         gw2-id: 1888
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Wilderness Survival"
     id: 33
@@ -107,7 +107,7 @@ list:
             "multiplier": { "Effective Health": 0.05 }
           }
         gw2-id: 1086
-        armory-type: "traits"
+        type: "traits"
 
       - id: taste-for-danger
         text: "Taste for Danger"
@@ -117,7 +117,7 @@ list:
             "convert": { "Expertise": { "Vitality": 0.07 } }
           }
         gw2-id: 1099
-        armory-type: "traits"
+        type: "traits"
 
       - id: ambidexterity
         text: "Ambidexterity"
@@ -127,7 +127,7 @@ list:
             "buff": { "Condition Damage": 120 }
           }
         gw2-id: 1101
-        armory-type: "traits"
+        type: "traits"
 
       - id: ambidexterity-2
         text: "Ambidexterity"
@@ -137,7 +137,7 @@ list:
             "buff": { "Condition Damage": 120 }
           }
         gw2-id: 1101
-        armory-type: "traits"
+        type: "traits"
 
       - id: poison-master
         text: "Poison Master"
@@ -146,7 +146,7 @@ list:
             "multiplier": { "Poison Damage": 0.25 }
           }
         gw2-id: 1701
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Nature Magic"
     id: 25
@@ -159,7 +159,7 @@ list:
             "multiplier": { "Effective Power": 0.06 }
           }
         gw2-id: 1062
-        armory-type: "traits"
+        type: "traits"
 
       - id: bountiful-hunter-9
         text: "Bountiful Hunter"
@@ -169,7 +169,7 @@ list:
             "multiplier": { "Effective Power": 0.09 }
           }
         gw2-id: 1062
-        armory-type: "traits"
+        type: "traits"
 
       - id: instinctive-reaction
         text: "Instinctive Reaction"
@@ -178,7 +178,7 @@ list:
             "convert": { "Healing Power": { "Power": 0.07 } }
           }
         gw2-id: 978
-        armory-type: "traits"
+        type: "traits"
 
       - id: lingering-magic
         text: "Lingering Magic"
@@ -188,7 +188,7 @@ list:
           }
         minor: true
         gw2-id: 1059
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Beastmastery"
     id: 32
@@ -201,7 +201,7 @@ list:
             "buff": { "Ferocity": 120 }
           }
         gw2-id: 1066
-        armory-type: "traits"
+        type: "traits"
 
       - id: honed-axes-2
         text: "Honed Axes"
@@ -211,7 +211,7 @@ list:
             "buff": { "Ferocity": 60 }
           }
         gw2-id: 1066
-        armory-type: "traits"
+        type: "traits"
 
       - id: honed-axes-3
         text: "Honed Axes"
@@ -221,7 +221,7 @@ list:
             "buff": { "Ferocity": 120 }
           }
         gw2-id: 1066
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Druid"
     id: 5
@@ -234,7 +234,7 @@ list:
           }
         gw2-id: 1992
         minor: true
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Soulbeast"
     id: 55
@@ -247,7 +247,7 @@ list:
           }
         minor: true
         gw2-id: 2156
-        armory-type: "traits"
+        type: "traits"
 
       - id: twice-as-vicious
         text: "Twice as Vicious"
@@ -257,7 +257,7 @@ list:
           }
         minor: true
         gw2-id: 2127
-        armory-type: "traits"
+        type: "traits"
 
       - id: oppressive-superiority
         text: "Oppressive Superiority"
@@ -267,7 +267,7 @@ list:
             "flat": { "Condition Duration": 10 }
           }
         gw2-id: 2143
-        armory-type: "traits"
+        type: "traits"
 
       - id: archetype-stout
         subText: "Archetype Stout (Tough/Vit)"
@@ -276,7 +276,7 @@ list:
             "buff": { "Toughness": 200, "Vitality": 100 }
           }
         minor: true
-        armory-type: "typography"
+        type: "typography"
 
       - id: archetype-deadly
         subText: "Archetype Deadly (ConDmg/Prec)"
@@ -285,7 +285,7 @@ list:
             "buff": { "Condition Damage": 150, "Precision": 100 }
           }
         minor: true
-        armory-type: "typography"
+        type: "typography"
 
       - id: archetype-versatile
         subText: "Archetype Versatile (Vit/Conc)"
@@ -294,7 +294,7 @@ list:
             "buff": { "Vitality": 200, "Concentration": 225 }
           }
         minor: true
-        armory-type: "typography"
+        type: "typography"
 
       - id: archetype-ferocious
         subText: "Archetype Ferocious (Pwr/Feroc)"
@@ -303,7 +303,7 @@ list:
             "buff": { "Power": 150, "Ferocity": 100 }
           }
         minor: true
-        armory-type: "typography"
+        type: "typography"
 
       - id: archetype-supportive
         subText: "Archetype Supportive (Vit/Heal)"
@@ -313,7 +313,7 @@ list:
             "multiplier": { "Effective Healing": 0.25 }
           }
         minor: true
-        armory-type: "typography"
+        type: "typography"
 
       - id: sb-1
         subText: ""
@@ -330,7 +330,7 @@ list:
           }
         minor: true
         gw2-id: 1900
-        armory-type: "traits"
+        type: "traits"
 
       - id: sb-2
         subText: ""
@@ -340,7 +340,7 @@ list:
           }
         minor: true
         gw2-id: 974
-        armory-type: "traits"
+        type: "traits"
 
       - id: sb-3
         subText: ""
@@ -350,7 +350,7 @@ list:
           }
         minor: true
         gw2-id: 1065
-        armory-type: "traits"
+        type: "traits"
 
       - id: sb-4
         subText: "base"
@@ -360,4 +360,4 @@ list:
           }
         gw2-id: 1066
         minor: true
-        armory-type: "traits"
+        type: "traits"

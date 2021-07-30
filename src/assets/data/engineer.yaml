@@ -10,7 +10,7 @@ list:
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 1882
-        armory-type: "traits"
+        type: "traits"
 
       - id: explosive-temper
         text: "Explosive Temper"
@@ -20,7 +20,7 @@ list:
             "buff": { "Ferocity": 200 }
           }
         gw2-id: 1892
-        armory-type: "traits"
+        type: "traits"
 
       - id: blast-shield
         text: "Blast Shield"
@@ -29,7 +29,7 @@ list:
             "convert": { "Vitality": { "Power": 0.1 } }
           }
         gw2-id: 1944
-        armory-type: "traits"
+        type: "traits"
 
       - id: shaped-charge
         text: "Shaped Charge"
@@ -39,7 +39,7 @@ list:
             "multiplier": { "Effective Power": 0.125 }
           }
         gw2-id: 429
-        armory-type: "traits"
+        type: "traits"
 
       - id: big-boomer
         text: "Big Boomer"
@@ -49,7 +49,7 @@ list:
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 1947
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Firearms"
     id: 38
@@ -61,7 +61,7 @@ list:
             "buff": { "Condition Damage": 120 }
           }
         gw2-id: 1878
-        armory-type: "traits"
+        type: "traits"
 
       - id: high-caliber
         text: "High Caliber"
@@ -70,7 +70,7 @@ list:
             "flat": { "Critical Chance": 15 }
           }
         gw2-id: 1914
-        armory-type: "traits"
+        type: "traits"
 
       - id: hematic-focus
         text: "Hematic Focus"
@@ -80,7 +80,7 @@ list:
           }
         minor: true
         gw2-id: 536
-        armory-type: "traits"
+        type: "traits"
 
       - id: thermal-vision
         text: "Thermal Vision"
@@ -90,7 +90,7 @@ list:
             "multiplier": { "add: Effective Condition Damage": 0.05 }
           }
         gw2-id: 2006
-        armory-type: "traits"
+        type: "traits"
 
       - id: no-scope
         text: "No Scope"
@@ -99,7 +99,7 @@ list:
             "buff": { "Ferocity": 150 }
           }
         gw2-id: 1923
-        armory-type: "traits"
+        type: "traits"
 
       - id: serrated-steel
         text: "Serrated Steel"
@@ -109,7 +109,7 @@ list:
           }
         minor: true
         gw2-id: 516
-        armory-type: "traits"
+        type: "traits"
 
       - id: modified-ammunition-10
         text: "Modified Ammunition"
@@ -119,7 +119,7 @@ list:
             "multiplier": { "Effective Power": 0.2 }
           }
         gw2-id: 526
-        armory-type: "traits"
+        type: "traits"
 
       - id: modified-ammunition-14
         text: "Modified Ammunition"
@@ -129,7 +129,7 @@ list:
             "multiplier": { "Effective Power": 0.28 }
           }
         gw2-id: 526
-        armory-type: "traits"
+        type: "traits"
 
       - id: incendiary-powder
         text: "Incendiary Powder"
@@ -138,7 +138,7 @@ list:
             "flat": { "Burning Duration": 33 }
           }
         gw2-id: 433
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Inventions"
     id: 47
@@ -150,7 +150,7 @@ list:
             "multiplier": { "Effective Health": 0.066 }
           }
         gw2-id: 394
-        armory-type: "traits"
+        type: "traits"
 
       - id: energy-amplifier
         text: "Energy Amplifier"
@@ -160,7 +160,7 @@ list:
           }
         minor: true
         gw2-id: 519
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Alchemy"
     id: 29
@@ -173,7 +173,7 @@ list:
             "multiplier": { "Effective Healing": 0.2 }
           }
         gw2-id: 521
-        armory-type: "traits"
+        type: "traits"
 
       - id: compounding-chemicals
         text: "Compounding Chemicals"
@@ -183,7 +183,7 @@ list:
           }
         minor: true
         gw2-id: 413
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Tools"
     id: 21
@@ -196,7 +196,7 @@ list:
           }
         minor: true
         gw2-id: 1936
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Scrapper"
     id: 43
@@ -208,7 +208,7 @@ list:
             "multiplier": { "Effective Power": 0.05 }
           }
         gw2-id: 1860
-        armory-type: "traits"
+        type: "traits"
 
       - id: object-in-motion-2
         text: "Object in Motion (Two)"
@@ -217,7 +217,7 @@ list:
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 1860
-        armory-type: "traits"
+        type: "traits"
 
       - id: object-in-motion-3
         text: "Object in Motion (Three)"
@@ -226,7 +226,7 @@ list:
             "multiplier": { "Effective Power": 0.15 }
           }
         gw2-id: 1860
-        armory-type: "traits"
+        type: "traits"
 
       - id: impact-savant
         text: "Impact Savant"
@@ -236,7 +236,7 @@ list:
           }
         minor: true
         gw2-id: 1877
-        armory-type: "traits"
+        type: "traits"
 
       - id: applied-force
         text: "Applied Force"
@@ -246,4 +246,4 @@ list:
             "buff": { "Power": 250 }
           }
         gw2-id: 1849
-        armory-type: "traits"
+        type: "traits"

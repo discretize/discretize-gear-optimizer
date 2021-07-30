@@ -9,7 +9,7 @@ list:
             "buff": { "Power": 180 }
           }
         gw2-id: 14404
-        armory-type: "skills"
+        type: "skills"
 
       - id: signet-of-fury
         text: "Signet of Fury"
@@ -18,7 +18,7 @@ list:
             "buff": { "Precision": 180 }
           }
         gw2-id: 14410
-        armory-type: "skills"
+        type: "skills"
 
       - id: dolyak-signet
         text: "Dolyak Signet"
@@ -27,7 +27,7 @@ list:
             "buff": { "Toughness": 180 }
           }
         gw2-id: 14413
-        armory-type: "skills"
+        type: "skills"
 
   - section: "Strength"
     id: 4
@@ -40,7 +40,7 @@ list:
             "multiplier": { "add: Effective Power": 0.05 }
           }
         gw2-id: 1444
-        armory-type: "traits"
+        type: "traits"
 
       - id: peak-performance-2
         text: "Peak Performance"
@@ -50,7 +50,7 @@ list:
             "multiplier": { "add: Effective Power": 0.1 }
           }
         gw2-id: 1444
-        armory-type: "traits"
+        type: "traits"
 
       - id: forceful-greatsword
         text: "Forceful Greatsword"
@@ -60,7 +60,7 @@ list:
             "buff": { "Power": 120 }
           }
         gw2-id: 1338
-        armory-type: "traits"
+        type: "traits"
 
       - id: forceful-greatsword-2
         text: "Forceful Greatsword"
@@ -70,7 +70,7 @@ list:
             "buff": { "Power": 120 }
           }
         gw2-id: 1338
-        armory-type: "traits"
+        type: "traits"
 
       - id: great-fortitude
         text: "Great Fortitude"
@@ -79,7 +79,7 @@ list:
             "convert": { "Vitality": { "Power": 0.1 }, "Ferocity": { "Power": 0.1 } }
           }
         gw2-id: 1449
-        armory-type: "traits"
+        type: "traits"
 
       - id: pinnacle-of-strength
         text: "Pinnacle Of Strength"
@@ -89,7 +89,7 @@ list:
             "buff": { "Power": 250 }
           }
         gw2-id: 1453
-        armory-type: "traits"
+        type: "traits"
 
       - id: berserkers-power
         text: "Berserker's Power"
@@ -99,7 +99,7 @@ list:
             "multiplier": { "add: Effective Power": 0.21 }
           }
         gw2-id: 1437
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Arms"
     id: 36
@@ -111,7 +111,7 @@ list:
             "convert": { "Expertise": { "Precision": 0.07 } }
           }
         gw2-id: 1455
-        armory-type: "traits"
+        type: "traits"
 
       - id: signet-mastery
         text: "Signet Mastery"
@@ -121,7 +121,7 @@ list:
             "flat": { "Ferocity": 500 }
           }
         gw2-id: 1344
-        armory-type: "traits"
+        type: "traits"
 
       - id: deep-strikes
         text: "Deep Strikes"
@@ -131,7 +131,7 @@ list:
             "buff": { "Condition Damage": 180 }
           }
         gw2-id: 1343
-        armory-type: "traits"
+        type: "traits"
 
       - id: blade-master
         text: "Blademaster"
@@ -141,7 +141,7 @@ list:
             "buff": { "Expertise": 120 }
           }
         gw2-id: 1333
-        armory-type: "traits"
+        type: "traits"
 
       - id: blade-master-2
         text: "Blademaster"
@@ -151,7 +151,7 @@ list:
             "buff": { "Condition Damage": 60 }
           }
         gw2-id: 1333
-        armory-type: "traits"
+        type: "traits"
 
       - id: bloodlust
         text: "Bloodlust"
@@ -161,7 +161,7 @@ list:
             "flat": { "Bleeding Duration": 33 }
           }
         gw2-id: 1337
-        armory-type: "traits"
+        type: "traits"
 
       - id: furious
         text: "Furious"
@@ -171,7 +171,7 @@ list:
             "buff": { "Condition Damage": 250 }
           }
         gw2-id: 1346
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Defense"
     id: 22
@@ -184,7 +184,7 @@ list:
             "multiplier": { "Effective Health": 0.05 }
           }
         gw2-id: 1350
-        armory-type: "traits"
+        type: "traits"
 
       - id: cull-the-weak
         text: "Cull the Weak"
@@ -193,7 +193,7 @@ list:
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 1372
-        armory-type: "traits"
+        type: "traits"
 
       - id: armored-attack
         text: "Armored Attack"
@@ -202,7 +202,7 @@ list:
             "convert": { "Power": { "Toughness": 0.1 } }
           }
         gw2-id: 1379
-        armory-type: "traits"
+        type: "traits"
 
       - id: hardened-armor
         text: "Hardened Armor"
@@ -212,7 +212,7 @@ list:
             "multiplier": { "Effective Health": 0.1 }
           }
         gw2-id: 1380
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Tactics"
     id: 11
@@ -224,7 +224,7 @@ list:
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 1469
-        armory-type: "traits"
+        type: "traits"
 
       - id: roaring-reveille
         text: "Roaring Reveille"
@@ -233,7 +233,7 @@ list:
             "buff": { "Concentration": 120 }
           }
         gw2-id: 1471
-        armory-type: "traits"
+        type: "traits"
 
       - id: empowered-6
         text: "Empowered"
@@ -244,7 +244,7 @@ list:
             "multiplier": { "Effective Power": 0.06 }
           }
         gw2-id: 1485
-        armory-type: "traits"
+        type: "traits"
 
       - id: empowered-9
         text: "Empowered"
@@ -255,7 +255,7 @@ list:
             "multiplier": { "Effective Power": 0.09 }
           }
         gw2-id: 1485
-        armory-type: "traits"
+        type: "traits"
 
       - id: empowered-11
         text: "Empowered"
@@ -266,7 +266,7 @@ list:
             "multiplier": { "Effective Power": 0.11 }
           }
         gw2-id: 1485
-        armory-type: "traits"
+        type: "traits"
 
       - id: warriors-cunning
         text: "Warrior's Cunning"
@@ -276,7 +276,7 @@ list:
             "multiplier": { "Effective Power": 0.05 }
           }
         gw2-id: 1486
-        armory-type: "traits"
+        type: "traits"
 
       - id: vigorous-shouts
         text: "Vigorous Shouts"
@@ -285,7 +285,7 @@ list:
             "convert": { "Healing Power": { "Power": 0.13 } }
           }
         gw2-id: 1470
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Discipline"
     id: 51
@@ -297,7 +297,7 @@ list:
             "multiplier": { "add: Effective Power": 0.1 }
           }
         gw2-id: 1413
-        armory-type: "traits"
+        type: "traits"
 
       - id: double-standards
         text: "Doubled Standards"
@@ -307,7 +307,7 @@ list:
             "buff": { "Power": 50, "Precision": 50, "Ferocity": 50, "Condition Damage": 50 }
           }
         gw2-id: 1484
-        armory-type: "traits"
+        type: "traits"
 
       - id: axe-mastery-one
         text: "Axe Mastery"
@@ -317,7 +317,7 @@ list:
             "buff": { "Ferocity": 120 }
           }
         gw2-id: 1369
-        armory-type: "traits"
+        type: "traits"
 
       - id: axe-mastery-two
         text: "Axe Mastery"
@@ -327,7 +327,7 @@ list:
             "buff": { "Ferocity": 120 }
           }
         gw2-id: 1369
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Berserker"
     id: 18
@@ -340,7 +340,7 @@ list:
             "convert": { "Ferocity": { "Precision": 0.07 } }
           }
         gw2-id: 2011
-        armory-type: "traits"
+        type: "traits"
 
       - id: blood-reaction-with
         text: "Blood Reaction"
@@ -350,7 +350,7 @@ list:
             "convert": { "Ferocity": { "Precision": 0.14 } }
           }
         gw2-id: 2011
-        armory-type: "traits"
+        type: "traits"
 
       - id: heat-the-soul
         text: "Heat the Soul"
@@ -360,7 +360,7 @@ list:
             "buff": { "Condition Damage": 120 }
           }
         gw2-id: 2042
-        armory-type: "traits"
+        type: "traits"
 
       - id: heat-the-soul-with
         text: "Heat the Soul"
@@ -370,7 +370,7 @@ list:
             "buff": { "Condition Damage": 60 }
           }
         gw2-id: 2042
-        armory-type: "traits"
+        type: "traits"
 
       - id: fatal-frenzy
         text: "Fatal Frenzy"
@@ -380,7 +380,7 @@ list:
             "buff": { "Power": 300, "Condition Damage": 300, "Toughness": -300 }
           }
         gw2-id: 2046
-        armory-type: "traits"
+        type: "traits"
 
       - id: bloody-roar
         text: "Bloody Roar"
@@ -389,7 +389,7 @@ list:
             "multiplier": { "Effective Power": 0.2 }
           }
         gw2-id: 1928
-        armory-type: "traits"
+        type: "traits"
 
       - id: king-of-fires
         text: "King of Fires"
@@ -398,7 +398,7 @@ list:
             "flat": { "Burning Duration": 33 }
           }
         gw2-id: 2038
-        armory-type: "traits"
+        type: "traits"
 
       - id: eternal-champion
         text: "Eternal Champion"
@@ -407,7 +407,7 @@ list:
             "buff": { "Toughness": 300 }
           }
         gw2-id: 2043
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Spellbreaker"
     id: 61
@@ -420,7 +420,7 @@ list:
             "multiplier": { "Critical Damage": 0.14 }
           }
         gw2-id: 2107
-        armory-type: "traits"
+        type: "traits"
 
       - id: sun-and-moon-style
         text: "Sun and Moon Style"
@@ -430,7 +430,7 @@ list:
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 2095
-        armory-type: "traits"
+        type: "traits"
 
       - id: attackers-insight
         text: "Attacker's Insight"
@@ -440,7 +440,7 @@ list:
             "buff": { "Ferocity": 250, "Power": 250, "Precision": 250 }
           }
         gw2-id: 2130
-        armory-type: "traits"
+        type: "traits"
 
       - id: magebane-tether
         text: "Magebane Tether"
@@ -450,4 +450,4 @@ list:
             "multiplier": { "Effective Power": 0.075 }
           }
         gw2-id: 2060
-        armory-type: "traits"
+        type: "traits"

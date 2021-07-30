@@ -9,7 +9,7 @@ list:
             "buff": { "Precision": 180 }
           }
         gw2-id: 5542
-        armory-type: "skills"
+        type: "skills"
 
       - id: signet-of-earth
         text: "Signet of Earth"
@@ -18,7 +18,7 @@ list:
             "buff": { "Toughness": 180 }
           }
         gw2-id: 5571
-        armory-type: "skills"
+        type: "skills"
 
       - id: flame-axe
         text: "Flame Axe"
@@ -28,7 +28,7 @@ list:
             "buff": { "Power": 180, "Condition Damage": 180 }
           }
         gw2-id: 5540
-        armory-type: "skills"
+        type: "skills"
 
       - id: earth-shield
         text: "Earth Shield"
@@ -38,7 +38,7 @@ list:
             "buff": { "Vitality": 180, "Toughness": 180 }
           }
         gw2-id: 5546
-        armory-type: "skills"
+        type: "skills"
 
       - id: fiery-greatsword
         text: "Fiery Greatsword"
@@ -48,7 +48,7 @@ list:
             "buff": { "Power": 260, "Condition Damage": 180 }
           }
         gw2-id: 5516
-        armory-type: "skills"
+        type: "skills"
 
       - id: lightning-hammer
         text: "Lightning Hammer"
@@ -58,7 +58,7 @@ list:
             "buff": { "Precision": 180, "Ferocity": 75 }
           }
         gw2-id: 5624
-        armory-type: "skills"
+        type: "skills"
 
       - id: frost-bow
         text: "Frost Bow"
@@ -69,7 +69,7 @@ list:
             "flat": { "Condition Duration": 20 }
           }
         gw2-id: 5567
-        armory-type: "skills"
+        type: "skills"
 
   - section: Fire
     id: 31
@@ -85,7 +85,7 @@ list:
             "buff": { "Power": 150 }
           }
         gw2-id: 320
-        armory-type: "traits"
+        type: "traits"
 
       - id: burning-precision
         text: "Burning Precision"
@@ -94,7 +94,7 @@ list:
             "flat": { "Burning Duration": 20 }
           }
         gw2-id: 296
-        armory-type: "traits"
+        type: "traits"
 
       - id: burning-rage
         text: "Burning Rage"
@@ -103,7 +103,7 @@ list:
             "buff": { "Condition Damage": 180 }
           }
         gw2-id: 325
-        armory-type: "traits"
+        type: "traits"
 
       - id: power-overwhelming
         text: "Power Overwhelming"
@@ -113,7 +113,7 @@ list:
             "buff": { "Power": 150 }
           }
         gw2-id: 334
-        armory-type: "traits"
+        type: "traits"
 
       - id: power-overwhelming-2
         text: "Power Overwhelming"
@@ -126,7 +126,7 @@ list:
             "buff": { "Power": 150 }
           }
         gw2-id: 334
-        armory-type: "traits"
+        type: "traits"
 
       - id: pyromancers-training
         text: "Pyromancer's Training"
@@ -136,7 +136,7 @@ list:
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 319
-        armory-type: "traits"
+        type: "traits"
 
   - section: Air
     id: 41
@@ -148,7 +148,7 @@ list:
             "convert": { "Ferocity": { "Precision": 0.07 } }
           }
         gw2-id: 232
-        armory-type: "traits"
+        type: "traits"
 
       - id: raging-storm
         text: "Raging Storm"
@@ -157,7 +157,7 @@ list:
             "buff": { "Ferocity": 180 }
           }
         gw2-id: 214
-        armory-type: "traits"
+        type: "traits"
 
       - id: stormsoul
         text: "Stormsoul"
@@ -166,7 +166,7 @@ list:
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 1502
-        armory-type: "traits"
+        type: "traits"
 
       - id: aeromancers-training
         text: "Aeromancer's Training"
@@ -177,7 +177,7 @@ list:
             "buff": { "Ferocity": 150 }
           }
         gw2-id: 223
-        armory-type: "traits"
+        type: "traits"
 
       - id: aeromancers-training-2
         text: "Aeromancer's Training"
@@ -191,7 +191,7 @@ list:
             "buff": { "Ferocity": 150 }
           }
         gw2-id: 223
-        armory-type: "traits"
+        type: "traits"
 
       - id: bolt-to-the-heart
         text: "Bolt to the Heart"
@@ -201,7 +201,7 @@ list:
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 226
-        armory-type: "traits"
+        type: "traits"
 
       - id: fresh-air
         text: "Fresh Air"
@@ -211,7 +211,7 @@ list:
             "buff": { "Ferocity": 250 }
           }
         gw2-id: 1503
-        armory-type: "traits"
+        type: "traits"
 
   - section: Earth
     id: 26
@@ -226,7 +226,7 @@ list:
             "multiplier": { "Effective Health": 0.07 }
           }
         gw2-id: 278
-        armory-type: "traits"
+        type: "traits"
 
       - id: serrated-stones
         text: "Serrated Stones"
@@ -236,7 +236,7 @@ list:
             "flat": { "Bleeding Duration": 20 }
           }
         gw2-id: 1507
-        armory-type: "traits"
+        type: "traits"
 
       - id: strength-of-stone
         text: "Strength of Stone"
@@ -245,7 +245,7 @@ list:
             "convert": { "Condition Damage": { "Toughness": 0.1 } }
           }
         gw2-id: 275
-        armory-type: "traits"
+        type: "traits"
 
       - id: geomancers-defense
         text: "Geomancer's Defense"
@@ -254,7 +254,7 @@ list:
             "multiplier": { "Effective Health": 0.1 }
           }
         gw2-id: 280
-        armory-type: "traits"
+        type: "traits"
 
   - section: Water
     id: 17
@@ -266,7 +266,7 @@ list:
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 363
-        armory-type: "traits"
+        type: "traits"
 
       - id: piercing-blades-2
         text: "Piercing Shards"
@@ -279,7 +279,7 @@ list:
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 363
-        armory-type: "traits"
+        type: "traits"
 
       - id: flow-like-water
         text: "Flow like Water"
@@ -288,7 +288,7 @@ list:
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 349
-        armory-type: "traits"
+        type: "traits"
 
       - id: aquamancers-training
         text: "Aquamancer's Training"
@@ -298,7 +298,7 @@ list:
           }
         minor: true
         gw2-id: 1676
-        armory-type: "traits"
+        type: "traits"
 
   - section: Arcane
     id: 37
@@ -311,7 +311,7 @@ list:
           }
         minor: true
         gw2-id: 2004
-        armory-type: "traits"
+        type: "traits"
 
       - id: elemental-surge
         text: "Elemental Surge (100% uptime)"
@@ -320,7 +320,7 @@ list:
             "flat": { "Ferocity": 150 }
           }
         gw2-id: 263
-        armory-type: "traits"
+        type: "traits"
 
       - id: bountiful-power
         text: "Bountiful Power"
@@ -330,7 +330,7 @@ list:
             "multiplier": { "Effective Power": 0.12 }
           }
         gw2-id: 1511
-        armory-type: "traits"
+        type: "traits"
 
       - id: bountiful-power-9
         text: "Bountiful Power"
@@ -340,7 +340,7 @@ list:
             "multiplier": { "Effective Power": 0.18 }
           }
         gw2-id: 1511
-        armory-type: "traits"
+        type: "traits"
 
   - section: Tempest
     id: 48
@@ -353,7 +353,7 @@ list:
           }
         minor: true
         gw2-id: 1938
-        armory-type: "traits"
+        type: "traits"
 
       - id: hardy-conduit
         text: "Hardy Conduit"
@@ -362,7 +362,7 @@ list:
             "multiplier": { "Effective Health": 0.1167 }
           }
         gw2-id: 1948
-        armory-type: "traits"
+        type: "traits"
 
       - id: transcendent-tempest
         text: "Transcendent Tempest"
@@ -371,7 +371,7 @@ list:
             "multiplier": { "add: Effective Power": 0.07, "add: Effective Condition Damage": 0.07 }
           }
         gw2-id: 1839
-        armory-type: "traits"
+        type: "traits"
 
   - section: Weaver
     id: 56
@@ -384,7 +384,7 @@ list:
             "flat": { "Critical Chance": 10 }
           }
         gw2-id: 2177
-        armory-type: "traits"
+        type: "traits"
 
       - id: masters-fortitude
         text: "Master's Fortitude"
@@ -395,7 +395,7 @@ list:
             "convert": { "Vitality": { "Power": 0.05, "Condition Damage": 0.05 } }
           }
         gw2-id: 2115
-        armory-type: "traits"
+        type: "traits"
 
       - id: masters-fortitude-without
         text: "Master's Fortitude"
@@ -405,7 +405,7 @@ list:
             "convert": { "Vitality": { "Power": 0.05, "Condition Damage": 0.05 } }
           }
         gw2-id: 2115
-        armory-type: "traits"
+        type: "traits"
 
       - id: weavers-prowess
         text: "Weaver's Prowess"
@@ -416,7 +416,7 @@ list:
             "flat": { "Condition Duration": 20 }
           }
         gw2-id: 2180
-        armory-type: "traits"
+        type: "traits"
 
       - id: swift-revenge
         text: "Swift Revenge"
@@ -425,7 +425,7 @@ list:
             "multiplier": { "add: Effective Power": 0.1 }
           }
         gw2-id: 2061
-        armory-type: "traits"
+        type: "traits"
 
       - id: elemental-polyphony-fire
         text: "Elemental Polyphony"
@@ -438,7 +438,7 @@ list:
             "buff": { "Power": 120 }
           }
         gw2-id: 2081
-        armory-type: "traits"
+        type: "traits"
 
       - id: elemental-polyphony-air
         text: "Elemental Polyphony"
@@ -451,7 +451,7 @@ list:
             "buff": { "Ferocity": 120 }
           }
         gw2-id: 2081
-        armory-type: "traits"
+        type: "traits"
 
       - id: elements-of-rage
         text: "Elements of Rage"
@@ -461,4 +461,4 @@ list:
             "convert": { "Precision": { "Vitality": 0.13 } }
           }
         gw2-id: 2131
-        armory-type: "traits"
+        type: "traits"

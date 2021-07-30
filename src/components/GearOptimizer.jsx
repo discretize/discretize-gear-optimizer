@@ -407,7 +407,7 @@ const GearOptimizer = ({ classes }) => {
                 gw2_id
                 subText
                 id
-                armory_type
+                type
                 text
               }
             }

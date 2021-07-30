@@ -95,7 +95,7 @@ const Buffs = ({ classes, data, presets }) => {
                 {section.items.map((buff) => {
                   let Component, name;
 
-                  switch (buff.armory_type) {
+                  switch (buff.type) {
                     case "Text":
                       return (
                         <CheckboxComponent
@@ -120,7 +120,7 @@ const Buffs = ({ classes, data, presets }) => {
                       name = firstUppercase(name);
                     // eslint-disable-next-line no-fallthrough
                     default:
-                      Component = components[buff.armory_type];
+                      Component = components[buff.type];
                   }
 
                   return (

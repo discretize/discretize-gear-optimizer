@@ -9,7 +9,7 @@ list:
             "buff": { "Power": 180 }
           }
         gw2-id: 9093
-        armory-type: "skills"
+        type: "skills"
 
       - id: bane-signet-2
         text: "Bane Signet"
@@ -19,7 +19,7 @@ list:
             "buff": { "Power": 216 }
           }
         gw2-id: 9093
-        armory-type: "skills"
+        type: "skills"
 
       - id: signet-of-judgement
         text: "Signet of Judgement"
@@ -28,7 +28,7 @@ list:
             "multiplier": { "Effective Health": 0.1 }
           }
         gw2-id: 9150
-        armory-type: "skills"
+        type: "skills"
 
       - id: signet-of-judgement-2
         text: "Signet of Judgement"
@@ -38,7 +38,7 @@ list:
             "multiplier": { "Effective Health": 0.12 }
           }
         gw2-id: 9150
-        armory-type: "skills"
+        type: "skills"
 
       - id: signet-of-mercy
         text: "Signet of Mercy"
@@ -47,7 +47,7 @@ list:
             "buff": { "Concentration": 120 }
           }
         gw2-id: 9163
-        armory-type: "skills"
+        type: "skills"
 
       - id: signet-of-mercy-2
         text: "Signet of Mercy"
@@ -57,7 +57,7 @@ list:
             "buff": { "Concentration": 150 }
           }
         gw2-id: 9163
-        armory-type: "skills"
+        type: "skills"
 
       - id: signet-of-wrath
         text: "Signet of Wrath"
@@ -66,7 +66,7 @@ list:
             "buff": { "Condition Damage": 180 }
           }
         gw2-id: 9151
-        armory-type: "skills"
+        type: "skills"
 
       - id: signet-of-wrath-2
         text: "Signet of Wrath"
@@ -76,7 +76,7 @@ list:
             "buff": { "Condition Damage": 216 }
           }
         gw2-id: 9151
-        armory-type: "skills"
+        type: "skills"
 
   - section: "Zeal"
     id: 42
@@ -88,7 +88,7 @@ list:
             "multiplier": { "Effective Power": 0.07 }
           }
         gw2-id: 634
-        armory-type: "traits"
+        type: "traits"
 
       - id: symbolic-exposure
         text: "Symbolic Exposure"
@@ -98,7 +98,7 @@ list:
             "multiplier": { "Effective Power": 0.05 }
           }
         gw2-id: 646
-        armory-type: "traits"
+        type: "traits"
 
       - id: zealous-blade
         text: "Zealous Blade"
@@ -108,7 +108,7 @@ list:
             "buff": { "Power": 180 }
           }
         gw2-id: 653
-        armory-type: "traits"
+        type: "traits"
 
       - id: kindled-zeal
         text: "Kindled Zeal"
@@ -117,7 +117,7 @@ list:
             "convert": { "Condition Damage": { "Power": 0.1 } }
           }
         gw2-id: 1556
-        armory-type: "traits"
+        type: "traits"
 
       - id: symbolic-avenger
         text: "Symbolic Avenger"
@@ -127,7 +127,7 @@ list:
             "multiplier": { "add: Effective Power": 0.1 }
           }
         gw2-id: 2017
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Radiance"
     id: 16
@@ -140,7 +140,7 @@ list:
             "buff": { "Precision": 80 }
           }
         gw2-id: 566
-        armory-type: "traits"
+        type: "traits"
 
       - id: right-hand-strength-2
         text: "Right-Hand Strength"
@@ -150,7 +150,7 @@ list:
             "buff": { "Power": 40 }
           }
         gw2-id: 566
-        armory-type: "traits"
+        type: "traits"
 
       - id: right-hand-strength-3
         text: "Right-Hand Strength"
@@ -160,7 +160,7 @@ list:
             "buff": { "Power": 40 }
           }
         gw2-id: 566
-        armory-type: "traits"
+        type: "traits"
 
       - id: radiant-fire
         text: "Radiant Fire"
@@ -169,7 +169,7 @@ list:
             "flat": { "Burning Duration": 20 }
           }
         gw2-id: 567
-        armory-type: "traits"
+        type: "traits"
 
       - id: retribution
         text: "Retribution"
@@ -178,7 +178,7 @@ list:
             "multiplier": { "add: Effective Power": 0.1 }
           }
         gw2-id: 565
-        armory-type: "traits"
+        type: "traits"
 
       - id: radiant-power
         text: "Radiant Power"
@@ -189,7 +189,7 @@ list:
             "buff": { "Ferocity": 150 }
           }
         gw2-id: 568
-        armory-type: "traits"
+        type: "traits"
 
       - id: amplified-wrath
         text: "Amplified Wrath"
@@ -198,7 +198,7 @@ list:
             "multiplier": { "Burning Damage": 0.15 }
           }
         gw2-id: 1686
-        armory-type: "traits"
+        type: "traits"
 
       - id: righteous-instincts
         text: "Righteous Instincts"
@@ -207,7 +207,7 @@ list:
             "flat": { "Critical Chance": 25 }
           }
         gw2-id: 1683
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Valor"
     id: 13
@@ -219,7 +219,7 @@ list:
             "buff": { "Toughness": 240 }
           }
         gw2-id: 580
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Honor"
     id: 49
@@ -232,7 +232,7 @@ list:
             "multiplier": { "Effective Healing": 0.25 }
           }
         gw2-id: 1899
-        armory-type: "traits"
+        type: "traits"
 
       - id: honorable-staff
         text: "Honorable Staff"
@@ -242,7 +242,7 @@ list:
             "buff": { "Concentration": 120 }
           }
         gw2-id: 557
-        armory-type: "traits"
+        type: "traits"
 
       - id: honorable-staff-2
         text: "Honorable Staff"
@@ -252,7 +252,7 @@ list:
             "buff": { "Concentration": 120 }
           }
         gw2-id: 557
-        armory-type: "traits"
+        type: "traits"
 
       - id: force-of-will
         text: "Force of Will"
@@ -263,7 +263,7 @@ list:
             "multiplier": { "Effective Healing": 0.1 }
           }
         gw2-id: 1682
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Virtues"
     id: 46
@@ -276,7 +276,7 @@ list:
             "multiplier": { "Effective Power": 0.06 }
           }
         gw2-id: 621
-        armory-type: "traits"
+        type: "traits"
 
       - id: inspired-virtue-9
         text: "Inspired Virtue"
@@ -286,7 +286,7 @@ list:
             "multiplier": { "Effective Power": 0.09 }
           }
         gw2-id: 621
-        armory-type: "traits"
+        type: "traits"
 
       - id: unscathed-contender
         text: "Unscathed Contender"
@@ -295,7 +295,7 @@ list:
             "multiplier": { "add: Effective Power": 0.2 }
           }
         gw2-id: 624
-        armory-type: "traits"
+        type: "traits"
 
       - id: virtue-of-retribution
         text: "Virtue of Resolution"
@@ -305,7 +305,7 @@ list:
             "flat": { "Retaliation Duration": 25 }
           }
         gw2-id: 604
-        armory-type: "traits"
+        type: "traits"
 
       - id: inspiring-virtue
         text: "Inspiring Virtue"
@@ -315,7 +315,7 @@ list:
             "multiplier": { "add: Effective Power": 0.1 }
           }
         gw2-id: 603
-        armory-type: "traits"
+        type: "traits"
 
       - id: power-of-the-virtuous
         text: "Power of the Virtuous"
@@ -325,7 +325,7 @@ list:
             "convert": { "Condition Damage": { "Vitality": 0.13 } }
           }
         gw2-id: 620
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Dragonhunter"
     id: 27
@@ -337,7 +337,7 @@ list:
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 1835
-        armory-type: "traits"
+        type: "traits"
 
       - id: pure-of-sight
         text: "Pure of Sight"
@@ -348,7 +348,7 @@ list:
             "multiplier": { "Effective Power": 0.05 }
           }
         gw2-id: 1926
-        armory-type: "traits"
+        type: "traits"
 
       - id: pure-of-sight-ranged
         text: "Pure of Sight"
@@ -359,7 +359,7 @@ list:
             "multiplier": { "Effective Power": 0.15 }
           }
         gw2-id: 1926
-        armory-type: "traits"
+        type: "traits"
 
       - id: hunters-fortification
         text: "Hunter's Fortification"
@@ -368,7 +368,7 @@ list:
             "multiplier": { "Effective Health": 0.1 }
           }
         gw2-id: 1908
-        armory-type: "traits"
+        type: "traits"
 
       - id: big-game-hunter
         text: "Big Game Hunter"
@@ -377,7 +377,7 @@ list:
             "multiplier": { "Effective Power": 0.15 }
           }
         gw2-id: 1955
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Firebrand"
     id: 62
@@ -390,4 +390,4 @@ list:
             "flat": { "Condition Damage": 250, "Healing Power": 250, "Vitality": 250 }
           }
         gw2-id: 2148
-        armory-type: "traits"
+        type: "traits"

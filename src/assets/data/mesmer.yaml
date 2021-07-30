@@ -9,7 +9,7 @@ list:
             "buff": { "Condition Damage": 180 }
           }
         gw2-id: 10232
-        armory-type: "skills"
+        type: "skills"
 
       - id: signet-of-midnight
         text: "Signet of Midnight"
@@ -18,7 +18,7 @@ list:
             "buff": { "Expertise": 180 }
           }
         gw2-id: 10234
-        armory-type: "skills"
+        type: "skills"
 
   - section: "Domination"
     id: 10
@@ -31,7 +31,7 @@ list:
             "multiplier": { "Effective Power": 0.125 }
           }
         gw2-id: 1941
-        armory-type: "traits"
+        type: "traits"
 
       - id: egotism
         text: "Egotism"
@@ -40,7 +40,7 @@ list:
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 713
-        armory-type: "traits"
+        type: "traits"
 
       - id: vicious-expression
         text: "Vicious Expression"
@@ -49,7 +49,7 @@ list:
             "multiplier": { "Effective Power": 0.15 }
           }
         gw2-id: 681
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Dueling"
     id: 1
@@ -62,7 +62,7 @@ list:
             "buff": { "Ferocity": 150 }
           }
         gw2-id: 708
-        armory-type: "traits"
+        type: "traits"
 
       - id: superiority-complex
         text: "Superiority Complex"
@@ -72,7 +72,7 @@ list:
             "multiplier": { "Critical Damage": 0.2 }
           }
         gw2-id: 692
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Chaos"
     id: 45
@@ -85,7 +85,7 @@ list:
             "multiplier": { "Effective Health": 0.25 }
           }
         gw2-id: 675
-        armory-type: "traits"
+        type: "traits"
 
       - id: illusionary-membrane
         text: "Illusionary Membrane"
@@ -95,7 +95,7 @@ list:
             "multiplier": { "add: Effective Condition Damage": 0.1 }
           }
         gw2-id: 667
-        armory-type: "traits"
+        type: "traits"
 
       - id: chaotic-potency
         text: "Chaotic Potency"
@@ -105,7 +105,7 @@ list:
             "buff": { "Condition Damage": 120 }
           }
         gw2-id: 669
-        armory-type: "traits"
+        type: "traits"
 
       - id: chaotic-potency-2
         text: "Chaotic Potency"
@@ -115,7 +115,7 @@ list:
             "buff": { "Condition Damage": 120 }
           }
         gw2-id: 669
-        armory-type: "traits"
+        type: "traits"
 
       - id: chaotic-persistence
         text: "Chaotic Persistence"
@@ -125,7 +125,7 @@ list:
             "buff": { "Concentration": 250, "Expertise": 250 }
           }
         gw2-id: 1865
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Inspiration"
     id: 23
@@ -138,7 +138,7 @@ list:
           }
         minor: true
         gw2-id: 1915
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Illusions"
     id: 24
@@ -153,7 +153,7 @@ list:
           }
         minor: true
         gw2-id: 723
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Chronomancer"
     id: 40
@@ -165,7 +165,7 @@ list:
             "flat": { "Critical Chance": 15 }
           }
         gw2-id: 2009
-        armory-type: "traits"
+        type: "traits"
 
   - section: "Mirage"
     id: 59
@@ -178,4 +178,4 @@ list:
           }
         minor: true
         gw2-id: 2069
-        armory-type: "traits"
+        type: "traits"
