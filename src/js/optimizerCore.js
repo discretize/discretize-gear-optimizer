@@ -15,6 +15,8 @@ let list;
 
 let isChanged = true;
 
+let condiResultCache;
+
 /**
  * Sets up optimizer with input data
  *
@@ -434,7 +436,7 @@ export function * calculate (settings) {
   }
   let calculationRuns = 0;
 
-  settings.condiResultCache = new Map();
+  condiResultCache = new Map();
   const calculationQueue = [];
   calculationQueue.push([]);
   const calculationStatsQueue = [];
@@ -824,9 +826,9 @@ function updateAttributesFast (_character, skipValidation = false) {
       if (settings.relevantConditions.length) {
         const CONDI_CACHE_ID = attributes['Expertise'] + attributes['Condition Damage'] * 10000;
         condiDamageScore
-          = settings.condiResultCache.get(CONDI_CACHE_ID)
+          = condiResultCache.get(CONDI_CACHE_ID)
             || calcCondi(_character, multipliers, settings.relevantConditions);
-        settings.condiResultCache.set(CONDI_CACHE_ID, condiDamageScore);
+        condiResultCache.set(CONDI_CACHE_ID, condiDamageScore);
       }
       attributes['Damage'] = powerDamageScore + condiDamageScore;
       break;
