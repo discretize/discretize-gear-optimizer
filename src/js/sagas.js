@@ -5,18 +5,11 @@ import * as optimizerCore from "./optimizerCore";
 import {
   changeList,
 } from "../state/gearOptimizerSlice";
-import { TrendingUpRounded } from '@material-ui/icons';
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-function* helloSaga() {
-  console.log('Hello Sagas!');
-}
-
 function* runCalc() {
   const optimizerState = yield select((state) => state.gearOptimizer);
-
-  // console.log(JSON.stringify(test, null, 2));
 
   // hardcode for now
   const input = {
@@ -50,10 +43,6 @@ function* runCalc() {
     }
   };
 
-
-  let list = [];
-  // const core = optimizerCoreCalculate();
-
   const settings = optimizerCore.setup(input);
   const generator = optimizerCore.calculate(settings);
 
@@ -64,16 +53,14 @@ function* runCalc() {
   while (true) {
     const result = generator.next();
     ({ done, value: { percent: newPercent, isChanged, newList } } = result);
-    console.log(result);
-    console.log(list);
+    console.log('generator result:', result);
 
     if (isChanged) {
-      // const newList = list.slice();
       console.log('changed; saga list length:', newList.length);
       yield put(changeList(newList));
     } else {
       console.log('not changed!');
-      yield put({ type: 'DONOTHING' });
+      // yield put({ type: 'DONOTHING' });
     }
 
     if (done) {
@@ -91,29 +78,9 @@ function* watchStart() {
   yield takeEvery('START', runCalc);
 }
 
-function* optimizerCoreCalculate() {
-  const list = [];
-  let modified = false;
-  for (let i = 0; i < 10; i++) {
-    modified = false;
-    if (Math.random() > 0.2) {
-      list.push({
-        id: i,
-        value: ['hi', i, 2*i, 3*i, 4*i]
-      },);
-      modified = true;
-
-    }
-    yield { list, modified, i };
-  }
-
-}
-
-// notice how we now only export the rootSaga
-// single entry point to start all Sagas at once
 export default function* rootSaga() {
   yield all([
-    helloSaga(),
+    // other sagas go here
     watchStart()
   ]);
 }
