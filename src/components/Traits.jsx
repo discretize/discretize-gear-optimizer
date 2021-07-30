@@ -22,7 +22,6 @@ import {
   removeModifierWithSource,
   removeTraitModifierWithGW2id
 } from "../state/gearOptimizerSlice";
-import { TRAITS } from "../utils/gw2-data";
 import CheckboxComponent from "./baseComponents/CheckboxComponent";
 
 const styles = (theme) => ({
@@ -59,24 +58,23 @@ const Traits = ({ classes, profession, data }) => {
       dispatch(removeModifierWithSource(Number(traitlines[index])));
     }
     const newTraitLine = event.target.value;
-    console.log(
-      TRAITS.find((l) => l.profession === profession)
-        .traits.find((l) => l.id === newTraitLine)
-        .minors.filter((minor) => "subText" in minor)
+
+    // distinct minors are minor traits where no selection is necessary because the buffs
+    // they provide are not ambigous or conditional
+    const distinctMinors = data
+      .find((l) => l.id === newTraitLine)
+      .items.filter((l) => l.minor === true && l.subText === null);
+
+    distinctMinors.forEach((minor) =>
+      dispatch(
+        addModifier({
+          id: minor.id,
+          modifiers: minor.modifiers,
+          gw2_id: minor.gw2_id,
+          source: newTraitLine
+        })
+      )
     );
-    TRAITS.find((l) => l.profession === profession)
-      .traits.find((l) => l.id === newTraitLine)
-      .minors.filter((minor) => !("subText" in minor))
-      .forEach((minor) =>
-        dispatch(
-          addModifier({
-            id: minor.id,
-            modifiers: minor.modifiers,
-            gw2_id: minor.gw2_id,
-            source: newTraitLine
-          })
-        )
-      );
 
     dispatch(changeTraitLine({ index, value: newTraitLine.toString() }));
   };
@@ -110,7 +108,7 @@ const Traits = ({ classes, profession, data }) => {
           id: trait.id,
           modifiers: trait.modifiers,
           gw2_id: trait.gw2_id,
-          source: line
+          source: Number(line)
         })
       );
     } else {
@@ -121,6 +119,24 @@ const Traits = ({ classes, profession, data }) => {
   return (
     <div className={classes.root}>
       {[1, 2, 3].map((lineNr, index) => {
+        const checkboxModis = [];
+
+        const distinctMinors = data.find((l) => l.id === Number(traitlines[index]));
+        const distinctMinorsWithSub = distinctMinors
+          ? distinctMinors.items.filter((l) => l.minor === true && l.subText !== null)
+          : [];
+
+        checkboxModis.push(...distinctMinorsWithSub);
+
+        traits[index].forEach((t) => {
+          const matching = data.find((v) => v.id === Number(traitlines[index]));
+          if (typeof matching === "undefined") return null;
+
+          const matchingFiltered = matching.items.filter((v) => v.gw2_id === t);
+          checkboxModis.push(...matchingFiltered);
+        });
+
+        console.log(checkboxModis);
         const name = "traitNr" + lineNr;
         return (
           <React.Fragment key={name}>
@@ -134,15 +150,15 @@ const Traits = ({ classes, profession, data }) => {
                   return <Specialization id={selected} disableLink className={classes.item} />;
                 }}
               >
-                {TRAITS.find((tr) => tr.profession === profession)
-                  .traits.filter(
+                {data
+                  .map((line) => line.id)
+                  .filter(
                     (tr) =>
-                      !traitlines.includes(tr.id.toString()) ||
-                      traitlines[index] === tr.id.toString()
+                      !traitlines.includes(tr.toString()) || traitlines[index] === tr.toString()
                   )
                   .map((v) => (
-                    <MenuItem key={v.id} value={v.id} className={classes.menuItem}>
-                      <ListItemText primary={<Specialization id={v.id} disableLink />} />
+                    <MenuItem key={v} value={v} className={classes.menuItem}>
+                      <ListItemText primary={<Specialization id={v} disableLink />} />
                     </MenuItem>
                   ))}
               </Select>
@@ -156,47 +172,21 @@ const Traits = ({ classes, profession, data }) => {
               onSelect={(event) => handleTraitChange(event, traitlines[index], index)}
             />
 
-            {traitlines[index] !== "" &&
-              TRAITS.find((l) => l.profession === profession)
-                .traits.find((l) => l.id === Number(traitlines[index]))
-                .minors.filter((minor) => "subText" in minor)
-                .map((trait) => (
-                  <div key={trait.id}>
-                    <CheckboxComponent
-                      value={trait.id}
-                      checked={modifiers.filter((m) => m.id === trait.id).length > 0}
-                      label={
-                        <>
-                          <Trait id={trait.gw2_id} disableLink />{" "}
-                          <Typography variant="caption">{trait.subText}</Typography>
-                        </>
-                      }
-                      onChange={handleModifierChange(trait, traitlines[index])}
-                    />
-                  </div>
-                ))}
-
-            {traits[index].map((t) => {
-              const matching = data.find((v) => v.id === Number(traitlines[index]));
-              if (typeof matching === "undefined") return null;
-              return matching.items
-                .filter((v) => v.gw2_id === t)
-                .map((trait) => (
-                  <div key={trait.id}>
-                    <CheckboxComponent
-                      value={trait.id}
-                      checked={modifiers.filter((m) => m.id === trait.id).length > 0}
-                      label={
-                        <>
-                          <Trait id={trait.gw2_id} disableLink />{" "}
-                          <Typography variant="caption">{trait.subText}</Typography>
-                        </>
-                      }
-                      onChange={handleModifierChange(trait, traitlines[index])}
-                    />
-                  </div>
-                ));
-            })}
+            {checkboxModis.map((trait) => (
+              <div key={trait.id}>
+                <CheckboxComponent
+                  value={trait.id}
+                  checked={modifiers.filter((m) => m.id === trait.id).length > 0}
+                  label={
+                    <>
+                      <Trait id={trait.gw2_id} disableLink />{" "}
+                      <Typography variant="caption">{trait.subText}</Typography>
+                    </>
+                  }
+                  onChange={handleModifierChange(trait, traitlines[index])}
+                />
+              </div>
+            ))}
           </React.Fragment>
         );
       })}

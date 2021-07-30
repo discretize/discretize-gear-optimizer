@@ -105,7 +105,7 @@ const MainComponent = ({ classes, data }) => {
                   );
                   return (
                     <React.Fragment key={"TaS_" + p}>
-                      <Traits profession={p} data={traitData} />
+                      <Traits profession={p} data={traitData.filter((line) => line.id > 0)} />
                       <Divider />
                       <Skills profession={p} data={skillData[0] ? skillData[0].items : []} />
                     </React.Fragment>
@@ -233,6 +233,7 @@ const GearOptimizer = ({ classes }) => {
                     text
                     id
                     modifiers
+                    minor
                   }
                 }
               }
@@ -250,6 +251,7 @@ const GearOptimizer = ({ classes }) => {
                     text
                     id
                     modifiers
+                    minor
                   }
                 }
               }
@@ -267,6 +269,7 @@ const GearOptimizer = ({ classes }) => {
                     text
                     id
                     modifiers
+                    minor
                   }
                 }
               }
@@ -284,6 +287,7 @@ const GearOptimizer = ({ classes }) => {
                     text
                     id
                     modifiers
+                    minor
                   }
                 }
               }
@@ -301,6 +305,7 @@ const GearOptimizer = ({ classes }) => {
                     text
                     id
                     modifiers
+                    minor
                   }
                 }
               }
@@ -318,6 +323,7 @@ const GearOptimizer = ({ classes }) => {
                     text
                     id
                     modifiers
+                    minor
                   }
                 }
               }
@@ -335,6 +341,7 @@ const GearOptimizer = ({ classes }) => {
                     text
                     id
                     modifiers
+                    minor
                   }
                 }
               }
