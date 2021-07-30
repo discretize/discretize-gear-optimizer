@@ -44,6 +44,9 @@ function* runCalc() {
   };
 
   const settings = optimizerCore.setup(input);
+
+  // set up table columns here
+
   const generator = optimizerCore.calculate(settings);
 
   let done = false;
