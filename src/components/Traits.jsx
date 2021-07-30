@@ -45,7 +45,7 @@ const styles = (theme) => ({
  * @param {Object} data         Contains all the data regarding modifiers, ids and extra subtexts
  * @returns
  */
-const Traits = ({ classes, profession, data, additionalBuffs }) => {
+const Traits = ({ classes, data }) => {
   const dispatch = useDispatch();
 
   // selected trait lines
@@ -54,9 +54,6 @@ const Traits = ({ classes, profession, data, additionalBuffs }) => {
   const traits = useSelector(getTraits);
   // all the currently applied modifiers
   const modifiers = useSelector(getModifiers);
-
-  const soulbeastPetArcheTypes = useSelector(getGeneric("soulbeastPetArcheTypes"));
-  const soulbeastPetBuffs = useSelector(getGeneric("soulbeastPetArcheTypes"));
 
   const handleTraitlineSelect = (index) => (event) => {
     if (Number(traitlines[index]) > 0) {
@@ -184,7 +181,7 @@ const Traits = ({ classes, profession, data, additionalBuffs }) => {
                   checked={modifiers.filter((m) => m.id === trait.id).length > 0}
                   label={
                     <>
-                      <Trait id={trait.gw2_id} disableLink />{" "}
+                      {trait.gw2_id && <Trait id={trait.gw2_id} disableLink />}{" "}
                       <Typography variant="caption">{trait.subText}</Typography>
                     </>
                   }
@@ -195,32 +192,6 @@ const Traits = ({ classes, profession, data, additionalBuffs }) => {
           </React.Fragment>
         );
       })}
-      {/* TODO add slb buffs */}
-      {additionalBuffs && false && (
-        <Grid container>
-          {additionalBuffs.map((category) => (
-            <Grid key={category.section} item xs={12} sm={6}>
-              <FormControl component="fieldset" className={classes.formControl}>
-                <FormLabel component="legend">{category.section} </FormLabel>
-                <FormGroup>
-                  {category.items.map((item, i) => (
-                    <CheckboxComponent
-                      key={item.id}
-                      value={item.id}
-                      checked={useSelector(getGeneric(category.section))[i]}
-                      label={
-                        <>
-                          <Typography>{item.text}</Typography>
-                        </>
-                      }
-                    />
-                  ))}
-                </FormGroup>
-              </FormControl>
-            </Grid>
-          ))}
-        </Grid>
-      )}
     </div>
   );
 };

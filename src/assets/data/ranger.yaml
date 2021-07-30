@@ -269,45 +269,54 @@ list:
         gw2-id: 2143
         armory-type: "traits"
 
-  - section: "Soulbeast Pet Archetypes"
-    id: -1
-    items:
       - id: archetype-stout
-        text: "Stout (Tough/Vit)"
+        subText: "Archetype Stout (Tough/Vit)"
         modifiers: >-
           {
             "buff": { "Toughness": 200, "Vitality": 100 }
+          }
+        minor: true
+        armory-type: "typography"
 
       - id: archetype-deadly
-        text: "Deadly (ConDmg/Prec)"
+        subText: "Archetype Deadly (ConDmg/Prec)"
         modifiers: >-
           {
             "buff": { "Condition Damage": 150, "Precision": 100 }
+          }
+        minor: true
+        armory-type: "typography"
 
       - id: archetype-versatile
-        text: "Versatile (Vit/Conc)"
+        subText: "Archetype Versatile (Vit/Conc)"
         modifiers: >-
           {
             "buff": { "Vitality": 200, "Concentration": 225 }
+          }
+        minor: true
+        armory-type: "typography"
 
       - id: archetype-ferocious
-        text: "Ferocious (Pwr/Feroc)"
+        subText: "Archetype Ferocious (Pwr/Feroc)"
         modifiers: >-
           {
             "buff": { "Power": 150, "Ferocity": 100 }
+          }
+        minor: true
+        armory-type: "typography"
 
       - id: archetype-supportive
-        text: "Supportive (Vit/Heal)"
+        subText: "Archetype Supportive (Vit/Heal)"
         modifiers: >-
           {
             "buff": { "Vitality": 100 },
             "multiplier": { "Effective Healing": 0.25 }
+          }
+        minor: true
+        armory-type: "typography"
 
-  - section: "Soulbeast Pet Buffs To Player"
-    id: -1
-    items:
       - id: sb-1
-        text: "Pack Alpha"
+        subText: ""
         modifiers: >-
           {
             "buff":
@@ -324,7 +333,7 @@ list:
         armory-type: "traits"
 
       - id: sb-2
-        text: "Loud Whistle"
+        subText: ""
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.1 }
@@ -334,7 +343,7 @@ list:
         armory-type: "traits"
 
       - id: sb-3
-        text: "Pet's Prowess"
+        subText: ""
         modifiers: >-
           {
             "buff": { "Ferocity": 300 }
@@ -344,11 +353,11 @@ list:
         armory-type: "traits"
 
       - id: sb-4
-        text: "Honed Axes"
         subText: "base"
         modifiers: >-
           {
             "buff": { "Ferocity": 120 }
           }
         gw2-id: 1066
+        minor: true
         armory-type: "traits"
