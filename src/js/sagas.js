@@ -34,7 +34,7 @@ function* runCalc() {
     "minHealingPower": null,
     "minToughness": null,
     "maxToughness": null,
-    "maxResults": 10,
+    "maxResults": 30,
     "primaryInfusion": "Condition Damage",
     "secondaryInfusion": "None",
     "primaryMaxInfusions": 18,
