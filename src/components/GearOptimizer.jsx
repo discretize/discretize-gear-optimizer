@@ -5,10 +5,7 @@ import { ConsumableEffect, Item } from "gw2-ui";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  getDistributionNew,
-  getDistributionOld,
   getGeneric,
-  getModifiers,
   getProfession
 } from "../state/gearOptimizerSlice";
 import { PROFESSIONS } from "../utils/gw2-data";

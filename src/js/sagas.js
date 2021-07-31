@@ -4,15 +4,52 @@ import * as optimizerCore from "./optimizerCore";
 
 import {
   changeList,
+  getDistributionNew,
+  getDistributionOld,
+  getGeneric,
+  getModifiers,
+  getProfession
 } from "../state/gearOptimizerSlice";
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 function* runCalc() {
-  const optimizerState = yield select((state) => state.gearOptimizer);
+  const state = yield select();
+
+  const percentDistributionTemp = getDistributionOld(state);
+  const percentDistribution = {
+    Power: percentDistributionTemp[0],
+    Burning: percentDistributionTemp[1],
+    Bleeding: percentDistributionTemp[2],
+    Poison: percentDistributionTemp[3],
+    Torment: percentDistributionTemp[4],
+    Confusion: percentDistributionTemp[5]
+  };
+
+  const input = {
+    modifiers: getModifiers(state).map(modifier => JSON.parse(modifier.modifiers)),
+    tags: undefined,
+    profession: getProfession(state).toLowerCase(),
+    weapontype: /* getGeneric("weaponType")(state), */ "Dual wield",
+    affixes: getGeneric("affixes")(state).map(affix => affix.toLowerCase().replace(/^\w/, (c) => c.toUpperCase())),
+    forcedAffixes: getGeneric("forcedSlots")(state),
+    rankby: getGeneric("optimizeFor")(state),
+    minBoonDuration: getGeneric("minBoonDuration")(state),
+    minHealingPower: getGeneric("minHealingPower")(state),
+    minToughness: getGeneric("minToughness")(state),
+    maxToughness: getGeneric("maxToughness")(state),
+    maxResults: 50, // TODO MAX RESULTS
+    primaryInfusion: /* getGeneric("primaryInfusion")(state), */ null,
+    secondaryInfusion: /* getGeneric("secondaryInfusion")(state), */ null,
+    primaryMaxInfusions: /* getGeneric("primaryMaxInfusions")(state), */ null,
+    secondaryMaxInfusions: /* getGeneric("secondaryMaxInfusions")(state), */ null,
+    percentDistribution,
+    /* distribution: getDistributionNew(state) */
+  };
+  console.log('input real', input);
 
   // hardcode for now
-  const input = {
+  const fakeInput = {
     "modifiers": [ { "buff": { "Condition Damage": 180 } }, { "buff": { "Precision": 80 } }, { "buff": { "Power": 40 } }, { "flat": { "Burning Duration": 20 } }, { "flat": { "Critical Chance": 10 }, "buff": { "Ferocity": 150 } }, { "multiplier": { "Burning Damage": 0.15 } }, { "multiplier": { "Effective Power": 0.09 } }, { "flat": { "Retaliation Duration": 25 } }, { "convert": { "Condition Damage": { "Vitality": 0.13 } } }, { "flat": { "Condition Damage": 250, "Healing Power": 250, "Vitality": 250 } }, { "buff": { "Power": 750, "Condition Damage": 750 } }, { "flat": { "Critical Chance": 20 } }, { "multiplier": { "target: Effective Power": 0.25, "target: Effective Condition Damage": 0.25 } }, { "buff": { "Power": 100, "Condition Damage": 100 } }, { "buff": { "Precision": 100, "Ferocity": 100 } }, { "buff": { "Power": 100 } }, { "buff": { "Precision": 100 } }, { "multiplier": { "add: Effective Power": 0.05 } }, { "flat": { "Condition Damage": 175, "Burning Duration": 50 }, "multiplier": { "Effective Health": 0.1 } }, { "multiplier": { "add: Effective Condition Damage": 0.05 } }, { "flat": { "Condition Damage": 100, "Expertise": 70 } }, { "convert": { "Condition Damage": { "Power": 0.03, "Precision": 0.03 } } }, { "flat": { "Agony Resistance": 150 } } ],
     "profession": "guardian",
     "weapontype": "Dual wield",
@@ -42,6 +79,7 @@ function* runCalc() {
       "Confusion": 0
     }
   };
+  console.log('input hardcoded', fakeInput);
 
   const settings = optimizerCore.setup(input);
 
