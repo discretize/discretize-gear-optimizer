@@ -331,6 +331,7 @@ export function setup (input) {
 
   // affixesArray: valid affixes for each slot, taking forced slots into account
   // e.g. [[Berserker, Assassin], [Assassin], [Berserker, Assassin]...]
+  // eslint-disable-next-line unicorn/no-new-array
   settings.affixesArray = new Array(settings.slots.length).fill(settings.affixes);
 
   settings.forcedArmor = false;
@@ -398,10 +399,10 @@ export function setup (input) {
 
   // used to keep the progress counter in sync when skipping identical gear combinations.
   settings.runsAfterThisSlot = [];
-  for (let i = 0; i < settings.affixesArray.length; i++) {
+  for (let index = 0; index < settings.affixesArray.length; index++) {
     let counter = 1;
-    for (let j = i; j < settings.affixesArray.length; j++) {
-      counter *= settings.affixesArray[j].length;
+    for (const affixes of settings.affixesArray.slice(index)) {
+      counter *= affixes.length;
     }
 
     settings.runsAfterThisSlot.push(counter);
@@ -458,8 +459,8 @@ export function * calculate (settings) {
   applyInfusionsFunction = applyInfusions[settings.infusionMode];
 
   let calculationTotal = 1;
-  for (let i = 0; i < settings.affixesArray.length; i++) {
-    calculationTotal *= settings.affixesArray[i].length;
+  for (const affixes of settings.affixesArray) {
+    calculationTotal *= affixes.length;
   }
 
   let calculationRuns = 0;
@@ -521,15 +522,15 @@ export function * calculate (settings) {
     }
 
     // Recycle for Affix 0, clone for 1+
-    for (let i = 1; i < settings.affixesArray[nextSlot].length; i++) {
+    for (let index = 1; index < settings.affixesArray[nextSlot].length; index++) {
       const newGear = gear.slice();
       const newGearStats = Object.assign({}, gearStats);
 
-      const currentAffix = settings.affixesArray[nextSlot][i];
+      const currentAffix = settings.affixesArray[nextSlot][index];
       newGear[nextSlot] = currentAffix;
 
       // add gear stats
-      for (const [stat, bonus] of settings.affixStatsArray[nextSlot][i]) {
+      for (const [stat, bonus] of settings.affixStatsArray[nextSlot][index]) {
         newGearStats[stat] = (newGearStats[stat] || 0) + bonus;
       }
 
@@ -768,6 +769,7 @@ function insertCharacter (character) {
 
 // returns true if B is better than A
 export function characterLT (a, b) {
+  /* eslint-disable unicorn/consistent-destructuring */
   const { settings } = a;
 
   // if (!a.valid && b.valid) {
@@ -790,6 +792,7 @@ export function characterLT (a, b) {
   }
 
   return a.attributes[settings.rankby] < b.attributes[settings.rankby];
+  /* eslint-enable unicorn/consistent-destructuring */
 }
 
 /**

@@ -364,17 +364,17 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
   }
 
   function characterToRow (character) {
-    const { settings, attributes } = character;
+    const { settings, attributes, gear, infusions } = character;
 
     return $(
       `<tr>
         <td><strong>
           ${Number(attributes[settings.rankby].toFixed(2)).toLocaleString('en-US')}
         </strong></td>
-        ${$.map(character.gear, attribute =>
-          `<td><samp>${attribute.substring(0, 4)}</samp></td>`
+        ${$.map(gear, attribute =>
+          `<td><samp>${attribute.slice(0, 4)}</samp></td>`
         ).join('')}
-        ${$.map(character.infusions, count =>
+        ${$.map(infusions, count =>
           `<td><samp>${count}</samp></td>`
         ).join('')}
       </tr>`
@@ -386,6 +386,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
     // insert all new items
     let newItem = null;
+    // eslint-disable-next-line unicorn/no-for-loop
     for (let index = 0; index < newList.length; index++) {
 
       if (newList[index] !== currentList[index]) {
