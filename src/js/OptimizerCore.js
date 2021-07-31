@@ -257,7 +257,7 @@ export function setup (input) {
   ];
 
   let activeInfusions = 0;
-  if (primaryInfusionInput !== 'None') {
+  if (primaryInfusionInput && primaryInfusionInput !== 'None') {
     if (validInfusionStats.includes(primaryInfusionInput)) {
       activeInfusions++;
       settings.primaryInfusion = primaryInfusionInput;
@@ -268,7 +268,7 @@ export function setup (input) {
         + primaryInfusionInput);
     }
   }
-  if (secondaryInfusionInput !== 'None' && secondaryInfusionInput !== primaryInfusionInput) {
+  if (secondaryInfusionInput && secondaryInfusionInput !== 'None' && secondaryInfusionInput !== primaryInfusionInput) {
     if (validInfusionStats.includes(secondaryInfusionInput)) {
       activeInfusions++;
       if (activeInfusions === 2) {
@@ -426,6 +426,13 @@ export function setup (input) {
  * @yields {number} result.value.percent - the progress percentage
  */
 export function * calculate (settings) {
+  if (!settings.affixes.length) {
+    return {
+      isChanged: true,
+      percent: 100,
+      newList: []
+    };
+  }
   applyInfusionsFunction = applyInfusions[settings.infusionMode];
 
   let calculationTotal = 1;
