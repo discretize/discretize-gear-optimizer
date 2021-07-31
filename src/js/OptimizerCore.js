@@ -73,6 +73,7 @@ export function setup (input) {
   for (const attribute of Attributes.PRIMARY) {
     settings.baseAttributes[attribute] = 1000;
   }
+
   for (const attribute of Attributes.SECONDARY) {
     settings.baseAttributes[attribute] = 0;
   }
@@ -100,7 +101,7 @@ export function setup (input) {
   let targetEffectiveConditionDamage = 0;
   let targetEffectivePower = 0;
 
-  const validMultiplierStats = [
+  const validMultiplierStats = new Set([
     ...Attributes.EFFECTIVE,
     'Effective Condition Damage',
 
@@ -113,31 +114,32 @@ export function setup (input) {
     'target: Effective Power',
     'Critical Damage',
     ...Attributes.CONDITION_DAMAGE
-  ];
-  const validFlatStats = [
+  ]);
+  const validFlatStats = new Set([
     ...Attributes.PRIMARY,
     ...Attributes.SECONDARY,
     ...Attributes.DERIVED,
     ...Attributes.BOON_DURATION,
     ...Attributes.CONDITION_DURATION
-  ];
-  const validBuffStats = [
+  ]);
+  const validBuffStats = new Set([
     ...Attributes.PRIMARY,
     ...Attributes.SECONDARY,
     ...Attributes.DERIVED,
     ...Attributes.BOON_DURATION,
     ...Attributes.CONDITION_DURATION
-  ];
-  const validConvertStats = [
+  ]);
+  const validConvertStats = new Set([
     ...Attributes.PRIMARY,
     ...Attributes.SECONDARY
-  ];
+  ]);
 
   modifiersInput = modifiersInput || [];
   for (const modifiers of modifiersInput) {
     if (!modifiers) {
       continue;
     }
+
     for (const [type, modifier] of Object.entries(modifiers)) {
       if (type && modifier !== undefined) {
         if (type === 'bountiful-maintenance-oil') {
@@ -147,7 +149,7 @@ export function setup (input) {
             if (attribute && value) {
               switch (type) {
                 case 'multiplier':
-                  if (validMultiplierStats.includes(attribute)) {
+                  if (validMultiplierStats.has(attribute)) {
                     if (attribute === 'add: Effective Condition Damage') {
                       addEffectiveConditionDamage += value;
                     } else if (attribute === 'add: Effective Power') {
@@ -167,9 +169,10 @@ export function setup (input) {
                       + 'effective attributes, not ' + attribute
                     );
                   }
+
                   break;
                 case 'flat':
-                  if (validFlatStats.includes(attribute)) {
+                  if (validFlatStats.has(attribute)) {
                     settings.baseAttributes[attribute]
                     = (settings.baseAttributes[attribute] || 0) + value;
                   } else {
@@ -178,9 +181,10 @@ export function setup (input) {
                       + 'derived attributes, not ' + attribute
                     );
                   }
+
                   break;
                 case 'buff':
-                  if (validBuffStats.includes(attribute)) {
+                  if (validBuffStats.has(attribute)) {
                     settings.modifiers['buff'][attribute]
                     = (settings.modifiers['buff'][attribute] || 0) + value;
                   } else {
@@ -189,9 +193,10 @@ export function setup (input) {
                       + 'derived attributes, not ' + attribute
                     );
                   }
+
                   break;
                 case 'convert':
-                  if (validConvertStats.includes(attribute)) {
+                  if (validConvertStats.has(attribute)) {
                     if (!settings.modifiers['convert'][attribute]) {
                       settings.modifiers['convert'][attribute] = {};
                     }
@@ -205,6 +210,7 @@ export function setup (input) {
                       'Conversions can only modify primary or secondary attributes, not '
                       + attribute);
                   }
+
                   break;
                 // no default
               }
@@ -214,6 +220,7 @@ export function setup (input) {
       }
     }
   }
+
   settings.modifiers['multiplier']['Effective Condition Damage']
     *= (1 + addEffectiveConditionDamage);
   settings.modifiers['multiplier']['Effective Power']
@@ -250,15 +257,15 @@ export function setup (input) {
 
   /* Infusions */
 
-  const validInfusionStats = [
+  const validInfusionStats = new Set([
     ...Attributes.PRIMARY,
     ...Attributes.SECONDARY,
     ...Attributes.DERIVED
-  ];
+  ]);
 
   let activeInfusions = 0;
   if (primaryInfusionInput && primaryInfusionInput !== 'None') {
-    if (validInfusionStats.includes(primaryInfusionInput)) {
+    if (validInfusionStats.has(primaryInfusionInput)) {
       activeInfusions++;
       settings.primaryInfusion = primaryInfusionInput;
       settings.primaryMaxInfusions = primaryMaxInfusionsInput;
@@ -268,8 +275,13 @@ export function setup (input) {
         + primaryInfusionInput);
     }
   }
-  if (secondaryInfusionInput && secondaryInfusionInput !== 'None' && secondaryInfusionInput !== primaryInfusionInput) {
-    if (validInfusionStats.includes(secondaryInfusionInput)) {
+
+  if (
+    secondaryInfusionInput
+    && secondaryInfusionInput !== 'None'
+    && secondaryInfusionInput !== primaryInfusionInput
+  ) {
+    if (validInfusionStats.has(secondaryInfusionInput)) {
       activeInfusions++;
       if (activeInfusions === 2) {
         settings.secondaryInfusion = secondaryInfusionInput;
@@ -304,11 +316,13 @@ export function setup (input) {
       }
     // no default
   }
+
   if (applyInfusions[infusionMode] === undefined) {
     throw new Error(
       'Error: optimizer selected invalid infusion calculation mode: ' + infusionMode
     );
   }
+
   settings.infusionMode = infusionMode;
 
   /* Equipment */
@@ -323,23 +337,25 @@ export function setup (input) {
   settings.forcedRing = false;
   settings.forcedAcc = false;
   settings.forcedWep = false;
-  for (let i = 0; i < settings.forcedAffixes.length; i++) {
-    const inputValue = settings.forcedAffixes[i];
+  for (let index = 0; index < settings.forcedAffixes.length; index++) {
+    const inputValue = settings.forcedAffixes[index];
     if (!inputValue) {
       continue;
     }
+
     for (const affix of settings.affixes) {
       if (affix.toLowerCase().startsWith(inputValue.toLowerCase())) {
-        settings.affixesArray[i] = [affix];
-        if (['shld', 'glov', 'boot'].includes(ForcedSlots[i])) {
+        settings.affixesArray[index] = [affix];
+        if (['shld', 'glov', 'boot'].includes(ForcedSlots[index])) {
           settings.forcedArmor = true;
-        } else if (['rng1', 'rng2'].includes(ForcedSlots[i])) {
+        } else if (['rng1', 'rng2'].includes(ForcedSlots[index])) {
           settings.forcedRing = true;
-        } else if (['acc1', 'acc2'].includes(ForcedSlots[i])) {
+        } else if (['acc1', 'acc2'].includes(ForcedSlots[index])) {
           settings.forcedAcc = true;
-        } else if (['wep1', 'wep2'].includes(ForcedSlots[i])) {
+        } else if (['wep1', 'wep2'].includes(ForcedSlots[index])) {
           settings.forcedWep = true;
         }
+
         break;
       }
     }
@@ -353,9 +369,12 @@ export function setup (input) {
   // [grie vipe sini] legs
   // ...
   settings.affixesArray = settings.affixesArray.map((affixes, slotindex) => {
-    if (affixes.length === 1) return affixes;
-    return affixes.reduce((newAffixes, affix, i) => {
-      newAffixes[(i + slotindex) % affixes.length] = affix;
+    if (affixes.length === 1) {
+      return affixes;
+    }
+
+    return affixes.reduce((newAffixes, affix, index) => {
+      newAffixes[(index + slotindex) % affixes.length] = affix;
       return newAffixes;
     }, []);
   });
@@ -364,8 +383,8 @@ export function setup (input) {
   // like affixesArray, but each entry is an array of arrays of stats given by that piece with
   // that affix
   // e.g. berserker helm -> [[Power, 63],[Precision, 45],[Ferocity, 45]]
-  settings.affixStatsArray = settings.affixesArray.map((possibleAffixes, slotindex) => {
-    return possibleAffixes.map(affix => {
+  settings.affixStatsArray = settings.affixesArray.map((possibleAffixes, slotindex) =>
+    possibleAffixes.map(affix => {
       const statTotals = {};
       const bonuses = Object.entries(settings.slots[slotindex].item[Affix[affix].type]);
       for (const [type, bonus] of bonuses) {
@@ -373,9 +392,9 @@ export function setup (input) {
           statTotals[stat] = (statTotals[stat] || 0) + bonus;
         }
       }
+
       return Object.entries(statTotals);
-    });
-  });
+    }));
 
   // used to keep the progress counter in sync when skipping identical gear combinations.
   settings.runsAfterThisSlot = [];
@@ -384,8 +403,10 @@ export function setup (input) {
     for (let j = i; j < settings.affixesArray.length; j++) {
       counter *= settings.affixesArray[j].length;
     }
+
     settings.runsAfterThisSlot.push(counter);
   }
+
   settings.runsAfterThisSlot.push(1);
 
   // const freeSlots = settings.weapontype === 'Dual wield' ? 5 : 6;
@@ -426,19 +447,21 @@ export function setup (input) {
  * @yields {number} result.value.percent - the progress percentage
  */
 export function * calculate (settings) {
-  if (!settings.affixes.length) {
+  if (settings.affixes.length === 0) {
     return {
       isChanged: true,
       percent: 100,
       newList: []
     };
   }
+
   applyInfusionsFunction = applyInfusions[settings.infusionMode];
 
   let calculationTotal = 1;
   for (let i = 0; i < settings.affixesArray.length; i++) {
     calculationTotal *= settings.affixesArray[i].length;
   }
+
   let calculationRuns = 0;
 
   settings.condiResultCache = new Map();
@@ -451,7 +474,7 @@ export function * calculate (settings) {
   let UPDATE_MS = 90;
   let cycles = 0;
   isChanged = true;
-  while (calculationQueue.length) {
+  while (calculationQueue.length > 0) {
     cycles++;
 
     // pause to update UI at around 15 frames per second
@@ -513,6 +536,7 @@ export function * calculate (settings) {
       calculationQueue.push(newGear);
       calculationStatsQueue.push(newGearStats);
     }
+
     const currentAffix = settings.affixesArray[nextSlot][0];
     gear[nextSlot] = currentAffix;
 
@@ -524,6 +548,7 @@ export function * calculate (settings) {
     calculationQueue.push(gear);
     calculationStatsQueue.push(gearStats);
   }
+
   return {
     isChanged,
     percent: Math.floor((calculationRuns * 100) / calculationTotal),
@@ -639,6 +664,7 @@ applyInfusions['Secondary'] = function (character) {
         insertCharacter(temp);
         previousResult = temp.attributes[settings.rankby];
       }
+
       primaryCount--;
       secondaryCount++;
     }
@@ -684,9 +710,11 @@ applyInfusions['SecondaryNoDuplicates'] = function (character) {
           best = temp;
         }
       }
+
       primaryCount--;
       secondaryCount++;
     }
+
     if (best) {
       insertCharacter(best);
     }
@@ -695,12 +723,12 @@ applyInfusions['SecondaryNoDuplicates'] = function (character) {
 
 let uniqueIDCounter = 0;
 function insertCharacter (character) {
-  const { settings } = character;
+  const { settings, attributes, valid } = character;
 
   if (
-    !character.valid
+    !valid
     || (worstScore
-      && worstScore > character.attributes[settings.rankby])
+      && worstScore > attributes[settings.rankby])
   ) {
     return;
   }
@@ -734,6 +762,7 @@ function insertCharacter (character) {
       worstScore = list[list.length - 1].attributes[settings.rankby];
     }
   }
+
   isChanged = true;
 }
 
@@ -777,8 +806,10 @@ const roundEven = number => {
     if (floor % 2 === 0) {
       return floor;
     }
+
     return floor + 1;
   }
+
   return Math.round(number);
 };
 
@@ -828,13 +859,14 @@ function updateAttributesFast (_character, skipValidation = false) {
 
       // cache condi result based on cdmg and expertise
       let condiDamageScore = 0;
-      if (settings.relevantConditions.length) {
-        const CONDI_CACHE_ID = attributes['Expertise'] + attributes['Condition Damage'] * 10000;
+      if (settings.relevantConditions.length > 0) {
+        const CONDI_CACHE_ID = attributes['Expertise'] + (attributes['Condition Damage'] * 10000);
         condiDamageScore
           = settings.condiResultCache.get(CONDI_CACHE_ID)
             || calcCondi(_character, multipliers, settings.relevantConditions);
         settings.condiResultCache.set(CONDI_CACHE_ID, condiDamageScore);
       }
+
       attributes['Damage'] = powerDamageScore + condiDamageScore;
       break;
     case 'Survivability':
@@ -845,20 +877,21 @@ function updateAttributesFast (_character, skipValidation = false) {
       break;
       // no default
   }
+
   return true;
 }
 
 function calcStats (_character) {
   _character.attributes = Object.assign({}, _character.baseAttributes);
-  const { attributes } = _character;
+  const { attributes, settings, baseAttributes } = _character;
 
-  for (const [attribute, conversion] of _character.settings.modifiers['convert']) {
+  for (const [attribute, conversion] of settings.modifiers['convert']) {
     for (const [source, percent] of conversion) {
-      attributes[attribute] += roundEven(_character.baseAttributes[source] * percent);
+      attributes[attribute] += roundEven(baseAttributes[source] * percent);
     }
   }
 
-  for (const [attribute, bonus] of _character.settings.modifiers['buff']) {
+  for (const [attribute, bonus] of settings.modifiers['buff']) {
     attributes[attribute] = (attributes[attribute] || 0) + bonus;
   }
 
@@ -876,11 +909,12 @@ function checkInvalid (_character) {
   if (invalid) {
     _character.valid = false;
   }
+
   return invalid;
 }
 
 function calcPower (_character, multipliers) {
-  const { attributes } = _character;
+  const { attributes, settings } = _character;
 
   attributes['Critical Chance'] += (attributes['Precision'] - 1000) / 21;
   attributes['Critical Damage'] += attributes['Ferocity'] / 15;
@@ -888,10 +922,10 @@ function calcPower (_character, multipliers) {
   const critDmg = attributes['Critical Damage'] / 100 * multipliers['Critical Damage'];
   const critChance = Math.min(attributes['Critical Chance'] / 100, 1);
 
-  attributes['Effective Power'] = attributes['Power'] * (1 + critChance * (critDmg - 1))
+  attributes['Effective Power'] = attributes['Power'] * (1 + (critChance * (critDmg - 1)))
     * multipliers['Effective Power'];
 
-  const damage = _character.settings.distribution['Power']
+  const damage = settings.distribution['Power']
     * attributes['Effective Power'];
   attributes['Power DPS'] = damage;
 
@@ -899,7 +933,7 @@ function calcPower (_character, multipliers) {
 }
 
 function calcCondi (_character, multipliers, relevantConditions) {
-  const { attributes } = _character;
+  const { attributes, settings } = _character;
 
   attributes['Condition Duration'] += attributes['Expertise'] / 15;
   let condiDamageScore = 0;
@@ -913,7 +947,7 @@ function calcCondi (_character, multipliers, relevantConditions) {
     const duration = 1 + Math.min(((attributes[`${condition} Duration`] || 0)
         + attributes['Condition Duration']) / 100, 1);
 
-    const stacks = _character.settings.distribution[condition]
+    const stacks = settings.distribution[condition]
       * duration;
     attributes[`${condition} Stacks`] = stacks;
 
@@ -923,6 +957,7 @@ function calcCondi (_character, multipliers, relevantConditions) {
 
     condiDamageScore += damage;
   }
+
   return condiDamageScore;
 }
 
@@ -938,25 +973,26 @@ function calcSurvivability (_character, multipliers) {
 }
 
 function calcHealing (_character, multipliers) {
-  const { attributes } = _character;
+  const { attributes, settings } = _character;
 
   // reasonably representative skill: druid celestial avatar 4 pulse
   // 390 base, 0.3 coefficient
-  attributes['Effective Healing'] = (attributes['Healing Power'] * 0.3 + 390)
+  attributes['Effective Healing'] = ((attributes['Healing Power'] * 0.3) + 390)
       * multipliers['Effective Healing'];
   if (
     Object.prototype.hasOwnProperty.call(
-      _character.settings.modifiers,
+      settings.modifiers,
       'bountiful-maintenance-oil'
     )
   ) {
     const bonus
-      = ((attributes['Healing Power'] || 0) * 0.6) / 10000
-      + ((attributes['Concentration'] || 0) * 0.8) / 10000;
+      = ((attributes['Healing Power'] || 0) * 0.6 / 10000)
+      + ((attributes['Concentration'] || 0) * 0.8 / 10000);
     if (bonus) {
-      attributes['Effective Healing'] *= 1.0 + bonus;
+      attributes['Effective Healing'] *= 1 + bonus;
     }
   }
+
   attributes['Healing'] = attributes['Effective Healing'];
 }
 

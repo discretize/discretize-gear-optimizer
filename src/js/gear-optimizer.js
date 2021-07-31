@@ -160,7 +160,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
         input.tags.push(
           `<div
             data-armory-size="40"
-            data-armory-embed="${type.substring(5, type.length - 6)}"
+            data-armory-embed="${type.slice(5, -6)}"
             data-armory-ids="${span.data('armory-ids')}"
           ></div>`
         );
@@ -195,7 +195,9 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     }
 
     input.modifiers.push({
-      flat: { 'Agony Resistance': parseInt($(Selector.INPUT.AGONY_RESISTANCE).val(), 10) || 0 }
+      flat: {
+        'Agony Resistance': Number.parseInt($(Selector.INPUT.AGONY_RESISTANCE).val(), 10) || 0
+      }
     });
 
     input.profession = $(Selector.TOTAL)
@@ -216,8 +218,8 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       .get();
 
     input.forcedAffixes = [];
-    for (let i = 0; i < ForcedSlots.length; i++) {
-      const inputValue = $(Selector.INPUT.FORCE + ForcedSlots[i]).val();
+    for (const ForcedSlot of ForcedSlots) {
+      const inputValue = $(Selector.INPUT.FORCE + ForcedSlot).val();
       input.forcedAffixes.push(inputValue || '');
     }
 
@@ -227,11 +229,11 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       .text()
       .trim();
 
-    input.minBoonDuration = parseFloat($(Selector.INPUT.MIN_BOON_DURATION).val());
-    input.minHealingPower = parseInt($(Selector.INPUT.MIN_HEALING_POWER).val(), 10);
-    input.minToughness = parseInt($(Selector.INPUT.MIN_TOUGHNESS).val(), 10);
-    input.maxToughness = parseInt($(Selector.INPUT.MAX_TOUGHNESS).val(), 10);
-    input.maxResults = parseInt($(Selector.INPUT.MAX_RESULTS).val(), 10) || 10;
+    input.minBoonDuration = Number.parseFloat($(Selector.INPUT.MIN_BOON_DURATION).val());
+    input.minHealingPower = Number.parseInt($(Selector.INPUT.MIN_HEALING_POWER).val(), 10);
+    input.minToughness = Number.parseInt($(Selector.INPUT.MIN_TOUGHNESS).val(), 10);
+    input.maxToughness = Number.parseInt($(Selector.INPUT.MAX_TOUGHNESS).val(), 10);
+    input.maxResults = Number.parseInt($(Selector.INPUT.MAX_RESULTS).val(), 10) || 10;
 
     input.primaryInfusion = $(`${Selector.SELECT.INFUSION}-primary`)
       .children(Selector.DROPDOWN_MENU)
@@ -244,23 +246,23 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       .text()
       .trim();
     input.primaryMaxInfusions = Math.max(
-      parseInt($(`${Selector.SELECT.INFUSION}-primary-max`).val(), 10) || MAX_INFUSIONS,
+      Number.parseInt($(`${Selector.SELECT.INFUSION}-primary-max`).val(), 10) || MAX_INFUSIONS,
       0
     );
     input.secondaryMaxInfusions = Math.max(
-      parseInt($(`${Selector.SELECT.INFUSION}-secondary-max`).val(), 10) || MAX_INFUSIONS,
+      Number.parseInt($(`${Selector.SELECT.INFUSION}-secondary-max`).val(), 10) || MAX_INFUSIONS,
       0
     );
     input.infusionNoDuplicates = $('#go-select-infusion-duplicates').prop('checked');
 
     input.percentDistribution = {
       Power: 0,
-      ...Object.fromEntries(Attributes.CONDITION.map((condition) => [condition, 0]))
+      ...Object.fromEntries(Attributes.CONDITION.map(condition => [condition, 0]))
     };
     $.each(
       $('#go-condition-distribution-input').find('input[data-go-distribution]'),
       function () {
-        const percentage = parseInt($(this).val(), 10);
+        const percentage = Number.parseInt($(this).val(), 10);
         if (percentage) {
           input.percentDistribution[$(this).data('go-distribution')] = percentage;
         }
@@ -285,7 +287,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       .attr(
         'colspan',
         Slots[settings.weapontype].length + 1
-          + !!settings.primaryInfusion + !!settings.secondaryInfusion
+          + Boolean(settings.primaryInfusion) + Boolean(settings.secondaryInfusion)
       );
     $(Selector.OUTPUT.PROGRESS_BAR)
       .css('width', `${0}%`)
@@ -304,12 +306,12 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
         ).join('')
         + (settings.primaryInfusion
           ? `<th title="${settings.primaryInfusion}">
-              ${settings.primaryInfusion.substring(0, 4)}
+              ${settings.primaryInfusion.slice(0, 4)}
             </th>`
           : '')
         + (settings.secondaryInfusion
           ? `<th title="${settings.secondaryInfusion}">
-              ${settings.secondaryInfusion.substring(0, 4)}
+              ${settings.secondaryInfusion.slice(0, 4)}
             </th>`
           : '')
     );
@@ -329,7 +331,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
         updateDOM(newList);
         updateProgressBar(
           newPercent,
-          `Completed in ${new Date() - startTime}ms`
+          `Completed in ${Date.now() - startTime}ms`
         );
         break;
       } else {
@@ -341,31 +343,33 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
           updateProgressBar(newPercent, `${newPercent}%`);
           oldPercent = newPercent;
         }
+
         // pause to let UI update and register a stop button press
         await new Promise(resolve => setTimeout(resolve, 0));
 
         if (STOP_SIGNAL) {
           updateProgressBar(
             newPercent,
-            `Cancelled after ${new Date() - startTime}ms (${newPercent}%)`
+            `Cancelled after ${Date.now() - startTime}ms (${newPercent}%)`
           );
           break;
         }
       }
     }
+
     lockUI(false);
-    if (jQueryList.children().length) {
+    if (jQueryList.children().length > 0) {
       prettyResults();
     }
   }
 
   function characterToRow (character) {
-    const { settings } = character;
+    const { settings, attributes } = character;
 
     return $(
       `<tr>
         <td><strong>
-          ${Number(character.attributes[settings.rankby].toFixed(2)).toLocaleString('en-US')}
+          ${Number(attributes[settings.rankby].toFixed(2)).toLocaleString('en-US')}
         </strong></td>
         ${$.map(character.gear, attribute =>
           `<td><samp>${attribute.substring(0, 4)}</samp></td>`
@@ -382,14 +386,14 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
     // insert all new items
     let newItem = null;
-    for (let i = 0; i < newList.length; i++) {
+    for (let index = 0; index < newList.length; index++) {
 
-      if (newList[i] !== currentList[i]) {
-        newItem = characterToRow(newList[i]);
-        currentList.splice(i, 0, newList[i]);
+      if (newList[index] !== currentList[index]) {
+        newItem = characterToRow(newList[index]);
+        currentList.splice(index, 0, newList[index]);
 
-        if (i) {
-          jQueryList.children().eq(i - 1).after(newItem);
+        if (index) {
+          jQueryList.children().eq(index - 1).after(newItem);
         } else {
           jQueryList.prepend(newItem);
         }
@@ -397,11 +401,11 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     }
 
     // remove extra items
-    for (let i = currentList.length - 1; i > newList.length - 1; i--) {
-      jQueryList.children().eq(i).remove();
+    for (let index = currentList.length - 1; index > newList.length - 1; index--) {
+      jQueryList.children().eq(index).remove();
     }
 
-    currentList = newList.slice();
+    currentList = [...newList];
   }
 
   // Generates the card, that shows up when one clicks on the result.
@@ -422,7 +426,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
     optimizerCore.updateAttributes(_character);
     console.debug('character:', _character);
-    const { attributes } = _character;
+    const { attributes, settings, infusions, gearStats } = _character;
 
     let modal = '<div class="modal">';
     modal += '<div class="modal-dialog modal-lg">';
@@ -442,12 +446,12 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
     // Tags
     modal += `<div class="col-12 text-center">
-        <div class="card card-${_character.settings.profession} mb-3">
+        <div class="card card-${settings.profession} mb-3">
           <div class="card-header card-header-small">
             Modifiers
           </div>
           <div class="card-body character-tags">
-            ${_character.settings.tags.join('')}
+            ${settings.tags.join('')}
           </div>
         </div>
       </div>`;
@@ -456,27 +460,27 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     modal += '<div class="col-12 col-lg-6">';
 
     const indicators = {};
-    $.each(Attributes.INDICATORS, function (index, attribute) {
+    $.each(Attributes.INDICATORS, (index, attribute) => {
       indicators[attribute] = Number(attributes[attribute].toFixed(4))
         .toLocaleString('en-US');
     });
     modal += toCard('Indicators', indicators);
 
     const gear = {};
-    $.each(_character.gear, function (index, value) {
-      gear[Slots[_character.settings.weapontype][index].name] = value;
+    $.each(_character.gear, (index, value) => {
+      gear[Slots[settings.weapontype][index].name] = value;
     });
     modal += toCard('Gear', gear);
 
-    if (_character.infusions) {
-      modal += toCard('Stat Infusions', _character.infusions);
+    if (infusions) {
+      modal += toCard('Stat Infusions', infusions);
     }
 
     // effective gain from adding +5 infusions
     const effectiveValues = {};
     $.each(
       ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'],
-      function (index, value) {
+      (index, value) => {
         const temp = optimizerCore.clone(_character);
         temp.baseAttributes[value] += 5;
         optimizerCore.updateAttributes(temp);
@@ -491,7 +495,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     const effectiveNegativeValues = {};
     $.each(
       ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'],
-      function (index, value) {
+      (index, value) => {
         const temp = optimizerCore.clone(_character);
         temp.baseAttributes[value] = Math.max(temp.baseAttributes[value] - 5, 0);
         optimizerCore.updateAttributes(temp);
@@ -502,14 +506,15 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     );
     modal += toCard('Damage loss from -5 of attribute', effectiveNegativeValues);
 
-    if (_character.infusions) {
-      const statsFromGear = { ..._character.gearStats };
-      Object.entries(_character.infusions).forEach(([stat, value]) => {
-        statsFromGear[stat] = (statsFromGear[stat] || 0) + value * INFUSION_BONUS;
-      });
+    if (infusions) {
+      const statsFromGear = { ...gearStats };
+      for (const [stat, value] of Object.entries(infusions)) {
+        statsFromGear[stat] = (statsFromGear[stat] || 0) + (value * INFUSION_BONUS);
+      }
+
       modal += toCard('Stat total from affixes/infusions only', statsFromGear);
     } else {
-      modal += toCard('Stat total from affixes only', _character.gearStats);
+      modal += toCard('Stat total from affixes only', gearStats);
     }
 
     modal += '</div>';
@@ -519,19 +524,19 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     modal += '<div class="col-12 col-lg-6">';
 
     const primaryAttributes = {};
-    $.each(Attributes.PRIMARY, function (index, attribute) {
+    $.each(Attributes.PRIMARY, (index, attribute) => {
       primaryAttributes[attribute] = attributes[attribute] || 0;
     });
     modal += toCard('Primary Attributes', primaryAttributes);
 
     const secondaryAttributes = {};
-    $.each(Attributes.SECONDARY, function (index, attribute) {
+    $.each(Attributes.SECONDARY, (index, attribute) => {
       secondaryAttributes[attribute] = attributes[attribute] || 0;
     });
     modal += toCard('Secondary Attributes', secondaryAttributes);
 
     const derivedAttributes = {};
-    $.each(Attributes.DERIVED, function (index, attribute) {
+    $.each(Attributes.DERIVED, (index, attribute) => {
       switch (attribute) {
         case 'Critical Chance':
         case 'Boon Duration':
@@ -552,7 +557,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     modal += toCard('Derived Attributes', derivedAttributes);
 
     const effectiveAttributes = {};
-    $.each(Attributes.EFFECTIVE, function (index, attribute) {
+    $.each(Attributes.EFFECTIVE, (index, attribute) => {
       const value = attributes[attribute] || 0;
       effectiveAttributes[attribute] = Number(value.toFixed(5)).toLocaleString('en-US');
     });
@@ -560,7 +565,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
     const durationAttributes = {};
     let showDurations = false;
-    $.each(Attributes.BOON_DURATION, function (index, attribute) {
+    $.each(Attributes.BOON_DURATION, (index, attribute) => {
       let value = attributes[attribute];
       if (value) {
         showDurations = true;
@@ -570,7 +575,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
           : `${value.toFixed(2)}`;
       }
     });
-    $.each(Attributes.CONDITION_DURATION, function (index, attribute) {
+    $.each(Attributes.CONDITION_DURATION, (index, attribute) => {
       let value = attributes[attribute] || 0;
       if (value) {
         showDurations = true;
@@ -585,15 +590,15 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     }
 
     const conditionAttributes = {};
-    $.each(Attributes.CONDITION_DAMAGE, function (index, attribute) {
+    $.each(Attributes.CONDITION_DAMAGE, (index, attribute) => {
       conditionAttributes[attribute] = (attributes[attribute] || 0).toFixed(2);
     });
     modal += toCard('Condition Damage Ticks', conditionAttributes);
 
-    if (_character.settings.percentDistribution['Power'] !== 100) {
+    if (settings.percentDistribution['Power'] !== 100) {
       // effective damage distribution
       const effectiveDamageDistribution = {};
-      $.each(_character.settings.percentDistribution, function (key, percentage) {
+      $.each(settings.percentDistribution, key => {
         if (key === 'Power') {
           const damage = attributes['Power DPS'] / attributes['Damage'];
           effectiveDamageDistribution['Power'] = `${(damage * 100).toFixed(1)}%`;
@@ -607,7 +612,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
       // damage indicator breakdown
       const damageIndicatorBreakdown = {};
-      $.each(_character.settings.percentDistribution, function (key, percentage) {
+      $.each(settings.percentDistribution, key => {
         if (key === 'Power') {
           damageIndicatorBreakdown['Power'] = attributes['Power DPS']
             .toFixed(2)
@@ -658,7 +663,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     // display indicator line under the results identical to the best
     const bestValue = getSortValue(jQueryList.children().eq(0).data('character'));
     // eslint-disable-next-line consistent-return
-    jQueryList.children().each(function (i, element) {
+    jQueryList.children().each((index, element) => {
       if (getSortValue($(element).data('character')) !== bestValue) {
         $(element).prev().css('border-bottom', '4px solid #2f3238');
         return false; // jquery loop break
@@ -666,19 +671,20 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     });
 
     // slightly fade the most common affix
-    const attrCount = {};
-    $('#go-output samp').each(function (i, element) {
-      const attr = $(element).text();
-      attrCount[attr] = (attrCount[attr] || 0) + 1;
+    const attributeCount = {};
+    $('#go-output samp').each((index, element) => {
+      const attribute = $(element).text();
+      attributeCount[attribute] = (attributeCount[attribute] || 0) + 1;
     });
-    const max = Math.max.apply(null, Object.values(attrCount));
+    const max = Math.max(...Object.values(attributeCount));
     let mostFrequent = '';
-    Object.entries(attrCount).forEach(([attr, count]) => {
+    for (const [attribute, count] of Object.entries(attributeCount)) {
       if (count === max) {
-        mostFrequent = attr;
+        mostFrequent = attribute;
       }
-    });
-    $('#go-output samp').each(function (i, element) {
+    }
+
+    $('#go-output samp').each((index, element) => {
       if ($(element).text() === mostFrequent) {
         $(element).css('opacity', '0.7');
       } else {
@@ -697,9 +703,9 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
   $(Selector.DROPDOWN_SELECT)
     .children(Selector.DROPDOWN_MENU)
     .children(Selector.DROPDOWN_ITEM)
-    .on(Event.CLICK, function (e) {
+    .on(Event.CLICK, function (event_) {
       if ($(this).hasClass(ClassName.DISABLED)) {
-        e.stopPropagation();
+        event_.stopPropagation();
         return;
       }
 
@@ -1084,15 +1090,15 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
   });
 
   // Calculate button
-  $(Selector.START).on(Event.CLICK, function () {
-    run().catch(e => {
-      alert('There was an error in the calculation!\n\n' + e);
+  $(Selector.START).on(Event.CLICK, () => {
+    run().catch(error => {
+      alert('There was an error in the calculation!\n\n' + error);
       console.log('Caught error in calculation:');
       lockUI(false);
-      throw e;
+      throw error;
     });
   });
-  $(Selector.STOP).on(Event.CLICK, function () {
+  $(Selector.STOP).on(Event.CLICK, () => {
     STOP_SIGNAL = true;
   });
 
@@ -1105,7 +1111,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
   // After class select
   $('#gear-optimizer')
     .find('> .card-nav > .nav-tabs')
-    .on('shown.bs.tab', 'a.nav-link', function () {
+    .on('shown.bs.tab', 'a.nav-link', () => {
       $('#go-input-class').siblings().removeClass('d-none');
     });
 
@@ -1125,16 +1131,16 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     }
   });
 
-  for (let i = 0; i < 6; i++) {
+  for (let index = 0; index < 6; index++) {
     $('#go-condition-distribution-slider')[0]
-      .querySelectorAll('.noUi-connect')[i]
-      .classList.add(`slider-bar-${i}`);
+      .querySelectorAll('.noUi-connect')[index]
+      .classList.add(`slider-bar-${index}`);
   }
 
-  $('#go-condition-distribution-slider')[0].noUiSlider.on('update', function (values, handle) {
+  $('#go-condition-distribution-slider')[0].noUiSlider.on('update', (values, handle) => {
     switch (handle) {
       case 0:
-        $('#go-input-power-percentage').val(parseInt(values[0], 10));
+        $('#go-input-power-percentage').val(Number.parseInt(values[0], 10));
         $('#go-input-burning-percentage').val(values[1] - values[0]);
         break;
       case 1:
@@ -1157,12 +1163,12 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     }
   });
 
-  $(function () {
+  $(() => {
     $('[data-toggle="tooltip"]').tooltip();
   });
 
-  $('#debug-additive').click(function () {
-    if (!$('.debug-legend').length) {
+  $('#debug-additive').click(() => {
+    if ($('.debug-legend').length === 0) {
       $('#go-input-class .card-body').prepend($('<div class="debug-legend"></div>'));
     } else {
       $('#debug-legend').empty();
@@ -1181,15 +1187,19 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       if (!modifier) {
         return;
       }
+
       if (modifier.includes('add: ')) {
         $(inputElement).css('color', 'blue');
       }
+
       if (modifier.includes('"Effective Power')) {
         $(inputElement).css('color', 'green');
       }
+
       if (modifier.includes('"Effective Condition Damage')) {
         $(inputElement).css('color', 'green');
       }
+
       if (
         modifier.includes('add: ')
         && (modifier.includes('"Effective Power')
@@ -1200,8 +1210,8 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     });
   });
 
-  $('#debug-converted').click(function () {
-    if (!$('.debug-legend').length) {
+  $('#debug-converted').click(() => {
+    if ($('.debug-legend').length === 0) {
       $('#go-input-class .card-body').prepend($('<div class="debug-legend"></div>'));
     } else {
       $('#debug-legend').empty();
@@ -1220,12 +1230,15 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       if (!modifier) {
         return;
       }
+
       if (modifier.includes('flat')) {
         $(inputElement).css('color', 'yellow');
       }
+
       if (modifier.includes('buff')) {
         $(inputElement).css('color', 'orange');
       }
+
       if (modifier.includes('flat') && modifier.includes('buff')) {
         $(inputElement).css('color', 'purple');
       }
