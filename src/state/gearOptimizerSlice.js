@@ -78,6 +78,10 @@ export const gearOptimizerSlice = createSlice({
     signetOfWrath: false,
     exposed: false,
     lightArmor: false,
+    primaryInfusion: "",
+    secondaryInfusion: "",
+    primaryMaxInfusions: "",
+    secondaryMaxInfusions: "",
     list: []
   },
   reducers: {

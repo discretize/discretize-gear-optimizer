@@ -56,7 +56,7 @@ const Infusions = ({ classes }) => {
           renderValue={(value) => <Item id={value} disableLink className={classes.item} />}
         >
           <MenuItem value="">None </MenuItem>
-          {INFUSIONS.map((i) => (
+          {INFUSIONS.map((i) => i.id).map((i) => (
             <MenuItem value={i} key={i}>
               <Item id={i} disableLink />
             </MenuItem>

@@ -68,12 +68,12 @@ export const GEAR_SLOTS = [
 ];
 
 export const INFUSIONS = [
-  37131, // power
-  37132, // precision
-  37130, // condi
-  86113, // expertise
-  86180, // concentration
-  37125, // healing power
-  37135, // toughness
-  37136 // vitality
+  { id: 37131, attribute: "Power" }, // power
+  { id: 37132, attribute: "Precision" }, // precision
+  { id: 37130, attribute: "Condition Damage" }, // condi
+  { id: 86113, attribute: "Expertise" }, // expertise
+  { id: 86180, attribute: "Concentration" }, // concentration
+  { id: 37125, attribute: "Healing Power" }, // healing power
+  { id: 37135, attribute: "Toughness" }, // toughness
+  { id: 37136, attribute: "Vitality" } // vitality
 ];

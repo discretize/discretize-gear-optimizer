@@ -10,11 +10,15 @@ import {
   getModifiers,
   getProfession
 } from "../state/gearOptimizerSlice";
+import { INFUSIONS } from "../utils/gw2-data";
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function* runCalc() {
   const state = yield select();
+
+  const primaryInfusion = INFUSIONS.find((i) => i.id === getGeneric("primaryInfusion")(state));
+  const secondaryInfusion = INFUSIONS.find((i) => i.id === getGeneric("secondaryInfusion")(state));
 
   const input = {
     modifiers: getModifiers(state).map((modifier) => JSON.parse(modifier.modifiers)),
@@ -31,10 +35,10 @@ function* runCalc() {
     minToughness: getGeneric("minToughness")(state),
     maxToughness: getGeneric("maxToughness")(state),
     maxResults: 50, // TODO MAX RESULTS
-    primaryInfusion: /* getGeneric("primaryInfusion")(state), */ null,
-    secondaryInfusion: /* getGeneric("secondaryInfusion")(state), */ null,
-    primaryMaxInfusions: /* getGeneric("primaryMaxInfusions")(state), */ null,
-    secondaryMaxInfusions: /* getGeneric("secondaryMaxInfusions")(state), */ null,
+    primaryInfusion: primaryInfusion && primaryInfusion.attribute,
+    secondaryInfusion: secondaryInfusion && secondaryInfusion.attribute,
+    primaryMaxInfusions: getGeneric("primaryMaxInfusions")(state),
+    secondaryMaxInfusions: getGeneric("secondaryMaxInfusions")(state),
     percentDistribution: getDistributionOld(state),
     distribution: getDistributionNew(state)
   };
