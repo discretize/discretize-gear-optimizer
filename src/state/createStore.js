@@ -4,7 +4,7 @@ import { applyMiddleware, combineReducers, compose, createStore as reduxCreateSt
 import createSagaMiddleware from "redux-saga";
 
 import gearOptimizerReducer from "./gearOptimizerSlice";
-import gearOptimizerSaga from '../js/sagas';
+import gearOptimizerSaga from "./optimizer/sagas";
 
 const { requestsReducer, requestsMiddleware } = handleRequests();
 

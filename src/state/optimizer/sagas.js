@@ -9,8 +9,8 @@ import {
   getGeneric,
   getModifiers,
   getProfession
-} from "../state/gearOptimizerSlice";
-import { INFUSIONS } from "../utils/gw2-data";
+} from "../gearOptimizerSlice";
+import { INFUSIONS } from "../../utils/gw2-data";
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
