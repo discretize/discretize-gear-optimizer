@@ -45,7 +45,7 @@ const styles = (theme) => ({
 
 const OPTIMIZATION_GOALS = ["Damage", "Survivability", "Healing"];
 const WEAPON_TYPE = [
-  { id: "dualWielded", label: "Dual Wielded" },
+  { id: "Dual wield", label: "Dual Wielded" },
   { id: "twoHanded", label: "Two Handed" }
 ];
 
@@ -117,7 +117,7 @@ const Priorities = ({ classes, presets }) => {
               onChange={handleChange}
             >
               <FormControlLabel
-                value="dualWielded"
+                value="Dual wield"
                 control={<Radio color="primary" />}
                 label="Dual wielded"
               ></FormControlLabel>

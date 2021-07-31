@@ -28,7 +28,7 @@ export const gearOptimizerSlice = createSlice({
       textBoxes: ["2", "0", "0", "0", "0", "0"]
     },
     optimizeFor: "Damage",
-    weaponType: "dualWielded",
+    weaponType: "Dual wield",
     minBoonDuration: "",
     minHealingPower: "",
     minToughness: "1000",
