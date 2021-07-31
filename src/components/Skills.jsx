@@ -2,7 +2,13 @@ import { Typography, withStyles } from "@material-ui/core";
 import { Skill } from "gw2-ui";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addModifier, addSkill, getSkills, removeSkill } from "../state/gearOptimizerSlice";
+import {
+  addModifier,
+  addSkill,
+  getSkills,
+  removeModifier,
+  removeSkill
+} from "../state/gearOptimizerSlice";
 import CheckboxComponent from "./baseComponents/CheckboxComponent";
 
 const styles = (theme) => ({
@@ -36,7 +42,8 @@ const Skills = ({ classes, data }) => {
         })
       );
     } else {
-      dispatch(removeSkill({ value: skill.id }));
+      dispatch(removeSkill(skill.id));
+      dispatch(removeModifier(skill.id));
     }
   };
 

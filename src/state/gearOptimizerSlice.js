@@ -107,7 +107,7 @@ export const gearOptimizerSlice = createSlice({
       state.skills = state.skills.concat(action.payload.value);
     },
     removeSkill: (state, action) => {
-      state.skills = state.skills.filter((v) => v !== action.payload.value);
+      state.skills = state.skills.filter((v) => v !== action.payload);
     },
     changeForcedSlot: (state, action) => {
       state.forcedSlots[action.payload.index] = action.payload.value;
