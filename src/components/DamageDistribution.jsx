@@ -123,8 +123,15 @@ const DamageDistribution = ({ classes, presets: presetsRaw }) => {
       prev = value[i];
     }
     distributionRecalc.push(100 - prev);
-
-    dispatch(changeAllDistributionsOld(distributionRecalc));
+    const percentDistribution = {
+      Power: distributionRecalc[0],
+      Burning: distributionRecalc[1],
+      Bleeding: distributionRecalc[2],
+      Poison: distributionRecalc[3],
+      Torment: distributionRecalc[4],
+      Confusion: distributionRecalc[5]
+    };
+    dispatch(changeAllDistributionsOld(percentDistribution));
   };
 
   const SliderOld = () => {
@@ -155,7 +162,7 @@ const DamageDistribution = ({ classes, presets: presetsRaw }) => {
                 ) : (
                   <Condition name={d.name} disableLink />
                 )}{" "}
-                {distributionOld[index]}%
+                {distributionOld[d.name]}%
               </Typography>
             </Grid>
           ))}
@@ -164,21 +171,20 @@ const DamageDistribution = ({ classes, presets: presetsRaw }) => {
     );
   };
 
-  const onUpdateNew = (num) => (render, handle, value, un, percent) => {
-    dispatch(changeTextBoxes({ index: num, value: Math.round(value * 100) / 100 }));
-    dispatch(changeDistributionNew({ index: num, value: value }));
+  const onUpdateNew = (key) => (render, handle, value, un, percent) => {
+    dispatch(changeTextBoxes({ index: key, value: Math.round(value * 100) / 100 }));
+    dispatch(changeDistributionNew({ index: key, value: value }));
   };
 
-  const handleChangeTextNew = (num) => (e) => {
+  const handleChangeTextNew = (key) => (e) => {
     let value = e.target.value;
     if (value.match("^[-+]?[0-9]*.?[0-9]+([eE][-+]?[0-9]+)?$")) {
       // only update the actual slider when the number entered is a valid string. The regex matches for integer or floats.
-      dispatch(changeDistributionNew({ index: num, value: value }));
+      dispatch(changeDistributionNew({ index: key, value: value }));
     }
 
-    dispatch(changeTextBoxes({ index: num, value: value }));
+    dispatch(changeTextBoxes({ index: key, value: value }));
   };
-
   const SlidersNew = () => {
     return (
       <Grid container>
@@ -195,7 +201,7 @@ const DamageDistribution = ({ classes, presets: presetsRaw }) => {
                 </InputLabel>
                 <Input
                   id={"input-with-icon-adornment-" + index}
-                  value={textBoxes[index]}
+                  value={textBoxes[d.name]}
                   endAdornment={
                     <InputAdornment position="end">
                       {d.name === "Power" ? (
@@ -205,14 +211,14 @@ const DamageDistribution = ({ classes, presets: presetsRaw }) => {
                       )}
                     </InputAdornment>
                   }
-                  onChange={handleChangeTextNew(index)}
+                  onChange={handleChangeTextNew(d.name)}
                 />
               </FormControl>
             </Grid>
             <Grid item xs={12} sm={9}>
               <Nouislider
                 className={classNames(classes.sliderNew, classes.slider)}
-                start={distributionNew[index]}
+                start={distributionNew[d.name]}
                 connect={[true, false]}
                 range={{
                   min: [d.min],
@@ -231,7 +237,7 @@ const DamageDistribution = ({ classes, presets: presetsRaw }) => {
                   ],
                   density: 5
                 }}
-                onSlide={debounce(onUpdateNew(index), 50)}
+                onSlide={debounce(onUpdateNew(d.name), 50)}
               />
             </Grid>
           </React.Fragment>

@@ -16,16 +16,6 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 function* runCalc() {
   const state = yield select();
 
-  const percentDistributionTemp = getDistributionOld(state);
-  const percentDistribution = {
-    Power: percentDistributionTemp[0],
-    Burning: percentDistributionTemp[1],
-    Bleeding: percentDistributionTemp[2],
-    Poison: percentDistributionTemp[3],
-    Torment: percentDistributionTemp[4],
-    Confusion: percentDistributionTemp[5]
-  };
-
   const input = {
     modifiers: getModifiers(state).map((modifier) => JSON.parse(modifier.modifiers)),
     tags: undefined,
@@ -45,8 +35,8 @@ function* runCalc() {
     secondaryInfusion: /* getGeneric("secondaryInfusion")(state), */ null,
     primaryMaxInfusions: /* getGeneric("primaryMaxInfusions")(state), */ null,
     secondaryMaxInfusions: /* getGeneric("secondaryMaxInfusions")(state), */ null,
-    percentDistribution
-    /* distribution: getDistributionNew(state) */
+    percentDistribution: getDistributionOld(state),
+    distribution: getDistributionNew(state)
   };
   console.log("input real", input);
 

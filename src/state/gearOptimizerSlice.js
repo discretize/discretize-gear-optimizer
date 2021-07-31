@@ -23,9 +23,30 @@ export const gearOptimizerSlice = createSlice({
     affixes: [],
     distribution: {
       version: 2,
-      values1: [100, 0, 0, 0, 0, 0],
-      values2: [2, 0, 0, 0, 0, 0],
-      textBoxes: ["2", "0", "0", "0", "0", "0"]
+      values1: {
+        Power: 100,
+        Burning: 0,
+        Bleeding: 0,
+        Poisoned: 0,
+        Torment: 0,
+        Confusion: 0
+      },
+      values2: {
+        Power: 2,
+        Burning: 0,
+        Bleeding: 0,
+        Poisoned: 0,
+        Torment: 0,
+        Confusion: 0
+      },
+      textBoxes: {
+        Power: "2",
+        Burning: "0",
+        Bleeding: "0",
+        Poisoned: "0",
+        Torment: "0",
+        Confusion: "0"
+      }
     },
     optimizeFor: "Damage",
     weaponType: "Dual wield",
@@ -89,10 +110,16 @@ export const gearOptimizerSlice = createSlice({
       state.distribution.version = action.payload;
     },
     changeDistributionNew: (state, action) => {
-      state.distribution.values2[action.payload.index] = action.payload.value;
+      state.distribution = {
+        ...state.distribution,
+        values2: { ...state.distribution.values2, [action.payload.index]: action.payload.value }
+      };
     },
     changeTextBoxes: (state, action) => {
-      state.distribution.textBoxes[action.payload.index] = action.payload.value;
+      state.distribution = {
+        ...state.distribution,
+        textBoxes: { ...state.distribution.textBoxes, [action.payload.index]: action.payload.value }
+      };
     },
     changeAllTextBoxes: (state, action) => {
       state.distribution.textBoxes = action.payload;
