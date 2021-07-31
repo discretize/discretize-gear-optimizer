@@ -1,6 +1,7 @@
 import { Chip, withStyles } from "@material-ui/core";
 import { Profession } from "gw2-ui";
 import React from "react";
+import { firstUppercase } from "../../utils/usefulFunctions";
 
 const styles = (theme) => ({
   templateChip: {
@@ -17,7 +18,10 @@ const Presets = ({ classes, data, handleClick }) => {
           key={preset.name}
           label={
             preset.profession ? (
-              <Profession eliteSpecialization={preset.profession} text={preset.name} />
+              <Profession
+                eliteSpecialization={firstUppercase(preset.profession)}
+                text={preset.name}
+              />
             ) : (
               preset.name
             )

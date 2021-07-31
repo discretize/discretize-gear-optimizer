@@ -21,6 +21,7 @@ import {
 import GitHubIcon from "@material-ui/icons/GitHub";
 import MenuIcon from "@material-ui/icons/Menu";
 import { PROFESSIONS } from "../utils/gw2-data";
+import { firstUppercase } from "../utils/usefulFunctions";
 
 const styles = (theme) => ({
   topNav: {},
@@ -97,7 +98,11 @@ const Navbar = ({ classes }) => {
             onClick={() => dispatch(changeProfession(p.profession))}
             variant={p.profession === profession ? "contained" : "text"}
           >
-            <Profession name={p.profession} disableLink className={classes.navProfession} />
+            <Profession
+              name={firstUppercase(p.profession)}
+              disableLink
+              className={classes.navProfession}
+            />
           </Button>
         </div>
       ));
@@ -140,7 +145,7 @@ const Navbar = ({ classes }) => {
           variant={p.profession === profession ? "contained" : "text"}
         >
           <Profession
-            name={p.profession}
+            name={firstUppercase(p.profession)}
             disableLink
             disableText
             className={classes.navProfession}

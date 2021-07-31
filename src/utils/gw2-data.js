@@ -1,11 +1,11 @@
 export const PROFESSIONS = [
-  { profession: "Warrior", eliteSpecializations: ["Spellbreaker", "Berserker"] },
-  { profession: "Revenant", eliteSpecializations: ["Herald", "Renegade"] },
-  { profession: "Guardian", eliteSpecializations: ["Dragonhunter", "Firebrand"] },
-  { profession: "Ranger", eliteSpecializations: ["Druid", "Soulbeast"] },
-  { profession: "Engineer", eliteSpecializations: ["Scrapper", "Holosmith"] },
-  { profession: "Elementalist", eliteSpecializations: ["Tempest", "Weaver"] },
-  { profession: "Mesmer", eliteSpecializations: ["Chronomancer", "Mirage"] }
+  { profession: "WARRIOR", eliteSpecializations: ["SPELLBREAKER", "BERSERKER"] },
+  { profession: "REVENANT", eliteSpecializations: ["HERALD", "RENEGADE"] },
+  { profession: "GUARDIAN", eliteSpecializations: ["DRAGONHUNTER", "FIREBRAND"] },
+  { profession: "RANGER", eliteSpecializations: ["DRUID", "SOULBEAST"] },
+  { profession: "ENGINEER", eliteSpecializations: ["SCRAPPER", "HOLOSMITH"] },
+  { profession: "ELEMENTALIST", eliteSpecializations: ["TEMPEST", "WEAVER"] },
+  { profession: "MESMER", eliteSpecializations: ["CHRONOMANCER", "MIRAGE"] }
 ];
 
 export const GEAR_SLOTS = [
