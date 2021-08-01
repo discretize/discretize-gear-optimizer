@@ -7,7 +7,7 @@
     "ignorePatterns": [
         "gulpfile.js"
     ],
-    "extends": "semistandard",
+    "extends": ["semistandard", "plugin:unicorn/recommended"],
     "rules": {
         "padded-blocks": "warn",
         "dot-notation": "off",
@@ -40,6 +40,19 @@
         "consistent-return": "warn",
         "object-shorthand": "warn",
         "guard-for-in": "warn",
-        "no-underscore-dangle": "warn"
+        "no-underscore-dangle": "warn",
+
+        "unicorn/filename-case": "off",
+        "unicorn/consistent-function-scoping": "off",
+        "unicorn/numeric-separators-style": "off",
+        "unicorn/prevent-abbreviations": [
+            "warn",
+            {
+                "replacements": { "j": false, "temp": false }
+            }
+        ],
+        "unicorn/no-array-callback-reference": "off",
+        "unicorn/prefer-spread": "off",
+        "unicorn/no-null": "off"
     }
 }
