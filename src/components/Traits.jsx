@@ -1,42 +1,38 @@
 import {
   FormControl,
-  FormLabel,
-  FormGroup,
-  Grid,
   Input,
   InputLabel,
   ListItemText,
   MenuItem,
   Select,
   Typography,
-  withStyles
-} from "@material-ui/core";
-import { Specialization, Trait, TraitLine } from "gw2-ui";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+  withStyles,
+} from '@material-ui/core';
+import { Specialization, Trait, TraitLine } from 'gw2-ui';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   addModifier,
   changeTraitLine,
   changeTraits,
-  getGeneric,
   getModifiers,
   getTraitLines,
   getTraits,
   removeModifier,
   removeModifierWithSource,
-  removeTraitModifierWithGW2id
-} from "../state/gearOptimizerSlice";
-import CheckboxComponent from "./baseComponents/CheckboxComponent";
+  removeTraitModifierWithGW2id,
+} from '../state/gearOptimizerSlice';
+import CheckboxComponent from './baseComponents/CheckboxComponent';
 
 const styles = (theme) => ({
   formControl: {
     minWidth: 120,
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
   },
   root: {
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(2),
   },
-  item: { lineHeight: "1 !important" }
+  item: { lineHeight: '1 !important' },
 });
 
 /**
@@ -74,9 +70,9 @@ const Traits = ({ classes, data }) => {
           id: minor.id,
           modifiers: minor.modifiers,
           gw2_id: minor.gw2_id,
-          source: newTraitLine
-        })
-      )
+          source: newTraitLine,
+        }),
+      ),
     );
 
     dispatch(changeTraitLine({ index, value: newTraitLine.toString() }));
@@ -111,8 +107,8 @@ const Traits = ({ classes, data }) => {
           id: trait.id,
           modifiers: trait.modifiers,
           gw2_id: trait.gw2_id,
-          source: Number(line)
-        })
+          source: Number(line),
+        }),
       );
     } else {
       dispatch(removeModifier(trait.id));
@@ -133,20 +129,20 @@ const Traits = ({ classes, data }) => {
 
         traits[index].forEach((t) => {
           const matching = data.find((v) => v.id === Number(traitlines[index]));
-          if (typeof matching === "undefined") return null;
+          if (typeof matching === 'undefined') return null;
 
           const matchingFiltered = matching.items.filter((v) => v.gw2_id === t);
           checkboxModis.push(...matchingFiltered);
         });
 
-        const name = "traitNr" + lineNr;
+        const name = `traitNr${lineNr}`;
         return (
           <React.Fragment key={name}>
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor={name}>Traitline {lineNr}</InputLabel>
               <Select
                 value={traitlines[index]}
-                input={<Input name={"Traitline " + lineNr} id={name} />}
+                input={<Input name={`Traitline ${lineNr}`} id={name} />}
                 onChange={handleTraitlineSelect(index)}
                 renderValue={(selected) => {
                   return <Specialization id={selected} disableLink className={classes.item} />;
@@ -156,7 +152,7 @@ const Traits = ({ classes, data }) => {
                   .map((line) => line.id)
                   .filter(
                     (tr) =>
-                      !traitlines.includes(tr.toString()) || traitlines[index] === tr.toString()
+                      !traitlines.includes(tr.toString()) || traitlines[index] === tr.toString(),
                   )
                   .map((v) => (
                     <MenuItem key={v} value={v} className={classes.menuItem}>
@@ -181,7 +177,7 @@ const Traits = ({ classes, data }) => {
                   checked={modifiers.filter((m) => m.id === trait.id).length > 0}
                   label={
                     <>
-                      {trait.gw2_id && <Trait id={trait.gw2_id} disableLink />}{" "}
+                      {trait.gw2_id && <Trait id={trait.gw2_id} disableLink />}{' '}
                       <Typography variant="caption">{trait.subText}</Typography>
                     </>
                   }
