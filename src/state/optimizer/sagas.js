@@ -42,7 +42,7 @@ function* runCalc() {
     percentDistribution: getDistributionOld(state),
     distribution: getDistributionNew(state)
   };
-  console.log("input real", input);
+  console.log("input (real):", input);
 
   // hardcode for now
   const fakeInput = {
@@ -103,7 +103,7 @@ function* runCalc() {
       "Confusion": 0
     }
   };
-  console.log("input hardcoded", fakeInput);
+  console.log("hardcoded input for comparison:", fakeInput);
 
   // temp: convert "poisoned" to "poison"
   function convertPoison (distribution) {
@@ -127,29 +127,30 @@ function* runCalc() {
   let newPercent;
   let isChanged;
   let newList;
+  const time = Date.now();
   while (true) {
     const result = generator.next();
     ({
       done,
       value: { percent: newPercent, isChanged, newList }
     } = result);
-    console.log("generator result:", result);
+    console.log(`${newPercent}% done:`, result);
 
     if (isChanged) {
-      console.log("changed; saga list length:", newList.length);
+      console.log("list changed");
       yield put(changeList(newList));
     } else {
-      console.log("not changed!");
+      console.log("list not changed");
       // yield put({ type: 'DONOTHING' });
     }
 
     if (done) {
       // cleanup
-      console.log("done");
+      console.log(`calculation done in ${Date.now() - time}ms`);
       break;
     }
 
-    yield delay(1);
+    yield delay(0);
   }
 }
 
