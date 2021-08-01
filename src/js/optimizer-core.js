@@ -12,7 +12,7 @@ import {
   Attributes,
   MAX_INFUSIONS,
   INFUSION_BONUS,
-} from './gw2-data';
+} from './gw2-data.js';
 
 /**
  * ------------------------------------------------------------------------

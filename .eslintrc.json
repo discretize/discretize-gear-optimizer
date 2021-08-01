@@ -9,6 +9,8 @@
     ],
     "extends": ["airbnb-base/whitespace", "plugin:unicorn/recommended", "prettier"],
     "rules": {
+        "import/extensions": "off",
+        
         "no-restricted-syntax": "off",
         "no-use-before-define": "off",
         "no-plusplus": "off",

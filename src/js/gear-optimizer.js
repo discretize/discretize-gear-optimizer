@@ -4,7 +4,7 @@
 /* eslint-disable dot-notation */
 /* eslint-disable prefer-template */
 
-import * as optimizerCore from './optimizer-core';
+import * as optimizerCore from './optimizer-core.js';
 // import { html, Component, render } from 'https://unpkg.com/htm/preact/index.mjs?module';
 
 import {
@@ -14,7 +14,7 @@ import {
   Attributes,
   MAX_INFUSIONS,
   INFUSION_BONUS,
-} from './gw2-data';
+} from './gw2-data.js';
 
 (function ($) {
   /**
