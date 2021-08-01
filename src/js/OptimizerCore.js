@@ -384,11 +384,11 @@ export function setup (input) {
     if (affixes.length === 1) {
       return affixes;
     }
-
-    return affixes.reduce((newAffixes, affix, index) => {
-      newAffixes[(index + slotindex) % affixes.length] = affix;
-      return newAffixes;
-    }, []);
+    const result = [];
+    for (const [index, affix] of Object.entries(affixes)) {
+      result[(index + slotindex) % affixes.length] = affix;
+    }
+    return result;
   });
   // console.log(settings.affixesArray.map(item => item.toString()));
 
