@@ -41,10 +41,10 @@ const GW2Select = ({ classes, name, label, data }) => {
   };
 
   const values = [];
-  for (let elem in data) {
-    values.push({ type: "section", text: data[elem].section });
-    for (let item in data[elem].items) {
-      values.push({ type: "item", ...data[elem].items[item] });
+  for (const elem of data) {
+    values.push({ type: 'section', text: elem.section });
+    for (const item of elem.items) {
+      values.push({ type: 'item', ...item });
     }
   }
 
