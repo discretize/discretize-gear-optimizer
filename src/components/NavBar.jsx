@@ -13,8 +13,10 @@ import { Profession } from "gw2-ui";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  changeControl,
   changeGeneric,
   changeProfession,
+  getControl,
   getGeneric,
   getProfession
 } from "../state/gearOptimizerSlice";
@@ -40,7 +42,8 @@ const styles = (theme) => ({
 const Navbar = ({ classes }) => {
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
-  const expertMode = useSelector(getGeneric("expertMode"));
+  const expertMode = useSelector(getControl("expertMode"));
+
   const [state, setState] = useState({
     mobileView: false,
     drawerOpen: false
@@ -71,7 +74,7 @@ const Navbar = ({ classes }) => {
             <Switch
               checked={expertMode}
               onChange={(e) =>
-                dispatch(changeGeneric({ toChange: "expertMode", value: e.target.checked }))
+                dispatch(changeControl({ key: "expertMode", value: e.target.checked }))
               }
               name="checked"
               color="primary"

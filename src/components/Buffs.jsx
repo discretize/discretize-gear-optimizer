@@ -12,7 +12,9 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addModifier,
+  changeBuff,
   changeGeneric,
+  getBuffs,
   getGeneric,
   removeModifier
 } from "../state/gearOptimizerSlice";
@@ -38,6 +40,8 @@ const styles = (theme) => ({
 const Buffs = ({ classes, data, presets }) => {
   const dispatch = useDispatch();
 
+  const buffs = useSelector(getBuffs);
+
   const handleChange = (buff) => (event) => {
     // handle the modifier
     if (event.target.checked) {
@@ -52,21 +56,16 @@ const Buffs = ({ classes, data, presets }) => {
     }
 
     // change the value
-    dispatch(changeGeneric({ toChange: buff.id, value: event.target.checked }));
+    dispatch(changeBuff({ key: buff.id, value: event.target.checked }));
   };
 
   const handleTemplateClick = (index) => (event) => {
     // set all the buffs to disabled
-    [].concat
-      .apply(
-        [],
-        data.map((d) => d.items)
-      )
-      .forEach((elem) => dispatch(changeGeneric({ toChange: elem.id, value: false })));
+    Object.keys(buffs).forEach((elem) => dispatch(changeBuff({ key: elem, value: false })));
 
     // apply the preset
     const state = JSON.parse(presets[index].value);
-    Object.keys(state).forEach((k) => dispatch(changeGeneric({ toChange: k, value: state[k] })));
+    Object.keys(state).forEach((key) => dispatch(changeBuff({ key, value: state[key] })));
   };
 
   // Dynamic component creation for buffs from a string
@@ -101,7 +100,7 @@ const Buffs = ({ classes, data, presets }) => {
                         <CheckboxComponent
                           key={buff.id}
                           value={buff.id}
-                          checked={useSelector(getGeneric(buff.id))}
+                          checked={buffs[buff.id]}
                           label={
                             <>
                               <Typography>{buff.text}</Typography>
@@ -127,7 +126,7 @@ const Buffs = ({ classes, data, presets }) => {
                     <CheckboxComponent
                       key={buff.id}
                       value={buff.id}
-                      checked={useSelector(getGeneric(buff.id))}
+                      checked={buffs[buff.id]}
                       label={
                         <Component
                           id={buff.gw2_id}

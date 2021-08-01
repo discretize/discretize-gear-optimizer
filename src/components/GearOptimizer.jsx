@@ -4,7 +4,7 @@ import { graphql, StaticQuery } from "gatsby";
 import { ConsumableEffect, Item } from "gw2-ui";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getGeneric, getProfession } from "../state/gearOptimizerSlice";
+import { getControl, getGeneric, getProfession } from "../state/gearOptimizerSlice";
 import { PROFESSIONS } from "../utils/gw2-data";
 import ARinput from "./ARinput";
 import Buffs from "./Buffs";
@@ -47,10 +47,11 @@ const styles = (theme) => ({
  * @returns the main ui
  */
 const MainComponent = ({ classes, data }) => {
-  const expertMode = useSelector(getGeneric("expertMode"));
+  const expertMode = useSelector(getControl("expertMode"));
   const profession = useSelector(getProfession);
   const dualWielded = useSelector(getGeneric("weaponType"));
-  const progress = useSelector(getGeneric("percentageDone"));
+  const progress = useSelector(getControl("percentageDone"));
+
   const dispatch = useDispatch();
 
   function onStartCalculate(e) {

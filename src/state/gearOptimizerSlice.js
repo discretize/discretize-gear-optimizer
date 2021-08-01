@@ -3,9 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 export const gearOptimizerSlice = createSlice({
   name: "go",
   initialState: {
-    expertMode: true,
+    control: {
+      expertMode: true,
+      list: [],
+      percentageDone: 0
+    },
     profession: "",
-    ar: 162,
     traits: {
       lines: ["", "", ""],
       selected: [
@@ -14,13 +17,55 @@ export const gearOptimizerSlice = createSlice({
         [0, 0, 0]
       ]
     },
-    modifiers: [],
-    Runes: "",
-    Sigil1: "",
-    Sigil2: "",
-    Enhancement: "",
-    Nourishment: "",
-    affixes: [],
+    skills: [],
+    extras: {
+      Runes: "",
+      Sigil1: "",
+      Sigil2: "",
+      Enhancement: "",
+      Nourishment: ""
+    },
+    buffs: {
+      might: false,
+      fury: false,
+      protection: false,
+      vulnerability: false,
+      bannerOfStrength: false,
+      bannerOfDiscipline: false,
+      bannerOfTactics: false,
+      bannerOfDefense: false,
+      spotter: false,
+      frostSpirit: false,
+      empowerAllies: false,
+      pinpointDistribution: false,
+      assassinsPresence: false,
+      facetOfNature: false,
+      riteDwarf: false,
+      strengthInNumbers: false,
+      baneSignet: false,
+      signetOfJudgment: false,
+      signetOfMercy: false,
+      signetOfWrath: false,
+      exposed: false,
+      lightArmor: false
+    },
+    infusions: {
+      primaryInfusion: "",
+      secondaryInfusion: "",
+      primaryMaxInfusions: "",
+      secondaryMaxInfusions: ""
+    },
+    forcedSlots: [null, null, null, null, null, null, null, null, null, null, null, null, null],
+    ar: 162,
+    priorities: {
+      optimizeFor: "Damage",
+      weaponType: "Dual wield",
+      minBoonDuration: "",
+      minHealingPower: "",
+      minToughness: "1000",
+      maxToughness: "",
+      affixes: []
+    },
     distribution: {
       version: 2,
       values1: {
@@ -48,42 +93,7 @@ export const gearOptimizerSlice = createSlice({
         Confusion: "0"
       }
     },
-    optimizeFor: "Damage",
-    weaponType: "Dual wield",
-    minBoonDuration: "",
-    minHealingPower: "",
-    minToughness: "1000",
-    maxToughness: "",
-    skills: [],
-    forcedSlots: [null, null, null, null, null, null, null, null, null, null, null, null, null],
-    might: false,
-    fury: false,
-    protection: false,
-    vulnerability: false,
-    bannerOfStrength: false,
-    bannerOfDiscipline: false,
-    bannerOfTactics: false,
-    bannerOfDefense: false,
-    spotter: false,
-    frostSpirit: false,
-    empowerAllies: false,
-    pinpointDistribution: false,
-    assassinsPresence: false,
-    facetOfNature: false,
-    riteDwarf: false,
-    strengthInNumbers: false,
-    baneSignet: false,
-    signetOfJudgment: false,
-    signetOfMercy: false,
-    signetOfWrath: false,
-    exposed: false,
-    lightArmor: false,
-    primaryInfusion: "",
-    secondaryInfusion: "",
-    primaryMaxInfusions: "",
-    secondaryMaxInfusions: "",
-    list: [],
-    percentageDone: 0
+    modifiers: []
   },
   reducers: {
     changeProfession: (state, action) => {
@@ -156,8 +166,23 @@ export const gearOptimizerSlice = createSlice({
     removeModifierWithSource: (state, action) => {
       state.modifiers = state.modifiers.filter((m) => m.source !== action.payload);
     },
+    changeExtras: (state, action) => {
+      state.extras[action.payload.key] = action.payload.value;
+    },
+    changeControl: (state, action) => {
+      state.control[action.payload.key] = action.payload.value;
+    },
+    changeBuff: (state, action) => {
+      state.buffs[action.payload.key] = action.payload.value;
+    },
+    changeInfusions: (state, action) => {
+      state.infusions[action.payload.key] = action.payload.value;
+    },
+    changePriority: (state, action) => {
+      state.priorities[action.payload.key] = action.payload.value;
+    },
     changeList: (state, action) => {
-      state.list = action.payload;
+      state.control.list = action.payload;
     }
   }
 });
@@ -173,6 +198,12 @@ export const getDistributionNew = (state) => state.gearOptimizer.distribution.va
 export const getTextBoxes = (state) => state.gearOptimizer.distribution.textBoxes;
 export const getSkills = (state) => state.gearOptimizer.skills;
 export const getModifiers = (state) => state.gearOptimizer.modifiers;
+export const getExtra = (key) => (state) => state.gearOptimizer.extras[key];
+export const getControl = (key) => (state) => state.gearOptimizer.control[key];
+export const getBuffs = (state) => state.gearOptimizer.buffs;
+export const getInfusions = (state) => state.gearOptimizer.infusions;
+export const getPriority = (key) => (state) => state.gearOptimizer.priorities[key];
+
 export const getList = (state) => state.gearOptimizer.list;
 
 export const {
@@ -194,6 +225,11 @@ export const {
   removeModifier,
   removeTraitModifierWithGW2id,
   removeModifierWithSource,
+  changeExtras,
+  changeControl,
+  changeBuff,
+  changeInfusions,
+  changePriority,
   changeList
 } = gearOptimizerSlice.actions;
 

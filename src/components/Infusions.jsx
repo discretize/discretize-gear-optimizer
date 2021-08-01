@@ -11,7 +11,12 @@ import {
 import { Item } from "gw2-ui";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeGeneric, getGeneric } from "../state/gearOptimizerSlice";
+import {
+  changeGeneric,
+  changeInfusions,
+  getGeneric,
+  getInfusions
+} from "../state/gearOptimizerSlice";
 import { INFUSIONS } from "../utils/gw2-data";
 
 const styles = (theme) => ({
@@ -38,10 +43,7 @@ const styles = (theme) => ({
 
 const Infusions = ({ classes }) => {
   const dispatch = useDispatch();
-  const primaryInfusion = useSelector(getGeneric("primaryInfusion"));
-  const secondaryInfusion = useSelector(getGeneric("secondaryInfusion"));
-  const primaryMaxInfusions = useSelector(getGeneric("primaryMaxInfusions"));
-  const secondaryMaxInfusions = useSelector(getGeneric("secondaryMaxInfusions"));
+  const infusions = useSelector(getInfusions);
 
   const dropdown = (name, varName, infusion) => {
     return (
@@ -51,7 +53,12 @@ const Infusions = ({ classes }) => {
           value={typeof infusion === "undefined" ? "" : infusion.toString()}
           input={<Input name={name} id={name} />}
           onChange={(e) =>
-            dispatch(changeGeneric({ toChange: varName, value: Number(e.target.value) }))
+            dispatch(
+              changeInfusions({
+                key: varName,
+                value: e.target.value === "" ? "" : Number(e.target.value)
+              })
+            )
           }
           renderValue={(value) => <Item id={value} disableLink className={classes.item} />}
         >
@@ -74,7 +81,7 @@ const Infusions = ({ classes }) => {
           id={varName + "_input-with-icon-adornment"}
           value={maxInfusions}
           onChange={(e) =>
-            dispatch(changeGeneric({ toChange: varName, value: Number(e.target.value) }))
+            dispatch(changeInfusions({ key: varName, value: Number(e.target.value) }))
           }
         />
       </FormControl>
@@ -86,13 +93,13 @@ const Infusions = ({ classes }) => {
       <Typography variant="h5">Stat Infusions</Typography>
       <Grid container className={classes.grid} direction="row" alignItems="center">
         <Grid item xs={12} sm={8} className={classes.gridItem}>
-          {dropdown("Primary Infusion", "primaryInfusion", primaryInfusion)}
-          {input("Max #", "primaryMaxInfusions", primaryMaxInfusions)}
+          {dropdown("Primary Infusion", "primaryInfusion", infusions.primaryInfusion)}
+          {input("Max #", "primaryMaxInfusions", infusions.primaryMaxInfusions)}
         </Grid>
 
         <Grid item xs={12} sm={8}>
-          {dropdown("Secondary Infusion", "secondaryInfusion", secondaryInfusion)}
-          {input("Max #", "secondaryMaxInfusions", secondaryMaxInfusions)}
+          {dropdown("Secondary Infusion", "secondaryInfusion", infusions.secondaryInfusion)}
+          {input("Max #", "secondaryMaxInfusions", infusions.secondaryMaxInfusions)}
         </Grid>
       </Grid>
     </div>

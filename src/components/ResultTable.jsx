@@ -9,7 +9,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 
 import { useSelector } from "react-redux";
-import { getGeneric, getList } from "../state/gearOptimizerSlice";
+import { getGeneric, getList, getPriority } from "../state/gearOptimizerSlice";
 import { Slots } from "../utils/gw2-data";
 
 const useStyles = makeStyles({
@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 
 export default function StickyHeadTable() {
   const classes = useStyles();
-  const wield = useSelector(getGeneric("weaponType"));
+  const wield = useSelector(getPriority("weaponType"));
   const list = useSelector(getList) || [];
 
   return (

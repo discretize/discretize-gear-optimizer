@@ -13,8 +13,9 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addModifier,
+  changeExtras,
   changeGeneric,
-  getGeneric,
+  getExtra,
   removeModifierWithSource
 } from "../state/gearOptimizerSlice";
 
@@ -39,7 +40,7 @@ const styles = (theme) => ({
 
 const GW2Select = ({ classes, name, label, data }) => {
   const dispatch = useDispatch();
-  const bigValue = useSelector(getGeneric(name));
+  const bigValue = useSelector(getExtra(name));
 
   const allItems = [].concat.apply(
     [],
@@ -57,7 +58,7 @@ const GW2Select = ({ classes, name, label, data }) => {
       })
     );
 
-    dispatch(changeGeneric({ toChange: event.target.name, value: event.target.value }));
+    dispatch(changeExtras({ key: event.target.name, value: event.target.value }));
   };
 
   const values = [];

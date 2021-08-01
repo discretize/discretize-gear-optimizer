@@ -10,7 +10,12 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import { Item } from "gw2-ui";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeGeneric, getGeneric } from "../../state/gearOptimizerSlice";
+import {
+  changeGeneric,
+  changePriority,
+  getGeneric,
+  getPriority
+} from "../../state/gearOptimizerSlice";
 import { firstUppercase } from "../../utils/usefulFunctions";
 
 const styles = (theme) => ({
@@ -73,7 +78,7 @@ export const AFFIXES = [
 
 const Affixes = ({ classes }) => {
   const dispatch = useDispatch();
-  const affixes = useSelector(getGeneric("affixes"));
+  const affixes = useSelector(getPriority("affixes"));
 
   return (
     <Autocomplete
@@ -83,7 +88,7 @@ const Affixes = ({ classes }) => {
       options={AFFIXES}
       getOptionLabel={(option) => firstUppercase(option)}
       value={affixes}
-      onChange={(event, value) => dispatch(changeGeneric({ toChange: "affixes", value: value }))}
+      onChange={(event, value) => dispatch(changePriority({ key: "affixes", value: value }))}
       renderInput={(params) => (
         <TextField
           {...params}

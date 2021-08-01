@@ -3,6 +3,7 @@ import { put, takeLeading, all, select } from "redux-saga/effects";
 import * as optimizerCore from "./optimizerCore";
 
 import {
+  changeControl,
   changeGeneric,
   changeList,
   getDistributionNew,
@@ -136,7 +137,7 @@ function* runCalc() {
       value: { percent: newPercent, isChanged, newList }
     } = result);
     console.log(`${newPercent}% done:`, result);
-    yield put(changeGeneric({ toChange: "percentageDone", value: newPercent }));
+    yield put(changeControl({ key: "percentageDone", value: newPercent }));
 
     if (isChanged) {
       console.log("list changed");
