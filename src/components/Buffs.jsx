@@ -43,18 +43,6 @@ const Buffs = ({ classes, data, presets }) => {
   const buffs = useSelector(getBuffs);
 
   const handleChange = (buff) => (event) => {
-    // handle the modifier
-    if (event.target.checked) {
-      dispatch(
-        addModifier({
-          id: buff.id,
-          modifiers: buff.modifiers
-        })
-      );
-    } else {
-      dispatch(removeModifier(buff.id));
-    }
-
     // change the value
     dispatch(changeBuff({ key: buff.id, value: event.target.checked }));
   };

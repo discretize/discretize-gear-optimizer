@@ -4,7 +4,13 @@ import { graphql, StaticQuery } from "gatsby";
 import { ConsumableEffect, Item } from "gw2-ui";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getControl, getGeneric, getProfession } from "../state/gearOptimizerSlice";
+import {
+  addModifier,
+  getBuffs,
+  getControl,
+  getGeneric,
+  getProfession
+} from "../state/gearOptimizerSlice";
 import { PROFESSIONS } from "../utils/gw2-data";
 import ARinput from "./ARinput";
 import Buffs from "./Buffs";
@@ -51,14 +57,28 @@ const MainComponent = ({ classes, data }) => {
   const profession = useSelector(getProfession);
   const dualWielded = useSelector(getGeneric("weaponType"));
   const progress = useSelector(getControl("percentageDone"));
+  const buffs = useSelector(getBuffs);
 
   const dispatch = useDispatch();
 
   function onStartCalculate(e) {
     console.log("calculate");
+    // TODO clear modifiers here
+
+    [].concat
+      .apply(
+        [],
+        data.buffs.list.map((d) => d.items)
+      )
+      .filter((elem) => buffs[elem.id])
+      .forEach((elem) =>
+        dispatch(addModifier({ id: elem.id, modifiers: elem.modifiers, gw2_id: elem.gw2_id }))
+      );
+    /*
     dispatch({
       type: "START"
     });
+    */
   }
 
   function onCancelCalculate(e) {

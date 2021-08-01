@@ -6,6 +6,7 @@ import {
   changeControl,
   changeGeneric,
   changeList,
+  getBuffs,
   getDistributionNew,
   getDistributionOld,
   getGeneric,
@@ -22,8 +23,10 @@ function* runCalc() {
   const primaryInfusion = INFUSIONS.find((i) => i.id === getGeneric("primaryInfusion")(state));
   const secondaryInfusion = INFUSIONS.find((i) => i.id === getGeneric("secondaryInfusion")(state));
 
+  const modifiers = getModifiers(state);
+
   const input = {
-    modifiers: getModifiers(state).map((modifier) => JSON.parse(modifier.modifiers)),
+    modifiers: modifiers.map((modifier) => JSON.parse(modifier.modifiers)),
     tags: undefined,
     profession: getProfession(state).toLowerCase(),
     weapontype: getGeneric("weaponType")(state),
