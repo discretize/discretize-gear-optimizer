@@ -1,4 +1,4 @@
-import { put, takeEvery, all, select } from "redux-saga/effects";
+import { put, takeLeading, all, select } from "redux-saga/effects";
 
 import * as optimizerCore from "./optimizerCore";
 
@@ -154,7 +154,7 @@ function* runCalc() {
 }
 
 function* watchStart() {
-  yield takeEvery("START", runCalc);
+  yield takeLeading("START", runCalc);
 }
 
 export default function* rootSaga() {
