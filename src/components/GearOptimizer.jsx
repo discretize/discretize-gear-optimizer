@@ -1,50 +1,51 @@
-import { Button, Divider, Typography, withStyles } from "@material-ui/core";
-import { Cancel, Functions } from "@material-ui/icons";
-import { graphql, StaticQuery } from "gatsby";
-import { ConsumableEffect, Item } from "gw2-ui";
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+/* eslint-disable no-console */
+import { Button, Divider, Typography, withStyles } from '@material-ui/core';
+import { Cancel, Functions } from '@material-ui/icons';
+import { graphql, StaticQuery } from 'gatsby';
+import { ConsumableEffect, Item } from 'gw2-ui';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   addModifier,
   getBuffs,
   getControl,
   getExtras,
   getGeneric,
-  getProfession
-} from "../state/gearOptimizerSlice";
-import { PROFESSIONS } from "../utils/gw2-data";
-import ARinput from "./ARinput";
-import Buffs from "./Buffs";
-import DamageDistribution from "./DamageDistribution";
-import ForcedSlots from "./ForcedSlots";
-import GW2Select from "./GW2Select";
-import Infusions from "./Infusions";
-import NavBar from "./NavBar";
-import Priorities from "./priorities/Priorities";
-import Skills from "./Skills";
-import Traits from "./Traits";
-import ResultTable from "./ResultTable";
+  getProfession,
+} from '../state/gearOptimizerSlice';
+import { PROFESSIONS } from '../utils/gw2-data';
+import ARinput from './ARinput';
+import Buffs from './Buffs';
+import DamageDistribution from './DamageDistribution';
+import ForcedSlots from './ForcedSlots';
+import GW2Select from './GW2Select';
+import Infusions from './Infusions';
+import NavBar from './NavBar';
+import Priorities from './priorities/Priorities';
+import Skills from './Skills';
+import Traits from './Traits';
+import ResultTable from './ResultTable';
 import LinearWithValueLabel, {
-  LinearProgressWithLabel
-} from "./baseComponents/LinearProgressWithLabel";
+  LinearProgressWithLabel,
+} from './baseComponents/LinearProgressWithLabel';
 
 const styles = (theme) => ({
   root: {
     // adds padding on bigger (non smartphone) screens
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up('sm')]: {
       paddingLeft: 20,
-      paddingRight: 20
-    }
+      paddingRight: 20,
+    },
   },
   button: {
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
   },
   icon: {
-    fontSize: 18
+    fontSize: 18,
   },
   margin: {
-    marginBottom: theme.spacing(2)
-  }
+    marginBottom: theme.spacing(2),
+  },
 });
 
 /**
@@ -54,28 +55,28 @@ const styles = (theme) => ({
  * @returns the main ui
  */
 const MainComponent = ({ classes, data }) => {
-  const expertMode = useSelector(getControl("expertMode"));
+  const expertMode = useSelector(getControl('expertMode'));
   const profession = useSelector(getProfession);
-  const dualWielded = useSelector(getGeneric("weaponType"));
-  const progress = useSelector(getControl("percentageDone"));
+  const dualWielded = useSelector(getGeneric('weaponType'));
+  const progress = useSelector(getControl('percentageDone'));
   const buffs = useSelector(getBuffs);
   const extras = useSelector(getExtras);
 
   const dispatch = useDispatch();
 
   function onStartCalculate(e) {
-    console.log("calculate");
+    console.log('calculate');
     // TODO clear modifiers here
     const extrasData = [
-      { id: "Runes", list: data.runes.list },
-      { id: "Sigil1", list: data.sigils.list },
-      { id: "Sigil2", list: data.sigils.list },
-      { id: "Enhancement", list: data.enhancement.list },
-      { id: "Nourishment", list: data.nourishment.list }
+      { id: 'Runes', list: data.runes.list },
+      { id: 'Sigil1', list: data.sigils.list },
+      { id: 'Sigil2', list: data.sigils.list },
+      { id: 'Enhancement', list: data.enhancement.list },
+      { id: 'Nourishment', list: data.nourishment.list },
     ];
     console.log(data.runes);
     extrasData
-      .filter((extra) => extras[extra.id] !== "")
+      .filter((extra) => extras[extra.id] !== '')
       .forEach((extra) => {
         dispatch(
           addModifier({
@@ -83,22 +84,22 @@ const MainComponent = ({ classes, data }) => {
             modifiers: [].concat
               .apply(
                 [],
-                extra.list.map((d) => d.items)
+                extra.list.map((d) => d.items),
               )
               .find((a) => a.id === extras[extra.id]).modifiers,
-            source: extra.id
-          })
+            source: extra.id,
+          }),
         );
       });
 
     [].concat
       .apply(
         [],
-        data.buffs.list.map((d) => d.items)
+        data.buffs.list.map((d) => d.items),
       )
       .filter((elem) => buffs[elem.id])
       .forEach((elem) =>
-        dispatch(addModifier({ id: elem.id, modifiers: elem.modifiers, gw2_id: elem.gw2_id }))
+        dispatch(addModifier({ id: elem.id, modifiers: elem.modifiers, gw2_id: elem.gw2_id })),
       );
     /*
     dispatch({
@@ -109,7 +110,7 @@ const MainComponent = ({ classes, data }) => {
 
   function onCancelCalculate(e) {
     // TODO do cancel calc
-    console.log("cancel calculate");
+    console.log('cancel calculate');
   }
 
   return (
@@ -117,7 +118,7 @@ const MainComponent = ({ classes, data }) => {
       <NavBar />
 
       {/* TODO add template selection here */}
-      {profession !== "" && (
+      {profession !== '' && (
         <>
           {expertMode && (
             <>
@@ -130,10 +131,10 @@ const MainComponent = ({ classes, data }) => {
                 .map((p) => {
                   const traitData = data[p.toLocaleLowerCase()].edges[0].node.list.slice(1);
                   const skillData = data[p.toLowerCase()].edges[0].node.list.filter(
-                    (d) => d.section === "Skills"
+                    (d) => d.section === 'Skills',
                   );
                   return (
-                    <React.Fragment key={"TaS_" + p}>
+                    <React.Fragment key={`TaS_${p}`}>
                       <Traits data={traitData.filter((line) => line.id > 0)} />
                       <Divider />
                       <Skills profession={p} data={skillData[0] ? skillData[0].items : []} />
@@ -194,7 +195,7 @@ const MainComponent = ({ classes, data }) => {
           {expertMode && (
             <>
               <Divider />
-              <ForcedSlots dualWielded={dualWielded === "dualWielded"} />
+              <ForcedSlots dualWielded={dualWielded === 'dualWielded'} />
             </>
           )}
 
