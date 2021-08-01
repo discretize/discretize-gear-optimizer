@@ -13,7 +13,7 @@ var dist = {
 	fonts: base.assets + 'fonts/',
 	js: 'min.js',
 	gojs: 'go.js',
-  modulejs: 'OptimizerCore.js',
+  modulejs: 'optimizer-core.js',
   datajs: 'gw2-data.js',
 	css: 'min.css',
 	dl: base.dist + 'dl/'
@@ -52,7 +52,7 @@ var src = {
 	],
 	js: [base.src + 'js/discretize.js'],
 	gojs: [base.src + 'js/gear-optimizer.js'],
-  modulejs: [base.src + 'js/OptimizerCore.js'],
+  modulejs: [base.src + 'js/optimizer-core.js'],
   datajs: [base.src + 'js/gw2-data.js'],
 	scss: base.src + 'scss/*.scss'
 }

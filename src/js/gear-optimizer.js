@@ -4,7 +4,7 @@
 /* eslint-disable dot-notation */
 /* eslint-disable prefer-template */
 
-import * as optimizerCore from './OptimizerCore';
+import * as optimizerCore from './optimizer-core';
 // import { html, Component, render } from 'https://unpkg.com/htm/preact/index.mjs?module';
 
 import {
