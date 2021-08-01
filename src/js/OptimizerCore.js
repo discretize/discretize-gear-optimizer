@@ -150,18 +150,29 @@ export function setup (input) {
               switch (type) {
                 case 'multiplier':
                   if (validMultiplierStats.has(attribute)) {
-                    if (attribute === 'add: Effective Condition Damage') {
-                      addEffectiveConditionDamage += value;
-                    } else if (attribute === 'add: Effective Power') {
-                      addEffectivePower += value;
-                    } else if (attribute === 'target: Effective Condition Damage') {
-                      targetEffectiveConditionDamage += value;
-                    } else if (attribute === 'target: Effective Power') {
-                      targetEffectivePower += value;
-                    } else if (!settings.modifiers[type][attribute]) {
-                      settings.modifiers['multiplier'][attribute] = 1 + value;
-                    } else {
-                      settings.modifiers['multiplier'][attribute] *= (1 + value);
+                    switch (attribute) {
+                      case 'add: Effective Condition Damage': {
+                        addEffectiveConditionDamage += value;
+                        break;
+                      }
+                      case 'add: Effective Power': {
+                        addEffectivePower += value;
+                        break;
+                      }
+                      case 'target: Effective Condition Damage': {
+                        targetEffectiveConditionDamage += value;
+                        break;
+                      }
+                      case 'target: Effective Power': {
+                        targetEffectivePower += value;
+                        break;
+                      }
+                      default:
+                        if (settings.modifiers['multiplier'][attribute] === undefined) {
+                          settings.modifiers['multiplier'][attribute] = 1 + value;
+                        } else {
+                          settings.modifiers['multiplier'][attribute] *= (1 + value);
+                        }
                     }
                   } else {
                     throw new Error(
