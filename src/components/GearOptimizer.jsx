@@ -4,10 +4,7 @@ import { graphql, StaticQuery } from "gatsby";
 import { ConsumableEffect, Item } from "gw2-ui";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  getGeneric,
-  getProfession
-} from "../state/gearOptimizerSlice";
+import { getGeneric, getProfession } from "../state/gearOptimizerSlice";
 import { PROFESSIONS } from "../utils/gw2-data";
 import ARinput from "./ARinput";
 import Buffs from "./Buffs";
@@ -20,6 +17,9 @@ import Priorities from "./priorities/Priorities";
 import Skills from "./Skills";
 import Traits from "./Traits";
 import ResultTable from "./ResultTable";
+import LinearWithValueLabel, {
+  LinearProgressWithLabel
+} from "./baseComponents/LinearProgressWithLabel";
 
 const styles = (theme) => ({
   root: {
@@ -50,7 +50,7 @@ const MainComponent = ({ classes, data }) => {
   const expertMode = useSelector(getGeneric("expertMode"));
   const profession = useSelector(getProfession);
   const dualWielded = useSelector(getGeneric("weaponType"));
-
+  const progress = useSelector(getGeneric("percentageDone"));
   const dispatch = useDispatch();
 
   function onStartCalculate(e) {
@@ -58,7 +58,6 @@ const MainComponent = ({ classes, data }) => {
     dispatch({
       type: "START"
     });
-    
   }
 
   function onCancelCalculate(e) {
@@ -189,6 +188,7 @@ const MainComponent = ({ classes, data }) => {
           </Button>
 
           <Divider />
+          <LinearProgressWithLabel value={progress} />
 
           <ResultTable />
         </>

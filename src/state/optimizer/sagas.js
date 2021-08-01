@@ -3,6 +3,7 @@ import { put, takeLeading, all, select } from "redux-saga/effects";
 import * as optimizerCore from "./optimizerCore";
 
 import {
+  changeGeneric,
   changeList,
   getDistributionNew,
   getDistributionOld,
@@ -106,14 +107,14 @@ function* runCalc() {
   console.log("hardcoded input for comparison:", fakeInput);
 
   // temp: convert "poisoned" to "poison"
-  function convertPoison (distribution) {
+  function convertPoison(distribution) {
     let { Poisoned: poisonedValue, ...withoutPoisoned } = distribution;
-    return { Poison: poisonedValue, ...withoutPoisoned};
+    return { Poison: poisonedValue, ...withoutPoisoned };
   }
-  if (({}).hasOwnProperty.call(input.distribution, "Poisoned")) {
+  if ({}.hasOwnProperty.call(input.distribution, "Poisoned")) {
     input.distribution = convertPoison(input.distribution);
   }
-  if (({}).hasOwnProperty.call(input.percentDistribution, "Poisoned")) {
+  if ({}.hasOwnProperty.call(input.percentDistribution, "Poisoned")) {
     input.percentDistribution = convertPoison(input.percentDistribution);
   }
 
@@ -135,6 +136,7 @@ function* runCalc() {
       value: { percent: newPercent, isChanged, newList }
     } = result);
     console.log(`${newPercent}% done:`, result);
+    yield put(changeGeneric({ toChange: "percentageDone", value: newPercent }));
 
     if (isChanged) {
       console.log("list changed");

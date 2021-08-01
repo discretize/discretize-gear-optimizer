@@ -82,7 +82,8 @@ export const gearOptimizerSlice = createSlice({
     secondaryInfusion: "",
     primaryMaxInfusions: "",
     secondaryMaxInfusions: "",
-    list: []
+    list: [],
+    percentageDone: 0
   },
   reducers: {
     changeProfession: (state, action) => {
