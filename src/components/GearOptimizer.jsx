@@ -8,6 +8,7 @@ import {
   addModifier,
   getBuffs,
   getControl,
+  getExtras,
   getGeneric,
   getProfession
 } from "../state/gearOptimizerSlice";
@@ -58,12 +59,37 @@ const MainComponent = ({ classes, data }) => {
   const dualWielded = useSelector(getGeneric("weaponType"));
   const progress = useSelector(getControl("percentageDone"));
   const buffs = useSelector(getBuffs);
+  const extras = useSelector(getExtras);
 
   const dispatch = useDispatch();
 
   function onStartCalculate(e) {
     console.log("calculate");
     // TODO clear modifiers here
+    const extrasData = [
+      { id: "Runes", list: data.runes.list },
+      { id: "Sigil1", list: data.sigils.list },
+      { id: "Sigil2", list: data.sigils.list },
+      { id: "Enhancement", list: data.enhancement.list },
+      { id: "Nourishment", list: data.nourishment.list }
+    ];
+    console.log(data.runes);
+    extrasData
+      .filter((extra) => extras[extra.id] !== "")
+      .forEach((extra) => {
+        dispatch(
+          addModifier({
+            id: extras[extra.id],
+            modifiers: [].concat
+              .apply(
+                [],
+                extra.list.map((d) => d.items)
+              )
+              .find((a) => a.id === extras[extra.id]).modifiers,
+            source: extra.id
+          })
+        );
+      });
 
     [].concat
       .apply(

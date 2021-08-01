@@ -11,13 +11,7 @@ import {
 import { Item } from "gw2-ui";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addModifier,
-  changeExtras,
-  changeGeneric,
-  getExtra,
-  removeModifierWithSource
-} from "../state/gearOptimizerSlice";
+import { changeExtras, getExtra } from "../state/gearOptimizerSlice";
 
 const styles = (theme) => ({
   formControl: {
@@ -42,22 +36,7 @@ const GW2Select = ({ classes, name, label, data }) => {
   const dispatch = useDispatch();
   const bigValue = useSelector(getExtra(name));
 
-  const allItems = [].concat.apply(
-    [],
-    data.map((d) => d.items)
-  );
-
   const handleChange = (event) => {
-    // Remove old modifier
-    dispatch(removeModifierWithSource(event.target.name));
-    dispatch(
-      addModifier({
-        id: event.target.value,
-        modifiers: allItems.filter((a) => a.id === event.target.value)[0].modifiers,
-        source: event.target.name
-      })
-    );
-
     dispatch(changeExtras({ key: event.target.name, value: event.target.value }));
   };
 

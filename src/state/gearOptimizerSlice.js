@@ -203,6 +203,7 @@ export const getControl = (key) => (state) => state.gearOptimizer.control[key];
 export const getBuffs = (state) => state.gearOptimizer.buffs;
 export const getInfusions = (state) => state.gearOptimizer.infusions;
 export const getPriority = (key) => (state) => state.gearOptimizer.priorities[key];
+export const getExtras = (state) => state.gearOptimizer.extras;
 
 export const getList = (state) => state.gearOptimizer.list;
 
