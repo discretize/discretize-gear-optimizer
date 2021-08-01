@@ -189,7 +189,7 @@ export function setup(input) {
                     throw new Error(
                       'Multipliers can only modify primary, secondary or ' +
                         'effective attributes, not ' +
-                        attribute
+                        attribute,
                     );
                   }
 
@@ -202,7 +202,7 @@ export function setup(input) {
                     throw new Error(
                       'Flat modifiers can only increase primary, secondary or ' +
                         'derived attributes, not ' +
-                        attribute
+                        attribute,
                     );
                   }
 
@@ -215,7 +215,7 @@ export function setup(input) {
                     throw new Error(
                       'Buff modifiers can only increase primary, secondary or ' +
                         'derived attributes, not ' +
-                        attribute
+                        attribute,
                     );
                   }
 
@@ -233,7 +233,7 @@ export function setup(input) {
                   } else {
                     throw new Error(
                       'Conversions can only modify primary or secondary attributes, not ' +
-                        attribute
+                        attribute,
                     );
                   }
 
@@ -256,7 +256,7 @@ export function setup(input) {
   // convert to arrays for simpler iteration
   settings.modifiers['buff'] = Object.entries(settings.modifiers['buff'] || {});
   settings.modifiers['convert'] = Object.entries(settings.modifiers['convert'] || {}).map(
-    ([attribute, conversion]) => [attribute, Object.entries(conversion)]
+    ([attribute, conversion]) => [attribute, Object.entries(conversion)],
   );
 
   /* Distribution */
@@ -296,7 +296,7 @@ export function setup(input) {
     } else {
       throw new Error(
         'Primary infusion can only increase primary, secondary or derived attributes, not ' +
-          primaryInfusionInput
+          primaryInfusionInput,
       );
     }
   }
@@ -320,7 +320,7 @@ export function setup(input) {
       throw new Error(
         'Secondary infusion can only increase ' +
           'primary, secondary or derived attributes, not ' +
-          secondaryInfusionInput
+          secondaryInfusionInput,
       );
     }
   }
@@ -418,7 +418,7 @@ export function setup(input) {
       }
 
       return Object.entries(statTotals);
-    })
+    }),
   );
 
   // used to keep the progress counter in sync when skipping identical gear combinations.
@@ -638,7 +638,7 @@ applyInfusions['Few'] = function (character) {
   addBaseStats(
     character,
     settings.secondaryInfusion,
-    settings.secondaryMaxInfusions * INFUSION_BONUS
+    settings.secondaryMaxInfusions * INFUSION_BONUS,
   );
   updateAttributesFast(character);
   insertCharacter(character);
@@ -948,7 +948,7 @@ function calcCondi(_character, multipliers, relevantConditions) {
       1 +
       Math.min(
         ((attributes[`${condition} Duration`] || 0) + attributes['Condition Duration']) / 100,
-        1
+        1,
       );
 
     const stacks = settings.distribution[condition] * duration;

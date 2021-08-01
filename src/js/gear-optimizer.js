@@ -163,8 +163,8 @@ import {
     $.each(
       $(
         [`${Selector.INPUT.CLASS} ${Selector.INPUT.TAB_PANE_ACTIVE}`, Selector.INPUT.BUFFS].join(
-          ','
-        )
+          ',',
+        ),
       ).find(`${Selector.CHECKBOXES_CHECKED}[data-${DataAttribute.MODIFIER}]`),
       function () {
         input.modifiers.push($(this).data(DataAttribute.MODIFIER));
@@ -176,12 +176,12 @@ import {
             data-armory-size="40"
             data-armory-embed="${type.slice(5, -6)}"
             data-armory-ids="${span.data('armory-ids')}"
-          ></div>`
+          ></div>`,
           );
         } else if (span.hasClass('icon')) {
           input.tags.push(`<div class="icon icon-lg ${span.attr('class').split(' ')[1]}"></div>`);
         }
-      }
+      },
     );
 
     // Select modifiers
@@ -193,7 +193,7 @@ import {
           Selector.SELECT.SIGIL_2,
           Selector.SELECT.FOOD,
           Selector.SELECT.UTILITY,
-        ].join(',')
+        ].join(','),
       )
         .children(Selector.DROPDOWN_MENU)
         .children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE}[data-${DataAttribute.MODIFIER}]`),
@@ -204,16 +204,16 @@ import {
           data-armory-size="40"
           data-armory-embed="items"
           data-armory-ids="${$(this).children(Selector.SPAN).data('armory-ids')}"
-        ></div>`
+        ></div>`,
         );
-      }
+      },
     );
 
     // Omnipotion
     if ($(Selector.CHECKBOX.OMNIPOTION).prop(PropertyName.CHECKED)) {
       input.modifiers.push(Omnipotion);
       input.tags.push(
-        '<div data-armory-size="40" data-armory-embed="items" data-armory-ids="79722"></div>'
+        '<div data-armory-size="40" data-armory-embed="items" data-armory-ids="79722"></div>',
       );
     }
 
@@ -270,11 +270,11 @@ import {
       .trim();
     input.primaryMaxInfusions = Math.max(
       Number.parseInt($(`${Selector.SELECT.INFUSION}-primary-max`).val(), 10) || MAX_INFUSIONS,
-      0
+      0,
     );
     input.secondaryMaxInfusions = Math.max(
       Number.parseInt($(`${Selector.SELECT.INFUSION}-secondary-max`).val(), 10) || MAX_INFUSIONS,
-      0
+      0,
     );
     input.infusionNoDuplicates = $('#go-select-infusion-duplicates').prop('checked');
 
@@ -309,7 +309,7 @@ import {
         Slots[settings.weapontype].length +
           1 +
           Boolean(settings.primaryInfusion) +
-          Boolean(settings.secondaryInfusion)
+          Boolean(settings.secondaryInfusion),
       );
     $(Selector.OUTPUT.PROGRESS_BAR).css('width', `${0}%`).children(Selector.SPAN).text('0%');
     $(Selector.OUTPUT.PROGRESS_BAR).parent().show();
@@ -323,7 +323,7 @@ import {
           (slot) =>
             `<th title="${slot.name}">
           ${slot.short}
-          </th>`
+          </th>`,
         ).join('') +
         (settings.primaryInfusion
           ? `<th title="${settings.primaryInfusion}">
@@ -334,7 +334,7 @@ import {
           ? `<th title="${settings.secondaryInfusion}">
               ${settings.secondaryInfusion.slice(0, 4)}
             </th>`
-          : '')
+          : ''),
     );
 
     // calculation loop
@@ -372,7 +372,7 @@ import {
         if (STOP_SIGNAL) {
           updateProgressBar(
             newPercent,
-            `Cancelled after ${Date.now() - startTime}ms (${newPercent}%)`
+            `Cancelled after ${Date.now() - startTime}ms (${newPercent}%)`,
           );
           break;
         }
@@ -395,7 +395,7 @@ import {
         </strong></td>
         ${$.map(gear, (attribute) => `<td><samp>${attribute.slice(0, 4)}</samp></td>`).join('')}
         ${$.map(infusions, (count) => `<td><samp>${count}</samp></td>`).join('')}
-      </tr>`
+      </tr>`,
     ).data('character', character);
   }
 
@@ -505,7 +505,7 @@ import {
       temp.baseAttributes[value] += 5;
       optimizerCore.updateAttributes(temp);
       effectiveValues[value] = Number(
-        (temp.attributes['Damage'] - attributes['Damage']).toFixed(5)
+        (temp.attributes['Damage'] - attributes['Damage']).toFixed(5),
       ).toLocaleString('en-US');
     });
     modal += toCard('Damage increase from +5 of attribute', effectiveValues);
@@ -517,7 +517,7 @@ import {
       temp.baseAttributes[value] = Math.max(temp.baseAttributes[value] - 5, 0);
       optimizerCore.updateAttributes(temp);
       effectiveNegativeValues[value] = Number(
-        (temp.attributes['Damage'] - attributes['Damage']).toFixed(5)
+        (temp.attributes['Damage'] - attributes['Damage']).toFixed(5),
       ).toLocaleString('en-US');
     });
     modal += toCard('Damage loss from -5 of attribute', effectiveNegativeValues);
