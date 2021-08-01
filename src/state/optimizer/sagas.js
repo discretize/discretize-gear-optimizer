@@ -105,6 +105,18 @@ function* runCalc() {
   };
   console.log("input hardcoded", fakeInput);
 
+  // temp: convert "poisoned" to "poison"
+  function convertPoison (distribution) {
+    let { Poisoned: poisonedValue, ...withoutPoisoned } = distribution;
+    return { Poison: poisonedValue, ...withoutPoisoned};
+  }
+  if (({}).hasOwnProperty.call(input.distribution, "Poisoned")) {
+    input.distribution = convertPoison(input.distribution);
+  }
+  if (({}).hasOwnProperty.call(input.percentDistribution, "Poisoned")) {
+    input.percentDistribution = convertPoison(input.percentDistribution);
+  }
+
   const settings = optimizerCore.setup(input);
 
   // set up table columns here
