@@ -21,10 +21,10 @@ import {
  */
 
 let applyInfusionsFunction;
+let condiResultCache;
 
 let worstScore;
 let list;
-
 let isChanged = true;
 
 /**
@@ -188,8 +188,8 @@ export function setup(input) {
                   } else {
                     throw new Error(
                       'Multipliers can only modify primary, secondary or ' +
-                        'effective attributes, not ' +
-                        attribute,
+                      'effective attributes, not ' +
+                      attribute,
                     );
                   }
 
@@ -201,8 +201,8 @@ export function setup(input) {
                   } else {
                     throw new Error(
                       'Flat modifiers can only increase primary, secondary or ' +
-                        'derived attributes, not ' +
-                        attribute,
+                      'derived attributes, not ' +
+                      attribute,
                     );
                   }
 
@@ -214,8 +214,8 @@ export function setup(input) {
                   } else {
                     throw new Error(
                       'Buff modifiers can only increase primary, secondary or ' +
-                        'derived attributes, not ' +
-                        attribute,
+                      'derived attributes, not ' +
+                      attribute,
                     );
                   }
 
@@ -233,7 +233,7 @@ export function setup(input) {
                   } else {
                     throw new Error(
                       'Conversions can only modify primary or secondary attributes, not ' +
-                        attribute,
+                      attribute,
                     );
                   }
 
@@ -296,7 +296,7 @@ export function setup(input) {
     } else {
       throw new Error(
         'Primary infusion can only increase primary, secondary or derived attributes, not ' +
-          primaryInfusionInput,
+        primaryInfusionInput,
       );
     }
   }
@@ -319,8 +319,8 @@ export function setup(input) {
     } else {
       throw new Error(
         'Secondary infusion can only increase ' +
-          'primary, secondary or derived attributes, not ' +
-          secondaryInfusionInput,
+        'primary, secondary or derived attributes, not ' +
+        secondaryInfusionInput,
       );
     }
   }
@@ -354,7 +354,6 @@ export function setup(input) {
 
   // affixesArray: valid affixes for each slot, taking forced slots into account
   // e.g. [[Berserker, Assassin], [Assassin], [Berserker, Assassin]...]
-  // eslint-disable-next-line unicorn/no-new-array
   settings.affixesArray = new Array(settings.slots.length).fill(settings.affixes);
 
   settings.forcedArmor = false;
@@ -489,7 +488,7 @@ export function* calculate(settings) {
 
   let calculationRuns = 0;
 
-  settings.condiResultCache = new Map();
+  condiResultCache = new Map();
   const calculationQueue = [];
   calculationQueue.push([]);
   const calculationStatsQueue = [];
@@ -765,7 +764,6 @@ function insertCharacter(character) {
 
 // returns true if B is better than A
 export function characterLT(a, b) {
-  /* eslint-disable unicorn/consistent-destructuring */
   const { settings } = a;
 
   // if (!a.valid && b.valid) {
@@ -788,7 +786,6 @@ export function characterLT(a, b) {
   }
 
   return a.attributes[settings.rankby] < b.attributes[settings.rankby];
-  /* eslint-enable unicorn/consistent-destructuring */
 }
 
 /**
@@ -862,9 +859,9 @@ function updateAttributesFast(_character, skipValidation = false) {
       if (settings.relevantConditions.length > 0) {
         const CONDI_CACHE_ID = attributes['Expertise'] + attributes['Condition Damage'] * 10000;
         condiDamageScore =
-          settings.condiResultCache.get(CONDI_CACHE_ID) ||
+          condiResultCache.get(CONDI_CACHE_ID) ||
           calcCondi(_character, multipliers, settings.relevantConditions);
-        settings.condiResultCache.set(CONDI_CACHE_ID, condiDamageScore);
+        condiResultCache.set(CONDI_CACHE_ID, condiDamageScore);
       }
 
       attributes['Damage'] = powerDamageScore + condiDamageScore;
