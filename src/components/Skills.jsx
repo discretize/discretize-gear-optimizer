@@ -34,16 +34,8 @@ const Skills = ({ classes, data }) => {
   const onChange = (skill) => (e) => {
     if (e.target.checked) {
       dispatch(addSkill({ value: skill.id }));
-      dispatch(
-        addModifier({
-          id: skill.id,
-          modifiers: skill.modifiers,
-          gw2_id: skill.gw2_id,
-        }),
-      );
     } else {
       dispatch(removeSkill(skill.id));
-      dispatch(removeModifier(skill.id));
     }
   };
 
