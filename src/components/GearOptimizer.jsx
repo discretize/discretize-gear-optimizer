@@ -82,21 +82,14 @@ const MainComponent = ({ classes, data }) => {
       .forEach((extra) => {
         modifiers.push({
           id: extras[extra.id],
-          modifiers: [].concat
-            .apply(
-              [],
-              extra.list.map((d) => d.items),
-            )
-            .find((a) => a.id === extras[extra.id]).modifiers,
+          modifiers: extra.list.flatMap((d) => d.items).find((a) => a.id === extras[extra.id])
+            .modifiers,
           source: extra.id,
         });
       });
 
-    [].concat
-      .apply(
-        [],
-        data.buffs.list.map((d) => d.items),
-      )
+    data.buffs.list
+      .flatMap((d) => d.items)
       .filter((elem) => buffs[elem.id])
       .forEach((elem) =>
         modifiers.push({ id: elem.id, modifiers: elem.modifiers, gw2_id: elem.gw2_id }),
