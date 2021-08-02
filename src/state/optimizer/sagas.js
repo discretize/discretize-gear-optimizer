@@ -8,9 +8,6 @@ import {
   changeList,
   getDistributionNew,
   getDistributionOld,
-  getGeneric,
-  getModifiers,
-  getProfession,
 } from '../gearOptimizerSlice';
 import { INFUSIONS } from '../../utils/gw2-data';
 
@@ -19,30 +16,41 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 function* runCalc() {
   const state = yield select();
 
-  const primaryInfusion = INFUSIONS.find((i) => i.id === getGeneric('primaryInfusion')(state));
-  const secondaryInfusion = INFUSIONS.find((i) => i.id === getGeneric('secondaryInfusion')(state));
+  const {
+    profession,
+    infusions: { primaryInfusion, secondaryInfusion, primaryMaxInfusions, secondaryMaxInfusions },
+    forcedSlots,
+    priorities: {
+      optimizeFor,
+      weaponType,
+      minBoonDuration,
+      minHealingPower,
+      minToughness,
+      maxToughness,
+      affixes,
+    },
+    modifiers,
+  } = state.gearOptimizer;
 
-  const modifiers = getModifiers(state);
+  console.log('INFUSIONS', INFUSIONS);
 
   const input = {
     modifiers: modifiers.map((modifier) => JSON.parse(modifier.modifiers)),
     tags: undefined,
-    profession: getProfession(state).toLowerCase(),
-    weapontype: getGeneric('weaponType')(state),
-    affixes: getGeneric('affixes')(state).map((affix) =>
-      affix.toLowerCase().replace(/^\w/, (c) => c.toUpperCase()),
-    ),
-    forcedAffixes: getGeneric('forcedSlots')(state),
-    rankby: getGeneric('optimizeFor')(state),
-    minBoonDuration: getGeneric('minBoonDuration')(state),
-    minHealingPower: getGeneric('minHealingPower')(state),
-    minToughness: getGeneric('minToughness')(state),
-    maxToughness: getGeneric('maxToughness')(state),
+    profession: profession.toLowerCase(),
+    weapontype: weaponType,
+    affixes: affixes.map((affix) => affix.toLowerCase().replace(/^\w/, (c) => c.toUpperCase())),
+    forcedAffixes: forcedSlots,
+    rankby: optimizeFor,
+    minBoonDuration,
+    minHealingPower,
+    minToughness,
+    maxToughness,
     maxResults: 50, // TODO MAX RESULTS
-    primaryInfusion: primaryInfusion && primaryInfusion.attribute,
-    secondaryInfusion: secondaryInfusion && secondaryInfusion.attribute,
-    primaryMaxInfusions: getGeneric('primaryMaxInfusions')(state),
-    secondaryMaxInfusions: getGeneric('secondaryMaxInfusions')(state),
+    primaryInfusion: INFUSIONS.find((i) => i.id === primaryInfusion)?.attribute,
+    secondaryInfusion: INFUSIONS.find((i) => i.id === secondaryInfusion)?.attribute,
+    primaryMaxInfusions,
+    secondaryMaxInfusions,
     percentDistribution: getDistributionOld(state),
     distribution: getDistributionNew(state),
   };
