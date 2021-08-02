@@ -396,7 +396,7 @@ export function setup(input) {
       return affixes;
     }
     const result = [];
-    for (const [index, affix] of Object.entries(affixes)) {
+    for (const [index, affix] of affixes.entries()) {
       result[(index + slotindex) % affixes.length] = affix;
     }
     return result;
