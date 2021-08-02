@@ -188,8 +188,8 @@ export function setup(input) {
                   } else {
                     throw new Error(
                       'Multipliers can only modify primary, secondary or ' +
-                      'effective attributes, not ' +
-                      attribute,
+                        'effective attributes, not ' +
+                        attribute,
                     );
                   }
 
@@ -201,8 +201,8 @@ export function setup(input) {
                   } else {
                     throw new Error(
                       'Flat modifiers can only increase primary, secondary or ' +
-                      'derived attributes, not ' +
-                      attribute,
+                        'derived attributes, not ' +
+                        attribute,
                     );
                   }
 
@@ -214,8 +214,8 @@ export function setup(input) {
                   } else {
                     throw new Error(
                       'Buff modifiers can only increase primary, secondary or ' +
-                      'derived attributes, not ' +
-                      attribute,
+                        'derived attributes, not ' +
+                        attribute,
                     );
                   }
 
@@ -233,7 +233,7 @@ export function setup(input) {
                   } else {
                     throw new Error(
                       'Conversions can only modify primary or secondary attributes, not ' +
-                      attribute,
+                        attribute,
                     );
                   }
 
@@ -296,7 +296,7 @@ export function setup(input) {
     } else {
       throw new Error(
         'Primary infusion can only increase primary, secondary or derived attributes, not ' +
-        primaryInfusionInput,
+          primaryInfusionInput,
       );
     }
   }
@@ -319,8 +319,8 @@ export function setup(input) {
     } else {
       throw new Error(
         'Secondary infusion can only increase ' +
-        'primary, secondary or derived attributes, not ' +
-        secondaryInfusionInput,
+          'primary, secondary or derived attributes, not ' +
+          secondaryInfusionInput,
       );
     }
   }
