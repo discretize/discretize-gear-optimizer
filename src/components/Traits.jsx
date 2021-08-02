@@ -12,14 +12,14 @@ import { Specialization, Trait, TraitLine } from 'gw2-ui';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  addModifier,
+  addTraitModifier,
   changeTraitLine,
   changeTraits,
-  getModifiers,
+  getTraitModifiers,
   getTraitLines,
   getTraits,
-  removeModifier,
-  removeModifierWithSource,
+  removeTraitModifier,
+  removeTraitModifierWithSource,
   removeTraitModifierWithGW2id,
 } from '../state/gearOptimizerSlice';
 import CheckboxComponent from './baseComponents/CheckboxComponent';
@@ -49,12 +49,12 @@ const Traits = ({ classes, data }) => {
   // 2D array: traits[n] is the n-th selected trait line. So the trait id in traitlines[i] has the selected values traits[i]
   const traits = useSelector(getTraits);
   // all the currently applied modifiers
-  const modifiers = useSelector(getModifiers);
+  const modifiers = useSelector(getTraitModifiers);
 
   const handleTraitlineSelect = (index) => (event) => {
     if (Number(traitlines[index]) > 0) {
       // remove previously selected modifiers
-      dispatch(removeModifierWithSource(Number(traitlines[index])));
+      dispatch(removeTraitModifierWithSource(Number(traitlines[index])));
     }
     const newTraitLine = event.target.value;
 
@@ -66,7 +66,7 @@ const Traits = ({ classes, data }) => {
 
     distinctMinors.forEach((minor) =>
       dispatch(
-        addModifier({
+        addTraitModifier({
           id: minor.id,
           modifiers: minor.modifiers,
           gw2_id: minor.gw2_id,
@@ -103,7 +103,7 @@ const Traits = ({ classes, data }) => {
   const handleModifierChange = (trait, line) => (e) => {
     if (e.target.checked) {
       dispatch(
-        addModifier({
+        addTraitModifier({
           id: trait.id,
           modifiers: trait.modifiers,
           gw2_id: trait.gw2_id,
@@ -111,7 +111,7 @@ const Traits = ({ classes, data }) => {
         }),
       );
     } else {
-      dispatch(removeModifier(trait.id));
+      dispatch(removeTraitModifier(trait.id));
     }
   };
 

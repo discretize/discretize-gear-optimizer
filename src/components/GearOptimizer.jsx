@@ -4,17 +4,19 @@ import { Cancel, Functions } from '@material-ui/icons';
 import { graphql, StaticQuery } from 'gatsby';
 import { ConsumableEffect, Item } from 'gw2-ui';
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
-  addModifier,
   getBuffs,
   getControl,
   getExtras,
   getGeneric,
   getProfession,
+  getTraitModifiers,
+  setModifiers,
 } from '../state/gearOptimizerSlice';
 import { PROFESSIONS } from '../utils/gw2-data';
 import ARinput from './ARinput';
+import { LinearProgressWithLabel } from './baseComponents/LinearProgressWithLabel';
 import Buffs from './Buffs';
 import DamageDistribution from './DamageDistribution';
 import ForcedSlots from './ForcedSlots';
@@ -22,12 +24,9 @@ import GW2Select from './GW2Select';
 import Infusions from './Infusions';
 import NavBar from './NavBar';
 import Priorities from './priorities/Priorities';
+import ResultTable from './ResultTable';
 import Skills from './Skills';
 import Traits from './Traits';
-import ResultTable from './ResultTable';
-import LinearWithValueLabel, {
-  LinearProgressWithLabel,
-} from './baseComponents/LinearProgressWithLabel';
 
 const styles = (theme) => ({
   root: {
@@ -61,12 +60,15 @@ const MainComponent = ({ classes, data }) => {
   const progress = useSelector(getControl('percentageDone'));
   const buffs = useSelector(getBuffs);
   const extras = useSelector(getExtras);
+  const traitModifiers = useSelector(getTraitModifiers);
 
   const dispatch = useDispatch();
 
   function onStartCalculate(e) {
     console.log('calculate');
-    // TODO clear modifiers here
+
+    const modifiers = [];
+
     const extrasData = [
       { id: 'Runes', list: data.runes.list },
       { id: 'Sigil1', list: data.sigils.list },
@@ -74,22 +76,20 @@ const MainComponent = ({ classes, data }) => {
       { id: 'Enhancement', list: data.enhancement.list },
       { id: 'Nourishment', list: data.nourishment.list },
     ];
-    console.log(data.runes);
+
     extrasData
       .filter((extra) => extras[extra.id] !== '')
       .forEach((extra) => {
-        dispatch(
-          addModifier({
-            id: extras[extra.id],
-            modifiers: [].concat
-              .apply(
-                [],
-                extra.list.map((d) => d.items),
-              )
-              .find((a) => a.id === extras[extra.id]).modifiers,
-            source: extra.id,
-          }),
-        );
+        modifiers.push({
+          id: extras[extra.id],
+          modifiers: [].concat
+            .apply(
+              [],
+              extra.list.map((d) => d.items),
+            )
+            .find((a) => a.id === extras[extra.id]).modifiers,
+          source: extra.id,
+        });
       });
 
     [].concat
@@ -99,13 +99,19 @@ const MainComponent = ({ classes, data }) => {
       )
       .filter((elem) => buffs[elem.id])
       .forEach((elem) =>
-        dispatch(addModifier({ id: elem.id, modifiers: elem.modifiers, gw2_id: elem.gw2_id })),
+        modifiers.push({ id: elem.id, modifiers: elem.modifiers, gw2_id: elem.gw2_id }),
       );
-    /*
+    // Storing the trait modifiers seperately since just storing trait IDs and then find out the corresponding
+    // modifier here is more computational effort - while having the same disadvantages of keeping the UI with
+    // modifiers in sync - than storing the modifier right away.
+    modifiers.push(...traitModifiers);
+    dispatch(setModifiers(modifiers));
+
+    console.log(modifiers);
+
     dispatch({
-      type: "START"
+      type: 'START',
     });
-    */
   }
 
   function onCancelCalculate(e) {

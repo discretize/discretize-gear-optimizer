@@ -16,6 +16,7 @@ export const gearOptimizerSlice = createSlice({
         [0, 0, 0],
         [0, 0, 0],
       ],
+      modifiers: [],
     },
     skills: [],
     extras: {
@@ -106,6 +107,7 @@ export const gearOptimizerSlice = createSlice({
           [0, 0, 0],
           [0, 0, 0],
         ],
+        modifiers: [],
       };
       state.skills = [];
     },
@@ -160,14 +162,26 @@ export const gearOptimizerSlice = createSlice({
     addModifier: (state, action) => {
       state.modifiers = state.modifiers.concat(action.payload);
     },
+    setModifiers: (state, action) => {
+      state.modifiers = action.payload;
+    },
+    addTraitModifier: (state, action) => {
+      state.traits.modifiers = state.traits.modifiers.concat(action.payload);
+    },
     removeModifier: (state, action) => {
       state.modifiers = state.modifiers.filter((m) => m.id !== action.payload);
     },
+    removeTraitModifier: (state, action) => {
+      state.traits.modifiers = state.traits.modifiers.filter((m) => m.id !== action.payload);
+    },
     removeTraitModifierWithGW2id: (state, action) => {
-      state.modifiers = state.modifiers.filter((m) => m.gw2_id !== action.payload);
+      state.traits.modifiers = state.traits.modifiers.filter((m) => m.gw2_id !== action.payload);
     },
     removeModifierWithSource: (state, action) => {
       state.modifiers = state.modifiers.filter((m) => m.source !== action.payload);
+    },
+    removeTraitModifierWithSource: (state, action) => {
+      state.traits.modifiers = state.traits.modifiers.filter((m) => m.source !== action.payload);
     },
     changeExtras: (state, action) => {
       state.extras[action.payload.key] = action.payload.value;
@@ -201,6 +215,7 @@ export const getDistributionNew = (state) => state.gearOptimizer.distribution.va
 export const getTextBoxes = (state) => state.gearOptimizer.distribution.textBoxes;
 export const getSkills = (state) => state.gearOptimizer.skills;
 export const getModifiers = (state) => state.gearOptimizer.modifiers;
+export const getTraitModifiers = (state) => state.gearOptimizer.traits.modifiers;
 export const getExtra = (key) => (state) => state.gearOptimizer.extras[key];
 export const getControl = (key) => (state) => state.gearOptimizer.control[key];
 export const getBuffs = (state) => state.gearOptimizer.buffs;
@@ -235,6 +250,10 @@ export const {
   changeInfusions,
   changePriority,
   changeList,
+  addTraitModifier,
+  removeTraitModifier,
+  removeTraitModifierWithSource,
+  setModifiers,
 } = gearOptimizerSlice.actions;
 
 export default gearOptimizerSlice.reducer;
