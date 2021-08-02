@@ -28,6 +28,8 @@
         ],
         "unicorn/no-array-callback-reference": "off",
         "unicorn/prefer-spread": "off",
-        "unicorn/no-null": "off"
+        "unicorn/no-null": "off",
+        "unicorn/consistent-destructuring": "off",
+        "unicorn/no-new-array": "off"
     }
 }
