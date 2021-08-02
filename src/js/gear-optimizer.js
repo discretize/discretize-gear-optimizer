@@ -1,10 +1,20 @@
-/* eslint-disable padded-blocks */
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
+/* eslint-disable no-await-in-loop */
+/* eslint-disable dot-notation */
+/* eslint-disable prefer-template */
 
-import * as optimizerCore from './OptimizerCore.js';
+import * as optimizerCore from './optimizer-core.js';
 // import { html, Component, render } from 'https://unpkg.com/htm/preact/index.mjs?module';
 
-// eslint-disable-next-line no-unused-vars, max-len
-import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, Condition, Attributes, MAX_INFUSIONS, INFUSION_BONUS } from './gw2-data.js';
+import {
+  Slots,
+  ForcedSlots,
+  Omnipotion,
+  Attributes,
+  MAX_INFUSIONS,
+  INFUSION_BONUS,
+} from './gw2-data.js';
 
 (function ($) {
   /**
@@ -17,7 +27,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     GEAR_OPTIMIZER: '#go-',
     CHECKBOX: 'checkbox-',
     INPUT: 'input-',
-    SELECT: 'select-'
+    SELECT: 'select-',
   });
 
   const Selector = Object.freeze({
@@ -36,7 +46,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
         MINSTREL: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'affix-minstrel',
         MAGI: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'affix-magi',
         SERAPH: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'affix-seraph',
-        CELESTIAL: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'affix-celestial'
+        CELESTIAL: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'affix-celestial',
       },
 
       BUFF: {
@@ -49,10 +59,10 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
         BANE_SIGNET: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'buff-bane-signet',
         SPOTTER: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'buff-spotter',
         FROST_SPIRIT: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'buff-frost-spirit',
-        ASSASSINS_PRESENCE: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'buff-assassins-presence'
+        ASSASSINS_PRESENCE: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'buff-assassins-presence',
       },
 
-      OMNIPOTION: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'omnipotion'
+      OMNIPOTION: Prefix.GEAR_OPTIMIZER + Prefix.CHECKBOX + 'omnipotion',
     },
 
     CHECKBOXES: 'input[type="checkbox"]',
@@ -74,7 +84,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
       MAX_RESULTS: Prefix.GEAR_OPTIMIZER + Prefix.INPUT + 'max-results',
 
-      FORCE: Prefix.GEAR_OPTIMIZER + Prefix.INPUT + 'force-'
+      FORCE: Prefix.GEAR_OPTIMIZER + Prefix.INPUT + 'force-',
     },
 
     SELECT: {
@@ -85,13 +95,13 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       SIGIL_2: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'sigils-2',
       FOOD: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'food',
       UTILITY: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'utility',
-      INFUSION: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'infusion'
+      INFUSION: Prefix.GEAR_OPTIMIZER + Prefix.SELECT + 'infusion',
     },
 
     OUTPUT: {
       LIST: Prefix.GEAR_OPTIMIZER + 'output',
       PROGRESS_BAR: Prefix.GEAR_OPTIMIZER + 'progress-bar',
-      HEADER: Prefix.GEAR_OPTIMIZER + 'output-header'
+      HEADER: Prefix.GEAR_OPTIMIZER + 'output-header',
     },
 
     LABEL: 'label',
@@ -103,17 +113,17 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     DROPDOWN_ITEM: '.dropdown-item',
 
     START: 'button' + Prefix.GEAR_OPTIMIZER + 'start',
-    STOP: 'button' + Prefix.GEAR_OPTIMIZER + 'stop'
+    STOP: 'button' + Prefix.GEAR_OPTIMIZER + 'stop',
   });
 
   const ClassName = Object.freeze({
     ACTIVE: 'active',
-    DISABLED: 'disabled'
+    DISABLED: 'disabled',
   });
 
   const PropertyName = Object.freeze({
     CHECKED: 'checked',
-    DISABLED: 'disabled'
+    DISABLED: 'disabled',
   });
 
   const DataAttribute = Object.freeze({
@@ -122,7 +132,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     MODIFIER: 'go-modifier',
     CLASS: 'go-class',
     PRESELECTION: 'go-preselection',
-    DISTRIBUTION: 'go-distribution'
+    DISTRIBUTION: 'go-distribution',
   });
 
   // Globals
@@ -142,7 +152,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
    * Fetches values from the html file, selected checkboxes and optimization goals, then calls
    * optimizerCore.calculate to run the calculation.
    */
-  async function run () {
+  async function run() {
     startTime = new Date();
 
     const input = {};
@@ -150,54 +160,67 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     input.tags = [];
 
     // Checkbox modifiers
-    $.each($([`${Selector.INPUT.CLASS} ${Selector.INPUT.TAB_PANE_ACTIVE}`,
-      Selector.INPUT.BUFFS].join(',')).find(`${Selector.CHECKBOXES_CHECKED}[data-${
-          DataAttribute.MODIFIER}]`), function () {
-      input.modifiers.push($(this).data(DataAttribute.MODIFIER));
-      const span = $(this).siblings(Selector.LABEL).children(Selector.SPAN);
-      if (span.is('[data-armory-ids]')) {
-        const type = span.children('div').attr('class').split(' ')[1];
-        input.tags.push(
-          `<div
+    $.each(
+      $(
+        [`${Selector.INPUT.CLASS} ${Selector.INPUT.TAB_PANE_ACTIVE}`, Selector.INPUT.BUFFS].join(
+          ',',
+        ),
+      ).find(`${Selector.CHECKBOXES_CHECKED}[data-${DataAttribute.MODIFIER}]`),
+      function () {
+        input.modifiers.push($(this).data(DataAttribute.MODIFIER));
+        const span = $(this).siblings(Selector.LABEL).children(Selector.SPAN);
+        if (span.is('[data-armory-ids]')) {
+          const type = span.children('div').attr('class').split(' ')[1];
+          input.tags.push(
+            `<div
             data-armory-size="40"
             data-armory-embed="${type.slice(5, -6)}"
             data-armory-ids="${span.data('armory-ids')}"
-          ></div>`
-        );
-      } else if (span.hasClass('icon')) {
-        input.tags.push(
-          `<div class="icon icon-lg ${span.attr('class').split(' ')[1]}"></div>`
-        );
-      }
-    });
+          ></div>`,
+          );
+        } else if (span.hasClass('icon')) {
+          input.tags.push(`<div class="icon icon-lg ${span.attr('class').split(' ')[1]}"></div>`);
+        }
+      },
+    );
 
     // Select modifiers
-    $.each($([Selector.SELECT.RUNES, Selector.SELECT.SIGIL_1, Selector.SELECT.SIGIL_2,
-      Selector.SELECT.FOOD, Selector.SELECT.UTILITY].join(','))
-      .children(Selector.DROPDOWN_MENU).children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE
-         }[data-${DataAttribute.MODIFIER}]`), function () {
-      input.modifiers.push($(this).data(DataAttribute.MODIFIER));
-      input.tags.push(
-        `<div
+    $.each(
+      $(
+        [
+          Selector.SELECT.RUNES,
+          Selector.SELECT.SIGIL_1,
+          Selector.SELECT.SIGIL_2,
+          Selector.SELECT.FOOD,
+          Selector.SELECT.UTILITY,
+        ].join(','),
+      )
+        .children(Selector.DROPDOWN_MENU)
+        .children(`${Selector.DROPDOWN_ITEM}.${ClassName.ACTIVE}[data-${DataAttribute.MODIFIER}]`),
+      function () {
+        input.modifiers.push($(this).data(DataAttribute.MODIFIER));
+        input.tags.push(
+          `<div
           data-armory-size="40"
           data-armory-embed="items"
           data-armory-ids="${$(this).children(Selector.SPAN).data('armory-ids')}"
-        ></div>`
-      );
-    });
+        ></div>`,
+        );
+      },
+    );
 
     // Omnipotion
     if ($(Selector.CHECKBOX.OMNIPOTION).prop(PropertyName.CHECKED)) {
       input.modifiers.push(Omnipotion);
       input.tags.push(
-        '<div data-armory-size="40" data-armory-embed="items" data-armory-ids="79722"></div>'
+        '<div data-armory-size="40" data-armory-embed="items" data-armory-ids="79722"></div>',
       );
     }
 
     input.modifiers.push({
       flat: {
-        'Agony Resistance': Number.parseInt($(Selector.INPUT.AGONY_RESISTANCE).val(), 10) || 0
-      }
+        'Agony Resistance': Number.parseInt($(Selector.INPUT.AGONY_RESISTANCE).val(), 10) || 0,
+      },
     });
 
     input.profession = $(Selector.TOTAL)
@@ -247,32 +270,29 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       .trim();
     input.primaryMaxInfusions = Math.max(
       Number.parseInt($(`${Selector.SELECT.INFUSION}-primary-max`).val(), 10) || MAX_INFUSIONS,
-      0
+      0,
     );
     input.secondaryMaxInfusions = Math.max(
       Number.parseInt($(`${Selector.SELECT.INFUSION}-secondary-max`).val(), 10) || MAX_INFUSIONS,
-      0
+      0,
     );
     input.infusionNoDuplicates = $('#go-select-infusion-duplicates').prop('checked');
 
     input.percentDistribution = {
       Power: 0,
-      ...Object.fromEntries(Attributes.CONDITION.map(condition => [condition, 0]))
+      ...Object.fromEntries(Attributes.CONDITION.map((condition) => [condition, 0])),
     };
-    $.each(
-      $('#go-condition-distribution-input').find('input[data-go-distribution]'),
-      function () {
-        const percentage = Number.parseInt($(this).val(), 10);
-        if (percentage) {
-          input.percentDistribution[$(this).data('go-distribution')] = percentage;
-        }
+    $.each($('#go-condition-distribution-input').find('input[data-go-distribution]'), function () {
+      const percentage = Number.parseInt($(this).val(), 10);
+      if (percentage) {
+        input.percentDistribution[$(this).data('go-distribution')] = percentage;
       }
-    );
+    });
 
     // the next time the DOM updates after this is after ≥1 iteration loop;
     // if the calculation is really really fast the main UI won't even flicker 😎
     jQueryList.children().css('visibility', 'hidden');
-    await new Promise(resolve => setTimeout(resolve, 0));
+    await new Promise((resolve) => setTimeout(resolve, 0));
 
     jQueryList.empty();
     lockUI(true);
@@ -286,34 +306,35 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       .closest('td')
       .attr(
         'colspan',
-        Slots[settings.weapontype].length + 1
-          + Boolean(settings.primaryInfusion) + Boolean(settings.secondaryInfusion)
+        Slots[settings.weapontype].length +
+          1 +
+          Boolean(settings.primaryInfusion) +
+          Boolean(settings.secondaryInfusion),
       );
-    $(Selector.OUTPUT.PROGRESS_BAR)
-      .css('width', `${0}%`)
-      .children(Selector.SPAN)
-      .text('0%');
+    $(Selector.OUTPUT.PROGRESS_BAR).css('width', `${0}%`).children(Selector.SPAN).text('0%');
     $(Selector.OUTPUT.PROGRESS_BAR).parent().show();
 
     $(Selector.OUTPUT.HEADER).html(
       `<th>
       ${settings.rankby}
-      </th>`
-        + $.map(Slots[settings.weapontype], slot =>
-          `<th title="${slot.name}">
+      </th>` +
+        $.map(
+          Slots[settings.weapontype],
+          (slot) =>
+            `<th title="${slot.name}">
           ${slot.short}
-          </th>`
-        ).join('')
-        + (settings.primaryInfusion
+          </th>`,
+        ).join('') +
+        (settings.primaryInfusion
           ? `<th title="${settings.primaryInfusion}">
               ${settings.primaryInfusion.slice(0, 4)}
             </th>`
-          : '')
-        + (settings.secondaryInfusion
+          : '') +
+        (settings.secondaryInfusion
           ? `<th title="${settings.secondaryInfusion}">
               ${settings.secondaryInfusion.slice(0, 4)}
             </th>`
-          : '')
+          : ''),
     );
 
     // calculation loop
@@ -324,15 +345,16 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     let isChanged = true;
     currentList = [];
     let newList;
+    // eslint-disable-next-line no-constant-condition
     while (true) {
-      ({ done, value: { percent: newPercent, isChanged, newList } } = generator.next());
+      ({
+        done,
+        value: { percent: newPercent, isChanged, newList },
+      } = generator.next());
 
       if (done) {
         updateDOM(newList);
-        updateProgressBar(
-          newPercent,
-          `Completed in ${Date.now() - startTime}ms`
-        );
+        updateProgressBar(newPercent, `Completed in ${Date.now() - startTime}ms`);
         break;
       } else {
         if (isChanged && count++ % 3 === 0) {
@@ -345,12 +367,12 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
         }
 
         // pause to let UI update and register a stop button press
-        await new Promise(resolve => setTimeout(resolve, 0));
+        await new Promise((resolve) => setTimeout(resolve, 0));
 
         if (STOP_SIGNAL) {
           updateProgressBar(
             newPercent,
-            `Cancelled after ${Date.now() - startTime}ms (${newPercent}%)`
+            `Cancelled after ${Date.now() - startTime}ms (${newPercent}%)`,
           );
           break;
         }
@@ -363,7 +385,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     }
   }
 
-  function characterToRow (character) {
+  function characterToRow(character) {
     const { settings, attributes, gear, infusions } = character;
 
     return $(
@@ -371,30 +393,27 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
         <td><strong>
           ${Number(attributes[settings.rankby].toFixed(2)).toLocaleString('en-US')}
         </strong></td>
-        ${$.map(gear, attribute =>
-          `<td><samp>${attribute.slice(0, 4)}</samp></td>`
-        ).join('')}
-        ${$.map(infusions, count =>
-          `<td><samp>${count}</samp></td>`
-        ).join('')}
-      </tr>`
+        ${$.map(gear, (attribute) => `<td><samp>${attribute.slice(0, 4)}</samp></td>`).join('')}
+        ${$.map(infusions, (count) => `<td><samp>${count}</samp></td>`).join('')}
+      </tr>`,
     ).data('character', character);
   }
 
   // this algorithm assumes you only ever insert into this list
-  function updateDOM (newList) {
-
+  function updateDOM(newList) {
     // insert all new items
     let newItem = null;
     // eslint-disable-next-line unicorn/no-for-loop
     for (let index = 0; index < newList.length; index++) {
-
       if (newList[index] !== currentList[index]) {
         newItem = characterToRow(newList[index]);
         currentList.splice(index, 0, newList[index]);
 
         if (index) {
-          jQueryList.children().eq(index - 1).after(newItem);
+          jQueryList
+            .children()
+            .eq(index - 1)
+            .after(newItem);
         } else {
           jQueryList.prepend(newItem);
         }
@@ -410,17 +429,19 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
   }
 
   // Generates the card, that shows up when one clicks on the result.
-  function toModal (_character) {
+  function toModal(_character) {
     const toCard = (title, items) =>
       `<div class="card card-${_character.settings.profession} mb-3">
         <div class="card-header card-header-small">${title}</div>
         <div class="card-body p-0">
           <table class="table table-sm table-hover">
-            ${items
-              ? Object.entries(items).map(([key, value]) =>
-                  `<tr><th>${key}</th><td>${value}</td></tr>`
-                ).join('')
-              : ''}
+            ${
+              items
+                ? Object.entries(items)
+                    .map(([key, value]) => `<tr><th>${key}</th><td>${value}</td></tr>`)
+                    .join('')
+                : ''
+            }
           </table>
         </div>
       </div>`;
@@ -436,8 +457,9 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     // Header
     modal += '<div class="modal-header">';
     modal += '<h5 class="modal-title">Character Overview</h5>';
-    modal += '<button type="button" class="close" data-dismiss="modal">'
-      + '<span class="fa fa-times"></span></button>';
+    modal +=
+      '<button type="button" class="close" data-dismiss="modal">' +
+      '<span class="fa fa-times"></span></button>';
     modal += '</div>';
 
     // Body
@@ -462,8 +484,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
     const indicators = {};
     $.each(Attributes.INDICATORS, (index, attribute) => {
-      indicators[attribute] = Number(attributes[attribute].toFixed(4))
-        .toLocaleString('en-US');
+      indicators[attribute] = Number(attributes[attribute].toFixed(4)).toLocaleString('en-US');
     });
     modal += toCard('Indicators', indicators);
 
@@ -479,38 +500,32 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
     // effective gain from adding +5 infusions
     const effectiveValues = {};
-    $.each(
-      ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'],
-      (index, value) => {
-        const temp = optimizerCore.clone(_character);
-        temp.baseAttributes[value] += 5;
-        optimizerCore.updateAttributes(temp);
-        effectiveValues[value] = Number(
-          (temp.attributes['Damage'] - attributes['Damage']).toFixed(5)
-        ).toLocaleString('en-US');
-      }
-    );
+    $.each(['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'], (index, value) => {
+      const temp = optimizerCore.clone(_character);
+      temp.baseAttributes[value] += 5;
+      optimizerCore.updateAttributes(temp);
+      effectiveValues[value] = Number(
+        (temp.attributes['Damage'] - attributes['Damage']).toFixed(5),
+      ).toLocaleString('en-US');
+    });
     modal += toCard('Damage increase from +5 of attribute', effectiveValues);
 
     // effective loss by not having +5 infusions
     const effectiveNegativeValues = {};
-    $.each(
-      ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'],
-      (index, value) => {
-        const temp = optimizerCore.clone(_character);
-        temp.baseAttributes[value] = Math.max(temp.baseAttributes[value] - 5, 0);
-        optimizerCore.updateAttributes(temp);
-        effectiveNegativeValues[value] = Number(
-          (temp.attributes['Damage'] - attributes['Damage']).toFixed(5)
-        ).toLocaleString('en-US');
-      }
-    );
+    $.each(['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'], (index, value) => {
+      const temp = optimizerCore.clone(_character);
+      temp.baseAttributes[value] = Math.max(temp.baseAttributes[value] - 5, 0);
+      optimizerCore.updateAttributes(temp);
+      effectiveNegativeValues[value] = Number(
+        (temp.attributes['Damage'] - attributes['Damage']).toFixed(5),
+      ).toLocaleString('en-US');
+    });
     modal += toCard('Damage loss from -5 of attribute', effectiveNegativeValues);
 
     if (infusions) {
       const statsFromGear = { ...gearStats };
       for (const [stat, value] of Object.entries(infusions)) {
-        statsFromGear[stat] = (statsFromGear[stat] || 0) + (value * INFUSION_BONUS);
+        statsFromGear[stat] = (statsFromGear[stat] || 0) + value * INFUSION_BONUS;
       }
 
       modal += toCard('Stat total from affixes/infusions only', statsFromGear);
@@ -542,8 +557,8 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
         case 'Critical Chance':
         case 'Boon Duration':
         case 'Condition Duration':
-          derivedAttributes[attribute]
-            = attributes[attribute] > 100
+          derivedAttributes[attribute] =
+            attributes[attribute] > 100
               ? `100.00% (${attributes[attribute].toFixed(2)})`
               : `${attributes[attribute].toFixed(2)}%`;
           break;
@@ -571,9 +586,8 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       if (value) {
         showDurations = true;
         value += attributes['Boon Duration'];
-        durationAttributes[attribute] = value > 100
-          ? `100.00% (${value.toFixed(2)})`
-          : `${value.toFixed(2)}`;
+        durationAttributes[attribute] =
+          value > 100 ? `100.00% (${value.toFixed(2)})` : `${value.toFixed(2)}`;
       }
     });
     $.each(Attributes.CONDITION_DURATION, (index, attribute) => {
@@ -581,9 +595,8 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       if (value) {
         showDurations = true;
         value += attributes['Condition Duration'];
-        durationAttributes[attribute] = value > 100
-          ? `100.00% (${value.toFixed(2)})`
-          : `${value.toFixed(2)}`;
+        durationAttributes[attribute] =
+          value > 100 ? `100.00% (${value.toFixed(2)})` : `${value.toFixed(2)}`;
       }
     });
     if (showDurations) {
@@ -599,21 +612,20 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     if (settings.percentDistribution['Power'] !== 100) {
       // effective damage distribution
       const effectiveDamageDistribution = {};
-      $.each(settings.percentDistribution, key => {
+      $.each(settings.percentDistribution, (key) => {
         if (key === 'Power') {
           const damage = attributes['Power DPS'] / attributes['Damage'];
           effectiveDamageDistribution['Power'] = `${(damage * 100).toFixed(1)}%`;
         } else {
           const damage = attributes[`${key} DPS`] / attributes['Damage'];
-          effectiveDamageDistribution[`${key} Damage`]
-            = `${(damage * 100).toFixed(1)}%`;
+          effectiveDamageDistribution[`${key} Damage`] = `${(damage * 100).toFixed(1)}%`;
         }
       });
       modal += toCard('Effective Damage Distribution', effectiveDamageDistribution);
 
       // damage indicator breakdown
       const damageIndicatorBreakdown = {};
-      $.each(settings.percentDistribution, key => {
+      $.each(settings.percentDistribution, (key) => {
         if (key === 'Power') {
           damageIndicatorBreakdown['Power'] = attributes['Power DPS']
             .toFixed(2)
@@ -642,14 +654,11 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     return $(modal);
   }
 
-  function updateProgressBar (percent, text) {
-    $(Selector.OUTPUT.PROGRESS_BAR)
-      .css('width', `${percent}%`)
-      .children('span')
-      .text(text);
+  function updateProgressBar(percent, text) {
+    $(Selector.OUTPUT.PROGRESS_BAR).css('width', `${percent}%`).children('span').text(text);
   }
 
-  function lockUI (locked) {
+  function lockUI(locked) {
     $('body').css('cursor', locked ? 'progress' : 'default');
     $(Selector.INPUT.OPTIMIZER).css('opacity', locked ? 0.5 : 1);
     $(Selector.INPUT.CLASS).css('opacity', locked ? 0.5 : 1);
@@ -658,8 +667,8 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     $(Selector.STOP).prop(PropertyName.DISABLED, !locked);
   }
 
-  function prettyResults () {
-    const getSortValue = character => character.attributes[character.settings.rankby];
+  function prettyResults() {
+    const getSortValue = (character) => character.attributes[character.settings.rankby];
 
     // display indicator line under the results identical to the best
     const bestValue = getSortValue(jQueryList.children().eq(0).data('character'));
@@ -750,7 +759,6 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
   });
 
   $(`[data-${DataAttribute.PRESELECTION}]`).on(Event.CLICK, function () {
-
     if ($(this).data(DataAttribute.PRESELECTION) === 'pchrono') {
       $('[id^="go-checkbox-mesmer-"]').prop(PropertyName.CHECKED, false);
       $('#go-checkbox-mesmer-fragility').prop(PropertyName.CHECKED, true);
@@ -758,7 +766,6 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       $('#go-checkbox-mesmer-vicious-expression').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-mesmer-fencers-finesse').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-mesmer-superiority-complex').prop(PropertyName.CHECKED, true);
-
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'staffmirage') {
       $('[id^="go-checkbox-mesmer-"]').prop(PropertyName.CHECKED, false);
       $('#go-checkbox-mesmer-signet-of-domination').prop(PropertyName.CHECKED, true);
@@ -768,10 +775,9 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       $('#go-checkbox-mesmer-chaotic-potency-2').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-mesmer-chaotic-persistence').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-mesmer-nomads-endurance').prop(PropertyName.CHECKED, true);
-
     } else if (
-      $(this).data(DataAttribute.PRESELECTION) === 'dh'
-      || $(this).data(DataAttribute.PRESELECTION) === 'pqfb'
+      $(this).data(DataAttribute.PRESELECTION) === 'dh' ||
+      $(this).data(DataAttribute.PRESELECTION) === 'pqfb'
     ) {
       $('[id^="go-checkbox-guardian-"]').prop(PropertyName.CHECKED, false);
       $('#go-checkbox-guardian-fiery-wrath').prop(PropertyName.CHECKED, true);
@@ -788,7 +794,6 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       } else {
         $('#go-checkbox-guardian-imbued-haste').prop(PropertyName.CHECKED, true);
       }
-
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'cfb') {
       $('[id^="go-checkbox-guardian-"]').prop(PropertyName.CHECKED, false);
       $('#go-checkbox-guardian-signet-of-wrath').prop(PropertyName.CHECKED, true);
@@ -801,7 +806,6 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       $('#go-checkbox-guardian-virtue-of-retribution').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-guardian-power-of-the-virtuous').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-guardian-imbued-haste').prop(PropertyName.CHECKED, true);
-
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'cfb2') {
       $('[id^="go-checkbox-guardian-"]').prop(PropertyName.CHECKED, false);
       $('#go-checkbox-guardian-signet-of-wrath').prop(PropertyName.CHECKED, true);
@@ -814,7 +818,6 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       $('#go-checkbox-guardian-radiant-power').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-guardian-amplified-wrath').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-guardian-imbued-haste').prop(PropertyName.CHECKED, true);
-
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'pbers') {
       $('[id^="go-checkbox-warrior-"]').prop(PropertyName.CHECKED, false);
       $('#go-checkbox-warrior-peak-performance').prop(PropertyName.CHECKED, true);
@@ -829,7 +832,6 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       $('#go-checkbox-warrior-blood-reaction-with').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-warrior-fatal-frenzy').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-warrior-bloody-roar').prop(PropertyName.CHECKED, true);
-
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'cbers') {
       $('[id^="go-checkbox-warrior-"]').prop(PropertyName.CHECKED, false);
       $('#go-checkbox-warrior-wounding-precision').prop(PropertyName.CHECKED, true);
@@ -843,7 +845,6 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       $('#go-checkbox-warrior-heat-the-soul-with').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-warrior-fatal-frenzy').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-warrior-king-of-fires').prop(PropertyName.CHECKED, true);
-
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'pwea') {
       $('[id^="go-checkbox-elementalist-"]').prop(PropertyName.CHECKED, false);
       $('#go-checkbox-elementalist-empowering-flame').prop(PropertyName.CHECKED, true);
@@ -859,7 +860,6 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       $('#go-checkbox-elementalist-elements-of-rage').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-elementalist-swift-revenge').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-elementalist-elemental-polyphony-fire').prop(PropertyName.CHECKED, true);
-
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'cwea') {
       $('[id^="go-checkbox-elementalist-"]').prop(PropertyName.CHECKED, false);
       $('#go-checkbox-elementalist-empowering-flame').prop(PropertyName.CHECKED, true);
@@ -874,7 +874,6 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       $('#go-checkbox-elementalist-weavers-prowess').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-elementalist-elemental-polyphony-fire').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-elementalist-elements-of-rage').prop(PropertyName.CHECKED, true);
-
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'pslb') {
       $('[id^="go-checkbox-ranger-"]').prop(PropertyName.CHECKED, false);
       $('#go-checkbox-ranger-farsighted').prop(PropertyName.CHECKED, true);
@@ -889,7 +888,6 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       $('#go-checkbox-ranger-sb-2').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-ranger-sb-3').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-ranger-sb-4').prop(PropertyName.CHECKED, true);
-
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'cslb') {
       $('[id^="go-checkbox-ranger-"]').prop(PropertyName.CHECKED, false);
       $('#go-checkbox-ranger-hidden-barbs').prop(PropertyName.CHECKED, true);
@@ -902,7 +900,6 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       $('#go-checkbox-ranger-furious-strength').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-ranger-twice-as-vicious').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-ranger-archetype-deadly').prop(PropertyName.CHECKED, true);
-
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'cslb2') {
       $('[id^="go-checkbox-ranger-"]').prop(PropertyName.CHECKED, false);
       $('#go-checkbox-ranger-hidden-barbs').prop(PropertyName.CHECKED, true);
@@ -914,7 +911,6 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       $('#go-checkbox-ranger-furious-strength').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-ranger-twice-as-vicious').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-ranger-archetype-deadly').prop(PropertyName.CHECKED, true);
-
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'hslb') {
       $('[id^="go-checkbox-ranger-"]').prop(PropertyName.CHECKED, false);
       $('#go-checkbox-ranger-hidden-barbs').prop(PropertyName.CHECKED, true);
@@ -929,7 +925,6 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       $('#go-checkbox-ranger-sb-2').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-ranger-sb-3').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-ranger-sb-4').prop(PropertyName.CHECKED, true);
-
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'pren') {
       $('[id^="go-checkbox-revenant-"]').prop(PropertyName.CHECKED, false);
       $('#go-checkbox-revenant-rising-tide').prop(PropertyName.CHECKED, true);
@@ -940,7 +935,6 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       $('#go-checkbox-revenant-swift-termination').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-revenant-ambush-commander').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-revenant-brutal-momentum').prop(PropertyName.CHECKED, true);
-
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'cren-deva') {
       $('[id^="go-checkbox-revenant-"]').prop(PropertyName.CHECKED, false);
       $('#go-checkbox-revenant-acolyte-of-torment').prop(PropertyName.CHECKED, true);
@@ -955,7 +949,6 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       $('#go-checkbox-revenant-heartpiercer').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-revenant-brutal-momentum').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-revenant-lasting-legacy').prop(PropertyName.CHECKED, true);
-
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'pholo') {
       $('[id^="go-checkbox-engineer-"]').prop(PropertyName.CHECKED, false);
       $('#go-checkbox-engineer-glass-cannon').prop(PropertyName.CHECKED, true);
@@ -967,7 +960,6 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       $('#go-checkbox-engineer-no-scope').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-engineer-serrated-steel').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-engineer-modified-ammunition-10').prop(PropertyName.CHECKED, true);
-
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'pscrap') {
       $('[id^="go-checkbox-engineer-"]').prop(PropertyName.CHECKED, false);
       $('#go-checkbox-engineer-glass-cannon').prop(PropertyName.CHECKED, true);
@@ -982,7 +974,6 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       $('#go-checkbox-engineer-object-in-motion-2').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-engineer-impact-savant').prop(PropertyName.CHECKED, true);
       $('#go-checkbox-engineer-applied-force').prop(PropertyName.CHECKED, true);
-
     } else if ($(this).data(DataAttribute.PRESELECTION) === 'cholo') {
       $('[id^="go-checkbox-engineer-"]').prop(PropertyName.CHECKED, false);
       $('#go-checkbox-engineer-glass-cannon').prop(PropertyName.CHECKED, true);
@@ -998,9 +989,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
   // Infusion presets
   $(`${Selector.SELECT.INFUSION}-presets button`).click(function () {
-    const infusions = $(this).text() === 'None'
-      ? ['None', 'None']
-      : $(this).text().split(' + ');
+    const infusions = $(this).text() === 'None' ? ['None', 'None'] : $(this).text().split(' + ');
     $('#go-select-infusion-primary .dropdown-item').each(function () {
       if ($(this).text().trim() === infusions[0]) {
         $(this).click();
@@ -1092,7 +1081,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
 
   // Calculate button
   $(Selector.START).on(Event.CLICK, () => {
-    run().catch(error => {
+    run().catch((error) => {
       alert('There was an error in the calculation!\n\n' + error);
       console.log('Caught error in calculation:');
       lockUI(false);
@@ -1120,7 +1109,7 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
   noUiSlider.create($('#go-condition-distribution-slider')[0], {
     range: {
       min: [0],
-      max: [100]
+      max: [100],
     },
     start: [100, 100, 100, 100, 100],
     connect: [true, true, true, true, true, true],
@@ -1128,14 +1117,14 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
     pips: {
       mode: 'values',
       values: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-      density: 1
-    }
+      density: 1,
+    },
   });
 
   for (let index = 0; index < 6; index++) {
     $('#go-condition-distribution-slider')[0]
-      .querySelectorAll('.noUi-connect')[index]
-      .classList.add(`slider-bar-${index}`);
+      .querySelectorAll('.noUi-connect')
+      [index].classList.add(`slider-bar-${index}`);
   }
 
   $('#go-condition-distribution-slider')[0].noUiSlider.on('update', (values, handle) => {
@@ -1202,9 +1191,8 @@ import { Affix, Item, Slots, ForcedSlots, Omnipotion, Health, Defense, Classes, 
       }
 
       if (
-        modifier.includes('add: ')
-        && (modifier.includes('"Effective Power')
-          || modifier.includes('"Effective Condition Damage'))
+        modifier.includes('add: ') &&
+        (modifier.includes('"Effective Power') || modifier.includes('"Effective Condition Damage'))
       ) {
         $(inputElement).css('color', 'purple');
       }
