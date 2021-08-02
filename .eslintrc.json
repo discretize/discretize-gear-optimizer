@@ -22,7 +22,7 @@
         "no-param-reassign": [ "warn", { "props": false } ],
 
         "consistent-return": "off",
-        "no-unused-vars": [ "warn", { "argsIgnorePattern": "^event$" } ],
+        "no-unused-vars": [ "warn", { "argsIgnorePattern": "^event$|^e$" } ],
 
         // prettier compat
         "arrow-body-style": "off",
