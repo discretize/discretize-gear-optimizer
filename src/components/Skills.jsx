@@ -1,5 +1,5 @@
 import { Typography, withStyles } from '@material-ui/core';
-import { Skill } from 'gw2-ui';
+import { Skill } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {

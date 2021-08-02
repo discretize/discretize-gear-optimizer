@@ -1,5 +1,5 @@
 import { FormControl, FormGroup, FormLabel, Grid, Typography, withStyles } from '@material-ui/core';
-import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui';
+import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeBuff, getBuffs } from '../state/gearOptimizerSlice';

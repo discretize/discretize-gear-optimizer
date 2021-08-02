@@ -1,7 +1,7 @@
 import { Grid, TextField, Typography, withStyles } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import classNames from 'classnames';
-import Item from 'gw2-ui/lib/Item';
+import { Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeForcedSlot, getGeneric } from '../state/gearOptimizerSlice';

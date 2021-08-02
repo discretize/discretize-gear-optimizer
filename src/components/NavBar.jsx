@@ -9,7 +9,7 @@ import {
   Toolbar,
   withStyles,
 } from '@material-ui/core';
-import { Profession } from 'gw2-ui';
+import { Profession } from 'gw2-ui-bulk';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import GitHubIcon from '@material-ui/icons/GitHub';

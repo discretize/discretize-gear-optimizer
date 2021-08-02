@@ -1,4 +1,4 @@
-import { handleRequests } from 'gw2-ui';
+import { handleRequests } from 'gw2-ui-bulk';
 
 import { applyMiddleware, combineReducers, compose, createStore as reduxCreateStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
