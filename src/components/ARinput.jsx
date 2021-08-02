@@ -1,29 +1,28 @@
 import {
   FormControl,
-  Grid,
   Input,
   InputAdornment,
   InputLabel,
   Typography,
-  withStyles
-} from "@material-ui/core";
-import { Attribute, Item } from "gw2-ui";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { changeAR, getAR } from "../state/gearOptimizerSlice";
-import HelperIcon from "./HelperIcon";
+  withStyles,
+} from '@material-ui/core';
+import { Attribute } from 'gw2-ui';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeAR, getAR } from '../state/gearOptimizerSlice';
+import HelperIcon from './HelperIcon';
 
 const styles = (theme) => ({
   root: {
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(2),
   },
   margin: {
     width: 190,
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
   },
   grid: {
-    justifyContent: "center"
-  }
+    justifyContent: 'center',
+  },
 });
 
 const ARinput = ({ classes }) => {
@@ -31,8 +30,8 @@ const ARinput = ({ classes }) => {
   const ar = useSelector(getAR);
 
   function handleChange(event) {
-    const value = event.target.value;
-    if (value.match("^[0-9]*$")) {
+    const { value } = event.target;
+    if (value.match('^[0-9]*$')) {
       dispatch(changeAR(value), [dispatch]);
     }
   }
@@ -40,7 +39,7 @@ const ARinput = ({ classes }) => {
   return (
     <div className={classes.root}>
       <Typography variant="h5">
-        <Attribute name="Agony Resistance" disableLink disableText /> Agony Resistance{" "}
+        <Attribute name="Agony Resistance" disableLink disableText /> Agony Resistance{' '}
         <HelperIcon text="Adds 150% of your Agony Resistance to Precision, Toughness and Concentration." />
       </Typography>
       <FormControl className={classes.margin}>

@@ -1,29 +1,29 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 export const gearOptimizerSlice = createSlice({
-  name: "go",
+  name: 'go',
   initialState: {
     control: {
       expertMode: true,
       list: [],
-      percentageDone: 0
+      percentageDone: 0,
     },
-    profession: "",
+    profession: '',
     traits: {
-      lines: ["", "", ""],
+      lines: ['', '', ''],
       selected: [
         [0, 0, 0],
         [0, 0, 0],
-        [0, 0, 0]
-      ]
+        [0, 0, 0],
+      ],
     },
     skills: [],
     extras: {
-      Runes: "",
-      Sigil1: "",
-      Sigil2: "",
-      Enhancement: "",
-      Nourishment: ""
+      Runes: '',
+      Sigil1: '',
+      Sigil2: '',
+      Enhancement: '',
+      Nourishment: '',
     },
     buffs: {
       might: false,
@@ -47,24 +47,24 @@ export const gearOptimizerSlice = createSlice({
       signetOfMercy: false,
       signetOfWrath: false,
       exposed: false,
-      lightArmor: false
+      lightArmor: false,
     },
     infusions: {
-      primaryInfusion: "",
-      secondaryInfusion: "",
-      primaryMaxInfusions: "",
-      secondaryMaxInfusions: ""
+      primaryInfusion: '',
+      secondaryInfusion: '',
+      primaryMaxInfusions: '',
+      secondaryMaxInfusions: '',
     },
     forcedSlots: [null, null, null, null, null, null, null, null, null, null, null, null, null],
     ar: 162,
     priorities: {
-      optimizeFor: "Damage",
-      weaponType: "Dual wield",
-      minBoonDuration: "",
-      minHealingPower: "",
-      minToughness: "1000",
-      maxToughness: "",
-      affixes: []
+      optimizeFor: 'Damage',
+      weaponType: 'Dual wield',
+      minBoonDuration: '',
+      minHealingPower: '',
+      minToughness: '1000',
+      maxToughness: '',
+      affixes: [],
     },
     distribution: {
       version: 2,
@@ -74,7 +74,7 @@ export const gearOptimizerSlice = createSlice({
         Bleeding: 0,
         Poisoned: 0,
         Torment: 0,
-        Confusion: 0
+        Confusion: 0,
       },
       values2: {
         Power: 2,
@@ -82,30 +82,30 @@ export const gearOptimizerSlice = createSlice({
         Bleeding: 0,
         Poisoned: 0,
         Torment: 0,
-        Confusion: 0
+        Confusion: 0,
       },
       textBoxes: {
-        Power: "2",
-        Burning: "0",
-        Bleeding: "0",
-        Poisoned: "0",
-        Torment: "0",
-        Confusion: "0"
-      }
+        Power: '2',
+        Burning: '0',
+        Bleeding: '0',
+        Poisoned: '0',
+        Torment: '0',
+        Confusion: '0',
+      },
     },
-    modifiers: []
+    modifiers: [],
   },
   reducers: {
     changeProfession: (state, action) => {
       state.profession = action.payload;
       state.modifiers = [];
       state.traits = {
-        lines: ["", "", ""],
+        lines: ['', '', ''],
         selected: [
           [0, 0, 0],
           [0, 0, 0],
-          [0, 0, 0]
-        ]
+          [0, 0, 0],
+        ],
       };
       state.skills = [];
     },
@@ -127,13 +127,16 @@ export const gearOptimizerSlice = createSlice({
     changeDistributionNew: (state, action) => {
       state.distribution = {
         ...state.distribution,
-        values2: { ...state.distribution.values2, [action.payload.index]: action.payload.value }
+        values2: { ...state.distribution.values2, [action.payload.index]: action.payload.value },
       };
     },
     changeTextBoxes: (state, action) => {
       state.distribution = {
         ...state.distribution,
-        textBoxes: { ...state.distribution.textBoxes, [action.payload.index]: action.payload.value }
+        textBoxes: {
+          ...state.distribution.textBoxes,
+          [action.payload.index]: action.payload.value,
+        },
       };
     },
     changeAllTextBoxes: (state, action) => {
@@ -183,8 +186,8 @@ export const gearOptimizerSlice = createSlice({
     },
     changeList: (state, action) => {
       state.control.list = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export const getProfession = (state) => state.gearOptimizer.profession;
@@ -231,7 +234,7 @@ export const {
   changeBuff,
   changeInfusions,
   changePriority,
-  changeList
+  changeList,
 } = gearOptimizerSlice.actions;
 
 export default gearOptimizerSlice.reducer;

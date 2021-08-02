@@ -7,51 +7,36 @@
     "ignorePatterns": [
         "gulpfile.js"
     ],
-    "extends": ["standard", "standard-jsx", "standard-react", "prettier", "plugin:react-hooks/recommended"],
+    "extends": [
+        "react-app",
+        "airbnb/whitespace",
+        "airbnb/hooks",
+        "prettier"
+    ],
     "rules": {
-        "semi": [
-            "error", 
-            "always"
-        ],
-        "no-extra-semi": "error",
+        "no-restricted-syntax": "off",
+        "no-use-before-define": "off",
+        "no-plusplus": "off",
+        "func-names": "off",
+        "no-continue": "off",
+        "no-param-reassign": [ "warn", { "props": false } ],
 
-        "padded-blocks": "off",
+        "consistent-return": "off",
+        "no-unused-vars": [ "warn", { "argsIgnorePattern": "^event$" } ],
 
-        //temp
+        // prettier compat
+        "arrow-body-style": "off",
+        "prefer-arrow-callback": "off",
+
+        // temp
+        "object-shorthand": "off",
+        "one-var": "off",
+
+        "import/prefer-default-export": "off",
+
         "react/prop-types": "off",
-        "no-unused-vars": "off",
-        "prefer-const": "off",
         "react/self-closing-comp": "off",
-
-        "dot-notation": "off",
-        "no-case-declarations": "off",
-   
-    //     "operator-linebreak": [
-    //         "warn",
-    //         "before"
-    //     ],
-    //     "max-len": [
-    //       "warn",
-    //       { 
-    //           "code": 100,
-    //           "ignoreComments": true
-    //       }
-    //   ],
-
-        "no-lonely-if": "warn",
-        "radix": "warn",
-        "default-case": "warn",
-        "no-param-reassign": [
-            "warn", 
-            { 
-                "props": false 
-            }
-        ],
-        "no-else-return": "warn",
-        "no-shadow": "warn",
-        "consistent-return": "warn",
-        //"object-shorthand": "warn",
-        "guard-for-in": "warn",
-        "no-underscore-dangle": "warn"
+        "react/jsx-props-no-spreading": "off",
+        "react/destructuring-assignment": "off"
     }
 }

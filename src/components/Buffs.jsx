@@ -1,40 +1,25 @@
-import {
-  Chip,
-  FormControl,
-  FormGroup,
-  FormLabel,
-  Grid,
-  Typography,
-  withStyles
-} from "@material-ui/core";
-import { Boon, CommonEffect, Condition, Skill, Trait } from "gw2-ui";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  addModifier,
-  changeBuff,
-  changeGeneric,
-  getBuffs,
-  getGeneric,
-  removeModifier
-} from "../state/gearOptimizerSlice";
-import { firstUppercase } from "../utils/usefulFunctions";
-import CheckboxComponent from "./baseComponents/CheckboxComponent";
-import Presets from "./baseComponents/Presets";
+import { FormControl, FormGroup, FormLabel, Grid, Typography, withStyles } from '@material-ui/core';
+import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeBuff, getBuffs } from '../state/gearOptimizerSlice';
+import { firstUppercase } from '../utils/usefulFunctions';
+import CheckboxComponent from './baseComponents/CheckboxComponent';
+import Presets from './baseComponents/Presets';
 
 const styles = (theme) => ({
   formControl: {
-    margin: theme.spacing(3)
+    margin: theme.spacing(3),
   },
   boon: {
-    fontSize: 18
+    fontSize: 18,
   },
   tinyNote: {
-    fontWeight: 200
+    fontWeight: 200,
   },
   templateChip: {
-    margin: theme.spacing(1)
-  }
+    margin: theme.spacing(1),
+  },
 });
 
 const Buffs = ({ classes, data, presets }) => {
@@ -62,7 +47,7 @@ const Buffs = ({ classes, data, presets }) => {
     Trait: Trait,
     Skill: Skill,
     CommonEffect: CommonEffect,
-    Condition: Condition
+    Condition: Condition,
   };
 
   return (
@@ -83,7 +68,7 @@ const Buffs = ({ classes, data, presets }) => {
                   let Component, name;
 
                   switch (buff.type) {
-                    case "Text":
+                    case 'Text':
                       return (
                         <CheckboxComponent
                           key={buff.id}
@@ -100,9 +85,9 @@ const Buffs = ({ classes, data, presets }) => {
                           onChange={handleChange(buff)}
                         />
                       );
-                    case "Boon":
-                    case "Condition":
-                    case "CommonEffect":
+                    case 'Boon':
+                    case 'Condition':
+                    case 'CommonEffect':
                       name = buff.id.toLowerCase();
                       name = firstUppercase(name);
                     // eslint-disable-next-line no-fallthrough

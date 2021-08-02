@@ -1,31 +1,31 @@
-import { Grid, TextField, Typography, withStyles } from "@material-ui/core";
-import Autocomplete from "@material-ui/lab/Autocomplete";
-import classNames from "classnames";
-import Item from "gw2-ui/lib/Item";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { changeForcedSlot, getGeneric } from "../state/gearOptimizerSlice";
-import { GEAR_SLOTS } from "../utils/gw2-data";
-import { firstUppercase } from "../utils/usefulFunctions";
-import { AFFIXES } from "./priorities/Affixes";
+import { Grid, TextField, Typography, withStyles } from '@material-ui/core';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import classNames from 'classnames';
+import Item from 'gw2-ui/lib/Item';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeForcedSlot, getGeneric } from '../state/gearOptimizerSlice';
+import { GEAR_SLOTS } from '../utils/gw2-data';
+import { firstUppercase } from '../utils/usefulFunctions';
+import { AFFIXES } from './priorities/Affixes';
 
 const styles = (theme) => ({
   textField: {},
   root: {
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(2),
   },
   nowrap: {
-    display: "inline",
-    whiteSpace: "nowrap"
+    display: 'inline',
+    whiteSpace: 'nowrap',
   },
   helperText: {
-    fontSize: 12
-  }
+    fontSize: 12,
+  },
 });
 
 const ForcedSlots = ({ classes, dualWielded }) => {
   const dispatch = useDispatch();
-  const value = useSelector(getGeneric("forcedSlots"));
+  const value = useSelector(getGeneric('forcedSlots'));
 
   let SLOTS = GEAR_SLOTS;
   if (!dualWielded) {

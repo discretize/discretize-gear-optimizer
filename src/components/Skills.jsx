@@ -1,30 +1,30 @@
-import { Typography, withStyles } from "@material-ui/core";
-import { Skill } from "gw2-ui";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { Typography, withStyles } from '@material-ui/core';
+import { Skill } from 'gw2-ui';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   addModifier,
   addSkill,
   getSkills,
   removeModifier,
-  removeSkill
-} from "../state/gearOptimizerSlice";
-import CheckboxComponent from "./baseComponents/CheckboxComponent";
+  removeSkill,
+} from '../state/gearOptimizerSlice';
+import CheckboxComponent from './baseComponents/CheckboxComponent';
 
 const styles = (theme) => ({
   text: {
-    color: "#ddd !important"
+    color: '#ddd !important',
   },
   label: {
-    display: "flex"
+    display: 'flex',
   },
   subText: {
-    fontWeight: 200
+    fontWeight: 200,
   },
   skill: {
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(1),
   },
-  checkbox: {}
+  checkbox: {},
 });
 
 const Skills = ({ classes, data }) => {
@@ -38,8 +38,8 @@ const Skills = ({ classes, data }) => {
         addModifier({
           id: skill.id,
           modifiers: skill.modifiers,
-          gw2_id: skill.gw2_id
-        })
+          gw2_id: skill.gw2_id,
+        }),
       );
     } else {
       dispatch(removeSkill(skill.id));
