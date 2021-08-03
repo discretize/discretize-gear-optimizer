@@ -1,72 +1,44 @@
-import {
-  Chip,
-  FormControl,
-  FormGroup,
-  FormLabel,
-  Grid,
-  Typography,
-  withStyles
-} from "@material-ui/core";
-import { Boon, CommonEffect, Condition, Skill, Trait } from "gw2-ui";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  addModifier,
-  changeGeneric,
-  getGeneric,
-  removeModifier
-} from "../state/gearOptimizerSlice";
-import { firstUppercase } from "../utils/usefulFunctions";
-import CheckboxComponent from "./baseComponents/CheckboxComponent";
-import Presets from "./baseComponents/Presets";
+import { FormControl, FormGroup, FormLabel, Grid, Typography, withStyles } from '@material-ui/core';
+import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeBuff, getBuffs } from '../state/gearOptimizerSlice';
+import { firstUppercase } from '../utils/usefulFunctions';
+import CheckboxComponent from './baseComponents/CheckboxComponent';
+import Presets from './baseComponents/Presets';
 
 const styles = (theme) => ({
   formControl: {
-    margin: theme.spacing(3)
+    margin: theme.spacing(3),
   },
   boon: {
-    fontSize: 18
+    fontSize: 18,
   },
   tinyNote: {
-    fontWeight: 200
+    fontWeight: 200,
   },
   templateChip: {
-    margin: theme.spacing(1)
-  }
+    margin: theme.spacing(1),
+  },
 });
 
 const Buffs = ({ classes, data, presets }) => {
   const dispatch = useDispatch();
 
-  const handleChange = (buff) => (event) => {
-    // handle the modifier
-    if (event.target.checked) {
-      dispatch(
-        addModifier({
-          id: buff.id,
-          modifiers: buff.modifiers
-        })
-      );
-    } else {
-      dispatch(removeModifier(buff.id));
-    }
+  const buffs = useSelector(getBuffs);
 
+  const handleChange = (buff) => (event) => {
     // change the value
-    dispatch(changeGeneric({ toChange: buff.id, value: event.target.checked }));
+    dispatch(changeBuff({ key: buff.id, value: event.target.checked }));
   };
 
   const handleTemplateClick = (index) => (event) => {
     // set all the buffs to disabled
-    [].concat
-      .apply(
-        [],
-        data.map((d) => d.items)
-      )
-      .forEach((elem) => dispatch(changeGeneric({ toChange: elem.id, value: false })));
+    Object.keys(buffs).forEach((elem) => dispatch(changeBuff({ key: elem, value: false })));
 
     // apply the preset
     const state = JSON.parse(presets[index].value);
-    Object.keys(state).forEach((k) => dispatch(changeGeneric({ toChange: k, value: state[k] })));
+    Object.keys(state).forEach((key) => dispatch(changeBuff({ key, value: state[key] })));
   };
 
   // Dynamic component creation for buffs from a string
@@ -75,7 +47,7 @@ const Buffs = ({ classes, data, presets }) => {
     Trait: Trait,
     Skill: Skill,
     CommonEffect: CommonEffect,
-    Condition: Condition
+    Condition: Condition,
   };
 
   return (
@@ -96,12 +68,12 @@ const Buffs = ({ classes, data, presets }) => {
                   let Component, name;
 
                   switch (buff.type) {
-                    case "Text":
+                    case 'Text':
                       return (
                         <CheckboxComponent
                           key={buff.id}
                           value={buff.id}
-                          checked={useSelector(getGeneric(buff.id))}
+                          checked={buffs[buff.id]}
                           label={
                             <>
                               <Typography>{buff.text}</Typography>
@@ -113,9 +85,9 @@ const Buffs = ({ classes, data, presets }) => {
                           onChange={handleChange(buff)}
                         />
                       );
-                    case "Boon":
-                    case "Condition":
-                    case "CommonEffect":
+                    case 'Boon':
+                    case 'Condition':
+                    case 'CommonEffect':
                       name = buff.id.toLowerCase();
                       name = firstUppercase(name);
                     // eslint-disable-next-line no-fallthrough
@@ -127,7 +99,7 @@ const Buffs = ({ classes, data, presets }) => {
                     <CheckboxComponent
                       key={buff.id}
                       value={buff.id}
-                      checked={useSelector(getGeneric(buff.id))}
+                      checked={buffs[buff.id]}
                       label={
                         <Component
                           id={buff.gw2_id}

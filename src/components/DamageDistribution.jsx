@@ -7,15 +7,15 @@ import {
   InputLabel,
   Switch,
   Typography,
-  withStyles
-} from "@material-ui/core";
-import classNames from "classnames";
-import { Attribute, Condition } from "gw2-ui";
-import debounce from "lodash.debounce";
-import Nouislider from "nouislider-react";
-import "nouislider/distribute/nouislider.css";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+  withStyles,
+} from '@material-ui/core';
+import classNames from 'classnames';
+import { Attribute, Condition } from 'gw2-ui';
+import debounce from 'lodash.debounce';
+import Nouislider from 'nouislider-react';
+import 'nouislider/distribute/nouislider.css';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   changeAllDistributionsNew,
   changeAllDistributionsOld,
@@ -27,67 +27,67 @@ import {
   getDistributionOld,
   getDistributionVersion,
   getProfession,
-  getTextBoxes
-} from "../state/gearOptimizerSlice";
-import { PROFESSIONS } from "../utils/gw2-data";
-import Presets from "./baseComponents/Presets";
-import HelperIcon from "./HelperIcon";
+  getTextBoxes,
+} from '../state/gearOptimizerSlice';
+import { PROFESSIONS } from '../utils/gw2-data';
+import Presets from './baseComponents/Presets';
+import HelperIcon from './HelperIcon';
 
 const styles = (theme) => ({
   root: {
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(2),
   },
   slider: {
     marginTop: theme.spacing(2),
-    margin: theme.spacing(6)
+    margin: theme.spacing(6),
   },
   sliderOld: {
-    "& div": {
-      "& .noUi-connects": {
-        "& .noUi-connect:nth-child(1)": {
-          background: "#b1b1b5 !important"
+    '& div': {
+      '& .noUi-connects': {
+        '& .noUi-connect:nth-child(1)': {
+          background: '#b1b1b5 !important',
         },
-        "& .noUi-connect:nth-child(2)": {
-          background: "#e25822 !important"
+        '& .noUi-connect:nth-child(2)': {
+          background: '#e25822 !important',
         },
-        "& .noUi-connect:nth-child(3)": {
-          background: "#d2351e !important"
+        '& .noUi-connect:nth-child(3)': {
+          background: '#d2351e !important',
         },
-        "& .noUi-connect:nth-child(4)": {
-          background: "#48631f !important"
+        '& .noUi-connect:nth-child(4)': {
+          background: '#48631f !important',
         },
-        "& .noUi-connect:nth-child(5)": {
-          background: "orange !important"
+        '& .noUi-connect:nth-child(5)': {
+          background: 'orange !important',
         },
-        "& .noUi-connect:nth-child(6)": {
-          background: "#a25aca !important"
-        }
-      }
-    }
+        '& .noUi-connect:nth-child(6)': {
+          background: '#a25aca !important',
+        },
+      },
+    },
   },
   sliderNew: {
-    "& div": {
-      "& .noUi-connects": {
-        "& .noUi-connect": {
-          background: "#00cccc !important"
-        }
-      }
-    }
+    '& div': {
+      '& .noUi-connects': {
+        '& .noUi-connect': {
+          background: '#00cccc !important',
+        },
+      },
+    },
   },
   box: {
-    display: "flex",
-    alignItems: "center",
-    flexWrap: "wrap"
-  }
+    display: 'flex',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+  },
 });
 
 const DISTRIBUTION_NAMES = [
-  { name: "Power", min: 0.001, max: 5, step: 0.001, color: "#b1b1b5" },
-  { name: "Burning", min: 0, max: 50, step: 0.1 },
-  { name: "Bleeding", min: 0, max: 50, step: 0.1 },
-  { name: "Poisoned", min: 0, max: 50, step: 0.1 },
-  { name: "Torment", min: 0, max: 50, step: 0.1 },
-  { name: "Confusion", min: 0, max: 50, step: 0.1 }
+  { name: 'Power', min: 0.001, max: 5, step: 0.001, color: '#b1b1b5' },
+  { name: 'Burning', min: 0, max: 50, step: 0.1 },
+  { name: 'Bleeding', min: 0, max: 50, step: 0.1 },
+  { name: 'Poisoned', min: 0, max: 50, step: 0.1 },
+  { name: 'Torment', min: 0, max: 50, step: 0.1 },
+  { name: 'Confusion', min: 0, max: 50, step: 0.1 },
 ];
 
 const DamageDistribution = ({ classes, presets: presetsRaw }) => {
@@ -103,8 +103,8 @@ const DamageDistribution = ({ classes, presets: presetsRaw }) => {
   const presets = presetsRaw.filter(
     (preset) =>
       PROFESSIONS.find((p) => p.profession === profession).eliteSpecializations.includes(
-        preset.profession
-      ) || preset.profession === null
+        preset.profession,
+      ) || preset.profession === null,
   );
 
   const onTemplateClick = (index) => (event) => {
@@ -115,6 +115,7 @@ const DamageDistribution = ({ classes, presets: presetsRaw }) => {
     dispatch(changeAllTextBoxes(state.values2));
   };
 
+  // eslint-disable-next-line no-unused-vars
   const onUpdateOld = (render, handle, value, un, percent) => {
     const distributionRecalc = [];
     let prev = 0;
@@ -123,8 +124,15 @@ const DamageDistribution = ({ classes, presets: presetsRaw }) => {
       prev = value[i];
     }
     distributionRecalc.push(100 - prev);
-
-    dispatch(changeAllDistributionsOld(distributionRecalc));
+    const percentDistribution = {
+      Power: distributionRecalc[0],
+      Burning: distributionRecalc[1],
+      Bleeding: distributionRecalc[2],
+      Poison: distributionRecalc[3],
+      Torment: distributionRecalc[4],
+      Confusion: distributionRecalc[5],
+    };
+    dispatch(changeAllDistributionsOld(percentDistribution));
   };
 
   const SliderOld = () => {
@@ -136,13 +144,13 @@ const DamageDistribution = ({ classes, presets: presetsRaw }) => {
           connect={[true, true, true, true, true, true]}
           range={{
             min: [0],
-            max: [100]
+            max: [100],
           }}
           step={1}
           pips={{
-            mode: "values",
+            mode: 'values',
             values: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-            density: 5
+            density: 5,
           }}
           onSlide={onUpdateOld}
         />
@@ -150,12 +158,12 @@ const DamageDistribution = ({ classes, presets: presetsRaw }) => {
           {DISTRIBUTION_NAMES.map((d, index) => (
             <Grid key={d.name} item xs={12} sm={6} md={2}>
               <Typography>
-                {d.name === "Power" ? (
+                {d.name === 'Power' ? (
                   <Attribute name="Power" />
                 ) : (
                   <Condition name={d.name} disableLink />
-                )}{" "}
-                {distributionOld[index]}%
+                )}{' '}
+                {distributionOld[d.name]}%
               </Typography>
             </Grid>
           ))}
@@ -164,74 +172,74 @@ const DamageDistribution = ({ classes, presets: presetsRaw }) => {
     );
   };
 
-  const onUpdateNew = (num) => (render, handle, value, un, percent) => {
-    dispatch(changeTextBoxes({ index: num, value: Math.round(value * 100) / 100 }));
-    dispatch(changeDistributionNew({ index: num, value: value }));
+  // eslint-disable-next-line no-unused-vars
+  const onUpdateNew = (key) => (render, handle, value, un, percent) => {
+    dispatch(changeTextBoxes({ index: key, value: Math.round(value * 100) / 100 }));
+    dispatch(changeDistributionNew({ index: key, value: value }));
   };
 
-  const handleChangeTextNew = (num) => (e) => {
-    let value = e.target.value;
-    if (value.match("^[-+]?[0-9]*.?[0-9]+([eE][-+]?[0-9]+)?$")) {
+  const handleChangeTextNew = (key) => (e) => {
+    const { value } = e.target;
+    if (value.match('^[-+]?[0-9]*.?[0-9]+([eE][-+]?[0-9]+)?$')) {
       // only update the actual slider when the number entered is a valid string. The regex matches for integer or floats.
-      dispatch(changeDistributionNew({ index: num, value: value }));
+      dispatch(changeDistributionNew({ index: key, value: value }));
     }
 
-    dispatch(changeTextBoxes({ index: num, value: value }));
+    dispatch(changeTextBoxes({ index: key, value: value }));
   };
-
   const SlidersNew = () => {
     return (
       <Grid container>
         {DISTRIBUTION_NAMES.map((d, index) => (
-          <React.Fragment key={"distriNew_" + index}>
+          <React.Fragment key={`distriNew_${index}`}>
             <Grid item xs={12} sm={3}>
               <FormControl className={classes.margin}>
-                <InputLabel htmlFor={"input-with-icon-adornment-" + index}>
-                  {d.name === "Power" ? (
+                <InputLabel htmlFor={`input-with-icon-adornment-${index}`}>
+                  {d.name === 'Power' ? (
                     <Attribute name="Power" text="Power Coefficient" />
                   ) : (
-                    <Condition name={d.name} text={"Avg. " + d.name + " stacks"} />
+                    <Condition name={d.name} text={`Avg. ${d.name} stacks`} />
                   )}
                 </InputLabel>
                 <Input
-                  id={"input-with-icon-adornment-" + index}
-                  value={textBoxes[index]}
+                  id={`input-with-icon-adornment-${index}`}
+                  value={textBoxes[d.name]}
                   endAdornment={
                     <InputAdornment position="end">
-                      {d.name === "Power" ? (
+                      {d.name === 'Power' ? (
                         <Attribute name="Power" disableLink disableText />
                       ) : (
                         <Condition name={d.name} disableLink disableText />
                       )}
                     </InputAdornment>
                   }
-                  onChange={handleChangeTextNew(index)}
+                  onChange={handleChangeTextNew(d.name)}
                 />
               </FormControl>
             </Grid>
             <Grid item xs={12} sm={9}>
               <Nouislider
                 className={classNames(classes.sliderNew, classes.slider)}
-                start={distributionNew[index]}
+                start={distributionNew[d.name]}
                 connect={[true, false]}
                 range={{
                   min: [d.min],
-                  max: [d.max]
+                  max: [d.max],
                 }}
                 step={d.step}
                 pips={{
-                  mode: "values",
+                  mode: 'values',
                   values: [
                     0,
                     d.max - (4 * d.max) / 5,
                     d.max - (3 * d.max) / 5,
                     d.max - (2 * d.max) / 5,
                     d.max - d.max / 5,
-                    d.max
+                    d.max,
                   ],
-                  density: 5
+                  density: 5,
                 }}
-                onSlide={debounce(onUpdateNew(index), 50)}
+                onSlide={debounce(onUpdateNew(d.name), 50)}
               />
             </Grid>
           </React.Fragment>

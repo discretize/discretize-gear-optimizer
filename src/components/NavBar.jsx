@@ -7,42 +7,44 @@ import {
   IconButton,
   Switch,
   Toolbar,
-  withStyles
-} from "@material-ui/core";
-import { Profession } from "gw2-ui";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+  withStyles,
+} from '@material-ui/core';
+import { Profession } from 'gw2-ui';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import MenuIcon from '@material-ui/icons/Menu';
 import {
-  changeGeneric,
+  changeControl,
   changeProfession,
-  getGeneric,
-  getProfession
-} from "../state/gearOptimizerSlice";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import MenuIcon from "@material-ui/icons/Menu";
-import { PROFESSIONS } from "../utils/gw2-data";
+  getControl,
+  getProfession,
+} from '../state/gearOptimizerSlice';
+import { PROFESSIONS } from '../utils/gw2-data';
+import { firstUppercase } from '../utils/usefulFunctions';
 
-const styles = (theme) => ({
+const styles = () => ({
   topNav: {},
   navProfession: {
-    fontSize: "2rem"
+    fontSize: '2rem',
   },
   stickRight: {
-    marginLeft: "auto",
-    marginRight: 0
+    marginLeft: 'auto',
+    marginRight: 0,
   },
   drawerContainer: {
-    padding: "20px 30px"
-  }
+    padding: '20px 30px',
+  },
 });
 
 const Navbar = ({ classes }) => {
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
-  const expertMode = useSelector(getGeneric("expertMode"));
+  const expertMode = useSelector(getControl('expertMode'));
+
   const [state, setState] = useState({
     mobileView: false,
-    drawerOpen: false
+    drawerOpen: false,
   });
   const { mobileView, drawerOpen } = state;
 
@@ -55,10 +57,10 @@ const Navbar = ({ classes }) => {
 
     setResponsiveness();
 
-    window.addEventListener("resize", debounce(setResponsiveness, 300));
+    window.addEventListener('resize', debounce(setResponsiveness, 300));
 
     return () => {
-      window.removeEventListener("resize", debounce(setResponsiveness, 300));
+      window.removeEventListener('resize', debounce(setResponsiveness, 300));
     };
   }, []);
 
@@ -70,7 +72,7 @@ const Navbar = ({ classes }) => {
             <Switch
               checked={expertMode}
               onChange={(e) =>
-                dispatch(changeGeneric({ toChange: "expertMode", value: e.target.checked }))
+                dispatch(changeControl({ key: 'expertMode', value: e.target.checked }))
               }
               name="checked"
               color="primary"
@@ -95,9 +97,13 @@ const Navbar = ({ classes }) => {
         <div key={p.profession}>
           <Button
             onClick={() => dispatch(changeProfession(p.profession))}
-            variant={p.profession === profession ? "contained" : "text"}
+            variant={p.profession === profession ? 'contained' : 'text'}
           >
-            <Profession name={p.profession} disableLink className={classes.navProfession} />
+            <Profession
+              name={firstUppercase(p.profession)}
+              disableLink
+              className={classes.navProfession}
+            />
           </Button>
         </div>
       ));
@@ -106,11 +112,11 @@ const Navbar = ({ classes }) => {
       <Toolbar>
         <IconButton
           {...{
-            edge: "start",
-            color: "inherit",
-            "aria-label": "menu",
-            "aria-haspopup": "true",
-            onClick: handleDrawerOpen
+            edge: 'start',
+            color: 'inherit',
+            'aria-label': 'menu',
+            'aria-haspopup': 'true',
+            onClick: handleDrawerOpen,
           }}
         >
           <MenuIcon />
@@ -118,9 +124,9 @@ const Navbar = ({ classes }) => {
 
         <Drawer
           {...{
-            anchor: "left",
+            anchor: 'left',
             open: drawerOpen,
-            onClose: handleDrawerClose
+            onClose: handleDrawerClose,
           }}
         >
           <div className={classes.drawerContainer}>{getDrawerChoices()}</div>
@@ -137,10 +143,10 @@ const Navbar = ({ classes }) => {
         <Button
           key={p.profession}
           onClick={() => dispatch(changeProfession(p.profession))}
-          variant={p.profession === profession ? "contained" : "text"}
+          variant={p.profession === profession ? 'contained' : 'text'}
         >
           <Profession
-            name={p.profession}
+            name={firstUppercase(p.profession)}
             disableLink
             disableText
             className={classes.navProfession}

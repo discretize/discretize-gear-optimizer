@@ -4,9 +4,9 @@ list:
     items:
       - id: sweet-and-spicy-butternut-squash-soup
         text: >-
-          Bowl of Sweet and Spicy Butternut Squash Soup<br> /
-          <span data-armory-ids="91736" data-armory-embed="items" data-armory-size="24"></span>
+          Bowl of Sweet and Spicy Butternut Squash Soup /
           Sous-Vide Steak
+        # <span data-armory-ids="91736" data-armory-embed="items" data-armory-size="24"></span>
         modifiers: >-
           {
             "flat": { "Power": 100, "Ferocity": 70 }
@@ -16,9 +16,9 @@ list:
 
       - id: truffle-steak
         text: >-
-          Plate of Truffle Steak<br> /
-          <span data-armory-ids="91711" data-armory-embed="items" data-armory-size="24"></span>
+          Plate of Truffle Steak /
           Coq Au Vin
+        # <span data-armory-ids="91711" data-armory-embed="items" data-armory-size="24"></span>
         modifiers: >-
           {
             "flat": { "Power": 100, "Precision": 70 }
@@ -43,17 +43,6 @@ list:
             "flat": { "Power": 200, "Ferocity": 70 }
           }
         gw2-id: 43360
-        type: "items"
-
-      - &steamed-red-dumpling
-        id: steamed-red-dumpling
-        text: Steamed Red Dumpling
-        subText: "(100% uptime)"
-        modifiers: >-
-          {
-            "flat": { "Power": 200, "Condition Damage": 140 }
-          }
-        gw2-id: 68635
         type: "items"
 
       - id: seaweed-salad
@@ -97,9 +86,9 @@ list:
 
       - id: fried-golden-dumpling
         text: >-
-          Fried Golden Dumpling<br> /
-          <span data-armory-ids="91729" data-armory-embed="items" data-armory-size="24"></span>
+          Fried Golden Dumpling /
           Cheesecake
+        # <span data-armory-ids="91729" data-armory-embed="items" data-armory-size="24"></span>
         modifiers: >-
           {
             "flat": { "Concentration": 100 }
@@ -111,9 +100,9 @@ list:
     items:
       - id: soul-pastry
         text: >-
-          Soul Pastry<br> /
-          <span data-armory-ids="91718" data-armory-embed="items" data-armory-size="24"></span>
+          Soul Pastry /
           Beef Carpaccio
+        # <span data-armory-ids="91718" data-armory-embed="items" data-armory-size="24"></span>
         modifiers: >-
           {
             "flat": { "Concentration": 100, "Power": 70 }
@@ -122,9 +111,8 @@ list:
         type: "items"
 
       - id: eggs-benedict
-        text: >-
-          / <span data-armory-ids="91855" data-armory-embed="items" data-armory-size="24"></span>
-          Plate of Eggs Benedict
+        text: Plate of Eggs Benedict
+        # <span data-armory-ids="91855" data-armory-embed="items" data-armory-size="24"></span>
         modifiers: >-
           {
             "flat": { "Concentration": 100, "Expertise": 70 }
@@ -136,9 +124,9 @@ list:
 
       - id: nopalitos-saute
         text: >-
-          Bowl of Nopalitos Sauté<br> /
-          <span data-armory-ids="91775" data-armory-embed="items" data-armory-size="24"></span>
+          Bowl of Nopalitos Sauté /
           Poultry Aspic
+        # <span data-armory-ids="91775" data-armory-embed="items" data-armory-size="24"></span>
         modifiers: >-
           {
             "flat": { "Concentration": 100, "Toughness": 70 }
@@ -201,9 +189,9 @@ list:
     items:
       - id: rare-veggie-pizza
         text: >-
-          Rare Veggie Pizza<br> /
-          <span data-armory-ids="91823" data-armory-embed="items" data-armory-size="24"></span>
+          Rare Veggie Pizza /
           Veggie flatbread
+        # <span data-armory-ids="91823" data-armory-embed="items" data-armory-size="24"></span>
         modifiers: >-
           {
             "flat": { "Expertise": 100, "Condition Damage": 70 }
@@ -213,9 +201,9 @@ list:
 
       - id: beef-rendang
         text: >-
-          Plate of Beef Rendang<br> /
-          <span data-armory-ids="91867" data-armory-embed="items" data-armory-size="24"></span>
+          Plate of Beef Rendang /
           Cured Meat flatbread
+        # <span data-armory-ids="91867" data-armory-embed="items" data-armory-size="24"></span>
         modifiers: >-
           {
             "flat": { "Condition Damage": 100, "Expertise": 70 }
@@ -234,7 +222,15 @@ list:
         gw2-id: 12476
         type: "items"
 
-      - *steamed-red-dumpling
+      - id: steamed-red-dumpling
+        text: Steamed Red Dumpling
+        subText: "(100% uptime)"
+        modifiers: >-
+          {
+            "flat": { "Power": 200, "Condition Damage": 140 }
+          }
+        gw2-id: 68635
+        type: "items"
 
       ####
 
@@ -305,9 +301,9 @@ list:
     items:
       - id: dragon's-revelry-starcake
         text: >-
-          Dragon's Revelry Starcake<br> /
-          <span data-armory-ids="91756" data-armory-embed="items" data-armory-size="24"></span>
+          Dragon's Revelry Starcake /
           Oyster Soup
+        # <span data-armory-ids="91756" data-armory-embed="items" data-armory-size="24"></span>
         modifiers: >-
           {
             "flat":
@@ -403,9 +399,9 @@ list:
 
       - id: omnomberry-bread
         text: >-
-          Loaf of Omnomberry Bread<br> /
-          <span data-armory-ids="91798" data-armory-embed="items" data-armory-size="24"></span>
+          Loaf of Omnomberry Bread /
           Ravioli
+        # <span data-armory-ids="91798" data-armory-embed="items" data-armory-size="24"></span>
         modifiers: >-
           {
             "flat": { "Vitality": 100, "Toughness": 70 }

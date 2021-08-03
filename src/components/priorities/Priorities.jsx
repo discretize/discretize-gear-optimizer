@@ -13,7 +13,12 @@ import {
 import { Attribute } from "gw2-ui";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeGeneric, getGeneric } from "../../state/gearOptimizerSlice";
+import {
+  changeGeneric,
+  changePriority,
+  getGeneric,
+  getPriority
+} from "../../state/gearOptimizerSlice";
 import Presets from "../baseComponents/Presets";
 import HelperIcon from "../HelperIcon";
 import Affixes from "./Affixes";
@@ -44,27 +49,23 @@ const styles = (theme) => ({
 });
 
 const OPTIMIZATION_GOALS = ["Damage", "Survivability", "Healing"];
-const WEAPON_TYPE = [
-  { id: "dualWielded", label: "Dual Wielded" },
-  { id: "twoHanded", label: "Two Handed" }
-];
 
 const Priorities = ({ classes, presets }) => {
   const dispatch = useDispatch();
-  const optimizeFor = useSelector(getGeneric("optimizeFor"));
-  const weaponType = useSelector(getGeneric("weaponType"));
-  const minBoonDuration = useSelector(getGeneric("minBoonDuration"));
-  const minHealingPower = useSelector(getGeneric("minHealingPower"));
-  const minToughness = useSelector(getGeneric("minToughness"));
-  const maxToughness = useSelector(getGeneric("maxToughness"));
+  const optimizeFor = useSelector(getPriority("optimizeFor"));
+  const weaponType = useSelector(getPriority("weaponType"));
+  const minBoonDuration = useSelector(getPriority("minBoonDuration"));
+  const minHealingPower = useSelector(getPriority("minHealingPower"));
+  const minToughness = useSelector(getPriority("minToughness"));
+  const maxToughness = useSelector(getPriority("maxToughness"));
 
   const handleChange = (event) => {
-    dispatch(changeGeneric({ toChange: event.target.name, value: event.target.value }));
+    dispatch(changePriority({ key: event.target.name, value: event.target.value }));
   };
 
   const handleTemplateClick = (index) => (event) => {
     const state = JSON.parse(presets[index].value);
-    Object.keys(state).forEach((k) => dispatch(changeGeneric({ toChange: k, value: state[k] })));
+    Object.keys(state).forEach((key) => dispatch(changePriority({ key, value: state[key] })));
   };
 
   return (
@@ -117,12 +118,12 @@ const Priorities = ({ classes, presets }) => {
               onChange={handleChange}
             >
               <FormControlLabel
-                value="dualWielded"
+                value="Dual wield"
                 control={<Radio color="primary" />}
                 label="Dual wielded"
               ></FormControlLabel>
               <FormControlLabel
-                value="twoHanded"
+                value="Two-handed"
                 control={<Radio color="primary" />}
                 label="Two-handed"
               ></FormControlLabel>

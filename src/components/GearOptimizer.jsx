@@ -1,45 +1,50 @@
-import { Button, Divider, Typography, withStyles } from "@material-ui/core";
-import { Cancel, Functions } from "@material-ui/icons";
-import { graphql, StaticQuery } from "gatsby";
-import { ConsumableEffect, Item } from "gw2-ui";
-import React from "react";
-import { useSelector } from "react-redux";
+/* eslint-disable no-console */
+import { Button, Divider, Typography, withStyles } from '@material-ui/core';
+import { Cancel, Functions } from '@material-ui/icons';
+import { graphql, StaticQuery } from 'gatsby';
+import { ConsumableEffect, Item } from 'gw2-ui';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
-  getDistributionNew,
-  getDistributionOld,
+  getBuffs,
+  getControl,
+  getExtras,
   getGeneric,
-  getModifiers,
-  getProfession
-} from "../state/gearOptimizerSlice";
-import { PROFESSIONS } from "../utils/gw2-data";
-import ARinput from "./ARinput";
-import Buffs from "./Buffs";
-import DamageDistribution from "./DamageDistribution";
-import ForcedSlots from "./ForcedSlots";
-import GW2Select from "./GW2Select";
-import Infusions from "./Infusions";
-import NavBar from "./NavBar";
-import Priorities from "./priorities/Priorities";
-import Skills from "./Skills";
-import Traits from "./Traits";
+  getProfession,
+  getTraitModifiers,
+  setModifiers,
+} from '../state/gearOptimizerSlice';
+import { PROFESSIONS } from '../utils/gw2-data';
+import ARinput from './ARinput';
+import { LinearProgressWithLabel } from './baseComponents/LinearProgressWithLabel';
+import Buffs from './Buffs';
+import DamageDistribution from './DamageDistribution';
+import ForcedSlots from './ForcedSlots';
+import GW2Select from './GW2Select';
+import Infusions from './Infusions';
+import NavBar from './NavBar';
+import Priorities from './priorities/Priorities';
+import ResultTable from './ResultTable';
+import Skills from './Skills';
+import Traits from './Traits';
 
 const styles = (theme) => ({
   root: {
     // adds padding on bigger (non smartphone) screens
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up('sm')]: {
       paddingLeft: 20,
-      paddingRight: 20
-    }
+      paddingRight: 20,
+    },
   },
   button: {
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
   },
   icon: {
-    fontSize: 18
+    fontSize: 18,
   },
   margin: {
-    marginBottom: theme.spacing(2)
-  }
+    marginBottom: theme.spacing(2),
+  },
 });
 
 /**
@@ -49,38 +54,62 @@ const styles = (theme) => ({
  * @returns the main ui
  */
 const MainComponent = ({ classes, data }) => {
-  const expertMode = useSelector(getGeneric("expertMode"));
+  const expertMode = useSelector(getControl('expertMode'));
   const profession = useSelector(getProfession);
-  const dualWielded = useSelector(getGeneric("weaponType"));
+  const dualWielded = useSelector(getGeneric('weaponType'));
+  const progress = useSelector(getControl('percentageDone'));
+  const buffs = useSelector(getBuffs);
+  const extras = useSelector(getExtras);
+  const traitModifiers = useSelector(getTraitModifiers);
+
+  const dispatch = useDispatch();
 
   function onStartCalculate(e) {
-    // TODO do calc
-    console.log("calculate");
-    const input = {
-      modifiers: useSelector(getModifiers),
-      tags: undefined,
-      profession: useSelector(getProfession),
-      weapontype: useSelector(getGeneric("weaponType")),
-      affixes: useSelector(getGeneric("affixes")),
-      forcedAffixes: useSelector(getGeneric("forcedSlots")),
-      rankby: useSelector(getGeneric("optimizeFor")),
-      minBoonDuration: useSelector(getGeneric("minBoonDuration")),
-      minHealingPower: useSelector(getGeneric("minHealingPower")),
-      minToughness: useSelector(getGeneric("minToughness")),
-      maxToughness: useSelector(getGeneric("maxToughness")),
-      maxResults: 50, // TODO MAX RESULTS
-      primaryInfusion: useSelector(getGeneric("primaryInfusion")),
-      secondaryInfusion: useSelector(getGeneric("secondaryInfusion")),
-      primaryMaxInfusions: useSelector(getGeneric("primaryMaxInfusions")),
-      secondaryMaxInfusions: useSelector(getGeneric("secondaryMaxInfusions")),
-      percentDistribution: useSelector(getDistributionOld),
-      distribution: useSelector(getDistributionNew)
-    };
+    console.log('calculate');
+
+    const modifiers = [];
+
+    const extrasData = [
+      { id: 'Runes', list: data.runes.list },
+      { id: 'Sigil1', list: data.sigils.list },
+      { id: 'Sigil2', list: data.sigils.list },
+      { id: 'Enhancement', list: data.enhancement.list },
+      { id: 'Nourishment', list: data.nourishment.list },
+    ];
+
+    extrasData
+      .filter((extra) => extras[extra.id] !== '')
+      .forEach((extra) => {
+        modifiers.push({
+          id: extras[extra.id],
+          modifiers: extra.list.flatMap((d) => d.items).find((a) => a.id === extras[extra.id])
+            .modifiers,
+          source: extra.id,
+        });
+      });
+
+    data.buffs.list
+      .flatMap((d) => d.items)
+      .filter((elem) => buffs[elem.id])
+      .forEach((elem) =>
+        modifiers.push({ id: elem.id, modifiers: elem.modifiers, gw2_id: elem.gw2_id }),
+      );
+    // Storing the trait modifiers seperately since just storing trait IDs and then find out the corresponding
+    // modifier here is more computational effort - while having the same disadvantages of keeping the UI with
+    // modifiers in sync - than storing the modifier right away.
+    modifiers.push(...traitModifiers);
+    dispatch(setModifiers(modifiers));
+
+    console.log(modifiers);
+
+    dispatch({
+      type: 'START',
+    });
   }
 
   function onCancelCalculate(e) {
     // TODO do cancel calc
-    console.log("cancel calculate");
+    console.log('cancel calculate');
   }
 
   return (
@@ -88,7 +117,7 @@ const MainComponent = ({ classes, data }) => {
       <NavBar />
 
       {/* TODO add template selection here */}
-      {profession !== "" && (
+      {profession !== '' && (
         <>
           {expertMode && (
             <>
@@ -101,10 +130,10 @@ const MainComponent = ({ classes, data }) => {
                 .map((p) => {
                   const traitData = data[p.toLocaleLowerCase()].edges[0].node.list.slice(1);
                   const skillData = data[p.toLowerCase()].edges[0].node.list.filter(
-                    (d) => d.section === "Skills"
+                    (d) => d.section === 'Skills',
                   );
                   return (
-                    <React.Fragment key={"TaS_" + p}>
+                    <React.Fragment key={`TaS_${p}`}>
                       <Traits data={traitData.filter((line) => line.id > 0)} />
                       <Divider />
                       <Skills profession={p} data={skillData[0] ? skillData[0].items : []} />
@@ -165,7 +194,7 @@ const MainComponent = ({ classes, data }) => {
           {expertMode && (
             <>
               <Divider />
-              <ForcedSlots dualWielded={dualWielded === "dualWielded"} />
+              <ForcedSlots dualWielded={dualWielded === 'dualWielded'} />
             </>
           )}
 
@@ -204,6 +233,11 @@ const MainComponent = ({ classes, data }) => {
           >
             <Cancel className={classes.icon}></Cancel> Stop
           </Button>
+
+          <Divider />
+          <LinearProgressWithLabel value={progress} />
+
+          <ResultTable />
         </>
       )}
     </div>
