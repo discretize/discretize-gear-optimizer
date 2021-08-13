@@ -175,7 +175,7 @@ const DamageDistribution = ({ classes, presets: presetsRaw }) => {
   // eslint-disable-next-line no-unused-vars
   const onUpdateNew = (key) => (render, handle, value, un, percent) => {
     dispatch(changeTextBoxes({ index: key, value: Math.round(value * 100) / 100 }));
-    dispatch(changeDistributionNew({ index: key, value: value }));
+    dispatch(changeDistributionNew({ index: key, value: Math.round(value * 100) / 100 }));
   };
 
   const handleChangeTextNew = (key) => (e) => {
