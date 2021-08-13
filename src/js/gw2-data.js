@@ -603,7 +603,7 @@ export const Omnipotion = {
   multiplier: {
     'Effective Power': 0.15,
     'add: Effective Condition Damage': 0.15, // stacks additively
-    'Effective Health': 0.25
+    'add: Damage Reduction': 0.25
   },
   convert: {
     Precision: {
