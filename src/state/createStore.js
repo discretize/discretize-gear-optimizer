@@ -1,4 +1,4 @@
-import { handleRequests } from 'gw2-ui-bulk';
+import { handleRequests, gw2UIReducer } from 'gw2-ui-bulk';
 
 import { applyMiddleware, combineReducers, compose, createStore as reduxCreateStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
@@ -12,6 +12,7 @@ const saga = createSagaMiddleware();
 
 const reducers = combineReducers({
   requests: requestsReducer,
+  gw2UiStore: gw2UIReducer,
   gearOptimizer: gearOptimizerReducer,
 });
 

@@ -5484,6 +5484,13 @@ fsevents@~2.3.2:
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
   integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
 
+function-batch@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/function-batch/-/function-batch-1.1.2.tgz#8c5a213faff928f3936efcd702bbe3d24db562c0"
+  integrity sha1-jFohP6/5KPOTbvzXArvj0k21YsA=
+  dependencies:
+    lodash "^4.0.8"
+
 function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
@@ -6214,24 +6221,25 @@ graphql@^15.4.0:
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.5.1.tgz#f2f84415d8985e7b84731e7f3536f8bb9d383aad"
   integrity sha512-FeTRX67T3LoE3LWAxxOlW2K3Bz+rMYAC18rRguK4wgXaTZMiJwSUwDmPFo3UadAKbzirKIg5Qy+sNJXbpPRnQw==
 
-gw2-ui-builder-bulk@^0.2.1:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/gw2-ui-builder-bulk/-/gw2-ui-builder-bulk-0.2.2.tgz#9decb815abda199d0f4a9291e81056396128c52d"
-  integrity sha512-SBOlzmA/bdprO0SMBqyKiDw4R6Be/ah/KDjK1jCbxqi5rVRW6Y45XJjO2i3/M0fv9yJ2B9otr3tD1YWgDSJK7g==
+gw2-ui-builder-bulk@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/gw2-ui-builder-bulk/-/gw2-ui-builder-bulk-0.2.3.tgz#5f554d0bbb6591bf377439faca840a387332b22f"
+  integrity sha512-bBbsLi9Z4TBH8etKrZu16oRdOzA8t0+tM7zdG6aJVUb4BSnCuQudeoKjziLExj30LZfG4L2h+KiVfGtIcSe6VA==
 
-"gw2-ui-bulk@file:../gw2-ui/packages/gw2-ui":
-  version "0.10.3"
+gw2-ui-bulk@0.10.10:
+  version "0.10.10"
+  resolved "https://registry.yarnpkg.com/gw2-ui-bulk/-/gw2-ui-bulk-0.10.10.tgz#14073d62b258feaa0d69821bcad5237f656fe123"
+  integrity sha512-zFcJewSGTEizqhVOKqNfCaccXM8LkVs0TD3julxXaavh274r4zgrcmsn/xqaQiPSHpP0x9LUb+ciuByhts3EVQ==
   dependencies:
     "@redux-requests/react" "1.0.0"
-    gw2-ui-builder-bulk "^0.2.1"
-    gw2-ui-components-bulk "^0.11.0"
-    gw2-ui-redux-bulk "^0.5.0"
-    use-is-in-viewport "^1.0.9"
+    gw2-ui-builder-bulk "^0.2.3"
+    gw2-ui-components-bulk "^0.11.3"
+    gw2-ui-redux-bulk "^0.5.8"
 
-gw2-ui-components-bulk@^0.11.0:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/gw2-ui-components-bulk/-/gw2-ui-components-bulk-0.11.1.tgz#aac02250bec7270987fb75a2f8fe61eeb165e804"
-  integrity sha512-OvZpUZo6dPr5CSxT2S/be0rw7bPcaHFY9YLZESbWSAFeKtxyBdyYyadjuvdga9w336qFqJ5CfOUdvuSTx2P6Mw==
+gw2-ui-components-bulk@^0.11.3:
+  version "0.11.3"
+  resolved "https://registry.yarnpkg.com/gw2-ui-components-bulk/-/gw2-ui-components-bulk-0.11.3.tgz#098f870c61364faac120ca883027d4b8f271ce65"
+  integrity sha512-jCkcqenHJHuoENk/X+XdXQQQkvofu3rfA2WzX8xKhAsy1RNLHqRatKeu/EbMJv6NdaBmY3cVs4fyeeaewHDYqg==
   dependencies:
     "@theme-ui/core" "^0.3.1"
     "@tippyjs/react" "^4.2.0"
@@ -6239,14 +6247,15 @@ gw2-ui-components-bulk@^0.11.0:
     lodash.camelcase "^4.3.0"
     react-resize-aware "^3.0.1"
 
-gw2-ui-redux-bulk@^0.5.0:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/gw2-ui-redux-bulk/-/gw2-ui-redux-bulk-0.5.1.tgz#0eb376c191c4cce0d3c9b645e1dcb992e11e28b8"
-  integrity sha512-URZC4jvcLMvUjFntV8vf/o10wgwd13dUl9rAYNx8ZJGS29lMERjZfSxp+5jZ/79LurCw0XhE4U6/T/9B4dvCaQ==
+gw2-ui-redux-bulk@^0.5.8:
+  version "0.5.8"
+  resolved "https://registry.yarnpkg.com/gw2-ui-redux-bulk/-/gw2-ui-redux-bulk-0.5.8.tgz#85d3aa3972404dc5434c8146f8d01074fc77393c"
+  integrity sha512-N7SHSRYDDiX2IiWy8FelgeSRN4/CkUa382xzp8bHh9YS4dniWF+631rss+yGHedF5TNrDFmmpM/hgu5dRUo4vg==
   dependencies:
     "@redux-requests/axios" "1.0.0"
     "@redux-requests/core" "1.1.1"
     "@reduxjs/toolkit" "^1.6.1"
+    function-batch "^1.1.2"
 
 gzip-size@5.1.1:
   version "5.1.1"
@@ -7704,7 +7713,7 @@ lodash.without@^4.4.0:
   resolved "https://registry.yarnpkg.com/lodash.without/-/lodash.without-4.4.0.tgz#3cd4574a00b67bae373a94b748772640507b7aac"
   integrity sha1-PNRXSgC2e643OpS3SHcmQFB7eqw=
 
-lodash@4.17.21, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.4:
+lodash@4.17.21, lodash@^4.0.8, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.4:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -8507,11 +8516,6 @@ object.values@^1.1.3, object.values@^1.1.4:
     call-bind "^1.0.2"
     define-properties "^1.1.3"
     es-abstract "^1.18.2"
-
-observe-element-in-viewport@0.0.15:
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/observe-element-in-viewport/-/observe-element-in-viewport-0.0.15.tgz#06284e84da80bd43c348ac3d957ba6b99fb2bbd0"
-  integrity sha512-BaJGtCHp8XXxe8zFOnsbv93f4SRLb0W5P3okGJkLLKC9IM9aXvpKF4C8lFxivcS5eROlNkhOCnUOSk4tUnJnKQ==
 
 obuf@^1.0.0, obuf@^1.1.2:
   version "1.1.2"
@@ -11525,13 +11529,6 @@ url@^0.11.0:
   dependencies:
     punycode "1.3.2"
     querystring "0.2.0"
-
-use-is-in-viewport@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/use-is-in-viewport/-/use-is-in-viewport-1.0.9.tgz#bbc1f2f39ece752c7af0ddcd17b251ba5b4587e2"
-  integrity sha512-Dgi0z/X9eTk3ziI+b28mZVoYtCtyoUFQ+9VBq6fR5EdjqmmsSlbr8ysXAwmEl89OUNBQwVGLGdI9nqwiu3168g==
-  dependencies:
-    observe-element-in-viewport "0.0.15"
 
 use@^3.1.0:
   version "3.1.1"
