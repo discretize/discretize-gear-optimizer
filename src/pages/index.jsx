@@ -1,13 +1,13 @@
-import * as React from "react";
+import * as React from 'react';
 
-import { Typography, withStyles } from "@material-ui/core";
-import GearOptimizer from "../components/GearOptimizer";
-import withLayout from "../hocs/withLayout";
+import { Typography, withStyles } from '@material-ui/core';
+import GearOptimizer from '../components/GearOptimizer';
+import withLayout from '../hocs/withLayout';
 
 const styles = (theme) => ({
   headline: {
-    paddingBottom: theme.spacing(2)
-  }
+    paddingBottom: theme.spacing(2),
+  },
 });
 
 // markup

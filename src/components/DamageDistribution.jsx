@@ -10,7 +10,7 @@ import {
   withStyles,
 } from '@material-ui/core';
 import classNames from 'classnames';
-import { Attribute, Condition } from 'gw2-ui';
+import { Attribute, Condition } from 'gw2-ui-bulk';
 import debounce from 'lodash.debounce';
 import Nouislider from 'nouislider-react';
 import 'nouislider/distribute/nouislider.css';

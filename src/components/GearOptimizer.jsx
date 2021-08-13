@@ -2,7 +2,7 @@
 import { Button, Divider, Typography, withStyles } from '@material-ui/core';
 import { Cancel, Functions } from '@material-ui/icons';
 import { graphql, StaticQuery } from 'gatsby';
-import { ConsumableEffect, Item } from 'gw2-ui';
+import { ConsumableEffect, Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {

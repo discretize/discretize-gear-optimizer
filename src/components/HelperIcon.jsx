@@ -1,6 +1,6 @@
 import { withStyles } from '@material-ui/core';
 import { HelpOutline } from '@material-ui/icons';
-import { Tooltip } from 'gw2-ui';
+import { Tooltip } from 'gw2-ui-bulk';
 import React from 'react';
 
 const styles = (theme) => ({

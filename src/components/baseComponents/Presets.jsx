@@ -1,12 +1,12 @@
-import { Chip, withStyles } from "@material-ui/core";
-import { Profession } from "gw2-ui";
-import React from "react";
-import { firstUppercase } from "../../utils/usefulFunctions";
+import { Chip, withStyles } from '@material-ui/core';
+import { Profession } from 'gw2-ui-bulk';
+import React from 'react';
+import { firstUppercase } from '../../utils/usefulFunctions';
 
 const styles = (theme) => ({
   templateChip: {
-    margin: theme.spacing(1)
-  }
+    margin: theme.spacing(1),
+  },
 });
 
 const Presets = ({ classes, data, handleClick }) => {

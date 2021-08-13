@@ -8,56 +8,56 @@ import {
   Radio,
   RadioGroup,
   Typography,
-  withStyles
-} from "@material-ui/core";
-import { Attribute } from "gw2-ui";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+  withStyles,
+} from '@material-ui/core';
+import { Attribute } from 'gw2-ui-bulk';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   changeGeneric,
   changePriority,
   getGeneric,
-  getPriority
-} from "../../state/gearOptimizerSlice";
-import Presets from "../baseComponents/Presets";
-import HelperIcon from "../HelperIcon";
-import Affixes from "./Affixes";
+  getPriority,
+} from '../../state/gearOptimizerSlice';
+import Presets from '../baseComponents/Presets';
+import HelperIcon from '../HelperIcon';
+import Affixes from './Affixes';
 
 const styles = (theme) => ({
   root: {
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(2),
   },
   text: {
-    color: "#ddd !important"
+    color: '#ddd !important',
   },
   templateChip: {
     margin: theme.spacing(1),
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(2),
   },
   formControl: {
     margin: theme.spacing(1),
-    width: 180
+    width: 180,
   },
   box: {
-    display: "flex",
-    alignItems: "center",
-    flexWrap: "wrap"
+    display: 'flex',
+    alignItems: 'center',
+    flexWrap: 'wrap',
   },
   helper: {
-    fontSize: 10
-  }
+    fontSize: 10,
+  },
 });
 
-const OPTIMIZATION_GOALS = ["Damage", "Survivability", "Healing"];
+const OPTIMIZATION_GOALS = ['Damage', 'Survivability', 'Healing'];
 
 const Priorities = ({ classes, presets }) => {
   const dispatch = useDispatch();
-  const optimizeFor = useSelector(getPriority("optimizeFor"));
-  const weaponType = useSelector(getPriority("weaponType"));
-  const minBoonDuration = useSelector(getPriority("minBoonDuration"));
-  const minHealingPower = useSelector(getPriority("minHealingPower"));
-  const minToughness = useSelector(getPriority("minToughness"));
-  const maxToughness = useSelector(getPriority("maxToughness"));
+  const optimizeFor = useSelector(getPriority('optimizeFor'));
+  const weaponType = useSelector(getPriority('weaponType'));
+  const minBoonDuration = useSelector(getPriority('minBoonDuration'));
+  const minHealingPower = useSelector(getPriority('minHealingPower'));
+  const minToughness = useSelector(getPriority('minToughness'));
+  const maxToughness = useSelector(getPriority('maxToughness'));
 
   const handleChange = (event) => {
     dispatch(changePriority({ key: event.target.name, value: event.target.value }));
@@ -78,7 +78,7 @@ const Priorities = ({ classes, presets }) => {
         <Grid item xs={12} sm={6}>
           <FormControl component="fieldset">
             <FormLabel component="legend">
-              Optimize for:{" "}
+              Optimize for:{' '}
               <HelperIcon
                 text="What to optimize the results for. 'Damage' includes power and condition damage according to the distribution below."
                 size="small"
@@ -105,7 +105,7 @@ const Priorities = ({ classes, presets }) => {
         <Grid item xs={12} sm={6}>
           <FormControl component="fieldset">
             <FormLabel component="legend">
-              Weapon type:{" "}
+              Weapon type:{' '}
               <HelperIcon
                 text="Select 'Dual wield' if you're using weapons in both hands or 'Two-handed' when using a two-handed weapon."
                 size="small"

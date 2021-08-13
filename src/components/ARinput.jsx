@@ -6,7 +6,7 @@ import {
   Typography,
   withStyles,
 } from '@material-ui/core';
-import { Attribute } from 'gw2-ui';
+import { Attribute } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeAR, getAR } from '../state/gearOptimizerSlice';

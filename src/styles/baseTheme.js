@@ -1,4 +1,4 @@
-import { baseTheme } from "gw2-ui";
+import { baseTheme } from 'gw2-ui-bulk';
 
 export default {
   ...baseTheme,
@@ -21,4 +21,6 @@ export default {
   initialColorModeName: 'dark',
   useBorderBox: false,
   useLocalStorage: false,
+
+  useBulkRequests: true,
 };
