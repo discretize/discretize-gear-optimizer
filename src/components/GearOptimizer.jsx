@@ -114,7 +114,7 @@ const MainComponent = ({ classes, data }) => {
 
   return (
     <div className={classes.root}>
-      <NavBar />
+      <NavBar data={data.presetTraits.list} />
 
       {/* TODO add template selection here */}
       {profession !== '' && (
@@ -463,6 +463,18 @@ const GearOptimizer = ({ classes }) => {
               name
               value
               profession
+            }
+          }
+          presetTraits {
+            id
+            list {
+              class
+              builds {
+                id
+                name
+                traits
+                specialization
+              }
             }
           }
         }

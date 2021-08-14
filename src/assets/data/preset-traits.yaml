@@ -1,21 +1,75 @@
 GraphQL ID: presetTraits
 list:
-
   - class: mesmer
     builds:
-
       - name: pChrono
         id: pchrono
-        traits:
-          - fragility
-          - egotism
-          - vicious-expression
-          - fencers-finesse
-          - superiority-complex
+        specialization: Chronomancer
+        traits: >- TODO this does not work
+          {
+            "traits": {
+              "lines": [
+                '10',
+                '1',
+                '40'
+              ],
+              "selected": [
+                [
+                  682,
+                  713,
+                  681
+                ],
+                [
+                  701,
+                  708,
+                  692
+                ],
+                [
+                  1995,
+                  1978,
+                  1890
+                ]
+              ],
+              "modifiers": [
+                {
+                  id: 'fragility',
+                  modifiers: '{\n  "multiplier": { "Effective Power": 0.125 }\n}',
+                  gw2_id: 1941,
+                  source: 10
+                },
+                {
+                  id: 'vicious-expression',
+                  modifiers: '{\n  "multiplier": { "Effective Power": 0.15 }\n}',
+                  gw2_id: 681,
+                  source: 10
+                },
+                {
+                  id: 'egotism',
+                  modifiers: '{\n  "multiplier": { "Effective Power": 0.1 }\n}',
+                  gw2_id: 713,
+                  source: 10
+                },
+                {
+                  id: 'superiority-complex',
+                  modifiers: '{\n  "multiplier": { "Critical Damage": 0.2 }\n}',
+                  gw2_id: 692,
+                  source: 1
+                },
+                {
+                  id: 'fencers-finesse',
+                  modifiers: '{\n  "buff": { "Ferocity": 150 }\n}',
+                  gw2_id: 708,
+                  source: 1
+                }
+              ]
+            },
+            "skills": []
+          }
 
       - name: Staff Mirage
         id: staffmirage
-        traits:
+        specialization: Mirage
+        traits: >-
           - signet-of-domination
           - signet-of-midnight
           - illusionary-membrane
@@ -26,10 +80,10 @@ list:
 
   - class: guardian
     builds:
-
       - name: DH
         id: dh
-        traits:
+        specialization: Dragonhunter
+        traits: >-
           - fiery-wrath
           - symbolic-avenger
           - symbolic-exposure
@@ -42,7 +96,8 @@ list:
 
       - name: pQFB
         id: pqfb
-        traits:
+        specialization: Firebrand
+        traits: >-
           - fiery-wrath
           - symbolic-avenger
           - symbolic-exposure
@@ -53,7 +108,8 @@ list:
 
       - name: CFB Virtues
         id: cfb
-        traits:
+        specialization: Firebrand
+        traits: >-
           - signet-of-wrath
           - right-hand-strength
           - right-hand-strength-3
@@ -67,7 +123,8 @@ list:
 
       - name: CFB Zeal
         id: cfb2
-        traits:
+        specialization: Firebrand
+        traits: >-
           - signet-of-wrath
           - fiery-wrath
           - symbolic-exposure
@@ -81,10 +138,10 @@ list:
 
   - class: warrior
     builds:
-
       - name: Power Banner Bers
         id: pbers
-        traits:
+        specialization: Berserker
+        traits: >-
           - peak-performance
           - signet-of-might
           - great-fortitude
@@ -100,7 +157,8 @@ list:
 
       - name: Condi Banner Bers
         id: cbers
-        traits:
+        specialization: Berserker
+        traits: >-
           - wounding-precision
           - deep-strikes
           - blade-master
@@ -115,10 +173,10 @@ list:
 
   - class: elementalist
     builds:
-
       - name: Power Weaver
         id: pwea
-        traits:
+        specialization: Weaver
+        traits: >-
           - empowering-flame
           - burning-precision
           - power-overwhelming
@@ -135,7 +193,8 @@ list:
 
       - name: Condi Weaver
         id: cwea
-        traits:
+        specialization: Weaver
+        traits: >-
           - empowering-flame
           - burning-precision
           - burning-rage
@@ -151,10 +210,10 @@ list:
 
   - class: ranger
     builds:
-
       - name: Power Slb
         id: pslb
-        traits:
+        specialization: Soulbeast
+        traits: >-
           - farsighted
           - predators-onslaught
           - honed-axes
@@ -170,7 +229,8 @@ list:
 
       - name: Condi Slb (D/T SB)
         id: cslb
-        traits:
+        specialization: Soulbeast
+        traits: >-
           - hidden-barbs
           - hunters-tactics
           - light-on-your-feet
@@ -184,7 +244,8 @@ list:
 
       - name: Condi Slb (D/T A/D)
         id: cslb2
-        traits:
+        specialization: Soulbeast
+        traits: >-
           - hidden-barbs
           - hunters-tactics
           - taste-for-danger
@@ -197,7 +258,8 @@ list:
 
       - name: Hybrid Slb (A/T D/A)
         id: hslb
-        traits:
+        specialization: Soulbeast
+        traits: >-
           - hidden-barbs
           - hunters-tactics
           - vicious-quarry
@@ -213,10 +275,10 @@ list:
 
   - class: revenant
     builds:
-
       - name: Power Ren
         id: pren
-        traits:
+        specialization: Renegade
+        traits: >-
           - rising-tide
           - ferocious-aggression
           - unsuspecting-strikes
@@ -228,7 +290,8 @@ list:
 
       - name: Condi Ren Devastation
         id: cren-deva
-        traits:
+        specialization: Renegade
+        traits: >-
           - acolyte-of-torment
           - seething-malice
           - pact-of-pain
@@ -244,10 +307,10 @@ list:
 
   - class: engineer
     builds:
-
       - name: Power Holo
         id: pholo
-        traits:
+        specialization: Holosmith
+        traits: >-
           - glass-cannon
           - explosive-temper
           - shaped-charge
@@ -260,7 +323,8 @@ list:
 
       - name: Condi Holo
         id: cholo
-        traits:
+        specialization: Holosmith
+        traits: >-
           - glass-cannon
           - explosive-temper
           - shaped-charge
@@ -272,7 +336,8 @@ list:
 
       - name: Power Scrapper
         id: pscrap
-        traits:
+        specialization: Scrapper
+        traits: >-
           - glass-cannon
           - explosive-temper
           - shaped-charge

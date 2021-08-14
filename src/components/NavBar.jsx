@@ -7,8 +7,15 @@ import {
   IconButton,
   Switch,
   Toolbar,
+  Typography,
+  Popper,
+  Fade,
+  Paper,
   withStyles,
+  MenuItem,
 } from '@material-ui/core';
+import Menu from 'material-ui-popup-state/HoverMenu';
+import { usePopupState, bindHover, bindMenu } from 'material-ui-popup-state/hooks';
 import { Profession } from 'gw2-ui-bulk';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -37,7 +44,7 @@ const styles = () => ({
   },
 });
 
-const Navbar = ({ classes }) => {
+const Navbar = ({ classes, data }) => {
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
   const expertMode = useSelector(getControl('expertMode'));
@@ -45,8 +52,10 @@ const Navbar = ({ classes }) => {
   const [state, setState] = useState({
     mobileView: false,
     drawerOpen: false,
+    hover: [false, false, false, false, false, false, false, false, false],
+    anchor: null,
   });
-  const { mobileView, drawerOpen } = state;
+  const { mobileView, drawerOpen, anchor } = state;
 
   useEffect(() => {
     const setResponsiveness = () => {
@@ -137,21 +146,66 @@ const Navbar = ({ classes }) => {
     );
   };
 
+  const handleTemplateSelect = (popup, elem) => {
+    const traitState = JSON.parse(elem.traits);
+    console.log(traitState);
+    // todo
+    popup.close();
+  };
+
+  const popupState = [
+    usePopupState({ variant: 'popover', popupId: 'demoMenu0' }),
+    usePopupState({ variant: 'popover', popupId: 'demoMenu1' }),
+    usePopupState({ variant: 'popover', popupId: 'demoMenu2' }),
+    usePopupState({ variant: 'popover', popupId: 'demoMenu3' }),
+    usePopupState({ variant: 'popover', popupId: 'demoMenu4' }),
+    usePopupState({ variant: 'popover', popupId: 'demoMenu5' }),
+    usePopupState({ variant: 'popover', popupId: 'demoMenu6' }),
+    usePopupState({ variant: 'popover', popupId: 'demoMenu7' }),
+    usePopupState({ variant: 'popover', popupId: 'demoMenu8' }),
+  ];
   const displayDesktop = () => (
     <Toolbar>
-      {PROFESSIONS.map((p) => (
-        <Button
-          key={p.profession}
-          onClick={() => dispatch(changeProfession(p.profession))}
-          variant={p.profession === profession ? 'contained' : 'text'}
-        >
-          <Profession
-            name={firstUppercase(p.profession)}
-            disableLink
-            disableText
-            className={classes.navProfession}
-          />
-        </Button>
+      {PROFESSIONS.map((p, index) => (
+        <React.Fragment key={p.profession}>
+          <Button
+            onMouseOver={(e) =>
+              setState({
+                ...state,
+                hover: state.hover.map((item, i) => i === index),
+                anchor: e.currentTarget,
+              })
+            }
+            onClick={() => dispatch(changeProfession(p.profession))}
+            variant={p.profession === profession ? 'contained' : 'text'}
+            {...bindHover(popupState[index])}
+          >
+            <Profession
+              name={firstUppercase(p.profession)}
+              disableLink
+              disableText
+              className={classes.navProfession}
+            />
+          </Button>
+          <Menu
+            {...bindMenu(popupState[index])}
+            getContentAnchorEl={null}
+            anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+            transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+          >
+            {data
+              .find((elem) => elem.class === p.profession.toLowerCase())
+              .builds.map((elem) => (
+                <MenuItem onClick={(e) => handleTemplateSelect(popupState[index], elem)}>
+                  <Profession
+                    eliteSpecialization={elem.specialization}
+                    disableLink
+                    text={elem.name}
+                  />
+                </MenuItem>
+              ))}
+          </Menu>
+        </React.Fragment>
       ))}
       {stickyRight()}
     </Toolbar>
