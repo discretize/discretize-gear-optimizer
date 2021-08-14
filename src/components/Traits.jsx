@@ -68,7 +68,6 @@ const Traits = ({ classes, data }) => {
       dispatch(
         addTraitModifier({
           id: minor.id,
-          modifiers: minor.modifiers,
           gw2_id: minor.gw2_id,
           source: newTraitLine,
         }),
@@ -105,7 +104,6 @@ const Traits = ({ classes, data }) => {
       dispatch(
         addTraitModifier({
           id: trait.id,
-          modifiers: trait.modifiers,
           gw2_id: trait.gw2_id,
           source: Number(line),
         }),

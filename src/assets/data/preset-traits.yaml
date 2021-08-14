@@ -33,39 +33,32 @@ list:
                 "modifiers":[
                   {
                       "id":"fragility",
-                      "modifiers":"{\n  \"multiplier\": { \"Effective Power\": 0.125 }\n}",
                       "gw2_id":1941,
                       "source":10
                   },
                   {
                       "id":"vicious-expression",
-                      "modifiers":"{\n  \"multiplier\": { \"Effective Power\": 0.15 }\n}",
                       "gw2_id":681,
                       "source":10
                   },
                   {
                       "id":"egotism",
-                      "modifiers":"{\n  \"multiplier\": { \"Effective Power\": 0.1 }\n}",
                       "gw2_id":713,
                       "source":10
                   },
                   {
                       "id":"superiority-complex",
-                      "modifiers":"{\n  \"multiplier\": { \"Critical Damage\": 0.2 }\n}",
                       "gw2_id":692,
                       "source":1
                   },
                   {
                       "id":"fencers-finesse",
-                      "modifiers":"{\n  \"buff\": { \"Ferocity\": 150 }\n}",
                       "gw2_id":708,
                       "source":1
                   }
                 ]
             },
-            "skills":[
-
-            ]
+            "skills":[]
           }
 
       - name: Staff Mirage

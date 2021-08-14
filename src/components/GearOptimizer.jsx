@@ -94,10 +94,35 @@ const MainComponent = ({ classes, data }) => {
       .forEach((elem) =>
         modifiers.push({ id: elem.id, modifiers: elem.modifiers, gw2_id: elem.gw2_id }),
       );
-    // Storing the trait modifiers seperately since just storing trait IDs and then find out the corresponding
-    // modifier here is more computational effort - while having the same disadvantages of keeping the UI with
-    // modifiers in sync - than storing the modifier right away.
-    modifiers.push(...traitModifiers);
+
+    // map id to modifier. We dont store modifier values in the state!
+    const elementalist = data.elementalist.edges[0].node.list.flatMap((el) => el.items);
+    // const necromancer = data.necromancer.edges[0].node.list.flatMap((el) => el.items);
+    const mesmer = data.mesmer.edges[0].node.list.flatMap((el) => el.items);
+    const ranger = data.ranger.edges[0].node.list.flatMap((el) => el.items);
+    // const thief = data.thief.edges[0].node.list.flatMap((el) => el.items);
+    const engineer = data.engineer.edges[0].node.list.flatMap((el) => el.items);
+    const warrior = data.warrior.edges[0].node.list.flatMap((el) => el.items);
+    const guardian = data.guardian.edges[0].node.list.flatMap((el) => el.items);
+    const revenant = data.revenant.edges[0].node.list.flatMap((el) => el.items);
+
+    const allTraits = [].concat(
+      elementalist,
+      // necromancer,
+      mesmer,
+      ranger,
+      // thief,
+      engineer,
+      warrior,
+      guardian,
+      revenant,
+    );
+
+    const matchedTraitModifiers = traitModifiers.map((traitModifier) =>
+      allTraits.find((trait) => trait.id === traitModifier.id),
+    );
+
+    modifiers.push(...matchedTraitModifiers);
     dispatch(setModifiers(modifiers));
 
     console.log(modifiers);
