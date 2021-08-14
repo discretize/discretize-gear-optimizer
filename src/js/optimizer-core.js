@@ -991,7 +991,7 @@ function calcSurvivability(_character, multipliers) {
 
   attributes['Effective Health'] =
     attributes['Health'] * attributes['Armor'] / multipliers['Damage Taken'] / 1967;
-  attributes['Survivability'] = attributes['Effective Health'] * 100 / 11645;
+  attributes['Survivability'] = attributes['Effective Health'];
 }
 
 function calcHealing(_character, multipliers) {
