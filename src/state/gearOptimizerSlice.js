@@ -58,6 +58,7 @@ export const gearOptimizerSlice = createSlice({
     },
     forcedSlots: [null, null, null, null, null, null, null, null, null, null, null, null, null],
     ar: 162,
+    omnipotion: true,
     priorities: {
       optimizeFor: 'Damage',
       weaponType: 'Dual wield',
@@ -201,6 +202,9 @@ export const gearOptimizerSlice = createSlice({
     changeList: (state, action) => {
       state.control.list = action.payload;
     },
+    changeOmnipotion: (state, action) => {
+      state.omnipotion = action.payload;
+    },
   },
 });
 
@@ -223,6 +227,7 @@ export const getInfusions = (state) => state.gearOptimizer.infusions;
 export const getPriority = (key) => (state) => state.gearOptimizer.priorities[key];
 export const getExtras = (state) => state.gearOptimizer.extras;
 export const getList = (state) => state.gearOptimizer.control.list;
+export const getOmniPotion = (state) => state.gearOptimizer.omnipotion;
 
 export const {
   changeProfession,
@@ -253,6 +258,7 @@ export const {
   removeTraitModifier,
   removeTraitModifierWithSource,
   setModifiers,
+  changeOmnipotion,
 } = gearOptimizerSlice.actions;
 
 export default gearOptimizerSlice.reducer;
