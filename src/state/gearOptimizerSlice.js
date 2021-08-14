@@ -205,6 +205,10 @@ export const gearOptimizerSlice = createSlice({
     changeOmnipotion: (state, action) => {
       state.omnipotion = action.payload;
     },
+    changeState: (state, action) => {
+      console.log(action.payload);
+      return { ...state, ...action.payload };
+    },
   },
 });
 
@@ -259,6 +263,7 @@ export const {
   removeTraitModifierWithSource,
   setModifiers,
   changeOmnipotion,
+  changeState,
 } = gearOptimizerSlice.actions;
 
 export default gearOptimizerSlice.reducer;

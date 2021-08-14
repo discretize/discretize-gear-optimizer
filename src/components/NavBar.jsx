@@ -26,6 +26,7 @@ import {
   changeProfession,
   getControl,
   getProfession,
+  changeState,
 } from '../state/gearOptimizerSlice';
 import { PROFESSIONS } from '../utils/gw2-data';
 import { firstUppercase } from '../utils/usefulFunctions';
@@ -146,10 +147,10 @@ const Navbar = ({ classes, data }) => {
     );
   };
 
-  const handleTemplateSelect = (popup, elem) => {
+  const handleTemplateSelect = (popup, elem, profession) => {
     const traitState = JSON.parse(elem.traits);
-    console.log(traitState);
     // todo
+    dispatch(changeState({ ...traitState, profession }));
     popup.close();
   };
 
@@ -196,7 +197,9 @@ const Navbar = ({ classes, data }) => {
             {data
               .find((elem) => elem.class === p.profession.toLowerCase())
               .builds.map((elem) => (
-                <MenuItem onClick={(e) => handleTemplateSelect(popupState[index], elem)}>
+                <MenuItem
+                  onClick={(e) => handleTemplateSelect(popupState[index], elem, p.profession)}
+                >
                   <Profession
                     eliteSpecialization={elem.specialization}
                     disableLink
