@@ -104,7 +104,8 @@ export function setup(input) {
     multiplier: {
       'Effective Power': 1,
       'Effective Condition Damage': 1,
-      'Effective Health': 1,
+      'Health': 1,
+      'Damage Taken': 1,
       'Effective Healing': 1,
       'Critical Damage': 1,
     },
@@ -113,12 +114,18 @@ export function setup(input) {
   };
   let addEffectiveConditionDamage = 0;
   let addEffectivePower = 0;
+  let addDamageReduction = 0;
   let targetEffectiveConditionDamage = 0;
   let targetEffectivePower = 0;
 
   const validMultiplierStats = new Set([
-    ...Attributes.EFFECTIVE,
+    'Effective Power',
+    'Effective Healing',
     'Effective Condition Damage',
+
+    'Health',
+    'Damage Reduction',
+    'add: Damage Reduction',
 
     // Additive mods e.g. force sigil + frost spirit are additive with each other
     'add: Effective Condition Damage',
@@ -177,6 +184,14 @@ export function setup(input) {
                       }
                       case 'target: Effective Power': {
                         targetEffectivePower += value;
+                        break;
+                      }
+                      case 'Damage Reduction': {
+                        settings.modifiers['multiplier']['Damage Taken'] *= 1 - value;
+                        break;
+                      }
+                      case 'add: Damage Reduction': {
+                        addDamageReduction += value;
                         break;
                       }
                       default:
@@ -253,6 +268,8 @@ export function setup(input) {
   settings.modifiers['multiplier']['Effective Condition Damage'] *=
     1 + targetEffectiveConditionDamage;
   settings.modifiers['multiplier']['Effective Power'] *= 1 + targetEffectivePower;
+  const addDamageTaken = Math.max(1 - addDamageReduction, 0);
+  settings.modifiers['multiplier']['Damage Taken'] *= addDamageTaken;
 
   // convert to arrays for simpler iteration
   settings.modifiers['buff'] = Object.entries(settings.modifiers['buff'] || {});
@@ -970,9 +987,11 @@ function calcSurvivability(_character, multipliers) {
   attributes['Armor'] += attributes['Toughness'];
   attributes['Health'] += attributes['Vitality'] * 10;
 
+  attributes['Health'] = roundEven(attributes['Health'] * multipliers['Health']);
+
   attributes['Effective Health'] =
-    attributes['Health'] * attributes['Armor'] * multipliers['Effective Health'];
-  attributes['Survivability'] = attributes['Effective Health'] / 1967;
+    attributes['Health'] * attributes['Armor'] / multipliers['Damage Taken'] / 1967;
+  attributes['Survivability'] = attributes['Effective Health'] * 100 / 11645;
 }
 
 function calcHealing(_character, multipliers) {
