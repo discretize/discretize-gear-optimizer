@@ -112,7 +112,6 @@ const Traits = ({ classes, data }) => {
       dispatch(removeTraitModifier(trait.id));
     }
   };
-  console.log(data);
 
   return (
     <div className={classes.root}>
