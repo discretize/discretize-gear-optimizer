@@ -119,13 +119,11 @@ const MainComponent = ({ classes, data }) => {
     );
 
     const matchedTraitModifiers = traitModifiers.map((traitModifier) =>
-      allTraits.find((trait) => trait.id === traitModifier.id),
+      allTraits.filter((t) => t !== null).find((trait) => trait.id === traitModifier.id),
     );
 
     modifiers.push(...matchedTraitModifiers);
     dispatch(setModifiers(modifiers));
-
-    console.log(modifiers);
 
     dispatch({
       type: 'START',
@@ -145,7 +143,6 @@ const MainComponent = ({ classes, data }) => {
         prioritiesPresets={data.presetAffixes.list}
       />
 
-      {/* TODO add template selection here */}
       {profession !== '' && (
         <>
           {expertMode && (
