@@ -49,6 +49,7 @@ const ARinput = ({ classes }) => {
         <Grid item xs>
           <CheckboxComponent
             value={omnipotion}
+            checked={omnipotion}
             label={
               <>
                 Include <Item id={79722} />
