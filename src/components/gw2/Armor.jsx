@@ -7,8 +7,8 @@ const styles = (theme) => ({
   listItem: {
     lineHeight: 0,
     justifyContent: 'center',
-    paddingTop: theme.spacing.unit * 0.5,
-    paddingBottom: theme.spacing.unit * 0.5,
+    paddingTop: theme.spacing(0.5),
+    paddingBottom: theme.spacing(0.5),
     '& > *:first-child': {
       width: '45%',
       textAlign: 'right',
@@ -20,14 +20,14 @@ const styles = (theme) => ({
   },
   listItemText: {
     flexGrow: 0,
-    marginLeft: theme.spacing.unit * 2,
-    paddingLeft: theme.spacing.unit * 2,
+    marginLeft: theme.spacing(2),
+    paddingLeft: theme.spacing(2),
     borderLeft: `1px solid ${theme.palette.divider}`,
     lineHeight: '0',
   },
   gw2Item: {
     fontSize: '60px',
-    lineHeight: '0 !important',
+    lineHeight: '1 !important',
   },
 });
 
@@ -72,8 +72,8 @@ const Armor = ({ classes, weight, ...rest }) => {
   } = resolveArmor({ weight, ...rest });
 
   return (
-    <List disablePadding dense>
-      <ListItem className={classes.listItem}>
+    <List disablePadding>
+      <ListItem disableGutters className={classes.listItem}>
         <Item
           id={helmId}
           upgrades={

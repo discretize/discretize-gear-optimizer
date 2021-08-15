@@ -27,7 +27,7 @@
     "gatsby-plugin-theme-ui": "^0.10.1",
     "gatsby-source-filesystem": "^3.10.0",
     "gatsby-transformer-yaml": "^3.10.0",
-    "gw2-ui-bulk": "0.10.12",
+    "gw2-ui-bulk": "0.10.13",
     "jss": "^10.7.1",
     "lodash": "^4.17.21",
     "lodash.debounce": "^4.0.8",

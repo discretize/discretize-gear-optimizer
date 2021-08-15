@@ -19,6 +19,9 @@ const useStyles = makeStyles({
   container: {
     maxHeight: 440,
   },
+  cell: {
+    cursor: 'pointer',
+  },
 });
 
 export default function StickyHeadTable() {
@@ -46,6 +49,7 @@ export default function StickyHeadTable() {
               <TableRow
                 key={character.id}
                 onClick={(e) => dispatch(changeControl({ key: 'selected', value: i }))}
+                className={classes.cell}
               >
                 <TableCell component="th" scope="row">
                   {character.attributes.Damage.toFixed(2)}

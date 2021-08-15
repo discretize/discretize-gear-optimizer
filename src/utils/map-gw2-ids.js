@@ -394,7 +394,7 @@ const backAndTrinkets = [
   },
 ];
 
-const resolveBackAndTrinkets = ({ ...rest }) => {
+export const resolveBackAndTrinkets = ({ ...rest }) => {
   const tag = 'Item';
   const props = { ...rest };
 
