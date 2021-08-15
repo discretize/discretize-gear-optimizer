@@ -68,6 +68,7 @@ const GW2Select = ({ classes, name, label, data }) => {
               {v.text}
             </Typography>
           ) : (
+            // TODO Some runes are listed in multiple sections; this will cause an error in the console
             <MenuItem key={v.id} value={v.id} className={classes.menuItem}>
               <ListItemText
                 primary={<Item id={v.gw2_id} disableLink text={v.text.replace('Superior ', '')} />}

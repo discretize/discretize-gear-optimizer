@@ -1,14 +1,35 @@
 import { handleRequests, gw2UIReducer } from 'gw2-ui-bulk';
+import { persistReducer, persistStore } from 'redux-persist';
 
 import { applyMiddleware, combineReducers, compose, createStore as reduxCreateStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
+import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
 import gearOptimizerReducer from './gearOptimizerSlice';
 import gearOptimizerSaga from './optimizer/sagas';
 
+const createNoopStorage = () => {
+  return {
+    getItem(_key) {
+      return Promise.resolve(null);
+    },
+    setItem(_key, value) {
+      return Promise.resolve(value);
+    },
+    removeItem(_key) {
+      return Promise.resolve();
+    },
+  };
+};
+
+const storage = typeof window === 'undefined' ? createNoopStorage() : createWebStorage('local');
+
 const { requestsReducer, requestsMiddleware } = handleRequests();
 
-const saga = createSagaMiddleware();
+const persistConfig = {
+  key: 'root',
+  storage: storage,
+};
 
 const reducers = combineReducers({
   requests: requestsReducer,
@@ -16,6 +37,9 @@ const reducers = combineReducers({
   gearOptimizer: gearOptimizerReducer,
 });
 
+const persistedReducer = persistReducer(persistConfig, reducers);
+
+const saga = createSagaMiddleware();
 const composeEnhancers =
   (typeof window !== 'undefined' &&
     // eslint-disable-next-line no-underscore-dangle
@@ -24,11 +48,13 @@ const composeEnhancers =
 
 export default () => {
   const store = reduxCreateStore(
-    reducers,
+    persistedReducer,
     composeEnhancers(applyMiddleware(saga, ...requestsMiddleware)),
   );
 
   saga.run(gearOptimizerSaga);
 
-  return store;
+  const persistor = persistStore(store);
+
+  return { store, persistor };
 };
