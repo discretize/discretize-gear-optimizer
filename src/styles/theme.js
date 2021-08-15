@@ -1,88 +1,88 @@
-import { createTheme } from "@material-ui/core/styles";
+import { createTheme } from '@material-ui/core/styles';
 
 const theme = createTheme({
-  name: "default",
+  name: 'default',
 
   palette: {
-    type: "dark",
+    type: 'dark',
     primary: {
-      light: "#64ffff",
-      main: "#00cccc",
-      dark: "#009a9b"
+      light: '#64ffff',
+      main: '#00cccc',
+      dark: '#009a9b',
     },
 
     text: {
-      primary: "#ddd",
-      secondary: "#b1b1b5"
+      primary: '#ddd',
+      secondary: '#b1b1b5',
     },
 
-    divider: "#1e2124",
+    divider: '#1e2124',
 
     background: {
-      default: "#2f3136",
-      embossed: "#2a2c31",
-      paper: "#26292e"
-    }
+      default: '#2f3136',
+      embossed: '#2a2c31',
+      paper: '#26292e',
+    },
   },
 
   typography: {
-    fontFamily: "Muli",
+    fontFamily: 'Muli',
     fontSize: 16,
 
     h1: {
-      fontFamily: "Raleway",
+      fontFamily: 'Raleway',
       fontWeight: 500,
-      color: "#fff",
-      textShadow: "1px 1px 1px #000"
+      color: '#fff',
+      textShadow: '1px 1px 1px #000',
     },
     h2: {
-      fontFamily: "Raleway",
+      fontFamily: 'Raleway',
       fontWeight: 500,
-      color: "#fff",
-      textShadow: "1px 1px 1px #000"
+      color: '#fff',
+      textShadow: '1px 1px 1px #000',
     },
     h3: {
-      fontFamily: "Raleway",
+      fontFamily: 'Raleway',
       fontWeight: 500,
-      color: "#fff",
-      textShadow: "1px 1px 1px #000"
+      color: '#fff',
+      textShadow: '1px 1px 1px #000',
     },
     h4: {
-      fontFamily: "Raleway",
+      fontFamily: 'Raleway',
       fontWeight: 500,
-      color: "#fff",
-      textShadow: "1px 1px 1px #000"
+      color: '#fff',
+      textShadow: '1px 1px 1px #000',
     },
     h5: {
-      fontFamily: "Raleway",
+      fontFamily: 'Raleway',
       fontWeight: 500,
-      color: "#fff",
-      textShadow: "1px 1px 1px #000"
+      color: '#fff',
+      textShadow: '1px 1px 1px #000',
     },
     h6: {
-      fontFamily: "Raleway",
+      fontFamily: 'Raleway',
       fontWeight: 500,
-      color: "#fff"
+      color: '#fff',
     },
     subtitle1: {
-      fontFamily: "Raleway",
-      color: "#fff"
-    }
+      fontFamily: 'Raleway',
+      color: '#fff',
+    },
   },
 
   shape: {
-    borderRadius: 4
+    borderRadius: 4,
   },
 
   props: {
     MuiButtonBase: {
-      disableRipple: true
+      disableRipple: true,
     },
 
     MuiWithWidth: {
-      initialWidth: "xl"
-    }
-  }
+      initialWidth: 'xl',
+    },
+  },
 });
 
 export default createTheme({
@@ -115,142 +115,136 @@ export default createTheme({
     },
     MuiSvgIcon: {
       root: {
-        marginBottom: "-2px !important"
-      }
+        marginBottom: '-2px !important',
+      },
     },
     MuiTypography: {
       paragraph: {
-        textAlign: "justify",
-        hyphens: "auto"
+        textAlign: 'justify',
+        hyphens: 'auto',
       },
       h1: {
-        [theme.breakpoints.down("xs")]: {
+        [theme.breakpoints.down('xs')]: {
           fontSize: theme.typography.h2.fontSize,
-          lineHeight: theme.typography.h2.lineHeight
-        }
+          lineHeight: theme.typography.h2.lineHeight,
+        },
       },
       h2: {
-        [theme.breakpoints.down("xs")]: {
+        [theme.breakpoints.down('xs')]: {
           fontSize: theme.typography.h3.fontSize,
-          lineHeight: theme.typography.h3.lineHeight
-        }
+          lineHeight: theme.typography.h3.lineHeight,
+        },
       },
       h3: {
-        [theme.breakpoints.down("xs")]: {
+        [theme.breakpoints.down('xs')]: {
           fontSize: theme.typography.h4.fontSize,
-          lineHeight: theme.typography.h4.lineHeight
-        }
+          lineHeight: theme.typography.h4.lineHeight,
+        },
       },
       h4: {
-        [theme.breakpoints.down("xs")]: {
-          fontSize: "1.8125rem",
-          lineHeight: "1.280025em"
-        }
-      }
+        [theme.breakpoints.down('xs')]: {
+          fontSize: '1.8125rem',
+          lineHeight: '1.280025em',
+        },
+      },
     },
     MuiButton: {
       contained: {
         fontWeight: 600,
         transition: theme.transitions.create(
-          ["background-color", "box-shadow", "border", "color"],
+          ['background-color', 'box-shadow', 'border', 'color'],
           {
-            duration: theme.transitions.duration.short
-          }
+            duration: theme.transitions.duration.short,
+          },
         ),
-        "&:hover": {
-          color: "white"
-        }
-      }
+        '&:hover': {
+          color: 'white',
+        },
+      },
     },
     MuiGridList: {
       root: {
-        overflowY: "initial"
-      }
+        overflowY: 'initial',
+      },
     },
     MuiGridListTile: {
       tile: {
-        overflow: "initial"
-      }
+        overflow: 'initial',
+      },
     },
     MuiList: {
       root: {
-        "& > hr": {
-          marginBottom: 0
-        }
-      }
+        '& > hr': {
+          marginBottom: 0,
+        },
+      },
     },
     MuiDivider: {
       root: {
-        marginBottom: theme.spacing(2)
-      }
+        marginBottom: theme.spacing(2),
+      },
     },
     MuiTable: {
       root: {
-        marginBottom: theme.spacing(2)
-      }
+        marginBottom: theme.spacing(2),
+      },
     },
     MuiTableHead: {
       root: {
-        [theme.breakpoints.down("sm")]: {
-          display: "block",
-          width: "auto"
-        }
-      }
+        [theme.breakpoints.down('sm')]: {
+          display: 'block',
+          width: 'auto',
+        },
+      },
     },
     MuiTableBody: {
       root: {
-        [theme.breakpoints.down("sm")]: {
-          display: "block",
-          width: "auto"
+        [theme.breakpoints.down('sm')]: {
+          display: 'block',
+          width: 'auto',
         },
-        "&> tr:last-child": {
-          "&> th, td": {
-            borderBottom: "none"
-          }
-        }
-      }
+        '&> tr:last-child': {
+          '&> th, td': {
+            borderBottom: 'none',
+          },
+        },
+      },
     },
     MuiTableRow: {
       root: {
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down('sm')]: {
           paddingTop: theme.spacing(1),
           paddingBottom: theme.spacing(1),
-          display: "block",
-          width: "auto",
-          height: "auto",
-          "&:not(:last-child)": {
-            borderBottom: `1px solid ${theme.palette.divider}`
-          }
-        }
+          display: 'block',
+          width: 'auto',
+          height: 'auto',
+          '&:not(:last-child)': {
+            borderBottom: `1px solid ${theme.palette.divider}`,
+          },
+        },
       },
       head: {
-        [theme.breakpoints.down("sm")]: {
-          height: "auto",
-          borderBottom: `1px solid ${theme.palette.divider}`
-        }
-      }
+        [theme.breakpoints.down('sm')]: {
+          height: 'auto',
+          borderBottom: `1px solid ${theme.palette.divider}`,
+        },
+      },
     },
     MuiTableCell: {
       root: {
         borderBottom: `1px solid ${theme.palette.divider}`,
-        [theme.breakpoints.down("sm")]: {
-          display: "block",
-          width: "auto",
-          borderBottom: "none"
+        [theme.breakpoints.down('sm')]: {
+          display: 'block',
+          width: 'auto',
+          borderBottom: 'none',
         },
-        "th&": {
-          fontWeight: 700
+        'th&': {
+          fontWeight: 700,
         },
-        "& > *:last-child": {
-          marginBottom: 0
-        }
+        '& > *:last-child': {
+          marginBottom: 0,
+        },
       },
-      numeric: {
-        [theme.breakpoints.down("sm")]: {
-          textAlign: "left",
-          flexDirection: "row"
-        }
-      }
-    }
-  }
+    },
+  },
 });
