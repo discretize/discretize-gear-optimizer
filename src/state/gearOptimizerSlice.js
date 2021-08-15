@@ -206,7 +206,6 @@ export const gearOptimizerSlice = createSlice({
       state.omnipotion = action.payload;
     },
     changeState: (state, action) => {
-      console.log(action.payload);
       return { ...state, ...action.payload };
     },
   },

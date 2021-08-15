@@ -112,6 +112,7 @@ const Traits = ({ classes, data }) => {
       dispatch(removeTraitModifier(trait.id));
     }
   };
+  console.log(data);
 
   return (
     <div className={classes.root}>
@@ -159,8 +160,7 @@ const Traits = ({ classes, data }) => {
                   ))}
               </Select>
             </FormControl>
-            {/* Render the actual trait lines  */}
-            {/* TODO console error: onUseCallback */}
+
             <TraitLine
               id={traitlines[index]}
               selectable

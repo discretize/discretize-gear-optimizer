@@ -4,7 +4,8 @@ list:
     value: >-
       {
         "affixes": ["BERSERKER", "ASSASSIN"],
-        "optimizeFor": "Damage"
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0
       }
   - name: Power Boon
     value: >-
@@ -18,7 +19,8 @@ list:
     value: >-
       {
         "affixes": ["VIPER", "SINISTER", "GRIEVING"],
-        "optimizeFor": "Damage"
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0
       }
 
   - name: Heal
@@ -26,7 +28,7 @@ list:
       {
         "affixes": ["HARRIER", "MINSTREL", "MAGI"],
         "optimizeFor": "Healing",
-        "minBoonDuration": 100        
+        "minBoonDuration": 100
       }
 
   - name: Condi Boon
@@ -34,5 +36,5 @@ list:
       {
         "affixes": ["VIPER", "SERAPH", "CELESTIAL"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 79        
+        "minBoonDuration": 79
       }

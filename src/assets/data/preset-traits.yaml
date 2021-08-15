@@ -5,6 +5,8 @@ list:
       - name: pChrono
         id: pchrono
         specialization: Chronomancer
+        boons: Fractal
+        priority: Power DPS
         traits: >-
           {
             "traits":{
@@ -58,290 +60,1128 @@ list:
                   }
                 ]
             },
-            "skills":[]
+            "skills":[],
+            "extras":{
+              "Runes":"scholar",
+              "Sigil1":"force",
+              "Sigil2":"night/impact/slaying-both",
+              "Enhancement":"slaying-potion",
+              "Nourishment":"sweet-and-spicy-butternut-squash-soup"
+            }
           }
 
       - name: Staff Mirage
         id: staffmirage
         specialization: Mirage
+        boons: Fractal
+        priority: Condi DPS
         traits: >-
-          - signet-of-domination
-          - signet-of-midnight
-          - illusionary-membrane
-          - chaotic-potency
-          - chaotic-potency-2
-          - chaotic-persistence
-          - nomads-endurance
+          {
+            "profession":"MESMER",
+            "traits":{
+              "lines":[
+                "45",
+                "1",
+                "59"
+              ],
+              "selected":[
+                [
+                  670,
+                  669,
+                  1687
+                ],
+                [
+                  701,
+                  1889,
+                  1950
+                ],
+                [
+                  2141,
+                  2178,
+                  2070
+                ]
+              ],
+              "modifiers":[
+                {
+                  "id":"illusionary-membrane",
+                  "gw2_id":667,
+                  "source":45
+                },
+                {
+                  "id":"chaotic-persistence",
+                  "gw2_id":1865,
+                  "source":45
+                },
+                {
+                  "id":"chaotic-potency-2",
+                  "gw2_id":669,
+                  "source":45
+                },
+                {
+                  "id":"chaotic-potency",
+                  "gw2_id":669,
+                  "source":45
+                },
+                {
+                  "id":"nomads-endurance",
+                  "gw2_id":2069,
+                  "source":59
+                }
+              ]
+            },
+            "skills":[
+              "signet-of-midnight",
+              "signet-of-domination"
+            ],
+            "extras":{
+              "Runes":"nightmare",
+              "Sigil1":"bursting",
+              "Sigil2":"",
+              "Enhancement":"toxic-focusing-crystal",
+              "Nourishment":"beef-rendang"
+            }
+          }
 
   - class: guardian
     builds:
       - name: DH
         id: dh
         specialization: Dragonhunter
+        boons: Fractal
+        priority: Power DPS
         traits: >-
-          - fiery-wrath
-          - symbolic-avenger
-          - symbolic-exposure
-          - zealous-blade
-          - retribution
-          - radiant-power
-          - zealots-aggression
-          - pure-of-sight
-          - big-game-hunter
+          {
+            "profession":"GUARDIAN",
+            "traits":{
+              "lines":[
+                "16",
+                "42",
+                "27"
+              ],
+              "selected":[
+                [
+                  574,
+                  565,
+                  579
+                ],
+                [
+                  634,
+                  653,
+                  2017
+                ],
+                [
+                  1898,
+                  1835,
+                  1955
+                ]
+              ],
+              "modifiers":[
+                {
+                  "id":"radiant-power",
+                  "gw2_id":568,
+                  "source":16
+                },
+                {
+                  "id":"retribution",
+                  "gw2_id":565,
+                  "source":16
+                },
+                {
+                  "id":"symbolic-exposure",
+                  "gw2_id":646,
+                  "source":42
+                },
+                {
+                  "id":"fiery-wrath",
+                  "gw2_id":634,
+                  "source":42
+                },
+                {
+                  "id":"zealous-blade",
+                  "gw2_id":653,
+                  "source":42
+                },
+                {
+                  "id":"symbolic-avenger",
+                  "gw2_id":2017,
+                  "source":42
+                },
+                {
+                  "id":"pure-of-sight",
+                  "gw2_id":1926,
+                  "source":27
+                },
+                {
+                  "id":"zealots-aggression",
+                  "gw2_id":1835,
+                  "source":27
+                },
+                {
+                  "id":"big-game-hunter",
+                  "gw2_id":1955,
+                  "source":27
+                }
+              ]
+            },
+            "skills":[
+              "bane-signet-2"
+            ],
+            "extras":{
+              "Runes":"scholar",
+              "Sigil1":"force",
+              "Sigil2":"night/impact/slaying-both",
+              "Enhancement":"slaying-potion",
+              "Nourishment":"sweet-and-spicy-butternut-squash-soup"
+            }
+          }
 
       - name: pQFB
         id: pqfb
         specialization: Firebrand
+        boons: Fractal
+        priority: Power DPS
         traits: >-
-          - fiery-wrath
-          - symbolic-avenger
-          - symbolic-exposure
-          - zealous-blade
-          - retribution
-          - radiant-power
-          - imbued-haste
+          {
+            "profession":"GUARDIAN",
+            "traits":{
+              "lines":[
+                "16",
+                "42",
+                "62"
+              ],
+              "selected":[
+                [
+                  574,
+                  565,
+                  579
+                ],
+                [
+                  634,
+                  653,
+                  2017
+                ],
+                [
+                  2101,
+                  2076,
+                  2159
+                ]
+              ],
+              "modifiers":[
+                {
+                  "id":"radiant-power",
+                  "gw2_id":568,
+                  "source":16
+                },
+                {
+                  "id":"retribution",
+                  "gw2_id":565,
+                  "source":16
+                },
+                {
+                  "id":"symbolic-exposure",
+                  "gw2_id":646,
+                  "source":42
+                },
+                {
+                  "id":"fiery-wrath",
+                  "gw2_id":634,
+                  "source":42
+                },
+                {
+                  "id":"zealous-blade",
+                  "gw2_id":653,
+                  "source":42
+                },
+                {
+                  "id":"symbolic-avenger",
+                  "gw2_id":2017,
+                  "source":42
+                },
+                {
+                  "id":"imbued-haste",
+                  "gw2_id":2148,
+                  "source":62
+                }
+              ]
+            },
+            "skills":[
+              "bane-signet-2"
+            ],
+            "extras":{
+              "Runes":"scholar",
+              "Sigil1":"force",
+              "Sigil2":"night/impact/slaying-both",
+              "Enhancement":"slaying-potion",
+              "Nourishment":"sweet-and-spicy-butternut-squash-soup"
+            }
+          }
 
       - name: CFB Virtues
         id: cfb
         specialization: Firebrand
+        boons: Fractal
+        priority: Condi DPS
         traits: >-
-          - signet-of-wrath
-          - right-hand-strength
-          - right-hand-strength-3
-          - radiant-fire
-          - radiant-power
-          - amplified-wrath
-          - inspired-virtue-9
-          - virtue-of-retribution
-          - power-of-the-virtuous
-          - imbued-haste
+          {
+            "profession":"GUARDIAN",
+            "traits":{
+              "lines":[
+                "16",
+                "46",
+                "62"
+              ],
+              "selected":[
+                [
+                  566,
+                  567,
+                  579
+                ],
+                [
+                  617,
+                  587,
+                  622
+                ],
+                [
+                  2075,
+                  2116,
+                  2159
+                ]
+              ],
+              "modifiers":[
+                {
+                  "id":"radiant-power",
+                  "gw2_id":568,
+                  "source":16
+                },
+                {
+                  "id":"radiant-fire",
+                  "gw2_id":567,
+                  "source":16
+                },
+                {
+                  "id":"right-hand-strength-3",
+                  "gw2_id":566,
+                  "source":16
+                },
+                {
+                  "id":"right-hand-strength",
+                  "gw2_id":566,
+                  "source":16
+                },
+                {
+                  "id":"virtue-of-retribution",
+                  "gw2_id":604,
+                  "source":46
+                },
+                {
+                  "id":"power-of-the-virtuous",
+                  "gw2_id":620,
+                  "source":46
+                },
+                {
+                  "id":"imbued-haste",
+                  "gw2_id":2148,
+                  "source":62
+                }
+              ]
+            },
+            "skills":[
+              "signet-of-wrath"
+            ],
+            "extras":{
+              "Runes":"balthazar",
+              "Sigil1":"bursting",
+              "Sigil2":"",
+              "Enhancement":"toxic-focusing-crystal",
+              "Nourishment":"beef-rendang"
+            }
+          }
 
       - name: CFB Zeal
         id: cfb2
         specialization: Firebrand
+        boons: Fractal
+        priority: Condi DPS
         traits: >-
-          - signet-of-wrath
-          - fiery-wrath
-          - symbolic-exposure
-          - kindled-zeal
-          - right-hand-strength
-          - right-hand-strength-3
-          - radiant-fire
-          - radiant-power
-          - amplified-wrath
-          - imbued-haste
+          {
+            "profession":"GUARDIAN",
+            "traits":{
+              "lines":[
+                "16",
+                "42",
+                "62"
+              ],
+              "selected":[
+                [
+                  566,
+                  567,
+                  579
+                ],
+                [
+                  1925,
+                  1556,
+                  635
+                ],
+                [
+                  2075,
+                  2116,
+                  2159
+                ]
+              ],
+              "modifiers":[
+                {
+                  "id":"radiant-power",
+                  "gw2_id":568,
+                  "source":16
+                },
+                {
+                  "id":"radiant-fire",
+                  "gw2_id":567,
+                  "source":16
+                },
+                {
+                  "id":"right-hand-strength-3",
+                  "gw2_id":566,
+                  "source":16
+                },
+                {
+                  "id":"right-hand-strength",
+                  "gw2_id":566,
+                  "source":16
+                },
+                {
+                  "id":"imbued-haste",
+                  "gw2_id":2148,
+                  "source":62
+                },
+                {
+                  "id":"symbolic-exposure",
+                  "gw2_id":646,
+                  "source":42
+                },
+                {
+                  "id":"kindled-zeal",
+                  "gw2_id":1556,
+                  "source":42
+                }
+              ]
+            },
+            "skills":[
+              "signet-of-wrath"
+            ],
+            "extras":{
+              "Runes":"balthazar",
+              "Sigil1":"bursting",
+              "Sigil2":"",
+              "Enhancement":"toxic-focusing-crystal",
+              "Nourishment":"beef-rendang"
+            }
+          }
 
   - class: warrior
     builds:
       - name: Power Banner Bers
         id: pbers
         specialization: Berserker
+        boons: Fractal
+        priority: Power DPS
         traits: >-
-          - peak-performance
-          - signet-of-might
-          - great-fortitude
-          - pinnacle-of-strength
-          - berserkers-power
-          - warriors-sprint
-          - double-standards
-          - axe-mastery-one
-          - axe-mastery-two
-          - blood-reaction-with
-          - fatal-frenzy
-          - bloody-roar
+          {
+            "profession":"WARRIOR",
+            "traits":{
+              "lines":[
+                "4",
+                "51",
+                "18"
+              ],
+              "selected":[
+                [
+                  1444,
+                  1449,
+                  1437
+                ],
+                [
+                  1413,
+                  1484,
+                  1369
+                ],
+                [
+                  1977,
+                  2011,
+                  1928
+                ]
+              ],
+              "modifiers":[
+                {
+                  "id":"pinnacle-of-strength",
+                  "gw2_id":1453,
+                  "source":4
+                },
+                {
+                  "id":"great-fortitude",
+                  "gw2_id":1449,
+                  "source":4
+                },
+                {
+                  "id":"peak-performance",
+                  "gw2_id":1444,
+                  "source":4
+                },
+                {
+                  "id":"berserkers-power",
+                  "gw2_id":1437,
+                  "source":4
+                },
+                {
+                  "id":"peak-performance-2",
+                  "gw2_id":1444,
+                  "source":4
+                },
+                {
+                  "id":"warriors-sprint",
+                  "gw2_id":1413,
+                  "source":51
+                },
+                {
+                  "id":"double-standards",
+                  "gw2_id":1484,
+                  "source":51
+                },
+                {
+                  "id":"axe-mastery-two",
+                  "gw2_id":1369,
+                  "source":51
+                },
+                {
+                  "id":"axe-mastery-one",
+                  "gw2_id":1369,
+                  "source":51
+                },
+                {
+                  "id":"fatal-frenzy",
+                  "gw2_id":2046,
+                  "source":18
+                },
+                {
+                  "id":"bloody-roar",
+                  "gw2_id":1928,
+                  "source":18
+                },
+                {
+                  "id":"blood-reaction-with",
+                  "gw2_id":2011,
+                  "source":18
+                }
+              ]
+            },
+            "skills":[
+              "signet-of-might"
+            ],
+            "extras":{
+              "Runes":"scholar",
+              "Sigil1":"force",
+              "Sigil2":"night/impact/slaying-both",
+              "Enhancement":"slaying-potion",
+              "Nourishment":"sweet-and-spicy-butternut-squash-soup"
+            }
+          }
 
       - name: Condi Banner Bers
         id: cbers
         specialization: Berserker
+        boons: Fractal
+        priority: Condi DPS
         traits: >-
-          - wounding-precision
-          - deep-strikes
-          - blade-master
-          - blade-master-2
-          - bloodlust
-          - furious
-          - double-standards
-          - heat-the-soul
-          - heat-the-soul-with
-          - fatal-frenzy
-          - king-of-fires
+          {
+            "profession":"WARRIOR",
+            "traits":{
+              "lines":[
+                "36",
+                "51",
+                "18"
+              ],
+              "selected":[
+                [
+                  1455,
+                  1333,
+                  1346
+                ],
+                [
+                  1329,
+                  1484,
+                  1657
+                ],
+                [
+                  2039,
+                  2042,
+                  2038
+                ]
+              ],
+              "modifiers":[
+                {
+                  "id":"double-standards",
+                  "gw2_id":1484,
+                  "source":51
+                },
+                {
+                  "id":"fatal-frenzy",
+                  "gw2_id":2046,
+                  "source":18
+                },
+                {
+                  "id":"deep-strikes",
+                  "gw2_id":1343,
+                  "source":36
+                },
+                {
+                  "id":"bloodlust",
+                  "gw2_id":1337,
+                  "source":36
+                },
+                {
+                  "id":"blade-master",
+                  "gw2_id":1333,
+                  "source":36
+                },
+                {
+                  "id":"blade-master-2",
+                  "gw2_id":1333,
+                  "source":36
+                },
+                {
+                  "id":"wounding-precision",
+                  "gw2_id":1455,
+                  "source":36
+                },
+                {
+                  "id":"furious",
+                  "gw2_id":1346,
+                  "source":36
+                },
+                {
+                  "id":"king-of-fires",
+                  "gw2_id":2038,
+                  "source":18
+                },
+                {
+                  "id":"heat-the-soul-with",
+                  "gw2_id":2042,
+                  "source":18
+                },
+                {
+                  "id":"heat-the-soul",
+                  "gw2_id":2042,
+                  "source":18
+                }
+              ]
+            },
+            "skills":[],
+            "extras":{
+              "Runes":"renegade",
+              "Sigil1":"",
+              "Sigil2":"",
+              "Enhancement":"master-tuning-crystal",
+              "Nourishment":"rare-veggie-pizza"
+            }
+          }
 
   - class: elementalist
     builds:
       - name: Power Weaver
         id: pwea
         specialization: Weaver
+        boons: Fractal
+        priority: Power DPS
         traits: >-
-          - empowering-flame
-          - burning-precision
-          - power-overwhelming
-          - power-overwhelming-2
-          - pyromancers-training
-          - ferocious-winds
-          - stormsoul
-          - aeromancers-training
-          - bolt-to-the-heart
-          - masters-fortitude
-          - elements-of-rage
-          - swift-revenge
-          - elemental-polyphony-fire
+          {
+            "profession":"ELEMENTALIST",
+            "traits":{
+              "lines":[
+                "31",
+                "41",
+                "56"
+              ],
+              "selected":[
+                [
+                  296,
+                  334,
+                  1510
+                ],
+                [
+                  232,
+                  1502,
+                  226
+                ],
+                [
+                  2115,
+                  2061,
+                  2131
+                ]
+              ],
+              "modifiers":[
+                {
+                  "id":"pyromancers-training",
+                  "gw2_id":319,
+                  "source":31
+                },
+                {
+                  "id":"empowering-flame",
+                  "gw2_id":320,
+                  "source":31
+                },
+                {
+                  "id":"burning-precision",
+                  "gw2_id":296,
+                  "source":31
+                },
+                {
+                  "id":"power-overwhelming",
+                  "gw2_id":334,
+                  "source":31
+                },
+                {
+                  "id":"power-overwhelming-2",
+                  "gw2_id":334,
+                  "source":31
+                },
+                {
+                  "id":"aeromancers-training-2",
+                  "gw2_id":223,
+                  "source":41
+                },
+                {
+                  "id":"aeromancers-training",
+                  "gw2_id":223,
+                  "source":41
+                },
+                {
+                  "id":"ferocious-winds",
+                  "gw2_id":232,
+                  "source":41
+                },
+                {
+                  "id":"stormsoul",
+                  "gw2_id":1502,
+                  "source":41
+                },
+                {
+                  "id":"bolt-to-the-heart",
+                  "gw2_id":226,
+                  "source":41
+                },
+                {
+                  "id":"elemental-polyphony-fire",
+                  "gw2_id":2081,
+                  "source":56
+                },
+                {
+                  "id":"elemental-polyphony-air",
+                  "gw2_id":2081,
+                  "source":56
+                },
+                {
+                  "id":"masters-fortitude",
+                  "gw2_id":2115,
+                  "source":56
+                },
+                {
+                  "id":"swift-revenge",
+                  "gw2_id":2061,
+                  "source":56
+                },
+                {
+                  "id":"elements-of-rage",
+                  "gw2_id":2131,
+                  "source":56
+                }
+              ]
+            },
+            "skills":[],
+            "extras":{
+              "Runes":"scholar",
+              "Sigil1":"force",
+              "Sigil2":"night/impact/slaying-both",
+              "Enhancement":"slaying-potion",
+              "Nourishment":"sweet-and-spicy-butternut-squash-soup"
+            }
+          }
 
       - name: Condi Weaver
         id: cwea
         specialization: Weaver
+        boons: Fractal
+        priority: Condi DPS
         traits: >-
-          - empowering-flame
-          - burning-precision
-          - burning-rage
-          - pyromancers-training
-          - stone-flesh
-          - serrated-stones
-          - strength-of-stone
-          - geomancers-defense
-          - superior-elements
-          - weavers-prowess
-          - elemental-polyphony-fire
-          - elements-of-rage
+          {
+            "profession":"ELEMENTALIST",
+            "traits":{
+              "lines":[
+                "31",
+                "26",
+                "56"
+              ],
+              "selected":[
+                [
+                  296,
+                  325,
+                  1510
+                ],
+                [
+                  1507,
+                  275,
+                  287
+                ],
+                [
+                  2177,
+                  2180,
+                  2131
+                ]
+              ],
+              "modifiers":[
+                {
+                  "id":"pyromancers-training",
+                  "gw2_id":319,
+                  "source":31
+                },
+                {
+                  "id":"empowering-flame",
+                  "gw2_id":320,
+                  "source":31
+                },
+                {
+                  "id":"burning-precision",
+                  "gw2_id":296,
+                  "source":31
+                },
+                {
+                  "id":"elemental-polyphony-fire",
+                  "gw2_id":2081,
+                  "source":56
+                },
+                {
+                  "id":"elemental-polyphony-air",
+                  "gw2_id":2081,
+                  "source":56
+                },
+                {
+                  "id":"elements-of-rage",
+                  "gw2_id":2131,
+                  "source":56
+                },
+                {
+                  "id":"burning-rage",
+                  "gw2_id":325,
+                  "source":31
+                },
+                {
+                  "id":"strength-of-stone",
+                  "gw2_id":275,
+                  "source":26
+                },
+                {
+                  "id":"serrated-stones",
+                  "gw2_id":1507,
+                  "source":26
+                },
+                {
+                  "id":"superior-elements",
+                  "gw2_id":2177,
+                  "source":56
+                },
+                {
+                  "id":"weavers-prowess",
+                  "gw2_id":2180,
+                  "source":56
+                }
+              ]
+            },
+            "skills":[
+              "signet-of-fire"
+            ],
+            "extras":{
+              "Runes":"elementalist",
+              "Sigil1":"",
+              "Sigil2":"",
+              "Enhancement":"toxic-focusing-crystal",
+              "Nourishment":"rare-veggie-pizza"
+            }
+          }
 
   - class: ranger
     builds:
       - name: Power Slb
         id: pslb
         specialization: Soulbeast
+        boons: Fractal
+        priority: Power DPS
         traits: >-
-          - farsighted
-          - predators-onslaught
-          - honed-axes
-          - honed-axes-2
-          - furious-strength
-          - twice-as-vicious
-          - signet-of-the-wild
-          - archetype-ferocious
-          - sb-1
-          - sb-2
-          - sb-3
-          - sb-4
+          {
+            "profession":"RANGER",
+            "traits":{
+              "lines":[
+                "8",
+                "32",
+                "55"
+              ],
+              "selected":[
+                [
+                  1014,
+                  1000,
+                  996
+                ],
+                [
+                  1606,
+                  970,
+                  1066
+                ],
+                [
+                  2071,
+                  2085,
+                  2128
+                ]
+              ],
+              "modifiers":[
+                {
+                  "id":"farsighted",
+                  "gw2_id":1000,
+                  "source":8
+                },
+                {
+                  "id":"predators-onslaught",
+                  "gw2_id":996,
+                  "source":8
+                },
+                {
+                  "id":"honed-axes",
+                  "gw2_id":1066,
+                  "source":32
+                },
+                {
+                  "id":"honed-axes-2",
+                  "gw2_id":1066,
+                  "source":32
+                },
+                {
+                  "id":"furious-strength",
+                  "gw2_id":2156,
+                  "source":55
+                },
+                {
+                  "id":"twice-as-vicious",
+                  "gw2_id":2127,
+                  "source":55
+                },
+                {
+                  "id":"archetype-ferocious",
+                  "gw2_id":null,
+                  "source":55
+                },
+                {
+                  "id":"sb-1",
+                  "gw2_id":1900,
+                  "source":55
+                },
+                {
+                  "id":"sb-2",
+                  "gw2_id":974,
+                  "source":55
+                },
+                {
+                  "id":"sb-3",
+                  "gw2_id":1065,
+                  "source":55
+                },
+                {
+                  "id":"sb-4",
+                  "gw2_id":1066,
+                  "source":55
+                }
+              ]
+            },
+            "skills":[
 
-      - name: Condi Slb (D/T SB)
-        id: cslb
-        specialization: Soulbeast
-        traits: >-
-          - hidden-barbs
-          - hunters-tactics
-          - light-on-your-feet
-          - taste-for-danger
-          - ambidexterity
-          - ambidexterity-2
-          - poison-master
-          - furious-strength
-          - twice-as-vicious
-          - archetype-deadly
-
-      - name: Condi Slb (D/T A/D)
-        id: cslb2
-        specialization: Soulbeast
-        traits: >-
-          - hidden-barbs
-          - hunters-tactics
-          - taste-for-danger
-          - ambidexterity
-          - ambidexterity-2
-          - poison-master
-          - furious-strength
-          - twice-as-vicious
-          - archetype-deadly
-
-      - name: Hybrid Slb (A/T D/A)
-        id: hslb
-        specialization: Soulbeast
-        traits: >-
-          - hidden-barbs
-          - hunters-tactics
-          - vicious-quarry
-          - honed-axes
-          - honed-axes-3
-          - furious-strength
-          - twice-as-vicious
-          - archetype-deadly
-          - sb-1
-          - sb-2
-          - sb-3
-          - sb-4
+            ],
+            "extras":{
+              "Runes":"scholar",
+              "Sigil1":"force",
+              "Sigil2":"night/impact/slaying-both",
+              "Enhancement":"slaying-potion",
+              "Nourishment":"curry-butternut-squash-soup"
+            }
+          }
 
   - class: revenant
     builds:
       - name: Power Ren
         id: pren
         specialization: Renegade
+        boons: Fractal
+        priority: Power DPS
         traits: >-
-          - rising-tide
-          - ferocious-aggression
-          - unsuspecting-strikes
-          - destructive-impulses-dual
-          - targeted-destruction
-          - swift-termination
-          - ambush-commander
-          - brutal-momentum
+          {
+            "profession":"REVENANT",
+            "traits":{
+              "lines":[
+                "15",
+                "3",
+                "63"
+              ],
+              "selected":[
+                [
+                  1767,
+                  1786,
+                  1800
+                ],
+                [
+                  1761,
+                  1774,
+                  1791
+                ],
+                [
+                  2166,
+                  2108,
+                  2182
+                ]
+              ],
+              "modifiers":[
+                {
+                  "id":"destructive-impulses-mix",
+                  "gw2_id":1724,
+                  "source":15
+                },
+                {
+                  "id":"targeted-destruction",
+                  "gw2_id":1792,
+                  "source":15
+                },
+                {
+                  "id":"unsuspecting-strikes",
+                  "gw2_id":1767,
+                  "source":15
+                },
+                {
+                  "id":"swift-termination",
+                  "gw2_id":1800,
+                  "source":15
+                },
+                {
+                  "id":"ferocious-aggression",
+                  "gw2_id":1758,
+                  "source":3
+                },
+                {
+                  "id":"rising-tide",
+                  "gw2_id":1761,
+                  "source":3
+                },
+                {
+                  "id":"brutal-momentum",
+                  "gw2_id":2142,
+                  "source":63
+                }
+              ]
+            },
+            "skills":[
 
-      - name: Condi Ren Devastation
-        id: cren-deva
-        specialization: Renegade
-        traits: >-
-          - acolyte-of-torment
-          - seething-malice
-          - pact-of-pain
-          - yearning-empowerment
-          - unsuspecting-strikes
-          - destructive-impulses-mix
-          - targeted-destruction
-          - ambush-commander
-          - blood-fury
-          - heartpiercer
-          - brutal-momentum
-          - lasting-legacy
+            ],
+            "extras":{
+              "Runes":"scholar",
+              "Sigil1":"force",
+              "Sigil2":"night/impact/slaying-both",
+              "Enhancement":"slaying-potion",
+              "Nourishment":"curry-butternut-squash-soup"
+            }
+          }
 
   - class: engineer
     builds:
       - name: Power Holo
         id: pholo
         specialization: Holosmith
+        boons: Fractal
+        priority: Power DPS
         traits: >-
-          - glass-cannon
-          - explosive-temper
-          - shaped-charge
-          - big-boomer
-          - high-caliber
-          - hematic-focus
-          - no-scope
-          - serrated-steel
-          - modified-ammunition-10
+          {
+            "profession":"ENGINEER",
+            "traits":{
+              "lines":[
+                "38",
+                "6",
+                ""
+              ],
+              "selected":[
+                [
+                  1914,
+                  1923,
+                  526
+                ],
+                [
+                  1882,
+                  1892,
+                  1947
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "modifiers":[
+                {
+                  "id":"hematic-focus",
+                  "gw2_id":536,
+                  "source":38
+                },
+                {
+                  "id":"serrated-steel",
+                  "gw2_id":516,
+                  "source":38
+                },
+                {
+                  "id":"modified-ammunition-10",
+                  "gw2_id":526,
+                  "source":38
+                },
+                {
+                  "id":"no-scope",
+                  "gw2_id":1923,
+                  "source":38
+                },
+                {
+                  "id":"high-caliber",
+                  "gw2_id":1914,
+                  "source":38
+                },
+                {
+                  "id":"shaped-charge",
+                  "gw2_id":429,
+                  "source":6
+                },
+                {
+                  "id":"glass-cannon",
+                  "gw2_id":1882,
+                  "source":6
+                },
+                {
+                  "id":"explosive-temper",
+                  "gw2_id":1892,
+                  "source":6
+                },
+                {
+                  "id":"big-boomer",
+                  "gw2_id":1947,
+                  "source":6
+                }
+              ]
+            },
+            "skills":[
 
-      - name: Condi Holo
-        id: cholo
-        specialization: Holosmith
-        traits: >-
-          - glass-cannon
-          - explosive-temper
-          - shaped-charge
-          - chemical-rounds
-          - hematic-focus
-          - thermal-vision
-          - serrated-steel
-          - incendiary-powder
-
-      - name: Power Scrapper
-        id: pscrap
-        specialization: Scrapper
-        traits: >-
-          - glass-cannon
-          - explosive-temper
-          - shaped-charge
-          - big-boomer
-          - high-caliber
-          - hematic-focus
-          - no-scope
-          - serrated-steel
-          - modified-ammunition-10
-          - object-in-motion-2
-          - impact-savant
-          - applied-force
+            ],
+            "extras":{
+              "Runes":"scholar",
+              "Sigil1":"force",
+              "Sigil2":"night/impact/slaying-both",
+              "Enhancement":"slaying-potion",
+              "Nourishment":"sweet-and-spicy-butternut-squash-soup"
+            }
+          }

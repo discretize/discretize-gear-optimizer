@@ -26,7 +26,10 @@ import {
   changeProfession,
   getControl,
   getProfession,
+  changeBuff,
+  getBuffs,
   changeState,
+  changePriority,
 } from '../state/gearOptimizerSlice';
 import { PROFESSIONS } from '../utils/gw2-data';
 import { firstUppercase } from '../utils/usefulFunctions';
@@ -45,10 +48,11 @@ const styles = () => ({
   },
 });
 
-const Navbar = ({ classes, data }) => {
+const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
   const expertMode = useSelector(getControl('expertMode'));
+  const buffs = useSelector(getBuffs);
 
   const [state, setState] = useState({
     mobileView: false,
@@ -149,7 +153,21 @@ const Navbar = ({ classes, data }) => {
 
   const handleTemplateSelect = (popup, elem, profession) => {
     const traitState = JSON.parse(elem.traits);
-    // todo
+
+    // set all the buffs to disabled
+    Object.keys(buffs).forEach((el) => dispatch(changeBuff({ key: el, value: false })));
+    // apply the preset
+    const buffState = JSON.parse(buffPresets.find((pre) => pre.name === elem.boons).value);
+    Object.keys(buffState).forEach((key) => dispatch(changeBuff({ key, value: buffState[key] })));
+
+    // change priorities
+    const prioritiesState = JSON.parse(
+      prioritiesPresets.find((prio) => prio.name === elem.priority).value,
+    );
+    Object.keys(prioritiesState).forEach((key) =>
+      dispatch(changePriority({ key, value: prioritiesState[key] })),
+    );
+
     dispatch(changeState({ ...traitState, profession }));
     popup.close();
   };
@@ -198,6 +216,7 @@ const Navbar = ({ classes, data }) => {
               .find((elem) => elem.class === p.profession.toLowerCase())
               .builds.map((elem) => (
                 <MenuItem
+                  key={elem.name}
                   onClick={(e) => handleTemplateSelect(popupState[index], elem, p.profession)}
                 >
                   <Profession
