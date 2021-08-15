@@ -95,7 +95,10 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
           className={classes.stickRight}
           label="Expert"
         />
-        <IconButton className={classes.githubIcon}>
+        <IconButton
+          className={classes.githubIcon}
+          href="https://github.com/discretize/discretize-gear-optimizer"
+        >
           <GitHubIcon />
         </IconButton>
       </>
