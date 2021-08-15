@@ -815,3 +815,10 @@ export const INFUSIONS = [
   { id: 37135, attribute: 'Toughness' }, // toughness
   { id: 37136, attribute: 'Vitality' }, // vitality
 ];
+
+export const ARMOR_IDS = {
+  // Helm, Shoulders, Chest, Hands, Leggings, Feet
+  HEAVY: [86198, 85829, 85814, 85949, 86079, 86237],
+  MEDIUM: [48087, 48089, 48085, 48086, 48088, 48084],
+  LIGHT: [],
+};

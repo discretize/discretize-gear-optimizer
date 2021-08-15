@@ -7,6 +7,7 @@ export const gearOptimizerSlice = createSlice({
       expertMode: true,
       list: [],
       percentageDone: 0,
+      selected: '',
     },
     profession: '',
     traits: {

@@ -8,9 +8,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
-import { useSelector } from 'react-redux';
-import { getList, getPriority } from '../state/gearOptimizerSlice';
-import { Slots } from '../utils/gw2-data';
+import { useSelector, useDispatch } from 'react-redux';
+import { getList, getPriority, changeControl } from '../../state/gearOptimizerSlice';
+import { Slots } from '../../utils/gw2-data';
 
 const useStyles = makeStyles({
   root: {
@@ -25,6 +25,7 @@ export default function StickyHeadTable() {
   const classes = useStyles();
   const wield = useSelector(getPriority('weaponType'));
   const list = useSelector(getList) || [];
+  const dispatch = useDispatch();
 
   return (
     <Paper className={classes.root}>
@@ -41,13 +42,16 @@ export default function StickyHeadTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {list.map((character) => (
-              <TableRow key={character.id}>
+            {list.map((character, i) => (
+              <TableRow
+                key={character.id}
+                onClick={(e) => dispatch(changeControl({ key: 'selected', value: i }))}
+              >
                 <TableCell component="th" scope="row">
                   {character.attributes.Damage.toFixed(2)}
                 </TableCell>
                 {character.gear.map((element, index) => (
-                  <TableCell align="center" key={index} padding="none">
+                  <TableCell align="center" key={element + index} padding="none">
                     {element.slice(0, 4)}
                   </TableCell>
                 ))}

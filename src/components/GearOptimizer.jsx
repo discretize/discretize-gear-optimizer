@@ -24,7 +24,8 @@ import GW2Select from './GW2Select';
 import Infusions from './Infusions';
 import NavBar from './NavBar';
 import Priorities from './priorities/Priorities';
-import ResultTable from './ResultTable';
+import ResultTable from './results/ResultTable';
+import ResultDetails from './results/ResultDetails';
 import Skills from './Skills';
 import Traits from './Traits';
 
@@ -264,6 +265,7 @@ const MainComponent = ({ classes, data }) => {
           <LinearProgressWithLabel value={progress} />
 
           <ResultTable />
+          <ResultDetails data={data} />
         </>
       )}
     </div>
