@@ -30,7 +30,7 @@
     "gatsby-source-filesystem": "^3.11.0",
     "gatsby-transformer-sharp": "^3.11.0",
     "gatsby-transformer-yaml": "^3.10.0",
-    "gw2-ui-bulk": "0.10.15",
+    "gw2-ui-bulk": "0.10.16",
     "jss": "^10.7.1",
     "lodash": "^4.17.21",
     "lodash.debounce": "^4.0.8",

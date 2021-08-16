@@ -636,24 +636,25 @@ export const Defense = {
 };
 
 export const WEAPONS = {
-  GREATSWORD: { name: 'Greatsword', type: 'two-handed' },
-  HAMMER: { name: 'Hammer', type: 'two-handed' },
-  STAFF: { name: 'Staff', type: 'two-handed' },
-  RIFLE: { name: 'Rifle', type: 'two-handed' },
-  LONGBOW: { name: 'Longbow', type: 'two-handed' },
-  SHORTBOW: { name: 'Shortbow', type: 'two-handed' },
-  SCEPTER: { name: 'Scepter', type: 'mainHand' },
+  GREATSWORD: { name: 'Greatsword', type: 'two-handed', gw2_id: 30689 },
+  HAMMER: { name: 'Hammer', type: 'two-handed', gw2_id: 30690 },
+  STAFF: { name: 'Staff', type: 'two-handed', gw2_id: 30698 },
+  RIFLE: { name: 'Rifle', type: 'two-handed', gw2_id: 30694 },
+  LONGBOW: { name: 'Longbow', type: 'two-handed', gw2_id: 30685 },
+  SHORTBOW: { name: 'Shortbow', type: 'two-handed', gw2_id: 30686 },
 
-  AXE: { name: 'Axe', type: 'one-handed' },
-  DAGGER: { name: 'Dagger', type: 'one-handed' },
-  PISTOL: { name: 'Pistol', type: 'one-handed' },
-  MACE: { name: 'Mace', type: 'one-handed' },
-  SWORD: { name: 'Sword', type: 'one-handed' },
+  SCEPTER: { name: 'Scepter', type: 'mainHand', gw2_id: 30695 },
 
-  FOCUS: { name: 'Focus', type: 'offHand' },
-  SHIELD: { name: 'Shield', type: 'offHand' },
-  TORCH: { name: 'Torch', type: 'offHand' },
-  WARHORN: { name: 'Warhorn', type: 'offHand' },
+  AXE: { name: 'Axe', type: 'one-handed', gw2_id: 76158 },
+  DAGGER: { name: 'Dagger', type: 'one-handed', gw2_id: 30687 },
+  PISTOL: { name: 'Pistol', type: 'one-handed', gw2_id: 30693 },
+  MACE: { name: 'Mace', type: 'one-handed', gw2_id: 30692 },
+  SWORD: { name: 'Sword', type: 'one-handed', gw2_id: 30699 },
+
+  FOCUS: { name: 'Focus', type: 'offHand', gw2_id: 86098 },
+  SHIELD: { name: 'Shield', type: 'offHand', gw2_id: 30696 },
+  TORCH: { name: 'Torch', type: 'offHand', gw2_id: 30700 },
+  WARHORN: { name: 'Warhorn', type: 'offHand', gw2_id: 30702 },
 };
 
 // eslint-disable-next-line no-unused-vars

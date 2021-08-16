@@ -47,10 +47,10 @@ const Weapons = ({ classes, data, affix1, affix2, infusion1Id, infusion2Id }) =>
   let wea1, wea2;
 
   if (priority === 'Dual wield') {
-    wea1 = classData.mainHand.find((d) => d.type === 'one-handed').name;
-    wea2 = classData.offHand[0].name;
+    wea1 = classData.mainHand.find((d) => d.type === 'one-handed');
+    wea2 = classData.offHand[0];
   } else {
-    wea1 = classData.mainHand.find((d) => d.type === 'two-handed').name;
+    wea1 = classData.mainHand.find((d) => d.type === 'two-handed');
   }
 
   let sigil1Id = data.find((d) => d.id === sigil1);
@@ -65,7 +65,7 @@ const Weapons = ({ classes, data, affix1, affix2, infusion1Id, infusion2Id }) =>
           <>
             <ListItem disableGutters className={classes.listItem}>
               <Item
-                type={wea1}
+                id={wea1.gw2_id}
                 stat={affix1}
                 upgrades={[sigil1Id, infusion1Id].filter((d) => d !== undefined)}
                 disableText
@@ -79,7 +79,7 @@ const Weapons = ({ classes, data, affix1, affix2, infusion1Id, infusion2Id }) =>
             </ListItem>
             <ListItem disableGutters className={classes.listItem}>
               <Item
-                type={wea2}
+                id={wea2.gw2_id}
                 stat={affix2}
                 upgrades={[sigil2Id, infusion2Id].filter((d) => d !== undefined)}
                 disableText
