@@ -635,17 +635,142 @@ export const Defense = {
   HEAVY: 1271,
 };
 
+export const WEAPONS = {
+  GREATSWORD: { name: 'Greatsword', type: 'two-handed' },
+  HAMMER: { name: 'Hammer', type: 'two-handed' },
+  STAFF: { name: 'Staff', type: 'two-handed' },
+  RIFLE: { name: 'Rifle', type: 'two-handed' },
+  LONGBOW: { name: 'Longbow', type: 'two-handed' },
+  SHORTBOW: { name: 'Shortbow', type: 'two-handed' },
+  SCEPTER: { name: 'Scepter', type: 'mainHand' },
+
+  AXE: { name: 'Axe', type: 'one-handed' },
+  DAGGER: { name: 'Dagger', type: 'one-handed' },
+  PISTOL: { name: 'Pistol', type: 'one-handed' },
+  MACE: { name: 'Mace', type: 'one-handed' },
+  SWORD: { name: 'Sword', type: 'one-handed' },
+
+  FOCUS: { name: 'Focus', type: 'offHand' },
+  SHIELD: { name: 'Shield', type: 'offHand' },
+  TORCH: { name: 'Torch', type: 'offHand' },
+  WARHORN: { name: 'Warhorn', type: 'offHand' },
+};
+
 // eslint-disable-next-line no-unused-vars
 export const Classes = {
-  warrior: { health: Health.HIGH, defense: Defense.HEAVY },
-  necromancer: { health: Health.HIGH, defense: Defense.LIGHT },
-  revenant: { health: Health.MEDIUM, defense: Defense.HEAVY },
-  engineer: { health: Health.MEDIUM, defense: Defense.MEDIUM },
-  ranger: { health: Health.MEDIUM, defense: Defense.MEDIUM },
-  mesmer: { health: Health.MEDIUM, defense: Defense.LIGHT },
-  guardian: { health: Health.LOW, defense: Defense.HEAVY },
-  thief: { health: Health.LOW, defense: Defense.MEDIUM },
-  elementalist: { health: Health.LOW, defense: Defense.LIGHT },
+  warrior: {
+    health: Health.HIGH,
+    defense: Defense.HEAVY,
+    weapons: {
+      mainHand: [
+        WEAPONS.AXE,
+        WEAPONS.DAGGER,
+        WEAPONS.MACE,
+        WEAPONS.SWORD,
+        WEAPONS.GREATSWORD,
+        WEAPONS.HAMMER,
+        WEAPONS.LONGBOW,
+        WEAPONS.RIFLE,
+      ],
+      offHand: [
+        WEAPONS.AXE,
+        WEAPONS.DAGGER,
+        WEAPONS.MACE,
+        WEAPONS.SWORD,
+        WEAPONS.SHIELD,
+        WEAPONS.TORCH,
+        WEAPONS.WARHORN,
+      ],
+    },
+  },
+  necromancer: {
+    health: Health.HIGH,
+    defense: Defense.LIGHT,
+    weapons: {
+      mainHand: [WEAPONS.AXE, WEAPONS.DAGGER, WEAPONS.SCEPTER, WEAPONS.GREATSWORD, WEAPONS.STAFF],
+      offHand: [WEAPONS.FOCUS, WEAPONS.WARHORN, WEAPONS.TORCH, WEAPONS.DAGGER],
+    },
+  },
+  revenant: {
+    health: Health.MEDIUM,
+    defense: Defense.HEAVY,
+    weapons: {
+      mainHand: [WEAPONS.MACE, WEAPONS.SWORD, WEAPONS.HAMMER, WEAPONS.SHORTBOW, WEAPONS.STAFF],
+      offHand: [WEAPONS.AXE, WEAPONS.SWORD, WEAPONS.SHIELD],
+    },
+  },
+  engineer: {
+    health: Health.MEDIUM,
+    defense: Defense.MEDIUM,
+    weapons: {
+      mainHand: [WEAPONS.PISTOL, WEAPONS.SWORD, WEAPONS.RIFLE, WEAPONS.HAMMER],
+      offHand: [WEAPONS.PISTOL, WEAPONS.SHIELD],
+    },
+  },
+  ranger: {
+    health: Health.MEDIUM,
+    defense: Defense.MEDIUM,
+    weapons: {
+      mainHand: [
+        WEAPONS.AXE,
+        WEAPONS.DAGGER,
+        WEAPONS.SWORD,
+        WEAPONS.GREATSWORD,
+        WEAPONS.LONGBOW,
+        WEAPONS.SHORTBOW,
+        WEAPONS.STAFF,
+      ],
+      offHand: [WEAPONS.AXE, WEAPONS.DAGGER, WEAPONS.TORCH, WEAPONS.WARHORN],
+    },
+  },
+  mesmer: {
+    health: Health.MEDIUM,
+    defense: Defense.LIGHT,
+    weapons: {
+      mainHand: [WEAPONS.AXE, WEAPONS.SWORD, WEAPONS.SCEPTER, WEAPONS.GREATSWORD, WEAPONS.STAFF],
+      offHand: [WEAPONS.PISTOL, WEAPONS.SWORD, WEAPONS.FOCUS, WEAPONS.SHIELD, WEAPONS.TORCH],
+    },
+  },
+  guardian: {
+    health: Health.LOW,
+    defense: Defense.HEAVY,
+    weapons: {
+      mainHand: [
+        WEAPONS.AXE,
+        WEAPONS.MACE,
+        WEAPONS.SWORD,
+        WEAPONS.SCEPTER,
+        WEAPONS.GREATSWORD,
+        WEAPONS.HAMMER,
+        WEAPONS.LONGBOW,
+        WEAPONS.STAFF,
+      ],
+      offHand: [WEAPONS.FOCUS, WEAPONS.SHIELD, WEAPONS.TORCH],
+    },
+  },
+  thief: {
+    health: Health.LOW,
+    defense: Defense.MEDIUM,
+    weapons: {
+      mainHand: [
+        WEAPONS.DAGGER,
+        WEAPONS.PISTOL,
+        WEAPONS.SWORD,
+        WEAPONS.RIFLE,
+        WEAPONS.SHORTBOW,
+        WEAPONS.STAFF,
+      ],
+      offHand: [WEAPONS.DAGGER, WEAPONS.PISTOL],
+    },
+  },
+  elementalist: {
+    health: Health.LOW,
+    defense: Defense.LIGHT,
+    weapons: {
+      mainHand: [WEAPONS.DAGGER, WEAPONS.SWORD, WEAPONS.SCEPTER, WEAPONS.STAFF],
+      offHand: [WEAPONS.FOCUS, WEAPONS.DAGGER, WEAPONS.WARHORN],
+    },
+  },
 };
 
 export const Condition = {

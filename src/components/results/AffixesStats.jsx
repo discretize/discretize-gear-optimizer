@@ -1,7 +1,6 @@
 import { Table, TableCell, TableRow, withStyles } from '@material-ui/core';
-import { Boon, Attribute } from 'gw2-ui-bulk';
+import { Attribute } from 'gw2-ui-bulk';
 import React from 'react';
-import { Condition as ConditionList } from '../../utils/gw2-data';
 
 const styles = (theme) => ({
   root: {

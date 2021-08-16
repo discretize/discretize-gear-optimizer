@@ -8,6 +8,8 @@ import { Classes, Defense, INFUSIONS } from '../../utils/gw2-data';
 import Attributes from './Attributes';
 import SpecialDurations from './SpecialDurations';
 import AffixesStats from './AffixesStats';
+import Weapons from './Weapons';
+import HelperIcon from '../HelperIcon';
 
 const styles = (theme) => ({
   root: {
@@ -90,7 +92,17 @@ const ResultDetails = ({ classes, data }) => {
             bootsRuneCount={6}
             bootsInfusionId={infusions[5]}
           />
-          // TODO weapons
+          <Typography variant="h6">
+            Weapons{' '}
+            <HelperIcon text="The weapons are placeholders - they probably do not match your build, but they also do not matter for the optimization :shrug:" />
+          </Typography>
+          <Weapons
+            data={data.sigils.list.flatMap((l) => l.items)}
+            affix1={character.gear[12]}
+            affix2={character.gear[13]}
+            infusion1Id={infusions[16]}
+            infusion2Id={infusions[17]}
+          />
         </Grid>
         <Grid item xs={12} sm={3} />
 
