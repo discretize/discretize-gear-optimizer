@@ -448,7 +448,7 @@ import {
 
     optimizerCore.updateAttributes(_character);
     console.debug('character:', _character);
-    const { attributes, settings, infusions, gearStats } = _character;
+    const { attributes, settings, results, infusions, gearStats } = _character;
 
     let modal = '<div class="modal">';
     modal += '<div class="modal-dialog modal-lg">';
@@ -482,11 +482,7 @@ import {
     // First column
     modal += '<div class="col-12 col-lg-6">';
 
-    const indicators = {};
-    $.each(Attributes.INDICATORS, (index, attribute) => {
-      indicators[attribute] = Number(attributes[attribute].toFixed(4)).toLocaleString('en-US');
-    });
-    modal += toCard('Indicators', indicators);
+    modal += toCard('Indicators', results.indicators);
 
     const gear = {};
     $.each(_character.gear, (index, value) => {
@@ -499,28 +495,10 @@ import {
     }
 
     // effective gain from adding +5 infusions
-    const effectiveValues = {};
-    $.each(['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'], (index, value) => {
-      const temp = optimizerCore.clone(_character);
-      temp.baseAttributes[value] += 5;
-      optimizerCore.updateAttributes(temp);
-      effectiveValues[value] = Number(
-        (temp.attributes['Damage'] - attributes['Damage']).toFixed(5),
-      ).toLocaleString('en-US');
-    });
-    modal += toCard('Damage increase from +5 of attribute', effectiveValues);
+    modal += toCard('Damage increase from +5 of attribute', results.effectivePositiveValues);
 
     // effective loss by not having +5 infusions
-    const effectiveNegativeValues = {};
-    $.each(['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'], (index, value) => {
-      const temp = optimizerCore.clone(_character);
-      temp.baseAttributes[value] = Math.max(temp.baseAttributes[value] - 5, 0);
-      optimizerCore.updateAttributes(temp);
-      effectiveNegativeValues[value] = Number(
-        (temp.attributes['Damage'] - attributes['Damage']).toFixed(5),
-      ).toLocaleString('en-US');
-    });
-    modal += toCard('Damage loss from -5 of attribute', effectiveNegativeValues);
+    modal += toCard('Damage loss from -5 of attribute', results.effectiveNegativeValues);
 
     if (infusions) {
       const statsFromGear = { ...gearStats };
@@ -611,17 +589,7 @@ import {
 
     if (settings.percentDistribution['Power'] !== 100) {
       // effective damage distribution
-      const effectiveDamageDistribution = {};
-      $.each(settings.percentDistribution, (key) => {
-        if (key === 'Power') {
-          const damage = attributes['Power DPS'] / attributes['Damage'];
-          effectiveDamageDistribution['Power'] = `${(damage * 100).toFixed(1)}%`;
-        } else {
-          const damage = attributes[`${key} DPS`] / attributes['Damage'];
-          effectiveDamageDistribution[`${key} Damage`] = `${(damage * 100).toFixed(1)}%`;
-        }
-      });
-      modal += toCard('Effective Damage Distribution', effectiveDamageDistribution);
+      modal += toCard('Effective Damage Distribution', results.effectiveDamageDistribution);
 
       // damage indicator breakdown
       const damageIndicatorBreakdown = {};
