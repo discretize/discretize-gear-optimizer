@@ -10,13 +10,14 @@ import SpecialDurations from './SpecialDurations';
 import AffixesStats from './AffixesStats';
 import Weapons from './Weapons';
 import HelperIcon from '../HelperIcon';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const styles = (theme) => ({
-  root: {
-    width: '100%',
-  },
   container: {
     maxHeight: 440,
+  },
+  bgImage: {
+    width: '100%',
   },
 });
 
@@ -53,12 +54,14 @@ const ResultDetails = ({ classes, data }) => {
           .flatMap((e) => e)
       : [];
 
+  const image = getImage(data[`${profession.toLowerCase()}Picture`]);
+  console.log(image);
   return (
-    <div className={classes.root}>
+    <div>
       <Typography variant="h5">Character</Typography>
 
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} sm={6} md={3}>
           <Armor
             weight={weight}
             helmAffix={character.gear[0]}
@@ -104,9 +107,16 @@ const ResultDetails = ({ classes, data }) => {
             infusion2Id={infusions[17]}
           />
         </Grid>
-        <Grid item xs={12} sm={3} />
+        <Grid item xs={12} sm={6} md={3}>
+          <GatsbyImage
+            layout="fullWidth"
+            image={image}
+            alt="Profession Image"
+            className={classes.bgImage}
+          />
+        </Grid>
 
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={12} sm={6} md={3}>
           <Typography variant="h6">Attributes</Typography>
           <Attributes data={character.attributes} />
           <BackAndTrinkets
@@ -128,11 +138,9 @@ const ResultDetails = ({ classes, data }) => {
             accessory2InfusionId={infusions[15]}
           />
         </Grid>
-        <Grid item xs={12} sm={3}>
-          <Typography variant="h6">Special Durations</Typography>
+        <Grid item xs={12} sm={6} md={3}>
           <SpecialDurations data={character.attributes} />
 
-          <Typography variant="h6">Stats from affixes</Typography>
           <AffixesStats data={character.gearStats} />
         </Grid>
       </Grid>

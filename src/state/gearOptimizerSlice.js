@@ -111,6 +111,12 @@ export const gearOptimizerSlice = createSlice({
         ],
         modifiers: [],
       };
+      state.control = {
+        ...state.control,
+        list: [],
+        percentageDone: 0,
+        selected: '',
+      };
       state.skills = [];
     },
     changeAR: (state, action) => {

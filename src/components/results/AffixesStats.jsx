@@ -1,4 +1,4 @@
-import { Table, TableCell, TableRow, withStyles } from '@material-ui/core';
+import { Table, TableCell, TableRow, withStyles, Typography } from '@material-ui/core';
 import { Attribute } from 'gw2-ui-bulk';
 import React from 'react';
 
@@ -14,16 +14,19 @@ const styles = (theme) => ({
 
 const AffixesStats = ({ classes, data }) => {
   return (
-    <Table padding="none">
-      {Object.keys(data).map((attribute) => (
-        <TableRow hover>
-          <TableCell>
-            <Attribute name={attribute} className={classes.gw2Item} />
-          </TableCell>
-          <TableCell>{data[attribute]}</TableCell>
-        </TableRow>
-      ))}
-    </Table>
+    <>
+      <Typography variant="h6">Stats from affixes</Typography>
+      <Table padding="none">
+        {Object.keys(data).map((attribute) => (
+          <TableRow hover>
+            <TableCell>
+              <Attribute name={attribute} className={classes.gw2Item} />
+            </TableCell>
+            <TableCell>{data[attribute]}</TableCell>
+          </TableRow>
+        ))}
+      </Table>
+    </>
   );
 };
 

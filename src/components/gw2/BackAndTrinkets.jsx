@@ -60,7 +60,7 @@ const Weapons = ({ classes, ...rest }) => {
   return (
     <Grid container spacing={3}>
       <Grid item xs={4} className={classNames(classes.gridItem, classes.borderBottom)}>
-        <Typography variant="subheading" className={classes.title} component="span" gutterBottom>
+        <Typography variant="subtitle1" className={classes.title} component="span" gutterBottom>
           {backItemAffix}
         </Typography>
         <Item
@@ -79,7 +79,7 @@ const Weapons = ({ classes, ...rest }) => {
         xs={4}
         className={classNames(classes.gridItem, classes.borderLeft, classes.borderBottom)}
       >
-        <Typography variant="subheading" className={classes.title} component="span" gutterBottom>
+        <Typography variant="subtitle1" className={classes.title} component="span" gutterBottom>
           {accessory1Affix}
         </Typography>
         <Item
@@ -94,7 +94,7 @@ const Weapons = ({ classes, ...rest }) => {
       </Grid>
 
       <Grid item xs={4} className={classNames(classes.gridItem, classes.borderBottom)}>
-        <Typography variant="subheading" className={classes.title} component="span" gutterBottom>
+        <Typography variant="subtitle1" className={classes.title} component="span" gutterBottom>
           {accessory2Affix}
         </Typography>
         <Item
@@ -109,9 +109,6 @@ const Weapons = ({ classes, ...rest }) => {
       </Grid>
 
       <Grid item xs={4} className={classes.gridItem}>
-        <Typography variant="subheading" className={classes.title} component="span" gutterBottom>
-          {amuletAffix}
-        </Typography>
         <Item
           id={amuletId}
           stat={amuletAffix}
@@ -120,12 +117,12 @@ const Weapons = ({ classes, ...rest }) => {
           disableText
           className={classes.gw2Item}
         />
+        <Typography variant="subtitle1" className={classes.title} component="span" gutterBottom>
+          {amuletAffix}
+        </Typography>
       </Grid>
 
       <Grid item xs={4} className={classNames(classes.gridItem, classes.borderLeft)}>
-        <Typography variant="subheading" className={classes.title} component="span" gutterBottom>
-          {ring1Affix}
-        </Typography>
         <Item
           id={ring1Id}
           stat={ring1Affix}
@@ -137,12 +134,12 @@ const Weapons = ({ classes, ...rest }) => {
           disableText
           className={classes.gw2Item}
         />
+        <Typography variant="subtitle1" className={classes.title} component="span" gutterBottom>
+          {ring1Affix}
+        </Typography>
       </Grid>
 
       <Grid item xs={4} className={classes.gridItem}>
-        <Typography variant="subheading" className={classes.title} component="span" gutterBottom>
-          {ring2Affix}
-        </Typography>
         <Item
           id={ring2Id}
           stat={ring2Affix}
@@ -154,6 +151,9 @@ const Weapons = ({ classes, ...rest }) => {
           disableText
           className={classes.gw2Item}
         />
+        <Typography variant="subtitle1" className={classes.title} component="span" gutterBottom>
+          {ring2Affix}
+        </Typography>
       </Grid>
     </Grid>
   );

@@ -28,6 +28,7 @@ const { requestsReducer, requestsMiddleware } = handleRequests();
 
 const persistConfig = {
   key: 'root',
+  whitelist: 'gw2UiStore',
   storage: storage,
 };
 
