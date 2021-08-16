@@ -95,7 +95,7 @@ const Weapons = ({ classes, data, affix1, affix2, infusion1Id, infusion2Id }) =>
         ) : (
           <ListItem disableGutters className={classes.listItem}>
             <Item
-              type={wea1}
+              id={wea1.gw2_id}
               stat={affix1}
               upgrades={[infusion1Id, infusion2Id, sigil1Id, sigil2Id].filter(
                 (d) => d !== undefined,
