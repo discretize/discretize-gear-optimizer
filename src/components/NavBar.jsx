@@ -59,21 +59,22 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
   });
   const { mobileView, drawerOpen, anchor } = state;
 
+  const setResponsiveness = () => {
+    return window.innerWidth < 900
+      ? setState((prevState) => ({ ...prevState, mobileView: true }))
+      : setState((prevState) => ({ ...prevState, mobileView: false }));
+  };
+  const debouncedResponsive = debounce(setResponsiveness, 300);
+
   useEffect(() => {
-    const setResponsiveness = () => {
-      return window.innerWidth < 900
-        ? setState((prevState) => ({ ...prevState, mobileView: true }))
-        : setState((prevState) => ({ ...prevState, mobileView: false }));
-    };
+    debouncedResponsive();
 
-    setResponsiveness();
-
-    window.addEventListener('resize', debounce(setResponsiveness, 300));
+    window.addEventListener('resize', debouncedResponsive);
 
     return () => {
-      window.removeEventListener('resize', debounce(setResponsiveness, 300));
+      window.removeEventListener('resize', debouncedResponsive);
     };
-  }, []);
+  });
 
   const stickyRight = () => {
     return (
