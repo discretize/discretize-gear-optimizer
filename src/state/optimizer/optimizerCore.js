@@ -827,6 +827,8 @@ export function updateAttributes(_character) {
 
   calcSurvivability(_character, multipliers);
   calcHealing(_character, multipliers);
+
+  calcResults(_character);
 }
 
 /**
@@ -988,6 +990,53 @@ function calcHealing(_character, multipliers) {
   }
 
   attributes['Healing'] = attributes['Effective Healing'];
+}
+
+function calcResults(_character) {
+  _character.results = {};
+
+  const { attributes, settings, results } = _character;
+
+  results.indicators = {};
+  for (const attribute of Attributes.INDICATORS) {
+    results.indicators[attribute] = Number(attributes[attribute].toFixed(4)).toLocaleString(
+      'en-US',
+    );
+  }
+
+  // effective gain from adding +5 infusions
+  results.effectivePositiveValues = {};
+  for (const attribute of ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise']) {
+    const temp = clone(_character);
+    temp.baseAttributes[attribute] += 5;
+    updateAttributesFast(temp, true);
+    results.effectivePositiveValues[attribute] = Number(
+      (temp.attributes['Damage'] - attributes['Damage']).toFixed(5),
+    ).toLocaleString('en-US');
+  }
+
+  // effective loss by not having +5 infusions
+  results.effectiveNegativeValues = {};
+  for (const attribute of ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise']) {
+    const temp = clone(_character);
+    temp.baseAttributes[attribute] = Math.max(temp.baseAttributes[attribute] - 5, 0);
+    updateAttributesFast(temp, true);
+    results.effectiveNegativeValues[attribute] = Number(
+      (temp.attributes['Damage'] - attributes['Damage']).toFixed(5),
+    ).toLocaleString('en-US');
+  }
+
+  // effective damage distribution
+  results.effectiveDamageDistribution = {};
+  $.each(settings.percentDistribution, (key) => {
+    if (key === 'Power') {
+      const damage = attributes['Power DPS'] / attributes['Damage'];
+      results.effectiveDamageDistribution['Power'] = `${(damage * 100).toFixed(1)}%`;
+    } else {
+      const damage = attributes[`${key} DPS`] / attributes['Damage'];
+      results.effectiveDamageDistribution[`${key} Damage`] = `${(damage * 100).toFixed(1)}%`;
+    }
+  });
 }
 
 /**
