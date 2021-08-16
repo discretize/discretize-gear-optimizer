@@ -1,8 +1,8 @@
-import { List, ListItem, ListItemText, MenuItem, withStyles } from '@material-ui/core';
+import { List, ListItem, ListItemText, withStyles } from '@material-ui/core';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getProfession, getExtra, getControl, getPriority } from '../../state/gearOptimizerSlice';
+import { useSelector } from 'react-redux';
+import { getExtra, getPriority, getProfession } from '../../state/gearOptimizerSlice';
 import { Classes } from '../../utils/gw2-data';
 import { firstUppercase } from '../../utils/usefulFunctions';
 

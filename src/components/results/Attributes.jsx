@@ -1,4 +1,4 @@
-import { Grid, List, ListItem, Typography, withStyles } from '@material-ui/core';
+import { Grid, List, ListItem, withStyles } from '@material-ui/core';
 import { Attribute, Profession } from 'gw2-ui-bulk';
 import React from 'react';
 import { useSelector } from 'react-redux';

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { withStyles, Grid, Typography } from '@material-ui/core';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { getControl, getExtras, getProfession } from '../../state/gearOptimizerSlice';
 import Armor from '../gw2/Armor';
 import BackAndTrinkets from '../gw2/BackAndTrinkets';
@@ -10,7 +11,6 @@ import SpecialDurations from './SpecialDurations';
 import AffixesStats from './AffixesStats';
 import Weapons from './Weapons';
 import HelperIcon from '../HelperIcon';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const styles = (theme) => ({
   container: {

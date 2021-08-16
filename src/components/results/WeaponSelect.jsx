@@ -1,10 +1,8 @@
-import { FormControl, InputLabel, Select, MenuItem, withStyles } from '@material-ui/core';
-import { Attribute } from 'gw2-ui-bulk';
+import { FormControl, InputLabel, MenuItem, Select, withStyles } from '@material-ui/core';
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getProfession, getControl, changeControl } from '../../state/gearOptimizerSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeControl, getControl, getProfession } from '../../state/gearOptimizerSlice';
 import { Classes } from '../../utils/gw2-data';
-import { firstUppercase } from '../../utils/usefulFunctions';
 
 const styles = (theme) => ({
   root: {
