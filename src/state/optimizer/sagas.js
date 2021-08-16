@@ -66,7 +66,7 @@ function* runCalc() {
       { 'flat': { 'Critical Chance': 10 }, 'buff': { 'Ferocity': 150 } },
       { 'multiplier': { 'Burning Damage': 0.15 } },
       { 'multiplier': { 'Effective Power': 0.09 } },
-      { 'flat': { 'Retaliation Duration': 25 } },
+      { 'flat': { 'Resolution Duration': 25 } },
       { 'convert': { 'Condition Damage': { 'Vitality': 0.13 } } },
       { 'flat': { 'Condition Damage': 250, 'Healing Power': 250, 'Vitality': 250 } },
       { 'buff': { 'Power': 750, 'Condition Damage': 750 } },

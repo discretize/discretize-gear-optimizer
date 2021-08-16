@@ -701,7 +701,6 @@ export const Attributes = {
     'Regeneration Duration',
     'Resistance Duration',
     'Resolution Duration',
-    'Retaliation Duration',
     'Stability Duration',
     'Swiftness Duration',
     'Vigor Duration',

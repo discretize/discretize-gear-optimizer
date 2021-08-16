@@ -1,11 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { withStyles, Grid } from '@material-ui/core';
+import { withStyles, Grid, Typography } from '@material-ui/core';
 import { getControl, getExtras, getProfession } from '../../state/gearOptimizerSlice';
 import Armor from '../gw2/Armor';
 import BackAndTrinkets from '../gw2/BackAndTrinkets';
 import { Classes, Defense, INFUSIONS } from '../../utils/gw2-data';
 import Attributes from './Attributes';
+import SpecialDurations from './SpecialDurations';
+import AffixesStats from './AffixesStats';
 
 const styles = (theme) => ({
   root: {
@@ -49,11 +51,12 @@ const ResultDetails = ({ classes, data }) => {
           .flatMap((e) => e)
       : [];
 
-  console.log(infusions);
   return (
     <div className={classes.root}>
-      <Grid container>
-        <Grid item xs={12} sm={6}>
+      <Typography variant="h5">Character</Typography>
+
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={3}>
           <Armor
             weight={weight}
             helmAffix={character.gear[0]}
@@ -87,8 +90,13 @@ const ResultDetails = ({ classes, data }) => {
             bootsRuneCount={6}
             bootsInfusionId={infusions[5]}
           />
+          // TODO weapons
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} sm={3} />
+
+        <Grid item xs={12} sm={3}>
+          <Typography variant="h6">Attributes</Typography>
+          <Attributes data={character.attributes} />
           <BackAndTrinkets
             backItemAffix={character.gear[11]}
             backItemInfusion1Id={infusions[6]}
@@ -107,8 +115,13 @@ const ResultDetails = ({ classes, data }) => {
             accessory2Affix={character.gear[10]}
             accessory2InfusionId={infusions[15]}
           />
-          // TODO weapons
-          <Attributes data={character.attributes} />
+        </Grid>
+        <Grid item xs={12} sm={3}>
+          <Typography variant="h6">Special Durations</Typography>
+          <SpecialDurations data={character.attributes} />
+
+          <Typography variant="h6">Stats from affixes</Typography>
+          <AffixesStats data={character.gearStats} />
         </Grid>
       </Grid>
     </div>

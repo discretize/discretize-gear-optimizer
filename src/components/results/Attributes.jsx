@@ -20,8 +20,6 @@ const Attributes = ({ classes, data }) => {
 
   return (
     <div className={classes.root}>
-      <Typography variant="h5">Attributes</Typography>
-
       <Grid container>
         <Grid item xs={6}>
           <List dense>
@@ -80,14 +78,14 @@ const Attributes = ({ classes, data }) => {
             <ListItem>
               <Attribute
                 name="Critical Chance"
-                text={Math.round(data['Critical Chance'] * 100) / 100}
+                text={`${Math.round(data['Critical Chance'] * 100) / 100}%`}
                 className={classes.gw2Item}
               />
             </ListItem>
             <ListItem>
               <Attribute
                 name="Critical Damage"
-                text={data['Critical Damage']}
+                text={`${Math.round(data['Critical Damage'] * 10) / 10}%`}
                 className={classes.gw2Item}
               />
             </ListItem>
@@ -99,12 +97,16 @@ const Attributes = ({ classes, data }) => {
               />
             </ListItem>
             <ListItem>
-              <Attribute name="Expertise" text={data.Expertise} className={classes.gw2Item} />
+              <Attribute
+                name="Condition Duration"
+                text={`${Math.round(data['Condition Duration'] * 100) / 100}%`}
+                className={classes.gw2Item}
+              />
             </ListItem>
             <ListItem>
               <Attribute
-                name="Concentration"
-                text={data['Boon Duration']}
+                name="Boon Duration"
+                text={`${Math.round(data['Boon Duration'] * 100) / 100}%`}
                 className={classes.gw2Item}
               />
             </ListItem>
