@@ -1011,7 +1011,7 @@ function calcResults(_character) {
     temp.baseAttributes[attribute] += 5;
     updateAttributesFast(temp, true);
     results.effectivePositiveValues[attribute] = Number(
-      (temp.attributes[settings.rankby] - attributes[settings.rankby]).toFixed(5),
+      (temp.attributes['Damage'] - attributes['Damage']).toFixed(5),
     ).toLocaleString('en-US');
   }
 
@@ -1022,7 +1022,7 @@ function calcResults(_character) {
     temp.baseAttributes[attribute] = Math.max(temp.baseAttributes[attribute] - 5, 0);
     updateAttributesFast(temp, true);
     results.effectiveNegativeValues[attribute] = Number(
-      (temp.attributes[settings.rankby] - attributes[settings.rankby]).toFixed(5),
+      (temp.attributes['Damage'] - attributes['Damage']).toFixed(5),
     ).toLocaleString('en-US');
   }
 
