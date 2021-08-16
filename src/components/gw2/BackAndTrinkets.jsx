@@ -67,7 +67,7 @@ const Weapons = ({ classes, ...rest }) => {
           id={backItemId}
           stat={backItemAffix}
           type="Back Item"
-          statsId={backItemStatsId}
+          //  statsId={backItemStatsId}
           upgrades={[backItemInfusion1Id, backItemInfusion2Id].filter((i) => i !== undefined)}
           disableText
           className={classes.gw2Item}
@@ -85,7 +85,7 @@ const Weapons = ({ classes, ...rest }) => {
         <Item
           id={accessory1Id}
           stat={accessory1Affix}
-          statsId={accessory1StatsId}
+          // statsId={accessory1StatsId}
           type="Accessory"
           upgrades={[accessory1InfusionId].filter((i) => i !== undefined)}
           disableText
@@ -100,7 +100,7 @@ const Weapons = ({ classes, ...rest }) => {
         <Item
           id={accessory2Id}
           stat={accessory2Affix}
-          statsId={accessory2StatsId}
+          // statsId={accessory2StatsId}
           type="Accessory"
           upgrades={[accessory2InfusionId].filter((i) => i !== undefined)}
           disableText
@@ -112,7 +112,7 @@ const Weapons = ({ classes, ...rest }) => {
         <Item
           id={amuletId}
           stat={amuletAffix}
-          statsId={amuletStatsId}
+          // statsId={amuletStatsId}
           type="Amulet"
           disableText
           className={classes.gw2Item}
@@ -126,7 +126,7 @@ const Weapons = ({ classes, ...rest }) => {
         <Item
           id={ring1Id}
           stat={ring1Affix}
-          statsId={ring1StatsId}
+          // statsId={ring1StatsId}
           upgrades={[ring1Infusion1Id, ring1Infusion2Id, ring1Infusion3Id].filter(
             (i) => i !== undefined,
           )}
@@ -143,7 +143,7 @@ const Weapons = ({ classes, ...rest }) => {
         <Item
           id={ring2Id}
           stat={ring2Affix}
-          statsId={ring2StatsId}
+          // statsId={ring2StatsId}
           upgrades={[ring2Infusion1Id, ring2Infusion2Id, ring2Infusion3Id].filter(
             (i) => i !== undefined,
           )}

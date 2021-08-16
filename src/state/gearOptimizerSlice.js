@@ -99,8 +99,7 @@ export const gearOptimizerSlice = createSlice({
     modifiers: [],
   },
   reducers: {
-    changeProfession: (state, action) => {
-      state.profession = action.payload;
+    reset: (state, action) => {
       state.modifiers = [];
       state.traits = {
         lines: ['', '', ''],
@@ -118,6 +117,9 @@ export const gearOptimizerSlice = createSlice({
         selected: '',
       };
       state.skills = [];
+    },
+    changeProfession: (state, action) => {
+      state.profession = action.payload;
     },
     changeAR: (state, action) => {
       state.ar = action.payload;
@@ -240,6 +242,7 @@ export const getList = (state) => state.gearOptimizer.control.list;
 export const getOmniPotion = (state) => state.gearOptimizer.omnipotion;
 
 export const {
+  reset,
   changeProfession,
   changeAR,
   changeTraitLine,

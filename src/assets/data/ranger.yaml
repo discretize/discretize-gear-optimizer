@@ -1,69 +1,69 @@
 GraphQL ID: Ranger
 list:
-  - section: "Skills"
+  - section: 'Skills'
     items:
       - id: signet-of-stone
-        text: "Signet of Stone"
+        text: 'Signet of Stone'
         modifiers: >-
           {
             "buff": { "Toughness": 180 }
           }
         gw2-id: 12500
-        type: "skills"
+        type: 'skills'
 
       - id: signet-of-the-wild
-        text: "Signet of the Wild"
+        text: 'Signet of the Wild'
         modifiers: >-
           {
             "buff": { "Ferocity": 180 }
           }
         gw2-id: 12491
-        type: "skills"
+        type: 'skills'
 
-  - section: "Marksmanship"
+  - section: 'Marksmanship'
     id: 8
     items:
       - id: farsighted
-        text: "Farsighted"
-        subText: "Melee"
+        text: 'Farsighted'
+        subText: 'Melee'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.05 }
           }
         gw2-id: 1000
-        type: "traits"
+        type: 'traits'
 
       - id: farsighted-2
-        text: "Farsighted"
-        subText: "Ranged"
+        text: 'Farsighted'
+        subText: 'Ranged'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.15 }
           }
         gw2-id: 1000
-        type: "traits"
+        type: 'traits'
 
       - id: predators-onslaught
         text: "Predator's Onslaught"
-        subText: "100% uptime"
+        subText: '100% uptime'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.15 }
           }
         gw2-id: 996
-        type: "traits"
+        type: 'traits'
 
-  - section: "Skirmishing"
+  - section: 'Skirmishing'
     id: 30
     items:
       - id: hidden-barbs
-        text: "Hidden Barbs"
+        text: 'Hidden Barbs'
         modifiers: >-
           {
             "multiplier": { "Bleeding Damage": 0.33 }
           }
         gw2-id: 1846
-        type: "traits"
+        type: 'traits'
 
       - id: hunters-tactics
         text: "Hunter's Tactics"
@@ -74,249 +74,249 @@ list:
           }
         minor: true
         gw2-id: 1068
-        type: "traits"
+        type: 'traits'
 
       - id: light-on-your-feet
-        text: "Light on your Feet"
-        subText: "100% uptime"
+        text: 'Light on your Feet'
+        subText: '100% uptime'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.1 },
             "flat": { "Condition Duration": 10 }
           }
         gw2-id: 1912
-        type: "traits"
+        type: 'traits'
 
       - id: vicious-quarry
-        text: "Vicious Quarry"
+        text: 'Vicious Quarry'
         modifiers: >-
           {
             "buff": { "Ferocity": 250 },
             "flat": { "Critical Chance": 10 }
           }
         gw2-id: 1888
-        type: "traits"
+        type: 'traits'
 
-  - section: "Wilderness Survival"
+  - section: 'Wilderness Survival'
     id: 33
     items:
       - id: oakheart-salve
-        text: "Oakheart Salve"
+        text: 'Oakheart Salve'
         modifiers: >-
           {
             "multiplier": { "Effective Health": 0.05 }
           }
         gw2-id: 1086
-        type: "traits"
+        type: 'traits'
 
       - id: taste-for-danger
-        text: "Taste for Danger"
+        text: 'Taste for Danger'
         modifiers: >-
           {
             "buff": { "Vitality": 120 },
             "convert": { "Expertise": { "Vitality": 0.07 } }
           }
         gw2-id: 1099
-        type: "traits"
+        type: 'traits'
 
       - id: ambidexterity
-        text: "Ambidexterity"
-        subText: "base"
+        text: 'Ambidexterity'
+        subText: 'base'
         modifiers: >-
           {
             "buff": { "Condition Damage": 120 }
           }
         gw2-id: 1101
-        type: "traits"
+        type: 'traits'
 
       - id: ambidexterity-2
-        text: "Ambidexterity"
-        subText: "with torch/dagger - check both boxes"
+        text: 'Ambidexterity'
+        subText: 'with torch/dagger - check both boxes'
         modifiers: >-
           {
             "buff": { "Condition Damage": 120 }
           }
         gw2-id: 1101
-        type: "traits"
+        type: 'traits'
 
       - id: poison-master
-        text: "Poison Master"
+        text: 'Poison Master'
         modifiers: >-
           {
             "multiplier": { "Poison Damage": 0.25 }
           }
         gw2-id: 1701
-        type: "traits"
+        type: 'traits'
 
-  - section: "Nature Magic"
+  - section: 'Nature Magic'
     id: 25
     items:
       - id: bountiful-hunter
-        text: "Bountiful Hunter"
-        subText: "6x"
+        text: 'Bountiful Hunter'
+        subText: '6x'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.06 }
           }
         gw2-id: 1062
-        type: "traits"
+        type: 'traits'
 
       - id: bountiful-hunter-9
-        text: "Bountiful Hunter"
-        subText: "9x"
+        text: 'Bountiful Hunter'
+        subText: '9x'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.09 }
           }
         gw2-id: 1062
-        type: "traits"
+        type: 'traits'
 
       - id: instinctive-reaction
-        text: "Instinctive Reaction"
+        text: 'Instinctive Reaction'
         modifiers: >-
           {
             "convert": { "Healing Power": { "Power": 0.07 } }
           }
         gw2-id: 978
-        type: "traits"
+        type: 'traits'
 
       - id: lingering-magic
-        text: "Lingering Magic"
+        text: 'Lingering Magic'
         modifiers: >-
           {
             "buff": { "Concentration": 240 }
           }
         minor: true
         gw2-id: 1059
-        type: "traits"
+        type: 'traits'
 
-  - section: "Beastmastery"
+  - section: 'Beastmastery'
     id: 32
     items:
       - id: honed-axes
-        text: "Honed Axes"
-        subText: "base"
+        text: 'Honed Axes'
+        subText: 'base'
         modifiers: >-
           {
             "buff": { "Ferocity": 120 }
           }
         gw2-id: 1066
-        type: "traits"
+        type: 'traits'
 
       - id: honed-axes-2
-        text: "Honed Axes"
-        subText: "with axe 50% - also check base"
+        text: 'Honed Axes'
+        subText: 'with axe 50% - also check base'
         modifiers: >-
           {
             "buff": { "Ferocity": 60 }
           }
         gw2-id: 1066
-        type: "traits"
+        type: 'traits'
 
       - id: honed-axes-3
-        text: "Honed Axes"
-        subText: "with axe 100% - also check base"
+        text: 'Honed Axes'
+        subText: 'with axe 100% - also check base'
         modifiers: >-
           {
             "buff": { "Ferocity": 120 }
           }
         gw2-id: 1066
-        type: "traits"
+        type: 'traits'
 
-  - section: "Druid"
+  - section: 'Druid'
     id: 5
     items:
       - id: natural-mender
-        text: "Natural Mender"
+        text: 'Natural Mender'
         modifiers: >-
           {
             "multiplier": { "Effective Healing": 0.2 }
           }
         gw2-id: 1992
         minor: true
-        type: "traits"
+        type: 'traits'
 
-  - section: "Soulbeast"
+  - section: 'Soulbeast'
     id: 55
     items:
       - id: furious-strength
-        text: "Furious Strength"
+        text: 'Furious Strength'
         modifiers: >-
           {
             "multiplier": { "add: Effective Power": 0.15 }
           }
         minor: true
         gw2-id: 2156
-        type: "traits"
+        type: 'traits'
 
       - id: twice-as-vicious
-        text: "Twice as Vicious"
+        text: 'Twice as Vicious'
         modifiers: >-
           {
             "multiplier": { "add: Effective Power": 0.1, "add: Effective Condition Damage": 0.1 }
           }
         minor: true
         gw2-id: 2127
-        type: "traits"
+        type: 'traits'
 
       - id: oppressive-superiority
-        text: "Oppressive Superiority"
+        text: 'Oppressive Superiority'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.1 },
             "flat": { "Condition Duration": 10 }
           }
         gw2-id: 2143
-        type: "traits"
+        type: 'traits'
 
       - id: archetype-stout
-        subText: "Archetype Stout (Tough/Vit)"
+        subText: 'Archetype Stout (Tough/Vit)'
         modifiers: >-
           {
             "buff": { "Toughness": 200, "Vitality": 100 }
           }
         minor: true
-        type: "typography"
+        type: 'typography'
 
       - id: archetype-deadly
-        subText: "Archetype Deadly (ConDmg/Prec)"
+        subText: 'Archetype Deadly (ConDmg/Prec)'
         modifiers: >-
           {
             "buff": { "Condition Damage": 150, "Precision": 100 }
           }
         minor: true
-        type: "typography"
+        type: 'typography'
 
       - id: archetype-versatile
-        subText: "Archetype Versatile (Vit/Conc)"
+        subText: 'Archetype Versatile (Vit/Conc)'
         modifiers: >-
           {
             "buff": { "Vitality": 200, "Concentration": 225 }
           }
         minor: true
-        type: "typography"
+        type: 'typography'
 
       - id: archetype-ferocious
-        subText: "Archetype Ferocious (Pwr/Feroc)"
+        subText: 'Archetype Ferocious (Pwr/Feroc)'
         modifiers: >-
           {
             "buff": { "Power": 150, "Ferocity": 100 }
           }
         minor: true
-        type: "typography"
+        type: 'typography'
 
       - id: archetype-supportive
-        subText: "Archetype Supportive (Vit/Heal)"
+        subText: 'Archetype Supportive (Vit/Heal)'
         modifiers: >-
           {
             "buff": { "Vitality": 100 },
             "multiplier": { "Effective Healing": 0.25 }
           }
         minor: true
-        type: "typography"
+        type: 'typography'
 
       - id: sb-1
-        subText: ""
+        subText: ''
         modifiers: >-
           {
             "buff":
@@ -325,39 +325,39 @@ list:
               "Precision": 150,
               "Condition Damage": 150,
               "Toughness": 150,
-              "Vitality": 150,
+              "Vitality": 150
             }
           }
         minor: true
         gw2-id: 1900
-        type: "traits"
+        type: 'traits'
 
       - id: sb-2
-        subText: ""
+        subText: ''
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.1 }
           }
         minor: true
         gw2-id: 974
-        type: "traits"
+        type: 'traits'
 
       - id: sb-3
-        subText: ""
+        subText: ''
         modifiers: >-
           {
             "buff": { "Ferocity": 300 }
           }
         minor: true
         gw2-id: 1065
-        type: "traits"
+        type: 'traits'
 
       - id: sb-4
-        subText: "base"
+        subText: 'base'
         modifiers: >-
           {
             "buff": { "Ferocity": 120 }
           }
         gw2-id: 1066
         minor: true
-        type: "traits"
+        type: 'traits'

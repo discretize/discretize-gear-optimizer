@@ -5,31 +5,28 @@ import {
   Drawer,
   FormControlLabel,
   IconButton,
+  MenuItem,
   Switch,
   Toolbar,
-  Typography,
-  Popper,
-  Fade,
-  Paper,
   withStyles,
-  MenuItem,
 } from '@material-ui/core';
-import Menu from 'material-ui-popup-state/HoverMenu';
-import { usePopupState, bindHover, bindMenu } from 'material-ui-popup-state/hooks';
-import { Profession } from 'gw2-ui-bulk';
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import MenuIcon from '@material-ui/icons/Menu';
+import { Profession } from 'gw2-ui-bulk';
+import { bindHover, bindMenu, usePopupState } from 'material-ui-popup-state/hooks';
+import Menu from 'material-ui-popup-state/HoverMenu';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
+  changeBuff,
   changeControl,
+  changePriority,
   changeProfession,
+  changeState,
+  getBuffs,
   getControl,
   getProfession,
-  changeBuff,
-  getBuffs,
-  changeState,
-  changePriority,
+  reset,
 } from '../state/gearOptimizerSlice';
 import { PROFESSIONS } from '../utils/gw2-data';
 import { firstUppercase } from '../utils/usefulFunctions';
@@ -113,7 +110,10 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
       return PROFESSIONS.map((p) => (
         <div key={p.profession}>
           <Button
-            onClick={() => dispatch(changeProfession(p.profession))}
+            onClick={() => {
+              dispatch(changeProfession(p.profession));
+              dispatch(reset());
+            }}
             variant={p.profession === profession ? 'contained' : 'text'}
           >
             <Profession
@@ -155,6 +155,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
   };
 
   const handleTemplateSelect = (popup, elem, profession) => {
+    dispatch(reset());
     const traitState = JSON.parse(elem.traits);
 
     // set all the buffs to disabled
@@ -198,7 +199,10 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
                 anchor: e.currentTarget,
               })
             }
-            onClick={() => dispatch(changeProfession(p.profession))}
+            onClick={() => {
+              dispatch(changeProfession(p.profession));
+              dispatch(reset());
+            }}
             variant={p.profession === profession ? 'contained' : 'text'}
             {...bindHover(popupState[index])}
           >

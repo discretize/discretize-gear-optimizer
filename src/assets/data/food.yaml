@@ -1,6 +1,6 @@
 GraphQL ID: Food
 list:
-  - section: "Power Food"
+  - section: 'Power Food'
     items:
       - id: sweet-and-spicy-butternut-squash-soup
         text: >-
@@ -12,7 +12,7 @@ list:
             "flat": { "Power": 100, "Ferocity": 70 }
           }
         gw2-id: 41569
-        type: "items"
+        type: 'items'
 
       - id: truffle-steak
         text: >-
@@ -24,65 +24,65 @@ list:
             "flat": { "Power": 100, "Precision": 70 }
           }
         gw2-id: 12467
-        type: "items"
+        type: 'items'
 
       - id: curry-butternut-squash-soup
-        text: "Bowl of Curry Butternut Squash Soup"
+        text: 'Bowl of Curry Butternut Squash Soup'
         modifiers: >-
           {
             "flat": { "Precision": 100, "Ferocity": 70 }
           }
         gw2-id: 12486
-        type: "items"
+        type: 'items'
 
       - id: dragon's-breath-bun
         text: Dragon's Breath Bun
-        subText: "(100% uptime)"
+        subText: '(100% uptime)'
         modifiers: >-
           {
             "flat": { "Power": 200, "Ferocity": 70 }
           }
         gw2-id: 43360
-        type: "items"
+        type: 'items'
 
       - id: seaweed-salad
         text: Bowl of Seaweed Salad
-        subText: "(90% uptime)"
+        subText: '(90% uptime)'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.045 }
           }
         gw2-id: 12471
-        type: "items"
+        type: 'items'
 
       - id: jerk-poultry
-        text: "Plate of Jerk Poultry"
+        text: 'Plate of Jerk Poultry'
         modifiers: >-
           {
             "flat": { "Power": 150 }
           }
         gw2-id: 71797
-        type: "items"
+        type: 'items'
 
       - id: sawgill-mushroom-risotto
-        text: "Bowl of Sawgill Mushroom Risotto"
+        text: 'Bowl of Sawgill Mushroom Risotto'
         modifiers: >-
           {
             "flat": { "Precision": 150 }
           }
         gw2-id: 75010
-        type: "items"
+        type: 'items'
 
       ####
 
       - id: roasted-cactus
-        text: "Plate of Roasted Cactus"
+        text: 'Plate of Roasted Cactus'
         modifiers: >-
           {
             "flat": { "Ferocity": 100 }
           }
         gw2-id: 66536
-        type: "items"
+        type: 'items'
 
       - id: fried-golden-dumpling
         text: >-
@@ -94,9 +94,9 @@ list:
             "flat": { "Concentration": 100 }
           }
         gw2-id: 68633
-        type: "items"
+        type: 'items'
 
-  - section: "Support Food"
+  - section: 'Support Food'
     items:
       - id: soul-pastry
         text: >-
@@ -108,7 +108,7 @@ list:
             "flat": { "Concentration": 100, "Power": 70 }
           }
         gw2-id: 89002
-        type: "items"
+        type: 'items'
 
       - id: eggs-benedict
         text: Plate of Eggs Benedict
@@ -118,7 +118,7 @@ list:
             "flat": { "Concentration": 100, "Expertise": 70 }
           }
         gw2-id: 91842
-        type: "items"
+        type: 'items'
 
       ####
 
@@ -132,60 +132,60 @@ list:
             "flat": { "Concentration": 100, "Toughness": 70 }
           }
         gw2-id: 66530
-        type: "items"
+        type: 'items'
 
       - id: mussels-gnashblade
-        text: "Plate of Mussels Gnashblade"
+        text: 'Plate of Mussels Gnashblade'
         modifiers: >-
           {
             "flat": { "Concentration": 70 },
             "multiplier": { "Effective Health": 0.1 }
           }
         gw2-id: 74969
-        type: "items"
+        type: 'items'
 
-  - section: "Heal Food"
+  - section: 'Heal Food'
     items:
       - id: fruit-salad-mint-garnish
-        text: "Bowl of Fruit Salad with Mint Garnish"
+        text: 'Bowl of Fruit Salad with Mint Garnish'
         modifiers: >-
           {
             "flat": { "Healing Power": 100, "Concentration": 70 },
             "multiplier": { "Effective Healing": 0.1 }
           }
         gw2-id: 91690
-        type: "items"
+        type: 'items'
 
       - id: mint-creme-brulee
-        text: "Mint Creme Brulee"
+        text: 'Mint Creme Brulee'
         modifiers: >-
           {
             "flat": { "Concentration": 100, "Healing Power": 70 },
             "multiplier": { "Effective Healing": 0.1 }
           }
         gw2-id: 91743
-        type: "items"
+        type: 'items'
 
       - id: delicious-rice-ball
-        text: "Delicious Rice Ball"
+        text: 'Delicious Rice Ball'
         modifiers: >-
           {
             "flat": { "Healing Power": 100 },
             "multiplier": { "Effective Healing": 0.1 }
           }
         gw2-id: 68634
-        type: "items"
+        type: 'items'
 
       - id: poultry-satay
-        text: "Bowl of Poultry Satay"
+        text: 'Bowl of Poultry Satay'
         modifiers: >-
           {
             "flat": { "Healing Power": 100, "Concentration": 70 }
           }
         gw2-id: 87076
-        type: "items"
+        type: 'items'
 
-  - section: "Condition Food"
+  - section: 'Condition Food'
     items:
       - id: rare-veggie-pizza
         text: >-
@@ -197,7 +197,7 @@ list:
             "flat": { "Expertise": 100, "Condition Damage": 70 }
           }
         gw2-id: 12464
-        type: "items"
+        type: 'items'
 
       - id: beef-rendang
         text: >-
@@ -209,95 +209,95 @@ list:
             "flat": { "Condition Damage": 100, "Expertise": 70 }
           }
         gw2-id: 86997
-        type: "items"
+        type: 'items'
 
       - id: saffron-stuffed-mushroom
         text: >-
           Saffron Stuffed Mushroom
-        subText: "(100% uptime)"
+        subText: '(100% uptime)'
         modifiers: >-
           {
             "flat": { "Precision": 70, "Condition Damage": 200 }
           }
         gw2-id: 12476
-        type: "items"
+        type: 'items'
 
       - id: steamed-red-dumpling
         text: Steamed Red Dumpling
-        subText: "(100% uptime)"
+        subText: '(100% uptime)'
         modifiers: >-
           {
             "flat": { "Power": 200, "Condition Damage": 140 }
           }
         gw2-id: 68635
-        type: "items"
+        type: 'items'
 
       ####
 
       - id: fire-meat-chili
-        text: "Bowl of Fire Meat Chili"
+        text: 'Bowl of Fire Meat Chili'
         modifiers: >-
           {
             "flat": { "Burning Duration": 15, "Precision": 70 }
           }
         gw2-id: 12484
-        type: "items"
+        type: 'items'
 
       - id: fancy-truffle-burger
-        text: "Fancy Truffle Burger"
+        text: 'Fancy Truffle Burger'
         modifiers: >-
           {
             "flat": { "Poison Duration": 15, "Precision": 70 }
           }
         gw2-id: 12463
-        type: "items"
+        type: 'items'
 
       - id: truffle-risotto
-        text: "Bowl of Truffle Risotto"
+        text: 'Bowl of Truffle Risotto'
         modifiers: >-
           {
             "flat": { "Condition Damage": 100, "Precision": 70 }
           }
         gw2-id: 12465
-        type: "items"
+        type: 'items'
 
       - id: sweet-and-spicy-beans
-        text: "Bowl of Sweet and Spicy Beans"
+        text: 'Bowl of Sweet and Spicy Beans'
         modifiers: >-
           {
             "flat": { "Expertise": 100, "Power": 70 }
           }
         gw2-id: 66528
-        type: "items"
+        type: 'items'
 
       - id: fire-flank-steak
-        text: "Plate of Fire Flank Steak"
+        text: 'Plate of Fire Flank Steak'
         modifiers: >-
           {
             "flat": { "Power": 100, "Condition Damage": 70 }
           }
         gw2-id: 12466
-        type: "items"
+        type: 'items'
 
       - id: fancy-potato-and-leek-soup
-        text: "Bowl of Fancy Potato and Leek Soup"
+        text: 'Bowl of Fancy Potato and Leek Soup'
         modifiers: >-
           {
             "flat": { "Precision": 100, "Condition Damage": 70 }
           }
         gw2-id: 12485
-        type: "items"
+        type: 'items'
 
       - id: prickly-pear-pie
-        text: "Prickly Pear Pie"
+        text: 'Prickly Pear Pie'
         modifiers: >-
           {
             "flat": { "Expertise": 100 }
           }
         gw2-id: 66538
-        type: "items"
+        type: 'items'
 
-  - section: "Hybrid Food"
+  - section: 'Hybrid Food'
     items:
       - id: dragon's-revelry-starcake
         text: >-
@@ -313,10 +313,10 @@ list:
             }
           }
         gw2-id: 43550
-        type: "items"
+        type: 'items'
 
       - id: birthday-blaster
-        text: "Birthday Blaster"
+        text: 'Birthday Blaster'
         modifiers: >-
           {
             "flat":
@@ -326,74 +326,74 @@ list:
             }
           }
         gw2-id: 66961
-        type: "items"
+        type: 'items'
 
       ####
 
       - id: passion-fruit-tapioca-pudding
-        text: "Bowl of Passion Fruit Tapioca Pudding"
+        text: 'Bowl of Passion Fruit Tapioca Pudding'
         modifiers: >-
           {
             "flat": { "Power": 100, "Healing Power": 70 }
           }
         gw2-id: 71826
-        type: "items"
+        type: 'items'
 
       - id: prickly-pear-tapioca-pudding
-        text: "Bowl of Prickly Pear Tapioca Pudding"
+        text: 'Bowl of Prickly Pear Tapioca Pudding'
         modifiers: >-
           {
             "flat": { "Condition Damage": 100, "Healing Power": 70 }
           }
         gw2-id: 76135
-        type: "items"
+        type: 'items'
 
       - id: tropical-fruit-salad
-        text: "Bowl of Tropical Fruit Salad"
+        text: 'Bowl of Tropical Fruit Salad'
         modifiers: >-
           {
             "flat": { "Condition Damage": 70, "Healing Power": 100 }
           }
         gw2-id: 36793
-        type: "items"
+        type: 'items'
 
       - id: spicy-chocolate-cookie
-        text: "Spicy Chocolate Cookie"
+        text: 'Spicy Chocolate Cookie'
         modifiers: >-
           {
             "flat": { "Healing Power": 100, "Precision": 70 }
           }
         gw2-id: 12454
-        type: "items"
+        type: 'items'
 
-  - section: "Toughness Food"
+  - section: 'Toughness Food'
     items:
       - id: spicy-marinated-mushroom
-        text: "Spicy Marinated Mushroom"
+        text: 'Spicy Marinated Mushroom'
         modifiers: >-
           {
             "flat": { "Power": 100, "Toughness": 70 }
           }
         gw2-id: 41563
-        type: "items"
+        type: 'items'
 
       - id: spicy-herbed-chicken
-        text: "Plate of Spicy Herbed Chicken"
+        text: 'Plate of Spicy Herbed Chicken'
         modifiers: >-
           {
             "flat": { "Power": 70, "Toughness": 100 }
           }
         gw2-id: 41567
-        type: "items"
+        type: 'items'
 
       - id: truffle-ravioli
-        text: "Bowl of Truffle Ravioli"
+        text: 'Bowl of Truffle Ravioli'
         modifiers: >-
           {
             "flat": { "Precision": 70, "Toughness": 100 }
           }
         gw2-id: 12461
-        type: "items"
+        type: 'items'
 
       ####
 
@@ -407,38 +407,38 @@ list:
             "flat": { "Vitality": 100, "Toughness": 70 }
           }
         gw2-id: 12473
-        type: "items"
+        type: 'items'
 
       ####
 
       - id: kralkachocolate-bar
-        text: "Kralkachocolate Bar"
+        text: 'Kralkachocolate Bar'
         modifiers: >-
           {
             "flat": { "Healing Power": 100, "Toughness": 70 }
           }
         gw2-id: 43358
-        type: "items"
+        type: 'items'
 
       - id: chocolate-tapioca-pudding
-        text: "Bowl of Chocolate Tapioca Pudding"
+        text: 'Bowl of Chocolate Tapioca Pudding'
         modifiers: >-
           {
             "flat": { "Healing Power": 70, "Toughness": 100 }
           }
         gw2-id: 76415
-        type: "items"
+        type: 'items'
 
       ####
 
       - id: tropical-mousse
-        text: "Bowl of Tropical Mousse"
+        text: 'Bowl of Tropical Mousse'
         modifiers: >-
           {
             "flat": { "Condition Damage": 70, "Toughness": 100 }
           }
         gw2-id: 36841
-        type: "items"
+        type: 'items'
 
       - id: elon-red
         text: 'Bowl of "Elon Red"'
@@ -447,4 +447,4 @@ list:
             "flat": { "Expertise": 100, "Toughness": 70 }
           }
         gw2-id: 82541
-        type: "items"
+        type: 'items'

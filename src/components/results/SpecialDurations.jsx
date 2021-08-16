@@ -1,4 +1,4 @@
-import { Table, TableCell, TableRow, withStyles, Typography } from '@material-ui/core';
+import { Table, TableCell, TableRow, TableBody, withStyles, Typography } from '@material-ui/core';
 import { Boon, Condition } from 'gw2-ui-bulk';
 import React from 'react';
 import { Condition as ConditionList } from '../../utils/gw2-data';
@@ -25,24 +25,26 @@ const SpecialDurations = ({ classes, data }) => {
       <Typography variant="h6">Special Durations</Typography>
 
       <Table padding="none">
-        {cleanedData.map((duration) => (
-          <TableRow hover>
-            {ConditionList[duration.split(' ')[0]] !== undefined ? (
-              <TableCell>
-                <Condition
-                  name={duration.split(' ')[0]}
-                  text={duration}
-                  className={classes.gw2Item}
-                />
-              </TableCell>
-            ) : (
-              <TableCell>
-                <Boon name={duration.split(' ')[0]} text={duration} className={classes.gw2Item} />
-              </TableCell>
-            )}
-            <TableCell>{data[duration]}%</TableCell>
-          </TableRow>
-        ))}
+        <TableBody>
+          {cleanedData.map((duration) => (
+            <TableRow hover key={duration}>
+              {ConditionList[duration.split(' ')[0]] !== undefined ? (
+                <TableCell>
+                  <Condition
+                    name={duration.split(' ')[0]}
+                    text={duration}
+                    className={classes.gw2Item}
+                  />
+                </TableCell>
+              ) : (
+                <TableCell>
+                  <Boon name={duration.split(' ')[0]} text={duration} className={classes.gw2Item} />
+                </TableCell>
+              )}
+              <TableCell>{data[duration]}%</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
       </Table>
     </>
   );
