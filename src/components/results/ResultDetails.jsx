@@ -55,7 +55,7 @@ const ResultDetails = ({ classes, data }) => {
       : [];
 
   const image = getImage(data[`${profession.toLowerCase()}Picture`]);
-  console.log(image);
+
   return (
     <div>
       <Typography variant="h5">Character</Typography>

@@ -15,8 +15,8 @@ const { store, persistor } = createStore();
 // eslint-disable-next-line import/prefer-default-export
 export const wrapRootElement = ({ element }) => (
   <Provider store={store}>
-    <PersistGate loading={<Spinner />} persistor={persistor}>
-      <ThemeProvider theme={baseTheme}>{element}</ThemeProvider>
-    </PersistGate>
+    {/* TODO fix redux-persist breaking template swapping <PersistGate loading={<Spinner />} persistor={persistor}> */}
+    <ThemeProvider theme={baseTheme}>{element}</ThemeProvider>
+    {/* </PersistGate> */}
   </Provider>
 );
