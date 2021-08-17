@@ -128,7 +128,7 @@ const DamageDistribution = ({ classes, presets: presetsRaw }) => {
       Power: distributionRecalc[0],
       Burning: distributionRecalc[1],
       Bleeding: distributionRecalc[2],
-      Poison: distributionRecalc[3],
+      Poisoned: distributionRecalc[3],
       Torment: distributionRecalc[4],
       Confusion: distributionRecalc[5],
     };

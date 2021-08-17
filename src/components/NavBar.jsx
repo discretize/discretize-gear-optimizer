@@ -155,7 +155,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
     );
   };
 
-  const handleTemplateSelect = (popup, elem, profession) => {
+  const handleTemplateSelect = (popup, elem, prof) => {
     dispatch(reset());
     const traitState = JSON.parse(elem.traits);
 
@@ -173,7 +173,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
       dispatch(changePriority({ key, value: prioritiesState[key] })),
     );
 
-    dispatch(changeState({ ...traitState, profession }));
+    dispatch(changeState({ ...traitState, prof }));
     popup.close();
   };
 
