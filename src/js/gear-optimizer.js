@@ -228,7 +228,7 @@ import {
       .find('input[id^="go-input-extra"]')
       .each(function () {
         const value = Number.parseInt($(this).val(), 10);
-        if (value && value > 0) {
+        if (value && value !== 0) {
           input.modifiers.push({
             flat: {
               [$(this).attr('data-go-modifier')]: value,
