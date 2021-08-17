@@ -657,7 +657,6 @@ export const WEAPONS = {
   WARHORN: { name: 'Warhorn', type: 'offHand', gw2_id: 30702 },
 };
 
-// eslint-disable-next-line no-unused-vars
 export const Classes = {
   warrior: {
     health: Health.HIGH,

@@ -31,8 +31,12 @@ const ResultDetails = ({ classes, data }) => {
   }
 
   const { defense } = Classes[profession.toLowerCase()];
-  const weight =
-    defense === Defense.HEAVY ? 'Heavy' : defense === Defense.MEDIUM ? 'Medium' : 'Light';
+  let weight = 'Light';
+  if (defense === Defense.HEAVY) {
+    weight = 'Heavy';
+  } else if (defense === Defense.MEDIUM) {
+    weight = 'medium';
+  }
 
   console.log(character);
   console.log(data);
@@ -46,6 +50,7 @@ const ResultDetails = ({ classes, data }) => {
     'infusions' in character
       ? Object.keys(character.infusions)
           .map((key) =>
+            // eslint-disable-next-line no-undef
             _.times(
               character.infusions[key],
               () => INFUSIONS.find((infu) => infu.attribute === key).id,

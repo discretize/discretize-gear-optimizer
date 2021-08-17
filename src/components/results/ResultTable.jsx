@@ -54,8 +54,8 @@ export default function StickyHeadTable() {
                 <TableCell component="th" scope="row">
                   {character.attributes.Damage.toFixed(2)}
                 </TableCell>
-                {character.gear.map((element, index) => (
-                  <TableCell align="center" key={element + index} padding="none">
+                {character.gear.map((element) => (
+                  <TableCell align="center" key={element + character.id} padding="none">
                     {element.slice(0, 4)}
                   </TableCell>
                 ))}

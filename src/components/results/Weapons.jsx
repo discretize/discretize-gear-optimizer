@@ -48,7 +48,7 @@ const Weapons = ({ classes, data, affix1, affix2, infusion1Id, infusion2Id }) =>
 
   if (priority === 'Dual wield') {
     wea1 = classData.mainHand.find((d) => d.type === 'one-handed');
-    wea2 = classData.offHand[0];
+    [wea2] = classData.offHand;
   } else {
     wea1 = classData.mainHand.find((d) => d.type === 'two-handed');
   }

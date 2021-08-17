@@ -57,7 +57,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
     hover: [false, false, false, false, false, false, false, false, false],
     anchor: null,
   });
-  const { mobileView, drawerOpen, anchor } = state;
+  const { mobileView, drawerOpen } = state;
 
   const setResponsiveness = () => {
     return window.innerWidth < 900

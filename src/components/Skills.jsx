@@ -2,13 +2,7 @@ import { Typography, withStyles } from '@material-ui/core';
 import { Skill } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  addModifier,
-  addSkill,
-  getSkills,
-  removeModifier,
-  removeSkill,
-} from '../state/gearOptimizerSlice';
+import { addSkill, getSkills, removeSkill } from '../state/gearOptimizerSlice';
 import CheckboxComponent from './baseComponents/CheckboxComponent';
 
 const styles = (theme) => ({
