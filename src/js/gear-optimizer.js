@@ -223,6 +223,20 @@ import {
       },
     });
 
+    // Extra stats
+    $('#go-extra')
+      .find('input[id^="go-input-extra"]')
+      .each(function () {
+        const value = Number.parseInt($(this).val(), 10);
+        if (value && value > 0) {
+          input.modifiers.push({
+            flat: {
+              [$(this).attr('data-go-modifier')]: value,
+            },
+          });
+        }
+      });
+
     input.profession = $(Selector.TOTAL)
       .find(`a.nav-link[data-${DataAttribute.CLASS}].${ClassName.ACTIVE}`)
       .data(DataAttribute.CLASS);
