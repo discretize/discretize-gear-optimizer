@@ -67,7 +67,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
   const debouncedResponsive = debounce(setResponsiveness, 300);
 
   useEffect(() => {
-    debouncedResponsive();
+    // debouncedResponsive();
 
     window.addEventListener('resize', debouncedResponsive);
 

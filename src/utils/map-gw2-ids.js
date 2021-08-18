@@ -155,7 +155,7 @@ const findMatch = ({
 const fallbacks = {
   'Back item': 79837,
   Amulet: 79980,
-  Ring: 80058,
+  Ring: 80793,
   Accessory: 80002,
 };
 
@@ -186,11 +186,12 @@ const findMatchWithFallback = (props) => {
 
   const fallback = type === 'Back item' && pofAffixes.includes(affix) ? 82982 : fallbacks[type];
   if (fallback !== undefined) {
-    const { id: statsId } = itemstatMapping.find(({ name }) => name === affix) || {};
+    const statsId = itemstatMapping.find(({ name }) => name === affix).ids || {};
     if (statsId !== undefined) {
+      const sid = statsId[0];
       return {
         id: fallback,
-        statsId,
+        sid,
         affix,
         type,
       };
