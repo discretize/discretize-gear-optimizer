@@ -4,6 +4,7 @@ const itemstatMapping = require('./src/utils/mapping/itemstats.json');
 const specializationMapping = require('./src/utils/mapping/specializations.json');
 
 const MAX_ITEMS_PER_REQUEST = 200;
+const MAPPINGS_PATH = './src/utils/mapping/';
 
 const normalize = (str) =>
   str
@@ -36,7 +37,7 @@ function fetchSpecializations() {
         });
         // write to disk
         fs.writeFile(
-          './src/utils/mapping/specializations.json',
+          `${MAPPINGS_PATH}specializations.json`,
           JSON.stringify(specs),
           { flag: 'w+' },
           (err) => {
@@ -82,7 +83,7 @@ function fetchTraits() {
             });
           // write to disk
           fs.writeFile(
-            './src/utils/mapping/traits.json',
+            `${MAPPINGS_PATH}traits.json`,
             JSON.stringify(traits),
             { flag: 'w+' },
             (err) => {
@@ -126,7 +127,7 @@ function fetchSkills() {
             });
           // write to disk
           fs.writeFile(
-            './src/utils/mapping/skills.json',
+            `${MAPPINGS_PATH}skills.json`,
             JSON.stringify(skills),
             { flag: 'w+' },
             (err) => {
@@ -159,7 +160,7 @@ function fetchItemStats() {
           });
         // write to disk
         fs.writeFile(
-          './src/utils/mapping/itemstats.json',
+          `${MAPPINGS_PATH}itemstats.json`,
           JSON.stringify(statsFinal),
           { flag: 'w+' },
           (err) => {
@@ -265,18 +266,13 @@ function fetchItems() {
         });
 
       // write to disk
-      fs.writeFile(
-        './src/utils/mapping/items.json',
-        JSON.stringify(items),
-        { flag: 'w+' },
-        (err) => {
-          if (err) {
-            console.error(err);
-          } else {
-            console.log('Successfuly wrote items.json');
-          }
-        },
-      );
+      fs.writeFile(`${MAPPINGS_PATH}items.json`, JSON.stringify(items), { flag: 'w+' }, (err) => {
+        if (err) {
+          console.error(err);
+        } else {
+          console.log('Successfuly wrote items.json');
+        }
+      });
     })
     .catch((error) => {
       console.log(error);
