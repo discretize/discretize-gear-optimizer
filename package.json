@@ -29,7 +29,6 @@
     "gatsby-plugin-sharp": "^3.11.0",
     "gatsby-plugin-theme-ui": "^0.10.1",
     "gatsby-source-filesystem": "^3.11.0",
-    "gatsby-source-remote-file": "^0.4.0",
     "gatsby-transformer-sharp": "^3.11.0",
     "gatsby-transformer-yaml": "^3.10.0",
     "gw2-ui-bulk": "0.10.16",
