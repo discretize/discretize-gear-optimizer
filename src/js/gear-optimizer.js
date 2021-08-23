@@ -237,6 +237,20 @@ import {
         }
       });
 
+    // Extra multipliers
+    $('#go-extramods')
+      .find('input[id^="go-input-extramods"]')
+      .each(function () {
+        const value = Number.parseFloat($(this).val());
+        if (value && value !== 0) {
+          input.modifiers.push({
+            multiplier: {
+              [$(this).attr('data-go-modifier')]: value,
+            },
+          });
+        }
+      });
+
     input.profession = $(Selector.TOTAL)
       .find(`a.nav-link[data-${DataAttribute.CLASS}].${ClassName.ACTIVE}`)
       .data(DataAttribute.CLASS);
