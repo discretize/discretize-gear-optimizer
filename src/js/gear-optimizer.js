@@ -1074,6 +1074,17 @@ import {
     }
   });
 
+  // Advanced distribution show/hide
+  function toggleAdvancedDistribution () {
+    if($('#go-checkbox-distribution-advanced').prop('checked')) {
+      $('#go-distribution-advanced').show();
+    } else {
+      $('#go-distribution-advanced').hide()
+    }
+  }
+  toggleAdvancedDistribution();
+  $('#go-checkbox-distribution-advanced').click(toggleAdvancedDistribution);
+
   // Calculate button
   $(Selector.START).on(Event.CLICK, () => {
     run().catch((error) => {
