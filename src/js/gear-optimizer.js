@@ -292,16 +292,29 @@ import {
     );
     input.infusionNoDuplicates = $('#go-select-infusion-duplicates').prop('checked');
 
-    input.percentDistribution = {
-      Power: 0,
-      ...Object.fromEntries(Attributes.CONDITION.map((condition) => [condition, 0])),
-    };
-    $.each($('#go-condition-distribution-input').find('input[data-go-distribution]'), function () {
-      const percentage = Number.parseInt($(this).val(), 10);
-      if (percentage) {
-        input.percentDistribution[$(this).data('go-distribution')] = percentage;
-      }
-    });
+    if ($('#go-checkbox-distribution-advanced').prop('checked')) {
+      const distribution = ['Power', ...Attributes.CONDITION].map((key) => {
+        const lowerKey = key.toLowerCase();
+        const value =
+          Number.parseFloat($(`#go-checkbox-distribution-advanced-${lowerKey}`).val()) || 0;
+        return [key, value];
+      });
+      input.distribution = Object.fromEntries(distribution);
+    } else {
+      input.percentDistribution = {
+        Power: 0,
+        ...Object.fromEntries(Attributes.CONDITION.map((condition) => [condition, 0])),
+      };
+      $.each(
+        $('#go-condition-distribution-input').find('input[data-go-distribution]'),
+        function () {
+          const percentage = Number.parseInt($(this).val(), 10);
+          if (percentage) {
+            input.percentDistribution[$(this).data('go-distribution')] = percentage;
+          }
+        },
+      );
+    }
 
     // the next time the DOM updates after this is after ≥1 iteration loop;
     // if the calculation is really really fast the main UI won't even flicker 😎
@@ -601,13 +614,13 @@ import {
     });
     modal += toCard('Condition Damage Ticks', conditionAttributes);
 
-    if (settings.percentDistribution['Power'] !== 100) {
+    if (!settings.percentDistribution || settings.percentDistribution['Power'] !== 100) {
       // effective damage distribution
       modal += toCard('Effective Damage Distribution', results.effectiveDamageDistribution);
 
       // damage indicator breakdown
       const damageIndicatorBreakdown = {};
-      $.each(settings.percentDistribution, (key) => {
+      $.each(settings.distribution, (key) => {
         if (key === 'Power') {
           damageIndicatorBreakdown['Power'] = attributes['Power DPS']
             .toFixed(2)
