@@ -2081,7 +2081,7 @@
                                   data-go-modifier="Vitality"
                                 />
 
-
+                                <div class="w-100 d-lg-none"></div>
 
                                 <input
                                   class="col form-control px-lg-2"
@@ -2107,7 +2107,7 @@
                                   placeholder="cdur"
                                   data-go-modifier="Condition Duration"
                                 />
-                                <div class="w-100 d-lg-none"></div>
+
                                 <input
                                   class="col form-control px-lg-2"
                                   id="go-input-extra-concentration"
@@ -2136,6 +2136,99 @@
                             </div>
                           </div>
                         </div>
+
+                        <!-- extra modifiers -->
+                        <div id="go-extramods" class="col-12">
+                          <div class="card">
+                            <div class="card-header card-header-small">
+                              Extra multipliers
+                              <span
+                                class="fa fa-question-circle"
+                                data-toggle="tooltip"
+                                title="Add arbitrary modifiers."
+                              ></span>
+                            </div>
+                            <div class="card-body container p-0">
+                              <div class="row m-0">
+                                <input
+                                  class="col form-control px-lg-2"
+                                  id="go-input-extramods-power"
+                                  type="text"
+                                  placeholder="* power"
+                                  data-go-modifier="Effective Power"
+                                />
+                                <input
+                                  class="col form-control px-lg-2"
+                                  id="go-input-extramods-precision"
+                                  type="text"
+                                  placeholder="+ power"
+                                  data-go-modifier="add: Effective Power"
+                                />
+                                <input
+                                  class="col form-control px-lg-2"
+                                  id="go-input-extramods-critical-chance"
+                                  type="text"
+                                  placeholder="* condi"
+                                  data-go-modifier="Effective Condition Damage"
+                                />
+                                <input
+                                  class="col form-control px-lg-2"
+                                  id="go-input-extramods-ferocity"
+                                  type="text"
+                                  placeholder="+ condi"
+                                  data-go-modifier="add: Effective Condition Damage"
+                                />
+                                <input
+                                  class="col form-control px-lg-2"
+                                  id="go-input-extramods-critical-damage"
+                                  type="text"
+                                  placeholder="crit dmg"
+                                  data-go-modifier="Critical Damage"
+                                />
+
+                                <div class="w-100 d-lg-none"></div>
+
+                                <input
+                                  class="col form-control px-lg-2"
+                                  id="go-input-extramods-burn-damage"
+                                  type="text"
+                                  placeholder="burn dmg"
+                                  data-go-modifier="Burning Damage"
+                                />
+                                <input
+                                  class="col form-control px-lg-2"
+                                  id="go-input-extramods-bleeding-damage"
+                                  type="text"
+                                  placeholder="bleed dmg"
+                                  data-go-modifier="Bleeding Damage"
+                                />
+                                <input
+                                  class="col form-control px-lg-2"
+                                  id="go-input-extramods-poison-damage"
+                                  type="text"
+                                  placeholder="poison dmg"
+                                  data-go-modifier="Poison Damage"
+                                />
+                                <input
+                                  class="col form-control px-lg-2"
+                                  id="go-input-extramods-torment-damage"
+                                  type="text"
+                                  placeholder="torment dmg"
+                                  data-go-modifier="Torment Damage"
+                                />
+                                <input
+                                  class="col form-control px-lg-2"
+                                  id="go-input-extramods-confusion-damage"
+                                  type="text"
+                                  placeholder="confu dmg"
+                                  data-go-modifier="Confusion Damage"
+                                />
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
 
                         <!-- Force Slots -->
                         <div id="go-force" class="col-12">
