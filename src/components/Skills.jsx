@@ -34,32 +34,25 @@ const Skills = ({ classes, data }) => {
   };
 
   if (!data || data.length < 1) {
-    return null;
+    return 'This class does not appear to have skills with extra buffs';
   }
 
-  return (
-    <div className={classes.root}>
-      <Typography variant="h5">Skills </Typography>
-      {data.map((skill) => (
-        <div key={skill.id}>
-          <CheckboxComponent
-            value={skill.id}
-            checked={skills.indexOf(skill.id) > -1}
-            className={classes.checkbox}
-            label={
-              <div className={classes.label}>
-                <Skill id={skill.gw2_id} disableLink className={classes.skill} />
-                {skill.subText && (
-                  <Typography className={classes.subText}>{skill.subText}</Typography>
-                )}
-              </div>
-            }
-            onChange={onChange(skill)}
-          />
-        </div>
-      ))}
+  return data.map((skill) => (
+    <div key={skill.id}>
+      <CheckboxComponent
+        value={skill.id}
+        checked={skills.indexOf(skill.id) > -1}
+        className={classes.checkbox}
+        label={
+          <div className={classes.label}>
+            <Skill id={skill.gw2_id} disableLink className={classes.skill} />
+            {skill.subText && <Typography className={classes.subText}>{skill.subText}</Typography>}
+          </div>
+        }
+        onChange={onChange(skill)}
+      />
     </div>
-  );
+  ));
 };
 
 export default withStyles(styles)(Skills);

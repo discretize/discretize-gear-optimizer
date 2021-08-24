@@ -1,13 +1,31 @@
 /* eslint-disable no-console */
-import { Button, Divider, Typography, withStyles } from '@material-ui/core';
+import {
+  Box,
+  Button,
+  Divider,
+  Grid,
+  Paper,
+  Typography,
+  withStyles,
+  Switch,
+  FormControlLabel,
+} from '@material-ui/core';
 import { Cancel, Functions } from '@material-ui/icons';
 import { graphql, StaticQuery } from 'gatsby';
-import { ConsumableEffect, Item } from 'gw2-ui-bulk';
+import { ConsumableEffect, Item, Attribute } from 'gw2-ui-bulk';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, useStore } from 'react-redux';
+import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 import {
+  changeAllDistributionsNew,
+  changeAllDistributionsOld,
+  changeAllTextBoxes,
+  changeBuff,
+  changeDistributionVersion,
+  changePriority,
   getBuffs,
   getControl,
+  getDistributionVersion,
   getExtraModifiers,
   getExtras,
   getGeneric,
@@ -15,21 +33,22 @@ import {
   getTraitModifiers,
   setModifiers,
 } from '../state/gearOptimizerSlice';
-import { PROFESSIONS } from '../utils/gw2-data';
 import ARinput from './ARinput';
 import { LinearProgressWithLabel } from './baseComponents/LinearProgressWithLabel';
 import Buffs from './Buffs';
 import DamageDistribution from './DamageDistribution';
+import ExtraModifiers from './ExtraModifiers';
 import ForcedSlots from './ForcedSlots';
 import GW2Select from './GW2Select';
 import Infusions from './Infusions';
 import NavBar from './NavBar';
 import Priorities from './priorities/Priorities';
-import ResultTable from './results/ResultTable';
 import ResultDetails from './results/ResultDetails';
+import ResultTable from './results/ResultTable';
 import Skills from './Skills';
 import Traits from './Traits';
-import ExtraModifiers from './ExtraModifiers';
+import Presets from './baseComponents/Presets';
+import { PROFESSIONS } from '../utils/gw2-data';
 
 const styles = (theme) => ({
   root: {
@@ -48,6 +67,12 @@ const styles = (theme) => ({
   margin: {
     marginBottom: theme.spacing(2),
   },
+  containerItem: {
+    // borderBottom: `3px solid ${theme.palette.primary.dark}`,
+    marginBottom: theme.spacing(2),
+    // borderRadius: 20,
+    borderColor: theme.palette.primary.main,
+  },
 });
 
 /**
@@ -57,15 +82,23 @@ const styles = (theme) => ({
  * @returns the main ui
  */
 const MainComponent = ({ classes, data }) => {
+  const store = useStore();
   const expertMode = useSelector(getControl('expertMode'));
   const profession = useSelector(getProfession);
   const dualWielded = useSelector(getGeneric('weaponType'));
   const progress = useSelector(getControl('percentageDone'));
   const buffs = useSelector(getBuffs);
-  const extras = useSelector(getExtras);
-  const traitModifiers = useSelector(getTraitModifiers);
-  const extraModifiers = useSelector(getExtraModifiers('extraModifiers'));
+  const distributionVersion = useSelector(getDistributionVersion);
 
+  const distributionPresets =
+    profession !== ''
+      ? data.presetDistribution.list.filter(
+          (preset) =>
+            PROFESSIONS.find((p) => p.profession === profession).eliteSpecializations.includes(
+              preset.profession,
+            ) || preset.profession === null,
+        )
+      : null;
   const dispatch = useDispatch();
 
   function onStartCalculate(e) {
@@ -80,7 +113,7 @@ const MainComponent = ({ classes, data }) => {
       { id: 'Enhancement', list: data.enhancement.list },
       { id: 'Nourishment', list: data.nourishment.list },
     ];
-
+    const { extras } = store.getState().gearOptimizer;
     extrasData
       .filter((extra) => extras[extra.id] !== '')
       .forEach((extra) => {
@@ -122,15 +155,19 @@ const MainComponent = ({ classes, data }) => {
       revenant,
     );
 
+    const traitModifiers = store.getState().gearOptimizer.traits.modifiers;
     const matchedTraitModifiers = traitModifiers.map((traitModifier) =>
       allTraits.filter((t) => t !== null).find((trait) => trait.id === traitModifier.id),
     );
 
-    modifiers.push(
-      ...JSON.parse(extraModifiers).map((modi, index) => {
-        return { id: `extraModifier${index}`, modifiers: JSON.stringify(modi) };
-      }),
-    );
+    const { extraModifiers } = store.getState().gearOptimizer.extraModifiers;
+    if (extraModifiers.length > 0) {
+      modifiers.push(
+        ...JSON.parse(extraModifiers).map((modi, index) => {
+          return { id: `extraModifier${index}`, modifiers: JSON.stringify(modi) };
+        }),
+      );
+    }
     modifiers.push(...matchedTraitModifiers);
 
     dispatch(setModifiers(modifiers));
@@ -145,6 +182,63 @@ const MainComponent = ({ classes, data }) => {
     console.log('cancel calculate');
   }
 
+  const SectionInfo = (props) => (
+    <>
+      <Typography variant="h5">{props.title}</Typography>
+      {props.children && (
+        <Typography variant="caption">
+          <Paper variant="outlined">
+            <Box p={1}>
+              <LiveHelpIcon />
+              <div>{props.children}</div>
+            </Box>
+          </Paper>
+        </Typography>
+      )}
+    </>
+  );
+  const Section = (props) => (
+    <Grid item container spacing={2} className={classes.containerItem}>
+      {!props.first && (
+        <Grid item xs={12}>
+          <Divider />
+        </Grid>
+      )}
+      <Grid item xs={12} sm={3}>
+        <SectionInfo title={props.title} first={props.first}>
+          {props.helpText}
+        </SectionInfo>
+        {props.extraInfo}
+      </Grid>
+
+      <Grid item xs={12} sm={9}>
+        {props.content}
+      </Grid>
+    </Grid>
+  );
+
+  const handleTemplateClickBuffs = (index) => (event) => {
+    // set all the buffs to disabled
+    Object.keys(buffs).forEach((elem) => dispatch(changeBuff({ key: elem, value: false })));
+
+    // apply the preset
+    const state = JSON.parse(data.presetBuffs.list[index].value);
+    Object.keys(state).forEach((key) => dispatch(changeBuff({ key, value: state[key] })));
+  };
+
+  const handleTemplateClickPriorities = (index) => (event) => {
+    const state = JSON.parse(data.presetAffixes.list[index].value);
+    Object.keys(state).forEach((key) => dispatch(changePriority({ key, value: state[key] })));
+  };
+
+  const onTemplateClickDistribution = (index) => (event) => {
+    const state = JSON.parse(distributionPresets[index].value);
+
+    dispatch(changeAllDistributionsOld(state.values1));
+    dispatch(changeAllDistributionsNew(state.values2));
+    dispatch(changeAllTextBoxes(state.values2));
+  };
+
   return (
     <div className={classes.root}>
       <NavBar
@@ -155,110 +249,159 @@ const MainComponent = ({ classes, data }) => {
 
       {profession !== '' && (
         <>
-          {expertMode && (
-            <>
-              <Divider />
+          <Grid container>
+            {expertMode && (
+              <>
+                <Section
+                  first
+                  title="Traits"
+                  helpText="Select your traits here. Remember to also select the corresponding checkbox
+                    below each traitline. This is necessary, because many traits grant conditionally
+                    bonus stats and you might get different results with different conditional
+                    traits."
+                  content={
+                    <Traits
+                      data={data[profession.toLowerCase()].edges[0].node.list
+                        .slice(1)
+                        .filter((line) => line.id > 0)}
+                    />
+                  }
+                />
 
-              <Typography variant="h5">Traits</Typography>
+                <Section
+                  title="Skills"
+                  content={
+                    <Skills
+                      profession={profession}
+                      data={
+                        data[profession.toLowerCase()].edges[0].node.list.find(
+                          (d) => d.section === 'Skills',
+                        ).items
+                      }
+                    />
+                  }
+                />
 
-              {PROFESSIONS.map((p) => p.profession)
-                .filter((p) => p === profession)
-                .map((p) => {
-                  const traitData = data[p.toLocaleLowerCase()].edges[0].node.list.slice(1);
-                  const skillData = data[p.toLowerCase()].edges[0].node.list.filter(
-                    (d) => d.section === 'Skills',
-                  );
-                  return (
-                    <React.Fragment key={`TaS_${p}`}>
-                      <Traits data={traitData.filter((line) => line.id > 0)} />
-                      <Divider />
-                      <Skills profession={p} data={skillData[0] ? skillData[0].items : []} />
-                    </React.Fragment>
-                  );
-                })}
-            </>
-          )}
+                <Section
+                  title="Runes & Sigils & Food"
+                  content={
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} md={6}>
+                        <GW2Select
+                          name="Sigil1"
+                          label={<Item id={24615} disableLink disableTooltip text="Sigil 1" />}
+                          data={data.sigils.list}
+                        />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <GW2Select
+                          name="Sigil2"
+                          label={<Item id={24868} disableLink disableTooltip text="Sigil 2" />}
+                          data={data.sigils.list}
+                        />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <GW2Select
+                          name="Runes"
+                          label={<Item id={24836} disableLink disableTooltip text="Rune" />}
+                          data={data.runes.list}
+                        />
+                      </Grid>
+                      <Grid item md={6} />
+                      <Grid item xs={12} md={6}>
+                        <GW2Select
+                          name="Nourishment"
+                          label={<ConsumableEffect name="Nourishment" />}
+                          data={data.nourishment.list}
+                        />
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <GW2Select
+                          name="Enhancement"
+                          label={<ConsumableEffect name="Enhancement" data={data.sigils.list} />}
+                          data={data.enhancement.list}
+                        />
+                      </Grid>
+                    </Grid>
+                  }
+                />
 
-          {expertMode && (
-            <div className={classes.margin}>
-              <Divider />
-              <Typography variant="h5">Runes & Sigils & Food</Typography>
+                <Section
+                  title="Buffs & Boons"
+                  extraInfo={
+                    <Presets data={data.presetBuffs.list} handleClick={handleTemplateClickBuffs} />
+                  }
+                  content={<Buffs data={data.buffs.list} />}
+                />
 
-              <GW2Select
-                name="Runes"
-                label={<Item id={24836} disableLink disableTooltip text="Rune" />}
-                data={data.runes.list}
-              />
-              <GW2Select
-                name="Sigil1"
-                label={<Item id={24615} disableLink disableTooltip text="Sigil 1" />}
-                data={data.sigils.list}
-              />
-              <GW2Select
-                name="Sigil2"
-                label={<Item id={24868} disableLink disableTooltip text="Sigil 2" />}
-                data={data.sigils.list}
-              />
-              <br />
-              <GW2Select
-                name="Nourishment"
-                label={<ConsumableEffect name="Nourishment" />}
-                data={data.nourishment.list}
-              />
-              <GW2Select
-                name="Enhancement"
-                label={<ConsumableEffect name="Enhancement" data={data.sigils.list} />}
-                data={data.enhancement.list}
-              />
-            </div>
-          )}
+                <Section
+                  title="Extra Modifiers"
+                  helpText={
+                    <>
+                      Allows adding arbitrary extra modifiers. The textbox expects valid JSON
+                      formatting. For multiple modifiers please use a list. For more information
+                      visit the github repository.
+                    </>
+                  }
+                  content={<ExtraModifiers />}
+                />
 
-          {expertMode && (
-            <>
-              <Divider />
-              <Buffs data={data.buffs.list} presets={data.presetBuffs.list} />
-            </>
-          )}
+                <Section title="Stat Infusions" content={<Infusions />} />
 
-          {expertMode && (
-            <>
-              <Divider />
-              <ExtraModifiers />
-            </>
-          )}
+                <Section
+                  title="Forced Slots"
+                  content={<ForcedSlots dualWielded={dualWielded === 'dualWielded'} />}
+                />
 
-          {expertMode && (
-            <>
-              <Divider />
-              <Infusions />
-            </>
-          )}
+                <Section
+                  title="Priorities"
+                  content={<Priorities />}
+                  extraInfo={
+                    <Presets
+                      data={data.presetAffixes.list}
+                      handleClick={handleTemplateClickPriorities}
+                    />
+                  }
+                />
+                <Section
+                  title="Damage Distribution"
+                  content={<DamageDistribution />}
+                  extraInfo={
+                    <>
+                      <FormControlLabel
+                        control={
+                          <Switch
+                            checked={distributionVersion === 1}
+                            onChange={(e) =>
+                              dispatch(changeDistributionVersion(e.target.checked ? 1 : 2))
+                            }
+                            name="checked"
+                            color="primary"
+                          />
+                        }
+                        label="Switch to %-wise damage distribution"
+                      />
 
-          {expertMode && (
-            <>
-              <Divider />
-              <ForcedSlots dualWielded={dualWielded === 'dualWielded'} />
-            </>
-          )}
+                      <Presets
+                        data={distributionPresets}
+                        handleClick={onTemplateClickDistribution}
+                      />
+                    </>
+                  }
+                />
+              </>
+            )}
 
-          <Divider />
-          <ARinput />
-
-          {expertMode && (
-            <>
-              <Divider />
-              <Priorities presets={data.presetAffixes.list} />
-            </>
-          )}
-
-          {expertMode && (
-            <>
-              <Divider />
-              <DamageDistribution presets={data.presetDistribution.list} />
-            </>
-          )}
-
-          <Divider />
+            <Section
+              title={
+                <>
+                  <Attribute name="Agony Resistance" disableLink disableText /> Agony Resistance
+                </>
+              }
+              helpText="Adds 150% of your Agony Resistance to Precision, Toughness and Concentration."
+              content={<ARinput />}
+            />
+          </Grid>
 
           <Button
             variant="outlined"
@@ -277,7 +420,6 @@ const MainComponent = ({ classes, data }) => {
             <Cancel className={classes.icon}></Cancel> Stop
           </Button>
 
-          <Divider />
           <LinearProgressWithLabel value={progress} />
 
           <ResultTable />

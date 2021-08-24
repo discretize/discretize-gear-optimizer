@@ -15,8 +15,7 @@ import { changeExtras, getExtra } from '../state/gearOptimizerSlice';
 
 const styles = (theme) => ({
   formControl: {
-    margin: theme.spacing(1),
-    width: 250,
+    width: '100%',
   },
   sectionText: {
     fontWeight: 200,

@@ -29,9 +29,6 @@ const styles = (theme) => ({
     minWidth: 120,
     margin: theme.spacing(1),
   },
-  root: {
-    marginBottom: theme.spacing(2),
-  },
   item: { lineHeight: '1 !important' },
 });
 
@@ -113,80 +110,75 @@ const Traits = ({ classes, data }) => {
     }
   };
 
-  return (
-    <div className={classes.root}>
-      {[1, 2, 3].map((lineNr, index) => {
-        const checkboxModis = [];
+  return [1, 2, 3].map((lineNr, index) => {
+    const checkboxModis = [];
 
-        const distinctMinors = data.find((l) => l.id === Number(traitlines[index]));
-        const distinctMinorsWithSub = distinctMinors
-          ? distinctMinors.items.filter((l) => l.minor === true && l.subText !== null)
-          : [];
+    const distinctMinors = data.find((l) => l.id === Number(traitlines[index]));
+    const distinctMinorsWithSub = distinctMinors
+      ? distinctMinors.items.filter((l) => l.minor === true && l.subText !== null)
+      : [];
 
-        checkboxModis.push(...distinctMinorsWithSub);
+    checkboxModis.push(...distinctMinorsWithSub);
 
-        traits[index].forEach((t) => {
-          const matching = data.find((v) => v.id === Number(traitlines[index]));
-          if (typeof matching === 'undefined') return null;
+    traits[index].forEach((t) => {
+      const matching = data.find((v) => v.id === Number(traitlines[index]));
+      if (typeof matching === 'undefined') return null;
 
-          const matchingFiltered = matching.items.filter((v) => v.gw2_id === t);
-          checkboxModis.push(...matchingFiltered);
-        });
+      const matchingFiltered = matching.items.filter((v) => v.gw2_id === t);
+      checkboxModis.push(...matchingFiltered);
+    });
 
-        const name = `traitNr${lineNr}`;
-        return (
-          <React.Fragment key={name}>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor={name}>Traitline {lineNr}</InputLabel>
-              <Select
-                value={traitlines[index]}
-                input={<Input name={`Traitline ${lineNr}`} id={name} />}
-                onChange={handleTraitlineSelect(index)}
-                renderValue={(selected) => {
-                  return <Specialization id={selected} disableLink className={classes.item} />;
-                }}
-              >
-                {data
-                  .map((line) => line.id)
-                  .filter(
-                    (tr) =>
-                      !traitlines.includes(tr.toString()) || traitlines[index] === tr.toString(),
-                  )
-                  .map((v) => (
-                    <MenuItem key={v} value={v} className={classes.menuItem}>
-                      <ListItemText primary={<Specialization id={v} disableLink />} />
-                    </MenuItem>
-                  ))}
-              </Select>
-            </FormControl>
+    const name = `traitNr${lineNr}`;
+    return (
+      <React.Fragment key={name}>
+        <FormControl className={classes.formControl}>
+          <InputLabel htmlFor={name}>Traitline {lineNr}</InputLabel>
+          <Select
+            value={traitlines[index]}
+            input={<Input name={`Traitline ${lineNr}`} id={name} />}
+            onChange={handleTraitlineSelect(index)}
+            renderValue={(selected) => {
+              return <Specialization id={selected} disableLink className={classes.item} />;
+            }}
+          >
+            {data
+              .map((line) => line.id)
+              .filter(
+                (tr) => !traitlines.includes(tr.toString()) || traitlines[index] === tr.toString(),
+              )
+              .map((v) => (
+                <MenuItem key={v} value={v} className={classes.menuItem}>
+                  <ListItemText primary={<Specialization id={v} disableLink />} />
+                </MenuItem>
+              ))}
+          </Select>
+        </FormControl>
 
-            <TraitLine
-              id={traitlines[index]}
-              selectable
-              selected={traits[index]}
-              onSelect={(event) => handleTraitChange(event, traitlines[index], index)}
+        <TraitLine
+          id={traitlines[index]}
+          selectable
+          selected={traits[index]}
+          onSelect={(event) => handleTraitChange(event, traitlines[index], index)}
+        />
+
+        {checkboxModis.map((trait) => (
+          <div key={trait.id}>
+            <CheckboxComponent
+              value={trait.id}
+              checked={modifiers.filter((m) => m.id === trait.id).length > 0}
+              label={
+                <>
+                  {trait.gw2_id && <Trait id={trait.gw2_id} disableLink />}{' '}
+                  <Typography variant="caption">{trait.subText}</Typography>
+                </>
+              }
+              onChange={handleModifierChange(trait, traitlines[index])}
             />
-
-            {checkboxModis.map((trait) => (
-              <div key={trait.id}>
-                <CheckboxComponent
-                  value={trait.id}
-                  checked={modifiers.filter((m) => m.id === trait.id).length > 0}
-                  label={
-                    <>
-                      {trait.gw2_id && <Trait id={trait.gw2_id} disableLink />}{' '}
-                      <Typography variant="caption">{trait.subText}</Typography>
-                    </>
-                  }
-                  onChange={handleModifierChange(trait, traitlines[index])}
-                />
-              </div>
-            ))}
-          </React.Fragment>
-        );
-      })}
-    </div>
-  );
+          </div>
+        ))}
+      </React.Fragment>
+    );
+  });
 };
 
 export default withStyles(styles)(Traits);

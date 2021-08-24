@@ -1,5 +1,6 @@
 import {
   AppBar,
+  Box,
   Button,
   debounce,
   Drawer,
@@ -31,14 +32,12 @@ import {
 import { PROFESSIONS } from '../utils/gw2-data';
 import { firstUppercase } from '../utils/usefulFunctions';
 
-const styles = () => ({
-  topNav: {},
+const styles = (theme) => ({
+  topNav: {
+    marginBottom: theme.spacing(2),
+  },
   navProfession: {
     fontSize: '2rem',
-  },
-  stickRight: {
-    marginLeft: 'auto',
-    marginRight: 0,
   },
   drawerContainer: {
     padding: '20px 30px',
@@ -67,7 +66,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
   const debouncedResponsive = debounce(setResponsiveness, 300);
 
   useEffect(() => {
-    // debouncedResponsive();
+    debouncedResponsive();
 
     window.addEventListener('resize', debouncedResponsive);
 
@@ -78,7 +77,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
 
   const stickyRight = () => {
     return (
-      <>
+      <Box>
         <FormControlLabel
           control={
             <Switch
@@ -90,7 +89,6 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
               color="primary"
             />
           }
-          className={classes.stickRight}
           label="Expert"
         />
         <IconButton
@@ -99,7 +97,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
         >
           <GitHubIcon />
         </IconButton>
-      </>
+      </Box>
     );
   };
 
@@ -128,17 +126,19 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
     };
     return (
       <Toolbar>
-        <IconButton
-          {...{
-            edge: 'start',
-            color: 'inherit',
-            'aria-label': 'menu',
-            'aria-haspopup': 'true',
-            onClick: handleDrawerOpen,
-          }}
-        >
-          <MenuIcon />
-        </IconButton>
+        <Box flexGrow={1}>
+          <IconButton
+            {...{
+              edge: 'start',
+              color: 'inherit',
+              'aria-label': 'menu',
+              'aria-haspopup': 'true',
+              onClick: handleDrawerOpen,
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Box>
 
         <Drawer
           {...{
@@ -190,53 +190,55 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
   ];
   const displayDesktop = () => (
     <Toolbar>
-      {PROFESSIONS.map((p, index) => (
-        <React.Fragment key={p.profession}>
-          <Button
-            onMouseOver={(e) =>
-              setState({
-                ...state,
-                hover: state.hover.map((item, i) => i === index),
-                anchor: e.currentTarget,
-              })
-            }
-            onClick={() => {
-              dispatch(changeProfession(p.profession));
-              dispatch(reset());
-            }}
-            variant={p.profession === profession ? 'contained' : 'text'}
-            {...bindHover(popupState[index])}
-          >
-            <Profession
-              name={firstUppercase(p.profession)}
-              disableLink
-              disableText
-              className={classes.navProfession}
-            />
-          </Button>
-          <Menu
-            {...bindMenu(popupState[index])}
-            getContentAnchorEl={null}
-            anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-            transformOrigin={{ vertical: 'top', horizontal: 'left' }}
-          >
-            {data
-              .find((elem) => elem.class === p.profession.toLowerCase())
-              .builds.map((elem) => (
-                <MenuItem
-                  key={elem.name}
-                  onClick={(e) => handleTemplateSelect(popupState[index], elem, p.profession)}
-                >
-                  <Profession
-                    eliteSpecialization={elem.specialization}
-                    disableLink
-                    text={elem.name}
-                  />
-                </MenuItem>
-              ))}
-          </Menu>
-        </React.Fragment>
-      ))}
+      <Box flexGrow={1}>
+        {PROFESSIONS.map((p, index) => (
+          <React.Fragment key={p.profession}>
+            <Button
+              onMouseOver={(e) =>
+                setState({
+                  ...state,
+                  hover: state.hover.map((item, i) => i === index),
+                  anchor: e.currentTarget,
+                })
+              }
+              onClick={() => {
+                dispatch(changeProfession(p.profession));
+                dispatch(reset());
+              }}
+              variant={p.profession === profession ? 'contained' : 'text'}
+              {...bindHover(popupState[index])}
+            >
+              <Profession
+                name={firstUppercase(p.profession)}
+                disableLink
+                disableText
+                className={classes.navProfession}
+              />
+            </Button>
+            <Menu
+              {...bindMenu(popupState[index])}
+              getContentAnchorEl={null}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+              transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+            >
+              {data
+                .find((elem) => elem.class === p.profession.toLowerCase())
+                .builds.map((elem) => (
+                  <MenuItem
+                    key={elem.name}
+                    onClick={(e) => handleTemplateSelect(popupState[index], elem, p.profession)}
+                  >
+                    <Profession
+                      eliteSpecialization={elem.specialization}
+                      disableLink
+                      text={elem.name}
+                    />
+                  </MenuItem>
+                ))}
+            </Menu>
+          </React.Fragment>
+        ))}
+      </Box>
       {stickyRight()}
     </Toolbar>
   );

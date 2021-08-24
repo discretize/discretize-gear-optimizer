@@ -10,10 +10,7 @@ import { firstUppercase } from '../utils/usefulFunctions';
 import { AFFIXES } from './priorities/Affixes';
 
 const styles = (theme) => ({
-  textField: {},
-  root: {
-    marginBottom: theme.spacing(2),
-  },
+  textField: { marginTop: 0, marginBottom: 0 },
   nowrap: {
     display: 'inline',
     whiteSpace: 'nowrap',
@@ -57,7 +54,7 @@ const ForcedSlots = ({ classes, dualWielded }) => {
           renderInput={(params) => (
             <TextField
               {...params}
-              className={classNames(classes.textField, classes.dense)}
+              className={classes.textField}
               label={firstUppercase(name)}
               margin="dense"
             />
@@ -67,15 +64,11 @@ const ForcedSlots = ({ classes, dualWielded }) => {
     );
   };
   return (
-    <div className={classes.root}>
-      <Typography variant="h5">Force Gear Slots </Typography>
-
-      <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start">
-        {SLOTS.slice(0, 6).map((s, index) => input2(s.name, index, 0))}
-        {SLOTS.slice(6, 10).map((s, index) => input2(s.name, index, 6))}
-        {SLOTS.slice(10).map((s, index) => input2(s.name, index, 10))}
-      </Grid>
-    </div>
+    <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" spacing={2}>
+      {SLOTS.slice(0, 6).map((s, index) => input2(s.name, index, 0))}
+      {SLOTS.slice(6, 10).map((s, index) => input2(s.name, index, 6))}
+      {SLOTS.slice(10).map((s, index) => input2(s.name, index, 10))}
+    </Grid>
   );
 };
 export default withStyles(styles)(ForcedSlots);

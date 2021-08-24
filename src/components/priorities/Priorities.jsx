@@ -24,9 +24,6 @@ import HelperIcon from '../HelperIcon';
 import Affixes from './Affixes';
 
 const styles = (theme) => ({
-  root: {
-    marginBottom: theme.spacing(2),
-  },
   text: {
     color: '#ddd !important',
   },
@@ -63,140 +60,129 @@ const Priorities = ({ classes, presets }) => {
     dispatch(changePriority({ key: event.target.name, value: event.target.value }));
   };
 
-  const handleTemplateClick = (index) => (event) => {
-    const state = JSON.parse(presets[index].value);
-    Object.keys(state).forEach((key) => dispatch(changePriority({ key, value: state[key] })));
-  };
-
   return (
-    <div className={classes.root}>
-      <Typography variant="h5">Priorities </Typography>
-
-      <Presets data={presets} handleClick={handleTemplateClick} />
-
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
-          <FormControl component="fieldset">
-            <FormLabel component="legend">
-              Optimize for:{' '}
-              <HelperIcon
-                text="What to optimize the results for. 'Damage' includes power and condition damage according to the distribution below."
-                size="small"
-              />
-            </FormLabel>
-            <RadioGroup
-              aria-label="optimizeFor"
-              name="optimizeFor"
-              value={optimizeFor}
-              onChange={handleChange}
-            >
-              {OPTIMIZATION_GOALS.map((goal) => (
-                <FormControlLabel
-                  key={goal}
-                  value={goal}
-                  control={<Radio color="primary" />}
-                  label={goal}
-                />
-              ))}
-            </RadioGroup>
-          </FormControl>
-        </Grid>
-
-        <Grid item xs={12} sm={6}>
-          <FormControl component="fieldset">
-            <FormLabel component="legend">
-              Weapon type:{' '}
-              <HelperIcon
-                text="Select 'Dual wield' if you're using weapons in both hands or 'Two-handed' when using a two-handed weapon."
-                size="small"
-              />
-            </FormLabel>
-            <RadioGroup
-              aria-label="weaponType"
-              name="weaponType"
-              value={weaponType}
-              onChange={handleChange}
-            >
+    <Grid container spacing={2}>
+      <Grid item xs={12} sm={6}>
+        <FormControl component="fieldset">
+          <FormLabel component="legend">
+            Optimize for:{' '}
+            <HelperIcon
+              text="What to optimize the results for. 'Damage' includes power and condition damage according to the distribution below."
+              size="small"
+            />
+          </FormLabel>
+          <RadioGroup
+            aria-label="optimizeFor"
+            name="optimizeFor"
+            value={optimizeFor}
+            onChange={handleChange}
+          >
+            {OPTIMIZATION_GOALS.map((goal) => (
               <FormControlLabel
-                value="Dual wield"
+                key={goal}
+                value={goal}
                 control={<Radio color="primary" />}
-                label="Dual wielded"
-              ></FormControlLabel>
-              <FormControlLabel
-                value="Two-handed"
-                control={<Radio color="primary" />}
-                label="Two-handed"
-              ></FormControlLabel>
-            </RadioGroup>
-          </FormControl>
-        </Grid>
-
-        <Grid item xs={12}>
-          <Affixes />
-        </Grid>
-
-        <Grid item xs={12} sm={6}>
-          <div className={classes.box}>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="minBoon-input-with-icon-adornment">
-                Min. <Attribute name="Boon Duration" disableLink />
-              </InputLabel>
-              <Input
-                id="minBoon-input-with-icon-adornment"
-                value={minBoonDuration}
-                onChange={handleChange}
-                name="minBoonDuration"
+                label={goal}
               />
-            </FormControl>
-            <HelperIcon text="Only show results that fulfill a certain amount of Boon Duration." />
-          </div>
-          <div className={classes.box}>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="minHeal-input-with-icon-adornment">
-                Min. <Attribute name="Healing Power" disableLink />
-              </InputLabel>
-              <Input
-                id="minHeal-input-with-icon-adornment"
-                value={minHealingPower}
-                onChange={handleChange}
-                name="minHealingPower"
-              />
-            </FormControl>
-            <HelperIcon text="Only show results that fulfill a certain amount of Healing Power." />
-          </div>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <div className={classes.box}>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="minToughness-input-with-icon-adornment">
-                Min. <Attribute name="Toughness" disableLink />
-              </InputLabel>
-              <Input
-                id="minToughness-input-with-icon-adornment"
-                value={minToughness}
-                onChange={handleChange}
-                name="minToughness"
-              />
-            </FormControl>
-            <HelperIcon text="Only show results that fulfill a minimum amount of Toughness." />
-          </div>
-          <div className={classes.box}>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="maxToughness-input-with-icon-adornment">
-                Max. <Attribute name="Toughness" disableLink />
-              </InputLabel>
-              <Input
-                id="maxToughness-input-with-icon-adornment"
-                value={maxToughness}
-                onChange={handleChange}
-                name="maxToughness"
-              />
-            </FormControl>
-            <HelperIcon text="Only show results that fulfill a maximum amount of Toughness." />
-          </div>
-        </Grid>
+            ))}
+          </RadioGroup>
+        </FormControl>
       </Grid>
-    </div>
+
+      <Grid item xs={12} sm={6}>
+        <FormControl component="fieldset">
+          <FormLabel component="legend">
+            Weapon type:{' '}
+            <HelperIcon
+              text="Select 'Dual wield' if you're using weapons in both hands or 'Two-handed' when using a two-handed weapon."
+              size="small"
+            />
+          </FormLabel>
+          <RadioGroup
+            aria-label="weaponType"
+            name="weaponType"
+            value={weaponType}
+            onChange={handleChange}
+          >
+            <FormControlLabel
+              value="Dual wield"
+              control={<Radio color="primary" />}
+              label="Dual wielded"
+            ></FormControlLabel>
+            <FormControlLabel
+              value="Two-handed"
+              control={<Radio color="primary" />}
+              label="Two-handed"
+            ></FormControlLabel>
+          </RadioGroup>
+        </FormControl>
+      </Grid>
+
+      <Grid item xs={12}>
+        <Affixes />
+      </Grid>
+
+      <Grid item xs={12} sm={6}>
+        <div className={classes.box}>
+          <FormControl className={classes.formControl}>
+            <InputLabel htmlFor="minBoon-input-with-icon-adornment">
+              Min. <Attribute name="Boon Duration" disableLink />
+            </InputLabel>
+            <Input
+              id="minBoon-input-with-icon-adornment"
+              value={minBoonDuration}
+              onChange={handleChange}
+              name="minBoonDuration"
+            />
+          </FormControl>
+          <HelperIcon text="Only show results that fulfill a certain amount of Boon Duration." />
+        </div>
+        <div className={classes.box}>
+          <FormControl className={classes.formControl}>
+            <InputLabel htmlFor="minHeal-input-with-icon-adornment">
+              Min. <Attribute name="Healing Power" disableLink />
+            </InputLabel>
+            <Input
+              id="minHeal-input-with-icon-adornment"
+              value={minHealingPower}
+              onChange={handleChange}
+              name="minHealingPower"
+            />
+          </FormControl>
+          <HelperIcon text="Only show results that fulfill a certain amount of Healing Power." />
+        </div>
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <div className={classes.box}>
+          <FormControl className={classes.formControl}>
+            <InputLabel htmlFor="minToughness-input-with-icon-adornment">
+              Min. <Attribute name="Toughness" disableLink />
+            </InputLabel>
+            <Input
+              id="minToughness-input-with-icon-adornment"
+              value={minToughness}
+              onChange={handleChange}
+              name="minToughness"
+            />
+          </FormControl>
+          <HelperIcon text="Only show results that fulfill a minimum amount of Toughness." />
+        </div>
+        <div className={classes.box}>
+          <FormControl className={classes.formControl}>
+            <InputLabel htmlFor="maxToughness-input-with-icon-adornment">
+              Max. <Attribute name="Toughness" disableLink />
+            </InputLabel>
+            <Input
+              id="maxToughness-input-with-icon-adornment"
+              value={maxToughness}
+              onChange={handleChange}
+              name="maxToughness"
+            />
+          </FormControl>
+          <HelperIcon text="Only show results that fulfill a maximum amount of Toughness." />
+        </div>
+      </Grid>
+    </Grid>
   );
 };
 

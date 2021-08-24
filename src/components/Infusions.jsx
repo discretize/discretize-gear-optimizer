@@ -15,23 +15,12 @@ import { changeInfusions, getInfusions } from '../state/gearOptimizerSlice';
 import { INFUSIONS } from '../utils/gw2-data';
 
 const styles = (theme) => ({
-  root: {
-    marginBottom: theme.spacing(2),
-  },
   formControl: {
     width: 200,
-    margin: theme.spacing(1),
     marginRight: theme.spacing(3),
   },
   formControl2: {
     width: 55,
-    margin: theme.spacing(1),
-  },
-  grid: {
-    justifyContent: 'flex-start',
-  },
-  gridItem: {
-    marginBottom: theme.spacing(2),
   },
   item: { lineHeight: '1 !important' },
 });
@@ -84,20 +73,17 @@ const Infusions = ({ classes }) => {
   };
 
   return (
-    <div className={classes.root}>
-      <Typography variant="h5">Stat Infusions</Typography>
-      <Grid container className={classes.grid} direction="row" alignItems="center">
-        <Grid item xs={12} sm={8} className={classes.gridItem}>
-          {dropdown('Primary Infusion', 'primaryInfusion', infusions.primaryInfusion)}
-          {input('Max #', 'primaryMaxInfusions', infusions.primaryMaxInfusions)}
-        </Grid>
-
-        <Grid item xs={12} sm={8}>
-          {dropdown('Secondary Infusion', 'secondaryInfusion', infusions.secondaryInfusion)}
-          {input('Max #', 'secondaryMaxInfusions', infusions.secondaryMaxInfusions)}
-        </Grid>
+    <Grid container spacing={2} justifyContent="flex-start" direction="row" alignItems="center">
+      <Grid item xs={12} sm={8}>
+        {dropdown('Primary Infusion', 'primaryInfusion', infusions.primaryInfusion)}
+        {input('Max #', 'primaryMaxInfusions', infusions.primaryMaxInfusions)}
       </Grid>
-    </div>
+
+      <Grid item xs={12} sm={8}>
+        {dropdown('Secondary Infusion', 'secondaryInfusion', infusions.secondaryInfusion)}
+        {input('Max #', 'secondaryMaxInfusions', infusions.secondaryMaxInfusions)}
+      </Grid>
+    </Grid>
   );
 };
 
