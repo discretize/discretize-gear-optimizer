@@ -27,6 +27,11 @@ export const gearOptimizerSlice = createSlice({
       Enhancement: '',
       Nourishment: '',
     },
+    extraModifiers: {
+      error: '',
+      extraModifiers: [],
+      textBox: '',
+    },
     buffs: {
       might: false,
       fury: false,
@@ -103,6 +108,7 @@ export const gearOptimizerSlice = createSlice({
       state.modifiers = [];
       state.traits = {
         lines: ['', '', ''],
+
         selected: [
           [0, 0, 0],
           [0, 0, 0],
@@ -153,6 +159,9 @@ export const gearOptimizerSlice = createSlice({
     },
     changeAllTextBoxes: (state, action) => {
       state.distribution.textBoxes = action.payload;
+    },
+    changeExtraModifiers: (state, action) => {
+      state.extraModifiers[action.payload.key] = action.payload.value;
     },
     changeAllDistributionsOld: (state, action) => {
       state.distribution.values1 = action.payload;
@@ -225,6 +234,7 @@ export const getAR = (state) => state.gearOptimizer.ar;
 export const getTraitLines = (state) => state.gearOptimizer.traits.lines;
 export const getTraits = (state) => state.gearOptimizer.traits.selected;
 export const getGeneric = (key) => (state) => state.gearOptimizer[key];
+export const getExtraModifiers = (key) => (state) => state.gearOptimizer.extraModifiers[key];
 export const getDistributionVersion = (state) => state.gearOptimizer.distribution.version;
 export const getDistributionOld = (state) => state.gearOptimizer.distribution.values1;
 export const getDistributionNew = (state) => state.gearOptimizer.distribution.values2;
@@ -262,6 +272,7 @@ export const {
   removeTraitModifierWithGW2id,
   removeModifierWithSource,
   changeExtras,
+  changeExtraModifiers,
   changeControl,
   changeBuff,
   changeInfusions,

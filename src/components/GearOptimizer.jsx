@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   getBuffs,
   getControl,
+  getExtraModifiers,
   getExtras,
   getGeneric,
   getProfession,
@@ -28,6 +29,7 @@ import ResultTable from './results/ResultTable';
 import ResultDetails from './results/ResultDetails';
 import Skills from './Skills';
 import Traits from './Traits';
+import ExtraModifiers from './ExtraModifiers';
 
 const styles = (theme) => ({
   root: {
@@ -62,6 +64,7 @@ const MainComponent = ({ classes, data }) => {
   const buffs = useSelector(getBuffs);
   const extras = useSelector(getExtras);
   const traitModifiers = useSelector(getTraitModifiers);
+  const extraModifiers = useSelector(getExtraModifiers('extraModifiers'));
 
   const dispatch = useDispatch();
 
@@ -123,7 +126,13 @@ const MainComponent = ({ classes, data }) => {
       allTraits.filter((t) => t !== null).find((trait) => trait.id === traitModifier.id),
     );
 
+    modifiers.push(
+      ...JSON.parse(extraModifiers).map((modi, index) => {
+        return { id: `extraModifier${index}`, modifiers: JSON.stringify(modi) };
+      }),
+    );
     modifiers.push(...matchedTraitModifiers);
+
     dispatch(setModifiers(modifiers));
 
     dispatch({
@@ -208,6 +217,13 @@ const MainComponent = ({ classes, data }) => {
             <>
               <Divider />
               <Buffs data={data.buffs.list} presets={data.presetBuffs.list} />
+            </>
+          )}
+
+          {expertMode && (
+            <>
+              <Divider />
+              <ExtraModifiers />
             </>
           )}
 

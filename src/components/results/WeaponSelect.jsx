@@ -28,9 +28,6 @@ const WeaponSelect = ({ classes }) => {
   const canOffhand1 =
     classData.weapons.mainHand.find((w) => w.name === wea1mh).type !== 'twoHanded';
 
-  console.log(canOffhand1);
-  console.log(classData);
-
   return (
     <>
       <FormControl className={classes.formControl}>
