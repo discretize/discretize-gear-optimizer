@@ -1028,7 +1028,7 @@ function calcResults(_character) {
 
   // effective damage distribution
   results.effectiveDamageDistribution = {};
-  $.each(settings.percentDistribution, (key) => {
+  $.each(settings.distribution, (key) => {
     if (key === 'Power') {
       const damage = attributes['Power DPS'] / attributes['Damage'];
       results.effectiveDamageDistribution['Power'] = `${(damage * 100).toFixed(1)}%`;
