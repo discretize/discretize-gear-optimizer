@@ -122,7 +122,7 @@ function fetchSkills() {
               return {
                 id: skill.id,
                 name: normalize(skill.name),
-                profession: normalize(skill.profession ? skill.profession[0] : 'bundle'),
+                profession: normalize(skill.professions ? skill.professions[0] : 'bundle'),
               };
             });
           // write to disk
