@@ -1960,14 +1960,6 @@
     "@babel/runtime" "^7.2.0"
     deepmerge "^4.0.0"
 
-"@redux-requests/react@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@redux-requests/react/-/react-1.0.0.tgz#448e2a20363cc72f326c2d25db778a078ab915cf"
-  integrity sha512-xmcKnIsO+9uQHzkuxU0hDBtSYPY7LdKZhCMd7Lf1q7RllCMY1VknAMpzKGZRwjgPY42FZMPFWxHpBAsSXH/x5w==
-  dependencies:
-    prop-types "^15.5.7"
-    react-is "^16.13.1"
-
 "@redux-saga/core@^1.1.3":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@redux-saga/core/-/core-1.1.3.tgz#3085097b57a4ea8db5528d58673f20ce0950f6a4"
@@ -7400,20 +7392,19 @@ gw2-ui-builder-bulk@^0.2.3:
   resolved "https://registry.yarnpkg.com/gw2-ui-builder-bulk/-/gw2-ui-builder-bulk-0.2.3.tgz#5f554d0bbb6591bf377439faca840a387332b22f"
   integrity sha512-bBbsLi9Z4TBH8etKrZu16oRdOzA8t0+tM7zdG6aJVUb4BSnCuQudeoKjziLExj30LZfG4L2h+KiVfGtIcSe6VA==
 
-gw2-ui-bulk@0.10.16:
-  version "0.10.16"
-  resolved "https://registry.yarnpkg.com/gw2-ui-bulk/-/gw2-ui-bulk-0.10.16.tgz#f704133f17d8b10529400dc64355772a6475260f"
-  integrity sha512-OV4I65sSEq/SQ2zXvuQk9PQVhl5cNfrBRr6kNP8tLRR4bfpxTBiLhEZvWwbCA8uYjg3hiRKKwDVkmG2jlg54kw==
+gw2-ui-bulk@0.10.20:
+  version "0.10.20"
+  resolved "https://registry.yarnpkg.com/gw2-ui-bulk/-/gw2-ui-bulk-0.10.20.tgz#b3cea24405e4d000c70112840b869ba540c7a59d"
+  integrity sha512-3X1UC71GarVYNQLLcK0qBzlW1FlgHrCXW+V9MyEyz6Csy4+MS0DfSbxmaIHhjiWMXv3R0iMa98ZLytnj7BLxtg==
   dependencies:
-    "@redux-requests/react" "1.0.0"
     gw2-ui-builder-bulk "^0.2.3"
-    gw2-ui-components-bulk "^0.11.6"
-    gw2-ui-redux-bulk "^0.5.8"
+    gw2-ui-components-bulk "^0.11.10"
+    gw2-ui-redux-bulk "^0.5.9"
 
-gw2-ui-components-bulk@^0.11.6:
-  version "0.11.6"
-  resolved "https://registry.yarnpkg.com/gw2-ui-components-bulk/-/gw2-ui-components-bulk-0.11.6.tgz#a5b0ff1798355190b7dd3cbe511ac3a1668c6f90"
-  integrity sha512-VNfw9fIr1xyqZNZfdWQM9oC+bU2uCkOwyuBFBPL4uPZz70MelJsgTZk7EfOG8zZMRZQAqiGJDCBxtCsicqvndQ==
+gw2-ui-components-bulk@^0.11.10:
+  version "0.11.10"
+  resolved "https://registry.yarnpkg.com/gw2-ui-components-bulk/-/gw2-ui-components-bulk-0.11.10.tgz#9d2c1e38c0b0d32e3a91f2c9d7a90873ef18414b"
+  integrity sha512-0l3XKOMdIDb62BOuMAJwXNOdRACfaReh0ElLHGt/mAk/XX2T7EX4icms54ucNuqTktF10RwpUbPkaP/gHiEOyg==
   dependencies:
     "@theme-ui/core" "^0.3.1"
     "@tippyjs/react" "^4.2.0"
@@ -7421,10 +7412,10 @@ gw2-ui-components-bulk@^0.11.6:
     lodash.camelcase "^4.3.0"
     react-resize-aware "^3.0.1"
 
-gw2-ui-redux-bulk@^0.5.8:
-  version "0.5.8"
-  resolved "https://registry.yarnpkg.com/gw2-ui-redux-bulk/-/gw2-ui-redux-bulk-0.5.8.tgz#85d3aa3972404dc5434c8146f8d01074fc77393c"
-  integrity sha512-N7SHSRYDDiX2IiWy8FelgeSRN4/CkUa382xzp8bHh9YS4dniWF+631rss+yGHedF5TNrDFmmpM/hgu5dRUo4vg==
+gw2-ui-redux-bulk@^0.5.9:
+  version "0.5.9"
+  resolved "https://registry.yarnpkg.com/gw2-ui-redux-bulk/-/gw2-ui-redux-bulk-0.5.9.tgz#858d3de03f61632ac6f57056c7773492722c85cb"
+  integrity sha512-h1gH/Nvx1jD7iBu1G2TlFryWpU/SVv+W3eMt4TohL1bCT5a+eWibFt1Kk8niw3M15pjrixldp8fFZ41G6XtacA==
   dependencies:
     "@redux-requests/axios" "1.0.0"
     "@redux-requests/core" "1.1.1"
@@ -11039,7 +11030,7 @@ prompts@^2.3.2:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
