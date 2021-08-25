@@ -1,21 +1,9 @@
-import {
-  Checkbox,
-  Chip,
-  FormControlLabel,
-  FormGroup,
-  TextField,
-  withStyles,
-} from '@material-ui/core';
+import { Chip, TextField, withStyles } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  changeGeneric,
-  changePriority,
-  getGeneric,
-  getPriority,
-} from '../../state/gearOptimizerSlice';
+import { changePriority, getPriority } from '../../state/gearOptimizerSlice';
 import { firstUppercase } from '../../utils/usefulFunctions';
 
 const styles = (theme) => ({

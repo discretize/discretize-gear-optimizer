@@ -3,19 +3,19 @@ import {
   Box,
   Button,
   Divider,
+  FormControlLabel,
   Grid,
   Paper,
+  Switch,
   Typography,
   withStyles,
-  Switch,
-  FormControlLabel,
 } from '@material-ui/core';
 import { Cancel, Functions } from '@material-ui/icons';
+import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 import { graphql, StaticQuery } from 'gatsby';
-import { ConsumableEffect, Item, Attribute } from 'gw2-ui-bulk';
+import { Attribute, ConsumableEffect, Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector, useStore } from 'react-redux';
-import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 import {
   changeAllDistributionsNew,
   changeAllDistributionsOld,
@@ -23,18 +23,15 @@ import {
   changeBuff,
   changeDistributionVersion,
   changePriority,
-  getBuffs,
   getControl,
   getDistributionVersion,
-  getExtraModifiers,
-  getExtras,
-  getGeneric,
   getProfession,
-  getTraitModifiers,
   setModifiers,
 } from '../state/gearOptimizerSlice';
+import { PROFESSIONS } from '../utils/gw2-data';
 import ARinput from './ARinput';
 import { LinearProgressWithLabel } from './baseComponents/LinearProgressWithLabel';
+import Presets from './baseComponents/Presets';
 import Buffs from './Buffs';
 import DamageDistribution from './DamageDistribution';
 import ExtraModifiers from './ExtraModifiers';
@@ -47,8 +44,6 @@ import ResultDetails from './results/ResultDetails';
 import ResultTable from './results/ResultTable';
 import Skills from './Skills';
 import Traits from './Traits';
-import Presets from './baseComponents/Presets';
-import { PROFESSIONS } from '../utils/gw2-data';
 
 const styles = (theme) => ({
   root: {
@@ -85,10 +80,12 @@ const MainComponent = ({ classes, data }) => {
   const store = useStore();
   const expertMode = useSelector(getControl('expertMode'));
   const profession = useSelector(getProfession);
-  const dualWielded = useSelector(getGeneric('weaponType'));
   const progress = useSelector(getControl('percentageDone'));
-  const buffs = useSelector(getBuffs);
   const distributionVersion = useSelector(getDistributionVersion);
+
+  const skills = profession
+    ? data[profession.toLowerCase()].edges[0].node.list.find((d) => d.section === 'Skills')
+    : null;
 
   const distributionPresets =
     profession !== ''
@@ -125,6 +122,7 @@ const MainComponent = ({ classes, data }) => {
         });
       });
 
+    const { buffs } = store.getState();
     data.buffs.list
       .flatMap((d) => d.items)
       .filter((elem) => buffs[elem.id])
@@ -219,7 +217,9 @@ const MainComponent = ({ classes, data }) => {
 
   const handleTemplateClickBuffs = (index) => (event) => {
     // set all the buffs to disabled
-    Object.keys(buffs).forEach((elem) => dispatch(changeBuff({ key: elem, value: false })));
+    Object.keys(store.getState().buffs).forEach((elem) =>
+      dispatch(changeBuff({ key: elem, value: false })),
+    );
 
     // apply the preset
     const state = JSON.parse(data.presetBuffs.list[index].value);
@@ -268,19 +268,12 @@ const MainComponent = ({ classes, data }) => {
                   }
                 />
 
-                <Section
-                  title="Skills"
-                  content={
-                    <Skills
-                      profession={profession}
-                      data={
-                        data[profession.toLowerCase()].edges[0].node.list.find(
-                          (d) => d.section === 'Skills',
-                        ).items
-                      }
-                    />
-                  }
-                />
+                {skills ? (
+                  <Section
+                    title="Skills"
+                    content={<Skills profession={profession} data={skills.items} />}
+                  />
+                ) : null}
 
                 <Section
                   title="Runes & Sigils & Food"
@@ -348,10 +341,7 @@ const MainComponent = ({ classes, data }) => {
 
                 <Section title="Stat Infusions" content={<Infusions />} />
 
-                <Section
-                  title="Forced Slots"
-                  content={<ForcedSlots dualWielded={dualWielded === 'dualWielded'} />}
-                />
+                <Section title="Forced Slots" content={<ForcedSlots />} />
 
                 <Section
                   title="Priorities"

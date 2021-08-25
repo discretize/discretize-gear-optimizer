@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeForcedSlot, getGeneric } from '../state/gearOptimizerSlice';
+import { changeForcedSlot, getGeneric, getPriority } from '../state/gearOptimizerSlice';
 import { GEAR_SLOTS } from '../utils/gw2-data';
 import { firstUppercase } from '../utils/usefulFunctions';
 import { AFFIXES } from './priorities/Affixes';
@@ -18,14 +18,18 @@ const styles = (theme) => ({
   helperText: {
     fontSize: 12,
   },
+  text: {
+    color: '#ddd !important',
+  },
 });
 
-const ForcedSlots = ({ classes, dualWielded }) => {
+const ForcedSlots = ({ classes }) => {
   const dispatch = useDispatch();
-  const value = useSelector(getGeneric('forcedSlots'));
+  const forcedSlots = useSelector(getGeneric('forcedSlots'));
+  const dualWielded = useSelector(getPriority('weaponType'));
 
   let SLOTS = GEAR_SLOTS;
-  if (!dualWielded) {
+  if (dualWielded !== 'Dual wield') {
     SLOTS = GEAR_SLOTS.slice(0, 13);
   }
 
@@ -38,7 +42,7 @@ const ForcedSlots = ({ classes, dualWielded }) => {
       <Grid item xs={6} md={2} sm={4} key={name}>
         <Autocomplete
           options={AFFIXES}
-          value={value[index + offset]}
+          value={forcedSlots[index + offset]}
           id={name}
           clearOnEscape
           onChange={handleChange(index + offset)}
