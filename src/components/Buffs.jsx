@@ -10,6 +10,9 @@ const styles = (theme) => ({
   boon: {
     fontSize: 18,
   },
+  note: {
+    fontSize: "1rem"
+  },
   tinyNote: {
     fontWeight: 200,
   },
@@ -55,7 +58,7 @@ const Buffs = ({ classes, data }) => {
                         checked={buffs[buff.id]}
                         label={
                           <>
-                            <Typography>{buff.text}</Typography>
+                            <Typography className={classes.note}>{buff.text}</Typography>
                             <Typography variant="caption" className={classes.tinyNote}>
                               {buff.subText}
                             </Typography>

@@ -1,17 +1,6 @@
 /* eslint-disable no-console */
-import {
-  Box,
-  Button,
-  Divider,
-  FormControlLabel,
-  Grid,
-  Paper,
-  Switch,
-  Typography,
-  withStyles,
-} from '@material-ui/core';
+import { Button, FormControlLabel, Grid, Switch, withStyles } from '@material-ui/core';
 import { Cancel, Functions } from '@material-ui/icons';
-import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 import { graphql, StaticQuery } from 'gatsby';
 import { Attribute, ConsumableEffect, Item } from 'gw2-ui-bulk';
 import React from 'react';
@@ -32,6 +21,7 @@ import { PROFESSIONS } from '../utils/gw2-data';
 import ARinput from './ARinput';
 import { LinearProgressWithLabel } from './baseComponents/LinearProgressWithLabel';
 import Presets from './baseComponents/Presets';
+import Section from './baseComponents/Section';
 import Buffs from './Buffs';
 import DamageDistribution from './DamageDistribution';
 import ExtraModifiers from './ExtraModifiers';
@@ -100,6 +90,7 @@ const MainComponent = ({ classes, data }) => {
 
   function onStartCalculate(e) {
     console.log('calculate');
+    const { extras, buffs } = store.getState().gearOptimizer;
 
     const modifiers = [];
 
@@ -110,7 +101,6 @@ const MainComponent = ({ classes, data }) => {
       { id: 'Enhancement', list: data.enhancement.list },
       { id: 'Nourishment', list: data.nourishment.list },
     ];
-    const { extras } = store.getState().gearOptimizer;
     extrasData
       .filter((extra) => extras[extra.id] !== '')
       .forEach((extra) => {
@@ -122,7 +112,6 @@ const MainComponent = ({ classes, data }) => {
         });
       });
 
-    const { buffs } = store.getState();
     data.buffs.list
       .flatMap((d) => d.items)
       .filter((elem) => buffs[elem.id])
@@ -180,44 +169,9 @@ const MainComponent = ({ classes, data }) => {
     console.log('cancel calculate');
   }
 
-  const SectionInfo = (props) => (
-    <>
-      <Typography variant="h5">{props.title}</Typography>
-      {props.children && (
-        <Typography variant="caption">
-          <Paper variant="outlined">
-            <Box p={1}>
-              <LiveHelpIcon />
-              <div>{props.children}</div>
-            </Box>
-          </Paper>
-        </Typography>
-      )}
-    </>
-  );
-  const Section = (props) => (
-    <Grid item container spacing={2} className={classes.containerItem}>
-      {!props.first && (
-        <Grid item xs={12}>
-          <Divider />
-        </Grid>
-      )}
-      <Grid item xs={12} sm={3}>
-        <SectionInfo title={props.title} first={props.first}>
-          {props.helpText}
-        </SectionInfo>
-        {props.extraInfo}
-      </Grid>
-
-      <Grid item xs={12} sm={9}>
-        {props.content}
-      </Grid>
-    </Grid>
-  );
-
   const handleTemplateClickBuffs = (index) => (event) => {
     // set all the buffs to disabled
-    Object.keys(store.getState().buffs).forEach((elem) =>
+    Object.keys(store.getState().gearOptimizer.buffs).forEach((elem) =>
       dispatch(changeBuff({ key: elem, value: false })),
     );
 

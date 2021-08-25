@@ -1,4 +1,4 @@
-import { handleRequests, gw2UIReducer } from 'gw2-ui-bulk';
+import { gw2UIReducer } from 'gw2-ui-bulk';
 import { persistReducer, persistStore } from 'redux-persist';
 
 import { applyMiddleware, combineReducers, compose, createStore as reduxCreateStore } from 'redux';
@@ -24,8 +24,6 @@ const createNoopStorage = () => {
 
 const storage = typeof window === 'undefined' ? createNoopStorage() : createWebStorage('local');
 
-const { requestsReducer, requestsMiddleware } = handleRequests();
-
 const persistConfig = {
   key: 'root',
   whitelist: 'gw2UiStore',
@@ -33,7 +31,6 @@ const persistConfig = {
 };
 
 const reducers = combineReducers({
-  requests: requestsReducer,
   gw2UiStore: gw2UIReducer,
   gearOptimizer: gearOptimizerReducer,
 });
@@ -48,10 +45,7 @@ const composeEnhancers =
   compose;
 
 export default () => {
-  const store = reduxCreateStore(
-    reducers,
-    composeEnhancers(applyMiddleware(saga, ...requestsMiddleware)),
-  );
+  const store = reduxCreateStore(reducers, composeEnhancers(applyMiddleware(saga)));
 
   saga.run(gearOptimizerSaga);
 
