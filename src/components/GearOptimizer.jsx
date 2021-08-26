@@ -165,8 +165,10 @@ const MainComponent = ({ classes, data }) => {
   }
 
   function onCancelCalculate(e) {
-    // TODO do cancel calc
-    console.log('cancel calculate');
+    dispatch({
+      type: 'CANCEL',
+    });
+    console.log('cancel button pressed');
   }
 
   const handleTemplateClickBuffs = (index) => (event) => {
