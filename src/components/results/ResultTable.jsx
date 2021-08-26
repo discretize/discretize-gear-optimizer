@@ -22,6 +22,9 @@ const styles = (theme) => ({
   cell: {
     cursor: 'pointer',
   },
+  tablehead: {
+    backgroundColor: theme.palette.background.default,
+  },
 });
 
 const StickyHeadTable = ({ classes }) => {
@@ -32,41 +35,48 @@ const StickyHeadTable = ({ classes }) => {
   const dispatch = useDispatch();
 
   return (
-    <TableContainer className={classes.container}>
-      <Table stickyHeader aria-label="sticky table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Damage</TableCell>
-            {Slots[wield].map((slot) => (
-              <TableCell key={slot.name} align="center" padding="none">
-                {slot.short}
-              </TableCell>
-            ))}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {list.map((character, i) => (
-            <TableRow
-              key={character.id}
-              onClick={(e) => dispatch(changeControl({ key: 'selected', value: i }))}
-              className={classes.cell}
-              selected={i === selected}
-              style={i === selected ? { backgroundColor: '#009a9b' } : null}
-            >
-              <TableCell component="th" scope="row">
-                {character.attributes.Damage.toFixed(2)}
-              </TableCell>
-              {character.gear.map((element, index) => (
-                // eslint-disable-next-line react/no-array-index-key
-                <TableCell align="center" key={element + index} padding="none">
-                  {element.slice(0, 4)}
+    <Paper className={classes.root} elevation={5}>
+      <TableContainer className={classes.container}>
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead>
+            <TableRow>
+              <TableCell className={classes.tablehead}>Damage</TableCell>
+              {Slots[wield].map((slot) => (
+                <TableCell
+                  className={classes.tablehead}
+                  key={slot.name}
+                  align="center"
+                  padding="none"
+                >
+                  {slot.short}
                 </TableCell>
               ))}
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {list.map((character, i) => (
+              <TableRow
+                key={character.id}
+                onClick={(e) => dispatch(changeControl({ key: 'selected', value: i }))}
+                className={classes.cell}
+                selected={i === selected}
+                style={i === selected ? { backgroundColor: '#009a9b' } : null}
+              >
+                <TableCell component="th" scope="row">
+                  {character.attributes.Damage.toFixed(2)}
+                </TableCell>
+                {character.gear.map((element, index) => (
+                  // eslint-disable-next-line react/no-array-index-key
+                  <TableCell align="center" key={element + index} padding="none">
+                    {element.slice(0, 4)}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Paper>
   );
 };
 

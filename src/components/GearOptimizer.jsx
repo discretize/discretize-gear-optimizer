@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { Button, FormControlLabel, Grid, Switch, withStyles } from '@material-ui/core';
+import { Button, FormControlLabel, Grid, Switch, withStyles, Box } from '@material-ui/core';
 import { Cancel, Functions } from '@material-ui/icons';
 import { graphql, StaticQuery } from 'gatsby';
 import { Attribute, ConsumableEffect, Item } from 'gw2-ui-bulk';
@@ -368,6 +368,7 @@ const MainComponent = ({ classes, data }) => {
           <LinearProgressWithLabel value={progress} />
 
           <ResultTable />
+          <Box m={3} />
           <ResultDetails data={data} buffData={data.buffs.list} />
         </>
       )}
