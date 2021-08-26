@@ -29,6 +29,7 @@ function* runCalc() {
       maxToughness,
       affixes,
     },
+    distribution: { version, values1, values2 },
     modifiers,
   } = state.gearOptimizer;
 
@@ -51,8 +52,9 @@ function* runCalc() {
     secondaryInfusion: INFUSIONS.find((i) => i.id === secondaryInfusion)?.attribute,
     primaryMaxInfusions,
     secondaryMaxInfusions,
-    percentDistribution: getDistributionOld(state),
-    distribution: getDistributionNew(state),
+    distributionVersion: version,
+    percentDistribution: values1,
+    distribution: values2,
   };
   console.log('input (real):', input);
 
@@ -120,7 +122,10 @@ function* runCalc() {
   // temp: convert "poisoned" to "poison"
   function convertPoison(distribution) {
     return Object.fromEntries(
-      Object.entries(distribution).map(([key, value]) => [key === 'Poisoned' ? 'Poison' : key, value]),
+      Object.entries(distribution).map(([key, value]) => [
+        key === 'Poisoned' ? 'Poison' : key,
+        value,
+      ]),
     );
   }
   if ({}.hasOwnProperty.call(input.distribution, 'Poisoned')) {
