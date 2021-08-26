@@ -16,7 +16,7 @@ list:
         "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  - name: Condi Firebrand (Virtues, 5 page)
+  - name: CFB (Virtues, 5 page)
     profession: FIREBRAND
     distribution: [31, 96, 99, 99, 100]
     value: >-
@@ -25,7 +25,7 @@ list:
         "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  - name: Condi Firebrand (Virtues, 8 page)
+  - name: CFB (Virtues, 8 page)
     profession: FIREBRAND
     distribution: [24, 96, 99, 99, 100]
     value: >-

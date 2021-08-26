@@ -1,4 +1,5 @@
 import {
+  Box,
   FormControl,
   Grid,
   Input,
@@ -25,11 +26,20 @@ import {
 } from '../state/gearOptimizerSlice';
 
 const styles = (theme) => ({
-  slider: {
-    marginTop: theme.spacing(2),
-    margin: theme.spacing(6),
+  textbox: {
+    maxWidth: 195,
+    marginBottom: theme.spacing(2),
   },
+  slider: {
+    margin: theme.spacing(2),
+    minWidth: 200,
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(5),
+    },
+  },
+
   sliderOld: {
+    marginBottom: theme.spacing(7),
     '& div': {
       '& .noUi-connects': {
         '& .noUi-connect:nth-child(1)': {
@@ -105,30 +115,32 @@ const DamageDistribution = ({ classes }) => {
   const SliderOld = () => {
     return (
       <>
-        <Nouislider
-          className={classNames(classes.sliderOld, classes.slider)}
-          start={[100, 100, 100, 100, 100]}
-          connect={[true, true, true, true, true, true]}
-          range={{
-            min: [0],
-            max: [100],
-          }}
-          step={1}
-          pips={{
-            mode: 'values',
-            values: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-            density: 5,
-          }}
-          onSlide={onUpdateOld}
-        />
-        <Grid container>
+        <div className={classes.sliderWrapper}>
+          <Nouislider
+            className={classNames(classes.sliderOld)}
+            start={[100, 100, 100, 100, 100]}
+            connect={[true, true, true, true, true, true]}
+            range={{
+              min: [0],
+              max: [100],
+            }}
+            step={1}
+            pips={{
+              mode: 'values',
+              values: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+              density: 5,
+            }}
+            onSlide={onUpdateOld}
+          />
+        </div>
+        <Grid container spacing={2}>
           {DISTRIBUTION_NAMES.map((d) => (
-            <Grid key={d.name} item xs={12} sm={6} md={2}>
-              <Typography>
+            <Grid key={d.name} item xs>
+              <Typography style={{ whiteSpace: 'nowrap' }}>
                 {d.name === 'Power' ? (
-                  <Attribute name="Power" />
+                  <Attribute name="Power" style={{ whiteSpace: 'nowrap' }} />
                 ) : (
-                  <Condition name={d.name} disableLink />
+                  <Condition name={d.name} disableLink style={{ whiteSpace: 'nowrap' }} />
                 )}{' '}
                 {distributionOld[d.name]}%
               </Typography>
@@ -155,64 +167,48 @@ const DamageDistribution = ({ classes }) => {
     dispatch(changeTextBoxes({ index: key, value: value }));
   };
   const SlidersNew = () => {
-    return (
-      <Grid container>
-        {DISTRIBUTION_NAMES.map((d, index) => (
-          <React.Fragment key={`distriNew_${d.name}`}>
-            <Grid item xs={12} sm={3}>
-              <FormControl className={classes.margin}>
-                <InputLabel htmlFor={`input-with-icon-adornment-${index}`}>
+    return DISTRIBUTION_NAMES.map((d, index) => (
+      <Box display="flex" flexWrap="wrap" key={`distriNew_${d.name}`}>
+        <Box>
+          <FormControl className={classNames(classes.margin, classes.textbox)}>
+            <InputLabel htmlFor={`input-with-icon-adornment-${index}`}>
+              {d.name === 'Power' ? (
+                <Attribute name="Power" text="Power Coefficient" />
+              ) : (
+                <Condition name={d.name} text={`Avg. ${d.name} stacks`} />
+              )}
+            </InputLabel>
+            <Input
+              id={`input-with-icon-adornment-${index}`}
+              value={textBoxes[d.name]}
+              endAdornment={
+                <InputAdornment position="end">
                   {d.name === 'Power' ? (
-                    <Attribute name="Power" text="Power Coefficient" />
+                    <Attribute name="Power" disableLink disableText />
                   ) : (
-                    <Condition name={d.name} text={`Avg. ${d.name} stacks`} />
+                    <Condition name={d.name} disableLink disableText />
                   )}
-                </InputLabel>
-                <Input
-                  id={`input-with-icon-adornment-${index}`}
-                  value={textBoxes[d.name]}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      {d.name === 'Power' ? (
-                        <Attribute name="Power" disableLink disableText />
-                      ) : (
-                        <Condition name={d.name} disableLink disableText />
-                      )}
-                    </InputAdornment>
-                  }
-                  onChange={handleChangeTextNew(d.name)}
-                />
-              </FormControl>
-            </Grid>
-            <Grid item xs={12} sm={9}>
-              <Nouislider
-                className={classNames(classes.sliderNew, classes.slider)}
-                start={distributionNew[d.name]}
-                connect={[true, false]}
-                range={{
-                  min: [d.min],
-                  max: [d.max],
-                }}
-                step={d.step}
-                pips={{
-                  mode: 'values',
-                  values: [
-                    0,
-                    d.max - (4 * d.max) / 5,
-                    d.max - (3 * d.max) / 5,
-                    d.max - (2 * d.max) / 5,
-                    d.max - d.max / 5,
-                    d.max,
-                  ],
-                  density: 5,
-                }}
-                onSlide={debounce(onUpdateNew(d.name), 50)}
-              />
-            </Grid>
-          </React.Fragment>
-        ))}
-      </Grid>
-    );
+                </InputAdornment>
+              }
+              onChange={handleChangeTextNew(d.name)}
+            />
+          </FormControl>
+        </Box>
+        <Box flexGrow={1}>
+          <Nouislider
+            className={classNames(classes.sliderNew, classes.slider)}
+            start={distributionNew[d.name]}
+            connect={[true, false]}
+            range={{
+              min: [d.min],
+              max: [d.max],
+            }}
+            step={d.step}
+            onSlide={debounce(onUpdateNew(d.name), 50)}
+          />
+        </Box>
+      </Box>
+    ));
   };
 
   return version === 1 ? SliderOld() : SlidersNew();
