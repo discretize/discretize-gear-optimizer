@@ -51,7 +51,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
   const buffs = useSelector(getBuffs);
 
   const [state, setState] = useState({
-    mobileView: false,
+    mobileView: window.innerWidth < 900,
     drawerOpen: false,
     hover: [false, false, false, false, false, false, false, false, false],
     anchor: null,
@@ -59,15 +59,14 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
   const { mobileView, drawerOpen } = state;
 
   const setResponsiveness = () => {
-    return window.innerWidth < 900
-      ? setState((prevState) => ({ ...prevState, mobileView: true }))
-      : setState((prevState) => ({ ...prevState, mobileView: false }));
+    const mobileViewCurrent = window.innerWidth < 900;
+    if (mobileViewCurrent !== mobileView) {
+      setState((prevState) => ({ ...prevState, mobileView: mobileViewCurrent }));
+    }
   };
   const debouncedResponsive = debounce(setResponsiveness, 300);
 
   useEffect(() => {
-    debouncedResponsive();
-
     window.addEventListener('resize', debouncedResponsive);
 
     return () => {
