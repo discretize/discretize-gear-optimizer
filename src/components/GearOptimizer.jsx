@@ -1,6 +1,16 @@
 /* eslint-disable no-console */
-import { Button, FormControlLabel, Grid, Switch, withStyles, Box } from '@material-ui/core';
-import { Cancel, Functions } from '@material-ui/icons';
+import {
+  Box,
+  Button,
+  FormControlLabel,
+  Grid,
+  Switch,
+  Typography,
+  withStyles,
+} from '@material-ui/core';
+import { Cancel } from '@material-ui/icons';
+import EqualizerRoundedIcon from '@material-ui/icons/EqualizerRounded';
+import classNames from 'classnames';
 import { graphql, StaticQuery } from 'gatsby';
 import { Attribute, ConsumableEffect, Item } from 'gw2-ui-bulk';
 import React from 'react';
@@ -10,6 +20,7 @@ import {
   changeAllDistributionsOld,
   changeAllTextBoxes,
   changeBuff,
+  changeControl,
   changeDistributionVersion,
   changePriority,
   getControl,
@@ -19,7 +30,7 @@ import {
 } from '../state/gearOptimizerSlice';
 import { PROFESSIONS } from '../utils/gw2-data';
 import ARinput from './ARinput';
-import { LinearProgressWithLabel } from './baseComponents/LinearProgressWithLabel';
+import CircularProgressWithLabel from './baseComponents/CircularProgressWithLabel';
 import Presets from './baseComponents/Presets';
 import Section from './baseComponents/Section';
 import Buffs from './Buffs';
@@ -46,11 +57,11 @@ const styles = (theme) => ({
   button: {
     margin: theme.spacing(1),
   },
-  icon: {
-    fontSize: 18,
+  label: {
+    height: 40,
   },
-  margin: {
-    marginBottom: theme.spacing(2),
+  icon: {
+    fontSize: 40,
   },
   containerItem: {
     // borderBottom: `3px solid ${theme.palette.primary.dark}`,
@@ -168,6 +179,7 @@ const MainComponent = ({ classes, data }) => {
     dispatch({
       type: 'CANCEL',
     });
+    dispatch(changeControl({ key: 'percentageDone', value: 0 }));
     console.log('cancel button pressed');
   }
 
@@ -355,8 +367,15 @@ const MainComponent = ({ classes, data }) => {
             color="primary"
             className={classes.button}
             onClick={onStartCalculate}
+            classes={{ label: classes.label }}
+            disabled={progress < 100 && progress !== 0}
           >
-            <Functions className={classes.icon}></Functions> Calculate
+            {progress < 100 && progress !== 0 ? (
+              <CircularProgressWithLabel variant="determinate" value={progress} />
+            ) : (
+              <EqualizerRoundedIcon className={classes.icon}></EqualizerRoundedIcon>
+            )}
+            <Typography>Calculate</Typography>
           </Button>
           <Button
             variant="outlined"
@@ -364,10 +383,9 @@ const MainComponent = ({ classes, data }) => {
             className={classes.button}
             onClick={onCancelCalculate}
           >
-            <Cancel className={classes.icon}></Cancel> Stop
+            <Cancel className={classNames(classes.icon)}></Cancel>
+            <Typography style={{ marginLeft: 8 }}>Abort</Typography>
           </Button>
-
-          <LinearProgressWithLabel value={progress} />
 
           <ResultTable />
           <Box m={3} />
