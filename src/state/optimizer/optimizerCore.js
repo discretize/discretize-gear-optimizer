@@ -264,7 +264,7 @@ export function setup(input) {
 
   // legacy percent distribution conversion
   // see: https://github.com/discretize/discretize-old/discussions/136
-  if (input.percentDistribution) {
+  if (input.percentDistribution && input.distributionVersion !== 2) {
     const { Power, ...rest } = input.percentDistribution;
     settings.distribution = {};
     settings.distribution['Power'] = Power / 1025;
