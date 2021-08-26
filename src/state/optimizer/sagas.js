@@ -32,8 +32,6 @@ function* runCalc() {
     modifiers,
   } = state.gearOptimizer;
 
-  console.log('INFUSIONS', INFUSIONS);
-
   const input = {
     modifiers: modifiers.map((modifier) => JSON.parse(modifier.modifiers)),
     tags: undefined,
@@ -54,68 +52,10 @@ function* runCalc() {
     percentDistribution: getDistributionOld(state),
     distribution: getDistributionNew(state),
   };
-  console.log('input (real):', input);
+  console.log('input:', input);
 
-  // hardcode for now
-  const fakeInput = {
-    'modifiers': [
-      { 'buff': { 'Condition Damage': 180 } },
-      { 'buff': { 'Precision': 80 } },
-      { 'buff': { 'Power': 40 } },
-      { 'flat': { 'Burning Duration': 20 } },
-      { 'flat': { 'Critical Chance': 10 }, 'buff': { 'Ferocity': 150 } },
-      { 'multiplier': { 'Burning Damage': 0.15 } },
-      { 'multiplier': { 'Effective Power': 0.09 } },
-      { 'flat': { 'Resolution Duration': 25 } },
-      { 'convert': { 'Condition Damage': { 'Vitality': 0.13 } } },
-      { 'flat': { 'Condition Damage': 250, 'Healing Power': 250, 'Vitality': 250 } },
-      { 'buff': { 'Power': 750, 'Condition Damage': 750 } },
-      { 'flat': { 'Critical Chance': 20 } },
-      {
-        'multiplier': {
-          'target: Effective Power': 0.25,
-          'target: Effective Condition Damage': 0.25,
-        },
-      },
-      { 'buff': { 'Power': 100, 'Condition Damage': 100 } },
-      { 'buff': { 'Precision': 100, 'Ferocity': 100 } },
-      { 'buff': { 'Power': 100 } },
-      { 'buff': { 'Precision': 100 } },
-      { 'multiplier': { 'add: Effective Power': 0.05 } },
-      {
-        'flat': { 'Condition Damage': 175, 'Burning Duration': 50 },
-        'multiplier': { 'Effective Health': 0.1 },
-      },
-      { 'multiplier': { 'add: Effective Condition Damage': 0.05 } },
-      { 'flat': { 'Condition Damage': 100, 'Expertise': 70 } },
-      { 'convert': { 'Condition Damage': { 'Power': 0.03, 'Precision': 0.03 } } },
-      { 'flat': { 'Agony Resistance': 150 } },
-    ],
-    'profession': 'guardian',
-    'weapontype': 'Dual wield',
-    'affixes': ['Viper', 'Sinister', 'Grieving'],
-    'forcedAffixes': ['', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    'rankby': 'Damage',
-    'minBoonDuration': 0,
-    'minHealingPower': null,
-    'minToughness': null,
-    'maxToughness': null,
-    'maxResults': 30,
-    'primaryInfusion': 'Condition Damage',
-    'secondaryInfusion': 'None',
-    'primaryMaxInfusions': 18,
-    'secondaryMaxInfusions': 18,
-    'infusionNoDuplicates': false,
-    'percentDistribution': {
-      'Power': 31,
-      'Burning': 65,
-      'Bleeding': 3,
-      'Poison': 0,
-      'Torment': 1,
-      'Confusion': 0,
-    },
-  };
-  console.log('hardcoded input for comparison:', fakeInput);
+  // const fakeInput = { 'modifiers': [ { 'buff': { 'Condition Damage': 180 } }, { 'buff': { 'Precision': 80 } }, { 'buff': { 'Power': 40 } }, { 'flat': { 'Burning Duration': 20 } }, { 'flat': { 'Critical Chance': 10 }, 'buff': { 'Ferocity': 150 } }, { 'multiplier': { 'Burning Damage': 0.15 } }, { 'multiplier': { 'Effective Power': 0.09 } }, { 'flat': { 'Resolution Duration': 25 } }, { 'convert': { 'Condition Damage': { 'Vitality': 0.13 } } }, { 'flat': { 'Condition Damage': 250, 'Healing Power': 250, 'Vitality': 250 } }, { 'buff': { 'Power': 750, 'Condition Damage': 750 } }, { 'flat': { 'Critical Chance': 20 } }, { 'multiplier': { 'target: Effective Power': 0.25, 'target: Effective Condition Damage': 0.25, }, }, { 'buff': { 'Power': 100, 'Condition Damage': 100 } }, { 'buff': { 'Precision': 100, 'Ferocity': 100 } }, { 'buff': { 'Power': 100 } }, { 'buff': { 'Precision': 100 } }, { 'multiplier': { 'add: Effective Power': 0.05 } }, { 'flat': { 'Condition Damage': 175, 'Burning Duration': 50 }, 'multiplier': { 'Effective Health': 0.1 }, }, { 'multiplier': { 'add: Effective Condition Damage': 0.05 } }, { 'flat': { 'Condition Damage': 100, 'Expertise': 70 } }, { 'convert': { 'Condition Damage': { 'Power': 0.03, 'Precision': 0.03 } } }, { 'flat': { 'Agony Resistance': 150 } }, ], 'profession': 'guardian', 'weapontype': 'Dual wield', 'affixes': ['Viper', 'Sinister', 'Grieving'], 'forcedAffixes': ['', '', '', '', '', '', '', '', '', '', '', '', '', ''], 'rankby': 'Damage', 'minBoonDuration': 0, 'minHealingPower': null, 'minToughness': null, 'maxToughness': null, 'maxResults': 30, 'primaryInfusion': 'Condition Damage', 'secondaryInfusion': 'None', 'primaryMaxInfusions': 18, 'secondaryMaxInfusions': 18, 'infusionNoDuplicates': false, 'percentDistribution': { 'Power': 31, 'Burning': 65, 'Bleeding': 3, 'Poison': 0, 'Torment': 1, 'Confusion': 0, }, };
+  // console.log('hardcoded input for comparison:', fakeInput);
 
   // temp: convert "poisoned" to "poison"
   function convertPoison(distribution) {
