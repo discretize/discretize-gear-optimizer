@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { withStyles, Grid, Typography } from '@material-ui/core';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { getControl, getExtras, getProfession } from '../../state/gearOptimizerSlice';
+import { getControl, getExtras, getModifiers, getProfession } from '../../state/gearOptimizerSlice';
 import Armor from '../gw2/Armor';
 import BackAndTrinkets from '../gw2/BackAndTrinkets';
 import { Classes, Defense, INFUSIONS } from '../../utils/gw2-data';
@@ -11,21 +11,23 @@ import SpecialDurations from './SpecialDurations';
 import AffixesStats from './AffixesStats';
 import Weapons from './Weapons';
 import HelperIcon from '../HelperIcon';
+import AppliedModifiers from './AppliedModifiers';
+import { updateAttributes } from '../../state/optimizer/optimizerCore';
 
 const styles = (theme) => ({
-  container: {
-    maxHeight: 440,
-  },
+  container: { maxHeight: '600px' },
   bgImage: {
-    width: '100%',
+    height: '100%',
   },
 });
 
-const ResultDetails = ({ classes, data }) => {
+const ResultDetails = ({ classes, data, buffData }) => {
   const selected = useSelector(getControl('selected'));
   const character = useSelector(getControl('list'))[selected];
   const extras = useSelector(getExtras);
   const profession = useSelector(getProfession);
+  const modifiers = useSelector(getModifiers);
+
   if (selected === '' || character === undefined) {
     return null;
   }
@@ -112,9 +114,9 @@ const ResultDetails = ({ classes, data }) => {
             infusion2Id={infusions[17]}
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid item xs={12} sm={6} md={6} className={classes.container}>
           <GatsbyImage
-            layout="fullWidth"
+            layout="constrained"
             image={image}
             alt="Profession Image"
             className={classes.bgImage}
@@ -143,12 +145,14 @@ const ResultDetails = ({ classes, data }) => {
             accessory2InfusionId={infusions[15]}
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid item xs={12} sm={6} md={12}>
           <SpecialDurations data={character.attributes} />
 
           <AffixesStats data={character.gearStats} />
         </Grid>
       </Grid>
+
+      <AppliedModifiers data={modifiers} buffData={buffData} />
     </div>
   );
 };

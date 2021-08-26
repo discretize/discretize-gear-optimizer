@@ -367,7 +367,7 @@ const MainComponent = ({ classes, data }) => {
           <LinearProgressWithLabel value={progress} />
 
           <ResultTable />
-          <ResultDetails data={data} />
+          <ResultDetails data={data} buffData={data.buffs.list} />
         </>
       )}
     </div>
