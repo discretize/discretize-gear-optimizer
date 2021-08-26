@@ -1037,6 +1037,20 @@ function calcResults(_character) {
       results.effectiveDamageDistribution[`${key} Damage`] = `${(damage * 100).toFixed(1)}%`;
     }
   }
+
+  // damage indicator breakdown
+  results.damageBreakdown = {};
+  for (const key of Object.keys(settings.distribution)) {
+    if (key === 'Power') {
+      results.damageBreakdown['Power'] = attributes['Power DPS']
+        .toFixed(2)
+        .toLocaleString('en-US');
+    } else {
+      results.damageBreakdown[`${key} Damage`] = attributes[`${key} DPS`]
+        .toFixed(2)
+        .toLocaleString('en-US');
+    }
+  }
 }
 
 /**
