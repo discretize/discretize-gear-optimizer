@@ -12,10 +12,10 @@ const styles = (theme) => ({
   },
 });
 
-const AffixesStats = ({ classes, data }) => {
+const OutputDistribution = ({ classes, title, data }) => {
   return (
     <>
-      <Typography variant="h6">Effective Distribution</Typography>
+      <Typography variant="h6">{title}</Typography>
       <Table padding="none">
         <TableBody>
           {data.map((d) => (
@@ -36,4 +36,4 @@ const AffixesStats = ({ classes, data }) => {
   );
 };
 
-export default withStyles(styles)(AffixesStats);
+export default withStyles(styles)(OutputDistribution);

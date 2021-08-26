@@ -39,6 +39,8 @@ const ResultDetails = ({ classes, data, buffData }) => {
   // Fetch additional result values from the optimizer core (on demand)
   const character = { ...charRaw };
   updateAttributes(character);
+  // eslint-disable-next-line no-console
+  console.log('result character', character);
 
   const classData = Classes[profession.toLowerCase()].weapons;
 
@@ -106,6 +108,13 @@ const ResultDetails = ({ classes, data, buffData }) => {
 
   const image = getImage(data[`${profession.toLowerCase()}Picture`]);
 
+  const damageBreakdown = Object.keys(character.results.effectiveDamageDistribution).map(
+    (d) => ({
+      name: d === 'Poison Damage' ? 'Poisoned' : d.replace('Damage', '').trim(),
+      value: character.results.damageBreakdown[d],
+    }),
+  );
+
   const effectiveDistribution = Object.keys(character.results.effectiveDamageDistribution).map(
     (d) => ({
       name: d === 'Poison Damage' ? 'Poisoned' : d.replace('Damage', '').trim(),
@@ -135,7 +144,8 @@ const ResultDetails = ({ classes, data, buffData }) => {
         </Grid>
 
         <Grid item xs={12} sm={6} md={4}>
-          <OutputDistribution data={effectiveDistribution} />
+          <OutputDistribution title="Damage Breakdown" data={damageBreakdown} />
+          <OutputDistribution title="Effective Distribution" data={effectiveDistribution} />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <AffixesStats
