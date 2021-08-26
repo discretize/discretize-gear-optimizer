@@ -1,8 +1,6 @@
 import { Grid, List, ListItem, withStyles } from '@material-ui/core';
 import { Attribute, Profession } from 'gw2-ui-bulk';
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { getProfession } from '../../state/gearOptimizerSlice';
 import { firstUppercase } from '../../utils/usefulFunctions';
 
 const styles = (theme) => ({
@@ -15,9 +13,8 @@ const styles = (theme) => ({
   },
 });
 
-const Attributes = ({ classes, data }) => {
-  const profession = useSelector(getProfession);
-
+const Attributes = ({ classes, profession, data }) => {
+  console.log(data);
   return (
     <div className={classes.root}>
       <Grid container>
@@ -111,7 +108,7 @@ const Attributes = ({ classes, data }) => {
               />
             </ListItem>
             <ListItem>
-              <Attribute name="Magic Find" text={0} className={classes.gw2Item} />
+              <Attribute name="Magic Find" text="0" className={classes.gw2Item} />
             </ListItem>
           </List>
         </Grid>

@@ -1,36 +1,39 @@
+import { Typography, withStyles } from '@material-ui/core';
+import { getImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { withStyles, Grid, Typography } from '@material-ui/core';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { getControl, getExtras, getModifiers, getProfession } from '../../state/gearOptimizerSlice';
-import Armor from '../gw2/Armor';
-import BackAndTrinkets from '../gw2/BackAndTrinkets';
+import {
+  getControl,
+  getExtra,
+  getExtras,
+  getModifiers,
+  getPriority,
+  getProfession,
+} from '../../state/gearOptimizerSlice';
 import { Classes, Defense, INFUSIONS } from '../../utils/gw2-data';
-import Attributes from './Attributes';
-import SpecialDurations from './SpecialDurations';
+import Character from '../gw2/Character';
 import AffixesStats from './AffixesStats';
-import Weapons from './Weapons';
-import HelperIcon from '../HelperIcon';
 import AppliedModifiers from './AppliedModifiers';
-import { updateAttributes } from '../../state/optimizer/optimizerCore';
+import SpecialDurations from './SpecialDurations';
 
-const styles = (theme) => ({
-  container: { maxHeight: '600px' },
-  bgImage: {
-    height: '100%',
-  },
-});
+const styles = (theme) => ({});
 
 const ResultDetails = ({ classes, data, buffData }) => {
   const selected = useSelector(getControl('selected'));
   const character = useSelector(getControl('list'))[selected];
+
   const extras = useSelector(getExtras);
   const profession = useSelector(getProfession);
+  const sigil1 = useSelector(getExtra('Sigil1'));
+  const sigil2 = useSelector(getExtra('Sigil2'));
+  const priority = useSelector(getPriority('weaponType'));
   const modifiers = useSelector(getModifiers);
 
   if (selected === '' || character === undefined) {
     return null;
   }
+
+  const classData = Classes[profession.toLowerCase()].weapons;
 
   const { defense } = Classes[profession.toLowerCase()];
   let weight = 'Light';
@@ -39,14 +42,6 @@ const ResultDetails = ({ classes, data, buffData }) => {
   } else if (defense === Defense.MEDIUM) {
     weight = 'medium';
   }
-
-  console.log(character);
-  console.log(data);
-
-  const rune = extras.Runes
-    ? data.runes.list.flatMap((r) => r.items).find((r) => r.id === extras.Runes)
-    : '';
-  const runeName = extras.Runes ? rune.text.split(' ')[rune.text.split(' ').length - 1] : '';
 
   const infusions =
     'infusions' in character
@@ -61,96 +56,66 @@ const ResultDetails = ({ classes, data, buffData }) => {
           .flatMap((e) => e)
       : [];
 
+  const sigilData = data.sigils.list.flatMap((l) => l.items);
+  let sigil1Id = sigilData.find((d) => d.id === sigil1);
+  sigil1Id = sigil1Id ? sigil1Id.gw2_id : undefined;
+  let sigil2Id = sigilData.find((d) => d.id === sigil2);
+  sigil2Id = sigil2Id ? sigil2Id.gw2_id : undefined;
+
+  let wea1, wea2, weapData;
+  if (priority === 'Dual wield') {
+    wea1 = classData.mainHand.find((d) => d.type === 'one-handed');
+    [wea2] = classData.offHand;
+    console.log(character.gear);
+    weapData = {
+      weapon1MainId: wea1.gw2_id,
+      weapon1MainAffix: character.gear[12],
+      weapon1MainInfusion1Id: infusions ? infusions[16] : null,
+      weapon1MainSigil1Id: sigil1Id,
+      weapon1MainSigil1: sigil1,
+      weapon1OffId: wea2.gw2_id,
+      weapon1OffAffix: character.gear[13],
+      weapon1OffInfusionId: infusions ? infusions[17] : null,
+      weapon1OffSigilId: sigil2Id,
+      weapon1OffSigil: sigil2,
+    };
+  } else {
+    wea1 = classData.mainHand.find((d) => d.type === 'two-handed');
+    weapData = {
+      weapon1MainId: wea1.gw2_id,
+      weapon1MainInfusion1Id: infusions[16],
+      weapon1MainSigil1Id: sigil1Id,
+      weapon1MainInfusion2Id: infusions[17],
+      weapon1MainSigil2Id: sigil2Id,
+      weapon1MainSigil1: sigil1,
+      weapon1MainSigil2: sigil2,
+    };
+  }
+
+  const rune = extras.Runes
+    ? data.runes.list.flatMap((r) => r.items).find((r) => r.id === extras.Runes)
+    : '';
+  const runeName = extras.Runes ? rune.text.split(' ')[rune.text.split(' ').length - 1] : '';
+
   const image = getImage(data[`${profession.toLowerCase()}Picture`]);
 
   return (
     <div>
       <Typography variant="h5">Character</Typography>
+      <Character
+        weight={weight}
+        character={character}
+        profession={profession}
+        infusions={infusions}
+        runeId={rune.gw2_id}
+        runeName={runeName}
+        image={image}
+        weapons={weapData}
+      />
 
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={3}>
-          <Armor
-            weight={weight}
-            helmAffix={character.gear[0]}
-            helmRuneId={rune.gw2_id}
-            helmRune={runeName}
-            helmRuneCount={6}
-            helmInfusionId={infusions[0]}
-            shouldersAffix={character.gear[1]}
-            shouldersRuneId={rune.gw2_id}
-            shouldersRune={runeName}
-            shouldersRuneCount={6}
-            shouldersInfusionId={infusions[1]}
-            coatAffix={character.gear[2]}
-            coatRuneId={rune.gw2_id}
-            coatRune={runeName}
-            coatRuneCount={6}
-            coatInfusionId={infusions[2]}
-            glovesAffix={character.gear[3]}
-            glovesRuneId={rune.gw2_id}
-            glovesRune={runeName}
-            glovesRuneCount={6}
-            glovesInfusionId={infusions[3]}
-            leggingsAffix={character.gear[4]}
-            leggingsRuneId={rune.gw2_id}
-            leggingsRune={runeName}
-            leggingsRuneCount={6}
-            leggingsInfusionId={infusions[4]}
-            bootsAffix={character.gear[5]}
-            bootsRuneId={rune.gw2_id}
-            bootsRune={runeName}
-            bootsRuneCount={6}
-            bootsInfusionId={infusions[5]}
-          />
-          <Typography variant="h6">
-            Weapons{' '}
-            <HelperIcon text="The weapons are placeholders - they probably do not match your build, but they also do not matter for the optimization :shrug:" />
-          </Typography>
-          <Weapons
-            data={data.sigils.list.flatMap((l) => l.items)}
-            affix1={character.gear[12]}
-            affix2={character.gear[13]}
-            infusion1Id={infusions[16]}
-            infusion2Id={infusions[17]}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6} className={classes.container}>
-          <GatsbyImage
-            layout="constrained"
-            image={image}
-            alt="Profession Image"
-            className={classes.bgImage}
-          />
-        </Grid>
+      <SpecialDurations data={character.attributes} />
 
-        <Grid item xs={12} sm={6} md={3}>
-          <Typography variant="h6">Attributes</Typography>
-          <Attributes data={character.attributes} />
-          <BackAndTrinkets
-            backItemAffix={character.gear[11]}
-            backItemInfusion1Id={infusions[6]}
-            backItemInfusion2Id={infusions[7]}
-            amuletAffix={character.gear[6]}
-            ring1Affix={character.gear[7]}
-            ring1Infusion1Id={infusions[8]}
-            ring1Infusion2Id={infusions[9]}
-            ring1Infusion3Id={infusions[10]}
-            ring2Affix={character.gear[8]}
-            ring2Infusion1Id={infusions[11]}
-            ring2Infusion2Id={infusions[12]}
-            ring2Infusion3Id={infusions[13]}
-            accessory1Affix={character.gear[9]}
-            accessory1InfusionId={infusions[14]}
-            accessory2Affix={character.gear[10]}
-            accessory2InfusionId={infusions[15]}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={12}>
-          <SpecialDurations data={character.attributes} />
-
-          <AffixesStats data={character.gearStats} />
-        </Grid>
-      </Grid>
+      <AffixesStats data={character.gearStats} />
 
       <AppliedModifiers data={modifiers} buffData={buffData} />
     </div>
