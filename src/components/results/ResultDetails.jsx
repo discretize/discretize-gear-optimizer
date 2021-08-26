@@ -1,4 +1,4 @@
-import { Typography, withStyles } from '@material-ui/core';
+import { Grid, Typography, withStyles } from '@material-ui/core';
 import { getImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { useSelector } from 'react-redux';
@@ -10,17 +10,20 @@ import {
   getPriority,
   getProfession,
 } from '../../state/gearOptimizerSlice';
+import { updateAttributes } from '../../state/optimizer/optimizerCore';
 import { Classes, Defense, INFUSIONS } from '../../utils/gw2-data';
 import Character from '../gw2/Character';
 import AffixesStats from './AffixesStats';
 import AppliedModifiers from './AppliedModifiers';
+import Indicators from './Indicators';
+import OutputDistribution from './OutputDistribution';
 import SpecialDurations from './SpecialDurations';
 
 const styles = (theme) => ({});
 
 const ResultDetails = ({ classes, data, buffData }) => {
   const selected = useSelector(getControl('selected'));
-  const character = useSelector(getControl('list'))[selected];
+  const charRaw = useSelector(getControl('list'))[selected];
 
   const extras = useSelector(getExtras);
   const profession = useSelector(getProfession);
@@ -29,9 +32,13 @@ const ResultDetails = ({ classes, data, buffData }) => {
   const priority = useSelector(getPriority('weaponType'));
   const modifiers = useSelector(getModifiers);
 
-  if (selected === '' || character === undefined) {
+  if (selected === '' || charRaw === undefined) {
     return null;
   }
+
+  // Fetch additional result values from the optimizer core (on demand)
+  const character = { ...charRaw };
+  updateAttributes(character);
 
   const classData = Classes[profession.toLowerCase()].weapons;
 
@@ -62,11 +69,11 @@ const ResultDetails = ({ classes, data, buffData }) => {
   let sigil2Id = sigilData.find((d) => d.id === sigil2);
   sigil2Id = sigil2Id ? sigil2Id.gw2_id : undefined;
 
+  // Calculate the props for the weapons component
   let wea1, wea2, weapData;
   if (priority === 'Dual wield') {
     wea1 = classData.mainHand.find((d) => d.type === 'one-handed');
     [wea2] = classData.offHand;
-    console.log(character.gear);
     weapData = {
       weapon1MainId: wea1.gw2_id,
       weapon1MainAffix: character.gear[12],
@@ -99,6 +106,13 @@ const ResultDetails = ({ classes, data, buffData }) => {
 
   const image = getImage(data[`${profession.toLowerCase()}Picture`]);
 
+  const effectiveDistribution = Object.keys(character.results.effectiveDamageDistribution).map(
+    (d) => ({
+      name: d === 'Poison Damage' ? 'Poisoned' : d.replace('Damage', '').trim(),
+      value: character.results.effectiveDamageDistribution[d],
+    }),
+  );
+
   return (
     <div>
       <Typography variant="h5">Character</Typography>
@@ -113,9 +127,28 @@ const ResultDetails = ({ classes, data, buffData }) => {
         weapons={weapData}
       />
 
-      <SpecialDurations data={character.attributes} />
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6} md={4}>
+          <SpecialDurations data={character.attributes} />
+          <Indicators data={character.results.indicators} />
+          <AffixesStats data={character.gearStats} title="Stats from affixes" />
+        </Grid>
 
-      <AffixesStats data={character.gearStats} />
+        <Grid item xs={12} sm={6} md={4}>
+          <OutputDistribution data={effectiveDistribution} />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}>
+          <AffixesStats
+            data={character.results.effectivePositiveValues}
+            title="Damage loss from -5 of attribute"
+          />
+          <AffixesStats
+            data={character.results.effectiveNegativeValues}
+            title="Damage loss from -5 of attribute"
+          />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4}></Grid>
+      </Grid>
 
       <AppliedModifiers data={modifiers} buffData={buffData} />
     </div>

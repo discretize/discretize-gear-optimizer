@@ -14,7 +14,6 @@ const styles = (theme) => ({
 });
 
 const Attributes = ({ classes, profession, data }) => {
-  console.log(data);
   return (
     <div className={classes.root}>
       <Grid container>

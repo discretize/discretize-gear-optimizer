@@ -173,7 +173,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
       dispatch(changePriority({ key, value: prioritiesState[key] })),
     );
 
-    dispatch(changeState({ ...traitState, prof }));
+    dispatch(changeState({ ...traitState, profession: prof }));
     popup.close();
   };
 

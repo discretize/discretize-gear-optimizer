@@ -9,7 +9,7 @@ import Weapons from './Weapons';
 const styles = (theme) => ({
   container: { maxHeight: '600px' },
   bgImage: {
-    height: '100%',
+    width: '100%',
   },
   weapons: {
     marginTop: theme.spacing(8),
