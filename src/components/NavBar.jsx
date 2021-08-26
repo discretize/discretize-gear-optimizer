@@ -51,7 +51,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
   const buffs = useSelector(getBuffs);
 
   const [state, setState] = useState({
-    mobileView: window.innerWidth < 900,
+    mobileView: typeof window !== 'undefined' ? window.innerWidth < 900 : false,
     drawerOpen: false,
     hover: [false, false, false, false, false, false, false, false, false],
     anchor: null,
