@@ -119,8 +119,9 @@ function* runCalc() {
 
   // temp: convert "poisoned" to "poison"
   function convertPoison(distribution) {
-    const { Poisoned: poisonedValue, ...withoutPoisoned } = distribution;
-    return { Poison: poisonedValue, ...withoutPoisoned };
+    return Object.fromEntries(
+      Object.entries(distribution).map(([key, value]) => [key === 'Poisoned' ? 'Poison' : key, value]),
+    );
   }
   if ({}.hasOwnProperty.call(input.distribution, 'Poisoned')) {
     input.distribution = convertPoison(input.distribution);
