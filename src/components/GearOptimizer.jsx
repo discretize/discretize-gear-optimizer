@@ -342,6 +342,7 @@ const MainComponent = ({ classes, data }) => {
                   <Attribute name="Agony Resistance" disableLink disableText /> Agony Resistance
                 </>
               }
+              first={!expertMode}
               helpText="Adds 150% of your Agony Resistance to Precision, Toughness and Concentration."
               content={<ARinput />}
             />

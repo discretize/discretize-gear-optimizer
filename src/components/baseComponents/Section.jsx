@@ -42,6 +42,10 @@ const SectionInfo = (props) => (
     )}
   </>
 );
+
+/**
+ * First disables the delimiting line above!
+ */
 const Section = React.memo(({ classes, first, title, helpText, extraInfo, content }) => (
   <Grid item container spacing={2} className={classes.containerItem}>
     {!first && (

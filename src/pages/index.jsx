@@ -28,7 +28,7 @@ const IndexPage = ({ classes }) => {
         </Link>
       </MuiAlert>
       <Typography variant="h2" className={classes.headline}>
-        Gear Optimizer 2.0
+        Gear Optimizer
       </Typography>
       <GearOptimizer />
     </>
