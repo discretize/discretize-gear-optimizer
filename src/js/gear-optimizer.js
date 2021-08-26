@@ -633,19 +633,7 @@ import {
       modal += toCard('Effective Damage Distribution', results.effectiveDamageDistribution);
 
       // damage indicator breakdown
-      const damageIndicatorBreakdown = {};
-      $.each(settings.distribution, (key) => {
-        if (key === 'Power') {
-          damageIndicatorBreakdown['Power'] = attributes['Power DPS']
-            .toFixed(2)
-            .toLocaleString('en-US');
-        } else {
-          damageIndicatorBreakdown[`${key} Damage`] = attributes[`${key} DPS`]
-            .toFixed(2)
-            .toLocaleString('en-US');
-        }
-      });
-      modal += toCard('Damage indicator breakdown', damageIndicatorBreakdown);
+      modal += toCard('Damage indicator breakdown', results.damageBreakdown);
     }
 
     modal += '</div>';
