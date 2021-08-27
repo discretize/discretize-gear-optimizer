@@ -22,7 +22,7 @@ import {
   changeAllDistributionsNew,
   changeAllDistributionsOld,
   changeAllTextBoxes,
-  changeBuff,
+  replaceBuffs,
   changeControl,
   changeDistributionVersion,
   changePriority,
@@ -179,14 +179,8 @@ const MainComponent = ({ classes, data }) => {
   }
 
   const handleTemplateClickBuffs = (index) => (event) => {
-    // set all the buffs to disabled
-    Object.keys(store.getState().gearOptimizer.buffs).forEach((elem) =>
-      dispatch(changeBuff({ key: elem, value: false })),
-    );
-
-    // apply the preset
     const state = JSON.parse(data.presetBuffs.list[index].value);
-    Object.keys(state).forEach((key) => dispatch(changeBuff({ key, value: state[key] })));
+    dispatch(replaceBuffs(state));
   };
 
   const handleTemplateClickPriorities = (index) => (event) => {
