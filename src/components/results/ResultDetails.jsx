@@ -9,6 +9,7 @@ import {
   getModifiers,
   getPriority,
   getProfession,
+  getSelectedCharacter,
 } from '../../state/gearOptimizerSlice';
 import { updateAttributes } from '../../state/optimizer/optimizerCore';
 import { Classes, Defense, INFUSIONS } from '../../utils/gw2-data';
@@ -22,9 +23,6 @@ import SpecialDurations from './SpecialDurations';
 const styles = (theme) => ({});
 
 const ResultDetails = ({ classes, data, buffData }) => {
-  const selected = useSelector(getControl('selected'));
-  const charRaw = useSelector(getControl('list'))[selected];
-
   const extras = useSelector(getExtras);
   const profession = useSelector(getProfession);
   const sigil1 = useSelector(getExtra('Sigil1'));
@@ -32,7 +30,8 @@ const ResultDetails = ({ classes, data, buffData }) => {
   const priority = useSelector(getPriority('weaponType'));
   const modifiers = useSelector(getModifiers);
 
-  if (selected === '' || charRaw === undefined) {
+  const charRaw = useSelector(getSelectedCharacter);
+  if (!charRaw) {
     return null;
   }
 
