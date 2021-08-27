@@ -15,7 +15,7 @@ import classNames from 'classnames';
 import { graphql, StaticQuery } from 'gatsby';
 import { Attribute, ConsumableEffect, Item } from 'gw2-ui-bulk';
 import React from 'react';
-import { useDispatch, useSelector, useStore } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 import DoneAllIcon from '@material-ui/icons/DoneAll';
 import {
@@ -83,7 +83,6 @@ const styles = (theme) => ({
  * @returns the main ui
  */
 const MainComponent = ({ classes, data }) => {
-  const store = useStore();
   const dispatch = useDispatch();
 
   // Query variables from redux store that should have a global scope
@@ -109,61 +108,10 @@ const MainComponent = ({ classes, data }) => {
 
   function onStartCalculate(e) {
     console.log('calculate');
-    const { extras, buffs, skills, traits, extraModifiers } = store.getState().gearOptimizer;
 
-    // all selected modifiers will be collected in this array
-    const modifiers = [];
-
-    // Applies runes, sigils, food modifiers
-    const extrasData = [
-      { id: 'Runes', list: data.runes.list },
-      { id: 'Sigil1', list: data.sigils.list },
-      { id: 'Sigil2', list: data.sigils.list },
-      { id: 'Enhancement', list: data.enhancement.list },
-      { id: 'Nourishment', list: data.nourishment.list },
-    ];
-    extrasData
-      .filter((extra) => extras[extra.id] !== '')
-      .forEach((extra) => {
-        modifiers.push({
-          id: extras[extra.id],
-          modifiers: extra.list.flatMap((d) => d.items).find((a) => a.id === extras[extra.id])
-            .modifiers,
-          source: extra.id,
-        });
-      });
-
-    // Apply "buffs" modifiers
-    data.buffs.list
-      .flatMap((d) => d.items)
-      .filter((elem) => buffs[elem.id])
-      .forEach((elem) =>
-        modifiers.push({ id: elem.id, modifiers: elem.modifiers, gw2_id: elem.gw2_id }),
-      );
-
-    // map id to modifier. We dont store modifier values in the state!
-    const allSkillsAndTraits = data[profession.toLowerCase()].edges[0].node.list.flatMap(
-      (el) => el.items,
-    );
-    const matchedTraitModifiers = traits.modifiers.map((traitModifier) =>
-      allSkillsAndTraits.filter((t) => t !== null).find((trait) => trait.id === traitModifier.id),
-    );
-    const matchedSkillModifiers = skills.map((skill) =>
-      allSkillsAndTraits.filter((t) => t !== null).find((s) => s.id === skill),
-    );
-    modifiers.push(...matchedTraitModifiers);
-    modifiers.push(...matchedSkillModifiers);
-
-    // Apply extra (manual) modifiers
-    if (extraModifiers.length > 0) {
-      modifiers.push(
-        ...JSON.parse(extraModifiers).map((modi, index) => {
-          return { id: `extraModifier${index}`, modifiers: JSON.stringify(modi) };
-        }),
-      );
-    }
-
-    dispatch(setModifiers(modifiers));
+    // pass data from GraphQL
+    dispatch(setModifiers(data));
+    
     dispatch(changeControl({ key: 'status', value: RUNNING }));
     dispatch({
       type: 'START',
