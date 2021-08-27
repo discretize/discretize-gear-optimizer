@@ -57,7 +57,11 @@ const StickyHeadTable = ({ classes }) => {
           </TableHead>
           <TableBody>
             {list.map((character) => (
-              <ResultTableRow character={character} key={character.id} selected={character === selectedCharacter} />
+              <ResultTableRow
+                character={character}
+                key={character.id}
+                selected={character === selectedCharacter}
+              />
             ))}
           </TableBody>
         </Table>
