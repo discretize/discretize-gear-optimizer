@@ -84,8 +84,7 @@ const MainComponent = ({ classes, data }) => {
   // Query variables from redux store that should have a global scope
   const expertMode = useSelector(getControl('expertMode'));
   const profession = useSelector(getProfession);
-  const progress = useSelector(getControl('percentageDone'));
-  const distributionVersion = useSelector(getDistributionVersion);
+  const progress = useSelector(getControl('progress'));
 
   const skillsData = profession
     ? data[profession.toLowerCase()].edges[0].node.list.find((d) => d.section === 'Skills')
@@ -168,7 +167,7 @@ const MainComponent = ({ classes, data }) => {
     dispatch({
       type: 'CANCEL',
     });
-    dispatch(changeControl({ key: 'percentageDone', value: 0 }));
+    dispatch(changeControl({ key: 'progress', value: 0 }));
     console.log('cancel button pressed');
   }
 
@@ -318,7 +317,7 @@ const MainComponent = ({ classes, data }) => {
                       <FormControlLabel
                         control={
                           <Switch
-                            checked={distributionVersion === 1}
+                            checked={store.getState().gearOptimizer.distribution.version === 1}
                             onChange={(e) =>
                               dispatch(changeDistributionVersion(e.target.checked ? 1 : 2))
                             }
