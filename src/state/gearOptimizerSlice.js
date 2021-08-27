@@ -215,7 +215,9 @@ export const gearOptimizerSlice = createSlice({
       state.buffs[action.payload.key] = action.payload.value;
     },
     replaceBuffs: (state, action) => {
-      state.buffs = state.buffs.map(key => Boolean(action[key]));
+      state.buffs = Object.fromEntries(
+        Object.keys(state.buffs).map((key) => [key, Boolean(action.payload[key])]),
+      );
     },
     changeInfusions: (state, action) => {
       state.infusions[action.payload.key] = action.payload.value;
