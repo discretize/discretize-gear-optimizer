@@ -10,6 +10,7 @@ import {
   getDistributionOld,
 } from '../gearOptimizerSlice';
 import { INFUSIONS } from '../../utils/gw2-data';
+import { SUCCESS } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -92,7 +93,7 @@ function* runCalc() {
         value: { percent: newPercent, isChanged, newList },
       } = result);
       console.log(`${newPercent}% done`);
-      yield put(changeControl({ key: 'percentageDone', value: newPercent }));
+      yield put(changeControl({ key: 'progress', value: newPercent }));
 
       if (isChanged) {
         console.log('list changed');
@@ -104,6 +105,9 @@ function* runCalc() {
 
       if (done) {
         // cleanup
+        yield put(changeControl({ key: 'selected', value: 0 }));
+        yield put(changeControl({ key: 'status', value: SUCCESS }));
+
         console.log(`calculation done in ${Date.now() - time}ms`);
         break;
       }

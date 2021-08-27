@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { withStyles } from '@material-ui/core';
+import { Box, withStyles } from '@material-ui/core';
 import { getList, getPriority, changeControl, getControl } from '../../state/gearOptimizerSlice';
 import { Slots } from '../../utils/gw2-data';
 
@@ -18,12 +18,14 @@ const styles = (theme) => ({
   },
   container: {
     maxHeight: 440,
+    borderColor: theme.palette.background.paper,
+    border: '1px solid',
   },
   cell: {
     cursor: 'pointer',
   },
   tablehead: {
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.background.paper,
   },
 });
 
@@ -35,7 +37,7 @@ const StickyHeadTable = ({ classes }) => {
   const dispatch = useDispatch();
 
   return (
-    <Paper className={classes.root} elevation={5}>
+    <Box boxShadow={8}>
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
@@ -60,11 +62,10 @@ const StickyHeadTable = ({ classes }) => {
                 onClick={(e) => dispatch(changeControl({ key: 'selected', value: i }))}
                 className={classes.cell}
                 selected={i === selected}
-                style={i === selected ? { backgroundColor: '#009a9b' } : null}
+                style={i === selected ? { backgroundColor: 'rgba(0, 204, 204, 0.2)' } : null}
+                hover
               >
-                <TableCell component="th" scope="row">
-                  {character.attributes.Damage.toFixed(2)}
-                </TableCell>
+                <TableCell scope="row">{character.attributes.Damage.toFixed(2)}</TableCell>
                 {character.gear.map((element, index) => (
                   // eslint-disable-next-line react/no-array-index-key
                   <TableCell align="center" key={element + index} padding="none">
@@ -76,7 +77,7 @@ const StickyHeadTable = ({ classes }) => {
           </TableBody>
         </Table>
       </TableContainer>
-    </Paper>
+    </Box>
   );
 };
 

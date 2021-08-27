@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { WAITING } from './optimizer/status';
 
 export const gearOptimizerSlice = createSlice({
   name: 'go',
@@ -7,7 +8,8 @@ export const gearOptimizerSlice = createSlice({
       expertMode: true,
       list: [],
       progress: 0,
-      selected: '',
+      selected: 0,
+      STATUS: WAITING,
     },
     profession: '',
     traits: {
@@ -119,8 +121,9 @@ export const gearOptimizerSlice = createSlice({
       state.control = {
         ...state.control,
         list: [],
-        percentageDone: 0,
-        selected: '',
+        progress: 0,
+        selected: 0,
+        status: WAITING,
       };
       state.skills = [];
     },

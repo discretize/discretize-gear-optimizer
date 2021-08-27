@@ -2,6 +2,7 @@
 import {
   Box,
   Button,
+  Chip,
   FormControlLabel,
   Grid,
   Switch,
@@ -24,11 +25,12 @@ import {
   changeDistributionVersion,
   changePriority,
   getControl,
-  getDistributionVersion,
   getProfession,
   setModifiers,
 } from '../state/gearOptimizerSlice';
+import { ABORTED, RUNNING, SUCCESS, WAITING } from '../state/optimizer/status';
 import { PROFESSIONS } from '../utils/gw2-data';
+import { firstUppercase } from '../utils/usefulFunctions';
 import ARinput from './ARinput';
 import CircularProgressWithLabel from './baseComponents/CircularProgressWithLabel';
 import Presets from './baseComponents/Presets';
@@ -45,6 +47,8 @@ import ResultDetails from './results/ResultDetails';
 import ResultTable from './results/ResultTable';
 import Skills from './Skills';
 import Traits from './Traits';
+import DoneAllIcon from '@material-ui/icons/DoneAll';
+import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 
 const styles = (theme) => ({
   root: {
@@ -85,6 +89,7 @@ const MainComponent = ({ classes, data }) => {
   const expertMode = useSelector(getControl('expertMode'));
   const profession = useSelector(getProfession);
   const progress = useSelector(getControl('progress'));
+  const status = useSelector(getControl('status'));
 
   const skillsData = profession
     ? data[profession.toLowerCase()].edges[0].node.list.find((d) => d.section === 'Skills')
@@ -157,7 +162,7 @@ const MainComponent = ({ classes, data }) => {
     }
 
     dispatch(setModifiers(modifiers));
-
+    dispatch(changeControl({ key: 'status', value: RUNNING }));
     dispatch({
       type: 'START',
     });
@@ -167,7 +172,7 @@ const MainComponent = ({ classes, data }) => {
     dispatch({
       type: 'CANCEL',
     });
-    dispatch(changeControl({ key: 'progress', value: 0 }));
+    dispatch(changeControl({ key: 'status', value: ABORTED }));
     console.log('cancel button pressed');
   }
 
@@ -350,34 +355,59 @@ const MainComponent = ({ classes, data }) => {
             />
           </Grid>
 
-          <Button
-            variant="outlined"
-            color="primary"
-            className={classes.button}
-            onClick={onStartCalculate}
-            classes={{ label: classes.label }}
-            disabled={progress < 100 && progress !== 0}
-          >
-            {progress < 100 && progress !== 0 ? (
-              <CircularProgressWithLabel variant="determinate" value={progress} />
-            ) : (
-              <EqualizerRoundedIcon className={classes.icon}></EqualizerRoundedIcon>
-            )}
-            <Typography>Calculate</Typography>
-          </Button>
-          <Button
-            variant="outlined"
-            color="primary"
-            className={classes.button}
-            onClick={onCancelCalculate}
-          >
-            <Cancel className={classNames(classes.icon)}></Cancel>
-            <Typography style={{ marginLeft: 8 }}>Abort</Typography>
-          </Button>
+          <Box display="flex">
+            <Box>
+              <Button
+                variant="outlined"
+                color="primary"
+                className={classes.button}
+                onClick={onStartCalculate}
+                classes={{ label: classes.label }}
+                disabled={status === RUNNING}
+              >
+                {progress < 100 && progress !== 0 ? (
+                  <CircularProgressWithLabel variant="determinate" value={progress} />
+                ) : (
+                  <EqualizerRoundedIcon className={classes.icon}></EqualizerRoundedIcon>
+                )}
+                <Typography>Calculate</Typography>
+              </Button>
+            </Box>
+            <Box flexGrow={1}>
+              <Button
+                variant="outlined"
+                color="primary"
+                className={classes.button}
+                onClick={onCancelCalculate}
+                disabled={status !== RUNNING}
+              >
+                <Cancel className={classNames(classes.icon)}></Cancel>
+                <Typography style={{ marginLeft: 8 }}>Abort</Typography>
+              </Button>
+            </Box>
+            <Box alignSelf="center">
+              <Chip
+                label={
+                  <>
+                    Status: {firstUppercase(status)}{' '}
+                    {status === SUCCESS ? (
+                      <DoneAllIcon fontSize="small" />
+                    ) : status === WAITING || status === RUNNING ? (
+                      <HourglassEmptyIcon fontSize="small" />
+                    ) : null}
+                  </>
+                }
+                color={status !== ABORTED ? 'primary' : 'secondary'}
+                className={status === SUCCESS ? { color: 'green' } : { color: 'blue' }}
+              />
+            </Box>
+          </Box>
 
           <ResultTable />
           <Box m={3} />
-          <ResultDetails data={data} buffData={data.buffs.list} />
+          {(status === SUCCESS || status === ABORTED) && (
+            <ResultDetails data={data} buffData={data.buffs.list} />
+          )}
         </>
       )}
     </div>
