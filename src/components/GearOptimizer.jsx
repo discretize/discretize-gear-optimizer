@@ -106,43 +106,58 @@ const MainComponent = ({ classes, data }) => {
         )
       : null;
 
-  function onStartCalculate(e) {
-    console.log('calculate');
+  const onStartCalculate = React.useCallback(
+    (e) => {
+      console.log('calculate');
 
-    // pass data from GraphQL
-    dispatch(setModifiers(data));
-    
-    dispatch(changeControl({ key: 'status', value: RUNNING }));
-    dispatch({
-      type: 'START',
-    });
-  }
+      // pass data from GraphQL
+      dispatch(setModifiers(data));
 
-  function onCancelCalculate(e) {
-    dispatch({
-      type: 'CANCEL',
-    });
-    dispatch(changeControl({ key: 'status', value: ABORTED }));
-    console.log('cancel button pressed');
-  }
+      dispatch(changeControl({ key: 'status', value: RUNNING }));
+      dispatch({
+        type: 'START',
+      });
+    },
+    [data, dispatch],
+  );
 
-  const handleTemplateClickBuffs = (index) => (event) => {
-    const state = JSON.parse(data.presetBuffs.list[index].value);
-    dispatch(replaceBuffs(state));
-  };
+  const onCancelCalculate = React.useCallback(
+    (e) => {
+      dispatch({
+        type: 'CANCEL',
+      });
+      dispatch(changeControl({ key: 'status', value: ABORTED }));
+      console.log('cancel button pressed');
+    },
+    [dispatch],
+  );
 
-  const handleTemplateClickPriorities = (index) => (event) => {
-    const state = JSON.parse(data.presetAffixes.list[index].value);
-    Object.keys(state).forEach((key) => dispatch(changePriority({ key, value: state[key] })));
-  };
+  const handleTemplateClickBuffs = React.useCallback(
+    (index) => (event) => {
+      const state = JSON.parse(data.presetBuffs.list[index].value);
+      dispatch(replaceBuffs(state));
+    },
+    [data.presetBuffs.list, dispatch],
+  );
 
-  const onTemplateClickDistribution = (index) => (event) => {
-    const state = JSON.parse(distributionPresets[index].value);
+  const handleTemplateClickPriorities = React.useCallback(
+    (index) => (event) => {
+      const state = JSON.parse(data.presetAffixes.list[index].value);
+      Object.keys(state).forEach((key) => dispatch(changePriority({ key, value: state[key] })));
+    },
+    [data.presetAffixes.list, dispatch],
+  );
 
-    dispatch(changeAllDistributionsOld(state.values1));
-    dispatch(changeAllDistributionsNew(state.values2));
-    dispatch(changeAllTextBoxes(state.values2));
-  };
+  const onTemplateClickDistribution = React.useCallback(
+    (index) => (event) => {
+      const state = JSON.parse(distributionPresets[index].value);
+
+      dispatch(changeAllDistributionsOld(state.values1));
+      dispatch(changeAllDistributionsNew(state.values2));
+      dispatch(changeAllTextBoxes(state.values2));
+    },
+    [dispatch, distributionPresets],
+  );
 
   return (
     <div className={classes.root}>
