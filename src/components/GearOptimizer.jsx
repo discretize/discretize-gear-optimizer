@@ -79,12 +79,15 @@ const styles = (theme) => ({
  */
 const MainComponent = ({ classes, data }) => {
   const store = useStore();
+  const dispatch = useDispatch();
+
+  // Query variables from redux store that should have a global scope
   const expertMode = useSelector(getControl('expertMode'));
   const profession = useSelector(getProfession);
   const progress = useSelector(getControl('percentageDone'));
   const distributionVersion = useSelector(getDistributionVersion);
 
-  const skills = profession
+  const skillsData = profession
     ? data[profession.toLowerCase()].edges[0].node.list.find((d) => d.section === 'Skills')
     : null;
 
@@ -97,14 +100,15 @@ const MainComponent = ({ classes, data }) => {
             ) || preset.profession === null,
         )
       : null;
-  const dispatch = useDispatch();
 
   function onStartCalculate(e) {
     console.log('calculate');
-    const { extras, buffs } = store.getState().gearOptimizer;
+    const { extras, buffs, skills, traits, extraModifiers } = store.getState().gearOptimizer;
 
+    // all selected modifiers will be collected in this array
     const modifiers = [];
 
+    // Applies runes, sigils, food modifiers
     const extrasData = [
       { id: 'Runes', list: data.runes.list },
       { id: 'Sigil1', list: data.sigils.list },
@@ -123,6 +127,7 @@ const MainComponent = ({ classes, data }) => {
         });
       });
 
+    // Apply "buffs" modifiers
     data.buffs.list
       .flatMap((d) => d.items)
       .filter((elem) => buffs[elem.id])
@@ -131,34 +136,19 @@ const MainComponent = ({ classes, data }) => {
       );
 
     // map id to modifier. We dont store modifier values in the state!
-    const elementalist = data.elementalist.edges[0].node.list.flatMap((el) => el.items);
-    // const necromancer = data.necromancer.edges[0].node.list.flatMap((el) => el.items);
-    const mesmer = data.mesmer.edges[0].node.list.flatMap((el) => el.items);
-    const ranger = data.ranger.edges[0].node.list.flatMap((el) => el.items);
-    // const thief = data.thief.edges[0].node.list.flatMap((el) => el.items);
-    const engineer = data.engineer.edges[0].node.list.flatMap((el) => el.items);
-    const warrior = data.warrior.edges[0].node.list.flatMap((el) => el.items);
-    const guardian = data.guardian.edges[0].node.list.flatMap((el) => el.items);
-    const revenant = data.revenant.edges[0].node.list.flatMap((el) => el.items);
-
-    const allTraits = [].concat(
-      elementalist,
-      // necromancer,
-      mesmer,
-      ranger,
-      // thief,
-      engineer,
-      warrior,
-      guardian,
-      revenant,
+    const allSkillsAndTraits = data[profession.toLowerCase()].edges[0].node.list.flatMap(
+      (el) => el.items,
     );
-
-    const traitModifiers = store.getState().gearOptimizer.traits.modifiers;
-    const matchedTraitModifiers = traitModifiers.map((traitModifier) =>
-      allTraits.filter((t) => t !== null).find((trait) => trait.id === traitModifier.id),
+    const matchedTraitModifiers = traits.modifiers.map((traitModifier) =>
+      allSkillsAndTraits.filter((t) => t !== null).find((trait) => trait.id === traitModifier.id),
     );
+    const matchedSkillModifiers = skills.map((skill) =>
+      allSkillsAndTraits.filter((t) => t !== null).find((s) => s.id === skill),
+    );
+    modifiers.push(...matchedTraitModifiers);
+    modifiers.push(...matchedSkillModifiers);
 
-    const { extraModifiers } = store.getState().gearOptimizer.extraModifiers;
+    // Apply extra (manual) modifiers
     if (extraModifiers.length > 0) {
       modifiers.push(
         ...JSON.parse(extraModifiers).map((modi, index) => {
@@ -166,7 +156,6 @@ const MainComponent = ({ classes, data }) => {
         }),
       );
     }
-    modifiers.push(...matchedTraitModifiers);
 
     dispatch(setModifiers(modifiers));
 
@@ -236,10 +225,10 @@ const MainComponent = ({ classes, data }) => {
                   }
                 />
 
-                {skills ? (
+                {skillsData ? (
                   <Section
                     title="Skills"
-                    content={<Skills profession={profession} data={skills.items} />}
+                    content={<Skills profession={profession} data={skillsData.items} />}
                   />
                 ) : null}
 
