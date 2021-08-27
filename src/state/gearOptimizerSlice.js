@@ -250,6 +250,10 @@ export const getPriority = (key) => (state) => state.gearOptimizer.priorities[ke
 export const getExtras = (state) => state.gearOptimizer.extras;
 export const getList = (state) => state.gearOptimizer.control.list;
 export const getOmniPotion = (state) => state.gearOptimizer.omnipotion;
+export const getSelectedCharacter = (state) => {
+  const { selected } = state.gearOptimizer.control;
+  return selected !== '' ? state.gearOptimizer.control.list[selected] : null;
+};
 
 export const {
   reset,
