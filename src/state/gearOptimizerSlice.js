@@ -185,7 +185,64 @@ export const gearOptimizerSlice = createSlice({
       state.modifiers = state.modifiers.concat(action.payload);
     },
     setModifiers: (state, action) => {
-      state.modifiers = action.payload;
+      // passed data from GraphQL
+      const data = action.payload;
+
+      const { extras, buffs, skills, traits, extraModifiers, profession } = state;
+
+      // all selected modifiers will be collected in this array
+      const modifiers = [];
+
+      // Applies runes, sigils, food modifiers
+      const extrasData = [
+        { id: 'Runes', list: data.runes.list },
+        { id: 'Sigil1', list: data.sigils.list },
+        { id: 'Sigil2', list: data.sigils.list },
+        { id: 'Enhancement', list: data.enhancement.list },
+        { id: 'Nourishment', list: data.nourishment.list },
+      ];
+      extrasData
+        .filter((extra) => extras[extra.id] !== '')
+        .forEach((extra) => {
+          modifiers.push({
+            id: extras[extra.id],
+            modifiers: extra.list.flatMap((d) => d.items).find((a) => a.id === extras[extra.id])
+              .modifiers,
+            source: extra.id,
+          });
+        });
+
+      // Apply "buffs" modifiers
+      data.buffs.list
+        .flatMap((d) => d.items)
+        .filter((elem) => buffs[elem.id])
+        .forEach((elem) =>
+          modifiers.push({ id: elem.id, modifiers: elem.modifiers, gw2_id: elem.gw2_id }),
+        );
+
+      // map id to modifier. We dont store modifier values in the state!
+      const allSkillsAndTraits = data[profession.toLowerCase()].edges[0].node.list.flatMap(
+        (el) => el.items,
+      );
+      const matchedTraitModifiers = traits.modifiers.map((traitModifier) =>
+        allSkillsAndTraits.filter((t) => t !== null).find((trait) => trait.id === traitModifier.id),
+      );
+      const matchedSkillModifiers = skills.map((skill) =>
+        allSkillsAndTraits.filter((t) => t !== null).find((s) => s.id === skill),
+      );
+      modifiers.push(...matchedTraitModifiers);
+      modifiers.push(...matchedSkillModifiers);
+
+      // Apply extra (manual) modifiers
+      if (extraModifiers.length > 0) {
+        modifiers.push(
+          ...JSON.parse(extraModifiers).map((modi, index) => {
+            return { id: `extraModifier${index}`, modifiers: JSON.stringify(modi) };
+          }),
+        );
+      }
+
+      state.modifiers = modifiers;
     },
     addTraitModifier: (state, action) => {
       state.traits.modifiers = state.traits.modifiers.concat(action.payload);
@@ -213,6 +270,11 @@ export const gearOptimizerSlice = createSlice({
     },
     changeBuff: (state, action) => {
       state.buffs[action.payload.key] = action.payload.value;
+    },
+    replaceBuffs: (state, action) => {
+      state.buffs = Object.fromEntries(
+        Object.keys(state.buffs).map((key) => [key, Boolean(action.payload[key])]),
+      );
     },
     changeInfusions: (state, action) => {
       state.infusions[action.payload.key] = action.payload.value;
@@ -282,6 +344,7 @@ export const {
   changeExtraModifiers,
   changeControl,
   changeBuff,
+  replaceBuffs,
   changeInfusions,
   changePriority,
   changeList,
