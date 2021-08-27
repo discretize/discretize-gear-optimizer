@@ -16,6 +16,8 @@ import { graphql, StaticQuery } from 'gatsby';
 import { Attribute, ConsumableEffect, Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector, useStore } from 'react-redux';
+import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
+import DoneAllIcon from '@material-ui/icons/DoneAll';
 import {
   changeAllDistributionsNew,
   changeAllDistributionsOld,
@@ -25,6 +27,7 @@ import {
   changeDistributionVersion,
   changePriority,
   getControl,
+  getDistributionVersion,
   getProfession,
   setModifiers,
 } from '../state/gearOptimizerSlice';
@@ -47,8 +50,6 @@ import ResultDetails from './results/ResultDetails';
 import ResultTable from './results/ResultTable';
 import Skills from './Skills';
 import Traits from './Traits';
-import DoneAllIcon from '@material-ui/icons/DoneAll';
-import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 
 const styles = (theme) => ({
   root: {
@@ -90,6 +91,7 @@ const MainComponent = ({ classes, data }) => {
   const profession = useSelector(getProfession);
   const progress = useSelector(getControl('progress'));
   const status = useSelector(getControl('status'));
+  const distributionVersion = useSelector(getDistributionVersion);
 
   const skillsData = profession
     ? data[profession.toLowerCase()].edges[0].node.list.find((d) => d.section === 'Skills')
@@ -322,7 +324,7 @@ const MainComponent = ({ classes, data }) => {
                       <FormControlLabel
                         control={
                           <Switch
-                            checked={store.getState().gearOptimizer.distribution.version === 1}
+                            checked={distributionVersion === 1}
                             onChange={(e) =>
                               dispatch(changeDistributionVersion(e.target.checked ? 1 : 2))
                             }
