@@ -7,6 +7,7 @@ import {
   FormControlLabel,
   IconButton,
   MenuItem,
+  SwipeableDrawer,
   Switch,
   Toolbar,
   withStyles,
@@ -28,9 +29,11 @@ import {
   getControl,
   getProfession,
   reset,
+  setTemplate,
 } from '../state/gearOptimizerSlice';
 import { PROFESSIONS } from '../utils/gw2-data';
 import { firstUppercase } from '../utils/usefulFunctions';
+import NavAccordion from './nav/NavAccordion';
 
 const styles = (theme) => ({
   topNav: {
@@ -39,9 +42,7 @@ const styles = (theme) => ({
   navProfession: {
     fontSize: '2rem',
   },
-  drawerContainer: {
-    padding: '20px 30px',
-  },
+  drawerContainer: {},
 });
 
 const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
@@ -104,25 +105,6 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
     const handleDrawerOpen = () => setState((prevState) => ({ ...prevState, drawerOpen: true }));
     const handleDrawerClose = () => setState((prevState) => ({ ...prevState, drawerOpen: false }));
 
-    const getDrawerChoices = () => {
-      return PROFESSIONS.map((p) => (
-        <div key={p.profession}>
-          <Button
-            onClick={() => {
-              dispatch(changeProfession(p.profession));
-              dispatch(reset());
-            }}
-            variant={p.profession === profession ? 'contained' : 'text'}
-          >
-            <Profession
-              name={firstUppercase(p.profession)}
-              disableLink
-              className={classes.navProfession}
-            />
-          </Button>
-        </div>
-      ));
-    };
     return (
       <Toolbar>
         <Box flexGrow={1}>
@@ -139,15 +121,17 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
           </IconButton>
         </Box>
 
-        <Drawer
+        <SwipeableDrawer
           {...{
             anchor: 'left',
             open: drawerOpen,
             onClose: handleDrawerClose,
           }}
         >
-          <div className={classes.drawerContainer}>{getDrawerChoices()}</div>
-        </Drawer>
+          <div className={classes.drawerContainer}>
+            <NavAccordion data={data} />
+          </div>
+        </SwipeableDrawer>
 
         {stickyRight()}
       </Toolbar>
@@ -155,7 +139,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
   };
 
   const handleTemplateSelect = (popup, elem, prof) => {
-    dispatch(reset());
+    dispatch(reset);
     const traitState = JSON.parse(elem.traits);
 
     // set all the buffs to disabled
