@@ -8,7 +8,7 @@ export const gearOptimizerSlice = createSlice({
       expertMode: true,
       list: [],
       progress: 0,
-      selected: 0,
+      selectedCharacter: null,
       STATUS: WAITING,
     },
     profession: '',
@@ -122,7 +122,7 @@ export const gearOptimizerSlice = createSlice({
         ...state.control,
         list: [],
         progress: 0,
-        selected: 0,
+        selectedCharacter: null,
         status: WAITING,
       };
       state.skills = [];
@@ -243,6 +243,9 @@ export const gearOptimizerSlice = createSlice({
       }
 
       state.modifiers = modifiers;
+
+      // clear result details
+      state.control.selectedCharacter = null;
     },
     addTraitModifier: (state, action) => {
       state.traits.modifiers = state.traits.modifiers.concat(action.payload);
@@ -291,6 +294,9 @@ export const gearOptimizerSlice = createSlice({
     changeState: (state, action) => {
       return { ...state, ...action.payload };
     },
+    changeSelectedCharacter: (state, action) => {
+      state.control.selectedCharacter = action.payload;
+    },
   },
 });
 
@@ -315,10 +321,7 @@ export const getPriority = (key) => (state) => state.gearOptimizer.priorities[ke
 export const getExtras = (state) => state.gearOptimizer.extras;
 export const getList = (state) => state.gearOptimizer.control.list;
 export const getOmniPotion = (state) => state.gearOptimizer.omnipotion;
-export const getSelectedCharacter = (state) => {
-  const { selected } = state.gearOptimizer.control;
-  return selected !== '' ? state.gearOptimizer.control.list[selected] : null;
-};
+export const getSelectedCharacter = (state) => state.gearOptimizer.control.selectedCharacter;
 
 export const {
   reset,
@@ -354,6 +357,7 @@ export const {
   setModifiers,
   changeOmnipotion,
   changeState,
+  changeSelectedCharacter,
 } = gearOptimizerSlice.actions;
 
 export default gearOptimizerSlice.reducer;
