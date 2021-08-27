@@ -10,7 +10,6 @@ import {
   withStyles,
 } from '@material-ui/core';
 import { Cancel } from '@material-ui/icons';
-import EqualizerRoundedIcon from '@material-ui/icons/EqualizerRounded';
 import classNames from 'classnames';
 import { graphql, StaticQuery } from 'gatsby';
 import { Attribute, ConsumableEffect, Item } from 'gw2-ui-bulk';
@@ -35,7 +34,7 @@ import { ABORTED, RUNNING, SUCCESS, WAITING } from '../state/optimizer/status';
 import { PROFESSIONS } from '../utils/gw2-data';
 import { firstUppercase } from '../utils/usefulFunctions';
 import ARinput from './ARinput';
-import CircularProgressWithLabel from './baseComponents/CircularProgressWithLabel';
+import ProgressIcon from './ProgressIcon';
 import Presets from './baseComponents/Presets';
 import Section from './baseComponents/Section';
 import Buffs from './Buffs';
@@ -89,7 +88,6 @@ const MainComponent = ({ classes, data }) => {
   // Query variables from redux store that should have a global scope
   const expertMode = useSelector(getControl('expertMode'));
   const profession = useSelector(getProfession);
-  const progress = useSelector(getControl('progress'));
   const status = useSelector(getControl('status'));
   const distributionVersion = useSelector(getDistributionVersion);
 
@@ -367,11 +365,7 @@ const MainComponent = ({ classes, data }) => {
                 classes={{ label: classes.label }}
                 disabled={status === RUNNING}
               >
-                {progress < 100 && progress !== 0 ? (
-                  <CircularProgressWithLabel variant="determinate" value={progress} />
-                ) : (
-                  <EqualizerRoundedIcon className={classes.icon}></EqualizerRoundedIcon>
-                )}
+                <ProgressIcon />
                 <Typography>Calculate</Typography>
               </Button>
             </Box>
