@@ -3,16 +3,16 @@ import { getImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import {
-  getControl,
   getExtra,
   getExtras,
   getModifiers,
   getPriority,
   getProfession,
   getSelectedCharacter,
+  getTraitLines,
 } from '../../state/gearOptimizerSlice';
 import { updateAttributes } from '../../state/optimizer/optimizerCore';
-import { Classes, Defense, INFUSIONS } from '../../utils/gw2-data';
+import { Classes, Defense, INFUSIONS, PROFESSIONS } from '../../utils/gw2-data';
 import { firstUppercase } from '../../utils/usefulFunctions';
 import Character from '../gw2/Character';
 import AffixesStats from './AffixesStats';
@@ -30,6 +30,7 @@ const ResultDetails = ({ classes, data, buffData }) => {
   const sigil2 = useSelector(getExtra('Sigil2'));
   const priority = useSelector(getPriority('weaponType'));
   const modifiers = useSelector(getModifiers);
+  const traits = useSelector(getTraitLines);
 
   const charRaw = useSelector(getSelectedCharacter);
   if (!charRaw) {
@@ -106,8 +107,33 @@ const ResultDetails = ({ classes, data, buffData }) => {
     : '';
   const runeName = extras.Runes ? rune.text.split(' ')[rune.text.split(' ').length - 1] : '';
 
-  const image = getImage(data[`${profession.toLowerCase()}Picture`]);
+  // find the right image for the selected elite specialization
+  const { eliteSpecializations } = PROFESSIONS.find(
+    (prof) => prof.profession === profession.toUpperCase(),
+  );
+  // contains the names of the selected trait lines
+  const selectedTraitLinesNames = traits
+    .map((t) => Number(t))
+    .map((trait) =>
+      data[profession.toLowerCase()].edges[0].node.list
+        .filter((d) => d.id !== null)
+        .find((t) => t.id === trait),
+    )
+    .filter((s) => s !== undefined)
+    .map((s) => s.section);
 
+  // currently selected specialization. In case multiple elite specializations are selected, only the first one is counted.
+  // In case no specialization is selected, the variable defaults to the core profession
+  const currentSpecialization =
+    selectedTraitLinesNames.find((s) => eliteSpecializations.includes(s.toUpperCase())) ||
+    profession;
+
+  const imageRaw = data.images.edges
+    .flatMap((image) => image.node)
+    .find((image) => image.original.src.includes(currentSpecialization.toLowerCase()));
+  const image = getImage(imageRaw);
+
+  // Replace the names to match gw2-ui names
   const damageBreakdown = Object.keys(character.results.effectiveDamageDistribution).map((d) => ({
     name: d === 'Poison Damage' ? 'Poisoned' : d.replace('Damage', '').trim(),
     value: character.results.damageBreakdown[d],

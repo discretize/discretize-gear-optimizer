@@ -425,49 +425,14 @@ const GearOptimizer = ({ classes }) => {
     <StaticQuery
       query={graphql`
         query myEpicQuery {
-          thiefPicture: file(relativePath: { eq: "professions/thief.png" }) {
-            childImageSharp {
-              gatsbyImageData(width: 2000)
-            }
-          }
-          guardianPicture: file(relativePath: { eq: "professions/guardian.png" }) {
-            childImageSharp {
-              gatsbyImageData(width: 2000)
-            }
-          }
-          warriorPicture: file(relativePath: { eq: "professions/warrior.png" }) {
-            childImageSharp {
-              gatsbyImageData(width: 2000)
-            }
-          }
-          revenantPicture: file(relativePath: { eq: "professions/revenant.png" }) {
-            childImageSharp {
-              gatsbyImageData(width: 2000)
-            }
-          }
-          engineerPicture: file(relativePath: { eq: "professions/engineer.png" }) {
-            childImageSharp {
-              gatsbyImageData(width: 2000)
-            }
-          }
-          rangerPicture: file(relativePath: { eq: "professions/ranger.png" }) {
-            childImageSharp {
-              gatsbyImageData(width: 2000)
-            }
-          }
-          elementalistPicture: file(relativePath: { eq: "professions/elementalist.png" }) {
-            childImageSharp {
-              gatsbyImageData(width: 2000)
-            }
-          }
-          necromancerPicture: file(relativePath: { eq: "professions/necromancer.png" }) {
-            childImageSharp {
-              gatsbyImageData(width: 2000)
-            }
-          }
-          mesmerPicture: file(relativePath: { eq: "professions/mesmer.png" }) {
-            childImageSharp {
-              gatsbyImageData(width: 2000)
+          images: allImageSharp {
+            edges {
+              node {
+                gatsbyImageData
+                original {
+                  src
+                }
+              }
             }
           }
           warrior: allWarrior {
