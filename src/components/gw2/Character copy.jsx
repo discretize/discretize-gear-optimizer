@@ -1,12 +1,4 @@
-import {
-  Box,
-  Grid,
-  Paper,
-  Typography,
-  useMediaQuery,
-  useTheme,
-  withStyles,
-} from '@material-ui/core';
+import { Grid, Paper, Typography, withStyles } from '@material-ui/core';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 import Armor from './Armor';
@@ -16,13 +8,16 @@ import Weapons from './Weapons';
 
 const styles = (theme) => ({
   container: { maxHeight: '600px' },
-  bgImage: {},
+  bgImage: {
+    width: '100%',
+  },
   sectionDelimiter: {
     marginTop: theme.spacing(5),
-    marginBottom: theme.spacing(5),
   },
   section: {
     padding: theme.spacing(2),
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
   },
 });
 const Character = ({
@@ -36,12 +31,9 @@ const Character = ({
   infusions,
   weapons,
 }) => {
-  const theme = useTheme();
-  const big = useMediaQuery(theme.breakpoints.up('md'));
-
   return (
-    <Box display="flex" flexWrap="wrap" justifyContent="space-between">
-      <Box flex="0 0 250px">
+    <Grid container spacing={2}>
+      <Grid item xs={12} sm={6} md={3}>
         <Paper elevation={5} className={classes.section}>
           <Armor
             weight={weight}
@@ -83,20 +75,17 @@ const Character = ({
             <Weapons {...weapons} />
           </Paper>
         </div>
-      </Box>
+      </Grid>
+      <Grid item xs={12} sm={6} md={6} className={classes.container}>
+        <GatsbyImage
+          layout="constrained"
+          image={image}
+          alt="Profession Image"
+          className={classes.bgImage}
+        />
+      </Grid>
 
-      {big && (
-        <Box flex="1 0 300px" alignSelf="center">
-          <GatsbyImage
-            layout="constrained"
-            image={image}
-            alt="Profession Image"
-            className={classes.bgImage}
-          />
-        </Box>
-      )}
-
-      <Box flex="0 0 250px">
+      <Grid item xs={12} sm={6} md={3}>
         <Paper elevation={5} className={classes.section}>
           <Typography variant="h6">Attributes</Typography>
           <Attributes profession={profession} data={character.attributes} />
@@ -124,8 +113,8 @@ const Character = ({
             />
           </Paper>
         </div>
-      </Box>
-    </Box>
+      </Grid>
+    </Grid>
   );
 };
 

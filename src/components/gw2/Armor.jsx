@@ -10,7 +10,6 @@ const styles = (theme) => ({
     paddingTop: theme.spacing(0.5),
     paddingBottom: theme.spacing(0.5),
     '& > *:first-child': {
-      width: '45%',
       textAlign: 'right',
     },
     '& > *:last-child': {
@@ -28,6 +27,7 @@ const styles = (theme) => ({
   gw2Item: {
     fontSize: '60px',
     lineHeight: '1 !important',
+    height: '60px !important',
   },
 });
 

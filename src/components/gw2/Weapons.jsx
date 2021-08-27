@@ -10,7 +10,6 @@ const styles = (theme) => ({
     paddingTop: theme.spacing(0.5),
     paddingBottom: theme.spacing(0.5),
     '& > *:first-child': {
-      width: '45%',
       textAlign: 'right',
     },
     '& > *:last-child': {
@@ -24,6 +23,7 @@ const styles = (theme) => ({
     paddingLeft: theme.spacing(2),
     borderLeft: `1px solid ${theme.palette.divider}`,
     lineHeight: 0,
+    overflowWrap: 'break-word',
   },
   divider: {
     marginTop: theme.spacing(1),

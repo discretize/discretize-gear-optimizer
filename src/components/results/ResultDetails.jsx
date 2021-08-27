@@ -13,6 +13,7 @@ import {
 } from '../../state/gearOptimizerSlice';
 import { updateAttributes } from '../../state/optimizer/optimizerCore';
 import { Classes, Defense, INFUSIONS } from '../../utils/gw2-data';
+import { firstUppercase } from '../../utils/usefulFunctions';
 import Character from '../gw2/Character';
 import AffixesStats from './AffixesStats';
 import AppliedModifiers from './AppliedModifiers';
@@ -80,12 +81,12 @@ const ResultDetails = ({ classes, data, buffData }) => {
       weapon1MainAffix: character.gear[12],
       weapon1MainInfusion1Id: infusions ? infusions[16] : null,
       weapon1MainSigil1Id: sigil1Id,
-      weapon1MainSigil1: sigil1,
+      weapon1MainSigil1: firstUppercase(sigil1),
       weapon1OffId: wea2.gw2_id,
       weapon1OffAffix: character.gear[13],
       weapon1OffInfusionId: infusions ? infusions[17] : null,
       weapon1OffSigilId: sigil2Id,
-      weapon1OffSigil: sigil2,
+      weapon1OffSigil: firstUppercase(sigil2),
     };
   } else {
     wea1 = classData.mainHand.find((d) => d.type === 'two-handed');
@@ -95,8 +96,8 @@ const ResultDetails = ({ classes, data, buffData }) => {
       weapon1MainSigil1Id: sigil1Id,
       weapon1MainInfusion2Id: infusions[17],
       weapon1MainSigil2Id: sigil2Id,
-      weapon1MainSigil1: sigil1,
-      weapon1MainSigil2: sigil2,
+      weapon1MainSigil1: firstUppercase(sigil1),
+      weapon1MainSigil2: firstUppercase(sigil2),
     };
   }
 
@@ -107,12 +108,10 @@ const ResultDetails = ({ classes, data, buffData }) => {
 
   const image = getImage(data[`${profession.toLowerCase()}Picture`]);
 
-  const damageBreakdown = Object.keys(character.results.effectiveDamageDistribution).map(
-    (d) => ({
-      name: d === 'Poison Damage' ? 'Poisoned' : d.replace('Damage', '').trim(),
-      value: character.results.damageBreakdown[d],
-    }),
-  );
+  const damageBreakdown = Object.keys(character.results.effectiveDamageDistribution).map((d) => ({
+    name: d === 'Poison Damage' ? 'Poisoned' : d.replace('Damage', '').trim(),
+    value: character.results.damageBreakdown[d],
+  }));
 
   const effectiveDistribution = Object.keys(character.results.effectiveDamageDistribution).map(
     (d) => ({

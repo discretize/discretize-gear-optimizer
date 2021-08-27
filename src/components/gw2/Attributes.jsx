@@ -10,6 +10,7 @@ const styles = (theme) => ({
   gw2Item: {
     fontSize: '20px',
     color: '#AAAAAA',
+    whiteSpace: 'nowrap',
   },
 });
 
