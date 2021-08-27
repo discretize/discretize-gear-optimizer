@@ -19,6 +19,7 @@ import AffixesStats from './AffixesStats';
 import AppliedModifiers from './AppliedModifiers';
 import Indicators from './Indicators';
 import OutputDistribution from './OutputDistribution';
+import OutputInfusions from './OutputInfusions';
 import SpecialDurations from './SpecialDurations';
 
 const styles = (theme) => ({});
@@ -165,6 +166,7 @@ const ResultDetails = ({ classes, data, buffData }) => {
           <SpecialDurations data={character.attributes} />
           <Indicators data={character.results.indicators} />
           <AffixesStats data={character.gearStats} title="Stats from affixes" />
+          {character.infusions && <OutputInfusions data={character.infusions} />}
         </Grid>
 
         <Grid item xs={12} sm={6} md={4}>
