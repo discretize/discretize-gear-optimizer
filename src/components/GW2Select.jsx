@@ -3,6 +3,7 @@ import {
   Input,
   InputLabel,
   ListItemText,
+  ListSubheader,
   MenuItem,
   Select,
   Typography,
@@ -19,7 +20,7 @@ const styles = (theme) => ({
   },
   sectionText: {
     fontWeight: 200,
-    textAlign: 'center',
+    textAlign: 'left',
     marginTop: theme.spacing(1),
   },
   subText: {
@@ -29,6 +30,7 @@ const styles = (theme) => ({
   menuItem: {
     whiteSpace: 'normal',
   },
+  item: { lineHeight: '1 !important' },
 });
 
 const GW2Select = ({ classes, name, label, data }) => {
@@ -36,17 +38,12 @@ const GW2Select = ({ classes, name, label, data }) => {
   const bigValue = useSelector(getExtra(name));
 
   const handleChange = (event) => {
-    dispatch(changeExtras({ key: event.target.name, value: event.target.value }));
+    if (event.target.value !== undefined)
+      dispatch(changeExtras({ key: event.target.name, value: event.target.value }));
   };
 
-  const values = [];
-  for (const elem of data) {
-    values.push({ type: 'section', text: elem.section });
-    for (const item of elem.items) {
-      values.push({ type: 'item', ...item });
-    }
-  }
-
+  // return an array in the select: https://github.com/mui-org/material-ui/issues/16181
+  // Fragments are not supported as children!
   return (
     <FormControl className={classes.formControl}>
       <InputLabel htmlFor={name}>{label}</InputLabel>
@@ -55,27 +52,40 @@ const GW2Select = ({ classes, name, label, data }) => {
         input={<Input name={name} id={name} />}
         onChange={handleChange}
         renderValue={(selected) => {
-          const item = values.filter((v) => v.id === selected)[0];
+          const item = data
+            .flatMap((category) => category.items)
+            .filter((v) => v.id === selected)[0];
           return (
-            <Item id={item.gw2_id} disableLink text={item.text.replace('Superior ', '')}></Item>
+            <Item
+              id={item.gw2_id}
+              disableLink
+              text={item.text.replace('Superior ', '')}
+              className={classes.item}
+            ></Item>
           );
         }}
       >
-        {values.map((v) => {
-          return v.type === 'section' ? (
-            <Typography key={v.text} className={classes.sectionText}>
-              {v.text}
-            </Typography>
-          ) : (
-            // TODO Some runes are listed in multiple sections; this will cause an error in the console
-            <MenuItem key={v.id} value={v.id} className={classes.menuItem}>
-              <ListItemText
-                primary={<Item id={v.gw2_id} disableLink text={v.text.replace('Superior ', '')} />}
-                secondary={<Typography className={classes.subText}>{v.subText}</Typography>}
-              />
-            </MenuItem>
-          );
+        [
+        <MenuItem value="">
+          <em>None</em>
+        </MenuItem>
+        ,
+        {data.map((category) => {
+          return [
+            <ListSubheader disableSticky>{category.section}</ListSubheader>,
+            category.items.map((item) => (
+              <MenuItem key={item.id} value={item.id} className={classes.menuItem}>
+                <ListItemText
+                  primary={
+                    <Item id={item.gw2_id} disableLink text={item.text.replace('Superior ', '')} />
+                  }
+                  secondary={<Typography className={classes.subText}>{item.subText}</Typography>}
+                />
+              </MenuItem>
+            )),
+          ];
         })}
+        ]
       </Select>
     </FormControl>
   );

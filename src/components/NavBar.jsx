@@ -3,7 +3,6 @@ import {
   Box,
   Button,
   debounce,
-  Drawer,
   FormControlLabel,
   IconButton,
   MenuItem,
@@ -20,12 +19,8 @@ import Menu from 'material-ui-popup-state/HoverMenu';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  changeBuff,
   changeControl,
-  changePriority,
   changeProfession,
-  changeState,
-  getBuffs,
   getControl,
   getProfession,
   reset,

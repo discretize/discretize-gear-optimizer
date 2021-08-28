@@ -5,7 +5,6 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  Typography,
   withStyles,
 } from '@material-ui/core';
 import { Item } from 'gw2-ui-bulk';

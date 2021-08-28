@@ -232,8 +232,10 @@ export const gearOptimizerSlice = createSlice({
         { id: 'Enhancement', list: data.enhancement.list },
         { id: 'Nourishment', list: data.nourishment.list },
       ];
+
       extrasData
         .filter((extra) => extras[extra.id] !== '')
+        .filter((extra) => extras[extra.id] !== undefined)
         .forEach((extra) => {
           modifiers.push({
             id: extras[extra.id],
