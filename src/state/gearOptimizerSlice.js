@@ -276,9 +276,6 @@ export const gearOptimizerSlice = createSlice({
       }
 
       state.modifiers = modifiers;
-
-      // clear result details
-      state.control.selectedCharacter = null;
     },
     addTraitModifier: (state, action) => {
       state.traits.modifiers = state.traits.modifiers.concat(action.payload);
