@@ -165,202 +165,199 @@ const MainComponent = ({ classes, data }) => {
         prioritiesPresets={data.presetAffixes.list}
       />
 
-      {profession !== '' && (
-        <>
-          <Grid container>
-            {expertMode && (
-              <>
-                <Section
-                  first
-                  title="Traits"
-                  helpText="Select your traits here. Remember to also select the corresponding checkbox
+      <Grid container style={profession === '' ? { opacity: 0.5 } : { opacity: 1.0 }}>
+        {expertMode && (
+          <>
+            {profession !== '' && (
+              <Section
+                first
+                title="Traits"
+                helpText="Select your traits here. Remember to also select the corresponding checkbox
                     below each traitline. This is necessary, because many traits grant conditionally
                     bonus stats and you might get different results with different conditional
                     traits."
-                  content={
-                    <Traits
-                      data={data[profession.toLowerCase()].edges[0].node.list
-                        .slice(1)
-                        .filter((line) => line.id > 0)}
-                    />
-                  }
-                />
-
-                {skillsData ? (
-                  <Section
-                    title="Skills"
-                    content={<Skills profession={profession} data={skillsData.items} />}
+                content={
+                  <Traits
+                    data={data[profession.toLowerCase()].edges[0].node.list
+                      .slice(1)
+                      .filter((line) => line.id > 0)}
                   />
-                ) : null}
-
-                <Section
-                  title="Runes & Sigils & Food"
-                  content={
-                    <Grid container spacing={2}>
-                      <Grid item xs={12} md={6}>
-                        <GW2Select
-                          name="Sigil1"
-                          label={<Item id={24615} disableLink disableTooltip text="Sigil 1" />}
-                          data={data.sigils.list}
-                        />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <GW2Select
-                          name="Sigil2"
-                          label={<Item id={24868} disableLink disableTooltip text="Sigil 2" />}
-                          data={data.sigils.list}
-                        />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <GW2Select
-                          name="Runes"
-                          label={<Item id={24836} disableLink disableTooltip text="Rune" />}
-                          data={data.runes.list}
-                        />
-                      </Grid>
-                      <Grid item md={6} />
-                      <Grid item xs={12} md={6}>
-                        <GW2Select
-                          name="Nourishment"
-                          label={<ConsumableEffect name="Nourishment" />}
-                          data={data.nourishment.list}
-                        />
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <GW2Select
-                          name="Enhancement"
-                          label={<ConsumableEffect name="Enhancement" data={data.sigils.list} />}
-                          data={data.enhancement.list}
-                        />
-                      </Grid>
-                    </Grid>
-                  }
-                />
-
-                <Section
-                  title="Buffs & Boons"
-                  extraInfo={
-                    <Presets data={data.presetBuffs.list} handleClick={handleTemplateClickBuffs} />
-                  }
-                  content={<Buffs data={data.buffs.list} />}
-                />
-
-                <Section
-                  title="Extra Modifiers"
-                  helpText={
-                    <>
-                      Allows adding arbitrary extra modifiers. The textbox expects valid JSON
-                      formatting. For multiple modifiers please use a list. For more information
-                      visit the github repository.
-                    </>
-                  }
-                  content={<ExtraModifiers />}
-                />
-
-                <Section title="Stat Infusions" content={<Infusions />} />
-
-                <Section title="Forced Slots" content={<ForcedSlots />} />
-
-                <Section
-                  title="Priorities"
-                  content={<Priorities />}
-                  extraInfo={
-                    <Presets
-                      data={data.presetAffixes.list}
-                      handleClick={handleTemplateClickPriorities}
-                    />
-                  }
-                />
-                <Section
-                  title="Damage Distribution"
-                  content={<DamageDistribution />}
-                  extraInfo={
-                    <>
-                      <FormControlLabel
-                        control={
-                          <Switch
-                            checked={distributionVersion === 1}
-                            onChange={(e) =>
-                              dispatch(changeDistributionVersion(e.target.checked ? 1 : 2))
-                            }
-                            name="checked"
-                            color="primary"
-                          />
-                        }
-                        label="Switch to %-wise damage distribution"
-                      />
-
-                      <Presets
-                        data={distributionPresets}
-                        handleClick={onTemplateClickDistribution}
-                      />
-                    </>
-                  }
-                />
-              </>
+                }
+              />
             )}
 
+            {skillsData ? (
+              <Section
+                title="Skills"
+                content={<Skills profession={profession} data={skillsData.items} />}
+              />
+            ) : null}
+
             <Section
-              title={
+              title="Runes & Sigils & Food"
+              content={
+                <Grid container spacing={2}>
+                  <Grid item xs={12} md={6}>
+                    <GW2Select
+                      name="Sigil1"
+                      label={<Item id={24615} disableLink disableTooltip text="Sigil 1" />}
+                      data={data.sigils.list}
+                    />
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    <GW2Select
+                      name="Sigil2"
+                      label={<Item id={24868} disableLink disableTooltip text="Sigil 2" />}
+                      data={data.sigils.list}
+                    />
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    <GW2Select
+                      name="Runes"
+                      label={<Item id={24836} disableLink disableTooltip text="Rune" />}
+                      data={data.runes.list}
+                    />
+                  </Grid>
+                  <Grid item md={6} />
+                  <Grid item xs={12} md={6}>
+                    <GW2Select
+                      name="Nourishment"
+                      label={<ConsumableEffect name="Nourishment" />}
+                      data={data.nourishment.list}
+                    />
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    <GW2Select
+                      name="Enhancement"
+                      label={<ConsumableEffect name="Enhancement" data={data.sigils.list} />}
+                      data={data.enhancement.list}
+                    />
+                  </Grid>
+                </Grid>
+              }
+            />
+
+            <Section
+              title="Buffs & Boons"
+              extraInfo={
+                <Presets data={data.presetBuffs.list} handleClick={handleTemplateClickBuffs} />
+              }
+              content={<Buffs data={data.buffs.list} />}
+            />
+
+            <Section
+              title="Extra Modifiers"
+              helpText={
                 <>
-                  <Attribute name="Agony Resistance" disableLink disableText /> Agony Resistance
+                  Allows adding arbitrary extra modifiers. The textbox expects valid JSON
+                  formatting. For multiple modifiers please use a list. For more information visit
+                  the github repository.
                 </>
               }
-              first={!expertMode}
-              helpText="Adds 150% of your Agony Resistance to Precision, Toughness and Concentration."
-              content={<ARinput />}
+              content={<ExtraModifiers />}
             />
-          </Grid>
 
-          <Box display="flex">
-            <Box>
-              <Button
-                variant="outlined"
-                color="primary"
-                className={classes.button}
-                onClick={onStartCalculate}
-                classes={{ label: classes.label }}
-                disabled={status === RUNNING}
-              >
-                <ProgressIcon />
-                <Typography>Calculate</Typography>
-              </Button>
-            </Box>
-            <Box flexGrow={1}>
-              <Button
-                variant="outlined"
-                color="primary"
-                className={classes.button}
-                onClick={onCancelCalculate}
-                disabled={status !== RUNNING}
-              >
-                <Cancel className={classNames(classes.icon)}></Cancel>
-                <Typography style={{ marginLeft: 8 }}>Abort</Typography>
-              </Button>
-            </Box>
-            <Box alignSelf="center">
-              <Chip
-                label={
-                  <>
-                    Status: {firstUppercase(status)}{' '}
-                    {status === SUCCESS ? (
-                      <DoneAllIcon fontSize="small" />
-                    ) : status === WAITING || status === RUNNING ? (
-                      <HourglassEmptyIcon fontSize="small" />
-                    ) : null}
-                  </>
-                }
-                color={status !== ABORTED ? 'primary' : 'secondary'}
-              />
-            </Box>
-          </Box>
+            <Section title="Stat Infusions" content={<Infusions />} />
 
-          <ResultTable />
-          <Box m={3} />
-          {(status === SUCCESS || status === ABORTED) && (
-            <ResultDetails data={data} buffData={data.buffs.list} />
-          )}
-        </>
+            <Section title="Forced Slots" content={<ForcedSlots />} />
+
+            <Section
+              title="Priorities"
+              content={<Priorities />}
+              extraInfo={
+                <Presets
+                  data={data.presetAffixes.list}
+                  handleClick={handleTemplateClickPriorities}
+                />
+              }
+            />
+            <Section
+              title="Damage Distribution"
+              content={<DamageDistribution />}
+              extraInfo={
+                <>
+                  <FormControlLabel
+                    control={
+                      <Switch
+                        checked={distributionVersion === 1}
+                        onChange={(e) =>
+                          dispatch(changeDistributionVersion(e.target.checked ? 1 : 2))
+                        }
+                        name="checked"
+                        color="primary"
+                      />
+                    }
+                    label="Switch to %-wise damage distribution"
+                  />
+
+                  {profession !== '' && (
+                    <Presets data={distributionPresets} handleClick={onTemplateClickDistribution} />
+                  )}
+                </>
+              }
+            />
+          </>
+        )}
+
+        <Section
+          title={
+            <>
+              <Attribute name="Agony Resistance" disableLink disableText /> Agony Resistance
+            </>
+          }
+          first={!expertMode}
+          helpText="Adds 150% of your Agony Resistance to Precision, Toughness and Concentration."
+          content={<ARinput />}
+        />
+      </Grid>
+
+      <Box display="flex">
+        <Box>
+          <Button
+            variant="outlined"
+            color="primary"
+            className={classes.button}
+            onClick={onStartCalculate}
+            classes={{ label: classes.label }}
+            disabled={status === RUNNING || profession === ''}
+          >
+            <ProgressIcon />
+            <Typography>Calculate</Typography>
+          </Button>
+        </Box>
+        <Box flexGrow={1}>
+          <Button
+            variant="outlined"
+            color="primary"
+            className={classes.button}
+            onClick={onCancelCalculate}
+            disabled={status !== RUNNING}
+          >
+            <Cancel className={classNames(classes.icon)}></Cancel>
+            <Typography style={{ marginLeft: 8 }}>Abort</Typography>
+          </Button>
+        </Box>
+        <Box alignSelf="center">
+          <Chip
+            label={
+              <>
+                Status: {firstUppercase(status)}{' '}
+                {status === SUCCESS ? (
+                  <DoneAllIcon fontSize="small" />
+                ) : status === WAITING || status === RUNNING ? (
+                  <HourglassEmptyIcon fontSize="small" />
+                ) : null}
+              </>
+            }
+            color={status !== ABORTED ? 'primary' : 'secondary'}
+          />
+        </Box>
+      </Box>
+
+      <ResultTable />
+      <Box m={3} />
+      {(status === SUCCESS || status === ABORTED) && (
+        <ResultDetails data={data} buffData={data.buffs.list} />
       )}
     </div>
   );

@@ -9,7 +9,7 @@ export const gearOptimizerSlice = createSlice({
       list: [],
       progress: 0,
       selectedCharacter: null,
-      STATUS: WAITING,
+      status: WAITING,
     },
     profession: '',
     traits: {
