@@ -311,7 +311,7 @@ const MainComponent = ({ classes, data }) => {
         />
       </Grid>
 
-      <Box display="flex">
+      <Box display="flex" flexWrap="wrap">
         <Box>
           <Button
             variant="outlined"
