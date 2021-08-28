@@ -184,6 +184,37 @@ export const gearOptimizerSlice = createSlice({
     addModifier: (state, action) => {
       state.modifiers = state.modifiers.concat(action.payload);
     },
+    setBuildTemplate: (state, action) => {
+      const data = action.payload;
+
+      // enable the buff template
+      const { buffs } = state;
+      const buffsNew = {};
+      [...Object.keys(buffs)].forEach((key) => {
+        buffsNew[key] = false;
+        if (key in data.buffPreset) buffsNew[key] = data.buffPreset[key];
+      });
+
+      const traitState = JSON.parse(data.build.traits);
+
+      return {
+        ...state,
+        ...traitState,
+        modifiers: [],
+        control: {
+          ...state.control,
+          list: [],
+          progress: 0,
+          selectedCharacter: null,
+          status: WAITING,
+        },
+        buffs: buffsNew,
+        priorities: {
+          ...state.priorities,
+          ...data.prioritiesPreset,
+        },
+      };
+    },
     setModifiers: (state, action) => {
       // passed data from GraphQL
       const data = action.payload;
@@ -355,6 +386,7 @@ export const {
   removeTraitModifier,
   removeTraitModifierWithSource,
   setModifiers,
+  setBuildTemplate,
   changeOmnipotion,
   changeState,
   changeSelectedCharacter,

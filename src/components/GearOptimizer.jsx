@@ -351,7 +351,6 @@ const MainComponent = ({ classes, data }) => {
                   </>
                 }
                 color={status !== ABORTED ? 'primary' : 'secondary'}
-                className={status === SUCCESS ? { color: 'green' } : { color: 'blue' }}
               />
             </Box>
           </Box>
