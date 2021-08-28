@@ -267,9 +267,9 @@ export const gearOptimizerSlice = createSlice({
       modifiers.push(...matchedSkillModifiers);
 
       // Apply extra (manual) modifiers
-      if (extraModifiers.length > 0) {
+      if (extraModifiers.extraModifiers.length > 0) {
         modifiers.push(
-          ...JSON.parse(extraModifiers).map((modi, index) => {
+          ...JSON.parse(extraModifiers.extraModifiers).map((modi, index) => {
             return { id: `extraModifier${index}`, modifiers: JSON.stringify(modi) };
           }),
         );
