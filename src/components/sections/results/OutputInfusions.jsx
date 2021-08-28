@@ -1,7 +1,7 @@
 import { Table, TableBody, TableCell, TableRow, Typography, withStyles } from '@material-ui/core';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
-import { INFUSIONS } from '../../utils/gw2-data';
+import { INFUSIONS } from '../../../utils/gw2-data';
 
 const styles = (theme) => ({
   gw2Item: {

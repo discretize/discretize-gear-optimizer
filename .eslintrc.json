@@ -1,42 +1,41 @@
 {
-    "env": {
-        "browser": true,
-        "es6": true,
-        "jquery": true
-    },
-    "ignorePatterns": [
-        "gulpfile.js"
-    ],
-    "extends": [
-        "react-app",
-        "airbnb/whitespace",
-        "airbnb/hooks",
-        "prettier"
-    ],
-    "rules": {
-        "no-restricted-syntax": "off",
-        "no-use-before-define": "off",
-        "no-plusplus": "off",
-        "func-names": "off",
-        "no-continue": "off",
-        "no-param-reassign": [ "warn", { "props": false } ],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jquery": true
+  },
+  "ignorePatterns": ["gulpfile.js"],
+  "extends": ["react-app", "airbnb/whitespace", "airbnb/hooks", "prettier"],
+  "rules": {
+    "no-restricted-syntax": "off",
+    "no-use-before-define": "off",
+    "no-plusplus": "off",
+    "func-names": "off",
+    "no-continue": "off",
+    "no-param-reassign": ["warn", { "props": false }],
 
-        "consistent-return": "off",
-        "no-unused-vars": [ "warn", { "argsIgnorePattern": "^event$|^e$" } ],
+    "consistent-return": "off",
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^event$|^e$" }],
 
-        // prettier compat
-        "arrow-body-style": "off",
-        "prefer-arrow-callback": "off",
+    // prettier compat
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off",
 
-        // temp
-        "object-shorthand": "off",
-        "one-var": "off",
+    // temp
+    "object-shorthand": "off",
+    "one-var": "off",
 
-        "import/prefer-default-export": "off",
+    "import/prefer-default-export": "off",
 
-        "react/prop-types": "off",
-        "react/self-closing-comp": "off",
-        "react/jsx-props-no-spreading": "off",
-        "react/destructuring-assignment": "off"
-    }
+    "react/prop-types": "off",
+    "react/self-closing-comp": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/destructuring-assignment": "off",
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["@material-ui/*/*/*", "!@material-ui/core/test-utils/*"]
+      }
+    ]
+  }
 }

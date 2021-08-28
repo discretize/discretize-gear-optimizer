@@ -9,7 +9,7 @@ import {
   Typography,
   withStyles,
 } from '@material-ui/core';
-import { Cancel } from '@material-ui/icons';
+import Cancel from '@material-ui/icons/Cancel';
 import classNames from 'classnames';
 import { graphql, StaticQuery } from 'gatsby';
 import { Attribute, ConsumableEffect, Item } from 'gw2-ui-bulk';
@@ -33,22 +33,22 @@ import {
 import { ABORTED, RUNNING, SUCCESS, WAITING } from '../state/optimizer/status';
 import { PROFESSIONS } from '../utils/gw2-data';
 import { firstUppercase } from '../utils/usefulFunctions';
-import ARinput from './ARinput';
-import ProgressIcon from './ProgressIcon';
+import ARinput from './sections/ARinput';
+import ProgressIcon from './baseComponents/ProgressIcon';
 import Presets from './baseComponents/Presets';
 import Section from './baseComponents/Section';
-import Buffs from './Buffs';
-import DamageDistribution from './DamageDistribution';
-import ExtraModifiers from './ExtraModifiers';
-import ForcedSlots from './ForcedSlots';
-import GW2Select from './GW2Select';
-import Infusions from './Infusions';
-import NavBar from './NavBar';
-import Priorities from './priorities/Priorities';
-import ResultDetails from './results/ResultDetails';
-import ResultTable from './results/ResultTable';
-import Skills from './Skills';
-import Traits from './Traits';
+import Buffs from './sections/Buffs';
+import DamageDistribution from './sections/DamageDistribution';
+import ExtraModifiers from './sections/ExtraModifiers';
+import ForcedSlots from './sections/ForcedSlots';
+import GW2Select from './sections/GW2Select';
+import Infusions from './sections/Infusions';
+import NavBar from './nav/NavBar';
+import Priorities from './sections/Priorities';
+import ResultDetails from './sections/results/ResultDetails';
+import ResultTable from './sections/results/ResultTable';
+import Skills from './sections/Skills';
+import Traits from './sections/Traits';
 
 const styles = (theme) => ({
   root: {

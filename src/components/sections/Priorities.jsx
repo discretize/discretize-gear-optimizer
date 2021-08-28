@@ -7,20 +7,13 @@ import {
   InputLabel,
   Radio,
   RadioGroup,
-  Typography,
   withStyles,
 } from '@material-ui/core';
 import { Attribute } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  changeGeneric,
-  changePriority,
-  getGeneric,
-  getPriority,
-} from '../../state/gearOptimizerSlice';
-import Presets from '../baseComponents/Presets';
-import HelperIcon from '../HelperIcon';
+import { changePriority, getPriority } from '../../state/gearOptimizerSlice';
+import HelperIcon from '../baseComponents/HelperIcon';
 import Affixes from './Affixes';
 
 const styles = (theme) => ({

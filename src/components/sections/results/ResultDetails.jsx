@@ -10,11 +10,11 @@ import {
   getProfession,
   getSelectedCharacter,
   getTraitLines,
-} from '../../state/gearOptimizerSlice';
-import { updateAttributes } from '../../state/optimizer/optimizerCore';
-import { Classes, Defense, INFUSIONS, PROFESSIONS } from '../../utils/gw2-data';
-import { firstUppercase } from '../../utils/usefulFunctions';
-import Character from '../gw2/Character';
+} from '../../../state/gearOptimizerSlice';
+import { updateAttributes } from '../../../state/optimizer/optimizerCore';
+import { Classes, Defense, INFUSIONS, PROFESSIONS } from '../../../utils/gw2-data';
+import { firstUppercase } from '../../../utils/usefulFunctions';
+import Character from '../../gw2/Character';
 import AffixesStats from './AffixesStats';
 import AppliedModifiers from './AppliedModifiers';
 import Indicators from './Indicators';

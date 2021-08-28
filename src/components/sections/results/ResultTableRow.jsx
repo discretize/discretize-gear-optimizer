@@ -3,7 +3,7 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import { useDispatch } from 'react-redux';
 import { withStyles } from '@material-ui/core';
-import { changeSelectedCharacter } from '../../state/gearOptimizerSlice';
+import { changeSelectedCharacter } from '../../../state/gearOptimizerSlice';
 
 const styles = (theme) => ({
   cell: {

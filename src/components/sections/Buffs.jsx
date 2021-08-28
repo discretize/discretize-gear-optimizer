@@ -2,16 +2,16 @@ import { FormControl, FormGroup, FormLabel, Grid, Typography, withStyles } from 
 import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeBuff, getBuffs } from '../state/gearOptimizerSlice';
-import { firstUppercase } from '../utils/usefulFunctions';
-import CheckboxComponent from './baseComponents/CheckboxComponent';
+import { changeBuff, getBuffs } from '../../state/gearOptimizerSlice';
+import { firstUppercase } from '../../utils/usefulFunctions';
+import CheckboxComponent from '../baseComponents/CheckboxComponent';
 
 const styles = (theme) => ({
   boon: {
     fontSize: 18,
   },
   note: {
-    fontSize: "1rem"
+    fontSize: '1rem',
   },
   tinyNote: {
     fontWeight: 200,

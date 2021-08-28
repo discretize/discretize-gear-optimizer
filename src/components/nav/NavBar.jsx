@@ -25,10 +25,10 @@ import {
   getProfession,
   reset,
   setBuildTemplate,
-} from '../state/gearOptimizerSlice';
-import { PROFESSIONS } from '../utils/gw2-data';
-import { firstUppercase } from '../utils/usefulFunctions';
-import NavAccordion from './nav/NavAccordion';
+} from '../../state/gearOptimizerSlice';
+import { PROFESSIONS } from '../../utils/gw2-data';
+import { firstUppercase } from '../../utils/usefulFunctions';
+import NavAccordion from './NavAccordion';
 
 const styles = (theme) => ({
   topNav: {

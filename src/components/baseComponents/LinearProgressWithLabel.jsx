@@ -1,6 +1,5 @@
-import { Box, LinearProgress, Typography } from "@material-ui/core";
-import React from "react";
-import { createUseStyles } from "react-jss";
+import { Box, LinearProgress, Typography } from '@material-ui/core';
+import React from 'react';
 
 export function LinearProgressWithLabel(props) {
   return (
@@ -10,7 +9,7 @@ export function LinearProgressWithLabel(props) {
       </Box>
       <Box minWidth={35}>
         <Typography variant="body2" color="textSecondary">{`${Math.round(
-          props.value
+          props.value,
         )}%`}</Typography>
       </Box>
     </Box>

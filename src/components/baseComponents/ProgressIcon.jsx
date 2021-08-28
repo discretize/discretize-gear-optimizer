@@ -2,8 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import EqualizerRoundedIcon from '@material-ui/icons/EqualizerRounded';
 import { withStyles } from '@material-ui/core';
-import { getControl } from '../state/gearOptimizerSlice';
-import CircularProgressWithLabel from './baseComponents/CircularProgressWithLabel';
+import { getControl } from '../../state/gearOptimizerSlice';
+import CircularProgressWithLabel from './CircularProgressWithLabel';
 
 const styles = (theme) => ({
   icon: {

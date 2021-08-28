@@ -1,17 +1,15 @@
-import React from 'react';
-import Paper from '@material-ui/core/Paper';
+import { Box, withStyles } from '@material-ui/core';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { Box, withStyles } from '@material-ui/core';
+import { getList, getPriority, getSelectedCharacter } from '../../../state/gearOptimizerSlice';
+import { Slots } from '../../../utils/gw2-data';
 import ResultTableRow from './ResultTableRow';
-import { getList, getPriority, getSelectedCharacter } from '../../state/gearOptimizerSlice';
-import { Slots } from '../../utils/gw2-data';
 
 const styles = (theme) => ({
   root: {

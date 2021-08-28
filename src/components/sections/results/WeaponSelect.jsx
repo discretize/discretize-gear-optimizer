@@ -1,8 +1,8 @@
 import { FormControl, InputLabel, MenuItem, Select, withStyles } from '@material-ui/core';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeControl, getControl, getProfession } from '../../state/gearOptimizerSlice';
-import { Classes } from '../../utils/gw2-data';
+import { changeControl, getControl, getProfession } from '../../../state/gearOptimizerSlice';
+import { Classes } from '../../../utils/gw2-data';
 
 const styles = (theme) => ({
   root: {
