@@ -73,6 +73,7 @@ const styles = (theme) => ({
     // borderRadius: 20,
     borderColor: theme.palette.primary.main,
   },
+  chipIcon: { marginBottom: '-6px !important' },
 });
 
 /**
@@ -343,9 +344,9 @@ const MainComponent = ({ classes, data }) => {
               <>
                 Status: {firstUppercase(status)}{' '}
                 {status === SUCCESS ? (
-                  <DoneAllIcon fontSize="small" />
+                  <DoneAllIcon fontSize="small" classes={{ root: classes.chipIcon }} />
                 ) : status === WAITING || status === RUNNING ? (
-                  <HourglassEmptyIcon fontSize="small" />
+                  <HourglassEmptyIcon fontSize="small" classes={{ root: classes.chipIcon }} />
                 ) : null}
               </>
             }
