@@ -276,9 +276,6 @@ export const gearOptimizerSlice = createSlice({
       }
 
       state.modifiers = modifiers;
-
-      // clear result details
-      state.control.selectedCharacter = null;
     },
     addTraitModifier: (state, action) => {
       state.traits.modifiers = state.traits.modifiers.concat(action.payload);
@@ -329,6 +326,11 @@ export const gearOptimizerSlice = createSlice({
     },
     changeSelectedCharacter: (state, action) => {
       state.control.selectedCharacter = action.payload;
+    },
+    changeSelectedCharacterIfNone: (state, action) => {
+      if (!state.control.selectedCharacter) {
+        state.control.selectedCharacter = action.payload;
+      }
     },
   },
 });
@@ -392,6 +394,7 @@ export const {
   changeOmnipotion,
   changeState,
   changeSelectedCharacter,
+  changeSelectedCharacterIfNone,
 } = gearOptimizerSlice.actions;
 
 export default gearOptimizerSlice.reducer;

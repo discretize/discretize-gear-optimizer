@@ -20,7 +20,7 @@ const styles = (theme) => ({
     borderColor: theme.palette.background.paper,
     border: '1px solid',
   },
-  cell: {
+  pointer: {
     cursor: 'pointer',
   },
   tablehead: {
@@ -53,7 +53,7 @@ const StickyHeadTable = ({ classes }) => {
               ))}
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody className={classes.pointer}>
             {list.map((character) => (
               <ResultTableRow
                 character={character}

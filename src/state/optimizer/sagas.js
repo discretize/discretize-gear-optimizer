@@ -6,8 +6,8 @@ import * as optimizerCore from './optimizerCore';
 import {
   changeControl,
   changeList,
-  getDistributionNew,
-  getDistributionOld,
+  changeSelectedCharacter,
+  changeSelectedCharacterIfNone,
 } from '../gearOptimizerSlice';
 import { INFUSIONS } from '../../utils/gw2-data';
 import { SUCCESS } from './status';
@@ -15,6 +15,9 @@ import { SUCCESS } from './status';
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function* runCalc() {
+  yield delay(0);
+  yield put(changeSelectedCharacter(null));
+
   const time = Date.now();
   let newList;
 
@@ -62,14 +65,13 @@ function* runCalc() {
     console.log('input (real):', input);
 
     // temp: convert "poisoned" to "poison"
-    function convertPoison(distribution) {
-      return Object.fromEntries(
+    const convertPoison = (distribution) =>
+      Object.fromEntries(
         Object.entries(distribution).map(([key, value]) => [
           key === 'Poisoned' ? 'Poison' : key,
           value,
         ]),
       );
-    }
 
     if ({}.hasOwnProperty.call(input.distribution, 'Poisoned')) {
       input.distribution = convertPoison(input.distribution);
@@ -106,7 +108,7 @@ function* runCalc() {
 
       if (done) {
         // cleanup
-        yield put(changeControl({ key: 'selectedCharacter', value: newList[0] }));
+        yield put(changeSelectedCharacterIfNone(newList[0]));
         yield put(changeControl({ key: 'status', value: SUCCESS }));
 
         console.log(`calculation done in ${Date.now() - time}ms`);
@@ -122,7 +124,7 @@ function* runCalc() {
   } finally {
     if (yield cancelled()) {
       console.log(`calculation cancelled after ${Date.now() - time}ms`);
-      yield put(changeControl({ key: 'selectedCharacter', value: newList[0] }));
+      yield put(changeSelectedCharacterIfNone(newList[0]));
     }
   }
 }
