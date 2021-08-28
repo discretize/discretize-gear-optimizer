@@ -15,7 +15,7 @@
     "no-param-reassign": ["warn", { "props": false }],
 
     "consistent-return": "off",
-    "no-unused-vars": ["warn", { "argsIgnorePattern": "^event$|^e$" }],
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^event$|^e$|^props$" }],
 
     // prettier compat
     "arrow-body-style": "off",
