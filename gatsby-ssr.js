@@ -18,7 +18,9 @@ export const replaceRenderer = ({ bodyComponent, replaceBodyHTMLString, setHeadC
     renderToString(
       <Provider store={store}>
         {/* TODO fix redux-persist breaking template swapping <PersistGate loading={<Spinner />} persistor={persistor}> */}
-        <JssProvider registry={sheetsRegistry}>{bodyComponent}</JssProvider>
+        <PersistGate loading={<Spinner />} persistor={persistor}>
+          <JssProvider registry={sheetsRegistry}>{bodyComponent}</JssProvider>
+        </PersistGate>
         {/* </PersistGate> */}
       </Provider>,
     ),

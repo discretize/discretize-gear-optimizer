@@ -35,7 +35,7 @@ const reducers = combineReducers({
   gearOptimizer: gearOptimizerReducer,
 });
 
-// const persistedReducer = persistReducer(persistConfig, reducers);
+const persistedReducer = persistReducer(persistConfig, reducers);
 
 const saga = createSagaMiddleware();
 const composeEnhancers =
@@ -45,11 +45,11 @@ const composeEnhancers =
   compose;
 
 export default () => {
-  const store = reduxCreateStore(reducers, composeEnhancers(applyMiddleware(saga)));
+  const store = reduxCreateStore(persistedReducer, composeEnhancers(applyMiddleware(saga)));
 
   saga.run(gearOptimizerSaga);
 
-  // const persistor = persistStore(store);
-  const persistor = null;
+  const persistor = persistStore(store);
+
   return { store, persistor };
 };
