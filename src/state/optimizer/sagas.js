@@ -6,8 +6,6 @@ import * as optimizerCore from './optimizerCore';
 import {
   changeControl,
   changeList,
-  getDistributionNew,
-  getDistributionOld,
   changeSelectedCharacterIfNone,
 } from '../gearOptimizerSlice';
 import { INFUSIONS } from '../../utils/gw2-data';
@@ -63,14 +61,13 @@ function* runCalc() {
     console.log('input (real):', input);
 
     // temp: convert "poisoned" to "poison"
-    function convertPoison(distribution) {
-      return Object.fromEntries(
+    const convertPoison = (distribution) =>
+      Object.fromEntries(
         Object.entries(distribution).map(([key, value]) => [
           key === 'Poisoned' ? 'Poison' : key,
           value,
         ]),
       );
-    }
 
     if ({}.hasOwnProperty.call(input.distribution, 'Poisoned')) {
       input.distribution = convertPoison(input.distribution);
