@@ -3,10 +3,10 @@ import {
   Box,
   Button,
   debounce,
-  Drawer,
   FormControlLabel,
   IconButton,
   MenuItem,
+  SwipeableDrawer,
   Switch,
   Toolbar,
   withStyles,
@@ -19,18 +19,16 @@ import Menu from 'material-ui-popup-state/HoverMenu';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  changeBuff,
   changeControl,
-  changePriority,
   changeProfession,
-  changeState,
-  getBuffs,
   getControl,
   getProfession,
   reset,
-} from '../state/gearOptimizerSlice';
-import { PROFESSIONS } from '../utils/gw2-data';
-import { firstUppercase } from '../utils/usefulFunctions';
+  setBuildTemplate,
+} from '../../state/gearOptimizerSlice';
+import { PROFESSIONS } from '../../utils/gw2-data';
+import { firstUppercase } from '../../utils/usefulFunctions';
+import NavAccordion from './NavAccordion';
 
 const styles = (theme) => ({
   topNav: {
@@ -39,16 +37,12 @@ const styles = (theme) => ({
   navProfession: {
     fontSize: '2rem',
   },
-  drawerContainer: {
-    padding: '20px 30px',
-  },
 });
 
 const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
   const expertMode = useSelector(getControl('expertMode'));
-  const buffs = useSelector(getBuffs);
 
   const [state, setState] = useState({
     mobileView: typeof window !== 'undefined' ? window.innerWidth < 900 : false,
@@ -104,25 +98,6 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
     const handleDrawerOpen = () => setState((prevState) => ({ ...prevState, drawerOpen: true }));
     const handleDrawerClose = () => setState((prevState) => ({ ...prevState, drawerOpen: false }));
 
-    const getDrawerChoices = () => {
-      return PROFESSIONS.map((p) => (
-        <div key={p.profession}>
-          <Button
-            onClick={() => {
-              dispatch(changeProfession(p.profession));
-              dispatch(reset());
-            }}
-            variant={p.profession === profession ? 'contained' : 'text'}
-          >
-            <Profession
-              name={firstUppercase(p.profession)}
-              disableLink
-              className={classes.navProfession}
-            />
-          </Button>
-        </div>
-      ));
-    };
     return (
       <Toolbar>
         <Box flexGrow={1}>
@@ -139,40 +114,39 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
           </IconButton>
         </Box>
 
-        <Drawer
+        <SwipeableDrawer
           {...{
             anchor: 'left',
             open: drawerOpen,
+            onOpen: handleDrawerOpen,
             onClose: handleDrawerClose,
           }}
         >
-          <div className={classes.drawerContainer}>{getDrawerChoices()}</div>
-        </Drawer>
+          <div>
+            <NavAccordion
+              data={data}
+              buffPresets={buffPresets}
+              prioritiesPresets={prioritiesPresets}
+            />
+          </div>
+        </SwipeableDrawer>
 
         {stickyRight()}
       </Toolbar>
     );
   };
 
-  const handleTemplateSelect = (popup, elem, prof) => {
-    dispatch(reset());
-    const traitState = JSON.parse(elem.traits);
-
-    // set all the buffs to disabled
-    Object.keys(buffs).forEach((el) => dispatch(changeBuff({ key: el, value: false })));
-    // apply the preset
-    const buffState = JSON.parse(buffPresets.find((pre) => pre.name === elem.boons).value);
-    Object.keys(buffState).forEach((key) => dispatch(changeBuff({ key, value: buffState[key] })));
-
-    // change priorities
-    const prioritiesState = JSON.parse(
-      prioritiesPresets.find((prio) => prio.name === elem.priority).value,
-    );
-    Object.keys(prioritiesState).forEach((key) =>
-      dispatch(changePriority({ key, value: prioritiesState[key] })),
+  const handleTemplateSelect = (popup, elem) => {
+    dispatch(
+      setBuildTemplate({
+        build: elem,
+        buffPreset: JSON.parse(buffPresets.find((pre) => pre.name === elem.boons).value),
+        prioritiesPreset: JSON.parse(
+          prioritiesPresets.find((prio) => prio.name === elem.priority).value,
+        ),
+      }),
     );
 
-    dispatch(changeState({ ...traitState, profession: prof }));
     popup.close();
   };
 
@@ -225,7 +199,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
                 .builds.map((elem) => (
                   <MenuItem
                     key={elem.name}
-                    onClick={(e) => handleTemplateSelect(popupState[index], elem, p.profession)}
+                    onClick={(e) => handleTemplateSelect(popupState[index], elem)}
                   >
                     <Profession
                       eliteSpecialization={elem.specialization}

@@ -1,16 +1,15 @@
-import React from 'react';
-import Paper from '@material-ui/core/Paper';
+import { Box, withStyles } from '@material-ui/core';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-
-import { useSelector, useDispatch } from 'react-redux';
-import { Box, withStyles } from '@material-ui/core';
-import { getList, getPriority, changeControl, getControl } from '../../state/gearOptimizerSlice';
-import { Slots } from '../../utils/gw2-data';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { getList, getPriority, getSelectedCharacter } from '../../../state/gearOptimizerSlice';
+import { Slots } from '../../../utils/gw2-data';
+import ResultTableRow from './ResultTableRow';
 
 const styles = (theme) => ({
   root: {
@@ -21,7 +20,7 @@ const styles = (theme) => ({
     borderColor: theme.palette.background.paper,
     border: '1px solid',
   },
-  cell: {
+  pointer: {
     cursor: 'pointer',
   },
   tablehead: {
@@ -31,10 +30,9 @@ const styles = (theme) => ({
 
 const StickyHeadTable = ({ classes }) => {
   const wield = useSelector(getPriority('weaponType'));
-  const selected = useSelector(getControl('selected'));
+  const selectedCharacter = useSelector(getSelectedCharacter);
 
   const list = useSelector(getList) || [];
-  const dispatch = useDispatch();
 
   return (
     <Box boxShadow={8}>
@@ -55,24 +53,13 @@ const StickyHeadTable = ({ classes }) => {
               ))}
             </TableRow>
           </TableHead>
-          <TableBody>
-            {list.map((character, i) => (
-              <TableRow
+          <TableBody className={classes.pointer}>
+            {list.map((character) => (
+              <ResultTableRow
+                character={character}
                 key={character.id}
-                onClick={(e) => dispatch(changeControl({ key: 'selected', value: i }))}
-                className={classes.cell}
-                selected={i === selected}
-                style={i === selected ? { backgroundColor: 'rgba(0, 204, 204, 0.2)' } : null}
-                hover
-              >
-                <TableCell scope="row">{character.attributes.Damage.toFixed(2)}</TableCell>
-                {character.gear.map((element, index) => (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <TableCell align="center" key={element + index} padding="none">
-                    {element.slice(0, 4)}
-                  </TableCell>
-                ))}
-              </TableRow>
+                selected={character === selectedCharacter}
+              />
             ))}
           </TableBody>
         </Table>

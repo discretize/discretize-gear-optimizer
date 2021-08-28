@@ -9,6 +9,7 @@ list:
         priority: Power DPS
         traits: >-
           {
+            "profession":"MESMER",
             "traits":{
                 "lines":[
                   "10",

@@ -15,14 +15,14 @@ import {
   addTraitModifier,
   changeTraitLine,
   changeTraits,
-  getTraitModifiers,
   getTraitLines,
+  getTraitModifiers,
   getTraits,
   removeTraitModifier,
-  removeTraitModifierWithSource,
   removeTraitModifierWithGW2id,
-} from '../state/gearOptimizerSlice';
-import CheckboxComponent from './baseComponents/CheckboxComponent';
+  removeTraitModifierWithSource,
+} from '../../state/gearOptimizerSlice';
+import CheckboxComponent from '../baseComponents/CheckboxComponent';
 
 const styles = (theme) => ({
   formControl: {

@@ -2,8 +2,8 @@ import { FormControl, Grid, Input, InputAdornment, InputLabel } from '@material-
 import { Attribute, Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeAR, changeOmnipotion, getAR, getOmniPotion } from '../state/gearOptimizerSlice';
-import CheckboxComponent from './baseComponents/CheckboxComponent';
+import { changeAR, changeOmnipotion, getAR, getOmniPotion } from '../../state/gearOptimizerSlice';
+import CheckboxComponent from '../baseComponents/CheckboxComponent';
 
 const ARinput = () => {
   const dispatch = useDispatch();

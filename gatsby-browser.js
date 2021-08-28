@@ -16,7 +16,9 @@ const { store, persistor } = createStore();
 export const wrapRootElement = ({ element }) => (
   <Provider store={store}>
     {/* TODO fix redux-persist breaking template swapping <PersistGate loading={<Spinner />} persistor={persistor}> */}
-    <ThemeProvider theme={baseTheme}>{element}</ThemeProvider>
+    <PersistGate loading={<Spinner />} persistor={persistor}>
+      <ThemeProvider theme={baseTheme}>{element}</ThemeProvider>
+    </PersistGate>
     {/* </PersistGate> */}
   </Provider>
 );

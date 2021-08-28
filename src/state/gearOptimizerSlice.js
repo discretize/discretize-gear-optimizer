@@ -8,8 +8,8 @@ export const gearOptimizerSlice = createSlice({
       expertMode: true,
       list: [],
       progress: 0,
-      selected: 0,
-      STATUS: WAITING,
+      selectedCharacter: null,
+      status: WAITING,
     },
     profession: '',
     traits: {
@@ -122,7 +122,7 @@ export const gearOptimizerSlice = createSlice({
         ...state.control,
         list: [],
         progress: 0,
-        selected: 0,
+        selectedCharacter: null,
         status: WAITING,
       };
       state.skills = [];
@@ -184,6 +184,37 @@ export const gearOptimizerSlice = createSlice({
     addModifier: (state, action) => {
       state.modifiers = state.modifiers.concat(action.payload);
     },
+    setBuildTemplate: (state, action) => {
+      const data = action.payload;
+
+      // enable the buff template
+      const { buffs } = state;
+      const buffsNew = {};
+      [...Object.keys(buffs)].forEach((key) => {
+        buffsNew[key] = false;
+        if (key in data.buffPreset) buffsNew[key] = data.buffPreset[key];
+      });
+
+      const traitState = JSON.parse(data.build.traits);
+
+      return {
+        ...state,
+        ...traitState,
+        modifiers: [],
+        control: {
+          ...state.control,
+          list: [],
+          progress: 0,
+          selectedCharacter: null,
+          status: WAITING,
+        },
+        buffs: buffsNew,
+        priorities: {
+          ...state.priorities,
+          ...data.prioritiesPreset,
+        },
+      };
+    },
     setModifiers: (state, action) => {
       // passed data from GraphQL
       const data = action.payload;
@@ -201,8 +232,10 @@ export const gearOptimizerSlice = createSlice({
         { id: 'Enhancement', list: data.enhancement.list },
         { id: 'Nourishment', list: data.nourishment.list },
       ];
+
       extrasData
         .filter((extra) => extras[extra.id] !== '')
+        .filter((extra) => extras[extra.id] !== undefined)
         .forEach((extra) => {
           modifiers.push({
             id: extras[extra.id],
@@ -243,6 +276,9 @@ export const gearOptimizerSlice = createSlice({
       }
 
       state.modifiers = modifiers;
+
+      // clear result details
+      state.control.selectedCharacter = null;
     },
     addTraitModifier: (state, action) => {
       state.traits.modifiers = state.traits.modifiers.concat(action.payload);
@@ -291,6 +327,9 @@ export const gearOptimizerSlice = createSlice({
     changeState: (state, action) => {
       return { ...state, ...action.payload };
     },
+    changeSelectedCharacter: (state, action) => {
+      state.control.selectedCharacter = action.payload;
+    },
   },
 });
 
@@ -315,10 +354,7 @@ export const getPriority = (key) => (state) => state.gearOptimizer.priorities[ke
 export const getExtras = (state) => state.gearOptimizer.extras;
 export const getList = (state) => state.gearOptimizer.control.list;
 export const getOmniPotion = (state) => state.gearOptimizer.omnipotion;
-export const getSelectedCharacter = (state) => {
-  const { selected } = state.gearOptimizer.control;
-  return selected !== '' ? state.gearOptimizer.control.list[selected] : null;
-};
+export const getSelectedCharacter = (state) => state.gearOptimizer.control.selectedCharacter;
 
 export const {
   reset,
@@ -352,8 +388,10 @@ export const {
   removeTraitModifier,
   removeTraitModifierWithSource,
   setModifiers,
+  setBuildTemplate,
   changeOmnipotion,
   changeState,
+  changeSelectedCharacter,
 } = gearOptimizerSlice.actions;
 
 export default gearOptimizerSlice.reducer;

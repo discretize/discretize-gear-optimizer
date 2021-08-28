@@ -16,6 +16,8 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function* runCalc() {
   const time = Date.now();
+  let newList;
+
   try {
     const state = yield select();
 
@@ -85,7 +87,6 @@ function* runCalc() {
     let done = false;
     let newPercent;
     let isChanged;
-    let newList;
     while (true) {
       const result = generator.next();
       ({
@@ -105,7 +106,7 @@ function* runCalc() {
 
       if (done) {
         // cleanup
-        yield put(changeControl({ key: 'selected', value: 0 }));
+        yield put(changeControl({ key: 'selectedCharacter', value: newList[0] }));
         yield put(changeControl({ key: 'status', value: SUCCESS }));
 
         console.log(`calculation done in ${Date.now() - time}ms`);
@@ -121,6 +122,7 @@ function* runCalc() {
   } finally {
     if (yield cancelled()) {
       console.log(`calculation cancelled after ${Date.now() - time}ms`);
+      yield put(changeControl({ key: 'selectedCharacter', value: newList[0] }));
     }
   }
 }
