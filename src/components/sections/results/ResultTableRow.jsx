@@ -2,20 +2,12 @@ import React from 'react';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import { useDispatch } from 'react-redux';
-import { withStyles } from '@material-ui/core';
 import { changeSelectedCharacter } from '../../../state/gearOptimizerSlice';
 
-const styles = (theme) => ({
-  cell: {
-    cursor: 'pointer',
-  },
-});
-
-const ResultTableRow = React.memo(({ classes, character, selected }) => {
+const ResultTableRow = React.memo(({ character, selected }) => {
   const dispatch = useDispatch();
   return (
     <TableRow
-      className={classes.cell}
       selected={selected}
       style={selected ? { backgroundColor: 'rgba(0, 204, 204, 0.2)' } : null}
       onClick={(e) => dispatch(changeSelectedCharacter(character))}
@@ -32,4 +24,4 @@ const ResultTableRow = React.memo(({ classes, character, selected }) => {
   );
 });
 
-export default withStyles(styles)(ResultTableRow);
+export default ResultTableRow;

@@ -1,17 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import EqualizerRoundedIcon from '@material-ui/icons/EqualizerRounded';
-import { withStyles } from '@material-ui/core';
 import { getControl } from '../../state/gearOptimizerSlice';
 import CircularProgressWithLabel from './CircularProgressWithLabel';
 
-const styles = (theme) => ({
-  icon: {
-    fontSize: 40,
-  },
-});
-
-const ProgressIcon = ({ classes }) => {
+const ProgressIcon = (props) => {
   const progress = useSelector(getControl('progress'));
 
   return (
@@ -19,9 +12,9 @@ const ProgressIcon = ({ classes }) => {
       {progress < 100 && progress !== 0 ? (
         <CircularProgressWithLabel variant="determinate" value={progress} />
       ) : (
-        <EqualizerRoundedIcon className={classes.icon}></EqualizerRoundedIcon>
+        <EqualizerRoundedIcon />
       )}
     </>
   );
 };
-export default withStyles(styles)(ProgressIcon);
+export default ProgressIcon;
