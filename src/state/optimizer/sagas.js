@@ -8,6 +8,7 @@ import {
   changeList,
   getDistributionNew,
   getDistributionOld,
+  changeSelectedCharacterIfNone,
 } from '../gearOptimizerSlice';
 import { INFUSIONS } from '../../utils/gw2-data';
 import { SUCCESS } from './status';
@@ -106,7 +107,7 @@ function* runCalc() {
 
       if (done) {
         // cleanup
-        yield put(changeControl({ key: 'selectedCharacter', value: newList[0] }));
+        yield put(changeSelectedCharacterIfNone(newList[0]));
         yield put(changeControl({ key: 'status', value: SUCCESS }));
 
         console.log(`calculation done in ${Date.now() - time}ms`);
@@ -122,7 +123,7 @@ function* runCalc() {
   } finally {
     if (yield cancelled()) {
       console.log(`calculation cancelled after ${Date.now() - time}ms`);
-      yield put(changeControl({ key: 'selectedCharacter', value: newList[0] }));
+      yield put(changeSelectedCharacterIfNone(newList[0]));
     }
   }
 }

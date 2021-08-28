@@ -330,6 +330,11 @@ export const gearOptimizerSlice = createSlice({
     changeSelectedCharacter: (state, action) => {
       state.control.selectedCharacter = action.payload;
     },
+    changeSelectedCharacterIfNone: (state, action) => {
+      if (!state.control.selectedCharacter) {
+        state.control.selectedCharacter = action.payload;
+      }
+    },
   },
 });
 
@@ -392,6 +397,7 @@ export const {
   changeOmnipotion,
   changeState,
   changeSelectedCharacter,
+  changeSelectedCharacterIfNone,
 } = gearOptimizerSlice.actions;
 
 export default gearOptimizerSlice.reducer;
