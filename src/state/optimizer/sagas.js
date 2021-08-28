@@ -6,6 +6,7 @@ import * as optimizerCore from './optimizerCore';
 import {
   changeControl,
   changeList,
+  changeSelectedCharacter,
   changeSelectedCharacterIfNone,
 } from '../gearOptimizerSlice';
 import { INFUSIONS } from '../../utils/gw2-data';
@@ -14,6 +15,9 @@ import { SUCCESS } from './status';
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function* runCalc() {
+  yield delay(0);
+  yield put(changeSelectedCharacter(null));
+
   const time = Date.now();
   let newList;
 
