@@ -206,6 +206,27 @@ const RuneSigilFoodSection = ({ data }) => {
 };
 const RuneSigilFoodSectionMemo = React.memo(RuneSigilFoodSection);
 
+const BuffsSection = ({ data }) => {
+  const dispatch = useDispatch();
+
+  const handleTemplateClickBuffs = React.useCallback(
+    (index) => (event) => {
+      const state = JSON.parse(data.presetBuffs.list[index].value);
+      dispatch(replaceBuffs(state));
+    },
+    [data.presetBuffs.list, dispatch],
+  );
+
+  return (
+    <Section
+      title="Buffs & Boons"
+      extraInfo={<Presets data={data.presetBuffs.list} handleClick={handleTemplateClickBuffs} />}
+      content={<Buffs data={data.buffs.list} />}
+    />
+  );
+};
+const BuffsSectionMemo = React.memo(BuffsSection);
+
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
  *
@@ -250,14 +271,6 @@ const MainComponent = ({ classes, data }) => {
     [dispatch],
   );
 
-  const handleTemplateClickBuffs = React.useCallback(
-    (index) => (event) => {
-      const state = JSON.parse(data.presetBuffs.list[index].value);
-      dispatch(replaceBuffs(state));
-    },
-    [data.presetBuffs.list, dispatch],
-  );
-
   const handleTemplateClickPriorities = React.useCallback(
     (index) => (event) => {
       const state = JSON.parse(data.presetAffixes.list[index].value);
@@ -285,13 +298,7 @@ const MainComponent = ({ classes, data }) => {
 
             <RuneSigilFoodSectionMemo data={data} />
 
-            <Section
-              title="Buffs & Boons"
-              extraInfo={
-                <Presets data={data.presetBuffs.list} handleClick={handleTemplateClickBuffs} />
-              }
-              content={<Buffs data={data.buffs.list} />}
-            />
+            <BuffsSectionMemo data={data} />
 
             <Section
               title="Extra Modifiers"
