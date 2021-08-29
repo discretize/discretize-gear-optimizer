@@ -76,6 +76,59 @@ const styles = (theme) => ({
   chipIcon: { marginBottom: '-6px !important' },
 });
 
+const DistributionSection = ({ profession, data }) => {
+  const dispatch = useDispatch();
+  const distributionVersion = useSelector(getDistributionVersion);
+
+  const distributionPresets =
+    profession !== ''
+      ? data.presetDistribution.list.filter(
+          (preset) =>
+            PROFESSIONS.find((p) => p.profession === profession).eliteSpecializations.includes(
+              preset.profession,
+            ) || preset.profession === null,
+        )
+      : null;
+
+  const onTemplateClickDistribution = React.useCallback(
+    (index) => (event) => {
+      const state = JSON.parse(distributionPresets[index].value);
+
+      dispatch(changeAllDistributionsOld(state.values1));
+      dispatch(changeAllDistributionsNew(state.values2));
+      dispatch(changeAllTextBoxes(state.values2));
+    },
+    [dispatch, distributionPresets],
+  );
+
+  return (
+    <Section
+      title="Damage Distribution"
+      content={<DamageDistribution />}
+      extraInfo={
+        <>
+          <FormControlLabel
+            control={
+              <Switch
+                checked={distributionVersion === 1}
+                onChange={(e) => dispatch(changeDistributionVersion(e.target.checked ? 1 : 2))}
+                name="checked"
+                color="primary"
+              />
+            }
+            label="Switch to %-wise damage distribution"
+          />
+
+          {profession !== '' && (
+            <Presets data={distributionPresets} handleClick={onTemplateClickDistribution} />
+          )}
+        </>
+      }
+    />
+  );
+};
+const DistributionSectionMemo = React.memo(DistributionSection);
+
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
  *
@@ -89,21 +142,10 @@ const MainComponent = ({ classes, data }) => {
   const expertMode = useSelector(getControl('expertMode'));
   const profession = useSelector(getProfession);
   const status = useSelector(getControl('status'));
-  const distributionVersion = useSelector(getDistributionVersion);
 
   const skillsData = profession
     ? data[profession.toLowerCase()].edges[0].node.list.find((d) => d.section === 'Skills')
     : null;
-
-  const distributionPresets =
-    profession !== ''
-      ? data.presetDistribution.list.filter(
-          (preset) =>
-            PROFESSIONS.find((p) => p.profession === profession).eliteSpecializations.includes(
-              preset.profession,
-            ) || preset.profession === null,
-        )
-      : null;
 
   const onStartCalculate = React.useCallback(
     (e) => {
@@ -145,17 +187,6 @@ const MainComponent = ({ classes, data }) => {
       Object.keys(state).forEach((key) => dispatch(changePriority({ key, value: state[key] })));
     },
     [data.presetAffixes.list, dispatch],
-  );
-
-  const onTemplateClickDistribution = React.useCallback(
-    (index) => (event) => {
-      const state = JSON.parse(distributionPresets[index].value);
-
-      dispatch(changeAllDistributionsOld(state.values1));
-      dispatch(changeAllDistributionsNew(state.values2));
-      dispatch(changeAllTextBoxes(state.values2));
-    },
-    [dispatch, distributionPresets],
   );
 
   return (
@@ -280,31 +311,7 @@ const MainComponent = ({ classes, data }) => {
                 />
               }
             />
-            <Section
-              title="Damage Distribution"
-              content={<DamageDistribution />}
-              extraInfo={
-                <>
-                  <FormControlLabel
-                    control={
-                      <Switch
-                        checked={distributionVersion === 1}
-                        onChange={(e) =>
-                          dispatch(changeDistributionVersion(e.target.checked ? 1 : 2))
-                        }
-                        name="checked"
-                        color="primary"
-                      />
-                    }
-                    label="Switch to %-wise damage distribution"
-                  />
-
-                  {profession !== '' && (
-                    <Presets data={distributionPresets} handleClick={onTemplateClickDistribution} />
-                  )}
-                </>
-              }
-            />
+            <DistributionSectionMemo profession={profession} data={data} />
           </>
         )}
 
