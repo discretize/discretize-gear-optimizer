@@ -10,7 +10,7 @@ import {
   changeSelectedCharacterIfNone,
 } from '../gearOptimizerSlice';
 import { INFUSIONS } from '../../utils/gw2-data';
-import { SUCCESS } from './status';
+import { SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -19,10 +19,13 @@ function* runCalc() {
   yield put(changeSelectedCharacter(null));
 
   const time = Date.now();
+  let state;
   let newList;
+  let input;
+  let settings;
 
   try {
-    const state = yield select();
+    state = yield select();
 
     const {
       profession,
@@ -41,7 +44,7 @@ function* runCalc() {
       distribution: { version, values1, values2 },
     } = state.gearOptimizer;
 
-    const input = {
+    input = {
       modifiers: modifiers.map((modifier) => JSON.parse(modifier.modifiers)),
       tags: undefined,
       profession: profession.toLowerCase(),
@@ -62,7 +65,7 @@ function* runCalc() {
       percentDistribution: values1,
       distribution: values2,
     };
-    console.log('input (real):', input);
+    console.log('input:', input);
 
     // temp: convert "poisoned" to "poison"
     const convertPoison = (distribution) =>
@@ -80,7 +83,7 @@ function* runCalc() {
       input.percentDistribution = convertPoison(input.percentDistribution);
     }
 
-    const settings = optimizerCore.setup(input);
+    settings = optimizerCore.setup(input);
 
     // set up table columns here
 
@@ -120,7 +123,12 @@ function* runCalc() {
   } catch (e) {
     // eslint-disable-next-line no-alert
     alert(`There was an error in the calculation!\n\n${e}`);
-    console.log('There was an error in the calculation!\n\n', e);
+    console.log(e);
+    console.log('state:', { ...state.gearOptimizer });
+    console.log('input:', { ...input });
+    console.log('settings:', { ...settings });
+    console.log('list:', { ...newList });
+    yield put(changeControl({ key: 'status', value: WAITING }));
   } finally {
     if (yield cancelled()) {
       console.log(`calculation cancelled after ${Date.now() - time}ms`);
