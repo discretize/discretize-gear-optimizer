@@ -29,7 +29,12 @@ function* runCalc() {
 
     const {
       profession,
-      infusions: { primaryInfusion, secondaryInfusion, primaryMaxInfusions, secondaryMaxInfusions },
+      infusions: {
+        primaryInfusion,
+        secondaryInfusion,
+        primaryMaxInfusions: primaryMaxInfusionsInput,
+        secondaryMaxInfusions: secondaryMaxInfusionsInput,
+      },
       forcedSlots,
       priorities: {
         optimizeFor,
@@ -43,6 +48,17 @@ function* runCalc() {
       modifiers,
       distribution: { version, values1, values2 },
     } = state.gearOptimizer;
+
+    const parseTextNumber = (text, defaultValue) => {
+      const parsed = Number.parseInt(text, 10);
+      if (Number.isNaN(parsed)) {
+        return defaultValue;
+      }
+      return Math.max(parsed, 0);
+    };
+
+    const primaryMaxInfusions = parseTextNumber(primaryMaxInfusionsInput, 18);
+    const secondaryMaxInfusions = parseTextNumber(secondaryMaxInfusionsInput, 18);
 
     input = {
       modifiers: modifiers.map((modifier) => JSON.parse(modifier.modifiers)),

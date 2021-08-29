@@ -64,7 +64,7 @@ const Infusions = ({ classes }) => {
           id={`${varName}_input-with-icon-adornment`}
           value={maxInfusions}
           onChange={(e) =>
-            dispatch(changeInfusions({ key: varName, value: Number(e.target.value) }))
+            dispatch(changeInfusions({ key: varName, value: e.target.value }))
           }
         />
       </FormControl>
