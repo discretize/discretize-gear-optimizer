@@ -227,6 +227,22 @@ const BuffsSection = ({ data }) => {
 };
 const BuffsSectionMemo = React.memo(BuffsSection);
 
+const ExtraModifiersSection = () => {
+  return (
+    <Section
+      title="Extra Modifiers"
+      helpText={
+        <>
+          Allows adding arbitrary extra modifiers. The textbox expects valid JSON formatting. For
+          multiple modifiers please use a list. For more information visit the github repository.
+        </>
+      }
+      content={<ExtraModifiers />}
+    />
+  );
+};
+const ExtraModifiersSectionMemo = React.memo(ExtraModifiersSection);
+
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
  *
@@ -300,17 +316,7 @@ const MainComponent = ({ classes, data }) => {
 
             <BuffsSectionMemo data={data} />
 
-            <Section
-              title="Extra Modifiers"
-              helpText={
-                <>
-                  Allows adding arbitrary extra modifiers. The textbox expects valid JSON
-                  formatting. For multiple modifiers please use a list. For more information visit
-                  the github repository.
-                </>
-              }
-              content={<ExtraModifiers />}
-            />
+            <ExtraModifiersSectionMemo />
 
             <Section
               title="Stat Infusions"
