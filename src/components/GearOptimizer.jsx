@@ -256,6 +256,11 @@ const ExtraModifiersSection = () => {
 };
 const ExtraModifiersSectionMemo = React.memo(ExtraModifiersSection);
 
+const ForcedSlotsSection = () => {
+  return <Section title="Forced Slots" content={<ForcedSlots />} />;
+};
+const ForcedSlotsSectionMemo = React.memo(ForcedSlotsSection);
+
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
  *
@@ -333,7 +338,7 @@ const MainComponent = ({ classes, data }) => {
 
             <InfusionsSectionMemo />
 
-            <Section title="Forced Slots" content={<ForcedSlots />} />
+            <ForcedSlotsSectionMemo />
 
             <Section
               title="Priorities"
