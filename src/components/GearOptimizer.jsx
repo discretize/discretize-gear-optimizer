@@ -284,6 +284,22 @@ const PrioritiesSection = ({ data }) => {
 };
 const PrioritiesSectionMemo = React.memo(PrioritiesSection);
 
+const ARSection = ({ first }) => {
+  return (
+    <Section
+      title={
+        <>
+          <Attribute name="Agony Resistance" disableLink disableText /> Agony Resistance
+        </>
+      }
+      first={first}
+      helpText="Adds 150% of your Agony Resistance to Precision, Toughness and Concentration."
+      content={<ARinput />}
+    />
+  );
+};
+const ARSectionMemo = React.memo(ARSection);
+
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
  *
@@ -361,16 +377,7 @@ const MainComponent = ({ classes, data }) => {
           </>
         )}
 
-        <Section
-          title={
-            <>
-              <Attribute name="Agony Resistance" disableLink disableText /> Agony Resistance
-            </>
-          }
-          first={!expertMode}
-          helpText="Adds 150% of your Agony Resistance to Precision, Toughness and Concentration."
-          content={<ARinput />}
-        />
+        <ARSectionMemo first={!expertMode} />
       </Grid>
 
       <Box display="flex" flexWrap="wrap">
