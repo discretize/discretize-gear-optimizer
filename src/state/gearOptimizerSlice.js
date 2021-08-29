@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { WAITING } from './optimizer/status';
+import { Omnipotion } from '../utils/gw2-data';
 
 export const gearOptimizerSlice = createSlice({
   name: 'go',
@@ -265,6 +266,26 @@ export const gearOptimizerSlice = createSlice({
       );
       modifiers.push(...matchedTraitModifiers);
       modifiers.push(...matchedSkillModifiers);
+
+      // Apply AR and omnipotion
+      if (state.ar) {
+        modifiers.push({
+          id: 'agony-resistance',
+          modifiers: JSON.stringify({
+            flat: {
+              'Agony Resistance': state.ar,
+            },
+          }),
+        });
+      }
+      if (state.omnipotion) {
+        modifiers.push({
+          id: 'omnipotion',
+          modifiers: JSON.stringify(Omnipotion),
+        });
+      }
+
+
 
       // Apply extra (manual) modifiers
       if (extraModifiers.extraModifiers.length > 0) {
