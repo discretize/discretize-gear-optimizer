@@ -258,7 +258,15 @@ const MainComponent = ({ classes, data }) => {
               content={<ExtraModifiers />}
             />
 
-            <Section title="Stat Infusions" content={<Infusions />} />
+            <Section
+              title="Stat Infusions"
+              content={<Infusions />}
+              helpText={
+                <>
+                  Select up to 2 types of stat infusions, and optionally limit the quantity allowed.
+                </>
+              }
+            />
 
             <Section title="Forced Slots" content={<ForcedSlots />} />
 
