@@ -227,6 +227,19 @@ const BuffsSection = ({ data }) => {
 };
 const BuffsSectionMemo = React.memo(BuffsSection);
 
+const InfusionsSection = () => {
+  return (
+    <Section
+      title="Stat Infusions"
+      content={<Infusions />}
+      helpText={
+        <>Select up to 2 types of stat infusions, and optionally limit the quantity allowed.</>
+      }
+    />
+  );
+};
+const InfusionsSectionMemo = React.memo(InfusionsSection);
+
 const ExtraModifiersSection = () => {
   return (
     <Section
@@ -318,15 +331,7 @@ const MainComponent = ({ classes, data }) => {
 
             <ExtraModifiersSectionMemo />
 
-            <Section
-              title="Stat Infusions"
-              content={<Infusions />}
-              helpText={
-                <>
-                  Select up to 2 types of stat infusions, and optionally limit the quantity allowed.
-                </>
-              }
-            />
+            <InfusionsSectionMemo />
 
             <Section title="Forced Slots" content={<ForcedSlots />} />
 
