@@ -300,6 +300,84 @@ const ARSection = ({ first }) => {
 };
 const ARSectionMemo = React.memo(ARSection);
 
+const ControlsBox = ({ classes, profession, data }) => {
+  const dispatch = useDispatch();
+
+  const status = useSelector(getControl('status'));
+
+  const onStartCalculate = React.useCallback(
+    (e) => {
+      console.log('calculate');
+
+      // pass data from GraphQL
+      dispatch(setModifiers(data));
+
+      dispatch(changeControl({ key: 'status', value: RUNNING }));
+      dispatch({
+        type: 'START',
+      });
+    },
+    [data, dispatch],
+  );
+
+  const onCancelCalculate = React.useCallback(
+    (e) => {
+      dispatch({
+        type: 'CANCEL',
+      });
+      dispatch(changeControl({ key: 'status', value: ABORTED }));
+      console.log('cancel button pressed');
+    },
+    [dispatch],
+  );
+
+  return (
+    <Box display="flex" flexWrap="wrap">
+      <Box>
+        <Button
+          variant="outlined"
+          color="primary"
+          className={classes.button}
+          onClick={onStartCalculate}
+          classes={{ label: classes.label }}
+          disabled={status === RUNNING || profession === ''}
+        >
+          <ProgressIcon />
+          <Typography>Calculate</Typography>
+        </Button>
+      </Box>
+      <Box flexGrow={1}>
+        <Button
+          variant="outlined"
+          color="primary"
+          className={classes.button}
+          onClick={onCancelCalculate}
+          disabled={status !== RUNNING}
+        >
+          <Cancel className={classNames(classes.icon)}></Cancel>
+          <Typography style={{ marginLeft: 8 }}>Abort</Typography>
+        </Button>
+      </Box>
+      <Box alignSelf="center">
+        <Chip
+          label={
+            <>
+              Status: {firstUppercase(status)}{' '}
+              {status === SUCCESS ? (
+                <DoneAllIcon fontSize="small" classes={{ root: classes.chipIcon }} />
+              ) : status === WAITING || status === RUNNING ? (
+                <HourglassEmptyIcon fontSize="small" classes={{ root: classes.chipIcon }} />
+              ) : null}
+            </>
+          }
+          color={status !== ABORTED ? 'primary' : 'secondary'}
+        />
+      </Box>
+    </Box>
+  );
+};
+const ControlsBoxMemo = React.memo(ControlsBox);
+
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
  *
