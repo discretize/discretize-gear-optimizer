@@ -74,12 +74,12 @@ const Infusions = ({ classes }) => {
   return (
     <Grid container spacing={2} justifyContent="flex-start" direction="row" alignItems="center">
       <Grid item xs={12} sm={8}>
-        {dropdown('Primary Infusion', 'primaryInfusion', infusions.primaryInfusion)}
+        {dropdown('Infusion Type #1', 'primaryInfusion', infusions.primaryInfusion)}
         {input('Max #', 'primaryMaxInfusions', infusions.primaryMaxInfusions)}
       </Grid>
 
       <Grid item xs={12} sm={8}>
-        {dropdown('Secondary Infusion', 'secondaryInfusion', infusions.secondaryInfusion)}
+        {dropdown('Infusion Type #2', 'secondaryInfusion', infusions.secondaryInfusion)}
         {input('Max #', 'secondaryMaxInfusions', infusions.secondaryMaxInfusions)}
       </Grid>
     </Grid>
