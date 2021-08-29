@@ -157,6 +157,55 @@ const SkillsSection = ({ profession, skillsData }) => {
 };
 const SkillsSectionMemo = React.memo(SkillsSection);
 
+const RuneSigilFoodSection = ({ data }) => {
+  return (
+    <Section
+      title="Runes & Sigils & Food"
+      content={
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={6}>
+            <GW2Select
+              name="Sigil1"
+              label={<Item id={24615} disableLink disableTooltip text="Sigil 1" />}
+              data={data.sigils.list}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <GW2Select
+              name="Sigil2"
+              label={<Item id={24868} disableLink disableTooltip text="Sigil 2" />}
+              data={data.sigils.list}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <GW2Select
+              name="Runes"
+              label={<Item id={24836} disableLink disableTooltip text="Rune" />}
+              data={data.runes.list}
+            />
+          </Grid>
+          <Grid item md={6} />
+          <Grid item xs={12} md={6}>
+            <GW2Select
+              name="Nourishment"
+              label={<ConsumableEffect name="Nourishment" />}
+              data={data.nourishment.list}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <GW2Select
+              name="Enhancement"
+              label={<ConsumableEffect name="Enhancement" data={data.sigils.list} />}
+              data={data.enhancement.list}
+            />
+          </Grid>
+        </Grid>
+      }
+    />
+  );
+};
+const RuneSigilFoodSectionMemo = React.memo(RuneSigilFoodSection);
+
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
  *
@@ -234,49 +283,7 @@ const MainComponent = ({ classes, data }) => {
               <SkillsSectionMemo profession={profession} skillsData={skillsData} />
             ) : null}
 
-            <Section
-              title="Runes & Sigils & Food"
-              content={
-                <Grid container spacing={2}>
-                  <Grid item xs={12} md={6}>
-                    <GW2Select
-                      name="Sigil1"
-                      label={<Item id={24615} disableLink disableTooltip text="Sigil 1" />}
-                      data={data.sigils.list}
-                    />
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <GW2Select
-                      name="Sigil2"
-                      label={<Item id={24868} disableLink disableTooltip text="Sigil 2" />}
-                      data={data.sigils.list}
-                    />
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <GW2Select
-                      name="Runes"
-                      label={<Item id={24836} disableLink disableTooltip text="Rune" />}
-                      data={data.runes.list}
-                    />
-                  </Grid>
-                  <Grid item md={6} />
-                  <Grid item xs={12} md={6}>
-                    <GW2Select
-                      name="Nourishment"
-                      label={<ConsumableEffect name="Nourishment" />}
-                      data={data.nourishment.list}
-                    />
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <GW2Select
-                      name="Enhancement"
-                      label={<ConsumableEffect name="Enhancement" data={data.sigils.list} />}
-                      data={data.enhancement.list}
-                    />
-                  </Grid>
-                </Grid>
-              }
-            />
+            <RuneSigilFoodSectionMemo data={data} />
 
             <Section
               title="Buffs & Boons"
