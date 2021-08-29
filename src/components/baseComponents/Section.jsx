@@ -46,7 +46,7 @@ const SectionInfo = (props) => (
 /**
  * First disables the delimiting line above!
  */
-const Section = React.memo(({ classes, first, title, helpText, extraInfo, content }) => (
+const Section = ({ classes, first, title, helpText, extraInfo, content }) => (
   <Grid item container spacing={2} className={classes.containerItem}>
     {!first && (
       <Grid item xs={12}>
@@ -64,6 +64,6 @@ const Section = React.memo(({ classes, first, title, helpText, extraInfo, conten
       {content}
     </Grid>
   </Grid>
-));
+);
 
 export default withStyles(styles)(Section);
