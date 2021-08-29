@@ -119,7 +119,7 @@ const DistributionSection = ({ profession, data }) => {
             label="Switch to %-wise damage distribution"
           />
 
-          {profession !== '' && (
+          {profession !== '' && distributionVersion === 2 && (
             <Presets data={distributionPresets} handleClick={onTemplateClickDistribution} />
           )}
         </>
