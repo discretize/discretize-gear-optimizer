@@ -17,15 +17,17 @@ const IndexPage = ({ classes }) => {
   return (
     <>
       <MuiAlert elevation={6} variant="filled" severity="warning">
-        The gear optimizer is currently in beta! Please report potential issues to us in{' '}
+        The gear optimizer is currently in beta! Templates are not final. Please report potential issues to us in{' '}
         <Link href="https://discord.gg/Qdt7nFY" color="textPrimary">
           Discord
         </Link>{' '}
         or{' '}
         <Link href="https://github.com/discretize/discretize-gear-optimizer" color="textPrimary">
           <GitHubIcon fontSize="small" />
+          {' '}
           Github
         </Link>
+        .
       </MuiAlert>
       <Typography variant="h2" className={classes.headline}>
         Gear Optimizer
