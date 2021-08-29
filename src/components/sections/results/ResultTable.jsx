@@ -68,4 +68,4 @@ const StickyHeadTable = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(StickyHeadTable);
+export default React.memo(withStyles(styles)(StickyHeadTable));

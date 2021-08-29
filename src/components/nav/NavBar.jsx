@@ -223,4 +223,4 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
   );
 };
 
-export default withStyles(styles)(Navbar);
+export default React.memo(withStyles(styles)(Navbar));

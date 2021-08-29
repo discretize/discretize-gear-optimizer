@@ -191,4 +191,4 @@ const ResultDetails = ({ classes, data, buffData }) => {
   );
 };
 
-export default withStyles(styles)(ResultDetails);
+export default React.memo(withStyles(styles)(ResultDetails));
