@@ -261,6 +261,29 @@ const ForcedSlotsSection = () => {
 };
 const ForcedSlotsSectionMemo = React.memo(ForcedSlotsSection);
 
+const PrioritiesSection = ({ data }) => {
+  const dispatch = useDispatch();
+
+  const handleTemplateClickPriorities = React.useCallback(
+    (index) => (event) => {
+      const state = JSON.parse(data.presetAffixes.list[index].value);
+      Object.keys(state).forEach((key) => dispatch(changePriority({ key, value: state[key] })));
+    },
+    [data.presetAffixes.list, dispatch],
+  );
+
+  return (
+    <Section
+      title="Priorities"
+      content={<Priorities />}
+      extraInfo={
+        <Presets data={data.presetAffixes.list} handleClick={handleTemplateClickPriorities} />
+      }
+    />
+  );
+};
+const PrioritiesSectionMemo = React.memo(PrioritiesSection);
+
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
  *
@@ -305,14 +328,6 @@ const MainComponent = ({ classes, data }) => {
     [dispatch],
   );
 
-  const handleTemplateClickPriorities = React.useCallback(
-    (index) => (event) => {
-      const state = JSON.parse(data.presetAffixes.list[index].value);
-      Object.keys(state).forEach((key) => dispatch(changePriority({ key, value: state[key] })));
-    },
-    [data.presetAffixes.list, dispatch],
-  );
-
   return (
     <div className={classes.root}>
       <NavBar
@@ -340,16 +355,8 @@ const MainComponent = ({ classes, data }) => {
 
             <ForcedSlotsSectionMemo />
 
-            <Section
-              title="Priorities"
-              content={<Priorities />}
-              extraInfo={
-                <Presets
-                  data={data.presetAffixes.list}
-                  handleClick={handleTemplateClickPriorities}
-                />
-              }
-            />
+            <PrioritiesSectionMemo data={data} />
+
             <DistributionSectionMemo profession={profession} data={data} />
           </>
         )}
