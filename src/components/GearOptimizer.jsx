@@ -76,6 +76,27 @@ const styles = (theme) => ({
   chipIcon: { marginBottom: '-6px !important' },
 });
 
+const TraitsSection = ({ profession, data }) => {
+  return (
+    <Section
+      first
+      title="Traits"
+      helpText="Select your traits here. Remember to also select the corresponding checkbox
+                    below each traitline. This is necessary, because many traits grant conditionally
+                    bonus stats and you might get different results with different conditional
+                    traits."
+      content={
+        <Traits
+          data={data[profession.toLowerCase()].edges[0].node.list
+            .slice(1)
+            .filter((line) => line.id > 0)}
+        />
+      }
+    />
+  );
+};
+const TraitsSectionMemo = React.memo(TraitsSection);
+
 const DistributionSection = ({ profession, data }) => {
   const dispatch = useDispatch();
   const distributionVersion = useSelector(getDistributionVersion);
@@ -200,23 +221,7 @@ const MainComponent = ({ classes, data }) => {
       <Grid container style={profession === '' ? { opacity: 0.5 } : { opacity: 1.0 }}>
         {expertMode && (
           <>
-            {profession !== '' && (
-              <Section
-                first
-                title="Traits"
-                helpText="Select your traits here. Remember to also select the corresponding checkbox
-                    below each traitline. This is necessary, because many traits grant conditionally
-                    bonus stats and you might get different results with different conditional
-                    traits."
-                content={
-                  <Traits
-                    data={data[profession.toLowerCase()].edges[0].node.list
-                      .slice(1)
-                      .filter((line) => line.id > 0)}
-                  />
-                }
-              />
-            )}
+            {profession !== '' && <TraitsSectionMemo profession={profession} data={data} />}
 
             {skillsData ? (
               <Section
