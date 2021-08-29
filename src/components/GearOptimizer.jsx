@@ -150,6 +150,13 @@ const DistributionSection = ({ profession, data }) => {
 };
 const DistributionSectionMemo = React.memo(DistributionSection);
 
+const SkillsSection = ({ profession, skillsData }) => {
+  return (
+    <Section title="Skills" content={<Skills profession={profession} data={skillsData.items} />} />
+  );
+};
+const SkillsSectionMemo = React.memo(SkillsSection);
+
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
  *
@@ -224,10 +231,7 @@ const MainComponent = ({ classes, data }) => {
             {profession !== '' && <TraitsSectionMemo profession={profession} data={data} />}
 
             {skillsData ? (
-              <Section
-                title="Skills"
-                content={<Skills profession={profession} data={skillsData.items} />}
-              />
+              <SkillsSectionMemo profession={profession} skillsData={skillsData} />
             ) : null}
 
             <Section
