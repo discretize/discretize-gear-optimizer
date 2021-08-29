@@ -307,42 +307,13 @@ const ARSectionMemo = React.memo(ARSection);
  * @returns the main ui
  */
 const MainComponent = ({ classes, data }) => {
-  const dispatch = useDispatch();
-
   // Query variables from redux store that should have a global scope
   const expertMode = useSelector(getControl('expertMode'));
   const profession = useSelector(getProfession);
-  const status = useSelector(getControl('status'));
 
   const skillsData = profession
     ? data[profession.toLowerCase()].edges[0].node.list.find((d) => d.section === 'Skills')
     : null;
-
-  const onStartCalculate = React.useCallback(
-    (e) => {
-      console.log('calculate');
-
-      // pass data from GraphQL
-      dispatch(setModifiers(data));
-
-      dispatch(changeControl({ key: 'status', value: RUNNING }));
-      dispatch({
-        type: 'START',
-      });
-    },
-    [data, dispatch],
-  );
-
-  const onCancelCalculate = React.useCallback(
-    (e) => {
-      dispatch({
-        type: 'CANCEL',
-      });
-      dispatch(changeControl({ key: 'status', value: ABORTED }));
-      console.log('cancel button pressed');
-    },
-    [dispatch],
-  );
 
   return (
     <div className={classes.root}>
@@ -380,48 +351,7 @@ const MainComponent = ({ classes, data }) => {
         <ARSectionMemo first={!expertMode} />
       </Grid>
 
-      <Box display="flex" flexWrap="wrap">
-        <Box>
-          <Button
-            variant="outlined"
-            color="primary"
-            className={classes.button}
-            onClick={onStartCalculate}
-            classes={{ label: classes.label }}
-            disabled={status === RUNNING || profession === ''}
-          >
-            <ProgressIcon />
-            <Typography>Calculate</Typography>
-          </Button>
-        </Box>
-        <Box flexGrow={1}>
-          <Button
-            variant="outlined"
-            color="primary"
-            className={classes.button}
-            onClick={onCancelCalculate}
-            disabled={status !== RUNNING}
-          >
-            <Cancel className={classNames(classes.icon)}></Cancel>
-            <Typography style={{ marginLeft: 8 }}>Abort</Typography>
-          </Button>
-        </Box>
-        <Box alignSelf="center">
-          <Chip
-            label={
-              <>
-                Status: {firstUppercase(status)}{' '}
-                {status === SUCCESS ? (
-                  <DoneAllIcon fontSize="small" classes={{ root: classes.chipIcon }} />
-                ) : status === WAITING || status === RUNNING ? (
-                  <HourglassEmptyIcon fontSize="small" classes={{ root: classes.chipIcon }} />
-                ) : null}
-              </>
-            }
-            color={status !== ABORTED ? 'primary' : 'secondary'}
-          />
-        </Box>
-      </Box>
+      <ControlsBoxMemo classes={classes} profession={profession} data={data} />
 
       <ResultTable />
       <Box m={3} />
