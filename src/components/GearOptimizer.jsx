@@ -148,7 +148,6 @@ const DistributionSection = ({ profession, data }) => {
     />
   );
 };
-const DistributionSectionMemo = React.memo(DistributionSection);
 
 const SkillsSection = ({ profession, data }) => {
   const skillsData = profession
@@ -159,7 +158,6 @@ const SkillsSection = ({ profession, data }) => {
     <Section title="Skills" content={<Skills profession={profession} data={skillsData.items} />} />
   ) : null;
 };
-const SkillsSectionMemo = React.memo(SkillsSection);
 
 const RuneSigilFoodSection = ({ data }) => {
   return (
@@ -380,7 +378,6 @@ const ControlsBox = ({ classes, profession, data }) => {
     </Box>
   );
 };
-const ControlsBoxMemo = React.memo(ControlsBox);
 
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
@@ -406,7 +403,7 @@ const MainComponent = ({ classes, data }) => {
           <>
             {profession !== '' && <TraitsSectionMemo profession={profession} data={data} />}
 
-            <SkillsSectionMemo profession={profession} data={data} />
+            <SkillsSection profession={profession} data={data} />
 
             <RuneSigilFoodSectionMemo data={data} />
 
@@ -420,14 +417,14 @@ const MainComponent = ({ classes, data }) => {
 
             <PrioritiesSectionMemo data={data} />
 
-            <DistributionSectionMemo profession={profession} data={data} />
+            <DistributionSection profession={profession} data={data} />
           </>
         )}
 
         <ARSectionMemo first={!expertMode} />
       </Grid>
 
-      <ControlsBoxMemo classes={classes} profession={profession} data={data} />
+      <ControlsBox classes={classes} profession={profession} data={data} />
 
       <ResultTable />
       <Box m={3} />
