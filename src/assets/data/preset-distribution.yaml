@@ -4,7 +4,16 @@ list:
     value: >-
       {
         "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3000, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
+  - name: Power Banner Warrior
+    profession: BERSERKER
+    distribution: [92, 100, 100, 100, 100]
+    value: >-
+      {
+        "values1": { "Power": 92, "Burning": 8, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2840, "Burning": 0.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   - name: Condi Banner Warrior
@@ -12,26 +21,53 @@ list:
     distribution: [27, 81, 96, 99, 100]
     value: >-
       {
-        "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values1": { "Power": 27, "Burning": 54, "Bleeding": 15, "Poisoned": 3, "Torment": 2, "Confusion": 0 },
+        "values2": { "Power": 1690, "Burning": 10.1, "Bleeding": 16.9, "Poisoned": 1.9, "Torment": 1.2, "Confusion": 0 }
       }
 
-  - name: CFB (Virtues, 5 page)
+  - name: DH (Radiance)
+    profession: DRAGONHUNTER
+    distribution: [84, 100, 100, 100, 100]
+    value: >-
+      {
+        "values1": { "Power": 84, "Burning": 16, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 3320, "Burning": 1.85, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
+  - name: CFB (Virtues, 5 page, allies)
     profession: FIREBRAND
     distribution: [31, 96, 99, 99, 100]
     value: >-
       {
-        "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values1": { "Power": 31, "Burning": 65, "Bleeding": 3, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
+        "values2": { "Power": 2400, "Burning": 15.4, "Bleeding": 4.7, "Poisoned": 0, "Torment": 1.2, "Confusion": 0 }
       }
 
-  - name: CFB (Virtues, 8 page)
+  - name: CFB (Virtues, 5 page, no allies)
     profession: FIREBRAND
-    distribution: [24, 96, 99, 99, 100]
+    distribution: [33, 95, 99, 99, 100]
     value: >-
       {
-        "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values1": { "Power": 33, "Burning": 62, "Bleeding": 4, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
+        "values2": { "Power": 2400, "Burning": 13.7, "Bleeding": 4.7, "Poisoned": 0, "Torment": 1.2, "Confusion": 0 }
+      }
+
+  # - name: CFB (Virtues, 8 page)
+  #   profession: FIREBRAND
+  #   distribution: [24, 96, 99, 99, 100]
+  #   value: >-
+  #     {
+  #       "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+  #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #     }
+
+  - name: Power Weaver (BTTH)
+    profession: WEAVER
+    distribution: [61, 100, 100, 100, 100]
+    value: >-
+      {
+        "values1": { "Power": 61, "Burning": 39, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 3110, "Burning": 5.9, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   - name: Condi Weaver (Sword)
@@ -39,69 +75,87 @@ list:
     distribution: [36, 89, 100, 100, 100]
     value: >-
       {
-        "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values1": { "Power": 36, "Burning": 53, "Bleeding": 11, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2800, "Burning": 12.8, "Bleeding": 16.2, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  - name: Condi Weaver (Dagger)
-    profession: WEAVER
-    distribution: [29, 84, 100, 100, 100]
-    value: >-
-      {
-        "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
+  # - name: Condi Weaver (Dagger)
+  #   profession: WEAVER
+  #   distribution: [29, 84, 100, 100, 100]
+  #   value: >-
+  #     {
+  #       "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+  #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #     }
 
   - name: Condi Renegade (Devastation)
     profession: RENEGADE
     distribution: [44, 64, 75, 80, 100]
     value: >-
       {
-        "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values1": { "Power": 43, "Burning": 22, "Bleeding": 8, "Poisoned": 6, "Torment": 21, "Confusion": 0 },
+        "values2": { "Power": 2980, "Burning": 4.6, "Bleeding": 10, "Poisoned": 4.9, "Torment": 18.3, "Confusion": 0 }
       }
 
-  - name: Condi Renegade (Invocation)
-    profession: RENEGADE
-    distribution: [42, 64, 75, 80, 100]
-    value: >-
-      {
-        "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
+  # - name: Condi Renegade (Invocation)
+  #   profession: RENEGADE
+  #   distribution: [42, 64, 75, 80, 100]
+  #   value: >-
+  #     {
+  #       "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+  #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #     }
 
-  - name: Condi Slb (D/T SB)
+  - name: Power Slb
     profession: SOULBEAST
-    distribution: [30, 45, 75, 100, 100]
+    distribution: [80, 87, 94, 100, 100]
     value: >-
       {
-        "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values1": { "Power": 80, "Burning": 7, "Bleeding": 7, "Poisoned": 6, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2780, "Burning": 0.67, "Bleeding": 4.5, "Poisoned": 2.4, "Torment": 0, "Confusion": 0 }
       }
 
-  - name: Condi Slb (D/T A/D)
-    profession: SOULBEAST
-    distribution: [30, 52, 78, 100, 100]
-    value: >-
-      {
-        "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
+  # - name: Condi Slb (D/T SB)
+  #   profession: SOULBEAST
+  #   distribution: [30, 45, 75, 100, 100]
+  #   value: >-
+  #     {
+  #       "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+  #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #     }
 
-  - name: Hybrid Slb (A/T D/A)
-    profession: SOULBEAST
-    distribution: [43, 61, 89, 100, 100]
-    value: >-
-      {
-        "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
+  # - name: Condi Slb (D/T A/D)
+  #   profession: SOULBEAST
+  #   distribution: [30, 52, 78, 100, 100]
+  #   value: >-
+  #     {
+  #       "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+  #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #     }
 
-  - name: Condi Holo
+  # - name: Hybrid Slb (A/T D/A)
+  #   profession: SOULBEAST
+  #   distribution: [43, 61, 89, 100, 100]
+  #   value: >-
+  #     {
+  #       "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+  #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #     }
+
+  - name: Power Holo
     profession: HOLOSMITH
-    distribution: [31, 77, 86, 95, 95]
+    distribution: [63, 86, 97, 100, 100]
     value: >-
       {
-        "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values1": { "Power": 63, "Burning": 23, "Bleeding": 11, "Poisoned": 3, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 3620, "Burning": 4.0, "Bleeding": 11.7, "Poisoned": 2.0, "Torment": 0, "Confusion": 0 }
       }
+
+  # - name: Condi Holo
+  #   profession: HOLOSMITH
+  #   distribution: [31, 77, 86, 95, 95]
+  #   value: >-
+  #     {
+  #       "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+  #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #     }
