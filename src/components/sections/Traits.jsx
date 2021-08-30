@@ -120,6 +120,14 @@ const Traits = ({ classes, data }) => {
 
     checkboxModis.push(...distinctMinorsWithSub);
 
+    const minorCheckboxModis = [];
+
+    const distinctMinorsWithoutSub = distinctMinors
+      ? distinctMinors.items.filter((l) => l.minor === true && l.subText === null)
+      : [];
+
+    minorCheckboxModis.push(...distinctMinorsWithoutSub);
+
     traits[index].forEach((t) => {
       const matching = data.find((v) => v.id === Number(traitlines[index]));
       if (typeof matching === 'undefined') return null;
@@ -174,6 +182,15 @@ const Traits = ({ classes, data }) => {
               }
               onChange={handleModifierChange(trait, traitlines[index])}
             />
+          </div>
+        ))}
+
+        {minorCheckboxModis.map((trait) => (
+          <div key={trait.id}>
+            <>
+              {trait.gw2_id && <Trait id={trait.gw2_id} disableLink />}{' '}
+              <Typography variant="caption">{trait.subText}</Typography>
+            </>
           </div>
         ))}
       </React.Fragment>
