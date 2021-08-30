@@ -124,7 +124,7 @@ const DistributionSection = ({ profession, data }) => {
 
   return (
     <Section
-      title="Damage Distribution"
+      title="Skill Coefficients"
       content={<DamageDistribution />}
       extraInfo={
         <>
@@ -144,6 +144,34 @@ const DistributionSection = ({ profession, data }) => {
             <Presets data={distributionPresets} handleClick={onTemplateClickDistribution} />
           )}
         </>
+      }
+      helpText={
+        distributionVersion === 2 ? (
+          <>
+            <p>
+              This data represents your rotation. If we don't supply a template for a build, you can
+              move these sliders until the results match a golem log, or calculate them manually.
+            </p>
+            <p>
+              To do so, calculate and sum the [power coefficient * weapon strength] and [condition
+              stacks * duration] of each skill you use, the divide by total time.
+            </p>
+            <p>
+              For more information, ask in Discord!
+            </p>
+          </>
+        ) : (
+          <>
+            <p>
+              This data represents your rotation. If we don't supply a template for a build, you can
+              move these sliders until the results match a golem log, or calculate them manually.
+            </p>
+            <p>
+              To do so, perform your rotation on a golem with no gear, traits, or other modifiers,
+              then enter the distribution here.
+            </p>
+          </>
+        )
       }
     />
   );
