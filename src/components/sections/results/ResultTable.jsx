@@ -7,7 +7,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getList, getPriority, getSelectedCharacter } from '../../../state/gearOptimizerSlice';
+import { getList, getPriority, getSelectedCharacter, /* getControl */ } from '../../../state/gearOptimizerSlice';
+// import { RUNNING } from '../../../state/optimizer/status';
 import { Slots } from '../../../utils/gw2-data';
 import ResultTableRow from './ResultTableRow';
 
@@ -28,11 +29,31 @@ const styles = (theme) => ({
   },
 });
 
+// finds the most common element in an array
+const mode = (array) => {
+  const counters = {};
+  let highestCounter = 0;
+  let best = null;
+  for (const element of array) {
+    counters[element] = (counters[element] || 0) + 1;
+    if (counters[element] > highestCounter) {
+      highestCounter = counters[element];
+      best = element;
+    }
+  }
+  return best;
+};
+
 const StickyHeadTable = ({ classes }) => {
   const wield = useSelector(getPriority('weaponType'));
   const selectedCharacter = useSelector(getSelectedCharacter);
-
   const list = useSelector(getList) || [];
+  /* const status = useSelector(getControl('status')); */
+
+  let mostCommonAffix = null;
+  if (/* status !== RUNNING && */ list[0]) {
+    mostCommonAffix = mode(list[0].gear);
+  }
 
   return (
     <Box boxShadow={8}>
@@ -59,6 +80,7 @@ const StickyHeadTable = ({ classes }) => {
                 character={character}
                 key={character.id}
                 selected={character === selectedCharacter}
+                mostCommonAffix={mostCommonAffix}
               />
             ))}
           </TableBody>
