@@ -1,5 +1,7 @@
 GraphQL ID: Revenant
 list:
+  - section: 'Skills'
+
   - section: "Corruption"
     id: 14
     items:
