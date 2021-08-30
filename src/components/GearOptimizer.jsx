@@ -444,6 +444,8 @@ const MainComponent = ({ classes, data }) => {
 
               <InfusionsSectionMemo first />
 
+              <PrioritiesSectionMemo data={data} />
+
               <ARSectionMemo />
             </>
           )}
