@@ -52,6 +52,7 @@ let isChanged = true;
  * @param {?Number} input.primaryMaxInfusions - number of infusions, 0-18
  * @param {?Number} input.secondaryMaxInfusions - number of infusions, 0-18
  *
+ * @param {?Number} input.distributionVersion: - version 1: old style (percentDistribution) - verison 2: new style (coeff / sec)
  * @param {?Object.<String, Number>} input.percentDistribution - old style distribution
  *                                   (sums to 100)
  * @param {?Object.<String, Number>} input.distribution - new style distribution
@@ -263,7 +264,7 @@ export function setup(input) {
 
   // legacy percent distribution conversion
   // see: https://github.com/discretize/discretize-old/discussions/136
-  if (input.percentDistribution) {
+  if (input.percentDistribution && input.distributionVersion !== 2) {
     const { Power, ...rest } = input.percentDistribution;
     settings.distribution = {};
     settings.distribution['Power'] = Power / 1025;
@@ -1042,9 +1043,7 @@ function calcResults(_character) {
   results.damageBreakdown = {};
   for (const key of Object.keys(settings.distribution)) {
     if (key === 'Power') {
-      results.damageBreakdown['Power'] = attributes['Power DPS']
-        .toFixed(2)
-        .toLocaleString('en-US');
+      results.damageBreakdown['Power'] = attributes['Power DPS'].toFixed(2).toLocaleString('en-US');
     } else {
       results.damageBreakdown[`${key} Damage`] = attributes[`${key} DPS`]
         .toFixed(2)
