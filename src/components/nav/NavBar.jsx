@@ -179,7 +179,9 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
               }
               onClick={() => {
                 dispatch({ type: 'CANCEL' });
-                dispatch(changeProfession(p.profession));
+                if (expertMode) {
+                  dispatch(changeProfession(p.profession));
+                }
               }}
               variant={p.profession === profession ? 'contained' : 'text'}
               {...bindHover(popupState[index])}
