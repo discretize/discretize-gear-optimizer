@@ -140,7 +140,7 @@ const DistributionSection = ({ profession, data }) => {
             label="Switch to %-wise damage distribution"
           />
 
-          {profession !== '' && distributionVersion === 2 && (
+          {profession !== '' && (
             <Presets data={distributionPresets} handleClick={onTemplateClickDistribution} />
           )}
         </>
@@ -471,6 +471,8 @@ const MainComponent = ({ classes, data }) => {
               }
 
               <InfusionsSectionMemo first />
+
+              <PrioritiesSectionMemo data={data} />
 
               <ARSectionMemo />
             </>

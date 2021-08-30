@@ -1110,6 +1110,102 @@ list:
             }
           }
 
+      - name: Condi Ren Deva
+        id: cren-deva
+        specialization: Renegade
+        boons: Fractal
+        priority: Condi DPS
+        traits: >-
+          {
+            "profession":"REVENANT",
+            "traits":{
+              "lines":[
+                "14",
+                "15",
+                "63"
+              ],
+              "selected":[
+                [
+                  1793,
+                  1714,
+                  1795
+                ],
+                [
+                  1767,
+                  1786,
+                  1754
+                ],
+                [
+                  2079,
+                  2092,
+                  2100
+                ]
+              ],
+              "modifiers":[
+                {
+                  "id": "brutal-momentum",
+                  "gw2_id": 2142,
+                  "source": 63
+                },
+                {
+                  "id": "acolyte-of-torment",
+                  "gw2_id": 1793,
+                  "source": 14
+                },
+                {
+                  "id": "pact-of-pain",
+                  "gw2_id": 1714,
+                  "source": 14
+                },
+                {
+                  "id": "destructive-impulses-mix",
+                  "gw2_id": 1724,
+                  "source": 15
+                },
+                {
+                  "id": "targeted-destruction",
+                  "gw2_id": 1792,
+                  "source": 15
+                },
+                {
+                  "id": "unsuspecting-strikes",
+                  "gw2_id": 1767,
+                  "source": 15
+                },
+                {
+                  "id": "ambush-commander",
+                  "gw2_id": 2181,
+                  "source": 63
+                },
+                {
+                  "id": "blood-fury",
+                  "gw2_id": 2079,
+                  "source": 63
+                },
+                {
+                  "id": "heartpiercer",
+                  "gw2_id": 2092,
+                  "source": 63
+                },
+                {
+                  "id": "lasting-legacy",
+                  "gw2_id": 2100,
+                  "source": 63
+                }
+              ]
+            },
+            "skills":[
+
+            ],
+            "extras":{
+              "Runes": "nightmare",
+              "Sigil1": "",
+              "Sigil2": "",
+              "Enhancement": "toxic-focusing-crystal",
+              "Nourishment": "beef-rendang"
+            }
+          }
+
   - class: engineer
     builds:
       - name: Power Holo
