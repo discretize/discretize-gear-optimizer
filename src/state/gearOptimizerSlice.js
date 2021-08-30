@@ -134,7 +134,18 @@ export const gearOptimizerSlice = createSlice({
       state.skills = [];
     },
     changeExpertMode: (state, action) => {
-      const newState = {
+      if (action.payload) {
+        // just change expertMode to true
+        return {
+          ...state,
+          control: {
+            ...state.control,
+            expertMode: action.payload,
+          },
+        };
+      }
+      // wipe state and force usr to select a template
+      return {
         ...INITIALSTATE,
         control: {
           expertMode: action.payload,
@@ -146,8 +157,6 @@ export const gearOptimizerSlice = createSlice({
         ar: state.ar,
         omnipotion: state.omnipotion,
       };
-
-      return newState;
     },
     changeAR: (state, action) => {
       state.ar = action.payload;
