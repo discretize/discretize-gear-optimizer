@@ -2,112 +2,117 @@ import { createSlice } from '@reduxjs/toolkit';
 import { WAITING } from './optimizer/status';
 import { Omnipotion } from '../utils/gw2-data';
 
-export const gearOptimizerSlice = createSlice({
-  name: 'go',
-  initialState: {
-    control: {
-      expertMode: true,
-      list: [],
-      progress: 0,
-      selectedCharacter: null,
-      status: WAITING,
-    },
-    profession: '',
-    traits: {
-      lines: ['', '', ''],
-      selected: [
-        [0, 0, 0],
-        [0, 0, 0],
-        [0, 0, 0],
-      ],
-      modifiers: [],
-    },
-    skills: [],
-    extras: {
-      Runes: '',
-      Sigil1: '',
-      Sigil2: '',
-      Enhancement: '',
-      Nourishment: '',
-    },
-    extraModifiers: {
-      error: '',
-      extraModifiers: [],
-      textBox: '',
-    },
-    buffs: {
-      might: false,
-      fury: false,
-      protection: false,
-      vulnerability: false,
-      bannerOfStrength: false,
-      bannerOfDiscipline: false,
-      bannerOfTactics: false,
-      bannerOfDefense: false,
-      spotter: false,
-      frostSpirit: false,
-      empowerAllies: false,
-      pinpointDistribution: false,
-      assassinsPresence: false,
-      facetOfNature: false,
-      riteDwarf: false,
-      strengthInNumbers: false,
-      baneSignet: false,
-      signetOfJudgment: false,
-      signetOfMercy: false,
-      signetOfWrath: false,
-      exposed: false,
-      lightArmor: false,
-    },
-    infusions: {
-      primaryInfusion: '',
-      secondaryInfusion: '',
-      primaryMaxInfusions: '',
-      secondaryMaxInfusions: '',
-    },
-    forcedSlots: [null, null, null, null, null, null, null, null, null, null, null, null, null],
-    ar: 162,
-    omnipotion: true,
-    priorities: {
-      optimizeFor: 'Damage',
-      weaponType: 'Dual wield',
-      minBoonDuration: '',
-      minHealingPower: '',
-      minToughness: '1000',
-      maxToughness: '',
-      affixes: [],
-    },
-    distribution: {
-      version: 2,
-      values1: {
-        Power: 100,
-        Burning: 0,
-        Bleeding: 0,
-        Poisoned: 0,
-        Torment: 0,
-        Confusion: 0,
-      },
-      values2: {
-        Power: 2,
-        Burning: 0,
-        Bleeding: 0,
-        Poisoned: 0,
-        Torment: 0,
-        Confusion: 0,
-      },
-      textBoxes: {
-        Power: '2',
-        Burning: '0',
-        Bleeding: '0',
-        Poisoned: '0',
-        Torment: '0',
-        Confusion: '0',
-      },
-    },
+const INITIALSTATE = {
+  control: {
+    expertMode: true,
+    list: [],
+    progress: 0,
+    selectedCharacter: null,
+    status: WAITING,
+  },
+  profession: '',
+  traits: {
+    lines: ['', '', ''],
+    selected: [
+      [0, 0, 0],
+      [0, 0, 0],
+      [0, 0, 0],
+    ],
     modifiers: [],
   },
+  skills: [],
+  extras: {
+    Runes: '',
+    Sigil1: '',
+    Sigil2: '',
+    Enhancement: '',
+    Nourishment: '',
+  },
+  extraModifiers: {
+    error: '',
+    extraModifiers: [],
+    textBox: '',
+  },
+  buffs: {
+    might: false,
+    fury: false,
+    protection: false,
+    vulnerability: false,
+    bannerOfStrength: false,
+    bannerOfDiscipline: false,
+    bannerOfTactics: false,
+    bannerOfDefense: false,
+    spotter: false,
+    frostSpirit: false,
+    empowerAllies: false,
+    pinpointDistribution: false,
+    assassinsPresence: false,
+    facetOfNature: false,
+    riteDwarf: false,
+    strengthInNumbers: false,
+    baneSignet: false,
+    signetOfJudgment: false,
+    signetOfMercy: false,
+    signetOfWrath: false,
+    exposed: false,
+    lightArmor: false,
+  },
+  infusions: {
+    primaryInfusion: '',
+    secondaryInfusion: '',
+    primaryMaxInfusions: '',
+    secondaryMaxInfusions: '',
+  },
+  forcedSlots: [null, null, null, null, null, null, null, null, null, null, null, null, null],
+  ar: 162,
+  omnipotion: true,
+  priorities: {
+    optimizeFor: 'Damage',
+    weaponType: 'Dual wield',
+    minBoonDuration: '',
+    minHealingPower: '',
+    minToughness: '1000',
+    maxToughness: '',
+    affixes: [],
+  },
+  distribution: {
+    version: 2,
+    values1: {
+      Power: 100,
+      Burning: 0,
+      Bleeding: 0,
+      Poisoned: 0,
+      Torment: 0,
+      Confusion: 0,
+    },
+    values2: {
+      Power: 2,
+      Burning: 0,
+      Bleeding: 0,
+      Poisoned: 0,
+      Torment: 0,
+      Confusion: 0,
+    },
+    textBoxes: {
+      Power: '2',
+      Burning: '0',
+      Bleeding: '0',
+      Poisoned: '0',
+      Torment: '0',
+      Confusion: '0',
+    },
+  },
+  modifiers: [],
+};
+
+export const gearOptimizerSlice = createSlice({
+  name: 'go',
+  initialState: INITIALSTATE,
   reducers: {
-    reset: (state, action) => {
+    changeProfession: (state, action) => {
+      state.profession = action.payload;
+
+      // reset
       state.modifiers = [];
       state.traits = {
         lines: ['', '', ''],
@@ -128,8 +133,21 @@ export const gearOptimizerSlice = createSlice({
       };
       state.skills = [];
     },
-    changeProfession: (state, action) => {
-      state.profession = action.payload;
+    changeExpertMode: (state, action) => {
+      const newState = {
+        ...INITIALSTATE,
+        control: {
+          expertMode: action.payload,
+          list: [],
+          progress: 0,
+          selectedCharacter: null,
+          status: WAITING,
+        },
+        ar: state.ar,
+        omnipotion: state.omnipotion,
+      };
+
+      return newState;
     },
     changeAR: (state, action) => {
       state.ar = action.payload;
@@ -285,8 +303,6 @@ export const gearOptimizerSlice = createSlice({
         });
       }
 
-
-
       // Apply extra (manual) modifiers
       if (extraModifiers.extraModifiers.length > 0) {
         modifiers.push(
@@ -382,6 +398,7 @@ export const getSelectedCharacter = (state) => state.gearOptimizer.control.selec
 export const {
   reset,
   changeProfession,
+  changeExpertMode,
   changeAR,
   changeTraitLine,
   changeTraits,

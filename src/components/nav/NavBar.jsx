@@ -25,6 +25,7 @@ import {
   getProfession,
   reset,
   setBuildTemplate,
+  changeExpertMode,
 } from '../../state/gearOptimizerSlice';
 import { PROFESSIONS } from '../../utils/gw2-data';
 import { firstUppercase } from '../../utils/usefulFunctions';
@@ -75,9 +76,10 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
           control={
             <Switch
               checked={expertMode}
-              onChange={(e) =>
-                dispatch(changeControl({ key: 'expertMode', value: e.target.checked }))
-              }
+              onChange={(e) => {
+                dispatch({ type: 'CANCEL' });
+                dispatch(changeExpertMode(e.target.checked));
+              }}
               name="checked"
               color="primary"
             />
@@ -137,6 +139,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
   };
 
   const handleTemplateSelect = (popup, elem) => {
+    dispatch({ type: 'CANCEL' });
     dispatch(
       setBuildTemplate({
         build: elem,
@@ -175,8 +178,8 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
                 })
               }
               onClick={() => {
+                dispatch({ type: 'CANCEL' });
                 dispatch(changeProfession(p.profession));
-                dispatch(reset());
               }}
               variant={p.profession === profession ? 'contained' : 'text'}
               {...bindHover(popupState[index])}

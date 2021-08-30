@@ -75,7 +75,8 @@ export default function NavAccordion({ data, buffPresets, prioritiesPresets }) {
             <Chip
               variant="outlined"
               label={<Profession eliteSpecialization={build.specialization} text={build.name} />}
-              onClick={(e) =>
+              onClick={(e) => {
+                dispatch({ type: 'CANCEL' });
                 dispatch(
                   setBuildTemplate({
                     build,
@@ -86,8 +87,8 @@ export default function NavAccordion({ data, buffPresets, prioritiesPresets }) {
                       prioritiesPresets.find((prio) => prio.name === build.priority).value,
                     ),
                   }),
-                )
-              }
+                );
+              }}
             />
           </div>
         ))}
