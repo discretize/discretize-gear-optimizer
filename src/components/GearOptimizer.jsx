@@ -398,37 +398,63 @@ const MainComponent = ({ classes, data }) => {
         prioritiesPresets={data.presetAffixes.list}
       />
 
-      <Grid container style={profession === '' ? { opacity: 0.5 } : { opacity: 1.0 }}>
-        {expertMode && (
-          <>
-            {profession !== '' && <TraitsSectionMemo profession={profession} data={data} />}
+      <div style={profession === '' ? { opacity: 0.5 } : { opacity: 1.0 }}>
+        <Grid container>
+          {expertMode ? (
+            <>
+              {
+                // todo: make this not awful
+                // profession === '' && (
+                //   <Typography style={{ fontSize: '2em', color: 'red' }}>
+                //     Choose a class or a build template from the menu above!
+                //   </Typography>
+                // )
+              }
 
-            <SkillsSection profession={profession} data={data} />
+              {profession !== '' && <TraitsSectionMemo profession={profession} data={data} />}
 
-            <RuneSigilFoodSectionMemo data={data} />
+              <SkillsSection profession={profession} data={data} />
 
-            <BuffsSectionMemo data={data} />
+              <RuneSigilFoodSectionMemo data={data} />
 
-            <ExtraModifiersSectionMemo />
+              <BuffsSectionMemo data={data} />
 
-            <InfusionsSectionMemo />
+              <ExtraModifiersSectionMemo />
 
-            <ForcedSlotsSectionMemo />
+              <InfusionsSectionMemo />
 
-            <PrioritiesSectionMemo data={data} />
+              <ForcedSlotsSectionMemo />
 
-            <DistributionSection profession={profession} data={data} />
-          </>
-        )}
+              <PrioritiesSectionMemo data={data} />
 
-        <ARSectionMemo first={!expertMode} />
-      </Grid>
+              <DistributionSection profession={profession} data={data} />
 
-      <ControlsBox classes={classes} profession={profession} data={data} />
+              <ARSectionMemo />
+            </>
+          ) : (
+            <>
+              {
+                // todo: make this not awful
+                // profession === '' && (
+                //   <Typography style={{ fontSize: '2em', color: 'red' }}>
+                //     Choose a build template from the dropdowns in the menu above!
+                //   </Typography>
+                // )
+              }
 
-      <ResultTable />
-      <Box m={3} />
-      <ResultDetails data={data} buffData={data.buffs.list} />
+              <InfusionsSectionMemo first />
+
+              <ARSectionMemo />
+            </>
+          )}
+        </Grid>
+
+        <ControlsBox classes={classes} profession={profession} data={data} />
+
+        <ResultTable />
+        <Box m={3} />
+        <ResultDetails data={data} buffData={data.buffs.list} />
+      </div>
     </div>
   );
 };
