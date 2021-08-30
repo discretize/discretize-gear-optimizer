@@ -1,21 +1,16 @@
 import { Box, withStyles } from '@material-ui/core';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Item } from 'gw2-ui-bulk';
 import {
   getList,
-  getPriority,
   getSelectedCharacter,
-  getInfusions,
 } from '../../../state/gearOptimizerSlice';
-import { Slots } from '../../../utils/gw2-data';
 import ResultTableRow from './ResultTableRow';
+import ResultTableHeaderRow from './ResultTableHeaderRow';
 
 const styles = (theme) => ({
   root: {
@@ -50,11 +45,9 @@ const mode = (array) => {
 };
 
 const StickyHeadTable = ({ classes }) => {
-  const wield = useSelector(getPriority('weaponType'));
   const selectedCharacter = useSelector(getSelectedCharacter);
   const list = useSelector(getList) || [];
-  const infusions = useSelector(getInfusions);
-
+  
   let mostCommonAffix = null;
   if (/* status !== RUNNING && */ list[0]) {
     mostCommonAffix = mode(list[0].gear);
@@ -65,43 +58,7 @@ const StickyHeadTable = ({ classes }) => {
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
-            <TableRow>
-              <TableCell className={classes.tablehead}>Damage</TableCell>
-              {Slots[wield].map((slot) => (
-                <TableCell
-                  className={classes.tablehead}
-                  key={slot.name}
-                  align="center"
-                  padding="none"
-                >
-                  {slot.short}
-                </TableCell>
-              ))}
-              {infusions.primaryInfusion && (
-                <>
-                  <TableCell
-                    className={classes.tablehead}
-                    key="primaryInfusion"
-                    align="center"
-                    padding="none"
-                  >
-                    <Item id={infusions.primaryInfusion} disableText disableLink />
-                  </TableCell>
-                </>
-              )}
-              {infusions.secondaryInfusion && (
-                <>
-                  <TableCell
-                    className={classes.tablehead}
-                    key="secondaryInfusion"
-                    align="center"
-                    padding="none"
-                  >
-                    <Item id={infusions.secondaryInfusion} disableText disableLink />
-                  </TableCell>
-                </>
-              )}
-            </TableRow>
+            <ResultTableHeaderRow classes={classes} />
           </TableHead>
           <TableBody className={classes.pointer}>
             {list.map((character) => (
