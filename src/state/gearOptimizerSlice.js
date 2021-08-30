@@ -134,7 +134,6 @@ export const gearOptimizerSlice = createSlice({
         };
         state.skills = [];
       }
-
     },
     changeExpertMode: (state, action) => {
       if (action.payload) {
