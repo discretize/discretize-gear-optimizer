@@ -52,21 +52,21 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
   });
   const { mobileView, drawerOpen } = state;
 
-  const setResponsiveness = () => {
-    const mobileViewCurrent = window.innerWidth < 900;
-    if (mobileViewCurrent !== mobileView) {
-      setState((prevState) => ({ ...prevState, mobileView: mobileViewCurrent }));
-    }
-  };
-  const debouncedResponsive = debounce(setResponsiveness, 300);
-
   useEffect(() => {
+    const setResponsiveness = () => {
+      const mobileViewCurrent = window.innerWidth < 900;
+      if (mobileViewCurrent !== mobileView) {
+        setState((prevState) => ({ ...prevState, mobileView: mobileViewCurrent }));
+      }
+    };
+    const debouncedResponsive = debounce(setResponsiveness, 300);
+
     window.addEventListener('resize', debouncedResponsive);
 
     return () => {
       window.removeEventListener('resize', debouncedResponsive);
     };
-  });
+  }, [mobileView]);
 
   const stickyRight = () => {
     return (
