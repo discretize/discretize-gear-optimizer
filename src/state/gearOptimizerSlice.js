@@ -86,7 +86,7 @@ const INITIALSTATE = {
       Confusion: 0,
     },
     values2: {
-      Power: 2,
+      Power: 3000,
       Burning: 0,
       Bleeding: 0,
       Poisoned: 0,
@@ -94,7 +94,7 @@ const INITIALSTATE = {
       Confusion: 0,
     },
     textBoxes: {
-      Power: '2',
+      Power: '3000',
       Burning: '0',
       Bleeding: '0',
       Poisoned: '0',
