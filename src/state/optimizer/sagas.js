@@ -8,6 +8,7 @@ import {
   changeList,
   changeSelectedCharacter,
   changeSelectedCharacterIfNone,
+  getList,
 } from '../gearOptimizerSlice';
 import { INFUSIONS } from '../../utils/gw2-data';
 import { SUCCESS, WAITING } from './status';
@@ -148,7 +149,10 @@ function* runCalc() {
   } finally {
     if (yield cancelled()) {
       console.log(`calculation cancelled after ${Date.now() - time}ms`);
-      yield put(changeSelectedCharacterIfNone(newList[0]));
+      const currentList = yield select(getList);
+      if (currentList && currentList[0]) {
+        yield put(changeSelectedCharacterIfNone(currentList[0]));
+      }
     }
   }
 }
