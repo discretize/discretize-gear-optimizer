@@ -76,24 +76,30 @@ const styles = (theme) => ({
   chipIcon: { marginBottom: '-6px !important' },
 });
 
-/**
- * Contains the main UI for the optimizer. All the components are being put together here.
- *
- * @param {classes, data} styles and data fetched by graphiql
- * @returns the main ui
- */
-const MainComponent = ({ classes, data }) => {
+const TraitsSection = ({ profession, data }) => {
+  return (
+    <Section
+      first
+      title="Traits"
+      helpText="Select your traits here. Remember to also select the corresponding checkbox
+                    below each traitline. This is necessary, because many traits grant conditionally
+                    bonus stats and you might get different results with different conditional
+                    traits."
+      content={
+        <Traits
+          data={data[profession.toLowerCase()].edges[0].node.list
+            .slice(1)
+            .filter((line) => line.id > 0)}
+        />
+      }
+    />
+  );
+};
+const TraitsSectionMemo = React.memo(TraitsSection);
+
+const DistributionSection = ({ profession, data }) => {
   const dispatch = useDispatch();
-
-  // Query variables from redux store that should have a global scope
-  const expertMode = useSelector(getControl('expertMode'));
-  const profession = useSelector(getProfession);
-  const status = useSelector(getControl('status'));
   const distributionVersion = useSelector(getDistributionVersion);
-
-  const skillsData = profession
-    ? data[profession.toLowerCase()].edges[0].node.list.find((d) => d.section === 'Skills')
-    : null;
 
   const distributionPresets =
     profession !== ''
@@ -104,6 +110,202 @@ const MainComponent = ({ classes, data }) => {
             ) || preset.profession === null,
         )
       : null;
+
+  const onTemplateClickDistribution = React.useCallback(
+    (index) => (event) => {
+      const state = JSON.parse(distributionPresets[index].value);
+
+      dispatch(changeAllDistributionsOld(state.values1));
+      dispatch(changeAllDistributionsNew(state.values2));
+      dispatch(changeAllTextBoxes(state.values2));
+    },
+    [dispatch, distributionPresets],
+  );
+
+  return (
+    <Section
+      title="Damage Distribution"
+      content={<DamageDistribution />}
+      extraInfo={
+        <>
+          <FormControlLabel
+            control={
+              <Switch
+                checked={distributionVersion === 1}
+                onChange={(e) => dispatch(changeDistributionVersion(e.target.checked ? 1 : 2))}
+                name="checked"
+                color="primary"
+              />
+            }
+            label="Switch to %-wise damage distribution"
+          />
+
+          {profession !== '' && distributionVersion === 2 && (
+            <Presets data={distributionPresets} handleClick={onTemplateClickDistribution} />
+          )}
+        </>
+      }
+    />
+  );
+};
+
+const SkillsSection = ({ profession, data }) => {
+  const skillsData = profession
+    ? data[profession.toLowerCase()].edges[0].node.list.find((d) => d.section === 'Skills')
+    : null;
+
+  return skillsData ? (
+    <Section title="Skills" content={<Skills profession={profession} data={skillsData.items} />} />
+  ) : null;
+};
+
+const RuneSigilFoodSection = ({ data }) => {
+  return (
+    <Section
+      title="Runes & Sigils & Food"
+      content={
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={6}>
+            <GW2Select
+              name="Sigil1"
+              label={<Item id={24615} disableLink disableTooltip text="Sigil 1" />}
+              data={data.sigils.list}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <GW2Select
+              name="Sigil2"
+              label={<Item id={24868} disableLink disableTooltip text="Sigil 2" />}
+              data={data.sigils.list}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <GW2Select
+              name="Runes"
+              label={<Item id={24836} disableLink disableTooltip text="Rune" />}
+              data={data.runes.list}
+            />
+          </Grid>
+          <Grid item md={6} />
+          <Grid item xs={12} md={6}>
+            <GW2Select
+              name="Nourishment"
+              label={<ConsumableEffect name="Nourishment" />}
+              data={data.nourishment.list}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <GW2Select
+              name="Enhancement"
+              label={<ConsumableEffect name="Enhancement" data={data.sigils.list} />}
+              data={data.enhancement.list}
+            />
+          </Grid>
+        </Grid>
+      }
+    />
+  );
+};
+const RuneSigilFoodSectionMemo = React.memo(RuneSigilFoodSection);
+
+const BuffsSection = ({ data }) => {
+  const dispatch = useDispatch();
+
+  const handleTemplateClickBuffs = React.useCallback(
+    (index) => (event) => {
+      const state = JSON.parse(data.presetBuffs.list[index].value);
+      dispatch(replaceBuffs(state));
+    },
+    [data.presetBuffs.list, dispatch],
+  );
+
+  return (
+    <Section
+      title="Buffs & Boons"
+      extraInfo={<Presets data={data.presetBuffs.list} handleClick={handleTemplateClickBuffs} />}
+      content={<Buffs data={data.buffs.list} />}
+    />
+  );
+};
+const BuffsSectionMemo = React.memo(BuffsSection);
+
+const InfusionsSection = () => {
+  return (
+    <Section
+      title="Stat Infusions"
+      content={<Infusions />}
+      helpText={
+        <>Select up to 2 types of stat infusions, and optionally limit the quantity allowed.</>
+      }
+    />
+  );
+};
+const InfusionsSectionMemo = React.memo(InfusionsSection);
+
+const ExtraModifiersSection = () => {
+  return (
+    <Section
+      title="Extra Modifiers"
+      helpText={
+        <>
+          Allows adding arbitrary extra modifiers. The textbox expects valid JSON formatting. For
+          multiple modifiers please use a list. For more information visit the github repository.
+        </>
+      }
+      content={<ExtraModifiers />}
+    />
+  );
+};
+const ExtraModifiersSectionMemo = React.memo(ExtraModifiersSection);
+
+const ForcedSlotsSection = () => {
+  return <Section title="Forced Slots" content={<ForcedSlots />} />;
+};
+const ForcedSlotsSectionMemo = React.memo(ForcedSlotsSection);
+
+const PrioritiesSection = ({ data }) => {
+  const dispatch = useDispatch();
+
+  const handleTemplateClickPriorities = React.useCallback(
+    (index) => (event) => {
+      const state = JSON.parse(data.presetAffixes.list[index].value);
+      Object.keys(state).forEach((key) => dispatch(changePriority({ key, value: state[key] })));
+    },
+    [data.presetAffixes.list, dispatch],
+  );
+
+  return (
+    <Section
+      title="Priorities"
+      content={<Priorities />}
+      extraInfo={
+        <Presets data={data.presetAffixes.list} handleClick={handleTemplateClickPriorities} />
+      }
+    />
+  );
+};
+const PrioritiesSectionMemo = React.memo(PrioritiesSection);
+
+const ARSection = ({ first }) => {
+  return (
+    <Section
+      title={
+        <>
+          <Attribute name="Agony Resistance" disableLink disableText /> Agony Resistance
+        </>
+      }
+      first={first}
+      helpText="Adds 150% of your Agony Resistance to Precision, Toughness and Concentration."
+      content={<ARinput />}
+    />
+  );
+};
+const ARSectionMemo = React.memo(ARSection);
+
+const ControlsBox = ({ classes, profession, data }) => {
+  const dispatch = useDispatch();
+
+  const status = useSelector(getControl('status'));
 
   const onStartCalculate = React.useCallback(
     (e) => {
@@ -131,32 +333,62 @@ const MainComponent = ({ classes, data }) => {
     [dispatch],
   );
 
-  const handleTemplateClickBuffs = React.useCallback(
-    (index) => (event) => {
-      const state = JSON.parse(data.presetBuffs.list[index].value);
-      dispatch(replaceBuffs(state));
-    },
-    [data.presetBuffs.list, dispatch],
+  return (
+    <Box display="flex" flexWrap="wrap">
+      <Box>
+        <Button
+          variant="outlined"
+          color="primary"
+          className={classes.button}
+          onClick={onStartCalculate}
+          classes={{ label: classes.label }}
+          disabled={status === RUNNING || profession === ''}
+        >
+          <ProgressIcon />
+          <Typography>Calculate</Typography>
+        </Button>
+      </Box>
+      <Box flexGrow={1}>
+        <Button
+          variant="outlined"
+          color="primary"
+          className={classes.button}
+          onClick={onCancelCalculate}
+          disabled={status !== RUNNING}
+        >
+          <Cancel className={classNames(classes.icon)}></Cancel>
+          <Typography style={{ marginLeft: 8 }}>Abort</Typography>
+        </Button>
+      </Box>
+      <Box alignSelf="center">
+        <Chip
+          label={
+            <>
+              Status: {firstUppercase(status)}{' '}
+              {status === SUCCESS ? (
+                <DoneAllIcon fontSize="small" classes={{ root: classes.chipIcon }} />
+              ) : status === WAITING || status === RUNNING ? (
+                <HourglassEmptyIcon fontSize="small" classes={{ root: classes.chipIcon }} />
+              ) : null}
+            </>
+          }
+          color={status !== ABORTED ? 'primary' : 'secondary'}
+        />
+      </Box>
+    </Box>
   );
+};
 
-  const handleTemplateClickPriorities = React.useCallback(
-    (index) => (event) => {
-      const state = JSON.parse(data.presetAffixes.list[index].value);
-      Object.keys(state).forEach((key) => dispatch(changePriority({ key, value: state[key] })));
-    },
-    [data.presetAffixes.list, dispatch],
-  );
-
-  const onTemplateClickDistribution = React.useCallback(
-    (index) => (event) => {
-      const state = JSON.parse(distributionPresets[index].value);
-
-      dispatch(changeAllDistributionsOld(state.values1));
-      dispatch(changeAllDistributionsNew(state.values2));
-      dispatch(changeAllTextBoxes(state.values2));
-    },
-    [dispatch, distributionPresets],
-  );
+/**
+ * Contains the main UI for the optimizer. All the components are being put together here.
+ *
+ * @param {classes, data} styles and data fetched by graphiql
+ * @returns the main ui
+ */
+const MainComponent = ({ classes, data }) => {
+  // Query variables from redux store that should have a global scope
+  const expertMode = useSelector(getControl('expertMode'));
+  const profession = useSelector(getProfession);
 
   return (
     <div className={classes.root}>
@@ -169,199 +401,30 @@ const MainComponent = ({ classes, data }) => {
       <Grid container style={profession === '' ? { opacity: 0.5 } : { opacity: 1.0 }}>
         {expertMode && (
           <>
-            {profession !== '' && (
-              <Section
-                first
-                title="Traits"
-                helpText="Select your traits here. Remember to also select the corresponding checkbox
-                    below each traitline. This is necessary, because many traits grant conditionally
-                    bonus stats and you might get different results with different conditional
-                    traits."
-                content={
-                  <Traits
-                    data={data[profession.toLowerCase()].edges[0].node.list
-                      .slice(1)
-                      .filter((line) => line.id > 0)}
-                  />
-                }
-              />
-            )}
+            {profession !== '' && <TraitsSectionMemo profession={profession} data={data} />}
 
-            {skillsData ? (
-              <Section
-                title="Skills"
-                content={<Skills profession={profession} data={skillsData.items} />}
-              />
-            ) : null}
+            <SkillsSection profession={profession} data={data} />
 
-            <Section
-              title="Runes & Sigils & Food"
-              content={
-                <Grid container spacing={2}>
-                  <Grid item xs={12} md={6}>
-                    <GW2Select
-                      name="Sigil1"
-                      label={<Item id={24615} disableLink disableTooltip text="Sigil 1" />}
-                      data={data.sigils.list}
-                    />
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <GW2Select
-                      name="Sigil2"
-                      label={<Item id={24868} disableLink disableTooltip text="Sigil 2" />}
-                      data={data.sigils.list}
-                    />
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <GW2Select
-                      name="Runes"
-                      label={<Item id={24836} disableLink disableTooltip text="Rune" />}
-                      data={data.runes.list}
-                    />
-                  </Grid>
-                  <Grid item md={6} />
-                  <Grid item xs={12} md={6}>
-                    <GW2Select
-                      name="Nourishment"
-                      label={<ConsumableEffect name="Nourishment" />}
-                      data={data.nourishment.list}
-                    />
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <GW2Select
-                      name="Enhancement"
-                      label={<ConsumableEffect name="Enhancement" data={data.sigils.list} />}
-                      data={data.enhancement.list}
-                    />
-                  </Grid>
-                </Grid>
-              }
-            />
+            <RuneSigilFoodSectionMemo data={data} />
 
-            <Section
-              title="Buffs & Boons"
-              extraInfo={
-                <Presets data={data.presetBuffs.list} handleClick={handleTemplateClickBuffs} />
-              }
-              content={<Buffs data={data.buffs.list} />}
-            />
+            <BuffsSectionMemo data={data} />
 
-            <Section
-              title="Extra Modifiers"
-              helpText={
-                <>
-                  Allows adding arbitrary extra modifiers. The textbox expects valid JSON
-                  formatting. For multiple modifiers please use a list. For more information visit
-                  the github repository.
-                </>
-              }
-              content={<ExtraModifiers />}
-            />
+            <ExtraModifiersSectionMemo />
 
-            <Section
-              title="Stat Infusions"
-              content={<Infusions />}
-              helpText={
-                <>
-                  Select up to 2 types of stat infusions, and optionally limit the quantity allowed.
-                </>
-              }
-            />
+            <InfusionsSectionMemo />
 
-            <Section title="Forced Slots" content={<ForcedSlots />} />
+            <ForcedSlotsSectionMemo />
 
-            <Section
-              title="Priorities"
-              content={<Priorities />}
-              extraInfo={
-                <Presets
-                  data={data.presetAffixes.list}
-                  handleClick={handleTemplateClickPriorities}
-                />
-              }
-            />
-            <Section
-              title="Damage Distribution"
-              content={<DamageDistribution />}
-              extraInfo={
-                <>
-                  <FormControlLabel
-                    control={
-                      <Switch
-                        checked={distributionVersion === 1}
-                        onChange={(e) =>
-                          dispatch(changeDistributionVersion(e.target.checked ? 1 : 2))
-                        }
-                        name="checked"
-                        color="primary"
-                      />
-                    }
-                    label="Switch to %-wise damage distribution"
-                  />
+            <PrioritiesSectionMemo data={data} />
 
-                  {profession !== '' && (
-                    <Presets data={distributionPresets} handleClick={onTemplateClickDistribution} />
-                  )}
-                </>
-              }
-            />
+            <DistributionSection profession={profession} data={data} />
           </>
         )}
 
-        <Section
-          title={
-            <>
-              <Attribute name="Agony Resistance" disableLink disableText /> Agony Resistance
-            </>
-          }
-          first={!expertMode}
-          helpText="Adds 150% of your Agony Resistance to Precision, Toughness and Concentration."
-          content={<ARinput />}
-        />
+        <ARSectionMemo first={!expertMode} />
       </Grid>
 
-      <Box display="flex" flexWrap="wrap">
-        <Box>
-          <Button
-            variant="outlined"
-            color="primary"
-            className={classes.button}
-            onClick={onStartCalculate}
-            classes={{ label: classes.label }}
-            disabled={status === RUNNING || profession === ''}
-          >
-            <ProgressIcon />
-            <Typography>Calculate</Typography>
-          </Button>
-        </Box>
-        <Box flexGrow={1}>
-          <Button
-            variant="outlined"
-            color="primary"
-            className={classes.button}
-            onClick={onCancelCalculate}
-            disabled={status !== RUNNING}
-          >
-            <Cancel className={classNames(classes.icon)}></Cancel>
-            <Typography style={{ marginLeft: 8 }}>Abort</Typography>
-          </Button>
-        </Box>
-        <Box alignSelf="center">
-          <Chip
-            label={
-              <>
-                Status: {firstUppercase(status)}{' '}
-                {status === SUCCESS ? (
-                  <DoneAllIcon fontSize="small" classes={{ root: classes.chipIcon }} />
-                ) : status === WAITING || status === RUNNING ? (
-                  <HourglassEmptyIcon fontSize="small" classes={{ root: classes.chipIcon }} />
-                ) : null}
-              </>
-            }
-            color={status !== ABORTED ? 'primary' : 'secondary'}
-          />
-        </Box>
-      </Box>
+      <ControlsBox classes={classes} profession={profession} data={data} />
 
       <ResultTable />
       <Box m={3} />
