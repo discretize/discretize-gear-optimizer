@@ -7,8 +7,13 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getList, getPriority, getSelectedCharacter, /* getControl */ } from '../../../state/gearOptimizerSlice';
-// import { RUNNING } from '../../../state/optimizer/status';
+import { Item } from 'gw2-ui-bulk';
+import {
+  getList,
+  getPriority,
+  getSelectedCharacter,
+  getInfusions,
+} from '../../../state/gearOptimizerSlice';
 import { Slots } from '../../../utils/gw2-data';
 import ResultTableRow from './ResultTableRow';
 
@@ -48,7 +53,7 @@ const StickyHeadTable = ({ classes }) => {
   const wield = useSelector(getPriority('weaponType'));
   const selectedCharacter = useSelector(getSelectedCharacter);
   const list = useSelector(getList) || [];
-  /* const status = useSelector(getControl('status')); */
+  const infusions = useSelector(getInfusions);
 
   let mostCommonAffix = null;
   if (/* status !== RUNNING && */ list[0]) {
@@ -72,6 +77,30 @@ const StickyHeadTable = ({ classes }) => {
                   {slot.short}
                 </TableCell>
               ))}
+              {infusions.primaryInfusion && (
+                <>
+                  <TableCell
+                    className={classes.tablehead}
+                    key="primaryInfusion"
+                    align="center"
+                    padding="none"
+                  >
+                    <Item id={infusions.primaryInfusion} disableText disableLink />
+                  </TableCell>
+                </>
+              )}
+              {infusions.secondaryInfusion && (
+                <>
+                  <TableCell
+                    className={classes.tablehead}
+                    key="secondaryInfusion"
+                    align="center"
+                    padding="none"
+                  >
+                    <Item id={infusions.secondaryInfusion} disableText disableLink />
+                  </TableCell>
+                </>
+              )}
             </TableRow>
           </TableHead>
           <TableBody className={classes.pointer}>

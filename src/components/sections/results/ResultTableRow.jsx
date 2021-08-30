@@ -30,6 +30,14 @@ const ResultTableRow = ({ character, selected, mostCommonAffix }) => {
           </Typography>
         </TableCell>
       ))}
+      {character.infusions
+        ? Object.values(character.infusions).map((element, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <TableCell align="center" key={`infu${index}`} padding="none">
+              {element}
+            </TableCell>
+          ))
+        : null}
     </TableRow>
   );
 };
