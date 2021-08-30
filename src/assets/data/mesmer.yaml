@@ -66,7 +66,7 @@ list:
 
       - id: superiority-complex
         text: "Superiority Complex"
-        subText: "50% uptime -&gt; +20% Critical Damage"
+        subText: "50% uptime -> +20% Critical Damage"
         modifiers: >-
           {
             "multiplier": { "Critical Damage": 0.2 }
