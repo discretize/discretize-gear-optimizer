@@ -234,6 +234,7 @@ list:
       - id: ambush-commander
         text: "Ambush Commander"
         subText: "5x Kalla's Fervor"
+        minor: true
         modifiers: >-
           {
             "multiplier": { "add: Effective Power": 0.1, "add: Effective Condition Damage": 0.1 }

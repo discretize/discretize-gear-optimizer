@@ -271,6 +271,7 @@ list:
       - id: inspired-virtue
         text: 'Inspired Virtue'
         subText: '6x'
+        minor: true
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.06 }
@@ -281,6 +282,7 @@ list:
       - id: inspired-virtue-9
         text: 'Inspired Virtue'
         subText: '9x'
+        minor: true
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.09 }

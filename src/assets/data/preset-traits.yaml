@@ -224,9 +224,7 @@ list:
                 }
               ]
             },
-            "skills":[
-              "bane-signet-2"
-            ],
+            "skills":[],
             "extras":{
               "Runes":"scholar",
               "Sigil1":"force",
@@ -335,7 +333,7 @@ list:
                 [
                   566,
                   567,
-                  579
+                  1686
                 ],
                 [
                   617,
@@ -360,6 +358,11 @@ list:
                   "source":16
                 },
                 {
+                  "id":"amplified-wrath",
+                  "gw2_id":1686,
+                  "source":16
+                },
+                {
                   "id":"right-hand-strength-3",
                   "gw2_id":566,
                   "source":16
@@ -368,6 +371,11 @@ list:
                   "id":"right-hand-strength",
                   "gw2_id":566,
                   "source":16
+                },
+                {
+                  "id":"inspired-virtue-9",
+                  "gw2_id":621,
+                  "source":46
                 },
                 {
                   "id":"virtue-of-retribution",
@@ -416,7 +424,7 @@ list:
                 [
                   566,
                   567,
-                  579
+                  1686
                 ],
                 [
                   1925,
@@ -438,6 +446,11 @@ list:
                 {
                   "id":"radiant-fire",
                   "gw2_id":567,
+                  "source":16
+                },
+                {
+                  "id":"amplified-wrath",
+                  "gw2_id":1686,
                   "source":16
                 },
                 {
@@ -531,11 +544,6 @@ list:
                 {
                   "id":"berserkers-power",
                   "gw2_id":1437,
-                  "source":4
-                },
-                {
-                  "id":"peak-performance-2",
-                  "gw2_id":1444,
                   "source":4
                 },
                 {
@@ -896,9 +904,7 @@ list:
                 }
               ]
             },
-            "skills":[
-              "signet-of-fire"
-            ],
+            "skills":[],
             "extras":{
               "Runes":"elementalist",
               "Sigil1":"",
@@ -1046,7 +1052,7 @@ list:
               ],
               "modifiers":[
                 {
-                  "id":"destructive-impulses-mix",
+                  "id":"destructive-impulses-dual",
                   "gw2_id":1724,
                   "source":15
                 },
@@ -1072,8 +1078,13 @@ list:
                 },
                 {
                   "id":"rising-tide",
-                  "gw2_id":1761,
+                  "gw2_id":2181,
                   "source":3
+                },
+                {
+                  "id":"ambush-commander",
+                  "gw2_id":1761,
+                  "source":63
                 },
                 {
                   "id":"brutal-momentum",
