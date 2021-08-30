@@ -71,7 +71,7 @@ const INITIALSTATE = {
     weaponType: 'Dual wield',
     minBoonDuration: '',
     minHealingPower: '',
-    minToughness: '1000',
+    minToughness: '',
     maxToughness: '',
     affixes: [],
   },
