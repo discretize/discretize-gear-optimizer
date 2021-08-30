@@ -22,7 +22,7 @@ list:
 
       - id: night/impact/slaying-both
         text: Superior Sigil of the Night/Impact/Slaying
-        subtext: (Both 7%/3%)
+        subText: (Both 7%/3%)
         modifiers: >-
           {
             "multiplier": { "add: Effective Power": 0.03, "Effective Power": 0.07 }

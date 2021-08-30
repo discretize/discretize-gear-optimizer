@@ -316,7 +316,7 @@ list:
         type: 'typography'
 
       - id: sb-1
-        subText: ''
+        subText: 'merged'
         modifiers: >-
           {
             "buff":
@@ -333,7 +333,7 @@ list:
         type: 'traits'
 
       - id: sb-2
-        subText: ''
+        subText: 'merged'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.1 }
@@ -343,7 +343,7 @@ list:
         type: 'traits'
 
       - id: sb-3
-        subText: ''
+        subText: 'merged'
         modifiers: >-
           {
             "buff": { "Ferocity": 300 }
@@ -353,7 +353,7 @@ list:
         type: 'traits'
 
       - id: sb-4
-        subText: 'base'
+        subText: 'merged, base'
         modifiers: >-
           {
             "buff": { "Ferocity": 120 }

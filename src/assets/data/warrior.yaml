@@ -270,7 +270,7 @@ list:
 
       - id: warriors-cunning
         text: "Warrior's Cunning"
-        subText: "20% uptime -&gt; +5% Damage"
+        subText: "20% uptime -> +5% Damage"
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.05 }
@@ -444,7 +444,7 @@ list:
 
       - id: magebane-tether
         text: "Magebane Tether"
-        subText: "75% uptime -&gt; +7.5% Damage"
+        subText: "75% uptime -> +7.5% Damage"
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.075 }

@@ -78,8 +78,7 @@ list:
         text: Empowering Flame
         minor: true
         subText: >-
-          (100% in
-          <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5492"></span>)"
+          (100% in fire)
         modifiers: >-
           {
             "buff": { "Power": 150 }
@@ -117,10 +116,8 @@ list:
 
       - id: power-overwhelming-2
         text: "Power Overwhelming"
-        subtext: >-
-          (100% in
-          <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5492"></span>
-           - tick both)"
+        subText: >-
+          (100% in fire - tick both)
         modifiers: >-
           {
             "buff": { "Power": 150 }
@@ -181,10 +178,8 @@ list:
 
       - id: aeromancers-training-2
         text: "Aeromancer's Training"
-        subtext: >-
-          (100% in
-          <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5494"></span>
-           - tick both)"
+        subText: >-
+          (100% in air - tick both)
         minor: true
         modifiers: >-
           {
@@ -218,9 +213,9 @@ list:
     items:
       - id: stone-flesh
         text: "Stone Flesh"
+        minor: true
         subText: >-
-          (100% in
-          <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5495"></span>)"
+          (100% in earth)
         modifiers: >-
           {
             "multiplier": { "Effective Health": 0.07 }
@@ -249,6 +244,7 @@ list:
 
       - id: geomancers-defense
         text: "Geomancer's Defense"
+        minor: true
         modifiers: >-
           {
             "multiplier": { "Effective Health": 0.1 }
@@ -271,9 +267,7 @@ list:
       - id: piercing-blades-2
         text: "Piercing Shards"
         subText: >-
-          "100% in
-          <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5493"></span>
-           - tick both</small>"
+          100% in water - tick both
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.1 }
@@ -357,6 +351,7 @@ list:
 
       - id: hardy-conduit
         text: "Hardy Conduit"
+        minor: true
         modifiers: >-
           {
             "multiplier": { "Effective Health": 0.1167 }
@@ -429,9 +424,8 @@ list:
 
       - id: elemental-polyphony-fire
         text: "Elemental Polyphony"
-        subtext: >-
-          (100% in
-          <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5492"></span>)"
+        subText: >-
+          100% in fire
         minor: true
         modifiers: >-
           {
@@ -442,9 +436,8 @@ list:
 
       - id: elemental-polyphony-air
         text: "Elemental Polyphony"
-        subtext: >-
-          (100% in
-          <span data-armory-size="16" data-armory-embed="skills" data-armory-ids="5494"></span>)"
+        subText: >-
+          100% in air
         minor: true
         modifiers: >-
           {

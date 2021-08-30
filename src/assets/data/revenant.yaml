@@ -125,7 +125,7 @@ list:
     items:
       - id: unsuspecting-strikes
         text: "Unsuspecting Strikes"
-        subText: "20% uptime -&gt; +4% Damage"
+        subText: "20% uptime -> +4% Damage"
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.04 }

@@ -883,6 +883,11 @@ list:
                   "source":31
                 },
                 {
+                  "id":"stone-flesh",
+                  "gw2_id":278,
+                  "source":26
+                },
+                {
                   "id":"strength-of-stone",
                   "gw2_id":275,
                   "source":26
