@@ -110,28 +110,30 @@ export const gearOptimizerSlice = createSlice({
   initialState: INITIALSTATE,
   reducers: {
     changeProfession: (state, action) => {
-      state.profession = action.payload;
+      if (state.profession !== action.payload) {
+        state.profession = action.payload;
 
-      // reset
-      state.modifiers = [];
-      state.traits = {
-        lines: ['', '', ''],
+        // reset
+        state.modifiers = [];
+        state.traits = {
+          lines: ['', '', ''],
 
-        selected: [
-          [0, 0, 0],
-          [0, 0, 0],
-          [0, 0, 0],
-        ],
-        modifiers: [],
-      };
-      state.control = {
-        ...state.control,
-        list: [],
-        progress: 0,
-        selectedCharacter: null,
-        status: WAITING,
-      };
-      state.skills = [];
+          selected: [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0],
+          ],
+          modifiers: [],
+        };
+        state.control = {
+          ...state.control,
+          list: [],
+          progress: 0,
+          selectedCharacter: null,
+          status: WAITING,
+        };
+        state.skills = [];
+      }
     },
     changeExpertMode: (state, action) => {
       if (action.payload) {
