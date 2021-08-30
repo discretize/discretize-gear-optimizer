@@ -150,10 +150,14 @@ const DistributionSection = ({ profession, data }) => {
 };
 const DistributionSectionMemo = React.memo(DistributionSection);
 
-const SkillsSection = ({ profession, skillsData }) => {
-  return (
+const SkillsSection = ({ profession, data }) => {
+  const skillsData = profession
+    ? data[profession.toLowerCase()].edges[0].node.list.find((d) => d.section === 'Skills')
+    : null;
+
+  return skillsData ? (
     <Section title="Skills" content={<Skills profession={profession} data={skillsData.items} />} />
-  );
+  ) : null;
 };
 const SkillsSectionMemo = React.memo(SkillsSection);
 
@@ -389,10 +393,6 @@ const MainComponent = ({ classes, data }) => {
   const expertMode = useSelector(getControl('expertMode'));
   const profession = useSelector(getProfession);
 
-  const skillsData = profession
-    ? data[profession.toLowerCase()].edges[0].node.list.find((d) => d.section === 'Skills')
-    : null;
-
   return (
     <div className={classes.root}>
       <NavBar
@@ -406,9 +406,7 @@ const MainComponent = ({ classes, data }) => {
           <>
             {profession !== '' && <TraitsSectionMemo profession={profession} data={data} />}
 
-            {skillsData ? (
-              <SkillsSectionMemo profession={profession} skillsData={skillsData} />
-            ) : null}
+            <SkillsSectionMemo profession={profession} data={data} />
 
             <RuneSigilFoodSectionMemo data={data} />
 
