@@ -12,7 +12,7 @@ list:
       {
         "affixes": ["BERSERKER", "ASSASSIN", "DIVINER"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 100
+        "minBoonDuration": 79
       }
 
   - name: Condi DPS
