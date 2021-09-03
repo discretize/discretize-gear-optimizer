@@ -155,7 +155,7 @@ const DistributionSection = ({ profession, data }) => {
             </p>
             <p>
               To do so, calculate and sum the [power coefficient * weapon strength] and [condition
-              stacks * duration] of each skill you use, the divide by total time.
+              stacks * duration] of each skill you use, then divide by total time.
             </p>
             <p>For more information, ask in Discord!</p>
           </>
@@ -322,7 +322,7 @@ const ARSection = ({ first }) => {
         </>
       }
       first={first}
-      helpText="Adds 150% of your Agony Resistance to Precision, Toughness and Concentration."
+      helpText="Adds 150% of your Agony Resistance to Precision, Toughness, and Concentration."
       content={<ARinput />}
     />
   );
