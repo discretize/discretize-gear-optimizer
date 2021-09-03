@@ -240,12 +240,21 @@ list:
         gw2-id: 1877
         type: 'traits'
 
+      - id: kinetic-accelerators
+        text: 'Kinetic Accelerators'
+        modifiers: >-
+          {
+            "convert": { "Concentration": { "Power": 0.1 } }
+          }
+        gw2-id: 2052
+        type: 'traits'
+
       - id: applied-force
         text: 'Applied Force'
         subText: '25 might'
         modifiers: >-
           {
-            "buff": { "Power": 250 }
+            "buff": { "Power": 375, "Condition Damage": -375 }
           }
         gw2-id: 1849
         type: 'traits'
