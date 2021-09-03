@@ -2,7 +2,7 @@
 
 Welcome to the source repository of the Discretize gear optimizer.
 
-### This branch is the source for the "old" optimizer code, availible at [old.discretize.eu](https://old.discretize.eu). The optimizer rewrite code is located in the [react-recode branch](https://github.com/discretize/discretize-gear-optimizer/tree/react-recode).
+### This branch is the source for the "old" optimizer code, accessible at [old.discretize.eu](https://old.discretize.eu). The optimizer rewrite code is located in the [react-recode branch](https://github.com/discretize/discretize-gear-optimizer/tree/react-recode).
 
 This branch's source GW2 data is located in the public [discretize/discretize-guides](https://github.com/discretize/discretize-guides/tree/master/data/gear-optimizer) repository. To update the source data, commit changes to or submit pull requests to that repository, then update the submodule link here.
 
