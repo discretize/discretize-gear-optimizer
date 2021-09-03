@@ -34,6 +34,15 @@ list:
         "values2": { "Power": 3320, "Burning": 1.85, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  - name: Power Firebrand (approx.)
+    profession: FIREBRAND
+    distribution: [90, 100, 100, 100, 100]
+    value: >-
+      {
+        "values1": { "Power": 90, "Burning": 10, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 3390, "Burning": 1.1, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
   - name: CFB (Virtues, 5 page, allies)
     profession: FIREBRAND
     distribution: [31, 96, 99, 99, 100]
