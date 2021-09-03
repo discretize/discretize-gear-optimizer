@@ -397,6 +397,7 @@ const MainComponent = ({ classes, data }) => {
         data={data.presetTraits.list}
         buffPresets={data.presetBuffs.list}
         prioritiesPresets={data.presetAffixes.list}
+        distributionPresets={data.presetDistribution.list}
       />
 
       {profession === '' && (
@@ -694,6 +695,7 @@ const GearOptimizer = ({ classes }) => {
                 specialization
                 boons
                 priority
+                distribution
               }
             }
           }

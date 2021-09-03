@@ -39,7 +39,7 @@ const styles = (theme) => ({
   },
 });
 
-const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
+const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPresets }) => {
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
   const expertMode = useSelector(getControl('expertMode'));
@@ -146,6 +146,9 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
         build: elem,
         specialization: specialization,
         buffPreset: JSON.parse(buffPresets.find((pre) => pre.name === elem.boons).value),
+        distributionPreset: JSON.parse(
+          distributionPresets.find((pre) => pre.name === elem.distribution).value,
+        ),
         prioritiesPreset: JSON.parse(
           prioritiesPresets.find((prio) => prio.name === elem.priority).value,
         ),

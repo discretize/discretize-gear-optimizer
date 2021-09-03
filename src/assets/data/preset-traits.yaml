@@ -7,6 +7,7 @@ list:
         specialization: Chronomancer
         boons: Fractal
         priority: Power DPS
+        distribution: '100% Power'
         traits: >-
           {
             "profession":"MESMER",
@@ -76,6 +77,7 @@ list:
         specialization: Mirage
         boons: Fractal
         priority: Condi DPS
+        distribution: '100% Power'
         traits: >-
           {
             "profession":"MESMER",
@@ -150,6 +152,7 @@ list:
         specialization: Dragonhunter
         boons: Fractal
         priority: Power DPS
+        distribution: 'DH (Radiance)'
         traits: >-
           {
             "profession":"GUARDIAN",
@@ -239,6 +242,7 @@ list:
         specialization: Firebrand
         boons: Fractal
         priority: Power DPS
+        distribution: '100% Power'
         traits: >-
           {
             "profession":"GUARDIAN",
@@ -320,6 +324,7 @@ list:
         specialization: Firebrand
         boons: Fractal
         priority: Condi DPS
+        distribution: 'CFB (Virtues, 5 page, allies)'
         traits: >-
           {
             "profession":"GUARDIAN",
@@ -411,6 +416,7 @@ list:
         specialization: Firebrand
         boons: Fractal
         priority: Condi DPS
+        distribution: '100% Power'
         traits: >-
           {
             "profession":"GUARDIAN",
@@ -499,6 +505,7 @@ list:
         specialization: Berserker
         boons: Fractal
         priority: Power DPS
+        distribution: 'Power Banner Warrior'
         traits: >-
           {
             "profession":"WARRIOR",
@@ -600,6 +607,7 @@ list:
         specialization: Berserker
         boons: Fractal
         priority: Condi DPS
+        distribution: 'Condi Banner Warrior'
         traits: >-
           {
             "profession":"WARRIOR",
@@ -701,6 +709,7 @@ list:
         specialization: Weaver
         boons: Fractal
         priority: Power DPS
+        distribution: 'Power Weaver (BTTH)'
         traits: >-
           {
             "profession":"ELEMENTALIST",
@@ -820,6 +829,7 @@ list:
         specialization: Weaver
         boons: Fractal
         priority: Condi DPS
+        distribution: 'Condi Weaver (Sword)'
         traits: >-
           {
             "profession":"ELEMENTALIST",
@@ -926,6 +936,7 @@ list:
         specialization: Soulbeast
         boons: Fractal
         priority: Power DPS
+        distribution: 'Power Slb'
         traits: >-
           {
             "profession":"RANGER",
@@ -1029,6 +1040,7 @@ list:
         specialization: Renegade
         boons: Fractal
         priority: Power DPS
+        distribution: '100% Power'
         traits: >-
           {
             "profession":"REVENANT",
@@ -1115,6 +1127,7 @@ list:
         specialization: Renegade
         boons: Fractal
         priority: Condi DPS
+        distribution: '100% Power'
         traits: >-
           {
             "profession":"REVENANT",
@@ -1213,6 +1226,7 @@ list:
         specialization: Holosmith
         boons: Fractal
         priority: Power DPS
+        distribution: 'Power Holo'
         traits: >-
           {
             "profession":"ENGINEER",
