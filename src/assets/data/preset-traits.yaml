@@ -72,78 +72,78 @@ list:
             }
           }
 
-      - name: Staff Mirage
-        id: staffmirage
-        specialization: Mirage
-        boons: Fractal
-        priority: Condi DPS
-        distribution: '100% Power'
-        traits: >-
-          {
-            "profession":"MESMER",
-            "traits":{
-              "lines":[
-                "45",
-                "1",
-                "59"
-              ],
-              "selected":[
-                [
-                  670,
-                  669,
-                  1687
-                ],
-                [
-                  701,
-                  1889,
-                  1950
-                ],
-                [
-                  2141,
-                  2178,
-                  2070
-                ]
-              ],
-              "modifiers":[
-                {
-                  "id":"illusionary-membrane",
-                  "gw2_id":667,
-                  "source":45
-                },
-                {
-                  "id":"chaotic-persistence",
-                  "gw2_id":1865,
-                  "source":45
-                },
-                {
-                  "id":"chaotic-potency-2",
-                  "gw2_id":669,
-                  "source":45
-                },
-                {
-                  "id":"chaotic-potency",
-                  "gw2_id":669,
-                  "source":45
-                },
-                {
-                  "id":"nomads-endurance",
-                  "gw2_id":2069,
-                  "source":59
-                }
-              ]
-            },
-            "skills":[
-              "signet-of-midnight",
-              "signet-of-domination"
-            ],
-            "extras":{
-              "Runes":"nightmare",
-              "Sigil1":"bursting",
-              "Sigil2":"",
-              "Enhancement":"toxic-focusing-crystal",
-              "Nourishment":"beef-rendang"
-            }
-          }
+      # - name: Staff Mirage
+      #   id: staffmirage
+      #   specialization: Mirage
+      #   boons: Fractal
+      #   priority: Condi DPS
+      #   distribution: '100% Power'
+      #   traits: >-
+      #     {
+      #       "profession":"MESMER",
+      #       "traits":{
+      #         "lines":[
+      #           "45",
+      #           "1",
+      #           "59"
+      #         ],
+      #         "selected":[
+      #           [
+      #             670,
+      #             669,
+      #             1687
+      #           ],
+      #           [
+      #             701,
+      #             1889,
+      #             1950
+      #           ],
+      #           [
+      #             2141,
+      #             2178,
+      #             2070
+      #           ]
+      #         ],
+      #         "modifiers":[
+      #           {
+      #             "id":"illusionary-membrane",
+      #             "gw2_id":667,
+      #             "source":45
+      #           },
+      #           {
+      #             "id":"chaotic-persistence",
+      #             "gw2_id":1865,
+      #             "source":45
+      #           },
+      #           {
+      #             "id":"chaotic-potency-2",
+      #             "gw2_id":669,
+      #             "source":45
+      #           },
+      #           {
+      #             "id":"chaotic-potency",
+      #             "gw2_id":669,
+      #             "source":45
+      #           },
+      #           {
+      #             "id":"nomads-endurance",
+      #             "gw2_id":2069,
+      #             "source":59
+      #           }
+      #         ]
+      #       },
+      #       "skills":[
+      #         "signet-of-midnight",
+      #         "signet-of-domination"
+      #       ],
+      #       "extras":{
+      #         "Runes":"nightmare",
+      #         "Sigil1":"bursting",
+      #         "Sigil2":"",
+      #         "Enhancement":"toxic-focusing-crystal",
+      #         "Nourishment":"beef-rendang"
+      #       }
+      #     }
 
   - class: guardian
     builds:
