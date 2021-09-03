@@ -1039,8 +1039,8 @@ list:
         id: pren
         specialization: Renegade
         boons: Fractal
-        priority: Power DPS
-        distribution: '100% Power'
+        priority: Power Boon
+        distribution: 'Alacrity Renegade'
         traits: >-
           {
             "profession":"REVENANT",
