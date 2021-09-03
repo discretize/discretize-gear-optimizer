@@ -4,12 +4,9 @@ import TableRow from '@material-ui/core/TableRow';
 import { Item } from 'gw2-ui-bulk';
 import { useSelector } from 'react-redux';
 import { Slots } from '../../../utils/gw2-data';
-import {
-  getPriority,
-  getInfusions,
-} from '../../../state/gearOptimizerSlice';
+import { getPriority, getInfusions } from '../../../state/gearOptimizerSlice';
 
-const ResultTableHeaderRow = ({classes}) => {
+const ResultTableHeaderRow = ({ classes }) => {
   const wield = useSelector(getPriority('weaponType'));
   const infusions = useSelector(getInfusions);
 
@@ -21,7 +18,7 @@ const ResultTableHeaderRow = ({classes}) => {
           {slot.short}
         </TableCell>
       ))}
-      {infusions.primaryInfusion && (
+      {infusions.primaryInfusion ? (
         <TableCell
           className={classes.tablehead}
           key="primaryInfusion"
@@ -30,8 +27,8 @@ const ResultTableHeaderRow = ({classes}) => {
         >
           <Item id={infusions.primaryInfusion} disableText disableLink />
         </TableCell>
-      )}
-      {infusions.secondaryInfusion && (
+      ) : null}
+      {infusions.secondaryInfusion ? (
         <TableCell
           className={classes.tablehead}
           key="secondaryInfusion"
@@ -40,7 +37,7 @@ const ResultTableHeaderRow = ({classes}) => {
         >
           <Item id={infusions.secondaryInfusion} disableText disableLink />
         </TableCell>
-      )}
+      ) : null}
     </TableRow>
   );
 };

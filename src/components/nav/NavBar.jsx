@@ -34,6 +34,9 @@ const styles = (theme) => ({
   topNav: {
     marginBottom: theme.spacing(2),
   },
+  topNavNoMarge: {
+    marginBottom: 0,
+  },
   navProfession: {
     fontSize: '2rem',
   },
@@ -243,7 +246,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
   return (
     <AppBar
       position="sticky"
-      className={profession === '' ? { marginBottom: 0 } : classes.topNav}
+      className={profession === '' ? classes.topNavNoMarge : classes.topNav}
       color="inherit"
     >
       {mobileView ? displayMobile() : displayDesktop()}
