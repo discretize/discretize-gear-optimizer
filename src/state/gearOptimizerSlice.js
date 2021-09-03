@@ -237,7 +237,7 @@ export const gearOptimizerSlice = createSlice({
           version: 2,
           values1: data.distributionPreset.values1,
           values2: data.distributionPreset.values2,
-          textBoxes: data.distributionPreset.values1,
+          textBoxes: data.distributionPreset.values2,
         };
       }
 

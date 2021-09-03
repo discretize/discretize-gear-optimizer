@@ -862,7 +862,7 @@ function updateAttributesFast(_character, skipValidation = false) {
       if (settings.relevantConditions.length > 0) {
         const CONDI_CACHE_ID = attributes['Expertise'] + attributes['Condition Damage'] * 10000;
         condiDamageScore =
-          condiResultCache.get(CONDI_CACHE_ID) ||
+          condiResultCache?.get(CONDI_CACHE_ID) ||
           calcCondi(_character, multipliers, settings.relevantConditions);
         condiResultCache.set(CONDI_CACHE_ID, condiDamageScore);
       }

@@ -7,7 +7,7 @@ list:
         specialization: Chronomancer
         boons: Fractal
         priority: Power DPS
-        distribution: '100% Power'
+        distribution: 'Power Chrono'
         traits: >-
           {
             "profession":"MESMER",
@@ -72,78 +72,78 @@ list:
             }
           }
 
-      - name: Staff Mirage
-        id: staffmirage
-        specialization: Mirage
-        boons: Fractal
-        priority: Condi DPS
-        distribution: '100% Power'
-        traits: >-
-          {
-            "profession":"MESMER",
-            "traits":{
-              "lines":[
-                "45",
-                "1",
-                "59"
-              ],
-              "selected":[
-                [
-                  670,
-                  669,
-                  1687
-                ],
-                [
-                  701,
-                  1889,
-                  1950
-                ],
-                [
-                  2141,
-                  2178,
-                  2070
-                ]
-              ],
-              "modifiers":[
-                {
-                  "id":"illusionary-membrane",
-                  "gw2_id":667,
-                  "source":45
-                },
-                {
-                  "id":"chaotic-persistence",
-                  "gw2_id":1865,
-                  "source":45
-                },
-                {
-                  "id":"chaotic-potency-2",
-                  "gw2_id":669,
-                  "source":45
-                },
-                {
-                  "id":"chaotic-potency",
-                  "gw2_id":669,
-                  "source":45
-                },
-                {
-                  "id":"nomads-endurance",
-                  "gw2_id":2069,
-                  "source":59
-                }
-              ]
-            },
-            "skills":[
-              "signet-of-midnight",
-              "signet-of-domination"
-            ],
-            "extras":{
-              "Runes":"nightmare",
-              "Sigil1":"bursting",
-              "Sigil2":"",
-              "Enhancement":"toxic-focusing-crystal",
-              "Nourishment":"beef-rendang"
-            }
-          }
+      # - name: Staff Mirage
+      #   id: staffmirage
+      #   specialization: Mirage
+      #   boons: Fractal
+      #   priority: Condi DPS
+      #   distribution: '100% Power'
+      #   traits: >-
+      #     {
+      #       "profession":"MESMER",
+      #       "traits":{
+      #         "lines":[
+      #           "45",
+      #           "1",
+      #           "59"
+      #         ],
+      #         "selected":[
+      #           [
+      #             670,
+      #             669,
+      #             1687
+      #           ],
+      #           [
+      #             701,
+      #             1889,
+      #             1950
+      #           ],
+      #           [
+      #             2141,
+      #             2178,
+      #             2070
+      #           ]
+      #         ],
+      #         "modifiers":[
+      #           {
+      #             "id":"illusionary-membrane",
+      #             "gw2_id":667,
+      #             "source":45
+      #           },
+      #           {
+      #             "id":"chaotic-persistence",
+      #             "gw2_id":1865,
+      #             "source":45
+      #           },
+      #           {
+      #             "id":"chaotic-potency-2",
+      #             "gw2_id":669,
+      #             "source":45
+      #           },
+      #           {
+      #             "id":"chaotic-potency",
+      #             "gw2_id":669,
+      #             "source":45
+      #           },
+      #           {
+      #             "id":"nomads-endurance",
+      #             "gw2_id":2069,
+      #             "source":59
+      #           }
+      #         ]
+      #       },
+      #       "skills":[
+      #         "signet-of-midnight",
+      #         "signet-of-domination"
+      #       ],
+      #       "extras":{
+      #         "Runes":"nightmare",
+      #         "Sigil1":"bursting",
+      #         "Sigil2":"",
+      #         "Enhancement":"toxic-focusing-crystal",
+      #         "Nourishment":"beef-rendang"
+      #       }
+      #     }
 
   - class: guardian
     builds:
@@ -242,7 +242,7 @@ list:
         specialization: Firebrand
         boons: Fractal
         priority: Power DPS
-        distribution: '100% Power'
+        distribution: 'Power Firebrand (approx.)'
         traits: >-
           {
             "profession":"GUARDIAN",
@@ -411,92 +411,92 @@ list:
             }
           }
 
-      - name: CFB Zeal
-        id: cfb2
-        specialization: Firebrand
-        boons: Fractal
-        priority: Condi DPS
-        distribution: '100% Power'
-        traits: >-
-          {
-            "profession":"GUARDIAN",
-            "traits":{
-              "lines":[
-                "16",
-                "42",
-                "62"
-              ],
-              "selected":[
-                [
-                  566,
-                  567,
-                  1686
-                ],
-                [
-                  1925,
-                  1556,
-                  635
-                ],
-                [
-                  2075,
-                  2116,
-                  2159
-                ]
-              ],
-              "modifiers":[
-                {
-                  "id":"radiant-power",
-                  "gw2_id":568,
-                  "source":16
-                },
-                {
-                  "id":"radiant-fire",
-                  "gw2_id":567,
-                  "source":16
-                },
-                {
-                  "id":"amplified-wrath",
-                  "gw2_id":1686,
-                  "source":16
-                },
-                {
-                  "id":"right-hand-strength-3",
-                  "gw2_id":566,
-                  "source":16
-                },
-                {
-                  "id":"right-hand-strength",
-                  "gw2_id":566,
-                  "source":16
-                },
-                {
-                  "id":"imbued-haste",
-                  "gw2_id":2148,
-                  "source":62
-                },
-                {
-                  "id":"symbolic-exposure",
-                  "gw2_id":646,
-                  "source":42
-                },
-                {
-                  "id":"kindled-zeal",
-                  "gw2_id":1556,
-                  "source":42
-                }
-              ]
-            },
-            "skills":[
-              "signet-of-wrath"
-            ],
-            "extras":{
-              "Runes":"balthazar",
-              "Sigil1":"bursting",
-              "Sigil2":"",
-              "Enhancement":"toxic-focusing-crystal",
-              "Nourishment":"beef-rendang"
-            }
-          }
+      # - name: CFB Zeal
+      #   id: cfb2
+      #   specialization: Firebrand
+      #   boons: Fractal
+      #   priority: Condi DPS
+      #   distribution: '100% Power'
+      #   traits: >-
+      #     {
+      #       "profession":"GUARDIAN",
+      #       "traits":{
+      #         "lines":[
+      #           "16",
+      #           "42",
+      #           "62"
+      #         ],
+      #         "selected":[
+      #           [
+      #             566,
+      #             567,
+      #             1686
+      #           ],
+      #           [
+      #             1925,
+      #             1556,
+      #             635
+      #           ],
+      #           [
+      #             2075,
+      #             2116,
+      #             2159
+      #           ]
+      #         ],
+      #         "modifiers":[
+      #           {
+      #             "id":"radiant-power",
+      #             "gw2_id":568,
+      #             "source":16
+      #           },
+      #           {
+      #             "id":"radiant-fire",
+      #             "gw2_id":567,
+      #             "source":16
+      #           },
+      #           {
+      #             "id":"amplified-wrath",
+      #             "gw2_id":1686,
+      #             "source":16
+      #           },
+      #           {
+      #             "id":"right-hand-strength-3",
+      #             "gw2_id":566,
+      #             "source":16
+      #           },
+      #           {
+      #             "id":"right-hand-strength",
+      #             "gw2_id":566,
+      #             "source":16
+      #           },
+      #           {
+      #             "id":"imbued-haste",
+      #             "gw2_id":2148,
+      #             "source":62
+      #           },
+      #           {
+      #             "id":"symbolic-exposure",
+      #             "gw2_id":646,
+      #             "source":42
+      #           },
+      #           {
+      #             "id":"kindled-zeal",
+      #             "gw2_id":1556,
+      #             "source":42
+      #           }
+      #         ]
+      #       },
+      #       "skills":[
+      #         "signet-of-wrath"
+      #       ],
+      #       "extras":{
+      #         "Runes":"balthazar",
+      #         "Sigil1":"bursting",
+      #         "Sigil2":"",
+      #         "Enhancement":"toxic-focusing-crystal",
+      #         "Nourishment":"beef-rendang"
+      #       }
+      #     }
 
   - class: warrior
     builds:
@@ -1039,8 +1039,8 @@ list:
         id: pren
         specialization: Renegade
         boons: Fractal
-        priority: Power DPS
-        distribution: '100% Power'
+        priority: Power Boon
+        distribution: 'Alacrity Renegade'
         traits: >-
           {
             "profession":"REVENANT",
@@ -1127,7 +1127,7 @@ list:
         specialization: Renegade
         boons: Fractal
         priority: Condi DPS
-        distribution: '100% Power'
+        distribution: 'Condi Renegade (Devastation)'
         traits: >-
           {
             "profession":"REVENANT",
