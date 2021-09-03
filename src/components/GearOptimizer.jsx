@@ -17,6 +17,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 import DoneAllIcon from '@material-ui/icons/DoneAll';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import {
   changeAllDistributionsNew,
   changeAllDistributionsOld,
@@ -398,19 +399,18 @@ const MainComponent = ({ classes, data }) => {
         prioritiesPresets={data.presetAffixes.list}
       />
 
+      {profession === '' && (
+        <Typography style={{ marginBottom: 8 }}>
+          <ExpandLessIcon />
+          <i>Select {expertMode && <>a class or</>} a build template from the menu above!</i>{' '}
+          <ExpandLessIcon />
+        </Typography>
+      )}
+
       <div style={profession === '' ? { opacity: 0.5 } : { opacity: 1.0 }}>
         <Grid container>
           {expertMode ? (
             <>
-              {
-                // todo: make this not awful
-                // profession === '' && (
-                //   <Typography style={{ fontSize: '2em', color: 'red' }}>
-                //     Choose a class or a build template from the menu above!
-                //   </Typography>
-                // )
-              }
-
               {profession !== '' && <TraitsSectionMemo profession={profession} data={data} />}
 
               <SkillsSection profession={profession} data={data} />

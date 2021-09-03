@@ -19,13 +19,11 @@ import Menu from 'material-ui-popup-state/HoverMenu';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  changeControl,
+  changeExpertMode,
   changeProfession,
   getControl,
   getProfession,
-  reset,
   setBuildTemplate,
-  changeExpertMode,
 } from '../../state/gearOptimizerSlice';
 import { PROFESSIONS } from '../../utils/gw2-data';
 import { firstUppercase } from '../../utils/usefulFunctions';
@@ -222,7 +220,11 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
   );
 
   return (
-    <AppBar position="sticky" className={classes.topNav} color="inherit">
+    <AppBar
+      position="sticky"
+      className={profession === '' ? { marginBottom: 0 } : classes.topNav}
+      color="inherit"
+    >
       {mobileView ? displayMobile() : displayDesktop()}
     </AppBar>
   );
