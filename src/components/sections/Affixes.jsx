@@ -19,7 +19,7 @@ export const AFFIXES = [
   'BERSERKER',
   'ZEALOT',
   'SOLDIER',
-  'FORSAKEN',
+  // 'FORSAKEN',  exotic
   'VALKYRIE',
   'HARRIER',
   // 'PALADIN', PVP
@@ -38,7 +38,7 @@ export const AFFIXES = [
   'GRIEVING',
   // 'SAGE', PVP
   'MARSHAL',
-  'CAPTAIN',
+  // 'CAPTAIN', exotic
   'RAMPAGER',
   'ASSASSIN',
   'SERAPH',
@@ -55,7 +55,7 @@ export const AFFIXES = [
   'CARRION',
   'RABID',
   'DIRE',
-  'APOSTATE',
+  // 'APOSTATE', exotic
   'PLAGUEDOCTOR',
   'BRINGER',
   'CLERIC',
