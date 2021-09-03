@@ -22,21 +22,21 @@ export const AFFIXES = [
   'FORSAKEN',
   'VALKYRIE',
   'HARRIER',
-  'PALADIN',
+  // 'PALADIN', PVP
   'COMMANDER',
-  'DEMOLISHER',
-  'SWASHBUCKLER',
+  // 'DEMOLISHER', PVP
+  // 'SWASHBUCKLER', PVP
   'MARAUDER',
-  'AVATAR',
-  'DESTROYER',
+  // 'AVATAR', PVP
+  // 'DESTROYER', PVP
   'VIGILANT',
   'CRUSADER',
   'WANDERER',
   'DIVINER',
-  'WIZARD',
+  // 'WIZARD', PVP
   'VIPER',
   'GRIEVING',
-  'SAGE',
+  // 'SAGE', PVP
   'MARSHAL',
   'CAPTAIN',
   'RAMPAGER',
