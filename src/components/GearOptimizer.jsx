@@ -83,7 +83,7 @@ const TraitsSection = ({ profession, data }) => {
       first
       title="Traits"
       helpText="Select your traits here. Remember to also select the corresponding checkbox
-                    below each traitline. This is necessary, because many traits grant conditionally
+                    below each traitline. This is necessary, because many traits grant conditional
                     bonus stats and you might get different results with different conditional
                     traits."
       content={
@@ -157,9 +157,7 @@ const DistributionSection = ({ profession, data }) => {
               To do so, calculate and sum the [power coefficient * weapon strength] and [condition
               stacks * duration] of each skill you use, the divide by total time.
             </p>
-            <p>
-              For more information, ask in Discord!
-            </p>
+            <p>For more information, ask in Discord!</p>
           </>
         ) : (
           <>
