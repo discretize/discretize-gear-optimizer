@@ -1127,7 +1127,7 @@ list:
         specialization: Renegade
         boons: Fractal
         priority: Condi DPS
-        distribution: '100% Power'
+        distribution: 'Condi Renegade (Devastation)'
         traits: >-
           {
             "profession":"REVENANT",
