@@ -1,6 +1,6 @@
 # 🌌 Discretize.eu - Gear optimizer
 
-Welcome to the source repository of the gear optimizer on the [old.discretize.eu](https://discretize.eu) website. The gear optimizer calculates the most optimal gearset for a given build of the game Guild Wars 2. 
+Welcome to the source repository of the rewritten Discretize gear optimizer. The gear optimizer calculates the most optimal gearset for a given build of the game Guild Wars 2. It can currently be accessed at [discretize.github.io/discretize-gear-optimizer](https://discretize.github.io/discretize-gear-optimizer/).
 
 ## 💻 Technologies
 
@@ -12,7 +12,7 @@ Welcome to the source repository of the gear optimizer on the [old.discretize.eu
 - [Material UI v4](https://material-ui.com/) and [JSS](http://cssinjs.org) for styling
 - [ESLint](https://github.com/eslint/eslint), [Prettier](https://github.com/prettier/prettier) and [EditorConfig](https://editorconfig.org/) for linting and formatting
 
-## 🔄 Continuous integration
+## 🔄 Continuous integration (todo: update this section)
 
 We use Github actions for continuous integration and deployment. Any push to the master branch will trigger the CI and deploy to the bucket of old.discretize.eu
 
