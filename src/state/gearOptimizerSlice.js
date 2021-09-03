@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { WAITING } from './optimizer/status';
 import { Omnipotion } from '../utils/gw2-data';
+import { firstUppercase } from '../utils/usefulFunctions';
 
 const INITIALSTATE = {
   control: {
@@ -8,6 +9,7 @@ const INITIALSTATE = {
     list: [],
     progress: 0,
     selectedCharacter: null,
+    selectedTemplate: '',
     status: WAITING,
   },
   profession: '',
@@ -130,6 +132,8 @@ export const gearOptimizerSlice = createSlice({
           list: [],
           progress: 0,
           selectedCharacter: null,
+          selectedTemplate: '',
+          selectedSpecialization: firstUppercase(action.payload),
           status: WAITING,
         };
         state.skills = [];
@@ -236,6 +240,8 @@ export const gearOptimizerSlice = createSlice({
           list: [],
           progress: 0,
           selectedCharacter: null,
+          selectedTemplate: data.build.name,
+          selectedSpecialization: data.specialization,
           status: WAITING,
         },
         buffs: buffsNew,

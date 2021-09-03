@@ -9,6 +9,7 @@ import {
   SwipeableDrawer,
   Switch,
   Toolbar,
+  Typography,
   withStyles,
 } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
@@ -42,6 +43,8 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
   const expertMode = useSelector(getControl('expertMode'));
+  const selectedSpecialization = useSelector(getControl('selectedSpecialization'));
+  const selectedTemplateName = useSelector(getControl('selectedTemplate'));
 
   const [state, setState] = useState({
     mobileView: typeof window !== 'undefined' ? window.innerWidth < 900 : false,
@@ -136,11 +139,12 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
     );
   };
 
-  const handleTemplateSelect = (popup, elem) => {
+  const handleTemplateSelect = (popup, elem, specialization) => {
     dispatch({ type: 'CANCEL' });
     dispatch(
       setBuildTemplate({
         build: elem,
+        specialization: specialization,
         buffPreset: JSON.parse(buffPresets.find((pre) => pre.name === elem.boons).value),
         prioritiesPreset: JSON.parse(
           prioritiesPresets.find((prio) => prio.name === elem.priority).value,
@@ -202,7 +206,9 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
                 .builds.map((elem) => (
                   <MenuItem
                     key={elem.name}
-                    onClick={(e) => handleTemplateSelect(popupState[index], elem)}
+                    onClick={(e) =>
+                      handleTemplateSelect(popupState[index], elem, elem.specialization)
+                    }
                   >
                     <Profession
                       eliteSpecialization={elem.specialization}
@@ -215,6 +221,18 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
           </React.Fragment>
         ))}
       </Box>
+
+      {(selectedSpecialization || selectedTemplateName) && (
+        <Box flexGrow={1}>
+          <Typography>Selected: </Typography>
+          {selectedTemplateName ? (
+            <Profession eliteSpecialization={selectedSpecialization} text={selectedTemplateName} />
+          ) : (
+            <Profession name={selectedSpecialization} />
+          )}
+        </Box>
+      )}
+
       {stickyRight()}
     </Toolbar>
   );
