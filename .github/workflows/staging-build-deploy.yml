@@ -26,7 +26,7 @@ jobs:
         run: yarn install
 
       - name: Build 🔧
-        run: yarn build
+        run: yarn build --prefix-paths
 
       - name: Deploy with gh-pages
         run: |
