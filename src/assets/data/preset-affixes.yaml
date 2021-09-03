@@ -18,7 +18,7 @@ list:
   - name: Condi DPS
     value: >-
       {
-        "affixes": ["VIPER", "SINISTER", "GRIEVING"],
+        "affixes": ["VIPER", "SINISTER"],
         "optimizeFor": "Damage",
         "minBoonDuration": 0
       }
