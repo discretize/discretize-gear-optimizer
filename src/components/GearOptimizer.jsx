@@ -433,15 +433,6 @@ const MainComponent = ({ classes, data }) => {
             </>
           ) : (
             <>
-              {
-                // todo: make this not awful
-                // profession === '' && (
-                //   <Typography style={{ fontSize: '2em', color: 'red' }}>
-                //     Choose a build template from the dropdowns in the menu above!
-                //   </Typography>
-                // )
-              }
-
               <InfusionsSectionMemo first />
 
               <PrioritiesSectionMemo data={data} />
