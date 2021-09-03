@@ -7,7 +7,7 @@ list:
         specialization: Chronomancer
         boons: Fractal
         priority: Power DPS
-        distribution: '100% Power'
+        distribution: 'Power Chrono'
         traits: >-
           {
             "profession":"MESMER",
