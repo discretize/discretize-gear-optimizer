@@ -12,13 +12,13 @@ list:
       {
         "affixes": ["BERSERKER", "ASSASSIN", "DIVINER"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 100
+        "minBoonDuration": 79
       }
 
   - name: Condi DPS
     value: >-
       {
-        "affixes": ["VIPER", "SINISTER", "GRIEVING"],
+        "affixes": ["VIPER", "SINISTER"],
         "optimizeFor": "Damage",
         "minBoonDuration": 0
       }

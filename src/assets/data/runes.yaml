@@ -115,7 +115,7 @@ list:
             {
               "Power": 36, "Precision": 36, "Toughness": 36, "Vitality": 36,
               "Concentration": 36, "Condition Damage": 36, "Expertise": 36, "Ferocity": 36, "Healing Power": 36,
-              "Boon Duration": 25,
+              "Boon Duration": 25
             }
           }
         gw2-id: 70600
