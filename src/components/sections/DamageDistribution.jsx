@@ -24,6 +24,7 @@ import {
   getDistributionVersion,
   getTextBoxes,
 } from '../../state/gearOptimizerSlice';
+import MuiAlert from '@material-ui/lab/Alert';
 
 const styles = (theme) => ({
   textbox: {
@@ -211,7 +212,16 @@ const DamageDistribution = ({ classes }) => {
     ));
   };
 
-  return version === 1 ? SliderOld() : SlidersNew();
+  return (
+    <>
+      {version === 1 ? SliderOld() : SlidersNew()}
+      {distributionNew.Confusion ? (
+        <MuiAlert elevation={6} variant="filled" severity="warning">
+          Note: Confusion damage calculation is currently incorrect.
+        </MuiAlert>
+      ) : null}
+    </>
+  );
 };
 
 export default withStyles(styles)(DamageDistribution);
