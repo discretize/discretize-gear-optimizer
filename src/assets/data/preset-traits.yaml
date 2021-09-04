@@ -319,7 +319,99 @@ list:
             }
           }
 
-      - name: CFB Virtues
+      - name: CFB w/ Quickness # Virtues
+        id: cqfb
+        specialization: Firebrand
+        boons: Fractal
+        priority: Condi DPS
+        distribution: 'Quickness CFB (Virtues, allies)'
+        traits: >-
+          {
+            "profession":"GUARDIAN",
+            "traits":{
+              "lines":[
+                "16",
+                "46",
+                "62"
+              ],
+              "selected":[
+                [
+                  566,
+                  567,
+                  1686
+                ],
+                [
+                  617,
+                  587,
+                  622
+                ],
+                [
+                  2101,
+                  2076,
+                  2159
+                ]
+              ],
+              "modifiers":[
+                {
+                  "id":"radiant-power",
+                  "gw2_id":568,
+                  "source":16
+                },
+                {
+                  "id":"radiant-fire",
+                  "gw2_id":567,
+                  "source":16
+                },
+                {
+                  "id":"amplified-wrath",
+                  "gw2_id":1686,
+                  "source":16
+                },
+                {
+                  "id":"right-hand-strength-3",
+                  "gw2_id":566,
+                  "source":16
+                },
+                {
+                  "id":"right-hand-strength",
+                  "gw2_id":566,
+                  "source":16
+                },
+                {
+                  "id":"inspired-virtue-9",
+                  "gw2_id":621,
+                  "source":46
+                },
+                {
+                  "id":"virtue-of-retribution",
+                  "gw2_id":604,
+                  "source":46
+                },
+                {
+                  "id":"power-of-the-virtuous",
+                  "gw2_id":620,
+                  "source":46
+                },
+                {
+                  "id":"imbued-haste",
+                  "gw2_id":2148,
+                  "source":62
+                }
+              ]
+            },
+            "skills":[
+              "signet-of-wrath"
+            ],
+            "extras":{
+              "Runes":"balthazar",
+              "Sigil1":"bursting",
+              "Sigil2":"",
+              "Enhancement":"toxic-maintenance-oil",
+              "Nourishment":"beef-rendang"
+            }
+          }
+
+      - name: CFB DPS # Virtues
         id: cfb
         specialization: Firebrand
         boons: Fractal
