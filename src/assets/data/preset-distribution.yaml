@@ -81,11 +81,11 @@ list:
 
   - name: Power Weaver (BTTH)
     profession: WEAVER
-    distribution: [61, 100, 100, 100, 100]
+    distribution: [62, 100, 100, 100, 100]
     value: >-
       {
-        "values1": { "Power": 61, "Burning": 39, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 3110, "Burning": 5.9, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values1": { "Power": 62, "Burning": 38, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 3620, "Burning": 6.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   - name: Condi Weaver (Sword)
