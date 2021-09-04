@@ -22,7 +22,7 @@ const IndexPage = ({ classes }) => {
           Discord
         </Link>{' '}
         or{' '}
-        <Link href="https://github.com/discretize/discretize-gear-optimizer" color="textPrimary">
+        <Link href="https://github.com/discretize/discretize-gear-optimizer/tree/react-recode" color="textPrimary">
           <GitHubIcon fontSize="small" />
           {' '}
           Github
