@@ -86,7 +86,7 @@ list:
         text: "Banner of Defense"
         modifiers: >-
           {
-            "buff": { "Toughness": 100, "Vitality": 10},
+            "buff": { "Toughness": 100, "Vitality": 100 }
           }
         gw2-id: 14528
         type: "Skill"

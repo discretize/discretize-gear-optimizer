@@ -81,11 +81,11 @@ list:
 
   - name: Power Weaver (BTTH)
     profession: WEAVER
-    distribution: [61, 100, 100, 100, 100]
+    distribution: [62, 100, 100, 100, 100]
     value: >-
       {
-        "values1": { "Power": 61, "Burning": 39, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 3110, "Burning": 5.9, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values1": { "Power": 62, "Burning": 38, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 3620, "Burning": 6.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   - name: Condi Weaver (Sword)
@@ -115,13 +115,22 @@ list:
         "values2": { "Power": 3693, "Burning": 1.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  - name: Condi Renegade (Devastation)
+  - name: Condi RR (Invocation)
     profession: RENEGADE
-    distribution: [44, 64, 75, 80, 100]
+    distribution: [30, 57, 69, 75, 100]
     value: >-
       {
-        "values1": { "Power": 43, "Burning": 22, "Bleeding": 8, "Poisoned": 6, "Torment": 21, "Confusion": 0 },
-        "values2": { "Power": 2980, "Burning": 4.6, "Bleeding": 10, "Poisoned": 4.9, "Torment": 18.3, "Confusion": 0 }
+        "values1": { "Power": 30, "Burning": 27, "Bleeding": 12, "Poisoned": 6, "Torment": 25, "Confusion": 0 },
+        "values2": { "Power": 1975, "Burning": 5.5, "Bleeding": 14.7, "Poisoned": 4.6, "Torment": 20.2, "Confusion": 0 }
+      }
+
+  - name: Condi Renegade (Devastation)
+    profession: RENEGADE
+    distribution: [42, 63, 74, 80, 100]
+    value: >-
+      {
+        "values1": { "Power": 42, "Burning": 21, "Bleeding": 11, "Poisoned": 6, "Torment": 20, "Confusion": 0 },
+        "values2": { "Power": 2980, "Burning": 4.6, "Bleeding": 13.7, "Poisoned": 4.9, "Torment": 18.3, "Confusion": 0 }
       }
 
   # - name: Condi Renegade (Invocation)
@@ -142,14 +151,14 @@ list:
         "values2": { "Power": 2780, "Burning": 0.67, "Bleeding": 4.5, "Poisoned": 2.4, "Torment": 0, "Confusion": 0 }
       }
 
-  # - name: Condi Slb (D/T SB)
-  #   profession: SOULBEAST
-  #   distribution: [30, 45, 75, 100, 100]
-  #   value: >-
-  #     {
-  #       "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-  #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-  #     }
+  - name: Condi Slb (D/T SB)
+    profession: SOULBEAST
+    distribution: [30, 45, 74, 100, 100]
+    value: >-
+      {
+        "values1": { "Power": 30, "Burning": 15, "Bleeding": 29, "Poisoned": 26, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 1525, "Burning": 2.3, "Bleeding": 25.9, "Poisoned": 15.4, "Torment": 0, "Confusion": 0 }
+      }
 
   # - name: Condi Slb (D/T A/D)
   #   profession: SOULBEAST

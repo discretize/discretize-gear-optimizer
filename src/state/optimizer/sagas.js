@@ -15,6 +15,25 @@ import { SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+function printTemplate(state) {
+  const { profession, traits, skills, extras } = state;
+
+  console.group('Data for template creation');
+  console.log('Traits:', {
+    profession,
+    traits,
+    skills,
+    extras,
+  });
+
+  const distribution = state.distribution.values2;
+
+  console.log('Distribution (v2):', { values2: distribution });
+  console.table([distribution]);
+  console.groupEnd();
+  console.log('Redux state:', state);
+}
+
 function* runCalc() {
   yield delay(0);
   yield put(changeSelectedCharacter(null));
@@ -27,6 +46,9 @@ function* runCalc() {
 
   try {
     state = yield select();
+
+    console.groupCollapsed('Debug/Template Data:');
+    printTemplate(state.gearOptimizer);
 
     const {
       profession,
@@ -62,7 +84,6 @@ function* runCalc() {
     const secondaryMaxInfusions = parseTextNumber(secondaryMaxInfusionsInput, 18);
 
     input = {
-      modifiers: modifiers.map((modifier) => JSON.parse(modifier.modifiers)),
       tags: undefined,
       profession: profession.toLowerCase(),
       weapontype: weaponType,
@@ -82,7 +103,17 @@ function* runCalc() {
       percentDistribution: values1,
       distribution: values2,
     };
-    console.log('input:', input);
+    input.modifiers = modifiers.map((modifier) => {
+      try {
+        const parsed = JSON.parse(modifier.modifiers)
+        return parsed;
+      } catch (e) {
+        alert(`Error: invalid modifier: ${modifier.id} (${modifier.source}). Skipping.`);
+        console.error('Could not parse modifier:', modifier);
+        return null;
+      }
+    });
+    console.log('Input object:', input);
 
     // temp: convert "poisoned" to "poison"
     const convertPoison = (distribution) =>
@@ -101,6 +132,7 @@ function* runCalc() {
     }
 
     settings = optimizerCore.setup(input);
+    console.groupEnd();
 
     // set up table columns here
 
@@ -119,10 +151,10 @@ function* runCalc() {
       yield put(changeControl({ key: 'progress', value: newPercent }));
 
       if (isChanged) {
-        console.log('list changed');
+        // console.log('list changed');
         yield put(changeList(newList));
       } else {
-        console.log('list not changed');
+        // console.log('list not changed');
         // yield put({ type: 'DONOTHING' });
       }
 
@@ -131,7 +163,7 @@ function* runCalc() {
         yield put(changeSelectedCharacterIfNone(newList[0]));
         yield put(changeControl({ key: 'status', value: SUCCESS }));
 
-        console.log(`calculation done in ${Date.now() - time}ms`);
+        console.log(`Calculation done in ${Date.now() - time}ms`);
         break;
       }
 
