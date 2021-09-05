@@ -26,7 +26,7 @@ list:
   - name: Heal
     value: >-
       {
-        "affixes": ["HARRIER", "MINSTREL", "MAGI"],
+        "affixes": ["HARRIER", "MINSTREL", "CLERIC"],
         "optimizeFor": "Healing",
         "minBoonDuration": 100
       }
