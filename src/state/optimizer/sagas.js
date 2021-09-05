@@ -84,7 +84,6 @@ function* runCalc() {
     const secondaryMaxInfusions = parseTextNumber(secondaryMaxInfusionsInput, 18);
 
     input = {
-      modifiers: modifiers.map((modifier) => JSON.parse(modifier.modifiers)),
       tags: undefined,
       profession: profession.toLowerCase(),
       weapontype: weaponType,
@@ -104,6 +103,16 @@ function* runCalc() {
       percentDistribution: values1,
       distribution: values2,
     };
+    input.modifiers = modifiers.map((modifier) => {
+      try {
+        const parsed = JSON.parse(modifier.modifiers)
+        return parsed;
+      } catch (e) {
+        alert(`Error: invalid modifier: ${modifier.id} (${modifier.source}). Skipping.`);
+        console.error('Could not parse modifier:', modifier);
+        return null;
+      }
+    });
     console.log('Input object:', input);
 
     // temp: convert "poisoned" to "poison"
