@@ -298,7 +298,7 @@ list:
             {
               "Power": 36, "Precision": 36, "Toughness": 36, "Vitality": 36,
               "Concentration": 36, "Condition Damage": 36, "Expertise": 36, "Ferocity": 36, "Healing Power": 36,
-              "Condition Duration": 25,
+              "Condition Duration": 25
             }
           }
         gw2-id: 76166
@@ -389,7 +389,7 @@ list:
               "Condition Damage": 175,
               "Bleeding Duration": 20,
               "Poison Duration": 10,
-              "Condition Duration": 10,
+              "Condition Duration": 10
             }
           }
         gw2-id: 24687
@@ -439,7 +439,7 @@ list:
               "Power": 36, "Precision": 36, "Toughness": 36, "Vitality": 36,
               "Concentration": 36, "Condition Damage": 36, "Expertise": 36, "Ferocity": 36, "Healing Power": 36,
               "Boon Duration": 15,
-              "Condition Duration": 10,
+              "Condition Duration": 10
             }
           }
         gw2-id: 24691
@@ -452,7 +452,7 @@ list:
             "flat":
             {
               "Power": 78, "Precision": 78, "Toughness": 78, "Vitality": 78,
-              "Concentration": 78, "Condition Damage": 78, "Expertise": 78, "Ferocity": 78, "Healing Power": 78,
+              "Concentration": 78, "Condition Damage": 78, "Expertise": 78, "Ferocity": 78, "Healing Power": 78
             },
             "multiplier": { "Effective Health": 0.1 }
           }
@@ -466,7 +466,7 @@ list:
             "flat":
             {
               "Power": 78, "Precision": 78, "Toughness": 78, "Vitality": 78,
-              "Concentration": 78, "Condition Damage": 78, "Expertise": 78, "Ferocity": 78, "Healing Power": 78,
+              "Concentration": 78, "Condition Damage": 78, "Expertise": 78, "Ferocity": 78, "Healing Power": 78
             }
           }
         gw2-id: 69370
@@ -481,7 +481,7 @@ list:
             {
               "Healing Power": { "Vitality": 0.03 },
               "Precision": { "Vitality": 0.05 },
-              "Power": { "Vitality": 0.07 },
+              "Power": { "Vitality": 0.07 }
             }
           }
         gw2-id: 44951

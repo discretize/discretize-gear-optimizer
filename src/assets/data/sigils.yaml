@@ -190,7 +190,7 @@ list:
             "flat":
             {
               "Power": 50, "Precision": 50, "Toughness": 50, "Vitality": 50,
-              "Concentration": 50, "Condition Damage": 50, "Expertise": 50, "Ferocity": 50, "Healing Power": 50,
+              "Concentration": 50, "Condition Damage": 50, "Expertise": 50, "Ferocity": 50, "Healing Power": 50
             }
           }
         gw2-id: 86170

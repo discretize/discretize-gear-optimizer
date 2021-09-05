@@ -127,7 +127,7 @@ list:
         text: "Bountiful Maintenance Oil"
         modifiers: >-
           {
-            bountiful-maintenance-oil: 0
+            "bountiful-maintenance-oil": true
           }
         gw2-id: 67528
         type: "items"
