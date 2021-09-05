@@ -55,7 +55,7 @@ const AffixesStats = ({ classes, data, buffData }) => {
             <TableBody>
               {appliedData.map((modifier) => {
                 return (
-                  <TableRow hover key={modifier.id}>
+                  <TableRow hover key={modifier.id + Math.random()}>
                     <TableCell>
                       <Typography className={classes.gw2Item}> {modifier.id} </Typography>
                     </TableCell>

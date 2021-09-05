@@ -292,6 +292,50 @@ export const gearOptimizerSlice = createSlice({
           });
         });
 
+      {
+        const {
+          buffs,
+
+          elementalist,
+          engineer,
+          guardian,
+          mesmer,
+          ranger,
+          revenant,
+          warrior,
+
+          nourishment,
+          enhancement,
+          runes,
+          sigils,
+        } = data;
+
+        [nourishment, enhancement, runes, sigils, buffs].forEach((type) => {
+          type.list.forEach(({ items, section }) => {
+            items.forEach((entry) => {
+              if (!entry) return;
+              modifiers.push({
+                id: entry.id,
+                modifiers: entry.modifiers,
+                source: entry.id,
+              });
+            });
+          });
+        });
+
+        [elementalist, engineer, guardian, mesmer, ranger, revenant, warrior].forEach((type) => {
+          const allSkillsAndTraits = type.edges[0].node.list.flatMap((el) => el.items);
+          allSkillsAndTraits.forEach((entry) => {
+            if (!entry) return;
+            modifiers.push({
+              id: entry.id,
+              modifiers: entry.modifiers,
+              source: entry.id,
+            });
+          });
+        });
+      }
+
       // Apply "buffs" modifiers
       data.buffs.list
         .flatMap((d) => d.items)

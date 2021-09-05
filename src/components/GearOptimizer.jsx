@@ -78,6 +78,7 @@ const styles = (theme) => ({
 });
 
 const TraitsSection = ({ profession, data }) => {
+  console.log('boop', data);
   return (
     <Section
       first
