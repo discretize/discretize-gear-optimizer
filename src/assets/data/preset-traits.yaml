@@ -1215,10 +1215,9 @@ list:
             }
           }
 
-
   - class: revenant
     builds:
-      - name: Power Ren
+      - name: Power Alac Ren
         id: pren
         specialization: Renegade
         boons: Fractal
@@ -1305,7 +1304,92 @@ list:
             }
           }
 
-      - name: Condi Ren Deva
+      - name: Condi RR Ren Invo
+        id: cren-rr-invo
+        specialization: Renegade
+        boons: Fractal
+        priority: Condi DPS
+        distribution: 'Condi RR (Invocation)'
+        traits: >-
+          {
+            "profession": "REVENANT",
+            "traits": {
+                "lines": [
+                    "14",
+                    "3",
+                    "63"
+                ],
+                "selected": [
+                    [
+                        1793,
+                        1714,
+                        1795
+                    ],
+                    [
+                        1761,
+                        1781,
+                        1791
+                    ],
+                    [
+                        2079,
+                        2092,
+                        2182
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "brutal-momentum",
+                        "gw2_id": 2142,
+                        "source": 63
+                    },
+                    {
+                        "id": "acolyte-of-torment",
+                        "gw2_id": 1793,
+                        "source": 14
+                    },
+                    {
+                        "id": "pact-of-pain",
+                        "gw2_id": 1714,
+                        "source": 14
+                    },
+                    {
+                        "id": "ambush-commander",
+                        "gw2_id": 2181,
+                        "source": 63
+                    },
+                    {
+                        "id": "blood-fury",
+                        "gw2_id": 2079,
+                        "source": 63
+                    },
+                    {
+                        "id": "heartpiercer",
+                        "gw2_id": 2092,
+                        "source": 63
+                    },
+                    {
+                        "id": "ferocious-aggression",
+                        "gw2_id": 1758,
+                        "source": 3
+                    },
+                    {
+                        "id": "rising-tide",
+                        "gw2_id": 1761,
+                        "source": 3
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+                "Runes": "nightmare",
+                "Sigil1": "",
+                "Sigil2": "",
+                "Enhancement": "toxic-focusing-crystal",
+                "Nourishment": "beef-rendang"
+            }
+          }
+
+      - name: Condi DPS Ren Deva
         id: cren-deva
         specialization: Renegade
         boons: Fractal
