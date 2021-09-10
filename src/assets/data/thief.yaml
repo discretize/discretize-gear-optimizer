@@ -12,7 +12,7 @@ list:
         gw2-id: 13046
         type: "skills"
 
-      - id: assassins-signet
+      - id: assassins-signet-active
         text: "Assassin's Signet"
         subText: "while active"
         modifiers: >-
@@ -185,7 +185,7 @@ list:
           {
             "flat": { "Ferocity": 250 }
           }
-        gw2-id:
+        gw2-id: 1904
         type: "traits"
 
   # - section: "Shadow Arts"
@@ -299,7 +299,7 @@ list:
           {
             "multiplier": { "add: Effective Power": 0.1 }
           }
-        gw2-id:
+        gw2-id: 2047
         type: "traits"
 
       - id: lotus-training
@@ -309,7 +309,7 @@ list:
           {
             "multiplier": { "add: Effective Condition Damage": 0.15 }
           }
-        gw2-id:
+        gw2-id: 1833
         type: "traits"
 
   - section: "Deadeye"
