@@ -12,9 +12,9 @@ import {
 import { Attribute } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changePriority, getPriority } from '../../state/gearOptimizerSlice';
-import HelperIcon from '../baseComponents/HelperIcon';
-import Affixes from './Affixes';
+import { changePriority, getPriority } from '../../../state/gearOptimizerSlice';
+import HelperIcon from '../../baseComponents/HelperIcon';
+import Affixes from '../Affixes';
 
 const styles = (theme) => ({
   text: {

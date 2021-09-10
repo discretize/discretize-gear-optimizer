@@ -1,10 +1,10 @@
+import React from 'react';
 import { FormControl, FormGroup, FormLabel, Grid, Typography, withStyles } from '@material-ui/core';
 import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeBuff, getBuffs } from '../../state/gearOptimizerSlice';
-import { firstUppercase } from '../../utils/usefulFunctions';
-import CheckboxComponent from '../baseComponents/CheckboxComponent';
+import { changeBuff, getBuffs } from '../../../state/gearOptimizerSlice';
+import { firstUppercase } from '../../../utils/usefulFunctions';
+import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
 const styles = (theme) => ({
   boon: {
