@@ -18,7 +18,7 @@ const ARinput = () => {
   function handleChange(event) {
     const { value } = event.target;
     if (value.match('^[0-9]*$')) {
-      dispatch(changeAR(value), [dispatch]);
+      dispatch(changeAR(Number.parseInt(value, 10)), [dispatch]);
     }
   }
 
