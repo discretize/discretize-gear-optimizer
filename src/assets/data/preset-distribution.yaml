@@ -222,3 +222,13 @@ list:
         "values1": { "Power": 33, "Burning": 3, "Bleeding": 22, "Poisoned": 25, "Torment": 17, "Confusion": 0 },
         "values2": { "Power": 1680, "Burning": 0.5, "Bleeding": 19.8, "Poisoned": 14.7, "Torment": 10.9, "Confusion": 0 }
       }
+
+  - name: Staff Daredevil
+    profession: DAREDEVIL
+    distribution: [92, 98, 100, 100, 100]
+    value: >-
+      {
+        "values1": { "Power": 92, "Burning": 6, "Bleeding": 2, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2810, "Burning": 0.6, "Bleeding": 1.1, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
