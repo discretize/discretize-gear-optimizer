@@ -204,3 +204,12 @@ list:
         "values1": { "Power": 71, "Burning": 4, "Bleeding": 25, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 3857, "Burning": 0.63, "Bleeding": 24, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
+
+  - name: Condi Scourge
+    profession: SCOURGE
+    distribution: [27, 47, 69, 75, 100]
+    value: >-
+      {
+        "values1": { "Power": 27, "Burning": 20, "Bleeding": 22, "Poisoned": 6, "Torment": 25, "Confusion": 0 },
+        "values2": { "Power": 1430, "Burning": 3.3, "Bleeding": 21.4, "Poisoned": 3.6, "Torment": 16.7, "Confusion": 0 }
+      }

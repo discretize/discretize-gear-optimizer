@@ -1579,3 +1579,90 @@ list:
               "Nourishment":"sweet-and-spicy-butternut-squash-soup"
             }
           }
+
+  - class: necromancer
+    builds:
+      - name: DPS Scourge
+        id: scourge
+        specialization: Scourge
+        boons: Fractal
+        priority: Condi DPS
+        distribution: 'Condi Scourge'
+        traits: >-
+          {
+            "profession": "NECROMANCER",
+            "traits": {
+                "lines": [
+                    "39",
+                    "50",
+                    "60"
+                ],
+                "selected": [
+                    [
+                        2013,
+                        816,
+                        801
+                    ],
+                    [
+                        875,
+                        894,
+                        905
+                    ],
+                    [
+                        2074,
+                        2067,
+                        2164
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "barbed-precision",
+                        "gw2_id": 802,
+                        "source": 39
+                    },
+                    {
+                        "id": "furious-demise",
+                        "gw2_id": 803,
+                        "source": 39
+                    },
+                    {
+                        "id": "target-the-weak",
+                        "gw2_id": 810,
+                        "source": 39
+                    },
+                    {
+                        "id": "lingering-curse",
+                        "gw2_id": 801,
+                        "source": 39
+                    },
+                    {
+                        "id": "soul-barbs",
+                        "gw2_id": 894,
+                        "source": 50
+                    },
+                    {
+                        "id": "sand-sage-3x",
+                        "gw2_id": 2121,
+                        "source": 60
+                    },
+                    {
+                        "id": "fell-beacon",
+                        "gw2_id": 2074,
+                        "source": 60
+                    },
+                    {
+                        "id": "demonic-lore",
+                        "gw2_id": 2164,
+                        "source": 60
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+                "Runes": "lich",
+                "Sigil1": "bursting",
+                "Sigil2": "",
+                "Enhancement": "master-tuning-crystal",
+                "Nourishment": "beef-rendang"
+            }
+          }
