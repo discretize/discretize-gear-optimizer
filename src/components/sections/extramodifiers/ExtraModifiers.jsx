@@ -1,7 +1,7 @@
 import { TextField, withStyles } from '@material-ui/core';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeExtraModifiers, getExtraModifiers } from '../../state/gearOptimizerSlice';
+import { changeExtraModifiers, getExtraModifiers } from '../../../state/gearOptimizerSlice';
 
 const styles = (theme) => ({
   text: {

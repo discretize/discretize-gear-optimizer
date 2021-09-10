@@ -15,6 +15,7 @@ import Nouislider from 'nouislider-react';
 import 'nouislider/distribute/nouislider.css';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import MuiAlert from '@material-ui/lab/Alert';
 import {
   changeAllDistributionsOld,
   changeDistributionNew,
@@ -23,8 +24,7 @@ import {
   getDistributionOld,
   getDistributionVersion,
   getTextBoxes,
-} from '../../state/gearOptimizerSlice';
-import MuiAlert from '@material-ui/lab/Alert';
+} from '../../../state/gearOptimizerSlice';
 
 const styles = (theme) => ({
   textbox: {
