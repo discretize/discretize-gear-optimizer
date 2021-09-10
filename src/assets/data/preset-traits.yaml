@@ -1870,3 +1870,98 @@ list:
                 "Nourishment": "sweet-and-spicy-butternut-squash-soup"
             }
           }
+
+      - name: Condi Daredevil
+        id: cdd
+        specialization: Daredevil
+        boons: Fractal
+        priority: Condi DPS
+        distribution: Condi Daredevil
+        traits: >-
+          {
+            "profession": "THIEF",
+            "traits": {
+                "lines": [
+                    "28",
+                    "44",
+                    "7"
+                ],
+                "selected": [
+                    [
+                        1164,
+                        1292,
+                        1291
+                    ],
+                    [
+                        1159,
+                        1277,
+                        1706
+                    ],
+                    [
+                        1933,
+                        1893,
+                        1833
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "preparedness",
+                        "gw2_id": 1232,
+                        "source": 44
+                    },
+                    {
+                        "id": "exposed-weakness",
+                        "gw2_id": 1257,
+                        "source": 28
+                    },
+                    {
+                        "id": "deadly-ambition",
+                        "gw2_id": 1164,
+                        "source": 28
+                    },
+                    {
+                        "id": "potent-poison",
+                        "gw2_id": 1291,
+                        "source": 28
+                    },
+                    {
+                        "id": "lead-attacks",
+                        "gw2_id": 1157,
+                        "source": 44
+                    },
+                    {
+                        "id": "deadly-ambush",
+                        "gw2_id": 1706,
+                        "source": 44
+                    },
+                    {
+                        "id": "lotus-training",
+                        "gw2_id": 1833,
+                        "source": 7
+                    },
+                    {
+                        "id": "havoc-specialist",
+                        "gw2_id": 1893,
+                        "source": 7
+                    },
+                    {
+                        "id": "marauders-resilience",
+                        "gw2_id": 1933,
+                        "source": 7
+                    },
+                    {
+                        "id": "weakening-strikes",
+                        "gw2_id": 1887,
+                        "source": 7
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+                "Runes": "krait",
+                "Sigil1": "",
+                "Sigil2": "",
+                "Enhancement": "master-tuning-crystal",
+                "Nourishment": "beef-rendang"
+            }
+          }
