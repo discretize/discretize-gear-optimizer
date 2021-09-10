@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   FormControl,
   Input,
@@ -10,9 +11,8 @@ import {
   withStyles,
 } from '@material-ui/core';
 import { Item } from 'gw2-ui-bulk';
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeExtras, getExtra } from '../../state/gearOptimizerSlice';
+import { changeExtras, getExtra } from '../../../state/gearOptimizerSlice';
 
 const styles = (theme) => ({
   formControl: {
