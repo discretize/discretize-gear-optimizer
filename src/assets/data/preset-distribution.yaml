@@ -207,11 +207,11 @@ list:
 
   - name: Condi Scourge
     profession: SCOURGE
-    distribution: [27, 47, 69, 75, 100]
+    distribution: [26, 48, 71, 77, 100]
     value: >-
       {
-        "values1": { "Power": 27, "Burning": 20, "Bleeding": 22, "Poisoned": 6, "Torment": 25, "Confusion": 0 },
-        "values2": { "Power": 1430, "Burning": 3.3, "Bleeding": 21.4, "Poisoned": 3.6, "Torment": 16.7, "Confusion": 0 }
+        "values1": { "Power": 26, "Burning": 22, "Bleeding": 23, "Poisoned": 6, "Torment": 23, "Confusion": 0 },
+        "values2": { "Power": 1405, "Burning": 3.6, "Bleeding": 22.1, "Poisoned": 3.9, "Torment": 15.2, "Confusion": 0 }
       }
 
   - name: Condi Deadeye
