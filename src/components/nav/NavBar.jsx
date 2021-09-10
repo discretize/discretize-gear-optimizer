@@ -150,7 +150,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
         specialization: specialization,
         buffPreset: JSON.parse(buffPresets.find((pre) => pre.name === elem.boons).value),
         distributionPreset: JSON.parse(
-          distributionPresets.find((pre) => pre.name === elem.distribution).value,
+          distributionPresets.find((pre) => pre.name === elem.distribution)?.value || 'null',
         ),
         prioritiesPreset: JSON.parse(
           prioritiesPresets.find((prio) => prio.name === elem.priority).value,
