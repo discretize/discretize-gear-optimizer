@@ -213,3 +213,12 @@ list:
         "values1": { "Power": 27, "Burning": 20, "Bleeding": 22, "Poisoned": 6, "Torment": 25, "Confusion": 0 },
         "values2": { "Power": 1430, "Burning": 3.3, "Bleeding": 21.4, "Poisoned": 3.6, "Torment": 16.7, "Confusion": 0 }
       }
+
+  - name: Condi Deadeye
+    profession: DEADEYE
+    distribution: [33, 36, 58, 83, 100]
+    value: >-
+      {
+        "values1": { "Power": 33, "Burning": 3, "Bleeding": 22, "Poisoned": 25, "Torment": 17, "Confusion": 0 },
+        "values2": { "Power": 1680, "Burning": 0.5, "Bleeding": 19.8, "Poisoned": 14.7, "Torment": 10.9, "Confusion": 0 }
+      }

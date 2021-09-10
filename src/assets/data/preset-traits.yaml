@@ -1666,3 +1666,90 @@ list:
                 "Nourishment": "beef-rendang"
             }
           }
+
+  - class: thief
+    builds:
+      - name: Condi Deadeye
+        id: cded
+        specialization: Deadeye
+        boons: Fractal
+        priority: Condi DPS
+        distribution: Condi Deadeye
+        traits: >-
+          {
+            "profession": "THIEF",
+            "traits": {
+                "lines": [
+                    "28",
+                    "44",
+                    "58"
+                ],
+                "selected": [
+                    [
+                        1164,
+                        1292,
+                        1291
+                    ],
+                    [
+                        1252,
+                        1277,
+                        1706
+                    ],
+                    [
+                        2136,
+                        2160,
+                        2111
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "preparedness",
+                        "gw2_id": 1232,
+                        "source": 44
+                    },
+                    {
+                        "id": "exposed-weakness",
+                        "gw2_id": 1257,
+                        "source": 28
+                    },
+                    {
+                        "id": "deadly-ambition",
+                        "gw2_id": 1164,
+                        "source": 28
+                    },
+                    {
+                        "id": "potent-poison",
+                        "gw2_id": 1291,
+                        "source": 28
+                    },
+                    {
+                        "id": "lead-attacks",
+                        "gw2_id": 1157,
+                        "source": 44
+                    },
+                    {
+                        "id": "deadly-ambush",
+                        "gw2_id": 1706,
+                        "source": 44
+                    },
+                    {
+                        "id": "iron-sight",
+                        "gw2_id": 2084,
+                        "source": 58
+                    },
+                    {
+                        "id": "premeditation-9",
+                        "gw2_id": 2160,
+                        "source": 58
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+                "Runes": "nightmare",
+                "Sigil1": "bursting",
+                "Sigil2": "",
+                "Enhancement": "master-tuning-crystal",
+                "Nourishment": "beef-rendang"
+            }
+          }
