@@ -123,7 +123,7 @@ list:
         minor: true
         modifiers: >-
           {
-            "flat": { "Critical Chance": 0.1 }
+            "flat": { "Critical Chance": 10 }
           }
         gw2-id: 1281
         type: "traits"
@@ -213,7 +213,7 @@ list:
         minor: true
         modifiers: >-
           {
-            "buff": { "Expertise": 150 }
+            "flat": { "Expertise": 150 }
           }
         gw2-id: 1232
         type: "traits"
@@ -320,7 +320,7 @@ list:
         subText: "base"
         modifiers: >-
           {
-            "buff": { "Precision": 120 }
+            "flat": { "Precision": 120 }
           }
         gw2-id: 2118
         type: "traits"
@@ -330,7 +330,7 @@ list:
         subText: "with rifle (check both)"
         modifiers: >-
           {
-            "buff": { "Precision": 120 }
+            "flat": { "Precision": 120 }
           }
         gw2-id: 2118
         type: "traits"
@@ -359,7 +359,6 @@ list:
 
       - id: iron-sight
         text: "Iron Sight"
-        subText: ""
         minor: true
         modifiers: >-
           {
