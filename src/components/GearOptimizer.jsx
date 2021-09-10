@@ -626,6 +626,24 @@ const GearOptimizer = ({ classes }) => {
               }
             }
           }
+          necromancer: allNecromancer {
+            edges {
+              node {
+                list {
+                  section
+                  id
+                  items {
+                    gw2_id
+                    subText
+                    text
+                    id
+                    modifiers
+                    minor
+                  }
+                }
+              }
+            }
+          }
           runes: runes {
             id
             list {

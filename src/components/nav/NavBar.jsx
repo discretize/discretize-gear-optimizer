@@ -209,7 +209,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
             >
               {data
                 .find((elem) => elem.class === p.profession.toLowerCase())
-                .builds.map((elem) => (
+                ?.builds?.map((elem) => (
                   <MenuItem
                     key={elem.name}
                     onClick={(e) =>
