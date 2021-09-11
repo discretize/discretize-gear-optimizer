@@ -211,16 +211,45 @@ list:
         gw2-id: 2164
         type: "traits"
 
-  # - section: "Reaper"
-  #   id: 34
-  #   items:
-  #     - id:
-  #       text: ""
-  #       subText: ""
-  #         minor: true
-  #       modifiers: >-
-  #         {
-  #           "multiplier": { "": 0.25 }
-  #         }
-  #       gw2-id:
-  #       type: "traits"
+  - section: "Reaper"
+    id: 34
+    items:
+      - id: soul-eater
+        text: "Soul Eater"
+        modifiers: >-
+          {
+            "multiplier": { "Effective Power": 0.1 }
+          }
+        gw2-id: 1969
+        type: "traits"
+
+      - id: decimate-defenses-25x
+        text: "Decimate Defenses"
+        subText: "25x"
+        modifiers: >-
+          {
+            "flat": { "Critical Chance": 50 }
+          }
+        gw2-id: 2031
+        type: "traits"
+
+      - id: cold-shoulder
+        text: "Cold Shoulder"
+        subText: "100%"
+        minor: true
+        modifiers: >-
+          {
+            "multiplier": { "Effective Power": 0.15 }
+          }
+        gw2-id: 2018
+        type: "traits"
+
+      - id: reapers-onslaught
+        text: "Reaper's Onslaught"
+        subText: "INACCURATE: 100% in shroud"
+        modifiers: >-
+          {
+            "buff": { "Ferocity": 300 }
+          }
+        gw2-id: 2021
+        type: "traits"

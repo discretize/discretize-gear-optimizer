@@ -205,6 +205,7 @@ list:
     items:
       - id: object-in-motion-1
         text: 'Object in Motion (One)'
+        subText: 'One'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.05 }
@@ -214,6 +215,7 @@ list:
 
       - id: object-in-motion-2
         text: 'Object in Motion (Two)'
+        subText: 'Two'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.1 }
@@ -223,6 +225,7 @@ list:
 
       - id: object-in-motion-3
         text: 'Object in Motion (Three)'
+        subText: 'Three'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.15 }

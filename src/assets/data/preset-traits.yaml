@@ -1021,6 +1021,216 @@ list:
             }
           }
 
+      - name: Hybrid Weaver
+        id: hwea
+        specialization: Weaver
+        boons: Fractal
+        priority: Hybrid DPS
+        distribution: 'Hybrid Weaver'
+        traits: >-
+          {
+            "profession": "ELEMENTALIST",
+            "traits": {
+                "lines": [
+                    "31",
+                    "41",
+                    "56"
+                ],
+                "selected": [
+                    [
+                        296,
+                        325,
+                        1510
+                    ],
+                    [
+                        232,
+                        214,
+                        1503
+                    ],
+                    [
+                        2177,
+                        2180,
+                        2131
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "pyromancers-training",
+                        "gw2_id": 319,
+                        "source": 31
+                    },
+                    {
+                        "id": "empowering-flame",
+                        "gw2_id": 320,
+                        "source": 31
+                    },
+                    {
+                        "id": "burning-precision",
+                        "gw2_id": 296,
+                        "source": 31
+                    },
+                    {
+                        "id": "elemental-polyphony-fire",
+                        "gw2_id": 2081,
+                        "source": 56
+                    },
+                    {
+                        "id": "elemental-polyphony-air",
+                        "gw2_id": 2081,
+                        "source": 56
+                    },
+                    {
+                        "id": "elements-of-rage",
+                        "gw2_id": 2131,
+                        "source": 56
+                    },
+                    {
+                        "id": "burning-rage",
+                        "gw2_id": 325,
+                        "source": 31
+                    },
+                    {
+                        "id": "superior-elements",
+                        "gw2_id": 2177,
+                        "source": 56
+                    },
+                    {
+                        "id": "weavers-prowess",
+                        "gw2_id": 2180,
+                        "source": 56
+                    },
+                    {
+                        "id": "aeromancers-training",
+                        "gw2_id": 223,
+                        "source": 41
+                    },
+                    {
+                        "id": "aeromancers-training-2",
+                        "gw2_id": 223,
+                        "source": 41
+                    },
+                    {
+                        "id": "ferocious-winds",
+                        "gw2_id": 232,
+                        "source": 41
+                    },
+                    {
+                        "id": "raging-storm",
+                        "gw2_id": 214,
+                        "source": 41
+                    },
+                    {
+                        "id": "fresh-air",
+                        "gw2_id": 1503,
+                        "source": 41
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+                "Runes": "flame-legion",
+                "Sigil1": "night/impact/slaying-both",
+                "Sigil2": "bursting",
+                "Enhancement": "toxic-focusing-crystal",
+                "Nourishment": "dragon's-revelry-starcake"
+            }
+          }
+
+      - name: Condi Tempest
+        id: ctemp
+        specialization: Tempest
+        boons: Fractal
+        priority: Condi DPS
+        distribution: 'Condi Tempest'
+        traits: >-
+          {
+            "profession": "ELEMENTALIST",
+            "traits": {
+                "lines": [
+                    "31",
+                    "26",
+                    "48"
+                ],
+                "selected": [
+                    [
+                        296,
+                        325,
+                        1510
+                    ],
+                    [
+                        1507,
+                        275,
+                        287
+                    ],
+                    [
+                        1886,
+                        1891,
+                        1839
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "pyromancers-training",
+                        "gw2_id": 319,
+                        "source": 31
+                    },
+                    {
+                        "id": "empowering-flame",
+                        "gw2_id": 320,
+                        "source": 31
+                    },
+                    {
+                        "id": "burning-precision",
+                        "gw2_id": 296,
+                        "source": 31
+                    },
+                    {
+                        "id": "burning-rage",
+                        "gw2_id": 325,
+                        "source": 31
+                    },
+                    {
+                        "id": "stone-flesh",
+                        "gw2_id": 278,
+                        "source": 26
+                    },
+                    {
+                        "id": "strength-of-stone",
+                        "gw2_id": 275,
+                        "source": 26
+                    },
+                    {
+                        "id": "serrated-stones",
+                        "gw2_id": 1507,
+                        "source": 26
+                    },
+                    {
+                        "id": "gathered-focus",
+                        "gw2_id": 1938,
+                        "source": 48
+                    },
+                    {
+                        "id": "hardy-conduit",
+                        "gw2_id": 1948,
+                        "source": 48
+                    },
+                    {
+                        "id": "transcendent-tempest",
+                        "gw2_id": 1839,
+                        "source": 48
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+                "Runes": "elementalist",
+                "Sigil1": "bursting",
+                "Sigil2": "smoldering",
+                "Enhancement": "toxic-focusing-crystal",
+                "Nourishment": "rare-veggie-pizza"
+            }
+          }
+
   - class: ranger
     builds:
       - name: Power Slb
@@ -1201,6 +1411,202 @@ list:
                     {
                         "id": "archetype-deadly",
                         "gw2_id": null,
+                        "source": 55
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+                "Runes": "krait",
+                "Sigil1": "bursting",
+                "Sigil2": "",
+                "Enhancement": "toxic-focusing-crystal",
+                "Nourishment": "beef-rendang"
+            }
+          }
+      - name: Condi Slb D/T A/D
+        id: cslb-dtad
+        specialization: Soulbeast
+        boons: Fractal
+        priority: Condi DPS
+        distribution: 'Condi Slb (D/T A/D)'
+        traits: >-
+          {
+            "profession": "RANGER",
+            "traits": {
+                "lines": [
+                    "30",
+                    "33",
+                    "55"
+                ],
+                "selected": [
+                    [
+                        1069,
+                        1846,
+                        1064
+                    ],
+                    [
+                        1099,
+                        1101,
+                        1701
+                    ],
+                    [
+                        2071,
+                        2161,
+                        2128
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "hunters-tactics",
+                        "gw2_id": 1068,
+                        "source": 30
+                    },
+                    {
+                        "id": "hidden-barbs",
+                        "gw2_id": 1846,
+                        "source": 30
+                    },
+                    {
+                        "id": "taste-for-danger",
+                        "gw2_id": 1099,
+                        "source": 33
+                    },
+                    {
+                        "id": "ambidexterity",
+                        "gw2_id": 1101,
+                        "source": 33
+                    },
+                    {
+                        "id": "ambidexterity-2",
+                        "gw2_id": 1101,
+                        "source": 33
+                    },
+                    {
+                        "id": "poison-master",
+                        "gw2_id": 1701,
+                        "source": 33
+                    },
+                    {
+                        "id": "furious-strength",
+                        "gw2_id": 2156,
+                        "source": 55
+                    },
+                    {
+                        "id": "twice-as-vicious",
+                        "gw2_id": 2127,
+                        "source": 55
+                    },
+                    {
+                        "id": "archetype-deadly",
+                        "gw2_id": null,
+                        "source": 55
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+                "Runes": "krait",
+                "Sigil1": "bursting",
+                "Sigil2": "",
+                "Enhancement": "toxic-focusing-crystal",
+                "Nourishment": "beef-rendang"
+            }
+          }
+
+
+
+      - name: Hybrid Slb
+        id: hslb
+        specialization: Soulbeast
+        boons: Fractal
+        priority: Hybrid DPS
+        distribution: Hybrid Slb (A/T D/A)
+        traits: >-
+          {
+            "profession": "RANGER",
+            "traits": {
+                "lines": [
+                    "30",
+                    "32",
+                    "55"
+                ],
+                "selected": [
+                    [
+                        1069,
+                        1846,
+                        1888
+                    ],
+                    [
+                        1606,
+                        970,
+                        1066
+                    ],
+                    [
+                        2071,
+                        2161,
+                        2128
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "hunters-tactics",
+                        "gw2_id": 1068,
+                        "source": 30
+                    },
+                    {
+                        "id": "hidden-barbs",
+                        "gw2_id": 1846,
+                        "source": 30
+                    },
+                    {
+                        "id": "furious-strength",
+                        "gw2_id": 2156,
+                        "source": 55
+                    },
+                    {
+                        "id": "twice-as-vicious",
+                        "gw2_id": 2127,
+                        "source": 55
+                    },
+                    {
+                        "id": "archetype-deadly",
+                        "gw2_id": null,
+                        "source": 55
+                    },
+                    {
+                        "id": "vicious-quarry",
+                        "gw2_id": 1888,
+                        "source": 30
+                    },
+                    {
+                        "id": "honed-axes",
+                        "gw2_id": 1066,
+                        "source": 32
+                    },
+                    {
+                        "id": "honed-axes-3",
+                        "gw2_id": 1066,
+                        "source": 32
+                    },
+                    {
+                        "id": "sb-1",
+                        "gw2_id": 1900,
+                        "source": 55
+                    },
+                    {
+                        "id": "sb-2",
+                        "gw2_id": 974,
+                        "source": 55
+                    },
+                    {
+                        "id": "sb-3",
+                        "gw2_id": 1065,
+                        "source": 55
+                    },
+                    {
+                        "id": "sb-4",
+                        "gw2_id": 1066,
                         "source": 55
                     }
                 ]
@@ -1580,6 +1986,111 @@ list:
             }
           }
 
+      - name: Power Scrapper
+        id: pscrap
+        specialization: Scrapper
+        boons: Fractal
+        priority: Power DPS
+        distribution: 'Power Scrapper'
+        traits: >-
+          {
+            "profession": "ENGINEER",
+            "traits": {
+                "lines": [
+                    "38",
+                    "6",
+                    "43"
+                ],
+                "selected": [
+                    [
+                        1914,
+                        1923,
+                        526
+                    ],
+                    [
+                        1882,
+                        1892,
+                        1947
+                    ],
+                    [
+                        1917,
+                        1860,
+                        1849
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "hematic-focus",
+                        "gw2_id": 536,
+                        "source": 38
+                    },
+                    {
+                        "id": "serrated-steel",
+                        "gw2_id": 516,
+                        "source": 38
+                    },
+                    {
+                        "id": "modified-ammunition-10",
+                        "gw2_id": 526,
+                        "source": 38
+                    },
+                    {
+                        "id": "no-scope",
+                        "gw2_id": 1923,
+                        "source": 38
+                    },
+                    {
+                        "id": "high-caliber",
+                        "gw2_id": 1914,
+                        "source": 38
+                    },
+                    {
+                        "id": "shaped-charge",
+                        "gw2_id": 429,
+                        "source": 6
+                    },
+                    {
+                        "id": "glass-cannon",
+                        "gw2_id": 1882,
+                        "source": 6
+                    },
+                    {
+                        "id": "explosive-temper",
+                        "gw2_id": 1892,
+                        "source": 6
+                    },
+                    {
+                        "id": "big-boomer",
+                        "gw2_id": 1947,
+                        "source": 6
+                    },
+                    {
+                        "id": "impact-savant",
+                        "gw2_id": 1877,
+                        "source": 43
+                    },
+                    {
+                        "id": "object-in-motion-2",
+                        "gw2_id": 1860,
+                        "source": 43
+                    },
+                    {
+                        "id": "applied-force",
+                        "gw2_id": 1849,
+                        "source": 43
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+                "Runes": "scholar",
+                "Sigil1": "force",
+                "Sigil2": "night/impact/slaying-both",
+                "Enhancement": "slaying-potion",
+                "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+            }
+          }
+
   - class: necromancer
     builds:
       - name: DPS Scourge
@@ -1659,11 +2170,91 @@ list:
             },
             "skills": [],
             "extras": {
-                "Runes": "lich",
+                "Runes": "nightmare",
                 "Sigil1": "bursting",
                 "Sigil2": "",
                 "Enhancement": "master-tuning-crystal",
                 "Nourishment": "beef-rendang"
+            }
+          }
+
+      - name: Condi Reaper
+        id: creaper
+        specialization: Reaper
+        boons: Fractal
+        priority: Hybrid DPS
+        distribution: 'Condi Reaper'
+        traits: >-
+          {
+            "profession": "NECROMANCER",
+            "traits": {
+                "lines": [
+                    "39",
+                    "50",
+                    "34"
+                ],
+                "selected": [
+                    [
+                        815,
+                        816,
+                        801
+                    ],
+                    [
+                        875,
+                        894,
+                        905
+                    ],
+                    [
+                        2020,
+                        1969,
+                        1919
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "barbed-precision",
+                        "gw2_id": 802,
+                        "source": 39
+                    },
+                    {
+                        "id": "furious-demise",
+                        "gw2_id": 803,
+                        "source": 39
+                    },
+                    {
+                        "id": "target-the-weak",
+                        "gw2_id": 810,
+                        "source": 39
+                    },
+                    {
+                        "id": "lingering-curse",
+                        "gw2_id": 801,
+                        "source": 39
+                    },
+                    {
+                        "id": "soul-barbs",
+                        "gw2_id": 894,
+                        "source": 50
+                    },
+                    {
+                        "id": "soul-eater",
+                        "gw2_id": 1969,
+                        "source": 34
+                    },
+                    {
+                        "id": "cold-shoulder",
+                        "gw2_id": 2018,
+                        "source": 34
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+                "Runes": "krait",
+                "Sigil1": "",
+                "Sigil2": "",
+                "Enhancement": "toxic-focusing-crystal",
+                "Nourishment": "rare-veggie-pizza"
             }
           }
 
@@ -1751,5 +2342,327 @@ list:
                 "Sigil2": "",
                 "Enhancement": "master-tuning-crystal",
                 "Nourishment": "beef-rendang"
+            }
+          }
+
+      - name: Staff Daredevil
+        id: staffdd
+        specialization: Daredevil
+        boons: Fractal
+        priority: Power DPS
+        distribution: Staff Daredevil
+        traits: >-
+          {
+            "profession": "THIEF",
+            "traits": {
+                "lines": [
+                    "28",
+                    "35",
+                    "7"
+                ],
+                "selected": [
+                    [
+                        1245,
+                        1704,
+                        1269
+                    ],
+                    [
+                        1268,
+                        1272,
+                        1904
+                    ],
+                    [
+                        1933,
+                        1893,
+                        2047
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "exposed-weakness",
+                        "gw2_id": 1257,
+                        "source": 28
+                    },
+                    {
+                        "id": "dagger-training-base",
+                        "gw2_id": 1245,
+                        "source": 28
+                    },
+                    {
+                        "id": "revealed-training-base",
+                        "gw2_id": 1704,
+                        "source": 28
+                    },
+                    {
+                        "id": "executioner",
+                        "gw2_id": 1269,
+                        "source": 28
+                    },
+                    {
+                        "id": "keen-observer",
+                        "gw2_id": 1281,
+                        "source": 35
+                    },
+                    {
+                        "id": "ferocious-strikes",
+                        "gw2_id": 1282,
+                        "source": 35
+                    },
+                    {
+                        "id": "twin-fangs-scholar",
+                        "gw2_id": 1268,
+                        "source": 35
+                    },
+                    {
+                        "id": "twin-fangs-flank",
+                        "gw2_id": 1268,
+                        "source": 35
+                    },
+                    {
+                        "id": "practiced-tolerance",
+                        "gw2_id": 1272,
+                        "source": 35
+                    },
+                    {
+                        "id": "weakening-strikes",
+                        "gw2_id": 1887,
+                        "source": 7
+                    },
+                    {
+                        "id": "marauders-resilience",
+                        "gw2_id": 1933,
+                        "source": 7
+                    },
+                    {
+                        "id": "havoc-specialist",
+                        "gw2_id": 1893,
+                        "source": 7
+                    },
+                    {
+                        "id": "no-quarter",
+                        "gw2_id": 1904,
+                        "source": 35
+                    },
+                    {
+                        "id": "bounding-dodger",
+                        "gw2_id": 2047,
+                        "source": 7
+                    }
+                ]
+            },
+            "skills": [
+                "signet-of-agility"
+            ],
+            "extras": {
+                "Runes": "scholar",
+                "Sigil1": "force",
+                "Sigil2": "night/impact/slaying-both",
+                "Enhancement": "slaying-potion",
+                "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+            }
+          }
+
+      - name: Condi Daredevil
+        id: cdd
+        specialization: Daredevil
+        boons: Fractal
+        priority: Condi DPS
+        distribution: Condi Daredevil
+        traits: >-
+          {
+            "profession": "THIEF",
+            "traits": {
+                "lines": [
+                    "28",
+                    "44",
+                    "7"
+                ],
+                "selected": [
+                    [
+                        1164,
+                        1292,
+                        1291
+                    ],
+                    [
+                        1159,
+                        1277,
+                        1706
+                    ],
+                    [
+                        1933,
+                        1893,
+                        1833
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "preparedness",
+                        "gw2_id": 1232,
+                        "source": 44
+                    },
+                    {
+                        "id": "exposed-weakness",
+                        "gw2_id": 1257,
+                        "source": 28
+                    },
+                    {
+                        "id": "deadly-ambition",
+                        "gw2_id": 1164,
+                        "source": 28
+                    },
+                    {
+                        "id": "potent-poison",
+                        "gw2_id": 1291,
+                        "source": 28
+                    },
+                    {
+                        "id": "lead-attacks",
+                        "gw2_id": 1157,
+                        "source": 44
+                    },
+                    {
+                        "id": "deadly-ambush",
+                        "gw2_id": 1706,
+                        "source": 44
+                    },
+                    {
+                        "id": "lotus-training",
+                        "gw2_id": 1833,
+                        "source": 7
+                    },
+                    {
+                        "id": "havoc-specialist",
+                        "gw2_id": 1893,
+                        "source": 7
+                    },
+                    {
+                        "id": "marauders-resilience",
+                        "gw2_id": 1933,
+                        "source": 7
+                    },
+                    {
+                        "id": "weakening-strikes",
+                        "gw2_id": 1887,
+                        "source": 7
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+                "Runes": "krait",
+                "Sigil1": "",
+                "Sigil2": "",
+                "Enhancement": "master-tuning-crystal",
+                "Nourishment": "beef-rendang"
+            }
+          }
+
+      - name: Rifle Deadeye
+        id: rifleded
+        specialization: Deadeye
+        boons: Fractal
+        priority: Power DPS
+        distribution: Rifle Deadeye
+        traits: >-
+          {
+            "profession": "THIEF",
+            "traits": {
+                "lines": [
+                    "28",
+                    "35",
+                    "58"
+                ],
+                "selected": [
+                    [
+                        1245,
+                        1704,
+                        1269
+                    ],
+                    [
+                        1268,
+                        1272,
+                        1904
+                    ],
+                    [
+                        2145,
+                        2160,
+                        2111
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "exposed-weakness",
+                        "gw2_id": 1257,
+                        "source": 28
+                    },
+                    {
+                        "id": "dagger-training-base",
+                        "gw2_id": 1245,
+                        "source": 28
+                    },
+                    {
+                        "id": "revealed-training-base",
+                        "gw2_id": 1704,
+                        "source": 28
+                    },
+                    {
+                        "id": "executioner",
+                        "gw2_id": 1269,
+                        "source": 28
+                    },
+                    {
+                        "id": "keen-observer",
+                        "gw2_id": 1281,
+                        "source": 35
+                    },
+                    {
+                        "id": "ferocious-strikes",
+                        "gw2_id": 1282,
+                        "source": 35
+                    },
+                    {
+                        "id": "twin-fangs-scholar",
+                        "gw2_id": 1268,
+                        "source": 35
+                    },
+                    {
+                        "id": "twin-fangs-flank",
+                        "gw2_id": 1268,
+                        "source": 35
+                    },
+                    {
+                        "id": "practiced-tolerance",
+                        "gw2_id": 1272,
+                        "source": 35
+                    },
+                    {
+                        "id": "no-quarter",
+                        "gw2_id": 1904,
+                        "source": 35
+                    },
+                    {
+                        "id": "revealed-training-revealed",
+                        "gw2_id": 1704,
+                        "source": 28
+                    },
+                    {
+                        "id": "iron-sight",
+                        "gw2_id": 2084,
+                        "source": 58
+                    },
+                    {
+                        "id": "premeditation-9",
+                        "gw2_id": 2160,
+                        "source": 58
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+                "Runes": "scholar",
+                "Sigil1": "force",
+                "Sigil2": "night/impact/slaying-both",
+                "Enhancement": "slaying-potion",
+                "Nourishment": "sweet-and-spicy-butternut-squash-soup"
             }
           }
