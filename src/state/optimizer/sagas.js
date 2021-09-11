@@ -168,7 +168,6 @@ function* runCalc() {
       // perform throttled list update
       if (done || throttlecount === THROTTLE) {
         yield put(changeList(currentList));
-
       }
 
       if (newPercent !== oldPercent) {
