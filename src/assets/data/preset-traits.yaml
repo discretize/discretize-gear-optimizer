@@ -1136,6 +1136,101 @@ list:
             }
           }
 
+      - name: Condi Tempest
+        id: ctemp
+        specialization: Tempest
+        boons: Fractal
+        priority: Condi DPS
+        distribution: 'Condi Tempest'
+        traits: >-
+          {
+            "profession": "ELEMENTALIST",
+            "traits": {
+                "lines": [
+                    "31",
+                    "26",
+                    "48"
+                ],
+                "selected": [
+                    [
+                        296,
+                        325,
+                        1510
+                    ],
+                    [
+                        1507,
+                        275,
+                        287
+                    ],
+                    [
+                        1886,
+                        1891,
+                        1839
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "pyromancers-training",
+                        "gw2_id": 319,
+                        "source": 31
+                    },
+                    {
+                        "id": "empowering-flame",
+                        "gw2_id": 320,
+                        "source": 31
+                    },
+                    {
+                        "id": "burning-precision",
+                        "gw2_id": 296,
+                        "source": 31
+                    },
+                    {
+                        "id": "burning-rage",
+                        "gw2_id": 325,
+                        "source": 31
+                    },
+                    {
+                        "id": "stone-flesh",
+                        "gw2_id": 278,
+                        "source": 26
+                    },
+                    {
+                        "id": "strength-of-stone",
+                        "gw2_id": 275,
+                        "source": 26
+                    },
+                    {
+                        "id": "serrated-stones",
+                        "gw2_id": 1507,
+                        "source": 26
+                    },
+                    {
+                        "id": "gathered-focus",
+                        "gw2_id": 1938,
+                        "source": 48
+                    },
+                    {
+                        "id": "hardy-conduit",
+                        "gw2_id": 1948,
+                        "source": 48
+                    },
+                    {
+                        "id": "transcendent-tempest",
+                        "gw2_id": 1839,
+                        "source": 48
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+                "Runes": "elementalist",
+                "Sigil1": "bursting",
+                "Sigil2": "smoldering",
+                "Enhancement": "toxic-focusing-crystal",
+                "Nourishment": "rare-veggie-pizza"
+            }
+          }
+
   - class: ranger
     builds:
       - name: Power Slb
