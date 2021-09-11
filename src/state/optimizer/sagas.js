@@ -105,7 +105,7 @@ function* runCalc() {
     };
     input.modifiers = modifiers.map((modifier) => {
       try {
-        const parsed = JSON.parse(modifier.modifiers)
+        const parsed = JSON.parse(modifier.modifiers);
         return parsed;
       } catch (e) {
         alert(`Error: invalid modifier: ${modifier.id} (${modifier.source}). Skipping.`);
