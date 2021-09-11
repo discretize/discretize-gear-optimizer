@@ -1986,6 +1986,111 @@ list:
             }
           }
 
+      - name: Power Scrapper
+        id: pscrap
+        specialization: Scrapper
+        boons: Fractal
+        priority: Power DPS
+        distribution: 'Power Scrapper'
+        traits: >-
+          {
+            "profession": "ENGINEER",
+            "traits": {
+                "lines": [
+                    "38",
+                    "6",
+                    "43"
+                ],
+                "selected": [
+                    [
+                        1914,
+                        1923,
+                        526
+                    ],
+                    [
+                        1882,
+                        1892,
+                        1947
+                    ],
+                    [
+                        1917,
+                        1860,
+                        1849
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "hematic-focus",
+                        "gw2_id": 536,
+                        "source": 38
+                    },
+                    {
+                        "id": "serrated-steel",
+                        "gw2_id": 516,
+                        "source": 38
+                    },
+                    {
+                        "id": "modified-ammunition-10",
+                        "gw2_id": 526,
+                        "source": 38
+                    },
+                    {
+                        "id": "no-scope",
+                        "gw2_id": 1923,
+                        "source": 38
+                    },
+                    {
+                        "id": "high-caliber",
+                        "gw2_id": 1914,
+                        "source": 38
+                    },
+                    {
+                        "id": "shaped-charge",
+                        "gw2_id": 429,
+                        "source": 6
+                    },
+                    {
+                        "id": "glass-cannon",
+                        "gw2_id": 1882,
+                        "source": 6
+                    },
+                    {
+                        "id": "explosive-temper",
+                        "gw2_id": 1892,
+                        "source": 6
+                    },
+                    {
+                        "id": "big-boomer",
+                        "gw2_id": 1947,
+                        "source": 6
+                    },
+                    {
+                        "id": "impact-savant",
+                        "gw2_id": 1877,
+                        "source": 43
+                    },
+                    {
+                        "id": "object-in-motion-2",
+                        "gw2_id": 1860,
+                        "source": 43
+                    },
+                    {
+                        "id": "applied-force",
+                        "gw2_id": 1849,
+                        "source": 43
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+                "Runes": "scholar",
+                "Sigil1": "force",
+                "Sigil2": "night/impact/slaying-both",
+                "Enhancement": "slaying-potion",
+                "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+            }
+          }
+
   - class: necromancer
     builds:
       - name: DPS Scourge

@@ -214,6 +214,15 @@ list:
   #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
 
+  - name: Power Scrapper
+    profession: SCRAPPER
+    distribution: [68, 74, 91, 100, 100]
+    value: >-
+      {
+        "values1": { "Power": 68, "Burning": 6, "Bleeding": 17, "Poisoned": 9, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2700, "Burning": 0.7, "Bleeding": 11.8, "Poisoned": 4.0, "Torment": 0, "Confusion": 0 }
+      }
+
   - name: Power Chrono
     profession: CHRONOMANCER
     distribution: [71, 75, 100, 100, 100]
