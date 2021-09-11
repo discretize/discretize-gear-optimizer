@@ -72,7 +72,8 @@ list:
         minor: true
         modifiers: >-
           {
-            "flat": { "Critical Chance": 20 }
+            "flat": { "Critical Chance": 20 },
+            "convert": { "Condition Damage": { "Precision": 0.13 } }
           }
         gw2-id: 810
         type: "traits"
@@ -82,7 +83,7 @@ list:
         subText: "base only"
         modifiers: >-
           {
-            "flat": { "Condition Damage": 200 }
+            "buff": { "Condition Damage": 200 }
           }
         gw2-id: 801
         type: "traits"

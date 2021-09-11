@@ -234,20 +234,20 @@ list:
 
   - name: Condi Scourge
     profession: SCOURGE
-    distribution: [26, 48, 71, 77, 100]
+    distribution: [27, 49, 71, 77, 100]
     value: >-
       {
-        "values1": { "Power": 26, "Burning": 22, "Bleeding": 23, "Poisoned": 6, "Torment": 23, "Confusion": 0 },
-        "values2": { "Power": 1405, "Burning": 3.6, "Bleeding": 22.1, "Poisoned": 3.9, "Torment": 15.2, "Confusion": 0 }
+        "values1": { "Power": 27, "Burning": 22, "Bleeding": 22, "Poisoned": 6, "Torment": 23, "Confusion": 0 },
+        "values2": { "Power": 1405, "Burning": 3.4, "Bleeding": 20.6, "Poisoned": 3.7, "Torment": 14.2, "Confusion": 0 }
       }
 
   - name: Condi Reaper
     profession: REAPER
-    distribution: [39, 50, 90, 94, 100]
+    distribution: [41, 52, 91, 95, 100]
     value: >-
       {
-        "values1": { "Power": 39, "Burning": 11, "Bleeding": 40, "Poisoned": 4, "Torment": 6, "Confusion": 0 },
-        "values2": { "Power": 2370, "Burning": 2.0, "Bleeding": 43.1, "Poisoned": 2.9, "Torment": 4.2, "Confusion": 0 }
+        "values1": { "Power": 41, "Burning": 11, "Bleeding": 39, "Poisoned": 4, "Torment": 5, "Confusion": 0 },
+        "values2": { "Power": 2370, "Burning": 1.9, "Bleeding": 39.9, "Poisoned": 2.7, "Torment": 3.9, "Confusion": 0 }
       }
 
   - name: Condi Deadeye
