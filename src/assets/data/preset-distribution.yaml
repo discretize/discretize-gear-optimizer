@@ -106,6 +106,15 @@ list:
   #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
 
+  - name: Hybrid Weaver
+    profession: WEAVER
+    distribution: [40, 99, 100, 100, 100]
+    value: >-
+      {
+        "values1": { "Power": 40, "Burning": 59, "Bleeding": 1, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 3170, "Burning": 14, "Bleeding": 1, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
   - name: Alacrity Renegade
     profession: RENEGADE
     distribution: [87, 100, 100, 100, 100]

@@ -1021,6 +1021,121 @@ list:
             }
           }
 
+      - name: Hybrid Weaver
+        id: hwea
+        specialization: Weaver
+        boons: Fractal
+        priority: Hybrid DPS
+        distribution: 'Hybrid Weaver'
+        traits: >-
+          {
+            "profession": "ELEMENTALIST",
+            "traits": {
+                "lines": [
+                    "31",
+                    "41",
+                    "56"
+                ],
+                "selected": [
+                    [
+                        296,
+                        325,
+                        1510
+                    ],
+                    [
+                        232,
+                        214,
+                        1503
+                    ],
+                    [
+                        2177,
+                        2180,
+                        2131
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "pyromancers-training",
+                        "gw2_id": 319,
+                        "source": 31
+                    },
+                    {
+                        "id": "empowering-flame",
+                        "gw2_id": 320,
+                        "source": 31
+                    },
+                    {
+                        "id": "burning-precision",
+                        "gw2_id": 296,
+                        "source": 31
+                    },
+                    {
+                        "id": "elemental-polyphony-fire",
+                        "gw2_id": 2081,
+                        "source": 56
+                    },
+                    {
+                        "id": "elemental-polyphony-air",
+                        "gw2_id": 2081,
+                        "source": 56
+                    },
+                    {
+                        "id": "elements-of-rage",
+                        "gw2_id": 2131,
+                        "source": 56
+                    },
+                    {
+                        "id": "burning-rage",
+                        "gw2_id": 325,
+                        "source": 31
+                    },
+                    {
+                        "id": "superior-elements",
+                        "gw2_id": 2177,
+                        "source": 56
+                    },
+                    {
+                        "id": "weavers-prowess",
+                        "gw2_id": 2180,
+                        "source": 56
+                    },
+                    {
+                        "id": "aeromancers-training",
+                        "gw2_id": 223,
+                        "source": 41
+                    },
+                    {
+                        "id": "aeromancers-training-2",
+                        "gw2_id": 223,
+                        "source": 41
+                    },
+                    {
+                        "id": "ferocious-winds",
+                        "gw2_id": 232,
+                        "source": 41
+                    },
+                    {
+                        "id": "raging-storm",
+                        "gw2_id": 214,
+                        "source": 41
+                    },
+                    {
+                        "id": "fresh-air",
+                        "gw2_id": 1503,
+                        "source": 41
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+                "Runes": "flame-legion",
+                "Sigil1": "night/impact/slaying-both",
+                "Sigil2": "bursting",
+                "Enhancement": "toxic-focusing-crystal",
+                "Nourishment": "dragon's-revelry-starcake"
+            }
+          }
+
   - class: ranger
     builds:
       - name: Power Slb
