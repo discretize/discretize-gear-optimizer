@@ -241,6 +241,15 @@ list:
         "values2": { "Power": 1405, "Burning": 3.6, "Bleeding": 22.1, "Poisoned": 3.9, "Torment": 15.2, "Confusion": 0 }
       }
 
+  - name: Condi Reaper
+    profession: REAPER
+    distribution: [39, 50, 90, 94, 100]
+    value: >-
+      {
+        "values1": { "Power": 39, "Burning": 11, "Bleeding": 40, "Poisoned": 4, "Torment": 6, "Confusion": 0 },
+        "values2": { "Power": 2370, "Burning": 2.0, "Bleeding": 43.1, "Poisoned": 2.9, "Torment": 4.2, "Confusion": 0 }
+      }
+
   - name: Condi Deadeye
     profession: DEADEYE
     distribution: [33, 36, 58, 83, 100]

@@ -2178,6 +2178,86 @@ list:
             }
           }
 
+      - name: Condi Reaper
+        id: creaper
+        specialization: Reaper
+        boons: Fractal
+        priority: Hybrid DPS
+        distribution: 'Condi Reaper'
+        traits: >-
+          {
+            "profession": "NECROMANCER",
+            "traits": {
+                "lines": [
+                    "39",
+                    "50",
+                    "34"
+                ],
+                "selected": [
+                    [
+                        815,
+                        816,
+                        801
+                    ],
+                    [
+                        875,
+                        894,
+                        905
+                    ],
+                    [
+                        2020,
+                        1969,
+                        1919
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "barbed-precision",
+                        "gw2_id": 802,
+                        "source": 39
+                    },
+                    {
+                        "id": "furious-demise",
+                        "gw2_id": 803,
+                        "source": 39
+                    },
+                    {
+                        "id": "target-the-weak",
+                        "gw2_id": 810,
+                        "source": 39
+                    },
+                    {
+                        "id": "lingering-curse",
+                        "gw2_id": 801,
+                        "source": 39
+                    },
+                    {
+                        "id": "soul-barbs",
+                        "gw2_id": 894,
+                        "source": 50
+                    },
+                    {
+                        "id": "soul-eater",
+                        "gw2_id": 1969,
+                        "source": 34
+                    },
+                    {
+                        "id": "cold-shoulder",
+                        "gw2_id": 2018,
+                        "source": 34
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+                "Runes": "krait",
+                "Sigil1": "",
+                "Sigil2": "",
+                "Enhancement": "toxic-focusing-crystal",
+                "Nourishment": "rare-veggie-pizza"
+            }
+          }
+
   - class: thief
     builds:
       - name: Condi Deadeye
