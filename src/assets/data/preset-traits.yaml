@@ -1330,6 +1330,111 @@ list:
             }
           }
 
+      - name: Hybrid Slb
+        id: hslb
+        specialization: Soulbeast
+        boons: Fractal
+        priority: Hybrid DPS
+        distribution: Hybrid Slb (A/T D/A)
+        traits: >-
+          {
+            "profession": "RANGER",
+            "traits": {
+                "lines": [
+                    "30",
+                    "32",
+                    "55"
+                ],
+                "selected": [
+                    [
+                        1069,
+                        1846,
+                        1888
+                    ],
+                    [
+                        1606,
+                        970,
+                        1066
+                    ],
+                    [
+                        2071,
+                        2161,
+                        2128
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "hunters-tactics",
+                        "gw2_id": 1068,
+                        "source": 30
+                    },
+                    {
+                        "id": "hidden-barbs",
+                        "gw2_id": 1846,
+                        "source": 30
+                    },
+                    {
+                        "id": "furious-strength",
+                        "gw2_id": 2156,
+                        "source": 55
+                    },
+                    {
+                        "id": "twice-as-vicious",
+                        "gw2_id": 2127,
+                        "source": 55
+                    },
+                    {
+                        "id": "archetype-deadly",
+                        "gw2_id": null,
+                        "source": 55
+                    },
+                    {
+                        "id": "vicious-quarry",
+                        "gw2_id": 1888,
+                        "source": 30
+                    },
+                    {
+                        "id": "honed-axes",
+                        "gw2_id": 1066,
+                        "source": 32
+                    },
+                    {
+                        "id": "honed-axes-3",
+                        "gw2_id": 1066,
+                        "source": 32
+                    },
+                    {
+                        "id": "sb-1",
+                        "gw2_id": 1900,
+                        "source": 55
+                    },
+                    {
+                        "id": "sb-2",
+                        "gw2_id": 974,
+                        "source": 55
+                    },
+                    {
+                        "id": "sb-3",
+                        "gw2_id": 1065,
+                        "source": 55
+                    },
+                    {
+                        "id": "sb-4",
+                        "gw2_id": 1066,
+                        "source": 55
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+                "Runes": "krait",
+                "Sigil1": "bursting",
+                "Sigil2": "",
+                "Enhancement": "toxic-focusing-crystal",
+                "Nourishment": "beef-rendang"
+            }
+          }
+
   - class: revenant
     builds:
       - name: Power Alac Ren
