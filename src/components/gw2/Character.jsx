@@ -21,7 +21,8 @@ const Character = ({
   classes,
   profession,
   weight,
-  character,
+  gear,
+  attributes,
   runeId,
   runeName,
   image,
@@ -37,32 +38,32 @@ const Character = ({
         <Paper elevation={5} className={classes.section}>
           <Armor
             weight={weight}
-            helmAffix={character.gear[0]}
+            helmAffix={gear[0]}
             helmRuneId={runeId}
             helmRune={runeName}
             helmRuneCount={6}
             helmInfusionId={infusions[0]}
-            shouldersAffix={character.gear[1]}
+            shouldersAffix={gear[1]}
             shouldersRuneId={runeId}
             shouldersRune={runeName}
             shouldersRuneCount={6}
             shouldersInfusionId={infusions[1]}
-            coatAffix={character.gear[2]}
+            coatAffix={gear[2]}
             coatRuneId={runeId}
             coatRune={runeName}
             coatRuneCount={6}
             coatInfusionId={infusions[2]}
-            glovesAffix={character.gear[3]}
+            glovesAffix={gear[3]}
             glovesRuneId={runeId}
             glovesRune={runeName}
             glovesRuneCount={6}
             glovesInfusionId={infusions[3]}
-            leggingsAffix={character.gear[4]}
+            leggingsAffix={gear[4]}
             leggingsRuneId={runeId}
             leggingsRune={runeName}
             leggingsRuneCount={6}
             leggingsInfusionId={infusions[4]}
-            bootsAffix={character.gear[5]}
+            bootsAffix={gear[5]}
             bootsRuneId={runeId}
             bootsRune={runeName}
             bootsRuneCount={6}
@@ -91,27 +92,27 @@ const Character = ({
       <Box flex="0 0 250px">
         <Paper elevation={5} className={classes.section}>
           <Typography variant="h6">Attributes</Typography>
-          <Attributes profession={profession} data={character.attributes} />
+          <Attributes profession={profession} data={attributes} />
         </Paper>
 
         <div className={classes.sectionDelimiter}>
           <Paper elevation={5} className={classes.section}>
             <BackAndTrinkets
-              backItemAffix={character.gear[11]}
+              backItemAffix={gear[11]}
               backItemInfusion1Id={infusions[6]}
               backItemInfusion2Id={infusions[7]}
-              amuletAffix={character.gear[6]}
-              ring1Affix={character.gear[7]}
+              amuletAffix={gear[6]}
+              ring1Affix={gear[7]}
               ring1Infusion1Id={infusions[8]}
               ring1Infusion2Id={infusions[9]}
               ring1Infusion3Id={infusions[10]}
-              ring2Affix={character.gear[8]}
+              ring2Affix={gear[8]}
               ring2Infusion1Id={infusions[11]}
               ring2Infusion2Id={infusions[12]}
               ring2Infusion3Id={infusions[13]}
-              accessory1Affix={character.gear[9]}
+              accessory1Affix={gear[9]}
               accessory1InfusionId={infusions[14]}
-              accessory2Affix={character.gear[10]}
+              accessory2Affix={gear[10]}
               accessory2InfusionId={infusions[15]}
             />
           </Paper>

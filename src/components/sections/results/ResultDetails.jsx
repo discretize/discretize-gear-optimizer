@@ -161,7 +161,8 @@ const ResultDetails = ({ classes, data, buffData }) => {
       <Typography variant="h5">Character</Typography>
       <Character
         weight={weight}
-        character={character}
+        gear={character.gear}
+        attributes={character.attributes}
         profession={profession}
         infusions={infusions}
         runeId={rune.gw2_id}
