@@ -1424,6 +1424,97 @@ list:
                 "Nourishment": "beef-rendang"
             }
           }
+      - name: Condi Slb D/T A/D
+        id: cslb-dtad
+        specialization: Soulbeast
+        boons: Fractal
+        priority: Condi DPS
+        distribution: 'Condi Slb (D/T A/D)'
+        traits: >-
+          {
+            "profession": "RANGER",
+            "traits": {
+                "lines": [
+                    "30",
+                    "33",
+                    "55"
+                ],
+                "selected": [
+                    [
+                        1069,
+                        1846,
+                        1064
+                    ],
+                    [
+                        1099,
+                        1101,
+                        1701
+                    ],
+                    [
+                        2071,
+                        2161,
+                        2128
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "hunters-tactics",
+                        "gw2_id": 1068,
+                        "source": 30
+                    },
+                    {
+                        "id": "hidden-barbs",
+                        "gw2_id": 1846,
+                        "source": 30
+                    },
+                    {
+                        "id": "taste-for-danger",
+                        "gw2_id": 1099,
+                        "source": 33
+                    },
+                    {
+                        "id": "ambidexterity",
+                        "gw2_id": 1101,
+                        "source": 33
+                    },
+                    {
+                        "id": "ambidexterity-2",
+                        "gw2_id": 1101,
+                        "source": 33
+                    },
+                    {
+                        "id": "poison-master",
+                        "gw2_id": 1701,
+                        "source": 33
+                    },
+                    {
+                        "id": "furious-strength",
+                        "gw2_id": 2156,
+                        "source": 55
+                    },
+                    {
+                        "id": "twice-as-vicious",
+                        "gw2_id": 2127,
+                        "source": 55
+                    },
+                    {
+                        "id": "archetype-deadly",
+                        "gw2_id": null,
+                        "source": 55
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+                "Runes": "krait",
+                "Sigil1": "bursting",
+                "Sigil2": "",
+                "Enhancement": "toxic-focusing-crystal",
+                "Nourishment": "beef-rendang"
+            }
+          }
+
+
 
       - name: Hybrid Slb
         id: hslb
