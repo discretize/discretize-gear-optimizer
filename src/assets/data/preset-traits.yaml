@@ -1965,3 +1965,113 @@ list:
                 "Nourishment": "beef-rendang"
             }
           }
+
+      - name: Rifle Deadeye
+        id: rifleded
+        specialization: Deadeye
+        boons: Fractal
+        priority: Power DPS
+        distribution: Rifle Deadeye
+        traits: >-
+          {
+            "profession": "THIEF",
+            "traits": {
+                "lines": [
+                    "28",
+                    "35",
+                    "58"
+                ],
+                "selected": [
+                    [
+                        1245,
+                        1704,
+                        1269
+                    ],
+                    [
+                        1268,
+                        1272,
+                        1904
+                    ],
+                    [
+                        2145,
+                        2160,
+                        2111
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "exposed-weakness",
+                        "gw2_id": 1257,
+                        "source": 28
+                    },
+                    {
+                        "id": "dagger-training-base",
+                        "gw2_id": 1245,
+                        "source": 28
+                    },
+                    {
+                        "id": "revealed-training-base",
+                        "gw2_id": 1704,
+                        "source": 28
+                    },
+                    {
+                        "id": "executioner",
+                        "gw2_id": 1269,
+                        "source": 28
+                    },
+                    {
+                        "id": "keen-observer",
+                        "gw2_id": 1281,
+                        "source": 35
+                    },
+                    {
+                        "id": "ferocious-strikes",
+                        "gw2_id": 1282,
+                        "source": 35
+                    },
+                    {
+                        "id": "twin-fangs-scholar",
+                        "gw2_id": 1268,
+                        "source": 35
+                    },
+                    {
+                        "id": "twin-fangs-flank",
+                        "gw2_id": 1268,
+                        "source": 35
+                    },
+                    {
+                        "id": "practiced-tolerance",
+                        "gw2_id": 1272,
+                        "source": 35
+                    },
+                    {
+                        "id": "no-quarter",
+                        "gw2_id": 1904,
+                        "source": 35
+                    },
+                    {
+                        "id": "revealed-training-revealed",
+                        "gw2_id": 1704,
+                        "source": 28
+                    },
+                    {
+                        "id": "iron-sight",
+                        "gw2_id": 2084,
+                        "source": 58
+                    },
+                    {
+                        "id": "premeditation-9",
+                        "gw2_id": 2160,
+                        "source": 58
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+                "Runes": "scholar",
+                "Sigil1": "force",
+                "Sigil2": "night/impact/slaying-both",
+                "Enhancement": "slaying-potion",
+                "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+            }
+          }

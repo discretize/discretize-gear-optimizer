@@ -241,3 +241,12 @@ list:
         "values2": { "Power": 1241, "Burning": 0.6, "Bleeding": 23.0, "Poisoned": 17.9, "Torment": 6.7, "Confusion": 0 }
       }
 
+  - name: Rifle Deadeye
+    profession: DEADEYE
+    distribution: [91, 95, 96, 100, 100]
+    value: >-
+      {
+        "values1": { "Power": 91, "Burning": 4, "Bleeding": 1, "Poisoned": 4, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 3500, "Burning": 0.5, "Bleeding": 0.4, "Poisoned": 1.8, "Torment": 0, "Confusion": 0 }
+      }
+
