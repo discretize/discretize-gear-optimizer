@@ -97,14 +97,32 @@ list:
         "values2": { "Power": 2800, "Burning": 12.8, "Bleeding": 16.2, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  # - name: Condi Weaver (Dagger)
-  #   profession: WEAVER
-  #   distribution: [29, 84, 100, 100, 100]
-  #   value: >-
-  #     {
-  #       "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-  #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-  #     }
+  - name: Condi Weaver (Dagger)
+    profession: WEAVER
+    distribution: [29, 84, 100, 100, 100]
+    value: >-
+      {
+        "values1": { "Power": 29, "Burning": 55, "Bleeding": 16, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2225, "Burning": 13.8, "Bleeding": 21.8, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
+  - name: Hybrid Weaver
+    profession: WEAVER
+    distribution: [40, 99, 100, 100, 100]
+    value: >-
+      {
+        "values1": { "Power": 40, "Burning": 59, "Bleeding": 1, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 3170, "Burning": 14, "Bleeding": 1, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
+  - name: Condi Tempest
+    profession: TEMPEST
+    distribution: [43, 90, 100, 100, 100]
+    value: >-
+      {
+        "values1": { "Power": 43, "Burning": 47, "Bleeding": 10, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 3680, "Burning": 12.0, "Bleeding": 15.9, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
 
   - name: Alacrity Renegade
     profession: RENEGADE
@@ -160,23 +178,23 @@ list:
         "values2": { "Power": 1525, "Burning": 2.3, "Bleeding": 25.9, "Poisoned": 15.4, "Torment": 0, "Confusion": 0 }
       }
 
-  # - name: Condi Slb (D/T A/D)
-  #   profession: SOULBEAST
-  #   distribution: [30, 52, 78, 100, 100]
-  #   value: >-
-  #     {
-  #       "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-  #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-  #     }
+  - name: Condi Slb (D/T A/D)
+    profession: SOULBEAST
+    distribution: [30, 52, 78, 100, 100]
+    value: >-
+      {
+        "values1": { "Power": 30, "Burning": 22, "Bleeding": 26, "Poisoned": 22, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 1595, "Burning": 3.4, "Bleeding": 24.8, "Poisoned": 13.2, "Torment": 0, "Confusion": 0 }
+      }
 
-  # - name: Hybrid Slb (A/T D/A)
-  #   profession: SOULBEAST
-  #   distribution: [43, 61, 89, 100, 100]
-  #   value: >-
-  #     {
-  #       "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-  #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-  #     }
+  - name: Hybrid Slb (A/T D/A)
+    profession: SOULBEAST
+    distribution: [44, 61, 89, 100, 100]
+    value: >-
+      {
+        "values1": { "Power": 44, "Burning": 17, "Bleeding": 28, "Poisoned": 11, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2282, "Burning": 2.7, "Bleeding": 26.5, "Poisoned": 6.9, "Torment": 0, "Confusion": 0 }
+      }
 
   - name: Power Holo
     profession: HOLOSMITH
@@ -196,6 +214,15 @@ list:
   #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
 
+  - name: Power Scrapper
+    profession: SCRAPPER
+    distribution: [68, 74, 91, 100, 100]
+    value: >-
+      {
+        "values1": { "Power": 68, "Burning": 6, "Bleeding": 17, "Poisoned": 9, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2700, "Burning": 0.7, "Bleeding": 11.8, "Poisoned": 4.0, "Torment": 0, "Confusion": 0 }
+      }
+
   - name: Power Chrono
     profession: CHRONOMANCER
     distribution: [71, 75, 100, 100, 100]
@@ -214,6 +241,15 @@ list:
         "values2": { "Power": 1405, "Burning": 3.6, "Bleeding": 22.1, "Poisoned": 3.9, "Torment": 15.2, "Confusion": 0 }
       }
 
+  - name: Condi Reaper
+    profession: REAPER
+    distribution: [39, 50, 90, 94, 100]
+    value: >-
+      {
+        "values1": { "Power": 39, "Burning": 11, "Bleeding": 40, "Poisoned": 4, "Torment": 6, "Confusion": 0 },
+        "values2": { "Power": 2370, "Burning": 2.0, "Bleeding": 43.1, "Poisoned": 2.9, "Torment": 4.2, "Confusion": 0 }
+      }
+
   - name: Condi Deadeye
     profession: DEADEYE
     distribution: [33, 36, 58, 83, 100]
@@ -222,3 +258,31 @@ list:
         "values1": { "Power": 33, "Burning": 3, "Bleeding": 22, "Poisoned": 25, "Torment": 17, "Confusion": 0 },
         "values2": { "Power": 1680, "Burning": 0.5, "Bleeding": 19.8, "Poisoned": 14.7, "Torment": 10.9, "Confusion": 0 }
       }
+
+  - name: Staff Daredevil
+    profession: DAREDEVIL
+    distribution: [92, 98, 100, 100, 100]
+    value: >-
+      {
+        "values1": { "Power": 92, "Burning": 6, "Bleeding": 2, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2810, "Burning": 0.6, "Bleeding": 1.1, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
+  - name: Condi Daredevil
+    profession: DAREDEVIL
+    distribution: [26, 30, 57, 89, 100]
+    value: >-
+      {
+        "values1": { "Power": 26, "Burning": 4, "Bleeding": 27, "Poisoned": 32, "Torment": 11, "Confusion": 0 },
+        "values2": { "Power": 1241, "Burning": 0.6, "Bleeding": 23.0, "Poisoned": 17.9, "Torment": 6.7, "Confusion": 0 }
+      }
+
+  - name: Rifle Deadeye
+    profession: DEADEYE
+    distribution: [91, 95, 96, 100, 100]
+    value: >-
+      {
+        "values1": { "Power": 91, "Burning": 4, "Bleeding": 1, "Poisoned": 4, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 3500, "Burning": 0.5, "Bleeding": 0.4, "Poisoned": 1.8, "Torment": 0, "Confusion": 0 }
+      }
+

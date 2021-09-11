@@ -23,6 +23,14 @@ list:
         "minBoonDuration": 0
       }
 
+  - name: Hybrid DPS
+    value: >-
+      {
+        "affixes": ["VIPER", "SINISTER", "GRIEVING"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0
+      }
+
   - name: Heal
     value: >-
       {
