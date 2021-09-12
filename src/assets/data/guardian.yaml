@@ -290,6 +290,17 @@ list:
         gw2-id: 621
         type: 'traits'
 
+      - id: inspired-virtue-12
+        text: 'Inspired Virtue'
+        subText: '12x'
+        minor: true
+        modifiers: >-
+          {
+            "multiplier": { "Effective Power": 0.12 }
+          }
+        gw2-id: 621
+        type: 'traits'
+
       - id: unscathed-contender
         text: 'Unscathed Contender'
         modifiers: >-
