@@ -70,6 +70,44 @@ list:
         "values2": { "Power": 2214, "Burning": 13.7, "Bleeding": 2.4, "Poisoned": 0, "Torment": 1.2, "Confusion": 0 }
       }
 
+  # - name: Hybrid FB (Virtues, no allies)
+  #   profession: FIREBRAND
+  #   distribution: [32, 97, 100, 100, 100]
+  #   value: >-
+  #     {
+  #       "values1": { "Power": 32, "Burning": 65, "Bleeding": 3, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+  #       "values2": { "Power": 1942, "Burning": 12.1, "Bleeding": 3.0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #     }
+
+  # +1.7 burning for no allies/with allies split seems to hold up well
+
+  - name: Hybrid FB (Virtues)
+    profession: FIREBRAND
+    distribution: [29, 98, 100, 100, 100]
+    value: >-
+      {
+        "values1": { "Power": 29, "Burning": 69, "Bleeding": 2, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 1942, "Burning": 13.8, "Bleeding": 3.0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
+  # - name: Hybrid FB (Honor, no allies)
+  #   profession: FIREBRAND
+  #   distribution: [38, 97, 100, 100, 100]
+  #   value: >-
+  #     {
+  #       "values1": { "Power": 38, "Burning": 59, "Bleeding": 3, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+  #       "values2": { "Power": 2242, "Burning": 10.5, "Bleeding": 3.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #     }
+
+  - name: Hybrid FB (Honor)
+    profession: FIREBRAND
+    distribution: [35, 97, 100, 100, 100]
+    value: >-
+      {
+        "values1": { "Power": 35, "Burning": 62, "Bleeding": 3, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2242, "Burning": 12.2, "Bleeding": 3.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
   # - name: CFB (Virtues, 8 page)
   #   profession: FIREBRAND
   #   distribution: [24, 96, 99, 99, 100]

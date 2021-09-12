@@ -40,7 +40,7 @@ function* runCalc() {
 
   const time = Date.now();
   let state;
-  let newList;
+  let currentList;
   let input;
   let settings;
 
@@ -105,7 +105,7 @@ function* runCalc() {
     };
     input.modifiers = modifiers.map((modifier) => {
       try {
-        const parsed = JSON.parse(modifier.modifiers)
+        const parsed = JSON.parse(modifier.modifiers);
         return parsed;
       } catch (e) {
         alert(`Error: invalid modifier: ${modifier.id} (${modifier.source}). Skipping.`);
@@ -140,27 +140,45 @@ function* runCalc() {
 
     let done = false;
     let newPercent;
+    let oldPercent;
     let isChanged;
+
+    // list updates are on a trailing throttle
+    let throttlecount = Infinity;
+    const THROTTLE = 3;
+
     while (true) {
+      throttlecount++;
+
       const result = generator.next();
       ({
         done,
-        value: { percent: newPercent, isChanged, newList },
+        value: { percent: newPercent, isChanged },
       } = result);
-      console.log(`${newPercent}% done`);
-      yield put(changeControl({ key: 'progress', value: newPercent }));
 
       if (isChanged) {
-        // console.log('list changed');
-        yield put(changeList(newList));
-      } else {
-        // console.log('list not changed');
-        // yield put({ type: 'DONOTHING' });
+        currentList = result.value.newList;
+
+        // queue throttled list update if none queued
+        if (throttlecount > THROTTLE) {
+          throttlecount = 0;
+        }
+      }
+
+      // perform throttled list update
+      if (done || throttlecount === THROTTLE) {
+        yield put(changeList(currentList));
+      }
+
+      if (newPercent !== oldPercent) {
+        yield put(changeControl({ key: 'progress', value: newPercent }));
+        // console.log(`${newPercent}% done`);
+        oldPercent = newPercent;
       }
 
       if (done) {
         // cleanup
-        yield put(changeSelectedCharacterIfNone(newList[0]));
+        yield put(changeSelectedCharacterIfNone(currentList[0]));
         yield put(changeControl({ key: 'status', value: SUCCESS }));
 
         console.log(`Calculation done in ${Date.now() - time}ms`);
@@ -176,7 +194,7 @@ function* runCalc() {
     console.log('state:', { ...state.gearOptimizer });
     console.log('input:', { ...input });
     console.log('settings:', { ...settings });
-    console.log('list:', { ...newList });
+    console.log('list:', { ...currentList });
     yield put(changeControl({ key: 'status', value: WAITING }));
   } finally {
     if (yield cancelled()) {

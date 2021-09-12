@@ -590,6 +590,277 @@ list:
       #       }
       #     }
 
+      # - name: Cat Cele Virtues TEMP NO VIRTUOUS WRONG INSPIRED NO ALLIES
+      #   id: cat1
+      #   specialization: Firebrand
+      #   boons: Fractal
+      #   priority: Condi Boon
+      #   distribution: Hybrid FB (Virtues, no allies)
+      #   traits: >-
+      #     {
+      #         "profession": "GUARDIAN",
+      #         "traits": {
+      #             "lines": [
+      #                 "16",
+      #                 "46",
+      #                 "62"
+      #             ],
+      #             "selected": [
+      #                 [
+      #                     566,
+      #                     567,
+      #                     1686
+      #                 ],
+      #                 [
+      #                     617,
+      #                     587,
+      #                     622
+      #                 ],
+      #                 [
+      #                     2101,
+      #                     2116,
+      #                     2159
+      #                 ]
+      #             ],
+      #             "modifiers": [
+      #                 {
+      #                     "id": "radiant-power",
+      #                     "gw2_id": 568,
+      #                     "source": 16
+      #                 },
+      #                 {
+      #                     "id": "radiant-fire",
+      #                     "gw2_id": 567,
+      #                     "source": 16
+      #                 },
+      #                 {
+      #                     "id": "amplified-wrath",
+      #                     "gw2_id": 1686,
+      #                     "source": 16
+      #                 },
+      #                 {
+      #                     "id": "right-hand-strength-3",
+      #                     "gw2_id": 566,
+      #                     "source": 16
+      #                 },
+      #                 {
+      #                     "id": "right-hand-strength",
+      #                     "gw2_id": 566,
+      #                     "source": 16
+      #                 },
+      #                 {
+      #                     "id": "inspired-virtue-9",
+      #                     "gw2_id": 621,
+      #                     "source": 46
+      #                 },
+      #                 {
+      #                     "id": "virtue-of-retribution",
+      #                     "gw2_id": 604,
+      #                     "source": 46
+      #                 },
+      #                 {
+      #                     "id": "imbued-haste",
+      #                     "gw2_id": 2148,
+      #                     "source": 62
+      #                 }
+      #             ]
+      #         },
+      #         "skills": [],
+      #         "extras": {
+      #             "Runes": "leadership",
+      #             "Sigil1": "smoldering",
+      #             "Sigil2": "malice",
+      #             "Enhancement": "toxic-maintenance-oil",
+      #             "Nourishment": "dragon's-revelry-starcake"
+      #         }
+      #     }
+
+      - name: Hybrid FB (Virtues)*
+        id: hycfb-virtues-leadership
+        specialization: Firebrand
+        boons: Fractal
+        priority: Condi Boon
+        distribution: Hybrid FB (Virtues)
+        traits: >-
+          {
+            "profession": "GUARDIAN",
+            "traits": {
+                "lines": [
+                    "16",
+                    "46",
+                    "62"
+                ],
+                "selected": [
+                    [
+                        566,
+                        567,
+                        1686
+                    ],
+                    [
+                        617,
+                        587,
+                        622
+                    ],
+                    [
+                        2101,
+                        2116,
+                        2159
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "radiant-power",
+                        "gw2_id": 568,
+                        "source": 16
+                    },
+                    {
+                        "id": "radiant-fire",
+                        "gw2_id": 567,
+                        "source": 16
+                    },
+                    {
+                        "id": "amplified-wrath",
+                        "gw2_id": 1686,
+                        "source": 16
+                    },
+                    {
+                        "id": "right-hand-strength-3",
+                        "gw2_id": 566,
+                        "source": 16
+                    },
+                    {
+                        "id": "right-hand-strength",
+                        "gw2_id": 566,
+                        "source": 16
+                    },
+                    {
+                        "id": "imbued-haste",
+                        "gw2_id": 2148,
+                        "source": 62
+                    },
+                    {
+                        "id": "virtue-of-retribution",
+                        "gw2_id": 604,
+                        "source": 46
+                    },
+                    {
+                        "id": "inspired-virtue-9",
+                        "gw2_id": 621,
+                        "source": 46
+                    },
+                    {
+                        "id": "power-of-the-virtuous",
+                        "gw2_id": 620,
+                        "source": 46
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+              "Runes": "",
+              "Sigil1": "",
+              "Sigil2": "",
+              "Enhancement": "",
+              "Nourishment": ""
+            }
+          }
+
+        # "extras": {
+        #     "Runes": "leadership",
+        #     "Sigil1": "smoldering",
+        #     "Sigil2": "malice",
+        #     "Enhancement": "toxic-maintenance-oil",
+        #     "Nourishment": "dragon's-revelry-starcake"
+        # }
+
+      - name: Hybrid FB (Honor)*
+        id: hycfb-honor-leadership
+        specialization: Firebrand
+        boons: Fractal
+        priority: Condi Boon
+        distribution: Hybrid FB (Honor)
+        traits: >-
+          {
+            "profession": "GUARDIAN",
+            "traits": {
+                "lines": [
+                    "16",
+                    "49",
+                    "62"
+                ],
+                "selected": [
+                    [
+                        566,
+                        567,
+                        1686
+                    ],
+                    [
+                        559,
+                        549,
+                        1682
+                    ],
+                    [
+                        2101,
+                        2116,
+                        2159
+                    ]
+                ],
+                "modifiers": [
+                    {
+                        "id": "radiant-power",
+                        "gw2_id": 568,
+                        "source": 16
+                    },
+                    {
+                        "id": "radiant-fire",
+                        "gw2_id": 567,
+                        "source": 16
+                    },
+                    {
+                        "id": "amplified-wrath",
+                        "gw2_id": 1686,
+                        "source": 16
+                    },
+                    {
+                        "id": "right-hand-strength-3",
+                        "gw2_id": 566,
+                        "source": 16
+                    },
+                    {
+                        "id": "right-hand-strength",
+                        "gw2_id": 566,
+                        "source": 16
+                    },
+                    {
+                        "id": "imbued-haste",
+                        "gw2_id": 2148,
+                        "source": 62
+                    },
+                    {
+                        "id": "force-of-will",
+                        "gw2_id": 1682,
+                        "source": 49
+                    }
+                ]
+            },
+            "skills": [],
+            "extras": {
+              "Runes": "",
+              "Sigil1": "",
+              "Sigil2": "",
+              "Enhancement": "",
+              "Nourishment": ""
+            }
+          }
+
+        # "extras": {
+        #     "Runes": "leadership",
+        #     "Sigil1": "smoldering",
+        #     "Sigil2": "malice",
+        #     "Enhancement": "toxic-maintenance-oil",
+        #     "Nourishment": "dragon's-revelry-starcake"
+        # }
+
   - class: warrior
     builds:
       - name: Power Banner Bers
