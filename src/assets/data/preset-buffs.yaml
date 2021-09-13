@@ -5,17 +5,39 @@ list:
       {
       }
 
-  - name: Fractal
+  - name: Condi
     value: >-
       {
         "might": true,
         "fury": true,
+        "protection": true,
         "vulnerability": true,
-        "bannerOfStrength": true,
-        "bannerOfDiscipline": true,
-        "baneSignet": true,
-        "frostSpirit": true,
         "assassinsPresence": true
+      }
+
+  - name: Power (no spotter)
+    value: >-
+      {
+        "might": true,
+        "fury": true,
+        "protection": true,
+        "vulnerability": true,
+        "frostSpirit": true,
+        "assassinsPresence": true,
+        "baneSignet": true
+      }
+
+  - name: Power (spotter)
+    value: >-
+      {
+        "might": true,
+        "fury": true,
+        "protection": true,
+        "vulnerability": true,
+        "spotter": true,
+        "frostSpirit": true,
+        "assassinsPresence": true,
+        "baneSignet": true
       }
 
   - name: Benchmark
@@ -23,6 +45,7 @@ list:
       {
         "might": true,
         "fury": true,
+        "protection": true,
         "vulnerability": true,
         "bannerOfStrength": true,
         "bannerOfDiscipline": true,
