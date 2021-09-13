@@ -868,6 +868,8 @@ export const PROFESSIONS = [
   { profession: 'ENGINEER', eliteSpecializations: ['SCRAPPER', 'HOLOSMITH'] },
   { profession: 'ELEMENTALIST', eliteSpecializations: ['TEMPEST', 'WEAVER'] },
   { profession: 'MESMER', eliteSpecializations: ['CHRONOMANCER', 'MIRAGE'] },
+  { profession: 'NECROMANCER', eliteSpecializations: ['SCOURGE', 'REAPER'] },
+  { profession: 'THIEF', eliteSpecializations: ['DAREDEVIL', 'DEADEYE'] },
 ];
 
 export const GEAR_SLOTS = [

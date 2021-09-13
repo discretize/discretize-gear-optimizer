@@ -1,9 +1,14 @@
+import React from 'react';
 import { FormControl, Grid, Input, InputAdornment, InputLabel } from '@material-ui/core';
 import { Attribute, Item } from 'gw2-ui-bulk';
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeAR, changeOmnipotion, getAR, getOmniPotion } from '../../state/gearOptimizerSlice';
-import CheckboxComponent from '../baseComponents/CheckboxComponent';
+import {
+  changeAR,
+  changeOmnipotion,
+  getAR,
+  getOmniPotion,
+} from '../../../state/gearOptimizerSlice';
+import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
 const ARinput = () => {
   const dispatch = useDispatch();
@@ -13,7 +18,7 @@ const ARinput = () => {
   function handleChange(event) {
     const { value } = event.target;
     if (value.match('^[0-9]*$')) {
-      dispatch(changeAR(value), [dispatch]);
+      dispatch(changeAR(Number.parseInt(value, 10)), [dispatch]);
     }
   }
 

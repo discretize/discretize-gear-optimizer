@@ -6,8 +6,10 @@ import { ThemeProvider, Spinner } from 'gw2-ui-bulk';
 import { PersistGate } from 'redux-persist/integration/react';
 import baseTheme from './src/styles/baseTheme';
 
+import 'typeface-fira-mono';
 import 'typeface-menomonia';
-
+import 'typeface-muli';
+import 'typeface-raleway';
 import createStore from './src/state/createStore';
 
 const { store, persistor } = createStore();

@@ -1,15 +1,16 @@
 import { Box, withStyles } from '@material-ui/core';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getList, getPriority, getSelectedCharacter } from '../../../state/gearOptimizerSlice';
-import { Slots } from '../../../utils/gw2-data';
+import {
+  getList,
+  getSelectedCharacter,
+} from '../../../state/gearOptimizerSlice';
 import ResultTableRow from './ResultTableRow';
+import ResultTableHeaderRow from './ResultTableHeaderRow';
 
 const styles = (theme) => ({
   root: {
@@ -28,30 +29,36 @@ const styles = (theme) => ({
   },
 });
 
-const StickyHeadTable = ({ classes }) => {
-  const wield = useSelector(getPriority('weaponType'));
-  const selectedCharacter = useSelector(getSelectedCharacter);
+// finds the most common element in an array
+const mode = (array) => {
+  const counters = {};
+  let highestCounter = 0;
+  let best = null;
+  for (const element of array) {
+    counters[element] = (counters[element] || 0) + 1;
+    if (counters[element] > highestCounter) {
+      highestCounter = counters[element];
+      best = element;
+    }
+  }
+  return best;
+};
 
+const StickyHeadTable = ({ classes }) => {
+  const selectedCharacter = useSelector(getSelectedCharacter);
   const list = useSelector(getList) || [];
+  
+  let mostCommonAffix = null;
+  if (/* status !== RUNNING && */ list[0]) {
+    mostCommonAffix = mode(list[0].gear);
+  }
 
   return (
     <Box boxShadow={8}>
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
-            <TableRow>
-              <TableCell className={classes.tablehead}>Damage</TableCell>
-              {Slots[wield].map((slot) => (
-                <TableCell
-                  className={classes.tablehead}
-                  key={slot.name}
-                  align="center"
-                  padding="none"
-                >
-                  {slot.short}
-                </TableCell>
-              ))}
-            </TableRow>
+            <ResultTableHeaderRow classes={classes} />
           </TableHead>
           <TableBody className={classes.pointer}>
             {list.map((character) => (
@@ -59,6 +66,7 @@ const StickyHeadTable = ({ classes }) => {
                 character={character}
                 key={character.id}
                 selected={character === selectedCharacter}
+                mostCommonAffix={mostCommonAffix}
               />
             ))}
           </TableBody>

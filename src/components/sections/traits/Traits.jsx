@@ -21,8 +21,8 @@ import {
   removeTraitModifier,
   removeTraitModifierWithGW2id,
   removeTraitModifierWithSource,
-} from '../../state/gearOptimizerSlice';
-import CheckboxComponent from '../baseComponents/CheckboxComponent';
+} from '../../../state/gearOptimizerSlice';
+import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
 const styles = (theme) => ({
   formControl: {

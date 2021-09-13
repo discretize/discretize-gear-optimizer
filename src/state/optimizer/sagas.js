@@ -8,11 +8,31 @@ import {
   changeList,
   changeSelectedCharacter,
   changeSelectedCharacterIfNone,
+  getList,
 } from '../gearOptimizerSlice';
 import { INFUSIONS } from '../../utils/gw2-data';
 import { SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+function printTemplate(state) {
+  const { profession, traits, skills, extras } = state;
+
+  console.group('Data for template creation');
+  console.log('Traits:', {
+    profession,
+    traits,
+    skills,
+    extras,
+  });
+
+  const distribution = state.distribution.values2;
+
+  console.log('Distribution (v2):', { values2: distribution });
+  console.table([distribution]);
+  console.groupEnd();
+  console.log('Redux state:', state);
+}
 
 function* runCalc() {
   yield delay(0);
@@ -20,12 +40,15 @@ function* runCalc() {
 
   const time = Date.now();
   let state;
-  let newList;
+  let currentList;
   let input;
   let settings;
 
   try {
     state = yield select();
+
+    console.groupCollapsed('Debug/Template Data:');
+    printTemplate(state.gearOptimizer);
 
     const {
       profession,
@@ -61,7 +84,6 @@ function* runCalc() {
     const secondaryMaxInfusions = parseTextNumber(secondaryMaxInfusionsInput, 18);
 
     input = {
-      modifiers: modifiers.map((modifier) => JSON.parse(modifier.modifiers)),
       tags: undefined,
       profession: profession.toLowerCase(),
       weapontype: weaponType,
@@ -81,7 +103,17 @@ function* runCalc() {
       percentDistribution: values1,
       distribution: values2,
     };
-    console.log('input:', input);
+    input.modifiers = modifiers.map((modifier) => {
+      try {
+        const parsed = JSON.parse(modifier.modifiers);
+        return parsed;
+      } catch (e) {
+        alert(`Error: invalid modifier: ${modifier.id} (${modifier.source}). Skipping.`);
+        console.error('Could not parse modifier:', modifier);
+        return null;
+      }
+    });
+    console.log('Input object:', input);
 
     // temp: convert "poisoned" to "poison"
     const convertPoison = (distribution) =>
@@ -100,6 +132,7 @@ function* runCalc() {
     }
 
     settings = optimizerCore.setup(input);
+    console.groupEnd();
 
     // set up table columns here
 
@@ -107,30 +140,48 @@ function* runCalc() {
 
     let done = false;
     let newPercent;
+    let oldPercent;
     let isChanged;
+
+    // list updates are on a trailing throttle
+    let throttlecount = Infinity;
+    const THROTTLE = 3;
+
     while (true) {
+      throttlecount++;
+
       const result = generator.next();
       ({
         done,
-        value: { percent: newPercent, isChanged, newList },
+        value: { percent: newPercent, isChanged },
       } = result);
-      console.log(`${newPercent}% done`);
-      yield put(changeControl({ key: 'progress', value: newPercent }));
 
       if (isChanged) {
-        console.log('list changed');
-        yield put(changeList(newList));
-      } else {
-        console.log('list not changed');
-        // yield put({ type: 'DONOTHING' });
+        currentList = result.value.newList;
+
+        // queue throttled list update if none queued
+        if (throttlecount > THROTTLE) {
+          throttlecount = 0;
+        }
+      }
+
+      // perform throttled list update
+      if (done || throttlecount === THROTTLE) {
+        yield put(changeList(currentList));
+      }
+
+      if (newPercent !== oldPercent) {
+        yield put(changeControl({ key: 'progress', value: newPercent }));
+        // console.log(`${newPercent}% done`);
+        oldPercent = newPercent;
       }
 
       if (done) {
         // cleanup
-        yield put(changeSelectedCharacterIfNone(newList[0]));
+        yield put(changeSelectedCharacterIfNone(currentList[0]));
         yield put(changeControl({ key: 'status', value: SUCCESS }));
 
-        console.log(`calculation done in ${Date.now() - time}ms`);
+        console.log(`Calculation done in ${Date.now() - time}ms`);
         break;
       }
 
@@ -143,12 +194,15 @@ function* runCalc() {
     console.log('state:', { ...state.gearOptimizer });
     console.log('input:', { ...input });
     console.log('settings:', { ...settings });
-    console.log('list:', { ...newList });
+    console.log('list:', { ...currentList });
     yield put(changeControl({ key: 'status', value: WAITING }));
   } finally {
     if (yield cancelled()) {
       console.log(`calculation cancelled after ${Date.now() - time}ms`);
-      yield put(changeSelectedCharacterIfNone(newList[0]));
+      const currentList = yield select(getList);
+      if (currentList && currentList[0]) {
+        yield put(changeSelectedCharacterIfNone(currentList[0]));
+      }
     }
   }
 }

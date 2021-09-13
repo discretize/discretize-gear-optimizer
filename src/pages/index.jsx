@@ -17,12 +17,12 @@ const IndexPage = ({ classes }) => {
   return (
     <>
       <MuiAlert elevation={6} variant="filled" severity="warning">
-        The gear optimizer is currently in beta! Templates are not final. Please report potential issues to us in{' '}
+        The gear optimizer is currently in beta! Templates are not final and phantasm and lifesteal damage is inaccurate. Please report potential issues to us in{' '}
         <Link href="https://discord.gg/Qdt7nFY" color="textPrimary">
           Discord
         </Link>{' '}
         or{' '}
-        <Link href="https://github.com/discretize/discretize-gear-optimizer" color="textPrimary">
+        <Link href="https://github.com/discretize/discretize-gear-optimizer/tree/react-recode" color="textPrimary">
           <GitHubIcon fontSize="small" />
           {' '}
           Github

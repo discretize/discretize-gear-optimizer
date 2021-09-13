@@ -56,7 +56,7 @@ let isChanged = true;
  * @param {?Object.<String, Number>} input.percentDistribution - old style distribution
  *                                   (sums to 100)
  * @param {?Object.<String, Number>} input.distribution - new style distribution
- *                                   (coefficient per second; average condition stacks)
+ *                                   (coefficient * weaponstrength per second; average condition stacks)
  *
  * @returns {Object} settings - parsed settings object
  */
@@ -267,7 +267,7 @@ export function setup(input) {
   if (input.percentDistribution && input.distributionVersion !== 2) {
     const { Power, ...rest } = input.percentDistribution;
     settings.distribution = {};
-    settings.distribution['Power'] = Power / 1025;
+    settings.distribution['Power'] = Power * 2597 / 1025;
     for (const [condition, value] of Object.entries(rest)) {
       settings.distribution[condition] = value / Condition[condition].baseDamage;
     }
@@ -862,7 +862,7 @@ function updateAttributesFast(_character, skipValidation = false) {
       if (settings.relevantConditions.length > 0) {
         const CONDI_CACHE_ID = attributes['Expertise'] + attributes['Condition Damage'] * 10000;
         condiDamageScore =
-          condiResultCache.get(CONDI_CACHE_ID) ||
+          condiResultCache?.get(CONDI_CACHE_ID) ||
           calcCondi(_character, multipliers, settings.relevantConditions);
         condiResultCache.set(CONDI_CACHE_ID, condiDamageScore);
       }
@@ -926,7 +926,8 @@ function calcPower(_character, multipliers) {
   attributes['Effective Power'] =
     attributes['Power'] * (1 + critChance * (critDmg - 1)) * multipliers['Effective Power'];
 
-  const damage = settings.distribution['Power'] * attributes['Effective Power'];
+  // 2597: standard enemy armor value, also used for ingame damage tooltips
+  const damage = settings.distribution['Power'] / 2597 * attributes['Effective Power'];
   attributes['Power DPS'] = damage;
 
   return damage;

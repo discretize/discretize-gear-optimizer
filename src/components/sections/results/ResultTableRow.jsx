@@ -2,12 +2,11 @@ import { Typography } from '@material-ui/core';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { changeSelectedCharacter, getPriority } from '../../../state/gearOptimizerSlice';
+import { useDispatch } from 'react-redux';
+import { changeSelectedCharacter } from '../../../state/gearOptimizerSlice';
 
-const ResultTableRow = React.memo(({ character, selected }) => {
+const ResultTableRow = ({ character, selected, mostCommonAffix }) => {
   const dispatch = useDispatch();
-  const affixes = useSelector(getPriority('affixes'));
 
   return (
     <TableRow
@@ -22,7 +21,7 @@ const ResultTableRow = React.memo(({ character, selected }) => {
         <TableCell align="center" key={element + index} padding="none">
           <Typography
             style={
-              affixes[0] !== element.toUpperCase()
+              mostCommonAffix && mostCommonAffix !== element
                 ? { fontWeight: 300, fontSize: '1rem', color: '#00cccc' }
                 : { fontWeight: 300, fontSize: '1rem' }
             }
@@ -31,8 +30,16 @@ const ResultTableRow = React.memo(({ character, selected }) => {
           </Typography>
         </TableCell>
       ))}
+      {character.infusions
+        ? Object.values(character.infusions).map((element, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <TableCell align="center" key={`infu${index}`} padding="none">
+              {element}
+            </TableCell>
+          ))
+        : null}
     </TableRow>
   );
-});
+};
 
-export default ResultTableRow;
+export default React.memo(ResultTableRow);

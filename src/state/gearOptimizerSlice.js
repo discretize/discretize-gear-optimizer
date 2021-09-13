@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { WAITING } from './optimizer/status';
 import { Omnipotion } from '../utils/gw2-data';
+import { firstUppercase } from '../utils/usefulFunctions';
 
 const INITIALSTATE = {
   control: {
@@ -8,6 +9,7 @@ const INITIALSTATE = {
     list: [],
     progress: 0,
     selectedCharacter: null,
+    selectedTemplate: '',
     status: WAITING,
   },
   profession: '',
@@ -86,7 +88,7 @@ const INITIALSTATE = {
       Confusion: 0,
     },
     values2: {
-      Power: 2,
+      Power: 3000,
       Burning: 0,
       Bleeding: 0,
       Poisoned: 0,
@@ -94,7 +96,7 @@ const INITIALSTATE = {
       Confusion: 0,
     },
     textBoxes: {
-      Power: '2',
+      Power: '3000',
       Burning: '0',
       Bleeding: '0',
       Poisoned: '0',
@@ -130,6 +132,8 @@ export const gearOptimizerSlice = createSlice({
           list: [],
           progress: 0,
           selectedCharacter: null,
+          selectedTemplate: '',
+          selectedSpecialization: firstUppercase(action.payload),
           status: WAITING,
         };
         state.skills = [];
@@ -227,6 +231,16 @@ export const gearOptimizerSlice = createSlice({
 
       const traitState = JSON.parse(data.build.traits);
 
+      let { distribution } = state;
+      if (data.distributionPreset) {
+        distribution = {
+          version: 2,
+          values1: data.distributionPreset.values1,
+          values2: data.distributionPreset.values2,
+          textBoxes: data.distributionPreset.values2,
+        };
+      }
+
       return {
         ...state,
         ...traitState,
@@ -236,6 +250,8 @@ export const gearOptimizerSlice = createSlice({
           list: [],
           progress: 0,
           selectedCharacter: null,
+          selectedTemplate: data.build.name,
+          selectedSpecialization: data.specialization,
           status: WAITING,
         },
         buffs: buffsNew,
@@ -243,6 +259,7 @@ export const gearOptimizerSlice = createSlice({
           ...state.priorities,
           ...data.prioritiesPreset,
         },
+        distribution,
       };
     },
     setModifiers: (state, action) => {

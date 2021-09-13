@@ -9,6 +9,7 @@ import {
   SwipeableDrawer,
   Switch,
   Toolbar,
+  Typography,
   withStyles,
 } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
@@ -19,13 +20,11 @@ import Menu from 'material-ui-popup-state/HoverMenu';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  changeControl,
+  changeExpertMode,
   changeProfession,
   getControl,
   getProfession,
-  reset,
   setBuildTemplate,
-  changeExpertMode,
 } from '../../state/gearOptimizerSlice';
 import { PROFESSIONS } from '../../utils/gw2-data';
 import { firstUppercase } from '../../utils/usefulFunctions';
@@ -35,15 +34,20 @@ const styles = (theme) => ({
   topNav: {
     marginBottom: theme.spacing(2),
   },
+  topNavNoMarge: {
+    marginBottom: 0,
+  },
   navProfession: {
     fontSize: '2rem',
   },
 });
 
-const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
+const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPresets }) => {
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
   const expertMode = useSelector(getControl('expertMode'));
+  const selectedSpecialization = useSelector(getControl('selectedSpecialization'));
+  const selectedTemplateName = useSelector(getControl('selectedTemplate'));
 
   const [state, setState] = useState({
     mobileView: typeof window !== 'undefined' ? window.innerWidth < 900 : false,
@@ -88,7 +92,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
         />
         <IconButton
           className={classes.githubIcon}
-          href="https://github.com/discretize/discretize-gear-optimizer"
+          href="https://github.com/discretize/discretize-gear-optimizer/tree/react-recode"
         >
           <GitHubIcon />
         </IconButton>
@@ -138,12 +142,16 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
     );
   };
 
-  const handleTemplateSelect = (popup, elem) => {
+  const handleTemplateSelect = (popup, elem, specialization) => {
     dispatch({ type: 'CANCEL' });
     dispatch(
       setBuildTemplate({
         build: elem,
+        specialization: specialization,
         buffPreset: JSON.parse(buffPresets.find((pre) => pre.name === elem.boons).value),
+        distributionPreset: JSON.parse(
+          distributionPresets.find((pre) => pre.name === elem.distribution)?.value || 'null',
+        ),
         prioritiesPreset: JSON.parse(
           prioritiesPresets.find((prio) => prio.name === elem.priority).value,
         ),
@@ -201,10 +209,12 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
             >
               {data
                 .find((elem) => elem.class === p.profession.toLowerCase())
-                .builds.map((elem) => (
+                ?.builds?.map((elem) => (
                   <MenuItem
                     key={elem.name}
-                    onClick={(e) => handleTemplateSelect(popupState[index], elem)}
+                    onClick={(e) =>
+                      handleTemplateSelect(popupState[index], elem, elem.specialization)
+                    }
                   >
                     <Profession
                       eliteSpecialization={elem.specialization}
@@ -217,12 +227,28 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets }) => {
           </React.Fragment>
         ))}
       </Box>
+
+      {(selectedSpecialization || selectedTemplateName) && (
+        <Box flexGrow={1}>
+          <Typography>Selected: </Typography>
+          {selectedTemplateName ? (
+            <Profession eliteSpecialization={selectedSpecialization} text={selectedTemplateName} />
+          ) : (
+            <Profession name={selectedSpecialization} />
+          )}
+        </Box>
+      )}
+
       {stickyRight()}
     </Toolbar>
   );
 
   return (
-    <AppBar position="sticky" className={classes.topNav} color="inherit">
+    <AppBar
+      position="sticky"
+      className={profession === '' ? classes.topNavNoMarge : classes.topNav}
+      color="inherit"
+    >
       {mobileView ? displayMobile() : displayDesktop()}
     </AppBar>
   );

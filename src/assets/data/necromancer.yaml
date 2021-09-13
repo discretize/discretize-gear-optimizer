@@ -1,0 +1,256 @@
+GraphQL ID: Necromancer
+list:
+  - section: "Skills"
+    items:
+      - id: signet-of-spite
+        text: "Signet of Spite"
+        modifiers: >-
+          {
+            "buff": { "Power": 180 }
+          }
+        gw2-id: 10622
+        type: "skills"
+
+  - section: "Spite"
+    id: 53
+    items:
+      - id: spiteful-talisman
+        text: "Spiteful Talisman"
+        modifiers: >-
+          {
+            "multiplier": { "Effective Power": 0.1 }
+          }
+        gw2-id: 914
+        type: "traits"
+
+      - id: awaken-the-pain
+        text: "Awaken the Pain"
+        subText: "25 might"
+        modifiers: >-
+          {
+            "buff": { "Power": 250, "Condition Damage": -250 }
+          }
+        gw2-id: 829
+        type: "traits"
+
+      - id: close-to-death
+        text: "Close to Death"
+        subText: "50%"
+        modifiers: >-
+          {
+            "multiplier": { "Effective Power": 0.1 }
+          }
+        gw2-id: 853
+        type: "traits"
+
+  - section: "Curses"
+    id: 39
+    items:
+      - id: barbed-precision
+        text: "Barbed Precision"
+        minor: true
+        modifiers: >-
+          {
+            "flat": { "Bleeding Duration": 20 }
+          }
+        gw2-id: 802
+        type: "traits"
+
+      - id: furious-demise
+        text: "Furious Demise"
+        minor: true
+        modifiers: >-
+          {
+            "flat": { "Precision": 180 }
+          }
+        gw2-id: 803
+        type: "traits"
+
+      - id: target-the-weak
+        text: "Target the Weak"
+        subText: "10x"
+        minor: true
+        modifiers: >-
+          {
+            "flat": { "Critical Chance": 20 },
+            "convert": { "Condition Damage": { "Precision": 0.13 } }
+          }
+        gw2-id: 810
+        type: "traits"
+
+      - id: lingering-curse
+        text: "Lingering Curse"
+        subText: "base only"
+        modifiers: >-
+          {
+            "buff": { "Condition Damage": 200 }
+          }
+        gw2-id: 801
+        type: "traits"
+
+  - section: "Death Magic"
+    id: 2
+    items:
+      - id: carapace
+        text: ""
+        subText: "toughness from carapace, 6x"
+        minor: true
+        modifiers: >-
+          {
+            "buff": { "Toughness": 120 }
+          }
+        gw2-id:
+        type: "traits"
+
+      - id: putrid-defense
+        text: "Putrid Defense"
+        modifiers: >-
+          {
+            "multiplier": { "Poison Damage": 0.15 }
+          }
+        gw2-id: 857
+        type: "traits"
+
+      - id: deadly-strength-6x
+        text: "Deadly Strength"
+        subText: "6x carapace"
+        modifiers: >-
+          {
+            "buff": { "Power": 60 }
+          }
+        gw2-id: 855
+        type: "traits"
+
+      - id: deadly-strength-25x
+        text: "Deadly Strength"
+        subText: "25x carapace"
+        modifiers: >-
+          {
+            "buff": { "Power": 250 }
+          }
+        gw2-id: 855
+        type: "traits"
+
+  # - section: "Blood Magic"
+  #   id: 19
+  #   items:
+
+  - section: "Soul Reaping"
+    id: 50
+    items:
+      - id: soul-barbs
+        text: "Soul Barbs"
+        subText: "100%"
+        modifiers: >-
+          {
+            "multiplier": { "add: Effective Power": 0.1, "add: Effective Condition Damage": 0.1 }
+          }
+        gw2-id: 894
+        type: "traits"
+
+      - id: vital-persistence
+        text: "Vital Persistence"
+        modifiers: >-
+          {
+            "flat": { "Vitality": 180 }
+          }
+        gw2-id: 861
+        type: "traits"
+
+      - id: death-perception
+        text: "Death Perception"
+        subText: "INACCURATE: 100% in shroud"
+        modifiers: >-
+          {
+            "flat": { "Critical Chance": 33 },
+            "buff": { "Ferocity": 300 }
+          }
+        gw2-id: 893
+        type: "traits"
+
+  - section: "Scourge"
+    id: 60
+    items:
+      - id: fell-beacon
+        text: "Fell Beacon"
+        modifiers: >-
+          {
+            "convert": { "Expertise": { "Condition Damage": 0.07 } }
+          }
+        gw2-id: 2074
+        type: "traits"
+
+      - id: sand-sage-2x
+        text: "Sand Sage"
+        subText: "2x"
+        minor: true
+        modifiers: >-
+          {
+            "flat": { "Concentration": 150, "Expertise": 150 }
+          }
+        gw2-id: 2121
+        type: "traits"
+
+      - id: sand-sage-3x
+        text: "Sand Sage"
+        subText: "3x"
+        minor: true
+        modifiers: >-
+          {
+            "flat": { "Concentration": 225, "Expertise": 225 }
+          }
+        gw2-id: 2121
+        type: "traits"
+
+      - id: demonic-lore
+        text: "Demonic Lore"
+        subText: "Torment only"
+        modifiers: >-
+          {
+            "multiplier": { "Torment Damage": 0.25 }
+          }
+        gw2-id: 2164
+        type: "traits"
+
+  - section: "Reaper"
+    id: 34
+    items:
+      - id: soul-eater
+        text: "Soul Eater"
+        modifiers: >-
+          {
+            "multiplier": { "Effective Power": 0.1 }
+          }
+        gw2-id: 1969
+        type: "traits"
+
+      - id: decimate-defenses-25x
+        text: "Decimate Defenses"
+        subText: "25x"
+        modifiers: >-
+          {
+            "flat": { "Critical Chance": 50 }
+          }
+        gw2-id: 2031
+        type: "traits"
+
+      - id: cold-shoulder
+        text: "Cold Shoulder"
+        subText: "100%"
+        minor: true
+        modifiers: >-
+          {
+            "multiplier": { "Effective Power": 0.15 }
+          }
+        gw2-id: 2018
+        type: "traits"
+
+      - id: reapers-onslaught
+        text: "Reaper's Onslaught"
+        subText: "INACCURATE: 100% in shroud"
+        modifiers: >-
+          {
+            "buff": { "Ferocity": 300 }
+          }
+        gw2-id: 2021
+        type: "traits"

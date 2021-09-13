@@ -41,8 +41,17 @@ const ResultDetails = ({ classes, data, buffData }) => {
   // Fetch additional result values from the optimizer core (on demand)
   const character = { ...charRaw };
   updateAttributes(character);
-  // eslint-disable-next-line no-console
-  console.log('result character', character);
+
+  /* eslint-disable no-console */
+  console.groupCollapsed('Selected Character Data:');
+  console.log('Character object:', character);
+  console.table([
+    Object.fromEntries(
+      Object.entries(character.results.damageBreakdown).map(([a, b]) => [a, parseFloat(b)]),
+    ),
+  ]);
+  console.groupEnd();
+  /* eslint-enable no-console */
 
   const classData = Classes[profession.toLowerCase()].weapons;
 

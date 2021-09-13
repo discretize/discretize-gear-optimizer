@@ -309,7 +309,7 @@ list:
             "flat":
             {
               "Power": 45, "Precision": 45, "Toughness": 45, "Vitality": 45,
-              "Concentration": 45, "Condition Damage": 45, "Expertise": 45, "Ferocity": 45, "Healing Power": 45,
+              "Concentration": 45, "Condition Damage": 45, "Expertise": 45, "Ferocity": 45, "Healing Power": 45
             }
           }
         gw2-id: 43550
@@ -322,7 +322,7 @@ list:
             "flat":
             {
               "Power": 40, "Precision": 40, "Toughness": 40, "Vitality": 40,
-              "Concentration": 40, "Condition Damage": 40, "Expertise": 40, "Ferocity": 40, "Healing Power": 40,
+              "Concentration": 40, "Condition Damage": 40, "Expertise": 40, "Ferocity": 40, "Healing Power": 40
             }
           }
         gw2-id: 66961

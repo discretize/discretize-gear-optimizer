@@ -19,26 +19,26 @@ export const AFFIXES = [
   'BERSERKER',
   'ZEALOT',
   'SOLDIER',
-  'FORSAKEN',
+  // 'FORSAKEN',  exotic
   'VALKYRIE',
   'HARRIER',
-  'PALADIN',
+  // 'PALADIN', PVP
   'COMMANDER',
-  'DEMOLISHER',
-  'SWASHBUCKLER',
+  // 'DEMOLISHER', PVP
+  // 'SWASHBUCKLER', PVP
   'MARAUDER',
-  'AVATAR',
-  'DESTROYER',
+  // 'AVATAR', PVP
+  // 'DESTROYER', PVP
   'VIGILANT',
   'CRUSADER',
   'WANDERER',
   'DIVINER',
-  'WIZARD',
+  // 'WIZARD', PVP
   'VIPER',
   'GRIEVING',
-  'SAGE',
+  // 'SAGE', PVP
   'MARSHAL',
-  'CAPTAIN',
+  // 'CAPTAIN', exotic
   'RAMPAGER',
   'ASSASSIN',
   'SERAPH',
@@ -55,7 +55,7 @@ export const AFFIXES = [
   'CARRION',
   'RABID',
   'DIRE',
-  'APOSTATE',
+  // 'APOSTATE', exotic
   'PLAGUEDOCTOR',
   'BRINGER',
   'CLERIC',

@@ -15,6 +15,7 @@ import Nouislider from 'nouislider-react';
 import 'nouislider/distribute/nouislider.css';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import MuiAlert from '@material-ui/lab/Alert';
 import {
   changeAllDistributionsOld,
   changeDistributionNew,
@@ -23,7 +24,7 @@ import {
   getDistributionOld,
   getDistributionVersion,
   getTextBoxes,
-} from '../../state/gearOptimizerSlice';
+} from '../../../state/gearOptimizerSlice';
 
 const styles = (theme) => ({
   textbox: {
@@ -75,7 +76,7 @@ const styles = (theme) => ({
 });
 
 const DISTRIBUTION_NAMES = [
-  { name: 'Power', min: 0.001, max: 5, step: 0.001, color: '#b1b1b5' },
+  { name: 'Power', min: 0, max: 5000, step: 10, color: '#b1b1b5' },
   { name: 'Burning', min: 0, max: 50, step: 0.1 },
   { name: 'Bleeding', min: 0, max: 50, step: 0.1 },
   { name: 'Poisoned', min: 0, max: 50, step: 0.1 },
@@ -211,7 +212,16 @@ const DamageDistribution = ({ classes }) => {
     ));
   };
 
-  return version === 1 ? SliderOld() : SlidersNew();
+  return (
+    <>
+      {version === 1 ? SliderOld() : SlidersNew()}
+      {distributionNew.Confusion ? (
+        <MuiAlert elevation={6} variant="filled" severity="warning">
+          Note: Confusion damage calculation is currently incorrect.
+        </MuiAlert>
+      ) : null}
+    </>
+  );
 };
 
 export default withStyles(styles)(DamageDistribution);
