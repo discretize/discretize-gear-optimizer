@@ -18,10 +18,6 @@ export const omnipotionSlice = createSlice({
     },
   },
   extraReducers: {
-    [setBuildTemplate]: (state, action) => {
-      const templateState = JSON.parse(action.payload.build.traits);
-      return { ...state, ...templateState.extras };
-    },
     [setModifiers]: (state, action) => {
       // all selected modifiers will be collected in this array
       const modifiers = [];
@@ -37,7 +33,7 @@ export const omnipotionSlice = createSlice({
           }),
         });
       }
-      if (state.omnipotion) {
+      if (state.enable) {
         modifiers.push({
           id: 'omnipotion',
           modifiers: JSON.stringify(Omnipotion),
