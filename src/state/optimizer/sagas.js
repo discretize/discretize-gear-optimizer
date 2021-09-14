@@ -148,6 +148,7 @@ function* runCalc() {
     let newPercent;
     let oldPercent;
     let isChanged;
+    let newList;
 
     // list updates are on a trailing throttle
     let throttlecount = Infinity;
@@ -159,11 +160,11 @@ function* runCalc() {
       const result = generator.next();
       ({
         done,
-        value: { percent: newPercent, isChanged },
+        value: { percent: newPercent, isChanged, newList },
       } = result);
 
       if (isChanged) {
-        currentList = result.value.newList;
+        currentList = newList;
 
         // queue throttled list update if none queued
         if (throttlecount > THROTTLE) {
