@@ -35,22 +35,7 @@ function printTemplate(state) {
   console.log('Redux state:', state);
 }
 
-function* runCalc() {
-  yield delay(0);
-  yield put(changeSelectedCharacter(null));
-
-  const time = Date.now();
-  let state;
-  let currentList;
-  let input;
-  let settings;
-
-  try {
-    state = yield select();
-
-    console.groupCollapsed('Debug/Template Data:');
-    printTemplate(state);
-
+  function createInput(state) {
     const {
       control: { profession },
       infusions: {
@@ -85,7 +70,7 @@ function* runCalc() {
     const primaryMaxInfusions = parseTextNumber(primaryMaxInfusionsInput, 18);
     const secondaryMaxInfusions = parseTextNumber(secondaryMaxInfusionsInput, 18);
 
-    input = {
+    const input = {
       tags: undefined,
       profession: profession.toLowerCase(),
       weapontype: weaponType,
@@ -110,12 +95,12 @@ function* runCalc() {
         const parsed = JSON.parse(modifier.modifiers);
         return parsed;
       } catch (e) {
+        // eslint-disable-next-line no-alert
         alert(`Error: invalid modifier: ${modifier.id} (${modifier.source}). Skipping.`);
         console.error('Could not parse modifier:', modifier);
         return null;
       }
     });
-    console.log('Input object:', input);
 
     // temp: convert "poisoned" to "poison"
     const convertPoison = (distribution) =>
@@ -133,11 +118,30 @@ function* runCalc() {
       input.percentDistribution = convertPoison(input.percentDistribution);
     }
 
-    settings = optimizerCore.setup(input);
+    return input;
+  }
+
+function* runCalc() {
+  yield delay(0);
+  yield put(changeSelectedCharacter(null));
+
+  const time = Date.now();
+  let state;
+  let currentList;
+  let input;
+  let settings;
+
+  try {
+    state = yield select();
+
+    console.groupCollapsed('Debug/Template Data:');
+    printTemplate(state);
+
+    input = createInput(state);
+    console.log('Input object:', input);
     console.groupEnd();
 
-    // set up table columns here
-
+    settings = optimizerCore.setup(input);
     const generator = optimizerCore.calculate(settings);
 
     let done = false;
@@ -208,10 +212,6 @@ function* runCalc() {
     }
   }
 }
-
-// function* watchStart() {
-//   yield takeLeading('START', runCalc);
-// }
 
 function* watchStart() {
   while (true) {
