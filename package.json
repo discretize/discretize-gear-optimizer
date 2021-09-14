@@ -15,6 +15,7 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
+    "profile": "gatsby build --profile && gatsby serve",
     "clean": "gatsby clean",
     "updateMappings": "node updateMappings.js",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
