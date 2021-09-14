@@ -5,7 +5,9 @@ import { applyMiddleware, combineReducers, compose, createStore as reduxCreateSt
 import createSagaMiddleware from 'redux-saga';
 
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
-import gearOptimizerReducer from './gearOptimizerSlice';
+
+import mainReducer from './gearOptimizerSlice';
+import { extrasSlice } from './slices/extras';
 import gearOptimizerSaga from './optimizer/sagas';
 
 const createNoopStorage = () => {
@@ -32,7 +34,8 @@ const persistConfig = {
 
 const reducers = combineReducers({
   gw2UiStore: gw2UIReducer,
-  gearOptimizer: gearOptimizerReducer,
+  gearOptimizer: mainReducer,
+  extras: extrasSlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);

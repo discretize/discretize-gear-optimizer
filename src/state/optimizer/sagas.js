@@ -68,9 +68,15 @@ function* runCalc() {
         maxToughness,
         affixes,
       },
-      modifiers,
+      modifiers: modifiersMain,
       distribution: { version, values1, values2 },
     } = state.gearOptimizer;
+    const { modifiers: modifiersExtras } = state.extras;
+
+    // need to reassemble modifiers of all slices here
+    const modifiers = [];
+    modifiers.push(...modifiersMain);
+    modifiers.push(...modifiersExtras);
 
     const parseTextNumber = (text, defaultValue) => {
       const parsed = Number.parseInt(text, 10);

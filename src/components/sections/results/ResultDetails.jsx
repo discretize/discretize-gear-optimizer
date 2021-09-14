@@ -3,8 +3,6 @@ import { getImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import {
-  getExtra,
-  getExtras,
   getModifiers,
   getPriority,
   getProfession,
@@ -12,6 +10,7 @@ import {
   getTraitLines,
 } from '../../../state/gearOptimizerSlice';
 import { updateAttributes } from '../../../state/optimizer/optimizerCore';
+import { getExtra, getExtras, getExtrasModifiers } from '../../../state/slices/extras';
 import { Classes, Defense, INFUSIONS, PROFESSIONS } from '../../../utils/gw2-data';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 import Character from '../../gw2/Character';
@@ -30,8 +29,9 @@ const ResultDetails = ({ classes, data, buffData }) => {
   const sigil1 = useSelector(getExtra('Sigil1'));
   const sigil2 = useSelector(getExtra('Sigil2'));
   const priority = useSelector(getPriority('weaponType'));
-  const modifiers = useSelector(getModifiers);
   const traits = useSelector(getTraitLines);
+
+  const modifiers = useSelector(getModifiers);
 
   const charRaw = useSelector(getSelectedCharacter);
   if (!charRaw) {

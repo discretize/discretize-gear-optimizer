@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core';
 import { Item } from 'gw2-ui-bulk';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeExtras, getExtra } from '../../../state/gearOptimizerSlice';
+import { changeExtras, getExtra } from '../../../state/slices/extras';
 
 const styles = (theme) => ({
   formControl: {
@@ -36,7 +36,7 @@ const styles = (theme) => ({
 const GW2Select = ({ classes, name, label, data }) => {
   const dispatch = useDispatch();
   const bigValue = useSelector(getExtra(name));
-
+  console.log(bigValue);
   const handleChange = (event) => {
     if (event.target.value !== undefined)
       dispatch(changeExtras({ key: event.target.name, value: event.target.value }));

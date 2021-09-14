@@ -23,13 +23,6 @@ const INITIALSTATE = {
     modifiers: [],
   },
   skills: [],
-  extras: {
-    Runes: '',
-    Sigil1: '',
-    Sigil2: '',
-    Enhancement: '',
-    Nourishment: '',
-  },
   extraModifiers: {
     error: '',
     extraModifiers: [],
@@ -266,31 +259,10 @@ export const gearOptimizerSlice = createSlice({
       // passed data from GraphQL
       const data = action.payload;
 
-      const { extras, buffs, skills, traits, extraModifiers, profession } = state;
+      const { buffs, skills, traits, extraModifiers, profession } = state;
 
       // all selected modifiers will be collected in this array
       const modifiers = [];
-
-      // Applies runes, sigils, food modifiers
-      const extrasData = [
-        { id: 'Runes', list: data.runes.list },
-        { id: 'Sigil1', list: data.sigils.list },
-        { id: 'Sigil2', list: data.sigils.list },
-        { id: 'Enhancement', list: data.enhancement.list },
-        { id: 'Nourishment', list: data.nourishment.list },
-      ];
-
-      extrasData
-        .filter((extra) => extras[extra.id] !== '')
-        .filter((extra) => extras[extra.id] !== undefined)
-        .forEach((extra) => {
-          modifiers.push({
-            id: extras[extra.id],
-            modifiers: extra.list.flatMap((d) => d.items).find((a) => a.id === extras[extra.id])
-              .modifiers,
-            source: extra.id,
-          });
-        });
 
       // Apply "buffs" modifiers
       data.buffs.list
@@ -360,9 +332,6 @@ export const gearOptimizerSlice = createSlice({
     removeTraitModifierWithSource: (state, action) => {
       state.traits.modifiers = state.traits.modifiers.filter((m) => m.source !== action.payload);
     },
-    changeExtras: (state, action) => {
-      state.extras[action.payload.key] = action.payload.value;
-    },
     changeControl: (state, action) => {
       state.control[action.payload.key] = action.payload.value;
     },
@@ -411,14 +380,15 @@ export const getDistributionOld = (state) => state.gearOptimizer.distribution.va
 export const getDistributionNew = (state) => state.gearOptimizer.distribution.values2;
 export const getTextBoxes = (state) => state.gearOptimizer.distribution.textBoxes;
 export const getSkills = (state) => state.gearOptimizer.skills;
-export const getModifiers = (state) => state.gearOptimizer.modifiers;
+export const getModifiers = (state) => [
+  ...state.gearOptimizer.modifiers,
+  ...state.extras.modifiers,
+];
 export const getTraitModifiers = (state) => state.gearOptimizer.traits.modifiers;
-export const getExtra = (key) => (state) => state.gearOptimizer.extras[key];
 export const getControl = (key) => (state) => state.gearOptimizer.control[key];
 export const getBuffs = (state) => state.gearOptimizer.buffs;
 export const getInfusions = (state) => state.gearOptimizer.infusions;
 export const getPriority = (key) => (state) => state.gearOptimizer.priorities[key];
-export const getExtras = (state) => state.gearOptimizer.extras;
 export const getList = (state) => state.gearOptimizer.control.list;
 export const getOmniPotion = (state) => state.gearOptimizer.omnipotion;
 export const getSelectedCharacter = (state) => state.gearOptimizer.control.selectedCharacter;
@@ -444,7 +414,6 @@ export const {
   removeModifier,
   removeTraitModifierWithGW2id,
   removeModifierWithSource,
-  changeExtras,
   changeExtraModifiers,
   changeControl,
   changeBuff,
