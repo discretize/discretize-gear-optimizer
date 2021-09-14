@@ -23,7 +23,7 @@ import SpecialDurations from './SpecialDurations';
 
 const styles = (theme) => ({});
 
-const ResultDetails = ({ classes, data, buffData }) => {
+const ResultDetails = ({ classes, data }) => {
   const profession = useSelector(getProfession);
   const sigil1 = useSelector(getExtra('Sigil1'));
   const sigil2 = useSelector(getExtra('Sigil2'));
@@ -196,7 +196,7 @@ const ResultDetails = ({ classes, data, buffData }) => {
         <Grid item xs={12} sm={6} md={4}></Grid>
       </Grid>
 
-      <AppliedModifiers data={modifiers} buffData={buffData} />
+      <AppliedModifiers data={modifiers} buffData={data.buffs.list} />
     </div>
   );
 };

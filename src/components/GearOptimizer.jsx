@@ -117,7 +117,7 @@ const MainComponent = ({ classes, data }) => {
 
         <ResultTable />
         <Box m={3} />
-        <ResultDetails data={data} buffData={data.buffs.list} />
+        <ResultDetails data={data} />
       </div>
     </div>
   );
