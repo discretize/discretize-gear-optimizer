@@ -2,7 +2,7 @@ import React from 'react';
 import { FormControl, FormGroup, FormLabel, Grid, Typography, withStyles } from '@material-ui/core';
 import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeBuff, getBuffs } from '../../../state/gearOptimizerSlice';
+import { changeBuff, getBuffs } from '../../../state/slices/buffs';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 

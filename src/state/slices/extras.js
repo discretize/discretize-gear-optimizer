@@ -22,7 +22,7 @@ export const extrasSlice = createSlice({
       return { ...state, ...templateState.extras };
     },
     [setModifiers]: (state, action) => {
-      const data = action.payload;
+      const { data } = action.payload;
 
       // all selected modifiers will be collected in this array
       const modifiers = [];

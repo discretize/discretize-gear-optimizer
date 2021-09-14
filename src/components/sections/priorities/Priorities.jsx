@@ -12,7 +12,7 @@ import {
 import { Attribute } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changePriority, getPriority } from '../../../state/gearOptimizerSlice';
+import { changePriority, getPriority } from '../../../state/slices/priorities';
 import HelperIcon from '../../baseComponents/HelperIcon';
 import Affixes from '../Affixes';
 

@@ -36,7 +36,7 @@ const styles = (theme) => ({
 const GW2Select = ({ classes, name, label, data }) => {
   const dispatch = useDispatch();
   const bigValue = useSelector(getExtra(name));
-  console.log(bigValue);
+
   const handleChange = (event) => {
     if (event.target.value !== undefined)
       dispatch(changeExtras({ key: event.target.name, value: event.target.value }));

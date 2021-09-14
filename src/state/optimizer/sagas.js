@@ -9,6 +9,7 @@ import {
   changeSelectedCharacter,
   changeSelectedCharacterIfNone,
   getList,
+  getModifiers,
 } from '../gearOptimizerSlice';
 import { INFUSIONS } from '../../utils/gw2-data';
 import { SUCCESS, WAITING } from './status';
@@ -48,17 +49,17 @@ function* runCalc() {
     state = yield select();
 
     console.groupCollapsed('Debug/Template Data:');
-    printTemplate(state.gearOptimizer);
+    printTemplate(state);
 
     const {
-      profession,
+      control: { profession },
       infusions: {
         primaryInfusion,
         secondaryInfusion,
         primaryMaxInfusions: primaryMaxInfusionsInput,
         secondaryMaxInfusions: secondaryMaxInfusionsInput,
       },
-      forcedSlots,
+      forcedSlots: { slots },
       priorities: {
         optimizeFor,
         weaponType,
@@ -68,15 +69,10 @@ function* runCalc() {
         maxToughness,
         affixes,
       },
-      modifiers: modifiersMain,
       distribution: { version, values1, values2 },
-    } = state.gearOptimizer;
-    const { modifiers: modifiersExtras } = state.extras;
+    } = state;
 
-    // need to reassemble modifiers of all slices here
-    const modifiers = [];
-    modifiers.push(...modifiersMain);
-    modifiers.push(...modifiersExtras);
+    const modifiers = getModifiers(state);
 
     const parseTextNumber = (text, defaultValue) => {
       const parsed = Number.parseInt(text, 10);
@@ -94,7 +90,7 @@ function* runCalc() {
       profession: profession.toLowerCase(),
       weapontype: weaponType,
       affixes: affixes.map((affix) => affix.toLowerCase().replace(/^\w/, (c) => c.toUpperCase())),
-      forcedAffixes: forcedSlots,
+      forcedAffixes: slots,
       rankby: optimizeFor,
       minBoonDuration,
       minHealingPower,

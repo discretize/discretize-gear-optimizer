@@ -4,13 +4,13 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import {
   getModifiers,
-  getPriority,
   getProfession,
   getSelectedCharacter,
-  getTraitLines,
 } from '../../../state/gearOptimizerSlice';
 import { updateAttributes } from '../../../state/optimizer/optimizerCore';
-import { getExtra, getExtras, getExtrasModifiers } from '../../../state/slices/extras';
+import { getExtra } from '../../../state/slices/extras';
+import { getPriority } from '../../../state/slices/priorities';
+import { getTraitLines } from '../../../state/slices/traits';
 import { Classes, Defense, INFUSIONS, PROFESSIONS } from '../../../utils/gw2-data';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 import Character from '../../gw2/Character';
@@ -24,15 +24,15 @@ import SpecialDurations from './SpecialDurations';
 const styles = (theme) => ({});
 
 const ResultDetails = ({ classes, data, buffData }) => {
-  const extras = useSelector(getExtras);
   const profession = useSelector(getProfession);
   const sigil1 = useSelector(getExtra('Sigil1'));
   const sigil2 = useSelector(getExtra('Sigil2'));
+  const runeStringId = useSelector(getExtra('Runes'));
+
   const priority = useSelector(getPriority('weaponType'));
   const traits = useSelector(getTraitLines);
 
   const modifiers = useSelector(getModifiers);
-
   const charRaw = useSelector(getSelectedCharacter);
   if (!charRaw) {
     return null;
@@ -112,10 +112,10 @@ const ResultDetails = ({ classes, data, buffData }) => {
     };
   }
 
-  const rune = extras.Runes
-    ? data.runes.list.flatMap((r) => r.items).find((r) => r.id === extras.Runes)
+  const rune = runeStringId
+    ? data.runes.list.flatMap((r) => r.items).find((r) => r.id === runeStringId)
     : '';
-  const runeName = extras.Runes ? rune.text.split(' ')[rune.text.split(' ').length - 1] : '';
+  const runeName = runeStringId ? rune.text.split(' ')[rune.text.split(' ').length - 1] : '';
 
   // find the right image for the selected elite specialization
   const { eliteSpecializations } = PROFESSIONS.find(

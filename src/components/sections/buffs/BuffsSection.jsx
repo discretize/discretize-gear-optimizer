@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { replaceBuffs } from '../../../state/gearOptimizerSlice';
+import { replaceBuffs } from '../../../state/slices/buffs';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Buffs from './Buffs';

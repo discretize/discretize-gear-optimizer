@@ -10,7 +10,7 @@ import {
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeInfusions, getInfusions } from '../../../state/gearOptimizerSlice';
+import { changeInfusions, getInfusions } from '../../../state/slices/infusions';
 import { INFUSIONS } from '../../../utils/gw2-data';
 
 const styles = (theme) => ({
