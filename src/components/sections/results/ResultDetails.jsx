@@ -1,7 +1,7 @@
 import { Grid, Typography, withStyles } from '@material-ui/core';
 import { getImage } from 'gatsby-plugin-image';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useStore } from 'react-redux';
 import {
   getModifiers,
   getProfession,
@@ -21,9 +21,8 @@ import OutputDistribution from './OutputDistribution';
 import OutputInfusions from './OutputInfusions';
 import SpecialDurations from './SpecialDurations';
 
-const styles = (theme) => ({});
-
-const ResultDetails = ({ classes, data }) => {
+const ResultDetails = ({ data }) => {
+  const store = useStore();
   const profession = useSelector(getProfession);
   const sigil1 = useSelector(getExtra('Sigil1'));
   const sigil2 = useSelector(getExtra('Sigil2'));
@@ -32,7 +31,8 @@ const ResultDetails = ({ classes, data }) => {
   const priority = useSelector(getPriority('weaponType'));
   const traits = useSelector(getTraitLines);
 
-  const modifiers = useSelector(getModifiers);
+  // its good enough to query this value once since modifiers remain the same accross all characters
+  const modifiers = getModifiers(store.getState());
   const charRaw = useSelector(getSelectedCharacter);
   if (!charRaw) {
     return null;
@@ -201,4 +201,4 @@ const ResultDetails = ({ classes, data }) => {
   );
 };
 
-export default React.memo(withStyles(styles)(ResultDetails));
+export default React.memo(ResultDetails);
