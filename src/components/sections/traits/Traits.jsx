@@ -21,7 +21,7 @@ import {
   removeTraitModifier,
   removeTraitModifierWithGW2id,
   removeTraitModifierWithSource,
-} from '../../../state/gearOptimizerSlice';
+} from '../../../state/slices/traits';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
 const styles = (theme) => ({

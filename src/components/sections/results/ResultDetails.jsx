@@ -1,17 +1,16 @@
 import { Grid, Typography, withStyles } from '@material-ui/core';
 import { getImage } from 'gatsby-plugin-image';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useStore } from 'react-redux';
 import {
-  getExtra,
-  getExtras,
   getModifiers,
-  getPriority,
   getProfession,
   getSelectedCharacter,
-  getTraitLines,
 } from '../../../state/gearOptimizerSlice';
 import { updateAttributes } from '../../../state/optimizer/optimizerCore';
+import { getExtra } from '../../../state/slices/extras';
+import { getPriority } from '../../../state/slices/priorities';
+import { getTraitLines } from '../../../state/slices/traits';
 import { Classes, Defense, INFUSIONS, PROFESSIONS } from '../../../utils/gw2-data';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 import Character from '../../gw2/Character';
@@ -22,17 +21,18 @@ import OutputDistribution from './OutputDistribution';
 import OutputInfusions from './OutputInfusions';
 import SpecialDurations from './SpecialDurations';
 
-const styles = (theme) => ({});
-
-const ResultDetails = ({ classes, data, buffData }) => {
-  const extras = useSelector(getExtras);
+const ResultDetails = ({ data }) => {
+  const store = useStore();
   const profession = useSelector(getProfession);
   const sigil1 = useSelector(getExtra('Sigil1'));
   const sigil2 = useSelector(getExtra('Sigil2'));
+  const runeStringId = useSelector(getExtra('Runes'));
+
   const priority = useSelector(getPriority('weaponType'));
-  const modifiers = useSelector(getModifiers);
   const traits = useSelector(getTraitLines);
 
+  // its good enough to query this value once since modifiers remain the same accross all characters
+  const modifiers = getModifiers(store.getState());
   const charRaw = useSelector(getSelectedCharacter);
   if (!charRaw) {
     return null;
@@ -112,10 +112,10 @@ const ResultDetails = ({ classes, data, buffData }) => {
     };
   }
 
-  const rune = extras.Runes
-    ? data.runes.list.flatMap((r) => r.items).find((r) => r.id === extras.Runes)
+  const rune = runeStringId
+    ? data.runes.list.flatMap((r) => r.items).find((r) => r.id === runeStringId)
     : '';
-  const runeName = extras.Runes ? rune.text.split(' ')[rune.text.split(' ').length - 1] : '';
+  const runeName = runeStringId ? rune.text.split(' ')[rune.text.split(' ').length - 1] : '';
 
   // find the right image for the selected elite specialization
   const { eliteSpecializations } = PROFESSIONS.find(
@@ -196,9 +196,9 @@ const ResultDetails = ({ classes, data, buffData }) => {
         <Grid item xs={12} sm={6} md={4}></Grid>
       </Grid>
 
-      <AppliedModifiers data={modifiers} buffData={buffData} />
+      <AppliedModifiers data={modifiers} buffData={data.buffs.list} />
     </div>
   );
 };
 
-export default React.memo(withStyles(styles)(ResultDetails));
+export default React.memo(ResultDetails);

@@ -2,7 +2,7 @@ import { Typography, withStyles } from '@material-ui/core';
 import { Skill } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addSkill, getSkills, removeSkill } from '../../../state/gearOptimizerSlice';
+import { addSkill, getSkills, removeSkill } from '../../../state/slices/skills';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
 const styles = (theme) => ({
@@ -27,7 +27,7 @@ const Skills = ({ classes, data }) => {
 
   const onChange = (skill) => (e) => {
     if (e.target.checked) {
-      dispatch(addSkill({ value: skill.id }));
+      dispatch(addSkill(skill.id));
     } else {
       dispatch(removeSkill(skill.id));
     }

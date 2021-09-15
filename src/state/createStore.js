@@ -5,8 +5,19 @@ import { applyMiddleware, combineReducers, compose, createStore as reduxCreateSt
 import createSagaMiddleware from 'redux-saga';
 
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
-import gearOptimizerReducer from './gearOptimizerSlice';
+
+import { controlSlice } from './gearOptimizerSlice';
+import { extrasSlice } from './slices/extras';
 import gearOptimizerSaga from './optimizer/sagas';
+import { distributionSlice } from './slices/distribution';
+import { buffsSlice } from './slices/buffs';
+import { infusionsSlice } from './slices/infusions';
+import { traitsSlice } from './slices/traits';
+import { skillsSlice } from './slices/skills';
+import { prioritiesSlice } from './slices/priorities';
+import { extraModifiersSlice } from './slices/extraModifiers';
+import { forcedSlotsSlice } from './slices/forcedSlots';
+import { omnipotionSlice } from './slices/omnipotion';
 
 const createNoopStorage = () => {
   return {
@@ -32,7 +43,17 @@ const persistConfig = {
 
 const reducers = combineReducers({
   gw2UiStore: gw2UIReducer,
-  gearOptimizer: gearOptimizerReducer,
+  control: controlSlice.reducer,
+  extras: extrasSlice.reducer,
+  distribution: distributionSlice.reducer,
+  buffs: buffsSlice.reducer,
+  infusions: infusionsSlice.reducer,
+  traits: traitsSlice.reducer,
+  skills: skillsSlice.reducer,
+  priorities: prioritiesSlice.reducer,
+  extraModifiers: extraModifiersSlice.reducer,
+  forcedSlots: forcedSlotsSlice.reducer,
+  omnipotion: omnipotionSlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);

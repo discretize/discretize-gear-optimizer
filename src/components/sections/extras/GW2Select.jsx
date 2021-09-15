@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core';
 import { Item } from 'gw2-ui-bulk';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeExtras, getExtra } from '../../../state/gearOptimizerSlice';
+import { changeExtras, getExtra } from '../../../state/slices/extras';
 
 const styles = (theme) => ({
   formControl: {

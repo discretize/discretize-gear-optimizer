@@ -21,14 +21,14 @@ const ControlsBox = ({ classes, profession, data }) => {
       console.log('calculate');
 
       // pass data from GraphQL
-      dispatch(setModifiers(data));
+      dispatch(setModifiers({ data, profession }));
 
       dispatch(changeControl({ key: 'status', value: RUNNING }));
       dispatch({
         type: 'START',
       });
     },
-    [data, dispatch],
+    [data, dispatch, profession],
   );
 
   const onCancelCalculate = React.useCallback(

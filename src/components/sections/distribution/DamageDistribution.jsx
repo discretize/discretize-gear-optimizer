@@ -24,7 +24,7 @@ import {
   getDistributionOld,
   getDistributionVersion,
   getTextBoxes,
-} from '../../../state/gearOptimizerSlice';
+} from '../../../state/slices/distribution';
 
 const styles = (theme) => ({
   textbox: {

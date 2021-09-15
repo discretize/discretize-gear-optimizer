@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { changePriority } from '../../../state/gearOptimizerSlice';
+import { changePriority } from '../../../state/slices/priorities';
 import Section from '../../baseComponents/Section';
 import Presets from '../../baseComponents/Presets';
 import Priorities from './Priorities';

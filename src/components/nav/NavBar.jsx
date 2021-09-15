@@ -142,12 +142,13 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
     );
   };
 
-  const handleTemplateSelect = (popup, elem, specialization) => {
+  const handleTemplateSelect = (popup, elem, specialization, profession) => {
     dispatch({ type: 'CANCEL' });
     dispatch(
       setBuildTemplate({
         build: elem,
-        specialization: specialization,
+        specialization,
+        profession,
         buffPreset: JSON.parse(buffPresets.find((pre) => pre.name === elem.boons).value),
         distributionPreset: JSON.parse(
           distributionPresets.find((pre) => pre.name === elem.distribution)?.value || 'null',
@@ -213,7 +214,12 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
                   <MenuItem
                     key={elem.name}
                     onClick={(e) =>
-                      handleTemplateSelect(popupState[index], elem, elem.specialization)
+                      handleTemplateSelect(
+                        popupState[index],
+                        elem,
+                        elem.specialization,
+                        p.profession,
+                      )
                     }
                   >
                     <Profession

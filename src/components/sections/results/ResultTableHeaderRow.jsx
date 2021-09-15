@@ -4,7 +4,8 @@ import TableRow from '@material-ui/core/TableRow';
 import { Item } from 'gw2-ui-bulk';
 import { useSelector } from 'react-redux';
 import { Slots } from '../../../utils/gw2-data';
-import { getPriority, getInfusions } from '../../../state/gearOptimizerSlice';
+import { getPriority } from '../../../state/slices/priorities';
+import { getInfusions } from '../../../state/slices/infusions';
 
 const ResultTableHeaderRow = ({ classes }) => {
   const wield = useSelector(getPriority('weaponType'));

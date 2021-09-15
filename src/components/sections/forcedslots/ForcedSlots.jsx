@@ -3,7 +3,8 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeForcedSlot, getGeneric, getPriority } from '../../../state/gearOptimizerSlice';
+import { changeForcedSlot, getForcedSlots } from '../../../state/slices/forcedSlots';
+import { getPriority } from '../../../state/slices/priorities';
 import { GEAR_SLOTS } from '../../../utils/gw2-data';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 import { AFFIXES } from '../Affixes';
@@ -24,7 +25,7 @@ const styles = (theme) => ({
 
 const ForcedSlots = ({ classes }) => {
   const dispatch = useDispatch();
-  const forcedSlots = useSelector(getGeneric('forcedSlots'));
+  const forcedSlots = useSelector(getForcedSlots);
   const dualWielded = useSelector(getPriority('weaponType'));
 
   let SLOTS = GEAR_SLOTS;

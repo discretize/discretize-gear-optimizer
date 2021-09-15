@@ -2,12 +2,7 @@ import React from 'react';
 import { FormControl, Grid, Input, InputAdornment, InputLabel } from '@material-ui/core';
 import { Attribute, Item } from 'gw2-ui-bulk';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  changeAR,
-  changeOmnipotion,
-  getAR,
-  getOmniPotion,
-} from '../../../state/gearOptimizerSlice';
+import { changeAR, changeOmnipotion, getAR, getOmniPotion } from '../../../state/slices/omnipotion';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
 const ARinput = () => {
