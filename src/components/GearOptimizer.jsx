@@ -1,28 +1,25 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-console */
-import React from 'react';
 import { Box, Grid, Typography, withStyles } from '@material-ui/core';
-import { graphql, StaticQuery } from 'gatsby';
-
-import { useSelector } from 'react-redux';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import { graphql, StaticQuery } from 'gatsby';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { getControl, getProfession } from '../state/gearOptimizerSlice';
-
-import ARSection from './sections/ar/ARSection';
-import Controls from './sections/controls/Controls';
-import SkillsSection from './sections/skills/SkillsSection';
-import TraitsSection from './sections/traits/TraitsSection';
-import DistributionSection from './sections/distribution/DistributionSection';
-import ExtrasSection from './sections/extras/ExtrasSection';
-import BuffsSection from './sections/buffs/BuffsSection';
-import InfusionsSection from './sections/infusions/InfusionsSection';
-import ExtraModifiersSection from './sections/extramodifiers/ExtraModifiersSection';
-import ForcedSlotsSection from './sections/forcedslots/ForcedSlotsSection';
-import PrioritiesSection from './sections/priorities/PrioritiesSection';
-
 import NavBar from './nav/NavBar';
+import ARSection from './sections/ar/ARSection';
+import BuffsSection from './sections/buffs/BuffsSection';
+import Controls from './sections/controls/Controls';
+import DistributionSection from './sections/distribution/DistributionSection';
+import ExtraModifiersSection from './sections/extramodifiers/ExtraModifiersSection';
+import ExtrasSection from './sections/extras/ExtrasSection';
+import ForcedSlotsSection from './sections/forcedslots/ForcedSlotsSection';
+import InfusionsSection from './sections/infusions/InfusionsSection';
+import PrioritiesSection from './sections/priorities/PrioritiesSection';
 import ResultDetails from './sections/results/ResultDetails';
 import ResultTable from './sections/results/ResultTable';
+import SkillsSection from './sections/skills/SkillsSection';
+import TraitsSection from './sections/traits/TraitsSection';
 
 const styles = (theme) => ({
   root: {
