@@ -35,91 +35,91 @@ function printTemplate(state) {
   console.log('Redux state:', state);
 }
 
-  function createInput(state) {
-    const {
-      control: { profession },
-      infusions: {
-        primaryInfusion,
-        secondaryInfusion,
-        primaryMaxInfusions: primaryMaxInfusionsInput,
-        secondaryMaxInfusions: secondaryMaxInfusionsInput,
-      },
-      forcedSlots: { slots },
-      priorities: {
-        optimizeFor,
-        weaponType,
-        minBoonDuration,
-        minHealingPower,
-        minToughness,
-        maxToughness,
-        affixes,
-      },
-      distribution: { version, values1, values2 },
-    } = state;
-
-    const modifiers = getModifiers(state);
-
-    const parseTextNumber = (text, defaultValue) => {
-      const parsed = Number.parseInt(text, 10);
-      if (Number.isNaN(parsed)) {
-        return defaultValue;
-      }
-      return Math.max(parsed, 0);
-    };
-
-    const primaryMaxInfusions = parseTextNumber(primaryMaxInfusionsInput, 18);
-    const secondaryMaxInfusions = parseTextNumber(secondaryMaxInfusionsInput, 18);
-
-    const input = {
-      tags: undefined,
-      profession: profession.toLowerCase(),
-      weapontype: weaponType,
-      affixes: affixes.map((affix) => affix.toLowerCase().replace(/^\w/, (c) => c.toUpperCase())),
-      forcedAffixes: slots,
-      rankby: optimizeFor,
+function createInput(state) {
+  const {
+    control: { profession },
+    infusions: {
+      primaryInfusion,
+      secondaryInfusion,
+      primaryMaxInfusions: primaryMaxInfusionsInput,
+      secondaryMaxInfusions: secondaryMaxInfusionsInput,
+    },
+    forcedSlots: { slots },
+    priorities: {
+      optimizeFor,
+      weaponType,
       minBoonDuration,
       minHealingPower,
       minToughness,
       maxToughness,
-      maxResults: 50, // TODO MAX RESULTS
-      primaryInfusion: INFUSIONS.find((i) => i.id === primaryInfusion)?.attribute,
-      secondaryInfusion: INFUSIONS.find((i) => i.id === secondaryInfusion)?.attribute,
-      primaryMaxInfusions,
-      secondaryMaxInfusions,
-      distributionVersion: version,
-      percentDistribution: values1,
-      distribution: values2,
-    };
-    input.modifiers = modifiers.map((modifier) => {
-      try {
-        const parsed = JSON.parse(modifier.modifiers);
-        return parsed;
-      } catch (e) {
-        // eslint-disable-next-line no-alert
-        alert(`Error: invalid modifier: ${modifier.id} (${modifier.source}). Skipping.`);
-        console.error('Could not parse modifier:', modifier);
-        return null;
-      }
-    });
+      affixes,
+    },
+    distribution: { version, values1, values2 },
+  } = state;
 
-    // temp: convert "poisoned" to "poison"
-    const convertPoison = (distribution) =>
-      Object.fromEntries(
-        Object.entries(distribution).map(([key, value]) => [
-          key === 'Poisoned' ? 'Poison' : key,
-          value,
-        ]),
-      );
+  const modifiers = getModifiers(state);
 
-    if ({}.hasOwnProperty.call(input.distribution, 'Poisoned')) {
-      input.distribution = convertPoison(input.distribution);
+  const parseTextNumber = (text, defaultValue) => {
+    const parsed = Number.parseInt(text, 10);
+    if (Number.isNaN(parsed)) {
+      return defaultValue;
     }
-    if ({}.hasOwnProperty.call(input.percentDistribution, 'Poisoned')) {
-      input.percentDistribution = convertPoison(input.percentDistribution);
-    }
+    return Math.max(parsed, 0);
+  };
 
-    return input;
+  const primaryMaxInfusions = parseTextNumber(primaryMaxInfusionsInput, 18);
+  const secondaryMaxInfusions = parseTextNumber(secondaryMaxInfusionsInput, 18);
+
+  const input = {
+    tags: undefined,
+    profession: profession.toLowerCase(),
+    weapontype: weaponType,
+    affixes: affixes.map((affix) => affix.toLowerCase().replace(/^\w/, (c) => c.toUpperCase())),
+    forcedAffixes: slots,
+    rankby: optimizeFor,
+    minBoonDuration,
+    minHealingPower,
+    minToughness,
+    maxToughness,
+    maxResults: 50, // TODO MAX RESULTS
+    primaryInfusion: INFUSIONS.find((i) => i.id === primaryInfusion)?.attribute,
+    secondaryInfusion: INFUSIONS.find((i) => i.id === secondaryInfusion)?.attribute,
+    primaryMaxInfusions,
+    secondaryMaxInfusions,
+    distributionVersion: version,
+    percentDistribution: values1,
+    distribution: values2,
+  };
+  input.modifiers = modifiers.map((modifier) => {
+    try {
+      const parsed = JSON.parse(modifier.modifiers);
+      return parsed;
+    } catch (e) {
+      // eslint-disable-next-line no-alert
+      alert(`Error: invalid modifier: ${modifier.id} (${modifier.source}). Skipping.`);
+      console.error('Could not parse modifier:', modifier);
+      return null;
+    }
+  });
+
+  // temp: convert "poisoned" to "poison"
+  const convertPoison = (distribution) =>
+    Object.fromEntries(
+      Object.entries(distribution).map(([key, value]) => [
+        key === 'Poisoned' ? 'Poison' : key,
+        value,
+      ]),
+    );
+
+  if ({}.hasOwnProperty.call(input.distribution, 'Poisoned')) {
+    input.distribution = convertPoison(input.distribution);
   }
+  if ({}.hasOwnProperty.call(input.percentDistribution, 'Poisoned')) {
+    input.percentDistribution = convertPoison(input.percentDistribution);
+  }
+
+  return input;
+}
 
 function* runCalc() {
   yield delay(0);
