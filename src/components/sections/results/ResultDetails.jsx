@@ -179,7 +179,7 @@ const ResultDetails = ({ data }) => {
         <Grid item xs={12} sm={6} md={4}>
           <AffixesStats
             data={character.results.effectivePositiveValues}
-            title="Damage loss from -5 of attribute"
+            title="Damage increase from +5 of attribute"
           />
           <AffixesStats
             data={character.results.effectiveNegativeValues}
