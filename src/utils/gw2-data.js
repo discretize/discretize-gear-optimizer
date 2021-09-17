@@ -641,7 +641,7 @@ export const WEAPONS = {
   STAFF: { name: 'Staff', type: 'two-handed', gw2_id: 30698 },
   RIFLE: { name: 'Rifle', type: 'two-handed', gw2_id: 30694 },
   LONGBOW: { name: 'Longbow', type: 'two-handed', gw2_id: 30685 },
-  SHORTBOW: { name: 'Shortbow', type: 'two-handed', gw2_id: 30686 },
+  SHORTBOW: { name: 'Short Bow', type: 'two-handed', gw2_id: 30686 },
 
   SCEPTER: { name: 'Scepter', type: 'mainHand', gw2_id: 30695 },
 
