@@ -15,7 +15,7 @@ const ResultTableRow = ({ character, selected, mostCommonAffix }) => {
       onClick={(e) => dispatch(changeSelectedCharacter(character))}
       hover
     >
-      <TableCell scope="row">{character.attributes.Damage.toFixed(2)}</TableCell>
+      <TableCell scope="row">{character.attributes[character.settings.rankby].toFixed(2)}</TableCell>
       {character.gear.map((element, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <TableCell align="center" key={element + index} padding="none">
