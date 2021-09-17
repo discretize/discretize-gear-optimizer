@@ -1196,7 +1196,7 @@
     core-js-pure "^3.15.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.10.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.13.10", "@babel/runtime@^7.14.6", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.10.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.13.10", "@babel/runtime@^7.14.6", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
   version "7.14.8"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.8.tgz#7119a56f421018852694290b9f9148097391b446"
   integrity sha512-twj3L8Og5SaCRCErB4x4ajbvBIVV77CGeFglHpeg5WC5FF8TZzBWXtTJ4MqaD9QszLYTtr+IsaAL2rEUevb+eg==
@@ -1358,19 +1358,19 @@
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
   integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
 
+"@emotion/is-prop-valid@0.8.8", "@emotion/is-prop-valid@^0.8.1":
+  version "0.8.8"
+  resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz#db28b1c4368a259b60a97311d6a952d4fd01ac1a"
+  integrity sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==
+  dependencies:
+    "@emotion/memoize" "0.7.4"
+
 "@emotion/is-prop-valid@^0.7.3":
   version "0.7.3"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.7.3.tgz#a6bf4fa5387cbba59d44e698a4680f481a8da6cc"
   integrity sha512-uxJqm/sqwXw3YPA5GXX365OBcJGFtxUVkB6WyezqFHlNe9jqUWH5ur2O2M8dGBz61kn1g3ZBlzUunFQXQIClhA==
   dependencies:
     "@emotion/memoize" "0.7.1"
-
-"@emotion/is-prop-valid@^0.8.1":
-  version "0.8.8"
-  resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz#db28b1c4368a259b60a97311d6a952d4fd01ac1a"
-  integrity sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==
-  dependencies:
-    "@emotion/memoize" "0.7.4"
 
 "@emotion/is-prop-valid@^1.1.0":
   version "1.1.0"
@@ -1438,6 +1438,24 @@
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@emotion/sheet/-/sheet-1.0.1.tgz#245f54abb02dfd82326e28689f34c27aa9b2a698"
   integrity sha512-GbIvVMe4U+Zc+929N1V7nW6YYJtidj31lidSmdYcWozwoBIObXBnaJkKNDjZrLm9Nc0BR+ZyHNaRZxqNZbof5g==
+
+"@emotion/styled-base@^10.0.27":
+  version "10.0.31"
+  resolved "https://registry.yarnpkg.com/@emotion/styled-base/-/styled-base-10.0.31.tgz#940957ee0aa15c6974adc7d494ff19765a2f742a"
+  integrity sha512-wTOE1NcXmqMWlyrtwdkqg87Mu6Rj1MaukEoEmEkHirO5IoHDJ8LgCQL4MjJODgxWxXibGR3opGp1p7YvkNEdXQ==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    "@emotion/is-prop-valid" "0.8.8"
+    "@emotion/serialize" "^0.11.15"
+    "@emotion/utils" "0.11.3"
+
+"@emotion/styled@^10.0.0":
+  version "10.0.27"
+  resolved "https://registry.yarnpkg.com/@emotion/styled/-/styled-10.0.27.tgz#12cb67e91f7ad7431e1875b1d83a94b814133eaf"
+  integrity sha512-iK/8Sh7+NLJzyp9a5+vIQIXTYxfT4yB/OJbjzQanB2RZpvmzBQOHZWhpAMZWYEKRNNbsD6WfBw5sVWkb6WzS/Q==
+  dependencies:
+    "@emotion/styled-base" "^10.0.27"
+    babel-plugin-emotion "^10.0.27"
 
 "@emotion/styled@^11.0.0":
   version "11.3.0"
@@ -2095,7 +2113,7 @@
     prop-types "^15.7.2"
     react-is "^16.8.0 || ^17.0.0"
 
-"@mdx-js/react@^1.6.22":
+"@mdx-js/react@^1.0.0", "@mdx-js/react@^1.6.22":
   version "1.6.22"
   resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-1.6.22.tgz#ae09b4744fddc74714ee9f9d6f17a66e77c43573"
   integrity sha512-TDoPum4SHdfPiGSAaRBw7ECyI8VaHpK8GJugbJIJuqyh6kzw9ZLJZW3HGL3NNrJGxcAixUvqROm+YuQOo5eXtg==
@@ -2147,27 +2165,6 @@
   version "2.9.2"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.9.2.tgz#adea7b6953cbb34651766b0548468e743c6a2353"
   integrity sha512-VZMYa7+fXHdwIq1TDhSXoVmSPEGM/aa+6Aiq3nVVJ9bXr24zScr+NlKFKC3iPljA7ho/GAZr+d2jOf5GIRC30Q==
-
-"@redux-requests/axios@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@redux-requests/axios/-/axios-1.0.0.tgz#56ec3a732925fa6e254da93f8b06607367bbcc01"
-  integrity sha512-zA/cJffEFMu/XdO09nWERFWEodEFKkCpEDsKs26NFmVZ39kJBGBqK9d+1K4WlH5uRM3dF8ytaLUK15ZLeIjThA==
-
-"@redux-requests/core@1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@redux-requests/core/-/core-1.1.1.tgz#eadff0f6e7bdcba848d99e080534e2015e300ea1"
-  integrity sha512-e83cdFYkKbLaLlLBSnCsyqJcYYz0YSa/5ip5POL2/Y295gHoPQ+0CwitC3gWHO7PrFcrge1Y5N+cZa5qsHZEDg==
-  dependencies:
-    "@babel/runtime" "^7.2.0"
-    deepmerge "^4.0.0"
-
-"@redux-requests/react@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@redux-requests/react/-/react-1.0.0.tgz#448e2a20363cc72f326c2d25db778a078ab915cf"
-  integrity sha512-xmcKnIsO+9uQHzkuxU0hDBtSYPY7LdKZhCMd7Lf1q7RllCMY1VknAMpzKGZRwjgPY42FZMPFWxHpBAsSXH/x5w==
-  dependencies:
-    prop-types "^15.5.7"
-    react-is "^16.13.1"
 
 "@redux-saga/core@^1.1.3":
   version "1.1.3"
@@ -2394,6 +2391,16 @@
     "@theme-ui/css" "0.10.0"
     deepmerge "^4.2.2"
 
+"@theme-ui/color-modes@0.3.5":
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/@theme-ui/color-modes/-/color-modes-0.3.5.tgz#e280d1ff8be9f648c161b899e5049cb45a73cb90"
+  integrity sha512-3n5ExAnp1gAuVVFdGF2rRLyrVsa7qtmUXx+gj1wPJsADq23EE4ctkppC+aIfPFxT196WhR8fjErrVuO7Rh+wAg==
+  dependencies:
+    "@emotion/core" "^10.0.0"
+    "@theme-ui/core" "0.3.5"
+    "@theme-ui/css" "0.3.5"
+    deepmerge "^4.2.2"
+
 "@theme-ui/components@0.10.0":
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/@theme-ui/components/-/components-0.10.0.tgz#c1aa9cade71e5a6cf7c19f9e0ade900122ef23f9"
@@ -2407,6 +2414,18 @@
     "@theme-ui/css" "0.10.0"
     "@types/styled-system" "^5.1.10"
 
+"@theme-ui/components@0.3.5":
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/@theme-ui/components/-/components-0.3.5.tgz#cd0b5a1292f88b3df2c5b6b299b0a6cdc6da52e5"
+  integrity sha512-RdWwnN43H1Tq80lGCu6icNuYCWoHHNtwH+LJGaGfiPkv/uMXWrwzKPLMiAuYM5b3ofKtmdaAcxZLjqAld97jkw==
+  dependencies:
+    "@emotion/core" "^10.0.0"
+    "@emotion/styled" "^10.0.0"
+    "@styled-system/color" "^5.1.2"
+    "@styled-system/should-forward-prop" "^5.1.2"
+    "@styled-system/space" "^5.1.2"
+    "@theme-ui/css" "0.3.5"
+
 "@theme-ui/core@0.10.0":
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/@theme-ui/core/-/core-0.10.0.tgz#2373d53368da5fa561915414ade070a9de0e9678"
@@ -2417,7 +2436,7 @@
     "@theme-ui/parse-props" "0.10.0"
     deepmerge "^4.2.2"
 
-"@theme-ui/core@^0.3.1":
+"@theme-ui/core@0.3.5":
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/@theme-ui/core/-/core-0.3.5.tgz#096ded31193bfe83c50d09eca0fb086cab2ac7e1"
   integrity sha512-80gbG4BW0ZQgZ8TWSG7vY72uXDxmkI/GttjpJee7AJlWVrPh7RCD2E3cuFPjqXzt7o4BJ9lZSHmTXcLzixNtRw==
@@ -2450,6 +2469,15 @@
     "@theme-ui/core" "0.10.0"
     "@theme-ui/css" "0.10.0"
 
+"@theme-ui/mdx@0.3.5":
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/@theme-ui/mdx/-/mdx-0.3.5.tgz#60d26102dcc8b2095269de461dcf8f51fa18cf4c"
+  integrity sha512-KMf5kkEcItQ3qIj7dston/kBOZc82ST2R0pUcyk/u8ZclX4ingRtZkMxm2zpmxybzdSUY3DIKf2MTK9CxUSpOQ==
+  dependencies:
+    "@emotion/core" "^10.0.0"
+    "@emotion/styled" "^10.0.0"
+    "@mdx-js/react" "^1.0.0"
+
 "@theme-ui/parse-props@0.10.0":
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/@theme-ui/parse-props/-/parse-props-0.10.0.tgz#8d2f4f3b3edafd925c3872ddd559e2b62006f43f"
@@ -2469,7 +2497,17 @@
     "@theme-ui/css" "0.10.0"
     "@theme-ui/mdx" "0.10.0"
 
-"@tippyjs/react@^4.2.0":
+"@theme-ui/theme-provider@0.3.5":
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/@theme-ui/theme-provider/-/theme-provider-0.3.5.tgz#98ad67d8e2e38a6347ea604878202f49fea38088"
+  integrity sha512-C1kVsGyrh/pqO/j4+KSF5IvVW1DOnZoQmpaJ9EjyU4bqY0PCTZfuNdNPfydKaDWiYxrKGXKBeX0xjvLLU6R0zQ==
+  dependencies:
+    "@emotion/core" "^10.0.0"
+    "@theme-ui/color-modes" "0.3.5"
+    "@theme-ui/core" "0.3.5"
+    "@theme-ui/mdx" "0.3.5"
+
+"@tippyjs/react@^4.2.5":
   version "4.2.5"
   resolved "https://registry.yarnpkg.com/@tippyjs/react/-/react-4.2.5.tgz#9b5837db93a1cac953962404df906aef1a18e80d"
   integrity sha512-YBLgy+1zznBNbx4JOoOdFXWMLXjBh9hLPwRtq3s8RRdrez2l3tPBRt2m2909wZd9S1KUeKjOOYYsnitccI9I3A==
@@ -7733,39 +7771,36 @@ graphql@^15.4.0:
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.5.1.tgz#f2f84415d8985e7b84731e7f3536f8bb9d383aad"
   integrity sha512-FeTRX67T3LoE3LWAxxOlW2K3Bz+rMYAC18rRguK4wgXaTZMiJwSUwDmPFo3UadAKbzirKIg5Qy+sNJXbpPRnQw==
 
-gw2-ui-builder-bulk@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/gw2-ui-builder-bulk/-/gw2-ui-builder-bulk-0.2.3.tgz#5f554d0bbb6591bf377439faca840a387332b22f"
-  integrity sha512-bBbsLi9Z4TBH8etKrZu16oRdOzA8t0+tM7zdG6aJVUb4BSnCuQudeoKjziLExj30LZfG4L2h+KiVfGtIcSe6VA==
+gw2-ui-builder-bulk@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/gw2-ui-builder-bulk/-/gw2-ui-builder-bulk-0.2.4.tgz#cc468b8c001573c3b26dd0f3c3e5b379a5a2de53"
+  integrity sha512-Lyut7wmI83zClIGnwHvMblpa/WTa45tFbhhzkww9B+lazoneE2ZFkCIUA2fsZYSn/9CYAeZSpMr4LOEFL8ds/g==
 
-gw2-ui-bulk@0.10.28:
-  version "0.10.28"
-  resolved "https://registry.yarnpkg.com/gw2-ui-bulk/-/gw2-ui-bulk-0.10.28.tgz#dbbd8bb754692b4c1ac8ec42022fa15bd1824c7b"
-  integrity sha512-4AsZrVj+iAgEAfdHuoezC9R8khZhagCPw3bKoTg8upQO5KDiObB/3ZwZwggAss7lFRhvsU7Lw3pvLRSav6Wxpg==
+gw2-ui-bulk@0.10.39:
+  version "0.10.39"
+  resolved "https://registry.yarnpkg.com/gw2-ui-bulk/-/gw2-ui-bulk-0.10.39.tgz#da96088b82b3faefba8e30357e91badac3fd0df3"
+  integrity sha512-mjP0fLV0esZ0HQCTuIbjCQGo9arDbOyZt9X0IZormMqxBUyxs7IDINUhQ5wcYQHC0AFW3Fs+KnmKKDLuxgdqFw==
   dependencies:
-    "@redux-requests/react" "1.0.0"
-    gw2-ui-builder-bulk "^0.2.3"
-    gw2-ui-components-bulk "^0.11.15"
-    gw2-ui-redux-bulk "^0.5.10"
+    gw2-ui-builder-bulk "^0.2.4"
+    gw2-ui-components-bulk "^0.11.26"
+    gw2-ui-redux-bulk "^0.5.11"
 
-gw2-ui-components-bulk@^0.11.15:
-  version "0.11.15"
-  resolved "https://registry.yarnpkg.com/gw2-ui-components-bulk/-/gw2-ui-components-bulk-0.11.15.tgz#78771f1c88ca208271837fc8da06b4a20f98330c"
-  integrity sha512-PoqxWNAPy2nqjRh8W49fUgYYRwquYmAQZiaCqjiBVl3B3mybEAFEbDzxoyezyKYCtK2VrCwvGv2CRQ2B5E7BHA==
+gw2-ui-components-bulk@^0.11.26:
+  version "0.11.26"
+  resolved "https://registry.yarnpkg.com/gw2-ui-components-bulk/-/gw2-ui-components-bulk-0.11.26.tgz#34d7d93305358e0457ece556a1a14df0f28152fb"
+  integrity sha512-0HE3c/rYpNY620wbPkF0H6anON33WfpHK85YoAN/9sEza9z/n3BD/BRRhKkhEs2GnrgrFh5QHGBDP5xdlgkMUw==
   dependencies:
-    "@theme-ui/core" "^0.3.1"
-    "@tippyjs/react" "^4.2.0"
+    "@tippyjs/react" "^4.2.5"
     classnames "^2.2.6"
     lodash.camelcase "^4.3.0"
     react-resize-aware "^3.0.1"
+    theme-ui "^0.3.5"
 
-gw2-ui-redux-bulk@^0.5.10:
-  version "0.5.10"
-  resolved "https://registry.yarnpkg.com/gw2-ui-redux-bulk/-/gw2-ui-redux-bulk-0.5.10.tgz#2d7b07719d4bab0373aa0f584508b8cbd7b462e4"
-  integrity sha512-9XbYeEzlZ0swOBsu1K8mSJPkc2EBc0CDRpN9OeiAWIN/UopfqUxE7zfQQyBWYqZEkElT7DH1VFaGr8l598hclA==
+gw2-ui-redux-bulk@^0.5.11:
+  version "0.5.11"
+  resolved "https://registry.yarnpkg.com/gw2-ui-redux-bulk/-/gw2-ui-redux-bulk-0.5.11.tgz#6c99d7491bad0cb3c6fddcf83a81b79f267202e2"
+  integrity sha512-VKp2oJSsgPPuhlCBk2BspIaNwQmiYyEuB0ogbevip9bcu4l/2lCNs1FWPnKX4rQWr1XXlV+MpX0lfMbVR/o2rA==
   dependencies:
-    "@redux-requests/axios" "1.0.0"
-    "@redux-requests/core" "1.1.1"
     "@reduxjs/toolkit" "^1.6.1"
     function-batch "^1.1.2"
 
@@ -11401,7 +11436,7 @@ prompts@^2.3.2:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -13317,6 +13352,18 @@ theme-ui@^0.10.0:
     "@theme-ui/css" "0.10.0"
     "@theme-ui/mdx" "0.10.0"
     "@theme-ui/theme-provider" "0.10.0"
+
+theme-ui@^0.3.5:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/theme-ui/-/theme-ui-0.3.5.tgz#db29a4df0ad6cbf0fde42aab1cd9941c4b813efc"
+  integrity sha512-yxooGhvkdjFDotDeIFehKo5k6NnLZ3gsLSe8EDe2aDcoWqg1mZjkjjr8EYtVCrK3mk/tYz97AT5BpEnUfamNCQ==
+  dependencies:
+    "@theme-ui/color-modes" "0.3.5"
+    "@theme-ui/components" "0.3.5"
+    "@theme-ui/core" "0.3.5"
+    "@theme-ui/css" "0.3.5"
+    "@theme-ui/mdx" "0.3.5"
+    "@theme-ui/theme-provider" "0.3.5"
 
 theming@^3.3.0:
   version "3.3.0"
