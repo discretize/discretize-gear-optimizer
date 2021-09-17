@@ -5,7 +5,7 @@ list:
       - name: pChrono
         id: pchrono
         specialization: Chronomancer
-        boons: Fractal
+        boons: 'Power (spotter)'
         priority: Power DPS
         distribution: 'Power Chrono'
         traits: >-
@@ -75,7 +75,7 @@ list:
       # - name: Staff Mirage
       #   id: staffmirage
       #   specialization: Mirage
-      #   boons: Fractal
+      #   boons: 'Condi'
       #   priority: Condi DPS
       #   distribution: '100% Power'
       #   traits: >-
@@ -150,7 +150,7 @@ list:
       - name: DH
         id: dh
         specialization: Dragonhunter
-        boons: Fractal
+        boons: 'Power (spotter)'
         priority: Power DPS
         distribution: 'DH (Radiance)'
         traits: >-
@@ -227,7 +227,9 @@ list:
                 }
               ]
             },
-            "skills":[],
+            "skills":[
+              "bane-signet-2"
+            ],
             "extras":{
               "Runes":"scholar",
               "Sigil1":"force",
@@ -240,7 +242,7 @@ list:
       - name: pQFB
         id: pqfb
         specialization: Firebrand
-        boons: Fractal
+        boons: 'Power (spotter)'
         priority: Power DPS
         distribution: 'Power Firebrand (approx.)'
         traits: >-
@@ -322,7 +324,7 @@ list:
       - name: CFB w/ Quickness # Virtues
         id: cqfb
         specialization: Firebrand
-        boons: Fractal
+        boons: 'Condi'
         priority: Condi DPS
         distribution: 'Quickness CFB (Virtues, allies)'
         traits: >-
@@ -414,7 +416,7 @@ list:
       - name: CFB DPS # Virtues
         id: cfb
         specialization: Firebrand
-        boons: Fractal
+        boons: 'Condi'
         priority: Condi DPS
         distribution: 'CFB (Virtues, 5 page, allies)'
         traits: >-
@@ -506,7 +508,7 @@ list:
       # - name: CFB Zeal
       #   id: cfb2
       #   specialization: Firebrand
-      #   boons: Fractal
+      #   boons: 'Condi'
       #   priority: Condi DPS
       #   distribution: '100% Power'
       #   traits: >-
@@ -593,7 +595,7 @@ list:
       # - name: Cat Cele Virtues TEMP NO VIRTUOUS WRONG INSPIRED NO ALLIES
       #   id: cat1
       #   specialization: Firebrand
-      #   boons: Fractal
+      #   boons: 'Condi'
       #   priority: Condi Boon
       #   distribution: Hybrid FB (Virtues, no allies)
       #   traits: >-
@@ -678,7 +680,7 @@ list:
       - name: Hybrid FB (Virtues)*
         id: hycfb-virtues-leadership
         specialization: Firebrand
-        boons: Fractal
+        boons: 'Condi'
         priority: Condi Boon
         distribution: Hybrid FB (Virtues)
         traits: >-
@@ -776,7 +778,7 @@ list:
       - name: Hybrid FB (Honor)*
         id: hycfb-honor-leadership
         specialization: Firebrand
-        boons: Fractal
+        boons: 'Condi'
         priority: Condi Boon
         distribution: Hybrid FB (Honor)
         traits: >-
@@ -866,7 +868,7 @@ list:
       - name: Power Banner Bers
         id: pbers
         specialization: Berserker
-        boons: Fractal
+        boons: 'Power (spotter)'
         priority: Power DPS
         distribution: 'Power Banner Warrior'
         traits: >-
@@ -968,7 +970,7 @@ list:
       - name: Condi Banner Bers
         id: cbers
         specialization: Berserker
-        boons: Fractal
+        boons: 'Condi'
         priority: Condi DPS
         distribution: 'Condi Banner Warrior'
         traits: >-
@@ -1070,7 +1072,7 @@ list:
       - name: Power Weaver
         id: pwea
         specialization: Weaver
-        boons: Fractal
+        boons: 'Power (spotter)'
         priority: Power DPS
         distribution: 'Power Weaver (BTTH)'
         traits: >-
@@ -1190,7 +1192,7 @@ list:
       - name: Condi Weaver
         id: cwea
         specialization: Weaver
-        boons: Fractal
+        boons: 'Condi'
         priority: Condi DPS
         distribution: 'Condi Weaver (Sword)'
         traits: >-
@@ -1295,7 +1297,7 @@ list:
       - name: Hybrid Weaver
         id: hwea
         specialization: Weaver
-        boons: Fractal
+        boons: 'Condi'
         priority: Hybrid DPS
         distribution: 'Hybrid Weaver'
         traits: >-
@@ -1410,7 +1412,7 @@ list:
       - name: Condi Tempest
         id: ctemp
         specialization: Tempest
-        boons: Fractal
+        boons: 'Condi'
         priority: Condi DPS
         distribution: 'Condi Tempest'
         traits: >-
@@ -1507,7 +1509,7 @@ list:
       - name: Power Slb
         id: pslb
         specialization: Soulbeast
-        boons: Fractal
+        boons: 'Power (spotter)'
         priority: Power DPS
         distribution: 'Power Slb'
         traits: >-
@@ -1609,7 +1611,7 @@ list:
       - name: Condi Slb SB
         id: cslb-sb
         specialization: Soulbeast
-        boons: Fractal
+        boons: 'Condi'
         priority: Condi DPS
         distribution: 'Condi Slb (D/T SB)'
         traits: >-
@@ -1698,7 +1700,7 @@ list:
       - name: Condi Slb D/T A/D
         id: cslb-dtad
         specialization: Soulbeast
-        boons: Fractal
+        boons: 'Condi'
         priority: Condi DPS
         distribution: 'Condi Slb (D/T A/D)'
         traits: >-
@@ -1790,7 +1792,7 @@ list:
       - name: Hybrid Slb
         id: hslb
         specialization: Soulbeast
-        boons: Fractal
+        boons: 'Condi'
         priority: Hybrid DPS
         distribution: Hybrid Slb (A/T D/A)
         traits: >-
@@ -1897,7 +1899,7 @@ list:
       - name: Power Alac Ren
         id: pren
         specialization: Renegade
-        boons: Fractal
+        boons: 'Power (spotter)'
         priority: Power Boon
         distribution: 'Alacrity Renegade'
         traits: >-
@@ -1984,7 +1986,7 @@ list:
       - name: Condi RR Ren Invo
         id: cren-rr-invo
         specialization: Renegade
-        boons: Fractal
+        boons: 'Condi'
         priority: Condi DPS
         distribution: 'Condi RR (Invocation)'
         traits: >-
@@ -2069,7 +2071,7 @@ list:
       - name: Condi DPS Ren Deva
         id: cren-deva
         specialization: Renegade
-        boons: Fractal
+        boons: 'Condi'
         priority: Condi DPS
         distribution: 'Condi Renegade (Devastation)'
         traits: >-
@@ -2168,7 +2170,7 @@ list:
       - name: Power Holo
         id: pholo
         specialization: Holosmith
-        boons: Fractal
+        boons: 'Power (spotter)'
         priority: Power DPS
         distribution: 'Power Holo'
         traits: >-
@@ -2260,7 +2262,7 @@ list:
       - name: Power Scrapper
         id: pscrap
         specialization: Scrapper
-        boons: Fractal
+        boons: 'Power (spotter)'
         priority: Power DPS
         distribution: 'Power Scrapper'
         traits: >-
@@ -2367,7 +2369,7 @@ list:
       - name: DPS Scourge
         id: scourge
         specialization: Scourge
-        boons: Fractal
+        boons: 'Condi'
         priority: Condi DPS
         distribution: 'Condi Scourge'
         traits: >-
@@ -2452,7 +2454,7 @@ list:
       - name: Condi Reaper
         id: creaper
         specialization: Reaper
-        boons: Fractal
+        boons: 'Condi'
         priority: Hybrid DPS
         distribution: 'Condi Reaper'
         traits: >-
@@ -2534,7 +2536,7 @@ list:
       - name: Condi Deadeye
         id: cded
         specialization: Deadeye
-        boons: Fractal
+        boons: 'Condi'
         priority: Condi DPS
         distribution: Condi Deadeye
         traits: >-
@@ -2619,7 +2621,7 @@ list:
       - name: Staff Daredevil
         id: staffdd
         specialization: Daredevil
-        boons: Fractal
+        boons: 'Power (spotter)'
         priority: Power DPS
         distribution: Staff Daredevil
         traits: >-
@@ -2736,7 +2738,7 @@ list:
       - name: Condi Daredevil
         id: cdd
         specialization: Daredevil
-        boons: Fractal
+        boons: 'Condi'
         priority: Condi DPS
         distribution: Condi Daredevil
         traits: >-
@@ -2831,7 +2833,7 @@ list:
       - name: Rifle Deadeye
         id: rifleded
         specialization: Deadeye
-        boons: Fractal
+        boons: 'Power (spotter)'
         priority: Power DPS
         distribution: Rifle Deadeye
         traits: >-
