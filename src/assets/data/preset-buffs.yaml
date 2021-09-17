@@ -23,8 +23,7 @@ list:
         "protection": true,
         "vulnerability": true,
         "frostSpirit": true,
-        "assassinsPresence": true,
-        "baneSignet": true
+        "assassinsPresence": true
       }
 
   - name: Power (spotter)
@@ -36,8 +35,7 @@ list:
         "vulnerability": true,
         "spotter": true,
         "frostSpirit": true,
-        "assassinsPresence": true,
-        "baneSignet": true
+        "assassinsPresence": true
       }
 
   - name: Benchmark

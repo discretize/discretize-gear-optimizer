@@ -227,7 +227,9 @@ list:
                 }
               ]
             },
-            "skills":[],
+            "skills":[
+              "bane-signet-2"
+            ],
             "extras":{
               "Runes":"scholar",
               "Sigil1":"force",
