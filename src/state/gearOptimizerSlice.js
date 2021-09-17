@@ -74,11 +74,6 @@ export const controlSlice = createSlice({
     changeSelectedCharacter: (state, action) => {
       state.selectedCharacter = action.payload;
     },
-    changeSelectedCharacterIfNone: (state, action) => {
-      if (!state.selectedCharacter) {
-        state.selectedCharacter = action.payload;
-      }
-    },
   },
 });
 
@@ -105,7 +100,6 @@ export const {
   setModifiers,
   setBuildTemplate,
   changeSelectedCharacter,
-  changeSelectedCharacterIfNone,
 } = controlSlice.actions;
 
 export default controlSlice.reducer;

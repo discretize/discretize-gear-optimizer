@@ -574,7 +574,7 @@ export function* calculate(settings) {
     calculationStatsQueue.push(gearStats);
   }
 
-  return {
+  yield {
     isChanged,
     percent: Math.floor((calculationRuns * 100) / calculationTotal),
     newList: list.slice(),

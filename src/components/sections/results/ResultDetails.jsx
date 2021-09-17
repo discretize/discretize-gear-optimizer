@@ -43,16 +43,8 @@ const ResultDetails = ({ data }) => {
   const character = { ...charRaw };
   updateAttributes(character);
 
-  /* eslint-disable no-console */
-  console.groupCollapsed('Selected Character Data:');
-  console.log('Character object:', character);
-  console.table([
-    Object.fromEntries(
-      Object.entries(character.results.damageBreakdown).map(([a, b]) => [a, parseFloat(b)]),
-    ),
-  ]);
-  console.groupEnd();
-  /* eslint-enable no-console */
+  // eslint-disable-next-line no-console
+  console.log('Selected Character Data:', character);
 
   const classData = Classes[profession.toLowerCase()].weapons;
 

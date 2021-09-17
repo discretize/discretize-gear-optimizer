@@ -7,7 +7,7 @@ import {
   changeControl,
   changeList,
   changeSelectedCharacter,
-  changeSelectedCharacterIfNone,
+  getSelectedCharacter,
   getList,
   getModifiers,
 } from '../gearOptimizerSlice';
@@ -16,10 +16,10 @@ import { SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function printTemplate(state) {
+function printTemplateHelper(state, list) {
   const { profession, traits, skills, extras } = state;
+  console.groupCollapsed('Template Creation Data');
 
-  console.group('Data for template creation');
   console.log('Traits:', {
     profession,
     traits,
@@ -28,11 +28,20 @@ function printTemplate(state) {
   });
 
   const distribution = state.distribution.values2;
-
-  console.log('Distribution (v2):', { values2: distribution });
+  console.log('Input Distribution (v2):');
   console.table([distribution]);
+
+  if (list && list[0]) {
+    const bestResult = { ...list[0] };
+    optimizerCore.updateAttributes(bestResult);
+    console.log('Best Result Damage:');
+    console.table([
+      Object.fromEntries(
+        Object.entries(bestResult.results.damageBreakdown).map(([a, b]) => [a, parseFloat(b)]),
+      ),
+    ]);
+  }
   console.groupEnd();
-  console.log('Redux state:', state);
 }
 
 function createInput(state) {
@@ -122,58 +131,54 @@ function createInput(state) {
 }
 
 function* runCalc() {
-  yield delay(0);
-  yield put(changeSelectedCharacter(null));
-
-  const time = Date.now();
   let state;
   let currentList;
   let input;
   let settings;
-
+  let oldPercent;
+  let selectedCharacterIsStale = true;
   try {
+    yield delay(0);
+    console.time('Calculation');
+
     state = yield select();
 
-    console.groupCollapsed('Debug/Template Data:');
-    printTemplate(state);
-
     input = createInput(state);
-    console.log('Input object:', input);
-    console.groupEnd();
+
+    console.groupCollapsed('Debug Info:');
+    console.log('Redux State:', state);
+    console.log('Input:', input);
 
     settings = optimizerCore.setup(input);
-    const generator = optimizerCore.calculate(settings);
+    console.groupEnd();
 
-    let done = false;
-    let newPercent;
-    let oldPercent;
-    let isChanged;
-    let newList;
+    const generatedResults = optimizerCore.calculate(settings);
 
-    // list updates are on a trailing throttle
-    let throttlecount = Infinity;
-    const THROTTLE = 3;
+    // clear the selected character on click "instantly," but actually with a small delay
+    // (short calculations will update in-place without a flicker)
+    let clearResultsCounter = 0;
+    const clearResultsAfter = 5;
 
-    while (true) {
-      throttlecount++;
+    // render list updates on a trailing throttle
+    // back-to-back(to-back) list updates will only be rendered once
+    let listRenderCounter = Infinity;
+    const listThrottle = 3;
 
-      const result = generator.next();
-      ({
-        done,
-        value: { percent: newPercent, isChanged, newList },
-      } = result);
-
-      if (isChanged) {
-        currentList = newList;
-
-        // queue throttled list update if none queued
-        if (throttlecount > THROTTLE) {
-          throttlecount = 0;
-        }
+    for (const { percent: newPercent, isChanged, newList } of generatedResults) {
+      clearResultsCounter++;
+      if (clearResultsCounter === clearResultsAfter) {
+        yield put(changeSelectedCharacter(null));
+        selectedCharacterIsStale = false;
       }
 
-      // perform throttled list update
-      if (done || throttlecount === THROTTLE) {
+      listRenderCounter++;
+      if (isChanged) {
+        currentList = newList;
+        if (listRenderCounter > listThrottle) {
+          listRenderCounter = 0;
+        }
+      }
+      if (listRenderCounter === listThrottle) {
         yield put(changeList(currentList));
       }
 
@@ -183,18 +188,27 @@ function* runCalc() {
         oldPercent = newPercent;
       }
 
-      if (done) {
-        // cleanup
-        yield put(changeSelectedCharacterIfNone(currentList[0]));
-        yield put(changeControl({ key: 'status', value: SUCCESS }));
-
-        console.log(`Calculation done in ${Date.now() - time}ms`);
-        break;
-      }
-
       yield delay(0);
     }
+    yield put(changeList(currentList));
+    printTemplateHelper(state, currentList);
+    console.groupEnd();
+
+    console.timeEnd('Calculation');
+    console.time('Render Result');
+
+    yield put(changeControl({ key: 'status', value: SUCCESS }));
+    yield delay(0);
+
+    // automatically select the top result unless the user clicked one during the calculation
+    const selectedCharacter = yield select(getSelectedCharacter);
+    if (currentList && (!selectedCharacter || selectedCharacterIsStale)) {
+      yield put(changeSelectedCharacter(currentList[0]));
+    }
+
+    console.timeEnd('Render Result');
   } catch (e) {
+    console.groupEnd();
     // eslint-disable-next-line no-alert
     alert(`There was an error in the calculation!\n\n${e}`);
     console.log(e);
@@ -204,12 +218,19 @@ function* runCalc() {
     console.log('list:', { ...currentList });
     yield put(changeControl({ key: 'status', value: WAITING }));
   } finally {
+    console.groupEnd();
     if (yield cancelled()) {
-      console.log(`calculation cancelled after ${Date.now() - time}ms`);
-      const currentList = yield select(getList);
-      if (currentList && currentList[0]) {
-        yield put(changeSelectedCharacterIfNone(currentList[0]));
+      console.log(`Cancelled!`);
+      console.timeEnd('Calculation');
+      console.time('Render Result');
+      const selectedCharacter = yield select(getSelectedCharacter);
+      if (!selectedCharacter || selectedCharacterIsStale) {
+        currentList = yield select(getList);
+        if (currentList && currentList[0]) {
+          yield put(changeSelectedCharacter(currentList[0]));
+        }
       }
+      console.timeEnd('Render Result');
     }
   }
 }
