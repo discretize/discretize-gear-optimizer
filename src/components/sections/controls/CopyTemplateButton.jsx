@@ -4,10 +4,16 @@ import { Icon } from 'gw2-ui-bulk';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getProfession } from '../../../state/gearOptimizerSlice';
-import { getExtras } from '../../../state/slices/extras';
 import { Classes } from '../../../utils/gw2-data';
 
-export const CopyTemplateButton = ({ data, infusions, weight, runeId, runeName }) => {
+export const CopyTemplateButton = ({
+  extras: extrasIds,
+  data,
+  infusions,
+  weight,
+  runeId,
+  runeName,
+}) => {
   const [open, setOpen] = React.useState(false);
   const [w11, setw11] = React.useState('');
   const [w12, setw12] = React.useState('');
@@ -15,8 +21,7 @@ export const CopyTemplateButton = ({ data, infusions, weight, runeId, runeName }
   const [w22, setw22] = React.useState('');
 
   const profession = useSelector(getProfession);
-  const extras = useSelector(getExtras);
-  const { Sigil1: sigil1, Sigil2: sigil2, Enhancement: utility, Nourishment: food } = extras;
+  const { sigil1Id, sigil2Id, foodId, utilityId } = extrasIds;
 
   const handleClick = () => {
     setOpen(true);
@@ -24,19 +29,20 @@ export const CopyTemplateButton = ({ data, infusions, weight, runeId, runeName }
     const { gear, attributes } = data;
     const weapData = {
       ...(w11 && { weapon1MainType: w11 }),
-      ...(w11 && { weapon1MainSigil1: sigil1 }),
-      ...(!w12 && { weapon1MainSigil2: sigil2 }),
+      ...(w11 && { weapon1MainSigil1Id: sigil1Id }),
+      ...(!w12 && { weapon1MainSigil2Id: sigil2Id }),
       ...(w12 && { weapon1OffType: w12 }),
-      ...(w12 && { weapon1OffSigil: sigil2 }),
+      ...(w12 && { weapon1OffSigilId: sigil2Id }),
 
       ...(w21 && { weapon2MainType: w21 }),
-      ...(w21 && { weapon2MainSigil1: sigil1 }),
-      ...(!w22 && { weapon2MainSigil2: sigil2 }),
+      ...(w21 && { weapon2MainSigil1Id: sigil1Id }),
+      ...(!w22 && { weapon2MainSigil2Id: sigil2Id }),
+
       ...(w22 && { weapon2OffType: w22 }),
-      ...(w22 && { weapon2OffSigil: sigil2 }),
+      ...(w22 && { weapon2OffSigilId: sigil2Id }),
     };
 
-    const consumables = { food, utility, infusion: 'Mighty +9 Agony Infusion' };
+    const consumables = { foodId, utilityId, infusion: 'Mighty +9 Agony Infusion' };
 
     const template = {
       gear,

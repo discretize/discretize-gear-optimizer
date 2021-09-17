@@ -8,7 +8,7 @@ import {
   getSelectedCharacter,
 } from '../../../state/gearOptimizerSlice';
 import { updateAttributes } from '../../../state/optimizer/optimizerCore';
-import { getExtra } from '../../../state/slices/extras';
+import { getExtra, getExtras } from '../../../state/slices/extras';
 import { getPriority } from '../../../state/slices/priorities';
 import { getTraitLines } from '../../../state/slices/traits';
 import { Classes, Defense, INFUSIONS, PROFESSIONS } from '../../../utils/gw2-data';
@@ -25,9 +25,15 @@ import SpecialDurations from './SpecialDurations';
 const ResultDetails = ({ data }) => {
   const store = useStore();
   const profession = useSelector(getProfession);
-  const sigil1 = useSelector(getExtra('Sigil1'));
-  const sigil2 = useSelector(getExtra('Sigil2'));
-  const runeStringId = useSelector(getExtra('Runes'));
+
+  const extras = useSelector(getExtras);
+  const {
+    Sigil1: sigil1,
+    Sigil2: sigil2,
+    Enhancement: utility,
+    Nourishment: food,
+    Runes: runeStringId,
+  } = extras;
 
   const priority = useSelector(getPriority('weaponType'));
   const traits = useSelector(getTraitLines);
@@ -69,11 +75,16 @@ const ResultDetails = ({ data }) => {
           .flatMap((e) => e)
       : [];
 
-  const sigilData = data.sigils.list.flatMap((l) => l.items);
-  let sigil1Id = sigilData.find((d) => d.id === sigil1);
-  sigil1Id = sigil1Id ? sigil1Id.gw2_id : undefined;
-  let sigil2Id = sigilData.find((d) => d.id === sigil2);
-  sigil2Id = sigil2Id ? sigil2Id.gw2_id : undefined;
+  const foodId = data.nourishment.list.flatMap((l) => l.items).find((f) => f.id === food)?.gw2_id;
+  const utilityId = data.enhancement.list
+    .flatMap((l) => l.items)
+    .find((f) => f.id === utility)?.gw2_id;
+  const sigil1Id = data.sigils.list.flatMap((l) => l.items).find((f) => f.id === sigil1)?.gw2_id;
+  const sigil2Id = data.sigils.list.flatMap((l) => l.items).find((f) => f.id === sigil2)?.gw2_id;
+  const rune = runeStringId
+    ? data.runes.list.flatMap((r) => r.items).find((r) => r.id === runeStringId)
+    : '';
+  const runeName = runeStringId ? rune.text.split(' ')[rune.text.split(' ').length - 1] : '';
 
   // Calculate the props for the weapons component
   let wea1, wea2, weapData;
@@ -104,11 +115,6 @@ const ResultDetails = ({ data }) => {
       weapon1MainSigil2: firstUppercase(sigil2),
     };
   }
-
-  const rune = runeStringId
-    ? data.runes.list.flatMap((r) => r.items).find((r) => r.id === runeStringId)
-    : '';
-  const runeName = runeStringId ? rune.text.split(' ')[rune.text.split(' ').length - 1] : '';
 
   // find the right image for the selected elite specialization
   const { eliteSpecializations } = PROFESSIONS.find(
@@ -192,6 +198,7 @@ const ResultDetails = ({ data }) => {
       <AppliedModifiers data={modifiers} buffData={data.buffs.list} />
 
       <CopyTemplateButton
+        extras={{ utilityId, foodId, sigil1Id, sigil2Id }}
         data={character}
         infusions={infusions}
         weight={weight}
