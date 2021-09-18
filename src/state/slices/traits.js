@@ -57,20 +57,17 @@ export const traitsSlice = createSlice({
       // passed data from GraphQL
       const { data, profession } = action.payload;
 
-      // all selected modifiers will be collected in this array
-      const modifiers = [];
-
       // map id to modifier. We dont store modifier values in the state!
       const allSkillsAndTraits = data[profession.toLowerCase()].edges[0].node.list.flatMap(
         (el) => el.items,
       );
-      const matchedTraitModifiers = state.modifiers.map((traitModifier) =>
-        allSkillsAndTraits.filter((t) => t !== null).find((trait) => trait.id === traitModifier.id),
-      );
 
-      modifiers.push(...matchedTraitModifiers);
-
-      state.modifiers = modifiers;
+      state.modifiers = state.modifiers.map((oldModifier) => {
+        const newModifier = allSkillsAndTraits
+          .filter((t) => t !== null)
+          .find((trait) => trait.id === oldModifier.id);
+        return Object.assign(oldModifier, newModifier);
+      });
     },
   },
 });
