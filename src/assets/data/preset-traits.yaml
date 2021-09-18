@@ -2,7 +2,7 @@ GraphQL ID: presetTraits
 list:
   - class: mesmer
     builds:
-      - name: pChrono
+      - name: Power Chrono
         id: pchrono
         specialization: Chronomancer
         boons: 'Power (spotter)'
@@ -1256,7 +1256,7 @@ list:
             }
           }
 
-      - name: Condi Weaver
+      - name: Condi Weaver SW
         id: cwea
         specialization: Weaver
         boons: 'Condi'
@@ -2538,7 +2538,7 @@ list:
             }
           }
 
-      - name: Healren
+      - name: Heal Ren
         id: healren
         specialization: Renegade
         boons: 'Power (spotter)'
@@ -3367,6 +3367,93 @@ list:
                 "Nourishment": "sweet-and-spicy-butternut-squash-soup"
             }
           }
+
+      # - name: Boon Daredevil
+      #   id: boondd
+      #   specialization: Daredevil
+      #   boons: 'Power (spotter)'
+      #   priority: Power Boon
+      #   distribution: Staff Daredevil
+      #   traits: >-
+      #     {
+      #         "profession": "THIEF",
+      #         "traits": {
+      #             "lines": [
+      #                 "28",
+      #                 "44",
+      #                 "7"
+      #             ],
+      #             "selected": [
+      #                 [
+      #                     1245,
+      #                     1704,
+      #                     1167
+      #                 ],
+      #                 [
+      #                     1163,
+      #                     1190,
+      #                     1158
+      #                 ],
+      #                 [
+      #                     1949,
+      #                     1893,
+      #                     2047
+      #                 ]
+      #             ],
+      #             "modifiers": [
+      #                 {
+      #                     "id": "exposed-weakness",
+      #                     "gw2_id": 1257,
+      #                     "source": 28
+      #                 },
+      #                 {
+      #                     "id": "dagger-training-base",
+      #                     "gw2_id": 1245,
+      #                     "source": 28
+      #                 },
+      #                 {
+      #                     "id": "revealed-training-base",
+      #                     "gw2_id": 1704,
+      #                     "source": 28
+      #                 },
+      #                 {
+      #                     "id": "weakening-strikes",
+      #                     "gw2_id": 1887,
+      #                     "source": 7
+      #                 },
+      #                 {
+      #                     "id": "havoc-specialist",
+      #                     "gw2_id": 1893,
+      #                     "source": 7
+      #                 },
+      #                 {
+      #                     "id": "bounding-dodger",
+      #                     "gw2_id": 2047,
+      #                     "source": 7
+      #                 },
+      #                 {
+      #                     "id": "preparedness",
+      #                     "gw2_id": 1232,
+      #                     "source": 44
+      #                 },
+      #                 {
+      #                     "id": "lead-attacks",
+      #                     "gw2_id": 1157,
+      #                     "source": 44
+      #                 }
+      #             ]
+      #         },
+      #         "skills": [
+      #             "signet-of-agility"
+      #         ],
+      #         "extras": {
+      #             "Runes": "thief",
+      #             "Sigil1": "force",
+      #             "Sigil2": "concentration",
+      #             "Enhancement": "potent-lucent-oil",
+      #             "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+      #         }
+      #     }
 
       - name: Condi Daredevil
         id: cdd
