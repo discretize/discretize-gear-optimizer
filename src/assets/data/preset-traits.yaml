@@ -1571,6 +1571,71 @@ list:
             }
           }
 
+      - name: Heal Tempest
+        id: healtemp
+        specialization: Tempest
+        boons: 'Power (spotter)'
+        priority: Heal
+        distribution: None
+        traits: >-
+          {
+              "profession": "ELEMENTALIST",
+              "traits": {
+                  "lines": [
+                      "",
+                      "17",
+                      "48"
+                  ],
+                  "selected": [
+                      [
+                          0,
+                          0,
+                          0
+                      ],
+                      [
+                          363,
+                          358,
+                          361
+                      ],
+                      [
+                          1886,
+                          2015,
+                          1986
+                      ]
+                  ],
+                  "modifiers": [
+                      {
+                          "id": "gathered-focus",
+                          "gw2_id": 1938,
+                          "source": 48
+                      },
+                      {
+                          "id": "hardy-conduit",
+                          "gw2_id": 1948,
+                          "source": 48
+                      },
+                      {
+                          "id": "aquamancers-training",
+                          "gw2_id": 1676,
+                          "source": 17
+                      },
+                      {
+                          "id": "piercing-blades",
+                          "gw2_id": 363,
+                          "source": 17
+                      }
+                  ]
+              },
+              "skills": [],
+              "extras": {
+                  "Runes": "monk",
+                  "Sigil1": "concentration",
+                  "Sigil2": "transference",
+                  "Enhancement": "bountiful-maintenance-oil",
+                  "Nourishment": "fruit-salad-mint-garnish"
+              }
+          }
+
   - class: ranger
     builds:
       - name: Power Slb
@@ -2296,6 +2361,91 @@ list:
             }
           }
 
+      - name: Healren
+        id: healren
+        specialization: Renegade
+        boons: 'Power (spotter)'
+        priority: Heal
+        distribution: None
+        traits: >-
+          {
+              "profession": "REVENANT",
+              "traits": {
+                  "lines": [
+                      "12",
+                      "15",
+                      "63"
+                  ],
+                  "selected": [
+                      [
+                          1822,
+                          1818,
+                          1815
+                      ],
+                      [
+                          1767,
+                          1786,
+                          1754
+                      ],
+                      [
+                          2120,
+                          2108,
+                          2182
+                      ]
+                  ],
+                  "modifiers": [
+                      {
+                          "id": "life-attunement",
+                          "gw2_id": 1821,
+                          "source": 12
+                      },
+                      {
+                          "id": "brutal-momentum",
+                          "gw2_id": 2142,
+                          "source": 63
+                      },
+                      {
+                          "id": "ambush-commander",
+                          "gw2_id": 2181,
+                          "source": 63
+                      },
+                      {
+                          "id": "destructive-impulses-mix",
+                          "gw2_id": 1724,
+                          "source": 15
+                      },
+                      {
+                          "id": "targeted-destruction",
+                          "gw2_id": 1792,
+                          "source": 15
+                      },
+                      {
+                          "id": "unsuspecting-strikes",
+                          "gw2_id": 1767,
+                          "source": 15
+                      },
+                      {
+                          "id": "invoking-harmony",
+                          "gw2_id": 1818,
+                          "source": 12
+                      },
+                      {
+                          "id": "tranquil-balance",
+                          "gw2_id": 1822,
+                          "source": 12
+                      }
+                  ]
+              },
+              "skills": [],
+              "extras": {
+                  "Runes": "monk",
+                  "Sigil1": "concentration",
+                  "Sigil2": "transference",
+                  "Enhancement": "bountiful-maintenance-oil",
+                  "Nourishment": "fruit-salad-mint-garnish"
+              }
+          }
+
   - class: engineer
     builds:
       - name: Power Holo
@@ -2493,6 +2643,76 @@ list:
                 "Enhancement": "slaying-potion",
                 "Nourishment": "sweet-and-spicy-butternut-squash-soup"
             }
+          }
+
+      - name: Heal Scrapper
+        id: healscrapper
+        specialization: Scrapper
+        boons: 'Power (spotter)'
+        priority: Heal
+        distribution: None
+        traits: >-
+          {
+              "profession": "ENGINEER",
+              "traits": {
+                  "lines": [
+                      "47",
+                      "29",
+                      "43"
+                  ],
+                  "selected": [
+                      [
+                          394,
+                          1834,
+                          1916
+                      ],
+                      [
+                          521,
+                          520,
+                          473
+                      ],
+                      [
+                          1917,
+                          1954,
+                          2052
+                      ]
+                  ],
+                  "modifiers": [
+                      {
+                          "id": "energy-amplifier",
+                          "gw2_id": 519,
+                          "source": 47
+                      },
+                      {
+                          "id": "compounding-chemicals",
+                          "gw2_id": 413,
+                          "source": 29
+                      },
+                      {
+                          "id": "impact-savant",
+                          "gw2_id": 1877,
+                          "source": 43
+                      },
+                      {
+                          "id": "over-shield",
+                          "gw2_id": 394,
+                          "source": 47
+                      },
+                      {
+                          "id": "kinetic-accelerators",
+                          "gw2_id": 2052,
+                          "source": 43
+                      }
+                  ]
+              },
+              "skills": [],
+              "extras": {
+                  "Runes": "monk",
+                  "Sigil1": "concentration",
+                  "Sigil2": "transference",
+                  "Enhancement": "bountiful-maintenance-oil",
+                  "Nourishment": "fruit-salad-mint-garnish"
+              }
           }
 
   - class: necromancer
