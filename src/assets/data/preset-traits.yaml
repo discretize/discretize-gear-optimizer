@@ -930,7 +930,6 @@ list:
               }
           }
 
-
   - class: warrior
     builds:
       - name: Power Banner Bers
@@ -1765,6 +1764,7 @@ list:
                 "Nourishment": "beef-rendang"
             }
           }
+
       - name: Condi Slb D/T A/D
         id: cslb-dtad
         specialization: Soulbeast
@@ -1854,8 +1854,6 @@ list:
                 "Nourishment": "beef-rendang"
             }
           }
-
-
 
       - name: Hybrid Slb
         id: hslb
