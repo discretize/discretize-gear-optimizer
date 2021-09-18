@@ -17,7 +17,20 @@ import { SUCCESS, WAITING } from './status';
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function printTemplateHelper(state, list) {
-  const { profession, traits, skills, extras } = state;
+  // const { profession, traits, skills, extras } = state;
+
+  // this is, obviously, awful
+  // todo: refactor templates and template application
+  const { profession } = state.control;
+  const traits = { ...state.traits };
+  // eslint-disable-next-line camelcase
+  traits.modifiers = traits.modifiers.map(({ id, gw2_id, source }) => ({ id, gw2_id, source }));
+  const skills = state.skills.skills.slice();
+  const extras = { ...state.extras };
+  if (extras.modifiers) {
+    delete extras.modifiers;
+  }
+
   console.groupCollapsed('Template Creation Data');
 
   console.log('Traits:', {
