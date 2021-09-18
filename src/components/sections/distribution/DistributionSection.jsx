@@ -18,15 +18,14 @@ const DistributionSection = ({ profession, data }) => {
   const dispatch = useDispatch();
   const distributionVersion = useSelector(getDistributionVersion);
 
-  const distributionPresets =
-    profession !== ''
-      ? data.presetDistribution.list.filter(
-          (preset) =>
-            PROFESSIONS.find((p) => p.profession === profession).eliteSpecializations.includes(
-              preset.profession,
-            ) || preset.profession === null,
-        )
-      : null;
+  let distributionPresets;
+  if (profession) {
+    const { eliteSpecializations } = PROFESSIONS.find((entry) => entry.profession === profession);
+    distributionPresets = data.presetDistribution.list.filter((preset) => {
+      if (preset.name === 'None') return false;
+      return preset.profession === null || eliteSpecializations.includes(preset.profession);
+    });
+  }
 
   const onTemplateClickDistribution = React.useCallback(
     (index) => (event) => {
