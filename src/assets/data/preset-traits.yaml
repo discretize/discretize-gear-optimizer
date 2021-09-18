@@ -863,6 +863,74 @@ list:
         #     "Nourishment": "dragon's-revelry-starcake"
         # }
 
+      - name: Healbrand
+        id: hb
+        specialization: Firebrand
+        boons: 'Power (spotter)'
+        priority: Heal
+        distribution: None
+        traits: >-
+          {
+              "profession": "GUARDIAN",
+              "traits": {
+                  "lines": [
+                      "16",
+                      "49",
+                      "62"
+                  ],
+                  "selected": [
+                      [
+                          574,
+                          578,
+                          579
+                      ],
+                      [
+                          1899,
+                          557,
+                          558
+                      ],
+                      [
+                          2101,
+                          2063,
+                          2159
+                      ]
+                  ],
+                  "modifiers": [
+                      {
+                          "id": "radiant-power",
+                          "gw2_id": 568,
+                          "source": 16
+                      },
+                      {
+                          "id": "imbued-haste",
+                          "gw2_id": 2148,
+                          "source": 62
+                      },
+                      {
+                          "id": "invigorating-bulwark",
+                          "gw2_id": 1899,
+                          "source": 49
+                      },
+                      {
+                          "id": "honorable-staff",
+                          "gw2_id": 557,
+                          "source": 49
+                      }
+                  ]
+              },
+              "skills": [
+                  "bane-signet-2"
+              ],
+              "extras": {
+                  "Runes": "monk",
+                  "Sigil1": "concentration",
+                  "Sigil2": "transference",
+                  "Enhancement": "bountiful-maintenance-oil",
+                  "Nourishment": "fruit-salad-mint-garnish"
+              }
+          }
+
+
   - class: warrior
     builds:
       - name: Power Banner Bers
