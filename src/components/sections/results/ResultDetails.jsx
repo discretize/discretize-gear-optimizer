@@ -1,4 +1,4 @@
-import { Grid, Typography, withStyles } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import { getImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { useSelector, useStore } from 'react-redux';
@@ -8,7 +8,7 @@ import {
   getSelectedCharacter,
 } from '../../../state/gearOptimizerSlice';
 import { updateAttributes } from '../../../state/optimizer/optimizerCore';
-import { getExtra, getExtras } from '../../../state/slices/extras';
+import { getExtras } from '../../../state/slices/extras';
 import { getPriority } from '../../../state/slices/priorities';
 import { getTraitLines } from '../../../state/slices/traits';
 import { Classes, Defense, INFUSIONS, PROFESSIONS } from '../../../utils/gw2-data';
@@ -62,18 +62,25 @@ const ResultDetails = ({ data }) => {
     weight = 'medium';
   }
 
-  const infusions =
-    'infusions' in character
-      ? Object.keys(character.infusions)
-          .map((key) =>
-            // eslint-disable-next-line no-undef
-            _.times(
-              character.infusions[key],
-              () => INFUSIONS.find((infu) => infu.attribute === key).id,
-            ),
-          )
-          .flatMap((e) => e)
-      : [];
+  let infusions = [...Array(18).fill(49432)];
+
+  if (character.infusions) {
+    infusions = Object.keys(character.infusions)
+      .map((key) =>
+        // eslint-disable-next-line no-undef
+        _.times(
+          character.infusions[key],
+          () => INFUSIONS.find((infu) => infu.attribute === key).id,
+        ),
+      )
+      .flatMap((e) => e);
+    // fill up the remaining slots with generic +9 Agony Infusions
+    infusions = [
+      ...infusions,
+      // eslint-disable-next-line no-undef
+      ..._.times(18 - Object.values(character.infusions).reduce((p, c) => p + c), () => 49432),
+    ];
+  }
 
   const foodId = data.nourishment.list.flatMap((l) => l.items).find((f) => f.id === food)?.gw2_id;
   const utilityId = data.enhancement.list
