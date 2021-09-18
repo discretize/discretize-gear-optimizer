@@ -53,6 +53,7 @@ export const CopyTemplateButton = ({
       runeName,
       weapons: weapData,
       consumables,
+      skills: { heal: '', utility1: '', utility2: '', utility3: '', elite: '' },
     };
 
     navigator.clipboard.writeText(JSON.stringify(template, null, 2));

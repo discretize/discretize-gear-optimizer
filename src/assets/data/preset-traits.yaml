@@ -66,7 +66,7 @@ list:
             "extras":{
               "Runes":"scholar",
               "Sigil1":"force",
-              "Sigil2":"night/impact/slaying-both",
+              "Sigil2":"impact/night/slaying-both",
               "Enhancement":"slaying-potion",
               "Nourishment":"sweet-and-spicy-butternut-squash-soup"
             }
@@ -233,7 +233,7 @@ list:
             "extras":{
               "Runes":"scholar",
               "Sigil1":"force",
-              "Sigil2":"night/impact/slaying-both",
+              "Sigil2":"impact/night/slaying-both",
               "Enhancement":"slaying-potion",
               "Nourishment":"sweet-and-spicy-butternut-squash-soup"
             }
@@ -315,7 +315,7 @@ list:
             "extras":{
               "Runes":"scholar",
               "Sigil1":"force",
-              "Sigil2":"night/impact/slaying-both",
+              "Sigil2":"impact/night/slaying-both",
               "Enhancement":"slaying-potion",
               "Nourishment":"sweet-and-spicy-butternut-squash-soup"
             }
@@ -591,7 +591,6 @@ list:
       #         "Nourishment":"beef-rendang"
       #       }
       #     }
-
       # - name: Cat Cele Virtues TEMP NO VIRTUOUS WRONG INSPIRED NO ALLIES
       #   id: cat1
       #   specialization: Firebrand
@@ -676,7 +675,6 @@ list:
       #             "Nourishment": "dragon's-revelry-starcake"
       #         }
       #     }
-
       - name: Hybrid FB (Virtues)*
         id: hycfb-virtues-leadership
         specialization: Firebrand
@@ -1028,7 +1026,7 @@ list:
             "extras":{
               "Runes":"scholar",
               "Sigil1":"force",
-              "Sigil2":"night/impact/slaying-both",
+              "Sigil2":"impact/night/slaying-both",
               "Enhancement":"slaying-potion",
               "Nourishment":"sweet-and-spicy-butternut-squash-soup"
             }
@@ -1250,7 +1248,7 @@ list:
             "extras":{
               "Runes":"scholar",
               "Sigil1":"force",
-              "Sigil2":"night/impact/slaying-both",
+              "Sigil2":"impact/night/slaying-both",
               "Enhancement":"slaying-potion",
               "Nourishment":"sweet-and-spicy-butternut-squash-soup"
             }
@@ -1469,7 +1467,7 @@ list:
             "skills": [],
             "extras": {
                 "Runes": "flame-legion",
-                "Sigil1": "night/impact/slaying-both",
+                "Sigil1": "impact/night/slaying-both",
                 "Sigil2": "bursting",
                 "Enhancement": "toxic-focusing-crystal",
                 "Nourishment": "dragon's-revelry-starcake"
@@ -1737,7 +1735,7 @@ list:
               "extras": {
                   "Runes": "scholar",
                   "Sigil1": "force",
-                  "Sigil2": "night/impact/slaying-both",
+                  "Sigil2": "impact/night/slaying-both",
                   "Enhancement": "slaying-potion",
                   "Nourishment": "truffle-steak"
               }
@@ -1841,7 +1839,7 @@ list:
             "extras":{
               "Runes":"scholar",
               "Sigil1":"force",
-              "Sigil2":"night/impact/slaying-both",
+              "Sigil2":"impact/night/slaying-both",
               "Enhancement":"slaying-potion",
               "Nourishment":"curry-butternut-squash-soup"
             }
@@ -2350,7 +2348,7 @@ list:
             "extras":{
               "Runes":"scholar",
               "Sigil1":"force",
-              "Sigil2":"night/impact/slaying-both",
+              "Sigil2":"impact/night/slaying-both",
               "Enhancement":"slaying-potion",
               "Nourishment":"curry-butternut-squash-soup"
             }
@@ -2711,7 +2709,7 @@ list:
             "extras":{
               "Runes":"scholar",
               "Sigil1":"force",
-              "Sigil2":"night/impact/slaying-both",
+              "Sigil2":"impact/night/slaying-both",
               "Enhancement":"slaying-potion",
               "Nourishment":"sweet-and-spicy-butternut-squash-soup"
             }
@@ -2816,7 +2814,7 @@ list:
             "extras": {
                 "Runes": "scholar",
                 "Sigil1": "force",
-                "Sigil2": "night/impact/slaying-both",
+                "Sigil2": "impact/night/slaying-both",
                 "Enhancement": "slaying-potion",
                 "Nourishment": "sweet-and-spicy-butternut-squash-soup"
             }
@@ -2921,7 +2919,7 @@ list:
               "extras": {
                   "Runes": "scholar",
                   "Sigil1": "force",
-                  "Sigil2": "night/impact/slaying-both",
+                  "Sigil2": "impact/night/slaying-both",
                   "Enhancement": "slaying-potion",
                   "Nourishment": "sweet-and-spicy-butternut-squash-soup"
               }
@@ -3362,7 +3360,7 @@ list:
             "extras": {
                 "Runes": "scholar",
                 "Sigil1": "force",
-                "Sigil2": "night/impact/slaying-both",
+                "Sigil2": "impact/night/slaying-both",
                 "Enhancement": "slaying-potion",
                 "Nourishment": "sweet-and-spicy-butternut-squash-soup"
             }
@@ -3654,7 +3652,7 @@ list:
             "extras": {
                 "Runes": "scholar",
                 "Sigil1": "force",
-                "Sigil2": "night/impact/slaying-both",
+                "Sigil2": "impact/night/slaying-both",
                 "Enhancement": "slaying-potion",
                 "Nourishment": "sweet-and-spicy-butternut-squash-soup"
             }
