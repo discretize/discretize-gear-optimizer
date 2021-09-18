@@ -1636,6 +1636,113 @@ list:
               }
           }
 
+      - name: Power Tempest
+        id: ptemp
+        specialization: Tempest
+        boons: 'Power (spotter)'
+        priority: Power DPS
+        distribution: 'Power Tempest'
+        traits: >-
+          {
+              "profession": "ELEMENTALIST",
+              "traits": {
+                  "lines": [
+                      "31",
+                      "41",
+                      "48"
+                  ],
+                  "selected": [
+                      [
+                          296,
+                          334,
+                          1510
+                      ],
+                      [
+                          232,
+                          1502,
+                          1503
+                      ],
+                      [
+                          1886,
+                          1891,
+                          1839
+                      ]
+                  ],
+                  "modifiers": [
+                      {
+                          "id": "pyromancers-training",
+                          "gw2_id": 319,
+                          "source": 31
+                      },
+                      {
+                          "id": "empowering-flame",
+                          "gw2_id": 320,
+                          "source": 31
+                      },
+                      {
+                          "id": "burning-precision",
+                          "gw2_id": 296,
+                          "source": 31
+                      },
+                      {
+                          "id": "power-overwhelming",
+                          "gw2_id": 334,
+                          "source": 31
+                      },
+                      {
+                          "id": "aeromancers-training-2",
+                          "gw2_id": 223,
+                          "source": 41
+                      },
+                      {
+                          "id": "aeromancers-training",
+                          "gw2_id": 223,
+                          "source": 41
+                      },
+                      {
+                          "id": "ferocious-winds",
+                          "gw2_id": 232,
+                          "source": 41
+                      },
+                      {
+                          "id": "gathered-focus",
+                          "gw2_id": 1938,
+                          "source": 48
+                      },
+                      {
+                          "id": "hardy-conduit",
+                          "gw2_id": 1948,
+                          "source": 48
+                      },
+                      {
+                          "id": "fresh-air",
+                          "gw2_id": 1503,
+                          "source": 41
+                      },
+                      {
+                          "id": "transcendent-tempest",
+                          "gw2_id": 1839,
+                          "source": 48
+                      },
+                      {
+                          "id": "stormsoul",
+                          "gw2_id": 1502,
+                          "source": 41
+                      }
+                  ]
+              },
+              "skills": [
+                  "signet-of-fire"
+              ],
+              "extras": {
+                  "Runes": "scholar",
+                  "Sigil1": "force",
+                  "Sigil2": "night/impact/slaying-both",
+                  "Enhancement": "slaying-potion",
+                  "Nourishment": "truffle-steak"
+              }
+          }
+
   - class: ranger
     builds:
       - name: Power Slb
@@ -2023,6 +2130,76 @@ list:
                 "Enhancement": "toxic-focusing-crystal",
                 "Nourishment": "beef-rendang"
             }
+          }
+
+      - name: Condi Druid*
+        id: condidruid
+        specialization: Druid
+        boons: 'Power (spotter)'
+        priority: Condi Boon
+        distribution: Condi Druid
+        traits: >-
+          {
+              "profession": "RANGER",
+              "traits": {
+                  "lines": [
+                      "30",
+                      "25",
+                      "5"
+                  ],
+                  "selected": [
+                      [
+                          1069,
+                          1016,
+                          1912
+                      ],
+                      [
+                          1062,
+                          965,
+                          1038
+                      ],
+                      [
+                          2071,
+                          2161,
+                          2057
+                      ]
+                  ],
+                  "modifiers": [
+                      {
+                          "id": "hunters-tactics",
+                          "gw2_id": 1068,
+                          "source": 30
+                      },
+                      {
+                          "id": "lingering-magic",
+                          "gw2_id": 1059,
+                          "source": 25
+                      },
+                      {
+                          "id": "light-on-your-feet",
+                          "gw2_id": 1912,
+                          "source": 30
+                      },
+                      {
+                          "id": "bountiful-hunter-9",
+                          "gw2_id": 1062,
+                          "source": 25
+                      },
+                      {
+                          "id": "natural-mender",
+                          "gw2_id": 1992,
+                          "source": 5
+                      }
+                  ]
+              },
+              "skills": [],
+              "extras": {
+                  "Runes": "",
+                  "Sigil1": "",
+                  "Sigil2": "",
+                  "Enhancement": "",
+                  "Nourishment": ""
+              }
           }
 
       - name: Heal Druid
@@ -2643,6 +2820,111 @@ list:
                 "Enhancement": "slaying-potion",
                 "Nourishment": "sweet-and-spicy-butternut-squash-soup"
             }
+          }
+
+      - name: Quickness Scrapper
+        id: qscrap
+        specialization: Scrapper
+        boons: 'Power (spotter)'
+        priority: Power DPS
+        distribution: 'Quickness Scrapper'
+        traits: >-
+          {
+              "profession": "ENGINEER",
+              "traits": {
+                  "lines": [
+                      "38",
+                      "6",
+                      "43"
+                  ],
+                  "selected": [
+                      [
+                          1914,
+                          1923,
+                          526
+                      ],
+                      [
+                          1882,
+                          1892,
+                          1947
+                      ],
+                      [
+                          1917,
+                          1860,
+                          2052
+                      ]
+                  ],
+                  "modifiers": [
+                      {
+                          "id": "hematic-focus",
+                          "gw2_id": 536,
+                          "source": 38
+                      },
+                      {
+                          "id": "serrated-steel",
+                          "gw2_id": 516,
+                          "source": 38
+                      },
+                      {
+                          "id": "modified-ammunition-10",
+                          "gw2_id": 526,
+                          "source": 38
+                      },
+                      {
+                          "id": "no-scope",
+                          "gw2_id": 1923,
+                          "source": 38
+                      },
+                      {
+                          "id": "high-caliber",
+                          "gw2_id": 1914,
+                          "source": 38
+                      },
+                      {
+                          "id": "shaped-charge",
+                          "gw2_id": 429,
+                          "source": 6
+                      },
+                      {
+                          "id": "glass-cannon",
+                          "gw2_id": 1882,
+                          "source": 6
+                      },
+                      {
+                          "id": "explosive-temper",
+                          "gw2_id": 1892,
+                          "source": 6
+                      },
+                      {
+                          "id": "big-boomer",
+                          "gw2_id": 1947,
+                          "source": 6
+                      },
+                      {
+                          "id": "impact-savant",
+                          "gw2_id": 1877,
+                          "source": 43
+                      },
+                      {
+                          "id": "object-in-motion-2",
+                          "gw2_id": 1860,
+                          "source": 43
+                      },
+                      {
+                          "id": "kinetic-accelerators",
+                          "gw2_id": 2052,
+                          "source": 43
+                      }
+                  ]
+              },
+              "skills": [],
+              "extras": {
+                  "Runes": "scholar",
+                  "Sigil1": "force",
+                  "Sigil2": "night/impact/slaying-both",
+                  "Enhancement": "slaying-potion",
+                  "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+              }
           }
 
       - name: Heal Scrapper
