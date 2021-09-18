@@ -1960,6 +1960,71 @@ list:
             }
           }
 
+      - name: Heal Druid
+        id: druid
+        specialization: Druid
+        boons: 'Power (spotter)'
+        priority: Heal
+        distribution: 'None'
+        traits: >-
+          {
+              "profession": "RANGER",
+              "traits": {
+                  "lines": [
+                      "30",
+                      "25",
+                      "5"
+                  ],
+                  "selected": [
+                      [
+                          0,
+                          1016,
+                          0
+                      ],
+                      [
+                          978,
+                          964,
+                          1038
+                      ],
+                      [
+                          0,
+                          0,
+                          2057
+                      ]
+                  ],
+                  "modifiers": [
+                      {
+                          "id": "natural-mender",
+                          "gw2_id": 1992,
+                          "source": 5
+                      },
+                      {
+                          "id": "hunters-tactics",
+                          "gw2_id": 1068,
+                          "source": 30
+                      },
+                      {
+                          "id": "lingering-magic",
+                          "gw2_id": 1059,
+                          "source": 25
+                      },
+                      {
+                          "id": "instinctive-reaction",
+                          "gw2_id": 978,
+                          "source": 25
+                      }
+                  ]
+              },
+              "skills": [],
+              "extras": {
+                  "Runes": "monk",
+                  "Sigil1": "concentration",
+                  "Sigil2": "transference",
+                  "Enhancement": "bountiful-maintenance-oil",
+                  "Nourishment": "fruit-salad-mint-garnish"
+              }
+          }
+
   - class: revenant
     builds:
       - name: Power Alac Ren
