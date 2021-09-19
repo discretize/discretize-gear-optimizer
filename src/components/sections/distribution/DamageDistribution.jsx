@@ -12,6 +12,7 @@ import classNames from 'classnames';
 import { Attribute, Condition } from 'gw2-ui-bulk';
 import debounce from 'lodash.debounce';
 import Nouislider from 'nouislider-react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import 'nouislider/distribute/nouislider.css';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
