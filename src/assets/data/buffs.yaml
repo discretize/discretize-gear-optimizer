@@ -145,10 +145,7 @@ list:
         type: 'Trait'
         extraCSS: 'text-guardian'
 
-  - section: >-
-      <span class="text-guardian">
-        Guardian - Perfect Inscriptions (Assuming 100% uptime!)
-      </span>
+  - section: Guardian - Perfect Inscriptions (100% uptime)
     items:
       - id: baneSignet
         text: 'Bane Signet'
