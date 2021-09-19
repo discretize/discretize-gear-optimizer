@@ -23,8 +23,6 @@
     "prefer-arrow-callback": "off",
 
     // temp
-    "one-var": "off",
-
     "import/prefer-default-export": "off",
 
     "react/prop-types": "off",

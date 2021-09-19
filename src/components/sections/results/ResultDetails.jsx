@@ -94,7 +94,10 @@ const ResultDetails = ({ data }) => {
   const runeName = runeStringId ? rune.text.split(' ')[rune.text.split(' ').length - 1] : '';
 
   // Calculate the props for the weapons component
-  let wea1, wea2, weapData;
+  let wea1;
+  let wea2;
+  let weapData;
+
   if (priority === 'Dual wield') {
     wea1 = classData.mainHand.find((d) => d.type === 'one-handed');
     [wea2] = classData.offHand;

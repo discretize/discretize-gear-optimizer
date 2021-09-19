@@ -47,7 +47,8 @@ const Buffs = ({ classes, data }) => {
             </FormLabel>
             <FormGroup>
               {section.items.map((buff) => {
-                let Component, name;
+                let Component;
+                let name;
 
                 switch (buff.type) {
                   case 'Text':
