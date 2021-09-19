@@ -23,6 +23,7 @@ export default (Component) =>
     }
 
     render() {
+      // eslint-disable-next-line no-unused-vars
       const { theme, sheetsManager, generateClassName } = this.muiPageContext;
 
       return (
