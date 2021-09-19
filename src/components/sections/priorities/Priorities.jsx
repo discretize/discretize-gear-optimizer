@@ -40,7 +40,7 @@ const styles = (theme) => ({
 
 const OPTIMIZATION_GOALS = ['Damage', 'Survivability', 'Healing'];
 
-const Priorities = ({ classes, presets }) => {
+const Priorities = ({ classes }) => {
   const dispatch = useDispatch();
   const optimizeFor = useSelector(getPriority('optimizeFor'));
   const weaponType = useSelector(getPriority('weaponType'));
