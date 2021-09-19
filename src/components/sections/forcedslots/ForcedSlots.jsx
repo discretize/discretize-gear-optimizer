@@ -34,7 +34,7 @@ const ForcedSlots = ({ classes }) => {
   }
 
   const handleChange = (index) => (event, newInput) => {
-    dispatch(changeForcedSlot({ index: index, value: newInput }));
+    dispatch(changeForcedSlot({ index, value: newInput }));
   };
 
   const input2 = (name, index, offset) => {

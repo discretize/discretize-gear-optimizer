@@ -38,7 +38,7 @@ const storage = typeof window === 'undefined' ? createNoopStorage() : createWebS
 const persistConfig = {
   key: 'root',
   whitelist: 'gw2UiStore',
-  storage: storage,
+  storage,
 };
 
 const reducers = combineReducers({

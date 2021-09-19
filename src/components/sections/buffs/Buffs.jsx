@@ -30,11 +30,11 @@ const Buffs = ({ classes, data }) => {
 
   // Dynamic component creation for buffs from a string
   const components = {
-    Boon: Boon,
-    Trait: Trait,
-    Skill: Skill,
-    CommonEffect: CommonEffect,
-    Condition: Condition,
+    Boon,
+    Trait,
+    Skill,
+    CommonEffect,
+    Condition,
   };
 
   return (
