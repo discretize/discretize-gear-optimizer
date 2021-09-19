@@ -142,6 +142,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
     );
   };
 
+  // eslint-disable-next-line no-shadow
   const handleTemplateSelect = (popup, elem, specialization, profession) => {
     dispatch({ type: 'CANCEL' });
     dispatch(

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const { startCase } = require('lodash');
 
 const itemMapping = require('./mapping/items.json');
