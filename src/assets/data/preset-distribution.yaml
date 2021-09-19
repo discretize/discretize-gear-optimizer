@@ -1,6 +1,5 @@
 GraphQL ID: presetDistribution
 list:
-
   # button not shown; used for no-op templates
   - name: None
     value: >-
@@ -359,4 +358,3 @@ list:
         "values1": { "Power": 91, "Burning": 4, "Bleeding": 1, "Poisoned": 4, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 3500, "Burning": 0.5, "Bleeding": 0.4, "Poisoned": 1.8, "Torment": 0, "Confusion": 0 }
       }
-

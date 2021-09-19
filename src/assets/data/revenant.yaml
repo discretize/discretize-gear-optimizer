@@ -2,216 +2,216 @@ GraphQL ID: Revenant
 list:
   - section: 'Skills'
 
-  - section: "Corruption"
+  - section: 'Corruption'
     id: 14
     items:
       - id: acolyte-of-torment
-        text: "Acolyte of Torment"
+        text: 'Acolyte of Torment'
         modifiers: >-
           {
             "multiplier": { "Torment Damage": 0.1 }
           }
         gw2-id: 1793
-        type: "traits"
+        type: 'traits'
 
       - id: seething-malice
-        text: "Seething Malice"
+        text: 'Seething Malice'
         modifiers: >-
           {
             "buff": { "Condition Damage": 120 }
           }
         gw2-id: 1801
-        type: "traits"
+        type: 'traits'
 
       - id: demonic-resistance
-        text: "Demonic Resistance"
+        text: 'Demonic Resistance'
         modifiers: >-
           {
             "multiplier": { "Effective Health": 0.2 }
           }
         gw2-id: 1726
-        type: "traits"
+        type: 'traits'
 
       - id: pact-of-pain
-        text: "Pact of Pain"
+        text: 'Pact of Pain'
         modifiers: >-
           {
             "flat": { "Condition Duration": 15 }
           }
         gw2-id: 1714
-        type: "traits"
+        type: 'traits'
 
       - id: yearning-empowerment
-        text: "Yearning Empowerement"
+        text: 'Yearning Empowerement'
         modifiers: >-
           {
             "flat": { "Condition Duration": 10 }
           }
         gw2-id: 1744
-        type: "traits"
+        type: 'traits'
 
-  - section: "Retribution"
+  - section: 'Retribution'
     id: 9
     items:
       - id: dwarven-battle-training
-        text: "Dwarven Battle Training"
+        text: 'Dwarven Battle Training'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 1740
-        type: "traits"
+        type: 'traits'
 
       - id: determined-resolution
-        text: "Determined Resolution"
+        text: 'Determined Resolution'
         minor: true
         modifiers: >-
           {
             "multiplier": { "Effective Health": 0.1 }
           }
         gw2-id: 1713
-        type: "traits"
+        type: 'traits'
 
       - id: vicious-reprisal
-        text: "Vicious Reprisal"
-        subText: "100%"
+        text: 'Vicious Reprisal'
+        subText: '100%'
         modifiers: >-
           {
             "multiplier": { "add: Effective Power": 0.1, "add: Effective Condition Damage": 0.1 }
           }
         gw2-id: 1779
-        type: "traits"
+        type: 'traits'
 
       - id: versed-in-stone
-        text: "Versed in Stone"
+        text: 'Versed in Stone'
         modifiers: >-
           {
             "convert": { "Power": { "Toughness": 0.13 } }
           }
         gw2-id: 1770
-        type: "traits"
+        type: 'traits'
 
-  - section: "Invocation"
+  - section: 'Invocation'
     id: 3
     items:
       - id: rising-tide
-        text: "Rising Tide"
+        text: 'Rising Tide'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.07 }
           }
         gw2-id: 1761
-        type: "traits"
+        type: 'traits'
 
       - id: ferocious-aggression
-        text: "Ferocious Aggression"
+        text: 'Ferocious Aggression'
         minor: true
         modifiers: >-
           {
             "multiplier": { "add: Effective Power": 0.07, "add: Effective Condition Damage": 0.07 }
           }
         gw2-id: 1758
-        type: "traits"
+        type: 'traits'
 
       - id: roiling-mists
-        text: "Roiling Mists"
+        text: 'Roiling Mists'
         modifiers: >-
           {
             "flat": { "Critical Chance": 20 }
           }
         gw2-id: 1719
-        type: "traits"
+        type: 'traits'
 
-  - section: "Devastation"
+  - section: 'Devastation'
     id: 15
     items:
       - id: unsuspecting-strikes
-        text: "Unsuspecting Strikes"
-        subText: "20% uptime -> +4% Damage"
+        text: 'Unsuspecting Strikes'
+        subText: '20% uptime -> +4% Damage'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.04 }
           }
         gw2-id: 1767
-        type: "traits"
+        type: 'traits'
 
       - id: destructive-impulses-dual
-        text: "Destructive Impulses"
-        subText: "Dual wielded"
+        text: 'Destructive Impulses'
+        subText: 'Dual wielded'
         minor: true
         modifiers: >-
           {
             "multiplier": { "add: Effective Power": 0.1, "add: Effective Condition Damage": 0.1 }
           }
         gw2-id: 1724
-        type: "traits"
+        type: 'traits'
 
       - id: destructive-impulses
-        text: "Destructive Impulses"
-        subText: "Two handed"
+        text: 'Destructive Impulses'
+        subText: 'Two handed'
         minor: true
         modifiers: >-
           {
             "multiplier": { "add: Effective Power": 0.05, "add: Effective Condition Damage": 0.05 }
           }
         gw2-id: 1724
-        type: "traits"
+        type: 'traits'
 
       - id: destructive-impulses-mix
-        text: "Destructive Impulses"
-        subText: "50% dual wield, 50% 2h"
+        text: 'Destructive Impulses'
+        subText: '50% dual wield, 50% 2h'
         minor: true
         modifiers: >-
           {
             "multiplier": { "add: Effective Power": 0.075, "add: Effective Condition Damage": 0.075 }
           }
         gw2-id: 1724
-        type: "traits"
+        type: 'traits'
 
       - id: notoriety
-        text: "Notoriety"
-        subText: "25 might"
+        text: 'Notoriety'
+        subText: '25 might'
         modifiers: >-
           {
             "buff": { "Power": 250, "Condition Damage": -250 }
           }
         gw2-id: 1765
-        type: "traits"
+        type: 'traits'
 
       - id: targeted-destruction
-        text: "Targeted Destruction"
-        subText: "25 vulnerability"
+        text: 'Targeted Destruction'
+        subText: '25 vulnerability'
         minor: true
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.125 }
           }
         gw2-id: 1792
-        type: "traits"
+        type: 'traits'
 
       - id: swift-termination
-        text: "Swift Termination"
+        text: 'Swift Termination'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 1800
-        type: "traits"
+        type: 'traits'
 
-  - section: "Salvation"
+  - section: 'Salvation'
     id: 12
     items:
       - id: tranquil-balance
-        text: "Tranquil Balance"
+        text: 'Tranquil Balance'
         modifiers: >-
           {
             "multiplier": { "Effective Healing": 0.2 }
           }
         gw2-id: 1822
-        type: "traits"
+        type: 'traits'
 
       - id: life-attunement
-        text: "Life Attunement"
+        text: 'Life Attunement'
         minor: true
         modifiers: >-
           {
@@ -219,22 +219,22 @@ list:
             "convert": { "Concentration": { "Healing Power": 0.07 } }
           }
         gw2-id: 1821
-        type: "traits"
+        type: 'traits'
 
       - id: invoking-harmony
-        text: "Invoking Harmony"
+        text: 'Invoking Harmony'
         modifiers: >-
           {
             "multiplier": { "Effective Healing": 0.2 }
           }
         gw2-id: 1818
-        type: "traits"
+        type: 'traits'
 
-  - section: "Renegade"
+  - section: 'Renegade'
     id: 63
     items:
       - id: ambush-commander
-        text: "Ambush Commander"
+        text: 'Ambush Commander'
         subText: "5x Kalla's Fervor"
         minor: true
         modifiers: >-
@@ -242,42 +242,42 @@ list:
             "multiplier": { "add: Effective Power": 0.1, "add: Effective Condition Damage": 0.1 }
           }
         gw2-id: 2181
-        type: "traits"
+        type: 'traits'
 
       - id: blood-fury
-        text: "Blood Fury"
+        text: 'Blood Fury'
         modifiers: >-
           {
             "flat": { "Bleeding Duration": 25 }
           }
         gw2-id: 2079
-        type: "traits"
+        type: 'traits'
 
       - id: heartpiercer
-        text: "Heartpiercer"
+        text: 'Heartpiercer'
         modifiers: >-
           {
             "multiplier": { "Bleeding Damage": 0.25 }
           }
         gw2-id: 2092
-        type: "traits"
+        type: 'traits'
 
       - id: brutal-momentum
-        text: "Brutal Momentum"
+        text: 'Brutal Momentum'
         minor: true
         modifiers: >-
           {
             "flat": { "Critical Chance": 33 }
           }
         gw2-id: 2142
-        type: "traits"
+        type: 'traits'
 
       - id: lasting-legacy
-        text: "Lasting Legacy"
+        text: 'Lasting Legacy'
         subText: "additional bonus from 5x Kalla's Fervor"
         modifiers: >-
           {
             "multiplier": { "add: Effective Power": 0.05, "add: Effective Condition Damage": 0.05 }
           }
         gw2-id: 2100
-        type: "traits"
+        type: 'traits'

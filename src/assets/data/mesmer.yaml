@@ -1,151 +1,151 @@
 GraphQL ID: Mesmer
 list:
-  - section: "Skills"
+  - section: 'Skills'
     items:
       - id: signet-of-domination
-        text: "Signet of Domination"
+        text: 'Signet of Domination'
         modifiers: >-
           {
             "buff": { "Condition Damage": 180 }
           }
         gw2-id: 10232
-        type: "skills"
+        type: 'skills'
 
       - id: signet-of-midnight
-        text: "Signet of Midnight"
+        text: 'Signet of Midnight'
         modifiers: >-
           {
             "buff": { "Expertise": 180 }
           }
         gw2-id: 10234
-        type: "skills"
+        type: 'skills'
 
-  - section: "Domination"
+  - section: 'Domination'
     id: 10
     items:
       - id: fragility
-        text: "Fragility"
+        text: 'Fragility'
         minor: true
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.125 }
           }
         gw2-id: 1941
-        type: "traits"
+        type: 'traits'
 
       - id: egotism
-        text: "Egotism"
+        text: 'Egotism'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 713
-        type: "traits"
+        type: 'traits'
 
       - id: vicious-expression
-        text: "Vicious Expression"
+        text: 'Vicious Expression'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.15 }
           }
         gw2-id: 681
-        type: "traits"
+        type: 'traits'
 
-  - section: "Dueling"
+  - section: 'Dueling'
     id: 1
     items:
       - id: fencers-finesse
         text: "Fencer's Finesse"
-        subText: "10x"
+        subText: '10x'
         modifiers: >-
           {
             "buff": { "Ferocity": 150 }
           }
         gw2-id: 708
-        type: "traits"
+        type: 'traits'
 
       - id: superiority-complex
-        text: "Superiority Complex"
-        subText: "50% uptime -> +20% Critical Damage"
+        text: 'Superiority Complex'
+        subText: '50% uptime -> +20% Critical Damage'
         modifiers: >-
           {
             "multiplier": { "Critical Damage": 0.2 }
           }
         gw2-id: 692
-        type: "traits"
+        type: 'traits'
 
-  - section: "Chaos"
+  - section: 'Chaos'
     id: 45
     items:
       - id: illusionary-defense
-        text: "Illusionary Defense"
-        subText: "5x"
+        text: 'Illusionary Defense'
+        subText: '5x'
         modifiers: >-
           {
             "multiplier": { "Effective Health": 0.25 }
           }
         gw2-id: 675
-        type: "traits"
+        type: 'traits'
 
       - id: illusionary-membrane
-        text: "Illusionary Membrane"
+        text: 'Illusionary Membrane'
         minor: true
         modifiers: >-
           {
             "multiplier": { "add: Effective Condition Damage": 0.1 }
           }
         gw2-id: 667
-        type: "traits"
+        type: 'traits'
 
       - id: chaotic-potency
-        text: "Chaotic Potency"
-        subText: "base"
+        text: 'Chaotic Potency'
+        subText: 'base'
         modifiers: >-
           {
             "buff": { "Condition Damage": 120 }
           }
         gw2-id: 669
-        type: "traits"
+        type: 'traits'
 
       - id: chaotic-potency-2
-        text: "Chaotic Potency"
-        subText: "with staff - check both boxes"
+        text: 'Chaotic Potency'
+        subText: 'with staff - check both boxes'
         modifiers: >-
           {
             "buff": { "Condition Damage": 120 }
           }
         gw2-id: 669
-        type: "traits"
+        type: 'traits'
 
       - id: chaotic-persistence
-        text: "Chaotic Persistence"
+        text: 'Chaotic Persistence'
         minor: true
         modifiers: >-
           {
             "buff": { "Concentration": 250, "Expertise": 250 }
           }
         gw2-id: 1865
-        type: "traits"
+        type: 'traits'
 
-  - section: "Inspiration"
+  - section: 'Inspiration'
     id: 23
     items:
       - id: healing-prism
-        text: "Healing Prism"
+        text: 'Healing Prism'
         modifiers: >-
           {
             "convert": { "Healing Power": { "Power": 0.13 } }
           }
         minor: true
         gw2-id: 1915
-        type: "traits"
+        type: 'traits'
 
-  - section: "Illusions"
+  - section: 'Illusions'
     id: 24
     items:
       - id: compounding-power
-        text: "Compounding Power"
-        subText: "5x"
+        text: 'Compounding Power'
+        subText: '5x'
         modifiers: >-
           {
             "multiplier": { "add: Effective Power": 0.1 },
@@ -153,21 +153,21 @@ list:
           }
         minor: true
         gw2-id: 723
-        type: "traits"
+        type: 'traits'
 
-  - section: "Chronomancer"
+  - section: 'Chronomancer'
     id: 40
     items:
       - id: danger-time
-        text: "Danger Time"
+        text: 'Danger Time'
         modifiers: >-
           {
             "flat": { "Critical Chance": 15 }
           }
         gw2-id: 2009
-        type: "traits"
+        type: 'traits'
 
-  - section: "Mirage"
+  - section: 'Mirage'
     id: 59
     items:
       - id: nomads-endurance
@@ -178,4 +178,4 @@ list:
           }
         minor: true
         gw2-id: 2069
-        type: "traits"
+        type: 'traits'
