@@ -14,7 +14,7 @@
     "no-continue": "off",
     "no-param-reassign": ["warn", { "props": false }],
     "consistent-return": "off",
-    "no-unused-vars": ["warn", { "argsIgnorePattern": "^event$|^e$|^props$|^theme$|^action$" }],
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^event$|^e$|^props$|^theme$|^action$|^_" }],
     "react/state-in-constructor": "off",
 
     // temp
