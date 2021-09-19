@@ -25,8 +25,8 @@ const WeaponSelect = ({ classes }) => {
 
   const classData = Classes[profession.toLowerCase()];
 
-  const canOffhand1 =
-    classData.weapons.mainHand.find((w) => w.name === wea1mh).type !== 'twoHanded';
+  // const canOffhand1 =
+  //   classData.weapons.mainHand.find((w) => w.name === wea1mh).type !== 'twoHanded';
 
   return (
     <>

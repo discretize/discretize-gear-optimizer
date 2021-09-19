@@ -27,7 +27,7 @@ const styles = (theme) => ({
 });
 
 class Layout extends Component {
-  state = { open: false };
+  // state = { open: false };
 
   render = () => {
     const { classes, children, ContainerProps, disableContainer = false } = this.props;
