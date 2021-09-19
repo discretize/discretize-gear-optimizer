@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import Layout from "../components/baseComponents/Layout";
+import Layout from '../components/baseComponents/Layout';
 
 export default (layout) =>
   (Component) =>

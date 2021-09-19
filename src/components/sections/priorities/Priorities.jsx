@@ -40,7 +40,7 @@ const styles = (theme) => ({
 
 const OPTIMIZATION_GOALS = ['Damage', 'Survivability', 'Healing'];
 
-const Priorities = ({ classes, presets }) => {
+const Priorities = ({ classes }) => {
   const dispatch = useDispatch();
   const optimizeFor = useSelector(getPriority('optimizeFor'));
   const weaponType = useSelector(getPriority('weaponType'));
@@ -75,7 +75,7 @@ const Priorities = ({ classes, presets }) => {
                 key={goal}
                 value={goal}
                 control={<Radio color="primary" />}
-                label={goal === 'Survivability' ? 'Survivability (WIP)': goal}
+                label={goal === 'Survivability' ? 'Survivability (WIP)' : goal}
               />
             ))}
           </RadioGroup>
@@ -101,12 +101,12 @@ const Priorities = ({ classes, presets }) => {
               value="Dual wield"
               control={<Radio color="primary" />}
               label="Dual wielded"
-            ></FormControlLabel>
+            />
             <FormControlLabel
               value="Two-handed"
               control={<Radio color="primary" />}
               label="Two-handed"
-            ></FormControlLabel>
+            />
           </RadioGroup>
         </FormControl>
       </Grid>

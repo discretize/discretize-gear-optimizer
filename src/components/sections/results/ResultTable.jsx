@@ -5,10 +5,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import {
-  getList,
-  getSelectedCharacter,
-} from '../../../state/gearOptimizerSlice';
+import { getList, getSelectedCharacter } from '../../../state/gearOptimizerSlice';
 import ResultTableRow from './ResultTableRow';
 import ResultTableHeaderRow from './ResultTableHeaderRow';
 
@@ -47,7 +44,7 @@ const mode = (array) => {
 const StickyHeadTable = ({ classes }) => {
   const selectedCharacter = useSelector(getSelectedCharacter);
   const list = useSelector(getList) || [];
-  
+
   let mostCommonAffix = null;
   if (/* status !== RUNNING && */ list[0]) {
     mostCommonAffix = mode(list[0].gear);

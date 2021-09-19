@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const { startCase } = require('lodash');
 
 const itemMapping = require('./mapping/items.json');
@@ -14,9 +15,9 @@ const normalize = (string) =>
   string === undefined
     ? string
     : string
-        .replace(/[^A-Za-z]/g, '')
-        .toLowerCase()
-        .trim();
+      .replace(/[^A-Za-z]/g, '')
+      .toLowerCase()
+      .trim();
 
 const findMatch = ({
   tag,

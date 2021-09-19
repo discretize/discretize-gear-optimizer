@@ -1,6 +1,6 @@
 GraphQL ID: Buffs
 list:
-  - section: "Boons"
+  - section: 'Boons'
     items:
       - id: might
         text: >-
@@ -12,7 +12,7 @@ list:
             "buff": { "Power": 750, "Condition Damage": 750 }
           }
         default-enabled: true
-        type: "Boon"
+        type: 'Boon'
 
       - id: fury
         text: >-
@@ -23,7 +23,7 @@ list:
             "flat": { "Critical Chance": 20 }
           }
         default-enabled: true
-        type: "Boon"
+        type: 'Boon'
 
       - id: protection
         text: >-
@@ -33,7 +33,7 @@ list:
           {
             "multiplier": { "Effective Health": 0.33 }
           }
-        type: "Boon"
+        type: 'Boon'
 
       - id: vulnerability
         text: >-
@@ -45,154 +45,151 @@ list:
             "multiplier": { "target: Effective Power": 0.25, "target: Effective Condition Damage": 0.25 }
           }
         default-enabled: true
-        type: "Condition"
+        type: 'Condition'
 
-  - section: "Warrior buffs"
+  - section: 'Warrior buffs'
     items:
       - id: bannerOfStrength
-        text: "Banner of Strength"
+        text: 'Banner of Strength'
         modifiers: >-
           {
             "buff": { "Power": 100, "Condition Damage": 100 }
           }
         gw2-id: 14405
-        type: "Skill"
+        type: 'Skill'
         default-enabled: true
-        extraCSS: "text-warrior"
+        extraCSS: 'text-warrior'
 
       - id: bannerOfDiscipline
-        text: "Banner of Discipline"
+        text: 'Banner of Discipline'
         modifiers: >-
           {
             "buff": { "Precision": 100, "Ferocity": 100 }
           }
         gw2-id: 14407
-        type: "Skill"
+        type: 'Skill'
         default-enabled: true
-        extraCSS: "text-warrior"
+        extraCSS: 'text-warrior'
 
       - id: bannerOfTactics
-        text: "Banner of Tactics"
+        text: 'Banner of Tactics'
         modifiers: >-
           {
             "buff": { "Healing Power": 100},
             "flat": { "Boon Duration": 10 }
           }
         gw2-id: 14408
-        type: "Skill"
-        extraCSS: "text-warrior"
+        type: 'Skill'
+        extraCSS: 'text-warrior'
 
       - id: bannerOfDefense
-        text: "Banner of Defense"
+        text: 'Banner of Defense'
         modifiers: >-
           {
             "buff": { "Toughness": 100, "Vitality": 100 }
           }
         gw2-id: 14528
-        type: "Skill"
-        extraCSS: "text-warrior"
+        type: 'Skill'
+        extraCSS: 'text-warrior'
 
       - id: empowerAllies
-        text: "Empower Allies"
+        text: 'Empower Allies'
         modifiers: >-
           {
             "buff": { "Power": 100 }
           }
         gw2-id: 1482
-        type: "Trait"
-        extraCSS: "text-warrior"
+        type: 'Trait'
+        extraCSS: 'text-warrior'
 
-  - section: "Other buffs"
+  - section: 'Other buffs'
     items:
       - id: spotter
-        text: "Spotter"
+        text: 'Spotter'
         modifiers: >-
           {
             "buff": { "Precision": 100 }
           }
         gw2-id: 1016
-        type: "Trait"
-        extraCSS: "text-ranger"
+        type: 'Trait'
+        extraCSS: 'text-ranger'
 
       - id: frostSpirit
-        text: "Frost Spirit"
+        text: 'Frost Spirit'
         modifiers: >-
           {
             "multiplier": { "add: Effective Power": 0.05 }
           }
         gw2-id: 12497
-        type: "Skill"
+        type: 'Skill'
         default-enabled: true
-        extraCSS: "text-ranger"
+        extraCSS: 'text-ranger'
 
       - id: pinpointDistribution
-        text: "Pinpoint Distribution"
+        text: 'Pinpoint Distribution'
         modifiers: >-
           {
             "buff": { "Condition Damage": 100 }
           }
         gw2-id: 1984
-        type: "Trait"
-        extraCSS: "text-engineer"
+        type: 'Trait'
+        extraCSS: 'text-engineer'
 
       - id: strengthInNumbers
-        text: "Strength in Numbers"
+        text: 'Strength in Numbers'
         modifiers: >-
           {
             "buff": { "Toughness": 100 }
           }
         gw2-id: 584
-        type: "Trait"
-        extraCSS: "text-guardian"
+        type: 'Trait'
+        extraCSS: 'text-guardian'
 
-  - section: >-
-      <span class="text-guardian">
-        Guardian - Perfect Inscriptions (Assuming 100% uptime!)
-      </span>
+  - section: Guardian - Perfect Inscriptions (100% uptime)
     items:
       - id: baneSignet
-        text: "Bane Signet"
+        text: 'Bane Signet'
         modifiers: >-
           {
             "buff": { "Power": 216 }
           }
         gw2-id: 9093
-        type: "Skill"
+        type: 'Skill'
         default-enabled: true
-        extraCSS: "text-guardian"
+        extraCSS: 'text-guardian'
 
       - id: signetOfJudgment
-        text: "Signet of Judgement"
+        text: 'Signet of Judgement'
         modifiers: >-
           {
             "multiplier": { "Effective Health": 0.12 }
           }
         gw2-id: 9150
-        type: "Skill"
-        extraCSS: "text-guardian"
+        type: 'Skill'
+        extraCSS: 'text-guardian'
 
       - id: signetOfMercy
-        text: "Signet of Mercy"
+        text: 'Signet of Mercy'
         modifiers: >-
           {
             "flat": { "Boon Duration": 10 }
           }
         gw2-id: 9163
-        type: "Skill"
+        type: 'Skill'
 
-        extraCSS: "text-guardian"
+        extraCSS: 'text-guardian'
 
       - id: signetOfWrath
-        text: "Signet of Wrath"
+        text: 'Signet of Wrath'
         modifiers: >-
           {
             "buff": { "Condition Damage": 216 }
           }
         gw2-id: 9151
-        type: "Skill"
-        extraCSS: "text-guardian"
+        type: 'Skill'
+        extraCSS: 'text-guardian'
 
-  - section: "Revenant buffs"
+  - section: 'Revenant buffs'
     items:
       - id: assassinsPresence
         text: "Assassin's Presence"
@@ -201,31 +198,31 @@ list:
             "buff": { "Ferocity": 150 }
           }
         gw2-id: 1786
-        type: "Trait"
+        type: 'Trait'
         default-enabled: true
-        extraCSS: "text-revenant"
+        extraCSS: 'text-revenant'
 
       - id: facetOfNature
-        text: "Facet of Nature—Dragon"
+        text: 'Facet of Nature—Dragon'
         modifiers: >-
           {
             "flat": { "Boon Duration": 20 }
           }
         gw2-id: 29371
-        type: "Skill"
-        extraCSS: "text-revenant"
+        type: 'Skill'
+        extraCSS: 'text-revenant'
 
       - id: riteDwarf
-        text: "Rite of the Great Dwarf"
+        text: 'Rite of the Great Dwarf'
         modifiers: >-
           {
             "multiplier": { "Effective Health": 0.5 }
           }
         gw2-id: 27975
-        type: "Skill"
-        extraCSS: "text-revenant"
+        type: 'Skill'
+        extraCSS: 'text-revenant'
 
-  - section: "Effects"
+  - section: 'Effects'
     items:
       - id: exposed
         text: >-
@@ -236,7 +233,7 @@ list:
           {
             "multiplier": { "target: Effective Power": 0.3, "target: Effective Condition Damage": 1.0 }
           }
-        type: "CommonEffect"
+        type: 'CommonEffect'
 
       - id: lightArmor
         text: >-
@@ -246,4 +243,4 @@ list:
           {
             "multiplier": { "Effective Power": 0.359685864 }
           }
-        type: "Text"
+        type: 'Text'

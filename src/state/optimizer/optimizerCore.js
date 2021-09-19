@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable no-console */
 /* eslint-disable prefer-object-spread */
 /* eslint-disable prefer-template */
@@ -189,8 +190,8 @@ export function setup(input) {
                   } else {
                     throw new Error(
                       'Multipliers can only modify primary, secondary or ' +
-                        'effective attributes, not ' +
-                        attribute,
+                      'effective attributes, not ' +
+                      attribute,
                     );
                   }
 
@@ -202,8 +203,8 @@ export function setup(input) {
                   } else {
                     throw new Error(
                       'Flat modifiers can only increase primary, secondary or ' +
-                        'derived attributes, not ' +
-                        attribute,
+                      'derived attributes, not ' +
+                      attribute,
                     );
                   }
 
@@ -215,8 +216,8 @@ export function setup(input) {
                   } else {
                     throw new Error(
                       'Buff modifiers can only increase primary, secondary or ' +
-                        'derived attributes, not ' +
-                        attribute,
+                      'derived attributes, not ' +
+                      attribute,
                     );
                   }
 
@@ -234,7 +235,7 @@ export function setup(input) {
                   } else {
                     throw new Error(
                       'Conversions can only modify primary or secondary attributes, not ' +
-                        attribute,
+                      attribute,
                     );
                   }
 
@@ -267,7 +268,7 @@ export function setup(input) {
   if (input.percentDistribution && input.distributionVersion !== 2) {
     const { Power, ...rest } = input.percentDistribution;
     settings.distribution = {};
-    settings.distribution['Power'] = Power * 2597 / 1025;
+    settings.distribution['Power'] = (Power * 2597) / 1025;
     for (const [condition, value] of Object.entries(rest)) {
       settings.distribution[condition] = value / Condition[condition].baseDamage;
     }
@@ -297,7 +298,7 @@ export function setup(input) {
     } else {
       throw new Error(
         'Primary infusion can only increase primary, secondary or derived attributes, not ' +
-          primaryInfusionInput,
+        primaryInfusionInput,
       );
     }
   }
@@ -320,8 +321,8 @@ export function setup(input) {
     } else {
       throw new Error(
         'Secondary infusion can only increase ' +
-          'primary, secondary or derived attributes, not ' +
-          secondaryInfusionInput,
+        'primary, secondary or derived attributes, not ' +
+        secondaryInfusionInput,
       );
     }
   }
@@ -927,7 +928,7 @@ function calcPower(_character, multipliers) {
     attributes['Power'] * (1 + critChance * (critDmg - 1)) * multipliers['Effective Power'];
 
   // 2597: standard enemy armor value, also used for ingame damage tooltips
-  const damage = settings.distribution['Power'] / 2597 * attributes['Effective Power'];
+  const damage = (settings.distribution['Power'] / 2597) * attributes['Effective Power'];
   attributes['Power DPS'] = damage;
 
   return damage;

@@ -27,15 +27,15 @@ const styles = (theme) => ({
   },
 });
 
-const SectionInfo = (props) => (
+const SectionInfo = ({ title, children }) => (
   <>
-    <Typography variant="h5">{props.title}</Typography>
-    {props.children && (
+    <Typography variant="h5">{title}</Typography>
+    {children && (
       <Typography variant="caption">
         <Paper variant="outlined">
           <Box p={1}>
             <LiveHelpIcon />
-            <div>{props.children}</div>
+            <div>{children}</div>
           </Box>
         </Paper>
       </Typography>

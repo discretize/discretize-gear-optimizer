@@ -10,7 +10,7 @@ import {
   withStyles,
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
+// import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';
 
 const styles = (theme) => ({
@@ -24,13 +24,13 @@ const styles = (theme) => ({
 });
 
 // Dynamic component creation for buffs from a string
-const components = {
-  Boon: Boon,
-  Trait: Trait,
-  Skill: Skill,
-  CommonEffect: CommonEffect,
-  Condition: Condition,
-};
+// const components = {
+//   Boon,
+//   Trait,
+//   Skill,
+//   CommonEffect,
+//   Condition,
+// };
 
 const AffixesStats = ({ classes, data, buffData }) => {
   const allBuffs = buffData.flatMap((d) => d.items);

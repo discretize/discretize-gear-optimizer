@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable react/jsx-filename-extension */
 
 import React from 'react';
@@ -9,7 +10,6 @@ import { Spinner } from 'gw2-ui-bulk';
 import getPageContext from './src/utils/getPageContext';
 import createStore from './src/state/createStore';
 
-// eslint-disable-next-line import/prefer-default-export
 export const replaceRenderer = ({ bodyComponent, replaceBodyHTMLString, setHeadComponents }) => {
   const { store, persistor } = createStore();
   const { sheetsRegistry } = getPageContext();

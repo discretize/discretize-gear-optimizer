@@ -26,6 +26,7 @@ const styles = (theme) => ({
 });
 
 const Weapons = ({ classes, ...rest }) => {
+  /* eslint-disable no-unused-vars */
   const {
     backItemId,
     backItemStatsId,
@@ -56,6 +57,7 @@ const Weapons = ({ classes, ...rest }) => {
     ring2Infusion3Id,
     ring2Affix,
   } = resolveBackAndTrinkets(rest);
+  /* eslint-enable no-unused-vars */
 
   return (
     <Grid container spacing={3}>

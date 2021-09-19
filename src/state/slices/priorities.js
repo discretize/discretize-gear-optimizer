@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setBuildTemplate, setModifiers } from '../gearOptimizerSlice';
+import { setBuildTemplate } from '../gearOptimizerSlice';
 
 export const prioritiesSlice = createSlice({
   name: 'priorities',

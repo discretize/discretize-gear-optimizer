@@ -14,7 +14,7 @@ import { getTraitLines } from '../../../state/slices/traits';
 import { Classes, Defense, INFUSIONS, PROFESSIONS } from '../../../utils/gw2-data';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 import Character from '../../gw2/Character';
-import { CopyTemplateButton } from '../controls/CopyTemplateButton';
+import CopyTemplateButton from '../controls/CopyTemplateButton';
 import AffixesStats from './AffixesStats';
 import AppliedModifiers from './AppliedModifiers';
 import Indicators from './Indicators';
@@ -94,7 +94,10 @@ const ResultDetails = ({ data }) => {
   const runeName = runeStringId ? rune.text.split(' ')[rune.text.split(' ').length - 1] : '';
 
   // Calculate the props for the weapons component
-  let wea1, wea2, weapData;
+  let wea1;
+  let wea2;
+  let weapData;
+
   if (priority === 'Dual wield') {
     wea1 = classData.mainHand.find((d) => d.type === 'one-handed');
     [wea2] = classData.offHand;
@@ -199,7 +202,7 @@ const ResultDetails = ({ data }) => {
             title="Damage loss from -5 of attribute"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={4}></Grid>
+        <Grid item xs={12} sm={6} md={4} />
       </Grid>
 
       <AppliedModifiers data={modifiers} buffData={data.buffs.list} />

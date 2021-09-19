@@ -76,7 +76,7 @@ const Affixes = ({ classes }) => {
       options={AFFIXES}
       getOptionLabel={(option) => firstUppercase(option)}
       value={affixes}
-      onChange={(event, value) => dispatch(changePriority({ key: 'affixes', value: value }))}
+      onChange={(event, value) => dispatch(changePriority({ key: 'affixes', value }))}
       renderInput={(params) => (
         <TextField
           {...params}

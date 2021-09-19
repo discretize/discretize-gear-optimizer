@@ -3,73 +3,73 @@ list:
   - section: Skills
     items:
       - id: signet-of-fire
-        text: "Signet of Fire"
+        text: 'Signet of Fire'
         modifiers: >-
           {
             "buff": { "Precision": 180 }
           }
         gw2-id: 5542
-        type: "skills"
+        type: 'skills'
 
       - id: signet-of-earth
-        text: "Signet of Earth"
+        text: 'Signet of Earth'
         modifiers: >-
           {
             "buff": { "Toughness": 180 }
           }
         gw2-id: 5571
-        type: "skills"
+        type: 'skills'
 
       - id: flame-axe
-        text: "Flame Axe"
-        subText: "when equipped"
+        text: 'Flame Axe'
+        subText: 'when equipped'
         modifiers: >-
           {
             "buff": { "Power": 180, "Condition Damage": 180 }
           }
         gw2-id: 5540
-        type: "skills"
+        type: 'skills'
 
       - id: earth-shield
-        text: "Earth Shield"
-        subText: "when equipped"
+        text: 'Earth Shield'
+        subText: 'when equipped'
         modifiers: >-
           {
             "buff": { "Vitality": 180, "Toughness": 180 }
           }
         gw2-id: 5546
-        type: "skills"
+        type: 'skills'
 
       - id: fiery-greatsword
-        text: "Fiery Greatsword"
-        subText: "when equipped"
+        text: 'Fiery Greatsword'
+        subText: 'when equipped'
         modifiers: >-
           {
             "buff": { "Power": 260, "Condition Damage": 180 }
           }
         gw2-id: 5516
-        type: "skills"
+        type: 'skills'
 
       - id: lightning-hammer
-        text: "Lightning Hammer"
-        subText: "when equipped"
+        text: 'Lightning Hammer'
+        subText: 'when equipped'
         modifiers: >-
           {
             "buff": { "Precision": 180, "Ferocity": 75 }
           }
         gw2-id: 5624
-        type: "skills"
+        type: 'skills'
 
       - id: frost-bow
-        text: "Frost Bow"
-        subText: "when equipped"
+        text: 'Frost Bow'
+        subText: 'when equipped'
         modifiers: >-
           {
             "buff": { "Healing Power": 180 },
             "flat": { "Condition Duration": 20 }
           }
         gw2-id: 5567
-        type: "skills"
+        type: 'skills'
 
   - section: Fire
     id: 31
@@ -84,38 +84,38 @@ list:
             "buff": { "Power": 150 }
           }
         gw2-id: 320
-        type: "traits"
+        type: 'traits'
 
       - id: burning-precision
-        text: "Burning Precision"
+        text: 'Burning Precision'
         modifiers: >-
           {
             "flat": { "Burning Duration": 20 }
           }
         gw2-id: 296
-        type: "traits"
+        type: 'traits'
 
       - id: burning-rage
-        text: "Burning Rage"
+        text: 'Burning Rage'
         modifiers: >-
           {
             "buff": { "Condition Damage": 180 }
           }
         gw2-id: 325
-        type: "traits"
+        type: 'traits'
 
       - id: power-overwhelming
-        text: "Power Overwhelming"
-        subText: "perma"
+        text: 'Power Overwhelming'
+        subText: 'perma'
         modifiers: >-
           {
             "buff": { "Power": 150 }
           }
         gw2-id: 334
-        type: "traits"
+        type: 'traits'
 
       - id: power-overwhelming-2
-        text: "Power Overwhelming"
+        text: 'Power Overwhelming'
         subText: >-
           (100% in fire - tick both)
         modifiers: >-
@@ -123,7 +123,7 @@ list:
             "buff": { "Power": 150 }
           }
         gw2-id: 334
-        type: "traits"
+        type: 'traits'
 
       - id: pyromancers-training
         text: "Pyromancer's Training"
@@ -133,48 +133,48 @@ list:
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 319
-        type: "traits"
+        type: 'traits'
 
   - section: Air
     id: 41
     items:
       - id: ferocious-winds
-        text: "Ferocious Winds"
+        text: 'Ferocious Winds'
         modifiers: >-
           {
             "convert": { "Ferocity": { "Precision": 0.07 } }
           }
         gw2-id: 232
-        type: "traits"
+        type: 'traits'
 
       - id: raging-storm
-        text: "Raging Storm"
+        text: 'Raging Storm'
         modifiers: >-
           {
             "buff": { "Ferocity": 180 }
           }
         gw2-id: 214
-        type: "traits"
+        type: 'traits'
 
       - id: stormsoul
-        text: "Stormsoul"
+        text: 'Stormsoul'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 1502
-        type: "traits"
+        type: 'traits'
 
       - id: aeromancers-training
         text: "Aeromancer's Training"
-        subText: "perma"
+        subText: 'perma'
         minor: true
         modifiers: >-
           {
             "buff": { "Ferocity": 150 }
           }
         gw2-id: 223
-        type: "traits"
+        type: 'traits'
 
       - id: aeromancers-training-2
         text: "Aeromancer's Training"
@@ -186,33 +186,33 @@ list:
             "buff": { "Ferocity": 150 }
           }
         gw2-id: 223
-        type: "traits"
+        type: 'traits'
 
       - id: bolt-to-the-heart
-        text: "Bolt to the Heart"
-        subText: "50% uptime"
+        text: 'Bolt to the Heart'
+        subText: '50% uptime'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 226
-        type: "traits"
+        type: 'traits'
 
       - id: fresh-air
-        text: "Fresh Air"
-        subText: "100% uptime"
+        text: 'Fresh Air'
+        subText: '100% uptime'
         modifiers: >-
           {
             "buff": { "Ferocity": 250 }
           }
         gw2-id: 1503
-        type: "traits"
+        type: 'traits'
 
   - section: Earth
     id: 26
     items:
       - id: stone-flesh
-        text: "Stone Flesh"
+        text: 'Stone Flesh'
         minor: true
         subText: >-
           (100% in earth)
@@ -221,26 +221,26 @@ list:
             "multiplier": { "Effective Health": 0.07 }
           }
         gw2-id: 278
-        type: "traits"
+        type: 'traits'
 
       - id: serrated-stones
-        text: "Serrated Stones"
+        text: 'Serrated Stones'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.05 },
             "flat": { "Bleeding Duration": 20 }
           }
         gw2-id: 1507
-        type: "traits"
+        type: 'traits'
 
       - id: strength-of-stone
-        text: "Strength of Stone"
+        text: 'Strength of Stone'
         modifiers: >-
           {
             "convert": { "Condition Damage": { "Toughness": 0.1 } }
           }
         gw2-id: 275
-        type: "traits"
+        type: 'traits'
 
       - id: geomancers-defense
         text: "Geomancer's Defense"
@@ -250,22 +250,22 @@ list:
             "multiplier": { "Effective Health": 0.1 }
           }
         gw2-id: 280
-        type: "traits"
+        type: 'traits'
 
   - section: Water
     id: 17
     items:
       - id: piercing-blades
-        text: "Piercing Shards"
+        text: 'Piercing Shards'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 363
-        type: "traits"
+        type: 'traits'
 
       - id: piercing-blades-2
-        text: "Piercing Shards"
+        text: 'Piercing Shards'
         subText: >-
           100% in water - tick both
         modifiers: >-
@@ -273,16 +273,16 @@ list:
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 363
-        type: "traits"
+        type: 'traits'
 
       - id: flow-like-water
-        text: "Flow like Water"
+        text: 'Flow like Water'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.1 }
           }
         gw2-id: 349
-        type: "traits"
+        type: 'traits'
 
       - id: aquamancers-training
         text: "Aquamancer's Training"
@@ -292,138 +292,138 @@ list:
           }
         minor: true
         gw2-id: 1676
-        type: "traits"
+        type: 'traits'
 
   - section: Arcane
     id: 37
     items:
       - id: elemental-enchantment
-        text: "Elemental Enchantment"
+        text: 'Elemental Enchantment'
         modifiers: >-
           {
             "buff": { "Concentration": 180 }
           }
         minor: true
         gw2-id: 2004
-        type: "traits"
+        type: 'traits'
 
       - id: elemental-surge
-        text: "Elemental Surge (100% uptime)"
+        text: 'Elemental Surge (100% uptime)'
         modifiers: >-
           {
             "flat": { "Ferocity": 150 }
           }
         gw2-id: 263
-        type: "traits"
+        type: 'traits'
 
       - id: bountiful-power
-        text: "Bountiful Power"
-        subText: "6x"
+        text: 'Bountiful Power'
+        subText: '6x'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.12 }
           }
         gw2-id: 1511
-        type: "traits"
+        type: 'traits'
 
       - id: bountiful-power-9
-        text: "Bountiful Power"
-        subText: "9x"
+        text: 'Bountiful Power'
+        subText: '9x'
         modifiers: >-
           {
             "multiplier": { "Effective Power": 0.18 }
           }
         gw2-id: 1511
-        type: "traits"
+        type: 'traits'
 
   - section: Tempest
     id: 48
     items:
       - id: gathered-focus
-        text: "Gathered Focus"
+        text: 'Gathered Focus'
         modifiers: >-
           {
             "buff": { "Concentration": 240 }
           }
         minor: true
         gw2-id: 1938
-        type: "traits"
+        type: 'traits'
 
       - id: hardy-conduit
-        text: "Hardy Conduit"
+        text: 'Hardy Conduit'
         minor: true
         modifiers: >-
           {
             "multiplier": { "Effective Health": 0.1167 }
           }
         gw2-id: 1948
-        type: "traits"
+        type: 'traits'
 
       - id: transcendent-tempest
-        text: "Transcendent Tempest"
+        text: 'Transcendent Tempest'
         modifiers: >-
           {
             "multiplier": { "add: Effective Power": 0.07, "add: Effective Condition Damage": 0.07 }
           }
         gw2-id: 1839
-        type: "traits"
+        type: 'traits'
 
   - section: Weaver
     id: 56
     items:
       - id: superior-elements
-        text: "Superior Elements"
-        subText: "100% uptime"
+        text: 'Superior Elements'
+        subText: '100% uptime'
         modifiers: >-
           {
             "flat": { "Critical Chance": 10 }
           }
         gw2-id: 2177
-        type: "traits"
+        type: 'traits'
 
       - id: masters-fortitude
         text: "Master's Fortitude"
-        subText: "With Sword"
+        subText: 'With Sword'
         modifiers: >-
           {
             "flat": { "Vitality": 120 },
             "convert": { "Vitality": { "Power": 0.05, "Condition Damage": 0.05 } }
           }
         gw2-id: 2115
-        type: "traits"
+        type: 'traits'
 
       - id: masters-fortitude-without
         text: "Master's Fortitude"
-        subText: "Without Sword"
+        subText: 'Without Sword'
         modifiers: >-
           {
             "convert": { "Vitality": { "Power": 0.05, "Condition Damage": 0.05 } }
           }
         gw2-id: 2115
-        type: "traits"
+        type: 'traits'
 
       - id: weavers-prowess
         text: "Weaver's Prowess"
-        subText: "100% uptime"
+        subText: '100% uptime'
         modifiers: >-
           {
             "multiplier": { "add: Effective Condition Damage": 0.1 },
             "flat": { "Condition Duration": 20 }
           }
         gw2-id: 2180
-        type: "traits"
+        type: 'traits'
 
       - id: swift-revenge
-        text: "Swift Revenge"
+        text: 'Swift Revenge'
         modifiers: >-
           {
             "multiplier": { "add: Effective Power": 0.1 }
           }
         gw2-id: 2061
-        type: "traits"
+        type: 'traits'
 
       - id: elemental-polyphony-fire
-        text: "Elemental Polyphony"
+        text: 'Elemental Polyphony'
         subText: >-
           100% in fire
         minor: true
@@ -432,10 +432,10 @@ list:
             "buff": { "Power": 120 }
           }
         gw2-id: 2081
-        type: "traits"
+        type: 'traits'
 
       - id: elemental-polyphony-air
-        text: "Elemental Polyphony"
+        text: 'Elemental Polyphony'
         subText: >-
           100% in air
         minor: true
@@ -444,14 +444,14 @@ list:
             "buff": { "Ferocity": 120 }
           }
         gw2-id: 2081
-        type: "traits"
+        type: 'traits'
 
       - id: elements-of-rage
-        text: "Elements of Rage"
+        text: 'Elements of Rage'
         modifiers: >-
           {
             "multiplier": { "add: Effective Condition Damage": 0.05 },
             "convert": { "Precision": { "Vitality": 0.13 } }
           }
         gw2-id: 2131
-        type: "traits"
+        type: 'traits'

@@ -86,7 +86,7 @@ const Traits = ({ classes, data }) => {
     // remove modifiers before we dispatch the trait change
     dispatch(removeTraitModifierWithGW2id(selected[e.tier]));
     selected[e.tier] = e.id;
-    dispatch(changeTraits({ index: index, selected: selected }));
+    dispatch(changeTraits({ index, selected }));
   }
 
   /**

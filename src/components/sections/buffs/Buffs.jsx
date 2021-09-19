@@ -30,11 +30,11 @@ const Buffs = ({ classes, data }) => {
 
   // Dynamic component creation for buffs from a string
   const components = {
-    Boon: Boon,
-    Trait: Trait,
-    Skill: Skill,
-    CommonEffect: CommonEffect,
-    Condition: Condition,
+    Boon,
+    Trait,
+    Skill,
+    CommonEffect,
+    Condition,
   };
 
   return (
@@ -42,12 +42,11 @@ const Buffs = ({ classes, data }) => {
       {data.map((section) => (
         <Grid key={section.section} item xs={12} sm={6} md={4}>
           <FormControl component="fieldset" className={classes.formControl}>
-            <FormLabel component="legend">
-              <div dangerouslySetInnerHTML={{ __html: section.section }}></div>
-            </FormLabel>
+            <FormLabel component="legend">{section.section}</FormLabel>
             <FormGroup>
               {section.items.map((buff) => {
-                let Component, name;
+                let Component;
+                let name;
 
                 switch (buff.type) {
                   case 'Text':

@@ -12,6 +12,7 @@ import classNames from 'classnames';
 import { Attribute, Condition } from 'gw2-ui-bulk';
 import debounce from 'lodash.debounce';
 import Nouislider from 'nouislider-react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import 'nouislider/distribute/nouislider.css';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -162,10 +163,10 @@ const DamageDistribution = ({ classes }) => {
     const { value } = e.target;
     if (value.match('^[-+]?[0-9]*.?[0-9]+([eE][-+]?[0-9]+)?$')) {
       // only update the actual slider when the number entered is a valid string. The regex matches for integer or floats.
-      dispatch(changeDistributionNew({ index: key, value: value }));
+      dispatch(changeDistributionNew({ index: key, value }));
     }
 
-    dispatch(changeTextBoxes({ index: key, value: value }));
+    dispatch(changeTextBoxes({ index: key, value }));
   };
   const SlidersNew = () => {
     return DISTRIBUTION_NAMES.map((d, index) => (

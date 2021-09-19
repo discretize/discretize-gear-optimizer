@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Omnipotion } from '../../utils/gw2-data';
-import { changeExpertMode, setBuildTemplate, setModifiers } from '../gearOptimizerSlice';
+import { setModifiers } from '../gearOptimizerSlice';
 
 export const omnipotionSlice = createSlice({
   name: 'omnipotion',
