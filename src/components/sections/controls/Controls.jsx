@@ -42,6 +42,20 @@ const ControlsBox = ({ classes, profession, data }) => {
     [dispatch],
   );
 
+  let icon;
+
+  switch (status) {
+    case SUCCESS:
+      icon = <DoneAllIcon fontSize="small" classes={{ root: classes.chipIcon }} />;
+      break;
+    case WAITING:
+    case RUNNING:
+      icon = <HourglassEmptyIcon fontSize="small" classes={{ root: classes.chipIcon }} />;
+      break;
+    default:
+      icon = null;
+  }
+
   return (
     <Box display="flex" flexWrap="wrap">
       <Box>
@@ -73,12 +87,7 @@ const ControlsBox = ({ classes, profession, data }) => {
         <Chip
           label={
             <>
-              Status: {firstUppercase(status)}{' '}
-              {status === SUCCESS ? (
-                <DoneAllIcon fontSize="small" classes={{ root: classes.chipIcon }} />
-              ) : status === WAITING || status === RUNNING ? (
-                <HourglassEmptyIcon fontSize="small" classes={{ root: classes.chipIcon }} />
-              ) : null}
+              Status: {firstUppercase(status)} {icon}
             </>
           }
           color={status !== ABORTED ? 'primary' : 'secondary'}
