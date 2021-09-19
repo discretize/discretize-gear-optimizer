@@ -1,11 +1,11 @@
-import React from "react";
-import { CssBaseline, MuiThemeProvider } from "@material-ui/core";
-import { JssProvider } from "react-jss";
-import { ThemeProvider } from "theme-ui";
+import React from 'react';
+import { CssBaseline, MuiThemeProvider } from '@material-ui/core';
+import { JssProvider } from 'react-jss';
+import { ThemeProvider } from 'theme-ui';
 
-import baseTheme from "../styles/baseTheme";
+import baseTheme from '../styles/baseTheme';
 
-import getPageContext from "../utils/getPageContext";
+import getPageContext from '../utils/getPageContext';
 
 export default (Component) =>
   class extends React.Component {
@@ -16,7 +16,7 @@ export default (Component) =>
 
     componentDidMount() {
       // Remove the server-side injected CSS.
-      const jssStyles = document.getElementById("jss-server-side");
+      const jssStyles = document.getElementById('jss-server-side');
       if (jssStyles && jssStyles.parentNode) {
         jssStyles.parentNode.removeChild(jssStyles);
       }

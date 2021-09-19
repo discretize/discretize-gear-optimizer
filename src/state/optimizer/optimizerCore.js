@@ -267,7 +267,7 @@ export function setup(input) {
   if (input.percentDistribution && input.distributionVersion !== 2) {
     const { Power, ...rest } = input.percentDistribution;
     settings.distribution = {};
-    settings.distribution['Power'] = Power * 2597 / 1025;
+    settings.distribution['Power'] = (Power * 2597) / 1025;
     for (const [condition, value] of Object.entries(rest)) {
       settings.distribution[condition] = value / Condition[condition].baseDamage;
     }
@@ -927,7 +927,7 @@ function calcPower(_character, multipliers) {
     attributes['Power'] * (1 + critChance * (critDmg - 1)) * multipliers['Effective Power'];
 
   // 2597: standard enemy armor value, also used for ingame damage tooltips
-  const damage = settings.distribution['Power'] / 2597 * attributes['Effective Power'];
+  const damage = (settings.distribution['Power'] / 2597) * attributes['Effective Power'];
   attributes['Power DPS'] = damage;
 
   return damage;

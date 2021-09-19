@@ -1,7 +1,7 @@
-import React from "react";
-import { MuiThemeProvider, withTheme } from "@material-ui/core/styles";
+import React from 'react';
+import { MuiThemeProvider, withTheme } from '@material-ui/core/styles';
 
-import gw2Styles from "../styles/gw2";
+import gw2Styles from '../styles/gw2';
 
 const specializationAliases = {
   dragonhunter: 'guardian',
@@ -24,32 +24,27 @@ const specializationAliases = {
   scourge: 'necromancer',
 };
 
-export default props => Component =>
+export default (props) => (Component) =>
   withTheme()(({ theme, ...rest }) => {
     const { profession, specialization, type } = props || { ...rest };
 
     let alias;
 
-    alias =
-      profession && typeof profession === 'string' && profession.toLowerCase();
+    alias = profession && typeof profession === 'string' && profession.toLowerCase();
 
     if (!alias) {
       const lowerCaseSpecialization =
-        specialization &&
-        typeof specialization === 'string' &&
-        specialization.toLowerCase();
+        specialization && typeof specialization === 'string' && specialization.toLowerCase();
       alias =
         lowerCaseSpecialization &&
-        (specializationAliases[lowerCaseSpecialization] ||
-          lowerCaseSpecialization);
+        (specializationAliases[lowerCaseSpecialization] || lowerCaseSpecialization);
     }
 
     if (!alias) {
       alias = type && typeof type === 'string' && type.toLowerCase();
     }
 
-    const gw2Theme =
-      alias && (!theme || alias !== theme.name) && gw2Styles[alias];
+    const gw2Theme = alias && (!theme || alias !== theme.name) && gw2Styles[alias];
 
     return gw2Theme ? (
       <MuiThemeProvider theme={gw2Theme}>

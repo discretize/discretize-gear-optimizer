@@ -1,9 +1,9 @@
 /* eslint-disable no-underscore-dangle */
 
-import { SheetsRegistry } from "jss";
-import { createGenerateClassName } from "@material-ui/core/styles";
+import { SheetsRegistry } from 'jss';
+import { createGenerateClassName } from '@material-ui/core/styles';
 
-import theme from "../styles/theme";
+import theme from '../styles/theme';
 
 const createPageContext = () => ({
   theme,
@@ -12,7 +12,7 @@ const createPageContext = () => ({
   // This is needed in order to inject the critical CSS.
   sheetsRegistry: new SheetsRegistry(),
   // The standard class name generator.
-  generateClassName: createGenerateClassName()
+  generateClassName: createGenerateClassName(),
 });
 
 export default () => {
