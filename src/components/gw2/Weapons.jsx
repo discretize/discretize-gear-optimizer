@@ -35,6 +35,7 @@ const styles = (theme) => ({
   },
 });
 
+/* eslint-disable no-unused-vars */
 const Weapons = ({
   classes,
   weapon1MainId,
@@ -68,6 +69,7 @@ const Weapons = ({
   weapon2OffSigil,
   weapon2OffInfusionId,
 }) => (
+  /* eslint-enable no-unused-vars */
   <>
     <List disablePadding>
       <ListItem disableGutters className={classes.listItem}>
