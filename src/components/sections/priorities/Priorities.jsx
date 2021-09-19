@@ -101,12 +101,12 @@ const Priorities = ({ classes, presets }) => {
               value="Dual wield"
               control={<Radio color="primary" />}
               label="Dual wielded"
-            ></FormControlLabel>
+            />
             <FormControlLabel
               value="Two-handed"
               control={<Radio color="primary" />}
               label="Two-handed"
-            ></FormControlLabel>
+            />
           </RadioGroup>
         </FormControl>
       </Grid>

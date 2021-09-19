@@ -61,7 +61,7 @@ const GW2Select = ({ classes, name, label, data }) => {
               disableLink
               text={item.text.replace('Superior ', '')}
               className={classes.item}
-            ></Item>
+            />
           );
         }}
       >

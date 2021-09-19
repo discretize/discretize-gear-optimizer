@@ -23,7 +23,6 @@
 
     // temp
     "react/prop-types": "off",
-    "react/self-closing-comp": "off",
     "react/jsx-props-no-spreading": "off",
     "react/destructuring-assignment": "off",
     "no-restricted-imports": [

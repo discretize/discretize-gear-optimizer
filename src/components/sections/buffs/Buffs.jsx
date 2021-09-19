@@ -43,7 +43,7 @@ const Buffs = ({ classes, data }) => {
         <Grid key={section.section} item xs={12} sm={6} md={4}>
           <FormControl component="fieldset" className={classes.formControl}>
             <FormLabel component="legend">
-              <div dangerouslySetInnerHTML={{ __html: section.section }}></div>
+              <div dangerouslySetInnerHTML={{ __html: section.section }} />
             </FormLabel>
             <FormGroup>
               {section.items.map((buff) => {

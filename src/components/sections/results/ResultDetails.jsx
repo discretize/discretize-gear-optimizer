@@ -202,7 +202,7 @@ const ResultDetails = ({ data }) => {
             title="Damage loss from -5 of attribute"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={4}></Grid>
+        <Grid item xs={12} sm={6} md={4} />
       </Grid>
 
       <AppliedModifiers data={modifiers} buffData={data.buffs.list} />

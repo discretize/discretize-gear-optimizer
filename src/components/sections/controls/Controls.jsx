@@ -65,7 +65,7 @@ const ControlsBox = ({ classes, profession, data }) => {
           onClick={onCancelCalculate}
           disabled={status !== RUNNING}
         >
-          <Cancel className={classNames(classes.icon)}></Cancel>
+          <Cancel className={classNames(classes.icon)} />
           <Typography style={{ marginLeft: 8 }}>Abort</Typography>
         </Button>
       </Box>
