@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable react/jsx-filename-extension */
 
 import React from 'react';
@@ -14,7 +15,6 @@ import createStore from './src/state/createStore';
 
 const { store, persistor } = createStore();
 
-// eslint-disable-next-line import/prefer-default-export
 export const wrapRootElement = ({ element }) => (
   <Provider store={store}>
     {/* TODO fix redux-persist breaking template swapping <PersistGate loading={<Spinner />} persistor={persistor}> */}
