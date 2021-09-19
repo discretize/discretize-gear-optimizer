@@ -1,7 +1,7 @@
 import { Box, LinearProgress, Typography } from '@material-ui/core';
 import React from 'react';
 
-export function LinearProgressWithLabel(props) {
+function LinearProgressWithLabel(props) {
   return (
     <Box display="flex" alignItems="center">
       <Box width="100%" mr={1}>
@@ -15,3 +15,5 @@ export function LinearProgressWithLabel(props) {
     </Box>
   );
 }
+
+export default LinearProgressWithLabel;

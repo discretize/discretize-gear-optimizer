@@ -6,14 +6,7 @@ import { useSelector } from 'react-redux';
 import { getProfession } from '../../../state/gearOptimizerSlice';
 import { Classes } from '../../../utils/gw2-data';
 
-export const CopyTemplateButton = ({
-  extras: extrasIds,
-  data,
-  infusions,
-  weight,
-  runeId,
-  runeName,
-}) => {
+const CopyTemplateButton = ({ extras: extrasIds, data, infusions, weight, runeId, runeName }) => {
   const [open, setOpen] = React.useState(false);
   const [w11, setw11] = React.useState('');
   const [w12, setw12] = React.useState('');
@@ -101,3 +94,5 @@ export const CopyTemplateButton = ({
     </>
   );
 };
+
+export default CopyTemplateButton;

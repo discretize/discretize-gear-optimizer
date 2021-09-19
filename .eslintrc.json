@@ -23,8 +23,6 @@
     "prefer-arrow-callback": "off",
 
     // temp
-    "import/prefer-default-export": "off",
-
     "react/prop-types": "off",
     "react/self-closing-comp": "off",
     "react/jsx-props-no-spreading": "off",
