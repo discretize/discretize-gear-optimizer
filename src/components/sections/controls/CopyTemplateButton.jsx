@@ -38,6 +38,7 @@ const CopyTemplateButton = ({ extras: extrasIds, data, infusions, weight, runeId
     const consumables = { foodId, utilityId, infusion: 'Mighty +9 Agony Infusion' };
 
     const template = {
+      profession,
       gear,
       attributes,
       infusions,
