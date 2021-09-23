@@ -1,488 +1,530 @@
 GraphQL ID: Runes
 list:
+
   - section: Power Runes
     items:
+
       - id: scholar
         text: Superior Rune of the Scholar
         subText: (100% active bonus)
-        modifiers: >-
-          {
-            "flat": { "Power": 175, "Ferocity": 225 },
-            "multiplier": { "Effective Power": 0.05 }
-          }
+        modifiers:
+          damage:
+            Strike Damage: [5%, mult]
+          attributes:
+            Power: [175, converted]
+            Ferocity: [225, converted]
         gw2-id: 24836
-        type: 'items'
+        type: items
 
       - id: scholar-without
         text: Superior Rune of the Scholar
         subText: (without active bonus)
-        modifiers: >-
-          {
-            "flat": { "Power": 175, "Ferocity": 225 }
-          }
+        modifiers:
+          attributes:
+            Power: [175, converted]
+            Ferocity: [225, converted]
         gw2-id: 24836
-        type: 'items'
+        type: items
 
       - id: eagle
-        text: 'Superior Rune of the Eagle'
-        modifiers: >-
-          {
-            "flat": { "Precision": 175, "Ferocity": 225 },
-            "multiplier": { "Effective Power": 0.05 }
-          }
+        text: Superior Rune of the Eagle
+        modifiers:
+          damage:
+            Strike Damage: [5%, mult]
+          attributes:
+            Precision: [175, converted]
+            Ferocity: [225, converted]
         gw2-id: 24723
-        type: 'items'
+        type: items
 
       - id: thief
-        text: 'Superior Rune of the Thief'
-        modifiers: >-
-          {
-            "flat": { "Precision": 300, "Condition Damage": 100 },
-            "multiplier": { "Effective Power": 0.1 }
-          }
+        text: Superior Rune of the Thief
+        modifiers:
+          damage:
+            Strike Damage: [10%, mult]
+          attributes:
+            Precision: [300, converted]
+            Condition Damage: [100, converted]
         gw2-id: 24818
-        type: 'items'
-
-      ####
+        type: items
 
       - id: spellbreaker
-        text: 'Superior Rune of the Spellbreaker'
-        modifiers: >-
-          {
-            "flat": { "Power": 175, "Precision": 100 },
-            "multiplier": { "Effective Power": 0.07 }
-          }
+        text: Superior Rune of the Spellbreaker
+        modifiers:
+          damage:
+            Strike Damage: [7%, mult]
+          attributes:
+            Power: [175, converted]
+            Precision: [100, converted]
         gw2-id: 84749
-        type: 'items'
+        type: items
 
-      - &flame-legion
-        id: flame-legion
-        text: 'Superior Rune of the Flame Legion'
-        modifiers: >-
-          {
-            "flat": { "Power": 175, "Burning Duration": 50 },
-            "multiplier": { "Effective Power": 0.07 }
-          }
+      - id: flame-legion
+        text: Superior Rune of the Flame Legion
+        modifiers:
+          damage:
+            Strike Damage: [7%, mult]
+          attributes:
+            Power: [175, converted]
+            Burning Duration: 50%
         gw2-id: 24797
-        type: 'items'
+        type: items
 
       - id: strength
-        text: 'Superior Rune of Strength'
-        modifiers: >-
-          {
-            "flat": { "Power": 175, "Might Duration": 50 },
-            "multiplier": { "Effective Power": 0.05 }
-          }
+        text: Superior Rune of Strength
+        modifiers:
+          damage:
+            Strike Damage: [5%, mult]
+          attributes:
+            Power: [175, converted]
+            Might Duration: 50%
         gw2-id: 24714
-        type: 'items'
+        type: items
 
       - id: ogre
-        text: 'Superior Rune of the Ogre'
-        modifiers: >-
-          {
-            "flat": { "Power": 175, "Ferocity": 100 },
-            "multiplier": { "add: Effective Power": 0.04 }
-          }
+        text: Superior Rune of the Ogre
+        modifiers:
+          damage:
+            Strike Damage: [4%, add]
+          attributes:
+            Power: [175, converted]
+            Ferocity: [100, converted]
         gw2-id: 24756
-        type: 'items'
+        type: items
 
       - id: chronomancer
-        text: 'Superior Rune of the Chronomancer'
-        modifiers: >-
-          {
-            "flat": { "Power": 175, "Precision": 100 }
-          }
+        text: Superior Rune of the Chronomancer
+        modifiers:
+          attributes:
+            Power: [175, converted]
+            Precision: [100, converted]
         gw2-id: 73399
-        type: 'items'
+        type: items
 
   - section: Support Runes
     items:
+
       - id: pack
-        text: 'Superior Rune of the Pack'
-        modifiers: >-
-          {
-            "flat": { "Power": 175, "Boon Duration": 15 },
-            "buff": { "Precision": 125 }
-          }
+        text: Superior Rune of the Pack
+        modifiers:
+          attributes:
+            Power: [175, converted]
+            Boon Duration: 15%
+            Precision: [125, buff]
         gw2-id: 24702
-        type: 'items'
+        type: items
 
       - id: leadership
-        text: 'Superior Rune of Leadership'
-        modifiers: >-
-          {
-            "flat":
-            {
-              "Power": 36, "Precision": 36, "Toughness": 36, "Vitality": 36,
-              "Concentration": 36, "Condition Damage": 36, "Expertise": 36, "Ferocity": 36, "Healing Power": 36,
-              "Boon Duration": 25
-            }
-          }
+        text: Superior Rune of Leadership
+        modifiers:
+          attributes:
+            Power: [36, converted]
+            Precision: [36, converted]
+            Toughness: [36, converted]
+            Vitality: [36, converted]
+            Concentration: [36, converted]
+            Condition Damage: [36, converted]
+            Expertise: [36, converted]
+            Ferocity: [36, converted]
+            Healing Power: [36, converted]
+            Boon Duration: 25%
         gw2-id: 70600
-        type: 'items'
+        type: items
 
       - id: firebrand
-        text: 'Superior Rune of the Firebrand'
-        modifiers: >-
-          {
-            "flat": { "Condition Damage": 175, "Boon Duration": 10, "Quickness Duration": 30 }
-          }
+        text: Superior Rune of the Firebrand
+        modifiers:
+          attributes:
+            Condition Damage: [175, converted]
+            Boon Duration: 10%
+            Quickness Duration: 30%
         gw2-id: 83338
-        type: 'items'
+        type: items
 
       - id: surging-and-ruby-orb
-        text: >-
-          Superior Rune of Surging (5x) + Ruby Orb
-        modifiers: >-
-          {
-            "flat": { "Power": 195, "Precision": 14, "Ferocity": 14, "Boon Duration": 15 }
-          }
+        text: Superior Rune of Surging (5x) + Ruby Orb
+        modifiers:
+          attributes:
+            Power: [195, converted]
+            Precision: [14, converted]
+            Ferocity: [14, converted]
+            Boon Duration: 15%
         gw2-id: 76813
-        type: 'items'
+        type: items
 
       - id: surging
-        text: 'Superior Rune of Surging'
-        modifiers: >-
-          {
-            "flat": { "Power": 175, "Boon Duration": 15 }
-          }
+        text: Superior Rune of Surging
+        modifiers:
+          attributes:
+            Power: [175, converted]
+            Boon Duration: 15%
         gw2-id: 76813
-        type: 'items'
+        type: items
 
       - id: radiance
-        text: 'Superior Rune of Radiance'
-        modifiers: >-
-          {
-            "flat": { "Vitality": 175, "Boon Duration": 25 }
-          }
+        text: Superior Rune of Radiance
+        modifiers:
+          attributes:
+            Vitality: [175, converted]
+            Boon Duration: 25%
         gw2-id: 67342
-        type: 'items'
+        type: items
 
   - section: Defensive Runes
     items:
+
       - id: durability
-        text: 'Superior Rune of Durability'
-        modifiers: >-
-          {
-            "flat": { "Toughness": 175, "Boon Duration": 15 },
-            "multiplier": { "Effective Health": 0.1 }
-          }
+        text: Superior Rune of Durability
+        modifiers:
+          damage:
+            Damage Reduction: [10%, unknown]
+          attributes:
+            Toughness: [175, converted]
+            Boon Duration: 15%
         gw2-id: 73653
-        type: 'items'
+        type: items
 
       - id: sanctuary
-        text: 'Superior Rune of Sanctuary'
-        modifiers: >-
-          {
-            "flat": { "Vitality": 175, "Boon Duration": 15 }
-          }
+        text: Superior Rune of Sanctuary
+        modifiers:
+          attributes:
+            Vitality: [175, converted]
+            Boon Duration: 15%
         gw2-id: 24857
-        type: 'items'
+        type: items
 
       - id: herald
-        text: 'Superior Rune of the Herald'
-        modifiers: >-
-          {
-            "flat": { "Toughness": 175, "Boon Duration": 15 }
-          }
+        text: Superior Rune of the Herald
+        modifiers:
+          attributes:
+            Toughness: [175, converted]
+            Boon Duration: 15%
         gw2-id: 76100
-        type: 'items'
+        type: items
 
-      - &rebirth
-        id: rebirth
-        text: 'Superior Rune of the Rebirth'
-        modifiers: >-
-          {
-            "flat": { "Healing Power": 300, "Boon Duration": 15 }
-          }
+      - id: rebirth
+        text: Superior Rune of the Rebirth
+        modifiers:
+          attributes:
+            Healing Power: [300, converted]
+            Boon Duration: 15%
         gw2-id: 84171
-        type: 'items'
+        type: items
 
   - section: Heal Runes
     items:
+
       - id: monk
         text: Superior Rune of the Monk
         subText: (10x)
-        modifiers: >-
-          {
-            "flat": { "Healing Power": 175, "Boon Duration": 15 },
-            "multiplier": { "Effective Healing": 0.2 }
-          }
+        modifiers:
+          attributes:
+            Healing Power: [175, converted]
+            Boon Duration: 15%
+            Outgoing Healing: 20%
         gw2-id: 24842
-        type: 'items'
+        type: items
 
       - id: water
-        text: 'Superior Rune of the Water'
-        modifiers: >-
-          {
-            "flat": { "Healing Power": 175, "Boon Duration": 25 }
-          }
+        text: Superior Rune of the Water
+        modifiers:
+          attributes:
+            Healing Power: [175, converted]
+            Boon Duration: 25%
         gw2-id: 24839
-        type: 'items'
+        type: items
 
       - id: altruism
-        text: 'Superior Rune of Altruism'
-        modifiers: >-
-          {
-            "flat": { "Healing Power": 300, "Boon Duration": 15 }
-          }
+        text: Superior Rune of Altruism
+        modifiers:
+          attributes:
+            Healing Power: [300, converted]
+            Boon Duration: 15%
         gw2-id: 38206
-        type: 'items'
+        type: items
 
-      - *rebirth
+      - id: rebirth
+        text: Superior Rune of the Rebirth
+        modifiers:
+          attributes:
+            Healing Power: [300, converted]
+            Boon Duration: 15%
+        gw2-id: 84171
+        type: items
 
   - section: Condition Runes
     items:
+
       - id: berserker
-        text: 'Superior Rune of the Berserker'
-        modifiers: >-
-          {
-            "flat": { "Condition Damage": 175, "Power": 100 },
-            "multiplier": { "add: Effective Power": 0.05, "add: Effective Condition Damage": 0.05 }
-          }
+        text: Superior Rune of the Berserker
+        modifiers:
+          damage:
+            Strike Damage: [5%, add]
+            Condition Damage: [5%, add]
+          attributes:
+            Condition Damage: [175, converted]
+            Power: [100, converted]
         gw2-id: 71425
-        type: 'items'
+        type: items
 
       - id: renegade
-        text: 'Superior Rune of the Renegade'
-        modifiers: >-
-          {
-            "flat": { "Condition Damage": 175, "Ferocity": 100 },
-            "multiplier": { "add: Effective Condition Damage": 0.07 }
-          }
+        text: Superior Rune of the Renegade
+        modifiers:
+          damage:
+            Condition Damage: [7%, add]
+          attributes:
+            Condition Damage: [175, converted]
+            Ferocity: [100, converted]
         gw2-id: 83502
-        type: 'items'
+        type: items
 
       - id: elementalist
-        text: 'Superior Rune of the Elementalist'
-        modifiers: >-
-          {
-            "flat": { "Power": 175, "Condition Damage": 225, "Condition Duration": 10 }
-          }
+        text: Superior Rune of the Elementalist
+        modifiers:
+          attributes:
+            Power: [175, converted]
+            Condition Damage: [225, converted]
+            Condition Duration: 10%
         gw2-id: 24800
-        type: 'items'
+        type: items
 
       - id: lich
-        text: 'Superior Rune of the Lich'
-        modifiers: >-
-          {
-            "flat": { "Vitality": 175, "Condition Duration": 15 },
-            "multiplier": { "add: Effective Condition Damage": 0.04 }
-          }
+        text: Superior Rune of the Lich
+        modifiers:
+          damage:
+            Condition Damage: [4%, add]
+          attributes:
+            Vitality: [175, converted]
+            Condition Duration: 15%
         gw2-id: 24688
-        type: 'items'
+        type: items
 
       - id: trapper
-        text: 'Superior Rune of the Trapper'
-        modifiers: >-
-          {
-            "flat": { "Condition Damage": 175, "Condition Duration": 15 }
-          }
+        text: Superior Rune of the Trapper
+        modifiers:
+          attributes:
+            Condition Damage: [175, converted]
+            Condition Duration: 15%
         gw2-id: 67339
-        type: 'items'
+        type: items
 
       - id: nightmare
-        text: 'Superior Rune of the Nightmare'
-        modifiers: >-
-          {
-            "flat": { "Condition Damage": 175, "Condition Duration": 20, "Fear Duration": 10 }
-          }
+        text: Superior Rune of the Nightmare
+        modifiers:
+          attributes:
+            Condition Damage: [175, converted]
+            Condition Duration: 20%
+            Fear Duration: 10%
         gw2-id: 24848
-        type: 'items'
+        type: items
 
       - id: tempest
-        text: 'Superior Rune of the Tempest'
-        modifiers: >-
-          {
-            "flat":
-            {
-              "Power": 36, "Precision": 36, "Toughness": 36, "Vitality": 36,
-              "Concentration": 36, "Condition Damage": 36, "Expertise": 36, "Ferocity": 36, "Healing Power": 36,
-              "Condition Duration": 25
-            }
-          }
+        text: Superior Rune of the Tempest
+        modifiers:
+          attributes:
+            Power: [36, converted]
+            Precision: [36, converted]
+            Toughness: [36, converted]
+            Vitality: [36, converted]
+            Concentration: [36, converted]
+            Condition Damage: [36, converted]
+            Expertise: [36, converted]
+            Ferocity: [36, converted]
+            Healing Power: [36, converted]
+            Condition Duration: 25%
         gw2-id: 76166
-        type: 'items'
+        type: items
 
       - id: undead
-        text: 'Superior Rune of the Undead'
-        modifiers: >-
-          {
-            "flat": { "Condition Damage": 175, "Toughness": 225 },
-            "convert": { "Condition Damage": { "Toughness": 0.07 } }
-          }
+        text: Superior Rune of the Undead
+        modifiers:
+          attributes:
+            Condition Damage: [175, converted]
+            Toughness: [225, converted]
+          conversion:
+            Condition Damage: {Toughness: 7%}
         gw2-id: 24757
-        type: 'items'
+        type: items
 
       - id: necromancer
-        text: 'Superior Rune of the Necromancer'
-        modifiers: >-
-          {
-            "flat": { "Condition Damage": 300, "Vitality": 100, "Fear Duration": 20 }
-          }
+        text: Superior Rune of the Necromancer
+        modifiers:
+          attributes:
+            Condition Damage: [300, converted]
+            Vitality: [100, converted]
+            Fear Duration: 20%
         gw2-id: 24806
-        type: 'items'
+        type: items
 
       - id: soulbeast
         text: Superior Rune of the Soulbeast
         subText: (Active Bonus)
-        modifiers: >-
-          {
-            "flat": { "Condition Damage": 175, "Power": 100 },
-            "convert": { "Condition Damage": { "Power": 0.07 } }
-          }
+        modifiers:
+          attributes:
+            Condition Damage: [175, converted]
+            Power: [100, converted]
+          conversion:
+            Condition Damage: {Power: 7%}
         gw2-id: 83964
-        type: 'items'
+        type: items
 
   - section: Specific Condition Runes
     items:
-      #### burning
 
       - id: balthazar
-        text: 'Superior Rune of Balthazar'
-        modifiers: >-
-          {
-            "flat": { "Condition Damage": 175, "Burning Duration": 50 },
-            "multiplier": { "Effective Health": 0.1 }
-          }
+        text: Superior Rune of Balthazar
+        modifiers:
+          damage:
+            Damage Reduction: [10%, unknown]
+          attributes:
+            Condition Damage: [175, converted]
+            Burning Duration: 50%
         gw2-id: 24765
-        type: 'items'
+        type: items
 
-      - *flame-legion
+      - id: flame-legion
+        text: Superior Rune of the Flame Legion
+        modifiers:
+          damage:
+            Strike Damage: [7%, mult]
+          attributes:
+            Power: [175, converted]
+            Burning Duration: 50%
+        gw2-id: 24797
+        type: items
 
       - id: baelfire
-        text: 'Superior Rune of the Baelfire'
-        modifiers: >-
-          {
-            "flat": { "Power": 175, "Condition Duration": 10, "Burning Duration": 30 },
-            "convert": { "Expertise": { "Power": 0.07 } }
-          }
+        text: Superior Rune of the Baelfire
+        modifiers:
+          attributes:
+            Power: [175, converted]
+            Condition Duration: 10%
+            Burning Duration: 30%
+          conversion:
+            Expertise: {Power: 7%}
         gw2-id: 24854
-        type: 'items'
-
-      #### bleeding
+        type: items
 
       - id: krait
-        text: 'Superior Rune of the Krait'
-        modifiers: >-
-          {
-            "flat": { "Condition Damage": 175, "Bleeding Duration": 50 }
-          }
+        text: Superior Rune of the Krait
+        modifiers:
+          attributes:
+            Condition Damage: [175, converted]
+            Bleeding Duration: 50%
         gw2-id: 24762
-        type: 'items'
+        type: items
 
       - id: mad-king
-        text: 'Superior Rune of the Mad King'
-        modifiers: >-
-          {
-            "flat": { "Condition Duration": 5, "Power": 175, "Bleeding Duration": 40 }
-          }
+        text: Superior Rune of the Mad King
+        modifiers:
+          attributes:
+            Condition Duration: 5%
+            Power: [175, converted]
+            Bleeding Duration: 40%
         gw2-id: 36044
-        type: 'items'
+        type: items
 
       - id: afflicted
-        text: 'Superior Rune of the Afflicted'
-        modifiers: >-
-          {
-            "flat":
-            {
-              "Condition Damage": 175,
-              "Bleeding Duration": 20,
-              "Poison Duration": 10,
-              "Condition Duration": 10
-            }
-          }
+        text: Superior Rune of the Afflicted
+        modifiers:
+          attributes:
+            Condition Damage: [175, converted]
+            Bleeding Duration: 20%
+            Poison Duration: 10%
+            Condition Duration: 10%
         gw2-id: 24687
-        type: 'items'
-
-      #### poison
+        type: items
 
       - id: thorns
-        text: 'Superior Rune of Thorns'
-        modifiers: >-
-          {
-            "flat": { "Condition Damage": 300, "Poison Duration": 50 }
-          }
+        text: Superior Rune of Thorns
+        modifiers:
+          attributes:
+            Condition Damage: [300, converted]
+            Poison Duration: 50%
         gw2-id: 72912
-        type: 'items'
-
-      #### torment
+        type: items
 
       - id: tormenting
-        text: 'Superior Rune of Tormenting'
-        modifiers: >-
-          {
-            "flat": { "Condition Damage": 175, "Torment Duration": 50 }
-          }
+        text: Superior Rune of Tormenting
+        modifiers:
+          attributes:
+            Condition Damage: [175, converted]
+            Torment Duration: 50%
         gw2-id: 44956
-        type: 'items'
-
-      #### confusion
+        type: items
 
       - id: perplexity
-        text: 'Superior Rune of Perplexity'
-        modifiers: >-
-          {
-            "flat": { "Condition Damage": 175, "Confusion Duration": 50 }
-          }
+        text: Superior Rune of Perplexity
+        modifiers:
+          attributes:
+            Condition Damage: [175, converted]
+            Confusion Duration: 50%
         gw2-id: 44957
-        type: 'items'
+        type: items
 
   - section: Hybrid Runes
     items:
+
       - id: traveler
-        text: 'Superior Rune of the Traveler'
-        modifiers: >-
-          {
-            "flat":
-            {
-              "Power": 36, "Precision": 36, "Toughness": 36, "Vitality": 36,
-              "Concentration": 36, "Condition Damage": 36, "Expertise": 36, "Ferocity": 36, "Healing Power": 36,
-              "Boon Duration": 15,
-              "Condition Duration": 10
-            }
-          }
+        text: Superior Rune of the Traveler
+        modifiers:
+          attributes:
+            Power: [36, converted]
+            Precision: [36, converted]
+            Toughness: [36, converted]
+            Vitality: [36, converted]
+            Concentration: [36, converted]
+            Condition Damage: [36, converted]
+            Expertise: [36, converted]
+            Ferocity: [36, converted]
+            Healing Power: [36, converted]
+            Boon Duration: 15%
+            Condition Duration: 10%
         gw2-id: 24691
-        type: 'items'
+        type: items
 
       - id: divinity
-        text: 'Superior Rune of Divinity'
-        modifiers: >-
-          {
-            "flat":
-            {
-              "Power": 78, "Precision": 78, "Toughness": 78, "Vitality": 78,
-              "Concentration": 78, "Condition Damage": 78, "Expertise": 78, "Ferocity": 78, "Healing Power": 78
-            },
-            "multiplier": { "Effective Health": 0.1 }
-          }
+        text: Superior Rune of Divinity
+        modifiers:
+          damage:
+            Damage Reduction: [10%, unknown]
+          attributes:
+            Power: [78, converted]
+            Precision: [78, converted]
+            Toughness: [78, converted]
+            Vitality: [78, converted]
+            Concentration: [78, converted]
+            Condition Damage: [78, converted]
+            Expertise: [78, converted]
+            Ferocity: [78, converted]
+            Healing Power: [78, converted]
         gw2-id: 24732
-        type: 'items'
+        type: items
 
       - id: revenant
-        text: 'Superior Rune of the Revenant'
-        modifiers: >-
-          {
-            "flat":
-            {
-              "Power": 78, "Precision": 78, "Toughness": 78, "Vitality": 78,
-              "Concentration": 78, "Condition Damage": 78, "Expertise": 78, "Ferocity": 78, "Healing Power": 78
-            }
-          }
+        text: Superior Rune of the Revenant
+        modifiers:
+          attributes:
+            Power: [78, converted]
+            Precision: [78, converted]
+            Toughness: [78, converted]
+            Vitality: [78, converted]
+            Concentration: [78, converted]
+            Condition Damage: [78, converted]
+            Expertise: [78, converted]
+            Ferocity: [78, converted]
+            Healing Power: [78, converted]
         gw2-id: 69370
-        type: 'items'
+        type: items
 
       - id: exuberance
-        text: 'Superior Rune of Exuberance'
-        modifiers: >-
-          {
-            "flat": { "Vitality": 175 },
-            "convert":
-            {
-              "Healing Power": { "Vitality": 0.03 },
-              "Precision": { "Vitality": 0.05 },
-              "Power": { "Vitality": 0.07 }
-            }
-          }
+        text: Superior Rune of Exuberance
+        modifiers:
+          attributes:
+            Vitality: [175, converted]
+          conversion:
+            Healing Power: {Vitality: 3%}
+            Precision: {Vitality: 5%}
+            Power: {Vitality: 7%}
         gw2-id: 44951
-        type: 'items'
+        type: items

@@ -1,246 +1,209 @@
 GraphQL ID: Buffs
 list:
-  - section: 'Boons'
+
+  - section: Boons
     items:
+
       - id: might
-        text: >-
-          <span class="icon icon-might"></span>
-          Might
+        text: Might
         subText: (25x)
-        modifiers: >-
-          {
-            "buff": { "Power": 750, "Condition Damage": 750 }
-          }
+        modifiers:
+          attributes:
+            Power: [750, buff]
+            Condition Damage: [750, buff]
         default-enabled: true
-        type: 'Boon'
+        type: Boon
 
       - id: fury
-        text: >-
-          <span class="icon icon-fury"></span>
-          Fury
-        modifiers: >-
-          {
-            "flat": { "Critical Chance": 20 }
-          }
+        text: Fury
+        modifiers:
+          attributes:
+            Critical Chance: 20%
         default-enabled: true
-        type: 'Boon'
+        type: Boon
 
       - id: protection
-        text: >-
-          <span class="icon icon-protection"></span>
-          Protection
-        modifiers: >-
-          {
-            "multiplier": { "Effective Health": 0.33 }
-          }
-        type: 'Boon'
+        text: Protection
+        modifiers:
+          damage:
+            Damage Reduction: [33%, unknown]
+        type: Boon
 
       - id: vulnerability
-        text: >-
-          <span class="icon icon-vulnerability"></span>
-          Vulnerability
+        text: Vulnerability
         subText: (25x)
-        modifiers: >-
-          {
-            "multiplier": { "target: Effective Power": 0.25, "target: Effective Condition Damage": 0.25 }
-          }
+        modifiers:
+          damage:
+            Strike Damage: [25%, target]
+            Condition Damage: [25%, target]
         default-enabled: true
-        type: 'Condition'
+        type: Condition
 
-  - section: 'Warrior buffs'
+  - section: Warrior buffs
     items:
+
       - id: bannerOfStrength
-        text: 'Banner of Strength'
-        modifiers: >-
-          {
-            "buff": { "Power": 100, "Condition Damage": 100 }
-          }
+        text: Banner of Strength
+        modifiers:
+          attributes:
+            Power: [100, buff]
+            Condition Damage: [100, buff]
         gw2-id: 14405
-        type: 'Skill'
+        type: Skill
         default-enabled: true
-        extraCSS: 'text-warrior'
 
       - id: bannerOfDiscipline
-        text: 'Banner of Discipline'
-        modifiers: >-
-          {
-            "buff": { "Precision": 100, "Ferocity": 100 }
-          }
+        text: Banner of Discipline
+        modifiers:
+          attributes:
+            Precision: [100, buff]
+            Ferocity: [100, buff]
         gw2-id: 14407
-        type: 'Skill'
+        type: Skill
         default-enabled: true
-        extraCSS: 'text-warrior'
 
       - id: bannerOfTactics
-        text: 'Banner of Tactics'
-        modifiers: >-
-          {
-            "buff": { "Healing Power": 100},
-            "flat": { "Boon Duration": 10 }
-          }
+        text: Banner of Tactics
+        modifiers:
+          attributes:
+            Healing Power: [100, buff]
+            Boon Duration: 10%
         gw2-id: 14408
-        type: 'Skill'
-        extraCSS: 'text-warrior'
+        type: Skill
 
       - id: bannerOfDefense
-        text: 'Banner of Defense'
-        modifiers: >-
-          {
-            "buff": { "Toughness": 100, "Vitality": 100 }
-          }
+        text: Banner of Defense
+        modifiers:
+          attributes:
+            Toughness: [100, buff]
+            Vitality: [100, buff]
         gw2-id: 14528
-        type: 'Skill'
-        extraCSS: 'text-warrior'
+        type: Skill
 
       - id: empowerAllies
-        text: 'Empower Allies'
-        modifiers: >-
-          {
-            "buff": { "Power": 100 }
-          }
+        text: Empower Allies
+        modifiers:
+          attributes:
+            Power: [100, buff]
         gw2-id: 1482
-        type: 'Trait'
-        extraCSS: 'text-warrior'
+        type: Trait
 
-  - section: 'Other buffs'
+  - section: Other buffs
     items:
+
       - id: spotter
-        text: 'Spotter'
-        modifiers: >-
-          {
-            "buff": { "Precision": 100 }
-          }
+        text: Spotter
+        modifiers:
+          attributes:
+            Precision: [100, buff]
         gw2-id: 1016
-        type: 'Trait'
-        extraCSS: 'text-ranger'
+        type: Trait
 
       - id: frostSpirit
-        text: 'Frost Spirit'
-        modifiers: >-
-          {
-            "multiplier": { "add: Effective Power": 0.05 }
-          }
+        text: Frost Spirit
+        modifiers:
+          damage:
+            Strike Damage: [5%, add]
         gw2-id: 12497
-        type: 'Skill'
+        type: Skill
         default-enabled: true
-        extraCSS: 'text-ranger'
 
       - id: pinpointDistribution
-        text: 'Pinpoint Distribution'
-        modifiers: >-
-          {
-            "buff": { "Condition Damage": 100 }
-          }
+        text: Pinpoint Distribution
+        modifiers:
+          attributes:
+            Condition Damage: [100, buff]
         gw2-id: 1984
-        type: 'Trait'
-        extraCSS: 'text-engineer'
+        type: Trait
 
       - id: strengthInNumbers
-        text: 'Strength in Numbers'
-        modifiers: >-
-          {
-            "buff": { "Toughness": 100 }
-          }
+        text: Strength in Numbers
+        modifiers:
+          attributes:
+            Toughness: [100, buff]
         gw2-id: 584
-        type: 'Trait'
-        extraCSS: 'text-guardian'
+        type: Trait
 
   - section: Guardian - Perfect Inscriptions (100% uptime)
     items:
+
       - id: baneSignet
-        text: 'Bane Signet'
-        modifiers: >-
-          {
-            "buff": { "Power": 216 }
-          }
+        text: Bane Signet
+        modifiers:
+          attributes:
+            Power: [216, buff]
         gw2-id: 9093
-        type: 'Skill'
+        type: Skill
         default-enabled: true
-        extraCSS: 'text-guardian'
 
       - id: signetOfJudgment
-        text: 'Signet of Judgement'
-        modifiers: >-
-          {
-            "multiplier": { "Effective Health": 0.12 }
-          }
+        text: Signet of Judgement
+        modifiers:
+          damage:
+            Damage Reduction: [12%, unknown]
         gw2-id: 9150
-        type: 'Skill'
-        extraCSS: 'text-guardian'
+        type: Skill
 
       - id: signetOfMercy
-        text: 'Signet of Mercy'
-        modifiers: >-
-          {
-            "flat": { "Boon Duration": 10 }
-          }
+        text: Signet of Mercy
+        modifiers:
+          attributes:
+            Boon Duration: 10%
         gw2-id: 9163
-        type: 'Skill'
-
-        extraCSS: 'text-guardian'
+        type: Skill
 
       - id: signetOfWrath
-        text: 'Signet of Wrath'
-        modifiers: >-
-          {
-            "buff": { "Condition Damage": 216 }
-          }
+        text: Signet of Wrath
+        modifiers:
+          attributes:
+            Condition Damage: [216, buff]
         gw2-id: 9151
-        type: 'Skill'
-        extraCSS: 'text-guardian'
+        type: Skill
 
-  - section: 'Revenant buffs'
+  - section: Revenant buffs
     items:
+
       - id: assassinsPresence
-        text: "Assassin's Presence"
-        modifiers: >-
-          {
-            "buff": { "Ferocity": 150 }
-          }
+        text: Assassin's Presence
+        modifiers:
+          attributes:
+            Ferocity: [150, buff]
         gw2-id: 1786
-        type: 'Trait'
+        type: Trait
         default-enabled: true
-        extraCSS: 'text-revenant'
 
       - id: facetOfNature
-        text: 'Facet of Nature—Dragon'
-        modifiers: >-
-          {
-            "flat": { "Boon Duration": 20 }
-          }
+        text: Facet of Nature—Dragon
+        modifiers:
+          attributes:
+            Boon Duration: 20%
         gw2-id: 29371
-        type: 'Skill'
-        extraCSS: 'text-revenant'
+        type: Skill
 
       - id: riteDwarf
-        text: 'Rite of the Great Dwarf'
-        modifiers: >-
-          {
-            "multiplier": { "Effective Health": 0.5 }
-          }
+        text: Rite of the Great Dwarf
+        modifiers:
+          damage:
+            Damage Reduction: [50%, unknown]
         gw2-id: 27975
-        type: 'Skill'
-        extraCSS: 'text-revenant'
+        type: Skill
 
-  - section: 'Effects'
+  - section: Effects
     items:
+
       - id: exposed
-        text: >-
-          <span class="icon icon-exposed"></span>
-          Exposed
+        text: Exposed
         subText: (100% uptime)
-        modifiers: >-
-          {
-            "multiplier": { "target: Effective Power": 0.3, "target: Effective Condition Damage": 1.0 }
-          }
-        type: 'CommonEffect'
+        modifiers:
+          damage:
+            Strike Damage: [30%, target]
+            Condition Damage: [100%, target]
+        type: CommonEffect
 
       - id: lightArmor
-        text: >-
-          Low Boss Armor (VG, KC)
+        text: Low Boss Armor (VG, KC)
         subText: 1910 vs 2597
-        modifiers: >-
-          {
-            "multiplier": { "Effective Power": 0.359685864 }
-          }
-        type: 'Text'
+        modifiers:
+          damage:
+            Strike Damage: [35.9686%, mult]
+        type: Text
