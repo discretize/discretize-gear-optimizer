@@ -811,6 +811,12 @@ const roundEven = (number) => {
   return Math.round(number);
 };
 
+const clamp = (input, min, max) => {
+  if (input < min) return min;
+  if (input > max) return max;
+  return input;
+}
+
 /**
  * Creates an {attributes} object parameter in the given character object and fills it with
  * calculated stats and damage/healing/survivability scores.
@@ -922,7 +928,7 @@ function calcPower(_character, multipliers) {
   attributes['Critical Damage'] += attributes['Ferocity'] / 15;
 
   const critDmg = (attributes['Critical Damage'] / 100) * multipliers['Critical Damage'];
-  const critChance = Math.min(attributes['Critical Chance'] / 100, 1);
+  const critChance = clamp(attributes['Critical Chance'] / 100, 0, 1);
 
   attributes['Effective Power'] =
     attributes['Power'] * (1 + critChance * (critDmg - 1)) * multipliers['Effective Power'];
@@ -948,8 +954,9 @@ function calcCondi(_character, multipliers, relevantConditions) {
 
     const duration =
       1 +
-      Math.min(
+      clamp(
         ((attributes[`${condition} Duration`] || 0) + attributes['Condition Duration']) / 100,
+        0,
         1,
       );
 
