@@ -1,7 +1,11 @@
 import { TextField, withStyles } from '@material-ui/core';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeExtraModifiers, getExtraModifiers } from '../../../state/slices/extraModifiers';
+import {
+  changeExtraModifiers,
+  changeExtraModifiersError,
+  getExtraModifiers,
+} from '../../../state/slices/extraModifiers';
 
 const styles = (theme) => ({
   text: {
@@ -30,14 +34,12 @@ const ExtraModifiers = ({ classes }) => {
     if (isJson(val)) {
       const stringified = JSON.stringify(JSON.parse(val));
       dispatch(changeExtraModifiers({ key: 'extraModifiers', value: stringified }));
-      dispatch(changeExtraModifiers({ key: 'error', value: '' }));
+      dispatch(changeExtraModifiersError(''));
     } else {
       dispatch(
-        changeExtraModifiers({
-          key: 'error',
-          value:
-            'Invalid Format. Example: [{ "buff": { "Power": 750, "Condition Damage": 750 } }, { "buff": { "Precision": 750 } } ]',
-        }),
+        changeExtraModifiersError(
+          'Invalid Format. Example: [{ "buff": { "Power": 750, "Condition Damage": 750 } }, { "buff": { "Precision": 750 } } ]',
+        ),
       );
     }
   };

@@ -11,11 +11,14 @@ export const extraModifiersSlice = createSlice({
   },
   reducers: {
     changeExtraModifiers: (state, action) => {
-      state.extraModifiers[action.payload.key] = action.payload.value;
+      state[action.payload.key] = action.payload.value;
+    },
+    changeExtraModifiersError: (state, action) => {
+      state.error = action.payload;
     },
   },
   extraReducers: {
-    [setModifiers]: (state, action) => {
+    [setModifiers]: (state, _) => {
       // all selected modifiers will be collected in this array
       const modifiers = [];
       const { extraModifiers } = state;
@@ -35,4 +38,4 @@ export const extraModifiersSlice = createSlice({
 
 export const getExtraModifiers = (key) => (state) => state.extraModifiers[key];
 
-export const { changeExtraModifiers } = extraModifiersSlice.actions;
+export const { changeExtraModifiers, changeExtraModifiersError } = extraModifiersSlice.actions;
