@@ -6,8 +6,8 @@
       modifiers:
         attributes:
           Power: [180, buff]
-      gw2-id: 10622
       type: skills
+      gw2id: 10622
 
 - section: Spite
   id: 53
@@ -18,8 +18,8 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 914
       type: traits
+      gw2id: 914
 
     awaken-the-pain:
       text: Awaken the Pain
@@ -28,8 +28,8 @@
         attributes:
           Power: [250, buff]
           Condition Damage: [-250, buff]
-      gw2-id: 829
       type: traits
+      gw2id: 829
 
     close-to-death:
       text: Close to Death
@@ -37,8 +37,8 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 853
       type: traits
+      gw2id: 853
 
 - section: Curses
   id: 39
@@ -50,8 +50,8 @@
       modifiers:
         attributes:
           Bleeding Duration: 20%
-      gw2-id: 802
       type: traits
+      gw2id: 802
 
     furious-demise:
       text: Furious Demise
@@ -59,8 +59,8 @@
       modifiers:
         attributes:
           Precision: [180, converted]
-      gw2-id: 803
       type: traits
+      gw2id: 803
 
     target-the-weak:
       text: Target the Weak
@@ -71,8 +71,8 @@
           Critical Chance: 20%
         conversion:
           Condition Damage: {Precision: 13%}
-      gw2-id: 810
       type: traits
+      gw2id: 810
 
     lingering-curse:
       text: Lingering Curse
@@ -80,8 +80,8 @@
       modifiers:
         attributes:
           Condition Damage: [200, buff]
-      gw2-id: 801
       type: traits
+      gw2id: 801
 
 - section: Death Magic
   id: 2
@@ -102,8 +102,8 @@
       modifiers:
         attributes:
           Poison Damage: 15%
-      gw2-id: 857
       type: traits
+      gw2id: 857
 
     deadly-strength-6x:
       text: Deadly Strength
@@ -111,8 +111,8 @@
       modifiers:
         attributes:
           Power: [60, buff]
-      gw2-id: 855
       type: traits
+      gw2id: 855
 
     deadly-strength-25x:
       text: Deadly Strength
@@ -120,8 +120,8 @@
       modifiers:
         attributes:
           Power: [250, buff]
-      gw2-id: 855
       type: traits
+      gw2id: 855
 
 - section: Soul Reaping
   id: 50
@@ -134,16 +134,16 @@
         damage:
           Strike Damage: [10%, add]
           Condition Damage: [10%, add]
-      gw2-id: 894
       type: traits
+      gw2id: 894
 
     vital-persistence:
       text: Vital Persistence
       modifiers:
         attributes:
           Vitality: [180, converted]
-      gw2-id: 861
       type: traits
+      gw2id: 861
 
     death-perception:
       text: Death Perception
@@ -152,8 +152,8 @@
         attributes:
           Critical Chance: 33%
           Ferocity: [300, buff]
-      gw2-id: 893
       type: traits
+      gw2id: 893
 
 - section: Scourge
   id: 60
@@ -164,8 +164,8 @@
       modifiers:
         conversion:
           Expertise: {Condition Damage: 7%}
-      gw2-id: 2074
       type: traits
+      gw2id: 2074
 
     sand-sage-2x:
       text: Sand Sage
@@ -175,8 +175,8 @@
         attributes:
           Concentration: [150, converted]
           Expertise: [150, converted]
-      gw2-id: 2121
       type: traits
+      gw2id: 2121
 
     sand-sage-3x:
       text: Sand Sage
@@ -186,8 +186,8 @@
         attributes:
           Concentration: [225, converted]
           Expertise: [225, converted]
-      gw2-id: 2121
       type: traits
+      gw2id: 2121
 
     demonic-lore:
       text: Demonic Lore
@@ -195,8 +195,8 @@
       modifiers:
         attributes:
           Torment Damage: 25%
-      gw2-id: 2164
       type: traits
+      gw2id: 2164
 
 - section: Reaper
   id: 34
@@ -207,8 +207,8 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 1969
       type: traits
+      gw2id: 1969
 
     decimate-defenses-25x:
       text: Decimate Defenses
@@ -216,8 +216,8 @@
       modifiers:
         attributes:
           Critical Chance: 50%
-      gw2-id: 2031
       type: traits
+      gw2id: 2031
 
     cold-shoulder:
       text: Cold Shoulder
@@ -226,8 +226,8 @@
       modifiers:
         damage:
           Strike Damage: [15%, mult]
-      gw2-id: 2018
       type: traits
+      gw2id: 2018
 
     reapers-onslaught:
       text: Reaper's Onslaught
@@ -235,5 +235,5 @@
       modifiers:
         attributes:
           Ferocity: [300, buff]
-      gw2-id: 2021
       type: traits
+      gw2id: 2021

@@ -9,40 +9,40 @@
       modifiers:
         attributes:
           Torment Damage: 10%
-      gw2-id: 1793
       type: traits
+      gw2id: 1793
 
     seething-malice:
       text: Seething Malice
       modifiers:
         attributes:
           Condition Damage: [120, buff]
-      gw2-id: 1801
       type: traits
+      gw2id: 1801
 
     demonic-resistance:
       text: Demonic Resistance
       modifiers:
         damage:
           Damage Reduction: [20%, unknown]
-      gw2-id: 1726
       type: traits
+      gw2id: 1726
 
     pact-of-pain:
       text: Pact of Pain
       modifiers:
         attributes:
           Condition Duration: 15%
-      gw2-id: 1714
       type: traits
+      gw2id: 1714
 
     yearning-empowerment:
       text: Yearning Empowerement
       modifiers:
         attributes:
           Condition Duration: 10%
-      gw2-id: 1744
       type: traits
+      gw2id: 1744
 
 - section: Retribution
   id: 9
@@ -53,8 +53,8 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 1740
       type: traits
+      gw2id: 1740
 
     determined-resolution:
       text: Determined Resolution
@@ -62,8 +62,8 @@
       modifiers:
         damage:
           Damage Reduction: [10%, unknown]
-      gw2-id: 1713
       type: traits
+      gw2id: 1713
 
     vicious-reprisal:
       text: Vicious Reprisal
@@ -72,16 +72,16 @@
         damage:
           Strike Damage: [10%, add]
           Condition Damage: [10%, add]
-      gw2-id: 1779
       type: traits
+      gw2id: 1779
 
     versed-in-stone:
       text: Versed in Stone
       modifiers:
         conversion:
           Power: {Toughness: 13%}
-      gw2-id: 1770
       type: traits
+      gw2id: 1770
 
 - section: Invocation
   id: 3
@@ -92,8 +92,8 @@
       modifiers:
         damage:
           Strike Damage: [7%, mult]
-      gw2-id: 1761
       type: traits
+      gw2id: 1761
 
     ferocious-aggression:
       text: Ferocious Aggression
@@ -102,16 +102,16 @@
         damage:
           Strike Damage: [7%, add]
           Condition Damage: [7%, add]
-      gw2-id: 1758
       type: traits
+      gw2id: 1758
 
     roiling-mists:
       text: Roiling Mists
       modifiers:
         attributes:
           Critical Chance: 20%
-      gw2-id: 1719
       type: traits
+      gw2id: 1719
 
 - section: Devastation
   id: 15
@@ -123,8 +123,8 @@
       modifiers:
         damage:
           Strike Damage: [4%, mult]
-      gw2-id: 1767
       type: traits
+      gw2id: 1767
 
     destructive-impulses-dual:
       text: Destructive Impulses
@@ -134,8 +134,8 @@
         damage:
           Strike Damage: [10%, add]
           Condition Damage: [10%, add]
-      gw2-id: 1724
       type: traits
+      gw2id: 1724
 
     destructive-impulses:
       text: Destructive Impulses
@@ -145,8 +145,8 @@
         damage:
           Strike Damage: [5%, add]
           Condition Damage: [5%, add]
-      gw2-id: 1724
       type: traits
+      gw2id: 1724
 
     destructive-impulses-mix:
       text: Destructive Impulses
@@ -156,8 +156,8 @@
         damage:
           Strike Damage: [7.5%, add]
           Condition Damage: [7.5%, add]
-      gw2-id: 1724
       type: traits
+      gw2id: 1724
 
     notoriety:
       text: Notoriety
@@ -166,8 +166,8 @@
         attributes:
           Power: [250, buff]
           Condition Damage: [-250, buff]
-      gw2-id: 1765
       type: traits
+      gw2id: 1765
 
     targeted-destruction:
       text: Targeted Destruction
@@ -176,16 +176,16 @@
       modifiers:
         damage:
           Strike Damage: [12.5%, mult]
-      gw2-id: 1792
       type: traits
+      gw2id: 1792
 
     swift-termination:
       text: Swift Termination
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 1800
       type: traits
+      gw2id: 1800
 
 - section: Salvation
   id: 12
@@ -196,8 +196,8 @@
       modifiers:
         attributes:
           Outgoing Healing: 20%
-      gw2-id: 1822
       type: traits
+      gw2id: 1822
 
     life-attunement:
       text: Life Attunement
@@ -207,16 +207,16 @@
           Healing Power: [120, buff]
         conversion:
           Concentration: {Healing Power: 7%}
-      gw2-id: 1821
       type: traits
+      gw2id: 1821
 
     invoking-harmony:
       text: Invoking Harmony
       modifiers:
         attributes:
           Outgoing Healing: 20%
-      gw2-id: 1818
       type: traits
+      gw2id: 1818
 
 - section: Renegade
   id: 63
@@ -230,24 +230,24 @@
         damage:
           Strike Damage: [10%, add]
           Condition Damage: [10%, add]
-      gw2-id: 2181
       type: traits
+      gw2id: 2181
 
     blood-fury:
       text: Blood Fury
       modifiers:
         attributes:
           Bleeding Duration: 25%
-      gw2-id: 2079
       type: traits
+      gw2id: 2079
 
     heartpiercer:
       text: Heartpiercer
       modifiers:
         attributes:
           Bleeding Damage: 25%
-      gw2-id: 2092
       type: traits
+      gw2id: 2092
 
     brutal-momentum:
       text: Brutal Momentum
@@ -255,8 +255,8 @@
       modifiers:
         attributes:
           Critical Chance: 33%
-      gw2-id: 2142
       type: traits
+      gw2id: 2142
 
     lasting-legacy:
       text: Lasting Legacy
@@ -265,5 +265,5 @@
         damage:
           Strike Damage: [5%, add]
           Condition Damage: [5%, add]
-      gw2-id: 2100
       type: traits
+      gw2id: 2100

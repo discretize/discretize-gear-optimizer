@@ -7,8 +7,8 @@
         attributes:
           Power: [100, converted]
           Ferocity: [70, converted]
-      gw2-id: 41569
       type: items
+      gw2id: 41569
 
     truffle-steak:
       text: Plate of Truffle Steak / Coq Au Vin
@@ -16,8 +16,8 @@
         attributes:
           Power: [100, converted]
           Precision: [70, converted]
-      gw2-id: 12467
       type: items
+      gw2id: 12467
 
     curry-butternut-squash-soup:
       text: Bowl of Curry Butternut Squash Soup
@@ -25,8 +25,8 @@
         attributes:
           Precision: [100, converted]
           Ferocity: [70, converted]
-      gw2-id: 12486
       type: items
+      gw2id: 12486
 
     dragon's-breath-bun:
       text: Dragon's Breath Bun
@@ -35,8 +35,8 @@
         attributes:
           Power: [200, converted]
           Ferocity: [70, converted]
-      gw2-id: 43360
       type: items
+      gw2id: 43360
 
     seaweed-salad:
       text: Bowl of Seaweed Salad
@@ -44,40 +44,40 @@
       modifiers:
         damage:
           Strike Damage: [4.5%, mult]
-      gw2-id: 12471
       type: items
+      gw2id: 12471
 
     jerk-poultry:
       text: Plate of Jerk Poultry
       modifiers:
         attributes:
           Power: [150, converted]
-      gw2-id: 71797
       type: items
+      gw2id: 71797
 
     sawgill-mushroom-risotto:
       text: Bowl of Sawgill Mushroom Risotto
       modifiers:
         attributes:
           Precision: [150, converted]
-      gw2-id: 75010
       type: items
+      gw2id: 75010
 
     roasted-cactus:
       text: Plate of Roasted Cactus
       modifiers:
         attributes:
           Ferocity: [100, converted]
-      gw2-id: 66536
       type: items
+      gw2id: 66536
 
     fried-golden-dumpling:
       text: Fried Golden Dumpling / Cheesecake
       modifiers:
         attributes:
           Concentration: [100, converted]
-      gw2-id: 68633
       type: items
+      gw2id: 68633
 
 - section: Support Food
   items:
@@ -88,8 +88,8 @@
         attributes:
           Concentration: [100, converted]
           Power: [70, converted]
-      gw2-id: 89002
       type: items
+      gw2id: 89002
 
     eggs-benedict:
       text: Plate of Eggs Benedict
@@ -97,8 +97,8 @@
         attributes:
           Concentration: [100, converted]
           Expertise: [70, converted]
-      gw2-id: 91842
       type: items
+      gw2id: 91842
 
     nopalitos-saute:
       text: Bowl of Nopalitos Sauté / Poultry Aspic
@@ -106,8 +106,8 @@
         attributes:
           Concentration: [100, converted]
           Toughness: [70, converted]
-      gw2-id: 66530
       type: items
+      gw2id: 66530
 
     mussels-gnashblade:
       text: Plate of Mussels Gnashblade
@@ -116,8 +116,8 @@
           Damage Reduction: [10%, unknown]
         attributes:
           Concentration: [70, converted]
-      gw2-id: 74969
       type: items
+      gw2id: 74969
 
 - section: Heal Food
   items:
@@ -129,8 +129,8 @@
           Healing Power: [100, converted]
           Concentration: [70, converted]
           Outgoing Healing: 10%
-      gw2-id: 91690
       type: items
+      gw2id: 91690
 
     mint-creme-brulee:
       text: Mint Creme Brulee
@@ -139,8 +139,8 @@
           Concentration: [100, converted]
           Healing Power: [70, converted]
           Outgoing Healing: 10%
-      gw2-id: 91743
       type: items
+      gw2id: 91743
 
     delicious-rice-ball:
       text: Delicious Rice Ball
@@ -148,8 +148,8 @@
         attributes:
           Healing Power: [100, converted]
           Outgoing Healing: 10%
-      gw2-id: 68634
       type: items
+      gw2id: 68634
 
     poultry-satay:
       text: Bowl of Poultry Satay
@@ -157,8 +157,8 @@
         attributes:
           Healing Power: [100, converted]
           Concentration: [70, converted]
-      gw2-id: 87076
       type: items
+      gw2id: 87076
 
 - section: Condition Food
   items:
@@ -169,8 +169,8 @@
         attributes:
           Expertise: [100, converted]
           Condition Damage: [70, converted]
-      gw2-id: 12464
       type: items
+      gw2id: 12464
 
     beef-rendang:
       text: Plate of Beef Rendang / Cured Meat flatbread
@@ -178,8 +178,8 @@
         attributes:
           Condition Damage: [100, converted]
           Expertise: [70, converted]
-      gw2-id: 86997
       type: items
+      gw2id: 86997
 
     saffron-stuffed-mushroom:
       text: Saffron Stuffed Mushroom
@@ -188,8 +188,8 @@
         attributes:
           Precision: [70, converted]
           Condition Damage: [200, converted]
-      gw2-id: 12476
       type: items
+      gw2id: 12476
 
     steamed-red-dumpling:
       text: Steamed Red Dumpling
@@ -198,8 +198,8 @@
         attributes:
           Power: [200, converted]
           Condition Damage: [140, converted]
-      gw2-id: 68635
       type: items
+      gw2id: 68635
 
     fire-meat-chili:
       text: Bowl of Fire Meat Chili
@@ -207,8 +207,8 @@
         attributes:
           Burning Duration: 15%
           Precision: [70, converted]
-      gw2-id: 12484
       type: items
+      gw2id: 12484
 
     fancy-truffle-burger:
       text: Fancy Truffle Burger
@@ -216,8 +216,8 @@
         attributes:
           Poison Duration: 15%
           Precision: [70, converted]
-      gw2-id: 12463
       type: items
+      gw2id: 12463
 
     truffle-risotto:
       text: Bowl of Truffle Risotto
@@ -225,8 +225,8 @@
         attributes:
           Condition Damage: [100, converted]
           Precision: [70, converted]
-      gw2-id: 12465
       type: items
+      gw2id: 12465
 
     sweet-and-spicy-beans:
       text: Bowl of Sweet and Spicy Beans
@@ -234,8 +234,8 @@
         attributes:
           Expertise: [100, converted]
           Power: [70, converted]
-      gw2-id: 66528
       type: items
+      gw2id: 66528
 
     fire-flank-steak:
       text: Plate of Fire Flank Steak
@@ -243,8 +243,8 @@
         attributes:
           Power: [100, converted]
           Condition Damage: [70, converted]
-      gw2-id: 12466
       type: items
+      gw2id: 12466
 
     fancy-potato-and-leek-soup:
       text: Bowl of Fancy Potato and Leek Soup
@@ -252,16 +252,16 @@
         attributes:
           Precision: [100, converted]
           Condition Damage: [70, converted]
-      gw2-id: 12485
       type: items
+      gw2id: 12485
 
     prickly-pear-pie:
       text: Prickly Pear Pie
       modifiers:
         attributes:
           Expertise: [100, converted]
-      gw2-id: 66538
       type: items
+      gw2id: 66538
 
 - section: Hybrid Food
   items:
@@ -279,8 +279,8 @@
           Expertise: [45, converted]
           Ferocity: [45, converted]
           Healing Power: [45, converted]
-      gw2-id: 43550
       type: items
+      gw2id: 43550
 
     birthday-blaster:
       text: Birthday Blaster
@@ -295,8 +295,8 @@
           Expertise: [40, converted]
           Ferocity: [40, converted]
           Healing Power: [40, converted]
-      gw2-id: 66961
       type: items
+      gw2id: 66961
 
     passion-fruit-tapioca-pudding:
       text: Bowl of Passion Fruit Tapioca Pudding
@@ -304,8 +304,8 @@
         attributes:
           Power: [100, converted]
           Healing Power: [70, converted]
-      gw2-id: 71826
       type: items
+      gw2id: 71826
 
     prickly-pear-tapioca-pudding:
       text: Bowl of Prickly Pear Tapioca Pudding
@@ -313,8 +313,8 @@
         attributes:
           Condition Damage: [100, converted]
           Healing Power: [70, converted]
-      gw2-id: 76135
       type: items
+      gw2id: 76135
 
     tropical-fruit-salad:
       text: Bowl of Tropical Fruit Salad
@@ -322,8 +322,8 @@
         attributes:
           Condition Damage: [70, converted]
           Healing Power: [100, converted]
-      gw2-id: 36793
       type: items
+      gw2id: 36793
 
     spicy-chocolate-cookie:
       text: Spicy Chocolate Cookie
@@ -331,8 +331,8 @@
         attributes:
           Healing Power: [100, converted]
           Precision: [70, converted]
-      gw2-id: 12454
       type: items
+      gw2id: 12454
 
 - section: Toughness Food
   items:
@@ -343,8 +343,8 @@
         attributes:
           Power: [100, converted]
           Toughness: [70, converted]
-      gw2-id: 41563
       type: items
+      gw2id: 41563
 
     spicy-herbed-chicken:
       text: Plate of Spicy Herbed Chicken
@@ -352,8 +352,8 @@
         attributes:
           Power: [70, converted]
           Toughness: [100, converted]
-      gw2-id: 41567
       type: items
+      gw2id: 41567
 
     truffle-ravioli:
       text: Bowl of Truffle Ravioli
@@ -361,8 +361,8 @@
         attributes:
           Precision: [70, converted]
           Toughness: [100, converted]
-      gw2-id: 12461
       type: items
+      gw2id: 12461
 
     omnomberry-bread:
       text: Loaf of Omnomberry Bread / Ravioli
@@ -370,8 +370,8 @@
         attributes:
           Vitality: [100, converted]
           Toughness: [70, converted]
-      gw2-id: 12473
       type: items
+      gw2id: 12473
 
     kralkachocolate-bar:
       text: Kralkachocolate Bar
@@ -379,8 +379,8 @@
         attributes:
           Healing Power: [100, converted]
           Toughness: [70, converted]
-      gw2-id: 43358
       type: items
+      gw2id: 43358
 
     chocolate-tapioca-pudding:
       text: Bowl of Chocolate Tapioca Pudding
@@ -388,8 +388,8 @@
         attributes:
           Healing Power: [70, converted]
           Toughness: [100, converted]
-      gw2-id: 76415
       type: items
+      gw2id: 76415
 
     tropical-mousse:
       text: Bowl of Tropical Mousse
@@ -397,8 +397,8 @@
         attributes:
           Condition Damage: [70, converted]
           Toughness: [100, converted]
-      gw2-id: 36841
       type: items
+      gw2id: 36841
 
     elon-red:
       text: Bowl of "Elon Red"
@@ -406,5 +406,5 @@
         attributes:
           Expertise: [100, converted]
           Toughness: [70, converted]
-      gw2-id: 82541
       type: items
+      gw2id: 82541

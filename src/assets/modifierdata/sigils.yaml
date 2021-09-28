@@ -6,16 +6,16 @@
       modifiers:
         damage:
           Strike Damage: [5%, add]
-      gw2-id: 24615
       type: items
+      gw2id: 24615
 
     accuracy:
       text: Superior Sigil of Accuracy
       modifiers:
         attributes:
           Critical Chance: 7%
-      gw2-id: 24618
       type: items
+      gw2id: 24618
 
     impact/night/slaying-both:
       text: Superior Sigil of Impact/Night/Slaying
@@ -23,8 +23,8 @@
       modifiers:
         damage:
           Strike Damage: [7%, mult]
-      gw2-id: 24868
       type: items
+      gw2id: 24868
 
     impact/night/slaying-only-3:
       text: Superior Sigil of Impact/Night/Slaying
@@ -32,8 +32,8 @@
       modifiers:
         damage:
           Strike Damage: [3%, add]
-      gw2-id: 24868
       type: items
+      gw2id: 24868
 
 - section: Support Sigils
   items:
@@ -43,8 +43,8 @@
       modifiers:
         attributes:
           Boon Duration: 10%
-      gw2-id: 72339
       type: items
+      gw2id: 72339
 
 - section: Heal Sigils
   items:
@@ -54,8 +54,8 @@
       modifiers:
         attributes:
           Outgoing Healing: 10%
-      gw2-id: 74326
       type: items
+      gw2id: 74326
 
 - section: Condition Sigils
   items:
@@ -65,48 +65,48 @@
       modifiers:
         attributes:
           Condition Duration: 10%
-      gw2-id: 44950
       type: items
+      gw2id: 44950
 
     bursting:
       text: Superior Sigil of Bursting
       modifiers:
         damage:
           Condition Damage: [5%, add]
-      gw2-id: 44944
       type: items
+      gw2id: 44944
 
     agony:
       text: Superior Sigil of Agony
       modifiers:
         attributes:
           Bleeding Duration: 20%
-      gw2-id: 24612
       type: items
+      gw2id: 24612
 
     smoldering:
       text: Superior Sigil of Smoldering
       modifiers:
         attributes:
           Burning Duration: 20%
-      gw2-id: 24624
       type: items
+      gw2id: 24624
 
     venom:
       text: Superior Sigil of Venom
       modifiers:
         attributes:
           Poison Duration: 20%
-      gw2-id: 24632
       type: items
+      gw2id: 24632
 
     demons:
       text: Superior Sigil of Demons
       modifiers:
         attributes:
           Torment Duration: 20%
-      gw2-id: 24583
       type: items
+      gw2id: 24583
 
 - section: Stacking Sigils (25x)
   items:
@@ -116,56 +116,56 @@
       modifiers:
         attributes:
           Power: [250, converted]
-      gw2-id: 24575
       type: items
+      gw2id: 24575
 
     cruelty:
       text: Superior Sigil of Cruelty
       modifiers:
         attributes:
           Ferocity: [250, converted]
-      gw2-id: 67341
       type: items
+      gw2id: 67341
 
     perception:
       text: Superior Sigil of Perception
       modifiers:
         attributes:
           Precision: [250, converted]
-      gw2-id: 24580
       type: items
+      gw2id: 24580
 
     corruption:
       text: Superior Sigil of Corruption
       modifiers:
         attributes:
           Condition Damage: [250, converted]
-      gw2-id: 24578
       type: items
+      gw2id: 24578
 
     life:
       text: Superior Sigil of Life
       modifiers:
         attributes:
           Healing Power: [250, converted]
-      gw2-id: 24582
       type: items
+      gw2id: 24582
 
     bounty:
       text: Superior Sigil of Bounty
       modifiers:
         attributes:
           Concentration: [225, converted]
-      gw2-id: 81045
       type: items
+      gw2id: 81045
 
     benevolence:
       text: Superior Sigil of Benevolence
       modifiers:
         attributes:
           Outgoing Healing: 12.5%
-      gw2-id: 24584
       type: items
+      gw2id: 24584
 
     stars:
       text: Superior Sigil of the Stars
@@ -180,8 +180,8 @@
           Expertise: [50, converted]
           Ferocity: [50, converted]
           Healing Power: [50, converted]
-      gw2-id: 86170
       type: items
+      gw2id: 86170
 
 - section: Gemstones
   items:
@@ -191,5 +191,5 @@
       modifiers:
         attributes:
           Concentration: [40, converted]
-      gw2-id: 24773
       type: items
+      gw2id: 24773

@@ -6,8 +6,8 @@
       modifiers:
         attributes:
           Power: [180, buff]
-      gw2-id: 9093
       type: skills
+      gw2id: 9093
 
     bane-signet-2:
       text: Bane Signet
@@ -15,16 +15,16 @@
       modifiers:
         attributes:
           Power: [216, buff]
-      gw2-id: 9093
       type: skills
+      gw2id: 9093
 
     signet-of-judgement:
       text: Signet of Judgement
       modifiers:
         damage:
           Damage Reduction: [10%, unknown]
-      gw2-id: 9150
       type: skills
+      gw2id: 9150
 
     signet-of-judgement-2:
       text: Signet of Judgement
@@ -32,16 +32,16 @@
       modifiers:
         damage:
           Damage Reduction: [12%, unknown]
-      gw2-id: 9150
       type: skills
+      gw2id: 9150
 
     signet-of-mercy:
       text: Signet of Mercy
       modifiers:
         attributes:
           Concentration: [120, buff]
-      gw2-id: 9163
       type: skills
+      gw2id: 9163
 
     signet-of-mercy-2:
       text: Signet of Mercy
@@ -49,16 +49,16 @@
       modifiers:
         attributes:
           Concentration: [150, buff]
-      gw2-id: 9163
       type: skills
+      gw2id: 9163
 
     signet-of-wrath:
       text: Signet of Wrath
       modifiers:
         attributes:
           Condition Damage: [180, buff]
-      gw2-id: 9151
       type: skills
+      gw2id: 9151
 
     signet-of-wrath-2:
       text: Signet of Wrath
@@ -66,8 +66,8 @@
       modifiers:
         attributes:
           Condition Damage: [216, buff]
-      gw2-id: 9151
       type: skills
+      gw2id: 9151
 
 - section: Zeal
   id: 42
@@ -78,8 +78,8 @@
       modifiers:
         damage:
           Strike Damage: [7%, mult]
-      gw2-id: 634
       type: traits
+      gw2id: 634
 
     symbolic-exposure:
       text: Symbolic Exposure
@@ -87,8 +87,8 @@
       modifiers:
         damage:
           Strike Damage: [5%, mult]
-      gw2-id: 646
       type: traits
+      gw2id: 646
 
     zealous-blade:
       text: Zealous Blade
@@ -96,16 +96,16 @@
       modifiers:
         attributes:
           Power: [180, buff]
-      gw2-id: 653
       type: traits
+      gw2id: 653
 
     kindled-zeal:
       text: Kindled Zeal
       modifiers:
         conversion:
           Condition Damage: {Power: 10%}
-      gw2-id: 1556
       type: traits
+      gw2id: 1556
 
     symbolic-avenger:
       text: Symbolic Avenger
@@ -113,8 +113,8 @@
       modifiers:
         damage:
           Strike Damage: [10%, add]
-      gw2-id: 2017
       type: traits
+      gw2id: 2017
 
 - section: Radiance
   id: 16
@@ -126,8 +126,8 @@
       modifiers:
         attributes:
           Precision: [80, buff]
-      gw2-id: 566
       type: traits
+      gw2id: 566
 
     right-hand-strength-2:
       text: Right-Hand Strength
@@ -135,8 +135,8 @@
       modifiers:
         attributes:
           Power: [40, buff]
-      gw2-id: 566
       type: traits
+      gw2id: 566
 
     right-hand-strength-3:
       text: Right-Hand Strength
@@ -144,24 +144,24 @@
       modifiers:
         attributes:
           Power: [40, buff]
-      gw2-id: 566
       type: traits
+      gw2id: 566
 
     radiant-fire:
       text: Radiant Fire
       modifiers:
         attributes:
           Burning Duration: 20%
-      gw2-id: 567
       type: traits
+      gw2id: 567
 
     retribution:
       text: Retribution
       modifiers:
         damage:
           Strike Damage: [10%, add]
-      gw2-id: 565
       type: traits
+      gw2id: 565
 
     radiant-power:
       text: Radiant Power
@@ -170,24 +170,24 @@
         attributes:
           Critical Chance: 10%
           Ferocity: [150, buff]
-      gw2-id: 568
       type: traits
+      gw2id: 568
 
     amplified-wrath:
       text: Amplified Wrath
       modifiers:
         attributes:
           Burning Damage: 15%
-      gw2-id: 1686
       type: traits
+      gw2id: 1686
 
     righteous-instincts:
       text: Righteous Instincts
       modifiers:
         attributes:
           Critical Chance: 25%
-      gw2-id: 1683
       type: traits
+      gw2id: 1683
 
 - section: Valor
   id: 13
@@ -198,8 +198,8 @@
       modifiers:
         attributes:
           Toughness: [240, buff]
-      gw2-id: 580
       type: traits
+      gw2id: 580
 
 - section: Honor
   id: 49
@@ -211,8 +211,8 @@
       modifiers:
         attributes:
           Outgoing Healing: 25%
-      gw2-id: 1899
       type: traits
+      gw2id: 1899
 
     honorable-staff:
       text: Honorable Staff
@@ -220,8 +220,8 @@
       modifiers:
         attributes:
           Concentration: [120, buff]
-      gw2-id: 557
       type: traits
+      gw2id: 557
 
     honorable-staff-2:
       text: Honorable Staff
@@ -229,8 +229,8 @@
       modifiers:
         attributes:
           Concentration: [120, buff]
-      gw2-id: 557
       type: traits
+      gw2id: 557
 
     force-of-will:
       text: Force of Will
@@ -239,8 +239,8 @@
         attributes:
           Vitality: [300, buff]
           Outgoing Healing: 10%
-      gw2-id: 1682
       type: traits
+      gw2id: 1682
 
 - section: Virtues
   id: 46
@@ -253,8 +253,8 @@
       modifiers:
         damage:
           Strike Damage: [6%, mult]
-      gw2-id: 621
       type: traits
+      gw2id: 621
 
     inspired-virtue-9:
       text: Inspired Virtue
@@ -263,8 +263,8 @@
       modifiers:
         damage:
           Strike Damage: [9%, mult]
-      gw2-id: 621
       type: traits
+      gw2id: 621
 
     inspired-virtue-12:
       text: Inspired Virtue
@@ -273,16 +273,16 @@
       modifiers:
         damage:
           Strike Damage: [12%, mult]
-      gw2-id: 621
       type: traits
+      gw2id: 621
 
     unscathed-contender:
       text: Unscathed Contender
       modifiers:
         damage:
           Strike Damage: [20%, add]
-      gw2-id: 624
       type: traits
+      gw2id: 624
 
     virtue-of-retribution:
       text: Virtue of Resolution
@@ -290,8 +290,8 @@
       modifiers:
         attributes:
           Resolution Duration: 25%
-      gw2-id: 604
       type: traits
+      gw2id: 604
 
     inspiring-virtue:
       text: Inspiring Virtue
@@ -299,8 +299,8 @@
       modifiers:
         damage:
           Strike Damage: [10%, add]
-      gw2-id: 603
       type: traits
+      gw2id: 603
 
     power-of-the-virtuous:
       text: Power of the Virtuous
@@ -308,8 +308,8 @@
       modifiers:
         conversion:
           Condition Damage: {Vitality: 13%}
-      gw2-id: 620
       type: traits
+      gw2id: 620
 
 - section: Dragonhunter
   id: 27
@@ -320,8 +320,8 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 1835
       type: traits
+      gw2id: 1835
 
     pure-of-sight:
       text: Pure of Sight
@@ -330,8 +330,8 @@
       modifiers:
         damage:
           Strike Damage: [5%, mult]
-      gw2-id: 1926
       type: traits
+      gw2id: 1926
 
     pure-of-sight-ranged:
       text: Pure of Sight
@@ -340,24 +340,24 @@
       modifiers:
         damage:
           Strike Damage: [15%, mult]
-      gw2-id: 1926
       type: traits
+      gw2id: 1926
 
     hunters-fortification:
       text: Hunter's Fortification
       modifiers:
         damage:
           Damage Reduction: [10%, unknown]
-      gw2-id: 1908
       type: traits
+      gw2id: 1908
 
     big-game-hunter:
       text: Big Game Hunter
       modifiers:
         damage:
           Strike Damage: [15%, mult]
-      gw2-id: 1955
       type: traits
+      gw2id: 1955
 
 - section: Firebrand
   id: 62
@@ -371,5 +371,5 @@
           Condition Damage: [250, converted]
           Healing Power: [250, converted]
           Vitality: [250, converted]
-      gw2-id: 2148
       type: traits
+      gw2id: 2148

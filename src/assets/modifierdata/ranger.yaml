@@ -6,16 +6,16 @@
       modifiers:
         attributes:
           Toughness: [180, buff]
-      gw2-id: 12500
       type: skills
+      gw2id: 12500
 
     signet-of-the-wild:
       text: Signet of the Wild
       modifiers:
         attributes:
           Ferocity: [180, buff]
-      gw2-id: 12491
       type: skills
+      gw2id: 12491
 
 - section: Marksmanship
   id: 8
@@ -27,8 +27,8 @@
       modifiers:
         damage:
           Strike Damage: [5%, mult]
-      gw2-id: 1000
       type: traits
+      gw2id: 1000
 
     farsighted-2:
       text: Farsighted
@@ -36,8 +36,8 @@
       modifiers:
         damage:
           Strike Damage: [15%, mult]
-      gw2-id: 1000
       type: traits
+      gw2id: 1000
 
     predators-onslaught:
       text: Predator's Onslaught
@@ -45,8 +45,8 @@
       modifiers:
         damage:
           Strike Damage: [15%, mult]
-      gw2-id: 996
       type: traits
+      gw2id: 996
 
 - section: Skirmishing
   id: 30
@@ -57,8 +57,8 @@
       modifiers:
         attributes:
           Bleeding Damage: 33%
-      gw2-id: 1846
       type: traits
+      gw2id: 1846
 
     hunters-tactics:
       text: Hunter's Tactics
@@ -68,8 +68,8 @@
         attributes:
           Critical Chance: 10%
       minor: true
-      gw2-id: 1068
       type: traits
+      gw2id: 1068
 
     light-on-your-feet:
       text: Light on your Feet
@@ -79,8 +79,8 @@
           Strike Damage: [10%, mult]
         attributes:
           Condition Duration: 10%
-      gw2-id: 1912
       type: traits
+      gw2id: 1912
 
     vicious-quarry:
       text: Vicious Quarry
@@ -88,8 +88,8 @@
         attributes:
           Ferocity: [250, buff]
           Critical Chance: 10%
-      gw2-id: 1888
       type: traits
+      gw2id: 1888
 
 - section: Wilderness Survival
   id: 33
@@ -100,8 +100,8 @@
       modifiers:
         damage:
           Damage Reduction: [5%, unknown]
-      gw2-id: 1086
       type: traits
+      gw2id: 1086
 
     taste-for-danger:
       text: Taste for Danger
@@ -110,8 +110,8 @@
           Vitality: [120, buff]
         conversion:
           Expertise: {Vitality: 7%}
-      gw2-id: 1099
       type: traits
+      gw2id: 1099
 
     ambidexterity:
       text: Ambidexterity
@@ -119,8 +119,8 @@
       modifiers:
         attributes:
           Condition Damage: [120, buff]
-      gw2-id: 1101
       type: traits
+      gw2id: 1101
 
     ambidexterity-2:
       text: Ambidexterity
@@ -128,16 +128,16 @@
       modifiers:
         attributes:
           Condition Damage: [120, buff]
-      gw2-id: 1101
       type: traits
+      gw2id: 1101
 
     poison-master:
       text: Poison Master
       modifiers:
         attributes:
           Poison Damage: 25%
-      gw2-id: 1701
       type: traits
+      gw2id: 1701
 
 - section: Nature Magic
   id: 25
@@ -149,8 +149,8 @@
       modifiers:
         damage:
           Strike Damage: [6%, mult]
-      gw2-id: 1062
       type: traits
+      gw2id: 1062
 
     bountiful-hunter-9:
       text: Bountiful Hunter
@@ -158,16 +158,16 @@
       modifiers:
         damage:
           Strike Damage: [9%, mult]
-      gw2-id: 1062
       type: traits
+      gw2id: 1062
 
     instinctive-reaction:
       text: Instinctive Reaction
       modifiers:
         conversion:
           Healing Power: {Power: 7%}
-      gw2-id: 978
       type: traits
+      gw2id: 978
 
     lingering-magic:
       text: Lingering Magic
@@ -175,8 +175,8 @@
         attributes:
           Concentration: [240, buff]
       minor: true
-      gw2-id: 1059
       type: traits
+      gw2id: 1059
 
 - section: Beastmastery
   id: 32
@@ -188,8 +188,8 @@
       modifiers:
         attributes:
           Ferocity: [120, buff]
-      gw2-id: 1066
       type: traits
+      gw2id: 1066
 
     honed-axes-2:
       text: Honed Axes
@@ -197,8 +197,8 @@
       modifiers:
         attributes:
           Ferocity: [60, buff]
-      gw2-id: 1066
       type: traits
+      gw2id: 1066
 
     honed-axes-3:
       text: Honed Axes
@@ -206,8 +206,8 @@
       modifiers:
         attributes:
           Ferocity: [120, buff]
-      gw2-id: 1066
       type: traits
+      gw2id: 1066
 
 - section: Druid
   id: 5
@@ -218,9 +218,9 @@
       modifiers:
         attributes:
           Outgoing Healing: 20%
-      gw2-id: 1992
       minor: true
       type: traits
+      gw2id: 1992
 
 - section: Soulbeast
   id: 55
@@ -232,8 +232,8 @@
         damage:
           Strike Damage: [15%, add]
       minor: true
-      gw2-id: 2156
       type: traits
+      gw2id: 2156
 
     twice-as-vicious:
       text: Twice as Vicious
@@ -242,8 +242,8 @@
           Strike Damage: [10%, add]
           Condition Damage: [10%, add]
       minor: true
-      gw2-id: 2127
       type: traits
+      gw2id: 2127
 
     oppressive-superiority:
       text: Oppressive Superiority
@@ -252,8 +252,8 @@
           Strike Damage: [10%, mult]
         attributes:
           Condition Duration: 10%
-      gw2-id: 2143
       type: traits
+      gw2id: 2143
 
     archetype-stout:
       subText: Archetype Stout (Tough/Vit)
@@ -310,8 +310,8 @@
           Toughness: [150, buff]
           Vitality: [150, buff]
       minor: true
-      gw2-id: 1900
       type: traits
+      gw2id: 1900
 
     sb-2:
       subText: merged
@@ -319,8 +319,8 @@
         damage:
           Strike Damage: [10%, mult]
       minor: true
-      gw2-id: 974
       type: traits
+      gw2id: 974
 
     sb-3:
       subText: merged
@@ -328,14 +328,14 @@
         attributes:
           Ferocity: [300, buff]
       minor: true
-      gw2-id: 1065
       type: traits
+      gw2id: 1065
 
     sb-4:
       subText: merged, base
       modifiers:
         attributes:
           Ferocity: [120, buff]
-      gw2-id: 1066
       minor: true
       type: traits
+      gw2id: 1066

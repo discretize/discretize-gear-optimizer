@@ -7,8 +7,8 @@
       modifiers:
         attributes:
           Power: [180, buff]
-      gw2-id: 13046
       type: skills
+      gw2id: 13046
 
     assassins-signet-active:
       text: Assassin's Signet
@@ -16,16 +16,16 @@
       modifiers:
         attributes:
           Power: [540, buff]
-      gw2-id: 13046
       type: skills
+      gw2id: 13046
 
     signet-of-agility:
       text: Signet of Agility
       modifiers:
         attributes:
           Precision: [180, buff]
-      gw2-id: 13062
       type: skills
+      gw2id: 13062
 
 - section: Deadly Arts
   id: 28
@@ -37,8 +37,8 @@
       modifiers:
         attributes:
           Power: [80, converted]
-      gw2-id: 1245
       type: traits
+      gw2id: 1245
 
     dagger-training-dagger:
       text: Dagger Training
@@ -46,16 +46,16 @@
       modifiers:
         attributes:
           Power: [80, converted]
-      gw2-id: 1245
       type: traits
+      gw2id: 1245
 
     deadly-ambition:
       text: Deadly Ambition
       modifiers:
         attributes:
           Condition Damage: [120, buff]
-      gw2-id: 1164
       type: traits
+      gw2id: 1164
 
     revealed-training-base:
       text: Revealed Training
@@ -63,8 +63,8 @@
       modifiers:
         attributes:
           Power: [80, buff]
-      gw2-id: 1704
       type: traits
+      gw2id: 1704
 
     revealed-training-revealed:
       text: Revealed Training
@@ -72,8 +72,8 @@
       modifiers:
         attributes:
           Power: [120, buff]
-      gw2-id: 1704
       type: traits
+      gw2id: 1704
 
     exposed-weakness:
       text: Exposed Weakness
@@ -82,8 +82,8 @@
       modifiers:
         damage:
           Strike Damage: [20%, mult]
-      gw2-id: 1257
       type: traits
+      gw2id: 1257
 
     potent-poison:
       text: Potent Poison
@@ -91,8 +91,8 @@
         attributes:
           Poison Damage: 33%
           Poison Duration: 33%
-      gw2-id: 1291
       type: traits
+      gw2id: 1291
 
     executioner:
       text: Executioner
@@ -100,8 +100,8 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 1269
       type: traits
+      gw2id: 1269
 
 - section: Critical Strikes
   id: 35
@@ -114,8 +114,8 @@
       modifiers:
         attributes:
           Critical Chance: 10%
-      gw2-id: 1281
       type: traits
+      gw2id: 1281
 
     twin-fangs-scholar:
       text: Twin Fangs
@@ -123,8 +123,8 @@
       modifiers:
         attributes:
           Critical Damage: 7%
-      gw2-id: 1268
       type: traits
+      gw2id: 1268
 
     twin-fangs-flank:
       text: Twin Fangs
@@ -132,16 +132,16 @@
       modifiers:
         attributes:
           Critical Chance: 7%
-      gw2-id: 1268
       type: traits
+      gw2id: 1268
 
     practiced-tolerance:
       text: Practiced Tolerance
       modifiers:
         conversion:
           Ferocity: {Precision: 7%}
-      gw2-id: 1272
       type: traits
+      gw2id: 1272
 
     ferocious-strikes:
       text: Ferocious Strikes
@@ -150,8 +150,8 @@
       modifiers:
         attributes:
           Critical Damage: 5%
-      gw2-id: 1282
       type: traits
+      gw2id: 1282
 
     ferocious-strikes-always:
       text: Ferocious Strikes
@@ -160,16 +160,16 @@
       modifiers:
         attributes:
           Critical Damage: 10%
-      gw2-id: 1282
       type: traits
+      gw2id: 1282
 
     no-quarter:
       text: No Quarter
       modifiers:
         attributes:
           Ferocity: [250, converted]
-      gw2-id: 1904
       type: traits
+      gw2id: 1904
 
 - section: Acrobatics
   id: 54
@@ -181,8 +181,8 @@
       modifiers:
         attributes:
           Concentration: [240, buff]
-      gw2-id: 1242
       type: traits
+      gw2id: 1242
 
 - section: Trickery
   id: 44
@@ -194,8 +194,8 @@
       modifiers:
         attributes:
           Expertise: [150, converted]
-      gw2-id: 1232
       type: traits
+      gw2id: 1232
 
     lead-attacks:
       text: Lead Attacks
@@ -205,16 +205,16 @@
         damage:
           Strike Damage: [15%, add]
           Condition Damage: [15%, add]
-      gw2-id: 1157
       type: traits
+      gw2id: 1157
 
     deadly-ambush:
       text: Deadly Ambush
       modifiers:
         attributes:
           Bleeding Damage: 25%
-      gw2-id: 1706
       type: traits
+      gw2id: 1706
 
 - section: Daredevil
   id: 7
@@ -227,8 +227,8 @@
           Damage Reduction: [10%, unknown]
         conversion:
           Vitality: {Power: 13%}
-      gw2-id: 1933
       type: traits
+      gw2id: 1933
 
     weakening-strikes:
       text: Weakening Strikes
@@ -238,8 +238,8 @@
         damage:
           Strike Damage: [7%, mult]
           Damage Reduction: [10%, unknown]
-      gw2-id: 1887
       type: traits
+      gw2id: 1887
 
     staff-master-base:
       text: Staff Master
@@ -247,8 +247,8 @@
       modifiers:
         attributes:
           Power: [120, converted]
-      gw2-id: 1884
       type: traits
+      gw2id: 1884
 
     staff-master-staff:
       text: Staff Master
@@ -256,8 +256,8 @@
       modifiers:
         attributes:
           Power: [120, converted]
-      gw2-id: 1884
       type: traits
+      gw2id: 1884
 
     havoc-specialist:
       text: Havoc Specialist
@@ -265,8 +265,8 @@
       modifiers:
         damage:
           Strike Damage: [15%, mult]
-      gw2-id: 1893
       type: traits
+      gw2id: 1893
 
     bounding-dodger:
       text: Bounding Dodger
@@ -274,8 +274,8 @@
       modifiers:
         damage:
           Strike Damage: [10%, add]
-      gw2-id: 2047
       type: traits
+      gw2id: 2047
 
     lotus-training:
       text: Lotus Training
@@ -283,8 +283,8 @@
       modifiers:
         damage:
           Condition Damage: [15%, add]
-      gw2-id: 1833
       type: traits
+      gw2id: 1833
 
 - section: Deadeye
   id: 58
@@ -296,8 +296,8 @@
       modifiers:
         attributes:
           Precision: [120, converted]
-      gw2-id: 2118
       type: traits
+      gw2id: 2118
 
     silent-scope-rifle:
       text: Silent Scope
@@ -305,8 +305,8 @@
       modifiers:
         attributes:
           Precision: [120, converted]
-      gw2-id: 2118
       type: traits
+      gw2id: 2118
 
     premeditation-6:
       text: Premeditation
@@ -316,8 +316,8 @@
           Strike Damage: [6%, mult]
         attributes:
           Concentration: [180, buff]
-      gw2-id: 2160
       type: traits
+      gw2id: 2160
 
     premeditation-9:
       text: Premeditation
@@ -327,8 +327,8 @@
           Strike Damage: [9%, mult]
         attributes:
           Concentration: [180, buff]
-      gw2-id: 2160
       type: traits
+      gw2id: 2160
 
     iron-sight:
       text: Iron Sight
@@ -337,8 +337,8 @@
         damage:
           Strike Damage: [10%, mult]
           Damage Reduction: [10%, unknown]
-      gw2-id: 2084
       type: traits
+      gw2id: 2084
 
     be-quick-or-be-killed:
       text: Be Quick or Be Killed
@@ -346,5 +346,5 @@
         attributes:
           Power: [200, buff]
           Precision: [200, buff]
-      gw2-id: 2093
       type: traits
+      gw2id: 2093

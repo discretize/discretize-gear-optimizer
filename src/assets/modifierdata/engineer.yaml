@@ -9,8 +9,8 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 1882
       type: traits
+      gw2id: 1882
 
     explosive-temper:
       text: Explosive Temper
@@ -18,16 +18,16 @@
       modifiers:
         attributes:
           Ferocity: [200, buff]
-      gw2-id: 1892
       type: traits
+      gw2id: 1892
 
     blast-shield:
       text: Blast Shield
       modifiers:
         conversion:
           Vitality: {Power: 10%}
-      gw2-id: 1944
       type: traits
+      gw2id: 1944
 
     shaped-charge:
       text: Shaped Charge
@@ -35,8 +35,8 @@
       modifiers:
         damage:
           Strike Damage: [12.5%, mult]
-      gw2-id: 429
       type: traits
+      gw2id: 429
 
     big-boomer:
       text: Big Boomer
@@ -44,8 +44,8 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 1947
       type: traits
+      gw2id: 1947
 
 - section: Firearms
   id: 38
@@ -56,16 +56,16 @@
       modifiers:
         attributes:
           Condition Damage: [120, buff]
-      gw2-id: 1878
       type: traits
+      gw2id: 1878
 
     high-caliber:
       text: High Caliber
       modifiers:
         attributes:
           Critical Chance: 15%
-      gw2-id: 1914
       type: traits
+      gw2id: 1914
 
     hematic-focus:
       text: Hematic Focus
@@ -73,8 +73,8 @@
         attributes:
           Critical Chance: 10%
       minor: true
-      gw2-id: 536
       type: traits
+      gw2id: 536
 
     thermal-vision:
       text: Thermal Vision
@@ -83,16 +83,16 @@
           Condition Damage: [5%, add]
         attributes:
           Expertise: [150, converted]
-      gw2-id: 2006
       type: traits
+      gw2id: 2006
 
     no-scope:
       text: No Scope
       modifiers:
         attributes:
           Ferocity: [150, buff]
-      gw2-id: 1923
       type: traits
+      gw2id: 1923
 
     serrated-steel:
       text: Serrated Steel
@@ -100,8 +100,8 @@
         attributes:
           Bleeding Duration: 33%
       minor: true
-      gw2-id: 516
       type: traits
+      gw2id: 516
 
     modified-ammunition-10:
       text: Modified Ammunition
@@ -109,8 +109,8 @@
       modifiers:
         damage:
           Strike Damage: [20%, mult]
-      gw2-id: 526
       type: traits
+      gw2id: 526
 
     modified-ammunition-14:
       text: Modified Ammunition
@@ -118,16 +118,16 @@
       modifiers:
         damage:
           Strike Damage: [28%, mult]
-      gw2-id: 526
       type: traits
+      gw2id: 526
 
     incendiary-powder:
       text: Incendiary Powder
       modifiers:
         attributes:
           Burning Duration: 33%
-      gw2-id: 433
       type: traits
+      gw2id: 433
 
 - section: Inventions
   id: 47
@@ -138,8 +138,8 @@
       modifiers:
         damage:
           Damage Reduction: [6.6%, unknown]
-      gw2-id: 394
       type: traits
+      gw2id: 394
 
     energy-amplifier:
       text: Energy Amplifier
@@ -147,8 +147,8 @@
         attributes:
           Healing Power: [120, buff]
       minor: true
-      gw2-id: 519
       type: traits
+      gw2id: 519
 
 - section: Alchemy
   id: 29
@@ -160,8 +160,8 @@
       modifiers:
         attributes:
           Outgoing Healing: 20%
-      gw2-id: 521
       type: traits
+      gw2id: 521
 
     compounding-chemicals:
       text: Compounding Chemicals
@@ -169,8 +169,8 @@
         attributes:
           Concentration: [240, buff]
       minor: true
-      gw2-id: 413
       type: traits
+      gw2id: 413
 
 - section: Tools
   id: 21
@@ -182,8 +182,8 @@
         damage:
           Strike Damage: [10%, add]
       minor: true
-      gw2-id: 1936
       type: traits
+      gw2id: 1936
 
 - section: Scrapper
   id: 43
@@ -195,8 +195,8 @@
       modifiers:
         damage:
           Strike Damage: [5%, mult]
-      gw2-id: 1860
       type: traits
+      gw2id: 1860
 
     object-in-motion-2:
       text: Object in Motion (Two)
@@ -204,8 +204,8 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 1860
       type: traits
+      gw2id: 1860
 
     object-in-motion-3:
       text: Object in Motion (Three)
@@ -213,8 +213,8 @@
       modifiers:
         damage:
           Strike Damage: [15%, mult]
-      gw2-id: 1860
       type: traits
+      gw2id: 1860
 
     impact-savant:
       text: Impact Savant
@@ -222,16 +222,16 @@
         attributes:
           Vitality: [-180, buff]
       minor: true
-      gw2-id: 1877
       type: traits
+      gw2id: 1877
 
     kinetic-accelerators:
       text: Kinetic Accelerators
       modifiers:
         conversion:
           Concentration: {Power: 10%}
-      gw2-id: 2052
       type: traits
+      gw2id: 2052
 
     applied-force:
       text: Applied Force
@@ -240,5 +240,5 @@
         attributes:
           Power: [375, buff]
           Condition Damage: [-375, buff]
-      gw2-id: 1849
       type: traits
+      gw2id: 1849

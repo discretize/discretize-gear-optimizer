@@ -45,9 +45,9 @@
         attributes:
           Power: [100, buff]
           Condition Damage: [100, buff]
-      gw2-id: 14405
       type: Skill
       default-enabled: true
+      gw2id: 14405
 
     bannerOfDiscipline:
       text: Banner of Discipline
@@ -55,9 +55,9 @@
         attributes:
           Precision: [100, buff]
           Ferocity: [100, buff]
-      gw2-id: 14407
       type: Skill
       default-enabled: true
+      gw2id: 14407
 
     bannerOfTactics:
       text: Banner of Tactics
@@ -65,8 +65,8 @@
         attributes:
           Healing Power: [100, buff]
           Boon Duration: 10%
-      gw2-id: 14408
       type: Skill
+      gw2id: 14408
 
     bannerOfDefense:
       text: Banner of Defense
@@ -74,16 +74,16 @@
         attributes:
           Toughness: [100, buff]
           Vitality: [100, buff]
-      gw2-id: 14528
       type: Skill
+      gw2id: 14528
 
     empowerAllies:
       text: Empower Allies
       modifiers:
         attributes:
           Power: [100, buff]
-      gw2-id: 1482
       type: Trait
+      gw2id: 1482
 
 - section: Other buffs
   items:
@@ -93,33 +93,33 @@
       modifiers:
         attributes:
           Precision: [100, buff]
-      gw2-id: 1016
       type: Trait
+      gw2id: 1016
 
     frostSpirit:
       text: Frost Spirit
       modifiers:
         damage:
           Strike Damage: [5%, add]
-      gw2-id: 12497
       type: Skill
       default-enabled: true
+      gw2id: 12497
 
     pinpointDistribution:
       text: Pinpoint Distribution
       modifiers:
         attributes:
           Condition Damage: [100, buff]
-      gw2-id: 1984
       type: Trait
+      gw2id: 1984
 
     strengthInNumbers:
       text: Strength in Numbers
       modifiers:
         attributes:
           Toughness: [100, buff]
-      gw2-id: 584
       type: Trait
+      gw2id: 584
 
 - section: Guardian - Perfect Inscriptions (100% uptime)
   items:
@@ -129,33 +129,33 @@
       modifiers:
         attributes:
           Power: [216, buff]
-      gw2-id: 9093
       type: Skill
       default-enabled: true
+      gw2id: 9093
 
     signetOfJudgment:
       text: Signet of Judgement
       modifiers:
         damage:
           Damage Reduction: [12%, unknown]
-      gw2-id: 9150
       type: Skill
+      gw2id: 9150
 
     signetOfMercy:
       text: Signet of Mercy
       modifiers:
         attributes:
           Boon Duration: 10%
-      gw2-id: 9163
       type: Skill
+      gw2id: 9163
 
     signetOfWrath:
       text: Signet of Wrath
       modifiers:
         attributes:
           Condition Damage: [216, buff]
-      gw2-id: 9151
       type: Skill
+      gw2id: 9151
 
 - section: Revenant buffs
   items:
@@ -165,25 +165,25 @@
       modifiers:
         attributes:
           Ferocity: [150, buff]
-      gw2-id: 1786
       type: Trait
       default-enabled: true
+      gw2id: 1786
 
     facetOfNature:
       text: Facet of Nature—Dragon
       modifiers:
         attributes:
           Boon Duration: 20%
-      gw2-id: 29371
       type: Skill
+      gw2id: 29371
 
     riteDwarf:
       text: Rite of the Great Dwarf
       modifiers:
         damage:
           Damage Reduction: [50%, unknown]
-      gw2-id: 27975
       type: Skill
+      gw2id: 27975
 
 - section: Effects
   items:

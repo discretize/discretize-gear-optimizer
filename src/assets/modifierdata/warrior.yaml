@@ -6,24 +6,24 @@
       modifiers:
         attributes:
           Power: [180, buff]
-      gw2-id: 14404
       type: skills
+      gw2id: 14404
 
     signet-of-fury:
       text: Signet of Fury
       modifiers:
         attributes:
           Precision: [180, buff]
-      gw2-id: 14410
       type: skills
+      gw2id: 14410
 
     dolyak-signet:
       text: Dolyak Signet
       modifiers:
         attributes:
           Toughness: [180, buff]
-      gw2-id: 14413
       type: skills
+      gw2id: 14413
 
 - section: Strength
   id: 4
@@ -35,8 +35,8 @@
       modifiers:
         damage:
           Strike Damage: [5%, add]
-      gw2-id: 1444
       type: traits
+      gw2id: 1444
 
     peak-performance-2:
       text: Peak Performance
@@ -44,8 +44,8 @@
       modifiers:
         damage:
           Strike Damage: [10%, add]
-      gw2-id: 1444
       type: traits
+      gw2id: 1444
 
     forceful-greatsword:
       text: Forceful Greatsword
@@ -53,8 +53,8 @@
       modifiers:
         attributes:
           Power: [120, buff]
-      gw2-id: 1338
       type: traits
+      gw2id: 1338
 
     forceful-greatsword-2:
       text: Forceful Greatsword
@@ -62,8 +62,8 @@
       modifiers:
         attributes:
           Power: [120, buff]
-      gw2-id: 1338
       type: traits
+      gw2id: 1338
 
     great-fortitude:
       text: Great Fortitude
@@ -71,8 +71,8 @@
         conversion:
           Vitality: {Power: 10%}
           Ferocity: {Power: 10%}
-      gw2-id: 1449
       type: traits
+      gw2id: 1449
 
     pinnacle-of-strength:
       text: Pinnacle Of Strength
@@ -80,8 +80,8 @@
       modifiers:
         attributes:
           Power: [250, buff]
-      gw2-id: 1453
       type: traits
+      gw2id: 1453
 
     berserkers-power:
       text: Berserker's Power
@@ -89,8 +89,8 @@
       modifiers:
         damage:
           Strike Damage: [21%, add]
-      gw2-id: 1437
       type: traits
+      gw2id: 1437
 
 - section: Arms
   id: 36
@@ -101,8 +101,8 @@
       modifiers:
         conversion:
           Expertise: {Precision: 7%}
-      gw2-id: 1455
       type: traits
+      gw2id: 1455
 
     signet-mastery:
       text: Signet Mastery
@@ -110,8 +110,8 @@
       modifiers:
         attributes:
           Ferocity: [500, converted]
-      gw2-id: 1344
       type: traits
+      gw2id: 1344
 
     deep-strikes:
       text: Deep Strikes
@@ -119,8 +119,8 @@
       modifiers:
         attributes:
           Condition Damage: [180, buff]
-      gw2-id: 1343
       type: traits
+      gw2id: 1343
 
     blade-master:
       text: Blademaster
@@ -128,8 +128,8 @@
       modifiers:
         attributes:
           Expertise: [120, buff]
-      gw2-id: 1333
       type: traits
+      gw2id: 1333
 
     blade-master-2:
       text: Blademaster
@@ -137,8 +137,8 @@
       modifiers:
         attributes:
           Condition Damage: [60, buff]
-      gw2-id: 1333
       type: traits
+      gw2id: 1333
 
     bloodlust:
       text: Bloodlust
@@ -146,8 +146,8 @@
       modifiers:
         attributes:
           Bleeding Duration: 33%
-      gw2-id: 1337
       type: traits
+      gw2id: 1337
 
     furious:
       text: Furious
@@ -155,8 +155,8 @@
       modifiers:
         attributes:
           Condition Damage: [250, buff]
-      gw2-id: 1346
       type: traits
+      gw2id: 1346
 
 - section: Defense
   id: 22
@@ -168,24 +168,24 @@
       modifiers:
         damage:
           Damage Reduction: [5%, unknown]
-      gw2-id: 1350
       type: traits
+      gw2id: 1350
 
     cull-the-weak:
       text: Cull the Weak
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 1372
       type: traits
+      gw2id: 1372
 
     armored-attack:
       text: Armored Attack
       modifiers:
         conversion:
           Power: {Toughness: 10%}
-      gw2-id: 1379
       type: traits
+      gw2id: 1379
 
     hardened-armor:
       text: Hardened Armor
@@ -193,8 +193,8 @@
       modifiers:
         damage:
           Damage Reduction: [10%, unknown]
-      gw2-id: 1380
       type: traits
+      gw2id: 1380
 
 - section: Tactics
   id: 11
@@ -205,16 +205,16 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 1469
       type: traits
+      gw2id: 1469
 
     roaring-reveille:
       text: Roaring Reveille
       modifiers:
         attributes:
           Concentration: [120, buff]
-      gw2-id: 1471
       type: traits
+      gw2id: 1471
 
     empowered-6:
       text: Empowered
@@ -223,8 +223,8 @@
       modifiers:
         damage:
           Strike Damage: [6%, mult]
-      gw2-id: 1485
       type: traits
+      gw2id: 1485
 
     empowered-9:
       text: Empowered
@@ -233,8 +233,8 @@
       modifiers:
         damage:
           Strike Damage: [9%, mult]
-      gw2-id: 1485
       type: traits
+      gw2id: 1485
 
     empowered-11:
       text: Empowered
@@ -243,8 +243,8 @@
       modifiers:
         damage:
           Strike Damage: [11%, mult]
-      gw2-id: 1485
       type: traits
+      gw2id: 1485
 
     warriors-cunning:
       text: Warrior's Cunning
@@ -252,16 +252,16 @@
       modifiers:
         damage:
           Strike Damage: [5%, mult]
-      gw2-id: 1486
       type: traits
+      gw2id: 1486
 
     vigorous-shouts:
       text: Vigorous Shouts
       modifiers:
         conversion:
           Healing Power: {Power: 13%}
-      gw2-id: 1470
       type: traits
+      gw2id: 1470
 
 - section: Discipline
   id: 51
@@ -272,8 +272,8 @@
       modifiers:
         damage:
           Strike Damage: [10%, add]
-      gw2-id: 1413
       type: traits
+      gw2id: 1413
 
     double-standards:
       text: Doubled Standards
@@ -284,8 +284,8 @@
           Precision: [50, buff]
           Ferocity: [50, buff]
           Condition Damage: [50, buff]
-      gw2-id: 1484
       type: traits
+      gw2id: 1484
 
     axe-mastery-one:
       text: Axe Mastery
@@ -293,8 +293,8 @@
       modifiers:
         attributes:
           Ferocity: [120, buff]
-      gw2-id: 1369
       type: traits
+      gw2id: 1369
 
     axe-mastery-two:
       text: Axe Mastery
@@ -302,8 +302,8 @@
       modifiers:
         attributes:
           Ferocity: [120, buff]
-      gw2-id: 1369
       type: traits
+      gw2id: 1369
 
 - section: Berserker
   id: 18
@@ -315,8 +315,8 @@
       modifiers:
         conversion:
           Ferocity: {Precision: 7%}
-      gw2-id: 2011
       type: traits
+      gw2id: 2011
 
     blood-reaction-with:
       text: Blood Reaction
@@ -324,8 +324,8 @@
       modifiers:
         conversion:
           Ferocity: {Precision: 14%}
-      gw2-id: 2011
       type: traits
+      gw2id: 2011
 
     heat-the-soul:
       text: Heat the Soul
@@ -333,8 +333,8 @@
       modifiers:
         attributes:
           Condition Damage: [120, buff]
-      gw2-id: 2042
       type: traits
+      gw2id: 2042
 
     heat-the-soul-with:
       text: Heat the Soul
@@ -342,8 +342,8 @@
       modifiers:
         attributes:
           Condition Damage: [60, buff]
-      gw2-id: 2042
       type: traits
+      gw2id: 2042
 
     fatal-frenzy:
       text: Fatal Frenzy
@@ -353,32 +353,32 @@
           Power: [300, buff]
           Condition Damage: [300, buff]
           Toughness: [-300, buff]
-      gw2-id: 2046
       type: traits
+      gw2id: 2046
 
     bloody-roar:
       text: Bloody Roar
       modifiers:
         damage:
           Strike Damage: [20%, mult]
-      gw2-id: 1928
       type: traits
+      gw2id: 1928
 
     king-of-fires:
       text: King of Fires
       modifiers:
         attributes:
           Burning Duration: 33%
-      gw2-id: 2038
       type: traits
+      gw2id: 2038
 
     eternal-champion:
       text: Eternal Champion
       modifiers:
         attributes:
           Toughness: [300, buff]
-      gw2-id: 2043
       type: traits
+      gw2id: 2043
 
 - section: Spellbreaker
   id: 61
@@ -390,8 +390,8 @@
       modifiers:
         attributes:
           Critical Damage: 14%
-      gw2-id: 2107
       type: traits
+      gw2id: 2107
 
     sun-and-moon-style:
       text: Sun and Moon Style
@@ -399,8 +399,8 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 2095
       type: traits
+      gw2id: 2095
 
     attackers-insight:
       text: Attacker's Insight
@@ -410,8 +410,8 @@
           Ferocity: [250, buff]
           Power: [250, buff]
           Precision: [250, buff]
-      gw2-id: 2130
       type: traits
+      gw2id: 2130
 
     magebane-tether:
       text: Magebane Tether
@@ -419,5 +419,5 @@
       modifiers:
         damage:
           Strike Damage: [7.5%, mult]
-      gw2-id: 2060
       type: traits
+      gw2id: 2060

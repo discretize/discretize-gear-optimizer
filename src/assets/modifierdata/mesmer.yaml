@@ -6,16 +6,16 @@
       modifiers:
         attributes:
           Condition Damage: [180, buff]
-      gw2-id: 10232
       type: skills
+      gw2id: 10232
 
     signet-of-midnight:
       text: Signet of Midnight
       modifiers:
         attributes:
           Expertise: [180, buff]
-      gw2-id: 10234
       type: skills
+      gw2id: 10234
 
 - section: Domination
   id: 10
@@ -27,24 +27,24 @@
       modifiers:
         damage:
           Strike Damage: [12.5%, mult]
-      gw2-id: 1941
       type: traits
+      gw2id: 1941
 
     egotism:
       text: Egotism
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 713
       type: traits
+      gw2id: 713
 
     vicious-expression:
       text: Vicious Expression
       modifiers:
         damage:
           Strike Damage: [15%, mult]
-      gw2-id: 681
       type: traits
+      gw2id: 681
 
 - section: Dueling
   id: 1
@@ -56,8 +56,8 @@
       modifiers:
         attributes:
           Ferocity: [150, buff]
-      gw2-id: 708
       type: traits
+      gw2id: 708
 
     superiority-complex:
       text: Superiority Complex
@@ -65,8 +65,8 @@
       modifiers:
         attributes:
           Critical Damage: 20%
-      gw2-id: 692
       type: traits
+      gw2id: 692
 
 - section: Chaos
   id: 45
@@ -78,8 +78,8 @@
       modifiers:
         damage:
           Damage Reduction: [25%, unknown]
-      gw2-id: 675
       type: traits
+      gw2id: 675
 
     illusionary-membrane:
       text: Illusionary Membrane
@@ -87,8 +87,8 @@
       modifiers:
         damage:
           Condition Damage: [10%, add]
-      gw2-id: 667
       type: traits
+      gw2id: 667
 
     chaotic-potency:
       text: Chaotic Potency
@@ -96,8 +96,8 @@
       modifiers:
         attributes:
           Condition Damage: [120, buff]
-      gw2-id: 669
       type: traits
+      gw2id: 669
 
     chaotic-potency-2:
       text: Chaotic Potency
@@ -105,8 +105,8 @@
       modifiers:
         attributes:
           Condition Damage: [120, buff]
-      gw2-id: 669
       type: traits
+      gw2id: 669
 
     chaotic-persistence:
       text: Chaotic Persistence
@@ -115,8 +115,8 @@
         attributes:
           Concentration: [250, buff]
           Expertise: [250, buff]
-      gw2-id: 1865
       type: traits
+      gw2id: 1865
 
 - section: Inspiration
   id: 23
@@ -128,8 +128,8 @@
         conversion:
           Healing Power: {Power: 13%}
       minor: true
-      gw2-id: 1915
       type: traits
+      gw2id: 1915
 
 - section: Illusions
   id: 24
@@ -144,8 +144,8 @@
         attributes:
           Condition Damage: [150, buff]
       minor: true
-      gw2-id: 723
       type: traits
+      gw2id: 723
 
 - section: Chronomancer
   id: 40
@@ -156,8 +156,8 @@
       modifiers:
         attributes:
           Critical Chance: 15%
-      gw2-id: 2009
       type: traits
+      gw2id: 2009
 
 - section: Mirage
   id: 59
@@ -169,5 +169,5 @@
         attributes:
           Condition Damage: [150, buff]
       minor: true
-      gw2-id: 2069
       type: traits
+      gw2id: 2069

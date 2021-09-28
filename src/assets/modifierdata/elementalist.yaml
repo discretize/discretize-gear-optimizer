@@ -6,16 +6,16 @@
       modifiers:
         attributes:
           Precision: [180, buff]
-      gw2-id: 5542
       type: skills
+      gw2id: 5542
 
     signet-of-earth:
       text: Signet of Earth
       modifiers:
         attributes:
           Toughness: [180, buff]
-      gw2-id: 5571
       type: skills
+      gw2id: 5571
 
     flame-axe:
       text: Flame Axe
@@ -24,8 +24,8 @@
         attributes:
           Power: [180, buff]
           Condition Damage: [180, buff]
-      gw2-id: 5540
       type: skills
+      gw2id: 5540
 
     earth-shield:
       text: Earth Shield
@@ -34,8 +34,8 @@
         attributes:
           Vitality: [180, buff]
           Toughness: [180, buff]
-      gw2-id: 5546
       type: skills
+      gw2id: 5546
 
     fiery-greatsword:
       text: Fiery Greatsword
@@ -44,8 +44,8 @@
         attributes:
           Power: [260, buff]
           Condition Damage: [180, buff]
-      gw2-id: 5516
       type: skills
+      gw2id: 5516
 
     lightning-hammer:
       text: Lightning Hammer
@@ -54,8 +54,8 @@
         attributes:
           Precision: [180, buff]
           Ferocity: [75, buff]
-      gw2-id: 5624
       type: skills
+      gw2id: 5624
 
     frost-bow:
       text: Frost Bow
@@ -64,8 +64,8 @@
         attributes:
           Healing Power: [180, buff]
           Condition Duration: 20%
-      gw2-id: 5567
       type: skills
+      gw2id: 5567
 
 - section: Fire
   id: 31
@@ -78,24 +78,24 @@
       modifiers:
         attributes:
           Power: [150, buff]
-      gw2-id: 320
       type: traits
+      gw2id: 320
 
     burning-precision:
       text: Burning Precision
       modifiers:
         attributes:
           Burning Duration: 20%
-      gw2-id: 296
       type: traits
+      gw2id: 296
 
     burning-rage:
       text: Burning Rage
       modifiers:
         attributes:
           Condition Damage: [180, buff]
-      gw2-id: 325
       type: traits
+      gw2id: 325
 
     power-overwhelming:
       text: Power Overwhelming
@@ -103,8 +103,8 @@
       modifiers:
         attributes:
           Power: [150, buff]
-      gw2-id: 334
       type: traits
+      gw2id: 334
 
     power-overwhelming-2:
       text: Power Overwhelming
@@ -112,8 +112,8 @@
       modifiers:
         attributes:
           Power: [150, buff]
-      gw2-id: 334
       type: traits
+      gw2id: 334
 
     pyromancers-training:
       text: Pyromancer's Training
@@ -121,8 +121,8 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 319
       type: traits
+      gw2id: 319
 
 - section: Air
   id: 41
@@ -133,24 +133,24 @@
       modifiers:
         conversion:
           Ferocity: {Precision: 7%}
-      gw2-id: 232
       type: traits
+      gw2id: 232
 
     raging-storm:
       text: Raging Storm
       modifiers:
         attributes:
           Ferocity: [180, buff]
-      gw2-id: 214
       type: traits
+      gw2id: 214
 
     stormsoul:
       text: Stormsoul
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 1502
       type: traits
+      gw2id: 1502
 
     aeromancers-training:
       text: Aeromancer's Training
@@ -159,8 +159,8 @@
       modifiers:
         attributes:
           Ferocity: [150, buff]
-      gw2-id: 223
       type: traits
+      gw2id: 223
 
     aeromancers-training-2:
       text: Aeromancer's Training
@@ -169,8 +169,8 @@
       modifiers:
         attributes:
           Ferocity: [150, buff]
-      gw2-id: 223
       type: traits
+      gw2id: 223
 
     bolt-to-the-heart:
       text: Bolt to the Heart
@@ -178,8 +178,8 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 226
       type: traits
+      gw2id: 226
 
     fresh-air:
       text: Fresh Air
@@ -187,8 +187,8 @@
       modifiers:
         attributes:
           Ferocity: [250, buff]
-      gw2-id: 1503
       type: traits
+      gw2id: 1503
 
 - section: Earth
   id: 26
@@ -201,8 +201,8 @@
       modifiers:
         damage:
           Damage Reduction: [7%, unknown]
-      gw2-id: 278
       type: traits
+      gw2id: 278
 
     serrated-stones:
       text: Serrated Stones
@@ -211,16 +211,16 @@
           Strike Damage: [5%, mult]
         attributes:
           Bleeding Duration: 20%
-      gw2-id: 1507
       type: traits
+      gw2id: 1507
 
     strength-of-stone:
       text: Strength of Stone
       modifiers:
         conversion:
           Condition Damage: {Toughness: 10%}
-      gw2-id: 275
       type: traits
+      gw2id: 275
 
     geomancers-defense:
       text: Geomancer's Defense
@@ -228,8 +228,8 @@
       modifiers:
         damage:
           Damage Reduction: [10%, unknown]
-      gw2-id: 280
       type: traits
+      gw2id: 280
 
 - section: Water
   id: 17
@@ -240,8 +240,8 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 363
       type: traits
+      gw2id: 363
 
     piercing-blades-2:
       text: Piercing Shards
@@ -249,16 +249,16 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 363
       type: traits
+      gw2id: 363
 
     flow-like-water:
       text: Flow like Water
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      gw2-id: 349
       type: traits
+      gw2id: 349
 
     aquamancers-training:
       text: Aquamancer's Training
@@ -266,8 +266,8 @@
         attributes:
           Outgoing Healing: 15%
       minor: true
-      gw2-id: 1676
       type: traits
+      gw2id: 1676
 
 - section: Arcane
   id: 37
@@ -279,16 +279,16 @@
         attributes:
           Concentration: [180, buff]
       minor: true
-      gw2-id: 2004
       type: traits
+      gw2id: 2004
 
     elemental-surge:
       text: Elemental Surge (100% uptime)
       modifiers:
         attributes:
           Ferocity: [150, converted]
-      gw2-id: 263
       type: traits
+      gw2id: 263
 
     bountiful-power:
       text: Bountiful Power
@@ -296,8 +296,8 @@
       modifiers:
         damage:
           Strike Damage: [12%, mult]
-      gw2-id: 1511
       type: traits
+      gw2id: 1511
 
     bountiful-power-9:
       text: Bountiful Power
@@ -305,8 +305,8 @@
       modifiers:
         damage:
           Strike Damage: [18%, mult]
-      gw2-id: 1511
       type: traits
+      gw2id: 1511
 
 - section: Tempest
   id: 48
@@ -318,8 +318,8 @@
         attributes:
           Concentration: [240, buff]
       minor: true
-      gw2-id: 1938
       type: traits
+      gw2id: 1938
 
     hardy-conduit:
       text: Hardy Conduit
@@ -327,8 +327,8 @@
       modifiers:
         damage:
           Damage Reduction: [11.67%, unknown]
-      gw2-id: 1948
       type: traits
+      gw2id: 1948
 
     transcendent-tempest:
       text: Transcendent Tempest
@@ -336,8 +336,8 @@
         damage:
           Strike Damage: [7%, add]
           Condition Damage: [7%, add]
-      gw2-id: 1839
       type: traits
+      gw2id: 1839
 
 - section: Weaver
   id: 56
@@ -349,8 +349,8 @@
       modifiers:
         attributes:
           Critical Chance: 10%
-      gw2-id: 2177
       type: traits
+      gw2id: 2177
 
     masters-fortitude:
       text: Master's Fortitude
@@ -360,8 +360,8 @@
           Vitality: [120, converted]
         conversion:
           Vitality: {Power: 5%, Condition Damage: 5%}
-      gw2-id: 2115
       type: traits
+      gw2id: 2115
 
     masters-fortitude-without:
       text: Master's Fortitude
@@ -369,8 +369,8 @@
       modifiers:
         conversion:
           Vitality: {Power: 5%, Condition Damage: 5%}
-      gw2-id: 2115
       type: traits
+      gw2id: 2115
 
     weavers-prowess:
       text: Weaver's Prowess
@@ -380,16 +380,16 @@
           Condition Damage: [10%, add]
         attributes:
           Condition Duration: 20%
-      gw2-id: 2180
       type: traits
+      gw2id: 2180
 
     swift-revenge:
       text: Swift Revenge
       modifiers:
         damage:
           Strike Damage: [10%, add]
-      gw2-id: 2061
       type: traits
+      gw2id: 2061
 
     elemental-polyphony-fire:
       text: Elemental Polyphony
@@ -398,8 +398,8 @@
       modifiers:
         attributes:
           Power: [120, buff]
-      gw2-id: 2081
       type: traits
+      gw2id: 2081
 
     elemental-polyphony-air:
       text: Elemental Polyphony
@@ -408,8 +408,8 @@
       modifiers:
         attributes:
           Ferocity: [120, buff]
-      gw2-id: 2081
       type: traits
+      gw2id: 2081
 
     elements-of-rage:
       text: Elements of Rage
@@ -418,5 +418,5 @@
           Condition Damage: [5%, add]
         conversion:
           Precision: {Vitality: 13%}
-      gw2-id: 2131
       type: traits
+      gw2id: 2131
