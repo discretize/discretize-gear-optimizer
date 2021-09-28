@@ -1,247 +1,244 @@
-GraphQL ID: Engineer
-list:
+- section: Skills
 
-  - section: Skills
+- section: Explosives
+  id: 6
+  items:
 
-  - section: Explosives
-    id: 6
-    items:
+    glass-cannon:
+      text: Glass Cannon
+      modifiers:
+        damage:
+          Strike Damage: [10%, mult]
+      gw2-id: 1882
+      type: traits
 
-      - id: glass-cannon
-        text: Glass Cannon
-        modifiers:
-          damage:
-            Strike Damage: [10%, mult]
-        gw2-id: 1882
-        type: traits
+    explosive-temper:
+      text: Explosive Temper
+      subText: 10x
+      modifiers:
+        attributes:
+          Ferocity: [200, buff]
+      gw2-id: 1892
+      type: traits
 
-      - id: explosive-temper
-        text: Explosive Temper
-        subText: 10x
-        modifiers:
-          attributes:
-            Ferocity: [200, buff]
-        gw2-id: 1892
-        type: traits
+    blast-shield:
+      text: Blast Shield
+      modifiers:
+        conversion:
+          Vitality: {Power: 10%}
+      gw2-id: 1944
+      type: traits
 
-      - id: blast-shield
-        text: Blast Shield
-        modifiers:
-          conversion:
-            Vitality: {Power: 10%}
-        gw2-id: 1944
-        type: traits
+    shaped-charge:
+      text: Shaped Charge
+      minor: true
+      modifiers:
+        damage:
+          Strike Damage: [12.5%, mult]
+      gw2-id: 429
+      type: traits
 
-      - id: shaped-charge
-        text: Shaped Charge
-        minor: true
-        modifiers:
-          damage:
-            Strike Damage: [12.5%, mult]
-        gw2-id: 429
-        type: traits
+    big-boomer:
+      text: Big Boomer
+      subText: 100%
+      modifiers:
+        damage:
+          Strike Damage: [10%, mult]
+      gw2-id: 1947
+      type: traits
 
-      - id: big-boomer
-        text: Big Boomer
-        subText: 100%
-        modifiers:
-          damage:
-            Strike Damage: [10%, mult]
-        gw2-id: 1947
-        type: traits
+- section: Firearms
+  id: 38
+  items:
 
-  - section: Firearms
-    id: 38
-    items:
+    chemical-rounds:
+      text: Chemical Rounds
+      modifiers:
+        attributes:
+          Condition Damage: [120, buff]
+      gw2-id: 1878
+      type: traits
 
-      - id: chemical-rounds
-        text: Chemical Rounds
-        modifiers:
-          attributes:
-            Condition Damage: [120, buff]
-        gw2-id: 1878
-        type: traits
+    high-caliber:
+      text: High Caliber
+      modifiers:
+        attributes:
+          Critical Chance: 15%
+      gw2-id: 1914
+      type: traits
 
-      - id: high-caliber
-        text: High Caliber
-        modifiers:
-          attributes:
-            Critical Chance: 15%
-        gw2-id: 1914
-        type: traits
+    hematic-focus:
+      text: Hematic Focus
+      modifiers:
+        attributes:
+          Critical Chance: 10%
+      minor: true
+      gw2-id: 536
+      type: traits
 
-      - id: hematic-focus
-        text: Hematic Focus
-        modifiers:
-          attributes:
-            Critical Chance: 10%
-        minor: true
-        gw2-id: 536
-        type: traits
+    thermal-vision:
+      text: Thermal Vision
+      modifiers:
+        damage:
+          Condition Damage: [5%, add]
+        attributes:
+          Expertise: [150, converted]
+      gw2-id: 2006
+      type: traits
 
-      - id: thermal-vision
-        text: Thermal Vision
-        modifiers:
-          damage:
-            Condition Damage: [5%, add]
-          attributes:
-            Expertise: [150, converted]
-        gw2-id: 2006
-        type: traits
+    no-scope:
+      text: No Scope
+      modifiers:
+        attributes:
+          Ferocity: [150, buff]
+      gw2-id: 1923
+      type: traits
 
-      - id: no-scope
-        text: No Scope
-        modifiers:
-          attributes:
-            Ferocity: [150, buff]
-        gw2-id: 1923
-        type: traits
+    serrated-steel:
+      text: Serrated Steel
+      modifiers:
+        attributes:
+          Bleeding Duration: 33%
+      minor: true
+      gw2-id: 516
+      type: traits
 
-      - id: serrated-steel
-        text: Serrated Steel
-        modifiers:
-          attributes:
-            Bleeding Duration: 33%
-        minor: true
-        gw2-id: 516
-        type: traits
+    modified-ammunition-10:
+      text: Modified Ammunition
+      subText: 10x
+      modifiers:
+        damage:
+          Strike Damage: [20%, mult]
+      gw2-id: 526
+      type: traits
 
-      - id: modified-ammunition-10
-        text: Modified Ammunition
-        subText: 10x
-        modifiers:
-          damage:
-            Strike Damage: [20%, mult]
-        gw2-id: 526
-        type: traits
+    modified-ammunition-14:
+      text: Modified Ammunition
+      subText: 14x
+      modifiers:
+        damage:
+          Strike Damage: [28%, mult]
+      gw2-id: 526
+      type: traits
 
-      - id: modified-ammunition-14
-        text: Modified Ammunition
-        subText: 14x
-        modifiers:
-          damage:
-            Strike Damage: [28%, mult]
-        gw2-id: 526
-        type: traits
+    incendiary-powder:
+      text: Incendiary Powder
+      modifiers:
+        attributes:
+          Burning Duration: 33%
+      gw2-id: 433
+      type: traits
 
-      - id: incendiary-powder
-        text: Incendiary Powder
-        modifiers:
-          attributes:
-            Burning Duration: 33%
-        gw2-id: 433
-        type: traits
+- section: Inventions
+  id: 47
+  items:
 
-  - section: Inventions
-    id: 47
-    items:
+    over-shield:
+      text: Over Shield
+      modifiers:
+        damage:
+          Damage Reduction: [6.6%, unknown]
+      gw2-id: 394
+      type: traits
 
-      - id: over-shield
-        text: Over Shield
-        modifiers:
-          damage:
-            Damage Reduction: [6.6%, unknown]
-        gw2-id: 394
-        type: traits
+    energy-amplifier:
+      text: Energy Amplifier
+      modifiers:
+        attributes:
+          Healing Power: [120, buff]
+      minor: true
+      gw2-id: 519
+      type: traits
 
-      - id: energy-amplifier
-        text: Energy Amplifier
-        modifiers:
-          attributes:
-            Healing Power: [120, buff]
-        minor: true
-        gw2-id: 519
-        type: traits
+- section: Alchemy
+  id: 29
+  items:
 
-  - section: Alchemy
-    id: 29
-    items:
+    health-insurance:
+      text: Health Insurance
+      subText: in med kit
+      modifiers:
+        attributes:
+          Outgoing Healing: 20%
+      gw2-id: 521
+      type: traits
 
-      - id: health-insurance
-        text: Health Insurance
-        subText: in med kit
-        modifiers:
-          attributes:
-            Outgoing Healing: 20%
-        gw2-id: 521
-        type: traits
+    compounding-chemicals:
+      text: Compounding Chemicals
+      modifiers:
+        attributes:
+          Concentration: [240, buff]
+      minor: true
+      gw2-id: 413
+      type: traits
 
-      - id: compounding-chemicals
-        text: Compounding Chemicals
-        modifiers:
-          attributes:
-            Concentration: [240, buff]
-        minor: true
-        gw2-id: 413
-        type: traits
+- section: Tools
+  id: 21
+  items:
 
-  - section: Tools
-    id: 21
-    items:
+    excessive-energy:
+      text: Excessive Energy
+      modifiers:
+        damage:
+          Strike Damage: [10%, add]
+      minor: true
+      gw2-id: 1936
+      type: traits
 
-      - id: excessive-energy
-        text: Excessive Energy
-        modifiers:
-          damage:
-            Strike Damage: [10%, add]
-        minor: true
-        gw2-id: 1936
-        type: traits
+- section: Scrapper
+  id: 43
+  items:
 
-  - section: Scrapper
-    id: 43
-    items:
+    object-in-motion-1:
+      text: Object in Motion (One)
+      subText: One
+      modifiers:
+        damage:
+          Strike Damage: [5%, mult]
+      gw2-id: 1860
+      type: traits
 
-      - id: object-in-motion-1
-        text: Object in Motion (One)
-        subText: One
-        modifiers:
-          damage:
-            Strike Damage: [5%, mult]
-        gw2-id: 1860
-        type: traits
+    object-in-motion-2:
+      text: Object in Motion (Two)
+      subText: Two
+      modifiers:
+        damage:
+          Strike Damage: [10%, mult]
+      gw2-id: 1860
+      type: traits
 
-      - id: object-in-motion-2
-        text: Object in Motion (Two)
-        subText: Two
-        modifiers:
-          damage:
-            Strike Damage: [10%, mult]
-        gw2-id: 1860
-        type: traits
+    object-in-motion-3:
+      text: Object in Motion (Three)
+      subText: Three
+      modifiers:
+        damage:
+          Strike Damage: [15%, mult]
+      gw2-id: 1860
+      type: traits
 
-      - id: object-in-motion-3
-        text: Object in Motion (Three)
-        subText: Three
-        modifiers:
-          damage:
-            Strike Damage: [15%, mult]
-        gw2-id: 1860
-        type: traits
+    impact-savant:
+      text: Impact Savant
+      modifiers:
+        attributes:
+          Vitality: [-180, buff]
+      minor: true
+      gw2-id: 1877
+      type: traits
 
-      - id: impact-savant
-        text: Impact Savant
-        modifiers:
-          attributes:
-            Vitality: [-180, buff]
-        minor: true
-        gw2-id: 1877
-        type: traits
+    kinetic-accelerators:
+      text: Kinetic Accelerators
+      modifiers:
+        conversion:
+          Concentration: {Power: 10%}
+      gw2-id: 2052
+      type: traits
 
-      - id: kinetic-accelerators
-        text: Kinetic Accelerators
-        modifiers:
-          conversion:
-            Concentration: {Power: 10%}
-        gw2-id: 2052
-        type: traits
-
-      - id: applied-force
-        text: Applied Force
-        subText: 25 might
-        modifiers:
-          attributes:
-            Power: [375, buff]
-            Condition Damage: [-375, buff]
-        gw2-id: 1849
-        type: traits
+    applied-force:
+      text: Applied Force
+      subText: 25 might
+      modifiers:
+        attributes:
+          Power: [375, buff]
+          Condition Damage: [-375, buff]
+      gw2-id: 1849
+      type: traits

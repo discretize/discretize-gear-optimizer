@@ -1,353 +1,350 @@
-GraphQL ID: Thief
-list:
+- section: Skills
+  items:
 
-  - section: Skills
-    items:
+    assassins-signet:
+      text: Assassin's Signet
+      subText: passive
+      modifiers:
+        attributes:
+          Power: [180, buff]
+      gw2-id: 13046
+      type: skills
 
-      - id: assassins-signet
-        text: Assassin's Signet
-        subText: passive
-        modifiers:
-          attributes:
-            Power: [180, buff]
-        gw2-id: 13046
-        type: skills
+    assassins-signet-active:
+      text: Assassin's Signet
+      subText: while active
+      modifiers:
+        attributes:
+          Power: [540, buff]
+      gw2-id: 13046
+      type: skills
 
-      - id: assassins-signet-active
-        text: Assassin's Signet
-        subText: while active
-        modifiers:
-          attributes:
-            Power: [540, buff]
-        gw2-id: 13046
-        type: skills
+    signet-of-agility:
+      text: Signet of Agility
+      modifiers:
+        attributes:
+          Precision: [180, buff]
+      gw2-id: 13062
+      type: skills
 
-      - id: signet-of-agility
-        text: Signet of Agility
-        modifiers:
-          attributes:
-            Precision: [180, buff]
-        gw2-id: 13062
-        type: skills
+- section: Deadly Arts
+  id: 28
+  items:
 
-  - section: Deadly Arts
-    id: 28
-    items:
+    dagger-training-base:
+      text: Dagger Training
+      subText: base
+      modifiers:
+        attributes:
+          Power: [80, converted]
+      gw2-id: 1245
+      type: traits
 
-      - id: dagger-training-base
-        text: Dagger Training
-        subText: base
-        modifiers:
-          attributes:
-            Power: [80, converted]
-        gw2-id: 1245
-        type: traits
+    dagger-training-dagger:
+      text: Dagger Training
+      subText: with dagger
+      modifiers:
+        attributes:
+          Power: [80, converted]
+      gw2-id: 1245
+      type: traits
 
-      - id: dagger-training-dagger
-        text: Dagger Training
-        subText: with dagger
-        modifiers:
-          attributes:
-            Power: [80, converted]
-        gw2-id: 1245
-        type: traits
+    deadly-ambition:
+      text: Deadly Ambition
+      modifiers:
+        attributes:
+          Condition Damage: [120, buff]
+      gw2-id: 1164
+      type: traits
 
-      - id: deadly-ambition
-        text: Deadly Ambition
-        modifiers:
-          attributes:
-            Condition Damage: [120, buff]
-        gw2-id: 1164
-        type: traits
+    revealed-training-base:
+      text: Revealed Training
+      subText: base
+      modifiers:
+        attributes:
+          Power: [80, buff]
+      gw2-id: 1704
+      type: traits
 
-      - id: revealed-training-base
-        text: Revealed Training
-        subText: base
-        modifiers:
-          attributes:
-            Power: [80, buff]
-        gw2-id: 1704
-        type: traits
+    revealed-training-revealed:
+      text: Revealed Training
+      subText: 100% revealed - also check base
+      modifiers:
+        attributes:
+          Power: [120, buff]
+      gw2-id: 1704
+      type: traits
 
-      - id: revealed-training-revealed
-        text: Revealed Training
-        subText: 100% revealed - also check base
-        modifiers:
-          attributes:
-            Power: [120, buff]
-        gw2-id: 1704
-        type: traits
+    exposed-weakness:
+      text: Exposed Weakness
+      subText: 10 conditions
+      minor: true
+      modifiers:
+        damage:
+          Strike Damage: [20%, mult]
+      gw2-id: 1257
+      type: traits
 
-      - id: exposed-weakness
-        text: Exposed Weakness
-        subText: 10 conditions
-        minor: true
-        modifiers:
-          damage:
-            Strike Damage: [20%, mult]
-        gw2-id: 1257
-        type: traits
+    potent-poison:
+      text: Potent Poison
+      modifiers:
+        attributes:
+          Poison Damage: 33%
+          Poison Duration: 33%
+      gw2-id: 1291
+      type: traits
 
-      - id: potent-poison
-        text: Potent Poison
-        modifiers:
-          attributes:
-            Poison Damage: 33%
-            Poison Duration: 33%
-        gw2-id: 1291
-        type: traits
+    executioner:
+      text: Executioner
+      subText: 50%
+      modifiers:
+        damage:
+          Strike Damage: [10%, mult]
+      gw2-id: 1269
+      type: traits
 
-      - id: executioner
-        text: Executioner
-        subText: 50%
-        modifiers:
-          damage:
-            Strike Damage: [10%, mult]
-        gw2-id: 1269
-        type: traits
+- section: Critical Strikes
+  id: 35
+  items:
 
-  - section: Critical Strikes
-    id: 35
-    items:
+    keen-observer:
+      text: Keen Observer
+      subText: 100%
+      minor: true
+      modifiers:
+        attributes:
+          Critical Chance: 10%
+      gw2-id: 1281
+      type: traits
 
-      - id: keen-observer
-        text: Keen Observer
-        subText: 100%
-        minor: true
-        modifiers:
-          attributes:
-            Critical Chance: 10%
-        gw2-id: 1281
-        type: traits
+    twin-fangs-scholar:
+      text: Twin Fangs
+      subText: 100% scholar (check both)
+      modifiers:
+        attributes:
+          Critical Damage: 7%
+      gw2-id: 1268
+      type: traits
 
-      - id: twin-fangs-scholar
-        text: Twin Fangs
-        subText: 100% scholar (check both)
-        modifiers:
-          attributes:
-            Critical Damage: 7%
-        gw2-id: 1268
-        type: traits
+    twin-fangs-flank:
+      text: Twin Fangs
+      subText: 100% flanking (check both)
+      modifiers:
+        attributes:
+          Critical Chance: 7%
+      gw2-id: 1268
+      type: traits
 
-      - id: twin-fangs-flank
-        text: Twin Fangs
-        subText: 100% flanking (check both)
-        modifiers:
-          attributes:
-            Critical Chance: 7%
-        gw2-id: 1268
-        type: traits
+    practiced-tolerance:
+      text: Practiced Tolerance
+      modifiers:
+        conversion:
+          Ferocity: {Precision: 7%}
+      gw2-id: 1272
+      type: traits
 
-      - id: practiced-tolerance
-        text: Practiced Tolerance
-        modifiers:
-          conversion:
-            Ferocity: {Precision: 7%}
-        gw2-id: 1272
-        type: traits
+    ferocious-strikes:
+      text: Ferocious Strikes
+      subText: 50% above 50%, average
+      minor: true
+      modifiers:
+        attributes:
+          Critical Damage: 5%
+      gw2-id: 1282
+      type: traits
 
-      - id: ferocious-strikes
-        text: Ferocious Strikes
-        subText: 50% above 50%, average
-        minor: true
-        modifiers:
-          attributes:
-            Critical Damage: 5%
-        gw2-id: 1282
-        type: traits
+    ferocious-strikes-always:
+      text: Ferocious Strikes
+      subText: always above 50%
+      minor: true
+      modifiers:
+        attributes:
+          Critical Damage: 10%
+      gw2-id: 1282
+      type: traits
 
-      - id: ferocious-strikes-always
-        text: Ferocious Strikes
-        subText: always above 50%
-        minor: true
-        modifiers:
-          attributes:
-            Critical Damage: 10%
-        gw2-id: 1282
-        type: traits
+    no-quarter:
+      text: No Quarter
+      modifiers:
+        attributes:
+          Ferocity: [250, converted]
+      gw2-id: 1904
+      type: traits
 
-      - id: no-quarter
-        text: No Quarter
-        modifiers:
-          attributes:
-            Ferocity: [250, converted]
-        gw2-id: 1904
-        type: traits
+- section: Acrobatics
+  id: 54
+  items:
 
-  - section: Acrobatics
-    id: 54
-    items:
+    endless-stamina:
+      text: Endless Stamina
+      minor: true
+      modifiers:
+        attributes:
+          Concentration: [240, buff]
+      gw2-id: 1242
+      type: traits
 
-      - id: endless-stamina
-        text: Endless Stamina
-        minor: true
-        modifiers:
-          attributes:
-            Concentration: [240, buff]
-        gw2-id: 1242
-        type: traits
+- section: Trickery
+  id: 44
+  items:
 
-  - section: Trickery
-    id: 44
-    items:
+    preparedness:
+      text: Preparedness
+      minor: true
+      modifiers:
+        attributes:
+          Expertise: [150, converted]
+      gw2-id: 1232
+      type: traits
 
-      - id: preparedness
-        text: Preparedness
-        minor: true
-        modifiers:
-          attributes:
-            Expertise: [150, converted]
-        gw2-id: 1232
-        type: traits
+    lead-attacks:
+      text: Lead Attacks
+      subText: 15x
+      minor: true
+      modifiers:
+        damage:
+          Strike Damage: [15%, add]
+          Condition Damage: [15%, add]
+      gw2-id: 1157
+      type: traits
 
-      - id: lead-attacks
-        text: Lead Attacks
-        subText: 15x
-        minor: true
-        modifiers:
-          damage:
-            Strike Damage: [15%, add]
-            Condition Damage: [15%, add]
-        gw2-id: 1157
-        type: traits
+    deadly-ambush:
+      text: Deadly Ambush
+      modifiers:
+        attributes:
+          Bleeding Damage: 25%
+      gw2-id: 1706
+      type: traits
 
-      - id: deadly-ambush
-        text: Deadly Ambush
-        modifiers:
-          attributes:
-            Bleeding Damage: 25%
-        gw2-id: 1706
-        type: traits
+- section: Daredevil
+  id: 7
+  items:
 
-  - section: Daredevil
-    id: 7
-    items:
+    marauders-resilience:
+      text: Marauder's Resilience
+      modifiers:
+        damage:
+          Damage Reduction: [10%, unknown]
+        conversion:
+          Vitality: {Power: 13%}
+      gw2-id: 1933
+      type: traits
 
-      - id: marauders-resilience
-        text: Marauder's Resilience
-        modifiers:
-          damage:
-            Damage Reduction: [10%, unknown]
-          conversion:
-            Vitality: {Power: 13%}
-        gw2-id: 1933
-        type: traits
+    weakening-strikes:
+      text: Weakening Strikes
+      subText: 100%
+      minor: true
+      modifiers:
+        damage:
+          Strike Damage: [7%, mult]
+          Damage Reduction: [10%, unknown]
+      gw2-id: 1887
+      type: traits
 
-      - id: weakening-strikes
-        text: Weakening Strikes
-        subText: 100%
-        minor: true
-        modifiers:
-          damage:
-            Strike Damage: [7%, mult]
-            Damage Reduction: [10%, unknown]
-        gw2-id: 1887
-        type: traits
+    staff-master-base:
+      text: Staff Master
+      subText: base
+      modifiers:
+        attributes:
+          Power: [120, converted]
+      gw2-id: 1884
+      type: traits
 
-      - id: staff-master-base
-        text: Staff Master
-        subText: base
-        modifiers:
-          attributes:
-            Power: [120, converted]
-        gw2-id: 1884
-        type: traits
+    staff-master-staff:
+      text: Staff Master
+      subText: with staff (check both)
+      modifiers:
+        attributes:
+          Power: [120, converted]
+      gw2-id: 1884
+      type: traits
 
-      - id: staff-master-staff
-        text: Staff Master
-        subText: with staff (check both)
-        modifiers:
-          attributes:
-            Power: [120, converted]
-        gw2-id: 1884
-        type: traits
+    havoc-specialist:
+      text: Havoc Specialist
+      subText: 3x
+      modifiers:
+        damage:
+          Strike Damage: [15%, mult]
+      gw2-id: 1893
+      type: traits
 
-      - id: havoc-specialist
-        text: Havoc Specialist
-        subText: 3x
-        modifiers:
-          damage:
-            Strike Damage: [15%, mult]
-        gw2-id: 1893
-        type: traits
+    bounding-dodger:
+      text: Bounding Dodger
+      subText: 100% uptime
+      modifiers:
+        damage:
+          Strike Damage: [10%, add]
+      gw2-id: 2047
+      type: traits
 
-      - id: bounding-dodger
-        text: Bounding Dodger
-        subText: 100% uptime
-        modifiers:
-          damage:
-            Strike Damage: [10%, add]
-        gw2-id: 2047
-        type: traits
+    lotus-training:
+      text: Lotus Training
+      subText: 100% uptime
+      modifiers:
+        damage:
+          Condition Damage: [15%, add]
+      gw2-id: 1833
+      type: traits
 
-      - id: lotus-training
-        text: Lotus Training
-        subText: 100% uptime
-        modifiers:
-          damage:
-            Condition Damage: [15%, add]
-        gw2-id: 1833
-        type: traits
+- section: Deadeye
+  id: 58
+  items:
 
-  - section: Deadeye
-    id: 58
-    items:
+    silent-scope-base:
+      text: Silent Scope
+      subText: base
+      modifiers:
+        attributes:
+          Precision: [120, converted]
+      gw2-id: 2118
+      type: traits
 
-      - id: silent-scope-base
-        text: Silent Scope
-        subText: base
-        modifiers:
-          attributes:
-            Precision: [120, converted]
-        gw2-id: 2118
-        type: traits
+    silent-scope-rifle:
+      text: Silent Scope
+      subText: with rifle (check both)
+      modifiers:
+        attributes:
+          Precision: [120, converted]
+      gw2-id: 2118
+      type: traits
 
-      - id: silent-scope-rifle
-        text: Silent Scope
-        subText: with rifle (check both)
-        modifiers:
-          attributes:
-            Precision: [120, converted]
-        gw2-id: 2118
-        type: traits
+    premeditation-6:
+      text: Premeditation
+      subText: 6x
+      modifiers:
+        damage:
+          Strike Damage: [6%, mult]
+        attributes:
+          Concentration: [180, buff]
+      gw2-id: 2160
+      type: traits
 
-      - id: premeditation-6
-        text: Premeditation
-        subText: 6x
-        modifiers:
-          damage:
-            Strike Damage: [6%, mult]
-          attributes:
-            Concentration: [180, buff]
-        gw2-id: 2160
-        type: traits
+    premeditation-9:
+      text: Premeditation
+      subText: 9x
+      modifiers:
+        damage:
+          Strike Damage: [9%, mult]
+        attributes:
+          Concentration: [180, buff]
+      gw2-id: 2160
+      type: traits
 
-      - id: premeditation-9
-        text: Premeditation
-        subText: 9x
-        modifiers:
-          damage:
-            Strike Damage: [9%, mult]
-          attributes:
-            Concentration: [180, buff]
-        gw2-id: 2160
-        type: traits
+    iron-sight:
+      text: Iron Sight
+      minor: true
+      modifiers:
+        damage:
+          Strike Damage: [10%, mult]
+          Damage Reduction: [10%, unknown]
+      gw2-id: 2084
+      type: traits
 
-      - id: iron-sight
-        text: Iron Sight
-        minor: true
-        modifiers:
-          damage:
-            Strike Damage: [10%, mult]
-            Damage Reduction: [10%, unknown]
-        gw2-id: 2084
-        type: traits
-
-      - id: be-quick-or-be-killed
-        text: Be Quick or Be Killed
-        modifiers:
-          attributes:
-            Power: [200, buff]
-            Precision: [200, buff]
-        gw2-id: 2093
-        type: traits
+    be-quick-or-be-killed:
+      text: Be Quick or Be Killed
+      modifiers:
+        attributes:
+          Power: [200, buff]
+          Precision: [200, buff]
+      gw2-id: 2093
+      type: traits

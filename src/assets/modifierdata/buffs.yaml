@@ -1,209 +1,206 @@
-GraphQL ID: Buffs
-list:
+- section: Boons
+  items:
 
-  - section: Boons
-    items:
+    might:
+      text: Might
+      subText: (25x)
+      modifiers:
+        attributes:
+          Power: [750, buff]
+          Condition Damage: [750, buff]
+      default-enabled: true
+      type: Boon
 
-      - id: might
-        text: Might
-        subText: (25x)
-        modifiers:
-          attributes:
-            Power: [750, buff]
-            Condition Damage: [750, buff]
-        default-enabled: true
-        type: Boon
+    fury:
+      text: Fury
+      modifiers:
+        attributes:
+          Critical Chance: 20%
+      default-enabled: true
+      type: Boon
 
-      - id: fury
-        text: Fury
-        modifiers:
-          attributes:
-            Critical Chance: 20%
-        default-enabled: true
-        type: Boon
+    protection:
+      text: Protection
+      modifiers:
+        damage:
+          Damage Reduction: [33%, unknown]
+      type: Boon
 
-      - id: protection
-        text: Protection
-        modifiers:
-          damage:
-            Damage Reduction: [33%, unknown]
-        type: Boon
+    vulnerability:
+      text: Vulnerability
+      subText: (25x)
+      modifiers:
+        damage:
+          Strike Damage: [25%, target]
+          Condition Damage: [25%, target]
+      default-enabled: true
+      type: Condition
 
-      - id: vulnerability
-        text: Vulnerability
-        subText: (25x)
-        modifiers:
-          damage:
-            Strike Damage: [25%, target]
-            Condition Damage: [25%, target]
-        default-enabled: true
-        type: Condition
+- section: Warrior buffs
+  items:
 
-  - section: Warrior buffs
-    items:
+    bannerOfStrength:
+      text: Banner of Strength
+      modifiers:
+        attributes:
+          Power: [100, buff]
+          Condition Damage: [100, buff]
+      gw2-id: 14405
+      type: Skill
+      default-enabled: true
 
-      - id: bannerOfStrength
-        text: Banner of Strength
-        modifiers:
-          attributes:
-            Power: [100, buff]
-            Condition Damage: [100, buff]
-        gw2-id: 14405
-        type: Skill
-        default-enabled: true
+    bannerOfDiscipline:
+      text: Banner of Discipline
+      modifiers:
+        attributes:
+          Precision: [100, buff]
+          Ferocity: [100, buff]
+      gw2-id: 14407
+      type: Skill
+      default-enabled: true
 
-      - id: bannerOfDiscipline
-        text: Banner of Discipline
-        modifiers:
-          attributes:
-            Precision: [100, buff]
-            Ferocity: [100, buff]
-        gw2-id: 14407
-        type: Skill
-        default-enabled: true
+    bannerOfTactics:
+      text: Banner of Tactics
+      modifiers:
+        attributes:
+          Healing Power: [100, buff]
+          Boon Duration: 10%
+      gw2-id: 14408
+      type: Skill
 
-      - id: bannerOfTactics
-        text: Banner of Tactics
-        modifiers:
-          attributes:
-            Healing Power: [100, buff]
-            Boon Duration: 10%
-        gw2-id: 14408
-        type: Skill
+    bannerOfDefense:
+      text: Banner of Defense
+      modifiers:
+        attributes:
+          Toughness: [100, buff]
+          Vitality: [100, buff]
+      gw2-id: 14528
+      type: Skill
 
-      - id: bannerOfDefense
-        text: Banner of Defense
-        modifiers:
-          attributes:
-            Toughness: [100, buff]
-            Vitality: [100, buff]
-        gw2-id: 14528
-        type: Skill
+    empowerAllies:
+      text: Empower Allies
+      modifiers:
+        attributes:
+          Power: [100, buff]
+      gw2-id: 1482
+      type: Trait
 
-      - id: empowerAllies
-        text: Empower Allies
-        modifiers:
-          attributes:
-            Power: [100, buff]
-        gw2-id: 1482
-        type: Trait
+- section: Other buffs
+  items:
 
-  - section: Other buffs
-    items:
+    spotter:
+      text: Spotter
+      modifiers:
+        attributes:
+          Precision: [100, buff]
+      gw2-id: 1016
+      type: Trait
 
-      - id: spotter
-        text: Spotter
-        modifiers:
-          attributes:
-            Precision: [100, buff]
-        gw2-id: 1016
-        type: Trait
+    frostSpirit:
+      text: Frost Spirit
+      modifiers:
+        damage:
+          Strike Damage: [5%, add]
+      gw2-id: 12497
+      type: Skill
+      default-enabled: true
 
-      - id: frostSpirit
-        text: Frost Spirit
-        modifiers:
-          damage:
-            Strike Damage: [5%, add]
-        gw2-id: 12497
-        type: Skill
-        default-enabled: true
+    pinpointDistribution:
+      text: Pinpoint Distribution
+      modifiers:
+        attributes:
+          Condition Damage: [100, buff]
+      gw2-id: 1984
+      type: Trait
 
-      - id: pinpointDistribution
-        text: Pinpoint Distribution
-        modifiers:
-          attributes:
-            Condition Damage: [100, buff]
-        gw2-id: 1984
-        type: Trait
+    strengthInNumbers:
+      text: Strength in Numbers
+      modifiers:
+        attributes:
+          Toughness: [100, buff]
+      gw2-id: 584
+      type: Trait
 
-      - id: strengthInNumbers
-        text: Strength in Numbers
-        modifiers:
-          attributes:
-            Toughness: [100, buff]
-        gw2-id: 584
-        type: Trait
+- section: Guardian - Perfect Inscriptions (100% uptime)
+  items:
 
-  - section: Guardian - Perfect Inscriptions (100% uptime)
-    items:
+    baneSignet:
+      text: Bane Signet
+      modifiers:
+        attributes:
+          Power: [216, buff]
+      gw2-id: 9093
+      type: Skill
+      default-enabled: true
 
-      - id: baneSignet
-        text: Bane Signet
-        modifiers:
-          attributes:
-            Power: [216, buff]
-        gw2-id: 9093
-        type: Skill
-        default-enabled: true
+    signetOfJudgment:
+      text: Signet of Judgement
+      modifiers:
+        damage:
+          Damage Reduction: [12%, unknown]
+      gw2-id: 9150
+      type: Skill
 
-      - id: signetOfJudgment
-        text: Signet of Judgement
-        modifiers:
-          damage:
-            Damage Reduction: [12%, unknown]
-        gw2-id: 9150
-        type: Skill
+    signetOfMercy:
+      text: Signet of Mercy
+      modifiers:
+        attributes:
+          Boon Duration: 10%
+      gw2-id: 9163
+      type: Skill
 
-      - id: signetOfMercy
-        text: Signet of Mercy
-        modifiers:
-          attributes:
-            Boon Duration: 10%
-        gw2-id: 9163
-        type: Skill
+    signetOfWrath:
+      text: Signet of Wrath
+      modifiers:
+        attributes:
+          Condition Damage: [216, buff]
+      gw2-id: 9151
+      type: Skill
 
-      - id: signetOfWrath
-        text: Signet of Wrath
-        modifiers:
-          attributes:
-            Condition Damage: [216, buff]
-        gw2-id: 9151
-        type: Skill
+- section: Revenant buffs
+  items:
 
-  - section: Revenant buffs
-    items:
+    assassinsPresence:
+      text: Assassin's Presence
+      modifiers:
+        attributes:
+          Ferocity: [150, buff]
+      gw2-id: 1786
+      type: Trait
+      default-enabled: true
 
-      - id: assassinsPresence
-        text: Assassin's Presence
-        modifiers:
-          attributes:
-            Ferocity: [150, buff]
-        gw2-id: 1786
-        type: Trait
-        default-enabled: true
+    facetOfNature:
+      text: Facet of Nature—Dragon
+      modifiers:
+        attributes:
+          Boon Duration: 20%
+      gw2-id: 29371
+      type: Skill
 
-      - id: facetOfNature
-        text: Facet of Nature—Dragon
-        modifiers:
-          attributes:
-            Boon Duration: 20%
-        gw2-id: 29371
-        type: Skill
+    riteDwarf:
+      text: Rite of the Great Dwarf
+      modifiers:
+        damage:
+          Damage Reduction: [50%, unknown]
+      gw2-id: 27975
+      type: Skill
 
-      - id: riteDwarf
-        text: Rite of the Great Dwarf
-        modifiers:
-          damage:
-            Damage Reduction: [50%, unknown]
-        gw2-id: 27975
-        type: Skill
+- section: Effects
+  items:
 
-  - section: Effects
-    items:
+    exposed:
+      text: Exposed
+      subText: (100% uptime)
+      modifiers:
+        damage:
+          Strike Damage: [30%, target]
+          Condition Damage: [100%, target]
+      type: CommonEffect
 
-      - id: exposed
-        text: Exposed
-        subText: (100% uptime)
-        modifiers:
-          damage:
-            Strike Damage: [30%, target]
-            Condition Damage: [100%, target]
-        type: CommonEffect
-
-      - id: lightArmor
-        text: Low Boss Armor (VG, KC)
-        subText: 1910 vs 2597
-        modifiers:
-          damage:
-            Strike Damage: [35.9686%, mult]
-        type: Text
+    lightArmor:
+      text: Low Boss Armor (VG, KC)
+      subText: 1910 vs 2597
+      modifiers:
+        damage:
+          Strike Damage: [35.9686%, mult]
+      type: Text

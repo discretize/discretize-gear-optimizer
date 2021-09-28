@@ -1,237 +1,234 @@
-GraphQL ID: Utility
-list:
+- section: Power Utilities
+  items:
 
-  - section: Power Utilities
-    items:
+    slaying-potion:
+      text: Slaying Potion
+      modifiers:
+        damage:
+          Strike Damage: [10%, mult]
+          Damage Reduction: [10%, unknown]
+      gw2-id: 50082
+      type: items
 
-      - id: slaying-potion
-        text: Slaying Potion
-        modifiers:
-          damage:
-            Strike Damage: [10%, mult]
-            Damage Reduction: [10%, unknown]
-        gw2-id: 50082
-        type: items
+    furious-sharpening-stone:
+      text: Furious Sharpening Stone
+      modifiers:
+        conversion:
+          Power: {Precision: 3%}
+          Ferocity: {Precision: 3%}
+      gw2-id: 67530
+      type: items
 
-      - id: furious-sharpening-stone
-        text: Furious Sharpening Stone
-        modifiers:
-          conversion:
-            Power: {Precision: 3%}
-            Ferocity: {Precision: 3%}
-        gw2-id: 67530
-        type: items
+    superior-sharpening-stone:
+      text: Superior Sharpening Stone
+      modifiers:
+        conversion:
+          Power: {Precision: 3%, Ferocity: 6%}
+      gw2-id: 9443
+      type: items
 
-      - id: superior-sharpening-stone
-        text: Superior Sharpening Stone
-        modifiers:
-          conversion:
-            Power: {Precision: 3%, Ferocity: 6%}
-        gw2-id: 9443
-        type: items
+    toxic-sharpening-stone:
+      text: Toxic Sharpening Stone
+      modifiers:
+        conversion:
+          Power: {Condition Damage: 6%, Expertise: 8%}
+      gw2-id: 48915
+      type: items
 
-      - id: toxic-sharpening-stone
-        text: Toxic Sharpening Stone
-        modifiers:
-          conversion:
-            Power: {Condition Damage: 6%, Expertise: 8%}
-        gw2-id: 48915
-        type: items
+    magnanimous-sharpening-stone:
+      text: Magnanimous Sharpening Stone
+      modifiers:
+        conversion:
+          Power: {Vitality: 3%, Toughness: 3%}
+      gw2-id: 81034
+      type: items
 
-      - id: magnanimous-sharpening-stone
-        text: Magnanimous Sharpening Stone
-        modifiers:
-          conversion:
-            Power: {Vitality: 3%, Toughness: 3%}
-        gw2-id: 81034
-        type: items
+    bountiful-sharpening-stone:
+      text: Bountiful Sharpening Stone
+      modifiers:
+        conversion:
+          Power: {Healing Power: 6%, Concentration: 8%}
+      gw2-id: 67531
+      type: items
 
-      - id: bountiful-sharpening-stone
-        text: Bountiful Sharpening Stone
-        modifiers:
-          conversion:
-            Power: {Healing Power: 6%, Concentration: 8%}
-        gw2-id: 67531
-        type: items
+- section: Support Utilities
+  items:
 
-  - section: Support Utilities
-    items:
+    potent-lucent-oil:
+      text: Potent Lucent Oil
+      modifiers:
+        conversion:
+          Concentration: {Power: 3%, Precision: 3%}
+      gw2-id: 89203
+      type: items
 
-      - id: potent-lucent-oil
-        text: Potent Lucent Oil
-        modifiers:
-          conversion:
-            Concentration: {Power: 3%, Precision: 3%}
-        gw2-id: 89203
-        type: items
+    toxic-maintenance-oil:
+      text: Toxic Maintenance Oil
+      modifiers:
+        conversion:
+          Concentration: {Power: 3%, Condition Damage: 6%}
+      gw2-id: 48916
+      type: items
 
-      - id: toxic-maintenance-oil
-        text: Toxic Maintenance Oil
-        modifiers:
-          conversion:
-            Concentration: {Power: 3%, Condition Damage: 6%}
-        gw2-id: 48916
-        type: items
+    enhanced-lucent-oil:
+      text: Enhanced Lucent Oil
+      modifiers:
+        conversion:
+          Concentration: {Precision: 3%, Condition Damage: 6%}
+      gw2-id: 89157
+      type: items
 
-      - id: enhanced-lucent-oil
-        text: Enhanced Lucent Oil
-        modifiers:
-          conversion:
-            Concentration: {Precision: 3%, Condition Damage: 6%}
-        gw2-id: 89157
-        type: items
+    furious-maintenance-oil:
+      text: Furious Maintenance Oil
+      modifiers:
+        conversion:
+          Concentration: {Precision: 3%}
+          Healing Power: {Precision: 3%}
+      gw2-id: 67529
+      type: items
 
-      - id: furious-maintenance-oil
-        text: Furious Maintenance Oil
-        modifiers:
-          conversion:
-            Concentration: {Precision: 3%}
-            Healing Power: {Precision: 3%}
-        gw2-id: 67529
-        type: items
+    magnanimous-maintenance-oil:
+      text: Magnanimous Maintenance Oil
+      modifiers:
+        conversion:
+          Concentration: {Vitality: 3%, Toughness: 3%}
+      gw2-id: 81157
+      type: items
 
-      - id: magnanimous-maintenance-oil
-        text: Magnanimous Maintenance Oil
-        modifiers:
-          conversion:
-            Concentration: {Vitality: 3%, Toughness: 3%}
-        gw2-id: 81157
-        type: items
+    master-maintenance-oil:
+      text: Master Maintenance Oil
+      modifiers:
+        conversion:
+          Concentration: {Precision: 3%, Healing Power: 6%}
+      gw2-id: 9461
+      type: items
 
-      - id: master-maintenance-oil
-        text: Master Maintenance Oil
-        modifiers:
-          conversion:
-            Concentration: {Precision: 3%, Healing Power: 6%}
-        gw2-id: 9461
-        type: items
+    corsair-maintenance-oil:
+      text: Corsair Maintenance Oil
+      modifiers:
+        conversion:
+          Concentration: {Toughness: 3%}
+          Expertise: {Toughness: 3%}
+      gw2-id: 86016
+      type: items
 
-      - id: corsair-maintenance-oil
-        text: Corsair Maintenance Oil
-        modifiers:
-          conversion:
-            Concentration: {Toughness: 3%}
-            Expertise: {Toughness: 3%}
-        gw2-id: 86016
-        type: items
+- section: Heal Utilities
+  items:
 
-  - section: Heal Utilities
-    items:
+    bountiful-maintenance-oil:
+      text: Bountiful Maintenance Oil
+      modifiers: null
+      gw2-id: 67528
+      type: items
 
-      - id: bountiful-maintenance-oil
-        text: Bountiful Maintenance Oil
-        modifiers: null
-        gw2-id: 67528
-        type: items
+- section: Condition Utilities
+  items:
 
-  - section: Condition Utilities
-    items:
+    toxic-focusing-crystal:
+      text: Toxic Focusing Crystal
+      modifiers:
+        conversion:
+          Condition Damage: {Power: 3%, Precision: 3%}
+      gw2-id: 48917
+      type: items
 
-      - id: toxic-focusing-crystal
-        text: Toxic Focusing Crystal
-        modifiers:
-          conversion:
-            Condition Damage: {Power: 3%, Precision: 3%}
-        gw2-id: 48917
-        type: items
+    furious-tuning-crystal:
+      text: Furious Tuning Crystal
+      modifiers:
+        conversion:
+          Condition Damage: {Precision: 3%}
+          Expertise: {Precision: 3%}
+      gw2-id: 67524
+      type: items
 
-      - id: furious-tuning-crystal
-        text: Furious Tuning Crystal
-        modifiers:
-          conversion:
-            Condition Damage: {Precision: 3%}
-            Expertise: {Precision: 3%}
-        gw2-id: 67524
-        type: items
+    master-tuning-crystal:
+      text: Master Tuning Crystal
+      modifiers:
+        conversion:
+          Condition Damage: {Precision: 3%, Expertise: 8%}
+      gw2-id: 9476
+      type: items
 
-      - id: master-tuning-crystal
-        text: Master Tuning Crystal
-        modifiers:
-          conversion:
-            Condition Damage: {Precision: 3%, Expertise: 8%}
-        gw2-id: 9476
-        type: items
+    magnanimous-tuning-crystal:
+      text: Magnanimous Tuning Crystal
+      modifiers:
+        conversion:
+          Condition Damage: {Vitality: 3%, Toughness: 3%}
+      gw2-id: 81079
+      type: items
 
-      - id: magnanimous-tuning-crystal
-        text: Magnanimous Tuning Crystal
-        modifiers:
-          conversion:
-            Condition Damage: {Vitality: 3%, Toughness: 3%}
-        gw2-id: 81079
-        type: items
+    bountiful-tuning-crystal:
+      text: Bountiful Tuning Crystal
+      modifiers:
+        conversion:
+          Condition Damage: {Healing Power: 6%, Concentration: 8%}
+      gw2-id: 67522
+      type: items
 
-      - id: bountiful-tuning-crystal
-        text: Bountiful Tuning Crystal
-        modifiers:
-          conversion:
-            Condition Damage: {Healing Power: 6%, Concentration: 8%}
-        gw2-id: 67522
-        type: items
+- section: SAB Utilities
+  items:
 
-  - section: SAB Utilities
-    items:
+    holographic-super-apple:
+      text: Holographic Super Apple
+      modifiers:
+        conversion:
+          Condition Damage: {Concentration: 8%}
+          Concentration: {Precision: 3%}
+      gw2-id: 87336
+      type: items
 
-      - id: holographic-super-apple
-        text: Holographic Super Apple
-        modifiers:
-          conversion:
-            Condition Damage: {Concentration: 8%}
-            Concentration: {Precision: 3%}
-        gw2-id: 87336
-        type: items
+    holographic-super-drumstick:
+      text: Holographic Super Drumstick
+      modifiers:
+        conversion:
+          Healing Power: {Concentration: 8%}
+          Concentration: {Precision: 3%}
+      gw2-id: 87329
+      type: items
 
-      - id: holographic-super-drumstick
-        text: Holographic Super Drumstick
-        modifiers:
-          conversion:
-            Healing Power: {Concentration: 8%}
-            Concentration: {Precision: 3%}
-        gw2-id: 87329
-        type: items
+    holographic-super-cheese:
+      text: Holographic Super Cheese
+      modifiers:
+        conversion:
+          Power: {Concentration: 8%}
+          Concentration: {Precision: 3%}
+      gw2-id: 87358
+      type: items
 
-      - id: holographic-super-cheese
-        text: Holographic Super Cheese
-        modifiers:
-          conversion:
-            Power: {Concentration: 8%}
-            Concentration: {Precision: 3%}
-        gw2-id: 87358
-        type: items
+- section: Writs
+  items:
 
-  - section: Writs
-    items:
+    writ-of-masterful-accuracy:
+      text: Writ of Masterful Accuracy
+      modifiers:
+        attributes:
+          Precision: [200, converted]
+      gw2-id: 76833
+      type: items
 
-      - id: writ-of-masterful-accuracy
-        text: Writ of Masterful Accuracy
-        modifiers:
-          attributes:
-            Precision: [200, converted]
-        gw2-id: 76833
-        type: items
+    writ-of-masterful-malice:
+      text: Writ of Masterful Malice
+      modifiers:
+        attributes:
+          Condition Damage: [200, converted]
+      gw2-id: 72510
+      type: items
 
-      - id: writ-of-masterful-malice
-        text: Writ of Masterful Malice
-        modifiers:
-          attributes:
-            Condition Damage: [200, converted]
-        gw2-id: 72510
-        type: items
+    writ-of-masterful-strength:
+      text: Writ of Masterful Strength
+      modifiers:
+        attributes:
+          Power: [200, converted]
+      gw2-id: 73191
+      type: items
 
-      - id: writ-of-masterful-strength
-        text: Writ of Masterful Strength
-        modifiers:
-          attributes:
-            Power: [200, converted]
-        gw2-id: 73191
-        type: items
+- section: Misc
+  items:
 
-  - section: Misc
-    items:
-
-      - id: potion-of-karka-toughness
-        text: Potion Of Karka Toughness
-        modifiers:
-          attributes:
-            Toughness: [150, converted]
-        gw2-id: 42428
-        type: items
+    potion-of-karka-toughness:
+      text: Potion Of Karka Toughness
+      modifiers:
+        attributes:
+          Toughness: [150, converted]
+      gw2-id: 42428
+      type: items

@@ -1,272 +1,269 @@
-GraphQL ID: Revenant
-list:
+- section: Skills
 
-  - section: Skills
+- section: Corruption
+  id: 14
+  items:
 
-  - section: Corruption
-    id: 14
-    items:
+    acolyte-of-torment:
+      text: Acolyte of Torment
+      modifiers:
+        attributes:
+          Torment Damage: 10%
+      gw2-id: 1793
+      type: traits
 
-      - id: acolyte-of-torment
-        text: Acolyte of Torment
-        modifiers:
-          attributes:
-            Torment Damage: 10%
-        gw2-id: 1793
-        type: traits
+    seething-malice:
+      text: Seething Malice
+      modifiers:
+        attributes:
+          Condition Damage: [120, buff]
+      gw2-id: 1801
+      type: traits
 
-      - id: seething-malice
-        text: Seething Malice
-        modifiers:
-          attributes:
-            Condition Damage: [120, buff]
-        gw2-id: 1801
-        type: traits
+    demonic-resistance:
+      text: Demonic Resistance
+      modifiers:
+        damage:
+          Damage Reduction: [20%, unknown]
+      gw2-id: 1726
+      type: traits
 
-      - id: demonic-resistance
-        text: Demonic Resistance
-        modifiers:
-          damage:
-            Damage Reduction: [20%, unknown]
-        gw2-id: 1726
-        type: traits
+    pact-of-pain:
+      text: Pact of Pain
+      modifiers:
+        attributes:
+          Condition Duration: 15%
+      gw2-id: 1714
+      type: traits
 
-      - id: pact-of-pain
-        text: Pact of Pain
-        modifiers:
-          attributes:
-            Condition Duration: 15%
-        gw2-id: 1714
-        type: traits
+    yearning-empowerment:
+      text: Yearning Empowerement
+      modifiers:
+        attributes:
+          Condition Duration: 10%
+      gw2-id: 1744
+      type: traits
 
-      - id: yearning-empowerment
-        text: Yearning Empowerement
-        modifiers:
-          attributes:
-            Condition Duration: 10%
-        gw2-id: 1744
-        type: traits
+- section: Retribution
+  id: 9
+  items:
 
-  - section: Retribution
-    id: 9
-    items:
+    dwarven-battle-training:
+      text: Dwarven Battle Training
+      modifiers:
+        damage:
+          Strike Damage: [10%, mult]
+      gw2-id: 1740
+      type: traits
 
-      - id: dwarven-battle-training
-        text: Dwarven Battle Training
-        modifiers:
-          damage:
-            Strike Damage: [10%, mult]
-        gw2-id: 1740
-        type: traits
+    determined-resolution:
+      text: Determined Resolution
+      minor: true
+      modifiers:
+        damage:
+          Damage Reduction: [10%, unknown]
+      gw2-id: 1713
+      type: traits
 
-      - id: determined-resolution
-        text: Determined Resolution
-        minor: true
-        modifiers:
-          damage:
-            Damage Reduction: [10%, unknown]
-        gw2-id: 1713
-        type: traits
+    vicious-reprisal:
+      text: Vicious Reprisal
+      subText: 100%
+      modifiers:
+        damage:
+          Strike Damage: [10%, add]
+          Condition Damage: [10%, add]
+      gw2-id: 1779
+      type: traits
 
-      - id: vicious-reprisal
-        text: Vicious Reprisal
-        subText: 100%
-        modifiers:
-          damage:
-            Strike Damage: [10%, add]
-            Condition Damage: [10%, add]
-        gw2-id: 1779
-        type: traits
+    versed-in-stone:
+      text: Versed in Stone
+      modifiers:
+        conversion:
+          Power: {Toughness: 13%}
+      gw2-id: 1770
+      type: traits
 
-      - id: versed-in-stone
-        text: Versed in Stone
-        modifiers:
-          conversion:
-            Power: {Toughness: 13%}
-        gw2-id: 1770
-        type: traits
+- section: Invocation
+  id: 3
+  items:
 
-  - section: Invocation
-    id: 3
-    items:
+    rising-tide:
+      text: Rising Tide
+      modifiers:
+        damage:
+          Strike Damage: [7%, mult]
+      gw2-id: 1761
+      type: traits
 
-      - id: rising-tide
-        text: Rising Tide
-        modifiers:
-          damage:
-            Strike Damage: [7%, mult]
-        gw2-id: 1761
-        type: traits
+    ferocious-aggression:
+      text: Ferocious Aggression
+      minor: true
+      modifiers:
+        damage:
+          Strike Damage: [7%, add]
+          Condition Damage: [7%, add]
+      gw2-id: 1758
+      type: traits
 
-      - id: ferocious-aggression
-        text: Ferocious Aggression
-        minor: true
-        modifiers:
-          damage:
-            Strike Damage: [7%, add]
-            Condition Damage: [7%, add]
-        gw2-id: 1758
-        type: traits
+    roiling-mists:
+      text: Roiling Mists
+      modifiers:
+        attributes:
+          Critical Chance: 20%
+      gw2-id: 1719
+      type: traits
 
-      - id: roiling-mists
-        text: Roiling Mists
-        modifiers:
-          attributes:
-            Critical Chance: 20%
-        gw2-id: 1719
-        type: traits
+- section: Devastation
+  id: 15
+  items:
 
-  - section: Devastation
-    id: 15
-    items:
+    unsuspecting-strikes:
+      text: Unsuspecting Strikes
+      subText: 20% uptime -> +4% Damage
+      modifiers:
+        damage:
+          Strike Damage: [4%, mult]
+      gw2-id: 1767
+      type: traits
 
-      - id: unsuspecting-strikes
-        text: Unsuspecting Strikes
-        subText: 20% uptime -> +4% Damage
-        modifiers:
-          damage:
-            Strike Damage: [4%, mult]
-        gw2-id: 1767
-        type: traits
+    destructive-impulses-dual:
+      text: Destructive Impulses
+      subText: Dual wielded
+      minor: true
+      modifiers:
+        damage:
+          Strike Damage: [10%, add]
+          Condition Damage: [10%, add]
+      gw2-id: 1724
+      type: traits
 
-      - id: destructive-impulses-dual
-        text: Destructive Impulses
-        subText: Dual wielded
-        minor: true
-        modifiers:
-          damage:
-            Strike Damage: [10%, add]
-            Condition Damage: [10%, add]
-        gw2-id: 1724
-        type: traits
+    destructive-impulses:
+      text: Destructive Impulses
+      subText: Two handed
+      minor: true
+      modifiers:
+        damage:
+          Strike Damage: [5%, add]
+          Condition Damage: [5%, add]
+      gw2-id: 1724
+      type: traits
 
-      - id: destructive-impulses
-        text: Destructive Impulses
-        subText: Two handed
-        minor: true
-        modifiers:
-          damage:
-            Strike Damage: [5%, add]
-            Condition Damage: [5%, add]
-        gw2-id: 1724
-        type: traits
+    destructive-impulses-mix:
+      text: Destructive Impulses
+      subText: 50% dual wield, 50% 2h
+      minor: true
+      modifiers:
+        damage:
+          Strike Damage: [7.5%, add]
+          Condition Damage: [7.5%, add]
+      gw2-id: 1724
+      type: traits
 
-      - id: destructive-impulses-mix
-        text: Destructive Impulses
-        subText: 50% dual wield, 50% 2h
-        minor: true
-        modifiers:
-          damage:
-            Strike Damage: [7.5%, add]
-            Condition Damage: [7.5%, add]
-        gw2-id: 1724
-        type: traits
+    notoriety:
+      text: Notoriety
+      subText: 25 might
+      modifiers:
+        attributes:
+          Power: [250, buff]
+          Condition Damage: [-250, buff]
+      gw2-id: 1765
+      type: traits
 
-      - id: notoriety
-        text: Notoriety
-        subText: 25 might
-        modifiers:
-          attributes:
-            Power: [250, buff]
-            Condition Damage: [-250, buff]
-        gw2-id: 1765
-        type: traits
+    targeted-destruction:
+      text: Targeted Destruction
+      subText: 25 vulnerability
+      minor: true
+      modifiers:
+        damage:
+          Strike Damage: [12.5%, mult]
+      gw2-id: 1792
+      type: traits
 
-      - id: targeted-destruction
-        text: Targeted Destruction
-        subText: 25 vulnerability
-        minor: true
-        modifiers:
-          damage:
-            Strike Damage: [12.5%, mult]
-        gw2-id: 1792
-        type: traits
+    swift-termination:
+      text: Swift Termination
+      modifiers:
+        damage:
+          Strike Damage: [10%, mult]
+      gw2-id: 1800
+      type: traits
 
-      - id: swift-termination
-        text: Swift Termination
-        modifiers:
-          damage:
-            Strike Damage: [10%, mult]
-        gw2-id: 1800
-        type: traits
+- section: Salvation
+  id: 12
+  items:
 
-  - section: Salvation
-    id: 12
-    items:
+    tranquil-balance:
+      text: Tranquil Balance
+      modifiers:
+        attributes:
+          Outgoing Healing: 20%
+      gw2-id: 1822
+      type: traits
 
-      - id: tranquil-balance
-        text: Tranquil Balance
-        modifiers:
-          attributes:
-            Outgoing Healing: 20%
-        gw2-id: 1822
-        type: traits
+    life-attunement:
+      text: Life Attunement
+      minor: true
+      modifiers:
+        attributes:
+          Healing Power: [120, buff]
+        conversion:
+          Concentration: {Healing Power: 7%}
+      gw2-id: 1821
+      type: traits
 
-      - id: life-attunement
-        text: Life Attunement
-        minor: true
-        modifiers:
-          attributes:
-            Healing Power: [120, buff]
-          conversion:
-            Concentration: {Healing Power: 7%}
-        gw2-id: 1821
-        type: traits
+    invoking-harmony:
+      text: Invoking Harmony
+      modifiers:
+        attributes:
+          Outgoing Healing: 20%
+      gw2-id: 1818
+      type: traits
 
-      - id: invoking-harmony
-        text: Invoking Harmony
-        modifiers:
-          attributes:
-            Outgoing Healing: 20%
-        gw2-id: 1818
-        type: traits
+- section: Renegade
+  id: 63
+  items:
 
-  - section: Renegade
-    id: 63
-    items:
+    ambush-commander:
+      text: Ambush Commander
+      subText: 5x Kalla's Fervor
+      minor: true
+      modifiers:
+        damage:
+          Strike Damage: [10%, add]
+          Condition Damage: [10%, add]
+      gw2-id: 2181
+      type: traits
 
-      - id: ambush-commander
-        text: Ambush Commander
-        subText: 5x Kalla's Fervor
-        minor: true
-        modifiers:
-          damage:
-            Strike Damage: [10%, add]
-            Condition Damage: [10%, add]
-        gw2-id: 2181
-        type: traits
+    blood-fury:
+      text: Blood Fury
+      modifiers:
+        attributes:
+          Bleeding Duration: 25%
+      gw2-id: 2079
+      type: traits
 
-      - id: blood-fury
-        text: Blood Fury
-        modifiers:
-          attributes:
-            Bleeding Duration: 25%
-        gw2-id: 2079
-        type: traits
+    heartpiercer:
+      text: Heartpiercer
+      modifiers:
+        attributes:
+          Bleeding Damage: 25%
+      gw2-id: 2092
+      type: traits
 
-      - id: heartpiercer
-        text: Heartpiercer
-        modifiers:
-          attributes:
-            Bleeding Damage: 25%
-        gw2-id: 2092
-        type: traits
+    brutal-momentum:
+      text: Brutal Momentum
+      minor: true
+      modifiers:
+        attributes:
+          Critical Chance: 33%
+      gw2-id: 2142
+      type: traits
 
-      - id: brutal-momentum
-        text: Brutal Momentum
-        minor: true
-        modifiers:
-          attributes:
-            Critical Chance: 33%
-        gw2-id: 2142
-        type: traits
-
-      - id: lasting-legacy
-        text: Lasting Legacy
-        subText: additional bonus from 5x Kalla's Fervor
-        modifiers:
-          damage:
-            Strike Damage: [5%, add]
-            Condition Damage: [5%, add]
-        gw2-id: 2100
-        type: traits
+    lasting-legacy:
+      text: Lasting Legacy
+      subText: additional bonus from 5x Kalla's Fervor
+      modifiers:
+        damage:
+          Strike Damage: [5%, add]
+          Condition Damage: [5%, add]
+      gw2-id: 2100
+      type: traits
