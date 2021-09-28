@@ -27,7 +27,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./src/assets/data`,
+        path: `./src/assets/presetdata`,
       },
     },
   ],

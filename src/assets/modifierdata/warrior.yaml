@@ -1,0 +1,426 @@
+GraphQL ID: Warrior
+list:
+
+  - section: Skills
+    items:
+
+      - id: signet-of-might
+        text: Signet of Might
+        modifiers:
+          attributes:
+            Power: [180, buff]
+        gw2-id: 14404
+        type: skills
+
+      - id: signet-of-fury
+        text: Signet of Fury
+        modifiers:
+          attributes:
+            Precision: [180, buff]
+        gw2-id: 14410
+        type: skills
+
+      - id: dolyak-signet
+        text: Dolyak Signet
+        modifiers:
+          attributes:
+            Toughness: [180, buff]
+        gw2-id: 14413
+        type: skills
+
+  - section: Strength
+    id: 4
+    items:
+
+      - id: peak-performance
+        text: Peak Performance
+        subText: passive
+        modifiers:
+          damage:
+            Strike Damage: [5%, add]
+        gw2-id: 1444
+        type: traits
+
+      - id: peak-performance-2
+        text: Peak Performance
+        subText: active, 100% uptime - check both boxes
+        modifiers:
+          damage:
+            Strike Damage: [10%, add]
+        gw2-id: 1444
+        type: traits
+
+      - id: forceful-greatsword
+        text: Forceful Greatsword
+        subText: base
+        modifiers:
+          attributes:
+            Power: [120, buff]
+        gw2-id: 1338
+        type: traits
+
+      - id: forceful-greatsword-2
+        text: Forceful Greatsword
+        subText: with greatsword/spear - check both boxes
+        modifiers:
+          attributes:
+            Power: [120, buff]
+        gw2-id: 1338
+        type: traits
+
+      - id: great-fortitude
+        text: Great Fortitude
+        modifiers:
+          conversion:
+            Vitality: {Power: 10%}
+            Ferocity: {Power: 10%}
+        gw2-id: 1449
+        type: traits
+
+      - id: pinnacle-of-strength
+        text: Pinnacle Of Strength
+        minor: true
+        modifiers:
+          attributes:
+            Power: [250, buff]
+        gw2-id: 1453
+        type: traits
+
+      - id: berserkers-power
+        text: Berserker's Power
+        subText: 100% 3x
+        modifiers:
+          damage:
+            Strike Damage: [21%, add]
+        gw2-id: 1437
+        type: traits
+
+  - section: Arms
+    id: 36
+    items:
+
+      - id: wounding-precision
+        text: Wounding Precision
+        modifiers:
+          conversion:
+            Expertise: {Precision: 7%}
+        gw2-id: 1455
+        type: traits
+
+      - id: signet-mastery
+        text: Signet Mastery
+        subText: 5x
+        modifiers:
+          attributes:
+            Ferocity: [500, converted]
+        gw2-id: 1344
+        type: traits
+
+      - id: deep-strikes
+        text: Deep Strikes
+        minor: true
+        modifiers:
+          attributes:
+            Condition Damage: [180, buff]
+        gw2-id: 1343
+        type: traits
+
+      - id: blade-master
+        text: Blademaster
+        subText: base
+        modifiers:
+          attributes:
+            Expertise: [120, buff]
+        gw2-id: 1333
+        type: traits
+
+      - id: blade-master-2
+        text: Blademaster
+        subText: with sword 50% - check both boxes
+        modifiers:
+          attributes:
+            Condition Damage: [60, buff]
+        gw2-id: 1333
+        type: traits
+
+      - id: bloodlust
+        text: Bloodlust
+        minor: true
+        modifiers:
+          attributes:
+            Bleeding Duration: 33%
+        gw2-id: 1337
+        type: traits
+
+      - id: furious
+        text: Furious
+        subText: 25x
+        modifiers:
+          attributes:
+            Condition Damage: [250, buff]
+        gw2-id: 1346
+        type: traits
+
+  - section: Defense
+    id: 22
+    items:
+
+      - id: thick-skin
+        text: Thick Skin
+        minor: true
+        modifiers:
+          damage:
+            Damage Reduction: [5%, unknown]
+        gw2-id: 1350
+        type: traits
+
+      - id: cull-the-weak
+        text: Cull the Weak
+        modifiers:
+          damage:
+            Strike Damage: [10%, mult]
+        gw2-id: 1372
+        type: traits
+
+      - id: armored-attack
+        text: Armored Attack
+        modifiers:
+          conversion:
+            Power: {Toughness: 10%}
+        gw2-id: 1379
+        type: traits
+
+      - id: hardened-armor
+        text: Hardened Armor
+        minor: true
+        modifiers:
+          damage:
+            Damage Reduction: [10%, unknown]
+        gw2-id: 1380
+        type: traits
+
+  - section: Tactics
+    id: 11
+    items:
+
+      - id: leg-specialist
+        text: Leg Specialist
+        modifiers:
+          damage:
+            Strike Damage: [10%, mult]
+        gw2-id: 1469
+        type: traits
+
+      - id: roaring-reveille
+        text: Roaring Reveille
+        modifiers:
+          attributes:
+            Concentration: [120, buff]
+        gw2-id: 1471
+        type: traits
+
+      - id: empowered-6
+        text: Empowered
+        subText: 6x
+        minor: true
+        modifiers:
+          damage:
+            Strike Damage: [6%, mult]
+        gw2-id: 1485
+        type: traits
+
+      - id: empowered-9
+        text: Empowered
+        subText: 9x
+        minor: true
+        modifiers:
+          damage:
+            Strike Damage: [9%, mult]
+        gw2-id: 1485
+        type: traits
+
+      - id: empowered-11
+        text: Empowered
+        subText: 11x
+        minor: true
+        modifiers:
+          damage:
+            Strike Damage: [11%, mult]
+        gw2-id: 1485
+        type: traits
+
+      - id: warriors-cunning
+        text: Warrior's Cunning
+        subText: 20% uptime -> +5% Damage
+        modifiers:
+          damage:
+            Strike Damage: [5%, mult]
+        gw2-id: 1486
+        type: traits
+
+      - id: vigorous-shouts
+        text: Vigorous Shouts
+        modifiers:
+          conversion:
+            Healing Power: {Power: 13%}
+        gw2-id: 1470
+        type: traits
+
+  - section: Discipline
+    id: 51
+    items:
+
+      - id: warriors-sprint
+        text: Warrior's Sprint
+        modifiers:
+          damage:
+            Strike Damage: [10%, add]
+        gw2-id: 1413
+        type: traits
+
+      - id: double-standards
+        text: Doubled Standards
+        subText: +50 Pwr/Prc/Fer/Con
+        modifiers:
+          attributes:
+            Power: [50, buff]
+            Precision: [50, buff]
+            Ferocity: [50, buff]
+            Condition Damage: [50, buff]
+        gw2-id: 1484
+        type: traits
+
+      - id: axe-mastery-one
+        text: Axe Mastery
+        subText: without axe
+        modifiers:
+          attributes:
+            Ferocity: [120, buff]
+        gw2-id: 1369
+        type: traits
+
+      - id: axe-mastery-two
+        text: Axe Mastery
+        subText: with axe - check both boxes
+        modifiers:
+          attributes:
+            Ferocity: [120, buff]
+        gw2-id: 1369
+        type: traits
+
+  - section: Berserker
+    id: 18
+    items:
+
+      - id: blood-reaction-no
+        text: Blood Reaction
+        subText: with 0% berserker mode
+        modifiers:
+          conversion:
+            Ferocity: {Precision: 7%}
+        gw2-id: 2011
+        type: traits
+
+      - id: blood-reaction-with
+        text: Blood Reaction
+        subText: with 100% berserker mode
+        modifiers:
+          conversion:
+            Ferocity: {Precision: 14%}
+        gw2-id: 2011
+        type: traits
+
+      - id: heat-the-soul
+        text: Heat the Soul
+        subText: without torch
+        modifiers:
+          attributes:
+            Condition Damage: [120, buff]
+        gw2-id: 2042
+        type: traits
+
+      - id: heat-the-soul-with
+        text: Heat the Soul
+        subText: with torch 50% - check both boxes
+        modifiers:
+          attributes:
+            Condition Damage: [60, buff]
+        gw2-id: 2042
+        type: traits
+
+      - id: fatal-frenzy
+        text: Fatal Frenzy
+        minor: true
+        modifiers:
+          attributes:
+            Power: [300, buff]
+            Condition Damage: [300, buff]
+            Toughness: [-300, buff]
+        gw2-id: 2046
+        type: traits
+
+      - id: bloody-roar
+        text: Bloody Roar
+        modifiers:
+          damage:
+            Strike Damage: [20%, mult]
+        gw2-id: 1928
+        type: traits
+
+      - id: king-of-fires
+        text: King of Fires
+        modifiers:
+          attributes:
+            Burning Duration: 33%
+        gw2-id: 2038
+        type: traits
+
+      - id: eternal-champion
+        text: Eternal Champion
+        modifiers:
+          attributes:
+            Toughness: [300, buff]
+        gw2-id: 2043
+        type: traits
+
+  - section: Spellbreaker
+    id: 61
+    items:
+
+      - id: pure-strike-boonless
+        text: Pure Strike
+        subText: Against boonless
+        modifiers:
+          attributes:
+            Critical Damage: 14%
+        gw2-id: 2107
+        type: traits
+
+      - id: sun-and-moon-style
+        text: Sun and Moon Style
+        subText: 100% onhand dagger; no boons
+        modifiers:
+          damage:
+            Strike Damage: [10%, mult]
+        gw2-id: 2095
+        type: traits
+
+      - id: attackers-insight
+        text: Attacker's Insight
+        minor: true
+        modifiers:
+          attributes:
+            Ferocity: [250, buff]
+            Power: [250, buff]
+            Precision: [250, buff]
+        gw2-id: 2130
+        type: traits
+
+      - id: magebane-tether
+        text: Magebane Tether
+        subText: 75% uptime -> +7.5% Damage
+        modifiers:
+          damage:
+            Strike Damage: [7.5%, mult]
+        gw2-id: 2060
+        type: traits
