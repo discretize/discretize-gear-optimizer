@@ -24,7 +24,7 @@ function printTemplateHelper(state, list) {
   const { profession } = state.control;
   const traits = { ...state.traits };
   // eslint-disable-next-line camelcase
-  traits.modifiers = traits.modifiers.map(({ id, gw2_id, source }) => ({ id, gw2_id, source }));
+  traits.modifiers = traits.modifiers.map(({ id, gw2id, source }) => ({ id, gw2id, source }));
   const skills = state.skills.skills.slice();
   const extras = { ...state.extras };
   if (extras.modifiers) {

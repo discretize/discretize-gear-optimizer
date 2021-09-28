@@ -65,7 +65,7 @@ const Traits = ({ classes, data }) => {
       dispatch(
         addTraitModifier({
           id: minor.id,
-          gw2_id: minor.gw2_id,
+          gw2id: minor.gw2id,
           source: newTraitLine,
         }),
       ),
@@ -101,7 +101,7 @@ const Traits = ({ classes, data }) => {
       dispatch(
         addTraitModifier({
           id: trait.id,
-          gw2_id: trait.gw2_id,
+          gw2id: trait.gw2id,
           source: Number(line),
         }),
       );
@@ -132,7 +132,7 @@ const Traits = ({ classes, data }) => {
       const matching = data.find((v) => v.id === Number(traitlines[index]));
       if (typeof matching === 'undefined') return null;
 
-      const matchingFiltered = matching.items.filter((v) => v.gw2_id === t);
+      const matchingFiltered = matching.items.filter((v) => v.gw2id === t);
       checkboxModis.push(...matchingFiltered);
     });
 
@@ -176,7 +176,7 @@ const Traits = ({ classes, data }) => {
               checked={modifiers.filter((m) => m.id === trait.id).length > 0}
               label={
                 <>
-                  {trait.gw2_id && <Trait id={trait.gw2_id} disableLink />}{' '}
+                  {trait.gw2id && <Trait id={trait.gw2id} disableLink />}{' '}
                   <Typography variant="caption">{trait.subText}</Typography>
                 </>
               }
@@ -188,7 +188,7 @@ const Traits = ({ classes, data }) => {
         {minorCheckboxModis.map((trait) => (
           <div key={trait.id}>
             <>
-              {trait.gw2_id && <Trait id={trait.gw2_id} disableLink />}{' '}
+              {trait.gw2id && <Trait id={trait.gw2id} disableLink />}{' '}
               <Typography variant="caption">{trait.subText}</Typography>
             </>
           </div>

@@ -68,7 +68,7 @@ export const buffsSlice = createSlice({
         .flatMap((d) => d.items)
         .filter((elem) => state.buffs[elem.id])
         .forEach((elem) =>
-          modifiers.push({ id: elem.id, modifiers: elem.modifiers, gw2_id: elem.gw2_id }),
+          modifiers.push({ id: elem.id, modifiers: elem.modifiers, gw2id: elem.gw2id }),
         );
 
       state.modifiers = modifiers;

@@ -636,25 +636,25 @@ export const Defense = {
 };
 
 export const WEAPONS = {
-  GREATSWORD: { name: 'Greatsword', type: 'two-handed', gw2_id: 30689 },
-  HAMMER: { name: 'Hammer', type: 'two-handed', gw2_id: 30690 },
-  STAFF: { name: 'Staff', type: 'two-handed', gw2_id: 30698 },
-  RIFLE: { name: 'Rifle', type: 'two-handed', gw2_id: 30694 },
-  LONGBOW: { name: 'Longbow', type: 'two-handed', gw2_id: 30685 },
-  SHORTBOW: { name: 'Short Bow', type: 'two-handed', gw2_id: 30686 },
+  GREATSWORD: { name: 'Greatsword', type: 'two-handed', gw2id: 30689 },
+  HAMMER: { name: 'Hammer', type: 'two-handed', gw2id: 30690 },
+  STAFF: { name: 'Staff', type: 'two-handed', gw2id: 30698 },
+  RIFLE: { name: 'Rifle', type: 'two-handed', gw2id: 30694 },
+  LONGBOW: { name: 'Longbow', type: 'two-handed', gw2id: 30685 },
+  SHORTBOW: { name: 'Short Bow', type: 'two-handed', gw2id: 30686 },
 
-  SCEPTER: { name: 'Scepter', type: 'mainHand', gw2_id: 30695 },
+  SCEPTER: { name: 'Scepter', type: 'mainHand', gw2id: 30695 },
 
-  AXE: { name: 'Axe', type: 'one-handed', gw2_id: 76158 },
-  DAGGER: { name: 'Dagger', type: 'one-handed', gw2_id: 30687 },
-  PISTOL: { name: 'Pistol', type: 'one-handed', gw2_id: 30693 },
-  MACE: { name: 'Mace', type: 'one-handed', gw2_id: 30692 },
-  SWORD: { name: 'Sword', type: 'one-handed', gw2_id: 30699 },
+  AXE: { name: 'Axe', type: 'one-handed', gw2id: 76158 },
+  DAGGER: { name: 'Dagger', type: 'one-handed', gw2id: 30687 },
+  PISTOL: { name: 'Pistol', type: 'one-handed', gw2id: 30693 },
+  MACE: { name: 'Mace', type: 'one-handed', gw2id: 30692 },
+  SWORD: { name: 'Sword', type: 'one-handed', gw2id: 30699 },
 
-  FOCUS: { name: 'Focus', type: 'offHand', gw2_id: 86098 },
-  SHIELD: { name: 'Shield', type: 'offHand', gw2_id: 30696 },
-  TORCH: { name: 'Torch', type: 'offHand', gw2_id: 30700 },
-  WARHORN: { name: 'Warhorn', type: 'offHand', gw2_id: 30702 },
+  FOCUS: { name: 'Focus', type: 'offHand', gw2id: 86098 },
+  SHIELD: { name: 'Shield', type: 'offHand', gw2id: 30696 },
+  TORCH: { name: 'Torch', type: 'offHand', gw2id: 30700 },
+  WARHORN: { name: 'Warhorn', type: 'offHand', gw2id: 30702 },
 };
 
 export const Classes = {

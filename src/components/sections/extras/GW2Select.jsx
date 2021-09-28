@@ -57,7 +57,7 @@ const GW2Select = ({ classes, name, label, data }) => {
             .filter((v) => v.id === selected)[0];
           return (
             <Item
-              id={item.gw2_id}
+              id={item.gw2id}
               disableLink
               text={item.text.replace('Superior ', '')}
               className={classes.item}
@@ -77,7 +77,7 @@ const GW2Select = ({ classes, name, label, data }) => {
               <MenuItem key={item.id} value={item.id} className={classes.menuItem}>
                 <ListItemText
                   primary={
-                    <Item id={item.gw2_id} disableLink text={item.text.replace('Superior ', '')} />
+                    <Item id={item.gw2id} disableLink text={item.text.replace('Superior ', '')} />
                   }
                   secondary={<Typography className={classes.subText}>{item.subText}</Typography>}
                 />

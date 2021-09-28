@@ -82,12 +82,12 @@ const ResultDetails = ({ data }) => {
     ];
   }
 
-  const foodId = data.nourishment.list.flatMap((l) => l.items).find((f) => f.id === food)?.gw2_id;
+  const foodId = data.nourishment.list.flatMap((l) => l.items).find((f) => f.id === food)?.gw2id;
   const utilityId = data.enhancement.list
     .flatMap((l) => l.items)
-    .find((f) => f.id === utility)?.gw2_id;
-  const sigil1Id = data.sigils.list.flatMap((l) => l.items).find((f) => f.id === sigil1)?.gw2_id;
-  const sigil2Id = data.sigils.list.flatMap((l) => l.items).find((f) => f.id === sigil2)?.gw2_id;
+    .find((f) => f.id === utility)?.gw2id;
+  const sigil1Id = data.sigils.list.flatMap((l) => l.items).find((f) => f.id === sigil1)?.gw2id;
+  const sigil2Id = data.sigils.list.flatMap((l) => l.items).find((f) => f.id === sigil2)?.gw2id;
   const rune = runeStringId
     ? data.runes.list.flatMap((r) => r.items).find((r) => r.id === runeStringId)
     : '';
@@ -102,12 +102,12 @@ const ResultDetails = ({ data }) => {
     wea1 = classData.mainHand.find((d) => d.type === 'one-handed');
     [wea2] = classData.offHand;
     weapData = {
-      weapon1MainId: wea1.gw2_id,
+      weapon1MainId: wea1.gw2id,
       weapon1MainAffix: character.gear[12],
       weapon1MainInfusion1Id: infusions ? infusions[16] : null,
       weapon1MainSigil1Id: sigil1Id,
       weapon1MainSigil1: firstUppercase(sigil1),
-      weapon1OffId: wea2.gw2_id,
+      weapon1OffId: wea2.gw2id,
       weapon1OffAffix: character.gear[13],
       weapon1OffInfusionId: infusions ? infusions[17] : null,
       weapon1OffSigilId: sigil2Id,
@@ -116,7 +116,7 @@ const ResultDetails = ({ data }) => {
   } else {
     wea1 = classData.mainHand.find((d) => d.type === 'two-handed');
     weapData = {
-      weapon1MainId: wea1.gw2_id,
+      weapon1MainId: wea1.gw2id,
       weapon1MainInfusion1Id: infusions[16],
       weapon1MainSigil1Id: sigil1Id,
       weapon1MainInfusion2Id: infusions[17],
@@ -174,7 +174,7 @@ const ResultDetails = ({ data }) => {
         attributes={character.attributes}
         profession={profession}
         infusions={infusions}
-        runeId={rune.gw2_id}
+        runeId={rune.gw2id}
         runeName={runeName}
         image={image}
         weapons={weapData}
@@ -212,7 +212,7 @@ const ResultDetails = ({ data }) => {
         data={character}
         infusions={infusions}
         weight={weight}
-        runeId={rune.gw2_id}
+        runeId={rune.gw2id}
         runeName={runeName}
       />
     </div>

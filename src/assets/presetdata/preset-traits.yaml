@@ -37,27 +37,27 @@ list:
                 "modifiers":[
                   {
                       "id":"fragility",
-                      "gw2_id":1941,
+                      "gw2id":1941,
                       "source":10
                   },
                   {
                       "id":"vicious-expression",
-                      "gw2_id":681,
+                      "gw2id":681,
                       "source":10
                   },
                   {
                       "id":"egotism",
-                      "gw2_id":713,
+                      "gw2id":713,
                       "source":10
                   },
                   {
                       "id":"superiority-complex",
-                      "gw2_id":692,
+                      "gw2id":692,
                       "source":1
                   },
                   {
                       "id":"fencers-finesse",
-                      "gw2_id":708,
+                      "gw2id":708,
                       "source":1
                   }
                 ]
@@ -107,27 +107,27 @@ list:
       #         "modifiers":[
       #           {
       #             "id":"illusionary-membrane",
-      #             "gw2_id":667,
+      #             "gw2id":667,
       #             "source":45
       #           },
       #           {
       #             "id":"chaotic-persistence",
-      #             "gw2_id":1865,
+      #             "gw2id":1865,
       #             "source":45
       #           },
       #           {
       #             "id":"chaotic-potency-2",
-      #             "gw2_id":669,
+      #             "gw2id":669,
       #             "source":45
       #           },
       #           {
       #             "id":"chaotic-potency",
-      #             "gw2_id":669,
+      #             "gw2id":669,
       #             "source":45
       #           },
       #           {
       #             "id":"nomads-endurance",
-      #             "gw2_id":2069,
+      #             "gw2id":2069,
       #             "source":59
       #           }
       #         ]
@@ -182,47 +182,47 @@ list:
               "modifiers":[
                 {
                   "id":"radiant-power",
-                  "gw2_id":568,
+                  "gw2id":568,
                   "source":16
                 },
                 {
                   "id":"retribution",
-                  "gw2_id":565,
+                  "gw2id":565,
                   "source":16
                 },
                 {
                   "id":"symbolic-exposure",
-                  "gw2_id":646,
+                  "gw2id":646,
                   "source":42
                 },
                 {
                   "id":"fiery-wrath",
-                  "gw2_id":634,
+                  "gw2id":634,
                   "source":42
                 },
                 {
                   "id":"zealous-blade",
-                  "gw2_id":653,
+                  "gw2id":653,
                   "source":42
                 },
                 {
                   "id":"symbolic-avenger",
-                  "gw2_id":2017,
+                  "gw2id":2017,
                   "source":42
                 },
                 {
                   "id":"pure-of-sight",
-                  "gw2_id":1926,
+                  "gw2id":1926,
                   "source":27
                 },
                 {
                   "id":"zealots-aggression",
-                  "gw2_id":1835,
+                  "gw2id":1835,
                   "source":27
                 },
                 {
                   "id":"big-game-hunter",
-                  "gw2_id":1955,
+                  "gw2id":1955,
                   "source":27
                 }
               ]
@@ -274,37 +274,37 @@ list:
               "modifiers":[
                 {
                   "id":"radiant-power",
-                  "gw2_id":568,
+                  "gw2id":568,
                   "source":16
                 },
                 {
                   "id":"retribution",
-                  "gw2_id":565,
+                  "gw2id":565,
                   "source":16
                 },
                 {
                   "id":"symbolic-exposure",
-                  "gw2_id":646,
+                  "gw2id":646,
                   "source":42
                 },
                 {
                   "id":"fiery-wrath",
-                  "gw2_id":634,
+                  "gw2id":634,
                   "source":42
                 },
                 {
                   "id":"zealous-blade",
-                  "gw2_id":653,
+                  "gw2id":653,
                   "source":42
                 },
                 {
                   "id":"symbolic-avenger",
-                  "gw2_id":2017,
+                  "gw2id":2017,
                   "source":42
                 },
                 {
                   "id":"imbued-haste",
-                  "gw2_id":2148,
+                  "gw2id":2148,
                   "source":62
                 }
               ]
@@ -356,47 +356,47 @@ list:
               "modifiers":[
                 {
                   "id":"radiant-power",
-                  "gw2_id":568,
+                  "gw2id":568,
                   "source":16
                 },
                 {
                   "id":"radiant-fire",
-                  "gw2_id":567,
+                  "gw2id":567,
                   "source":16
                 },
                 {
                   "id":"amplified-wrath",
-                  "gw2_id":1686,
+                  "gw2id":1686,
                   "source":16
                 },
                 {
                   "id":"right-hand-strength-3",
-                  "gw2_id":566,
+                  "gw2id":566,
                   "source":16
                 },
                 {
                   "id":"right-hand-strength",
-                  "gw2_id":566,
+                  "gw2id":566,
                   "source":16
                 },
                 {
                   "id":"inspired-virtue-9",
-                  "gw2_id":621,
+                  "gw2id":621,
                   "source":46
                 },
                 {
                   "id":"virtue-of-retribution",
-                  "gw2_id":604,
+                  "gw2id":604,
                   "source":46
                 },
                 {
                   "id":"power-of-the-virtuous",
-                  "gw2_id":620,
+                  "gw2id":620,
                   "source":46
                 },
                 {
                   "id":"imbued-haste",
-                  "gw2_id":2148,
+                  "gw2id":2148,
                   "source":62
                 }
               ]
@@ -448,47 +448,47 @@ list:
               "modifiers":[
                 {
                   "id":"radiant-power",
-                  "gw2_id":568,
+                  "gw2id":568,
                   "source":16
                 },
                 {
                   "id":"radiant-fire",
-                  "gw2_id":567,
+                  "gw2id":567,
                   "source":16
                 },
                 {
                   "id":"amplified-wrath",
-                  "gw2_id":1686,
+                  "gw2id":1686,
                   "source":16
                 },
                 {
                   "id":"right-hand-strength-3",
-                  "gw2_id":566,
+                  "gw2id":566,
                   "source":16
                 },
                 {
                   "id":"right-hand-strength",
-                  "gw2_id":566,
+                  "gw2id":566,
                   "source":16
                 },
                 {
                   "id":"inspired-virtue-9",
-                  "gw2_id":621,
+                  "gw2id":621,
                   "source":46
                 },
                 {
                   "id":"virtue-of-retribution",
-                  "gw2_id":604,
+                  "gw2id":604,
                   "source":46
                 },
                 {
                   "id":"power-of-the-virtuous",
-                  "gw2_id":620,
+                  "gw2id":620,
                   "source":46
                 },
                 {
                   "id":"imbued-haste",
-                  "gw2_id":2148,
+                  "gw2id":2148,
                   "source":62
                 }
               ]
@@ -540,42 +540,42 @@ list:
       #         "modifiers":[
       #           {
       #             "id":"radiant-power",
-      #             "gw2_id":568,
+      #             "gw2id":568,
       #             "source":16
       #           },
       #           {
       #             "id":"radiant-fire",
-      #             "gw2_id":567,
+      #             "gw2id":567,
       #             "source":16
       #           },
       #           {
       #             "id":"amplified-wrath",
-      #             "gw2_id":1686,
+      #             "gw2id":1686,
       #             "source":16
       #           },
       #           {
       #             "id":"right-hand-strength-3",
-      #             "gw2_id":566,
+      #             "gw2id":566,
       #             "source":16
       #           },
       #           {
       #             "id":"right-hand-strength",
-      #             "gw2_id":566,
+      #             "gw2id":566,
       #             "source":16
       #           },
       #           {
       #             "id":"imbued-haste",
-      #             "gw2_id":2148,
+      #             "gw2id":2148,
       #             "source":62
       #           },
       #           {
       #             "id":"symbolic-exposure",
-      #             "gw2_id":646,
+      #             "gw2id":646,
       #             "source":42
       #           },
       #           {
       #             "id":"kindled-zeal",
-      #             "gw2_id":1556,
+      #             "gw2id":1556,
       #             "source":42
       #           }
       #         ]
@@ -626,42 +626,42 @@ list:
       #             "modifiers": [
       #                 {
       #                     "id": "radiant-power",
-      #                     "gw2_id": 568,
+      #                     "gw2id": 568,
       #                     "source": 16
       #                 },
       #                 {
       #                     "id": "radiant-fire",
-      #                     "gw2_id": 567,
+      #                     "gw2id": 567,
       #                     "source": 16
       #                 },
       #                 {
       #                     "id": "amplified-wrath",
-      #                     "gw2_id": 1686,
+      #                     "gw2id": 1686,
       #                     "source": 16
       #                 },
       #                 {
       #                     "id": "right-hand-strength-3",
-      #                     "gw2_id": 566,
+      #                     "gw2id": 566,
       #                     "source": 16
       #                 },
       #                 {
       #                     "id": "right-hand-strength",
-      #                     "gw2_id": 566,
+      #                     "gw2id": 566,
       #                     "source": 16
       #                 },
       #                 {
       #                     "id": "inspired-virtue-9",
-      #                     "gw2_id": 621,
+      #                     "gw2id": 621,
       #                     "source": 46
       #                 },
       #                 {
       #                     "id": "virtue-of-retribution",
-      #                     "gw2_id": 604,
+      #                     "gw2id": 604,
       #                     "source": 46
       #                 },
       #                 {
       #                     "id": "imbued-haste",
-      #                     "gw2_id": 2148,
+      #                     "gw2id": 2148,
       #                     "source": 62
       #                 }
       #             ]
@@ -710,47 +710,47 @@ list:
                 "modifiers": [
                     {
                         "id": "radiant-power",
-                        "gw2_id": 568,
+                        "gw2id": 568,
                         "source": 16
                     },
                     {
                         "id": "radiant-fire",
-                        "gw2_id": 567,
+                        "gw2id": 567,
                         "source": 16
                     },
                     {
                         "id": "amplified-wrath",
-                        "gw2_id": 1686,
+                        "gw2id": 1686,
                         "source": 16
                     },
                     {
                         "id": "right-hand-strength-3",
-                        "gw2_id": 566,
+                        "gw2id": 566,
                         "source": 16
                     },
                     {
                         "id": "right-hand-strength",
-                        "gw2_id": 566,
+                        "gw2id": 566,
                         "source": 16
                     },
                     {
                         "id": "imbued-haste",
-                        "gw2_id": 2148,
+                        "gw2id": 2148,
                         "source": 62
                     },
                     {
                         "id": "virtue-of-retribution",
-                        "gw2_id": 604,
+                        "gw2id": 604,
                         "source": 46
                     },
                     {
                         "id": "inspired-virtue-9",
-                        "gw2_id": 621,
+                        "gw2id": 621,
                         "source": 46
                     },
                     {
                         "id": "power-of-the-virtuous",
-                        "gw2_id": 620,
+                        "gw2id": 620,
                         "source": 46
                     }
                 ]
@@ -808,37 +808,37 @@ list:
                 "modifiers": [
                     {
                         "id": "radiant-power",
-                        "gw2_id": 568,
+                        "gw2id": 568,
                         "source": 16
                     },
                     {
                         "id": "radiant-fire",
-                        "gw2_id": 567,
+                        "gw2id": 567,
                         "source": 16
                     },
                     {
                         "id": "amplified-wrath",
-                        "gw2_id": 1686,
+                        "gw2id": 1686,
                         "source": 16
                     },
                     {
                         "id": "right-hand-strength-3",
-                        "gw2_id": 566,
+                        "gw2id": 566,
                         "source": 16
                     },
                     {
                         "id": "right-hand-strength",
-                        "gw2_id": 566,
+                        "gw2id": 566,
                         "source": 16
                     },
                     {
                         "id": "imbued-haste",
-                        "gw2_id": 2148,
+                        "gw2id": 2148,
                         "source": 62
                     },
                     {
                         "id": "force-of-will",
-                        "gw2_id": 1682,
+                        "gw2id": 1682,
                         "source": 49
                     }
                 ]
@@ -896,22 +896,22 @@ list:
                   "modifiers": [
                       {
                           "id": "radiant-power",
-                          "gw2_id": 568,
+                          "gw2id": 568,
                           "source": 16
                       },
                       {
                           "id": "imbued-haste",
-                          "gw2_id": 2148,
+                          "gw2id": 2148,
                           "source": 62
                       },
                       {
                           "id": "invigorating-bulwark",
-                          "gw2_id": 1899,
+                          "gw2id": 1899,
                           "source": 49
                       },
                       {
                           "id": "honorable-staff",
-                          "gw2_id": 557,
+                          "gw2id": 557,
                           "source": 49
                       }
                   ]
@@ -965,57 +965,57 @@ list:
               "modifiers":[
                 {
                   "id":"pinnacle-of-strength",
-                  "gw2_id":1453,
+                  "gw2id":1453,
                   "source":4
                 },
                 {
                   "id":"great-fortitude",
-                  "gw2_id":1449,
+                  "gw2id":1449,
                   "source":4
                 },
                 {
                   "id":"peak-performance",
-                  "gw2_id":1444,
+                  "gw2id":1444,
                   "source":4
                 },
                 {
                   "id":"berserkers-power",
-                  "gw2_id":1437,
+                  "gw2id":1437,
                   "source":4
                 },
                 {
                   "id":"warriors-sprint",
-                  "gw2_id":1413,
+                  "gw2id":1413,
                   "source":51
                 },
                 {
                   "id":"double-standards",
-                  "gw2_id":1484,
+                  "gw2id":1484,
                   "source":51
                 },
                 {
                   "id":"axe-mastery-two",
-                  "gw2_id":1369,
+                  "gw2id":1369,
                   "source":51
                 },
                 {
                   "id":"axe-mastery-one",
-                  "gw2_id":1369,
+                  "gw2id":1369,
                   "source":51
                 },
                 {
                   "id":"fatal-frenzy",
-                  "gw2_id":2046,
+                  "gw2id":2046,
                   "source":18
                 },
                 {
                   "id":"bloody-roar",
-                  "gw2_id":1928,
+                  "gw2id":1928,
                   "source":18
                 },
                 {
                   "id":"blood-reaction-with",
-                  "gw2_id":2011,
+                  "gw2id":2011,
                   "source":18
                 }
               ]
@@ -1067,57 +1067,57 @@ list:
               "modifiers":[
                 {
                   "id":"double-standards",
-                  "gw2_id":1484,
+                  "gw2id":1484,
                   "source":51
                 },
                 {
                   "id":"fatal-frenzy",
-                  "gw2_id":2046,
+                  "gw2id":2046,
                   "source":18
                 },
                 {
                   "id":"deep-strikes",
-                  "gw2_id":1343,
+                  "gw2id":1343,
                   "source":36
                 },
                 {
                   "id":"bloodlust",
-                  "gw2_id":1337,
+                  "gw2id":1337,
                   "source":36
                 },
                 {
                   "id":"blade-master",
-                  "gw2_id":1333,
+                  "gw2id":1333,
                   "source":36
                 },
                 {
                   "id":"blade-master-2",
-                  "gw2_id":1333,
+                  "gw2id":1333,
                   "source":36
                 },
                 {
                   "id":"wounding-precision",
-                  "gw2_id":1455,
+                  "gw2id":1455,
                   "source":36
                 },
                 {
                   "id":"furious",
-                  "gw2_id":1346,
+                  "gw2id":1346,
                   "source":36
                 },
                 {
                   "id":"king-of-fires",
-                  "gw2_id":2038,
+                  "gw2id":2038,
                   "source":18
                 },
                 {
                   "id":"heat-the-soul-with",
-                  "gw2_id":2042,
+                  "gw2id":2042,
                   "source":18
                 },
                 {
                   "id":"heat-the-soul",
-                  "gw2_id":2042,
+                  "gw2id":2042,
                   "source":18
                 }
               ]
@@ -1169,77 +1169,77 @@ list:
               "modifiers":[
                 {
                   "id":"pyromancers-training",
-                  "gw2_id":319,
+                  "gw2id":319,
                   "source":31
                 },
                 {
                   "id":"empowering-flame",
-                  "gw2_id":320,
+                  "gw2id":320,
                   "source":31
                 },
                 {
                   "id":"burning-precision",
-                  "gw2_id":296,
+                  "gw2id":296,
                   "source":31
                 },
                 {
                   "id":"power-overwhelming",
-                  "gw2_id":334,
+                  "gw2id":334,
                   "source":31
                 },
                 {
                   "id":"power-overwhelming-2",
-                  "gw2_id":334,
+                  "gw2id":334,
                   "source":31
                 },
                 {
                   "id":"aeromancers-training-2",
-                  "gw2_id":223,
+                  "gw2id":223,
                   "source":41
                 },
                 {
                   "id":"aeromancers-training",
-                  "gw2_id":223,
+                  "gw2id":223,
                   "source":41
                 },
                 {
                   "id":"ferocious-winds",
-                  "gw2_id":232,
+                  "gw2id":232,
                   "source":41
                 },
                 {
                   "id":"stormsoul",
-                  "gw2_id":1502,
+                  "gw2id":1502,
                   "source":41
                 },
                 {
                   "id":"bolt-to-the-heart",
-                  "gw2_id":226,
+                  "gw2id":226,
                   "source":41
                 },
                 {
                   "id":"elemental-polyphony-fire",
-                  "gw2_id":2081,
+                  "gw2id":2081,
                   "source":56
                 },
                 {
                   "id":"elemental-polyphony-air",
-                  "gw2_id":2081,
+                  "gw2id":2081,
                   "source":56
                 },
                 {
                   "id":"masters-fortitude",
-                  "gw2_id":2115,
+                  "gw2id":2115,
                   "source":56
                 },
                 {
                   "id":"swift-revenge",
-                  "gw2_id":2061,
+                  "gw2id":2061,
                   "source":56
                 },
                 {
                   "id":"elements-of-rage",
-                  "gw2_id":2131,
+                  "gw2id":2131,
                   "source":56
                 }
               ]
@@ -1289,62 +1289,62 @@ list:
               "modifiers":[
                 {
                   "id":"pyromancers-training",
-                  "gw2_id":319,
+                  "gw2id":319,
                   "source":31
                 },
                 {
                   "id":"empowering-flame",
-                  "gw2_id":320,
+                  "gw2id":320,
                   "source":31
                 },
                 {
                   "id":"burning-precision",
-                  "gw2_id":296,
+                  "gw2id":296,
                   "source":31
                 },
                 {
                   "id":"elemental-polyphony-fire",
-                  "gw2_id":2081,
+                  "gw2id":2081,
                   "source":56
                 },
                 {
                   "id":"elemental-polyphony-air",
-                  "gw2_id":2081,
+                  "gw2id":2081,
                   "source":56
                 },
                 {
                   "id":"elements-of-rage",
-                  "gw2_id":2131,
+                  "gw2id":2131,
                   "source":56
                 },
                 {
                   "id":"burning-rage",
-                  "gw2_id":325,
+                  "gw2id":325,
                   "source":31
                 },
                 {
                   "id":"stone-flesh",
-                  "gw2_id":278,
+                  "gw2id":278,
                   "source":26
                 },
                 {
                   "id":"strength-of-stone",
-                  "gw2_id":275,
+                  "gw2id":275,
                   "source":26
                 },
                 {
                   "id":"serrated-stones",
-                  "gw2_id":1507,
+                  "gw2id":1507,
                   "source":26
                 },
                 {
                   "id":"superior-elements",
-                  "gw2_id":2177,
+                  "gw2id":2177,
                   "source":56
                 },
                 {
                   "id":"weavers-prowess",
-                  "gw2_id":2180,
+                  "gw2id":2180,
                   "source":56
                 }
               ]
@@ -1394,72 +1394,72 @@ list:
                 "modifiers": [
                     {
                         "id": "pyromancers-training",
-                        "gw2_id": 319,
+                        "gw2id": 319,
                         "source": 31
                     },
                     {
                         "id": "empowering-flame",
-                        "gw2_id": 320,
+                        "gw2id": 320,
                         "source": 31
                     },
                     {
                         "id": "burning-precision",
-                        "gw2_id": 296,
+                        "gw2id": 296,
                         "source": 31
                     },
                     {
                         "id": "elemental-polyphony-fire",
-                        "gw2_id": 2081,
+                        "gw2id": 2081,
                         "source": 56
                     },
                     {
                         "id": "elemental-polyphony-air",
-                        "gw2_id": 2081,
+                        "gw2id": 2081,
                         "source": 56
                     },
                     {
                         "id": "elements-of-rage",
-                        "gw2_id": 2131,
+                        "gw2id": 2131,
                         "source": 56
                     },
                     {
                         "id": "burning-rage",
-                        "gw2_id": 325,
+                        "gw2id": 325,
                         "source": 31
                     },
                     {
                         "id": "superior-elements",
-                        "gw2_id": 2177,
+                        "gw2id": 2177,
                         "source": 56
                     },
                     {
                         "id": "weavers-prowess",
-                        "gw2_id": 2180,
+                        "gw2id": 2180,
                         "source": 56
                     },
                     {
                         "id": "aeromancers-training",
-                        "gw2_id": 223,
+                        "gw2id": 223,
                         "source": 41
                     },
                     {
                         "id": "aeromancers-training-2",
-                        "gw2_id": 223,
+                        "gw2id": 223,
                         "source": 41
                     },
                     {
                         "id": "ferocious-winds",
-                        "gw2_id": 232,
+                        "gw2id": 232,
                         "source": 41
                     },
                     {
                         "id": "raging-storm",
-                        "gw2_id": 214,
+                        "gw2id": 214,
                         "source": 41
                     },
                     {
                         "id": "fresh-air",
-                        "gw2_id": 1503,
+                        "gw2id": 1503,
                         "source": 41
                     }
                 ]
@@ -1509,52 +1509,52 @@ list:
                 "modifiers": [
                     {
                         "id": "pyromancers-training",
-                        "gw2_id": 319,
+                        "gw2id": 319,
                         "source": 31
                     },
                     {
                         "id": "empowering-flame",
-                        "gw2_id": 320,
+                        "gw2id": 320,
                         "source": 31
                     },
                     {
                         "id": "burning-precision",
-                        "gw2_id": 296,
+                        "gw2id": 296,
                         "source": 31
                     },
                     {
                         "id": "burning-rage",
-                        "gw2_id": 325,
+                        "gw2id": 325,
                         "source": 31
                     },
                     {
                         "id": "stone-flesh",
-                        "gw2_id": 278,
+                        "gw2id": 278,
                         "source": 26
                     },
                     {
                         "id": "strength-of-stone",
-                        "gw2_id": 275,
+                        "gw2id": 275,
                         "source": 26
                     },
                     {
                         "id": "serrated-stones",
-                        "gw2_id": 1507,
+                        "gw2id": 1507,
                         "source": 26
                     },
                     {
                         "id": "gathered-focus",
-                        "gw2_id": 1938,
+                        "gw2id": 1938,
                         "source": 48
                     },
                     {
                         "id": "hardy-conduit",
-                        "gw2_id": 1948,
+                        "gw2id": 1948,
                         "source": 48
                     },
                     {
                         "id": "transcendent-tempest",
-                        "gw2_id": 1839,
+                        "gw2id": 1839,
                         "source": 48
                     }
                 ]
@@ -1604,22 +1604,22 @@ list:
                   "modifiers": [
                       {
                           "id": "gathered-focus",
-                          "gw2_id": 1938,
+                          "gw2id": 1938,
                           "source": 48
                       },
                       {
                           "id": "hardy-conduit",
-                          "gw2_id": 1948,
+                          "gw2id": 1948,
                           "source": 48
                       },
                       {
                           "id": "aquamancers-training",
-                          "gw2_id": 1676,
+                          "gw2id": 1676,
                           "source": 17
                       },
                       {
                           "id": "piercing-blades",
-                          "gw2_id": 363,
+                          "gw2id": 363,
                           "source": 17
                       }
                   ]
@@ -1669,62 +1669,62 @@ list:
                   "modifiers": [
                       {
                           "id": "pyromancers-training",
-                          "gw2_id": 319,
+                          "gw2id": 319,
                           "source": 31
                       },
                       {
                           "id": "empowering-flame",
-                          "gw2_id": 320,
+                          "gw2id": 320,
                           "source": 31
                       },
                       {
                           "id": "burning-precision",
-                          "gw2_id": 296,
+                          "gw2id": 296,
                           "source": 31
                       },
                       {
                           "id": "power-overwhelming",
-                          "gw2_id": 334,
+                          "gw2id": 334,
                           "source": 31
                       },
                       {
                           "id": "aeromancers-training-2",
-                          "gw2_id": 223,
+                          "gw2id": 223,
                           "source": 41
                       },
                       {
                           "id": "aeromancers-training",
-                          "gw2_id": 223,
+                          "gw2id": 223,
                           "source": 41
                       },
                       {
                           "id": "ferocious-winds",
-                          "gw2_id": 232,
+                          "gw2id": 232,
                           "source": 41
                       },
                       {
                           "id": "gathered-focus",
-                          "gw2_id": 1938,
+                          "gw2id": 1938,
                           "source": 48
                       },
                       {
                           "id": "hardy-conduit",
-                          "gw2_id": 1948,
+                          "gw2id": 1948,
                           "source": 48
                       },
                       {
                           "id": "fresh-air",
-                          "gw2_id": 1503,
+                          "gw2id": 1503,
                           "source": 41
                       },
                       {
                           "id": "transcendent-tempest",
-                          "gw2_id": 1839,
+                          "gw2id": 1839,
                           "source": 48
                       },
                       {
                           "id": "stormsoul",
-                          "gw2_id": 1502,
+                          "gw2id": 1502,
                           "source": 41
                       }
                   ]
@@ -1778,57 +1778,57 @@ list:
               "modifiers":[
                 {
                   "id":"farsighted",
-                  "gw2_id":1000,
+                  "gw2id":1000,
                   "source":8
                 },
                 {
                   "id":"predators-onslaught",
-                  "gw2_id":996,
+                  "gw2id":996,
                   "source":8
                 },
                 {
                   "id":"honed-axes",
-                  "gw2_id":1066,
+                  "gw2id":1066,
                   "source":32
                 },
                 {
                   "id":"honed-axes-2",
-                  "gw2_id":1066,
+                  "gw2id":1066,
                   "source":32
                 },
                 {
                   "id":"furious-strength",
-                  "gw2_id":2156,
+                  "gw2id":2156,
                   "source":55
                 },
                 {
                   "id":"twice-as-vicious",
-                  "gw2_id":2127,
+                  "gw2id":2127,
                   "source":55
                 },
                 {
                   "id":"archetype-ferocious",
-                  "gw2_id":null,
+                  "gw2id":null,
                   "source":55
                 },
                 {
                   "id":"sb-1",
-                  "gw2_id":1900,
+                  "gw2id":1900,
                   "source":55
                 },
                 {
                   "id":"sb-2",
-                  "gw2_id":974,
+                  "gw2id":974,
                   "source":55
                 },
                 {
                   "id":"sb-3",
-                  "gw2_id":1065,
+                  "gw2id":1065,
                   "source":55
                 },
                 {
                   "id":"sb-4",
-                  "gw2_id":1066,
+                  "gw2id":1066,
                   "source":55
                 }
               ]
@@ -1880,47 +1880,47 @@ list:
                 "modifiers": [
                     {
                         "id": "hunters-tactics",
-                        "gw2_id": 1068,
+                        "gw2id": 1068,
                         "source": 30
                     },
                     {
                         "id": "hidden-barbs",
-                        "gw2_id": 1846,
+                        "gw2id": 1846,
                         "source": 30
                     },
                     {
                         "id": "taste-for-danger",
-                        "gw2_id": 1099,
+                        "gw2id": 1099,
                         "source": 33
                     },
                     {
                         "id": "ambidexterity",
-                        "gw2_id": 1101,
+                        "gw2id": 1101,
                         "source": 33
                     },
                     {
                         "id": "ambidexterity-2",
-                        "gw2_id": 1101,
+                        "gw2id": 1101,
                         "source": 33
                     },
                     {
                         "id": "poison-master",
-                        "gw2_id": 1701,
+                        "gw2id": 1701,
                         "source": 33
                     },
                     {
                         "id": "furious-strength",
-                        "gw2_id": 2156,
+                        "gw2id": 2156,
                         "source": 55
                     },
                     {
                         "id": "twice-as-vicious",
-                        "gw2_id": 2127,
+                        "gw2id": 2127,
                         "source": 55
                     },
                     {
                         "id": "archetype-deadly",
-                        "gw2_id": null,
+                        "gw2id": null,
                         "source": 55
                     }
                 ]
@@ -1970,47 +1970,47 @@ list:
                 "modifiers": [
                     {
                         "id": "hunters-tactics",
-                        "gw2_id": 1068,
+                        "gw2id": 1068,
                         "source": 30
                     },
                     {
                         "id": "hidden-barbs",
-                        "gw2_id": 1846,
+                        "gw2id": 1846,
                         "source": 30
                     },
                     {
                         "id": "taste-for-danger",
-                        "gw2_id": 1099,
+                        "gw2id": 1099,
                         "source": 33
                     },
                     {
                         "id": "ambidexterity",
-                        "gw2_id": 1101,
+                        "gw2id": 1101,
                         "source": 33
                     },
                     {
                         "id": "ambidexterity-2",
-                        "gw2_id": 1101,
+                        "gw2id": 1101,
                         "source": 33
                     },
                     {
                         "id": "poison-master",
-                        "gw2_id": 1701,
+                        "gw2id": 1701,
                         "source": 33
                     },
                     {
                         "id": "furious-strength",
-                        "gw2_id": 2156,
+                        "gw2id": 2156,
                         "source": 55
                     },
                     {
                         "id": "twice-as-vicious",
-                        "gw2_id": 2127,
+                        "gw2id": 2127,
                         "source": 55
                     },
                     {
                         "id": "archetype-deadly",
-                        "gw2_id": null,
+                        "gw2id": null,
                         "source": 55
                     }
                 ]
@@ -2060,62 +2060,62 @@ list:
                 "modifiers": [
                     {
                         "id": "hunters-tactics",
-                        "gw2_id": 1068,
+                        "gw2id": 1068,
                         "source": 30
                     },
                     {
                         "id": "hidden-barbs",
-                        "gw2_id": 1846,
+                        "gw2id": 1846,
                         "source": 30
                     },
                     {
                         "id": "furious-strength",
-                        "gw2_id": 2156,
+                        "gw2id": 2156,
                         "source": 55
                     },
                     {
                         "id": "twice-as-vicious",
-                        "gw2_id": 2127,
+                        "gw2id": 2127,
                         "source": 55
                     },
                     {
                         "id": "archetype-deadly",
-                        "gw2_id": null,
+                        "gw2id": null,
                         "source": 55
                     },
                     {
                         "id": "vicious-quarry",
-                        "gw2_id": 1888,
+                        "gw2id": 1888,
                         "source": 30
                     },
                     {
                         "id": "honed-axes",
-                        "gw2_id": 1066,
+                        "gw2id": 1066,
                         "source": 32
                     },
                     {
                         "id": "honed-axes-3",
-                        "gw2_id": 1066,
+                        "gw2id": 1066,
                         "source": 32
                     },
                     {
                         "id": "sb-1",
-                        "gw2_id": 1900,
+                        "gw2id": 1900,
                         "source": 55
                     },
                     {
                         "id": "sb-2",
-                        "gw2_id": 974,
+                        "gw2id": 974,
                         "source": 55
                     },
                     {
                         "id": "sb-3",
-                        "gw2_id": 1065,
+                        "gw2id": 1065,
                         "source": 55
                     },
                     {
                         "id": "sb-4",
-                        "gw2_id": 1066,
+                        "gw2id": 1066,
                         "source": 55
                     }
                 ]
@@ -2165,27 +2165,27 @@ list:
                   "modifiers": [
                       {
                           "id": "hunters-tactics",
-                          "gw2_id": 1068,
+                          "gw2id": 1068,
                           "source": 30
                       },
                       {
                           "id": "lingering-magic",
-                          "gw2_id": 1059,
+                          "gw2id": 1059,
                           "source": 25
                       },
                       {
                           "id": "light-on-your-feet",
-                          "gw2_id": 1912,
+                          "gw2id": 1912,
                           "source": 30
                       },
                       {
                           "id": "bountiful-hunter-9",
-                          "gw2_id": 1062,
+                          "gw2id": 1062,
                           "source": 25
                       },
                       {
                           "id": "natural-mender",
-                          "gw2_id": 1992,
+                          "gw2id": 1992,
                           "source": 5
                       }
                   ]
@@ -2235,22 +2235,22 @@ list:
                   "modifiers": [
                       {
                           "id": "natural-mender",
-                          "gw2_id": 1992,
+                          "gw2id": 1992,
                           "source": 5
                       },
                       {
                           "id": "hunters-tactics",
-                          "gw2_id": 1068,
+                          "gw2id": 1068,
                           "source": 30
                       },
                       {
                           "id": "lingering-magic",
-                          "gw2_id": 1059,
+                          "gw2id": 1059,
                           "source": 25
                       },
                       {
                           "id": "instinctive-reaction",
-                          "gw2_id": 978,
+                          "gw2id": 978,
                           "source": 25
                       }
                   ]
@@ -2302,42 +2302,42 @@ list:
               "modifiers":[
                 {
                   "id":"destructive-impulses-dual",
-                  "gw2_id":1724,
+                  "gw2id":1724,
                   "source":15
                 },
                 {
                   "id":"targeted-destruction",
-                  "gw2_id":1792,
+                  "gw2id":1792,
                   "source":15
                 },
                 {
                   "id":"unsuspecting-strikes",
-                  "gw2_id":1767,
+                  "gw2id":1767,
                   "source":15
                 },
                 {
                   "id":"swift-termination",
-                  "gw2_id":1800,
+                  "gw2id":1800,
                   "source":15
                 },
                 {
                   "id":"ferocious-aggression",
-                  "gw2_id":1758,
+                  "gw2id":1758,
                   "source":3
                 },
                 {
                   "id":"rising-tide",
-                  "gw2_id":2181,
+                  "gw2id":2181,
                   "source":3
                 },
                 {
                   "id":"ambush-commander",
-                  "gw2_id":1761,
+                  "gw2id":1761,
                   "source":63
                 },
                 {
                   "id":"brutal-momentum",
-                  "gw2_id":2142,
+                  "gw2id":2142,
                   "source":63
                 }
               ]
@@ -2389,42 +2389,42 @@ list:
                 "modifiers": [
                     {
                         "id": "brutal-momentum",
-                        "gw2_id": 2142,
+                        "gw2id": 2142,
                         "source": 63
                     },
                     {
                         "id": "acolyte-of-torment",
-                        "gw2_id": 1793,
+                        "gw2id": 1793,
                         "source": 14
                     },
                     {
                         "id": "pact-of-pain",
-                        "gw2_id": 1714,
+                        "gw2id": 1714,
                         "source": 14
                     },
                     {
                         "id": "ambush-commander",
-                        "gw2_id": 2181,
+                        "gw2id": 2181,
                         "source": 63
                     },
                     {
                         "id": "blood-fury",
-                        "gw2_id": 2079,
+                        "gw2id": 2079,
                         "source": 63
                     },
                     {
                         "id": "heartpiercer",
-                        "gw2_id": 2092,
+                        "gw2id": 2092,
                         "source": 63
                     },
                     {
                         "id": "ferocious-aggression",
-                        "gw2_id": 1758,
+                        "gw2id": 1758,
                         "source": 3
                     },
                     {
                         "id": "rising-tide",
-                        "gw2_id": 1761,
+                        "gw2id": 1761,
                         "source": 3
                     }
                 ]
@@ -2474,52 +2474,52 @@ list:
               "modifiers":[
                 {
                   "id": "brutal-momentum",
-                  "gw2_id": 2142,
+                  "gw2id": 2142,
                   "source": 63
                 },
                 {
                   "id": "acolyte-of-torment",
-                  "gw2_id": 1793,
+                  "gw2id": 1793,
                   "source": 14
                 },
                 {
                   "id": "pact-of-pain",
-                  "gw2_id": 1714,
+                  "gw2id": 1714,
                   "source": 14
                 },
                 {
                   "id": "destructive-impulses-mix",
-                  "gw2_id": 1724,
+                  "gw2id": 1724,
                   "source": 15
                 },
                 {
                   "id": "targeted-destruction",
-                  "gw2_id": 1792,
+                  "gw2id": 1792,
                   "source": 15
                 },
                 {
                   "id": "unsuspecting-strikes",
-                  "gw2_id": 1767,
+                  "gw2id": 1767,
                   "source": 15
                 },
                 {
                   "id": "ambush-commander",
-                  "gw2_id": 2181,
+                  "gw2id": 2181,
                   "source": 63
                 },
                 {
                   "id": "blood-fury",
-                  "gw2_id": 2079,
+                  "gw2id": 2079,
                   "source": 63
                 },
                 {
                   "id": "heartpiercer",
-                  "gw2_id": 2092,
+                  "gw2id": 2092,
                   "source": 63
                 },
                 {
                   "id": "lasting-legacy",
-                  "gw2_id": 2100,
+                  "gw2id": 2100,
                   "source": 63
                 }
               ]
@@ -2571,42 +2571,42 @@ list:
                   "modifiers": [
                       {
                           "id": "life-attunement",
-                          "gw2_id": 1821,
+                          "gw2id": 1821,
                           "source": 12
                       },
                       {
                           "id": "brutal-momentum",
-                          "gw2_id": 2142,
+                          "gw2id": 2142,
                           "source": 63
                       },
                       {
                           "id": "ambush-commander",
-                          "gw2_id": 2181,
+                          "gw2id": 2181,
                           "source": 63
                       },
                       {
                           "id": "destructive-impulses-mix",
-                          "gw2_id": 1724,
+                          "gw2id": 1724,
                           "source": 15
                       },
                       {
                           "id": "targeted-destruction",
-                          "gw2_id": 1792,
+                          "gw2id": 1792,
                           "source": 15
                       },
                       {
                           "id": "unsuspecting-strikes",
-                          "gw2_id": 1767,
+                          "gw2id": 1767,
                           "source": 15
                       },
                       {
                           "id": "invoking-harmony",
-                          "gw2_id": 1818,
+                          "gw2id": 1818,
                           "source": 12
                       },
                       {
                           "id": "tranquil-balance",
-                          "gw2_id": 1822,
+                          "gw2id": 1822,
                           "source": 12
                       }
                   ]
@@ -2658,47 +2658,47 @@ list:
               "modifiers":[
                 {
                   "id":"hematic-focus",
-                  "gw2_id":536,
+                  "gw2id":536,
                   "source":38
                 },
                 {
                   "id":"serrated-steel",
-                  "gw2_id":516,
+                  "gw2id":516,
                   "source":38
                 },
                 {
                   "id":"modified-ammunition-10",
-                  "gw2_id":526,
+                  "gw2id":526,
                   "source":38
                 },
                 {
                   "id":"no-scope",
-                  "gw2_id":1923,
+                  "gw2id":1923,
                   "source":38
                 },
                 {
                   "id":"high-caliber",
-                  "gw2_id":1914,
+                  "gw2id":1914,
                   "source":38
                 },
                 {
                   "id":"shaped-charge",
-                  "gw2_id":429,
+                  "gw2id":429,
                   "source":6
                 },
                 {
                   "id":"glass-cannon",
-                  "gw2_id":1882,
+                  "gw2id":1882,
                   "source":6
                 },
                 {
                   "id":"explosive-temper",
-                  "gw2_id":1892,
+                  "gw2id":1892,
                   "source":6
                 },
                 {
                   "id":"big-boomer",
-                  "gw2_id":1947,
+                  "gw2id":1947,
                   "source":6
                 }
               ]
@@ -2750,62 +2750,62 @@ list:
                 "modifiers": [
                     {
                         "id": "hematic-focus",
-                        "gw2_id": 536,
+                        "gw2id": 536,
                         "source": 38
                     },
                     {
                         "id": "serrated-steel",
-                        "gw2_id": 516,
+                        "gw2id": 516,
                         "source": 38
                     },
                     {
                         "id": "modified-ammunition-10",
-                        "gw2_id": 526,
+                        "gw2id": 526,
                         "source": 38
                     },
                     {
                         "id": "no-scope",
-                        "gw2_id": 1923,
+                        "gw2id": 1923,
                         "source": 38
                     },
                     {
                         "id": "high-caliber",
-                        "gw2_id": 1914,
+                        "gw2id": 1914,
                         "source": 38
                     },
                     {
                         "id": "shaped-charge",
-                        "gw2_id": 429,
+                        "gw2id": 429,
                         "source": 6
                     },
                     {
                         "id": "glass-cannon",
-                        "gw2_id": 1882,
+                        "gw2id": 1882,
                         "source": 6
                     },
                     {
                         "id": "explosive-temper",
-                        "gw2_id": 1892,
+                        "gw2id": 1892,
                         "source": 6
                     },
                     {
                         "id": "big-boomer",
-                        "gw2_id": 1947,
+                        "gw2id": 1947,
                         "source": 6
                     },
                     {
                         "id": "impact-savant",
-                        "gw2_id": 1877,
+                        "gw2id": 1877,
                         "source": 43
                     },
                     {
                         "id": "object-in-motion-2",
-                        "gw2_id": 1860,
+                        "gw2id": 1860,
                         "source": 43
                     },
                     {
                         "id": "applied-force",
-                        "gw2_id": 1849,
+                        "gw2id": 1849,
                         "source": 43
                     }
                 ]
@@ -2855,62 +2855,62 @@ list:
                   "modifiers": [
                       {
                           "id": "hematic-focus",
-                          "gw2_id": 536,
+                          "gw2id": 536,
                           "source": 38
                       },
                       {
                           "id": "serrated-steel",
-                          "gw2_id": 516,
+                          "gw2id": 516,
                           "source": 38
                       },
                       {
                           "id": "modified-ammunition-10",
-                          "gw2_id": 526,
+                          "gw2id": 526,
                           "source": 38
                       },
                       {
                           "id": "no-scope",
-                          "gw2_id": 1923,
+                          "gw2id": 1923,
                           "source": 38
                       },
                       {
                           "id": "high-caliber",
-                          "gw2_id": 1914,
+                          "gw2id": 1914,
                           "source": 38
                       },
                       {
                           "id": "shaped-charge",
-                          "gw2_id": 429,
+                          "gw2id": 429,
                           "source": 6
                       },
                       {
                           "id": "glass-cannon",
-                          "gw2_id": 1882,
+                          "gw2id": 1882,
                           "source": 6
                       },
                       {
                           "id": "explosive-temper",
-                          "gw2_id": 1892,
+                          "gw2id": 1892,
                           "source": 6
                       },
                       {
                           "id": "big-boomer",
-                          "gw2_id": 1947,
+                          "gw2id": 1947,
                           "source": 6
                       },
                       {
                           "id": "impact-savant",
-                          "gw2_id": 1877,
+                          "gw2id": 1877,
                           "source": 43
                       },
                       {
                           "id": "object-in-motion-2",
-                          "gw2_id": 1860,
+                          "gw2id": 1860,
                           "source": 43
                       },
                       {
                           "id": "kinetic-accelerators",
-                          "gw2_id": 2052,
+                          "gw2id": 2052,
                           "source": 43
                       }
                   ]
@@ -2960,27 +2960,27 @@ list:
                   "modifiers": [
                       {
                           "id": "energy-amplifier",
-                          "gw2_id": 519,
+                          "gw2id": 519,
                           "source": 47
                       },
                       {
                           "id": "compounding-chemicals",
-                          "gw2_id": 413,
+                          "gw2id": 413,
                           "source": 29
                       },
                       {
                           "id": "impact-savant",
-                          "gw2_id": 1877,
+                          "gw2id": 1877,
                           "source": 43
                       },
                       {
                           "id": "over-shield",
-                          "gw2_id": 394,
+                          "gw2id": 394,
                           "source": 47
                       },
                       {
                           "id": "kinetic-accelerators",
-                          "gw2_id": 2052,
+                          "gw2id": 2052,
                           "source": 43
                       }
                   ]
@@ -3032,42 +3032,42 @@ list:
                 "modifiers": [
                     {
                         "id": "barbed-precision",
-                        "gw2_id": 802,
+                        "gw2id": 802,
                         "source": 39
                     },
                     {
                         "id": "furious-demise",
-                        "gw2_id": 803,
+                        "gw2id": 803,
                         "source": 39
                     },
                     {
                         "id": "target-the-weak",
-                        "gw2_id": 810,
+                        "gw2id": 810,
                         "source": 39
                     },
                     {
                         "id": "lingering-curse",
-                        "gw2_id": 801,
+                        "gw2id": 801,
                         "source": 39
                     },
                     {
                         "id": "soul-barbs",
-                        "gw2_id": 894,
+                        "gw2id": 894,
                         "source": 50
                     },
                     {
                         "id": "sand-sage-3x",
-                        "gw2_id": 2121,
+                        "gw2id": 2121,
                         "source": 60
                     },
                     {
                         "id": "fell-beacon",
-                        "gw2_id": 2074,
+                        "gw2id": 2074,
                         "source": 60
                     },
                     {
                         "id": "demonic-lore",
-                        "gw2_id": 2164,
+                        "gw2id": 2164,
                         "source": 60
                     }
                 ]
@@ -3117,37 +3117,37 @@ list:
                 "modifiers": [
                     {
                         "id": "barbed-precision",
-                        "gw2_id": 802,
+                        "gw2id": 802,
                         "source": 39
                     },
                     {
                         "id": "furious-demise",
-                        "gw2_id": 803,
+                        "gw2id": 803,
                         "source": 39
                     },
                     {
                         "id": "target-the-weak",
-                        "gw2_id": 810,
+                        "gw2id": 810,
                         "source": 39
                     },
                     {
                         "id": "lingering-curse",
-                        "gw2_id": 801,
+                        "gw2id": 801,
                         "source": 39
                     },
                     {
                         "id": "soul-barbs",
-                        "gw2_id": 894,
+                        "gw2id": 894,
                         "source": 50
                     },
                     {
                         "id": "soul-eater",
-                        "gw2_id": 1969,
+                        "gw2id": 1969,
                         "source": 34
                     },
                     {
                         "id": "cold-shoulder",
-                        "gw2_id": 2018,
+                        "gw2id": 2018,
                         "source": 34
                     }
                 ]
@@ -3199,42 +3199,42 @@ list:
                 "modifiers": [
                     {
                         "id": "preparedness",
-                        "gw2_id": 1232,
+                        "gw2id": 1232,
                         "source": 44
                     },
                     {
                         "id": "exposed-weakness",
-                        "gw2_id": 1257,
+                        "gw2id": 1257,
                         "source": 28
                     },
                     {
                         "id": "deadly-ambition",
-                        "gw2_id": 1164,
+                        "gw2id": 1164,
                         "source": 28
                     },
                     {
                         "id": "potent-poison",
-                        "gw2_id": 1291,
+                        "gw2id": 1291,
                         "source": 28
                     },
                     {
                         "id": "lead-attacks",
-                        "gw2_id": 1157,
+                        "gw2id": 1157,
                         "source": 44
                     },
                     {
                         "id": "deadly-ambush",
-                        "gw2_id": 1706,
+                        "gw2id": 1706,
                         "source": 44
                     },
                     {
                         "id": "iron-sight",
-                        "gw2_id": 2084,
+                        "gw2id": 2084,
                         "source": 58
                     },
                     {
                         "id": "premeditation-9",
-                        "gw2_id": 2160,
+                        "gw2id": 2160,
                         "source": 58
                     }
                 ]
@@ -3284,72 +3284,72 @@ list:
                 "modifiers": [
                     {
                         "id": "exposed-weakness",
-                        "gw2_id": 1257,
+                        "gw2id": 1257,
                         "source": 28
                     },
                     {
                         "id": "dagger-training-base",
-                        "gw2_id": 1245,
+                        "gw2id": 1245,
                         "source": 28
                     },
                     {
                         "id": "revealed-training-base",
-                        "gw2_id": 1704,
+                        "gw2id": 1704,
                         "source": 28
                     },
                     {
                         "id": "executioner",
-                        "gw2_id": 1269,
+                        "gw2id": 1269,
                         "source": 28
                     },
                     {
                         "id": "keen-observer",
-                        "gw2_id": 1281,
+                        "gw2id": 1281,
                         "source": 35
                     },
                     {
                         "id": "ferocious-strikes",
-                        "gw2_id": 1282,
+                        "gw2id": 1282,
                         "source": 35
                     },
                     {
                         "id": "twin-fangs-scholar",
-                        "gw2_id": 1268,
+                        "gw2id": 1268,
                         "source": 35
                     },
                     {
                         "id": "twin-fangs-flank",
-                        "gw2_id": 1268,
+                        "gw2id": 1268,
                         "source": 35
                     },
                     {
                         "id": "practiced-tolerance",
-                        "gw2_id": 1272,
+                        "gw2id": 1272,
                         "source": 35
                     },
                     {
                         "id": "weakening-strikes",
-                        "gw2_id": 1887,
+                        "gw2id": 1887,
                         "source": 7
                     },
                     {
                         "id": "marauders-resilience",
-                        "gw2_id": 1933,
+                        "gw2id": 1933,
                         "source": 7
                     },
                     {
                         "id": "havoc-specialist",
-                        "gw2_id": 1893,
+                        "gw2id": 1893,
                         "source": 7
                     },
                     {
                         "id": "no-quarter",
-                        "gw2_id": 1904,
+                        "gw2id": 1904,
                         "source": 35
                     },
                     {
                         "id": "bounding-dodger",
-                        "gw2_id": 2047,
+                        "gw2id": 2047,
                         "source": 7
                     }
                 ]
@@ -3401,42 +3401,42 @@ list:
       #             "modifiers": [
       #                 {
       #                     "id": "exposed-weakness",
-      #                     "gw2_id": 1257,
+      #                     "gw2id": 1257,
       #                     "source": 28
       #                 },
       #                 {
       #                     "id": "dagger-training-base",
-      #                     "gw2_id": 1245,
+      #                     "gw2id": 1245,
       #                     "source": 28
       #                 },
       #                 {
       #                     "id": "revealed-training-base",
-      #                     "gw2_id": 1704,
+      #                     "gw2id": 1704,
       #                     "source": 28
       #                 },
       #                 {
       #                     "id": "weakening-strikes",
-      #                     "gw2_id": 1887,
+      #                     "gw2id": 1887,
       #                     "source": 7
       #                 },
       #                 {
       #                     "id": "havoc-specialist",
-      #                     "gw2_id": 1893,
+      #                     "gw2id": 1893,
       #                     "source": 7
       #                 },
       #                 {
       #                     "id": "bounding-dodger",
-      #                     "gw2_id": 2047,
+      #                     "gw2id": 2047,
       #                     "source": 7
       #                 },
       #                 {
       #                     "id": "preparedness",
-      #                     "gw2_id": 1232,
+      #                     "gw2id": 1232,
       #                     "source": 44
       #                 },
       #                 {
       #                     "id": "lead-attacks",
-      #                     "gw2_id": 1157,
+      #                     "gw2id": 1157,
       #                     "source": 44
       #                 }
       #             ]
@@ -3488,52 +3488,52 @@ list:
                 "modifiers": [
                     {
                         "id": "preparedness",
-                        "gw2_id": 1232,
+                        "gw2id": 1232,
                         "source": 44
                     },
                     {
                         "id": "exposed-weakness",
-                        "gw2_id": 1257,
+                        "gw2id": 1257,
                         "source": 28
                     },
                     {
                         "id": "deadly-ambition",
-                        "gw2_id": 1164,
+                        "gw2id": 1164,
                         "source": 28
                     },
                     {
                         "id": "potent-poison",
-                        "gw2_id": 1291,
+                        "gw2id": 1291,
                         "source": 28
                     },
                     {
                         "id": "lead-attacks",
-                        "gw2_id": 1157,
+                        "gw2id": 1157,
                         "source": 44
                     },
                     {
                         "id": "deadly-ambush",
-                        "gw2_id": 1706,
+                        "gw2id": 1706,
                         "source": 44
                     },
                     {
                         "id": "lotus-training",
-                        "gw2_id": 1833,
+                        "gw2id": 1833,
                         "source": 7
                     },
                     {
                         "id": "havoc-specialist",
-                        "gw2_id": 1893,
+                        "gw2id": 1893,
                         "source": 7
                     },
                     {
                         "id": "marauders-resilience",
-                        "gw2_id": 1933,
+                        "gw2id": 1933,
                         "source": 7
                     },
                     {
                         "id": "weakening-strikes",
-                        "gw2_id": 1887,
+                        "gw2id": 1887,
                         "source": 7
                     }
                 ]
@@ -3583,67 +3583,67 @@ list:
                 "modifiers": [
                     {
                         "id": "exposed-weakness",
-                        "gw2_id": 1257,
+                        "gw2id": 1257,
                         "source": 28
                     },
                     {
                         "id": "dagger-training-base",
-                        "gw2_id": 1245,
+                        "gw2id": 1245,
                         "source": 28
                     },
                     {
                         "id": "revealed-training-base",
-                        "gw2_id": 1704,
+                        "gw2id": 1704,
                         "source": 28
                     },
                     {
                         "id": "executioner",
-                        "gw2_id": 1269,
+                        "gw2id": 1269,
                         "source": 28
                     },
                     {
                         "id": "keen-observer",
-                        "gw2_id": 1281,
+                        "gw2id": 1281,
                         "source": 35
                     },
                     {
                         "id": "ferocious-strikes",
-                        "gw2_id": 1282,
+                        "gw2id": 1282,
                         "source": 35
                     },
                     {
                         "id": "twin-fangs-scholar",
-                        "gw2_id": 1268,
+                        "gw2id": 1268,
                         "source": 35
                     },
                     {
                         "id": "twin-fangs-flank",
-                        "gw2_id": 1268,
+                        "gw2id": 1268,
                         "source": 35
                     },
                     {
                         "id": "practiced-tolerance",
-                        "gw2_id": 1272,
+                        "gw2id": 1272,
                         "source": 35
                     },
                     {
                         "id": "no-quarter",
-                        "gw2_id": 1904,
+                        "gw2id": 1904,
                         "source": 35
                     },
                     {
                         "id": "revealed-training-revealed",
-                        "gw2_id": 1704,
+                        "gw2id": 1704,
                         "source": 28
                     },
                     {
                         "id": "iron-sight",
-                        "gw2_id": 2084,
+                        "gw2id": 2084,
                         "source": 58
                     },
                     {
                         "id": "premeditation-9",
-                        "gw2_id": 2160,
+                        "gw2id": 2160,
                         "source": 58
                     }
                 ]

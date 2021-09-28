@@ -45,7 +45,7 @@ const Skills = ({ classes, data }) => {
         className={classes.checkbox}
         label={
           <div className={classes.label}>
-            <Skill id={skill.gw2_id} disableLink className={classes.skill} />
+            <Skill id={skill.gw2id} disableLink className={classes.skill} />
             {skill.subText && <Typography className={classes.subText}>{skill.subText}</Typography>}
           </div>
         }

@@ -26,7 +26,7 @@ export const traitsSlice = createSlice({
       state.modifiers = state.modifiers.filter((m) => m.id !== action.payload);
     },
     removeTraitModifierWithGW2id: (state, action) => {
-      state.modifiers = state.modifiers.filter((m) => m.gw2_id !== action.payload);
+      state.modifiers = state.modifiers.filter((m) => m.gw2id !== action.payload);
     },
     removeTraitModifierWithSource: (state, action) => {
       state.modifiers = state.modifiers.filter((m) => m.source !== action.payload);
