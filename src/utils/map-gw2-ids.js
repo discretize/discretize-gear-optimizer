@@ -217,7 +217,7 @@ const resolveComponent = (tag) => (props) => {
 
   if (match === undefined) {
     if (tag !== 'Skill' && props.id !== undefined) {
-      console.error(`Could not resolve component ${tag}`, {
+      console.log(`Could not resolve component ${tag}`, {
         ...props,
       });
     }
@@ -254,7 +254,7 @@ export const resolveArmor = ({ weight, ...rest }) => {
       const { id: newId, affix: newAffix } = findMatch(search) || {};
 
       if (newId === undefined) {
-        console.error(`Could not resolve ${type} id`, search);
+        console.log(`Could not resolve ${type} id`, search);
       } else {
         props[idKey] = newId;
         props[affixKey] = newAffix;
@@ -281,7 +281,7 @@ export const resolveArmor = ({ weight, ...rest }) => {
       const newRune = newUnstrippedRune && stripRuneName(newUnstrippedRune);
 
       if (newRuneId === undefined) {
-        console.error(`Could not resolve ${type} rune id`, search);
+        console.log(`Could not resolve ${type} rune id`, search);
       } else {
         props[runeIdKey] = newRuneId;
         props[runeKey] = newRune;
@@ -326,7 +326,7 @@ const resolveWeapons = ({ ...rest }) => {
       const { id: newId, affix: newAffix, type: newType } = findMatch(search) || {};
 
       if (newId === undefined) {
-        console.error(`Could not resolve ${type} id`, search);
+        console.log(`Could not resolve ${type} id`, search);
       } else {
         props[idKey] = newId;
         props[affixKey] = newAffix;
@@ -356,7 +356,7 @@ const resolveWeapons = ({ ...rest }) => {
         const newSigil = newUnstrippedSigil && stripSigilName(newUnstrippedSigil);
 
         if (newSigilId === undefined) {
-          console.error(`Could not resolve ${type} ${sigilSlot} sigil id`, search);
+          console.log(`Could not resolve ${type} ${sigilSlot} sigil id`, search);
         } else {
           props[sigilIdKey] = newSigilId;
           props[sigilKey] = newSigil;
@@ -425,7 +425,7 @@ export const resolveBackAndTrinkets = ({ ...rest }) => {
       } = findMatchWithFallback(search) || {};
 
       if (newId === undefined) {
-        console.error(`Could not resolve ${type} id`, search);
+        console.log(`Could not resolve ${type} id`, search);
       } else {
         props[idKey] = newId;
         props[affixKey] = newAffix;
@@ -466,7 +466,7 @@ const resolveConsumables = ({ ...rest }) => {
       const { id: newId } = findMatch(search) || {};
 
       if (newId === undefined) {
-        console.error(`Could not resolve ${type} id`, search);
+        console.log(`Could not resolve ${type} id`, search);
       } else {
         props[idKey] = newId;
       }
@@ -497,7 +497,7 @@ const resolveSkills = ({ ...rest }) => {
       const { id: newId } = findMatch(search) || {};
 
       if (newId === undefined) {
-        console.error(`Could not resolve ${slot} skill id`, search);
+        console.log(`Could not resolve ${slot} skill id`, search);
       } else {
         props[idKey] = newId;
       }
@@ -529,7 +529,7 @@ const resolveTraits = ({ ...rest }) => {
       const { id: newId, name: newName, profession: newProfession } = findMatch(search) || {};
 
       if (newId === undefined) {
-        console.error(`Could not resolve ${slot} specialization id`, search);
+        console.log(`Could not resolve ${slot} specialization id`, search);
       } else {
         props[idKey] = newId;
         props[key] = newName;
@@ -556,7 +556,7 @@ const resolveTraits = ({ ...rest }) => {
           const { id: newId } = findMatch(search) || {};
 
           if (newId === undefined) {
-            console.error(`Could not resolve ${slot} selected trait ${index} id`, search);
+            console.log(`Could not resolve ${slot} selected trait ${index} id`, search);
             return undefined;
           }
           return newId;
@@ -564,7 +564,7 @@ const resolveTraits = ({ ...rest }) => {
         .filter((value) => value !== undefined);
 
       if (newSelectedIds === undefined) {
-        console.error(`Could not resolve ${slot} selected trait ids`, selected);
+        console.log(`Could not resolve ${slot} selected trait ids`, selected);
       } else {
         props[selectedIdsKey] = newSelectedIds;
       }
