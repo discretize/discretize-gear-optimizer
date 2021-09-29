@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { changeProfession, setBuildTemplate, setModifiers } from '../gearOptimizerSlice';
 
+import { classModifiers } from '../../assets/modifierdata';
+
 export const traitsSlice = createSlice({
   name: 'traits',
   initialState: {
@@ -54,18 +56,21 @@ export const traitsSlice = createSlice({
       return { ...state, ...traitState.traits };
     },
     [setModifiers]: (state, action) => {
-      // passed data from GraphQL
-      const { data, profession } = action.payload;
+      const { profession } = action.payload;
 
-      // map id to modifier. We dont store modifier values in the state!
-      const allSkillsAndTraits = data[profession.toLowerCase()].edges[0].node.list.flatMap(
-        (el) => el.items,
+      const allTraitModifiersItems = classModifiers[profession.toLowerCase()].reduce(
+        (prev, section) => Object.assign(prev, section.items),
+        {},
       );
 
+      // const enabledModifiers = ;
+      // state.modifiers = enabledModifiers.map((id) => {
+      //   const { modifiers, gw2id } = allTraitModifiersItems[id];
+      //   return { id, modifiers, gw2id };
+      // });
+
       state.modifiers = state.modifiers.map((oldModifier) => {
-        const newModifier = allSkillsAndTraits
-          .filter((t) => t !== null)
-          .find((trait) => trait.id === oldModifier.id);
+        const newModifier = allTraitModifiersItems[oldModifier.id];
         return Object.assign(oldModifier, newModifier);
       });
     },

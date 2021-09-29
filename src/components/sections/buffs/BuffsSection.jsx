@@ -20,7 +20,7 @@ const BuffsSection = ({ data }) => {
     <Section
       title="Buffs & Boons"
       extraInfo={<Presets data={data.presetBuffs.list} handleClick={handleTemplateClickBuffs} />}
-      content={<Buffs data={data.buffs.list} />}
+      content={<Buffs />}
     />
   );
 };

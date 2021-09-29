@@ -18,7 +18,7 @@ export const extraModifiersSlice = createSlice({
     },
   },
   extraReducers: {
-    [setModifiers]: (state, _) => {
+    [setModifiers]: (state) => {
       // all selected modifiers will be collected in this array
       const modifiers = [];
       const { extraModifiers } = state;

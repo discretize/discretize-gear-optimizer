@@ -18,7 +18,7 @@ export const omnipotionSlice = createSlice({
     },
   },
   extraReducers: {
-    [setModifiers]: (state, action) => {
+    [setModifiers]: (state) => {
       // all selected modifiers will be collected in this array
       const modifiers = [];
 

@@ -22,6 +22,12 @@ import OutputDistribution from './OutputDistribution';
 import OutputInfusions from './OutputInfusions';
 import SpecialDurations from './SpecialDurations';
 
+import {
+  classModifiers,
+  extrasModifiers,
+  buffModifiers,
+} from '../../../assets/modifierdata';
+
 const ResultDetails = ({ data }) => {
   const store = useStore();
   const profession = useSelector(getProfession);
@@ -82,15 +88,11 @@ const ResultDetails = ({ data }) => {
     ];
   }
 
-  const foodId = data.nourishment.list.flatMap((l) => l.items).find((f) => f.id === food)?.gw2id;
-  const utilityId = data.enhancement.list
-    .flatMap((l) => l.items)
-    .find((f) => f.id === utility)?.gw2id;
-  const sigil1Id = data.sigils.list.flatMap((l) => l.items).find((f) => f.id === sigil1)?.gw2id;
-  const sigil2Id = data.sigils.list.flatMap((l) => l.items).find((f) => f.id === sigil2)?.gw2id;
-  const rune = runeStringId
-    ? data.runes.list.flatMap((r) => r.items).find((r) => r.id === runeStringId)
-    : '';
+  const foodId = extrasModifiers.food[food]?.gw2id;
+  const utilityId = extrasModifiers.utility[utility]?.gw2id;
+  const sigil1Id = extrasModifiers.sigil[sigil1]?.gw2id;
+  const sigil2Id = extrasModifiers.sigil[sigil2]?.gw2id;
+  const rune = runeStringId ? extrasModifiers.rune[runeStringId] : '';
   const runeName = runeStringId ? rune.text.split(' ')[rune.text.split(' ').length - 1] : '';
 
   // Calculate the props for the weapons component
@@ -134,12 +136,12 @@ const ResultDetails = ({ data }) => {
   const selectedTraitLinesNames = traits
     .map((t) => Number(t))
     .map((trait) =>
-      data[profession.toLowerCase()].edges[0].node.list
-        .filter((d) => d.id !== null)
-        .find((t) => t.id === trait),
+      classModifiers[profession.toLowerCase()]
+        .filter((section) => section.id !== null)
+        .find((section) => section.id === trait),
     )
-    .filter((s) => s !== undefined)
-    .map((s) => s.section);
+    .filter((section) => section !== undefined)
+    .map((section) => section.section);
 
   // currently selected specialization. In case multiple elite specializations are selected, only the first one is counted.
   // In case no specialization is selected, the variable defaults to the core profession
@@ -205,7 +207,7 @@ const ResultDetails = ({ data }) => {
         <Grid item xs={12} sm={6} md={4} />
       </Grid>
 
-      <AppliedModifiers data={modifiers} buffData={data.buffs.list} />
+      <AppliedModifiers data={modifiers} buffData={buffModifiers} />
 
       <CopyTemplateButton
         extras={{ utilityId, foodId, sigil1Id, sigil2Id }}
