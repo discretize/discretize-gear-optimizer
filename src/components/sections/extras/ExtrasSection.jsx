@@ -4,9 +4,7 @@ import { ConsumableEffect, Item } from 'gw2-ui-bulk';
 import Section from '../../baseComponents/Section';
 import GW2Select from './GW2Select';
 
-import { extrasModifiers, extrasModifiersFlat } from '../../../assets/modifierdata';
-
-const ExtrasSection = () => {
+const ExtrasSection = ({ data }) => {
   return (
     <Section
       title="Runes & Sigils & Food"
@@ -16,24 +14,21 @@ const ExtrasSection = () => {
             <GW2Select
               name="Sigil1"
               label={<Item id={24615} disableLink disableTooltip text="Sigil 1" />}
-              modifierData={extrasModifiers.sigils}
-              modifierDataFlat={extrasModifiersFlat.sigils}
+              data={data.sigils.list}
             />
           </Grid>
           <Grid item xs={12} md={6}>
             <GW2Select
               name="Sigil2"
               label={<Item id={24868} disableLink disableTooltip text="Sigil 2" />}
-              modifierData={extrasModifiers.sigils}
-              modifierDataFlat={extrasModifiersFlat.sigils}
+              data={data.sigils.list}
             />
           </Grid>
           <Grid item xs={12} md={6}>
             <GW2Select
               name="Runes"
               label={<Item id={24836} disableLink disableTooltip text="Rune" />}
-              modifierData={extrasModifiers.runes}
-              modifierDataFlat={extrasModifiersFlat.runes}
+              data={data.runes.list}
             />
           </Grid>
           <Grid item md={6} />
@@ -41,16 +36,14 @@ const ExtrasSection = () => {
             <GW2Select
               name="Nourishment"
               label={<ConsumableEffect name="Nourishment" />}
-              modifierData={extrasModifiers.food}
-              modifierDataFlat={extrasModifiersFlat.food}
+              data={data.nourishment.list}
             />
           </Grid>
           <Grid item xs={12} md={6}>
             <GW2Select
               name="Enhancement"
-              label={<ConsumableEffect name="Enhancement" />}
-              modifierData={extrasModifiers.utility}
-              modifierDataFlat={extrasModifiersFlat.utility}
+              label={<ConsumableEffect name="Enhancement" data={data.sigils.list} />}
+              data={data.enhancement.list}
             />
           </Grid>
         </Grid>

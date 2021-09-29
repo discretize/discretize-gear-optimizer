@@ -2,11 +2,7 @@ import React from 'react';
 import Section from '../../baseComponents/Section';
 import Traits from './Traits';
 
-import { classModifiers } from '../../../assets/modifierdata';
-
-const TraitsSection = ({ profession }) => {
-  const traitsData = classModifiers[profession.toLowerCase()].find((section) => section.id > 0);
-
+const TraitsSection = ({ profession, data }) => {
   return (
     <Section
       first
@@ -15,7 +11,13 @@ const TraitsSection = ({ profession }) => {
                     below each traitline. This is necessary, because many traits grant conditional
                     bonus stats and you might get different results with different conditional
                     traits."
-      content={<Traits data={traitsData} />}
+      content={
+        <Traits
+          data={data[profession.toLowerCase()].edges[0].node.list
+            .slice(1)
+            .filter((line) => line.id > 0)}
+        />
+      }
     />
   );
 };

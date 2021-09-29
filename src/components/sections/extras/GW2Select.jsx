@@ -33,7 +33,7 @@ const styles = (theme) => ({
   item: { lineHeight: '1 !important' },
 });
 
-const GW2Select = ({ classes, name, label, modifierData, modifierDataFlat }) => {
+const GW2Select = ({ classes, name, label, data }) => {
   const dispatch = useDispatch();
   const bigValue = useSelector(getExtra(name));
 
@@ -52,7 +52,9 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataFlat }) => 
         input={<Input name={name} id={name} />}
         onChange={handleChange}
         renderValue={(selected) => {
-          const item = modifierDataFlat[selected];
+          const item = data
+            .flatMap((category) => category.items)
+            .filter((v) => v.id === selected)[0];
           return (
             <Item
               id={item.gw2id}
@@ -68,16 +70,16 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataFlat }) => 
           <em>None</em>
         </MenuItem>
         ,
-        {modifierData.map((category) => {
+        {data.map((category) => {
           return [
             <ListSubheader disableSticky>{category.section}</ListSubheader>,
-            Object.entries(category.items).map(([id, { text, subText, gw2id }]) => (
-              <MenuItem key={id} value={id} className={classes.menuItem}>
+            category.items.map((item) => (
+              <MenuItem key={item.id} value={item.id} className={classes.menuItem}>
                 <ListItemText
                   primary={
-                    <Item id={gw2id} disableLink text={text.replace('Superior ', '')} />
+                    <Item id={item.gw2id} disableLink text={item.text.replace('Superior ', '')} />
                   }
-                  secondary={<Typography className={classes.subText}>{subText}</Typography>}
+                  secondary={<Typography className={classes.subText}>{item.subText}</Typography>}
                 />
               </MenuItem>
             )),

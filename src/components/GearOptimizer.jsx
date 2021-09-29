@@ -79,11 +79,11 @@ const MainComponent = ({ classes, data }) => {
         <Grid container>
           {expertMode ? (
             <>
-              {profession !== '' && <TraitsSection profession={profession} />}
+              {profession !== '' && <TraitsSection profession={profession} data={data} />}
 
-              <SkillsSection profession={profession} />
+              <SkillsSection profession={profession} data={data} />
 
-              <ExtrasSection />
+              <ExtrasSection data={data} />
 
               <BuffsSection data={data} />
 
@@ -110,7 +110,7 @@ const MainComponent = ({ classes, data }) => {
           )}
         </Grid>
 
-        <Controls classes={classes} profession={profession} />
+        <Controls classes={classes} profession={profession} data={data} />
 
         <ResultTable />
         <Box m={3} />
@@ -138,6 +138,233 @@ const GearOptimizer = ({ classes }) => {
                 original {
                   src
                 }
+              }
+            }
+          }
+          warrior: allWarrior {
+            edges {
+              node {
+                list {
+                  section
+                  id
+                  items {
+                    gw2_id
+                    subText
+                    text
+                    id
+                    modifiers
+                    minor
+                  }
+                }
+              }
+            }
+          }
+          revenant: allRevenant {
+            edges {
+              node {
+                list {
+                  section
+                  id
+                  items {
+                    gw2_id
+                    subText
+                    text
+                    id
+                    modifiers
+                    minor
+                  }
+                }
+              }
+            }
+          }
+          guardian: allGuardian {
+            edges {
+              node {
+                list {
+                  section
+                  id
+                  items {
+                    gw2_id
+                    subText
+                    text
+                    id
+                    modifiers
+                    minor
+                  }
+                }
+              }
+            }
+          }
+          ranger: allRanger {
+            edges {
+              node {
+                list {
+                  section
+                  id
+                  items {
+                    gw2_id
+                    subText
+                    text
+                    id
+                    modifiers
+                    minor
+                  }
+                }
+              }
+            }
+          }
+          engineer: allEngineer {
+            edges {
+              node {
+                list {
+                  section
+                  id
+                  items {
+                    gw2_id
+                    subText
+                    text
+                    id
+                    modifiers
+                    minor
+                  }
+                }
+              }
+            }
+          }
+          elementalist: allElementalist {
+            edges {
+              node {
+                list {
+                  section
+                  id
+                  items {
+                    gw2_id
+                    subText
+                    text
+                    id
+                    modifiers
+                    minor
+                  }
+                }
+              }
+            }
+          }
+          mesmer: allMesmer {
+            edges {
+              node {
+                list {
+                  section
+                  id
+                  items {
+                    gw2_id
+                    subText
+                    text
+                    id
+                    modifiers
+                    minor
+                  }
+                }
+              }
+            }
+          }
+          necromancer: allNecromancer {
+            edges {
+              node {
+                list {
+                  section
+                  id
+                  items {
+                    gw2_id
+                    subText
+                    text
+                    id
+                    modifiers
+                    minor
+                  }
+                }
+              }
+            }
+          }
+          thief: allThief {
+            edges {
+              node {
+                list {
+                  section
+                  id
+                  items {
+                    gw2_id
+                    subText
+                    text
+                    id
+                    modifiers
+                    minor
+                  }
+                }
+              }
+            }
+          }
+          runes: runes {
+            id
+            list {
+              items {
+                text
+                gw2_id
+                subText
+                id
+                modifiers
+              }
+              section
+            }
+          }
+          sigils: sigils {
+            id
+            list {
+              items {
+                text
+                gw2_id
+                subText
+                id
+                modifiers
+              }
+              section
+            }
+          }
+          nourishment: food {
+            id
+            list {
+              items {
+                text
+                gw2_id
+                subText
+                id
+                modifiers
+              }
+              section
+            }
+          }
+          enhancement: utility {
+            id
+            list {
+              items {
+                text
+                gw2_id
+                id
+                modifiers
+              }
+              section
+            }
+          }
+          buffs: buffs {
+            list {
+              section
+              items {
+                text
+                modifiers
+                gw2_id
+                subText
+                id
+                type
+                text
               }
             }
           }
@@ -177,7 +404,7 @@ const GearOptimizer = ({ classes }) => {
           }
         }
       `}
-      render={(data) => <MainComponent classes={classes} modifierData={data} />}
+      render={(data) => <MainComponent classes={classes} data={data} />}
     />
   );
 };

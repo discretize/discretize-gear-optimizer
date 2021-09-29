@@ -6,8 +6,6 @@ import { changeBuff, getBuffs } from '../../../state/slices/buffs';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
-import { buffModifiers } from '../../../assets/modifierdata';
-
 const styles = (theme) => ({
   boon: {
     fontSize: 18,
@@ -20,14 +18,14 @@ const styles = (theme) => ({
   },
 });
 
-const Buffs = ({ classes }) => {
+const Buffs = ({ classes, data }) => {
   const dispatch = useDispatch();
 
   const buffs = useSelector(getBuffs);
 
-  const handleChange = (id) => (event) => {
+  const handleChange = (buff) => (event) => {
     // change the value
-    dispatch(changeBuff({ key: id, value: event.target.checked }));
+    dispatch(changeBuff({ key: buff.id, value: event.target.checked }));
   };
 
   // Dynamic component creation for buffs from a string
@@ -41,57 +39,57 @@ const Buffs = ({ classes }) => {
 
   return (
     <Grid container spacing={4}>
-      {buffModifiers.map((section) => (
+      {data.map((section) => (
         <Grid key={section.section} item xs={12} sm={6} md={4}>
           <FormControl component="fieldset" className={classes.formControl}>
             <FormLabel component="legend">{section.section}</FormLabel>
             <FormGroup>
-              {Object.entries(section.items).map(([id, { text, subText, gw2id, type }]) => {
+              {section.items.map((buff) => {
                 let Component;
                 let name;
 
-                switch (type) {
+                switch (buff.type) {
                   case 'Text':
                     return (
                       <CheckboxComponent
-                        key={id}
-                        value={id}
-                        checked={buffs[id]}
+                        key={buff.id}
+                        value={buff.id}
+                        checked={buffs[buff.id]}
                         label={
                           <>
-                            <Typography className={classes.note}>{text}</Typography>
+                            <Typography className={classes.note}>{buff.text}</Typography>
                             <Typography variant="caption" className={classes.tinyNote}>
-                              {subText}
+                              {buff.subText}
                             </Typography>
                           </>
                         }
-                        onChange={handleChange(id)}
+                        onChange={handleChange(buff)}
                       />
                     );
                   case 'Boon':
                   case 'Condition':
                   case 'CommonEffect':
-                    name = id.toLowerCase();
+                    name = buff.id.toLowerCase();
                     name = firstUppercase(name);
                   // eslint-disable-next-line no-fallthrough
                   default:
-                    Component = components[type];
+                    Component = components[buff.type];
                 }
 
                 return (
                   <CheckboxComponent
-                    key={id}
-                    value={id}
-                    checked={buffs[id]}
+                    key={buff.id}
+                    value={buff.id}
+                    checked={buffs[buff.id]}
                     label={
                       <Component
-                        id={gw2id}
+                        id={buff.gw2_id}
                         name={name}
                         disableLink
                         className={classes.boon}
                       />
                     }
-                    onChange={handleChange(id)}
+                    onChange={handleChange(buff)}
                   />
                 );
               })}

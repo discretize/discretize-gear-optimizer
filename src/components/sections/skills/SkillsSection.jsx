@@ -2,13 +2,10 @@ import React from 'react';
 import Section from '../../baseComponents/Section';
 import Skills from './Skills';
 
-import { classModifiers } from '../../../assets/modifierdata';
-
-const SkillsSection = ({ profession }) => {
-
-  const skillsData = classModifiers[profession.toLowerCase()].find(
-    (section) => section.section === 'Skills',
-  );
+const SkillsSection = ({ profession, data }) => {
+  const skillsData = profession
+    ? data[profession.toLowerCase()].edges[0].node.list.find((d) => d.section === 'Skills')
+    : null;
 
   return skillsData ? (
     <Section title="Skills" content={<Skills profession={profession} data={skillsData.items} />} />
