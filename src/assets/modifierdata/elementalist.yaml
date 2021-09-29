@@ -1,7 +1,7 @@
 - section: Skills
   items:
 
-    signet-of-fire:
+    - id: signet-of-fire
       text: Signet of Fire
       modifiers:
         attributes:
@@ -9,7 +9,7 @@
       type: skills
       gw2id: 5542
 
-    signet-of-earth:
+    - id: signet-of-earth
       text: Signet of Earth
       modifiers:
         attributes:
@@ -17,7 +17,7 @@
       type: skills
       gw2id: 5571
 
-    flame-axe:
+    - id: flame-axe
       text: Flame Axe
       subText: when equipped
       modifiers:
@@ -27,7 +27,7 @@
       type: skills
       gw2id: 5540
 
-    earth-shield:
+    - id: earth-shield
       text: Earth Shield
       subText: when equipped
       modifiers:
@@ -37,7 +37,7 @@
       type: skills
       gw2id: 5546
 
-    fiery-greatsword:
+    - id: fiery-greatsword
       text: Fiery Greatsword
       subText: when equipped
       modifiers:
@@ -47,7 +47,7 @@
       type: skills
       gw2id: 5516
 
-    lightning-hammer:
+    - id: lightning-hammer
       text: Lightning Hammer
       subText: when equipped
       modifiers:
@@ -57,7 +57,7 @@
       type: skills
       gw2id: 5624
 
-    frost-bow:
+    - id: frost-bow
       text: Frost Bow
       subText: when equipped
       modifiers:
@@ -71,7 +71,7 @@
   id: 31
   items:
 
-    empowering-flame:
+    - id: empowering-flame
       text: Empowering Flame
       minor: true
       subText: (100% in fire)
@@ -81,7 +81,7 @@
       type: traits
       gw2id: 320
 
-    burning-precision:
+    - id: burning-precision
       text: Burning Precision
       modifiers:
         attributes:
@@ -89,7 +89,7 @@
       type: traits
       gw2id: 296
 
-    burning-rage:
+    - id: burning-rage
       text: Burning Rage
       modifiers:
         attributes:
@@ -97,7 +97,7 @@
       type: traits
       gw2id: 325
 
-    power-overwhelming:
+    - id: power-overwhelming
       text: Power Overwhelming
       subText: perma
       modifiers:
@@ -106,7 +106,7 @@
       type: traits
       gw2id: 334
 
-    power-overwhelming-2:
+    - id: power-overwhelming-2
       text: Power Overwhelming
       subText: (100% in fire - tick both)
       modifiers:
@@ -115,7 +115,7 @@
       type: traits
       gw2id: 334
 
-    pyromancers-training:
+    - id: pyromancers-training
       text: Pyromancer's Training
       minor: true
       modifiers:
@@ -128,7 +128,7 @@
   id: 41
   items:
 
-    ferocious-winds:
+    - id: ferocious-winds
       text: Ferocious Winds
       modifiers:
         conversion:
@@ -136,7 +136,7 @@
       type: traits
       gw2id: 232
 
-    raging-storm:
+    - id: raging-storm
       text: Raging Storm
       modifiers:
         attributes:
@@ -144,7 +144,7 @@
       type: traits
       gw2id: 214
 
-    stormsoul:
+    - id: stormsoul
       text: Stormsoul
       modifiers:
         damage:
@@ -152,7 +152,7 @@
       type: traits
       gw2id: 1502
 
-    aeromancers-training:
+    - id: aeromancers-training
       text: Aeromancer's Training
       subText: perma
       minor: true
@@ -162,7 +162,7 @@
       type: traits
       gw2id: 223
 
-    aeromancers-training-2:
+    - id: aeromancers-training-2
       text: Aeromancer's Training
       subText: (100% in air - tick both)
       minor: true
@@ -172,7 +172,7 @@
       type: traits
       gw2id: 223
 
-    bolt-to-the-heart:
+    - id: bolt-to-the-heart
       text: Bolt to the Heart
       subText: 50% uptime
       modifiers:
@@ -181,7 +181,7 @@
       type: traits
       gw2id: 226
 
-    fresh-air:
+    - id: fresh-air
       text: Fresh Air
       subText: 100% uptime
       modifiers:
@@ -194,7 +194,7 @@
   id: 26
   items:
 
-    stone-flesh:
+    - id: stone-flesh
       text: Stone Flesh
       minor: true
       subText: (100% in earth)
@@ -204,7 +204,7 @@
       type: traits
       gw2id: 278
 
-    serrated-stones:
+    - id: serrated-stones
       text: Serrated Stones
       modifiers:
         damage:
@@ -214,7 +214,7 @@
       type: traits
       gw2id: 1507
 
-    strength-of-stone:
+    - id: strength-of-stone
       text: Strength of Stone
       modifiers:
         conversion:
@@ -222,7 +222,7 @@
       type: traits
       gw2id: 275
 
-    geomancers-defense:
+    - id: geomancers-defense
       text: Geomancer's Defense
       minor: true
       modifiers:
@@ -235,7 +235,7 @@
   id: 17
   items:
 
-    piercing-blades:
+    - id: piercing-blades
       text: Piercing Shards
       modifiers:
         damage:
@@ -243,7 +243,7 @@
       type: traits
       gw2id: 363
 
-    piercing-blades-2:
+    - id: piercing-blades-2
       text: Piercing Shards
       subText: 100% in water - tick both
       modifiers:
@@ -252,7 +252,7 @@
       type: traits
       gw2id: 363
 
-    flow-like-water:
+    - id: flow-like-water
       text: Flow like Water
       modifiers:
         damage:
@@ -260,7 +260,7 @@
       type: traits
       gw2id: 349
 
-    aquamancers-training:
+    - id: aquamancers-training
       text: Aquamancer's Training
       modifiers:
         attributes:
@@ -273,7 +273,7 @@
   id: 37
   items:
 
-    elemental-enchantment:
+    - id: elemental-enchantment
       text: Elemental Enchantment
       modifiers:
         attributes:
@@ -282,7 +282,7 @@
       type: traits
       gw2id: 2004
 
-    elemental-surge:
+    - id: elemental-surge
       text: Elemental Surge (100% uptime)
       modifiers:
         attributes:
@@ -290,7 +290,7 @@
       type: traits
       gw2id: 263
 
-    bountiful-power:
+    - id: bountiful-power
       text: Bountiful Power
       subText: 6x
       modifiers:
@@ -299,7 +299,7 @@
       type: traits
       gw2id: 1511
 
-    bountiful-power-9:
+    - id: bountiful-power-9
       text: Bountiful Power
       subText: 9x
       modifiers:
@@ -312,7 +312,7 @@
   id: 48
   items:
 
-    gathered-focus:
+    - id: gathered-focus
       text: Gathered Focus
       modifiers:
         attributes:
@@ -321,7 +321,7 @@
       type: traits
       gw2id: 1938
 
-    hardy-conduit:
+    - id: hardy-conduit
       text: Hardy Conduit
       minor: true
       modifiers:
@@ -330,7 +330,7 @@
       type: traits
       gw2id: 1948
 
-    transcendent-tempest:
+    - id: transcendent-tempest
       text: Transcendent Tempest
       modifiers:
         damage:
@@ -343,7 +343,7 @@
   id: 56
   items:
 
-    superior-elements:
+    - id: superior-elements
       text: Superior Elements
       subText: 100% uptime
       modifiers:
@@ -352,7 +352,7 @@
       type: traits
       gw2id: 2177
 
-    masters-fortitude:
+    - id: masters-fortitude
       text: Master's Fortitude
       subText: With Sword
       modifiers:
@@ -363,7 +363,7 @@
       type: traits
       gw2id: 2115
 
-    masters-fortitude-without:
+    - id: masters-fortitude-without
       text: Master's Fortitude
       subText: Without Sword
       modifiers:
@@ -372,7 +372,7 @@
       type: traits
       gw2id: 2115
 
-    weavers-prowess:
+    - id: weavers-prowess
       text: Weaver's Prowess
       subText: 100% uptime
       modifiers:
@@ -383,7 +383,7 @@
       type: traits
       gw2id: 2180
 
-    swift-revenge:
+    - id: swift-revenge
       text: Swift Revenge
       modifiers:
         damage:
@@ -391,7 +391,7 @@
       type: traits
       gw2id: 2061
 
-    elemental-polyphony-fire:
+    - id: elemental-polyphony-fire
       text: Elemental Polyphony
       subText: 100% in fire
       minor: true
@@ -401,7 +401,7 @@
       type: traits
       gw2id: 2081
 
-    elemental-polyphony-air:
+    - id: elemental-polyphony-air
       text: Elemental Polyphony
       subText: 100% in air
       minor: true
@@ -411,7 +411,7 @@
       type: traits
       gw2id: 2081
 
-    elements-of-rage:
+    - id: elements-of-rage
       text: Elements of Rage
       modifiers:
         damage:

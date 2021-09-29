@@ -4,7 +4,7 @@
   id: 6
   items:
 
-    glass-cannon:
+    - id: glass-cannon
       text: Glass Cannon
       modifiers:
         damage:
@@ -12,7 +12,7 @@
       type: traits
       gw2id: 1882
 
-    explosive-temper:
+    - id: explosive-temper
       text: Explosive Temper
       subText: 10x
       modifiers:
@@ -21,7 +21,7 @@
       type: traits
       gw2id: 1892
 
-    blast-shield:
+    - id: blast-shield
       text: Blast Shield
       modifiers:
         conversion:
@@ -29,7 +29,7 @@
       type: traits
       gw2id: 1944
 
-    shaped-charge:
+    - id: shaped-charge
       text: Shaped Charge
       minor: true
       modifiers:
@@ -38,7 +38,7 @@
       type: traits
       gw2id: 429
 
-    big-boomer:
+    - id: big-boomer
       text: Big Boomer
       subText: 100%
       modifiers:
@@ -51,7 +51,7 @@
   id: 38
   items:
 
-    chemical-rounds:
+    - id: chemical-rounds
       text: Chemical Rounds
       modifiers:
         attributes:
@@ -59,7 +59,7 @@
       type: traits
       gw2id: 1878
 
-    high-caliber:
+    - id: high-caliber
       text: High Caliber
       modifiers:
         attributes:
@@ -67,7 +67,7 @@
       type: traits
       gw2id: 1914
 
-    hematic-focus:
+    - id: hematic-focus
       text: Hematic Focus
       modifiers:
         attributes:
@@ -76,7 +76,7 @@
       type: traits
       gw2id: 536
 
-    thermal-vision:
+    - id: thermal-vision
       text: Thermal Vision
       modifiers:
         damage:
@@ -86,7 +86,7 @@
       type: traits
       gw2id: 2006
 
-    no-scope:
+    - id: no-scope
       text: No Scope
       modifiers:
         attributes:
@@ -94,7 +94,7 @@
       type: traits
       gw2id: 1923
 
-    serrated-steel:
+    - id: serrated-steel
       text: Serrated Steel
       modifiers:
         attributes:
@@ -103,7 +103,7 @@
       type: traits
       gw2id: 516
 
-    modified-ammunition-10:
+    - id: modified-ammunition-10
       text: Modified Ammunition
       subText: 10x
       modifiers:
@@ -112,7 +112,7 @@
       type: traits
       gw2id: 526
 
-    modified-ammunition-14:
+    - id: modified-ammunition-14
       text: Modified Ammunition
       subText: 14x
       modifiers:
@@ -121,7 +121,7 @@
       type: traits
       gw2id: 526
 
-    incendiary-powder:
+    - id: incendiary-powder
       text: Incendiary Powder
       modifiers:
         attributes:
@@ -133,7 +133,7 @@
   id: 47
   items:
 
-    over-shield:
+    - id: over-shield
       text: Over Shield
       modifiers:
         damage:
@@ -141,7 +141,7 @@
       type: traits
       gw2id: 394
 
-    energy-amplifier:
+    - id: energy-amplifier
       text: Energy Amplifier
       modifiers:
         attributes:
@@ -154,7 +154,7 @@
   id: 29
   items:
 
-    health-insurance:
+    - id: health-insurance
       text: Health Insurance
       subText: in med kit
       modifiers:
@@ -163,7 +163,7 @@
       type: traits
       gw2id: 521
 
-    compounding-chemicals:
+    - id: compounding-chemicals
       text: Compounding Chemicals
       modifiers:
         attributes:
@@ -176,7 +176,7 @@
   id: 21
   items:
 
-    excessive-energy:
+    - id: excessive-energy
       text: Excessive Energy
       modifiers:
         damage:
@@ -189,7 +189,7 @@
   id: 43
   items:
 
-    object-in-motion-1:
+    - id: object-in-motion-1
       text: Object in Motion (One)
       subText: One
       modifiers:
@@ -198,7 +198,7 @@
       type: traits
       gw2id: 1860
 
-    object-in-motion-2:
+    - id: object-in-motion-2
       text: Object in Motion (Two)
       subText: Two
       modifiers:
@@ -207,7 +207,7 @@
       type: traits
       gw2id: 1860
 
-    object-in-motion-3:
+    - id: object-in-motion-3
       text: Object in Motion (Three)
       subText: Three
       modifiers:
@@ -216,7 +216,7 @@
       type: traits
       gw2id: 1860
 
-    impact-savant:
+    - id: impact-savant
       text: Impact Savant
       modifiers:
         attributes:
@@ -225,7 +225,7 @@
       type: traits
       gw2id: 1877
 
-    kinetic-accelerators:
+    - id: kinetic-accelerators
       text: Kinetic Accelerators
       modifiers:
         conversion:
@@ -233,7 +233,7 @@
       type: traits
       gw2id: 2052
 
-    applied-force:
+    - id: applied-force
       text: Applied Force
       subText: 25 might
       modifiers:

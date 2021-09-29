@@ -1,7 +1,7 @@
 - section: Skills
   items:
 
-    signet-of-domination:
+    - id: signet-of-domination
       text: Signet of Domination
       modifiers:
         attributes:
@@ -9,7 +9,7 @@
       type: skills
       gw2id: 10232
 
-    signet-of-midnight:
+    - id: signet-of-midnight
       text: Signet of Midnight
       modifiers:
         attributes:
@@ -21,7 +21,7 @@
   id: 10
   items:
 
-    fragility:
+    - id: fragility
       text: Fragility
       minor: true
       modifiers:
@@ -30,7 +30,7 @@
       type: traits
       gw2id: 1941
 
-    egotism:
+    - id: egotism
       text: Egotism
       modifiers:
         damage:
@@ -38,7 +38,7 @@
       type: traits
       gw2id: 713
 
-    vicious-expression:
+    - id: vicious-expression
       text: Vicious Expression
       modifiers:
         damage:
@@ -50,7 +50,7 @@
   id: 1
   items:
 
-    fencers-finesse:
+    - id: fencers-finesse
       text: Fencer's Finesse
       subText: 10x
       modifiers:
@@ -59,7 +59,7 @@
       type: traits
       gw2id: 708
 
-    superiority-complex:
+    - id: superiority-complex
       text: Superiority Complex
       subText: 50% uptime -> +20% Critical Damage
       modifiers:
@@ -72,7 +72,7 @@
   id: 45
   items:
 
-    illusionary-defense:
+    - id: illusionary-defense
       text: Illusionary Defense
       subText: 5x
       modifiers:
@@ -81,7 +81,7 @@
       type: traits
       gw2id: 675
 
-    illusionary-membrane:
+    - id: illusionary-membrane
       text: Illusionary Membrane
       minor: true
       modifiers:
@@ -90,7 +90,7 @@
       type: traits
       gw2id: 667
 
-    chaotic-potency:
+    - id: chaotic-potency
       text: Chaotic Potency
       subText: base
       modifiers:
@@ -99,7 +99,7 @@
       type: traits
       gw2id: 669
 
-    chaotic-potency-2:
+    - id: chaotic-potency-2
       text: Chaotic Potency
       subText: with staff - check both boxes
       modifiers:
@@ -108,7 +108,7 @@
       type: traits
       gw2id: 669
 
-    chaotic-persistence:
+    - id: chaotic-persistence
       text: Chaotic Persistence
       minor: true
       modifiers:
@@ -122,7 +122,7 @@
   id: 23
   items:
 
-    healing-prism:
+    - id: healing-prism
       text: Healing Prism
       modifiers:
         conversion:
@@ -135,7 +135,7 @@
   id: 24
   items:
 
-    compounding-power:
+    - id: compounding-power
       text: Compounding Power
       subText: 5x
       modifiers:
@@ -151,7 +151,7 @@
   id: 40
   items:
 
-    danger-time:
+    - id: danger-time
       text: Danger Time
       modifiers:
         attributes:
@@ -163,7 +163,7 @@
   id: 59
   items:
 
-    nomads-endurance:
+    - id: nomads-endurance
       text: Nomad's Endurance
       modifiers:
         attributes:

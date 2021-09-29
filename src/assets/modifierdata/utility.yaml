@@ -1,7 +1,7 @@
 - section: Power Utilities
   items:
 
-    slaying-potion:
+    - id: slaying-potion
       text: Slaying Potion
       modifiers:
         damage:
@@ -10,7 +10,7 @@
       type: items
       gw2id: 50082
 
-    furious-sharpening-stone:
+    - id: furious-sharpening-stone
       text: Furious Sharpening Stone
       modifiers:
         conversion:
@@ -19,7 +19,7 @@
       type: items
       gw2id: 67530
 
-    superior-sharpening-stone:
+    - id: superior-sharpening-stone
       text: Superior Sharpening Stone
       modifiers:
         conversion:
@@ -27,7 +27,7 @@
       type: items
       gw2id: 9443
 
-    toxic-sharpening-stone:
+    - id: toxic-sharpening-stone
       text: Toxic Sharpening Stone
       modifiers:
         conversion:
@@ -35,7 +35,7 @@
       type: items
       gw2id: 48915
 
-    magnanimous-sharpening-stone:
+    - id: magnanimous-sharpening-stone
       text: Magnanimous Sharpening Stone
       modifiers:
         conversion:
@@ -43,7 +43,7 @@
       type: items
       gw2id: 81034
 
-    bountiful-sharpening-stone:
+    - id: bountiful-sharpening-stone
       text: Bountiful Sharpening Stone
       modifiers:
         conversion:
@@ -54,7 +54,7 @@
 - section: Support Utilities
   items:
 
-    potent-lucent-oil:
+    - id: potent-lucent-oil
       text: Potent Lucent Oil
       modifiers:
         conversion:
@@ -62,7 +62,7 @@
       type: items
       gw2id: 89203
 
-    toxic-maintenance-oil:
+    - id: toxic-maintenance-oil
       text: Toxic Maintenance Oil
       modifiers:
         conversion:
@@ -70,7 +70,7 @@
       type: items
       gw2id: 48916
 
-    enhanced-lucent-oil:
+    - id: enhanced-lucent-oil
       text: Enhanced Lucent Oil
       modifiers:
         conversion:
@@ -78,7 +78,7 @@
       type: items
       gw2id: 89157
 
-    furious-maintenance-oil:
+    - id: furious-maintenance-oil
       text: Furious Maintenance Oil
       modifiers:
         conversion:
@@ -87,7 +87,7 @@
       type: items
       gw2id: 67529
 
-    magnanimous-maintenance-oil:
+    - id: magnanimous-maintenance-oil
       text: Magnanimous Maintenance Oil
       modifiers:
         conversion:
@@ -95,7 +95,7 @@
       type: items
       gw2id: 81157
 
-    master-maintenance-oil:
+    - id: master-maintenance-oil
       text: Master Maintenance Oil
       modifiers:
         conversion:
@@ -103,7 +103,7 @@
       type: items
       gw2id: 9461
 
-    corsair-maintenance-oil:
+    - id: corsair-maintenance-oil
       text: Corsair Maintenance Oil
       modifiers:
         conversion:
@@ -115,7 +115,7 @@
 - section: Heal Utilities
   items:
 
-    bountiful-maintenance-oil:
+    - id: bountiful-maintenance-oil
       text: Bountiful Maintenance Oil
       modifiers: null
       type: items
@@ -124,7 +124,7 @@
 - section: Condition Utilities
   items:
 
-    toxic-focusing-crystal:
+    - id: toxic-focusing-crystal
       text: Toxic Focusing Crystal
       modifiers:
         conversion:
@@ -132,7 +132,7 @@
       type: items
       gw2id: 48917
 
-    furious-tuning-crystal:
+    - id: furious-tuning-crystal
       text: Furious Tuning Crystal
       modifiers:
         conversion:
@@ -141,7 +141,7 @@
       type: items
       gw2id: 67524
 
-    master-tuning-crystal:
+    - id: master-tuning-crystal
       text: Master Tuning Crystal
       modifiers:
         conversion:
@@ -149,7 +149,7 @@
       type: items
       gw2id: 9476
 
-    magnanimous-tuning-crystal:
+    - id: magnanimous-tuning-crystal
       text: Magnanimous Tuning Crystal
       modifiers:
         conversion:
@@ -157,7 +157,7 @@
       type: items
       gw2id: 81079
 
-    bountiful-tuning-crystal:
+    - id: bountiful-tuning-crystal
       text: Bountiful Tuning Crystal
       modifiers:
         conversion:
@@ -168,7 +168,7 @@
 - section: SAB Utilities
   items:
 
-    holographic-super-apple:
+    - id: holographic-super-apple
       text: Holographic Super Apple
       modifiers:
         conversion:
@@ -177,7 +177,7 @@
       type: items
       gw2id: 87336
 
-    holographic-super-drumstick:
+    - id: holographic-super-drumstick
       text: Holographic Super Drumstick
       modifiers:
         conversion:
@@ -186,7 +186,7 @@
       type: items
       gw2id: 87329
 
-    holographic-super-cheese:
+    - id: holographic-super-cheese
       text: Holographic Super Cheese
       modifiers:
         conversion:
@@ -198,7 +198,7 @@
 - section: Writs
   items:
 
-    writ-of-masterful-accuracy:
+    - id: writ-of-masterful-accuracy
       text: Writ of Masterful Accuracy
       modifiers:
         attributes:
@@ -206,7 +206,7 @@
       type: items
       gw2id: 76833
 
-    writ-of-masterful-malice:
+    - id: writ-of-masterful-malice
       text: Writ of Masterful Malice
       modifiers:
         attributes:
@@ -214,7 +214,7 @@
       type: items
       gw2id: 72510
 
-    writ-of-masterful-strength:
+    - id: writ-of-masterful-strength
       text: Writ of Masterful Strength
       modifiers:
         attributes:
@@ -225,7 +225,7 @@
 - section: Misc
   items:
 
-    potion-of-karka-toughness:
+    - id: potion-of-karka-toughness
       text: Potion Of Karka Toughness
       modifiers:
         attributes:

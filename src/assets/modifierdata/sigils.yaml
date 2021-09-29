@@ -1,7 +1,7 @@
 - section: Power Sigils
   items:
 
-    force:
+    - id: force
       text: Superior Sigil of Force
       modifiers:
         damage:
@@ -9,7 +9,7 @@
       type: items
       gw2id: 24615
 
-    accuracy:
+    - id: accuracy
       text: Superior Sigil of Accuracy
       modifiers:
         attributes:
@@ -17,7 +17,7 @@
       type: items
       gw2id: 24618
 
-    impact/night/slaying-both:
+    - id: impact/night/slaying-both
       text: Superior Sigil of Impact/Night/Slaying
       subText: (Both 7%/3%)
       modifiers:
@@ -26,7 +26,7 @@
       type: items
       gw2id: 24868
 
-    impact/night/slaying-only-3:
+    - id: impact/night/slaying-only-3
       text: Superior Sigil of Impact/Night/Slaying
       subText: (Only 3%)
       modifiers:
@@ -38,7 +38,7 @@
 - section: Support Sigils
   items:
 
-    concentration:
+    - id: concentration
       text: Superior Sigil of Concentration
       modifiers:
         attributes:
@@ -49,7 +49,7 @@
 - section: Heal Sigils
   items:
 
-    transference:
+    - id: transference
       text: Superior Sigil of Transference
       modifiers:
         attributes:
@@ -60,7 +60,7 @@
 - section: Condition Sigils
   items:
 
-    malice:
+    - id: malice
       text: Superior Sigil of Malice
       modifiers:
         attributes:
@@ -68,7 +68,7 @@
       type: items
       gw2id: 44950
 
-    bursting:
+    - id: bursting
       text: Superior Sigil of Bursting
       modifiers:
         damage:
@@ -76,7 +76,7 @@
       type: items
       gw2id: 44944
 
-    agony:
+    - id: agony
       text: Superior Sigil of Agony
       modifiers:
         attributes:
@@ -84,7 +84,7 @@
       type: items
       gw2id: 24612
 
-    smoldering:
+    - id: smoldering
       text: Superior Sigil of Smoldering
       modifiers:
         attributes:
@@ -92,7 +92,7 @@
       type: items
       gw2id: 24624
 
-    venom:
+    - id: venom
       text: Superior Sigil of Venom
       modifiers:
         attributes:
@@ -100,7 +100,7 @@
       type: items
       gw2id: 24632
 
-    demons:
+    - id: demons
       text: Superior Sigil of Demons
       modifiers:
         attributes:
@@ -111,7 +111,7 @@
 - section: Stacking Sigils (25x)
   items:
 
-    bloodlust:
+    - id: bloodlust
       text: Superior Sigil of Bloodlust
       modifiers:
         attributes:
@@ -119,7 +119,7 @@
       type: items
       gw2id: 24575
 
-    cruelty:
+    - id: cruelty
       text: Superior Sigil of Cruelty
       modifiers:
         attributes:
@@ -127,7 +127,7 @@
       type: items
       gw2id: 67341
 
-    perception:
+    - id: perception
       text: Superior Sigil of Perception
       modifiers:
         attributes:
@@ -135,7 +135,7 @@
       type: items
       gw2id: 24580
 
-    corruption:
+    - id: corruption
       text: Superior Sigil of Corruption
       modifiers:
         attributes:
@@ -143,7 +143,7 @@
       type: items
       gw2id: 24578
 
-    life:
+    - id: life
       text: Superior Sigil of Life
       modifiers:
         attributes:
@@ -151,7 +151,7 @@
       type: items
       gw2id: 24582
 
-    bounty:
+    - id: bounty
       text: Superior Sigil of Bounty
       modifiers:
         attributes:
@@ -159,7 +159,7 @@
       type: items
       gw2id: 81045
 
-    benevolence:
+    - id: benevolence
       text: Superior Sigil of Benevolence
       modifiers:
         attributes:
@@ -167,7 +167,7 @@
       type: items
       gw2id: 24584
 
-    stars:
+    - id: stars
       text: Superior Sigil of the Stars
       modifiers:
         attributes:
@@ -186,7 +186,7 @@
 - section: Gemstones
   items:
 
-    platinum-doubloon:
+    - id: platinum-doubloon
       text: Platinum Doubloon
       modifiers:
         attributes:

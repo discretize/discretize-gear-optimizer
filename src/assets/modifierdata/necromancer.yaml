@@ -1,7 +1,7 @@
 - section: Skills
   items:
 
-    signet-of-spite:
+    - id: signet-of-spite
       text: Signet of Spite
       modifiers:
         attributes:
@@ -13,7 +13,7 @@
   id: 53
   items:
 
-    spiteful-talisman:
+    - id: spiteful-talisman
       text: Spiteful Talisman
       modifiers:
         damage:
@@ -21,7 +21,7 @@
       type: traits
       gw2id: 914
 
-    awaken-the-pain:
+    - id: awaken-the-pain
       text: Awaken the Pain
       subText: 25 might
       modifiers:
@@ -31,7 +31,7 @@
       type: traits
       gw2id: 829
 
-    close-to-death:
+    - id: close-to-death
       text: Close to Death
       subText: 50%
       modifiers:
@@ -44,7 +44,7 @@
   id: 39
   items:
 
-    barbed-precision:
+    - id: barbed-precision
       text: Barbed Precision
       minor: true
       modifiers:
@@ -53,7 +53,7 @@
       type: traits
       gw2id: 802
 
-    furious-demise:
+    - id: furious-demise
       text: Furious Demise
       minor: true
       modifiers:
@@ -62,7 +62,7 @@
       type: traits
       gw2id: 803
 
-    target-the-weak:
+    - id: target-the-weak
       text: Target the Weak
       subText: 10x
       minor: true
@@ -74,7 +74,7 @@
       type: traits
       gw2id: 810
 
-    lingering-curse:
+    - id: lingering-curse
       text: Lingering Curse
       subText: base only
       modifiers:
@@ -87,7 +87,7 @@
   id: 2
   items:
 
-    carapace:
+    - id: carapace
       text: ''
       subText: toughness from carapace, 6x
       minor: true
@@ -97,7 +97,7 @@
       gw2-id: null
       type: traits
 
-    putrid-defense:
+    - id: putrid-defense
       text: Putrid Defense
       modifiers:
         attributes:
@@ -105,7 +105,7 @@
       type: traits
       gw2id: 857
 
-    deadly-strength-6x:
+    - id: deadly-strength-6x
       text: Deadly Strength
       subText: 6x carapace
       modifiers:
@@ -114,7 +114,7 @@
       type: traits
       gw2id: 855
 
-    deadly-strength-25x:
+    - id: deadly-strength-25x
       text: Deadly Strength
       subText: 25x carapace
       modifiers:
@@ -127,7 +127,7 @@
   id: 50
   items:
 
-    soul-barbs:
+    - id: soul-barbs
       text: Soul Barbs
       subText: 100%
       modifiers:
@@ -137,7 +137,7 @@
       type: traits
       gw2id: 894
 
-    vital-persistence:
+    - id: vital-persistence
       text: Vital Persistence
       modifiers:
         attributes:
@@ -145,7 +145,7 @@
       type: traits
       gw2id: 861
 
-    death-perception:
+    - id: death-perception
       text: Death Perception
       subText: 'INACCURATE: 100% in shroud'
       modifiers:
@@ -159,7 +159,7 @@
   id: 60
   items:
 
-    fell-beacon:
+    - id: fell-beacon
       text: Fell Beacon
       modifiers:
         conversion:
@@ -167,7 +167,7 @@
       type: traits
       gw2id: 2074
 
-    sand-sage-2x:
+    - id: sand-sage-2x
       text: Sand Sage
       subText: 2x
       minor: true
@@ -178,7 +178,7 @@
       type: traits
       gw2id: 2121
 
-    sand-sage-3x:
+    - id: sand-sage-3x
       text: Sand Sage
       subText: 3x
       minor: true
@@ -189,7 +189,7 @@
       type: traits
       gw2id: 2121
 
-    demonic-lore:
+    - id: demonic-lore
       text: Demonic Lore
       subText: Torment only
       modifiers:
@@ -202,7 +202,7 @@
   id: 34
   items:
 
-    soul-eater:
+    - id: soul-eater
       text: Soul Eater
       modifiers:
         damage:
@@ -210,7 +210,7 @@
       type: traits
       gw2id: 1969
 
-    decimate-defenses-25x:
+    - id: decimate-defenses-25x
       text: Decimate Defenses
       subText: 25x
       modifiers:
@@ -219,7 +219,7 @@
       type: traits
       gw2id: 2031
 
-    cold-shoulder:
+    - id: cold-shoulder
       text: Cold Shoulder
       subText: 100%
       minor: true
@@ -229,7 +229,7 @@
       type: traits
       gw2id: 2018
 
-    reapers-onslaught:
+    - id: reapers-onslaught
       text: Reaper's Onslaught
       subText: 'INACCURATE: 100% in shroud'
       modifiers:

@@ -1,7 +1,7 @@
 - section: Skills
   items:
 
-    assassins-signet:
+    - id: assassins-signet
       text: Assassin's Signet
       subText: passive
       modifiers:
@@ -10,7 +10,7 @@
       type: skills
       gw2id: 13046
 
-    assassins-signet-active:
+    - id: assassins-signet-active
       text: Assassin's Signet
       subText: while active
       modifiers:
@@ -19,7 +19,7 @@
       type: skills
       gw2id: 13046
 
-    signet-of-agility:
+    - id: signet-of-agility
       text: Signet of Agility
       modifiers:
         attributes:
@@ -31,7 +31,7 @@
   id: 28
   items:
 
-    dagger-training-base:
+    - id: dagger-training-base
       text: Dagger Training
       subText: base
       modifiers:
@@ -40,7 +40,7 @@
       type: traits
       gw2id: 1245
 
-    dagger-training-dagger:
+    - id: dagger-training-dagger
       text: Dagger Training
       subText: with dagger
       modifiers:
@@ -49,7 +49,7 @@
       type: traits
       gw2id: 1245
 
-    deadly-ambition:
+    - id: deadly-ambition
       text: Deadly Ambition
       modifiers:
         attributes:
@@ -57,7 +57,7 @@
       type: traits
       gw2id: 1164
 
-    revealed-training-base:
+    - id: revealed-training-base
       text: Revealed Training
       subText: base
       modifiers:
@@ -66,7 +66,7 @@
       type: traits
       gw2id: 1704
 
-    revealed-training-revealed:
+    - id: revealed-training-revealed
       text: Revealed Training
       subText: 100% revealed - also check base
       modifiers:
@@ -75,7 +75,7 @@
       type: traits
       gw2id: 1704
 
-    exposed-weakness:
+    - id: exposed-weakness
       text: Exposed Weakness
       subText: 10 conditions
       minor: true
@@ -85,7 +85,7 @@
       type: traits
       gw2id: 1257
 
-    potent-poison:
+    - id: potent-poison
       text: Potent Poison
       modifiers:
         attributes:
@@ -94,7 +94,7 @@
       type: traits
       gw2id: 1291
 
-    executioner:
+    - id: executioner
       text: Executioner
       subText: 50%
       modifiers:
@@ -107,7 +107,7 @@
   id: 35
   items:
 
-    keen-observer:
+    - id: keen-observer
       text: Keen Observer
       subText: 100%
       minor: true
@@ -117,7 +117,7 @@
       type: traits
       gw2id: 1281
 
-    twin-fangs-scholar:
+    - id: twin-fangs-scholar
       text: Twin Fangs
       subText: 100% scholar (check both)
       modifiers:
@@ -126,7 +126,7 @@
       type: traits
       gw2id: 1268
 
-    twin-fangs-flank:
+    - id: twin-fangs-flank
       text: Twin Fangs
       subText: 100% flanking (check both)
       modifiers:
@@ -135,7 +135,7 @@
       type: traits
       gw2id: 1268
 
-    practiced-tolerance:
+    - id: practiced-tolerance
       text: Practiced Tolerance
       modifiers:
         conversion:
@@ -143,7 +143,7 @@
       type: traits
       gw2id: 1272
 
-    ferocious-strikes:
+    - id: ferocious-strikes
       text: Ferocious Strikes
       subText: 50% above 50%, average
       minor: true
@@ -153,7 +153,7 @@
       type: traits
       gw2id: 1282
 
-    ferocious-strikes-always:
+    - id: ferocious-strikes-always
       text: Ferocious Strikes
       subText: always above 50%
       minor: true
@@ -163,7 +163,7 @@
       type: traits
       gw2id: 1282
 
-    no-quarter:
+    - id: no-quarter
       text: No Quarter
       modifiers:
         attributes:
@@ -175,7 +175,7 @@
   id: 54
   items:
 
-    endless-stamina:
+    - id: endless-stamina
       text: Endless Stamina
       minor: true
       modifiers:
@@ -188,7 +188,7 @@
   id: 44
   items:
 
-    preparedness:
+    - id: preparedness
       text: Preparedness
       minor: true
       modifiers:
@@ -197,7 +197,7 @@
       type: traits
       gw2id: 1232
 
-    lead-attacks:
+    - id: lead-attacks
       text: Lead Attacks
       subText: 15x
       minor: true
@@ -208,7 +208,7 @@
       type: traits
       gw2id: 1157
 
-    deadly-ambush:
+    - id: deadly-ambush
       text: Deadly Ambush
       modifiers:
         attributes:
@@ -220,7 +220,7 @@
   id: 7
   items:
 
-    marauders-resilience:
+    - id: marauders-resilience
       text: Marauder's Resilience
       modifiers:
         damage:
@@ -230,7 +230,7 @@
       type: traits
       gw2id: 1933
 
-    weakening-strikes:
+    - id: weakening-strikes
       text: Weakening Strikes
       subText: 100%
       minor: true
@@ -241,7 +241,7 @@
       type: traits
       gw2id: 1887
 
-    staff-master-base:
+    - id: staff-master-base
       text: Staff Master
       subText: base
       modifiers:
@@ -250,7 +250,7 @@
       type: traits
       gw2id: 1884
 
-    staff-master-staff:
+    - id: staff-master-staff
       text: Staff Master
       subText: with staff (check both)
       modifiers:
@@ -259,7 +259,7 @@
       type: traits
       gw2id: 1884
 
-    havoc-specialist:
+    - id: havoc-specialist
       text: Havoc Specialist
       subText: 3x
       modifiers:
@@ -268,7 +268,7 @@
       type: traits
       gw2id: 1893
 
-    bounding-dodger:
+    - id: bounding-dodger
       text: Bounding Dodger
       subText: 100% uptime
       modifiers:
@@ -277,7 +277,7 @@
       type: traits
       gw2id: 2047
 
-    lotus-training:
+    - id: lotus-training
       text: Lotus Training
       subText: 100% uptime
       modifiers:
@@ -290,7 +290,7 @@
   id: 58
   items:
 
-    silent-scope-base:
+    - id: silent-scope-base
       text: Silent Scope
       subText: base
       modifiers:
@@ -299,7 +299,7 @@
       type: traits
       gw2id: 2118
 
-    silent-scope-rifle:
+    - id: silent-scope-rifle
       text: Silent Scope
       subText: with rifle (check both)
       modifiers:
@@ -308,7 +308,7 @@
       type: traits
       gw2id: 2118
 
-    premeditation-6:
+    - id: premeditation-6
       text: Premeditation
       subText: 6x
       modifiers:
@@ -319,7 +319,7 @@
       type: traits
       gw2id: 2160
 
-    premeditation-9:
+    - id: premeditation-9
       text: Premeditation
       subText: 9x
       modifiers:
@@ -330,7 +330,7 @@
       type: traits
       gw2id: 2160
 
-    iron-sight:
+    - id: iron-sight
       text: Iron Sight
       minor: true
       modifiers:
@@ -340,7 +340,7 @@
       type: traits
       gw2id: 2084
 
-    be-quick-or-be-killed:
+    - id: be-quick-or-be-killed
       text: Be Quick or Be Killed
       modifiers:
         attributes:
