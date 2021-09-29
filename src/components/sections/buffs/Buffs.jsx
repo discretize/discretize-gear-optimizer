@@ -6,6 +6,8 @@ import { changeBuff, getBuffs } from '../../../state/slices/buffs';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
+import { buffModifiers } from '../../../assets/modifierdata';
+
 const styles = (theme) => ({
   boon: {
     fontSize: 18,
@@ -18,7 +20,7 @@ const styles = (theme) => ({
   },
 });
 
-const Buffs = ({ classes, data }) => {
+const Buffs = ({ classes }) => {
   const dispatch = useDispatch();
 
   const buffs = useSelector(getBuffs);
@@ -39,7 +41,7 @@ const Buffs = ({ classes, data }) => {
 
   return (
     <Grid container spacing={4}>
-      {data.map((section) => (
+      {buffModifiers.map((section) => (
         <Grid key={section.section} item xs={12} sm={6} md={4}>
           <FormControl component="fieldset" className={classes.formControl}>
             <FormLabel component="legend">{section.section}</FormLabel>
@@ -82,12 +84,7 @@ const Buffs = ({ classes, data }) => {
                     value={buff.id}
                     checked={buffs[buff.id]}
                     label={
-                      <Component
-                        id={buff.gw2_id}
-                        name={name}
-                        disableLink
-                        className={classes.boon}
-                      />
+                      <Component id={buff.gw2id} name={name} disableLink className={classes.boon} />
                     }
                     onChange={handleChange(buff)}
                   />

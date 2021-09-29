@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { setBuildTemplate, setModifiers } from '../gearOptimizerSlice';
 
+import { buffModifiersById } from '../../assets/modifierdata';
+
 export const buffsSlice = createSlice({
   name: 'buffs',
   initialState: {
@@ -57,21 +59,13 @@ export const buffsSlice = createSlice({
 
       return { ...state, buffs };
     },
-    [setModifiers]: (state, action) => {
-      const { data } = action.payload;
+    [setModifiers]: (state) => {
+      const enabledModifiers = Object.keys(state.buffs).filter((key) => state.buffs[key]);
 
-      // all selected modifiers will be collected in this array
-      const modifiers = [];
-
-      // Apply "buffs" modifiers
-      data.buffs.list
-        .flatMap((d) => d.items)
-        .filter((elem) => state.buffs[elem.id])
-        .forEach((elem) =>
-          modifiers.push({ id: elem.id, modifiers: elem.modifiers, gw2id: elem.gw2id }),
-        );
-
-      state.modifiers = modifiers;
+      state.modifiers = enabledModifiers.map((id) => {
+        const { modifiers, gw2id } = buffModifiersById[id];
+        return { id, modifiers, gw2id };
+      });
     },
   },
 });

@@ -8,6 +8,24 @@ import revenant from './revenant.yaml';
 import thief from './thief.yaml';
 import warrior from './warrior.yaml';
 
+import food from './food.yaml';
+import utility from './utility.yaml';
+import runes from './runes.yaml';
+import sigils from './sigils.yaml';
+
+import buffs from './buffs.yaml';
+
+// combines items in all sections into one object
+const byId = (sections) => {
+  const sectionsFlat = sections.flatMap(
+    (section) => section.items?.map(({ id, ...rest }) => [id, { ...rest }]) || [],
+  );
+  return Object.fromEntries(sectionsFlat);
+};
+// flattens each entry in a group
+const allById = (group) =>
+  Object.fromEntries(Object.entries(group).map(([key, value]) => [key, byId(value)]));
+
 export const classModifiers = {
   elementalist,
   engineer,
@@ -19,9 +37,25 @@ export const classModifiers = {
   thief,
   warrior,
 };
+export const classModifiersById = allById(classModifiers);
 
-export { default as buffModifiers } from './buffs.yaml';
-export { default as foodModifiers } from './food.yaml';
-export { default as utilityModifiers } from './utility.yaml';
-export { default as runeModifiers } from './runes.yaml';
-export { default as sigilModifiers } from './sigils.yaml';
+export const extrasModifiers = {
+  food,
+  utility,
+  runes,
+  sigils,
+};
+export const extrasModifiersById = allById(extrasModifiers);
+
+export const buffModifiers = buffs;
+export const buffModifiersById = byId(buffs);
+
+/*
+import {
+  classModifiers,
+  classModifiersById,
+  buffModifiers,
+  extrasModifiers,
+  extrasModifiersById,
+} from '../../../assets/modifierdata';
+*/

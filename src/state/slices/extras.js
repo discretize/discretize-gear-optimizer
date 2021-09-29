@@ -1,6 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { setBuildTemplate, setModifiers } from '../gearOptimizerSlice';
 
+import { extrasModifiersById } from '../../assets/modifierdata';
+
+const modifierData = {
+  Runes: extrasModifiersById.runes,
+  Sigil1: extrasModifiersById.sigils,
+  Sigil2: extrasModifiersById.sigils,
+  Nourishment: extrasModifiersById.food,
+  Enhancement: extrasModifiersById.utility,
+};
+
 export const extrasSlice = createSlice({
   name: 'extras',
   initialState: {
@@ -21,34 +31,14 @@ export const extrasSlice = createSlice({
       const templateState = JSON.parse(action.payload.build.traits);
       return { ...state, ...templateState.extras };
     },
-    [setModifiers]: (state, action) => {
-      const { data } = action.payload;
+    [setModifiers]: (state) => {
+      const enabledTypes = Object.keys(modifierData).filter((key) => state[key]);
 
-      // all selected modifiers will be collected in this array
-      const modifiers = [];
-
-      // Applies runes, sigils, food modifiers
-      const extrasData = [
-        { id: 'Runes', list: data.runes.list },
-        { id: 'Sigil1', list: data.sigils.list },
-        { id: 'Sigil2', list: data.sigils.list },
-        { id: 'Enhancement', list: data.enhancement.list },
-        { id: 'Nourishment', list: data.nourishment.list },
-      ];
-
-      extrasData
-        .filter((extra) => state[extra.id] !== '')
-        .filter((extra) => state[extra.id] !== undefined)
-        .forEach((extra) => {
-          modifiers.push({
-            id: state[extra.id],
-            modifiers: extra.list.flatMap((d) => d.items).find((a) => a.id === state[extra.id])
-              .modifiers,
-            source: extra.id,
-          });
-        });
-
-      state.modifiers = modifiers;
+      state.modifiers = enabledTypes.map((type) => {
+        const id = state[type];
+        const { modifiers } = modifierData[type][id];
+        return { id, modifiers, source: type };
+      });
     },
   },
 });

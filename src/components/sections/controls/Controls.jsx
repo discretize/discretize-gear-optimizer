@@ -11,7 +11,7 @@ import { changeControl, getControl, setModifiers } from '../../../state/gearOpti
 import { ABORTED, RUNNING, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 
-const ControlsBox = ({ classes, profession, data }) => {
+const ControlsBox = ({ classes, profession }) => {
   const dispatch = useDispatch();
 
   const status = useSelector(getControl('status'));
@@ -21,14 +21,14 @@ const ControlsBox = ({ classes, profession, data }) => {
       console.log('calculate');
 
       // pass data from GraphQL
-      dispatch(setModifiers({ data, profession }));
+      dispatch(setModifiers({ profession }));
 
       dispatch(changeControl({ key: 'status', value: RUNNING }));
       dispatch({
         type: 'START',
       });
     },
-    [data, dispatch, profession],
+    [dispatch, profession],
   );
 
   const onCancelCalculate = React.useCallback(

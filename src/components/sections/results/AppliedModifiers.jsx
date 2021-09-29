@@ -13,6 +13,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';
 
+import { buffModifiersById } from '../../../assets/modifierdata';
+
 const styles = (theme) => ({
   root: {
     width: '100%',
@@ -32,12 +34,10 @@ const styles = (theme) => ({
 //   Condition,
 // };
 
-const AffixesStats = ({ classes, data, buffData }) => {
-  const allBuffs = buffData.flatMap((d) => d.items);
-
+const AppliedModifiers = ({ classes, data }) => {
   const appliedData = data.map((d) => {
-    const allData = allBuffs.find((a) => a.id === d.id);
-    if (allData) return { ...allData };
+    const allData = buffModifiersById[d.id];
+    if (allData) return { id: d.id, ...allData };
     return d;
   });
   return (
@@ -59,7 +59,7 @@ const AffixesStats = ({ classes, data, buffData }) => {
                     <TableCell>
                       <Typography className={classes.gw2Item}> {modifier.id} </Typography>
                     </TableCell>
-                    <TableCell>{modifier.modifiers}</TableCell>
+                    <TableCell>{JSON.stringify(modifier.modifiers)}</TableCell>
                   </TableRow>
                 );
               })}
@@ -71,4 +71,4 @@ const AffixesStats = ({ classes, data, buffData }) => {
   );
 };
 
-export default withStyles(styles)(AffixesStats);
+export default withStyles(styles)(AppliedModifiers);
