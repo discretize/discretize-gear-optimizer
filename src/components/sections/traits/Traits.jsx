@@ -132,7 +132,7 @@ const Traits = ({ classes, data }) => {
       const matching = data.find((v) => v.id === Number(traitlines[index]));
       if (typeof matching === 'undefined') return null;
 
-      const matchingFiltered = matching.items.filter((v) => v.gw2id === t);
+      const matchingFiltered = matching.items.filter((item) => item.gw2id === t);
       checkboxModis.push(...matchingFiltered);
     });
 
