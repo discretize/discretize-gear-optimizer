@@ -15,7 +15,10 @@ const styles = (theme) => ({
 
 const SpecialDurations = ({ classes, data }) => {
   const cleanedData = Object.keys(data).filter(
-    (d) => d.includes('Duration') && !d.includes('Boon') && !d.includes('Condition'),
+    (damageType) =>
+      damageType.includes('Duration') &&
+      !damageType.includes('Boon') &&
+      !damageType.includes('Condition'),
   );
 
   if (cleanedData.length === 0) return null;

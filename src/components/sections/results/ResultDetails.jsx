@@ -67,19 +67,17 @@ const ResultDetails = ({ data }) => {
   let infusions = [...Array(18).fill(49432)];
 
   if (character.infusions) {
-    infusions = Object.keys(character.infusions)
-      .map((key) =>
-        // eslint-disable-next-line no-undef
-        _.times(
-          character.infusions[key],
-          () => INFUSIONS.find((infu) => infu.attribute === key).id,
-        ),
-      )
-      .flatMap((e) => e);
+    infusions = Object.keys(character.infusions).flatMap((key) =>
+      // eslint-disable-next-line no-undef
+      _.times(
+        character.infusions[key],
+        () => INFUSIONS.find((entry) => entry.attribute === key).id,
+      ),
+    );
     // fill up the remaining slots with generic +9 Agony Infusions
     infusions = [
       ...infusions,
-      // eslint-disable-next-line no-undef
+      // eslint-disable-next-line no-undef, id-length
       ..._.times(18 - Object.values(character.infusions).reduce((p, c) => p + c), () => 49432),
     ];
   }
@@ -97,7 +95,7 @@ const ResultDetails = ({ data }) => {
   let weapData;
 
   if (priority === 'Dual wield') {
-    wea1 = classData.mainHand.find((d) => d.type === 'one-handed');
+    wea1 = classData.mainHand.find((item) => item.type === 'one-handed');
     [wea2] = classData.offHand;
     weapData = {
       weapon1MainId: wea1.gw2id,
@@ -112,7 +110,7 @@ const ResultDetails = ({ data }) => {
       weapon1OffSigil: firstUppercase(sigil2),
     };
   } else {
-    wea1 = classData.mainHand.find((d) => d.type === 'two-handed');
+    wea1 = classData.mainHand.find((item) => item.type === 'two-handed');
     weapData = {
       weapon1MainId: wea1.gw2id,
       weapon1MainInfusion1Id: infusions[16],
@@ -139,7 +137,7 @@ const ResultDetails = ({ data }) => {
   // currently selected specialization. In case multiple elite specializations are selected, only the first one is counted.
   // In case no specialization is selected, the variable defaults to the core profession
   const currentSpecialization =
-    selectedTraitLinesNames.find((s) => eliteSpecializations.includes(s.toUpperCase())) ||
+    selectedTraitLinesNames.find((spec) => eliteSpecializations.includes(spec.toUpperCase())) ||
     profession;
 
   const imageRaw = data.images.edges
@@ -148,15 +146,17 @@ const ResultDetails = ({ data }) => {
   const image = getImage(imageRaw);
 
   // Replace the names to match gw2-ui names
-  const damageBreakdown = Object.keys(character.results.effectiveDamageDistribution).map((d) => ({
-    name: d === 'Poison Damage' ? 'Poisoned' : d.replace('Damage', '').trim(),
-    value: character.results.damageBreakdown[d],
-  }));
+  const damageBreakdown = Object.keys(character.results.effectiveDamageDistribution).map(
+    (damageType) => ({
+      name: damageType === 'Poison Damage' ? 'Poisoned' : damageType.replace('Damage', '').trim(),
+      value: character.results.damageBreakdown[damageType],
+    }),
+  );
 
   const effectiveDistribution = Object.keys(character.results.effectiveDamageDistribution).map(
-    (d) => ({
-      name: d === 'Poison Damage' ? 'Poisoned' : d.replace('Damage', '').trim(),
-      value: character.results.effectiveDamageDistribution[d],
+    (damageType) => ({
+      name: damageType === 'Poison Damage' ? 'Poisoned' : damageType.replace('Damage', '').trim(),
+      value: character.results.effectiveDamageDistribution[damageType],
     }),
   );
 

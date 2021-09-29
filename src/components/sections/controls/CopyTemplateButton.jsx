@@ -1,3 +1,4 @@
+/* eslint-disable id-length */
 import { Button, MenuItem, Select, Snackbar } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
 import { Icon } from 'gw2-ui-bulk';

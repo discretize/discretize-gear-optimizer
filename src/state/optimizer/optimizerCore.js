@@ -765,6 +765,7 @@ function insertCharacter(character) {
 }
 
 // returns true if B is better than A
+// eslint-disable-next-line id-length
 export function characterLT(a, b) {
   const { settings } = a;
 

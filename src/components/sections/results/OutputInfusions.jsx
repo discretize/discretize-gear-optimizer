@@ -11,9 +11,9 @@ const styles = (theme) => ({
 });
 
 const OutputInfusions = ({ classes, data }) => {
-  const infusions = Object.keys(data).map((d) => ({
-    ...INFUSIONS.find((infu) => infu.attribute === d),
-    count: data[d],
+  const infusions = Object.keys(data).map((type) => ({
+    ...INFUSIONS.find((entry) => entry.attribute === type),
+    count: data[type],
   }));
   return (
     <>

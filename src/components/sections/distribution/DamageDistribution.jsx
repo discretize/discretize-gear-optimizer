@@ -136,15 +136,15 @@ const DamageDistribution = ({ classes }) => {
           />
         </div>
         <Grid container spacing={2}>
-          {DISTRIBUTION_NAMES.map((d) => (
-            <Grid key={d.name} item xs>
+          {DISTRIBUTION_NAMES.map((dist) => (
+            <Grid key={dist.name} item xs>
               <Typography style={{ whiteSpace: 'nowrap' }}>
-                {d.name === 'Power' ? (
+                {dist.name === 'Power' ? (
                   <Attribute name="Power" style={{ whiteSpace: 'nowrap' }} />
                 ) : (
-                  <Condition name={d.name} disableLink style={{ whiteSpace: 'nowrap' }} />
+                  <Condition name={dist.name} disableLink style={{ whiteSpace: 'nowrap' }} />
                 )}{' '}
-                {distributionOld[d.name]}%
+                {distributionOld[dist.name]}%
               </Typography>
             </Grid>
           ))}
@@ -169,44 +169,44 @@ const DamageDistribution = ({ classes }) => {
     dispatch(changeTextBoxes({ index: key, value }));
   };
   const SlidersNew = () => {
-    return DISTRIBUTION_NAMES.map((d, index) => (
-      <Box display="flex" flexWrap="wrap" key={`distriNew_${d.name}`}>
+    return DISTRIBUTION_NAMES.map((dist, index) => (
+      <Box display="flex" flexWrap="wrap" key={`distriNew_${dist.name}`}>
         <Box>
           <FormControl className={classNames(classes.margin, classes.textbox)}>
             <InputLabel htmlFor={`input-with-icon-adornment-${index}`}>
-              {d.name === 'Power' ? (
+              {dist.name === 'Power' ? (
                 <Attribute name="Power" text="Power Coefficient" />
               ) : (
-                <Condition name={d.name} text={`Avg. ${d.name} stacks`} />
+                <Condition name={dist.name} text={`Avg. ${dist.name} stacks`} />
               )}
             </InputLabel>
             <Input
               id={`input-with-icon-adornment-${index}`}
-              value={textBoxes[d.name]}
+              value={textBoxes[dist.name]}
               endAdornment={
                 <InputAdornment position="end">
-                  {d.name === 'Power' ? (
+                  {dist.name === 'Power' ? (
                     <Attribute name="Power" disableLink disableText />
                   ) : (
-                    <Condition name={d.name} disableLink disableText />
+                    <Condition name={dist.name} disableLink disableText />
                   )}
                 </InputAdornment>
               }
-              onChange={handleChangeTextNew(d.name)}
+              onChange={handleChangeTextNew(dist.name)}
             />
           </FormControl>
         </Box>
         <Box flexGrow={1}>
           <Nouislider
             className={classNames(classes.sliderNew, classes.slider)}
-            start={distributionNew[d.name]}
+            start={distributionNew[dist.name]}
             connect={[true, false]}
             range={{
-              min: [d.min],
-              max: [d.max],
+              min: [dist.min],
+              max: [dist.max],
             }}
-            step={d.step}
-            onSlide={debounce(onUpdateNew(d.name), 50)}
+            step={dist.step}
+            onSlide={debounce(onUpdateNew(dist.name), 50)}
           />
         </Box>
       </Box>

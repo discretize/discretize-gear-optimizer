@@ -25,13 +25,13 @@ export const traitsSlice = createSlice({
       state.modifiers = state.modifiers.concat(action.payload);
     },
     removeTraitModifier: (state, action) => {
-      state.modifiers = state.modifiers.filter((m) => m.id !== action.payload);
+      state.modifiers = state.modifiers.filter((modifier) => modifier.id !== action.payload);
     },
     removeTraitModifierWithGW2id: (state, action) => {
-      state.modifiers = state.modifiers.filter((m) => m.gw2id !== action.payload);
+      state.modifiers = state.modifiers.filter((modifier) => modifier.gw2id !== action.payload);
     },
     removeTraitModifierWithSource: (state, action) => {
-      state.modifiers = state.modifiers.filter((m) => m.source !== action.payload);
+      state.modifiers = state.modifiers.filter((modifier) => modifier.source !== action.payload);
     },
   },
   extraReducers: {
