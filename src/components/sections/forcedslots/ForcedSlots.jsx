@@ -69,9 +69,9 @@ const ForcedSlots = ({ classes }) => {
   };
   return (
     <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" spacing={2}>
-      {SLOTS.slice(0, 6).map((s, index) => input2(s.name, index, 0))}
-      {SLOTS.slice(6, 10).map((s, index) => input2(s.name, index, 6))}
-      {SLOTS.slice(10).map((s, index) => input2(s.name, index, 10))}
+      {SLOTS.slice(0, 6).map((slot, index) => input2(slot.name, index, 0))}
+      {SLOTS.slice(6, 10).map((slot, index) => input2(slot.name, index, 6))}
+      {SLOTS.slice(10).map((slot, index) => input2(slot.name, index, 10))}
     </Grid>
   );
 };
