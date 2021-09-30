@@ -58,7 +58,7 @@ const Traits = ({ classes, data }) => {
     // distinct minors are minor traits where no selection is necessary because the buffs
     // they provide are not ambigous or conditional
     const distinctMinors = data
-      .find((traitline) => traitline.id === newTraitLine)
+      .find((section) => section.id === newTraitLine)
       .items.filter((item) => item.minor === true && item.subText === null);
 
     distinctMinors.forEach((minor) =>
@@ -113,7 +113,7 @@ const Traits = ({ classes, data }) => {
   return [1, 2, 3].map((lineNr, index) => {
     const checkboxModis = [];
 
-    const distinctMinors = data.find((traitline) => traitline.id === Number(traitlines[index]));
+    const distinctMinors = data.find((section) => section.id === Number(traitlines[index]));
     const distinctMinorsWithSub = distinctMinors
       ? distinctMinors.items.filter((item) => item.minor === true && item.subText !== null)
       : [];

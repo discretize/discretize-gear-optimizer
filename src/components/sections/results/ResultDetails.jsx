@@ -69,10 +69,7 @@ const ResultDetails = ({ data }) => {
   if (character.infusions) {
     infusions = Object.keys(character.infusions).flatMap((key) =>
       // eslint-disable-next-line no-undef
-      _.times(
-        character.infusions[key],
-        () => INFUSIONS.find((entry) => entry.attribute === key).id,
-      ),
+      _.times(character.infusions[key], () => INFUSIONS.find((infu) => infu.attribute === key).id),
     );
     // fill up the remaining slots with generic +9 Agony Infusions
     infusions = [
