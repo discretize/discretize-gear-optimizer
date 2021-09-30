@@ -14,6 +14,7 @@
 
     - id: seething-malice
       text: Seething Malice
+      minor: true
       modifiers:
         attributes:
           Condition Damage: [120, buff]
@@ -38,6 +39,7 @@
 
     - id: yearning-empowerment
       text: Yearning Empowerement
+      minor: true
       modifiers:
         attributes:
           Condition Duration: 10%

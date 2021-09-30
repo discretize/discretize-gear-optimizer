@@ -190,20 +190,20 @@ list:
 
   - name: Condi RR (Invocation)
     profession: RENEGADE
-    distribution: [30, 57, 69, 75, 100]
+    distribution: [31, 58, 70, 76, 100]
     value: >-
       {
-        "values1": { "Power": 30, "Burning": 27, "Bleeding": 12, "Poisoned": 6, "Torment": 25, "Confusion": 0 },
-        "values2": { "Power": 1975, "Burning": 5.5, "Bleeding": 14.7, "Poisoned": 4.6, "Torment": 20.2, "Confusion": 0 }
+        "values1": { "Power": 31, "Burning": 27, "Bleeding": 12, "Poisoned": 6, "Torment": 24, "Confusion": 0 },
+        "values2": { "Power": 1973, "Burning": 5.0, "Bleeding": 14.1, "Poisoned": 4.2, "Torment": 18.4, "Confusion": 0 }
       }
 
   - name: Condi Renegade (Devastation)
     profession: RENEGADE
-    distribution: [42, 63, 74, 80, 100]
+    distribution: [44, 64, 75, 80, 100]
     value: >-
       {
-        "values1": { "Power": 42, "Burning": 21, "Bleeding": 11, "Poisoned": 6, "Torment": 20, "Confusion": 0 },
-        "values2": { "Power": 2980, "Burning": 4.6, "Bleeding": 13.7, "Poisoned": 4.9, "Torment": 18.3, "Confusion": 0 }
+        "values1": { "Power": 44, "Burning": 20, "Bleeding": 11, "Poisoned": 5, "Torment": 20, "Confusion": 0 },
+        "values2": { "Power": 2978, "Burning": 4.2, "Bleeding": 13.1, "Poisoned": 4.5, "Torment": 16.7, "Confusion": 0 }
       }
 
   # - name: Condi Renegade (Invocation)
