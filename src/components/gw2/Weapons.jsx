@@ -84,7 +84,7 @@ const Weapons = ({
                 weapon1MainSigil2Id,
                 weapon1MainInfusion1Id,
                 weapon1MainInfusion2Id,
-              ].filter((d) => d !== undefined)}
+              ].filter((id) => id !== undefined)}
               disableText
             />
             <ListItemText
@@ -107,7 +107,7 @@ const Weapons = ({
             id={weapon1OffId}
             stat={weapon1OffAffix}
             className={classes.gw2Item}
-            upgrades={[weapon1OffSigilId, weapon1OffInfusionId].filter((d) => d !== undefined)}
+            upgrades={[weapon1OffSigilId, weapon1OffInfusionId].filter((id) => id !== undefined)}
             disableText
           />
           <ListItemText
@@ -143,7 +143,7 @@ const Weapons = ({
                   weapon2MainSigil2Id,
                   weapon2MainInfusion1Id,
                   weapon2MainInfusion2Id,
-                ].filter((d) => d !== undefined)}
+                ].filter((id) => id !== undefined)}
                 disableText
               />
               <ListItemText
@@ -165,7 +165,9 @@ const Weapons = ({
                 id={weapon2OffId}
                 stat={weapon2OffAffix}
                 className={classes.gw2Item}
-                upgrades={[weapon2OffSigilId, weapon2OffInfusionId].filter((d) => d !== undefined)}
+                upgrades={[weapon2OffSigilId, weapon2OffInfusionId].filter(
+                  (id) => id !== undefined,
+                )}
                 disableText
               />
               <ListItemText

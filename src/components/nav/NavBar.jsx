@@ -178,8 +178,8 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
   const displayDesktop = () => (
     <Toolbar>
       <Box flexGrow={1}>
-        {PROFESSIONS.map((p, index) => (
-          <React.Fragment key={p.profession}>
+        {PROFESSIONS.map((prof, index) => (
+          <React.Fragment key={prof.profession}>
             <Button
               onMouseOver={(e) =>
                 setState({
@@ -191,14 +191,14 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
               onClick={() => {
                 dispatch({ type: 'CANCEL' });
                 if (expertMode) {
-                  dispatch(changeProfession(p.profession));
+                  dispatch(changeProfession(prof.profession));
                 }
               }}
-              variant={p.profession === profession ? 'contained' : 'text'}
+              variant={prof.profession === profession ? 'contained' : 'text'}
               {...bindHover(popupState[index])}
             >
               <Profession
-                name={firstUppercase(p.profession)}
+                name={firstUppercase(prof.profession)}
                 disableLink
                 disableText
                 className={classes.navProfession}
@@ -211,7 +211,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
               transformOrigin={{ vertical: 'top', horizontal: 'left' }}
             >
               {data
-                .find((elem) => elem.class === p.profession.toLowerCase())
+                .find((elem) => elem.class === prof.profession.toLowerCase())
                 ?.builds?.map((elem) => (
                   <MenuItem
                     key={elem.name}
@@ -220,7 +220,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
                         popupState[index],
                         elem,
                         elem.specialization,
-                        p.profession,
+                        prof.profession,
                       )
                     }
                   >

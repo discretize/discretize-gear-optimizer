@@ -70,7 +70,7 @@ const Weapons = ({ classes, ...rest }) => {
           stat={backItemAffix}
           type="Back Item"
           //  statsId={backItemStatsId}
-          upgrades={[backItemInfusion1Id, backItemInfusion2Id].filter((i) => i !== undefined)}
+          upgrades={[backItemInfusion1Id, backItemInfusion2Id].filter((id) => id !== undefined)}
           disableText
           className={classes.gw2Item}
         />
@@ -89,7 +89,7 @@ const Weapons = ({ classes, ...rest }) => {
           stat={accessory1Affix}
           // statsId={accessory1StatsId}
           type="Accessory"
-          upgrades={[accessory1InfusionId].filter((i) => i !== undefined)}
+          upgrades={[accessory1InfusionId].filter((id) => id !== undefined)}
           disableText
           className={classes.gw2Item}
         />
@@ -104,7 +104,7 @@ const Weapons = ({ classes, ...rest }) => {
           stat={accessory2Affix}
           // statsId={accessory2StatsId}
           type="Accessory"
-          upgrades={[accessory2InfusionId].filter((i) => i !== undefined)}
+          upgrades={[accessory2InfusionId].filter((id) => id !== undefined)}
           disableText
           className={classes.gw2Item}
         />
@@ -130,7 +130,7 @@ const Weapons = ({ classes, ...rest }) => {
           stat={ring1Affix}
           // statsId={ring1StatsId}
           upgrades={[ring1Infusion1Id, ring1Infusion2Id, ring1Infusion3Id].filter(
-            (i) => i !== undefined,
+            (id) => id !== undefined,
           )}
           type="Ring"
           disableText
@@ -147,7 +147,7 @@ const Weapons = ({ classes, ...rest }) => {
           stat={ring2Affix}
           // statsId={ring2StatsId}
           upgrades={[ring2Infusion1Id, ring2Infusion2Id, ring2Infusion3Id].filter(
-            (i) => i !== undefined,
+            (id) => id !== undefined,
           )}
           type="Ring"
           disableText

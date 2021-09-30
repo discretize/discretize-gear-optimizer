@@ -14,7 +14,7 @@ export const skillsSlice = createSlice({
       return { ...state, skills: state.skills.concat(action.payload) };
     },
     removeSkill: (state, action) => {
-      return { ...state, skills: state.skills.filter((v) => v !== action.payload) };
+      return { ...state, skills: state.skills.filter((skill) => skill !== action.payload) };
     },
   },
   extraReducers: {

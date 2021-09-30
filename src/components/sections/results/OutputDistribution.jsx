@@ -18,16 +18,16 @@ const OutputDistribution = ({ classes, title, data }) => {
       <Typography variant="h6">{title}</Typography>
       <Table padding="none">
         <TableBody>
-          {data.map((d) => (
-            <TableRow hover key={d.name}>
+          {data.map((damageType) => (
+            <TableRow hover key={damageType.name}>
               <TableCell>
-                {d.name === 'Power' ? (
+                {damageType.name === 'Power' ? (
                   <Attribute name="Power" className={classes.gw2Item} />
                 ) : (
-                  <Condition name={d.name} className={classes.gw2Item} />
+                  <Condition name={damageType.name} className={classes.gw2Item} />
                 )}
               </TableCell>
-              <TableCell>{d.value}</TableCell>
+              <TableCell>{damageType.value}</TableCell>
             </TableRow>
           ))}
         </TableBody>

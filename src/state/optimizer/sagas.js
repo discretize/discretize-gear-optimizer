@@ -50,6 +50,7 @@ function printTemplateHelper(state, list) {
     console.log('Best Result Damage:');
     console.table([
       Object.fromEntries(
+        // eslint-disable-next-line id-length
         Object.entries(bestResult.results.damageBreakdown).map(([a, b]) => [a, parseFloat(b)]),
       ),
     ]);
@@ -96,7 +97,9 @@ function createInput(state) {
     tags: undefined,
     profession: profession.toLowerCase(),
     weapontype: weaponType,
-    affixes: affixes.map((affix) => affix.toLowerCase().replace(/^\w/, (c) => c.toUpperCase())),
+    affixes: affixes.map((affix) =>
+      affix.toLowerCase().replace(/^\w/, (char) => char.toUpperCase()),
+    ),
     forcedAffixes: slots,
     rankby: optimizeFor,
     minBoonDuration,
@@ -104,8 +107,8 @@ function createInput(state) {
     minToughness,
     maxToughness,
     maxResults: 50, // TODO MAX RESULTS
-    primaryInfusion: INFUSIONS.find((i) => i.id === primaryInfusion)?.attribute,
-    secondaryInfusion: INFUSIONS.find((i) => i.id === secondaryInfusion)?.attribute,
+    primaryInfusion: INFUSIONS.find((entry) => entry.id === primaryInfusion)?.attribute,
+    secondaryInfusion: INFUSIONS.find((entry) => entry.id === secondaryInfusion)?.attribute,
     primaryMaxInfusions,
     secondaryMaxInfusions,
     distributionVersion: version,

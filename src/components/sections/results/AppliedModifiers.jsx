@@ -35,10 +35,10 @@ const styles = (theme) => ({
 // };
 
 const AppliedModifiers = ({ classes, data }) => {
-  const appliedData = data.map((d) => {
-    const allData = buffModifiersById[d.id];
-    if (allData) return { id: d.id, ...allData };
-    return d;
+  const appliedData = data.map((item) => {
+    const allData = buffModifiersById[item.id];
+    if (allData) return { id: item.id, ...allData };
+    return item;
   });
   return (
     <>

@@ -58,8 +58,8 @@ const Traits = ({ classes, data }) => {
     // distinct minors are minor traits where no selection is necessary because the buffs
     // they provide are not ambigous or conditional
     const distinctMinors = data
-      .find((l) => l.id === newTraitLine)
-      .items.filter((l) => l.minor === true && l.subText === null);
+      .find((section) => section.id === newTraitLine)
+      .items.filter((item) => item.minor === true && item.subText === null);
 
     distinctMinors.forEach((minor) =>
       dispatch(
@@ -113,9 +113,9 @@ const Traits = ({ classes, data }) => {
   return [1, 2, 3].map((lineNr, index) => {
     const checkboxModis = [];
 
-    const distinctMinors = data.find((l) => l.id === Number(traitlines[index]));
+    const distinctMinors = data.find((section) => section.id === Number(traitlines[index]));
     const distinctMinorsWithSub = distinctMinors
-      ? distinctMinors.items.filter((l) => l.minor === true && l.subText !== null)
+      ? distinctMinors.items.filter((item) => item.minor === true && item.subText !== null)
       : [];
 
     checkboxModis.push(...distinctMinorsWithSub);
@@ -123,7 +123,7 @@ const Traits = ({ classes, data }) => {
     const minorCheckboxModis = [];
 
     const distinctMinorsWithoutSub = distinctMinors
-      ? distinctMinors.items.filter((l) => l.minor === true && l.subText === null)
+      ? distinctMinors.items.filter((item) => item.minor === true && item.subText === null)
       : [];
 
     minorCheckboxModis.push(...distinctMinorsWithoutSub);
@@ -132,7 +132,7 @@ const Traits = ({ classes, data }) => {
       const matching = data.find((v) => v.id === Number(traitlines[index]));
       if (typeof matching === 'undefined') return null;
 
-      const matchingFiltered = matching.items.filter((v) => v.gw2id === t);
+      const matchingFiltered = matching.items.filter((item) => item.gw2id === t);
       checkboxModis.push(...matchingFiltered);
     });
 
@@ -154,9 +154,9 @@ const Traits = ({ classes, data }) => {
               .filter(
                 (tr) => !traitlines.includes(tr.toString()) || traitlines[index] === tr.toString(),
               )
-              .map((v) => (
-                <MenuItem key={v} value={v} className={classes.menuItem}>
-                  <ListItemText primary={<Specialization id={v} disableLink />} />
+              .map((id) => (
+                <MenuItem key={id} value={id} className={classes.menuItem}>
+                  <ListItemText primary={<Specialization id={id} disableLink />} />
                 </MenuItem>
               ))}
           </Select>
@@ -173,7 +173,7 @@ const Traits = ({ classes, data }) => {
           <div key={trait.id}>
             <CheckboxComponent
               value={trait.id}
-              checked={modifiers.filter((m) => m.id === trait.id).length > 0}
+              checked={modifiers.filter((modifier) => modifier.id === trait.id).length > 0}
               label={
                 <>
                   {trait.gw2id && <Trait id={trait.gw2id} disableLink />}{' '}
