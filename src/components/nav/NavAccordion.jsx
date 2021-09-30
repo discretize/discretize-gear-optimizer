@@ -80,6 +80,8 @@ export default function NavAccordion({ data, buffPresets, prioritiesPresets }) {
                 dispatch(
                   setBuildTemplate({
                     build,
+                    specialization: build.specialization,
+                    profession: prof.class.toUpperCase(),
                     buffPreset: JSON.parse(
                       buffPresets.find((pre) => pre.name === build.boons).value,
                     ),
