@@ -133,6 +133,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
               data={data}
               buffPresets={buffPresets}
               prioritiesPresets={prioritiesPresets}
+              distributionPresets={distributionPresets}
             />
           </div>
         </SwipeableDrawer>
