@@ -14,6 +14,8 @@ const testModifiers = async () => {
     (filename) => path.extname(filename) === '.yaml',
   );
 
+  const allIds = new Set();
+
   for (const fileName of files) {
     console.log(`- ${fileName}`);
     const fileData = await fs.readFile(`${directory}${fileName}`);
@@ -28,7 +30,7 @@ const testModifiers = async () => {
 
     assert(Array.isArray(data), `ERROR: ${fileName} is not an array (use dashes for sections!)`);
 
-    const allIds = new Set();
+    const fileIds = new Set();
 
     for (const section of data) {
       const sectionName = section.section;
@@ -52,7 +54,12 @@ const testModifiers = async () => {
           `ERROR: invalid or missing item id in ${sectionName}`,
         );
 
-        if (allIds.has(id)) console.log(`note: duplicate id ${id}`);
+        if (fileIds.has(id)) {
+          console.log(`note: file has duplicate id ${id}`);
+        } else if (allIds.has(id)) {
+          console.log(`note: duplicate id ${id} from different file`);
+        }
+        fileIds.add(id);
         allIds.add(id);
 
         if (fileName !== 'buffs.yaml' && typeof gw2id !== 'number') {
