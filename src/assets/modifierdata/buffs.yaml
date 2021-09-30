@@ -8,7 +8,6 @@
         attributes:
           Power: [750, buff]
           Condition Damage: [750, buff]
-      default-enabled: true
       type: Boon
 
     - id: fury
@@ -16,7 +15,6 @@
       modifiers:
         attributes:
           Critical Chance: 20%
-      default-enabled: true
       type: Boon
 
     - id: protection
@@ -33,7 +31,6 @@
         damage:
           Strike Damage: [25%, target]
           Condition Damage: [25%, target]
-      default-enabled: true
       type: Condition
 
 - section: Warrior buffs
@@ -46,7 +43,6 @@
           Power: [100, buff]
           Condition Damage: [100, buff]
       type: Skill
-      default-enabled: true
       gw2id: 14405
 
     - id: bannerOfDiscipline
@@ -56,7 +52,6 @@
           Precision: [100, buff]
           Ferocity: [100, buff]
       type: Skill
-      default-enabled: true
       gw2id: 14407
 
     - id: bannerOfTactics
@@ -102,7 +97,6 @@
         damage:
           Strike Damage: [5%, add]
       type: Skill
-      default-enabled: true
       gw2id: 12497
 
     - id: pinpointDistribution
@@ -130,7 +124,6 @@
         attributes:
           Power: [216, buff]
       type: Skill
-      default-enabled: true
       gw2id: 9093
 
     - id: signetOfJudgment
@@ -166,7 +159,6 @@
         attributes:
           Ferocity: [150, buff]
       type: Trait
-      default-enabled: true
       gw2id: 1786
 
     - id: facetOfNature
