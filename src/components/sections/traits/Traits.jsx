@@ -128,12 +128,12 @@ const Traits = ({ classes, data }) => {
 
     minorCheckboxModis.push(...distinctMinorsWithoutSub);
 
-    traits[index].forEach((t) => {
-      const matching = data.find((v) => v.id === Number(traitlines[index]));
-      if (typeof matching === 'undefined') return null;
+    traits[index].forEach((trait) => {
+      const matchingSection = data.find((section) => section.id === Number(traitlines[index]));
+      if (typeof matchingSection === 'undefined') return null;
 
-      const matchingFiltered = matching.items.filter((item) => item.gw2id === t);
-      checkboxModis.push(...matchingFiltered);
+      const matchingItems = matchingSection.items.filter((item) => item.gw2id === trait);
+      checkboxModis.push(...matchingItems);
     });
 
     const name = `traitNr${lineNr}`;
