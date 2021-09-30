@@ -16,6 +16,7 @@ list:
 
       - id: seething-malice
         text: 'Seething Malice'
+        minor: true
         modifiers: >-
           {
             "buff": { "Condition Damage": 120 }
@@ -43,6 +44,7 @@ list:
 
       - id: yearning-empowerment
         text: 'Yearning Empowerement'
+        minor: true
         modifiers: >-
           {
             "flat": { "Condition Duration": 10 }

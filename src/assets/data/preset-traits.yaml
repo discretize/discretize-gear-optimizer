@@ -2393,16 +2393,6 @@ list:
                         "source": 63
                     },
                     {
-                        "id": "acolyte-of-torment",
-                        "gw2_id": 1793,
-                        "source": 14
-                    },
-                    {
-                        "id": "pact-of-pain",
-                        "gw2_id": 1714,
-                        "source": 14
-                    },
-                    {
                         "id": "ambush-commander",
                         "gw2_id": 2181,
                         "source": 63
@@ -2426,6 +2416,26 @@ list:
                         "id": "rising-tide",
                         "gw2_id": 1761,
                         "source": 3
+                    },
+                    {
+                        "id": "seething-malice",
+                        "gw2_id": 1801,
+                        "source": 14
+                    },
+                    {
+                        "id": "yearning-empowerment",
+                        "gw2_id": 1744,
+                        "source": 14
+                    },
+                    {
+                        "id": "acolyte-of-torment",
+                        "gw2_id": 1793,
+                        "source": 14
+                    },
+                    {
+                        "id": "pact-of-pain",
+                        "gw2_id": 1714,
+                        "source": 14
                     }
                 ]
             },
@@ -2478,16 +2488,6 @@ list:
                   "source": 63
                 },
                 {
-                  "id": "acolyte-of-torment",
-                  "gw2_id": 1793,
-                  "source": 14
-                },
-                {
-                  "id": "pact-of-pain",
-                  "gw2_id": 1714,
-                  "source": 14
-                },
-                {
                   "id": "destructive-impulses-mix",
                   "gw2_id": 1724,
                   "source": 15
@@ -2516,6 +2516,26 @@ list:
                   "id": "heartpiercer",
                   "gw2_id": 2092,
                   "source": 63
+                },
+                {
+                  "id": "seething-malice",
+                  "gw2_id": 1801,
+                  "source": 14
+                },
+                {
+                  "id": "yearning-empowerment",
+                  "gw2_id": 1744,
+                  "source": 14
+                },
+                {
+                  "id": "acolyte-of-torment",
+                  "gw2_id": 1793,
+                  "source": 14
+                },
+                {
+                  "id": "pact-of-pain",
+                  "gw2_id": 1714,
+                  "source": 14
                 },
                 {
                   "id": "lasting-legacy",
