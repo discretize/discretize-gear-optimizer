@@ -94,8 +94,8 @@
       modifiers:
         attributes:
           Toughness: [120, buff]
-      gw2-id: null
       type: traits
+      gw2id: null
 
     - id: putrid-defense
       text: Putrid Defense
