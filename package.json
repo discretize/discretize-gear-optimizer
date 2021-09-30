@@ -18,7 +18,8 @@
     "profile": "gatsby build --profile --no-uglify && gatsby serve",
     "clean": "gatsby clean",
     "updateMappings": "node updateMappings.js",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "testModifiers": "node ./src/assets/modifierdata/testModifiers.mjs"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.2",
@@ -71,6 +72,7 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "eslint-plugin-testing-library": "^3.9.0",
-    "gh-pages": "^3.2.3"
+    "gh-pages": "^3.2.3",
+    "js-yaml": "^4.1.0"
   }
 }
