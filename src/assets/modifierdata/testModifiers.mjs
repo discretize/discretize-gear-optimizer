@@ -42,6 +42,7 @@ const testModifiers = async () => {
       );
 
       for (const item of items) {
+        // eslint-disable-next-line no-unused-vars
         const { id, text, subText, modifiers, gw2id, type, minor, ...otherKeys } = item;
         if (Object.keys(otherKeys).length)
           console.log('note: this script is missing validation for', otherKeys);
@@ -60,6 +61,7 @@ const testModifiers = async () => {
 
         assert(typeof modifiers === 'object', `ERROR: invalid or missing modifiers in ${id}`);
 
+        // eslint-disable-next-line no-unused-vars
         const { damage, attributes, conversion, effect, note, ...otherModifiers } = modifiers;
         assert(
           Object.keys(otherModifiers).length === 0,
@@ -100,7 +102,10 @@ const allDamageModes = ['add', 'mult', 'target', 'unknown'];
 function parseDamage(damage, id) {
   for (const [key, value] of Object.entries(damage)) {
     assert(allDamageKeys.includes(key), `invalid damage key ${key} in ${id}`);
-    assert(Array.isArray(value), `invalid value for ${key} in ${id} (use 'unknown' if you don't know add/mult!)`);
+    assert(
+      Array.isArray(value),
+      `invalid value for ${key} in ${id} (use 'unknown' if you don't know add/mult!)`,
+    );
 
     const [amount, mode] = value;
 
@@ -169,7 +174,10 @@ const allAttributePercentKeys = [
 function parseAttributes(attributes, id) {
   for (const [key, value] of Object.entries(attributes)) {
     if (allAttributePointKeys.includes(key)) {
-      assert(Array.isArray(value), `invalid value for ${key} in ${id} (use 'unknown' if you don't know if it's converted!)`);
+      assert(
+        Array.isArray(value),
+        `invalid value for ${key} in ${id} (use 'unknown' if you don't know if it's converted!)`,
+      );
 
       const [amount, mode] = value;
 
