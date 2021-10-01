@@ -59,7 +59,7 @@ const Traits = ({ classes, data }) => {
     // they provide are not ambigous or conditional
     const distinctMinors = data
       .find((section) => section.id === newTraitLine)
-      .items.filter((item) => item.minor === true && item.subText === null);
+      .items.filter((item) => item.minor === true && !item.subText);
 
     distinctMinors.forEach((minor) =>
       dispatch(
@@ -115,7 +115,7 @@ const Traits = ({ classes, data }) => {
 
     const distinctMinors = data.find((section) => section.id === Number(traitlines[index]));
     const distinctMinorsWithSub = distinctMinors
-      ? distinctMinors.items.filter((item) => item.minor === true && item.subText !== null)
+      ? distinctMinors.items.filter((item) => item.minor === true && item.subText)
       : [];
 
     checkboxModis.push(...distinctMinorsWithSub);
@@ -123,7 +123,7 @@ const Traits = ({ classes, data }) => {
     const minorCheckboxModis = [];
 
     const distinctMinorsWithoutSub = distinctMinors
-      ? distinctMinors.items.filter((item) => item.minor === true && item.subText === null)
+      ? distinctMinors.items.filter((item) => item.minor === true && !item.subText)
       : [];
 
     minorCheckboxModis.push(...distinctMinorsWithoutSub);
