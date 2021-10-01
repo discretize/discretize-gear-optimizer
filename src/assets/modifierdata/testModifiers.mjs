@@ -6,6 +6,14 @@ import path from 'path';
 import assert from 'assert';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import yaml from 'js-yaml';
+import {
+  allDamageKeys,
+  allDamageModes,
+  allAttributePointKeys,
+  allAttributePointModes,
+  allAttributePercentKeys,
+  allConversionKeys,
+} from './metadata.mjs';
 
 const directory = './src/assets/modifierdata/';
 
@@ -97,15 +105,6 @@ const testModifiers = async () => {
   console.log('🎉 looks like no major errors 🎉');
 };
 
-const allDamageKeys = [
-  'Strike Damage',
-  'Condition Damage',
-  'All Damage',
-  'Damage Reduction',
-  'Condition Damage Reduction',
-];
-const allDamageModes = ['add', 'mult', 'target', 'unknown'];
-
 function parseDamage(damage, id) {
   for (const [key, value] of Object.entries(damage)) {
     assert(allDamageKeys.includes(key), `invalid damage key ${key} in ${id}`);
@@ -121,62 +120,6 @@ function parseDamage(damage, id) {
     assert(allDamageModes.includes(mode), `invalid val ${value[1]} for ${key} in ${id}`);
   }
 }
-
-const allAttributePointKeys = [
-  'Power',
-  'Precision',
-  'Toughness',
-  'Vitality',
-  'Ferocity',
-  'Condition Damage',
-  'Expertise',
-  'Concentration',
-  'Healing Power',
-  'Agony Resistance',
-  'Armor',
-];
-const allAttributePointModes = ['buff', 'converted', 'unknown'];
-
-const boons = [
-  'Aegis',
-  'Fury',
-  'Might',
-  'Protection',
-  'Quickness',
-  'Regeneration',
-  'Resistance',
-  'Resolution',
-  'Stability',
-  'Swiftness',
-  'Vigor',
-];
-const conditions = [
-  'Bleeding',
-  'Blind',
-  'Burning',
-  'Chilled',
-  'Confusion',
-  'Crippled',
-  'Fear',
-  'Immobile',
-  'Poison',
-  'Slow',
-  'Taunt',
-  'Torment',
-  'Vulnerability',
-  'Weakness',
-];
-const allAttributePercentKeys = [
-  'Critical Chance',
-  'Critical Damage',
-  'Boon Duration',
-  ...boons.map((boon) => `${boon} Duration`),
-  'Condition Duration',
-  ...conditions.map((condition) => `${condition} Duration`),
-  ...conditions.map((condition) => `${condition} Damage`),
-  'Maximum Health',
-  'Outgoing Healing',
-];
 
 function parseAttributes(attributes, id) {
   for (const [key, value] of Object.entries(attributes)) {
@@ -200,13 +143,10 @@ function parseAttributes(attributes, id) {
 
 function parseConversion(conversion, id) {
   for (const [key, value] of Object.entries(conversion)) {
-    assert(allAttributePointKeys.includes(key), `invalid conversion destination ${key} in ${id}`);
+    assert(allConversionKeys.includes(key), `invalid conversion destination ${key} in ${id}`);
 
     for (const [source, amount] of Object.entries(value)) {
-      assert(
-        allAttributePointKeys.includes(source),
-        `invalid conversion source ${source} in ${id}`,
-      );
+      assert(allConversionKeys.includes(source), `invalid conversion source ${source} in ${id}`);
       parsePercent(amount, key, id);
     }
   }
