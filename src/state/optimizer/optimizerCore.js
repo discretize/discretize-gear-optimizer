@@ -98,8 +98,8 @@ export function setup(input) {
 
   settings.baseAttributes['Condition Duration'] = 0;
   settings.baseAttributes['Boon Duration'] = 0;
-  settings.baseAttributes['Critical Chance'] = 5;
-  settings.baseAttributes['Critical Damage'] = 150;
+  settings.baseAttributes['Critical Chance'] = 0.05;
+  settings.baseAttributes['Critical Damage'] = 1.5;
 
   /* Modifiers */
 
@@ -859,7 +859,7 @@ function calcStats(_character) {
     attributes[attribute] = (attributes[attribute] || 0) + bonus;
   }
 
-  attributes['Boon Duration'] += attributes['Concentration'] / 15;
+  attributes['Boon Duration'] += attributes['Concentration'] / 15 / 100;
 }
 
 function checkInvalid(_character) {
@@ -880,11 +880,11 @@ function checkInvalid(_character) {
 function calcPower(_character, multipliers) {
   const { attributes, settings } = _character;
 
-  attributes['Critical Chance'] += (attributes['Precision'] - 1000) / 21;
-  attributes['Critical Damage'] += attributes['Ferocity'] / 15;
+  attributes['Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
+  attributes['Critical Damage'] += attributes['Ferocity'] / 15 / 100;
 
-  const critDmg = (attributes['Critical Damage'] / 100) * multipliers['Critical Damage'];
-  const critChance = clamp(attributes['Critical Chance'] / 100, 0, 1);
+  const critDmg = attributes['Critical Damage'] * multipliers['Critical Damage'];
+  const critChance = clamp(attributes['Critical Chance'], 0, 1);
 
   attributes['Effective Power'] =
     attributes['Power'] * (1 + critChance * (critDmg - 1)) * multipliers['Effective Power'];
@@ -899,7 +899,7 @@ function calcPower(_character, multipliers) {
 function calcCondi(_character, multipliers, relevantConditions) {
   const { attributes, settings } = _character;
 
-  attributes['Condition Duration'] += attributes['Expertise'] / 15;
+  attributes['Condition Duration'] += attributes['Expertise'] / 15 / 100;
   let condiDamageScore = 0;
   for (const condition of relevantConditions) {
     attributes[`${condition} Damage`] =
@@ -910,11 +910,7 @@ function calcCondi(_character, multipliers, relevantConditions) {
 
     const duration =
       1 +
-      clamp(
-        ((attributes[`${condition} Duration`] || 0) + attributes['Condition Duration']) / 100,
-        0,
-        1,
-      );
+      clamp((attributes[`${condition} Duration`] || 0) + attributes['Condition Duration'], 0, 1);
 
     const stacks = settings.distribution[condition] * duration;
     attributes[`${condition} Stacks`] = stacks;

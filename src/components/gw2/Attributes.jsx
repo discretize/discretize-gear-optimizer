@@ -75,14 +75,14 @@ const Attributes = ({ classes, profession, data }) => {
             <ListItem>
               <Attribute
                 name="Critical Chance"
-                text={`${Math.round(data['Critical Chance'] * 100) / 100}%`}
+                text={`${Math.round(data['Critical Chance'] * 10000) / 100}%`}
                 className={classes.gw2Item}
               />
             </ListItem>
             <ListItem>
               <Attribute
                 name="Critical Damage"
-                text={`${Math.round(data['Critical Damage'] * 10) / 10}%`}
+                text={`${Math.round(data['Critical Damage'] * 1000) / 10}%`}
                 className={classes.gw2Item}
               />
             </ListItem>
@@ -96,14 +96,14 @@ const Attributes = ({ classes, profession, data }) => {
             <ListItem>
               <Attribute
                 name="Condition Duration"
-                text={`${Math.round(data['Condition Duration'] * 100) / 100}%`}
+                text={`${Math.round(data['Condition Duration'] * 10000) / 100}%`}
                 className={classes.gw2Item}
               />
             </ListItem>
             <ListItem>
               <Attribute
                 name="Boon Duration"
-                text={`${Math.round(data['Boon Duration'] * 100) / 100}%`}
+                text={`${Math.round(data['Boon Duration'] * 10000) / 100}%`}
                 className={classes.gw2Item}
               />
             </ListItem>
