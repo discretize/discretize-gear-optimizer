@@ -311,7 +311,6 @@
         attributes:
           Condition Damage: [175, converted]
           Condition Duration: 20%
-          Fear Duration: 10%
       type: items
       gw2id: 24848
 
@@ -349,7 +348,6 @@
         attributes:
           Condition Damage: [300, converted]
           Vitality: [100, converted]
-          Fear Duration: 20%
       type: items
       gw2id: 24806
 

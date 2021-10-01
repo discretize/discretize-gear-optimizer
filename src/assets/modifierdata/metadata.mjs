@@ -24,22 +24,22 @@ const boons = [
   'Swiftness',
   'Vigor',
 ];
-const conditions = [
-  'Bleeding',
-  'Blind',
-  'Burning',
-  'Chilled',
-  'Confusion',
-  'Crippled',
-  'Fear',
-  'Immobile',
-  'Poison',
-  'Slow',
-  'Taunt',
-  'Torment',
-  'Vulnerability',
-  'Weakness',
-];
+// const conditions = [
+//   'Bleeding',
+//   'Blind',
+//   'Burning',
+//   'Chilled',
+//   'Confusion',
+//   'Crippled',
+//   'Fear',
+//   'Immobile',
+//   'Poison',
+//   'Slow',
+//   'Taunt',
+//   'Torment',
+//   'Vulnerability',
+//   'Weakness',
+// ];
 const damagingConditions = [
   'Bleeding',
   'Burning',
@@ -67,7 +67,7 @@ export const allAttributePercentKeys = [
   'Boon Duration',
   ...boons.map((boon) => `${boon} Duration`),
   'Condition Duration',
-  ...conditions.map((condition) => `${condition} Duration`),
+  ...damagingConditions.map((condition) => `${condition} Duration`),
   'Maximum Health',
   'Outgoing Healing',
 ];
