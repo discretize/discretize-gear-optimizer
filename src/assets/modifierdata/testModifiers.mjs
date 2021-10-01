@@ -106,35 +106,42 @@ const testModifiers = async () => {
 };
 
 function parseDamage(damage, id) {
-  for (const [key, value] of Object.entries(damage)) {
+  for (const [key, allPairs] of Object.entries(damage)) {
     assert(allDamageKeys.includes(key), `invalid damage key ${key} in ${id}`);
     assert(
-      Array.isArray(value),
+      Array.isArray(allPairs),
       `invalid value for ${key} in ${id} (use 'unknown' if you don't know add/mult!)`,
     );
 
-    const [amount, mode] = value;
+    // handle more than 2 pairs i.e. Strike Damage: [3%, add, 7%, mult]
+    const allPairsMut = [...allPairs];
+    while (allPairsMut.length) {
+      const [amount, mode] = allPairsMut.splice(0, 2);
 
-    parsePercent(amount, key, id);
-
-    assert(allDamageModes.includes(mode), `invalid val ${value[1]} for ${key} in ${id}`);
+      parsePercent(amount, key, id);
+      assert(allDamageModes.includes(mode), `invalid val ${allPairs} for ${key} in ${id}`);
+    }
   }
 }
 
 function parseAttributes(attributes, id) {
-  for (const [key, value] of Object.entries(attributes)) {
+  for (const [key, allPairs] of Object.entries(attributes)) {
     if (allAttributePointKeys.includes(key)) {
       assert(
-        Array.isArray(value),
+        Array.isArray(allPairs),
         `invalid value for ${key} in ${id} (use 'unknown' if you don't know if it's converted!)`,
       );
 
-      const [amount, mode] = value;
+      // handle more than 2 pairs i.e. Concentration: [70, converted, 100, buff]
+      const allPairsMut = [...allPairs];
+      while (allPairsMut.length) {
+        const [amount, mode] = allPairsMut.splice(0, 2);
 
-      parseNumber(amount, key, id);
-      assert(allAttributePointModes.includes(mode), `invalid val ${value} for ${key} in ${id}`);
+        parseNumber(amount, key, id);
+        assert(allAttributePointModes.includes(mode), `invalid val ${allPairs} for ${key} in ${id}`);
+      }
     } else if (allAttributePercentKeys.includes(key)) {
-      parsePercent(value, key, id);
+      parsePercent(allPairs, key, id);
     } else {
       assert(false, `invalid attribute key ${key} in ${id}`);
     }

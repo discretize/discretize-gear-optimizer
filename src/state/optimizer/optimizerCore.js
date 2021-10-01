@@ -132,66 +132,84 @@ export function setup(input) {
       // ...otherModifiers
     } = modifiers;
 
-    for (const [key, [percentAmount, addOrMult]] of Object.entries(damage)) {
-      const amount = parsePercent(percentAmount);
+    for (const [attribute, allPairs] of Object.entries(damage)) {
+      // damage, i.e.
+      //   Strike Damage: [3%, add, 7%, mult]
 
-      switch (key) {
-        case 'Strike Damage':
-          if (addOrMult === 'add') addEffectivePower += amount;
-          if (addOrMult === 'target') targetEffectivePower += amount;
-          if (addOrMult === 'mult' || addOrMult === 'unknown')
-            settings.modifiers.multiplier['Effective Power'] *= 1 + amount;
-          break;
-        case 'Condition Damage':
-          if (addOrMult === 'add') addEffectiveConditionDamage += amount;
-          if (addOrMult === 'target') targetEffectiveConditionDamage += amount;
-          if (addOrMult === 'mult' || addOrMult === 'unknown')
-            settings.modifiers.multiplier['Effective Condition Damage'] *= 1 + amount;
-          break;
-        case 'All Damage':
-          // strike
-          if (addOrMult === 'add') addEffectivePower += amount;
-          if (addOrMult === 'target') targetEffectivePower += amount;
-          if (addOrMult === 'mult' || addOrMult === 'unknown')
-            settings.modifiers.multiplier['Effective Power'] *= 1 + amount;
+      const allPairsMut = [...allPairs];
+      while (allPairsMut.length) {
+        const [percentAmount, addOrMult] = allPairsMut.splice(0, 2);
 
-          // condition
-          if (addOrMult === 'add') addEffectiveConditionDamage += amount;
-          if (addOrMult === 'target') targetEffectiveConditionDamage += amount;
-          if (addOrMult === 'mult' || addOrMult === 'unknown')
-            settings.modifiers.multiplier['Effective Condition Damage'] *= 1 + amount;
-          break;
-        case 'Damage Reduction':
-          // todo: actually implement this
-          settings.modifiers.multiplier['Effective Health'] *= 1 + amount;
-          break;
-        case 'Condition Damage Reduction':
-          console.log('Condition Damage Reduction is currently unsupported');
-          break;
-        default:
-          throw new Error(`invalid damage modifier: ${key} in ${modifiers?.id}`);
+        const amount = parsePercent(percentAmount);
+
+        switch (attribute) {
+          case 'Strike Damage':
+            if (addOrMult === 'add') addEffectivePower += amount;
+            if (addOrMult === 'target') targetEffectivePower += amount;
+            if (addOrMult === 'mult' || addOrMult === 'unknown')
+              settings.modifiers.multiplier['Effective Power'] *= 1 + amount;
+            break;
+          case 'Condition Damage':
+            if (addOrMult === 'add') addEffectiveConditionDamage += amount;
+            if (addOrMult === 'target') targetEffectiveConditionDamage += amount;
+            if (addOrMult === 'mult' || addOrMult === 'unknown')
+              settings.modifiers.multiplier['Effective Condition Damage'] *= 1 + amount;
+            break;
+          case 'All Damage':
+            // strike
+            if (addOrMult === 'add') addEffectivePower += amount;
+            if (addOrMult === 'target') targetEffectivePower += amount;
+            if (addOrMult === 'mult' || addOrMult === 'unknown')
+              settings.modifiers.multiplier['Effective Power'] *= 1 + amount;
+
+            // condition
+            if (addOrMult === 'add') addEffectiveConditionDamage += amount;
+            if (addOrMult === 'target') targetEffectiveConditionDamage += amount;
+            if (addOrMult === 'mult' || addOrMult === 'unknown')
+              settings.modifiers.multiplier['Effective Condition Damage'] *= 1 + amount;
+            break;
+          case 'Damage Reduction':
+            // todo: actually implement this
+            settings.modifiers.multiplier['Effective Health'] *= 1 + amount;
+            break;
+          case 'Condition Damage Reduction':
+            console.log('Condition Damage Reduction is currently unsupported');
+            break;
+          default:
+            throw new Error(`invalid damage modifier: ${attribute} in ${modifiers?.id}`);
+        }
       }
     }
 
-    for (const [attribute, val] of Object.entries(attributes)) {
+    for (const [attribute, allPairs] of Object.entries(attributes)) {
       if (allAttributePointKeys.includes(attribute)) {
-        // stat, i.e. Power: [200, converted]
-        const [amount, convertedOrBuff] = val;
+        // stat, i.e.
+        //   Concentration: [70, converted, 100, buff]
 
-        if (convertedOrBuff === 'converted') {
-          settings.baseAttributes[attribute] = (settings.baseAttributes[attribute] || 0) + amount;
-        } else {
-          settings.modifiers['buff'][attribute] =
-            (settings.modifiers['buff'][attribute] || 0) + amount;
+        const allPairsMut = [...allPairs];
+        while (allPairsMut.length) {
+          const [amount, convertedOrBuff] = allPairsMut.splice(0, 2);
+
+          if (convertedOrBuff === 'converted') {
+            settings.baseAttributes[attribute] = (settings.baseAttributes[attribute] || 0) + amount;
+          } else {
+            settings.modifiers['buff'][attribute] =
+              (settings.modifiers['buff'][attribute] || 0) + amount;
+          }
         }
       } else {
-        // percent, i.e. Critical Chance: 15%
-        const amount = parsePercent(val);
+        // percent, i.e.
+        //   Critical Chance: 15%
+
+        const amount = parsePercent(allPairs);
         settings.baseAttributes[attribute] = (settings.baseAttributes[attribute] || 0) + amount;
       }
     }
 
     for (const [attribute, val] of Object.entries(conversion)) {
+      // conversion, i.e.
+      //   Power: {Condition Damage: 6%, Expertise: 8%}
+
       if (!settings.modifiers['convert'][attribute]) {
         settings.modifiers['convert'][attribute] = {};
       }

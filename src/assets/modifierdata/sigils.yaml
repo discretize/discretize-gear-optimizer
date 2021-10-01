@@ -22,7 +22,7 @@
       subText: (Both 7%/3%)
       modifiers:
         damage:
-          Strike Damage: [7%, mult]
+          Strike Damage: [3%, add, 7%, mult]
       type: items
       gw2id: 24868
 
