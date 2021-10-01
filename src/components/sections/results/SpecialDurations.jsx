@@ -44,7 +44,7 @@ const SpecialDurations = ({ classes, data }) => {
                   <Boon name={duration.split(' ')[0]} text={duration} className={classes.gw2Item} />
                 </TableCell>
               )}
-              <TableCell>{data[duration]}%</TableCell>
+              <TableCell>{data[duration] * 100}%</TableCell>
             </TableRow>
           ))}
         </TableBody>
