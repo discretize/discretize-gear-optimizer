@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Omnipotion } from '../../utils/gw2-data';
+import { omnipotionModifiers } from '../../utils/gw2-data';
 import { setModifiers } from '../gearOptimizerSlice';
 
 export const omnipotionSlice = createSlice({
@@ -26,17 +26,17 @@ export const omnipotionSlice = createSlice({
       if (state.ar) {
         modifiers.push({
           id: 'agony-resistance',
-          modifiers: JSON.stringify({
-            flat: {
-              'Agony Resistance': state.ar,
+          modifiers: {
+            attributes: {
+              'Agony Resistance': [state.ar, 'converted'],
             },
-          }),
+          },
         });
       }
       if (state.enable) {
         modifiers.push({
           id: 'omnipotion',
-          modifiers: JSON.stringify(Omnipotion),
+          modifiers: omnipotionModifiers,
         });
       }
 

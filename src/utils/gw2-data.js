@@ -599,27 +599,19 @@ export const ForcedSlots = [
   'wep2', // 13
 ];
 
-export const Omnipotion = {
+export const omnipotionModifiers = {
   // Re: condi dmg from omnipot
   // https://discordapp.com/channels/301270513093967872/370538919118503947/716949463423516713
-  multiplier: {
-    'Effective Power': 0.15,
-    'add: Effective Condition Damage': 0.15, // stacks additively
-    'Effective Health': 0.25,
+  'damage': {
+    'Strike Damage': ['15%', 'mult'],
+    'Condition Damage': ['15%', 'add'],
+    'Damage Reduction': ['25%', 'add'],
   },
-  convert: {
-    Precision: {
-      'Agony Resistance': 1.5,
-    },
-    Toughness: {
-      'Agony Resistance': 1.5,
-    },
-    Concentration: {
-      'Agony Resistance': 1.5,
-    },
-    'Condition Damage': {
-      'Condition Damage': 0.15, // undocumented condition damage stat bonus
-    },
+  'conversion': {
+    'Precision': { 'Agony Resistance': '150%' },
+    'Toughness': { 'Agony Resistance': '150%' },
+    'Concentration': { 'Agony Resistance': '150%' },
+    'Condition Damage': { 'Condition Damage': '15%' }, // undocumented condition damage stat bonus
   },
 };
 
