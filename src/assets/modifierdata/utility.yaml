@@ -118,7 +118,8 @@
     - id: bountiful-maintenance-oil
       text: Bountiful Maintenance Oil
       modifiers:
-        note: this is hardcoded internally
+        conversion:
+          Outgoing Healing: {Healing Power: 0.006%, Concentration: 0.008%}
       type: items
       gw2id: 67528
 

@@ -65,4 +65,4 @@ export const allAttributePercentKeys = [
   'Outgoing Healing',
 ];
 
-export const allConversionKeys = stats;
+export const allConversionKeys = [...stats, 'Outgoing Healing'];
