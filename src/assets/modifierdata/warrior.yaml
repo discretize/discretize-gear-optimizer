@@ -388,8 +388,8 @@
       text: Pure Strike
       subText: Against boonless
       modifiers:
-        attributes:
-          Critical Damage: 14%
+        damage:
+          Critical Damage: [14%, unknown]
       type: traits
       gw2id: 2107
 

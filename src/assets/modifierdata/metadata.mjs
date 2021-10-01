@@ -47,6 +47,7 @@ export const allDamageKeys = [
   'All Damage',
   'Damage Reduction',
   'Condition Damage Reduction',
+  'Critical Damage',
 ];
 export const allDamageModes = ['add', 'mult', 'target', 'unknown'];
 
@@ -55,7 +56,6 @@ export const allAttributePointModes = ['buff', 'converted', 'unknown'];
 
 export const allAttributePercentKeys = [
   'Critical Chance',
-  'Critical Damage',
   'Boon Duration',
   ...boons.map((boon) => `${boon} Duration`),
   'Condition Duration',

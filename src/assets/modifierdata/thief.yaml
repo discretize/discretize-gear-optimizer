@@ -121,8 +121,8 @@
       text: Twin Fangs
       subText: 100% scholar (check both)
       modifiers:
-        attributes:
-          Critical Damage: 7%
+        damage:
+          Critical Damage: [7%, unknown]
       type: traits
       gw2id: 1268
 
@@ -148,8 +148,8 @@
       subText: 50% above 50%, average
       minor: true
       modifiers:
-        attributes:
-          Critical Damage: 5%
+        damage:
+          Critical Damage: [5%, unknown]
       type: traits
       gw2id: 1282
 
@@ -158,8 +158,8 @@
       subText: always above 50%
       minor: true
       modifiers:
-        attributes:
-          Critical Damage: 10%
+        damage:
+          Critical Damage: [10%, unknown]
       type: traits
       gw2id: 1282
 

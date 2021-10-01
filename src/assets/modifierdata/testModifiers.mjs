@@ -120,6 +120,10 @@ function parseDamage(damage, id) {
 
       parsePercent(amount, key, id);
       assert(allDamageModes.includes(mode), `invalid val ${allPairs} for ${key} in ${id}`);
+      assert(
+        key !== 'Critical Damage' || mode === 'unknown',
+        `set mode unknown for critical damage for now`,
+      );
     }
   }
 }
@@ -138,7 +142,10 @@ function parseAttributes(attributes, id) {
         const [amount, mode] = allPairsMut.splice(0, 2);
 
         parseNumber(amount, key, id);
-        assert(allAttributePointModes.includes(mode), `invalid val ${allPairs} for ${key} in ${id}`);
+        assert(
+          allAttributePointModes.includes(mode),
+          `invalid val ${allPairs} for ${key} in ${id}`,
+        );
       }
     } else if (allAttributePercentKeys.includes(key)) {
       parsePercent(allPairs, key, id);

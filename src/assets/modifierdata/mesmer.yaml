@@ -63,8 +63,8 @@
       text: Superiority Complex
       subText: 50% uptime -> +20% Critical Damage
       modifiers:
-        attributes:
-          Critical Damage: 20%
+        damage:
+          Critical Damage: [20%, unknown]
       type: traits
       gw2id: 692
 
