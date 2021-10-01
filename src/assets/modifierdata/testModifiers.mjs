@@ -166,15 +166,10 @@ function parsePercent(value, key, id) {
 }
 
 function parseNumber(value, key, id) {
-  let num = null;
-  try {
-    num = Number(value);
-  } finally {
-    assert(
-      typeof num === 'number' && !Number.isNaN(num),
-      `invalid number ${value} for ${key} in ${id}`,
-    );
-  }
+  assert(
+    typeof value === 'number' && !Number.isNaN(value),
+    `invalid number ${value} for ${key} in ${id}`,
+  );
 }
 
 testModifiers().catch((e) => console.error(`❌ ${e.message} ❌`));
