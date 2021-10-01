@@ -176,8 +176,8 @@
     - id: amplified-wrath
       text: Amplified Wrath
       modifiers:
-        attributes:
-          Burning Damage: 15%
+        damage:
+          Burning Damage: [15%, unknown]
       type: traits
       gw2id: 1686
 

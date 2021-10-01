@@ -55,8 +55,8 @@
     - id: hidden-barbs
       text: Hidden Barbs
       modifiers:
-        attributes:
-          Bleeding Damage: 33%
+        damage:
+          Bleeding Damage: [33%, unknown]
       type: traits
       gw2id: 1846
 
@@ -134,8 +134,8 @@
     - id: poison-master
       text: Poison Master
       modifiers:
-        attributes:
-          Poison Damage: 25%
+        damage:
+          Poison Damage: [25%, unknown]
       type: traits
       gw2id: 1701
 

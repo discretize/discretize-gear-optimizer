@@ -88,8 +88,9 @@
     - id: potent-poison
       text: Potent Poison
       modifiers:
+        damage:
+          Poison Damage: [33%, unknown]
         attributes:
-          Poison Damage: 33%
           Poison Duration: 33%
       type: traits
       gw2id: 1291
@@ -211,8 +212,8 @@
     - id: deadly-ambush
       text: Deadly Ambush
       modifiers:
-        attributes:
-          Bleeding Damage: 25%
+        damage:
+          Bleeding Damage: [25%, unknown]
       type: traits
       gw2id: 1706
 

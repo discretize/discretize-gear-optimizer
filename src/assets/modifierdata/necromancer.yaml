@@ -100,8 +100,8 @@
     - id: putrid-defense
       text: Putrid Defense
       modifiers:
-        attributes:
-          Poison Damage: 15%
+        damage:
+          Poison Damage: [15%, unknown]
       type: traits
       gw2id: 857
 
@@ -193,8 +193,8 @@
       text: Demonic Lore
       subText: Torment only
       modifiers:
-        attributes:
-          Torment Damage: 25%
+        damage:
+          Torment Damage: [25%, unknown]
       type: traits
       gw2id: 2164
 

@@ -40,6 +40,13 @@ const conditions = [
   'Vulnerability',
   'Weakness',
 ];
+const damagingConditions = [
+  'Bleeding',
+  'Burning',
+  'Confusion',
+  'Poison',
+  'Torment',
+]
 
 export const allDamageKeys = [
   'Strike Damage',
@@ -48,6 +55,7 @@ export const allDamageKeys = [
   'Damage Reduction',
   'Condition Damage Reduction',
   'Critical Damage',
+  ...damagingConditions.map((condition) => `${condition} Damage`),
 ];
 export const allDamageModes = ['add', 'mult', 'target', 'unknown'];
 
@@ -60,7 +68,6 @@ export const allAttributePercentKeys = [
   ...boons.map((boon) => `${boon} Duration`),
   'Condition Duration',
   ...conditions.map((condition) => `${condition} Duration`),
-  ...conditions.map((condition) => `${condition} Damage`),
   'Maximum Health',
   'Outgoing Healing',
 ];

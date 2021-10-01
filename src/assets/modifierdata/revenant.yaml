@@ -8,8 +8,8 @@
     - id: acolyte-of-torment
       text: Acolyte of Torment
       modifiers:
-        attributes:
-          Torment Damage: 10%
+        damage:
+          Torment Damage: [10%, unknown]
       type: traits
       gw2id: 1793
 
@@ -247,8 +247,8 @@
     - id: heartpiercer
       text: Heartpiercer
       modifiers:
-        attributes:
-          Bleeding Damage: 25%
+        damage:
+          Bleeding Damage: [25%, unknown]
       type: traits
       gw2id: 2092
 
