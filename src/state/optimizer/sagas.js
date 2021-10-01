@@ -115,18 +115,7 @@ function createInput(state) {
     percentDistribution: values1,
     distribution: values2,
   };
-  input.modifiers = modifiers;
-  // input.modifiers = modifiers.map((modifier) => {
-  //   try {
-  //     const parsed = JSON.parse(modifier.modifiers);
-  //     return parsed;
-  //   } catch (e) {
-  //     // eslint-disable-next-line no-alert
-  //     alert(`Error: invalid modifier: ${modifier.id} (${modifier.source}). Skipping.`);
-  //     console.error('Could not parse modifier:', modifier);
-  //     return null;
-  //   }
-  // });
+  input.modifiers = modifiers.map((entry) => entry.modifiers);
 
   // temp: convert "poisoned" to "poison"
   const convertPoison = (distribution) =>

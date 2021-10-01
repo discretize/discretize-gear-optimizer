@@ -15,6 +15,8 @@ import {
   INFUSION_BONUS,
 } from '../../utils/gw2-data';
 
+import { allAttributePointKeys } from '../../assets/modifierdata/metadata.mjs';
+
 /**
  * ------------------------------------------------------------------------
  * Core Optimizer Logic
@@ -117,134 +119,87 @@ export function setup(input) {
   let targetEffectiveConditionDamage = 0;
   let targetEffectivePower = 0;
 
-  const validMultiplierStats = new Set([
-    ...Attributes.EFFECTIVE,
-    'Effective Condition Damage',
-
-    // Additive mods e.g. force sigil + frost spirit are additive with each other
-    'add: Effective Condition Damage',
-    'add: Effective Power',
-
-    // Vulnerability and exposed are additive with each other
-    'target: Effective Condition Damage',
-    'target: Effective Power',
-    'Critical Damage',
-    ...Attributes.CONDITION_DAMAGE,
-  ]);
-  const validFlatStats = new Set([
-    ...Attributes.PRIMARY,
-    ...Attributes.SECONDARY,
-    ...Attributes.DERIVED,
-    ...Attributes.BOON_DURATION,
-    ...Attributes.CONDITION_DURATION,
-  ]);
-  const validBuffStats = new Set([
-    ...Attributes.PRIMARY,
-    ...Attributes.SECONDARY,
-    ...Attributes.DERIVED,
-    ...Attributes.BOON_DURATION,
-    ...Attributes.CONDITION_DURATION,
-  ]);
-  const validConvertStats = new Set([...Attributes.PRIMARY, ...Attributes.SECONDARY]);
+  const parsePercent = (percentValue) => Number(percentValue.replace('%', '')) / 100;
 
   modifiersInput = modifiersInput || [];
   for (const modifiers of modifiersInput) {
-    if (!modifiers) {
-      continue;
+    const {
+      damage = {},
+      attributes = {},
+      conversion = {},
+      // effect = {},
+      // note,
+      // ...otherModifiers
+    } = modifiers;
+
+    for (const [key, [percentAmount, addOrMult]] of Object.entries(damage)) {
+      const amount = parsePercent(percentAmount);
+
+      switch (key) {
+        case 'Strike Damage':
+          if (addOrMult === 'add') addEffectivePower += amount;
+          if (addOrMult === 'target') targetEffectivePower += amount;
+          if (addOrMult === 'mult' || addOrMult === 'unknown')
+            settings.modifiers.multiplier['Effective Power'] *= 1 + amount;
+          break;
+        case 'Condition Damage':
+          if (addOrMult === 'add') addEffectiveConditionDamage += amount;
+          if (addOrMult === 'target') targetEffectiveConditionDamage += amount;
+          if (addOrMult === 'mult' || addOrMult === 'unknown')
+            settings.modifiers.multiplier['Effective Condition Damage'] *= 1 + amount;
+          break;
+        case 'All Damage':
+          // strike
+          if (addOrMult === 'add') addEffectivePower += amount;
+          if (addOrMult === 'target') targetEffectivePower += amount;
+          if (addOrMult === 'mult' || addOrMult === 'unknown')
+            settings.modifiers.multiplier['Effective Power'] *= 1 + amount;
+
+          // condition
+          if (addOrMult === 'add') addEffectiveConditionDamage += amount;
+          if (addOrMult === 'target') targetEffectiveConditionDamage += amount;
+          if (addOrMult === 'mult' || addOrMult === 'unknown')
+            settings.modifiers.multiplier['Effective Condition Damage'] *= 1 + amount;
+          break;
+        case 'Damage Reduction':
+          // todo: actually implement this
+          settings.modifiers.multiplier['Effective Health'] *= 1 + amount;
+          break;
+        case 'Condition Damage Reduction':
+          console.log('Condition Damage Reduction is currently unsupported');
+          break;
+        default:
+          throw new Error(`invalid damage modifier: ${key} in ${modifiers?.id}`);
+      }
     }
 
-    for (const [type, modifier] of Object.entries(modifiers)) {
-      if (type && modifier !== undefined) {
-        if (type === 'bountiful-maintenance-oil') {
-          settings.modifiers[type] = modifier;
+    for (const [attribute, val] of Object.entries(attributes)) {
+      if (allAttributePointKeys.includes(attribute)) {
+        // stat, i.e. Power: [200, converted]
+        const [amount, convertedOrBuff] = val;
+
+        if (convertedOrBuff === 'converted') {
+          settings.baseAttributes[attribute] = (settings.baseAttributes[attribute] || 0) + amount;
         } else {
-          for (const [attribute, value] of Object.entries(modifier)) {
-            if (attribute && value) {
-              switch (type) {
-                case 'multiplier':
-                  if (validMultiplierStats.has(attribute)) {
-                    switch (attribute) {
-                      case 'add: Effective Condition Damage': {
-                        addEffectiveConditionDamage += value;
-                        break;
-                      }
-                      case 'add: Effective Power': {
-                        addEffectivePower += value;
-                        break;
-                      }
-                      case 'target: Effective Condition Damage': {
-                        targetEffectiveConditionDamage += value;
-                        break;
-                      }
-                      case 'target: Effective Power': {
-                        targetEffectivePower += value;
-                        break;
-                      }
-                      default:
-                        if (settings.modifiers['multiplier'][attribute] === undefined) {
-                          settings.modifiers['multiplier'][attribute] = 1 + value;
-                        } else {
-                          settings.modifiers['multiplier'][attribute] *= 1 + value;
-                        }
-                    }
-                  } else {
-                    throw new Error(
-                      'Multipliers can only modify primary, secondary or ' +
-                      'effective attributes, not ' +
-                      attribute,
-                    );
-                  }
-
-                  break;
-                case 'flat':
-                  if (validFlatStats.has(attribute)) {
-                    settings.baseAttributes[attribute] =
-                      (settings.baseAttributes[attribute] || 0) + value;
-                  } else {
-                    throw new Error(
-                      'Flat modifiers can only increase primary, secondary or ' +
-                      'derived attributes, not ' +
-                      attribute,
-                    );
-                  }
-
-                  break;
-                case 'buff':
-                  if (validBuffStats.has(attribute)) {
-                    settings.modifiers['buff'][attribute] =
-                      (settings.modifiers['buff'][attribute] || 0) + value;
-                  } else {
-                    throw new Error(
-                      'Buff modifiers can only increase primary, secondary or ' +
-                      'derived attributes, not ' +
-                      attribute,
-                    );
-                  }
-
-                  break;
-                case 'convert':
-                  if (validConvertStats.has(attribute)) {
-                    if (!settings.modifiers['convert'][attribute]) {
-                      settings.modifiers['convert'][attribute] = {};
-                    }
-
-                    for (const [source, conversion] of Object.entries(value)) {
-                      settings.modifiers['convert'][attribute][source] =
-                        (settings.modifiers['convert'][attribute][source] || 0) + conversion;
-                    }
-                  } else {
-                    throw new Error(
-                      'Conversions can only modify primary or secondary attributes, not ' +
-                      attribute,
-                    );
-                  }
-
-                  break;
-                // no default
-              }
-            }
-          }
+          settings.modifiers['buff'][attribute] =
+            (settings.modifiers['buff'][attribute] || 0) + amount;
         }
+      } else {
+        // percent, i.e. Critical Chance: 15%
+        const amount = parsePercent(val);
+        settings.baseAttributes[attribute] = (settings.baseAttributes[attribute] || 0) + amount;
+      }
+    }
+
+    for (const [attribute, val] of Object.entries(conversion)) {
+      if (!settings.modifiers['convert'][attribute]) {
+        settings.modifiers['convert'][attribute] = {};
+      }
+      for (const [source, percentAmount] of Object.entries(val)) {
+        const amount = parsePercent(percentAmount);
+
+        settings.modifiers['convert'][attribute][source] =
+          (settings.modifiers['convert'][attribute][source] || 0) + amount;
       }
     }
   }
@@ -298,7 +253,7 @@ export function setup(input) {
     } else {
       throw new Error(
         'Primary infusion can only increase primary, secondary or derived attributes, not ' +
-        primaryInfusionInput,
+          primaryInfusionInput,
       );
     }
   }
@@ -321,8 +276,8 @@ export function setup(input) {
     } else {
       throw new Error(
         'Secondary infusion can only increase ' +
-        'primary, secondary or derived attributes, not ' +
-        secondaryInfusionInput,
+          'primary, secondary or derived attributes, not ' +
+          secondaryInfusionInput,
       );
     }
   }
@@ -816,7 +771,7 @@ const clamp = (input, min, max) => {
   if (input < min) return min;
   if (input > max) return max;
   return input;
-}
+};
 
 /**
  * Creates an {attributes} object parameter in the given character object and fills it with
