@@ -884,7 +884,7 @@ function checkInvalid(_character) {
   const { settings, attributes } = _character;
 
   const invalid =
-    (settings.minBoonDuration && attributes['Boon Duration'] < settings.minBoonDuration) ||
+    (settings.minBoonDuration && attributes['Boon Duration'] < settings.minBoonDuration / 100) ||
     (settings.minHealingPower && attributes['Healing Power'] < settings.minHealingPower) ||
     (settings.minToughness && attributes['Toughness'] < settings.minToughness) ||
     (settings.maxToughness && attributes['Toughness'] > settings.maxToughness);
