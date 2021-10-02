@@ -77,7 +77,7 @@
       gw2id: 803
       defaultEnabled: true
 
-    - id: target-the-weak
+    - id: target-the-weak-base
       text: Target the Weak
       subText: base
       minor: true

@@ -423,7 +423,7 @@
       gw2id: 2042
       defaultEnabled: true
 
-    - id: fatal-frenzy
+    - id: fatal-frenzy-power-condi
       text: Fatal Frenzy
       subText: power/condition damage
       amount:
@@ -439,7 +439,7 @@
       gw2id: 2046
       defaultEnabled: true
 
-    - id: fatal-frenzy
+    - id: fatal-frenzy-toughness
       text: Fatal Frenzy
       subText: toughness during berserk
       minor: true
