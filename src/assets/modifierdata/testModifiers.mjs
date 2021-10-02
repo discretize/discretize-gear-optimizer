@@ -41,6 +41,7 @@ const testModifiers = async () => {
     assert(Array.isArray(data), `ERROR: ${fileName} is not an array (use dashes for sections!)`);
 
     const fileIds = new Set();
+    const allGw2ids = new Set();
 
     for (const section of data) {
       const sectionName = section.section;
@@ -75,6 +76,11 @@ const testModifiers = async () => {
             // eslint-disable-next-line no-lonely-if
             if (gw2id) console.log(`note: ${id} isn't a trait in this line`);
           }
+        }
+
+        if (section.id && gw2id) {
+          assert(!allGw2ids.has(gw2id) || subText, `missing subtext for same gw2id in ${id}`);
+          allGw2ids.add(gw2id);
         }
 
         assert(
