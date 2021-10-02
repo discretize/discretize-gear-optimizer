@@ -92,7 +92,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
         />
         <IconButton
           className={classes.githubIcon}
-          href="https://github.com/discretize/discretize-gear-optimizer/tree/react-recode"
+          href="https://github.com/discretize/discretize-gear-optimizer/tree/staging"
         >
           <GitHubIcon />
         </IconButton>
