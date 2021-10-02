@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-console */
@@ -14,6 +15,7 @@ import {
   allAttributePercentKeys,
   allConversionKeys,
 } from './metadata.mjs';
+import specializationData from '../../utils/mapping/specializations.json';
 
 const directory = './src/assets/modifierdata/';
 
@@ -44,6 +46,13 @@ const testModifiers = async () => {
       const sectionName = section.section;
       if (!sectionName) console.log(`❓ empty section name`);
 
+      let major_traits = null;
+      let minor_traits = null;
+      if (section.id) {
+        const traitlineData = specializationData.find((entry) => entry.id === section.id);
+        ({ major_traits, minor_traits } = traitlineData);
+      }
+
       const { items } = section;
       assert(items, `ERROR: items in ${sectionName} is missing (make it [])`);
       assert(
@@ -56,6 +65,17 @@ const testModifiers = async () => {
         const { id, text, subText, modifiers, gw2id, type, minor, ...otherKeys } = item;
         if (Object.keys(otherKeys).length)
           console.log('note: this script is missing validation for', otherKeys);
+
+        if (major_traits) {
+          if (major_traits.includes(gw2id)) {
+            assert(!minor, `ERROR: ${id} is mistakenly labelled minor!`);
+          } else if (minor_traits.includes(gw2id)) {
+            assert(minor, `ERROR: ${id} should be labelled minor!`);
+          } else {
+            // eslint-disable-next-line no-lonely-if
+            if (gw2id) console.log(`note: ${id} isn't a trait in this line`);
+          }
+        }
 
         assert(
           typeof id === 'string' && id !== '',
@@ -175,7 +195,7 @@ function parsePercent(value, key, id) {
       typeof num === 'number' && !Number.isNaN(num),
       `invalid number ${value} for ${key} in ${id}`,
     );
-    if (num < 1) console.log(`❓ value ${num} for ${key} in ${id} doesn't look like a percent!`);
+    if (num < 1) console.log(`note: value ${num} in ${id} doesn't look like a percent`);
   }
 }
 

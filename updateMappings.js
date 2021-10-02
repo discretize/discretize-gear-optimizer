@@ -1,3 +1,6 @@
+/* eslint-disable id-length */
+/* eslint-disable no-console */
+// eslint-disable-next-line import/no-extraneous-dependencies
 const axios = require('axios');
 const fs = require('fs');
 const itemstatMapping = require('./src/utils/mapping/itemstats.json');
@@ -33,6 +36,9 @@ function fetchSpecializations() {
             id: spec.id,
             name: normalize(spec.name),
             profession: normalize(spec.profession),
+            minor_traits: spec.minor_traits,
+            major_traits: spec.major_traits,
+
           };
         });
         // write to disk
@@ -96,7 +102,7 @@ function fetchTraits() {
           );
         }),
       )
-      .catch((error) => {});
+      .catch((e) => {});
   });
 }
 
@@ -140,7 +146,7 @@ function fetchSkills() {
           );
         }),
       )
-      .catch((error) => {});
+      .catch((e) => {});
   });
 }
 
