@@ -48,6 +48,9 @@ const Traits = ({ classes, data }) => {
   // all the currently applied modifiers
   const modifiers = useSelector(getTraitModifiers);
 
+  /**
+   * Handles a change from one traitline to another.
+   */
   const handleTraitlineSelect = (index) => (event) => {
     if (Number(traitlines[index]) > 0) {
       // remove previously selected modifiers
@@ -55,11 +58,11 @@ const Traits = ({ classes, data }) => {
     }
     const newTraitLine = event.target.value;
 
+    const allModifiers = data.find((section) => section.id === newTraitLine).items;
+
     // distinct minors are minor traits where no selection is necessary because the buffs
     // they provide are not ambigous or conditional
-    const distinctMinors = data
-      .find((section) => section.id === newTraitLine)
-      .items.filter((item) => item.minor === true && !item.subText);
+    const distinctMinors = allModifiers.filter((item) => item.minor === true && !item.subText);
 
     distinctMinors.forEach((minor) =>
       dispatch(
@@ -75,7 +78,7 @@ const Traits = ({ classes, data }) => {
   };
 
   /**
-   * Handles the change in individual traitlines for the actual traits.
+   * Handles a change from one trait to another within a traitline.
    *
    * @param event
    * @param id the gw2-id of the traitline that experienced a change
@@ -90,7 +93,9 @@ const Traits = ({ classes, data }) => {
   }
 
   /**
-   * Handles the checkboxes, which pop up for selected traits. This is necessary because some traits contain different conditional values.
+   * Handles a modifer's checkbox being toggled on or off. 
+   * 
+   * Checkboxes which pop up for selected traits are necessary because some traits contain different conditional values.
    *
    * @param {Object} trait The trait object, that experienced a change
    * @param {Number} line the trait line, which the modifier corresponds to
@@ -111,30 +116,20 @@ const Traits = ({ classes, data }) => {
   };
 
   return [1, 2, 3].map((lineNr, index) => {
+    const allModifiers =
+      data.find((section) => section.id === Number(traitlines[index]))?.items || [];
+
     const checkboxModis = [];
 
-    const distinctMinors = data.find((section) => section.id === Number(traitlines[index]));
-    const distinctMinorsWithSub = distinctMinors
-      ? distinctMinors.items.filter((item) => item.minor === true && item.subText)
-      : [];
-
-    checkboxModis.push(...distinctMinorsWithSub);
-
-    const minorCheckboxModis = [];
-
-    const distinctMinorsWithoutSub = distinctMinors
-      ? distinctMinors.items.filter((item) => item.minor === true && !item.subText)
-      : [];
-
-    minorCheckboxModis.push(...distinctMinorsWithoutSub);
-
-    traits[index].forEach((trait) => {
-      const matchingSection = data.find((section) => section.id === Number(traitlines[index]));
-      if (typeof matchingSection === 'undefined') return null;
-
-      const matchingItems = matchingSection.items.filter((item) => item.gw2id === trait);
+    traits[index].forEach((traitId) => {
+      const matchingItems = allModifiers.filter((item) => item.gw2id === traitId);
       checkboxModis.push(...matchingItems);
     });
+
+    const conditionalMinors = allModifiers.filter((item) => item.minor === true && item.subText);
+    checkboxModis.push(...conditionalMinors);
+
+    const unconditionalMinors = allModifiers.filter((item) => item.minor === true && !item.subText);
 
     const name = `traitNr${lineNr}`;
     return (
@@ -185,7 +180,7 @@ const Traits = ({ classes, data }) => {
           </div>
         ))}
 
-        {minorCheckboxModis.map((trait) => (
+        {unconditionalMinors.map((trait) => (
           <div key={trait.id}>
             <>
               {trait.gw2id && <Trait id={trait.gw2id} disableLink />}{' '}
