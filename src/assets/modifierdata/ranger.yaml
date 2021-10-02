@@ -279,10 +279,7 @@
 
     - id: oppressive-superiority
       text: Oppressive Superiority
-      amount:
-        label: '% uptime'
-        default: 100
-        quantityEntered: 100
+      subText: 100% uptime
       modifiers:
         damage:
           Strike Damage: [10%, mult]

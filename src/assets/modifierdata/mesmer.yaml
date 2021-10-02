@@ -156,10 +156,7 @@
     - id: chaotic-persistence
       text: Chaotic Persistence
       minor: true
-      amount:
-        label: '% regeneration'
-        default: 100
-        quantityEntered: 100
+      subText: 100% regeneration
       modifiers:
         attributes:
           Concentration: [250, buff]
