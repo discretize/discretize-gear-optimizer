@@ -525,11 +525,14 @@
 
     - id: attackers-insight
       text: Attacker's Insight
+      subText: be careful not to overcap
       minor: true
       amount:
         label: 'stacks'
         default: 5
         quantityEntered: 5
+        disableBlacklist: true
+        # allowing dynamic critical chance per stack here
       modifiers:
         attributes:
           Ferocity: [250, buff]

@@ -94,6 +94,8 @@
         label: 'conditions'
         default: 10
         quantityEntered: 10
+        disableBlacklist: true
+        # allowing dynamic critical chance per condition here
       minor: true
       modifiers:
         attributes:
@@ -124,6 +126,8 @@
         label: 'stacks'
         default: 6
         quantityEntered: 1
+        disableBlacklist: true
+        # allowing dynamic toughness per stack here
       modifiers:
         attributes:
           Toughness: [20, buff]
