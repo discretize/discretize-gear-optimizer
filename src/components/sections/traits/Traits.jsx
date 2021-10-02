@@ -93,8 +93,8 @@ const Traits = ({ classes, data }) => {
   }
 
   /**
-   * Handles a modifer's checkbox being toggled on or off. 
-   * 
+   * Handles a modifer's checkbox being toggled on or off.
+   *
    * Checkboxes which pop up for selected traits are necessary because some traits contain different conditional values.
    *
    * @param {Object} trait The trait object, that experienced a change
@@ -119,17 +119,17 @@ const Traits = ({ classes, data }) => {
     const allModifiers =
       data.find((section) => section.id === Number(traitlines[index]))?.items || [];
 
+    const unconditionalMinors = allModifiers.filter((item) => item.minor === true && !item.subText);
+
     const checkboxModis = [];
+
+    const conditionalMinors = allModifiers.filter((item) => item.minor === true && item.subText);
+    checkboxModis.push(...conditionalMinors);
 
     traits[index].forEach((traitId) => {
       const matchingItems = allModifiers.filter((item) => item.gw2id === traitId);
       checkboxModis.push(...matchingItems);
     });
-
-    const conditionalMinors = allModifiers.filter((item) => item.minor === true && item.subText);
-    checkboxModis.push(...conditionalMinors);
-
-    const unconditionalMinors = allModifiers.filter((item) => item.minor === true && !item.subText);
 
     const name = `traitNr${lineNr}`;
     return (
@@ -164,6 +164,15 @@ const Traits = ({ classes, data }) => {
           onSelect={(event) => handleTraitChange(event, traitlines[index], index)}
         />
 
+        {unconditionalMinors.map((trait) => (
+          <div key={trait.id}>
+            <>
+              {trait.gw2id && <Trait id={trait.gw2id} disableLink />}{' '}
+              <Typography variant="caption">{trait.subText}</Typography>
+            </>
+          </div>
+        ))}
+
         {checkboxModis.map((trait) => (
           <div key={trait.id}>
             <CheckboxComponent
@@ -177,15 +186,6 @@ const Traits = ({ classes, data }) => {
               }
               onChange={handleModifierChange(trait, traitlines[index])}
             />
-          </div>
-        ))}
-
-        {unconditionalMinors.map((trait) => (
-          <div key={trait.id}>
-            <>
-              {trait.gw2id && <Trait id={trait.gw2id} disableLink />}{' '}
-              <Typography variant="caption">{trait.subText}</Typography>
-            </>
           </div>
         ))}
       </React.Fragment>
