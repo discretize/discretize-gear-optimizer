@@ -13,6 +13,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';
 
+import yaml from 'js-yaml';
+
 import { buffModifiersById } from '../../../assets/modifierdata';
 
 const styles = (theme) => ({
@@ -59,7 +61,7 @@ const AppliedModifiers = ({ classes, data }) => {
                     <TableCell>
                       <Typography className={classes.gw2Item}> {modifier.id} </Typography>
                     </TableCell>
-                    <TableCell>{JSON.stringify(modifier.modifiers)}</TableCell>
+                    <TableCell><pre>{yaml.dump(modifier.modifiers, { flowLevel: 2 })}</pre></TableCell>
                   </TableRow>
                 );
               })}
