@@ -74,12 +74,16 @@
     - id: empowering-flame
       text: Empowering Flame
       minor: true
-      subText: (100% in fire)
+      amount:
+        label: '% fire attunement'
+        default: 50
+        quantityEntered: 100
       modifiers:
         attributes:
           Power: [150, buff]
       type: traits
       gw2id: 320
+      defaultEnabled: true
 
     - id: burning-precision
       text: Burning Precision
@@ -88,6 +92,7 @@
           Burning Duration: 20%
       type: traits
       gw2id: 296
+      defaultEnabled: true
 
     - id: burning-rage
       text: Burning Rage
@@ -96,24 +101,30 @@
           Condition Damage: [180, buff]
       type: traits
       gw2id: 325
+      defaultEnabled: true
 
     - id: power-overwhelming
       text: Power Overwhelming
-      subText: perma
+      subText: permanent
       modifiers:
         attributes:
           Power: [150, buff]
       type: traits
       gw2id: 334
+      defaultEnabled: true
 
     - id: power-overwhelming-2
       text: Power Overwhelming
-      subText: (100% in fire - tick both)
+      amount:
+        label: '% fire attunement'
+        default: 50
+        quantityEntered: 100
       modifiers:
         attributes:
           Power: [150, buff]
       type: traits
       gw2id: 334
+      defaultEnabled: true
 
     - id: pyromancers-training
       text: Pyromancer's Training
@@ -123,6 +134,7 @@
           Strike Damage: [10%, mult]
       type: traits
       gw2id: 319
+      defaultEnabled: true
 
 - section: Air
   id: 41
@@ -135,22 +147,33 @@
           Ferocity: {Precision: 7%}
       type: traits
       gw2id: 232
+      defaultEnabled: true
 
     - id: raging-storm
       text: Raging Storm
+      amount:
+        label: '% fury'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Ferocity: [180, buff]
       type: traits
       gw2id: 214
+      defaultEnabled: true
 
     - id: stormsoul
       text: Stormsoul
+      amount:
+        label: '% disabled uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, mult]
       type: traits
       gw2id: 1502
+      defaultEnabled: true
 
     - id: aeromancers-training
       text: Aeromancer's Training
@@ -161,34 +184,47 @@
           Ferocity: [150, buff]
       type: traits
       gw2id: 223
+      defaultEnabled: true
 
     - id: aeromancers-training-2
       text: Aeromancer's Training
-      subText: (100% in air - tick both)
+      amount:
+        label: '% air attunement'
+        default: 50
+        quantityEntered: 100
       minor: true
       modifiers:
         attributes:
           Ferocity: [150, buff]
       type: traits
       gw2id: 223
+      defaultEnabled: true
 
     - id: bolt-to-the-heart
       text: Bolt to the Heart
-      subText: 50% uptime
+      amount:
+        label: '% uptime'
+        default: 50
+        quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Strike Damage: [20%, mult]
       type: traits
       gw2id: 226
+      defaultEnabled: true
 
     - id: fresh-air
       text: Fresh Air
-      subText: 100% uptime
+      amount:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Ferocity: [250, buff]
       type: traits
       gw2id: 1503
+      defaultEnabled: true
 
 - section: Earth
   id: 26
@@ -213,6 +249,7 @@
           Bleeding Duration: 20%
       type: traits
       gw2id: 1507
+      defaultEnabled: true
 
     - id: strength-of-stone
       text: Strength of Stone
@@ -221,6 +258,7 @@
           Condition Damage: {Toughness: 10%}
       type: traits
       gw2id: 275
+      defaultEnabled: true
 
     - id: geomancers-defense
       text: Geomancer's Defense
@@ -230,6 +268,7 @@
           Damage Reduction: [10%, unknown]
       type: traits
       gw2id: 280
+      defaultEnabled: true
 
 - section: Water
   id: 17
@@ -242,23 +281,33 @@
           Strike Damage: [10%, mult]
       type: traits
       gw2id: 363
+      defaultEnabled: true
 
     - id: piercing-blades-2
       text: Piercing Shards
-      subText: 100% in water - tick both
+      amount:
+        label: '% water attunement'
+        default: 5
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, mult]
       type: traits
       gw2id: 363
+      defaultEnabled: true
 
     - id: flow-like-water
       text: Flow like Water
+      amount:
+        label: '% scholar'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, mult]
       type: traits
       gw2id: 349
+      defaultEnabled: true
 
     - id: aquamancers-training
       text: Aquamancer's Training
@@ -268,6 +317,7 @@
       minor: true
       type: traits
       gw2id: 1676
+      defaultEnabled: true
 
 - section: Arcane
   id: 37
@@ -281,32 +331,33 @@
       minor: true
       type: traits
       gw2id: 2004
+      defaultEnabled: true
 
     - id: elemental-surge
-      text: Elemental Surge (100% uptime)
+      text: Elemental Surge
+      amount:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Ferocity: [150, converted]
       type: traits
       gw2id: 263
+      defaultEnabled: true
 
     - id: bountiful-power
       text: Bountiful Power
-      subText: 6x
+      amount:
+        label: 'boons'
+        default: 8
+        quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [12%, mult]
+          Strike Damage: [1%, mult]
       type: traits
       gw2id: 1511
-
-    - id: bountiful-power-9
-      text: Bountiful Power
-      subText: 9x
-      modifiers:
-        damage:
-          Strike Damage: [18%, mult]
-      type: traits
-      gw2id: 1511
+      defaultEnabled: true
 
 - section: Tempest
   id: 48
@@ -320,6 +371,7 @@
       minor: true
       type: traits
       gw2id: 1938
+      defaultEnabled: true
 
     - id: hardy-conduit
       text: Hardy Conduit
@@ -329,15 +381,21 @@
           Damage Reduction: [11.67%, unknown]
       type: traits
       gw2id: 1948
+      defaultEnabled: true
 
     - id: transcendent-tempest
       text: Transcendent Tempest
+      amount:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [7%, add]
           Condition Damage: [7%, add]
       type: traits
       gw2id: 1839
+      defaultEnabled: true
 
 - section: Weaver
   id: 56
@@ -351,6 +409,7 @@
           Critical Chance: 10%
       type: traits
       gw2id: 2177
+      defaultEnabled: true
 
     - id: masters-fortitude
       text: Master's Fortitude
@@ -362,6 +421,7 @@
           Vitality: {Power: 5%, Condition Damage: 5%}
       type: traits
       gw2id: 2115
+      defaultEnabled: true
 
     - id: masters-fortitude-without
       text: Master's Fortitude
@@ -382,37 +442,52 @@
           Condition Duration: 20%
       type: traits
       gw2id: 2180
+      defaultEnabled: true
 
     - id: swift-revenge
       text: Swift Revenge
+      amount:
+        label: '% swiftness'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, add]
       type: traits
       gw2id: 2061
+      defaultEnabled: true
 
     - id: elemental-polyphony-fire
       text: Elemental Polyphony
-      subText: 100% in fire
       minor: true
+      amount:
+        label: '% fire attunement'
+        default: 50
+        quantityEntered: 100
       modifiers:
         attributes:
           Power: [120, buff]
       type: traits
       gw2id: 2081
+      defaultEnabled: true
 
     - id: elemental-polyphony-air
       text: Elemental Polyphony
-      subText: 100% in air
       minor: true
+      amount:
+        label: '% air attunement'
+        default: 50
+        quantityEntered: 100
       modifiers:
         attributes:
           Ferocity: [120, buff]
       type: traits
       gw2id: 2081
+      defaultEnabled: true
 
     - id: elements-of-rage
       text: Elements of Rage
+      subText: 100% uptime
       modifiers:
         damage:
           Condition Damage: [5%, add]
@@ -420,3 +495,4 @@
           Precision: {Vitality: 13%}
       type: traits
       gw2id: 2131
+      defaultEnabled: true

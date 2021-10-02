@@ -37,10 +37,15 @@
           Strike Damage: [5%, add]
       type: traits
       gw2id: 1444
+      defaultEnabled: true
 
     - id: peak-performance-2
       text: Peak Performance
-      subText: active, 100% uptime - check both boxes
+      subText: active
+      amount:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, add]
@@ -55,10 +60,15 @@
           Power: [120, buff]
       type: traits
       gw2id: 1338
+      defaultEnabled: true
 
     - id: forceful-greatsword-2
       text: Forceful Greatsword
       subText: with greatsword/spear - check both boxes
+      amount:
+        label: '% uptime'
+        default: 50
+        quantityEntered: 100
       modifiers:
         attributes:
           Power: [120, buff]
@@ -73,24 +83,34 @@
           Ferocity: {Power: 10%}
       type: traits
       gw2id: 1449
+      defaultEnabled: true
 
     - id: pinnacle-of-strength
       text: Pinnacle Of Strength
       minor: true
+      amount:
+        label: 'might'
+        default: 25
+        quantityEntered: 25
       modifiers:
         attributes:
           Power: [250, buff]
       type: traits
       gw2id: 1453
+      defaultEnabled: true
 
     - id: berserkers-power
       text: Berserker's Power
-      subText: 100% 3x
+      amount:
+        label: 'average stacks'
+        default: 3
+        quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [21%, add]
+          Strike Damage: [7%, add]
       type: traits
       gw2id: 1437
+      defaultEnabled: true
 
 - section: Arms
   id: 36
@@ -103,24 +123,34 @@
           Expertise: {Precision: 7%}
       type: traits
       gw2id: 1455
+      defaultEnabled: true
 
     - id: signet-mastery
       text: Signet Mastery
-      subText: 5x
+      amount:
+        label: 'stacks'
+        default: 5
+        quantityEntered: 5
       modifiers:
         attributes:
           Ferocity: [500, converted]
       type: traits
       gw2id: 1344
+      defaultEnabled: true
 
     - id: deep-strikes
       text: Deep Strikes
       minor: true
+      amount:
+        label: '% fury'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Condition Damage: [180, buff]
       type: traits
       gw2id: 1343
+      defaultEnabled: true
 
     - id: blade-master
       text: Blademaster
@@ -130,15 +160,21 @@
           Expertise: [120, buff]
       type: traits
       gw2id: 1333
+      defaultEnabled: true
 
     - id: blade-master-2
       text: Blademaster
-      subText: with sword 50% - check both boxes
+      subText: with sword
+      amount:
+        label: '% uptime'
+        default: 50
+        quantityEntered: 100
       modifiers:
         attributes:
-          Condition Damage: [60, buff]
+          Condition Damage: [120, buff]
       type: traits
       gw2id: 1333
+      defaultEnabled: true
 
     - id: bloodlust
       text: Bloodlust
@@ -148,15 +184,20 @@
           Bleeding Duration: 33%
       type: traits
       gw2id: 1337
+      defaultEnabled: true
 
     - id: furious
       text: Furious
-      subText: 25x
+      amount:
+        label: 'stacks'
+        default: 25
+        quantityEntered: 25
       modifiers:
         attributes:
           Condition Damage: [250, buff]
       type: traits
       gw2id: 1346
+      defaultEnabled: true
 
 - section: Defense
   id: 22
@@ -164,6 +205,7 @@
 
     - id: thick-skin
       text: Thick Skin
+      subText: 100% scholar
       minor: true
       modifiers:
         damage:
@@ -173,11 +215,16 @@
 
     - id: cull-the-weak
       text: Cull the Weak
+      amount:
+        label: '% weakness'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, mult]
       type: traits
       gw2id: 1372
+      defaultEnabled: true
 
     - id: armored-attack
       text: Armored Attack
@@ -186,15 +233,18 @@
           Power: {Toughness: 10%}
       type: traits
       gw2id: 1379
+      defaultEnabled: true
 
     - id: hardened-armor
       text: Hardened Armor
+      subText: 100% resolution
       minor: true
       modifiers:
         damage:
           Damage Reduction: [10%, unknown]
       type: traits
       gw2id: 1380
+      defaultEnabled: true
 
 - section: Tactics
   id: 11
@@ -202,11 +252,16 @@
 
     - id: leg-specialist
       text: Leg Specialist
+      amount:
+        label: '% impaired'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, mult]
       type: traits
       gw2id: 1469
+      defaultEnabled: true
 
     - id: roaring-reveille
       text: Roaring Reveille
@@ -215,45 +270,34 @@
           Concentration: [120, buff]
       type: traits
       gw2id: 1471
+      defaultEnabled: true
 
-    - id: empowered-6
+    - id: empowered
       text: Empowered
-      subText: 6x
+      amount:
+        label: 'boons'
+        default: 8
+        quantityEntered: 1
       minor: true
       modifiers:
         damage:
-          Strike Damage: [6%, mult]
+          Strike Damage: [1%, mult]
       type: traits
       gw2id: 1485
-
-    - id: empowered-9
-      text: Empowered
-      subText: 9x
-      minor: true
-      modifiers:
-        damage:
-          Strike Damage: [9%, mult]
-      type: traits
-      gw2id: 1485
-
-    - id: empowered-11
-      text: Empowered
-      subText: 11x
-      minor: true
-      modifiers:
-        damage:
-          Strike Damage: [11%, mult]
-      type: traits
-      gw2id: 1485
+      defaultEnabled: true
 
     - id: warriors-cunning
       text: Warrior's Cunning
-      subText: 20% uptime -> +5% Damage
+      amount:
+        label: '% above 80'
+        default: 20
+        quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [5%, mult]
+          Strike Damage: [25%, mult]
       type: traits
       gw2id: 1486
+      defaultEnabled: true
 
     - id: vigorous-shouts
       text: Vigorous Shouts
@@ -262,6 +306,7 @@
           Healing Power: {Power: 13%}
       type: traits
       gw2id: 1470
+      defaultEnabled: true
 
 - section: Discipline
   id: 51
@@ -269,100 +314,154 @@
 
     - id: warriors-sprint
       text: Warrior's Sprint
+      amount:
+        label: '% swiftness'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, add]
       type: traits
       gw2id: 1413
+      defaultEnabled: true
 
-    - id: double-standards
+    - id: double-standards-str
       text: Doubled Standards
-      subText: +50 Pwr/Prc/Fer/Con
+      subText: +50 Pwr/Cond
       modifiers:
         attributes:
           Power: [50, buff]
-          Precision: [50, buff]
-          Ferocity: [50, buff]
           Condition Damage: [50, buff]
       type: traits
       gw2id: 1484
+      defaultEnabled: true
+
+    - id: double-standards-disc
+      text: Doubled Standards
+      subText: +50 Prec/Fero
+      modifiers:
+        attributes:
+          Precision: [50, buff]
+          Ferocity: [50, buff]
+      type: traits
+      gw2id: 1484
+      defaultEnabled: true
 
     - id: axe-mastery-one
       text: Axe Mastery
-      subText: without axe
+      subText: base
       modifiers:
         attributes:
           Ferocity: [120, buff]
       type: traits
       gw2id: 1369
+      defaultEnabled: true
 
-    - id: axe-mastery-two
+    - id: axe-mastery-axe
       text: Axe Mastery
       subText: with axe - check both boxes
+      amount:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Ferocity: [120, buff]
       type: traits
       gw2id: 1369
+      defaultEnabled: true
 
 - section: Berserker
   id: 18
   items:
 
-    - id: blood-reaction-no
+    - id: blood-reaction-base
       text: Blood Reaction
-      subText: with 0% berserker mode
+      subText: base
       modifiers:
         conversion:
           Ferocity: {Precision: 7%}
       type: traits
       gw2id: 2011
+      defaultEnabled: true
 
     - id: blood-reaction-with
       text: Blood Reaction
-      subText: with 100% berserker mode
+      subText: bonus
+      amount:
+        label: '% berserk mode'
+        default: 50
+        quantityEntered: 100
       modifiers:
         conversion:
-          Ferocity: {Precision: 14%}
+          Ferocity: {Precision: 7%}
       type: traits
       gw2id: 2011
+      defaultEnabled: true
 
     - id: heat-the-soul
       text: Heat the Soul
-      subText: without torch
+      subText: base
       modifiers:
         attributes:
           Condition Damage: [120, buff]
       type: traits
       gw2id: 2042
+      defaultEnabled: true
 
     - id: heat-the-soul-with
       text: Heat the Soul
-      subText: with torch 50% - check both boxes
+      subText: with torch
+      amount:
+        label: '% uptime'
+        default: 50
+        quantityEntered: 100
       modifiers:
         attributes:
-          Condition Damage: [60, buff]
+          Condition Damage: [120, buff]
       type: traits
       gw2id: 2042
+      defaultEnabled: true
 
     - id: fatal-frenzy
       text: Fatal Frenzy
+      subText: power/condition damage
+      amount:
+        label: '% berserk'
+        default: 50
+        quantityEntered: 100
       minor: true
       modifiers:
         attributes:
           Power: [300, buff]
           Condition Damage: [300, buff]
+      type: traits
+      gw2id: 2046
+      defaultEnabled: true
+
+    - id: fatal-frenzy
+      text: Fatal Frenzy
+      subText: toughness during berserk
+      minor: true
+      modifiers:
+        attributes:
           Toughness: [-300, buff]
       type: traits
       gw2id: 2046
+      defaultEnabled: true
 
     - id: bloody-roar
       text: Bloody Roar
+      amount:
+        label: '% berserk'
+        default: 50
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [20%, mult]
       type: traits
       gw2id: 1928
+      defaultEnabled: true
 
     - id: king-of-fires
       text: King of Fires
@@ -371,31 +470,53 @@
           Burning Duration: 33%
       type: traits
       gw2id: 2038
+      defaultEnabled: true
 
     - id: eternal-champion
       text: Eternal Champion
+      subText: toughness during berserk
       modifiers:
         attributes:
           Toughness: [300, buff]
       type: traits
       gw2id: 2043
+      defaultEnabled: true
 
 - section: Spellbreaker
   id: 61
   items:
 
-    - id: pure-strike-boonless
+    - id: pure-strike-base
       text: Pure Strike
-      subText: Against boonless
+      subText: base
       modifiers:
         damage:
-          Critical Damage: [14%, unknown]
+          Critical Damage: [7%, unknown]
       type: traits
       gw2id: 2107
+      defaultEnabled: true
+
+    - id: pure-strike-boonless
+      text: Pure Strike
+      subText: bonus
+      amount:
+        label: '% boonless'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Critical Damage: [7%, unknown]
+      type: traits
+      gw2id: 2107
+      defaultEnabled: true
 
     - id: sun-and-moon-style
       text: Sun and Moon Style
-      subText: 100% onhand dagger; no boons
+      subText: mainhand dagger; no boons
+      amount:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, mult]
@@ -405,6 +526,10 @@
     - id: attackers-insight
       text: Attacker's Insight
       minor: true
+      amount:
+        label: 'stacks'
+        default: 5
+        quantityEntered: 5
       modifiers:
         attributes:
           Ferocity: [250, buff]
@@ -412,12 +537,17 @@
           Precision: [250, buff]
       type: traits
       gw2id: 2130
+      defaultEnabled: true
 
     - id: magebane-tether
       text: Magebane Tether
-      subText: 75% uptime -> +7.5% Damage
+      amount:
+        label: '% uptime'
+        default: 75
+        quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [7.5%, mult]
+          Strike Damage: [10%, mult]
       type: traits
       gw2id: 2060
+      defaultEnabled: true

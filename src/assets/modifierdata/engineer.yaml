@@ -7,20 +7,29 @@
 
     - id: glass-cannon
       text: Glass Cannon
+      amount:
+        label: '% scholar'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, mult]
       type: traits
       gw2id: 1882
+      defaultEnabled: true
 
     - id: explosive-temper
       text: Explosive Temper
-      subText: 10x
+      amount:
+        label: 'stacks'
+        default: 10
+        quantityEntered: 1
       modifiers:
         attributes:
-          Ferocity: [200, buff]
+          Ferocity: [20, buff]
       type: traits
       gw2id: 1892
+      defaultEnabled: true
 
     - id: blast-shield
       text: Blast Shield
@@ -29,15 +38,21 @@
           Vitality: {Power: 10%}
       type: traits
       gw2id: 1944
+      defaultEnabled: true
 
     - id: shaped-charge
       text: Shaped Charge
       minor: true
+      amount:
+        label: 'vulnerability'
+        default: 25
+        quantityEntered: 25
       modifiers:
         damage:
           Strike Damage: [12.5%, mult]
       type: traits
       gw2id: 429
+      defaultEnabled: true
 
     - id: big-boomer
       text: Big Boomer
@@ -47,6 +62,7 @@
           Strike Damage: [10%, mult]
       type: traits
       gw2id: 1947
+      defaultEnabled: true
 
 - section: Firearms
   id: 38
@@ -59,6 +75,7 @@
           Condition Damage: [120, buff]
       type: traits
       gw2id: 1878
+      defaultEnabled: true
 
     - id: high-caliber
       text: High Caliber
@@ -67,6 +84,7 @@
           Critical Chance: 15%
       type: traits
       gw2id: 1914
+      defaultEnabled: true
 
     - id: hematic-focus
       text: Hematic Focus
@@ -76,6 +94,7 @@
       minor: true
       type: traits
       gw2id: 536
+      defaultEnabled: true
 
     - id: thermal-vision
       text: Thermal Vision
@@ -86,14 +105,20 @@
           Expertise: [150, converted]
       type: traits
       gw2id: 2006
+      defaultEnabled: true
 
     - id: no-scope
       text: No Scope
+      amount:
+        label: '% melee'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Ferocity: [150, buff]
       type: traits
       gw2id: 1923
+      defaultEnabled: true
 
     - id: serrated-steel
       text: Serrated Steel
@@ -103,24 +128,20 @@
       minor: true
       type: traits
       gw2id: 516
+      defaultEnabled: true
 
-    - id: modified-ammunition-10
+    - id: modified-ammunition
       text: Modified Ammunition
-      subText: 10x
+      amount:
+        label: 'conditions'
+        default: 10
+        quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [20%, mult]
+          Strike Damage: [2%, mult]
       type: traits
       gw2id: 526
-
-    - id: modified-ammunition-14
-      text: Modified Ammunition
-      subText: 14x
-      modifiers:
-        damage:
-          Strike Damage: [28%, mult]
-      type: traits
-      gw2id: 526
+      defaultEnabled: true
 
     - id: incendiary-powder
       text: Incendiary Powder
@@ -129,6 +150,7 @@
           Burning Duration: 33%
       type: traits
       gw2id: 433
+      defaultEnabled: true
 
 - section: Inventions
   id: 47
@@ -141,6 +163,7 @@
           Damage Reduction: [6.6%, unknown]
       type: traits
       gw2id: 394
+      defaultEnabled: true
 
     - id: energy-amplifier
       text: Energy Amplifier
@@ -150,6 +173,7 @@
       minor: true
       type: traits
       gw2id: 519
+      defaultEnabled: true
 
 - section: Alchemy
   id: 29
@@ -163,6 +187,7 @@
           Outgoing Healing: 20%
       type: traits
       gw2id: 521
+      defaultEnabled: true
 
     - id: compounding-chemicals
       text: Compounding Chemicals
@@ -172,6 +197,7 @@
       minor: true
       type: traits
       gw2id: 413
+      defaultEnabled: true
 
 - section: Tools
   id: 21
@@ -179,43 +205,34 @@
 
     - id: excessive-energy
       text: Excessive Energy
+      amount:
+        label: '% vigor'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, add]
       minor: true
       type: traits
       gw2id: 1936
+      defaultEnabled: true
 
 - section: Scrapper
   id: 43
   items:
 
-    - id: object-in-motion-1
+    - id: object-in-motion
       text: Object in Motion (One)
-      subText: One
+      amount:
+        label: 'average uptime (0-3)'
+        default: 2
+        quantityEntered: 1
       modifiers:
         damage:
           Strike Damage: [5%, mult]
       type: traits
       gw2id: 1860
-
-    - id: object-in-motion-2
-      text: Object in Motion (Two)
-      subText: Two
-      modifiers:
-        damage:
-          Strike Damage: [10%, mult]
-      type: traits
-      gw2id: 1860
-
-    - id: object-in-motion-3
-      text: Object in Motion (Three)
-      subText: Three
-      modifiers:
-        damage:
-          Strike Damage: [15%, mult]
-      type: traits
-      gw2id: 1860
+      defaultEnabled: true
 
     - id: impact-savant
       text: Impact Savant
@@ -225,6 +242,7 @@
       minor: true
       type: traits
       gw2id: 1877
+      defaultEnabled: true
 
     - id: kinetic-accelerators
       text: Kinetic Accelerators
@@ -233,13 +251,18 @@
           Concentration: {Power: 10%}
       type: traits
       gw2id: 2052
+      defaultEnabled: true
 
     - id: applied-force
       text: Applied Force
-      subText: 25 might
+      amount:
+        label: 'might'
+        default: 25
+        quantityEntered: 25
       modifiers:
         attributes:
           Power: [375, buff]
           Condition Damage: [-375, buff]
       type: traits
       gw2id: 1849
+      defaultEnabled: true

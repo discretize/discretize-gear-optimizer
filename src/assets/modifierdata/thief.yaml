@@ -39,6 +39,7 @@
           Power: [80, converted]
       type: traits
       gw2id: 1245
+      defaultEnabled: true
 
     - id: dagger-training-dagger
       text: Dagger Training
@@ -56,6 +57,7 @@
           Condition Damage: [120, buff]
       type: traits
       gw2id: 1164
+      defaultEnabled: true
 
     - id: revealed-training-base
       text: Revealed Training
@@ -65,10 +67,14 @@
           Power: [80, buff]
       type: traits
       gw2id: 1704
+      defaultEnabled: true
 
     - id: revealed-training-revealed
       text: Revealed Training
-      subText: 100% revealed - also check base
+      amount:
+        label: '% revealed'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Power: [120, buff]
@@ -77,13 +83,17 @@
 
     - id: exposed-weakness
       text: Exposed Weakness
-      subText: 10 conditions
       minor: true
+      amount:
+        label: 'conditions'
+        default: 10
+        quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [20%, mult]
+          Strike Damage: [2%, mult]
       type: traits
       gw2id: 1257
+      defaultEnabled: true
 
     - id: potent-poison
       text: Potent Poison
@@ -94,15 +104,20 @@
           Poison Duration: 33%
       type: traits
       gw2id: 1291
+      defaultEnabled: true
 
     - id: executioner
       text: Executioner
-      subText: 50%
+      amount:
+        label: '% uptime'
+        default: 50
+        quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Strike Damage: [20%, mult]
       type: traits
       gw2id: 1269
+      defaultEnabled: true
 
 - section: Critical Strikes
   id: 35
@@ -110,13 +125,14 @@
 
     - id: keen-observer
       text: Keen Observer
-      subText: 100%
+      subText: 100% scholar
       minor: true
       modifiers:
         attributes:
           Critical Chance: 10%
       type: traits
       gw2id: 1281
+      defaultEnabled: true
 
     - id: twin-fangs-scholar
       text: Twin Fangs
@@ -126,6 +142,7 @@
           Critical Damage: [7%, unknown]
       type: traits
       gw2id: 1268
+      defaultEnabled: true
 
     - id: twin-fangs-flank
       text: Twin Fangs
@@ -135,6 +152,7 @@
           Critical Chance: 7%
       type: traits
       gw2id: 1268
+      defaultEnabled: true
 
     - id: practiced-tolerance
       text: Practiced Tolerance
@@ -143,34 +161,34 @@
           Ferocity: {Precision: 7%}
       type: traits
       gw2id: 1272
+      defaultEnabled: true
 
     - id: ferocious-strikes
       text: Ferocious Strikes
-      subText: 50% above 50%, average
       minor: true
-      modifiers:
-        damage:
-          Critical Damage: [5%, unknown]
-      type: traits
-      gw2id: 1282
-
-    - id: ferocious-strikes-always
-      text: Ferocious Strikes
-      subText: always above 50%
-      minor: true
+      amount:
+        label: '% above 50'
+        default: 50
+        quantityEntered: 100
       modifiers:
         damage:
           Critical Damage: [10%, unknown]
       type: traits
       gw2id: 1282
+      defaultEnabled: true
 
     - id: no-quarter
       text: No Quarter
+      amount:
+        label: '% fury'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Ferocity: [250, converted]
       type: traits
       gw2id: 1904
+      defaultEnabled: true
 
 - section: Acrobatics
   id: 54
@@ -184,6 +202,7 @@
           Concentration: [240, buff]
       type: traits
       gw2id: 1242
+      defaultEnabled: true
 
 - section: Trickery
   id: 44
@@ -197,17 +216,21 @@
           Expertise: [150, converted]
       type: traits
       gw2id: 1232
+      defaultEnabled: true
 
     - id: lead-attacks
       text: Lead Attacks
-      subText: 15x
       minor: true
+      amount:
+        label: 'stacks'
+        default: 15
+        quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [15%, add]
-          Condition Damage: [15%, add]
+          All Damage: [1%, add]
       type: traits
       gw2id: 1157
+      defaultEnabled: true
 
     - id: deadly-ambush
       text: Deadly Ambush
@@ -216,6 +239,7 @@
           Bleeding Damage: [25%, unknown]
       type: traits
       gw2id: 1706
+      defaultEnabled: true
 
 - section: Daredevil
   id: 7
@@ -223,6 +247,7 @@
 
     - id: marauders-resilience
       text: Marauder's Resilience
+      subText: melee
       modifiers:
         damage:
           Damage Reduction: [10%, unknown]
@@ -230,10 +255,11 @@
           Vitality: {Power: 13%}
       type: traits
       gw2id: 1933
+      defaultEnabled: true
 
     - id: weakening-strikes
       text: Weakening Strikes
-      subText: 100%
+      subText: 100% weakness
       minor: true
       modifiers:
         damage:
@@ -241,6 +267,7 @@
           Damage Reduction: [10%, unknown]
       type: traits
       gw2id: 1887
+      defaultEnabled: true
 
     - id: staff-master-base
       text: Staff Master
@@ -250,6 +277,7 @@
           Power: [120, converted]
       type: traits
       gw2id: 1884
+      defaultEnabled: true
 
     - id: staff-master-staff
       text: Staff Master
@@ -259,15 +287,20 @@
           Power: [120, converted]
       type: traits
       gw2id: 1884
+      defaultEnabled: true
 
     - id: havoc-specialist
       text: Havoc Specialist
-      subText: 3x
+      amount:
+        label: 'average missing bars'
+        default: 3
+        quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [15%, mult]
+          Strike Damage: [5%, mult]
       type: traits
       gw2id: 1893
+      defaultEnabled: true
 
     - id: bounding-dodger
       text: Bounding Dodger
@@ -277,6 +310,7 @@
           Strike Damage: [10%, add]
       type: traits
       gw2id: 2047
+      defaultEnabled: true
 
     - id: lotus-training
       text: Lotus Training
@@ -286,6 +320,7 @@
           Condition Damage: [15%, add]
       type: traits
       gw2id: 1833
+      defaultEnabled: true
 
 - section: Deadeye
   id: 58
@@ -299,6 +334,7 @@
           Precision: [120, converted]
       type: traits
       gw2id: 2118
+      defaultEnabled: true
 
     - id: silent-scope-rifle
       text: Silent Scope
@@ -308,28 +344,30 @@
           Precision: [120, converted]
       type: traits
       gw2id: 2118
+      defaultEnabled: true
 
-    - id: premeditation-6
+    - id: premeditation-base
       text: Premeditation
-      subText: 6x
+      subText: base
       modifiers:
-        damage:
-          Strike Damage: [6%, mult]
         attributes:
           Concentration: [180, buff]
       type: traits
       gw2id: 2160
+      defaultEnabled: true
 
-    - id: premeditation-9
+    - id: premeditation
       text: Premeditation
-      subText: 9x
+      amount:
+        label: 'boons'
+        default: 8
+        quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [9%, mult]
-        attributes:
-          Concentration: [180, buff]
+          Strike Damage: [1%, mult]
       type: traits
       gw2id: 2160
+      defaultEnabled: true
 
     - id: iron-sight
       text: Iron Sight
@@ -340,12 +378,15 @@
           Damage Reduction: [10%, unknown]
       type: traits
       gw2id: 2084
+      defaultEnabled: true
 
     - id: be-quick-or-be-killed
       text: Be Quick or Be Killed
+      subText: 100% quickness
       modifiers:
         attributes:
           Power: [200, buff]
           Precision: [200, buff]
       type: traits
       gw2id: 2093
+      defaultEnabled: true

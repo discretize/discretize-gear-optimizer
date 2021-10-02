@@ -24,27 +24,42 @@
     - id: fragility
       text: Fragility
       minor: true
+      amount:
+        label: 'vulnerability'
+        default: 25
+        quantityEntered: 25
       modifiers:
         damage:
           Strike Damage: [12.5%, mult]
       type: traits
       gw2id: 1941
+      defaultEnabled: true
 
     - id: egotism
       text: Egotism
+      amount:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, mult]
       type: traits
       gw2id: 713
+      defaultEnabled: true
 
     - id: vicious-expression
       text: Vicious Expression
+      amount:
+        label: '% boonless'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [15%, mult]
       type: traits
       gw2id: 681
+      defaultEnabled: true
 
 - section: Dueling
   id: 1
@@ -52,21 +67,40 @@
 
     - id: fencers-finesse
       text: Fencer's Finesse
-      subText: 10x
+      amount:
+        label: 'stacks'
+        default: 10
+        quantityEntered: 10
       modifiers:
         attributes:
           Ferocity: [150, buff]
       type: traits
       gw2id: 708
+      defaultEnabled: true
+
+    - id: superiority-complex-base
+      text: Superiority Complex
+      subText: base
+      modifiers:
+        damage:
+          Critical Damage: [15%, unknown]
+      type: traits
+      gw2id: 692
+      defaultEnabled: true
 
     - id: superiority-complex
       text: Superiority Complex
-      subText: 50% uptime -> +20% Critical Damage
+      subText: bonus
+      amount:
+        label: '% below 50 or disabled'
+        default: 50
+        quantityEntered: 100
       modifiers:
         damage:
-          Critical Damage: [20%, unknown]
+          Critical Damage: [10%, unknown]
       type: traits
       gw2id: 692
+      defaultEnabled: true
 
 - section: Chaos
   id: 45
@@ -80,15 +114,21 @@
           Damage Reduction: [25%, unknown]
       type: traits
       gw2id: 675
+      defaultEnabled: true
 
     - id: illusionary-membrane
       text: Illusionary Membrane
       minor: true
+      amount:
+        label: '% regeneration'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Condition Damage: [10%, add]
       type: traits
       gw2id: 667
+      defaultEnabled: true
 
     - id: chaotic-potency
       text: Chaotic Potency
@@ -98,10 +138,15 @@
           Condition Damage: [120, buff]
       type: traits
       gw2id: 669
+      defaultEnabled: true
 
     - id: chaotic-potency-2
       text: Chaotic Potency
-      subText: with staff - check both boxes
+      subText: with staff
+      amount:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Condition Damage: [120, buff]
@@ -111,12 +156,17 @@
     - id: chaotic-persistence
       text: Chaotic Persistence
       minor: true
+      amount:
+        label: '% regeneration'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Concentration: [250, buff]
           Expertise: [250, buff]
       type: traits
       gw2id: 1865
+      defaultEnabled: true
 
 - section: Inspiration
   id: 23
@@ -130,6 +180,7 @@
       minor: true
       type: traits
       gw2id: 1915
+      defaultEnabled: true
 
 - section: Illusions
   id: 24
@@ -138,6 +189,10 @@
     - id: compounding-power
       text: Compounding Power
       subText: 5x
+      amount:
+        label: 'stacks'
+        default: 5
+        quantityEntered: 5
       modifiers:
         damage:
           Strike Damage: [10%, add]
@@ -146,6 +201,7 @@
       minor: true
       type: traits
       gw2id: 723
+      defaultEnabled: true
 
 - section: Chronomancer
   id: 40
@@ -153,11 +209,13 @@
 
     - id: danger-time
       text: Danger Time
+      subText: 100% slow
       modifiers:
         attributes:
           Critical Chance: 15%
       type: traits
       gw2id: 2009
+      defaultEnabled: true
 
 - section: Mirage
   id: 59
@@ -165,9 +223,14 @@
 
     - id: nomads-endurance
       text: Nomad's Endurance
+      amount:
+        label: '% vigor'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Condition Damage: [150, buff]
       minor: true
       type: traits
       gw2id: 2069
+      defaultEnabled: true

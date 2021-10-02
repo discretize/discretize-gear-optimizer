@@ -23,30 +23,39 @@
 
     - id: farsighted
       text: Farsighted
-      subText: Melee
+      subText: base
       modifiers:
         damage:
           Strike Damage: [5%, mult]
       type: traits
       gw2id: 1000
+      defaultEnabled: true
 
     - id: farsighted-2
       text: Farsighted
-      subText: Ranged
+      subText: bonus
+      amount:
+        label: '% ranged'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [15%, mult]
+          Strike Damage: [10%, mult]
       type: traits
       gw2id: 1000
 
     - id: predators-onslaught
       text: Predator's Onslaught
-      subText: 100% uptime
+      amount:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [15%, mult]
       type: traits
       gw2id: 996
+      defaultEnabled: true
 
 - section: Skirmishing
   id: 30
@@ -59,9 +68,11 @@
           Bleeding Damage: [33%, unknown]
       type: traits
       gw2id: 1846
+      defaultEnabled: true
 
     - id: hunters-tactics
       text: Hunter's Tactics
+      subText: 100% flanking
       modifiers:
         damage:
           Strike Damage: [10%, mult]
@@ -70,6 +81,7 @@
       minor: true
       type: traits
       gw2id: 1068
+      defaultEnabled: true
 
     - id: light-on-your-feet
       text: Light on your Feet
@@ -84,12 +96,14 @@
 
     - id: vicious-quarry
       text: Vicious Quarry
+      subText: 100% fury
       modifiers:
         attributes:
           Ferocity: [250, buff]
           Critical Chance: 10%
       type: traits
       gw2id: 1888
+      defaultEnabled: true
 
 - section: Wilderness Survival
   id: 33
@@ -102,6 +116,7 @@
           Damage Reduction: [5%, unknown]
       type: traits
       gw2id: 1086
+      defaultEnabled: true
 
     - id: taste-for-danger
       text: Taste for Danger
@@ -112,6 +127,7 @@
           Expertise: {Vitality: 7%}
       type: traits
       gw2id: 1099
+      defaultEnabled: true
 
     - id: ambidexterity
       text: Ambidexterity
@@ -121,15 +137,21 @@
           Condition Damage: [120, buff]
       type: traits
       gw2id: 1101
+      defaultEnabled: true
 
     - id: ambidexterity-2
       text: Ambidexterity
       subText: with torch/dagger - check both boxes
+      amount:
+        label: '% uptime'
+        default: 50
+        quantityEntered: 100
       modifiers:
         attributes:
           Condition Damage: [120, buff]
       type: traits
       gw2id: 1101
+      defaultEnabled: true
 
     - id: poison-master
       text: Poison Master
@@ -138,6 +160,7 @@
           Poison Damage: [25%, unknown]
       type: traits
       gw2id: 1701
+      defaultEnabled: true
 
 - section: Nature Magic
   id: 25
@@ -145,21 +168,16 @@
 
     - id: bountiful-hunter
       text: Bountiful Hunter
-      subText: 6x
+      amount:
+        label: 'boons'
+        default: 8
+        quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [6%, mult]
+          Strike Damage: [1%, mult]
       type: traits
       gw2id: 1062
-
-    - id: bountiful-hunter-9
-      text: Bountiful Hunter
-      subText: 9x
-      modifiers:
-        damage:
-          Strike Damage: [9%, mult]
-      type: traits
-      gw2id: 1062
+      defaultEnabled: true
 
     - id: instinctive-reaction
       text: Instinctive Reaction
@@ -168,6 +186,7 @@
           Healing Power: {Power: 7%}
       type: traits
       gw2id: 978
+      defaultEnabled: true
 
     - id: lingering-magic
       text: Lingering Magic
@@ -177,6 +196,7 @@
       minor: true
       type: traits
       gw2id: 1059
+      defaultEnabled: true
 
 - section: Beastmastery
   id: 32
@@ -190,24 +210,21 @@
           Ferocity: [120, buff]
       type: traits
       gw2id: 1066
+      defaultEnabled: true
 
-    - id: honed-axes-2
+    - id: honed-axes-axe
       text: Honed Axes
-      subText: with axe 50% - also check base
-      modifiers:
-        attributes:
-          Ferocity: [60, buff]
-      type: traits
-      gw2id: 1066
-
-    - id: honed-axes-3
-      text: Honed Axes
-      subText: with axe 100% - also check base
+      subText: with axe
+      amount:
+        label: '% uptime'
+        default: 50
+        quantityEntered: 100
       modifiers:
         attributes:
           Ferocity: [120, buff]
       type: traits
       gw2id: 1066
+      defaultEnabled: true
 
 - section: Druid
   id: 5
@@ -215,12 +232,17 @@
 
     - id: natural-mender
       text: Natural Mender
+      amount:
+        label: 'stacks'
+        default: 10
+        quantityEntered: 1
       modifiers:
         attributes:
-          Outgoing Healing: 20%
+          Outgoing Healing: 2%
       minor: true
       type: traits
       gw2id: 1992
+      defaultEnabled: true
 
 - section: Soulbeast
   id: 55
@@ -228,15 +250,24 @@
 
     - id: furious-strength
       text: Furious Strength
+      amount:
+        label: '% fury'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [15%, add]
       minor: true
       type: traits
       gw2id: 2156
+      defaultEnabled: true
 
     - id: twice-as-vicious
       text: Twice as Vicious
+      amount:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, add]
@@ -244,9 +275,14 @@
       minor: true
       type: traits
       gw2id: 2127
+      defaultEnabled: true
 
     - id: oppressive-superiority
       text: Oppressive Superiority
+      amount:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, mult]
@@ -254,6 +290,7 @@
           Condition Duration: 10%
       type: traits
       gw2id: 2143
+      defaultEnabled: true
 
     - id: archetype-stout
       subText: Archetype Stout (Tough/Vit)
@@ -300,7 +337,7 @@
       minor: true
       type: typography
 
-    - id: sb-1
+    - id: pack-alpha-merged
       subText: merged
       modifiers:
         attributes:
@@ -313,7 +350,7 @@
       type: traits
       gw2id: 1900
 
-    - id: sb-2
+    - id: loud-whistle-merged
       subText: merged
       modifiers:
         damage:
@@ -322,7 +359,7 @@
       type: traits
       gw2id: 974
 
-    - id: sb-3
+    - id: pets-prowess-merged
       subText: merged
       modifiers:
         attributes:
@@ -331,7 +368,7 @@
       type: traits
       gw2id: 1065
 
-    - id: sb-4
+    - id: honed-axes-merged
       subText: merged, base
       modifiers:
         attributes:

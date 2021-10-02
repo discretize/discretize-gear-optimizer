@@ -12,6 +12,7 @@
           Torment Damage: [10%, unknown]
       type: traits
       gw2id: 1793
+      defaultEnabled: true
 
     - id: seething-malice
       text: Seething Malice
@@ -21,14 +22,17 @@
           Condition Damage: [120, buff]
       type: traits
       gw2id: 1801
+      defaultEnabled: true
 
     - id: demonic-resistance
       text: Demonic Resistance
+      subText: 100% resistance
       modifiers:
         damage:
           Damage Reduction: [20%, unknown]
       type: traits
       gw2id: 1726
+      defaultEnabled: true
 
     - id: pact-of-pain
       text: Pact of Pain
@@ -37,6 +41,7 @@
           Condition Duration: 15%
       type: traits
       gw2id: 1714
+      defaultEnabled: true
 
     - id: yearning-empowerment
       text: Yearning Empowerement
@@ -46,6 +51,7 @@
           Condition Duration: 10%
       type: traits
       gw2id: 1744
+      defaultEnabled: true
 
 - section: Retribution
   id: 9
@@ -53,30 +59,40 @@
 
     - id: dwarven-battle-training
       text: Dwarven Battle Training
+      amount:
+        label: '% weakness'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, mult]
       type: traits
       gw2id: 1740
+      defaultEnabled: true
 
     - id: determined-resolution
       text: Determined Resolution
+      subText: 100% resolution
       minor: true
       modifiers:
         damage:
           Damage Reduction: [10%, unknown]
       type: traits
       gw2id: 1713
+      defaultEnabled: true
 
     - id: vicious-reprisal
       text: Vicious Reprisal
-      subText: 100%
+      amount:
+        label: '% resolution'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, add]
-          Condition Damage: [10%, add]
+          All Damage: [10%, add]
       type: traits
       gw2id: 1779
+      defaultEnabled: true
 
     - id: versed-in-stone
       text: Versed in Stone
@@ -85,6 +101,7 @@
           Power: {Toughness: 13%}
       type: traits
       gw2id: 1770
+      defaultEnabled: true
 
 - section: Invocation
   id: 3
@@ -92,29 +109,40 @@
 
     - id: rising-tide
       text: Rising Tide
+      amount:
+        label: '% scholar'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [7%, mult]
       type: traits
       gw2id: 1761
+      defaultEnabled: true
 
     - id: ferocious-aggression
       text: Ferocious Aggression
       minor: true
+      amount:
+        label: '% fury'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [7%, add]
-          Condition Damage: [7%, add]
+          All Damage: [7%, add]
       type: traits
       gw2id: 1758
+      defaultEnabled: true
 
     - id: roiling-mists
       text: Roiling Mists
+      subText: 100% fury
       modifiers:
         attributes:
           Critical Chance: 20%
       type: traits
       gw2id: 1719
+      defaultEnabled: true
 
 - section: Devastation
   id: 15
@@ -122,73 +150,83 @@
 
     - id: unsuspecting-strikes
       text: Unsuspecting Strikes
-      subText: 20% uptime -> +4% Damage
+      amount:
+        label: '% above 80'
+        default: 20
+        quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [4%, mult]
+          Strike Damage: [20%, mult]
       type: traits
       gw2id: 1767
+      defaultEnabled: true
 
-    - id: destructive-impulses-dual
+    - id: destructive-impulses-base
       text: Destructive Impulses
       subText: Dual wielded
       minor: true
       modifiers:
         damage:
-          Strike Damage: [10%, add]
-          Condition Damage: [10%, add]
+          All Damage: [5%, add]
       type: traits
       gw2id: 1724
+      defaultEnabled: true
 
-    - id: destructive-impulses
+    - id: destructive-impulses-dual
       text: Destructive Impulses
-      subText: Two handed
+      subText: bonus
       minor: true
+      amount:
+        label: '% dual wielding'
+        default: 50
+        quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [5%, add]
-          Condition Damage: [5%, add]
+          All Damage: [2.5%, add]
       type: traits
       gw2id: 1724
-
-    - id: destructive-impulses-mix
-      text: Destructive Impulses
-      subText: 50% dual wield, 50% 2h
-      minor: true
-      modifiers:
-        damage:
-          Strike Damage: [7.5%, add]
-          Condition Damage: [7.5%, add]
-      type: traits
-      gw2id: 1724
+      defaultEnabled: true
 
     - id: notoriety
       text: Notoriety
-      subText: 25 might
+      amount:
+        label: 'might'
+        default: 25
+        quantityEntered: 25
       modifiers:
         attributes:
           Power: [250, buff]
           Condition Damage: [-250, buff]
       type: traits
       gw2id: 1765
+      defaultEnabled: true
 
     - id: targeted-destruction
       text: Targeted Destruction
-      subText: 25 vulnerability
+      amount:
+        label: 'vulnerability'
+        default: 25
+        quantityEntered: 25
       minor: true
       modifiers:
         damage:
           Strike Damage: [12.5%, mult]
       type: traits
       gw2id: 1792
+      defaultEnabled: true
 
     - id: swift-termination
       text: Swift Termination
+      amount:
+        label: '% uptime'
+        default: 50
+        quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Strike Damage: [20%, mult]
       type: traits
       gw2id: 1800
+      defaultEnabled: true
 
 - section: Salvation
   id: 12
@@ -196,11 +234,16 @@
 
     - id: tranquil-balance
       text: Tranquil Balance
+      amount:
+        label: '% scholar'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Outgoing Healing: 20%
       type: traits
       gw2id: 1822
+      defaultEnabled: true
 
     - id: life-attunement
       text: Life Attunement
@@ -212,14 +255,20 @@
           Concentration: {Healing Power: 7%}
       type: traits
       gw2id: 1821
+      defaultEnabled: true
 
     - id: invoking-harmony
       text: Invoking Harmony
+      amount:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Outgoing Healing: 20%
       type: traits
       gw2id: 1818
+      defaultEnabled: true
 
 - section: Renegade
   id: 63
@@ -227,22 +276,27 @@
 
     - id: ambush-commander
       text: Ambush Commander
-      subText: 5x Kalla's Fervor
       minor: true
+      amount:
+        label: "Kalla's Fervor stacks"
+        default: 5
+        quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [10%, add]
-          Condition Damage: [10%, add]
+          All Damage: [2%, add]
       type: traits
       gw2id: 2181
+      defaultEnabled: true
 
     - id: blood-fury
       text: Blood Fury
+      subText: 100% fury
       modifiers:
         attributes:
           Bleeding Duration: 25%
       type: traits
       gw2id: 2079
+      defaultEnabled: true
 
     - id: heartpiercer
       text: Heartpiercer
@@ -251,22 +305,28 @@
           Bleeding Damage: [25%, unknown]
       type: traits
       gw2id: 2092
+      defaultEnabled: true
 
     - id: brutal-momentum
       text: Brutal Momentum
+      subText: full endurance
       minor: true
       modifiers:
         attributes:
           Critical Chance: 33%
       type: traits
       gw2id: 2142
+      defaultEnabled: true
 
     - id: lasting-legacy
       text: Lasting Legacy
-      subText: additional bonus from 5x Kalla's Fervor
+      amount:
+        label: "Kalla's Fervor stacks"
+        default: 5
+        quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [5%, add]
-          Condition Damage: [5%, add]
+          All Damage: [1%, add]
       type: traits
       gw2id: 2100
+      defaultEnabled: true

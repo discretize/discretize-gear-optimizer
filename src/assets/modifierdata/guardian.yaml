@@ -80,6 +80,7 @@
           Strike Damage: [7%, mult]
       type: traits
       gw2id: 634
+      defaultEnabled: true
 
     - id: symbolic-exposure
       text: Symbolic Exposure
@@ -89,15 +90,31 @@
           Strike Damage: [5%, mult]
       type: traits
       gw2id: 646
+      defaultEnabled: true
 
-    - id: zealous-blade
+    - id: zealous-blade-base
       text: Zealous Blade
-      subText: assuming 50% GS
+      subText: base
       modifiers:
         attributes:
-          Power: [180, buff]
+          Power: [120, buff] #confirmed by Cat
       type: traits
       gw2id: 653
+      defaultEnabled: true
+
+    - id: zealous-blade-gs
+      text: Zealous Blade
+      subText: w/ greatsword
+      amount:
+        label: '% uptime'
+        default: 50
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Power: [120, converted] #confirmed by Cat
+      type: traits
+      gw2id: 653
+      defaultEnabled: true
 
     - id: kindled-zeal
       text: Kindled Zeal
@@ -106,6 +123,7 @@
           Condition Damage: {Power: 10%}
       type: traits
       gw2id: 1556
+      defaultEnabled: true
 
     - id: symbolic-avenger
       text: Symbolic Avenger
@@ -115,6 +133,7 @@
           Strike Damage: [10%, add]
       type: traits
       gw2id: 2017
+      defaultEnabled: true
 
 - section: Radiance
   id: 16
@@ -128,24 +147,21 @@
           Precision: [80, buff]
       type: traits
       gw2id: 566
+      defaultEnabled: true
 
-    - id: right-hand-strength-2
+    - id: right-hand-strength-1h
       text: Right-Hand Strength
-      subText: 50% one-handed (+40 Power)
+      subText: with 1h weapon
+      amount:
+        label: '% uptime'
+        default: 50
+        quantityEntered: 100
       modifiers:
         attributes:
-          Power: [40, buff]
+          Power: [80, buff]
       type: traits
       gw2id: 566
-
-    - id: right-hand-strength-3
-      text: Right-Hand Strength
-      subText: 100% one-handed (+80 Power)
-      modifiers:
-        attributes:
-          Power: [40, buff]
-      type: traits
-      gw2id: 566
+      defaultEnabled: true
 
     - id: radiant-fire
       text: Radiant Fire
@@ -154,14 +170,20 @@
           Burning Duration: 20%
       type: traits
       gw2id: 567
+      defaultEnabled: true
 
     - id: retribution
       text: Retribution
+      amount:
+        label: '% resolution'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, add]
       type: traits
       gw2id: 565
+      defaultEnabled: true
 
     - id: radiant-power
       text: Radiant Power
@@ -172,6 +194,7 @@
           Ferocity: [150, buff]
       type: traits
       gw2id: 568
+      defaultEnabled: true
 
     - id: amplified-wrath
       text: Amplified Wrath
@@ -180,14 +203,17 @@
           Burning Damage: [15%, unknown]
       type: traits
       gw2id: 1686
+      defaultEnabled: true
 
     - id: righteous-instincts
       text: Righteous Instincts
+      subText: 100% retaliation
       modifiers:
         attributes:
           Critical Chance: 25%
       type: traits
       gw2id: 1683
+      defaultEnabled: true
 
 - section: Valor
   id: 13
@@ -195,11 +221,13 @@
 
     - id: stalwart-defender
       text: Stalwart Defender
+      subText: with shield
       modifiers:
         attributes:
           Toughness: [240, buff]
       type: traits
       gw2id: 580
+      defaultEnabled: true
 
 - section: Honor
   id: 49
@@ -207,12 +235,16 @@
 
     - id: invigorating-bulwark
       text: Invigorating Bulwark
-      subText: 5x
+      amount:
+        label: 'stacks'
+        default: 5
+        quantityEntered: 5
       modifiers:
         attributes:
           Outgoing Healing: 25%
       type: traits
       gw2id: 1899
+      defaultEnabled: true
 
     - id: honorable-staff
       text: Honorable Staff
@@ -222,6 +254,7 @@
           Concentration: [120, buff]
       type: traits
       gw2id: 557
+      defaultEnabled: true
 
     - id: honorable-staff-2
       text: Honorable Staff
@@ -231,6 +264,7 @@
           Concentration: [120, buff]
       type: traits
       gw2id: 557
+      defaultEnabled: true
 
     - id: force-of-will
       text: Force of Will
@@ -241,6 +275,7 @@
           Outgoing Healing: 10%
       type: traits
       gw2id: 1682
+      defaultEnabled: true
 
 - section: Virtues
   id: 46
@@ -248,41 +283,30 @@
 
     - id: inspired-virtue
       text: Inspired Virtue
-      subText: 6x
+      amount:
+        label: 'boons'
+        default: 8
+        quantityEntered: 1
       minor: true
       modifiers:
         damage:
-          Strike Damage: [6%, mult]
+          Strike Damage: [1%, mult]
       type: traits
       gw2id: 621
-
-    - id: inspired-virtue-9
-      text: Inspired Virtue
-      subText: 9x
-      minor: true
-      modifiers:
-        damage:
-          Strike Damage: [9%, mult]
-      type: traits
-      gw2id: 621
-
-    - id: inspired-virtue-12
-      text: Inspired Virtue
-      subText: 12x
-      minor: true
-      modifiers:
-        damage:
-          Strike Damage: [12%, mult]
-      type: traits
-      gw2id: 621
+      defaultEnabled: true
 
     - id: unscathed-contender
       text: Unscathed Contender
+      amount:
+        label: '% aegis'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [20%, add]
       type: traits
       gw2id: 624
+      defaultEnabled: true
 
     - id: virtue-of-retribution
       text: Virtue of Resolution
@@ -292,15 +316,20 @@
           Resolution Duration: 25%
       type: traits
       gw2id: 604
+      defaultEnabled: true
 
     - id: inspiring-virtue
       text: Inspiring Virtue
-      subText: 100%
+      amount:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, add]
       type: traits
       gw2id: 603
+      defaultEnabled: true
 
     - id: power-of-the-virtuous
       text: Power of the Virtuous
@@ -310,6 +339,7 @@
           Condition Damage: {Vitality: 13%}
       type: traits
       gw2id: 620
+      defaultEnabled: true
 
 - section: Dragonhunter
   id: 27
@@ -322,24 +352,30 @@
           Strike Damage: [10%, mult]
       type: traits
       gw2id: 1835
+      defaultEnabled: true
 
     - id: pure-of-sight
       text: Pure of Sight
-      subText: Melee
+      subText: base
       minor: true
       modifiers:
         damage:
           Strike Damage: [5%, mult]
       type: traits
       gw2id: 1926
+      defaultEnabled: true
 
     - id: pure-of-sight-ranged
       text: Pure of Sight
-      subText: Ranged
+      subText: bonus
       minor: true
+      amount:
+        label: '% ranged'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [15%, mult]
+          Strike Damage: [10%, mult]
       type: traits
       gw2id: 1926
 
@@ -350,6 +386,7 @@
           Damage Reduction: [10%, unknown]
       type: traits
       gw2id: 1908
+      defaultEnabled: true
 
     - id: big-game-hunter
       text: Big Game Hunter
@@ -358,6 +395,7 @@
           Strike Damage: [15%, mult]
       type: traits
       gw2id: 1955
+      defaultEnabled: true
 
 - section: Firebrand
   id: 62
@@ -366,6 +404,10 @@
     - id: imbued-haste
       text: Imbued Haste
       minor: true
+      amount:
+        label: '% quickness'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Condition Damage: [250, converted]
@@ -373,3 +415,4 @@
           Vitality: [250, converted]
       type: traits
       gw2id: 2148
+      defaultEnabled: true

@@ -15,30 +15,43 @@
 
     - id: spiteful-talisman
       text: Spiteful Talisman
+      amount:
+        label: '% boonless'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, mult]
       type: traits
       gw2id: 914
+      defaultEnabled: true
 
     - id: awaken-the-pain
       text: Awaken the Pain
-      subText: 25 might
+      amount:
+        label: 'might'
+        default: 25
+        quantityEntered: 25
       modifiers:
         attributes:
           Power: [250, buff]
           Condition Damage: [-250, buff]
       type: traits
       gw2id: 829
+      defaultEnabled: true
 
     - id: close-to-death
       text: Close to Death
-      subText: 50%
+      amount:
+        label: '% uptime'
+        default: 50
+        quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Strike Damage: [20%, mult]
       type: traits
       gw2id: 853
+      defaultEnabled: true
 
 - section: Curses
   id: 39
@@ -52,6 +65,7 @@
           Bleeding Duration: 20%
       type: traits
       gw2id: 802
+      defaultEnabled: true
 
     - id: furious-demise
       text: Furious Demise
@@ -61,18 +75,32 @@
           Precision: [180, converted]
       type: traits
       gw2id: 803
+      defaultEnabled: true
 
     - id: target-the-weak
       text: Target the Weak
-      subText: 10x
+      subText: base
       minor: true
       modifiers:
-        attributes:
-          Critical Chance: 20%
         conversion:
           Condition Damage: {Precision: 13%}
       type: traits
       gw2id: 810
+      defaultEnabled: true
+
+    - id: target-the-weak
+      text: Target the Weak
+      amount:
+        label: 'conditions'
+        default: 10
+        quantityEntered: 10
+      minor: true
+      modifiers:
+        attributes:
+          Critical Chance: 20%
+      type: traits
+      gw2id: 810
+      defaultEnabled: true
 
     - id: lingering-curse
       text: Lingering Curse
@@ -82,6 +110,7 @@
           Condition Damage: [200, buff]
       type: traits
       gw2id: 801
+      defaultEnabled: true
 
 - section: Death Magic
   id: 2
@@ -89,13 +118,18 @@
 
     - id: carapace
       text: ''
-      subText: toughness from carapace, 6x
+      subText: toughness from carapace
       minor: true
+      amount:
+        label: 'stacks'
+        default: 6
+        quantityEntered: 1
       modifiers:
         attributes:
-          Toughness: [120, buff]
+          Toughness: [20, buff]
       type: traits
       gw2id: null
+      defaultEnabled: true
 
     - id: putrid-defense
       text: Putrid Defense
@@ -104,24 +138,20 @@
           Poison Damage: [15%, unknown]
       type: traits
       gw2id: 857
+      defaultEnabled: true
 
     - id: deadly-strength-6x
       text: Deadly Strength
-      subText: 6x carapace
+      amount:
+        label: 'carapace stacks'
+        default: 6
+        quantityEntered: 1
       modifiers:
         attributes:
-          Power: [60, buff]
+          Power: [10, buff]
       type: traits
       gw2id: 855
-
-    - id: deadly-strength-25x
-      text: Deadly Strength
-      subText: 25x carapace
-      modifiers:
-        attributes:
-          Power: [250, buff]
-      type: traits
-      gw2id: 855
+      defaultEnabled: true
 
 - section: Soul Reaping
   id: 50
@@ -129,13 +159,17 @@
 
     - id: soul-barbs
       text: Soul Barbs
-      subText: 100%
+      amount:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, add]
           Condition Damage: [10%, add]
       type: traits
       gw2id: 894
+      defaultEnabled: true
 
     - id: vital-persistence
       text: Vital Persistence
@@ -144,6 +178,7 @@
           Vitality: [180, converted]
       type: traits
       gw2id: 861
+      defaultEnabled: true
 
     - id: death-perception
       text: Death Perception
@@ -154,6 +189,7 @@
           Ferocity: [300, buff]
       type: traits
       gw2id: 893
+      defaultEnabled: true
 
 - section: Scourge
   id: 60
@@ -166,6 +202,7 @@
           Expertise: {Condition Damage: 7%}
       type: traits
       gw2id: 2074
+      defaultEnabled: true
 
     - id: sand-sage-2x
       text: Sand Sage
@@ -177,6 +214,7 @@
           Expertise: [150, converted]
       type: traits
       gw2id: 2121
+      defaultEnabled: true
 
     - id: sand-sage-3x
       text: Sand Sage
@@ -188,6 +226,7 @@
           Expertise: [225, converted]
       type: traits
       gw2id: 2121
+      defaultEnabled: true
 
     - id: demonic-lore
       text: Demonic Lore
@@ -197,6 +236,7 @@
           Torment Damage: [25%, unknown]
       type: traits
       gw2id: 2164
+      defaultEnabled: true
 
 - section: Reaper
   id: 34
@@ -204,11 +244,16 @@
 
     - id: soul-eater
       text: Soul Eater
+      amount:
+        label: '% melee'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, mult]
       type: traits
       gw2id: 1969
+      defaultEnabled: true
 
     - id: decimate-defenses-25x
       text: Decimate Defenses
@@ -218,16 +263,21 @@
           Critical Chance: 50%
       type: traits
       gw2id: 2031
+      defaultEnabled: true
 
     - id: cold-shoulder
       text: Cold Shoulder
-      subText: 100%
+      amount:
+        label: '% chill'
+        default: 100
+        quantityEntered: 100
       minor: true
       modifiers:
         damage:
           Strike Damage: [15%, mult]
       type: traits
       gw2id: 2018
+      defaultEnabled: true
 
     - id: reapers-onslaught
       text: Reaper's Onslaught
@@ -237,3 +287,4 @@
           Ferocity: [300, buff]
       type: traits
       gw2id: 2021
+      defaultEnabled: true
