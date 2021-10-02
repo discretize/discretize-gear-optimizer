@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-console */
 /* eslint-disable prefer-object-spread */
@@ -104,20 +105,40 @@ export function setup(input) {
   /* Modifiers */
 
   settings.modifiers = {
-    multiplier: {
-      'Effective Power': 1,
-      'Effective Condition Damage': 1,
-      'Effective Health': 1,
-      'Effective Healing': 1,
-      'Critical Damage': 1,
-    },
+    damageMultiplier: {},
     buff: [],
     convert: [],
   };
-  let addEffectiveConditionDamage = 0;
-  let addEffectivePower = 0;
-  let targetEffectiveConditionDamage = 0;
-  let targetEffectivePower = 0;
+  const initialMultipliers = {
+    'Strike Damage': 1,
+    'Condition Damage': 1,
+    'Damage Taken': 1,
+    'Critical Damage': 1,
+    'Bleeding Damage': 1,
+    'Burning Damage': 1,
+    'Confusion Damage': 1,
+    'Poison Damage': 1,
+    'Torment Damage': 1,
+  };
+  const allDmgMult = {
+    mult: { ...initialMultipliers },
+    add: { ...initialMultipliers },
+    target: { ...initialMultipliers },
+  };
+  const dmgBuff = (attribute, amount, addOrMult) => {
+    switch (addOrMult) {
+      case 'add':
+        allDmgMult.add[attribute] += amount;
+        break;
+      case 'target':
+        allDmgMult.target[attribute] += amount;
+        break;
+      case 'mult':
+      default:
+        allDmgMult.mult[attribute] *= 1 + amount;
+        break;
+    }
+  };
 
   const parsePercent = (percentValue) => Number(percentValue.replace('%', '')) / 100;
 
@@ -144,33 +165,25 @@ export function setup(input) {
 
         switch (attribute) {
           case 'Strike Damage':
-            if (addOrMult === 'add') addEffectivePower += amount;
-            if (addOrMult === 'target') targetEffectivePower += amount;
-            if (addOrMult === 'mult' || addOrMult === 'unknown')
-              settings.modifiers.multiplier['Effective Power'] *= 1 + amount;
-            break;
           case 'Condition Damage':
-            if (addOrMult === 'add') addEffectiveConditionDamage += amount;
-            if (addOrMult === 'target') targetEffectiveConditionDamage += amount;
-            if (addOrMult === 'mult' || addOrMult === 'unknown')
-              settings.modifiers.multiplier['Effective Condition Damage'] *= 1 + amount;
+          case 'Bleeding Damage':
+          case 'Burning Damage':
+          case 'Confusion Damage':
+          case 'Poison Damage':
+          case 'Torment Damage':
+            dmgBuff(attribute, amount, addOrMult);
             break;
           case 'All Damage':
-            // strike
-            if (addOrMult === 'add') addEffectivePower += amount;
-            if (addOrMult === 'target') targetEffectivePower += amount;
-            if (addOrMult === 'mult' || addOrMult === 'unknown')
-              settings.modifiers.multiplier['Effective Power'] *= 1 + amount;
-
-            // condition
-            if (addOrMult === 'add') addEffectiveConditionDamage += amount;
-            if (addOrMult === 'target') targetEffectiveConditionDamage += amount;
-            if (addOrMult === 'mult' || addOrMult === 'unknown')
-              settings.modifiers.multiplier['Effective Condition Damage'] *= 1 + amount;
+            dmgBuff('Strike Damage', amount, addOrMult);
+            dmgBuff('Condition Damage', amount, addOrMult);
             break;
           case 'Damage Reduction':
-            // todo: actually implement this
-            settings.modifiers.multiplier['Effective Health'] *= 1 + amount;
+            const negativeAmount = -amount;
+            dmgBuff('Damage Taken', negativeAmount, addOrMult);
+            break;
+          case 'Critical Damage':
+            // assuming multiplicative until someone tests  twin fangs + ferocious strikes
+            dmgBuff('Critical Damage', amount, 'mult');
             break;
           case 'Condition Damage Reduction':
             console.log('Condition Damage Reduction is currently unsupported');
@@ -190,19 +203,31 @@ export function setup(input) {
         while (allPairsMut.length) {
           const [amount, convertedOrBuff] = allPairsMut.splice(0, 2);
 
-          if (convertedOrBuff === 'converted') {
-            settings.baseAttributes[attribute] = (settings.baseAttributes[attribute] || 0) + amount;
-          } else {
-            settings.modifiers['buff'][attribute] =
-              (settings.modifiers['buff'][attribute] || 0) + amount;
+          switch (convertedOrBuff) {
+            case 'converted':
+              settings.baseAttributes[attribute] =
+                (settings.baseAttributes[attribute] || 0) + amount;
+              break;
+            case 'buff':
+            case 'unknown':
+            default:
+              settings.modifiers['buff'][attribute] =
+                (settings.modifiers['buff'][attribute] || 0) + amount;
+              break;
           }
         }
       } else {
         // percent, i.e.
-        //   Critical Chance: 15%
+        //   Torment Duration: 15%
 
         const amount = parsePercent(allPairs);
-        settings.baseAttributes[attribute] = (settings.baseAttributes[attribute] || 0) + amount;
+        // unconfirmed if +outgoing healing and +max health mods are mult but ¯\_(ツ)_/¯
+        if (attribute === 'Maximum Health' || attribute === 'Outgoing Healing') {
+          settings.baseAttributes[attribute] =
+            ((settings.baseAttributes[attribute] || 0) + 1) * (1 + amount) - 1;
+        } else {
+          settings.baseAttributes[attribute] = (settings.baseAttributes[attribute] || 0) + amount;
+        }
       }
     }
 
@@ -222,11 +247,10 @@ export function setup(input) {
     }
   }
 
-  settings.modifiers['multiplier']['Effective Condition Damage'] *= 1 + addEffectiveConditionDamage;
-  settings.modifiers['multiplier']['Effective Power'] *= 1 + addEffectivePower;
-  settings.modifiers['multiplier']['Effective Condition Damage'] *=
-    1 + targetEffectiveConditionDamage;
-  settings.modifiers['multiplier']['Effective Power'] *= 1 + targetEffectivePower;
+  Object.keys(initialMultipliers).forEach((attribute) => {
+    settings.modifiers.damageMultiplier[attribute] =
+      allDmgMult.mult[attribute] * allDmgMult.add[attribute] * allDmgMult.target[attribute];
+  });
 
   // convert to arrays for simpler iteration
   settings.modifiers['buff'] = Object.entries(settings.modifiers['buff'] || {});
@@ -798,17 +822,17 @@ const clamp = (input, min, max) => {
  * @param {Object} _character
  */
 export function updateAttributes(_character) {
-  const multipliers = _character.settings.modifiers['multiplier'];
+  const { damageMultiplier } = _character.settings.modifiers;
   _character.valid = true;
 
   calcStats(_character);
 
-  const powerDamageScore = calcPower(_character, multipliers);
-  const condiDamageScore = calcCondi(_character, multipliers, Attributes.CONDITION);
+  const powerDamageScore = calcPower(_character, damageMultiplier);
+  const condiDamageScore = calcCondi(_character, damageMultiplier, Attributes.CONDITION);
   _character.attributes['Damage'] = powerDamageScore + condiDamageScore;
 
-  calcSurvivability(_character, multipliers);
-  calcHealing(_character, multipliers);
+  calcSurvivability(_character, damageMultiplier);
+  calcHealing(_character);
 
   calcResults(_character);
 }
@@ -823,7 +847,7 @@ export function updateAttributes(_character) {
  */
 function updateAttributesFast(_character, skipValidation = false) {
   const { settings } = _character;
-  const multipliers = settings.modifiers['multiplier'];
+  const { damageMultiplier } = settings.modifiers;
   _character.valid = true;
 
   calcStats(_character);
@@ -833,10 +857,9 @@ function updateAttributesFast(_character, skipValidation = false) {
     return false;
   }
 
-  /* eslint-disable no-case-declarations */
   switch (settings.rankby) {
     case 'Damage':
-      const powerDamageScore = calcPower(_character, multipliers);
+      const powerDamageScore = calcPower(_character, damageMultiplier);
 
       // cache condi result based on cdmg and expertise
       let condiDamageScore = 0;
@@ -844,21 +867,20 @@ function updateAttributesFast(_character, skipValidation = false) {
         const CONDI_CACHE_ID = attributes['Expertise'] + attributes['Condition Damage'] * 10000;
         condiDamageScore =
           condiResultCache?.get(CONDI_CACHE_ID) ||
-          calcCondi(_character, multipliers, settings.relevantConditions);
+          calcCondi(_character, damageMultiplier, settings.relevantConditions);
         condiResultCache.set(CONDI_CACHE_ID, condiDamageScore);
       }
 
       attributes['Damage'] = powerDamageScore + condiDamageScore;
       break;
     case 'Survivability':
-      calcSurvivability(_character, multipliers);
+      calcSurvivability(_character, damageMultiplier);
       break;
     case 'Healing':
-      calcHealing(_character, multipliers);
+      calcHealing(_character);
       break;
     // no default
   }
-  /* eslint-enable no-case-declarations */
 
   return true;
 }
@@ -868,8 +890,14 @@ function calcStats(_character) {
   const { attributes, settings, baseAttributes } = _character;
 
   for (const [attribute, conversion] of settings.modifiers['convert']) {
-    for (const [source, percent] of conversion) {
-      attributes[attribute] += roundEven(baseAttributes[source] * percent);
+    if (attribute === 'Outgoing Healing') {
+      for (const [source, percent] of conversion) {
+        attributes[attribute] += baseAttributes[source] * percent;
+      }
+    } else {
+      for (const [source, percent] of conversion) {
+        attributes[attribute] += roundEven(baseAttributes[source] * percent);
+      }
     }
   }
 
@@ -895,17 +923,17 @@ function checkInvalid(_character) {
   return invalid;
 }
 
-function calcPower(_character, multipliers) {
+function calcPower(_character, damageMultiplier) {
   const { attributes, settings } = _character;
 
   attributes['Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
   attributes['Critical Damage'] += attributes['Ferocity'] / 15 / 100;
 
-  const critDmg = attributes['Critical Damage'] * multipliers['Critical Damage'];
+  const critDmg = attributes['Critical Damage'] * damageMultiplier['Critical Damage'];
   const critChance = clamp(attributes['Critical Chance'], 0, 1);
 
   attributes['Effective Power'] =
-    attributes['Power'] * (1 + critChance * (critDmg - 1)) * multipliers['Effective Power'];
+    attributes['Power'] * (1 + critChance * (critDmg - 1)) * damageMultiplier['Strike Damage'];
 
   // 2597: standard enemy armor value, also used for ingame damage tooltips
   const damage = (settings.distribution['Power'] / 2597) * attributes['Effective Power'];
@@ -914,7 +942,7 @@ function calcPower(_character, multipliers) {
   return damage;
 }
 
-function calcCondi(_character, multipliers, relevantConditions) {
+function calcCondi(_character, damageMultiplier, relevantConditions) {
   const { attributes, settings } = _character;
 
   attributes['Condition Duration'] += attributes['Expertise'] / 15 / 100;
@@ -923,8 +951,8 @@ function calcCondi(_character, multipliers, relevantConditions) {
     attributes[`${condition} Damage`] =
       (Condition[condition].factor * attributes['Condition Damage'] +
         Condition[condition].baseDamage) *
-      multipliers['Effective Condition Damage'] *
-      (multipliers[`${condition} Damage`] || 1);
+      damageMultiplier['Condition Damage'] *
+      damageMultiplier[`${condition} Damage`];
 
     const duration =
       1 +
@@ -933,33 +961,36 @@ function calcCondi(_character, multipliers, relevantConditions) {
     const stacks = settings.distribution[condition] * duration;
     attributes[`${condition} Stacks`] = stacks;
 
-    const damage = stacks * (attributes[`${condition} Damage`] || 1);
-    attributes[`${condition} DPS`] = damage;
+    const DPS = stacks * (attributes[`${condition} Damage`] || 1);
+    attributes[`${condition} DPS`] = DPS;
 
-    condiDamageScore += damage;
+    condiDamageScore += DPS;
   }
 
   return condiDamageScore;
 }
 
-function calcSurvivability(_character, multipliers) {
+function calcSurvivability(_character, damageMultiplier) {
   const { attributes } = _character;
 
   attributes['Armor'] += attributes['Toughness'];
   attributes['Health'] += attributes['Vitality'] * 10;
 
   attributes['Effective Health'] =
-    attributes['Health'] * attributes['Armor'] * multipliers['Effective Health'];
+    attributes['Health'] *
+    attributes['Armor'] *
+    (1 / damageMultiplier['Damage Taken']) *
+    (attributes['Maximum Health'] || 1);
   attributes['Survivability'] = attributes['Effective Health'] / 1967;
 }
 
-function calcHealing(_character, multipliers) {
+function calcHealing(_character) {
   const { attributes, settings } = _character;
 
   // reasonably representative skill: druid celestial avatar 4 pulse
   // 390 base, 0.3 coefficient
   attributes['Effective Healing'] =
-    (attributes['Healing Power'] * 0.3 + 390) * multipliers['Effective Healing'];
+    (attributes['Healing Power'] * 0.3 + 390) * (1 + attributes['Outgoing Healing']);
   if (Object.prototype.hasOwnProperty.call(settings.modifiers, 'bountiful-maintenance-oil')) {
     const bonus =
       ((attributes['Healing Power'] || 0) * 0.6) / 10000 +
