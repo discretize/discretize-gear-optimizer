@@ -36,7 +36,7 @@
       subText: Ranged
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Strike Damage: [15%, mult]
       type: traits
       gw2id: 1000
 
