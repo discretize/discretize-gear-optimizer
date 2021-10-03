@@ -281,7 +281,7 @@
 
     - id: staff-master-staff
       text: Staff Master
-      subText: with staff (check both)
+      subText: with staff
       modifiers:
         attributes:
           Power: [120, converted]
@@ -338,7 +338,7 @@
 
     - id: silent-scope-rifle
       text: Silent Scope
-      subText: with rifle (check both)
+      subText: with rifle
       modifiers:
         attributes:
           Precision: [120, converted]

@@ -23,7 +23,7 @@
 
     - id: farsighted
       text: Farsighted
-      subText: Melee
+      subText: melee
       modifiers:
         damage:
           Strike Damage: [5%, mult]
@@ -33,7 +33,7 @@
 
     - id: farsighted-2
       text: Farsighted
-      subText: Ranged
+      subText: ranged
       modifiers:
         damage:
           Strike Damage: [15%, mult]
@@ -137,7 +137,7 @@
 
     - id: ambidexterity-2
       text: Ambidexterity
-      subText: with torch/dagger - check both boxes
+      subText: with torch/dagger
       amount:
         label: '% uptime'
         default: 50

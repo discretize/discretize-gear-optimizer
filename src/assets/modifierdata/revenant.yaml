@@ -163,7 +163,7 @@
 
     - id: destructive-impulses-base
       text: Destructive Impulses
-      subText: Dual wielded
+      subText: base
       minor: true
       modifiers:
         damage:

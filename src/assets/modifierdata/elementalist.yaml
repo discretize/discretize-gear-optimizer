@@ -177,7 +177,7 @@
 
     - id: aeromancers-training
       text: Aeromancer's Training
-      subText: perma
+      subText: permanent
       minor: true
       modifiers:
         attributes:
@@ -233,7 +233,7 @@
     - id: stone-flesh
       text: Stone Flesh
       minor: true
-      subText: (100% in earth)
+      subText: 100% earth attunement
       modifiers:
         damage:
           Damage Reduction: [7%, unknown]
@@ -413,7 +413,7 @@
 
     - id: masters-fortitude
       text: Master's Fortitude
-      subText: With Sword
+      subText: with sword
       modifiers:
         attributes:
           Vitality: [120, converted]
@@ -425,7 +425,7 @@
 
     - id: masters-fortitude-without
       text: Master's Fortitude
-      subText: Without Sword
+      subText: without sword
       modifiers:
         conversion:
           Vitality: {Power: 5%, Condition Damage: 5%}
