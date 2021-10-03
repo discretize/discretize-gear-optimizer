@@ -43,7 +43,7 @@
     - id: predators-onslaught
       text: Predator's Onslaught
       amount:
-        label: '% uptime'
+        label: '% impaired'
         default: 100
         quantityEntered: 100
       modifiers:

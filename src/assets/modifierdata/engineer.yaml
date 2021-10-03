@@ -224,7 +224,7 @@
     - id: object-in-motion
       text: Object in Motion (One)
       amount:
-        label: 'average uptime (0-3)'
+        label: 'average boons (0-3)'
         default: 2
         quantityEntered: 1
       modifiers:
