@@ -43,7 +43,7 @@
     - id: close-to-death
       text: Close to Death
       amount:
-        label: '% uptime'
+        label: '% below 50'
         default: 50
         quantityEntered: 100
       modifiers:

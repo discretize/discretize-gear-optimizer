@@ -203,7 +203,7 @@
     - id: bolt-to-the-heart
       text: Bolt to the Heart
       amount:
-        label: '% uptime'
+        label: '% below 50'
         default: 50
         quantityEntered: 100
       modifiers:
