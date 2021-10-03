@@ -23,7 +23,7 @@
 
     - id: farsighted
       text: Farsighted
-      subText: base
+      subText: Melee
       modifiers:
         damage:
           Strike Damage: [5%, mult]
@@ -33,11 +33,7 @@
 
     - id: farsighted-2
       text: Farsighted
-      subText: bonus
-      amount:
-        label: '% ranged'
-        default: 100
-        quantityEntered: 100
+      subText: Ranged
       modifiers:
         damage:
           Strike Damage: [10%, mult]
