@@ -24,7 +24,7 @@ const IndexPage = ({ classes }) => {
         </Link>{' '}
         or{' '}
         <Link
-          href="https://github.com/discretize/discretize-gear-optimizer/tree/react-recode"
+          href="https://github.com/discretize/discretize-gear-optimizer/tree/staging"
           color="textPrimary"
         >
           <GitHubIcon fontSize="small" /> Github
