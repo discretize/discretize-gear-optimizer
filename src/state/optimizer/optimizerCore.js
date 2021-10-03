@@ -221,8 +221,9 @@ export function setup(input) {
         //   Torment Duration: 15%
 
         const amount = parsePercent(allPairs);
-        // unconfirmed if +outgoing healing and +max health mods are mult but ¯\_(ツ)_/¯
-        if (attribute === 'Maximum Health' || attribute === 'Outgoing Healing') {
+        // unconfirmed if +max health mods are mult but ¯\_(ツ)_/¯
+        // +outgoing healing is assumed additive
+        if (attribute === 'Maximum Health') {
           settings.baseAttributes[attribute] =
             ((settings.baseAttributes[attribute] || 0) + 1) * (1 + amount) - 1;
         } else {
