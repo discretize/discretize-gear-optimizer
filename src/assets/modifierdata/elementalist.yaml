@@ -354,7 +354,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [1%, mult]
+          Strike Damage: [2%, mult]
       type: traits
       gw2id: 1511
       defaultEnabled: true
