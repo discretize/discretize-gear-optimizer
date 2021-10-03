@@ -117,6 +117,7 @@ const ResultDetails = ({ data }) => {
     wea1 = classData.mainHand.find((d) => d.type === 'two-handed');
     weapData = {
       weapon1MainId: wea1.gw2_id,
+      weapon1MainAffix: character.gear[12],
       weapon1MainInfusion1Id: infusions[16],
       weapon1MainSigil1Id: sigil1Id,
       weapon1MainInfusion2Id: infusions[17],
