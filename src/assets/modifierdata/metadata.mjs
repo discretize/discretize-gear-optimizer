@@ -40,13 +40,7 @@ const boons = [
 //   'Vulnerability',
 //   'Weakness',
 // ];
-const damagingConditions = [
-  'Bleeding',
-  'Burning',
-  'Confusion',
-  'Poison',
-  'Torment',
-]
+const damagingConditions = ['Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment'];
 
 export const allDamageKeys = [
   'Strike Damage',
@@ -73,3 +67,16 @@ export const allAttributePercentKeys = [
 ];
 
 export const allConversionKeys = [...stats, 'Outgoing Healing'];
+
+// these values don't behave well if scaled up and down,
+// so disallow them in modifiers with an amount key
+export const damageKeysBlacklist = ['Damage Reduction', 'Condition Damage Reduction'];
+export const attributePointKeysBlacklist = ['Precision', 'Toughness', 'Expertise', 'Concentration'];
+export const attributePercentKeysBlacklist = [
+  'Critical Chance',
+  'Boon Duration',
+  ...boons.map((boon) => `${boon} Duration`),
+  'Condition Duration',
+  ...damagingConditions.map((condition) => `${condition} Duration`),
+  'Maximum Health',
+];

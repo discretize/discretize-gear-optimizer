@@ -14,6 +14,9 @@ import {
   allAttributePointModes,
   allAttributePercentKeys,
   allConversionKeys,
+  damageKeysBlacklist,
+  attributePointKeysBlacklist,
+  attributePercentKeysBlacklist,
 } from './metadata.mjs';
 import specializationData from '../../utils/mapping/specializations.json';
 
@@ -27,18 +30,18 @@ const testModifiers = async () => {
   const allIds = new Set();
 
   for (const fileName of files) {
-    console.log(`- ${fileName}`);
+    console.log(`  - ${fileName}`);
     const fileData = await fs.readFile(`${directory}${fileName}`);
 
     let data;
     try {
       data = yaml.load(fileData);
     } catch (e) {
-      assert(false, `ERROR: ${fileName} is invalid YAML`);
+      assert(false, `err: ${fileName} is invalid YAML`);
       // continue;
     }
 
-    assert(Array.isArray(data), `ERROR: ${fileName} is not an array (use dashes for sections!)`);
+    assert(Array.isArray(data), `err: ${fileName} is not an array (use dashes for sections!)`);
 
     const fileIds = new Set();
     const allGw2ids = new Set();
@@ -55,58 +58,86 @@ const testModifiers = async () => {
       }
 
       const { items } = section;
-      assert(items, `ERROR: items in ${sectionName} is missing (make it [])`);
+      assert(items, `err: items in ${sectionName} is missing (make it [])`);
       assert(
         Array.isArray(items),
-        `ERROR: items in ${sectionName} is not an array (use dashes for sections!)`,
+        `err: items in ${sectionName} is not an array (use dashes for sections!)`,
       );
 
       for (const item of items) {
-        // eslint-disable-next-line no-unused-vars
-        const { id, text, subText, modifiers, gw2id, type, minor, ...otherKeys } = item;
+        /* eslint-disable no-unused-vars */
+        const {
+          id,
+          text,
+          subText,
+          modifiers,
+          gw2id,
+          type,
+          minor,
+          amount,
+          defaultEnabled,
+          ...otherKeys
+        } = item;
+        /* eslint-enable no-unused-vars */
+
         if (Object.keys(otherKeys).length)
           console.log('note: this script is missing validation for', otherKeys);
 
+        if (amount) {
+          assert(typeof amount.label === 'string', `err: missing amount label in ${id}`);
+          assert(typeof amount.default === 'number', `err: missing amount default in ${id}`);
+          assert(
+            typeof amount.quantityEntered === 'number',
+            `err: missing amount quantityEntered in ${id}`,
+          );
+        }
+
         if (major_traits) {
           if (major_traits.includes(gw2id)) {
-            assert(!minor, `ERROR: ${id} is mistakenly labelled minor!`);
+            assert(!minor, `err: ${id} is mistakenly labelled minor!`);
           } else if (minor_traits.includes(gw2id)) {
-            assert(minor, `ERROR: ${id} should be labelled minor!`);
+            assert(minor, `err: ${id} should be labelled minor!`);
           } else {
             // eslint-disable-next-line no-lonely-if
-            if (gw2id) console.log(`note: ${id} isn't a trait in this line`);
+            if (gw2id && sectionName !== 'Soulbeast')
+              console.log(`note: ${id} isn't a trait in this line`);
           }
         }
 
         if (section.id && gw2id) {
-          assert(!allGw2ids.has(gw2id) || subText, `missing subtext for same gw2id in ${id}`);
+          assert(
+            !allGw2ids.has(gw2id) || subText || amount,
+            `missing subtext for same gw2id in ${id}`,
+          );
           allGw2ids.add(gw2id);
         }
 
         assert(
           typeof id === 'string' && id !== '',
-          `ERROR: invalid or missing item id in ${sectionName}`,
+          `err: invalid or missing item id in ${sectionName}`,
         );
 
-        if (fileIds.has(id)) {
-          console.log(`note: file has duplicate id ${id}`);
-        } else if (allIds.has(id)) {
-          console.log(`note: duplicate id ${id} from different file`);
+        if (section.id) {
+          if (fileIds.has(id)) {
+            console.log(`❓ file has duplicate id ${id}`);
+          } else if (allIds.has(id)) {
+            console.log(`note: duplicate id ${id} from different file`);
+          }
         }
         fileIds.add(id);
         allIds.add(id);
 
         if (fileName !== 'buffs.yaml' && typeof gw2id !== 'number') {
-          console.log(`note: no gw2id in ${id}`);
+          // console.log(`note: no gw2id in ${id}`);
         } else if (typeof type !== 'string') console.log(`note: ${id} doesn't have a type`);
 
-        assert(typeof modifiers === 'object', `ERROR: invalid or missing modifiers in ${id}`);
+        assert(typeof modifiers === 'object', `err: invalid or missing modifiers in ${id}`);
 
         // eslint-disable-next-line no-unused-vars
         const { damage, attributes, conversion, effect, note, ...otherModifiers } = modifiers;
         assert(
           Object.keys(otherModifiers).length === 0,
-          `ERROR: invalid modifier type(s): ${Object.keys(otherModifiers)}`,
+          `err: invalid modifier type(s): ${Object.keys(otherModifiers)}`,
         );
 
         if (damage) {
@@ -114,11 +145,11 @@ const testModifiers = async () => {
         }
 
         if (attributes) {
-          parseAttributes(attributes, id);
+          parseAttributes(attributes, id, amount);
         }
 
         if (conversion) {
-          parseConversion(conversion, id);
+          parseConversion(conversion, id, amount);
         }
 
         if (effect) {
@@ -131,13 +162,16 @@ const testModifiers = async () => {
   console.log('🎉 looks like no major errors 🎉');
 };
 
-function parseDamage(damage, id) {
+function parseDamage(damage, id, traitAmount) {
   for (const [key, allPairs] of Object.entries(damage)) {
     assert(allDamageKeys.includes(key), `invalid damage key ${key} in ${id}`);
     assert(
       Array.isArray(allPairs),
       `invalid value for ${key} in ${id} (use 'unknown' if you don't know add/mult!)`,
     );
+
+    if (traitAmount && !traitAmount.disableBlacklist && damageKeysBlacklist.includes(key))
+      console.log(`❓ ${key} is a bad idea in an entry with an amount like ${id}`);
 
     // handle more than 2 pairs i.e. Strike Damage: [3%, add, 7%, mult]
     const allPairsMut = [...allPairs];
@@ -154,13 +188,16 @@ function parseDamage(damage, id) {
   }
 }
 
-function parseAttributes(attributes, id) {
+function parseAttributes(attributes, id, traitAmount) {
   for (const [key, allPairs] of Object.entries(attributes)) {
     if (allAttributePointKeys.includes(key)) {
       assert(
         Array.isArray(allPairs),
         `invalid value for ${key} in ${id} (use 'unknown' if you don't know if it's converted!)`,
       );
+
+      if (traitAmount && !traitAmount.disableBlacklist && attributePointKeysBlacklist.includes(key))
+        console.log(`❓ ${key} is a bad idea in an entry with an amount like ${id}`);
 
       // handle more than 2 pairs i.e. Concentration: [70, converted, 100, buff]
       const allPairsMut = [...allPairs];
@@ -174,6 +211,13 @@ function parseAttributes(attributes, id) {
         );
       }
     } else if (allAttributePercentKeys.includes(key)) {
+      if (
+        traitAmount &&
+        !traitAmount.disableBlacklist &&
+        attributePercentKeysBlacklist.includes(key)
+      )
+        console.log(`❓ ${key} is a bad idea in an entry with an amount like ${id}`);
+
       parsePercent(allPairs, key, id);
     } else {
       assert(false, `invalid attribute key ${key} in ${id}`);
@@ -181,9 +225,12 @@ function parseAttributes(attributes, id) {
   }
 }
 
-function parseConversion(conversion, id) {
+function parseConversion(conversion, id, traitAmount) {
   for (const [key, value] of Object.entries(conversion)) {
     assert(allConversionKeys.includes(key), `invalid conversion destination ${key} in ${id}`);
+
+    if (traitAmount && !traitAmount.disableBlacklist && attributePointKeysBlacklist.includes(key))
+      console.log(`❓ ${key} is a bad idea in an entry with an amount like ${id}`);
 
     for (const [source, amount] of Object.entries(value)) {
       assert(allConversionKeys.includes(source), `invalid conversion source ${source} in ${id}`);
@@ -201,7 +248,8 @@ function parsePercent(value, key, id) {
       typeof num === 'number' && !Number.isNaN(num),
       `invalid number ${value} for ${key} in ${id}`,
     );
-    if (num < 1) console.log(`note: value ${num} in ${id} doesn't look like a percent`);
+    if (num < 1 && id !== 'bountiful-maintenance-oil')
+      console.log(`note: value ${num} in ${id} doesn't look like a percent`);
   }
 }
 
