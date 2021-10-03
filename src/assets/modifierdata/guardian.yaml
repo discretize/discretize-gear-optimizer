@@ -356,7 +356,7 @@
 
     - id: pure-of-sight
       text: Pure of Sight
-      subText: base
+      subText: Melee
       minor: true
       modifiers:
         damage:
@@ -367,15 +367,11 @@
 
     - id: pure-of-sight-ranged
       text: Pure of Sight
-      subText: bonus
+      subText: Ranged
       minor: true
-      amount:
-        label: '% ranged'
-        default: 100
-        quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Strike Damage: [15%, mult]
       type: traits
       gw2id: 1926
 
