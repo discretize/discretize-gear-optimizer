@@ -74,7 +74,7 @@ const testModifiers = async () => {
           gw2id,
           type,
           minor,
-          amount,
+          amount: amountData,
           defaultEnabled,
           ...otherKeys
         } = item;
@@ -83,11 +83,11 @@ const testModifiers = async () => {
         if (Object.keys(otherKeys).length)
           console.log('note: this script is missing validation for', otherKeys);
 
-        if (amount) {
-          assert(typeof amount.label === 'string', `err: missing amount label in ${id}`);
-          assert(typeof amount.default === 'number', `err: missing amount default in ${id}`);
+        if (amountData) {
+          assert(typeof amountData.label === 'string', `err: missing amount label in ${id}`);
+          assert(typeof amountData.default === 'number', `err: missing amount default in ${id}`);
           assert(
-            typeof amount.quantityEntered === 'number',
+            typeof amountData.quantityEntered === 'number',
             `err: missing amount quantityEntered in ${id}`,
           );
         }
@@ -106,7 +106,7 @@ const testModifiers = async () => {
 
         if (section.id && gw2id) {
           assert(
-            !allGw2ids.has(gw2id) || subText || amount,
+            !allGw2ids.has(gw2id) || subText || amountData,
             `missing subtext for same gw2id in ${id}`,
           );
           allGw2ids.add(gw2id);
@@ -145,11 +145,11 @@ const testModifiers = async () => {
         }
 
         if (attributes) {
-          parseAttributes(attributes, id, amount);
+          parseAttributes(attributes, id, amountData);
         }
 
         if (conversion) {
-          parseConversion(conversion, id, amount);
+          parseConversion(conversion, id, amountData);
         }
 
         if (effect) {
@@ -162,7 +162,7 @@ const testModifiers = async () => {
   console.log('🎉 looks like no major errors 🎉');
 };
 
-function parseDamage(damage, id, traitAmount) {
+function parseDamage(damage, id, amountData) {
   for (const [key, allPairs] of Object.entries(damage)) {
     assert(allDamageKeys.includes(key), `invalid damage key ${key} in ${id}`);
     assert(
@@ -170,7 +170,7 @@ function parseDamage(damage, id, traitAmount) {
       `invalid value for ${key} in ${id} (use 'unknown' if you don't know add/mult!)`,
     );
 
-    if (traitAmount && !traitAmount.disableBlacklist && damageKeysBlacklist.includes(key))
+    if (amountData && !amountData.disableBlacklist && damageKeysBlacklist.includes(key))
       console.log(`❓ ${key} is a bad idea in an entry with an amount like ${id}`);
 
     // handle more than 2 pairs i.e. Strike Damage: [3%, add, 7%, mult]
@@ -188,7 +188,7 @@ function parseDamage(damage, id, traitAmount) {
   }
 }
 
-function parseAttributes(attributes, id, traitAmount) {
+function parseAttributes(attributes, id, amountData) {
   for (const [key, allPairs] of Object.entries(attributes)) {
     if (allAttributePointKeys.includes(key)) {
       assert(
@@ -196,7 +196,7 @@ function parseAttributes(attributes, id, traitAmount) {
         `invalid value for ${key} in ${id} (use 'unknown' if you don't know if it's converted!)`,
       );
 
-      if (traitAmount && !traitAmount.disableBlacklist && attributePointKeysBlacklist.includes(key))
+      if (amountData && !amountData.disableBlacklist && attributePointKeysBlacklist.includes(key))
         console.log(`❓ ${key} is a bad idea in an entry with an amount like ${id}`);
 
       // handle more than 2 pairs i.e. Concentration: [70, converted, 100, buff]
@@ -211,11 +211,7 @@ function parseAttributes(attributes, id, traitAmount) {
         );
       }
     } else if (allAttributePercentKeys.includes(key)) {
-      if (
-        traitAmount &&
-        !traitAmount.disableBlacklist &&
-        attributePercentKeysBlacklist.includes(key)
-      )
+      if (amountData && !amountData.disableBlacklist && attributePercentKeysBlacklist.includes(key))
         console.log(`❓ ${key} is a bad idea in an entry with an amount like ${id}`);
 
       parsePercent(allPairs, key, id);
@@ -225,11 +221,11 @@ function parseAttributes(attributes, id, traitAmount) {
   }
 }
 
-function parseConversion(conversion, id, traitAmount) {
+function parseConversion(conversion, id, amountData) {
   for (const [key, value] of Object.entries(conversion)) {
     assert(allConversionKeys.includes(key), `invalid conversion destination ${key} in ${id}`);
 
-    if (traitAmount && !traitAmount.disableBlacklist && attributePointKeysBlacklist.includes(key))
+    if (amountData && !amountData.disableBlacklist && attributePointKeysBlacklist.includes(key))
       console.log(`❓ ${key} is a bad idea in an entry with an amount like ${id}`);
 
     for (const [source, amount] of Object.entries(value)) {
