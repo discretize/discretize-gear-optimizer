@@ -292,7 +292,7 @@
     - id: havoc-specialist
       text: Havoc Specialist
       amount:
-        label: 'average missing bars'
+        label: 'missing bars'
         default: 3
         quantityEntered: 1
       modifiers:

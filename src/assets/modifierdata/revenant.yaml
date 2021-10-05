@@ -278,7 +278,7 @@
       text: Ambush Commander
       minor: true
       amount:
-        label: "Kalla's Fervor stacks"
+        label: "Kalla's fervor"
         default: 5
         quantityEntered: 1
       modifiers:
@@ -321,7 +321,7 @@
     - id: lasting-legacy
       text: Lasting Legacy
       amount:
-        label: "Kalla's Fervor stacks"
+        label: "Kalla's fervor"
         default: 5
         quantityEntered: 1
       modifiers:

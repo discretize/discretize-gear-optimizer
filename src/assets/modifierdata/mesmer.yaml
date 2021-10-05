@@ -92,7 +92,7 @@
       text: Superiority Complex
       subText: bonus
       amount:
-        label: '% below 50 or disabled'
+        label: '% below 50/disabled'
         default: 50
         quantityEntered: 100
       modifiers:

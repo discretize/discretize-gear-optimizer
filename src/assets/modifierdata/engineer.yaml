@@ -222,9 +222,9 @@
   items:
 
     - id: object-in-motion
-      text: Object in Motion (One)
+      text: Object in Motion
       amount:
-        label: 'average boons (0-3)'
+        label: 'active effects'
         default: 2
         quantityEntered: 1
       modifiers:

@@ -123,7 +123,7 @@
       subText: toughness from carapace
       minor: true
       amount:
-        label: 'stacks'
+        label: 'carapace'
         default: 6
         quantityEntered: 1
         disableBlacklist: true
@@ -147,7 +147,7 @@
     - id: deadly-strength-6x
       text: Deadly Strength
       amount:
-        label: 'carapace stacks'
+        label: 'carapace'
         default: 6
         quantityEntered: 1
       modifiers:

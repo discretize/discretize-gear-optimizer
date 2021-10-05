@@ -102,7 +102,7 @@
     - id: berserkers-power
       text: Berserker's Power
       amount:
-        label: 'average stacks'
+        label: 'stacks'
         default: 3
         quantityEntered: 1
       modifiers:
@@ -389,7 +389,7 @@
       text: Blood Reaction
       subText: bonus
       amount:
-        label: '% berserk mode'
+        label: '% berserk'
         default: 50
         quantityEntered: 100
       modifiers:

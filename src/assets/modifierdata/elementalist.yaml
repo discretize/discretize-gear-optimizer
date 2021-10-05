@@ -165,7 +165,7 @@
     - id: stormsoul
       text: Stormsoul
       amount:
-        label: '% disabled uptime'
+        label: '% disabled'
         default: 100
         quantityEntered: 100
       modifiers:
