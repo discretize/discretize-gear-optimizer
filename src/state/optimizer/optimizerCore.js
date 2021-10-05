@@ -143,15 +143,25 @@ export function setup(input) {
   const parsePercent = (percentValue) => Number(percentValue.replace('%', '')) / 100;
 
   modifiersInput = modifiersInput || [];
-  for (const modifiers of modifiersInput) {
+  for (const item of modifiersInput) {
     const {
-      damage = {},
-      attributes = {},
-      conversion = {},
-      // effect = {},
-      // note,
-      // ...otherModifiers
-    } = modifiers;
+      modifiers: {
+        id = '[no id]',
+        damage = {},
+        attributes = {},
+        conversion = {},
+        // effect = {},
+        // note,
+        // ...otherModifiers
+      },
+      amount: amountData,
+    } = item;
+
+    const amountInput = /* todo: get this */ null;
+
+    const scaleValue = amountData
+      ? (value) => (value * (amountInput ?? amountData.default)) / amountData.quantityEntered
+      : (value) => value;
 
     for (const [attribute, allPairs] of Object.entries(damage)) {
       // damage, i.e.
@@ -161,7 +171,7 @@ export function setup(input) {
       while (allPairsMut.length) {
         const [percentAmount, addOrMult] = allPairsMut.splice(0, 2);
 
-        const amount = parsePercent(percentAmount);
+        const amount = scaleValue(parsePercent(percentAmount));
 
         switch (attribute) {
           case 'Strike Damage':
@@ -189,7 +199,7 @@ export function setup(input) {
             console.log('Condition Damage Reduction is currently unsupported');
             break;
           default:
-            throw new Error(`invalid damage modifier: ${attribute} in ${modifiers?.id}`);
+            throw new Error(`invalid damage modifier: ${attribute} in ${id}`);
         }
       }
     }

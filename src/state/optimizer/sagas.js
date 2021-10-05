@@ -115,7 +115,7 @@ function createInput(state) {
     percentDistribution: values1,
     distribution: values2,
   };
-  input.modifiers = modifiers.map((entry) => entry.modifiers);
+  input.modifiers = modifiers;
 
   // temp: convert "poisoned" to "poison"
   const convertPoison = (distribution) =>
