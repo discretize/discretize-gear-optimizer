@@ -21,8 +21,10 @@ import {
   removeTraitModifier,
   removeTraitModifierWithGW2id,
   removeTraitModifierWithSource,
+  setTraitModiferAmount,
 } from '../../../state/slices/traits';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
+import TraitAmount from './TraitAmount';
 
 const styles = (theme) => ({
   formControl: {
@@ -62,7 +64,9 @@ const Traits = ({ classes, data }) => {
 
     // distinct minors are minor traits where no selection is necessary because the buffs
     // they provide are not ambigous or conditional
-    const distinctMinors = allModifiers.filter((item) => item.minor === true && !item.subText);
+    const distinctMinors = allModifiers.filter(
+      (item) => item.minor === true && !item.subText && !item.amount,
+    );
 
     distinctMinors.forEach((minor) =>
       dispatch(
@@ -75,6 +79,20 @@ const Traits = ({ classes, data }) => {
     );
 
     dispatch(changeTraitLine({ index, value: newTraitLine.toString() }));
+
+    allModifiers.forEach((item) => {
+      if (item.defaultEnabled) {
+        dispatch(
+          addTraitModifier({
+            id: item.id,
+            gw2id: item.gw2id,
+            source: Number(newTraitLine),
+          }),
+        );
+      }
+    })
+
+
   };
 
   /**
@@ -115,20 +133,32 @@ const Traits = ({ classes, data }) => {
     }
   };
 
+  const handleAmountChange = (item, trait, line) => (e) => {
+    console.log(`amount ${item.id} (${trait}, ${line}) changed to ${e.target.value}`);
+
+    dispatch(setTraitModiferAmount({ amountText: e.target.value, modifier: item }));
+  };
+
   return [1, 2, 3].map((lineNr, index) => {
+    const selectedTraitIds = traits[index];
+
     const allModifiers =
       data.find((section) => section.id === Number(traitlines[index]))?.items || [];
 
-    const unconditionalMinors = allModifiers.filter((item) => item.minor === true && !item.subText);
-
     const checkboxModis = [];
+    const noCheckboxModis = [];
 
-    const conditionalMinors = allModifiers.filter((item) => item.minor === true && item.subText);
-    checkboxModis.push(...conditionalMinors);
-
-    traits[index].forEach((traitId) => {
-      const matchingItems = allModifiers.filter((item) => item.gw2id === traitId);
-      checkboxModis.push(...matchingItems);
+    // always show minor trait variants; show variants of selected major traits
+    allModifiers.forEach((item) => {
+      if (item.minor) {
+        if (!item.subText && !item.amount) {
+          noCheckboxModis.push(item);
+        } else {
+          checkboxModis.push(item);
+        }
+      } else if (selectedTraitIds.includes(item.gw2id)) {
+        checkboxModis.push(item);
+      }
     });
 
     const name = `traitNr${lineNr}`;
@@ -164,7 +194,7 @@ const Traits = ({ classes, data }) => {
           onSelect={(event) => handleTraitChange(event, traitlines[index], index)}
         />
 
-        {unconditionalMinors.map((trait) => (
+        {noCheckboxModis.map((trait) => (
           <div key={trait.id}>
             <>
               {trait.gw2id && <Trait id={trait.gw2id} disableLink />}{' '}
@@ -173,19 +203,26 @@ const Traits = ({ classes, data }) => {
           </div>
         ))}
 
-        {checkboxModis.map((trait) => (
-          <div key={trait.id}>
+        {checkboxModis.map((item) => (
+          <div key={item.id}>
             <CheckboxComponent
-              value={trait.id}
-              checked={modifiers.filter((modifier) => modifier.id === trait.id).length > 0}
+              value={item.id}
+              checked={modifiers.filter((modifier) => modifier.id === item.id).length > 0}
               label={
                 <>
-                  {trait.gw2id && <Trait id={trait.gw2id} disableLink />}{' '}
-                  <Typography variant="caption">{trait.subText}</Typography>
+                  {item.gw2id && <Trait id={item.gw2id} disableLink />}{' '}
+                  <Typography variant="caption">{item.subText}</Typography>
                 </>
               }
-              onChange={handleModifierChange(trait, traitlines[index])}
+              onChange={handleModifierChange(item, traitlines[index])}
             />
+            {item.amount ? (
+              <TraitAmount
+                traitData={item}
+                handleAmountChange={handleAmountChange(item, item.gw2id, traitlines[index])}
+                value={modifiers.find((mod) => mod.id === item.id)?.amountText}
+              />
+            ) : null}
           </div>
         ))}
       </React.Fragment>

@@ -33,6 +33,11 @@ export const traitsSlice = createSlice({
     removeTraitModifierWithSource: (state, action) => {
       state.modifiers = state.modifiers.filter((modifier) => modifier.source !== action.payload);
     },
+    setTraitModiferAmount: (state, action) => {
+      const { amountText, modifier } = action.payload;
+      const matched = state.modifiers.find((mod) => mod.id === modifier.id);
+      if (matched) matched.amountText = amountText;
+    },
   },
   extraReducers: {
     [changeProfession]: (state, action) => {
@@ -85,4 +90,5 @@ export const {
   removeTraitModifier,
   removeTraitModifierWithGW2id,
   removeTraitModifierWithSource,
+  setTraitModiferAmount,
 } = traitsSlice.actions;
