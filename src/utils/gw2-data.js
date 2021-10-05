@@ -600,8 +600,7 @@ export const ForcedSlots = [
 ];
 
 export const Omnipotion = {
-  // Re: condi dmg from omnipot
-  // https://discordapp.com/channels/301270513093967872/370538919118503947/716949463423516713
+  // Condi dmg from omnipot has been removed
   multiplier: {
     'Effective Power': 0.15,
     'add: Effective Condition Damage': 0.15, // stacks additively
@@ -616,9 +615,6 @@ export const Omnipotion = {
     },
     Concentration: {
       'Agony Resistance': 1.5,
-    },
-    'Condition Damage': {
-      'Condition Damage': 0.15, // undocumented condition damage stat bonus
     },
   },
 };
