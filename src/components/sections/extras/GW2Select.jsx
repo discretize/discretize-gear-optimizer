@@ -48,7 +48,7 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => 
     <FormControl className={classes.formControl}>
       <InputLabel htmlFor={name}>{label}</InputLabel>
       <Select
-        value={bigValue}
+        value={bigValue || ''}
         input={<Input name={name} id={name} />}
         onChange={handleChange}
         renderValue={(selected) => {
