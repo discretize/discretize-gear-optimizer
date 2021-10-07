@@ -95,7 +95,7 @@ export const traitsSlice = createSlice({
           if (!value) return;
           const itemData = classModifiersById[id];
           if (itemData.minor || allSelectedTraits.includes(itemData.gw2id)) {
-            modifiers.push({ ...itemData, amount: value?.amount });
+            modifiers.push({ id, ...itemData, amount: value?.amount });
           }
         });
       });
