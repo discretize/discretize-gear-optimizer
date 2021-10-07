@@ -57,7 +57,7 @@ export const buffsSlice = createSlice({
         if (key in buffPreset) buffs[key] = buffPreset[key];
       });
 
-      return { ...state, buffs };
+      return { buffs };
     },
     [setModifiers]: (state) => {
       const enabledModifiers = Object.keys(state.buffs).filter((key) => state.buffs[key]);

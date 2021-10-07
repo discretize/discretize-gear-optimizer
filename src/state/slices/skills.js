@@ -31,7 +31,7 @@ export const skillsSlice = createSlice({
       const { build } = action.payload;
 
       const traitState = JSON.parse(build.traits);
-      return { ...state, skills: traitState.skills };
+      return { skills: traitState.skills };
     },
     [setModifiers]: (state, action) => {
       const enabledModifiers = state.skills;

@@ -65,7 +65,6 @@ export const distributionSlice = createSlice({
 
       if (distributionPreset) {
         return {
-          ...state,
           version: 2,
           values1: distributionPreset.values1,
           values2: distributionPreset.values2,

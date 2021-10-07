@@ -89,7 +89,10 @@ export const traitsSlice = createSlice({
       const { build } = action.payload;
 
       const traitState = JSON.parse(build.traits);
-      return { ...state, ...traitState.traits };
+      return {
+        showAll: state.showAll,
+        ...traitState.traits,
+      };
     },
     [setModifiers]: (state, action) => {
       state.modifiers = state.items
