@@ -247,7 +247,8 @@ export function setup(input) {
           settings.baseAttributes[attribute] =
             ((settings.baseAttributes[attribute] || 0) + 1) * (1 + scaledAmount) - 1;
         } else {
-          settings.baseAttributes[attribute] = (settings.baseAttributes[attribute] || 0) + scaledAmount;
+          settings.baseAttributes[attribute] =
+            (settings.baseAttributes[attribute] || 0) + scaledAmount;
         }
       }
     }
