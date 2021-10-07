@@ -98,7 +98,7 @@ const Traits = ({ classes, data }) => {
     const noCheckboxModis = [];
     items[index].forEach((item) => {
       const itemData = classModifiersById[item.id];
-      if (itemData.minor && !itemData.subText && !itemData.amount) {
+      if (itemData.minor && !itemData.subText && !itemData.amountData) {
         noCheckboxModis.push(item);
       } else {
         checkboxModis.push(item);
@@ -166,7 +166,7 @@ const Traits = ({ classes, data }) => {
                 onChange={handleCheckboxChange(index, item.id)}
                 disabled={!item.visible}
               />
-              {itemData.amount ? (
+              {itemData.amountData ? (
                 <TraitAmount
                   traitData={itemData}
                   handleAmountChange={handleAmountChange(index, item.id)}

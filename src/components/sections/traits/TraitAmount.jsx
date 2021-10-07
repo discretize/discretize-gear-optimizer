@@ -3,7 +3,7 @@ import React from 'react';
 import { parseAmount } from '../../../state/optimizer/optimizerCore';
 
 const TraitAmount = ({ traitData, handleAmountChange, value = '', disabled }) => {
-  const { amount } = traitData;
+  const { amountData } = traitData;
 
   // const parsedValue = Number(value);
   // const isError = Number.isNaN(parsedValue) || parsedValue < 0;
@@ -14,11 +14,11 @@ const TraitAmount = ({ traitData, handleAmountChange, value = '', disabled }) =>
     <TextField
       error={error}
       value={value}
-      placeholder={String(amount.default)}
+      placeholder={String(amountData.default)}
       InputProps={{
         endAdornment: (
           <InputAdornment disablePointerEvents position="end">
-            {amount.label}
+            {amountData.label}
           </InputAdornment>
         ),
         inputProps: { style: { width: '4ch' } }, // how 2 css, help

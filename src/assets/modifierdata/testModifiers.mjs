@@ -74,7 +74,7 @@ const testModifiers = async () => {
           gw2id,
           type,
           minor,
-          amount: amountData,
+          amountData,
           defaultEnabled,
           ...otherKeys
         } = item;
