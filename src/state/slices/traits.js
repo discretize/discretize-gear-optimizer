@@ -5,13 +5,14 @@ import { classModifiersById, traitSectionsById } from '../../assets/modifierdata
 
 const getInitialItems = (traitline) => {
   const allItemData = traitSectionsById[traitline].items;
-  return allItemData.map((itemData) => {
-    // minor traits are always visible; no majors are selected so none are visible
-    const visible = Boolean(itemData.minor);
-    const enabled = Boolean(itemData.defaultEnabled);
-    const amountMaybe = itemData.amountData ? { amount: '' } : {};
-    return { id: itemData.id, visible, enabled, ...amountMaybe };
-  });
+  return Object.fromEntries(
+    allItemData.map((itemData) => {
+      // minor traits are always visible; no majors are selected so none are visible
+      const enabled = itemData.minor || itemData.defaultEnabled;
+      const value = itemData.amountData ? { amount: '' } : true;
+      return [itemData.id, enabled ? value : false];
+    }),
+  );
 };
 
 export const traitsSlice = createSlice({
@@ -24,7 +25,7 @@ export const traitsSlice = createSlice({
       [0, 0, 0],
       [0, 0, 0],
     ],
-    items: [[], [], []],
+    items: [{}, {}, {}],
     modifiers: [],
   },
   reducers: {
@@ -42,31 +43,22 @@ export const traitsSlice = createSlice({
     changeTrait: (state, action) => {
       const { index, tier, newTrait } = action.payload;
 
-      const oldTrait = state.selectedTraits[index][tier];
       state.selectedTraits[index][tier] = newTrait;
-
-      // update visibility
-      state.items[index].forEach((item) => {
-        const { gw2id } = classModifiersById[item.id];
-        if (gw2id === oldTrait) {
-          item.visible = false;
-        }
-        if (gw2id === newTrait) {
-          item.visible = true;
-        }
-      });
     },
     toggleTraitModifier: (state, action) => {
       const { index, id, enabled } = action.payload;
 
-      const match = state.items[index].find((item) => item.id === id);
-      if (match) match.enabled = enabled;
+      if (enabled) {
+        const itemData = classModifiersById[id];
+        state.items[index][id] = itemData.amountData ? { amount: '' } : true;
+      } else {
+        state.items[index][id] = false;
+      }
     },
     setTraitModiferAmount: (state, action) => {
       const { index, id, amount } = action.payload;
 
-      const match = state.items[index].find((item) => item.id === id);
-      if (match) match.amount = amount;
+      state.items[index][id].amount = amount;
     },
   },
   extraReducers: {
@@ -80,7 +72,7 @@ export const traitsSlice = createSlice({
             [0, 0, 0],
             [0, 0, 0],
           ],
-          items: [[], [], []],
+          items: [{}, {}, {}],
           modifiers: [],
         };
       }
@@ -95,13 +87,20 @@ export const traitsSlice = createSlice({
       };
     },
     [setModifiers]: (state, action) => {
-      state.modifiers = state.items
-        .flat()
-        .filter((item) => item.visible && item.enabled)
-        .map((item) => {
-          const data = classModifiersById[item.id];
-          return { ...item, ...data };
+      const allSelectedTraits = state.selectedTraits.flat(2);
+
+      const modifiers = [];
+      state.items.forEach((object) => {
+        Object.entries(object).forEach(([id, value]) => {
+          if (!value) return;
+          const itemData = classModifiersById[id];
+          if (itemData.minor || allSelectedTraits.includes(itemData.gw2id)) {
+            modifiers.push({ ...itemData, amount: value?.amount });
+          }
         });
+      });
+
+      state.modifiers = modifiers;
     },
   },
 });

@@ -24,7 +24,7 @@ import {
 } from '../../../state/slices/traits';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import TraitAmount from './TraitAmount';
-import { classModifiersById } from '../../../assets/modifierdata';
+import { classModifiersById, traitSectionsById } from '../../../assets/modifierdata';
 
 const styles = (theme) => ({
   formControl: {
@@ -97,13 +97,12 @@ const Traits = ({ classes, data }) => {
     // hide checkboxes for minor traits without configuration or subtext
     const checkboxModis = [];
     const noCheckboxModis = [];
-    items[index].forEach((item) => {
-      const { id } = item;
-      const { minor, subText, amountData } = classModifiersById[id];
+    traitSectionsById[Number(traitlines[index])]?.items.forEach((itemData) => {
+      const { minor, subText, amountData } = itemData;
       if (minor && !subText && !amountData) {
-        noCheckboxModis.push(item);
+        noCheckboxModis.push(itemData);
       } else {
-        checkboxModis.push(item);
+        checkboxModis.push(itemData);
       }
     });
 
@@ -143,9 +142,8 @@ const Traits = ({ classes, data }) => {
           noCheckboxModis.length > 0 && (
             <div>
               Minors:{' '}
-              {noCheckboxModis.map((item) => {
-                const { id } = item;
-                const { gw2id, subText } = classModifiersById[id];
+              {noCheckboxModis.map((itemData) => {
+                const { id, gw2id, subText } = itemData;
                 return (
                   <React.Fragment key={id}>
                     {gw2id && <Trait id={gw2id} disableLink />}{' '}
@@ -158,9 +156,11 @@ const Traits = ({ classes, data }) => {
         }
         {
           // Major traits, that the user might want to enable or not
-          checkboxModis.map((item) => {
-            const { id, visible, enabled, amount } = item;
-            const { gw2id, subText, amountData } = classModifiersById[id];
+          checkboxModis.map((itemData) => {
+            const { id, gw2id, subText, amountData } = itemData;
+            const visible = selectedTraits[index].includes(gw2id);
+            const enabled = Boolean(items[index][id]);
+            const amount = items[index][id]?.amount;
             return (
               <Box
                 key={id}
