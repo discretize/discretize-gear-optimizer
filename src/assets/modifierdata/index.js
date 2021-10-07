@@ -24,7 +24,7 @@ const byId = (sections) => {
 };
 // combines items in all sections in all entries into one object
 const allById = (group) =>
-  Object.assign({}, ...Object.values(group).map(category => byId(category)));
+  Object.assign({}, ...Object.values(group).map((category) => byId(category)));
   // Object.fromEntries(Object.entries(group).map(([key, value]) => [key, byId(value)]));
 
 export const classModifiers = {
