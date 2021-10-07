@@ -413,24 +413,23 @@
 
     - id: masters-fortitude
       text: Master's Fortitude
-      subText: with sword
+      subText: base
       modifiers:
-        attributes:
-          Vitality: [120, converted]
         conversion:
           Vitality: {Power: 5%, Condition Damage: 5%}
       type: traits
       gw2id: 2115
       defaultEnabled: true
 
-    - id: masters-fortitude-without
+    - id: masters-fortitude-sword
       text: Master's Fortitude
-      subText: without sword
+      subText: with sword
       modifiers:
-        conversion:
-          Vitality: {Power: 5%, Condition Damage: 5%}
+        attributes:
+          Vitality: [120, converted]
       type: traits
       gw2id: 2115
+      defaultEnabled: true
 
     - id: weavers-prowess
       text: Weaver's Prowess
