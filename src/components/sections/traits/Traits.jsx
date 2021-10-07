@@ -167,15 +167,12 @@ const Traits = ({ classes, data }) => {
                 disabled={!item.visible}
               />
               {itemData.amount ? (
-                <>
-                  <br />
-                  <TraitAmount
-                    traitData={itemData}
-                    handleAmountChange={handleAmountChange(index, item.id)}
-                    value={item.amount}
-                    disabled={!item.visible}
-                  />
-                </>
+                <TraitAmount
+                  traitData={itemData}
+                  handleAmountChange={handleAmountChange(index, item.id)}
+                  value={item.amount}
+                  disabled={!item.visible}
+                />
               ) : null}
             </div>
           );
