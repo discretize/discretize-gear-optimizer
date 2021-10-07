@@ -7,7 +7,7 @@
 
     - id: glass-cannon
       text: Glass Cannon
-      amount:
+      amountData:
         label: '% scholar'
         default: 100
         quantityEntered: 100
@@ -20,7 +20,7 @@
 
     - id: explosive-temper
       text: Explosive Temper
-      amount:
+      amountData:
         label: 'stacks'
         default: 10
         quantityEntered: 1
@@ -43,7 +43,7 @@
     - id: shaped-charge
       text: Shaped Charge
       minor: true
-      amount:
+      amountData:
         label: 'vulnerability'
         default: 25
         quantityEntered: 25
@@ -109,7 +109,7 @@
 
     - id: no-scope
       text: No Scope
-      amount:
+      amountData:
         label: '% melee'
         default: 100
         quantityEntered: 100
@@ -132,7 +132,7 @@
 
     - id: modified-ammunition
       text: Modified Ammunition
-      amount:
+      amountData:
         label: 'conditions'
         default: 10
         quantityEntered: 1
@@ -205,7 +205,7 @@
 
     - id: excessive-energy
       text: Excessive Energy
-      amount:
+      amountData:
         label: '% vigor'
         default: 100
         quantityEntered: 100
@@ -223,7 +223,7 @@
 
     - id: object-in-motion
       text: Object in Motion
-      amount:
+      amountData:
         label: 'active effects'
         default: 2
         quantityEntered: 1
@@ -255,7 +255,7 @@
 
     - id: applied-force
       text: Applied Force
-      amount:
+      amountData:
         label: 'might'
         default: 25
         quantityEntered: 25

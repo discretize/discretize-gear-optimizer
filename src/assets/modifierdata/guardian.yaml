@@ -105,7 +105,7 @@
     - id: zealous-blade-gs
       text: Zealous Blade
       subText: with greatsword
-      amount:
+      amountData:
         label: '% uptime'
         default: 50
         quantityEntered: 100
@@ -152,7 +152,7 @@
     - id: right-hand-strength-1h
       text: Right-Hand Strength
       subText: with 1h weapon
-      amount:
+      amountData:
         label: '% uptime'
         default: 50
         quantityEntered: 100
@@ -174,7 +174,7 @@
 
     - id: retribution
       text: Retribution
-      amount:
+      amountData:
         label: '% resolution'
         default: 100
         quantityEntered: 100
@@ -235,7 +235,7 @@
 
     - id: invigorating-bulwark
       text: Invigorating Bulwark
-      amount:
+      amountData:
         label: 'stacks'
         default: 5
         quantityEntered: 5
@@ -283,7 +283,7 @@
 
     - id: inspired-virtue
       text: Inspired Virtue
-      amount:
+      amountData:
         label: 'boons'
         default: 8
         quantityEntered: 1
@@ -297,7 +297,7 @@
 
     - id: unscathed-contender
       text: Unscathed Contender
-      amount:
+      amountData:
         label: '% aegis'
         default: 100
         quantityEntered: 100
@@ -320,7 +320,7 @@
 
     - id: inspiring-virtue
       text: Inspiring Virtue
-      amount:
+      amountData:
         label: '% uptime'
         default: 100
         quantityEntered: 100
@@ -400,7 +400,7 @@
     - id: imbued-haste
       text: Imbued Haste
       minor: true
-      amount:
+      amountData:
         label: '% quickness'
         default: 100
         quantityEntered: 100

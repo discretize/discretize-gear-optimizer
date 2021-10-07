@@ -59,7 +59,7 @@
 
     - id: dwarven-battle-training
       text: Dwarven Battle Training
-      amount:
+      amountData:
         label: '% weakness'
         default: 100
         quantityEntered: 100
@@ -83,7 +83,7 @@
 
     - id: vicious-reprisal
       text: Vicious Reprisal
-      amount:
+      amountData:
         label: '% resolution'
         default: 100
         quantityEntered: 100
@@ -109,7 +109,7 @@
 
     - id: rising-tide
       text: Rising Tide
-      amount:
+      amountData:
         label: '% scholar'
         default: 100
         quantityEntered: 100
@@ -123,7 +123,7 @@
     - id: ferocious-aggression
       text: Ferocious Aggression
       minor: true
-      amount:
+      amountData:
         label: '% fury'
         default: 100
         quantityEntered: 100
@@ -150,7 +150,7 @@
 
     - id: unsuspecting-strikes
       text: Unsuspecting Strikes
-      amount:
+      amountData:
         label: '% above 80'
         default: 20
         quantityEntered: 100
@@ -176,7 +176,7 @@
       text: Destructive Impulses
       subText: bonus
       minor: true
-      amount:
+      amountData:
         label: '% dual wielding'
         default: 50
         quantityEntered: 100
@@ -189,7 +189,7 @@
 
     - id: notoriety
       text: Notoriety
-      amount:
+      amountData:
         label: 'might'
         default: 25
         quantityEntered: 25
@@ -203,7 +203,7 @@
 
     - id: targeted-destruction
       text: Targeted Destruction
-      amount:
+      amountData:
         label: 'vulnerability'
         default: 25
         quantityEntered: 25
@@ -217,7 +217,7 @@
 
     - id: swift-termination
       text: Swift Termination
-      amount:
+      amountData:
         label: '% below 50'
         default: 50
         quantityEntered: 100
@@ -234,7 +234,7 @@
 
     - id: tranquil-balance
       text: Tranquil Balance
-      amount:
+      amountData:
         label: '% scholar'
         default: 100
         quantityEntered: 100
@@ -259,7 +259,7 @@
 
     - id: invoking-harmony
       text: Invoking Harmony
-      amount:
+      amountData:
         label: '% uptime'
         default: 100
         quantityEntered: 100
@@ -277,7 +277,7 @@
     - id: ambush-commander
       text: Ambush Commander
       minor: true
-      amount:
+      amountData:
         label: "Kalla's fervor"
         default: 5
         quantityEntered: 1
@@ -320,7 +320,7 @@
 
     - id: lasting-legacy
       text: Lasting Legacy
-      amount:
+      amountData:
         label: "Kalla's fervor"
         default: 5
         quantityEntered: 1

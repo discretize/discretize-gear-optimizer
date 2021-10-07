@@ -71,7 +71,7 @@
 
     - id: revealed-training-revealed
       text: Revealed Training
-      amount:
+      amountData:
         label: '% revealed'
         default: 100
         quantityEntered: 100
@@ -84,7 +84,7 @@
     - id: exposed-weakness
       text: Exposed Weakness
       minor: true
-      amount:
+      amountData:
         label: 'conditions'
         default: 10
         quantityEntered: 1
@@ -108,7 +108,7 @@
 
     - id: executioner
       text: Executioner
-      amount:
+      amountData:
         label: '% below 50'
         default: 50
         quantityEntered: 100
@@ -166,7 +166,7 @@
     - id: ferocious-strikes
       text: Ferocious Strikes
       minor: true
-      amount:
+      amountData:
         label: '% above 50'
         default: 50
         quantityEntered: 100
@@ -179,7 +179,7 @@
 
     - id: no-quarter
       text: No Quarter
-      amount:
+      amountData:
         label: '% fury'
         default: 100
         quantityEntered: 100
@@ -221,7 +221,7 @@
     - id: lead-attacks
       text: Lead Attacks
       minor: true
-      amount:
+      amountData:
         label: 'stacks'
         default: 15
         quantityEntered: 1
@@ -291,7 +291,7 @@
 
     - id: havoc-specialist
       text: Havoc Specialist
-      amount:
+      amountData:
         label: 'missing bars'
         default: 3
         quantityEntered: 1
@@ -358,7 +358,7 @@
 
     - id: premeditation
       text: Premeditation
-      amount:
+      amountData:
         label: 'boons'
         default: 8
         quantityEntered: 1

@@ -42,7 +42,7 @@
     - id: peak-performance-2
       text: Peak Performance
       subText: active
-      amount:
+      amountData:
         label: '% uptime'
         default: 100
         quantityEntered: 100
@@ -65,7 +65,7 @@
     - id: forceful-greatsword-2
       text: Forceful Greatsword
       subText: with greatsword/spear
-      amount:
+      amountData:
         label: '% uptime'
         default: 50
         quantityEntered: 100
@@ -88,7 +88,7 @@
     - id: pinnacle-of-strength
       text: Pinnacle Of Strength
       minor: true
-      amount:
+      amountData:
         label: 'might'
         default: 25
         quantityEntered: 25
@@ -101,7 +101,7 @@
 
     - id: berserkers-power
       text: Berserker's Power
-      amount:
+      amountData:
         label: 'stacks'
         default: 3
         quantityEntered: 1
@@ -127,7 +127,7 @@
 
     - id: signet-mastery
       text: Signet Mastery
-      amount:
+      amountData:
         label: 'stacks'
         default: 5
         quantityEntered: 5
@@ -141,7 +141,7 @@
     - id: deep-strikes
       text: Deep Strikes
       minor: true
-      amount:
+      amountData:
         label: '% fury'
         default: 100
         quantityEntered: 100
@@ -165,7 +165,7 @@
     - id: blade-master-2
       text: Blademaster
       subText: with sword
-      amount:
+      amountData:
         label: '% uptime'
         default: 50
         quantityEntered: 100
@@ -188,7 +188,7 @@
 
     - id: furious
       text: Furious
-      amount:
+      amountData:
         label: 'stacks'
         default: 25
         quantityEntered: 25
@@ -215,7 +215,7 @@
 
     - id: cull-the-weak
       text: Cull the Weak
-      amount:
+      amountData:
         label: '% weakness'
         default: 100
         quantityEntered: 100
@@ -252,7 +252,7 @@
 
     - id: leg-specialist
       text: Leg Specialist
-      amount:
+      amountData:
         label: '% impaired'
         default: 100
         quantityEntered: 100
@@ -274,7 +274,7 @@
 
     - id: empowered
       text: Empowered
-      amount:
+      amountData:
         label: 'boons'
         default: 8
         quantityEntered: 1
@@ -288,7 +288,7 @@
 
     - id: warriors-cunning
       text: Warrior's Cunning
-      amount:
+      amountData:
         label: '% above 80'
         default: 20
         quantityEntered: 100
@@ -314,7 +314,7 @@
 
     - id: warriors-sprint
       text: Warrior's Sprint
-      amount:
+      amountData:
         label: '% swiftness'
         default: 100
         quantityEntered: 100
@@ -360,7 +360,7 @@
     - id: axe-mastery-axe
       text: Axe Mastery
       subText: with axe
-      amount:
+      amountData:
         label: '% uptime'
         default: 100
         quantityEntered: 100
@@ -388,7 +388,7 @@
     - id: blood-reaction-with
       text: Blood Reaction
       subText: bonus
-      amount:
+      amountData:
         label: '% berserk'
         default: 50
         quantityEntered: 100
@@ -412,7 +412,7 @@
     - id: heat-the-soul-with
       text: Heat the Soul
       subText: with torch
-      amount:
+      amountData:
         label: '% uptime'
         default: 50
         quantityEntered: 100
@@ -426,7 +426,7 @@
     - id: fatal-frenzy-power-condi
       text: Fatal Frenzy
       subText: power/condition damage
-      amount:
+      amountData:
         label: '% berserk'
         default: 50
         quantityEntered: 100
@@ -452,7 +452,7 @@
 
     - id: bloody-roar
       text: Bloody Roar
-      amount:
+      amountData:
         label: '% berserk'
         default: 50
         quantityEntered: 100
@@ -499,7 +499,7 @@
     - id: pure-strike-boonless
       text: Pure Strike
       subText: bonus
-      amount:
+      amountData:
         label: '% boonless'
         default: 100
         quantityEntered: 100
@@ -513,7 +513,7 @@
     - id: sun-and-moon-style
       text: Sun and Moon Style
       subText: mainhand dagger; boonless
-      amount:
+      amountData:
         label: '% uptime'
         default: 100
         quantityEntered: 100
@@ -527,7 +527,7 @@
       text: Attacker's Insight
       subText: be careful not to overcap
       minor: true
-      amount:
+      amountData:
         label: 'stacks'
         default: 5
         quantityEntered: 5
@@ -544,7 +544,7 @@
 
     - id: magebane-tether
       text: Magebane Tether
-      amount:
+      amountData:
         label: '% uptime'
         default: 75
         quantityEntered: 100

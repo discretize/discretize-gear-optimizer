@@ -42,7 +42,7 @@
 
     - id: predators-onslaught
       text: Predator's Onslaught
-      amount:
+      amountData:
         label: '% impaired'
         default: 100
         quantityEntered: 100
@@ -138,7 +138,7 @@
     - id: ambidexterity-2
       text: Ambidexterity
       subText: with torch/dagger
-      amount:
+      amountData:
         label: '% uptime'
         default: 50
         quantityEntered: 100
@@ -164,7 +164,7 @@
 
     - id: bountiful-hunter
       text: Bountiful Hunter
-      amount:
+      amountData:
         label: 'boons'
         default: 8
         quantityEntered: 1
@@ -211,7 +211,7 @@
     - id: honed-axes-axe
       text: Honed Axes
       subText: with axe
-      amount:
+      amountData:
         label: '% uptime'
         default: 50
         quantityEntered: 100
@@ -228,7 +228,7 @@
 
     - id: natural-mender
       text: Natural Mender
-      amount:
+      amountData:
         label: 'stacks'
         default: 10
         quantityEntered: 1
@@ -246,7 +246,7 @@
 
     - id: furious-strength
       text: Furious Strength
-      amount:
+      amountData:
         label: '% fury'
         default: 100
         quantityEntered: 100
@@ -260,7 +260,7 @@
 
     - id: twice-as-vicious
       text: Twice as Vicious
-      amount:
+      amountData:
         label: '% uptime'
         default: 100
         quantityEntered: 100

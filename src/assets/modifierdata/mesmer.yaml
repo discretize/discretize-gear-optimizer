@@ -24,7 +24,7 @@
     - id: fragility
       text: Fragility
       minor: true
-      amount:
+      amountData:
         label: 'vulnerability'
         default: 25
         quantityEntered: 25
@@ -37,7 +37,7 @@
 
     - id: egotism
       text: Egotism
-      amount:
+      amountData:
         label: '% uptime'
         default: 100
         quantityEntered: 100
@@ -50,7 +50,7 @@
 
     - id: vicious-expression
       text: Vicious Expression
-      amount:
+      amountData:
         label: '% boonless'
         default: 100
         quantityEntered: 100
@@ -67,7 +67,7 @@
 
     - id: fencers-finesse
       text: Fencer's Finesse
-      amount:
+      amountData:
         label: 'stacks'
         default: 10
         quantityEntered: 10
@@ -91,7 +91,7 @@
     - id: superiority-complex
       text: Superiority Complex
       subText: bonus
-      amount:
+      amountData:
         label: '% below 50/disabled'
         default: 50
         quantityEntered: 100
@@ -119,7 +119,7 @@
     - id: illusionary-membrane
       text: Illusionary Membrane
       minor: true
-      amount:
+      amountData:
         label: '% regeneration'
         default: 100
         quantityEntered: 100
@@ -143,7 +143,7 @@
     - id: chaotic-potency-2
       text: Chaotic Potency
       subText: with staff
-      amount:
+      amountData:
         label: '% uptime'
         default: 100
         quantityEntered: 100
@@ -186,7 +186,7 @@
     - id: compounding-power
       text: Compounding Power
       subText: 5x
-      amount:
+      amountData:
         label: 'stacks'
         default: 5
         quantityEntered: 5
@@ -220,7 +220,7 @@
 
     - id: nomads-endurance
       text: Nomad's Endurance
-      amount:
+      amountData:
         label: '% vigor'
         default: 100
         quantityEntered: 100
