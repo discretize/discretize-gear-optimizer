@@ -23,6 +23,7 @@ import {
 } from '../../../state/slices/traits';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import TraitAmount from './TraitAmount';
+import { classModifiersById } from '../../../assets/modifierdata';
 
 const styles = (theme) => ({
   formControl: {
@@ -96,7 +97,8 @@ const Traits = ({ classes, data }) => {
     const checkboxModis = [];
     const noCheckboxModis = [];
     items[index].forEach((item) => {
-      if (item.data.minor && !item.data.subText && !item.data.amount) {
+      const itemData = classModifiersById[item.id];
+      if (itemData.minor && !itemData.subText && !itemData.amount) {
         noCheckboxModis.push(item);
       } else {
         checkboxModis.push(item);
@@ -136,42 +138,48 @@ const Traits = ({ classes, data }) => {
           onSelect={handleTraitChange(index)}
         />
 
-        {noCheckboxModis.map((item) => (
-          <div key={item.data.id}>
-            <>
-              {item.data.gw2id && <Trait id={item.data.gw2id} disableLink />}{' '}
-              <Typography variant="caption">{item.data.subText}</Typography>
-            </>
-          </div>
-        ))}
-
-        {checkboxModis.map((item) => (
-          <div key={item.data.id} style={item.visible ? {} : hiddenCss}>
-            <CheckboxComponent
-              value={item.data.id}
-              checked={item.visible && item.enabled}
-              label={
-                <>
-                  {item.data.gw2id && <Trait id={item.data.gw2id} disableLink />}{' '}
-                  <Typography variant="caption">{item.data.subText}</Typography>
-                </>
-              }
-              onChange={handleCheckboxChange(index, item.data.id)}
-              disabled={!item.visible}
-            />
-            {item.data.amount ? (
+        {noCheckboxModis.map((item) => {
+          const itemData = classModifiersById[item.id];
+          return (
+            <div key={item.id}>
               <>
-                <br />
-                <TraitAmount
-                  traitData={item.data}
-                  handleAmountChange={handleAmountChange(index, item.data.id)}
-                  value={item.amount}
-                  disabled={!item.visible}
-                />
+                {itemData.gw2id && <Trait id={itemData.gw2id} disableLink />}{' '}
+                <Typography variant="caption">{itemData.subText}</Typography>
               </>
-            ) : null}
-          </div>
-        ))}
+            </div>
+          );
+        })}
+
+        {checkboxModis.map((item) => {
+          const itemData = classModifiersById[item.id];
+          return (
+            <div key={item.id} style={item.visible ? {} : hiddenCss}>
+              <CheckboxComponent
+                value={item.id}
+                checked={item.visible && item.enabled}
+                label={
+                  <>
+                    {itemData.gw2id && <Trait id={itemData.gw2id} disableLink />}{' '}
+                    <Typography variant="caption">{itemData.subText}</Typography>
+                  </>
+                }
+                onChange={handleCheckboxChange(index, item.id)}
+                disabled={!item.visible}
+              />
+              {itemData.amount ? (
+                <>
+                  <br />
+                  <TraitAmount
+                    traitData={itemData}
+                    handleAmountChange={handleAmountChange(index, item.id)}
+                    value={item.amount}
+                    disabled={!item.visible}
+                  />
+                </>
+              ) : null}
+            </div>
+          );
+        })}
       </React.Fragment>
     );
   });

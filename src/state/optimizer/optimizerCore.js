@@ -148,18 +148,18 @@ export function setup(input) {
       visible = true,
       enabled = true,
       amount: amountText,
-      data: {
-        modifiers: {
-          id = '[no id]',
-          damage = {},
-          attributes = {},
-          conversion = {},
-          // effect = {},
-          // note,
-          // ...otherModifiers
-        },
-        amount: amountData,
+      // data: {
+      modifiers: {
+        id = '[no id]',
+        damage = {},
+        attributes = {},
+        conversion = {},
+        // effect = {},
+        // note,
+        // ...otherModifiers
       },
+      amountData,
+      // },
     } = item;
 
     if (!visible || !enabled) {

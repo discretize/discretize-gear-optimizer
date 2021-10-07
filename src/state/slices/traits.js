@@ -3,6 +3,17 @@ import { changeProfession, setBuildTemplate, setModifiers } from '../controlsSli
 
 import { classModifiersById } from '../../assets/modifierdata';
 
+const getInitialItems = (data, traitline) => {
+  const allItemData = data.find((section) => section.id === traitline).items;
+  return allItemData.map((itemData) => {
+    // minor traits are always visible; no majors are selected so none are visible
+    const visible = Boolean(itemData.minor);
+    const enabled = Boolean(itemData.defaultEnabled);
+    const amount = itemData.amount ? '' : null;
+    return { id: itemData.id, visible, enabled, amount };
+  });
+};
+
 export const traitsSlice = createSlice({
   name: 'traits',
   initialState: {
@@ -26,14 +37,7 @@ export const traitsSlice = createSlice({
       state.selectedLines[index] = newTraitLine.toString();
       state.selectedTraits[index] = [0, 0, 0];
 
-      const allItemData = data.find((section) => section.id === newTraitLine).items;
-      state.items[index] = allItemData.map((itemData) => {
-        // minor traits are always visible; no majors are selected so none are visible
-        const visible = Boolean(itemData.minor);
-        const enabled = Boolean(itemData.defaultEnabled);
-        const amount = itemData.amount ? '' : null;
-        return { id: itemData.id, visible, enabled, amount, data: itemData };
-      });
+      state.items[index] = getInitialItems(data, newTraitLine);
     },
     changeTrait: (state, action) => {
       const { index, tier, newTrait } = action.payload;
@@ -43,10 +47,11 @@ export const traitsSlice = createSlice({
 
       // update visibility
       state.items[index].forEach((item) => {
-        if (item.data.gw2id === oldTrait) {
+        const { gw2id } = classModifiersById[item.id];
+        if (gw2id === oldTrait) {
           item.visible = false;
         }
-        if (item.data.gw2id === newTrait) {
+        if (gw2id === newTrait) {
           item.visible = true;
         }
       });
@@ -87,16 +92,13 @@ export const traitsSlice = createSlice({
       return { ...state, ...traitState.traits };
     },
     [setModifiers]: (state, action) => {
-      // const enabledModifiers = ;
-      // state.modifiers = enabledModifiers.map((id) => {
-      //   const { modifiers, gw2id } = allTraitModifiersItems[id];
-      //   return { id, modifiers, gw2id };
-      // });
-
-      state.modifiers = state.modifiers.map((oldModifier) => {
-        const newModifier = classModifiersById[oldModifier.id];
-        return Object.assign(oldModifier, newModifier);
-      });
+      state.modifiers = state.items
+        .flat()
+        .filter((item) => item.visible && item.enabled)
+        .map((item) => {
+          const data = classModifiersById[item.id];
+          return { ...item, ...data };
+        });
     },
   },
 });
