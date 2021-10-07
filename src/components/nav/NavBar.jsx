@@ -165,15 +165,15 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
   };
 
   const popupState = [
-    usePopupState({ variant: 'popover', popupId: 'demoMenu0' }),
-    usePopupState({ variant: 'popover', popupId: 'demoMenu1' }),
-    usePopupState({ variant: 'popover', popupId: 'demoMenu2' }),
-    usePopupState({ variant: 'popover', popupId: 'demoMenu3' }),
-    usePopupState({ variant: 'popover', popupId: 'demoMenu4' }),
-    usePopupState({ variant: 'popover', popupId: 'demoMenu5' }),
-    usePopupState({ variant: 'popover', popupId: 'demoMenu6' }),
-    usePopupState({ variant: 'popover', popupId: 'demoMenu7' }),
-    usePopupState({ variant: 'popover', popupId: 'demoMenu8' }),
+    usePopupState({ variant: 'popover', popupId: 'warriorTemplates', disableAutoFocus: true }),
+    usePopupState({ variant: 'popover', popupId: 'revenantTemplates', disableAutoFocus: true }),
+    usePopupState({ variant: 'popover', popupId: 'guardianTemplates', disableAutoFocus: true }),
+    usePopupState({ variant: 'popover', popupId: 'rangerTemplates', disableAutoFocus: true }),
+    usePopupState({ variant: 'popover', popupId: 'engineerTemplates', disableAutoFocus: true }),
+    usePopupState({ variant: 'popover', popupId: 'elementalistTemplates', disableAutoFocus: true }),
+    usePopupState({ variant: 'popover', popupId: 'memsmerTemplates', disableAutoFocus: true }),
+    usePopupState({ variant: 'popover', popupId: 'necromancerTemplates', disableAutoFocus: true }),
+    usePopupState({ variant: 'popover', popupId: 'thiefTemplates', disableAutoFocus: true }),
   ];
   const displayDesktop = () => (
     <Toolbar>
@@ -181,13 +181,6 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
         {PROFESSIONS.map((prof, index) => (
           <React.Fragment key={prof.profession}>
             <Button
-              onMouseOver={(e) =>
-                setState({
-                  ...state,
-                  hover: state.hover.map((item, i) => i === index),
-                  anchor: e.currentTarget,
-                })
-              }
               onClick={() => {
                 dispatch({ type: 'CANCEL' });
                 if (expertMode) {
@@ -204,6 +197,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
                 className={classes.navProfession}
               />
             </Button>
+
             <Menu
               {...bindMenu(popupState[index])}
               getContentAnchorEl={null}
