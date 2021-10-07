@@ -9,7 +9,7 @@ const getInitialItems = (data, traitline) => {
     // minor traits are always visible; no majors are selected so none are visible
     const visible = Boolean(itemData.minor);
     const enabled = Boolean(itemData.defaultEnabled);
-    const amountMaybe = itemData.amount ? { amount: '' } : {};
+    const amountMaybe = itemData.amountData ? { amount: '' } : {};
     return { id: itemData.id, visible, enabled, ...amountMaybe };
   });
 };
