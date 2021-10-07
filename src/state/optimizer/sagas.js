@@ -58,7 +58,7 @@ function printTemplateHelper(state, list) {
   console.groupEnd();
 }
 
-function createInput(state) {
+function createInput(state, modifiers) {
   const {
     control: { profession },
     infusions: {
@@ -79,8 +79,6 @@ function createInput(state) {
     },
     distribution: { version, values1, values2 },
   } = state;
-
-  const modifiers = getModifiers(state);
 
   const parseTextNumber = (text, defaultValue) => {
     const parsed = Number.parseInt(text, 10);
@@ -137,7 +135,7 @@ function createInput(state) {
 }
 
 function* runCalc() {
-  let state;
+  let optimizerState;
   let currentList;
   let input;
   let settings;
@@ -150,10 +148,11 @@ function* runCalc() {
     const state = yield select();
     optimizerState = state.optimizer;
 
-    input = createInput(state);
+    const modifiers = yield select(getModifiers);
+    input = createInput(optimizerState, modifiers);
 
     console.groupCollapsed('Debug Info:');
-    console.log('Redux State:', state);
+    console.log('Redux State:', optimizerState);
     console.log('Input:', input);
 
     settings = optimizerCore.setup(input);
@@ -198,7 +197,7 @@ function* runCalc() {
       yield delay(0);
     }
     yield put(changeList(currentList));
-    printTemplateHelper(state, currentList);
+    printTemplateHelper(optimizerState, currentList);
     console.groupEnd();
 
     console.timeEnd('Calculation');
@@ -219,7 +218,7 @@ function* runCalc() {
     // eslint-disable-next-line no-alert
     alert(`There was an error in the calculation!\n\n${e}`);
     console.log(e);
-    console.log('state:', { ...state.gearOptimizer });
+    console.log('state:', { ...optimizerState });
     console.log('input:', { ...input });
     console.log('settings:', { ...settings });
     console.log('list:', { ...currentList });
