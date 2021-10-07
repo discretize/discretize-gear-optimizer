@@ -180,7 +180,7 @@ export function setup(input) {
       while (allPairsMut.length) {
         const [percentAmount, addOrMult] = allPairsMut.splice(0, 2);
 
-        const amount = scaleValue(parsePercent(percentAmount));
+        const scaledAmount = scaleValue(parsePercent(percentAmount));
 
         switch (attribute) {
           case 'Strike Damage':
@@ -190,19 +190,19 @@ export function setup(input) {
           case 'Confusion Damage':
           case 'Poison Damage':
           case 'Torment Damage':
-            dmgBuff(attribute, amount, addOrMult);
+            dmgBuff(attribute, scaledAmount, addOrMult);
             break;
           case 'All Damage':
-            dmgBuff('Strike Damage', amount, addOrMult);
-            dmgBuff('Condition Damage', amount, addOrMult);
+            dmgBuff('Strike Damage', scaledAmount, addOrMult);
+            dmgBuff('Condition Damage', scaledAmount, addOrMult);
             break;
           case 'Damage Reduction':
-            const negativeAmount = -amount;
+            const negativeAmount = -scaledAmount;
             dmgBuff('Damage Taken', negativeAmount, addOrMult);
             break;
           case 'Critical Damage':
             // assuming multiplicative until someone tests  twin fangs + ferocious strikes
-            dmgBuff('Critical Damage', amount, 'mult');
+            dmgBuff('Critical Damage', scaledAmount, 'mult');
             break;
           case 'Condition Damage Reduction':
             console.log('Condition Damage Reduction is currently unsupported');
@@ -221,17 +221,18 @@ export function setup(input) {
         const allPairsMut = [...allPairs];
         while (allPairsMut.length) {
           const [amount, convertedOrBuff] = allPairsMut.splice(0, 2);
+          const scaledAmount = scaleValue(amount);
 
           switch (convertedOrBuff) {
             case 'converted':
               settings.baseAttributes[attribute] =
-                (settings.baseAttributes[attribute] || 0) + amount;
+                (settings.baseAttributes[attribute] || 0) + scaledAmount;
               break;
             case 'buff':
             case 'unknown':
             default:
               settings.modifiers['buff'][attribute] =
-                (settings.modifiers['buff'][attribute] || 0) + amount;
+                (settings.modifiers['buff'][attribute] || 0) + scaledAmount;
               break;
           }
         }
@@ -239,14 +240,14 @@ export function setup(input) {
         // percent, i.e.
         //   Torment Duration: 15%
 
-        const amount = parsePercent(allPairs);
+        const scaledAmount = scaleValue(parsePercent(allPairs));
         // unconfirmed if +max health mods are mult but ¯\_(ツ)_/¯
         // +outgoing healing is assumed additive
         if (attribute === 'Maximum Health') {
           settings.baseAttributes[attribute] =
-            ((settings.baseAttributes[attribute] || 0) + 1) * (1 + amount) - 1;
+            ((settings.baseAttributes[attribute] || 0) + 1) * (1 + scaledAmount) - 1;
         } else {
-          settings.baseAttributes[attribute] = (settings.baseAttributes[attribute] || 0) + amount;
+          settings.baseAttributes[attribute] = (settings.baseAttributes[attribute] || 0) + scaledAmount;
         }
       }
     }
@@ -259,10 +260,10 @@ export function setup(input) {
         settings.modifiers['convert'][attribute] = {};
       }
       for (const [source, percentAmount] of Object.entries(val)) {
-        const amount = parsePercent(percentAmount);
+        const scaledAmount = scaleValue(parsePercent(percentAmount));
 
         settings.modifiers['convert'][attribute][source] =
-          (settings.modifiers['convert'][attribute][source] || 0) + amount;
+          (settings.modifiers['convert'][attribute][source] || 0) + scaledAmount;
       }
     }
   }
