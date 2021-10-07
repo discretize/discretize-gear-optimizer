@@ -15,6 +15,6 @@ export const infusionsSlice = createSlice({
   },
 });
 
-export const getInfusions = (state) => state.infusions;
+export const getInfusions = (state) => state.optimizer.infusions;
 
 export const { changeInfusions } = infusionsSlice.actions;

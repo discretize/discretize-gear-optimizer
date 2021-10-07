@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setModifiers } from '../gearOptimizerSlice';
+import { setModifiers } from '../controlsSlice';
 
 export const extraModifiersSlice = createSlice({
   name: 'extraModifiers',
@@ -36,6 +36,6 @@ export const extraModifiersSlice = createSlice({
   },
 });
 
-export const getExtraModifiers = (key) => (state) => state.extraModifiers[key];
+export const getExtraModifiers = (key) => (state) => state.optimizer.extraModifiers[key];
 
 export const { changeExtraModifiers, changeExtraModifiersError } = extraModifiersSlice.actions;

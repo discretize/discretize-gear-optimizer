@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setBuildTemplate, setModifiers } from '../gearOptimizerSlice';
+import { setBuildTemplate, setModifiers } from '../controlsSlice';
 
 import { extrasModifiersById } from '../../assets/modifierdata';
 
@@ -14,11 +14,13 @@ const modifierData = {
 export const extrasSlice = createSlice({
   name: 'extras',
   initialState: {
-    Runes: '',
-    Sigil1: '',
-    Sigil2: '',
-    Enhancement: '',
-    Nourishment: '',
+    extras: {
+      Runes: '',
+      Sigil1: '',
+      Sigil2: '',
+      Enhancement: '',
+      Nourishment: '',
+    },
     modifiers: [],
   },
   reducers: {
@@ -43,8 +45,8 @@ export const extrasSlice = createSlice({
   },
 });
 
-export const getExtra = (key) => (state) => state.extras[key];
-export const getExtras = (state) => state.extras;
-export const getExtrasModifiers = (state) => state.extras.modifiers;
+export const getExtra = (key) => (state) => state.optimizer.extras[key];
+export const getExtras = (state) => state.optimizer.extras;
+export const getExtrasModifiers = (state) => state.optimizer.extras.modifiers;
 
 export const { changeExtras } = extrasSlice.actions;

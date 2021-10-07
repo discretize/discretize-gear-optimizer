@@ -4,7 +4,7 @@ import { Alert } from '@material-ui/lab';
 import { Icon } from 'gw2-ui-bulk';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getProfession } from '../../../state/gearOptimizerSlice';
+import { getProfession } from '../../../state/controlsSlice';
 import { Classes } from '../../../utils/gw2-data';
 
 const CopyTemplateButton = ({ extras: extrasIds, data, infusions, weight, runeId, runeName }) => {

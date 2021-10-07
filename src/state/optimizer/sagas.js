@@ -10,7 +10,7 @@ import {
   getSelectedCharacter,
   getList,
   getModifiers,
-} from '../gearOptimizerSlice';
+} from '../controlsSlice';
 import { INFUSIONS } from '../../utils/gw2-data';
 import { SUCCESS, WAITING } from './status';
 
@@ -147,7 +147,8 @@ function* runCalc() {
     yield delay(0);
     console.time('Calculation');
 
-    state = yield select();
+    const state = yield select();
+    optimizerState = state.optimizer;
 
     input = createInput(state);
 

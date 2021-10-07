@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setBuildTemplate } from '../gearOptimizerSlice';
+import { setBuildTemplate } from '../controlsSlice';
 
 export const distributionSlice = createSlice({
   name: 'distribution',
@@ -77,10 +77,10 @@ export const distributionSlice = createSlice({
   },
 });
 
-export const getDistributionVersion = (state) => state.distribution.version;
-export const getDistributionOld = (state) => state.distribution.values1;
-export const getDistributionNew = (state) => state.distribution.values2;
-export const getTextBoxes = (state) => state.distribution.textBoxes;
+export const getDistributionVersion = (state) => state.optimizer.distribution.version;
+export const getDistributionOld = (state) => state.optimizer.distribution.values1;
+export const getDistributionNew = (state) => state.optimizer.distribution.values2;
+export const getTextBoxes = (state) => state.optimizer.distribution.textBoxes;
 
 export const {
   changeDistributionVersion,

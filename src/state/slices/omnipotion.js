@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { omnipotionModifiers } from '../../utils/gw2-data';
-import { setModifiers } from '../gearOptimizerSlice';
+import { setModifiers } from '../controlsSlice';
 
 export const omnipotionSlice = createSlice({
   name: 'omnipotion',
@@ -45,7 +45,7 @@ export const omnipotionSlice = createSlice({
   },
 });
 
-export const getAR = (state) => state.omnipotion.ar;
-export const getOmniPotion = (state) => state.omnipotion.enable;
+export const getAR = (state) => state.optimizer.omnipotion.ar;
+export const getOmniPotion = (state) => state.optimizer.omnipotion.enable;
 
 export const { changeAR, changeOmnipotion } = omnipotionSlice.actions;

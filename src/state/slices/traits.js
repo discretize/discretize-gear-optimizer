@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { changeProfession, setBuildTemplate, setModifiers } from '../gearOptimizerSlice';
+import { changeProfession, setBuildTemplate, setModifiers } from '../controlsSlice';
 
 import { classModifiersById } from '../../assets/modifierdata';
 
@@ -105,10 +105,10 @@ export const traitsSlice = createSlice({
   },
 });
 
-export const getShowAllTraits = (state) => state.traits.showAll;
-export const getTraitLines = (state) => state.traits.selectedLines;
-export const getTraits = (state) => state.traits.selectedTraits;
-export const getTraitItems = (state) => state.traits.items;
+export const getShowAllTraits = (state) => state.optimizer.traits.showAll;
+export const getTraitLines = (state) => state.optimizer.traits.selectedLines;
+export const getTraits = (state) => state.optimizer.traits.selectedTraits;
+export const getTraitItems = (state) => state.optimizer.traits.items;
 
 export const {
   toggleShowAll,

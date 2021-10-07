@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setBuildTemplate } from '../gearOptimizerSlice';
+import { setBuildTemplate } from '../controlsSlice';
 
 export const prioritiesSlice = createSlice({
   name: 'priorities',
@@ -25,6 +25,6 @@ export const prioritiesSlice = createSlice({
   },
 });
 
-export const getPriority = (key) => (state) => state.priorities[key];
+export const getPriority = (key) => (state) => state.optimizer.priorities[key];
 
 export const { changePriority } = prioritiesSlice.actions;

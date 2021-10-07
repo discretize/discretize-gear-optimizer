@@ -3,7 +3,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { changeSelectedCharacter } from '../../../state/gearOptimizerSlice';
+import { changeSelectedCharacter } from '../../../state/controlsSlice';
 
 const ResultTableRow = ({ character, selected, mostCommonAffix }) => {
   const dispatch = useDispatch();

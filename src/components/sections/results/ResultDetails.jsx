@@ -6,7 +6,7 @@ import {
   getModifiers,
   getProfession,
   getSelectedCharacter,
-} from '../../../state/gearOptimizerSlice';
+} from '../../../state/controlsSlice';
 import { updateAttributes } from '../../../state/optimizer/optimizerCore';
 import { getExtras } from '../../../state/slices/extras';
 import { getPriority } from '../../../state/slices/priorities';

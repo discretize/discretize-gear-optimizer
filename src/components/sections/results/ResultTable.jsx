@@ -5,7 +5,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getList, getSelectedCharacter } from '../../../state/gearOptimizerSlice';
+import { getList, getSelectedCharacter } from '../../../state/controlsSlice';
 import ResultTableRow from './ResultTableRow';
 import ResultTableHeaderRow from './ResultTableHeaderRow';
 

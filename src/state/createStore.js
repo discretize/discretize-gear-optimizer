@@ -6,7 +6,7 @@ import createSagaMiddleware from 'redux-saga';
 
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
 
-import { controlSlice } from './gearOptimizerSlice';
+import { controlSlice } from './controlsSlice';
 import { extrasSlice } from './slices/extras';
 import gearOptimizerSaga from './optimizer/sagas';
 import { distributionSlice } from './slices/distribution';
@@ -43,17 +43,19 @@ const persistConfig = {
 
 const reducers = combineReducers({
   gw2UiStore: gw2UIReducer,
-  control: controlSlice.reducer,
-  extras: extrasSlice.reducer,
-  distribution: distributionSlice.reducer,
-  buffs: buffsSlice.reducer,
-  infusions: infusionsSlice.reducer,
-  traits: traitsSlice.reducer,
-  skills: skillsSlice.reducer,
-  priorities: prioritiesSlice.reducer,
-  extraModifiers: extraModifiersSlice.reducer,
-  forcedSlots: forcedSlotsSlice.reducer,
-  omnipotion: omnipotionSlice.reducer,
+  optimizer: combineReducers({
+    control: controlSlice.reducer,
+    extras: extrasSlice.reducer,
+    distribution: distributionSlice.reducer,
+    buffs: buffsSlice.reducer,
+    infusions: infusionsSlice.reducer,
+    traits: traitsSlice.reducer,
+    skills: skillsSlice.reducer,
+    priorities: prioritiesSlice.reducer,
+    extraModifiers: extraModifiersSlice.reducer,
+    forcedSlots: forcedSlotsSlice.reducer,
+    omnipotion: omnipotionSlice.reducer,
+  }),
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);

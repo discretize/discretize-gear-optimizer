@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { changeProfession, setBuildTemplate, setModifiers } from '../gearOptimizerSlice';
+import { changeProfession, setBuildTemplate, setModifiers } from '../controlsSlice';
 
 import { classModifiersById } from '../../assets/modifierdata';
 
@@ -46,6 +46,6 @@ export const skillsSlice = createSlice({
   },
 });
 
-export const getSkills = (state) => state.skills.skills;
+export const getSkills = (state) => state.optimizer.skills.skills;
 
 export const { addSkill, removeSkill } = skillsSlice.actions;

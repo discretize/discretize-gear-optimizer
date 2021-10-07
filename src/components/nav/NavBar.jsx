@@ -25,7 +25,7 @@ import {
   getControl,
   getProfession,
   setBuildTemplate,
-} from '../../state/gearOptimizerSlice';
+} from '../../state/controlsSlice';
 import { PROFESSIONS } from '../../utils/gw2-data';
 import { firstUppercase } from '../../utils/usefulFunctions';
 import NavAccordion from './NavAccordion';

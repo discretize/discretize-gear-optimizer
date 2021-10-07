@@ -5,7 +5,7 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getControl, getProfession } from '../state/gearOptimizerSlice';
+import { getControl, getProfession } from '../state/controlsSlice';
 import NavBar from './nav/NavBar';
 import ARSection from './sections/ar/ARSection';
 import BuffsSection from './sections/buffs/BuffsSection';

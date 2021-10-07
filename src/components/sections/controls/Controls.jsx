@@ -7,7 +7,7 @@ import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 import DoneAllIcon from '@material-ui/icons/DoneAll';
 import classNames from 'classnames';
 import ProgressIcon from '../../baseComponents/ProgressIcon';
-import { changeControl, getControl, setModifiers } from '../../../state/gearOptimizerSlice';
+import { changeControl, getControl, setModifiers } from '../../../state/controlsSlice';
 import { ABORTED, RUNNING, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 

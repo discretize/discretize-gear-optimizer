@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setBuildTemplate, setModifiers } from '../gearOptimizerSlice';
+import { setBuildTemplate, setModifiers } from '../controlsSlice';
 
 import { buffModifiersById } from '../../assets/modifierdata';
 
@@ -70,6 +70,6 @@ export const buffsSlice = createSlice({
   },
 });
 
-export const getBuffs = (state) => state.buffs.buffs;
+export const getBuffs = (state) => state.optimizer.buffs.buffs;
 
 export const { changeBuff, replaceBuffs } = buffsSlice.actions;
