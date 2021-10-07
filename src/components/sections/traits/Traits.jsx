@@ -157,8 +157,8 @@ const Traits = ({ classes, data }) => {
         {
           // Major traits, that the user might want to enable or not
           checkboxModis.map((itemData) => {
-            const { id, gw2id, subText, amountData } = itemData;
-            const visible = selectedTraits[index].includes(gw2id);
+            const { id, gw2id, minor, subText, amountData } = itemData;
+            const visible = minor || selectedTraits[index].includes(gw2id);
             const enabled = Boolean(items[index][id]);
             const amount = items[index][id]?.amount;
             return (
