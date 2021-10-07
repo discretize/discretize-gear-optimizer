@@ -58,7 +58,7 @@ const Traits = ({ classes, data }) => {
    */
   const handleTraitlineChange = (index) => (e) => {
     const newTraitLine = e.target.value;
-    dispatch(changeTraitLine({ index, newTraitLine, data }));
+    dispatch(changeTraitLine({ index, newTraitLine }));
   };
 
   /**

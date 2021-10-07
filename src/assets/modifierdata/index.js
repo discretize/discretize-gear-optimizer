@@ -40,6 +40,15 @@ export const classModifiers = {
 };
 export const classModifiersById = allById(classModifiers);
 
+const allTraitSections = Object.values(classModifiers)
+  .flat()
+  .filter((section) => section.id);
+
+export const traitSectionsById = Object.assign(
+  {},
+  ...allTraitSections.map((section) => ({ [section.id]: section })),
+);
+
 export const extrasModifiers = {
   food,
   utility,

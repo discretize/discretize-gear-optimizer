@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { changeProfession, setBuildTemplate, setModifiers } from '../controlsSlice';
 
-import { classModifiersById } from '../../assets/modifierdata';
+import { classModifiersById, traitSectionsById } from '../../assets/modifierdata';
 
-const getInitialItems = (data, traitline) => {
-  const allItemData = data.find((section) => section.id === traitline).items;
+const getInitialItems = (traitline) => {
+  const allItemData = traitSectionsById[traitline].items;
   return allItemData.map((itemData) => {
     // minor traits are always visible; no majors are selected so none are visible
     const visible = Boolean(itemData.minor);
@@ -32,12 +32,12 @@ export const traitsSlice = createSlice({
       state.showAll = action.payload;
     },
     changeTraitLine: (state, action) => {
-      const { index, newTraitLine, data } = action.payload;
+      const { index, newTraitLine } = action.payload;
 
       state.selectedLines[index] = newTraitLine.toString();
       state.selectedTraits[index] = [0, 0, 0];
 
-      state.items[index] = getInitialItems(data, newTraitLine);
+      state.items[index] = getInitialItems(newTraitLine);
     },
     changeTrait: (state, action) => {
       const { index, tier, newTrait } = action.payload;
