@@ -91,9 +91,12 @@ export const traitsSlice = createSlice({
       const modifiers = [];
       state.items.forEach((object) => {
         Object.entries(object).forEach(([id, value]) => {
-          if (!value) return;
           const itemData = classModifiersById[id];
-          if (itemData.minor || allSelectedTraits.includes(itemData.gw2id)) {
+
+          const visible = itemData.minor || allSelectedTraits.includes(itemData.gw2id);
+          const enabled = Boolean(value);
+
+          if (enabled && visible) {
             modifiers.push({ id, ...itemData, amount: value?.amount });
           }
         });
