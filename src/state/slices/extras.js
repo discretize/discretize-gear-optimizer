@@ -25,7 +25,7 @@ export const extrasSlice = createSlice({
   },
   reducers: {
     changeExtras: (state, action) => {
-      state[action.payload.key] = action.payload.value;
+      state.extras[action.payload.key] = action.payload.value;
     },
   },
   extraReducers: {
@@ -34,10 +34,10 @@ export const extrasSlice = createSlice({
       return { ...templateState.extras };
     },
     [setModifiers]: (state) => {
-      const enabledTypes = Object.keys(modifierData).filter((key) => state[key]);
+      const enabledTypes = Object.keys(modifierData).filter((key) => state.extras[key]);
 
       state.modifiers = enabledTypes.map((type) => {
-        const id = state[type];
+        const id = state.extras[type];
         const { modifiers } = modifierData[type][id];
         return { id, modifiers, source: type };
       });

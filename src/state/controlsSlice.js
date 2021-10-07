@@ -16,11 +16,10 @@ export const controlSlice = createSlice({
   reducers: {
     changeProfession: (state, action) => {
       if (state.profession !== action.payload) {
-        state.profession = action.payload;
-
-        // reset
-        state.control = {
-          ...state.control,
+        // reset state on profession change
+        return {
+          ...state,
+          profession: action.payload,
           list: [],
           progress: 0,
           selectedCharacter: null,
@@ -29,6 +28,7 @@ export const controlSlice = createSlice({
           status: WAITING,
         };
       }
+      return state;
     },
     changeExpertMode: (state, action) => {
       if (action.payload) {
