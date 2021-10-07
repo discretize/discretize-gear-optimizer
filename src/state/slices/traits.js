@@ -6,37 +6,62 @@ import { classModifiersById } from '../../assets/modifierdata';
 export const traitsSlice = createSlice({
   name: 'traits',
   initialState: {
-    lines: ['', '', ''],
-    selected: [
+    showAll: false,
+    selectedLines: ['', '', ''],
+    selectedTraits: [
       [0, 0, 0],
       [0, 0, 0],
       [0, 0, 0],
     ],
+    items: [[], [], []],
     modifiers: [],
   },
   reducers: {
+    toggleShowAll: (state, action) => {
+      state.showAll = action.payload;
+    },
     changeTraitLine: (state, action) => {
-      state.lines[action.payload.index] = action.payload.value;
+      const { index, newTraitLine, data } = action.payload;
+
+      state.selectedLines[index] = newTraitLine.toString();
+      state.selectedTraits[index] = [0, 0, 0];
+
+      const allItemData = data.find((section) => section.id === newTraitLine).items;
+      state.items[index] = allItemData.map((itemData) => {
+        // minor traits are always visible; no majors are selected so none are visible
+        const visible = Boolean(itemData.minor);
+        const enabled = Boolean(itemData.defaultEnabled);
+        const amount = itemData.amount ? '' : null;
+        return { id: itemData.id, visible, enabled, amount, data: itemData };
+      });
     },
-    changeTraits: (state, action) => {
-      state.selected[action.payload.index] = action.payload.selected;
+    changeTrait: (state, action) => {
+      const { index, tier, newTrait } = action.payload;
+
+      const oldTrait = state.selectedTraits[index][tier];
+      state.selectedTraits[index][tier] = newTrait;
+
+      // update visibility
+      state.items[index].forEach((item) => {
+        if (item.data.gw2id === oldTrait) {
+          item.visible = false;
+        }
+        if (item.data.gw2id === newTrait) {
+          item.visible = true;
+        }
+      });
     },
-    addTraitModifier: (state, action) => {
-      state.modifiers = state.modifiers.concat(action.payload);
-    },
-    removeTraitModifier: (state, action) => {
-      state.modifiers = state.modifiers.filter((modifier) => modifier.id !== action.payload);
-    },
-    removeTraitModifierWithGW2id: (state, action) => {
-      state.modifiers = state.modifiers.filter((modifier) => modifier.gw2id !== action.payload);
-    },
-    removeTraitModifierWithSource: (state, action) => {
-      state.modifiers = state.modifiers.filter((modifier) => modifier.source !== action.payload);
+    toggleTraitModifier: (state, action) => {
+      const { index, id, enabled } = action.payload;
+
+      const match = state.items[index].find((item) => item.id === id);
+      if (match) match.enabled = enabled;
     },
     setTraitModiferAmount: (state, action) => {
-      const { amountText, modifier } = action.payload;
-      const matched = state.modifiers.find((mod) => mod.id === modifier.id);
-      if (matched) matched.amountText = amountText;
+      const { index, id, amount } = action.payload;
+
+      const match = state.items[index].find((item) => item.id === id);
+      if (match) match.amount = amount;
     },
   },
   extraReducers: {
@@ -44,12 +69,13 @@ export const traitsSlice = createSlice({
       if (state.profession !== action.payload) {
         return {
           ...state,
-          lines: ['', '', ''],
-          selected: [
+          selectedLines: ['', '', ''],
+          selectedTraits: [
             [0, 0, 0],
             [0, 0, 0],
             [0, 0, 0],
           ],
+          items: [[], [], []],
           modifiers: [],
         };
       }
@@ -79,16 +105,15 @@ export const traitsSlice = createSlice({
   },
 });
 
-export const getTraitLines = (state) => state.traits.lines;
-export const getTraits = (state) => state.traits.selected;
-export const getTraitModifiers = (state) => state.traits.modifiers;
+export const getShowAllTraits = (state) => state.traits.showAll;
+export const getTraitLines = (state) => state.traits.selectedLines;
+export const getTraits = (state) => state.traits.selectedTraits;
+export const getTraitItems = (state) => state.traits.items;
 
 export const {
+  toggleShowAll,
   changeTraitLine,
-  changeTraits,
-  addTraitModifier,
-  removeTraitModifier,
-  removeTraitModifierWithGW2id,
-  removeTraitModifierWithSource,
+  changeTrait,
+  toggleTraitModifier,
   setTraitModiferAmount,
 } = traitsSlice.actions;

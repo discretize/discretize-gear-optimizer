@@ -145,19 +145,28 @@ export function setup(input) {
   modifiersInput = modifiersInput || [];
   for (const item of modifiersInput) {
     const {
-      modifiers: {
-        id = '[no id]',
-        damage = {},
-        attributes = {},
-        conversion = {},
-        // effect = {},
-        // note,
-        // ...otherModifiers
+      visible = true,
+      enabled = true,
+      amount: amountText,
+      data: {
+        modifiers: {
+          id = '[no id]',
+          damage = {},
+          attributes = {},
+          conversion = {},
+          // effect = {},
+          // note,
+          // ...otherModifiers
+        },
+        amount: amountData,
       },
-      amount: amountData,
     } = item;
 
-    const amountInput = /* todo: get this */ null;
+    if (!visible || !enabled) {
+      continue;
+    }
+
+    const { value: amountInput } = parseAmount(amountText);
 
     const scaleValue = amountData
       ? (value) => (value * (amountInput ?? amountData.default)) / amountData.quantityEntered
@@ -466,6 +475,17 @@ export function setup(input) {
   // }
 
   return settings;
+}
+
+export function parseAmount(text) {
+  if (text === '' || text === null || text === undefined) {
+    return { value: null, error: false };
+  }
+  const value = Number(text);
+  if (Number.isNaN(value) || value < 0) {
+    return { value: null, error: true };
+  }
+  return { value, error: false };
 }
 
 /**
