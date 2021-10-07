@@ -87,9 +87,6 @@ const Traits = ({ classes, data }) => {
   };
 
   const handleAmountChange = (index, id) => (e) => {
-    // eslint-disable-next-line no-console
-    console.log(`amount (index: ${index} id: ${id}) changed to ${e.target.value}`);
-
     dispatch(setTraitModiferAmount({ index, id, amount: e.target.value }));
   };
 
