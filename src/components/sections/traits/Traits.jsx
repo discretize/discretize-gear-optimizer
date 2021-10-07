@@ -97,8 +97,9 @@ const Traits = ({ classes, data }) => {
     const checkboxModis = [];
     const noCheckboxModis = [];
     items[index].forEach((item) => {
-      const itemData = classModifiersById[item.id];
-      if (itemData.minor && !itemData.subText && !itemData.amountData) {
+      const { id } = item;
+      const { minor, subText, amountData } = classModifiersById[id];
+      if (minor && !subText && !amountData) {
         noCheckboxModis.push(item);
       } else {
         checkboxModis.push(item);
@@ -139,39 +140,41 @@ const Traits = ({ classes, data }) => {
         />
 
         {noCheckboxModis.map((item) => {
-          const itemData = classModifiersById[item.id];
+          const { id } = item;
+          const { gw2id, subText } = classModifiersById[id];
           return (
-            <div key={item.id}>
+            <div key={id}>
               <>
-                {itemData.gw2id && <Trait id={itemData.gw2id} disableLink />}{' '}
-                <Typography variant="caption">{itemData.subText}</Typography>
+                {gw2id && <Trait id={gw2id} disableLink />}{' '}
+                <Typography variant="caption">{subText}</Typography>
               </>
             </div>
           );
         })}
 
         {checkboxModis.map((item) => {
-          const itemData = classModifiersById[item.id];
+          const { id, visible, enabled, amount } = item;
+          const { gw2id, subText, amountData } = classModifiersById[id];
           return (
-            <div key={item.id} style={item.visible ? {} : hiddenCss}>
+            <div key={id} style={visible ? {} : hiddenCss}>
               <CheckboxComponent
-                value={item.id}
-                checked={item.visible && item.enabled}
+                value={id}
+                checked={visible && enabled}
                 label={
                   <>
-                    {itemData.gw2id && <Trait id={itemData.gw2id} disableLink />}{' '}
-                    <Typography variant="caption">{itemData.subText}</Typography>
+                    {gw2id && <Trait id={gw2id} disableLink />}{' '}
+                    <Typography variant="caption">{subText}</Typography>
                   </>
                 }
-                onChange={handleCheckboxChange(index, item.id)}
-                disabled={!item.visible}
+                onChange={handleCheckboxChange(index, id)}
+                disabled={!visible}
               />
-              {itemData.amountData ? (
+              {amountData ? (
                 <TraitAmount
-                  traitData={itemData}
-                  handleAmountChange={handleAmountChange(index, item.id)}
-                  value={item.amount}
-                  disabled={!item.visible}
+                  amountData={amountData}
+                  handleAmountChange={handleAmountChange(index, id)}
+                  value={amount}
+                  disabled={!visible}
                 />
               ) : null}
             </div>

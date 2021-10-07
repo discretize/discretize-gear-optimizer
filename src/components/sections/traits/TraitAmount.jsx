@@ -2,8 +2,7 @@ import { TextField, InputAdornment } from '@material-ui/core';
 import React from 'react';
 import { parseAmount } from '../../../state/optimizer/optimizerCore';
 
-const TraitAmount = ({ traitData, handleAmountChange, value = '', disabled }) => {
-  const { amountData } = traitData;
+const TraitAmount = ({ amountData, handleAmountChange, value = '', disabled }) => {
 
   // const parsedValue = Number(value);
   // const isError = Number.isNaN(parsedValue) || parsedValue < 0;
