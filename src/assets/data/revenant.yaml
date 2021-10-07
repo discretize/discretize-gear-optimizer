@@ -143,7 +143,7 @@ list:
         minor: true
         modifiers: >-
           {
-            "multiplier": { "add: Effective Power": 0.1, "add: Effective Condition Damage": 0.1 }
+            "multiplier": { "add: Effective Power": 0.075, "add: Effective Condition Damage": 0.075 }
           }
         gw2-id: 1724
         type: 'traits'
@@ -165,7 +165,7 @@ list:
         minor: true
         modifiers: >-
           {
-            "multiplier": { "add: Effective Power": 0.075, "add: Effective Condition Damage": 0.075 }
+            "multiplier": { "add: Effective Power": 0.0625, "add: Effective Condition Damage": 0.0625 }
           }
         gw2-id: 1724
         type: 'traits'
