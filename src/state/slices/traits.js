@@ -7,8 +7,7 @@ const getInitialItems = (traitline) => {
   const allItemData = traitSectionsById[traitline].items;
   return Object.fromEntries(
     allItemData.map((itemData) => {
-      // minor traits are always visible; no majors are selected so none are visible
-      const enabled = itemData.minor || itemData.defaultEnabled;
+      const enabled = itemData.defaultEnabled;
       const value = itemData.amountData ? { amount: '' } : true;
       return [itemData.id, enabled ? value : false];
     }),

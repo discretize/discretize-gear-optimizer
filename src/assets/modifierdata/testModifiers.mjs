@@ -104,6 +104,10 @@ const testModifiers = async () => {
           }
         }
 
+        if (minor && !subText && !amountData) {
+          assert(defaultEnabled, `err: minor ${id} should be defaultEnabled!`);
+        }
+
         if (section.id && gw2id) {
           assert(
             !allGw2ids.has(gw2id) || subText || amountData,
