@@ -19,25 +19,19 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 function printTemplateHelper(state, list) {
   // const { profession, traits, skills, extras } = state;
 
-  // this is, obviously, awful
-  // todo: refactor templates and template application
-  const { profession } = state.control;
-  const traits = { ...state.traits };
-  // eslint-disable-next-line camelcase
-  traits.modifiers = traits.modifiers.map(({ id, gw2id, source }) => ({ id, gw2id, source }));
-  const skills = state.skills.skills.slice();
-  const extras = { ...state.extras };
-  if (extras.modifiers) {
-    delete extras.modifiers;
-  }
+  const withoutModifiers = (object) => {
+    // eslint-disable-next-line no-unused-vars
+    const { modifiers, ...rest } = object;
+    return { ...rest };
+  };
 
   console.groupCollapsed('Template Creation Data');
 
   console.log('Traits:', {
-    profession,
-    traits,
-    skills,
-    extras,
+    profession: state.control.profession,
+    traits: withoutModifiers(state.traits),
+    skills: withoutModifiers(state.skills),
+    extras: withoutModifiers(state.extras),
   });
 
   const distribution = state.distribution.values2;

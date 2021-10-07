@@ -190,7 +190,7 @@ const Traits = ({ classes, data }) => {
                       amountData={amountData}
                       handleAmountChange={handleAmountChange(index, id)}
                       value={amount}
-                      disabled={!visible}
+                      disabled={!visible || !enabled}
                     />
                   </Box>
                 ) : null}
