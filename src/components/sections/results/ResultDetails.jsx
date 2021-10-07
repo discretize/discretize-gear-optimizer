@@ -79,11 +79,11 @@ const ResultDetails = ({ data }) => {
     ];
   }
 
-  const foodId = extrasModifiersById.food[food]?.gw2id;
-  const utilityId = extrasModifiersById.utility[utility]?.gw2id;
-  const sigil1Id = extrasModifiersById.sigils[sigil1]?.gw2id;
-  const sigil2Id = extrasModifiersById.sigils[sigil2]?.gw2id;
-  const rune = runeStringId ? extrasModifiersById.runes[runeStringId] : '';
+  const foodId = extrasModifiersById[food]?.gw2id;
+  const utilityId = extrasModifiersById[utility]?.gw2id;
+  const sigil1Id = extrasModifiersById[sigil1]?.gw2id;
+  const sigil2Id = extrasModifiersById[sigil2]?.gw2id;
+  const rune = runeStringId ? extrasModifiersById[runeStringId] : '';
   const runeName = runeStringId ? rune.text.split(' ')[rune.text.split(' ').length - 1] : '';
 
   // Calculate the props for the weapons component

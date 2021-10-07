@@ -4,11 +4,11 @@ import { setBuildTemplate, setModifiers } from '../controlsSlice';
 import { extrasModifiersById } from '../../assets/modifierdata';
 
 const modifierData = {
-  Runes: extrasModifiersById.runes,
-  Sigil1: extrasModifiersById.sigils,
-  Sigil2: extrasModifiersById.sigils,
-  Nourishment: extrasModifiersById.food,
-  Enhancement: extrasModifiersById.utility,
+  Runes: extrasModifiersById,
+  Sigil1: extrasModifiersById,
+  Sigil2: extrasModifiersById,
+  Nourishment: extrasModifiersById,
+  Enhancement: extrasModifiersById,
 };
 
 export const extrasSlice = createSlice({

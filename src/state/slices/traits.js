@@ -87,10 +87,6 @@ export const traitsSlice = createSlice({
       return { ...state, ...traitState.traits };
     },
     [setModifiers]: (state, action) => {
-      const { profession } = action.payload;
-
-      const allTraitModifiers = classModifiersById[profession.toLowerCase()];
-
       // const enabledModifiers = ;
       // state.modifiers = enabledModifiers.map((id) => {
       //   const { modifiers, gw2id } = allTraitModifiersItems[id];
@@ -98,7 +94,7 @@ export const traitsSlice = createSlice({
       // });
 
       state.modifiers = state.modifiers.map((oldModifier) => {
-        const newModifier = allTraitModifiers[oldModifier.id];
+        const newModifier = classModifiersById[oldModifier.id];
         return Object.assign(oldModifier, newModifier);
       });
     },

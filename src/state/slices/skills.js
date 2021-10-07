@@ -34,12 +34,10 @@ export const skillsSlice = createSlice({
       return { ...state, skills: traitState.skills };
     },
     [setModifiers]: (state, action) => {
-      const { profession } = action.payload;
-
       const enabledModifiers = state.skills;
 
       state.modifiers = enabledModifiers.map((id) => {
-        const { modifiers, gw2id } = classModifiersById[profession.toLowerCase()][id];
+        const { modifiers, gw2id } = classModifiersById[id];
         return { id, modifiers, gw2id };
       });
     },

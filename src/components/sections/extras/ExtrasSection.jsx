@@ -17,7 +17,7 @@ const ExtrasSection = () => {
               name="Sigil1"
               label={<Item id={24615} disableLink disableTooltip text="Sigil 1" />}
               modifierData={extrasModifiers.sigils}
-              modifierDataById={extrasModifiersById.sigils}
+              modifierDataById={extrasModifiersById}
             />
           </Grid>
           <Grid item xs={12} md={6}>
@@ -25,7 +25,7 @@ const ExtrasSection = () => {
               name="Sigil2"
               label={<Item id={24868} disableLink disableTooltip text="Sigil 2" />}
               modifierData={extrasModifiers.sigils}
-              modifierDataById={extrasModifiersById.sigils}
+              modifierDataById={extrasModifiersById}
             />
           </Grid>
           <Grid item xs={12} md={6}>
@@ -33,7 +33,7 @@ const ExtrasSection = () => {
               name="Runes"
               label={<Item id={24836} disableLink disableTooltip text="Rune" />}
               modifierData={extrasModifiers.runes}
-              modifierDataById={extrasModifiersById.runes}
+              modifierDataById={extrasModifiersById}
             />
           </Grid>
           <Grid item md={6} />
@@ -42,7 +42,7 @@ const ExtrasSection = () => {
               name="Nourishment"
               label={<ConsumableEffect name="Nourishment" />}
               modifierData={extrasModifiers.food}
-              modifierDataById={extrasModifiersById.food}
+              modifierDataById={extrasModifiersById}
             />
           </Grid>
           <Grid item xs={12} md={6}>
@@ -50,7 +50,7 @@ const ExtrasSection = () => {
               name="Enhancement"
               label={<ConsumableEffect name="Enhancement" />}
               modifierData={extrasModifiers.utility}
-              modifierDataById={extrasModifiersById.utility}
+              modifierDataById={extrasModifiersById}
             />
           </Grid>
         </Grid>
