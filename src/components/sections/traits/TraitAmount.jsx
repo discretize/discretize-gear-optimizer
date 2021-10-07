@@ -3,7 +3,6 @@ import React from 'react';
 import { parseAmount } from '../../../state/optimizer/optimizerCore';
 
 const TraitAmount = ({ amountData, handleAmountChange, value = '', disabled }) => {
-
   // const parsedValue = Number(value);
   // const isError = Number.isNaN(parsedValue) || parsedValue < 0;
 
@@ -20,7 +19,7 @@ const TraitAmount = ({ amountData, handleAmountChange, value = '', disabled }) =
             {amountData.label}
           </InputAdornment>
         ),
-        inputProps: { style: { width: '4ch' } }, // how 2 css, help
+        inputProps: { style: { maxWidth: '32px' } },
       }}
       onChange={handleAmountChange}
       disabled={disabled}

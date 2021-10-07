@@ -1,4 +1,5 @@
 import {
+  Box,
   FormControl,
   Input,
   InputLabel,
@@ -161,28 +162,39 @@ const Traits = ({ classes, data }) => {
             const { id, visible, enabled, amount } = item;
             const { gw2id, subText, amountData } = classModifiersById[id];
             return (
-              <div key={id} style={visible ? {} : hiddenCss}>
-                <CheckboxComponent
-                  value={id}
-                  checked={visible && enabled}
-                  label={
-                    <>
-                      {gw2id && <Trait id={gw2id} disableLink />}{' '}
-                      <Typography variant="caption">{subText}</Typography>
-                    </>
-                  }
-                  onChange={handleCheckboxChange(index, id)}
-                  disabled={!visible}
-                />
-                {amountData ? (
-                  <TraitAmount
-                    amountData={amountData}
-                    handleAmountChange={handleAmountChange(index, id)}
-                    value={amount}
+              <Box
+                key={id}
+                style={visible ? {} : hiddenCss}
+                justifyContent="space-between"
+                display="flex"
+                maxWidth="648px"
+              >
+                <Box>
+                  <CheckboxComponent
+                    value={id}
+                    checked={visible && enabled}
+                    label={
+                      <>
+                        {gw2id && <Trait id={gw2id} disableLink />}{' '}
+                        <Typography variant="caption">{subText}</Typography>
+                      </>
+                    }
+                    onChange={handleCheckboxChange(index, id)}
                     disabled={!visible}
                   />
+                </Box>
+
+                {amountData ? (
+                  <Box>
+                    <TraitAmount
+                      amountData={amountData}
+                      handleAmountChange={handleAmountChange(index, id)}
+                      value={amount}
+                      disabled={!visible}
+                    />
+                  </Box>
                 ) : null}
-              </div>
+              </Box>
             );
           })
         }
