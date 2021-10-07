@@ -14,18 +14,16 @@ const modifierData = {
 export const extrasSlice = createSlice({
   name: 'extras',
   initialState: {
-    extras: {
-      Runes: '',
-      Sigil1: '',
-      Sigil2: '',
-      Enhancement: '',
-      Nourishment: '',
-    },
+    Runes: '',
+    Sigil1: '',
+    Sigil2: '',
+    Enhancement: '',
+    Nourishment: '',
     modifiers: [],
   },
   reducers: {
     changeExtras: (state, action) => {
-      state.extras[action.payload.key] = action.payload.value;
+      state[action.payload.key] = action.payload.value;
     },
   },
   extraReducers: {
@@ -34,10 +32,10 @@ export const extrasSlice = createSlice({
       return { ...templateState.extras };
     },
     [setModifiers]: (state) => {
-      const enabledTypes = Object.keys(modifierData).filter((key) => state.extras[key]);
+      const enabledTypes = Object.keys(modifierData).filter((key) => state[key]);
 
       state.modifiers = enabledTypes.map((type) => {
-        const id = state.extras[type];
+        const id = state[type];
         const { modifiers } = modifierData[type][id];
         return { id, modifiers, source: type };
       });
