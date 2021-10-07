@@ -14,7 +14,7 @@ const TraitAmount = ({ traitData, handleAmountChange, value = '', disabled }) =>
     <TextField
       error={error}
       value={value}
-      placeholder={amount.default}
+      placeholder={String(amount.default)}
       InputProps={{
         endAdornment: (
           <InputAdornment disablePointerEvents position="end">
