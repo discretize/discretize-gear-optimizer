@@ -136,6 +136,19 @@
       gw2id: 319
       defaultEnabled: true
 
+    - id: persisting-flames
+      text: Persisting Flames
+      amountData:
+        label: 'stacks'
+        default: 9
+        quantityEntered: 1
+      modifiers:
+        damage:
+          Strike Damage: [1%, add]
+      type: traits
+      gw2id: 1510
+      defaultEnabled: true
+
 - section: Air
   id: 41
   items:
