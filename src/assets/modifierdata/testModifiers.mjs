@@ -39,7 +39,6 @@ const testModifiers = async () => {
       data = yaml.load(fileData);
     } catch (e) {
       assert(false, `err: ${fileName} is invalid YAML`);
-      // continue;
     }
 
     assert(Array.isArray(data), `err: ${fileName} is not an array (use dashes for sections!)`);
@@ -70,9 +69,9 @@ const testModifiers = async () => {
       );
 
       for (const item of items) {
-        /* eslint-disable no-unused-vars */
         const {
           id,
+          // eslint-disable-next-line no-unused-vars
           text,
           subText,
           modifiers,
@@ -83,10 +82,9 @@ const testModifiers = async () => {
           defaultEnabled,
           ...otherKeys
         } = item;
-        /* eslint-enable no-unused-vars */
 
         if (Object.keys(otherKeys).length)
-          console.log('note: this script is missing validation for', otherKeys);
+          console.log('❓ this script is missing validation for', otherKeys);
 
         if (amountData) {
           assert(typeof amountData.label === 'string', `err: missing amount label in ${id}`);
@@ -105,7 +103,7 @@ const testModifiers = async () => {
           } else {
             // eslint-disable-next-line no-lonely-if
             if (gw2id && sectionName !== 'Soulbeast')
-              console.log(`note: ${id} isn't a trait in this line`);
+              console.log(`❓ ${id} isn't a trait in this line`);
           }
         }
 
@@ -136,12 +134,11 @@ const testModifiers = async () => {
 
         if (fileName !== 'buffs.yaml' && typeof gw2id !== 'number') {
           // console.log(`note: no gw2id in ${id}`);
-        } else if (typeof type !== 'string') console.log(`note: ${id} doesn't have a type`);
+        } else if (typeof type !== 'string') console.log(`❓ ${id} doesn't have a type`);
 
         assert(typeof modifiers === 'object', `err: invalid or missing modifiers in ${id}`);
 
-        // eslint-disable-next-line no-unused-vars
-        const { damage, attributes, conversion, effect, note, ...otherModifiers } = modifiers;
+        const { damage, attributes, conversion, effect, ...otherModifiers } = modifiers;
         assert(
           Object.keys(otherModifiers).length === 0,
           `err: invalid modifier type(s): ${Object.keys(otherModifiers)}`,
