@@ -10,66 +10,67 @@ list:
         distribution: 'Power Chrono'
         traits: >-
           {
-            "profession":"MESMER",
-            "traits":{
-                "lines":[
-                  "10",
-                  "1",
-                  "40"
-                ],
-                "selected":[
-                  [
-                      682,
-                      713,
-                      681
+              "profession": "MESMER",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "10",
+                      "1",
+                      "40"
                   ],
-                  [
-                      701,
-                      708,
-                      692
+                  "selectedTraits": [
+                      [
+                          682,
+                          713,
+                          681
+                      ],
+                      [
+                          701,
+                          708,
+                          692
+                      ],
+                      [
+                          1995,
+                          1978,
+                          1890
+                      ]
                   ],
-                  [
-                      1995,
-                      1978,
-                      1890
+                  "items": [
+                      {
+                          "fragility": {
+                              "amount": ""
+                          },
+                          "egotism": {
+                              "amount": ""
+                          },
+                          "vicious-expression": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "fencers-finesse": {
+                              "amount": ""
+                          },
+                          "superiority-complex-base": true,
+                          "superiority-complex": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "danger-time": true
+                      }
                   ]
-                ],
-                "modifiers":[
-                  {
-                      "id":"fragility",
-                      "gw2id":1941,
-                      "source":10
-                  },
-                  {
-                      "id":"vicious-expression",
-                      "gw2id":681,
-                      "source":10
-                  },
-                  {
-                      "id":"egotism",
-                      "gw2id":713,
-                      "source":10
-                  },
-                  {
-                      "id":"superiority-complex",
-                      "gw2id":692,
-                      "source":1
-                  },
-                  {
-                      "id":"fencers-finesse",
-                      "gw2id":708,
-                      "source":1
-                  }
-                ]
-            },
-            "skills":[],
-            "extras":{
-              "Runes":"scholar",
-              "Sigil1":"force",
-              "Sigil2":"impact/night/slaying-both",
-              "Enhancement":"slaying-potion",
-              "Nourishment":"sweet-and-spicy-butternut-squash-soup"
-            }
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "scholar",
+                  "Sigil1": "force",
+                  "Sigil2": "impact/night/slaying-both",
+                  "Enhancement": "slaying-potion",
+                  "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+              }
           }
 
       # - name: Staff Mirage
@@ -79,71 +80,6 @@ list:
       #   priority: Condi DPS
       #   distribution: '100% Power'
       #   traits: >-
-      #     {
-      #       "profession":"MESMER",
-      #       "traits":{
-      #         "lines":[
-      #           "45",
-      #           "1",
-      #           "59"
-      #         ],
-      #         "selected":[
-      #           [
-      #             670,
-      #             669,
-      #             1687
-      #           ],
-      #           [
-      #             701,
-      #             1889,
-      #             1950
-      #           ],
-      #           [
-      #             2141,
-      #             2178,
-      #             2070
-      #           ]
-      #         ],
-      #         "modifiers":[
-      #           {
-      #             "id":"illusionary-membrane",
-      #             "gw2id":667,
-      #             "source":45
-      #           },
-      #           {
-      #             "id":"chaotic-persistence",
-      #             "gw2id":1865,
-      #             "source":45
-      #           },
-      #           {
-      #             "id":"chaotic-potency-2",
-      #             "gw2id":669,
-      #             "source":45
-      #           },
-      #           {
-      #             "id":"chaotic-potency",
-      #             "gw2id":669,
-      #             "source":45
-      #           },
-      #           {
-      #             "id":"nomads-endurance",
-      #             "gw2id":2069,
-      #             "source":59
-      #           }
-      #         ]
-      #       },
-      #       "skills":[
-      #         "signet-of-midnight",
-      #         "signet-of-domination"
-      #       ],
-      #       "extras":{
-      #         "Runes":"nightmare",
-      #         "Sigil1":"bursting",
-      #         "Sigil2":"",
-      #         "Enhancement":"toxic-focusing-crystal",
-      #         "Nourishment":"beef-rendang"
-      #       }
-      #     }
 
   - class: guardian
     builds:
@@ -155,88 +91,76 @@ list:
         distribution: 'DH (Radiance)'
         traits: >-
           {
-            "profession":"GUARDIAN",
-            "traits":{
-              "lines":[
-                "16",
-                "42",
-                "27"
-              ],
-              "selected":[
-                [
-                  574,
-                  565,
-                  579
-                ],
-                [
-                  634,
-                  653,
-                  2017
-                ],
-                [
-                  1898,
-                  1835,
-                  1955
-                ]
-              ],
-              "modifiers":[
-                {
-                  "id":"radiant-power",
-                  "gw2id":568,
-                  "source":16
-                },
-                {
-                  "id":"retribution",
-                  "gw2id":565,
-                  "source":16
-                },
-                {
-                  "id":"symbolic-exposure",
-                  "gw2id":646,
-                  "source":42
-                },
-                {
-                  "id":"fiery-wrath",
-                  "gw2id":634,
-                  "source":42
-                },
-                {
-                  "id":"zealous-blade",
-                  "gw2id":653,
-                  "source":42
-                },
-                {
-                  "id":"symbolic-avenger",
-                  "gw2id":2017,
-                  "source":42
-                },
-                {
-                  "id":"pure-of-sight",
-                  "gw2id":1926,
-                  "source":27
-                },
-                {
-                  "id":"zealots-aggression",
-                  "gw2id":1835,
-                  "source":27
-                },
-                {
-                  "id":"big-game-hunter",
-                  "gw2id":1955,
-                  "source":27
-                }
-              ]
-            },
-            "skills":[
-              "bane-signet-2"
-            ],
-            "extras":{
-              "Runes":"scholar",
-              "Sigil1":"force",
-              "Sigil2":"impact/night/slaying-both",
-              "Enhancement":"slaying-potion",
-              "Nourishment":"sweet-and-spicy-butternut-squash-soup"
-            }
+              "profession": "GUARDIAN",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "16",
+                      "42",
+                      "27"
+                  ],
+                  "selectedTraits": [
+                      [
+                          574,
+                          565,
+                          579
+                      ],
+                      [
+                          634,
+                          653,
+                          2017
+                      ],
+                      [
+                          1898,
+                          1835,
+                          1955
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "right-hand-strength": true,
+                          "right-hand-strength-1h": {
+                              "amount": ""
+                          },
+                          "radiant-fire": true,
+                          "retribution": {
+                              "amount": ""
+                          },
+                          "radiant-power": true,
+                          "amplified-wrath": true,
+                          "righteous-instincts": true
+                      },
+                      {
+                          "fiery-wrath": true,
+                          "symbolic-exposure": true,
+                          "zealous-blade-base": true,
+                          "zealous-blade-gs": {
+                              "amount": ""
+                          },
+                          "kindled-zeal": true,
+                          "symbolic-avenger": true
+                      },
+                      {
+                          "zealots-aggression": true,
+                          "pure-of-sight": true,
+                          "pure-of-sight-ranged": false,
+                          "hunters-fortification": true,
+                          "big-game-hunter": true
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": [
+                      "bane-signet-2"
+                  ]
+              },
+              "extras": {
+                  "Runes": "scholar",
+                  "Sigil1": "force",
+                  "Sigil2": "impact/night/slaying-both",
+                  "Enhancement": "slaying-potion",
+                  "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+              }
           }
 
       - name: pQFB
@@ -247,78 +171,74 @@ list:
         distribution: 'Power Firebrand (approx.)'
         traits: >-
           {
-            "profession":"GUARDIAN",
-            "traits":{
-              "lines":[
-                "16",
-                "42",
-                "62"
-              ],
-              "selected":[
-                [
-                  574,
-                  565,
-                  579
-                ],
-                [
-                  634,
-                  653,
-                  2017
-                ],
-                [
-                  2101,
-                  2076,
-                  2159
-                ]
-              ],
-              "modifiers":[
-                {
-                  "id":"radiant-power",
-                  "gw2id":568,
-                  "source":16
-                },
-                {
-                  "id":"retribution",
-                  "gw2id":565,
-                  "source":16
-                },
-                {
-                  "id":"symbolic-exposure",
-                  "gw2id":646,
-                  "source":42
-                },
-                {
-                  "id":"fiery-wrath",
-                  "gw2id":634,
-                  "source":42
-                },
-                {
-                  "id":"zealous-blade",
-                  "gw2id":653,
-                  "source":42
-                },
-                {
-                  "id":"symbolic-avenger",
-                  "gw2id":2017,
-                  "source":42
-                },
-                {
-                  "id":"imbued-haste",
-                  "gw2id":2148,
-                  "source":62
-                }
-              ]
-            },
-            "skills":[
-              "bane-signet-2"
-            ],
-            "extras":{
-              "Runes":"scholar",
-              "Sigil1":"force",
-              "Sigil2":"impact/night/slaying-both",
-              "Enhancement":"slaying-potion",
-              "Nourishment":"sweet-and-spicy-butternut-squash-soup"
-            }
+              "profession": "GUARDIAN",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "16",
+                      "42",
+                      "62"
+                  ],
+                  "selectedTraits": [
+                      [
+                          574,
+                          565,
+                          579
+                      ],
+                      [
+                          634,
+                          653,
+                          2017
+                      ],
+                      [
+                          2101,
+                          2076,
+                          2159
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "right-hand-strength": true,
+                          "right-hand-strength-1h": {
+                              "amount": ""
+                          },
+                          "radiant-fire": true,
+                          "retribution": {
+                              "amount": ""
+                          },
+                          "radiant-power": true,
+                          "amplified-wrath": true,
+                          "righteous-instincts": true
+                      },
+                      {
+                          "fiery-wrath": true,
+                          "symbolic-exposure": true,
+                          "zealous-blade-base": true,
+                          "zealous-blade-gs": {
+                              "amount": ""
+                          },
+                          "kindled-zeal": true,
+                          "symbolic-avenger": true
+                      },
+                      {
+                          "imbued-haste": {
+                              "amount": ""
+                          }
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": [
+                      "bane-signet-2"
+                  ]
+              },
+              "extras": {
+                  "Runes": "scholar",
+                  "Sigil1": "force",
+                  "Sigil2": "impact/night/slaying-both",
+                  "Enhancement": "slaying-potion",
+                  "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+              }
           }
 
       - name: CFB w/ Quickness # Virtues
@@ -329,88 +249,77 @@ list:
         distribution: 'Quickness CFB (Virtues, allies)'
         traits: >-
           {
-            "profession":"GUARDIAN",
-            "traits":{
-              "lines":[
-                "16",
-                "46",
-                "62"
-              ],
-              "selected":[
-                [
-                  566,
-                  567,
-                  1686
-                ],
-                [
-                  617,
-                  587,
-                  622
-                ],
-                [
-                  2101,
-                  2076,
-                  2159
-                ]
-              ],
-              "modifiers":[
-                {
-                  "id":"radiant-power",
-                  "gw2id":568,
-                  "source":16
-                },
-                {
-                  "id":"radiant-fire",
-                  "gw2id":567,
-                  "source":16
-                },
-                {
-                  "id":"amplified-wrath",
-                  "gw2id":1686,
-                  "source":16
-                },
-                {
-                  "id":"right-hand-strength-3",
-                  "gw2id":566,
-                  "source":16
-                },
-                {
-                  "id":"right-hand-strength",
-                  "gw2id":566,
-                  "source":16
-                },
-                {
-                  "id":"inspired-virtue-9",
-                  "gw2id":621,
-                  "source":46
-                },
-                {
-                  "id":"virtue-of-retribution",
-                  "gw2id":604,
-                  "source":46
-                },
-                {
-                  "id":"power-of-the-virtuous",
-                  "gw2id":620,
-                  "source":46
-                },
-                {
-                  "id":"imbued-haste",
-                  "gw2id":2148,
-                  "source":62
-                }
-              ]
-            },
-            "skills":[
-              "signet-of-wrath"
-            ],
-            "extras":{
-              "Runes":"balthazar",
-              "Sigil1":"bursting",
-              "Sigil2":"",
-              "Enhancement":"toxic-maintenance-oil",
-              "Nourishment":"beef-rendang"
-            }
+              "profession": "GUARDIAN",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "16",
+                      "46",
+                      "62"
+                  ],
+                  "selectedTraits": [
+                      [
+                          566,
+                          567,
+                          1686
+                      ],
+                      [
+                          617,
+                          587,
+                          622
+                      ],
+                      [
+                          2101,
+                          2076,
+                          2159
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "right-hand-strength": true,
+                          "right-hand-strength-1h": {
+                              "amount": "100"
+                          },
+                          "radiant-fire": true,
+                          "retribution": {
+                              "amount": ""
+                          },
+                          "radiant-power": true,
+                          "amplified-wrath": true,
+                          "righteous-instincts": true
+                      },
+                      {
+                          "inspired-virtue": {
+                              "amount": ""
+                          },
+                          "unscathed-contender": {
+                              "amount": ""
+                          },
+                          "virtue-of-retribution": true,
+                          "inspiring-virtue": {
+                              "amount": ""
+                          },
+                          "power-of-the-virtuous": true
+                      },
+                      {
+                          "imbued-haste": {
+                              "amount": ""
+                          }
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": [
+                      "signet-of-wrath"
+                  ]
+              },
+              "extras": {
+                  "Runes": "balthazar",
+                  "Sigil1": "bursting",
+                  "Sigil2": "",
+                  "Enhancement": "toxic-maintenance-oil",
+                  "Nourishment": "beef-rendang"
+              }
           }
 
       - name: CFB DPS # Virtues
@@ -421,88 +330,77 @@ list:
         distribution: 'CFB (Virtues, 5 page, allies)'
         traits: >-
           {
-            "profession":"GUARDIAN",
-            "traits":{
-              "lines":[
-                "16",
-                "46",
-                "62"
-              ],
-              "selected":[
-                [
-                  566,
-                  567,
-                  1686
-                ],
-                [
-                  617,
-                  587,
-                  622
-                ],
-                [
-                  2075,
-                  2116,
-                  2159
-                ]
-              ],
-              "modifiers":[
-                {
-                  "id":"radiant-power",
-                  "gw2id":568,
-                  "source":16
-                },
-                {
-                  "id":"radiant-fire",
-                  "gw2id":567,
-                  "source":16
-                },
-                {
-                  "id":"amplified-wrath",
-                  "gw2id":1686,
-                  "source":16
-                },
-                {
-                  "id":"right-hand-strength-3",
-                  "gw2id":566,
-                  "source":16
-                },
-                {
-                  "id":"right-hand-strength",
-                  "gw2id":566,
-                  "source":16
-                },
-                {
-                  "id":"inspired-virtue-9",
-                  "gw2id":621,
-                  "source":46
-                },
-                {
-                  "id":"virtue-of-retribution",
-                  "gw2id":604,
-                  "source":46
-                },
-                {
-                  "id":"power-of-the-virtuous",
-                  "gw2id":620,
-                  "source":46
-                },
-                {
-                  "id":"imbued-haste",
-                  "gw2id":2148,
-                  "source":62
-                }
-              ]
-            },
-            "skills":[
-              "signet-of-wrath"
-            ],
-            "extras":{
-              "Runes":"balthazar",
-              "Sigil1":"bursting",
-              "Sigil2":"",
-              "Enhancement":"toxic-focusing-crystal",
-              "Nourishment":"beef-rendang"
-            }
+              "profession": "GUARDIAN",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "16",
+                      "46",
+                      "62"
+                  ],
+                  "selectedTraits": [
+                      [
+                          566,
+                          567,
+                          1686
+                      ],
+                      [
+                          617,
+                          587,
+                          622
+                      ],
+                      [
+                          2075,
+                          2116,
+                          2159
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "right-hand-strength": true,
+                          "right-hand-strength-1h": {
+                              "amount": "100"
+                          },
+                          "radiant-fire": true,
+                          "retribution": {
+                              "amount": ""
+                          },
+                          "radiant-power": true,
+                          "amplified-wrath": true,
+                          "righteous-instincts": true
+                      },
+                      {
+                          "inspired-virtue": {
+                              "amount": ""
+                          },
+                          "unscathed-contender": {
+                              "amount": ""
+                          },
+                          "virtue-of-retribution": true,
+                          "inspiring-virtue": {
+                              "amount": ""
+                          },
+                          "power-of-the-virtuous": true
+                      },
+                      {
+                          "imbued-haste": {
+                              "amount": ""
+                          }
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": [
+                      "signet-of-wrath"
+                  ]
+              },
+              "extras": {
+                  "Runes": "balthazar",
+                  "Sigil1": "bursting",
+                  "Sigil2": "",
+                  "Enhancement": "toxic-focusing-crystal",
+                  "Nourishment": "beef-rendang"
+              }
           }
 
       # - name: CFB Zeal
@@ -512,169 +410,7 @@ list:
       #   priority: Condi DPS
       #   distribution: '100% Power'
       #   traits: >-
-      #     {
-      #       "profession":"GUARDIAN",
-      #       "traits":{
-      #         "lines":[
-      #           "16",
-      #           "42",
-      #           "62"
-      #         ],
-      #         "selected":[
-      #           [
-      #             566,
-      #             567,
-      #             1686
-      #           ],
-      #           [
-      #             1925,
-      #             1556,
-      #             635
-      #           ],
-      #           [
-      #             2075,
-      #             2116,
-      #             2159
-      #           ]
-      #         ],
-      #         "modifiers":[
-      #           {
-      #             "id":"radiant-power",
-      #             "gw2id":568,
-      #             "source":16
-      #           },
-      #           {
-      #             "id":"radiant-fire",
-      #             "gw2id":567,
-      #             "source":16
-      #           },
-      #           {
-      #             "id":"amplified-wrath",
-      #             "gw2id":1686,
-      #             "source":16
-      #           },
-      #           {
-      #             "id":"right-hand-strength-3",
-      #             "gw2id":566,
-      #             "source":16
-      #           },
-      #           {
-      #             "id":"right-hand-strength",
-      #             "gw2id":566,
-      #             "source":16
-      #           },
-      #           {
-      #             "id":"imbued-haste",
-      #             "gw2id":2148,
-      #             "source":62
-      #           },
-      #           {
-      #             "id":"symbolic-exposure",
-      #             "gw2id":646,
-      #             "source":42
-      #           },
-      #           {
-      #             "id":"kindled-zeal",
-      #             "gw2id":1556,
-      #             "source":42
-      #           }
-      #         ]
-      #       },
-      #       "skills":[
-      #         "signet-of-wrath"
-      #       ],
-      #       "extras":{
-      #         "Runes":"balthazar",
-      #         "Sigil1":"bursting",
-      #         "Sigil2":"",
-      #         "Enhancement":"toxic-focusing-crystal",
-      #         "Nourishment":"beef-rendang"
-      #       }
-      #     }
-      # - name: Cat Cele Virtues TEMP NO VIRTUOUS WRONG INSPIRED NO ALLIES
-      #   id: cat1
-      #   specialization: Firebrand
-      #   boons: 'Condi'
-      #   priority: Condi Boon
-      #   distribution: Hybrid FB (Virtues, no allies)
-      #   traits: >-
-      #     {
-      #         "profession": "GUARDIAN",
-      #         "traits": {
-      #             "lines": [
-      #                 "16",
-      #                 "46",
-      #                 "62"
-      #             ],
-      #             "selected": [
-      #                 [
-      #                     566,
-      #                     567,
-      #                     1686
-      #                 ],
-      #                 [
-      #                     617,
-      #                     587,
-      #                     622
-      #                 ],
-      #                 [
-      #                     2101,
-      #                     2116,
-      #                     2159
-      #                 ]
-      #             ],
-      #             "modifiers": [
-      #                 {
-      #                     "id": "radiant-power",
-      #                     "gw2id": 568,
-      #                     "source": 16
-      #                 },
-      #                 {
-      #                     "id": "radiant-fire",
-      #                     "gw2id": 567,
-      #                     "source": 16
-      #                 },
-      #                 {
-      #                     "id": "amplified-wrath",
-      #                     "gw2id": 1686,
-      #                     "source": 16
-      #                 },
-      #                 {
-      #                     "id": "right-hand-strength-3",
-      #                     "gw2id": 566,
-      #                     "source": 16
-      #                 },
-      #                 {
-      #                     "id": "right-hand-strength",
-      #                     "gw2id": 566,
-      #                     "source": 16
-      #                 },
-      #                 {
-      #                     "id": "inspired-virtue-9",
-      #                     "gw2id": 621,
-      #                     "source": 46
-      #                 },
-      #                 {
-      #                     "id": "virtue-of-retribution",
-      #                     "gw2id": 604,
-      #                     "source": 46
-      #                 },
-      #                 {
-      #                     "id": "imbued-haste",
-      #                     "gw2id": 2148,
-      #                     "source": 62
-      #                 }
-      #             ]
-      #         },
-      #         "skills": [],
-      #         "extras": {
-      #             "Runes": "leadership",
-      #             "Sigil1": "smoldering",
-      #             "Sigil2": "malice",
-      #             "Enhancement": "toxic-maintenance-oil",
-      #             "Nourishment": "dragon's-revelry-starcake"
-      #         }
-      #     }
+
       - name: Hybrid FB (Virtues)*
         id: hycfb-virtues-leadership
         specialization: Firebrand
@@ -683,86 +419,75 @@ list:
         distribution: Hybrid FB (Virtues)
         traits: >-
           {
-            "profession": "GUARDIAN",
-            "traits": {
-                "lines": [
-                    "16",
-                    "46",
-                    "62"
-                ],
-                "selected": [
-                    [
-                        566,
-                        567,
-                        1686
-                    ],
-                    [
-                        617,
-                        587,
-                        622
-                    ],
-                    [
-                        2101,
-                        2116,
-                        2159
-                    ]
-                ],
-                "modifiers": [
-                    {
-                        "id": "radiant-power",
-                        "gw2id": 568,
-                        "source": 16
-                    },
-                    {
-                        "id": "radiant-fire",
-                        "gw2id": 567,
-                        "source": 16
-                    },
-                    {
-                        "id": "amplified-wrath",
-                        "gw2id": 1686,
-                        "source": 16
-                    },
-                    {
-                        "id": "right-hand-strength-3",
-                        "gw2id": 566,
-                        "source": 16
-                    },
-                    {
-                        "id": "right-hand-strength",
-                        "gw2id": 566,
-                        "source": 16
-                    },
-                    {
-                        "id": "imbued-haste",
-                        "gw2id": 2148,
-                        "source": 62
-                    },
-                    {
-                        "id": "virtue-of-retribution",
-                        "gw2id": 604,
-                        "source": 46
-                    },
-                    {
-                        "id": "inspired-virtue-9",
-                        "gw2id": 621,
-                        "source": 46
-                    },
-                    {
-                        "id": "power-of-the-virtuous",
-                        "gw2id": 620,
-                        "source": 46
-                    }
-                ]
-            },
-            "skills": [],
-            "extras": {
-              "Runes": "",
-              "Sigil1": "",
-              "Sigil2": "",
-              "Enhancement": "",
-              "Nourishment": ""
-            }
+              "profession": "GUARDIAN",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "16",
+                      "46",
+                      "62"
+                  ],
+                  "selectedTraits": [
+                      [
+                          566,
+                          567,
+                          1686
+                      ],
+                      [
+                          617,
+                          587,
+                          622
+                      ],
+                      [
+                          2101,
+                          2116,
+                          2159
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "right-hand-strength": true,
+                          "right-hand-strength-1h": {
+                              "amount": "100"
+                          },
+                          "radiant-fire": true,
+                          "retribution": {
+                              "amount": ""
+                          },
+                          "radiant-power": true,
+                          "amplified-wrath": true,
+                          "righteous-instincts": true
+                      },
+                      {
+                          "inspired-virtue": {
+                              "amount": ""
+                          },
+                          "unscathed-contender": {
+                              "amount": ""
+                          },
+                          "virtue-of-retribution": true,
+                          "inspiring-virtue": {
+                              "amount": ""
+                          },
+                          "power-of-the-virtuous": true
+                      },
+                      {
+                          "imbued-haste": {
+                              "amount": ""
+                          }
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "",
+                  "Sigil1": "",
+                  "Sigil2": "",
+                  "Enhancement": "",
+                  "Nourishment": ""
+              }
           }
 
         # "extras": {
@@ -781,71 +506,70 @@ list:
         distribution: Hybrid FB (Honor)
         traits: >-
           {
-            "profession": "GUARDIAN",
-            "traits": {
-                "lines": [
-                    "16",
-                    "49",
-                    "62"
-                ],
-                "selected": [
-                    [
-                        566,
-                        567,
-                        1686
-                    ],
-                    [
-                        654,
-                        562,
-                        558
-                    ],
-                    [
-                        2101,
-                        2116,
-                        2159
-                    ]
-                ],
-                "modifiers": [
-                    {
-                        "id": "radiant-power",
-                        "gw2id": 568,
-                        "source": 16
-                    },
-                    {
-                        "id": "radiant-fire",
-                        "gw2id": 567,
-                        "source": 16
-                    },
-                    {
-                        "id": "amplified-wrath",
-                        "gw2id": 1686,
-                        "source": 16
-                    },
-                    {
-                        "id": "right-hand-strength-3",
-                        "gw2id": 566,
-                        "source": 16
-                    },
-                    {
-                        "id": "right-hand-strength",
-                        "gw2id": 566,
-                        "source": 16
-                    },
-                    {
-                        "id": "imbued-haste",
-                        "gw2id": 2148,
-                        "source": 62
-                    }
-                ]
-            },
-            "skills": [],
-            "extras": {
-              "Runes": "",
-              "Sigil1": "",
-              "Sigil2": "",
-              "Enhancement": "",
-              "Nourishment": ""
-            }
+              "profession": "GUARDIAN",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "16",
+                      "49",
+                      "62"
+                  ],
+                  "selectedTraits": [
+                      [
+                          566,
+                          567,
+                          1686
+                      ],
+                      [
+                          654,
+                          562,
+                          558
+                      ],
+                      [
+                          2101,
+                          2116,
+                          2159
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "right-hand-strength": true,
+                          "right-hand-strength-1h": {
+                              "amount": "100"
+                          },
+                          "radiant-fire": true,
+                          "retribution": {
+                              "amount": ""
+                          },
+                          "radiant-power": true,
+                          "amplified-wrath": true,
+                          "righteous-instincts": true
+                      },
+                      {
+                          "invigorating-bulwark": {
+                              "amount": ""
+                          },
+                          "honorable-staff": true,
+                          "honorable-staff-2": true,
+                          "force-of-will": true
+                      },
+                      {
+                          "imbued-haste": {
+                              "amount": ""
+                          }
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "",
+                  "Sigil1": "",
+                  "Sigil2": "",
+                  "Enhancement": "",
+                  "Nourishment": ""
+              }
           }
 
         # "extras": {
@@ -866,12 +590,13 @@ list:
           {
               "profession": "GUARDIAN",
               "traits": {
-                  "lines": [
+                  "showAll": false,
+                  "selectedLines": [
                       "16",
                       "49",
                       "62"
                   ],
-                  "selected": [
+                  "selectedTraits": [
                       [
                           574,
                           578,
@@ -888,32 +613,40 @@ list:
                           2159
                       ]
                   ],
-                  "modifiers": [
+                  "items": [
                       {
-                          "id": "radiant-power",
-                          "gw2id": 568,
-                          "source": 16
+                          "right-hand-strength": true,
+                          "right-hand-strength-1h": {
+                              "amount": ""
+                          },
+                          "radiant-fire": true,
+                          "retribution": {
+                              "amount": ""
+                          },
+                          "radiant-power": true,
+                          "amplified-wrath": true,
+                          "righteous-instincts": true
                       },
                       {
-                          "id": "imbued-haste",
-                          "gw2id": 2148,
-                          "source": 62
+                          "invigorating-bulwark": {
+                              "amount": ""
+                          },
+                          "honorable-staff": true,
+                          "honorable-staff-2": false,
+                          "force-of-will": true
                       },
                       {
-                          "id": "invigorating-bulwark",
-                          "gw2id": 1899,
-                          "source": 49
-                      },
-                      {
-                          "id": "honorable-staff",
-                          "gw2id": 557,
-                          "source": 49
+                          "imbued-haste": {
+                              "amount": ""
+                          }
                       }
                   ]
               },
-              "skills": [
-                  "bane-signet-2"
-              ],
+              "skills": {
+                  "skills": [
+                      "bane-signet-2"
+                  ]
+              },
               "extras": {
                   "Runes": "monk",
                   "Sigil1": "concentration",
@@ -933,98 +666,89 @@ list:
         distribution: 'Power Banner Warrior'
         traits: >-
           {
-            "profession":"WARRIOR",
-            "traits":{
-              "lines":[
-                "4",
-                "51",
-                "18"
-              ],
-              "selected":[
-                [
-                  1444,
-                  1449,
-                  1437
-                ],
-                [
-                  1413,
-                  1484,
-                  1369
-                ],
-                [
-                  1977,
-                  2011,
-                  1928
-                ]
-              ],
-              "modifiers":[
-                {
-                  "id":"pinnacle-of-strength",
-                  "gw2id":1453,
-                  "source":4
-                },
-                {
-                  "id":"great-fortitude",
-                  "gw2id":1449,
-                  "source":4
-                },
-                {
-                  "id":"peak-performance",
-                  "gw2id":1444,
-                  "source":4
-                },
-                {
-                  "id":"berserkers-power",
-                  "gw2id":1437,
-                  "source":4
-                },
-                {
-                  "id":"warriors-sprint",
-                  "gw2id":1413,
-                  "source":51
-                },
-                {
-                  "id":"double-standards",
-                  "gw2id":1484,
-                  "source":51
-                },
-                {
-                  "id":"axe-mastery-two",
-                  "gw2id":1369,
-                  "source":51
-                },
-                {
-                  "id":"axe-mastery-one",
-                  "gw2id":1369,
-                  "source":51
-                },
-                {
-                  "id":"fatal-frenzy",
-                  "gw2id":2046,
-                  "source":18
-                },
-                {
-                  "id":"bloody-roar",
-                  "gw2id":1928,
-                  "source":18
-                },
-                {
-                  "id":"blood-reaction-with",
-                  "gw2id":2011,
-                  "source":18
-                }
-              ]
-            },
-            "skills":[
-              "signet-of-might"
-            ],
-            "extras":{
-              "Runes":"scholar",
-              "Sigil1":"force",
-              "Sigil2":"impact/night/slaying-both",
-              "Enhancement":"slaying-potion",
-              "Nourishment":"sweet-and-spicy-butternut-squash-soup"
-            }
+              "profession": "WARRIOR",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "4",
+                      "51",
+                      "18"
+                  ],
+                  "selectedTraits": [
+                      [
+                          1444,
+                          1449,
+                          1437
+                      ],
+                      [
+                          1413,
+                          1484,
+                          1369
+                      ],
+                      [
+                          1977,
+                          2011,
+                          1928
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "peak-performance": true,
+                          "peak-performance-2": false,
+                          "forceful-greatsword": true,
+                          "forceful-greatsword-2": false,
+                          "great-fortitude": true,
+                          "pinnacle-of-strength": {
+                              "amount": ""
+                          },
+                          "berserkers-power": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "warriors-sprint": {
+                              "amount": ""
+                          },
+                          "double-standards-str": true,
+                          "double-standards-disc": true,
+                          "axe-mastery-one": true,
+                          "axe-mastery-axe": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "blood-reaction-base": true,
+                          "blood-reaction-with": {
+                              "amount": ""
+                          },
+                          "heat-the-soul": true,
+                          "heat-the-soul-with": {
+                              "amount": ""
+                          },
+                          "fatal-frenzy-power-condi": {
+                              "amount": ""
+                          },
+                          "fatal-frenzy-toughness": true,
+                          "bloody-roar": {
+                              "amount": ""
+                          },
+                          "king-of-fires": true,
+                          "eternal-champion": true
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": [
+                      "signet-of-might"
+                  ]
+              },
+              "extras": {
+                  "Runes": "scholar",
+                  "Sigil1": "force",
+                  "Sigil2": "impact/night/slaying-both",
+                  "Enhancement": "slaying-potion",
+                  "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+              }
           }
 
       - name: Condi Banner Bers
@@ -1035,96 +759,91 @@ list:
         distribution: 'Condi Banner Warrior'
         traits: >-
           {
-            "profession":"WARRIOR",
-            "traits":{
-              "lines":[
-                "36",
-                "51",
-                "18"
-              ],
-              "selected":[
-                [
-                  1455,
-                  1333,
-                  1346
-                ],
-                [
-                  1329,
-                  1484,
-                  1657
-                ],
-                [
-                  2039,
-                  2042,
-                  2038
-                ]
-              ],
-              "modifiers":[
-                {
-                  "id":"double-standards",
-                  "gw2id":1484,
-                  "source":51
-                },
-                {
-                  "id":"fatal-frenzy",
-                  "gw2id":2046,
-                  "source":18
-                },
-                {
-                  "id":"deep-strikes",
-                  "gw2id":1343,
-                  "source":36
-                },
-                {
-                  "id":"bloodlust",
-                  "gw2id":1337,
-                  "source":36
-                },
-                {
-                  "id":"blade-master",
-                  "gw2id":1333,
-                  "source":36
-                },
-                {
-                  "id":"blade-master-2",
-                  "gw2id":1333,
-                  "source":36
-                },
-                {
-                  "id":"wounding-precision",
-                  "gw2id":1455,
-                  "source":36
-                },
-                {
-                  "id":"furious",
-                  "gw2id":1346,
-                  "source":36
-                },
-                {
-                  "id":"king-of-fires",
-                  "gw2id":2038,
-                  "source":18
-                },
-                {
-                  "id":"heat-the-soul-with",
-                  "gw2id":2042,
-                  "source":18
-                },
-                {
-                  "id":"heat-the-soul",
-                  "gw2id":2042,
-                  "source":18
-                }
-              ]
-            },
-            "skills":[],
-            "extras":{
-              "Runes":"renegade",
-              "Sigil1":"",
-              "Sigil2":"",
-              "Enhancement":"master-tuning-crystal",
-              "Nourishment":"rare-veggie-pizza"
-            }
+              "profession": "WARRIOR",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "36",
+                      "51",
+                      "18"
+                  ],
+                  "selectedTraits": [
+                      [
+                          1455,
+                          1333,
+                          1346
+                      ],
+                      [
+                          1329,
+                          1484,
+                          1657
+                      ],
+                      [
+                          2039,
+                          2042,
+                          2038
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "wounding-precision": true,
+                          "signet-mastery": {
+                              "amount": ""
+                          },
+                          "deep-strikes": {
+                              "amount": ""
+                          },
+                          "blade-master": true,
+                          "blade-master-2": {
+                              "amount": ""
+                          },
+                          "bloodlust": true,
+                          "furious": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "warriors-sprint": {
+                              "amount": ""
+                          },
+                          "double-standards-str": true,
+                          "double-standards-disc": true,
+                          "axe-mastery-one": true,
+                          "axe-mastery-axe": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "blood-reaction-base": true,
+                          "blood-reaction-with": {
+                              "amount": ""
+                          },
+                          "heat-the-soul": true,
+                          "heat-the-soul-with": {
+                              "amount": ""
+                          },
+                          "fatal-frenzy-power-condi": {
+                              "amount": ""
+                          },
+                          "fatal-frenzy-toughness": true,
+                          "bloody-roar": {
+                              "amount": ""
+                          },
+                          "king-of-fires": true,
+                          "eternal-champion": true
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "renegade",
+                  "Sigil1": "",
+                  "Sigil2": "",
+                  "Enhancement": "master-tuning-crystal",
+                  "Nourishment": "rare-veggie-pizza"
+              }
           }
 
   - class: elementalist
@@ -1137,116 +856,97 @@ list:
         distribution: 'Power Weaver (BTTH)'
         traits: >-
           {
-            "profession":"ELEMENTALIST",
-            "traits":{
-              "lines":[
-                "31",
-                "41",
-                "56"
-              ],
-              "selected":[
-                [
-                  296,
-                  334,
-                  1510
-                ],
-                [
-                  232,
-                  1502,
-                  226
-                ],
-                [
-                  2115,
-                  2061,
-                  2131
-                ]
-              ],
-              "modifiers":[
-                {
-                  "id":"pyromancers-training",
-                  "gw2id":319,
-                  "source":31
-                },
-                {
-                  "id":"empowering-flame",
-                  "gw2id":320,
-                  "source":31
-                },
-                {
-                  "id":"burning-precision",
-                  "gw2id":296,
-                  "source":31
-                },
-                {
-                  "id":"power-overwhelming",
-                  "gw2id":334,
-                  "source":31
-                },
-                {
-                  "id":"power-overwhelming-2",
-                  "gw2id":334,
-                  "source":31
-                },
-                {
-                  "id":"aeromancers-training-2",
-                  "gw2id":223,
-                  "source":41
-                },
-                {
-                  "id":"aeromancers-training",
-                  "gw2id":223,
-                  "source":41
-                },
-                {
-                  "id":"ferocious-winds",
-                  "gw2id":232,
-                  "source":41
-                },
-                {
-                  "id":"stormsoul",
-                  "gw2id":1502,
-                  "source":41
-                },
-                {
-                  "id":"bolt-to-the-heart",
-                  "gw2id":226,
-                  "source":41
-                },
-                {
-                  "id":"elemental-polyphony-fire",
-                  "gw2id":2081,
-                  "source":56
-                },
-                {
-                  "id":"elemental-polyphony-air",
-                  "gw2id":2081,
-                  "source":56
-                },
-                {
-                  "id":"masters-fortitude",
-                  "gw2id":2115,
-                  "source":56
-                },
-                {
-                  "id":"swift-revenge",
-                  "gw2id":2061,
-                  "source":56
-                },
-                {
-                  "id":"elements-of-rage",
-                  "gw2id":2131,
-                  "source":56
-                }
-              ]
-            },
-            "skills":[],
-            "extras":{
-              "Runes":"scholar",
-              "Sigil1":"force",
-              "Sigil2":"impact/night/slaying-both",
-              "Enhancement":"slaying-potion",
-              "Nourishment":"sweet-and-spicy-butternut-squash-soup"
-            }
+              "profession": "ELEMENTALIST",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "31",
+                      "41",
+                      "56"
+                  ],
+                  "selectedTraits": [
+                      [
+                          296,
+                          334,
+                          1510
+                      ],
+                      [
+                          232,
+                          1502,
+                          226
+                      ],
+                      [
+                          2115,
+                          2061,
+                          2131
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "empowering-flame": {
+                              "amount": "51"
+                          },
+                          "burning-precision": true,
+                          "burning-rage": true,
+                          "power-overwhelming": true,
+                          "power-overwhelming-2": {
+                              "amount": "51"
+                          },
+                          "pyromancers-training": true,
+                          "persisting-flames": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "ferocious-winds": true,
+                          "raging-storm": {
+                              "amount": ""
+                          },
+                          "stormsoul": {
+                              "amount": ""
+                          },
+                          "aeromancers-training": true,
+                          "aeromancers-training-2": {
+                              "amount": "49"
+                          },
+                          "bolt-to-the-heart": {
+                              "amount": ""
+                          },
+                          "fresh-air": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "superior-elements": true,
+                          "masters-fortitude": true,
+                          "masters-fortitude-sword": true,
+                          "weavers-prowess": true,
+                          "swift-revenge": {
+                              "amount": ""
+                          },
+                          "elemental-polyphony-fire": {
+                              "amount": "76"
+                          },
+                          "elemental-polyphony-air": {
+                              "amount": "74"
+                          },
+                          "elements-of-rage-base": true,
+                          "elements-of-rage-buff": {
+                              "amount": ""
+                          }
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "scholar",
+                  "Sigil1": "force",
+                  "Sigil2": "impact/night/slaying-both",
+                  "Enhancement": "slaying-potion",
+                  "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+              }
           }
 
       - name: Condi Weaver SW
@@ -1257,101 +957,84 @@ list:
         distribution: 'Condi Weaver (Sword)'
         traits: >-
           {
-            "profession":"ELEMENTALIST",
-            "traits":{
-              "lines":[
-                "31",
-                "26",
-                "56"
-              ],
-              "selected":[
-                [
-                  296,
-                  325,
-                  1510
-                ],
-                [
-                  1507,
-                  275,
-                  287
-                ],
-                [
-                  2177,
-                  2180,
-                  2131
-                ]
-              ],
-              "modifiers":[
-                {
-                  "id":"pyromancers-training",
-                  "gw2id":319,
-                  "source":31
-                },
-                {
-                  "id":"empowering-flame",
-                  "gw2id":320,
-                  "source":31
-                },
-                {
-                  "id":"burning-precision",
-                  "gw2id":296,
-                  "source":31
-                },
-                {
-                  "id":"elemental-polyphony-fire",
-                  "gw2id":2081,
-                  "source":56
-                },
-                {
-                  "id":"elemental-polyphony-air",
-                  "gw2id":2081,
-                  "source":56
-                },
-                {
-                  "id":"elements-of-rage",
-                  "gw2id":2131,
-                  "source":56
-                },
-                {
-                  "id":"burning-rage",
-                  "gw2id":325,
-                  "source":31
-                },
-                {
-                  "id":"stone-flesh",
-                  "gw2id":278,
-                  "source":26
-                },
-                {
-                  "id":"strength-of-stone",
-                  "gw2id":275,
-                  "source":26
-                },
-                {
-                  "id":"serrated-stones",
-                  "gw2id":1507,
-                  "source":26
-                },
-                {
-                  "id":"superior-elements",
-                  "gw2id":2177,
-                  "source":56
-                },
-                {
-                  "id":"weavers-prowess",
-                  "gw2id":2180,
-                  "source":56
-                }
-              ]
-            },
-            "skills":[],
-            "extras":{
-              "Runes":"elementalist",
-              "Sigil1":"",
-              "Sigil2":"",
-              "Enhancement":"toxic-focusing-crystal",
-              "Nourishment":"rare-veggie-pizza"
-            }
+              "profession": "ELEMENTALIST",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "31",
+                      "26",
+                      "56"
+                  ],
+                  "selectedTraits": [
+                      [
+                          296,
+                          325,
+                          1510
+                      ],
+                      [
+                          1507,
+                          275,
+                          287
+                      ],
+                      [
+                          2177,
+                          2180,
+                          2131
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "empowering-flame": {
+                              "amount": ""
+                          },
+                          "burning-precision": true,
+                          "burning-rage": true,
+                          "power-overwhelming": true,
+                          "power-overwhelming-2": {
+                              "amount": ""
+                          },
+                          "pyromancers-training": true,
+                          "persisting-flames": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "stone-flesh": false,
+                          "serrated-stones": true,
+                          "strength-of-stone": true,
+                          "geomancers-defense": true
+                      },
+                      {
+                          "superior-elements": true,
+                          "masters-fortitude": true,
+                          "masters-fortitude-sword": true,
+                          "weavers-prowess": true,
+                          "swift-revenge": {
+                              "amount": ""
+                          },
+                          "elemental-polyphony-fire": {
+                              "amount": "83"
+                          },
+                          "elemental-polyphony-air": {
+                              "amount": "29"
+                          },
+                          "elements-of-rage-base": true,
+                          "elements-of-rage-buff": {
+                              "amount": "80"
+                          }
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "elementalist",
+                  "Sigil1": "",
+                  "Sigil2": "",
+                  "Enhancement": "toxic-focusing-crystal",
+                  "Nourishment": "rare-veggie-pizza"
+              }
           }
 
       - name: Hybrid Weaver
@@ -1362,111 +1045,97 @@ list:
         distribution: 'Hybrid Weaver'
         traits: >-
           {
-            "profession": "ELEMENTALIST",
-            "traits": {
-                "lines": [
-                    "31",
-                    "41",
-                    "56"
-                ],
-                "selected": [
-                    [
-                        296,
-                        325,
-                        1510
-                    ],
-                    [
-                        232,
-                        214,
-                        1503
-                    ],
-                    [
-                        2177,
-                        2180,
-                        2131
-                    ]
-                ],
-                "modifiers": [
-                    {
-                        "id": "pyromancers-training",
-                        "gw2id": 319,
-                        "source": 31
-                    },
-                    {
-                        "id": "empowering-flame",
-                        "gw2id": 320,
-                        "source": 31
-                    },
-                    {
-                        "id": "burning-precision",
-                        "gw2id": 296,
-                        "source": 31
-                    },
-                    {
-                        "id": "elemental-polyphony-fire",
-                        "gw2id": 2081,
-                        "source": 56
-                    },
-                    {
-                        "id": "elemental-polyphony-air",
-                        "gw2id": 2081,
-                        "source": 56
-                    },
-                    {
-                        "id": "elements-of-rage",
-                        "gw2id": 2131,
-                        "source": 56
-                    },
-                    {
-                        "id": "burning-rage",
-                        "gw2id": 325,
-                        "source": 31
-                    },
-                    {
-                        "id": "superior-elements",
-                        "gw2id": 2177,
-                        "source": 56
-                    },
-                    {
-                        "id": "weavers-prowess",
-                        "gw2id": 2180,
-                        "source": 56
-                    },
-                    {
-                        "id": "aeromancers-training",
-                        "gw2id": 223,
-                        "source": 41
-                    },
-                    {
-                        "id": "aeromancers-training-2",
-                        "gw2id": 223,
-                        "source": 41
-                    },
-                    {
-                        "id": "ferocious-winds",
-                        "gw2id": 232,
-                        "source": 41
-                    },
-                    {
-                        "id": "raging-storm",
-                        "gw2id": 214,
-                        "source": 41
-                    },
-                    {
-                        "id": "fresh-air",
-                        "gw2id": 1503,
-                        "source": 41
-                    }
-                ]
-            },
-            "skills": [],
-            "extras": {
-                "Runes": "flame-legion",
-                "Sigil1": "impact/night/slaying-both",
-                "Sigil2": "bursting",
-                "Enhancement": "toxic-focusing-crystal",
-                "Nourishment": "dragon's-revelry-starcake"
-            }
+              "profession": "ELEMENTALIST",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "31",
+                      "41",
+                      "56"
+                  ],
+                  "selectedTraits": [
+                      [
+                          296,
+                          325,
+                          1510
+                      ],
+                      [
+                          232,
+                          214,
+                          1503
+                      ],
+                      [
+                          2177,
+                          2180,
+                          2131
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "empowering-flame": {
+                              "amount": "57"
+                          },
+                          "burning-precision": true,
+                          "burning-rage": true,
+                          "power-overwhelming": true,
+                          "power-overwhelming-2": {
+                              "amount": ""
+                          },
+                          "pyromancers-training": true,
+                          "persisting-flames": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "ferocious-winds": true,
+                          "raging-storm": {
+                              "amount": ""
+                          },
+                          "stormsoul": {
+                              "amount": ""
+                          },
+                          "aeromancers-training": true,
+                          "aeromancers-training-2": {
+                              "amount": "33"
+                          },
+                          "bolt-to-the-heart": {
+                              "amount": ""
+                          },
+                          "fresh-air": {
+                              "amount": "48"
+                          }
+                      },
+                      {
+                          "superior-elements": true,
+                          "masters-fortitude": true,
+                          "masters-fortitude-sword": true,
+                          "weavers-prowess": true,
+                          "swift-revenge": {
+                              "amount": ""
+                          },
+                          "elemental-polyphony-fire": {
+                              "amount": "67"
+                          },
+                          "elemental-polyphony-air": {
+                              "amount": "60"
+                          },
+                          "elements-of-rage-base": true,
+                          "elements-of-rage-buff": {
+                              "amount": ""
+                          }
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "flame-legion",
+                  "Sigil1": "impact/night/slaying-both",
+                  "Sigil2": "bursting",
+                  "Enhancement": "toxic-focusing-crystal",
+                  "Nourishment": "dragon's-revelry-starcake"
+              }
           }
 
       - name: Condi Tempest
@@ -1477,91 +1146,72 @@ list:
         distribution: 'Condi Tempest'
         traits: >-
           {
-            "profession": "ELEMENTALIST",
-            "traits": {
-                "lines": [
-                    "31",
-                    "26",
-                    "48"
-                ],
-                "selected": [
-                    [
-                        296,
-                        325,
-                        1510
-                    ],
-                    [
-                        1507,
-                        275,
-                        287
-                    ],
-                    [
-                        1886,
-                        1891,
-                        1839
-                    ]
-                ],
-                "modifiers": [
-                    {
-                        "id": "pyromancers-training",
-                        "gw2id": 319,
-                        "source": 31
-                    },
-                    {
-                        "id": "empowering-flame",
-                        "gw2id": 320,
-                        "source": 31
-                    },
-                    {
-                        "id": "burning-precision",
-                        "gw2id": 296,
-                        "source": 31
-                    },
-                    {
-                        "id": "burning-rage",
-                        "gw2id": 325,
-                        "source": 31
-                    },
-                    {
-                        "id": "stone-flesh",
-                        "gw2id": 278,
-                        "source": 26
-                    },
-                    {
-                        "id": "strength-of-stone",
-                        "gw2id": 275,
-                        "source": 26
-                    },
-                    {
-                        "id": "serrated-stones",
-                        "gw2id": 1507,
-                        "source": 26
-                    },
-                    {
-                        "id": "gathered-focus",
-                        "gw2id": 1938,
-                        "source": 48
-                    },
-                    {
-                        "id": "hardy-conduit",
-                        "gw2id": 1948,
-                        "source": 48
-                    },
-                    {
-                        "id": "transcendent-tempest",
-                        "gw2id": 1839,
-                        "source": 48
-                    }
-                ]
-            },
-            "skills": [],
-            "extras": {
-                "Runes": "elementalist",
-                "Sigil1": "bursting",
-                "Sigil2": "smoldering",
-                "Enhancement": "toxic-focusing-crystal",
-                "Nourishment": "rare-veggie-pizza"
-            }
+              "profession": "ELEMENTALIST",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "31",
+                      "26",
+                      "48"
+                  ],
+                  "selectedTraits": [
+                      [
+                          296,
+                          325,
+                          1510
+                      ],
+                      [
+                          1507,
+                          275,
+                          287
+                      ],
+                      [
+                          1886,
+                          1891,
+                          1839
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "empowering-flame": {
+                              "amount": "69"
+                          },
+                          "burning-precision": true,
+                          "burning-rage": true,
+                          "power-overwhelming": true,
+                          "power-overwhelming-2": {
+                              "amount": ""
+                          },
+                          "pyromancers-training": true,
+                          "persisting-flames": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "stone-flesh": false,
+                          "serrated-stones": true,
+                          "strength-of-stone": true,
+                          "geomancers-defense": true
+                      },
+                      {
+                          "gathered-focus": true,
+                          "hardy-conduit": true,
+                          "transcendent-tempest": {
+                              "amount": ""
+                          }
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "elementalist",
+                  "Sigil1": "bursting",
+                  "Sigil2": "smoldering",
+                  "Enhancement": "toxic-focusing-crystal",
+                  "Nourishment": "rare-veggie-pizza"
+              }
           }
 
       - name: Heal Tempest
@@ -1574,12 +1224,13 @@ list:
           {
               "profession": "ELEMENTALIST",
               "traits": {
-                  "lines": [
+                  "showAll": false,
+                  "selectedLines": [
                       "",
                       "17",
                       "48"
                   ],
-                  "selected": [
+                  "selectedTraits": [
                       [
                           0,
                           0,
@@ -1596,30 +1247,28 @@ list:
                           1986
                       ]
                   ],
-                  "modifiers": [
+                  "items": [
+                      {},
                       {
-                          "id": "gathered-focus",
-                          "gw2id": 1938,
-                          "source": 48
+                          "piercing-blades": true,
+                          "piercing-blades-2": false,
+                          "flow-like-water": {
+                              "amount": ""
+                          },
+                          "aquamancers-training": true
                       },
                       {
-                          "id": "hardy-conduit",
-                          "gw2id": 1948,
-                          "source": 48
-                      },
-                      {
-                          "id": "aquamancers-training",
-                          "gw2id": 1676,
-                          "source": 17
-                      },
-                      {
-                          "id": "piercing-blades",
-                          "gw2id": 363,
-                          "source": 17
+                          "gathered-focus": true,
+                          "hardy-conduit": true,
+                          "transcendent-tempest": {
+                              "amount": ""
+                          }
                       }
                   ]
               },
-              "skills": [],
+              "skills": {
+                  "skills": []
+              },
               "extras": {
                   "Runes": "monk",
                   "Sigil1": "concentration",
@@ -1629,112 +1278,13 @@ list:
               }
           }
 
-      - name: Power Tempest
-        id: ptemp
-        specialization: Tempest
-        boons: 'Power (spotter)'
-        priority: Power DPS
-        distribution: 'Power Tempest'
-        traits: >-
-          {
-              "profession": "ELEMENTALIST",
-              "traits": {
-                  "lines": [
-                      "31",
-                      "41",
-                      "48"
-                  ],
-                  "selected": [
-                      [
-                          296,
-                          334,
-                          1510
-                      ],
-                      [
-                          232,
-                          1502,
-                          1503
-                      ],
-                      [
-                          1886,
-                          1891,
-                          1839
-                      ]
-                  ],
-                  "modifiers": [
-                      {
-                          "id": "pyromancers-training",
-                          "gw2id": 319,
-                          "source": 31
-                      },
-                      {
-                          "id": "empowering-flame",
-                          "gw2id": 320,
-                          "source": 31
-                      },
-                      {
-                          "id": "burning-precision",
-                          "gw2id": 296,
-                          "source": 31
-                      },
-                      {
-                          "id": "power-overwhelming",
-                          "gw2id": 334,
-                          "source": 31
-                      },
-                      {
-                          "id": "aeromancers-training-2",
-                          "gw2id": 223,
-                          "source": 41
-                      },
-                      {
-                          "id": "aeromancers-training",
-                          "gw2id": 223,
-                          "source": 41
-                      },
-                      {
-                          "id": "ferocious-winds",
-                          "gw2id": 232,
-                          "source": 41
-                      },
-                      {
-                          "id": "gathered-focus",
-                          "gw2id": 1938,
-                          "source": 48
-                      },
-                      {
-                          "id": "hardy-conduit",
-                          "gw2id": 1948,
-                          "source": 48
-                      },
-                      {
-                          "id": "fresh-air",
-                          "gw2id": 1503,
-                          "source": 41
-                      },
-                      {
-                          "id": "transcendent-tempest",
-                          "gw2id": 1839,
-                          "source": 48
-                      },
-                      {
-                          "id": "stormsoul",
-                          "gw2id": 1502,
-                          "source": 41
-                      }
-                  ]
-              },
-              "skills": [
-                  "signet-of-fire"
-              ],
-              "extras": {
-                  "Runes": "scholar",
-                  "Sigil1": "force",
-                  "Sigil2": "impact/night/slaying-both",
-                  "Enhancement": "slaying-potion",
-                  "Nourishment": "truffle-steak"
-              }
-          }
+      # - name: Power Tempest
+      #   id: ptemp
+      #   specialization: Tempest
+      #   boons: 'Power (spotter)'
+      #   priority: Power DPS
+      #   distribution: 'Power Tempest'
+      #   traits: >-
 
   - class: ranger
     builds:
@@ -1746,98 +1296,75 @@ list:
         distribution: 'Power Slb'
         traits: >-
           {
-            "profession":"RANGER",
-            "traits":{
-              "lines":[
-                "8",
-                "32",
-                "55"
-              ],
-              "selected":[
-                [
-                  1014,
-                  1000,
-                  996
-                ],
-                [
-                  1606,
-                  970,
-                  1066
-                ],
-                [
-                  2071,
-                  2085,
-                  2128
-                ]
-              ],
-              "modifiers":[
-                {
-                  "id":"farsighted",
-                  "gw2id":1000,
-                  "source":8
-                },
-                {
-                  "id":"predators-onslaught",
-                  "gw2id":996,
-                  "source":8
-                },
-                {
-                  "id":"honed-axes",
-                  "gw2id":1066,
-                  "source":32
-                },
-                {
-                  "id":"honed-axes-2",
-                  "gw2id":1066,
-                  "source":32
-                },
-                {
-                  "id":"furious-strength",
-                  "gw2id":2156,
-                  "source":55
-                },
-                {
-                  "id":"twice-as-vicious",
-                  "gw2id":2127,
-                  "source":55
-                },
-                {
-                  "id":"archetype-ferocious",
-                  "gw2id":null,
-                  "source":55
-                },
-                {
-                  "id":"sb-1",
-                  "gw2id":1900,
-                  "source":55
-                },
-                {
-                  "id":"sb-2",
-                  "gw2id":974,
-                  "source":55
-                },
-                {
-                  "id":"sb-3",
-                  "gw2id":1065,
-                  "source":55
-                },
-                {
-                  "id":"sb-4",
-                  "gw2id":1066,
-                  "source":55
-                }
-              ]
-            },
-            "skills":[
-
-            ],
-            "extras":{
-              "Runes":"scholar",
-              "Sigil1":"force",
-              "Sigil2":"impact/night/slaying-both",
-              "Enhancement":"slaying-potion",
-              "Nourishment": "truffle-steak"
-            }
+              "profession": "RANGER",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "8",
+                      "32",
+                      "55"
+                  ],
+                  "selectedTraits": [
+                      [
+                          1014,
+                          1000,
+                          996
+                      ],
+                      [
+                          1606,
+                          970,
+                          1066
+                      ],
+                      [
+                          2071,
+                          2085,
+                          2128
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "farsighted": true,
+                          "farsighted-2": false,
+                          "predators-onslaught": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "honed-axes": true,
+                          "honed-axes-axe": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "furious-strength": {
+                              "amount": ""
+                          },
+                          "twice-as-vicious": {
+                              "amount": ""
+                          },
+                          "oppressive-superiority": true,
+                          "archetype-stout": false,
+                          "archetype-deadly": false,
+                          "archetype-versatile": false,
+                          "archetype-ferocious": true,
+                          "archetype-supportive": false,
+                          "pack-alpha-merged": true,
+                          "loud-whistle-merged": true,
+                          "pets-prowess-merged": true,
+                          "honed-axes-merged": true
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "scholar",
+                  "Sigil1": "force",
+                  "Sigil2": "impact/night/slaying-both",
+                  "Enhancement": "slaying-potion",
+                  "Nourishment": "truffle-steak"
+              }
           }
 
       - name: Condi Slb SB
@@ -1848,86 +1375,77 @@ list:
         distribution: 'Condi Slb (D/T SB)'
         traits: >-
           {
-            "profession": "RANGER",
-            "traits": {
-                "lines": [
-                    "30",
-                    "33",
-                    "55"
-                ],
-                "selected": [
-                    [
-                        1069,
-                        1846,
-                        1912
-                    ],
-                    [
-                        1099,
-                        1101,
-                        1701
-                    ],
-                    [
-                        2071,
-                        2161,
-                        2128
-                    ]
-                ],
-                "modifiers": [
-                    {
-                        "id": "hunters-tactics",
-                        "gw2id": 1068,
-                        "source": 30
-                    },
-                    {
-                        "id": "hidden-barbs",
-                        "gw2id": 1846,
-                        "source": 30
-                    },
-                    {
-                        "id": "taste-for-danger",
-                        "gw2id": 1099,
-                        "source": 33
-                    },
-                    {
-                        "id": "ambidexterity",
-                        "gw2id": 1101,
-                        "source": 33
-                    },
-                    {
-                        "id": "ambidexterity-2",
-                        "gw2id": 1101,
-                        "source": 33
-                    },
-                    {
-                        "id": "poison-master",
-                        "gw2id": 1701,
-                        "source": 33
-                    },
-                    {
-                        "id": "furious-strength",
-                        "gw2id": 2156,
-                        "source": 55
-                    },
-                    {
-                        "id": "twice-as-vicious",
-                        "gw2id": 2127,
-                        "source": 55
-                    },
-                    {
-                        "id": "archetype-deadly",
-                        "gw2id": null,
-                        "source": 55
-                    }
-                ]
-            },
-            "skills": [],
-            "extras": {
-                "Runes": "krait",
-                "Sigil1": "bursting",
-                "Sigil2": "",
-                "Enhancement": "toxic-focusing-crystal",
-                "Nourishment": "beef-rendang"
-            }
+              "profession": "RANGER",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "30",
+                      "33",
+                      "55"
+                  ],
+                  "selectedTraits": [
+                      [
+                          1069,
+                          1846,
+                          1912
+                      ],
+                      [
+                          1099,
+                          1101,
+                          1701
+                      ],
+                      [
+                          2071,
+                          2161,
+                          2128
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "hidden-barbs": true,
+                          "hunters-tactics": true,
+                          "light-on-your-feet": false,
+                          "vicious-quarry": true
+                      },
+                      {
+                          "oakheart-salve": true,
+                          "taste-for-danger": true,
+                          "ambidexterity": true,
+                          "ambidexterity-2": {
+                              "amount": ""
+                          },
+                          "poison-master": true
+                      },
+                      {
+                          "furious-strength": {
+                              "amount": ""
+                          },
+                          "twice-as-vicious": {
+                              "amount": "45"
+                          },
+                          "oppressive-superiority": true,
+                          "archetype-stout": false,
+                          "archetype-deadly": true,
+                          "archetype-versatile": false,
+                          "archetype-ferocious": false,
+                          "archetype-supportive": false,
+                          "pack-alpha-merged": false,
+                          "loud-whistle-merged": false,
+                          "pets-prowess-merged": false,
+                          "honed-axes-merged": false
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "krait",
+                  "Sigil1": "bursting",
+                  "Sigil2": "",
+                  "Enhancement": "toxic-focusing-crystal",
+                  "Nourishment": "beef-rendang"
+              }
           }
 
       - name: Condi Slb D/T A/D
@@ -1938,86 +1456,77 @@ list:
         distribution: 'Condi Slb (D/T A/D)'
         traits: >-
           {
-            "profession": "RANGER",
-            "traits": {
-                "lines": [
-                    "30",
-                    "33",
-                    "55"
-                ],
-                "selected": [
-                    [
-                        1069,
-                        1846,
-                        1064
-                    ],
-                    [
-                        1099,
-                        1101,
-                        1701
-                    ],
-                    [
-                        2071,
-                        2161,
-                        2128
-                    ]
-                ],
-                "modifiers": [
-                    {
-                        "id": "hunters-tactics",
-                        "gw2id": 1068,
-                        "source": 30
-                    },
-                    {
-                        "id": "hidden-barbs",
-                        "gw2id": 1846,
-                        "source": 30
-                    },
-                    {
-                        "id": "taste-for-danger",
-                        "gw2id": 1099,
-                        "source": 33
-                    },
-                    {
-                        "id": "ambidexterity",
-                        "gw2id": 1101,
-                        "source": 33
-                    },
-                    {
-                        "id": "ambidexterity-2",
-                        "gw2id": 1101,
-                        "source": 33
-                    },
-                    {
-                        "id": "poison-master",
-                        "gw2id": 1701,
-                        "source": 33
-                    },
-                    {
-                        "id": "furious-strength",
-                        "gw2id": 2156,
-                        "source": 55
-                    },
-                    {
-                        "id": "twice-as-vicious",
-                        "gw2id": 2127,
-                        "source": 55
-                    },
-                    {
-                        "id": "archetype-deadly",
-                        "gw2id": null,
-                        "source": 55
-                    }
-                ]
-            },
-            "skills": [],
-            "extras": {
-                "Runes": "krait",
-                "Sigil1": "bursting",
-                "Sigil2": "",
-                "Enhancement": "toxic-focusing-crystal",
-                "Nourishment": "beef-rendang"
-            }
+              "profession": "RANGER",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "30",
+                      "33",
+                      "55"
+                  ],
+                  "selectedTraits": [
+                      [
+                          1069,
+                          1846,
+                          1064
+                      ],
+                      [
+                          1099,
+                          1101,
+                          1701
+                      ],
+                      [
+                          2071,
+                          2161,
+                          2128
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "hidden-barbs": true,
+                          "hunters-tactics": true,
+                          "light-on-your-feet": false,
+                          "vicious-quarry": true
+                      },
+                      {
+                          "oakheart-salve": true,
+                          "taste-for-danger": true,
+                          "ambidexterity": true,
+                          "ambidexterity-2": {
+                              "amount": ""
+                          },
+                          "poison-master": true
+                      },
+                      {
+                          "furious-strength": {
+                              "amount": ""
+                          },
+                          "twice-as-vicious": {
+                              "amount": "45"
+                          },
+                          "oppressive-superiority": true,
+                          "archetype-stout": false,
+                          "archetype-deadly": true,
+                          "archetype-versatile": false,
+                          "archetype-ferocious": false,
+                          "archetype-supportive": false,
+                          "pack-alpha-merged": false,
+                          "loud-whistle-merged": false,
+                          "pets-prowess-merged": false,
+                          "honed-axes-merged": false
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "krait",
+                  "Sigil1": "bursting",
+                  "Sigil2": "",
+                  "Enhancement": "toxic-focusing-crystal",
+                  "Nourishment": "beef-rendang"
+              }
           }
 
       - name: Hybrid Slb
@@ -2028,101 +1537,74 @@ list:
         distribution: Hybrid Slb (A/T D/A)
         traits: >-
           {
-            "profession": "RANGER",
-            "traits": {
-                "lines": [
-                    "30",
-                    "32",
-                    "55"
-                ],
-                "selected": [
-                    [
-                        1069,
-                        1846,
-                        1888
-                    ],
-                    [
-                        1606,
-                        970,
-                        1066
-                    ],
-                    [
-                        2071,
-                        2161,
-                        2128
-                    ]
-                ],
-                "modifiers": [
-                    {
-                        "id": "hunters-tactics",
-                        "gw2id": 1068,
-                        "source": 30
-                    },
-                    {
-                        "id": "hidden-barbs",
-                        "gw2id": 1846,
-                        "source": 30
-                    },
-                    {
-                        "id": "furious-strength",
-                        "gw2id": 2156,
-                        "source": 55
-                    },
-                    {
-                        "id": "twice-as-vicious",
-                        "gw2id": 2127,
-                        "source": 55
-                    },
-                    {
-                        "id": "archetype-deadly",
-                        "gw2id": null,
-                        "source": 55
-                    },
-                    {
-                        "id": "vicious-quarry",
-                        "gw2id": 1888,
-                        "source": 30
-                    },
-                    {
-                        "id": "honed-axes",
-                        "gw2id": 1066,
-                        "source": 32
-                    },
-                    {
-                        "id": "honed-axes-3",
-                        "gw2id": 1066,
-                        "source": 32
-                    },
-                    {
-                        "id": "sb-1",
-                        "gw2id": 1900,
-                        "source": 55
-                    },
-                    {
-                        "id": "sb-2",
-                        "gw2id": 974,
-                        "source": 55
-                    },
-                    {
-                        "id": "sb-3",
-                        "gw2id": 1065,
-                        "source": 55
-                    },
-                    {
-                        "id": "sb-4",
-                        "gw2id": 1066,
-                        "source": 55
-                    }
-                ]
-            },
-            "skills": [],
-            "extras": {
-                "Runes": "krait",
-                "Sigil1": "bursting",
-                "Sigil2": "",
-                "Enhancement": "toxic-focusing-crystal",
-                "Nourishment": "beef-rendang"
-            }
+              "profession": "RANGER",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "30",
+                      "32",
+                      "55"
+                  ],
+                  "selectedTraits": [
+                      [
+                          1069,
+                          1846,
+                          1888
+                      ],
+                      [
+                          1606,
+                          970,
+                          1066
+                      ],
+                      [
+                          2071,
+                          2161,
+                          2128
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "hidden-barbs": true,
+                          "hunters-tactics": true,
+                          "light-on-your-feet": false,
+                          "vicious-quarry": true
+                      },
+                      {
+                          "honed-axes": true,
+                          "honed-axes-axe": {
+                              "amount": "100"
+                          }
+                      },
+                      {
+                          "furious-strength": {
+                              "amount": ""
+                          },
+                          "twice-as-vicious": {
+                              "amount": "82"
+                          },
+                          "oppressive-superiority": true,
+                          "archetype-stout": false,
+                          "archetype-deadly": true,
+                          "archetype-versatile": false,
+                          "archetype-ferocious": false,
+                          "archetype-supportive": false,
+                          "pack-alpha-merged": true,
+                          "loud-whistle-merged": true,
+                          "pets-prowess-merged": true,
+                          "honed-axes-merged": true
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "krait",
+                  "Sigil1": "bursting",
+                  "Sigil2": "",
+                  "Enhancement": "toxic-focusing-crystal",
+                  "Nourishment": "beef-rendang"
+              }
           }
 
       - name: Condi Druid*
@@ -2135,12 +1617,13 @@ list:
           {
               "profession": "RANGER",
               "traits": {
-                  "lines": [
+                  "showAll": false,
+                  "selectedLines": [
                       "30",
                       "25",
                       "5"
                   ],
-                  "selected": [
+                  "selectedTraits": [
                       [
                           1069,
                           1016,
@@ -2152,40 +1635,35 @@ list:
                           1038
                       ],
                       [
-                          2071,
-                          2161,
+                          0,
+                          0,
                           2057
                       ]
                   ],
-                  "modifiers": [
+                  "items": [
                       {
-                          "id": "hunters-tactics",
-                          "gw2id": 1068,
-                          "source": 30
+                          "hidden-barbs": true,
+                          "hunters-tactics": true,
+                          "light-on-your-feet": true,
+                          "vicious-quarry": true
                       },
                       {
-                          "id": "lingering-magic",
-                          "gw2id": 1059,
-                          "source": 25
+                          "bountiful-hunter": {
+                              "amount": ""
+                          },
+                          "instinctive-reaction": true,
+                          "lingering-magic": true
                       },
                       {
-                          "id": "light-on-your-feet",
-                          "gw2id": 1912,
-                          "source": 30
-                      },
-                      {
-                          "id": "bountiful-hunter-9",
-                          "gw2id": 1062,
-                          "source": 25
-                      },
-                      {
-                          "id": "natural-mender",
-                          "gw2id": 1992,
-                          "source": 5
+                          "natural-mender": {
+                              "amount": ""
+                          }
                       }
                   ]
               },
-              "skills": [],
+              "skills": {
+                  "skills": []
+              },
               "extras": {
                   "Runes": "",
                   "Sigil1": "",
@@ -2205,21 +1683,22 @@ list:
           {
               "profession": "RANGER",
               "traits": {
-                  "lines": [
+                  "showAll": false,
+                  "selectedLines": [
                       "30",
                       "25",
                       "5"
                   ],
-                  "selected": [
+                  "selectedTraits": [
                       [
                           0,
                           1016,
                           0
                       ],
                       [
-                          978,
-                          964,
-                          1038
+                          0,
+                          0,
+                          0
                       ],
                       [
                           0,
@@ -2227,30 +1706,30 @@ list:
                           2057
                       ]
                   ],
-                  "modifiers": [
+                  "items": [
                       {
-                          "id": "natural-mender",
-                          "gw2id": 1992,
-                          "source": 5
+                          "hidden-barbs": true,
+                          "hunters-tactics": true,
+                          "light-on-your-feet": false,
+                          "vicious-quarry": true
                       },
                       {
-                          "id": "hunters-tactics",
-                          "gw2id": 1068,
-                          "source": 30
+                          "bountiful-hunter": {
+                              "amount": ""
+                          },
+                          "instinctive-reaction": true,
+                          "lingering-magic": true
                       },
                       {
-                          "id": "lingering-magic",
-                          "gw2id": 1059,
-                          "source": 25
-                      },
-                      {
-                          "id": "instinctive-reaction",
-                          "gw2id": 978,
-                          "source": 25
+                          "natural-mender": {
+                              "amount": ""
+                          }
                       }
                   ]
               },
-              "skills": [],
+              "skills": {
+                  "skills": []
+              },
               "extras": {
                   "Runes": "monk",
                   "Sigil1": "concentration",
@@ -2270,83 +1749,82 @@ list:
         distribution: 'Alacrity Renegade'
         traits: >-
           {
-            "profession":"REVENANT",
-            "traits":{
-              "lines":[
-                "15",
-                "3",
-                "63"
-              ],
-              "selected":[
-                [
-                  1767,
-                  1786,
-                  1800
-                ],
-                [
-                  1761,
-                  1774,
-                  1791
-                ],
-                [
-                  2166,
-                  2108,
-                  2182
-                ]
-              ],
-              "modifiers":[
-                {
-                  "id":"destructive-impulses-dual",
-                  "gw2id":1724,
-                  "source":15
-                },
-                {
-                  "id":"targeted-destruction",
-                  "gw2id":1792,
-                  "source":15
-                },
-                {
-                  "id":"unsuspecting-strikes",
-                  "gw2id":1767,
-                  "source":15
-                },
-                {
-                  "id":"swift-termination",
-                  "gw2id":1800,
-                  "source":15
-                },
-                {
-                  "id":"ferocious-aggression",
-                  "gw2id":1758,
-                  "source":3
-                },
-                {
-                  "id":"rising-tide",
-                  "gw2id":2181,
-                  "source":3
-                },
-                {
-                  "id":"ambush-commander",
-                  "gw2id":1761,
-                  "source":63
-                },
-                {
-                  "id":"brutal-momentum",
-                  "gw2id":2142,
-                  "source":63
-                }
-              ]
-            },
-            "skills":[
-
-            ],
-            "extras":{
-              "Runes":"scholar",
-              "Sigil1":"force",
-              "Sigil2":"impact/night/slaying-both",
-              "Enhancement":"slaying-potion",
-              "Nourishment":"sweet-and-spicy-butternut-squash-soup"
-            }
+              "profession": "REVENANT",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "15",
+                      "3",
+                      "63"
+                  ],
+                  "selectedTraits": [
+                      [
+                          1767,
+                          1786,
+                          1800
+                      ],
+                      [
+                          1761,
+                          1774,
+                          1791
+                      ],
+                      [
+                          2166,
+                          2108,
+                          2182
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "unsuspecting-strikes": {
+                              "amount": ""
+                          },
+                          "destructive-impulses-base": true,
+                          "destructive-impulses-dual": {
+                              "amount": "100"
+                          },
+                          "notoriety": {
+                              "amount": ""
+                          },
+                          "targeted-destruction": {
+                              "amount": ""
+                          },
+                          "swift-termination": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "rising-tide": {
+                              "amount": ""
+                          },
+                          "ferocious-aggression": {
+                              "amount": ""
+                          },
+                          "roiling-mists": true
+                      },
+                      {
+                          "ambush-commander": {
+                              "amount": ""
+                          },
+                          "blood-fury": true,
+                          "heartpiercer": true,
+                          "brutal-momentum": true,
+                          "lasting-legacy": {
+                              "amount": ""
+                          }
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "scholar",
+                  "Sigil1": "force",
+                  "Sigil2": "impact/night/slaying-both",
+                  "Enhancement": "slaying-potion",
+                  "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+              }
           }
 
       - name: Condi RR Ren Invo
@@ -2357,91 +1835,71 @@ list:
         distribution: 'Condi RR (Invocation)'
         traits: >-
           {
-            "profession": "REVENANT",
-            "traits": {
-                "lines": [
-                    "14",
-                    "3",
-                    "63"
-                ],
-                "selected": [
-                    [
-                        1793,
-                        1714,
-                        1795
-                    ],
-                    [
-                        1761,
-                        1781,
-                        1791
-                    ],
-                    [
-                        2079,
-                        2092,
-                        2182
-                    ]
-                ],
-                "modifiers": [
-                    {
-                        "id": "brutal-momentum",
-                        "gw2id": 2142,
-                        "source": 63
-                    },
-                    {
-                        "id": "ambush-commander",
-                        "gw2id": 2181,
-                        "source": 63
-                    },
-                    {
-                        "id": "blood-fury",
-                        "gw2id": 2079,
-                        "source": 63
-                    },
-                    {
-                        "id": "heartpiercer",
-                        "gw2id": 2092,
-                        "source": 63
-                    },
-                    {
-                        "id": "ferocious-aggression",
-                        "gw2id": 1758,
-                        "source": 3
-                    },
-                    {
-                        "id": "rising-tide",
-                        "gw2id": 1761,
-                        "source": 3
-                    },
-                    {
-                        "id": "seething-malice",
-                        "gw2id": 1801,
-                        "source": 14
-                    },
-                    {
-                        "id": "yearning-empowerment",
-                        "gw2id": 1744,
-                        "source": 14
-                    },
-                    {
-                        "id": "acolyte-of-torment",
-                        "gw2id": 1793,
-                        "source": 14
-                    },
-                    {
-                        "id": "pact-of-pain",
-                        "gw2id": 1714,
-                        "source": 14
-                    }
-                ]
-            },
-            "skills": [],
-            "extras": {
-                "Runes": "nightmare",
-                "Sigil1": "",
-                "Sigil2": "",
-                "Enhancement": "toxic-focusing-crystal",
-                "Nourishment": "beef-rendang"
-            }
+              "profession": "REVENANT",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "14",
+                      "3",
+                      "63"
+                  ],
+                  "selectedTraits": [
+                      [
+                          1793,
+                          1714,
+                          1795
+                      ],
+                      [
+                          1761,
+                          1781,
+                          1791
+                      ],
+                      [
+                          2079,
+                          2092,
+                          2182
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "acolyte-of-torment": true,
+                          "seething-malice": true,
+                          "demonic-resistance": true,
+                          "pact-of-pain": true,
+                          "yearning-empowerment": true
+                      },
+                      {
+                          "rising-tide": {
+                              "amount": ""
+                          },
+                          "ferocious-aggression": {
+                              "amount": ""
+                          },
+                          "roiling-mists": true
+                      },
+                      {
+                          "ambush-commander": {
+                              "amount": ""
+                          },
+                          "blood-fury": true,
+                          "heartpiercer": true,
+                          "brutal-momentum": true,
+                          "lasting-legacy": {
+                              "amount": ""
+                          }
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "nightmare",
+                  "Sigil1": "",
+                  "Sigil2": "",
+                  "Enhancement": "toxic-focusing-crystal",
+                  "Nourishment": "beef-rendang"
+              }
           }
 
       - name: Condi DPS Ren Deva
@@ -2452,103 +1910,80 @@ list:
         distribution: 'Condi Renegade (Devastation)'
         traits: >-
           {
-            "profession":"REVENANT",
-            "traits":{
-              "lines":[
-                "14",
-                "15",
-                "63"
-              ],
-              "selected":[
-                [
-                  1793,
-                  1714,
-                  1795
-                ],
-                [
-                  1767,
-                  1786,
-                  1754
-                ],
-                [
-                  2079,
-                  2092,
-                  2100
-                ]
-              ],
-              "modifiers":[
-                {
-                  "id": "brutal-momentum",
-                  "gw2id": 2142,
-                  "source": 63
-                },
-                {
-                  "id": "destructive-impulses-mix",
-                  "gw2id": 1724,
-                  "source": 15
-                },
-                {
-                  "id": "targeted-destruction",
-                  "gw2id": 1792,
-                  "source": 15
-                },
-                {
-                  "id": "unsuspecting-strikes",
-                  "gw2id": 1767,
-                  "source": 15
-                },
-                {
-                  "id": "ambush-commander",
-                  "gw2id": 2181,
-                  "source": 63
-                },
-                {
-                  "id": "blood-fury",
-                  "gw2id": 2079,
-                  "source": 63
-                },
-                {
-                  "id": "heartpiercer",
-                  "gw2id": 2092,
-                  "source": 63
-                },
-                {
-                  "id": "seething-malice",
-                  "gw2id": 1801,
-                  "source": 14
-                },
-                {
-                  "id": "yearning-empowerment",
-                  "gw2id": 1744,
-                  "source": 14
-                },
-                {
-                  "id": "acolyte-of-torment",
-                  "gw2id": 1793,
-                  "source": 14
-                },
-                {
-                  "id": "pact-of-pain",
-                  "gw2id": 1714,
-                  "source": 14
-                },
-                {
-                  "id": "lasting-legacy",
-                  "gw2id": 2100,
-                  "source": 63
-                }
-              ]
-            },
-            "skills":[
-
-            ],
-            "extras":{
-              "Runes": "nightmare",
-              "Sigil1": "",
-              "Sigil2": "",
-              "Enhancement": "toxic-focusing-crystal",
-              "Nourishment": "beef-rendang"
-            }
+              "profession": "REVENANT",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "14",
+                      "15",
+                      "63"
+                  ],
+                  "selectedTraits": [
+                      [
+                          1793,
+                          1714,
+                          1795
+                      ],
+                      [
+                          1767,
+                          1786,
+                          1754
+                      ],
+                      [
+                          2079,
+                          2092,
+                          2100
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "acolyte-of-torment": true,
+                          "seething-malice": true,
+                          "demonic-resistance": true,
+                          "pact-of-pain": true,
+                          "yearning-empowerment": true
+                      },
+                      {
+                          "unsuspecting-strikes": {
+                              "amount": ""
+                          },
+                          "destructive-impulses-base": true,
+                          "destructive-impulses-dual": {
+                              "amount": ""
+                          },
+                          "notoriety": {
+                              "amount": ""
+                          },
+                          "targeted-destruction": {
+                              "amount": ""
+                          },
+                          "swift-termination": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "ambush-commander": {
+                              "amount": ""
+                          },
+                          "blood-fury": true,
+                          "heartpiercer": true,
+                          "brutal-momentum": true,
+                          "lasting-legacy": {
+                              "amount": ""
+                          }
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "nightmare",
+                  "Sigil1": "",
+                  "Sigil2": "",
+                  "Enhancement": "toxic-focusing-crystal",
+                  "Nourishment": "beef-rendang"
+              }
           }
 
       - name: Heal Ren
@@ -2561,12 +1996,13 @@ list:
           {
               "profession": "REVENANT",
               "traits": {
-                  "lines": [
+                  "showAll": false,
+                  "selectedLines": [
                       "12",
                       "15",
                       "63"
                   ],
-                  "selected": [
+                  "selectedTraits": [
                       [
                           1822,
                           1818,
@@ -2583,50 +2019,50 @@ list:
                           2182
                       ]
                   ],
-                  "modifiers": [
+                  "items": [
                       {
-                          "id": "life-attunement",
-                          "gw2id": 1821,
-                          "source": 12
+                          "tranquil-balance": {
+                              "amount": ""
+                          },
+                          "life-attunement": true,
+                          "invoking-harmony": {
+                              "amount": ""
+                          }
                       },
                       {
-                          "id": "brutal-momentum",
-                          "gw2id": 2142,
-                          "source": 63
+                          "unsuspecting-strikes": {
+                              "amount": ""
+                          },
+                          "destructive-impulses-base": true,
+                          "destructive-impulses-dual": {
+                              "amount": ""
+                          },
+                          "notoriety": {
+                              "amount": ""
+                          },
+                          "targeted-destruction": {
+                              "amount": ""
+                          },
+                          "swift-termination": {
+                              "amount": ""
+                          }
                       },
                       {
-                          "id": "ambush-commander",
-                          "gw2id": 2181,
-                          "source": 63
-                      },
-                      {
-                          "id": "destructive-impulses-mix",
-                          "gw2id": 1724,
-                          "source": 15
-                      },
-                      {
-                          "id": "targeted-destruction",
-                          "gw2id": 1792,
-                          "source": 15
-                      },
-                      {
-                          "id": "unsuspecting-strikes",
-                          "gw2id": 1767,
-                          "source": 15
-                      },
-                      {
-                          "id": "invoking-harmony",
-                          "gw2id": 1818,
-                          "source": 12
-                      },
-                      {
-                          "id": "tranquil-balance",
-                          "gw2id": 1822,
-                          "source": 12
+                          "ambush-commander": {
+                              "amount": ""
+                          },
+                          "blood-fury": true,
+                          "heartpiercer": true,
+                          "brutal-momentum": true,
+                          "lasting-legacy": {
+                              "amount": ""
+                          }
                       }
                   ]
               },
-              "skills": [],
+              "skills": {
+                  "skills": []
+              },
               "extras": {
                   "Runes": "monk",
                   "Sigil1": "concentration",
@@ -2646,88 +2082,72 @@ list:
         distribution: 'Power Holo'
         traits: >-
           {
-            "profession":"ENGINEER",
-            "traits":{
-              "lines":[
-                "38",
-                "6",
-                ""
-              ],
-              "selected":[
-                [
-                  1914,
-                  1923,
-                  526
-                ],
-                [
-                  1882,
-                  1892,
-                  1947
-                ],
-                [
-                  0,
-                  0,
-                  0
-                ]
-              ],
-              "modifiers":[
-                {
-                  "id":"hematic-focus",
-                  "gw2id":536,
-                  "source":38
-                },
-                {
-                  "id":"serrated-steel",
-                  "gw2id":516,
-                  "source":38
-                },
-                {
-                  "id":"modified-ammunition-10",
-                  "gw2id":526,
-                  "source":38
-                },
-                {
-                  "id":"no-scope",
-                  "gw2id":1923,
-                  "source":38
-                },
-                {
-                  "id":"high-caliber",
-                  "gw2id":1914,
-                  "source":38
-                },
-                {
-                  "id":"shaped-charge",
-                  "gw2id":429,
-                  "source":6
-                },
-                {
-                  "id":"glass-cannon",
-                  "gw2id":1882,
-                  "source":6
-                },
-                {
-                  "id":"explosive-temper",
-                  "gw2id":1892,
-                  "source":6
-                },
-                {
-                  "id":"big-boomer",
-                  "gw2id":1947,
-                  "source":6
-                }
-              ]
-            },
-            "skills":[
-
-            ],
-            "extras":{
-              "Runes":"scholar",
-              "Sigil1":"force",
-              "Sigil2":"impact/night/slaying-both",
-              "Enhancement":"slaying-potion",
-              "Nourishment":"sweet-and-spicy-butternut-squash-soup"
-            }
+              "profession": "ENGINEER",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "38",
+                      "6",
+                      ""
+                  ],
+                  "selectedTraits": [
+                      [
+                          1914,
+                          1923,
+                          526
+                      ],
+                      [
+                          1882,
+                          1892,
+                          1947
+                      ],
+                      [
+                          0,
+                          0,
+                          0
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "chemical-rounds": true,
+                          "high-caliber": true,
+                          "hematic-focus": true,
+                          "thermal-vision": true,
+                          "no-scope": {
+                              "amount": ""
+                          },
+                          "serrated-steel": true,
+                          "modified-ammunition": {
+                              "amount": ""
+                          },
+                          "incendiary-powder": true
+                      },
+                      {
+                          "glass-cannon": {
+                              "amount": ""
+                          },
+                          "explosive-temper": {
+                              "amount": ""
+                          },
+                          "blast-shield": true,
+                          "shaped-charge": {
+                              "amount": ""
+                          },
+                          "big-boomer": true
+                      },
+                      {}
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "scholar",
+                  "Sigil1": "force",
+                  "Sigil2": "impact/night/slaying-both",
+                  "Enhancement": "slaying-potion",
+                  "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+              }
           }
 
       - name: Power Scrapper
@@ -2738,101 +2158,81 @@ list:
         distribution: 'Power Scrapper'
         traits: >-
           {
-            "profession": "ENGINEER",
-            "traits": {
-                "lines": [
-                    "38",
-                    "6",
-                    "43"
-                ],
-                "selected": [
-                    [
-                        1914,
-                        1923,
-                        526
-                    ],
-                    [
-                        1882,
-                        1892,
-                        1947
-                    ],
-                    [
-                        1917,
-                        1860,
-                        1849
-                    ]
-                ],
-                "modifiers": [
-                    {
-                        "id": "hematic-focus",
-                        "gw2id": 536,
-                        "source": 38
-                    },
-                    {
-                        "id": "serrated-steel",
-                        "gw2id": 516,
-                        "source": 38
-                    },
-                    {
-                        "id": "modified-ammunition-10",
-                        "gw2id": 526,
-                        "source": 38
-                    },
-                    {
-                        "id": "no-scope",
-                        "gw2id": 1923,
-                        "source": 38
-                    },
-                    {
-                        "id": "high-caliber",
-                        "gw2id": 1914,
-                        "source": 38
-                    },
-                    {
-                        "id": "shaped-charge",
-                        "gw2id": 429,
-                        "source": 6
-                    },
-                    {
-                        "id": "glass-cannon",
-                        "gw2id": 1882,
-                        "source": 6
-                    },
-                    {
-                        "id": "explosive-temper",
-                        "gw2id": 1892,
-                        "source": 6
-                    },
-                    {
-                        "id": "big-boomer",
-                        "gw2id": 1947,
-                        "source": 6
-                    },
-                    {
-                        "id": "impact-savant",
-                        "gw2id": 1877,
-                        "source": 43
-                    },
-                    {
-                        "id": "object-in-motion-2",
-                        "gw2id": 1860,
-                        "source": 43
-                    },
-                    {
-                        "id": "applied-force",
-                        "gw2id": 1849,
-                        "source": 43
-                    }
-                ]
-            },
-            "skills": [],
-            "extras": {
-                "Runes": "scholar",
-                "Sigil1": "force",
-                "Sigil2": "impact/night/slaying-both",
-                "Enhancement": "slaying-potion",
-                "Nourishment": "sweet-and-spicy-butternut-squash-soup"
-            }
+              "profession": "ENGINEER",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "38",
+                      "6",
+                      "43"
+                  ],
+                  "selectedTraits": [
+                      [
+                          1914,
+                          1923,
+                          526
+                      ],
+                      [
+                          1882,
+                          1892,
+                          1947
+                      ],
+                      [
+                          1917,
+                          1860,
+                          1849
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "chemical-rounds": true,
+                          "high-caliber": true,
+                          "hematic-focus": true,
+                          "thermal-vision": true,
+                          "no-scope": {
+                              "amount": ""
+                          },
+                          "serrated-steel": true,
+                          "modified-ammunition": {
+                              "amount": ""
+                          },
+                          "incendiary-powder": true
+                      },
+                      {
+                          "glass-cannon": {
+                              "amount": ""
+                          },
+                          "explosive-temper": {
+                              "amount": ""
+                          },
+                          "blast-shield": true,
+                          "shaped-charge": {
+                              "amount": ""
+                          },
+                          "big-boomer": true
+                      },
+                      {
+                          "object-in-motion": {
+                              "amount": ""
+                          },
+                          "impact-savant": true,
+                          "kinetic-accelerators": true,
+                          "applied-force": {
+                              "amount": ""
+                          }
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "scholar",
+                  "Sigil1": "force",
+                  "Sigil2": "impact/night/slaying-both",
+                  "Enhancement": "slaying-potion",
+                  "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+              }
           }
 
       - name: Quickness Scrapper
@@ -2845,12 +2245,13 @@ list:
           {
               "profession": "ENGINEER",
               "traits": {
-                  "lines": [
+                  "showAll": false,
+                  "selectedLines": [
                       "38",
                       "6",
                       "43"
                   ],
-                  "selected": [
+                  "selectedTraits": [
                       [
                           1914,
                           1923,
@@ -2867,70 +2268,49 @@ list:
                           2052
                       ]
                   ],
-                  "modifiers": [
+                  "items": [
                       {
-                          "id": "hematic-focus",
-                          "gw2id": 536,
-                          "source": 38
+                          "chemical-rounds": true,
+                          "high-caliber": true,
+                          "hematic-focus": true,
+                          "thermal-vision": true,
+                          "no-scope": {
+                              "amount": ""
+                          },
+                          "serrated-steel": true,
+                          "modified-ammunition": {
+                              "amount": ""
+                          },
+                          "incendiary-powder": true
                       },
                       {
-                          "id": "serrated-steel",
-                          "gw2id": 516,
-                          "source": 38
+                          "glass-cannon": {
+                              "amount": ""
+                          },
+                          "explosive-temper": {
+                              "amount": ""
+                          },
+                          "blast-shield": true,
+                          "shaped-charge": {
+                              "amount": ""
+                          },
+                          "big-boomer": true
                       },
                       {
-                          "id": "modified-ammunition-10",
-                          "gw2id": 526,
-                          "source": 38
-                      },
-                      {
-                          "id": "no-scope",
-                          "gw2id": 1923,
-                          "source": 38
-                      },
-                      {
-                          "id": "high-caliber",
-                          "gw2id": 1914,
-                          "source": 38
-                      },
-                      {
-                          "id": "shaped-charge",
-                          "gw2id": 429,
-                          "source": 6
-                      },
-                      {
-                          "id": "glass-cannon",
-                          "gw2id": 1882,
-                          "source": 6
-                      },
-                      {
-                          "id": "explosive-temper",
-                          "gw2id": 1892,
-                          "source": 6
-                      },
-                      {
-                          "id": "big-boomer",
-                          "gw2id": 1947,
-                          "source": 6
-                      },
-                      {
-                          "id": "impact-savant",
-                          "gw2id": 1877,
-                          "source": 43
-                      },
-                      {
-                          "id": "object-in-motion-2",
-                          "gw2id": 1860,
-                          "source": 43
-                      },
-                      {
-                          "id": "kinetic-accelerators",
-                          "gw2id": 2052,
-                          "source": 43
+                          "object-in-motion": {
+                              "amount": ""
+                          },
+                          "impact-savant": true,
+                          "kinetic-accelerators": true,
+                          "applied-force": {
+                              "amount": ""
+                          }
                       }
                   ]
               },
-              "skills": [],
+              "skills": {
+                  "skills": []
+              },
               "extras": {
                   "Runes": "scholar",
                   "Sigil1": "force",
@@ -2950,12 +2330,13 @@ list:
           {
               "profession": "ENGINEER",
               "traits": {
-                  "lines": [
+                  "showAll": false,
+                  "selectedLines": [
                       "47",
                       "29",
                       "43"
                   ],
-                  "selected": [
+                  "selectedTraits": [
                       [
                           394,
                           1834,
@@ -2972,35 +2353,30 @@ list:
                           2052
                       ]
                   ],
-                  "modifiers": [
+                  "items": [
                       {
-                          "id": "energy-amplifier",
-                          "gw2id": 519,
-                          "source": 47
+                          "over-shield": true,
+                          "energy-amplifier": true
                       },
                       {
-                          "id": "compounding-chemicals",
-                          "gw2id": 413,
-                          "source": 29
+                          "health-insurance": false,
+                          "compounding-chemicals": true
                       },
                       {
-                          "id": "impact-savant",
-                          "gw2id": 1877,
-                          "source": 43
-                      },
-                      {
-                          "id": "over-shield",
-                          "gw2id": 394,
-                          "source": 47
-                      },
-                      {
-                          "id": "kinetic-accelerators",
-                          "gw2id": 2052,
-                          "source": 43
+                          "object-in-motion": {
+                              "amount": ""
+                          },
+                          "impact-savant": true,
+                          "kinetic-accelerators": true,
+                          "applied-force": {
+                              "amount": ""
+                          }
                       }
                   ]
               },
-              "skills": [],
+              "skills": {
+                  "skills": []
+              },
               "extras": {
                   "Runes": "monk",
                   "Sigil1": "concentration",
@@ -3020,81 +2396,66 @@ list:
         distribution: 'Condi Scourge'
         traits: >-
           {
-            "profession": "NECROMANCER",
-            "traits": {
-                "lines": [
-                    "39",
-                    "50",
-                    "60"
-                ],
-                "selected": [
-                    [
-                        2013,
-                        816,
-                        801
-                    ],
-                    [
-                        875,
-                        894,
-                        905
-                    ],
-                    [
-                        2074,
-                        2067,
-                        2164
-                    ]
-                ],
-                "modifiers": [
-                    {
-                        "id": "barbed-precision",
-                        "gw2id": 802,
-                        "source": 39
-                    },
-                    {
-                        "id": "furious-demise",
-                        "gw2id": 803,
-                        "source": 39
-                    },
-                    {
-                        "id": "target-the-weak",
-                        "gw2id": 810,
-                        "source": 39
-                    },
-                    {
-                        "id": "lingering-curse",
-                        "gw2id": 801,
-                        "source": 39
-                    },
-                    {
-                        "id": "soul-barbs",
-                        "gw2id": 894,
-                        "source": 50
-                    },
-                    {
-                        "id": "sand-sage-3x",
-                        "gw2id": 2121,
-                        "source": 60
-                    },
-                    {
-                        "id": "fell-beacon",
-                        "gw2id": 2074,
-                        "source": 60
-                    },
-                    {
-                        "id": "demonic-lore",
-                        "gw2id": 2164,
-                        "source": 60
-                    }
-                ]
-            },
-            "skills": [],
-            "extras": {
-                "Runes": "nightmare",
-                "Sigil1": "bursting",
-                "Sigil2": "",
-                "Enhancement": "master-tuning-crystal",
-                "Nourishment": "beef-rendang"
-            }
+              "profession": "NECROMANCER",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "39",
+                      "50",
+                      "60"
+                  ],
+                  "selectedTraits": [
+                      [
+                          2013,
+                          816,
+                          801
+                      ],
+                      [
+                          875,
+                          894,
+                          905
+                      ],
+                      [
+                          2074,
+                          2067,
+                          2164
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "barbed-precision": true,
+                          "furious-demise": true,
+                          "target-the-weak-base": true,
+                          "target-the-weak": {
+                              "amount": ""
+                          },
+                          "lingering-curse": true
+                      },
+                      {
+                          "soul-barbs": {
+                              "amount": ""
+                          },
+                          "vital-persistence": true,
+                          "death-perception": true
+                      },
+                      {
+                          "fell-beacon": true,
+                          "sand-sage-2x": false,
+                          "sand-sage-3x": true,
+                          "demonic-lore": true
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "nightmare",
+                  "Sigil1": "bursting",
+                  "Sigil2": "",
+                  "Enhancement": "master-tuning-crystal",
+                  "Nourishment": "beef-rendang"
+              }
           }
 
       - name: Condi Reaper
@@ -3105,76 +2466,70 @@ list:
         distribution: 'Condi Reaper'
         traits: >-
           {
-            "profession": "NECROMANCER",
-            "traits": {
-                "lines": [
-                    "39",
-                    "50",
-                    "34"
-                ],
-                "selected": [
-                    [
-                        815,
-                        816,
-                        801
-                    ],
-                    [
-                        875,
-                        894,
-                        905
-                    ],
-                    [
-                        2020,
-                        1969,
-                        1919
-                    ]
-                ],
-                "modifiers": [
-                    {
-                        "id": "barbed-precision",
-                        "gw2id": 802,
-                        "source": 39
-                    },
-                    {
-                        "id": "furious-demise",
-                        "gw2id": 803,
-                        "source": 39
-                    },
-                    {
-                        "id": "target-the-weak",
-                        "gw2id": 810,
-                        "source": 39
-                    },
-                    {
-                        "id": "lingering-curse",
-                        "gw2id": 801,
-                        "source": 39
-                    },
-                    {
-                        "id": "soul-barbs",
-                        "gw2id": 894,
-                        "source": 50
-                    },
-                    {
-                        "id": "soul-eater",
-                        "gw2id": 1969,
-                        "source": 34
-                    },
-                    {
-                        "id": "cold-shoulder",
-                        "gw2id": 2018,
-                        "source": 34
-                    }
-                ]
-            },
-            "skills": [],
-            "extras": {
-                "Runes": "krait",
-                "Sigil1": "",
-                "Sigil2": "",
-                "Enhancement": "toxic-focusing-crystal",
-                "Nourishment": "rare-veggie-pizza"
-            }
+              "profession": "NECROMANCER",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "39",
+                      "50",
+                      "34"
+                  ],
+                  "selectedTraits": [
+                      [
+                          2013,
+                          816,
+                          801
+                      ],
+                      [
+                          875,
+                          894,
+                          905
+                      ],
+                      [
+                          2020,
+                          1969,
+                          1919
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "barbed-precision": true,
+                          "furious-demise": true,
+                          "target-the-weak-base": true,
+                          "target-the-weak": {
+                              "amount": ""
+                          },
+                          "lingering-curse": true
+                      },
+                      {
+                          "soul-barbs": {
+                              "amount": "85"
+                          },
+                          "vital-persistence": true,
+                          "death-perception": true
+                      },
+                      {
+                          "soul-eater": {
+                              "amount": ""
+                          },
+                          "decimate-defenses-25x": true,
+                          "cold-shoulder": {
+                              "amount": ""
+                          },
+                          "reapers-onslaught": true
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "krait",
+                  "Sigil1": "",
+                  "Sigil2": "",
+                  "Enhancement": "toxic-focusing-crystal",
+                  "Nourishment": "rare-veggie-pizza"
+              }
           }
 
   - class: thief
@@ -3187,81 +2542,75 @@ list:
         distribution: Condi Deadeye
         traits: >-
           {
-            "profession": "THIEF",
-            "traits": {
-                "lines": [
-                    "28",
-                    "44",
-                    "58"
-                ],
-                "selected": [
-                    [
-                        1164,
-                        1292,
-                        1291
-                    ],
-                    [
-                        1252,
-                        1277,
-                        1706
-                    ],
-                    [
-                        2136,
-                        2160,
-                        2111
-                    ]
-                ],
-                "modifiers": [
-                    {
-                        "id": "preparedness",
-                        "gw2id": 1232,
-                        "source": 44
-                    },
-                    {
-                        "id": "exposed-weakness",
-                        "gw2id": 1257,
-                        "source": 28
-                    },
-                    {
-                        "id": "deadly-ambition",
-                        "gw2id": 1164,
-                        "source": 28
-                    },
-                    {
-                        "id": "potent-poison",
-                        "gw2id": 1291,
-                        "source": 28
-                    },
-                    {
-                        "id": "lead-attacks",
-                        "gw2id": 1157,
-                        "source": 44
-                    },
-                    {
-                        "id": "deadly-ambush",
-                        "gw2id": 1706,
-                        "source": 44
-                    },
-                    {
-                        "id": "iron-sight",
-                        "gw2id": 2084,
-                        "source": 58
-                    },
-                    {
-                        "id": "premeditation-9",
-                        "gw2id": 2160,
-                        "source": 58
-                    }
-                ]
-            },
-            "skills": [],
-            "extras": {
-                "Runes": "nightmare",
-                "Sigil1": "bursting",
-                "Sigil2": "",
-                "Enhancement": "master-tuning-crystal",
-                "Nourishment": "beef-rendang"
-            }
+              "profession": "THIEF",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "28",
+                      "44",
+                      "58"
+                  ],
+                  "selectedTraits": [
+                      [
+                          1164,
+                          1292,
+                          1291
+                      ],
+                      [
+                          1252,
+                          1190,
+                          1706
+                      ],
+                      [
+                          2136,
+                          2160,
+                          2111
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "dagger-training-base": true,
+                          "dagger-training-dagger": false,
+                          "deadly-ambition": true,
+                          "revealed-training-base": true,
+                          "revealed-training-revealed": false,
+                          "exposed-weakness": {
+                              "amount": ""
+                          },
+                          "potent-poison": true,
+                          "executioner": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "preparedness": true,
+                          "lead-attacks": {
+                              "amount": ""
+                          },
+                          "deadly-ambush": true
+                      },
+                      {
+                          "silent-scope-base": true,
+                          "silent-scope-rifle": true,
+                          "premeditation-base": true,
+                          "premeditation": {
+                              "amount": ""
+                          },
+                          "iron-sight": true,
+                          "be-quick-or-be-killed": true
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "nightmare",
+                  "Sigil1": "bursting",
+                  "Sigil2": "",
+                  "Enhancement": "master-tuning-crystal",
+                  "Nourishment": "beef-rendang"
+              }
           }
 
       - name: Staff Daredevil
@@ -3272,113 +2621,83 @@ list:
         distribution: Staff Daredevil
         traits: >-
           {
-            "profession": "THIEF",
-            "traits": {
-                "lines": [
-                    "28",
-                    "35",
-                    "7"
-                ],
-                "selected": [
-                    [
-                        1245,
-                        1704,
-                        1269
-                    ],
-                    [
-                        1268,
-                        1272,
-                        1904
-                    ],
-                    [
-                        1933,
-                        1893,
-                        2047
-                    ]
-                ],
-                "modifiers": [
-                    {
-                        "id": "exposed-weakness",
-                        "gw2id": 1257,
-                        "source": 28
-                    },
-                    {
-                        "id": "dagger-training-base",
-                        "gw2id": 1245,
-                        "source": 28
-                    },
-                    {
-                        "id": "revealed-training-base",
-                        "gw2id": 1704,
-                        "source": 28
-                    },
-                    {
-                        "id": "executioner",
-                        "gw2id": 1269,
-                        "source": 28
-                    },
-                    {
-                        "id": "keen-observer",
-                        "gw2id": 1281,
-                        "source": 35
-                    },
-                    {
-                        "id": "ferocious-strikes",
-                        "gw2id": 1282,
-                        "source": 35
-                    },
-                    {
-                        "id": "twin-fangs-scholar",
-                        "gw2id": 1268,
-                        "source": 35
-                    },
-                    {
-                        "id": "twin-fangs-flank",
-                        "gw2id": 1268,
-                        "source": 35
-                    },
-                    {
-                        "id": "practiced-tolerance",
-                        "gw2id": 1272,
-                        "source": 35
-                    },
-                    {
-                        "id": "weakening-strikes",
-                        "gw2id": 1887,
-                        "source": 7
-                    },
-                    {
-                        "id": "marauders-resilience",
-                        "gw2id": 1933,
-                        "source": 7
-                    },
-                    {
-                        "id": "havoc-specialist",
-                        "gw2id": 1893,
-                        "source": 7
-                    },
-                    {
-                        "id": "no-quarter",
-                        "gw2id": 1904,
-                        "source": 35
-                    },
-                    {
-                        "id": "bounding-dodger",
-                        "gw2id": 2047,
-                        "source": 7
-                    }
-                ]
-            },
-            "skills": [
-                "signet-of-agility"
-            ],
-            "extras": {
-                "Runes": "scholar",
-                "Sigil1": "force",
-                "Sigil2": "impact/night/slaying-both",
-                "Enhancement": "slaying-potion",
-                "Nourishment": "sweet-and-spicy-butternut-squash-soup"
-            }
+              "profession": "THIEF",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "28",
+                      "35",
+                      "7"
+                  ],
+                  "selectedTraits": [
+                      [
+                          1245,
+                          1704,
+                          1269
+                      ],
+                      [
+                          1268,
+                          1272,
+                          1904
+                      ],
+                      [
+                          1933,
+                          1893,
+                          2047
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "dagger-training-base": true,
+                          "dagger-training-dagger": false,
+                          "deadly-ambition": true,
+                          "revealed-training-base": true,
+                          "revealed-training-revealed": false,
+                          "exposed-weakness": {
+                              "amount": ""
+                          },
+                          "potent-poison": true,
+                          "executioner": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "keen-observer": true,
+                          "twin-fangs-scholar": true,
+                          "twin-fangs-flank": true,
+                          "practiced-tolerance": true,
+                          "ferocious-strikes": {
+                              "amount": ""
+                          },
+                          "no-quarter": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "marauders-resilience": true,
+                          "weakening-strikes": true,
+                          "staff-master-base": true,
+                          "staff-master-staff": true,
+                          "havoc-specialist": {
+                              "amount": ""
+                          },
+                          "bounding-dodger": true,
+                          "lotus-training": true
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": [
+                      "signet-of-agility"
+                  ]
+              },
+              "extras": {
+                  "Runes": "scholar",
+                  "Sigil1": "force",
+                  "Sigil2": "impact/night/slaying-both",
+                  "Enhancement": "slaying-potion",
+                  "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+              }
           }
 
       # - name: Boon Daredevil
@@ -3388,85 +2707,6 @@ list:
       #   priority: Power Boon
       #   distribution: Staff Daredevil
       #   traits: >-
-      #     {
-      #         "profession": "THIEF",
-      #         "traits": {
-      #             "lines": [
-      #                 "28",
-      #                 "44",
-      #                 "7"
-      #             ],
-      #             "selected": [
-      #                 [
-      #                     1245,
-      #                     1704,
-      #                     1167
-      #                 ],
-      #                 [
-      #                     1163,
-      #                     1190,
-      #                     1158
-      #                 ],
-      #                 [
-      #                     1949,
-      #                     1893,
-      #                     2047
-      #                 ]
-      #             ],
-      #             "modifiers": [
-      #                 {
-      #                     "id": "exposed-weakness",
-      #                     "gw2id": 1257,
-      #                     "source": 28
-      #                 },
-      #                 {
-      #                     "id": "dagger-training-base",
-      #                     "gw2id": 1245,
-      #                     "source": 28
-      #                 },
-      #                 {
-      #                     "id": "revealed-training-base",
-      #                     "gw2id": 1704,
-      #                     "source": 28
-      #                 },
-      #                 {
-      #                     "id": "weakening-strikes",
-      #                     "gw2id": 1887,
-      #                     "source": 7
-      #                 },
-      #                 {
-      #                     "id": "havoc-specialist",
-      #                     "gw2id": 1893,
-      #                     "source": 7
-      #                 },
-      #                 {
-      #                     "id": "bounding-dodger",
-      #                     "gw2id": 2047,
-      #                     "source": 7
-      #                 },
-      #                 {
-      #                     "id": "preparedness",
-      #                     "gw2id": 1232,
-      #                     "source": 44
-      #                 },
-      #                 {
-      #                     "id": "lead-attacks",
-      #                     "gw2id": 1157,
-      #                     "source": 44
-      #                 }
-      #             ]
-      #         },
-      #         "skills": [
-      #             "signet-of-agility"
-      #         ],
-      #         "extras": {
-      #             "Runes": "thief",
-      #             "Sigil1": "force",
-      #             "Sigil2": "concentration",
-      #             "Enhancement": "potent-lucent-oil",
-      #             "Nourishment": "sweet-and-spicy-butternut-squash-soup"
-      #         }
-      #     }
 
       - name: Condi Daredevil
         id: cdd
@@ -3476,91 +2716,76 @@ list:
         distribution: Condi Daredevil
         traits: >-
           {
-            "profession": "THIEF",
-            "traits": {
-                "lines": [
-                    "28",
-                    "44",
-                    "7"
-                ],
-                "selected": [
-                    [
-                        1164,
-                        1292,
-                        1291
-                    ],
-                    [
-                        1159,
-                        1277,
-                        1706
-                    ],
-                    [
-                        1933,
-                        1893,
-                        1833
-                    ]
-                ],
-                "modifiers": [
-                    {
-                        "id": "preparedness",
-                        "gw2id": 1232,
-                        "source": 44
-                    },
-                    {
-                        "id": "exposed-weakness",
-                        "gw2id": 1257,
-                        "source": 28
-                    },
-                    {
-                        "id": "deadly-ambition",
-                        "gw2id": 1164,
-                        "source": 28
-                    },
-                    {
-                        "id": "potent-poison",
-                        "gw2id": 1291,
-                        "source": 28
-                    },
-                    {
-                        "id": "lead-attacks",
-                        "gw2id": 1157,
-                        "source": 44
-                    },
-                    {
-                        "id": "deadly-ambush",
-                        "gw2id": 1706,
-                        "source": 44
-                    },
-                    {
-                        "id": "lotus-training",
-                        "gw2id": 1833,
-                        "source": 7
-                    },
-                    {
-                        "id": "havoc-specialist",
-                        "gw2id": 1893,
-                        "source": 7
-                    },
-                    {
-                        "id": "marauders-resilience",
-                        "gw2id": 1933,
-                        "source": 7
-                    },
-                    {
-                        "id": "weakening-strikes",
-                        "gw2id": 1887,
-                        "source": 7
-                    }
-                ]
-            },
-            "skills": [],
-            "extras": {
-                "Runes": "krait",
-                "Sigil1": "",
-                "Sigil2": "",
-                "Enhancement": "master-tuning-crystal",
-                "Nourishment": "beef-rendang"
-            }
+              "profession": "THIEF",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "28",
+                      "44",
+                      "7"
+                  ],
+                  "selectedTraits": [
+                      [
+                          1164,
+                          1292,
+                          1291
+                      ],
+                      [
+                          1159,
+                          1277,
+                          1706
+                      ],
+                      [
+                          1933,
+                          1893,
+                          1833
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "dagger-training-base": true,
+                          "dagger-training-dagger": false,
+                          "deadly-ambition": true,
+                          "revealed-training-base": true,
+                          "revealed-training-revealed": false,
+                          "exposed-weakness": {
+                              "amount": ""
+                          },
+                          "potent-poison": true,
+                          "executioner": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "preparedness": true,
+                          "lead-attacks": {
+                              "amount": ""
+                          },
+                          "deadly-ambush": true
+                      },
+                      {
+                          "marauders-resilience": true,
+                          "weakening-strikes": true,
+                          "staff-master-base": true,
+                          "staff-master-staff": true,
+                          "havoc-specialist": {
+                              "amount": ""
+                          },
+                          "bounding-dodger": true,
+                          "lotus-training": true
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "krait",
+                  "Sigil1": "",
+                  "Sigil2": "",
+                  "Enhancement": "master-tuning-crystal",
+                  "Nourishment": "beef-rendang"
+              }
           }
 
       - name: Rifle Deadeye
@@ -3571,104 +2796,80 @@ list:
         distribution: Rifle Deadeye
         traits: >-
           {
-            "profession": "THIEF",
-            "traits": {
-                "lines": [
-                    "28",
-                    "35",
-                    "58"
-                ],
-                "selected": [
-                    [
-                        1245,
-                        1704,
-                        1269
-                    ],
-                    [
-                        1268,
-                        1272,
-                        1904
-                    ],
-                    [
-                        2145,
-                        2160,
-                        2111
-                    ]
-                ],
-                "modifiers": [
-                    {
-                        "id": "exposed-weakness",
-                        "gw2id": 1257,
-                        "source": 28
-                    },
-                    {
-                        "id": "dagger-training-base",
-                        "gw2id": 1245,
-                        "source": 28
-                    },
-                    {
-                        "id": "revealed-training-base",
-                        "gw2id": 1704,
-                        "source": 28
-                    },
-                    {
-                        "id": "executioner",
-                        "gw2id": 1269,
-                        "source": 28
-                    },
-                    {
-                        "id": "keen-observer",
-                        "gw2id": 1281,
-                        "source": 35
-                    },
-                    {
-                        "id": "ferocious-strikes",
-                        "gw2id": 1282,
-                        "source": 35
-                    },
-                    {
-                        "id": "twin-fangs-scholar",
-                        "gw2id": 1268,
-                        "source": 35
-                    },
-                    {
-                        "id": "twin-fangs-flank",
-                        "gw2id": 1268,
-                        "source": 35
-                    },
-                    {
-                        "id": "practiced-tolerance",
-                        "gw2id": 1272,
-                        "source": 35
-                    },
-                    {
-                        "id": "no-quarter",
-                        "gw2id": 1904,
-                        "source": 35
-                    },
-                    {
-                        "id": "revealed-training-revealed",
-                        "gw2id": 1704,
-                        "source": 28
-                    },
-                    {
-                        "id": "iron-sight",
-                        "gw2id": 2084,
-                        "source": 58
-                    },
-                    {
-                        "id": "premeditation-9",
-                        "gw2id": 2160,
-                        "source": 58
-                    }
-                ]
-            },
-            "skills": [],
-            "extras": {
-                "Runes": "scholar",
-                "Sigil1": "force",
-                "Sigil2": "impact/night/slaying-both",
-                "Enhancement": "slaying-potion",
-                "Nourishment": "sweet-and-spicy-butternut-squash-soup"
-            }
+              "profession": "THIEF",
+              "traits": {
+                  "showAll": false,
+                  "selectedLines": [
+                      "28",
+                      "35",
+                      "58"
+                  ],
+                  "selectedTraits": [
+                      [
+                          1245,
+                          1704,
+                          1269
+                      ],
+                      [
+                          1268,
+                          1272,
+                          1904
+                      ],
+                      [
+                          2145,
+                          2160,
+                          2111
+                      ]
+                  ],
+                  "items": [
+                      {
+                          "dagger-training-base": true,
+                          "dagger-training-dagger": false,
+                          "deadly-ambition": true,
+                          "revealed-training-base": true,
+                          "revealed-training-revealed": {
+                              "amount": "61"
+                          },
+                          "exposed-weakness": {
+                              "amount": ""
+                          },
+                          "potent-poison": true,
+                          "executioner": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "keen-observer": true,
+                          "twin-fangs-scholar": true,
+                          "twin-fangs-flank": true,
+                          "practiced-tolerance": true,
+                          "ferocious-strikes": {
+                              "amount": ""
+                          },
+                          "no-quarter": {
+                              "amount": ""
+                          }
+                      },
+                      {
+                          "silent-scope-base": true,
+                          "silent-scope-rifle": true,
+                          "premeditation-base": true,
+                          "premeditation": {
+                              "amount": ""
+                          },
+                          "iron-sight": true,
+                          "be-quick-or-be-killed": true
+                      }
+                  ]
+              },
+              "skills": {
+                  "skills": []
+              },
+              "extras": {
+                  "Runes": "scholar",
+                  "Sigil1": "force",
+                  "Sigil2": "impact/night/slaying-both",
+                  "Enhancement": "slaying-potion",
+                  "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+              }
           }
