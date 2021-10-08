@@ -187,7 +187,6 @@
           Outgoing Healing: 20%
       type: traits
       gw2id: 521
-      defaultEnabled: true
 
     - id: compounding-chemicals
       text: Compounding Chemicals
