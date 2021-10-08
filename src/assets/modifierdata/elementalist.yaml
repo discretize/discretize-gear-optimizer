@@ -484,14 +484,25 @@
       gw2id: 2081
       defaultEnabled: true
 
-    - id: elements-of-rage
+    - id: elements-of-rage-base
       text: Elements of Rage
-      subText: 100% uptime
+      subText: base
+      modifiers:
+        conversion:
+          Precision: {Vitality: 13%}
+      type: traits
+      gw2id: 2131
+      defaultEnabled: true
+
+    - id: elements-of-rage-buff
+      text: Elements of Rage
+      amountData:
+        label: '% uptime'
+        default: 80
+        quantityEntered: 100
       modifiers:
         damage:
           Condition Damage: [5%, add]
-        conversion:
-          Precision: {Vitality: 13%}
       type: traits
       gw2id: 2131
       defaultEnabled: true
