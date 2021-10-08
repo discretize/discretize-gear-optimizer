@@ -4,7 +4,7 @@ import { changeProfession, setBuildTemplate, setModifiers } from '../controlsSli
 import { classModifiersById, traitSectionsById } from '../../assets/modifierdata';
 
 const getInitialItems = (traitline) => {
-  const allItemData = traitSectionsById[traitline].items;
+  const allItemData = traitSectionsById[traitline].items || [];
   return Object.fromEntries(
     allItemData.map((itemData) => {
       const enabled = itemData.defaultEnabled;
@@ -49,7 +49,7 @@ export const traitsSlice = createSlice({
 
       if (enabled) {
         const itemData = classModifiersById[id];
-        state.items[index][id] = itemData.amountData ? { amount: '' } : true;
+        state.items[index][id] = itemData?.amountData ? { amount: '' } : true;
       } else {
         state.items[index][id] = false;
       }
@@ -92,6 +92,7 @@ export const traitsSlice = createSlice({
       state.items.forEach((object) => {
         Object.entries(object).forEach(([id, value]) => {
           const itemData = classModifiersById[id];
+          if (!itemData) return;
 
           const visible = itemData.minor || allSelectedTraits.includes(itemData.gw2id);
           const enabled = Boolean(value);
