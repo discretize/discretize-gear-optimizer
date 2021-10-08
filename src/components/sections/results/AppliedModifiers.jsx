@@ -55,7 +55,7 @@ const AppliedModifiers = ({ classes, data }) => {
             <TableBody>
               {appliedData.map((modifier) => {
                 return (
-                  <TableRow hover key={modifier.id}>
+                  <TableRow hover key={`${modifier.type} ${modifier.id}`}>
                     <TableCell>
                       <Typography className={classes.gw2Item}> {modifier.id} </Typography>
                     </TableCell>
