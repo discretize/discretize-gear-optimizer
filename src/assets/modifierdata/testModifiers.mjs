@@ -27,7 +27,8 @@ const testModifiers = async () => {
     (filename) => path.extname(filename) === '.yaml',
   );
 
-  const allIds = new Set();
+  const allTraitIds = new Set();
+  const allExtrasIds = new Set();
 
   for (const fileName of files) {
     console.log(`  - ${fileName}`);
@@ -45,6 +46,10 @@ const testModifiers = async () => {
 
     const fileIds = new Set();
     const allGw2ids = new Set();
+
+    const fileIsExtra = ['food', 'utility', 'runes', 'sigils'].some((name) =>
+      fileName.includes(name),
+    );
 
     for (const section of data) {
       const sectionName = section.section;
@@ -121,14 +126,12 @@ const testModifiers = async () => {
           `err: invalid or missing item id in ${sectionName}`,
         );
 
-        if (section.id) {
-          if (fileIds.has(id)) {
-            console.log(`❓ file has duplicate id ${id}`);
-          } else if (allIds.has(id)) {
-            console.log(`note: duplicate id ${id} from different file`);
-          }
-        }
+        assert(!fileIds.has(id), `err:file has duplicate id ${id}`);
         fileIds.add(id);
+
+        // duplicate ids within all the extras or within all the traits will be merged
+        const allIds = fileIsExtra ? allExtrasIds : allTraitIds;
+        assert(!allIds.has(id), `duplicate id ${id} from different file`);
         allIds.add(id);
 
         if (fileName !== 'buffs.yaml' && typeof gw2id !== 'number') {
