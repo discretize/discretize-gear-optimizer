@@ -1,15 +1,16 @@
 /* eslint-disable no-console */
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Box, Button, Chip, Typography } from '@material-ui/core';
 import Cancel from '@material-ui/icons/Cancel';
-import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 import DoneAllIcon from '@material-ui/icons/DoneAll';
+import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 import classNames from 'classnames';
-import ProgressIcon from '../../baseComponents/ProgressIcon';
+import { Trans } from 'gatsby-plugin-react-i18next';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeControl, getControl, setModifiers } from '../../../state/controlsSlice';
 import { ABORTED, RUNNING, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import { firstUppercase } from '../../../utils/usefulFunctions';
+import ProgressIcon from '../../baseComponents/ProgressIcon';
 
 const ControlsBox = ({ classes, profession }) => {
   const dispatch = useDispatch();
@@ -68,7 +69,9 @@ const ControlsBox = ({ classes, profession }) => {
           disabled={status === RUNNING || profession === ''}
         >
           <ProgressIcon />
-          <Typography>Calculate</Typography>
+          <Typography>
+            <Trans>Calculate</Trans>
+          </Typography>
         </Button>
       </Box>
       <Box flexGrow={1}>
@@ -80,14 +83,16 @@ const ControlsBox = ({ classes, profession }) => {
           disabled={status !== RUNNING}
         >
           <Cancel className={classNames(classes.icon)} />
-          <Typography style={{ marginLeft: 8 }}>Abort</Typography>
+          <Typography style={{ marginLeft: 8 }}>
+            <Trans>Abort</Trans>
+          </Typography>
         </Button>
       </Box>
       <Box alignSelf="center">
         <Chip
           label={
             <>
-              Status: {firstUppercase(status)} {icon}
+              <Trans>Status:</Trans> {firstUppercase(status)} {icon}
             </>
           }
           color={status !== ABORTED ? 'primary' : 'secondary'}
