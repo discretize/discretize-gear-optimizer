@@ -390,7 +390,7 @@
       subText: bonus
       amountData:
         label: '% berserk'
-        default: 50
+        default: 70
         quantityEntered: 100
       modifiers:
         conversion:
@@ -428,7 +428,7 @@
       subText: power/condition damage
       amountData:
         label: '% berserk'
-        default: 50
+        default: 70
         quantityEntered: 100
       minor: true
       modifiers:
@@ -454,7 +454,7 @@
       text: Bloody Roar
       amountData:
         label: '% berserk'
-        default: 50
+        default: 70
         quantityEntered: 100
       modifiers:
         damage:
