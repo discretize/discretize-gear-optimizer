@@ -240,7 +240,7 @@
       type: items
       gw2id: 38206
 
-    - id: rebirth
+    - id: rebirth-2
       text: Superior Rune of the Rebirth
       modifiers:
         attributes:
@@ -377,7 +377,7 @@
       type: items
       gw2id: 24765
 
-    - id: flame-legion
+    - id: flame-legion-2
       text: Superior Rune of the Flame Legion
       modifiers:
         damage:
