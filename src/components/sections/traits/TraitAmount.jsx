@@ -3,9 +3,6 @@ import React from 'react';
 import { parseAmount } from '../../../state/optimizer/optimizerCore';
 
 const TraitAmount = ({ amountData, handleAmountChange, value = '', disabled }) => {
-  // const parsedValue = Number(value);
-  // const isError = Number.isNaN(parsedValue) || parsedValue < 0;
-
   const { error } = parseAmount(value);
 
   return (
