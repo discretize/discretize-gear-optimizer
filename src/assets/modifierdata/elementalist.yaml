@@ -498,7 +498,7 @@
       text: Elements of Rage
       amountData:
         label: '% uptime'
-        default: 80
+        default: 100
         quantityEntered: 100
       modifiers:
         damage:
