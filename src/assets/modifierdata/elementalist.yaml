@@ -217,7 +217,7 @@
       text: Fresh Air
       amountData:
         label: '% uptime'
-        default: 100
+        default: 50
         quantityEntered: 100
       modifiers:
         attributes:
