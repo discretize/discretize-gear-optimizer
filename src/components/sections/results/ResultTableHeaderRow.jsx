@@ -15,7 +15,7 @@ const ResultTableHeaderRow = ({ classes }) => {
     <TableRow>
       <TableCell className={classes.tablehead}>Damage</TableCell>
       {Slots[wield].map((slot) => (
-        <TableCell className={classes.tablehead} key={slot.name} align="center" padding="none">
+        <TableCell className={classes.tablehead} key={slot.name} align="center" padding="normal">
           {slot.short}
         </TableCell>
       ))}
@@ -24,7 +24,7 @@ const ResultTableHeaderRow = ({ classes }) => {
           className={classes.tablehead}
           key="primaryInfusion"
           align="center"
-          padding="none"
+          padding="normal"
         >
           <Item id={infusions.primaryInfusion} disableText disableLink />
         </TableCell>
@@ -34,7 +34,7 @@ const ResultTableHeaderRow = ({ classes }) => {
           className={classes.tablehead}
           key="secondaryInfusion"
           align="center"
-          padding="none"
+          padding="normal"
         >
           <Item id={infusions.secondaryInfusion} disableText disableLink />
         </TableCell>
