@@ -2,11 +2,7 @@ import { Grid, Typography } from '@material-ui/core';
 import { getImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { useSelector, useStore } from 'react-redux';
-import {
-  getModifiers,
-  getProfession,
-  getSelectedCharacter,
-} from '../../../state/controlsSlice';
+import { getModifiers, getProfession, getSelectedCharacter } from '../../../state/controlsSlice';
 import { updateAttributes } from '../../../state/optimizer/optimizerCore';
 import { getExtras } from '../../../state/slices/extras';
 import { getPriority } from '../../../state/slices/priorities';
@@ -84,7 +80,7 @@ const ResultDetails = ({ data }) => {
   const sigil1Id = extrasModifiersById[sigil1]?.gw2id;
   const sigil2Id = extrasModifiersById[sigil2]?.gw2id;
   const rune = runeStringId ? extrasModifiersById[runeStringId] : '';
-  const runeName = runeStringId ? rune.text.split(' ')[rune.text.split(' ').length - 1] : '';
+  const runeName = runeStringId ? rune.text.replace(/(Superior|Rune|of|the)/g, '') : '';
 
   // Calculate the props for the weapons component
   let wea1;
