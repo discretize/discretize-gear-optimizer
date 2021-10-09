@@ -11,7 +11,7 @@ const TraitsSection = ({ profession }) => {
   const dispatch = useDispatch();
   const showAll = useSelector(getShowAllTraits);
 
-  const traitsData = classModifiers[profession.toLowerCase()].filter((section) => section.id > 0);
+  const traitsData = classModifiers[profession.toLowerCase()]?.filter((section) => section.id > 0);
 
   return (
     <Section

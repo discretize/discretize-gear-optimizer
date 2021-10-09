@@ -40,7 +40,7 @@ const styles = (theme) => ({
  * @param {Object} data         Contains all the data regarding modifiers, ids and extra subtexts
  * @returns
  */
-const Traits = ({ classes, data }) => {
+const Traits = ({ classes, data = [] }) => {
   const dispatch = useDispatch();
 
   // selected trait lines
