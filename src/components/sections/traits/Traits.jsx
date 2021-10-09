@@ -128,12 +128,16 @@ const Traits = ({ classes, data = [] }) => {
               ))}
           </Select>
         </FormControl>
-        <TraitLine
-          id={traitlines[index]}
-          selectable
-          selected={selectedTraits[index]}
-          onSelect={handleTraitChange(index)}
-        />
+        {traitlines[index] ? (
+          <TraitLine
+            id={traitlines[index]}
+            selectable
+            selected={selectedTraits[index]}
+            onSelect={handleTraitChange(index)}
+          />
+        ) : (
+          <br />
+        )}
         {
           // minor traits that have an effect on the outcome of the optimization
           noCheckboxModis.length > 0 && (
