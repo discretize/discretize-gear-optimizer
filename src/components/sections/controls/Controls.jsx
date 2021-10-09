@@ -1,34 +1,74 @@
 /* eslint-disable no-console */
+import { Box, Button, Chip, makeStyles, Typography } from '@material-ui/core';
+import Cancel from '@material-ui/icons/Cancel';
+import DoneAllIcon from '@material-ui/icons/DoneAll';
+import ErrorIcon from '@material-ui/icons/Error';
+import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
+import classNames from 'classnames';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Box, Button, Chip, Typography } from '@material-ui/core';
-import Cancel from '@material-ui/icons/Cancel';
-import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
-import DoneAllIcon from '@material-ui/icons/DoneAll';
-import classNames from 'classnames';
-import ProgressIcon from '../../baseComponents/ProgressIcon';
-import { changeControl, getControl, setModifiers } from '../../../state/controlsSlice';
-import { ABORTED, RUNNING, SUCCESS, WAITING } from '../../../state/optimizer/status';
+import {
+  changeControl,
+  changeError,
+  getControl,
+  getError,
+  setModifiers,
+} from '../../../state/controlsSlice';
+import { ABORTED, ERROR, RUNNING, SUCCESS, WAITING } from '../../../state/optimizer/status';
+import { getPriority } from '../../../state/slices/priorities';
 import { firstUppercase } from '../../../utils/usefulFunctions';
+import ProgressIcon from '../../baseComponents/ProgressIcon';
 
-const ControlsBox = ({ classes, profession }) => {
+const useStyles = makeStyles((theme) => ({
+  errorText: {
+    color: 'red',
+  },
+  button: {
+    margin: theme.spacing(1),
+  },
+  label: {
+    height: 40,
+  },
+  icon: {
+    fontSize: 40,
+  },
+  containerItem: {
+    // borderBottom: `3px solid ${theme.palette.primary.dark}`,
+    marginBottom: theme.spacing(2),
+    // borderRadius: 20,
+    borderColor: theme.palette.primary.main,
+  },
+  chipIcon: { marginBottom: '-6px !important' },
+}));
+
+const ControlsBox = ({ profession }) => {
+  const classes = useStyles();
   const dispatch = useDispatch();
 
   const status = useSelector(getControl('status'));
+  const error = useSelector(getError);
+  const affixes = useSelector(getPriority('affixes'));
 
   const onStartCalculate = React.useCallback(
     (e) => {
+      if (affixes.length < 1) {
+        // no affixes selected, display message
+        dispatch(changeError('Please select at least one affix.'));
+        dispatch(changeControl({ key: 'status', value: ERROR }));
+        return;
+      }
+
       console.log('calculate');
 
       // pass data from GraphQL
       dispatch(setModifiers({ profession }));
-
+      dispatch(changeError(''));
       dispatch(changeControl({ key: 'status', value: RUNNING }));
       dispatch({
         type: 'START',
       });
     },
-    [dispatch, profession],
+    [dispatch, profession, affixes],
   );
 
   const onCancelCalculate = React.useCallback(
@@ -52,48 +92,58 @@ const ControlsBox = ({ classes, profession }) => {
     case RUNNING:
       icon = <HourglassEmptyIcon fontSize="small" classes={{ root: classes.chipIcon }} />;
       break;
+    case ERROR:
+      icon = <ErrorIcon fontSize="small" classes={{ root: classes.chipIcon }} />;
+      break;
     default:
       icon = null;
   }
 
   return (
-    <Box display="flex" flexWrap="wrap">
-      <Box>
-        <Button
-          variant="outlined"
-          color="primary"
-          className={classes.button}
-          onClick={onStartCalculate}
-          classes={{ label: classes.label }}
-          disabled={status === RUNNING || profession === ''}
-        >
-          <ProgressIcon />
-          <Typography>Calculate</Typography>
-        </Button>
+    <>
+      <Box display="flex" flexWrap="wrap">
+        <Box>
+          <Button
+            variant="outlined"
+            color="primary"
+            className={classes.button}
+            onClick={onStartCalculate}
+            classes={{ label: classes.label }}
+            disabled={status === RUNNING || profession === ''}
+          >
+            <ProgressIcon />
+            <Typography>Calculate</Typography>
+          </Button>
+        </Box>
+        <Box flexGrow={1}>
+          <Button
+            variant="outlined"
+            color="primary"
+            className={classes.button}
+            onClick={onCancelCalculate}
+            disabled={status !== RUNNING}
+          >
+            <Cancel className={classNames(classes.icon)} />
+            <Typography style={{ marginLeft: 8 }}>Abort</Typography>
+          </Button>
+        </Box>
+        <Box alignSelf="center" display="flex" m={1} maxWidth={300}>
+          <Typography variant="caption" className={classes.errorText}>
+            {error}
+          </Typography>
+        </Box>
+        <Box alignSelf="center">
+          <Chip
+            label={
+              <>
+                Status: {firstUppercase(status)} {icon}
+              </>
+            }
+            color={[SUCCESS, WAITING, RUNNING].includes(status) ? 'primary' : 'secondary'}
+          />
+        </Box>
       </Box>
-      <Box flexGrow={1}>
-        <Button
-          variant="outlined"
-          color="primary"
-          className={classes.button}
-          onClick={onCancelCalculate}
-          disabled={status !== RUNNING}
-        >
-          <Cancel className={classNames(classes.icon)} />
-          <Typography style={{ marginLeft: 8 }}>Abort</Typography>
-        </Button>
-      </Box>
-      <Box alignSelf="center">
-        <Chip
-          label={
-            <>
-              Status: {firstUppercase(status)} {icon}
-            </>
-          }
-          color={status !== ABORTED ? 'primary' : 'secondary'}
-        />
-      </Box>
-    </Box>
+    </>
   );
 };
 

@@ -10,9 +10,10 @@ import {
   getSelectedCharacter,
   getList,
   getModifiers,
+  changeError,
 } from '../controlsSlice';
 import { INFUSIONS } from '../../utils/gw2-data';
-import { SUCCESS, WAITING } from './status';
+import { ERROR, SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -196,8 +197,17 @@ function* runCalc() {
 
     console.timeEnd('Calculation');
     console.time('Render Result');
+    if (currentList.length > 0) {
+      yield put(changeControl({ key: 'status', value: SUCCESS }));
+    } else {
+      yield put(changeControl({ key: 'status', value: ERROR }));
+      yield put(
+        changeError(
+          'No result could be generated for the provided input. Please check your constraints (min boon duration, ...)!',
+        ),
+      );
+    }
 
-    yield put(changeControl({ key: 'status', value: SUCCESS }));
     yield delay(0);
 
     // automatically select the top result unless the user clicked one during the calculation

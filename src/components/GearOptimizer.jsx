@@ -29,22 +29,6 @@ const styles = (theme) => ({
       paddingRight: 20,
     },
   },
-  button: {
-    margin: theme.spacing(1),
-  },
-  label: {
-    height: 40,
-  },
-  icon: {
-    fontSize: 40,
-  },
-  containerItem: {
-    // borderBottom: `3px solid ${theme.palette.primary.dark}`,
-    marginBottom: theme.spacing(2),
-    // borderRadius: 20,
-    borderColor: theme.palette.primary.main,
-  },
-  chipIcon: { marginBottom: '-6px !important' },
 });
 
 /**
@@ -110,7 +94,7 @@ const MainComponent = ({ classes, data }) => {
           )}
         </Grid>
 
-        <Controls classes={classes} profession={profession} />
+        <Controls profession={profession} />
 
         <ResultTable />
         <Box m={3} />

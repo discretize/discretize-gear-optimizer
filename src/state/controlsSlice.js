@@ -26,6 +26,7 @@ export const controlSlice = createSlice({
           selectedTemplate: '',
           selectedSpecialization: firstUppercase(action.payload),
           status: WAITING,
+          error: '',
         };
       }
       return state;
@@ -46,6 +47,7 @@ export const controlSlice = createSlice({
         progress: 0,
         selectedCharacter: null,
         status: WAITING,
+        error: '',
       };
     },
     setBuildTemplate: (state, action) => {
@@ -60,6 +62,7 @@ export const controlSlice = createSlice({
         selectedSpecialization: specialization,
         status: WAITING,
         profession,
+        error: '',
       };
     },
     setModifiers: (state, action) => {
@@ -74,22 +77,26 @@ export const controlSlice = createSlice({
     changeSelectedCharacter: (state, action) => {
       state.selectedCharacter = action.payload;
     },
+    changeError: (state, action) => {
+      state.error = action.payload;
+    },
   },
 });
 
 export const getModifiers = (state) => [
-  ...state.optimizer.extras.modifiers || [],
-  ...state.optimizer.buffs.modifiers || [],
-  ...state.optimizer.extraModifiers.modifiers || [],
-  ...state.optimizer.omnipotion.modifiers || [],
-  ...state.optimizer.skills.modifiers || [],
-  ...state.optimizer.traits.modifiers || [],
+  ...(state.optimizer.extras.modifiers || []),
+  ...(state.optimizer.buffs.modifiers || []),
+  ...(state.optimizer.extraModifiers.modifiers || []),
+  ...(state.optimizer.omnipotion.modifiers || []),
+  ...(state.optimizer.skills.modifiers || []),
+  ...(state.optimizer.traits.modifiers || []),
 ];
 
 export const getProfession = (state) => state.optimizer.control.profession;
 export const getControl = (key) => (state) => state.optimizer.control[key];
 export const getList = (state) => state.optimizer.control.list;
 export const getSelectedCharacter = (state) => state.optimizer.control.selectedCharacter;
+export const getError = (state) => state.optimizer.control.error;
 
 export const {
   reset,
@@ -100,6 +107,7 @@ export const {
   setModifiers,
   setBuildTemplate,
   changeSelectedCharacter,
+  changeError,
 } = controlSlice.actions;
 
 export default controlSlice.reducer;
