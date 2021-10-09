@@ -1,5 +1,4 @@
 import { Container, Paper, withStyles } from '@material-ui/core';
-import withWidth from '@material-ui/core/withWidth';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
@@ -11,15 +10,6 @@ import withRoot from '../../hocs/withRoot';
 import globals from '../../styles/globals';
 
 const styles = (theme) => ({
-  image: {
-    position: 'fixed !important',
-    width: '100vw',
-    height: '100vh',
-    left: 0,
-    bottom: 0,
-    opacity: 0.7,
-    zIndex: -1,
-  },
   paper: {
     padding: theme.spacing(2),
     backgroundColor: theme.palette.background.default,
@@ -51,4 +41,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default withRoot(injectSheet(globals)(withStyles(styles)(withWidth()(Layout))));
+export default withRoot(injectSheet(globals)(withStyles(styles)(Layout)));

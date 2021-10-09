@@ -10,9 +10,6 @@ import ResultTableRow from './ResultTableRow';
 import ResultTableHeaderRow from './ResultTableHeaderRow';
 
 const styles = (theme) => ({
-  root: {
-    width: '100%',
-  },
   container: {
     maxHeight: 440,
     borderColor: theme.palette.background.paper,
@@ -23,6 +20,7 @@ const styles = (theme) => ({
   },
   tablehead: {
     backgroundColor: theme.palette.background.paper,
+    paddingRight: theme.spacing(1),
   },
 });
 
