@@ -46,25 +46,23 @@ const Presets = ({ className, data, handleClick }) => {
         />
       ) : (
         data.map((preset, index) => (
-          <>
-            <Chip
-              id={preset.name}
-              key={preset.name}
-              label={
-                preset.profession ? (
-                  <Profession
-                    eliteSpecialization={firstUppercase(preset.profession)}
-                    text={preset.name}
-                  />
-                ) : (
-                  preset.name
-                )
-              }
-              variant="outlined"
-              onClick={handleClick(index)}
-              className={classes.templateChip}
-            />
-          </>
+          <Chip
+            id={preset.name}
+            key={preset.name}
+            label={
+              preset.profession ? (
+                <Profession
+                  eliteSpecialization={firstUppercase(preset.profession)}
+                  text={preset.name}
+                />
+              ) : (
+                preset.name
+              )
+            }
+            variant="outlined"
+            onClick={handleClick(index)}
+            className={classes.templateChip}
+          />
         ))
       )}
     </div>
