@@ -24,7 +24,7 @@ import {
 } from '../../../state/slices/traits';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import TraitAmount from './TraitAmount';
-import { classModifiersById, traitSectionsById } from '../../../assets/modifierdata';
+import { traitSectionsById } from '../../../assets/modifierdata';
 
 const styles = (theme) => ({
   formControl: {
