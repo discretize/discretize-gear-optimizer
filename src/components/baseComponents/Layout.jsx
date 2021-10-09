@@ -1,4 +1,4 @@
-import { Container, Paper, withStyles } from '@material-ui/core';
+import { Box, Container, Paper, useMediaQuery, useTheme, withStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import injectSheet from 'react-jss';
@@ -16,26 +16,21 @@ const styles = (theme) => ({
   },
 });
 
-class Layout extends Component {
-  // state = { open: false };
-
-  render = () => {
-    const { classes, children, ContainerProps, disableContainer = false } = this.props;
-
-    return (
-      <>
-        {(!disableContainer && (
-          <Container maxWidth="lg" {...ContainerProps}>
-            <Paper elevation={8} className={classes.paper}>
-              {children}
-            </Paper>
-          </Container>
-        )) ||
-          children}
-      </>
-    );
-  };
-}
+const Layout = ({ classes, children, ContainerProps, disableContainer = false }) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
+  return (
+    <>
+      {(!disableContainer && !isMobile && (
+        <Container maxWidth="lg" {...ContainerProps}>
+          <Paper elevation={8} className={classes.paper}>
+            {children}
+          </Paper>
+        </Container>
+      )) || <Box p={2}>{children}</Box>}
+    </>
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
