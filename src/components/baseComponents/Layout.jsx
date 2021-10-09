@@ -1,6 +1,6 @@
 import { Box, Container, Paper, useMediaQuery, useTheme, withStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React from 'react';
 import injectSheet from 'react-jss';
 import 'typeface-fira-mono';
 import 'typeface-menomonia';
