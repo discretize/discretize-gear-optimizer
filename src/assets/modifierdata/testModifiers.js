@@ -17,7 +17,8 @@ import {
   damageKeysBlacklist,
   attributePointKeysBlacklist,
   attributePercentKeysBlacklist,
-} from './metadata.mjs';
+// eslint-disable-next-line import/extensions
+} from './metadata.js';
 import specializationData from '../../utils/mapping/specializations.json';
 
 const directory = './src/assets/modifierdata/';

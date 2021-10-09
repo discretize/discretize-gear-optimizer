@@ -16,7 +16,7 @@ import {
   INFUSION_BONUS,
 } from '../../utils/gw2-data';
 
-import { allAttributePointKeys } from '../../assets/modifierdata/metadata.mjs';
+import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
 
 /**
  * ------------------------------------------------------------------------
