@@ -60,7 +60,6 @@ const DistributionSection = ({ profession, data }) => {
               />
             }
             label="Switch to %-wise damage distribution"
-            style={{ marginTop: 8 }}
           />
 
           {profession !== '' && (
