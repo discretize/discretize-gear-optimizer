@@ -25,7 +25,6 @@ const byId = (sections) => {
 // combines items in all sections in all entries into one object
 const allById = (group) =>
   Object.assign({}, ...Object.values(group).map((category) => byId(category)));
-  // Object.fromEntries(Object.entries(group).map(([key, value]) => [key, byId(value)]));
 
 export const classModifiers = {
   elementalist,
@@ -40,13 +39,12 @@ export const classModifiers = {
 };
 export const classModifiersById = allById(classModifiers);
 
-const allTraitSections = Object.values(classModifiers)
+const traitSectionsArray = Object.values(classModifiers)
   .flat()
   .filter((section) => section.id);
 
-export const traitSectionsById = Object.assign(
-  {},
-  ...allTraitSections.map((section) => ({ [section.id]: section })),
+export const traitSectionsById = Object.fromEntries(
+  traitSectionsArray.map((section) => [section.id, section]),
 );
 
 export const extrasModifiers = {
@@ -59,13 +57,3 @@ export const extrasModifiersById = allById(extrasModifiers);
 
 export const buffModifiers = buffs;
 export const buffModifiersById = byId(buffs);
-
-/*
-import {
-  classModifiers,
-  classModifiersById,
-  buffModifiers,
-  extrasModifiers,
-  extrasModifiersById,
-} from '../../../assets/modifierdata';
-*/
