@@ -1,13 +1,11 @@
 - section: Boons
   items:
-
     - id: might
       text: Might
-      subText: (25x)
       modifiers:
         attributes:
-          Power: [750, buff]
-          Condition Damage: [750, buff]
+          Power: [30, buff]
+          Condition Damage: [30, buff]
       type: Boon
 
     - id: fury
@@ -26,16 +24,14 @@
 
     - id: vulnerability
       text: Vulnerability
-      subText: (25x)
       modifiers:
         damage:
-          Strike Damage: [25%, target]
-          Condition Damage: [25%, target]
+          Strike Damage: [1%, target]
+          Condition Damage: [1%, target]
       type: Condition
 
 - section: Warrior buffs
   items:
-
     - id: bannerOfStrength
       text: Banner of Strength
       modifiers:
@@ -82,7 +78,6 @@
 
 - section: Other buffs
   items:
-
     - id: spotter
       text: Spotter
       modifiers:
@@ -117,7 +112,6 @@
 
 - section: Guardian - Perfect Inscriptions (100% uptime)
   items:
-
     - id: baneSignet
       text: Bane Signet
       modifiers:
@@ -152,7 +146,6 @@
 
 - section: Revenant buffs
   items:
-
     - id: assassinsPresence
       text: Assassin's Presence
       modifiers:
@@ -179,7 +172,6 @@
 
 - section: Effects
   items:
-
     - id: exposed
       text: Exposed
       subText: (100% uptime)
