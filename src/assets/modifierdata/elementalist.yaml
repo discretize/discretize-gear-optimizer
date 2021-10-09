@@ -560,7 +560,7 @@
       text: Empowering Auras
       amountData:
         label: 'stacks'
-        default: 1
+        default: 2
         quantityEntered: 1
       modifiers:
         damage:
