@@ -9,22 +9,23 @@ import {
   Typography,
   withStyles,
 } from '@material-ui/core';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Specialization, Trait, TraitLine } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { traitSectionsById } from '../../../assets/modifierdata';
 import {
-  toggleTraitModifier,
-  changeTraitLine,
   changeTrait,
-  getTraitLines,
+  changeTraitLine,
+  getShowAllTraits,
   getTraitItems,
+  getTraitLines,
   getTraits,
   setTraitModiferAmount,
-  getShowAllTraits,
+  toggleTraitModifier,
 } from '../../../state/slices/traits';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import TraitAmount from './TraitAmount';
-import { classModifiersById, traitSectionsById } from '../../../assets/modifierdata';
 
 const styles = (theme) => ({
   formControl: {
@@ -42,6 +43,8 @@ const styles = (theme) => ({
  */
 const Traits = ({ classes, data }) => {
   const dispatch = useDispatch();
+
+  const { t } = useTranslation();
 
   // selected trait lines
   const traitlines = useSelector(getTraitLines);
@@ -107,10 +110,13 @@ const Traits = ({ classes, data }) => {
     return (
       <React.Fragment key={key}>
         <FormControl className={classes.formControl}>
-          <InputLabel htmlFor={key}>Traitline {lineNr}</InputLabel>
+          <InputLabel htmlFor={key}>
+            {/* i18next-extract-disable-next-line */}
+            <Trans>Traitline {lineNr}</Trans>
+          </InputLabel>
           <Select
-            value={traitlines[index]}
-            input={<Input name={`Traitline ${lineNr}`} id={key} />}
+            value={traitlines[index]} /* i18next-extract-disable-next-line */
+            input={<Input name={t(`Traitline ${lineNr}`)} id={key} />}
             onChange={handleTraitlineChange(index)}
             renderValue={(selected) => (
               <Specialization id={selected} disableLink className={classes.item} />
@@ -138,7 +144,7 @@ const Traits = ({ classes, data }) => {
           // minor traits that have an effect on the outcome of the optimization
           noCheckboxModis.length > 0 && (
             <div>
-              Minors:{' '}
+              <Trans>Minors:</Trans>{' '}
               {noCheckboxModis.map((itemData) => {
                 const { id, gw2id, subText } = itemData;
                 return (
