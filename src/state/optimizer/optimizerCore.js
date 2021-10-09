@@ -1032,7 +1032,7 @@ function calcHealing(_character) {
   // reasonably representative skill: druid celestial avatar 4 pulse
   // 390 base, 0.3 coefficient
   attributes['Effective Healing'] =
-    (attributes['Healing Power'] * 0.3 + 390) * (1 + attributes['Outgoing Healing']);
+    (attributes['Healing Power'] * 0.3 + 390) * (1 + attributes['Outgoing Healing'] || 0);
   if (Object.prototype.hasOwnProperty.call(settings.modifiers, 'bountiful-maintenance-oil')) {
     const bonus =
       ((attributes['Healing Power'] || 0) * 0.6) / 10000 +
