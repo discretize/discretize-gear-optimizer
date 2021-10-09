@@ -31,9 +31,7 @@ const styles = (theme) => ({
   },
 });
 
-/**
- * First disables the delimiting line above!
- */
+// First disables the delimiting line above!
 const Section = ({ classes, first, title, helpText, extraInfo, content }) => {
   const SectionInfo = ({ children }) => (
     <>

@@ -34,9 +34,9 @@ const styles = (theme) => ({
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
  *
- * @param {classes, data} styles and data fetched by graphiql
- * @returns the main ui
+ * @param {{classes, data}} styles and data fetched by graphiql
  */
+
 const MainComponent = ({ classes, data }) => {
   // Query variables from redux store that should have a global scope
   const expertMode = useSelector(getControl('expertMode'));
@@ -104,12 +104,7 @@ const MainComponent = ({ classes, data }) => {
   );
 };
 
-/**
- * Wrapper around the main component. GraphQL is queried here.
- *
- * @param {*} param0
- * @returns
- */
+// Wrapper around the main component. GraphQL is queried here.
 const GearOptimizer = ({ classes }) => {
   return (
     <StaticQuery

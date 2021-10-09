@@ -34,35 +34,31 @@ let isChanged = true;
 /**
  * Sets up optimizer with input data
  *
- * @param {Object} list - the list to store results in (this will be *mutated* by calculate())
- *
- * @param {Object} input
- * @param {Object[]} input.modifiers - array of modifier objects
- * @param {?String[]} input.tags - modifier data for the UI
+ * @param {object} input
+ * @param {object[]} input.modifiers - array of modifier objects
+ * @param {?string[]} input.tags - modifier data for the UI
  *                      (passed unedited into character.settings)
- * @param {String} input.profession
- * @param {String} input.weapontype
- * @param {String[]} input.affixes - all selected gear affixes to iterate over
- * @param {String[]} input.forcedAffixes - array of specific affix names for each slot,
+ * @param {string} input.profession
+ * @param {string} input.weapontype
+ * @param {string[]} input.affixes - all selected gear affixes to iterate over
+ * @param {string[]} input.forcedAffixes - array of specific affix names for each slot,
  *                     or '' for unspecfied
- * @param {String} input.rankby - "Damage"/"Survivability"/"Healing"
+ * @param {string} input.rankby - "Damage"/"Survivability"/"Healing"
  * @param {number} input.minBoonDuration
  * @param {number} input.minHealingPower
  * @param {number} input.minToughness
  * @param {number} input.maxToughness
  * @param {number} input.maxResults
- * @param {?String} input.primaryInfusion
- * @param {?String} input.secondaryInfusion
- * @param {?Number} input.primaryMaxInfusions - number of infusions, 0-18
- * @param {?Number} input.secondaryMaxInfusions - number of infusions, 0-18
- *
- * @param {?Number} input.distributionVersion: - version 1: old style (percentDistribution) - verison 2: new style (coeff / sec)
- * @param {?Object.<String, Number>} input.percentDistribution - old style distribution
+ * @param {?string} input.primaryInfusion
+ * @param {?string} input.secondaryInfusion
+ * @param {?number} input.primaryMaxInfusions - number of infusions, 0-18
+ * @param {?number} input.secondaryMaxInfusions - number of infusions, 0-18
+ * @param {?number} input.distributionVersion - version 1: old style (percentDistribution) - verison 2: new style (coeff / sec)
+ * @param {?object.<string, number>} input.percentDistribution - old style distribution
  *                                   (sums to 100)
- * @param {?Object.<String, Number>} input.distribution - new style distribution
+ * @param {?object.<string, number>} input.distribution - new style distribution
  *                                   (coefficient * weaponstrength per second; average condition stacks)
- *
- * @returns {Object} settings - parsed settings object
+ * @returns {object} settings - parsed settings object
  */
 export function setup(input) {
   worstScore = undefined;
@@ -484,9 +480,9 @@ export function setup(input) {
  * error so text boxes can display the error validaton state
  *
  * @param {*} text - the string to be parsed
- * @returns {Object} result
- * @returns {?number} result.value - the resulting number, or null
- * @returns {boolean} result.error - whether the input was invalid
+ * @returns {{ value: ?number, error: boolean}} result
+ *   result.value - the resulting number, or null
+ *   result.error - whether the input was invalid
  */
 export function parseAmount(text) {
   if (text === '' || text === null || text === undefined) {
@@ -506,10 +502,10 @@ export function parseAmount(text) {
  * Remember, a generator's next() function returns a plain object { value, done }.
  *
  * @param {*} settings
- * @yields {Object} result
- * @yields {boolean} result.done - true if the calculation is finished
- * @yields {number} result.value.isChanged - true if list has been mutated
- * @yields {number} result.value.percent - the progress percentage
+ * @yields {{done: boolean, value: {isChanged: boolean, percent: number}}} result
+ * yields {boolean} result.done - true if the calculation is finished
+ * yields {number} result.value.isChanged - true if list has been mutated
+ * yields {number} result.value.percent - the progress percentage
  */
 export function* calculate(settings) {
   if (settings.affixes.length === 0) {
@@ -835,8 +831,8 @@ export function characterLT(a, b) {
  * conversions according to ingame testing by Cat.
  * https://discord.com/channels/301270513093967872/842629146857177098/864564894128275468
  *
- * @param {number} any number
- * @returns {number} the input number rounded to the nearest integer
+ * @param {number} number
+ * @returns {number} result - the input number rounded to the nearest integer
  */
 const roundEven = (number) => {
   if (number % 1 === 0.5) {
@@ -861,7 +857,7 @@ const clamp = (input, min, max) => {
  * Creates an {attributes} object parameter in the given character object and fills it with
  * calculated stats and damage/healing/survivability scores.
  *
- * @param {Object} _character
+ * @param {object} _character
  */
 export function updateAttributes(_character) {
   const { damageMultiplier } = _character.settings.modifiers;
@@ -884,7 +880,7 @@ export function updateAttributes(_character) {
  * calculation to find the optimal build, including cancelling itself early if the character's
  * boon duration/toughness/healing power are not valid according to the optimizer settings.
  *
- * @param {Object} _character
+ * @param {object} _character
  * @param {boolean} [skipValidation] - skips the validation check if true
  */
 function updateAttributesFast(_character, skipValidation = false) {
@@ -1109,8 +1105,8 @@ function calcResults(_character) {
  * don't directly mutate character.attributes; it's passed by reference so the clone shares
  * the old one until updateAttributes is called on it.
  *
- * @param {Object} character
- * @returns {Object} character
+ * @param {object} character
+ * @returns {object} character
  */
 export function clone(character) {
   return {
