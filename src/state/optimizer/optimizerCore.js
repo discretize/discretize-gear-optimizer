@@ -479,6 +479,15 @@ export function setup(input) {
   return settings;
 }
 
+/**
+ * Parses a string to a number, treating non-parsable strings like empty inputs but indicating an
+ * error so text boxes can display the error validaton state
+ *
+ * @param {*} text - the string to be parsed
+ * @returns {Object} result
+ * @returns {?number} result.value - the resulting number, or null
+ * @returns {boolean} result.error - whether the input was invalid
+ */
 export function parseAmount(text) {
   if (text === '' || text === null || text === undefined) {
     return { value: null, error: false };
