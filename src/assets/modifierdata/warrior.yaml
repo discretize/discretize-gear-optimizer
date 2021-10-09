@@ -554,3 +554,21 @@
       type: traits
       gw2id: 2060
       defaultEnabled: true
+
+- section: Bladesworn
+  id: 68
+  items:
+
+    - id: guns-and-glory
+      text: Guns and Glory
+      minor: true
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Ferocity: [250, unknown]
+      type: traits
+      gw2id: 2236
+      defaultEnabled: true

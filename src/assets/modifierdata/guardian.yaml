@@ -412,3 +412,55 @@
       type: traits
       gw2id: 2148
       defaultEnabled: true
+
+- section: Willbender
+  id: 65
+  items:
+
+    - id: power-for-power
+      text: Power for Power
+      modifiers:
+        attributes:
+          Toughness: [-240, buff]
+          Power: [240, buff]
+      type: traits
+      gw2id: 2190
+      defaultEnabled: true
+
+    - id: lethal-tempo
+      text: Lethal Tempo
+      minor: true
+      amountData:
+        label: 'stacks'
+        default: 5
+        quantityEntered: 1
+      modifiers:
+        damage:
+          Strike Damage: [3%, add]
+      type: traits
+      gw2id: 2189
+      defaultEnabled: true
+
+    - id: tyrants-momentum
+      text: Tyrant's Momentum
+      subText: bonus
+      amountData:
+        label: 'stacks'
+        default: 5
+        quantityEntered: 1
+      modifiers:
+        damage:
+          Strike Damage: [2%, add]
+      type: traits
+      gw2id: 2201
+      defaultEnabled: true
+
+    - id: tyrants-momentum-bugged
+      text: Tyrant's Momentum
+      subText: bugged 10% chill mod
+      modifiers:
+        damage:
+          Strike Damage: [10%, mult]
+      type: traits
+      gw2id: 2201
+      defaultEnabled: false

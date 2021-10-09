@@ -330,3 +330,50 @@
       type: traits
       gw2id: 2100
       defaultEnabled: true
+
+- section: Vindicator
+  id: 69
+  items:
+
+    - id: empire-divided-above
+      text: Empire Divided
+      subText: above
+      minor: true
+      amountData:
+        label: '% above 50'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Power: [240, unknown]
+      type: traits
+      gw2id: 2229
+      defaultEnabled: true
+
+    - id: empire-divided-below
+      text: Empire Divided
+      subText: below
+      minor: true
+      amountData:
+        label: '% below 50'
+        default: 0
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Healing Power: [240, unknown]
+      type: traits
+      gw2id: 2229
+      defaultEnabled: true
+
+    - id: forerunner-of-death
+      text: Forerunner of Death
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Strike Damage: [15%, unknown]
+      type: traits
+      gw2id: 2257
+      defaultEnabled: true

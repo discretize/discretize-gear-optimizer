@@ -291,3 +291,79 @@
       type: traits
       gw2id: 2021
       defaultEnabled: true
+
+- section: Harbinger
+  id: 64
+  items:
+
+    - id: wicked-corruption
+      text: Wicked Corruption
+      amountData:
+        label: 'blight stacks'
+        default: 25
+        quantityEntered: 1
+      modifiers:
+        damage:
+          Strike Damage: [1%, unknown]
+      type: traits
+      gw2id: 2188
+      defaultEnabled: true
+
+    - id: septic-corruption
+      text: Septic Corruption
+      amountData:
+        label: 'blight stacks'
+        default: 25
+        quantityEntered: 1
+      modifiers:
+        damage:
+          Condition Damage: [1%, unknown]
+      type: traits
+      gw2id: 2185
+      defaultEnabled: true
+
+    - id: alchemic-vigor
+      text: Alchemic Vigor
+      minor: true
+      modifiers:
+        attributes:
+          Vitality: [360, unknown]
+      type: traits
+      gw2id: 2186
+      defaultEnabled: true
+
+    - id: implacable-foe
+      text: Implacable Foe
+      modifiers:
+        conversion:
+          Ferocity: {Vitality: 13%}
+      type: traits
+      gw2id: 2192
+      defaultEnabled: true
+
+    - id: dark-gunslinger
+      text: Dark Gunslinger
+      modifiers:
+        conversion:
+          Expertise: {Vitality: 13%}
+      type: traits
+      gw2id: 2209
+      defaultEnabled: true
+
+    - id: cascading-corruption
+      text: Cascading Corruption
+      modifiers:
+        attributes:
+          Power: [180, unknown]
+      type: traits
+      gw2id: 2218
+      defaultEnabled: true
+
+    - id: doom-approaches
+      text: Doom Approaches
+      modifiers:
+        attributes:
+          Condition Damage: [180, unknown]
+      type: traits
+      gw2id: 2203
+      defaultEnabled: true

@@ -231,3 +231,52 @@
       type: traits
       gw2id: 2069
       defaultEnabled: true
+
+- section: Virtuoso
+  id: 66
+  items:
+
+    - id: mental-focus
+      text: Mental Focus
+      amountData:
+        label: '% melee'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Strike Damage: [15%, unknown]
+      type: traits
+      gw2id: 2208
+      defaultEnabled: true
+
+    - id: sharpening-sorrow
+      text: Sharpening Sorrow
+      subText: 100% fury
+      modifiers:
+        attributes:
+          Expertise: [150, unknown]
+      type: traits
+      gw2id: 2207
+      defaultEnabled: true
+
+    - id: quiet-intensity
+      text: Quiet Intensity
+      subText: 100% fury
+      minor: true
+      modifiers:
+        conversion:
+          Ferocity: {Vitality: 7%}
+        attributes:
+          Critical Chance: 20%
+      type: traits
+      gw2id: 2193
+      defaultEnabled: true
+
+    - id: bloodsong
+      text: Bloodsong
+      modifiers:
+        damage:
+          Bleeding Damage: [25%, unknown]
+      type: traits
+      gw2id: 2223
+      defaultEnabled: true
