@@ -12,6 +12,7 @@ import {
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';
+import { parseAmount, scaleValue } from '../../../state/optimizer/optimizerCore';
 
 import { buffModifiersById } from '../../../assets/modifierdata';
 
@@ -34,6 +35,8 @@ const styles = (theme) => ({
 //   Condition,
 // };
 
+const roundTwo = (num) => Math.round(num * 100) / 100;
+
 const AppliedModifiers = ({ classes, data }) => {
   const appliedData = data.map((item) => {
     const allData = buffModifiersById[item.id];
@@ -53,13 +56,20 @@ const AppliedModifiers = ({ classes, data }) => {
         <AccordionDetails>
           <Table padding="none">
             <TableBody>
-              {appliedData.map((modifier) => {
+              {appliedData.map(({ type, id, modifiers, amount, amountData }) => {
+                const { value: amountInput } = parseAmount(amount);
+                const multiplierNote = amountData
+                  ? `${roundTwo(scaleValue(1, amountInput, amountData))}x`
+                  : '';
                 return (
-                  <TableRow hover key={`${modifier.type} ${modifier.id}`}>
+                  <TableRow hover key={`${type} ${id}`}>
                     <TableCell>
-                      <Typography className={classes.gw2Item}> {modifier.id} </Typography>
+                      <Typography className={classes.gw2Item}> {id} </Typography>
                     </TableCell>
-                    <TableCell>{JSON.stringify(modifier.modifiers)}</TableCell>
+                    <TableCell>
+                      <Typography>{multiplierNote}</Typography>
+                    </TableCell>
+                    <TableCell>{JSON.stringify(modifiers)}</TableCell>
                   </TableRow>
                 );
               })}
