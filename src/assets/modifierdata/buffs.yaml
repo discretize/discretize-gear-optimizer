@@ -161,14 +161,6 @@
       type: Trait
       gw2id: 1786
 
-    - id: facetOfNature
-      text: Facet of Nature—Dragon
-      modifiers:
-        attributes:
-          Boon Duration: 20%
-      type: Skill
-      gw2id: 29371
-
     - id: riteDwarf
       text: Rite of the Great Dwarf
       modifiers:
