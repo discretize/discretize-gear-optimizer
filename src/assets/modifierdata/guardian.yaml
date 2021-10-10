@@ -268,11 +268,11 @@
 
     - id: force-of-will
       text: Force of Will
-      subText: assuming 1k vitality
       modifiers:
         attributes:
           Vitality: [300, buff]
-          Outgoing Healing: 10%
+        conversion:
+          Outgoing Healing: {Vitality: 0.01%}
       type: traits
       gw2id: 1682
       defaultEnabled: true
