@@ -141,12 +141,12 @@ export function setup(input) {
   modifiersInput = modifiersInput || [];
   for (const item of modifiersInput) {
     const {
+      id = '[no id]',
       visible = true,
       enabled = true,
       amount: amountText,
       // data: {
       modifiers: {
-        id = '[no id]',
         damage = {},
         attributes = {},
         conversion = {},
