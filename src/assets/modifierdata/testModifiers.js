@@ -87,6 +87,17 @@ const testModifiers = async () => {
         if (Object.keys(otherKeys).length)
           console.log('❓ this script is missing validation for', otherKeys);
 
+        const checkNullRecursively = (obj) => {
+          for (const value of Object.values(obj)) {
+            if (value === null || value === undefined) {
+              console.log(`❓ ${id} has a null or undefined value!`)
+            } else if (typeof value === 'object') {
+              checkNullRecursively(value);
+            }
+          }
+        };
+        checkNullRecursively(item);
+
         if (amountData) {
           assert(typeof amountData.label === 'string', `err: missing amount label in ${id}`);
           assert(typeof amountData.default === 'number', `err: missing amount default in ${id}`);
