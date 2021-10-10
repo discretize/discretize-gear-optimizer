@@ -1,5 +1,13 @@
 - section: Skills
-  items: []
+  items:
+
+    - id: vengeful-hammers
+      text: Vengeful Hammers
+      modifiers:
+        damage:
+          Damage Reduction: [20%, unknown]
+      type: skills
+      gw2id: 26557
 
 - section: Corruption
   id: 14
@@ -56,6 +64,15 @@
 - section: Retribution
   id: 9
   items:
+
+    - id: close-quarters
+      text: Close Quarters
+      subText: ranged
+      modifiers:
+        damage:
+          Damage Reduction: [10%, unknown]
+      type: traits
+      gw2id: 1728
 
     - id: dwarven-battle-training
       text: Dwarven Battle Training
@@ -268,6 +285,34 @@
           Outgoing Healing: 20%
       type: traits
       gw2id: 1818
+      defaultEnabled: true
+
+    - id: serene-rejuvenation
+      text: Serene Rejuvenation
+      minor: true
+      modifiers:
+        attributes:
+          Outgoing Healing: 15%
+      type: traits
+      gw2id: 1814
+      defaultEnabled: true
+
+    - id: unyielding-devotion
+      text: Unyielding Devotion
+      subText: 100%
+      modifiers:
+        damage:
+          Damage Reduction: [15%, unknown]
+      type: traits
+      gw2id: 1825
+
+    - id: selfless-amplification
+      text: Selfless Amplification
+      modifiers:
+        conversion:
+          Outgoing Healing: {Healing Power: 0.015%}
+      type: traits
+      gw2id: 1820
       defaultEnabled: true
 
 - section: Renegade
