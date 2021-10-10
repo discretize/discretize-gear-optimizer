@@ -164,10 +164,6 @@ export function setup(input) {
 
     const { value: amountInput } = parseAmount(amountText);
 
-    const scaleValue = amountData
-      ? (value) => (value * (amountInput ?? amountData.default)) / amountData.quantityEntered
-      : (value) => value;
-
     for (const [attribute, allPairs] of Object.entries(damage)) {
       // damage, i.e.
       //   Strike Damage: [3%, add, 7%, mult]
@@ -176,7 +172,7 @@ export function setup(input) {
       while (allPairsMut.length) {
         const [percentAmount, addOrMult] = allPairsMut.splice(0, 2);
 
-        const scaledAmount = scaleValue(parsePercent(percentAmount));
+        const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
 
         switch (attribute) {
           case 'Strike Damage':
@@ -217,7 +213,7 @@ export function setup(input) {
         const allPairsMut = [...allPairs];
         while (allPairsMut.length) {
           const [amount, convertedOrBuff] = allPairsMut.splice(0, 2);
-          const scaledAmount = scaleValue(amount);
+          const scaledAmount = scaleValue (amount, amountInput, amountData);
 
           switch (convertedOrBuff) {
             case 'converted':
@@ -236,7 +232,7 @@ export function setup(input) {
         // percent, i.e.
         //   Torment Duration: 15%
 
-        const scaledAmount = scaleValue(parsePercent(allPairs));
+        const scaledAmount = scaleValue(parsePercent(allPairs), amountInput, amountData);
         // unconfirmed if +max health mods are mult but ¯\_(ツ)_/¯
         // +outgoing healing is assumed additive
         if (attribute === 'Maximum Health') {
@@ -257,7 +253,7 @@ export function setup(input) {
         settings.modifiers['convert'][attribute] = {};
       }
       for (const [source, percentAmount] of Object.entries(val)) {
-        const scaledAmount = scaleValue(parsePercent(percentAmount));
+        const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
 
         settings.modifiers['convert'][attribute][source] =
           (settings.modifiers['convert'][attribute][source] || 0) + scaledAmount;
@@ -473,6 +469,48 @@ export function setup(input) {
   // }
 
   return settings;
+}
+
+/**
+ * Scales a modifier value linearly up or down by a user-specified amount, in accordance with the
+ * amountData from the modifier data YAML.
+ *
+ * If amountInput is null (the user did not type into the amount box), the amountData.default value
+ * is used (this should be the placeholder in the text box).
+ *
+ * If there is no amountData, the value is retutned unmodified.
+ *
+ * @example
+ * // returns 10
+ * scaleValue(10, 100, { quantityEntered: 100, ... })        // amountInput equals quantityEntered
+ *
+ * @example
+ * // returns 8
+ * scaleValue(10, 80, { quantityEntered: 100, ... })         // amountInput < quantityEntered
+ *
+ * @example
+ * // returns 20
+ * scaleValue(10, 2, { quantityEntered: 1, ... })            // amountInput > quantityEntered
+ *
+ * @example
+ * // returns 50
+ * scaleValue(10, null, { quantityEntered: 1, default: 5 })  // no amountInput
+ *
+ * @example
+ * // returns 10
+ * scaleValue(10, null, undefined)                           // does nothing
+ *
+ * @param {number} value - modifier value to scale
+ * @param {?number} amountInput - user-input amount (e.g. number of stacks selected)
+ * @param {?object} amountData
+ * @param {number} amountData.quantityEntered -
+ * @param {number} amountData.default
+ * @returns {number} result
+ */
+export function scaleValue (value, amountInput, amountData) {
+  return amountData
+      ? (value * (amountInput ?? amountData.default)) / amountData.quantityEntered
+      : value;
 }
 
 /**
