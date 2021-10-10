@@ -19,7 +19,7 @@
     "clean": "gatsby clean",
     "updateMappings": "node updateMappings.js",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "testModifiers": "node --experimental-json-modules ./src/assets/modifierdata/testModifiers.mjs"
+    "testModifiers": "node --experimental-json-modules ./src/assets/modifierdata/testModifiers.js"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.2",
