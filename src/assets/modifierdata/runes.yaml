@@ -180,6 +180,17 @@
       type: items
       gw2id: 73653
 
+    - id: scrapper
+      text: Superior Rune of the Scrapper
+      modifiers:
+        damage:
+          Damage Reduction: [7%, unknown]
+        attributes:
+          Power: [175, converted]
+          Toughness: [100, converted]
+      type: items
+      gw2id: 71276
+
     - id: sanctuary
       text: Superior Rune of Sanctuary
       modifiers:
@@ -247,6 +258,16 @@
           Boon Duration: 15%
       type: items
       gw2id: 84171
+
+    - id: flock
+      text: Superior Rune of the Flock
+      modifiers:
+        attributes:
+          Healing Power: [175, converted]
+          Vitality: [100, converted]
+          Maximum Health: 10%
+      type: items
+      gw2id: 24696
 
 - section: Condition Runes
   items:
@@ -449,6 +470,8 @@
     - id: perplexity
       text: Superior Rune of Perplexity
       modifiers:
+        damage:
+          Damage Reduction: [10%, unknown]
         attributes:
           Condition Damage: [175, converted]
           Confusion Duration: 50%
