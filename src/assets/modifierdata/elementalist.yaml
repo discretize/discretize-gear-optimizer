@@ -391,7 +391,7 @@
       minor: true
       modifiers:
         damage:
-          Damage Reduction: [11.67%, unknown]
+          Damage Reduction: [6.6%, unknown]
       type: traits
       gw2id: 1948
       defaultEnabled: true
