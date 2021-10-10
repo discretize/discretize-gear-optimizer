@@ -72,7 +72,16 @@ export const buffsSlice = createSlice({
 
       state.modifiers = enabledModifiers.map((id) => {
         const { modifiers, gw2id } = buffModifiersById[id];
-        return { id, modifiers, gw2id };
+        const amount = {
+          amount: `${amounts[id]}`,
+          amountData: { label: 'stacks', default: 25, quantityEntered: 1 },
+        };
+        return {
+          id,
+          modifiers,
+          gw2id,
+          ...(['might', 'vulnerability'].includes(id) && amount),
+        };
       });
     },
   },
