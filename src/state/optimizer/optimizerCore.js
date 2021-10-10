@@ -1012,13 +1012,15 @@ function calcSurvivability(_character, damageMultiplier) {
   const { attributes } = _character;
 
   attributes['Armor'] += attributes['Toughness'];
-  attributes['Health'] += attributes['Vitality'] * 10;
+
+  attributes['Health'] = roundEven(
+    (attributes['Health'] + attributes['Vitality'] * 10) *
+      (1 + (attributes['Maximum Health'] || 0)),
+  );
 
   attributes['Effective Health'] =
-    attributes['Health'] *
-    attributes['Armor'] *
-    (1 / damageMultiplier['Damage Taken']) *
-    (attributes['Maximum Health'] || 1);
+    attributes['Health'] * attributes['Armor'] * (1 / damageMultiplier['Damage Taken']);
+
   attributes['Survivability'] = attributes['Effective Health'] / 1967;
 }
 

@@ -75,7 +75,7 @@ const Priorities = ({ classes }) => {
                 key={goal}
                 value={goal}
                 control={<Radio color="primary" />}
-                label={goal === 'Survivability' ? 'Survivability (WIP)' : goal}
+                label={goal}
               />
             ))}
           </RadioGroup>
