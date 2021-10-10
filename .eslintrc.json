@@ -20,9 +20,12 @@
     // temp
     "react/prop-types": "off",
     "react/jsx-props-no-spreading": "off",
+
+    // plugin-jsdoc defaults are quite problematic
     "jsdoc/require-jsdoc": "off",
     "jsdoc/require-param-description": "off",
-    "jsdoc/require-returns": "off",
+    "jsdoc/require-returns": "off",           // breaks @yield
+    "jsdoc/tag-lines": "off",                 // breaks @example
 
     // prettier compat
     "arrow-body-style": "off",
