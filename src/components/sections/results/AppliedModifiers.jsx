@@ -66,8 +66,8 @@ const AppliedModifiers = ({ classes, data }) => {
                     <TableCell>
                       <Typography className={classes.gw2Item}> {id} </Typography>
                     </TableCell>
-                    <TableCell>
-                      <Typography>{multiplierNote}</Typography>
+                    <TableCell style={{ paddingRight: 8 }}>
+                      <Typography variant="body2">{multiplierNote}</Typography>
                     </TableCell>
                     <TableCell>{JSON.stringify(modifiers)}</TableCell>
                   </TableRow>
