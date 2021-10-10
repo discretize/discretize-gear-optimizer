@@ -173,11 +173,10 @@
     - id: durability
       text: Superior Rune of Durability
       modifiers:
-        damage:
-          Damage Reduction: [10%, unknown]
         attributes:
           Toughness: [175, converted]
           Boon Duration: 15%
+          Maximum Health: 10%
       type: items
       gw2id: 73653
 
@@ -369,11 +368,10 @@
     - id: balthazar
       text: Superior Rune of Balthazar
       modifiers:
-        damage:
-          Damage Reduction: [10%, unknown]
         attributes:
           Condition Damage: [175, converted]
           Burning Duration: 50%
+          Maximum Health: 10%
       type: items
       gw2id: 24765
 
@@ -481,8 +479,6 @@
     - id: divinity
       text: Superior Rune of Divinity
       modifiers:
-        damage:
-          Damage Reduction: [10%, unknown]
         attributes:
           Power: [78, converted]
           Precision: [78, converted]
@@ -493,6 +489,7 @@
           Expertise: [78, converted]
           Ferocity: [78, converted]
           Healing Power: [78, converted]
+          Maximum Health: 10%
       type: items
       gw2id: 24732
 
