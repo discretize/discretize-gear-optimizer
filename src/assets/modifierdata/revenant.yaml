@@ -315,6 +315,85 @@
       gw2id: 1820
       defaultEnabled: true
 
+- section: Herald
+  id: 52
+  items:
+
+    - id: draconic-fortitude
+      text: Draconic Fortitude
+      minor: true
+      modifiers:
+        attributes:
+          Maximum Health: 10%
+      type: traits
+      gw2id: 1737
+      defaultEnabled: true
+
+    - id: hardening-persistence
+      text: Hardening Persistence
+      amountData:
+        label: 'upkeep'
+        default: 10
+        quantityEntered: 1
+      modifiers:
+        damage:
+          Damage Reduction: [1.5%, unknown]
+      type: traits
+      gw2id: 1730
+
+    - id: reinforced-potency-base
+      text: Reinforced Potency
+      subText: base
+      minor: true
+      modifiers:
+        attributes:
+          Concentration: [120, unknown]
+      type: traits
+      gw2id: 1788
+      defaultEnabled: true
+
+    - id: reinforced-potency-boons
+      text: Reinforced Potency
+      minor: true
+      amountData:
+        label: 'boons'
+        default: 8
+        quantityEntered: 1
+      modifiers:
+        damage:
+          Strike Damage: [1%, unknown]
+      type: traits
+      gw2id: 1788
+      defaultEnabled: true
+
+    - id: forceful-persistence-nonherald
+      text: Forceful Persistence
+      subText: non herald upkeep
+      amountData:
+        label: '% uptime'
+        default: 43
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Strike Damage: [13%, add] # add according to wiki
+      type: traits
+      gw2id: 1803
+      defaultEnabled: true
+
+    - id: forceful-persistence-herald
+      text: Forceful Persistence
+      subText: per herald upkeep
+      amountData:
+        label: 'average stacks'
+        default: 2.4
+        quantityEntered: 1
+      modifiers:
+        damage:
+          Strike Damage: [4%, add] # add according to wiki
+      type: traits
+      gw2id: 1803
+      defaultEnabled: true
+
 - section: Renegade
   id: 63
   items:
