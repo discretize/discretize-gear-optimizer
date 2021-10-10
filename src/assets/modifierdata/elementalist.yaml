@@ -273,8 +273,8 @@
       gw2id: 275
       defaultEnabled: true
 
-    - id: geomancers-defense
-      text: Geomancer's Defense
+    - id: geomancers-training
+      text: Geomancer's Training
       minor: true
       modifiers:
         damage:

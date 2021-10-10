@@ -1002,7 +1002,7 @@ list:
                           "stone-flesh": false,
                           "serrated-stones": true,
                           "strength-of-stone": true,
-                          "geomancers-defense": true
+                          "geomancers-training": true
                       },
                       {
                           "superior-elements": true,
@@ -1191,7 +1191,7 @@ list:
                           "stone-flesh": false,
                           "serrated-stones": true,
                           "strength-of-stone": true,
-                          "geomancers-defense": true
+                          "geomancers-training": true
                       },
                       {
                           "gathered-focus": true,
