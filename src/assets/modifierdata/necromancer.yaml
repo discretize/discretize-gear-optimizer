@@ -132,7 +132,6 @@
         attributes:
           Toughness: [20, buff]
       type: traits
-      gw2id: null
       defaultEnabled: true
 
     - id: putrid-defense
