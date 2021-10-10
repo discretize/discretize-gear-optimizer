@@ -102,7 +102,6 @@ export const traitsSlice = createSlice({
           }
         });
       });
-
       state.modifiers = modifiers;
     },
   },
