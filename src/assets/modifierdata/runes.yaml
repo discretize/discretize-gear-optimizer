@@ -34,6 +34,18 @@
       type: items
       gw2id: 24723
 
+    - id: eagle-perma
+      text: Superior Rune of the Eagle
+      subText: (always below 50)
+      modifiers:
+        damage:
+          Strike Damage: [10%, mult]
+        attributes:
+          Precision: [175, converted]
+          Ferocity: [225, converted]
+      type: items
+      gw2id: 24723
+
     - id: thief
       text: Superior Rune of the Thief
       modifiers:
