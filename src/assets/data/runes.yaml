@@ -33,6 +33,17 @@ list:
         gw2-id: 24723
         type: 'items'
 
+      - id: eagle-perma
+        text: 'Superior Rune of the Eagle'
+        subText: (always below 50)
+        modifiers: >-
+          {
+            "flat": { "Precision": 175, "Ferocity": 225 },
+            "multiplier": { "Effective Power": 0.10 }
+          }
+        gw2-id: 24723
+        type: 'items'
+
       - id: thief
         text: 'Superior Rune of the Thief'
         modifiers: >-
