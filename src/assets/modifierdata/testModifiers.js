@@ -17,7 +17,8 @@ import {
   damageKeysBlacklist,
   attributePointKeysBlacklist,
   attributePercentKeysBlacklist,
-} from './metadata.mjs';
+// eslint-disable-next-line import/extensions
+} from './metadata.js';
 import specializationData from '../../utils/mapping/specializations.json';
 
 const directory = './src/assets/modifierdata/';
@@ -27,7 +28,8 @@ const testModifiers = async () => {
     (filename) => path.extname(filename) === '.yaml',
   );
 
-  const allIds = new Set();
+  const allTraitIds = new Set();
+  const allExtrasIds = new Set();
 
   for (const fileName of files) {
     console.log(`  - ${fileName}`);
@@ -38,13 +40,16 @@ const testModifiers = async () => {
       data = yaml.load(fileData);
     } catch (e) {
       assert(false, `err: ${fileName} is invalid YAML`);
-      // continue;
     }
 
     assert(Array.isArray(data), `err: ${fileName} is not an array (use dashes for sections!)`);
 
     const fileIds = new Set();
     const allGw2ids = new Set();
+
+    const fileIsExtra = ['food', 'utility', 'runes', 'sigils'].some((name) =>
+      fileName.includes(name),
+    );
 
     for (const section of data) {
       const sectionName = section.section;
@@ -65,9 +70,9 @@ const testModifiers = async () => {
       );
 
       for (const item of items) {
-        /* eslint-disable no-unused-vars */
         const {
           id,
+          // eslint-disable-next-line no-unused-vars
           text,
           subText,
           modifiers,
@@ -78,10 +83,20 @@ const testModifiers = async () => {
           defaultEnabled,
           ...otherKeys
         } = item;
-        /* eslint-enable no-unused-vars */
 
         if (Object.keys(otherKeys).length)
-          console.log('note: this script is missing validation for', otherKeys);
+          console.log('❓ this script is missing validation for', otherKeys);
+
+        const checkNullRecursively = (obj) => {
+          for (const value of Object.values(obj)) {
+            if (value === null || value === undefined) {
+              console.log(`❓ ${id} has a null or undefined value!`)
+            } else if (typeof value === 'object') {
+              checkNullRecursively(value);
+            }
+          }
+        };
+        checkNullRecursively(item);
 
         if (amountData) {
           assert(typeof amountData.label === 'string', `err: missing amount label in ${id}`);
@@ -100,7 +115,7 @@ const testModifiers = async () => {
           } else {
             // eslint-disable-next-line no-lonely-if
             if (gw2id && sectionName !== 'Soulbeast')
-              console.log(`note: ${id} isn't a trait in this line`);
+              console.log(`❓ ${id} isn't a trait in this line`);
           }
         }
 
@@ -121,24 +136,21 @@ const testModifiers = async () => {
           `err: invalid or missing item id in ${sectionName}`,
         );
 
-        if (section.id) {
-          if (fileIds.has(id)) {
-            console.log(`❓ file has duplicate id ${id}`);
-          } else if (allIds.has(id)) {
-            console.log(`note: duplicate id ${id} from different file`);
-          }
-        }
+        assert(!fileIds.has(id), `err:file has duplicate id ${id}`);
         fileIds.add(id);
+
+        // duplicate ids within all the extras or within all the traits will be merged
+        const allIds = fileIsExtra ? allExtrasIds : allTraitIds;
+        assert(!allIds.has(id), `duplicate id ${id} from different file`);
         allIds.add(id);
 
         if (fileName !== 'buffs.yaml' && typeof gw2id !== 'number') {
           // console.log(`note: no gw2id in ${id}`);
-        } else if (typeof type !== 'string') console.log(`note: ${id} doesn't have a type`);
+        } else if (typeof type !== 'string') console.log(`❓ ${id} doesn't have a type`);
 
         assert(typeof modifiers === 'object', `err: invalid or missing modifiers in ${id}`);
 
-        // eslint-disable-next-line no-unused-vars
-        const { damage, attributes, conversion, effect, note, ...otherModifiers } = modifiers;
+        const { damage, attributes, conversion, effect, ...otherModifiers } = modifiers;
         assert(
           Object.keys(otherModifiers).length === 0,
           `err: invalid modifier type(s): ${Object.keys(otherModifiers)}`,
@@ -248,7 +260,7 @@ function parsePercent(value, key, id) {
       typeof num === 'number' && !Number.isNaN(num),
       `invalid number ${value} for ${key} in ${id}`,
     );
-    if (num < 1 && id !== 'bountiful-maintenance-oil')
+    if (num < 1 && key !== 'Outgoing Healing')
       console.log(`note: value ${num} in ${id} doesn't look like a percent`);
   }
 }

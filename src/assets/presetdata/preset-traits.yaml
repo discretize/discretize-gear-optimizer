@@ -411,7 +411,7 @@ list:
       #   distribution: '100% Power'
       #   traits: >-
 
-      - name: Hybrid FB (Virtues)*
+      - name: Hybrid FB (Virtues)
         id: hycfb-virtues-leadership
         specialization: Firebrand
         boons: 'Condi'
@@ -482,11 +482,11 @@ list:
                   "skills": []
               },
               "extras": {
-                  "Runes": "",
-                  "Sigil1": "",
-                  "Sigil2": "",
-                  "Enhancement": "",
-                  "Nourishment": ""
+                  "Runes": "traveler",
+                  "Sigil1": "bursting",
+                  "Sigil2": "smoldering",
+                  "Enhancement": "master-tuning-crystal",
+                  "Nourishment": "beef-rendang"
               }
           }
 
@@ -498,7 +498,7 @@ list:
         #     "Nourishment": "dragon's-revelry-starcake"
         # }
 
-      - name: Hybrid FB (Honor)*
+      - name: Hybrid FB (Honor)
         id: hycfb-honor-leadership
         specialization: Firebrand
         boons: 'Condi'
@@ -564,11 +564,11 @@ list:
                   "skills": []
               },
               "extras": {
-                  "Runes": "",
-                  "Sigil1": "",
-                  "Sigil2": "",
-                  "Enhancement": "",
-                  "Nourishment": ""
+                  "Runes": "traveler",
+                  "Sigil1": "bursting",
+                  "Sigil2": "smoldering",
+                  "Enhancement": "master-tuning-crystal",
+                  "Nourishment": "beef-rendang"
               }
           }
 
@@ -1002,7 +1002,7 @@ list:
                           "stone-flesh": false,
                           "serrated-stones": true,
                           "strength-of-stone": true,
-                          "geomancers-defense": true
+                          "geomancers-training": true
                       },
                       {
                           "superior-elements": true,
@@ -1191,7 +1191,7 @@ list:
                           "stone-flesh": false,
                           "serrated-stones": true,
                           "strength-of-stone": true,
-                          "geomancers-defense": true
+                          "geomancers-training": true
                       },
                       {
                           "gathered-focus": true,

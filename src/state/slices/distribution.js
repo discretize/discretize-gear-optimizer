@@ -31,6 +31,33 @@ export const distributionSlice = createSlice({
     },
   },
   reducers: {
+    resetDistributions: (state) => {
+      state.values1 = {
+        Power: 0,
+        Burning: 0,
+        Bleeding: 0,
+        Poisoned: 0,
+        Torment: 0,
+        Confusion: 0,
+      };
+      state.values2 = {
+        Power: 0,
+        Burning: 0,
+        Bleeding: 0,
+        Poisoned: 0,
+        Torment: 0,
+        Confusion: 0,
+      };
+      state.textBoxes = {
+        Power: '0',
+        Burning: '0',
+        Bleeding: '0',
+        Poisoned: '0',
+        Torment: '0',
+        Confusion: '0',
+      };
+      return state;
+    },
     changeDistributionVersion: (state, action) => {
       state.version = action.payload;
     },
@@ -88,4 +115,5 @@ export const {
   changeAllTextBoxes,
   changeAllDistributionsOld,
   changeAllDistributionsNew,
+  resetDistributions,
 } = distributionSlice.actions;

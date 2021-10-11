@@ -3,13 +3,7 @@ import { setBuildTemplate, setModifiers } from '../controlsSlice';
 
 import { extrasModifiersById } from '../../assets/modifierdata';
 
-const modifierData = {
-  Runes: extrasModifiersById,
-  Sigil1: extrasModifiersById,
-  Sigil2: extrasModifiersById,
-  Nourishment: extrasModifiersById,
-  Enhancement: extrasModifiersById,
-};
+const extrasTypes = ['Runes', 'Sigil1', 'Sigil2', 'Nourishment', 'Enhancement'];
 
 export const extrasSlice = createSlice({
   name: 'extras',
@@ -32,11 +26,11 @@ export const extrasSlice = createSlice({
       return { ...templateState.extras };
     },
     [setModifiers]: (state) => {
-      const enabledTypes = Object.keys(modifierData).filter((key) => state[key]);
+      const enabledTypes = extrasTypes.filter((key) => state[key]);
 
       state.modifiers = enabledTypes.map((type) => {
         const id = state[type];
-        const { modifiers } = modifierData[type][id];
+        const { modifiers } = extrasModifiersById[id];
         return { id, modifiers, source: type };
       });
     },

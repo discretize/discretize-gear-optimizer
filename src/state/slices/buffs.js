@@ -30,11 +30,18 @@ export const buffsSlice = createSlice({
       exposed: false,
       lightArmor: false,
     },
+    amounts: {
+      might: 25,
+      vulnerability: 25,
+    },
     modifiers: [],
   },
   reducers: {
     changeBuff: (state, action) => {
       state.buffs[action.payload.key] = action.payload.value;
+    },
+    changeBuffAmount: (state, action) => {
+      state.amounts[action.payload.key] = action.payload.value;
     },
     replaceBuffs: (state, action) => {
       return {
@@ -57,19 +64,30 @@ export const buffsSlice = createSlice({
         if (key in buffPreset) buffs[key] = buffPreset[key];
       });
 
-      return { buffs };
+      return { buffs, amounts: state.amounts };
     },
     [setModifiers]: (state) => {
       const enabledModifiers = Object.keys(state.buffs).filter((key) => state.buffs[key]);
+      const { amounts } = state;
 
       state.modifiers = enabledModifiers.map((id) => {
         const { modifiers, gw2id } = buffModifiersById[id];
-        return { id, modifiers, gw2id };
+        const amount = {
+          amount: `${amounts[id]}`,
+          amountData: { label: 'stacks', default: 25, quantityEntered: 1 },
+        };
+        return {
+          id,
+          modifiers,
+          gw2id,
+          ...(['might', 'vulnerability'].includes(id) && amount),
+        };
       });
     },
   },
 });
 
 export const getBuffs = (state) => state.optimizer.buffs.buffs;
+export const getBuffAmounts = (state) => state.optimizer.buffs.amounts;
 
-export const { changeBuff, replaceBuffs } = buffsSlice.actions;
+export const { changeBuff, replaceBuffs, changeBuffAmount } = buffsSlice.actions;

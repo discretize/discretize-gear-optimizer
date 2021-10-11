@@ -45,6 +45,7 @@ const ExtraModifiers = ({ classes }) => {
           )} [{ "buff": { "Power": 750, "Condition Damage": 750 } }, { "buff": { "Precision": 750 } } ]`,
         ),
       );
+      dispatch(changeExtraModifiers({ key: 'extraModifiers', value: [] }));
     }
   };
   return (

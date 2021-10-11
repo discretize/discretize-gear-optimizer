@@ -1,12 +1,27 @@
 import { FormControl, FormGroup, FormLabel, Grid, Typography, withStyles } from '@material-ui/core';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import {
+  Box,
+  FormControl,
+  FormGroup,
+  FormLabel,
+  Grid,
+  Typography,
+  withStyles,
+} from '@material-ui/core';
 import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { buffModifiers } from '../../../assets/modifierdata';
-import { changeBuff, getBuffs } from '../../../state/slices/buffs';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
+import {
+  changeBuff,
+  changeBuffAmount,
+  getBuffAmounts,
+  getBuffs,
+} from '../../../state/slices/buffs';
+import TraitAmount from '../traits/TraitAmount';
 
 const styles = (theme) => ({
   boon: {
@@ -25,10 +40,15 @@ const Buffs = ({ classes }) => {
   const { t } = useTranslation();
 
   const buffs = useSelector(getBuffs);
+  const amounts = useSelector(getBuffAmounts);
 
   const handleChange = (buff) => (event) => {
     // change the value
     dispatch(changeBuff({ key: buff.id, value: event.target.checked }));
+  };
+
+  const handleAmountChange = (buff) => (event) => {
+    dispatch(changeBuffAmount({ key: buff.id, value: event.target.value }));
   };
 
   // Dynamic component creation for buffs from a string
@@ -80,15 +100,33 @@ const Buffs = ({ classes }) => {
                 }
 
                 return (
-                  <CheckboxComponent
-                    key={buff.id}
-                    value={buff.id}
-                    checked={buffs[buff.id]}
-                    label={
-                      <Component id={buff.gw2id} name={name} disableLink className={classes.boon} />
-                    }
-                    onChange={handleChange(buff)}
-                  />
+                  <Box justifyContent="space-between" display="flex" key={buff.id}>
+                    <Box display="flex">
+                      <CheckboxComponent
+                        value={buff.id}
+                        checked={buffs[buff.id]}
+                        label={
+                          <Component
+                            id={buff.gw2id}
+                            name={name}
+                            disableLink
+                            className={classes.boon}
+                          />
+                        }
+                        onChange={handleChange(buff)}
+                      />
+                    </Box>
+                    {['Might', 'Vulnerability'].includes(name) && (
+                      <Box display="flex">
+                        <TraitAmount
+                          amountData={{ label: 'stacks', default: 25, quantityEntered: 1 }}
+                          handleAmountChange={handleAmountChange(buff)}
+                          value={amounts[buff.id]}
+                          disabled={!buffs[buff.id]}
+                        />
+                      </Box>
+                    )}
+                  </Box>
                 );
               })}
             </FormGroup>

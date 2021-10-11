@@ -25,45 +25,47 @@ const styles = (theme) => ({
     // borderRadius: 20,
     borderColor: theme.palette.primary.main,
   },
+  helpTextContainer: {
+    marginTop: theme.spacing(0.5),
+    marginBottom: theme.spacing(1),
+  },
 });
 
-const SectionInfo = ({ title, children }) => (
-  <>
-    <Typography variant="h5">{title}</Typography>
-    {children && (
-      <Typography variant="caption">
-        <Paper variant="outlined">
+// First disables the delimiting line above!
+const Section = ({ classes, first, title, helpText, extraInfo, content }) => {
+  const SectionInfo = ({ children }) => (
+    <>
+      <Typography variant="h5">{title}</Typography>
+      {children && (
+        <Paper className={classes.helpTextContainer}>
           <Box p={1}>
-            <LiveHelpIcon />
-            <div>{children}</div>
+            <div>
+              <LiveHelpIcon />
+            </div>
+            <Typography variant="caption">{children}</Typography>
           </Box>
         </Paper>
-      </Typography>
-    )}
-  </>
-);
+      )}
+    </>
+  );
 
-/**
- * First disables the delimiting line above!
- */
-const Section = ({ classes, first, title, helpText, extraInfo, content }) => (
-  <Grid item container spacing={2} className={classes.containerItem}>
-    {!first && (
-      <Grid item xs={12}>
-        <Divider />
+  return (
+    <Grid item container spacing={2} className={classes.containerItem}>
+      {!first && (
+        <Grid item xs={12}>
+          <Divider />
+        </Grid>
+      )}
+      <Grid item xs={12} sm={3}>
+        <SectionInfo>{helpText}</SectionInfo>
+        {extraInfo}
       </Grid>
-    )}
-    <Grid item xs={12} sm={3}>
-      <SectionInfo title={title} first={first}>
-        {helpText}
-      </SectionInfo>
-      {extraInfo}
-    </Grid>
 
-    <Grid item xs={12} sm={9}>
-      {content}
+      <Grid item xs={12} sm={9}>
+        {content}
+      </Grid>
     </Grid>
-  </Grid>
-);
+  );
+};
 
 export default withStyles(styles)(Section);

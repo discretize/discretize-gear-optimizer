@@ -9,6 +9,7 @@ import {
   changeAllTextBoxes,
   changeDistributionVersion,
   getDistributionVersion,
+  resetDistributions,
 } from '../../../state/slices/distribution';
 import { PROFESSIONS } from '../../../utils/gw2-data';
 import Presets from '../../baseComponents/Presets';
@@ -31,6 +32,11 @@ const DistributionSection = ({ profession, data }) => {
 
   const onTemplateClickDistribution = React.useCallback(
     (index) => (event) => {
+      if (index < 0) {
+        dispatch(resetDistributions());
+        return;
+      }
+
       const state = JSON.parse(distributionPresets[index].value);
 
       dispatch(changeAllDistributionsOld(state.values1));

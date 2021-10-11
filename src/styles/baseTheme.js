@@ -21,6 +21,4 @@ export default {
   initialColorModeName: 'dark',
   useBorderBox: false,
   useLocalStorage: false,
-
-  useBulkRequests: true,
 };

@@ -5,7 +5,7 @@
     "jquery": true
   },
   "ignorePatterns": ["gulpfile.js"],
-  "extends": ["react-app", "airbnb/whitespace", "airbnb/hooks", "prettier"],
+  "extends": ["react-app", "airbnb/whitespace", "airbnb/hooks", "plugin:jsdoc/recommended", "prettier"],
   "rules": {
     // disabled or reduced
     "no-restricted-syntax": "off",
@@ -20,6 +20,12 @@
     // temp
     "react/prop-types": "off",
     "react/jsx-props-no-spreading": "off",
+
+    // plugin-jsdoc defaults are quite problematic
+    "jsdoc/require-jsdoc": "off",
+    "jsdoc/require-param-description": "off",
+    "jsdoc/require-returns": "off",           // breaks @yield
+    "jsdoc/tag-lines": "off",                 // breaks @example
 
     // prettier compat
     "arrow-body-style": "off",

@@ -1,5 +1,13 @@
 - section: Skills
-  items: []
+  items:
+
+    - id: vengeful-hammers
+      text: Vengeful Hammers
+      modifiers:
+        damage:
+          Damage Reduction: [20%, unknown]
+      type: skills
+      gw2id: 26557
 
 - section: Corruption
   id: 14
@@ -56,6 +64,15 @@
 - section: Retribution
   id: 9
   items:
+
+    - id: close-quarters
+      text: Close Quarters
+      subText: ranged
+      modifiers:
+        damage:
+          Damage Reduction: [10%, unknown]
+      type: traits
+      gw2id: 1728
 
     - id: dwarven-battle-training
       text: Dwarven Battle Training
@@ -270,6 +287,113 @@
       gw2id: 1818
       defaultEnabled: true
 
+    - id: serene-rejuvenation
+      text: Serene Rejuvenation
+      minor: true
+      modifiers:
+        attributes:
+          Outgoing Healing: 15%
+      type: traits
+      gw2id: 1814
+      defaultEnabled: true
+
+    - id: unyielding-devotion
+      text: Unyielding Devotion
+      subText: 100%
+      modifiers:
+        damage:
+          Damage Reduction: [15%, unknown]
+      type: traits
+      gw2id: 1825
+
+    - id: selfless-amplification
+      text: Selfless Amplification
+      modifiers:
+        conversion:
+          Outgoing Healing: {Healing Power: 0.015%}
+      type: traits
+      gw2id: 1820
+      defaultEnabled: true
+
+- section: Herald
+  id: 52
+  items:
+
+    - id: draconic-fortitude
+      text: Draconic Fortitude
+      minor: true
+      modifiers:
+        attributes:
+          Maximum Health: 10%
+      type: traits
+      gw2id: 1737
+      defaultEnabled: true
+
+    - id: hardening-persistence
+      text: Hardening Persistence
+      amountData:
+        label: 'upkeep'
+        default: 10
+        quantityEntered: 1
+      modifiers:
+        damage:
+          Damage Reduction: [1.5%, unknown]
+      type: traits
+      gw2id: 1730
+
+    - id: reinforced-potency-base
+      text: Reinforced Potency
+      subText: base
+      minor: true
+      modifiers:
+        attributes:
+          Concentration: [120, unknown]
+      type: traits
+      gw2id: 1788
+      defaultEnabled: true
+
+    - id: reinforced-potency-boons
+      text: Reinforced Potency
+      minor: true
+      amountData:
+        label: 'boons'
+        default: 8
+        quantityEntered: 1
+      modifiers:
+        damage:
+          Strike Damage: [1%, unknown]
+      type: traits
+      gw2id: 1788
+      defaultEnabled: true
+
+    - id: forceful-persistence-nonherald
+      text: Forceful Persistence
+      subText: non herald upkeep
+      amountData:
+        label: '% uptime'
+        default: 43
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Strike Damage: [13%, add] # add according to wiki
+      type: traits
+      gw2id: 1803
+      defaultEnabled: true
+
+    - id: forceful-persistence-herald
+      text: Forceful Persistence
+      subText: per herald upkeep
+      amountData:
+        label: 'average stacks'
+        default: 2.4
+        quantityEntered: 1
+      modifiers:
+        damage:
+          Strike Damage: [4%, add] # add according to wiki
+      type: traits
+      gw2id: 1803
+      defaultEnabled: true
+
 - section: Renegade
   id: 63
   items:
@@ -329,4 +453,51 @@
           All Damage: [1%, add]
       type: traits
       gw2id: 2100
+      defaultEnabled: true
+
+- section: Vindicator
+  id: 69
+  items:
+
+    - id: empire-divided-above
+      text: Empire Divided
+      subText: above
+      minor: true
+      amountData:
+        label: '% above 50'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Power: [240, unknown]
+      type: traits
+      gw2id: 2229
+      defaultEnabled: true
+
+    - id: empire-divided-below
+      text: Empire Divided
+      subText: below
+      minor: true
+      amountData:
+        label: '% below 50'
+        default: 0
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Healing Power: [240, unknown]
+      type: traits
+      gw2id: 2229
+      defaultEnabled: true
+
+    - id: forerunner-of-death
+      text: Forerunner of Death
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Strike Damage: [15%, unknown]
+      type: traits
+      gw2id: 2257
       defaultEnabled: true

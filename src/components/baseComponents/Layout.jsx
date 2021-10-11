@@ -1,7 +1,6 @@
-import { Container, Paper, withStyles } from '@material-ui/core';
-import withWidth from '@material-ui/core/withWidth';
+import { Box, Container, Paper, useMediaQuery, useTheme, withStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React from 'react';
 import injectSheet from 'react-jss';
 import 'typeface-fira-mono';
 import 'typeface-menomonia';
@@ -11,44 +10,30 @@ import withRoot from '../../hocs/withRoot';
 import globals from '../../styles/globals';
 
 const styles = (theme) => ({
-  image: {
-    position: 'fixed !important',
-    width: '100vw',
-    height: '100vh',
-    left: 0,
-    bottom: 0,
-    opacity: 0.7,
-    zIndex: -1,
-  },
   paper: {
     padding: theme.spacing(2),
     backgroundColor: theme.palette.background.default,
   },
 });
 
-class Layout extends Component {
-  // state = { open: false };
-
-  render = () => {
-    const { classes, children, ContainerProps, disableContainer = false } = this.props;
-
-    return (
-      <>
-        {(!disableContainer && (
-          <Container maxWidth="lg" {...ContainerProps}>
-            <Paper elevation={8} className={classes.paper}>
-              {children}
-            </Paper>
-          </Container>
-        )) ||
-          children}
-      </>
-    );
-  };
-}
+const Layout = ({ classes, children, ContainerProps, disableContainer = false }) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
+  return (
+    <>
+      {(!disableContainer && !isMobile && (
+        <Container maxWidth="lg" {...ContainerProps}>
+          <Paper elevation={8} className={classes.paper}>
+            {children}
+          </Paper>
+        </Container>
+      )) || <Box p={2}>{children}</Box>}
+    </>
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default withRoot(injectSheet(globals)(withStyles(styles)(withWidth()(Layout))));
+export default withRoot(injectSheet(globals)(withStyles(styles)(Layout)));

@@ -189,20 +189,9 @@ export default createTheme({
         marginBottom: theme.spacing(2),
       },
     },
-    MuiTableHead: {
-      root: {
-        [theme.breakpoints.down('sm')]: {
-          display: 'block',
-          width: 'auto',
-        },
-      },
-    },
+
     MuiTableBody: {
       root: {
-        [theme.breakpoints.down('sm')]: {
-          display: 'block',
-          width: 'auto',
-        },
         '&> tr:last-child': {
           '&> th, td': {
             borderBottom: 'none',
@@ -210,34 +199,9 @@ export default createTheme({
         },
       },
     },
-    MuiTableRow: {
-      root: {
-        [theme.breakpoints.down('sm')]: {
-          paddingTop: theme.spacing(1),
-          paddingBottom: theme.spacing(1),
-          display: 'block',
-          width: 'auto',
-          height: 'auto',
-          '&:not(:last-child)': {
-            borderBottom: `1px solid ${theme.palette.divider}`,
-          },
-        },
-      },
-      head: {
-        [theme.breakpoints.down('sm')]: {
-          height: 'auto',
-          borderBottom: `1px solid ${theme.palette.divider}`,
-        },
-      },
-    },
     MuiTableCell: {
       root: {
         borderBottom: `1px solid ${theme.palette.divider}`,
-        [theme.breakpoints.down('sm')]: {
-          display: 'block',
-          width: 'auto',
-          borderBottom: 'none',
-        },
         'th&': {
           fontWeight: 700,
         },

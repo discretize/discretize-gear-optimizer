@@ -7,6 +7,7 @@ const TraitAmount = ({ amountData, handleAmountChange, value = '', disabled }) =
   // const parsedValue = Number(value);
   // const isError = Number.isNaN(parsedValue) || parsedValue < 0;
   const { t } = useTranslation();
+
   const { error } = parseAmount(value);
 
   return (

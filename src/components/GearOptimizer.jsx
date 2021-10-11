@@ -30,30 +30,14 @@ const styles = (theme) => ({
       paddingRight: 20,
     },
   },
-  button: {
-    margin: theme.spacing(1),
-  },
-  label: {
-    height: 40,
-  },
-  icon: {
-    fontSize: 40,
-  },
-  containerItem: {
-    // borderBottom: `3px solid ${theme.palette.primary.dark}`,
-    marginBottom: theme.spacing(2),
-    // borderRadius: 20,
-    borderColor: theme.palette.primary.main,
-  },
-  chipIcon: { marginBottom: '-6px !important' },
 });
 
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
  *
- * @param {classes, data} styles and data fetched by graphiql
- * @returns the main ui
+ * @param {{classes, data}} styles and data fetched by graphiql
  */
+
 const MainComponent = ({ classes, data }) => {
   // Query variables from redux store that should have a global scope
   const expertMode = useSelector(getControl('expertMode'));
@@ -84,7 +68,7 @@ const MainComponent = ({ classes, data }) => {
         <Grid container>
           {expertMode ? (
             <>
-              {profession !== '' && <TraitsSection profession={profession} />}
+              <TraitsSection profession={profession} />
 
               <SkillsSection profession={profession} />
 
@@ -115,7 +99,7 @@ const MainComponent = ({ classes, data }) => {
           )}
         </Grid>
 
-        <Controls classes={classes} profession={profession} />
+        <Controls profession={profession} />
 
         <ResultTable />
         <Box m={3} />
@@ -125,12 +109,7 @@ const MainComponent = ({ classes, data }) => {
   );
 };
 
-/**
- * Wrapper around the main component. GraphQL is queried here.
- *
- * @param {*} param0
- * @returns
- */
+// Wrapper around the main component. GraphQL is queried here.
 const GearOptimizer = ({ classes }) => {
   return (
     <StaticQuery

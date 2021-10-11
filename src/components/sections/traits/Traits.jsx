@@ -37,12 +37,11 @@ const styles = (theme) => ({
 });
 
 /**
- *
- * @param {String} profession   the profession for which to display trait lines
- * @param {Object} data         Contains all the data regarding modifiers, ids and extra subtexts
- * @returns
+ * @param {object} props
+ * @param {object} props.classes
+ * @param {Array} props.data         Contains all the data regarding modifiers, ids and extra subtexts
  */
-const Traits = ({ classes, data }) => {
+const Traits = ({ classes, data = [] }) => {
   const dispatch = useDispatch();
 
   const { t } = useTranslation();
@@ -57,35 +56,20 @@ const Traits = ({ classes, data }) => {
   const showAll = useSelector(getShowAllTraits);
   const hiddenCss = showAll ? { opacity: 0.5 } : { display: 'none' };
 
-  /**
-   * Handles a change from one traitline to another.
-   */
+  // Handles a change from one traitline to another.
   const handleTraitlineChange = (index) => (e) => {
     const newTraitLine = e.target.value;
     dispatch(changeTraitLine({ index, newTraitLine }));
   };
 
-  /**
-   * Handles a change from one trait to another within a traitline.
-   *
-   * @param e
-   * @param id the gw2-id of the traitline that experienced a change
-   * @param index the index of the traitline, that was changed (corresponds to id = traits[index])
-   */
+  // Handles a change from one trait to another within a traitline.
   const handleTraitChange = (index) => (e) => {
     const { tier, id: newTrait } = e;
     dispatch(changeTrait({ index, tier, newTrait }));
   };
 
-  /**
-   * Handles a modifer's checkbox being toggled on or off.
-   *
-   * Checkboxes which pop up for selected traits are necessary because some traits contain different conditional values.
-   *
-   * @param {Object} trait The trait object, that experienced a change
-   * @param {Number} line the trait line, which the modifier corresponds to
-   * @returns null
-   */
+  // handles a modifer's checkbox being toggled on or off.
+  // Checkboxes which pop up for selected traits are necessary because some traits contain different conditional values.
   const handleCheckboxChange = (index, id) => (e) => {
     dispatch(toggleTraitModifier({ index, id, enabled: e.target.checked }));
   };
@@ -132,12 +116,16 @@ const Traits = ({ classes, data }) => {
               ))}
           </Select>
         </FormControl>
-        <TraitLine
-          id={traitlines[index]}
-          selectable
-          selected={selectedTraits[index]}
-          onSelect={handleTraitChange(index)}
-        />
+        {traitlines[index] ? (
+          <TraitLine
+            id={traitlines[index]}
+            selectable
+            selected={selectedTraits[index]}
+            onSelect={handleTraitChange(index)}
+          />
+        ) : (
+          <br />
+        )}
         {
           // minor traits that have an effect on the outcome of the optimization
           noCheckboxModis.length > 0 && (

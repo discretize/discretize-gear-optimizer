@@ -3,7 +3,6 @@ import { getImage } from 'gatsby-plugin-image';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector, useStore } from 'react-redux';
-import { classModifiers, extrasModifiersById } from '../../../assets/modifierdata';
 import { getModifiers, getProfession, getSelectedCharacter } from '../../../state/controlsSlice';
 import { updateAttributes } from '../../../state/optimizer/optimizerCore';
 import { getExtras } from '../../../state/slices/extras';
@@ -19,6 +18,8 @@ import Indicators from './Indicators';
 import OutputDistribution from './OutputDistribution';
 import OutputInfusions from './OutputInfusions';
 import SpecialDurations from './SpecialDurations';
+
+import { classModifiers, extrasModifiersById } from '../../../assets/modifierdata';
 
 const ResultDetails = ({ data }) => {
   const store = useStore();
@@ -82,7 +83,7 @@ const ResultDetails = ({ data }) => {
   const sigil1Id = extrasModifiersById[sigil1]?.gw2id;
   const sigil2Id = extrasModifiersById[sigil2]?.gw2id;
   const rune = runeStringId ? extrasModifiersById[runeStringId] : '';
-  const runeName = runeStringId ? rune.text.split(' ')[rune.text.split(' ').length - 1] : '';
+  const runeName = runeStringId ? rune.text.replace(/(Superior|Rune|of|the)/g, '') : '';
 
   // Calculate the props for the weapons component
   let wea1;
