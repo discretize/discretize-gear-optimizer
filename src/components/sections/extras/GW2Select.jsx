@@ -45,6 +45,8 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => 
       dispatch(changeExtras({ key: event.target.name, value: event.target.value }));
   };
 
+  const userLang = navigator.language || navigator.userLanguage;
+  const isChinese = userLang.includes('zh');
   // return an array in the select: https://github.com/mui-org/material-ui/issues/16181
   // Fragments are not supported as children!
   return (
@@ -60,7 +62,7 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => 
             <Item
               id={item.gw2id}
               disableLink
-              text={item.text.replace('Superior ', '')}
+              {...(!isChinese && { text: item.text.replace('Superior ', '') })}
               className={classes.item}
             />
           );
@@ -78,7 +80,11 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => 
               <MenuItem key={item.id} value={item.id} className={classes.menuItem}>
                 <ListItemText
                   primary={
-                    <Item id={item.gw2id} disableLink text={item.text.replace('Superior ', '')} />
+                    <Item
+                      id={item.gw2id}
+                      disableLink
+                      {...(!isChinese && { text: item.text.replace('Superior ', '') })}
+                    />
                   }
                   secondary={<Typography className={classes.subText}>{item.subText}</Typography>}
                 />
