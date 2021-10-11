@@ -19,6 +19,8 @@ import OutputDistribution from './OutputDistribution';
 import OutputInfusions from './OutputInfusions';
 import SpecialDurations from './SpecialDurations';
 
+import { classModifiers, extrasModifiersById } from '../../../assets/modifierdata';
+
 const ResultDetails = ({ data }) => {
   const store = useStore();
   const profession = useSelector(getProfession);
