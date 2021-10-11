@@ -20,7 +20,8 @@
     "updateMappings": "node updateMappings.js",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "testModifiers": "node --experimental-json-modules ./src/assets/modifierdata/testModifiers.mjs",
-    "extractLocale": "yarn run babel --config-file ./babel-extract.config.js -o tmp/chunk.js 'src/**/*.{js,jsx,ts,tsx}' && rm -rf tmp"
+    "extractLocale": "yarn run babel --config-file ./babel-extract.config.js -o tmp/chunk.js 'src/**/*.{js,jsx,ts,tsx}' && rm -rf tmp",
+    "extractLocaleCMD": "yarn run babel --config-file ./babel-extract.config.js -o tmp/chunk.js \"src/**/*.{js,jsx,ts,tsx}\" && rd /q /s tmp"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.2",

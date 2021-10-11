@@ -1,6 +1,7 @@
 node_modules/
 _backup/
 .idea/
+.vscode/
 dist/
 misc/
 .history
