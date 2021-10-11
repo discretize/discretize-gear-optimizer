@@ -1,5 +1,3 @@
-import { FormControl, FormGroup, FormLabel, Grid, Typography, withStyles } from '@material-ui/core';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import {
   Box,
   FormControl,
@@ -9,18 +7,19 @@ import {
   Typography,
   withStyles,
 } from '@material-ui/core';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { buffModifiers } from '../../../assets/modifierdata';
-import { firstUppercase } from '../../../utils/usefulFunctions';
-import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import {
   changeBuff,
   changeBuffAmount,
   getBuffAmounts,
   getBuffs,
 } from '../../../state/slices/buffs';
+import { firstUppercase } from '../../../utils/usefulFunctions';
+import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import TraitAmount from '../traits/TraitAmount';
 
 const styles = (theme) => ({
