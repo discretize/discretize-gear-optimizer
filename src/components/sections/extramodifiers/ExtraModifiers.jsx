@@ -1,4 +1,5 @@
 import { TextField, withStyles } from '@material-ui/core';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -24,6 +25,7 @@ function isJson(str) {
 
 const ExtraModifiers = ({ classes }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const error = useSelector(getExtraModifiers('error'));
   const text = useSelector(getExtraModifiers('textBox'));
 
@@ -38,7 +40,9 @@ const ExtraModifiers = ({ classes }) => {
     } else {
       dispatch(
         changeExtraModifiersError(
-          'Invalid Format. Example: [{ "buff": { "Power": 750, "Condition Damage": 750 } }, { "buff": { "Precision": 750 } } ]',
+          `${t(
+            'Invalid Format. Example:',
+          )} [{ "buff": { "Power": 750, "Condition Damage": 750 } }, { "buff": { "Precision": 750 } } ]`,
         ),
       );
       dispatch(changeExtraModifiers({ key: 'extraModifiers', value: [] }));
@@ -46,7 +50,7 @@ const ExtraModifiers = ({ classes }) => {
   };
   return (
     <TextField
-      label="Extra Modifiers"
+      label={t('Extra Modifiers')}
       className={classes.text}
       multiline
       rows={6}

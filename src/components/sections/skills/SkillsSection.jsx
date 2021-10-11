@@ -1,16 +1,20 @@
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
+import { classModifiers } from '../../../assets/modifierdata';
 import Section from '../../baseComponents/Section';
 import Skills from './Skills';
 
-import { classModifiers } from '../../../assets/modifierdata';
-
 const SkillsSection = ({ profession }) => {
+  const { t } = useTranslation();
   const skillsData = classModifiers[profession.toLowerCase()]?.find(
     (section) => section.section === 'Skills',
   );
 
   return skillsData ? (
-    <Section title="Skills" content={<Skills profession={profession} data={skillsData.items} />} />
+    <Section
+      title={t('Skills')}
+      content={<Skills profession={profession} data={skillsData.items} />}
+    />
   ) : null;
 };
 

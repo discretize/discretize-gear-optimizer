@@ -1,4 +1,5 @@
-import { Table, TableCell, TableRow, TableBody, withStyles, Typography } from '@material-ui/core';
+import { Table, TableBody, TableCell, TableRow, Typography, withStyles } from '@material-ui/core';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import { Boon, Condition } from 'gw2-ui-bulk';
 import React from 'react';
 import { Condition as ConditionList } from '../../../utils/gw2-data';
@@ -25,7 +26,9 @@ const SpecialDurations = ({ classes, data }) => {
 
   return (
     <>
-      <Typography variant="h6">Special Durations</Typography>
+      <Typography variant="h6">
+        <Trans>Special Durations</Trans>
+      </Typography>
 
       <Table padding="none">
         <TableBody>

@@ -13,6 +13,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';
 import { parseAmount, scaleValue } from '../../../state/optimizer/optimizerCore';
+import { Trans } from 'gatsby-plugin-react-i18next';
 
 import { buffModifiersById } from '../../../assets/modifierdata';
 
@@ -51,7 +52,9 @@ const AppliedModifiers = ({ classes, data }) => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}>Applied Modifers</Typography>
+          <Typography className={classes.heading}>
+            <Trans>Applied Modifers</Trans>
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Table padding="none">

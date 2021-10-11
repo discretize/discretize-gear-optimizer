@@ -1,5 +1,6 @@
-import { Grid, Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import { getImage } from 'gatsby-plugin-image';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector, useStore } from 'react-redux';
 import { getModifiers, getProfession, getSelectedCharacter } from '../../../state/controlsSlice';
@@ -18,11 +19,11 @@ import OutputDistribution from './OutputDistribution';
 import OutputInfusions from './OutputInfusions';
 import SpecialDurations from './SpecialDurations';
 
-import { classModifiers, extrasModifiersById } from '../../../assets/modifierdata';
-
 const ResultDetails = ({ data }) => {
   const store = useStore();
   const profession = useSelector(getProfession);
+
+  const { t } = useTranslation();
 
   const extras = useSelector(getExtras);
   const {
@@ -155,8 +156,7 @@ const ResultDetails = ({ data }) => {
   );
 
   return (
-    <div>
-      <Typography variant="h5">Character</Typography>
+    <>
       <Character
         weight={weight}
         gear={character.gear}
@@ -173,22 +173,22 @@ const ResultDetails = ({ data }) => {
         <Grid item xs={12} sm={6} md={4}>
           <SpecialDurations data={character.attributes} />
           <Indicators data={character.results.indicators} />
-          <AffixesStats data={character.gearStats} title="Stats from affixes" />
+          <AffixesStats data={character.gearStats} title={t('Stats from affixes')} />
           {character.infusions && <OutputInfusions data={character.infusions} />}
         </Grid>
 
         <Grid item xs={12} sm={6} md={4}>
-          <OutputDistribution title="Damage Breakdown" data={damageBreakdown} />
-          <OutputDistribution title="Effective Distribution" data={effectiveDistribution} />
+          <OutputDistribution title={t('Damage Breakdown')} data={damageBreakdown} />
+          <OutputDistribution title={t('Effective Distribution')} data={effectiveDistribution} />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <AffixesStats
             data={character.results.effectivePositiveValues}
-            title="Damage increase from +5 of attribute"
+            title={t('Damage increase from +5 of attribute')}
           />
           <AffixesStats
             data={character.results.effectiveNegativeValues}
-            title="Damage loss from -5 of attribute"
+            title={t('Damage loss from -5 of attribute')}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={4} />
@@ -204,7 +204,7 @@ const ResultDetails = ({ data }) => {
         runeId={rune.gw2id}
         runeName={runeName}
       />
-    </div>
+    </>
   );
 };
 

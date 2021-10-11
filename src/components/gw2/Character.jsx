@@ -91,7 +91,6 @@ const Character = ({
 
       <Box flex="0 0 250px">
         <Paper elevation={5} className={classes.section}>
-          <Typography variant="h6">Attributes</Typography>
           <Attributes profession={profession} data={attributes} />
         </Paper>
 

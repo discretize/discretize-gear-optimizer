@@ -1,6 +1,7 @@
-import React from 'react';
 import { FormControl, Grid, Input, InputAdornment, InputLabel } from '@material-ui/core';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import { Attribute, Item } from 'gw2-ui-bulk';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeAR, changeOmnipotion, getAR, getOmniPotion } from '../../../state/slices/omnipotion';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
@@ -25,7 +26,8 @@ const ARinput = () => {
           checked={omnipotion}
           label={
             <>
-              Include <Item id={79722} />
+              <Trans>Include </Trans>
+              <Item id={79722} />
             </>
           }
           onChange={(e) => dispatch(changeOmnipotion(e.target.checked))}
@@ -33,7 +35,9 @@ const ARinput = () => {
       </Grid>
       <Grid item xs={12}>
         <FormControl>
-          <InputLabel htmlFor="ar_input-with-icon-adornment">Agony Resistance</InputLabel>
+          <InputLabel htmlFor="ar_input-with-icon-adornment">
+            <Trans>Agony Resistance</Trans>
+          </InputLabel>
           <Input
             id="ar_input-with-icon-adornment"
             value={ar}

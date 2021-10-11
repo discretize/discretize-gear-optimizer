@@ -8,7 +8,9 @@ import {
   Typography,
   withStyles,
 } from '@material-ui/core';
+import MuiAlert from '@material-ui/lab/Alert';
 import classNames from 'classnames';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import { Attribute, Condition } from 'gw2-ui-bulk';
 import debounce from 'lodash.debounce';
 import Nouislider from 'nouislider-react';
@@ -16,7 +18,6 @@ import Nouislider from 'nouislider-react';
 import 'nouislider/distribute/nouislider.css';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import MuiAlert from '@material-ui/lab/Alert';
 import {
   changeAllDistributionsOld,
   changeDistributionNew,
@@ -218,7 +219,7 @@ const DamageDistribution = ({ classes }) => {
       {version === 1 ? SliderOld() : SlidersNew()}
       {distributionNew.Confusion ? (
         <MuiAlert elevation={6} variant="filled" severity="warning">
-          Note: Confusion damage calculation is currently incorrect.
+          <Trans>Note: Confusion damage calculation is currently incorrect.</Trans>
         </MuiAlert>
       ) : null}
     </>

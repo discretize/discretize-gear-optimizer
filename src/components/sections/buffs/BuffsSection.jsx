@@ -1,3 +1,4 @@
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { replaceBuffs } from '../../../state/slices/buffs';
@@ -7,6 +8,7 @@ import Buffs from './Buffs';
 
 const BuffsSection = ({ data }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const handleTemplateClickBuffs = React.useCallback(
     (index) => (event) => {
@@ -18,7 +20,7 @@ const BuffsSection = ({ data }) => {
 
   return (
     <Section
-      title="Buffs & Boons"
+      title={t('Buffs & Boons')}
       extraInfo={<Presets data={data.presetBuffs.list} handleClick={handleTemplateClickBuffs} />}
       content={<Buffs />}
     />
