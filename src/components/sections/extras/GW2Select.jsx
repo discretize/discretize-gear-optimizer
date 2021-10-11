@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   FormControl,
   Input,
@@ -10,7 +9,9 @@ import {
   Typography,
   withStyles,
 } from '@material-ui/core';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeExtras, getExtra } from '../../../state/slices/extras';
 
@@ -36,6 +37,8 @@ const styles = (theme) => ({
 const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => {
   const dispatch = useDispatch();
   const bigValue = useSelector(getExtra(name));
+
+  const { t } = useTranslation();
 
   const handleChange = (event) => {
     if (event.target.value !== undefined)
@@ -70,7 +73,7 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => 
         ,
         {modifierData.map((category) => {
           return [
-            <ListSubheader disableSticky>{category.section}</ListSubheader>,
+            <ListSubheader disableSticky>{t(category.section)}</ListSubheader>,
             category.items.map((item) => (
               <MenuItem key={item.id} value={item.id} className={classes.menuItem}>
                 <ListItemText

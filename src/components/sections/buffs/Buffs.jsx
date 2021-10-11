@@ -1,12 +1,12 @@
-import React from 'react';
 import { FormControl, FormGroup, FormLabel, Grid, Typography, withStyles } from '@material-ui/core';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { buffModifiers } from '../../../assets/modifierdata';
 import { changeBuff, getBuffs } from '../../../state/slices/buffs';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
-
-import { buffModifiers } from '../../../assets/modifierdata';
 
 const styles = (theme) => ({
   boon: {
@@ -22,6 +22,7 @@ const styles = (theme) => ({
 
 const Buffs = ({ classes }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const buffs = useSelector(getBuffs);
 
@@ -44,7 +45,7 @@ const Buffs = ({ classes }) => {
       {buffModifiers.map((section) => (
         <Grid key={section.section} item xs={12} sm={6} md={4}>
           <FormControl component="fieldset" className={classes.formControl}>
-            <FormLabel component="legend">{section.section}</FormLabel>
+            <FormLabel component="legend">{t(section.section)}</FormLabel>
             <FormGroup>
               {section.items.map((buff) => {
                 let Component;
@@ -59,7 +60,7 @@ const Buffs = ({ classes }) => {
                         checked={buffs[buff.id]}
                         label={
                           <>
-                            <Typography className={classes.note}>{buff.text}</Typography>
+                            <Typography className={classes.note}>{t(buff.text)}</Typography>
                             <Typography variant="caption" className={classes.tinyNote}>
                               {buff.subText}
                             </Typography>

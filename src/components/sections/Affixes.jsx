@@ -2,6 +2,7 @@ import { Chip, TextField, withStyles } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { changePriority, getPriority } from '../../state/slices/priorities';
 import { firstUppercase } from '../../utils/usefulFunctions';
@@ -67,7 +68,7 @@ export const AFFIXES = [
 const Affixes = ({ classes }) => {
   const dispatch = useDispatch();
   const affixes = useSelector(getPriority('affixes'));
-
+  const { t } = useTranslation();
   return (
     <Autocomplete
       multiple
@@ -81,8 +82,8 @@ const Affixes = ({ classes }) => {
         <TextField
           {...params}
           variant="standard"
-          label="Affixes"
-          placeholder="Select Affixes"
+          label={t('Affixes')}
+          placeholder={t('Select Affixes')}
           className={classes.textfield}
         />
       )}

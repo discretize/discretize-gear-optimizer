@@ -1,11 +1,12 @@
-import { TextField, InputAdornment } from '@material-ui/core';
+import { InputAdornment, TextField } from '@material-ui/core';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { parseAmount } from '../../../state/optimizer/optimizerCore';
 
 const TraitAmount = ({ amountData, handleAmountChange, value = '', disabled }) => {
   // const parsedValue = Number(value);
   // const isError = Number.isNaN(parsedValue) || parsedValue < 0;
-
+  const { t } = useTranslation();
   const { error } = parseAmount(value);
 
   return (
@@ -16,7 +17,7 @@ const TraitAmount = ({ amountData, handleAmountChange, value = '', disabled }) =
       InputProps={{
         endAdornment: (
           <InputAdornment disablePointerEvents position="end">
-            {amountData.label}
+            {t(amountData.label)}
           </InputAdornment>
         ),
         inputProps: { style: { maxWidth: '32px' } },

@@ -49,7 +49,9 @@ const Skills = ({ classes, data }) => {
         label={
           <div className={classes.label}>
             <Skill id={skill.gw2id} disableLink className={classes.skill} />
-            {skill.subText && <Typography className={classes.subText}>{skill.subText}</Typography>}
+            {skill.subText && (
+              <Typography className={classes.subText}>{t(skill.subText)}</Typography>
+            )}
           </div>
         }
         onChange={onChange(skill)}

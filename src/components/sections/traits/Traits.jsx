@@ -11,6 +11,7 @@ import {
 } from '@material-ui/core';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Specialization, Trait, TraitLine } from 'gw2-ui-bulk';
+import i18next from 'i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { traitSectionsById } from '../../../assets/modifierdata';
@@ -110,13 +111,10 @@ const Traits = ({ classes, data }) => {
     return (
       <React.Fragment key={key}>
         <FormControl className={classes.formControl}>
-          <InputLabel htmlFor={key}>
-            {/* i18next-extract-disable-next-line */}
-            <Trans>Traitline {lineNr}</Trans>
-          </InputLabel>
+          <InputLabel htmlFor={key}>{t('Traitline', { lineNr })}</InputLabel>
           <Select
-            value={traitlines[index]} /* i18next-extract-disable-next-line */
-            input={<Input name={t(`Traitline ${lineNr}`)} id={key} />}
+            value={traitlines[index]}
+            input={<Input name={t(`Traitline`, { lineNr })} id={key} />}
             onChange={handleTraitlineChange(index)}
             renderValue={(selected) => (
               <Specialization id={selected} disableLink className={classes.item} />
@@ -179,7 +177,7 @@ const Traits = ({ classes, data }) => {
                     label={
                       <>
                         {gw2id && <Trait id={gw2id} disableLink />}{' '}
-                        <Typography variant="caption">{subText}</Typography>
+                        <Typography variant="caption">{t(subText)}</Typography>
                       </>
                     }
                     onChange={handleCheckboxChange(index, id)}
