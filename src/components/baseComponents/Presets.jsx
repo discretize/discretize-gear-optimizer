@@ -21,7 +21,7 @@ const MAX_CHIPS = 6;
 const Presets = ({ className, data, handleClick }) => {
   const classes = useStyles();
   const { t } = useTranslation();
-  
+
   return (
     <div className={classNames(className, classes.root)}>
       {data.length > MAX_CHIPS ? (
@@ -37,7 +37,7 @@ const Presets = ({ className, data, handleClick }) => {
                 text={t(preset.name)}
               />
             ) : (
-              preset.name
+              t(preset.name)
             )
           }
           onSelect={(event) => {
@@ -56,10 +56,10 @@ const Presets = ({ className, data, handleClick }) => {
               preset.profession ? (
                 <Profession
                   eliteSpecialization={firstUppercase(preset.profession)}
-                  text={preset.name}
+                  text={t(preset.name)}
                 />
               ) : (
-                preset.name
+                t(preset.name)
               )
             }
             variant="outlined"
