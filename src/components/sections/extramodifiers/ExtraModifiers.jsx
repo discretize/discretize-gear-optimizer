@@ -57,7 +57,7 @@ const ExtraModifiers = ({ classes }) => {
 
     const { data, error } = parseInput(val);
     dispatch(changeExtraModifiers({ key: 'extraModifiers', value: data }));
-    dispatch(changeExtraModifiersError(error ? 'Invalid Format.' : ''));
+    dispatch(changeExtraModifiersError(error ? t('Invalid Format.') : ''));
   };
   return (
     <>
@@ -73,7 +73,7 @@ const ExtraModifiers = ({ classes }) => {
       />
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography>Formatting examples</Typography>
+          <Typography>t(Formatting examples)</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Grid container>

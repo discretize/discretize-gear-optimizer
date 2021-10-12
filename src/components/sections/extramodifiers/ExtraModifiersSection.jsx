@@ -11,8 +11,11 @@ const ExtraModifiersSection = () => {
       title={t('Extra Modifiers')}
       helpText={
         <>
-          Allows adding arbitrary extra modifiers. The textbox expects valid YAML or JSON formatting. 
-          Multiple modifiers can be entered as an array. For more information visit the GitHub repository.
+          <Trans>
+            Allows adding arbitrary extra modifiers. The textbox expects valid YAML or JSON
+            formatting. Multiple modifiers can be entered as an array. For more information visit
+            the GitHub repository.
+          </Trans>
         </>
       }
       content={<ExtraModifiers />}
