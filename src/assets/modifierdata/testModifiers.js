@@ -17,7 +17,7 @@ import {
   damageKeysBlacklist,
   attributePointKeysBlacklist,
   attributePercentKeysBlacklist,
-// eslint-disable-next-line import/extensions
+  // eslint-disable-next-line import/extensions
 } from './metadata.js';
 import specializationData from '../../utils/mapping/specializations.json';
 
@@ -90,7 +90,7 @@ const testModifiers = async () => {
         const checkNullRecursively = (obj) => {
           for (const value of Object.values(obj)) {
             if (value === null || value === undefined) {
-              console.log(`❓ ${id} has a null or undefined value!`)
+              console.log(`❓ ${id} has a null or undefined value!`);
             } else if (typeof value === 'object') {
               checkNullRecursively(value);
             }
@@ -144,9 +144,12 @@ const testModifiers = async () => {
         assert(!allIds.has(id), `duplicate id ${id} from different file`);
         allIds.add(id);
 
-        if (fileName !== 'buffs.yaml' && typeof gw2id !== 'number') {
-          // console.log(`note: no gw2id in ${id}`);
-        } else if (typeof type !== 'string') console.log(`❓ ${id} doesn't have a type`);
+        // if (fileName !== 'buffs.yaml' && typeof gw2id !== 'number') {
+        //   console.log(`note: no gw2id in ${id}`);
+        // }
+
+        if (fileName === 'buffs.yaml' && typeof type !== 'string')
+          console.log(`❓ ${id} doesn't have a type`);
 
         assert(typeof modifiers === 'object', `err: invalid or missing modifiers in ${id}`);
 

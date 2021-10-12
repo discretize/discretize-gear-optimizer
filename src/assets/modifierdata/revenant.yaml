@@ -6,7 +6,6 @@
       modifiers:
         damage:
           Damage Reduction: [20%, unknown]
-      type: skills
       gw2id: 26557
 
 - section: Corruption
@@ -18,7 +17,6 @@
       modifiers:
         damage:
           Torment Damage: [10%, unknown]
-      type: traits
       gw2id: 1793
       defaultEnabled: true
 
@@ -28,7 +26,6 @@
       modifiers:
         attributes:
           Condition Damage: [120, buff]
-      type: traits
       gw2id: 1801
       defaultEnabled: true
 
@@ -38,7 +35,6 @@
       modifiers:
         damage:
           Damage Reduction: [20%, unknown]
-      type: traits
       gw2id: 1726
       defaultEnabled: true
 
@@ -47,7 +43,6 @@
       modifiers:
         attributes:
           Condition Duration: 15%
-      type: traits
       gw2id: 1714
       defaultEnabled: true
 
@@ -57,7 +52,6 @@
       modifiers:
         attributes:
           Condition Duration: 10%
-      type: traits
       gw2id: 1744
       defaultEnabled: true
 
@@ -71,7 +65,6 @@
       modifiers:
         damage:
           Damage Reduction: [10%, unknown]
-      type: traits
       gw2id: 1728
 
     - id: dwarven-battle-training
@@ -83,7 +76,6 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      type: traits
       gw2id: 1740
       defaultEnabled: true
 
@@ -94,7 +86,6 @@
       modifiers:
         damage:
           Damage Reduction: [10%, unknown]
-      type: traits
       gw2id: 1713
       defaultEnabled: true
 
@@ -107,7 +98,6 @@
       modifiers:
         damage:
           All Damage: [10%, add]
-      type: traits
       gw2id: 1779
       defaultEnabled: true
 
@@ -116,7 +106,6 @@
       modifiers:
         conversion:
           Power: {Toughness: 13%}
-      type: traits
       gw2id: 1770
       defaultEnabled: true
 
@@ -133,7 +122,6 @@
       modifiers:
         damage:
           Strike Damage: [7%, mult]
-      type: traits
       gw2id: 1761
       defaultEnabled: true
 
@@ -147,7 +135,6 @@
       modifiers:
         damage:
           All Damage: [7%, add]
-      type: traits
       gw2id: 1758
       defaultEnabled: true
 
@@ -157,7 +144,6 @@
       modifiers:
         attributes:
           Critical Chance: 20%
-      type: traits
       gw2id: 1719
       defaultEnabled: true
 
@@ -174,7 +160,6 @@
       modifiers:
         damage:
           Strike Damage: [20%, mult]
-      type: traits
       gw2id: 1767
       defaultEnabled: true
 
@@ -185,7 +170,6 @@
       modifiers:
         damage:
           All Damage: [5%, add]
-      type: traits
       gw2id: 1724
       defaultEnabled: true
 
@@ -200,7 +184,6 @@
       modifiers:
         damage:
           All Damage: [2.5%, add]
-      type: traits
       gw2id: 1724
       defaultEnabled: true
 
@@ -214,7 +197,6 @@
         attributes:
           Power: [250, buff]
           Condition Damage: [-250, buff]
-      type: traits
       gw2id: 1765
       defaultEnabled: true
 
@@ -228,7 +210,6 @@
       modifiers:
         damage:
           Strike Damage: [12.5%, mult]
-      type: traits
       gw2id: 1792
       defaultEnabled: true
 
@@ -241,7 +222,6 @@
       modifiers:
         damage:
           Strike Damage: [20%, mult]
-      type: traits
       gw2id: 1800
       defaultEnabled: true
 
@@ -258,7 +238,6 @@
       modifiers:
         attributes:
           Outgoing Healing: 20%
-      type: traits
       gw2id: 1822
       defaultEnabled: true
 
@@ -270,7 +249,6 @@
           Healing Power: [120, buff]
         conversion:
           Concentration: {Healing Power: 7%}
-      type: traits
       gw2id: 1821
       defaultEnabled: true
 
@@ -283,7 +261,6 @@
       modifiers:
         attributes:
           Outgoing Healing: 20%
-      type: traits
       gw2id: 1818
       defaultEnabled: true
 
@@ -293,7 +270,6 @@
       modifiers:
         attributes:
           Outgoing Healing: 15%
-      type: traits
       gw2id: 1814
       defaultEnabled: true
 
@@ -303,7 +279,6 @@
       modifiers:
         damage:
           Damage Reduction: [15%, unknown]
-      type: traits
       gw2id: 1825
 
     - id: selfless-amplification
@@ -311,7 +286,6 @@
       modifiers:
         conversion:
           Outgoing Healing: {Healing Power: 0.015%}
-      type: traits
       gw2id: 1820
       defaultEnabled: true
 
@@ -325,7 +299,6 @@
       modifiers:
         attributes:
           Maximum Health: 10%
-      type: traits
       gw2id: 1737
       defaultEnabled: true
 
@@ -338,7 +311,6 @@
       modifiers:
         damage:
           Damage Reduction: [1.5%, unknown]
-      type: traits
       gw2id: 1730
 
     - id: reinforced-potency-base
@@ -348,7 +320,6 @@
       modifiers:
         attributes:
           Concentration: [120, unknown]
-      type: traits
       gw2id: 1788
       defaultEnabled: true
 
@@ -362,7 +333,6 @@
       modifiers:
         damage:
           Strike Damage: [1%, unknown]
-      type: traits
       gw2id: 1788
       defaultEnabled: true
 
@@ -376,7 +346,6 @@
       modifiers:
         damage:
           Strike Damage: [13%, add] # add according to wiki
-      type: traits
       gw2id: 1803
       defaultEnabled: true
 
@@ -390,7 +359,6 @@
       modifiers:
         damage:
           Strike Damage: [4%, add] # add according to wiki
-      type: traits
       gw2id: 1803
       defaultEnabled: true
 
@@ -408,7 +376,6 @@
       modifiers:
         damage:
           All Damage: [2%, add]
-      type: traits
       gw2id: 2181
       defaultEnabled: true
 
@@ -418,7 +385,6 @@
       modifiers:
         attributes:
           Bleeding Duration: 25%
-      type: traits
       gw2id: 2079
       defaultEnabled: true
 
@@ -427,7 +393,6 @@
       modifiers:
         damage:
           Bleeding Damage: [25%, unknown]
-      type: traits
       gw2id: 2092
       defaultEnabled: true
 
@@ -438,7 +403,6 @@
       modifiers:
         attributes:
           Critical Chance: 33%
-      type: traits
       gw2id: 2142
       defaultEnabled: true
 
@@ -451,7 +415,6 @@
       modifiers:
         damage:
           All Damage: [1%, add]
-      type: traits
       gw2id: 2100
       defaultEnabled: true
 
@@ -470,7 +433,6 @@
       modifiers:
         attributes:
           Power: [240, unknown]
-      type: traits
       gw2id: 2229
       defaultEnabled: true
 
@@ -485,7 +447,6 @@
       modifiers:
         attributes:
           Healing Power: [240, unknown]
-      type: traits
       gw2id: 2229
       defaultEnabled: true
 
@@ -498,6 +459,5 @@
       modifiers:
         damage:
           Strike Damage: [15%, unknown]
-      type: traits
       gw2id: 2257
       defaultEnabled: true

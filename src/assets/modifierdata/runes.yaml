@@ -10,7 +10,6 @@
         attributes:
           Power: [175, converted]
           Ferocity: [225, converted]
-      type: items
       gw2id: 24836
 
     - id: scholar-without
@@ -20,7 +19,6 @@
         attributes:
           Power: [175, converted]
           Ferocity: [225, converted]
-      type: items
       gw2id: 24836
 
     - id: eagle
@@ -31,7 +29,6 @@
         attributes:
           Precision: [175, converted]
           Ferocity: [225, converted]
-      type: items
       gw2id: 24723
 
     - id: eagle-perma
@@ -43,7 +40,6 @@
         attributes:
           Precision: [175, converted]
           Ferocity: [225, converted]
-      type: items
       gw2id: 24723
 
     - id: thief
@@ -54,7 +50,6 @@
         attributes:
           Precision: [300, converted]
           Condition Damage: [100, converted]
-      type: items
       gw2id: 24818
 
     - id: spellbreaker
@@ -65,7 +60,6 @@
         attributes:
           Power: [175, converted]
           Precision: [100, converted]
-      type: items
       gw2id: 84749
 
     - id: flame-legion
@@ -76,7 +70,6 @@
         attributes:
           Power: [175, converted]
           Burning Duration: 50%
-      type: items
       gw2id: 24797
 
     - id: strength
@@ -87,7 +80,6 @@
         attributes:
           Power: [175, converted]
           Might Duration: 50%
-      type: items
       gw2id: 24714
 
     - id: ogre
@@ -98,7 +90,6 @@
         attributes:
           Power: [175, converted]
           Ferocity: [100, converted]
-      type: items
       gw2id: 24756
 
     - id: chronomancer
@@ -107,7 +98,6 @@
         attributes:
           Power: [175, converted]
           Precision: [100, converted]
-      type: items
       gw2id: 73399
 
 - section: Support Runes
@@ -120,7 +110,6 @@
           Power: [175, converted]
           Boon Duration: 15%
           Precision: [125, buff]
-      type: items
       gw2id: 24702
 
     - id: leadership
@@ -137,7 +126,6 @@
           Ferocity: [36, converted]
           Healing Power: [36, converted]
           Boon Duration: 25%
-      type: items
       gw2id: 70600
 
     - id: firebrand
@@ -147,7 +135,6 @@
           Condition Damage: [175, converted]
           Boon Duration: 10%
           Quickness Duration: 30%
-      type: items
       gw2id: 83338
 
     - id: surging-and-ruby-orb
@@ -158,7 +145,6 @@
           Precision: [14, converted]
           Ferocity: [14, converted]
           Boon Duration: 15%
-      type: items
       gw2id: 76813
 
     - id: surging
@@ -167,7 +153,6 @@
         attributes:
           Power: [175, converted]
           Boon Duration: 15%
-      type: items
       gw2id: 76813
 
     - id: radiance
@@ -176,7 +161,6 @@
         attributes:
           Vitality: [175, converted]
           Boon Duration: 25%
-      type: items
       gw2id: 67342
 
 - section: Defensive Runes
@@ -189,7 +173,6 @@
           Toughness: [175, converted]
           Boon Duration: 15%
           Maximum Health: 10%
-      type: items
       gw2id: 73653
 
     - id: scrapper
@@ -200,7 +183,6 @@
         attributes:
           Power: [175, converted]
           Toughness: [100, converted]
-      type: items
       gw2id: 71276
 
     - id: sanctuary
@@ -209,7 +191,6 @@
         attributes:
           Vitality: [175, converted]
           Boon Duration: 15%
-      type: items
       gw2id: 24857
 
     - id: herald
@@ -218,7 +199,6 @@
         attributes:
           Toughness: [175, converted]
           Boon Duration: 15%
-      type: items
       gw2id: 76100
 
     - id: rebirth
@@ -227,7 +207,6 @@
         attributes:
           Healing Power: [300, converted]
           Boon Duration: 15%
-      type: items
       gw2id: 84171
 
 - section: Heal Runes
@@ -241,7 +220,6 @@
           Healing Power: [175, converted]
           Boon Duration: 15%
           Outgoing Healing: 20%
-      type: items
       gw2id: 24842
 
     - id: water
@@ -250,7 +228,6 @@
         attributes:
           Healing Power: [175, converted]
           Boon Duration: 25%
-      type: items
       gw2id: 24839
 
     - id: altruism
@@ -259,7 +236,6 @@
         attributes:
           Healing Power: [300, converted]
           Boon Duration: 15%
-      type: items
       gw2id: 38206
 
     - id: rebirth-2
@@ -268,7 +244,6 @@
         attributes:
           Healing Power: [300, converted]
           Boon Duration: 15%
-      type: items
       gw2id: 84171
 
     - id: flock
@@ -278,7 +253,6 @@
           Healing Power: [175, converted]
           Vitality: [100, converted]
           Maximum Health: 10%
-      type: items
       gw2id: 24696
 
 - section: Condition Runes
@@ -293,7 +267,6 @@
         attributes:
           Condition Damage: [175, converted]
           Power: [100, converted]
-      type: items
       gw2id: 71425
 
     - id: renegade
@@ -304,7 +277,6 @@
         attributes:
           Condition Damage: [175, converted]
           Ferocity: [100, converted]
-      type: items
       gw2id: 83502
 
     - id: elementalist
@@ -314,7 +286,6 @@
           Power: [175, converted]
           Condition Damage: [225, converted]
           Condition Duration: 10%
-      type: items
       gw2id: 24800
 
     - id: lich
@@ -325,7 +296,6 @@
         attributes:
           Vitality: [175, converted]
           Condition Duration: 15%
-      type: items
       gw2id: 24688
 
     - id: trapper
@@ -334,7 +304,6 @@
         attributes:
           Condition Damage: [175, converted]
           Condition Duration: 15%
-      type: items
       gw2id: 67339
 
     - id: nightmare
@@ -343,7 +312,6 @@
         attributes:
           Condition Damage: [175, converted]
           Condition Duration: 20%
-      type: items
       gw2id: 24848
 
     - id: tempest
@@ -360,7 +328,6 @@
           Ferocity: [36, converted]
           Healing Power: [36, converted]
           Condition Duration: 25%
-      type: items
       gw2id: 76166
 
     - id: undead
@@ -371,7 +338,6 @@
           Toughness: [225, converted]
         conversion:
           Condition Damage: {Toughness: 7%}
-      type: items
       gw2id: 24757
 
     - id: necromancer
@@ -380,7 +346,6 @@
         attributes:
           Condition Damage: [300, converted]
           Vitality: [100, converted]
-      type: items
       gw2id: 24806
 
     - id: soulbeast
@@ -392,7 +357,6 @@
           Power: [100, converted]
         conversion:
           Condition Damage: {Power: 7%}
-      type: items
       gw2id: 83964
 
 - section: Specific Condition Runes
@@ -405,7 +369,6 @@
           Condition Damage: [175, converted]
           Burning Duration: 50%
           Maximum Health: 10%
-      type: items
       gw2id: 24765
 
     - id: flame-legion-2
@@ -416,7 +379,6 @@
         attributes:
           Power: [175, converted]
           Burning Duration: 50%
-      type: items
       gw2id: 24797
 
     - id: baelfire
@@ -428,7 +390,6 @@
           Burning Duration: 30%
         conversion:
           Expertise: {Power: 7%}
-      type: items
       gw2id: 24854
 
     - id: krait
@@ -437,7 +398,6 @@
         attributes:
           Condition Damage: [175, converted]
           Bleeding Duration: 50%
-      type: items
       gw2id: 24762
 
     - id: mad-king
@@ -447,7 +407,6 @@
           Condition Duration: 5%
           Power: [175, converted]
           Bleeding Duration: 40%
-      type: items
       gw2id: 36044
 
     - id: afflicted
@@ -458,7 +417,6 @@
           Bleeding Duration: 20%
           Poison Duration: 10%
           Condition Duration: 10%
-      type: items
       gw2id: 24687
 
     - id: thorns
@@ -467,7 +425,6 @@
         attributes:
           Condition Damage: [300, converted]
           Poison Duration: 50%
-      type: items
       gw2id: 72912
 
     - id: tormenting
@@ -476,7 +433,6 @@
         attributes:
           Condition Damage: [175, converted]
           Torment Duration: 50%
-      type: items
       gw2id: 44956
 
     - id: perplexity
@@ -487,7 +443,6 @@
         attributes:
           Condition Damage: [175, converted]
           Confusion Duration: 50%
-      type: items
       gw2id: 44957
 
 - section: Hybrid Runes
@@ -508,7 +463,6 @@
           Healing Power: [36, converted]
           Boon Duration: 15%
           Condition Duration: 10%
-      type: items
       gw2id: 24691
 
     - id: divinity
@@ -525,7 +479,6 @@
           Ferocity: [78, converted]
           Healing Power: [78, converted]
           Maximum Health: 10%
-      type: items
       gw2id: 24732
 
     - id: revenant
@@ -541,7 +494,6 @@
           Expertise: [78, converted]
           Ferocity: [78, converted]
           Healing Power: [78, converted]
-      type: items
       gw2id: 69370
 
     - id: exuberance
@@ -553,5 +505,4 @@
           Healing Power: {Vitality: 3%}
           Precision: {Vitality: 5%}
           Power: {Vitality: 7%}
-      type: items
       gw2id: 44951

@@ -7,7 +7,6 @@
         attributes:
           Power: [100, converted]
           Ferocity: [70, converted]
-      type: items
       gw2id: 41569
 
     - id: truffle-steak
@@ -16,7 +15,6 @@
         attributes:
           Power: [100, converted]
           Precision: [70, converted]
-      type: items
       gw2id: 12467
 
     - id: curry-butternut-squash-soup
@@ -25,7 +23,6 @@
         attributes:
           Precision: [100, converted]
           Ferocity: [70, converted]
-      type: items
       gw2id: 12486
 
     - id: dragon's-breath-bun
@@ -35,7 +32,6 @@
         attributes:
           Power: [200, converted]
           Ferocity: [70, converted]
-      type: items
       gw2id: 43360
 
     - id: seaweed-salad
@@ -44,7 +40,6 @@
       modifiers:
         damage:
           Strike Damage: [4.5%, mult]
-      type: items
       gw2id: 12471
 
     - id: jerk-poultry
@@ -52,7 +47,6 @@
       modifiers:
         attributes:
           Power: [150, converted]
-      type: items
       gw2id: 71797
 
     - id: sawgill-mushroom-risotto
@@ -60,7 +54,6 @@
       modifiers:
         attributes:
           Precision: [150, converted]
-      type: items
       gw2id: 75010
 
     - id: roasted-cactus
@@ -68,7 +61,6 @@
       modifiers:
         attributes:
           Ferocity: [100, converted]
-      type: items
       gw2id: 66536
 
     - id: fried-golden-dumpling
@@ -76,7 +68,6 @@
       modifiers:
         attributes:
           Concentration: [100, converted]
-      type: items
       gw2id: 68633
 
 - section: Support Food
@@ -88,7 +79,6 @@
         attributes:
           Concentration: [100, converted]
           Power: [70, converted]
-      type: items
       gw2id: 89002
 
     - id: eggs-benedict
@@ -97,7 +87,6 @@
         attributes:
           Concentration: [100, converted]
           Expertise: [70, converted]
-      type: items
       gw2id: 91842
 
     - id: nopalitos-saute
@@ -106,7 +95,6 @@
         attributes:
           Concentration: [100, converted]
           Toughness: [70, converted]
-      type: items
       gw2id: 66530
 
     - id: mussels-gnashblade
@@ -116,7 +104,6 @@
           Damage Reduction: [10%, unknown]
         attributes:
           Concentration: [70, converted]
-      type: items
       gw2id: 74969
 
 - section: Heal Food
@@ -129,7 +116,6 @@
           Healing Power: [100, converted]
           Concentration: [70, converted]
           Outgoing Healing: 10%
-      type: items
       gw2id: 91690
 
     - id: mint-creme-brulee
@@ -139,7 +125,6 @@
           Concentration: [100, converted]
           Healing Power: [70, converted]
           Outgoing Healing: 10%
-      type: items
       gw2id: 91743
 
     - id: delicious-rice-ball
@@ -148,7 +133,6 @@
         attributes:
           Healing Power: [100, converted]
           Outgoing Healing: 10%
-      type: items
       gw2id: 68634
 
     - id: poultry-satay
@@ -157,7 +141,6 @@
         attributes:
           Healing Power: [100, converted]
           Concentration: [70, converted]
-      type: items
       gw2id: 87076
 
 - section: Condition Food
@@ -169,7 +152,6 @@
         attributes:
           Expertise: [100, converted]
           Condition Damage: [70, converted]
-      type: items
       gw2id: 12464
 
     - id: beef-rendang
@@ -178,7 +160,6 @@
         attributes:
           Condition Damage: [100, converted]
           Expertise: [70, converted]
-      type: items
       gw2id: 86997
 
     - id: saffron-stuffed-mushroom
@@ -188,7 +169,6 @@
         attributes:
           Precision: [70, converted]
           Condition Damage: [200, converted]
-      type: items
       gw2id: 12476
 
     - id: steamed-red-dumpling
@@ -198,7 +178,6 @@
         attributes:
           Power: [200, converted]
           Condition Damage: [140, converted]
-      type: items
       gw2id: 68635
 
     - id: fire-meat-chili
@@ -207,7 +186,6 @@
         attributes:
           Burning Duration: 15%
           Precision: [70, converted]
-      type: items
       gw2id: 12484
 
     - id: fancy-truffle-burger
@@ -216,7 +194,6 @@
         attributes:
           Poison Duration: 15%
           Precision: [70, converted]
-      type: items
       gw2id: 12463
 
     - id: truffle-risotto
@@ -225,7 +202,6 @@
         attributes:
           Condition Damage: [100, converted]
           Precision: [70, converted]
-      type: items
       gw2id: 12465
 
     - id: sweet-and-spicy-beans
@@ -234,7 +210,6 @@
         attributes:
           Expertise: [100, converted]
           Power: [70, converted]
-      type: items
       gw2id: 66528
 
     - id: fire-flank-steak
@@ -243,7 +218,6 @@
         attributes:
           Power: [100, converted]
           Condition Damage: [70, converted]
-      type: items
       gw2id: 12466
 
     - id: fancy-potato-and-leek-soup
@@ -252,7 +226,6 @@
         attributes:
           Precision: [100, converted]
           Condition Damage: [70, converted]
-      type: items
       gw2id: 12485
 
     - id: prickly-pear-pie
@@ -260,7 +233,6 @@
       modifiers:
         attributes:
           Expertise: [100, converted]
-      type: items
       gw2id: 66538
 
 - section: Hybrid Food
@@ -279,7 +251,6 @@
           Expertise: [45, converted]
           Ferocity: [45, converted]
           Healing Power: [45, converted]
-      type: items
       gw2id: 43550
 
     - id: birthday-blaster
@@ -295,7 +266,6 @@
           Expertise: [40, converted]
           Ferocity: [40, converted]
           Healing Power: [40, converted]
-      type: items
       gw2id: 66961
 
     - id: passion-fruit-tapioca-pudding
@@ -304,7 +274,6 @@
         attributes:
           Power: [100, converted]
           Healing Power: [70, converted]
-      type: items
       gw2id: 71826
 
     - id: prickly-pear-tapioca-pudding
@@ -313,7 +282,6 @@
         attributes:
           Condition Damage: [100, converted]
           Healing Power: [70, converted]
-      type: items
       gw2id: 76135
 
     - id: tropical-fruit-salad
@@ -322,7 +290,6 @@
         attributes:
           Condition Damage: [70, converted]
           Healing Power: [100, converted]
-      type: items
       gw2id: 36793
 
     - id: spicy-chocolate-cookie
@@ -331,7 +298,6 @@
         attributes:
           Healing Power: [100, converted]
           Precision: [70, converted]
-      type: items
       gw2id: 12454
 
 - section: Toughness Food
@@ -343,7 +309,6 @@
         attributes:
           Power: [100, converted]
           Toughness: [70, converted]
-      type: items
       gw2id: 41563
 
     - id: spicy-herbed-chicken
@@ -352,7 +317,6 @@
         attributes:
           Power: [70, converted]
           Toughness: [100, converted]
-      type: items
       gw2id: 41567
 
     - id: truffle-ravioli
@@ -361,7 +325,6 @@
         attributes:
           Precision: [70, converted]
           Toughness: [100, converted]
-      type: items
       gw2id: 12461
 
     - id: omnomberry-bread
@@ -370,7 +333,6 @@
         attributes:
           Vitality: [100, converted]
           Toughness: [70, converted]
-      type: items
       gw2id: 12473
 
     - id: kralkachocolate-bar
@@ -379,7 +341,6 @@
         attributes:
           Healing Power: [100, converted]
           Toughness: [70, converted]
-      type: items
       gw2id: 43358
 
     - id: chocolate-tapioca-pudding
@@ -388,7 +349,6 @@
         attributes:
           Healing Power: [70, converted]
           Toughness: [100, converted]
-      type: items
       gw2id: 76415
 
     - id: tropical-mousse
@@ -397,7 +357,6 @@
         attributes:
           Condition Damage: [70, converted]
           Toughness: [100, converted]
-      type: items
       gw2id: 36841
 
     - id: elon-red
@@ -406,5 +365,4 @@
         attributes:
           Expertise: [100, converted]
           Toughness: [70, converted]
-      type: items
       gw2id: 82541

@@ -6,7 +6,6 @@
       modifiers:
         attributes:
           Toughness: [180, buff]
-      type: skills
       gw2id: 12500
 
     - id: signet-of-the-wild
@@ -14,7 +13,6 @@
       modifiers:
         attributes:
           Ferocity: [180, buff]
-      type: skills
       gw2id: 12491
 
 - section: Marksmanship
@@ -27,7 +25,6 @@
       modifiers:
         damage:
           Strike Damage: [5%, mult]
-      type: traits
       gw2id: 1000
       defaultEnabled: true
 
@@ -37,7 +34,6 @@
       modifiers:
         damage:
           Strike Damage: [15%, mult]
-      type: traits
       gw2id: 1000
 
     - id: predators-onslaught
@@ -49,7 +45,6 @@
       modifiers:
         damage:
           Strike Damage: [15%, mult]
-      type: traits
       gw2id: 996
       defaultEnabled: true
 
@@ -62,7 +57,6 @@
       modifiers:
         damage:
           Bleeding Damage: [33%, unknown]
-      type: traits
       gw2id: 1846
       defaultEnabled: true
 
@@ -75,7 +69,6 @@
         attributes:
           Critical Chance: 10%
       minor: true
-      type: traits
       gw2id: 1068
       defaultEnabled: true
 
@@ -87,7 +80,6 @@
           Strike Damage: [10%, mult]
         attributes:
           Condition Duration: 10%
-      type: traits
       gw2id: 1912
 
     - id: vicious-quarry
@@ -97,7 +89,6 @@
         attributes:
           Ferocity: [250, buff]
           Critical Chance: 10%
-      type: traits
       gw2id: 1888
       defaultEnabled: true
 
@@ -110,7 +101,6 @@
       modifiers:
         damage:
           Damage Reduction: [5%, unknown]
-      type: traits
       gw2id: 1086
       defaultEnabled: true
 
@@ -121,7 +111,6 @@
           Vitality: [120, buff]
         conversion:
           Expertise: {Vitality: 7%}
-      type: traits
       gw2id: 1099
       defaultEnabled: true
 
@@ -131,7 +120,6 @@
       modifiers:
         attributes:
           Condition Damage: [120, buff]
-      type: traits
       gw2id: 1101
       defaultEnabled: true
 
@@ -145,7 +133,6 @@
       modifiers:
         attributes:
           Condition Damage: [120, buff]
-      type: traits
       gw2id: 1101
       defaultEnabled: true
 
@@ -154,7 +141,6 @@
       modifiers:
         damage:
           Poison Damage: [25%, unknown]
-      type: traits
       gw2id: 1701
       defaultEnabled: true
 
@@ -171,7 +157,6 @@
       modifiers:
         damage:
           Strike Damage: [1%, mult]
-      type: traits
       gw2id: 1062
       defaultEnabled: true
 
@@ -180,7 +165,6 @@
       modifiers:
         conversion:
           Healing Power: {Power: 7%}
-      type: traits
       gw2id: 978
       defaultEnabled: true
 
@@ -190,7 +174,6 @@
         attributes:
           Concentration: [240, buff]
       minor: true
-      type: traits
       gw2id: 1059
       defaultEnabled: true
 
@@ -204,7 +187,6 @@
       modifiers:
         attributes:
           Ferocity: [120, buff]
-      type: traits
       gw2id: 1066
       defaultEnabled: true
 
@@ -218,7 +200,6 @@
       modifiers:
         attributes:
           Ferocity: [120, buff]
-      type: traits
       gw2id: 1066
       defaultEnabled: true
 
@@ -236,7 +217,6 @@
         attributes:
           Outgoing Healing: 2%
       minor: true
-      type: traits
       gw2id: 1992
       defaultEnabled: true
 
@@ -254,7 +234,6 @@
         damage:
           Strike Damage: [15%, add]
       minor: true
-      type: traits
       gw2id: 2156
       defaultEnabled: true
 
@@ -269,7 +248,6 @@
           Strike Damage: [10%, add]
           Condition Damage: [10%, add]
       minor: true
-      type: traits
       gw2id: 2127
       defaultEnabled: true
 
@@ -281,7 +259,6 @@
           Strike Damage: [10%, mult]
         attributes:
           Condition Duration: 10%
-      type: traits
       gw2id: 2143
       defaultEnabled: true
 
@@ -292,7 +269,6 @@
           Toughness: [200, buff]
           Vitality: [100, buff]
       minor: true
-      type: typography
 
     - id: archetype-deadly
       subText: Archetype Deadly (ConDmg/Prec)
@@ -301,7 +277,6 @@
           Condition Damage: [150, buff]
           Precision: [100, buff]
       minor: true
-      type: typography
 
     - id: archetype-versatile
       subText: Archetype Versatile (Vit/Conc)
@@ -310,7 +285,6 @@
           Vitality: [200, buff]
           Concentration: [225, buff]
       minor: true
-      type: typography
 
     - id: archetype-ferocious
       subText: Archetype Ferocious (Pwr/Feroc)
@@ -319,7 +293,6 @@
           Power: [150, buff]
           Ferocity: [100, buff]
       minor: true
-      type: typography
 
     - id: archetype-supportive
       subText: Archetype Supportive (Vit/Heal)
@@ -328,7 +301,6 @@
           Vitality: [100, buff]
           Outgoing Healing: 25%
       minor: true
-      type: typography
 
     - id: pack-alpha-merged
       subText: merged
@@ -340,7 +312,6 @@
           Toughness: [150, buff]
           Vitality: [150, buff]
       minor: true
-      type: traits
       gw2id: 1900
 
     - id: loud-whistle-merged
@@ -349,7 +320,6 @@
         damage:
           Strike Damage: [10%, mult]
       minor: true
-      type: traits
       gw2id: 974
 
     - id: pets-prowess-merged
@@ -358,7 +328,6 @@
         attributes:
           Ferocity: [300, buff]
       minor: true
-      type: traits
       gw2id: 1065
 
     - id: honed-axes-merged
@@ -367,5 +336,4 @@
         attributes:
           Ferocity: [120, buff]
       minor: true
-      type: traits
       gw2id: 1066

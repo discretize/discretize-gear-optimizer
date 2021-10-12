@@ -7,7 +7,6 @@
         damage:
           Strike Damage: [10%, mult]
           Damage Reduction: [10%, unknown]
-      type: items
       gw2id: 50082
 
     - id: furious-sharpening-stone
@@ -16,7 +15,6 @@
         conversion:
           Power: {Precision: 3%}
           Ferocity: {Precision: 3%}
-      type: items
       gw2id: 67530
 
     - id: superior-sharpening-stone
@@ -24,7 +22,6 @@
       modifiers:
         conversion:
           Power: {Precision: 3%, Ferocity: 6%}
-      type: items
       gw2id: 9443
 
     - id: toxic-sharpening-stone
@@ -32,7 +29,6 @@
       modifiers:
         conversion:
           Power: {Condition Damage: 6%, Expertise: 8%}
-      type: items
       gw2id: 48915
 
     - id: magnanimous-sharpening-stone
@@ -40,7 +36,6 @@
       modifiers:
         conversion:
           Power: {Vitality: 3%, Toughness: 3%}
-      type: items
       gw2id: 81034
 
     - id: bountiful-sharpening-stone
@@ -48,7 +43,6 @@
       modifiers:
         conversion:
           Power: {Healing Power: 6%, Concentration: 8%}
-      type: items
       gw2id: 67531
 
 - section: Support Utilities
@@ -59,7 +53,6 @@
       modifiers:
         conversion:
           Concentration: {Power: 3%, Precision: 3%}
-      type: items
       gw2id: 89203
 
     - id: toxic-maintenance-oil
@@ -67,7 +60,6 @@
       modifiers:
         conversion:
           Concentration: {Power: 3%, Condition Damage: 6%}
-      type: items
       gw2id: 48916
 
     - id: enhanced-lucent-oil
@@ -75,7 +67,6 @@
       modifiers:
         conversion:
           Concentration: {Precision: 3%, Condition Damage: 6%}
-      type: items
       gw2id: 89157
 
     - id: furious-maintenance-oil
@@ -84,7 +75,6 @@
         conversion:
           Concentration: {Precision: 3%}
           Healing Power: {Precision: 3%}
-      type: items
       gw2id: 67529
 
     - id: magnanimous-maintenance-oil
@@ -92,7 +82,6 @@
       modifiers:
         conversion:
           Concentration: {Vitality: 3%, Toughness: 3%}
-      type: items
       gw2id: 81157
 
     - id: master-maintenance-oil
@@ -100,7 +89,6 @@
       modifiers:
         conversion:
           Concentration: {Precision: 3%, Healing Power: 6%}
-      type: items
       gw2id: 9461
 
     - id: corsair-maintenance-oil
@@ -109,7 +97,6 @@
         conversion:
           Concentration: {Toughness: 3%}
           Expertise: {Toughness: 3%}
-      type: items
       gw2id: 86016
 
 - section: Heal Utilities
@@ -120,7 +107,6 @@
       modifiers:
         conversion:
           Outgoing Healing: {Healing Power: 0.006%, Concentration: 0.008%}
-      type: items
       gw2id: 67528
 
 - section: Condition Utilities
@@ -131,7 +117,6 @@
       modifiers:
         conversion:
           Condition Damage: {Power: 3%, Precision: 3%}
-      type: items
       gw2id: 48917
 
     - id: furious-tuning-crystal
@@ -140,7 +125,6 @@
         conversion:
           Condition Damage: {Precision: 3%}
           Expertise: {Precision: 3%}
-      type: items
       gw2id: 67524
 
     - id: master-tuning-crystal
@@ -148,7 +132,6 @@
       modifiers:
         conversion:
           Condition Damage: {Precision: 3%, Expertise: 8%}
-      type: items
       gw2id: 9476
 
     - id: magnanimous-tuning-crystal
@@ -156,7 +139,6 @@
       modifiers:
         conversion:
           Condition Damage: {Vitality: 3%, Toughness: 3%}
-      type: items
       gw2id: 81079
 
     - id: bountiful-tuning-crystal
@@ -164,7 +146,6 @@
       modifiers:
         conversion:
           Condition Damage: {Healing Power: 6%, Concentration: 8%}
-      type: items
       gw2id: 67522
 
 - section: SAB Utilities
@@ -176,7 +157,6 @@
         conversion:
           Condition Damage: {Concentration: 8%}
           Concentration: {Precision: 3%}
-      type: items
       gw2id: 87336
 
     - id: holographic-super-drumstick
@@ -185,7 +165,6 @@
         conversion:
           Healing Power: {Concentration: 8%}
           Concentration: {Precision: 3%}
-      type: items
       gw2id: 87329
 
     - id: holographic-super-cheese
@@ -194,7 +173,6 @@
         conversion:
           Power: {Concentration: 8%}
           Concentration: {Precision: 3%}
-      type: items
       gw2id: 87358
 
 - section: Writs
@@ -205,7 +183,6 @@
       modifiers:
         attributes:
           Precision: [200, converted]
-      type: items
       gw2id: 76833
 
     - id: writ-of-masterful-malice
@@ -213,7 +190,6 @@
       modifiers:
         attributes:
           Condition Damage: [200, converted]
-      type: items
       gw2id: 72510
 
     - id: writ-of-masterful-strength
@@ -221,7 +197,6 @@
       modifiers:
         attributes:
           Power: [200, converted]
-      type: items
       gw2id: 73191
 
 - section: Misc
@@ -232,5 +207,4 @@
       modifiers:
         attributes:
           Toughness: [150, converted]
-      type: items
       gw2id: 42428
