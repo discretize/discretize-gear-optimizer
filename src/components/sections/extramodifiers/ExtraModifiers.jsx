@@ -1,11 +1,22 @@
-import { TextField, withStyles } from '@material-ui/core';
+import {
+  TextField,
+  withStyles,
+  Typography,
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Grid,
+} from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import yaml from 'js-yaml';
 import {
   changeExtraModifiers,
   changeExtraModifiersError,
   getExtraModifiers,
 } from '../../../state/slices/extraModifiers';
+import { exampleModifiers, exampleModifiersJson } from '../../../assets/modifierdata/metadata';
 
 const styles = (theme) => ({
   text: {
@@ -13,48 +24,69 @@ const styles = (theme) => ({
   },
 });
 
-function isJson(str) {
-  try {
-    JSON.parse(str);
-  } catch (e) {
-    return false;
+function parseInput(str) {
+  let parsed = [];
+  let error = false;
+
+  if (str) {
+    try {
+      parsed = JSON.parse(str);
+      if (typeof parsed !== 'object') throw new Error('invalid');
+    } catch {
+      try {
+        parsed = yaml.load(str);
+        if (typeof parsed !== 'object') throw new Error('invalid');
+      } catch {
+        error = true;
+      }
+    }
   }
-  return true;
+  return { data: Array.isArray(parsed) ? parsed : [parsed], error };
 }
 
 const ExtraModifiers = ({ classes }) => {
   const dispatch = useDispatch();
-  const error = useSelector(getExtraModifiers('error'));
+  const errorMsg = useSelector(getExtraModifiers('error'));
   const text = useSelector(getExtraModifiers('textBox'));
 
   const handleChange = (e) => {
     const val = e.target.value;
     dispatch(changeExtraModifiers({ key: 'textBox', value: val }));
 
-    if (isJson(val)) {
-      const stringified = JSON.stringify(JSON.parse(val));
-      dispatch(changeExtraModifiers({ key: 'extraModifiers', value: stringified }));
-      dispatch(changeExtraModifiersError(''));
-    } else {
-      dispatch(
-        changeExtraModifiersError(
-          'Invalid Format. Example: [{ "buff": { "Power": 750, "Condition Damage": 750 } }, { "buff": { "Precision": 750 } } ]',
-        ),
-      );
-      dispatch(changeExtraModifiers({ key: 'extraModifiers', value: [] }));
-    }
+    const { data, error } = parseInput(val);
+    dispatch(changeExtraModifiers({ key: 'extraModifiers', value: data }));
+    dispatch(changeExtraModifiersError(error ? 'Invalid Format.' : ''));
   };
   return (
-    <TextField
-      label="Extra Modifiers"
-      className={classes.text}
-      multiline
-      rows={6}
-      value={text}
-      error={error !== ''}
-      helperText={error}
-      onChange={handleChange}
-    />
+    <>
+      <TextField
+        label="Extra Modifiers"
+        className={classes.text}
+        multiline
+        minRows={5}
+        value={text}
+        error={errorMsg !== ''}
+        helperText={errorMsg}
+        onChange={handleChange}
+      />
+      <Accordion>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+          <Typography>Formatting examples</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Grid container>
+            <Grid item xs={6}>
+              <Typography>YAML</Typography>
+              <pre style={{ overflow: 'auto hidden' }}>{exampleModifiers}</pre>
+            </Grid>
+            <Grid item xs={6}>
+              <Typography>JSON</Typography>
+              <pre style={{ overflow: 'auto hidden' }}>{exampleModifiersJson}</pre>
+            </Grid>
+          </Grid>
+        </AccordionDetails>
+      </Accordion>
+    </>
   );
 };
 
