@@ -20,7 +20,6 @@ export const buffsSlice = createSlice({
       empowerAllies: false,
       pinpointDistribution: false,
       assassinsPresence: false,
-      facetOfNature: false,
       riteDwarf: false,
       strengthInNumbers: false,
       baneSignet: false,

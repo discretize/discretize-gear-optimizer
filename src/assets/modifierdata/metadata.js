@@ -80,3 +80,75 @@ export const attributePercentKeysBlacklist = [
   ...damagingConditions.map((condition) => `${condition} Duration`),
   'Maximum Health',
 ];
+
+export const exampleItem = `
+    - id: example
+      text: Example Item
+      subText: with hammer
+      minor: true
+      amountData:
+        label: '% uptime'
+        default: 50
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Strike Damage: [10%, mult]
+          All Damage: [20%, add]
+          Critical Damage: [20%, unknown]
+          Burning Damage: [33%, unknown]
+        attributes:
+          Ferocity: [100, converted]
+          Healing Power: [30, buff]
+          Condition Damage: [60, converted]
+          Critical Chance: 20%
+          Quickness Duration: 10%
+          Torment Duration: 25%
+          Outgoing Healing: 5%
+        conversion:
+          Power: {Precision: 3%, Ferocity: 6%}
+          Expertise: {Toughness: 3%}
+          Outgoing Healing: {Healing Power: 0.006%}
+      gw2id: 1234
+      type: CommonEffect # gw2-ui component type (only used in buffs)
+      defaultEnabled: true`;
+
+export const exampleModifiers = `damage:
+  Strike Damage: [10%, mult]
+  All Damage: [20%, add]
+  Critical Damage: [20%, unknown]
+  Burning Damage: [33%, unknown]
+attributes:
+  Ferocity: [100, converted]
+  Healing Power: [30, buff]
+  Condition Damage: [60, converted]
+  Critical Chance: 20%
+  Quickness Duration: 10%
+  Torment Duration: 25%
+  Outgoing Healing: 5%
+conversion:
+  Power: {Precision: 3%, Ferocity: 6%}
+  Expertise: {Toughness: 3%}
+  Outgoing Healing: {Healing Power: 0.006%}`;
+
+export const exampleModifiersJson = `{
+  "damage": {
+    "Strike Damage": [ "10%", "mult" ],
+    "All Damage": [ "20%", "add" ],
+    "Critical Damage": [ "20%", "unknown" ],
+    "Burning Damage": [ "33%", "unknown" ]
+  },
+  "attributes": {
+    "Ferocity": [ 100, "converted" ],
+    "Healing Power": [ 30, "buff" ],
+    "Condition Damage": [ 60, "converted" ],
+    "Critical Chance": "20%",
+    "Quickness Duration": "10%",
+    "Torment Duration": "25%",
+    "Outgoing Healing": "5%"
+  },
+  "conversion": {
+    "Power": { "Precision": "3%", "Ferocity": "6%" },
+    "Expertise": { "Toughness": "3%" },
+    "Outgoing Healing": { "Healing Power": "0.006%" }
+  }
+}`;

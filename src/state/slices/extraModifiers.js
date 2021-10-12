@@ -26,8 +26,8 @@ export const extraModifiersSlice = createSlice({
       // Apply extra (manual) modifiers
       if (extraModifiers.length > 0) {
         modifiers.push(
-          ...JSON.parse(extraModifiers).map((modi, index) => {
-            return { id: `extraModifier${index}`, modifiers: JSON.stringify(modi) };
+          ...extraModifiers.map((modi, index) => {
+            return { id: `extraModifier ${index + 1}`, modifiers: modi };
           }),
         );
       }

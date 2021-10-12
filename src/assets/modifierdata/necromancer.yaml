@@ -6,7 +6,6 @@
       modifiers:
         attributes:
           Power: [180, buff]
-      type: skills
       gw2id: 10622
 
 - section: Spite
@@ -22,7 +21,6 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      type: traits
       gw2id: 914
       defaultEnabled: true
 
@@ -36,7 +34,6 @@
         attributes:
           Power: [250, buff]
           Condition Damage: [-250, buff]
-      type: traits
       gw2id: 829
       defaultEnabled: true
 
@@ -49,7 +46,6 @@
       modifiers:
         damage:
           Strike Damage: [20%, mult]
-      type: traits
       gw2id: 853
       defaultEnabled: true
 
@@ -63,7 +59,6 @@
       modifiers:
         attributes:
           Bleeding Duration: 20%
-      type: traits
       gw2id: 802
       defaultEnabled: true
 
@@ -73,7 +68,6 @@
       modifiers:
         attributes:
           Precision: [180, converted]
-      type: traits
       gw2id: 803
       defaultEnabled: true
 
@@ -84,7 +78,6 @@
       modifiers:
         conversion:
           Condition Damage: {Precision: 13%}
-      type: traits
       gw2id: 810
       defaultEnabled: true
 
@@ -100,7 +93,6 @@
       modifiers:
         attributes:
           Critical Chance: 20%
-      type: traits
       gw2id: 810
       defaultEnabled: true
 
@@ -110,7 +102,6 @@
       modifiers:
         attributes:
           Condition Damage: [200, buff]
-      type: traits
       gw2id: 801
       defaultEnabled: true
 
@@ -131,7 +122,6 @@
       modifiers:
         attributes:
           Toughness: [20, buff]
-      type: traits
       defaultEnabled: true
 
     - id: putrid-defense
@@ -139,7 +129,6 @@
       modifiers:
         damage:
           Poison Damage: [15%, unknown]
-      type: traits
       gw2id: 857
       defaultEnabled: true
 
@@ -152,7 +141,6 @@
       modifiers:
         attributes:
           Power: [10, buff]
-      type: traits
       gw2id: 855
       defaultEnabled: true
 
@@ -170,7 +158,6 @@
         damage:
           Strike Damage: [10%, add]
           Condition Damage: [10%, add]
-      type: traits
       gw2id: 894
       defaultEnabled: true
 
@@ -179,7 +166,6 @@
       modifiers:
         attributes:
           Vitality: [180, converted]
-      type: traits
       gw2id: 861
       defaultEnabled: true
 
@@ -190,7 +176,6 @@
         attributes:
           Critical Chance: 33%
           Ferocity: [300, buff]
-      type: traits
       gw2id: 893
       defaultEnabled: true
 
@@ -203,7 +188,6 @@
       modifiers:
         conversion:
           Expertise: {Condition Damage: 7%}
-      type: traits
       gw2id: 2074
       defaultEnabled: true
 
@@ -215,7 +199,6 @@
         attributes:
           Concentration: [150, converted]
           Expertise: [150, converted]
-      type: traits
       gw2id: 2121
 
     - id: sand-sage-3x
@@ -226,7 +209,6 @@
         attributes:
           Concentration: [225, converted]
           Expertise: [225, converted]
-      type: traits
       gw2id: 2121
       defaultEnabled: true
 
@@ -236,7 +218,6 @@
       modifiers:
         damage:
           Torment Damage: [25%, unknown]
-      type: traits
       gw2id: 2164
       defaultEnabled: true
 
@@ -253,7 +234,6 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      type: traits
       gw2id: 1969
       defaultEnabled: true
 
@@ -263,7 +243,6 @@
       modifiers:
         attributes:
           Critical Chance: 50%
-      type: traits
       gw2id: 2031
       defaultEnabled: true
 
@@ -277,7 +256,6 @@
       modifiers:
         damage:
           Strike Damage: [15%, mult]
-      type: traits
       gw2id: 2018
       defaultEnabled: true
 
@@ -287,7 +265,6 @@
       modifiers:
         attributes:
           Ferocity: [300, buff]
-      type: traits
       gw2id: 2021
       defaultEnabled: true
 
@@ -304,7 +281,6 @@
       modifiers:
         damage:
           Strike Damage: [1%, unknown]
-      type: traits
       gw2id: 2188
       defaultEnabled: true
 
@@ -317,7 +293,6 @@
       modifiers:
         damage:
           Condition Damage: [1%, unknown]
-      type: traits
       gw2id: 2185
       defaultEnabled: true
 
@@ -327,7 +302,6 @@
       modifiers:
         attributes:
           Vitality: [360, unknown]
-      type: traits
       gw2id: 2186
       defaultEnabled: true
 
@@ -336,7 +310,6 @@
       modifiers:
         conversion:
           Ferocity: {Vitality: 13%}
-      type: traits
       gw2id: 2192
       defaultEnabled: true
 
@@ -345,7 +318,6 @@
       modifiers:
         conversion:
           Expertise: {Vitality: 13%}
-      type: traits
       gw2id: 2209
       defaultEnabled: true
 
@@ -354,7 +326,6 @@
       modifiers:
         attributes:
           Power: [180, unknown]
-      type: traits
       gw2id: 2218
       defaultEnabled: true
 
@@ -363,6 +334,5 @@
       modifiers:
         attributes:
           Condition Damage: [180, unknown]
-      type: traits
       gw2id: 2203
       defaultEnabled: true

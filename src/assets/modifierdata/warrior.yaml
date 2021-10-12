@@ -6,7 +6,6 @@
       modifiers:
         attributes:
           Power: [180, buff]
-      type: skills
       gw2id: 14404
 
     - id: signet-of-fury
@@ -14,7 +13,6 @@
       modifiers:
         attributes:
           Precision: [180, buff]
-      type: skills
       gw2id: 14410
 
     - id: dolyak-signet
@@ -22,7 +20,6 @@
       modifiers:
         attributes:
           Toughness: [180, buff]
-      type: skills
       gw2id: 14413
 
 - section: Strength
@@ -35,7 +32,6 @@
       modifiers:
         damage:
           Strike Damage: [5%, add]
-      type: traits
       gw2id: 1444
       defaultEnabled: true
 
@@ -49,7 +45,6 @@
       modifiers:
         damage:
           Strike Damage: [10%, add]
-      type: traits
       gw2id: 1444
 
     - id: forceful-greatsword
@@ -58,7 +53,6 @@
       modifiers:
         attributes:
           Power: [120, buff]
-      type: traits
       gw2id: 1338
       defaultEnabled: true
 
@@ -72,7 +66,6 @@
       modifiers:
         attributes:
           Power: [120, buff]
-      type: traits
       gw2id: 1338
 
     - id: great-fortitude
@@ -81,7 +74,6 @@
         conversion:
           Vitality: {Power: 10%}
           Ferocity: {Power: 10%}
-      type: traits
       gw2id: 1449
       defaultEnabled: true
 
@@ -95,7 +87,6 @@
       modifiers:
         attributes:
           Power: [250, buff]
-      type: traits
       gw2id: 1453
       defaultEnabled: true
 
@@ -108,7 +99,6 @@
       modifiers:
         damage:
           Strike Damage: [7%, add]
-      type: traits
       gw2id: 1437
       defaultEnabled: true
 
@@ -121,7 +111,6 @@
       modifiers:
         conversion:
           Expertise: {Precision: 7%}
-      type: traits
       gw2id: 1455
       defaultEnabled: true
 
@@ -134,7 +123,6 @@
       modifiers:
         attributes:
           Ferocity: [500, converted]
-      type: traits
       gw2id: 1344
       defaultEnabled: true
 
@@ -148,7 +136,6 @@
       modifiers:
         attributes:
           Condition Damage: [180, buff]
-      type: traits
       gw2id: 1343
       defaultEnabled: true
 
@@ -158,7 +145,6 @@
       modifiers:
         attributes:
           Expertise: [120, buff]
-      type: traits
       gw2id: 1333
       defaultEnabled: true
 
@@ -172,7 +158,6 @@
       modifiers:
         attributes:
           Condition Damage: [120, buff]
-      type: traits
       gw2id: 1333
       defaultEnabled: true
 
@@ -182,7 +167,6 @@
       modifiers:
         attributes:
           Bleeding Duration: 33%
-      type: traits
       gw2id: 1337
       defaultEnabled: true
 
@@ -195,7 +179,6 @@
       modifiers:
         attributes:
           Condition Damage: [250, buff]
-      type: traits
       gw2id: 1346
       defaultEnabled: true
 
@@ -210,7 +193,6 @@
       modifiers:
         damage:
           Damage Reduction: [5%, unknown]
-      type: traits
       gw2id: 1350
 
     - id: cull-the-weak
@@ -222,7 +204,6 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      type: traits
       gw2id: 1372
       defaultEnabled: true
 
@@ -231,7 +212,6 @@
       modifiers:
         conversion:
           Power: {Toughness: 10%}
-      type: traits
       gw2id: 1379
       defaultEnabled: true
 
@@ -242,7 +222,6 @@
       modifiers:
         damage:
           Damage Reduction: [10%, unknown]
-      type: traits
       gw2id: 1380
       defaultEnabled: true
 
@@ -259,7 +238,6 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      type: traits
       gw2id: 1469
       defaultEnabled: true
 
@@ -268,7 +246,6 @@
       modifiers:
         attributes:
           Concentration: [120, buff]
-      type: traits
       gw2id: 1471
       defaultEnabled: true
 
@@ -282,7 +259,6 @@
       modifiers:
         damage:
           Strike Damage: [1%, mult]
-      type: traits
       gw2id: 1485
       defaultEnabled: true
 
@@ -295,7 +271,6 @@
       modifiers:
         damage:
           Strike Damage: [25%, mult]
-      type: traits
       gw2id: 1486
       defaultEnabled: true
 
@@ -304,7 +279,6 @@
       modifiers:
         conversion:
           Healing Power: {Power: 13%}
-      type: traits
       gw2id: 1470
       defaultEnabled: true
 
@@ -321,7 +295,6 @@
       modifiers:
         damage:
           Strike Damage: [10%, add]
-      type: traits
       gw2id: 1413
       defaultEnabled: true
 
@@ -332,7 +305,6 @@
         attributes:
           Power: [50, buff]
           Condition Damage: [50, buff]
-      type: traits
       gw2id: 1484
       defaultEnabled: true
 
@@ -343,7 +315,6 @@
         attributes:
           Precision: [50, buff]
           Ferocity: [50, buff]
-      type: traits
       gw2id: 1484
       defaultEnabled: true
 
@@ -353,7 +324,6 @@
       modifiers:
         attributes:
           Ferocity: [120, buff]
-      type: traits
       gw2id: 1369
       defaultEnabled: true
 
@@ -367,7 +337,6 @@
       modifiers:
         attributes:
           Ferocity: [120, buff]
-      type: traits
       gw2id: 1369
       defaultEnabled: true
 
@@ -381,7 +350,6 @@
       modifiers:
         conversion:
           Ferocity: {Precision: 7%}
-      type: traits
       gw2id: 2011
       defaultEnabled: true
 
@@ -395,7 +363,6 @@
       modifiers:
         conversion:
           Ferocity: {Precision: 7%}
-      type: traits
       gw2id: 2011
       defaultEnabled: true
 
@@ -405,7 +372,6 @@
       modifiers:
         attributes:
           Condition Damage: [120, buff]
-      type: traits
       gw2id: 2042
       defaultEnabled: true
 
@@ -419,7 +385,6 @@
       modifiers:
         attributes:
           Condition Damage: [120, buff]
-      type: traits
       gw2id: 2042
       defaultEnabled: true
 
@@ -435,7 +400,6 @@
         attributes:
           Power: [300, buff]
           Condition Damage: [300, buff]
-      type: traits
       gw2id: 2046
       defaultEnabled: true
 
@@ -446,7 +410,6 @@
       modifiers:
         attributes:
           Toughness: [-300, buff]
-      type: traits
       gw2id: 2046
       defaultEnabled: true
 
@@ -459,7 +422,6 @@
       modifiers:
         damage:
           Strike Damage: [20%, mult]
-      type: traits
       gw2id: 1928
       defaultEnabled: true
 
@@ -468,7 +430,6 @@
       modifiers:
         attributes:
           Burning Duration: 33%
-      type: traits
       gw2id: 2038
       defaultEnabled: true
 
@@ -478,7 +439,6 @@
       modifiers:
         attributes:
           Toughness: [300, buff]
-      type: traits
       gw2id: 2043
       defaultEnabled: true
 
@@ -492,7 +452,6 @@
       modifiers:
         damage:
           Critical Damage: [7%, unknown]
-      type: traits
       gw2id: 2107
       defaultEnabled: true
 
@@ -506,7 +465,6 @@
       modifiers:
         damage:
           Critical Damage: [7%, unknown]
-      type: traits
       gw2id: 2107
       defaultEnabled: true
 
@@ -520,7 +478,6 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      type: traits
       gw2id: 2095
 
     - id: attackers-insight
@@ -538,7 +495,6 @@
           Ferocity: [250, buff]
           Power: [250, buff]
           Precision: [250, buff]
-      type: traits
       gw2id: 2130
       defaultEnabled: true
 
@@ -551,7 +507,6 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      type: traits
       gw2id: 2060
       defaultEnabled: true
 
@@ -569,6 +524,5 @@
       modifiers:
         attributes:
           Ferocity: [250, unknown]
-      type: traits
       gw2id: 2236
       defaultEnabled: true
