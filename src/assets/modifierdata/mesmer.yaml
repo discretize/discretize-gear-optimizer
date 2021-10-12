@@ -6,7 +6,6 @@
       modifiers:
         attributes:
           Condition Damage: [180, buff]
-      type: skills
       gw2id: 10232
 
     - id: signet-of-midnight
@@ -14,7 +13,6 @@
       modifiers:
         attributes:
           Expertise: [180, buff]
-      type: skills
       gw2id: 10234
 
 - section: Domination
@@ -31,7 +29,6 @@
       modifiers:
         damage:
           Strike Damage: [12.5%, mult]
-      type: traits
       gw2id: 1941
       defaultEnabled: true
 
@@ -44,7 +41,6 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
-      type: traits
       gw2id: 713
       defaultEnabled: true
 
@@ -57,7 +53,6 @@
       modifiers:
         damage:
           Strike Damage: [15%, mult]
-      type: traits
       gw2id: 681
       defaultEnabled: true
 
@@ -74,7 +69,6 @@
       modifiers:
         attributes:
           Ferocity: [150, buff]
-      type: traits
       gw2id: 708
       defaultEnabled: true
 
@@ -84,7 +78,6 @@
       modifiers:
         damage:
           Critical Damage: [15%, unknown]
-      type: traits
       gw2id: 692
       defaultEnabled: true
 
@@ -98,7 +91,6 @@
       modifiers:
         damage:
           Critical Damage: [10%, unknown]
-      type: traits
       gw2id: 692
       defaultEnabled: true
 
@@ -112,7 +104,6 @@
       modifiers:
         damage:
           Damage Reduction: [25%, unknown]
-      type: traits
       gw2id: 675
       defaultEnabled: true
 
@@ -126,7 +117,6 @@
       modifiers:
         damage:
           Condition Damage: [10%, add]
-      type: traits
       gw2id: 667
       defaultEnabled: true
 
@@ -136,7 +126,6 @@
       modifiers:
         attributes:
           Condition Damage: [120, buff]
-      type: traits
       gw2id: 669
       defaultEnabled: true
 
@@ -150,7 +139,6 @@
       modifiers:
         attributes:
           Condition Damage: [120, buff]
-      type: traits
       gw2id: 669
 
     - id: chaotic-persistence
@@ -161,7 +149,6 @@
         attributes:
           Concentration: [250, buff]
           Expertise: [250, buff]
-      type: traits
       gw2id: 1865
       defaultEnabled: true
 
@@ -175,7 +162,6 @@
         conversion:
           Healing Power: {Power: 13%}
       minor: true
-      type: traits
       gw2id: 1915
       defaultEnabled: true
 
@@ -196,7 +182,6 @@
         attributes:
           Condition Damage: [150, buff]
       minor: true
-      type: traits
       gw2id: 723
       defaultEnabled: true
 
@@ -210,7 +195,6 @@
       modifiers:
         attributes:
           Critical Chance: 15%
-      type: traits
       gw2id: 2009
       defaultEnabled: true
 
@@ -228,7 +212,6 @@
         attributes:
           Condition Damage: [150, buff]
       minor: true
-      type: traits
       gw2id: 2069
       defaultEnabled: true
 
@@ -245,7 +228,6 @@
       modifiers:
         damage:
           Strike Damage: [15%, unknown]
-      type: traits
       gw2id: 2208
       defaultEnabled: true
 
@@ -255,7 +237,6 @@
       modifiers:
         attributes:
           Expertise: [150, unknown]
-      type: traits
       gw2id: 2207
       defaultEnabled: true
 
@@ -268,7 +249,6 @@
           Ferocity: {Vitality: 7%}
         attributes:
           Critical Chance: 20%
-      type: traits
       gw2id: 2193
       defaultEnabled: true
 
@@ -277,6 +257,5 @@
       modifiers:
         damage:
           Bleeding Damage: [25%, unknown]
-      type: traits
       gw2id: 2223
       defaultEnabled: true

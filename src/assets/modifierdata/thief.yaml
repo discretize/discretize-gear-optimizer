@@ -7,7 +7,6 @@
       modifiers:
         attributes:
           Power: [180, buff]
-      type: skills
       gw2id: 13046
 
     - id: assassins-signet-active
@@ -16,7 +15,6 @@
       modifiers:
         attributes:
           Power: [540, buff]
-      type: skills
       gw2id: 13046
 
     - id: signet-of-agility
@@ -24,7 +22,6 @@
       modifiers:
         attributes:
           Precision: [180, buff]
-      type: skills
       gw2id: 13062
 
 - section: Deadly Arts
@@ -37,7 +34,6 @@
       modifiers:
         attributes:
           Power: [80, converted]
-      type: traits
       gw2id: 1245
       defaultEnabled: true
 
@@ -47,7 +43,6 @@
       modifiers:
         attributes:
           Power: [80, converted]
-      type: traits
       gw2id: 1245
 
     - id: deadly-ambition
@@ -55,7 +50,6 @@
       modifiers:
         attributes:
           Condition Damage: [120, buff]
-      type: traits
       gw2id: 1164
       defaultEnabled: true
 
@@ -65,7 +59,6 @@
       modifiers:
         attributes:
           Power: [80, buff]
-      type: traits
       gw2id: 1704
       defaultEnabled: true
 
@@ -78,7 +71,6 @@
       modifiers:
         attributes:
           Power: [120, buff]
-      type: traits
       gw2id: 1704
 
     - id: exposed-weakness
@@ -91,7 +83,6 @@
       modifiers:
         damage:
           Strike Damage: [2%, mult]
-      type: traits
       gw2id: 1257
       defaultEnabled: true
 
@@ -102,7 +93,6 @@
           Poison Damage: [33%, unknown]
         attributes:
           Poison Duration: 33%
-      type: traits
       gw2id: 1291
       defaultEnabled: true
 
@@ -115,7 +105,6 @@
       modifiers:
         damage:
           Strike Damage: [20%, mult]
-      type: traits
       gw2id: 1269
       defaultEnabled: true
 
@@ -130,7 +119,6 @@
       modifiers:
         attributes:
           Critical Chance: 10%
-      type: traits
       gw2id: 1281
       defaultEnabled: true
 
@@ -140,7 +128,6 @@
       modifiers:
         damage:
           Critical Damage: [7%, unknown]
-      type: traits
       gw2id: 1268
       defaultEnabled: true
 
@@ -150,7 +137,6 @@
       modifiers:
         attributes:
           Critical Chance: 7%
-      type: traits
       gw2id: 1268
       defaultEnabled: true
 
@@ -159,7 +145,6 @@
       modifiers:
         conversion:
           Ferocity: {Precision: 7%}
-      type: traits
       gw2id: 1272
       defaultEnabled: true
 
@@ -173,7 +158,6 @@
       modifiers:
         damage:
           Critical Damage: [10%, unknown]
-      type: traits
       gw2id: 1282
       defaultEnabled: true
 
@@ -186,7 +170,6 @@
       modifiers:
         attributes:
           Ferocity: [250, converted]
-      type: traits
       gw2id: 1904
       defaultEnabled: true
 
@@ -200,7 +183,6 @@
       modifiers:
         attributes:
           Concentration: [240, buff]
-      type: traits
       gw2id: 1242
       defaultEnabled: true
 
@@ -214,7 +196,6 @@
       modifiers:
         attributes:
           Expertise: [150, converted]
-      type: traits
       gw2id: 1232
       defaultEnabled: true
 
@@ -228,7 +209,6 @@
       modifiers:
         damage:
           All Damage: [1%, add]
-      type: traits
       gw2id: 1157
       defaultEnabled: true
 
@@ -237,7 +217,6 @@
       modifiers:
         damage:
           Bleeding Damage: [25%, unknown]
-      type: traits
       gw2id: 1706
       defaultEnabled: true
 
@@ -253,7 +232,6 @@
           Damage Reduction: [10%, unknown]
         conversion:
           Vitality: {Power: 13%}
-      type: traits
       gw2id: 1933
       defaultEnabled: true
 
@@ -265,7 +243,6 @@
         damage:
           Strike Damage: [7%, mult]
           Damage Reduction: [10%, unknown]
-      type: traits
       gw2id: 1887
       defaultEnabled: true
 
@@ -275,7 +252,6 @@
       modifiers:
         attributes:
           Power: [120, converted]
-      type: traits
       gw2id: 1884
       defaultEnabled: true
 
@@ -285,7 +261,6 @@
       modifiers:
         attributes:
           Power: [120, converted]
-      type: traits
       gw2id: 1884
       defaultEnabled: true
 
@@ -298,7 +273,6 @@
       modifiers:
         damage:
           Strike Damage: [5%, mult]
-      type: traits
       gw2id: 1893
       defaultEnabled: true
 
@@ -308,7 +282,6 @@
       modifiers:
         damage:
           Strike Damage: [10%, add]
-      type: traits
       gw2id: 2047
       defaultEnabled: true
 
@@ -318,7 +291,6 @@
       modifiers:
         damage:
           Condition Damage: [15%, add]
-      type: traits
       gw2id: 1833
       defaultEnabled: true
 
@@ -332,7 +304,6 @@
       modifiers:
         attributes:
           Precision: [120, converted]
-      type: traits
       gw2id: 2118
       defaultEnabled: true
 
@@ -342,7 +313,6 @@
       modifiers:
         attributes:
           Precision: [120, converted]
-      type: traits
       gw2id: 2118
       defaultEnabled: true
 
@@ -352,7 +322,6 @@
       modifiers:
         attributes:
           Concentration: [180, buff]
-      type: traits
       gw2id: 2160
       defaultEnabled: true
 
@@ -365,7 +334,6 @@
       modifiers:
         damage:
           Strike Damage: [1%, mult]
-      type: traits
       gw2id: 2160
       defaultEnabled: true
 
@@ -376,7 +344,6 @@
         damage:
           Strike Damage: [10%, mult]
           Damage Reduction: [10%, unknown]
-      type: traits
       gw2id: 2084
       defaultEnabled: true
 
@@ -387,6 +354,5 @@
         attributes:
           Power: [200, buff]
           Precision: [200, buff]
-      type: traits
       gw2id: 2093
       defaultEnabled: true

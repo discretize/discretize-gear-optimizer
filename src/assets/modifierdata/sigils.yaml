@@ -6,7 +6,6 @@
       modifiers:
         damage:
           Strike Damage: [5%, add]
-      type: items
       gw2id: 24615
 
     - id: accuracy
@@ -14,7 +13,6 @@
       modifiers:
         attributes:
           Critical Chance: 7%
-      type: items
       gw2id: 24618
 
     - id: impact/night/slaying-both
@@ -23,7 +21,6 @@
       modifiers:
         damage:
           Strike Damage: [3%, add, 7%, mult]
-      type: items
       gw2id: 24868
 
     - id: impact/night/slaying-only-3
@@ -32,7 +29,6 @@
       modifiers:
         damage:
           Strike Damage: [3%, add]
-      type: items
       gw2id: 24868
 
 - section: Support Sigils
@@ -43,7 +39,6 @@
       modifiers:
         attributes:
           Boon Duration: 10%
-      type: items
       gw2id: 72339
 
 - section: Heal Sigils
@@ -54,7 +49,6 @@
       modifiers:
         attributes:
           Outgoing Healing: 10%
-      type: items
       gw2id: 74326
 
 - section: Condition Sigils
@@ -65,7 +59,6 @@
       modifiers:
         attributes:
           Condition Duration: 10%
-      type: items
       gw2id: 44950
 
     - id: bursting
@@ -73,7 +66,6 @@
       modifiers:
         damage:
           Condition Damage: [5%, add]
-      type: items
       gw2id: 44944
 
     - id: agony
@@ -81,7 +73,6 @@
       modifiers:
         attributes:
           Bleeding Duration: 20%
-      type: items
       gw2id: 24612
 
     - id: smoldering
@@ -89,7 +80,6 @@
       modifiers:
         attributes:
           Burning Duration: 20%
-      type: items
       gw2id: 24624
 
     - id: venom
@@ -97,7 +87,6 @@
       modifiers:
         attributes:
           Poison Duration: 20%
-      type: items
       gw2id: 24632
 
     - id: demons
@@ -105,7 +94,6 @@
       modifiers:
         attributes:
           Torment Duration: 20%
-      type: items
       gw2id: 24583
 
 - section: Stacking Sigils (25x)
@@ -116,7 +104,6 @@
       modifiers:
         attributes:
           Power: [250, converted]
-      type: items
       gw2id: 24575
 
     - id: cruelty
@@ -124,7 +111,6 @@
       modifiers:
         attributes:
           Ferocity: [250, converted]
-      type: items
       gw2id: 67341
 
     - id: perception
@@ -132,7 +118,6 @@
       modifiers:
         attributes:
           Precision: [250, converted]
-      type: items
       gw2id: 24580
 
     - id: corruption
@@ -140,7 +125,6 @@
       modifiers:
         attributes:
           Condition Damage: [250, converted]
-      type: items
       gw2id: 24578
 
     - id: life
@@ -148,7 +132,6 @@
       modifiers:
         attributes:
           Healing Power: [250, converted]
-      type: items
       gw2id: 24582
 
     - id: bounty
@@ -156,7 +139,6 @@
       modifiers:
         attributes:
           Concentration: [225, converted]
-      type: items
       gw2id: 81045
 
     - id: benevolence
@@ -164,7 +146,6 @@
       modifiers:
         attributes:
           Outgoing Healing: 12.5%
-      type: items
       gw2id: 24584
 
     - id: stars
@@ -180,7 +161,6 @@
           Expertise: [50, converted]
           Ferocity: [50, converted]
           Healing Power: [50, converted]
-      type: items
       gw2id: 86170
 
 - section: Gemstones
@@ -191,5 +171,4 @@
       modifiers:
         attributes:
           Concentration: [40, converted]
-      type: items
       gw2id: 24773
