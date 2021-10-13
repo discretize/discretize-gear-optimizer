@@ -66,7 +66,8 @@ export const allAttributePercentKeys = [
   'Outgoing Healing',
 ];
 
-export const allConversionKeys = [...stats, 'Outgoing Healing'];
+export const allConversionSourceKeys = stats;
+export const allConversionDestinationKeys = [...stats, 'Outgoing Healing'];
 
 // these values don't behave well if scaled up and down,
 // so disallow them in modifiers with an amount key

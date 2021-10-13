@@ -13,7 +13,8 @@ import {
   allAttributePointKeys,
   allAttributePointModes,
   allAttributePercentKeys,
-  allConversionKeys,
+  allConversionSourceKeys,
+  allConversionDestinationKeys,
   damageKeysBlacklist,
   attributePointKeysBlacklist,
   attributePercentKeysBlacklist,
@@ -242,13 +243,19 @@ function parseAttributes(attributes, id, amountData) {
 
 function parseConversion(conversion, id, amountData) {
   for (const [key, value] of Object.entries(conversion)) {
-    assert(allConversionKeys.includes(key), `invalid conversion destination ${key} in ${id}`);
+    assert(
+      allConversionDestinationKeys.includes(key),
+      `invalid conversion destination ${key} in ${id}`,
+    );
 
     if (amountData && !amountData.disableBlacklist && attributePointKeysBlacklist.includes(key))
       console.log(`❓ ${key} is a bad idea in an entry with an amount like ${id}`);
 
     for (const [source, amount] of Object.entries(value)) {
-      assert(allConversionKeys.includes(source), `invalid conversion source ${source} in ${id}`);
+      assert(
+        allConversionSourceKeys.includes(source),
+        `invalid conversion source ${source} in ${id}`,
+      );
       parsePercent(amount, key, id);
     }
   }
