@@ -106,6 +106,9 @@ const testModifiers = async () => {
             typeof amountData.quantityEntered === 'number',
             `err: missing amount quantityEntered in ${id}`,
           );
+          if (amountData.quantityEntered === 100 && amountData.label?.[0] !== '%') {
+            console.log(`❓ did you forget a percent sign in ${id}'s amount label?`)
+          }
         }
 
         if (major_traits) {
