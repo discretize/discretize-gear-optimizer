@@ -9,7 +9,6 @@ const stats = [
   'Concentration',
   'Healing Power',
   'Agony Resistance',
-  'Armor',
 ];
 const boons = [
   'Aegis',
