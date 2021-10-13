@@ -12,6 +12,7 @@ const stats = [
 ];
 const boons = [
   'Aegis',
+  'Alacrity',
   'Fury',
   'Might',
   'Protection',
