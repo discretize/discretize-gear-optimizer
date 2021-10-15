@@ -4,6 +4,7 @@ module.exports = {
     [
       'i18next-extract',
       {
+        locales: ['en', 'zh'],
         keySeparator: null,
         nsSeparator: null,
         keyAsDefaultValue: ['en'],
