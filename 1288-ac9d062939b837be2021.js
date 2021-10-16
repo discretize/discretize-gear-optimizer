@@ -1,0 +1,2 @@
+(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[1288],{41288:function(e,i,t){"use strict";t.r(i),i.default=t.p+"static/Ranger-52f28c5a1b1bf4e00be604f469510b6e.png"}}]);
+//# sourceMappingURL=1288-ac9d062939b837be2021.js.map

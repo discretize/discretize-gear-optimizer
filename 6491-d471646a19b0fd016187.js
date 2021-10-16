@@ -1,0 +1,2 @@
+(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[6491],{56491:function(e,i,c){"use strict";c.r(i),i.default=c.p+"static/Scourge-fc30b055b9b3ae10f9d473ce7dff9078.png"}}]);
+//# sourceMappingURL=6491-d471646a19b0fd016187.js.map

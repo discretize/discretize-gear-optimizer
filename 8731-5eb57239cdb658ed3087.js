@@ -1,0 +1,2 @@
+(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[8731],{88731:function(e,i,r){"use strict";r.r(i),i.default=r.p+"static/Berserker-4a00f54877ffda5b2436f97fbac8d852.png"}}]);
+//# sourceMappingURL=8731-5eb57239cdb658ed3087.js.map

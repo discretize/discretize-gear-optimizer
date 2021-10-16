@@ -1,0 +1,2 @@
+(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[9197],{69197:function(e,i,t){"use strict";t.r(i),i.default=t.p+"static/Norn-8203c41a265f1554b3778e5baa57cdd4.png"}}]);
+//# sourceMappingURL=9197-582d3b84ef507e445e32.js.map

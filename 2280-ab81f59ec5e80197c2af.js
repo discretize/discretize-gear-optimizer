@@ -1,0 +1,2 @@
+(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[2280],{82280:function(e,i,t){"use strict";t.r(i),i.default=t.p+"static/Human-98abfeb52942c544e20ed8ac53f1beb7.png"}}]);
+//# sourceMappingURL=2280-ab81f59ec5e80197c2af.js.map
