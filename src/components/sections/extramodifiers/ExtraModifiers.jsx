@@ -8,7 +8,7 @@ import {
   Grid,
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import yaml from 'js-yaml';
@@ -57,7 +57,7 @@ const ExtraModifiers = ({ classes }) => {
 
     const { data, error } = parseInput(val);
     dispatch(changeExtraModifiers({ key: 'extraModifiers', value: data }));
-    dispatch(changeExtraModifiersError(error ? 'Invalid Format.' : ''));
+    dispatch(changeExtraModifiersError(error ? t('Invalid Format.') : ''));
   };
   return (
     <>
@@ -73,7 +73,9 @@ const ExtraModifiers = ({ classes }) => {
       />
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography>Formatting examples</Typography>
+          <Typography>
+            <Trans>Formatting examples</Trans>
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Grid container>
