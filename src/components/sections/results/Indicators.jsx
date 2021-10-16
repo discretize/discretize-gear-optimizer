@@ -1,5 +1,6 @@
 import { Table, TableBody, TableCell, TableRow, Typography, withStyles } from '@material-ui/core';
 import React from 'react';
+import { Trans } from 'gatsby-plugin-react-i18next';
 
 const styles = (theme) => ({
   root: {
@@ -14,7 +15,9 @@ const styles = (theme) => ({
 const AffixesStats = ({ classes, data }) => {
   return (
     <>
-      <Typography variant="h6">Indicators</Typography>
+      <Typography variant="h6">
+        <Trans>Indicators</Trans>
+      </Typography>
       <Table padding="none">
         <TableBody>
           {Object.keys(data).map((indicator) => (

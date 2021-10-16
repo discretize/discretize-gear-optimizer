@@ -12,3 +12,6 @@ install.bat
 *.iml
 
 .DS_Store
+
+.vscode/
+jsconfig.json

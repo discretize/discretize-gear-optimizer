@@ -1,12 +1,14 @@
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { changePriority } from '../../../state/slices/priorities';
-import Section from '../../baseComponents/Section';
 import Presets from '../../baseComponents/Presets';
+import Section from '../../baseComponents/Section';
 import Priorities from './Priorities';
 
 const PrioritiesSection = ({ data }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const handleTemplateClickPriorities = React.useCallback(
     (index) => (event) => {
@@ -18,7 +20,7 @@ const PrioritiesSection = ({ data }) => {
 
   return (
     <Section
-      title="Priorities"
+      title={t('Priorities')}
       content={<Priorities />}
       extraInfo={
         <Presets data={data.presetAffixes.list} handleClick={handleTemplateClickPriorities} />

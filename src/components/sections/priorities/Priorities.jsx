@@ -9,6 +9,7 @@ import {
   RadioGroup,
   withStyles,
 } from '@material-ui/core';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -41,6 +42,8 @@ const styles = (theme) => ({
 const OPTIMIZATION_GOALS = ['Damage', 'Survivability', 'Healing'];
 
 const Priorities = ({ classes }) => {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const optimizeFor = useSelector(getPriority('optimizeFor'));
   const weaponType = useSelector(getPriority('weaponType'));
@@ -58,9 +61,11 @@ const Priorities = ({ classes }) => {
       <Grid item xs={12} sm={6}>
         <FormControl component="fieldset">
           <FormLabel component="legend">
-            Optimize for:{' '}
+            <Trans>Optimize for:</Trans>{' '}
             <HelperIcon
-              text="What to optimize the results for. 'Damage' includes power and condition damage according to the distribution below."
+              text={t(
+                "What to optimize the results for. 'Damage' includes power and condition damage according to the distribution below.",
+              )}
               size="small"
             />
           </FormLabel>
@@ -75,7 +80,7 @@ const Priorities = ({ classes }) => {
                 key={goal}
                 value={goal}
                 control={<Radio color="primary" />}
-                label={goal}
+                label={t(goal === 'Survivability' ? 'Survivability (WIP)' : goal)}
               />
             ))}
           </RadioGroup>
@@ -85,9 +90,11 @@ const Priorities = ({ classes }) => {
       <Grid item xs={12} sm={6}>
         <FormControl component="fieldset">
           <FormLabel component="legend">
-            Weapon type:{' '}
+            <Trans>Weapon type:</Trans>{' '}
             <HelperIcon
-              text="Select 'Dual wield' if you're using weapons in both hands or 'Two-handed' when using a two-handed weapon."
+              text={t(
+                "Select 'Dual wield' if you're using weapons in both hands or 'Two-handed' when using a two-handed weapon.",
+              )}
               size="small"
             />
           </FormLabel>
@@ -100,12 +107,12 @@ const Priorities = ({ classes }) => {
             <FormControlLabel
               value="Dual wield"
               control={<Radio color="primary" />}
-              label="Dual wielded"
+              label={t('Dual wielded')}
             />
             <FormControlLabel
               value="Two-handed"
               control={<Radio color="primary" />}
-              label="Two-handed"
+              label={t('Two-handed')}
             />
           </RadioGroup>
         </FormControl>
@@ -119,7 +126,7 @@ const Priorities = ({ classes }) => {
         <div className={classes.box}>
           <FormControl className={classes.formControl}>
             <InputLabel htmlFor="minBoon-input-with-icon-adornment">
-              Min. <Attribute name="Boon Duration" disableLink />
+              <Trans>Min.</Trans> <Attribute name="Boon Duration" disableLink />
             </InputLabel>
             <Input
               id="minBoon-input-with-icon-adornment"
@@ -128,12 +135,14 @@ const Priorities = ({ classes }) => {
               name="minBoonDuration"
             />
           </FormControl>
-          <HelperIcon text="Only show results that fulfill a certain amount of Boon Duration." />
+          <HelperIcon
+            text={t('Only show results that fulfill a certain amount of Boon Duration.')}
+          />
         </div>
         <div className={classes.box}>
           <FormControl className={classes.formControl}>
             <InputLabel htmlFor="minHeal-input-with-icon-adornment">
-              Min. <Attribute name="Healing Power" disableLink />
+              <Trans>Min.</Trans> <Attribute name="Healing Power" disableLink />
             </InputLabel>
             <Input
               id="minHeal-input-with-icon-adornment"
@@ -142,14 +151,16 @@ const Priorities = ({ classes }) => {
               name="minHealingPower"
             />
           </FormControl>
-          <HelperIcon text="Only show results that fulfill a certain amount of Healing Power." />
+          <HelperIcon
+            text={t('Only show results that fulfill a certain amount of Healing Power.')}
+          />
         </div>
       </Grid>
       <Grid item xs={12} sm={6}>
         <div className={classes.box}>
           <FormControl className={classes.formControl}>
             <InputLabel htmlFor="minToughness-input-with-icon-adornment">
-              Min. <Attribute name="Toughness" disableLink />
+              <Trans>Min.</Trans> <Attribute name="Toughness" disableLink />
             </InputLabel>
             <Input
               id="minToughness-input-with-icon-adornment"
@@ -163,7 +174,7 @@ const Priorities = ({ classes }) => {
         <div className={classes.box}>
           <FormControl className={classes.formControl}>
             <InputLabel htmlFor="maxToughness-input-with-icon-adornment">
-              Max. <Attribute name="Toughness" disableLink />
+              <Trans>Max.</Trans> <Attribute name="Toughness" disableLink />
             </InputLabel>
             <Input
               id="maxToughness-input-with-icon-adornment"
@@ -172,7 +183,7 @@ const Priorities = ({ classes }) => {
               name="maxToughness"
             />
           </FormControl>
-          <HelperIcon text="Only show results that fulfill a maximum amount of Toughness." />
+          <HelperIcon text={t('Only show results that fulfill a maximum amount of Toughness.')} />
         </div>
       </Grid>
     </Grid>

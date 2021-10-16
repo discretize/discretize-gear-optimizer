@@ -1,26 +1,26 @@
-import React from 'react';
 import { FormControlLabel, Switch } from '@material-ui/core';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { classModifiers } from '../../../assets/modifierdata';
+import { getShowAllTraits, toggleShowAll } from '../../../state/slices/traits';
 import Section from '../../baseComponents/Section';
 import Traits from './Traits';
-import { getShowAllTraits, toggleShowAll } from '../../../state/slices/traits';
-
-import { classModifiers } from '../../../assets/modifierdata';
 
 const TraitsSection = ({ profession }) => {
   const dispatch = useDispatch();
   const showAll = useSelector(getShowAllTraits);
 
+  const { t } = useTranslation();
   const traitsData = classModifiers[profession.toLowerCase()]?.filter((section) => section.id > 0);
 
   return (
     <Section
       first
-      title="Traits"
-      helpText="Select your traits here. Remember to also select the corresponding checkbox
-                    below each traitline. This is necessary, because many traits grant conditional
-                    bonus stats and you might get different results with different conditional
-                    traits."
+      title={t('Traits')}
+      helpText={t(
+        'Select your traits here. Remember to also select the corresponding checkbox below each traitline. This is necessary, because many traits grant conditional bonus stats and you might get different results with different conditional traits.',
+      )}
       content={<Traits data={traitsData} />}
       extraInfo={
         <FormControlLabel
@@ -32,7 +32,7 @@ const TraitsSection = ({ profession }) => {
               color="primary"
             />
           }
-          label="Show all possible modifiers"
+          label={t('Show all possible modifiers')}
         />
       }
     />

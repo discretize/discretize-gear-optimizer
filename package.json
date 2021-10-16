@@ -19,7 +19,9 @@
     "clean": "gatsby clean",
     "updateMappings": "node updateMappings.js",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "testModifiers": "node --experimental-json-modules ./src/assets/modifierdata/testModifiers.js"
+    "testModifiers": "node --experimental-json-modules ./src/assets/modifierdata/testModifiers.js",
+    "extractLocale": "yarn run babel --config-file ./babel-extract.config.js -o tmp/chunk.js 'src/**/*.{js,jsx,ts,tsx}' && rm -rf tmp",
+    "extractLocaleCMD": "yarn run babel --config-file ./babel-extract.config.js -o tmp/chunk.js \"src/**/*.{js,jsx,ts,tsx}\" && rd /q /s tmp"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.2",
@@ -30,12 +32,14 @@
     "gatsby": "^3.10.2",
     "gatsby-plugin-image": "^1.11.0",
     "gatsby-plugin-material-ui": "^3.0.1",
+    "gatsby-plugin-react-i18next": "^1.1.1",
     "gatsby-plugin-sharp": "^3.11.0",
     "gatsby-plugin-theme-ui": "^0.10.1",
     "gatsby-source-filesystem": "^3.11.0",
     "gatsby-transformer-sharp": "^3.11.0",
     "gatsby-transformer-yaml": "^3.10.0",
-    "gw2-ui-bulk": "0.10.39",
+    "gw2-ui-bulk": "0.11.10",
+    "i18next": "^21.2.4",
     "jss": "^10.7.1",
     "lodash": "^4.17.21",
     "lodash.debounce": "^4.0.8",
@@ -44,6 +48,7 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-i18next": "^11.12.0",
     "react-jss": "^10.7.1",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
@@ -58,10 +63,13 @@
     "js-yaml": "^4.1.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/plugin-transform-typescript": "^7.15.8",
     "@typescript-eslint/eslint-plugin": "^4.0.0",
     "@typescript-eslint/parser": "^4.0.0",
     "axios": "^0.21.4",
     "babel-eslint": "^10.0.0",
+    "babel-plugin-i18next-extract": "^0.8.3",
     "eslint": "^7.5.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-prettier": "^8.3.0",

@@ -1,4 +1,5 @@
 import { Typography, withStyles } from '@material-ui/core';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Skill } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -25,6 +26,8 @@ const Skills = ({ classes, data }) => {
   const dispatch = useDispatch();
   const skills = useSelector(getSkills);
 
+  const { t } = useTranslation();
+
   const onChange = (skill) => (e) => {
     if (e.target.checked) {
       dispatch(addSkill(skill.id));
@@ -34,7 +37,7 @@ const Skills = ({ classes, data }) => {
   };
 
   if (!data || data.length < 1) {
-    return 'This class does not appear to have skills with extra buffs';
+    return t('This class does not appear to have skills with extra buffs');
   }
 
   return data.map((skill) => (
@@ -46,7 +49,9 @@ const Skills = ({ classes, data }) => {
         label={
           <div className={classes.label}>
             <Skill id={skill.gw2id} disableLink className={classes.skill} />
-            {skill.subText && <Typography className={classes.subText}>{skill.subText}</Typography>}
+            {skill.subText && (
+              <Typography className={classes.subText}>{t(skill.subText)}</Typography>
+            )}
           </div>
         }
         onChange={onChange(skill)}

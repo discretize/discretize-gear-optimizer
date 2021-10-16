@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   FormControl,
   Input,
@@ -10,7 +9,9 @@ import {
   Typography,
   withStyles,
 } from '@material-ui/core';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeExtras, getExtra } from '../../../state/slices/extras';
 
@@ -37,11 +38,15 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => 
   const dispatch = useDispatch();
   const bigValue = useSelector(getExtra(name));
 
+  const { t } = useTranslation();
+
   const handleChange = (event) => {
     if (event.target.value !== undefined)
       dispatch(changeExtras({ key: event.target.name, value: event.target.value }));
   };
 
+  const userLang = navigator.language || navigator.userLanguage;
+  const isChinese = userLang.includes('zh');
   // return an array in the select: https://github.com/mui-org/material-ui/issues/16181
   // Fragments are not supported as children!
   return (
@@ -57,7 +62,7 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => 
             <Item
               id={item.gw2id}
               disableLink
-              text={item.text.replace('Superior ', '')}
+              {...(!isChinese && { text: item.text.replace('Superior ', '') })}
               className={classes.item}
             />
           );
@@ -70,12 +75,16 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => 
         ,
         {modifierData.map((category) => {
           return [
-            <ListSubheader disableSticky>{category.section}</ListSubheader>,
+            <ListSubheader disableSticky>{t(category.section)}</ListSubheader>,
             category.items.map((item) => (
               <MenuItem key={item.id} value={item.id} className={classes.menuItem}>
                 <ListItemText
                   primary={
-                    <Item id={item.gw2id} disableLink text={item.text.replace('Superior ', '')} />
+                    <Item
+                      id={item.gw2id}
+                      disableLink
+                      {...(!isChinese && { text: item.text.replace('Superior ', '') })}
+                    />
                   }
                   secondary={<Typography className={classes.subText}>{item.subText}</Typography>}
                 />

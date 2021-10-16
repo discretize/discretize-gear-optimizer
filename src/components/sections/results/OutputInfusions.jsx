@@ -1,4 +1,5 @@
 import { Table, TableBody, TableCell, TableRow, Typography, withStyles } from '@material-ui/core';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { INFUSIONS } from '../../../utils/gw2-data';
@@ -17,7 +18,9 @@ const OutputInfusions = ({ classes, data }) => {
   }));
   return (
     <>
-      <Typography variant="h6">Infusions</Typography>
+      <Typography variant="h6">
+        <Trans>Infusions</Trans>
+      </Typography>
       <Table padding="none">
         <TableBody>
           {infusions.map((infu) => (

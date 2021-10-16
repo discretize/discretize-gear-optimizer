@@ -3,6 +3,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import classNames from 'classnames';
 import { Profession } from 'gw2-ui-bulk';
 import React from 'react';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { firstUppercase } from '../../utils/usefulFunctions';
 
 const useStyles = makeStyles((theme) => ({
@@ -19,6 +20,8 @@ const MAX_CHIPS = 6;
 
 const Presets = ({ className, data, handleClick }) => {
   const classes = useStyles();
+  const { t } = useTranslation();
+
   return (
     <div className={classNames(className, classes.root)}>
       {data.length > MAX_CHIPS ? (
@@ -31,10 +34,10 @@ const Presets = ({ className, data, handleClick }) => {
             preset.profession ? (
               <Profession
                 eliteSpecialization={firstUppercase(preset.profession)}
-                text={preset.name}
+                text={t(preset.name)}
               />
             ) : (
-              preset.name
+              t(preset.name)
             )
           }
           onSelect={(event) => {
@@ -53,10 +56,10 @@ const Presets = ({ className, data, handleClick }) => {
               preset.profession ? (
                 <Profession
                   eliteSpecialization={firstUppercase(preset.profession)}
-                  text={preset.name}
+                  text={t(preset.name)}
                 />
               ) : (
-                preset.name
+                t(preset.name)
               )
             }
             variant="outlined"

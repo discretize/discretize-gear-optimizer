@@ -5,6 +5,7 @@ import DoneAllIcon from '@material-ui/icons/DoneAll';
 import ErrorIcon from '@material-ui/icons/Error';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 import classNames from 'classnames';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -112,7 +113,9 @@ const ControlsBox = ({ profession }) => {
             disabled={status === RUNNING || profession === ''}
           >
             <ProgressIcon />
-            <Typography>Calculate</Typography>
+            <Typography>
+              <Trans>Calculate</Trans>
+            </Typography>
           </Button>
         </Box>
         <Box flexGrow={1}>
@@ -124,7 +127,9 @@ const ControlsBox = ({ profession }) => {
             disabled={status !== RUNNING}
           >
             <Cancel className={classNames(classes.icon)} />
-            <Typography style={{ marginLeft: 8 }}>Abort</Typography>
+            <Typography style={{ marginLeft: 8 }}>
+              <Trans>Abort</Trans>
+            </Typography>
           </Button>
         </Box>
         <Box alignSelf="center" display="flex" m={1} maxWidth={300}>
@@ -136,7 +141,7 @@ const ControlsBox = ({ profession }) => {
           <Chip
             label={
               <>
-                Status: {firstUppercase(status)} {icon}
+                <Trans>Status:</Trans> {firstUppercase(status)} {icon}
               </>
             }
             color={[SUCCESS, WAITING, RUNNING].includes(status) ? 'primary' : 'secondary'}

@@ -3,6 +3,7 @@
 import { Box, Grid, Typography, withStyles } from '@material-ui/core';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import { graphql, StaticQuery } from 'gatsby';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getControl, getProfession } from '../state/controlsSlice';
@@ -42,6 +43,11 @@ const MainComponent = ({ classes, data }) => {
   const expertMode = useSelector(getControl('expertMode'));
   const profession = useSelector(getProfession);
 
+  const { t } = useTranslation();
+
+  const classOrBuildText = t('Select a class or a build template from the menu above!');
+  const classText = t('Select a build template from the menu above!');
+
   return (
     <div className={classes.root}>
       <NavBar
@@ -54,8 +60,7 @@ const MainComponent = ({ classes, data }) => {
       {profession === '' && (
         <Typography style={{ marginBottom: 8 }}>
           <ExpandLessIcon />
-          <i>Select {expertMode && <>a class or</>} a build template from the menu above!</i>{' '}
-          <ExpandLessIcon />
+          <i>{expertMode ? classOrBuildText : classText}</i> <ExpandLessIcon />
         </Typography>
       )}
 

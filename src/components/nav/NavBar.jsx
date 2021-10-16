@@ -14,6 +14,7 @@ import {
 } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import MenuIcon from '@material-ui/icons/Menu';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Profession } from 'gw2-ui-bulk';
 import { bindHover, bindMenu, usePopupState } from 'material-ui-popup-state/hooks';
 import Menu from 'material-ui-popup-state/HoverMenu';
@@ -48,6 +49,8 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
   const expertMode = useSelector(getControl('expertMode'));
   const selectedSpecialization = useSelector(getControl('selectedSpecialization'));
   const selectedTemplateName = useSelector(getControl('selectedTemplate'));
+
+  const { t } = useTranslation();
 
   const [state, setState] = useState({
     mobileView: typeof window !== 'undefined' ? window.innerWidth < 900 : false,
@@ -88,7 +91,7 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
               color="primary"
             />
           }
-          label="Expert"
+          label={t('Expert')}
         />
         <IconButton
           className={classes.githubIcon}
@@ -232,7 +235,9 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
 
       {(selectedSpecialization || selectedTemplateName) && (
         <Box flexGrow={1}>
-          <Typography>Selected: </Typography>
+          <Typography>
+            <Trans>Selected:</Trans>{' '}
+          </Typography>
           {selectedTemplateName ? (
             <Profession eliteSpecialization={selectedSpecialization} text={selectedTemplateName} />
           ) : (

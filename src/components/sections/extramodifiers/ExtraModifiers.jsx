@@ -8,6 +8,7 @@ import {
   Grid,
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import yaml from 'js-yaml';
@@ -46,6 +47,7 @@ function parseInput(str) {
 
 const ExtraModifiers = ({ classes }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const errorMsg = useSelector(getExtraModifiers('error'));
   const text = useSelector(getExtraModifiers('textBox'));
 
@@ -55,12 +57,12 @@ const ExtraModifiers = ({ classes }) => {
 
     const { data, error } = parseInput(val);
     dispatch(changeExtraModifiers({ key: 'extraModifiers', value: data }));
-    dispatch(changeExtraModifiersError(error ? 'Invalid Format.' : ''));
+    dispatch(changeExtraModifiersError(error ? t('Invalid Format.') : ''));
   };
   return (
     <>
       <TextField
-        label="Extra Modifiers"
+        label={t('Extra Modifiers')}
         className={classes.text}
         multiline
         minRows={5}
@@ -71,7 +73,9 @@ const ExtraModifiers = ({ classes }) => {
       />
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography>Formatting examples</Typography>
+          <Typography>
+            <Trans>Formatting examples</Trans>
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Grid container>
