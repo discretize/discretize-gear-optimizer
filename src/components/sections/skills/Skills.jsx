@@ -50,7 +50,12 @@ const Skills = ({ classes, data }) => {
           <div className={classes.label}>
             <Skill id={skill.gw2id} disableLink className={classes.skill} />
             {skill.subText && (
-              <Typography className={classes.subText}>{t(skill.subText)}</Typography>
+              <Typography className={classes.subText}>
+                {
+                  // i18next-extract-mark-context-next-line {{skillSubText}}
+                  t('', { context: skill.subText })
+                }
+              </Typography>
             )}
           </div>
         }

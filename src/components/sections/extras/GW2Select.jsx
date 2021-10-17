@@ -75,7 +75,12 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => 
         ,
         {modifierData.map((category) => {
           return [
-            <ListSubheader disableSticky>{t(category.section)}</ListSubheader>,
+            <ListSubheader disableSticky>
+              {
+                // i18next-extract-mark-context-next-line {{extraSection}}
+                t('', { context: category.section })
+              }
+            </ListSubheader>,
             category.items.map((item) => (
               <MenuItem key={item.id} value={item.id} className={classes.menuItem}>
                 <ListItemText

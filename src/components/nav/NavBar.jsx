@@ -224,7 +224,8 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
                     <Profession
                       eliteSpecialization={elem.specialization}
                       disableLink
-                      text={elem.name}
+                      // i18next-extract-mark-context-next-line {{buildTemplateName}}
+                      text={t('', { context: elem.name })}
                     />
                   </MenuItem>
                 ))}

@@ -5,7 +5,13 @@
     "jquery": true
   },
   "ignorePatterns": ["gulpfile.js"],
-  "extends": ["react-app", "airbnb/whitespace", "airbnb/hooks", "plugin:jsdoc/recommended", "prettier"],
+  "extends": [
+    "react-app",
+    "airbnb/whitespace",
+    "airbnb/hooks",
+    "plugin:jsdoc/recommended",
+    "prettier"
+  ],
   "rules": {
     // disabled or reduced
     "no-restricted-syntax": "off",
@@ -24,8 +30,8 @@
     // plugin-jsdoc defaults are quite problematic
     "jsdoc/require-jsdoc": "off",
     "jsdoc/require-param-description": "off",
-    "jsdoc/require-returns": "off",           // breaks @yield
-    "jsdoc/tag-lines": "off",                 // breaks @example
+    "jsdoc/require-returns": "off", // breaks @yield
+    "jsdoc/tag-lines": "off", // breaks @example
 
     // prettier compat
     "arrow-body-style": "off",
@@ -39,5 +45,14 @@
         "patterns": ["@material-ui/*/*/*", "!@material-ui/core/test-utils/*"]
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["extract_context_injection/*", "*"],
+      "rules": {
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+        "no-console": "off"
+      }
+    }
+  ]
 }
