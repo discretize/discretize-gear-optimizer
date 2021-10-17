@@ -1,6 +1,5 @@
 - section: Skills
   items:
-
     - id: bane-signet
       text: Bane Signet
       modifiers:
@@ -64,7 +63,6 @@
 - section: Zeal
   id: 42
   items:
-
     - id: fiery-wrath
       text: Fiery Wrath
       modifiers:
@@ -108,7 +106,7 @@
       text: Kindled Zeal
       modifiers:
         conversion:
-          Condition Damage: {Power: 10%}
+          Condition Damage: { Power: 10% }
       gw2id: 1556
       defaultEnabled: true
 
@@ -124,7 +122,6 @@
 - section: Radiance
   id: 16
   items:
-
     - id: right-hand-strength
       text: Right-Hand Strength
       subText: base (+80 prec)
@@ -187,7 +184,7 @@
 
     - id: righteous-instincts
       text: Righteous Instincts
-      subText: 100% retaliation
+      subText: 100% resolution
       modifiers:
         attributes:
           Critical Chance: 25%
@@ -197,7 +194,6 @@
 - section: Valor
   id: 13
   items:
-
     - id: stalwart-defender
       text: Stalwart Defender
       subText: with shield
@@ -210,7 +206,6 @@
 - section: Honor
   id: 49
   items:
-
     - id: invigorating-bulwark
       text: Invigorating Bulwark
       amountData:
@@ -247,14 +242,13 @@
         attributes:
           Vitality: [300, buff]
         conversion:
-          Outgoing Healing: {Vitality: 0.01%}
+          Outgoing Healing: { Vitality: 0.01% }
       gw2id: 1682
       defaultEnabled: true
 
 - section: Virtues
   id: 46
   items:
-
     - id: inspired-virtue
       text: Inspired Virtue
       amountData:
@@ -306,14 +300,13 @@
       minor: true
       modifiers:
         conversion:
-          Condition Damage: {Vitality: 13%}
+          Condition Damage: { Vitality: 13% }
       gw2id: 620
       defaultEnabled: true
 
 - section: Dragonhunter
   id: 27
   items:
-
     - id: zealots-aggression
       text: Zealot's Aggression
       modifiers:
@@ -360,7 +353,6 @@
 - section: Firebrand
   id: 62
   items:
-
     - id: imbued-haste
       text: Imbued Haste
       minor: true
@@ -379,7 +371,6 @@
 - section: Willbender
   id: 65
   items:
-
     - id: power-for-power
       text: Power for Power
       modifiers:

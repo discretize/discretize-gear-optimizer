@@ -34,10 +34,12 @@ const Presets = ({ className, data, handleClick }) => {
             preset.profession ? (
               <Profession
                 eliteSpecialization={firstUppercase(preset.profession)}
-                text={t(preset.name)}
+                // i18next-extract-mark-context-next-line {{presetName}}
+                text={t('', { context: preset.name })}
               />
             ) : (
-              t(preset.name)
+              // i18next-extract-mark-context-next-line {{presetName}}
+              t('', { context: preset.name })
             )
           }
           onSelect={(event) => {
@@ -56,10 +58,12 @@ const Presets = ({ className, data, handleClick }) => {
               preset.profession ? (
                 <Profession
                   eliteSpecialization={firstUppercase(preset.profession)}
-                  text={t(preset.name)}
+                  // i18next-extract-mark-context-next-line {{presetName}}
+                  text={t('', { context: preset.name })}
                 />
               ) : (
-                t(preset.name)
+                // i18next-extract-mark-context-next-line {{presetName}}
+                t('', { context: preset.name })
               )
             }
             variant="outlined"
