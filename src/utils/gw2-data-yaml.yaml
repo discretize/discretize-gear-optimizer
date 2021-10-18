@@ -449,67 +449,67 @@ Defense:
   HEAVY: 1271
 
 WEAPONS:
-  GREATSWORD: &ref_16
+  GREATSWORD: &greatsword
     name: Greatsword
     type: two-handed
     gw2id: 30689
-  HAMMER: &ref_17
+  HAMMER: &hammer
     name: Hammer
     type: two-handed
     gw2id: 30690
-  STAFF: &ref_24
+  STAFF: &staff
     name: Staff
     type: two-handed
     gw2id: 30698
-  RIFLE: &ref_19
+  RIFLE: &rifle
     name: Rifle
     type: two-handed
     gw2id: 30694
-  LONGBOW: &ref_18
+  LONGBOW: &longbow
     name: Longbow
     type: two-handed
     gw2id: 30685
-  SHORTBOW: &ref_26
+  SHORTBOW: &shortbow
     name: Short Bow
     type: two-handed
     gw2id: 30686
-  SCEPTER: &ref_23
+  SCEPTER: &scepter
     name: Scepter
     type: mainHand
     gw2id: 30695
-  AXE: &ref_12
+  AXE: &axe
     name: Axe
     type: one-handed
     gw2id: 76158
-  DAGGER: &ref_13
+  DAGGER: &dagger
     name: Dagger
     type: one-handed
     gw2id: 30687
-  PISTOL: &ref_27
+  PISTOL: &pistol
     name: Pistol
     type: one-handed
     gw2id: 30693
-  MACE: &ref_14
+  MACE: &mace
     name: Mace
     type: one-handed
     gw2id: 30692
-  SWORD: &ref_15
+  SWORD: &sword
     name: Sword
     type: one-handed
     gw2id: 30699
-  FOCUS: &ref_25
+  FOCUS: &focus
     name: Focus
     type: offHand
     gw2id: 86098
-  SHIELD: &ref_20
+  SHIELD: &shield
     name: Shield
     type: offHand
     gw2id: 30696
-  TORCH: &ref_21
+  TORCH: &torch
     name: Torch
     type: offHand
     gw2id: 30700
-  WARHORN: &ref_22
+  WARHORN: &warhorn
     name: Warhorn
     type: offHand
     gw2id: 30702
@@ -519,56 +519,56 @@ Classes:
     health: 9212
     defense: 1271
     weapons:
-      mainHand: [*ref_12, *ref_13, *ref_14, *ref_15, *ref_16, *ref_17, *ref_18, *ref_19]
-      offHand: [*ref_12, *ref_13, *ref_14, *ref_15, *ref_20, *ref_21, *ref_22]
+      mainHand: [*axe, *dagger, *mace, *sword, *greatsword, *hammer, *longbow, *rifle]
+      offHand: [*axe, *dagger, *mace, *sword, *shield, *torch, *warhorn]
   necromancer:
     health: 9212
     defense: 967
     weapons:
-      mainHand: [*ref_12, *ref_13, *ref_23, *ref_16, *ref_24]
-      offHand: [*ref_25, *ref_22, *ref_21, *ref_13]
+      mainHand: [*axe, *dagger, *scepter, *greatsword, *staff]
+      offHand: [*focus, *warhorn, *torch, *dagger]
   revenant:
     health: 5922
     defense: 1271
     weapons:
-      mainHand: [*ref_14, *ref_15, *ref_17, *ref_26, *ref_24]
-      offHand: [*ref_12, *ref_15, *ref_20]
+      mainHand: [*mace, *sword, *hammer, *shortbow, *staff]
+      offHand: [*axe, *sword, *shield]
   engineer:
     health: 5922
     defense: 1118
     weapons:
-      mainHand: [*ref_27, *ref_15, *ref_19, *ref_17]
-      offHand: [*ref_27, *ref_20]
+      mainHand: [*pistol, *sword, *rifle, *hammer]
+      offHand: [*pistol, *shield]
   ranger:
     health: 5922
     defense: 1118
     weapons:
-      mainHand: [*ref_12, *ref_13, *ref_15, *ref_16, *ref_18, *ref_26, *ref_24]
-      offHand: [*ref_12, *ref_13, *ref_21, *ref_22]
+      mainHand: [*axe, *dagger, *sword, *greatsword, *longbow, *shortbow, *staff]
+      offHand: [*axe, *dagger, *torch, *warhorn]
   mesmer:
     health: 5922
     defense: 967
     weapons:
-      mainHand: [*ref_12, *ref_15, *ref_23, *ref_16, *ref_24]
-      offHand: [*ref_27, *ref_15, *ref_25, *ref_20, *ref_21]
+      mainHand: [*axe, *sword, *scepter, *greatsword, *staff]
+      offHand: [*pistol, *sword, *focus, *shield, *torch]
   guardian:
     health: 1645
     defense: 1271
     weapons:
-      mainHand: [*ref_12, *ref_14, *ref_15, *ref_23, *ref_16, *ref_17, *ref_18, *ref_24]
-      offHand: [*ref_25, *ref_20, *ref_21]
+      mainHand: [*axe, *mace, *sword, *scepter, *greatsword, *hammer, *longbow, *staff]
+      offHand: [*focus, *shield, *torch]
   thief:
     health: 1645
     defense: 1118
     weapons:
-      mainHand: [*ref_13, *ref_27, *ref_15, *ref_19, *ref_26, *ref_24]
-      offHand: [*ref_13, *ref_27]
+      mainHand: [*dagger, *pistol, *sword, *rifle, *shortbow, *staff]
+      offHand: [*dagger, *pistol]
   elementalist:
     health: 1645
     defense: 967
     weapons:
-      mainHand: [*ref_13, *ref_15, *ref_23, *ref_24]
-      offHand: [*ref_25, *ref_13, *ref_22]
+      mainHand: [*dagger, *sword, *scepter, *staff]
+      offHand: [*focus, *dagger, *warhorn]
 
 Condition:
   Burning:
