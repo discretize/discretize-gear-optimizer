@@ -1,3 +1,12 @@
+#
+# ------------------------------------------------------------------------
+# GW2 Data
+# ------------------------------------------------------------------------
+#
+
+# TODO integrate gw2-ui data
+# import { itemStats } from "gw2-ui-bulk";
+
 Affix:
   Berserker:
     type: triple
@@ -392,23 +401,25 @@ Slots:
       short: Weap
       item: *ref_11
 
+# used for forcing slots to a certain affix
 ForcedSlots:
-  - helm
-  - shld
-  - coat
-  - glov
-  - legs
-  - boot
-  - amul
-  - rng1
-  - rng2
-  - acc1
-  - acc2
-  - back
-  - wep1
-  - wep2
+  - helm # 0
+  - shld # 1
+  - coat # 2
+  - glov # 3
+  - legs # 4
+  - boot # 5
+  - amul # 6
+  - rng1 # 7
+  - rng2 # 8
+  - acc1 # 9
+  - acc2 # 10
+  - back # 11
+  - wep1 # 12
+  - wep2 # 13
 
 omnipotionModifiers:
+  # Condi dmg from omnipot has been removed
   damage:
     Strike Damage:
       - 15%
@@ -735,6 +746,7 @@ INFUSIONS:
     attribute: Vitality
 
 ARMOR_IDS:
+  # Helm, Shoulders, Chest, Hands, Leggings, Feet
   HEAVY:
     - 86198
     - 85829
