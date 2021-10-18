@@ -38,7 +38,6 @@ function fetchSpecializations() {
             profession: normalize(spec.profession),
             minor_traits: spec.minor_traits,
             major_traits: spec.major_traits,
-
           };
         });
         // write to disk

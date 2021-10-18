@@ -1,6 +1,6 @@
 {
-	"printWidth": 100,
-	"singleQuote": true,
-	"quoteProps": "preserve",
-	"trailingComma": "all"
+  "printWidth": 100,
+  "singleQuote": true,
+  "quoteProps": "preserve",
+  "trailingComma": "all"
 }

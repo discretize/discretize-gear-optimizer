@@ -15,9 +15,9 @@ const normalize = (string) =>
   string === undefined
     ? string
     : string
-      .replace(/[^A-Za-z]/g, '')
-      .toLowerCase()
-      .trim();
+        .replace(/[^A-Za-z]/g, '')
+        .toLowerCase()
+        .trim();
 
 const findMatch = ({
   tag,

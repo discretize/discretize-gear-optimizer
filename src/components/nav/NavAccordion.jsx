@@ -51,7 +51,12 @@ const AccordionDetails = withStyles((theme) => ({
   },
 }))(MuiAccordionDetails);
 
-export default function NavAccordion({ data, buffPresets, prioritiesPresets, distributionPresets }) {
+export default function NavAccordion({
+  data,
+  buffPresets,
+  prioritiesPresets,
+  distributionPresets,
+}) {
   const [expanded, setExpanded] = React.useState('');
   const dispatch = useDispatch();
 
@@ -86,7 +91,8 @@ export default function NavAccordion({ data, buffPresets, prioritiesPresets, dis
                       buffPresets.find((pre) => pre.name === build.boons).value,
                     ),
                     distributionPreset: JSON.parse(
-                      distributionPresets.find((pre) => pre.name === build.distribution)?.value || 'null',
+                      distributionPresets.find((pre) => pre.name === build.distribution)?.value ||
+                        'null',
                     ),
                     prioritiesPreset: JSON.parse(
                       prioritiesPresets.find((prio) => prio.name === build.priority).value,

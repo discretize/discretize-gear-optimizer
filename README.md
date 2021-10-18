@@ -7,7 +7,7 @@ Welcome to the source repository of the rewritten Discretize gear optimizer. The
 - [Gatsby v3](https://www.gatsbyjs.org/) as a static site builder
 - [React](https://reactjs.org/)
 - [gw2-ui](https://github.com/ManuelHaag/gw2-ui) for beautiful Guild Wars 2 components and tooltips
-- [redux](https://github.com/reduxjs/redux) and 
+- [redux](https://github.com/reduxjs/redux) and
 - [redux-saga](https://github.com/redux-saga/redux-saga) to manage our state
 - [Material UI v4](https://material-ui.com/) and [JSS](http://cssinjs.org) for styling
 - [ESLint](https://github.com/eslint/eslint), [Prettier](https://github.com/prettier/prettier) and [EditorConfig](https://editorconfig.org/) for linting and formatting
@@ -16,9 +16,9 @@ Welcome to the source repository of the rewritten Discretize gear optimizer. The
 
 We use Github actions for continuous integration and deployment. Any push to the master branch will trigger the CI and deploy to the bucket of old.discretize.eu
 
-| Domain                        | Branch  | Build                                                                                                                                                |
-| ----------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| https://old.discretize.eu         | master  | [![build and deploy](https://github.com/discretize/discretize-old/actions/workflows/build-deploy.yml/badge.svg)](https://github.com/discretize/discretize-old/actions/workflows/build-deploy.yml) |
+| Domain                    | Branch | Build                                                                                                                                                                                             |
+| ------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| https://old.discretize.eu | master | [![build and deploy](https://github.com/discretize/discretize-old/actions/workflows/build-deploy.yml/badge.svg)](https://github.com/discretize/discretize-old/actions/workflows/build-deploy.yml) |
 
 ## 👨‍💻 Developing
 
@@ -53,7 +53,7 @@ the Free Software Foundation, either version 3 of the License, or
 
 The Gear Optimizer is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
@@ -66,7 +66,7 @@ the following additional permission, as allowed under GNU GPL version 3
 section 7:_
 
 If you modify this Program, or any covered work, by linking or
-combining it with the project for the discretize.eu website, 
-containing parts covered by the terms of the respective license agreement, 
-the licensors of this Program grant you additional permission to convey 
+combining it with the project for the discretize.eu website,
+containing parts covered by the terms of the respective license agreement,
+the licensors of this Program grant you additional permission to convey
 the resulting work.

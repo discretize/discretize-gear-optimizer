@@ -213,7 +213,7 @@ export function setup(input) {
         const allPairsMut = [...allPairs];
         while (allPairsMut.length) {
           const [amount, convertedOrBuff] = allPairsMut.splice(0, 2);
-          const scaledAmount = scaleValue (amount, amountInput, amountData);
+          const scaledAmount = scaleValue(amount, amountInput, amountData);
 
           switch (convertedOrBuff) {
             case 'converted':
@@ -507,10 +507,10 @@ export function setup(input) {
  * @param {number} amountData.default
  * @returns {number} result
  */
-export function scaleValue (value, amountInput, amountData) {
+export function scaleValue(value, amountInput, amountData) {
   return amountData
-      ? (value * (amountInput ?? amountData.default)) / amountData.quantityEntered
-      : value;
+    ? (value * (amountInput ?? amountData.default)) / amountData.quantityEntered
+    : value;
 }
 
 /**
