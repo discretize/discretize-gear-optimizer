@@ -195,7 +195,7 @@ Affix:
       minor: [Precision, Vitality]
 
 Item:
-  HELM: &ref_0
+  HELM: &helm
     triple:
       major: 63
       minor: 45
@@ -205,7 +205,7 @@ Item:
     celestial:
       major: 30
       minor: 30
-  SHOULDERS: &ref_1
+  SHOULDERS: &shoulders
     triple:
       major: 47
       minor: 34
@@ -215,7 +215,7 @@ Item:
     celestial:
       major: 22
       minor: 22
-  CHEST: &ref_2
+  CHEST: &coat
     triple:
       major: 141
       minor: 101
@@ -225,7 +225,7 @@ Item:
     celestial:
       major: 67
       minor: 67
-  GLOVES: &ref_3
+  GLOVES: &gloves
     triple:
       major: 47
       minor: 34
@@ -235,7 +235,7 @@ Item:
     celestial:
       major: 22
       minor: 22
-  LEGGINGS: &ref_4
+  LEGGINGS: &leggings
     triple:
       major: 94
       minor: 67
@@ -245,7 +245,7 @@ Item:
     celestial:
       major: 44
       minor: 44
-  BOOTS: &ref_5
+  BOOTS: &boots
     triple:
       major: 47
       minor: 34
@@ -255,7 +255,7 @@ Item:
     celestial:
       major: 22
       minor: 22
-  AMULET: &ref_6
+  AMULET: &amulet
     triple:
       major: 157
       minor: 108
@@ -265,7 +265,7 @@ Item:
     celestial:
       major: 72
       minor: 72
-  RING: &ref_7
+  RING: &ring
     triple:
       major: 126
       minor: 85
@@ -275,7 +275,7 @@ Item:
     celestial:
       major: 57
       minor: 57
-  ACCESSORY: &ref_8
+  ACCESSORY: &accessory
     triple:
       major: 110
       minor: 74
@@ -285,7 +285,7 @@ Item:
     celestial:
       major: 50
       minor: 50
-  BACK_ITEM: &ref_9
+  BACK_ITEM: &backitem
     triple:
       major: 63
       minor: 40
@@ -295,7 +295,7 @@ Item:
     celestial:
       major: 28
       minor: 28
-  ONEHANDED_WEAPON: &ref_10
+  ONEHANDED_WEAPON: &onehandedweapon
     triple:
       major: 125
       minor: 90
@@ -305,7 +305,7 @@ Item:
     celestial:
       major: 59
       minor: 59
-  TWOHANDED_WEAPON: &ref_11
+  TWOHANDED_WEAPON: &twohandedweapon
     triple:
       major: 251
       minor: 179
@@ -320,86 +320,86 @@ Slots:
   Dual wield:
     - name: Helm
       short: Helm
-      item: *ref_0
+      item: *helm
     - name: Shoulders
       short: Shld
-      item: *ref_1
+      item: *shoulders
     - name: Coat
       short: Coat
-      item: *ref_2
+      item: *coat
     - name: Gloves
       short: Glov
-      item: *ref_3
+      item: *gloves
     - name: Leggings
       short: Legs
-      item: *ref_4
+      item: *leggings
     - name: Boots
       short: Boot
-      item: *ref_5
+      item: *boots
     - name: Amulet
       short: Amul
-      item: *ref_6
+      item: *amulet
     - name: Ring 1
       short: Rng1
-      item: *ref_7
+      item: *ring
     - name: Ring 2
       short: Rng2
-      item: *ref_7
+      item: *ring
     - name: Accessory 1
       short: Acc1
-      item: *ref_8
+      item: *accessory
     - name: Accessory 2
       short: Acc2
-      item: *ref_8
+      item: *accessory
     - name: Back Item
       short: Back
-      item: *ref_9
+      item: *backitem
     - name: Mainhand
       short: Wep1
-      item: *ref_10
+      item: *onehandedweapon
     - name: Offhand
       short: Wep2
-      item: *ref_10
+      item: *onehandedweapon
   Two-handed:
     - name: Helm
       short: Helm
-      item: *ref_0
+      item: *helm
     - name: Shoulders
       short: Shld
-      item: *ref_1
+      item: *shoulders
     - name: Coat
       short: Coat
-      item: *ref_2
+      item: *coat
     - name: Gloves
       short: Glov
-      item: *ref_3
+      item: *gloves
     - name: Leggings
       short: Legs
-      item: *ref_4
+      item: *leggings
     - name: Boots
       short: Boot
-      item: *ref_5
+      item: *boots
     - name: Amulet
       short: Amul
-      item: *ref_6
+      item: *amulet
     - name: Ring 1
       short: Rng1
-      item: *ref_7
+      item: *ring
     - name: Ring 2
       short: Rng2
-      item: *ref_7
+      item: *ring
     - name: Accessory 1
       short: Acc1
-      item: *ref_8
+      item: *accessory
     - name: Accessory 2
       short: Acc2
-      item: *ref_8
+      item: *accessory
     - name: Back Item
       short: Back
-      item: *ref_9
+      item: *backitem
     - name: Weapon
       short: Weap
-      item: *ref_11
+      item: *twohandedweapon
 
 # used for forcing slots to a certain affix
 ForcedSlots:
