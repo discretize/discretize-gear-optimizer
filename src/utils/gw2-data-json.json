@@ -3,464 +3,260 @@
     "Berserker": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Power"
-        ],
-        "minor": [
-          "Precision",
-          "Ferocity"
-        ]
+        "major": ["Power"],
+        "minor": ["Precision", "Ferocity"]
       }
     },
     "Assassin": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Precision"
-        ],
-        "minor": [
-          "Power",
-          "Ferocity"
-        ]
+        "major": ["Precision"],
+        "minor": ["Power", "Ferocity"]
       }
     },
     "Harrier": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Power"
-        ],
-        "minor": [
-          "Concentration",
-          "Healing Power"
-        ]
+        "major": ["Power"],
+        "minor": ["Concentration", "Healing Power"]
       }
     },
     "Commander": {
       "type": "quadruple",
       "bonuses": {
-        "major": [
-          "Power",
-          "Precision"
-        ],
-        "minor": [
-          "Toughness",
-          "Concentration"
-        ]
+        "major": ["Power", "Precision"],
+        "minor": ["Toughness", "Concentration"]
       }
     },
     "Minstrel": {
       "type": "quadruple",
       "bonuses": {
-        "major": [
-          "Toughness",
-          "Healing Power"
-        ],
-        "minor": [
-          "Vitality",
-          "Concentration"
-        ]
+        "major": ["Toughness", "Healing Power"],
+        "minor": ["Vitality", "Concentration"]
       }
     },
     "Magi": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Healing Power"
-        ],
-        "minor": [
-          "Vitality",
-          "Precision"
-        ]
+        "major": ["Healing Power"],
+        "minor": ["Vitality", "Precision"]
       }
     },
     "Marauder": {
       "type": "quadruple",
       "bonuses": {
-        "major": [
-          "Power",
-          "Precision"
-        ],
-        "minor": [
-          "Vitality",
-          "Ferocity"
-        ]
+        "major": ["Power", "Precision"],
+        "minor": ["Vitality", "Ferocity"]
       }
     },
     "Cleric": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Healing Power"
-        ],
-        "minor": [
-          "Power",
-          "Toughness"
-        ]
+        "major": ["Healing Power"],
+        "minor": ["Power", "Toughness"]
       }
     },
     "Nomad": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Toughness"
-        ],
-        "minor": [
-          "Vitality",
-          "Healing Power"
-        ]
+        "major": ["Toughness"],
+        "minor": ["Vitality", "Healing Power"]
       }
     },
     "Zealot": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Power"
-        ],
-        "minor": [
-          "Precision",
-          "Healing Power"
-        ]
+        "major": ["Power"],
+        "minor": ["Precision", "Healing Power"]
       }
     },
     "Viper": {
       "type": "quadruple",
       "bonuses": {
-        "major": [
-          "Power",
-          "Condition Damage"
-        ],
-        "minor": [
-          "Precision",
-          "Expertise"
-        ]
+        "major": ["Power", "Condition Damage"],
+        "minor": ["Precision", "Expertise"]
       }
     },
     "Sinister": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Condition Damage"
-        ],
-        "minor": [
-          "Power",
-          "Precision"
-        ]
+        "major": ["Condition Damage"],
+        "minor": ["Power", "Precision"]
       }
     },
     "Grieving": {
       "type": "quadruple",
       "bonuses": {
-        "major": [
-          "Power",
-          "Condition Damage"
-        ],
-        "minor": [
-          "Precision",
-          "Ferocity"
-        ]
+        "major": ["Power", "Condition Damage"],
+        "minor": ["Precision", "Ferocity"]
       }
     },
     "Seraph": {
       "type": "quadruple",
       "bonuses": {
-        "major": [
-          "Precision",
-          "Condition Damage"
-        ],
-        "minor": [
-          "Healing Power",
-          "Concentration"
-        ]
+        "major": ["Precision", "Condition Damage"],
+        "minor": ["Healing Power", "Concentration"]
       }
     },
     "Marshal": {
       "type": "quadruple",
       "bonuses": {
-        "major": [
-          "Power",
-          "Healing Power"
-        ],
-        "minor": [
-          "Precision",
-          "Condition Damage"
-        ]
+        "major": ["Power", "Healing Power"],
+        "minor": ["Precision", "Condition Damage"]
       }
     },
     "Giver": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Toughness"
-        ],
-        "minor": [
-          "Healing Power",
-          "Concentration"
-        ]
+        "major": ["Toughness"],
+        "minor": ["Healing Power", "Concentration"]
       }
     },
     "Knight": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Toughness"
-        ],
-        "minor": [
-          "Power",
-          "Precision"
-        ]
+        "major": ["Toughness"],
+        "minor": ["Power", "Precision"]
       }
     },
     "Trailblazer": {
       "type": "quadruple",
       "bonuses": {
-        "major": [
-          "Toughness",
-          "Condition Damage"
-        ],
-        "minor": [
-          "Vitality",
-          "Expertise"
-        ]
+        "major": ["Toughness", "Condition Damage"],
+        "minor": ["Vitality", "Expertise"]
       }
     },
     "Plaguedoctor": {
       "type": "quadruple",
       "bonuses": {
-        "major": [
-          "Vitality",
-          "Condition Damage"
-        ],
-        "minor": [
-          "Healing Power",
-          "Concentration"
-        ]
+        "major": ["Vitality", "Condition Damage"],
+        "minor": ["Healing Power", "Concentration"]
       }
     },
     "Carrion": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Condition Damage"
-        ],
-        "minor": [
-          "Power",
-          "Vitality"
-        ]
+        "major": ["Condition Damage"],
+        "minor": ["Power", "Vitality"]
       }
     },
     "Rabid": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Condition Damage"
-        ],
-        "minor": [
-          "Toughness",
-          "Precision"
-        ]
+        "major": ["Condition Damage"],
+        "minor": ["Toughness", "Precision"]
       }
     },
     "Dire": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Condition Damage"
-        ],
-        "minor": [
-          "Toughness",
-          "Vitality"
-        ]
+        "major": ["Condition Damage"],
+        "minor": ["Toughness", "Vitality"]
       }
     },
     "Vigilant": {
       "type": "quadruple",
       "bonuses": {
-        "major": [
-          "Power",
-          "Toughness"
-        ],
-        "minor": [
-          "Concentration",
-          "Expertise"
-        ]
+        "major": ["Power", "Toughness"],
+        "minor": ["Concentration", "Expertise"]
       }
     },
     "Valkyrie": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Power"
-        ],
-        "minor": [
-          "Vitality",
-          "Ferocity"
-        ]
+        "major": ["Power"],
+        "minor": ["Vitality", "Ferocity"]
       }
     },
     "Cavalier": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Toughness"
-        ],
-        "minor": [
-          "Power",
-          "Ferocity"
-        ]
+        "major": ["Toughness"],
+        "minor": ["Power", "Ferocity"]
       }
     },
     "Berserker+Valkyrie": {
       "type": "bervalk",
       "bonuses": {
-        "major": [
-          "Power"
-        ],
-        "minor": [
-          "Vitality",
-          "Ferocity"
-        ]
+        "major": ["Power"],
+        "minor": ["Vitality", "Ferocity"]
       }
     },
     "Celestial": {
       "type": "celestial",
       "bonuses": {
-        "major": [
-          "Power",
-          "Precision",
-          "Toughness",
-          "Vitality"
-        ],
-        "minor": [
-          "Ferocity",
-          "Condition Damage",
-          "Expertise",
-          "Concentration",
-          "Healing Power"
-        ]
+        "major": ["Power", "Precision", "Toughness", "Vitality"],
+        "minor": ["Ferocity", "Condition Damage", "Expertise", "Concentration", "Healing Power"]
       }
     },
     "Diviner": {
       "type": "quadruple",
       "bonuses": {
-        "major": [
-          "Power",
-          "Concentration"
-        ],
-        "minor": [
-          "Precision",
-          "Ferocity"
-        ]
+        "major": ["Power", "Concentration"],
+        "minor": ["Precision", "Ferocity"]
       }
     },
     "Soldier": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Power"
-        ],
-        "minor": [
-          "Toughness",
-          "Vitality"
-        ]
+        "major": ["Power"],
+        "minor": ["Toughness", "Vitality"]
       }
     },
     "Sentinel": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Vitality"
-        ],
-        "minor": [
-          "Power",
-          "Toughness"
-        ]
+        "major": ["Vitality"],
+        "minor": ["Power", "Toughness"]
       }
     },
     "Wanderer": {
       "type": "quadruple",
       "bonuses": {
-        "major": [
-          "Power",
-          "Vitality"
-        ],
-        "minor": [
-          "Toughness",
-          "Concentration"
-        ]
+        "major": ["Power", "Vitality"],
+        "minor": ["Toughness", "Concentration"]
       }
     },
     "Apothecary": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Healing Power"
-        ],
-        "minor": [
-          "Condition Damage",
-          "Toughness"
-        ]
+        "major": ["Healing Power"],
+        "minor": ["Condition Damage", "Toughness"]
       }
     },
     "Shaman": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Vitality"
-        ],
-        "minor": [
-          "Condition Damage",
-          "Healing Power"
-        ]
+        "major": ["Vitality"],
+        "minor": ["Condition Damage", "Healing Power"]
       }
     },
     "Crusader": {
       "type": "quadruple",
       "bonuses": {
-        "major": [
-          "Power",
-          "Toughness"
-        ],
-        "minor": [
-          "Ferocity",
-          "Healing Power"
-        ]
+        "major": ["Power", "Toughness"],
+        "minor": ["Ferocity", "Healing Power"]
       }
     },
     "Rampager": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Precision"
-        ],
-        "minor": [
-          "Condition Damage",
-          "Power"
-        ]
+        "major": ["Precision"],
+        "minor": ["Condition Damage", "Power"]
       }
     },
     "Settler": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Toughness"
-        ],
-        "minor": [
-          "Condition Damage",
-          "Healing Power"
-        ]
+        "major": ["Toughness"],
+        "minor": ["Condition Damage", "Healing Power"]
       }
     },
     "Bringer": {
       "type": "triple",
       "bonuses": {
-        "major": [
-          "Expertise"
-        ],
-        "minor": [
-          "Precision",
-          "Vitality"
-        ]
+        "major": ["Expertise"],
+        "minor": ["Precision", "Vitality"]
       }
     }
   },
@@ -1144,18 +940,9 @@
   ],
   "omnipotionModifiers": {
     "damage": {
-      "Strike Damage": [
-        "15%",
-        "mult"
-      ],
-      "Condition Damage": [
-        "15%",
-        "add"
-      ],
-      "Damage Reduction": [
-        "25%",
-        "add"
-      ]
+      "Strike Damage": ["15%", "mult"],
+      "Condition Damage": ["15%", "add"],
+      "Damage Reduction": ["25%", "add"]
     },
     "conversion": {
       "Precision": {
@@ -1801,12 +1588,7 @@
     }
   },
   "Attributes": {
-    "PRIMARY": [
-      "Power",
-      "Precision",
-      "Toughness",
-      "Vitality"
-    ],
+    "PRIMARY": ["Power", "Precision", "Toughness", "Vitality"],
     "SECONDARY": [
       "Ferocity",
       "Condition Damage",
@@ -1852,13 +1634,7 @@
       "Vulnerability Duration",
       "Weakness Duration"
     ],
-    "CONDITION": [
-      "Burning",
-      "Bleeding",
-      "Poison",
-      "Torment",
-      "Confusion"
-    ],
+    "CONDITION": ["Burning", "Bleeding", "Poison", "Torment", "Confusion"],
     "CONDITION_DAMAGE": [
       "Burning Damage",
       "Bleeding Damage",
@@ -1866,82 +1642,47 @@
       "Torment Damage",
       "Confusion Damage"
     ],
-    "EFFECTIVE": [
-      "Effective Power",
-      "Effective Health",
-      "Effective Healing"
-    ],
-    "INDICATORS": [
-      "Damage",
-      "Survivability",
-      "Healing"
-    ]
+    "EFFECTIVE": ["Effective Power", "Effective Health", "Effective Healing"],
+    "INDICATORS": ["Damage", "Survivability", "Healing"]
   },
   "MAX_INFUSIONS": 18,
   "INFUSION_BONUS": 5,
   "PROFESSIONS": [
     {
       "profession": "WARRIOR",
-      "eliteSpecializations": [
-        "SPELLBREAKER",
-        "BERSERKER"
-      ]
+      "eliteSpecializations": ["SPELLBREAKER", "BERSERKER"]
     },
     {
       "profession": "REVENANT",
-      "eliteSpecializations": [
-        "HERALD",
-        "RENEGADE"
-      ]
+      "eliteSpecializations": ["HERALD", "RENEGADE"]
     },
     {
       "profession": "GUARDIAN",
-      "eliteSpecializations": [
-        "DRAGONHUNTER",
-        "FIREBRAND"
-      ]
+      "eliteSpecializations": ["DRAGONHUNTER", "FIREBRAND"]
     },
     {
       "profession": "RANGER",
-      "eliteSpecializations": [
-        "DRUID",
-        "SOULBEAST"
-      ]
+      "eliteSpecializations": ["DRUID", "SOULBEAST"]
     },
     {
       "profession": "ENGINEER",
-      "eliteSpecializations": [
-        "SCRAPPER",
-        "HOLOSMITH"
-      ]
+      "eliteSpecializations": ["SCRAPPER", "HOLOSMITH"]
     },
     {
       "profession": "ELEMENTALIST",
-      "eliteSpecializations": [
-        "TEMPEST",
-        "WEAVER"
-      ]
+      "eliteSpecializations": ["TEMPEST", "WEAVER"]
     },
     {
       "profession": "MESMER",
-      "eliteSpecializations": [
-        "CHRONOMANCER",
-        "MIRAGE"
-      ]
+      "eliteSpecializations": ["CHRONOMANCER", "MIRAGE"]
     },
     {
       "profession": "NECROMANCER",
-      "eliteSpecializations": [
-        "SCOURGE",
-        "REAPER"
-      ]
+      "eliteSpecializations": ["SCOURGE", "REAPER"]
     },
     {
       "profession": "THIEF",
-      "eliteSpecializations": [
-        "DAREDEVIL",
-        "DEADEYE"
-      ]
+      "eliteSpecializations": ["DAREDEVIL", "DEADEYE"]
     }
   ],
   "GEAR_SLOTS": [
@@ -2037,22 +1778,8 @@
     }
   ],
   "ARMOR_IDS": {
-    "HEAVY": [
-      86198,
-      85829,
-      85814,
-      85949,
-      86079,
-      86237
-    ],
-    "MEDIUM": [
-      48087,
-      48089,
-      48085,
-      48086,
-      48088,
-      48084
-    ],
+    "HEAVY": [86198, 85829, 85814, 85949, 86079, 86237],
+    "MEDIUM": [48087, 48089, 48085, 48086, 48088, 48084],
     "LIGHT": []
   }
 }
