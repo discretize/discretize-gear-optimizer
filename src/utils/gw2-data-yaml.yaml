@@ -1,0 +1,753 @@
+Affix:
+  Berserker:
+    type: triple
+    bonuses:
+      major: [Power]
+      minor: [Precision, Ferocity]
+  Assassin:
+    type: triple
+    bonuses:
+      major: [Precision]
+      minor: [Power, Ferocity]
+  Harrier:
+    type: triple
+    bonuses:
+      major: [Power]
+      minor: [Concentration, Healing Power]
+  Commander:
+    type: quadruple
+    bonuses:
+      major: [Power, Precision]
+      minor: [Toughness, Concentration]
+  Minstrel:
+    type: quadruple
+    bonuses:
+      major: [Toughness, Healing Power]
+      minor: [Vitality, Concentration]
+  Magi:
+    type: triple
+    bonuses:
+      major: [Healing Power]
+      minor: [Vitality, Precision]
+  Marauder:
+    type: quadruple
+    bonuses:
+      major: [Power, Precision]
+      minor: [Vitality, Ferocity]
+  Cleric:
+    type: triple
+    bonuses:
+      major: [Healing Power]
+      minor: [Power, Toughness]
+  Nomad:
+    type: triple
+    bonuses:
+      major: [Toughness]
+      minor: [Vitality, Healing Power]
+  Zealot:
+    type: triple
+    bonuses:
+      major: [Power]
+      minor: [Precision, Healing Power]
+  Viper:
+    type: quadruple
+    bonuses:
+      major: [Power, Condition Damage]
+      minor: [Precision, Expertise]
+  Sinister:
+    type: triple
+    bonuses:
+      major: [Condition Damage]
+      minor: [Power, Precision]
+  Grieving:
+    type: quadruple
+    bonuses:
+      major: [Power, Condition Damage]
+      minor: [Precision, Ferocity]
+  Seraph:
+    type: quadruple
+    bonuses:
+      major: [Precision, Condition Damage]
+      minor: [Healing Power, Concentration]
+  Marshal:
+    type: quadruple
+    bonuses:
+      major: [Power, Healing Power]
+      minor: [Precision, Condition Damage]
+  Giver:
+    type: triple
+    bonuses:
+      major: [Toughness]
+      minor: [Healing Power, Concentration]
+  Knight:
+    type: triple
+    bonuses:
+      major: [Toughness]
+      minor: [Power, Precision]
+  Trailblazer:
+    type: quadruple
+    bonuses:
+      major: [Toughness, Condition Damage]
+      minor: [Vitality, Expertise]
+  Plaguedoctor:
+    type: quadruple
+    bonuses:
+      major: [Vitality, Condition Damage]
+      minor: [Healing Power, Concentration]
+  Carrion:
+    type: triple
+    bonuses:
+      major: [Condition Damage]
+      minor: [Power, Vitality]
+  Rabid:
+    type: triple
+    bonuses:
+      major: [Condition Damage]
+      minor: [Toughness, Precision]
+  Dire:
+    type: triple
+    bonuses:
+      major: [Condition Damage]
+      minor: [Toughness, Vitality]
+  Vigilant:
+    type: quadruple
+    bonuses:
+      major: [Power, Toughness]
+      minor: [Concentration, Expertise]
+  Valkyrie:
+    type: triple
+    bonuses:
+      major: [Power]
+      minor: [Vitality, Ferocity]
+  Cavalier:
+    type: triple
+    bonuses:
+      major: [Toughness]
+      minor: [Power, Ferocity]
+  Berserker+Valkyrie:
+    type: bervalk
+    bonuses:
+      major: [Power]
+      minor: [Vitality, Ferocity]
+  Celestial:
+    type: celestial
+    bonuses:
+      major: [Power, Precision, Toughness, Vitality]
+      minor: [Ferocity, Condition Damage, Expertise, Concentration, Healing Power]
+  Diviner:
+    type: quadruple
+    bonuses:
+      major: [Power, Concentration]
+      minor: [Precision, Ferocity]
+  Soldier:
+    type: triple
+    bonuses:
+      major: [Power]
+      minor: [Toughness, Vitality]
+  Sentinel:
+    type: triple
+    bonuses:
+      major: [Vitality]
+      minor: [Power, Toughness]
+  Wanderer:
+    type: quadruple
+    bonuses:
+      major: [Power, Vitality]
+      minor: [Toughness, Concentration]
+  Apothecary:
+    type: triple
+    bonuses:
+      major: [Healing Power]
+      minor: [Condition Damage, Toughness]
+  Shaman:
+    type: triple
+    bonuses:
+      major: [Vitality]
+      minor: [Condition Damage, Healing Power]
+  Crusader:
+    type: quadruple
+    bonuses:
+      major: [Power, Toughness]
+      minor: [Ferocity, Healing Power]
+  Rampager:
+    type: triple
+    bonuses:
+      major: [Precision]
+      minor: [Condition Damage, Power]
+  Settler:
+    type: triple
+    bonuses:
+      major: [Toughness]
+      minor: [Condition Damage, Healing Power]
+  Bringer:
+    type: triple
+    bonuses:
+      major: [Expertise]
+      minor: [Precision, Vitality]
+
+Item:
+  HELM: &ref_0
+    triple:
+      major: 63
+      minor: 45
+    quadruple:
+      major: 54
+      minor: 30
+    celestial:
+      major: 30
+      minor: 30
+  SHOULDERS: &ref_1
+    triple:
+      major: 47
+      minor: 34
+    quadruple:
+      major: 40
+      minor: 22
+    celestial:
+      major: 22
+      minor: 22
+  CHEST: &ref_2
+    triple:
+      major: 141
+      minor: 101
+    quadruple:
+      major: 121
+      minor: 67
+    celestial:
+      major: 67
+      minor: 67
+  GLOVES: &ref_3
+    triple:
+      major: 47
+      minor: 34
+    quadruple:
+      major: 40
+      minor: 22
+    celestial:
+      major: 22
+      minor: 22
+  LEGGINGS: &ref_4
+    triple:
+      major: 94
+      minor: 67
+    quadruple:
+      major: 81
+      minor: 44
+    celestial:
+      major: 44
+      minor: 44
+  BOOTS: &ref_5
+    triple:
+      major: 47
+      minor: 34
+    quadruple:
+      major: 40
+      minor: 22
+    celestial:
+      major: 22
+      minor: 22
+  AMULET: &ref_6
+    triple:
+      major: 157
+      minor: 108
+    quadruple:
+      major: 133
+      minor: 71
+    celestial:
+      major: 72
+      minor: 72
+  RING: &ref_7
+    triple:
+      major: 126
+      minor: 85
+    quadruple:
+      major: 106
+      minor: 56
+    celestial:
+      major: 57
+      minor: 57
+  ACCESSORY: &ref_8
+    triple:
+      major: 110
+      minor: 74
+    quadruple:
+      major: 92
+      minor: 49
+    celestial:
+      major: 50
+      minor: 50
+  BACK_ITEM: &ref_9
+    triple:
+      major: 63
+      minor: 40
+    quadruple:
+      major: 52
+      minor: 27
+    celestial:
+      major: 28
+      minor: 28
+  ONEHANDED_WEAPON: &ref_10
+    triple:
+      major: 125
+      minor: 90
+    quadruple:
+      major: 108
+      minor: 59
+    celestial:
+      major: 59
+      minor: 59
+  TWOHANDED_WEAPON: &ref_11
+    triple:
+      major: 251
+      minor: 179
+    quadruple:
+      major: 215
+      minor: 118
+    celestial:
+      major: 118
+      minor: 118
+
+Slots:
+  Dual wield:
+    - name: Helm
+      short: Helm
+      item: *ref_0
+    - name: Shoulders
+      short: Shld
+      item: *ref_1
+    - name: Coat
+      short: Coat
+      item: *ref_2
+    - name: Gloves
+      short: Glov
+      item: *ref_3
+    - name: Leggings
+      short: Legs
+      item: *ref_4
+    - name: Boots
+      short: Boot
+      item: *ref_5
+    - name: Amulet
+      short: Amul
+      item: *ref_6
+    - name: Ring 1
+      short: Rng1
+      item: *ref_7
+    - name: Ring 2
+      short: Rng2
+      item: *ref_7
+    - name: Accessory 1
+      short: Acc1
+      item: *ref_8
+    - name: Accessory 2
+      short: Acc2
+      item: *ref_8
+    - name: Back Item
+      short: Back
+      item: *ref_9
+    - name: Mainhand
+      short: Wep1
+      item: *ref_10
+    - name: Offhand
+      short: Wep2
+      item: *ref_10
+  Two-handed:
+    - name: Helm
+      short: Helm
+      item: *ref_0
+    - name: Shoulders
+      short: Shld
+      item: *ref_1
+    - name: Coat
+      short: Coat
+      item: *ref_2
+    - name: Gloves
+      short: Glov
+      item: *ref_3
+    - name: Leggings
+      short: Legs
+      item: *ref_4
+    - name: Boots
+      short: Boot
+      item: *ref_5
+    - name: Amulet
+      short: Amul
+      item: *ref_6
+    - name: Ring 1
+      short: Rng1
+      item: *ref_7
+    - name: Ring 2
+      short: Rng2
+      item: *ref_7
+    - name: Accessory 1
+      short: Acc1
+      item: *ref_8
+    - name: Accessory 2
+      short: Acc2
+      item: *ref_8
+    - name: Back Item
+      short: Back
+      item: *ref_9
+    - name: Weapon
+      short: Weap
+      item: *ref_11
+
+ForcedSlots:
+  - helm
+  - shld
+  - coat
+  - glov
+  - legs
+  - boot
+  - amul
+  - rng1
+  - rng2
+  - acc1
+  - acc2
+  - back
+  - wep1
+  - wep2
+
+omnipotionModifiers:
+  damage:
+    Strike Damage:
+      - 15%
+      - mult
+    Condition Damage:
+      - 15%
+      - add
+    Damage Reduction:
+      - 25%
+      - add
+  conversion:
+    Precision:
+      Agony Resistance: 150%
+    Toughness:
+      Agony Resistance: 150%
+    Concentration:
+      Agony Resistance: 150%
+
+Health:
+  LOW: 1645
+  MEDIUM: 5922
+  HIGH: 9212
+
+Defense:
+  LIGHT: 967
+  MEDIUM: 1118
+  HEAVY: 1271
+
+WEAPONS:
+  GREATSWORD: &ref_16
+    name: Greatsword
+    type: two-handed
+    gw2id: 30689
+  HAMMER: &ref_17
+    name: Hammer
+    type: two-handed
+    gw2id: 30690
+  STAFF: &ref_24
+    name: Staff
+    type: two-handed
+    gw2id: 30698
+  RIFLE: &ref_19
+    name: Rifle
+    type: two-handed
+    gw2id: 30694
+  LONGBOW: &ref_18
+    name: Longbow
+    type: two-handed
+    gw2id: 30685
+  SHORTBOW: &ref_26
+    name: Short Bow
+    type: two-handed
+    gw2id: 30686
+  SCEPTER: &ref_23
+    name: Scepter
+    type: mainHand
+    gw2id: 30695
+  AXE: &ref_12
+    name: Axe
+    type: one-handed
+    gw2id: 76158
+  DAGGER: &ref_13
+    name: Dagger
+    type: one-handed
+    gw2id: 30687
+  PISTOL: &ref_27
+    name: Pistol
+    type: one-handed
+    gw2id: 30693
+  MACE: &ref_14
+    name: Mace
+    type: one-handed
+    gw2id: 30692
+  SWORD: &ref_15
+    name: Sword
+    type: one-handed
+    gw2id: 30699
+  FOCUS: &ref_25
+    name: Focus
+    type: offHand
+    gw2id: 86098
+  SHIELD: &ref_20
+    name: Shield
+    type: offHand
+    gw2id: 30696
+  TORCH: &ref_21
+    name: Torch
+    type: offHand
+    gw2id: 30700
+  WARHORN: &ref_22
+    name: Warhorn
+    type: offHand
+    gw2id: 30702
+
+Classes:
+  warrior:
+    health: 9212
+    defense: 1271
+    weapons:
+      mainHand: [*ref_12, *ref_13, *ref_14, *ref_15, *ref_16, *ref_17, *ref_18, *ref_19]
+      offHand: [*ref_12, *ref_13, *ref_14, *ref_15, *ref_20, *ref_21, *ref_22]
+  necromancer:
+    health: 9212
+    defense: 967
+    weapons:
+      mainHand: [*ref_12, *ref_13, *ref_23, *ref_16, *ref_24]
+      offHand: [*ref_25, *ref_22, *ref_21, *ref_13]
+  revenant:
+    health: 5922
+    defense: 1271
+    weapons:
+      mainHand: [*ref_14, *ref_15, *ref_17, *ref_26, *ref_24]
+      offHand: [*ref_12, *ref_15, *ref_20]
+  engineer:
+    health: 5922
+    defense: 1118
+    weapons:
+      mainHand: [*ref_27, *ref_15, *ref_19, *ref_17]
+      offHand: [*ref_27, *ref_20]
+  ranger:
+    health: 5922
+    defense: 1118
+    weapons:
+      mainHand: [*ref_12, *ref_13, *ref_15, *ref_16, *ref_18, *ref_26, *ref_24]
+      offHand: [*ref_12, *ref_13, *ref_21, *ref_22]
+  mesmer:
+    health: 5922
+    defense: 967
+    weapons:
+      mainHand: [*ref_12, *ref_15, *ref_23, *ref_16, *ref_24]
+      offHand: [*ref_27, *ref_15, *ref_25, *ref_20, *ref_21]
+  guardian:
+    health: 1645
+    defense: 1271
+    weapons:
+      mainHand: [*ref_12, *ref_14, *ref_15, *ref_23, *ref_16, *ref_17, *ref_18, *ref_24]
+      offHand: [*ref_25, *ref_20, *ref_21]
+  thief:
+    health: 1645
+    defense: 1118
+    weapons:
+      mainHand: [*ref_13, *ref_27, *ref_15, *ref_19, *ref_26, *ref_24]
+      offHand: [*ref_13, *ref_27]
+  elementalist:
+    health: 1645
+    defense: 967
+    weapons:
+      mainHand: [*ref_13, *ref_15, *ref_23, *ref_24]
+      offHand: [*ref_25, *ref_13, *ref_22]
+
+Condition:
+  Burning:
+    baseDamage: 131
+    factor: 0.155
+  Bleeding:
+    baseDamage: 22
+    factor: 0.06
+  Poison:
+    baseDamage: 33.5
+    factor: 0.06
+  Torment:
+    baseDamage: 31.8
+    factor: 0.09
+  Confusion:
+    baseDamage: 22
+    factor: 0.06
+
+Attributes:
+  PRIMARY:
+    - Power
+    - Precision
+    - Toughness
+    - Vitality
+  SECONDARY:
+    - Ferocity
+    - Condition Damage
+    - Expertise
+    - Concentration
+    - Healing Power
+    - Agony Resistance
+  DERIVED:
+    - Critical Chance
+    - Critical Damage
+    - Condition Duration
+    - Boon Duration
+    - Health
+    - Armor
+  BOON_DURATION:
+    - Aegis Duration
+    - Fury Duration
+    - Might Duration
+    - Protection Duration
+    - Quickness Duration
+    - Regeneration Duration
+    - Resistance Duration
+    - Resolution Duration
+    - Stability Duration
+    - Swiftness Duration
+    - Vigor Duration
+  CONDITION_DURATION:
+    - Bleeding Duration
+    - Blind Duration
+    - Burning Duration
+    - Chilled Duration
+    - Confusion Duration
+    - Crippled Duration
+    - Fear Duration
+    - Immobile Duration
+    - Poison Duration
+    - Slow Duration
+    - Taunt Duration
+    - Torment Duration
+    - Vulnerability Duration
+    - Weakness Duration
+  CONDITION:
+    - Burning
+    - Bleeding
+    - Poison
+    - Torment
+    - Confusion
+  CONDITION_DAMAGE:
+    - Burning Damage
+    - Bleeding Damage
+    - Poison Damage
+    - Torment Damage
+    - Confusion Damage
+  EFFECTIVE:
+    - Effective Power
+    - Effective Health
+    - Effective Healing
+  INDICATORS:
+    - Damage
+    - Survivability
+    - Healing
+
+MAX_INFUSIONS: 18
+
+INFUSION_BONUS: 5
+
+PROFESSIONS:
+  - profession: WARRIOR
+    eliteSpecializations:
+      - SPELLBREAKER
+      - BERSERKER
+  - profession: REVENANT
+    eliteSpecializations:
+      - HERALD
+      - RENEGADE
+  - profession: GUARDIAN
+    eliteSpecializations:
+      - DRAGONHUNTER
+      - FIREBRAND
+  - profession: RANGER
+    eliteSpecializations:
+      - DRUID
+      - SOULBEAST
+  - profession: ENGINEER
+    eliteSpecializations:
+      - SCRAPPER
+      - HOLOSMITH
+  - profession: ELEMENTALIST
+    eliteSpecializations:
+      - TEMPEST
+      - WEAVER
+  - profession: MESMER
+    eliteSpecializations:
+      - CHRONOMANCER
+      - MIRAGE
+  - profession: NECROMANCER
+    eliteSpecializations:
+      - SCOURGE
+      - REAPER
+  - profession: THIEF
+    eliteSpecializations:
+      - DAREDEVIL
+      - DEADEYE
+
+GEAR_SLOTS:
+  - name: Helm
+    short: Helm
+  - name: Shoulders
+    short: Shld
+  - name: Coat
+    short: Coat
+  - name: Gloves
+    short: Glov
+  - name: Leggings
+    short: Legs
+  - name: Boots
+    short: Boot
+  - name: Amulet
+    short: Amul
+  - name: Ring 1
+    short: Rng1
+  - name: Ring 2
+    short: Rng2
+  - name: Accessory 1
+    short: Acc1
+  - name: Accessory 2
+    short: Acc2
+  - name: Back Item
+    short: Back
+  - name: Weapon 1
+    short: Wep1
+  - name: Weapon 2
+    short: Wep2
+
+INFUSIONS:
+  - id: 37131
+    attribute: Power
+  - id: 37132
+    attribute: Precision
+  - id: 37130
+    attribute: Condition Damage
+  - id: 86113
+    attribute: Expertise
+  - id: 86180
+    attribute: Concentration
+  - id: 37125
+    attribute: Healing Power
+  - id: 37135
+    attribute: Toughness
+  - id: 37136
+    attribute: Vitality
+
+ARMOR_IDS:
+  HEAVY:
+    - 86198
+    - 85829
+    - 85814
+    - 85949
+    - 86079
+    - 86237
+  MEDIUM:
+    - 48087
+    - 48089
+    - 48085
+    - 48086
+    - 48088
+    - 48084
+  LIGHT: []
+
