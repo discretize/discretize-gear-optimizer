@@ -12,7 +12,7 @@ This tool, internally, does 4 fundamental things:
 
 Each of these steps has some limitations, which will be described below.
 
-## Simulating
+## 1) Simulating
 
 This tool calculates player attributes that are the same all of the time (or can be approximated like they are), and draws conclusions about how changes to these attributes change the resulting damage output (or healing output, etc).
 
@@ -31,7 +31,7 @@ b) Bonuses which change your rotation or have direct effects of their own, like 
 
 > todo: mark these kinds of traits with a warning somehow!
 
-The effects of these types of modifiers are quietly included in the the "skill coefficients" data of the optimizer's built-in templates, which results in an accurate simulation when the trait data and coefficient data match. Toggling them without also changing the "skill coefficients" section may lead to inaccurate results, however.* Making these comparisons correctly requires a separate template with each trait.
+The effects of these types of modifiers are quietly included in the the "skill coefficients" data of the optimizer's built-in templates, which results in an accurate simulation when the trait data and coefficient data match. Toggling them without also changing the "skill coefficients" section may lead to inaccurate results, however.__*__ Making these comparisons correctly requires a separate template with each trait.
 
 These general types of modifiers, on the other hand, are simulated by the optimizer's attribute system:
 
@@ -43,7 +43,7 @@ After loading a template, these general bonuses can be removed, added, or change
 
 ---
 
-*For example, loading a condi renegade template with Dance of Death (a lifesteal effect; category B) and then changing it to Swift Termination (an uptime-based buff; category D) would correctly add the damage buff effect in the optimizer's attribute system but would not remove the lifesteal effect, resulting in a power damage component that is slightly too high.
+__*__For example, loading a condi renegade template with Dance of Death (a lifesteal effect; category B) and then changing it to Swift Termination (an uptime-based buff; category D) would correctly add the damage buff effect in the optimizer's attribute system but would not remove the lifesteal effect, resulting in a power damage component that is slightly too high.
 
 Most of the time this doesn't change the optimal gear, but it can result in unrealistic DPS output values.
 
@@ -105,7 +105,7 @@ In short, it is exactly how strong your build's rotation is, independent of gear
 
 </details>
 
-## Iterating Through Variations
+## 2) Iterating Through Variations
 
 At the moment, this tool takes **one** set of runes, sigils, food, and utility nourishment, a **technically-unlimited** number of gear affixes like berserker or assassin, and up to **two** types of stat infusions, and checks every possible combination of gear slots and infusion counts.
 
@@ -113,7 +113,7 @@ Be careful enabling large numbers of affixes without using the "force slots" fea
 
 > todo: allow simultaneous selection of multiple runes, sigils, foods, and/or utility types. Investigate algorithms to intelligently skip some of the hundreds of millions of resulting combinations.
 
-## Quantifying and Comparing Results
+## 3) Quantifying and Comparing Results
 
 The strongest builds are, of course, the ones that perform their roles the best. This tool allows you to optimize for damage output, for healing output, or for survivability.
 
@@ -129,7 +129,7 @@ Note that this doesn't take healing into account (having 15k HP and a 50% damage
 
 > todo (long-term): provide more sorting variants for investigating hybrid builds, like setting a minimum amount of DPS and optimizing for healing.
 
-## Detailed Result Information
+## 4) Detailed Result Information
 
 Selecting a build from the table of optimizer results shows a simulated ingame equipment pane showing example equipment that matches the build result and the attributes that the optimizer is calculating this equipment to result in, given the selected ingame boons and buffs.
 
