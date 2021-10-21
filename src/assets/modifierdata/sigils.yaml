@@ -31,6 +31,15 @@
           Strike Damage: [3%, add]
       gw2id: 24868
 
+    - id: severance-perma
+      text: Superior Sigil of Severance
+      subText: (While Active)
+      modifiers:
+        attributes:
+          Precision: [250, buff] # tested unconverted by Snappy Joe
+          Ferocity: [250, buff] # tested unconverted by Snappy Joe
+      gw2id: 84505
+
 - section: Support Sigils
   items:
 
