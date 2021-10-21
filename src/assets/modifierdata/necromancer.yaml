@@ -212,6 +212,25 @@
       gw2id: 2121
       defaultEnabled: true
 
+    - id: blood-as-sand-2x
+      text: Blood as Sand
+      subText: 2x
+      minor: true
+      modifiers:
+        damage:
+          Damage Reduction: [15%, unknown]
+      gw2id: 2096
+
+    - id: blood-as-sand-3x
+      text: Blood as Sand
+      subText: 3x
+      minor: true
+      modifiers:
+        damage:
+          Damage Reduction: [15%, unknown]
+      gw2id: 2096
+      defaultEnabled: true
+
     - id: demonic-lore
       text: Demonic Lore
       subText: torment only
