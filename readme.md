@@ -18,7 +18,7 @@ We use Github actions for continuous integration and deployment. Any push to the
 
 | Domain                        | Branch  | Build                                                                                                                                                |
 | ----------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| https://old.discretize.eu         | master  | [![build and deploy](https://github.com/discretize/discretize-old/actions/workflows/build-deploy.yml/badge.svg)](https://github.com/discretize/discretize-old/actions/workflows/build-deploy.yml) |
+| https://old.discretize.eu         | master  | [![[Old] build and deploy](https://github.com/discretize/discretize-gear-optimizer/actions/workflows/legacy-build-deploy.yml/badge.svg)](https://github.com/discretize/discretize-gear-optimizer/actions/workflows/legacy-build-deploy.yml) |
 
 ## 👨‍💻 Developing
 
