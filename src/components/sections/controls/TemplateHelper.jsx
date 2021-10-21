@@ -1,6 +1,8 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Grid, Typography, TextField } from '@material-ui/core';
 import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
+import { getControl } from '../../../state/controlsSlice';
 import { parseAmount } from '../../../state/optimizer/optimizerCore';
 import { Condition } from '../../../utils/gw2-data';
 
@@ -40,15 +42,16 @@ const coefficientsToPercents = (values2) => {
 };
 
 const TemplateHelper = ({ character }) => {
+  const traitsTemplate = useSelector(getControl('traitsTemplate'));
   const { t } = useTranslation();
-
-  const helperData = character.results.templateHelper;
 
   const [input, setInput] = React.useState(initial);
   const data = Object.entries(input).map(([key, inputText]) => {
     const { value, error } = parseAmount(inputText);
     return { key, inputText, value, error };
   });
+
+  const helperData = character.results.templateHelper;
 
   const values2 = Object.fromEntries(
     data.map(({ key, value }) => [key, (value ?? 0) / helperData[key]]),
@@ -69,6 +72,12 @@ const TemplateHelper = ({ character }) => {
         <Typography variant="h6">
           <Trans>make templates with this bit idk man</Trans>
         </Typography>
+      </Grid>
+      <Grid item>
+        <Trans>traits template</Trans>
+        <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
+          {JSON.stringify(traitsTemplate, null, 2)}
+        </pre>
       </Grid>
       <Grid item>
         <table>
@@ -99,10 +108,10 @@ const TemplateHelper = ({ character }) => {
         </table>
       </Grid>
       <Grid item>
-        <Typography variant="h6">
-          <Trans>distribution output</Trans>
-        </Typography>
-        <pre style={{ userSelect: 'all' }}>{JSON.stringify(distribution, null, 2)}</pre>
+        <Trans>distribution template</Trans>
+        <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
+          {JSON.stringify(distribution, null, 2)}
+        </pre>
       </Grid>
     </Grid>
   );
