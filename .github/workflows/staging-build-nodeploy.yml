@@ -30,6 +30,16 @@ jobs:
         run: yarn install --frozen-lockfile
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
 
+      - name: Cache .cache and public
+        id: gatsby-cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            public
+            .cache
+          key: ${{ runner.os }}-gatsby-cache-${{ hashFiles('**/gatsby-config.js') }}
+          restore-keys: ${{ runner.os }}-gatsby-cache-${{ hashFiles('**/gatsby-config.js') }}
+
       - name: Build (without deploy)
         run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
