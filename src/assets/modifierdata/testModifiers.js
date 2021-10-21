@@ -65,7 +65,7 @@ const testModifiers = async () => {
 
     for (const section of data) {
       const sectionName = section.section;
-      if (!sectionName) console.log(`❓ empty section name`);
+      gentleAssert(sectionName, `err: empty section name`);
 
       let major_traits = null;
       let minor_traits = null;
@@ -96,13 +96,15 @@ const testModifiers = async () => {
           ...otherKeys
         } = item;
 
-        if (Object.keys(otherKeys).length)
-          console.log('❓ this script is missing validation for', otherKeys);
+        gentleAssert(
+          !Object.keys(otherKeys).length,
+          `err: this script is missing validation for ${JSON.stringify(otherKeys)}`,
+        );
 
         const checkNullRecursively = (obj) => {
           for (const value of Object.values(obj)) {
             if (value === null || value === undefined) {
-              console.log(`❓ ${id} has a null or undefined value!`);
+              gentleAssert(false, `err: ${id} has a null or undefined value!`);
             } else if (typeof value === 'object') {
               checkNullRecursively(value);
             }
@@ -121,7 +123,7 @@ const testModifiers = async () => {
             `err: missing amount quantityEntered in ${id}`,
           );
           if (amountData.quantityEntered === 100 && amountData.label?.[0] !== '%') {
-            console.log(`❓ did you forget a percent sign in ${id}'s amount label?`);
+            gentleAssert(false, `err: did you forget a percent sign in ${id}'s amount label?`);
           }
         }
 
@@ -133,7 +135,7 @@ const testModifiers = async () => {
           } else {
             // eslint-disable-next-line no-lonely-if
             if (gw2id && sectionName !== 'Soulbeast')
-              console.log(`❓ ${id} isn't a trait in this line`);
+              gentleAssert(false, `err: ${id} isn't a trait in this line`);
           }
         }
 
@@ -167,7 +169,7 @@ const testModifiers = async () => {
         // }
 
         if (fileName === 'buffs.yaml' && typeof type !== 'string')
-          console.log(`❓ ${id} doesn't have a type`);
+          gentleAssert(false, `err: ${id} doesn't have a type`);
 
         gentleAssert(typeof modifiers === 'object', `err: invalid or missing modifiers in ${id}`);
 
@@ -206,7 +208,7 @@ function parseDamage(damage, id, amountData) {
     );
 
     if (amountData && !amountData.disableBlacklist && damageKeysBlacklist.includes(key))
-      console.log(`❓ ${key} is a bad idea in an entry with an amount like ${id}`);
+      gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
 
     // handle more than 2 pairs i.e. Strike Damage: [3%, add, 7%, mult]
     const allPairsMut = [...allPairs];
@@ -232,7 +234,7 @@ function parseAttributes(attributes, id, amountData) {
       );
 
       if (amountData && !amountData.disableBlacklist && attributePointKeysBlacklist.includes(key))
-        console.log(`❓ ${key} is a bad idea in an entry with an amount like ${id}`);
+        gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
 
       // handle more than 2 pairs i.e. Concentration: [70, converted, 100, buff]
       const allPairsMut = [...allPairs];
@@ -247,7 +249,7 @@ function parseAttributes(attributes, id, amountData) {
       }
     } else if (allAttributePercentKeys.includes(key)) {
       if (amountData && !amountData.disableBlacklist && attributePercentKeysBlacklist.includes(key))
-        console.log(`❓ ${key} is a bad idea in an entry with an amount like ${id}`);
+        gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
 
       parsePercent(allPairs, key, id);
     } else {
@@ -264,7 +266,7 @@ function parseConversion(conversion, id, amountData) {
     );
 
     if (amountData && !amountData.disableBlacklist && attributePointKeysBlacklist.includes(key))
-      console.log(`❓ ${key} is a bad idea in an entry with an amount like ${id}`);
+      gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
 
     for (const [source, amount] of Object.entries(value)) {
       gentleAssert(
