@@ -1,8 +1,5 @@
 name: 'Build and Deploy - no cache'
 on:
-  push:
-    branches:
-      - staging
   workflow_dispatch:
 
 env:
