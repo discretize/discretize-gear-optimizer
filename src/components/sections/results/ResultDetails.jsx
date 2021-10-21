@@ -12,6 +12,7 @@ import { Classes, Defense, INFUSIONS, PROFESSIONS } from '../../../utils/gw2-dat
 import { firstUppercase } from '../../../utils/usefulFunctions';
 import Character from '../../gw2/Character';
 import CopyTemplateButton from '../controls/CopyTemplateButton';
+import TemplateHelper from '../controls/TemplateHelper';
 import AffixesStats from './AffixesStats';
 import AppliedModifiers from './AppliedModifiers';
 import Indicators from './Indicators';
@@ -206,6 +207,8 @@ const ResultDetails = ({ data }) => {
         runeId={rune.gw2id}
         runeName={runeName}
       />
+
+      <TemplateHelper character={character} />
     </>
   );
 };
