@@ -39,7 +39,7 @@ jobs:
           path: |
             public
             .cache
-          key: ${{ runner.os }}-gatsby-cache-${{ hashFiles('**/gatsby-config.js') }}
+          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-gatsby-cache-${{ hashFiles('**/gatsby-config.js') }}
 
       - name: Build and deploy with gh-pages
         run: |
