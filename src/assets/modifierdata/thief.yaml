@@ -276,15 +276,6 @@
       gw2id: 1893
       defaultEnabled: true
 
-    - id: bounding-dodger
-      text: Bounding Dodger
-      subText: 100% uptime
-      modifiers:
-        damage:
-          Strike Damage: [10%, add]
-      gw2id: 2047
-      defaultEnabled: true
-
     - id: lotus-training
       text: Lotus Training
       subText: 100% uptime
@@ -292,6 +283,15 @@
         damage:
           Condition Damage: [15%, add]
       gw2id: 1833
+      defaultEnabled: true
+
+    - id: bounding-dodger
+      text: Bounding Dodger
+      subText: 100% uptime
+      modifiers:
+        damage:
+          Strike Damage: [10%, add]
+      gw2id: 2047
       defaultEnabled: true
 
 - section: Deadeye
