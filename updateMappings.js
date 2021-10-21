@@ -271,13 +271,18 @@ function fetchItems() {
         });
 
       // write to disk
-      fs.writeFile(`${MAPPINGS_PATH}items.json`, JSON.stringify(items, null, 2), { flag: 'w+' }, (err) => {
-        if (err) {
-          console.error(err);
-        } else {
-          console.log('Successfuly wrote items.json');
-        }
-      });
+      fs.writeFile(
+        `${MAPPINGS_PATH}items.json`,
+        JSON.stringify(items, null, 2),
+        { flag: 'w+' },
+        (err) => {
+          if (err) {
+            console.error(err);
+          } else {
+            console.log('Successfuly wrote items.json');
+          }
+        },
+      );
     })
     .catch((error) => {
       console.log(error);
