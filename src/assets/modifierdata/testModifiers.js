@@ -24,6 +24,7 @@ import specializationData from '../../utils/mapping/specializations.json';
 
 const directory = './src/assets/modifierdata/';
 
+// causes the script to fail if condition is false, but does not stop execution
 const gentleAssert = (condition, message) => {
   if (!condition) {
     console.error(`❌ ${message} ❌`);
