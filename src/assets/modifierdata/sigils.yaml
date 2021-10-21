@@ -157,6 +157,13 @@
           Outgoing Healing: 12.5%
       gw2id: 24584
 
+    - id: momentum
+      text: Superior Sigil of Momentum
+      modifiers:
+        attributes:
+          Toughness: [225, converted]
+      gw2id: 49457
+
     - id: stars
       text: Superior Sigil of the Stars
       modifiers:
