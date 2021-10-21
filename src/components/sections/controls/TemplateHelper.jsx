@@ -80,6 +80,12 @@ const TemplateHelper = ({ character }) => {
         </pre>
       </Grid>
       <Grid item>
+        <p>
+          <Trans>distribution template</Trans>
+        </p>
+        <p>
+          <Trans>input the DPS values from a golem log here:</Trans>
+        </p>
         <table>
           <tbody>
             <tr>
@@ -106,12 +112,11 @@ const TemplateHelper = ({ character }) => {
             </tr>
           </tbody>
         </table>
-      </Grid>
-      <Grid item>
-        <Trans>distribution template</Trans>
-        <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-          {JSON.stringify(distribution, null, 2)}
-        </pre>
+        <p>
+          <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
+            {JSON.stringify(distribution, null, 2)}
+          </pre>
+        </p>
       </Grid>
     </Grid>
   );
