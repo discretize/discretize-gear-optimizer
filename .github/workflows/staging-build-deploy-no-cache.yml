@@ -1,4 +1,4 @@
-name: 'Build and Deploy'
+name: 'Build and Deploy - no cache'
 on:
   push:
     branches:
@@ -22,16 +22,8 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Cache dependencies
-        id: node-modules-cache
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-node_modules-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-${{ env.NODE_VERSION }}-node_modules-${{ hashFiles('**/yarn.lock') }}
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+      - name: Install
+        run: yarn install
 
       - name: Build and deploy with gh-pages
         run: |
