@@ -164,7 +164,7 @@ const testModifiers = async () => {
         );
 
         if (damage) {
-          parseDamage(damage, id);
+          parseDamage(damage, id, amountData);
         }
 
         if (attributes) {
