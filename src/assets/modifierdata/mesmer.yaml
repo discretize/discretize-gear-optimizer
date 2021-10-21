@@ -100,10 +100,14 @@
 
     - id: illusionary-defense
       text: Illusionary Defense
-      subText: 5x
+      amountData:
+        label: 'stacks'
+        default: 5
+        quantityEntered: 1
+        disableBlacklist: true
       modifiers:
         damage:
-          Damage Reduction: [25%, unknown]
+          Damage Reduction: [5%, unknown]
       gw2id: 675
       defaultEnabled: true
 
