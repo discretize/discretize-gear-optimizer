@@ -47,7 +47,7 @@ export const allDamageKeys = [
   'Condition Damage',
   'All Damage',
   'Damage Reduction',
-  'Condition Damage Reduction',
+  // 'Condition Damage Reduction',
   'Critical Damage',
   ...damagingConditions.map((condition) => `${condition} Damage`),
 ];
