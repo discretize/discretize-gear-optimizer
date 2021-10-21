@@ -28,7 +28,6 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-${{ env.NODE_VERSION }}-node_modules-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-${{ env.NODE_VERSION }}-node_modules-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies
         run: yarn install --frozen-lockfile
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
@@ -41,7 +40,6 @@ jobs:
             public
             .cache
           key: ${{ runner.os }}-gatsby-cache-${{ hashFiles('**/gatsby-config.js') }}
-          restore-keys: ${{ runner.os }}-gatsby-cache-${{ hashFiles('**/gatsby-config.js') }}
 
       - name: Build and deploy with gh-pages
         run: |
