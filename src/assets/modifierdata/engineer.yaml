@@ -191,8 +191,7 @@
       modifiers:
         damage:
           Damage Reduction: [2%, unknown]
-      minor: true
-      gw2id: 413
+      gw2id: 1854
       defaultEnabled: true
 
 - section: Tools
