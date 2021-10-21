@@ -2,7 +2,7 @@
 
 (This section of the data will probably get refactored at some point. This section subject to change.)
 
-The data located in `/src/assets/presetdata` specifies presets for combinations of gear affixes, selected buffs, selected traits, selected "extras" (runes/sigils/food/utility) and distribution values, and combinations of those presets to form build templates.
+The data located in [/src/assets/presetdata](../../../src/assets/presetdata) specifies presets for combinations of gear affixes, selected buffs, selected traits, selected "extras" (runes/sigils/food/utility) and distribution values, and combinations of those presets to form build templates.
 
 For the most part, this data is currently formatted as YAML metadata containing indented text blocks, which are copied from the optimizer's Redux state:
 

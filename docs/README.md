@@ -2,7 +2,7 @@
 
 The Discretize Gear Optimizer helps find the strongest equipment setups for PvE builds in [Guild Wars 2](https://www.guildwars2.com/). Its core was originally created by [ManuelHaag](https://github.com/ManuelHaag), and it has been been extended and integrated into a new React-based UI by [gw2princeps](https://github.com/gw2princeps), [marcustyphoon](https://github.com/marcustyphoon), and contributors from the Discretize community!
 
-To learn about how the math works and its limitations, see [How-It-Works.md](How-It-Works.md)
+To learn about how the math works and its limitations, see [How It Works](<How It Works.md>)!
 
 ## Usage
 
@@ -17,7 +17,7 @@ If you have an idea for a feature or improvement or find a bug, create a new iss
 - Lock slots to specific gear types and limit stat infusions to certain quantities to work with what you already have or share gear between multiple builds.
 - Specify minumum boon duration and/or healing power quantities.
 - Provide a specific toughness range, such as to become or avoid becoming the tank on raid bosses with toughness-based tanking.
-- Calulate the relative performance difference between setups. Estimate the value of stat infusions, buffs, or certain build changes! (some limitations apply, see [How-It-Works.md](How-It-Works.md))
+- Calulate the relative performance difference between setups. Estimate the value of stat infusions, buffs, or certain build changes! (Some limitations apply, see [How It Works](<How It Works.md>).)
 
 Supports all 9 classes and all 18 current elite specs (plus End of Dragons elite specs as we receive information about them), including power and condi builds with distribution information derived from game logs.
 
@@ -25,7 +25,7 @@ Work in progress game mechanics: Confusion/torment, mesmer illusions, reaper shr
 
 ## Development and Contributing
 
-See the [docs folder](../) for information about contributing to the project!
+See the contributing information in the [docs folder](./) to learn about contributing to the project!
 
 ## Roadmap
 

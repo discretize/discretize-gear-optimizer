@@ -1,6 +1,6 @@
-Internal data for what effects modifiers have (like traits, food, etc) and for all of the presets and templates are stored in YAML files in `/src/assets/modifierdata` and `/src/assets/presetdata`.
+Internal data for what effects modifiers have (like traits, food, etc) and for all of the presets and templates are stored in YAML files in [/src/assets/modifierdata](../../../src/assets/modifierdata) and [/src/assets/presetdata](../../../src/assets/presetdata).
 
-See [[Templates and Presets|Data Format ~ Templates and Presets]] and [[Modifiers|Data-Format-~-Modifiers]] for information about the specific formats of those sections.
+See [Templates and Presets](<Templates and Presets.md>) and [Modifiers](Modifiers.md) for information about the specific formats of those sections.
 
 > To do: split up "trait" template files into traits / extras, to allow users to mix and match.
 

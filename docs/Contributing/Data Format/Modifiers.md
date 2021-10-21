@@ -1,12 +1,12 @@
 # Overview
 
-The data located in `/src/assets/modifierdata` specifies what effect each trait, passive-buffing skill, rune, sigil, food, utility, and buff has on your character.
+The data located in [/src/assets/modifierdata](../../../src/assets/modifierdata) specifies what effect each trait, passive-buffing skill, rune, sigil, food, utility, and buff has on your character.
 
 You can run `yarn testModifiers` in a clone of the repository to run the testModifiers.js script, which will check every YAML file in this folder for most possible mistakes or omissions. (Contributors, feel free to pull request additions/corrections without running this if you don't want to install Node.js and Yarn; maintainers, be sure to run this before merging!)
 
 > todo: potentially run this automatically
 
-This format was originally proposed in [[(old)-data-format-notes]].
+This format was originally proposed in the [data format notes wiki page](https://github.com/discretize/discretize-gear-optimizer/wiki/data-format-notes).
 
 # Format
 
@@ -54,7 +54,7 @@ Each class has a section for skills and a section for each traitline's traits. N
 
 ## Modifiers Section
 
-> should align with src/assets/modifierdata/metadata.js
+> should align with [src/assets/modifierdata/metadata.js](../../../src/assets/modifierdata/metadata.js)
 
 ### damage
 
@@ -227,7 +227,7 @@ Numerical GW2 id of this effect. To find this, hover your mouse over the chatcod
 
 #### type (optional, buffs)
 
-> source: src/components/sections/buffs/Buffs.jsx
+> source: [src/components/sections/buffs/Buffs.jsx](../../../src/components/sections/buffs/Buffs.jsx)
 
 `Boon`, `Skill`, `Trait`, `CommonEffect`, `Condition`, or `Text`; used to specify what kind of component to use to render buffs.
 
