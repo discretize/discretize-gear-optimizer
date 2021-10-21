@@ -343,6 +343,7 @@
 
     - id: hunters-fortification
       text: Hunter's Fortification
+      subText: no conditions
       modifiers:
         damage:
           Damage Reduction: [10%, unknown]
