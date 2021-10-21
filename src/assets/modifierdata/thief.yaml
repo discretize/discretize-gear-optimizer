@@ -285,6 +285,15 @@
       gw2id: 1833
       defaultEnabled: true
 
+    - id: unhindered-combatant
+      text: Unhindered Combatant
+      subText: 100% uptime
+      modifiers:
+        damage:
+          Damage Reduction: [10%, unknown]
+      gw2id: 1964
+      defaultEnabled: true
+
     - id: bounding-dodger
       text: Bounding Dodger
       subText: 100% uptime
