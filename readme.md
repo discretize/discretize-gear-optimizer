@@ -1,8 +1,8 @@
+### This branch is the source for the "old" optimizer code, accessible at [old.discretize.eu](https://old.discretize.eu). The optimizer rewrite code is located in the main and staging branches.
+
 # 🌌 Discretize.eu - Gear optimizer
 
 Welcome to the source repository of the Discretize gear optimizer.
-
-### This branch is the source for the "old" optimizer code, accessible at [old.discretize.eu](https://old.discretize.eu). The optimizer rewrite code is located in the [staging branch](https://github.com/discretize/discretize-gear-optimizer/tree/staging).
 
 ## 💻 Technologies
 
