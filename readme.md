@@ -11,14 +11,13 @@ Welcome to the source repository of the Discretize gear optimizer.
 - [ESLint](https://github.com/eslint/eslint) and [EditorConfig](https://editorconfig.org/) for JavaScript linting. (Formatting can be applied via [Prettier](https://github.com/prettier/prettier), though it is not automatically installed.)
 - [gulp 4](https://github.com/gulpjs/gulp) for build and development scripts.
 
-
 ## 🔄 Continuous integration
 
 We use Github actions for continuous integration and deployment. Any push to the master branch will trigger the CI and deploy to the bucket of old.discretize.eu
 
-| Domain                        | Branch  | Build                                                                                                                                                |
-| ----------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| https://old.discretize.eu         | master  | [![[Old] build and deploy](https://github.com/discretize/discretize-gear-optimizer/actions/workflows/legacy-build-deploy.yml/badge.svg)](https://github.com/discretize/discretize-gear-optimizer/actions/workflows/legacy-build-deploy.yml) |
+| Domain                    | Branch           | Build                                                                                                                                                                                                                                       |
+| ------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| https://old.discretize.eu | legacy-optimizer | [![[Old] build and deploy](https://github.com/discretize/discretize-gear-optimizer/actions/workflows/legacy-build-deploy.yml/badge.svg)](https://github.com/discretize/discretize-gear-optimizer/actions/workflows/legacy-build-deploy.yml) |
 
 ## 👨‍💻 Developing
 
