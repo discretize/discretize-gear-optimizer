@@ -43,7 +43,7 @@ function fetchSpecializations() {
         // write to disk
         fs.writeFile(
           `${MAPPINGS_PATH}specializations.json`,
-          JSON.stringify(specs),
+          JSON.stringify(specs, null, 2),
           { flag: 'w+' },
           (err) => {
             if (err) {
@@ -89,7 +89,7 @@ function fetchTraits() {
           // write to disk
           fs.writeFile(
             `${MAPPINGS_PATH}traits.json`,
-            JSON.stringify(traits),
+            JSON.stringify(traits, null, 2),
             { flag: 'w+' },
             (err) => {
               if (err) {
@@ -133,7 +133,7 @@ function fetchSkills() {
           // write to disk
           fs.writeFile(
             `${MAPPINGS_PATH}skills.json`,
-            JSON.stringify(skills),
+            JSON.stringify(skills, null, 2),
             { flag: 'w+' },
             (err) => {
               if (err) {
@@ -166,7 +166,7 @@ function fetchItemStats() {
         // write to disk
         fs.writeFile(
           `${MAPPINGS_PATH}itemstats.json`,
-          JSON.stringify(statsFinal),
+          JSON.stringify(statsFinal, null, 2),
           { flag: 'w+' },
           (err) => {
             if (err) {
@@ -271,7 +271,7 @@ function fetchItems() {
         });
 
       // write to disk
-      fs.writeFile(`${MAPPINGS_PATH}items.json`, JSON.stringify(items), { flag: 'w+' }, (err) => {
+      fs.writeFile(`${MAPPINGS_PATH}items.json`, JSON.stringify(items, null, 2), { flag: 'w+' }, (err) => {
         if (err) {
           console.error(err);
         } else {
