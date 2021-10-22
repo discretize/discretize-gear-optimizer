@@ -316,11 +316,11 @@ list:
 
   - name: Condi Scourge
     profession: SCOURGE
-    distribution: [27, 49, 71, 77, 100]
+    distribution: [27, 49, 72, 78, 100]
     value: >-
       {
-        "values1": { "Power": 27, "Burning": 22, "Bleeding": 22, "Poisoned": 6, "Torment": 23, "Confusion": 0 },
-        "values2": { "Power": 1405, "Burning": 3.4, "Bleeding": 20.6, "Poisoned": 3.7, "Torment": 14.2, "Confusion": 0 }
+        "values1": { "Power": 27, "Burning": 22, "Bleeding": 23, "Poisoned": 6, "Torment": 22, "Confusion": 0 },
+        "values2": { "Power": 1405, "Burning": 3.4, "Bleeding": 20.8, "Poisoned": 3.7, "Torment": 14.3, "Confusion": 0 }
       }
 
   - name: Condi Reaper
