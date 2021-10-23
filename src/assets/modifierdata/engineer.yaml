@@ -169,7 +169,7 @@
       subText: in med kit
       modifiers:
         attributes:
-          Outgoing Healing: 20%
+          Outgoing Heealing: 20%
       gw2id: 521
 
     - id: compounding-chemicals
