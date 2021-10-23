@@ -356,3 +356,61 @@
           Precision: [200, buff]
       gw2id: 2093
       defaultEnabled: true
+
+- section: Specter
+  id:
+  items:
+
+    - id: second-opinion-base
+      text: Second Opinion
+      subText: base
+      modifiers:
+        conversion:
+          Healing Power: {Condition Damage: 7%}
+        attributes:
+          Healing Power: [60, unknown]
+      gw2id:
+      defaultEnabled: true
+
+    - id: second-opinion-scepter
+      text: Second Opinion
+      subText: with scepter
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Healing Power: [60, unknown]
+      gw2id:
+      defaultEnabled: true
+
+    - id: larcenous-torment
+      text: Larcenous Torment
+      modifiers:
+        damage:
+          Torment Damage: [20%, unknown]
+      gw2id:
+      defaultEnabled: true
+
+    - id: strength-of-shadows-base
+      text: Strength of Shadows
+      subText: base
+      modifiers:
+        conversion:
+          Expertise: {Vitality: 13%}
+      gw2id:
+      defaultEnabled: true
+
+    - id: strength-of-shadows-condis
+      text: Strength of Shadows
+      amountData:
+        label: 'conditions'
+        default: 10
+        quantityEntered: 1
+        disableBlacklist: true
+      modifiers:
+        damage:
+          Damage Reduction: [2%, unknown]
+      gw2id:
+      defaultEnabled: true
