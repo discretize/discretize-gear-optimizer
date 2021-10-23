@@ -10,12 +10,11 @@ import {
   withStyles,
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Trans } from 'gatsby-plugin-react-i18next';
 // import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';
-import { parseAmount, scaleValue } from '../../../state/optimizer/optimizerCore';
-import { Trans } from 'gatsby-plugin-react-i18next';
-
 import { buffModifiersById } from '../../../assets/modifierdata';
+import { parseAmount, scaleValue } from '../../../state/optimizer/optimizerCore';
 
 const styles = (theme) => ({
   root: {

@@ -897,7 +897,7 @@ const clamp = (input, min, max) => {
  *
  * @param {object} _character
  */
-export function updateAttributes(_character) {
+export function updateAttributes(_character, results = true) {
   const { damageMultiplier } = _character.settings.modifiers;
   _character.valid = true;
 
@@ -910,7 +910,7 @@ export function updateAttributes(_character) {
   calcSurvivability(_character, damageMultiplier);
   calcHealing(_character);
 
-  calcResults(_character);
+  if (results) calcResults(_character);
 }
 
 /**
@@ -1136,6 +1136,30 @@ function calcResults(_character) {
       results.damageBreakdown[`${key} Damage`] = attributes[`${key} DPS`]
         .toFixed(2)
         .toLocaleString('en-US');
+    }
+  }
+
+  // template helper data (damage with distribution of one)
+  results.templateHelper = {};
+  const temp = clone(_character);
+  temp.settings = {
+    ...temp.settings,
+    distributionVersion: 2,
+    distribution: {
+      Power: 1,
+      Burning: 1,
+      Bleeding: 1,
+      Poison: 1,
+      Torment: 1,
+      Confusion: 1,
+    },
+  };
+  updateAttributes(temp, false);
+  for (const key of Object.keys(settings.distribution)) {
+    if (key === 'Power') {
+      results.templateHelper['Power'] = temp.attributes['Power DPS'];
+    } else {
+      results.templateHelper[key] = temp.attributes[`${key} DPS`];
     }
   }
 }

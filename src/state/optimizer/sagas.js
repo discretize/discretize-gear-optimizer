@@ -17,7 +17,7 @@ import { ERROR, SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function printTemplateHelper(state, list) {
+function createTraitsTemplate(state, list) {
   // const { profession, traits, skills, extras } = state;
 
   const withoutModifiers = (object) => {
@@ -28,12 +28,14 @@ function printTemplateHelper(state, list) {
 
   console.groupCollapsed('Template Creation Data');
 
-  console.log('Traits:', {
+  const traitsTemplate = {
     profession: state.control.profession,
     traits: withoutModifiers(state.traits),
     skills: withoutModifiers(state.skills),
     extras: withoutModifiers(state.extras),
-  });
+  };
+
+  console.log('Traits:', traitsTemplate);
 
   const distribution = state.distribution.values2;
   console.log('Input Distribution (v2):');
@@ -51,6 +53,8 @@ function printTemplateHelper(state, list) {
     ]);
   }
   console.groupEnd();
+
+  return traitsTemplate;
 }
 
 function createInput(state, modifiers) {
@@ -192,7 +196,8 @@ function* runCalc() {
       yield delay(0);
     }
     yield put(changeList(currentList));
-    printTemplateHelper(optimizerState, currentList);
+    const traitsTemplate = createTraitsTemplate(optimizerState, currentList);
+    yield put(changeControl({ key: 'traitsTemplate', value: traitsTemplate }));
     console.groupEnd();
 
     console.timeEnd('Calculation');

@@ -12,6 +12,7 @@ export const controlSlice = createSlice({
     selectedTemplate: '',
     status: WAITING,
     profession: '',
+    traitsTemplate: null,
   },
   reducers: {
     changeProfession: (state, action) => {
@@ -27,6 +28,7 @@ export const controlSlice = createSlice({
           selectedSpecialization: firstUppercase(action.payload),
           status: WAITING,
           error: '',
+          traitsTemplate: null,
         };
       }
       return state;
@@ -48,6 +50,7 @@ export const controlSlice = createSlice({
         selectedCharacter: null,
         status: WAITING,
         error: '',
+        traitsTemplate: null,
       };
     },
     setBuildTemplate: (state, action) => {
