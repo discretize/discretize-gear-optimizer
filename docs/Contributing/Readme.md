@@ -5,11 +5,9 @@ Thanks for considering contributing to the gear optimizer!
 
 ## Communication and Planning
 
-For real-time coordination with other developers and contributors, feel free to join the [Discretize discord server](https://discord.gg/UDT2W6an2R)!
+For real-time coordination with other developers and contributors, feel free to join the [Discretize discord server](https://discord.gg/UDT2W6an2R)! To establish initial contact write a message in the `#gear-optimizer` channel. 
 
-[something about requesting a contributor role goes here]
-
-The Projects tab of this repository contains a to-do list of features, improvements, and bug fixes for reference. (Contributors without repository write access cannot directly make/propose changes to GitHub project boards, unfortunately.)
+The Projects tab of this repository contains a to-do list of features, improvements, and bug fixes for reference. (Contributors without repository write access cannot directly make/propose changes to GitHub project boards, unfortunately). Ideally you will create an issue based on the open cards on the Projects board, which the maintainers then integrate into the board. The issue should contain data, which is important to understand the resolution process and to avoid duplicate work. 
 
 > todo: improve project board automation
 
@@ -43,7 +41,7 @@ yarn develop
 
 Be sure to base your development work and pull requests on the primary development branch. 
 
-> Currently this is the "staging" branch, which is not the default! todo: consider changing this.
+> Currently this is the "staging" branch, which is not the default!
 
 Feel free to open PRs for unfinished work as [draft PRs](https://github.blog/2019-02-14-introducing-draft-pull-requests/)!
 
@@ -98,6 +96,8 @@ Check out the [MUI v4 documentation](https://v4.mui.com/) for more information.
 ### GW2 Components
 
 GW2 items, traits, skills, etc are rendered using the [gw2-ui](https://github.com/ManuelHaag/gw2-ui) library, created in-house for the discretize website and the optimizer. The latest version with performance improvements is actually currently on [a branch in Princeps' fork](https://github.com/gw2princeps/gw2-ui/tree/refactor-build), which is published to NPM as gw2-ui-bulk.
+
+> todo: fix the branching mess on princeps' gw2-ui repo
 
 Running `yarn develop` in a clone of that repository will open a [storybook](https://storybook.js.org/) which demonstrates most of the availible props for the GW2-UI components. For more information, ask in Discord. 
 
