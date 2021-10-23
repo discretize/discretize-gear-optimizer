@@ -2832,7 +2832,7 @@ list:
                   "selectedLines": [
                       "38",
                       "6",
-                      ""
+                      "57"
                   ],
                   "selectedTraits": [
                       [
@@ -2846,9 +2846,9 @@ list:
                           1947
                       ],
                       [
-                          0,
-                          0,
-                          0
+                          2106,
+                          2152,
+                          2137
                       ]
                   ],
                   "items": [
@@ -2879,7 +2879,11 @@ list:
                           },
                           "big-boomer": true
                       },
-                      {}
+                      {
+                          "lasers-edge": {
+                              "amount": ""
+                          }
+                      }
                   ]
               },
               "skills": {
