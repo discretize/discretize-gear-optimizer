@@ -41,6 +41,7 @@ const coefficientsToPercents = (values2) => {
   return values1;
 };
 
+// replaces "Poison" with "Poisoned" (keeping the same key order)
 const fixPoison = (input) =>
   Object.fromEntries(
     Object.entries(input).map(([key, value]) => {
