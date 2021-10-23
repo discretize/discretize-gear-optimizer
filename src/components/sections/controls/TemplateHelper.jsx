@@ -67,58 +67,54 @@ const TemplateHelper = ({ character }) => {
   const distribution = { values1, values2 };
 
   return (
-    <Grid container>
-      <Grid item>
-        <Typography variant="h6">
-          <Trans>make templates with this bit idk man</Trans>
-        </Typography>
-      </Grid>
-      <Grid item>
-        <Trans>traits template</Trans>
+    <>
+      <Typography variant="h6">
+        <Trans>Trait Template</Trans>
+      </Typography>
+
+      <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
+        {JSON.stringify(traitsTemplate, null, 2)}
+      </pre>
+
+      <Typography variant="h6">
+        <Trans>Distribution Template</Trans>
+      </Typography>
+      <Typography variant="caption">
+        <Trans>input the DPS values from a golem log here:</Trans>
+      </Typography>
+
+      <table>
+        <tbody>
+          <tr>
+            {data.map(({ key }) => (
+              <td key={key}>{t(`${key} DPS`)}</td>
+            ))}
+          </tr>
+          <tr>
+            {data.map(({ key, inputText, error }) => {
+              return (
+                <td key={key}>
+                  <TextField
+                    error={error}
+                    value={inputText}
+                    onChange={(e) => {
+                      const newInput = { ...input };
+                      newInput[key] = e.target.value;
+                      setInput(newInput);
+                    }}
+                  />
+                </td>
+              );
+            })}
+          </tr>
+        </tbody>
+      </table>
+      <p>
         <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-          {JSON.stringify(traitsTemplate, null, 2)}
+          {JSON.stringify(distribution, null, 2)}
         </pre>
-      </Grid>
-      <Grid item>
-        <p>
-          <Trans>distribution template</Trans>
-        </p>
-        <p>
-          <Trans>input the DPS values from a golem log here:</Trans>
-        </p>
-        <table>
-          <tbody>
-            <tr>
-              {data.map(({ key }) => (
-                <td key={key}>{t(`${key} DPS`)}</td>
-              ))}
-            </tr>
-            <tr>
-              {data.map(({ key, inputText, error }) => {
-                return (
-                  <td key={key}>
-                    <TextField
-                      error={error}
-                      value={inputText}
-                      onChange={(e) => {
-                        const newInput = { ...input };
-                        newInput[key] = e.target.value;
-                        setInput(newInput);
-                      }}
-                    />
-                  </td>
-                );
-              })}
-            </tr>
-          </tbody>
-        </table>
-        <p>
-          <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-            {JSON.stringify(distribution, null, 2)}
-          </pre>
-        </p>
-      </Grid>
-    </Grid>
+      </p>
+    </>
   );
 };
 
