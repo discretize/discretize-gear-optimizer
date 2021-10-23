@@ -41,6 +41,14 @@ const coefficientsToPercents = (values2) => {
   return values1;
 };
 
+const fixPoison = (input) =>
+  Object.fromEntries(
+    Object.entries(input).map(([key, value]) => {
+      const fixedKey = key === 'Poison' ? 'Poisoned' : key;
+      return [fixedKey, value];
+    }),
+  );
+
 const TemplateHelper = ({ character }) => {
   const traitsTemplate = useSelector(getControl('traitsTemplate'));
   const { t } = useTranslation();
@@ -64,7 +72,7 @@ const TemplateHelper = ({ character }) => {
     values1[key] = roundZero(values1[key]);
   });
 
-  const distribution = { values1, values2 };
+  const distribution = { values1: fixPoison(values1), values2: fixPoison(values2) };
 
   return (
     <>
