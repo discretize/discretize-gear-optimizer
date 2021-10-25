@@ -25,7 +25,7 @@ Work in progress game mechanics: Confusion/torment, mesmer illusions, reaper shr
 
 ## Development and Contributing
 
-See the contributing information in the [docs folder](./) to learn about contributing to the project!
+See the [contributing information in the docs folder](./Contributing) to learn about contributing to the project!
 
 ## Roadmap
 
