@@ -59,4 +59,4 @@ mesmer builds:
   - condi mirage
 ```
 
-You can learn more about YAML from tutorials like [this one](https://keleshev.com/yaml-quick-introduction) or from the Wikipedia page.
+You can learn more about YAML from tutorials like [this one](https://keleshev.com/yaml-quick-introduction), from [learnxinyminutes.com](https://learnxinyminutes.com/docs/yaml/), or from the [Wikipedia article on YAML](https://en.wikipedia.org/wiki/YAML).
