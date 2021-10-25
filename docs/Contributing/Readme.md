@@ -115,8 +115,6 @@ The optimizer core itself, [/src/state/optimizer/optimizerCore.js](../../src/sta
 
 > todo: move optimization to a web worker thread
 
-> todo (maybe): port optimization to webassembly
-
 ### Data
 
 See [Data Format](<Data Format>) for information about the data files that contain the templates and presets and the data describing the effects of ingame traits, buffs, and upgrades.
