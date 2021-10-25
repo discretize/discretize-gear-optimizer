@@ -39,9 +39,7 @@ yarn develop
 
 ### Pull Requests
 
-Be sure to base your development work and pull requests on the primary development branch. 
-
-> Currently this is the "staging" branch, which is not the default!
+Be sure to base your development work and pull requests on the `staging` branch - this isn't the default!
 
 Feel free to open PRs for unfinished work as [draft PRs](https://github.blog/2019-02-14-introducing-draft-pull-requests/)!
 
@@ -53,9 +51,9 @@ Make sure your commit messages follow the [Conventional Commits specification](h
 
 ### Repository:
 
-[information about the two/three repo branches goes here]
+Discretize projects do development work on the `staging` branch and periodically merge changes into the `main` branch. 
 
-> todo: change the "staging" branch to become main; rename the 
+At present, this project is built directly off `staging` while in beta; the plan is to integrate `main` into the discretize.eu website, which will benefit from a slower release cycle.
 
 ### Hosting:
 
