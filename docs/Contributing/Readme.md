@@ -101,7 +101,7 @@ Running `yarn develop` in a clone of that repository will open a [storybook](htt
 
 ### UI State
 
-This app uses [Redux](https://redux.js.org/), including [Redux Toolkit](https://redux-toolkit.js.org/), to store and manipulate the UI state. `src/state` contains these files.
+This app uses [Redux](https://redux.js.org/), including [Redux Toolkit](https://redux-toolkit.js.org/), to store and manipulate the UI state. [src/state](../../src/state) contains these files.
 
 [Redux Saga](https://redux-saga.js.org/) is used to integrate the asynchronous optimization process with Redux.
 

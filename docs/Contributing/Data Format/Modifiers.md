@@ -175,7 +175,7 @@ amountData is currently supported only in traits (skills are definitely planned,
 
 Using percentage uptimes on effects that can influence critical chance, boon/condition duration, toughness, damage reduction*, or maximum health* is not generally recommended. (Attributes with caps do not scale like this, and attributes that can be min/max filtered should be real.) This is enforced by the testModifers script. Use `disableBlacklist: true` to disable this check when it really does make sense to use it!
 
-> see src/assets/modifierdata/metadata.js for the actual blacklist
+> see [src/assets/modifierdata/metadata.js](../../../src/assets/modifierdata/metadata.js) for the actual blacklist
 
 *perhaps these are fine once a visual indicator is added
 
@@ -223,7 +223,7 @@ Minor traits without subtext or amount data are assumed to be always-on; if this
 
 #### gw2id (optional)
 
-Numerical GW2 id of this effect. To find this, hover your mouse over the chatcode in the box on the right side of the GW2 wiki or file search in the files in `src/utils/mapping`. Make sure your item is described in `subText` if not specifying a GW2 id to display.
+Numerical GW2 id of this effect. To find this, hover your mouse over the chatcode in the box on the right side of the GW2 wiki or file search in the files in [src/utils/mapping](../../../src/utils/mapping). Make sure your item is described in `subText` if not specifying a GW2 id to display.
 
 #### type (optional, buffs)
 
