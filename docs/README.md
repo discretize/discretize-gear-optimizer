@@ -1,4 +1,4 @@
-# 🌌 Discretize.eu - Gear Optimizer
+# Discretize.eu - Gear Optimizer
 
 The Discretize Gear Optimizer helps find the strongest equipment setups for PvE builds in [Guild Wars 2](https://www.guildwars2.com/). Its core was originally created by [ManuelHaag](https://github.com/ManuelHaag), and it has been been extended and integrated into a new React-based UI by [gw2princeps](https://github.com/gw2princeps), [marcustyphoon](https://github.com/marcustyphoon), and contributors from the Discretize community!
 
@@ -31,7 +31,7 @@ See the [contributing information in the docs folder](./Contributing) to learn a
 
 See the Projects tab of this repository for planned features and improvements and known bugs.
 
-## 💻 Technologies
+## Technologies
 
 - [Gatsby v3](https://www.gatsbyjs.org/) as a static site builder
 - [React](https://reactjs.org/)
