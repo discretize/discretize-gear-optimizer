@@ -25,9 +25,9 @@ The optimizer's simulation breaks down damage into components for power and for 
 
 Therefore, these types of modifiers are not simulated by the optimizer's attribute system:
 
-a) Bonuses to a specific skill type, like "conditions dealt by a scepter are stronger." The effect of toggling these can't be accurately simulated without knowing what portion of damage/condition application/healing was performed by each type of skill or effect.
+**a) Bonuses to a specific skill type**, like "conditions dealt by a scepter are stronger." The effect of toggling these can't be accurately simulated without knowing what portion of damage/condition application/healing was performed by each type of skill or effect.
 
-b) Bonuses which change your rotation or have direct effects of their own, like "consecrations have reduced cooldown" or "deal damage when you dodge." The effect of toggling these these can't be accurately simulated without simulating your entire rotation.
+**b) Bonuses which change your rotation or have direct effects of their own**, like "consecrations have reduced cooldown" or "deal damage when you dodge." The effect of toggling these these can't be accurately simulated without simulating your entire rotation.
 
 > todo: mark these kinds of traits with a warning somehow!
 
@@ -35,15 +35,15 @@ The effects of these types of modifiers are quietly included in the the "skill c
 
 These general types of modifiers, on the other hand, are simulated by the optimizer's attribute system:
 
-c) Consistent bonuses. ex: "+100 precision", or "+5% critical damage." These have a predictable, calculable effect on every skill you use, so the math to simulate adding or removing one is simple and generally very accurate. 
+**c) Consistent bonuses**. ex: "+100 precision", or "+5% critical damage." These have a predictable, calculable effect on every skill you use, so the math to simulate adding or removing one is simple and generally very accurate. 
 
-d) Bonuses with uptime, like "+120 ferocity while holding an axe (which is about 40% of the time)." These can be estimated by averaging out the bonus and assuming that the build's damage is fairly even over time. This assumption would be far off if, say, a build actually did 70% of its damage during the 40% of the time it was holding an axe, but is usually reasonable.
+**d) Bonuses with uptime**, like "+120 ferocity while holding an axe (which is about 40% of the time)." These can be estimated by averaging out the bonus and assuming that the build's damage is fairly even over time. This assumption would be far off if, say, a build actually did 70% of its damage during the 40% of the time it was holding an axe, but is usually reasonable.
 
 After loading a template, these general bonuses can be removed, added, or changed in quantity freely, and the template should continue to yield accurate results. This is not only useful for optimizing builds in different scenarios or with certain trait changes, it can also be used for comparisons like "About how much DPS is Assassin's Presence worth?" or "Which is better, thief runes or accuracy sigil?"
 
 ---
 
-__*__For example, loading a condi renegade template with Dance of Death (a lifesteal effect; category B) and then changing it to Swift Termination (an uptime-based buff; category D) would correctly add the damage buff effect in the optimizer's attribute system but would not remove the lifesteal effect, resulting in a power damage component that is slightly too high.
+*For example, loading a condi renegade template with Dance of Death (a lifesteal effect; category B) and then changing it to Swift Termination (an uptime-based buff; category D) would correctly add the damage buff effect in the optimizer's attribute system but would not remove the lifesteal effect, resulting in a power damage component that is slightly too high.
 
 Most of the time this doesn't change the optimal gear, but it can result in unrealistic DPS output values.
 
