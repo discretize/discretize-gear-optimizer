@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Typography, TextField } from '@material-ui/core';
 import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
-import yaml from 'js-yaml';
 import { getControl } from '../../../state/controlsSlice';
 import { parseAmount } from '../../../state/optimizer/optimizerCore';
 import { Condition } from '../../../utils/gw2-data';
