@@ -2,7 +2,7 @@ We use [gatsby-plugin-react-i18next](https://www.gatsbyjs.com/plugins/gatsby-plu
 
 ## Finding translatable strings
 
-First step is to find occurences of english language in the code. When you found such an occurence, you have two options to instruct gatsby, that this is a translatable string. 
+The first step is to find occurrences of english language in the code. When you find such an occurrence, you have two options to instruct gatsby that this is a translatable string. 
 1. Wrap the string in a `Trans` component: 
 ```js
 import { Trans } from 'gatsby-plugin-react-i18next';

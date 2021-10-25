@@ -115,13 +115,13 @@ Be careful enabling large numbers of affixes without using the "force slots" fea
 
 The strongest builds are, of course, the ones that perform their roles the best. This tool allows you to optimize for damage output, for healing output, or for survivability.
 
-**Damage** sorts by total damage output, in DPS. This is also used to optimize offensive boon builds (by setting a minumum boon duration) or offensive heal builds (by setting a minimum healing power value)
+**Damage** sorts by total damage output, in DPS. This is also used to optimize offensive boon builds (by setting a minimum boon duration) or offensive heal builds (by setting a minimum healing power value)
 
 **Survivability** sorts by *effective health* (the amount of direct damage you can take between heals without being downed), which starts with your health pool and is increased by armor, defensive buffs and effects, or being a medium or heavy armor class.
 
 Note that this doesn't take healing into account (having 15k HP and a 50% damage reduction effect is treated the same way as having 30k HP, even though healing is twice as effective in the first scenario), and it only takes power damage into account, so it is very simplified.
 
-**Healing** sorts by the amount healed by a representative skill (Druid celestial avatar 4, with a 390 base heal and 0.3 coefficient). This has some slight advantages over sorting by the healing power attribute, as it better represents how outgoing healing bonuses (bountiful maintenence oil) affect the base heal values as well as the healing power component.
+**Healing** sorts by the amount healed by a representative skill (Druid celestial avatar 4, with a 390 base heal and 0.3 coefficient). This has some slight advantages over sorting by the healing power attribute, as it better represents how outgoing healing bonuses (bountiful maintenance oil) affect the base heal values as well as the healing power component.
 
 > todo: allow users to specify bases and coefficients for healing optimization
 

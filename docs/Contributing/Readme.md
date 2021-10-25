@@ -97,7 +97,7 @@ GW2 items, traits, skills, etc are rendered using the [gw2-ui](https://github.co
 
 > todo: fix the branching mess on princeps' gw2-ui repo
 
-Running `yarn develop` in a clone of that repository will open a [storybook](https://storybook.js.org/) which demonstrates most of the availible props for the GW2-UI components. For more information, ask in Discord. 
+Running `yarn develop` in a clone of that repository will open a [storybook](https://storybook.js.org/) which demonstrates most of the available props for the GW2-UI components. For more information, ask in Discord. 
 
 ### UI State
 

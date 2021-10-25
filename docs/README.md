@@ -15,9 +15,9 @@ If you have an idea for a feature or improvement or find a bug, create a new iss
 - Use preset templates to easily optimize common fractal builds.
 - Optimize for damage output, effective health pool, or outgoing healing.
 - Lock slots to specific gear types and limit stat infusions to certain quantities to work with what you already have or share gear between multiple builds.
-- Specify minumum boon duration and/or healing power quantities.
+- Specify minimum boon duration and/or healing power quantities.
 - Provide a specific toughness range, such as to become or avoid becoming the tank on raid bosses with toughness-based tanking.
-- Calulate the relative performance difference between setups. Estimate the value of stat infusions, buffs, or certain build changes! (Some limitations apply, see [How It Works](<How It Works.md>).)
+- Calculate the relative performance difference between setups. Estimate the value of stat infusions, buffs, or certain build changes! (Some limitations apply, see [How It Works](<How It Works.md>).)
 
 Supports all 9 classes and all 18 current elite specs (plus End of Dragons elite specs as we receive information about them), including power and condi builds with distribution information derived from game logs.
 
