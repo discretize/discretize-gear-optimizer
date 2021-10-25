@@ -1,13 +1,12 @@
-
 # Contributing
 
 Thanks for considering contributing to the gear optimizer!
 
 ## Communication and Planning
 
-For real-time coordination with other developers and contributors, feel free to join the [Discretize discord server](https://discord.gg/UDT2W6an2R)! To establish initial contact write a message in the `#gear-optimizer` channel. 
+For real-time coordination with other developers and contributors, feel free to join the [Discretize discord server](https://discord.gg/UDT2W6an2R)! To establish initial contact write a message in the `#gear-optimizer` channel.
 
-The Projects tab of this repository contains a to-do list of features, improvements, and bug fixes for reference. (Contributors without repository write access cannot directly make/propose changes to GitHub project boards, unfortunately). Ideally you will create an issue based on the open cards on the Projects board, which the maintainers then integrate into the board. The issue should contain data, which is important to understand the resolution process and to avoid duplicate work. 
+The Projects tab of this repository contains a to-do list of features, improvements, and bug fixes for reference. (Contributors without repository write access cannot directly make/propose changes to GitHub project boards, unfortunately). Ideally you will create an issue based on the open cards on the Projects board, which the maintainers then integrate into the board. The issue should contain data, which is important to understand the resolution process and to avoid duplicate work.
 
 > todo: improve project board automation
 
@@ -51,7 +50,7 @@ Make sure your commit messages follow the [Conventional Commits specification](h
 
 ### Repository:
 
-Discretize projects do development work on the `staging` branch and periodically merge changes into the `main` branch. 
+Discretize projects do development work on the `staging` branch and periodically merge changes into the `main` branch.
 
 At present, this project is built directly off `staging` while in beta; the plan is to integrate `main` into the discretize.eu website, which will benefit from a slower release cycle.
 
@@ -71,7 +70,7 @@ To start the gatsby-cli development server, which will build the site on your co
 yarn develop
 ```
 
-Note that this builds in development mode, with verbose error messages but reduced performance. To build the site in production mode to test actual performance, you can run `yarn build --profile` and then `yarn serve`, or shortcut both steps using `yarn profile`. 
+Note that this builds in development mode, with verbose error messages but reduced performance. To build the site in production mode to test actual performance, you can run `yarn build --profile` and then `yarn serve`, or shortcut both steps using `yarn profile`.
 
 Check out the [Gatsby documentation](https://www.gatsbyjs.com/docs/) for more information.
 
@@ -97,7 +96,7 @@ GW2 items, traits, skills, etc are rendered using the [gw2-ui](https://github.co
 
 > todo: fix the branching mess on princeps' gw2-ui repo
 
-Running `yarn develop` in a clone of that repository will open a [storybook](https://storybook.js.org/) which demonstrates most of the available props for the GW2-UI components. For more information, ask in Discord. 
+Running `yarn develop` in a clone of that repository will open a [storybook](https://storybook.js.org/) which demonstrates most of the available props for the GW2-UI components. For more information, ask in Discord.
 
 ### UI State
 

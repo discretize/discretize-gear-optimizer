@@ -41,7 +41,6 @@ See the Projects tab of this repository for planned features and improvements an
 - [Material UI v4](https://material-ui.com/) and [JSS](http://cssinjs.org) for styling
 - [ESLint](https://github.com/eslint/eslint), [Prettier](https://github.com/prettier/prettier) and [EditorConfig](https://editorconfig.org/) for linting and formatting
 
-
 ## License
 
 The Gear Optimizer is free software: you can redistribute it and/or modify

@@ -2,13 +2,13 @@
 
 This tool, internally, does 4 fundamental things:
 
-1) Simulate the change in effective attributes (like DPS output) of a GW2 build when pieces of that build are changed.
+1. Simulate the change in effective attributes (like DPS output) of a GW2 build when pieces of that build are changed.
 
-2) Choose a scenario (buffs, traits, valid equipment affixes, constraints, etc) and loop through every possible gear variation the user has selected.
+2. Choose a scenario (buffs, traits, valid equipment affixes, constraints, etc) and loop through every possible gear variation the user has selected.
 
-3) Compare the results and report the strongest combinations in a table.
+3. Compare the results and report the strongest combinations in a table.
 
-4) Provide detailed information about a selected combination.
+4. Provide detailed information about a selected combination.
 
 Each of these steps has some limitations, which will be described below.
 
@@ -31,11 +31,11 @@ Therefore, these types of modifiers are not simulated by the optimizer's attribu
 
 > todo: mark these kinds of traits with a warning somehow!
 
-The effects of these types of modifiers are quietly included in the the "skill coefficients" data of the optimizer's built-in templates, which results in an accurate simulation when the trait data and coefficient data match. Toggling them without also changing the "skill coefficients" section may lead to inaccurate results, however.__*__ Making these comparisons correctly requires a separate template with each trait.
+The effects of these types of modifiers are quietly included in the the "skill coefficients" data of the optimizer's built-in templates, which results in an accurate simulation when the trait data and coefficient data match. Toggling them without also changing the "skill coefficients" section may lead to inaccurate results, however.**\*** Making these comparisons correctly requires a separate template with each trait.
 
 These general types of modifiers, on the other hand, are simulated by the optimizer's attribute system:
 
-**c) Consistent bonuses**. ex: "+100 precision", or "+5% critical damage." These have a predictable, calculable effect on every skill you use, so the math to simulate adding or removing one is simple and generally very accurate. 
+**c) Consistent bonuses**. ex: "+100 precision", or "+5% critical damage." These have a predictable, calculable effect on every skill you use, so the math to simulate adding or removing one is simple and generally very accurate.
 
 **d) Bonuses with uptime**, like "+120 ferocity while holding an axe (which is about 40% of the time)." These can be estimated by averaging out the bonus and assuming that the build's damage is fairly even over time. This assumption would be far off if, say, a build actually did 70% of its damage during the 40% of the time it was holding an axe, but is usually reasonable.
 
@@ -43,7 +43,7 @@ After loading a template, these general bonuses can be removed, added, or change
 
 ---
 
-*For example, loading a condi renegade template with Dance of Death (a lifesteal effect; category B) and then changing it to Swift Termination (an uptime-based buff; category D) would correctly add the damage buff effect in the optimizer's attribute system but would not remove the lifesteal effect, resulting in a power damage component that is slightly too high.
+\*For example, loading a condi renegade template with Dance of Death (a lifesteal effect; category B) and then changing it to Swift Termination (an uptime-based buff; category D) would correctly add the damage buff effect in the optimizer's attribute system but would not remove the lifesteal effect, resulting in a power damage component that is slightly too high.
 
 Most of the time this doesn't change the optimal gear, but it can result in unrealistic DPS output values.
 
@@ -70,16 +70,18 @@ This inherently includes everything the optimizer does not simulate in the skill
 
 ### From a spreadsheet
 
-Exactly what *does* skill coefficient data represent?
+Exactly what _does_ skill coefficient data represent?
 
 The damage dealt by a skill can be broken down completely as:
 
 ```
 Power Damage = (Weapon Strength * Coefficient / Target Armor) * Effective Power * Optimizer simulated modifiers * Optimizer ignored modifiers
 ```
+
 ```
 Burning/bleeding/etc Damage = (Stacks Applied * Base Duration) * Damage Per Tick * Optimizer simulated modifiers * Optimizer ignored modifiers
 ```
+
 Total DPS is calculated as the sum of these damages for every skill cast, divided by the total combat time.
 
 These can be rearranged to separate out what the optimizer simulates, and what it does not:
@@ -91,6 +93,7 @@ Power Damage = (Effective Power * Optimizer simulated modifiers / Target Armor)
 Power DPS = (optimizer stuff)
   * average (Weapon Strength * Coefficient * Optimizer ignored modifiers) per second
 ```
+
 ```
 Burning/bleeding/etc Damage = (Damage Per Tick * Optimizer simulated modifiers)
   * (Stacks Applied * Base Duration * Optimizer ignored modifiers)
@@ -119,7 +122,7 @@ The strongest builds are, of course, the ones that perform their roles the best.
 
 **Damage** sorts by total damage output, in DPS. This is also used to optimize offensive boon builds (by setting a minimum boon duration) or offensive heal builds (by setting a minimum healing power value)
 
-**Survivability** sorts by *effective health* (the amount of direct damage you can take between heals without being downed), which starts with your health pool and is increased by armor, defensive buffs and effects, or being a medium or heavy armor class.
+**Survivability** sorts by _effective health_ (the amount of direct damage you can take between heals without being downed), which starts with your health pool and is increased by armor, defensive buffs and effects, or being a medium or heavy armor class.
 
 Note that this doesn't take healing into account (having 15k HP and a 50% damage reduction effect is treated the same way as having 30k HP, even though healing is twice as effective in the first scenario), and it only takes power damage into account, so it is very simplified.
 
@@ -161,4 +164,4 @@ The information below the equipment pane should mostly be fairly self-explanator
 
 **Stats from Affixes:** This is the total stat points contributed by armor/weapons/trinkets/backpiece, to save you adding them up if you're verifying with/comparing to other tools.
 
-**Damage increase/loss from +/-5 of attribute**: These can help provide intuitive insight about the way damage optimization works. For example, maybe it shows you that losing a point of precision on your build is about 1.25x as valuable as losing a point of ferocity, which would indicate that the 150 points of ferocity from Assassin's Presence is more valuable than the 100 points of precision from Spotter, but not by as much as the difference in point quantities1
+**Damage increase/loss from +/-5 of attribute**: These can help provide intuitive insight about the way damage optimization works. For example, maybe it shows you that losing a point of precision on your build is about 1.25x as valuable as losing a point of ferocity, which would indicate that the 150 points of ferocity from Assassin's Presence is more valuable than the 100 points of precision from Spotter, but not by as much as the difference in point quantities.

@@ -62,7 +62,7 @@ Each class has a section for skills and a section for each traitline's traits. N
 
 This section contains percentage bonuses to incoming/outgoing damage. One must specify if they stack additively or multiplicatively with each other, information which GW2 does not display anywhere and which must be inferred from ingame testing and arithmetic.
 
-Two 50% multiplicative modifiers combine like this: (1 + 0.50) * (1 + 0.50) = 2.25 => equivalent to one 125% modifier
+Two 50% multiplicative modifiers combine like this: (1 + 0.50) \* (1 + 0.50) = 2.25 => equivalent to one 125% modifier
 
 Two 50% multiplicative modifiers combine like this: 1 + (0.50 + 0.50) = 2.00 => equivalent to one 100% modifier
 
@@ -126,7 +126,7 @@ For attribute point bonuses, one must specify if they have an effect on "gain X 
 - Burning Duration
 - Confusion Duration
 - Poison Duration
-- Torment  Duration
+- Torment Duration
 - Boon Duration
 - [all 12 boons] Duration
 
@@ -142,23 +142,26 @@ Use "unknown" if you don't know if a modifier is converted (defaults to "buff" a
 
 `destination: {source 1: percentage amount 1, source 2: percentage amount 2}`
 
-This section contains "gain X based on Y" stat conversions like sharpening stones. 
+This section contains "gain X based on Y" stat conversions like sharpening stones.
 
 **Destinations:**
+
 - [all 9 primary attributes]
 - Outgoing Healing
 
 **Sources:**
+
 - [all 9 primary attributes]
 
-Note that you can just as easily write 
+Note that you can just as easily write
 
 ```
 conversion:
-  destination: 
+  destination:
     source 1: percentage amount 1
     source 2: percentage amount 2
 ```
+
 if you prefer. (YAML supports switching from indentation to braces at any depth.)
 
 ## Amount Section
@@ -177,7 +180,7 @@ Using percentage uptimes on effects that can influence critical chance, boon/con
 
 > see [src/assets/modifierdata/metadata.js](../../../src/assets/modifierdata/metadata.js) for the actual blacklist
 
-*perhaps these are fine once a visual indicator is added
+\*perhaps these are fine once a visual indicator is added
 
 ### label
 

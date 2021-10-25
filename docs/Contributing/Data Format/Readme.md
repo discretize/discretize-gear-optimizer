@@ -13,6 +13,7 @@ If you've never seen YAML before, the big thing you need to know is that indenta
 ```yaml
 # text after a hash mark is a comment!
 ```
+
 ```yaml
 # each key corresponds with one value!
 
@@ -24,12 +25,14 @@ a dictionary:
     an entire paragraph
     which is one string
 ```
+
 ```yaml
 a list:
 - apple
 - banana
 - carrot
 ```
+
 ```yaml
 a list of dictionaries:
 
@@ -49,7 +52,7 @@ a dictionary of lists:
 revenant builds:
   - power alacrity
   - condi RR
-  
+
 thief builds:
   - condi deadeye
   - power daredevil
