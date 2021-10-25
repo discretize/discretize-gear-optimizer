@@ -60,11 +60,9 @@ As mentioned, the optimizer calculates generally-applicable attributes like effe
 
 ### From ingame results (Elite Insights log)...
 
-Work backwards.
+Test the build in question ingame and measure its DPS output (power, burning, bleeding, etc). Force the optimizer to run the tested scenario as closely as possible, then enter the measured DPS into the tool at the bottom of the optimizer's results section under "Development."
 
-> todo: add an easy UI for this method to the optimizer itself (currently, data is logged to the JavaScript console if it is open to make this easier to do with a spreadsheet)
-
-Test the build in question ingame and measure its DPS output (power, burning, bleeding, etc). Force the optimizer to run the tested scenario as closely as possible, then move the skill coefficient sliders until the optimizer's DPS output matches the ingame DPS output.
+The optimizer calculates what skill coefficient slider inputs would result in the measured ingame damage output with the currently selected settings and gear.
 
 This inherently includes everything the optimizer does not simulate in the skill coefficient data, without needing to know exactly what it represents.
 
