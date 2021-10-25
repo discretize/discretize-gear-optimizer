@@ -72,7 +72,9 @@ const testModifiers = async () => {
       let minor_traits = null;
       if (section.id) {
         const traitlineData = specializationData.find((entry) => entry.id === section.id);
-        ({ major_traits, minor_traits } = traitlineData);
+        if (traitlineData) {
+          ({ major_traits, minor_traits } = traitlineData);
+        }
       }
 
       const { items } = section;
