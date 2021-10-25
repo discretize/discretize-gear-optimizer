@@ -2,13 +2,13 @@
 
 The data located in [/src/assets/modifierdata](../../../src/assets/modifierdata) specifies what effect each trait, passive-buffing skill, rune, sigil, food, utility, and buff has on your character.
 
-You can run `yarn testModifiers` in a clone of the repository to run the testModifiers.js script, which will check every YAML file in this folder for most possible mistakes or omissions. (Contributors, feel free to pull request additions/corrections without running this if you don't want to install Node.js and Yarn; maintainers, be sure to run this before merging!)
+You can run `yarn testModifiers` in a clone of the repository to run the testModifiers.js script, which will check every YAML file in this folder for most possible mistakes or omissions. This script will be run automatically by GitHub when you push to a the source branch of an open pull request, including draft PRs, so don't worry if you don't want to set up NPM and Yarn just for this!
 
-> todo: potentially run this automatically
-
-This format was originally proposed in the [data format notes wiki page](https://github.com/discretize/discretize-gear-optimizer/wiki/data-format-notes).
+Note that this script is not perfect and may have bugs, so ask in Discord if something seems off or if you're not sure what the problem is!
 
 # Format
+
+This data format was originally proposed in the [data format notes wiki page](https://github.com/discretize/discretize-gear-optimizer/wiki/data-format-notes) and some of the information there about future plans is still relevant.
 
 ### Organization:
 
