@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Grid, Typography, TextField } from '@material-ui/core';
+import { Typography, TextField } from '@material-ui/core';
 import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
 import { getControl } from '../../../state/controlsSlice';
 import { parseAmount } from '../../../state/optimizer/optimizerCore';
@@ -62,10 +62,10 @@ const TemplateHelper = ({ character }) => {
 
   const helperData = character.results.templateHelper;
 
-  const values2 = Object.fromEntries(
+  let values2 = Object.fromEntries(
     data.map(({ key, value }) => [key, (value ?? 0) / helperData[key]]),
   );
-  const values1 = coefficientsToPercents(values2);
+  let values1 = coefficientsToPercents(values2);
 
   // round
   Object.keys(values2).forEach((key) => {
@@ -73,18 +73,17 @@ const TemplateHelper = ({ character }) => {
     values1[key] = roundZero(values1[key]);
   });
 
-  const distribution = { values1: fixPoison(values1), values2: fixPoison(values2) };
+  values1 = fixPoison(values1);
+  values2 = fixPoison(values2);
+
+  const distribution = { values1, values2 };
+
+  const formattedDistribution = JSON.stringify(distribution, null, 2)
+    .replaceAll('\n    ', ' ')
+    .replaceAll('\n  }', ' }');
 
   return (
     <>
-      <Typography variant="h6">
-        <Trans>Trait Template</Trans>
-      </Typography>
-
-      <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-        {JSON.stringify(traitsTemplate, null, 2)}
-      </pre>
-
       <Typography variant="h6">
         <Trans>Distribution Template</Trans>
       </Typography>
@@ -118,11 +117,44 @@ const TemplateHelper = ({ character }) => {
           </tr>
         </tbody>
       </table>
+
+      <br />
+
+      <Typography variant="caption">
+        <Trans>result:</Trans>
+      </Typography>
+
+      <table>
+        <tbody>
+          <tr>
+            {Object.keys(values2).map((key) => {
+              const type = key === 'Power' ? 'Power Coefficient' : `Avg. ${key} Stacks`;
+              return <td>{type}</td>;
+            })}
+          </tr>
+          <tr>
+            {Object.values(values2).map((value) => (
+              <td>
+                <TextField disabled value={value} />
+              </td>
+            ))}
+          </tr>
+        </tbody>
+      </table>
+
       <p>
         <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-          {JSON.stringify(distribution, null, 2)}
+          {formattedDistribution}
         </pre>
       </p>
+
+      <Typography variant="h6">
+        <Trans>Trait Template</Trans>
+      </Typography>
+
+      <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
+        {JSON.stringify(traitsTemplate, null, 2)}
+      </pre>
     </>
   );
 };
