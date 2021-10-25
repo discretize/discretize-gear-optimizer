@@ -109,7 +109,7 @@ This app uses [Redux](https://redux.js.org/), including [Redux Toolkit](https://
 
 ### Core
 
-The optimizer core itself, [/src/state/optimizer/optimizerCore.js](../src/state/optimizer/optimizerCore.js), is a vanilla Javascript file that exhaustively loops though every possible permutation of the selected gear. It exports a [generator function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) that yields periodically so as not to freeze the browser window.
+The optimizer core itself, [/src/state/optimizer/optimizerCore.js](../../src/state/optimizer/optimizerCore.js), is a vanilla Javascript file that exhaustively loops though every possible permutation of the selected gear. It exports a [generator function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) that yields periodically so as not to freeze the browser window.
 
 > todo: clean up and remove code and assumptions left over from old.discretize.eu
 
