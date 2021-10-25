@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { FormControlLabel, Switch } from '@material-ui/core';
+import { FormControlLabel, Switch, Link } from '@material-ui/core';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -75,18 +75,18 @@ const DistributionSection = ({ profession, data }) => {
             <p>
               <Trans>
                 This data represents your rotation. If we don't supply a template for a build, you
-                can move these sliders until the results match a golem log, or calculate them
-                manually.
+                can calulate the correct coefficients so that a tested build matches a golem log
+                using the tool under "development" below, or calculate them manually.
               </Trans>
             </p>
             <p>
               <Trans>
-                To do so, calculate and sum the [power coefficient * weapon strength] and [condition
-                stacks * duration] of each skill you use, then divide by total time.
+                For more information,{' '}
+                <Link href="https://github.com/discretize/discretize-gear-optimizer/tree/staging/docs/How%20It%20Works.md#1-simulating">
+                  see the "how it works" documentation on Github
+                </Link>{' '}
+                or ask in Discord!
               </Trans>
-            </p>
-            <p>
-              <Trans>For more information, ask in Discord!</Trans>
             </p>
           </>
         ) : (
