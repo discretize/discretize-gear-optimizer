@@ -60,7 +60,9 @@ As mentioned, the optimizer calculates generally-applicable attributes like effe
 
 ### From ingame results (Elite Insights log)...
 
-Test the build in question ingame and measure its DPS output (power, burning, bleeding, etc). Force the optimizer to run the tested scenario as closely as possible, then enter the measured DPS into the tool at the bottom of the optimizer's results section under "Development."
+Test the build in question ingame and measure its DPS output (power, burning, bleeding, etc). [Arcdps](https://www.deltaconnected.com/arcdps/) logs can be processed with [Elite Insights](https://github.com/baaron4/GW2-Elite-Insights-Parser) on your PR or through [dps.report](https://dps.report/) to easily obtain this information. Be sure to choose a scenario that best represents what you want to optimize for, like benchmarking with allies when relevant.
+
+Then, force the optimizer to run the tested scenario as closely as possible, and enter the measured DPS into the tool at the bottom of the optimizer's results section under "Development."
 
 The optimizer calculates what skill coefficient slider inputs would result in the measured ingame damage output with the currently selected settings and gear.
 

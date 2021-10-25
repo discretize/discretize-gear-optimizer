@@ -35,9 +35,7 @@ This file currently contains the metadata for the build templates as well as the
           ...etc
 ```
 
-The JSON section of these entries can be easily generated from the optimizer by opening the Javascript console after running any optimization. Template creation data is logged there, which can be copied as JSON with a right click. Hopefully you have a YAML editor that can auto indent!
-
-<img src="https://user-images.githubusercontent.com/8336245/137229434-baaa5c7d-3ea5-4113-9be7-0f36f9a38dae.png" width="775">
+The JSON section of these entries can be easily copied from the optimizer from the accordion at the bottom of the page labelled "Development." (Hopefully you have a YAML editor that can auto indent!)
 
 ## preset-buffs.yaml
 
@@ -69,12 +67,17 @@ The JSON section of these entries can be easily generated from the optimizer by 
 
 ## preset-distribution.yaml
 
-> todo: remove the old "distribution" key that was used in the old optimizer
+The JSON section of these entries can be easily created from the optimizer from the accordion at the bottom of the page labelled "Development." (Hopefully you have a YAML editor that can auto indent!)
+
+To do so, test the build in question ingame and measure its DPS output (power, burning, bleeding, etc). [Arcdps](https://www.deltaconnected.com/arcdps/) logs can be processed with [Elite Insights](https://github.com/baaron4/GW2-Elite-Insights-Parser) on your PR or through [dps.report](https://dps.report/) to easily obtain this information. Be sure to choose a scenario that best represents what you want to optimize for, like benchmarking with allies when relevant.
+
+Then, force the optimizer to run the tested scenario as closely as possible, and enter the measured DPS into the tool at the bottom of the optimizer's results section under "Development."
+
+The optimizer calculates what skill coefficient slider inputs would result in the measured ingame damage output with the currently selected settings and gear.
 
 ```yaml
   - name: Power Banner Warrior
     profession: BERSERKER
-    distribution: [93, 100, 100, 100, 100]
     value: >-
       {
         "values1": { "Power": 93, "Burning": 7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
