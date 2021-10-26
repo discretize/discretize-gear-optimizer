@@ -846,6 +846,93 @@ list:
               }
           }
 
+      - name: Power Banner SPB
+        id: spb-bs
+        specialization: Spellbreaker
+        boons: 'Power (spotter)'
+        priority: Power DPS
+        distribution: 'Power Banner Spellbreaker'
+        traits: >-
+          {
+            "profession": "WARRIOR",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "4",
+                "51",
+                "61"
+              ],
+              "selectedTraits": [
+                [
+                  1444,
+                  1449,
+                  1437
+                ],
+                [
+                  1413,
+                  1484,
+                  1369
+                ],
+                [
+                  2107,
+                  2095,
+                  2060
+                ]
+              ],
+              "items": [
+                {
+                  "peak-performance": true,
+                  "peak-performance-2": false,
+                  "forceful-greatsword": true,
+                  "forceful-greatsword-2": false,
+                  "great-fortitude": true,
+                  "pinnacle-of-strength": {
+                    "amount": ""
+                  },
+                  "berserkers-power": {
+                    "amount": ""
+                  }
+                },
+                {
+                  "warriors-sprint": {
+                    "amount": ""
+                  },
+                  "double-standards-str": true,
+                  "double-standards-disc": true,
+                  "axe-mastery-one": true,
+                  "axe-mastery-axe": {
+                    "amount": ""
+                  }
+                },
+                {
+                  "pure-strike-base": true,
+                  "pure-strike-boonless": {
+                    "amount": ""
+                  },
+                  "sun-and-moon-style": false,
+                  "attackers-insight": {
+                    "amount": "4"
+                  },
+                  "magebane-tether": {
+                    "amount": ""
+                  }
+                }
+              ]
+            },
+            "skills": {
+              "skills": [
+                "signet-of-might"
+              ]
+            },
+            "extras": {
+              "Runes": "scholar",
+              "Sigil1": "force",
+              "Sigil2": "impact/night/slaying-both",
+              "Enhancement": "slaying-potion",
+              "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+            }
+          }
+
   - class: elementalist
     builds:
       - name: Power Weaver

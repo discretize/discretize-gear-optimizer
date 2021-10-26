@@ -31,6 +31,14 @@ list:
         "values2": { "Power": 1739, "Burning": 10.3, "Bleeding": 17.3, "Poisoned": 2.0, "Torment": 1.2, "Confusion": 0 }
       }
 
+  - name: Power Banner Spellbreaker
+    profession: SPELLBREAKER
+    value: >-
+      {
+        "values1": { "Power": 93, "Burning": 7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2626, "Burning": 0.6, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
   - name: DH (Radiance)
     profession: DRAGONHUNTER
     value: >-
