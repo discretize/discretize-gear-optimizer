@@ -103,6 +103,14 @@ list:
         "values2": { "Power": 2128, "Burning": 13.7, "Bleeding": 2.4, "Poisoned": 0, "Torment": 1.2, "Confusion": 0 }
       }
 
+  - name: CQB 40% (Virtues, allies)
+    profession: FIREBRAND
+    value: >-
+      {
+        "values1": { "Power": 31, "Burning": 67, "Bleeding": 2, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2128, "Burning": 13.7, "Bleeding": 2.4, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
   # - name: Hybrid FB (Virtues, no allies)
   #   profession: FIREBRAND
   #   value: >-

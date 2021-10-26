@@ -644,6 +644,87 @@ list:
             }
           }
 
+      - name: CQB 40% # Virtues
+        id: cqfb-firebrand
+        specialization: Firebrand
+        boons: 'Condi'
+        priority: Condi DPS
+        distribution: 'CQB 40% (Virtues, allies)'
+        traits: >-
+          {
+            "profession": "GUARDIAN",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "16",
+                "46",
+                "62"
+              ],
+              "selectedTraits": [
+                [
+                  566,
+                  567,
+                  1686
+                ],
+                [
+                  617,
+                  587,
+                  622
+                ],
+                [
+                  2101,
+                  2076,
+                  2159
+                ]
+              ],
+              "items": [
+                {
+                  "right-hand-strength": true,
+                  "right-hand-strength-1h": {
+                    "amount": "100"
+                  },
+                  "radiant-fire": true,
+                  "retribution": {
+                    "amount": ""
+                  },
+                  "radiant-power": true,
+                  "amplified-wrath": true,
+                  "righteous-instincts": true
+                },
+                {
+                  "inspired-virtue": {
+                    "amount": ""
+                  },
+                  "unscathed-contender": {
+                    "amount": ""
+                  },
+                  "virtue-of-retribution": true,
+                  "inspiring-virtue": {
+                    "amount": ""
+                  },
+                  "power-of-the-virtuous": true
+                },
+                {
+                  "imbued-haste": {
+                    "amount": ""
+                  }
+                }
+              ]
+            },
+            "skills": {
+              "skills": [
+                "signet-of-wrath"
+              ]
+            },
+            "extras": {
+              "Runes": "firebrand",
+              "Sigil1": "bursting",
+              "Sigil2": "smoldering",
+              "Enhancement": "toxic-focusing-crystal",
+              "Nourishment": "fire-meat-chili"
+            }
+          }
+
       # - name: CFB Zeal
       #   id: cfb2
       #   specialization: Firebrand
