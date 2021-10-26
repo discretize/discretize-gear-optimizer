@@ -209,6 +209,14 @@ list:
         "values2": { "Power": 3087, "Burning": 1.4, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  - name: Condi Herald
+    profession: HERALD
+    value: >-
+      {
+        "values1": { "Power": 34, "Burning": 29, "Bleeding": 2, "Poisoned": 12, "Torment": 24, "Confusion": 0 },
+        "values2": { "Power": 1990, "Burning": 5.1, "Bleeding": 2.2, "Poisoned": 8, "Torment": 17.1, "Confusion": 0 }
+      }
+
   - name: Power Slb
     profession: SOULBEAST
     value: >-

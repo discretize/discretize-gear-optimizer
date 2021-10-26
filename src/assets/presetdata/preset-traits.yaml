@@ -2162,6 +2162,93 @@ list:
               }
           }
 
+      - name: Condi Herald
+        id: herald
+        specialization: Herald
+        boons: 'Condi'
+        priority: Condi DPS
+        distribution: 'Condi Herald'
+        traits: >-
+          {
+            "profession": "REVENANT",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "14",
+                "15",
+                "52"
+              ],
+              "selectedTraits": [
+                [
+                  1793,
+                  1714,
+                  1795
+                ],
+                [
+                  1767,
+                  1786,
+                  1754
+                ],
+                [
+                  1813,
+                  1738,
+                  1772
+                ]
+              ],
+              "items": [
+                {
+                  "acolyte-of-torment": true,
+                  "seething-malice": true,
+                  "demonic-resistance": true,
+                  "pact-of-pain": true,
+                  "yearning-empowerment": true
+                },
+                {
+                  "unsuspecting-strikes": {
+                    "amount": ""
+                  },
+                  "destructive-impulses-base": true,
+                  "destructive-impulses-dual": {
+                    "amount": "100"
+                  },
+                  "notoriety": {
+                    "amount": ""
+                  },
+                  "targeted-destruction": {
+                    "amount": ""
+                  },
+                  "swift-termination": {
+                    "amount": ""
+                  }
+                },
+                {
+                  "draconic-fortitude": true,
+                  "hardening-persistence": false,
+                  "reinforced-potency-base": true,
+                  "reinforced-potency-boons": {
+                    "amount": ""
+                  },
+                  "forceful-persistence-nonherald": {
+                    "amount": ""
+                  },
+                  "forceful-persistence-herald": {
+                    "amount": ""
+                  }
+                }
+              ]
+            },
+            "skills": {
+              "skills": []
+            },
+            "extras": {
+              "Runes": "nightmare",
+              "Sigil1": "",
+              "Sigil2": "",
+              "Enhancement": "master-tuning-crystal",
+              "Nourishment": "rare-veggie-pizza"
+            }
+          }
+
       - name: Heal Ren
         id: healren
         specialization: Renegade
