@@ -2236,6 +2236,81 @@ list:
               }
           }
 
+      - name: Condi Alac Ren Invo
+        id: cren-rr-invo
+        specialization: Renegade
+        boons: 'Condi'
+        priority: Condi Boon
+        distribution: 'Condi RR (Invocation)'
+        traits: >-
+          {
+            "profession": "REVENANT",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "14",
+                "3",
+                "63"
+              ],
+              "selectedTraits": [
+                [
+                  1793,
+                  1714,
+                  1795
+                ],
+                [
+                  1761,
+                  1781,
+                  1791
+                ],
+                [
+                  2079,
+                  2092,
+                  2182
+                ]
+              ],
+              "items": [
+                {
+                  "acolyte-of-torment": true,
+                  "seething-malice": true,
+                  "demonic-resistance": true,
+                  "pact-of-pain": true,
+                  "yearning-empowerment": true
+                },
+                {
+                  "rising-tide": {
+                    "amount": ""
+                  },
+                  "ferocious-aggression": {
+                    "amount": ""
+                  },
+                  "roiling-mists": true
+                },
+                {
+                  "ambush-commander": {
+                    "amount": ""
+                  },
+                  "blood-fury": true,
+                  "heartpiercer": true,
+                  "brutal-momentum": true,
+                  "lasting-legacy": {
+                    "amount": ""
+                  }
+                }
+              ]
+            },
+            "skills": {
+              "skills": []
+            },
+            "extras": {
+              "Runes": "leadership",
+              "Sigil1": "",
+              "Sigil2": "",
+              "Enhancement": "toxic-maintenance-oil",
+              "Nourishment": "beef-rendang"
+            }
+          }
+
       - name: Condi RR Ren Invo
         id: cren-rr-invo
         specialization: Renegade
