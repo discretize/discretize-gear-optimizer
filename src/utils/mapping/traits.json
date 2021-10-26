@@ -4247,5 +4247,65 @@
     "id": 2262,
     "name": "tenaciousruin",
     "profession": "revenant"
+  },
+  {
+    "id": 2265,
+    "name": "maceproficiency",
+    "profession": "engineer"
+  },
+  {
+    "id": 2266,
+    "name": "mechfighter",
+    "profession": "engineer"
+  },
+  {
+    "id": 2270,
+    "name": "mechframeconductivealloys",
+    "profession": "engineer"
+  },
+  {
+    "id": 2276,
+    "name": "mechframechannelingconduits",
+    "profession": "engineer"
+  },
+  {
+    "id": 2279,
+    "name": "mecharmsjadecannons",
+    "profession": "engineer"
+  },
+  {
+    "id": 2282,
+    "name": "mecharmssingleedgecutters",
+    "profession": "engineer"
+  },
+  {
+    "id": 2284,
+    "name": "secondopinion",
+    "profession": "thief"
+  },
+  {
+    "id": 2290,
+    "name": "larcenoustorment",
+    "profession": "thief"
+  },
+  {
+    "id": 2294,
+    "name": "mechframevariablemassdistributor",
+    "profession": "engineer"
+  },
+  {
+    "id": 2298,
+    "name": "mechcorejdrive",
+    "profession": "engineer"
+  },
+  {
+    "id": 2299,
+    "name": "shallowgrave",
+    "profession": "thief"
+  },
+  {
+    "id": 2300,
+    "name": "hungeringdarkness",
+    "profession": "thief"
   }
 ]
