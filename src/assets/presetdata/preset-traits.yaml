@@ -3444,6 +3444,88 @@ list:
               }
           }
 
+      - name: Boon Daredevil*
+        id: boondd
+        specialization: Daredevil
+        boons: 'Power (spotter)'
+        priority: Power Boon
+        distribution: Staff Daredevil
+        traits: >-
+          {
+            "profession": "THIEF",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "28",
+                "44",
+                "7"
+              ],
+              "selectedTraits": [
+                [
+                  1245,
+                  1704,
+                  1167
+                ],
+                [
+                  1163,
+                  1190,
+                  1158
+                ],
+                [
+                  1949,
+                  1893,
+                  2047
+                ]
+              ],
+              "items": [
+                {
+                  "dagger-training-base": true,
+                  "dagger-training-dagger": false,
+                  "deadly-ambition": true,
+                  "revealed-training-base": true,
+                  "revealed-training-revealed": false,
+                  "exposed-weakness": {
+                    "amount": ""
+                  },
+                  "potent-poison": true,
+                  "executioner": {
+                    "amount": ""
+                  }
+                },
+                {
+                  "preparedness": true,
+                  "lead-attacks": {
+                    "amount": ""
+                  },
+                  "deadly-ambush": true
+                },
+                {
+                  "marauders-resilience": true,
+                  "weakening-strikes": true,
+                  "staff-master-base": true,
+                  "staff-master-staff": true,
+                  "havoc-specialist": {
+                    "amount": ""
+                  },
+                  "bounding-dodger": true,
+                  "lotus-training": true
+                }
+              ]
+            },
+            "skills": {
+              "skills": [
+                "signet-of-agility"
+              ]
+            },
+            "extras": {
+              "Runes": "thief",
+              "Sigil1": "force",
+              "Sigil2": "concentration",
+              "Enhancement": "potent-lucent-oil",
+              "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+            }
+          }
+
       # - name: Boon Daredevil
       #   id: boondd
       #   specialization: Daredevil
