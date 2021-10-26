@@ -83,8 +83,8 @@ list:
 
   - class: guardian
     builds:
-      - name: DH
-        id: dh
+      - name: DH Radiance w/ PI
+        id: dh-radiance-pi
         specialization: Dragonhunter
         boons: 'Power (spotter)'
         priority: Power DPS
@@ -161,6 +161,166 @@ list:
                   "Enhancement": "slaying-potion",
                   "Nourishment": "sweet-and-spicy-butternut-squash-soup"
               }
+          }
+
+      - name: DH Radiance
+        id: dh-radiance
+        specialization: Dragonhunter
+        boons: 'Power (spotter)'
+        priority: Power DPS
+        distribution: 'DH (Radiance)'
+        traits: >-
+          {
+            "profession": "GUARDIAN",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "16",
+                "42",
+                "27"
+              ],
+              "selectedTraits": [
+                [
+                  574,
+                  565,
+                  1683
+                ],
+                [
+                  634,
+                  653,
+                  2017
+                ],
+                [
+                  1898,
+                  1835,
+                  1955
+                ]
+              ],
+              "items": [
+                {
+                  "right-hand-strength": true,
+                  "right-hand-strength-1h": {
+                    "amount": ""
+                  },
+                  "radiant-fire": true,
+                  "retribution": {
+                    "amount": ""
+                  },
+                  "radiant-power": true,
+                  "amplified-wrath": true,
+                  "righteous-instincts": true
+                },
+                {
+                  "fiery-wrath": true,
+                  "symbolic-exposure": true,
+                  "zealous-blade-base": true,
+                  "zealous-blade-gs": {
+                    "amount": ""
+                  },
+                  "kindled-zeal": true,
+                  "symbolic-avenger": true
+                },
+                {
+                  "zealots-aggression": true,
+                  "pure-of-sight": true,
+                  "pure-of-sight-ranged": false,
+                  "hunters-fortification": true,
+                  "big-game-hunter": true
+                }
+              ]
+            },
+            "skills": {
+              "skills": [
+                "bane-signet"
+              ]
+            },
+            "extras": {
+              "Runes": "scholar",
+              "Sigil1": "force",
+              "Sigil2": "impact/night/slaying-both",
+              "Enhancement": "slaying-potion",
+              "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+            }
+          }
+
+      - name: DH Virtues
+        id: dh-virtues
+        specialization: Dragonhunter
+        boons: 'Power (spotter)'
+        priority: Power DPS
+        distribution: 'DH (Virtues)'
+        traits: >-
+          {
+            "profession": "GUARDIAN",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "46",
+                "42",
+                "27"
+              ],
+              "selectedTraits": [
+                [
+                  624,
+                  603,
+                  622
+                ],
+                [
+                  634,
+                  653,
+                  2017
+                ],
+                [
+                  1898,
+                  1835,
+                  1955
+                ]
+              ],
+              "items": [
+                {
+                  "inspired-virtue": {
+                    "amount": ""
+                  },
+                  "unscathed-contender": {
+                    "amount": ""
+                  },
+                  "virtue-of-retribution": true,
+                  "inspiring-virtue": {
+                    "amount": ""
+                  },
+                  "power-of-the-virtuous": true
+                },
+                {
+                  "fiery-wrath": true,
+                  "symbolic-exposure": true,
+                  "zealous-blade-base": true,
+                  "zealous-blade-gs": {
+                    "amount": ""
+                  },
+                  "kindled-zeal": true,
+                  "symbolic-avenger": true
+                },
+                {
+                  "zealots-aggression": true,
+                  "pure-of-sight": true,
+                  "pure-of-sight-ranged": false,
+                  "hunters-fortification": true,
+                  "big-game-hunter": true
+                }
+              ]
+            },
+            "skills": {
+              "skills": [
+                "bane-signet"
+              ]
+            },
+            "extras": {
+              "Runes": "thief",
+              "Sigil1": "force",
+              "Sigil2": "impact/night/slaying-both",
+              "Enhancement": "slaying-potion",
+              "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+            }
           }
 
       - name: pQFB
@@ -322,7 +482,7 @@ list:
               }
           }
 
-      - name: CFB DPS # Virtues
+      - name: CFB DPS 5 page # Virtues
         id: cfb
         specialization: Firebrand
         boons: 'Condi'
@@ -401,6 +561,168 @@ list:
                   "Enhancement": "toxic-focusing-crystal",
                   "Nourishment": "beef-rendang"
               }
+          }
+
+      - name: CFB DPS 8 page # Virtues
+        id: cfb-8
+        specialization: Firebrand
+        boons: 'Condi'
+        priority: Condi DPS
+        distribution: 'CFB (Virtues, 8 page, allies)'
+        traits: >-
+          {
+            "profession": "GUARDIAN",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "16",
+                "46",
+                "62"
+              ],
+              "selectedTraits": [
+                [
+                  566,
+                  567,
+                  1686
+                ],
+                [
+                  617,
+                  587,
+                  622
+                ],
+                [
+                  2086,
+                  2116,
+                  2159
+                ]
+              ],
+              "items": [
+                {
+                  "right-hand-strength": true,
+                  "right-hand-strength-1h": {
+                    "amount": "100"
+                  },
+                  "radiant-fire": true,
+                  "retribution": {
+                    "amount": ""
+                  },
+                  "radiant-power": true,
+                  "amplified-wrath": true,
+                  "righteous-instincts": true
+                },
+                {
+                  "inspired-virtue": {
+                    "amount": ""
+                  },
+                  "unscathed-contender": {
+                    "amount": ""
+                  },
+                  "virtue-of-retribution": true,
+                  "inspiring-virtue": {
+                    "amount": ""
+                  },
+                  "power-of-the-virtuous": true
+                },
+                {
+                  "imbued-haste": {
+                    "amount": ""
+                  }
+                }
+              ]
+            },
+            "skills": {
+              "skills": [
+                "signet-of-wrath"
+              ]
+            },
+            "extras": {
+              "Runes": "balthazar",
+              "Sigil1": "bursting",
+              "Sigil2": "",
+              "Enhancement": "toxic-focusing-crystal",
+              "Nourishment": "beef-rendang"
+            }
+          }
+
+      - name: CQB 40% # Virtues
+        id: cqfb-firebrand
+        specialization: Firebrand
+        boons: 'Condi'
+        priority: Condi DPS
+        distribution: 'CQB 40% (Virtues, allies)'
+        traits: >-
+          {
+            "profession": "GUARDIAN",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "16",
+                "46",
+                "62"
+              ],
+              "selectedTraits": [
+                [
+                  566,
+                  567,
+                  1686
+                ],
+                [
+                  617,
+                  587,
+                  622
+                ],
+                [
+                  2101,
+                  2076,
+                  2159
+                ]
+              ],
+              "items": [
+                {
+                  "right-hand-strength": true,
+                  "right-hand-strength-1h": {
+                    "amount": "100"
+                  },
+                  "radiant-fire": true,
+                  "retribution": {
+                    "amount": ""
+                  },
+                  "radiant-power": true,
+                  "amplified-wrath": true,
+                  "righteous-instincts": true
+                },
+                {
+                  "inspired-virtue": {
+                    "amount": ""
+                  },
+                  "unscathed-contender": {
+                    "amount": ""
+                  },
+                  "virtue-of-retribution": true,
+                  "inspiring-virtue": {
+                    "amount": ""
+                  },
+                  "power-of-the-virtuous": true
+                },
+                {
+                  "imbued-haste": {
+                    "amount": ""
+                  }
+                }
+              ]
+            },
+            "skills": {
+              "skills": [
+                "signet-of-wrath"
+              ]
+            },
+            "extras": {
+              "Runes": "firebrand",
+              "Sigil1": "bursting",
+              "Sigil2": "smoldering",
+              "Enhancement": "toxic-focusing-crystal",
+              "Nourishment": "fire-meat-chili"
+            }
           }
 
       # - name: CFB Zeal
@@ -844,6 +1166,93 @@ list:
                   "Enhancement": "master-tuning-crystal",
                   "Nourishment": "rare-veggie-pizza"
               }
+          }
+
+      - name: Power Banner SPB
+        id: spb-bs
+        specialization: Spellbreaker
+        boons: 'Power (spotter)'
+        priority: Power DPS
+        distribution: 'Power Banner Spellbreaker'
+        traits: >-
+          {
+            "profession": "WARRIOR",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "4",
+                "51",
+                "61"
+              ],
+              "selectedTraits": [
+                [
+                  1444,
+                  1449,
+                  1437
+                ],
+                [
+                  1413,
+                  1484,
+                  1369
+                ],
+                [
+                  2107,
+                  2095,
+                  2060
+                ]
+              ],
+              "items": [
+                {
+                  "peak-performance": true,
+                  "peak-performance-2": false,
+                  "forceful-greatsword": true,
+                  "forceful-greatsword-2": false,
+                  "great-fortitude": true,
+                  "pinnacle-of-strength": {
+                    "amount": ""
+                  },
+                  "berserkers-power": {
+                    "amount": ""
+                  }
+                },
+                {
+                  "warriors-sprint": {
+                    "amount": ""
+                  },
+                  "double-standards-str": true,
+                  "double-standards-disc": true,
+                  "axe-mastery-one": true,
+                  "axe-mastery-axe": {
+                    "amount": ""
+                  }
+                },
+                {
+                  "pure-strike-base": true,
+                  "pure-strike-boonless": {
+                    "amount": ""
+                  },
+                  "sun-and-moon-style": false,
+                  "attackers-insight": {
+                    "amount": "4"
+                  },
+                  "magebane-tether": {
+                    "amount": ""
+                  }
+                }
+              ]
+            },
+            "skills": {
+              "skills": [
+                "signet-of-might"
+              ]
+            },
+            "extras": {
+              "Runes": "scholar",
+              "Sigil1": "force",
+              "Sigil2": "impact/night/slaying-both",
+              "Enhancement": "slaying-potion",
+              "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+            }
           }
 
   - class: elementalist
@@ -1827,6 +2236,81 @@ list:
               }
           }
 
+      - name: Condi Alac Ren Invo
+        id: celeren-rr-invo
+        specialization: Renegade
+        boons: 'Condi'
+        priority: Condi Boon
+        distribution: 'Condi RR (Invocation)'
+        traits: >-
+          {
+            "profession": "REVENANT",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "14",
+                "3",
+                "63"
+              ],
+              "selectedTraits": [
+                [
+                  1793,
+                  1714,
+                  1795
+                ],
+                [
+                  1761,
+                  1781,
+                  1791
+                ],
+                [
+                  2079,
+                  2092,
+                  2182
+                ]
+              ],
+              "items": [
+                {
+                  "acolyte-of-torment": true,
+                  "seething-malice": true,
+                  "demonic-resistance": true,
+                  "pact-of-pain": true,
+                  "yearning-empowerment": true
+                },
+                {
+                  "rising-tide": {
+                    "amount": ""
+                  },
+                  "ferocious-aggression": {
+                    "amount": ""
+                  },
+                  "roiling-mists": true
+                },
+                {
+                  "ambush-commander": {
+                    "amount": ""
+                  },
+                  "blood-fury": true,
+                  "heartpiercer": true,
+                  "brutal-momentum": true,
+                  "lasting-legacy": {
+                    "amount": ""
+                  }
+                }
+              ]
+            },
+            "skills": {
+              "skills": []
+            },
+            "extras": {
+              "Runes": "leadership",
+              "Sigil1": "",
+              "Sigil2": "",
+              "Enhancement": "toxic-maintenance-oil",
+              "Nourishment": "beef-rendang"
+            }
+          }
+
       - name: Condi RR Ren Invo
         id: cren-rr-invo
         specialization: Renegade
@@ -1900,6 +2384,90 @@ list:
                   "Enhancement": "toxic-focusing-crystal",
                   "Nourishment": "beef-rendang"
               }
+          }
+
+      - name: Condi RR Ren Deva
+        id: cren-rr-deva
+        specialization: Renegade
+        boons: 'Condi'
+        priority: Condi DPS
+        distribution: 'Condi RR (Devastation)'
+        traits: >-
+          {
+            "profession": "REVENANT",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "14",
+                "15",
+                "63"
+              ],
+              "selectedTraits": [
+                [
+                  1793,
+                  1714,
+                  1795
+                ],
+                [
+                  1767,
+                  1786,
+                  1754
+                ],
+                [
+                  2079,
+                  2092,
+                  2182
+                ]
+              ],
+              "items": [
+                {
+                  "acolyte-of-torment": true,
+                  "seething-malice": true,
+                  "demonic-resistance": true,
+                  "pact-of-pain": true,
+                  "yearning-empowerment": true
+                },
+                {
+                  "unsuspecting-strikes": {
+                    "amount": ""
+                  },
+                  "destructive-impulses-base": true,
+                  "destructive-impulses-dual": {
+                    "amount": ""
+                  },
+                  "notoriety": {
+                    "amount": ""
+                  },
+                  "targeted-destruction": {
+                    "amount": ""
+                  },
+                  "swift-termination": {
+                    "amount": ""
+                  }
+                },
+                {
+                  "ambush-commander": {
+                    "amount": ""
+                  },
+                  "blood-fury": true,
+                  "heartpiercer": true,
+                  "brutal-momentum": true,
+                  "lasting-legacy": {
+                    "amount": ""
+                  }
+                }
+              ]
+            },
+            "skills": {
+              "skills": []
+            },
+            "extras": {
+              "Runes": "nightmare",
+              "Sigil1": "",
+              "Sigil2": "",
+              "Enhancement": "toxic-focusing-crystal",
+              "Nourishment": "beef-rendang"
+            }
           }
 
       - name: Condi DPS Ren Deva
@@ -2073,6 +2641,93 @@ list:
                   "Enhancement": "slaying-potion",
                   "Nourishment": "sweet-and-spicy-butternut-squash-soup"
               }
+          }
+
+      - name: Condi Herald
+        id: herald
+        specialization: Herald
+        boons: 'Condi'
+        priority: Condi DPS
+        distribution: 'Condi Herald'
+        traits: >-
+          {
+            "profession": "REVENANT",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "14",
+                "15",
+                "52"
+              ],
+              "selectedTraits": [
+                [
+                  1793,
+                  1714,
+                  1795
+                ],
+                [
+                  1767,
+                  1786,
+                  1754
+                ],
+                [
+                  1813,
+                  1738,
+                  1772
+                ]
+              ],
+              "items": [
+                {
+                  "acolyte-of-torment": true,
+                  "seething-malice": true,
+                  "demonic-resistance": true,
+                  "pact-of-pain": true,
+                  "yearning-empowerment": true
+                },
+                {
+                  "unsuspecting-strikes": {
+                    "amount": ""
+                  },
+                  "destructive-impulses-base": true,
+                  "destructive-impulses-dual": {
+                    "amount": "100"
+                  },
+                  "notoriety": {
+                    "amount": ""
+                  },
+                  "targeted-destruction": {
+                    "amount": ""
+                  },
+                  "swift-termination": {
+                    "amount": ""
+                  }
+                },
+                {
+                  "draconic-fortitude": true,
+                  "hardening-persistence": false,
+                  "reinforced-potency-base": true,
+                  "reinforced-potency-boons": {
+                    "amount": ""
+                  },
+                  "forceful-persistence-nonherald": {
+                    "amount": ""
+                  },
+                  "forceful-persistence-herald": {
+                    "amount": ""
+                  }
+                }
+              ]
+            },
+            "skills": {
+              "skills": []
+            },
+            "extras": {
+              "Runes": "nightmare",
+              "Sigil1": "",
+              "Sigil2": "",
+              "Enhancement": "master-tuning-crystal",
+              "Nourishment": "rare-veggie-pizza"
+            }
           }
 
       - name: Heal Ren

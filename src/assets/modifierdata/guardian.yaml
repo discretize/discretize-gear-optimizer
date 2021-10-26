@@ -293,7 +293,7 @@
       text: Inspiring Virtue
       amountData:
         label: '% uptime'
-        default: 100
+        default: 70
         quantityEntered: 100
       modifiers:
         damage:

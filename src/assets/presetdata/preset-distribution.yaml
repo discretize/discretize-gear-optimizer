@@ -31,12 +31,28 @@ list:
         "values2": { "Power": 1739, "Burning": 10.3, "Bleeding": 17.3, "Poisoned": 2.0, "Torment": 1.2, "Confusion": 0 }
       }
 
+  - name: Power Banner Spellbreaker
+    profession: SPELLBREAKER
+    value: >-
+      {
+        "values1": { "Power": 93, "Burning": 7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2626, "Burning": 0.6, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
   - name: DH (Radiance)
     profession: DRAGONHUNTER
     value: >-
       {
         "values1": { "Power": 84, "Burning": 16, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 3283, "Burning": 1.85, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
+  - name: DH (Virtues)
+    profession: DRAGONHUNTER
+    value: >-
+      {
+        "values1": { "Power": 82, "Burning": 18, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 3334, "Burning": 2.2, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   - name: Power Firebrand (approx.)
@@ -51,16 +67,32 @@ list:
     profession: FIREBRAND
     value: >-
       {
-        "values1": { "Power": 30, "Burning": 65, "Bleeding": 4, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
-        "values2": { "Power": 2320, "Burning": 15.2, "Bleeding": 4.7, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
+        "values1": { "Power": 30, "Burning": 65, "Bleeding": 3, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
+        "values2": { "Power": 2325, "Burning": 15.2, "Bleeding": 4.8, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
       }
 
   - name: CFB (Virtues, 5 page, no allies)
     profession: FIREBRAND
     value: >-
       {
-        "values1": { "Power": 33, "Burning": 62, "Bleeding": 4, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
-        "values2": { "Power": 2320, "Burning": 13.5, "Bleeding": 4.7, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
+        "values1": { "Power": 30, "Burning": 65, "Bleeding": 3, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
+        "values2": { "Power": 2325, "Burning": 13.5, "Bleeding": 4.8, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
+      }
+
+  - name: CFB (Virtues, 8 page, allies)
+    profession: FIREBRAND
+    value: >-
+      {
+        "values1": { "Power": 27, "Burning": 69, "Bleeding": 3, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
+        "values2": { "Power": 2087, "Burning": 16.4, "Bleeding": 4.1, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
+      }
+
+  - name: CFB (Virtues, 8 page, no allies)
+    profession: FIREBRAND
+    value: >-
+      {
+        "values1": { "Power": 30, "Burning": 66, "Bleeding": 3, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
+        "values2": { "Power": 2087, "Burning": 13.9, "Bleeding": 4.1, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
       }
 
   - name: Quickness CFB (Virtues, allies)
@@ -71,6 +103,14 @@ list:
         "values2": { "Power": 2128, "Burning": 13.7, "Bleeding": 2.4, "Poisoned": 0, "Torment": 1.2, "Confusion": 0 }
       }
 
+  - name: CQB 40% (Virtues, allies)
+    profession: FIREBRAND
+    value: >-
+      {
+        "values1": { "Power": 31, "Burning": 67, "Bleeding": 2, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2128, "Burning": 13.7, "Bleeding": 2.4, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
   # - name: Hybrid FB (Virtues, no allies)
   #   profession: FIREBRAND
   #   value: >-
@@ -79,7 +119,7 @@ list:
   #       "values2": { "Power": 1942, "Burning": 12.1, "Bleeding": 3.0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
 
-  # +1.7 burning for no allies/with allies split seems to hold up well
+  # +1.7 burning for no allies/with allies split on 5 page seems to hold up well
 
   - name: Hybrid FB (Virtues)
     profession: FIREBRAND
@@ -177,12 +217,20 @@ list:
         "values2": { "Power": 1973, "Burning": 5.0, "Bleeding": 14.1, "Poisoned": 4.2, "Torment": 18.4, "Confusion": 0 }
       }
 
+  - name: Condi RR (Devastation)
+    profession: RENEGADE
+    value: >-
+      {
+        "values1": { "Power": 38, "Burning": 22, "Bleeding": 12, "Poisoned": 6, "Torment": 21, "Confusion": 0 },
+        "values2": { "Power": 2427, "Burning": 4.2, "Bleeding": 13.5, "Poisoned": 4.5, "Torment": 16.8, "Confusion": 0 }
+      }
+
   - name: Condi Renegade (Devastation)
     profession: RENEGADE
     value: >-
       {
-        "values1": { "Power": 44, "Burning": 20, "Bleeding": 11, "Poisoned": 5, "Torment": 20, "Confusion": 0 },
-        "values2": { "Power": 2978, "Burning": 4.2, "Bleeding": 13.1, "Poisoned": 4.5, "Torment": 16.7, "Confusion": 0 }
+        "values1": { "Power": 44, "Burning": 21, "Bleeding": 11, "Poisoned": 6, "Torment": 20, "Confusion": 0 },
+        "values2": { "Power": 3007, "Burning": 4.3, "Bleeding": 13.3, "Poisoned": 4.5, "Torment": 16.8, "Confusion": 0 }
       }
 
   # - name: Condi Renegade (Invocation)
@@ -199,6 +247,14 @@ list:
       {
         "values1": { "Power": 87, "Burning": 13, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 3087, "Burning": 1.4, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
+  - name: Condi Herald
+    profession: HERALD
+    value: >-
+      {
+        "values1": { "Power": 34, "Burning": 29, "Bleeding": 2, "Poisoned": 12, "Torment": 24, "Confusion": 0 },
+        "values2": { "Power": 1990, "Burning": 5.1, "Bleeding": 2.2, "Poisoned": 8, "Torment": 17.1, "Confusion": 0 }
       }
 
   - name: Power Slb
