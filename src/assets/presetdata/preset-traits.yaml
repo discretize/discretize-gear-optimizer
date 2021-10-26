@@ -564,7 +564,7 @@ list:
           }
 
       - name: CFB DPS 8 page # Virtues
-        id: cfb
+        id: cfb-8
         specialization: Firebrand
         boons: 'Condi'
         priority: Condi DPS
