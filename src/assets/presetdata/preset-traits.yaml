@@ -1989,6 +1989,90 @@ list:
               }
           }
 
+      - name: Condi RR Ren Deva
+        id: cren-rr-deva
+        specialization: Renegade
+        boons: 'Condi'
+        priority: Condi DPS
+        distribution: 'Condi RR (Devastation)'
+        traits: >-
+          {
+            "profession": "REVENANT",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "14",
+                "15",
+                "63"
+              ],
+              "selectedTraits": [
+                [
+                  1793,
+                  1714,
+                  1795
+                ],
+                [
+                  1767,
+                  1786,
+                  1754
+                ],
+                [
+                  2079,
+                  2092,
+                  2182
+                ]
+              ],
+              "items": [
+                {
+                  "acolyte-of-torment": true,
+                  "seething-malice": true,
+                  "demonic-resistance": true,
+                  "pact-of-pain": true,
+                  "yearning-empowerment": true
+                },
+                {
+                  "unsuspecting-strikes": {
+                    "amount": ""
+                  },
+                  "destructive-impulses-base": true,
+                  "destructive-impulses-dual": {
+                    "amount": ""
+                  },
+                  "notoriety": {
+                    "amount": ""
+                  },
+                  "targeted-destruction": {
+                    "amount": ""
+                  },
+                  "swift-termination": {
+                    "amount": ""
+                  }
+                },
+                {
+                  "ambush-commander": {
+                    "amount": ""
+                  },
+                  "blood-fury": true,
+                  "heartpiercer": true,
+                  "brutal-momentum": true,
+                  "lasting-legacy": {
+                    "amount": ""
+                  }
+                }
+              ]
+            },
+            "skills": {
+              "skills": []
+            },
+            "extras": {
+              "Runes": "nightmare",
+              "Sigil1": "",
+              "Sigil2": "",
+              "Enhancement": "toxic-focusing-crystal",
+              "Nourishment": "beef-rendang"
+            }
+          }
+
       - name: Condi DPS Ren Deva
         id: cren-deva
         specialization: Renegade

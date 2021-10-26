@@ -185,12 +185,20 @@ list:
         "values2": { "Power": 1973, "Burning": 5.0, "Bleeding": 14.1, "Poisoned": 4.2, "Torment": 18.4, "Confusion": 0 }
       }
 
+  - name: Condi RR (Devastation)
+    profession: RENEGADE
+    value: >-
+      {
+        "values1": { "Power": 38, "Burning": 22, "Bleeding": 12, "Poisoned": 6, "Torment": 21, "Confusion": 0 },
+        "values2": { "Power": 2427, "Burning": 4.2, "Bleeding": 13.5, "Poisoned": 4.5, "Torment": 16.8, "Confusion": 0 }
+      }
+
   - name: Condi Renegade (Devastation)
     profession: RENEGADE
     value: >-
       {
-        "values1": { "Power": 44, "Burning": 20, "Bleeding": 11, "Poisoned": 5, "Torment": 20, "Confusion": 0 },
-        "values2": { "Power": 2978, "Burning": 4.2, "Bleeding": 13.1, "Poisoned": 4.5, "Torment": 16.7, "Confusion": 0 }
+        "values1": { "Power": 44, "Burning": 21, "Bleeding": 11, "Poisoned": 6, "Torment": 20, "Confusion": 0 },
+        "values2": { "Power": 3007, "Burning": 4.3, "Bleeding": 13.3, "Poisoned": 4.5, "Torment": 16.8, "Confusion": 0 }
       }
 
   # - name: Condi Renegade (Invocation)
