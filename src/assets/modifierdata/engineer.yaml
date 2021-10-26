@@ -181,6 +181,19 @@
       gw2id: 413
       defaultEnabled: true
 
+    - id: iron-blooded
+      text: Iron Blooded
+      amountData:
+        label: 'boons'
+        default: 8
+        quantityEntered: 1
+        disableBlacklist: true
+      modifiers:
+        damage:
+          Damage Reduction: [2%, unknown]
+      gw2id: 1854
+      defaultEnabled: true
+
 - section: Tools
   id: 21
   items:

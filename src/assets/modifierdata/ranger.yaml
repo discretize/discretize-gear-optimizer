@@ -98,6 +98,7 @@
 
     - id: oakheart-salve
       text: Oakheart Salve
+      subText: 100% regeneration
       modifiers:
         damage:
           Damage Reduction: [5%, unknown]
