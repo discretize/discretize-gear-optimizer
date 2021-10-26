@@ -17442,6 +17442,11 @@
     "profession": "thief"
   },
   {
+    "id": 63067,
+    "name": "siphon",
+    "profession": "thief"
+  },
+  {
     "id": 63073,
     "name": "savageshockwave",
     "profession": "ranger"
@@ -17560,6 +17565,11 @@
     "id": 63182,
     "name": "doublebolt",
     "profession": "thief"
+  },
+  {
+    "id": 63185,
+    "name": "rocketpunch",
+    "profession": "bundle"
   },
   {
     "id": 63186,

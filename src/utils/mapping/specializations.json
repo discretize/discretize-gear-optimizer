@@ -1473,7 +1473,11 @@
     "id": 71,
     "name": "specter",
     "profession": "thief",
-    "minor_traits": [],
+    "minor_traits": [
+      2184,
+      2272,
+      2280
+    ],
     "major_traits": [
       2284,
       2299,
