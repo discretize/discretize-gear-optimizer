@@ -377,7 +377,7 @@ list:
                           },
                           "virtue-of-retribution": true,
                           "inspiring-virtue": {
-                              "amount": ""
+                              "amount": "100"
                           },
                           "power-of-the-virtuous": true
                       },
@@ -458,7 +458,7 @@ list:
                           },
                           "virtue-of-retribution": true,
                           "inspiring-virtue": {
-                              "amount": ""
+                              "amount": "100"
                           },
                           "power-of-the-virtuous": true
                       },
@@ -547,7 +547,7 @@ list:
                           },
                           "virtue-of-retribution": true,
                           "inspiring-virtue": {
-                              "amount": ""
+                              "amount": "100"
                           },
                           "power-of-the-virtuous": true
                       },
