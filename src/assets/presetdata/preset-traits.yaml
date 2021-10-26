@@ -243,6 +243,86 @@ list:
             }
           }
 
+      - name: DH Virtues
+        id: dh-virtues
+        specialization: Dragonhunter
+        boons: 'Power (spotter)'
+        priority: Power DPS
+        distribution: 'DH (Radiance)'
+        traits: >-
+          {
+            "profession": "GUARDIAN",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "46",
+                "42",
+                "27"
+              ],
+              "selectedTraits": [
+                [
+                  624,
+                  603,
+                  622
+                ],
+                [
+                  634,
+                  653,
+                  2017
+                ],
+                [
+                  1898,
+                  1835,
+                  1955
+                ]
+              ],
+              "items": [
+                {
+                  "inspired-virtue": {
+                    "amount": ""
+                  },
+                  "unscathed-contender": {
+                    "amount": ""
+                  },
+                  "virtue-of-retribution": true,
+                  "inspiring-virtue": {
+                    "amount": ""
+                  },
+                  "power-of-the-virtuous": true
+                },
+                {
+                  "fiery-wrath": true,
+                  "symbolic-exposure": true,
+                  "zealous-blade-base": true,
+                  "zealous-blade-gs": {
+                    "amount": ""
+                  },
+                  "kindled-zeal": true,
+                  "symbolic-avenger": true
+                },
+                {
+                  "zealots-aggression": true,
+                  "pure-of-sight": true,
+                  "pure-of-sight-ranged": false,
+                  "hunters-fortification": true,
+                  "big-game-hunter": true
+                }
+              ]
+            },
+            "skills": {
+              "skills": [
+                "bane-signet"
+              ]
+            },
+            "extras": {
+              "Runes": "thief",
+              "Sigil1": "force",
+              "Sigil2": "impact/night/slaying-both",
+              "Enhancement": "slaying-potion",
+              "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+            }
+          }
+
       - name: pQFB
         id: pqfb
         specialization: Firebrand

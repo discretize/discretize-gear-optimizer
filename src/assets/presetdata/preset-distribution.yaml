@@ -47,6 +47,14 @@ list:
         "values2": { "Power": 3283, "Burning": 1.85, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  - name: DH (Virtues)
+    profession: DRAGONHUNTER
+    value: >-
+      {
+        "values1": { "Power": 82, "Burning": 18, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 3334, "Burning": 2.2, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
   - name: Power Firebrand (approx.)
     profession: FIREBRAND
     value: >-
