@@ -83,8 +83,8 @@ list:
 
   - class: guardian
     builds:
-      - name: DH
-        id: dh
+      - name: DH Radiance w/ PI
+        id: dh-radiance-pi
         specialization: Dragonhunter
         boons: 'Power (spotter)'
         priority: Power DPS
@@ -161,6 +161,86 @@ list:
                   "Enhancement": "slaying-potion",
                   "Nourishment": "sweet-and-spicy-butternut-squash-soup"
               }
+          }
+
+      - name: DH Radiance
+        id: dh-radiance
+        specialization: Dragonhunter
+        boons: 'Power (spotter)'
+        priority: Power DPS
+        distribution: 'DH (Radiance)'
+        traits: >-
+          {
+            "profession": "GUARDIAN",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "16",
+                "42",
+                "27"
+              ],
+              "selectedTraits": [
+                [
+                  574,
+                  565,
+                  1683
+                ],
+                [
+                  634,
+                  653,
+                  2017
+                ],
+                [
+                  1898,
+                  1835,
+                  1955
+                ]
+              ],
+              "items": [
+                {
+                  "right-hand-strength": true,
+                  "right-hand-strength-1h": {
+                    "amount": ""
+                  },
+                  "radiant-fire": true,
+                  "retribution": {
+                    "amount": ""
+                  },
+                  "radiant-power": true,
+                  "amplified-wrath": true,
+                  "righteous-instincts": true
+                },
+                {
+                  "fiery-wrath": true,
+                  "symbolic-exposure": true,
+                  "zealous-blade-base": true,
+                  "zealous-blade-gs": {
+                    "amount": ""
+                  },
+                  "kindled-zeal": true,
+                  "symbolic-avenger": true
+                },
+                {
+                  "zealots-aggression": true,
+                  "pure-of-sight": true,
+                  "pure-of-sight-ranged": false,
+                  "hunters-fortification": true,
+                  "big-game-hunter": true
+                }
+              ]
+            },
+            "skills": {
+              "skills": [
+                "bane-signet"
+              ]
+            },
+            "extras": {
+              "Runes": "scholar",
+              "Sigil1": "force",
+              "Sigil2": "impact/night/slaying-both",
+              "Enhancement": "slaying-potion",
+              "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+            }
           }
 
       - name: pQFB
