@@ -1447,5 +1447,64 @@
       2232,
       2238
     ]
+  },
+  {
+    "id": 70,
+    "name": "mechanist",
+    "profession": "engineer",
+    "minor_traits": [
+      2291,
+      2266,
+      2267
+    ],
+    "major_traits": [
+      2282,
+      2296,
+      2279,
+      2270,
+      2276,
+      2294,
+      2292,
+      2281,
+      2298
+    ]
+  },
+  {
+    "id": 71,
+    "name": "specter",
+    "profession": "thief",
+    "minor_traits": [],
+    "major_traits": [
+      2284,
+      2299,
+      2275,
+      2290,
+      2288,
+      2285,
+      2264,
+      2300,
+      2289
+    ]
+  },
+  {
+    "id": 72,
+    "name": "untamed",
+    "profession": "ranger",
+    "minor_traits": [
+      2268,
+      2286,
+      2269
+    ],
+    "major_traits": [
+      2297,
+      2277,
+      2301,
+      2263,
+      2287,
+      2278,
+      2271,
+      2283,
+      2274
+    ]
   }
 ]

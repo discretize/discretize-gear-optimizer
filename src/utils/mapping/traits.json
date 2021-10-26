@@ -3874,6 +3874,11 @@
     "profession": "necromancer"
   },
   {
+    "id": 2184,
+    "name": "specter",
+    "profession": "thief"
+  },
+  {
     "id": 2185,
     "profession": "necromancer"
   },
@@ -4247,5 +4252,195 @@
     "id": 2262,
     "name": "tenaciousruin",
     "profession": "revenant"
+  },
+  {
+    "id": 2263,
+    "name": "enhancingimpact",
+    "profession": "ranger"
+  },
+  {
+    "id": 2264,
+    "name": "strengthofshadows",
+    "profession": "thief"
+  },
+  {
+    "id": 2265,
+    "name": "maceproficiency",
+    "profession": "engineer"
+  },
+  {
+    "id": 2266,
+    "name": "mechfighter",
+    "profession": "engineer"
+  },
+  {
+    "id": 2267,
+    "name": "energysiphoning",
+    "profession": "engineer"
+  },
+  {
+    "id": 2268,
+    "name": "unleashedpower",
+    "profession": "ranger"
+  },
+  {
+    "id": 2269,
+    "name": "vowoftheuntamed",
+    "profession": "ranger"
+  },
+  {
+    "id": 2270,
+    "name": "mechframeconductivealloys",
+    "profession": "engineer"
+  },
+  {
+    "id": 2271,
+    "name": "ferventforce",
+    "profession": "ranger"
+  },
+  {
+    "id": 2272,
+    "name": "darksentry",
+    "profession": "thief"
+  },
+  {
+    "id": 2273,
+    "name": "hammerproficiency",
+    "profession": "ranger"
+  },
+  {
+    "id": 2274,
+    "name": "ferocioussymbiosis",
+    "profession": "ranger"
+  },
+  {
+    "id": 2275,
+    "name": "consumeshadows",
+    "profession": "thief"
+  },
+  {
+    "id": 2276,
+    "name": "mechframechannelingconduits",
+    "profession": "engineer"
+  },
+  {
+    "id": 2277,
+    "name": "cleansingunleash",
+    "profession": "ranger"
+  },
+  {
+    "id": 2278,
+    "name": "corruptingvines",
+    "profession": "ranger"
+  },
+  {
+    "id": 2279,
+    "name": "mecharmsjadecannons",
+    "profession": "engineer"
+  },
+  {
+    "id": 2280,
+    "name": "panakusambition",
+    "profession": "thief"
+  },
+  {
+    "id": 2281,
+    "name": "mechcorebarrierengine",
+    "profession": "engineer"
+  },
+  {
+    "id": 2282,
+    "name": "mecharmssingleedgecutters",
+    "profession": "engineer"
+  },
+  {
+    "id": 2283,
+    "name": "restorativestrikes",
+    "profession": "ranger"
+  },
+  {
+    "id": 2284,
+    "name": "secondopinion",
+    "profession": "thief"
+  },
+  {
+    "id": 2285,
+    "name": "traversingdusk",
+    "profession": "thief"
+  },
+  {
+    "id": 2286,
+    "name": "naturalfortitude",
+    "profession": "ranger"
+  },
+  {
+    "id": 2287,
+    "name": "bolsteringunleash",
+    "profession": "ranger"
+  },
+  {
+    "id": 2288,
+    "name": "amplifiedsiphoning",
+    "profession": "thief"
+  },
+  {
+    "id": 2289,
+    "name": "shadestep",
+    "profession": "thief"
+  },
+  {
+    "id": 2290,
+    "name": "larcenoustorment",
+    "profession": "thief"
+  },
+  {
+    "id": 2291,
+    "name": "mechanicalgenius",
+    "profession": "engineer"
+  },
+  {
+    "id": 2292,
+    "name": "mechcorejadedynamo",
+    "profession": "engineer"
+  },
+  {
+    "id": 2294,
+    "name": "mechframevariablemassdistributor",
+    "profession": "engineer"
+  },
+  {
+    "id": 2295,
+    "name": "scepterproficiency",
+    "profession": "thief"
+  },
+  {
+    "id": 2296,
+    "name": "mecharmshighimpactdrivers",
+    "profession": "engineer"
+  },
+  {
+    "id": 2297,
+    "name": "debilitatingblows",
+    "profession": "ranger"
+  },
+  {
+    "id": 2298,
+    "name": "mechcorejdrive",
+    "profession": "engineer"
+  },
+  {
+    "id": 2299,
+    "name": "shallowgrave",
+    "profession": "thief"
+  },
+  {
+    "id": 2300,
+    "name": "hungeringdarkness",
+    "profession": "thief"
+  },
+  {
+    "id": 2301,
+    "name": "blindingoutburst",
+    "profession": "ranger"
   }
 ]

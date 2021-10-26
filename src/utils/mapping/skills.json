@@ -3054,7 +3054,7 @@
   {
     "id": 10586,
     "name": "locked",
-    "profession": "necromancer"
+    "profession": "engineer"
   },
   {
     "id": 10588,
@@ -17425,5 +17425,325 @@
     "id": 62992,
     "name": "immutablestone",
     "profession": "elementalist"
+  },
+  {
+    "id": 63049,
+    "name": "rectifiersignet",
+    "profession": "engineer"
+  },
+  {
+    "id": 63050,
+    "name": "crashdown",
+    "profession": "engineer"
+  },
+  {
+    "id": 63066,
+    "name": "shadowbolt",
+    "profession": "thief"
+  },
+  {
+    "id": 63073,
+    "name": "savageshockwave",
+    "profession": "ranger"
+  },
+  {
+    "id": 63075,
+    "name": "overbearingsmash",
+    "profession": "ranger"
+  },
+  {
+    "id": 63077,
+    "name": "macesmash",
+    "profession": "engineer"
+  },
+  {
+    "id": 63089,
+    "name": "recallmech",
+    "profession": "engineer"
+  },
+  {
+    "id": 63094,
+    "name": "envelopinghaze",
+    "profession": "ranger"
+  },
+  {
+    "id": 63095,
+    "name": "overclocksignet",
+    "profession": "engineer"
+  },
+  {
+    "id": 63111,
+    "name": "shiftsignet",
+    "profession": "engineer"
+  },
+  {
+    "id": 63113,
+    "name": "superconductingsignet",
+    "profession": "engineer"
+  },
+  {
+    "id": 63118,
+    "name": "hammerstrike",
+    "profession": "ranger"
+  },
+  {
+    "id": 63121,
+    "name": "jademortar",
+    "profession": "bundle"
+  },
+  {
+    "id": 63128,
+    "name": "endlessnight",
+    "profession": "thief"
+  },
+  {
+    "id": 63130,
+    "name": "naturesbinding",
+    "profession": "ranger"
+  },
+  {
+    "id": 63131,
+    "name": "unleashedsavageshockwave",
+    "profession": "ranger"
+  },
+  {
+    "id": 63134,
+    "name": "triplebolt",
+    "profession": "thief"
+  },
+  {
+    "id": 63141,
+    "name": "barrierburst",
+    "profession": "bundle"
+  },
+  {
+    "id": 63147,
+    "name": "unleashranger",
+    "profession": "ranger"
+  },
+  {
+    "id": 63154,
+    "name": "triplethreat",
+    "profession": "thief"
+  },
+  {
+    "id": 63155,
+    "name": "entershadowshroud",
+    "profession": "thief"
+  },
+  {
+    "id": 63157,
+    "name": "explodingspores",
+    "profession": "ranger"
+  },
+  {
+    "id": 63163,
+    "name": "forestsfortification",
+    "profession": "ranger"
+  },
+  {
+    "id": 63169,
+    "name": "energizingslam",
+    "profession": "engineer"
+  },
+  {
+    "id": 63172,
+    "name": "aerialsupport",
+    "profession": "bundle"
+  },
+  {
+    "id": 63174,
+    "name": "barrierblast",
+    "profession": "engineer"
+  },
+  {
+    "id": 63182,
+    "name": "doublebolt",
+    "profession": "thief"
+  },
+  {
+    "id": 63186,
+    "name": "macestrike",
+    "profession": "engineer"
+  },
+  {
+    "id": 63188,
+    "name": "sparkrevolver",
+    "profession": "bundle"
+  },
+  {
+    "id": 63195,
+    "name": "unnaturaltraversal",
+    "profession": "ranger"
+  },
+  {
+    "id": 63197,
+    "name": "unleashedoverbearingsmash",
+    "profession": "ranger"
+  },
+  {
+    "id": 63208,
+    "name": "unleashedthump",
+    "profession": "ranger"
+  },
+  {
+    "id": 63209,
+    "name": "venomousoutburst",
+    "profession": "ranger"
+  },
+  {
+    "id": 63210,
+    "name": "mechsupportdepthcharges",
+    "profession": "engineer"
+  },
+  {
+    "id": 63222,
+    "name": "hammerslam",
+    "profession": "ranger"
+  },
+  {
+    "id": 63230,
+    "name": "wellofsilence",
+    "profession": "thief"
+  },
+  {
+    "id": 63234,
+    "name": "rocketfistprototype",
+    "profession": "engineer"
+  },
+  {
+    "id": 63236,
+    "name": "skycircus",
+    "profession": "bundle"
+  },
+  {
+    "id": 63251,
+    "name": "exitshadowshroud",
+    "profession": "thief"
+  },
+  {
+    "id": 63253,
+    "name": "forcesignet",
+    "profession": "engineer"
+  },
+  {
+    "id": 63254,
+    "name": "twilightcombo",
+    "profession": "thief"
+  },
+  {
+    "id": 63256,
+    "name": "mutateconditions",
+    "profession": "ranger"
+  },
+  {
+    "id": 63258,
+    "name": "rendingvines",
+    "profession": "ranger"
+  },
+  {
+    "id": 63262,
+    "name": "barriersignet",
+    "profession": "engineer"
+  },
+  {
+    "id": 63267,
+    "name": "measuredshot",
+    "profession": "thief"
+  },
+  {
+    "id": 63275,
+    "name": "shadowfall",
+    "profession": "thief"
+  },
+  {
+    "id": 63276,
+    "name": "wellofsorrow",
+    "profession": "thief"
+  },
+  {
+    "id": 63290,
+    "name": "jadesiphon",
+    "profession": "bundle"
+  },
+  {
+    "id": 63292,
+    "name": "wellofgloom",
+    "profession": "thief"
+  },
+  {
+    "id": 63293,
+    "name": "crisiszone",
+    "profession": "bundle"
+  },
+  {
+    "id": 63294,
+    "name": "welloftears",
+    "profession": "thief"
+  },
+  {
+    "id": 63314,
+    "name": "shadowsquall",
+    "profession": "thief"
+  },
+  {
+    "id": 63319,
+    "name": "perilousgift",
+    "profession": "ranger"
+  },
+  {
+    "id": 63323,
+    "name": "wellofbounty",
+    "profession": "thief"
+  },
+  {
+    "id": 63330,
+    "name": "thump",
+    "profession": "ranger"
+  },
+  {
+    "id": 63334,
+    "name": "rollingsmash",
+    "profession": "bundle"
+  },
+  {
+    "id": 63335,
+    "name": "unleashedwildswing",
+    "profession": "ranger"
+  },
+  {
+    "id": 63337,
+    "name": "heavysmash",
+    "profession": "ranger"
+  },
+  {
+    "id": 63344,
+    "name": "unleashpet",
+    "profession": "ranger"
+  },
+  {
+    "id": 63345,
+    "name": "corereactorshot",
+    "profession": "bundle"
+  },
+  {
+    "id": 63351,
+    "name": "shadowsap",
+    "profession": "thief"
+  },
+  {
+    "id": 63365,
+    "name": "explosiveknuckle",
+    "profession": "bundle"
+  },
+  {
+    "id": 63366,
+    "name": "wildswing",
+    "profession": "ranger"
+  },
+  {
+    "id": 63367,
+    "name": "dischargearray",
+    "profession": "bundle"
   }
 ]
