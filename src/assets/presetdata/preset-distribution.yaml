@@ -67,16 +67,32 @@ list:
     profession: FIREBRAND
     value: >-
       {
-        "values1": { "Power": 30, "Burning": 65, "Bleeding": 4, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
-        "values2": { "Power": 2320, "Burning": 15.2, "Bleeding": 4.7, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
+        "values1": { "Power": 30, "Burning": 65, "Bleeding": 3, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
+        "values2": { "Power": 2325, "Burning": 15.2, "Bleeding": 4.8, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
       }
 
   - name: CFB (Virtues, 5 page, no allies)
     profession: FIREBRAND
     value: >-
       {
-        "values1": { "Power": 33, "Burning": 62, "Bleeding": 4, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
-        "values2": { "Power": 2320, "Burning": 13.5, "Bleeding": 4.7, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
+        "values1": { "Power": 30, "Burning": 65, "Bleeding": 3, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
+        "values2": { "Power": 2325, "Burning": 13.5, "Bleeding": 4.8, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
+      }
+
+  - name: CFB (Virtues, 8 page, allies)
+    profession: FIREBRAND
+    value: >-
+      {
+        "values1": { "Power": 27, "Burning": 69, "Bleeding": 3, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
+        "values2": { "Power": 2087, "Burning": 16.4, "Bleeding": 4.1, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
+      }
+
+  - name: CFB (Virtues, 8 page, no allies)
+    profession: FIREBRAND
+    value: >-
+      {
+        "values1": { "Power": 30, "Burning": 66, "Bleeding": 3, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
+        "values2": { "Power": 2087, "Burning": 13.9, "Bleeding": 4.1, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
       }
 
   - name: Quickness CFB (Virtues, allies)
@@ -95,7 +111,7 @@ list:
   #       "values2": { "Power": 1942, "Burning": 12.1, "Bleeding": 3.0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
 
-  # +1.7 burning for no allies/with allies split seems to hold up well
+  # +1.7 burning for no allies/with allies split on 5 page seems to hold up well
 
   - name: Hybrid FB (Virtues)
     profession: FIREBRAND

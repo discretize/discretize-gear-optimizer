@@ -482,7 +482,7 @@ list:
               }
           }
 
-      - name: CFB DPS # Virtues
+      - name: CFB DPS 5 page # Virtues
         id: cfb
         specialization: Firebrand
         boons: 'Condi'
@@ -561,6 +561,87 @@ list:
                   "Enhancement": "toxic-focusing-crystal",
                   "Nourishment": "beef-rendang"
               }
+          }
+
+      - name: CFB DPS 8 page # Virtues
+        id: cfb
+        specialization: Firebrand
+        boons: 'Condi'
+        priority: Condi DPS
+        distribution: 'CFB (Virtues, 8 page, allies)'
+        traits: >-
+          {
+            "profession": "GUARDIAN",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "16",
+                "46",
+                "62"
+              ],
+              "selectedTraits": [
+                [
+                  566,
+                  567,
+                  1686
+                ],
+                [
+                  617,
+                  587,
+                  622
+                ],
+                [
+                  2086,
+                  2116,
+                  2159
+                ]
+              ],
+              "items": [
+                {
+                  "right-hand-strength": true,
+                  "right-hand-strength-1h": {
+                    "amount": "100"
+                  },
+                  "radiant-fire": true,
+                  "retribution": {
+                    "amount": ""
+                  },
+                  "radiant-power": true,
+                  "amplified-wrath": true,
+                  "righteous-instincts": true
+                },
+                {
+                  "inspired-virtue": {
+                    "amount": ""
+                  },
+                  "unscathed-contender": {
+                    "amount": ""
+                  },
+                  "virtue-of-retribution": true,
+                  "inspiring-virtue": {
+                    "amount": ""
+                  },
+                  "power-of-the-virtuous": true
+                },
+                {
+                  "imbued-haste": {
+                    "amount": ""
+                  }
+                }
+              ]
+            },
+            "skills": {
+              "skills": [
+                "signet-of-wrath"
+              ]
+            },
+            "extras": {
+              "Runes": "balthazar",
+              "Sigil1": "bursting",
+              "Sigil2": "",
+              "Enhancement": "toxic-focusing-crystal",
+              "Nourishment": "beef-rendang"
+            }
           }
 
       # - name: CFB Zeal
