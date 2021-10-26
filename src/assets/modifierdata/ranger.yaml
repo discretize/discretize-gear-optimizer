@@ -339,7 +339,7 @@
       gw2id: 1066
 
 - section: Untamed
-  id:
+  id: 72
   items:
 
     - id: natural-fortitude
@@ -348,7 +348,7 @@
         attributes:
           Vitality: [240, unknown]
       minor: true
-      gw2id:
+      gw2id: 2286
       defaultEnabled: true
 
     - id: vow-of-the-untamed-you
@@ -359,7 +359,7 @@
           All Damage: [15%, unknown]
           Damage Reduction: [-10%, unknown]
       minor: true
-      gw2id:
+      gw2id: 2269
       defaultEnabled: true
 
     - id: vow-of-the-untamed-pet
@@ -370,7 +370,7 @@
           All Damage: [-15%, unknown]
           Damage Reduction: [10%, unknown]
       minor: true
-      gw2id:
+      gw2id: 2269
 
     - id: ferocious-symbiosis
       text: Ferocious Symbiosis
@@ -381,5 +381,5 @@
       modifiers:
         damage:
           All Damage: [3%, unknown]
-      gw2id:
+      gw2id: 2274
       defaultEnabled: true

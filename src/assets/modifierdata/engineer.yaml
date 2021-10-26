@@ -6,7 +6,7 @@
       modifiers:
         damage:
           Damage Reduction: [10%, unknown]
-      gw2id:
+      gw2id: 63262
 
     - id: barrier-signet-traited
       text: Barrier Signet
@@ -14,14 +14,14 @@
       modifiers:
         damage:
           Damage Reduction: [12%, unknown]
-      gw2id:
+      gw2id: 63262
 
     - id: force-signet
       text: Force Signet
       modifiers:
         attributes:
           Power: [180, buff]
-      gw2id:
+      gw2id: 63253
 
     - id: force-signet-traited
       text: Force Signet
@@ -29,14 +29,14 @@
       modifiers:
         attributes:
           Power: [216, buff]
-      gw2id:
+      gw2id: 63253
 
     - id: superconducting-signet
       text: Superconducting Signet
       modifiers:
         attributes:
           Condition Damage: [180, buff]
-      gw2id:
+      gw2id: 63113
 
     - id: superconducting-signet-traited
       text: Superconducting Signet
@@ -44,7 +44,7 @@
       modifiers:
         attributes:
           Condition Damage: [216, buff]
-      gw2id:
+      gw2id: 63113
 
 - section: Explosives
   id: 6
@@ -291,5 +291,5 @@
 
 
 - section: Mechanist
-  id:
+  id: 70
   items: []

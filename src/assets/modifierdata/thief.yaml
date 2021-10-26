@@ -358,7 +358,7 @@
       defaultEnabled: true
 
 - section: Specter
-  id:
+  id: 71
   items:
 
     - id: second-opinion-base
@@ -369,7 +369,7 @@
           Healing Power: {Condition Damage: 7%}
         attributes:
           Healing Power: [60, unknown]
-      gw2id:
+      gw2id: 2284
       defaultEnabled: true
 
     - id: second-opinion-scepter
@@ -382,7 +382,7 @@
       modifiers:
         attributes:
           Healing Power: [60, unknown]
-      gw2id:
+      gw2id: 2284
       defaultEnabled: true
 
     - id: larcenous-torment
@@ -390,7 +390,7 @@
       modifiers:
         damage:
           Torment Damage: [20%, unknown]
-      gw2id:
+      gw2id: 2290
       defaultEnabled: true
 
     - id: strength-of-shadows-base
@@ -399,7 +399,7 @@
       modifiers:
         conversion:
           Expertise: {Vitality: 13%}
-      gw2id:
+      gw2id: 2264
       defaultEnabled: true
 
     - id: strength-of-shadows-condis
@@ -412,5 +412,5 @@
       modifiers:
         damage:
           Damage Reduction: [2%, unknown]
-      gw2id:
+      gw2id: 2264
       defaultEnabled: true
