@@ -248,7 +248,7 @@ list:
         specialization: Dragonhunter
         boons: 'Power (spotter)'
         priority: Power DPS
-        distribution: 'DH (Radiance)'
+        distribution: 'DH (Virtues)'
         traits: >-
           {
             "profession": "GUARDIAN",
