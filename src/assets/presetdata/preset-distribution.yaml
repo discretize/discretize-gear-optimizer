@@ -289,7 +289,7 @@ list:
         "values2": { "Power": 2315, "Burning": 2.8, "Bleeding": 26.9, "Poisoned": 7.1, "Torment": 0.2, "Confusion": 0 }
       }
 
-  - name: Condi Druid
+  - name: Condi Druid (approx.)
     profession: DRUID
     value: >-
       {
