@@ -2,7 +2,6 @@ GraphQL ID: presetExtras
 list:
 
   - name: Power (Fractal)
-    profession: generic
     value: |-
       {
         "Runes": "scholar",
@@ -13,7 +12,6 @@ list:
       }
 
   - name: Power (Raid)
-    profession: generic
     value: |-
       {
         "Runes": "scholar",
@@ -24,7 +22,6 @@ list:
       }
 
   - name: Heal
-    profession: generic
     value: |-
       {
         "Runes": "monk",
