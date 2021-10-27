@@ -11,7 +11,7 @@ list:
         priority: Power DPS
         distribution: Power Chrono
         traits: Power Chrono
-        extras: Fractal Power
+        extras: Power (Fractal)
 
   - class: guardian
     builds:
@@ -23,7 +23,7 @@ list:
         priority: Power DPS
         distribution: DH (Radiance)
         traits: DH Radiance w/ PI
-        extras: Fractal Power
+        extras: Power (Fractal)
 
       - name: DH Radiance
         id: dh-radiance
@@ -32,16 +32,16 @@ list:
         priority: Power DPS
         distribution: DH (Radiance)
         traits: DH Radiance
-        extras: Fractal Power
+        extras: Power (Fractal)
 
       - name: DH Virtues
         id: dh-virtues
         specialization: Dragonhunter
         boons: Power (spotter)
         priority: Power DPS
-        distribution: DH (Virtues)
+        distribution: DH Virtues
         traits: DH Virtues
-        extras: DH Virtues
+        extras: DH Virtues (Fractal)
 
       - name: pQFB
         id: pqfb
@@ -50,7 +50,7 @@ list:
         priority: Power DPS
         distribution: Power Firebrand (approx.)
         traits: pQFB
-        extras: Fractal Power
+        extras: Power (Fractal)
 
       - name: CFB w/ Quickness
         id: cqfb
@@ -68,7 +68,7 @@ list:
         priority: Condi DPS
         distribution: CFB (Virtues, 5 page, allies)
         traits: CFB DPS 5 page
-        extras: CFB DPS 5 page
+        extras: CFB DPS
 
       - name: CFB DPS 8 page
         id: cfb-8
@@ -77,7 +77,7 @@ list:
         priority: Condi DPS
         distribution: CFB (Virtues, 8 page, allies)
         traits: CFB DPS 8 page
-        extras: CFB DPS 8 page
+        extras: CFB DPS
 
       - name: CQB 40%
         id: cqfb-firebrand
@@ -95,7 +95,7 @@ list:
         priority: Condi Boon
         distribution: Hybrid FB (Virtues)
         traits: Hybrid FB (Virtues)
-        extras: Hybrid FB (Virtues)
+        extras: Hybrid FB Traveler
 
       - name: Hybrid FB (Honor)
         id: hycfb-honor-leadership
@@ -104,7 +104,7 @@ list:
         priority: Condi Boon
         distribution: Hybrid FB (Honor)
         traits: Hybrid FB (Honor)
-        extras: Hybrid FB (Honor)
+        extras: Hybrid FB Traveler
 
       - name: Healbrand
         id: hb
@@ -125,7 +125,7 @@ list:
         priority: Power DPS
         distribution: Power Banner Warrior
         traits: Power Banner Bers
-        extras: Fractal Power
+        extras: Power (Fractal)
 
       - name: Condi Banner Bers
         id: cbers
@@ -143,7 +143,7 @@ list:
         priority: Power DPS
         distribution: Power Banner Spellbreaker
         traits: Power Banner SPB
-        extras: Fractal Power
+        extras: Power (Fractal)
 
   - class: elementalist
     builds:
@@ -155,7 +155,7 @@ list:
         priority: Power DPS
         distribution: Power Weaver (BTTH)
         traits: Power Weaver
-        extras: Fractal Power
+        extras: Power (Fractal)
 
       - name: Condi Weaver SW
         id: cwea
@@ -173,7 +173,7 @@ list:
         priority: Hybrid DPS
         distribution: Hybrid Weaver
         traits: Hybrid Weaver
-        extras: Hybrid Weaver
+        extras: Hybrid Weaver (Fractal)
 
       - name: Condi Tempest
         id: ctemp
@@ -196,14 +196,14 @@ list:
   - class: ranger
     builds:
 
-      - name: Power Slb
+      - name: Power Slb Marks
         id: pslb
         specialization: Soulbeast
         boons: Power (spotter)
         priority: Power DPS
-        distribution: Power Slb
-        traits: Power Slb
-        extras: Power Slb
+        distribution: Power Slb Marks
+        traits: Power Slb Marks
+        extras: Power Slb Marks (Fractal)
 
       - name: Condi Slb SB
         id: cslb-sb
@@ -260,7 +260,7 @@ list:
         priority: Power Boon
         distribution: Alacrity Renegade
         traits: Power Alac Ren
-        extras: Fractal Power
+        extras: Power (Fractal)
 
       - name: Condi Alac Ren Invo
         id: celeren-rr-invo
@@ -269,7 +269,7 @@ list:
         priority: Condi Boon
         distribution: Condi RR (Invocation)
         traits: Condi Alac Ren Invo
-        extras: Condi Alac Ren Invo
+        extras: Cele Ren (Fractal)
 
       - name: Condi RR Ren Invo
         id: cren-rr-invo
@@ -278,7 +278,7 @@ list:
         priority: Condi DPS
         distribution: Condi RR (Invocation)
         traits: Condi RR Ren Invo
-        extras: Condi RR Ren Invo
+        extras: Condi Ren
 
       - name: Condi RR Ren Deva
         id: cren-rr-deva
@@ -287,7 +287,7 @@ list:
         priority: Condi DPS
         distribution: Condi RR (Devastation)
         traits: Condi RR Ren Deva
-        extras: Condi RR Ren Deva
+        extras: Condi Ren
 
       - name: Condi DPS Ren Deva
         id: cren-deva
@@ -296,7 +296,7 @@ list:
         priority: Condi DPS
         distribution: Condi Renegade (Devastation)
         traits: Condi DPS Ren Deva
-        extras: Condi DPS Ren Deva
+        extras: Condi Ren
 
       - name: Power Herald DE
         id: herald
@@ -305,7 +305,7 @@ list:
         priority: Power DPS
         distribution: Power Herald DE
         traits: Power Herald DE
-        extras: Fractal Power
+        extras: Power (Fractal)
 
       - name: Condi Herald
         id: herald
@@ -335,7 +335,7 @@ list:
         priority: Power DPS
         distribution: Power Holo
         traits: Power Holo
-        extras: Fractal Power
+        extras: Power (Fractal)
 
       - name: Power Scrapper
         id: pscrap
@@ -344,7 +344,7 @@ list:
         priority: Power DPS
         distribution: Power Scrapper
         traits: Power Scrapper
-        extras: Fractal Power
+        extras: Power (Fractal)
 
       - name: Quickness Scrapper
         id: qscrap
@@ -353,7 +353,7 @@ list:
         priority: Power DPS
         distribution: Quickness Scrapper
         traits: Quickness Scrapper
-        extras: Fractal Power
+        extras: Power (Fractal)
 
       - name: Heal Scrapper
         id: healscrapper
@@ -404,7 +404,7 @@ list:
         priority: Power DPS
         distribution: Staff Daredevil
         traits: Staff Daredevil
-        extras: Fractal Power
+        extras: Power (Fractal)
 
       - name: Boon Daredevil*
         id: boondd
@@ -413,7 +413,7 @@ list:
         priority: Power Boon
         distribution: Staff Daredevil
         traits: Boon Daredevil*
-        extras: Boon Daredevil*
+        extras: Boon Daredevil
 
       - name: Condi Daredevil
         id: cdd
@@ -431,4 +431,4 @@ list:
         priority: Power DPS
         distribution: Rifle Deadeye
         traits: Rifle Deadeye
-        extras: Fractal Power
+        extras: Power (Fractal)

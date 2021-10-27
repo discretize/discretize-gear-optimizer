@@ -1,7 +1,7 @@
 GraphQL ID: presetExtras
 list:
 
-  - name: Fractal Power
+  - name: Power (Fractal)
     profession: generic
     value: |-
       {
@@ -9,6 +9,17 @@ list:
         "Sigil1": "force",
         "Sigil2": "impact/night/slaying-both",
         "Enhancement": "slaying-potion",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+      }
+
+  - name: Power (Raid)
+    profession: generic
+    value: |-
+      {
+        "Runes": "scholar",
+        "Sigil1": "force",
+        "Sigil2": "impact/night/slaying-only-3",
+        "Enhancement": "superior-sharpening-stone",
         "Nourishment": "sweet-and-spicy-butternut-squash-soup"
       }
 
@@ -23,7 +34,7 @@ list:
         "Nourishment": "fruit-salad-mint-garnish"
       }
 
-  - name: DH Virtues
+  - name: DH Virtues (Fractal)
     profession: DRAGONHUNTER
     value: |-
       {
@@ -31,6 +42,17 @@ list:
         "Sigil1": "force",
         "Sigil2": "impact/night/slaying-both",
         "Enhancement": "slaying-potion",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+      }
+
+  - name: DH Virtues (Raid)
+    profession: DRAGONHUNTER
+    value: |-
+      {
+        "Runes": "thief",
+        "Sigil1": "force",
+        "Sigil2": "accuracy",
+        "Enhancement": "superior-sharpening-stone",
         "Nourishment": "sweet-and-spicy-butternut-squash-soup"
       }
 
@@ -45,18 +67,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: CFB DPS 5 page
-    profession: FIREBRAND
-    value: |-
-      {
-        "Runes": "balthazar",
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": "toxic-focusing-crystal",
-        "Nourishment": "beef-rendang"
-      }
-
-  - name: CFB DPS 8 page
+  - name: CFB DPS
     profession: FIREBRAND
     value: |-
       {
@@ -78,18 +89,7 @@ list:
         "Nourishment": "fire-meat-chili"
       }
 
-  - name: Hybrid FB (Virtues)
-    profession: FIREBRAND
-    value: |-
-      {
-        "Runes": "traveler",
-        "Sigil1": "bursting",
-        "Sigil2": "smoldering",
-        "Enhancement": "master-tuning-crystal",
-        "Nourishment": "beef-rendang"
-      }
-
-  - name: Hybrid FB (Honor)
+  - name: Hybrid FB Traveler
     profession: FIREBRAND
     value: |-
       {
@@ -122,12 +122,23 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
-  - name: Hybrid Weaver
+  - name: Hybrid Weaver (Fractal)
     profession: WEAVER
     value: |-
       {
         "Runes": "flame-legion",
         "Sigil1": "impact/night/slaying-both",
+        "Sigil2": "bursting",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "dragon's-revelry-starcake"
+      }
+
+  - name: Hybrid Weaver (Raid)
+    profession: WEAVER
+    value: |-
+      {
+        "Runes": "flame-legion",
+        "Sigil1": "force",
         "Sigil2": "bursting",
         "Enhancement": "toxic-focusing-crystal",
         "Nourishment": "dragon's-revelry-starcake"
@@ -144,7 +155,7 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
-  - name: Power Slb
+  - name: Power Slb Marks (Fractal)
     profession: SOULBEAST
     value: |-
       {
@@ -153,6 +164,17 @@ list:
         "Sigil2": "impact/night/slaying-both",
         "Enhancement": "slaying-potion",
         "Nourishment": "truffle-steak"
+      }
+
+  - name: Power Slb Skirm (Raid)
+    profession: SOULBEAST
+    value: |-
+      {
+        "Runes": "scholar",
+        "Sigil1": "force",
+        "Sigil2": "impact/night/slaying-only-3",
+        "Enhancement": "superior-sharpening-stone",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
       }
 
   - name: Condi Slb SB
@@ -199,7 +221,7 @@ list:
         "Nourishment": ""
       }
 
-  - name: Condi Alac Ren Invo
+  - name: Cele Ren (Fractal)
     profession: RENEGADE
     value: |-
       {
@@ -210,29 +232,18 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: Condi RR Ren Invo
+  - name: Cele Ren (Raid)
     profession: RENEGADE
     value: |-
       {
-        "Runes": "nightmare",
+        "Runes": "leadership",
         "Sigil1": "",
         "Sigil2": "",
-        "Enhancement": "toxic-focusing-crystal",
-        "Nourishment": "beef-rendang"
+        "Enhancement": "writ-of-masterful-malice",
+        "Nourishment": "dragon's-revelry-starcake"
       }
 
-  - name: Condi RR Ren Deva
-    profession: RENEGADE
-    value: |-
-      {
-        "Runes": "nightmare",
-        "Sigil1": "",
-        "Sigil2": "",
-        "Enhancement": "toxic-focusing-crystal",
-        "Nourishment": "beef-rendang"
-      }
-
-  - name: Condi DPS Ren Deva
+  - name: Condi Ren
     profession: RENEGADE
     value: |-
       {
@@ -287,7 +298,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: Boon Daredevil*
+  - name: Boon Daredevil
     profession: DAREDEVIL
     value: |-
       {
