@@ -301,8 +301,8 @@ list:
     profession: HOLOSMITH
     value: >-
       {
-        "values1": { "Power": 60, "Burning": 20, "Bleeding": 15, "Poisoned": 5, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 3017, "Burning": 3.1, "Bleeding": 13.4, "Poisoned": 2.7, "Torment": 0, "Confusion": 0 }
+        "values1": { "Power": 61, "Burning": 20, "Bleeding": 14, "Poisoned": 5, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 3153, "Burning": 3.1, "Bleeding": 13.4, "Poisoned": 2.7, "Torment": 0, "Confusion": 0 }
       }
 
   # - name: Condi Holo
