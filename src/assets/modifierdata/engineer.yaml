@@ -313,7 +313,7 @@
         quantityEntered: 150
       modifiers:
         damage:
-          Strike Damage: [22.5%, unknown] # 0.15 per 1 heat
+          Strike Damage: [22.5%, mult] # 0.15 per 1 heat
       minor: true
       gw2id: 2122
       defaultEnabled: true
