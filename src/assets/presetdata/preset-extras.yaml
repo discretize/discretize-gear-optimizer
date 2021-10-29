@@ -185,18 +185,7 @@ list:
         "Nourishment": "sweet-and-spicy-butternut-squash-soup"
       }
 
-  - name: Condi Slb SB
-    profession: SOULBEAST
-    value: |-
-      {
-        "Runes": "krait",
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": "toxic-focusing-crystal",
-        "Nourishment": "beef-rendang"
-      }
-
-  - name: Condi Slb D/T A/D
+  - name: Condi Slb
     profession: SOULBEAST
     value: |-
       {

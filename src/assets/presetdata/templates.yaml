@@ -212,7 +212,7 @@ list:
         priority: Condi DPS
         distribution: Condi Slb (D/T SB)
         traits: Condi Slb SB
-        extras: Condi Slb SB
+        extras: Condi Slb
 
       - name: Condi Slb D/T A/D
         id: cslb-dtad
@@ -221,7 +221,7 @@ list:
         priority: Condi DPS
         distribution: Condi Slb (D/T A/D)
         traits: Condi Slb D/T A/D
-        extras: Condi Slb D/T A/D
+        extras: Condi Slb
 
       - name: Hybrid Slb
         id: hslb
