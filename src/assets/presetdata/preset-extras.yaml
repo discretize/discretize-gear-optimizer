@@ -97,7 +97,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: Condi Banner Bers
+  - name: Condi Bers
     profession: BERSERKER
     value: |-
       {
@@ -106,6 +106,17 @@ list:
         "Sigil2": "",
         "Enhancement": "master-tuning-crystal",
         "Nourishment": "rare-veggie-pizza"
+      }
+
+  - name: Power Bers (Raid spotter)
+    profession: BERSERKER
+    value: |-
+      {
+        "Runes": "thief",
+        "Sigil1": "force",
+        "Sigil2": "impact/night/slaying-only-3",
+        "Enhancement": "superior-sharpening-stone",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
       }
 
   - name: Condi Weaver SW
@@ -174,18 +185,7 @@ list:
         "Nourishment": "sweet-and-spicy-butternut-squash-soup"
       }
 
-  - name: Condi Slb SB
-    profession: SOULBEAST
-    value: |-
-      {
-        "Runes": "krait",
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": "toxic-focusing-crystal",
-        "Nourishment": "beef-rendang"
-      }
-
-  - name: Condi Slb D/T A/D
+  - name: Condi Slb
     profession: SOULBEAST
     value: |-
       {
