@@ -353,6 +353,14 @@ list:
         "values2": { "Power": 2370, "Burning": 1.9, "Bleeding": 39.9, "Poisoned": 2.7, "Torment": 3.9, "Confusion": 0 }
       }
 
+  - name: '[approx] Beta Harbinger'
+    profession: SCOURGE
+    value: >-
+      {
+        "values1": { "Power": 33, "Burning": 13, "Bleeding": 12, "Poisoned": 11, "Torment": 31, "Confusion": 0 },
+        "values2": { "Power": 1855, "Burning": 2.2, "Bleeding": 11.5, "Poisoned": 7.1, "Torment": 21.2, "Confusion": 0 }
+      }
+
   - name: Condi Deadeye
     profession: DEADEYE
     value: >-
@@ -383,4 +391,20 @@ list:
       {
         "values1": { "Power": 91, "Burning": 4, "Bleeding": 1, "Poisoned": 4, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 3574, "Burning": 0.5, "Bleeding": 0.4, "Poisoned": 1.8, "Torment": 0, "Confusion": 0 }
+      }
+
+  - name: 'Beta DPS Specter Sc/D'
+    profession: DEADEYE
+    value: >-
+      {
+        "values1": { "Power": 39, "Burning": 3, "Bleeding": 2, "Poisoned": 25, "Torment": 31, "Confusion": 0 },
+        "values2": { "Power": 2342, "Burning": 0.6, "Bleeding": 2.2, "Poisoned": 18, "Torment": 22.9, "Confusion": 0 }
+      }
+
+  - name: 'Beta DPS Specter Endless Night'
+    profession: DEADEYE
+    value: >-
+      {
+        "values1": { "Power": 11, "Burning": 3, "Bleeding": 0, "Poisoned": 22, "Torment": 64, "Confusion": 0 },
+        "values2": { "Power": 556, "Burning": 0.5, "Bleeding": 0, "Poisoned": 12.5, "Torment": 38.9, "Confusion": 0 }
       }
