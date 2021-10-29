@@ -252,7 +252,7 @@
         conversion:
           Ferocity: {Vitality: 7%}
         attributes:
-          Critical Chance: 20%
+          Critical Chance: 10%
       gw2id: 2193
       defaultEnabled: true
 
