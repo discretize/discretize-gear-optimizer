@@ -133,8 +133,8 @@ list:
         boons: Condi
         priority: Condi DPS
         distribution: Condi Banner Warrior
-        traits: Condi Banner Bers
-        extras: Condi Banner Bers
+        traits: Condi Bers
+        extras: Condi Bers
 
       - name: Power Banner SPB
         id: spb-bs

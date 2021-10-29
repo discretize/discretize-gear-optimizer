@@ -97,7 +97,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: Condi Banner Bers
+  - name: Condi Bers
     profession: BERSERKER
     value: |-
       {
