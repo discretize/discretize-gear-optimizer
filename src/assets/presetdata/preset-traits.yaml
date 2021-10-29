@@ -73,6 +73,82 @@ list:
               }
           }
 
+      - name: '[incomplete] Virtuoso'
+        id: pvirt
+        specialization: Mirage
+        boons: 'Power (spotter)'
+        priority: Power DPS
+        distribution: 'None'
+        traits: >-
+          {
+            "profession": "MESMER",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "10",
+                "1",
+                "66"
+              ],
+              "selectedTraits": [
+                [
+                  682,
+                  713,
+                  681
+                ],
+                [
+                  701,
+                  708,
+                  692
+                ],
+                [
+                  2208,
+                  2205,
+                  2223
+                ]
+              ],
+              "items": [
+                {
+                  "fragility": {
+                    "amount": ""
+                  },
+                  "egotism": {
+                    "amount": ""
+                  },
+                  "vicious-expression": {
+                    "amount": ""
+                  }
+                },
+                {
+                  "fencers-finesse": {
+                    "amount": ""
+                  },
+                  "superiority-complex-base": true,
+                  "superiority-complex": {
+                    "amount": ""
+                  }
+                },
+                {
+                  "mental-focus": {
+                    "amount": ""
+                  },
+                  "sharpening-sorrow": true,
+                  "quiet-intensity": true,
+                  "bloodsong": true
+                }
+              ]
+            },
+            "skills": {
+              "skills": []
+            },
+            "extras": {
+              "Runes": "scholar",
+              "Sigil1": "force",
+              "Sigil2": "accuracy",
+              "Enhancement": "superior-sharpening-stone",
+              "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+            }
+          }
+
       # - name: Staff Mirage
       #   id: staffmirage
       #   specialization: Mirage
@@ -978,6 +1054,89 @@ list:
               }
           }
 
+      - name: '[incomplete] Power Willbender'
+        id: pwb
+        specialization: Firebrand
+        boons: 'Power (spotter)'
+        priority: Power DPS
+        distribution: 'None'
+        traits: >-
+          {
+            "profession": "GUARDIAN",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "16",
+                "42",
+                "65"
+              ],
+              "selectedTraits": [
+                [
+                  566,
+                  565,
+                  1683
+                ],
+                [
+                  634,
+                  653,
+                  2017
+                ],
+                [
+                  2190,
+                  2210,
+                  2201
+                ]
+              ],
+              "items": [
+                {
+                  "right-hand-strength": true,
+                  "right-hand-strength-1h": {
+                    "amount": ""
+                  },
+                  "radiant-fire": true,
+                  "retribution": {
+                    "amount": ""
+                  },
+                  "radiant-power": true,
+                  "amplified-wrath": true,
+                  "righteous-instincts": true
+                },
+                {
+                  "fiery-wrath": true,
+                  "symbolic-exposure": true,
+                  "zealous-blade-base": true,
+                  "zealous-blade-gs": {
+                    "amount": ""
+                  },
+                  "kindled-zeal": true,
+                  "symbolic-avenger": true
+                },
+                {
+                  "power-for-power": true,
+                  "lethal-tempo": {
+                    "amount": ""
+                  },
+                  "tyrants-momentum": {
+                    "amount": ""
+                  },
+                  "tyrants-momentum-bugged": false
+                }
+              ]
+            },
+            "skills": {
+              "skills": [
+                "bane-signet"
+              ]
+            },
+            "extras": {
+              "Runes": "scholar",
+              "Sigil1": "force",
+              "Sigil2": "impact/night/slaying-only-3",
+              "Enhancement": "superior-sharpening-stone",
+              "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+            }
+          }
+
   - class: warrior
     builds:
       - name: Power Banner Bers
@@ -1251,6 +1410,86 @@ list:
               "Sigil1": "force",
               "Sigil2": "impact/night/slaying-both",
               "Enhancement": "slaying-potion",
+              "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+            }
+          }
+
+      - name: '[incomplete] Bladesworn'
+        id: pbls
+        specialization: Spellbreaker
+        boons: 'Power (spotter)'
+        priority: Power DPS
+        distribution: 'None'
+        traits: >-
+          {
+            "profession": "WARRIOR",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "4",
+                "51",
+                "68"
+              ],
+              "selectedTraits": [
+                [
+                  1444,
+                  1449,
+                  1437
+                ],
+                [
+                  1413,
+                  1484,
+                  1657
+                ],
+                [
+                  2225,
+                  2240,
+                  2239
+                ]
+              ],
+              "items": [
+                {
+                  "peak-performance": true,
+                  "peak-performance-2": false,
+                  "forceful-greatsword": true,
+                  "forceful-greatsword-2": false,
+                  "great-fortitude": true,
+                  "pinnacle-of-strength": {
+                    "amount": ""
+                  },
+                  "berserkers-power": {
+                    "amount": ""
+                  }
+                },
+                {
+                  "warriors-sprint": {
+                    "amount": ""
+                  },
+                  "double-standards-str": true,
+                  "double-standards-disc": true,
+                  "axe-mastery-one": true,
+                  "axe-mastery-axe": {
+                    "amount": ""
+                  }
+                },
+                {
+                  "guns-and-glory": {
+                    "amount": ""
+                  }
+                }
+              ]
+            },
+            "skills": {
+              "skills": [
+                "signet-of-might",
+                "signet-of-fury"
+              ]
+            },
+            "extras": {
+              "Runes": "scholar",
+              "Sigil1": "force",
+              "Sigil2": "accuracy",
+              "Enhancement": "superior-sharpening-stone",
               "Nourishment": "sweet-and-spicy-butternut-squash-soup"
             }
           }
@@ -3276,6 +3515,84 @@ list:
               }
           }
 
+      - name: '[incomplete] DPS Harbinger'
+        id: charb
+        specialization: Scourge
+        boons: 'Condi'
+        priority: Condi DPS
+        distribution: '[approx] Beta Harbinger'
+        traits: >-
+          {
+            "profession": "NECROMANCER",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "39",
+                "50",
+                "64"
+              ],
+              "selectedTraits": [
+                [
+                  2013,
+                  816,
+                  801
+                ],
+                [
+                  875,
+                  894,
+                  905
+                ],
+                [
+                  2185,
+                  2209,
+                  2203
+                ]
+              ],
+              "items": [
+                {
+                  "barbed-precision": true,
+                  "furious-demise": true,
+                  "target-the-weak-base": true,
+                  "target-the-weak": {
+                    "amount": ""
+                  },
+                  "lingering-curse": true
+                },
+                {
+                  "soul-barbs": {
+                    "amount": ""
+                  },
+                  "vital-persistence": true,
+                  "death-perception": true
+                },
+                {
+                  "wicked-corruption": {
+                    "amount": ""
+                  },
+                  "septic-corruption": {
+                    "amount": ""
+                  },
+                  "alchemic-vigor": true,
+                  "implacable-foe": true,
+                  "dark-gunslinger": true,
+                  "cascading-corruption": true,
+                  "doom-approaches": true
+                }
+              ]
+            },
+            "skills": {
+              "skills": []
+            },
+            "extras": {
+              "Runes": "tormenting",
+              "Sigil1": "bursting",
+              "Sigil2": "",
+              "Enhancement": "toxic-focusing-crystal",
+              "Nourishment": "beef-rendang"
+            }
+          }
+
+
   - class: thief
     builds:
       - name: Condi Deadeye
@@ -3698,4 +4015,167 @@ list:
                   "Enhancement": "slaying-potion",
                   "Nourishment": "sweet-and-spicy-butternut-squash-soup"
               }
+          }
+
+      - name: '[incomplete] DPS Specter Sc/D'
+        id: specterdagger
+        specialization: Deadeye
+        boons: 'Condi'
+        priority: Condi DPS
+        distribution: Beta DPS Specter Sc/D
+        traits: >-
+          {
+            "profession": "THIEF",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "28",
+                "44",
+                "71"
+              ],
+              "selectedTraits": [
+                [
+                  1164,
+                  1292,
+                  1291
+                ],
+                [
+                  1163,
+                  1190,
+                  1187
+                ],
+                [
+                  2275,
+                  2290,
+                  2264
+                ]
+              ],
+              "items": [
+                {
+                  "dagger-training-base": true,
+                  "dagger-training-dagger": false,
+                  "deadly-ambition": true,
+                  "revealed-training-base": true,
+                  "revealed-training-revealed": false,
+                  "exposed-weakness": {
+                    "amount": ""
+                  },
+                  "potent-poison": true,
+                  "executioner": {
+                    "amount": ""
+                  }
+                },
+                {
+                  "preparedness": true,
+                  "lead-attacks": {
+                    "amount": ""
+                  },
+                  "deadly-ambush": true
+                },
+                {
+                  "second-opinion-base": true,
+                  "second-opinion-scepter": {
+                    "amount": ""
+                  },
+                  "dark-sentry": true,
+                  "larcenous-torment": true,
+                  "strength-of-shadows-base": true,
+                  "strength-of-shadows-condis": {
+                    "amount": ""
+                  }
+                }
+              ]
+            },
+            "skills": {
+              "skills": []
+            },
+            "extras": {
+              "Runes": "tormenting",
+              "Sigil1": "bursting",
+              "Sigil2": "",
+              "Enhancement": "toxic-focusing-crystal",
+              "Nourishment": "beef-rendang"
+            }
+          }
+
+
+      - name: '[incomplete] DPS Specter Endless Night'
+        id: specterpistol
+        specialization: Deadeye
+        boons: 'Condi'
+        priority: Heal
+        distribution: Beta DPS Specter Endless Night
+        traits: >-
+          {
+            "profession": "THIEF",
+            "traits": {
+              "showAll": false,
+              "selectedLines": [
+                "28",
+                "44",
+                "71"
+              ],
+              "selectedTraits": [
+                [
+                  1164,
+                  1292,
+                  1291
+                ],
+                [
+                  1252,
+                  1286,
+                  1187
+                ],
+                [
+                  2275,
+                  2290,
+                  2264
+                ]
+              ],
+              "items": [
+                {
+                  "dagger-training-base": true,
+                  "dagger-training-dagger": false,
+                  "deadly-ambition": true,
+                  "revealed-training-base": true,
+                  "revealed-training-revealed": false,
+                  "exposed-weakness": {
+                    "amount": ""
+                  },
+                  "potent-poison": true,
+                  "executioner": {
+                    "amount": ""
+                  }
+                },
+                {
+                  "preparedness": true,
+                  "lead-attacks": {
+                    "amount": ""
+                  },
+                  "deadly-ambush": true
+                },
+                {
+                  "second-opinion-base": true,
+                  "second-opinion-scepter": {
+                    "amount": ""
+                  },
+                  "dark-sentry": true,
+                  "larcenous-torment": true,
+                  "strength-of-shadows-base": true,
+                  "strength-of-shadows-condis": {
+                    "amount": ""
+                  }
+                }
+              ]
+            },
+            "skills": {
+              "skills": []
+            },
+            "extras": {
+              "Runes": "tormenting",
+              "Sigil1": "bursting",
+              "Sigil2": "",
+              "Enhancement": "toxic-focusing-crystal",
+              "Nourishment": "beef-rendang"
+            }
           }
