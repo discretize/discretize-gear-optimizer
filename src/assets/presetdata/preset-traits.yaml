@@ -2823,7 +2823,7 @@ list:
         specialization: Holosmith
         boons: 'Power (spotter)'
         priority: Power DPS
-        distribution: 'Power Holo'
+        distribution: 'Power Holo ECSU'
         traits: >-
           {
               "profession": "ENGINEER",
