@@ -302,6 +302,21 @@
       gw2id: 1849
       defaultEnabled: true
 
+- section: Holosmith
+  id: 57
+  items:
+    - id: lasers-edge
+      text: Laser's Edge
+      amountData:
+        label: Average Heat
+        default: 112
+        quantityEntered: 150
+      modifiers:
+        damage:
+          Strike Damage: [22.5%, mult] # 0.15 per 1 heat
+      minor: true
+      gw2id: 2122
+      defaultEnabled: true
 
 - section: Mechanist
   id: 70

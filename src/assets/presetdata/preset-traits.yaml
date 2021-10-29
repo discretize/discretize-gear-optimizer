@@ -3057,12 +3057,12 @@ list:
 
   - class: engineer
     builds:
-      - name: Power Holo
-        id: pholo
+      - name: Power Holo ECSU
+        id: pholo-ecsu
         specialization: Holosmith
         boons: 'Power (spotter)'
         priority: Power DPS
-        distribution: 'Power Holo'
+        distribution: 'Power Holo ECSU'
         traits: >-
           {
               "profession": "ENGINEER",
@@ -3071,7 +3071,7 @@ list:
                   "selectedLines": [
                       "38",
                       "6",
-                      ""
+                      "57"
                   ],
                   "selectedTraits": [
                       [
@@ -3085,9 +3085,9 @@ list:
                           1947
                       ],
                       [
-                          0,
-                          0,
-                          0
+                          2106,
+                          2152,
+                          2137
                       ]
                   ],
                   "items": [
@@ -3118,7 +3118,11 @@ list:
                           },
                           "big-boomer": true
                       },
-                      {}
+                      {
+                          "lasers-edge": {
+                              "amount": ""
+                          }
+                      }
                   ]
               },
               "skills": {
