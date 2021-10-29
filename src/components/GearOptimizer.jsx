@@ -72,7 +72,7 @@ const MainComponent = ({ classes, data }) => {
 
               <SkillsSection profession={profession} />
 
-              <ExtrasSection />
+              <ExtrasSection profession={profession} data={data} />
 
               <BuffsSection data={data} />
 
@@ -135,6 +135,13 @@ const GearOptimizer = ({ classes }) => {
             list {
               name
               value
+            }
+          }
+          presetExtras: presetExtras {
+            list {
+              name
+              value
+              profession
             }
           }
           presetDistribution: presetDistribution {

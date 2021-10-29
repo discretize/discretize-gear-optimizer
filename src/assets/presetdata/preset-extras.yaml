@@ -1,0 +1,318 @@
+GraphQL ID: presetExtras
+list:
+
+  - name: Power (Fractal)
+    value: |-
+      {
+        "Runes": "scholar",
+        "Sigil1": "force",
+        "Sigil2": "impact/night/slaying-both",
+        "Enhancement": "slaying-potion",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+      }
+
+  - name: Power (Raid)
+    value: |-
+      {
+        "Runes": "scholar",
+        "Sigil1": "force",
+        "Sigil2": "impact/night/slaying-only-3",
+        "Enhancement": "superior-sharpening-stone",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+      }
+
+  - name: Heal
+    value: |-
+      {
+        "Runes": "monk",
+        "Sigil1": "concentration",
+        "Sigil2": "transference",
+        "Enhancement": "bountiful-maintenance-oil",
+        "Nourishment": "fruit-salad-mint-garnish"
+      }
+
+  - name: DH Virtues (Fractal)
+    profession: DRAGONHUNTER
+    value: |-
+      {
+        "Runes": "thief",
+        "Sigil1": "force",
+        "Sigil2": "impact/night/slaying-both",
+        "Enhancement": "slaying-potion",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+      }
+
+  - name: DH Virtues (Raid)
+    profession: DRAGONHUNTER
+    value: |-
+      {
+        "Runes": "thief",
+        "Sigil1": "force",
+        "Sigil2": "accuracy",
+        "Enhancement": "superior-sharpening-stone",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+      }
+
+  - name: CFB w/ Quickness
+    profession: FIREBRAND
+    value: |-
+      {
+        "Runes": "balthazar",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "toxic-maintenance-oil",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: CFB DPS
+    profession: FIREBRAND
+    value: |-
+      {
+        "Runes": "balthazar",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: CQB 40%
+    profession: FIREBRAND
+    value: |-
+      {
+        "Runes": "firebrand",
+        "Sigil1": "bursting",
+        "Sigil2": "smoldering",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "fire-meat-chili"
+      }
+
+  - name: Hybrid FB Traveler
+    profession: FIREBRAND
+    value: |-
+      {
+        "Runes": "traveler",
+        "Sigil1": "bursting",
+        "Sigil2": "smoldering",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: Condi Bers
+    profession: BERSERKER
+    value: |-
+      {
+        "Runes": "renegade",
+        "Sigil1": "",
+        "Sigil2": "",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "rare-veggie-pizza"
+      }
+
+  - name: Power Bers (Raid spotter)
+    profession: BERSERKER
+    value: |-
+      {
+        "Runes": "thief",
+        "Sigil1": "force",
+        "Sigil2": "impact/night/slaying-only-3",
+        "Enhancement": "superior-sharpening-stone",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+      }
+
+  - name: Condi Weaver SW
+    profession: WEAVER
+    value: |-
+      {
+        "Runes": "elementalist",
+        "Sigil1": "",
+        "Sigil2": "",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "rare-veggie-pizza"
+      }
+
+  - name: Hybrid Weaver (Fractal)
+    profession: WEAVER
+    value: |-
+      {
+        "Runes": "flame-legion",
+        "Sigil1": "impact/night/slaying-both",
+        "Sigil2": "bursting",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "dragon's-revelry-starcake"
+      }
+
+  - name: Hybrid Weaver (Raid)
+    profession: WEAVER
+    value: |-
+      {
+        "Runes": "flame-legion",
+        "Sigil1": "force",
+        "Sigil2": "bursting",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "dragon's-revelry-starcake"
+      }
+
+  - name: Condi Tempest
+    profession: TEMPEST
+    value: |-
+      {
+        "Runes": "elementalist",
+        "Sigil1": "bursting",
+        "Sigil2": "smoldering",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "rare-veggie-pizza"
+      }
+
+  - name: Power Slb Marks (Fractal)
+    profession: SOULBEAST
+    value: |-
+      {
+        "Runes": "scholar",
+        "Sigil1": "force",
+        "Sigil2": "impact/night/slaying-both",
+        "Enhancement": "slaying-potion",
+        "Nourishment": "truffle-steak"
+      }
+
+  - name: Power Slb Skirm (Raid)
+    profession: SOULBEAST
+    value: |-
+      {
+        "Runes": "scholar",
+        "Sigil1": "force",
+        "Sigil2": "impact/night/slaying-only-3",
+        "Enhancement": "superior-sharpening-stone",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+      }
+
+  - name: Condi Slb
+    profession: SOULBEAST
+    value: |-
+      {
+        "Runes": "krait",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: Hybrid Slb
+    profession: SOULBEAST
+    value: |-
+      {
+        "Runes": "krait",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: Condi Druid*
+    profession: DRUID
+    value: |-
+      {
+        "Runes": "",
+        "Sigil1": "",
+        "Sigil2": "",
+        "Enhancement": "",
+        "Nourishment": ""
+      }
+
+  - name: Cele Ren (Fractal)
+    profession: RENEGADE
+    value: |-
+      {
+        "Runes": "leadership",
+        "Sigil1": "",
+        "Sigil2": "",
+        "Enhancement": "toxic-maintenance-oil",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: Cele Ren (Raid)
+    profession: RENEGADE
+    value: |-
+      {
+        "Runes": "leadership",
+        "Sigil1": "",
+        "Sigil2": "",
+        "Enhancement": "writ-of-masterful-malice",
+        "Nourishment": "dragon's-revelry-starcake"
+      }
+
+  - name: Condi Ren
+    profession: RENEGADE
+    value: |-
+      {
+        "Runes": "nightmare",
+        "Sigil1": "",
+        "Sigil2": "",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: Condi Herald
+    profession: HERALD
+    value: |-
+      {
+        "Runes": "nightmare",
+        "Sigil1": "",
+        "Sigil2": "",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "rare-veggie-pizza"
+      }
+
+  - name: DPS Scourge
+    profession: SCOURGE
+    value: |-
+      {
+        "Runes": "nightmare",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: Condi Reaper
+    profession: REAPER
+    value: |-
+      {
+        "Runes": "krait",
+        "Sigil1": "",
+        "Sigil2": "",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "rare-veggie-pizza"
+      }
+
+  - name: Condi Deadeye
+    profession: DEADEYE
+    value: |-
+      {
+        "Runes": "nightmare",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: Boon Daredevil
+    profession: DAREDEVIL
+    value: |-
+      {
+        "Runes": "thief",
+        "Sigil1": "force",
+        "Sigil2": "concentration",
+        "Enhancement": "potent-lucent-oil",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+      }
+
+  - name: Condi Daredevil
+    profession: DAREDEVIL
+    value: |-
+      {
+        "Runes": "krait",
+        "Sigil1": "",
+        "Sigil2": "",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "beef-rendang"
+      }
