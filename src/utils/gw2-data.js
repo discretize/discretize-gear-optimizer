@@ -851,15 +851,15 @@ export const MAX_INFUSIONS = 18;
 export const INFUSION_BONUS = 5;
 
 export const PROFESSIONS = [
-  { profession: 'WARRIOR', eliteSpecializations: ['SPELLBREAKER', 'BERSERKER'] },
-  { profession: 'REVENANT', eliteSpecializations: ['HERALD', 'RENEGADE'] },
-  { profession: 'GUARDIAN', eliteSpecializations: ['DRAGONHUNTER', 'FIREBRAND'] },
-  { profession: 'RANGER', eliteSpecializations: ['DRUID', 'SOULBEAST'] },
-  { profession: 'ENGINEER', eliteSpecializations: ['SCRAPPER', 'HOLOSMITH'] },
-  { profession: 'ELEMENTALIST', eliteSpecializations: ['TEMPEST', 'WEAVER'] },
-  { profession: 'MESMER', eliteSpecializations: ['CHRONOMANCER', 'MIRAGE'] },
-  { profession: 'NECROMANCER', eliteSpecializations: ['SCOURGE', 'REAPER'] },
-  { profession: 'THIEF', eliteSpecializations: ['DAREDEVIL', 'DEADEYE'] },
+  { profession: 'WARRIOR', eliteSpecializations: ['SPELLBREAKER', 'BERSERKER', 'BLADESWORN'] },
+  { profession: 'REVENANT', eliteSpecializations: ['HERALD', 'RENEGADE', 'VINDICATOR'] },
+  { profession: 'GUARDIAN', eliteSpecializations: ['DRAGONHUNTER', 'FIREBRAND', 'WILLBENDER'] },
+  { profession: 'RANGER', eliteSpecializations: ['DRUID', 'SOULBEAST', 'UNTAMED'] },
+  { profession: 'ENGINEER', eliteSpecializations: ['SCRAPPER', 'HOLOSMITH', 'MECHANIST'] },
+  { profession: 'ELEMENTALIST', eliteSpecializations: ['TEMPEST', 'WEAVER', 'CATALYST'] },
+  { profession: 'MESMER', eliteSpecializations: ['CHRONOMANCER', 'MIRAGE', 'VIRTUOSO'] },
+  { profession: 'NECROMANCER', eliteSpecializations: ['SCOURGE', 'REAPER', 'HARBINGER'] },
+  { profession: 'THIEF', eliteSpecializations: ['DAREDEVIL', 'DEADEYE', 'SPECTER'] },
 ];
 
 export const GEAR_SLOTS = [
