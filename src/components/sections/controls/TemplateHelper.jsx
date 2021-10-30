@@ -18,6 +18,8 @@ const initial = {
 const roundOne = (num) => Math.round(num * 10) / 10;
 const roundZero = (num) => Math.round(num);
 
+const indent = (str, amount) => str.replace(/^/gm, ' '.repeat(amount));
+
 // reverse legacy percent distribution conversion
 // see: https://github.com/discretize/discretize-gear-optimizer/discussions/136
 const coefficientsToPercents = (values2) => {
@@ -144,7 +146,7 @@ const TemplateHelper = ({ character }) => {
 
       <p>
         <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-          {formattedDistribution}
+          {indent(formattedDistribution, 6)}
         </pre>
       </p>
 
@@ -153,7 +155,7 @@ const TemplateHelper = ({ character }) => {
       </Typography>
 
       <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-        {JSON.stringify(traitsTemplate.traits, null, 2)}
+        {indent(JSON.stringify(traitsTemplate.traits, null, 2), 6)}
       </pre>
 
       <Typography variant="h6">
@@ -161,7 +163,7 @@ const TemplateHelper = ({ character }) => {
       </Typography>
 
       <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-        {JSON.stringify(traitsTemplate.skills, null, 2)}
+        {indent(JSON.stringify(traitsTemplate.skills, null, 2), 6)}
       </pre>
 
       <Typography variant="h6">
@@ -169,7 +171,7 @@ const TemplateHelper = ({ character }) => {
       </Typography>
 
       <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-        {JSON.stringify(traitsTemplate.extras, null, 2)}
+        {indent(JSON.stringify(traitsTemplate.extras, null, 2), 6)}
       </pre>
     </>
   );
