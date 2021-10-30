@@ -1,0 +1,488 @@
+GraphQL ID: templates
+list:
+
+  - class: mesmer
+    builds:
+
+      - name: Power Chrono
+        id: pchrono
+        specialization: Chronomancer
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Power Chrono
+        traits: Power Chrono
+        extras: Power (Fractal)
+
+      - name: '[incomplete] Virtuoso'
+        id: pvirt
+        specialization: Mirage
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: None
+        traits: '[incomplete] Virtuoso'
+        extras: '[incomplete] Virtuoso'
+
+  - class: guardian
+    builds:
+
+      - name: DH Radiance w/ PI
+        id: dh-radiance-pi
+        specialization: Dragonhunter
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: DH (Radiance)
+        traits: DH Radiance w/ PI
+        extras: Power (Fractal)
+
+      - name: DH Radiance
+        id: dh-radiance
+        specialization: Dragonhunter
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: DH (Radiance)
+        traits: DH Radiance
+        extras: Power (Fractal)
+
+      - name: DH Virtues
+        id: dh-virtues
+        specialization: Dragonhunter
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: DH Virtues
+        traits: DH Virtues
+        extras: DH Virtues (Fractal)
+
+      - name: pQFB
+        id: pqfb
+        specialization: Firebrand
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Power Firebrand (approx.)
+        traits: pQFB
+        extras: Power (Fractal)
+
+      - name: CFB w/ Quickness
+        id: cqfb
+        specialization: Firebrand
+        boons: Condi
+        priority: Condi DPS
+        distribution: Quickness CFB (Virtues, allies)
+        traits: CFB w/ Quickness
+        extras: CFB w/ Quickness
+
+      - name: CFB DPS 5 page
+        id: cfb
+        specialization: Firebrand
+        boons: Condi
+        priority: Condi DPS
+        distribution: CFB (Virtues, 5 page, allies)
+        traits: CFB DPS 5 page
+        extras: CFB DPS
+
+      - name: CFB DPS 8 page
+        id: cfb-8
+        specialization: Firebrand
+        boons: Condi
+        priority: Condi DPS
+        distribution: CFB (Virtues, 8 page, allies)
+        traits: CFB DPS 8 page
+        extras: CFB DPS
+
+      - name: CQB 40%
+        id: cqfb-firebrand
+        specialization: Firebrand
+        boons: Condi
+        priority: Condi DPS
+        distribution: CQB 40% (Virtues, allies)
+        traits: CQB 40%
+        extras: CQB 40%
+
+      - name: Hybrid FB (Virtues)
+        id: hycfb-virtues-leadership
+        specialization: Firebrand
+        boons: Condi
+        priority: Condi Boon
+        distribution: Hybrid FB (Virtues)
+        traits: Hybrid FB (Virtues)
+        extras: Hybrid FB Traveler
+
+      - name: Hybrid FB (Honor)
+        id: hycfb-honor-leadership
+        specialization: Firebrand
+        boons: Condi
+        priority: Condi Boon
+        distribution: Hybrid FB (Honor)
+        traits: Hybrid FB (Honor)
+        extras: Hybrid FB Traveler
+
+      - name: Healbrand
+        id: hb
+        specialization: Firebrand
+        boons: Power (spotter)
+        priority: Heal
+        distribution: None
+        traits: Healbrand
+        extras: Heal
+
+      - name: '[incomplete] Power Willbender'
+        id: pwb
+        specialization: Firebrand
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: None
+        traits: '[incomplete] Power Willbender'
+        extras: '[incomplete] Power Willbender'
+
+  - class: warrior
+    builds:
+
+      - name: Power Banner Bers
+        id: pbers
+        specialization: Berserker
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Power Banner Warrior
+        traits: Power Banner Bers
+        extras: Power (Fractal)
+
+      - name: Condi Banner Bers
+        id: cbers
+        specialization: Berserker
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Banner Warrior
+        traits: Condi Bers
+        extras: Condi Bers
+
+      - name: Power Banner SPB
+        id: spb-bs
+        specialization: Spellbreaker
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Power Banner Spellbreaker
+        traits: Power Banner SPB
+        extras: Power (Fractal)
+
+      - name: '[incomplete] Bladesworn'
+        id: pbls
+        specialization: Spellbreaker
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: None
+        traits: '[incomplete] Bladesworn'
+        extras: '[incomplete] Bladesworn'
+
+  - class: elementalist
+    builds:
+
+      - name: Power Weaver
+        id: pwea
+        specialization: Weaver
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Power Weaver (BTTH)
+        traits: Power Weaver
+        extras: Power (Fractal)
+
+      - name: Condi Weaver SW
+        id: cwea
+        specialization: Weaver
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Weaver (Sword)
+        traits: Condi Weaver SW
+        extras: Condi Weaver SW
+
+      - name: Hybrid Weaver
+        id: hwea
+        specialization: Weaver
+        boons: Condi
+        priority: Hybrid DPS
+        distribution: Hybrid Weaver
+        traits: Hybrid Weaver
+        extras: Hybrid Weaver (Fractal)
+
+      - name: Condi Tempest
+        id: ctemp
+        specialization: Tempest
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Tempest
+        traits: Condi Tempest
+        extras: Condi Tempest
+
+      - name: Heal Tempest
+        id: healtemp
+        specialization: Tempest
+        boons: Power (spotter)
+        priority: Heal
+        distribution: None
+        traits: Heal Tempest
+        extras: Heal
+
+  - class: ranger
+    builds:
+
+      - name: Power Slb Marks
+        id: pslb
+        specialization: Soulbeast
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Power Slb Marks
+        traits: Power Slb Marks
+        extras: Power Slb Marks (Fractal)
+
+      - name: Condi Slb SB
+        id: cslb-sb
+        specialization: Soulbeast
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Slb (D/T SB)
+        traits: Condi Slb SB
+        extras: Condi Slb
+
+      - name: Condi Slb D/T A/D
+        id: cslb-dtad
+        specialization: Soulbeast
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Slb (D/T A/D)
+        traits: Condi Slb D/T A/D
+        extras: Condi Slb
+
+      - name: Hybrid Slb
+        id: hslb
+        specialization: Soulbeast
+        boons: Condi
+        priority: Hybrid DPS
+        distribution: Hybrid Slb (A/T D/A)
+        traits: Hybrid Slb
+        extras: Hybrid Slb
+
+      - name: Condi Druid*
+        id: condidruid
+        specialization: Druid
+        boons: Power (spotter)
+        priority: Condi Boon
+        distribution: Condi Druid (approx.)
+        traits: Condi Druid*
+        extras: Condi Druid*
+
+      - name: Heal Druid
+        id: druid
+        specialization: Druid
+        boons: Power (spotter)
+        priority: Heal
+        distribution: None
+        traits: Heal Druid
+        extras: Heal
+
+  - class: revenant
+    builds:
+
+      - name: Power Alac Ren
+        id: pren
+        specialization: Renegade
+        boons: Power (spotter)
+        priority: Power Boon
+        distribution: Alacrity Renegade
+        traits: Power Alac Ren
+        extras: Power (Fractal)
+
+      - name: Condi Alac Ren Invo
+        id: celeren-rr-invo
+        specialization: Renegade
+        boons: Condi
+        priority: Condi Boon
+        distribution: Condi RR (Invocation)
+        traits: Condi Alac Ren Invo
+        extras: Cele Ren (Fractal)
+
+      - name: Condi RR Ren Invo
+        id: cren-rr-invo
+        specialization: Renegade
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi RR (Invocation)
+        traits: Condi RR Ren Invo
+        extras: Condi Ren
+
+      - name: Condi RR Ren Deva
+        id: cren-rr-deva
+        specialization: Renegade
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi RR (Devastation)
+        traits: Condi RR Ren Deva
+        extras: Condi Ren
+
+      - name: Condi DPS Ren Deva
+        id: cren-deva
+        specialization: Renegade
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Renegade (Devastation)
+        traits: Condi DPS Ren Deva
+        extras: Condi Ren
+
+      - name: Power Herald DE
+        id: herald
+        specialization: Herald
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Power Herald DE
+        traits: Power Herald DE
+        extras: Power (Fractal)
+
+      - name: Condi Herald
+        id: herald
+        specialization: Herald
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Herald
+        traits: Condi Herald
+        extras: Condi Herald
+
+      - name: Heal Ren
+        id: healren
+        specialization: Renegade
+        boons: Power (spotter)
+        priority: Heal
+        distribution: None
+        traits: Heal Ren
+        extras: Heal
+
+  - class: engineer
+    builds:
+
+      - name: Power Holo ECSU
+        id: pholo-ecsu
+        specialization: Holosmith
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Power Holo ECSU
+        traits: Power Holo ECSU
+        extras: Power (Fractal)
+
+      - name: Power Scrapper
+        id: pscrap
+        specialization: Scrapper
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Power Scrapper
+        traits: Power Scrapper
+        extras: Power (Fractal)
+
+      - name: Quickness Scrapper
+        id: qscrap
+        specialization: Scrapper
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Quickness Scrapper
+        traits: Quickness Scrapper
+        extras: Power (Fractal)
+
+      - name: Heal Scrapper
+        id: healscrapper
+        specialization: Scrapper
+        boons: Power (spotter)
+        priority: Heal
+        distribution: None
+        traits: Heal Scrapper
+        extras: Heal
+
+  - class: necromancer
+    builds:
+
+      - name: DPS Scourge
+        id: scourge
+        specialization: Scourge
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Scourge
+        traits: DPS Scourge
+        extras: DPS Scourge
+
+      - name: Condi Reaper
+        id: creaper
+        specialization: Reaper
+        boons: Condi
+        priority: Hybrid DPS
+        distribution: Condi Reaper
+        traits: Condi Reaper
+        extras: Condi Reaper
+
+      - name: '[incomplete] DPS Harbinger'
+        id: charb
+        specialization: Scourge
+        boons: Condi
+        priority: Condi DPS
+        distribution: '[approx] Beta Harbinger'
+        traits: '[incomplete] DPS Harbinger'
+        extras: '[incomplete] DPS Harbinger'
+
+  - class: thief
+    builds:
+
+      - name: Condi Deadeye
+        id: cded
+        specialization: Deadeye
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Deadeye
+        traits: Condi Deadeye
+        extras: Condi Deadeye
+
+      - name: Staff Daredevil
+        id: staffdd
+        specialization: Daredevil
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Staff Daredevil
+        traits: Staff Daredevil
+        extras: Power (Fractal)
+
+      - name: Boon Daredevil*
+        id: boondd
+        specialization: Daredevil
+        boons: Power (spotter)
+        priority: Power Boon
+        distribution: Staff Daredevil
+        traits: Boon Daredevil*
+        extras: Boon Daredevil
+
+      - name: Condi Daredevil
+        id: cdd
+        specialization: Daredevil
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Daredevil
+        traits: Condi Daredevil
+        extras: Condi Daredevil
+
+      - name: Rifle Deadeye
+        id: rifleded
+        specialization: Deadeye
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Rifle Deadeye
+        traits: Rifle Deadeye
+        extras: Power (Fractal)
+
+      - name: '[incomplete] DPS Specter Sc/D'
+        id: specterdagger
+        specialization: Deadeye
+        boons: Condi
+        priority: Condi DPS
+        distribution: Beta DPS Specter Sc/D
+        traits: '[incomplete] DPS Specter Sc/D'
+        extras: '[incomplete] DPS Specter'
+
+      - name: '[incomplete] DPS Specter Endless Night'
+        id: specterpistol
+        specialization: Deadeye
+        boons: Condi
+        priority: Heal
+        distribution: Beta DPS Specter Endless Night
+        traits: '[incomplete] DPS Specter Endless Night'
+        extras: '[incomplete] DPS Specter'
