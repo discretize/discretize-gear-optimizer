@@ -77,13 +77,8 @@ export const traitsSlice = createSlice({
       }
     },
     [setBuildTemplate]: (state, action) => {
-      const { build } = action.payload;
-
-      const traitState = JSON.parse(build.traits);
-      return {
-        showAll: state.showAll,
-        ...traitState.traits,
-      };
+      const { traitsPreset = {} } = action.payload;
+      return { ...state, ...traitsPreset };
     },
     [setModifiers]: (state, action) => {
       const allSelectedTraits = state.selectedTraits.flat(2);
