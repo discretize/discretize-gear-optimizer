@@ -59,6 +59,9 @@ export const traitsSlice = createSlice({
 
       state.items[index][id].amount = amount;
     },
+    changeTraits: (state, action) => {
+      return { ...state, ...action.payload };
+    },
   },
   extraReducers: {
     [changeProfession]: (state, action) => {
@@ -113,4 +116,5 @@ export const {
   changeTrait,
   toggleTraitModifier,
   setTraitModiferAmount,
+  changeTraits,
 } = traitsSlice.actions;

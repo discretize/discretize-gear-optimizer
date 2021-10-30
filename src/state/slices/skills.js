@@ -16,6 +16,9 @@ export const skillsSlice = createSlice({
     removeSkill: (state, action) => {
       return { ...state, skills: state.skills.filter((skill) => skill !== action.payload) };
     },
+    changeSkills: (state, action) => {
+      return { ...state, ...action.payload };
+    },
   },
   extraReducers: {
     [changeProfession]: (state, action) => {
@@ -44,4 +47,4 @@ export const skillsSlice = createSlice({
 
 export const getSkills = (state) => state.optimizer.skills.skills;
 
-export const { addSkill, removeSkill } = skillsSlice.actions;
+export const { addSkill, removeSkill, changeSkills } = skillsSlice.actions;

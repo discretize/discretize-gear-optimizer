@@ -70,7 +70,7 @@ const MainComponent = ({ classes, data }) => {
         <Grid container>
           {expertMode ? (
             <>
-              <TraitsSection profession={profession} />
+              <TraitsSection profession={profession} data={data} />
 
               <SkillsSection profession={profession} />
 
