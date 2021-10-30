@@ -51,7 +51,6 @@ const testModifiers = async () => {
   try {
     templates = yaml.load(fileData);
     gentleAssert(templates, `err: templates.yaml is missing`);
-
   } catch (e) {
     gentleAssert(false, `err: templates.yaml is invalid YAML`);
     return;
@@ -71,18 +70,16 @@ const testModifiers = async () => {
 
   for (const section of templates.list) {
     for (const item of section.builds) {
-      // const {
-      //   name,
-      //   id,
-      //   specialization,
-      //   boons,
-      //   priority,
-      //   distribution,
-      //   traits,
-      //   extras,
-      // } = item;
-
-      const { name = 'missing name' } = item;
+      const {
+        name = 'missing name',
+        // id,
+        specialization,
+        // boons,
+        // priority,
+        // distribution,
+        // traits,
+        // extras,
+      } = item;
 
       const checkNullRecursively = (obj) => {
         for (const value of Object.values(obj)) {
@@ -98,6 +95,10 @@ const testModifiers = async () => {
       for (const type of Object.keys(types)) {
         const match = data[type].find((pre) => pre.name === item[type]);
         gentleAssert(match, `err: ${name}'s ${type} is not found!`);
+        gentleAssert(
+          !match.profession || match?.profession?.toUpperCase() === specialization?.toUpperCase(),
+          `err: ${name}'s ${type}'s profession is wrong!`,
+        );
       }
     }
   }
