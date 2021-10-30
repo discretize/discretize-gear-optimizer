@@ -20,6 +20,7 @@
     "updateMappings": "node updateMappings.js",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "testModifiers": "node --experimental-json-modules ./src/assets/modifierdata/testModifiers.js",
+    "testPresets": "node --experimental-json-modules ./src/assets/presetdata/testPresets.js",
     "extractLocale": "yarn run babel --config-file ./babel-extract.config.js -o tmp/chunk.js 'src/**/*.{js,jsx,ts,tsx}' && rm -rf tmp",
     "extractLocaleCMD": "yarn run babel --config-file ./babel-extract.config.js -o tmp/chunk.js \"src/**/*.{js,jsx,ts,tsx}\" && rd /q /s tmp"
   },
