@@ -297,12 +297,12 @@ list:
         "values2": { "Power": 1610, "Burning": 2.3, "Bleeding": 19.5, "Poisoned": 4.9, "Torment": 0, "Confusion": 0 }
       }
 
-  - name: Power Holo
+  - name: Power Holo ECSU
     profession: HOLOSMITH
     value: >-
       {
-        "values1": { "Power": 63, "Burning": 23, "Bleeding": 11, "Poisoned": 3, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 3620, "Burning": 4.0, "Bleeding": 11.7, "Poisoned": 2.0, "Torment": 0, "Confusion": 0 }
+        "values1": { "Power": 61, "Burning": 20, "Bleeding": 14, "Poisoned": 5, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 3153, "Burning": 3.1, "Bleeding": 13.4, "Poisoned": 2.7, "Torment": 0, "Confusion": 0 }
       }
 
   # - name: Condi Holo

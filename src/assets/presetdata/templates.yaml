@@ -355,13 +355,13 @@ list:
   - class: engineer
     builds:
 
-      - name: Power Holo
-        id: pholo
+      - name: Power Holo ECSU
+        id: pholo-ecsu
         specialization: Holosmith
         boons: Power (spotter)
         priority: Power DPS
-        distribution: Power Holo
-        traits: Power Holo
+        distribution: Power Holo ECSU
+        traits: Power Holo ECSU
         extras: Power (Fractal)
 
       - name: Power Scrapper
