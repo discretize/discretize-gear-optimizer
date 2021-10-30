@@ -13,6 +13,15 @@ list:
         traits: Power Chrono
         extras: Power (Fractal)
 
+      - name: '[incomplete] Virtuoso'
+        id: pvirt
+        specialization: Mirage
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: None
+        traits: '[incomplete] Virtuoso'
+        extras: '[incomplete] Virtuoso'
+
   - class: guardian
     builds:
 
@@ -115,6 +124,15 @@ list:
         traits: Healbrand
         extras: Heal
 
+      - name: '[incomplete] Power Willbender'
+        id: pwb
+        specialization: Firebrand
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: None
+        traits: '[incomplete] Power Willbender'
+        extras: '[incomplete] Power Willbender'
+
   - class: warrior
     builds:
 
@@ -144,6 +162,15 @@ list:
         distribution: Power Banner Spellbreaker
         traits: Power Banner SPB
         extras: Power (Fractal)
+
+      - name: '[incomplete] Bladesworn'
+        id: pbls
+        specialization: Spellbreaker
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: None
+        traits: '[incomplete] Bladesworn'
+        extras: '[incomplete] Bladesworn'
 
   - class: elementalist
     builds:
@@ -385,6 +412,15 @@ list:
         traits: Condi Reaper
         extras: Condi Reaper
 
+      - name: '[incomplete] DPS Harbinger'
+        id: charb
+        specialization: Scourge
+        boons: Condi
+        priority: Condi DPS
+        distribution: '[approx] Beta Harbinger'
+        traits: '[incomplete] DPS Harbinger'
+        extras: '[incomplete] DPS Harbinger'
+
   - class: thief
     builds:
 
@@ -432,3 +468,21 @@ list:
         distribution: Rifle Deadeye
         traits: Rifle Deadeye
         extras: Power (Fractal)
+
+      - name: '[incomplete] DPS Specter Sc/D'
+        id: specterdagger
+        specialization: Deadeye
+        boons: Condi
+        priority: Condi DPS
+        distribution: Beta DPS Specter Sc/D
+        traits: '[incomplete] DPS Specter Sc/D'
+        extras: '[incomplete] DPS Specter'
+
+      - name: '[incomplete] DPS Specter Endless Night'
+        id: specterpistol
+        specialization: Deadeye
+        boons: Condi
+        priority: Heal
+        distribution: Beta DPS Specter Endless Night
+        traits: '[incomplete] DPS Specter Endless Night'
+        extras: '[incomplete] DPS Specter'

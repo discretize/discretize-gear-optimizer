@@ -59,6 +59,69 @@ list:
         "skills": []
       }
 
+  - name: '[incomplete] Virtuoso'
+    profession: MIRAGE
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "10",
+          "1",
+          "66"
+        ],
+        "selectedTraits": [
+          [
+            682,
+            713,
+            681
+          ],
+          [
+            701,
+            708,
+            692
+          ],
+          [
+            2208,
+            2205,
+            2223
+          ]
+        ],
+        "items": [
+          {
+            "fragility": {
+              "amount": ""
+            },
+            "egotism": {
+              "amount": ""
+            },
+            "vicious-expression": {
+              "amount": ""
+            }
+          },
+          {
+            "fencers-finesse": {
+              "amount": ""
+            },
+            "superiority-complex-base": true,
+            "superiority-complex": {
+              "amount": ""
+            }
+          },
+          {
+            "mental-focus": {
+              "amount": ""
+            },
+            "sharpening-sorrow": true,
+            "quiet-intensity": true,
+            "bloodsong": true
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": []
+      }
+
   - name: DH Radiance w/ PI
     profession: DRAGONHUNTER
     traits: |-
@@ -787,6 +850,76 @@ list:
         ]
       }
 
+  - name: '[incomplete] Power Willbender'
+    profession: FIREBRAND
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "16",
+          "42",
+          "65"
+        ],
+        "selectedTraits": [
+          [
+            566,
+            565,
+            1683
+          ],
+          [
+            634,
+            653,
+            2017
+          ],
+          [
+            2190,
+            2210,
+            2201
+          ]
+        ],
+        "items": [
+          {
+            "right-hand-strength": true,
+            "right-hand-strength-1h": {
+              "amount": ""
+            },
+            "radiant-fire": true,
+            "retribution": {
+              "amount": ""
+            },
+            "radiant-power": true,
+            "amplified-wrath": true,
+            "righteous-instincts": true
+          },
+          {
+            "fiery-wrath": true,
+            "symbolic-exposure": true,
+            "zealous-blade-base": true,
+            "zealous-blade-gs": {
+              "amount": ""
+            },
+            "kindled-zeal": true,
+            "symbolic-avenger": true
+          },
+          {
+            "power-for-power": true,
+            "lethal-tempo": {
+              "amount": ""
+            },
+            "tyrants-momentum": {
+              "amount": ""
+            },
+            "tyrants-momentum-bugged": false
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": [
+          "bane-signet"
+        ]
+      }
+
   - name: Power Banner Bers
     profession: BERSERKER
     traits: |-
@@ -867,7 +1000,7 @@ list:
         ]
       }
 
-  - name: Condi Bers
+  - name: Condi Banner Bers
     profession: BERSERKER
     traits: |-
       {
@@ -1020,6 +1153,73 @@ list:
       {
         "skills": [
           "signet-of-might"
+        ]
+      }
+
+  - name: '[incomplete] Bladesworn'
+    profession: SPELLBREAKER
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "4",
+          "51",
+          "68"
+        ],
+        "selectedTraits": [
+          [
+            1444,
+            1449,
+            1437
+          ],
+          [
+            1413,
+            1484,
+            1657
+          ],
+          [
+            2225,
+            2240,
+            2239
+          ]
+        ],
+        "items": [
+          {
+            "peak-performance": true,
+            "peak-performance-2": false,
+            "forceful-greatsword": true,
+            "forceful-greatsword-2": false,
+            "great-fortitude": true,
+            "pinnacle-of-strength": {
+              "amount": ""
+            },
+            "berserkers-power": {
+              "amount": ""
+            }
+          },
+          {
+            "warriors-sprint": {
+              "amount": ""
+            },
+            "double-standards-str": true,
+            "double-standards-disc": true,
+            "axe-mastery-one": true,
+            "axe-mastery-axe": {
+              "amount": ""
+            }
+          },
+          {
+            "guns-and-glory": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": [
+          "signet-of-might",
+          "signet-of-fury"
         ]
       }
 
@@ -1388,7 +1588,7 @@ list:
         "skills": []
       }
 
-  - name: Power Slb Marks
+  - name: Power Slb
     profession: SOULBEAST
     traits: |-
       {
@@ -2701,6 +2901,70 @@ list:
         "skills": []
       }
 
+  - name: '[incomplete] DPS Harbinger'
+    profession: SCOURGE
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "39",
+          "50",
+          "64"
+        ],
+        "selectedTraits": [
+          [
+            2013,
+            816,
+            801
+          ],
+          [
+            875,
+            894,
+            905
+          ],
+          [
+            2185,
+            2209,
+            2203
+          ]
+        ],
+        "items": [
+          {
+            "barbed-precision": true,
+            "furious-demise": true,
+            "target-the-weak-base": true,
+            "target-the-weak": {
+              "amount": ""
+            },
+            "lingering-curse": true
+          },
+          {
+            "soul-barbs": {
+              "amount": ""
+            },
+            "vital-persistence": true,
+            "death-perception": true
+          },
+          {
+            "wicked-corruption": {
+              "amount": ""
+            },
+            "septic-corruption": {
+              "amount": ""
+            },
+            "alchemic-vigor": true,
+            "implacable-foe": true,
+            "dark-gunslinger": true,
+            "cascading-corruption": true,
+            "doom-approaches": true
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": []
+      }
+
   - name: Condi Deadeye
     profession: DEADEYE
     traits: |-
@@ -3042,6 +3306,142 @@ list:
             },
             "iron-sight": true,
             "be-quick-or-be-killed": true
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": []
+      }
+
+  - name: '[incomplete] DPS Specter Sc/D'
+    profession: DEADEYE
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "28",
+          "44",
+          "71"
+        ],
+        "selectedTraits": [
+          [
+            1164,
+            1292,
+            1291
+          ],
+          [
+            1163,
+            1190,
+            1187
+          ],
+          [
+            2275,
+            2290,
+            2264
+          ]
+        ],
+        "items": [
+          {
+            "dagger-training-base": true,
+            "dagger-training-dagger": false,
+            "deadly-ambition": true,
+            "revealed-training-base": true,
+            "revealed-training-revealed": false,
+            "exposed-weakness": {
+              "amount": ""
+            },
+            "potent-poison": true,
+            "executioner": {
+              "amount": ""
+            }
+          },
+          {
+            "preparedness": true,
+            "lead-attacks": {
+              "amount": ""
+            },
+            "deadly-ambush": true
+          },
+          {
+            "second-opinion-base": true,
+            "second-opinion-scepter": {
+              "amount": ""
+            },
+            "dark-sentry": true,
+            "larcenous-torment": true,
+            "strength-of-shadows-base": true,
+            "strength-of-shadows-condis": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": []
+      }
+
+  - name: '[incomplete] DPS Specter Endless Night'
+    profession: DEADEYE
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "28",
+          "44",
+          "71"
+        ],
+        "selectedTraits": [
+          [
+            1164,
+            1292,
+            1291
+          ],
+          [
+            1252,
+            1286,
+            1187
+          ],
+          [
+            2275,
+            2290,
+            2264
+          ]
+        ],
+        "items": [
+          {
+            "dagger-training-base": true,
+            "dagger-training-dagger": false,
+            "deadly-ambition": true,
+            "revealed-training-base": true,
+            "revealed-training-revealed": false,
+            "exposed-weakness": {
+              "amount": ""
+            },
+            "potent-poison": true,
+            "executioner": {
+              "amount": ""
+            }
+          },
+          {
+            "preparedness": true,
+            "lead-attacks": {
+              "amount": ""
+            },
+            "deadly-ambush": true
+          },
+          {
+            "second-opinion-base": true,
+            "second-opinion-scepter": {
+              "amount": ""
+            },
+            "dark-sentry": true,
+            "larcenous-torment": true,
+            "strength-of-shadows-base": true,
+            "strength-of-shadows-condis": {
+              "amount": ""
+            }
           }
         ]
       }
