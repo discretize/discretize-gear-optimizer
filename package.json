@@ -38,7 +38,7 @@
     "gatsby-source-filesystem": "^3.11.0",
     "gatsby-transformer-sharp": "^3.11.0",
     "gatsby-transformer-yaml": "^3.10.0",
-    "gw2-ui-bulk": "0.10.39",
+    "gw2-ui-bulk": "0.11.11",
     "i18next": "^21.2.4",
     "js-yaml": "^4.1.0",
     "jss": "^10.7.1",
