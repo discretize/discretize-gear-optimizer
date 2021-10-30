@@ -78,7 +78,15 @@ Affix presets do not currently have a `profession` key (they are all always show
         "selectedLines": [
           "16",
           "46",
-          ...etc
+          
+          [...etc]
+      }
+    skills: |-
+      {
+        "skills": [
+          "signet-of-wrath"
+        ]
+      }
 ```
 
 ## preset-extras.yaml
