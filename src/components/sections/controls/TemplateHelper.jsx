@@ -153,7 +153,23 @@ const TemplateHelper = ({ character }) => {
       </Typography>
 
       <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-        {JSON.stringify(traitsTemplate, null, 2)}
+        {JSON.stringify(traitsTemplate.traits, null, 2)}
+      </pre>
+
+      <Typography variant="h6">
+        <Trans>Skills Template</Trans>
+      </Typography>
+
+      <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
+        {JSON.stringify(traitsTemplate.skills, null, 2)}
+      </pre>
+
+      <Typography variant="h6">
+        <Trans>Extras Template</Trans>
+      </Typography>
+
+      <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
+        {JSON.stringify(traitsTemplate.extras, null, 2)}
       </pre>
     </>
   );
