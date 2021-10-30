@@ -1000,7 +1000,7 @@ list:
         ]
       }
 
-  - name: Condi Banner Bers
+  - name: Condi Bers
     profession: BERSERKER
     traits: |-
       {
@@ -1588,7 +1588,7 @@ list:
         "skills": []
       }
 
-  - name: Power Slb
+  - name: Power Slb Marks
     profession: SOULBEAST
     traits: |-
       {

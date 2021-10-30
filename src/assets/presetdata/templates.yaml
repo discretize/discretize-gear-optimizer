@@ -264,7 +264,7 @@ list:
         specialization: Druid
         boons: Power (spotter)
         priority: Condi Boon
-        distribution: Condi Druid
+        distribution: Condi Druid (approx.)
         traits: Condi Druid*
         extras: Condi Druid*
 
