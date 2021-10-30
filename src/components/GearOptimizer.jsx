@@ -51,10 +51,12 @@ const MainComponent = ({ classes, data }) => {
   return (
     <div className={classes.root}>
       <NavBar
-        data={data.presetTraits.list}
+        data={data.templates.list}
         buffPresets={data.presetBuffs.list}
         prioritiesPresets={data.presetAffixes.list}
         distributionPresets={data.presetDistribution.list}
+        extrasPresets={data.presetExtras.list}
+        traitPresets={data.presetTraits.list}
       />
 
       {profession === '' && (
@@ -137,6 +139,14 @@ const GearOptimizer = ({ classes }) => {
               value
             }
           }
+          presetTraits: presetTraits {
+            list {
+              name
+              traits
+              skills
+              profession
+            }
+          }
           presetExtras: presetExtras {
             list {
               name
@@ -151,7 +161,7 @@ const GearOptimizer = ({ classes }) => {
               profession
             }
           }
-          presetTraits {
+          templates {
             id
             list {
               class
@@ -163,6 +173,7 @@ const GearOptimizer = ({ classes }) => {
                 boons
                 priority
                 distribution
+                extras
               }
             }
           }

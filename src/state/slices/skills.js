@@ -28,10 +28,8 @@ export const skillsSlice = createSlice({
       }
     },
     [setBuildTemplate]: (state, action) => {
-      const { build } = action.payload;
-
-      const traitState = JSON.parse(build.traits);
-      return traitState.skills;
+      const { skillsPreset = {} } = action.payload;
+      return { ...state, ...skillsPreset };
     },
     [setModifiers]: (state, action) => {
       const enabledModifiers = state.skills;

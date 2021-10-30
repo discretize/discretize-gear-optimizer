@@ -43,7 +43,15 @@ const styles = (theme) => ({
   },
 });
 
-const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPresets }) => {
+const Navbar = ({
+  classes,
+  data,
+  buffPresets,
+  prioritiesPresets,
+  distributionPresets,
+  extrasPresets,
+  traitPresets,
+}) => {
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
   const expertMode = useSelector(getControl('expertMode'));
@@ -137,6 +145,8 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
               buffPresets={buffPresets}
               prioritiesPresets={prioritiesPresets}
               distributionPresets={distributionPresets}
+              extrasPresets={extrasPresets}
+              traitPresets={traitPresets}
             />
           </div>
         </SwipeableDrawer>
@@ -147,20 +157,23 @@ const Navbar = ({ classes, data, buffPresets, prioritiesPresets, distributionPre
   };
 
   // eslint-disable-next-line no-shadow
-  const handleTemplateSelect = (popup, elem, specialization, profession) => {
+  const handleTemplateSelect = (popup, build, specialization, profession) => {
     dispatch({ type: 'CANCEL' });
     dispatch(
       setBuildTemplate({
-        build: elem,
+        build,
         specialization,
         profession,
-        buffPreset: JSON.parse(buffPresets.find((pre) => pre.name === elem.boons).value),
+        buffPreset: JSON.parse(buffPresets.find((pre) => pre.name === build.boons).value),
         distributionPreset: JSON.parse(
-          distributionPresets.find((pre) => pre.name === elem.distribution)?.value || 'null',
+          distributionPresets.find((pre) => pre.name === build.distribution)?.value || 'null',
         ),
         prioritiesPreset: JSON.parse(
-          prioritiesPresets.find((prio) => prio.name === elem.priority).value,
+          prioritiesPresets.find((pre) => pre.name === build.priority)?.value,
         ),
+        extrasPreset: JSON.parse(extrasPresets.find((pre) => pre.name === build.extras)?.value),
+        traitsPreset: JSON.parse(traitPresets.find((pre) => pre.name === build.traits)?.traits),
+        skillsPreset: JSON.parse(traitPresets.find((pre) => pre.name === build.traits)?.skills),
       }),
     );
 
