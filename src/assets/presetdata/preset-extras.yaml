@@ -32,7 +32,7 @@ list:
       }
 
   - name: '[incomplete] Virtuoso'
-    profession: MIRAGE
+    profession: VIRTUOSO
     value: |-
       {
         "Runes": "scholar",
@@ -109,7 +109,7 @@ list:
       }
 
   - name: '[incomplete] Power Willbender'
-    profession: FIREBRAND
+    profession: WILLBENDER
     value: |-
       {
         "Runes": "scholar",
@@ -142,7 +142,7 @@ list:
       }
 
   - name: '[incomplete] Bladesworn'
-    profession: SPELLBREAKER
+    profession: BLADESWORN
     value: |-
       {
         "Runes": "scholar",
@@ -318,7 +318,7 @@ list:
       }
 
   - name: '[incomplete] DPS Harbinger'
-    profession: SCOURGE
+    profession: HARBINGER
     value: |-
       {
         "Runes": "tormenting",
@@ -362,7 +362,7 @@ list:
       }
 
   - name: '[incomplete] DPS Specter'
-    profession: DEADEYE
+    profession: SPECTER
     value: |-
       {
         "Runes": "tormenting",

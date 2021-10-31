@@ -354,7 +354,7 @@ list:
       }
 
   - name: '[approx] Beta Harbinger'
-    profession: SCOURGE
+    profession: HARBINGER
     value: >-
       {
         "values1": { "Power": 33, "Burning": 13, "Bleeding": 12, "Poisoned": 11, "Torment": 31, "Confusion": 0 },
@@ -394,7 +394,7 @@ list:
       }
 
   - name: 'Beta DPS Specter Sc/D'
-    profession: DEADEYE
+    profession: SPECTER
     value: >-
       {
         "values1": { "Power": 39, "Burning": 3, "Bleeding": 2, "Poisoned": 25, "Torment": 31, "Confusion": 0 },
@@ -402,7 +402,7 @@ list:
       }
 
   - name: 'Beta DPS Specter Endless Night'
-    profession: DEADEYE
+    profession: SPECTER
     value: >-
       {
         "values1": { "Power": 11, "Burning": 3, "Bleeding": 0, "Poisoned": 22, "Torment": 64, "Confusion": 0 },

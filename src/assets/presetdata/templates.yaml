@@ -15,7 +15,7 @@ list:
 
       - name: '[incomplete] Virtuoso'
         id: pvirt
-        specialization: Mirage
+        specialization: Virtuoso
         boons: Power (spotter)
         priority: Power DPS
         distribution: None
@@ -126,7 +126,7 @@ list:
 
       - name: '[incomplete] Power Willbender'
         id: pwb
-        specialization: Firebrand
+        specialization: Willbender
         boons: Power (spotter)
         priority: Power DPS
         distribution: None
@@ -165,7 +165,7 @@ list:
 
       - name: '[incomplete] Bladesworn'
         id: pbls
-        specialization: Spellbreaker
+        specialization: Bladesworn
         boons: Power (spotter)
         priority: Power DPS
         distribution: None
@@ -414,7 +414,7 @@ list:
 
       - name: '[incomplete] DPS Harbinger'
         id: charb
-        specialization: Scourge
+        specialization: Harbinger
         boons: Condi
         priority: Condi DPS
         distribution: '[approx] Beta Harbinger'
@@ -471,7 +471,7 @@ list:
 
       - name: '[incomplete] DPS Specter Sc/D'
         id: specterdagger
-        specialization: Deadeye
+        specialization: Specter
         boons: Condi
         priority: Condi DPS
         distribution: Beta DPS Specter Sc/D
@@ -480,7 +480,7 @@ list:
 
       - name: '[incomplete] DPS Specter Endless Night'
         id: specterpistol
-        specialization: Deadeye
+        specialization: Specter
         boons: Condi
         priority: Heal
         distribution: Beta DPS Specter Endless Night

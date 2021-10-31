@@ -60,7 +60,7 @@ list:
       }
 
   - name: '[incomplete] Virtuoso'
-    profession: MIRAGE
+    profession: VIRTUOSO
     traits: |-
       {
         "showAll": false,
@@ -783,7 +783,7 @@ list:
       }
 
   - name: '[incomplete] Power Willbender'
-    profession: FIREBRAND
+    profession: WILLBENDER
     traits: |-
       {
         "showAll": false,
@@ -1089,7 +1089,7 @@ list:
       }
 
   - name: '[incomplete] Bladesworn'
-    profession: SPELLBREAKER
+    profession: BLADESWORN
     traits: |-
       {
         "showAll": false,
@@ -2776,7 +2776,7 @@ list:
       }
 
   - name: '[incomplete] DPS Harbinger'
-    profession: SCOURGE
+    profession: HARBINGER
     traits: |-
       {
         "showAll": false,
@@ -3189,7 +3189,7 @@ list:
       }
 
   - name: '[incomplete] DPS Specter Sc/D'
-    profession: DEADEYE
+    profession: SPECTER
     traits: |-
       {
         "showAll": false,
@@ -3257,7 +3257,7 @@ list:
       }
 
   - name: '[incomplete] DPS Specter Endless Night'
-    profession: DEADEYE
+    profession: SPECTER
     traits: |-
       {
         "showAll": false,
