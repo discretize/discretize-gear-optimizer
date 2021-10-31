@@ -323,7 +323,7 @@ list:
         ]
       }
 
-  - name: pQFB
+  - name: Power Quickbrand
     profession: FIREBRAND
     traits: |-
       {
@@ -388,7 +388,7 @@ list:
         ]
       }
 
-  - name: CFB w/ Quickness
+  - name: Condi Quickbrand
     profession: FIREBRAND
     traits: |-
       {
@@ -592,75 +592,7 @@ list:
         ]
       }
 
-  - name: CQB 40%
-    profession: FIREBRAND
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "16",
-          "46",
-          "62"
-        ],
-        "selectedTraits": [
-          [
-            566,
-            567,
-            1686
-          ],
-          [
-            617,
-            587,
-            622
-          ],
-          [
-            2101,
-            2076,
-            2159
-          ]
-        ],
-        "items": [
-          {
-            "right-hand-strength": true,
-            "right-hand-strength-1h": {
-              "amount": "100"
-            },
-            "radiant-fire": true,
-            "retribution": {
-              "amount": ""
-            },
-            "radiant-power": true,
-            "amplified-wrath": true,
-            "righteous-instincts": true
-          },
-          {
-            "inspired-virtue": {
-              "amount": ""
-            },
-            "unscathed-contender": {
-              "amount": ""
-            },
-            "virtue-of-retribution": true,
-            "inspiring-virtue": {
-              "amount": ""
-            },
-            "power-of-the-virtuous": true
-          },
-          {
-            "imbued-haste": {
-              "amount": ""
-            }
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": [
-          "signet-of-wrath"
-        ]
-      }
-
-  - name: Hybrid FB (Virtues)
+  - name: Hybrid FB Virtues
     profession: FIREBRAND
     traits: |-
       {
@@ -726,7 +658,7 @@ list:
         "skills": []
       }
 
-  - name: Hybrid FB (Honor)
+  - name: Hybrid FB Honor
     profession: FIREBRAND
     traits: |-
       {
@@ -1311,7 +1243,7 @@ list:
         "skills": []
       }
 
-  - name: Condi Weaver SW
+  - name: Condi Weaver Sword
     profession: WEAVER
     traits: |-
       {
@@ -2006,68 +1938,6 @@ list:
             "swift-termination": {
               "amount": ""
             }
-          },
-          {
-            "rising-tide": {
-              "amount": ""
-            },
-            "ferocious-aggression": {
-              "amount": ""
-            },
-            "roiling-mists": true
-          },
-          {
-            "ambush-commander": {
-              "amount": ""
-            },
-            "blood-fury": true,
-            "heartpiercer": true,
-            "brutal-momentum": true,
-            "lasting-legacy": {
-              "amount": ""
-            }
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": []
-      }
-
-  - name: Condi Alac Ren Invo
-    profession: RENEGADE
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "14",
-          "3",
-          "63"
-        ],
-        "selectedTraits": [
-          [
-            1793,
-            1714,
-            1795
-          ],
-          [
-            1761,
-            1781,
-            1791
-          ],
-          [
-            2079,
-            2092,
-            2182
-          ]
-        ],
-        "items": [
-          {
-            "acolyte-of-torment": true,
-            "seething-malice": true,
-            "demonic-resistance": true,
-            "pact-of-pain": true,
-            "yearning-empowerment": true
           },
           {
             "rising-tide": {
