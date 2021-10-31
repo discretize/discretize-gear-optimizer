@@ -16,6 +16,9 @@ export const skillsSlice = createSlice({
     removeSkill: (state, action) => {
       return { ...state, skills: state.skills.filter((skill) => skill !== action.payload) };
     },
+    changeSkills: (state, action) => {
+      return { ...state, ...action.payload };
+    },
   },
   extraReducers: {
     [changeProfession]: (state, action) => {
@@ -28,10 +31,8 @@ export const skillsSlice = createSlice({
       }
     },
     [setBuildTemplate]: (state, action) => {
-      const { build } = action.payload;
-
-      const traitState = JSON.parse(build.traits);
-      return traitState.skills;
+      const { skillsPreset = {} } = action.payload;
+      return { ...state, ...skillsPreset };
     },
     [setModifiers]: (state, action) => {
       const enabledModifiers = state.skills;
@@ -46,4 +47,4 @@ export const skillsSlice = createSlice({
 
 export const getSkills = (state) => state.optimizer.skills.skills;
 
-export const { addSkill, removeSkill } = skillsSlice.actions;
+export const { addSkill, removeSkill, changeSkills } = skillsSlice.actions;

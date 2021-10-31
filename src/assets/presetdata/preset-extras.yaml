@@ -31,6 +31,17 @@ list:
         "Nourishment": "fruit-salad-mint-garnish"
       }
 
+  - name: '[incomplete] Virtuoso'
+    profession: VIRTUOSO
+    value: |-
+      {
+        "Runes": "scholar",
+        "Sigil1": "force",
+        "Sigil2": "accuracy",
+        "Enhancement": "superior-sharpening-stone",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+      }
+
   - name: DH Virtues (Fractal)
     profession: DRAGONHUNTER
     value: |-
@@ -75,7 +86,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: CQB 40%
+  - name: Condi Quickbrand 40%
     profession: FIREBRAND
     value: |-
       {
@@ -95,6 +106,17 @@ list:
         "Sigil2": "smoldering",
         "Enhancement": "master-tuning-crystal",
         "Nourishment": "beef-rendang"
+      }
+
+  - name: '[incomplete] Power Willbender'
+    profession: WILLBENDER
+    value: |-
+      {
+        "Runes": "scholar",
+        "Sigil1": "force",
+        "Sigil2": "impact/night/slaying-only-3",
+        "Enhancement": "superior-sharpening-stone",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
       }
 
   - name: Condi Bers
@@ -119,7 +141,18 @@ list:
         "Nourishment": "sweet-and-spicy-butternut-squash-soup"
       }
 
-  - name: Condi Weaver SW
+  - name: '[incomplete] Bladesworn'
+    profession: BLADESWORN
+    value: |-
+      {
+        "Runes": "scholar",
+        "Sigil1": "force",
+        "Sigil2": "accuracy",
+        "Enhancement": "superior-sharpening-stone",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+      }
+
+  - name: Condi Weaver Sword
     profession: WEAVER
     value: |-
       {
@@ -284,6 +317,17 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
+  - name: '[incomplete] DPS Harbinger'
+    profession: HARBINGER
+    value: |-
+      {
+        "Runes": "tormenting",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
   - name: Condi Deadeye
     profession: DEADEYE
     value: |-
@@ -314,5 +358,16 @@ list:
         "Sigil1": "",
         "Sigil2": "",
         "Enhancement": "master-tuning-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: '[incomplete] DPS Specter'
+    profession: SPECTER
+    value: |-
+      {
+        "Runes": "tormenting",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "toxic-focusing-crystal",
         "Nourishment": "beef-rendang"
       }

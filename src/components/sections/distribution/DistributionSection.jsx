@@ -26,7 +26,11 @@ const DistributionSection = ({ profession, data }) => {
     const { eliteSpecializations } = PROFESSIONS.find((entry) => entry.profession === profession);
     distributionPresets = data.presetDistribution.list.filter((preset) => {
       if (preset.name === 'None') return false;
-      return preset.profession === null || eliteSpecializations.includes(preset.profession);
+      return (
+        preset.profession === null ||
+        preset.profession === profession ||
+        eliteSpecializations.includes(preset.profession)
+      );
     });
   }
 
