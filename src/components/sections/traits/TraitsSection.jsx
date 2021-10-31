@@ -21,7 +21,11 @@ const TraitsSection = ({ profession, data }) => {
   if (profession) {
     const { eliteSpecializations } = PROFESSIONS.find((entry) => entry.profession === profession);
     traitsPresets = data.presetTraits.list.filter((preset) => {
-      return preset.profession === null || eliteSpecializations.includes(preset.profession);
+      return (
+        preset.profession === null ||
+        preset.profession === profession ||
+        eliteSpecializations.includes(preset.profession)
+      );
     });
   }
 
