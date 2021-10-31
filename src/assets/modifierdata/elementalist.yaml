@@ -486,6 +486,7 @@
         label: 'stacks'
         default: 5
         quantityEntered: 1
+        disableBlacklist: true
       modifiers:
         damage:
           Damage Reduction: [2%, unknown]

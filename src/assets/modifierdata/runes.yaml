@@ -100,6 +100,18 @@
           Precision: [100, converted]
       gw2id: 73399
 
+    - id: fire
+      text: Superior Rune of the Fire
+      subText: (100% With Fire Aura)
+      modifiers:
+        damage:
+          Strike Damage: [10%, unknown]
+        attributes:
+          Power: [175, converted]
+          Might Duration: 10%
+          Burning Duration: 10%
+      gw2id: 24747
+
 - section: Support Runes
   items:
 
@@ -358,6 +370,14 @@
         conversion:
           Condition Damage: {Power: 7%}
       gw2id: 83964
+
+    - id: aristocracy
+      text: Superior Rune of the Aristocracy
+      modifiers:
+        attributes:
+          Condition Damage: [175, converted]
+          Might Duration: 50%
+      gw2id: 24845
 
 - section: Specific Condition Runes
   items:

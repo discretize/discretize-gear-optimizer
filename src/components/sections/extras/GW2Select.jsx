@@ -13,7 +13,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeExtras, getExtra } from '../../../state/slices/extras';
+import { changeExtra, getExtra } from '../../../state/slices/extras';
 
 const styles = (theme) => ({
   formControl: {
@@ -42,7 +42,7 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => 
 
   const handleChange = (event) => {
     if (event.target.value !== undefined)
-      dispatch(changeExtras({ key: event.target.name, value: event.target.value }));
+      dispatch(changeExtra({ key: event.target.name, value: event.target.value }));
   };
 
   const userLang = navigator.language || navigator.userLanguage;

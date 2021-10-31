@@ -1,1 +1,4446 @@
-[{"id":214,"name":"ragingstorm","profession":"elementalist"},{"id":221,"name":"zephyrsspeed","profession":"elementalist"},{"id":222,"name":"electricdischarge","profession":"elementalist"},{"id":223,"name":"aeromancerstraining","profession":"elementalist"},{"id":224,"name":"onewithair","profession":"elementalist"},{"id":226,"name":"bolttotheheart","profession":"elementalist"},{"id":227,"name":"zephyrsboon","profession":"elementalist"},{"id":229,"name":"inscription","profession":"elementalist"},{"id":232,"name":"ferociouswinds","profession":"elementalist"},{"id":238,"name":"evasivearcana","profession":"elementalist"},{"id":253,"name":"arcaneprecision","profession":"elementalist"},{"id":257,"name":"finalshielding","profession":"elementalist"},{"id":263,"name":"elementalsurge","profession":"elementalist"},{"id":264,"name":"elementalattunement","profession":"elementalist"},{"id":265,"name":"arcaneresurrection","profession":"elementalist"},{"id":266,"name":"renewingstamina","profession":"elementalist"},{"id":268,"name":"arcaneprowess","profession":"elementalist"},{"id":275,"name":"strengthofstone","profession":"elementalist"},{"id":277,"name":"earthenblessing","profession":"elementalist"},{"id":278,"name":"stoneflesh","profession":"elementalist"},{"id":279,"name":"earthenblast","profession":"elementalist"},{"id":280,"name":"geomancerstraining","profession":"elementalist"},{"id":281,"name":"rocksolid","profession":"elementalist"},{"id":282,"name":"earthsembrace","profession":"elementalist"},{"id":287,"name":"writteninstone","profession":"elementalist"},{"id":289,"name":"elementalshielding","profession":"elementalist"},{"id":294,"name":"pyromancerspuissance","profession":"elementalist"},{"id":296,"name":"burningprecision","profession":"elementalist"},{"id":318,"name":"sunspot","profession":"elementalist"},{"id":319,"name":"pyromancerstraining","profession":"elementalist"},{"id":320,"name":"empoweringflame","profession":"elementalist"},{"id":325,"name":"burningrage","profession":"elementalist"},{"id":328,"name":"conjurer","profession":"elementalist"},{"id":334,"name":"poweroverwhelming","profession":"elementalist"},{"id":335,"name":"burningfire","profession":"elementalist"},{"id":340,"name":"smotheringauras","profession":"elementalist"},{"id":348,"name":"soothingice","profession":"elementalist"},{"id":349,"name":"flowlikewater","profession":"elementalist"},{"id":350,"name":"soothingmist","profession":"elementalist"},{"id":351,"name":"healingripple","profession":"elementalist"},{"id":358,"name":"cleansingwave","profession":"elementalist"},{"id":360,"name":"stopdropandroll","profession":"elementalist"},{"id":361,"name":"powerfulaura","profession":"elementalist"},{"id":362,"name":"cleansingwater","profession":"elementalist"},{"id":363,"name":"piercingshards","profession":"elementalist"},{"id":364,"name":"soothingdisruption","profession":"elementalist"},{"id":394,"name":"overshield","profession":"engineer"},{"id":396,"name":"invigoratingspeed","profession":"engineer"},{"id":413,"name":"compoundingchemicals","profession":"engineer"},{"id":429,"name":"shapedcharge","profession":"engineer"},{"id":432,"name":"explosiveentrance","profession":"engineer"},{"id":433,"name":"incendiarypowder","profession":"engineer"},{"id":445,"name":"mechalegs","profession":"engineer"},{"id":468,"name":"hiddenflask","profession":"engineer"},{"id":469,"name":"emergencyelixir","profession":"engineer"},{"id":470,"name":"backpackregenerator","profession":"engineer"},{"id":472,"name":"anticorrosionplating","profession":"engineer"},{"id":473,"name":"hgh","profession":"engineer"},{"id":482,"name":"aimassistedrocket","profession":"engineer"},{"id":487,"name":"transmute","profession":"engineer"},{"id":505,"name":"shrapnel","profession":"engineer"},{"id":507,"name":"autodefensebombdispenser","profession":"engineer"},{"id":508,"name":"reconstructionenclosure","profession":"engineer"},{"id":509,"name":"protectioninjection","profession":"engineer"},{"id":510,"name":"juggernaut","profession":"engineer"},{"id":512,"name":"streamlinedkits","profession":"engineer"},{"id":514,"name":"grenadier","profession":"engineer"},{"id":515,"name":"sharpshooter","profession":"engineer"},{"id":516,"name":"serratedsteel","profession":"engineer"},{"id":517,"name":"steelpackedpowder","profession":"engineer"},{"id":518,"name":"cleansingsynergy","profession":"engineer"},{"id":519,"name":"energyamplifier","profession":"engineer"},{"id":520,"name":"comebackcure","profession":"engineer"},{"id":521,"name":"healthinsurance","profession":"engineer"},{"id":523,"name":"adrenalimplant","profession":"engineer"},{"id":525,"name":"shortfuse","profession":"engineer"},{"id":526,"name":"modifiedammunition","profession":"engineer"},{"id":531,"name":"powerwrench","profession":"engineer"},{"id":532,"name":"staticdischarge","profession":"engineer"},{"id":536,"name":"hematicfocus","profession":"engineer"},{"id":549,"name":"pureofheart","profession":"guardian"},{"id":551,"name":"selflessdaring","profession":"guardian"},{"id":553,"name":"pureofvoice","profession":"guardian"},{"id":554,"name":"battlepresence","profession":"guardian"},{"id":557,"name":"honorablestaff","profession":"guardian"},{"id":558,"name":"writofpersistence","profession":"guardian"},{"id":559,"name":"protectivereviver","profession":"guardian"},{"id":562,"name":"empoweringmight","profession":"guardian"},{"id":563,"name":"wrathfulspirit","profession":"guardian"},{"id":564,"name":"vigorousprecision","profession":"guardian"},{"id":565,"name":"retribution","profession":"guardian"},{"id":566,"name":"righthandstrength","profession":"guardian"},{"id":567,"name":"radiantfire","profession":"guardian"},{"id":568,"name":"radiantpower","profession":"guardian"},{"id":571,"name":"renewedjustice","profession":"guardian"},{"id":572,"name":"justiceisblind","profession":"guardian"},{"id":574,"name":"healersresolution","profession":"guardian"},{"id":577,"name":"innerfire","profession":"guardian"},{"id":578,"name":"wrathofjustice","profession":"guardian"},{"id":579,"name":"perfectinscriptions","profession":"guardian"},{"id":580,"name":"stalwartdefender","profession":"guardian"},{"id":581,"name":"smitersboon","profession":"guardian"},{"id":582,"name":"valorousdefense","profession":"guardian"},{"id":583,"name":"mightoftheprotector","profession":"guardian"},{"id":584,"name":"strengthinnumbers","profession":"guardian"},{"id":585,"name":"altruistichealing","profession":"guardian"},{"id":586,"name":"monksfocus","profession":"guardian"},{"id":587,"name":"glacialheart","profession":"guardian"},{"id":588,"name":"strengthofthefallen","profession":"guardian"},{"id":589,"name":"tenaciousdefense","profession":"guardian"},{"id":594,"name":"steadfastcourage","profession":"guardian"},{"id":603,"name":"inspiringvirtue","profession":"guardian"},{"id":604,"name":"virtueofresolution","profession":"guardian"},{"id":610,"name":"absoluteresolve","profession":"guardian"},{"id":612,"name":"indomitablecourage","profession":"guardian"},{"id":617,"name":"masterofconsecrations","profession":"guardian"},{"id":620,"name":"powerofthevirtuous","profession":"guardian"},{"id":621,"name":"inspiredvirtue","profession":"guardian"},{"id":622,"name":"permeatingwrath","profession":"guardian"},{"id":624,"name":"unscathedcontender","profession":"guardian"},{"id":625,"name":"resolutesubconscious","profession":"guardian"},{"id":628,"name":"furiousfocus","profession":"guardian"},{"id":633,"name":"focusmastery","profession":"guardian"},{"id":634,"name":"fierywrath","profession":"guardian"},{"id":635,"name":"eternalarmory","profession":"guardian"},{"id":637,"name":"shatteredaegis","profession":"guardian"},{"id":646,"name":"symbolicexposure","profession":"guardian"},{"id":648,"name":"zealotsresolution","profession":"guardian"},{"id":649,"name":"symbolicpower","profession":"guardian"},{"id":653,"name":"zealousblade","profession":"guardian"},{"id":654,"name":"protectorsrestoration","profession":"guardian"},{"id":666,"name":"metaphysicalrejuvenation","profession":"mesmer"},{"id":667,"name":"illusionarymembrane","profession":"mesmer"},{"id":668,"name":"chaotictransference","profession":"mesmer"},{"id":669,"name":"chaoticpotency","profession":"mesmer"},{"id":670,"name":"methodofmadness","profession":"mesmer"},{"id":671,"name":"chaoticinterruption","profession":"mesmer"},{"id":673,"name":"auspiciousanguish","profession":"mesmer"},{"id":674,"name":"prismaticunderstanding","profession":"mesmer"},{"id":675,"name":"illusionarydefense","profession":"mesmer"},{"id":677,"name":"masterofmanipulation","profession":"mesmer"},{"id":680,"name":"mentalanguish","profession":"mesmer"},{"id":681,"name":"viciousexpression","profession":"mesmer"},{"id":682,"name":"empoweredillusions","profession":"mesmer"},{"id":685,"name":"illusionofvulnerability","profession":"mesmer"},{"id":686,"name":"bountifulblades","profession":"mesmer"},{"id":687,"name":"rendingshatter","profession":"mesmer"},{"id":691,"name":"thepledge","profession":"mesmer"},{"id":692,"name":"superioritycomplex","profession":"mesmer"},{"id":693,"name":"shatteredconcentration","profession":"mesmer"},{"id":694,"name":"dazzling","profession":"mesmer"},{"id":700,"name":"duelistsdiscipline","profession":"mesmer"},{"id":701,"name":"phantasmalfury","profession":"mesmer"},{"id":704,"name":"deceptiveevasion","profession":"mesmer"},{"id":705,"name":"desperatedecoy","profession":"mesmer"},{"id":706,"name":"criticalinfusion","profession":"mesmer"},{"id":707,"name":"masterfencer","profession":"mesmer"},{"id":708,"name":"fencersfinesse","profession":"mesmer"},{"id":710,"name":"sharperimages","profession":"mesmer"},{"id":712,"name":"furiousinterruption","profession":"mesmer"},{"id":713,"name":"egotism","profession":"mesmer"},{"id":721,"name":"shatterstorm","profession":"mesmer"},{"id":722,"name":"escapeartist","profession":"mesmer"},{"id":723,"name":"compoundingpower","profession":"mesmer"},{"id":729,"name":"phantasmalhaste","profession":"mesmer"},{"id":731,"name":"masterofmisdirection","profession":"mesmer"},{"id":733,"name":"phantasmalforce","profession":"mesmer"},{"id":734,"name":"cryofpain","profession":"mesmer"},{"id":738,"name":"restorativemantras","profession":"mesmer"},{"id":740,"name":"restorativeillusions","profession":"mesmer"},{"id":744,"name":"sympatheticvisage","profession":"mesmer"},{"id":751,"name":"wardensfeedback","profession":"mesmer"},{"id":752,"name":"blurredinscriptions","profession":"mesmer"},{"id":753,"name":"malicioussorcery","profession":"mesmer"},{"id":756,"name":"medicsfeedback","profession":"mesmer"},{"id":757,"name":"menderspurity","profession":"mesmer"},{"id":778,"name":"transfusion","profession":"necromancer"},{"id":780,"name":"ritualoflife","profession":"necromancer"},{"id":782,"name":"bloodbank","profession":"necromancer"},{"id":783,"name":"vampiric","profession":"necromancer"},{"id":788,"name":"quickeningthirst","profession":"necromancer"},{"id":789,"name":"lifefromdeath","profession":"necromancer"},{"id":792,"name":"markofevasion","profession":"necromancer"},{"id":799,"name":"bansheeswail","profession":"necromancer"},{"id":801,"name":"lingeringcurse","profession":"necromancer"},{"id":802,"name":"barbedprecision","profession":"necromancer"},{"id":803,"name":"furiousdemise","profession":"necromancer"},{"id":810,"name":"targettheweak","profession":"necromancer"},{"id":812,"name":"terror","profession":"necromancer"},{"id":813,"name":"weakeningshroud","profession":"necromancer"},{"id":815,"name":"chillingdarkness","profession":"necromancer"},{"id":816,"name":"masterofcorruption","profession":"necromancer"},{"id":820,"name":"fleshofthemaster","profession":"necromancer"},{"id":829,"name":"awakenthepain","profession":"necromancer"},{"id":839,"name":"soulcomprehension","profession":"necromancer"},{"id":842,"name":"deathnova","profession":"necromancer"},{"id":853,"name":"closetodeath","profession":"necromancer"},{"id":855,"name":"deadlystrength","profession":"necromancer"},{"id":856,"name":"armoredshroud","profession":"necromancer"},{"id":857,"name":"putriddefense","profession":"necromancer"},{"id":858,"name":"necromanticcorruption","profession":"necromancer"},{"id":860,"name":"darkdefiance","profession":"necromancer"},{"id":861,"name":"vitalpersistence","profession":"necromancer"},{"id":874,"name":"soulbattery","profession":"necromancer"},{"id":875,"name":"unyieldingblast","profession":"necromancer"},{"id":887,"name":"gluttony","profession":"necromancer"},{"id":888,"name":"speedofshadows","profession":"necromancer"},{"id":889,"name":"eternallife","profession":"necromancer"},{"id":891,"name":"sinistershroud","profession":"necromancer"},{"id":892,"name":"fearofdeath","profession":"necromancer"},{"id":893,"name":"deathperception","profession":"necromancer"},{"id":894,"name":"soulbarbs","profession":"necromancer"},{"id":898,"name":"soulmarks","profession":"necromancer"},{"id":899,"name":"chillofdeath","profession":"necromancer"},{"id":903,"name":"spitefulspirit","profession":"necromancer"},{"id":905,"name":"dhuumfire","profession":"necromancer"},{"id":909,"name":"signetsofsuffering","profession":"necromancer"},{"id":913,"name":"reapersmight","profession":"necromancer"},{"id":914,"name":"spitefultalisman","profession":"necromancer"},{"id":915,"name":"deathsembrace","profession":"necromancer"},{"id":916,"name":"spitefulrenewal","profession":"necromancer"},{"id":917,"name":"siphonedpower","profession":"necromancer"},{"id":919,"name":"dread","profession":"necromancer"},{"id":964,"name":"windbornenotes","profession":"ranger"},{"id":965,"name":"spiritedarrival","profession":"ranger"},{"id":968,"name":"zephyrsspeed","profession":"ranger"},{"id":970,"name":"naturalhealing","profession":"ranger"},{"id":974,"name":"loudwhistle","profession":"ranger"},{"id":975,"name":"wiltingstrike","profession":"ranger"},{"id":978,"name":"instinctivereaction","profession":"ranger"},{"id":986,"name":"clarionbond","profession":"ranger"},{"id":996,"name":"predatorsonslaught","profession":"ranger"},{"id":1000,"name":"farsighted","profession":"ranger"},{"id":1001,"name":"brutishseals","profession":"ranger"},{"id":1009,"name":"alphafocus","profession":"ranger"},{"id":1010,"name":"openingstrike","profession":"ranger"},{"id":1011,"name":"precisestrike","profession":"ranger"},{"id":1014,"name":"huntersgaze","profession":"ranger"},{"id":1015,"name":"remorseless","profession":"ranger"},{"id":1016,"name":"spotter","profession":"ranger"},{"id":1021,"name":"stoneform","profession":"ranger"},{"id":1038,"name":"naturesvengeance","profession":"ranger"},{"id":1047,"name":"twohandedtraining","profession":"ranger"},{"id":1054,"name":"evasivepurity","profession":"ranger"},{"id":1055,"name":"rejuvenation","profession":"ranger"},{"id":1056,"name":"fortifyingbond","profession":"ranger"},{"id":1059,"name":"lingeringmagic","profession":"ranger"},{"id":1060,"name":"alliesaid","profession":"ranger"},{"id":1062,"name":"bountifulhunter","profession":"ranger"},{"id":1064,"name":"quickdraw","profession":"ranger"},{"id":1065,"name":"petsprowess","profession":"ranger"},{"id":1066,"name":"honedaxes","profession":"ranger"},{"id":1067,"name":"primalreflexes","profession":"ranger"},{"id":1068,"name":"hunterstactics","profession":"ranger"},{"id":1069,"name":"sharpenededges","profession":"ranger"},{"id":1070,"name":"momentofclarity","profession":"ranger"},{"id":1072,"name":"potentally","profession":"ranger"},{"id":1075,"name":"trappersexpertise","profession":"ranger"},{"id":1080,"name":"tailwind","profession":"ranger"},{"id":1083,"name":"furiousgrip","profession":"ranger"},{"id":1086,"name":"oakheartsalve","profession":"ranger"},{"id":1089,"name":"ruggedgrowth","profession":"ranger"},{"id":1090,"name":"companionsdefense","profession":"ranger"},{"id":1094,"name":"empathicbond","profession":"ranger"},{"id":1096,"name":"naturalvigor","profession":"ranger"},{"id":1098,"name":"childofearth","profession":"ranger"},{"id":1099,"name":"tastefordanger","profession":"ranger"},{"id":1100,"name":"sharedanguish","profession":"ranger"},{"id":1101,"name":"ambidexterity","profession":"ranger"},{"id":1112,"name":"instantreflexes","profession":"thief"},{"id":1130,"name":"leechingvenoms","profession":"thief"},{"id":1134,"name":"cloakedinshadow","profession":"thief"},{"id":1135,"name":"shadowsrejuvenation","profession":"thief"},{"id":1136,"name":"meldwithshadows","profession":"thief"},{"id":1137,"name":"kleptomaniac","profession":"thief"},{"id":1157,"name":"leadattacks","profession":"thief"},{"id":1158,"name":"sleightofhand","profession":"thief"},{"id":1159,"name":"uncatchable","profession":"thief"},{"id":1160,"name":"mercifulambush","profession":"thief"},{"id":1162,"name":"rendingshade","profession":"thief"},{"id":1163,"name":"thrillofthecrime","profession":"thief"},{"id":1164,"name":"deadlyambition","profession":"thief"},{"id":1167,"name":"improvisation","profession":"thief"},{"id":1169,"name":"eventheodds","profession":"thief"},{"id":1170,"name":"sunderingshade","profession":"thief"},{"id":1187,"name":"quickpockets","profession":"thief"},{"id":1190,"name":"pressurestriking","profession":"thief"},{"id":1192,"name":"swindlersequilibrium","profession":"thief"},{"id":1209,"name":"assassinsfury","profession":"thief"},{"id":1210,"name":"unrelentingstrikes","profession":"thief"},{"id":1215,"name":"hiddenkiller","profession":"thief"},{"id":1232,"name":"preparedness","profession":"thief"},{"id":1234,"name":"felinegrace","profession":"thief"},{"id":1237,"name":"painresponse","profession":"thief"},{"id":1238,"name":"assassinsreward","profession":"thief"},{"id":1240,"name":"expeditiousdodger","profession":"thief"},{"id":1241,"name":"guardedinitiation","profession":"thief"},{"id":1242,"name":"endlessstamina","profession":"thief"},{"id":1245,"name":"daggertraining","profession":"thief"},{"id":1252,"name":"burstofagility","profession":"thief"},{"id":1257,"name":"exposedweakness","profession":"thief"},{"id":1267,"name":"signetsofpower","profession":"thief"},{"id":1268,"name":"twinfangs","profession":"thief"},{"id":1269,"name":"executioner","profession":"thief"},{"id":1272,"name":"practicedtolerance","profession":"thief"},{"id":1276,"name":"mug","profession":"thief"},{"id":1277,"name":"bountifultheft","profession":"thief"},{"id":1279,"name":"serpentstouch","profession":"thief"},{"id":1280,"name":"lotuspoison","profession":"thief"},{"id":1281,"name":"keenobserver","profession":"thief"},{"id":1282,"name":"ferociousstrikes","profession":"thief"},{"id":1284,"name":"hiddenthief","profession":"thief"},{"id":1286,"name":"trickster","profession":"thief"},{"id":1289,"name":"vigorousrecovery","profession":"thief"},{"id":1290,"name":"hardtocatch","profession":"thief"},{"id":1291,"name":"potentpoison","profession":"thief"},{"id":1292,"name":"panicstrike","profession":"thief"},{"id":1293,"name":"shadowsembrace","profession":"thief"},{"id":1294,"name":"concealingrestoration","profession":"thief"},{"id":1295,"name":"upperhand","profession":"thief"},{"id":1297,"name":"shadowsavior","profession":"thief"},{"id":1299,"name":"deadlyaim","profession":"thief"},{"id":1300,"name":"flickeringshadows","profession":"thief"},{"id":1315,"name":"unsuspectingfoe","profession":"warrior"},{"id":1316,"name":"sunderingburst","profession":"warrior"},{"id":1317,"name":"heightenedfocus","profession":"warrior"},{"id":1329,"name":"crackshot","profession":"warrior"},{"id":1333,"name":"blademaster","profession":"warrior"},{"id":1334,"name":"opportunist","profession":"warrior"},{"id":1336,"name":"burstprecision","profession":"warrior"},{"id":1337,"name":"bloodlust","profession":"warrior"},{"id":1338,"name":"forcefulgreatsword","profession":"warrior"},{"id":1342,"name":"furiousburst","profession":"warrior"},{"id":1343,"name":"deepstrikes","profession":"warrior"},{"id":1344,"name":"signetmastery","profession":"warrior"},{"id":1346,"name":"furious","profession":"warrior"},{"id":1348,"name":"adrenalhealth","profession":"warrior"},{"id":1350,"name":"thickskin","profession":"warrior"},{"id":1367,"name":"sunderingmace","profession":"warrior"},{"id":1368,"name":"defypain","profession":"warrior"},{"id":1369,"name":"axemastery","profession":"warrior"},{"id":1372,"name":"culltheweak","profession":"warrior"},{"id":1375,"name":"laststand","profession":"warrior"},{"id":1376,"name":"shieldmaster","profession":"warrior"},{"id":1379,"name":"armoredattack","profession":"warrior"},{"id":1380,"name":"hardenedarmor","profession":"warrior"},{"id":1381,"name":"vengefulreturn","profession":"warrior"},{"id":1413,"name":"warriorssprint","profession":"warrior"},{"id":1415,"name":"versatilerage","profession":"warrior"},{"id":1416,"name":"fasthands","profession":"warrior"},{"id":1417,"name":"versatilepower","profession":"warrior"},{"id":1437,"name":"berserkerspower","profession":"warrior"},{"id":1440,"name":"mercilesshammer","profession":"warrior"},{"id":1444,"name":"peakperformance","profession":"warrior"},{"id":1446,"name":"recklessdodge","profession":"warrior"},{"id":1447,"name":"bravestride","profession":"warrior"},{"id":1448,"name":"buildingmomentum","profession":"warrior"},{"id":1449,"name":"greatfortitude","profession":"warrior"},{"id":1451,"name":"restorativestrength","profession":"warrior"},{"id":1453,"name":"pinnacleofstrength","profession":"warrior"},{"id":1454,"name":"mightmakesright","profession":"warrior"},{"id":1455,"name":"woundingprecision","profession":"warrior"},{"id":1469,"name":"legspecialist","profession":"warrior"},{"id":1470,"name":"vigorousshouts","profession":"warrior"},{"id":1471,"name":"roaringreveille","profession":"warrior"},{"id":1474,"name":"soldierscomfort","profession":"warrior"},{"id":1479,"name":"shrugitoff","profession":"warrior"},{"id":1480,"name":"marchingorders","profession":"warrior"},{"id":1481,"name":"mendingmight","profession":"warrior"},{"id":1482,"name":"empowerallies","profession":"warrior"},{"id":1484,"name":"doubledstandards","profession":"warrior"},{"id":1485,"name":"empowered","profession":"warrior"},{"id":1486,"name":"warriorscunning","profession":"warrior"},{"id":1487,"name":"arcanerestoration","profession":"elementalist"},{"id":1488,"name":"doggedmarch","profession":"warrior"},{"id":1489,"name":"destructionoftheempowered","profession":"warrior"},{"id":1502,"name":"stormsoul","profession":"elementalist"},{"id":1503,"name":"freshair","profession":"elementalist"},{"id":1507,"name":"serratedstones","profession":"elementalist"},{"id":1508,"name":"diamondskin","profession":"elementalist"},{"id":1510,"name":"persistingflames","profession":"elementalist"},{"id":1511,"name":"bountifulpower","profession":"elementalist"},{"id":1541,"name":"flashbang","profession":"engineer"},{"id":1556,"name":"kindledzeal","profession":"guardian"},{"id":1606,"name":"resoundingtimbre","profession":"ranger"},{"id":1649,"name":"cleansingire","profession":"warrior"},{"id":1657,"name":"burstmastery","profession":"warrior"},{"id":1667,"name":"martialcadence","profession":"warrior"},{"id":1672,"name":"lightningrod","profession":"elementalist"},{"id":1673,"name":"elementallockdown","profession":"elementalist"},{"id":1674,"name":"stoneheart","profession":"elementalist"},{"id":1675,"name":"blindingashes","profession":"elementalist"},{"id":1676,"name":"aquamancerstraining","profession":"elementalist"},{"id":1678,"name":"experimentalturrets","profession":"engineer"},{"id":1679,"name":"gadgeteer","profession":"engineer"},{"id":1680,"name":"bunkerdown","profession":"engineer"},{"id":1682,"name":"forceofwill","profession":"guardian"},{"id":1683,"name":"righteousinstincts","profession":"guardian"},{"id":1684,"name":"communaldefenses","profession":"guardian"},{"id":1685,"name":"purityofbody","profession":"guardian"},{"id":1686,"name":"amplifiedwrath","profession":"guardian"},{"id":1687,"name":"bountifuldisillusionment","profession":"mesmer"},{"id":1688,"name":"powerblock","profession":"mesmer"},{"id":1690,"name":"maimthedisillusioned","profession":"mesmer"},{"id":1692,"name":"unholymartyr","profession":"necromancer"},{"id":1693,"name":"pathofcorruption","profession":"necromancer"},{"id":1694,"name":"unholysanctuary","profession":"necromancer"},{"id":1696,"name":"parasiticcontagion","profession":"necromancer"},{"id":1697,"name":"invigoratingbond","profession":"ranger"},{"id":1698,"name":"leadthewind","profession":"ranger"},{"id":1699,"name":"wildernessknowledge","profession":"ranger"},{"id":1700,"name":"stridersdefense","profession":"ranger"},{"id":1701,"name":"poisonmaster","profession":"ranger"},{"id":1702,"name":"invigoratingprecision","profession":"thief"},{"id":1703,"name":"dontstop","profession":"thief"},{"id":1704,"name":"revealedtraining","profession":"thief"},{"id":1705,"name":"shadowsiphoning","profession":"thief"},{"id":1706,"name":"deadlyambush","profession":"thief"},{"id":1707,"name":"dualwielding","profession":"warrior"},{"id":1708,"name":"rousingresilience","profession":"warrior"},{"id":1709,"name":"brawlersrecovery","profession":"warrior"},{"id":1711,"name":"phalanxstrength","profession":"warrior"},{"id":1713,"name":"determinedresolution","profession":"revenant"},{"id":1714,"name":"pactofpain","profession":"revenant"},{"id":1715,"name":"brutality","profession":"revenant"},{"id":1716,"name":"risingmomentum","profession":"revenant"},{"id":1719,"name":"roilingmists","profession":"revenant"},{"id":1720,"name":"fiendishtenacity","profession":"revenant"},{"id":1721,"name":"permeatingpestilence","profession":"revenant"},{"id":1724,"name":"destructiveimpulses","profession":"revenant"},{"id":1726,"name":"demonicresistance","profession":"revenant"},{"id":1727,"name":"abyssalchill","profession":"revenant"},{"id":1728,"name":"closequarters","profession":"revenant"},{"id":1730,"name":"hardeningpersistence","profession":"revenant"},{"id":1732,"name":"cleansingchannel","profession":"revenant"},{"id":1737,"name":"draconicfortitude","profession":"revenant"},{"id":1738,"name":"sharedempowerment","profession":"revenant"},{"id":1740,"name":"dwarvenbattletraining","profession":"revenant"},{"id":1741,"name":"replenishingdespair","profession":"revenant"},{"id":1743,"name":"shiningaspects","profession":"revenant"},{"id":1744,"name":"yearningempowerment","profession":"revenant"},{"id":1746,"name":"elevatedcompassion","profession":"revenant"},{"id":1749,"name":"songofthemists","profession":"revenant"},{"id":1754,"name":"danceofdeath","profession":"revenant"},{"id":1755,"name":"battlescarred","profession":"revenant"},{"id":1757,"name":"unwaveringavoidance","profession":"revenant"},{"id":1758,"name":"ferociousaggression","profession":"revenant"},{"id":1760,"name":"rapidflow","profession":"revenant"},{"id":1761,"name":"risingtide","profession":"revenant"},{"id":1765,"name":"notoriety","profession":"revenant"},{"id":1766,"name":"eyeforaneye","profession":"revenant"},{"id":1767,"name":"unsuspectingstrikes","profession":"revenant"},{"id":1769,"name":"containedtemper","profession":"revenant"},{"id":1770,"name":"versedinstone","profession":"revenant"},{"id":1772,"name":"draconicecho","profession":"revenant"},{"id":1774,"name":"spiritboon","profession":"revenant"},{"id":1776,"name":"aggressiveagility","profession":"revenant"},{"id":1777,"name":"crystalharbinger","profession":"revenant"},{"id":1778,"name":"invokersrage","profession":"revenant"},{"id":1779,"name":"viciousreprisal","profession":"revenant"},{"id":1781,"name":"incensedresponse","profession":"revenant"},{"id":1782,"name":"resoluteevasion","profession":"revenant"},{"id":1783,"name":"enduringrecovery","profession":"revenant"},{"id":1784,"name":"glaringresolve","profession":"revenant"},{"id":1786,"name":"assassinspresence","profession":"revenant"},{"id":1788,"name":"reinforcedpotency","profession":"revenant"},{"id":1789,"name":"demonicdefiance","profession":"revenant"},{"id":1790,"name":"steadfastrejuvenation","profession":"revenant"},{"id":1791,"name":"chargedmists","profession":"revenant"},{"id":1792,"name":"targeteddestruction","profession":"revenant"},{"id":1793,"name":"acolyteoftorment","profession":"revenant"},{"id":1795,"name":"diabolicinferno","profession":"revenant"},{"id":1799,"name":"invokingtorment","profession":"revenant"},{"id":1800,"name":"swifttermination","profession":"revenant"},{"id":1801,"name":"seethingmalice","profession":"revenant"},{"id":1802,"name":"thrillofcombat","profession":"revenant"},{"id":1803,"name":"forcefulpersistence","profession":"revenant"},{"id":1806,"name":"corevalue","profession":"revenant"},{"id":1808,"name":"exposedefenses","profession":"revenant"},{"id":1810,"name":"spiritualreckoning","profession":"revenant"},{"id":1811,"name":"planarprotection","profession":"revenant"},{"id":1813,"name":"eldersrespite","profession":"revenant"},{"id":1814,"name":"serenerejuvenation","profession":"revenant"},{"id":1815,"name":"generousabundance","profession":"revenant"},{"id":1816,"name":"healersgift","profession":"revenant"},{"id":1817,"name":"resilientspirit","profession":"revenant"},{"id":1818,"name":"invokingharmony","profession":"revenant"},{"id":1819,"name":"wordsofcensure","profession":"revenant"},{"id":1820,"name":"selflessamplification","profession":"revenant"},{"id":1821,"name":"lifeattunement","profession":"revenant"},{"id":1822,"name":"tranquilbalance","profession":"revenant"},{"id":1823,"name":"vitalblessing","profession":"revenant"},{"id":1824,"name":"blindingtruths","profession":"revenant"},{"id":1825,"name":"unyieldingdevotion","profession":"revenant"},{"id":1826,"name":"longbowproficiency","profession":"guardian"},{"id":1829,"name":"torchproficiency","profession":"warrior"},{"id":1831,"name":"primalrage","profession":"warrior"},{"id":1832,"name":"takedownround","profession":"engineer"},{"id":1833,"name":"lotustraining","profession":"thief"},{"id":1834,"name":"soothingdetonation","profession":"engineer"},{"id":1835,"name":"zealotsaggression","profession":"guardian"},{"id":1837,"name":"endurancethief","profession":"thief"},{"id":1838,"name":"delayedreactions","profession":"mesmer"},{"id":1839,"name":"transcendenttempest","profession":"elementalist"},{"id":1844,"name":"vampiricpresence","profession":"necromancer"},{"id":1846,"name":"hiddenbarbs","profession":"ranger"},{"id":1848,"name":"virtuousaction","profession":"guardian"},{"id":1849,"name":"appliedforce","profession":"engineer"},{"id":1852,"name":"inspiringdistortion","profession":"mesmer"},{"id":1854,"name":"ironblooded","profession":"engineer"},{"id":1856,"name":"kineticbattery","profession":"engineer"},{"id":1859,"name":"timemarcheson","profession":"mesmer"},{"id":1860,"name":"objectinmotion","profession":"engineer"},{"id":1861,"name":"gofortheeyes","profession":"ranger"},{"id":1862,"name":"livevicariously","profession":"ranger"},{"id":1863,"name":"bitterchill","profession":"necromancer"},{"id":1865,"name":"chaoticpersistence","profession":"mesmer"},{"id":1866,"name":"illusionaryinspiration","profession":"mesmer"},{"id":1867,"name":"massmomentum","profession":"engineer"},{"id":1868,"name":"druidicclarity","profession":"ranger"},{"id":1869,"name":"persistenceofmemory","profession":"mesmer"},{"id":1871,"name":"purityofpurpose","profession":"engineer"},{"id":1872,"name":"mechanizeddeployment","profession":"engineer"},{"id":1874,"name":"celestialbeing","profession":"ranger"},{"id":1876,"name":"bloodbond","profession":"necromancer"},{"id":1877,"name":"impactsavant","profession":"engineer"},{"id":1878,"name":"chemicalrounds","profession":"engineer"},{"id":1879,"name":"shiversofdread","profession":"necromancer"},{"id":1882,"name":"glasscannon","profession":"engineer"},{"id":1883,"name":"insidiousdisruption","profession":"necromancer"},{"id":1884,"name":"staffmaster","profession":"thief"},{"id":1886,"name":"unstableconduit","profession":"elementalist"},{"id":1887,"name":"weakeningstrikes","profession":"thief"},{"id":1888,"name":"viciousquarry","profession":"ranger"},{"id":1889,"name":"blindingdissipation","profession":"mesmer"},{"id":1890,"name":"chronophantasma","profession":"mesmer"},{"id":1891,"name":"tempestuousaria","profession":"elementalist"},{"id":1892,"name":"explosivetemper","profession":"engineer"},{"id":1893,"name":"havocspecialist","profession":"thief"},{"id":1896,"name":"defendersdogma","profession":"guardian"},{"id":1898,"name":"piercinglight","profession":"guardian"},{"id":1899,"name":"invigoratedbulwark","profession":"guardian"},{"id":1900,"name":"packalpha","profession":"ranger"},{"id":1901,"name":"automatedmedicalresponse","profession":"engineer"},{"id":1902,"name":"harmoniousconduit","profession":"elementalist"},{"id":1904,"name":"noquarter","profession":"thief"},{"id":1905,"name":"shroudknight","profession":"necromancer"},{"id":1908,"name":"huntersfortification","profession":"guardian"},{"id":1910,"name":"shieldproficiency","profession":"mesmer"},{"id":1911,"name":"soaringdevastation","profession":"guardian"},{"id":1912,"name":"lightonyourfeet","profession":"ranger"},{"id":1913,"name":"illusionaryreversion","profession":"mesmer"},{"id":1914,"name":"highcaliber","profession":"engineer"},{"id":1915,"name":"healingprism","profession":"mesmer"},{"id":1916,"name":"medicaldispersionfield","profession":"engineer"},{"id":1917,"name":"gyroscopicacceleration","profession":"engineer"},{"id":1919,"name":"deathlychill","profession":"necromancer"},{"id":1922,"name":"shroudedremoval","profession":"necromancer"},{"id":1923,"name":"noscope","profession":"engineer"},{"id":1925,"name":"zealousscepter","profession":"guardian"},{"id":1926,"name":"pureofsight","profession":"guardian"},{"id":1927,"name":"flowoftime","profession":"mesmer"},{"id":1928,"name":"bloodyroar","profession":"warrior"},{"id":1929,"name":"beyondtheveil","profession":"necromancer"},{"id":1930,"name":"sanguinearray","profession":"engineer"},{"id":1931,"name":"lastrites","profession":"necromancer"},{"id":1932,"name":"blightersboon","profession":"necromancer"},{"id":1933,"name":"maraudersresilience","profession":"thief"},{"id":1935,"name":"primalechoes","profession":"ranger"},{"id":1936,"name":"excessiveenergy","profession":"engineer"},{"id":1938,"name":"gatheredfocus","profession":"elementalist"},{"id":1940,"name":"corruptersfervor","profession":"necromancer"},{"id":1941,"name":"fragility","profession":"mesmer"},{"id":1942,"name":"losttime","profession":"mesmer"},{"id":1943,"name":"bulwark","profession":"guardian"},{"id":1944,"name":"blastshield","profession":"engineer"},{"id":1945,"name":"beastlywarden","profession":"ranger"},{"id":1946,"name":"lockon","profession":"engineer"},{"id":1947,"name":"bigboomer","profession":"engineer"},{"id":1948,"name":"hardyconduit","profession":"elementalist"},{"id":1949,"name":"brawlerstenacity","profession":"thief"},{"id":1950,"name":"ineptitude","profession":"mesmer"},{"id":1951,"name":"hammerproficiency","profession":"engineer"},{"id":1952,"name":"galesong","profession":"elementalist"},{"id":1954,"name":"damagedampener","profession":"engineer"},{"id":1955,"name":"biggamehunter","profession":"guardian"},{"id":1957,"name":"staffproficiency","profession":"thief"},{"id":1959,"name":"functiongyro","profession":"engineer"},{"id":1960,"name":"evasivemirror","profession":"mesmer"},{"id":1962,"name":"latentstamina","profession":"elementalist"},{"id":1963,"name":"heavylight","profession":"guardian"},{"id":1964,"name":"unhinderedcombatant","profession":"thief"},{"id":1965,"name":"staffproficiency","profession":"ranger"},{"id":1969,"name":"souleater","profession":"necromancer"},{"id":1971,"name":"systemshocker","profession":"engineer"},{"id":1974,"name":"auguryofdeath","profession":"necromancer"},{"id":1975,"name":"impactingdisruption","profession":"thief"},{"id":1977,"name":"savageinstinct","profession":"warrior"},{"id":1978,"name":"improvedalacrity","profession":"mesmer"},{"id":1979,"name":"optimizedactivation","profession":"engineer"},{"id":1980,"name":"protectedphantasms","profession":"mesmer"},{"id":1981,"name":"adaptivearmor","profession":"engineer"},{"id":1983,"name":"dulledsenses","profession":"guardian"},{"id":1984,"name":"pinpointdistribution","profession":"engineer"},{"id":1985,"name":"greatswordproficiency","profession":"necromancer"},{"id":1986,"name":"elementalbastion","profession":"elementalist"},{"id":1987,"name":"allswellthatendswell","profession":"mesmer"},{"id":1988,"name":"protectiveward","profession":"ranger"},{"id":1992,"name":"naturalmender","profession":"ranger"},{"id":1993,"name":"burstofaggression","profession":"warrior"},{"id":1994,"name":"physicalsupremacy","profession":"thief"},{"id":1995,"name":"timecatchesup","profession":"mesmer"},{"id":1997,"name":"reactivelenses","profession":"engineer"},{"id":1999,"name":"expertexamination","profession":"engineer"},{"id":2000,"name":"bodyblow","profession":"warrior"},{"id":2001,"name":"verdantetching","profession":"ranger"},{"id":2002,"name":"deadoralive","profession":"warrior"},{"id":2004,"name":"elementalenchantment","profession":"elementalist"},{"id":2005,"name":"mentaldefense","profession":"mesmer"},{"id":2006,"name":"thermalvision","profession":"engineer"},{"id":2008,"name":"chillingvictory","profession":"necromancer"},{"id":2009,"name":"dangertime","profession":"mesmer"},{"id":2011,"name":"bloodreaction","profession":"warrior"},{"id":2013,"name":"plaguesending","profession":"necromancer"},{"id":2014,"name":"speedofsynergy","profession":"engineer"},{"id":2015,"name":"invigoratingtorrents","profession":"elementalist"},{"id":2016,"name":"cultivatedsynergy","profession":"ranger"},{"id":2017,"name":"symbolicavenger","profession":"guardian"},{"id":2018,"name":"coldshoulder","profession":"necromancer"},{"id":2020,"name":"chillingnova","profession":"necromancer"},{"id":2021,"name":"reapersonslaught","profession":"necromancer"},{"id":2022,"name":"seizethemoment","profession":"mesmer"},{"id":2023,"name":"escapistsfortitude","profession":"thief"},{"id":2025,"name":"singularity","profession":"elementalist"},{"id":2026,"name":"relentlesspursuit","profession":"necromancer"},{"id":2028,"name":"soothingpower","profession":"elementalist"},{"id":2030,"name":"timesplitter","profession":"mesmer"},{"id":2031,"name":"decimatedefenses","profession":"necromancer"},{"id":2032,"name":"refinedtoxins","profession":"ranger"},{"id":2033,"name":"lucidsingularity","profession":"elementalist"},{"id":2035,"name":"masteroffragmentation","profession":"mesmer"},{"id":2036,"name":"warhornproficiency","profession":"elementalist"},{"id":2037,"name":"huntersdetermination","profession":"guardian"},{"id":2038,"name":"kingoffires","profession":"warrior"},{"id":2039,"name":"lastblaze","profession":"warrior"},{"id":2042,"name":"heatthesoul","profession":"warrior"},{"id":2043,"name":"eternalchampion","profession":"warrior"},{"id":2046,"name":"fatalfrenzy","profession":"warrior"},{"id":2047,"name":"boundingdodger","profession":"thief"},{"id":2049,"name":"smashbrawler","profession":"warrior"},{"id":2050,"name":"shieldproficiency","profession":"revenant"},{"id":2052,"name":"kineticaccelerators","profession":"engineer"},{"id":2053,"name":"celestialshadow","profession":"ranger"},{"id":2055,"name":"ancientseeds","profession":"ranger"},{"id":2056,"name":"naturalstride","profession":"ranger"},{"id":2057,"name":"graceoftheland","profession":"ranger"},{"id":2058,"name":"lingeringlight","profession":"ranger"},{"id":2059,"name":"desertempowerment","profession":"necromancer"},{"id":2060,"name":"magebanetether","profession":"warrior"},{"id":2061,"name":"swiftrevenge","profession":"elementalist"},{"id":2062,"name":"swiftscholar","profession":"guardian"},{"id":2063,"name":"weightyterms","profession":"guardian"},{"id":2064,"name":"photonicblastingmodule","profession":"engineer"},{"id":2066,"name":"thermalreleasevalve","profession":"engineer"},{"id":2067,"name":"sadisticsearing","profession":"necromancer"},{"id":2069,"name":"nomadsendurance","profession":"mesmer"},{"id":2070,"name":"infinitehorizon","profession":"mesmer"},{"id":2071,"name":"livefast","profession":"ranger"},{"id":2072,"name":"unstoppableunion","profession":"ranger"},{"id":2073,"name":"axeproficiency","profession":"guardian"},{"id":2074,"name":"fellbeacon","profession":"necromancer"},{"id":2075,"name":"unrelentingcriticism","profession":"guardian"},{"id":2076,"name":"stalwartspeed","profession":"guardian"},{"id":2077,"name":"elementalrefreshment","profession":"elementalist"},{"id":2078,"name":"payback","profession":"thief"},{"id":2079,"name":"bloodfury","profession":"revenant"},{"id":2080,"name":"feedfromcorruption","profession":"necromancer"},{"id":2081,"name":"elementalpolyphony","profession":"elementalist"},{"id":2082,"name":"renewingoasis","profession":"mesmer"},{"id":2084,"name":"ironsight","profession":"thief"},{"id":2085,"name":"essenceofspeed","profession":"ranger"},{"id":2086,"name":"archivistofwhispers","profession":"guardian"},{"id":2087,"name":"axeproficiency","profession":"mesmer"},{"id":2088,"name":"daggerproficiency","profession":"ranger"},{"id":2089,"name":"purityofword","profession":"guardian"},{"id":2090,"name":"wovenstride","profession":"elementalist"},{"id":2091,"name":"crystalconfigurationzephyr","profession":"engineer"},{"id":2092,"name":"heartpiercer","profession":"revenant"},{"id":2093,"name":"bequickorbekilled","profession":"thief"},{"id":2094,"name":"vindication","profession":"revenant"},{"id":2095,"name":"sunandmoonstyle","profession":"warrior"},{"id":2096,"name":"bloodassand","profession":"necromancer"},{"id":2097,"name":"slowcounter","profession":"warrior"},{"id":2098,"name":"mirroredaxes","profession":"mesmer"},{"id":2099,"name":"shortbowproficiency","profession":"revenant"},{"id":2100,"name":"lastinglegacy","profession":"revenant"},{"id":2101,"name":"liberatorsvow","profession":"guardian"},{"id":2102,"name":"nourishingashes","profession":"necromancer"},{"id":2103,"name":"crystalconfigurationstorm","profession":"engineer"},{"id":2105,"name":"stoicdemeanor","profession":"guardian"},{"id":2106,"name":"solarfocusinglens","profession":"engineer"},{"id":2107,"name":"purestrike","profession":"warrior"},{"id":2108,"name":"allforone","profession":"revenant"},{"id":2109,"name":"weaver","profession":"elementalist"},{"id":2110,"name":"riddleofsand","profession":"mesmer"},{"id":2111,"name":"maleficentseven","profession":"thief"},{"id":2112,"name":"sandsavant","profession":"necromancer"},{"id":2113,"name":"elusivemind","profession":"mesmer"},{"id":2114,"name":"lightdensityamplifier","profession":"engineer"},{"id":2115,"name":"mastersfortitude","profession":"elementalist"},{"id":2116,"name":"legendarylore","profession":"guardian"},{"id":2117,"name":"speedofsand","profession":"mesmer"},{"id":2118,"name":"silentscope","profession":"thief"},{"id":2119,"name":"secondskin","profession":"ranger"},{"id":2120,"name":"wroughtironwill","profession":"revenant"},{"id":2121,"name":"sandsage","profession":"necromancer"},{"id":2122,"name":"lasersedge","profession":"engineer"},{"id":2123,"name":"heraldofsorrow","profession":"necromancer"},{"id":2124,"name":"daggerproficiency","profession":"warrior"},{"id":2125,"name":"swordproficiency","profession":"engineer"},{"id":2126,"name":"lossaversion","profession":"warrior"},{"id":2127,"name":"twiceasvicious","profession":"ranger"},{"id":2128,"name":"leaderofthepack","profession":"ranger"},{"id":2129,"name":"rifleproficiency","profession":"thief"},{"id":2130,"name":"attackersinsight","profession":"warrior"},{"id":2131,"name":"elementsofrage","profession":"elementalist"},{"id":2133,"name":"boldreversal","profession":"revenant"},{"id":2134,"name":"freshreinforcement","profession":"ranger"},{"id":2135,"name":"heattherapy","profession":"engineer"},{"id":2136,"name":"oneinthechamber","profession":"thief"},{"id":2137,"name":"enhancedcapacitystorageunit","profession":"engineer"},{"id":2138,"name":"invigoratingstrikes","profession":"elementalist"},{"id":2140,"name":"noescape","profession":"warrior"},{"id":2141,"name":"selfdeception","profession":"mesmer"},{"id":2142,"name":"brutalmomentum","profession":"revenant"},{"id":2143,"name":"oppressivesuperiority","profession":"ranger"},{"id":2144,"name":"torchproficiency","profession":"necromancer"},{"id":2145,"name":"maliciousintent","profession":"thief"},{"id":2146,"name":"fireforeffect","profession":"thief"},{"id":2147,"name":"mantleofsand","profession":"necromancer"},{"id":2148,"name":"imbuedhaste","profession":"guardian"},{"id":2149,"name":"swordproficiency","profession":"elementalist"},{"id":2150,"name":"miragecloak","profession":"mesmer"},{"id":2151,"name":"elevatedbond","profession":"ranger"},{"id":2152,"name":"crystalconfigurationeclipse","profession":"engineer"},{"id":2153,"name":"guardcounter","profession":"warrior"},{"id":2154,"name":"endlessenmity","profession":"revenant"},{"id":2155,"name":"eternalbond","profession":"ranger"},{"id":2156,"name":"furiousstrength","profession":"ranger"},{"id":2157,"name":"prismaticconverter","profession":"engineer"},{"id":2158,"name":"photonprojector","profession":"engineer"},{"id":2159,"name":"loremaster","profession":"guardian"},{"id":2160,"name":"premeditation","profession":"thief"},{"id":2161,"name":"predatorscunning","profession":"ranger"},{"id":2162,"name":"dispellingforce","profession":"warrior"},{"id":2163,"name":"enchantmentcollapse","profession":"warrior"},{"id":2164,"name":"demoniclore","profession":"necromancer"},{"id":2165,"name":"elementalpursuit","profession":"elementalist"},{"id":2166,"name":"ashendemeanor","profession":"revenant"},{"id":2167,"name":"abrasivegrit","profession":"necromancer"},{"id":2168,"name":"revengecounter","profession":"warrior"},{"id":2169,"name":"dunecloak","profession":"mesmer"},{"id":2170,"name":"bolsteredelements","profession":"elementalist"},{"id":2171,"name":"deadeyesgaze","profession":"thief"},{"id":2172,"name":"renewinggaze","profession":"thief"},{"id":2173,"name":"collateraldamage","profession":"thief"},{"id":2174,"name":"miragemantle","profession":"mesmer"},{"id":2175,"name":"spellbreakersconviction","profession":"warrior"},{"id":2177,"name":"superiorelements","profession":"elementalist"},{"id":2178,"name":"desertdistortion","profession":"mesmer"},{"id":2179,"name":"quickfire","profession":"guardian"},{"id":2180,"name":"weaversprowess","profession":"elementalist"},{"id":2181,"name":"ambushcommander","profession":"revenant"},{"id":2182,"name":"righteousrebel","profession":"revenant"},{"id":2183,"profession":"necromancer"},{"id":2185,"profession":"necromancer"},{"id":2186,"name":"alchemicvigor","profession":"necromancer"},{"id":2187,"name":"conceitedcurate","profession":"guardian"},{"id":2188,"profession":"necromancer"},{"id":2189,"name":"lethaltempo","profession":"guardian"},{"id":2190,"name":"powerforpower","profession":"guardian"},{"id":2191,"name":"boonpact","profession":"guardian"},{"id":2192,"name":"implacablefoe","profession":"necromancer"},{"id":2193,"name":"quietintensity","profession":"mesmer"},{"id":2194,"profession":"necromancer"},{"id":2195,"name":"phoenixprotocol","profession":"guardian"},{"id":2196,"name":"swordproficiency","profession":"guardian"},{"id":2197,"name":"restorativevirtues","profession":"guardian"},{"id":2198,"name":"deathlesscourage","profession":"guardian"},{"id":2199,"name":"vanguardtactics","profession":"guardian"},{"id":2200,"name":"willbendertraining","profession":"guardian"},{"id":2201,"name":"tyrantsmomentum","profession":"guardian"},{"id":2202,"name":"jaggedmind","profession":"mesmer"},{"id":2203,"name":"doomapproaches","profession":"necromancer"},{"id":2204,"name":"deadlyblades","profession":"mesmer"},{"id":2205,"name":"phantasmalblades","profession":"mesmer"},{"id":2206,"name":"infiniteforge","profession":"mesmer"},{"id":2207,"name":"sharpeningsorrow","profession":"mesmer"},{"id":2208,"name":"mentalfocus","profession":"mesmer"},{"id":2209,"name":"darkgunslinger","profession":"necromancer"},{"id":2210,"name":"holyreckoning","profession":"guardian"},{"id":2211,"name":"psychicriposte","profession":"mesmer"},{"id":2212,"name":"bladeturnrefrain","profession":"mesmer"},{"id":2213,"name":"pistolproficiency","profession":"necromancer"},{"id":2214,"name":"daggerproficiency","profession":"mesmer"},{"id":2215,"name":"duelistsreversal","profession":"mesmer"},{"id":2216,"name":"psychicblades","profession":"mesmer"},{"id":2217,"name":"corruptedtalent","profession":"necromancer"},{"id":2218,"profession":"necromancer"},{"id":2219,"profession":"necromancer"},{"id":2220,"name":"twistedmedicine","profession":"necromancer"},{"id":2222,"name":"righteoussprint","profession":"guardian"},{"id":2223,"name":"bloodsong","profession":"mesmer"}]
+[
+  {
+    "id": 214,
+    "name": "ragingstorm",
+    "profession": "elementalist"
+  },
+  {
+    "id": 221,
+    "name": "zephyrsspeed",
+    "profession": "elementalist"
+  },
+  {
+    "id": 222,
+    "name": "electricdischarge",
+    "profession": "elementalist"
+  },
+  {
+    "id": 223,
+    "name": "aeromancerstraining",
+    "profession": "elementalist"
+  },
+  {
+    "id": 224,
+    "name": "onewithair",
+    "profession": "elementalist"
+  },
+  {
+    "id": 226,
+    "name": "bolttotheheart",
+    "profession": "elementalist"
+  },
+  {
+    "id": 227,
+    "name": "zephyrsboon",
+    "profession": "elementalist"
+  },
+  {
+    "id": 229,
+    "name": "inscription",
+    "profession": "elementalist"
+  },
+  {
+    "id": 232,
+    "name": "ferociouswinds",
+    "profession": "elementalist"
+  },
+  {
+    "id": 238,
+    "name": "evasivearcana",
+    "profession": "elementalist"
+  },
+  {
+    "id": 253,
+    "name": "arcaneprecision",
+    "profession": "elementalist"
+  },
+  {
+    "id": 257,
+    "name": "finalshielding",
+    "profession": "elementalist"
+  },
+  {
+    "id": 263,
+    "name": "elementalsurge",
+    "profession": "elementalist"
+  },
+  {
+    "id": 264,
+    "name": "elementalattunement",
+    "profession": "elementalist"
+  },
+  {
+    "id": 265,
+    "name": "arcaneresurrection",
+    "profession": "elementalist"
+  },
+  {
+    "id": 266,
+    "name": "renewingstamina",
+    "profession": "elementalist"
+  },
+  {
+    "id": 268,
+    "name": "arcaneprowess",
+    "profession": "elementalist"
+  },
+  {
+    "id": 275,
+    "name": "strengthofstone",
+    "profession": "elementalist"
+  },
+  {
+    "id": 277,
+    "name": "earthenblessing",
+    "profession": "elementalist"
+  },
+  {
+    "id": 278,
+    "name": "stoneflesh",
+    "profession": "elementalist"
+  },
+  {
+    "id": 279,
+    "name": "earthenblast",
+    "profession": "elementalist"
+  },
+  {
+    "id": 280,
+    "name": "geomancerstraining",
+    "profession": "elementalist"
+  },
+  {
+    "id": 281,
+    "name": "rocksolid",
+    "profession": "elementalist"
+  },
+  {
+    "id": 282,
+    "name": "earthsembrace",
+    "profession": "elementalist"
+  },
+  {
+    "id": 287,
+    "name": "writteninstone",
+    "profession": "elementalist"
+  },
+  {
+    "id": 289,
+    "name": "elementalshielding",
+    "profession": "elementalist"
+  },
+  {
+    "id": 294,
+    "name": "pyromancerspuissance",
+    "profession": "elementalist"
+  },
+  {
+    "id": 296,
+    "name": "burningprecision",
+    "profession": "elementalist"
+  },
+  {
+    "id": 318,
+    "name": "sunspot",
+    "profession": "elementalist"
+  },
+  {
+    "id": 319,
+    "name": "pyromancerstraining",
+    "profession": "elementalist"
+  },
+  {
+    "id": 320,
+    "name": "empoweringflame",
+    "profession": "elementalist"
+  },
+  {
+    "id": 325,
+    "name": "burningrage",
+    "profession": "elementalist"
+  },
+  {
+    "id": 328,
+    "name": "conjurer",
+    "profession": "elementalist"
+  },
+  {
+    "id": 334,
+    "name": "poweroverwhelming",
+    "profession": "elementalist"
+  },
+  {
+    "id": 335,
+    "name": "burningfire",
+    "profession": "elementalist"
+  },
+  {
+    "id": 340,
+    "name": "smotheringauras",
+    "profession": "elementalist"
+  },
+  {
+    "id": 348,
+    "name": "soothingice",
+    "profession": "elementalist"
+  },
+  {
+    "id": 349,
+    "name": "flowlikewater",
+    "profession": "elementalist"
+  },
+  {
+    "id": 350,
+    "name": "soothingmist",
+    "profession": "elementalist"
+  },
+  {
+    "id": 351,
+    "name": "healingripple",
+    "profession": "elementalist"
+  },
+  {
+    "id": 358,
+    "name": "cleansingwave",
+    "profession": "elementalist"
+  },
+  {
+    "id": 360,
+    "name": "stopdropandroll",
+    "profession": "elementalist"
+  },
+  {
+    "id": 361,
+    "name": "powerfulaura",
+    "profession": "elementalist"
+  },
+  {
+    "id": 362,
+    "name": "cleansingwater",
+    "profession": "elementalist"
+  },
+  {
+    "id": 363,
+    "name": "piercingshards",
+    "profession": "elementalist"
+  },
+  {
+    "id": 364,
+    "name": "soothingdisruption",
+    "profession": "elementalist"
+  },
+  {
+    "id": 394,
+    "name": "overshield",
+    "profession": "engineer"
+  },
+  {
+    "id": 396,
+    "name": "invigoratingspeed",
+    "profession": "engineer"
+  },
+  {
+    "id": 413,
+    "name": "compoundingchemicals",
+    "profession": "engineer"
+  },
+  {
+    "id": 429,
+    "name": "shapedcharge",
+    "profession": "engineer"
+  },
+  {
+    "id": 432,
+    "name": "explosiveentrance",
+    "profession": "engineer"
+  },
+  {
+    "id": 433,
+    "name": "incendiarypowder",
+    "profession": "engineer"
+  },
+  {
+    "id": 445,
+    "name": "mechalegs",
+    "profession": "engineer"
+  },
+  {
+    "id": 468,
+    "name": "hiddenflask",
+    "profession": "engineer"
+  },
+  {
+    "id": 469,
+    "name": "emergencyelixir",
+    "profession": "engineer"
+  },
+  {
+    "id": 470,
+    "name": "backpackregenerator",
+    "profession": "engineer"
+  },
+  {
+    "id": 472,
+    "name": "anticorrosionplating",
+    "profession": "engineer"
+  },
+  {
+    "id": 473,
+    "name": "hgh",
+    "profession": "engineer"
+  },
+  {
+    "id": 482,
+    "name": "aimassistedrocket",
+    "profession": "engineer"
+  },
+  {
+    "id": 487,
+    "name": "transmute",
+    "profession": "engineer"
+  },
+  {
+    "id": 505,
+    "name": "shrapnel",
+    "profession": "engineer"
+  },
+  {
+    "id": 507,
+    "name": "autodefensebombdispenser",
+    "profession": "engineer"
+  },
+  {
+    "id": 508,
+    "name": "reconstructionenclosure",
+    "profession": "engineer"
+  },
+  {
+    "id": 509,
+    "name": "protectioninjection",
+    "profession": "engineer"
+  },
+  {
+    "id": 510,
+    "name": "juggernaut",
+    "profession": "engineer"
+  },
+  {
+    "id": 512,
+    "name": "streamlinedkits",
+    "profession": "engineer"
+  },
+  {
+    "id": 514,
+    "name": "grenadier",
+    "profession": "engineer"
+  },
+  {
+    "id": 515,
+    "name": "sharpshooter",
+    "profession": "engineer"
+  },
+  {
+    "id": 516,
+    "name": "serratedsteel",
+    "profession": "engineer"
+  },
+  {
+    "id": 517,
+    "name": "steelpackedpowder",
+    "profession": "engineer"
+  },
+  {
+    "id": 518,
+    "name": "cleansingsynergy",
+    "profession": "engineer"
+  },
+  {
+    "id": 519,
+    "name": "energyamplifier",
+    "profession": "engineer"
+  },
+  {
+    "id": 520,
+    "name": "comebackcure",
+    "profession": "engineer"
+  },
+  {
+    "id": 521,
+    "name": "healthinsurance",
+    "profession": "engineer"
+  },
+  {
+    "id": 523,
+    "name": "adrenalimplant",
+    "profession": "engineer"
+  },
+  {
+    "id": 525,
+    "name": "shortfuse",
+    "profession": "engineer"
+  },
+  {
+    "id": 526,
+    "name": "modifiedammunition",
+    "profession": "engineer"
+  },
+  {
+    "id": 531,
+    "name": "powerwrench",
+    "profession": "engineer"
+  },
+  {
+    "id": 532,
+    "name": "staticdischarge",
+    "profession": "engineer"
+  },
+  {
+    "id": 536,
+    "name": "hematicfocus",
+    "profession": "engineer"
+  },
+  {
+    "id": 549,
+    "name": "pureofheart",
+    "profession": "guardian"
+  },
+  {
+    "id": 551,
+    "name": "selflessdaring",
+    "profession": "guardian"
+  },
+  {
+    "id": 553,
+    "name": "pureofvoice",
+    "profession": "guardian"
+  },
+  {
+    "id": 554,
+    "name": "battlepresence",
+    "profession": "guardian"
+  },
+  {
+    "id": 557,
+    "name": "honorablestaff",
+    "profession": "guardian"
+  },
+  {
+    "id": 558,
+    "name": "writofpersistence",
+    "profession": "guardian"
+  },
+  {
+    "id": 559,
+    "name": "protectivereviver",
+    "profession": "guardian"
+  },
+  {
+    "id": 562,
+    "name": "empoweringmight",
+    "profession": "guardian"
+  },
+  {
+    "id": 563,
+    "name": "wrathfulspirit",
+    "profession": "guardian"
+  },
+  {
+    "id": 564,
+    "name": "vigorousprecision",
+    "profession": "guardian"
+  },
+  {
+    "id": 565,
+    "name": "retribution",
+    "profession": "guardian"
+  },
+  {
+    "id": 566,
+    "name": "righthandstrength",
+    "profession": "guardian"
+  },
+  {
+    "id": 567,
+    "name": "radiantfire",
+    "profession": "guardian"
+  },
+  {
+    "id": 568,
+    "name": "radiantpower",
+    "profession": "guardian"
+  },
+  {
+    "id": 571,
+    "name": "renewedjustice",
+    "profession": "guardian"
+  },
+  {
+    "id": 572,
+    "name": "justiceisblind",
+    "profession": "guardian"
+  },
+  {
+    "id": 574,
+    "name": "healersresolution",
+    "profession": "guardian"
+  },
+  {
+    "id": 577,
+    "name": "innerfire",
+    "profession": "guardian"
+  },
+  {
+    "id": 578,
+    "name": "wrathofjustice",
+    "profession": "guardian"
+  },
+  {
+    "id": 579,
+    "name": "perfectinscriptions",
+    "profession": "guardian"
+  },
+  {
+    "id": 580,
+    "name": "stalwartdefender",
+    "profession": "guardian"
+  },
+  {
+    "id": 581,
+    "name": "smitersboon",
+    "profession": "guardian"
+  },
+  {
+    "id": 582,
+    "name": "valorousdefense",
+    "profession": "guardian"
+  },
+  {
+    "id": 583,
+    "name": "mightoftheprotector",
+    "profession": "guardian"
+  },
+  {
+    "id": 584,
+    "name": "strengthinnumbers",
+    "profession": "guardian"
+  },
+  {
+    "id": 585,
+    "name": "altruistichealing",
+    "profession": "guardian"
+  },
+  {
+    "id": 586,
+    "name": "monksfocus",
+    "profession": "guardian"
+  },
+  {
+    "id": 587,
+    "name": "glacialheart",
+    "profession": "guardian"
+  },
+  {
+    "id": 588,
+    "name": "strengthofthefallen",
+    "profession": "guardian"
+  },
+  {
+    "id": 589,
+    "name": "tenaciousdefense",
+    "profession": "guardian"
+  },
+  {
+    "id": 594,
+    "name": "steadfastcourage",
+    "profession": "guardian"
+  },
+  {
+    "id": 603,
+    "name": "inspiringvirtue",
+    "profession": "guardian"
+  },
+  {
+    "id": 604,
+    "name": "virtueofresolution",
+    "profession": "guardian"
+  },
+  {
+    "id": 610,
+    "name": "absoluteresolve",
+    "profession": "guardian"
+  },
+  {
+    "id": 612,
+    "name": "indomitablecourage",
+    "profession": "guardian"
+  },
+  {
+    "id": 617,
+    "name": "masterofconsecrations",
+    "profession": "guardian"
+  },
+  {
+    "id": 620,
+    "name": "powerofthevirtuous",
+    "profession": "guardian"
+  },
+  {
+    "id": 621,
+    "name": "inspiredvirtue",
+    "profession": "guardian"
+  },
+  {
+    "id": 622,
+    "name": "permeatingwrath",
+    "profession": "guardian"
+  },
+  {
+    "id": 624,
+    "name": "unscathedcontender",
+    "profession": "guardian"
+  },
+  {
+    "id": 625,
+    "name": "resolutesubconscious",
+    "profession": "guardian"
+  },
+  {
+    "id": 628,
+    "name": "furiousfocus",
+    "profession": "guardian"
+  },
+  {
+    "id": 633,
+    "name": "focusmastery",
+    "profession": "guardian"
+  },
+  {
+    "id": 634,
+    "name": "fierywrath",
+    "profession": "guardian"
+  },
+  {
+    "id": 635,
+    "name": "eternalarmory",
+    "profession": "guardian"
+  },
+  {
+    "id": 637,
+    "name": "shatteredaegis",
+    "profession": "guardian"
+  },
+  {
+    "id": 646,
+    "name": "symbolicexposure",
+    "profession": "guardian"
+  },
+  {
+    "id": 648,
+    "name": "zealotsresolution",
+    "profession": "guardian"
+  },
+  {
+    "id": 649,
+    "name": "symbolicpower",
+    "profession": "guardian"
+  },
+  {
+    "id": 653,
+    "name": "zealousblade",
+    "profession": "guardian"
+  },
+  {
+    "id": 654,
+    "name": "protectorsrestoration",
+    "profession": "guardian"
+  },
+  {
+    "id": 666,
+    "name": "metaphysicalrejuvenation",
+    "profession": "mesmer"
+  },
+  {
+    "id": 667,
+    "name": "illusionarymembrane",
+    "profession": "mesmer"
+  },
+  {
+    "id": 668,
+    "name": "chaotictransference",
+    "profession": "mesmer"
+  },
+  {
+    "id": 669,
+    "name": "chaoticpotency",
+    "profession": "mesmer"
+  },
+  {
+    "id": 670,
+    "name": "methodofmadness",
+    "profession": "mesmer"
+  },
+  {
+    "id": 671,
+    "name": "chaoticinterruption",
+    "profession": "mesmer"
+  },
+  {
+    "id": 673,
+    "name": "auspiciousanguish",
+    "profession": "mesmer"
+  },
+  {
+    "id": 674,
+    "name": "prismaticunderstanding",
+    "profession": "mesmer"
+  },
+  {
+    "id": 675,
+    "name": "illusionarydefense",
+    "profession": "mesmer"
+  },
+  {
+    "id": 677,
+    "name": "masterofmanipulation",
+    "profession": "mesmer"
+  },
+  {
+    "id": 680,
+    "name": "mentalanguish",
+    "profession": "mesmer"
+  },
+  {
+    "id": 681,
+    "name": "viciousexpression",
+    "profession": "mesmer"
+  },
+  {
+    "id": 682,
+    "name": "empoweredillusions",
+    "profession": "mesmer"
+  },
+  {
+    "id": 685,
+    "name": "illusionofvulnerability",
+    "profession": "mesmer"
+  },
+  {
+    "id": 686,
+    "name": "bountifulblades",
+    "profession": "mesmer"
+  },
+  {
+    "id": 687,
+    "name": "rendingshatter",
+    "profession": "mesmer"
+  },
+  {
+    "id": 691,
+    "name": "thepledge",
+    "profession": "mesmer"
+  },
+  {
+    "id": 692,
+    "name": "superioritycomplex",
+    "profession": "mesmer"
+  },
+  {
+    "id": 693,
+    "name": "shatteredconcentration",
+    "profession": "mesmer"
+  },
+  {
+    "id": 694,
+    "name": "dazzling",
+    "profession": "mesmer"
+  },
+  {
+    "id": 700,
+    "name": "duelistsdiscipline",
+    "profession": "mesmer"
+  },
+  {
+    "id": 701,
+    "name": "phantasmalfury",
+    "profession": "mesmer"
+  },
+  {
+    "id": 704,
+    "name": "deceptiveevasion",
+    "profession": "mesmer"
+  },
+  {
+    "id": 705,
+    "name": "desperatedecoy",
+    "profession": "mesmer"
+  },
+  {
+    "id": 706,
+    "name": "criticalinfusion",
+    "profession": "mesmer"
+  },
+  {
+    "id": 707,
+    "name": "masterfencer",
+    "profession": "mesmer"
+  },
+  {
+    "id": 708,
+    "name": "fencersfinesse",
+    "profession": "mesmer"
+  },
+  {
+    "id": 710,
+    "name": "sharperimages",
+    "profession": "mesmer"
+  },
+  {
+    "id": 712,
+    "name": "furiousinterruption",
+    "profession": "mesmer"
+  },
+  {
+    "id": 713,
+    "name": "egotism",
+    "profession": "mesmer"
+  },
+  {
+    "id": 721,
+    "name": "shatterstorm",
+    "profession": "mesmer"
+  },
+  {
+    "id": 722,
+    "name": "escapeartist",
+    "profession": "mesmer"
+  },
+  {
+    "id": 723,
+    "name": "compoundingpower",
+    "profession": "mesmer"
+  },
+  {
+    "id": 729,
+    "name": "phantasmalhaste",
+    "profession": "mesmer"
+  },
+  {
+    "id": 731,
+    "name": "masterofmisdirection",
+    "profession": "mesmer"
+  },
+  {
+    "id": 733,
+    "name": "phantasmalforce",
+    "profession": "mesmer"
+  },
+  {
+    "id": 734,
+    "name": "cryofpain",
+    "profession": "mesmer"
+  },
+  {
+    "id": 738,
+    "name": "restorativemantras",
+    "profession": "mesmer"
+  },
+  {
+    "id": 740,
+    "name": "restorativeillusions",
+    "profession": "mesmer"
+  },
+  {
+    "id": 744,
+    "name": "sympatheticvisage",
+    "profession": "mesmer"
+  },
+  {
+    "id": 751,
+    "name": "wardensfeedback",
+    "profession": "mesmer"
+  },
+  {
+    "id": 752,
+    "name": "blurredinscriptions",
+    "profession": "mesmer"
+  },
+  {
+    "id": 753,
+    "name": "malicioussorcery",
+    "profession": "mesmer"
+  },
+  {
+    "id": 756,
+    "name": "medicsfeedback",
+    "profession": "mesmer"
+  },
+  {
+    "id": 757,
+    "name": "menderspurity",
+    "profession": "mesmer"
+  },
+  {
+    "id": 778,
+    "name": "transfusion",
+    "profession": "necromancer"
+  },
+  {
+    "id": 780,
+    "name": "ritualoflife",
+    "profession": "necromancer"
+  },
+  {
+    "id": 782,
+    "name": "bloodbank",
+    "profession": "necromancer"
+  },
+  {
+    "id": 783,
+    "name": "vampiric",
+    "profession": "necromancer"
+  },
+  {
+    "id": 788,
+    "name": "quickeningthirst",
+    "profession": "necromancer"
+  },
+  {
+    "id": 789,
+    "name": "lifefromdeath",
+    "profession": "necromancer"
+  },
+  {
+    "id": 792,
+    "name": "markofevasion",
+    "profession": "necromancer"
+  },
+  {
+    "id": 799,
+    "name": "bansheeswail",
+    "profession": "necromancer"
+  },
+  {
+    "id": 801,
+    "name": "lingeringcurse",
+    "profession": "necromancer"
+  },
+  {
+    "id": 802,
+    "name": "barbedprecision",
+    "profession": "necromancer"
+  },
+  {
+    "id": 803,
+    "name": "furiousdemise",
+    "profession": "necromancer"
+  },
+  {
+    "id": 810,
+    "name": "targettheweak",
+    "profession": "necromancer"
+  },
+  {
+    "id": 812,
+    "name": "terror",
+    "profession": "necromancer"
+  },
+  {
+    "id": 813,
+    "name": "weakeningshroud",
+    "profession": "necromancer"
+  },
+  {
+    "id": 815,
+    "name": "chillingdarkness",
+    "profession": "necromancer"
+  },
+  {
+    "id": 816,
+    "name": "masterofcorruption",
+    "profession": "necromancer"
+  },
+  {
+    "id": 820,
+    "name": "fleshofthemaster",
+    "profession": "necromancer"
+  },
+  {
+    "id": 829,
+    "name": "awakenthepain",
+    "profession": "necromancer"
+  },
+  {
+    "id": 839,
+    "name": "soulcomprehension",
+    "profession": "necromancer"
+  },
+  {
+    "id": 842,
+    "name": "deathnova",
+    "profession": "necromancer"
+  },
+  {
+    "id": 853,
+    "name": "closetodeath",
+    "profession": "necromancer"
+  },
+  {
+    "id": 855,
+    "name": "deadlystrength",
+    "profession": "necromancer"
+  },
+  {
+    "id": 856,
+    "name": "armoredshroud",
+    "profession": "necromancer"
+  },
+  {
+    "id": 857,
+    "name": "putriddefense",
+    "profession": "necromancer"
+  },
+  {
+    "id": 858,
+    "name": "necromanticcorruption",
+    "profession": "necromancer"
+  },
+  {
+    "id": 860,
+    "name": "darkdefiance",
+    "profession": "necromancer"
+  },
+  {
+    "id": 861,
+    "name": "vitalpersistence",
+    "profession": "necromancer"
+  },
+  {
+    "id": 874,
+    "name": "soulbattery",
+    "profession": "necromancer"
+  },
+  {
+    "id": 875,
+    "name": "unyieldingblast",
+    "profession": "necromancer"
+  },
+  {
+    "id": 887,
+    "name": "gluttony",
+    "profession": "necromancer"
+  },
+  {
+    "id": 888,
+    "name": "speedofshadows",
+    "profession": "necromancer"
+  },
+  {
+    "id": 889,
+    "name": "eternallife",
+    "profession": "necromancer"
+  },
+  {
+    "id": 891,
+    "name": "sinistershroud",
+    "profession": "necromancer"
+  },
+  {
+    "id": 892,
+    "name": "fearofdeath",
+    "profession": "necromancer"
+  },
+  {
+    "id": 893,
+    "name": "deathperception",
+    "profession": "necromancer"
+  },
+  {
+    "id": 894,
+    "name": "soulbarbs",
+    "profession": "necromancer"
+  },
+  {
+    "id": 898,
+    "name": "soulmarks",
+    "profession": "necromancer"
+  },
+  {
+    "id": 899,
+    "name": "chillofdeath",
+    "profession": "necromancer"
+  },
+  {
+    "id": 903,
+    "name": "spitefulspirit",
+    "profession": "necromancer"
+  },
+  {
+    "id": 905,
+    "name": "dhuumfire",
+    "profession": "necromancer"
+  },
+  {
+    "id": 909,
+    "name": "signetsofsuffering",
+    "profession": "necromancer"
+  },
+  {
+    "id": 913,
+    "name": "reapersmight",
+    "profession": "necromancer"
+  },
+  {
+    "id": 914,
+    "name": "spitefultalisman",
+    "profession": "necromancer"
+  },
+  {
+    "id": 915,
+    "name": "deathsembrace",
+    "profession": "necromancer"
+  },
+  {
+    "id": 916,
+    "name": "spitefulrenewal",
+    "profession": "necromancer"
+  },
+  {
+    "id": 917,
+    "name": "siphonedpower",
+    "profession": "necromancer"
+  },
+  {
+    "id": 919,
+    "name": "dread",
+    "profession": "necromancer"
+  },
+  {
+    "id": 964,
+    "name": "windbornenotes",
+    "profession": "ranger"
+  },
+  {
+    "id": 965,
+    "name": "spiritedarrival",
+    "profession": "ranger"
+  },
+  {
+    "id": 968,
+    "name": "zephyrsspeed",
+    "profession": "ranger"
+  },
+  {
+    "id": 970,
+    "name": "naturalhealing",
+    "profession": "ranger"
+  },
+  {
+    "id": 974,
+    "name": "loudwhistle",
+    "profession": "ranger"
+  },
+  {
+    "id": 975,
+    "name": "wiltingstrike",
+    "profession": "ranger"
+  },
+  {
+    "id": 978,
+    "name": "instinctivereaction",
+    "profession": "ranger"
+  },
+  {
+    "id": 986,
+    "name": "clarionbond",
+    "profession": "ranger"
+  },
+  {
+    "id": 996,
+    "name": "predatorsonslaught",
+    "profession": "ranger"
+  },
+  {
+    "id": 1000,
+    "name": "farsighted",
+    "profession": "ranger"
+  },
+  {
+    "id": 1001,
+    "name": "brutishseals",
+    "profession": "ranger"
+  },
+  {
+    "id": 1009,
+    "name": "alphafocus",
+    "profession": "ranger"
+  },
+  {
+    "id": 1010,
+    "name": "openingstrike",
+    "profession": "ranger"
+  },
+  {
+    "id": 1011,
+    "name": "precisestrike",
+    "profession": "ranger"
+  },
+  {
+    "id": 1014,
+    "name": "huntersgaze",
+    "profession": "ranger"
+  },
+  {
+    "id": 1015,
+    "name": "remorseless",
+    "profession": "ranger"
+  },
+  {
+    "id": 1016,
+    "name": "spotter",
+    "profession": "ranger"
+  },
+  {
+    "id": 1021,
+    "name": "stoneform",
+    "profession": "ranger"
+  },
+  {
+    "id": 1038,
+    "name": "naturesvengeance",
+    "profession": "ranger"
+  },
+  {
+    "id": 1047,
+    "name": "twohandedtraining",
+    "profession": "ranger"
+  },
+  {
+    "id": 1054,
+    "name": "evasivepurity",
+    "profession": "ranger"
+  },
+  {
+    "id": 1055,
+    "name": "rejuvenation",
+    "profession": "ranger"
+  },
+  {
+    "id": 1056,
+    "name": "fortifyingbond",
+    "profession": "ranger"
+  },
+  {
+    "id": 1059,
+    "name": "lingeringmagic",
+    "profession": "ranger"
+  },
+  {
+    "id": 1060,
+    "name": "alliesaid",
+    "profession": "ranger"
+  },
+  {
+    "id": 1062,
+    "name": "bountifulhunter",
+    "profession": "ranger"
+  },
+  {
+    "id": 1064,
+    "name": "quickdraw",
+    "profession": "ranger"
+  },
+  {
+    "id": 1065,
+    "name": "petsprowess",
+    "profession": "ranger"
+  },
+  {
+    "id": 1066,
+    "name": "honedaxes",
+    "profession": "ranger"
+  },
+  {
+    "id": 1067,
+    "name": "primalreflexes",
+    "profession": "ranger"
+  },
+  {
+    "id": 1068,
+    "name": "hunterstactics",
+    "profession": "ranger"
+  },
+  {
+    "id": 1069,
+    "name": "sharpenededges",
+    "profession": "ranger"
+  },
+  {
+    "id": 1070,
+    "name": "momentofclarity",
+    "profession": "ranger"
+  },
+  {
+    "id": 1072,
+    "name": "potentally",
+    "profession": "ranger"
+  },
+  {
+    "id": 1075,
+    "name": "trappersexpertise",
+    "profession": "ranger"
+  },
+  {
+    "id": 1080,
+    "name": "tailwind",
+    "profession": "ranger"
+  },
+  {
+    "id": 1083,
+    "name": "furiousgrip",
+    "profession": "ranger"
+  },
+  {
+    "id": 1086,
+    "name": "oakheartsalve",
+    "profession": "ranger"
+  },
+  {
+    "id": 1089,
+    "name": "ruggedgrowth",
+    "profession": "ranger"
+  },
+  {
+    "id": 1090,
+    "name": "companionsdefense",
+    "profession": "ranger"
+  },
+  {
+    "id": 1094,
+    "name": "empathicbond",
+    "profession": "ranger"
+  },
+  {
+    "id": 1096,
+    "name": "naturalvigor",
+    "profession": "ranger"
+  },
+  {
+    "id": 1098,
+    "name": "childofearth",
+    "profession": "ranger"
+  },
+  {
+    "id": 1099,
+    "name": "tastefordanger",
+    "profession": "ranger"
+  },
+  {
+    "id": 1100,
+    "name": "sharedanguish",
+    "profession": "ranger"
+  },
+  {
+    "id": 1101,
+    "name": "ambidexterity",
+    "profession": "ranger"
+  },
+  {
+    "id": 1112,
+    "name": "instantreflexes",
+    "profession": "thief"
+  },
+  {
+    "id": 1130,
+    "name": "leechingvenoms",
+    "profession": "thief"
+  },
+  {
+    "id": 1134,
+    "name": "cloakedinshadow",
+    "profession": "thief"
+  },
+  {
+    "id": 1135,
+    "name": "shadowsrejuvenation",
+    "profession": "thief"
+  },
+  {
+    "id": 1136,
+    "name": "meldwithshadows",
+    "profession": "thief"
+  },
+  {
+    "id": 1137,
+    "name": "kleptomaniac",
+    "profession": "thief"
+  },
+  {
+    "id": 1157,
+    "name": "leadattacks",
+    "profession": "thief"
+  },
+  {
+    "id": 1158,
+    "name": "sleightofhand",
+    "profession": "thief"
+  },
+  {
+    "id": 1159,
+    "name": "uncatchable",
+    "profession": "thief"
+  },
+  {
+    "id": 1160,
+    "name": "mercifulambush",
+    "profession": "thief"
+  },
+  {
+    "id": 1162,
+    "name": "rendingshade",
+    "profession": "thief"
+  },
+  {
+    "id": 1163,
+    "name": "thrillofthecrime",
+    "profession": "thief"
+  },
+  {
+    "id": 1164,
+    "name": "deadlyambition",
+    "profession": "thief"
+  },
+  {
+    "id": 1167,
+    "name": "improvisation",
+    "profession": "thief"
+  },
+  {
+    "id": 1169,
+    "name": "eventheodds",
+    "profession": "thief"
+  },
+  {
+    "id": 1170,
+    "name": "sunderingshade",
+    "profession": "thief"
+  },
+  {
+    "id": 1187,
+    "name": "quickpockets",
+    "profession": "thief"
+  },
+  {
+    "id": 1190,
+    "name": "pressurestriking",
+    "profession": "thief"
+  },
+  {
+    "id": 1192,
+    "name": "swindlersequilibrium",
+    "profession": "thief"
+  },
+  {
+    "id": 1209,
+    "name": "assassinsfury",
+    "profession": "thief"
+  },
+  {
+    "id": 1210,
+    "name": "unrelentingstrikes",
+    "profession": "thief"
+  },
+  {
+    "id": 1215,
+    "name": "hiddenkiller",
+    "profession": "thief"
+  },
+  {
+    "id": 1232,
+    "name": "preparedness",
+    "profession": "thief"
+  },
+  {
+    "id": 1234,
+    "name": "felinegrace",
+    "profession": "thief"
+  },
+  {
+    "id": 1237,
+    "name": "painresponse",
+    "profession": "thief"
+  },
+  {
+    "id": 1238,
+    "name": "assassinsreward",
+    "profession": "thief"
+  },
+  {
+    "id": 1240,
+    "name": "expeditiousdodger",
+    "profession": "thief"
+  },
+  {
+    "id": 1241,
+    "name": "guardedinitiation",
+    "profession": "thief"
+  },
+  {
+    "id": 1242,
+    "name": "endlessstamina",
+    "profession": "thief"
+  },
+  {
+    "id": 1245,
+    "name": "daggertraining",
+    "profession": "thief"
+  },
+  {
+    "id": 1252,
+    "name": "burstofagility",
+    "profession": "thief"
+  },
+  {
+    "id": 1257,
+    "name": "exposedweakness",
+    "profession": "thief"
+  },
+  {
+    "id": 1267,
+    "name": "signetsofpower",
+    "profession": "thief"
+  },
+  {
+    "id": 1268,
+    "name": "twinfangs",
+    "profession": "thief"
+  },
+  {
+    "id": 1269,
+    "name": "executioner",
+    "profession": "thief"
+  },
+  {
+    "id": 1272,
+    "name": "practicedtolerance",
+    "profession": "thief"
+  },
+  {
+    "id": 1276,
+    "name": "mug",
+    "profession": "thief"
+  },
+  {
+    "id": 1277,
+    "name": "bountifultheft",
+    "profession": "thief"
+  },
+  {
+    "id": 1279,
+    "name": "serpentstouch",
+    "profession": "thief"
+  },
+  {
+    "id": 1280,
+    "name": "lotuspoison",
+    "profession": "thief"
+  },
+  {
+    "id": 1281,
+    "name": "keenobserver",
+    "profession": "thief"
+  },
+  {
+    "id": 1282,
+    "name": "ferociousstrikes",
+    "profession": "thief"
+  },
+  {
+    "id": 1284,
+    "name": "hiddenthief",
+    "profession": "thief"
+  },
+  {
+    "id": 1286,
+    "name": "trickster",
+    "profession": "thief"
+  },
+  {
+    "id": 1289,
+    "name": "vigorousrecovery",
+    "profession": "thief"
+  },
+  {
+    "id": 1290,
+    "name": "hardtocatch",
+    "profession": "thief"
+  },
+  {
+    "id": 1291,
+    "name": "potentpoison",
+    "profession": "thief"
+  },
+  {
+    "id": 1292,
+    "name": "panicstrike",
+    "profession": "thief"
+  },
+  {
+    "id": 1293,
+    "name": "shadowsembrace",
+    "profession": "thief"
+  },
+  {
+    "id": 1294,
+    "name": "concealingrestoration",
+    "profession": "thief"
+  },
+  {
+    "id": 1295,
+    "name": "upperhand",
+    "profession": "thief"
+  },
+  {
+    "id": 1297,
+    "name": "shadowsavior",
+    "profession": "thief"
+  },
+  {
+    "id": 1299,
+    "name": "deadlyaim",
+    "profession": "thief"
+  },
+  {
+    "id": 1300,
+    "name": "flickeringshadows",
+    "profession": "thief"
+  },
+  {
+    "id": 1315,
+    "name": "unsuspectingfoe",
+    "profession": "warrior"
+  },
+  {
+    "id": 1316,
+    "name": "sunderingburst",
+    "profession": "warrior"
+  },
+  {
+    "id": 1317,
+    "name": "heightenedfocus",
+    "profession": "warrior"
+  },
+  {
+    "id": 1329,
+    "name": "crackshot",
+    "profession": "warrior"
+  },
+  {
+    "id": 1333,
+    "name": "blademaster",
+    "profession": "warrior"
+  },
+  {
+    "id": 1334,
+    "name": "opportunist",
+    "profession": "warrior"
+  },
+  {
+    "id": 1336,
+    "name": "burstprecision",
+    "profession": "warrior"
+  },
+  {
+    "id": 1337,
+    "name": "bloodlust",
+    "profession": "warrior"
+  },
+  {
+    "id": 1338,
+    "name": "forcefulgreatsword",
+    "profession": "warrior"
+  },
+  {
+    "id": 1342,
+    "name": "furiousburst",
+    "profession": "warrior"
+  },
+  {
+    "id": 1343,
+    "name": "deepstrikes",
+    "profession": "warrior"
+  },
+  {
+    "id": 1344,
+    "name": "signetmastery",
+    "profession": "warrior"
+  },
+  {
+    "id": 1346,
+    "name": "furious",
+    "profession": "warrior"
+  },
+  {
+    "id": 1348,
+    "name": "adrenalhealth",
+    "profession": "warrior"
+  },
+  {
+    "id": 1350,
+    "name": "thickskin",
+    "profession": "warrior"
+  },
+  {
+    "id": 1367,
+    "name": "sunderingmace",
+    "profession": "warrior"
+  },
+  {
+    "id": 1368,
+    "name": "defypain",
+    "profession": "warrior"
+  },
+  {
+    "id": 1369,
+    "name": "axemastery",
+    "profession": "warrior"
+  },
+  {
+    "id": 1372,
+    "name": "culltheweak",
+    "profession": "warrior"
+  },
+  {
+    "id": 1375,
+    "name": "laststand",
+    "profession": "warrior"
+  },
+  {
+    "id": 1376,
+    "name": "shieldmaster",
+    "profession": "warrior"
+  },
+  {
+    "id": 1379,
+    "name": "armoredattack",
+    "profession": "warrior"
+  },
+  {
+    "id": 1380,
+    "name": "hardenedarmor",
+    "profession": "warrior"
+  },
+  {
+    "id": 1381,
+    "name": "vengefulreturn",
+    "profession": "warrior"
+  },
+  {
+    "id": 1413,
+    "name": "warriorssprint",
+    "profession": "warrior"
+  },
+  {
+    "id": 1415,
+    "name": "versatilerage",
+    "profession": "warrior"
+  },
+  {
+    "id": 1416,
+    "name": "fasthands",
+    "profession": "warrior"
+  },
+  {
+    "id": 1417,
+    "name": "versatilepower",
+    "profession": "warrior"
+  },
+  {
+    "id": 1437,
+    "name": "berserkerspower",
+    "profession": "warrior"
+  },
+  {
+    "id": 1440,
+    "name": "mercilesshammer",
+    "profession": "warrior"
+  },
+  {
+    "id": 1444,
+    "name": "peakperformance",
+    "profession": "warrior"
+  },
+  {
+    "id": 1446,
+    "name": "recklessdodge",
+    "profession": "warrior"
+  },
+  {
+    "id": 1447,
+    "name": "bravestride",
+    "profession": "warrior"
+  },
+  {
+    "id": 1448,
+    "name": "buildingmomentum",
+    "profession": "warrior"
+  },
+  {
+    "id": 1449,
+    "name": "greatfortitude",
+    "profession": "warrior"
+  },
+  {
+    "id": 1451,
+    "name": "restorativestrength",
+    "profession": "warrior"
+  },
+  {
+    "id": 1453,
+    "name": "pinnacleofstrength",
+    "profession": "warrior"
+  },
+  {
+    "id": 1454,
+    "name": "mightmakesright",
+    "profession": "warrior"
+  },
+  {
+    "id": 1455,
+    "name": "woundingprecision",
+    "profession": "warrior"
+  },
+  {
+    "id": 1469,
+    "name": "legspecialist",
+    "profession": "warrior"
+  },
+  {
+    "id": 1470,
+    "name": "vigorousshouts",
+    "profession": "warrior"
+  },
+  {
+    "id": 1471,
+    "name": "roaringreveille",
+    "profession": "warrior"
+  },
+  {
+    "id": 1474,
+    "name": "soldierscomfort",
+    "profession": "warrior"
+  },
+  {
+    "id": 1479,
+    "name": "shrugitoff",
+    "profession": "warrior"
+  },
+  {
+    "id": 1480,
+    "name": "marchingorders",
+    "profession": "warrior"
+  },
+  {
+    "id": 1481,
+    "name": "mendingmight",
+    "profession": "warrior"
+  },
+  {
+    "id": 1482,
+    "name": "empowerallies",
+    "profession": "warrior"
+  },
+  {
+    "id": 1484,
+    "name": "doubledstandards",
+    "profession": "warrior"
+  },
+  {
+    "id": 1485,
+    "name": "empowered",
+    "profession": "warrior"
+  },
+  {
+    "id": 1486,
+    "name": "warriorscunning",
+    "profession": "warrior"
+  },
+  {
+    "id": 1487,
+    "name": "arcanerestoration",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1488,
+    "name": "doggedmarch",
+    "profession": "warrior"
+  },
+  {
+    "id": 1489,
+    "name": "destructionoftheempowered",
+    "profession": "warrior"
+  },
+  {
+    "id": 1502,
+    "name": "stormsoul",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1503,
+    "name": "freshair",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1507,
+    "name": "serratedstones",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1508,
+    "name": "diamondskin",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1510,
+    "name": "persistingflames",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1511,
+    "name": "bountifulpower",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1541,
+    "name": "flashbang",
+    "profession": "engineer"
+  },
+  {
+    "id": 1556,
+    "name": "kindledzeal",
+    "profession": "guardian"
+  },
+  {
+    "id": 1606,
+    "name": "resoundingtimbre",
+    "profession": "ranger"
+  },
+  {
+    "id": 1649,
+    "name": "cleansingire",
+    "profession": "warrior"
+  },
+  {
+    "id": 1657,
+    "name": "burstmastery",
+    "profession": "warrior"
+  },
+  {
+    "id": 1667,
+    "name": "martialcadence",
+    "profession": "warrior"
+  },
+  {
+    "id": 1672,
+    "name": "lightningrod",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1673,
+    "name": "elementallockdown",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1674,
+    "name": "stoneheart",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1675,
+    "name": "blindingashes",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1676,
+    "name": "aquamancerstraining",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1678,
+    "name": "experimentalturrets",
+    "profession": "engineer"
+  },
+  {
+    "id": 1679,
+    "name": "gadgeteer",
+    "profession": "engineer"
+  },
+  {
+    "id": 1680,
+    "name": "bunkerdown",
+    "profession": "engineer"
+  },
+  {
+    "id": 1682,
+    "name": "forceofwill",
+    "profession": "guardian"
+  },
+  {
+    "id": 1683,
+    "name": "righteousinstincts",
+    "profession": "guardian"
+  },
+  {
+    "id": 1684,
+    "name": "communaldefenses",
+    "profession": "guardian"
+  },
+  {
+    "id": 1685,
+    "name": "purityofbody",
+    "profession": "guardian"
+  },
+  {
+    "id": 1686,
+    "name": "amplifiedwrath",
+    "profession": "guardian"
+  },
+  {
+    "id": 1687,
+    "name": "bountifuldisillusionment",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1688,
+    "name": "powerblock",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1690,
+    "name": "maimthedisillusioned",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1692,
+    "name": "unholymartyr",
+    "profession": "necromancer"
+  },
+  {
+    "id": 1693,
+    "name": "pathofcorruption",
+    "profession": "necromancer"
+  },
+  {
+    "id": 1694,
+    "name": "unholysanctuary",
+    "profession": "necromancer"
+  },
+  {
+    "id": 1696,
+    "name": "parasiticcontagion",
+    "profession": "necromancer"
+  },
+  {
+    "id": 1697,
+    "name": "invigoratingbond",
+    "profession": "ranger"
+  },
+  {
+    "id": 1698,
+    "name": "leadthewind",
+    "profession": "ranger"
+  },
+  {
+    "id": 1699,
+    "name": "wildernessknowledge",
+    "profession": "ranger"
+  },
+  {
+    "id": 1700,
+    "name": "stridersdefense",
+    "profession": "ranger"
+  },
+  {
+    "id": 1701,
+    "name": "poisonmaster",
+    "profession": "ranger"
+  },
+  {
+    "id": 1702,
+    "name": "invigoratingprecision",
+    "profession": "thief"
+  },
+  {
+    "id": 1703,
+    "name": "dontstop",
+    "profession": "thief"
+  },
+  {
+    "id": 1704,
+    "name": "revealedtraining",
+    "profession": "thief"
+  },
+  {
+    "id": 1705,
+    "name": "shadowsiphoning",
+    "profession": "thief"
+  },
+  {
+    "id": 1706,
+    "name": "deadlyambush",
+    "profession": "thief"
+  },
+  {
+    "id": 1707,
+    "name": "dualwielding",
+    "profession": "warrior"
+  },
+  {
+    "id": 1708,
+    "name": "rousingresilience",
+    "profession": "warrior"
+  },
+  {
+    "id": 1709,
+    "name": "brawlersrecovery",
+    "profession": "warrior"
+  },
+  {
+    "id": 1711,
+    "name": "phalanxstrength",
+    "profession": "warrior"
+  },
+  {
+    "id": 1713,
+    "name": "determinedresolution",
+    "profession": "revenant"
+  },
+  {
+    "id": 1714,
+    "name": "pactofpain",
+    "profession": "revenant"
+  },
+  {
+    "id": 1715,
+    "name": "brutality",
+    "profession": "revenant"
+  },
+  {
+    "id": 1716,
+    "name": "risingmomentum",
+    "profession": "revenant"
+  },
+  {
+    "id": 1719,
+    "name": "roilingmists",
+    "profession": "revenant"
+  },
+  {
+    "id": 1720,
+    "name": "fiendishtenacity",
+    "profession": "revenant"
+  },
+  {
+    "id": 1721,
+    "name": "permeatingpestilence",
+    "profession": "revenant"
+  },
+  {
+    "id": 1724,
+    "name": "destructiveimpulses",
+    "profession": "revenant"
+  },
+  {
+    "id": 1726,
+    "name": "demonicresistance",
+    "profession": "revenant"
+  },
+  {
+    "id": 1727,
+    "name": "abyssalchill",
+    "profession": "revenant"
+  },
+  {
+    "id": 1728,
+    "name": "closequarters",
+    "profession": "revenant"
+  },
+  {
+    "id": 1730,
+    "name": "hardeningpersistence",
+    "profession": "revenant"
+  },
+  {
+    "id": 1732,
+    "name": "cleansingchannel",
+    "profession": "revenant"
+  },
+  {
+    "id": 1737,
+    "name": "draconicfortitude",
+    "profession": "revenant"
+  },
+  {
+    "id": 1738,
+    "name": "sharedempowerment",
+    "profession": "revenant"
+  },
+  {
+    "id": 1740,
+    "name": "dwarvenbattletraining",
+    "profession": "revenant"
+  },
+  {
+    "id": 1741,
+    "name": "replenishingdespair",
+    "profession": "revenant"
+  },
+  {
+    "id": 1743,
+    "name": "shiningaspects",
+    "profession": "revenant"
+  },
+  {
+    "id": 1744,
+    "name": "yearningempowerment",
+    "profession": "revenant"
+  },
+  {
+    "id": 1746,
+    "name": "elevatedcompassion",
+    "profession": "revenant"
+  },
+  {
+    "id": 1749,
+    "name": "songofthemists",
+    "profession": "revenant"
+  },
+  {
+    "id": 1754,
+    "name": "danceofdeath",
+    "profession": "revenant"
+  },
+  {
+    "id": 1755,
+    "name": "battlescarred",
+    "profession": "revenant"
+  },
+  {
+    "id": 1757,
+    "name": "unwaveringavoidance",
+    "profession": "revenant"
+  },
+  {
+    "id": 1758,
+    "name": "ferociousaggression",
+    "profession": "revenant"
+  },
+  {
+    "id": 1760,
+    "name": "rapidflow",
+    "profession": "revenant"
+  },
+  {
+    "id": 1761,
+    "name": "risingtide",
+    "profession": "revenant"
+  },
+  {
+    "id": 1765,
+    "name": "notoriety",
+    "profession": "revenant"
+  },
+  {
+    "id": 1766,
+    "name": "eyeforaneye",
+    "profession": "revenant"
+  },
+  {
+    "id": 1767,
+    "name": "unsuspectingstrikes",
+    "profession": "revenant"
+  },
+  {
+    "id": 1769,
+    "name": "containedtemper",
+    "profession": "revenant"
+  },
+  {
+    "id": 1770,
+    "name": "versedinstone",
+    "profession": "revenant"
+  },
+  {
+    "id": 1772,
+    "name": "draconicecho",
+    "profession": "revenant"
+  },
+  {
+    "id": 1774,
+    "name": "spiritboon",
+    "profession": "revenant"
+  },
+  {
+    "id": 1776,
+    "name": "aggressiveagility",
+    "profession": "revenant"
+  },
+  {
+    "id": 1777,
+    "name": "crystalharbinger",
+    "profession": "revenant"
+  },
+  {
+    "id": 1778,
+    "name": "invokersrage",
+    "profession": "revenant"
+  },
+  {
+    "id": 1779,
+    "name": "viciousreprisal",
+    "profession": "revenant"
+  },
+  {
+    "id": 1781,
+    "name": "incensedresponse",
+    "profession": "revenant"
+  },
+  {
+    "id": 1782,
+    "name": "resoluteevasion",
+    "profession": "revenant"
+  },
+  {
+    "id": 1783,
+    "name": "enduringrecovery",
+    "profession": "revenant"
+  },
+  {
+    "id": 1784,
+    "name": "glaringresolve",
+    "profession": "revenant"
+  },
+  {
+    "id": 1786,
+    "name": "assassinspresence",
+    "profession": "revenant"
+  },
+  {
+    "id": 1788,
+    "name": "reinforcedpotency",
+    "profession": "revenant"
+  },
+  {
+    "id": 1789,
+    "name": "demonicdefiance",
+    "profession": "revenant"
+  },
+  {
+    "id": 1790,
+    "name": "steadfastrejuvenation",
+    "profession": "revenant"
+  },
+  {
+    "id": 1791,
+    "name": "chargedmists",
+    "profession": "revenant"
+  },
+  {
+    "id": 1792,
+    "name": "targeteddestruction",
+    "profession": "revenant"
+  },
+  {
+    "id": 1793,
+    "name": "acolyteoftorment",
+    "profession": "revenant"
+  },
+  {
+    "id": 1795,
+    "name": "diabolicinferno",
+    "profession": "revenant"
+  },
+  {
+    "id": 1799,
+    "name": "invokingtorment",
+    "profession": "revenant"
+  },
+  {
+    "id": 1800,
+    "name": "swifttermination",
+    "profession": "revenant"
+  },
+  {
+    "id": 1801,
+    "name": "seethingmalice",
+    "profession": "revenant"
+  },
+  {
+    "id": 1802,
+    "name": "thrillofcombat",
+    "profession": "revenant"
+  },
+  {
+    "id": 1803,
+    "name": "forcefulpersistence",
+    "profession": "revenant"
+  },
+  {
+    "id": 1806,
+    "name": "corevalue",
+    "profession": "revenant"
+  },
+  {
+    "id": 1808,
+    "name": "exposedefenses",
+    "profession": "revenant"
+  },
+  {
+    "id": 1810,
+    "name": "spiritualreckoning",
+    "profession": "revenant"
+  },
+  {
+    "id": 1811,
+    "name": "planarprotection",
+    "profession": "revenant"
+  },
+  {
+    "id": 1813,
+    "name": "eldersrespite",
+    "profession": "revenant"
+  },
+  {
+    "id": 1814,
+    "name": "serenerejuvenation",
+    "profession": "revenant"
+  },
+  {
+    "id": 1815,
+    "name": "generousabundance",
+    "profession": "revenant"
+  },
+  {
+    "id": 1816,
+    "name": "healersgift",
+    "profession": "revenant"
+  },
+  {
+    "id": 1817,
+    "name": "resilientspirit",
+    "profession": "revenant"
+  },
+  {
+    "id": 1818,
+    "name": "invokingharmony",
+    "profession": "revenant"
+  },
+  {
+    "id": 1819,
+    "name": "wordsofcensure",
+    "profession": "revenant"
+  },
+  {
+    "id": 1820,
+    "name": "selflessamplification",
+    "profession": "revenant"
+  },
+  {
+    "id": 1821,
+    "name": "lifeattunement",
+    "profession": "revenant"
+  },
+  {
+    "id": 1822,
+    "name": "tranquilbalance",
+    "profession": "revenant"
+  },
+  {
+    "id": 1823,
+    "name": "vitalblessing",
+    "profession": "revenant"
+  },
+  {
+    "id": 1824,
+    "name": "blindingtruths",
+    "profession": "revenant"
+  },
+  {
+    "id": 1825,
+    "name": "unyieldingdevotion",
+    "profession": "revenant"
+  },
+  {
+    "id": 1826,
+    "name": "longbowproficiency",
+    "profession": "guardian"
+  },
+  {
+    "id": 1829,
+    "name": "torchproficiency",
+    "profession": "warrior"
+  },
+  {
+    "id": 1831,
+    "name": "primalrage",
+    "profession": "warrior"
+  },
+  {
+    "id": 1832,
+    "name": "takedownround",
+    "profession": "engineer"
+  },
+  {
+    "id": 1833,
+    "name": "lotustraining",
+    "profession": "thief"
+  },
+  {
+    "id": 1834,
+    "name": "soothingdetonation",
+    "profession": "engineer"
+  },
+  {
+    "id": 1835,
+    "name": "zealotsaggression",
+    "profession": "guardian"
+  },
+  {
+    "id": 1837,
+    "name": "endurancethief",
+    "profession": "thief"
+  },
+  {
+    "id": 1838,
+    "name": "delayedreactions",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1839,
+    "name": "transcendenttempest",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1844,
+    "name": "vampiricpresence",
+    "profession": "necromancer"
+  },
+  {
+    "id": 1846,
+    "name": "hiddenbarbs",
+    "profession": "ranger"
+  },
+  {
+    "id": 1848,
+    "name": "virtuousaction",
+    "profession": "guardian"
+  },
+  {
+    "id": 1849,
+    "name": "appliedforce",
+    "profession": "engineer"
+  },
+  {
+    "id": 1852,
+    "name": "inspiringdistortion",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1854,
+    "name": "ironblooded",
+    "profession": "engineer"
+  },
+  {
+    "id": 1856,
+    "name": "kineticbattery",
+    "profession": "engineer"
+  },
+  {
+    "id": 1859,
+    "name": "timemarcheson",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1860,
+    "name": "objectinmotion",
+    "profession": "engineer"
+  },
+  {
+    "id": 1861,
+    "name": "gofortheeyes",
+    "profession": "ranger"
+  },
+  {
+    "id": 1862,
+    "name": "livevicariously",
+    "profession": "ranger"
+  },
+  {
+    "id": 1863,
+    "name": "bitterchill",
+    "profession": "necromancer"
+  },
+  {
+    "id": 1865,
+    "name": "chaoticpersistence",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1866,
+    "name": "illusionaryinspiration",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1867,
+    "name": "massmomentum",
+    "profession": "engineer"
+  },
+  {
+    "id": 1868,
+    "name": "druidicclarity",
+    "profession": "ranger"
+  },
+  {
+    "id": 1869,
+    "name": "persistenceofmemory",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1871,
+    "name": "purityofpurpose",
+    "profession": "engineer"
+  },
+  {
+    "id": 1872,
+    "name": "mechanizeddeployment",
+    "profession": "engineer"
+  },
+  {
+    "id": 1874,
+    "name": "celestialbeing",
+    "profession": "ranger"
+  },
+  {
+    "id": 1876,
+    "name": "bloodbond",
+    "profession": "necromancer"
+  },
+  {
+    "id": 1877,
+    "name": "impactsavant",
+    "profession": "engineer"
+  },
+  {
+    "id": 1878,
+    "name": "chemicalrounds",
+    "profession": "engineer"
+  },
+  {
+    "id": 1879,
+    "name": "shiversofdread",
+    "profession": "necromancer"
+  },
+  {
+    "id": 1882,
+    "name": "glasscannon",
+    "profession": "engineer"
+  },
+  {
+    "id": 1883,
+    "name": "insidiousdisruption",
+    "profession": "necromancer"
+  },
+  {
+    "id": 1884,
+    "name": "staffmaster",
+    "profession": "thief"
+  },
+  {
+    "id": 1886,
+    "name": "unstableconduit",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1887,
+    "name": "weakeningstrikes",
+    "profession": "thief"
+  },
+  {
+    "id": 1888,
+    "name": "viciousquarry",
+    "profession": "ranger"
+  },
+  {
+    "id": 1889,
+    "name": "blindingdissipation",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1890,
+    "name": "chronophantasma",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1891,
+    "name": "tempestuousaria",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1892,
+    "name": "explosivetemper",
+    "profession": "engineer"
+  },
+  {
+    "id": 1893,
+    "name": "havocspecialist",
+    "profession": "thief"
+  },
+  {
+    "id": 1896,
+    "name": "defendersdogma",
+    "profession": "guardian"
+  },
+  {
+    "id": 1898,
+    "name": "piercinglight",
+    "profession": "guardian"
+  },
+  {
+    "id": 1899,
+    "name": "invigoratedbulwark",
+    "profession": "guardian"
+  },
+  {
+    "id": 1900,
+    "name": "packalpha",
+    "profession": "ranger"
+  },
+  {
+    "id": 1901,
+    "name": "automatedmedicalresponse",
+    "profession": "engineer"
+  },
+  {
+    "id": 1902,
+    "name": "harmoniousconduit",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1904,
+    "name": "noquarter",
+    "profession": "thief"
+  },
+  {
+    "id": 1905,
+    "name": "shroudknight",
+    "profession": "necromancer"
+  },
+  {
+    "id": 1908,
+    "name": "huntersfortification",
+    "profession": "guardian"
+  },
+  {
+    "id": 1910,
+    "name": "shieldproficiency",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1911,
+    "name": "soaringdevastation",
+    "profession": "guardian"
+  },
+  {
+    "id": 1912,
+    "name": "lightonyourfeet",
+    "profession": "ranger"
+  },
+  {
+    "id": 1913,
+    "name": "illusionaryreversion",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1914,
+    "name": "highcaliber",
+    "profession": "engineer"
+  },
+  {
+    "id": 1915,
+    "name": "healingprism",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1916,
+    "name": "medicaldispersionfield",
+    "profession": "engineer"
+  },
+  {
+    "id": 1917,
+    "name": "gyroscopicacceleration",
+    "profession": "engineer"
+  },
+  {
+    "id": 1919,
+    "name": "deathlychill",
+    "profession": "necromancer"
+  },
+  {
+    "id": 1922,
+    "name": "shroudedremoval",
+    "profession": "necromancer"
+  },
+  {
+    "id": 1923,
+    "name": "noscope",
+    "profession": "engineer"
+  },
+  {
+    "id": 1925,
+    "name": "zealousscepter",
+    "profession": "guardian"
+  },
+  {
+    "id": 1926,
+    "name": "pureofsight",
+    "profession": "guardian"
+  },
+  {
+    "id": 1927,
+    "name": "flowoftime",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1928,
+    "name": "bloodyroar",
+    "profession": "warrior"
+  },
+  {
+    "id": 1929,
+    "name": "beyondtheveil",
+    "profession": "necromancer"
+  },
+  {
+    "id": 1930,
+    "name": "sanguinearray",
+    "profession": "engineer"
+  },
+  {
+    "id": 1931,
+    "name": "lastrites",
+    "profession": "necromancer"
+  },
+  {
+    "id": 1932,
+    "name": "blightersboon",
+    "profession": "necromancer"
+  },
+  {
+    "id": 1933,
+    "name": "maraudersresilience",
+    "profession": "thief"
+  },
+  {
+    "id": 1935,
+    "name": "primalechoes",
+    "profession": "ranger"
+  },
+  {
+    "id": 1936,
+    "name": "excessiveenergy",
+    "profession": "engineer"
+  },
+  {
+    "id": 1938,
+    "name": "gatheredfocus",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1940,
+    "name": "corruptersfervor",
+    "profession": "necromancer"
+  },
+  {
+    "id": 1941,
+    "name": "fragility",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1942,
+    "name": "losttime",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1943,
+    "name": "bulwark",
+    "profession": "guardian"
+  },
+  {
+    "id": 1944,
+    "name": "blastshield",
+    "profession": "engineer"
+  },
+  {
+    "id": 1945,
+    "name": "beastlywarden",
+    "profession": "ranger"
+  },
+  {
+    "id": 1946,
+    "name": "lockon",
+    "profession": "engineer"
+  },
+  {
+    "id": 1947,
+    "name": "bigboomer",
+    "profession": "engineer"
+  },
+  {
+    "id": 1948,
+    "name": "hardyconduit",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1949,
+    "name": "brawlerstenacity",
+    "profession": "thief"
+  },
+  {
+    "id": 1950,
+    "name": "ineptitude",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1951,
+    "name": "hammerproficiency",
+    "profession": "engineer"
+  },
+  {
+    "id": 1952,
+    "name": "galesong",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1954,
+    "name": "damagedampener",
+    "profession": "engineer"
+  },
+  {
+    "id": 1955,
+    "name": "biggamehunter",
+    "profession": "guardian"
+  },
+  {
+    "id": 1957,
+    "name": "staffproficiency",
+    "profession": "thief"
+  },
+  {
+    "id": 1959,
+    "name": "functiongyro",
+    "profession": "engineer"
+  },
+  {
+    "id": 1960,
+    "name": "evasivemirror",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1962,
+    "name": "latentstamina",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1963,
+    "name": "heavylight",
+    "profession": "guardian"
+  },
+  {
+    "id": 1964,
+    "name": "unhinderedcombatant",
+    "profession": "thief"
+  },
+  {
+    "id": 1965,
+    "name": "staffproficiency",
+    "profession": "ranger"
+  },
+  {
+    "id": 1969,
+    "name": "souleater",
+    "profession": "necromancer"
+  },
+  {
+    "id": 1971,
+    "name": "systemshocker",
+    "profession": "engineer"
+  },
+  {
+    "id": 1974,
+    "name": "auguryofdeath",
+    "profession": "necromancer"
+  },
+  {
+    "id": 1975,
+    "name": "impactingdisruption",
+    "profession": "thief"
+  },
+  {
+    "id": 1977,
+    "name": "savageinstinct",
+    "profession": "warrior"
+  },
+  {
+    "id": 1978,
+    "name": "improvedalacrity",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1979,
+    "name": "optimizedactivation",
+    "profession": "engineer"
+  },
+  {
+    "id": 1980,
+    "name": "protectedphantasms",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1981,
+    "name": "adaptivearmor",
+    "profession": "engineer"
+  },
+  {
+    "id": 1983,
+    "name": "dulledsenses",
+    "profession": "guardian"
+  },
+  {
+    "id": 1984,
+    "name": "pinpointdistribution",
+    "profession": "engineer"
+  },
+  {
+    "id": 1985,
+    "name": "greatswordproficiency",
+    "profession": "necromancer"
+  },
+  {
+    "id": 1986,
+    "name": "elementalbastion",
+    "profession": "elementalist"
+  },
+  {
+    "id": 1987,
+    "name": "allswellthatendswell",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1988,
+    "name": "protectiveward",
+    "profession": "ranger"
+  },
+  {
+    "id": 1992,
+    "name": "naturalmender",
+    "profession": "ranger"
+  },
+  {
+    "id": 1993,
+    "name": "burstofaggression",
+    "profession": "warrior"
+  },
+  {
+    "id": 1994,
+    "name": "physicalsupremacy",
+    "profession": "thief"
+  },
+  {
+    "id": 1995,
+    "name": "timecatchesup",
+    "profession": "mesmer"
+  },
+  {
+    "id": 1997,
+    "name": "reactivelenses",
+    "profession": "engineer"
+  },
+  {
+    "id": 1999,
+    "name": "expertexamination",
+    "profession": "engineer"
+  },
+  {
+    "id": 2000,
+    "name": "bodyblow",
+    "profession": "warrior"
+  },
+  {
+    "id": 2001,
+    "name": "verdantetching",
+    "profession": "ranger"
+  },
+  {
+    "id": 2002,
+    "name": "deadoralive",
+    "profession": "warrior"
+  },
+  {
+    "id": 2004,
+    "name": "elementalenchantment",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2005,
+    "name": "mentaldefense",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2006,
+    "name": "thermalvision",
+    "profession": "engineer"
+  },
+  {
+    "id": 2008,
+    "name": "chillingvictory",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2009,
+    "name": "dangertime",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2011,
+    "name": "bloodreaction",
+    "profession": "warrior"
+  },
+  {
+    "id": 2013,
+    "name": "plaguesending",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2014,
+    "name": "speedofsynergy",
+    "profession": "engineer"
+  },
+  {
+    "id": 2015,
+    "name": "invigoratingtorrents",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2016,
+    "name": "cultivatedsynergy",
+    "profession": "ranger"
+  },
+  {
+    "id": 2017,
+    "name": "symbolicavenger",
+    "profession": "guardian"
+  },
+  {
+    "id": 2018,
+    "name": "coldshoulder",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2020,
+    "name": "chillingnova",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2021,
+    "name": "reapersonslaught",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2022,
+    "name": "seizethemoment",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2023,
+    "name": "escapistsfortitude",
+    "profession": "thief"
+  },
+  {
+    "id": 2025,
+    "name": "singularity",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2026,
+    "name": "relentlesspursuit",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2028,
+    "name": "soothingpower",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2030,
+    "name": "timesplitter",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2031,
+    "name": "decimatedefenses",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2032,
+    "name": "refinedtoxins",
+    "profession": "ranger"
+  },
+  {
+    "id": 2033,
+    "name": "lucidsingularity",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2035,
+    "name": "masteroffragmentation",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2036,
+    "name": "warhornproficiency",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2037,
+    "name": "huntersdetermination",
+    "profession": "guardian"
+  },
+  {
+    "id": 2038,
+    "name": "kingoffires",
+    "profession": "warrior"
+  },
+  {
+    "id": 2039,
+    "name": "lastblaze",
+    "profession": "warrior"
+  },
+  {
+    "id": 2042,
+    "name": "heatthesoul",
+    "profession": "warrior"
+  },
+  {
+    "id": 2043,
+    "name": "eternalchampion",
+    "profession": "warrior"
+  },
+  {
+    "id": 2046,
+    "name": "fatalfrenzy",
+    "profession": "warrior"
+  },
+  {
+    "id": 2047,
+    "name": "boundingdodger",
+    "profession": "thief"
+  },
+  {
+    "id": 2049,
+    "name": "smashbrawler",
+    "profession": "warrior"
+  },
+  {
+    "id": 2050,
+    "name": "shieldproficiency",
+    "profession": "revenant"
+  },
+  {
+    "id": 2052,
+    "name": "kineticaccelerators",
+    "profession": "engineer"
+  },
+  {
+    "id": 2053,
+    "name": "celestialshadow",
+    "profession": "ranger"
+  },
+  {
+    "id": 2055,
+    "name": "ancientseeds",
+    "profession": "ranger"
+  },
+  {
+    "id": 2056,
+    "name": "naturalstride",
+    "profession": "ranger"
+  },
+  {
+    "id": 2057,
+    "name": "graceoftheland",
+    "profession": "ranger"
+  },
+  {
+    "id": 2058,
+    "name": "lingeringlight",
+    "profession": "ranger"
+  },
+  {
+    "id": 2059,
+    "name": "desertempowerment",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2060,
+    "name": "magebanetether",
+    "profession": "warrior"
+  },
+  {
+    "id": 2061,
+    "name": "swiftrevenge",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2062,
+    "name": "swiftscholar",
+    "profession": "guardian"
+  },
+  {
+    "id": 2063,
+    "name": "weightyterms",
+    "profession": "guardian"
+  },
+  {
+    "id": 2064,
+    "name": "photonicblastingmodule",
+    "profession": "engineer"
+  },
+  {
+    "id": 2066,
+    "name": "thermalreleasevalve",
+    "profession": "engineer"
+  },
+  {
+    "id": 2067,
+    "name": "sadisticsearing",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2069,
+    "name": "nomadsendurance",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2070,
+    "name": "infinitehorizon",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2071,
+    "name": "livefast",
+    "profession": "ranger"
+  },
+  {
+    "id": 2072,
+    "name": "unstoppableunion",
+    "profession": "ranger"
+  },
+  {
+    "id": 2073,
+    "name": "axeproficiency",
+    "profession": "guardian"
+  },
+  {
+    "id": 2074,
+    "name": "fellbeacon",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2075,
+    "name": "unrelentingcriticism",
+    "profession": "guardian"
+  },
+  {
+    "id": 2076,
+    "name": "stalwartspeed",
+    "profession": "guardian"
+  },
+  {
+    "id": 2077,
+    "name": "elementalrefreshment",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2078,
+    "name": "payback",
+    "profession": "thief"
+  },
+  {
+    "id": 2079,
+    "name": "bloodfury",
+    "profession": "revenant"
+  },
+  {
+    "id": 2080,
+    "name": "feedfromcorruption",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2081,
+    "name": "elementalpolyphony",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2082,
+    "name": "renewingoasis",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2084,
+    "name": "ironsight",
+    "profession": "thief"
+  },
+  {
+    "id": 2085,
+    "name": "essenceofspeed",
+    "profession": "ranger"
+  },
+  {
+    "id": 2086,
+    "name": "archivistofwhispers",
+    "profession": "guardian"
+  },
+  {
+    "id": 2087,
+    "name": "axeproficiency",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2088,
+    "name": "daggerproficiency",
+    "profession": "ranger"
+  },
+  {
+    "id": 2089,
+    "name": "purityofword",
+    "profession": "guardian"
+  },
+  {
+    "id": 2090,
+    "name": "wovenstride",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2091,
+    "name": "crystalconfigurationzephyr",
+    "profession": "engineer"
+  },
+  {
+    "id": 2092,
+    "name": "heartpiercer",
+    "profession": "revenant"
+  },
+  {
+    "id": 2093,
+    "name": "bequickorbekilled",
+    "profession": "thief"
+  },
+  {
+    "id": 2094,
+    "name": "vindication",
+    "profession": "revenant"
+  },
+  {
+    "id": 2095,
+    "name": "sunandmoonstyle",
+    "profession": "warrior"
+  },
+  {
+    "id": 2096,
+    "name": "bloodassand",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2097,
+    "name": "slowcounter",
+    "profession": "warrior"
+  },
+  {
+    "id": 2098,
+    "name": "mirroredaxes",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2099,
+    "name": "shortbowproficiency",
+    "profession": "revenant"
+  },
+  {
+    "id": 2100,
+    "name": "lastinglegacy",
+    "profession": "revenant"
+  },
+  {
+    "id": 2101,
+    "name": "liberatorsvow",
+    "profession": "guardian"
+  },
+  {
+    "id": 2102,
+    "name": "nourishingashes",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2103,
+    "name": "crystalconfigurationstorm",
+    "profession": "engineer"
+  },
+  {
+    "id": 2105,
+    "name": "stoicdemeanor",
+    "profession": "guardian"
+  },
+  {
+    "id": 2106,
+    "name": "solarfocusinglens",
+    "profession": "engineer"
+  },
+  {
+    "id": 2107,
+    "name": "purestrike",
+    "profession": "warrior"
+  },
+  {
+    "id": 2108,
+    "name": "allforone",
+    "profession": "revenant"
+  },
+  {
+    "id": 2109,
+    "name": "weaver",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2110,
+    "name": "riddleofsand",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2111,
+    "name": "maleficentseven",
+    "profession": "thief"
+  },
+  {
+    "id": 2112,
+    "name": "sandsavant",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2113,
+    "name": "elusivemind",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2114,
+    "name": "lightdensityamplifier",
+    "profession": "engineer"
+  },
+  {
+    "id": 2115,
+    "name": "mastersfortitude",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2116,
+    "name": "legendarylore",
+    "profession": "guardian"
+  },
+  {
+    "id": 2117,
+    "name": "speedofsand",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2118,
+    "name": "silentscope",
+    "profession": "thief"
+  },
+  {
+    "id": 2119,
+    "name": "secondskin",
+    "profession": "ranger"
+  },
+  {
+    "id": 2120,
+    "name": "wroughtironwill",
+    "profession": "revenant"
+  },
+  {
+    "id": 2121,
+    "name": "sandsage",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2122,
+    "name": "lasersedge",
+    "profession": "engineer"
+  },
+  {
+    "id": 2123,
+    "name": "heraldofsorrow",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2124,
+    "name": "daggerproficiency",
+    "profession": "warrior"
+  },
+  {
+    "id": 2125,
+    "name": "swordproficiency",
+    "profession": "engineer"
+  },
+  {
+    "id": 2126,
+    "name": "lossaversion",
+    "profession": "warrior"
+  },
+  {
+    "id": 2127,
+    "name": "twiceasvicious",
+    "profession": "ranger"
+  },
+  {
+    "id": 2128,
+    "name": "leaderofthepack",
+    "profession": "ranger"
+  },
+  {
+    "id": 2129,
+    "name": "rifleproficiency",
+    "profession": "thief"
+  },
+  {
+    "id": 2130,
+    "name": "attackersinsight",
+    "profession": "warrior"
+  },
+  {
+    "id": 2131,
+    "name": "elementsofrage",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2133,
+    "name": "boldreversal",
+    "profession": "revenant"
+  },
+  {
+    "id": 2134,
+    "name": "freshreinforcement",
+    "profession": "ranger"
+  },
+  {
+    "id": 2135,
+    "name": "heattherapy",
+    "profession": "engineer"
+  },
+  {
+    "id": 2136,
+    "name": "oneinthechamber",
+    "profession": "thief"
+  },
+  {
+    "id": 2137,
+    "name": "enhancedcapacitystorageunit",
+    "profession": "engineer"
+  },
+  {
+    "id": 2138,
+    "name": "invigoratingstrikes",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2140,
+    "name": "noescape",
+    "profession": "warrior"
+  },
+  {
+    "id": 2141,
+    "name": "selfdeception",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2142,
+    "name": "brutalmomentum",
+    "profession": "revenant"
+  },
+  {
+    "id": 2143,
+    "name": "oppressivesuperiority",
+    "profession": "ranger"
+  },
+  {
+    "id": 2144,
+    "name": "torchproficiency",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2145,
+    "name": "maliciousintent",
+    "profession": "thief"
+  },
+  {
+    "id": 2146,
+    "name": "fireforeffect",
+    "profession": "thief"
+  },
+  {
+    "id": 2147,
+    "name": "mantleofsand",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2148,
+    "name": "imbuedhaste",
+    "profession": "guardian"
+  },
+  {
+    "id": 2149,
+    "name": "swordproficiency",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2150,
+    "name": "miragecloak",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2151,
+    "name": "elevatedbond",
+    "profession": "ranger"
+  },
+  {
+    "id": 2152,
+    "name": "crystalconfigurationeclipse",
+    "profession": "engineer"
+  },
+  {
+    "id": 2153,
+    "name": "guardcounter",
+    "profession": "warrior"
+  },
+  {
+    "id": 2154,
+    "name": "endlessenmity",
+    "profession": "revenant"
+  },
+  {
+    "id": 2155,
+    "name": "eternalbond",
+    "profession": "ranger"
+  },
+  {
+    "id": 2156,
+    "name": "furiousstrength",
+    "profession": "ranger"
+  },
+  {
+    "id": 2157,
+    "name": "prismaticconverter",
+    "profession": "engineer"
+  },
+  {
+    "id": 2158,
+    "name": "photonprojector",
+    "profession": "engineer"
+  },
+  {
+    "id": 2159,
+    "name": "loremaster",
+    "profession": "guardian"
+  },
+  {
+    "id": 2160,
+    "name": "premeditation",
+    "profession": "thief"
+  },
+  {
+    "id": 2161,
+    "name": "predatorscunning",
+    "profession": "ranger"
+  },
+  {
+    "id": 2162,
+    "name": "dispellingforce",
+    "profession": "warrior"
+  },
+  {
+    "id": 2163,
+    "name": "enchantmentcollapse",
+    "profession": "warrior"
+  },
+  {
+    "id": 2164,
+    "name": "demoniclore",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2165,
+    "name": "elementalpursuit",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2166,
+    "name": "ashendemeanor",
+    "profession": "revenant"
+  },
+  {
+    "id": 2167,
+    "name": "abrasivegrit",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2168,
+    "name": "revengecounter",
+    "profession": "warrior"
+  },
+  {
+    "id": 2169,
+    "name": "dunecloak",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2170,
+    "name": "bolsteredelements",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2171,
+    "name": "deadeyesgaze",
+    "profession": "thief"
+  },
+  {
+    "id": 2172,
+    "name": "renewinggaze",
+    "profession": "thief"
+  },
+  {
+    "id": 2173,
+    "name": "collateraldamage",
+    "profession": "thief"
+  },
+  {
+    "id": 2174,
+    "name": "miragemantle",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2175,
+    "name": "spellbreakersconviction",
+    "profession": "warrior"
+  },
+  {
+    "id": 2177,
+    "name": "superiorelements",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2178,
+    "name": "desertdistortion",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2179,
+    "name": "quickfire",
+    "profession": "guardian"
+  },
+  {
+    "id": 2180,
+    "name": "weaversprowess",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2181,
+    "name": "ambushcommander",
+    "profession": "revenant"
+  },
+  {
+    "id": 2182,
+    "name": "righteousrebel",
+    "profession": "revenant"
+  },
+  {
+    "id": 2183,
+    "profession": "necromancer"
+  },
+  {
+    "id": 2184,
+    "name": "specter",
+    "profession": "thief"
+  },
+  {
+    "id": 2185,
+    "profession": "necromancer"
+  },
+  {
+    "id": 2186,
+    "name": "alchemicvigor",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2187,
+    "name": "conceitedcurate",
+    "profession": "guardian"
+  },
+  {
+    "id": 2188,
+    "profession": "necromancer"
+  },
+  {
+    "id": 2189,
+    "name": "lethaltempo",
+    "profession": "guardian"
+  },
+  {
+    "id": 2190,
+    "name": "powerforpower",
+    "profession": "guardian"
+  },
+  {
+    "id": 2191,
+    "name": "boonpact",
+    "profession": "guardian"
+  },
+  {
+    "id": 2192,
+    "name": "implacablefoe",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2193,
+    "name": "quietintensity",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2194,
+    "profession": "necromancer"
+  },
+  {
+    "id": 2195,
+    "name": "phoenixprotocol",
+    "profession": "guardian"
+  },
+  {
+    "id": 2196,
+    "name": "swordproficiency",
+    "profession": "guardian"
+  },
+  {
+    "id": 2197,
+    "name": "restorativevirtues",
+    "profession": "guardian"
+  },
+  {
+    "id": 2198,
+    "name": "deathlesscourage",
+    "profession": "guardian"
+  },
+  {
+    "id": 2199,
+    "name": "vanguardtactics",
+    "profession": "guardian"
+  },
+  {
+    "id": 2200,
+    "name": "willbendertraining",
+    "profession": "guardian"
+  },
+  {
+    "id": 2201,
+    "name": "tyrantsmomentum",
+    "profession": "guardian"
+  },
+  {
+    "id": 2202,
+    "name": "jaggedmind",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2203,
+    "name": "doomapproaches",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2204,
+    "name": "deadlyblades",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2205,
+    "name": "phantasmalblades",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2206,
+    "name": "infiniteforge",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2207,
+    "name": "sharpeningsorrow",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2208,
+    "name": "mentalfocus",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2209,
+    "name": "darkgunslinger",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2210,
+    "name": "holyreckoning",
+    "profession": "guardian"
+  },
+  {
+    "id": 2211,
+    "name": "psychicriposte",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2212,
+    "name": "bladeturnrefrain",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2213,
+    "name": "pistolproficiency",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2214,
+    "name": "daggerproficiency",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2215,
+    "name": "duelistsreversal",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2216,
+    "name": "psychicblades",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2217,
+    "name": "corruptedtalent",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2218,
+    "profession": "necromancer"
+  },
+  {
+    "id": 2219,
+    "profession": "necromancer"
+  },
+  {
+    "id": 2220,
+    "name": "twistedmedicine",
+    "profession": "necromancer"
+  },
+  {
+    "id": 2222,
+    "name": "righteoussprint",
+    "profession": "guardian"
+  },
+  {
+    "id": 2223,
+    "name": "bloodsong",
+    "profession": "mesmer"
+  },
+  {
+    "id": 2224,
+    "profession": "elementalist"
+  },
+  {
+    "id": 2225,
+    "name": "unseensword",
+    "profession": "warrior"
+  },
+  {
+    "id": 2226,
+    "name": "gunxsword",
+    "profession": "warrior"
+  },
+  {
+    "id": 2227,
+    "name": "depthofelements",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2228,
+    "name": "redemptorssermon",
+    "profession": "revenant"
+  },
+  {
+    "id": 2229,
+    "name": "empiredivided",
+    "profession": "revenant"
+  },
+  {
+    "id": 2230,
+    "profession": "elementalist"
+  },
+  {
+    "id": 2231,
+    "name": "elementalepitome",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2232,
+    "name": "vassalsoftheempire",
+    "profession": "revenant"
+  },
+  {
+    "id": 2233,
+    "name": "staunchauras",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2234,
+    "profession": "elementalist"
+  },
+  {
+    "id": 2235,
+    "name": "greatswordproficiency",
+    "profession": "revenant"
+  },
+  {
+    "id": 2236,
+    "name": "gunsandglory",
+    "profession": "warrior"
+  },
+  {
+    "id": 2237,
+    "name": "riversflow",
+    "profession": "warrior"
+  },
+  {
+    "id": 2238,
+    "name": "saintofzuheltzer",
+    "profession": "revenant"
+  },
+  {
+    "id": 2239,
+    "name": "unyieldingdragon",
+    "profession": "warrior"
+  },
+  {
+    "id": 2240,
+    "name": "lushforest",
+    "profession": "warrior"
+  },
+  {
+    "id": 2241,
+    "name": "empoweredempowerment",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2242,
+    "name": "dragonscaledefense",
+    "profession": "warrior"
+  },
+  {
+    "id": 2243,
+    "name": "angsiyanstrust",
+    "profession": "revenant"
+  },
+  {
+    "id": 2244,
+    "name": "fierceasfire",
+    "profession": "warrior"
+  },
+  {
+    "id": 2245,
+    "name": "daringdragon",
+    "profession": "warrior"
+  },
+  {
+    "id": 2246,
+    "name": "hammerproficiency",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2247,
+    "profession": "elementalist"
+  },
+  {
+    "id": 2248,
+    "name": "amnestyofshingjea",
+    "profession": "revenant"
+  },
+  {
+    "id": 2249,
+    "name": "evasiveempowerment",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2250,
+    "name": "elementalempowerment",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2251,
+    "name": "spherespecialist",
+    "profession": "elementalist"
+  },
+  {
+    "id": 2252,
+    "profession": "elementalist"
+  },
+  {
+    "id": 2253,
+    "name": "unshakablemountain",
+    "profession": "warrior"
+  },
+  {
+    "id": 2254,
+    "name": "balanceindiscord",
+    "profession": "revenant"
+  },
+  {
+    "id": 2255,
+    "name": "songofarboreum",
+    "profession": "revenant"
+  },
+  {
+    "id": 2256,
+    "name": "pistolproficiency",
+    "profession": "warrior"
+  },
+  {
+    "id": 2257,
+    "name": "forerunnerofdeath",
+    "profession": "revenant"
+  },
+  {
+    "id": 2258,
+    "name": "leviathanstrength",
+    "profession": "revenant"
+  },
+  {
+    "id": 2259,
+    "name": "reaverscurse",
+    "profession": "revenant"
+  },
+  {
+    "id": 2260,
+    "name": "swiftasthewind",
+    "profession": "warrior"
+  },
+  {
+    "id": 2261,
+    "name": "immortaldragon",
+    "profession": "warrior"
+  },
+  {
+    "id": 2262,
+    "name": "tenaciousruin",
+    "profession": "revenant"
+  },
+  {
+    "id": 2263,
+    "name": "enhancingimpact",
+    "profession": "ranger"
+  },
+  {
+    "id": 2264,
+    "name": "strengthofshadows",
+    "profession": "thief"
+  },
+  {
+    "id": 2265,
+    "name": "maceproficiency",
+    "profession": "engineer"
+  },
+  {
+    "id": 2266,
+    "name": "mechfighter",
+    "profession": "engineer"
+  },
+  {
+    "id": 2267,
+    "name": "energysiphoning",
+    "profession": "engineer"
+  },
+  {
+    "id": 2268,
+    "name": "unleashedpower",
+    "profession": "ranger"
+  },
+  {
+    "id": 2269,
+    "name": "vowoftheuntamed",
+    "profession": "ranger"
+  },
+  {
+    "id": 2270,
+    "name": "mechframeconductivealloys",
+    "profession": "engineer"
+  },
+  {
+    "id": 2271,
+    "name": "ferventforce",
+    "profession": "ranger"
+  },
+  {
+    "id": 2272,
+    "name": "darksentry",
+    "profession": "thief"
+  },
+  {
+    "id": 2273,
+    "name": "hammerproficiency",
+    "profession": "ranger"
+  },
+  {
+    "id": 2274,
+    "name": "ferocioussymbiosis",
+    "profession": "ranger"
+  },
+  {
+    "id": 2275,
+    "name": "consumeshadows",
+    "profession": "thief"
+  },
+  {
+    "id": 2276,
+    "name": "mechframechannelingconduits",
+    "profession": "engineer"
+  },
+  {
+    "id": 2277,
+    "name": "cleansingunleash",
+    "profession": "ranger"
+  },
+  {
+    "id": 2278,
+    "name": "corruptingvines",
+    "profession": "ranger"
+  },
+  {
+    "id": 2279,
+    "name": "mecharmsjadecannons",
+    "profession": "engineer"
+  },
+  {
+    "id": 2280,
+    "name": "panakusambition",
+    "profession": "thief"
+  },
+  {
+    "id": 2281,
+    "name": "mechcorebarrierengine",
+    "profession": "engineer"
+  },
+  {
+    "id": 2282,
+    "name": "mecharmssingleedgecutters",
+    "profession": "engineer"
+  },
+  {
+    "id": 2283,
+    "name": "restorativestrikes",
+    "profession": "ranger"
+  },
+  {
+    "id": 2284,
+    "name": "secondopinion",
+    "profession": "thief"
+  },
+  {
+    "id": 2285,
+    "name": "traversingdusk",
+    "profession": "thief"
+  },
+  {
+    "id": 2286,
+    "name": "naturalfortitude",
+    "profession": "ranger"
+  },
+  {
+    "id": 2287,
+    "name": "bolsteringunleash",
+    "profession": "ranger"
+  },
+  {
+    "id": 2288,
+    "name": "amplifiedsiphoning",
+    "profession": "thief"
+  },
+  {
+    "id": 2289,
+    "name": "shadestep",
+    "profession": "thief"
+  },
+  {
+    "id": 2290,
+    "name": "larcenoustorment",
+    "profession": "thief"
+  },
+  {
+    "id": 2291,
+    "name": "mechanicalgenius",
+    "profession": "engineer"
+  },
+  {
+    "id": 2292,
+    "name": "mechcorejadedynamo",
+    "profession": "engineer"
+  },
+  {
+    "id": 2294,
+    "name": "mechframevariablemassdistributor",
+    "profession": "engineer"
+  },
+  {
+    "id": 2295,
+    "name": "scepterproficiency",
+    "profession": "thief"
+  },
+  {
+    "id": 2296,
+    "name": "mecharmshighimpactdrivers",
+    "profession": "engineer"
+  },
+  {
+    "id": 2297,
+    "name": "debilitatingblows",
+    "profession": "ranger"
+  },
+  {
+    "id": 2298,
+    "name": "mechcorejdrive",
+    "profession": "engineer"
+  },
+  {
+    "id": 2299,
+    "name": "shallowgrave",
+    "profession": "thief"
+  },
+  {
+    "id": 2300,
+    "name": "hungeringdarkness",
+    "profession": "thief"
+  },
+  {
+    "id": 2301,
+    "name": "blindingoutburst",
+    "profession": "ranger"
+  }
+]

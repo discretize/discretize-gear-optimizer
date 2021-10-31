@@ -1,4 +1,4 @@
-name: '[STAGING] Build and Deploy'
+name: 'Build and Deploy'
 on:
   push:
     branches:
@@ -22,8 +22,24 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Install
-        run: yarn install
+      - name: Cache dependencies
+        id: node-modules-cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+
+      - name: Cache .cache and public
+        id: gatsby-cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            public
+            .cache
+          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-gatsby-cache-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/gatsby-config.js') }}
 
       - name: Build and deploy with gh-pages
         run: |

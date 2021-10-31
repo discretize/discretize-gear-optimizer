@@ -16,8 +16,11 @@ export const extrasSlice = createSlice({
     modifiers: [],
   },
   reducers: {
-    changeExtras: (state, action) => {
+    changeExtra: (state, action) => {
       state[action.payload.key] = action.payload.value;
+    },
+    changeExtras: (state, action) => {
+      return { ...state, ...action.payload };
     },
   },
   extraReducers: {
@@ -41,4 +44,4 @@ export const getExtra = (key) => (state) => state.optimizer.extras[key];
 export const getExtras = (state) => state.optimizer.extras;
 export const getExtrasModifiers = (state) => state.optimizer.extras.modifiers;
 
-export const { changeExtras } = extrasSlice.actions;
+export const { changeExtra, changeExtras } = extrasSlice.actions;

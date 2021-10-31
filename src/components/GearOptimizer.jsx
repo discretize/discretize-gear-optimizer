@@ -72,13 +72,13 @@ const MainComponent = ({ classes, data }) => {
 
               <SkillsSection profession={profession} />
 
-              <ExtrasSection />
+              <ExtrasSection profession={profession} data={data} />
 
               <BuffsSection data={data} />
 
               <ExtraModifiersSection />
 
-              <InfusionsSection />
+              <InfusionsSection data={data} />
 
               <ForcedSlotsSection />
 
@@ -90,7 +90,9 @@ const MainComponent = ({ classes, data }) => {
             </>
           ) : (
             <>
-              <InfusionsSection first />
+              <BuffsSection first data={data} />
+
+              <InfusionsSection data={data} />
 
               <PrioritiesSection data={data} />
 
@@ -137,6 +139,13 @@ const GearOptimizer = ({ classes }) => {
               value
             }
           }
+          presetExtras: presetExtras {
+            list {
+              name
+              value
+              profession
+            }
+          }
           presetDistribution: presetDistribution {
             list {
               name
@@ -157,6 +166,12 @@ const GearOptimizer = ({ classes }) => {
                 priority
                 distribution
               }
+            }
+          }
+          presetInfusions {
+            list {
+              name
+              value
             }
           }
         }

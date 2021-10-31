@@ -308,6 +308,7 @@
         label: 'upkeep'
         default: 10
         quantityEntered: 1
+        disableBlacklist: true
       modifiers:
         damage:
           Damage Reduction: [1.5%, unknown]

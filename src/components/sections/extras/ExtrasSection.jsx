@@ -2,12 +2,35 @@ import { Grid } from '@material-ui/core';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { ConsumableEffect, Item } from 'gw2-ui-bulk';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { extrasModifiers, extrasModifiersById } from '../../../assets/modifierdata';
 import Section from '../../baseComponents/Section';
+import { PROFESSIONS } from '../../../utils/gw2-data';
+import Presets from '../../baseComponents/Presets';
 import GW2Select from './GW2Select';
+import { changeExtras } from '../../../state/slices/extras';
 
-const ExtrasSection = () => {
+const ExtrasSection = ({ profession, data }) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+
+  let extrasPresets;
+  if (profession) {
+    const { eliteSpecializations } = PROFESSIONS.find((entry) => entry.profession === profession);
+    extrasPresets = data.presetExtras.list.filter((preset) => {
+      return preset.profession === null || eliteSpecializations.includes(preset.profession);
+    });
+  }
+
+  const onTemplateClickExtras = React.useCallback(
+    (index) => (event) => {
+      if (index < 0) return;
+
+      const newExtras = JSON.parse(extrasPresets[index].value);
+      dispatch(changeExtras(newExtras));
+    },
+    [dispatch, extrasPresets],
+  );
 
   return (
     <Section
@@ -56,6 +79,13 @@ const ExtrasSection = () => {
             />
           </Grid>
         </Grid>
+      }
+      extraInfo={
+        <>
+          {profession !== '' && (
+            <Presets data={extrasPresets} handleClick={onTemplateClickExtras} />
+          )}
+        </>
       }
     />
   );

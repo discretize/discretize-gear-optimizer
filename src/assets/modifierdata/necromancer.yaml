@@ -67,7 +67,7 @@
       minor: true
       modifiers:
         attributes:
-          Precision: [180, converted]
+          Precision: [180, buff] # unconverted (except by Target the Weak), tested by Marcus and Jezereal
       gw2id: 803
       defaultEnabled: true
 
@@ -78,6 +78,8 @@
       modifiers:
         conversion:
           Condition Damage: {Precision: 13%}
+        attributes:
+          Condition Damage: [23, buff] # conversion of 180 precision from Furious Demise; see https://wiki.guildwars2.com/wiki/Game_updates/2021-08-17#Necromancer
       gw2id: 810
       defaultEnabled: true
 
@@ -210,6 +212,25 @@
           Concentration: [225, converted]
           Expertise: [225, converted]
       gw2id: 2121
+      defaultEnabled: true
+
+    - id: blood-as-sand-2x
+      text: Blood as Sand
+      subText: 2x
+      minor: true
+      modifiers:
+        damage:
+          Damage Reduction: [15%, unknown]
+      gw2id: 2096
+
+    - id: blood-as-sand-3x
+      text: Blood as Sand
+      subText: 3x
+      minor: true
+      modifiers:
+        damage:
+          Damage Reduction: [15%, unknown]
+      gw2id: 2096
       defaultEnabled: true
 
     - id: demonic-lore

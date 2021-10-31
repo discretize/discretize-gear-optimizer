@@ -11,7 +11,7 @@ import { getTraitLines } from '../../../state/slices/traits';
 import { Classes, Defense, INFUSIONS, PROFESSIONS } from '../../../utils/gw2-data';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 import Character from '../../gw2/Character';
-import CopyTemplateButton from '../controls/CopyTemplateButton';
+import TemplateHelperSections from '../controls/TemplateHelperSections';
 import AffixesStats from './AffixesStats';
 import AppliedModifiers from './AppliedModifiers';
 import Indicators from './Indicators';
@@ -83,7 +83,7 @@ const ResultDetails = ({ data }) => {
   const sigil1Id = extrasModifiersById[sigil1]?.gw2id;
   const sigil2Id = extrasModifiersById[sigil2]?.gw2id;
   const rune = runeStringId ? extrasModifiersById[runeStringId] : '';
-  const runeName = runeStringId ? rune.text.replace(/(Superior|Rune|of|the)/g, '') : '';
+  const runeName = runeStringId ? rune.text.replace(/(Superior|Rune|of|the)/g, '').trim() : '';
 
   // Calculate the props for the weapons component
   let wea1;
@@ -198,13 +198,18 @@ const ResultDetails = ({ data }) => {
 
       <AppliedModifiers data={modifiers} />
 
-      <CopyTemplateButton
-        extras={{ utilityId, foodId, sigil1Id, sigil2Id }}
-        data={character}
-        infusions={infusions}
-        weight={weight}
-        runeId={rune.gw2id}
-        runeName={runeName}
+      <TemplateHelperSections
+        character={character}
+        otherData={{
+          utilityId,
+          foodId,
+          sigil1Id,
+          sigil2Id,
+          infusions,
+          weight,
+          rune: rune.gw2id,
+          runeName,
+        }}
       />
     </>
   );

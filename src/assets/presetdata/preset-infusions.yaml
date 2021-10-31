@@ -1,0 +1,29 @@
+GraphQL ID: presetInfusions
+list:
+
+  - name: Power + Precision
+    value: |-
+      {
+        "primaryInfusion": 37131,
+        "secondaryInfusion": 37132,
+        "primaryMaxInfusions": "",
+        "secondaryMaxInfusions": ""
+      }
+
+  - name: Condition Damage + Expertise
+    value: |-
+      {
+        "primaryInfusion": 37130,
+        "secondaryInfusion": 86113,
+        "primaryMaxInfusions": "",
+        "secondaryMaxInfusions": ""
+      }
+
+  - name: Healing Power + Concentration
+    value: |-
+      {
+        "primaryInfusion": 37125,
+        "secondaryInfusion": 86180,
+        "primaryMaxInfusions": "",
+        "secondaryMaxInfusions": ""
+      }

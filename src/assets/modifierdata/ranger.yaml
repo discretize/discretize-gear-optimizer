@@ -98,6 +98,7 @@
 
     - id: oakheart-salve
       text: Oakheart Salve
+      subText: 100% regeneration
       modifiers:
         damage:
           Damage Reduction: [5%, unknown]
@@ -337,3 +338,49 @@
           Ferocity: [120, buff]
       minor: true
       gw2id: 1066
+
+- section: Untamed
+  id: 72
+  items:
+
+    - id: natural-fortitude
+      text: Natural Fortitude
+      modifiers:
+        attributes:
+          Vitality: [240, unknown]
+      minor: true
+      gw2id: 2286
+      defaultEnabled: true
+
+    - id: vow-of-the-untamed-you
+      text: Vow of the Untamed
+      subText: player unleashed
+      modifiers:
+        damage:
+          All Damage: [15%, unknown]
+          Damage Reduction: [-10%, unknown]
+      minor: true
+      gw2id: 2269
+      defaultEnabled: true
+
+    - id: vow-of-the-untamed-pet
+      text: Vow of the Untamed
+      subText: pet unleashed
+      modifiers:
+        damage:
+          All Damage: [-15%, unknown]
+          Damage Reduction: [10%, unknown]
+      minor: true
+      gw2id: 2269
+
+    - id: ferocious-symbiosis
+      text: Ferocious Symbiosis
+      amountData:
+        label: 'stacks'
+        default: 5
+        quantityEntered: 1
+      modifiers:
+        damage:
+          All Damage: [3%, unknown]
+      gw2id: 2274
+      defaultEnabled: true
