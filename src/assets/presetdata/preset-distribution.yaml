@@ -39,7 +39,7 @@ list:
         "values2": { "Power": 2626, "Burning": 0.6, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  - name: DH (Radiance)
+  - name: DH Radiance
     profession: DRAGONHUNTER
     value: >-
       {
@@ -55,7 +55,7 @@ list:
         "values2": { "Power": 3334, "Burning": 2.2, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  - name: Power Firebrand (approx.)
+  - name: Power Quickbrand (approx.)
     profession: FIREBRAND
     value: >-
       {
@@ -95,7 +95,7 @@ list:
         "values2": { "Power": 2087, "Burning": 13.9, "Bleeding": 4.1, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
       }
 
-  - name: Quickness CFB (Virtues, allies)
+  - name: CFB w/ Quickness (Virtues, allies)
     profession: FIREBRAND
     value: >-
       {
@@ -103,7 +103,7 @@ list:
         "values2": { "Power": 2128, "Burning": 13.7, "Bleeding": 2.4, "Poisoned": 0, "Torment": 1.2, "Confusion": 0 }
       }
 
-  - name: CQB 40% (Virtues, allies)
+  - name: Condi Quickbrand 40% (Virtues, allies)
     profession: FIREBRAND
     value: >-
       {
@@ -121,7 +121,7 @@ list:
 
   # +1.7 burning for no allies/with allies split on 5 page seems to hold up well
 
-  - name: Hybrid FB (Virtues)
+  - name: Hybrid FB Virtues
     profession: FIREBRAND
     value: >-
       {
@@ -137,7 +137,7 @@ list:
   #       "values2": { "Power": 2242, "Burning": 10.5, "Bleeding": 3.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
 
-  - name: Hybrid FB (Honor)
+  - name: Hybrid FB Honor
     profession: FIREBRAND
     value: >-
       {
@@ -161,7 +161,7 @@ list:
         "values2": { "Power": 3603, "Burning": 6.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  - name: Condi Weaver (Sword)
+  - name: Condi Weaver Swordord
     profession: WEAVER
     value: >-
       {
@@ -209,7 +209,7 @@ list:
         "values2": { "Power": 3693, "Burning": 1.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  - name: Condi RR (Invocation)
+  - name: Condi RR Invocation
     profession: RENEGADE
     value: >-
       {
@@ -217,7 +217,7 @@ list:
         "values2": { "Power": 1973, "Burning": 5.0, "Bleeding": 14.1, "Poisoned": 4.2, "Torment": 18.4, "Confusion": 0 }
       }
 
-  - name: Condi RR (Devastation)
+  - name: Condi RR Devastation
     profession: RENEGADE
     value: >-
       {

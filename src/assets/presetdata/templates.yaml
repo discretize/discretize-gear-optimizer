@@ -30,7 +30,7 @@ list:
         specialization: Dragonhunter
         boons: Power (spotter)
         priority: Power DPS
-        distribution: DH (Radiance)
+        distribution: DH Radiance
         traits: DH Radiance w/ PI
         extras: Power (Fractal)
 
@@ -39,7 +39,7 @@ list:
         specialization: Dragonhunter
         boons: Power (spotter)
         priority: Power DPS
-        distribution: DH (Radiance)
+        distribution: DH Radiance
         traits: DH Radiance
         extras: Power (Fractal)
 
@@ -52,13 +52,13 @@ list:
         traits: DH Virtues
         extras: DH Virtues (Fractal)
 
-      - name: pQFB
+      - name: Power Quickbrand
         id: pqfb
         specialization: Firebrand
         boons: Power (spotter)
         priority: Power DPS
-        distribution: Power Firebrand (approx.)
-        traits: pQFB
+        distribution: Power Quickbrand (approx.)
+        traits: Power Quickbrand
         extras: Power (Fractal)
 
       - name: CFB w/ Quickness
@@ -66,8 +66,8 @@ list:
         specialization: Firebrand
         boons: Condi
         priority: Condi DPS
-        distribution: Quickness CFB (Virtues, allies)
-        traits: CFB w/ Quickness
+        distribution: CFB w/ Quickness (Virtues, allies)
+        traits: Condi Quickbrand
         extras: CFB w/ Quickness
 
       - name: CFB DPS 5 page
@@ -88,31 +88,31 @@ list:
         traits: CFB DPS 8 page
         extras: CFB DPS
 
-      - name: CQB 40%
+      - name: Condi Quickbrand 40%
         id: cqfb-firebrand
         specialization: Firebrand
         boons: Condi
         priority: Condi DPS
-        distribution: CQB 40% (Virtues, allies)
-        traits: CQB 40%
-        extras: CQB 40%
+        distribution: Condi Quickbrand 40% (Virtues, allies)
+        traits: Condi Quickbrand
+        extras: Condi Quickbrand 40%
 
-      - name: Hybrid FB (Virtues)
+      - name: Hybrid FB Virtues
         id: hycfb-virtues-leadership
         specialization: Firebrand
         boons: Condi
         priority: Condi Boon
-        distribution: Hybrid FB (Virtues)
-        traits: Hybrid FB (Virtues)
+        distribution: Hybrid FB Virtues
+        traits: Hybrid FB Virtues
         extras: Hybrid FB Traveler
 
-      - name: Hybrid FB (Honor)
+      - name: Hybrid FB Honor
         id: hycfb-honor-leadership
         specialization: Firebrand
         boons: Condi
         priority: Condi Boon
-        distribution: Hybrid FB (Honor)
-        traits: Hybrid FB (Honor)
+        distribution: Hybrid FB Honor
+        traits: Hybrid FB Honor
         extras: Hybrid FB Traveler
 
       - name: Healbrand
@@ -184,14 +184,14 @@ list:
         traits: Power Weaver
         extras: Power (Fractal)
 
-      - name: Condi Weaver SW
+      - name: Condi Weaver Sword
         id: cwea
         specialization: Weaver
         boons: Condi
         priority: Condi DPS
-        distribution: Condi Weaver (Sword)
-        traits: Condi Weaver SW
-        extras: Condi Weaver SW
+        distribution: Condi Weaver Swordord
+        traits: Condi Weaver Sword
+        extras: Condi Weaver Sword
 
       - name: Hybrid Weaver
         id: hwea
@@ -294,8 +294,8 @@ list:
         specialization: Renegade
         boons: Condi
         priority: Condi Boon
-        distribution: Condi RR (Invocation)
-        traits: Condi Alac Ren Invo
+        distribution: Condi RR Invocation
+        traits: Condi RR Ren Invo
         extras: Cele Ren (Fractal)
 
       - name: Condi RR Ren Invo
@@ -303,7 +303,7 @@ list:
         specialization: Renegade
         boons: Condi
         priority: Condi DPS
-        distribution: Condi RR (Invocation)
+        distribution: Condi RR Invocation
         traits: Condi RR Ren Invo
         extras: Condi Ren
 
@@ -312,7 +312,7 @@ list:
         specialization: Renegade
         boons: Condi
         priority: Condi DPS
-        distribution: Condi RR (Devastation)
+        distribution: Condi RR Devastation
         traits: Condi RR Ren Deva
         extras: Condi Ren
 

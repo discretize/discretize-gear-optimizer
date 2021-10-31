@@ -86,7 +86,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: CQB 40%
+  - name: Condi Quickbrand 40%
     profession: FIREBRAND
     value: |-
       {
@@ -152,7 +152,7 @@ list:
         "Nourishment": "sweet-and-spicy-butternut-squash-soup"
       }
 
-  - name: Condi Weaver SW
+  - name: Condi Weaver Sword
     profession: WEAVER
     value: |-
       {
