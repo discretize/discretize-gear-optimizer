@@ -9,12 +9,15 @@ export const infusionsSlice = createSlice({
     secondaryMaxInfusions: '',
   },
   reducers: {
-    changeInfusions: (state, action) => {
+    changeInfusion: (state, action) => {
       state[action.payload.key] = action.payload.value;
+    },
+    changeInfusions: (state, action) => {
+      return { ...state, ...action.payload };
     },
   },
 });
 
 export const getInfusions = (state) => state.optimizer.infusions;
 
-export const { changeInfusions } = infusionsSlice.actions;
+export const { changeInfusion, changeInfusions } = infusionsSlice.actions;

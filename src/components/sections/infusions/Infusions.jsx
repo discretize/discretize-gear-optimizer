@@ -10,7 +10,7 @@ import {
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeInfusions, getInfusions } from '../../../state/slices/infusions';
+import { changeInfusion, getInfusions } from '../../../state/slices/infusions';
 import { INFUSIONS } from '../../../utils/gw2-data';
 
 const styles = (theme) => ({
@@ -37,7 +37,7 @@ const Infusions = ({ classes }) => {
           input={<Input name={name} id={name} />}
           onChange={(e) =>
             dispatch(
-              changeInfusions({
+              changeInfusion({
                 key: varName,
                 value: e.target.value === '' ? '' : Number(e.target.value),
               }),
@@ -63,7 +63,7 @@ const Infusions = ({ classes }) => {
         <Input
           id={`${varName}_input-with-icon-adornment`}
           value={maxInfusions}
-          onChange={(e) => dispatch(changeInfusions({ key: varName, value: e.target.value }))}
+          onChange={(e) => dispatch(changeInfusion({ key: varName, value: e.target.value }))}
         />
       </FormControl>
     );
