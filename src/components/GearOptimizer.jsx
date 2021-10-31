@@ -90,7 +90,9 @@ const MainComponent = ({ classes, data }) => {
             </>
           ) : (
             <>
-              <InfusionsSection data={data} first />
+              <BuffsSection first data={data} />
+
+              <InfusionsSection data={data} />
 
               <PrioritiesSection data={data} />
 
