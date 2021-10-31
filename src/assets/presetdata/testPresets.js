@@ -68,6 +68,26 @@ const testModifiers = async () => {
     }
   }
 
+  for (const type of Object.keys(types)) {
+    const potentialDuplicates = {};
+
+    for (const entry of data[type]) {
+      const { name, value, traits, skills } = entry;
+      const entryValue = value || traits + skills;
+
+      if (potentialDuplicates[entryValue]) {
+        potentialDuplicates[entryValue].push(name);
+      } else {
+        potentialDuplicates[entryValue] = [name];
+      }
+    }
+    for (const names of Object.values(potentialDuplicates)) {
+      if (names.length > 1) {
+        console.log(`note: the ${type} ${names.join(' / ')} are duplicates!`);
+      }
+    }
+  }
+
   for (const section of templates.list) {
     for (const item of section.builds) {
       const {
