@@ -78,7 +78,7 @@ const MainComponent = ({ classes, data }) => {
 
               <ExtraModifiersSection />
 
-              <InfusionsSection />
+              <InfusionsSection data={data} />
 
               <ForcedSlotsSection />
 
@@ -164,6 +164,12 @@ const GearOptimizer = ({ classes }) => {
                 priority
                 distribution
               }
+            }
+          }
+          presetInfusions {
+            list {
+              name
+              value
             }
           }
         }
