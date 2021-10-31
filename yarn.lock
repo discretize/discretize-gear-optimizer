@@ -8105,19 +8105,19 @@ gw2-ui-builder-bulk@^0.2.4:
   resolved "https://registry.yarnpkg.com/gw2-ui-builder-bulk/-/gw2-ui-builder-bulk-0.2.4.tgz#cc468b8c001573c3b26dd0f3c3e5b379a5a2de53"
   integrity sha512-Lyut7wmI83zClIGnwHvMblpa/WTa45tFbhhzkww9B+lazoneE2ZFkCIUA2fsZYSn/9CYAeZSpMr4LOEFL8ds/g==
 
-gw2-ui-bulk@0.11.11:
-  version "0.11.11"
-  resolved "https://registry.yarnpkg.com/gw2-ui-bulk/-/gw2-ui-bulk-0.11.11.tgz#e656adc1bcd20785e762681482ec3373373e1f81"
-  integrity sha512-O7NTg4V0CuTNhH1uISHen7/9P1pmRi7DxuUVB04ruIrGSIkeXClX0smm3IGVCrdOtc7RrGSJjquECgBUbB9UqA==
+gw2-ui-bulk@0.11.12:
+  version "0.11.12"
+  resolved "https://registry.yarnpkg.com/gw2-ui-bulk/-/gw2-ui-bulk-0.11.12.tgz#deb71c3b4ee20e46bd7f9ff6bb0b5cd2ffda18dc"
+  integrity sha512-efMzjYLjWaLz5llX2GpR5vct9h+LWcQMtjxpTG9ypGj9kzOohZVw9gZpbv/9RF5J09fbiqOBJINgY8K+UEwL4A==
   dependencies:
     gw2-ui-builder-bulk "^0.2.4"
-    gw2-ui-components-bulk "^0.12.9"
+    gw2-ui-components-bulk "^0.12.10"
     gw2-ui-redux-bulk "^0.5.13"
 
-gw2-ui-components-bulk@^0.12.9:
-  version "0.12.9"
-  resolved "https://registry.yarnpkg.com/gw2-ui-components-bulk/-/gw2-ui-components-bulk-0.12.9.tgz#38ab28db465cff169123624e4802ba7c180eff34"
-  integrity sha512-mUt7oWuA5k6sW4EcEzRlCdgIvhezkSD4duKsz+5jJ1fSOqdhDi9eXawaIjeyOYFfPIGpD0kwb7Vdf0oUqA6FFw==
+gw2-ui-components-bulk@^0.12.10:
+  version "0.12.10"
+  resolved "https://registry.yarnpkg.com/gw2-ui-components-bulk/-/gw2-ui-components-bulk-0.12.10.tgz#34a29a35f4d5a089249d182e7fe5ef19a4d0b378"
+  integrity sha512-f20iRrDLVc5YMO7ZTCUX93BpNMDE7d4Sb/8n1cPbOhTPXbN1/i3mCwMJN8iSnySaqCWqwT2Qi7xW/qE7/H2kog==
   dependencies:
     "@tippyjs/react" "^4.2.5"
     axios "^0.21.4"
