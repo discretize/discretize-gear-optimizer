@@ -59,6 +59,189 @@ list:
         "skills": []
       }
 
+  - name: Axe Mirage
+    profession: MIRAGE
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "45",
+          "1",
+          "59"
+        ],
+        "selectedTraits": [
+          [
+            670,
+            669,
+            671
+          ],
+          [
+            700,
+            1889,
+            1950
+          ],
+          [
+            0,
+            2098,
+            2070
+          ]
+        ],
+        "items": [
+          {
+            "illusionary-defense": {
+              "amount": ""
+            },
+            "illusionary-membrane": {
+              "amount": ""
+            },
+            "chaotic-potency": true,
+            "chaotic-potency-2": false,
+            "chaotic-persistence": true
+          },
+          {
+            "fencers-finesse": {
+              "amount": ""
+            },
+            "superiority-complex-base": true,
+            "superiority-complex": {
+              "amount": ""
+            }
+          },
+          {
+            "nomads-endurance": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": [
+          "signet-of-domination",
+          "signet-of-midnight"
+        ]
+      }
+
+  - name: Staff Mirage
+    profession: MIRAGE
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "45",
+          "1",
+          "59"
+        ],
+        "selectedTraits": [
+          [
+            670,
+            669,
+            1687
+          ],
+          [
+            701,
+            1889,
+            1950
+          ],
+          [
+            2141,
+            2178,
+            2070
+          ]
+        ],
+        "items": [
+          {
+            "illusionary-defense": {
+              "amount": ""
+            },
+            "illusionary-membrane": {
+              "amount": ""
+            },
+            "chaotic-potency": true,
+            "chaotic-potency-2": {
+              "amount": ""
+            },
+            "chaotic-persistence": true
+          },
+          {
+            "fencers-finesse": {
+              "amount": ""
+            },
+            "superiority-complex-base": true,
+            "superiority-complex": {
+              "amount": ""
+            }
+          },
+          {
+            "nomads-endurance": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": [
+          "signet-of-domination",
+          "signet-of-midnight"
+        ]
+      }
+
+  - name: Condi Chrono
+    profession: CHRONOMANCER
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "24",
+          "1",
+          "40"
+        ],
+        "selectedTraits": [
+          [
+            691,
+            1690,
+            753
+          ],
+          [
+            700,
+            1889,
+            1950
+          ],
+          [
+            1995,
+            1978,
+            0
+          ]
+        ],
+        "items": [
+          {
+            "compounding-power": {
+              "amount": ""
+            }
+          },
+          {
+            "fencers-finesse": {
+              "amount": ""
+            },
+            "superiority-complex-base": true,
+            "superiority-complex": {
+              "amount": ""
+            }
+          },
+          {
+            "danger-time": true
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": [
+          "signet-of-domination",
+          "signet-of-midnight"
+        ]
+      }
+
   - name: '[incomplete] Virtuoso'
     profession: VIRTUOSO
     traits: |-
@@ -322,6 +505,79 @@ list:
           "bane-signet"
         ]
       }
+
+  # - name: Core Guardian
+  #   profession: GUARDIAN
+  #   traits: |-
+  #     {
+  #       "showAll": false,
+  #       "selectedLines": [
+  #         "16",
+  #         "42",
+  #         "46"
+  #       ],
+  #       "selectedTraits": [
+  #         [
+  #           574,
+  #           565,
+  #           1683
+  #         ],
+  #         [
+  #           634,
+  #           653,
+  #           2017
+  #         ],
+  #         [
+  #           624,
+  #           603,
+  #           622
+  #         ]
+  #       ],
+  #       "items": [
+  #         {
+  #           "right-hand-strength": true,
+  #           "right-hand-strength-1h": {
+  #             "amount": ""
+  #           },
+  #           "radiant-fire": true,
+  #           "retribution": {
+  #             "amount": ""
+  #           },
+  #           "radiant-power": true,
+  #           "amplified-wrath": true,
+  #           "righteous-instincts": true
+  #         },
+  #         {
+  #           "fiery-wrath": true,
+  #           "symbolic-exposure": true,
+  #           "zealous-blade-base": true,
+  #           "zealous-blade-gs": {
+  #             "amount": ""
+  #           },
+  #           "kindled-zeal": true,
+  #           "symbolic-avenger": true
+  #         },
+  #         {
+  #           "inspired-virtue": {
+  #             "amount": ""
+  #           },
+  #           "unscathed-contender": {
+  #             "amount": ""
+  #           },
+  #           "virtue-of-retribution": true,
+  #           "inspiring-virtue": {
+  #             "amount": "80"
+  #           },
+  #           "power-of-the-virtuous": true
+  #         }
+  #       ]
+  #     }
+  #   skills: |-
+  #     {
+  #       "skills": [
+  #         "bane-signet"
+  #       ]
+  #     }
 
   - name: Power Quickbrand
     profession: FIREBRAND
@@ -1586,6 +1842,71 @@ list:
         "skills": []
       }
 
+  - name: Power Slb Skirm
+    profession: SOULBEAST
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "30",
+          "32",
+          "55"
+        ],
+        "selectedTraits": [
+          [
+            0,
+            1016,
+            1888
+          ],
+          [
+            1606,
+            970,
+            1066
+          ],
+          [
+            2071,
+            2085,
+            2128
+          ]
+        ],
+        "items": [
+          {
+            "hidden-barbs": true,
+            "hunters-tactics": true,
+            "light-on-your-feet": false,
+            "vicious-quarry": true
+          },
+          {
+            "honed-axes": true,
+            "honed-axes-axe": {
+              "amount": ""
+            }
+          },
+          {
+            "furious-strength": {
+              "amount": ""
+            },
+            "twice-as-vicious": {
+              "amount": ""
+            },
+            "oppressive-superiority": true,
+            "archetype-stout": false,
+            "archetype-deadly": false,
+            "archetype-versatile": false,
+            "archetype-ferocious": true,
+            "archetype-supportive": false,
+            "pack-alpha-merged": true,
+            "loud-whistle-merged": true,
+            "pets-prowess-merged": true,
+            "honed-axes-merged": true
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": []
+      }
+
   - name: Condi Slb SB
     profession: SOULBEAST
     traits: |-
@@ -2320,6 +2641,79 @@ list:
         "skills": []
       }
 
+  - name: Power DPS Ren
+    profession: RENEGADE
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "15",
+          "3",
+          "63"
+        ],
+        "selectedTraits": [
+          [
+            1767,
+            1765,
+            1754
+          ],
+          [
+            1761,
+            1774,
+            1791
+          ],
+          [
+            2166,
+            2108,
+            2094
+          ]
+        ],
+        "items": [
+          {
+            "unsuspecting-strikes": {
+              "amount": ""
+            },
+            "destructive-impulses-base": true,
+            "destructive-impulses-dual": {
+              "amount": "100"
+            },
+            "notoriety": {
+              "amount": ""
+            },
+            "targeted-destruction": {
+              "amount": ""
+            },
+            "swift-termination": {
+              "amount": ""
+            }
+          },
+          {
+            "rising-tide": {
+              "amount": ""
+            },
+            "ferocious-aggression": {
+              "amount": ""
+            },
+            "roiling-mists": true
+          },
+          {
+            "ambush-commander": {
+              "amount": ""
+            },
+            "blood-fury": true,
+            "heartpiercer": true,
+            "brutal-momentum": true,
+            "lasting-legacy": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": []
+      }
+
   - name: Heal Ren
     profession: RENEGADE
     traits: |-
@@ -2451,6 +2845,73 @@ list:
           {
             "lasers-edge": {
               "amount": "112"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": []
+      }
+
+  - name: Condi Holo
+    profession: HOLOSMITH
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "38",
+          "6",
+          "57"
+        ],
+        "selectedTraits": [
+          [
+            1878,
+            2006,
+            433
+          ],
+          [
+            1882,
+            1892,
+            505
+          ],
+          [
+            2106,
+            2103,
+            2064
+          ]
+        ],
+        "items": [
+          {
+            "chemical-rounds": true,
+            "high-caliber": true,
+            "hematic-focus": true,
+            "thermal-vision": true,
+            "no-scope": {
+              "amount": ""
+            },
+            "serrated-steel": true,
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": true
+          },
+          {
+            "glass-cannon": {
+              "amount": ""
+            },
+            "explosive-temper": {
+              "amount": ""
+            },
+            "blast-shield": true,
+            "shaped-charge": {
+              "amount": ""
+            },
+            "big-boomer": true
+          },
+          {
+            "lasers-edge": {
+              "amount": "???"
             }
           }
         ]
