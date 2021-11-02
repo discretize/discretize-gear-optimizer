@@ -3,7 +3,7 @@ import { Trans } from 'gatsby-plugin-react-i18next';
 import { Attribute, Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeAR, changeOmnipotion, getAR, getOmniPotion } from '../../../state/slices/omnipotion';
+import { changeAR, changeOmnipotion, getAR, getOmniPotion } from '../../../state/slices/infusions';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
 const ARinput = () => {
