@@ -3,7 +3,9 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import classNames from 'classnames';
 import { Profession } from 'gw2-ui-bulk';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { getProfession } from '../../state/controlsSlice';
 import { firstUppercase } from '../../utils/usefulFunctions';
 
 const useStyles = makeStyles((theme) => ({
@@ -21,11 +23,13 @@ const MAX_CHIPS = 6;
 const Presets = ({ className, data, handleClick }) => {
   const classes = useStyles();
   const { t } = useTranslation();
+  const profession = useSelector(getProfession);
 
   return (
     <div className={classNames(className, classes.root)}>
       {data.length > MAX_CHIPS ? (
         <Autocomplete
+          key={`${profession}-presets`}
           id="presets"
           options={data}
           getOptionLabel={(preset) => preset.name}
