@@ -27,13 +27,13 @@ const ExtrasSection = ({ profession, data }) => {
   }
 
   const onTemplateClickExtras = React.useCallback(
-    (index) => (event) => {
-      if (index < 0) return;
+    (value) => {
+      if (value === null) return;
 
-      const newExtras = JSON.parse(extrasPresets[index].value);
+      const newExtras = JSON.parse(value.value);
       dispatch(changeExtras(newExtras));
     },
-    [dispatch, extrasPresets],
+    [dispatch],
   );
 
   return (
