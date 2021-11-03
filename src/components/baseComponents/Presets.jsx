@@ -40,15 +40,10 @@ const Presets = ({ className, data, handleClick }) => {
               t(preset.name)
             )
           }
-          onSelect={(event) => {
-            const clickedIndex = data.indexOf(
-              data.find((preset) => preset.name === event.target.defaultValue),
-            );
-            handleClick(clickedIndex)(event);
-          }}
+          onChange={(event, value) => handleClick(value)}
         />
       ) : (
-        data.map((preset, index) => (
+        data.map((preset) => (
           <Chip
             id={preset.name}
             key={preset.name}
@@ -63,7 +58,7 @@ const Presets = ({ className, data, handleClick }) => {
               )
             }
             variant="outlined"
-            onClick={handleClick(index)}
+            onClick={handleClick(preset)}
             className={classes.templateChip}
           />
         ))

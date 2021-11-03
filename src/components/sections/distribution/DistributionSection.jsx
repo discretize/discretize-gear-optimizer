@@ -35,19 +35,16 @@ const DistributionSection = ({ profession, data }) => {
   }
 
   const onTemplateClickDistribution = React.useCallback(
-    (index) => (event) => {
-      if (index < 0) {
-        dispatch(resetDistributions());
-        return;
-      }
+    (value) => {
+      if (value === null) return;
 
-      const state = JSON.parse(distributionPresets[index].value);
+      const state = JSON.parse(value.value);
 
       dispatch(changeAllDistributionsOld(state.values1));
       dispatch(changeAllDistributionsNew(state.values2));
       dispatch(changeAllTextBoxes(state.values2));
     },
-    [dispatch, distributionPresets],
+    [dispatch],
   );
 
   return (

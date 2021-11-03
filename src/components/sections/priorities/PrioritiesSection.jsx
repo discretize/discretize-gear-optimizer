@@ -11,11 +11,12 @@ const PrioritiesSection = ({ data }) => {
   const { t } = useTranslation();
 
   const handleTemplateClickPriorities = React.useCallback(
-    (index) => (event) => {
-      const state = JSON.parse(data.presetAffixes.list[index].value);
+    (value) => {
+      if (value === null) return;
+      const state = JSON.parse(value.value);
       Object.keys(state).forEach((key) => dispatch(changePriority({ key, value: state[key] })));
     },
-    [data.presetAffixes.list, dispatch],
+    [dispatch],
   );
 
   return (
