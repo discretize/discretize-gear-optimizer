@@ -40,6 +40,9 @@ const Presets = ({ className, data, handleClick }) => {
               t(preset.name)
             )
           }
+          blurOnSelect
+          disableClearable
+          clearOnBlur={false}
           onChange={(event, value) => handleClick(value)}
         />
       ) : (
