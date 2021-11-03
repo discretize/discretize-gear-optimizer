@@ -1,6 +1,15 @@
 GraphQL ID: presetInfusions
 list:
 
+  - name: None
+    value: |-
+      {
+        "primaryInfusion": "",
+        "secondaryInfusion": "",
+        "primaryMaxInfusions": "",
+        "secondaryMaxInfusions": ""
+      }
+
   - name: Power + Precision
     value: |-
       {

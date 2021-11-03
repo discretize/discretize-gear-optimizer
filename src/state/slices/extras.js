@@ -25,8 +25,8 @@ export const extrasSlice = createSlice({
   },
   extraReducers: {
     [setBuildTemplate]: (state, action) => {
-      const templateState = JSON.parse(action.payload.build.traits);
-      return { ...templateState.extras };
+      const { extrasPreset = {} } = action.payload;
+      return { ...state, ...extrasPreset };
     },
     [setModifiers]: (state) => {
       const enabledTypes = extrasTypes.filter((key) => state[key]);

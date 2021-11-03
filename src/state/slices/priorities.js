@@ -19,7 +19,7 @@ export const prioritiesSlice = createSlice({
   },
   extraReducers: {
     [setBuildTemplate]: (state, action) => {
-      const { prioritiesPreset } = action.payload;
+      const { prioritiesPreset = {} } = action.payload;
       return { ...state, ...prioritiesPreset };
     },
   },

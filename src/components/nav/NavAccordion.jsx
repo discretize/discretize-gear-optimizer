@@ -56,6 +56,8 @@ export default function NavAccordion({
   buffPresets,
   prioritiesPresets,
   distributionPresets,
+  extrasPresets,
+  traitPresets,
 }) {
   const [expanded, setExpanded] = React.useState('');
   const dispatch = useDispatch();
@@ -95,7 +97,16 @@ export default function NavAccordion({
                         'null',
                     ),
                     prioritiesPreset: JSON.parse(
-                      prioritiesPresets.find((prio) => prio.name === build.priority).value,
+                      prioritiesPresets.find((pre) => pre.name === build.priority)?.value,
+                    ),
+                    extrasPreset: JSON.parse(
+                      extrasPresets.find((pre) => pre.name === build.extras)?.value,
+                    ),
+                    traitsPreset: JSON.parse(
+                      traitPresets.find((pre) => pre.name === build.traits)?.traits,
+                    ),
+                    skillsPreset: JSON.parse(
+                      traitPresets.find((pre) => pre.name === build.traits)?.skills,
                     ),
                   }),
                 );
