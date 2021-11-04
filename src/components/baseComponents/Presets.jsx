@@ -3,7 +3,9 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import classNames from 'classnames';
 import { Profession } from 'gw2-ui-bulk';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { getProfession, getControl } from '../../state/controlsSlice';
 import { firstUppercase } from '../../utils/usefulFunctions';
 
 const useStyles = makeStyles((theme) => ({
@@ -21,11 +23,14 @@ const MAX_CHIPS = 6;
 const Presets = ({ className, data, handleClick }) => {
   const classes = useStyles();
   const { t } = useTranslation();
+  const profession = useSelector(getProfession);
+  const selectedTemplateName = useSelector(getControl('selectedTemplate'));
 
   return (
     <div className={classNames(className, classes.root)}>
       {data.length > MAX_CHIPS ? (
         <Autocomplete
+          key={`${selectedTemplateName || profession}-presets`}
           id="presets"
           options={data}
           getOptionLabel={(preset) => preset.name}
@@ -42,15 +47,13 @@ const Presets = ({ className, data, handleClick }) => {
               t('', { context: preset.name })
             )
           }
-          onSelect={(event) => {
-            const clickedIndex = data.indexOf(
-              data.find((preset) => preset.name === event.target.defaultValue),
-            );
-            handleClick(clickedIndex)(event);
-          }}
+          blurOnSelect
+          disableClearable
+          clearOnBlur={false}
+          onChange={(event, value) => handleClick(value)}
         />
       ) : (
-        data.map((preset, index) => (
+        data.map((preset) => (
           <Chip
             id={preset.name}
             key={preset.name}
@@ -67,7 +70,7 @@ const Presets = ({ className, data, handleClick }) => {
               )
             }
             variant="outlined"
-            onClick={handleClick(index)}
+            onClick={handleClick(preset)}
             className={classes.templateChip}
           />
         ))

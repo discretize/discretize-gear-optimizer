@@ -11,11 +11,13 @@ const BuffsSection = ({ data }) => {
   const { t } = useTranslation();
 
   const handleTemplateClickBuffs = React.useCallback(
-    (index) => (event) => {
-      const state = JSON.parse(data.presetBuffs.list[index].value);
+    (value) => {
+      if (value === null) return;
+
+      const state = JSON.parse(value.value);
       dispatch(replaceBuffs(state));
     },
-    [data.presetBuffs.list, dispatch],
+    [dispatch],
   );
 
   return (
