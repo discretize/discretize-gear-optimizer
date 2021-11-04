@@ -172,7 +172,7 @@ const Priorities = ({ classes }) => {
               name="minToughness"
             />
           </FormControl>
-          <HelperIcon text="Only show results that fulfill a minimum amount of Toughness." />
+          <HelperIcon text={t('Only show results that fulfill a minimum amount of Toughness.')} />
         </div>
         <div className={classes.box}>
           <FormControl className={classes.formControl}>

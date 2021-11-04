@@ -4,6 +4,7 @@ const fs = require('fs');
 // eslint-disable-next-line no-global-assign
 require = require('esm')(module);
 const { GEAR_SLOTS } = require('./src/utils/gw2-data');
+const { Affix } = require('./src/utils/gw2-data');
 
 const templates = YAML.load(fs.readFileSync('./src/assets/presetdata/templates.yaml', 'utf8'));
 const presets = {
@@ -87,6 +88,7 @@ module.exports = {
               .map((item) => item.subText)
               .filter((item) => item),
           ),
+          '',
         ],
         traitSubText: [
           ...new Set(
@@ -100,6 +102,7 @@ module.exports = {
           '',
         ],
         slotName: [...new Set(Object.values(GEAR_SLOTS).map((item) => item.name))],
+        affix: Object.keys(Affix).map((item) => item.toUpperCase()),
       },
     ],
     [

@@ -20,7 +20,7 @@ const styles = (theme) => ({
     marginRight: theme.spacing(3),
   },
   formControl2: {
-    width: 55,
+    width: 80,
   },
   item: { lineHeight: '1 !important' },
 });
@@ -74,13 +74,13 @@ const Infusions = ({ classes }) => {
   return (
     <Grid container spacing={2} justifyContent="flex-start" direction="row" alignItems="center">
       <Grid item xs={12} sm={8}>
-        {dropdown('Infusion Type #1', 'primaryInfusion', infusions.primaryInfusion)}
-        {input('Max #', 'primaryMaxInfusions', infusions.primaryMaxInfusions)}
+        {dropdown(t('Infusion Type #1'), 'primaryInfusion', infusions.primaryInfusion)}
+        {input(t('Max #'), 'primaryMaxInfusions', infusions.primaryMaxInfusions)}
       </Grid>
 
       <Grid item xs={12} sm={8}>
-        {dropdown('Infusion Type #2', 'secondaryInfusion', infusions.secondaryInfusion)}
-        {input('Max #', 'secondaryMaxInfusions', infusions.secondaryMaxInfusions)}
+        {dropdown(t('Infusion Type #2'), 'secondaryInfusion', infusions.secondaryInfusion)}
+        {input(t('Max #'), 'secondaryMaxInfusions', infusions.secondaryMaxInfusions)}
       </Grid>
     </Grid>
   );
