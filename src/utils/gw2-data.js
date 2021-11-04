@@ -182,13 +182,6 @@ export const Affix = {
       minor: ['Power', 'Ferocity'],
     },
   },
-  'Berserker+Valkyrie': {
-    type: 'bervalk',
-    bonuses: {
-      major: ['Power'],
-      minor: ['Vitality', 'Ferocity'],
-    },
-  },
   Celestial: {
     type: 'celestial',
     bonuses: {

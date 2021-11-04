@@ -5,9 +5,10 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeForcedSlot, getForcedSlots } from '../../../state/slices/forcedSlots';
 import { getPriority } from '../../../state/slices/priorities';
-import { GEAR_SLOTS } from '../../../utils/gw2-data';
+import { GEAR_SLOTS, Affix } from '../../../utils/gw2-data';
 import { firstUppercase } from '../../../utils/usefulFunctions';
-import { AFFIXES } from '../Affixes';
+
+const AFFIXES = Object.keys(Affix).map((entry) => entry.toUpperCase());
 
 const styles = (theme) => ({
   textField: { marginTop: 0, marginBottom: 0 },
