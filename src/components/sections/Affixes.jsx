@@ -6,6 +6,9 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { changePriority, getPriority } from '../../state/slices/priorities';
 import { firstUppercase } from '../../utils/usefulFunctions';
+import { Affix } from '../../utils/gw2-data';
+
+const AFFIXES = Object.keys(Affix);
 
 const styles = (theme) => ({
   text: {
@@ -15,55 +18,6 @@ const styles = (theme) => ({
     minWidth: 180,
   },
 });
-
-export const AFFIXES = [
-  'BERSERKER',
-  'ZEALOT',
-  'SOLDIER',
-  // 'FORSAKEN',  exotic
-  'VALKYRIE',
-  'HARRIER',
-  // 'PALADIN', PVP
-  'COMMANDER',
-  // 'DEMOLISHER', PVP
-  // 'SWASHBUCKLER', PVP
-  'MARAUDER',
-  // 'AVATAR', PVP
-  // 'DESTROYER', PVP
-  'VIGILANT',
-  'CRUSADER',
-  'WANDERER',
-  'DIVINER',
-  // 'WIZARD', PVP
-  'VIPER',
-  'GRIEVING',
-  // 'SAGE', PVP
-  'MARSHAL',
-  // 'CAPTAIN', exotic
-  'RAMPAGER',
-  'ASSASSIN',
-  'SERAPH',
-  'KNIGHT',
-  'CAVALIER',
-  'NOMAD',
-  'SETTLER',
-  'GIVER',
-  'TRAILBLAZER',
-  'MINSTREL',
-  'SENTINEL',
-  'SHAMAN',
-  'SINISTER',
-  'CARRION',
-  'RABID',
-  'DIRE',
-  // 'APOSTATE', exotic
-  'PLAGUEDOCTOR',
-  'BRINGER',
-  'CLERIC',
-  'MAGI',
-  'APOTHECARY',
-  'CELESTIAL',
-];
 
 const Affixes = ({ classes }) => {
   const dispatch = useDispatch();
