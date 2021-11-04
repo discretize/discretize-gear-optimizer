@@ -896,6 +896,8 @@ const clamp = (input, min, max) => {
  * calculated stats and damage/healing/survivability scores.
  *
  * @param {object} _character
+ * @param {*} results - calculates results data only if true (must be false inside calcResults,
+ *  otherwise this is an infinite loop)
  */
 export function updateAttributes(_character, results = true) {
   const { damageMultiplier } = _character.settings.modifiers;
