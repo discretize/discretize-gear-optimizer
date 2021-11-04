@@ -1,2 +1,0 @@
-(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[2381],{22381:function(e,i,t){"use strict";t.r(i),i.default=t.p+"static/Tempest-55fd2ab23d13781b6cbc166343fa577d.png"}}]);
-//# sourceMappingURL=2381-3d165614f2f2884ca62d.js.map

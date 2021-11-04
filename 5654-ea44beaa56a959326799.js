@@ -1,2 +1,0 @@
-(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[5654],{55654:function(e,a,i){"use strict";i.r(a),a.default=i.p+"static/Soulbeast-17a505b698212c1ab4131a708ca3688e.png"}}]);
-//# sourceMappingURL=5654-ea44beaa56a959326799.js.map

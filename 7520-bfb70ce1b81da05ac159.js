@@ -1,2 +1,0 @@
-(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[7520],{77520:function(e,i,c){"use strict";c.r(i),i.default=c.p+"static/Deadeye-e712ff7bbe09fc360fa4cf712c9d5071.png"}}]);
-//# sourceMappingURL=7520-bfb70ce1b81da05ac159.js.map

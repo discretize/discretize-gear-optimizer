@@ -1,2 +1,0 @@
-(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[9627],{9627:function(e,i,t){"use strict";t.r(i),i.default=t.p+"static/Herald-3d44846eed3201f4c100411b37714961.png"}}]);
-//# sourceMappingURL=9627-301e2b1b3bc5f049477a.js.map

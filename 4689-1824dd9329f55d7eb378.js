@@ -1,2 +1,0 @@
-(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[4689],{84689:function(e,c,i){"use strict";i.r(c),c.default=i.p+"static/Necromancer-7d53cbcea1f9e0c97d6998da3c70a325.png"}}]);
-//# sourceMappingURL=4689-1824dd9329f55d7eb378.js.map

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[8665],{18665:function(e,i,r){r.r(i),i.default=r.p+"static/Warrior-c13b9c484f1f8d529865ebdbae07953b.png"}}]);
+//# sourceMappingURL=8665-343b21ff9779fd9c3def.js.map

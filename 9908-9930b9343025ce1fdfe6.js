@@ -1,2 +1,0 @@
-(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[9908],{89908:function(e,i,a){"use strict";a.r(i),i.default=a.p+"static/Firebrand-d7ebaa875ef64ad8cf9ac1f0d44d2e89.png"}}]);
-//# sourceMappingURL=9908-9930b9343025ce1fdfe6.js.map

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[9197],{69197:function(e,i,t){t.r(i),i.default=t.p+"static/Norn-8203c41a265f1554b3778e5baa57cdd4.png"}}]);
+//# sourceMappingURL=9197-4dfbd35506b6ebfa7bcd.js.map

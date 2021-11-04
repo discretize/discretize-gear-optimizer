@@ -1,2 +1,0 @@
-(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[3154],{43154:function(e,i,t){"use strict";t.r(i),i.default=t.p+"static/Renegade-b430a3c284de1ed455e684d2bded86b1.png"}}]);
-//# sourceMappingURL=3154-59ab6162055d16235a93.js.map
