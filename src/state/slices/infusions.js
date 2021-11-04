@@ -9,7 +9,7 @@ export const infusionsSlice = createSlice({
     omnipotion: true,
     ar: 162,
     modifiers: [],
-    maxInfusions: '',
+    maxInfusions: '18',
     primaryInfusion: '',
     secondaryInfusion: '',
     primaryMaxInfusions: '',
