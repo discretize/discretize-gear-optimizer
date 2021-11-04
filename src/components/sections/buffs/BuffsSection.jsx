@@ -23,7 +23,13 @@ const BuffsSection = ({ data }) => {
   return (
     <Section
       title={t('Buffs & Boons')}
-      extraInfo={<Presets data={data.presetBuffs.list} handleClick={handleTemplateClickBuffs} />}
+      extraInfo={
+        <Presets
+          data={data.presetBuffs.list}
+          handleClick={handleTemplateClickBuffs}
+          presetCategory="buff"
+        />
+      }
       content={<Buffs />}
     />
   );

@@ -64,7 +64,11 @@ const TraitsSection = ({ profession, data }) => {
             label={t('Show all possible modifiers')}
           />
           {profession !== '' && (
-            <Presets data={traitsPresets} handleClick={onTemplateClickTraits} />
+            <Presets
+              data={traitsPresets}
+              handleClick={onTemplateClickTraits}
+              presetCategory="trait"
+            />
           )}
         </>
       }

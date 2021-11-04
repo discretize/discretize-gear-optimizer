@@ -1,3 +1,4 @@
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import {
   FormControl,
   Grid,
@@ -19,7 +20,7 @@ const styles = (theme) => ({
     marginRight: theme.spacing(3),
   },
   formControl2: {
-    width: 55,
+    width: 80,
   },
   item: { lineHeight: '1 !important' },
 });
@@ -27,6 +28,7 @@ const styles = (theme) => ({
 const Infusions = ({ classes }) => {
   const dispatch = useDispatch();
   const infusions = useSelector(getInfusions);
+  const { t } = useTranslation();
 
   const dropdown = (name, varName, infusion) => {
     return (
@@ -45,7 +47,7 @@ const Infusions = ({ classes }) => {
           }
           renderValue={(value) => <Item id={value} disableLink className={classes.item} />}
         >
-          <MenuItem value="">None </MenuItem>
+          <MenuItem value="">{t('None')} </MenuItem>
           {INFUSIONS.map((infu) => infu.id).map((id) => (
             <MenuItem value={id} key={id}>
               <Item id={id} disableLink />
@@ -72,13 +74,13 @@ const Infusions = ({ classes }) => {
   return (
     <Grid container spacing={2} justifyContent="flex-start" direction="row" alignItems="center">
       <Grid item xs={12} sm={8}>
-        {dropdown('Infusion Type #1', 'primaryInfusion', infusions.primaryInfusion)}
-        {input('Max #', 'primaryMaxInfusions', infusions.primaryMaxInfusions)}
+        {dropdown(t('Infusion Type #1'), 'primaryInfusion', infusions.primaryInfusion)}
+        {input(t('Max #'), 'primaryMaxInfusions', infusions.primaryMaxInfusions)}
       </Grid>
 
       <Grid item xs={12} sm={8}>
-        {dropdown('Infusion Type #2', 'secondaryInfusion', infusions.secondaryInfusion)}
-        {input('Max #', 'secondaryMaxInfusions', infusions.secondaryMaxInfusions)}
+        {dropdown(t('Infusion Type #2'), 'secondaryInfusion', infusions.secondaryInfusion)}
+        {input(t('Max #'), 'secondaryMaxInfusions', infusions.secondaryMaxInfusions)}
       </Grid>
     </Grid>
   );

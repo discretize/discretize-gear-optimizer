@@ -24,7 +24,11 @@ const PrioritiesSection = ({ data }) => {
       title={t('Priorities')}
       content={<Priorities />}
       extraInfo={
-        <Presets data={data.presetAffixes.list} handleClick={handleTemplateClickPriorities} />
+        <Presets
+          data={data.presetAffixes.list}
+          handleClick={handleTemplateClickPriorities}
+          presetCategory="affix"
+        />
       }
     />
   );

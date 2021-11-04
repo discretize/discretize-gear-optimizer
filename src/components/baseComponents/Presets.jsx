@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 // this many chips are allowed before they will be put into a dropdown select
 const MAX_CHIPS = 6;
 
-const Presets = ({ className, data, handleClick }) => {
+const Presets = ({ className, data, handleClick, presetCategory }) => {
   const classes = useStyles();
   const { t } = useTranslation();
   const profession = useSelector(getProfession);
@@ -39,10 +39,14 @@ const Presets = ({ className, data, handleClick }) => {
             preset.profession ? (
               <Profession
                 eliteSpecialization={firstUppercase(preset.profession)}
-                text={t(preset.name)}
+                text={
+                  // i18next-extract-mark-context-next-line {{presetName}}
+                  t(`preset`, { context: `${presetCategory}_${preset.name}` })
+                }
               />
             ) : (
-              t(preset.name)
+              // i18next-extract-mark-context-next-line {{presetName}}
+              t(`preset`, { context: `${presetCategory}_${preset.name}` })
             )
           }
           blurOnSelect
@@ -59,10 +63,14 @@ const Presets = ({ className, data, handleClick }) => {
               preset.profession ? (
                 <Profession
                   eliteSpecialization={firstUppercase(preset.profession)}
-                  text={t(preset.name)}
+                  text={
+                    // i18next-extract-mark-context-next-line {{presetName}}
+                    t(`preset`, { context: `${presetCategory}_${preset.name}` })
+                  }
                 />
               ) : (
-                t(preset.name)
+                // i18next-extract-mark-context-next-line {{presetName}}
+                t(`preset`, { context: `${presetCategory}_${preset.name}` })
               )
             }
             variant="outlined"

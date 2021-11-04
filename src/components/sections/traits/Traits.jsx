@@ -165,7 +165,12 @@ const Traits = ({ classes, data = [] }) => {
                     label={
                       <>
                         {gw2id && <Trait id={gw2id} disableLink />}{' '}
-                        <Typography variant="caption">{t(subText)}</Typography>
+                        <Typography variant="caption">
+                          {
+                            // i18next-extract-mark-context-next-line {{traitSubText}}
+                            t('traitSubText', { context: subText })
+                          }
+                        </Typography>
                       </>
                     }
                     onChange={handleCheckboxChange(index, id)}

@@ -46,7 +46,10 @@ const Affixes = ({ classes }) => {
           stat={firstUppercase(option)}
           type="Ring"
           disableLink
-          text={firstUppercase(option)}
+          text={
+            // i18next-extract-mark-context-next-line {{affix}}
+            firstUppercase(t('affix', { context: option }))
+          }
           className={classes.text}
         />
       )}
@@ -55,7 +58,10 @@ const Affixes = ({ classes }) => {
           <Chip
             key={option}
             variant="outlined"
-            label={firstUppercase(option)}
+            label={
+              // i18next-extract-mark-context-next-line {{affix}}
+              firstUppercase(t('affix', { context: option }))
+            }
             {...getTagProps({ index })}
           />
         ))

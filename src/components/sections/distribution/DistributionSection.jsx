@@ -66,7 +66,11 @@ const DistributionSection = ({ profession, data }) => {
           />
 
           {profession !== '' && (
-            <Presets data={distributionPresets} handleClick={onTemplateClickDistribution} />
+            <Presets
+              data={distributionPresets}
+              handleClick={onTemplateClickDistribution}
+              presetCategory="distribution"
+            />
           )}
         </>
       }

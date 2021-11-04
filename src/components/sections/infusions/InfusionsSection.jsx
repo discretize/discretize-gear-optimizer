@@ -33,7 +33,13 @@ const InfusionsSection = ({ data }) => {
           </Trans>
         </>
       }
-      extraInfo={<Presets data={infusionPresets} handleClick={onTemplateClickInfusions} />}
+      extraInfo={
+        <Presets
+          data={infusionPresets}
+          handleClick={onTemplateClickInfusions}
+          presetCategory="infusion"
+        />
+      }
     />
   );
 };
