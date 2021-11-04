@@ -8,6 +8,7 @@ export const infusionsSlice = createSlice({
     omnipotion: true,
     ar: 162,
     modifiers: [],
+    maxInfusions: '',
     primaryInfusion: '',
     secondaryInfusion: '',
     primaryMaxInfusions: '',
@@ -19,6 +20,9 @@ export const infusionsSlice = createSlice({
     },
     changeOmnipotion: (state, action) => {
       state.omnipotion = action.payload;
+    },
+    changeMaxInfusions: (state, action) => {
+      state.maxInfusions = action.payload;
     },
     changeInfusion: (state, action) => {
       state[action.payload.key] = action.payload.value;
@@ -55,9 +59,10 @@ export const infusionsSlice = createSlice({
   },
 });
 
+export const getMaxInfusions = (state) => state.optimizer.maxInfusions;
 export const getInfusions = (state) => state.optimizer.infusions;
 export const getAR = (state) => state.optimizer.infusions.ar;
 export const getOmniPotion = (state) => state.optimizer.infusions.omnipotion;
 
-export const { changeAR, changeOmnipotion, changeInfusion, changeInfusions } =
+export const { changeAR, changeOmnipotion, changeMaxInfusions, changeInfusion, changeInfusions } =
   infusionsSlice.actions;

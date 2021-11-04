@@ -3,14 +3,26 @@ import {
   Grid,
   Input,
   InputLabel,
+  InputAdornment,
   MenuItem,
   Select,
   withStyles,
+  Typography,
 } from '@material-ui/core';
-import { Item } from 'gw2-ui-bulk';
+import { Attribute, Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeInfusion, getInfusions } from '../../../state/slices/infusions';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
+import {
+  changeAR,
+  changeOmnipotion,
+  getAR,
+  getOmniPotion,
+  changeInfusion,
+  getInfusions,
+} from '../../../state/slices/infusions';
+import CheckboxComponent from '../../baseComponents/CheckboxComponent';
+import HelperIcon from '../../baseComponents/HelperIcon';
 import { INFUSIONS } from '../../../utils/gw2-data';
 
 const styles = (theme) => ({
@@ -26,7 +38,17 @@ const styles = (theme) => ({
 
 const Infusions = ({ classes }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
+  const ar = useSelector(getAR);
+  const omnipotion = useSelector(getOmniPotion);
   const infusions = useSelector(getInfusions);
+
+  function handleARChange(event) {
+    const { value } = event.target;
+    if (value.match('^[0-9]*$')) {
+      dispatch(changeAR(Number.parseInt(value, 10)), [dispatch]);
+    }
+  }
 
   const dropdown = (name, varName, infusion) => {
     return (
@@ -56,13 +78,13 @@ const Infusions = ({ classes }) => {
     );
   };
 
-  const input = (name, varName, maxInfusions) => {
+  const input = (name, varName, value, className) => {
     return (
-      <FormControl className={classes.formControl2}>
+      <FormControl className={className}>
         <InputLabel htmlFor={`${varName}_input-with-icon-adornment`}>{name}</InputLabel>
         <Input
           id={`${varName}_input-with-icon-adornment`}
-          value={maxInfusions}
+          value={value}
           onChange={(e) => dispatch(changeInfusion({ key: varName, value: e.target.value }))}
         />
       </FormControl>
@@ -70,15 +92,72 @@ const Infusions = ({ classes }) => {
   };
 
   return (
-    <Grid container spacing={2} justifyContent="flex-start" direction="row" alignItems="center">
-      <Grid item xs={12} sm={8}>
-        {dropdown('Infusion Type #1', 'primaryInfusion', infusions.primaryInfusion)}
-        {input('Max #', 'primaryMaxInfusions', infusions.primaryMaxInfusions)}
+    <Grid container spacing={2}>
+      <Grid container item spacing={2} alignItems="center" justifyContent="flex-start">
+        <Grid item xs={12}>
+          <CheckboxComponent
+            value={omnipotion}
+            checked={omnipotion}
+            label={
+              <>
+                <Trans>Include </Trans>
+                <Item id={79722} />
+                <HelperIcon
+                  text={t(
+                    'Adds 150% of your Agony Resistance to Precision, Toughness, and Concentration.',
+                  )}
+                  size="small"
+                />
+              </>
+            }
+            onChange={(e) => dispatch(changeOmnipotion(e.target.checked))}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <FormControl>
+            <InputLabel htmlFor="ar_input-with-icon-adornment">
+              <Trans>Agony Resistance</Trans>
+            </InputLabel>
+            <Input
+              id="ar_input-with-icon-adornment"
+              value={ar}
+              endAdornment={
+                <InputAdornment position="end">
+                  <Attribute name="Agony Resistance" disableLink disableText />
+                </InputAdornment>
+              }
+              onChange={handleARChange}
+            />
+          </FormControl>
+        </Grid>
       </Grid>
+      <Grid
+        container
+        item
+        spacing={2}
+        justifyContent="flex-start"
+        direction="row"
+        alignItems="center"
+      >
+        <Grid item xs={12} sm={8}>
+          <Typography variant="subtitle1">
+            <Trans>Stat Infusions</Trans>
+          </Typography>
+        </Grid>
 
-      <Grid item xs={12} sm={8}>
-        {dropdown('Infusion Type #2', 'secondaryInfusion', infusions.secondaryInfusion)}
-        {input('Max #', 'secondaryMaxInfusions', infusions.secondaryMaxInfusions)}
+        <Grid item xs={12} sm={8}>
+          {input('# Stat Infusions', 'maxInfusions', infusions.maxInfusions)}
+        </Grid>
+
+        <Grid item xs={12} sm={8}>
+          {dropdown('Stat Infu. Type #1', 'primaryInfusion', infusions.primaryInfusion)}
+          {input('Max #', 'primaryMaxInfusions', infusions.primaryMaxInfusions, classes.formControl2)}
+        </Grid>
+
+        <Grid item xs={12} sm={8}>
+          {dropdown('Stat Infu. Type #2', 'secondaryInfusion', infusions.secondaryInfusion)}
+          {input('Max #', 'secondaryMaxInfusions', infusions.secondaryMaxInfusions, classes.formControl2)}
+        </Grid>
       </Grid>
     </Grid>
   );

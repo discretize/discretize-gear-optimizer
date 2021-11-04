@@ -63,6 +63,7 @@ function createInput(state, modifiers) {
     infusions: {
       primaryInfusion,
       secondaryInfusion,
+      maxInfusions: maxInfusionsInput,
       primaryMaxInfusions: primaryMaxInfusionsInput,
       secondaryMaxInfusions: secondaryMaxInfusionsInput,
     },
@@ -87,6 +88,7 @@ function createInput(state, modifiers) {
     return Math.max(parsed, 0);
   };
 
+  const maxInfusions = parseTextNumber(maxInfusionsInput, 18);
   const primaryMaxInfusions = parseTextNumber(primaryMaxInfusionsInput, 18);
   const secondaryMaxInfusions = parseTextNumber(secondaryMaxInfusionsInput, 18);
 
@@ -104,6 +106,7 @@ function createInput(state, modifiers) {
     minToughness,
     maxToughness,
     maxResults: 50, // TODO MAX RESULTS
+    maxInfusions,
     primaryInfusion: INFUSIONS.find((entry) => entry.id === primaryInfusion)?.attribute,
     secondaryInfusion: INFUSIONS.find((entry) => entry.id === secondaryInfusion)?.attribute,
     primaryMaxInfusions,
