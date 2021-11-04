@@ -152,12 +152,22 @@ const Infusions = ({ classes }) => {
 
         <Grid item xs={12} sm={8}>
           {dropdown(t('Infusion Type #1'), 'primaryInfusion', infusions.primaryInfusion)}
-          {input(t('Max #'), 'primaryMaxInfusions', infusions.primaryMaxInfusions, classes.formControl2)}
+          {input(
+            t('Max #'),
+            'primaryMaxInfusions',
+            infusions.primaryMaxInfusions,
+            classes.formControl2,
+          )}
         </Grid>
 
         <Grid item xs={12} sm={8}>
           {dropdown(t('Infusion Type #2'), 'secondaryInfusion', infusions.secondaryInfusion)}
-        {input(t('Max #'), 'secondaryMaxInfusions', infusions.secondaryMaxInfusions, classes.formControl2)}
+          {input(
+            t('Max #'),
+            'secondaryMaxInfusions',
+            infusions.secondaryMaxInfusions,
+            classes.formControl2,
+          )}
         </Grid>
       </Grid>
     </Grid>
