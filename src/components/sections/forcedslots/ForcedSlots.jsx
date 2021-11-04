@@ -1,3 +1,4 @@
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Grid, TextField, withStyles } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Item } from 'gw2-ui-bulk';
@@ -5,9 +6,10 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeForcedSlot, getForcedSlots } from '../../../state/slices/forcedSlots';
 import { getPriority } from '../../../state/slices/priorities';
-import { GEAR_SLOTS } from '../../../utils/gw2-data';
+import { GEAR_SLOTS, Affix } from '../../../utils/gw2-data';
 import { firstUppercase } from '../../../utils/usefulFunctions';
-import { AFFIXES } from '../Affixes';
+
+const AFFIXES = Object.keys(Affix);
 
 const styles = (theme) => ({
   textField: { marginTop: 0, marginBottom: 0 },
@@ -27,6 +29,7 @@ const ForcedSlots = ({ classes }) => {
   const dispatch = useDispatch();
   const forcedSlots = useSelector(getForcedSlots);
   const dualWielded = useSelector(getPriority('weaponType'));
+  const { t } = useTranslation();
 
   let SLOTS = GEAR_SLOTS;
   if (dualWielded !== 'Dual wield') {
@@ -48,13 +51,20 @@ const ForcedSlots = ({ classes }) => {
           onChange={handleChange(index + offset)}
           renderOption={(option) => (
             <Item
-              stat={firstUppercase(option)}
+              stat={option}
               type="Ring"
               disableLink
-              text={firstUppercase(option)}
+              text={
+                // i18next-extract-mark-context-next-line {{affix}}
+                t('affix', { context: option })
+              }
               className={classes.text}
             />
           )}
+          getOptionLabel={(option) =>
+            // i18next-extract-mark-context-next-line {{affix}}
+            t('affix', { context: option })
+          }
           renderInput={(params) => (
             <TextField
               {...params}
@@ -68,11 +78,19 @@ const ForcedSlots = ({ classes }) => {
     );
   };
   return (
+    // i18next-extract-mark-context-start {{slotName}}
     <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" spacing={2}>
-      {SLOTS.slice(0, 6).map((slot, index) => input2(slot.name, index, 0))}
-      {SLOTS.slice(6, 10).map((slot, index) => input2(slot.name, index, 6))}
-      {SLOTS.slice(10).map((slot, index) => input2(slot.name, index, 10))}
+      {SLOTS.slice(0, 6).map((slot, index) =>
+        input2(t('slotName', { context: slot.name }), index, 0),
+      )}
+      {SLOTS.slice(6, 10).map((slot, index) =>
+        input2(t('slotName', { context: slot.name }), index, 6),
+      )}
+      {SLOTS.slice(10).map((slot, index) =>
+        input2(t('slotName', { context: slot.name }), index, 10),
+      )}
     </Grid>
+    // i18next-extract-mark-context-stop
   );
 };
 export default withStyles(styles)(ForcedSlots);

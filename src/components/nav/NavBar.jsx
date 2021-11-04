@@ -237,7 +237,8 @@ const Navbar = ({
                     <Profession
                       eliteSpecialization={elem.specialization}
                       disableLink
-                      text={elem.name}
+                      // i18next-extract-mark-context-next-line {{buildTemplateName}}
+                      text={t('buildTemplateName', { context: elem.name })}
                     />
                   </MenuItem>
                 ))}
@@ -252,7 +253,13 @@ const Navbar = ({
             <Trans>Selected:</Trans>{' '}
           </Typography>
           {selectedTemplateName ? (
-            <Profession eliteSpecialization={selectedSpecialization} text={selectedTemplateName} />
+            <Profession
+              eliteSpecialization={selectedSpecialization}
+              text={
+                // i18next-extract-mark-context-next-line {{buildTemplateName}}
+                t('buildTemplateName', { context: selectedTemplateName })
+              }
+            />
           ) : (
             <Profession name={selectedSpecialization} />
           )}

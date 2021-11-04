@@ -18,7 +18,10 @@ const TraitAmount = ({ amountData, handleAmountChange, value = '', disabled }) =
       InputProps={{
         endAdornment: (
           <InputAdornment disablePointerEvents position="end">
-            {t(amountData.label)}
+            {
+              // i18next-extract-mark-context-next-line {{amountLabel}}
+              t('amountLabel', { context: amountData.label })
+            }
           </InputAdornment>
         ),
         inputProps: { style: { maxWidth: '32px' } },

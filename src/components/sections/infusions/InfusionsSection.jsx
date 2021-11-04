@@ -13,13 +13,13 @@ const InfusionsSection = ({ data }) => {
   const infusionPresets = data.presetInfusions.list;
 
   const onTemplateClickInfusions = React.useCallback(
-    (index) => (event) => {
-      if (index < 0) return;
+    (value) => {
+      if (value === null) return;
 
-      const newInfusions = JSON.parse(infusionPresets[index].value);
+      const newInfusions = JSON.parse(value.value);
       dispatch(changeInfusions(newInfusions));
     },
-    [dispatch, infusionPresets],
+    [dispatch],
   );
 
   return (
@@ -33,7 +33,13 @@ const InfusionsSection = ({ data }) => {
           </Trans>
         </>
       }
-      extraInfo={<Presets data={infusionPresets} handleClick={onTemplateClickInfusions} />}
+      extraInfo={
+        <Presets
+          data={infusionPresets}
+          handleClick={onTemplateClickInfusions}
+          presetCategory="infusion"
+        />
+      }
     />
   );
 };

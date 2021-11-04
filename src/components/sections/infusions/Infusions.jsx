@@ -31,7 +31,7 @@ const styles = (theme) => ({
     marginRight: theme.spacing(3),
   },
   formControl2: {
-    width: 55,
+    width: 80,
   },
   item: { lineHeight: '1 !important' },
 });
@@ -67,7 +67,7 @@ const Infusions = ({ classes }) => {
           }
           renderValue={(value) => <Item id={value} disableLink className={classes.item} />}
         >
-          <MenuItem value="">None </MenuItem>
+          <MenuItem value="">{t('None')} </MenuItem>
           {INFUSIONS.map((infu) => infu.id).map((id) => (
             <MenuItem value={id} key={id}>
               <Item id={id} disableLink />
@@ -86,6 +86,7 @@ const Infusions = ({ classes }) => {
           id={`${varName}_input-with-icon-adornment`}
           value={value}
           onChange={(e) => dispatch(changeInfusion({ key: varName, value: e.target.value }))}
+          autocomplete="off"
         />
       </FormControl>
     );
@@ -150,13 +151,13 @@ const Infusions = ({ classes }) => {
         </Grid>
 
         <Grid item xs={12} sm={8}>
-          {dropdown('Stat Infu. Type #1', 'primaryInfusion', infusions.primaryInfusion)}
-          {input('Max #', 'primaryMaxInfusions', infusions.primaryMaxInfusions, classes.formControl2)}
+          {dropdown(t('Infusion Type #1'), 'primaryInfusion', infusions.primaryInfusion)}
+          {input(t('Max #'), 'primaryMaxInfusions', infusions.primaryMaxInfusions, classes.formControl2)}
         </Grid>
 
         <Grid item xs={12} sm={8}>
-          {dropdown('Stat Infu. Type #2', 'secondaryInfusion', infusions.secondaryInfusion)}
-          {input('Max #', 'secondaryMaxInfusions', infusions.secondaryMaxInfusions, classes.formControl2)}
+          {dropdown(t('Infusion Type #2'), 'secondaryInfusion', infusions.secondaryInfusion)}
+        {input(t('Max #'), 'secondaryMaxInfusions', infusions.secondaryMaxInfusions, classes.formControl2)}
         </Grid>
       </Grid>
     </Grid>

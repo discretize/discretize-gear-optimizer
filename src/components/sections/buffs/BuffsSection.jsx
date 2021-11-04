@@ -11,17 +11,25 @@ const BuffsSection = ({ data }) => {
   const { t } = useTranslation();
 
   const handleTemplateClickBuffs = React.useCallback(
-    (index) => (event) => {
-      const state = JSON.parse(data.presetBuffs.list[index].value);
+    (value) => {
+      if (value === null) return;
+
+      const state = JSON.parse(value.value);
       dispatch(replaceBuffs(state));
     },
-    [data.presetBuffs.list, dispatch],
+    [dispatch],
   );
 
   return (
     <Section
       title={t('Buffs & Boons')}
-      extraInfo={<Presets data={data.presetBuffs.list} handleClick={handleTemplateClickBuffs} />}
+      extraInfo={
+        <Presets
+          data={data.presetBuffs.list}
+          handleClick={handleTemplateClickBuffs}
+          presetCategory="buff"
+        />
+      }
       content={<Buffs />}
     />
   );

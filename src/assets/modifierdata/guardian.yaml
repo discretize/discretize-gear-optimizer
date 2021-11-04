@@ -187,7 +187,7 @@
 
     - id: righteous-instincts
       text: Righteous Instincts
-      subText: 100% retaliation
+      subText: 100% resolution
       modifiers:
         attributes:
           Critical Chance: 25%

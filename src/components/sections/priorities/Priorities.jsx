@@ -80,7 +80,10 @@ const Priorities = ({ classes }) => {
                 key={goal}
                 value={goal}
                 control={<Radio color="primary" />}
-                label={t(goal === 'Survivability' ? 'Survivability (WIP)' : goal)}
+                // i18next-extract-mark-context-next-line ["Damage","Survivability","Survivability (WIP)","Healing"]
+                label={t('priorityGoal', {
+                  context: goal === 'Survivability' ? 'Survivability (WIP)' : goal,
+                })}
               />
             ))}
           </RadioGroup>
@@ -169,7 +172,7 @@ const Priorities = ({ classes }) => {
               name="minToughness"
             />
           </FormControl>
-          <HelperIcon text="Only show results that fulfill a minimum amount of Toughness." />
+          <HelperIcon text={t('Only show results that fulfill a minimum amount of Toughness.')} />
         </div>
         <div className={classes.box}>
           <FormControl className={classes.formControl}>

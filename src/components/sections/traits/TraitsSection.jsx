@@ -30,16 +30,16 @@ const TraitsSection = ({ profession, data }) => {
   }
 
   const onTemplateClickTraits = React.useCallback(
-    (index) => (event) => {
-      if (index < 0) return;
+    (value) => {
+      if (value === null) return;
 
-      const newTraits = JSON.parse(traitsPresets[index].traits);
+      const newTraits = JSON.parse(value.traits);
       dispatch(changeTraits(newTraits));
 
-      const newSkills = JSON.parse(traitsPresets[index].skills);
+      const newSkills = JSON.parse(value.skills);
       dispatch(changeSkills(newSkills));
     },
-    [dispatch, traitsPresets],
+    [dispatch],
   );
 
   return (
@@ -64,7 +64,11 @@ const TraitsSection = ({ profession, data }) => {
             label={t('Show all possible modifiers')}
           />
           {profession !== '' && (
-            <Presets data={traitsPresets} handleClick={onTemplateClickTraits} />
+            <Presets
+              data={traitsPresets}
+              handleClick={onTemplateClickTraits}
+              presetCategory="trait"
+            />
           )}
         </>
       }

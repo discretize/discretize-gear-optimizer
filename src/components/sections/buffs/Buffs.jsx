@@ -64,7 +64,12 @@ const Buffs = ({ classes }) => {
       {buffModifiers.map((section) => (
         <Grid key={section.section} item xs={12} sm={6} md={4}>
           <FormControl component="fieldset" className={classes.formControl}>
-            <FormLabel component="legend">{t(section.section)}</FormLabel>
+            <FormLabel component="legend">
+              {
+                // i18next-extract-mark-context-next-line {{buffSection}}
+                t('buffSection', { context: section.section })
+              }
+            </FormLabel>
             <FormGroup>
               {section.items.map((buff) => {
                 let Component;
@@ -79,7 +84,12 @@ const Buffs = ({ classes }) => {
                         checked={buffs[buff.id]}
                         label={
                           <>
-                            <Typography className={classes.note}>{t(buff.text)}</Typography>
+                            <Typography className={classes.note}>
+                              {
+                                // i18next-extract-mark-context-next-line {{buffText}}
+                                t('buffText', { context: buff.text })
+                              }
+                            </Typography>
                             <Typography variant="caption" className={classes.tinyNote}>
                               {buff.subText}
                             </Typography>

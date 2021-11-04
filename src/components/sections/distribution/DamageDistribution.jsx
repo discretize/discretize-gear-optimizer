@@ -10,11 +10,11 @@ import {
 } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
 import classNames from 'classnames';
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute, Condition } from 'gw2-ui-bulk';
 import debounce from 'lodash.debounce';
 import Nouislider from 'nouislider-react';
-// eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
 import 'nouislider/distribute/nouislider.css';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -91,6 +91,7 @@ const DamageDistribution = ({ classes }) => {
   const version = useSelector(getDistributionVersion);
   const distributionOld = useSelector(getDistributionOld); // actual real selected damage distribution at any time
   const distributionNew = useSelector(getDistributionNew);
+  const { t } = useTranslation();
 
   // locally displayed in the text boxes. Text boxes might contain a string that is not a real number (yet), so we need to store those separately
   const textBoxes = useSelector(getTextBoxes);
@@ -176,9 +177,15 @@ const DamageDistribution = ({ classes }) => {
           <FormControl className={classNames(classes.margin, classes.textbox)}>
             <InputLabel htmlFor={`input-with-icon-adornment-${index}`}>
               {dist.name === 'Power' ? (
-                <Attribute name="Power" text="Power Coefficient" />
+                <Attribute name="Power" text={t('Power Coefficient')} />
               ) : (
-                <Condition name={dist.name} text={`Avg. ${dist.name} stacks`} />
+                <Condition
+                  name={dist.name}
+                  text={
+                    // i18next-extract-mark-context-next-line ["Burning","Bleeding","Poisoned","Torment", "Confusion"]
+                    t(`avgStacks`, { context: dist.name })
+                  }
+                />
               )}
             </InputLabel>
             <Input

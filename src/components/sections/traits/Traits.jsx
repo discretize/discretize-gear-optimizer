@@ -11,7 +11,6 @@ import {
 } from '@material-ui/core';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Specialization, Trait, TraitLine } from 'gw2-ui-bulk';
-import i18next from 'i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { traitSectionsById } from '../../../assets/modifierdata';
@@ -165,7 +164,12 @@ const Traits = ({ classes, data = [] }) => {
                     label={
                       <>
                         {gw2id && <Trait id={gw2id} disableLink />}{' '}
-                        <Typography variant="caption">{t(subText)}</Typography>
+                        <Typography variant="caption">
+                          {
+                            // i18next-extract-mark-context-next-line {{traitSubText}}
+                            t('traitSubText', { context: subText })
+                          }
+                        </Typography>
                       </>
                     }
                     onChange={handleCheckboxChange(index, id)}
