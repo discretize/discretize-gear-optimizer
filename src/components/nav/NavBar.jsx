@@ -238,7 +238,7 @@ const Navbar = ({
                       eliteSpecialization={elem.specialization}
                       disableLink
                       // i18next-extract-mark-context-next-line {{buildTemplateName}}
-                      text={t('', { context: elem.name })}
+                      text={t('buildTemplateName', { context: elem.name })}
                     />
                   </MenuItem>
                 ))}

@@ -1,3 +1,4 @@
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Grid, TextField, withStyles } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { Item } from 'gw2-ui-bulk';
@@ -27,6 +28,7 @@ const ForcedSlots = ({ classes }) => {
   const dispatch = useDispatch();
   const forcedSlots = useSelector(getForcedSlots);
   const dualWielded = useSelector(getPriority('weaponType'));
+  const { t } = useTranslation();
 
   let SLOTS = GEAR_SLOTS;
   if (dualWielded !== 'Dual wield') {
@@ -68,11 +70,19 @@ const ForcedSlots = ({ classes }) => {
     );
   };
   return (
+    // i18next-extract-mark-context-start {{slotName}}
     <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" spacing={2}>
-      {SLOTS.slice(0, 6).map((slot, index) => input2(slot.name, index, 0))}
-      {SLOTS.slice(6, 10).map((slot, index) => input2(slot.name, index, 6))}
-      {SLOTS.slice(10).map((slot, index) => input2(slot.name, index, 10))}
+      {SLOTS.slice(0, 6).map((slot, index) =>
+        input2(t('slotName', { context: slot.name }), index, 0),
+      )}
+      {SLOTS.slice(6, 10).map((slot, index) =>
+        input2(t('slotName', { context: slot.name }), index, 6),
+      )}
+      {SLOTS.slice(10).map((slot, index) =>
+        input2(t('slotName', { context: slot.name }), index, 10),
+      )}
     </Grid>
+    // i18next-extract-mark-context-stop
   );
 };
 export default withStyles(styles)(ForcedSlots);

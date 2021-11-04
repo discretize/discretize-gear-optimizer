@@ -20,7 +20,7 @@ const TraitAmount = ({ amountData, handleAmountChange, value = '', disabled }) =
           <InputAdornment disablePointerEvents position="end">
             {
               // i18next-extract-mark-context-next-line {{amountLabel}}
-              t('', { context: amountData.label })
+              t('amountLabel', { context: amountData.label })
             }
           </InputAdornment>
         ),

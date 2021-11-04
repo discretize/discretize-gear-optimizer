@@ -168,7 +168,7 @@ const Traits = ({ classes, data = [] }) => {
                         <Typography variant="caption">
                           {
                             // i18next-extract-mark-context-next-line {{traitSubText}}
-                            t('', { context: subText })
+                            t('traitSubText', { context: subText })
                           }
                         </Typography>
                       </>

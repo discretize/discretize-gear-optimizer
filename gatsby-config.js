@@ -53,7 +53,6 @@ module.exports = {
           },
           keySeparator: false,
           nsSeparator: false,
-          contextSeparator: '',
         },
         pages: [
           {

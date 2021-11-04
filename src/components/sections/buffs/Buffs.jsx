@@ -67,7 +67,7 @@ const Buffs = ({ classes }) => {
             <FormLabel component="legend">
               {
                 // i18next-extract-mark-context-next-line {{buffSection}}
-                t('', { context: section.section })
+                t('buffSection', { context: section.section })
               }
             </FormLabel>
             <FormGroup>
@@ -87,7 +87,7 @@ const Buffs = ({ classes }) => {
                             <Typography className={classes.note}>
                               {
                                 // i18next-extract-mark-context-next-line {{buffText}}
-                                t('', { context: buff.text })
+                                t('buffText', { context: buff.text })
                               }
                             </Typography>
                             <Typography variant="caption" className={classes.tinyNote}>

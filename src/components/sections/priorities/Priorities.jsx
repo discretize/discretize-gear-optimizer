@@ -81,7 +81,9 @@ const Priorities = ({ classes }) => {
                 value={goal}
                 control={<Radio color="primary" />}
                 // i18next-extract-mark-context-next-line ["Damage","Survivability","Survivability (WIP)","Healing"]
-                label={t('', { context: goal === 'Survivability' ? 'Survivability (WIP)' : goal })}
+                label={t('priorityGoal', {
+                  context: goal === 'Survivability' ? 'Survivability (WIP)' : goal,
+                })}
               />
             ))}
           </RadioGroup>

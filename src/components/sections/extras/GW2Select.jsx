@@ -78,7 +78,7 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => 
             <ListSubheader disableSticky>
               {
                 // i18next-extract-mark-context-next-line {{extraSection}}
-                t('', { context: category.section })
+                t('extraSection', { context: category.section })
               }
             </ListSubheader>,
             category.items.map((item) => (

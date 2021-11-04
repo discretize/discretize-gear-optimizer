@@ -1,3 +1,4 @@
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import {
   FormControl,
   Grid,
@@ -27,6 +28,7 @@ const styles = (theme) => ({
 const Infusions = ({ classes }) => {
   const dispatch = useDispatch();
   const infusions = useSelector(getInfusions);
+  const { t } = useTranslation();
 
   const dropdown = (name, varName, infusion) => {
     return (
@@ -45,7 +47,7 @@ const Infusions = ({ classes }) => {
           }
           renderValue={(value) => <Item id={value} disableLink className={classes.item} />}
         >
-          <MenuItem value="">None </MenuItem>
+          <MenuItem value="">{t('None')} </MenuItem>
           {INFUSIONS.map((infu) => infu.id).map((id) => (
             <MenuItem value={id} key={id}>
               <Item id={id} disableLink />

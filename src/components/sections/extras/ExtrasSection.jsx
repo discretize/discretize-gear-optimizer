@@ -87,7 +87,11 @@ const ExtrasSection = ({ profession, data }) => {
       extraInfo={
         <>
           {profession !== '' && (
-            <Presets data={extrasPresets} handleClick={onTemplateClickExtras} />
+            <Presets
+              data={extrasPresets}
+              handleClick={onTemplateClickExtras}
+              presetCategory="extra"
+            />
           )}
         </>
       }

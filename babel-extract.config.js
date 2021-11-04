@@ -1,15 +1,20 @@
 const YAML = require('js-yaml');
 const fs = require('fs');
 
-const presetTraits = YAML.load(
-  fs.readFileSync('./src/assets/presetdata/preset-traits.yaml', 'utf8'),
-);
-const preset = {
-  affixes: YAML.load(fs.readFileSync('./src/assets/presetdata/preset-affixes.yaml', 'utf8')),
+// eslint-disable-next-line no-global-assign
+require = require('esm')(module);
+const { GEAR_SLOTS } = require('./src/utils/gw2-data');
+
+const templates = YAML.load(fs.readFileSync('./src/assets/presetdata/templates.yaml', 'utf8'));
+const presets = {
+  trait: YAML.load(fs.readFileSync('./src/assets/presetdata/preset-traits.yaml', 'utf8')),
+  affix: YAML.load(fs.readFileSync('./src/assets/presetdata/preset-affixes.yaml', 'utf8')),
   distribution: YAML.load(
     fs.readFileSync('./src/assets/presetdata/preset-distribution.yaml', 'utf8'),
   ),
-  buffs: YAML.load(fs.readFileSync('./src/assets/presetdata/preset-buffs.yaml', 'utf8')),
+  buff: YAML.load(fs.readFileSync('./src/assets/presetdata/preset-buffs.yaml', 'utf8')),
+  infusion: YAML.load(fs.readFileSync('./src/assets/presetdata/preset-infusions.yaml', 'utf8')),
+  extra: YAML.load(fs.readFileSync('./src/assets/presetdata/preset-extras.yaml', 'utf8')),
 };
 const buffs = YAML.load(fs.readFileSync('./src/assets/modifierdata/buffs.yaml', 'utf8'));
 const professions = {
@@ -36,15 +41,13 @@ module.exports = {
       './extract_context_injection',
       {
         buildTemplateName: [
-          ...new Set([
-            ...presetTraits.list.flatMap((item) => item.builds).map((item) => item.name),
-          ]),
+          ...new Set(templates.list.flatMap((item) => item.builds).map((item) => item.name)),
         ],
         presetName: [
           ...new Set(
-            Object.values(preset)
-              .flatMap((item) => item.list)
-              .map((item) => item.name),
+            Object.entries(presets).flatMap((entry) =>
+              entry[1].list.map((item) => `${entry[0]}_${item.name}`),
+            ),
           ),
         ],
         buffSection: [...new Set(buffs.map((item) => item.section))],
@@ -59,6 +62,7 @@ module.exports = {
               .filter((item) => item.label)
               .map((item) => item.label),
           ),
+          'x',
         ],
         skillSubText: [
           ...new Set(
@@ -86,7 +90,9 @@ module.exports = {
               .filter((item) => item.subText)
               .map((item) => item.subText),
           ),
+          '',
         ],
+        slotName: [...new Set(Object.values(GEAR_SLOTS).map((item) => item.name))],
       },
     ],
     [
@@ -98,7 +104,6 @@ module.exports = {
         keyAsDefaultValue: ['en'],
         useI18nextDefaultValue: ['en'],
         discardOldKeys: true,
-        contextSeparator: '',
         outputPath: 'locales/{{locale}}/{{ns}}.json',
         customTransComponents: [['gatsby-plugin-react-i18next', 'Trans']],
       },

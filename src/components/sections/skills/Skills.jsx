@@ -53,7 +53,7 @@ const Skills = ({ classes, data }) => {
               <Typography className={classes.subText}>
                 {
                   // i18next-extract-mark-context-next-line {{skillSubText}}
-                  t('', { context: skill.subText })
+                  t('skillSubText', { context: skill.subText })
                 }
               </Typography>
             )}

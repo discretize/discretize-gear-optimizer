@@ -4,6 +4,7 @@ src/utils/mapping/
 node_modules/
 _backup/
 .idea/
+.vscode/
 dist/
 misc/
 .history/
@@ -16,6 +17,5 @@ install.bat
 
 .DS_Store
 
-.vscode/
-jsconfig.json
+
 
