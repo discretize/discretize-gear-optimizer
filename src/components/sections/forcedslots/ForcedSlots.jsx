@@ -51,16 +51,20 @@ const ForcedSlots = ({ classes }) => {
           onChange={handleChange(index + offset)}
           renderOption={(option) => (
             <Item
-              stat={firstUppercase(option)}
+              stat={option}
               type="Ring"
               disableLink
               text={
                 // i18next-extract-mark-context-next-line {{affix}}
-                firstUppercase(t('affix', { context: option }))
+                t('affix', { context: option })
               }
               className={classes.text}
             />
           )}
+          getOptionLabel={(option) =>
+            // i18next-extract-mark-context-next-line {{affix}}
+            t('affix', { context: option })
+          }
           renderInput={(params) => (
             <TextField
               {...params}
