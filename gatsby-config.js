@@ -21,6 +21,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-yaml`,
       options: {
+        // eslint-disable-next-line no-unused-vars
         typeName: ({ node, object, isArray }) => object['GraphQL ID'],
       },
     },

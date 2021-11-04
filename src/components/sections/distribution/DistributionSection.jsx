@@ -9,7 +9,6 @@ import {
   changeAllTextBoxes,
   changeDistributionVersion,
   getDistributionVersion,
-  resetDistributions,
 } from '../../../state/slices/distribution';
 import { PROFESSIONS } from '../../../utils/gw2-data';
 import Presets from '../../baseComponents/Presets';
