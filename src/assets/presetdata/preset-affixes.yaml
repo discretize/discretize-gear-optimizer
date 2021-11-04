@@ -3,14 +3,14 @@ list:
   - name: Power DPS
     value: >-
       {
-        "affixes": ["BERSERKER", "ASSASSIN"],
+        "affixes": ["Berserker", "Assassin"],
         "optimizeFor": "Damage",
         "minBoonDuration": 0
       }
   - name: Power Boon
     value: >-
       {
-        "affixes": ["BERSERKER", "ASSASSIN", "DIVINER"],
+        "affixes": ["Berserker", "Assassin", "Diviner"],
         "optimizeFor": "Damage",
         "minBoonDuration": 79
       }
@@ -18,7 +18,7 @@ list:
   - name: Condi DPS
     value: >-
       {
-        "affixes": ["VIPER", "SINISTER"],
+        "affixes": ["Viper", "Sinister"],
         "optimizeFor": "Damage",
         "minBoonDuration": 0
       }
@@ -26,7 +26,7 @@ list:
   - name: Hybrid DPS
     value: >-
       {
-        "affixes": ["VIPER", "SINISTER", "GRIEVING"],
+        "affixes": ["Viper", "Sinister", "Grieving"],
         "optimizeFor": "Damage",
         "minBoonDuration": 0
       }
@@ -34,7 +34,7 @@ list:
   - name: Heal
     value: >-
       {
-        "affixes": ["HARRIER", "MINSTREL", "CLERIC"],
+        "affixes": ["Harrier", "Minstrel", "Cleric"],
         "optimizeFor": "Healing",
         "minBoonDuration": 100
       }
@@ -42,7 +42,7 @@ list:
   - name: Condi Boon
     value: >-
       {
-        "affixes": ["VIPER", "SERAPH", "CELESTIAL"],
+        "affixes": ["Viper", "Seraph", "Celestial"],
         "optimizeFor": "Damage",
         "minBoonDuration": 79
       }
