@@ -8,7 +8,7 @@ import { getPriority } from '../../../state/slices/priorities';
 import { GEAR_SLOTS, Affix } from '../../../utils/gw2-data';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 
-const AFFIXES = Object.keys(Affix).map((entry) => entry.toUpperCase());
+const AFFIXES = Object.keys(Affix);
 
 const styles = (theme) => ({
   textField: { marginTop: 0, marginBottom: 0 },

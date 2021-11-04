@@ -8,7 +8,7 @@ import { changePriority, getPriority } from '../../state/slices/priorities';
 import { firstUppercase } from '../../utils/usefulFunctions';
 import { Affix } from '../../utils/gw2-data';
 
-const AFFIXES = Object.keys(Affix).map((entry) => entry.toUpperCase());
+const AFFIXES = Object.keys(Affix);
 
 const styles = (theme) => ({
   text: {
