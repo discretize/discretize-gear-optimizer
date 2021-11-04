@@ -9,7 +9,7 @@ import {
   Typography,
   withStyles,
 } from '@material-ui/core';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -70,7 +70,9 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => 
       >
         [
         <MenuItem value="">
-          <em>None</em>
+          <em>
+            <Trans>None</Trans>
+          </em>
         </MenuItem>
         ,
         {modifierData.map((category) => {
@@ -91,7 +93,14 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => 
                       {...(!isChinese && { text: item.text.replace('Superior ', '') })}
                     />
                   }
-                  secondary={<Typography className={classes.subText}>{item.subText}</Typography>}
+                  secondary={
+                    <Typography className={classes.subText}>
+                      {
+                        // i18next-extract-mark-context-next-line {{extraSubText}}
+                        t('extraSubText', { context: item.subText })
+                      }
+                    </Typography>
+                  }
                 />
               </MenuItem>
             )),

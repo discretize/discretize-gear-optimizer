@@ -57,10 +57,8 @@ module.exports = {
             Object.values(professions)
               .flat()
               .flatMap((item) => item.items)
-              .filter((item) => item.amountData)
-              .map((item) => item.amountData)
-              .filter((item) => item.label)
-              .map((item) => item.label),
+              .map((item) => item?.amountData?.label)
+              .filter((item) => item),
           ),
           'x',
         ],
@@ -79,6 +77,15 @@ module.exports = {
             Object.values(extra)
               .flat()
               .flatMap((item) => item.section),
+          ),
+        ],
+        extraSubText: [
+          ...new Set(
+            Object.values(extra)
+              .flat()
+              .flatMap((section) => section.items)
+              .map((item) => item.subText)
+              .filter((item) => item),
           ),
         ],
         traitSubText: [
