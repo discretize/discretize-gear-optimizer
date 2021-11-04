@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { omnipotionModifiers } from '../../utils/gw2-data';
 import { setModifiers } from '../controlsSlice';
+import { parseAmount } from '../optimizer/optimizerCore';
 
 export const infusionsSlice = createSlice({
   name: 'infusions',
@@ -38,11 +39,12 @@ export const infusionsSlice = createSlice({
 
       // Apply AR and omnipotion
       if (state.ar) {
+        const { value } = parseAmount(state.ar);
         modifiers.push({
           id: 'agony-resistance',
           modifiers: {
             attributes: {
-              'Agony Resistance': [state.ar, 'converted'],
+              'Agony Resistance': [value || 0, 'converted'],
             },
           },
         });

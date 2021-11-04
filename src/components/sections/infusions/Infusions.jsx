@@ -21,6 +21,7 @@ import {
   changeInfusion,
   getInfusions,
 } from '../../../state/slices/infusions';
+import { parseAmount } from '../../../state/optimizer/optimizerCore';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import HelperIcon from '../../baseComponents/HelperIcon';
 import { INFUSIONS } from '../../../utils/gw2-data';
@@ -43,12 +44,15 @@ const Infusions = ({ classes }) => {
   const omnipotion = useSelector(getOmniPotion);
   const infusions = useSelector(getInfusions);
 
-  function handleARChange(event) {
-    const { value } = event.target;
-    if (value.match('^[0-9]*$')) {
-      dispatch(changeAR(Number.parseInt(value, 10)), [dispatch]);
-    }
-  }
+  const handleARChange = React.useCallback(
+    (event) => {
+      const { value } = event.target;
+      dispatch(changeAR(value));
+    },
+    [dispatch],
+  );
+
+  const { error: arError } = parseAmount(ar);
 
   const dropdown = (name, varName, infusion) => {
     return (
@@ -79,6 +83,7 @@ const Infusions = ({ classes }) => {
   };
 
   const input = (name, varName, value, className) => {
+    const { error } = parseAmount(value);
     return (
       <FormControl className={className}>
         <InputLabel htmlFor={`${varName}_input-with-icon-adornment`}>{name}</InputLabel>
@@ -87,6 +92,7 @@ const Infusions = ({ classes }) => {
           value={value}
           onChange={(e) => dispatch(changeInfusion({ key: varName, value: e.target.value }))}
           autoComplete="off"
+          error={error}
         />
       </FormControl>
     );
@@ -128,6 +134,8 @@ const Infusions = ({ classes }) => {
                 </InputAdornment>
               }
               onChange={handleARChange}
+              autoComplete="off"
+              error={arError}
             />
           </FormControl>
         </Grid>
