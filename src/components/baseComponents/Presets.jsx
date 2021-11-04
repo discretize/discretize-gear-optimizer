@@ -70,7 +70,7 @@ const Presets = ({ className, data, handleClick }) => {
               )
             }
             variant="outlined"
-            onClick={handleClick(preset)}
+            onClick={() => handleClick(preset)}
             className={classes.templateChip}
           />
         ))

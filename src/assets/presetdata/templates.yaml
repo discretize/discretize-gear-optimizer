@@ -181,7 +181,7 @@ list:
         boons: Power (spotter)
         priority: Power DPS
         distribution: Power Weaver (BTTH)
-        traits: Power Weaver
+        traits: Power Weaver Stormsoul
         extras: Power (Fractal)
 
       - name: Condi Weaver Sword
