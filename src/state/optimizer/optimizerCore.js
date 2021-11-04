@@ -373,29 +373,22 @@ export function setup(input) {
   settings.forcedRing = false;
   settings.forcedAcc = false;
   settings.forcedWep = false;
-  for (let index = 0; index < settings.forcedAffixes.length; index++) {
-    const inputValue = settings.forcedAffixes[index];
-    if (!inputValue) {
-      continue;
-    }
 
-    for (const affix of settings.affixes) {
-      if (affix.toLowerCase().startsWith(inputValue.toLowerCase())) {
-        settings.affixesArray[index] = [affix];
-        if (['shld', 'glov', 'boot'].includes(ForcedSlots[index])) {
-          settings.forcedArmor = true;
-        } else if (['rng1', 'rng2'].includes(ForcedSlots[index])) {
-          settings.forcedRing = true;
-        } else if (['acc1', 'acc2'].includes(ForcedSlots[index])) {
-          settings.forcedAcc = true;
-        } else if (['wep1', 'wep2'].includes(ForcedSlots[index])) {
-          settings.forcedWep = true;
-        }
-
-        break;
-      }
+  settings.forcedAffixes.forEach((affix, index) => {
+    if (!affix) {
+      return;
     }
-  }
+    settings.affixesArray[index] = [affix];
+    if (['shld', 'glov', 'boot'].includes(ForcedSlots[index])) {
+      settings.forcedArmor = true;
+    } else if (['rng1', 'rng2'].includes(ForcedSlots[index])) {
+      settings.forcedRing = true;
+    } else if (['acc1', 'acc2'].includes(ForcedSlots[index])) {
+      settings.forcedAcc = true;
+    } else if (['wep1', 'wep2'].includes(ForcedSlots[index])) {
+      settings.forcedWep = true;
+    }
+  });
 
   // rearrange affixes so you don't always start with e.g. full berserker. Example:
   // [vipe sini grie] helm
