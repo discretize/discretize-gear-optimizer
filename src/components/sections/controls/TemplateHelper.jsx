@@ -131,12 +131,13 @@ const TemplateHelper = ({ character }) => {
           <tr>
             {Object.keys(values2).map((key) => {
               const type = key === 'Power' ? 'Power Coefficient' : `Avg. ${key} Stacks`;
-              return <td>{type}</td>;
+              return <td key={type}>{type}</td>;
             })}
           </tr>
           <tr>
-            {Object.values(values2).map((value) => (
-              <td>
+            {Object.values(values2).map((value, index) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <td key={index}>
                 <TextField disabled value={value} />
               </td>
             ))}
@@ -144,11 +145,9 @@ const TemplateHelper = ({ character }) => {
         </tbody>
       </table>
 
-      <p>
-        <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-          {indent(formattedDistribution, 6)}
-        </pre>
-      </p>
+      <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
+        {indent(formattedDistribution, 6)}
+      </pre>
 
       <Typography variant="h6">
         <Trans>Trait Template</Trans>
