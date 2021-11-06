@@ -161,7 +161,7 @@ list:
         "values2": { "Power": 3603, "Burning": 6.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  - name: Condi Weaver Swordord
+  - name: Condi Weaver Sword
     profession: WEAVER
     value: >-
       {
