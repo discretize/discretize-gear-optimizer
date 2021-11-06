@@ -2228,7 +2228,7 @@ list:
           [
             1767,
             1786,
-            1800
+            1754
           ],
           [
             1761,
@@ -3436,7 +3436,8 @@ list:
     skills: |-
       {
         "skills": [
-          "signet-of-agility"
+          "signet-of-agility",
+          "assassins-signet"
         ]
       }
 
@@ -3646,7 +3647,9 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": [
+          "assassins-signet"
+        ]
       }
 
   - name: '[incomplete] DPS Specter Sc/D'
