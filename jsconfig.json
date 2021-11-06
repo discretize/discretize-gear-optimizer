@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
     "jsx": "react"
-  }
+  },
+  "exclude": ["node_modules", "public", ".cache", "dist"]
 }
