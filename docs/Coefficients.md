@@ -23,3 +23,45 @@ As described in [How It Works](<How It Works.md#1-simulating>), some specific bo
 Casting the scepter skill [Grasping Dead](https://wiki.guildwars2.com/wiki/Grasping_Dead), for example, normally has a power coefficient contribution of `0.8 * 1000 = 800` (with an ascended scepter) and a bleeding contribution of `3 * 10 = 30` stacks, but on a necromancer equipping the scepter-specific [Lingering Curse](https://wiki.guildwars2.com/wiki/Lingering_Curse) trait, one would instead add `3 * 10 * 1.5 = 45` stacks of bleeding per cast. This cannot be done automatically by the optimizer because it does not know what portion of the total bleeding comes from each source.
 
 Be careful of this when making comparisons using coefficients. For example, if comparing 3% sigils and hydromancy sigils on power soulbeast, be sure to account for the hydromancy sigil always triggering with "Sic 'Em!" and Honed Axes active.
+
+---
+
+Why are these values what they are?
+
+## Math breakdown:
+
+The damage dealt by a skill can be broken down completely as:
+
+```
+Power Damage = (Weapon Strength * Coefficient / Target Armor) * Effective Power * Optimizer simulated modifiers * Optimizer ignored modifiers
+```
+
+```
+Burning/bleeding/etc Damage = (Stacks Applied * Base Duration) * Damage Per Tick * Optimizer simulated modifiers * Optimizer ignored modifiers
+```
+
+Total DPS is calculated as the sum of these damages for every skill cast, divided by the total combat time.
+
+These can be rearranged to separate out what the optimizer simulates, and what it does not:
+
+```
+Power Damage = (Effective Power * Optimizer simulated modifiers / Target Armor)
+  * (Weapon Strength * Coefficient * Optimizer ignored modifiers)
+
+Power DPS = (optimizer stuff)
+  * average (Weapon Strength * Coefficient * Optimizer ignored modifiers) per second
+```
+
+```
+Burning/bleeding/etc Damage = (Damage Per Tick * Optimizer simulated modifiers)
+  * (Stacks Applied * Base Duration * Optimizer ignored modifiers)
+
+Burning/bleeding/etc DPS = (optimizer stuff)
+  * average (Stacks Applied * Base Duration * Optimizer ignored modifiers) per second
+```
+
+Thus, the skill coefficient data for power is "the average amount of `skill coefficient * weapon strength` my skills deal per second," and for burning it is "the average amount of `stacks of burning * duration` my skills deal per second" (both including specific modifiers).
+
+In short, it is exactly how strong your build's rotation is, independent of gear or buffs.
+
+</details>
