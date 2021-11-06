@@ -18,7 +18,7 @@ Summing every weapon and utility skill cast and every effect triggered in a rota
 
 There is a **caveat**, however:
 
-As described in [How It Works](<How It Works.md>), some specific bonuses are not calculated by the optimizer, such as traits that buff skills of a certain type or only provide benefits some of the time.
+As described in [How It Works](<How It Works.md#1-simulating>), some specific bonuses are not calculated by the optimizer, such as traits that buff skills of a certain type or only provide benefits some of the time.
 
 Casting the scepter skill [Grasping Dead](https://wiki.guildwars2.com/wiki/Grasping_Dead), for example, normally has a power coefficient contribution of `0.8 * 1000 = 800` (with an ascended scepter) and a bleeding contribution of `3 * 10 = 30` stacks, but on a necromancer equipping the scepter-specific [Lingering Curse](https://wiki.guildwars2.com/wiki/Lingering_Curse) trait, one would instead add `3 * 10 * 1.5 = 45` stacks of bleeding per cast. This cannot be done automatically by the optimizer because it does not know what portion of the total bleeding comes from each source.
 
