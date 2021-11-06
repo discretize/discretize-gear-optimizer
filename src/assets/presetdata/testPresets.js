@@ -3,7 +3,6 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-console */
 import fs from 'fs/promises';
-import path from 'path';
 // import assert from 'assert';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import yaml from 'js-yaml';
@@ -38,12 +37,12 @@ const types = {
 };
 
 const testModifiers = async () => {
-  const files = (await fs.readdir(directory)).filter(
-    (filename) => path.extname(filename) === '.yaml',
-  );
+  // const files = (await fs.readdir(directory)).filter(
+  //   (filename) => path.extname(filename) === '.yaml',
+  // );
 
-  const allTraitIds = new Set();
-  const allExtrasIds = new Set();
+  // const allTraitIds = new Set();
+  // const allExtrasIds = new Set();
 
   const fileData = await fs.readFile(`${directory}templates.yaml`);
 
@@ -59,6 +58,7 @@ const testModifiers = async () => {
   const data = {};
   for (const [type, fileName] of Object.entries(types)) {
     try {
+      // eslint-disable-next-line no-shadow
       const fileData = await fs.readFile(`${directory}${fileName}.yaml`);
       data[type] = yaml.load(fileData).list;
       gentleAssert(data[type], `err: ${fileName}.yaml is missing`);

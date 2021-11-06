@@ -14,7 +14,7 @@ import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute, Condition } from 'gw2-ui-bulk';
 import debounce from 'lodash.debounce';
 import Nouislider from 'nouislider-react';
-// eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
 import 'nouislider/distribute/nouislider.css';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
