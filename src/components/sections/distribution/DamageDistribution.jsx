@@ -78,12 +78,12 @@ const styles = (theme) => ({
 });
 
 const DISTRIBUTION_NAMES = [
-  { name: 'Power', min: 0, max: 5000, step: 10, color: '#b1b1b5' },
-  { name: 'Burning', min: 0, max: 50, step: 0.1 },
-  { name: 'Bleeding', min: 0, max: 50, step: 0.1 },
-  { name: 'Poisoned', min: 0, max: 50, step: 0.1 },
-  { name: 'Torment', min: 0, max: 50, step: 0.1 },
-  { name: 'Confusion', min: 0, max: 50, step: 0.1 },
+  { name: 'Power', min: 0, max: 6000, step: 10, color: '#b1b1b5' },
+  { name: 'Burning', min: 0, max: 60, step: 0.1 },
+  { name: 'Bleeding', min: 0, max: 60, step: 0.1 },
+  { name: 'Poisoned', min: 0, max: 60, step: 0.1 },
+  { name: 'Torment', min: 0, max: 60, step: 0.1 },
+  { name: 'Confusion', min: 0, max: 60, step: 0.1 },
 ];
 
 const DamageDistribution = ({ classes }) => {
