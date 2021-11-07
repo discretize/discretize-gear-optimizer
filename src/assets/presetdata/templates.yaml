@@ -141,8 +141,8 @@ list:
         specialization: Berserker
         boons: Power (spotter)
         priority: Power DPS
-        distribution: Power Banner Warrior
-        traits: Power Banner Bers
+        distribution: Power Banner Bers Strength
+        traits: Power Banner Bers Strength
         extras: Power (Fractal)
 
       - name: Condi Banner Bers
@@ -150,7 +150,7 @@ list:
         specialization: Berserker
         boons: Condi
         priority: Condi DPS
-        distribution: Condi Banner Warrior
+        distribution: Condi Banner Bers
         traits: Condi Bers
         extras: Condi Bers
 

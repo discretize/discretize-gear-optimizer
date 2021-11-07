@@ -19,7 +19,7 @@ list:
   # https://youtube.com/watch/NkoFpwfcxfw
   # power 33273 burn 290
   # thief rune
-  - name: Power Banner Warrior
+  - name: Power Banner Bers Strength
     profession: BERSERKER
     value: >-
       {
@@ -30,7 +30,7 @@ list:
   # https://www.youtube.com/watch?v=nXUtdasJCXY
   # power 4303 burn 17955 bleed 10339 poison 1026 torm 897
   # includes geo/earth + doom/torment
-  - name: Condi Banner Warrior
+  - name: Condi Banner Bers
     profession: BERSERKER
     value: >-
       {

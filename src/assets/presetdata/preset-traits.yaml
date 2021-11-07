@@ -1108,7 +1108,7 @@ list:
         ]
       }
 
-  - name: Power Banner Bers
+  - name: Power Banner Bers Strength
     profession: BERSERKER
     traits: |-
       {
