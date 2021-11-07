@@ -15,6 +15,10 @@ list:
         "values2": { "Power": 3000, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  # strength/discipline
+  # https://youtube.com/watch/NkoFpwfcxfw
+  # power 33273 burn 290
+  # thief rune
   - name: Power Banner Warrior
     profession: BERSERKER
     value: >-
@@ -23,6 +27,9 @@ list:
         "values2": { "Power": 3089, "Burning": 0.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=nXUtdasJCXY
+  # power 4303 burn 17955 bleed 10339 poison 1026 torm 897
+  # includes geo/earth + doom/torment
   - name: Condi Banner Warrior
     profession: BERSERKER
     value: >-
@@ -31,6 +38,9 @@ list:
         "values2": { "Power": 1739, "Burning": 10.3, "Bleeding": 17.3, "Poisoned": 2.0, "Torment": 1.2, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=br9AGRrKHY8
+  #  power 30836 burn 200
+  #  accuracy; optimized for 3 attacker's insight I guess w/e
   - name: Power Banner Spellbreaker
     profession: SPELLBREAKER
     value: >-
@@ -39,6 +49,9 @@ list:
         "values2": { "Power": 2626, "Burning": 0.6, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=faIaiHFG1qI
+  # power 34878 burn 606
+  # RHS
   - name: DH Radiance
     profession: DRAGONHUNTER
     value: >-
@@ -47,6 +60,9 @@ list:
         "values2": { "Power": 3283, "Burning": 1.85, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=iaMQVvspJFE
+  # power 39212 burn 802
+  # 12 boons; thief rune, accuracy
   - name: DH Virtues
     profession: DRAGONHUNTER
     value: >-
@@ -55,6 +71,7 @@ list:
         "values2": { "Power": 3334, "Burning": 2.2, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  # (this is actually an old core guardian distribution iirc)
   - name: Power Quickbrand (approx.)
     profession: FIREBRAND
     value: >-
@@ -63,6 +80,9 @@ list:
         "values2": { "Power": 3390, "Burning": 1.1, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=XbbfgCUGwlY
+  # power 6399 burn 28610 bleed 1731 torm 694
+  # 12 boons, includes torment and geo sigils
   - name: CFB (Virtues, 5 page, allies)
     profession: FIREBRAND
     value: >-
@@ -71,6 +91,7 @@ list:
         "values2": { "Power": 2325, "Burning": 15.2, "Bleeding": 4.8, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
       }
 
+  # burn 25416
   - name: CFB (Virtues, 5 page, no allies)
     profession: FIREBRAND
     value: >-
@@ -79,6 +100,9 @@ list:
         "values2": { "Power": 2325, "Burning": 13.5, "Bleeding": 4.8, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=KOEcwF066pc
+  # power 5745 burn 30945 bleed 1487 torm 694
+  # 12 boons, includes torment and geo sigils
   - name: CFB (Virtues, 8 page, allies)
     profession: FIREBRAND
     value: >-
@@ -87,6 +111,7 @@ list:
         "values2": { "Power": 2087, "Burning": 16.4, "Bleeding": 4.1, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
       }
 
+  # burn 26203
   - name: CFB (Virtues, 8 page, no allies)
     profession: FIREBRAND
     value: >-
@@ -95,21 +120,45 @@ list:
         "values2": { "Power": 2087, "Burning": 13.9, "Bleeding": 4.1, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
       }
 
+  # stalwart speed and legendary lore, but balth rune setup
+  # i.e. like 40% quickbrand but plus geo/torment; minus firebrand rune proc
+  #
+  # geo power: 0.25 coeff, 690.5 strength, every 26.5 sec -> 6.5 power coefficient
+  # geo bleed: 24 seconds, every 26.5 sec -> 0.9 avg bleed
+  # torment: 10 seconds, 14 procs/106 sec -> 1.3 avg torment
+  # fb rune power: 0.8? coeff, 690.5 strength, every 54 sec -> 10 power coeff
+  # fb rune burning: 1 second, every 54 sec -> 0.0185 avg burning
+  #
+  # f1 passives from procs are 2.2s because of amplified wrath; every 3 hits if virtues
+  # geo f1 passive: 1/3 * 2.2 / 54 sec = 0.0277 avg burning
+  # fb rune f1 passive: 1/3 * 2.2 / 26.5 sec = 0.0136 avg burning
   - name: CFB w/ Quickness (Virtues, allies)
     profession: FIREBRAND
     value: >-
       {
-        "values1": { "Power": 32, "Burning": 63, "Bleeding": 4, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
-        "values2": { "Power": 2128, "Burning": 13.7, "Bleeding": 2.4, "Poisoned": 0, "Torment": 1.2, "Confusion": 0 }
+        "values1": { "Power": 33, "Burning": 66, "Bleeding": 1, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2301, "Burning": 14.0, "Bleeding": 1.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+
+  # +1.4 burning (36 seconds * 5 casts in ~130 seconds)
   - name: Condi Quickbrand 40% (Virtues, allies)
     profession: FIREBRAND
     value: >-
       {
-        "values1": { "Power": 31, "Burning": 67, "Bleeding": 2, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 2128, "Burning": 13.7, "Bleeding": 2.4, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values1": { "Power": 32, "Burning": 66, "Bleeding": 2, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2318, "Burning": 14.1, "Bleeding": 2.6, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
+
+  # https://www.youtube.com/watch?v=Jm3PLweimmU
+  # power 6264 burn 22627 bleed 974
+  # - name: Condi Quickbrand 40% (Virtues, no allies)
+  #   profession: FIREBRAND
+  #   value: >-
+  #     {
+  #       "values1": { "Power": 35, "Burning": 63, "Bleeding": 2, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+  #       "values2": { "Power": 2318, "Burning": 12.7, "Bleeding": 2.6, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #     }
 
   # - name: Hybrid FB (Virtues, no allies)
   #   profession: FIREBRAND
@@ -153,6 +202,10 @@ list:
   #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
 
+  # small hitbox, superior elements, raging storm
+  # https://www.youtube.com/watch?v=x2sRASCvRMY
+  # power 34138 (subtracted asc food) burn 2773
+  # scholar rune, not flame legion
   - name: Power Weaver (BTTH)
     profession: WEAVER
     value: >-
@@ -161,6 +214,8 @@ list:
         "values2": { "Power": 3603, "Burning": 6.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=H5ZyMQln6hw
+  # power 8868 burn 20663 bleed 8798
   - name: Condi Weaver Sword
     profession: WEAVER
     value: >-
@@ -169,6 +224,8 @@ list:
         "values2": { "Power": 2728, "Burning": 12.9, "Bleeding": 16.3, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=5XgoudKAKRw
+  # power 7059 burn 21986 bleed 12387
   - name: Condi Weaver (Dagger)
     profession: WEAVER
     value: >-
@@ -177,6 +234,9 @@ list:
         "values2": { "Power": 2172, "Burning": 13.7, "Bleeding": 22.9, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=s7ASBjZq5GY
+  # power 16710 burn 21449 bleed 336
+  # force bursting, slightly suboptimal gear
   - name: Hybrid Weaver
     profession: WEAVER
     value: >-
@@ -185,6 +245,8 @@ list:
         "values2": { "Power": 3252, "Burning": 14.0, "Bleeding": 1.0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=iE8E7wzwSaQ
+  # power 10789 burn 18927 bleed 7590
   - name: Condi Tempest
     profession: TEMPEST
     value: >-
@@ -201,14 +263,20 @@ list:
   #       "values2": { "Power": 4388, "Burning": 4.0, "Bleeding": 4.5, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
 
+  # dance of death
+  # https://www.youtube.com/watch?v=FqhytnzGg5A
+  # power 22737 + 4889 lifesteal = 27626 burn 698
+  # berserker helm diviner rest, force conc, writ, AP
   - name: Alacrity Renegade
     profession: RENEGADE
     value: >-
       {
         "values1": { "Power": 87, "Burning": 13, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 3693, "Burning": 1.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3861, "Burning": 1.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=jhE54G8L4EE
+  # power 6013 burn 7597 bleed 6752 + ~2500 = 9252 poison 2259 torm 15214
   - name: Condi RR Invocation
     profession: RENEGADE
     value: >-
@@ -217,20 +285,27 @@ list:
         "values2": { "Power": 1973, "Burning": 5.0, "Bleeding": 14.1, "Poisoned": 4.2, "Torment": 18.4, "Confusion": 0 }
       }
 
+  # dance of death
+  # https://www.youtube.com/watch?v=HwJFmdgF88U
+  # power 6379 + 1661 lifesteal = 8040 burn 6353 bleed 6320 + ~2500 = 8820 poison 2420 torm 13756
+  # AP
   - name: Condi RR Devastation
     profession: RENEGADE
     value: >-
       {
-        "values1": { "Power": 38, "Burning": 22, "Bleeding": 12, "Poisoned": 6, "Torment": 21, "Confusion": 0 },
-        "values2": { "Power": 2427, "Burning": 4.2, "Bleeding": 13.5, "Poisoned": 4.5, "Torment": 16.8, "Confusion": 0 }
+        "values1": { "Power": 37, "Burning": 23, "Bleeding": 12, "Poisoned": 6, "Torment": 22, "Confusion": 0 },
+        "values2": { "Power": 2284, "Burning": 4.2, "Bleeding": 13.5, "Poisoned": 4.5, "Torment": 16.8, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=URIgUbp-x5M
+  # power 7285 + 3087 lifesteal = 10372 burn 6666 bleed 6525 + ~2500 = 9025 poison 2497 torm 14425
+  # AP
   - name: Condi Renegade (Devastation)
     profession: RENEGADE
     value: >-
       {
-        "values1": { "Power": 44, "Burning": 21, "Bleeding": 11, "Poisoned": 6, "Torment": 20, "Confusion": 0 },
-        "values2": { "Power": 3007, "Burning": 4.3, "Bleeding": 13.3, "Poisoned": 4.5, "Torment": 16.8, "Confusion": 0 }
+        "values1": { "Power": 42, "Burning": 21, "Bleeding": 11, "Poisoned": 6, "Torment": 20, "Confusion": 0 },
+        "values2": { "Power": 2829, "Burning": 4.3, "Bleeding": 13.3, "Poisoned": 4.5, "Torment": 16.8, "Confusion": 0 }
       }
 
   # - name: Condi Renegade (Invocation)
@@ -241,30 +316,43 @@ list:
   #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
 
+  # not including ally lifesteal
+  # https://www.youtube.com/watch?v=ZG_FFbmNcCo
+  # power 26987 + 251 self lifesteal = 27238 burn 539
+  # AP
   - name: Power Herald DE
     profession: HERALD
     value: >-
       {
-        "values1": { "Power": 87, "Burning": 13, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 3087, "Burning": 1.4, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values1": { "Power": 86, "Burning": 14, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2964, "Burning": 1.4, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=zdfRVJxWWZ4
+  # power 5246 + 7181 lifesteal = 6027 burn 7122 bleed 1003 poison 2941 torm 13000
+  # 12 boons, AP
   - name: Condi Herald
     profession: HERALD
     value: >-
       {
-        "values1": { "Power": 34, "Burning": 29, "Bleeding": 2, "Poisoned": 12, "Torment": 24, "Confusion": 0 },
-        "values2": { "Power": 1990, "Burning": 5.1, "Bleeding": 2.2, "Poisoned": 8, "Torment": 17.1, "Confusion": 0 }
+        "values1": { "Power": 34, "Burning": 30, "Bleeding": 2, "Poisoned": 9, "Torment": 25, "Confusion": 0 },
+        "values2": { "Power": 1900, "Burning": 5.1, "Bleeding": 2.2, "Poisoned": 6, "Torment": 17.1, "Confusion": 0 }
       }
 
+  # longbow; actually skirmishing trappers expertise
+  # https://www.youtube.com/watch?v=hL9EDMihcDk
+  # power 33853 burn 250 bleed 559 poison 344
+  # OS, signet
   - name: Power Slb Marks
     profession: SOULBEAST
     value: >-
       {
-        "values1": { "Power": 80, "Burning": 7, "Bleeding": 7, "Poisoned": 6, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 2780, "Burning": 0.67, "Bleeding": 4.5, "Poisoned": 2.4, "Torment": 0, "Confusion": 0 }
+        "values1": { "Power": 81, "Burning": 6, "Bleeding": 7, "Poisoned": 6, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2797, "Burning": 0.6, "Bleeding": 4.5, "Poisoned": 2.4, "Torment": 0, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=-bipnEirEGA
+  # power 4750 burn 2865 bleed 19386 poison 8687 torm 90
   - name: Condi Slb (D/T SB)
     profession: SOULBEAST
     value: >-
@@ -273,6 +361,8 @@ list:
         "values2": { "Power": 1591, "Burning": 2.4, "Bleeding": 27.7, "Poisoned": 16.5, "Torment": 0.2, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=rr-gJuN3ECA
+  # power 4968 burn 4269 bleed 18512 poison 7459 torm 90
   - name: Condi Slb (D/T A/D)
     profession: SOULBEAST
     value: >-
@@ -281,6 +371,8 @@ list:
         "values2": { "Power": 1664, "Burning": 3.6, "Bleeding": 26.5, "Poisoned": 14.1, "Torment": 0.2, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=HdwqDoINnq0
+  # power 12065 burn 3264 bleed 18950 poison 2974 torm 90
   - name: Hybrid Slb (A/T D/A)
     profession: SOULBEAST
     value: >-
@@ -289,6 +381,7 @@ list:
         "values2": { "Power": 2315, "Burning": 2.8, "Bleeding": 26.9, "Poisoned": 7.1, "Torment": 0.2, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=5Wipvn8loPk (very old)
   - name: Condi Druid (approx.)
     profession: DRUID
     value: >-
@@ -297,6 +390,8 @@ list:
         "values2": { "Power": 1610, "Burning": 2.3, "Bleeding": 19.5, "Poisoned": 4.9, "Torment": 0, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=aemjSrxAN_c
+  # power 34698 burn 1015 bleed 1625 poison 290
   - name: Power Holo ECSU
     profession: HOLOSMITH
     value: >-
@@ -313,6 +408,8 @@ list:
   #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
 
+  # https://www.youtube.com/watch?v=yGg0pqSu8RA
+  # power 30774 burn 190 bleed 988 poison 312
   - name: Power Scrapper
     profession: SCRAPPER
     value: >-
@@ -321,6 +418,9 @@ list:
         "values2": { "Power": 2700, "Burning": 0.7, "Bleeding": 11.8, "Poisoned": 4.0, "Torment": 0, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=oD7fBTMmWFE
+  # power 26854 burn 204 bleed 984 poison 441
+  # diviner amulet, 1x ring
   - name: Quickness Scrapper
     profession: SCRAPPER
     value: >-
@@ -329,6 +429,10 @@ list:
         "values2": { "Power": 2670, "Burning": 0.6, "Bleeding": 8.1, "Poisoned": 4.2, "Torment": 0, "Confusion": 0 }
       }
 
+  # IA focus domi/duel
+  # https://www.youtube.com/watch?v=zdIAYu7R8lk
+  # power 20608 + 12314 = 32922 burn 219 bleed 2371
+  # thief rune, truffle steak
   - name: Power Chrono
     profession: CHRONOMANCER
     value: >-
@@ -337,22 +441,39 @@ list:
         "values2": { "Power": 3857, "Burning": 0.63, "Bleeding": 24, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  # DT focus domi/duel
+  # https://www.youtube.com/watch?v=hkl9kewy_1k
+  # power 2171 + 14485 = 36356 burn 204 bleed 2147
+  # scholar
+  # - name: Power Chrono DT
+  #   profession: CHRONOMANCER
+  #   value: >-
+
+  # https://www.youtube.com/watch?v=x1dRcUqNIFo
+  # power 3711 burn 5429 bleed 11785 poison 2117 torm 14341
+  # nightmare icicle
   - name: Condi Scourge
     profession: SCOURGE
     value: >-
       {
-        "values1": { "Power": 27, "Burning": 22, "Bleeding": 23, "Poisoned": 6, "Torment": 22, "Confusion": 0 },
-        "values2": { "Power": 1405, "Burning": 3.4, "Bleeding": 20.8, "Poisoned": 3.7, "Torment": 14.3, "Confusion": 0 }
+        "values1": { "Power": 27, "Burning": 22, "Bleeding": 22, "Poisoned": 6, "Torment": 22, "Confusion": 0 },
+        "values2": { "Power": 1405, "Burning": 3.4, "Bleeding": 20.6, "Poisoned": 3.7, "Torment": 14.2, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=prk0ZwXwLlA
+  # power 7817 burn 2167 bleed 24240 poison 1135 torm 2327
+  # no grieving
   - name: Condi Reaper
     profession: REAPER
     value: >-
       {
-        "values1": { "Power": 41, "Burning": 11, "Bleeding": 39, "Poisoned": 4, "Torment": 5, "Confusion": 0 },
-        "values2": { "Power": 2370, "Burning": 1.9, "Bleeding": 39.9, "Poisoned": 2.7, "Torment": 3.9, "Confusion": 0 }
+        "values1": { "Power": 39, "Burning": 11, "Bleeding": 40, "Poisoned": 4, "Torment": 6, "Confusion": 0 },
+        "values2": { "Power": 2385, "Burning": 2, "Bleeding": 44, "Poisoned": 3, "Torment": 4.3, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=AyDxFUGZOYQ (log is off ingame # by 3%)
+  # power 4902 burn 3838 bleed 7601 poison 4393 torm 23779
+  #
   - name: '[approx] Beta Harbinger'
     profession: HARBINGER
     value: >-
@@ -361,22 +482,29 @@ list:
         "values2": { "Power": 1855, "Burning": 2.2, "Bleeding": 11.5, "Poisoned": 7.1, "Torment": 21.2, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=1yAvjWJoAyE
+  # power 5940 burn 729 bleed 11314 poison 11138 torment 6783
   - name: Condi Deadeye
     profession: DEADEYE
     value: >-
       {
-        "values1": { "Power": 33, "Burning": 3, "Bleeding": 21, "Poisoned": 26, "Torment": 17, "Confusion": 0 },
-        "values2": { "Power": 1698, "Burning": 0.5, "Bleeding": 18.9, "Poisoned": 15.5, "Torment": 10.4, "Confusion": 0 }
+        "values1": { "Power": 34, "Burning": 3, "Bleeding": 21, "Poisoned": 25, "Torment": 16, "Confusion": 0 },
+        "values2": { "Power": 1690, "Burning": 0.5, "Bleeding": 19, "Poisoned": 14.6, "Torment": 9.5, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=UD7TaxND8vc
+  # power 34651 burn 203 bleed 101
   - name: Staff Daredevil
     profession: DAREDEVIL
     value: >-
       {
-        "values1": { "Power": 92, "Burning": 6, "Bleeding": 2, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 2810, "Burning": 0.6, "Bleeding": 1.1, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values1": { "Power": 91, "Burning": 7, "Bleeding": 2, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2742, "Burning": 0.6, "Bleeding": 1.1, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  # still has precasted venoms
+  # https://www.youtube.com/watch?v=ESV8Hsf4hmI
+  # power 4515 burn 800 bleed 16756 poison 14023 torment 4571
   - name: Condi Daredevil
     profession: DAREDEVIL
     value: >-
@@ -385,14 +513,18 @@ list:
         "values2": { "Power": 1241, "Burning": 0.6, "Bleeding": 23.0, "Poisoned": 17.9, "Torment": 6.7, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=si71D-O4kf8
+  # power 38556 burn 176 bleed 35 poison 191
   - name: Rifle Deadeye
     profession: DEADEYE
     value: >-
       {
-        "values1": { "Power": 91, "Burning": 4, "Bleeding": 1, "Poisoned": 4, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 3574, "Burning": 0.5, "Bleeding": 0.4, "Poisoned": 1.8, "Torment": 0, "Confusion": 0 }
+        "values1": { "Power": 91, "Burning": 5, "Bleeding": 1, "Poisoned": 4, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 3421, "Burning": 0.5, "Bleeding": 0.4, "Poisoned": 1.8, "Torment": 0, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=rUZ7XCMvn1g
+  # power 6927 burn 753 bleed 993 poison 13618 torment 21889
   - name: 'Beta DPS Specter Sc/D'
     profession: SPECTER
     value: >-
@@ -401,6 +533,9 @@ list:
         "values2": { "Power": 2342, "Burning": 0.6, "Bleeding": 2.2, "Poisoned": 18, "Torment": 22.9, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=QjDA4W3nYYM
+  # power 1503 burn 641 poison 9195 torment 39826
+  # writ, carrion/viper mix
   - name: 'Beta DPS Specter Endless Night'
     profession: SPECTER
     value: >-
