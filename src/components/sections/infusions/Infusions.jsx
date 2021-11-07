@@ -103,7 +103,7 @@ const Infusions = ({ classes }) => {
   return (
     <Grid container spacing={2}>
       <Grid container item spacing={2} alignItems="center" justifyContent="flex-start">
-        <Grid item xs={12}>
+        <Grid item xs={12} sm>
           <CheckboxComponent
             value={omnipotion}
             checked={omnipotion}
@@ -122,7 +122,7 @@ const Infusions = ({ classes }) => {
             onChange={(e) => dispatch(changeOmnipotion(e.target.checked))}
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} sm>
           <Autocomplete
             className={classes.formControl}
             freeSolo
@@ -157,17 +157,11 @@ const Infusions = ({ classes }) => {
         direction="row"
         alignItems="center"
       >
-        <Grid item xs={12} sm={8}>
-          <Typography variant="subtitle1">
-            <Trans>Stat Infusions</Trans>
-          </Typography>
-        </Grid>
-
-        <Grid item xs={12} sm={8}>
+        <Grid item xs={12}>
           {input('# Stat Infusions', 'maxInfusions', infusions.maxInfusions)}
         </Grid>
 
-        <Grid item xs={12} sm={8}>
+        <Grid item xs={12}>
           {dropdown(t('Infusion Type #1'), 'primaryInfusion', infusions.primaryInfusion)}
           {input(
             t('Max #'),
@@ -177,7 +171,7 @@ const Infusions = ({ classes }) => {
           )}
         </Grid>
 
-        <Grid item xs={12} sm={8}>
+        <Grid item xs={12}>
           {dropdown(t('Infusion Type #2'), 'secondaryInfusion', infusions.secondaryInfusion)}
           {input(
             t('Max #'),
