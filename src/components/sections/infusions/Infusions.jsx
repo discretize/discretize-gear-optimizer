@@ -46,13 +46,7 @@ const Infusions = ({ classes }) => {
   const omnipotion = useSelector(getOmniPotion);
   const infusions = useSelector(getInfusions);
 
-  const handleARChange = React.useCallback(
-    (event, value) => {
-      console.log('ar changed to ', value);
-      dispatch(changeAR(value));
-    },
-    [dispatch],
-  );
+  const handleARChange = React.useCallback((_e, value) => dispatch(changeAR(value)), [dispatch]);
 
   const { error: arError } = parseAmount(ar);
 
