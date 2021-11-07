@@ -17,7 +17,6 @@ import { skillsSlice } from './slices/skills';
 import { prioritiesSlice } from './slices/priorities';
 import { extraModifiersSlice } from './slices/extraModifiers';
 import { forcedSlotsSlice } from './slices/forcedSlots';
-import { omnipotionSlice } from './slices/omnipotion';
 
 const createNoopStorage = () => {
   return {
@@ -54,7 +53,6 @@ const reducers = combineReducers({
     priorities: prioritiesSlice.reducer,
     extraModifiers: extraModifiersSlice.reducer,
     forcedSlots: forcedSlotsSlice.reducer,
-    omnipotion: omnipotionSlice.reducer,
   }),
 });
 
