@@ -86,8 +86,8 @@ const DistributionSection = ({ profession, data }) => {
             <p>
               <Trans>
                 For more information,{' '}
-                <Link href="https://github.com/discretize/discretize-gear-optimizer/tree/staging/docs/How%20It%20Works.md#1-simulating">
-                  see the "how it works" documentation on Github
+                <Link href="https://github.com/discretize/discretize-gear-optimizer/tree/staging/docs/Coefficients.md">
+                  see the coefficients documentation on Github
                 </Link>{' '}
                 or ask in Discord!
               </Trans>

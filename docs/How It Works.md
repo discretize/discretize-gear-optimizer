@@ -70,41 +70,7 @@ This inherently includes everything the optimizer does not simulate in the skill
 
 ### From a spreadsheet
 
-Exactly what _does_ skill coefficient data represent?
-
-The damage dealt by a skill can be broken down completely as:
-
-```
-Power Damage = (Weapon Strength * Coefficient / Target Armor) * Effective Power * Optimizer simulated modifiers * Optimizer ignored modifiers
-```
-
-```
-Burning/bleeding/etc Damage = (Stacks Applied * Base Duration) * Damage Per Tick * Optimizer simulated modifiers * Optimizer ignored modifiers
-```
-
-Total DPS is calculated as the sum of these damages for every skill cast, divided by the total combat time.
-
-These can be rearranged to separate out what the optimizer simulates, and what it does not:
-
-```
-Power Damage = (Effective Power * Optimizer simulated modifiers / Target Armor)
-  * (Weapon Strength * Coefficient * Optimizer ignored modifiers)
-
-Power DPS = (optimizer stuff)
-  * average (Weapon Strength * Coefficient * Optimizer ignored modifiers) per second
-```
-
-```
-Burning/bleeding/etc Damage = (Damage Per Tick * Optimizer simulated modifiers)
-  * (Stacks Applied * Base Duration * Optimizer ignored modifiers)
-
-Burning/bleeding/etc DPS = (optimizer stuff)
-  * average (Stacks Applied * Base Duration * Optimizer ignored modifiers) per second
-```
-
-Thus, the skill coefficient data for power is "the average amount of `skill coefficient * weapon strength` my skills deal per second," and for burning it is "the average amount of `stacks of burning * duration` my skills deal per second" (both including specific modifiers).
-
-In short, it is exactly how strong your build's rotation is, independent of gear or buffs.
+See [Coefficients.md!](<Coefficients.md>) 
 
 </details>
 
