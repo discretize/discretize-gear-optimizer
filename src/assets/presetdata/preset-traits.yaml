@@ -2108,6 +2108,71 @@ list:
         "skills": []
       }
 
+  - name: Pure Shortbow Slb
+    profession: SOULBEAST
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "30",
+          "32",
+          "55"
+        ],
+        "selectedTraits": [
+          [
+            1069,
+            1846,
+            1912
+          ],
+          [
+            1606,
+            970,
+            1945
+          ],
+          [
+            2071,
+            2161,
+            2128
+          ]
+        ],
+        "items": [
+          {
+            "hidden-barbs": true,
+            "hunters-tactics": true,
+            "light-on-your-feet": false,
+            "vicious-quarry": true
+          },
+          {
+            "honed-axes": true,
+            "honed-axes-axe": {
+              "amount": ""
+            }
+          },
+          {
+            "furious-strength": {
+              "amount": ""
+            },
+            "twice-as-vicious": {
+              "amount": ""
+            },
+            "oppressive-superiority": true,
+            "archetype-stout": false,
+            "archetype-deadly": true,
+            "archetype-versatile": false,
+            "archetype-ferocious": false,
+            "archetype-supportive": false,
+            "pack-alpha-merged": false,
+            "loud-whistle-merged": false,
+            "pets-prowess-merged": false,
+            "honed-axes-merged": false
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": []
+      }
+
   - name: Condi Druid*
     profession: DRUID
     traits: |-

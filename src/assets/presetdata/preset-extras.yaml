@@ -240,6 +240,17 @@ list:
         "Nourishment": "beef-rendang"
       }
 
+  - name: Pure Shortbow Slb
+    profession: SOULBEAST
+    value: |-
+      {
+        "Runes": "krait",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "rare-veggie-pizza"
+      }
+
   - name: Condi Druid*
     profession: DRUID
     value: |-

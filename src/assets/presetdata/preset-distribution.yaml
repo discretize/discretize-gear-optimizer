@@ -381,6 +381,18 @@ list:
         "values2": { "Power": 2315, "Burning": 2.8, "Bleeding": 26.9, "Poisoned": 7.1, "Torment": 0.2, "Confusion": 0 }
       }
 
+  # im sorry
+  # https://www.youtube.com/watch?v=70F-uEOb-Bg
+  # power 6847 burn 651 bleed 20124 poison 4975 torment 81
+  # koi cake
+  - name: Pure Shortbow Slb
+    profession: SOULBEAST
+    value: >-
+      {
+        "values1": { "Power": 42, "Burning": 4, "Bleeding": 33, "Poisoned": 21, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 2081, "Burning": 0.6, "Bleeding": 29.5, "Poisoned": 12.2, "Torment": 0.1, "Confusion": 0 }
+      }
+
   # https://www.youtube.com/watch?v=5Wipvn8loPk (very old)
   - name: Condi Druid (approx.)
     profession: DRUID
