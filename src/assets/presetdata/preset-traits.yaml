@@ -242,7 +242,7 @@ list:
         ]
       }
 
-  - name: '[incomplete] Virtuoso'
+  - name: '[beta] Virtuoso'
     profession: VIRTUOSO
     traits: |-
       {
@@ -1038,7 +1038,7 @@ list:
         ]
       }
 
-  - name: '[incomplete] Power Willbender'
+  - name: '[beta] Power Willbender Radiance'
     profession: WILLBENDER
     traits: |-
       {
@@ -1078,6 +1078,76 @@ list:
             "radiant-power": true,
             "amplified-wrath": true,
             "righteous-instincts": true
+          },
+          {
+            "fiery-wrath": true,
+            "symbolic-exposure": true,
+            "zealous-blade-base": true,
+            "zealous-blade-gs": {
+              "amount": ""
+            },
+            "kindled-zeal": true,
+            "symbolic-avenger": true
+          },
+          {
+            "power-for-power": true,
+            "lethal-tempo": {
+              "amount": ""
+            },
+            "tyrants-momentum": {
+              "amount": ""
+            },
+            "tyrants-momentum-bugged": false
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": [
+          "bane-signet"
+        ]
+      }
+
+  - name: '[beta] Power Willbender Virtues'
+    profession: WILLBENDER
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "46",
+          "42",
+          "65"
+        ],
+        "selectedTraits": [
+          [
+            624,
+            603,
+            622
+          ],
+          [
+            634,
+            653,
+            2017
+          ],
+          [
+            2190,
+            2210,
+            2201
+          ]
+        ],
+        "items": [
+          {
+            "inspired-virtue": {
+              "amount": ""
+            },
+            "unscathed-contender": {
+              "amount": ""
+            },
+            "virtue-of-retribution": true,
+            "inspiring-virtue": {
+              "amount": ""
+            },
+            "power-of-the-virtuous": true
           },
           {
             "fiery-wrath": true,
@@ -1344,7 +1414,7 @@ list:
         ]
       }
 
-  - name: '[incomplete] Bladesworn'
+  - name: '[beta] Bladesworn'
     profession: BLADESWORN
     traits: |-
       {
@@ -1374,7 +1444,9 @@ list:
         "items": [
           {
             "peak-performance": true,
-            "peak-performance-2": false,
+            "peak-performance-2": {
+              "amount": "???"
+            },
             "forceful-greatsword": true,
             "forceful-greatsword-2": false,
             "great-fortitude": true,
@@ -2979,6 +3051,69 @@ list:
               "amount": "???"
             }
           }
+        ]
+      }
+    skills: |-
+      {
+        "skills": []
+      }
+
+  - name: '[beta] Condi Mechanist'
+    profession: MECHANIST
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "38",
+          "6",
+          "70"
+        ],
+        "selectedTraits": [
+          [
+            1878,
+            2006,
+            433
+          ],
+          [
+            1882,
+            1892,
+            505
+          ],
+          [
+            2282,
+            2270,
+            2292
+          ]
+        ],
+        "items": [
+          {
+            "chemical-rounds": true,
+            "high-caliber": true,
+            "hematic-focus": true,
+            "thermal-vision": true,
+            "no-scope": {
+              "amount": ""
+            },
+            "serrated-steel": true,
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": true
+          },
+          {
+            "glass-cannon": {
+              "amount": ""
+            },
+            "explosive-temper": {
+              "amount": ""
+            },
+            "blast-shield": true,
+            "shaped-charge": {
+              "amount": ""
+            },
+            "big-boomer": true
+          },
+          {}
         ]
       }
     skills: |-

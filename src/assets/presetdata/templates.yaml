@@ -13,14 +13,14 @@ list:
         traits: Power Chrono IA
         extras: Power (Fractal)
 
-      - name: '[incomplete] Virtuoso'
+      - name: '[beta] Virtuoso'
         id: pvirt
         specialization: Virtuoso
         boons: Power (spotter)
         priority: Power DPS
-        distribution: None
-        traits: '[incomplete] Virtuoso'
-        extras: '[incomplete] Virtuoso'
+        distribution: '[beta] Virtuoso'
+        traits: '[beta] Virtuoso'
+        extras: '[beta] Virtuoso'
 
   - class: guardian
     builds:
@@ -124,14 +124,23 @@ list:
         traits: Healbrand
         extras: Heal
 
-      - name: '[incomplete] Power Willbender'
-        id: pwb
+      - name: '[beta] Power Willbender Radiance'
+        id: pwb-radiance
         specialization: Willbender
         boons: Power (spotter)
         priority: Power DPS
-        distribution: None
-        traits: '[incomplete] Power Willbender'
-        extras: '[incomplete] Power Willbender'
+        distribution: '[beta] Power Willbender Radiance Focus'
+        traits: '[beta] Power Willbender Radiance'
+        extras: Power (Fractal)
+
+      - name: '[beta] Power Willbender Virtues'
+        id: pwb-virtues
+        specialization: Willbender
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: '[beta] Power Willbender Virtues Focus'
+        traits: '[beta] Power Willbender Virtues'
+        extras: DH Virtues (Fractal)
 
   - class: warrior
     builds:
@@ -163,14 +172,14 @@ list:
         traits: Power Banner SPB
         extras: Power (Fractal)
 
-      - name: '[incomplete] Bladesworn'
+      - name: '[beta] Bladesworn'
         id: pbls
         specialization: Bladesworn
         boons: Power (spotter)
         priority: Power DPS
-        distribution: None
-        traits: '[incomplete] Bladesworn'
-        extras: '[incomplete] Bladesworn'
+        distribution: '[beta] Bladesworn'
+        traits: '[beta] Bladesworn'
+        extras: '[beta] Bladesworn'
 
   - class: elementalist
     builds:
@@ -390,6 +399,15 @@ list:
         distribution: Quickness Scrapper
         traits: Quickness Scrapper
         extras: Power (Fractal)
+
+      - name: '[incomplete] Condi Mechanist'
+        id: cmech
+        specialization: Mechanist
+        boons: Condi
+        priority: Condi DPS
+        distribution: '[beta, bugged logs] Condi Mechanist'
+        traits: '[beta] Condi Mechanist'
+        extras: '[beta] Condi Mechanist Thorns'
 
       - name: Heal Scrapper
         id: healscrapper

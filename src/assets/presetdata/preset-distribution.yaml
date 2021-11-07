@@ -39,14 +39,25 @@ list:
       }
 
   # https://www.youtube.com/watch?v=br9AGRrKHY8
-  #  power 30836 burn 200
-  #  accuracy; optimized for 3 attacker's insight I guess w/e
+  # power 30836 burn 200
+  # accuracy; optimized for 3 attacker's insight I guess w/e
   - name: Power Banner Spellbreaker
     profession: SPELLBREAKER
     value: >-
       {
         "values1": { "Power": 93, "Burning": 7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 2626, "Burning": 0.6, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
+  # https://www.youtube.com/watch?v=vf_JWsZP7t0
+  # power 54276 burn 178
+  # accuracy, full berserker full mighty
+  - name: '[beta] Bladesworn'
+    profession: BLADESWORN
+    value: >-
+      {
+        "values1": { "Power": 97, "Burning": 3, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 5796, "Burning": 0.5, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=faIaiHFG1qI
@@ -201,6 +212,28 @@ list:
   #       "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
   #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
+
+  # https://www.youtube.com/watch?v=Vo4Qs6KeUHE
+  # power 36331 burn 946
+  # chill bugged 10%, RHS
+  - name: '[beta] Power Willbender Radiance Focus'
+    profession: WILLBENDER
+    value: >-
+      {
+        "values1": { "Power": 77, "Burning": 23, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 3289, "Burning": 2.9, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
+  # https://www.youtube.com/watch?v=fsdvYFmFcDs
+  # power 40239 burn 1665
+  # chill bugged 10%, 12 boons, thief accuracy
+  - name: '[beta] Power Willbender Virtues Focus'
+    profession: WILLBENDER
+    value: >-
+      {
+        "values1": { "Power": 69, "Burning": 31, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
+        "values2": { "Power": 3332, "Burning": 4.5, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
 
   # small hitbox, superior elements, raging storm
   # https://www.youtube.com/watch?v=x2sRASCvRMY
@@ -420,6 +453,18 @@ list:
   #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
 
+  # logs are totally broken (~9% off)
+  # https://www.youtube.com/watch?v=RJUBAGISNC0
+  # https://www.youtube.com/watch?v=oR6U_nvTzNo
+  # https://www.youtube.com/watch?v=rG-yP2AMua0
+  - name: '[beta, bugged logs] Condi Mechanist'
+    profession: MECHANIST
+    value: >-
+      {
+        "values1": { "Power": 37, "Burning": 40, "Bleeding": 10, "Poisoned": 11, "Torment": 0, "Confusion": 2 },
+        "values2": { "Power": 2966, "Burning": 9.6, "Bleeding": 13.7, "Poisoned": 10.2, "Torment": 0, "Confusion": 2.4 }
+      }
+
   # https://www.youtube.com/watch?v=yGg0pqSu8RA
   # power 30774 burn 190 bleed 988 poison 312
   - name: Power Scrapper
@@ -460,6 +505,16 @@ list:
   # - name: Power Chrono DT
   #   profession: CHRONOMANCER
   #   value: >-
+
+  # https://www.youtube.com/watch?v=qMFZq0I3pIA
+  # power 34398 + 6263 = 40660 burn 190 bleed 843 confusion 57
+  - name: '[beta] Virtuoso'
+    profession: VIRTUOSO
+    value: >-
+      {
+        "values1": { "Power": 86, "Burning": 4, "Bleeding": 9, "Poisoned": 0, "Torment": 0, "Confusion": 1 },
+        "values2": { "Power": 3844, "Burning": 0.6, "Bleeding": 7.4, "Poisoned": 0, "Torment": 0, "Confusion": 0.6 }
+      }
 
   # https://www.youtube.com/watch?v=x1dRcUqNIFo
   # power 3711 burn 5429 bleed 11785 poison 2117 torm 14341

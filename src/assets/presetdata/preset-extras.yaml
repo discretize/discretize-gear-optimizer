@@ -31,7 +31,7 @@ list:
         "Nourishment": "fruit-salad-mint-garnish"
       }
 
-  - name: '[incomplete] Virtuoso'
+  - name: '[beta] Virtuoso'
     profession: VIRTUOSO
     value: |-
       {
@@ -108,17 +108,6 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: '[incomplete] Power Willbender'
-    profession: WILLBENDER
-    value: |-
-      {
-        "Runes": "scholar",
-        "Sigil1": "force",
-        "Sigil2": "impact/night/slaying-only-3",
-        "Enhancement": "superior-sharpening-stone",
-        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
-      }
-
   - name: Condi Bers
     profession: BERSERKER
     value: |-
@@ -141,7 +130,7 @@ list:
         "Nourishment": "sweet-and-spicy-butternut-squash-soup"
       }
 
-  - name: '[incomplete] Bladesworn'
+  - name: '[beta] Bladesworn'
     profession: BLADESWORN
     value: |-
       {
@@ -315,6 +304,39 @@ list:
         "Sigil2": "",
         "Enhancement": "master-tuning-crystal",
         "Nourishment": "rare-veggie-pizza"
+      }
+
+  - name: '[beta] Condi Mechanist Thorns'
+    profession: MECHANIST
+    value: |-
+      {
+        "Runes": "thorns",
+        "Sigil1": "bursting",
+        "Sigil2": "malice",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: '[beta] Condi Mechanist Renegade'
+    profession: MECHANIST
+    value: |-
+      {
+        "Runes": "renegade",
+        "Sigil1": "bursting",
+        "Sigil2": "malice",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: '[beta] Condi Mechanist Elementalist'
+    profession: MECHANIST
+    value: |-
+      {
+        "Runes": "elementalist",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "beef-rendang"
       }
 
   - name: DPS Scourge
