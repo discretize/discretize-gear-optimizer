@@ -4,13 +4,13 @@ list:
   - class: mesmer
     builds:
 
-      - name: Power Chrono
+      - name: Power Chrono IA
         id: pchrono
         specialization: Chronomancer
         boons: Power (spotter)
         priority: Power DPS
-        distribution: Power Chrono
-        traits: Power Chrono
+        distribution: Power Chrono IA
+        traits: Power Chrono IA
         extras: Power (Fractal)
 
       - name: '[incomplete] Virtuoso'

@@ -433,7 +433,7 @@ list:
   # https://www.youtube.com/watch?v=zdIAYu7R8lk
   # power 20608 + 12314 = 32922 burn 219 bleed 2371
   # thief rune, truffle steak
-  - name: Power Chrono
+  - name: Power Chrono IA
     profession: CHRONOMANCER
     value: >-
       {
