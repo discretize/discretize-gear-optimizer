@@ -343,7 +343,7 @@ list:
   # https://www.youtube.com/watch?v=hL9EDMihcDk
   # power 33853 burn 250 bleed 559 poison 344
   # OS, signet
-  - name: Power Slb Marks
+  - name: Power Slb Skirm
     profession: SOULBEAST
     value: >-
       {
