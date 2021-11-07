@@ -206,7 +206,7 @@ list:
   # https://www.youtube.com/watch?v=x2sRASCvRMY
   # power 34138 (subtracted asc food) burn 2773
   # scholar rune, not flame legion
-  - name: Power Weaver (BTTH)
+  - name: Power Weaver (BTTH, small)
     profession: WEAVER
     value: >-
       {

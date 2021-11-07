@@ -180,7 +180,7 @@ list:
         specialization: Weaver
         boons: Power (spotter)
         priority: Power DPS
-        distribution: Power Weaver (BTTH)
+        distribution: Power Weaver (BTTH, small)
         traits: Power Weaver Stormsoul
         extras: Power (Fractal)
 

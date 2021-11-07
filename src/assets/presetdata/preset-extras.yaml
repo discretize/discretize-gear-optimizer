@@ -152,6 +152,17 @@ list:
         "Nourishment": "sweet-and-spicy-butternut-squash-soup"
       }
 
+  - name: Flame Legion Power Weaver (Raid)
+    profession: WEAVER
+    value: |-
+      {
+        "Runes": "flame-legion",
+        "Sigil1": "force",
+        "Sigil2": "impact/night/slaying-only-3",
+        "Enhancement": "superior-sharpening-stone",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+      }
+
   - name: Condi Weaver Sword
     profession: WEAVER
     value: |-
