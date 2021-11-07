@@ -144,7 +144,7 @@ const Infusions = ({ classes }) => {
               />
             )}
             id="ar_input-with-icon-adornment"
-            inputValue={ar}
+            value={ar}
             onInputChange={handleARChange}
           />
         </Grid>
