@@ -3436,7 +3436,7 @@ list:
         "skills": []
       }
 
-  - name: '[incomplete] DPS Harbinger'
+  - name: '[beta] DPS Harbinger'
     profession: HARBINGER
     traits: |-
       {
@@ -3852,7 +3852,7 @@ list:
         ]
       }
 
-  - name: '[incomplete] DPS Specter Sc/D'
+  - name: '[beta] DPS Specter Sc/D'
     profession: SPECTER
     traits: |-
       {
@@ -3920,7 +3920,7 @@ list:
         "skills": []
       }
 
-  - name: '[incomplete] DPS Specter Endless Night'
+  - name: '[beta] DPS Specter Endless Night'
     profession: SPECTER
     traits: |-
       {

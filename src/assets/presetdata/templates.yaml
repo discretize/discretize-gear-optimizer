@@ -439,14 +439,14 @@ list:
         traits: Condi Reaper
         extras: Condi Reaper
 
-      - name: '[incomplete] DPS Harbinger'
+      - name: '[beta] DPS Harbinger'
         id: charb
         specialization: Harbinger
         boons: Condi
         priority: Condi DPS
-        distribution: '[approx] Beta Harbinger'
-        traits: '[incomplete] DPS Harbinger'
-        extras: '[incomplete] DPS Harbinger'
+        distribution: '[beta] Harbinger (approx.)'
+        traits: '[beta] DPS Harbinger'
+        extras: '[beta] DPS Harbinger'
 
   - class: thief
     builds:
@@ -496,20 +496,20 @@ list:
         traits: Rifle Deadeye
         extras: Power (Fractal)
 
-      - name: '[incomplete] DPS Specter Sc/D'
+      - name: '[beta] DPS Specter Sc/D'
         id: specterdagger
         specialization: Specter
         boons: Condi
         priority: Condi DPS
-        distribution: Beta DPS Specter Sc/D
-        traits: '[incomplete] DPS Specter Sc/D'
-        extras: '[incomplete] DPS Specter'
+        distribution: '[beta] DPS Specter Sc/D'
+        traits: '[beta] DPS Specter Sc/D'
+        extras: '[beta] DPS Specter'
 
-      - name: '[incomplete] DPS Specter Endless Night'
+      - name: '[beta] DPS Specter Endless Night'
         id: specterpistol
         specialization: Specter
         boons: Condi
         priority: Heal
-        distribution: Beta DPS Specter Endless Night
-        traits: '[incomplete] DPS Specter Endless Night'
-        extras: '[incomplete] DPS Specter'
+        distribution: '[beta] DPS Specter Endless Night'
+        traits: '[beta] DPS Specter Endless Night'
+        extras: '[beta] DPS Specter'

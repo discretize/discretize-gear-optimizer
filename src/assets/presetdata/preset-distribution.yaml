@@ -541,7 +541,7 @@ list:
   # https://www.youtube.com/watch?v=AyDxFUGZOYQ (log is off ingame # by 3%)
   # power 4902 burn 3838 bleed 7601 poison 4393 torm 23779
   #
-  - name: '[approx] Beta Harbinger'
+  - name: '[beta] Harbinger (approx.)'
     profession: HARBINGER
     value: >-
       {
@@ -592,7 +592,7 @@ list:
 
   # https://www.youtube.com/watch?v=rUZ7XCMvn1g
   # power 6927 burn 753 bleed 993 poison 13618 torment 21889
-  - name: 'Beta DPS Specter Sc/D'
+  - name: '[beta] DPS Specter Sc/D'
     profession: SPECTER
     value: >-
       {
@@ -603,7 +603,7 @@ list:
   # https://www.youtube.com/watch?v=QjDA4W3nYYM
   # power 1503 burn 641 poison 9195 torment 39826
   # writ, carrion/viper mix
-  - name: 'Beta DPS Specter Endless Night'
+  - name: '[beta] DPS Specter Endless Night'
     profession: SPECTER
     value: >-
       {

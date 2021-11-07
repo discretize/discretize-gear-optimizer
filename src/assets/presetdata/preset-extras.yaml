@@ -361,7 +361,7 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
-  - name: '[incomplete] DPS Harbinger'
+  - name: '[beta] DPS Harbinger'
     profession: HARBINGER
     value: |-
       {
@@ -405,7 +405,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: '[incomplete] DPS Specter'
+  - name: '[beta] DPS Specter'
     profession: SPECTER
     value: |-
       {
