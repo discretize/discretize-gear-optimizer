@@ -1,0 +1,9 @@
+/*!
+  Copyright (c) 2018 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+
+/*! js-yaml 4.1.0 https://github.com/nodeca/js-yaml @license MIT */
+
+/*! nouislider - 14.7.0 - 4/6/2021 */
