@@ -4,11 +4,13 @@ import {
   Input,
   InputLabel,
   InputAdornment,
+  TextField,
   MenuItem,
   Select,
   withStyles,
   Typography,
 } from '@material-ui/core';
+import { Autocomplete } from '@material-ui/lab';
 import { Attribute, Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -44,13 +46,7 @@ const Infusions = ({ classes }) => {
   const omnipotion = useSelector(getOmniPotion);
   const infusions = useSelector(getInfusions);
 
-  const handleARChange = React.useCallback(
-    (event) => {
-      const { value } = event.target;
-      dispatch(changeAR(value));
-    },
-    [dispatch],
-  );
+  const handleARChange = React.useCallback((_e, value) => dispatch(changeAR(value)), [dispatch]);
 
   const { error: arError } = parseAmount(ar);
 
@@ -121,23 +117,30 @@ const Infusions = ({ classes }) => {
           />
         </Grid>
         <Grid item xs={12} sm>
-          <FormControl>
-            <InputLabel htmlFor="ar_input-with-icon-adornment">
-              <Trans>Agony Resistance</Trans>
-            </InputLabel>
-            <Input
-              id="ar_input-with-icon-adornment"
-              value={ar}
-              endAdornment={
-                <InputAdornment position="end">
-                  <Attribute name="Agony Resistance" disableLink disableText />
-                </InputAdornment>
-              }
-              onChange={handleARChange}
-              autoComplete="off"
-              error={arError}
-            />
-          </FormControl>
+          <Autocomplete
+            className={classes.formControl}
+            freeSolo
+            disableClearable
+            options={['150', '162', '222']}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                error={arError}
+                InputProps={{
+                  ...params.InputProps,
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <Attribute name="Agony Resistance" disableLink disableText />
+                    </InputAdornment>
+                  ),
+                }}
+                label={t('Agony Resistance')}
+              />
+            )}
+            id="ar_input-with-icon-adornment"
+            value={ar}
+            onInputChange={handleARChange}
+          />
         </Grid>
       </Grid>
       <Grid
