@@ -189,7 +189,7 @@ list:
         specialization: Weaver
         boons: Condi
         priority: Condi DPS
-        distribution: Condi Weaver Swordord
+        distribution: Condi Weaver Sword
         traits: Condi Weaver Sword
         extras: Condi Weaver Sword
 

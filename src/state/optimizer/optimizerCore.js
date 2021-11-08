@@ -12,7 +12,6 @@ import {
   Classes,
   Condition,
   Attributes,
-  MAX_INFUSIONS,
   INFUSION_BONUS,
 } from '../../utils/gw2-data';
 
@@ -294,6 +293,10 @@ export function setup(input) {
 
   /* Infusions */
 
+  settings.maxInfusions = clamp(settings.maxInfusions, 0, 18);
+  primaryMaxInfusionsInput = clamp(primaryMaxInfusionsInput, 0, settings.maxInfusions);
+  secondaryMaxInfusionsInput = clamp(secondaryMaxInfusionsInput, 0, settings.maxInfusions);
+
   const validInfusionStats = new Set([
     ...Attributes.PRIMARY,
     ...Attributes.SECONDARY,
@@ -347,7 +350,7 @@ export function setup(input) {
       infusionMode = 'Primary';
       break;
     case 2:
-      if (settings.primaryMaxInfusions + settings.secondaryMaxInfusions <= MAX_INFUSIONS) {
+      if (settings.primaryMaxInfusions + settings.secondaryMaxInfusions <= settings.maxInfusions) {
         infusionMode = 'Few';
       } else {
         infusionMode = infusionNoDuplicates ? 'SecondaryNoDuplicates' : 'Secondary';
@@ -717,8 +720,8 @@ applyInfusions['Secondary'] = function (character) {
 
   const testInfusionUsefulness = function () {
     const temp = clone(character);
-    addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
-    addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
+    addBaseStats(temp, settings.primaryInfusion, settings.maxInfusions * INFUSION_BONUS);
+    addBaseStats(temp, settings.secondaryInfusion, settings.maxInfusions * INFUSION_BONUS);
     updateAttributesFast(temp, true);
     return temp.attributes[settings.rankby] > worstScore;
   };
@@ -727,7 +730,7 @@ applyInfusions['Secondary'] = function (character) {
     let previousResult;
 
     let primaryCount = settings.primaryMaxInfusions;
-    let secondaryCount = MAX_INFUSIONS - primaryCount;
+    let secondaryCount = settings.maxInfusions - primaryCount;
     while (secondaryCount <= settings.secondaryMaxInfusions) {
       const temp = clone(character);
       addBaseStats(temp, settings.primaryInfusion, primaryCount * INFUSION_BONUS);
@@ -754,8 +757,8 @@ applyInfusions['SecondaryNoDuplicates'] = function (character) {
 
   const testInfusionUsefulness = function () {
     const temp = clone(character);
-    addBaseStats(temp, settings.primaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
-    addBaseStats(temp, settings.secondaryInfusion, MAX_INFUSIONS * INFUSION_BONUS);
+    addBaseStats(temp, settings.primaryInfusion, settings.maxInfusions * INFUSION_BONUS);
+    addBaseStats(temp, settings.secondaryInfusion, settings.maxInfusions * INFUSION_BONUS);
     updateAttributesFast(temp, true);
     return temp.attributes[settings.rankby] > worstScore;
   };
@@ -764,7 +767,7 @@ applyInfusions['SecondaryNoDuplicates'] = function (character) {
     let best = null;
 
     let primaryCount = settings.primaryMaxInfusions;
-    let secondaryCount = MAX_INFUSIONS - primaryCount;
+    let secondaryCount = settings.maxInfusions - primaryCount;
     while (secondaryCount <= settings.secondaryMaxInfusions) {
       const temp = clone(character);
       addBaseStats(temp, settings.primaryInfusion, primaryCount * INFUSION_BONUS);

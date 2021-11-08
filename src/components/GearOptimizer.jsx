@@ -8,7 +8,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { getControl, getProfession } from '../state/controlsSlice';
 import NavBar from './nav/NavBar';
-import ARSection from './sections/ar/ARSection';
 import BuffsSection from './sections/buffs/BuffsSection';
 import Controls from './sections/controls/Controls';
 import DistributionSection from './sections/distribution/DistributionSection';
@@ -87,8 +86,6 @@ const MainComponent = ({ classes, data }) => {
               <PrioritiesSection data={data} />
 
               <DistributionSection profession={profession} data={data} />
-
-              <ARSection />
             </>
           ) : (
             <>
@@ -97,8 +94,6 @@ const MainComponent = ({ classes, data }) => {
               <InfusionsSection data={data} />
 
               <PrioritiesSection data={data} />
-
-              <ARSection />
             </>
           )}
         </Grid>

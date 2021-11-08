@@ -24,7 +24,7 @@ const InfusionsSection = ({ data }) => {
 
   return (
     <Section
-      title={t('Stat Infusions')}
+      title={t('Infusions + AR')}
       content={<Infusions />}
       helpText={
         <>

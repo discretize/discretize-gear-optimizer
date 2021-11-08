@@ -90,7 +90,7 @@ export const getModifiers = (state) => [
   ...(state.optimizer.extras.modifiers || []),
   ...(state.optimizer.buffs.modifiers || []),
   ...(state.optimizer.extraModifiers.modifiers || []),
-  ...(state.optimizer.omnipotion.modifiers || []),
+  ...(state.optimizer.infusions.modifiers || []),
   ...(state.optimizer.skills.modifiers || []),
   ...(state.optimizer.traits.modifiers || []),
 ];
