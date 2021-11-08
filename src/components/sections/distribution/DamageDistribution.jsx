@@ -26,6 +26,7 @@ import {
   getDistributionOld,
   getDistributionVersion,
   getTextBoxes,
+  coefficientsToPercents,
 } from '../../../state/slices/distribution';
 
 const styles = (theme) => ({
@@ -116,13 +117,24 @@ const DamageDistribution = ({ classes }) => {
     dispatch(changeAllDistributionsOld(percentDistribution));
   };
 
+  const initialPercentDistribution = Object.values(
+    coefficientsToPercents(distributionNew, true),
+  );
+  const initialPercentValue = [0, 1, 2, 3, 4].map((i) => {
+    let total = 0;
+    for (let j = 0; j <= i; j++) {
+      total += initialPercentDistribution[j];
+    }
+    return Math.min(total, 100);
+  });
+
   const SliderOld = () => {
     return (
       <>
         <div className={classes.sliderWrapper}>
           <Nouislider
             className={classNames(classes.sliderOld)}
-            start={[100, 100, 100, 100, 100]}
+            start={initialPercentValue}
             connect={[true, true, true, true, true, true]}
             range={{
               min: [0],
