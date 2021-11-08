@@ -143,12 +143,14 @@ list:
   # f1 passives from procs are 2.2s because of amplified wrath; every 3 hits if virtues
   # geo f1 passive: 1/3 * 2.2 / 54 sec = 0.0277 avg burning
   # fb rune f1 passive: 1/3 * 2.2 / 26.5 sec = 0.0136 avg burning
+  #
+  # total: -4 power, +0.9 bleed, +1.3 torment, 0 burning
   - name: CFB w/ Quickness (Virtues, allies)
     profession: FIREBRAND
     value: >-
       {
         "values1": { "Power": 32, "Burning": 64, "Bleeding": 3, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
-        "values2": { "Power": 2314, "Burning": 13.9, "Bleeding": 3.5, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
+        "values2": { "Power": 2314, "Burning": 14.1, "Bleeding": 3.5, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
       }
 
   # +1.4 burning (36 seconds * 5 casts in ~130 seconds)
