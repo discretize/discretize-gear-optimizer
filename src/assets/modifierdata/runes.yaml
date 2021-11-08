@@ -447,6 +447,17 @@
           Poison Duration: 50%
       gw2id: 72912
 
+    - id: scavenging
+      text: Superior Rune of Scavenging
+      modifiers:
+        attributes:
+          Condition Damage: [175, converted]
+          Vitality: [100, converted]
+          Poison Duration: 20%
+        conversion:
+          Condition Damage: {Vitality: 7%}
+      gw2id: 24738
+
     - id: tormenting
       text: Superior Rune of Tormenting
       modifiers:
