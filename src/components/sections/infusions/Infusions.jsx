@@ -8,7 +8,6 @@ import {
   MenuItem,
   Select,
   withStyles,
-  Typography,
 } from '@material-ui/core';
 import { Autocomplete } from '@material-ui/lab';
 import { Attribute, Item } from 'gw2-ui-bulk';
