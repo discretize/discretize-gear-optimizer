@@ -114,8 +114,18 @@ export const distributionSlice = createSlice({
     changeAllDistributionsOld: (state, action) => {
       state.values1 = action.payload;
     },
-    changeAllDistributionsNew: (state, action) => {
-      state.values2 = action.payload;
+    changeAllDistributions: (state, action) => {
+      const distributionPreset = action.payload;
+
+      if (distributionPreset) {
+        return {
+          ...state,
+          values1: coefficientsToPercents(distributionPreset.values2, true),
+          values2: distributionPreset.values2,
+          textBoxes: distributionPreset.values2,
+        };
+      }
+      return state;
     },
   },
   extraReducers: {
@@ -146,6 +156,6 @@ export const {
   changeTextBoxes,
   changeAllTextBoxes,
   changeAllDistributionsOld,
-  changeAllDistributionsNew,
+  changeAllDistributions,
   resetDistributions,
 } = distributionSlice.actions;
