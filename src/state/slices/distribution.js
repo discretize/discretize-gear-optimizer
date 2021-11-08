@@ -1,5 +1,37 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { setBuildTemplate } from '../controlsSlice';
+import { Condition } from '../../utils/gw2-data';
+
+const fixedCondition = { ...Condition, Poisoned: Condition.Poison };
+
+// reverse legacy percent distribution conversion
+// see: https://github.com/discretize/discretize-gear-optimizer/discussions/136
+export const coefficientsToPercents = (values2, round = false) => {
+  const { Power, ...rest } = values2;
+  const values1 = {};
+
+  // reverse magic numbers
+  values1.Power = (Power / 2597) * 1025;
+  for (const [key, value] of Object.entries(rest)) {
+    values1[key] = value * fixedCondition[key].baseDamage;
+  }
+
+  // scale up/down so sum is 100
+  const sum = Object.values(values1).reduce((prev, cur) => prev + cur, 0);
+  if (sum) {
+    for (const key of Object.keys(values1)) {
+      values1[key] *= 100 / sum;
+    }
+  }
+
+  if (round) {
+    Object.keys(values1).forEach((key) => {
+      values1[key] = Math.round(values1[key] * 10) / 10;
+    });
+  }
+
+  return values1;
+};
 
 export const distributionSlice = createSlice({
   name: 'distribution',
@@ -82,8 +114,18 @@ export const distributionSlice = createSlice({
     changeAllDistributionsOld: (state, action) => {
       state.values1 = action.payload;
     },
-    changeAllDistributionsNew: (state, action) => {
-      state.values2 = action.payload;
+    changeAllDistributions: (state, action) => {
+      const distributionPreset = action.payload;
+
+      if (distributionPreset) {
+        return {
+          ...state,
+          values1: coefficientsToPercents(distributionPreset.values2, true),
+          values2: distributionPreset.values2,
+          textBoxes: distributionPreset.values2,
+        };
+      }
+      return state;
     },
   },
   extraReducers: {
@@ -93,7 +135,7 @@ export const distributionSlice = createSlice({
       if (distributionPreset) {
         return {
           version: 2,
-          values1: distributionPreset.values1,
+          values1: coefficientsToPercents(distributionPreset.values2, true),
           values2: distributionPreset.values2,
           textBoxes: distributionPreset.values2,
         };
@@ -114,6 +156,6 @@ export const {
   changeTextBoxes,
   changeAllTextBoxes,
   changeAllDistributionsOld,
-  changeAllDistributionsNew,
+  changeAllDistributions,
   resetDistributions,
 } = distributionSlice.actions;

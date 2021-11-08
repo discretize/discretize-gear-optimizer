@@ -4,14 +4,12 @@ list:
   - name: None
     value: >-
       {
-        "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   - name: 100% Power
     value: >-
       {
-        "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 3000, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -23,7 +21,6 @@ list:
     profession: BERSERKER
     value: >-
       {
-        "values1": { "Power": 93, "Burning": 7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 3089, "Burning": 0.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -34,7 +31,6 @@ list:
     profession: BERSERKER
     value: >-
       {
-        "values1": { "Power": 27, "Burning": 54, "Bleeding": 15, "Poisoned": 3, "Torment": 2, "Confusion": 0 },
         "values2": { "Power": 1739, "Burning": 10.3, "Bleeding": 17.3, "Poisoned": 2.0, "Torment": 1.2, "Confusion": 0 }
       }
 
@@ -45,7 +41,6 @@ list:
     profession: SPELLBREAKER
     value: >-
       {
-        "values1": { "Power": 93, "Burning": 7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 2626, "Burning": 0.6, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -56,7 +51,6 @@ list:
     profession: BLADESWORN
     value: >-
       {
-        "values1": { "Power": 97, "Burning": 3, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 5796, "Burning": 0.5, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -67,7 +61,6 @@ list:
     profession: DRAGONHUNTER
     value: >-
       {
-        "values1": { "Power": 84, "Burning": 16, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 3283, "Burning": 1.85, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -78,7 +71,6 @@ list:
     profession: DRAGONHUNTER
     value: >-
       {
-        "values1": { "Power": 82, "Burning": 18, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 3334, "Burning": 2.2, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -87,7 +79,6 @@ list:
     profession: FIREBRAND
     value: >-
       {
-        "values1": { "Power": 90, "Burning": 10, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 3390, "Burning": 1.1, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -98,7 +89,6 @@ list:
     profession: FIREBRAND
     value: >-
       {
-        "values1": { "Power": 30, "Burning": 65, "Bleeding": 3, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
         "values2": { "Power": 2325, "Burning": 15.2, "Bleeding": 4.8, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
       }
 
@@ -107,7 +97,6 @@ list:
     profession: FIREBRAND
     value: >-
       {
-        "values1": { "Power": 30, "Burning": 65, "Bleeding": 3, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
         "values2": { "Power": 2325, "Burning": 13.5, "Bleeding": 4.8, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
       }
 
@@ -118,7 +107,6 @@ list:
     profession: FIREBRAND
     value: >-
       {
-        "values1": { "Power": 27, "Burning": 69, "Bleeding": 3, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
         "values2": { "Power": 2087, "Burning": 16.4, "Bleeding": 4.1, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
       }
 
@@ -127,7 +115,6 @@ list:
     profession: FIREBRAND
     value: >-
       {
-        "values1": { "Power": 30, "Burning": 66, "Bleeding": 3, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
         "values2": { "Power": 2087, "Burning": 13.9, "Bleeding": 4.1, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
       }
 
@@ -149,7 +136,6 @@ list:
     profession: FIREBRAND
     value: >-
       {
-        "values1": { "Power": 32, "Burning": 64, "Bleeding": 3, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
         "values2": { "Power": 2314, "Burning": 14.1, "Bleeding": 3.5, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
       }
 
@@ -158,7 +144,6 @@ list:
     profession: FIREBRAND
     value: >-
       {
-        "values1": { "Power": 32, "Burning": 66, "Bleeding": 2, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 2318, "Burning": 14.1, "Bleeding": 2.6, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -168,7 +153,6 @@ list:
     profession: FIREBRAND
     value: >-
       {
-        "values1": { "Power": 35, "Burning": 63, "Bleeding": 2, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 2318, "Burning": 12.7, "Bleeding": 2.6, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -176,7 +160,6 @@ list:
   #   profession: FIREBRAND
   #   value: >-
   #     {
-  #       "values1": { "Power": 32, "Burning": 65, "Bleeding": 3, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
   #       "values2": { "Power": 1942, "Burning": 12.1, "Bleeding": 3.0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
 
@@ -186,7 +169,6 @@ list:
     profession: FIREBRAND
     value: >-
       {
-        "values1": { "Power": 29, "Burning": 69, "Bleeding": 2, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 1864, "Burning": 13.8, "Bleeding": 3.0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -194,7 +176,6 @@ list:
   #   profession: FIREBRAND
   #   value: >-
   #     {
-  #       "values1": { "Power": 38, "Burning": 59, "Bleeding": 3, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
   #       "values2": { "Power": 2242, "Burning": 10.5, "Bleeding": 3.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
 
@@ -202,7 +183,6 @@ list:
     profession: FIREBRAND
     value: >-
       {
-        "values1": { "Power": 35, "Burning": 62, "Bleeding": 3, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 2242, "Burning": 12.2, "Bleeding": 3.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -210,7 +190,6 @@ list:
   #   profession: FIREBRAND
   #   value: >-
   #     {
-  #       "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
   #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
 
@@ -221,7 +200,6 @@ list:
     profession: WILLBENDER
     value: >-
       {
-        "values1": { "Power": 77, "Burning": 23, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 3289, "Burning": 2.9, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -232,7 +210,6 @@ list:
     profession: WILLBENDER
     value: >-
       {
-        "values1": { "Power": 69, "Burning": 31, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 3332, "Burning": 4.5, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -244,7 +221,6 @@ list:
     profession: WEAVER
     value: >-
       {
-        "values1": { "Power": 62, "Burning": 38, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 3603, "Burning": 6.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -254,7 +230,6 @@ list:
     profession: WEAVER
     value: >-
       {
-        "values1": { "Power": 35, "Burning": 54, "Bleeding": 11, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 2728, "Burning": 12.9, "Bleeding": 16.3, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -264,7 +239,6 @@ list:
     profession: WEAVER
     value: >-
       {
-        "values1": { "Power": 27, "Burning": 57, "Bleeding": 16, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 2172, "Burning": 13.7, "Bleeding": 22.9, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -275,7 +249,6 @@ list:
     profession: WEAVER
     value: >-
       {
-        "values1": { "Power": 41, "Burning": 58, "Bleeding": 1, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 3252, "Burning": 14.0, "Bleeding": 1.0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -285,7 +258,6 @@ list:
     profession: TEMPEST
     value: >-
       {
-        "values1": { "Power": 41, "Burning": 48, "Bleeding": 11, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 3451, "Burning": 12.0, "Bleeding": 15.9, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -293,7 +265,6 @@ list:
   #   profession: TEMPEST
   #   value: >-
   #     {
-  #       "values1": { "Power": 74, "Burning": 22, "Bleeding": 4, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
   #       "values2": { "Power": 4388, "Burning": 4.0, "Bleeding": 4.5, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
 
@@ -305,7 +276,6 @@ list:
     profession: RENEGADE
     value: >-
       {
-        "values1": { "Power": 87, "Burning": 13, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 3861, "Burning": 1.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -316,7 +286,6 @@ list:
     profession: RENEGADE
     value: >-
       {
-        "values1": { "Power": 31, "Burning": 27, "Bleeding": 12, "Poisoned": 6, "Torment": 24, "Confusion": 0 },
         "values2": { "Power": 1973, "Burning": 5.0, "Bleeding": 14.1, "Poisoned": 4.2, "Torment": 18.4, "Confusion": 0 }
       }
 
@@ -326,7 +295,6 @@ list:
     profession: RENEGADE
     value: >-
       {
-        "values1": { "Power": 33, "Burning": 28, "Bleeding": 9, "Poisoned": 6, "Torment": 24, "Confusion": 0 },
         "values2": { "Power": 1973, "Burning": 5.0, "Bleeding": 10.3, "Poisoned": 4.2, "Torment": 18.4, "Confusion": 0 }
       }
 
@@ -338,7 +306,6 @@ list:
     profession: RENEGADE
     value: >-
       {
-        "values1": { "Power": 37, "Burning": 23, "Bleeding": 12, "Poisoned": 6, "Torment": 22, "Confusion": 0 },
         "values2": { "Power": 2284, "Burning": 4.2, "Bleeding": 13.5, "Poisoned": 4.5, "Torment": 16.8, "Confusion": 0 }
       }
 
@@ -350,7 +317,6 @@ list:
     profession: RENEGADE
     value: >-
       {
-        "values1": { "Power": 38, "Burning": 24, "Bleeding": 9, "Poisoned": 6, "Torment": 23, "Confusion": 0 },
         "values2": { "Power": 2284, "Burning": 4.2, "Bleeding": 9.7, "Poisoned": 4.5, "Torment": 16.8, "Confusion": 0 }
       }
 
@@ -361,7 +327,6 @@ list:
     profession: RENEGADE
     value: >-
       {
-        "values1": { "Power": 42, "Burning": 21, "Bleeding": 11, "Poisoned": 6, "Torment": 20, "Confusion": 0 },
         "values2": { "Power": 2829, "Burning": 4.3, "Bleeding": 13.3, "Poisoned": 4.5, "Torment": 16.8, "Confusion": 0 }
       }
 
@@ -372,7 +337,6 @@ list:
     profession: RENEGADE
     value: >-
       {
-        "values1": { "Power": 43, "Burning": 22, "Bleeding": 8, "Poisoned": 6, "Torment": 21, "Confusion": 0 },
         "values2": { "Power": 2829, "Burning": 4.3, "Bleeding": 9.6, "Poisoned": 4.5, "Torment": 16.8, "Confusion": 0 }
       }
 
@@ -389,7 +353,6 @@ list:
     profession: HERALD
     value: >-
       {
-        "values1": { "Power": 86, "Burning": 14, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 2964, "Burning": 1.4, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -400,7 +363,6 @@ list:
     profession: HERALD
     value: >-
       {
-        "values1": { "Power": 34, "Burning": 30, "Bleeding": 2, "Poisoned": 9, "Torment": 25, "Confusion": 0 },
         "values2": { "Power": 1900, "Burning": 5.1, "Bleeding": 2.2, "Poisoned": 6, "Torment": 17.1, "Confusion": 0 }
       }
 
@@ -412,7 +374,6 @@ list:
     profession: SOULBEAST
     value: >-
       {
-        "values1": { "Power": 81, "Burning": 6, "Bleeding": 7, "Poisoned": 6, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 2797, "Burning": 0.6, "Bleeding": 4.5, "Poisoned": 2.4, "Torment": 0, "Confusion": 0 }
       }
 
@@ -422,7 +383,6 @@ list:
     profession: SOULBEAST
     value: >-
       {
-        "values1": { "Power": 30, "Burning": 15, "Bleeding": 29, "Poisoned": 26, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 1591, "Burning": 2.4, "Bleeding": 27.7, "Poisoned": 16.5, "Torment": 0.2, "Confusion": 0 }
       }
 
@@ -432,7 +392,6 @@ list:
     profession: SOULBEAST
     value: >-
       {
-        "values1": { "Power": 30, "Burning": 22, "Bleeding": 26, "Poisoned": 22, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 1664, "Burning": 3.6, "Bleeding": 26.5, "Poisoned": 14.1, "Torment": 0.2, "Confusion": 0 }
       }
 
@@ -442,7 +401,6 @@ list:
     profession: SOULBEAST
     value: >-
       {
-        "values1": { "Power": 44, "Burning": 17, "Bleeding": 28, "Poisoned": 11, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 2315, "Burning": 2.8, "Bleeding": 26.9, "Poisoned": 7.1, "Torment": 0.2, "Confusion": 0 }
       }
 
@@ -454,7 +412,6 @@ list:
     profession: SOULBEAST
     value: >-
       {
-        "values1": { "Power": 42, "Burning": 4, "Bleeding": 33, "Poisoned": 21, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 2081, "Burning": 0.6, "Bleeding": 29.5, "Poisoned": 12.2, "Torment": 0.1, "Confusion": 0 }
       }
 
@@ -463,7 +420,6 @@ list:
     profession: DRUID
     value: >-
       {
-        "values1": { "Power": 42, "Burning": 19, "Bleeding": 28, "Poisoned": 11, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 1610, "Burning": 2.3, "Bleeding": 19.5, "Poisoned": 4.9, "Torment": 0, "Confusion": 0 }
       }
 
@@ -473,7 +429,6 @@ list:
     profession: HOLOSMITH
     value: >-
       {
-        "values1": { "Power": 61, "Burning": 20, "Bleeding": 14, "Poisoned": 5, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 3153, "Burning": 3.1, "Bleeding": 13.4, "Poisoned": 2.7, "Torment": 0, "Confusion": 0 }
       }
 
@@ -481,7 +436,6 @@ list:
   #   profession: HOLOSMITH
   #   value: >-
   #     {
-  #       "values1": { "Power": 100, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
   #       "values2": { "Power": 3.0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
 
@@ -493,7 +447,6 @@ list:
     profession: MECHANIST
     value: >-
       {
-        "values1": { "Power": 37, "Burning": 40, "Bleeding": 10, "Poisoned": 11, "Torment": 0, "Confusion": 2 },
         "values2": { "Power": 2966, "Burning": 9.6, "Bleeding": 13.7, "Poisoned": 10.2, "Torment": 0, "Confusion": 2.4 }
       }
 
@@ -503,7 +456,6 @@ list:
     profession: SCRAPPER
     value: >-
       {
-        "values1": { "Power": 68, "Burning": 6, "Bleeding": 17, "Poisoned": 9, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 2700, "Burning": 0.7, "Bleeding": 11.8, "Poisoned": 4.0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -514,7 +466,6 @@ list:
     profession: SCRAPPER
     value: >-
       {
-        "values1": { "Power": 72, "Burning": 6, "Bleeding": 12, "Poisoned": 10, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 2670, "Burning": 0.6, "Bleeding": 8.1, "Poisoned": 4.2, "Torment": 0, "Confusion": 0 }
       }
 
@@ -526,7 +477,6 @@ list:
     profession: CHRONOMANCER
     value: >-
       {
-        "values1": { "Power": 71, "Burning": 4, "Bleeding": 25, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 3857, "Burning": 0.63, "Bleeding": 24, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -544,7 +494,6 @@ list:
     profession: VIRTUOSO
     value: >-
       {
-        "values1": { "Power": 86, "Burning": 4, "Bleeding": 9, "Poisoned": 0, "Torment": 0, "Confusion": 1 },
         "values2": { "Power": 3844, "Burning": 0.6, "Bleeding": 7.4, "Poisoned": 0, "Torment": 0, "Confusion": 0.6 }
       }
 
@@ -555,7 +504,6 @@ list:
     profession: SCOURGE
     value: >-
       {
-        "values1": { "Power": 27, "Burning": 22, "Bleeding": 22, "Poisoned": 6, "Torment": 22, "Confusion": 0 },
         "values2": { "Power": 1405, "Burning": 3.4, "Bleeding": 20.6, "Poisoned": 3.7, "Torment": 14.2, "Confusion": 0 }
       }
 
@@ -566,7 +514,6 @@ list:
     profession: REAPER
     value: >-
       {
-        "values1": { "Power": 39, "Burning": 11, "Bleeding": 40, "Poisoned": 4, "Torment": 6, "Confusion": 0 },
         "values2": { "Power": 2385, "Burning": 2, "Bleeding": 44, "Poisoned": 3, "Torment": 4.3, "Confusion": 0 }
       }
 
@@ -576,7 +523,6 @@ list:
     profession: HARBINGER
     value: >-
       {
-        "values1": { "Power": 33, "Burning": 13, "Bleeding": 12, "Poisoned": 11, "Torment": 31, "Confusion": 0 },
         "values2": { "Power": 1855, "Burning": 2.2, "Bleeding": 11.5, "Poisoned": 7.1, "Torment": 21.2, "Confusion": 0 }
       }
 
@@ -586,7 +532,6 @@ list:
     profession: DEADEYE
     value: >-
       {
-        "values1": { "Power": 34, "Burning": 3, "Bleeding": 21, "Poisoned": 25, "Torment": 16, "Confusion": 0 },
         "values2": { "Power": 1690, "Burning": 0.5, "Bleeding": 19, "Poisoned": 14.6, "Torment": 9.5, "Confusion": 0 }
       }
 
@@ -596,7 +541,6 @@ list:
     profession: DAREDEVIL
     value: >-
       {
-        "values1": { "Power": 91, "Burning": 7, "Bleeding": 2, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 2742, "Burning": 0.6, "Bleeding": 1.1, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
@@ -607,7 +551,6 @@ list:
     profession: DAREDEVIL
     value: >-
       {
-        "values1": { "Power": 26, "Burning": 4, "Bleeding": 27, "Poisoned": 32, "Torment": 11, "Confusion": 0 },
         "values2": { "Power": 1241, "Burning": 0.6, "Bleeding": 23.0, "Poisoned": 17.9, "Torment": 6.7, "Confusion": 0 }
       }
 
@@ -617,7 +560,6 @@ list:
     profession: DEADEYE
     value: >-
       {
-        "values1": { "Power": 91, "Burning": 5, "Bleeding": 1, "Poisoned": 4, "Torment": 0, "Confusion": 0 },
         "values2": { "Power": 3421, "Burning": 0.5, "Bleeding": 0.4, "Poisoned": 1.8, "Torment": 0, "Confusion": 0 }
       }
 
@@ -627,7 +569,6 @@ list:
     profession: SPECTER
     value: >-
       {
-        "values1": { "Power": 39, "Burning": 3, "Bleeding": 2, "Poisoned": 25, "Torment": 31, "Confusion": 0 },
         "values2": { "Power": 2342, "Burning": 0.6, "Bleeding": 2.2, "Poisoned": 18, "Torment": 22.9, "Confusion": 0 }
       }
 
@@ -638,6 +579,5 @@ list:
     profession: SPECTER
     value: >-
       {
-        "values1": { "Power": 11, "Burning": 3, "Bleeding": 0, "Poisoned": 22, "Torment": 64, "Confusion": 0 },
         "values2": { "Power": 556, "Burning": 0.5, "Bleeding": 0, "Poisoned": 12.5, "Torment": 38.9, "Confusion": 0 }
       }

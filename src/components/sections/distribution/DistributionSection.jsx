@@ -4,9 +4,7 @@ import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  changeAllDistributionsNew,
-  changeAllDistributionsOld,
-  changeAllTextBoxes,
+  changeAllDistributions,
   changeDistributionVersion,
   getDistributionVersion,
 } from '../../../state/slices/distribution';
@@ -37,11 +35,7 @@ const DistributionSection = ({ profession, data }) => {
     (value) => {
       if (value === null) return;
 
-      const state = JSON.parse(value.value);
-
-      dispatch(changeAllDistributionsOld(state.values1));
-      dispatch(changeAllDistributionsNew(state.values2));
-      dispatch(changeAllTextBoxes(state.values2));
+      dispatch(changeAllDistributions(JSON.parse(value.value)));
     },
     [dispatch],
   );
