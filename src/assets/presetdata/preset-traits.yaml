@@ -1,7 +1,7 @@
 GraphQL ID: presetTraits
 list:
 
-  - name: Power Chrono
+  - name: Power Chrono IA
     profession: CHRONOMANCER
     traits: |-
       {
@@ -242,7 +242,7 @@ list:
         ]
       }
 
-  - name: '[incomplete] Virtuoso'
+  - name: '[beta] Virtuoso'
     profession: VIRTUOSO
     traits: |-
       {
@@ -1038,7 +1038,7 @@ list:
         ]
       }
 
-  - name: '[incomplete] Power Willbender'
+  - name: '[beta] Power Willbender Radiance'
     profession: WILLBENDER
     traits: |-
       {
@@ -1108,7 +1108,77 @@ list:
         ]
       }
 
-  - name: Power Banner Bers
+  - name: '[beta] Power Willbender Virtues'
+    profession: WILLBENDER
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "46",
+          "42",
+          "65"
+        ],
+        "selectedTraits": [
+          [
+            624,
+            603,
+            622
+          ],
+          [
+            634,
+            653,
+            2017
+          ],
+          [
+            2190,
+            2210,
+            2201
+          ]
+        ],
+        "items": [
+          {
+            "inspired-virtue": {
+              "amount": ""
+            },
+            "unscathed-contender": {
+              "amount": ""
+            },
+            "virtue-of-retribution": true,
+            "inspiring-virtue": {
+              "amount": ""
+            },
+            "power-of-the-virtuous": true
+          },
+          {
+            "fiery-wrath": true,
+            "symbolic-exposure": true,
+            "zealous-blade-base": true,
+            "zealous-blade-gs": {
+              "amount": ""
+            },
+            "kindled-zeal": true,
+            "symbolic-avenger": true
+          },
+          {
+            "power-for-power": true,
+            "lethal-tempo": {
+              "amount": ""
+            },
+            "tyrants-momentum": {
+              "amount": ""
+            },
+            "tyrants-momentum-bugged": false
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": [
+          "bane-signet"
+        ]
+      }
+
+  - name: Power Banner Bers Strength
     profession: BERSERKER
     traits: |-
       {
@@ -1344,7 +1414,7 @@ list:
         ]
       }
 
-  - name: '[incomplete] Bladesworn'
+  - name: '[beta] Bladesworn'
     profession: BLADESWORN
     traits: |-
       {
@@ -1374,7 +1444,9 @@ list:
         "items": [
           {
             "peak-performance": true,
-            "peak-performance-2": false,
+            "peak-performance-2": {
+              "amount": "???"
+            },
             "forceful-greatsword": true,
             "forceful-greatsword-2": false,
             "great-fortitude": true,
@@ -2100,6 +2172,71 @@ list:
             "loud-whistle-merged": true,
             "pets-prowess-merged": true,
             "honed-axes-merged": true
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": []
+      }
+
+  - name: Pure Shortbow Slb
+    profession: SOULBEAST
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "30",
+          "32",
+          "55"
+        ],
+        "selectedTraits": [
+          [
+            1069,
+            1846,
+            1912
+          ],
+          [
+            1606,
+            970,
+            1945
+          ],
+          [
+            2071,
+            2161,
+            2128
+          ]
+        ],
+        "items": [
+          {
+            "hidden-barbs": true,
+            "hunters-tactics": true,
+            "light-on-your-feet": false,
+            "vicious-quarry": true
+          },
+          {
+            "honed-axes": true,
+            "honed-axes-axe": {
+              "amount": ""
+            }
+          },
+          {
+            "furious-strength": {
+              "amount": ""
+            },
+            "twice-as-vicious": {
+              "amount": ""
+            },
+            "oppressive-superiority": true,
+            "archetype-stout": false,
+            "archetype-deadly": true,
+            "archetype-versatile": false,
+            "archetype-ferocious": false,
+            "archetype-supportive": false,
+            "pack-alpha-merged": false,
+            "loud-whistle-merged": false,
+            "pets-prowess-merged": false,
+            "honed-axes-merged": false
           }
         ]
       }
@@ -2921,6 +3058,69 @@ list:
         "skills": []
       }
 
+  - name: '[beta] Condi Mechanist'
+    profession: MECHANIST
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "38",
+          "6",
+          "70"
+        ],
+        "selectedTraits": [
+          [
+            1878,
+            2006,
+            433
+          ],
+          [
+            1882,
+            1892,
+            505
+          ],
+          [
+            2282,
+            2270,
+            2292
+          ]
+        ],
+        "items": [
+          {
+            "chemical-rounds": true,
+            "high-caliber": true,
+            "hematic-focus": true,
+            "thermal-vision": true,
+            "no-scope": {
+              "amount": ""
+            },
+            "serrated-steel": true,
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": true
+          },
+          {
+            "glass-cannon": {
+              "amount": ""
+            },
+            "explosive-temper": {
+              "amount": ""
+            },
+            "blast-shield": true,
+            "shaped-charge": {
+              "amount": ""
+            },
+            "big-boomer": true
+          },
+          {}
+        ]
+      }
+    skills: |-
+      {
+        "skills": []
+      }
+
   - name: Power Scrapper
     profession: SCRAPPER
     traits: |-
@@ -3236,7 +3436,7 @@ list:
         "skills": []
       }
 
-  - name: '[incomplete] DPS Harbinger'
+  - name: '[beta] DPS Harbinger'
     profession: HARBINGER
     traits: |-
       {
@@ -3652,7 +3852,7 @@ list:
         ]
       }
 
-  - name: '[incomplete] DPS Specter Sc/D'
+  - name: '[beta] DPS Specter Sc/D'
     profession: SPECTER
     traits: |-
       {
@@ -3720,7 +3920,7 @@ list:
         "skills": []
       }
 
-  - name: '[incomplete] DPS Specter Endless Night'
+  - name: '[beta] DPS Specter Endless Night'
     profession: SPECTER
     traits: |-
       {

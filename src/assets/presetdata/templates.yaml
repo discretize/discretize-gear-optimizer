@@ -4,23 +4,23 @@ list:
   - class: mesmer
     builds:
 
-      - name: Power Chrono
+      - name: Power Chrono IA
         id: pchrono
         specialization: Chronomancer
         boons: Power (spotter)
         priority: Power DPS
-        distribution: Power Chrono
-        traits: Power Chrono
+        distribution: Power Chrono IA
+        traits: Power Chrono IA
         extras: Power (Fractal)
 
-      - name: '[incomplete] Virtuoso'
+      - name: '[beta] Virtuoso'
         id: pvirt
         specialization: Virtuoso
         boons: Power (spotter)
         priority: Power DPS
-        distribution: None
-        traits: '[incomplete] Virtuoso'
-        extras: '[incomplete] Virtuoso'
+        distribution: '[beta] Virtuoso'
+        traits: '[beta] Virtuoso'
+        extras: '[beta] Virtuoso'
 
   - class: guardian
     builds:
@@ -124,14 +124,23 @@ list:
         traits: Healbrand
         extras: Heal
 
-      - name: '[incomplete] Power Willbender'
-        id: pwb
+      - name: '[beta] Power Willbender Radiance'
+        id: pwb-radiance
         specialization: Willbender
         boons: Power (spotter)
         priority: Power DPS
-        distribution: None
-        traits: '[incomplete] Power Willbender'
-        extras: '[incomplete] Power Willbender'
+        distribution: '[beta] Power Willbender Radiance Focus'
+        traits: '[beta] Power Willbender Radiance'
+        extras: Power (Fractal)
+
+      - name: '[beta] Power Willbender Virtues'
+        id: pwb-virtues
+        specialization: Willbender
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: '[beta] Power Willbender Virtues Focus'
+        traits: '[beta] Power Willbender Virtues'
+        extras: DH Virtues (Fractal)
 
   - class: warrior
     builds:
@@ -141,8 +150,8 @@ list:
         specialization: Berserker
         boons: Power (spotter)
         priority: Power DPS
-        distribution: Power Banner Warrior
-        traits: Power Banner Bers
+        distribution: Power Banner Bers Strength
+        traits: Power Banner Bers Strength
         extras: Power (Fractal)
 
       - name: Condi Banner Bers
@@ -150,7 +159,7 @@ list:
         specialization: Berserker
         boons: Condi
         priority: Condi DPS
-        distribution: Condi Banner Warrior
+        distribution: Condi Banner Bers
         traits: Condi Bers
         extras: Condi Bers
 
@@ -163,14 +172,14 @@ list:
         traits: Power Banner SPB
         extras: Power (Fractal)
 
-      - name: '[incomplete] Bladesworn'
+      - name: '[beta] Bladesworn'
         id: pbls
         specialization: Bladesworn
         boons: Power (spotter)
         priority: Power DPS
-        distribution: None
-        traits: '[incomplete] Bladesworn'
-        extras: '[incomplete] Bladesworn'
+        distribution: '[beta] Bladesworn'
+        traits: '[beta] Bladesworn'
+        extras: '[beta] Bladesworn'
 
   - class: elementalist
     builds:
@@ -180,7 +189,7 @@ list:
         specialization: Weaver
         boons: Power (spotter)
         priority: Power DPS
-        distribution: Power Weaver (BTTH)
+        distribution: Power Weaver (BTTH, small)
         traits: Power Weaver Stormsoul
         extras: Power (Fractal)
 
@@ -228,7 +237,7 @@ list:
         specialization: Soulbeast
         boons: Power (spotter)
         priority: Power DPS
-        distribution: Power Slb Marks
+        distribution: Power Slb Skirm
         traits: Power Slb Marks
         extras: Power Slb Marks (Fractal)
 
@@ -258,6 +267,15 @@ list:
         distribution: Hybrid Slb (A/T D/A)
         traits: Hybrid Slb
         extras: Hybrid Slb
+
+      # - name: Pure Shortbow Slb
+      #   id: sbsbsb
+      #   specialization: Soulbeast
+      #   boons: Condi
+      #   priority: Condi DPS
+      #   distribution: Pure Shortbow Slb
+      #   traits: Pure Shortbow Slb
+      #   extras: Pure Shortbow Slb
 
       - name: Condi Druid*
         id: condidruid
@@ -391,6 +409,15 @@ list:
         traits: Heal Scrapper
         extras: Heal
 
+      - name: '[incomplete] Condi Mechanist'
+        id: cmech
+        specialization: Mechanist
+        boons: Condi
+        priority: Condi DPS
+        distribution: '[beta, bugged logs] Condi Mechanist'
+        traits: '[beta] Condi Mechanist'
+        extras: '[beta] Condi Mechanist Thorns'
+
   - class: necromancer
     builds:
 
@@ -412,14 +439,14 @@ list:
         traits: Condi Reaper
         extras: Condi Reaper
 
-      - name: '[incomplete] DPS Harbinger'
+      - name: '[beta] DPS Harbinger'
         id: charb
         specialization: Harbinger
         boons: Condi
         priority: Condi DPS
-        distribution: '[approx] Beta Harbinger'
-        traits: '[incomplete] DPS Harbinger'
-        extras: '[incomplete] DPS Harbinger'
+        distribution: '[beta] Harbinger (approx.)'
+        traits: '[beta] DPS Harbinger'
+        extras: '[beta] DPS Harbinger'
 
   - class: thief
     builds:
@@ -469,20 +496,20 @@ list:
         traits: Rifle Deadeye
         extras: Power (Fractal)
 
-      - name: '[incomplete] DPS Specter Sc/D'
+      - name: '[beta] DPS Specter Sc/D'
         id: specterdagger
         specialization: Specter
         boons: Condi
         priority: Condi DPS
-        distribution: Beta DPS Specter Sc/D
-        traits: '[incomplete] DPS Specter Sc/D'
-        extras: '[incomplete] DPS Specter'
+        distribution: '[beta] DPS Specter Sc/D'
+        traits: '[beta] DPS Specter Sc/D'
+        extras: '[beta] DPS Specter'
 
-      - name: '[incomplete] DPS Specter Endless Night'
+      - name: '[beta] DPS Specter Endless Night'
         id: specterpistol
         specialization: Specter
         boons: Condi
         priority: Heal
-        distribution: Beta DPS Specter Endless Night
-        traits: '[incomplete] DPS Specter Endless Night'
-        extras: '[incomplete] DPS Specter'
+        distribution: '[beta] DPS Specter Endless Night'
+        traits: '[beta] DPS Specter Endless Night'
+        extras: '[beta] DPS Specter'

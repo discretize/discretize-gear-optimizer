@@ -31,7 +31,7 @@ list:
         "Nourishment": "fruit-salad-mint-garnish"
       }
 
-  - name: '[incomplete] Virtuoso'
+  - name: '[beta] Virtuoso'
     profession: VIRTUOSO
     value: |-
       {
@@ -108,17 +108,6 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: '[incomplete] Power Willbender'
-    profession: WILLBENDER
-    value: |-
-      {
-        "Runes": "scholar",
-        "Sigil1": "force",
-        "Sigil2": "impact/night/slaying-only-3",
-        "Enhancement": "superior-sharpening-stone",
-        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
-      }
-
   - name: Condi Bers
     profession: BERSERKER
     value: |-
@@ -141,13 +130,24 @@ list:
         "Nourishment": "sweet-and-spicy-butternut-squash-soup"
       }
 
-  - name: '[incomplete] Bladesworn'
+  - name: '[beta] Bladesworn'
     profession: BLADESWORN
     value: |-
       {
         "Runes": "scholar",
         "Sigil1": "force",
         "Sigil2": "accuracy",
+        "Enhancement": "superior-sharpening-stone",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+      }
+
+  - name: Flame Legion Power Weaver (Raid)
+    profession: WEAVER
+    value: |-
+      {
+        "Runes": "flame-legion",
+        "Sigil1": "force",
+        "Sigil2": "impact/night/slaying-only-3",
         "Enhancement": "superior-sharpening-stone",
         "Nourishment": "sweet-and-spicy-butternut-squash-soup"
       }
@@ -240,6 +240,17 @@ list:
         "Nourishment": "beef-rendang"
       }
 
+  - name: Pure Shortbow Slb
+    profession: SOULBEAST
+    value: |-
+      {
+        "Runes": "krait",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "rare-veggie-pizza"
+      }
+
   - name: Condi Druid*
     profession: DRUID
     value: |-
@@ -295,6 +306,39 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
+  - name: '[beta] Condi Mechanist Thorns'
+    profession: MECHANIST
+    value: |-
+      {
+        "Runes": "thorns",
+        "Sigil1": "bursting",
+        "Sigil2": "malice",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: '[beta] Condi Mechanist Renegade'
+    profession: MECHANIST
+    value: |-
+      {
+        "Runes": "renegade",
+        "Sigil1": "bursting",
+        "Sigil2": "malice",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: '[beta] Condi Mechanist Elementalist'
+    profession: MECHANIST
+    value: |-
+      {
+        "Runes": "elementalist",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
   - name: DPS Scourge
     profession: SCOURGE
     value: |-
@@ -317,7 +361,7 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
-  - name: '[incomplete] DPS Harbinger'
+  - name: '[beta] DPS Harbinger'
     profession: HARBINGER
     value: |-
       {
@@ -361,7 +405,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: '[incomplete] DPS Specter'
+  - name: '[beta] DPS Specter'
     profession: SPECTER
     value: |-
       {
