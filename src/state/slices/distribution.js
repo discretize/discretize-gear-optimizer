@@ -26,7 +26,7 @@ export const coefficientsToPercents = (values2, round = false) => {
 
   if (round) {
     Object.keys(values1).forEach((key) => {
-      values1[key] = Math.round(values1[key]);
+      values1[key] = Math.round(values1[key] * 10) / 10;
     });
   }
 
