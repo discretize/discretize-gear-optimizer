@@ -147,10 +147,9 @@ list:
     profession: FIREBRAND
     value: >-
       {
-        "values1": { "Power": 33, "Burning": 66, "Bleeding": 1, "Poisoned": 0, "Torment": 0, "Confusion": 0 },
-        "values2": { "Power": 2301, "Burning": 14.0, "Bleeding": 1.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values1": { "Power": 32, "Burning": 64, "Bleeding": 3, "Poisoned": 0, "Torment": 1, "Confusion": 0 },
+        "values2": { "Power": 2314, "Burning": 13.9, "Bleeding": 3.5, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
       }
-
 
   # +1.4 burning (36 seconds * 5 casts in ~130 seconds)
   - name: Condi Quickbrand 40% (Virtues, allies)
