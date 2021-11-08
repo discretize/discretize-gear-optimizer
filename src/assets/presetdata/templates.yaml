@@ -400,15 +400,6 @@ list:
         traits: Quickness Scrapper
         extras: Power (Fractal)
 
-      - name: '[incomplete] Condi Mechanist'
-        id: cmech
-        specialization: Mechanist
-        boons: Condi
-        priority: Condi DPS
-        distribution: '[beta, bugged logs] Condi Mechanist'
-        traits: '[beta] Condi Mechanist'
-        extras: '[beta] Condi Mechanist Thorns'
-
       - name: Heal Scrapper
         id: healscrapper
         specialization: Scrapper
@@ -417,6 +408,15 @@ list:
         distribution: None
         traits: Heal Scrapper
         extras: Heal
+
+      - name: '[incomplete] Condi Mechanist'
+        id: cmech
+        specialization: Mechanist
+        boons: Condi
+        priority: Condi DPS
+        distribution: '[beta, bugged logs] Condi Mechanist'
+        traits: '[beta] Condi Mechanist'
+        extras: '[beta] Condi Mechanist Thorns'
 
   - class: necromancer
     builds:
