@@ -4,7 +4,6 @@ import { Typography, TextField } from '@material-ui/core';
 import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
 import { getControl } from '../../../state/controlsSlice';
 import { parseAmount } from '../../../state/optimizer/optimizerCore';
-import { coefficientsToPercents } from '../../../state/slices/distribution';
 
 const initial = {
   Power: 0,
@@ -44,18 +43,15 @@ const TemplateHelper = ({ character }) => {
   let values2 = Object.fromEntries(
     data.map(({ key, value }) => [key, (value ?? 0) / helperData[key]]),
   );
-  let values1 = coefficientsToPercents(values2);
 
   // round
   Object.keys(values2).forEach((key) => {
     values2[key] = key === 'Power' ? roundZero(values2[key]) : roundOne(values2[key]);
-    values1[key] = roundZero(values1[key]);
   });
 
-  values1 = fixPoison(values1);
   values2 = fixPoison(values2);
 
-  const distribution = { values1, values2 };
+  const distribution = { values2 };
 
   const formattedDistribution = JSON.stringify(distribution, null, 2)
     .replaceAll('\n    ', ' ')
