@@ -159,7 +159,7 @@ const TemplateHelper = ({ character }) => {
       </Typography>
 
       <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-        {indent(JSON.stringify(traitsTemplate.traits, null, 2), 6)}
+        {indent(JSON.stringify(traitsTemplate?.traits, null, 2) || '', 6)}
       </pre>
 
       <Typography variant="h6">
@@ -167,7 +167,7 @@ const TemplateHelper = ({ character }) => {
       </Typography>
 
       <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-        {indent(JSON.stringify(traitsTemplate.skills, null, 2), 6)}
+        {indent(JSON.stringify(traitsTemplate?.skills, null, 2) || '', 6)}
       </pre>
 
       <Typography variant="h6">
@@ -175,7 +175,7 @@ const TemplateHelper = ({ character }) => {
       </Typography>
 
       <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-        {indent(JSON.stringify(traitsTemplate.extras, null, 2), 6)}
+        {indent(JSON.stringify(traitsTemplate?.extras, null, 2) || '', 6)}
       </pre>
     </>
   );
