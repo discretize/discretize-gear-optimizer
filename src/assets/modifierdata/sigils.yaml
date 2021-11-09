@@ -161,7 +161,7 @@
       text: Superior Sigil of Momentum
       modifiers:
         attributes:
-          Toughness: [225, converted]
+          Toughness: [125, converted]
       gw2id: 49457
 
     - id: stars
