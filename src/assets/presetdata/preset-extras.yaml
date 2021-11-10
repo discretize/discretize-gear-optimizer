@@ -196,6 +196,17 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
+  - name: '[beta] Condi Catalyst'
+    profession: CATALYST
+    value: |-
+      {
+        "Runes": "nightmare",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "rare-veggie-pizza"
+      }
+
   - name: Power Slb Marks (Fractal)
     profession: SOULBEAST
     value: |-

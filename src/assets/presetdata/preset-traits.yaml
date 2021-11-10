@@ -1797,6 +1797,72 @@ list:
         "skills": []
       }
 
+  - name: '[beta] Condi Catalyst'
+    profession: CATALYST
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "67"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            0
+          ],
+          [
+            1507,
+            275,
+            287
+          ],
+          [
+            2252,
+            2247,
+            2241
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "45"
+            },
+            "burning-precision": true,
+            "burning-rage": true,
+            "power-overwhelming": true,
+            "power-overwhelming-2": {
+              "amount": ""
+            },
+            "pyromancers-training": true,
+            "persisting-flames": {
+              "amount": ""
+            }
+          },
+          {
+            "stone-flesh": false,
+            "serrated-stones": true,
+            "strength-of-stone": true,
+            "geomancers-training": true
+          },
+          {
+            "hardened-auras": {
+              "amount": ""
+            },
+            "elemental-empowerment": true,
+            "empowering-auras": {
+              "amount": "2.5"
+            },
+            "empowered-empowerment": true
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": []
+      }
+
   - name: Heal Tempest
     profession: TEMPEST
     traits: |-

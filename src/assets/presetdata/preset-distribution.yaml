@@ -268,6 +268,15 @@ list:
   #       "values2": { "Power": 4388, "Burning": 4.0, "Bleeding": 4.5, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
 
+  # https://discord.com/channels/380901000200060929/888049167455379532/907951956864163870
+  # power: 13422, burn: 18047, bleed: 11426, total: 42895
+  - name: '[beta] Condi Catalyst'
+    profession: CATALYST
+    value: >-
+      {
+        "values2": { "Power": 4152, "Burning": 10.9, "Bleeding": 20.3, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
   # dance of death
   # https://www.youtube.com/watch?v=FqhytnzGg5A
   # power: 22737 + 4889 lifesteal = 27626, burn: 698, total: 28324

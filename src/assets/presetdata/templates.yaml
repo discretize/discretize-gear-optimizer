@@ -229,6 +229,15 @@ list:
         traits: Heal Tempest
         extras: Heal
 
+      - name: '[beta] Condi Catalyst'
+        id: condi-cat
+        specialization: Catalyst
+        boons: Condi
+        priority: Condi DPS
+        distribution: '[beta] Condi Catalyst'
+        traits: '[beta] Condi Catalyst'
+        extras: '[beta] Condi Catalyst'
+
   - class: ranger
     builds:
 
