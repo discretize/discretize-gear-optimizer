@@ -942,7 +942,7 @@ function updateAttributesFast(_character, skipValidation = false) {
         condiDamageScore =
           condiResultCache?.get(CONDI_CACHE_ID) ||
           calcCondi(_character, damageMultiplier, settings.relevantConditions);
-        condiResultCache.set(CONDI_CACHE_ID, condiDamageScore);
+        condiResultCache?.set(CONDI_CACHE_ID, condiDamageScore);
       }
 
       attributes['Damage'] = powerDamageScore + condiDamageScore;
