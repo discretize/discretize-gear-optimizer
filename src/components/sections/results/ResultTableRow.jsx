@@ -5,7 +5,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { changeSelectedCharacter } from '../../../state/controlsSlice';
 
-const ResultTableRow = ({ character, selected, mostCommonAffix }) => {
+const ResultTableRow = ({ character, selected, mostCommonAffix, underlineClass }) => {
   const dispatch = useDispatch();
 
   return (
@@ -14,6 +14,7 @@ const ResultTableRow = ({ character, selected, mostCommonAffix }) => {
       style={selected ? { backgroundColor: 'rgba(0, 204, 204, 0.2)' } : null}
       onClick={(e) => dispatch(changeSelectedCharacter(character))}
       hover
+      className={underlineClass}
     >
       <TableCell scope="row">
         {character.attributes[character.settings.rankby].toFixed(2)}

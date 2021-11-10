@@ -22,6 +22,12 @@ const styles = (theme) => ({
     backgroundColor: theme.palette.background.paper,
     paddingRight: theme.spacing(1),
   },
+  tableCollapse: {
+    borderCollapse: 'collapse !important',
+  },
+  underline: {
+    borderBottom: `5px solid ${theme.palette.divider}`,
+  },
 });
 
 // finds the most common element in an array
@@ -51,19 +57,29 @@ const StickyHeadTable = ({ classes }) => {
   return (
     <Box boxShadow={8}>
       <TableContainer className={classes.container}>
-        <Table stickyHeader aria-label="sticky table">
+        <Table stickyHeader aria-label="sticky table" className={classes.tableCollapse}>
           <TableHead>
             <ResultTableHeaderRow classes={classes} />
           </TableHead>
           <TableBody className={classes.pointer}>
-            {list.map((character) => (
-              <ResultTableRow
-                character={character}
-                key={character.id}
-                selected={character === selectedCharacter}
-                mostCommonAffix={mostCommonAffix}
-              />
-            ))}
+            {list.map((character, i) => {
+
+              // underline under the set of equivalent, optimal results
+              const firstResult = list[0]?.attributes[character.settings.rankby];
+              const thisResult = list[i]?.attributes[character.settings.rankby];
+              const nextResult = list[i + 1]?.attributes[character.settings.rankby];
+              const underline = thisResult === firstResult && thisResult !== nextResult;
+
+              return (
+                <ResultTableRow
+                  character={character}
+                  key={character.id}
+                  selected={character === selectedCharacter}
+                  mostCommonAffix={mostCommonAffix}
+                  underlineClass={underline ? classes.underline : null}
+                />
+              );
+            })}
           </TableBody>
         </Table>
       </TableContainer>
