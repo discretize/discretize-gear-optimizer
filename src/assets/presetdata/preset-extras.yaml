@@ -196,7 +196,7 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
-  - name: '[beta] Condi Catalyst'
+  - name: '[beta] Condi Hammer Catalyst'
     profession: CATALYST
     value: |-
       {

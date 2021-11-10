@@ -270,7 +270,7 @@ list:
 
   # https://discord.com/channels/380901000200060929/888049167455379532/907951956864163870
   # power: 13422, burn: 18047, bleed: 11426, total: 42895
-  - name: '[beta] Condi Catalyst'
+  - name: '[beta] Condi Hammer Catalyst'
     profession: CATALYST
     value: >-
       {
