@@ -9,9 +9,16 @@ import {
   changeSelectedCharacter,
   getSelectedCharacter,
   getList,
-  getModifiers,
+  setAllSelectedModifiers,
   changeError,
 } from '../controlsSlice';
+import { getExtrasModifiers } from '../slices/extras';
+import { getBuffsModifiers } from '../slices/buffs';
+import { getExtraModifiersModifiers } from '../slices/extraModifiers';
+import { getInfusionsModifiers } from '../slices/infusions';
+import { getSkillsModifiers } from '../slices/skills';
+import { getTraitsModifiers } from '../slices/traits';
+
 import { INFUSIONS } from '../../utils/gw2-data';
 import { ERROR, SUCCESS, WAITING } from './status';
 
@@ -150,7 +157,16 @@ function* runCalc() {
     const state = yield select();
     optimizerState = state.optimizer;
 
-    const modifiers = yield select(getModifiers);
+    const modifiers = [
+      ...(yield select(getExtrasModifiers) || []),
+      ...(yield select(getBuffsModifiers) || []),
+      ...(yield select(getExtraModifiersModifiers) || []),
+      ...(yield select(getInfusionsModifiers) || []),
+      ...(yield select(getSkillsModifiers) || []),
+      ...(yield select(getTraitsModifiers) || []),
+    ];
+    yield put(setAllSelectedModifiers(modifiers));
+
     input = createInput(optimizerState, modifiers);
 
     console.groupCollapsed('Debug Info:');

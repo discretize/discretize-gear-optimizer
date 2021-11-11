@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setBuildTemplate, setModifiers } from '../controlsSlice';
+import { setBuildTemplate } from '../controlsSlice';
 
 import { extrasModifiersById } from '../../assets/modifierdata';
 
@@ -13,7 +13,6 @@ export const extrasSlice = createSlice({
     Sigil2: '',
     Enhancement: '',
     Nourishment: '',
-    modifiers: [],
   },
   reducers: {
     changeExtra: (state, action) => {
@@ -28,20 +27,20 @@ export const extrasSlice = createSlice({
       const { extrasPreset = {} } = action.payload;
       return { ...state, ...extrasPreset };
     },
-    [setModifiers]: (state) => {
-      const enabledTypes = extrasTypes.filter((key) => state[key]);
-
-      state.modifiers = enabledTypes.map((type) => {
-        const id = state[type];
-        const { modifiers } = extrasModifiersById[id];
-        return { id, modifiers, source: type };
-      });
-    },
   },
 });
 
 export const getExtra = (key) => (state) => state.optimizer.extras[key];
 export const getExtras = (state) => state.optimizer.extras;
-export const getExtrasModifiers = (state) => state.optimizer.extras.modifiers;
+
+export const getExtrasModifiers = ({ optimizer: { extras } }) => {
+  const enabledTypes = extrasTypes.filter((key) => extras[key]);
+
+  return enabledTypes.map((type) => {
+    const id = extras[type];
+    const { modifiers } = extrasModifiersById[id];
+    return { id, modifiers, source: type };
+  });
+};
 
 export const { changeExtra, changeExtras } = extrasSlice.actions;

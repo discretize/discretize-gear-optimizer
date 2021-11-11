@@ -13,7 +13,6 @@ import {
   changeError,
   getControl,
   getError,
-  setModifiers,
 } from '../../../state/controlsSlice';
 import { ABORTED, ERROR, RUNNING, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import { getPriority } from '../../../state/slices/priorities';
@@ -61,15 +60,13 @@ const ControlsBox = ({ profession }) => {
 
       console.log('calculate');
 
-      // pass data from GraphQL
-      dispatch(setModifiers({ profession }));
       dispatch(changeError(''));
       dispatch(changeControl({ key: 'status', value: RUNNING }));
       dispatch({
         type: 'START',
       });
     },
-    [dispatch, profession, affixes],
+    [dispatch, affixes],
   );
 
   const onCancelCalculate = React.useCallback(

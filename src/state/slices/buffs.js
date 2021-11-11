@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setBuildTemplate, setModifiers } from '../controlsSlice';
+import { setBuildTemplate } from '../controlsSlice';
 
 import { buffModifiersById } from '../../assets/modifierdata';
 
@@ -33,7 +33,6 @@ export const buffsSlice = createSlice({
       might: 25,
       vulnerability: 25,
     },
-    modifiers: [],
   },
   reducers: {
     changeBuff: (state, action) => {
@@ -65,28 +64,28 @@ export const buffsSlice = createSlice({
 
       return { buffs, amounts: state.amounts };
     },
-    [setModifiers]: (state) => {
-      const enabledModifiers = Object.keys(state.buffs).filter((key) => state.buffs[key]);
-      const { amounts } = state;
-
-      state.modifiers = enabledModifiers.map((id) => {
-        const { modifiers, gw2id } = buffModifiersById[id];
-        const amount = {
-          amount: `${amounts[id]}`,
-          amountData: { label: 'stacks', default: 25, quantityEntered: 1 },
-        };
-        return {
-          id,
-          modifiers,
-          gw2id,
-          ...(['might', 'vulnerability'].includes(id) && amount),
-        };
-      });
-    },
   },
 });
 
 export const getBuffs = (state) => state.optimizer.buffs.buffs;
 export const getBuffAmounts = (state) => state.optimizer.buffs.amounts;
+
+export const getBuffsModifiers = ({ optimizer: { buffs } }) => {
+  const enabledModifiers = Object.keys(buffs.buffs).filter((key) => buffs.buffs[key]);
+
+  return enabledModifiers.map((id) => {
+    const { modifiers, gw2id } = buffModifiersById[id];
+    const amount = {
+      amount: `${buffs.amounts[id]}`,
+      amountData: { label: 'stacks', default: 25, quantityEntered: 1 },
+    };
+    return {
+      id,
+      modifiers,
+      gw2id,
+      ...(['might', 'vulnerability'].includes(id) && amount),
+    };
+  });
+};
 
 export const { changeBuff, replaceBuffs, changeBuffAmount } = buffsSlice.actions;

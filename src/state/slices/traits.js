@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { changeProfession, setBuildTemplate, setModifiers } from '../controlsSlice';
+import { changeProfession, setBuildTemplate } from '../controlsSlice';
 
 import { classModifiersById, traitSectionsById } from '../../assets/modifierdata';
 
@@ -25,7 +25,6 @@ export const traitsSlice = createSlice({
       [0, 0, 0],
     ],
     items: [{}, {}, {}],
-    modifiers: [],
   },
   reducers: {
     toggleShowAll: (state, action) => {
@@ -75,32 +74,12 @@ export const traitsSlice = createSlice({
             [0, 0, 0],
           ],
           items: [{}, {}, {}],
-          modifiers: [],
         };
       }
     },
     [setBuildTemplate]: (state, action) => {
       const { traitsPreset = {} } = action.payload;
       return { ...state, ...traitsPreset };
-    },
-    [setModifiers]: (state, action) => {
-      const allSelectedTraits = state.selectedTraits.flat(2);
-
-      const modifiers = [];
-      state.items.forEach((object) => {
-        Object.entries(object).forEach(([id, value]) => {
-          const itemData = classModifiersById[id];
-          if (!itemData) return;
-
-          const visible = itemData.minor || allSelectedTraits.includes(itemData.gw2id);
-          const enabled = Boolean(value);
-
-          if (enabled && visible) {
-            modifiers.push({ id, ...itemData, amount: value?.amount });
-          }
-        });
-      });
-      state.modifiers = modifiers;
     },
   },
 });
@@ -109,6 +88,26 @@ export const getShowAllTraits = (state) => state.optimizer.traits.showAll;
 export const getTraitLines = (state) => state.optimizer.traits.selectedLines;
 export const getTraits = (state) => state.optimizer.traits.selectedTraits;
 export const getTraitItems = (state) => state.optimizer.traits.items;
+
+export const getTraitsModifiers = ({ optimizer: { traits } }) => {
+  const allSelectedTraits = traits.selectedTraits.flat(2);
+
+  const result = [];
+  traits.items.forEach((object) => {
+    Object.entries(object).forEach(([id, value]) => {
+      const itemData = classModifiersById[id];
+      if (!itemData) return;
+
+      const visible = itemData.minor || allSelectedTraits.includes(itemData.gw2id);
+      const enabled = Boolean(value);
+
+      if (enabled && visible) {
+        result.push({ id, ...itemData, amount: value?.amount });
+      }
+    });
+  });
+  return result;
+};
 
 export const {
   toggleShowAll,
