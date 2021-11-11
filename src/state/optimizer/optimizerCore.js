@@ -1084,6 +1084,8 @@ function calcResults(character) {
 
   const { attributes, settings, results } = character;
 
+  results.value = character.attributes[settings.rankby];
+
   results.indicators = {};
   for (const attribute of Attributes.INDICATORS) {
     results.indicators[attribute] = Number(attributes[attribute].toFixed(4)).toLocaleString(
