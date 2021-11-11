@@ -229,6 +229,15 @@ list:
         traits: Heal Tempest
         extras: Heal
 
+      - name: '[beta] Condi Hammer Catalyst'
+        id: condi-cat
+        specialization: Catalyst
+        boons: Condi
+        priority: Condi DPS
+        distribution: '[beta] Condi Hammer Catalyst'
+        traits: '[beta] Condi Hammer Catalyst'
+        extras: '[beta] Condi Hammer Catalyst'
+
   - class: ranger
     builds:
 
