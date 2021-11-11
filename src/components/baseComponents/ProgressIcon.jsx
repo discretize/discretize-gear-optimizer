@@ -4,7 +4,7 @@ import EqualizerRoundedIcon from '@material-ui/icons/EqualizerRounded';
 import { getControl } from '../../state/controlsSlice';
 import CircularProgressWithLabel from './CircularProgressWithLabel';
 
-const ProgressIcon = (props) => {
+const ProgressIcon = () => {
   const progress = useSelector(getControl('progress'));
 
   return (
