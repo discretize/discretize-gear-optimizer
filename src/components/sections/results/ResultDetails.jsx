@@ -39,7 +39,6 @@ const ResultDetails = ({ data }) => {
   const priority = useSelector(getPriority('weaponType'));
   const traits = useSelector(getTraitLines);
 
-  // its good enough to query this value once since modifiers remain the same accross all characters
   const charRaw = useSelector(getSelectedCharacter);
   if (!charRaw) {
     return null;
