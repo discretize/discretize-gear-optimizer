@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { changeProfession, setBuildTemplate, setModifiers } from '../controlsSlice';
+import { changeProfession, setBuildTemplate } from '../controlsSlice';
 
 import { classModifiersById } from '../../assets/modifierdata';
 
@@ -7,7 +7,6 @@ export const skillsSlice = createSlice({
   name: 'skills',
   initialState: {
     skills: [],
-    modifiers: [],
   },
   reducers: {
     addSkill: (state, action) => {
@@ -26,7 +25,6 @@ export const skillsSlice = createSlice({
         return {
           ...state,
           skills: [],
-          modifiers: [],
         };
       }
     },
@@ -34,17 +32,18 @@ export const skillsSlice = createSlice({
       const { skillsPreset = {} } = action.payload;
       return { ...state, ...skillsPreset };
     },
-    [setModifiers]: (state, action) => {
-      const enabledModifiers = state.skills;
-
-      state.modifiers = enabledModifiers.map((id) => {
-        const { modifiers, gw2id } = classModifiersById[id];
-        return { id, modifiers, gw2id };
-      });
-    },
   },
 });
 
 export const getSkills = (state) => state.optimizer.skills.skills;
+
+export const getSkillsModifiers = ({ optimizer: { skills } }) => {
+  const enabledModifiers = skills.skills;
+
+  return enabledModifiers.map((id) => {
+    const { modifiers, gw2id } = classModifiersById[id];
+    return { id, modifiers, gw2id };
+  });
+};
 
 export const { addSkill, removeSkill, changeSkills } = skillsSlice.actions;

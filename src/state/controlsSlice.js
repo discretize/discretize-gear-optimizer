@@ -13,6 +13,7 @@ export const controlSlice = createSlice({
     status: WAITING,
     profession: '',
     traitsTemplate: null,
+    allSelectedModifiers: null,
   },
   reducers: {
     changeProfession: (state, action) => {
@@ -29,6 +30,7 @@ export const controlSlice = createSlice({
           status: WAITING,
           error: '',
           traitsTemplate: null,
+          allSelectedModifiers: null,
         };
       }
       return state;
@@ -51,6 +53,7 @@ export const controlSlice = createSlice({
         status: WAITING,
         error: '',
         traitsTemplate: null,
+        allSelectedModifiers: null,
       };
     },
     setBuildTemplate: (state, action) => {
@@ -66,10 +69,11 @@ export const controlSlice = createSlice({
         status: WAITING,
         profession,
         error: '',
+        allSelectedModifiers: null,
       };
     },
-    setModifiers: (state, action) => {
-      return state;
+    setAllSelectedModifiers: (state, action) => {
+      state.allSelectedModifiers = action.payload;
     },
     changeControl: (state, action) => {
       state[action.payload.key] = action.payload.value;
@@ -86,20 +90,12 @@ export const controlSlice = createSlice({
   },
 });
 
-export const getModifiers = (state) => [
-  ...(state.optimizer.extras.modifiers || []),
-  ...(state.optimizer.buffs.modifiers || []),
-  ...(state.optimizer.extraModifiers.modifiers || []),
-  ...(state.optimizer.infusions.modifiers || []),
-  ...(state.optimizer.skills.modifiers || []),
-  ...(state.optimizer.traits.modifiers || []),
-];
-
 export const getProfession = (state) => state.optimizer.control.profession;
 export const getControl = (key) => (state) => state.optimizer.control[key];
 export const getList = (state) => state.optimizer.control.list;
 export const getSelectedCharacter = (state) => state.optimizer.control.selectedCharacter;
 export const getError = (state) => state.optimizer.control.error;
+export const getAllSelectedModifiers = (state) => state.optimizer.control.allSelectedModifiers;
 
 export const {
   reset,
@@ -107,7 +103,7 @@ export const {
   changeExpertMode,
   changeControl,
   changeList,
-  setModifiers,
+  setAllSelectedModifiers,
   setBuildTemplate,
   changeSelectedCharacter,
   changeError,

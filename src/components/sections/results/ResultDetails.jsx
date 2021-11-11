@@ -2,8 +2,8 @@ import { Grid } from '@material-ui/core';
 import { getImage } from 'gatsby-plugin-image';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import { useSelector, useStore } from 'react-redux';
-import { getModifiers, getProfession, getSelectedCharacter } from '../../../state/controlsSlice';
+import { useSelector } from 'react-redux';
+import { getAllSelectedModifiers, getProfession, getSelectedCharacter } from '../../../state/controlsSlice';
 import { updateAttributes } from '../../../state/optimizer/optimizerCore';
 import { getExtras } from '../../../state/slices/extras';
 import { getPriority } from '../../../state/slices/priorities';
@@ -22,8 +22,8 @@ import SpecialDurations from './SpecialDurations';
 import { classModifiers, extrasModifiersById } from '../../../assets/modifierdata';
 
 const ResultDetails = ({ data }) => {
-  const store = useStore();
   const profession = useSelector(getProfession);
+  const modifiers = useSelector(getAllSelectedModifiers)
 
   const { t } = useTranslation();
 
@@ -40,7 +40,6 @@ const ResultDetails = ({ data }) => {
   const traits = useSelector(getTraitLines);
 
   // its good enough to query this value once since modifiers remain the same accross all characters
-  const modifiers = getModifiers(store.getState());
   const charRaw = useSelector(getSelectedCharacter);
   if (!charRaw) {
     return null;
