@@ -891,24 +891,24 @@ const clamp = (input, min, max) => {
  * Creates an {attributes} object parameter in the given character object and fills it with
  * calculated stats and damage/healing/survivability scores.
  *
- * @param {object} _character
+ * @param {object} character
  * @param {*} results - calculates results data only if true (must be false inside calcResults,
  *  otherwise this is an infinite loop)
  */
-export function updateAttributes(_character, results = true) {
-  const { damageMultiplier } = _character.settings.modifiers;
-  _character.valid = true;
+export function updateAttributes(character, results = true) {
+  const { damageMultiplier } = character.settings.modifiers;
+  character.valid = true;
 
-  calcStats(_character);
+  calcStats(character);
 
-  const powerDamageScore = calcPower(_character, damageMultiplier);
-  const condiDamageScore = calcCondi(_character, damageMultiplier, Attributes.CONDITION);
-  _character.attributes['Damage'] = powerDamageScore + condiDamageScore;
+  const powerDamageScore = calcPower(character, damageMultiplier);
+  const condiDamageScore = calcCondi(character, damageMultiplier, Attributes.CONDITION);
+  character.attributes['Damage'] = powerDamageScore + condiDamageScore;
 
-  calcSurvivability(_character, damageMultiplier);
-  calcHealing(_character);
+  calcSurvivability(character, damageMultiplier);
+  calcHealing(character);
 
-  if (results) calcResults(_character);
+  if (results) calcResults(character);
 }
 
 /**
@@ -916,24 +916,24 @@ export function updateAttributes(_character, results = true) {
  * calculation to find the optimal build, including cancelling itself early if the character's
  * boon duration/toughness/healing power are not valid according to the optimizer settings.
  *
- * @param {object} _character
+ * @param {object} character
  * @param {boolean} [skipValidation] - skips the validation check if true
  */
-function updateAttributesFast(_character, skipValidation = false) {
-  const { settings } = _character;
+function updateAttributesFast(character, skipValidation = false) {
+  const { settings } = character;
   const { damageMultiplier } = settings.modifiers;
-  _character.valid = true;
+  character.valid = true;
 
-  calcStats(_character);
-  const { attributes } = _character;
+  calcStats(character);
+  const { attributes } = character;
 
-  if (!skipValidation && checkInvalid(_character)) {
+  if (!skipValidation && checkInvalid(character)) {
     return false;
   }
 
   switch (settings.rankby) {
     case 'Damage':
-      const powerDamageScore = calcPower(_character, damageMultiplier);
+      const powerDamageScore = calcPower(character, damageMultiplier);
 
       // cache condi result based on cdmg and expertise
       let condiDamageScore = 0;
@@ -941,17 +941,17 @@ function updateAttributesFast(_character, skipValidation = false) {
         const CONDI_CACHE_ID = attributes['Expertise'] + attributes['Condition Damage'] * 10000;
         condiDamageScore =
           condiResultCache?.get(CONDI_CACHE_ID) ||
-          calcCondi(_character, damageMultiplier, settings.relevantConditions);
+          calcCondi(character, damageMultiplier, settings.relevantConditions);
         condiResultCache?.set(CONDI_CACHE_ID, condiDamageScore);
       }
 
       attributes['Damage'] = powerDamageScore + condiDamageScore;
       break;
     case 'Survivability':
-      calcSurvivability(_character, damageMultiplier);
+      calcSurvivability(character, damageMultiplier);
       break;
     case 'Healing':
-      calcHealing(_character);
+      calcHealing(character);
       break;
     // no default
   }
@@ -959,9 +959,9 @@ function updateAttributesFast(_character, skipValidation = false) {
   return true;
 }
 
-function calcStats(_character) {
-  _character.attributes = Object.assign({}, _character.baseAttributes);
-  const { attributes, settings, baseAttributes } = _character;
+function calcStats(character) {
+  character.attributes = Object.assign({}, character.baseAttributes);
+  const { attributes, settings, baseAttributes } = character;
 
   for (const [attribute, conversion] of settings.modifiers['convert']) {
     if (attribute === 'Outgoing Healing') {
@@ -982,8 +982,8 @@ function calcStats(_character) {
   attributes['Boon Duration'] += attributes['Concentration'] / 15 / 100;
 }
 
-function checkInvalid(_character) {
-  const { settings, attributes } = _character;
+function checkInvalid(character) {
+  const { settings, attributes } = character;
 
   const invalid =
     (settings.minBoonDuration && attributes['Boon Duration'] < settings.minBoonDuration / 100) ||
@@ -991,14 +991,14 @@ function checkInvalid(_character) {
     (settings.minToughness && attributes['Toughness'] < settings.minToughness) ||
     (settings.maxToughness && attributes['Toughness'] > settings.maxToughness);
   if (invalid) {
-    _character.valid = false;
+    character.valid = false;
   }
 
   return invalid;
 }
 
-function calcPower(_character, damageMultiplier) {
-  const { attributes, settings } = _character;
+function calcPower(character, damageMultiplier) {
+  const { attributes, settings } = character;
 
   attributes['Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
   attributes['Critical Damage'] += attributes['Ferocity'] / 15 / 100;
@@ -1016,8 +1016,8 @@ function calcPower(_character, damageMultiplier) {
   return damage;
 }
 
-function calcCondi(_character, damageMultiplier, relevantConditions) {
-  const { attributes, settings } = _character;
+function calcCondi(character, damageMultiplier, relevantConditions) {
+  const { attributes, settings } = character;
 
   attributes['Condition Duration'] += attributes['Expertise'] / 15 / 100;
   let condiDamageScore = 0;
@@ -1044,8 +1044,8 @@ function calcCondi(_character, damageMultiplier, relevantConditions) {
   return condiDamageScore;
 }
 
-function calcSurvivability(_character, damageMultiplier) {
-  const { attributes } = _character;
+function calcSurvivability(character, damageMultiplier) {
+  const { attributes } = character;
 
   attributes['Armor'] += attributes['Toughness'];
 
@@ -1060,8 +1060,8 @@ function calcSurvivability(_character, damageMultiplier) {
   attributes['Survivability'] = attributes['Effective Health'] / 1967;
 }
 
-function calcHealing(_character) {
-  const { attributes, settings } = _character;
+function calcHealing(character) {
+  const { attributes, settings } = character;
 
   // reasonably representative skill: druid celestial avatar 4 pulse
   // 390 base, 0.3 coefficient
@@ -1079,10 +1079,10 @@ function calcHealing(_character) {
   attributes['Healing'] = attributes['Effective Healing'];
 }
 
-function calcResults(_character) {
-  _character.results = {};
+function calcResults(character) {
+  character.results = {};
 
-  const { attributes, settings, results } = _character;
+  const { attributes, settings, results } = character;
 
   results.indicators = {};
   for (const attribute of Attributes.INDICATORS) {
@@ -1094,7 +1094,7 @@ function calcResults(_character) {
   // effective gain from adding +5 infusions
   results.effectivePositiveValues = {};
   for (const attribute of ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise']) {
-    const temp = clone(_character);
+    const temp = clone(character);
     temp.baseAttributes[attribute] += 5;
     updateAttributesFast(temp, true);
     results.effectivePositiveValues[attribute] = Number(
@@ -1105,7 +1105,7 @@ function calcResults(_character) {
   // effective loss by not having +5 infusions
   results.effectiveNegativeValues = {};
   for (const attribute of ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise']) {
-    const temp = clone(_character);
+    const temp = clone(character);
     temp.baseAttributes[attribute] = Math.max(temp.baseAttributes[attribute] - 5, 0);
     updateAttributesFast(temp, true);
     results.effectiveNegativeValues[attribute] = Number(
@@ -1139,7 +1139,7 @@ function calcResults(_character) {
 
   // template helper data (damage with distribution of one)
   results.templateHelper = {};
-  const temp = clone(_character);
+  const temp = clone(character);
   temp.settings = {
     ...temp.settings,
     distributionVersion: 2,
