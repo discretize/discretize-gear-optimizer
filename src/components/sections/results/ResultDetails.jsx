@@ -47,7 +47,7 @@ const ResultDetails = ({ data }) => {
 
   // Fetch additional result values from the optimizer core (on demand)
   const character = { ...charRaw };
-  updateAttributes(character);
+  updateAttributes(character, settings);
 
   // eslint-disable-next-line no-console
   console.log('Selected Character Data:', character);

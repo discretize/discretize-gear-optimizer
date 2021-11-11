@@ -17,7 +17,7 @@ const ResultTableRow = ({ character, selected, mostCommonAffix, underlineClass }
       className={underlineClass}
     >
       <TableCell scope="row">
-        {character.attributes[character.settings.rankby].toFixed(2)}
+        {character.attributes[settings.rankby].toFixed(2)}
       </TableCell>
       {character.gear.map((element, index) => (
         // eslint-disable-next-line react/no-array-index-key

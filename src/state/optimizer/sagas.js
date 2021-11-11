@@ -50,7 +50,7 @@ function createTraitsTemplate(state, list) {
 
   if (list && list[0]) {
     const bestResult = { ...list[0] };
-    optimizerCore.updateAttributes(bestResult);
+    optimizerCore.updateAttributes(bestResult, settings);
     console.log('Best Result Damage:');
     console.table([
       Object.fromEntries(

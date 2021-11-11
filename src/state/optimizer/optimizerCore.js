@@ -36,7 +36,7 @@ let isChanged = true;
  * @param {object} input
  * @param {object[]} input.modifiers - array of modifier objects
  * @param {?string[]} input.tags - modifier data for the UI
- *                      (passed unedited into character.settings)
+ *                      (passed unedited into settings)
  * @param {string} input.profession
  * @param {string} input.weapontype
  * @param {string[]} input.affixes - all selected gear affixes to iterate over
@@ -672,7 +672,7 @@ function testCharacter(gear, gearStats, settings) {
   }
 
   // applyInfusionsFunction is aliased to the correct applyInfusions[mode] function during setup
-  applyInfusionsFunction(character);
+  applyInfusionsFunction(character, settings);
 }
 
 function addBaseStats(character, stat, amount) {
@@ -682,24 +682,21 @@ function addBaseStats(character, stat, amount) {
 const applyInfusions = {};
 
 // Applies no infusions
-applyInfusions['None'] = function (character) {
-  updateAttributesFast(character);
-  insertCharacter(character);
+applyInfusions['None'] = function (character, settings) {
+  updateAttributesFast(character, settings);
+  insertCharacter(character, settings);
 };
 
 // Just applies the primary infusion
-applyInfusions['Primary'] = function (character) {
-  const { settings } = character;
+applyInfusions['Primary'] = function (character, settings) {
   character.infusions = { [settings.primaryInfusion]: settings.primaryMaxInfusions };
   addBaseStats(character, settings.primaryInfusion, settings.primaryMaxInfusions * INFUSION_BONUS);
-  updateAttributesFast(character);
-  insertCharacter(character);
+  updateAttributesFast(character, settings);
+  insertCharacter(character, settings);
 };
 
 // Just applies the maximum number of primary/secondary infusions, since the total is ≤18
-applyInfusions['Few'] = function (character) {
-  const { settings } = character;
-
+applyInfusions['Few'] = function (character, settings) {
   character.infusions = {
     [settings.primaryInfusion]: settings.primaryMaxInfusions,
     [settings.secondaryInfusion]: settings.secondaryMaxInfusions,
@@ -710,19 +707,17 @@ applyInfusions['Few'] = function (character) {
     settings.secondaryInfusion,
     settings.secondaryMaxInfusions * INFUSION_BONUS,
   );
-  updateAttributesFast(character);
-  insertCharacter(character);
+  updateAttributesFast(character, settings);
+  insertCharacter(character, settings);
 };
 
 // Inserts every valid combination of 18 infusions
-applyInfusions['Secondary'] = function (character) {
-  const { settings } = character;
-
+applyInfusions['Secondary'] = function (character, settings) {
   const testInfusionUsefulness = function () {
     const temp = clone(character);
     addBaseStats(temp, settings.primaryInfusion, settings.maxInfusions * INFUSION_BONUS);
     addBaseStats(temp, settings.secondaryInfusion, settings.maxInfusions * INFUSION_BONUS);
-    updateAttributesFast(temp, true);
+    updateAttributesFast(temp, settings, true);
     return temp.attributes[settings.rankby] > worstScore;
   };
 
@@ -735,13 +730,13 @@ applyInfusions['Secondary'] = function (character) {
       const temp = clone(character);
       addBaseStats(temp, settings.primaryInfusion, primaryCount * INFUSION_BONUS);
       addBaseStats(temp, settings.secondaryInfusion, secondaryCount * INFUSION_BONUS);
-      updateAttributesFast(temp);
+      updateAttributesFast(temp, settings);
       if (temp.valid && temp.attributes[settings.rankby] !== previousResult) {
         temp.infusions = {
           [settings.primaryInfusion]: primaryCount,
           [settings.secondaryInfusion]: secondaryCount,
         };
-        insertCharacter(temp);
+        insertCharacter(temp, settings);
         previousResult = temp.attributes[settings.rankby];
       }
 
@@ -752,14 +747,12 @@ applyInfusions['Secondary'] = function (character) {
 };
 
 // Tests every valid combination of 18 infusions and inserts the best result
-applyInfusions['SecondaryNoDuplicates'] = function (character) {
-  const { settings } = character;
-
+applyInfusions['SecondaryNoDuplicates'] = function (character, settings) {
   const testInfusionUsefulness = function () {
     const temp = clone(character);
     addBaseStats(temp, settings.primaryInfusion, settings.maxInfusions * INFUSION_BONUS);
     addBaseStats(temp, settings.secondaryInfusion, settings.maxInfusions * INFUSION_BONUS);
-    updateAttributesFast(temp, true);
+    updateAttributesFast(temp, settings, true);
     return temp.attributes[settings.rankby] > worstScore;
   };
 
@@ -772,7 +765,7 @@ applyInfusions['SecondaryNoDuplicates'] = function (character) {
       const temp = clone(character);
       addBaseStats(temp, settings.primaryInfusion, primaryCount * INFUSION_BONUS);
       addBaseStats(temp, settings.secondaryInfusion, secondaryCount * INFUSION_BONUS);
-      updateAttributesFast(temp);
+      updateAttributesFast(temp, settings);
       if (temp.valid) {
         temp.infusions = {
           [settings.primaryInfusion]: primaryCount,
@@ -788,14 +781,14 @@ applyInfusions['SecondaryNoDuplicates'] = function (character) {
     }
 
     if (best) {
-      insertCharacter(best);
+      insertCharacter(best, settings);
     }
   }
 };
 
 let uniqueIDCounter = 0;
-function insertCharacter(character) {
-  const { settings, attributes, valid } = character;
+function insertCharacter(character, settings) {
+  const { attributes, valid } = character;
 
   if (!valid || (worstScore && worstScore > attributes[settings.rankby])) {
     return;
@@ -892,23 +885,24 @@ const clamp = (input, min, max) => {
  * calculated stats and damage/healing/survivability scores.
  *
  * @param {object} character
+ * @param {object} settings
  * @param {*} results - calculates results data only if true (must be false inside calcResults,
  *  otherwise this is an infinite loop)
  */
-export function updateAttributes(character, results = true) {
-  const { damageMultiplier } = character.settings.modifiers;
+export function updateAttributes(character, settings, results = true) {
+  const { damageMultiplier } = settings.modifiers;
   character.valid = true;
 
-  calcStats(character);
+  calcStats(character, settings);
 
-  const powerDamageScore = calcPower(character, damageMultiplier);
-  const condiDamageScore = calcCondi(character, damageMultiplier, Attributes.CONDITION);
+  const powerDamageScore = calcPower(character, settings, damageMultiplier);
+  const condiDamageScore = calcCondi(character, settings, damageMultiplier, Attributes.CONDITION);
   character.attributes['Damage'] = powerDamageScore + condiDamageScore;
 
   calcSurvivability(character, damageMultiplier);
-  calcHealing(character);
+  calcHealing(character, settings);
 
-  if (results) calcResults(character);
+  if (results) calcResults(character, settings);
 }
 
 /**
@@ -917,23 +911,23 @@ export function updateAttributes(character, results = true) {
  * boon duration/toughness/healing power are not valid according to the optimizer settings.
  *
  * @param {object} character
+ * @param {object} settings
  * @param {boolean} [skipValidation] - skips the validation check if true
  */
-function updateAttributesFast(character, skipValidation = false) {
-  const { settings } = character;
+function updateAttributesFast(character, settings, skipValidation = false) {
   const { damageMultiplier } = settings.modifiers;
   character.valid = true;
 
-  calcStats(character);
+  calcStats(character, settings);
   const { attributes } = character;
 
-  if (!skipValidation && checkInvalid(character)) {
+  if (!skipValidation && checkInvalid(character, settings)) {
     return false;
   }
 
   switch (settings.rankby) {
     case 'Damage':
-      const powerDamageScore = calcPower(character, damageMultiplier);
+      const powerDamageScore = calcPower(character, settings, damageMultiplier);
 
       // cache condi result based on cdmg and expertise
       let condiDamageScore = 0;
@@ -941,7 +935,7 @@ function updateAttributesFast(character, skipValidation = false) {
         const CONDI_CACHE_ID = attributes['Expertise'] + attributes['Condition Damage'] * 10000;
         condiDamageScore =
           condiResultCache?.get(CONDI_CACHE_ID) ||
-          calcCondi(character, damageMultiplier, settings.relevantConditions);
+          calcCondi(character, settings, damageMultiplier, settings.relevantConditions);
         condiResultCache?.set(CONDI_CACHE_ID, condiDamageScore);
       }
 
@@ -951,7 +945,7 @@ function updateAttributesFast(character, skipValidation = false) {
       calcSurvivability(character, damageMultiplier);
       break;
     case 'Healing':
-      calcHealing(character);
+      calcHealing(character, settings);
       break;
     // no default
   }
@@ -959,9 +953,9 @@ function updateAttributesFast(character, skipValidation = false) {
   return true;
 }
 
-function calcStats(character) {
+function calcStats(character, settings) {
   character.attributes = Object.assign({}, character.baseAttributes);
-  const { attributes, settings, baseAttributes } = character;
+  const { attributes, baseAttributes } = character;
 
   for (const [attribute, conversion] of settings.modifiers['convert']) {
     if (attribute === 'Outgoing Healing') {
@@ -982,8 +976,8 @@ function calcStats(character) {
   attributes['Boon Duration'] += attributes['Concentration'] / 15 / 100;
 }
 
-function checkInvalid(character) {
-  const { settings, attributes } = character;
+function checkInvalid(character, settings) {
+  const { attributes } = character;
 
   const invalid =
     (settings.minBoonDuration && attributes['Boon Duration'] < settings.minBoonDuration / 100) ||
@@ -997,8 +991,8 @@ function checkInvalid(character) {
   return invalid;
 }
 
-function calcPower(character, damageMultiplier) {
-  const { attributes, settings } = character;
+function calcPower(character, settings, damageMultiplier) {
+  const { attributes } = character;
 
   attributes['Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
   attributes['Critical Damage'] += attributes['Ferocity'] / 15 / 100;
@@ -1016,8 +1010,8 @@ function calcPower(character, damageMultiplier) {
   return damage;
 }
 
-function calcCondi(character, damageMultiplier, relevantConditions) {
-  const { attributes, settings } = character;
+function calcCondi(character, settings, damageMultiplier, relevantConditions) {
+  const { attributes } = character;
 
   attributes['Condition Duration'] += attributes['Expertise'] / 15 / 100;
   let condiDamageScore = 0;
@@ -1060,8 +1054,8 @@ function calcSurvivability(character, damageMultiplier) {
   attributes['Survivability'] = attributes['Effective Health'] / 1967;
 }
 
-function calcHealing(character) {
-  const { attributes, settings } = character;
+function calcHealing(character, settings) {
+  const { attributes } = character;
 
   // reasonably representative skill: druid celestial avatar 4 pulse
   // 390 base, 0.3 coefficient
@@ -1079,10 +1073,10 @@ function calcHealing(character) {
   attributes['Healing'] = attributes['Effective Healing'];
 }
 
-function calcResults(character) {
+function calcResults(character, settings) {
   character.results = {};
 
-  const { attributes, settings, results } = character;
+  const { attributes, results } = character;
 
   results.indicators = {};
   for (const attribute of Attributes.INDICATORS) {
@@ -1096,7 +1090,7 @@ function calcResults(character) {
   for (const attribute of ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise']) {
     const temp = clone(character);
     temp.baseAttributes[attribute] += 5;
-    updateAttributesFast(temp, true);
+    updateAttributesFast(temp, settings, true);
     results.effectivePositiveValues[attribute] = Number(
       (temp.attributes['Damage'] - attributes['Damage']).toFixed(5),
     ).toLocaleString('en-US');
@@ -1107,7 +1101,7 @@ function calcResults(character) {
   for (const attribute of ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise']) {
     const temp = clone(character);
     temp.baseAttributes[attribute] = Math.max(temp.baseAttributes[attribute] - 5, 0);
-    updateAttributesFast(temp, true);
+    updateAttributesFast(temp, settings, true);
     results.effectiveNegativeValues[attribute] = Number(
       (temp.attributes['Damage'] - attributes['Damage']).toFixed(5),
     ).toLocaleString('en-US');
@@ -1140,8 +1134,8 @@ function calcResults(character) {
   // template helper data (damage with distribution of one)
   results.templateHelper = {};
   const temp = clone(character);
-  temp.settings = {
-    ...temp.settings,
+  const temporarySettings = {
+    ...settings,
     distributionVersion: 2,
     distribution: {
       Power: 1,
@@ -1152,7 +1146,7 @@ function calcResults(character) {
       Confusion: 1,
     },
   };
-  updateAttributes(temp, false);
+  updateAttributes(temp, temporarySettings, false);
   for (const key of Object.keys(settings.distribution)) {
     if (key === 'Power') {
       results.templateHelper['Power'] = temp.attributes['Power DPS'];
@@ -1172,7 +1166,6 @@ function calcResults(character) {
  */
 export function clone(character) {
   return {
-    settings: character.settings, // passed by reference
     attributes: character.attributes, // passed by reference
     gear: character.gear, // passed by reference
     gearStats: character.gearStats, // passed by reference
