@@ -3,7 +3,12 @@ import { getImage } from 'gatsby-plugin-image';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getAllSelectedModifiers, getProfession, getSelectedCharacter } from '../../../state/slices/controlsSlice';
+import {
+  getAllSelectedModifiers,
+  getProfession,
+  getSelectedCharacter,
+  getOptimizerSettings,
+} from '../../../state/slices/resultsSlice';
 import { updateAttributes } from '../../../state/optimizer/optimizerCore';
 import { getExtras } from '../../../state/slices/extras';
 import { getPriority } from '../../../state/slices/priorities';
@@ -23,7 +28,8 @@ import { classModifiers, extrasModifiersById } from '../../../assets/modifierdat
 
 const ResultDetails = ({ data }) => {
   const profession = useSelector(getProfession);
-  const modifiers = useSelector(getAllSelectedModifiers)
+  const modifiers = useSelector(getAllSelectedModifiers);
+  const optimizerSettings = useSelector(getOptimizerSettings);
 
   const { t } = useTranslation();
 
@@ -46,7 +52,7 @@ const ResultDetails = ({ data }) => {
 
   // Fetch additional result values from the optimizer core (on demand)
   const character = { ...charRaw };
-  updateAttributes(character, settings);
+  updateAttributes(character, optimizerSettings);
 
   // eslint-disable-next-line no-console
   console.log('Selected Character Data:', character);

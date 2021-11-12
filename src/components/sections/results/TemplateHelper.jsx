@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Typography, TextField } from '@material-ui/core';
 import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
-import { getControl } from '../../../state/slices/controlsSlice';
+import { getTraitsTemplate } from '../../../state/slices/resultsSlice';
 import { parseAmount } from '../../../state/optimizer/optimizerCore';
 
 const initial = {
@@ -29,7 +29,7 @@ const fixPoison = (input) =>
   );
 
 const TemplateHelper = ({ character }) => {
-  const traitsTemplate = useSelector(getControl('traitsTemplate'));
+  const traitsTemplate = useSelector(getTraitsTemplate);
   const { t } = useTranslation();
 
   const [input, setInput] = React.useState(initial);

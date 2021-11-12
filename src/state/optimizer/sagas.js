@@ -3,15 +3,14 @@ import { put, take, race, call, all, select, cancelled } from 'redux-saga/effect
 
 import * as optimizerCore from './optimizerCore';
 
+import { changeControl, changeError } from '../slices/controlsSlice';
 import {
-  changeControl,
   changeList,
   changeSelectedCharacter,
   getSelectedCharacter,
   getList,
-  setAllSelectedModifiers,
-  changeError,
-} from '../slices/controlsSlice';
+  changeResults,
+} from '../slices/resultsSlice';
 import { getExtrasModifiers } from '../slices/extras';
 import { getBuffsModifiers } from '../slices/buffs';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
@@ -50,7 +49,7 @@ function createTraitsTemplate(state, list) {
 
   if (list && list[0]) {
     const bestResult = { ...list[0] };
-    optimizerCore.updateAttributes(bestResult, settings);
+    optimizerCore.updateAttributes(bestResult, state.results.optimizerSettings);
     console.log('Best Result Damage:');
     console.table([
       Object.fromEntries(
@@ -165,7 +164,6 @@ function* runCalc() {
       ...(yield select(getSkillsModifiers) || []),
       ...(yield select(getTraitsModifiers) || []),
     ];
-    yield put(setAllSelectedModifiers(modifiers));
 
     input = createInput(optimizerState, modifiers);
 
@@ -175,6 +173,14 @@ function* runCalc() {
 
     settings = optimizerCore.setup(input);
     console.groupEnd();
+
+    yield put(
+      changeResults({
+        profession: optimizerState.control.profession,
+        optimzerSettings: settings,
+        allSelectedModifiers: modifiers,
+      }),
+    );
 
     const generatedResults = optimizerCore.calculate(settings);
 
@@ -216,7 +222,11 @@ function* runCalc() {
     }
     yield put(changeList(currentList));
     const traitsTemplate = createTraitsTemplate(optimizerState, currentList);
-    yield put(changeControl({ key: 'traitsTemplate', value: traitsTemplate }));
+    yield put(
+      changeResults({
+        traitsTemplate,
+      }),
+    );
     console.groupEnd();
 
     console.timeEnd('Calculation');
