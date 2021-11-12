@@ -7,6 +7,8 @@ import createSagaMiddleware from 'redux-saga';
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
 
 import { controlSlice } from './slices/controlsSlice';
+import { resultsSlice } from './slices/resultsSlice';
+
 import { extrasSlice } from './slices/extras';
 import gearOptimizerSaga from './optimizer/sagas';
 import { distributionSlice } from './slices/distribution';
@@ -44,6 +46,8 @@ const reducers = combineReducers({
   gw2UiStore: gw2UIReducer,
   optimizer: combineReducers({
     control: controlSlice.reducer,
+    results: resultsSlice.reducer,
+
     extras: extrasSlice.reducer,
     distribution: distributionSlice.reducer,
     buffs: buffsSlice.reducer,
