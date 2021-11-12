@@ -3,7 +3,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import Section from '../../baseComponents/Section';
-import CopyTemplateButton from './CopyTemplateButton';
+import CopyTemplateButton from '../controls/CopyTemplateButton';
 import TemplateHelper from './TemplateHelper';
 
 const TemplateHelperSections = ({
