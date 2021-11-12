@@ -23,7 +23,7 @@ import { ERROR, SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function createTraitsTemplate(state, list) {
+function createTraitsTemplate(state, settings, list) {
   // const { profession, traits, skills, extras } = state;
 
   const withoutModifiers = (object) => {
@@ -49,7 +49,7 @@ function createTraitsTemplate(state, list) {
 
   if (list && list[0]) {
     const bestResult = { ...list[0] };
-    optimizerCore.updateAttributes(bestResult, state.results.optimizerSettings);
+    optimizerCore.updateAttributes(bestResult, settings);
     console.log('Best Result Damage:');
     console.table([
       Object.fromEntries(
@@ -177,7 +177,7 @@ function* runCalc() {
     yield put(
       changeResults({
         profession: optimizerState.control.profession,
-        optimzerSettings: settings,
+        optimizerSettings: settings,
         allSelectedModifiers: modifiers,
       }),
     );
@@ -221,7 +221,7 @@ function* runCalc() {
       yield delay(0);
     }
     yield put(changeList(currentList));
-    const traitsTemplate = createTraitsTemplate(optimizerState, currentList);
+    const traitsTemplate = createTraitsTemplate(optimizerState, settings, currentList);
     yield put(
       changeResults({
         traitsTemplate,
