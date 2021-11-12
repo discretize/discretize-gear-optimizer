@@ -117,9 +117,7 @@ const DamageDistribution = ({ classes }) => {
     dispatch(changeAllDistributionsOld(percentDistribution));
   };
 
-  const initialPercentDistribution = Object.values(
-    coefficientsToPercents(distributionNew, true),
-  );
+  const initialPercentDistribution = Object.values(coefficientsToPercents(distributionNew, true));
   const initialPercentValue = [0, 1, 2, 3, 4].map((i) => {
     let total = 0;
     for (let j = 0; j <= i; j++) {

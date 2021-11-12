@@ -63,7 +63,6 @@ const StickyHeadTable = ({ classes }) => {
           </TableHead>
           <TableBody className={classes.pointer}>
             {list.map((character, i) => {
-
               // underline under the set of equivalent, optimal results
               const firstResult = list[0]?.attributes[character.settings.rankby];
               const thisResult = list[i]?.attributes[character.settings.rankby];
