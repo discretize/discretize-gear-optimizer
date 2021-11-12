@@ -790,6 +790,8 @@ let uniqueIDCounter = 0;
 function insertCharacter(character, settings) {
   const { attributes, valid } = character;
 
+  character.results = { value: character.attributes[settings.rankby] };
+
   if (!valid || (worstScore && worstScore > attributes[settings.rankby])) {
     return;
   }
