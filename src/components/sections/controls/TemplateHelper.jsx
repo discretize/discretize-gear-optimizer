@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Typography, TextField } from '@material-ui/core';
 import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
-import { getControl } from '../../../state/controlsSlice';
+import { getControl } from '../../../state/slices/controlsSlice';
 import { parseAmount } from '../../../state/optimizer/optimizerCore';
 
 const initial = {

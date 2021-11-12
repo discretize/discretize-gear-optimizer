@@ -6,7 +6,7 @@ import { graphql, StaticQuery } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getControl, getProfession } from '../state/controlsSlice';
+import { getControl, getProfession } from '../state/slices/controlsSlice';
 import NavBar from './nav/NavBar';
 import BuffsSection from './sections/buffs/BuffsSection';
 import Controls from './sections/controls/Controls';

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { WAITING } from './optimizer/status';
-import { firstUppercase } from '../utils/usefulFunctions';
+import { WAITING } from '../optimizer/status';
+import { firstUppercase } from '../../utils/usefulFunctions';
 
 export const controlSlice = createSlice({
   name: 'control',

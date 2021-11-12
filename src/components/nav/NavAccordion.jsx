@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { Profession } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setBuildTemplate } from '../../state/controlsSlice';
+import { setBuildTemplate } from '../../state/slices/controlsSlice';
 import { firstUppercase } from '../../utils/usefulFunctions';
 
 const Accordion = withStyles({

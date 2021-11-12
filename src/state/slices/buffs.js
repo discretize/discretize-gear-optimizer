@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setBuildTemplate } from '../controlsSlice';
+import { setBuildTemplate } from './controlsSlice';
 
 import { buffModifiersById } from '../../assets/modifierdata';
 

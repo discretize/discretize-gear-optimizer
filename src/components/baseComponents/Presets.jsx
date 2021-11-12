@@ -5,7 +5,7 @@ import { Profession } from 'gw2-ui-bulk';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { getProfession, getControl } from '../../state/controlsSlice';
+import { getProfession, getControl } from '../../state/slices/controlsSlice';
 import { firstUppercase } from '../../utils/usefulFunctions';
 
 const useStyles = makeStyles((theme) => ({

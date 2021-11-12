@@ -3,7 +3,7 @@ import { getImage } from 'gatsby-plugin-image';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getAllSelectedModifiers, getProfession, getSelectedCharacter } from '../../../state/controlsSlice';
+import { getAllSelectedModifiers, getProfession, getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import { updateAttributes } from '../../../state/optimizer/optimizerCore';
 import { getExtras } from '../../../state/slices/extras';
 import { getPriority } from '../../../state/slices/priorities';

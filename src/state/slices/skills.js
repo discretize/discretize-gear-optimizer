@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { changeProfession, setBuildTemplate } from '../controlsSlice';
+import { changeProfession, setBuildTemplate } from './controlsSlice';
 
 import { classModifiersById } from '../../assets/modifierdata';
 

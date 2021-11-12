@@ -6,7 +6,7 @@ import createSagaMiddleware from 'redux-saga';
 
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
 
-import { controlSlice } from './controlsSlice';
+import { controlSlice } from './slices/controlsSlice';
 import { extrasSlice } from './slices/extras';
 import gearOptimizerSaga from './optimizer/sagas';
 import { distributionSlice } from './slices/distribution';

@@ -11,7 +11,7 @@ import {
   getList,
   setAllSelectedModifiers,
   changeError,
-} from '../controlsSlice';
+} from '../slices/controlsSlice';
 import { getExtrasModifiers } from '../slices/extras';
 import { getBuffsModifiers } from '../slices/buffs';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';

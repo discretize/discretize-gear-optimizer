@@ -13,7 +13,7 @@ import {
   changeError,
   getControl,
   getError,
-} from '../../../state/controlsSlice';
+} from '../../../state/slices/controlsSlice';
 import { ABORTED, ERROR, RUNNING, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import { getPriority } from '../../../state/slices/priorities';
 import { firstUppercase } from '../../../utils/usefulFunctions';

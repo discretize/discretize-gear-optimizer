@@ -1,7 +1,7 @@
 import { FormControl, InputLabel, MenuItem, Select, withStyles } from '@material-ui/core';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeControl, getControl, getProfession } from '../../../state/controlsSlice';
+import { changeControl, getControl, getProfession } from '../../../state/slices/controlsSlice';
 import { Classes } from '../../../utils/gw2-data';
 
 const styles = (theme) => ({

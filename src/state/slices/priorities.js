@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setBuildTemplate } from '../controlsSlice';
+import { setBuildTemplate } from './controlsSlice';
 
 export const prioritiesSlice = createSlice({
   name: 'priorities',

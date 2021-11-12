@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setBuildTemplate } from '../controlsSlice';
+import { setBuildTemplate } from './controlsSlice';
 import { Condition } from '../../utils/gw2-data';
 
 const fixedCondition = { ...Condition, Poisoned: Condition.Poison };
