@@ -47,7 +47,7 @@
       defaultEnabled: true
 
     - id: yearning-empowerment
-      text: Yearning Empowerement
+      text: Yearning Empowerment
       minor: true
       modifiers:
         attributes:
