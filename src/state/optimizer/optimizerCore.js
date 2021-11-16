@@ -53,9 +53,9 @@ let isChanged = true;
  * @param {?number} input.primaryMaxInfusions - number of infusions, 0-18
  * @param {?number} input.secondaryMaxInfusions - number of infusions, 0-18
  * @param {?number} input.distributionVersion - version 1: old style (percentDistribution) - verison 2: new style (coeff / sec)
- * @param {?object.<number>} input.percentDistribution - old style distribution
+ * @param {?object.<string, number>} input.percentDistribution - old style distribution
  *                                   (sums to 100)
- * @param {?object.<number>} input.distribution - new style distribution
+ * @param {?object.<string, number>} input.distribution - new style distribution
  *                                   (coefficient * weaponstrength per second; average condition stacks)
  * @returns {object} settings - parsed settings object
  */
