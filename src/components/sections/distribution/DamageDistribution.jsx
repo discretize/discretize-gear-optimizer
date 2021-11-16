@@ -173,9 +173,16 @@ const DamageDistribution = ({ classes }) => {
 
   const handleChangeTextNew = (key) => (e) => {
     const { value } = e.target;
-    if (value.match('^[-+]?[0-9]*.?[0-9]+([eE][-+]?[0-9]+)?$')) {
-      // only update the actual slider when the number entered is a valid string. The regex matches for integer or floats.
-      dispatch(changeDistributionNew({ index: key, value }));
+
+    if (!value) {
+      dispatch(changeDistributionNew({ index: key, value: 0 }));
+
+      // only update the value when the text entered is a valid number. The regex matches for integer or floats.
+    } else if (value.match('^[-+]?[0-9]*.?[0-9]+([eE][-+]?[0-9]+)?$')) {
+      const parsedValue = Number.parseFloat(value);
+      if (!Number.isNaN(parsedValue)) {
+        dispatch(changeDistributionNew({ index: key, value: parsedValue }));
+      }
     }
 
     dispatch(changeTextBoxes({ index: key, value }));
