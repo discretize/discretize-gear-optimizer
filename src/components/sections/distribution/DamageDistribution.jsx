@@ -179,9 +179,9 @@ const DamageDistribution = ({ classes }) => {
 
       // only update the value when the text entered is a valid number. The regex matches for integer or floats.
     } else if (value.match('^[-+]?[0-9]*.?[0-9]+([eE][-+]?[0-9]+)?$')) {
-      const parsedValue = Number.parseInt(value, 10);
+      const parsedValue = Number.parseFloat(value);
       if (!Number.isNaN(parsedValue)) {
-        dispatch(changeDistributionNew({ index: key, value }));
+        dispatch(changeDistributionNew({ index: key, value: parsedValue }));
       }
     }
 
