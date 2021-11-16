@@ -290,7 +290,7 @@ function parsePercent(value, key, id) {
       typeof num === 'number' && !Number.isNaN(num),
       `invalid number ${value} for ${key} in ${id}`,
     );
-    if (num < 1 && key !== 'Outgoing Healing')
+    if (num < 1 && num > -1 && key !== 'Outgoing Healing')
       console.log(`note: value ${num} in ${id} doesn't look like a percent`);
   }
 }
