@@ -32,12 +32,13 @@ export const infusionsSlice = createSlice({
   },
 });
 
-export const getMaxInfusions = (state) => state.optimizer.maxInfusions;
-export const getInfusions = (state) => state.optimizer.infusions;
-export const getAR = (state) => state.optimizer.infusions.ar;
-export const getOmniPotion = (state) => state.optimizer.infusions.omnipotion;
+export const getMaxInfusions = (state) => state.optimizer.form.maxInfusions;
+export const getInfusions = (state) => state.optimizer.form.infusions;
+export const getAR = (state) => state.optimizer.form.infusions.ar;
+export const getOmniPotion = (state) => state.optimizer.form.infusions.omnipotion;
 
-export const getInfusionsModifiers = ({ optimizer: { infusions } }) => {
+export const getInfusionsModifiers = (state) => {
+  const { infusions } = state.optimizer.form;
   const result = [];
 
   if (infusions.ar) {

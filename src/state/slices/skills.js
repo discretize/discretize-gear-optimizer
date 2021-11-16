@@ -35,9 +35,10 @@ export const skillsSlice = createSlice({
   },
 });
 
-export const getSkills = (state) => state.optimizer.skills.skills;
+export const getSkills = (state) => state.optimizer.form.skills.skills;
 
-export const getSkillsModifiers = ({ optimizer: { skills } }) => {
+export const getSkillsModifiers = (state) => {
+  const { skills } = state.optimizer.form;
   const enabledModifiers = skills.skills;
 
   return enabledModifiers.map((id) => {

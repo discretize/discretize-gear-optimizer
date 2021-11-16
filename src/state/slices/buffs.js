@@ -67,10 +67,11 @@ export const buffsSlice = createSlice({
   },
 });
 
-export const getBuffs = (state) => state.optimizer.buffs.buffs;
-export const getBuffAmounts = (state) => state.optimizer.buffs.amounts;
+export const getBuffs = (state) => state.optimizer.form.buffs.buffs;
+export const getBuffAmounts = (state) => state.optimizer.form.buffs.amounts;
 
-export const getBuffsModifiers = ({ optimizer: { buffs } }) => {
+export const getBuffsModifiers = (state) => {
+  const { buffs } = state.optimizer.form;
   const enabledModifiers = Object.keys(buffs.buffs).filter((key) => buffs.buffs[key]);
 
   return enabledModifiers.map((id) => {

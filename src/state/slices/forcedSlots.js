@@ -12,6 +12,6 @@ export const forcedSlotsSlice = createSlice({
   },
 });
 
-export const getForcedSlots = (state) => state.optimizer.forcedSlots.slots;
+export const getForcedSlots = (state) => state.optimizer.form.forcedSlots.slots;
 
 export const { changeForcedSlot } = forcedSlotsSlice.actions;

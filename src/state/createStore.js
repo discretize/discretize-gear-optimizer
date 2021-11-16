@@ -44,15 +44,17 @@ const reducers = combineReducers({
   gw2UiStore: gw2UIReducer,
   optimizer: combineReducers({
     control: controlSlice.reducer,
-    extras: extrasSlice.reducer,
-    distribution: distributionSlice.reducer,
-    buffs: buffsSlice.reducer,
-    infusions: infusionsSlice.reducer,
-    traits: traitsSlice.reducer,
-    skills: skillsSlice.reducer,
-    priorities: prioritiesSlice.reducer,
-    extraModifiers: extraModifiersSlice.reducer,
-    forcedSlots: forcedSlotsSlice.reducer,
+    form: combineReducers({
+      extras: extrasSlice.reducer,
+      distribution: distributionSlice.reducer,
+      buffs: buffsSlice.reducer,
+      infusions: infusionsSlice.reducer,
+      traits: traitsSlice.reducer,
+      skills: skillsSlice.reducer,
+      priorities: prioritiesSlice.reducer,
+      extraModifiers: extraModifiersSlice.reducer,
+      forcedSlots: forcedSlotsSlice.reducer,
+    }),
   }),
 });
 

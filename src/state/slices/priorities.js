@@ -25,6 +25,6 @@ export const prioritiesSlice = createSlice({
   },
 });
 
-export const getPriority = (key) => (state) => state.optimizer.priorities[key];
+export const getPriority = (key) => (state) => state.optimizer.form.priorities[key];
 
 export const { changePriority } = prioritiesSlice.actions;
