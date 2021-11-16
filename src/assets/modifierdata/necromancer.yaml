@@ -334,6 +334,14 @@
       gw2id: 2192
       defaultEnabled: true
 
+    - id: twisted-medicine
+      text: Twisted Medicine
+      modifiers:
+        conversion:
+          Concentration: {Vitality: 13%}
+      gw2id: 2220
+      defaultEnabled: true
+
     - id: dark-gunslinger
       text: Dark Gunslinger
       modifiers:
