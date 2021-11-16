@@ -145,10 +145,10 @@ export const distributionSlice = createSlice({
   },
 });
 
-export const getDistributionVersion = (state) => state.optimizer.distribution.version;
-export const getDistributionOld = (state) => state.optimizer.distribution.values1;
-export const getDistributionNew = (state) => state.optimizer.distribution.values2;
-export const getTextBoxes = (state) => state.optimizer.distribution.textBoxes;
+export const getDistributionVersion = (state) => state.optimizer.form.distribution.version;
+export const getDistributionOld = (state) => state.optimizer.form.distribution.values1;
+export const getDistributionNew = (state) => state.optimizer.form.distribution.values2;
+export const getTextBoxes = (state) => state.optimizer.form.distribution.textBoxes;
 
 export const {
   changeDistributionVersion,

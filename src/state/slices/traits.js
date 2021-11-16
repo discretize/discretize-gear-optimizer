@@ -84,12 +84,13 @@ export const traitsSlice = createSlice({
   },
 });
 
-export const getShowAllTraits = (state) => state.optimizer.traits.showAll;
-export const getTraitLines = (state) => state.optimizer.traits.selectedLines;
-export const getTraits = (state) => state.optimizer.traits.selectedTraits;
-export const getTraitItems = (state) => state.optimizer.traits.items;
+export const getShowAllTraits = (state) => state.optimizer.form.traits.showAll;
+export const getTraitLines = (state) => state.optimizer.form.traits.selectedLines;
+export const getTraits = (state) => state.optimizer.form.traits.selectedTraits;
+export const getTraitItems = (state) => state.optimizer.form.traits.items;
 
-export const getTraitsModifiers = ({ optimizer: { traits } }) => {
+export const getTraitsModifiers = (state) => {
+  const { traits } = state.optimizer.form;
   const allSelectedTraits = traits.selectedTraits.flat(2);
 
   const result = [];

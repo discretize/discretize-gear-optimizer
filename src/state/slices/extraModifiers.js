@@ -17,9 +17,10 @@ export const extraModifiersSlice = createSlice({
   },
 });
 
-export const getExtraModifiers = (key) => (state) => state.optimizer.extraModifiers[key];
+export const getExtraModifiers = (key) => (state) => state.optimizer.form.extraModifiers[key];
 
-export const getExtraModifiersModifiers = ({ optimizer: { extraModifiers } }) => {
+export const getExtraModifiersModifiers = (state) => {
+  const { extraModifiers } = state.optimizer.form;
   return extraModifiers.extraModifiers.map((data, index) => ({
     id: `extraModifier ${index + 1}`,
     modifiers: data,

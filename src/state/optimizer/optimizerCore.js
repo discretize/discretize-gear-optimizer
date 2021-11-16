@@ -797,6 +797,8 @@ let uniqueIDCounter = 0;
 function insertCharacter(character) {
   const { settings, attributes, valid } = character;
 
+  character.results = { value: character.attributes[settings.rankby] };
+
   if (!valid || (worstScore && worstScore > attributes[settings.rankby])) {
     return;
   }
@@ -1083,6 +1085,8 @@ function calcResults(character) {
   character.results = {};
 
   const { attributes, settings, results } = character;
+
+  results.value = character.attributes[settings.rankby];
 
   results.indicators = {};
   for (const attribute of Attributes.INDICATORS) {

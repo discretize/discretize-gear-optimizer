@@ -37,14 +37,14 @@ function createTraitsTemplate(state, list) {
 
   const traitsTemplate = {
     profession: state.control.profession,
-    traits: withoutModifiers(state.traits),
-    skills: withoutModifiers(state.skills),
-    extras: withoutModifiers(state.extras),
+    traits: withoutModifiers(state.form.traits),
+    skills: withoutModifiers(state.form.skills),
+    extras: withoutModifiers(state.form.extras),
   };
 
   console.log('Traits:', traitsTemplate);
 
-  const distribution = state.distribution.values2;
+  const distribution = state.form.distribution.values2;
   console.log('Input Distribution (v2):');
   console.table([distribution]);
 
@@ -67,24 +67,26 @@ function createTraitsTemplate(state, list) {
 function createInput(state, modifiers) {
   const {
     control: { profession },
-    infusions: {
-      primaryInfusion,
-      secondaryInfusion,
-      maxInfusions: maxInfusionsInput,
-      primaryMaxInfusions: primaryMaxInfusionsInput,
-      secondaryMaxInfusions: secondaryMaxInfusionsInput,
+    form: {
+      infusions: {
+        primaryInfusion,
+        secondaryInfusion,
+        maxInfusions: maxInfusionsInput,
+        primaryMaxInfusions: primaryMaxInfusionsInput,
+        secondaryMaxInfusions: secondaryMaxInfusionsInput,
+      },
+      forcedSlots: { slots },
+      priorities: {
+        optimizeFor,
+        weaponType,
+        minBoonDuration,
+        minHealingPower,
+        minToughness,
+        maxToughness,
+        affixes,
+      },
+      distribution: { version, values1, values2 },
     },
-    forcedSlots: { slots },
-    priorities: {
-      optimizeFor,
-      weaponType,
-      minBoonDuration,
-      minHealingPower,
-      minToughness,
-      maxToughness,
-      affixes,
-    },
-    distribution: { version, values1, values2 },
   } = state;
 
   const parseTextNumber = (text, defaultValue) => {
@@ -144,7 +146,7 @@ function createInput(state, modifiers) {
 }
 
 function* runCalc() {
-  let optimizerState;
+  let state;
   let currentList;
   let input;
   let settings;
@@ -154,8 +156,8 @@ function* runCalc() {
     yield delay(0);
     console.time('Calculation');
 
-    const state = yield select();
-    optimizerState = state.optimizer;
+    const reduxState = yield select();
+    state = reduxState.optimizer;
 
     const modifiers = [
       ...(yield select(getExtrasModifiers) || []),
@@ -167,10 +169,10 @@ function* runCalc() {
     ];
     yield put(setAllSelectedModifiers(modifiers));
 
-    input = createInput(optimizerState, modifiers);
+    input = createInput(state, modifiers);
 
     console.groupCollapsed('Debug Info:');
-    console.log('Redux State:', optimizerState);
+    console.log('Redux State:', state);
     console.log('Input:', input);
 
     settings = optimizerCore.setup(input);
@@ -215,7 +217,7 @@ function* runCalc() {
       yield delay(0);
     }
     yield put(changeList(currentList));
-    const traitsTemplate = createTraitsTemplate(optimizerState, currentList);
+    const traitsTemplate = createTraitsTemplate(state, currentList);
     yield put(changeControl({ key: 'traitsTemplate', value: traitsTemplate }));
     console.groupEnd();
 
@@ -246,7 +248,7 @@ function* runCalc() {
     // eslint-disable-next-line no-alert
     alert(`There was an error in the calculation!\n\n${e}`);
     console.log(e);
-    console.log('state:', { ...optimizerState });
+    console.log('state:', { ...state });
     console.log('input:', { ...input });
     console.log('settings:', { ...settings });
     console.log('list:', { ...currentList });

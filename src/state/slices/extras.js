@@ -30,10 +30,11 @@ export const extrasSlice = createSlice({
   },
 });
 
-export const getExtra = (key) => (state) => state.optimizer.extras[key];
-export const getExtras = (state) => state.optimizer.extras;
+export const getExtra = (key) => (state) => state.optimizer.form.extras[key];
+export const getExtras = (state) => state.optimizer.form.extras;
 
-export const getExtrasModifiers = ({ optimizer: { extras } }) => {
+export const getExtrasModifiers = (state) => {
+  const { extras } = state.optimizer.form;
   const enabledTypes = extrasTypes.filter((key) => extras[key]);
 
   return enabledTypes.map((type) => {
