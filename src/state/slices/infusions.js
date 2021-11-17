@@ -12,6 +12,14 @@ export const infusionsSlice = createSlice({
     secondaryInfusion: '',
     primaryMaxInfusions: '',
     secondaryMaxInfusions: '',
+    helperData: {
+      enabled: false,
+      slots: 18,
+      impedence: 0,
+      attunement: 0,
+      singularity: false,
+      tear: false,
+    },
   },
   reducers: {
     changeAR: (state, action) => {
@@ -29,13 +37,33 @@ export const infusionsSlice = createSlice({
     changeInfusions: (state, action) => {
       return { ...state, ...action.payload };
     },
+    changeHelperEnabled: (state, action) => {
+      state.helperData.enabled = action.payload;
+    },
+    changeSlots: (state, action) => {
+      state.helperData.slots = action.payload;
+    },
+    changeImpedence: (state, action) => {
+      state.helperData.impedence = action.payload;
+    },
+    changeAttunement: (state, action) => {
+      state.helperData.attunement = action.payload;
+    },
+    changeSingularity: (state, action) => {
+      state.helperData.singularity = action.payload;
+    },
+    changeTear: (state, action) => {
+      state.helperData.tear = action.payload;
+    },
   },
 });
 
-export const getMaxInfusions = (state) => state.optimizer.form.maxInfusions;
+// export const getMaxInfusions = (state) => state.optimizer.form.infusions.maxInfusions;
 export const getInfusions = (state) => state.optimizer.form.infusions;
 export const getAR = (state) => state.optimizer.form.infusions.ar;
 export const getOmniPotion = (state) => state.optimizer.form.infusions.omnipotion;
+
+export const getHelperData = (state) => state.optimizer.form.infusions.helperData;
 
 export const getInfusionsModifiers = (state) => {
   const { infusions } = state.optimizer.form;
@@ -62,5 +90,16 @@ export const getInfusionsModifiers = (state) => {
   return result;
 };
 
-export const { changeAR, changeOmnipotion, changeMaxInfusions, changeInfusion, changeInfusions } =
-  infusionsSlice.actions;
+export const {
+  changeAR,
+  changeOmnipotion,
+  changeMaxInfusions,
+  changeInfusion,
+  changeInfusions,
+  changeHelperEnabled,
+  changeSlots,
+  changeImpedence,
+  changeAttunement,
+  changeSingularity,
+  changeTear,
+} = infusionsSlice.actions;
