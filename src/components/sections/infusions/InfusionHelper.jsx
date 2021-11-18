@@ -7,13 +7,12 @@ import {
   AccordionDetails,
   AccordionSummary,
 } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { useDispatch, useSelector } from 'react-redux';
 import { Trans } from 'gatsby-plugin-react-i18next';
-import { Item, CommonEffect } from 'gw2-ui-bulk';
-
+import { Item, CommonEffect, Coin } from 'gw2-ui-bulk';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
-
 import {
   changeAR,
   getAR,
@@ -86,15 +85,16 @@ const calcAgonyInfusions = (slots, ar) => {
   // AR infusion cost is about 1g for +7; doubles with each additional
   const agonyCost = lowerCount * 2 ** (lowerType - 7) + higherCount * 2 ** (higherType - 7);
 
-  const agonyArray = [];
-  agonyArray.push(Array(lowerCount).fill(`+${lowerType}`));
-  agonyArray.push(Array(higherCount).fill(`+${higherType}`));
+  const agonyArray = [
+    ...Array(lowerCount).fill(`+${lowerType} agony`),
+    ...Array(higherCount).fill(`+${higherType} agony`),
+  ];
 
   const agonyText = [];
-  if (lowerCount) agonyText.push(`${lowerCount}x +${lowerType}`);
-  if (higherCount) agonyText.push(`${higherCount}x +${higherType}`);
+  if (lowerCount) agonyText.push(`${lowerCount}x +${lowerType} agony`);
+  if (higherCount) agonyText.push(`${higherCount}x +${higherType} agony`);
 
-  return { agonyCost, agonyText /* agonyArray */ };
+  return { agonyCost, agonyText, agonyArray };
 };
 
 const InfusionHelper = () => {
@@ -134,12 +134,10 @@ const InfusionHelper = () => {
   );
 
   const helperResult = React.useMemo(() => {
-    let resultText = '';
     const ARFromGear = ar - impedence - attunement - (singularity ? 5 : 0) - (tear ? 15 : 0);
 
     if (ARFromGear <= 0) {
-      resultText += '\nNo infusions needed!';
-      return resultText;
+      return { error: 'No infusions needed!' };
     }
 
     const statSlots = Math.min(
@@ -150,20 +148,13 @@ const InfusionHelper = () => {
 
     const agonySlots = slots - statSlots;
 
-    resultText += `ARFromGear:${ARFromGear}, statSlots: ${statSlots}, slots: ${slots}, agonySlots: ${agonySlots}
-`;
-
     if (agonySlots < 0) {
-      resultText += 'Error: more stat infusions selected than slots!';
-      return resultText;
+      return { error: 'More stat infusions selected than slots!' };
     }
 
     if (ARFromGear > 30 * agonySlots + 9 * statSlots) {
-      resultText += 'Error: target AR is too high!';
-      return resultText;
+      return { error: 'Target AR is too high!' };
     }
-
-    const resultArray = [];
 
     let nine = statSlots;
     let seven = 0;
@@ -214,8 +205,7 @@ const InfusionHelper = () => {
     console.log('optimized result:', bestResult);
 
     if (!bestResult) {
-      resultText += 'Error: target AR is too high!';
-      return resultText;
+      return { error: 'Target AR is too high!' };
     }
 
     const statText = [];
@@ -225,11 +215,19 @@ const InfusionHelper = () => {
     if (bestResult.seven) statText.push(`${bestResult.seven}x +7 stat`);
     if (bestResult.nine) statText.push(`${bestResult.nine}x +9 stat`);
 
-    resultText += `\n${[...statText, ...bestResult.agony.agonyText].join(', ')}`;
+    const resultText = `\n${[...statText, ...bestResult.agony.agonyText].join(', ')}`;
 
-    resultText += `\nCost: ${bestResult.cost}`;
+    const resultArray = [
+      ...Array(bestResult.zero).fill(`WvW stat`),
+      ...Array(bestResult.five).fill(`+5 stat`),
+      ...Array(bestResult.seven).fill(`+7 stat`),
+      ...Array(bestResult.nine).fill(`+9 stat`),
+      ...bestResult.agony.agonyArray,
+    ];
 
-    return resultText;
+    const { cost } = bestResult;
+
+    return { resultText, resultArray, cost };
   }, [
     ar,
     attunement,
@@ -244,6 +242,8 @@ const InfusionHelper = () => {
     tear,
   ]);
 
+  const { error, resultText, resultArray, cost } = helperResult;
+
   return (
     <Accordion expanded={enabled} onChange={handleEnabledChange}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -252,8 +252,66 @@ const InfusionHelper = () => {
         </Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Grid container spacing={6}>
-          <Grid container item xs={12} sm={11}>
+        <Grid container spacing={4}>
+          <Grid container item xs={12}>
+            <Grid item xs={12}>
+              <Typography>
+                <Trans>Account AR</Trans>
+              </Typography>
+            </Grid>
+            <Grid item xs={10}>
+              <Slider
+                value={impedence}
+                step={null}
+                min={0}
+                max={20}
+                marks={impedenceMarks}
+                valueLabelDisplay="auto"
+                onChange={handleImpedenceChange}
+              />
+            </Grid>
+            <Grid item xs={10}>
+              <Slider
+                value={attunement}
+                step={null}
+                min={0}
+                max={25}
+                marks={attunementMarks}
+                valueLabelDisplay="auto"
+                onChange={handleAttunementChange}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <CheckboxComponent
+                value={singularity}
+                checked={singularity}
+                label={
+                  <Typography variant="body2">
+                    <Trans>
+                      +5 AR from <CommonEffect name="Rigorous Certainty" />
+                    </Trans>
+                  </Typography>
+                }
+                onChange={(e) => dispatch(changeSingularity(e.target.checked))}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <CheckboxComponent
+                value={tear}
+                checked={tear}
+                label={
+                  <Typography variant="body2">
+                    <Trans>
+                      +15 AR from <Item id={70596} /> w/ mastery
+                    </Trans>
+                  </Typography>
+                }
+                onChange={(e) => dispatch(changeTear(e.target.checked))}
+              />
+            </Grid>
+          </Grid>
+
+          <Grid container item xs={12} md={11}>
             <Grid item xs={12}>
               <Typography id="target-ar">
                 <Trans>Target AR</Trans>
@@ -300,69 +358,35 @@ const InfusionHelper = () => {
             </Grid>
           </Grid>
 
-          <Grid container item xs={12} sm={9}>
-            <Typography>
-              <Trans>Account AR</Trans>
-            </Typography>
-            <Grid item xs={12}>
-              <Slider
-                value={impedence}
-                step={null}
-                min={0}
-                max={20}
-                marks={impedenceMarks}
-                valueLabelDisplay="auto"
-                onChange={handleImpedenceChange}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Slider
-                value={attunement}
-                step={null}
-                min={0}
-                max={25}
-                marks={attunementMarks}
-                valueLabelDisplay="auto"
-                onChange={handleAttunementChange}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <CheckboxComponent
-                value={singularity}
-                checked={singularity}
-                label={
-                  <>
-                    <Trans>Include 5 AR from </Trans>
-                    <CommonEffect name="Rigorous Certainty" />
-                  </>
-                }
-                onChange={(e) => dispatch(changeSingularity(e.target.checked))}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <CheckboxComponent
-                value={tear}
-                checked={tear}
-                label={
-                  <>
-                    <Trans>
-                      Include 15 AR from <Item id={70596} /> w/ mastery
-                    </Trans>
-                  </>
-                }
-                onChange={(e) => dispatch(changeTear(e.target.checked))}
-              />
-            </Grid>
-          </Grid>
-
-          <Grid item xs={12}>
-            <Typography>
-              <Trans>Result</Trans>
-            </Typography>
-            <Typography variant="caption">
-              <Trans>Note: Not cost optimized for weapon sets.</Trans>
-            </Typography>
-            <pre>{helperResult}</pre>
+          <Grid item xs={12} md={11}>
+            {error ? (
+              <Alert variant="outlined" severity="error">
+                {error}
+              </Alert>
+            ) : (
+              <>
+                <Typography>
+                  <Trans>Result: </Trans>
+                  {resultText}
+                </Typography>
+                <Typography>
+                  <Trans>
+                    Estimated Cost: <Coin value={cost * 10000} />
+                  </Trans>
+                </Typography>
+                <Typography variant="body2">
+                  {resultArray.map((text) => (
+                    <>
+                      {text}
+                      <br />
+                    </>
+                  ))}
+                </Typography>
+                <Typography variant="caption">
+                  <Trans>Note: Not cost optimized for {'>'}1 weapon set.</Trans>
+                </Typography>
+              </>
+            )}
           </Grid>
         </Grid>
       </AccordionDetails>
