@@ -26,6 +26,7 @@ import {
   changeTear,
   getHelperData,
 } from '../../../state/slices/infusions';
+import { INFUSIONS } from '../../../utils/gw2-data';
 
 const infusionIds = {
   '+1 agony': { id: 49424, cost: 7 },
@@ -184,6 +185,9 @@ const InfusionHelper = () => {
 
   const { enabled, impedence, attunement, singularity, tear, slots } = useSelector(getHelperData);
 
+  const primaryAttribute = INFUSIONS.find((entry) => entry.id === primaryInfusion)?.attribute;
+  const secondaryAttribute = INFUSIONS.find((entry) => entry.id === secondaryInfusion)?.attribute;
+
   const handleEnabledChange = React.useCallback(
     (_e, value) => dispatch(changeHelperEnabled(value)),
     [dispatch],
@@ -248,7 +252,6 @@ const InfusionHelper = () => {
     };
 
     let bestResult = createResult();
-    console.log('initial result:', bestResult);
 
     const test = () => {
       const testResult = createResult();
@@ -275,7 +278,6 @@ const InfusionHelper = () => {
       zero++;
       test();
     }
-    console.log('optimized result:', bestResult);
 
     if (!bestResult) {
       return { error: 'Target AR is too high!' };
@@ -450,18 +452,27 @@ const InfusionHelper = () => {
                 <Typography variant="body2">
                   {resultArray.map((text) => {
                     const infusionData = infusionIds[text];
-                    const id = infusionData?.id || infusionData?.Power?.id || null;
 
-                    if (id) {
-                      return (
-                        <>
-                          <Item id={id} disableLink disableText /> {text}
-                          <br />
-                        </>
-                      );
-                    }
                     return (
                       <>
+                        {infusionData?.[primaryAttribute]?.id ? (
+                          <Item id={infusionData?.[primaryAttribute]?.id} disableLink disableText />
+                        ) : null}
+                        {infusionData?.[secondaryAttribute]?.id ? (
+                          <Item
+                            id={infusionData?.[secondaryAttribute]?.id}
+                            disableLink
+                            disableText
+                          />
+                        ) : null}
+                        {infusionData?.id ? (
+                          <Item
+                            id={infusionData?.id}
+                            disableLink
+                            disableText
+                            style={{ fontSize: 17 }}
+                          />
+                        ) : null}{' '}
                         {text}
                         <br />
                       </>
