@@ -922,8 +922,28 @@
     "affix": "cavalier"
   },
   {
+    "id": 37123,
+    "name": "healingagonyinfusion",
+    "type": "infusion"
+  },
+  {
     "id": 37125,
     "name": "healingagonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 37127,
+    "name": "mightyagonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 37128,
+    "name": "preciseagonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 37129,
+    "name": "malignagonyinfusion",
     "type": "infusion"
   },
   {
@@ -942,6 +962,16 @@
     "type": "infusion"
   },
   {
+    "id": 37133,
+    "name": "resilientagonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 37134,
+    "name": "vitalagonyinfusion",
+    "type": "infusion"
+  },
+  {
     "id": 37135,
     "name": "resilientagonyinfusion",
     "type": "infusion"
@@ -949,6 +979,16 @@
   {
     "id": 37136,
     "name": "vitalagonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 37137,
+    "name": "simpleinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 37138,
+    "name": "simpleinfusion",
     "type": "infusion"
   },
   {
@@ -1212,6 +1252,36 @@
     "affix": "celestial"
   },
   {
+    "id": 39335,
+    "name": "preciseinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 39336,
+    "name": "mightyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 39337,
+    "name": "maligninfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 39338,
+    "name": "vitalinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 39339,
+    "name": "resilientinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 39340,
+    "name": "healinginfusion",
+    "type": "infusion"
+  },
+  {
     "id": 39341,
     "name": "triforgependant",
     "type": "amulet",
@@ -1368,6 +1438,36 @@
     "affix": "captain"
   },
   {
+    "id": 39616,
+    "name": "healingagonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 39617,
+    "name": "resilientagonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 39618,
+    "name": "vitalagonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 39619,
+    "name": "malignagonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 39620,
+    "name": "mightyagonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 39621,
+    "name": "preciseagonyinfusion",
+    "type": "infusion"
+  },
+  {
     "id": 41561,
     "name": "carrotsouffl",
     "type": "food"
@@ -1421,6 +1521,36 @@
     "id": 42428,
     "name": "potionofkarkatoughness",
     "type": "utility"
+  },
+  {
+    "id": 43250,
+    "name": "healingwvwinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 43251,
+    "name": "resilientwvwinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 43252,
+    "name": "vitalwvwinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 43253,
+    "name": "malignwvwinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 43254,
+    "name": "mightywvwinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 43255,
+    "name": "precisewvwinfusion",
+    "type": "infusion"
   },
   {
     "id": 43449,
@@ -5750,6 +5880,126 @@
     "affix": "berserker"
   },
   {
+    "id": 49424,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49425,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49426,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49427,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49428,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49429,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49430,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49431,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49432,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49433,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49434,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49435,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49436,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49437,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49438,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49439,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49440,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49441,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49442,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49443,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49444,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49445,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49446,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 49447,
+    "name": "agonyinfusion",
+    "type": "infusion"
+  },
+  {
     "id": 49457,
     "name": "momentum",
     "type": "sigil"
@@ -6922,6 +7172,11 @@
     "type": "leggings",
     "affix": "marauder",
     "weight": "medium"
+  },
+  {
+    "id": 70852,
+    "name": "simpleinfusion",
+    "type": "infusion"
   },
   {
     "id": 70889,
@@ -8641,6 +8896,11 @@
     "affix": "captain"
   },
   {
+    "id": 75480,
+    "name": "simpleinfusion",
+    "type": "infusion"
+  },
+  {
     "id": 75521,
     "name": "rukaswarhammer",
     "type": "hammer",
@@ -9429,6 +9689,36 @@
     "weight": "heavy"
   },
   {
+    "id": 77274,
+    "name": "ghostlyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 77303,
+    "name": "ghostlyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 77310,
+    "name": "ghostlyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 77316,
+    "name": "ghostlyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 77366,
+    "name": "ghostlyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 77394,
+    "name": "ghostlyinfusion",
+    "type": "infusion"
+  },
+  {
     "id": 77567,
     "name": "tuningicicle",
     "type": "utility"
@@ -9712,6 +10002,66 @@
     "id": 81091,
     "name": "naturesbounty",
     "type": "rune"
+  },
+  {
+    "id": 81761,
+    "name": "celestialinfusionblue",
+    "type": "infusion"
+  },
+  {
+    "id": 81779,
+    "name": "celestialinfusionblue",
+    "type": "infusion"
+  },
+  {
+    "id": 81783,
+    "name": "celestialinfusionred",
+    "type": "infusion"
+  },
+  {
+    "id": 81792,
+    "name": "celestialinfusionred",
+    "type": "infusion"
+  },
+  {
+    "id": 81811,
+    "name": "celestialinfusionblue",
+    "type": "infusion"
+  },
+  {
+    "id": 81814,
+    "name": "celestialinfusionred",
+    "type": "infusion"
+  },
+  {
+    "id": 81878,
+    "name": "celestialinfusionblue",
+    "type": "infusion"
+  },
+  {
+    "id": 81919,
+    "name": "celestialinfusionblue",
+    "type": "infusion"
+  },
+  {
+    "id": 81927,
+    "name": "celestialinfusionred",
+    "type": "infusion"
+  },
+  {
+    "id": 81991,
+    "name": "celestialinfusionblue",
+    "type": "infusion"
+  },
+  {
+    "id": 82062,
+    "name": "celestialinfusionred",
+    "type": "infusion"
+  },
+  {
+    "id": 82070,
+    "name": "celestialinfusionred",
+    "type": "infusion"
   },
   {
     "id": 82505,
@@ -10628,6 +10978,16 @@
     "type": "rune"
   },
   {
+    "id": 85644,
+    "name": "ghostlyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 85646,
+    "name": "celestialinfusionred",
+    "type": "infusion"
+  },
+  {
     "id": 85695,
     "name": "marshalsstellarharbinger",
     "type": "warhorn",
@@ -10651,10 +11011,20 @@
     "affix": "marshal"
   },
   {
+    "id": 85833,
+    "name": "celestialinfusionred",
+    "type": "infusion"
+  },
+  {
     "id": 85862,
     "name": "marshalsstellarknobkerrie",
     "type": "mace",
     "affix": "marshal"
+  },
+  {
+    "id": 85881,
+    "name": "mysticalagonyinfusion",
+    "type": "infusion"
   },
   {
     "id": 85926,
@@ -10663,10 +11033,25 @@
     "affix": "marshal"
   },
   {
+    "id": 85945,
+    "name": "ghostlyinfusion",
+    "type": "infusion"
+  },
+  {
     "id": 85946,
     "name": "marshalsstellarcannon",
     "type": "rifle",
     "affix": "marshal"
+  },
+  {
+    "id": 85971,
+    "name": "spitefulagonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 85989,
+    "name": "celestialinfusionblue",
+    "type": "infusion"
   },
   {
     "id": 86007,
@@ -10694,6 +11079,11 @@
   },
   {
     "id": 86113,
+    "name": "spitefulagonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 86150,
     "name": "spitefulagonyinfusion",
     "type": "infusion"
   },
@@ -10730,6 +11120,16 @@
     "name": "marshalsstellarrevolver",
     "type": "pistol",
     "affix": "marshal"
+  },
+  {
+    "id": 86338,
+    "name": "mysticalagonyinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 86347,
+    "name": "celestialinfusionblue",
+    "type": "infusion"
   },
   {
     "id": 86348,
@@ -11222,6 +11622,101 @@
     "name": "giftbringersshortbow",
     "type": "shortbow",
     "affix": "bringer"
+  },
+  {
+    "id": 86986,
+    "name": "concentrationwvwinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 87218,
+    "name": "expertisewvwinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 87493,
+    "name": "swimspeedinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 87495,
+    "name": "swimspeedinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 87496,
+    "name": "swimspeedinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 87497,
+    "name": "swimspeedinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 87502,
+    "name": "swimspeedinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 87503,
+    "name": "swimspeedinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 87508,
+    "name": "swimspeedinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 87511,
+    "name": "swimspeedinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 87512,
+    "name": "swimspeedinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 87516,
+    "name": "swimspeedinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 87518,
+    "name": "swimspeedinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 87525,
+    "name": "swimspeedinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 87526,
+    "name": "swimspeedinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 87527,
+    "name": "swimspeedinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 87528,
+    "name": "swimspeedinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 87532,
+    "name": "swimspeedinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 87538,
+    "name": "swimspeedinfusion",
+    "type": "infusion"
   },
   {
     "id": 87592,
@@ -12034,6 +12529,46 @@
     "type": "rune"
   },
   {
+    "id": 91140,
+    "name": "peerlessinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 91152,
+    "name": "peerlessinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 91154,
+    "name": "peerlessinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 91180,
+    "name": "peerlessinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 91202,
+    "name": "peerlessinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 91210,
+    "name": "peerlessinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 91221,
+    "name": "peerlessinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 91236,
+    "name": "peerlessinfusion",
+    "type": "infusion"
+  },
+  {
     "id": 91289,
     "name": "powerfulpotionofbrandedslaying",
     "type": "utility"
@@ -12047,6 +12582,46 @@
     "id": 91350,
     "name": "powerfulpotionofmordremslaying",
     "type": "utility"
+  },
+  {
+    "id": 94010,
+    "name": "abyssalinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 94024,
+    "name": "abyssalinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 94028,
+    "name": "abyssalinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 94039,
+    "name": "abyssalinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 94078,
+    "name": "abyssalinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 94079,
+    "name": "abyssalinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 94090,
+    "name": "abyssalinfusion",
+    "type": "infusion"
+  },
+  {
+    "id": 94091,
+    "name": "abyssalinfusion",
+    "type": "infusion"
   },
   {
     "id": 94709,

@@ -219,7 +219,6 @@ function fetchItems() {
             (item.details &&
               item.name.match('.*?Infusion') &&
               item.level === 0 &&
-              item.rarity === 'Rare' &&
               item.type === 'UpgradeComponent' &&
               item.details.type === 'Default'),
         )
