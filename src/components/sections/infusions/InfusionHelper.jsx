@@ -1,36 +1,24 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import {
   Typography,
-  FormControl,
   Grid,
-  Input,
-  InputLabel,
-  InputAdornment,
-  TextField,
-  MenuItem,
-  Select,
-  withStyles,
   Slider,
   Accordion,
   AccordionDetails,
   AccordionSummary,
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MuiAlert from '@material-ui/lab/Alert';
 import { useDispatch, useSelector } from 'react-redux';
-import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { Attribute, Item, CommonEffect } from 'gw2-ui-bulk';
+import { Trans } from 'gatsby-plugin-react-i18next';
+import { Item, CommonEffect } from 'gw2-ui-bulk';
 
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
 import {
   changeAR,
-  changeOmnipotion,
   getAR,
-  getOmniPotion,
-  changeInfusion,
   getInfusions,
+  changeMaxInfusions,
   changeHelperEnabled,
   changeSlots,
   changeImpedence,
@@ -39,17 +27,6 @@ import {
   changeTear,
   getHelperData,
 } from '../../../state/slices/infusions';
-
-const countMarks = [
-  {
-    value: 0,
-    label: '0',
-  },
-  {
-    value: 18,
-    label: '18',
-  },
-];
 
 const impedenceMarks = [
   {
@@ -138,6 +115,11 @@ const InfusionHelper = () => {
     (_e, value) => dispatch(changeHelperEnabled(value)),
     [dispatch],
   );
+  const handleARChange = React.useCallback((_e, value) => dispatch(changeAR(value)), [dispatch]);
+  const handleMaxInfusionsChange = React.useCallback(
+    (_e, value) => dispatch(changeMaxInfusions(value)),
+    [dispatch],
+  );
   const handleImpedenceChange = React.useCallback(
     (_e, value) => dispatch(changeImpedence(value)),
     [dispatch],
@@ -183,34 +165,6 @@ const InfusionHelper = () => {
 
     const resultArray = [];
 
-    // if (agonySlots === 0) {
-    //   // all stat infusions
-    //   if (ARFromGear <= 5 * statSlots) {
-    //     // 5s and 0s
-    //     const fives = Math.ceil(ARFromGear / 5);
-    //     resultArray.push(Array(fives).fill('+5 stat'));
-    //     resultArray.push(Array(statSlots - fives).fill('stat'));
-    //   } else if (ARFromGear <= 7 * statSlots) {
-    //     // 7s and 5s
-    //     const remainder = ARFromGear % 5;
-    //     const sevens = Math.ceil(remainder / 2);
-    //     resultArray.push(Array(sevens).fill('+7 stat'));
-    //     resultArray.push(Array(statSlots - sevens).fill('+5 stat'));
-    //   } else if (ARFromGear <= 9 * statSlots) {
-    //     // 9s and 7s
-    //     const remainder = ARFromGear % 7;
-    //     const nines = Math.ceil(remainder / 2);
-    //     resultArray.push(Array(nines).fill('+9 stat'));
-    //     resultArray.push(Array(statSlots - nines).fill('+7 stat'));
-    //   } else {
-    //     // all 9s
-    //     resultArray.push(Array(statSlots).fill('+9 stat'));
-    //   }
-    // } else {
-    //   // some agony infusion slots
-
-    // }
-
     let nine = statSlots;
     let seven = 0;
     let five = 0;
@@ -223,7 +177,7 @@ const InfusionHelper = () => {
       const statsCost = five * 15 + seven * 32 + nine * 70;
 
       const agony = calcAgonyInfusions(agonySlots, ARFromGear - statsAR);
-      const { agonyCost, agonyText, agonyArray } = agony;
+      const { agonyCost } = agony;
       const cost = statsCost + agonyCost;
 
       return { cost, zero, five, seven, nine, agony };
@@ -298,73 +252,116 @@ const InfusionHelper = () => {
         </Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Grid container>
-          {/* <Grid item xs={12}>
-            <MuiAlert elevation={6} variant="filled" severity="info">
-              <Trans>Note: Infusions are not totally optimized for cost.</Trans>
-            </MuiAlert>
-          </Grid> */}
-          <Grid item xs={12}>
-            <Slider
-              value={impedence}
-              step={null}
-              min={0}
-              max={20}
-              marks={impedenceMarks}
-              valueLabelDisplay="auto"
-              onChange={handleImpedenceChange}
-            />
+        <Grid container spacing={6}>
+          <Grid container item xs={12} sm={11}>
+            <Grid item xs={12}>
+              <Typography id="target-ar">
+                <Trans>Target AR</Trans>
+              </Typography>
+              <Slider
+                value={ar}
+                step={1}
+                min={0}
+                max={409}
+                valueLabelDisplay="on"
+                onChange={handleARChange}
+                aria-labelledby="target-ar"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Typography id="stat-infusion-slots">
+                <Trans>Stat Infusion Slots</Trans>
+              </Typography>
+              <Slider
+                value={maxInfusions}
+                step={1}
+                min={0}
+                max={18}
+                marks
+                valueLabelDisplay="auto"
+                onChange={handleMaxInfusionsChange}
+                aria-labelledby="total-infusion-slots"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Typography id="total-infusion-slots">
+                <Trans>Total Infusion Slots</Trans>
+              </Typography>
+              <Slider
+                value={slots}
+                step={1}
+                min={0}
+                max={18}
+                marks
+                valueLabelDisplay="auto"
+                onChange={handleSlotsChange}
+                aria-labelledby="total-infusion-slots"
+              />
+            </Grid>
           </Grid>
-          <Grid item xs={12}>
-            <Slider
-              value={attunement}
-              step={null}
-              min={0}
-              max={25}
-              marks={attunementMarks}
-              valueLabelDisplay="auto"
-              onChange={handleAttunementChange}
-            />
+
+          <Grid container item xs={12} sm={9}>
+            <Typography>
+              <Trans>Account AR</Trans>
+            </Typography>
+            <Grid item xs={12}>
+              <Slider
+                value={impedence}
+                step={null}
+                min={0}
+                max={20}
+                marks={impedenceMarks}
+                valueLabelDisplay="auto"
+                onChange={handleImpedenceChange}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Slider
+                value={attunement}
+                step={null}
+                min={0}
+                max={25}
+                marks={attunementMarks}
+                valueLabelDisplay="auto"
+                onChange={handleAttunementChange}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <CheckboxComponent
+                value={singularity}
+                checked={singularity}
+                label={
+                  <>
+                    <Trans>Include 5 AR from </Trans>
+                    <CommonEffect name="Rigorous Certainty" />
+                  </>
+                }
+                onChange={(e) => dispatch(changeSingularity(e.target.checked))}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <CheckboxComponent
+                value={tear}
+                checked={tear}
+                label={
+                  <>
+                    <Trans>
+                      Include 15 AR from <Item id={70596} /> w/ mastery
+                    </Trans>
+                  </>
+                }
+                onChange={(e) => dispatch(changeTear(e.target.checked))}
+              />
+            </Grid>
           </Grid>
+
           <Grid item xs={12}>
-            <CheckboxComponent
-              value={singularity}
-              checked={singularity}
-              label={
-                <>
-                  <Trans>Include 5 AR from </Trans>
-                  <CommonEffect name="Rigorous Certainty" />
-                </>
-              }
-              onChange={(e) => dispatch(changeSingularity(e.target.checked))}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <CheckboxComponent
-              value={tear}
-              checked={tear}
-              label={
-                <>
-                  <Trans>Include 15 AR from </Trans>
-                  <Item id={70596} />
-                  <Trans> w/ mastery</Trans>
-                </>
-              }
-              onChange={(e) => dispatch(changeTear(e.target.checked))}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <Slider
-              value={slots}
-              step={1}
-              min={0}
-              max={18}
-              marks={countMarks}
-              valueLabelDisplay="auto"
-              onChange={handleSlotsChange}
-            />
-          </Grid>
-          <Grid item xs={12}>
+            <Typography>
+              <Trans>Result</Trans>
+            </Typography>
+            <Typography variant="caption">
+              <Trans>Note: Not cost optimized for weapon sets.</Trans>
+            </Typography>
             <pre>{helperResult}</pre>
           </Grid>
         </Grid>
