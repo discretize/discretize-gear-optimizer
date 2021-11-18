@@ -27,6 +27,77 @@ import {
   getHelperData,
 } from '../../../state/slices/infusions';
 
+const infusionIds = {
+  '+1 agony': { id: 49424, cost: 7 },
+  '+2 agony': { id: 49425, cost: 164 },
+  '+3 agony': { id: 49426, cost: 478 },
+  '+4 agony': { id: 49427, cost: 1106 },
+  '+5 agony': { id: 49428, cost: 2632 },
+  '+6 agony': { id: 49429, cost: 4878 },
+  '+7 agony': { id: 49430 },
+  '+8 agony': { id: 49431 },
+  '+9 agony': { id: 49432 },
+  '+10 agony': { id: 49433 },
+  '+11 agony': { id: 49434 },
+  '+12 agony': { id: 49435 },
+  '+13 agony': { id: 49436 },
+  '+14 agony': { id: 49437 },
+  '+15 agony': { id: 49438 },
+  '+16 agony': { id: 49439 },
+  '+17 agony': { id: 49440 },
+  '+18 agony': { id: 49441 },
+  '+19 agony': { id: 49442 },
+  '+20 agony': { id: 49443 },
+  '+21 agony': { id: 49444 },
+  '+22 agony': { id: 49445 },
+  '+23 agony': { id: 49446 },
+  '+24 agony': { id: 49447 },
+
+  '+9 stat': {
+    'Power': { id: 37131 },
+    'Precision': { id: 37132 },
+    'Condition Damage': { id: 37130 },
+    'Expertise': { id: 86113 },
+    'Concentration': { id: 86180 },
+    'Healing Power': { id: 37125 },
+    'Toughness': { id: 37135 },
+    'Vitality': { id: 37136 },
+  },
+
+  '+7 stat': {
+    'Power': { id: 37127 },
+    'Precision': { id: 37128 },
+    'Condition Damage': { id: 37129 },
+    'Expertise': { id: 86150 },
+    'Concentration': { id: 85881 },
+    'Healing Power': { id: 37123 },
+    'Toughness': { id: 37133 },
+    'Vitality': { id: 37134 },
+  },
+
+  '+5 stat': {
+    'Power': { id: 39620 },
+    'Precision': { id: 39621 },
+    'Condition Damage': { id: 39619 },
+    'Expertise': { id: 85971 },
+    'Concentration': { id: 86338 },
+    'Healing Power': { id: 39616 },
+    'Toughness': { id: 39617 },
+    'Vitality': { id: 39618 },
+  },
+
+  'WvW stat': {
+    'Power': { id: 43254 },
+    'Precision': { id: 43255 },
+    'Condition Damage': { id: 43253 },
+    'Expertise': { id: 87218 },
+    'Concentration': { id: 86986 },
+    'Healing Power': { id: 43250 },
+    'Toughness': { id: 43251 },
+    'Vitality': { id: 43252 },
+  },
+};
+
 const impedenceMarks = [
   {
     value: 0,
@@ -375,12 +446,25 @@ const InfusionHelper = () => {
                   </Trans>
                 </Typography>
                 <Typography variant="body2">
-                  {resultArray.map((text) => (
-                    <>
-                      {text}
-                      <br />
-                    </>
-                  ))}
+                  {resultArray.map((text) => {
+                    const infusionData = infusionIds[text];
+                    const id = infusionData?.id || infusionData?.Power?.id || null;
+
+                    if (id) {
+                      return (
+                        <>
+                          <Item id={id} disableLink disableText /> {text}
+                          <br />
+                        </>
+                      );
+                    }
+                    return (
+                      <>
+                        {text}
+                        <br />
+                      </>
+                    );
+                  })}
                 </Typography>
                 <Typography variant="caption">
                   <Trans>Note: Not cost optimized for {'>'}1 weapon set.</Trans>
@@ -394,4 +478,4 @@ const InfusionHelper = () => {
   );
 };
 
-export default InfusionHelper;
+export default React.memo(InfusionHelper);
