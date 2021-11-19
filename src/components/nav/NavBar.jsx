@@ -193,6 +193,12 @@ const Navbar = ({
   ];
   const displayDesktop = () => (
     <Toolbar>
+      <button type="button" onClick={() => dispatch({ type: 'EXPORT_STATE' })}>
+        save
+      </button>
+      <button type="button" onClick={() => dispatch({ type: 'IMPORT_STATE' })}>
+        restore
+      </button>
       <Box flexGrow={1}>
         {PROFESSIONS.map((prof, index) => (
           <React.Fragment key={prof.profession}>
