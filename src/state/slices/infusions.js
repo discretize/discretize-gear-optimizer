@@ -44,8 +44,8 @@ export const infusionsSlice = createSlice({
     },
     changeSlots: (state, action) => {
       state.helperData.slots = action.payload;
-      if (state.maxInfusions > state.helperData.slots) {
-        state.maxInfusions = action.payload;
+      if (Number(state.maxInfusions) > state.helperData.slots) {
+        state.maxInfusions = String(action.payload);
       }
     },
     changeImpedence: (state, action) => {
@@ -135,14 +135,16 @@ export const getHelperResult = createSelector(
   getInfusions,
   getHelperData,
   (arData, infusionsData, helperData) => {
-    const ar = arData;
+    const ar = Number.parseInt(arData, 10);
     const {
-      maxInfusions,
+      maxInfusions: maxInfusionsString,
       primaryInfusion,
       secondaryInfusion,
       primaryMaxInfusions,
       secondaryMaxInfusions,
     } = infusionsData;
+
+    const maxInfusions = Number.parseInt(maxInfusionsString, 10);
 
     const {
       impedence,

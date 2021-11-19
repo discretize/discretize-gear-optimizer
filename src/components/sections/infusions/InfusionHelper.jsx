@@ -95,8 +95,14 @@ const targetARMarks = [
 const InfusionHelper = () => {
   const dispatch = useDispatch();
 
-  const ar = useSelector(getAR);
-  const { maxInfusions, primaryInfusion, secondaryInfusion } = useSelector(getInfusions);
+  const arString = useSelector(getAR);
+  const ar = Number.parseInt(arString, 10);
+  const {
+    maxInfusions: maxInfusionsString,
+    primaryInfusion,
+    secondaryInfusion,
+  } = useSelector(getInfusions);
+  const maxInfusions = Number.parseInt(maxInfusionsString, 10);
 
   const { enabled, impedence, attunement, singularity, tear, slots, freeWvW, matrixValue } =
     useSelector(getHelperData);
@@ -110,9 +116,12 @@ const InfusionHelper = () => {
     (_e, value) => dispatch(changeHelperEnabled(value)),
     [dispatch],
   );
-  const handleARChange = React.useCallback((_e, value) => dispatch(changeAR(value)), [dispatch]);
+  const handleARChange = React.useCallback(
+    (_e, value) => dispatch(changeAR(String(value))),
+    [dispatch],
+  );
   const handleMaxInfusionsChange = React.useCallback(
-    (_e, value) => dispatch(changeMaxInfusions(value)),
+    (_e, value) => dispatch(changeMaxInfusions(String(value))),
     [dispatch],
   );
   const handleImpedenceChange = React.useCallback(
@@ -298,10 +307,11 @@ const InfusionHelper = () => {
                   </Trans>
                 </Typography>
                 <Typography variant="body2">
-                  {resultArray.map((text) => {
+                  {resultArray.map((text, i) => {
                     const infusionData = infusionIds[text];
                     return (
-                      <>
+                      // eslint-disable-next-line react/no-array-index-key
+                      <React.Fragment key={i}>
                         {infusionData?.[primaryAttribute]?.id ? (
                           <Item id={infusionData?.[primaryAttribute]?.id} disableLink disableText />
                         ) : null}
@@ -322,7 +332,7 @@ const InfusionHelper = () => {
                         ) : null}{' '}
                         {text}
                         <br />
-                      </>
+                      </React.Fragment>
                     );
                   })}
                 </Typography>
