@@ -11,7 +11,7 @@ import Alert from '@material-ui/lab/Alert';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { useDispatch, useSelector } from 'react-redux';
 import { Trans } from 'gatsby-plugin-react-i18next';
-import { Item, CommonEffect, Coin } from 'gw2-ui-bulk';
+import { Item as ItemRaw, CommonEffect as CommonEffectRaw, Coin as CoinRaw } from 'gw2-ui-bulk';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import {
   getAR,
@@ -32,6 +32,10 @@ import {
   changeMatrixValue,
 } from '../../../state/slices/infusions';
 import { INFUSIONS, infusionIds } from '../../../utils/gw2-data';
+
+const Item = React.memo(ItemRaw);
+const CommonEffect = React.memo(CommonEffectRaw);
+const Coin = React.memo(CoinRaw);
 
 const impedenceMarks = [
   {
