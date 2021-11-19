@@ -44,6 +44,9 @@ export const infusionsSlice = createSlice({
     },
     changeSlots: (state, action) => {
       state.helperData.slots = action.payload;
+      if (state.maxInfusions > state.helperData.slots) {
+        state.maxInfusions = action.payload;
+      }
     },
     changeImpedence: (state, action) => {
       state.helperData.impedence = action.payload;

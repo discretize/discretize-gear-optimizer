@@ -77,6 +77,21 @@ const attunementMarks = [
   },
 ];
 
+const targetARMarks = [
+  {
+    value: 150,
+    label: '150',
+  },
+  {
+    value: 243,
+    label: '243',
+  },
+  {
+    value: 343,
+    label: '343',
+  },
+];
+
 const InfusionHelper = () => {
   const dispatch = useDispatch();
 
@@ -86,7 +101,7 @@ const InfusionHelper = () => {
   const { enabled, impedence, attunement, singularity, tear, slots, freeWvW, matrixValue } =
     useSelector(getHelperData);
 
-  const helperResult = useSelector(getHelperResult);
+  const { error, resultText, resultArray, cost } = useSelector(getHelperResult);
 
   const primaryAttribute = INFUSIONS.find((entry) => entry.id === primaryInfusion)?.attribute;
   const secondaryAttribute = INFUSIONS.find((entry) => entry.id === secondaryInfusion)?.attribute;
@@ -117,10 +132,12 @@ const InfusionHelper = () => {
     [dispatch],
   );
 
-  const { error, resultText, resultArray, cost } = helperResult;
-
   return (
-    <Accordion expanded={enabled} onChange={handleEnabledChange}>
+    <Accordion
+      expanded={enabled}
+      onChange={handleEnabledChange}
+      TransitionProps={{ unmountOnExit: true }}
+    >
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <Typography>
           <Trans>Infusion Helper (WIP)</Trans>
@@ -196,6 +213,7 @@ const InfusionHelper = () => {
                 step={1}
                 min={0}
                 max={409}
+                marks={targetARMarks}
                 valueLabelDisplay="on"
                 onChange={handleARChange}
                 aria-labelledby="target-ar"
