@@ -20,6 +20,7 @@ export const infusionsSlice = createSlice({
       singularity: false,
       tear: false,
       freeWvW: true,
+      matrixValue: 30000,
     },
   },
   reducers: {
@@ -58,6 +59,9 @@ export const infusionsSlice = createSlice({
     },
     changeFreeWvW: (state, action) => {
       state.helperData.freeWvW = action.payload;
+    },
+    changeMatrixValue: (state, action) => {
+      state.helperData.matrixValue = action.payload;
     },
   },
 });
@@ -137,7 +141,21 @@ export const getHelperResult = createSelector(
       secondaryMaxInfusions,
     } = infusionsData;
 
-    const { impedence, attunement, singularity, tear, slots, freeWvW } = helperData;
+    const {
+      impedence,
+      attunement,
+      singularity,
+      tear,
+      slots,
+      freeWvW,
+      matrixValue: matrixValueCopper,
+    } = helperData;
+
+    const matrixValue = matrixValueCopper / 10000;
+    const infusionCost = (num) => 2 ** (num - 7);
+    const fiveCost = 3 * infusionCost(5) + 5 * matrixValue;
+    const sevenCost = 3 * infusionCost(7) + 10 * matrixValue;
+    const nineCost = 3 * infusionCost(9) + 20 * matrixValue;
 
     let ARFromGear = ar - impedence - attunement - (singularity ? 5 : 0) - (tear ? 15 : 0);
 
@@ -170,7 +188,7 @@ export const getHelperResult = createSelector(
       const statsAR = five * 5 + seven * 7 + nine * 9;
       if (!agonySlots && statsAR < ARFromGear) return null;
 
-      const statsCost = five * 15 + seven * 32 + nine * 70;
+      const statsCost = five * fiveCost + seven * sevenCost + nine * nineCost;
 
       const agony = calcAgonyInfusions(agonySlots, ARFromGear - statsAR);
       const { agonyCost } = agony;
@@ -249,4 +267,5 @@ export const {
   changeSingularity,
   changeTear,
   changeFreeWvW,
+  changeMatrixValue,
 } = infusionsSlice.actions;

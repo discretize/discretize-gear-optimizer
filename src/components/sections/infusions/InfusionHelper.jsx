@@ -27,6 +27,7 @@ import {
   getHelperData,
   getHelperResult,
   changeFreeWvW,
+  changeMatrixValue,
 } from '../../../state/slices/infusions';
 import { INFUSIONS, infusionIds } from '../../../utils/gw2-data';
 
@@ -82,7 +83,7 @@ const InfusionHelper = () => {
   const ar = useSelector(getAR);
   const { maxInfusions, primaryInfusion, secondaryInfusion } = useSelector(getInfusions);
 
-  const { enabled, impedence, attunement, singularity, tear, slots, freeWvW } =
+  const { enabled, impedence, attunement, singularity, tear, slots, freeWvW, matrixValue } =
     useSelector(getHelperData);
 
   const helperResult = useSelector(getHelperResult);
@@ -109,6 +110,10 @@ const InfusionHelper = () => {
   );
   const handleSlotsChange = React.useCallback(
     (_e, value) => dispatch(changeSlots(value)),
+    [dispatch],
+  );
+  const handleMatrixValueChange = React.useCallback(
+    (_e, value) => dispatch(changeMatrixValue(value)),
     [dispatch],
   );
 
@@ -229,7 +234,7 @@ const InfusionHelper = () => {
           </Grid>
 
           <Grid container item xs={12}>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={5}>
               <CheckboxComponent
                 value={freeWvW}
                 checked={freeWvW}
@@ -241,7 +246,21 @@ const InfusionHelper = () => {
                 onChange={(e) => dispatch(changeFreeWvW(e.target.checked))}
               />
             </Grid>
-            <Grid item xs={12} md={6}></Grid>
+            <Grid item xs={12} md={6}>
+              <Typography>
+                <Trans>
+                  <Item id={79230} /> value: <Coin value={matrixValue} />
+                  <Slider
+                    value={matrixValue}
+                    step={1000}
+                    min={0}
+                    max={30000}
+                    valueLabelDisplay="off"
+                    onChange={handleMatrixValueChange}
+                  />
+                </Trans>
+              </Typography>
+            </Grid>
           </Grid>
 
           <Grid item xs={12} md={11}>
