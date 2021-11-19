@@ -69,11 +69,14 @@ export const infusionsSlice = createSlice({
   },
 });
 
-// export const getMaxInfusions = (state) => state.optimizer.form.infusions.maxInfusions;
-export const getInfusions = (state) => state.optimizer.form.infusions;
 export const getAR = (state) => state.optimizer.form.infusions.ar;
 export const getOmniPotion = (state) => state.optimizer.form.infusions.omnipotion;
-
+export const getMaxInfusions = (state) => state.optimizer.form.infusions.maxInfusions;
+export const getPrimaryInfusion = (state) => state.optimizer.form.infusions.primaryInfusion;
+export const getSecondaryInfusion = (state) => state.optimizer.form.infusions.secondaryInfusion;
+export const getPrimaryMaxInfusions = (state) => state.optimizer.form.infusions.primaryMaxInfusions;
+export const getSecondaryMaxInfusions = (state) =>
+  state.optimizer.form.infusions.secondaryMaxInfusions;
 export const getHelperData = (state) => state.optimizer.form.infusions.helperData;
 
 export const getInfusionsModifiers = (state) => {
@@ -132,18 +135,22 @@ const calcAgonyInfusions = (slots, ar) => {
 
 export const getHelperResult = createSelector(
   getAR,
-  getInfusions,
+  getMaxInfusions,
+  getPrimaryInfusion,
+  getSecondaryInfusion,
+  getPrimaryMaxInfusions,
+  getSecondaryMaxInfusions,
   getHelperData,
-  (arData, infusionsData, helperData) => {
-    const ar = Number.parseInt(arData, 10);
-    const {
-      maxInfusions: maxInfusionsString,
-      primaryInfusion,
-      secondaryInfusion,
-      primaryMaxInfusions,
-      secondaryMaxInfusions,
-    } = infusionsData;
-
+  (
+    arString,
+    maxInfusionsString,
+    primaryInfusion,
+    secondaryInfusion,
+    primaryMaxInfusions,
+    secondaryMaxInfusions,
+    helperData,
+  ) => {
+    const ar = Number.parseInt(arString, 10);
     const maxInfusions = Number.parseInt(maxInfusionsString, 10);
 
     const {

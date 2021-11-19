@@ -14,9 +14,13 @@ import { Trans } from 'gatsby-plugin-react-i18next';
 import { Item, CommonEffect, Coin } from 'gw2-ui-bulk';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import {
-  changeAR,
   getAR,
-  getInfusions,
+  getMaxInfusions,
+  getPrimaryInfusion,
+  getSecondaryInfusion,
+  getHelperData,
+  getHelperResult,
+  changeAR,
   changeMaxInfusions,
   changeHelperEnabled,
   changeSlots,
@@ -24,8 +28,6 @@ import {
   changeAttunement,
   changeSingularity,
   changeTear,
-  getHelperData,
-  getHelperResult,
   changeFreeWvW,
   changeMatrixValue,
 } from '../../../state/slices/infusions';
@@ -97,16 +99,12 @@ const InfusionHelper = () => {
 
   const arString = useSelector(getAR);
   const ar = Number.parseInt(arString, 10);
-  const {
-    maxInfusions: maxInfusionsString,
-    primaryInfusion,
-    secondaryInfusion,
-  } = useSelector(getInfusions);
+  const maxInfusionsString = useSelector(getMaxInfusions);
   const maxInfusions = Number.parseInt(maxInfusionsString, 10);
-
+  const primaryInfusion = useSelector(getPrimaryInfusion);
+  const secondaryInfusion = useSelector(getSecondaryInfusion);
   const { enabled, impedence, attunement, singularity, tear, slots, freeWvW, matrixValue } =
     useSelector(getHelperData);
-
   const { error, resultText, resultArray, cost } = useSelector(getHelperResult);
 
   const primaryAttribute = INFUSIONS.find((entry) => entry.id === primaryInfusion)?.attribute;
