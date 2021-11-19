@@ -26,6 +26,7 @@ import {
   changeTear,
   getHelperData,
   getHelperResult,
+  changeFreeWvW,
 } from '../../../state/slices/infusions';
 import { INFUSIONS, infusionIds } from '../../../utils/gw2-data';
 
@@ -81,7 +82,8 @@ const InfusionHelper = () => {
   const ar = useSelector(getAR);
   const { maxInfusions, primaryInfusion, secondaryInfusion } = useSelector(getInfusions);
 
-  const { enabled, impedence, attunement, singularity, tear, slots } = useSelector(getHelperData);
+  const { enabled, impedence, attunement, singularity, tear, slots, freeWvW } =
+    useSelector(getHelperData);
 
   const helperResult = useSelector(getHelperResult);
 
@@ -226,6 +228,22 @@ const InfusionHelper = () => {
             </Grid>
           </Grid>
 
+          <Grid container item xs={12}>
+            <Grid item xs={12} md={6}>
+              <CheckboxComponent
+                value={freeWvW}
+                checked={freeWvW}
+                label={
+                  <Typography variant="body2">
+                    <Trans>Enable free WvW stat infusions</Trans>
+                  </Typography>
+                }
+                onChange={(e) => dispatch(changeFreeWvW(e.target.checked))}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}></Grid>
+          </Grid>
+
           <Grid item xs={12} md={11}>
             {error ? (
               <Alert variant="outlined" severity="error">
@@ -245,7 +263,6 @@ const InfusionHelper = () => {
                 <Typography variant="body2">
                   {resultArray.map((text) => {
                     const infusionData = infusionIds[text];
-
                     return (
                       <>
                         {infusionData?.[primaryAttribute]?.id ? (

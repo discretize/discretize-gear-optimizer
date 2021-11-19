@@ -19,6 +19,7 @@ export const infusionsSlice = createSlice({
       attunement: 0,
       singularity: false,
       tear: false,
+      freeWvW: true,
     },
   },
   reducers: {
@@ -54,6 +55,9 @@ export const infusionsSlice = createSlice({
     },
     changeTear: (state, action) => {
       state.helperData.tear = action.payload;
+    },
+    changeFreeWvW: (state, action) => {
+      state.helperData.freeWvW = action.payload;
     },
   },
 });
@@ -92,7 +96,8 @@ export const getInfusionsModifiers = (state) => {
 
 const calcAgonyInfusions = (slots, ar) => {
   if (slots === 0) return { agonyCost: 0, agonyText: '', agonyArray: [] };
-  if (ar < 1) return { agonyCost: 0, agonyText: '', agonyArray: [] };
+  // eslint-disable-next-line no-param-reassign
+  if (ar < 0) ar = 0;
 
   const lowerType = Math.floor(ar / slots);
   const higherType = lowerType + 1;
@@ -100,12 +105,14 @@ const calcAgonyInfusions = (slots, ar) => {
   const lowerCount = slots - higherCount;
 
   // AR infusion cost is about 1g for +7; doubles with each additional
-  const lowerCost = infusionIds[`+${lowerType} agony`]?.cost / 10000 || 2 ** (lowerType - 7);
+  const lowerCost = lowerType
+    ? infusionIds[`+${lowerType} agony`]?.cost / 10000 || 2 ** (lowerType - 7)
+    : 0;
   const higherCost = infusionIds[`+${higherType} agony`]?.cost / 10000 || 2 ** (higherType - 7);
   const agonyCost = lowerCount * lowerCost + higherCount * higherCost;
 
   const agonyArray = [
-    ...Array(lowerCount).fill(`+${lowerType} agony`),
+    ...Array(lowerCount).fill(lowerType ? `+${lowerType} agony` : 'empty'),
     ...Array(higherCount).fill(`+${higherType} agony`),
   ];
 
@@ -130,13 +137,12 @@ export const getHelperResult = createSelector(
       secondaryMaxInfusions,
     } = infusionsData;
 
-    // eslint-disable-next-line no-unused-vars
-    const { enabled, impedence, attunement, singularity, tear, slots } = helperData;
+    const { impedence, attunement, singularity, tear, slots, freeWvW } = helperData;
 
-    const ARFromGear = ar - impedence - attunement - (singularity ? 5 : 0) - (tear ? 15 : 0);
+    let ARFromGear = ar - impedence - attunement - (singularity ? 5 : 0) - (tear ? 15 : 0);
 
-    if (ARFromGear <= 0) {
-      return { error: 'No infusions needed!' };
+    if (ARFromGear < 0) {
+      ARFromGear = 0;
     }
 
     const statSlots = Math.min(
@@ -195,10 +201,12 @@ export const getHelperResult = createSelector(
       test();
     }
 
-    while (five > 0) {
-      five--;
-      zero++;
-      test();
+    if (freeWvW) {
+      while (five > 0) {
+        five--;
+        zero++;
+        test();
+      }
     }
 
     if (!bestResult) {
@@ -240,4 +248,5 @@ export const {
   changeAttunement,
   changeSingularity,
   changeTear,
+  changeFreeWvW,
 } = infusionsSlice.actions;
