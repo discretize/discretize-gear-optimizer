@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { changeAll } from './controlsSlice';
 
 export const forcedSlotsSlice = createSlice({
   name: 'forcedSlots',
@@ -8,6 +9,11 @@ export const forcedSlotsSlice = createSlice({
   reducers: {
     changeForcedSlot: (state, action) => {
       state.slots[action.payload.index] = action.payload.value;
+    },
+  },
+  extraReducers: {
+    [changeAll]: (state, action) => {
+      return /* { ...initialState, ... */ action.payload?.form?.forcedSlots /* } */;
     },
   },
 });

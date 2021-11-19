@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setBuildTemplate } from './controlsSlice';
+import { changeAll, setBuildTemplate } from './controlsSlice';
 
 export const prioritiesSlice = createSlice({
   name: 'priorities',
@@ -18,6 +18,9 @@ export const prioritiesSlice = createSlice({
     },
   },
   extraReducers: {
+    [changeAll]: (state, action) => {
+      return /* { ...initialState, ... */ action.payload?.form?.priorities /* } */;
+    },
     [setBuildTemplate]: (state, action) => {
       const { prioritiesPreset = {} } = action.payload;
       return { ...state, ...prioritiesPreset };
