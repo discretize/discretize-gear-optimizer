@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { changeAll } from './controlsSlice';
 
 export const extraModifiersSlice = createSlice({
   name: 'extraModifiers',
@@ -13,6 +14,11 @@ export const extraModifiersSlice = createSlice({
     },
     changeExtraModifiersError: (state, action) => {
       state.error = action.payload;
+    },
+  },
+  extraReducers: {
+    [changeAll]: (state, action) => {
+      return /* { ...initialState, ... */ action.payload?.form?.extraModifiers /* } */;
     },
   },
 });

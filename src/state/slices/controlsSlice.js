@@ -16,6 +16,9 @@ export const controlSlice = createSlice({
     allSelectedModifiers: null,
   },
   reducers: {
+    changeAll: (state, action) => {
+      return /* { ...initialState, ... */ action.payload?.control /* } */;
+    },
     changeProfession: (state, action) => {
       if (state.profession !== action.payload) {
         // reset state on profession change
@@ -98,6 +101,7 @@ export const getError = (state) => state.optimizer.control.error;
 export const getAllSelectedModifiers = (state) => state.optimizer.control.allSelectedModifiers;
 
 export const {
+  changeAll,
   reset,
   changeProfession,
   changeExpertMode,

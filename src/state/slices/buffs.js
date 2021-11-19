@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setBuildTemplate } from './controlsSlice';
+import { changeAll, setBuildTemplate } from './controlsSlice';
 
 import { buffModifiersById } from '../../assets/modifierdata';
 
@@ -53,6 +53,9 @@ export const buffsSlice = createSlice({
     },
   },
   extraReducers: {
+    [changeAll]: (state, action) => {
+      return /* { ...initialState, ... */ action.payload?.form?.buffs /* } */;
+    },
     [setBuildTemplate]: (state, action) => {
       const { buffPreset } = action.payload;
 

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setBuildTemplate } from './controlsSlice';
+import { changeAll, setBuildTemplate } from './controlsSlice';
 import { Condition } from '../../utils/gw2-data';
 
 const fixedCondition = { ...Condition, Poisoned: Condition.Poison };
@@ -129,6 +129,9 @@ export const distributionSlice = createSlice({
     },
   },
   extraReducers: {
+    [changeAll]: (state, action) => {
+      return /* { ...initialState, ... */ action.payload?.form?.distribution /* } */;
+    },
     [setBuildTemplate]: (state, action) => {
       const { distributionPreset } = action.payload;
 
