@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setBuildTemplate } from './controlsSlice';
+import { changeAll, setBuildTemplate } from './controlsSlice';
 
 import { extrasModifiersById } from '../../assets/modifierdata';
 
@@ -23,6 +23,9 @@ export const extrasSlice = createSlice({
     },
   },
   extraReducers: {
+    [changeAll]: (state, action) => {
+      return /* { ...initialState, ... */ action.payload?.form?.extras /* } */;
+    },
     [setBuildTemplate]: (state, action) => {
       const { extrasPreset = {} } = action.payload;
       return { ...state, ...extrasPreset };

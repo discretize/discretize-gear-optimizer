@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { omnipotionModifiers } from '../../utils/gw2-data';
 import { parseAmount } from '../optimizer/optimizerCore';
+import { changeAll } from './controlsSlice';
 
 export const infusionsSlice = createSlice({
   name: 'infusions',
@@ -28,6 +29,11 @@ export const infusionsSlice = createSlice({
     },
     changeInfusions: (state, action) => {
       return { ...state, ...action.payload };
+    },
+  },
+  extraReducers: {
+    [changeAll]: (state, action) => {
+      return /* { ...initialState, ... */ action.payload?.form?.infusions /* } */;
     },
   },
 });

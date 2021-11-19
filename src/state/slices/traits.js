@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { changeProfession, setBuildTemplate } from './controlsSlice';
+import { changeAll, changeProfession, setBuildTemplate } from './controlsSlice';
 
 import { classModifiersById, traitSectionsById } from '../../assets/modifierdata';
 
@@ -63,6 +63,9 @@ export const traitsSlice = createSlice({
     },
   },
   extraReducers: {
+    [changeAll]: (state, action) => {
+      return /* { ...initialState, ... */ action.payload?.form?.traits /* } */;
+    },
     [changeProfession]: (state, action) => {
       if (state.profession !== action.payload) {
         return {

@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import { put, take, race, call, all, select, cancelled } from 'redux-saga/effects';
-
+import { put, take, race, call, all, select, cancelled, takeLeading } from 'redux-saga/effects';
+import JsonUrl from 'json-url';
 import * as optimizerCore from './optimizerCore';
 
 import {
@@ -11,6 +11,7 @@ import {
   getList,
   setAllSelectedModifiers,
   changeError,
+  changeAll,
 } from '../slices/controlsSlice';
 import { getExtrasModifiers } from '../slices/extras';
 import { getBuffsModifiers } from '../slices/buffs';
@@ -281,9 +282,68 @@ function* watchStart() {
   }
 }
 
+const lib = JsonUrl('lzma');
+
+function* exportState() {
+  console.log('creating template...');
+  console.time('created template');
+  const reduxState = yield select();
+  const state = reduxState.optimizer;
+
+  const modifiedList = [];
+  const modifiedState = {
+    ...state,
+    control: {
+      ...state.control,
+      list: modifiedList,
+      selectedCharacter: null,
+      allSelectedModifiers: null,
+    },
+  };
+
+  const compressed = yield lib.compress(modifiedState);
+  console.timeEnd('created template');
+  console.log('length:', compressed.length);
+  console.log(compressed);
+}
+
+function* watchExportState() {
+  yield takeLeading('EXPORT_STATE', exportState);
+}
+
+function* importState() {
+  try {
+    console.log('restoring template...');
+
+    // eslint-disable-next-line no-alert
+    const input = window.prompt('text plz', '');
+    if (!input) return;
+
+    console.time('decompressed template');
+    const modifiedState = yield lib.decompress(input);
+    const state = { ...modifiedState }; // do stuff here
+    console.timeEnd('decompressed template');
+
+    console.log(JSON.stringify(state));
+
+    console.time('applied state');
+    yield put(changeAll(state));
+    console.timeEnd('applied state');
+  } catch (e) {
+    console.log('problem restoring template');
+    console.log(e);
+  }
+}
+
+function* watchImportState() {
+  yield takeLeading('IMPORT_STATE', importState);
+}
+
 export default function* rootSaga() {
   yield all([
     // other sagas go here
     watchStart(),
+    watchExportState(),
+    watchImportState(),
   ]);
 }
