@@ -265,7 +265,7 @@ const InfusionHelper = () => {
               />
             </Grid>
             <Grid item xs={12} md={6}>
-              <Typography>
+              <Typography variant="body2">
                 <Trans>
                   <Item id={79230} /> value: <Coin value={matrixValue} />
                   <Slider
