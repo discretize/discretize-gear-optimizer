@@ -503,7 +503,7 @@ list:
     profession: VIRTUOSO
     value: >-
       {
-        "values2": { "Power": 3844, "Burning": 0.6, "Bleeding": 7.4, "Poisoned": 0, "Torment": 0, "Confusion": 0.6 }
+        "values2": { "Power": 4018, "Burning": 0.6, "Bleeding": 7.4, "Poisoned": 0, "Torment": 0, "Confusion": 0.6 }
       }
 
   # https://www.youtube.com/watch?v=x1dRcUqNIFo
@@ -532,7 +532,7 @@ list:
     profession: HARBINGER
     value: >-
       {
-        "values2": { "Power": 1855, "Burning": 2.2, "Bleeding": 11.5, "Poisoned": 7.1, "Torment": 21.2, "Confusion": 0 }
+        "values2": { "Power": 1855, "Burning": 2.2, "Bleeding": 11.3, "Poisoned": 7, "Torment": 21.2, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=1yAvjWJoAyE

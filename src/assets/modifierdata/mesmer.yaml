@@ -225,13 +225,14 @@
 
     - id: mental-focus
       text: Mental Focus
+      subText: 'bugged: 10% instead of 15%'
       amountData:
         label: '% melee'
         default: 100
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [15%, unknown]
+          Strike Damage: [10%, mult] # tested by Snappy Joe
       gw2id: 2208
       defaultEnabled: true
 
