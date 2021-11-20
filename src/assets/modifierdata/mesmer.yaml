@@ -151,8 +151,9 @@
       subText: 100% regeneration
       modifiers:
         attributes:
-          Concentration: [250, buff]
-          Expertise: [250, buff]
+          Concentration: [250, converted]
+          Expertise: [250, converted]
+          # converted: https://discord.com/channels/380901000200060929/875327743334707251/911570311177207818
       gw2id: 1865
       defaultEnabled: true
 
