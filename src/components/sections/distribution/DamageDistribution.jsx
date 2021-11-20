@@ -11,7 +11,7 @@ import {
 import MuiAlert from '@material-ui/lab/Alert';
 import classNames from 'classnames';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { Attribute, Condition } from 'gw2-ui-bulk';
+import { Attribute as AttributeRaw, Condition as ConditionRaw } from 'gw2-ui-bulk';
 import debounce from 'lodash.debounce';
 import Nouislider from 'nouislider-react';
 // eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
@@ -28,6 +28,9 @@ import {
   getTextBoxes,
   coefficientsToPercents,
 } from '../../../state/slices/distribution';
+
+const Attribute = React.memo(AttributeRaw);
+const Condition = React.memo(ConditionRaw);
 
 const styles = (theme) => ({
   textbox: {
