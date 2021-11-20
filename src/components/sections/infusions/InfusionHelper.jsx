@@ -98,6 +98,8 @@ const targetARMarks = [
   },
 ];
 
+const bigStyle = { fontSize: 17 };
+
 const InfusionHelper = () => {
   const dispatch = useDispatch();
 
@@ -325,12 +327,7 @@ const InfusionHelper = () => {
                           />
                         ) : null}
                         {infusionData?.id ? (
-                          <Item
-                            id={infusionData?.id}
-                            disableLink
-                            disableText
-                            style={{ fontSize: 17 }}
-                          />
+                          <Item id={infusionData?.id} disableLink disableText style={bigStyle} />
                         ) : null}{' '}
                         {text}
                         <br />
