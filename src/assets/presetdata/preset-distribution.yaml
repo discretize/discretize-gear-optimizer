@@ -535,6 +535,15 @@ list:
         "values2": { "Power": 1855, "Burning": 2.2, "Bleeding": 11.3, "Poisoned": 7, "Torment": 21.2, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=AyDxFUGZOYQ (log is off ingame #)
+  # power: 5462, burn: 2897, bleed: 5893, poison: 3167, torment: 15872, total: 33291
+  - name: '[beta] Quickness Harbinger (approx.)'
+    profession: HARBINGER
+    value: >-
+      {
+        "values2": { "Power": 1987, "Burning": 2, "Bleeding": 11.1, "Poisoned": 6.3, "Torment": 17, "Confusion": 0 }
+      }
+
   # https://www.youtube.com/watch?v=1yAvjWJoAyE
   # power: 5940, burn: 729, bleed: 11314, poison: 11138, torment: 6783, total: 35904
   - name: Condi Deadeye

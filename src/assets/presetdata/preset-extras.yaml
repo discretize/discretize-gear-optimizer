@@ -383,6 +383,28 @@ list:
         "Nourishment": "beef-rendang"
       }
 
+  - name: '[beta] Quickness Harbinger (Firebrand)'
+    profession: HARBINGER
+    value: |-
+      {
+        "Runes": "firebrand",
+        "Sigil1": "demons",
+        "Sigil2": "",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "rare-veggie-pizza"
+      }
+
+  - name: '[beta] Quickness Harbinger (Cele)'
+    profession: HARBINGER
+    value: |-
+      {
+        "Runes": "tormenting",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "rare-veggie-pizza"
+      }
+
   - name: Condi Deadeye
     profession: DEADEYE
     value: |-

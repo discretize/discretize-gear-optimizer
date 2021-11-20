@@ -3566,6 +3566,71 @@ list:
         "skills": []
       }
 
+  - name: '[beta] Quickness Harbinger'
+    profession: HARBINGER
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "39",
+          "50",
+          "64"
+        ],
+        "selectedTraits": [
+          [
+            2013,
+            816,
+            801
+          ],
+          [
+            875,
+            894,
+            905
+          ],
+          [
+            2185,
+            2220,
+            2194
+          ]
+        ],
+        "items": [
+          {
+            "barbed-precision": true,
+            "furious-demise": true,
+            "target-the-weak-base": true,
+            "target-the-weak": {
+              "amount": ""
+            },
+            "lingering-curse": true
+          },
+          {
+            "soul-barbs": {
+              "amount": ""
+            },
+            "vital-persistence": true,
+            "death-perception": true
+          },
+          {
+            "wicked-corruption": {
+              "amount": ""
+            },
+            "septic-corruption": {
+              "amount": ""
+            },
+            "alchemic-vigor": true,
+            "implacable-foe": true,
+            "dark-gunslinger": true,
+            "cascading-corruption": true,
+            "doom-approaches": true,
+            "twisted-medicine": true
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": []
+      }
+
   - name: Condi Deadeye
     profession: DEADEYE
     traits: |-

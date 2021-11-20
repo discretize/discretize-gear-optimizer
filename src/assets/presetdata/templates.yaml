@@ -457,6 +457,24 @@ list:
         traits: '[beta] DPS Harbinger'
         extras: '[beta] DPS Harbinger'
 
+      - name: '[beta] Quickness Harbinger (Firebrand)'
+        id: qharb-fb
+        specialization: Harbinger
+        boons: Condi
+        priority: Condi DPS
+        distribution: '[beta] Quickness Harbinger (approx.)'
+        traits: '[beta] Quickness Harbinger'
+        extras: '[beta] Quickness Harbinger (Firebrand)'
+
+      - name: '[beta] Quickness Harbinger (Cele)'
+        id: qharb-cele
+        specialization: Harbinger
+        boons: Condi
+        priority: Condi Boon
+        distribution: '[beta] Quickness Harbinger (approx.)'
+        traits: '[beta] Quickness Harbinger'
+        extras: '[beta] Quickness Harbinger (Cele)'
+
   - class: thief
     builds:
 
