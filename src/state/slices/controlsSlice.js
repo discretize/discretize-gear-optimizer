@@ -12,7 +12,7 @@ export const controlSlice = createSlice({
     selectedTemplate: '',
     status: WAITING,
     profession: '',
-    traitsTemplate: null,
+    templateHelperData: null,
     allSelectedModifiers: null,
   },
   reducers: {
@@ -32,7 +32,7 @@ export const controlSlice = createSlice({
           selectedSpecialization: firstUppercase(action.payload),
           status: WAITING,
           error: '',
-          traitsTemplate: null,
+          templateHelperData: null,
           allSelectedModifiers: null,
         };
       }
@@ -55,7 +55,7 @@ export const controlSlice = createSlice({
         selectedCharacter: null,
         status: WAITING,
         error: '',
-        traitsTemplate: null,
+        templateHelperData: null,
         allSelectedModifiers: null,
       };
     },
@@ -75,7 +75,7 @@ export const controlSlice = createSlice({
         allSelectedModifiers: null,
       };
     },
-    setAllSelectedModifiers: (state, action) => {
+    changeAllSelectedModifiers: (state, action) => {
       state.allSelectedModifiers = action.payload;
     },
     changeControl: (state, action) => {
@@ -90,6 +90,9 @@ export const controlSlice = createSlice({
     changeError: (state, action) => {
       state.error = action.payload;
     },
+    changeTemplateHelperData: (state, action) => {
+      state.templateHelperData = action.payload;
+    },
   },
 });
 
@@ -99,6 +102,7 @@ export const getList = (state) => state.optimizer.control.list;
 export const getSelectedCharacter = (state) => state.optimizer.control.selectedCharacter;
 export const getError = (state) => state.optimizer.control.error;
 export const getAllSelectedModifiers = (state) => state.optimizer.control.allSelectedModifiers;
+export const getTemplateHelperData = (state) => state.optimizer.control.templateHelperData;
 
 export const {
   changeAll,
@@ -107,10 +111,11 @@ export const {
   changeExpertMode,
   changeControl,
   changeList,
-  setAllSelectedModifiers,
+  changeAllSelectedModifiers,
   setBuildTemplate,
   changeSelectedCharacter,
   changeError,
+  changeTemplateHelperData,
 } = controlSlice.actions;
 
 export default controlSlice.reducer;

@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Typography, TextField } from '@material-ui/core';
 import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
-import { getControl } from '../../../state/slices/controlsSlice';
+import { getTemplateHelperData } from '../../../state/slices/controlsSlice';
 import { parseAmount } from '../../../state/optimizer/optimizerCore';
 
 const initial = {
@@ -29,7 +29,7 @@ const fixPoison = (input) =>
   );
 
 const TemplateHelper = ({ character }) => {
-  const traitsTemplate = useSelector(getControl('traitsTemplate'));
+  const templateHelperData = useSelector(getTemplateHelperData);
   const { t } = useTranslation();
 
   const [input, setInput] = React.useState(initial);
@@ -132,7 +132,7 @@ const TemplateHelper = ({ character }) => {
       </Typography>
 
       <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-        {indent(JSON.stringify(traitsTemplate?.traits, null, 2) || '', 6)}
+        {indent(JSON.stringify(templateHelperData?.traits, null, 2) || '', 6)}
       </pre>
 
       <Typography variant="h6">
@@ -140,7 +140,7 @@ const TemplateHelper = ({ character }) => {
       </Typography>
 
       <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-        {indent(JSON.stringify(traitsTemplate?.skills, null, 2) || '', 6)}
+        {indent(JSON.stringify(templateHelperData?.skills, null, 2) || '', 6)}
       </pre>
 
       <Typography variant="h6">
@@ -148,7 +148,7 @@ const TemplateHelper = ({ character }) => {
       </Typography>
 
       <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-        {indent(JSON.stringify(traitsTemplate?.extras, null, 2) || '', 6)}
+        {indent(JSON.stringify(templateHelperData?.extras, null, 2) || '', 6)}
       </pre>
     </>
   );

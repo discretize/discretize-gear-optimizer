@@ -9,9 +9,10 @@ import {
   changeSelectedCharacter,
   getSelectedCharacter,
   getList,
-  setAllSelectedModifiers,
+  changeAllSelectedModifiers,
   changeError,
   changeAll,
+  changeTemplateHelperData,
 } from '../slices/controlsSlice';
 import { getExtrasModifiers } from '../slices/extras';
 import { getBuffsModifiers } from '../slices/buffs';
@@ -24,46 +25,6 @@ import { INFUSIONS } from '../../utils/gw2-data';
 import { ERROR, SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-function createTraitsTemplate(state, list) {
-  // const { profession, traits, skills, extras } = state;
-
-  const withoutModifiers = (object) => {
-    // eslint-disable-next-line no-unused-vars
-    const { modifiers, ...rest } = object;
-    return { ...rest };
-  };
-
-  console.groupCollapsed('Template Creation Data');
-
-  const traitsTemplate = {
-    profession: state.control.profession,
-    traits: withoutModifiers(state.form.traits),
-    skills: withoutModifiers(state.form.skills),
-    extras: withoutModifiers(state.form.extras),
-  };
-
-  console.log('Traits:', traitsTemplate);
-
-  const distribution = state.form.distribution.values2;
-  console.log('Input Distribution (v2):');
-  console.table([distribution]);
-
-  if (list && list[0]) {
-    const bestResult = { ...list[0] };
-    optimizerCore.updateAttributes(bestResult);
-    console.log('Best Result Damage:');
-    console.table([
-      Object.fromEntries(
-        // eslint-disable-next-line id-length
-        Object.entries(bestResult.results.damageBreakdown).map(([a, b]) => [a, parseFloat(b)]),
-      ),
-    ]);
-  }
-  console.groupEnd();
-
-  return traitsTemplate;
-}
 
 function createInput(state, modifiers) {
   const {
@@ -155,10 +116,17 @@ function* runCalc() {
   let selectedCharacterIsStale = true;
   try {
     yield delay(0);
-    console.time('Calculation');
 
     const reduxState = yield select();
     state = reduxState.optimizer;
+
+    const templateHelperData = {
+      profession: state.control.profession,
+      traits: state.form.traits,
+      skills: state.form.skills,
+      extras: state.form.extras,
+    };
+    yield put(changeTemplateHelperData(templateHelperData));
 
     const modifiers = [
       ...(yield select(getExtrasModifiers) || []),
@@ -168,7 +136,9 @@ function* runCalc() {
       ...(yield select(getSkillsModifiers) || []),
       ...(yield select(getTraitsModifiers) || []),
     ];
-    yield put(setAllSelectedModifiers(modifiers));
+    yield put(changeAllSelectedModifiers(modifiers));
+
+    console.time('Calculation');
 
     input = createInput(state, modifiers);
 
@@ -218,9 +188,6 @@ function* runCalc() {
       yield delay(0);
     }
     yield put(changeList(currentList));
-    const traitsTemplate = createTraitsTemplate(state, currentList);
-    yield put(changeControl({ key: 'traitsTemplate', value: traitsTemplate }));
-    console.groupEnd();
 
     console.timeEnd('Calculation');
     console.time('Render Result');
