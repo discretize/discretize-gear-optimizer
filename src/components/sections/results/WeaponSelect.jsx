@@ -23,7 +23,7 @@ const WeaponSelect = ({ classes }) => {
   const wea1mh = useSelector(getControl('wea1mh'));
   const wea1oh = useSelector(getControl('wea1oh'));
 
-  const classData = Classes[profession.toLowerCase()];
+  const classData = Classes[profession];
 
   // const canOffhand1 =
   //   classData.weapons.mainHand.find((w) => w.name === wea1mh).type !== 'twoHanded';

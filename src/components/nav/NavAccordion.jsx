@@ -7,7 +7,6 @@ import { Profession } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setBuildTemplate } from '../../state/slices/controlsSlice';
-import { firstUppercase } from '../../utils/usefulFunctions';
 
 const Accordion = withStyles({
   root: {
@@ -74,7 +73,7 @@ export default function NavAccordion({
       key={`mobileTemplate_${prof.class}`}
     >
       <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-        <Profession name={firstUppercase(prof.class)} disableLink style={{ fontSize: 20 }} />
+        <Profession name={prof.class} disableLink style={{ fontSize: 20 }} />
       </AccordionSummary>
       <AccordionDetails>
         {prof.builds.map((build) => (
@@ -88,7 +87,7 @@ export default function NavAccordion({
                   setBuildTemplate({
                     build,
                     specialization: build.specialization,
-                    profession: prof.class.toUpperCase(),
+                    profession: prof.class,
                     buffPreset: JSON.parse(
                       buffPresets.find((pre) => pre.name === build.boons).value,
                     ),

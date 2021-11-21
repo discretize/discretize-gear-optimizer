@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { WAITING } from '../optimizer/status';
-import { firstUppercase } from '../../utils/usefulFunctions';
 
 export const controlSlice = createSlice({
   name: 'control',
@@ -29,7 +28,7 @@ export const controlSlice = createSlice({
           progress: 0,
           selectedCharacter: null,
           selectedTemplate: '',
-          selectedSpecialization: firstUppercase(action.payload),
+          selectedSpecialization: action.payload,
           status: WAITING,
           error: '',
           templateHelperData: null,

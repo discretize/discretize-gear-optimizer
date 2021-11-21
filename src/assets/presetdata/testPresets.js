@@ -116,7 +116,7 @@ const testModifiers = async () => {
         const match = data[type].find((pre) => pre.name === item[type]);
         gentleAssert(match, `err: ${name}'s ${type} is not found!`);
         gentleAssert(
-          !match.profession || match?.profession?.toUpperCase() === specialization?.toUpperCase(),
+          !match.profession || match?.profession === specialization,
           `err: ${name}'s ${type}'s profession is wrong!`,
         );
       }

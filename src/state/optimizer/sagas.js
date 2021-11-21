@@ -65,7 +65,7 @@ function createInput(state, modifiers) {
 
   const input = {
     tags: undefined,
-    profession: profession.toLowerCase(),
+    profession,
     weapontype: weaponType,
     affixes: affixes.map((affix) =>
       affix.toLowerCase().replace(/^\w/, (char) => char.toUpperCase()),
