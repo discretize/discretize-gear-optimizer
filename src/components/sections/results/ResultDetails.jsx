@@ -3,11 +3,7 @@ import { getImage } from 'gatsby-plugin-image';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import {
-  getAllSelectedModifiers,
-  getProfession,
-  getSelectedCharacter,
-} from '../../../state/slices/controlsSlice';
+import { getProfession, getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import { updateAttributes } from '../../../state/optimizer/optimizerCore';
 import { getExtras } from '../../../state/slices/extras';
 import { getPriority } from '../../../state/slices/priorities';
@@ -27,7 +23,6 @@ import { classModifiers, extrasModifiersById } from '../../../assets/modifierdat
 
 const ResultDetails = ({ data }) => {
   const profession = useSelector(getProfession);
-  const modifiers = useSelector(getAllSelectedModifiers);
 
   const { t } = useTranslation();
 
@@ -198,7 +193,7 @@ const ResultDetails = ({ data }) => {
         <Grid item xs={12} sm={6} md={4} />
       </Grid>
 
-      <AppliedModifiers data={modifiers} />
+      <AppliedModifiers data={character?.settings?.appliedModifiers} />
 
       <TemplateHelperSections
         character={character}

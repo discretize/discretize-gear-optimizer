@@ -34,7 +34,7 @@ let isChanged = true;
  * Sets up optimizer with input data
  *
  * @param {object} input
- * @param {object[]} input.modifiers - array of modifier objects
+ * @param {object[]} input.appliedModifiers - array of modifier objects
  * @param {?string[]} input.tags - modifier data for the UI
  *                      (passed unedited into character.settings)
  * @param {string} input.profession
@@ -65,7 +65,6 @@ export function setup(input) {
 
   /* eslint-disable prefer-const */
   let {
-    modifiers: modifiersInput,
     primaryInfusion: primaryInfusionInput,
     secondaryInfusion: secondaryInfusionInput,
     primaryMaxInfusions: primaryMaxInfusionsInput,
@@ -137,8 +136,7 @@ export function setup(input) {
 
   const parsePercent = (percentValue) => Number(percentValue.replace('%', '')) / 100;
 
-  modifiersInput = modifiersInput || [];
-  for (const item of modifiersInput) {
+  for (const item of settings.appliedModifiers) {
     const {
       id = '[no id]',
       visible = true,

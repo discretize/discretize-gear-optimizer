@@ -9,7 +9,6 @@ import {
   changeSelectedCharacter,
   getSelectedCharacter,
   getList,
-  changeAllSelectedModifiers,
   changeError,
   changeAll,
   changeTemplateHelperData,
@@ -26,7 +25,7 @@ import { ERROR, SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function createInput(state, modifiers) {
+function createInput(state, appliedModifiers) {
   const {
     control: { profession },
     form: {
@@ -86,7 +85,7 @@ function createInput(state, modifiers) {
     percentDistribution: values1,
     distribution: values2,
   };
-  input.modifiers = modifiers;
+  input.appliedModifiers = appliedModifiers;
 
   // temp: convert "poisoned" to "poison"
   const convertPoison = (distribution) =>
@@ -128,7 +127,7 @@ function* runCalc() {
     };
     yield put(changeTemplateHelperData(templateHelperData));
 
-    const modifiers = [
+    const appliedModifiers = [
       ...(yield select(getExtrasModifiers) || []),
       ...(yield select(getBuffsModifiers) || []),
       ...(yield select(getExtraModifiersModifiers) || []),
@@ -136,11 +135,10 @@ function* runCalc() {
       ...(yield select(getSkillsModifiers) || []),
       ...(yield select(getTraitsModifiers) || []),
     ];
-    yield put(changeAllSelectedModifiers(modifiers));
 
     console.time('Calculation');
 
-    input = createInput(state, modifiers);
+    input = createInput(state, appliedModifiers);
 
     console.groupCollapsed('Debug Info:');
     console.log('Redux State:', state);
@@ -264,7 +262,6 @@ function* exportState() {
       ...state.control,
       list: modifiedList,
       selectedCharacter: null,
-      allSelectedModifiers: null,
     },
   };
 
