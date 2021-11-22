@@ -52,7 +52,7 @@ function createInput(state, modifiers) {
   } = state;
 
   const parseTextNumber = (text, defaultValue) => {
-    const parsed = Number.parseInt(text, 10);
+    const parsed = parseInt(text, 10);
     if (Number.isNaN(parsed)) {
       return defaultValue;
     }
