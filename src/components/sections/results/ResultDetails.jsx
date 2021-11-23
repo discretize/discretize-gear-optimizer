@@ -3,6 +3,7 @@ import { getImage } from 'gatsby-plugin-image';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import times from 'lodash/times'
 import {
   getAllSelectedModifiers,
   getProfession,
@@ -69,14 +70,13 @@ const ResultDetails = ({ data }) => {
 
   if (character.infusions) {
     infusions = Object.keys(character.infusions).flatMap((key) =>
-      // eslint-disable-next-line no-undef
-      _.times(character.infusions[key], () => INFUSIONS.find((infu) => infu.attribute === key).id),
+      times(character.infusions[key], () => INFUSIONS.find((infu) => infu.attribute === key).id),
     );
     // fill up the remaining slots with generic +9 Agony Infusions
     infusions = [
       ...infusions,
-      // eslint-disable-next-line no-undef, id-length
-      ..._.times(18 - Object.values(character.infusions).reduce((p, c) => p + c), () => 49432),
+      // eslint-disable-next-line id-length
+      ...times(18 - Object.values(character.infusions).reduce((p, c) => p + c), () => 49432),
     ];
   }
 
