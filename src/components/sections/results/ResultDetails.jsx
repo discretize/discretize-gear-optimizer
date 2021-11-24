@@ -3,6 +3,7 @@ import { getImage } from 'gatsby-plugin-image';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import times from 'lodash/times';
 import { getProfession, getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import { updateAttributes } from '../../../state/optimizer/optimizerCore';
 import { getExtras } from '../../../state/slices/extras';
@@ -50,9 +51,9 @@ const ResultDetails = ({ data }) => {
   // eslint-disable-next-line no-console
   console.log('Selected Character Data:', character);
 
-  const classData = Classes[profession.toLowerCase()].weapons;
+  const classData = Classes[profession].weapons;
 
-  const { defense } = Classes[profession.toLowerCase()];
+  const { defense } = Classes[profession];
   let weight = 'Light';
   if (defense === Defense.HEAVY) {
     weight = 'Heavy';
@@ -64,14 +65,13 @@ const ResultDetails = ({ data }) => {
 
   if (character.infusions) {
     infusions = Object.keys(character.infusions).flatMap((key) =>
-      // eslint-disable-next-line no-undef
-      _.times(character.infusions[key], () => INFUSIONS.find((infu) => infu.attribute === key).id),
+      times(character.infusions[key], () => INFUSIONS.find((infu) => infu.attribute === key).id),
     );
     // fill up the remaining slots with generic +9 Agony Infusions
     infusions = [
       ...infusions,
-      // eslint-disable-next-line no-undef, id-length
-      ..._.times(18 - Object.values(character.infusions).reduce((p, c) => p + c), () => 49432),
+      // eslint-disable-next-line id-length
+      ...times(18 - Object.values(character.infusions).reduce((p, c) => p + c), () => 49432),
     ];
   }
 
@@ -117,22 +117,17 @@ const ResultDetails = ({ data }) => {
   }
 
   // find the right image for the selected elite specialization
-  const { eliteSpecializations } = PROFESSIONS.find(
-    (prof) => prof.profession === profession.toUpperCase(),
-  );
+  const { eliteSpecializations } = PROFESSIONS.find((prof) => prof.profession === profession);
   // contains the names of the selected trait lines
   const selectedTraitLinesNames = traits
-    .map((id) =>
-      classModifiers[profession.toLowerCase()].find((section) => section?.id === Number(id)),
-    )
+    .map((id) => classModifiers[profession].find((section) => section?.id === Number(id)))
     .filter((section) => section !== undefined)
     .map((section) => section.section);
 
   // currently selected specialization. In case multiple elite specializations are selected, only the first one is counted.
   // In case no specialization is selected, the variable defaults to the core profession
   const currentSpecialization =
-    selectedTraitLinesNames.find((spec) => eliteSpecializations.includes(spec.toUpperCase())) ||
-    profession;
+    selectedTraitLinesNames.find((spec) => eliteSpecializations.includes(spec)) || profession;
 
   const imageRaw = data.images.edges
     .flatMap((image) => image.node)

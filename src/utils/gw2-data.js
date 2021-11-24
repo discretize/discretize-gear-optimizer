@@ -641,7 +641,7 @@ export const WEAPONS = {
 };
 
 export const Classes = {
-  warrior: {
+  Warrior: {
     health: Health.HIGH,
     defense: Defense.HEAVY,
     weapons: {
@@ -666,7 +666,7 @@ export const Classes = {
       ],
     },
   },
-  necromancer: {
+  Necromancer: {
     health: Health.HIGH,
     defense: Defense.LIGHT,
     weapons: {
@@ -674,7 +674,7 @@ export const Classes = {
       offHand: [WEAPONS.FOCUS, WEAPONS.WARHORN, WEAPONS.TORCH, WEAPONS.DAGGER],
     },
   },
-  revenant: {
+  Revenant: {
     health: Health.MEDIUM,
     defense: Defense.HEAVY,
     weapons: {
@@ -682,7 +682,7 @@ export const Classes = {
       offHand: [WEAPONS.AXE, WEAPONS.SWORD, WEAPONS.SHIELD],
     },
   },
-  engineer: {
+  Engineer: {
     health: Health.MEDIUM,
     defense: Defense.MEDIUM,
     weapons: {
@@ -690,7 +690,7 @@ export const Classes = {
       offHand: [WEAPONS.PISTOL, WEAPONS.SHIELD],
     },
   },
-  ranger: {
+  Ranger: {
     health: Health.MEDIUM,
     defense: Defense.MEDIUM,
     weapons: {
@@ -706,7 +706,7 @@ export const Classes = {
       offHand: [WEAPONS.AXE, WEAPONS.DAGGER, WEAPONS.TORCH, WEAPONS.WARHORN],
     },
   },
-  mesmer: {
+  Mesmer: {
     health: Health.MEDIUM,
     defense: Defense.LIGHT,
     weapons: {
@@ -714,7 +714,7 @@ export const Classes = {
       offHand: [WEAPONS.PISTOL, WEAPONS.SWORD, WEAPONS.FOCUS, WEAPONS.SHIELD, WEAPONS.TORCH],
     },
   },
-  guardian: {
+  Guardian: {
     health: Health.LOW,
     defense: Defense.HEAVY,
     weapons: {
@@ -731,7 +731,7 @@ export const Classes = {
       offHand: [WEAPONS.FOCUS, WEAPONS.SHIELD, WEAPONS.TORCH],
     },
   },
-  thief: {
+  Thief: {
     health: Health.LOW,
     defense: Defense.MEDIUM,
     weapons: {
@@ -746,7 +746,7 @@ export const Classes = {
       offHand: [WEAPONS.DAGGER, WEAPONS.PISTOL],
     },
   },
-  elementalist: {
+  Elementalist: {
     health: Health.LOW,
     defense: Defense.LIGHT,
     weapons: {
@@ -844,15 +844,15 @@ export const MAX_INFUSIONS = 18;
 export const INFUSION_BONUS = 5;
 
 export const PROFESSIONS = [
-  { profession: 'WARRIOR', eliteSpecializations: ['SPELLBREAKER', 'BERSERKER', 'BLADESWORN'] },
-  { profession: 'REVENANT', eliteSpecializations: ['HERALD', 'RENEGADE', 'VINDICATOR'] },
-  { profession: 'GUARDIAN', eliteSpecializations: ['DRAGONHUNTER', 'FIREBRAND', 'WILLBENDER'] },
-  { profession: 'RANGER', eliteSpecializations: ['DRUID', 'SOULBEAST', 'UNTAMED'] },
-  { profession: 'ENGINEER', eliteSpecializations: ['SCRAPPER', 'HOLOSMITH', 'MECHANIST'] },
-  { profession: 'ELEMENTALIST', eliteSpecializations: ['TEMPEST', 'WEAVER', 'CATALYST'] },
-  { profession: 'MESMER', eliteSpecializations: ['CHRONOMANCER', 'MIRAGE', 'VIRTUOSO'] },
-  { profession: 'NECROMANCER', eliteSpecializations: ['SCOURGE', 'REAPER', 'HARBINGER'] },
-  { profession: 'THIEF', eliteSpecializations: ['DAREDEVIL', 'DEADEYE', 'SPECTER'] },
+  { profession: 'Warrior', eliteSpecializations: ['Spellbreaker', 'Berserker', 'Bladesworn'] },
+  { profession: 'Revenant', eliteSpecializations: ['Herald', 'Renegade', 'Vindicator'] },
+  { profession: 'Guardian', eliteSpecializations: ['Dragonhunter', 'Firebrand', 'Willbender'] },
+  { profession: 'Ranger', eliteSpecializations: ['Druid', 'Soulbeast', 'Untamed'] },
+  { profession: 'Engineer', eliteSpecializations: ['Scrapper', 'Holosmith', 'Mechanist'] },
+  { profession: 'Elementalist', eliteSpecializations: ['Tempest', 'Weaver', 'Catalyst'] },
+  { profession: 'Mesmer', eliteSpecializations: ['Chronomancer', 'Mirage', 'Virtuoso'] },
+  { profession: 'Necromancer', eliteSpecializations: ['Scourge', 'Reaper', 'Harbinger'] },
+  { profession: 'Thief', eliteSpecializations: ['Daredevil', 'Deadeye', 'Specter'] },
 ];
 
 export const GEAR_SLOTS = [

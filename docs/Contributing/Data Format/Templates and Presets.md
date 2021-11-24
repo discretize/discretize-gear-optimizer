@@ -71,7 +71,7 @@ Affix presets do not currently have a `profession` key (they are all always show
 
 ```yaml
   - name: CFB DPS 5 page
-    profession: FIREBRAND
+    profession: Firebrand
     traits: |-
       {
         "showAll": false,
@@ -93,7 +93,7 @@ Affix presets do not currently have a `profession` key (they are all always show
 
 ```yaml
   - name: CFB DPS
-    profession: FIREBRAND
+    profession: Firebrand
     value: |-
       {
         "Runes": "balthazar",
@@ -114,7 +114,7 @@ The optimizer calculates what skill coefficient slider inputs would result in th
 
 ```yaml
   - name: CFB (Virtues, 5 page, allies)
-    profession: FIREBRAND
+    profession: Firebrand
     value: >-
       {
         "values1": { "Power": 30, "Burning": 65, "Bleeding": 3, "Poisoned": 0, "Torment": 1, "Confusion": 0 },

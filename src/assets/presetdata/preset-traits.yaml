@@ -2,7 +2,7 @@ GraphQL ID: presetTraits
 list:
 
   - name: Power Chrono IA
-    profession: CHRONOMANCER
+    profession: Chronomancer
     traits: |-
       {
         "showAll": false,
@@ -60,7 +60,7 @@ list:
       }
 
   - name: Axe Mirage
-    profession: MIRAGE
+    profession: Mirage
     traits: |-
       {
         "showAll": false,
@@ -123,7 +123,7 @@ list:
       }
 
   - name: Staff Mirage
-    profession: MIRAGE
+    profession: Mirage
     traits: |-
       {
         "showAll": false,
@@ -188,7 +188,7 @@ list:
       }
 
   - name: Condi Chrono
-    profession: CHRONOMANCER
+    profession: Chronomancer
     traits: |-
       {
         "showAll": false,
@@ -243,7 +243,7 @@ list:
       }
 
   - name: '[beta] Virtuoso'
-    profession: VIRTUOSO
+    profession: Virtuoso
     traits: |-
       {
         "showAll": false,
@@ -306,7 +306,7 @@ list:
       }
 
   - name: DH Radiance w/ PI
-    profession: DRAGONHUNTER
+    profession: Dragonhunter
     traits: |-
       {
         "showAll": false,
@@ -373,7 +373,7 @@ list:
       }
 
   - name: DH Radiance
-    profession: DRAGONHUNTER
+    profession: Dragonhunter
     traits: |-
       {
         "showAll": false,
@@ -440,7 +440,7 @@ list:
       }
 
   - name: DH Virtues
-    profession: DRAGONHUNTER
+    profession: Dragonhunter
     traits: |-
       {
         "showAll": false,
@@ -507,7 +507,7 @@ list:
       }
 
   # - name: Core Guardian
-  #   profession: GUARDIAN
+  #   profession: Guardian
   #   traits: |-
   #     {
   #       "showAll": false,
@@ -580,7 +580,7 @@ list:
   #     }
 
   - name: Power Quickbrand
-    profession: FIREBRAND
+    profession: Firebrand
     traits: |-
       {
         "showAll": false,
@@ -645,7 +645,7 @@ list:
       }
 
   - name: Condi Quickbrand
-    profession: FIREBRAND
+    profession: Firebrand
     traits: |-
       {
         "showAll": false,
@@ -713,7 +713,7 @@ list:
       }
 
   - name: CFB DPS 5 page
-    profession: FIREBRAND
+    profession: Firebrand
     traits: |-
       {
         "showAll": false,
@@ -781,7 +781,7 @@ list:
       }
 
   - name: CFB DPS 8 page
-    profession: FIREBRAND
+    profession: Firebrand
     traits: |-
       {
         "showAll": false,
@@ -849,7 +849,7 @@ list:
       }
 
   - name: Hybrid FB Virtues
-    profession: FIREBRAND
+    profession: Firebrand
     traits: |-
       {
         "showAll": false,
@@ -915,7 +915,7 @@ list:
       }
 
   - name: Hybrid FB Honor
-    profession: FIREBRAND
+    profession: Firebrand
     traits: |-
       {
         "showAll": false,
@@ -976,7 +976,7 @@ list:
       }
 
   - name: Healbrand
-    profession: FIREBRAND
+    profession: Firebrand
     traits: |-
       {
         "showAll": false,
@@ -1039,7 +1039,7 @@ list:
       }
 
   - name: '[beta] Power Willbender Radiance'
-    profession: WILLBENDER
+    profession: Willbender
     traits: |-
       {
         "showAll": false,
@@ -1109,7 +1109,7 @@ list:
       }
 
   - name: '[beta] Power Willbender Virtues'
-    profession: WILLBENDER
+    profession: Willbender
     traits: |-
       {
         "showAll": false,
@@ -1179,7 +1179,7 @@ list:
       }
 
   - name: Power Banner Bers Strength
-    profession: BERSERKER
+    profession: Berserker
     traits: |-
       {
         "showAll": false,
@@ -1259,7 +1259,7 @@ list:
       }
 
   - name: Condi Bers
-    profession: BERSERKER
+    profession: Berserker
     traits: |-
       {
         "showAll": false,
@@ -1341,7 +1341,7 @@ list:
       }
 
   - name: Power Banner SPB
-    profession: SPELLBREAKER
+    profession: Spellbreaker
     traits: |-
       {
         "showAll": false,
@@ -1415,7 +1415,7 @@ list:
       }
 
   - name: '[beta] Bladesworn'
-    profession: BLADESWORN
+    profession: Bladesworn
     traits: |-
       {
         "showAll": false,
@@ -1484,7 +1484,7 @@ list:
       }
 
   - name: Power Weaver Stormsoul
-    profession: WEAVER
+    profession: Weaver
     traits: |-
       {
         "showAll": false,
@@ -1572,7 +1572,7 @@ list:
       }
 
   - name: Condi Weaver Sword
-    profession: WEAVER
+    profession: Weaver
     traits: |-
       {
         "showAll": false,
@@ -1647,7 +1647,7 @@ list:
       }
 
   - name: Hybrid Weaver
-    profession: WEAVER
+    profession: Weaver
     traits: |-
       {
         "showAll": false,
@@ -1735,7 +1735,7 @@ list:
       }
 
   - name: Condi Tempest
-    profession: TEMPEST
+    profession: Tempest
     traits: |-
       {
         "showAll": false,
@@ -1798,7 +1798,7 @@ list:
       }
 
   - name: '[beta] Condi Hammer Catalyst'
-    profession: CATALYST
+    profession: Catalyst
     traits: |-
       {
         "showAll": false,
@@ -1864,7 +1864,7 @@ list:
       }
 
   - name: Heal Tempest
-    profession: TEMPEST
+    profession: Tempest
     traits: |-
       {
         "showAll": false,
@@ -1915,7 +1915,7 @@ list:
       }
 
   - name: Power Slb Marks
-    profession: SOULBEAST
+    profession: Soulbeast
     traits: |-
       {
         "showAll": false,
@@ -1981,7 +1981,7 @@ list:
       }
 
   - name: Power Slb Skirm
-    profession: SOULBEAST
+    profession: Soulbeast
     traits: |-
       {
         "showAll": false,
@@ -2046,7 +2046,7 @@ list:
       }
 
   - name: Condi Slb SB
-    profession: SOULBEAST
+    profession: Soulbeast
     traits: |-
       {
         "showAll": false,
@@ -2114,7 +2114,7 @@ list:
       }
 
   - name: Condi Slb D/T A/D
-    profession: SOULBEAST
+    profession: Soulbeast
     traits: |-
       {
         "showAll": false,
@@ -2182,7 +2182,7 @@ list:
       }
 
   - name: Hybrid Slb
-    profession: SOULBEAST
+    profession: Soulbeast
     traits: |-
       {
         "showAll": false,
@@ -2247,7 +2247,7 @@ list:
       }
 
   - name: Pure Shortbow Slb
-    profession: SOULBEAST
+    profession: Soulbeast
     traits: |-
       {
         "showAll": false,
@@ -2312,7 +2312,7 @@ list:
       }
 
   - name: Condi Druid*
-    profession: DRUID
+    profession: Druid
     traits: |-
       {
         "showAll": false,
@@ -2365,7 +2365,7 @@ list:
       }
 
   - name: Heal Druid
-    profession: DRUID
+    profession: Druid
     traits: |-
       {
         "showAll": false,
@@ -2418,7 +2418,7 @@ list:
       }
 
   - name: Power Alac Ren
-    profession: RENEGADE
+    profession: Renegade
     traits: |-
       {
         "showAll": false,
@@ -2491,7 +2491,7 @@ list:
       }
 
   - name: Condi RR Ren Invo
-    profession: RENEGADE
+    profession: Renegade
     traits: |-
       {
         "showAll": false,
@@ -2553,7 +2553,7 @@ list:
       }
 
   - name: Condi RR Ren Deva
-    profession: RENEGADE
+    profession: Renegade
     traits: |-
       {
         "showAll": false,
@@ -2624,7 +2624,7 @@ list:
       }
 
   - name: Condi DPS Ren Deva
-    profession: RENEGADE
+    profession: Renegade
     traits: |-
       {
         "showAll": false,
@@ -2695,7 +2695,7 @@ list:
       }
 
   - name: Power Herald DE
-    profession: HERALD
+    profession: Herald
     traits: |-
       {
         "showAll": false,
@@ -2771,7 +2771,7 @@ list:
       }
 
   - name: Condi Herald
-    profession: HERALD
+    profession: Herald
     traits: |-
       {
         "showAll": false,
@@ -2845,7 +2845,7 @@ list:
       }
 
   - name: Power DPS Ren
-    profession: RENEGADE
+    profession: Renegade
     traits: |-
       {
         "showAll": false,
@@ -2918,7 +2918,7 @@ list:
       }
 
   - name: Heal Ren
-    profession: RENEGADE
+    profession: Renegade
     traits: |-
       {
         "showAll": false,
@@ -2991,7 +2991,7 @@ list:
       }
 
   - name: Power Holo ECSU
-    profession: HOLOSMITH
+    profession: Holosmith
     traits: |-
       {
         "showAll": false,
@@ -3058,7 +3058,7 @@ list:
       }
 
   - name: Condi Holo
-    profession: HOLOSMITH
+    profession: Holosmith
     traits: |-
       {
         "showAll": false,
@@ -3125,7 +3125,7 @@ list:
       }
 
   - name: '[beta] Condi Mechanist'
-    profession: MECHANIST
+    profession: Mechanist
     traits: |-
       {
         "showAll": false,
@@ -3188,7 +3188,7 @@ list:
       }
 
   - name: Power Scrapper
-    profession: SCRAPPER
+    profession: Scrapper
     traits: |-
       {
         "showAll": false,
@@ -3260,7 +3260,7 @@ list:
       }
 
   - name: Quickness Scrapper
-    profession: SCRAPPER
+    profession: Scrapper
     traits: |-
       {
         "showAll": false,
@@ -3332,7 +3332,7 @@ list:
       }
 
   - name: Heal Scrapper
-    profession: SCRAPPER
+    profession: Scrapper
     traits: |-
       {
         "showAll": false,
@@ -3385,7 +3385,7 @@ list:
       }
 
   - name: DPS Scourge
-    profession: SCOURGE
+    profession: Scourge
     traits: |-
       {
         "showAll": false,
@@ -3442,7 +3442,7 @@ list:
       }
 
   - name: Condi Reaper
-    profession: REAPER
+    profession: Reaper
     traits: |-
       {
         "showAll": false,
@@ -3503,7 +3503,7 @@ list:
       }
 
   - name: '[beta] DPS Harbinger'
-    profession: HARBINGER
+    profession: Harbinger
     traits: |-
       {
         "showAll": false,
@@ -3567,7 +3567,7 @@ list:
       }
 
   - name: '[beta] Quickness Harbinger'
-    profession: HARBINGER
+    profession: Harbinger
     traits: |-
       {
         "showAll": false,
@@ -3632,7 +3632,7 @@ list:
       }
 
   - name: Condi Deadeye
-    profession: DEADEYE
+    profession: Deadeye
     traits: |-
       {
         "showAll": false,
@@ -3698,7 +3698,7 @@ list:
       }
 
   - name: Staff Daredevil
-    profession: DAREDEVIL
+    profession: Daredevil
     traits: |-
       {
         "showAll": false,
@@ -3773,7 +3773,7 @@ list:
       }
 
   - name: Boon Daredevil*
-    profession: DAREDEVIL
+    profession: Daredevil
     traits: |-
       {
         "showAll": false,
@@ -3842,7 +3842,7 @@ list:
       }
 
   - name: Condi Daredevil
-    profession: DAREDEVIL
+    profession: Daredevil
     traits: |-
       {
         "showAll": false,
@@ -3909,7 +3909,7 @@ list:
       }
 
   - name: Rifle Deadeye
-    profession: DEADEYE
+    profession: Deadeye
     traits: |-
       {
         "showAll": false,
@@ -3984,7 +3984,7 @@ list:
       }
 
   - name: '[beta] DPS Specter Sc/D'
-    profession: SPECTER
+    profession: Specter
     traits: |-
       {
         "showAll": false,
@@ -4052,7 +4052,7 @@ list:
       }
 
   - name: '[beta] DPS Specter Endless Night'
-    profession: SPECTER
+    profession: Specter
     traits: |-
       {
         "showAll": false,

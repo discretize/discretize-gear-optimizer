@@ -51,7 +51,7 @@ function createInput(state, appliedModifiers) {
   } = state;
 
   const parseTextNumber = (text, defaultValue) => {
-    const parsed = Number.parseInt(text, 10);
+    const parsed = parseInt(text, 10);
     if (Number.isNaN(parsed)) {
       return defaultValue;
     }
@@ -64,7 +64,7 @@ function createInput(state, appliedModifiers) {
 
   const input = {
     tags: undefined,
-    profession: profession.toLowerCase(),
+    profession,
     weapontype: weaponType,
     affixes: affixes.map((affix) =>
       affix.toLowerCase().replace(/^\w/, (char) => char.toUpperCase()),
