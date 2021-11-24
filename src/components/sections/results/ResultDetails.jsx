@@ -56,9 +56,9 @@ const ResultDetails = ({ data }) => {
   // eslint-disable-next-line no-console
   console.log('Selected Character Data:', character);
 
-  const classData = Classes[profession.toLowerCase()].weapons;
+  const classData = Classes[profession].weapons;
 
-  const { defense } = Classes[profession.toLowerCase()];
+  const { defense } = Classes[profession];
   let weight = 'Light';
   if (defense === Defense.HEAVY) {
     weight = 'Heavy';
@@ -122,22 +122,17 @@ const ResultDetails = ({ data }) => {
   }
 
   // find the right image for the selected elite specialization
-  const { eliteSpecializations } = PROFESSIONS.find(
-    (prof) => prof.profession === profession.toUpperCase(),
-  );
+  const { eliteSpecializations } = PROFESSIONS.find((prof) => prof.profession === profession);
   // contains the names of the selected trait lines
   const selectedTraitLinesNames = traits
-    .map((id) =>
-      classModifiers[profession.toLowerCase()].find((section) => section?.id === Number(id)),
-    )
+    .map((id) => classModifiers[profession].find((section) => section?.id === Number(id)))
     .filter((section) => section !== undefined)
     .map((section) => section.section);
 
   // currently selected specialization. In case multiple elite specializations are selected, only the first one is counted.
   // In case no specialization is selected, the variable defaults to the core profession
   const currentSpecialization =
-    selectedTraitLinesNames.find((spec) => eliteSpecializations.includes(spec.toUpperCase())) ||
-    profession;
+    selectedTraitLinesNames.find((spec) => eliteSpecializations.includes(spec)) || profession;
 
   const imageRaw = data.images.edges
     .flatMap((image) => image.node)

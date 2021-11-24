@@ -28,7 +28,6 @@ import {
   setBuildTemplate,
 } from '../../state/slices/controlsSlice';
 import { PROFESSIONS } from '../../utils/gw2-data';
-import { firstUppercase } from '../../utils/usefulFunctions';
 import NavAccordion from './NavAccordion';
 
 const styles = (theme) => ({
@@ -207,7 +206,7 @@ const Navbar = ({
               {...bindHover(popupState[index])}
             >
               <Profession
-                name={firstUppercase(prof.profession)}
+                name={prof.profession}
                 disableLink
                 disableText
                 className={classes.navProfession}
@@ -221,7 +220,7 @@ const Navbar = ({
               transformOrigin={{ vertical: 'top', horizontal: 'left' }}
             >
               {data
-                .find((elem) => elem.class === prof.profession.toLowerCase())
+                .find((elem) => elem.class === prof.profession)
                 ?.builds?.map((elem) => (
                   <MenuItem
                     key={elem.name}

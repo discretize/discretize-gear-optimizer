@@ -32,7 +32,7 @@ list:
       }
 
   - name: '[beta] Virtuoso'
-    profession: VIRTUOSO
+    profession: Virtuoso
     value: |-
       {
         "Runes": "scholar",
@@ -43,7 +43,7 @@ list:
       }
 
   - name: DH Virtues (Fractal)
-    profession: DRAGONHUNTER
+    profession: Dragonhunter
     value: |-
       {
         "Runes": "thief",
@@ -54,7 +54,7 @@ list:
       }
 
   - name: DH Virtues (Raid)
-    profession: DRAGONHUNTER
+    profession: Dragonhunter
     value: |-
       {
         "Runes": "thief",
@@ -65,7 +65,7 @@ list:
       }
 
   - name: CFB w/ Quickness
-    profession: FIREBRAND
+    profession: Firebrand
     value: |-
       {
         "Runes": "balthazar",
@@ -76,7 +76,7 @@ list:
       }
 
   - name: CFB DPS
-    profession: FIREBRAND
+    profession: Firebrand
     value: |-
       {
         "Runes": "balthazar",
@@ -87,7 +87,7 @@ list:
       }
 
   - name: Condi Quickbrand 40%
-    profession: FIREBRAND
+    profession: Firebrand
     value: |-
       {
         "Runes": "firebrand",
@@ -98,7 +98,7 @@ list:
       }
 
   - name: Hybrid FB Traveler
-    profession: FIREBRAND
+    profession: Firebrand
     value: |-
       {
         "Runes": "traveler",
@@ -109,7 +109,7 @@ list:
       }
 
   - name: Condi Bers
-    profession: BERSERKER
+    profession: Berserker
     value: |-
       {
         "Runes": "renegade",
@@ -120,7 +120,7 @@ list:
       }
 
   - name: Power Bers (Raid spotter)
-    profession: BERSERKER
+    profession: Berserker
     value: |-
       {
         "Runes": "thief",
@@ -131,7 +131,7 @@ list:
       }
 
   - name: '[beta] Bladesworn'
-    profession: BLADESWORN
+    profession: Bladesworn
     value: |-
       {
         "Runes": "scholar",
@@ -142,7 +142,7 @@ list:
       }
 
   - name: Flame Legion Power Weaver (Raid)
-    profession: WEAVER
+    profession: Weaver
     value: |-
       {
         "Runes": "flame-legion",
@@ -153,7 +153,7 @@ list:
       }
 
   - name: Condi Weaver Sword
-    profession: WEAVER
+    profession: Weaver
     value: |-
       {
         "Runes": "elementalist",
@@ -164,7 +164,7 @@ list:
       }
 
   - name: Hybrid Weaver (Fractal)
-    profession: WEAVER
+    profession: Weaver
     value: |-
       {
         "Runes": "flame-legion",
@@ -175,7 +175,7 @@ list:
       }
 
   - name: Hybrid Weaver (Raid)
-    profession: WEAVER
+    profession: Weaver
     value: |-
       {
         "Runes": "flame-legion",
@@ -186,7 +186,7 @@ list:
       }
 
   - name: Condi Tempest
-    profession: TEMPEST
+    profession: Tempest
     value: |-
       {
         "Runes": "elementalist",
@@ -197,7 +197,7 @@ list:
       }
 
   - name: '[beta] Condi Hammer Catalyst'
-    profession: CATALYST
+    profession: Catalyst
     value: |-
       {
         "Runes": "nightmare",
@@ -208,7 +208,7 @@ list:
       }
 
   - name: Power Slb Marks (Fractal)
-    profession: SOULBEAST
+    profession: Soulbeast
     value: |-
       {
         "Runes": "scholar",
@@ -219,7 +219,7 @@ list:
       }
 
   - name: Power Slb Skirm (Raid)
-    profession: SOULBEAST
+    profession: Soulbeast
     value: |-
       {
         "Runes": "scholar",
@@ -230,7 +230,7 @@ list:
       }
 
   - name: Condi Slb
-    profession: SOULBEAST
+    profession: Soulbeast
     value: |-
       {
         "Runes": "krait",
@@ -241,7 +241,7 @@ list:
       }
 
   - name: Hybrid Slb
-    profession: SOULBEAST
+    profession: Soulbeast
     value: |-
       {
         "Runes": "krait",
@@ -252,7 +252,7 @@ list:
       }
 
   - name: Pure Shortbow Slb
-    profession: SOULBEAST
+    profession: Soulbeast
     value: |-
       {
         "Runes": "krait",
@@ -263,7 +263,7 @@ list:
       }
 
   - name: Condi Druid*
-    profession: DRUID
+    profession: Druid
     value: |-
       {
         "Runes": "",
@@ -274,7 +274,7 @@ list:
       }
 
   - name: Cele Ren (Fractal)
-    profession: RENEGADE
+    profession: Renegade
     value: |-
       {
         "Runes": "leadership",
@@ -285,7 +285,7 @@ list:
       }
 
   - name: Cele Ren (Raid)
-    profession: RENEGADE
+    profession: Renegade
     value: |-
       {
         "Runes": "leadership",
@@ -296,7 +296,7 @@ list:
       }
 
   - name: Condi Ren
-    profession: RENEGADE
+    profession: Renegade
     value: |-
       {
         "Runes": "nightmare",
@@ -307,7 +307,7 @@ list:
       }
 
   - name: Condi Herald
-    profession: HERALD
+    profession: Herald
     value: |-
       {
         "Runes": "nightmare",
@@ -318,7 +318,7 @@ list:
       }
 
   - name: '[beta] Condi Mechanist Thorns'
-    profession: MECHANIST
+    profession: Mechanist
     value: |-
       {
         "Runes": "thorns",
@@ -329,7 +329,7 @@ list:
       }
 
   - name: '[beta] Condi Mechanist Renegade'
-    profession: MECHANIST
+    profession: Mechanist
     value: |-
       {
         "Runes": "renegade",
@@ -340,7 +340,7 @@ list:
       }
 
   - name: '[beta] Condi Mechanist Elementalist'
-    profession: MECHANIST
+    profession: Mechanist
     value: |-
       {
         "Runes": "elementalist",
@@ -351,7 +351,7 @@ list:
       }
 
   - name: DPS Scourge
-    profession: SCOURGE
+    profession: Scourge
     value: |-
       {
         "Runes": "nightmare",
@@ -362,7 +362,7 @@ list:
       }
 
   - name: Condi Reaper
-    profession: REAPER
+    profession: Reaper
     value: |-
       {
         "Runes": "krait",
@@ -373,7 +373,7 @@ list:
       }
 
   - name: '[beta] DPS Harbinger'
-    profession: HARBINGER
+    profession: Harbinger
     value: |-
       {
         "Runes": "tormenting",
@@ -384,7 +384,7 @@ list:
       }
 
   - name: '[beta] Quickness Harbinger (Firebrand)'
-    profession: HARBINGER
+    profession: Harbinger
     value: |-
       {
         "Runes": "firebrand",
@@ -395,7 +395,7 @@ list:
       }
 
   - name: '[beta] Quickness Harbinger (Cele)'
-    profession: HARBINGER
+    profession: Harbinger
     value: |-
       {
         "Runes": "tormenting",
@@ -406,7 +406,7 @@ list:
       }
 
   - name: Condi Deadeye
-    profession: DEADEYE
+    profession: Deadeye
     value: |-
       {
         "Runes": "nightmare",
@@ -417,7 +417,7 @@ list:
       }
 
   - name: Boon Daredevil
-    profession: DAREDEVIL
+    profession: Daredevil
     value: |-
       {
         "Runes": "thief",
@@ -428,7 +428,7 @@ list:
       }
 
   - name: Condi Daredevil
-    profession: DAREDEVIL
+    profession: Daredevil
     value: |-
       {
         "Runes": "krait",
@@ -439,7 +439,7 @@ list:
       }
 
   - name: '[beta] DPS Specter'
-    profession: SPECTER
+    profession: Specter
     value: |-
       {
         "Runes": "tormenting",
