@@ -242,7 +242,7 @@ list:
         ]
       }
 
-  - name: '[beta] Virtuoso'
+  - name: '[beta 1] Virtuoso'
     profession: Virtuoso
     traits: |-
       {
@@ -1038,7 +1038,7 @@ list:
         ]
       }
 
-  - name: '[beta] Power Willbender Radiance'
+  - name: '[beta 1] Power Willbender Radiance'
     profession: Willbender
     traits: |-
       {
@@ -1108,7 +1108,7 @@ list:
         ]
       }
 
-  - name: '[beta] Power Willbender Virtues'
+  - name: '[beta 1] Power Willbender Virtues'
     profession: Willbender
     traits: |-
       {
@@ -1414,7 +1414,7 @@ list:
         ]
       }
 
-  - name: '[beta] Bladesworn'
+  - name: '[beta 1] Bladesworn'
     profession: Bladesworn
     traits: |-
       {
@@ -1797,7 +1797,7 @@ list:
         "skills": []
       }
 
-  - name: '[beta] Condi Hammer Catalyst'
+  - name: '[beta 1] Condi Hammer Catalyst'
     profession: Catalyst
     traits: |-
       {
@@ -3124,7 +3124,7 @@ list:
         "skills": []
       }
 
-  - name: '[beta] Condi Mechanist'
+  - name: '[beta 1] Condi Mechanist'
     profession: Mechanist
     traits: |-
       {
@@ -3502,7 +3502,7 @@ list:
         "skills": []
       }
 
-  - name: '[beta] DPS Harbinger'
+  - name: '[beta 1] DPS Harbinger'
     profession: Harbinger
     traits: |-
       {
@@ -3566,7 +3566,7 @@ list:
         "skills": []
       }
 
-  - name: '[beta] Quickness Harbinger'
+  - name: '[beta 1] Quickness Harbinger'
     profession: Harbinger
     traits: |-
       {
@@ -3983,7 +3983,7 @@ list:
         ]
       }
 
-  - name: '[beta] DPS Specter Sc/D'
+  - name: '[beta 1] DPS Specter Sc/D'
     profession: Specter
     traits: |-
       {
@@ -4051,7 +4051,7 @@ list:
         "skills": []
       }
 
-  - name: '[beta] DPS Specter Endless Night'
+  - name: '[beta 1] DPS Specter Endless Night'
     profession: Specter
     traits: |-
       {

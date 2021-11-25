@@ -47,7 +47,7 @@ list:
   # https://www.youtube.com/watch?v=vf_JWsZP7t0
   # power: 54276, burn: 178, total: 54454
   # accuracy, full berserker full mighty
-  - name: '[beta] Bladesworn'
+  - name: '[beta 1] Bladesworn'
     profession: Bladesworn
     value: >-
       {
@@ -196,7 +196,7 @@ list:
   # https://www.youtube.com/watch?v=Vo4Qs6KeUHE
   # power: 36331, burn: 946, total: 37277
   # chill bugged 10%, RHS
-  - name: '[beta] Power Willbender Radiance Focus'
+  - name: '[beta 1] Power Willbender Radiance Focus'
     profession: Willbender
     value: >-
       {
@@ -206,7 +206,7 @@ list:
   # https://www.youtube.com/watch?v=fsdvYFmFcDs
   # power: 40239, burn: 1665, total: 41904
   # chill bugged 10%, 12 boons, thief accuracy
-  - name: '[beta] Power Willbender Virtues Focus'
+  - name: '[beta 1] Power Willbender Virtues Focus'
     profession: Willbender
     value: >-
       {
@@ -270,7 +270,7 @@ list:
 
   # https://discord.com/channels/380901000200060929/888049167455379532/907951956864163870
   # power: 13422, burn: 18047, bleed: 11426, total: 42895
-  - name: '[beta] Condi Hammer Catalyst'
+  - name: '[beta 1] Condi Hammer Catalyst'
     profession: Catalyst
     value: >-
       {
@@ -499,7 +499,7 @@ list:
 
   # https://www.youtube.com/watch?v=qMFZq0I3pIA
   # power: 34398 + 6263 = 40660, burn: 190, bleed: 843, confusion: 57, total: 41750
-  - name: '[beta] Virtuoso'
+  - name: '[beta 1] Virtuoso'
     profession: Virtuoso
     value: >-
       {
@@ -528,7 +528,7 @@ list:
 
   # https://www.youtube.com/watch?v=AyDxFUGZOYQ (log is off ingame # by 3%)
   # power: 4902, burn: 3838, bleed: 7601, poison: 4393, torment: 23779, total: 44513
-  - name: '[beta] Harbinger (approx.)'
+  - name: '[beta 1] Harbinger (approx.)'
     profession: Harbinger
     value: >-
       {
@@ -537,7 +537,7 @@ list:
 
   # https://www.youtube.com/watch?v=AyDxFUGZOYQ (log is off ingame #)
   # power: 5462, burn: 2897, bleed: 5893, poison: 3167, torment: 15872, total: 33291
-  - name: '[beta] Quickness Harbinger (approx.)'
+  - name: '[beta 1] Quickness Harbinger (approx.)'
     profession: Harbinger
     value: >-
       {
@@ -583,7 +583,7 @@ list:
 
   # https://www.youtube.com/watch?v=rUZ7XCMvn1g
   # power: 6927, burn: 753, bleed: 993, poison: 13618, torment: 21889, total: 44180
-  - name: '[beta] DPS Specter Sc/D'
+  - name: '[beta 1] DPS Specter Sc/D'
     profession: Specter
     value: >-
       {
@@ -593,7 +593,7 @@ list:
   # https://www.youtube.com/watch?v=QjDA4W3nYYM
   # power: 1503, burn: 641, poison: 9195, torment: 39826, total: 51165
   # writ, carrion/viper mix
-  - name: '[beta] DPS Specter Endless Night'
+  - name: '[beta 1] DPS Specter Endless Night'
     profession: Specter
     value: >-
       {
