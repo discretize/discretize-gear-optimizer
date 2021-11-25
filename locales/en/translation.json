@@ -486,6 +486,7 @@
   "slotName_Weapon 1": "Weapon 1",
   "slotName_Weapon 2": "Weapon 2",
   "traitSubText": "",
+  "traitSubText_(\"Searing Pact\")": "(\"Searing Pact\")",
   "traitSubText_+50 Prec/Fero": "+50 Prec/Fero",
   "traitSubText_+50 Pwr/Cond": "+50 Pwr/Cond",
   "traitSubText_100%": "100%",
