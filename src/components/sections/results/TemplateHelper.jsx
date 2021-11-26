@@ -36,10 +36,10 @@ const TemplateHelper = ({ character }) => {
   });
 
   const { templateHelperData } = character.settings;
-  const helperData = character.results.templateHelper;
+  const { coefficientHelper } = character.results;
 
   let values2 = Object.fromEntries(
-    data.map(({ key, value }) => [key, (value ?? 0) / helperData[key]]),
+    data.map(({ key, value }) => [key, (value ?? 0) / coefficientHelper[key]]),
   );
 
   // round

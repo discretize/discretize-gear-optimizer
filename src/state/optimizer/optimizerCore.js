@@ -1140,7 +1140,7 @@ function calcResults(character) {
   }
 
   // template helper data (damage with distribution of one)
-  results.templateHelper = {};
+  results.coefficientHelper = {};
   const temp = clone(character);
   temp.settings = {
     ...temp.settings,
@@ -1157,9 +1157,9 @@ function calcResults(character) {
   updateAttributes(temp, false);
   for (const key of Object.keys(settings.distribution)) {
     if (key === 'Power') {
-      results.templateHelper['Power'] = temp.attributes['Power DPS'];
+      results.coefficientHelper['Power'] = temp.attributes['Power DPS'];
     } else {
-      results.templateHelper[key] = temp.attributes[`${key} DPS`];
+      results.coefficientHelper[key] = temp.attributes[`${key} DPS`];
     }
   }
 }
