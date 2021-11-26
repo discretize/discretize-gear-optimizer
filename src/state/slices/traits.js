@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { changeAll, changeProfession, setBuildTemplate } from './controlsSlice';
-
-import { classModifiersById, traitSectionsById } from '../../assets/modifierdata';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
+import { changeAll, changeProfession, setBuildTemplate, getProfession } from './controlsSlice';
+import { PROFESSIONS } from '../../utils/gw2-data';
+import { classModifiers, classModifiersById, traitSectionsById } from '../../assets/modifierdata';
 
 const getInitialItems = (traitline) => {
   const allItemData = traitSectionsById[traitline].items || [];
@@ -112,6 +112,25 @@ export const getTraitsModifiers = (state) => {
   });
   return result;
 };
+
+export const getCurrentSpecialization = createSelector(
+  getProfession,
+  getTraitLines,
+  (profession, selectedLines) => {
+    const { eliteSpecializations } = PROFESSIONS.find((prof) => prof.profession === profession);
+    // contains the names of the selected trait lines
+    const selectedTraitLinesNames = selectedLines
+      .map((id) => classModifiers[profession].find((section) => section?.id === Number(id)))
+      .filter((section) => section !== undefined)
+      .map((section) => section.section);
+
+    // currently selected specialization. In case multiple elite specializations are selected, only the first one is counted.
+    // In case no specialization is selected, the variable defaults to the core profession
+    const currentSpecialization =
+      selectedTraitLinesNames.find((spec) => eliteSpecializations.includes(spec)) || profession;
+    return currentSpecialization;
+  },
+);
 
 export const {
   toggleShowAll,

@@ -7,8 +7,7 @@ import times from 'lodash/times';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import { updateAttributes } from '../../../state/optimizer/optimizerCore';
 import { getExtras } from '../../../state/slices/extras';
-import { getTraitLines } from '../../../state/slices/traits';
-import { Classes, Defense, INFUSION_IDS, PROFESSIONS } from '../../../utils/gw2-data';
+import { Classes, Defense, INFUSION_IDS } from '../../../utils/gw2-data';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 import Character from '../../gw2/Character';
 import TemplateHelperSections from './TemplateHelperSections';
@@ -19,7 +18,7 @@ import OutputDistribution from './OutputDistribution';
 import OutputInfusions from './OutputInfusions';
 import SpecialDurations from './SpecialDurations';
 
-import { classModifiers, extrasModifiersById } from '../../../assets/modifierdata';
+import { extrasModifiersById } from '../../../assets/modifierdata';
 
 const ResultDetails = ({ data }) => {
   const { t } = useTranslation();
@@ -32,8 +31,6 @@ const ResultDetails = ({ data }) => {
     Nourishment: food,
     Runes: runeStringId,
   } = extras;
-
-  const traits = useSelector(getTraitLines);
 
   const charRaw = useSelector(getSelectedCharacter);
   if (!charRaw) {
@@ -114,22 +111,9 @@ const ResultDetails = ({ data }) => {
     };
   }
 
-  // find the right image for the selected elite specialization
-  const { eliteSpecializations } = PROFESSIONS.find((prof) => prof.profession === profession);
-  // contains the names of the selected trait lines
-  const selectedTraitLinesNames = traits
-    .map((id) => classModifiers[profession].find((section) => section?.id === Number(id)))
-    .filter((section) => section !== undefined)
-    .map((section) => section.section);
-
-  // currently selected specialization. In case multiple elite specializations are selected, only the first one is counted.
-  // In case no specialization is selected, the variable defaults to the core profession
-  const currentSpecialization =
-    selectedTraitLinesNames.find((spec) => eliteSpecializations.includes(spec)) || profession;
-
   const imageRaw = data.images.edges
     .flatMap((image) => image.node)
-    .find((image) => image.original.src.includes(currentSpecialization.toLowerCase()));
+    .find((image) => image.original.src.includes(character.settings.specialization.toLowerCase()));
   const image = getImage(imageRaw);
 
   // Replace the names to match gw2-ui names

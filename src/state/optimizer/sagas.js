@@ -17,13 +17,13 @@ import { getBuffsModifiers } from '../slices/buffs';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
 import { getInfusionsModifiers } from '../slices/infusions';
 import { getSkillsModifiers } from '../slices/skills';
-import { getTraitsModifiers } from '../slices/traits';
+import { getTraitsModifiers, getCurrentSpecialization } from '../slices/traits';
 
 import { ERROR, SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function createInput(state, appliedModifiers, templateHelperData) {
+function createInput(state, specialization, appliedModifiers, templateHelperData) {
   const {
     control: { profession },
     form: {
@@ -83,6 +83,7 @@ function createInput(state, appliedModifiers, templateHelperData) {
     percentDistribution: values1,
     distribution: values2,
   };
+  input.specialization = specialization;
   input.appliedModifiers = appliedModifiers;
   input.templateHelperData = templateHelperData;
 
@@ -118,6 +119,8 @@ function* runCalc() {
     const reduxState = yield select();
     state = reduxState.optimizer;
 
+    const specialization = yield select(getCurrentSpecialization);
+
     const templateHelperData = {
       traits: state.form.traits,
       skills: state.form.skills,
@@ -135,7 +138,7 @@ function* runCalc() {
 
     console.time('Calculation');
 
-    input = createInput(state, appliedModifiers, templateHelperData);
+    input = createInput(state, specialization, appliedModifiers, templateHelperData);
 
     console.groupCollapsed('Debug Info:');
     console.log('Redux State:', state);
