@@ -35,7 +35,7 @@ const TemplateHelper = ({ character }) => {
     return { key, inputText, value, error };
   });
 
-  const { templateHelperData } = character.settings;
+  const { cachedFormState } = character.settings;
   const { coefficientHelper } = character.results;
 
   let values2 = Object.fromEntries(
@@ -130,7 +130,7 @@ const TemplateHelper = ({ character }) => {
       </Typography>
 
       <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-        {indent(JSON.stringify(templateHelperData?.traits, null, 2) || '', 6)}
+        {indent(JSON.stringify(cachedFormState?.traits, null, 2) || '', 6)}
       </pre>
 
       <Typography variant="h6">
@@ -138,7 +138,7 @@ const TemplateHelper = ({ character }) => {
       </Typography>
 
       <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-        {indent(JSON.stringify(templateHelperData?.skills, null, 2) || '', 6)}
+        {indent(JSON.stringify(cachedFormState?.skills, null, 2) || '', 6)}
       </pre>
 
       <Typography variant="h6">
@@ -146,7 +146,7 @@ const TemplateHelper = ({ character }) => {
       </Typography>
 
       <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-        {indent(JSON.stringify(templateHelperData?.extras, null, 2) || '', 6)}
+        {indent(JSON.stringify(cachedFormState?.extras, null, 2) || '', 6)}
       </pre>
     </>
   );

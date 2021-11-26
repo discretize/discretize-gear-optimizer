@@ -23,7 +23,7 @@ import { ERROR, SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function createInput(state, specialization, appliedModifiers, templateHelperData) {
+function createInput(state, specialization, appliedModifiers, cachedFormState) {
   const {
     control: { profession },
     form: {
@@ -85,7 +85,7 @@ function createInput(state, specialization, appliedModifiers, templateHelperData
   };
   input.specialization = specialization;
   input.appliedModifiers = appliedModifiers;
-  input.templateHelperData = templateHelperData;
+  input.cachedFormState = cachedFormState;
 
   // temp: convert "poisoned" to "poison"
   const convertPoison = (distribution) =>
@@ -121,7 +121,7 @@ function* runCalc() {
 
     const specialization = yield select(getCurrentSpecialization);
 
-    const templateHelperData = {
+    const cachedFormState = {
       traits: state.form.traits,
       skills: state.form.skills,
       extras: state.form.extras,
@@ -138,7 +138,7 @@ function* runCalc() {
 
     console.time('Calculation');
 
-    input = createInput(state, specialization, appliedModifiers, templateHelperData);
+    input = createInput(state, specialization, appliedModifiers, cachedFormState);
 
     console.groupCollapsed('Debug Info:');
     console.log('Redux State:', state);
