@@ -20,7 +20,6 @@ import { getInfusionsModifiers } from '../slices/infusions';
 import { getSkillsModifiers } from '../slices/skills';
 import { getTraitsModifiers } from '../slices/traits';
 
-import { INFUSIONS } from '../../utils/gw2-data';
 import { ERROR, SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -77,8 +76,8 @@ function createInput(state, appliedModifiers) {
     maxToughness,
     maxResults: 50, // TODO MAX RESULTS
     maxInfusions,
-    primaryInfusion: INFUSIONS.find((entry) => entry.id === primaryInfusion)?.attribute,
-    secondaryInfusion: INFUSIONS.find((entry) => entry.id === secondaryInfusion)?.attribute,
+    primaryInfusion,
+    secondaryInfusion,
     primaryMaxInfusions,
     secondaryMaxInfusions,
     distributionVersion: version,

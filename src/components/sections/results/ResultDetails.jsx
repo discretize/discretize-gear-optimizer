@@ -8,7 +8,7 @@ import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import { updateAttributes } from '../../../state/optimizer/optimizerCore';
 import { getExtras } from '../../../state/slices/extras';
 import { getTraitLines } from '../../../state/slices/traits';
-import { Classes, Defense, INFUSIONS, PROFESSIONS } from '../../../utils/gw2-data';
+import { Classes, Defense, INFUSION_IDS, PROFESSIONS } from '../../../utils/gw2-data';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 import Character from '../../gw2/Character';
 import TemplateHelperSections from './TemplateHelperSections';
@@ -63,7 +63,7 @@ const ResultDetails = ({ data }) => {
 
   if (character.infusions) {
     infusions = Object.keys(character.infusions).flatMap((key) =>
-      times(character.infusions[key], () => INFUSIONS.find((infu) => infu.attribute === key).id),
+      times(character.infusions[key], () => INFUSION_IDS[key]),
     );
     // fill up the remaining slots with generic +9 Agony Infusions
     infusions = [
