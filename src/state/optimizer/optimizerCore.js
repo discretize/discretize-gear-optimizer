@@ -34,11 +34,11 @@ let isChanged = true;
  * Sets up optimizer with input data
  *
  * @param {object} input
- * @param {object[]} input.modifiers - array of modifier objects
+ * @param {object[]} input.appliedModifiers - array of modifier objects
  * @param {?string[]} input.tags - modifier data for the UI
  *                      (passed unedited into character.settings)
  * @param {string} input.profession
- * @param {string} input.weapontype
+ * @param {string} input.weaponType
  * @param {string[]} input.affixes - all selected gear affixes to iterate over
  * @param {string[]} input.forcedAffixes - array of specific affix names for each slot,
  *                     or '' for unspecfied
@@ -65,7 +65,6 @@ export function setup(input) {
 
   /* eslint-disable prefer-const */
   let {
-    modifiers: modifiersInput,
     primaryInfusion: primaryInfusionInput,
     secondaryInfusion: secondaryInfusionInput,
     primaryMaxInfusions: primaryMaxInfusionsInput,
@@ -137,8 +136,7 @@ export function setup(input) {
 
   const parsePercent = (percentValue) => Number(percentValue.replace('%', '')) / 100;
 
-  modifiersInput = modifiersInput || [];
-  for (const item of modifiersInput) {
+  for (const item of settings.appliedModifiers) {
     const {
       id = '[no id]',
       visible = true,
@@ -366,7 +364,7 @@ export function setup(input) {
 
   /* Equipment */
 
-  settings.slots = Slots[settings.weapontype];
+  settings.slots = Slots[settings.weaponType];
 
   // affixesArray: valid affixes for each slot, taking forced slots into account
   // e.g. [[Berserker, Assassin], [Assassin], [Berserker, Assassin]...]
@@ -442,8 +440,8 @@ export function setup(input) {
 
   settings.runsAfterThisSlot.push(1);
 
-  // const freeSlots = settings.weapontype === 'Dual wield' ? 5 : 6;
-  // const pairs = settings.weapontype === 'Dual wield' ? 3 : 2;
+  // const freeSlots = settings.weaponType === 'Dual wield' ? 5 : 6;
+  // const pairs = settings.weaponType === 'Dual wield' ? 3 : 2;
   // const triplets = 1;
   // calculationTotal
   //   = Math.pow(settings.affixes.length, freeSlots)
@@ -1142,7 +1140,7 @@ function calcResults(character) {
   }
 
   // template helper data (damage with distribution of one)
-  results.templateHelper = {};
+  results.coefficientHelper = {};
   const temp = clone(character);
   temp.settings = {
     ...temp.settings,
@@ -1159,9 +1157,9 @@ function calcResults(character) {
   updateAttributes(temp, false);
   for (const key of Object.keys(settings.distribution)) {
     if (key === 'Power') {
-      results.templateHelper['Power'] = temp.attributes['Power DPS'];
+      results.coefficientHelper['Power'] = temp.attributes['Power DPS'];
     } else {
-      results.templateHelper[key] = temp.attributes[`${key} DPS`];
+      results.coefficientHelper[key] = temp.attributes[`${key} DPS`];
     }
   }
 }

@@ -9,23 +9,21 @@ import {
   changeSelectedCharacter,
   getSelectedCharacter,
   getList,
-  changeAllSelectedModifiers,
   changeError,
   changeAll,
-  changeTemplateHelperData,
 } from '../slices/controlsSlice';
 import { getExtrasModifiers } from '../slices/extras';
 import { getBuffsModifiers } from '../slices/buffs';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
 import { getInfusionsModifiers } from '../slices/infusions';
 import { getSkillsModifiers } from '../slices/skills';
-import { getTraitsModifiers } from '../slices/traits';
+import { getTraitsModifiers, getCurrentSpecialization } from '../slices/traits';
 
 import { ERROR, SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function createInput(state, modifiers) {
+function createInput(state, specialization, appliedModifiers, cachedFormState) {
   const {
     control: { profession },
     form: {
@@ -65,7 +63,7 @@ function createInput(state, modifiers) {
   const input = {
     tags: undefined,
     profession,
-    weapontype: weaponType,
+    weaponType,
     affixes: affixes.map((affix) =>
       affix.toLowerCase().replace(/^\w/, (char) => char.toUpperCase()),
     ),
@@ -85,7 +83,9 @@ function createInput(state, modifiers) {
     percentDistribution: values1,
     distribution: values2,
   };
-  input.modifiers = modifiers;
+  input.specialization = specialization;
+  input.appliedModifiers = appliedModifiers;
+  input.cachedFormState = cachedFormState;
 
   // temp: convert "poisoned" to "poison"
   const convertPoison = (distribution) =>
@@ -119,15 +119,15 @@ function* runCalc() {
     const reduxState = yield select();
     state = reduxState.optimizer;
 
-    const templateHelperData = {
-      profession: state.control.profession,
+    const specialization = yield select(getCurrentSpecialization);
+
+    const cachedFormState = {
       traits: state.form.traits,
       skills: state.form.skills,
       extras: state.form.extras,
     };
-    yield put(changeTemplateHelperData(templateHelperData));
 
-    const modifiers = [
+    const appliedModifiers = [
       ...(yield select(getExtrasModifiers) || []),
       ...(yield select(getBuffsModifiers) || []),
       ...(yield select(getExtraModifiersModifiers) || []),
@@ -135,11 +135,10 @@ function* runCalc() {
       ...(yield select(getSkillsModifiers) || []),
       ...(yield select(getTraitsModifiers) || []),
     ];
-    yield put(changeAllSelectedModifiers(modifiers));
 
     console.time('Calculation');
 
-    input = createInput(state, modifiers);
+    input = createInput(state, specialization, appliedModifiers, cachedFormState);
 
     console.groupCollapsed('Debug Info:');
     console.log('Redux State:', state);
@@ -263,7 +262,6 @@ function* exportState() {
       ...state.control,
       list: modifiedList,
       selectedCharacter: null,
-      allSelectedModifiers: null,
     },
   };
 

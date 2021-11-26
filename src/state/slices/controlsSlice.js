@@ -11,8 +11,6 @@ export const controlSlice = createSlice({
     selectedTemplate: '',
     status: WAITING,
     profession: '',
-    templateHelperData: null,
-    allSelectedModifiers: null,
   },
   reducers: {
     changeAll: (state, action) => {
@@ -31,8 +29,6 @@ export const controlSlice = createSlice({
           selectedSpecialization: action.payload,
           status: WAITING,
           error: '',
-          templateHelperData: null,
-          allSelectedModifiers: null,
         };
       }
       return state;
@@ -54,8 +50,6 @@ export const controlSlice = createSlice({
         selectedCharacter: null,
         status: WAITING,
         error: '',
-        templateHelperData: null,
-        allSelectedModifiers: null,
       };
     },
     setBuildTemplate: (state, action) => {
@@ -71,11 +65,7 @@ export const controlSlice = createSlice({
         status: WAITING,
         profession,
         error: '',
-        allSelectedModifiers: null,
       };
-    },
-    changeAllSelectedModifiers: (state, action) => {
-      state.allSelectedModifiers = action.payload;
     },
     changeControl: (state, action) => {
       state[action.payload.key] = action.payload.value;
@@ -89,9 +79,6 @@ export const controlSlice = createSlice({
     changeError: (state, action) => {
       state.error = action.payload;
     },
-    changeTemplateHelperData: (state, action) => {
-      state.templateHelperData = action.payload;
-    },
   },
 });
 
@@ -100,8 +87,6 @@ export const getControl = (key) => (state) => state.optimizer.control[key];
 export const getList = (state) => state.optimizer.control.list;
 export const getSelectedCharacter = (state) => state.optimizer.control.selectedCharacter;
 export const getError = (state) => state.optimizer.control.error;
-export const getAllSelectedModifiers = (state) => state.optimizer.control.allSelectedModifiers;
-export const getTemplateHelperData = (state) => state.optimizer.control.templateHelperData;
 
 export const {
   changeAll,
@@ -110,11 +95,9 @@ export const {
   changeExpertMode,
   changeControl,
   changeList,
-  changeAllSelectedModifiers,
   setBuildTemplate,
   changeSelectedCharacter,
   changeError,
-  changeTemplateHelperData,
 } = controlSlice.actions;
 
 export default controlSlice.reducer;
