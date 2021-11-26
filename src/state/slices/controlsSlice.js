@@ -11,7 +11,6 @@ export const controlSlice = createSlice({
     selectedTemplate: '',
     status: WAITING,
     profession: '',
-    templateHelperData: null,
   },
   reducers: {
     changeAll: (state, action) => {
@@ -30,7 +29,6 @@ export const controlSlice = createSlice({
           selectedSpecialization: action.payload,
           status: WAITING,
           error: '',
-          templateHelperData: null,
         };
       }
       return state;
@@ -52,7 +50,6 @@ export const controlSlice = createSlice({
         selectedCharacter: null,
         status: WAITING,
         error: '',
-        templateHelperData: null,
       };
     },
     setBuildTemplate: (state, action) => {
@@ -82,9 +79,6 @@ export const controlSlice = createSlice({
     changeError: (state, action) => {
       state.error = action.payload;
     },
-    changeTemplateHelperData: (state, action) => {
-      state.templateHelperData = action.payload;
-    },
   },
 });
 
@@ -93,7 +87,6 @@ export const getControl = (key) => (state) => state.optimizer.control[key];
 export const getList = (state) => state.optimizer.control.list;
 export const getSelectedCharacter = (state) => state.optimizer.control.selectedCharacter;
 export const getError = (state) => state.optimizer.control.error;
-export const getTemplateHelperData = (state) => state.optimizer.control.templateHelperData;
 
 export const {
   changeAll,
@@ -105,7 +98,6 @@ export const {
   setBuildTemplate,
   changeSelectedCharacter,
   changeError,
-  changeTemplateHelperData,
 } = controlSlice.actions;
 
 export default controlSlice.reducer;

@@ -11,7 +11,6 @@ import {
   getList,
   changeError,
   changeAll,
-  changeTemplateHelperData,
 } from '../slices/controlsSlice';
 import { getExtrasModifiers } from '../slices/extras';
 import { getBuffsModifiers } from '../slices/buffs';
@@ -24,7 +23,7 @@ import { ERROR, SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function createInput(state, appliedModifiers) {
+function createInput(state, appliedModifiers, templateHelperData) {
   const {
     control: { profession },
     form: {
@@ -85,6 +84,7 @@ function createInput(state, appliedModifiers) {
     distribution: values2,
   };
   input.appliedModifiers = appliedModifiers;
+  input.templateHelperData = templateHelperData;
 
   // temp: convert "poisoned" to "poison"
   const convertPoison = (distribution) =>
@@ -119,12 +119,10 @@ function* runCalc() {
     state = reduxState.optimizer;
 
     const templateHelperData = {
-      profession: state.control.profession,
       traits: state.form.traits,
       skills: state.form.skills,
       extras: state.form.extras,
     };
-    yield put(changeTemplateHelperData(templateHelperData));
 
     const appliedModifiers = [
       ...(yield select(getExtrasModifiers) || []),
@@ -137,7 +135,7 @@ function* runCalc() {
 
     console.time('Calculation');
 
-    input = createInput(state, appliedModifiers);
+    input = createInput(state, appliedModifiers, templateHelperData);
 
     console.groupCollapsed('Debug Info:');
     console.log('Redux State:', state);

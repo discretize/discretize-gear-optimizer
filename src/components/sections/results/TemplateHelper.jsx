@@ -1,8 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { Typography, TextField } from '@material-ui/core';
 import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
-import { getTemplateHelperData } from '../../../state/slices/controlsSlice';
 import { parseAmount } from '../../../state/optimizer/optimizerCore';
 
 const initial = {
@@ -29,7 +27,6 @@ const fixPoison = (input) =>
   );
 
 const TemplateHelper = ({ character }) => {
-  const templateHelperData = useSelector(getTemplateHelperData);
   const { t } = useTranslation();
 
   const [input, setInput] = React.useState(initial);
@@ -38,6 +35,7 @@ const TemplateHelper = ({ character }) => {
     return { key, inputText, value, error };
   });
 
+  const { templateHelperData } = character.settings;
   const helperData = character.results.templateHelper;
 
   let values2 = Object.fromEntries(
