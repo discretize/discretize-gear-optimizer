@@ -6,7 +6,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { getInfusions } from '../../../state/slices/infusions';
 import { getPriority } from '../../../state/slices/priorities';
-import { Slots } from '../../../utils/gw2-data';
+import { Slots, INFUSION_IDS } from '../../../utils/gw2-data';
 
 const ResultTableHeaderRow = ({ classes }) => {
   const wield = useSelector(getPriority('weaponType'));
@@ -29,7 +29,7 @@ const ResultTableHeaderRow = ({ classes }) => {
           align="center"
           padding="none"
         >
-          <Item id={infusions.primaryInfusion} disableText disableLink />
+          <Item id={INFUSION_IDS[infusions.primaryInfusion]} disableText disableLink />
         </TableCell>
       ) : null}
       {infusions.secondaryInfusion ? (
@@ -39,7 +39,7 @@ const ResultTableHeaderRow = ({ classes }) => {
           align="center"
           padding="none"
         >
-          <Item id={infusions.secondaryInfusion} disableText disableLink />
+          <Item id={INFUSION_IDS[infusions.secondaryInfusion]} disableText disableLink />
         </TableCell>
       ) : null}
     </TableRow>

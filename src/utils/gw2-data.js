@@ -914,16 +914,16 @@ export const GEAR_SLOTS = [
   },
 ];
 
-export const INFUSIONS = [
-  { id: 37131, attribute: 'Power' }, // power
-  { id: 37132, attribute: 'Precision' }, // precision
-  { id: 37130, attribute: 'Condition Damage' }, // condi
-  { id: 86113, attribute: 'Expertise' }, // expertise
-  { id: 86180, attribute: 'Concentration' }, // concentration
-  { id: 37125, attribute: 'Healing Power' }, // healing power
-  { id: 37135, attribute: 'Toughness' }, // toughness
-  { id: 37136, attribute: 'Vitality' }, // vitality
-];
+export const INFUSION_IDS = {
+  'Power': 37131,
+  'Precision': 37132,
+  'Condition Damage': 37130,
+  'Expertise': 86113,
+  'Concentration': 86180,
+  'Healing Power': 37125,
+  'Toughness': 37135,
+  'Vitality': 37136,
+};
 
 export const ARMOR_IDS = {
   // Helm, Shoulders, Chest, Hands, Leggings, Feet
