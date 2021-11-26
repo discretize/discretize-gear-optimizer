@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 import times from 'lodash/times';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import { updateAttributes } from '../../../state/optimizer/optimizerCore';
-import { getExtras } from '../../../state/slices/extras';
 import { Classes, Defense, INFUSION_IDS } from '../../../utils/gw2-data';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 import Character from '../../gw2/Character';
@@ -23,15 +22,6 @@ import { extrasModifiersById } from '../../../assets/modifierdata';
 const ResultDetails = ({ data }) => {
   const { t } = useTranslation();
 
-  const extras = useSelector(getExtras);
-  const {
-    Sigil1: sigil1,
-    Sigil2: sigil2,
-    Enhancement: utility,
-    Nourishment: food,
-    Runes: runeStringId,
-  } = extras;
-
   const charRaw = useSelector(getSelectedCharacter);
   if (!charRaw) {
     return null;
@@ -45,6 +35,15 @@ const ResultDetails = ({ data }) => {
   console.log('Selected Character Data:', character);
 
   const { profession, weaponType } = character.settings;
+
+  const { extras } = character.settings.cachedFormState;
+  const {
+    Sigil1: sigil1,
+    Sigil2: sigil2,
+    Enhancement: utility,
+    Nourishment: food,
+    Runes: runeStringId,
+  } = extras;
 
   const classData = Classes[profession].weapons;
 
