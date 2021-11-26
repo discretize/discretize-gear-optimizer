@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { Box, Button, Chip, makeStyles, Typography } from '@material-ui/core';
 import Cancel from '@material-ui/icons/Cancel';
 import DoneAllIcon from '@material-ui/icons/DoneAll';
