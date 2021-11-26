@@ -13,8 +13,8 @@ list:
   - name: Power + Precision
     value: |-
       {
-        "primaryInfusion": 37131,
-        "secondaryInfusion": 37132,
+        "primaryInfusion": "Power",
+        "secondaryInfusion": "Precision",
         "primaryMaxInfusions": "",
         "secondaryMaxInfusions": ""
       }
@@ -22,8 +22,8 @@ list:
   - name: Condition Damage + Expertise
     value: |-
       {
-        "primaryInfusion": 37130,
-        "secondaryInfusion": 86113,
+        "primaryInfusion": "Condition Damage",
+        "secondaryInfusion": "Expertise",
         "primaryMaxInfusions": "",
         "secondaryMaxInfusions": ""
       }
@@ -31,8 +31,8 @@ list:
   - name: Healing Power + Concentration
     value: |-
       {
-        "primaryInfusion": 37125,
-        "secondaryInfusion": 86180,
+        "primaryInfusion": "Healing Power",
+        "secondaryInfusion": "Concentration",
         "primaryMaxInfusions": "",
         "secondaryMaxInfusions": ""
       }
