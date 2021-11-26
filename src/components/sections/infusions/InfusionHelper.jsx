@@ -1,37 +1,38 @@
-import React from 'react';
 import {
-  Typography,
-  Grid,
-  Slider,
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  makeStyles,
+  Slider,
+  Typography,
 } from '@material-ui/core';
-import Alert from '@material-ui/lab/Alert';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { useDispatch, useSelector } from 'react-redux';
+import Alert from '@material-ui/lab/Alert';
 import { Trans } from 'gatsby-plugin-react-i18next';
-import { Item as ItemRaw, CommonEffect as CommonEffectRaw, Coin as CoinRaw } from 'gw2-ui-bulk';
-import CheckboxComponent from '../../baseComponents/CheckboxComponent';
+import { Coin as CoinRaw, CommonEffect as CommonEffectRaw, Item as ItemRaw } from 'gw2-ui-bulk';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
+  changeAR,
+  changeAttunement,
+  changeFreeWvW,
+  changeHelperEnabled,
+  changeImpedence,
+  changeMatrixValue,
+  changeMaxInfusions,
+  changeSingularity,
+  changeSlots,
+  changeTear,
   getAR,
+  getHelperData,
+  getHelperResult,
   getMaxInfusions,
   getPrimaryInfusion,
   getSecondaryInfusion,
-  getHelperData,
-  getHelperResult,
-  changeAR,
-  changeMaxInfusions,
-  changeHelperEnabled,
-  changeSlots,
-  changeImpedence,
-  changeAttunement,
-  changeSingularity,
-  changeTear,
-  changeFreeWvW,
-  changeMatrixValue,
 } from '../../../state/slices/infusions';
 import { infusionIds } from '../../../utils/gw2-data';
+import CheckboxComponent from '../../baseComponents/CheckboxComponent';
+import TextDivider from '../../baseComponents/TextDivider';
 
 const Item = React.memo(ItemRaw);
 const CommonEffect = React.memo(CommonEffectRaw);
@@ -89,8 +90,8 @@ const targetARMarks = [
     label: '150',
   },
   {
-    value: 243,
-    label: '243',
+    value: 222,
+    label: '222',
   },
   {
     value: 343,
@@ -98,10 +99,21 @@ const targetARMarks = [
   },
 ];
 
-const bigStyle = { fontSize: 17 };
+const useStyles = makeStyles((theme) => ({
+  bigStyle: { fontSize: 17 },
+  bigMargin: { marginBottom: 16 },
+  sliderMargin: { marginBottom: 28 },
+  sliderMark: {
+    transform: 'translateX(-100%)',
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+    },
+  },
+}));
 
 const InfusionHelper = () => {
   const dispatch = useDispatch();
+  const classes = useStyles();
 
   const arString = useSelector(getAR);
   const ar = Number.parseInt(arString, 10);
@@ -153,192 +165,174 @@ const InfusionHelper = () => {
           <Trans>Infusion Helper (WIP)</Trans>
         </Typography>
       </AccordionSummary>
-      <AccordionDetails>
-        <Grid container spacing={4}>
-          <Grid container item xs={12}>
-            <Grid item xs={12}>
-              <Typography>
-                <Trans>Account AR</Trans>
-              </Typography>
-            </Grid>
-            <Grid item xs={10}>
-              <Slider
-                value={impedence}
-                step={null}
-                min={0}
-                max={20}
-                marks={impedenceMarks}
-                valueLabelDisplay="auto"
-                onChange={handleImpedenceChange}
-              />
-            </Grid>
-            <Grid item xs={10}>
-              <Slider
-                value={attunement}
-                step={null}
-                min={0}
-                max={25}
-                marks={attunementMarks}
-                valueLabelDisplay="auto"
-                onChange={handleAttunementChange}
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <CheckboxComponent
-                value={singularity}
-                checked={singularity}
-                label={
-                  <Typography variant="body2">
-                    <Trans>
-                      +5 AR from <CommonEffect name="Rigorous Certainty" />
-                    </Trans>
-                  </Typography>
-                }
-                onChange={(e) => dispatch(changeSingularity(e.target.checked))}
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <CheckboxComponent
-                value={tear}
-                checked={tear}
-                label={
-                  <Typography variant="body2">
-                    <Trans>
-                      +15 AR from <Item id={70596} /> w/ mastery
-                    </Trans>
-                  </Typography>
-                }
-                onChange={(e) => dispatch(changeTear(e.target.checked))}
-              />
-            </Grid>
-          </Grid>
+      <AccordionDetails style={{ flexDirection: 'column', padding: 32 }}>
+        <Typography>
+          <Trans>Account AR</Trans>
+        </Typography>
 
-          <Grid container item xs={12} md={11}>
-            <Grid item xs={12}>
-              <Typography id="target-ar">
-                <Trans>Target AR</Trans>
-              </Typography>
-              <Slider
-                value={ar}
-                step={1}
-                min={0}
-                max={409}
-                marks={targetARMarks}
-                valueLabelDisplay="on"
-                onChange={handleARChange}
-                aria-labelledby="target-ar"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Typography id="stat-infusion-slots">
-                <Trans>Stat Infusion Slots</Trans>
-              </Typography>
-              <Slider
-                value={maxInfusions}
-                step={1}
-                min={0}
-                max={18}
-                marks
-                valueLabelDisplay="auto"
-                onChange={handleMaxInfusionsChange}
-                aria-labelledby="total-infusion-slots"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Typography id="total-infusion-slots">
-                <Trans>Total Infusion Slots</Trans>
-              </Typography>
-              <Slider
-                value={slots}
-                step={1}
-                min={0}
-                max={18}
-                marks
-                valueLabelDisplay="auto"
-                onChange={handleSlotsChange}
-                aria-labelledby="total-infusion-slots"
-              />
-            </Grid>
-          </Grid>
+        <Slider
+          value={impedence}
+          step={null}
+          min={0}
+          max={20}
+          marks={impedenceMarks}
+          valueLabelDisplay="auto"
+          onChange={handleImpedenceChange}
+          classes={{ markLabel: classes.sliderMark }}
+          className={classes.sliderMargin}
+        />
+        <Slider
+          value={attunement}
+          step={null}
+          min={0}
+          max={25}
+          marks={attunementMarks}
+          valueLabelDisplay="auto"
+          onChange={handleAttunementChange}
+          classes={{ markLabel: classes.sliderMark }}
+          className={classes.sliderMargin}
+        />
 
-          <Grid container item xs={12}>
-            <Grid item xs={12} md={5}>
-              <CheckboxComponent
-                value={freeWvW}
-                checked={freeWvW}
-                label={
-                  <Typography variant="body2">
-                    <Trans>Enable free WvW stat infusions</Trans>
-                  </Typography>
-                }
-                onChange={(e) => dispatch(changeFreeWvW(e.target.checked))}
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Typography variant="body2">
-                <Trans>
-                  <Item id={79230} /> value: <Coin value={matrixValue} />
-                  <Slider
-                    value={matrixValue}
-                    step={1000}
-                    min={0}
-                    max={30000}
-                    valueLabelDisplay="off"
-                    onChange={handleMatrixValueChange}
-                  />
-                </Trans>
-              </Typography>
-            </Grid>
-          </Grid>
+        <CheckboxComponent
+          value={singularity}
+          checked={singularity}
+          label={
+            <Typography variant="body2">
+              <Trans>
+                +5 AR from <CommonEffect name="Rigorous Certainty" />
+              </Trans>
+            </Typography>
+          }
+          onChange={(e) => dispatch(changeSingularity(e.target.checked))}
+        />
 
-          <Grid item xs={12} md={11}>
-            {error ? (
-              <Alert variant="outlined" severity="error">
-                {error}
-              </Alert>
-            ) : (
-              <>
-                <Typography>
-                  <Trans>Result: </Trans>
-                  {resultText}
-                </Typography>
-                <Typography>
-                  <Trans>
-                    Estimated Cost: <Coin value={cost * 10000} />
-                  </Trans>
-                </Typography>
-                <Typography variant="body2">
-                  {resultArray.map((text, i) => {
-                    const infusionData = infusionIds[text];
-                    return (
-                      // eslint-disable-next-line react/no-array-index-key
-                      <React.Fragment key={i}>
-                        {infusionData?.[primaryInfusion]?.id ? (
-                          <Item id={infusionData?.[primaryInfusion]?.id} disableLink disableText />
-                        ) : null}
-                        {infusionData?.[secondaryInfusion]?.id ? (
-                          <Item
-                            id={infusionData?.[secondaryInfusion]?.id}
-                            disableLink
-                            disableText
-                          />
-                        ) : null}
-                        {infusionData?.id ? (
-                          <Item id={infusionData?.id} disableLink disableText style={bigStyle} />
-                        ) : null}{' '}
-                        {text}
-                        <br />
-                      </React.Fragment>
-                    );
-                  })}
-                </Typography>
-                <Typography variant="caption">
-                  <Trans>Note: Not cost optimized for {'>'}1 weapon set.</Trans>
-                </Typography>
-              </>
-            )}
-          </Grid>
-        </Grid>
+        <CheckboxComponent
+          value={tear}
+          checked={tear}
+          label={
+            <Typography variant="body2">
+              <Trans>
+                +15 AR from <Item id={70596} /> w/ mastery
+              </Trans>
+            </Typography>
+          }
+          onChange={(e) => dispatch(changeTear(e.target.checked))}
+          className={classes.bigMargin}
+        />
+
+        <Typography id="target-ar">
+          <Trans>Target AR</Trans>
+        </Typography>
+        <Slider
+          value={ar}
+          step={1}
+          min={0}
+          max={409}
+          marks={targetARMarks}
+          valueLabelDisplay="on"
+          onChange={handleARChange}
+          aria-labelledby="target-ar"
+        />
+
+        <Typography id="stat-infusion-slots">
+          <Trans>Stat Infusion Slots</Trans>
+        </Typography>
+        <Slider
+          value={maxInfusions}
+          step={1}
+          min={0}
+          max={18}
+          marks
+          valueLabelDisplay="auto"
+          onChange={handleMaxInfusionsChange}
+          aria-labelledby="total-infusion-slots"
+          className={classes.bigMargin}
+        />
+
+        <Typography id="total-infusion-slots">
+          <Trans>Total Infusion Slots</Trans>
+        </Typography>
+        <Slider
+          value={slots}
+          step={1}
+          min={0}
+          max={18}
+          marks
+          valueLabelDisplay="auto"
+          onChange={handleSlotsChange}
+          aria-labelledby="total-infusion-slots"
+        />
+
+        <CheckboxComponent
+          value={freeWvW}
+          checked={freeWvW}
+          label={
+            <Typography variant="body2">
+              <Trans>Enable free WvW stat infusions</Trans>
+            </Typography>
+          }
+          onChange={(e) => dispatch(changeFreeWvW(e.target.checked))}
+          className={classes.bigMargin}
+        />
+
+        <Typography variant="body2">
+          <Trans>
+            <Item id={79230} /> value: <Coin value={matrixValue} />
+            <Slider
+              value={matrixValue}
+              step={1000}
+              min={0}
+              max={40000}
+              valueLabelDisplay="off"
+              onChange={handleMatrixValueChange}
+              className={classes.bigMargin}
+            />
+          </Trans>
+        </Typography>
+
+        {error ? (
+          <Alert variant="outlined" severity="error">
+            {error}
+          </Alert>
+        ) : (
+          <>
+            <TextDivider text="Result" />
+            <Typography style={{ marginBottom: 16 }}>
+              <Trans>
+                Estimated Cost: <Coin value={cost * 10000} />
+              </Trans>
+            </Typography>
+
+            <Typography>
+              <Trans>Infusions: </Trans>
+              {resultText}
+            </Typography>
+
+            <Typography variant="body2">
+              {resultArray.map((text, i) => {
+                const infusionData = infusionIds[text];
+                return (
+                  // eslint-disable-next-line react/no-array-index-key
+                  <React.Fragment key={i}>
+                    {infusionData?.[primaryInfusion]?.id ? (
+                      <Item id={infusionData?.[primaryInfusion]?.id} disableLink />
+                    ) : null}
+                    {infusionData?.[secondaryInfusion]?.id ? (
+                      <Item id={infusionData?.[secondaryInfusion]?.id} disableLink />
+                    ) : null}
+                    {infusionData?.id ? (
+                      <Item id={infusionData?.id} disableLink className={classes.bigStyle} />
+                    ) : null}{' '}
+                    <br />
+                  </React.Fragment>
+                );
+              })}
+            </Typography>
+            <Typography variant="caption">
+              <Trans>Note: Not cost optimized for {'>'}1 weapon set.</Trans>
+            </Typography>
+          </>
+        )}
       </AccordionDetails>
     </Accordion>
   );
