@@ -399,7 +399,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [3%, add]
+          Strike Damage: [3%, add] # as per Cat
       gw2id: 2189
       defaultEnabled: true
 
@@ -412,7 +412,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [2%, add]
+          Strike Damage: [2%, add] # as per Cat
       gw2id: 2201
       defaultEnabled: true
 
@@ -421,5 +421,5 @@
       subText: bugged 10% chill mod
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Strike Damage: [10%, mult] # as per Cat
       gw2id: 2201

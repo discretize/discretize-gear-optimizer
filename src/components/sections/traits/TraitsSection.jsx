@@ -15,7 +15,7 @@ const TraitsSection = ({ profession, data }) => {
   const showAll = useSelector(getShowAllTraits);
 
   const { t } = useTranslation();
-  const traitsData = classModifiers[profession.toLowerCase()]?.filter((section) => section.id > 0);
+  const traitsData = classModifiers[profession]?.filter((section) => section.id > 0);
 
   let traitsPresets;
   if (profession) {

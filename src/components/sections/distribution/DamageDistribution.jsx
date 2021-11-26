@@ -11,7 +11,7 @@ import {
 import MuiAlert from '@material-ui/lab/Alert';
 import classNames from 'classnames';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { Attribute, Condition } from 'gw2-ui-bulk';
+import { Attribute as AttributeRaw, Condition as ConditionRaw } from 'gw2-ui-bulk';
 import debounce from 'lodash.debounce';
 import Nouislider from 'nouislider-react';
 // eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
@@ -28,6 +28,9 @@ import {
   getTextBoxes,
   coefficientsToPercents,
 } from '../../../state/slices/distribution';
+
+const Attribute = React.memo(AttributeRaw);
+const Condition = React.memo(ConditionRaw);
 
 const styles = (theme) => ({
   textbox: {
@@ -179,7 +182,7 @@ const DamageDistribution = ({ classes }) => {
 
       // only update the value when the text entered is a valid number. The regex matches for integer or floats.
     } else if (value.match('^[-+]?[0-9]*.?[0-9]+([eE][-+]?[0-9]+)?$')) {
-      const parsedValue = Number.parseFloat(value);
+      const parsedValue = parseFloat(value);
       if (!Number.isNaN(parsedValue)) {
         dispatch(changeDistributionNew({ index: key, value: parsedValue }));
       }

@@ -53,6 +53,7 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-fast-compare": "^3.2.0",
     "react-i18next": "^11.12.0",
     "react-jss": "^10.7.1",
     "react-redux": "^7.2.0",

@@ -1,10 +1,12 @@
 import { Box, Paper, useMediaQuery, useTheme, withStyles } from '@material-ui/core';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage as GatsbyImageRaw } from 'gatsby-plugin-image';
 import React from 'react';
 import Armor from './Armor';
 import Attributes from './Attributes';
 import BackAndTrinkets from './BackAndTrinkets';
 import Weapons from './Weapons';
+
+const GatsbyImage = React.memo(GatsbyImageRaw);
 
 const styles = (theme) => ({
   container: { maxHeight: '600px' },

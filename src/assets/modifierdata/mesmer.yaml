@@ -151,8 +151,9 @@
       subText: 100% regeneration
       modifiers:
         attributes:
-          Concentration: [250, buff]
-          Expertise: [250, buff]
+          Concentration: [250, converted]
+          Expertise: [250, converted]
+          # converted: https://discord.com/channels/380901000200060929/875327743334707251/911570311177207818
       gw2id: 1865
       defaultEnabled: true
 
@@ -225,13 +226,14 @@
 
     - id: mental-focus
       text: Mental Focus
+      subText: 'bugged: 10% instead of 15%'
       amountData:
         label: '% melee'
         default: 100
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [15%, unknown]
+          Strike Damage: [10%, mult] # tested by Snappy Joe
       gw2id: 2208
       defaultEnabled: true
 

@@ -1,7 +1,10 @@
 import { Icon, List, ListItem, ListItemText, withStyles } from '@material-ui/core';
-import { Item } from 'gw2-ui-bulk';
+import { Item as ItemRaw } from 'gw2-ui-bulk';
 import React from 'react';
+import equal from 'react-fast-compare';
 import TextDivider from '../baseComponents/TextDivider';
+
+const Item = React.memo(ItemRaw, equal);
 
 const styles = (theme) => ({
   listItem: {

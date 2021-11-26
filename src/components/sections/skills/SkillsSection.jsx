@@ -6,9 +6,7 @@ import Skills from './Skills';
 
 const SkillsSection = ({ profession }) => {
   const { t } = useTranslation();
-  const skillsData = classModifiers[profession.toLowerCase()]?.find(
-    (section) => section.section === 'Skills',
-  );
+  const skillsData = classModifiers[profession]?.find((section) => section.section === 'Skills');
 
   return skillsData ? (
     <Section

@@ -1,8 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { Typography, TextField } from '@material-ui/core';
 import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
-import { getControl } from '../../../state/slices/controlsSlice';
 import { parseAmount } from '../../../state/optimizer/optimizerCore';
 
 const initial = {
@@ -29,7 +27,6 @@ const fixPoison = (input) =>
   );
 
 const TemplateHelper = ({ character }) => {
-  const traitsTemplate = useSelector(getControl('traitsTemplate'));
   const { t } = useTranslation();
 
   const [input, setInput] = React.useState(initial);
@@ -38,10 +35,11 @@ const TemplateHelper = ({ character }) => {
     return { key, inputText, value, error };
   });
 
-  const helperData = character.results.templateHelper;
+  const { cachedFormState } = character.settings;
+  const { coefficientHelper } = character.results;
 
   let values2 = Object.fromEntries(
-    data.map(({ key, value }) => [key, (value ?? 0) / helperData[key]]),
+    data.map(({ key, value }) => [key, (value ?? 0) / coefficientHelper[key]]),
   );
 
   // round
@@ -132,7 +130,7 @@ const TemplateHelper = ({ character }) => {
       </Typography>
 
       <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-        {indent(JSON.stringify(traitsTemplate?.traits, null, 2) || '', 6)}
+        {indent(JSON.stringify(cachedFormState?.traits, null, 2) || '', 6)}
       </pre>
 
       <Typography variant="h6">
@@ -140,7 +138,7 @@ const TemplateHelper = ({ character }) => {
       </Typography>
 
       <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-        {indent(JSON.stringify(traitsTemplate?.skills, null, 2) || '', 6)}
+        {indent(JSON.stringify(cachedFormState?.skills, null, 2) || '', 6)}
       </pre>
 
       <Typography variant="h6">
@@ -148,7 +146,7 @@ const TemplateHelper = ({ character }) => {
       </Typography>
 
       <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-        {indent(JSON.stringify(traitsTemplate?.extras, null, 2) || '', 6)}
+        {indent(JSON.stringify(cachedFormState?.extras, null, 2) || '', 6)}
       </pre>
     </>
   );

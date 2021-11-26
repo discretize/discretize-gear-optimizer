@@ -1,7 +1,7 @@
 GraphQL ID: templates
 list:
 
-  - class: mesmer
+  - class: Mesmer
     builds:
 
       - name: Power Chrono IA
@@ -22,7 +22,7 @@ list:
         traits: '[beta] Virtuoso'
         extras: '[beta] Virtuoso'
 
-  - class: guardian
+  - class: Guardian
     builds:
 
       - name: DH Radiance w/ PI
@@ -142,7 +142,7 @@ list:
         traits: '[beta] Power Willbender Virtues'
         extras: DH Virtues (Fractal)
 
-  - class: warrior
+  - class: Warrior
     builds:
 
       - name: Power Banner Bers
@@ -181,7 +181,7 @@ list:
         traits: '[beta] Bladesworn'
         extras: '[beta] Bladesworn'
 
-  - class: elementalist
+  - class: Elementalist
     builds:
 
       - name: Power Weaver
@@ -238,7 +238,7 @@ list:
         traits: '[beta] Condi Hammer Catalyst'
         extras: '[beta] Condi Hammer Catalyst'
 
-  - class: ranger
+  - class: Ranger
     builds:
 
       - name: Power Slb Marks
@@ -304,7 +304,7 @@ list:
         traits: Heal Druid
         extras: Heal
 
-  - class: revenant
+  - class: Revenant
     builds:
 
       - name: Power Alac Ren
@@ -379,7 +379,7 @@ list:
         traits: Heal Ren
         extras: Heal
 
-  - class: engineer
+  - class: Engineer
     builds:
 
       - name: Power Holo ECSU
@@ -427,7 +427,7 @@ list:
         traits: '[beta] Condi Mechanist'
         extras: '[beta] Condi Mechanist Thorns'
 
-  - class: necromancer
+  - class: Necromancer
     builds:
 
       - name: DPS Scourge
@@ -457,7 +457,25 @@ list:
         traits: '[beta] DPS Harbinger'
         extras: '[beta] DPS Harbinger'
 
-  - class: thief
+      - name: '[beta] Quickness Harbinger (Firebrand)'
+        id: qharb-fb
+        specialization: Harbinger
+        boons: Condi
+        priority: Condi DPS
+        distribution: '[beta] Quickness Harbinger (approx.)'
+        traits: '[beta] Quickness Harbinger'
+        extras: '[beta] Quickness Harbinger (Firebrand)'
+
+      - name: '[beta] Quickness Harbinger (Cele)'
+        id: qharb-cele
+        specialization: Harbinger
+        boons: Condi
+        priority: Condi Boon
+        distribution: '[beta] Quickness Harbinger (approx.)'
+        traits: '[beta] Quickness Harbinger'
+        extras: '[beta] Quickness Harbinger (Cele)'
+
+  - class: Thief
     builds:
 
       - name: Condi Deadeye

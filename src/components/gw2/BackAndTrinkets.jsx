@@ -1,8 +1,11 @@
 import React from 'react';
 import { withStyles, Grid, Typography } from '@material-ui/core';
 import classNames from 'classnames';
-import { Item } from 'gw2-ui-bulk';
+import { Item as ItemRaw } from 'gw2-ui-bulk';
+import equal from 'react-fast-compare';
 import { resolveBackAndTrinkets } from '../../utils/map-gw2-ids';
+
+const Item = React.memo(ItemRaw, equal);
 
 const styles = (theme) => ({
   gridItem: {

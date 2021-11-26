@@ -322,7 +322,7 @@
       minor: true
       modifiers:
         attributes:
-          Vitality: [360, unknown]
+          Vitality: [360, converted] # checked 2 bench videos (from EoD beta 1)
       gw2id: 2186
       defaultEnabled: true
 

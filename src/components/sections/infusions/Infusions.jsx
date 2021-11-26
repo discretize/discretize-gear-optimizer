@@ -30,7 +30,7 @@ import { parseAmount } from '../../../state/optimizer/optimizerCore';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import InfusionHelper from './InfusionHelper';
 import HelperIcon from '../../baseComponents/HelperIcon';
-import { INFUSIONS } from '../../../utils/gw2-data';
+import { INFUSION_IDS } from '../../../utils/gw2-data';
 
 const styles = (theme) => ({
   formControl: {
@@ -70,15 +70,17 @@ const Infusions = ({ classes }) => {
             dispatch(
               changeInfusion({
                 key: varName,
-                value: e.target.value === '' ? '' : Number(e.target.value),
+                value: e.target.value,
               }),
             )
           }
-          renderValue={(value) => <Item id={value} disableLink className={classes.item} />}
+          renderValue={(value) => (
+            <Item id={INFUSION_IDS[value]} disableLink className={classes.item} />
+          )}
         >
           <MenuItem value="">{t('None')} </MenuItem>
-          {INFUSIONS.map((infu) => infu.id).map((id) => (
-            <MenuItem value={id} key={id}>
+          {Object.entries(INFUSION_IDS).map(([attribute, id]) => (
+            <MenuItem value={attribute} key={attribute}>
               <Item id={id} disableLink />
             </MenuItem>
           ))}

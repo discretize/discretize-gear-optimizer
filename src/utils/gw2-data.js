@@ -641,7 +641,7 @@ export const WEAPONS = {
 };
 
 export const Classes = {
-  warrior: {
+  Warrior: {
     health: Health.HIGH,
     defense: Defense.HEAVY,
     weapons: {
@@ -666,7 +666,7 @@ export const Classes = {
       ],
     },
   },
-  necromancer: {
+  Necromancer: {
     health: Health.HIGH,
     defense: Defense.LIGHT,
     weapons: {
@@ -674,7 +674,7 @@ export const Classes = {
       offHand: [WEAPONS.FOCUS, WEAPONS.WARHORN, WEAPONS.TORCH, WEAPONS.DAGGER],
     },
   },
-  revenant: {
+  Revenant: {
     health: Health.MEDIUM,
     defense: Defense.HEAVY,
     weapons: {
@@ -682,7 +682,7 @@ export const Classes = {
       offHand: [WEAPONS.AXE, WEAPONS.SWORD, WEAPONS.SHIELD],
     },
   },
-  engineer: {
+  Engineer: {
     health: Health.MEDIUM,
     defense: Defense.MEDIUM,
     weapons: {
@@ -690,7 +690,7 @@ export const Classes = {
       offHand: [WEAPONS.PISTOL, WEAPONS.SHIELD],
     },
   },
-  ranger: {
+  Ranger: {
     health: Health.MEDIUM,
     defense: Defense.MEDIUM,
     weapons: {
@@ -706,7 +706,7 @@ export const Classes = {
       offHand: [WEAPONS.AXE, WEAPONS.DAGGER, WEAPONS.TORCH, WEAPONS.WARHORN],
     },
   },
-  mesmer: {
+  Mesmer: {
     health: Health.MEDIUM,
     defense: Defense.LIGHT,
     weapons: {
@@ -714,7 +714,7 @@ export const Classes = {
       offHand: [WEAPONS.PISTOL, WEAPONS.SWORD, WEAPONS.FOCUS, WEAPONS.SHIELD, WEAPONS.TORCH],
     },
   },
-  guardian: {
+  Guardian: {
     health: Health.LOW,
     defense: Defense.HEAVY,
     weapons: {
@@ -731,7 +731,7 @@ export const Classes = {
       offHand: [WEAPONS.FOCUS, WEAPONS.SHIELD, WEAPONS.TORCH],
     },
   },
-  thief: {
+  Thief: {
     health: Health.LOW,
     defense: Defense.MEDIUM,
     weapons: {
@@ -746,7 +746,7 @@ export const Classes = {
       offHand: [WEAPONS.DAGGER, WEAPONS.PISTOL],
     },
   },
-  elementalist: {
+  Elementalist: {
     health: Health.LOW,
     defense: Defense.LIGHT,
     weapons: {
@@ -844,15 +844,15 @@ export const MAX_INFUSIONS = 18;
 export const INFUSION_BONUS = 5;
 
 export const PROFESSIONS = [
-  { profession: 'WARRIOR', eliteSpecializations: ['SPELLBREAKER', 'BERSERKER', 'BLADESWORN'] },
-  { profession: 'REVENANT', eliteSpecializations: ['HERALD', 'RENEGADE', 'VINDICATOR'] },
-  { profession: 'GUARDIAN', eliteSpecializations: ['DRAGONHUNTER', 'FIREBRAND', 'WILLBENDER'] },
-  { profession: 'RANGER', eliteSpecializations: ['DRUID', 'SOULBEAST', 'UNTAMED'] },
-  { profession: 'ENGINEER', eliteSpecializations: ['SCRAPPER', 'HOLOSMITH', 'MECHANIST'] },
-  { profession: 'ELEMENTALIST', eliteSpecializations: ['TEMPEST', 'WEAVER', 'CATALYST'] },
-  { profession: 'MESMER', eliteSpecializations: ['CHRONOMANCER', 'MIRAGE', 'VIRTUOSO'] },
-  { profession: 'NECROMANCER', eliteSpecializations: ['SCOURGE', 'REAPER', 'HARBINGER'] },
-  { profession: 'THIEF', eliteSpecializations: ['DAREDEVIL', 'DEADEYE', 'SPECTER'] },
+  { profession: 'Warrior', eliteSpecializations: ['Spellbreaker', 'Berserker', 'Bladesworn'] },
+  { profession: 'Revenant', eliteSpecializations: ['Herald', 'Renegade', 'Vindicator'] },
+  { profession: 'Guardian', eliteSpecializations: ['Dragonhunter', 'Firebrand', 'Willbender'] },
+  { profession: 'Ranger', eliteSpecializations: ['Druid', 'Soulbeast', 'Untamed'] },
+  { profession: 'Engineer', eliteSpecializations: ['Scrapper', 'Holosmith', 'Mechanist'] },
+  { profession: 'Elementalist', eliteSpecializations: ['Tempest', 'Weaver', 'Catalyst'] },
+  { profession: 'Mesmer', eliteSpecializations: ['Chronomancer', 'Mirage', 'Virtuoso'] },
+  { profession: 'Necromancer', eliteSpecializations: ['Scourge', 'Reaper', 'Harbinger'] },
+  { profession: 'Thief', eliteSpecializations: ['Daredevil', 'Deadeye', 'Specter'] },
 ];
 
 export const GEAR_SLOTS = [
@@ -914,16 +914,16 @@ export const GEAR_SLOTS = [
   },
 ];
 
-export const INFUSIONS = [
-  { id: 37131, attribute: 'Power' }, // power
-  { id: 37132, attribute: 'Precision' }, // precision
-  { id: 37130, attribute: 'Condition Damage' }, // condi
-  { id: 86113, attribute: 'Expertise' }, // expertise
-  { id: 86180, attribute: 'Concentration' }, // concentration
-  { id: 37125, attribute: 'Healing Power' }, // healing power
-  { id: 37135, attribute: 'Toughness' }, // toughness
-  { id: 37136, attribute: 'Vitality' }, // vitality
-];
+export const INFUSION_IDS = {
+  'Power': 37131,
+  'Precision': 37132,
+  'Condition Damage': 37130,
+  'Expertise': 86113,
+  'Concentration': 86180,
+  'Healing Power': 37125,
+  'Toughness': 37135,
+  'Vitality': 37136,
+};
 
 export const infusionIds = {
   '+1 agony': { id: 49424, cost: 7 },
