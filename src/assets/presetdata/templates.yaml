@@ -13,14 +13,14 @@ list:
         traits: Power Chrono IA
         extras: Power (Fractal)
 
-      - name: '[beta 1] Virtuoso'
+      - name: '[old] Virtuoso'
         id: pvirt
         specialization: Virtuoso
         boons: Power (spotter)
         priority: Power DPS
-        distribution: '[beta 1] Virtuoso'
-        traits: '[beta 1] Virtuoso'
-        extras: '[beta 1] Virtuoso'
+        distribution: '[old] Virtuoso'
+        traits: '[old] Virtuoso'
+        extras: '[old] Virtuoso'
 
   - class: Guardian
     builds:
@@ -124,22 +124,22 @@ list:
         traits: Healbrand
         extras: Heal
 
-      - name: '[beta 1] Power Willbender Radiance'
+      - name: '[old] Power Willbender Radiance'
         id: pwb-radiance
         specialization: Willbender
         boons: Power (spotter)
         priority: Power DPS
-        distribution: '[beta 1] Power Willbender Radiance Focus'
-        traits: '[beta 1] Power Willbender Radiance'
+        distribution: '[old] Power Willbender Radiance Focus'
+        traits: '[old] Power Willbender Radiance'
         extras: Power (Fractal)
 
-      - name: '[beta 1] Power Willbender Virtues'
+      - name: '[old] Power Willbender Virtues'
         id: pwb-virtues
         specialization: Willbender
         boons: Power (spotter)
         priority: Power DPS
-        distribution: '[beta 1] Power Willbender Virtues Focus'
-        traits: '[beta 1] Power Willbender Virtues'
+        distribution: '[old] Power Willbender Virtues Focus'
+        traits: '[old] Power Willbender Virtues'
         extras: DH Virtues (Fractal)
 
   - class: Warrior
@@ -172,14 +172,14 @@ list:
         traits: Power Banner SPB
         extras: Power (Fractal)
 
-      - name: '[beta 1] Bladesworn'
+      - name: '[old] Bladesworn'
         id: pbls
         specialization: Bladesworn
         boons: Power (spotter)
         priority: Power DPS
-        distribution: '[beta 1] Bladesworn'
-        traits: '[beta 1] Bladesworn'
-        extras: '[beta 1] Bladesworn'
+        distribution: '[old] Bladesworn'
+        traits: '[old] Bladesworn'
+        extras: '[old] Bladesworn'
 
   - class: Elementalist
     builds:
@@ -229,14 +229,14 @@ list:
         traits: Heal Tempest
         extras: Heal
 
-      - name: '[beta 1] Condi Hammer Catalyst'
+      - name: '[old] Condi Hammer Catalyst'
         id: condi-cat
         specialization: Catalyst
         boons: Condi
         priority: Condi DPS
-        distribution: '[beta 1] Condi Hammer Catalyst'
-        traits: '[beta 1] Condi Hammer Catalyst'
-        extras: '[beta 1] Condi Hammer Catalyst'
+        distribution: '[old] Condi Hammer Catalyst'
+        traits: '[old] Condi Hammer Catalyst'
+        extras: '[old] Condi Hammer Catalyst'
 
   - class: Ranger
     builds:
@@ -418,14 +418,14 @@ list:
         traits: Heal Scrapper
         extras: Heal
 
-      - name: '[incomplete] Condi Mechanist'
+      - name: '[old] Condi Mechanist'
         id: cmech
         specialization: Mechanist
         boons: Condi
         priority: Condi DPS
-        distribution: '[beta, bugged logs] Condi Mechanist'
-        traits: '[beta 1] Condi Mechanist'
-        extras: '[beta 1] Condi Mechanist Thorns'
+        distribution: '[old] Condi Mechanist'
+        traits: '[old] Condi Mechanist'
+        extras: '[old] Condi Mechanist Thorns'
 
   - class: Necromancer
     builds:
@@ -448,32 +448,32 @@ list:
         traits: Condi Reaper
         extras: Condi Reaper
 
-      - name: '[beta 1] DPS Harbinger'
+      - name: '[old] DPS Harbinger'
         id: charb
         specialization: Harbinger
         boons: Condi
         priority: Condi DPS
-        distribution: '[beta 1] Harbinger (approx.)'
-        traits: '[beta 1] DPS Harbinger'
-        extras: '[beta 1] DPS Harbinger'
+        distribution: '[old] Harbinger (approx.)'
+        traits: '[old] DPS Harbinger'
+        extras: '[old] DPS Harbinger'
 
-      - name: '[beta 1] Quickness Harbinger (Firebrand)'
+      - name: '[old] Quickness Harbinger (Firebrand)'
         id: qharb-fb
         specialization: Harbinger
         boons: Condi
         priority: Condi DPS
-        distribution: '[beta 1] Quickness Harbinger (approx.)'
-        traits: '[beta 1] Quickness Harbinger'
-        extras: '[beta 1] Quickness Harbinger (Firebrand)'
+        distribution: '[old] Quickness Harbinger (approx.)'
+        traits: '[old] Quickness Harbinger'
+        extras: '[old] Quickness Harbinger (Firebrand)'
 
-      - name: '[beta 1] Quickness Harbinger (Cele)'
+      - name: '[old] Quickness Harbinger (Cele)'
         id: qharb-cele
         specialization: Harbinger
         boons: Condi
         priority: Condi Boon
-        distribution: '[beta 1] Quickness Harbinger (approx.)'
-        traits: '[beta 1] Quickness Harbinger'
-        extras: '[beta 1] Quickness Harbinger (Cele)'
+        distribution: '[old] Quickness Harbinger (approx.)'
+        traits: '[old] Quickness Harbinger'
+        extras: '[old] Quickness Harbinger (Cele)'
 
   - class: Thief
     builds:
@@ -523,20 +523,20 @@ list:
         traits: Rifle Deadeye
         extras: Power (Fractal)
 
-      - name: '[beta 1] DPS Specter Sc/D'
+      - name: '[old] DPS Specter Sc/D'
         id: specterdagger
         specialization: Specter
         boons: Condi
         priority: Condi DPS
-        distribution: '[beta 1] DPS Specter Sc/D'
-        traits: '[beta 1] DPS Specter Sc/D'
-        extras: '[beta 1] DPS Specter'
+        distribution: '[old] DPS Specter Sc/D'
+        traits: '[old] DPS Specter Sc/D'
+        extras: '[old] DPS Specter'
 
-      - name: '[beta 1] DPS Specter Endless Night'
+      - name: '[old] DPS Specter Endless Night'
         id: specterpistol
         specialization: Specter
         boons: Condi
         priority: Heal
-        distribution: '[beta 1] DPS Specter Endless Night'
-        traits: '[beta 1] DPS Specter Endless Night'
-        extras: '[beta 1] DPS Specter'
+        distribution: '[old] DPS Specter Endless Night'
+        traits: '[old] DPS Specter Endless Night'
+        extras: '[old] DPS Specter'
