@@ -54,12 +54,15 @@ const StickyHeadTable = ({ classes }) => {
     mostCommonAffix = mode(list[0].gear);
   }
 
+  const firstCharacter = list[0];
+  const weaponType = firstCharacter?.settings?.weaponType || 'Two-handed';
+
   return (
     <Box boxShadow={8}>
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table" className={classes.tableCollapse}>
           <TableHead>
-            <ResultTableHeaderRow classes={classes} />
+            <ResultTableHeaderRow classes={classes} weaponType={weaponType} />
           </TableHead>
           <TableBody className={classes.pointer}>
             {list.map((character, i) => {

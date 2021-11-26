@@ -38,7 +38,7 @@ let isChanged = true;
  * @param {?string[]} input.tags - modifier data for the UI
  *                      (passed unedited into character.settings)
  * @param {string} input.profession
- * @param {string} input.weapontype
+ * @param {string} input.weaponType
  * @param {string[]} input.affixes - all selected gear affixes to iterate over
  * @param {string[]} input.forcedAffixes - array of specific affix names for each slot,
  *                     or '' for unspecfied
@@ -364,7 +364,7 @@ export function setup(input) {
 
   /* Equipment */
 
-  settings.slots = Slots[settings.weapontype];
+  settings.slots = Slots[settings.weaponType];
 
   // affixesArray: valid affixes for each slot, taking forced slots into account
   // e.g. [[Berserker, Assassin], [Assassin], [Berserker, Assassin]...]
@@ -440,8 +440,8 @@ export function setup(input) {
 
   settings.runsAfterThisSlot.push(1);
 
-  // const freeSlots = settings.weapontype === 'Dual wield' ? 5 : 6;
-  // const pairs = settings.weapontype === 'Dual wield' ? 3 : 2;
+  // const freeSlots = settings.weaponType === 'Dual wield' ? 5 : 6;
+  // const pairs = settings.weaponType === 'Dual wield' ? 3 : 2;
   // const triplets = 1;
   // calculationTotal
   //   = Math.pow(settings.affixes.length, freeSlots)

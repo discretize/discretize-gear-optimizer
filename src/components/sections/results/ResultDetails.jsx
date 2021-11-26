@@ -7,7 +7,6 @@ import times from 'lodash/times';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import { updateAttributes } from '../../../state/optimizer/optimizerCore';
 import { getExtras } from '../../../state/slices/extras';
-import { getPriority } from '../../../state/slices/priorities';
 import { getTraitLines } from '../../../state/slices/traits';
 import { Classes, Defense, INFUSIONS, PROFESSIONS } from '../../../utils/gw2-data';
 import { firstUppercase } from '../../../utils/usefulFunctions';
@@ -34,7 +33,6 @@ const ResultDetails = ({ data }) => {
     Runes: runeStringId,
   } = extras;
 
-  const priority = useSelector(getPriority('weaponType'));
   const traits = useSelector(getTraitLines);
 
   const charRaw = useSelector(getSelectedCharacter);
@@ -49,7 +47,7 @@ const ResultDetails = ({ data }) => {
   // eslint-disable-next-line no-console
   console.log('Selected Character Data:', character);
 
-  const { profession } = character.settings;
+  const { profession, weaponType } = character.settings;
 
   const classData = Classes[profession].weapons;
 
@@ -87,7 +85,7 @@ const ResultDetails = ({ data }) => {
   let wea2;
   let weapData;
 
-  if (priority === 'Dual wield') {
+  if (weaponType === 'Dual wield') {
     wea1 = classData.mainHand.find((item) => item.type === 'one-handed');
     [wea2] = classData.offHand;
     weapData = {

@@ -5,11 +5,9 @@ import { Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getInfusions } from '../../../state/slices/infusions';
-import { getPriority } from '../../../state/slices/priorities';
 import { Slots } from '../../../utils/gw2-data';
 
-const ResultTableHeaderRow = ({ classes }) => {
-  const wield = useSelector(getPriority('weaponType'));
+const ResultTableHeaderRow = ({ classes, weaponType }) => {
   const infusions = useSelector(getInfusions);
 
   return (
@@ -17,7 +15,7 @@ const ResultTableHeaderRow = ({ classes }) => {
       <TableCell className={classes.tablehead}>
         <Trans>Damage</Trans>
       </TableCell>
-      {Slots[wield].map((slot) => (
+      {Slots[weaponType].map((slot) => (
         <TableCell className={classes.tablehead} key={slot.name} align="center" padding="none">
           {slot.short}
         </TableCell>
