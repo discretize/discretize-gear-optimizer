@@ -15,7 +15,7 @@ import {
 import GitHubIcon from '@material-ui/icons/GitHub';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { Profession } from 'gw2-ui-bulk';
+import Profession from '../baseComponents/Profession';
 import { bindHover, bindMenu, usePopupState } from 'material-ui-popup-state/hooks';
 import Menu from 'material-ui-popup-state/HoverMenu';
 import React, { useEffect, useState } from 'react';
@@ -234,7 +234,7 @@ const Navbar = ({
                     }
                   >
                     <Profession
-                      eliteSpecialization={elem.specialization}
+                      name={elem.specialization}
                       disableLink
                       // i18next-extract-mark-context-next-line {{buildTemplateName}}
                       text={t('buildTemplateName', { context: elem.name })}
@@ -253,7 +253,7 @@ const Navbar = ({
           </Typography>
           {selectedTemplateName ? (
             <Profession
-              eliteSpecialization={selectedSpecialization}
+              name={selectedSpecialization}
               text={
                 // i18next-extract-mark-context-next-line {{buildTemplateName}}
                 t('buildTemplateName', { context: selectedTemplateName })
