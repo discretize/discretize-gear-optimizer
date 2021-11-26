@@ -4,7 +4,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import times from 'lodash/times';
-import { getProfession, getSelectedCharacter } from '../../../state/slices/controlsSlice';
+import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import { updateAttributes } from '../../../state/optimizer/optimizerCore';
 import { getExtras } from '../../../state/slices/extras';
 import { getPriority } from '../../../state/slices/priorities';
@@ -23,8 +23,6 @@ import SpecialDurations from './SpecialDurations';
 import { classModifiers, extrasModifiersById } from '../../../assets/modifierdata';
 
 const ResultDetails = ({ data }) => {
-  const profession = useSelector(getProfession);
-
   const { t } = useTranslation();
 
   const extras = useSelector(getExtras);
@@ -50,6 +48,8 @@ const ResultDetails = ({ data }) => {
 
   // eslint-disable-next-line no-console
   console.log('Selected Character Data:', character);
+
+  const { profession } = character.settings;
 
   const classData = Classes[profession].weapons;
 
