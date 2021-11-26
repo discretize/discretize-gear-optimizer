@@ -31,7 +31,7 @@ import {
   changeFreeWvW,
   changeMatrixValue,
 } from '../../../state/slices/infusions';
-import { INFUSIONS, infusionIds } from '../../../utils/gw2-data';
+import { infusionIds } from '../../../utils/gw2-data';
 
 const Item = React.memo(ItemRaw);
 const CommonEffect = React.memo(CommonEffectRaw);
@@ -112,9 +112,6 @@ const InfusionHelper = () => {
   const { enabled, impedence, attunement, singularity, tear, slots, freeWvW, matrixValue } =
     useSelector(getHelperData);
   const { error, resultText, resultArray, cost } = useSelector(getHelperResult);
-
-  const primaryAttribute = INFUSIONS.find((entry) => entry.id === primaryInfusion)?.attribute;
-  const secondaryAttribute = INFUSIONS.find((entry) => entry.id === secondaryInfusion)?.attribute;
 
   const handleEnabledChange = React.useCallback(
     (_e, value) => dispatch(changeHelperEnabled(value)),
@@ -316,12 +313,12 @@ const InfusionHelper = () => {
                     return (
                       // eslint-disable-next-line react/no-array-index-key
                       <React.Fragment key={i}>
-                        {infusionData?.[primaryAttribute]?.id ? (
-                          <Item id={infusionData?.[primaryAttribute]?.id} disableLink disableText />
+                        {infusionData?.[primaryInfusion]?.id ? (
+                          <Item id={infusionData?.[primaryInfusion]?.id} disableLink disableText />
                         ) : null}
-                        {infusionData?.[secondaryAttribute]?.id ? (
+                        {infusionData?.[secondaryInfusion]?.id ? (
                           <Item
-                            id={infusionData?.[secondaryAttribute]?.id}
+                            id={infusionData?.[secondaryInfusion]?.id}
                             disableLink
                             disableText
                           />
