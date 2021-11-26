@@ -106,85 +106,80 @@ const Infusions = ({ classes }) => {
   };
 
   return (
-    <>
-      <Grid container spacing={2}>
-        <Grid container item spacing={2} alignItems="center" justifyContent="flex-start">
-          <Grid item xs={12} sm>
-            <CheckboxComponent
-              value={omnipotion}
-              checked={omnipotion}
-              label={
-                <>
-                  <Trans>Include </Trans>
-                  <Item id={79722} />
-                  <HelperIcon
-                    text={t(
-                      'Adds 150% of your Agony Resistance to Precision, Toughness, and Concentration.',
-                    )}
-                    size="small"
-                  />
-                </>
-              }
-              onChange={(e) => dispatch(changeOmnipotion(e.target.checked))}
-            />
-          </Grid>
-          <Grid item xs={12} sm>
-            <Autocomplete
-              className={classes.formControl}
-              freeSolo
-              disableClearable
-              options={['150', '162', '222']}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  error={arError}
-                  InputProps={{
-                    ...params.InputProps,
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <Attribute name="Agony Resistance" disableLink disableText />
-                      </InputAdornment>
-                    ),
-                  }}
-                  label={t('Agony Resistance')}
+    <Grid container spacing={4}>
+      <Grid container item spacing={2} alignItems="center" justifyContent="flex-start">
+        <Grid item xs={12} sm>
+          <CheckboxComponent
+            value={omnipotion}
+            checked={omnipotion}
+            label={
+              <>
+                <Trans>Include </Trans>
+                <Item id={79722} />
+                <HelperIcon
+                  text={t(
+                    'Adds 150% of your Agony Resistance to Precision, Toughness, and Concentration.',
+                  )}
+                  size="small"
                 />
-              )}
-              id="ar_input-with-icon-adornment"
-              value={ar}
-              onInputChange={handleARChange}
-            />
-          </Grid>
+              </>
+            }
+            onChange={(e) => dispatch(changeOmnipotion(e.target.checked))}
+          />
         </Grid>
-        <Grid
-          container
-          item
-          spacing={2}
-          justifyContent="flex-start"
-          direction="row"
-          alignItems="center"
-        >
-          <Grid item xs={12}>
-            {input('# Stat Infusions', 'maxInfusions', maxInfusions)}
-          </Grid>
-
-          <Grid item xs={12}>
-            {dropdown(t('Infusion Type #1'), 'primaryInfusion', primaryInfusion)}
-            {input(t('Max #'), 'primaryMaxInfusions', primaryMaxInfusions, classes.formControl2)}
-          </Grid>
-
-          <Grid item xs={12}>
-            {dropdown(t('Infusion Type #2'), 'secondaryInfusion', secondaryInfusion)}
-            {input(
-              t('Max #'),
-              'secondaryMaxInfusions',
-              secondaryMaxInfusions,
-              classes.formControl2,
+        <Grid item xs={12} sm>
+          <Autocomplete
+            className={classes.formControl}
+            freeSolo
+            disableClearable
+            options={['150', '162', '222']}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                error={arError}
+                InputProps={{
+                  ...params.InputProps,
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <Attribute name="Agony Resistance" disableLink disableText />
+                    </InputAdornment>
+                  ),
+                }}
+                label={t('Agony Resistance')}
+              />
             )}
-          </Grid>
+            id="ar_input-with-icon-adornment"
+            value={ar}
+            onInputChange={handleARChange}
+          />
         </Grid>
       </Grid>
-      <InfusionHelper />
-    </>
+      <Grid
+        container
+        item
+        spacing={2}
+        justifyContent="flex-start"
+        direction="row"
+        alignItems="center"
+      >
+        <Grid item xs={12}>
+          {input('# Stat Infusions', 'maxInfusions', maxInfusions)}
+        </Grid>
+
+        <Grid item xs={12}>
+          {dropdown(t('Infusion Type #1'), 'primaryInfusion', primaryInfusion)}
+          {input(t('Max #'), 'primaryMaxInfusions', primaryMaxInfusions, classes.formControl2)}
+        </Grid>
+
+        <Grid item xs={12}>
+          {dropdown(t('Infusion Type #2'), 'secondaryInfusion', secondaryInfusion)}
+          {input(t('Max #'), 'secondaryMaxInfusions', secondaryMaxInfusions, classes.formControl2)}
+        </Grid>
+      </Grid>
+      <Grid item xs={12}>
+        <InfusionHelper />
+      </Grid>
+    </Grid>
   );
 };
 
