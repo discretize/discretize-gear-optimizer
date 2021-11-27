@@ -925,6 +925,77 @@ export const INFUSION_IDS = {
   'Vitality': 37136,
 };
 
+export const infusionIds = {
+  '+1 Agony Infusion': { id: 49424, cost: 7 },
+  '+2 Agony Infusion': { id: 49425, cost: 164 },
+  '+3 Agony Infusion': { id: 49426, cost: 478 },
+  '+4 Agony Infusion': { id: 49427, cost: 1106 },
+  '+5 Agony Infusion': { id: 49428, cost: 2632 },
+  '+6 Agony Infusion': { id: 49429, cost: 4878 },
+  '+7 Agony Infusion': { id: 49430 },
+  '+8 Agony Infusion': { id: 49431 },
+  '+9 Agony Infusion': { id: 49432 },
+  '+10 Agony Infusion': { id: 49433 },
+  '+11 Agony Infusion': { id: 49434 },
+  '+12 Agony Infusion': { id: 49435 },
+  '+13 Agony Infusion': { id: 49436 },
+  '+14 Agony Infusion': { id: 49437 },
+  '+15 Agony Infusion': { id: 49438 },
+  '+16 Agony Infusion': { id: 49439 },
+  '+17 Agony Infusion': { id: 49440 },
+  '+18 Agony Infusion': { id: 49441 },
+  '+19 Agony Infusion': { id: 49442 },
+  '+20 Agony Infusion': { id: 49443 },
+  '+21 Agony Infusion': { id: 49444 },
+  '+22 Agony Infusion': { id: 49445 },
+  '+23 Agony Infusion': { id: 49446 },
+  '+24 Agony Infusion': { id: 49447 },
+
+  '+9 Stat Infusion': {
+    'Power': { id: 37131 },
+    'Precision': { id: 37132 },
+    'Condition Damage': { id: 37130 },
+    'Expertise': { id: 86113 },
+    'Concentration': { id: 86180 },
+    'Healing Power': { id: 37125 },
+    'Toughness': { id: 37135 },
+    'Vitality': { id: 37136 },
+  },
+
+  '+7 Stat Infusion': {
+    'Power': { id: 37127 },
+    'Precision': { id: 37128 },
+    'Condition Damage': { id: 37129 },
+    'Expertise': { id: 86150 },
+    'Concentration': { id: 85881 },
+    'Healing Power': { id: 37123 },
+    'Toughness': { id: 37133 },
+    'Vitality': { id: 37134 },
+  },
+
+  '+5 Stat Infusion': {
+    'Power': { id: 39620 },
+    'Precision': { id: 39621 },
+    'Condition Damage': { id: 39619 },
+    'Expertise': { id: 85971 },
+    'Concentration': { id: 86338 },
+    'Healing Power': { id: 39616 },
+    'Toughness': { id: 39617 },
+    'Vitality': { id: 39618 },
+  },
+
+  'WvW Stat Infusion': {
+    'Power': { id: 43254 },
+    'Precision': { id: 43255 },
+    'Condition Damage': { id: 43253 },
+    'Expertise': { id: 87218 },
+    'Concentration': { id: 86986 },
+    'Healing Power': { id: 43250 },
+    'Toughness': { id: 43251 },
+    'Vitality': { id: 43252 },
+  },
+};
+
 export const ARMOR_IDS = {
   // Helm, Shoulders, Chest, Hands, Leggings, Feet
   HEAVY: [86198, 85829, 85814, 85949, 86079, 86237],

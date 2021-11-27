@@ -15,15 +15,20 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import {
-  changeAR,
-  changeOmnipotion,
   getAR,
   getOmniPotion,
+  getMaxInfusions,
+  getPrimaryInfusion,
+  getSecondaryInfusion,
+  getPrimaryMaxInfusions,
+  getSecondaryMaxInfusions,
+  changeAR,
+  changeOmnipotion,
   changeInfusion,
-  getInfusions,
 } from '../../../state/slices/infusions';
 import { parseAmount } from '../../../state/optimizer/optimizerCore';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
+import InfusionHelper from './InfusionHelper';
 import HelperIcon from '../../baseComponents/HelperIcon';
 import { INFUSION_IDS } from '../../../utils/gw2-data';
 
@@ -43,7 +48,12 @@ const Infusions = ({ classes }) => {
   const { t } = useTranslation();
   const ar = useSelector(getAR);
   const omnipotion = useSelector(getOmniPotion);
-  const infusions = useSelector(getInfusions);
+
+  const maxInfusions = useSelector(getMaxInfusions);
+  const primaryInfusion = useSelector(getPrimaryInfusion);
+  const secondaryInfusion = useSelector(getSecondaryInfusion);
+  const primaryMaxInfusions = useSelector(getPrimaryMaxInfusions);
+  const secondaryMaxInfusions = useSelector(getSecondaryMaxInfusions);
 
   const handleARChange = React.useCallback((_e, value) => dispatch(changeAR(value)), [dispatch]);
 
@@ -96,7 +106,7 @@ const Infusions = ({ classes }) => {
   };
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={4}>
       <Grid container item spacing={2} alignItems="center" justifyContent="flex-start">
         <Grid item xs={12} sm>
           <CheckboxComponent
@@ -153,28 +163,21 @@ const Infusions = ({ classes }) => {
         alignItems="center"
       >
         <Grid item xs={12}>
-          {input('# Stat Infusions', 'maxInfusions', infusions.maxInfusions)}
+          {input('# Stat Infusions', 'maxInfusions', maxInfusions)}
         </Grid>
 
         <Grid item xs={12}>
-          {dropdown(t('Infusion Type #1'), 'primaryInfusion', infusions.primaryInfusion)}
-          {input(
-            t('Max #'),
-            'primaryMaxInfusions',
-            infusions.primaryMaxInfusions,
-            classes.formControl2,
-          )}
+          {dropdown(t('Infusion Type #1'), 'primaryInfusion', primaryInfusion)}
+          {input(t('Max #'), 'primaryMaxInfusions', primaryMaxInfusions, classes.formControl2)}
         </Grid>
 
         <Grid item xs={12}>
-          {dropdown(t('Infusion Type #2'), 'secondaryInfusion', infusions.secondaryInfusion)}
-          {input(
-            t('Max #'),
-            'secondaryMaxInfusions',
-            infusions.secondaryMaxInfusions,
-            classes.formControl2,
-          )}
+          {dropdown(t('Infusion Type #2'), 'secondaryInfusion', secondaryInfusion)}
+          {input(t('Max #'), 'secondaryMaxInfusions', secondaryMaxInfusions, classes.formControl2)}
         </Grid>
+      </Grid>
+      <Grid item xs={12}>
+        <InfusionHelper />
       </Grid>
     </Grid>
   );

@@ -87,6 +87,8 @@ const MainComponent = ({ classes, data }) => {
             </>
           ) : (
             <>
+              <ExtrasSection profession={profession} data={data} />
+
               <BuffsSection first data={data} />
 
               <InfusionsSection data={data} />
