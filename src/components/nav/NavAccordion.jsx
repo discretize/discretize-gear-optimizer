@@ -3,9 +3,9 @@ import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import { withStyles } from '@material-ui/core/styles';
-import { Profession } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import Profession from '../baseComponents/Profession';
 import { setBuildTemplate } from '../../state/slices/controlsSlice';
 
 const Accordion = withStyles({
@@ -80,7 +80,7 @@ export default function NavAccordion({
           <div style={{ marginBottom: 8 }} key={`templateBuildMobile_${build.name}`}>
             <Chip
               variant="outlined"
-              label={<Profession eliteSpecialization={build.specialization} text={build.name} />}
+              label={<Profession name={build.specialization} text={build.name} />}
               onClick={(e) => {
                 dispatch({ type: 'CANCEL' });
                 dispatch(
