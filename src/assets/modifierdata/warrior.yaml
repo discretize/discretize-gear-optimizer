@@ -514,6 +514,18 @@
   id: 68
   items:
 
+    - id: fierce-as-fire
+      text: Fierce as Fire
+      amountData:
+        label: 'stacks'
+        default: 10
+        quantityEntered: 1
+      modifiers:
+        damage:
+          All Damage: [1%, unknown]
+      gw2id: 2244
+      defaultEnabled: true
+
     - id: guns-and-glory
       text: Guns and Glory
       minor: true

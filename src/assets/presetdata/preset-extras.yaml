@@ -31,7 +31,7 @@ list:
         "Nourishment": "fruit-salad-mint-garnish"
       }
 
-  - name: '[beta] Virtuoso'
+  - name: '[old] Virtuoso'
     profession: Virtuoso
     value: |-
       {
@@ -130,7 +130,7 @@ list:
         "Nourishment": "sweet-and-spicy-butternut-squash-soup"
       }
 
-  - name: '[beta] Bladesworn'
+  - name: '[old] Bladesworn'
     profession: Bladesworn
     value: |-
       {
@@ -196,7 +196,7 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
-  - name: '[beta] Condi Hammer Catalyst'
+  - name: '[old] Condi Hammer Catalyst'
     profession: Catalyst
     value: |-
       {
@@ -317,7 +317,7 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
-  - name: '[beta] Condi Mechanist Thorns'
+  - name: '[old] Condi Mechanist Thorns'
     profession: Mechanist
     value: |-
       {
@@ -328,7 +328,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: '[beta] Condi Mechanist Renegade'
+  - name: '[old] Condi Mechanist Renegade'
     profession: Mechanist
     value: |-
       {
@@ -339,7 +339,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: '[beta] Condi Mechanist Elementalist'
+  - name: '[old] Condi Mechanist Elementalist'
     profession: Mechanist
     value: |-
       {
@@ -372,7 +372,7 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
-  - name: '[beta] DPS Harbinger'
+  - name: '[old] DPS Harbinger'
     profession: Harbinger
     value: |-
       {
@@ -383,7 +383,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: '[beta] Quickness Harbinger (Firebrand)'
+  - name: '[old] Quickness Harbinger (Firebrand)'
     profession: Harbinger
     value: |-
       {
@@ -394,7 +394,7 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
-  - name: '[beta] Quickness Harbinger (Cele)'
+  - name: '[old] Quickness Harbinger (Cele)'
     profession: Harbinger
     value: |-
       {
@@ -438,7 +438,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: '[beta] DPS Specter'
+  - name: '[old] DPS Specter'
     profession: Specter
     value: |-
       {
