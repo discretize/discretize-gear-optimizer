@@ -289,10 +289,6 @@ const InfusionHelper = () => {
               max={360}
               marks={[
                 {
-                  value: 0,
-                  label: '0',
-                },
-                {
                   value: maxRequiredMatrix,
                   label: String(maxRequiredMatrix),
                 },
