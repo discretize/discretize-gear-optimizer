@@ -92,26 +92,28 @@ export const getTraitLines = (state) => state.optimizer.form.traits.selectedLine
 export const getTraits = (state) => state.optimizer.form.traits.selectedTraits;
 export const getTraitItems = (state) => state.optimizer.form.traits.items;
 
-export const getTraitsModifiers = (state) => {
-  const { traits } = state.optimizer.form;
-  const allSelectedTraits = traits.selectedTraits.flat(2);
+export const getTraitsModifiers = createSelector(
+  (state) => state.optimizer.form.traits,
+  (traits) => {
+    const allSelectedTraits = traits.selectedTraits.flat(2);
 
-  const result = [];
-  traits.items.forEach((object) => {
-    Object.entries(object).forEach(([id, value]) => {
-      const itemData = classModifiersById[id];
-      if (!itemData) return;
+    const result = [];
+    traits.items.forEach((object) => {
+      Object.entries(object).forEach(([id, value]) => {
+        const itemData = classModifiersById[id];
+        if (!itemData) return;
 
-      const visible = itemData.minor || allSelectedTraits.includes(itemData.gw2id);
-      const enabled = Boolean(value);
+        const visible = itemData.minor || allSelectedTraits.includes(itemData.gw2id);
+        const enabled = Boolean(value);
 
-      if (enabled && visible) {
-        result.push({ id, ...itemData, amount: value?.amount });
-      }
+        if (enabled && visible) {
+          result.push({ id, ...itemData, amount: value?.amount });
+        }
+      });
     });
-  });
-  return result;
-};
+    return result;
+  },
+);
 
 export const getCurrentSpecialization = createSelector(
   getProfession,

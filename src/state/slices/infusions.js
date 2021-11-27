@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 import { omnipotionModifiers } from '../../utils/gw2-data';
 import { parseAmount } from '../optimizer/optimizerCore';
 import { changeAll } from './controlsSlice';
@@ -43,30 +43,32 @@ export const getInfusions = (state) => state.optimizer.form.infusions;
 export const getAR = (state) => state.optimizer.form.infusions.ar;
 export const getOmniPotion = (state) => state.optimizer.form.infusions.omnipotion;
 
-export const getInfusionsModifiers = (state) => {
-  const { infusions } = state.optimizer.form;
-  const result = [];
+export const getInfusionsModifiers = createSelector(
+  (state) => state.optimizer.form.infusions,
+  (infusions) => {
+    const result = [];
 
-  if (infusions.ar) {
-    const { value } = parseAmount(infusions.ar);
-    result.push({
-      id: 'agony-resistance',
-      modifiers: {
-        attributes: {
-          'Agony Resistance': [value || 0, 'converted'],
+    if (infusions.ar) {
+      const { value } = parseAmount(infusions.ar);
+      result.push({
+        id: 'agony-resistance',
+        modifiers: {
+          attributes: {
+            'Agony Resistance': [value || 0, 'converted'],
+          },
         },
-      },
-    });
-  }
-  if (infusions.omnipotion) {
-    result.push({
-      id: 'omnipotion',
-      modifiers: omnipotionModifiers,
-    });
-  }
+      });
+    }
+    if (infusions.omnipotion) {
+      result.push({
+        id: 'omnipotion',
+        modifiers: omnipotionModifiers,
+      });
+    }
 
-  return result;
-};
+    return result;
+  },
+);
 
 export const { changeAR, changeOmnipotion, changeMaxInfusions, changeInfusion, changeInfusions } =
   infusionsSlice.actions;

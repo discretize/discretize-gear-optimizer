@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 
 import { extrasModifiersById } from '../../assets/modifierdata';
@@ -36,15 +36,17 @@ export const extrasSlice = createSlice({
 export const getExtra = (key) => (state) => state.optimizer.form.extras[key];
 export const getExtras = (state) => state.optimizer.form.extras;
 
-export const getExtrasModifiers = (state) => {
-  const { extras } = state.optimizer.form;
-  const enabledTypes = extrasTypes.filter((key) => extras[key]);
+export const getExtrasModifiers = createSelector(
+  (state) => state.optimizer.form.extras,
+  (extras) => {
+    const enabledTypes = extrasTypes.filter((key) => extras[key]);
 
-  return enabledTypes.map((type) => {
-    const id = extras[type];
-    const { modifiers } = extrasModifiersById[id];
-    return { id, modifiers, source: type };
-  });
-};
+    return enabledTypes.map((type) => {
+      const id = extras[type];
+      const { modifiers } = extrasModifiersById[id];
+      return { id, modifiers, source: type };
+    });
+  },
+);
 
 export const { changeExtra, changeExtras } = extrasSlice.actions;
