@@ -286,7 +286,7 @@ const InfusionHelper = () => {
               value={ownedMatrix}
               step={5}
               min={0}
-              max={maxRequiredMatrix}
+              max={360}
               marks={[
                 {
                   value: 0,
