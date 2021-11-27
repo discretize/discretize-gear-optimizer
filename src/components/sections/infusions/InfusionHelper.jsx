@@ -315,14 +315,20 @@ const InfusionHelper = () => {
                   // eslint-disable-next-line react/no-array-index-key
                   <React.Fragment key={i}>
                     {infusionData?.[primaryInfusion]?.id ? (
-                      <Item id={infusionData?.[primaryInfusion]?.id} disableLink />
+                      <Item id={infusionData?.[primaryInfusion]?.id} disableLink disableText />
                     ) : null}
                     {infusionData?.[secondaryInfusion]?.id ? (
-                      <Item id={infusionData?.[secondaryInfusion]?.id} disableLink />
+                      <Item id={infusionData?.[secondaryInfusion]?.id} disableLink disableText />
                     ) : null}
                     {infusionData?.id ? (
-                      <Item id={infusionData?.id} disableLink className={classes.bigStyle} />
+                      <Item
+                        id={infusionData?.id}
+                        disableLink
+                        disableText
+                        className={classes.bigStyle}
+                      />
                     ) : null}{' '}
+                    {text}
                     <br />
                   </React.Fragment>
                 );
