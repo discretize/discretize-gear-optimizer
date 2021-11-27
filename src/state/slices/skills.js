@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 import { changeAll, changeProfession, setBuildTemplate } from './controlsSlice';
 
 import { classModifiersById } from '../../assets/modifierdata';
@@ -40,14 +40,16 @@ export const skillsSlice = createSlice({
 
 export const getSkills = (state) => state.optimizer.form.skills.skills;
 
-export const getSkillsModifiers = (state) => {
-  const { skills } = state.optimizer.form;
-  const enabledModifiers = skills.skills;
+export const getSkillsModifiers = createSelector(
+  (state) => state.optimizer.form.skills,
+  (skills) => {
+    const enabledModifiers = skills.skills;
 
-  return enabledModifiers.map((id) => {
-    const { modifiers, gw2id } = classModifiersById[id];
-    return { id, modifiers, gw2id };
-  });
-};
+    return enabledModifiers.map((id) => {
+      const { modifiers, gw2id } = classModifiersById[id];
+      return { id, modifiers, gw2id };
+    });
+  },
+);
 
 export const { addSkill, removeSkill, changeSkills } = skillsSlice.actions;

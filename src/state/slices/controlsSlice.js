@@ -22,9 +22,7 @@ export const controlSlice = createSlice({
         return {
           ...state,
           profession: action.payload,
-          list: [],
           progress: 0,
-          selectedCharacter: null,
           selectedTemplate: '',
           selectedSpecialization: action.payload,
           status: WAITING,
@@ -45,9 +43,7 @@ export const controlSlice = createSlice({
       return {
         ...state,
         expertMode: action.payload,
-        list: [],
         progress: 0,
-        selectedCharacter: null,
         status: WAITING,
         error: '',
       };
@@ -57,9 +53,7 @@ export const controlSlice = createSlice({
 
       return {
         ...state,
-        list: [],
         progress: 0,
-        selectedCharacter: null,
         selectedTemplate: build.name,
         selectedSpecialization: specialization,
         status: WAITING,

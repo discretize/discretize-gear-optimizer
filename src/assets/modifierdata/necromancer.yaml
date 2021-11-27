@@ -301,7 +301,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [1%, unknown]
+          Strike Damage: [0.5%, unknown]
       gw2id: 2188
       defaultEnabled: true
 
@@ -313,7 +313,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Condition Damage: [1%, unknown]
+          Condition Damage: [0.5%, unknown]
       gw2id: 2185
       defaultEnabled: true
 

@@ -242,7 +242,7 @@ list:
         ]
       }
 
-  - name: '[beta] Virtuoso'
+  - name: '[old] Virtuoso'
     profession: Virtuoso
     traits: |-
       {
@@ -506,78 +506,78 @@ list:
         ]
       }
 
-  # - name: Core Guardian
-  #   profession: Guardian
-  #   traits: |-
-  #     {
-  #       "showAll": false,
-  #       "selectedLines": [
-  #         "16",
-  #         "42",
-  #         "46"
-  #       ],
-  #       "selectedTraits": [
-  #         [
-  #           574,
-  #           565,
-  #           1683
-  #         ],
-  #         [
-  #           634,
-  #           653,
-  #           2017
-  #         ],
-  #         [
-  #           624,
-  #           603,
-  #           622
-  #         ]
-  #       ],
-  #       "items": [
-  #         {
-  #           "right-hand-strength": true,
-  #           "right-hand-strength-1h": {
-  #             "amount": ""
-  #           },
-  #           "radiant-fire": true,
-  #           "retribution": {
-  #             "amount": ""
-  #           },
-  #           "radiant-power": true,
-  #           "amplified-wrath": true,
-  #           "righteous-instincts": true
-  #         },
-  #         {
-  #           "fiery-wrath": true,
-  #           "symbolic-exposure": true,
-  #           "zealous-blade-base": true,
-  #           "zealous-blade-gs": {
-  #             "amount": ""
-  #           },
-  #           "kindled-zeal": true,
-  #           "symbolic-avenger": true
-  #         },
-  #         {
-  #           "inspired-virtue": {
-  #             "amount": ""
-  #           },
-  #           "unscathed-contender": {
-  #             "amount": ""
-  #           },
-  #           "virtue-of-retribution": true,
-  #           "inspiring-virtue": {
-  #             "amount": "80"
-  #           },
-  #           "power-of-the-virtuous": true
-  #         }
-  #       ]
-  #     }
-  #   skills: |-
-  #     {
-  #       "skills": [
-  #         "bane-signet"
-  #       ]
-  #     }
+  - name: Core Guardian
+    profession: Guardian
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "16",
+          "42",
+          "46"
+        ],
+        "selectedTraits": [
+          [
+            566,
+            565,
+            1683
+          ],
+          [
+            634,
+            653,
+            2017
+          ],
+          [
+            624,
+            603,
+            622
+          ]
+        ],
+        "items": [
+          {
+            "right-hand-strength": true,
+            "right-hand-strength-1h": {
+              "amount": ""
+            },
+            "radiant-fire": true,
+            "retribution": {
+              "amount": ""
+            },
+            "radiant-power": true,
+            "amplified-wrath": true,
+            "righteous-instincts": true
+          },
+          {
+            "fiery-wrath": true,
+            "symbolic-exposure": true,
+            "zealous-blade-base": true,
+            "zealous-blade-gs": {
+              "amount": ""
+            },
+            "kindled-zeal": true,
+            "symbolic-avenger": true
+          },
+          {
+            "inspired-virtue": {
+              "amount": ""
+            },
+            "unscathed-contender": {
+              "amount": ""
+            },
+            "virtue-of-retribution": true,
+            "inspiring-virtue": {
+              "amount": "80"
+            },
+            "power-of-the-virtuous": true
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": [
+          "bane-signet"
+        ]
+      }
 
   - name: Power Quickbrand
     profession: Firebrand
@@ -1038,7 +1038,7 @@ list:
         ]
       }
 
-  - name: '[beta] Power Willbender Radiance'
+  - name: '[old] Power Willbender Radiance'
     profession: Willbender
     traits: |-
       {
@@ -1108,7 +1108,7 @@ list:
         ]
       }
 
-  - name: '[beta] Power Willbender Virtues'
+  - name: '[old] Power Willbender Virtues'
     profession: Willbender
     traits: |-
       {
@@ -1414,7 +1414,7 @@ list:
         ]
       }
 
-  - name: '[beta] Bladesworn'
+  - name: '[old] Bladesworn'
     profession: Bladesworn
     traits: |-
       {
@@ -1797,7 +1797,7 @@ list:
         "skills": []
       }
 
-  - name: '[beta] Condi Hammer Catalyst'
+  - name: '[old] Condi Hammer Catalyst'
     profession: Catalyst
     traits: |-
       {
@@ -3124,7 +3124,7 @@ list:
         "skills": []
       }
 
-  - name: '[beta] Condi Mechanist'
+  - name: '[old] Condi Mechanist'
     profession: Mechanist
     traits: |-
       {
@@ -3502,7 +3502,7 @@ list:
         "skills": []
       }
 
-  - name: '[beta] DPS Harbinger'
+  - name: '[old] DPS Harbinger'
     profession: Harbinger
     traits: |-
       {
@@ -3566,7 +3566,7 @@ list:
         "skills": []
       }
 
-  - name: '[beta] Quickness Harbinger'
+  - name: '[old] Quickness Harbinger'
     profession: Harbinger
     traits: |-
       {
@@ -3983,7 +3983,7 @@ list:
         ]
       }
 
-  - name: '[beta] DPS Specter Sc/D'
+  - name: '[old] DPS Specter Sc/D'
     profession: Specter
     traits: |-
       {
@@ -4051,7 +4051,7 @@ list:
         "skills": []
       }
 
-  - name: '[beta] DPS Specter Endless Night'
+  - name: '[old] DPS Specter Endless Night'
     profession: Specter
     traits: |-
       {

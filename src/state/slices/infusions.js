@@ -85,30 +85,32 @@ export const getSecondaryMaxInfusions = (state) =>
   state.optimizer.form.infusions.secondaryMaxInfusions;
 export const getHelperData = (state) => state.optimizer.form.infusions.helperData;
 
-export const getInfusionsModifiers = (state) => {
-  const { infusions } = state.optimizer.form;
-  const result = [];
+export const getInfusionsModifiers = createSelector(
+  (state) => state.optimizer.form.infusions,
+  (infusions) => {
+    const result = [];
 
-  if (infusions.ar) {
-    const { value } = parseAmount(infusions.ar);
-    result.push({
-      id: 'agony-resistance',
-      modifiers: {
-        attributes: {
-          'Agony Resistance': [value || 0, 'converted'],
+    if (infusions.ar) {
+      const { value } = parseAmount(infusions.ar);
+      result.push({
+        id: 'agony-resistance',
+        modifiers: {
+          attributes: {
+            'Agony Resistance': [value || 0, 'converted'],
+          },
         },
-      },
-    });
-  }
-  if (infusions.omnipotion) {
-    result.push({
-      id: 'omnipotion',
-      modifiers: omnipotionModifiers,
-    });
-  }
+      });
+    }
+    if (infusions.omnipotion) {
+      result.push({
+        id: 'omnipotion',
+        modifiers: omnipotionModifiers,
+      });
+    }
 
-  return result;
-};
+    return result;
+  },
+);
 
 const calcAgonyInfusions = (slots, ar) => {
   if (slots === 0) return { agonyCost: 0, agonyText: '', agonyArray: [] };

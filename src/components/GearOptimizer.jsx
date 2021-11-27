@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable no-console */
 import { Box, Grid, Typography, withStyles } from '@material-ui/core';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import { graphql, StaticQuery } from 'gatsby';
