@@ -21,7 +21,7 @@ export const infusionsSlice = createSlice({
       singularity: false,
       tear: false,
       freeWvW: true,
-      matrixValue: 30000,
+      ownedMatrix: 0,
     },
   },
   reducers: {
@@ -64,8 +64,8 @@ export const infusionsSlice = createSlice({
     changeFreeWvW: (state, action) => {
       state.helperData.freeWvW = action.payload;
     },
-    changeMatrixValue: (state, action) => {
-      state.helperData.matrixValue = action.payload;
+    changeOwnedMatrix: (state, action) => {
+      state.helperData.ownedMatrix = action.payload;
     },
   },
   extraReducers: {
@@ -161,21 +161,7 @@ export const getHelperResult = createSelector(
     const ar = Number.parseInt(arString, 10);
     const maxInfusions = Number.parseInt(maxInfusionsString, 10);
 
-    const {
-      impedence,
-      attunement,
-      singularity,
-      tear,
-      slots,
-      freeWvW,
-      matrixValue: matrixValueCopper,
-    } = helperData;
-
-    const matrixValue = matrixValueCopper / 10000;
-    const infusionCost = (num) => 2 ** (num - 7);
-    const fiveCost = 3 * infusionCost(5) + 5 * matrixValue;
-    const sevenCost = 3 * infusionCost(7) + 10 * matrixValue;
-    const nineCost = 3 * infusionCost(9) + 20 * matrixValue;
+    const { impedence, attunement, singularity, tear, slots, freeWvW, ownedMatrix } = helperData;
 
     let ARFromGear = ar - impedence - attunement - (singularity ? 5 : 0) - (tear ? 15 : 0);
 
@@ -204,26 +190,44 @@ export const getHelperResult = createSelector(
     let five = 0;
     let zero = 0;
 
+    const infusionCost = (num) => 2 ** (num - 7);
+    const fiveCost = 3 * infusionCost(5);
+    const fiveMatrix = 5;
+    const sevenCost = 3 * infusionCost(7);
+    const sevenMatrix = 10;
+    const nineCost = 3 * infusionCost(9);
+    const nineMatrix = 20;
+
     const createResult = () => {
       const statsAR = five * 5 + seven * 7 + nine * 9;
       if (!agonySlots && statsAR < ARFromGear) return null;
 
-      const statsCost = five * fiveCost + seven * sevenCost + nine * nineCost;
+      const statsCostInfusions = five * fiveCost + seven * sevenCost + nine * nineCost;
+      const requiredMatrix = five * fiveMatrix + seven * sevenMatrix + nine * nineMatrix;
+      const statsCostMatrix = Math.max(requiredMatrix - ownedMatrix, 0) * 3;
 
       const agony = calcAgonyInfusions(agonySlots, ARFromGear - statsAR);
       const { agonyCost } = agony;
-      const cost = statsCost + agonyCost;
+      const cost = statsCostInfusions + statsCostMatrix + agonyCost;
+      const costWithoutMatrix = statsCostInfusions + agonyCost;
 
-      return { cost, zero, five, seven, nine, agony };
+      return { cost, zero, five, seven, nine, agony, costWithoutMatrix, requiredMatrix };
     };
 
     let bestResult = createResult();
+    let bestResultWithoutMatrix = bestResult;
 
     const test = () => {
       const testResult = createResult();
       if (!testResult) return;
       if (!bestResult || testResult.cost <= bestResult.cost) {
         bestResult = testResult;
+      }
+      if (
+        !bestResultWithoutMatrix ||
+        testResult.costWithoutMatrix <= bestResultWithoutMatrix.costWithoutMatrix
+      ) {
+        bestResultWithoutMatrix = testResult;
       }
     };
 
@@ -270,7 +274,9 @@ export const getHelperResult = createSelector(
 
     const { cost } = bestResult;
 
-    return { resultText, resultArray, cost };
+    const maxRequiredMatrix = bestResultWithoutMatrix.requiredMatrix;
+
+    return { resultText, resultArray, cost, maxRequiredMatrix };
   },
 );
 
@@ -287,5 +293,5 @@ export const {
   changeSingularity,
   changeTear,
   changeFreeWvW,
-  changeMatrixValue,
+  changeOwnedMatrix,
 } = infusionsSlice.actions;
