@@ -18,7 +18,7 @@ import {
   changeFreeWvW,
   changeHelperEnabled,
   changeImpedence,
-  changeMatrixValue,
+  changeOwnedMatrix,
   changeMaxInfusions,
   changeSingularity,
   changeSlots,
@@ -121,9 +121,9 @@ const InfusionHelper = () => {
   const maxInfusions = Number.parseInt(maxInfusionsString, 10);
   const primaryInfusion = useSelector(getPrimaryInfusion);
   const secondaryInfusion = useSelector(getSecondaryInfusion);
-  const { enabled, impedence, attunement, singularity, tear, slots, freeWvW, matrixValue } =
+  const { enabled, impedence, attunement, singularity, tear, slots, freeWvW, ownedMatrix } =
     useSelector(getHelperData);
-  const { error, resultText, resultArray, cost } = useSelector(getHelperResult);
+  const { error, resultText, resultArray, cost, maxRequiredMatrix } = useSelector(getHelperResult);
 
   const handleEnabledChange = React.useCallback(
     (_e, value) => dispatch(changeHelperEnabled(value)),
@@ -149,8 +149,8 @@ const InfusionHelper = () => {
     (_e, value) => dispatch(changeSlots(value)),
     [dispatch],
   );
-  const handleMatrixValueChange = React.useCallback(
-    (_e, value) => dispatch(changeMatrixValue(value)),
+  const handleOwnedMatrixChange = React.useCallback(
+    (_e, value) => dispatch(changeOwnedMatrix(value)),
     [dispatch],
   );
 
@@ -275,20 +275,31 @@ const InfusionHelper = () => {
           className={classes.bigMargin}
         />
 
-        <Typography variant="body2">
-          <Trans>
-            <Item id={79230} /> value: <Coin value={matrixValue} />
+        {maxRequiredMatrix ? (
+          <>
+            <Typography id="owned-matrix">
+              <Trans>
+                Use Owned <Item id={79230} />:
+              </Trans>
+            </Typography>
             <Slider
-              value={matrixValue}
-              step={1000}
+              value={ownedMatrix}
+              step={5}
               min={0}
-              max={40000}
-              valueLabelDisplay="off"
-              onChange={handleMatrixValueChange}
+              max={360}
+              marks={[
+                {
+                  value: maxRequiredMatrix,
+                  label: String(maxRequiredMatrix),
+                },
+              ]}
+              valueLabelDisplay="auto"
+              onChange={handleOwnedMatrixChange}
               className={classes.bigMargin}
+              aria-labelledby="owned-matrix"
             />
-          </Trans>
-        </Typography>
+          </>
+        ) : null}
 
         {error ? (
           <Alert variant="outlined" severity="error">
