@@ -134,7 +134,8 @@ const calcAgonyInfusions = (slots, ar) => {
   ];
 
   const agonyText = [];
-  if (lowerCount) agonyText.push(`${lowerCount}x +${lowerType} Agony`);
+  if (lowerCount)
+    agonyText.push(`${lowerCount}x ${lowerType ? `+${lowerType} Agony` : 'Empty Slot'}`);
   if (higherCount) agonyText.push(`${higherCount}x +${higherType} Agony`);
 
   return { agonyCost, agonyText, agonyArray };
