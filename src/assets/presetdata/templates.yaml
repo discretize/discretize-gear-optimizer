@@ -52,6 +52,15 @@ list:
         traits: DH Virtues
         extras: DH Virtues (Fractal)
 
+      - name: Core Guardian
+        id: core-guard
+        specialization: Guardian
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Core Guardian
+        traits: Core Guardian
+        extras: Power (Fractal)
+
       - name: Power Quickbrand
         id: pqfb
         specialization: Firebrand

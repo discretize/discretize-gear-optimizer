@@ -74,6 +74,16 @@ list:
         "values2": { "Power": 3334, "Burning": 2.2, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=G3CngDG-cMg
+  # power: 36225, burn: 388, total: 36613
+  # 12 boons
+  - name: Core Guardian
+    profession: Guardian
+    value: >-
+      {
+        "values2": { "Power": 3340, "Burning": 1.1, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
   # (this is actually an old core guardian distribution iirc)
   - name: Power Quickbrand (approx.)
     profession: Firebrand
