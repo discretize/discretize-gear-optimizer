@@ -926,32 +926,32 @@ export const INFUSION_IDS = {
 };
 
 export const infusionIds = {
-  '+1 agony': { id: 49424, cost: 7 },
-  '+2 agony': { id: 49425, cost: 164 },
-  '+3 agony': { id: 49426, cost: 478 },
-  '+4 agony': { id: 49427, cost: 1106 },
-  '+5 agony': { id: 49428, cost: 2632 },
-  '+6 agony': { id: 49429, cost: 4878 },
-  '+7 agony': { id: 49430 },
-  '+8 agony': { id: 49431 },
-  '+9 agony': { id: 49432 },
-  '+10 agony': { id: 49433 },
-  '+11 agony': { id: 49434 },
-  '+12 agony': { id: 49435 },
-  '+13 agony': { id: 49436 },
-  '+14 agony': { id: 49437 },
-  '+15 agony': { id: 49438 },
-  '+16 agony': { id: 49439 },
-  '+17 agony': { id: 49440 },
-  '+18 agony': { id: 49441 },
-  '+19 agony': { id: 49442 },
-  '+20 agony': { id: 49443 },
-  '+21 agony': { id: 49444 },
-  '+22 agony': { id: 49445 },
-  '+23 agony': { id: 49446 },
-  '+24 agony': { id: 49447 },
+  '+1 Agony Infusion': { id: 49424, cost: 7 },
+  '+2 Agony Infusion': { id: 49425, cost: 164 },
+  '+3 Agony Infusion': { id: 49426, cost: 478 },
+  '+4 Agony Infusion': { id: 49427, cost: 1106 },
+  '+5 Agony Infusion': { id: 49428, cost: 2632 },
+  '+6 Agony Infusion': { id: 49429, cost: 4878 },
+  '+7 Agony Infusion': { id: 49430 },
+  '+8 Agony Infusion': { id: 49431 },
+  '+9 Agony Infusion': { id: 49432 },
+  '+10 Agony Infusion': { id: 49433 },
+  '+11 Agony Infusion': { id: 49434 },
+  '+12 Agony Infusion': { id: 49435 },
+  '+13 Agony Infusion': { id: 49436 },
+  '+14 Agony Infusion': { id: 49437 },
+  '+15 Agony Infusion': { id: 49438 },
+  '+16 Agony Infusion': { id: 49439 },
+  '+17 Agony Infusion': { id: 49440 },
+  '+18 Agony Infusion': { id: 49441 },
+  '+19 Agony Infusion': { id: 49442 },
+  '+20 Agony Infusion': { id: 49443 },
+  '+21 Agony Infusion': { id: 49444 },
+  '+22 Agony Infusion': { id: 49445 },
+  '+23 Agony Infusion': { id: 49446 },
+  '+24 Agony Infusion': { id: 49447 },
 
-  '+9 stat': {
+  '+9 Stat Infusion': {
     'Power': { id: 37131 },
     'Precision': { id: 37132 },
     'Condition Damage': { id: 37130 },
@@ -962,7 +962,7 @@ export const infusionIds = {
     'Vitality': { id: 37136 },
   },
 
-  '+7 stat': {
+  '+7 Stat Infusion': {
     'Power': { id: 37127 },
     'Precision': { id: 37128 },
     'Condition Damage': { id: 37129 },
@@ -973,7 +973,7 @@ export const infusionIds = {
     'Vitality': { id: 37134 },
   },
 
-  '+5 stat': {
+  '+5 Stat Infusion': {
     'Power': { id: 39620 },
     'Precision': { id: 39621 },
     'Condition Damage': { id: 39619 },
@@ -984,7 +984,7 @@ export const infusionIds = {
     'Vitality': { id: 39618 },
   },
 
-  'WvW stat': {
+  'WvW Stat Infusion': {
     'Power': { id: 43254 },
     'Precision': { id: 43255 },
     'Condition Damage': { id: 43253 },

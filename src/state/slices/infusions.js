@@ -122,19 +122,20 @@ const calcAgonyInfusions = (slots, ar) => {
 
   // AR infusion cost is about 1g for +7; doubles with each additional
   const lowerCost = lowerType
-    ? infusionIds[`+${lowerType} agony`]?.cost / 10000 || 2 ** (lowerType - 7)
+    ? infusionIds[`+${lowerType} Agony Infusion`]?.cost / 10000 || 2 ** (lowerType - 7)
     : 0;
-  const higherCost = infusionIds[`+${higherType} agony`]?.cost / 10000 || 2 ** (higherType - 7);
+  const higherCost =
+    infusionIds[`+${higherType} Agony Infusion`]?.cost / 10000 || 2 ** (higherType - 7);
   const agonyCost = lowerCount * lowerCost + higherCount * higherCost;
 
   const agonyArray = [
-    ...Array(lowerCount).fill(lowerType ? `+${lowerType} agony` : 'empty'),
-    ...Array(higherCount).fill(`+${higherType} agony`),
+    ...Array(lowerCount).fill(lowerType ? `+${lowerType} Agony Infusion` : '(empty slot)'),
+    ...Array(higherCount).fill(`+${higherType} Agony Infusion`),
   ];
 
   const agonyText = [];
-  if (lowerCount) agonyText.push(`${lowerCount}x +${lowerType} agony`);
-  if (higherCount) agonyText.push(`${higherCount}x +${higherType} agony`);
+  if (lowerCount) agonyText.push(`${lowerCount}x +${lowerType} Agony Infusion`);
+  if (higherCount) agonyText.push(`${higherCount}x +${higherType} Agony Infusion`);
 
   return { agonyCost, agonyText, agonyArray };
 };
@@ -251,18 +252,18 @@ export const getHelperResult = createSelector(
 
     const statText = [];
 
-    if (bestResult.zero) statText.push(`${bestResult.zero}x WvW stat`);
-    if (bestResult.five) statText.push(`${bestResult.five}x +5 stat`);
-    if (bestResult.seven) statText.push(`${bestResult.seven}x +7 stat`);
-    if (bestResult.nine) statText.push(`${bestResult.nine}x +9 stat`);
+    if (bestResult.zero) statText.push(`${bestResult.zero}x WvW Stat Infusion`);
+    if (bestResult.five) statText.push(`${bestResult.five}x +5 Stat Infusion`);
+    if (bestResult.seven) statText.push(`${bestResult.seven}x +7 Stat Infusion`);
+    if (bestResult.nine) statText.push(`${bestResult.nine}x +9 Stat Infusion`);
 
     const resultText = `\n${[...statText, ...bestResult.agony.agonyText].join(', ')}`;
 
     const resultArray = [
-      ...Array(bestResult.zero).fill(`WvW stat`),
-      ...Array(bestResult.five).fill(`+5 stat`),
-      ...Array(bestResult.seven).fill(`+7 stat`),
-      ...Array(bestResult.nine).fill(`+9 stat`),
+      ...Array(bestResult.zero).fill(`WvW Stat Infusion`),
+      ...Array(bestResult.five).fill(`+5 Stat Infusion`),
+      ...Array(bestResult.seven).fill(`+7 Stat Infusion`),
+      ...Array(bestResult.nine).fill(`+9 Stat Infusion`),
       ...bestResult.agony.agonyArray,
     ];
 
