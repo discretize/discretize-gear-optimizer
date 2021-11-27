@@ -15,11 +15,11 @@ import {
 import GitHubIcon from '@material-ui/icons/GitHub';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import Profession from '../baseComponents/Profession';
 import { bindHover, bindMenu, usePopupState } from 'material-ui-popup-state/hooks';
 import Menu from 'material-ui-popup-state/HoverMenu';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Profession from '../baseComponents/Profession';
 import {
   changeExpertMode,
   changeProfession,

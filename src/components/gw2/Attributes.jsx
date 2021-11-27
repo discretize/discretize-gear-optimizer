@@ -1,7 +1,7 @@
 import { Grid, List, ListItem, withStyles } from '@material-ui/core';
+import React from 'react';
 import { Attribute } from 'gw2-ui-bulk';
 import Profession from '../baseComponents/Profession';
-import React from 'react';
 
 const styles = (theme) => ({
   root: {
