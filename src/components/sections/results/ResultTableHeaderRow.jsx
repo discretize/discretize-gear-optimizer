@@ -1,15 +1,24 @@
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { Slots, INFUSION_IDS } from '../../../utils/gw2-data';
 
-const ResultTableHeaderRow = ({ classes, weaponType, infusions = {} }) => {
+const ResultTableHeaderRow = ({
+  classes,
+  weaponType = 'Two-handed',
+  infusions = {},
+  rankBy = 'Damage',
+}) => {
+  const { t } = useTranslation();
+
   return (
     <TableRow>
       <TableCell className={classes.tablehead}>
-        <Trans>Damage</Trans>
+        {t('priorityGoal', {
+          context: rankBy,
+        })}
       </TableCell>
       {Slots[weaponType].map((slot) => (
         <TableCell className={classes.tablehead} key={slot.name} align="center" padding="none">
