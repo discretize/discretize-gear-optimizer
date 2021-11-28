@@ -21,8 +21,12 @@ const parseNumber = (text, { defaultValue, integerMode }) => {
   if (text === '' || text === null || text === undefined) {
     return { value: defaultValue, error: false };
   }
-  const value = integerMode ? parseInt(text, 10) : Number(text);
-  if (Number.isNaN(value) || value < 0) {
+  const value = integerMode ? parseInt(text, 10) : parseFloat(text);
+
+  // this covers quirks like parseFloat('1hello') being 1
+  const isPlainNumber = value === Number(text);
+
+  if (!isPlainNumber || value < 0) {
     return { value: defaultValue, error: true };
   }
   return { value, error: false };
