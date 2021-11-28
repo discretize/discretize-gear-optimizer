@@ -1,6 +1,6 @@
 import { createSlice, createSelector } from '@reduxjs/toolkit';
 import { omnipotionModifiers, infusionIds } from '../../utils/gw2-data';
-import { parseAmount } from '../../utils/usefulFunctions';
+import { parseAmount, parseAr, parseInfusionCount } from '../../utils/usefulFunctions';
 import { changeAll } from './controlsSlice';
 
 export const infusionsSlice = createSlice({
@@ -143,15 +143,6 @@ const calcAgonyInfusions = (slots, ar) => {
   return { agonyCost, agonyText, agonyArray };
 };
 
-// todo: import this from somewhere
-const parseTextNumber = (text, defaultValue) => {
-  const parsed = parseInt(text, 10);
-  if (Number.isNaN(parsed)) {
-    return defaultValue;
-  }
-  return Math.max(parsed, 0);
-};
-
 export const getHelperResult = createSelector(
   getAR,
   getMaxInfusions,
@@ -169,8 +160,8 @@ export const getHelperResult = createSelector(
     secondaryMaxInfusions,
     helperData,
   ) => {
-    const ar = parseTextNumber(arString, 0);
-    const maxInfusions = parseTextNumber(maxInfusionsString, 18);
+    const ar = parseAr(arString).value;
+    const maxInfusions = parseInfusionCount(maxInfusionsString).value;
 
     const { impedence, attunement, singularity, tear, slots, freeWvW, ownedMatrix } = helperData;
 

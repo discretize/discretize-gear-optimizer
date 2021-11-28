@@ -33,6 +33,7 @@ import {
 import { infusionIds } from '../../../utils/gw2-data';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import TextDivider from '../../baseComponents/TextDivider';
+import { parseAr, parseInfusionCount } from '../../../utils/usefulFunctions';
 
 const Item = React.memo(ItemRaw);
 const CommonEffect = React.memo(CommonEffectRaw);
@@ -111,23 +112,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// todo: import this from somewhere
-const parseTextNumber = (text, defaultValue) => {
-  const parsed = parseInt(text, 10);
-  if (Number.isNaN(parsed)) {
-    return defaultValue;
-  }
-  return Math.max(parsed, 0);
-};
-
 const InfusionHelper = () => {
   const dispatch = useDispatch();
   const classes = useStyles();
 
-  const arString = useSelector(getAR);
-  const ar = parseTextNumber(arString, 0);
-  const maxInfusionsString = useSelector(getMaxInfusions);
-  const maxInfusions = parseTextNumber(maxInfusionsString, 18);
+  const ar = parseAr(useSelector(getAR)).value;
+  const maxInfusions = parseInfusionCount(useSelector(getMaxInfusions)).value;
   const primaryInfusion = useSelector(getPrimaryInfusion);
   const secondaryInfusion = useSelector(getSecondaryInfusion);
   const { enabled, impedence, attunement, singularity, tear, slots, freeWvW, ownedMatrix } =

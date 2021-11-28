@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, TextField } from '@material-ui/core';
 import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
-import { parseAmount } from '../../../utils/usefulFunctions';
+import { parseDistribution } from '../../../utils/usefulFunctions';
 
 const initial = {
   Power: 0,
@@ -31,7 +31,7 @@ const TemplateHelper = ({ character }) => {
 
   const [input, setInput] = React.useState(initial);
   const data = Object.entries(input).map(([key, inputText]) => {
-    const { value, error } = parseAmount(inputText);
+    const { value, error } = parseDistribution(inputText);
     return { key, inputText, value, error };
   });
 

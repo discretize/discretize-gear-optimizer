@@ -26,7 +26,7 @@ import {
   changeOmnipotion,
   changeInfusion,
 } from '../../../state/slices/infusions';
-import { parseAmount } from '../../../utils/usefulFunctions';
+import { parseAr, parseInfusionCount } from '../../../utils/usefulFunctions';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import InfusionHelper from './InfusionHelper';
 import HelperIcon from '../../baseComponents/HelperIcon';
@@ -57,7 +57,7 @@ const Infusions = ({ classes }) => {
 
   const handleARChange = React.useCallback((_e, value) => dispatch(changeAR(value)), [dispatch]);
 
-  const { error: arError } = parseAmount(ar);
+  const { error: arError } = parseAr(ar);
 
   const dropdown = (name, varName, infusion) => {
     return (
@@ -90,7 +90,7 @@ const Infusions = ({ classes }) => {
   };
 
   const input = (name, varName, value, className) => {
-    const { error } = parseAmount(value);
+    const { error } = parseInfusionCount(value);
     return (
       <FormControl className={className}>
         <InputLabel htmlFor={`${varName}_input-with-icon-adornment`}>{name}</InputLabel>

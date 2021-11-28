@@ -21,6 +21,8 @@ import { getTraitsModifiers, getCurrentSpecialization } from '../slices/traits';
 
 import { ERROR, SUCCESS, WAITING } from './status';
 
+import { parseInfusionCount, parsePriority } from '../../utils/usefulFunctions';
+
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function createInput(state, specialization, appliedModifiers, cachedFormState) {
@@ -30,35 +32,32 @@ function createInput(state, specialization, appliedModifiers, cachedFormState) {
       infusions: {
         primaryInfusion,
         secondaryInfusion,
-        maxInfusions: maxInfusionsInput,
-        primaryMaxInfusions: primaryMaxInfusionsInput,
-        secondaryMaxInfusions: secondaryMaxInfusionsInput,
+        maxInfusions: maxInfusionsText,
+        primaryMaxInfusions: primaryMaxInfusionsText,
+        secondaryMaxInfusions: secondaryMaxInfusionsText,
       },
       forcedSlots: { slots },
       priorities: {
         optimizeFor,
         weaponType,
-        minBoonDuration,
-        minHealingPower,
-        minToughness,
-        maxToughness,
+        minBoonDuration: minBoonDurationText,
+        minHealingPower: minHealingPowerText,
+        minToughness: minToughnessText,
+        maxToughness: maxToughnessText,
         affixes,
       },
       distribution: { version, values1, values2 },
     },
   } = state;
 
-  const parseTextNumber = (text, defaultValue) => {
-    const parsed = parseInt(text, 10);
-    if (Number.isNaN(parsed)) {
-      return defaultValue;
-    }
-    return Math.max(parsed, 0);
-  };
+  const maxInfusions = parseInfusionCount(maxInfusionsText).value;
+  const primaryMaxInfusions = parseInfusionCount(primaryMaxInfusionsText).value;
+  const secondaryMaxInfusions = parseInfusionCount(secondaryMaxInfusionsText).value;
 
-  const maxInfusions = parseTextNumber(maxInfusionsInput, 18);
-  const primaryMaxInfusions = parseTextNumber(primaryMaxInfusionsInput, 18);
-  const secondaryMaxInfusions = parseTextNumber(secondaryMaxInfusionsInput, 18);
+  const minBoonDuration = parsePriority(minBoonDurationText).value;
+  const minHealingPower = parsePriority(minHealingPowerText).value;
+  const minToughness = parsePriority(minToughnessText).value;
+  const maxToughness = parsePriority(maxToughnessText).value;
 
   const input = {
     tags: undefined,

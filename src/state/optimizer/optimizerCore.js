@@ -968,10 +968,11 @@ function checkInvalid(character) {
   const { settings, attributes } = character;
 
   const invalid =
-    (settings.minBoonDuration && attributes['Boon Duration'] < settings.minBoonDuration / 100) ||
-    (settings.minHealingPower && attributes['Healing Power'] < settings.minHealingPower) ||
-    (settings.minToughness && attributes['Toughness'] < settings.minToughness) ||
-    (settings.maxToughness && attributes['Toughness'] > settings.maxToughness);
+    (settings.minBoonDuration !== null &&
+      attributes['Boon Duration'] < settings.minBoonDuration / 100) ||
+    (settings.minHealingPower !== null && attributes['Healing Power'] < settings.minHealingPower) ||
+    (settings.minToughness !== null && attributes['Toughness'] < settings.minToughness) ||
+    (settings.maxToughness !== null && attributes['Toughness'] > settings.maxToughness);
   if (invalid) {
     character.valid = false;
   }
