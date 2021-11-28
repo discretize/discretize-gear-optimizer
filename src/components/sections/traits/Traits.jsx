@@ -180,7 +180,9 @@ const Traits = ({ classes, data = [] }) => {
                 {amountData ? (
                   <Box>
                     <AmountInput
-                      amountData={amountData}
+                      placeholder={amountData.default}
+                      // i18next-extract-mark-context-next-line {{amountLabel}}
+                      label={t('amountLabel', { context: amountData.label })}
                       handleAmountChange={handleAmountChange(index, id)}
                       value={amount}
                       disabled={!visible || !enabled}

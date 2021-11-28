@@ -128,7 +128,8 @@ const Buffs = ({ classes }) => {
                     {['Might', 'Vulnerability'].includes(name) && (
                       <Box display="flex">
                         <AmountInput
-                          amountData={{ label: 'x', default: 25, quantityEntered: 1 }}
+                          placeholder="25"
+                          label="x"
                           handleAmountChange={handleAmountChange(buff)}
                           value={amounts[buff.id]}
                           disabled={!buffs[buff.id]}
