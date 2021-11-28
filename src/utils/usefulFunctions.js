@@ -36,3 +36,6 @@ export const parseAmount = (text) => parseNumber(text, { defaultValue: null, int
 export const parseAr = (text) => parseNumber(text, { defaultValue: 0, integerMode: true });
 export const parseInfusionCount = (text) =>
   parseNumber(text, { defaultValue: 18, integerMode: true });
+export const parseDistribution = (text) =>
+  parseNumber(text, { defaultValue: 0, integerMode: false });
+
