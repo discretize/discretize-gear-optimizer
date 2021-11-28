@@ -21,7 +21,7 @@ import { getTraitsModifiers, getCurrentSpecialization } from '../slices/traits';
 
 import { ERROR, SUCCESS, WAITING } from './status';
 
-import { parseInfusionCount } from '../../utils/usefulFunctions';
+import { parseInfusionCount, parsePriority } from '../../utils/usefulFunctions';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -32,27 +32,32 @@ function createInput(state, specialization, appliedModifiers, cachedFormState) {
       infusions: {
         primaryInfusion,
         secondaryInfusion,
-        maxInfusions: maxInfusionsInput,
-        primaryMaxInfusions: primaryMaxInfusionsInput,
-        secondaryMaxInfusions: secondaryMaxInfusionsInput,
+        maxInfusions: maxInfusionsText,
+        primaryMaxInfusions: primaryMaxInfusionsText,
+        secondaryMaxInfusions: secondaryMaxInfusionsText,
       },
       forcedSlots: { slots },
       priorities: {
         optimizeFor,
         weaponType,
-        minBoonDuration,
-        minHealingPower,
-        minToughness,
-        maxToughness,
+        minBoonDuration: minBoonDurationText,
+        minHealingPower: minHealingPowerText,
+        minToughness: minToughnessText,
+        maxToughness: maxToughnessText,
         affixes,
       },
       distribution: { version, values1, values2 },
     },
   } = state;
 
-  const maxInfusions = parseInfusionCount(maxInfusionsInput).value;
-  const primaryMaxInfusions = parseInfusionCount(primaryMaxInfusionsInput).value;
-  const secondaryMaxInfusions = parseInfusionCount(secondaryMaxInfusionsInput).value;
+  const maxInfusions = parseInfusionCount(maxInfusionsText).value;
+  const primaryMaxInfusions = parseInfusionCount(primaryMaxInfusionsText).value;
+  const secondaryMaxInfusions = parseInfusionCount(secondaryMaxInfusionsText).value;
+
+  const minBoonDuration = parsePriority(minBoonDurationText).value;
+  const minHealingPower = parsePriority(minHealingPowerText).value;
+  const minToughness = parsePriority(minToughnessText).value;
+  const maxToughness = parsePriority(maxToughnessText).value;
 
   const input = {
     tags: undefined,

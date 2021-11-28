@@ -38,4 +38,5 @@ export const parseInfusionCount = (text) =>
   parseNumber(text, { defaultValue: 18, integerMode: true });
 export const parseDistribution = (text) =>
   parseNumber(text, { defaultValue: 0, integerMode: false });
-
+export const parsePriority = (text) =>
+  parseNumber(text, { defaultValue: null, integerMode: false });

@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changePriority, getPriority } from '../../../state/slices/priorities';
 import HelperIcon from '../../baseComponents/HelperIcon';
 import Affixes from '../Affixes';
+import { parsePriority } from '../../../utils/usefulFunctions';
 
 const styles = (theme) => ({
   text: {
@@ -136,6 +137,7 @@ const Priorities = ({ classes }) => {
               value={minBoonDuration}
               onChange={handleChange}
               name="minBoonDuration"
+              error={parsePriority(minBoonDuration).error}
             />
           </FormControl>
           <HelperIcon
@@ -152,6 +154,7 @@ const Priorities = ({ classes }) => {
               value={minHealingPower}
               onChange={handleChange}
               name="minHealingPower"
+              error={parsePriority(minHealingPower).error}
             />
           </FormControl>
           <HelperIcon
@@ -170,6 +173,7 @@ const Priorities = ({ classes }) => {
               value={minToughness}
               onChange={handleChange}
               name="minToughness"
+              error={parsePriority(minToughness).error}
             />
           </FormControl>
           <HelperIcon text={t('Only show results that fulfill a minimum amount of Toughness.')} />
@@ -184,6 +188,7 @@ const Priorities = ({ classes }) => {
               value={maxToughness}
               onChange={handleChange}
               name="maxToughness"
+              error={parsePriority(maxToughness).error}
             />
           </FormControl>
           <HelperIcon text={t('Only show results that fulfill a maximum amount of Toughness.')} />
