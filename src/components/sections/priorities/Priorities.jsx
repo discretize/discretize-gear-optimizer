@@ -138,6 +138,7 @@ const Priorities = ({ classes }) => {
               onChange={handleChange}
               name="minBoonDuration"
               error={parsePriority(minBoonDuration).error}
+              autoComplete="off"
             />
           </FormControl>
           <HelperIcon
@@ -155,6 +156,7 @@ const Priorities = ({ classes }) => {
               onChange={handleChange}
               name="minHealingPower"
               error={parsePriority(minHealingPower).error}
+              autoComplete="off"
             />
           </FormControl>
           <HelperIcon
@@ -174,6 +176,7 @@ const Priorities = ({ classes }) => {
               onChange={handleChange}
               name="minToughness"
               error={parsePriority(minToughness).error}
+              autoComplete="off"
             />
           </FormControl>
           <HelperIcon text={t('Only show results that fulfill a minimum amount of Toughness.')} />
@@ -189,6 +192,7 @@ const Priorities = ({ classes }) => {
               onChange={handleChange}
               name="maxToughness"
               error={parsePriority(maxToughness).error}
+              autoComplete="off"
             />
           </FormControl>
           <HelperIcon text={t('Only show results that fulfill a maximum amount of Toughness.')} />
