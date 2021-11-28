@@ -20,7 +20,7 @@ import {
 } from '../../../state/slices/buffs';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
-import TraitAmount from '../traits/TraitAmount';
+import AmountInput from '../../baseComponents/AmountInput';
 
 const styles = (theme) => ({
   boon: {
@@ -127,7 +127,7 @@ const Buffs = ({ classes }) => {
                     </Box>
                     {['Might', 'Vulnerability'].includes(name) && (
                       <Box display="flex">
-                        <TraitAmount
+                        <AmountInput
                           amountData={{ label: 'x', default: 25, quantityEntered: 1 }}
                           handleAmountChange={handleAmountChange(buff)}
                           value={amounts[buff.id]}

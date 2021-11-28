@@ -1,9 +1,9 @@
 import { InputAdornment, TextField } from '@material-ui/core';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import { parseAmount } from '../../../utils/usefulFunctions';
+import { parseAmount } from '../../utils/usefulFunctions';
 
-const TraitAmount = ({ amountData, handleAmountChange, value = '', disabled }) => {
+const AmountInput = ({ amountData, handleAmountChange, value = '', disabled }) => {
   const { t } = useTranslation();
 
   const { error } = parseAmount(value);
@@ -30,4 +30,4 @@ const TraitAmount = ({ amountData, handleAmountChange, value = '', disabled }) =
   );
 };
 
-export default TraitAmount;
+export default AmountInput;
