@@ -25,7 +25,7 @@ import {
   toggleTraitModifier,
 } from '../../../state/slices/traits';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
-import TraitAmount from './TraitAmount';
+import AmountInput from '../../baseComponents/AmountInput';
 
 const styles = (theme) => ({
   formControl: {
@@ -179,8 +179,10 @@ const Traits = ({ classes, data = [] }) => {
 
                 {amountData ? (
                   <Box>
-                    <TraitAmount
-                      amountData={amountData}
+                    <AmountInput
+                      placeholder={amountData.default}
+                      // i18next-extract-mark-context-next-line {{amountLabel}}
+                      label={t('amountLabel', { context: amountData.label })}
                       handleAmountChange={handleAmountChange(index, id)}
                       value={amount}
                       disabled={!visible || !enabled}
