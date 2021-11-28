@@ -17,6 +17,8 @@ import {
 
 import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
 
+import { parseAmount } from '../../utils/usefulFunctions';
+
 /**
  * ------------------------------------------------------------------------
  * Core Optimizer Logic
@@ -505,26 +507,6 @@ export function scaleValue(value, amountInput, amountData) {
   return amountData
     ? (value * (amountInput ?? amountData.default)) / amountData.quantityEntered
     : value;
-}
-
-/**
- * Parses a string to a number, treating non-parsable strings like empty inputs but indicating an
- * error so text boxes can display the error validaton state
- *
- * @param {*} text - the string to be parsed
- * @returns {{ value: ?number, error: boolean}} result
- *   result.value - the resulting number, or null
- *   result.error - whether the input was invalid
- */
-export function parseAmount(text) {
-  if (text === '' || text === null || text === undefined) {
-    return { value: null, error: false };
-  }
-  const value = Number(text);
-  if (Number.isNaN(value) || value < 0) {
-    return { value: null, error: true };
-  }
-  return { value, error: false };
 }
 
 /**

@@ -14,7 +14,8 @@ import { Trans } from 'gatsby-plugin-react-i18next';
 // import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';
 import { buffModifiersById } from '../../../assets/modifierdata';
-import { parseAmount, scaleValue } from '../../../state/optimizer/optimizerCore';
+import { parseAmount } from '../../../utils/usefulFunctions';
+import { scaleValue } from '../../../state/optimizer/optimizerCore';
 
 const styles = (theme) => ({
   root: {

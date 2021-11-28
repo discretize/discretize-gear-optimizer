@@ -1,7 +1,7 @@
 import { InputAdornment, TextField } from '@material-ui/core';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import { parseAmount } from '../../../state/optimizer/optimizerCore';
+import { parseAmount } from '../../../utils/usefulFunctions';
 
 const TraitAmount = ({ amountData, handleAmountChange, value = '', disabled }) => {
   // const parsedValue = Number(value);

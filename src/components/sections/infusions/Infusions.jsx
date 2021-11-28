@@ -26,7 +26,7 @@ import {
   changeOmnipotion,
   changeInfusion,
 } from '../../../state/slices/infusions';
-import { parseAmount } from '../../../state/optimizer/optimizerCore';
+import { parseAmount } from '../../../utils/usefulFunctions';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import InfusionHelper from './InfusionHelper';
 import HelperIcon from '../../baseComponents/HelperIcon';

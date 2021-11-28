@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, TextField } from '@material-ui/core';
 import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
-import { parseAmount } from '../../../state/optimizer/optimizerCore';
+import { parseAmount } from '../../../utils/usefulFunctions';
 
 const initial = {
   Power: 0,

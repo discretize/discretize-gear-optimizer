@@ -1,6 +1,6 @@
 import { createSlice, createSelector } from '@reduxjs/toolkit';
 import { omnipotionModifiers, infusionIds } from '../../utils/gw2-data';
-import { parseAmount } from '../optimizer/optimizerCore';
+import { parseAmount } from '../../utils/usefulFunctions';
 import { changeAll } from './controlsSlice';
 
 export const infusionsSlice = createSlice({
