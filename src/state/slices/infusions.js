@@ -143,6 +143,15 @@ const calcAgonyInfusions = (slots, ar) => {
   return { agonyCost, agonyText, agonyArray };
 };
 
+// todo: import this from somewhere
+const parseTextNumber = (text, defaultValue) => {
+  const parsed = parseInt(text, 10);
+  if (Number.isNaN(parsed)) {
+    return defaultValue;
+  }
+  return Math.max(parsed, 0);
+};
+
 export const getHelperResult = createSelector(
   getAR,
   getMaxInfusions,
@@ -160,8 +169,8 @@ export const getHelperResult = createSelector(
     secondaryMaxInfusions,
     helperData,
   ) => {
-    const ar = Number.parseInt(arString, 10);
-    const maxInfusions = Number.parseInt(maxInfusionsString, 10);
+    const ar = parseTextNumber(arString, 0);
+    const maxInfusions = parseTextNumber(maxInfusionsString, 18);
 
     const { impedence, attunement, singularity, tear, slots, freeWvW, ownedMatrix } = helperData;
 

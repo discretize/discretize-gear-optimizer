@@ -111,14 +111,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// todo: import this from somewhere
+const parseTextNumber = (text, defaultValue) => {
+  const parsed = parseInt(text, 10);
+  if (Number.isNaN(parsed)) {
+    return defaultValue;
+  }
+  return Math.max(parsed, 0);
+};
+
 const InfusionHelper = () => {
   const dispatch = useDispatch();
   const classes = useStyles();
 
   const arString = useSelector(getAR);
-  const ar = Number.parseInt(arString, 10);
+  const ar = parseTextNumber(arString, 0);
   const maxInfusionsString = useSelector(getMaxInfusions);
-  const maxInfusions = Number.parseInt(maxInfusionsString, 10);
+  const maxInfusions = parseTextNumber(maxInfusionsString, 18);
   const primaryInfusion = useSelector(getPrimaryInfusion);
   const secondaryInfusion = useSelector(getSecondaryInfusion);
   const { enabled, impedence, attunement, singularity, tear, slots, freeWvW, ownedMatrix } =
