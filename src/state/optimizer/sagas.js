@@ -21,6 +21,8 @@ import { getTraitsModifiers, getCurrentSpecialization } from '../slices/traits';
 
 import { ERROR, SUCCESS, WAITING } from './status';
 
+import { parseInfusionCount } from '../../utils/usefulFunctions';
+
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function createInput(state, specialization, appliedModifiers, cachedFormState) {
@@ -48,17 +50,9 @@ function createInput(state, specialization, appliedModifiers, cachedFormState) {
     },
   } = state;
 
-  const parseTextNumber = (text, defaultValue) => {
-    const parsed = parseInt(text, 10);
-    if (Number.isNaN(parsed)) {
-      return defaultValue;
-    }
-    return Math.max(parsed, 0);
-  };
-
-  const maxInfusions = parseTextNumber(maxInfusionsInput, 18);
-  const primaryMaxInfusions = parseTextNumber(primaryMaxInfusionsInput, 18);
-  const secondaryMaxInfusions = parseTextNumber(secondaryMaxInfusionsInput, 18);
+  const maxInfusions = parseInfusionCount(maxInfusionsInput).value;
+  const primaryMaxInfusions = parseInfusionCount(primaryMaxInfusionsInput).value;
+  const secondaryMaxInfusions = parseInfusionCount(secondaryMaxInfusionsInput).value;
 
   const input = {
     tags: undefined,
