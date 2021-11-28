@@ -72,26 +72,28 @@ const Buffs = ({ classes }) => {
             </FormLabel>
             <FormGroup>
               {section.items.map((buff) => {
+                const { type, text, id, gw2id, subText, amountData } = buff;
+
                 let Component;
                 let name;
 
-                switch (buff.type) {
+                switch (type) {
                   case 'Text':
                     return (
                       <CheckboxComponent
-                        key={buff.id}
-                        value={buff.id}
-                        checked={buffs[buff.id]}
+                        key={id}
+                        value={id}
+                        checked={buffs[id]}
                         label={
                           <>
                             <Typography className={classes.note}>
                               {
                                 // i18next-extract-mark-context-next-line {{buffText}}
-                                t('buffText', { context: buff.text })
+                                t('buffText', { context: text })
                               }
                             </Typography>
                             <Typography variant="caption" className={classes.tinyNote}>
-                              {buff.subText}
+                              {subText}
                             </Typography>
                           </>
                         }
@@ -101,41 +103,37 @@ const Buffs = ({ classes }) => {
                   case 'Boon':
                   case 'Condition':
                   case 'CommonEffect':
-                    name = buff.id.toLowerCase();
+                    name = id.toLowerCase();
                     name = firstUppercase(name);
                   // eslint-disable-next-line no-fallthrough
                   default:
-                    Component = components[buff.type];
+                    Component = components[type];
                 }
 
                 return (
-                  <Box justifyContent="space-between" display="flex" key={buff.id}>
+                  <Box justifyContent="space-between" display="flex" key={id}>
                     <Box display="flex">
                       <CheckboxComponent
-                        value={buff.id}
-                        checked={buffs[buff.id]}
+                        value={id}
+                        checked={buffs[id]}
                         label={
-                          <Component
-                            id={buff.gw2id}
-                            name={name}
-                            disableLink
-                            className={classes.boon}
-                          />
+                          <Component id={gw2id} name={name} disableLink className={classes.boon} />
                         }
                         onChange={handleChange(buff)}
                       />
                     </Box>
-                    {['Might', 'Vulnerability'].includes(name) && (
+
+                    {amountData ? (
                       <Box display="flex">
                         <AmountInput
-                          placeholder="25"
-                          label="x"
+                          placeholder={amountData.default}
+                          label={amountData.label}
                           handleAmountChange={handleAmountChange(buff)}
-                          value={amounts[buff.id]}
-                          disabled={!buffs[buff.id]}
+                          value={amounts[id]}
+                          disabled={!buffs[id]}
                         />
                       </Box>
-                    )}
+                    ) : null}
                   </Box>
                 );
               })}

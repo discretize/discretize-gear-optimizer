@@ -39,11 +39,6 @@ const styles = (theme) => ({
 const roundTwo = (num) => Math.round(num * 100) / 100;
 
 const AppliedModifiers = ({ classes, data }) => {
-  const appliedData = data.map((item) => {
-    const allData = buffModifiersById[item.id];
-    if (allData) return { id: item.id, ...allData };
-    return item;
-  });
   return (
     <>
       <Accordion>
@@ -59,7 +54,7 @@ const AppliedModifiers = ({ classes, data }) => {
         <AccordionDetails>
           <Table padding="none">
             <TableBody>
-              {appliedData.map(({ type, id, modifiers, amount, amountData }) => {
+              {data.map(({ type, id, modifiers, amount, amountData }) => {
                 const { value: amountInput } = parseAmount(amount);
                 const multiplierNote = amountData
                   ? `${roundTwo(scaleValue(1, amountInput, amountData))}x`

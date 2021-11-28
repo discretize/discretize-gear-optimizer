@@ -30,8 +30,8 @@ export const buffsSlice = createSlice({
       lightArmor: false,
     },
     amounts: {
-      might: 25,
-      vulnerability: 25,
+      might: '25',
+      vulnerability: '25',
     },
   },
   reducers: {
@@ -79,17 +79,8 @@ export const getBuffsModifiers = createSelector(
     const enabledModifiers = Object.keys(buffs.buffs).filter((key) => buffs.buffs[key]);
 
     return enabledModifiers.map((id) => {
-      const { modifiers, gw2id } = buffModifiersById[id];
-      const amount = {
-        amount: `${buffs.amounts[id]}`,
-        amountData: { label: 'stacks', default: 25, quantityEntered: 1 },
-      };
-      return {
-        id,
-        modifiers,
-        gw2id,
-        ...(['might', 'vulnerability'].includes(id) && amount),
-      };
+      const itemData = buffModifiersById[id];
+      return { id, ...itemData, amount: buffs.amounts?.[id] };
     });
   },
 );

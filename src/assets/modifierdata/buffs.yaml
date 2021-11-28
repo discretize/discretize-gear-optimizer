@@ -2,6 +2,10 @@
   items:
     - id: might
       text: Might
+      amountData:
+        label: 'x'
+        default: 25
+        quantityEntered: 1
       modifiers:
         attributes:
           Power: [30, buff]
@@ -24,6 +28,10 @@
 
     - id: vulnerability
       text: Vulnerability
+      amountData:
+        label: 'x'
+        default: 25
+        quantityEntered: 1
       modifiers:
         damage:
           Strike Damage: [1%, target]
