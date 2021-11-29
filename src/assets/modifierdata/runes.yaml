@@ -92,6 +92,17 @@
           Ferocity: [100, converted]
       gw2id: 24756
 
+    - id: ranger
+      text: Superior Rune of the Ranger
+      subText: (with pet)
+      modifiers:
+        damage:
+          Strike Damage: [7%, mult]
+        attributes:
+          Precision: [175, converted]
+          Ferocity: [225, converted]
+      gw2id: 24815
+
     - id: chronomancer
       text: Superior Rune of the Chronomancer
       modifiers:
