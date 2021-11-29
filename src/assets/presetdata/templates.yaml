@@ -31,6 +31,15 @@ list:
         traits: Axe Mirage
         extras: DPS Mirage (Raid)
 
+      - name: Condi Chrono STM
+        id: condi-chrono-stm
+        specialization: Chronomancer
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Chrono STM
+        traits: Condi Chrono
+        extras: Condi Chrono STM
+
       - name: '[old] Virtuoso'
         id: pvirt
         specialization: Virtuoso
