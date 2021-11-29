@@ -8,9 +8,8 @@ import {
   Typography,
   withStyles,
 } from '@material-ui/core';
-import MuiAlert from '@material-ui/lab/Alert';
 import classNames from 'classnames';
-import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute as AttributeRaw, Condition as ConditionRaw } from 'gw2-ui-bulk';
 import debounce from 'lodash.debounce';
 import Nouislider from 'nouislider-react';
@@ -235,16 +234,7 @@ const DamageDistribution = ({ classes }) => {
     ));
   };
 
-  return (
-    <>
-      {version === 1 ? SliderOld() : SlidersNew()}
-      {distributionNew.Confusion ? (
-        <MuiAlert elevation={6} variant="filled" severity="warning">
-          <Trans>Note: Confusion damage calculation is currently incorrect.</Trans>
-        </MuiAlert>
-      ) : null}
-    </>
-  );
+  return version === 1 ? SliderOld() : SlidersNew();
 };
 
 export default withStyles(styles)(DamageDistribution);
