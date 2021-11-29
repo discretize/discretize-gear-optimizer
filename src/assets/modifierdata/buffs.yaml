@@ -174,7 +174,10 @@
   items:
     - id: exposed
       text: Exposed
-      subText: (100% uptime)
+      amountData:
+        label: '%'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [30%, target]
