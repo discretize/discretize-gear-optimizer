@@ -321,24 +321,48 @@ const InfusionHelper = () => {
             <Typography variant="body2">
               {resultArray.map((text, i) => {
                 const infusionData = infusionIds[text];
+
+                const firstStatId = infusionData?.[primaryInfusion]?.id;
+                const secondStatId = infusionData?.[secondaryInfusion]?.id;
+
+                let renderInfusions;
+
+                if (firstStatId && secondStatId) {
+                  renderInfusions = (
+                    <>
+                      <Item id={firstStatId} disableLink disableText />
+                      <Item id={secondStatId} disableLink disableText />{' '}
+                      <Item id={secondStatId} disableLink disableIcon disableTooltip text={text} />
+                    </>
+                  );
+                } else if (firstStatId || secondStatId || infusionData?.id) {
+                  renderInfusions = (
+                    <Item
+                      id={firstStatId || secondStatId || infusionData?.id}
+                      disableLink
+                      text={text}
+                      className={classes.bigStyle}
+                    />
+                  );
+                } else if (text.includes('Agony Infusion')) {
+                  // fake higher infusions with a +24 with no tooltip
+                  renderInfusions = (
+                    <Item
+                      id={49447}
+                      disableLink
+                      disableTooltip
+                      text={text}
+                      className={classes.bigStyle}
+                    />
+                  );
+                } else {
+                  renderInfusions = text;
+                }
+
                 return (
                   // eslint-disable-next-line react/no-array-index-key
                   <React.Fragment key={i}>
-                    {infusionData?.[primaryInfusion]?.id ? (
-                      <Item id={infusionData?.[primaryInfusion]?.id} disableLink disableText />
-                    ) : null}
-                    {infusionData?.[secondaryInfusion]?.id ? (
-                      <Item id={infusionData?.[secondaryInfusion]?.id} disableLink disableText />
-                    ) : null}
-                    {infusionData?.id ? (
-                      <Item
-                        id={infusionData?.id}
-                        disableLink
-                        disableText
-                        className={classes.bigStyle}
-                      />
-                    ) : null}{' '}
-                    {text}
+                    {renderInfusions}
                     <br />
                   </React.Fragment>
                 );
