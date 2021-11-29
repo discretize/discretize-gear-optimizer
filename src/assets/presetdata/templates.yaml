@@ -22,6 +22,15 @@ list:
         traits: Staff Mirage
         extras: Alacrity Mirage (Raid)
 
+      - name: Axe Mirage
+        id: axe-mirage-deception-torch
+        specialization: Mirage
+        boons: Condi
+        priority: Condi DPS
+        distribution: Axe Mirage (Deception Torch)
+        traits: Axe Mirage
+        extras: DPS Mirage (Raid)
+
       - name: '[old] Virtuoso'
         id: pvirt
         specialization: Virtuoso
