@@ -110,9 +110,15 @@ const ResultDetails = ({ data }) => {
     };
   }
 
-  const imageRaw = data.images.edges
-    .flatMap((image) => image.node)
-    .find((image) => image.original.src.includes(character.settings.specialization.toLowerCase()));
+  const imageData = data.images.edges.flatMap((image) => image.node);
+
+  const imageRaw =
+    imageData.find((image) =>
+      image.original.src.includes(character.settings.specialization.toLowerCase()),
+    ) ||
+    imageData.find((image) =>
+      image.original.src.includes(character.settings.profession.toLowerCase()),
+    );
   const image = getImage(imageRaw);
 
   // Replace the names to match gw2-ui names
