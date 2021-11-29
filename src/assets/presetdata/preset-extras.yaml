@@ -317,6 +317,17 @@ list:
         "Nourishment": ""
       }
 
+  - name: Condi Holo
+    profession: Holosmith
+    value: |-
+      {
+        "Runes": "renegade",
+        "Sigil1": "malice",
+        "Sigil2": "bursting",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
   - name: Cele Ren (Fractal)
     profession: Renegade
     value: |-

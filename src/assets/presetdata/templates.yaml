@@ -427,6 +427,15 @@ list:
         traits: Power Holo ECSU
         extras: Power (Fractal)
 
+      - name: Condi Holo
+        id: cholo
+        specialization: Holosmith
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Holo
+        traits: Condi Holo
+        extras: Condi Holo
+
       - name: Power Scrapper
         id: pscrap
         specialization: Scrapper
