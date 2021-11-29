@@ -42,6 +42,17 @@ list:
         "Nourishment": "beef-rendang"
       }
 
+  - name: DPS Mirage (Raid)
+    profession: Mirage
+    value: |-
+      {
+        "Runes": "nightmare",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
   - name: '[old] Virtuoso'
     profession: Virtuoso
     value: |-

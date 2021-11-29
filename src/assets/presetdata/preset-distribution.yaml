@@ -516,6 +516,16 @@ list:
         "values2": { "Power": 1257, "Burning": 0.5, "Bleeding": 16.5, "Poisoned": 0.8, "Torment": 15.1, "Confusion": 17.3 }
       }
 
+
+  # https://www.youtube.com/watch?v=R8g-fJZSaGI
+  # power: 4975, burn: 2722, bleed: 8794, poison: 95, torment: 20033, confusion: 3515, total: 40134
+  - name: Axe Mirage (Deception Torch)
+    profession: Mirage
+    value: >-
+      {
+        "values2": { "Power": 2307, "Burning": 1.6, "Bleeding": 15.7, "Poisoned": 0.2, "Torment": 23.9, "Confusion": 12.5 }
+      }
+
   # https://www.youtube.com/watch?v=qMFZq0I3pIA
   # power: 34398 + 6263 = 40660, burn: 190, bleed: 843, confusion: 57, total: 41750
   - name: '[old] Virtuoso'
