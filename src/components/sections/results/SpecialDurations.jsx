@@ -2,7 +2,7 @@ import { Table, TableBody, TableCell, TableRow, Typography, withStyles } from '@
 import { Trans } from 'gatsby-plugin-react-i18next';
 import { Boon, Condition } from 'gw2-ui-bulk';
 import React from 'react';
-import { Condition as ConditionList } from '../../../utils/gw2-data';
+import { damagingConditions } from '../../../utils/gw2-data';
 
 const styles = (theme) => ({
   root: {
@@ -34,7 +34,7 @@ const SpecialDurations = ({ classes, data }) => {
         <TableBody>
           {cleanedData.map((duration) => (
             <TableRow hover key={duration}>
-              {ConditionList[duration.split(' ')[0]] !== undefined ? (
+              {damagingConditions.includes(duration.split(' ')[0]) ? (
                 <TableCell>
                   <Condition
                     name={duration.split(' ')[0]}

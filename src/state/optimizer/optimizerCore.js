@@ -10,7 +10,7 @@ import {
   Slots,
   ForcedSlots,
   Classes,
-  Condition,
+  conditionData,
   Attributes,
   INFUSION_BONUS,
 } from '../../utils/gw2-data';
@@ -59,6 +59,9 @@ let isChanged = true;
  *                                   (sums to 100)
  * @param {?object.<string, number>} input.distribution - new style distribution
  *                                   (coefficient * weaponstrength per second; average condition stacks)
+ * @param {?number} input.attackRate - boss attack rate (for confusion)
+ * @param {?number} input.movementUptime - boss movement uptime (for torment)
+ *
  * @returns {object} settings - parsed settings object
  */
 export function setup(input) {
@@ -280,7 +283,7 @@ export function setup(input) {
     settings.distribution = {};
     settings.distribution['Power'] = (Power * 2597) / 1025;
     for (const [condition, value] of Object.entries(rest)) {
-      settings.distribution[condition] = value / Condition[condition].baseDamage;
+      settings.distribution[condition] = value / conditionData[condition].baseDamage;
     }
   }
 
@@ -999,17 +1002,32 @@ function calcPower(character, damageMultiplier) {
   return damage;
 }
 
+const conditionDamageTick = (condition, cdmg, mult) =>
+  (conditionData[condition].factor * cdmg + conditionData[condition].baseDamage) * mult;
+
 function calcCondi(character, damageMultiplier, relevantConditions) {
   const { attributes, settings } = character;
 
   attributes['Condition Duration'] += attributes['Expertise'] / 15 / 100;
   let condiDamageScore = 0;
   for (const condition of relevantConditions) {
-    attributes[`${condition} Damage`] =
-      (Condition[condition].factor * attributes['Condition Damage'] +
-        Condition[condition].baseDamage) *
-      damageMultiplier['Condition Damage'] *
-      damageMultiplier[`${condition} Damage`];
+    const cdmg = attributes['Condition Damage'];
+    const mult = damageMultiplier['Condition Damage'] * damageMultiplier[`${condition} Damage`];
+
+    switch (condition) {
+      case 'Torment':
+        attributes[`Torment Damage`] =
+          conditionDamageTick('Torment', cdmg, mult) * (1 - settings.movementUptime) +
+          conditionDamageTick('TormentMoving', cdmg, mult) * settings.movementUptime;
+        break;
+      case 'Confusion':
+        attributes[`Confusion Damage`] =
+          conditionDamageTick('Confusion', cdmg, mult) +
+          conditionDamageTick('ConfusionActive', cdmg, mult) * settings.attackRate;
+        break;
+      default:
+        attributes[`${condition} Damage`] = conditionDamageTick(condition, cdmg, mult);
+    }
 
     const duration =
       1 +

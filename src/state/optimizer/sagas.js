@@ -21,7 +21,7 @@ import { getTraitsModifiers, getCurrentSpecialization } from '../slices/traits';
 
 import { ERROR, SUCCESS, WAITING } from './status';
 
-import { parseInfusionCount, parsePriority } from '../../utils/usefulFunctions';
+import { parseInfusionCount, parsePriority, parseBoss } from '../../utils/usefulFunctions';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -47,6 +47,7 @@ function createInput(state, specialization, appliedModifiers, cachedFormState) {
         affixes,
       },
       distribution: { version, values1, values2 },
+      boss: { attackRate: attackRateText, movementUptime: movementUptimeText },
     },
   } = state;
 
@@ -58,6 +59,9 @@ function createInput(state, specialization, appliedModifiers, cachedFormState) {
   const minHealingPower = parsePriority(minHealingPowerText).value;
   const minToughness = parsePriority(minToughnessText).value;
   const maxToughness = parsePriority(maxToughnessText).value;
+
+  const attackRate = parseBoss(attackRateText).value ?? 0;
+  const movementUptime = (parseBoss(movementUptimeText).value ?? 0) / 100;
 
   const input = {
     tags: undefined,
@@ -81,6 +85,8 @@ function createInput(state, specialization, appliedModifiers, cachedFormState) {
     distributionVersion: version,
     percentDistribution: values1,
     distribution: values2,
+    attackRate,
+    movementUptime,
   };
   input.specialization = specialization;
   input.appliedModifiers = appliedModifiers;
