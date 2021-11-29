@@ -13,6 +13,15 @@ list:
         traits: Power Chrono IA
         extras: Power (Fractal)
 
+      - name: Alacrity Mirage
+        id: alacmirage
+        specialization: Mirage
+        boons: Condi
+        priority: Condi DPS
+        distribution: Staff Mirage
+        traits: Staff Mirage
+        extras: Alacrity Mirage (Raid)
+
       - name: '[old] Virtuoso'
         id: pvirt
         specialization: Virtuoso

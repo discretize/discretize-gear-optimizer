@@ -31,6 +31,17 @@ list:
         "Nourishment": "fruit-salad-mint-garnish"
       }
 
+  - name: Alacrity Mirage (Raid)
+    profession: Mirage
+    value: |-
+      {
+        "Runes": "nightmare",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "toxic-maintenance-oil",
+        "Nourishment": "beef-rendang"
+      }
+
   - name: '[old] Virtuoso'
     profession: Virtuoso
     value: |-

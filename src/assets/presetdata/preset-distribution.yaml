@@ -507,6 +507,15 @@ list:
   #   profession: Chronomancer
   #   value: >-
 
+  # https://www.youtube.com/watch?v=Lg85Tj1-QeQ
+  # power: 2711, burn: 898, bleed: 9273, poison: 480, torment: 12643, confusion: 4865, total: 30870
+  - name: Staff Mirage
+    profession: Mirage
+    value: >-
+      {
+        "values2": { "Power": 1257, "Burning": 0.5, "Bleeding": 16.5, "Poisoned": 0.8, "Torment": 15.1, "Confusion": 17.3 }
+      }
+
   # https://www.youtube.com/watch?v=qMFZq0I3pIA
   # power: 34398 + 6263 = 40660, burn: 190, bleed: 843, confusion: 57, total: 41750
   - name: '[old] Virtuoso'
