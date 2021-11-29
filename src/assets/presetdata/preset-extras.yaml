@@ -53,6 +53,28 @@ list:
         "Nourishment": "beef-rendang"
       }
 
+  - name: Condi Chrono STM
+    profession: Chronomancer
+    value: |-
+      {
+        "Runes": "perplexity",
+        "Sigil1": "bursting",
+        "Sigil2": "concentration",
+        "Enhancement": "toxic-maintenance-oil",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: Condi Chrono DPS
+    profession: Chronomancer
+    value: |-
+      {
+        "Runes": "perplexity",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
   - name: '[old] Virtuoso'
     profession: Virtuoso
     value: |-

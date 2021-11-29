@@ -526,6 +526,16 @@ list:
         "values2": { "Power": 2307, "Burning": 1.6, "Bleeding": 15.7, "Poisoned": 0.2, "Torment": 23.9, "Confusion": 12.5 }
       }
 
+  # https://www.youtube.com/watch?v=FgIWv4NmhqM
+  # power: 4362, burn: 2520, bleed: 1912, torment: 4094, confusion: [34.15 stacks at 100% duration]
+  # old confusion balance
+  - name: Condi Chrono STM
+    profession: Chronomancer
+    value: >-
+      {
+        "values2": { "Power": 1853, "Burning": 2.3, "Bleeding": 5.2, "Poisoned": 0, "Torment": 7.4, "Confusion": 17.0 }
+      }
+
   # https://www.youtube.com/watch?v=qMFZq0I3pIA
   # power: 34398 + 6263 = 40660, burn: 190, bleed: 843, confusion: 57, total: 41750
   - name: '[old] Virtuoso'
