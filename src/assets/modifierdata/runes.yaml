@@ -318,6 +318,17 @@
           Condition Duration: 15%
       gw2id: 67339
 
+    - id: trapper-and-black-diamond
+      text: Superior Rune of the Trapper (5x) + Black Diamond
+      modifiers:
+        attributes:
+          Condition Damage: [192, converted]
+          Condition Duration: 15%
+          Power: [17, converted]
+          Expertise: [9, converted]
+          Precision: [9, converted]
+      gw2id: 67339
+
     - id: nightmare
       text: Superior Rune of the Nightmare
       modifiers:
