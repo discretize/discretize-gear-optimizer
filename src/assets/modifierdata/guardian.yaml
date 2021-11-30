@@ -383,7 +383,6 @@
 
     - id: searing-pact
       text: Searing Pact
-      subText: '("Searing Pact")'
       modifiers:
         attributes:
           Condition Damage: [120, unknown]
