@@ -3871,6 +3871,7 @@
   },
   {
     "id": 2183,
+    "name": "darkdisciple",
     "profession": "necromancer"
   },
   {
@@ -3880,6 +3881,7 @@
   },
   {
     "id": 2185,
+    "name": "septiccorruption",
     "profession": "necromancer"
   },
   {
@@ -3894,6 +3896,7 @@
   },
   {
     "id": 2188,
+    "name": "wickedcorruption",
     "profession": "necromancer"
   },
   {
@@ -3908,7 +3911,7 @@
   },
   {
     "id": 2191,
-    "name": "boonpact",
+    "name": "searingpact",
     "profession": "guardian"
   },
   {
@@ -3923,6 +3926,7 @@
   },
   {
     "id": 2194,
+    "name": "deathlyhaste",
     "profession": "necromancer"
   },
   {
@@ -4042,10 +4046,12 @@
   },
   {
     "id": 2218,
+    "name": "cascadingcorruption",
     "profession": "necromancer"
   },
   {
     "id": 2219,
+    "name": "vilevials",
     "profession": "necromancer"
   },
   {
@@ -4141,11 +4147,6 @@
     "profession": "warrior"
   },
   {
-    "id": 2240,
-    "name": "lushforest",
-    "profession": "warrior"
-  },
-  {
     "id": 2241,
     "name": "empoweredempowerment",
     "profession": "elementalist"
@@ -4159,11 +4160,6 @@
     "id": 2243,
     "name": "angsiyanstrust",
     "profession": "revenant"
-  },
-  {
-    "id": 2244,
-    "name": "fierceasfire",
-    "profession": "warrior"
   },
   {
     "id": 2245,
@@ -4275,7 +4271,7 @@
   },
   {
     "id": 2267,
-    "name": "energysiphoning",
+    "name": "exigencyprotocols",
     "profession": "engineer"
   },
   {
@@ -4325,7 +4321,7 @@
   },
   {
     "id": 2277,
-    "name": "cleansingunleash",
+    "name": "naturesshield",
     "profession": "ranger"
   },
   {
@@ -4375,7 +4371,7 @@
   },
   {
     "id": 2287,
-    "name": "bolsteringunleash",
+    "name": "cleansingunleash",
     "profession": "ranger"
   },
   {
@@ -4442,5 +4438,15 @@
     "id": 2301,
     "name": "blindingoutburst",
     "profession": "ranger"
+  },
+  {
+    "id": 2302,
+    "name": "fierceasfire",
+    "profession": "warrior"
+  },
+  {
+    "id": 2303,
+    "name": "lushforest",
+    "profession": "warrior"
   }
 ]

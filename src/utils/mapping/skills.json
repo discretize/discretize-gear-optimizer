@@ -16957,11 +16957,6 @@
     "profession": "necromancer"
   },
   {
-    "id": 62664,
-    "name": "ripostingblade",
-    "profession": "bundle"
-  },
-  {
     "id": 62667,
     "name": "elixirofpromise",
     "profession": "necromancer"
@@ -17082,11 +17077,6 @@
     "profession": "revenant"
   },
   {
-    "id": 62735,
-    "name": "recalljadesphere",
-    "profession": "elementalist"
-  },
-  {
     "id": 62738,
     "name": "dropurnofsaintviktor",
     "profession": "revenant"
@@ -17182,11 +17172,6 @@
     "profession": "revenant"
   },
   {
-    "id": 62830,
-    "name": "recalljadesphere",
-    "profession": "elementalist"
-  },
-  {
     "id": 62832,
     "name": "nomadsadvance",
     "profession": "revenant"
@@ -17194,11 +17179,6 @@
   {
     "id": 62834,
     "name": "icycoil",
-    "profession": "elementalist"
-  },
-  {
-    "id": 62835,
-    "name": "recalljadesphere",
     "profession": "elementalist"
   },
   {
@@ -17254,11 +17234,6 @@
   {
     "id": 62865,
     "name": "streamstrike",
-    "profession": "elementalist"
-  },
-  {
-    "id": 62868,
-    "name": "recalljadesphere",
     "profession": "elementalist"
   },
   {
@@ -17407,11 +17382,6 @@
     "profession": "warrior"
   },
   {
-    "id": 62979,
-    "name": "flameshellburst",
-    "profession": "bundle"
-  },
-  {
     "id": 62981,
     "name": "dragontriggerlocked",
     "profession": "warrior"
@@ -17435,6 +17405,11 @@
     "id": 63050,
     "name": "crashdown",
     "profession": "engineer"
+  },
+  {
+    "id": 63065,
+    "name": "viciouspike",
+    "profession": "ranger"
   },
   {
     "id": 63066,
@@ -17500,6 +17475,11 @@
     "id": 63128,
     "name": "endlessnight",
     "profession": "thief"
+  },
+  {
+    "id": 63129,
+    "name": "sunderingvolley",
+    "profession": "ranger"
   },
   {
     "id": 63130,
@@ -17612,6 +17592,11 @@
     "profession": "ranger"
   },
   {
+    "id": 63225,
+    "name": "multishot",
+    "profession": "ranger"
+  },
+  {
     "id": 63230,
     "name": "wellofsilence",
     "profession": "thief"
@@ -17672,11 +17657,6 @@
     "profession": "thief"
   },
   {
-    "id": 63290,
-    "name": "jadesiphon",
-    "profession": "bundle"
-  },
-  {
     "id": 63292,
     "name": "wellofgloom",
     "profession": "thief"
@@ -17690,6 +17670,11 @@
     "id": 63294,
     "name": "welloftears",
     "profession": "thief"
+  },
+  {
+    "id": 63301,
+    "name": "jaggedfan",
+    "profession": "ranger"
   },
   {
     "id": 63314,
@@ -17707,6 +17692,11 @@
     "profession": "thief"
   },
   {
+    "id": 63326,
+    "name": "toxicshot",
+    "profession": "ranger"
+  },
+  {
     "id": 63330,
     "name": "thump",
     "profession": "ranger"
@@ -17719,6 +17709,11 @@
   {
     "id": 63335,
     "name": "unleashedwildswing",
+    "profession": "ranger"
+  },
+  {
+    "id": 63336,
+    "name": "deftstrike",
     "profession": "ranger"
   },
   {
@@ -17735,6 +17730,11 @@
     "id": 63345,
     "name": "corereactorshot",
     "profession": "bundle"
+  },
+  {
+    "id": 63350,
+    "name": "savageslash",
+    "profession": "ranger"
   },
   {
     "id": 63351,
@@ -17755,5 +17755,55 @@
     "id": 63367,
     "name": "dischargearray",
     "profession": "bundle"
+  },
+  {
+    "id": 63396,
+    "name": "deployjadesphere",
+    "profession": "elementalist"
+  },
+  {
+    "id": 63416,
+    "name": "deployjadesphere",
+    "profession": "elementalist"
+  },
+  {
+    "id": 63438,
+    "name": "relentlesswhirl",
+    "profession": "ranger"
+  },
+  {
+    "id": 63439,
+    "name": "deployjadesphere",
+    "profession": "elementalist"
+  },
+  {
+    "id": 63448,
+    "name": "voraciousdive",
+    "profession": "necromancer"
+  },
+  {
+    "id": 63454,
+    "name": "deployjadesphere",
+    "profession": "elementalist"
+  },
+  {
+    "id": 63458,
+    "name": "deployjadesphere",
+    "profession": "elementalist"
+  },
+  {
+    "id": 63459,
+    "name": "deployjadesphere",
+    "profession": "elementalist"
+  },
+  {
+    "id": 63461,
+    "name": "deployjadesphere",
+    "profession": "elementalist"
+  },
+  {
+    "id": 63472,
+    "name": "deployjadesphere",
+    "profession": "elementalist"
   }
 ]
