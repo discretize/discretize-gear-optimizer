@@ -523,7 +523,7 @@
       modifiers:
         damage:
           All Damage: [1%, unknown]
-      gw2id: 2244
+      gw2id: 2302
       defaultEnabled: true
 
     - id: guns-and-glory
