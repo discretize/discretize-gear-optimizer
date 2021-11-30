@@ -251,7 +251,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: Pure Shortbow Slb
+  - name: Pure Shortbow Slb BM
     profession: Soulbeast
     value: |-
       {

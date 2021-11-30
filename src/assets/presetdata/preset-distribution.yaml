@@ -427,11 +427,11 @@ list:
   # https://www.youtube.com/watch?v=70F-uEOb-Bg
   # power: 6847, burn: 651, bleed: 20124, poison: 4975, torment: 81, total: 32678
   # koi cake
-  - name: Pure Shortbow Slb
+  - name: Pure Shortbow Slb BM
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 2081, "Burning": 0.6, "Bleeding": 29.5, "Poisoned": 12.2, "Torment": 0.1, "Confusion": 0 }
+        "values2": { "Power": 1661, "Burning": 0.5, "Bleeding": 28.1, "Poisoned": 11.6, "Torment": 0.1, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=5Wipvn8loPk (very old)

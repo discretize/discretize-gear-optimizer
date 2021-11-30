@@ -2246,7 +2246,7 @@ list:
         "skills": []
       }
 
-  - name: Pure Shortbow Slb
+  - name: Pure Shortbow Slb BM
     profession: Soulbeast
     traits: |-
       {
@@ -2299,9 +2299,9 @@ list:
             "archetype-versatile": false,
             "archetype-ferocious": false,
             "archetype-supportive": false,
-            "pack-alpha-merged": false,
-            "loud-whistle-merged": false,
-            "pets-prowess-merged": false,
+            "pack-alpha-merged": true,
+            "loud-whistle-merged": true,
+            "pets-prowess-merged": true,
             "honed-axes-merged": false
           }
         ]

@@ -286,14 +286,14 @@ list:
         traits: Hybrid Slb
         extras: Hybrid Slb
 
-      # - name: Pure Shortbow Slb
-      #   id: sbsbsb
+      # - name: Pure Shortbow Slb BM
+      #   id: sbsbsb-BM
       #   specialization: Soulbeast
       #   boons: Condi
       #   priority: Condi DPS
-      #   distribution: Pure Shortbow Slb
-      #   traits: Pure Shortbow Slb
-      #   extras: Pure Shortbow Slb
+      #   distribution: Pure Shortbow Slb BM
+      #   traits: Pure Shortbow Slb BM
+      #   extras: Pure Shortbow Slb BM
 
       - name: Condi Druid*
         id: condidruid
