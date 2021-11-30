@@ -393,7 +393,7 @@
       text: Power for Power
       modifiers:
         attributes:
-          Power: [120, buff]
+          Power: [120, unknown]
       gw2id: 2190
 
     - id: conceited-curate
