@@ -34,7 +34,10 @@ const types = {
   distribution: 'preset-distribution',
   traits: 'preset-traits',
   extras: 'preset-extras',
+  infusions: 'preset-infusions',
 };
+
+const testTypes = ['boons', 'priority', 'distribution', 'traits', 'extras'];
 
 const testModifiers = async () => {
   // const files = (await fs.readdir(directory)).filter(
@@ -65,6 +68,21 @@ const testModifiers = async () => {
     } catch (e) {
       gentleAssert(false, `err: ${fileName}.yaml is invalid YAML`);
       return;
+    }
+  }
+
+  for (const [type, entries] of Object.entries(data)) {
+    for (const entry of entries) {
+      try {
+        if (type === 'traits') {
+          JSON.parse(entry.traits);
+          JSON.parse(entry.skills);
+        } else {
+          JSON.parse(entry.value);
+        }
+      } catch (e) {
+        gentleAssert(false, `err: the ${entry.name} ${type} entry is invalid JSON`);
+      }
     }
   }
 
@@ -112,13 +130,11 @@ const testModifiers = async () => {
       };
       checkNullRecursively(item);
 
-      for (const type of Object.keys(types)) {
+      for (const type of testTypes) {
         const match = data[type].find((pre) => pre.name === item[type]);
         gentleAssert(match, `err: ${name}'s ${type} is not found!`);
-        gentleAssert(
-          !match.profession || match?.profession === specialization,
-          `err: ${name}'s ${type}'s profession is wrong!`,
-        );
+        const profIsFine = !match.profession || match?.profession === specialization;
+        if (!profIsFine) console.log(`❓ ${name}'s ${type}'s profession is wrong!`);
       }
     }
   }
