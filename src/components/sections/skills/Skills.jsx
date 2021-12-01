@@ -3,7 +3,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Skill } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addSkill, getSkills, removeSkill } from '../../../state/slices/skills';
+import { getSkills, toggleSkill } from '../../../state/slices/skills';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
 const styles = (theme) => ({
@@ -24,16 +24,12 @@ const styles = (theme) => ({
 
 const Skills = ({ classes, data }) => {
   const dispatch = useDispatch();
-  const skills = useSelector(getSkills);
+  const skillState = useSelector(getSkills);
 
   const { t } = useTranslation();
 
-  const onChange = (skill) => (e) => {
-    if (e.target.checked) {
-      dispatch(addSkill(skill.id));
-    } else {
-      dispatch(removeSkill(skill.id));
-    }
+  const handleCheckboxChange = (id) => (e) => {
+    dispatch(toggleSkill({ id, enabled: e.target.checked }));
   };
 
   if (!data || data.length < 1) {
@@ -44,7 +40,7 @@ const Skills = ({ classes, data }) => {
     <div key={skill.id}>
       <CheckboxComponent
         value={skill.id}
-        checked={skills.indexOf(skill.id) > -1}
+        checked={Boolean(skillState[skill.id])}
         className={classes.checkbox}
         label={
           <div className={classes.label}>
@@ -59,7 +55,7 @@ const Skills = ({ classes, data }) => {
             )}
           </div>
         }
-        onChange={onChange(skill)}
+        onChange={handleCheckboxChange(skill.id)}
       />
     </div>
   ));

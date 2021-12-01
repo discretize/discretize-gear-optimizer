@@ -56,7 +56,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Axe Mirage
@@ -116,10 +116,10 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-domination",
-          "signet-of-midnight"
-        ]
+        "skills": {
+          "signet-of-domination": true,
+          "signet-of-midnight": true
+        }
       }
 
   - name: Staff Mirage
@@ -181,10 +181,10 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-domination",
-          "signet-of-midnight"
-        ]
+        "skills": {
+          "signet-of-domination": true,
+          "signet-of-midnight": true
+        }
       }
 
   - name: Condi Chrono
@@ -236,10 +236,10 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-domination",
-          "signet-of-midnight"
-        ]
+        "skills": {
+          "signet-of-domination": true,
+          "signet-of-midnight": true
+        }
       }
 
   - name: '[old] Virtuoso'
@@ -302,7 +302,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: DH Radiance w/ PI
@@ -367,9 +367,9 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "bane-signet-2"
-        ]
+        "skills": {
+          "bane-signet-2": true
+        }
       }
 
   - name: DH Radiance
@@ -434,9 +434,9 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "bane-signet"
-        ]
+        "skills": {
+          "bane-signet": true
+        }
       }
 
   - name: DH Virtues
@@ -501,9 +501,9 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "bane-signet"
-        ]
+        "skills": {
+          "bane-signet": true
+        }
       }
 
   - name: Core Guardian
@@ -574,9 +574,9 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "bane-signet"
-        ]
+        "skills": {
+          "bane-signet": true
+        }
       }
 
   - name: Power Quickbrand
@@ -639,9 +639,9 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "bane-signet-2"
-        ]
+        "skills": {
+          "bane-signet-2": true
+        }
       }
 
   - name: Condi Quickbrand
@@ -707,9 +707,9 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-wrath"
-        ]
+        "skills": {
+          "signet-of-wrath": true
+        }
       }
 
   - name: CFB DPS 5 page
@@ -775,9 +775,9 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-wrath"
-        ]
+        "skills": {
+          "signet-of-wrath": true
+        }
       }
 
   - name: CFB DPS 8 page
@@ -843,9 +843,9 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-wrath"
-        ]
+        "skills": {
+          "signet-of-wrath": true
+        }
       }
 
   - name: Hybrid FB Virtues
@@ -911,7 +911,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Hybrid FB Honor
@@ -972,7 +972,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Healbrand
@@ -1033,9 +1033,9 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "bane-signet-2"
-        ]
+        "skills": {
+          "bane-signet-2": true
+        }
       }
 
   - name: '[old] Power Willbender Radiance'
@@ -1103,9 +1103,9 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "bane-signet"
-        ]
+        "skills": {
+          "bane-signet": true
+        }
       }
 
   - name: '[old] Power Willbender Virtues'
@@ -1173,9 +1173,9 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "bane-signet"
-        ]
+        "skills": {
+          "bane-signet": true
+        }
       }
 
   - name: Power Banner Bers Strength
@@ -1253,9 +1253,9 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-might"
-        ]
+        "skills": {
+          "signet-of-might": true
+        }
       }
 
   - name: Condi Bers
@@ -1337,7 +1337,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Power Banner SPB
@@ -1409,9 +1409,9 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-might"
-        ]
+        "skills": {
+          "signet-of-might": true
+        }
       }
 
   - name: '[old] Bladesworn'
@@ -1477,10 +1477,10 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-might",
-          "signet-of-fury"
-        ]
+        "skills": {
+          "signet-of-might": true,
+          "signet-of-fury": true
+        }
       }
 
   - name: Power Weaver Stormsoul
@@ -1568,7 +1568,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi Weaver Sword
@@ -1643,7 +1643,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Hybrid Weaver
@@ -1731,7 +1731,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi Tempest
@@ -1794,7 +1794,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: '[old] Condi Hammer Catalyst'
@@ -1860,7 +1860,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Heal Tempest
@@ -1911,7 +1911,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Power Slb Marks
@@ -1977,7 +1977,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Power Slb Skirm
@@ -2042,7 +2042,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi Slb SB
@@ -2110,7 +2110,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi Slb D/T A/D
@@ -2178,7 +2178,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Hybrid Slb
@@ -2243,7 +2243,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Pure Shortbow Slb BM
@@ -2308,7 +2308,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi Druid*
@@ -2361,7 +2361,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Heal Druid
@@ -2414,7 +2414,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Power Alac Ren
@@ -2487,7 +2487,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi RR Ren Invo
@@ -2549,7 +2549,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi RR Ren Deva
@@ -2620,7 +2620,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi DPS Ren Deva
@@ -2691,7 +2691,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Power Herald DE
@@ -2767,7 +2767,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi Herald
@@ -2841,7 +2841,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Power DPS Ren
@@ -2914,7 +2914,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Heal Ren
@@ -2987,7 +2987,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Power Holo ECSU
@@ -3054,7 +3054,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi Holo
@@ -3121,7 +3121,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: '[old] Condi Mechanist'
@@ -3184,7 +3184,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Power Scrapper
@@ -3256,7 +3256,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Quickness Scrapper
@@ -3328,7 +3328,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Heal Scrapper
@@ -3381,7 +3381,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: DPS Scourge
@@ -3438,7 +3438,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi Reaper
@@ -3499,7 +3499,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: '[old] DPS Harbinger'
@@ -3563,7 +3563,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: '[old] Quickness Harbinger'
@@ -3628,7 +3628,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi Deadeye
@@ -3694,7 +3694,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Staff Daredevil
@@ -3766,10 +3766,10 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-agility",
-          "assassins-signet"
-        ]
+        "skills": {
+          "signet-of-agility": true,
+          "assassins-signet": true
+        }
       }
 
   - name: Boon Daredevil*
@@ -3836,9 +3836,9 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-agility"
-        ]
+        "skills": {
+          "signet-of-agility": true
+        }
       }
 
   - name: Condi Daredevil
@@ -3905,7 +3905,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Rifle Deadeye
@@ -3978,9 +3978,9 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "assassins-signet"
-        ]
+        "skills": {
+          "assassins-signet": true
+        }
       }
 
   - name: '[old] DPS Specter Sc/D'
@@ -4048,7 +4048,7 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: '[old] DPS Specter Endless Night'
@@ -4116,5 +4116,5 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
