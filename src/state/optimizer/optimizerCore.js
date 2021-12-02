@@ -731,19 +731,19 @@ applyInfusions['Secondary'] = function (character) {
   }
 };
 
+const testInfusionUsefulness = function (character, settings) {
+  const temp = clone(character);
+  addBaseStats(temp, settings.primaryInfusion, settings.maxInfusions * INFUSION_BONUS);
+  addBaseStats(temp, settings.secondaryInfusion, settings.maxInfusions * INFUSION_BONUS);
+  updateAttributesFast(temp, true);
+  return temp.attributes[settings.rankby] > worstScore;
+};
+
 // Tests every valid combination of 18 infusions and inserts the best result
 applyInfusions['SecondaryNoDuplicates'] = function (character) {
   const { settings } = character;
 
-  const testInfusionUsefulness = function () {
-    const temp = clone(character);
-    addBaseStats(temp, settings.primaryInfusion, settings.maxInfusions * INFUSION_BONUS);
-    addBaseStats(temp, settings.secondaryInfusion, settings.maxInfusions * INFUSION_BONUS);
-    updateAttributesFast(temp, true);
-    return temp.attributes[settings.rankby] > worstScore;
-  };
-
-  if (!worstScore || testInfusionUsefulness()) {
+  if (!worstScore || testInfusionUsefulness(character, settings)) {
     let best = null;
 
     let primaryCount = settings.primaryMaxInfusions;
