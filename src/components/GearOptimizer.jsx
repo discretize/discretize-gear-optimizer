@@ -18,6 +18,7 @@ import ResultDetails from './sections/results/ResultDetails';
 import ResultTable from './sections/results/ResultTable';
 import SkillsSection from './sections/skills/SkillsSection';
 import TraitsSection from './sections/traits/TraitsSection';
+import BossSection from './sections/boss/BossSection';
 
 const styles = (theme) => ({
   root: {
@@ -84,6 +85,8 @@ const MainComponent = ({ classes, data }) => {
               <PrioritiesSection data={data} />
 
               <DistributionSection profession={profession} data={data} />
+
+              <BossSection />
             </>
           ) : (
             <>
@@ -94,6 +97,8 @@ const MainComponent = ({ classes, data }) => {
               <InfusionsSection data={data} />
 
               <PrioritiesSection data={data} />
+
+              <BossSection />
             </>
           )}
         </Grid>
