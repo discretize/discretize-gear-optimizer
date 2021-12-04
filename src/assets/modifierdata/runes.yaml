@@ -97,7 +97,7 @@
       subText: (with pet)
       modifiers:
         damage:
-          Strike Damage: [7%, mult]
+          Strike Damage: [7%, mult] # tested by Marcus
         attributes:
           Precision: [175, converted]
           Ferocity: [225, converted]
