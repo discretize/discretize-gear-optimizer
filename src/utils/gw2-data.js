@@ -756,7 +756,9 @@ export const Classes = {
   },
 };
 
-export const Condition = {
+export const damagingConditions = ['Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment'];
+
+export const conditionData = {
   Burning: {
     baseDamage: 131,
     factor: 0.155,
@@ -773,9 +775,17 @@ export const Condition = {
     baseDamage: 31.8,
     factor: 0.09,
   },
-  Confusion: {
+  TormentMoving: {
     baseDamage: 22,
     factor: 0.06,
+  },
+  Confusion: {
+    baseDamage: 11,
+    factor: 0.03,
+  },
+  ConfusionActive: {
+    baseDamage: 49.5,
+    factor: 0.0975,
   },
 };
 
@@ -831,9 +841,9 @@ export const Attributes = {
     'Weakness Duration',
   ],
 
-  CONDITION: Object.keys(Condition),
+  CONDITION: damagingConditions,
 
-  CONDITION_DAMAGE: Object.keys(Condition).map((condition) => `${condition} Damage`),
+  CONDITION_DAMAGE: damagingConditions.map((condition) => `${condition} Damage`),
 
   EFFECTIVE: ['Effective Power', 'Effective Health', 'Effective Healing'],
 
