@@ -56,7 +56,7 @@ export const traitsSlice = createSlice({
     setTraitModiferAmount: (state, action) => {
       const { index, id, amount } = action.payload;
 
-      state.items[index][id].amount = amount;
+      state.items[index][id] = { ...state.items[index][id], amount };
     },
     changeTraits: (state, action) => {
       return { ...state, ...action.payload };

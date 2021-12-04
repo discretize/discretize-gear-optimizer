@@ -3,6 +3,10 @@
 
     - id: bane-signet
       text: Bane Signet
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Power: [180, buff]
@@ -11,6 +15,10 @@
     - id: bane-signet-2
       text: Bane Signet
       subText: traited
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Power: [216, buff]
@@ -48,6 +56,10 @@
 
     - id: signet-of-wrath
       text: Signet of Wrath
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Condition Damage: [180, buff]
@@ -55,6 +67,10 @@
 
     - id: signet-of-wrath-2
       text: Signet of Wrath
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       subText: traited
       modifiers:
         attributes:

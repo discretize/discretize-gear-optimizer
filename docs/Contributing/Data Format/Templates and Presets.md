@@ -84,7 +84,9 @@ Affix presets do not currently have a `profession` key (they are all always show
     skills: |-
       {
         "skills": {
-          "signet-of-wrath": true
+          "signet-of-wrath": {
+            "amount": ""
+          }
         }
       }
 ```

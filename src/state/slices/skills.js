@@ -19,11 +19,11 @@ export const skillsSlice = createSlice({
         delete state.skills[id];
       }
     },
-    // setSkillAmount: (state, action) => {
-    //   const { id, amount } = action.payload;
+    setSkillAmount: (state, action) => {
+      const { id, amount } = action.payload;
 
-    //   state.skills[id].amount = amount;
-    // },
+      state.skills[id] = { ...state.skills[id], amount };
+    },
     changeSkills: (state, action) => {
       return { ...state, ...action.payload };
     },
@@ -63,4 +63,4 @@ export const getSkillsModifiers = createSelector(
   },
 );
 
-export const { toggleSkill, /* setSkillAmount, */ changeSkills } = skillsSlice.actions;
+export const { toggleSkill, setSkillAmount, changeSkills } = skillsSlice.actions;
