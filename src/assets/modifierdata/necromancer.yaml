@@ -3,6 +3,10 @@
 
     - id: signet-of-spite
       text: Signet of Spite
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Power: [180, buff]
