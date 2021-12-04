@@ -12,10 +12,6 @@
     - id: assassins-signet-active
       text: Assassin's Signet
       subText: while active
-      amountData:
-        label: '% uptime'
-        default: 100
-        quantityEntered: 100
       modifiers:
         attributes:
           Power: [540, buff]
