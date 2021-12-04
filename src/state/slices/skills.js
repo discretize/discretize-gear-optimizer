@@ -22,7 +22,7 @@ export const skillsSlice = createSlice({
     setSkillAmount: (state, action) => {
       const { id, amount } = action.payload;
 
-      state.skills[id].amount = amount;
+      state.skills[id] = { ...state.skills[id], amount };
     },
     changeSkills: (state, action) => {
       return { ...state, ...action.payload };
