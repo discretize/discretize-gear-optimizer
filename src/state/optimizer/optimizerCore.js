@@ -828,15 +828,16 @@ export function characterLT(a, b) {
   //     return false;
   // }
 
+  // tiebreakers
   if (a.attributes[settings.rankby] === b.attributes[settings.rankby]) {
-    let sumA = 0;
-    let sumB = 0;
-    for (const attribute of Attributes.PRIMARY.concat(Attributes.SECONDARY)) {
-      sumA += a.attributes[attribute] || 0;
-      sumB += b.attributes[attribute] || 0;
+    switch (settings.rankby) {
+      case 'Damage':
+        return a.attributes['Survivability'] < b.attributes['Survivability'];
+      case 'Survivability':
+      case 'Healing':
+        return a.attributes['Damage'] < b.attributes['Damage'];
+      // no default
     }
-
-    return sumA < sumB;
   }
 
   return a.attributes[settings.rankby] < b.attributes[settings.rankby];
