@@ -782,6 +782,7 @@ function insertCharacter(character) {
   }
 
   updateAttributes(character);
+  calcResults(character);
   character.id = uniqueIDCounter++;
 
   if (list.length === 0) {
@@ -873,10 +874,8 @@ const clamp = (input, min, max) => {
  * calculated stats and damage/healing/survivability scores.
  *
  * @param {object} character
- * @param {*} results - calculates results data only if true (must be false inside calcResults,
- *  otherwise this is an infinite loop)
  */
-function updateAttributes(character, results = true) {
+function updateAttributes(character) {
   const { damageMultiplier } = character.settings.modifiers;
   character.valid = true;
 
@@ -888,8 +887,6 @@ function updateAttributes(character, results = true) {
 
   calcSurvivability(character, damageMultiplier);
   calcHealing(character);
-
-  if (results) calcResults(character);
 }
 
 /**
@@ -1136,7 +1133,7 @@ function calcResults(character) {
       Confusion: 1,
     },
   };
-  updateAttributes(temp, false);
+  updateAttributes(temp);
   for (const key of Object.keys(settings.distribution)) {
     if (key === 'Power') {
       results.coefficientHelper['Power'] = temp.attributes['Power DPS'];
