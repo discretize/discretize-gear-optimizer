@@ -731,19 +731,19 @@ applyInfusions['Secondary'] = function (character) {
   }
 };
 
+const testInfusionUsefulness = function (character, settings) {
+  const temp = clone(character);
+  addBaseStats(temp, settings.primaryInfusion, settings.maxInfusions * INFUSION_BONUS);
+  addBaseStats(temp, settings.secondaryInfusion, settings.maxInfusions * INFUSION_BONUS);
+  updateAttributesFast(temp, true);
+  return temp.attributes[settings.rankby] > worstScore;
+};
+
 // Tests every valid combination of 18 infusions and inserts the best result
 applyInfusions['SecondaryNoDuplicates'] = function (character) {
   const { settings } = character;
 
-  const testInfusionUsefulness = function () {
-    const temp = clone(character);
-    addBaseStats(temp, settings.primaryInfusion, settings.maxInfusions * INFUSION_BONUS);
-    addBaseStats(temp, settings.secondaryInfusion, settings.maxInfusions * INFUSION_BONUS);
-    updateAttributesFast(temp, true);
-    return temp.attributes[settings.rankby] > worstScore;
-  };
-
-  if (!worstScore || testInfusionUsefulness()) {
+  if (!worstScore || testInfusionUsefulness(character, settings)) {
     let best = null;
 
     let primaryCount = settings.primaryMaxInfusions;
@@ -777,12 +777,12 @@ let uniqueIDCounter = 0;
 function insertCharacter(character) {
   const { settings, attributes, valid } = character;
 
-  character.results = { value: character.attributes[settings.rankby] };
-
   if (!valid || (worstScore && worstScore > attributes[settings.rankby])) {
     return;
   }
 
+  updateAttributes(character);
+  calcResults(character);
   character.id = uniqueIDCounter++;
 
   if (list.length === 0) {
@@ -828,15 +828,16 @@ export function characterLT(a, b) {
   //     return false;
   // }
 
+  // tiebreakers
   if (a.attributes[settings.rankby] === b.attributes[settings.rankby]) {
-    let sumA = 0;
-    let sumB = 0;
-    for (const attribute of Attributes.PRIMARY.concat(Attributes.SECONDARY)) {
-      sumA += a.attributes[attribute] || 0;
-      sumB += b.attributes[attribute] || 0;
+    switch (settings.rankby) {
+      case 'Damage':
+        return a.attributes['Survivability'] < b.attributes['Survivability'];
+      case 'Survivability':
+      case 'Healing':
+        return a.attributes['Damage'] < b.attributes['Damage'];
+      // no default
     }
-
-    return sumA < sumB;
   }
 
   return a.attributes[settings.rankby] < b.attributes[settings.rankby];
@@ -874,10 +875,8 @@ const clamp = (input, min, max) => {
  * calculated stats and damage/healing/survivability scores.
  *
  * @param {object} character
- * @param {*} results - calculates results data only if true (must be false inside calcResults,
- *  otherwise this is an infinite loop)
  */
-export function updateAttributes(character, results = true) {
+function updateAttributes(character) {
   const { damageMultiplier } = character.settings.modifiers;
   character.valid = true;
 
@@ -889,8 +888,6 @@ export function updateAttributes(character, results = true) {
 
   calcSurvivability(character, damageMultiplier);
   calcHealing(character);
-
-  if (results) calcResults(character);
 }
 
 /**
@@ -1137,7 +1134,7 @@ function calcResults(character) {
       Confusion: 1,
     },
   };
-  updateAttributes(temp, false);
+  updateAttributes(temp);
   for (const key of Object.keys(settings.distribution)) {
     if (key === 'Power') {
       results.coefficientHelper['Power'] = temp.attributes['Power DPS'];

@@ -55,15 +55,21 @@ const StickyHeadTable = ({ classes }) => {
   }
 
   const firstCharacter = list[0];
-  const weaponType = firstCharacter?.settings?.weaponType || 'Two-handed';
-  const infusions = firstCharacter?.infusions || {};
+  const weaponType = firstCharacter?.settings?.weaponType;
+  const infusions = firstCharacter?.infusions;
+  const rankBy = firstCharacter?.settings?.rankby;
 
   return (
     <Box boxShadow={8}>
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table" className={classes.tableCollapse}>
           <TableHead>
-            <ResultTableHeaderRow classes={classes} weaponType={weaponType} infusions={infusions} />
+            <ResultTableHeaderRow
+              classes={classes}
+              weaponType={weaponType}
+              infusions={infusions}
+              rankBy={rankBy}
+            />
           </TableHead>
           <TableBody className={classes.pointer}>
             {list.map((character, i) => {
