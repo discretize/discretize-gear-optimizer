@@ -777,12 +777,11 @@ let uniqueIDCounter = 0;
 function insertCharacter(character) {
   const { settings, attributes, valid } = character;
 
-  character.results = { value: character.attributes[settings.rankby] };
-
   if (!valid || (worstScore && worstScore > attributes[settings.rankby])) {
     return;
   }
 
+  updateAttributes(character);
   character.id = uniqueIDCounter++;
 
   if (list.length === 0) {
@@ -877,7 +876,7 @@ const clamp = (input, min, max) => {
  * @param {*} results - calculates results data only if true (must be false inside calcResults,
  *  otherwise this is an infinite loop)
  */
-export function updateAttributes(character, results = true) {
+function updateAttributes(character, results = true) {
   const { damageMultiplier } = character.settings.modifiers;
   character.valid = true;
 

@@ -5,7 +5,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import times from 'lodash/times';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
-import { updateAttributes } from '../../../state/optimizer/optimizerCore';
 import { Classes, Defense, INFUSION_IDS } from '../../../utils/gw2-data';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 import Character from '../../gw2/Character';
@@ -22,14 +21,10 @@ import { extrasModifiersById } from '../../../assets/modifierdata';
 const ResultDetails = ({ data }) => {
   const { t } = useTranslation();
 
-  const charRaw = useSelector(getSelectedCharacter);
-  if (!charRaw) {
+  const character = useSelector(getSelectedCharacter);
+  if (!character) {
     return null;
   }
-
-  // Fetch additional result values from the optimizer core (on demand)
-  const character = { ...charRaw };
-  updateAttributes(character);
 
   // eslint-disable-next-line no-console
   console.log('Selected Character Data:', character);
