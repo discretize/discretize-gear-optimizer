@@ -31,6 +31,50 @@ list:
         "Nourishment": "fruit-salad-mint-garnish"
       }
 
+  - name: Alacrity Mirage (Raid)
+    profession: Mirage
+    value: |-
+      {
+        "Runes": "nightmare",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "toxic-maintenance-oil",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: DPS Mirage (Raid)
+    profession: Mirage
+    value: |-
+      {
+        "Runes": "nightmare",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: Condi Chrono STM
+    profession: Chronomancer
+    value: |-
+      {
+        "Runes": "perplexity",
+        "Sigil1": "bursting",
+        "Sigil2": "concentration",
+        "Enhancement": "toxic-maintenance-oil",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: Condi Chrono DPS
+    profession: Chronomancer
+    value: |-
+      {
+        "Runes": "perplexity",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
   - name: '[old] Virtuoso'
     profession: Virtuoso
     value: |-
@@ -271,6 +315,17 @@ list:
         "Sigil2": "",
         "Enhancement": "",
         "Nourishment": ""
+      }
+
+  - name: Condi Holo
+    profession: Holosmith
+    value: |-
+      {
+        "Runes": "renegade",
+        "Sigil1": "malice",
+        "Sigil2": "bursting",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "beef-rendang"
       }
 
   - name: Cele Ren (Fractal)

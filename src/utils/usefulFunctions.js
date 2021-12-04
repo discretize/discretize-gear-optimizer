@@ -40,3 +40,4 @@ export const parseDistribution = (text) =>
   parseNumber(text, { defaultValue: 0, integerMode: false });
 export const parsePriority = (text) =>
   parseNumber(text, { defaultValue: null, integerMode: false });
+export const parseBoss = (text) => parseNumber(text, { defaultValue: null, integerMode: false });

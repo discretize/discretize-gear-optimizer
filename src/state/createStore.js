@@ -17,6 +17,7 @@ import { skillsSlice } from './slices/skills';
 import { prioritiesSlice } from './slices/priorities';
 import { extraModifiersSlice } from './slices/extraModifiers';
 import { forcedSlotsSlice } from './slices/forcedSlots';
+import { bossSlice } from './slices/boss';
 
 const createNoopStorage = () => {
   return {
@@ -62,6 +63,7 @@ const reducers = combineReducers({
       priorities: prioritiesSlice.reducer,
       extraModifiers: extraModifiersSlice.reducer,
       forcedSlots: forcedSlotsSlice.reducer,
+      boss: bossSlice.reducer,
     }),
   }),
 });

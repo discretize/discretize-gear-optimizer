@@ -13,6 +13,33 @@ list:
         traits: Power Chrono IA
         extras: Power (Fractal)
 
+      - name: Alacrity Mirage
+        id: alacmirage
+        specialization: Mirage
+        boons: Condi
+        priority: Condi DPS
+        distribution: Staff Mirage
+        traits: Staff Mirage
+        extras: Alacrity Mirage (Raid)
+
+      - name: Axe Mirage
+        id: axe-mirage-deception-torch
+        specialization: Mirage
+        boons: Condi
+        priority: Condi DPS
+        distribution: Axe Mirage (Deception Torch)
+        traits: Axe Mirage
+        extras: DPS Mirage (Raid)
+
+      - name: Condi Chrono STM
+        id: condi-chrono-stm
+        specialization: Chronomancer
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Chrono STM
+        traits: Condi Chrono
+        extras: Condi Chrono STM
+
       - name: '[old] Virtuoso'
         id: pvirt
         specialization: Virtuoso
@@ -399,6 +426,15 @@ list:
         distribution: Power Holo ECSU
         traits: Power Holo ECSU
         extras: Power (Fractal)
+
+      - name: Condi Holo
+        id: cholo
+        specialization: Holosmith
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Holo
+        traits: Condi Holo
+        extras: Condi Holo
 
       - name: Power Scrapper
         id: pscrap

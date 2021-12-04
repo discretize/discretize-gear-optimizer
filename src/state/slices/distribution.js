@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { changeAll, setBuildTemplate } from './controlsSlice';
-import { Condition } from '../../utils/gw2-data';
+import { conditionData } from '../../utils/gw2-data';
 
-const fixedCondition = { ...Condition, Poisoned: Condition.Poison };
+const fixedConditionData = { ...conditionData, Poisoned: conditionData.Poison };
 
 // reverse legacy percent distribution conversion
 // see: https://github.com/discretize/discretize-gear-optimizer/discussions/136
@@ -13,7 +13,7 @@ export const coefficientsToPercents = (values2, round = false) => {
   // reverse magic numbers
   values1.Power = (Power / 2597) * 1025;
   for (const [key, value] of Object.entries(rest)) {
-    values1[key] = value * fixedCondition[key].baseDamage;
+    values1[key] = value * fixedConditionData[key].baseDamage;
   }
 
   // scale up/down so sum is 100
