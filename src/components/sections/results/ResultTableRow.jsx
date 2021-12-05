@@ -1,19 +1,31 @@
 import { Typography, makeStyles } from '@material-ui/core';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
+import StarRoundedIcon from '@material-ui/icons/StarRounded';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { changeSelectedCharacter } from '../../../state/slices/controlsSlice';
+import { changeSelectedCharacter, toggleSaved } from '../../../state/slices/controlsSlice';
 
 const useStyles = makeStyles((theme) => ({
   comparisonText: {
     color: theme.palette.text.secondary,
+  },
+  unselectedStar: {
+    opacity: '0.2',
+    '&:hover': {
+      opacity: '1',
+      color: theme.palette.primary.dark,
+    },
+  },
+  selectedStar: {
+    color: theme.palette.primary.dark,
   },
 }));
 
 const ResultTableRow = ({
   character,
   selected,
+  saved = false,
   mostCommonAffix,
   underlineClass,
   selectedValue,
@@ -42,6 +54,15 @@ const ResultTableRow = ({
       hover
       className={underlineClass}
     >
+      <TableCell scope="row" align="center" padding="none">
+        <StarRoundedIcon
+          className={saved ? classes.selectedStar : classes.unselectedStar}
+          onClick={(e) => {
+            dispatch(toggleSaved(character));
+            e.stopPropagation();
+          }}
+        />
+      </TableCell>
       <TableCell scope="row">
         {value.toFixed(0)}
         {comparisonText ? (
