@@ -17,7 +17,7 @@ const ResultTableHeaderRow = ({
   return (
     <TableRow>
       <TableCell className={classes.tablehead} align="center" padding="none">
-        <HelperIcon text={t('Click the star icon to pin a build for comparison.')} size="small" />
+        <HelperIcon text={t('Click the star icon to save a result for comparison.')} size="small" />
       </TableCell>
       <TableCell className={classes.tablehead}>
         {t('priorityGoal', {

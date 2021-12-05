@@ -6,7 +6,7 @@ export const controlSlice = createSlice({
   initialState: {
     expertMode: true,
     list: [],
-    pinned: [],
+    saved: [],
     progress: 0,
     selectedCharacter: null,
     selectedTemplate: '',
@@ -68,14 +68,14 @@ export const controlSlice = createSlice({
     changeList: (state, action) => {
       return { ...state, list: action.payload };
     },
-    togglePinned: (state, action) => {
+    toggleSaved: (state, action) => {
       // required to use reference equality check with immer.js
-      const originalPinned = original(state.pinned);
+      const originalSaved = original(state.saved);
 
-      if (originalPinned.includes(action.payload)) {
-        state.pinned = originalPinned.filter((character) => character !== action.payload);
+      if (originalSaved.includes(action.payload)) {
+        state.saved = originalSaved.filter((character) => character !== action.payload);
       } else {
-        state.pinned.push(action.payload);
+        state.saved.push(action.payload);
       }
     },
     changeSelectedCharacter: (state, action) => {
@@ -90,7 +90,7 @@ export const controlSlice = createSlice({
 export const getProfession = (state) => state.optimizer.control.profession;
 export const getControl = (key) => (state) => state.optimizer.control[key];
 export const getList = (state) => state.optimizer.control.list;
-export const getPinned = (state) => state.optimizer.control.pinned;
+export const getSaved = (state) => state.optimizer.control.saved;
 export const getSelectedCharacter = (state) => state.optimizer.control.selectedCharacter;
 export const getError = (state) => state.optimizer.control.error;
 
@@ -101,7 +101,7 @@ export const {
   changeExpertMode,
   changeControl,
   changeList,
-  togglePinned,
+  toggleSaved,
   setBuildTemplate,
   changeSelectedCharacter,
   changeError,

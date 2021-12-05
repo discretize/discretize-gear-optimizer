@@ -5,7 +5,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getList, getSelectedCharacter, getPinned } from '../../../state/slices/controlsSlice';
+import { getList, getSelectedCharacter, getSaved } from '../../../state/slices/controlsSlice';
 import ResultTableRow from './ResultTableRow';
 import ResultTableHeaderRow from './ResultTableHeaderRow';
 
@@ -47,7 +47,7 @@ const mode = (array) => {
 const StickyHeadTable = ({ classes }) => {
   const selectedCharacter = useSelector(getSelectedCharacter);
   const list = useSelector(getList) || [];
-  const pinned = useSelector(getPinned) || [];
+  const saved = useSelector(getSaved) || [];
 
   let mostCommonAffix = null;
   if (/* status !== RUNNING && */ list[0]) {
@@ -74,16 +74,16 @@ const StickyHeadTable = ({ classes }) => {
             />
           </TableHead>
           <TableBody className={classes.pointer}>
-            {/* {pinned.length
-              ? pinned.map((character, i) => {
+            {/* {saved.length
+              ? saved.map((character, i) => {
                   return (
                     <ResultTableRow
                       character={character}
                       key={character.id}
                       selected={character === selectedCharacter}
-                      pinned={pinned.includes(character)}
+                      saved={saved.includes(character)}
                       mostCommonAffix={mostCommonAffix}
-                      underlineClass={i === pinned.length - 1 ? classes.bigUnderline : null}
+                      underlineClass={i === saved.length - 1 ? classes.bigUnderline : null}
                     />
                   );
                 })
@@ -100,7 +100,7 @@ const StickyHeadTable = ({ classes }) => {
                   character={character}
                   key={character.id}
                   selected={character === selectedCharacter}
-                  pinned={pinned.includes(character)}
+                  saved={saved.includes(character)}
                   mostCommonAffix={mostCommonAffix}
                   underlineClass={underline ? classes.underline : null}
                   selectedValue={selectedValue}
@@ -109,13 +109,13 @@ const StickyHeadTable = ({ classes }) => {
             })}
           </TableBody>
           {/* <TableFooter style={{ position: 'sticky', bottom: '0', zIndex: '2' }}>
-            {pinned.map((character) => {
+            {saved.map((character) => {
               return (
                 <ResultTableRow
                   character={character}
                   key={character.id}
                   selected={character === selectedCharacter}
-                  pinned={pinned.includes(character)}
+                  saved={saved.includes(character)}
                   mostCommonAffix={mostCommonAffix}
                 />
               );
@@ -124,9 +124,9 @@ const StickyHeadTable = ({ classes }) => {
         </Table>
       </TableContainer>
 
-      {pinned.length ? (
+      {saved.length ? (
         <>
-          pinned builds:
+          saved results:
           <TableContainer className={classes.container}>
             <Table stickyHeader aria-label="sticky table" className={classes.tableCollapse}>
               {/* <TableHead>
@@ -138,15 +138,15 @@ const StickyHeadTable = ({ classes }) => {
                 />
               </TableHead> */}
               <TableBody className={classes.pointer}>
-                {pinned.map((character, i) => {
+                {saved.map((character, i) => {
                   return (
                     <ResultTableRow
                       character={character}
                       key={character.id}
                       selected={character === selectedCharacter}
-                      pinned={pinned.includes(character)}
+                      saved={saved.includes(character)}
                       mostCommonAffix={mostCommonAffix}
-                      underlineClass={i === pinned.length - 1 ? classes.bigUnderline : null}
+                      underlineClass={i === saved.length - 1 ? classes.bigUnderline : null}
                       selectedValue={selectedValue}
                     />
                   );

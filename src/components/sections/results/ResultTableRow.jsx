@@ -4,7 +4,7 @@ import TableRow from '@material-ui/core/TableRow';
 import StarRoundedIcon from '@material-ui/icons/StarRounded';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { changeSelectedCharacter, togglePinned } from '../../../state/slices/controlsSlice';
+import { changeSelectedCharacter, toggleSaved } from '../../../state/slices/controlsSlice';
 
 const useStyles = makeStyles((theme) => ({
   comparisonText: {
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 const ResultTableRow = ({
   character,
   selected,
-  pinned = false,
+  saved = false,
   mostCommonAffix,
   underlineClass,
   selectedValue,
@@ -51,9 +51,9 @@ const ResultTableRow = ({
     >
       <TableCell scope="row" align="center" padding="none">
         <StarRoundedIcon
-          className={pinned ? classes.selectedStar : classes.unselectedStar}
+          className={saved ? classes.selectedStar : classes.unselectedStar}
           onClick={(e) => {
-            dispatch(togglePinned(character));
+            dispatch(toggleSaved(character));
             e.stopPropagation();
           }}
         />
