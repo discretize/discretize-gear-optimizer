@@ -64,7 +64,7 @@ const ResultTableRow = ({
         />
       </TableCell>
       <TableCell scope="row">
-        {value.toFixed(2)}
+        {value.toFixed(0)}
         {comparisonText ? (
           <Typography variant="caption" className={classes.comparisonText}>
             {comparisonText}
