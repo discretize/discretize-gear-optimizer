@@ -29,6 +29,7 @@ const ResultTableRow = ({
   mostCommonAffix,
   underlineClass,
   selectedValue,
+  compareByPercent,
 }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -36,9 +37,13 @@ const ResultTableRow = ({
   const { value } = character.results;
   const comparisonValue = selectedValue ? value - selectedValue : 0;
 
-  // using toLocaleString to display a minus sign on negative zero
   const comparisonText = comparisonValue
-    ? ` ${comparisonValue > 0 ? '+' : ''}${Math.round(comparisonValue).toLocaleString()}`
+    ? ` ${comparisonValue > 0 ? '+' : ''}${
+        compareByPercent
+          ? `${((100 * comparisonValue) / selectedValue).toFixed(2)}%`
+          : // using toLocaleString to display a minus sign on negative zero
+            Math.round(comparisonValue).toLocaleString()
+      }`
     : '';
 
   return (

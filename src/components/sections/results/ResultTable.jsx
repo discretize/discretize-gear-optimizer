@@ -1,11 +1,16 @@
-import { Box, withStyles } from '@material-ui/core';
+import { Box, withStyles, Grid, Switch } from '@material-ui/core';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getList, getSelectedCharacter, getSaved } from '../../../state/slices/controlsSlice';
+import {
+  getList,
+  getSelectedCharacter,
+  getSaved,
+  getCompareByPercent,
+} from '../../../state/slices/controlsSlice';
 import ResultTableRow from './ResultTableRow';
 import ResultTableHeaderRow from './ResultTableHeaderRow';
 
@@ -48,6 +53,7 @@ const StickyHeadTable = ({ classes }) => {
   const selectedCharacter = useSelector(getSelectedCharacter);
   const list = useSelector(getList) || [];
   const saved = useSelector(getSaved) || [];
+  const compareByPercent = useSelector(getCompareByPercent);
 
   let mostCommonAffix = null;
   if (/* status !== RUNNING && */ list[0]) {
@@ -84,6 +90,7 @@ const StickyHeadTable = ({ classes }) => {
                       saved={saved.includes(character)}
                       mostCommonAffix={mostCommonAffix}
                       underlineClass={i === saved.length - 1 ? classes.bigUnderline : null}
+                      compareByPercent={compareByPercent}
                     />
                   );
                 })
@@ -104,6 +111,7 @@ const StickyHeadTable = ({ classes }) => {
                   mostCommonAffix={mostCommonAffix}
                   underlineClass={underline ? classes.underline : null}
                   selectedValue={selectedValue}
+                  compareByPercent={compareByPercent}
                 />
               );
             })}
@@ -117,6 +125,7 @@ const StickyHeadTable = ({ classes }) => {
                   selected={character === selectedCharacter}
                   saved={saved.includes(character)}
                   mostCommonAffix={mostCommonAffix}
+                  compareByPercent={compareByPercent}
                 />
               );
             })}
@@ -148,6 +157,7 @@ const StickyHeadTable = ({ classes }) => {
                       mostCommonAffix={mostCommonAffix}
                       underlineClass={i === saved.length - 1 ? classes.bigUnderline : null}
                       selectedValue={selectedValue}
+                      compareByPercent={compareByPercent}
                     />
                   );
                 })}

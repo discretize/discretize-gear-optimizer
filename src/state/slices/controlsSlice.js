@@ -7,6 +7,7 @@ export const controlSlice = createSlice({
     expertMode: true,
     list: [],
     saved: [],
+    compareByPercent: false,
     progress: 0,
     selectedCharacter: null,
     selectedTemplate: '',
@@ -78,6 +79,9 @@ export const controlSlice = createSlice({
         state.saved.push(action.payload);
       }
     },
+    changeCompareByPercent: (state, action) => {
+      state.compareByPercent = action.payload;
+    },
     changeSelectedCharacter: (state, action) => {
       state.selectedCharacter = action.payload;
     },
@@ -91,6 +95,7 @@ export const getProfession = (state) => state.optimizer.control.profession;
 export const getControl = (key) => (state) => state.optimizer.control[key];
 export const getList = (state) => state.optimizer.control.list;
 export const getSaved = (state) => state.optimizer.control.saved;
+export const getCompareByPercent = (state) => state.optimizer.control.compareByPercent;
 export const getSelectedCharacter = (state) => state.optimizer.control.selectedCharacter;
 export const getError = (state) => state.optimizer.control.error;
 
@@ -102,6 +107,7 @@ export const {
   changeControl,
   changeList,
   toggleSaved,
+  changeCompareByPercent,
   setBuildTemplate,
   changeSelectedCharacter,
   changeError,
