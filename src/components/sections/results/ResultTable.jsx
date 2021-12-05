@@ -5,7 +5,11 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getList, getSelectedCharacter } from '../../../state/slices/controlsSlice';
+import {
+  getList,
+  getSelectedCharacter,
+  getCompareByPercent,
+} from '../../../state/slices/controlsSlice';
 import ResultTableRow from './ResultTableRow';
 import ResultTableHeaderRow from './ResultTableHeaderRow';
 
@@ -48,6 +52,7 @@ const mode = (array) => {
 const StickyHeadTable = ({ classes }) => {
   const selectedCharacter = useSelector(getSelectedCharacter);
   const list = useSelector(getList) || [];
+  const compareByPercent = useSelector(getCompareByPercent);
 
   let mostCommonAffix = null;
   if (/* status !== RUNNING && */ list[0]) {
@@ -58,6 +63,8 @@ const StickyHeadTable = ({ classes }) => {
   const weaponType = firstCharacter?.settings?.weaponType;
   const infusions = firstCharacter?.infusions;
   const rankBy = firstCharacter?.settings?.rankby;
+
+  const selectedValue = selectedCharacter?.results?.value;
 
   return (
     <Box boxShadow={8}>
@@ -86,6 +93,8 @@ const StickyHeadTable = ({ classes }) => {
                   selected={character === selectedCharacter}
                   mostCommonAffix={mostCommonAffix}
                   underlineClass={underline ? classes.underline : null}
+                  selectedValue={selectedValue}
+                  compareByPercent={compareByPercent}
                 />
               );
             })}
