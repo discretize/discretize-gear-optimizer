@@ -1,10 +1,18 @@
-import { Box, Button, Chip, makeStyles, Typography } from '@material-ui/core';
+import {
+  Box,
+  Button,
+  Chip,
+  makeStyles,
+  Typography,
+  FormControlLabel,
+  Switch,
+} from '@material-ui/core';
 import Cancel from '@material-ui/icons/Cancel';
 import DoneAllIcon from '@material-ui/icons/DoneAll';
 import ErrorIcon from '@material-ui/icons/Error';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 import classNames from 'classnames';
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -12,6 +20,8 @@ import {
   changeError,
   getControl,
   getError,
+  getCompareByPercent,
+  changeCompareByPercent,
 } from '../../../state/slices/controlsSlice';
 import { ABORTED, ERROR, RUNNING, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import { getPriority } from '../../../state/slices/priorities';
@@ -43,10 +53,13 @@ const useStyles = makeStyles((theme) => ({
 const ControlsBox = ({ profession }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const status = useSelector(getControl('status'));
   const error = useSelector(getError);
   const affixes = useSelector(getPriority('affixes'));
+
+  const compareByPercent = useSelector(getCompareByPercent);
 
   const onStartCalculate = React.useCallback(
     (e) => {
@@ -127,6 +140,21 @@ const ControlsBox = ({ profession }) => {
               <Trans>Abort</Trans>
             </Typography>
           </Button>
+        </Box>
+        <Box alignSelf="center">
+          <Typography variant="caption">
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={compareByPercent}
+                  onChange={(e) => dispatch(changeCompareByPercent(e.target.checked))}
+                  name="checked"
+                  color="primary"
+                />
+              }
+              label={t('% Comparison')}
+            />
+          </Typography>
         </Box>
         <Box alignSelf="center" display="flex" m={1} maxWidth={300}>
           <Typography variant="caption" className={classes.errorText}>
