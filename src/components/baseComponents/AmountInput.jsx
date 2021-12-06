@@ -2,7 +2,14 @@ import React from 'react';
 import { InputAdornment, TextField } from '@material-ui/core';
 import { parseAmount } from '../../utils/usefulFunctions';
 
-const AmountInput = ({ placeholder, label, handleAmountChange, value = '', disabled = false }) => {
+const AmountInput = ({
+  placeholder,
+  label,
+  handleAmountChange,
+  value = '',
+  disabled = false,
+  maxWidth,
+}) => {
   const { error } = parseAmount(value);
 
   return (
@@ -16,7 +23,7 @@ const AmountInput = ({ placeholder, label, handleAmountChange, value = '', disab
             {label}
           </InputAdornment>
         ),
-        inputProps: { style: { maxWidth: '32px' } },
+        inputProps: { style: { maxWidth: maxWidth || '32px' } },
       }}
       onChange={handleAmountChange}
       disabled={disabled}

@@ -56,12 +56,12 @@ const Boss = () => {
       <Typography variant="body2">
         <Trans>note: assumes similar damage distribution with/without exposed</Trans>
       </Typography> */}
-
       <Typography>
         <Trans>
-          <Condition name="Torment" disableText /> movement uptime
+          <Condition name="Torment" disableText /> Movement Uptime
         </Trans>
       </Typography>
+
       <AmountInput
         label="%"
         handleAmountChange={(e) => dispatch(changeMovementUptime(e.target.value))}
@@ -76,18 +76,19 @@ const Boss = () => {
         onChange={(_e, value) => dispatch(changeMovementUptime(String(value)))}
         valueLabelDisplay="auto"
         valueLabelFormat={(text) => `${text}%`}
-        style={{ maxWidth: 250 }}
+        style={{ marginLeft: 16, maxWidth: 300 }}
       />
 
       <Typography>
         <Trans>
-          <Condition name="Confusion" disableText /> attack rate
+          <Condition name="Confusion" disableText /> Attack Rate
         </Trans>
       </Typography>
       <AmountInput
-        label={t('/sec')}
+        label={t('/s')}
         handleAmountChange={(e) => dispatch(changeAttackRate(e.target.value))}
         value={attackRateString}
+        maxWidth={36}
       />
       <Slider
         value={attackRate}
@@ -97,7 +98,7 @@ const Boss = () => {
         // marks={}
         onChange={(_e, value) => dispatch(changeAttackRate(String(value)))}
         valueLabelDisplay="auto"
-        style={{ maxWidth: 250 }}
+        style={{ marginLeft: 16, maxWidth: 300 }}
       />
     </>
   );
