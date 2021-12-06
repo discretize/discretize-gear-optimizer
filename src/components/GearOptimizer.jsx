@@ -18,6 +18,7 @@ import ResultDetails from './sections/results/ResultDetails';
 import ResultTable from './sections/results/ResultTable';
 import SkillsSection from './sections/skills/SkillsSection';
 import TraitsSection from './sections/traits/TraitsSection';
+import BossSection from './sections/boss/BossSection';
 
 const useTemplateLoadOnMount = (location) => {
   const dispatch = useDispatch();
@@ -103,6 +104,8 @@ const MainComponent = ({ classes, data, location }) => {
               <PrioritiesSection data={data} />
 
               <DistributionSection profession={profession} data={data} />
+
+              <BossSection />
             </>
           ) : (
             <>
@@ -113,6 +116,8 @@ const MainComponent = ({ classes, data, location }) => {
               <InfusionsSection data={data} />
 
               <PrioritiesSection data={data} />
+
+              <BossSection />
             </>
           )}
         </Grid>
