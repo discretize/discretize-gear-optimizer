@@ -2,8 +2,8 @@ import { Box, Grid, Typography, withStyles } from '@material-ui/core';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import { graphql, StaticQuery } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { getControl, getProfession } from '../state/slices/controlsSlice';
 import NavBar from './nav/NavBar';
 import BuffsSection from './sections/buffs/BuffsSection';
@@ -18,6 +18,22 @@ import ResultDetails from './sections/results/ResultDetails';
 import ResultTable from './sections/results/ResultTable';
 import SkillsSection from './sections/skills/SkillsSection';
 import TraitsSection from './sections/traits/TraitsSection';
+
+const useTemplateLoadOnMount = (location) => {
+  const dispatch = useDispatch();
+
+  const searchParams = new URLSearchParams(location.search);
+
+  useEffect(() => {
+    // const versionString = searchParams.get('version');
+    const stateString = searchParams.get('SECRET_ALPHA_RESTORE_STATE_FROM_URL');
+    if (stateString) {
+      console.log('dispatching state import');
+      dispatch({ type: 'IMPORT_STATE', payload: stateString });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+};
 
 const styles = (theme) => ({
   root: {
@@ -35,12 +51,14 @@ const styles = (theme) => ({
  * @param {{classes, data}} styles and data fetched by graphiql
  */
 
-const MainComponent = ({ classes, data }) => {
+const MainComponent = ({ classes, data, location }) => {
   // Query variables from redux store that should have a global scope
   const expertMode = useSelector(getControl('expertMode'));
   const profession = useSelector(getProfession);
 
   const { t } = useTranslation();
+
+  useTemplateLoadOnMount(location);
 
   const classOrBuildText = t('Select a class or a build template from the menu above!');
   const classText = t('Select a build template from the menu above!');
@@ -109,7 +127,7 @@ const MainComponent = ({ classes, data }) => {
 };
 
 // Wrapper around the main component. GraphQL is queried here.
-const GearOptimizer = ({ classes }) => {
+const GearOptimizer = ({ classes, ...rest }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -182,7 +200,7 @@ const GearOptimizer = ({ classes }) => {
           }
         }
       `}
-      render={(data) => <MainComponent classes={classes} data={data} />}
+      render={(data) => <MainComponent classes={classes} data={data} {...rest} />}
     />
   );
 };
