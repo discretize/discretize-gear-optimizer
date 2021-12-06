@@ -22,14 +22,15 @@ import TraitsSection from './sections/traits/TraitsSection';
 const useTemplateLoadOnMount = (location) => {
   const dispatch = useDispatch();
 
-  const searchParams = new URLSearchParams(location.search);
-
   useEffect(() => {
-    // const versionString = searchParams.get('version');
-    const stateString = searchParams.get('SECRET_ALPHA_RESTORE_STATE_FROM_URL');
-    if (stateString) {
-      console.log('dispatching state import');
-      dispatch({ type: 'IMPORT_STATE', payload: stateString });
+    if (location?.search) {
+      const searchParams = new URLSearchParams(location.search);
+      // const versionString = searchParams.get('version');
+      const stateString = searchParams.get('SECRET_ALPHA_RESTORE_STATE_FROM_URL');
+      if (stateString) {
+        console.log('dispatching state import');
+        dispatch({ type: 'IMPORT_STATE', payload: stateString });
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
