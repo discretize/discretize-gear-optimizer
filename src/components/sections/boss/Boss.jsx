@@ -1,7 +1,7 @@
 import React from 'react';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { Typography, makeStyles, Slider } from '@material-ui/core';
+import { Typography, makeStyles, Slider, Box } from '@material-ui/core';
 import { Condition as ConditionRaw } from 'gw2-ui-bulk';
 import AmountInput from '../../baseComponents/AmountInput';
 import {
@@ -64,14 +64,9 @@ const confusionMarks = [
   },
 ];
 
-const useStyles = makeStyles((theme) => ({
-  slider: { marginLeft: 16, marginRight: 16, marginBottom: 18 },
-}));
-
 const Boss = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const classes = useStyles();
 
   // const exposedUptimeString = useSelector(getExposedUptime);
   const attackRateString = useSelector(getAttackRate);
@@ -97,16 +92,17 @@ const Boss = () => {
         useAutoComplete
         autoCompleteProps={{ options: [] }}
       />
-      <Slider
-        value={movementUptime}
-        step={1}
-        min={0}
-        max={100}
-        onChange={(_e, value) => dispatch(changeMovementUptime(String(value)))}
-        valueLabelDisplay="auto"
-        valueLabelFormat={(text) => `${text}%`}
-        className={classes.slider}
-      />
+      <Box mx={3} mb={4}>
+        <Slider
+          value={movementUptime}
+          step={1}
+          min={0}
+          max={100}
+          onChange={(_e, value) => dispatch(changeMovementUptime(String(value)))}
+          valueLabelDisplay="auto"
+          valueLabelFormat={(text) => `${text}%`}
+        />
+      </Box>
 
       <Typography>
         <Trans>
@@ -124,16 +120,17 @@ const Boss = () => {
           renderOption: (option) => `${option}: ${confusionOptionLabels[option]}`,
         }}
       />
-      <Slider
-        value={attackRate}
-        step={0.01}
-        min={0}
-        max={0.83}
-        marks={confusionMarks}
-        onChange={(_e, value) => dispatch(changeAttackRate(String(value)))}
-        valueLabelDisplay="auto"
-        className={classes.slider}
-      />
+      <Box mx={3}>
+        <Slider
+          value={attackRate}
+          step={0.01}
+          min={0}
+          max={0.83}
+          marks={confusionMarks}
+          onChange={(_e, value) => dispatch(changeAttackRate(String(value)))}
+          valueLabelDisplay="auto"
+        />
+      </Box>
     </>
   );
 };
