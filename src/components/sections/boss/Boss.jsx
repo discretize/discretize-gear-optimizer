@@ -46,6 +46,7 @@ const Boss = () => {
         endLabel="%"
         handleAmountChange={(e) => dispatch(changeExposedUptime(e.target.value))}
         value={exposedUptimeString}
+        maxWidth={36}
       />
       <Slider
         value={exposedUptime}
@@ -71,6 +72,7 @@ const Boss = () => {
         endLabel="%"
         handleAmountChange={(e) => dispatch(changeMovementUptime(e.target.value))}
         value={movementUptimeString}
+        maxWidth={36}
       />
       <Slider
         value={movementUptime}

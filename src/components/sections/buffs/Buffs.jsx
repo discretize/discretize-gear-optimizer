@@ -131,6 +131,7 @@ const Buffs = ({ classes }) => {
                           handleAmountChange={handleAmountChange(buff)}
                           value={amounts[id]}
                           disabled={!buffs[id]}
+                          maxWidth={32}
                         />
                       </Box>
                     ) : null}

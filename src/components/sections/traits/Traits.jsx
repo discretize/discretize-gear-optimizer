@@ -186,6 +186,7 @@ const Traits = ({ classes, data = [] }) => {
                       handleAmountChange={handleAmountChange(index, id)}
                       value={amount}
                       disabled={!visible || !enabled}
+                      maxWidth={32}
                     />
                   </Box>
                 ) : null}

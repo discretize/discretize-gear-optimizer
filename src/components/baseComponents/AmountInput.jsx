@@ -37,6 +37,7 @@ const AmountInput = ({
                 </InputAdornment>
               ),
             }}
+            style={maxWidth ? { maxWidth } : null}
           />
         )}
         value={value}
@@ -59,7 +60,7 @@ const AmountInput = ({
             {endLabel}
           </InputAdornment>
         ),
-        inputProps: { style: { maxWidth: maxWidth || '32px' } },
+        inputProps: { style: maxWidth ? { maxWidth } : null },
       }}
       onChange={handleAmountChange}
       disabled={disabled}
