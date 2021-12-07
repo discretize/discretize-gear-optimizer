@@ -1,21 +1,17 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { Typography, makeStyles, Grid, Slider } from '@material-ui/core';
-import { CommonEffect as CommonEffectRaw, Condition as ConditionRaw } from 'gw2-ui-bulk';
+import { Typography, makeStyles, Slider } from '@material-ui/core';
+import { Condition as ConditionRaw } from 'gw2-ui-bulk';
 import AmountInput from '../../baseComponents/AmountInput';
 import {
-  // getExposedUptime,
   getAttackRate,
   getMovementUptime,
-  // changeExposedUptime,
   changeAttackRate,
   changeMovementUptime,
 } from '../../../state/slices/boss';
 import { parseBoss } from '../../../utils/usefulFunctions';
 
-const CommonEffect = React.memo(CommonEffectRaw);
 const Condition = React.memo(ConditionRaw);
 
 const confusionOptionLabels = {
@@ -69,7 +65,7 @@ const confusionMarks = [
 ];
 
 const useStyles = makeStyles((theme) => ({
-  slider: { marginLeft: 16, /* maxWidth: 300, */ marginBottom: 28 },
+  slider: { marginLeft: 16, marginRight: 16, marginBottom: 18 },
 }));
 
 const Boss = () => {
@@ -87,31 +83,6 @@ const Boss = () => {
 
   return (
     <>
-      {/* <Typography>
-        <Trans>
-          <CommonEffect name="Exposed" disableText /> exposed uptime
-        </Trans>
-      </Typography>
-      <AmountInput
-        endLabel="%"
-        handleAmountChange={(e) => dispatch(changeExposedUptime(e.target.value))}
-        value={exposedUptimeString}
-        maxWidth={36}
-      />
-      <Slider
-        value={exposedUptime}
-        step={1}
-        min={0}
-        max={100}
-        // marks={}
-        onChange={(_e, value) => dispatch(changeExposedUptime(String(value)))}
-        valueLabelDisplay="auto"
-        valueLabelFormat={(text) => `${text}%`}
-        style={{ maxWidth: 250 }}
-      />
-      <Typography variant="body2">
-        <Trans>note: assumes similar damage distribution with/without exposed</Trans>
-      </Typography> */}
       <Typography>
         <Trans>
           <Condition name="Torment" disableText /> Movement Uptime
@@ -131,7 +102,6 @@ const Boss = () => {
         step={1}
         min={0}
         max={100}
-        // marks={}
         onChange={(_e, value) => dispatch(changeMovementUptime(String(value)))}
         valueLabelDisplay="auto"
         valueLabelFormat={(text) => `${text}%`}
