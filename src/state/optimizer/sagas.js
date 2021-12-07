@@ -117,7 +117,7 @@ function* runCalc() {
   let input;
   let settings;
   let oldPercent;
-  let selectedCharacterIsStale = true;
+  let originalSelectedCharacter;
   try {
     yield delay(0);
 
@@ -154,10 +154,7 @@ function* runCalc() {
 
     const generatedResults = optimizerCore.calculate(settings);
 
-    // clear the selected character on click "instantly," but actually with a small delay
-    // (short calculations will update in-place without a flicker)
-    let clearResultsCounter = 0;
-    const clearResultsAfter = 5;
+    originalSelectedCharacter = yield select(getSelectedCharacter);
 
     // render list updates on a trailing throttle
     // back-to-back(to-back) list updates will only be rendered once
@@ -165,12 +162,6 @@ function* runCalc() {
     const listThrottle = 3;
 
     for (const { percent: newPercent, isChanged, newList } of generatedResults) {
-      clearResultsCounter++;
-      if (clearResultsCounter === clearResultsAfter) {
-        yield put(changeSelectedCharacter(null));
-        selectedCharacterIsStale = false;
-      }
-
       listRenderCounter++;
       if (isChanged) {
         currentList = newList;
@@ -209,7 +200,7 @@ function* runCalc() {
 
     // automatically select the top result unless the user clicked one during the calculation
     const selectedCharacter = yield select(getSelectedCharacter);
-    if (currentList && (!selectedCharacter || selectedCharacterIsStale)) {
+    if (currentList && (!selectedCharacter || selectedCharacter === originalSelectedCharacter)) {
       yield put(changeSelectedCharacter(currentList[0]));
     }
 
@@ -231,7 +222,7 @@ function* runCalc() {
       console.timeEnd('Calculation');
       console.time('Render Result');
       const selectedCharacter = yield select(getSelectedCharacter);
-      if (!selectedCharacter || selectedCharacterIsStale) {
+      if (!selectedCharacter || selectedCharacter === originalSelectedCharacter) {
         currentList = yield select(getList);
         if (currentList && currentList[0]) {
           yield put(changeSelectedCharacter(currentList[0]));
