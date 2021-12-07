@@ -32,6 +32,16 @@ import InfusionHelper from './InfusionHelper';
 import HelperIcon from '../../baseComponents/HelperIcon';
 import { INFUSION_IDS } from '../../../utils/gw2-data';
 
+const arOptionLabels = {
+  '150': '150',
+  '203': '203 (DH Radiance)',
+  '222': '222',
+  '243': '243 (Soulbeast)',
+  '245': '245 (Weaver)',
+  '343': '343 (DH Virtues)',
+};
+const arOptions = Object.keys(arOptionLabels);
+
 const styles = (theme) => ({
   formControl: {
     width: 200,
@@ -132,7 +142,8 @@ const Infusions = ({ classes }) => {
             className={classes.formControl}
             freeSolo
             disableClearable
-            options={['150', '162', '222']}
+            options={arOptions}
+            renderOption={(option) => arOptionLabels[option]}
             renderInput={(params) => (
               <TextField
                 {...params}
