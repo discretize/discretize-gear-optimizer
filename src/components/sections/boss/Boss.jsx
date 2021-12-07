@@ -96,6 +96,7 @@ const Boss = () => {
         <Slider
           value={movementUptime}
           step={1}
+          marks={[...Array(11).keys()].map((num) => ({ value: num * 10, label: num * 10 }))}
           min={0}
           max={100}
           onChange={(_e, value) => dispatch(changeMovementUptime(String(value)))}
