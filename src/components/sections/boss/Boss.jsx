@@ -18,9 +18,14 @@ import { parseBoss } from '../../../utils/usefulFunctions';
 const CommonEffect = React.memo(CommonEffectRaw);
 const Condition = React.memo(ConditionRaw);
 
+const useStyles = makeStyles((theme) => ({
+  slider: { marginLeft: 16, maxWidth: 300, marginBottom: 28 },
+}));
+
 const Boss = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const classes = useStyles();
 
   // const exposedUptimeString = useSelector(getExposedUptime);
   const attackRateString = useSelector(getAttackRate);
@@ -76,7 +81,7 @@ const Boss = () => {
         onChange={(_e, value) => dispatch(changeMovementUptime(String(value)))}
         valueLabelDisplay="auto"
         valueLabelFormat={(text) => `${text}%`}
-        style={{ marginLeft: 16, maxWidth: 300 }}
+        className={classes.slider}
       />
 
       <Typography>
@@ -98,7 +103,7 @@ const Boss = () => {
         // marks={}
         onChange={(_e, value) => dispatch(changeAttackRate(String(value)))}
         valueLabelDisplay="auto"
-        style={{ marginLeft: 16, maxWidth: 300 }}
+        className={classes.slider}
       />
     </>
   );
