@@ -73,7 +73,7 @@ const Skills = ({ classes, data }) => {
             <AmountInput
               placeholder={amountData.default}
               // i18next-extract-mark-context-next-line {{amountLabel}}
-              label={t('amountLabel', { context: amountData.label })}
+              endLabel={t('amountLabel', { context: amountData.label })}
               handleAmountChange={handleAmountChange(id)}
               value={amount}
               disabled={!enabled}

@@ -3,13 +3,10 @@ import {
   Grid,
   Input,
   InputLabel,
-  InputAdornment,
-  TextField,
   MenuItem,
   Select,
   withStyles,
 } from '@material-ui/core';
-import { Autocomplete } from '@material-ui/lab';
 import { Attribute, Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,6 +25,7 @@ import {
 } from '../../../state/slices/infusions';
 import { parseAr, parseInfusionCount } from '../../../utils/usefulFunctions';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
+import AmountInput from '../../baseComponents/AmountInput';
 import InfusionHelper from './InfusionHelper';
 import HelperIcon from '../../baseComponents/HelperIcon';
 import { INFUSION_IDS } from '../../../utils/gw2-data';
@@ -66,8 +64,6 @@ const Infusions = ({ classes }) => {
   const secondaryMaxInfusions = useSelector(getSecondaryMaxInfusions);
 
   const handleARChange = React.useCallback((_e, value) => dispatch(changeAR(value)), [dispatch]);
-
-  const { error: arError } = parseAr(ar);
 
   const dropdown = (name, varName, infusion) => {
     return (
@@ -138,30 +134,18 @@ const Infusions = ({ classes }) => {
           />
         </Grid>
         <Grid item xs={12} sm>
-          <Autocomplete
+          <AmountInput
             className={classes.formControl}
-            freeSolo
-            disableClearable
-            options={arOptions}
-            renderOption={(option) => arOptionLabels[option]}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                error={arError}
-                InputProps={{
-                  ...params.InputProps,
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <Attribute name="Agony Resistance" disableLink disableText />
-                    </InputAdornment>
-                  ),
-                }}
-                label={t('Agony Resistance')}
-              />
-            )}
-            id="ar_input-with-icon-adornment"
+            useAutoComplete
+            parseFn={parseAr}
+            handleAmountChange={handleARChange}
+            label={t('Agony Resistance')}
+            endLabel={<Attribute name="Agony Resistance" disableLink disableText />}
+            autoCompleteProps={{
+              options: arOptions,
+              renderOption: (option) => arOptionLabels[option],
+            }}
             value={ar}
-            onInputChange={handleARChange}
           />
         </Grid>
       </Grid>

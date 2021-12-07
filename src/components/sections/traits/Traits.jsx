@@ -182,7 +182,7 @@ const Traits = ({ classes, data = [] }) => {
                     <AmountInput
                       placeholder={amountData.default}
                       // i18next-extract-mark-context-next-line {{amountLabel}}
-                      label={t('amountLabel', { context: amountData.label })}
+                      endLabel={t('amountLabel', { context: amountData.label })}
                       handleAmountChange={handleAmountChange(index, id)}
                       value={amount}
                       disabled={!visible || !enabled}

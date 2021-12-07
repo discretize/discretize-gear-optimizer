@@ -127,7 +127,7 @@ const Buffs = ({ classes }) => {
                       <Box display="flex">
                         <AmountInput
                           placeholder={amountData.default}
-                          label={amountData.label}
+                          endLabel={amountData.label}
                           handleAmountChange={handleAmountChange(buff)}
                           value={amounts[id]}
                           disabled={!buffs[id]}

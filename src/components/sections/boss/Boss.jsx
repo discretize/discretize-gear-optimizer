@@ -43,7 +43,7 @@ const Boss = () => {
         </Trans>
       </Typography>
       <AmountInput
-        label="%"
+        endLabel="%"
         handleAmountChange={(e) => dispatch(changeExposedUptime(e.target.value))}
         value={exposedUptimeString}
       />
@@ -68,7 +68,7 @@ const Boss = () => {
       </Typography>
 
       <AmountInput
-        label="%"
+        endLabel="%"
         handleAmountChange={(e) => dispatch(changeMovementUptime(e.target.value))}
         value={movementUptimeString}
       />
@@ -90,7 +90,7 @@ const Boss = () => {
         </Trans>
       </Typography>
       <AmountInput
-        label={t('/s')}
+        endLabel={t('/s')}
         handleAmountChange={(e) => dispatch(changeAttackRate(e.target.value))}
         value={attackRateString}
         maxWidth={36}
