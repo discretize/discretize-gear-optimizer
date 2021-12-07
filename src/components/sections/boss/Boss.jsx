@@ -1,7 +1,7 @@
 import React from 'react';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { Typography, makeStyles, Slider, Box } from '@material-ui/core';
+import { Typography, Slider, Box } from '@material-ui/core';
 import { Condition as ConditionRaw } from 'gw2-ui-bulk';
 import AmountInput from '../../baseComponents/AmountInput';
 import {
