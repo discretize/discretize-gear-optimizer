@@ -184,11 +184,6 @@ export default createTheme({
         marginBottom: theme.spacing(2),
       },
     },
-    MuiTable: {
-      root: {
-        marginBottom: theme.spacing(2),
-      },
-    },
 
     MuiTableBody: {
       root: {

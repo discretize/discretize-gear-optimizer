@@ -5,9 +5,12 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
+import TextDivider from '../../baseComponents/TextDivider';
 import {
   getList,
   getSelectedCharacter,
+  getSaved,
   getCompareByPercent,
 } from '../../../state/slices/controlsSlice';
 import ResultTableRow from './ResultTableRow';
@@ -24,13 +27,15 @@ const styles = (theme) => ({
   },
   tablehead: {
     backgroundColor: theme.palette.background.paper,
-    paddingRight: theme.spacing(1),
   },
   tableCollapse: {
     borderCollapse: 'collapse !important',
   },
   underline: {
     borderBottom: `5px solid ${theme.palette.divider}`,
+  },
+  marginTop: {
+    marginTop: 20,
   },
 });
 
@@ -50,8 +55,10 @@ const mode = (array) => {
 };
 
 const StickyHeadTable = ({ classes }) => {
+  const { t } = useTranslation();
   const selectedCharacter = useSelector(getSelectedCharacter);
   const list = useSelector(getList) || [];
+  const saved = useSelector(getSaved) || [];
   const compareByPercent = useSelector(getCompareByPercent);
 
   let mostCommonAffix = null;
@@ -67,41 +74,113 @@ const StickyHeadTable = ({ classes }) => {
   const selectedValue = selectedCharacter?.results?.value;
 
   return (
-    <Box boxShadow={8}>
-      <TableContainer className={classes.container}>
-        <Table stickyHeader aria-label="sticky table" className={classes.tableCollapse}>
-          <TableHead>
-            <ResultTableHeaderRow
-              classes={classes}
-              weaponType={weaponType}
-              infusions={infusions}
-              rankBy={rankBy}
-            />
-          </TableHead>
-          <TableBody className={classes.pointer}>
-            {list.map((character, i) => {
-              // underline under the set of equivalent, optimal results
-              const firstResult = list[0]?.results.value;
-              const thisResult = list[i]?.results.value;
-              const nextResult = list[i + 1]?.results.value;
-              const underline = thisResult === firstResult && thisResult !== nextResult;
+    <>
+      <Box boxShadow={8}>
+        <TableContainer className={classes.container}>
+          <Table stickyHeader aria-label="sticky table" className={classes.tableCollapse}>
+            <TableHead>
+              <ResultTableHeaderRow
+                classes={classes}
+                weaponType={weaponType}
+                infusions={infusions}
+                rankBy={rankBy}
+              />
+            </TableHead>
+            <TableBody className={classes.pointer}>
+              {/* {saved.length
+              ? saved.map((character, i) => {
+                  return (
+                    <ResultTableRow
+                      character={character}
+                      key={character.id}
+                      selected={character === selectedCharacter}
+                      saved={saved.includes(character)}
+                      mostCommonAffix={mostCommonAffix}
+                      underlineClass={i === saved.length - 1 ? classes.bigUnderline : null}
+                      compareByPercent={compareByPercent}
+                    />
+                  );
+                })
+              : null} */}
+              {list.map((character, i) => {
+                // underline under the set of equivalent, optimal results
+                const firstResult = list[0]?.results.value;
+                const thisResult = list[i]?.results.value;
+                const nextResult = list[i + 1]?.results.value;
+                const underline = thisResult === firstResult && thisResult !== nextResult;
 
+                return (
+                  <ResultTableRow
+                    character={character}
+                    key={character.id}
+                    selected={character === selectedCharacter}
+                    saved={saved.includes(character)}
+                    mostCommonAffix={mostCommonAffix}
+                    underlineClass={underline ? classes.underline : null}
+                    selectedValue={selectedValue}
+                    compareByPercent={compareByPercent}
+                  />
+                );
+              })}
+            </TableBody>
+            {/* <TableFooter style={{ position: 'sticky', bottom: '0', zIndex: '2' }}>
+            {saved.map((character) => {
               return (
                 <ResultTableRow
                   character={character}
                   key={character.id}
                   selected={character === selectedCharacter}
+                  saved={saved.includes(character)}
                   mostCommonAffix={mostCommonAffix}
-                  underlineClass={underline ? classes.underline : null}
-                  selectedValue={selectedValue}
                   compareByPercent={compareByPercent}
                 />
               );
             })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </Box>
+          </TableFooter> */}
+          </Table>
+        </TableContainer>
+      </Box>
+
+      {saved.length ? (
+        <>
+          <TextDivider text={t('Saved Results')} className={classes.marginTop} />
+          <Box boxShadow={8}>
+            <TableContainer className={classes.container}>
+              <Table
+                stickyHeader
+                aria-label="saved results table"
+                className={classes.tableCollapse}
+              >
+                <TableHead style={{ visibility: 'collapse' }}>
+                  <ResultTableHeaderRow
+                    classes={classes}
+                    weaponType={weaponType}
+                    infusions={infusions}
+                    rankBy={rankBy}
+                  />
+                </TableHead>
+                <TableBody className={classes.pointer}>
+                  {saved.map((character, i) => {
+                    return (
+                      <ResultTableRow
+                        character={character}
+                        key={character.id}
+                        selected={character === selectedCharacter}
+                        saved={saved.includes(character)}
+                        mostCommonAffix={mostCommonAffix}
+                        underlineClass={i === saved.length - 1 ? classes.bigUnderline : null}
+                        selectedValue={selectedValue}
+                        compareByPercent={compareByPercent}
+                      />
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Box>
+        </>
+      ) : null}
+    </>
   );
 };
 
