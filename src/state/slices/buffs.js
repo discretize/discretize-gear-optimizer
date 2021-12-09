@@ -54,7 +54,7 @@ export const buffsSlice = createSlice({
   },
   extraReducers: {
     [changeAll]: (state, action) => {
-      return /* { ...initialState, ... */ action.payload?.form?.buffs /* } */;
+      return { ...state, ...action.payload?.form?.buffs };
     },
     [setBuildTemplate]: (state, action) => {
       const { buffPreset } = action.payload;

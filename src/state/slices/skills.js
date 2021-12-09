@@ -30,7 +30,7 @@ export const skillsSlice = createSlice({
   },
   extraReducers: {
     [changeAll]: (state, action) => {
-      return /* { ...initialState, ... */ action.payload?.form?.skills /* } */;
+      return { ...state, ...action.payload?.form?.skills };
     },
     [changeProfession]: (state, action) => {
       if (state.profession !== action.payload) {

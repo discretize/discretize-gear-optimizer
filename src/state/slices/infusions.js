@@ -70,7 +70,7 @@ export const infusionsSlice = createSlice({
   },
   extraReducers: {
     [changeAll]: (state, action) => {
-      return /* { ...initialState, ... */ action.payload?.form?.infusions /* } */;
+      return { ...state, ...action.payload?.form?.infusions };
     },
   },
 });

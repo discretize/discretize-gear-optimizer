@@ -24,7 +24,7 @@ export const extrasSlice = createSlice({
   },
   extraReducers: {
     [changeAll]: (state, action) => {
-      return /* { ...initialState, ... */ action.payload?.form?.extras /* } */;
+      return { ...state, ...action.payload?.form?.extras };
     },
     [setBuildTemplate]: (state, action) => {
       const { extrasPreset = {} } = action.payload;

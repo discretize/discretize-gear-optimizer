@@ -13,7 +13,7 @@ export const forcedSlotsSlice = createSlice({
   },
   extraReducers: {
     [changeAll]: (state, action) => {
-      return /* { ...initialState, ... */ action.payload?.form?.forcedSlots /* } */;
+      return { ...state, ...action.payload?.form?.forcedSlots };
     },
   },
 });

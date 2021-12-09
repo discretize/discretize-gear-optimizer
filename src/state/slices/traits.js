@@ -64,7 +64,7 @@ export const traitsSlice = createSlice({
   },
   extraReducers: {
     [changeAll]: (state, action) => {
-      return /* { ...initialState, ... */ action.payload?.form?.traits /* } */;
+      return { ...state, ...action.payload?.form?.traits };
     },
     [changeProfession]: (state, action) => {
       if (state.profession !== action.payload) {

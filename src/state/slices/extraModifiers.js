@@ -18,7 +18,7 @@ export const extraModifiersSlice = createSlice({
   },
   extraReducers: {
     [changeAll]: (state, action) => {
-      return /* { ...initialState, ... */ action.payload?.form?.extraModifiers /* } */;
+      return { ...state, ...action.payload?.form?.extraModifiers };
     },
   },
 });

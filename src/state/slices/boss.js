@@ -21,7 +21,7 @@ export const bossSlice = createSlice({
   },
   extraReducers: {
     [changeAll]: (state, action) => {
-      return /* { ...initialState, ... */ action.payload?.form?.boss /* } */;
+      return { ...state, ...action.payload?.form?.boss };
     },
   },
 });

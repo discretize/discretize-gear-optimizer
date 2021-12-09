@@ -130,7 +130,7 @@ export const distributionSlice = createSlice({
   },
   extraReducers: {
     [changeAll]: (state, action) => {
-      return /* { ...initialState, ... */ action.payload?.form?.distribution /* } */;
+      return { ...state, ...action.payload?.form?.distribution };
     },
     [setBuildTemplate]: (state, action) => {
       const { distributionPreset } = action.payload;
