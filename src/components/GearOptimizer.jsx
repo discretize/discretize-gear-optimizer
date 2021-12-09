@@ -109,15 +109,17 @@ const MainComponent = ({ classes, data, location }) => {
             </>
           ) : (
             <>
+              <SkillsSection profession={profession} />
+
               <ExtrasSection profession={profession} data={data} />
 
               <BuffsSection first data={data} />
 
               <InfusionsSection data={data} />
 
-              <PrioritiesSection data={data} />
+              <ForcedSlotsSection />
 
-              <BossSection />
+              <PrioritiesSection data={data} />
             </>
           )}
         </Grid>
