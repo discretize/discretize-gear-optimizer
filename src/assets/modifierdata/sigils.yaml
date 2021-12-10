@@ -136,6 +136,7 @@
         label: 'stacks'
         default: 25
         quantityEntered: 25
+        disableBlacklist: true
       modifiers:
         attributes:
           Precision: [250, converted]
@@ -169,6 +170,7 @@
         label: 'stacks'
         default: 25
         quantityEntered: 25
+        disableBlacklist: true
       modifiers:
         attributes:
           Concentration: [225, converted]
@@ -191,6 +193,7 @@
         label: 'stacks'
         default: 25
         quantityEntered: 25
+        disableBlacklist: true
       modifiers:
         attributes:
           Toughness: [125, converted]
@@ -202,6 +205,7 @@
         label: 'stacks'
         default: 25
         quantityEntered: 25
+        disableBlacklist: true
       modifiers:
         attributes:
           Power: [50, converted]
