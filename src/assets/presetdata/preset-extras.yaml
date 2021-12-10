@@ -1,6 +1,16 @@
 GraphQL ID: presetExtras
 list:
 
+  - name: TEMP PRESET TO TEST THE THINGY
+    value: |-
+      {
+        "Runes": "",
+        "Sigil1": "momentum",
+        "Sigil2": "life",
+        "Enhancement": "writ-of-masterful-malice",
+        "Nourishment": "seaweed-salad"
+      }
+
   - name: Power (Fractal)
     value: |-
       {
