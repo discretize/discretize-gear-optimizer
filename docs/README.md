@@ -21,7 +21,7 @@ If you have an idea for a feature or improvement or find a bug, create a new iss
 
 Supports all 9 classes and all 18 current elite specs (plus End of Dragons elite specs as we receive information about them), including power and condi builds with distribution information derived from game logs.
 
-Work in progress game mechanics: Confusion/torment, mesmer illusions, reaper shroud
+Work in progress game mechanics: Mesmer illusions, reaper shroud
 
 ## Development and Contributing
 
