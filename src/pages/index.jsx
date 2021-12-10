@@ -24,13 +24,15 @@ const IndexPage = ({ classes, location }) => {
           The gear optimizer is currently in beta! Templates are not final and phantasm and
           lifesteal damage is inaccurate. Please report potential issues to us in
         </Trans>{' '}
-        <Link href="https://discord.gg/Qdt7nFY" color="textPrimary">
+        <Link href="https://discord.gg/Qdt7nFY" color="textPrimary" target="_blank" rel="noopener">
           Discord
         </Link>{' '}
         <Trans>or</Trans>{' '}
         <Link
           href="https://github.com/discretize/discretize-gear-optimizer/tree/staging"
           color="textPrimary"
+          target="_blank"
+          rel="noopener"
         >
           <GitHubIcon fontSize="small" /> Github
         </Link>

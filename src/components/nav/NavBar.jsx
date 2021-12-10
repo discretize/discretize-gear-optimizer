@@ -103,6 +103,8 @@ const Navbar = ({
         <IconButton
           className={classes.githubIcon}
           href="https://github.com/discretize/discretize-gear-optimizer/tree/staging"
+          target="_blank"
+          rel="noopener"
         >
           <GitHubIcon />
         </IconButton>
