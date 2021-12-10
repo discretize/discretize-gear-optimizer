@@ -105,11 +105,15 @@
           Torment Duration: 20%
       gw2id: 24583
 
-- section: Stacking Sigils (25x)
+- section: Stacking Sigils
   items:
 
     - id: bloodlust
       text: Superior Sigil of Bloodlust
+      amountData:
+        label: 'stacks'
+        default: 25
+        quantityEntered: 25
       modifiers:
         attributes:
           Power: [250, converted]
@@ -117,6 +121,10 @@
 
     - id: cruelty
       text: Superior Sigil of Cruelty
+      amountData:
+        label: 'stacks'
+        default: 25
+        quantityEntered: 25
       modifiers:
         attributes:
           Ferocity: [250, converted]
@@ -124,6 +132,10 @@
 
     - id: perception
       text: Superior Sigil of Perception
+      amountData:
+        label: 'stacks'
+        default: 25
+        quantityEntered: 25
       modifiers:
         attributes:
           Precision: [250, converted]
@@ -131,6 +143,10 @@
 
     - id: corruption
       text: Superior Sigil of Corruption
+      amountData:
+        label: 'stacks'
+        default: 25
+        quantityEntered: 25
       modifiers:
         attributes:
           Condition Damage: [250, converted]
@@ -138,6 +154,10 @@
 
     - id: life
       text: Superior Sigil of Life
+      amountData:
+        label: 'stacks'
+        default: 25
+        quantityEntered: 25
       modifiers:
         attributes:
           Healing Power: [250, converted]
@@ -145,6 +165,10 @@
 
     - id: bounty
       text: Superior Sigil of Bounty
+      amountData:
+        label: 'stacks'
+        default: 25
+        quantityEntered: 25
       modifiers:
         attributes:
           Concentration: [225, converted]
@@ -152,6 +176,10 @@
 
     - id: benevolence
       text: Superior Sigil of Benevolence
+      amountData:
+        label: 'stacks'
+        default: 25
+        quantityEntered: 25
       modifiers:
         attributes:
           Outgoing Healing: 12.5%
@@ -159,6 +187,10 @@
 
     - id: momentum
       text: Superior Sigil of Momentum
+      amountData:
+        label: 'stacks'
+        default: 25
+        quantityEntered: 25
       modifiers:
         attributes:
           Toughness: [125, converted]
@@ -166,6 +198,10 @@
 
     - id: stars
       text: Superior Sigil of the Stars
+      amountData:
+        label: 'stacks'
+        default: 25
+        quantityEntered: 25
       modifiers:
         attributes:
           Power: [50, converted]
