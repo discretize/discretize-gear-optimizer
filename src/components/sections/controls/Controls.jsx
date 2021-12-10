@@ -48,6 +48,9 @@ const useStyles = makeStyles((theme) => ({
     borderColor: theme.palette.primary.main,
   },
   chipIcon: { marginBottom: '-6px !important' },
+  comparisonLabel: {
+    fontSize: '1rem',
+  },
 }));
 
 const ControlsBox = ({ profession }) => {
@@ -142,19 +145,18 @@ const ControlsBox = ({ profession }) => {
           </Button>
         </Box>
         <Box alignSelf="center">
-          <Typography variant="caption">
-            <FormControlLabel
-              control={
-                <Switch
-                  checked={compareByPercent}
-                  onChange={(e) => dispatch(changeCompareByPercent(e.target.checked))}
-                  name="checked"
-                  color="primary"
-                />
-              }
-              label={t('% Comparison')}
-            />
-          </Typography>
+          <FormControlLabel
+            control={
+              <Switch
+                checked={compareByPercent}
+                onChange={(e) => dispatch(changeCompareByPercent(e.target.checked))}
+                name="checked"
+                color="primary"
+              />
+            }
+            label={t('% Comparison')}
+            classes={{ label: classes.comparisonLabel }}
+          />
         </Box>
         <Box alignSelf="center" display="flex" m={1} maxWidth={300}>
           <Typography variant="caption" className={classes.errorText}>
