@@ -9,11 +9,11 @@ const styles = (theme) => ({
   },
 });
 
-const HelperIcon = ({ classes, text, size }) => {
+const HelperIcon = ({ classes, text, size, fontSize }) => {
   return (
     <Tooltip content={text}>
       <span>
-        <HelpOutline className={classes.icon} fontSize={size} />
+        <HelpOutline className={classes.icon} fontSize={size} style={{ fontSize }} />
       </span>
     </Tooltip>
   );
