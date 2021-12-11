@@ -6818,28 +6818,27 @@ gw2-ui-builder-bulk@^0.2.4:
   resolved "https://registry.yarnpkg.com/gw2-ui-builder-bulk/-/gw2-ui-builder-bulk-0.2.4.tgz#cc468b8c001573c3b26dd0f3c3e5b379a5a2de53"
   integrity sha512-Lyut7wmI83zClIGnwHvMblpa/WTa45tFbhhzkww9B+lazoneE2ZFkCIUA2fsZYSn/9CYAeZSpMr4LOEFL8ds/g==
 
-gw2-ui-bulk@0.11.12:
-  version "0.11.12"
-  resolved "https://registry.yarnpkg.com/gw2-ui-bulk/-/gw2-ui-bulk-0.11.12.tgz#deb71c3b4ee20e46bd7f9ff6bb0b5cd2ffda18dc"
-  integrity sha512-efMzjYLjWaLz5llX2GpR5vct9h+LWcQMtjxpTG9ypGj9kzOohZVw9gZpbv/9RF5J09fbiqOBJINgY8K+UEwL4A==
+gw2-ui-bulk@^0.10.41:
+  version "0.10.41"
+  resolved "https://registry.yarnpkg.com/gw2-ui-bulk/-/gw2-ui-bulk-0.10.41.tgz#dc1a6367dfc93d467e9d8d6c6f4e4a47eb6a6818"
+  integrity sha512-iWcyIvJL9JkAqHtqVX2caMICp6jalziUZszFZJNF0G9VAWvgr9zsA+nnO43v0mO+d5n9WQyq4GlUyshP6Qxn+Q==
   dependencies:
     gw2-ui-builder-bulk "^0.2.4"
-    gw2-ui-components-bulk "^0.12.10"
-    gw2-ui-redux-bulk "^0.5.13"
+    gw2-ui-components-bulk "0.10.40"
+    gw2-ui-redux-bulk "^0.5.11"
 
-gw2-ui-components-bulk@^0.12.10:
-  version "0.12.10"
-  resolved "https://registry.yarnpkg.com/gw2-ui-components-bulk/-/gw2-ui-components-bulk-0.12.10.tgz#34a29a35f4d5a089249d182e7fe5ef19a4d0b378"
-  integrity sha512-f20iRrDLVc5YMO7ZTCUX93BpNMDE7d4Sb/8n1cPbOhTPXbN1/i3mCwMJN8iSnySaqCWqwT2Qi7xW/qE7/H2kog==
+gw2-ui-components-bulk@0.10.40:
+  version "0.10.40"
+  resolved "https://registry.yarnpkg.com/gw2-ui-components-bulk/-/gw2-ui-components-bulk-0.10.40.tgz#a5a16c1d48b2e47ed8ea41477a0c2303b3b84938"
+  integrity sha512-d9+fjbIC5VqdhNXn0niGAz67IMZWGLYqoZNbYtv36/YvkR4hR0KWw6lFhA6aEDqXVHLpHQJ2RwYQrthESC+nlw==
   dependencies:
     "@tippyjs/react" "^4.2.5"
-    axios "^0.21.4"
     classnames "^2.2.6"
     lodash.camelcase "^4.3.0"
     react-resize-aware "^3.0.1"
     theme-ui "^0.3.5"
 
-gw2-ui-redux-bulk@^0.5.13:
+gw2-ui-redux-bulk@^0.5.11:
   version "0.5.13"
   resolved "https://registry.yarnpkg.com/gw2-ui-redux-bulk/-/gw2-ui-redux-bulk-0.5.13.tgz#502a6ee78323f2a1739a00985f372b9ca373ddda"
   integrity sha512-P5lo7D0T/qeEJ5djjMlAnIidd1b4lsCtWtRX60gbVPQa7oPR0aPMxWVkKMAE2WcnZwRiS1qkw0Rx5Y6YO6ZOyQ==
