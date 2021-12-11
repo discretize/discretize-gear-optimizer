@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
-const { startCase } = require('lodash');
+const startCase = require('lodash/startCase');
 
 const itemMapping = require('./mapping/items.json');
 const skillMapping = require('./mapping/skills.json');
@@ -584,6 +582,7 @@ const resolveBoss = ({ ...rest }) => {
   return res;
 };
 
+// eslint-disable-next-line no-unused-vars
 const components = {
   Item: resolveComponent('Item'),
   Skill: resolveComponent('Skill'),

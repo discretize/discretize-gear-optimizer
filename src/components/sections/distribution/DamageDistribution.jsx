@@ -8,9 +8,8 @@ import {
   Typography,
   withStyles,
 } from '@material-ui/core';
-import MuiAlert from '@material-ui/lab/Alert';
 import classNames from 'classnames';
-import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute as AttributeRaw, Condition as ConditionRaw } from 'gw2-ui-bulk';
 import debounce from 'lodash.debounce';
 import Nouislider from 'nouislider-react';
@@ -28,6 +27,7 @@ import {
   getTextBoxes,
   coefficientsToPercents,
 } from '../../../state/slices/distribution';
+import { parseDistribution } from '../../../utils/usefulFunctions';
 
 const Attribute = React.memo(AttributeRaw);
 const Condition = React.memo(ConditionRaw);
@@ -176,19 +176,10 @@ const DamageDistribution = ({ classes }) => {
 
   const handleChangeTextNew = (key) => (e) => {
     const { value } = e.target;
-
-    if (!value) {
-      dispatch(changeDistributionNew({ index: key, value: 0 }));
-
-      // only update the value when the text entered is a valid number. The regex matches for integer or floats.
-    } else if (value.match('^[-+]?[0-9]*.?[0-9]+([eE][-+]?[0-9]+)?$')) {
-      const parsedValue = Number.parseFloat(value);
-      if (!Number.isNaN(parsedValue)) {
-        dispatch(changeDistributionNew({ index: key, value: parsedValue }));
-      }
-    }
-
     dispatch(changeTextBoxes({ index: key, value }));
+
+    const parsedValue = parseDistribution(value).value;
+    dispatch(changeDistributionNew({ index: key, value: parsedValue }));
   };
   const SlidersNew = () => {
     return DISTRIBUTION_NAMES.map((dist, index) => (
@@ -220,7 +211,9 @@ const DamageDistribution = ({ classes }) => {
                   )}
                 </InputAdornment>
               }
+              error={parseDistribution(textBoxes[dist.name]).error}
               onChange={handleChangeTextNew(dist.name)}
+              autoComplete="off"
             />
           </FormControl>
         </Box>
@@ -241,16 +234,7 @@ const DamageDistribution = ({ classes }) => {
     ));
   };
 
-  return (
-    <>
-      {version === 1 ? SliderOld() : SlidersNew()}
-      {distributionNew.Confusion ? (
-        <MuiAlert elevation={6} variant="filled" severity="warning">
-          <Trans>Note: Confusion damage calculation is currently incorrect.</Trans>
-        </MuiAlert>
-      ) : null}
-    </>
-  );
+  return version === 1 ? SliderOld() : SlidersNew();
 };
 
 export default withStyles(styles)(DamageDistribution);

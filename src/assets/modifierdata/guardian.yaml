@@ -3,6 +3,10 @@
 
     - id: bane-signet
       text: Bane Signet
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Power: [180, buff]
@@ -11,6 +15,10 @@
     - id: bane-signet-2
       text: Bane Signet
       subText: traited
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Power: [216, buff]
@@ -48,6 +56,10 @@
 
     - id: signet-of-wrath
       text: Signet of Wrath
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Condition Damage: [180, buff]
@@ -55,6 +67,10 @@
 
     - id: signet-of-wrath-2
       text: Signet of Wrath
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       subText: traited
       modifiers:
         attributes:
@@ -381,14 +397,27 @@
   id: 65
   items:
 
+    - id: searing-pact
+      text: Searing Pact
+      modifiers:
+        attributes:
+          Condition Damage: [120, unknown]
+      gw2id: 2191
+      defaultEnabled: true
+
     - id: power-for-power
       text: Power for Power
       modifiers:
         attributes:
-          Toughness: [-240, buff]
-          Power: [240, buff]
+          Power: [120, unknown]
       gw2id: 2190
-      defaultEnabled: true
+
+    - id: conceited-curate
+      text: Conceited Curate
+      modifiers:
+        attributes:
+          Healing Power: [120, unknown]
+      gw2id: 2187
 
     - id: lethal-tempo
       text: Lethal Tempo
@@ -399,7 +428,8 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [3%, add] # as per Cat
+          Strike Damage: [1%, add] # as per Cat
+          Condition Damage: [1%, add] # ???
       gw2id: 2189
       defaultEnabled: true
 
@@ -413,6 +443,7 @@
       modifiers:
         damage:
           Strike Damage: [2%, add] # as per Cat
+          Condition Damage: [2%, add] # ???
       gw2id: 2201
       defaultEnabled: true
 

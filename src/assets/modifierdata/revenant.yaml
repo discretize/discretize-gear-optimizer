@@ -423,6 +423,18 @@
   id: 69
   items:
 
+    - id: leviathan-strength
+      text: Leviathan Strength
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Strike Damage: [10%, add]
+      gw2id: 2258
+      defaultEnabled: true
+
     - id: empire-divided-above
       text: Empire Divided
       subText: above

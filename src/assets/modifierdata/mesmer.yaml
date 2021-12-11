@@ -226,7 +226,6 @@
 
     - id: mental-focus
       text: Mental Focus
-      subText: 'bugged: 10% instead of 15%'
       amountData:
         label: '% melee'
         default: 100
@@ -235,6 +234,19 @@
         damage:
           Strike Damage: [10%, mult] # tested by Snappy Joe
       gw2id: 2208
+      defaultEnabled: true
+
+    - id: deadly-blades
+      text: Deadly Blades
+      minor: true
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          All Damage: [5%, unknown]
+      gw2id: 2204
       defaultEnabled: true
 
     - id: sharpening-sorrow

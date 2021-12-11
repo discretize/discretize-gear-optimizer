@@ -13,8 +13,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Trans } from 'gatsby-plugin-react-i18next';
 // import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';
-import { buffModifiersById } from '../../../assets/modifierdata';
-import { parseAmount, scaleValue } from '../../../state/optimizer/optimizerCore';
+import { parseAmount } from '../../../utils/usefulFunctions';
+import { scaleValue } from '../../../state/optimizer/optimizerCore';
 
 const styles = (theme) => ({
   root: {
@@ -38,11 +38,6 @@ const styles = (theme) => ({
 const roundTwo = (num) => Math.round(num * 100) / 100;
 
 const AppliedModifiers = ({ classes, data }) => {
-  const appliedData = data.map((item) => {
-    const allData = buffModifiersById[item.id];
-    if (allData) return { id: item.id, ...allData };
-    return item;
-  });
   return (
     <>
       <Accordion>
@@ -58,7 +53,7 @@ const AppliedModifiers = ({ classes, data }) => {
         <AccordionDetails>
           <Table padding="none">
             <TableBody>
-              {appliedData.map(({ type, id, modifiers, amount, amountData }) => {
+              {data.map(({ type, id, modifiers, amount, amountData }) => {
                 const { value: amountInput } = parseAmount(amount);
                 const multiplierNote = amountData
                   ? `${roundTwo(scaleValue(1, amountInput, amountData))}x`

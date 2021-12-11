@@ -2,7 +2,7 @@ GraphQL ID: presetTraits
 list:
 
   - name: Power Chrono IA
-    profession: CHRONOMANCER
+    profession: Chronomancer
     traits: |-
       {
         "showAll": false,
@@ -56,11 +56,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Axe Mirage
-    profession: MIRAGE
+    profession: Mirage
     traits: |-
       {
         "showAll": false,
@@ -81,7 +81,7 @@ list:
             1950
           ],
           [
-            0,
+            2141,
             2098,
             2070
           ]
@@ -116,14 +116,14 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-domination",
-          "signet-of-midnight"
-        ]
+        "skills": {
+          "signet-of-domination": true,
+          "signet-of-midnight": true
+        }
       }
 
   - name: Staff Mirage
-    profession: MIRAGE
+    profession: Mirage
     traits: |-
       {
         "showAll": false,
@@ -181,14 +181,14 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-domination",
-          "signet-of-midnight"
-        ]
+        "skills": {
+          "signet-of-domination": true,
+          "signet-of-midnight": true
+        }
       }
 
   - name: Condi Chrono
-    profession: CHRONOMANCER
+    profession: Chronomancer
     traits: |-
       {
         "showAll": false,
@@ -236,14 +236,14 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-domination",
-          "signet-of-midnight"
-        ]
+        "skills": {
+          "signet-of-domination": true,
+          "signet-of-midnight": true
+        }
       }
 
-  - name: '[beta] Virtuoso'
-    profession: VIRTUOSO
+  - name: '[old] Virtuoso'
+    profession: Virtuoso
     traits: |-
       {
         "showAll": false,
@@ -302,11 +302,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: DH Radiance w/ PI
-    profession: DRAGONHUNTER
+    profession: Dragonhunter
     traits: |-
       {
         "showAll": false,
@@ -367,13 +367,15 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "bane-signet-2"
-        ]
+        "skills": {
+          "bane-signet-2": {
+            "amount": ""
+          }
+        }
       }
 
   - name: DH Radiance
-    profession: DRAGONHUNTER
+    profession: Dragonhunter
     traits: |-
       {
         "showAll": false,
@@ -434,13 +436,15 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "bane-signet"
-        ]
+        "skills": {
+          "bane-signet": {
+            "amount": ""
+          }
+        }
       }
 
   - name: DH Virtues
-    profession: DRAGONHUNTER
+    profession: Dragonhunter
     traits: |-
       {
         "showAll": false,
@@ -501,86 +505,90 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "bane-signet"
-        ]
+        "skills": {
+          "bane-signet": {
+            "amount": ""
+          }
+        }
       }
 
-  # - name: Core Guardian
-  #   profession: GUARDIAN
-  #   traits: |-
-  #     {
-  #       "showAll": false,
-  #       "selectedLines": [
-  #         "16",
-  #         "42",
-  #         "46"
-  #       ],
-  #       "selectedTraits": [
-  #         [
-  #           574,
-  #           565,
-  #           1683
-  #         ],
-  #         [
-  #           634,
-  #           653,
-  #           2017
-  #         ],
-  #         [
-  #           624,
-  #           603,
-  #           622
-  #         ]
-  #       ],
-  #       "items": [
-  #         {
-  #           "right-hand-strength": true,
-  #           "right-hand-strength-1h": {
-  #             "amount": ""
-  #           },
-  #           "radiant-fire": true,
-  #           "retribution": {
-  #             "amount": ""
-  #           },
-  #           "radiant-power": true,
-  #           "amplified-wrath": true,
-  #           "righteous-instincts": true
-  #         },
-  #         {
-  #           "fiery-wrath": true,
-  #           "symbolic-exposure": true,
-  #           "zealous-blade-base": true,
-  #           "zealous-blade-gs": {
-  #             "amount": ""
-  #           },
-  #           "kindled-zeal": true,
-  #           "symbolic-avenger": true
-  #         },
-  #         {
-  #           "inspired-virtue": {
-  #             "amount": ""
-  #           },
-  #           "unscathed-contender": {
-  #             "amount": ""
-  #           },
-  #           "virtue-of-retribution": true,
-  #           "inspiring-virtue": {
-  #             "amount": "80"
-  #           },
-  #           "power-of-the-virtuous": true
-  #         }
-  #       ]
-  #     }
-  #   skills: |-
-  #     {
-  #       "skills": [
-  #         "bane-signet"
-  #       ]
-  #     }
+  - name: Core Guardian
+    profession: Guardian
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "16",
+          "42",
+          "46"
+        ],
+        "selectedTraits": [
+          [
+            566,
+            565,
+            1683
+          ],
+          [
+            634,
+            653,
+            2017
+          ],
+          [
+            624,
+            603,
+            622
+          ]
+        ],
+        "items": [
+          {
+            "right-hand-strength": true,
+            "right-hand-strength-1h": {
+              "amount": ""
+            },
+            "radiant-fire": true,
+            "retribution": {
+              "amount": ""
+            },
+            "radiant-power": true,
+            "amplified-wrath": true,
+            "righteous-instincts": true
+          },
+          {
+            "fiery-wrath": true,
+            "symbolic-exposure": true,
+            "zealous-blade-base": true,
+            "zealous-blade-gs": {
+              "amount": ""
+            },
+            "kindled-zeal": true,
+            "symbolic-avenger": true
+          },
+          {
+            "inspired-virtue": {
+              "amount": ""
+            },
+            "unscathed-contender": {
+              "amount": ""
+            },
+            "virtue-of-retribution": true,
+            "inspiring-virtue": {
+              "amount": "80"
+            },
+            "power-of-the-virtuous": true
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "bane-signet": {
+            "amount": ""
+          }
+        }
+      }
 
   - name: Power Quickbrand
-    profession: FIREBRAND
+    profession: Firebrand
     traits: |-
       {
         "showAll": false,
@@ -639,13 +647,15 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "bane-signet-2"
-        ]
+        "skills": {
+          "bane-signet-2": {
+            "amount": ""
+          }
+        }
       }
 
   - name: Condi Quickbrand
-    profession: FIREBRAND
+    profession: Firebrand
     traits: |-
       {
         "showAll": false,
@@ -707,13 +717,15 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-wrath"
-        ]
+        "skills": {
+          "signet-of-wrath": {
+            "amount": ""
+          }
+        }
       }
 
   - name: CFB DPS 5 page
-    profession: FIREBRAND
+    profession: Firebrand
     traits: |-
       {
         "showAll": false,
@@ -775,13 +787,15 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-wrath"
-        ]
+        "skills": {
+          "signet-of-wrath": {
+            "amount": ""
+          }
+        }
       }
 
   - name: CFB DPS 8 page
-    profession: FIREBRAND
+    profession: Firebrand
     traits: |-
       {
         "showAll": false,
@@ -843,13 +857,15 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-wrath"
-        ]
+        "skills": {
+          "signet-of-wrath": {
+            "amount": ""
+          }
+        }
       }
 
   - name: Hybrid FB Virtues
-    profession: FIREBRAND
+    profession: Firebrand
     traits: |-
       {
         "showAll": false,
@@ -911,11 +927,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Hybrid FB Honor
-    profession: FIREBRAND
+    profession: Firebrand
     traits: |-
       {
         "showAll": false,
@@ -972,11 +988,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Healbrand
-    profession: FIREBRAND
+    profession: Firebrand
     traits: |-
       {
         "showAll": false,
@@ -1033,13 +1049,15 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "bane-signet-2"
-        ]
+        "skills": {
+          "bane-signet-2": {
+            "amount": ""
+          }
+        }
       }
 
-  - name: '[beta] Power Willbender Radiance'
-    profession: WILLBENDER
+  - name: '[old] Power Willbender Radiance'
+    profession: Willbender
     traits: |-
       {
         "showAll": false,
@@ -1103,13 +1121,15 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "bane-signet"
-        ]
+        "skills": {
+          "bane-signet": {
+            "amount": ""
+          }
+        }
       }
 
-  - name: '[beta] Power Willbender Virtues'
-    profession: WILLBENDER
+  - name: '[old] Power Willbender Virtues'
+    profession: Willbender
     traits: |-
       {
         "showAll": false,
@@ -1173,13 +1193,15 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "bane-signet"
-        ]
+        "skills": {
+          "bane-signet": {
+            "amount": ""
+          }
+        }
       }
 
   - name: Power Banner Bers Strength
-    profession: BERSERKER
+    profession: Berserker
     traits: |-
       {
         "showAll": false,
@@ -1253,13 +1275,13 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-might"
-        ]
+        "skills": {
+          "signet-of-might": true
+        }
       }
 
   - name: Condi Bers
-    profession: BERSERKER
+    profession: Berserker
     traits: |-
       {
         "showAll": false,
@@ -1337,11 +1359,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Power Banner SPB
-    profession: SPELLBREAKER
+    profession: Spellbreaker
     traits: |-
       {
         "showAll": false,
@@ -1409,13 +1431,13 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-might"
-        ]
+        "skills": {
+          "signet-of-might": true
+        }
       }
 
-  - name: '[beta] Bladesworn'
-    profession: BLADESWORN
+  - name: '[old] Bladesworn'
+    profession: Bladesworn
     traits: |-
       {
         "showAll": false,
@@ -1477,14 +1499,14 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-might",
-          "signet-of-fury"
-        ]
+        "skills": {
+          "signet-of-might": true,
+          "signet-of-fury": true
+        }
       }
 
   - name: Power Weaver Stormsoul
-    profession: WEAVER
+    profession: Weaver
     traits: |-
       {
         "showAll": false,
@@ -1568,11 +1590,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi Weaver Sword
-    profession: WEAVER
+    profession: Weaver
     traits: |-
       {
         "showAll": false,
@@ -1643,11 +1665,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Hybrid Weaver
-    profession: WEAVER
+    profession: Weaver
     traits: |-
       {
         "showAll": false,
@@ -1731,11 +1753,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi Tempest
-    profession: TEMPEST
+    profession: Tempest
     traits: |-
       {
         "showAll": false,
@@ -1794,11 +1816,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
-  - name: '[beta] Condi Hammer Catalyst'
-    profession: CATALYST
+  - name: '[old] Condi Hammer Catalyst'
+    profession: Catalyst
     traits: |-
       {
         "showAll": false,
@@ -1860,11 +1882,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Heal Tempest
-    profession: TEMPEST
+    profession: Tempest
     traits: |-
       {
         "showAll": false,
@@ -1911,11 +1933,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Power Slb Marks
-    profession: SOULBEAST
+    profession: Soulbeast
     traits: |-
       {
         "showAll": false,
@@ -1977,11 +1999,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Power Slb Skirm
-    profession: SOULBEAST
+    profession: Soulbeast
     traits: |-
       {
         "showAll": false,
@@ -2042,11 +2064,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi Slb SB
-    profession: SOULBEAST
+    profession: Soulbeast
     traits: |-
       {
         "showAll": false,
@@ -2110,11 +2132,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi Slb D/T A/D
-    profession: SOULBEAST
+    profession: Soulbeast
     traits: |-
       {
         "showAll": false,
@@ -2178,11 +2200,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Hybrid Slb
-    profession: SOULBEAST
+    profession: Soulbeast
     traits: |-
       {
         "showAll": false,
@@ -2243,11 +2265,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
-  - name: Pure Shortbow Slb
-    profession: SOULBEAST
+  - name: Pure Shortbow Slb BM
+    profession: Soulbeast
     traits: |-
       {
         "showAll": false,
@@ -2299,20 +2321,20 @@ list:
             "archetype-versatile": false,
             "archetype-ferocious": false,
             "archetype-supportive": false,
-            "pack-alpha-merged": false,
-            "loud-whistle-merged": false,
-            "pets-prowess-merged": false,
+            "pack-alpha-merged": true,
+            "loud-whistle-merged": true,
+            "pets-prowess-merged": true,
             "honed-axes-merged": false
           }
         ]
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi Druid*
-    profession: DRUID
+    profession: Druid
     traits: |-
       {
         "showAll": false,
@@ -2361,11 +2383,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Heal Druid
-    profession: DRUID
+    profession: Druid
     traits: |-
       {
         "showAll": false,
@@ -2414,11 +2436,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Power Alac Ren
-    profession: RENEGADE
+    profession: Renegade
     traits: |-
       {
         "showAll": false,
@@ -2487,11 +2509,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi RR Ren Invo
-    profession: RENEGADE
+    profession: Renegade
     traits: |-
       {
         "showAll": false,
@@ -2549,11 +2571,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi RR Ren Deva
-    profession: RENEGADE
+    profession: Renegade
     traits: |-
       {
         "showAll": false,
@@ -2620,11 +2642,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi DPS Ren Deva
-    profession: RENEGADE
+    profession: Renegade
     traits: |-
       {
         "showAll": false,
@@ -2691,11 +2713,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Power Herald DE
-    profession: HERALD
+    profession: Herald
     traits: |-
       {
         "showAll": false,
@@ -2767,11 +2789,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi Herald
-    profession: HERALD
+    profession: Herald
     traits: |-
       {
         "showAll": false,
@@ -2841,11 +2863,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Power DPS Ren
-    profession: RENEGADE
+    profession: Renegade
     traits: |-
       {
         "showAll": false,
@@ -2914,11 +2936,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Heal Ren
-    profession: RENEGADE
+    profession: Renegade
     traits: |-
       {
         "showAll": false,
@@ -2987,11 +3009,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Power Holo ECSU
-    profession: HOLOSMITH
+    profession: Holosmith
     traits: |-
       {
         "showAll": false,
@@ -3054,11 +3076,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi Holo
-    profession: HOLOSMITH
+    profession: Holosmith
     traits: |-
       {
         "showAll": false,
@@ -3114,18 +3136,18 @@ list:
           },
           {
             "lasers-edge": {
-              "amount": "???"
+              "amount": "50"
             }
           }
         ]
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
-  - name: '[beta] Condi Mechanist'
-    profession: MECHANIST
+  - name: '[old] Condi Mechanist'
+    profession: Mechanist
     traits: |-
       {
         "showAll": false,
@@ -3184,11 +3206,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Power Scrapper
-    profession: SCRAPPER
+    profession: Scrapper
     traits: |-
       {
         "showAll": false,
@@ -3256,11 +3278,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Quickness Scrapper
-    profession: SCRAPPER
+    profession: Scrapper
     traits: |-
       {
         "showAll": false,
@@ -3328,11 +3350,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Heal Scrapper
-    profession: SCRAPPER
+    profession: Scrapper
     traits: |-
       {
         "showAll": false,
@@ -3381,11 +3403,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: DPS Scourge
-    profession: SCOURGE
+    profession: Scourge
     traits: |-
       {
         "showAll": false,
@@ -3438,11 +3460,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi Reaper
-    profession: REAPER
+    profession: Reaper
     traits: |-
       {
         "showAll": false,
@@ -3499,11 +3521,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
-  - name: '[beta] DPS Harbinger'
-    profession: HARBINGER
+  - name: '[old] DPS Harbinger'
+    profession: Harbinger
     traits: |-
       {
         "showAll": false,
@@ -3563,11 +3585,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
-  - name: '[beta] Quickness Harbinger'
-    profession: HARBINGER
+  - name: '[old] Quickness Harbinger'
+    profession: Harbinger
     traits: |-
       {
         "showAll": false,
@@ -3628,11 +3650,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Condi Deadeye
-    profession: DEADEYE
+    profession: Deadeye
     traits: |-
       {
         "showAll": false,
@@ -3694,11 +3716,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Staff Daredevil
-    profession: DAREDEVIL
+    profession: Daredevil
     traits: |-
       {
         "showAll": false,
@@ -3766,14 +3788,14 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-agility",
-          "assassins-signet"
-        ]
+        "skills": {
+          "signet-of-agility": true,
+          "assassins-signet": true
+        }
       }
 
   - name: Boon Daredevil*
-    profession: DAREDEVIL
+    profession: Daredevil
     traits: |-
       {
         "showAll": false,
@@ -3836,13 +3858,13 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "signet-of-agility"
-        ]
+        "skills": {
+          "signet-of-agility": true
+        }
       }
 
   - name: Condi Daredevil
-    profession: DAREDEVIL
+    profession: Daredevil
     traits: |-
       {
         "showAll": false,
@@ -3905,11 +3927,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
   - name: Rifle Deadeye
-    profession: DEADEYE
+    profession: Deadeye
     traits: |-
       {
         "showAll": false,
@@ -3978,13 +4000,13 @@ list:
       }
     skills: |-
       {
-        "skills": [
-          "assassins-signet"
-        ]
+        "skills": {
+          "assassins-signet": true
+        }
       }
 
-  - name: '[beta] DPS Specter Sc/D'
-    profession: SPECTER
+  - name: '[old] DPS Specter Sc/D'
+    profession: Specter
     traits: |-
       {
         "showAll": false,
@@ -4048,11 +4070,11 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }
 
-  - name: '[beta] DPS Specter Endless Night'
-    profession: SPECTER
+  - name: '[old] DPS Specter Endless Night'
+    profession: Specter
     traits: |-
       {
         "showAll": false,
@@ -4116,5 +4138,5 @@ list:
       }
     skills: |-
       {
-        "skills": []
+        "skills": {}
       }

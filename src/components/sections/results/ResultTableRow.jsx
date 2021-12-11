@@ -1,12 +1,50 @@
-import { Typography } from '@material-ui/core';
+import { Typography, makeStyles } from '@material-ui/core';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
+import StarRoundedIcon from '@material-ui/icons/StarRounded';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { changeSelectedCharacter } from '../../../state/slices/controlsSlice';
+import { changeSelectedCharacter, toggleSaved } from '../../../state/slices/controlsSlice';
 
-const ResultTableRow = ({ character, selected, mostCommonAffix, underlineClass }) => {
+const useStyles = makeStyles((theme) => ({
+  comparisonText: {
+    color: theme.palette.text.secondary,
+  },
+  unselectedStar: {
+    opacity: '0.2',
+    '&:hover': {
+      opacity: '1',
+      color: theme.palette.star,
+    },
+  },
+  selectedStar: {
+    color: theme.palette.star,
+  },
+}));
+
+const ResultTableRow = ({
+  character,
+  selected,
+  saved = false,
+  mostCommonAffix,
+  underlineClass,
+  selectedValue,
+  compareByPercent,
+}) => {
   const dispatch = useDispatch();
+  const classes = useStyles();
+
+  const { value } = character.results;
+  const comparisonValue = selectedValue ? value - selectedValue : 0;
+
+  const comparisonText = comparisonValue
+    ? ` ${comparisonValue > 0 ? '+' : ''}${
+        compareByPercent
+          ? `${((100 * comparisonValue) / selectedValue).toFixed(1)}%`
+          : // using toLocaleString to display a minus sign on negative zero
+            Math.round(comparisonValue).toLocaleString()
+      }`
+    : '';
 
   return (
     <TableRow
@@ -16,7 +54,23 @@ const ResultTableRow = ({ character, selected, mostCommonAffix, underlineClass }
       hover
       className={underlineClass}
     >
-      <TableCell scope="row">{character.results.value.toFixed(2)}</TableCell>
+      <TableCell scope="row" align="center" padding="none">
+        <StarRoundedIcon
+          className={saved ? classes.selectedStar : classes.unselectedStar}
+          onClick={(e) => {
+            dispatch(toggleSaved(character));
+            e.stopPropagation();
+          }}
+        />
+      </TableCell>
+      <TableCell scope="row">
+        {value.toFixed(0)}
+        {comparisonText ? (
+          <Typography variant="caption" className={classes.comparisonText}>
+            {comparisonText}
+          </Typography>
+        ) : null}
+      </TableCell>
       {character.gear.map((element, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <TableCell align="center" key={element + index} padding="none">

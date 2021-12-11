@@ -4,7 +4,6 @@
     "es6": true,
     "jquery": true
   },
-  "ignorePatterns": ["gulpfile.js"],
   "extends": [
     "react-app",
     "airbnb/whitespace",
@@ -21,7 +20,6 @@
     "no-param-reassign": ["warn", { "props": false }],
     "consistent-return": "off",
     "no-unused-vars": ["warn", { "argsIgnorePattern": "^e$|^theme$|^_" }],
-    "react/state-in-constructor": "off",
 
     // temp
     "react/prop-types": "off",

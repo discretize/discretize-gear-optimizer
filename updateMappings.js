@@ -53,7 +53,7 @@ function fetchSpecializations() {
               if (err) {
                 console.error(err);
               } else {
-                console.log('Successfuly wrote specializations.json');
+                console.log('Successfully wrote specializations.json');
               }
             },
           );
@@ -99,7 +99,7 @@ function fetchTraits() {
               if (err) {
                 console.error(err);
               } else {
-                console.log('Successfuly wrote traits.json');
+                console.log('Successfully wrote traits.json');
               }
             },
           );
@@ -143,7 +143,7 @@ function fetchSkills() {
               if (err) {
                 console.error(err);
               } else {
-                console.log('Successfuly wrote skills.json');
+                console.log('Successfully wrote skills.json');
               }
             },
           );
@@ -180,7 +180,7 @@ function fetchItemStats() {
               if (err) {
                 console.error(err);
               } else {
-                console.log('Successfuly wrote itemstats.json');
+                console.log('Successfully wrote itemstats.json');
               }
             },
           );
@@ -286,7 +286,7 @@ function fetchItems() {
           if (err) {
             console.error(err);
           } else {
-            console.log('Successfuly wrote items.json');
+            console.log('Successfully wrote items.json');
           }
         },
       );

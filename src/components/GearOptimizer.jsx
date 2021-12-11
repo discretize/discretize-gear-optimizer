@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable no-console */
 import { Box, Grid, Typography, withStyles } from '@material-ui/core';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import { graphql, StaticQuery } from 'gatsby';
@@ -20,6 +18,7 @@ import ResultDetails from './sections/results/ResultDetails';
 import ResultTable from './sections/results/ResultTable';
 import SkillsSection from './sections/skills/SkillsSection';
 import TraitsSection from './sections/traits/TraitsSection';
+import BossSection from './sections/boss/BossSection';
 
 const styles = (theme) => ({
   root: {
@@ -86,12 +85,20 @@ const MainComponent = ({ classes, data }) => {
               <PrioritiesSection data={data} />
 
               <DistributionSection profession={profession} data={data} />
+
+              <BossSection />
             </>
           ) : (
             <>
+              <SkillsSection profession={profession} />
+
+              <ExtrasSection profession={profession} data={data} />
+
               <BuffsSection first data={data} />
 
               <InfusionsSection data={data} />
+
+              <ForcedSlotsSection />
 
               <PrioritiesSection data={data} />
             </>

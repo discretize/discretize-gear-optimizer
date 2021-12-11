@@ -1,47 +1,42 @@
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { getInfusions } from '../../../state/slices/infusions';
-import { getPriority } from '../../../state/slices/priorities';
-import { Slots } from '../../../utils/gw2-data';
+import HelperIcon from '../../baseComponents/HelperIcon';
+import { Slots, INFUSION_IDS } from '../../../utils/gw2-data';
 
-const ResultTableHeaderRow = ({ classes }) => {
-  const wield = useSelector(getPriority('weaponType'));
-  const infusions = useSelector(getInfusions);
+const ResultTableHeaderRow = ({
+  classes,
+  weaponType = 'Two-handed',
+  infusions = {},
+  rankBy = 'Damage',
+}) => {
+  const { t } = useTranslation();
 
   return (
     <TableRow>
-      <TableCell className={classes.tablehead}>
-        <Trans>Damage</Trans>
+      <TableCell className={classes.tablehead} align="center" padding="none">
+        <HelperIcon
+          text={t('Click the star icon to save a result for comparison.')}
+          fontSize="1rem"
+        />
       </TableCell>
-      {Slots[wield].map((slot) => (
+      <TableCell className={classes.tablehead}>
+        {t('priorityGoal', {
+          context: rankBy,
+        })}
+      </TableCell>
+      {Slots[weaponType].map((slot) => (
         <TableCell className={classes.tablehead} key={slot.name} align="center" padding="none">
           {slot.short}
         </TableCell>
       ))}
-      {infusions.primaryInfusion ? (
-        <TableCell
-          className={classes.tablehead}
-          key="primaryInfusion"
-          align="center"
-          padding="none"
-        >
-          <Item id={infusions.primaryInfusion} disableText disableLink />
+      {Object.keys(infusions).map((type) => (
+        <TableCell className={classes.tablehead} key={type} align="center" padding="none">
+          <Item id={INFUSION_IDS[type]} disableText disableLink />
         </TableCell>
-      ) : null}
-      {infusions.secondaryInfusion ? (
-        <TableCell
-          className={classes.tablehead}
-          key="secondaryInfusion"
-          align="center"
-          padding="none"
-        >
-          <Item id={infusions.secondaryInfusion} disableText disableLink />
-        </TableCell>
-      ) : null}
+      ))}
     </TableRow>
   );
 };

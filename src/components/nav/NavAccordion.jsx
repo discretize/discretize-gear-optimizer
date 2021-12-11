@@ -3,11 +3,10 @@ import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import { withStyles } from '@material-ui/core/styles';
-import { Profession } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import Profession from '../baseComponents/Profession';
 import { setBuildTemplate } from '../../state/slices/controlsSlice';
-import { firstUppercase } from '../../utils/usefulFunctions';
 
 const Accordion = withStyles({
   root: {
@@ -74,21 +73,21 @@ export default function NavAccordion({
       key={`mobileTemplate_${prof.class}`}
     >
       <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-        <Profession name={firstUppercase(prof.class)} disableLink style={{ fontSize: 20 }} />
+        <Profession name={prof.class} disableLink style={{ fontSize: 20 }} />
       </AccordionSummary>
       <AccordionDetails>
         {prof.builds.map((build) => (
           <div style={{ marginBottom: 8 }} key={`templateBuildMobile_${build.name}`}>
             <Chip
               variant="outlined"
-              label={<Profession eliteSpecialization={build.specialization} text={build.name} />}
+              label={<Profession name={build.specialization} text={build.name} />}
               onClick={(e) => {
                 dispatch({ type: 'CANCEL' });
                 dispatch(
                   setBuildTemplate({
                     build,
                     specialization: build.specialization,
-                    profession: prof.class.toUpperCase(),
+                    profession: prof.class,
                     buffPreset: JSON.parse(
                       buffPresets.find((pre) => pre.name === build.boons).value,
                     ),

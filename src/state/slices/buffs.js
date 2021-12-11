@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 
 import { buffModifiersById } from '../../assets/modifierdata';
@@ -30,8 +30,8 @@ export const buffsSlice = createSlice({
       lightArmor: false,
     },
     amounts: {
-      might: 25,
-      vulnerability: 25,
+      might: '25',
+      vulnerability: '25',
     },
   },
   reducers: {
@@ -54,7 +54,7 @@ export const buffsSlice = createSlice({
   },
   extraReducers: {
     [changeAll]: (state, action) => {
-      return /* { ...initialState, ... */ action.payload?.form?.buffs /* } */;
+      return { ...state, ...action.payload?.form?.buffs };
     },
     [setBuildTemplate]: (state, action) => {
       const { buffPreset } = action.payload;
@@ -73,23 +73,16 @@ export const buffsSlice = createSlice({
 export const getBuffs = (state) => state.optimizer.form.buffs.buffs;
 export const getBuffAmounts = (state) => state.optimizer.form.buffs.amounts;
 
-export const getBuffsModifiers = (state) => {
-  const { buffs } = state.optimizer.form;
-  const enabledModifiers = Object.keys(buffs.buffs).filter((key) => buffs.buffs[key]);
+export const getBuffsModifiers = createSelector(
+  (state) => state.optimizer.form.buffs,
+  (buffs) => {
+    const enabledModifiers = Object.keys(buffs.buffs).filter((key) => buffs.buffs[key]);
 
-  return enabledModifiers.map((id) => {
-    const { modifiers, gw2id } = buffModifiersById[id];
-    const amount = {
-      amount: `${buffs.amounts[id]}`,
-      amountData: { label: 'stacks', default: 25, quantityEntered: 1 },
-    };
-    return {
-      id,
-      modifiers,
-      gw2id,
-      ...(['might', 'vulnerability'].includes(id) && amount),
-    };
-  });
-};
+    return enabledModifiers.map((id) => {
+      const itemData = buffModifiersById[id];
+      return { id, ...itemData, amount: buffs.amounts?.[id] };
+    });
+  },
+);
 
 export const { changeBuff, replaceBuffs, changeBuffAmount } = buffsSlice.actions;

@@ -1,7 +1,7 @@
 import { Grid, List, ListItem, withStyles } from '@material-ui/core';
-import { Attribute, Profession } from 'gw2-ui-bulk';
 import React from 'react';
-import { firstUppercase } from '../../utils/usefulFunctions';
+import { Attribute } from 'gw2-ui-bulk';
+import Profession from '../baseComponents/Profession';
 
 const styles = (theme) => ({
   root: {
@@ -64,7 +64,7 @@ const Attributes = ({ classes, profession, data }) => {
         <Grid item xs={6}>
           <List dense>
             <ListItem>
-              <Profession name={firstUppercase(profession)} text={0} className={classes.gw2Item} />
+              <Profession name={profession} text={0} className={classes.gw2Item} />
             </ListItem>
             <ListItem>
               <Attribute name="Armor" text={data.Armor} className={classes.gw2Item} />

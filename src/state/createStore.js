@@ -1,5 +1,5 @@
 import { gw2UIReducer } from 'gw2-ui-bulk';
-import { persistReducer, persistStore } from 'redux-persist';
+import { persistReducer, persistStore, createMigrate } from 'redux-persist';
 
 import { applyMiddleware, combineReducers, compose, createStore as reduxCreateStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
@@ -17,6 +17,7 @@ import { skillsSlice } from './slices/skills';
 import { prioritiesSlice } from './slices/priorities';
 import { extraModifiersSlice } from './slices/extraModifiers';
 import { forcedSlotsSlice } from './slices/forcedSlots';
+import { bossSlice } from './slices/boss';
 
 const createNoopStorage = () => {
   return {
@@ -34,10 +35,18 @@ const createNoopStorage = () => {
 
 const storage = typeof window === 'undefined' ? createNoopStorage() : createWebStorage('local');
 
+// bump this to cache invalidate the persisted state
+const CURRENT_VERSION = 2;
+
+const migrations = {
+  [CURRENT_VERSION]: (_state) => ({}),
+};
 const persistConfig = {
   key: 'root',
   whitelist: 'gw2UiStore',
   storage,
+  version: CURRENT_VERSION,
+  migrate: createMigrate(migrations),
 };
 
 const reducers = combineReducers({
@@ -54,6 +63,7 @@ const reducers = combineReducers({
       priorities: prioritiesSlice.reducer,
       extraModifiers: extraModifiersSlice.reducer,
       forcedSlots: forcedSlotsSlice.reducer,
+      boss: bossSlice.reducer,
     }),
   }),
 });

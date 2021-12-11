@@ -15,6 +15,14 @@
           Toughness: [180, buff]
       gw2id: 5571
 
+    - id: crescent-wind
+      text: Crescent Wind
+      subText: 100% uptime
+      modifiers:
+        attributes:
+          Critical Chance: 7%
+      gw2id: 62887
+
     - id: flame-axe
       text: Flame Axe
       subText: when equipped

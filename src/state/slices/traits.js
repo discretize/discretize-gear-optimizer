@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { changeAll, changeProfession, setBuildTemplate } from './controlsSlice';
-
-import { classModifiersById, traitSectionsById } from '../../assets/modifierdata';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
+import { changeAll, changeProfession, setBuildTemplate, getProfession } from './controlsSlice';
+import { PROFESSIONS } from '../../utils/gw2-data';
+import { classModifiers, classModifiersById, traitSectionsById } from '../../assets/modifierdata';
 
 const getInitialItems = (traitline) => {
   const allItemData = traitSectionsById[traitline].items || [];
@@ -56,7 +56,7 @@ export const traitsSlice = createSlice({
     setTraitModiferAmount: (state, action) => {
       const { index, id, amount } = action.payload;
 
-      state.items[index][id].amount = amount;
+      state.items[index][id] = { ...state.items[index][id], amount };
     },
     changeTraits: (state, action) => {
       return { ...state, ...action.payload };
@@ -64,7 +64,7 @@ export const traitsSlice = createSlice({
   },
   extraReducers: {
     [changeAll]: (state, action) => {
-      return /* { ...initialState, ... */ action.payload?.form?.traits /* } */;
+      return { ...state, ...action.payload?.form?.traits };
     },
     [changeProfession]: (state, action) => {
       if (state.profession !== action.payload) {
@@ -92,26 +92,47 @@ export const getTraitLines = (state) => state.optimizer.form.traits.selectedLine
 export const getTraits = (state) => state.optimizer.form.traits.selectedTraits;
 export const getTraitItems = (state) => state.optimizer.form.traits.items;
 
-export const getTraitsModifiers = (state) => {
-  const { traits } = state.optimizer.form;
-  const allSelectedTraits = traits.selectedTraits.flat(2);
+export const getTraitsModifiers = createSelector(
+  (state) => state.optimizer.form.traits,
+  (traits) => {
+    const allSelectedTraits = traits.selectedTraits.flat(2);
 
-  const result = [];
-  traits.items.forEach((object) => {
-    Object.entries(object).forEach(([id, value]) => {
-      const itemData = classModifiersById[id];
-      if (!itemData) return;
+    const result = [];
+    traits.items.forEach((object) => {
+      Object.entries(object).forEach(([id, value]) => {
+        const itemData = classModifiersById[id];
+        if (!itemData) return;
 
-      const visible = itemData.minor || allSelectedTraits.includes(itemData.gw2id);
-      const enabled = Boolean(value);
+        const visible = itemData.minor || allSelectedTraits.includes(itemData.gw2id);
+        const enabled = Boolean(value);
 
-      if (enabled && visible) {
-        result.push({ id, ...itemData, amount: value?.amount });
-      }
+        if (enabled && visible) {
+          result.push({ id, ...itemData, amount: value?.amount });
+        }
+      });
     });
-  });
-  return result;
-};
+    return result;
+  },
+);
+
+export const getCurrentSpecialization = createSelector(
+  getProfession,
+  getTraitLines,
+  (profession, selectedLines) => {
+    const { eliteSpecializations } = PROFESSIONS.find((prof) => prof.profession === profession);
+    // contains the names of the selected trait lines
+    const selectedTraitLinesNames = selectedLines
+      .map((id) => classModifiers[profession].find((section) => section?.id === Number(id)))
+      .filter((section) => section !== undefined)
+      .map((section) => section.section);
+
+    // currently selected specialization. In case multiple elite specializations are selected, only the first one is counted.
+    // In case no specialization is selected, the variable defaults to the core profession
+    const currentSpecialization =
+      selectedTraitLinesNames.find((spec) => eliteSpecializations.includes(spec)) || profession;
+    return currentSpecialization;
+  },
+);
 
 export const {
   toggleShowAll,

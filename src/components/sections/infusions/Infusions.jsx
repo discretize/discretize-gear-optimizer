@@ -3,29 +3,42 @@ import {
   Grid,
   Input,
   InputLabel,
-  InputAdornment,
-  TextField,
   MenuItem,
   Select,
   withStyles,
 } from '@material-ui/core';
-import { Autocomplete } from '@material-ui/lab';
 import { Attribute, Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import {
-  changeAR,
-  changeOmnipotion,
   getAR,
   getOmniPotion,
+  getMaxInfusions,
+  getPrimaryInfusion,
+  getSecondaryInfusion,
+  getPrimaryMaxInfusions,
+  getSecondaryMaxInfusions,
+  changeAR,
+  changeOmnipotion,
   changeInfusion,
-  getInfusions,
 } from '../../../state/slices/infusions';
-import { parseAmount } from '../../../state/optimizer/optimizerCore';
+import { parseAr, parseInfusionCount } from '../../../utils/usefulFunctions';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
+import AmountInput from '../../baseComponents/AmountInput';
+import InfusionHelper from './InfusionHelper';
 import HelperIcon from '../../baseComponents/HelperIcon';
-import { INFUSIONS } from '../../../utils/gw2-data';
+import { INFUSION_IDS } from '../../../utils/gw2-data';
+
+const arOptionLabels = {
+  '150': '150',
+  '203': '203 (DH Radiance)',
+  '222': '222',
+  '243': '243 (Soulbeast)',
+  '245': '245 (Weaver)',
+  '343': '343 (DH Virtues)',
+};
+const arOptions = Object.keys(arOptionLabels);
 
 const styles = (theme) => ({
   formControl: {
@@ -43,11 +56,14 @@ const Infusions = ({ classes }) => {
   const { t } = useTranslation();
   const ar = useSelector(getAR);
   const omnipotion = useSelector(getOmniPotion);
-  const infusions = useSelector(getInfusions);
+
+  const maxInfusions = useSelector(getMaxInfusions);
+  const primaryInfusion = useSelector(getPrimaryInfusion);
+  const secondaryInfusion = useSelector(getSecondaryInfusion);
+  const primaryMaxInfusions = useSelector(getPrimaryMaxInfusions);
+  const secondaryMaxInfusions = useSelector(getSecondaryMaxInfusions);
 
   const handleARChange = React.useCallback((_e, value) => dispatch(changeAR(value)), [dispatch]);
-
-  const { error: arError } = parseAmount(ar);
 
   const dropdown = (name, varName, infusion) => {
     return (
@@ -60,15 +76,17 @@ const Infusions = ({ classes }) => {
             dispatch(
               changeInfusion({
                 key: varName,
-                value: e.target.value === '' ? '' : Number(e.target.value),
+                value: e.target.value,
               }),
             )
           }
-          renderValue={(value) => <Item id={value} disableLink className={classes.item} />}
+          renderValue={(value) => (
+            <Item id={INFUSION_IDS[value]} disableLink className={classes.item} />
+          )}
         >
           <MenuItem value="">{t('None')} </MenuItem>
-          {INFUSIONS.map((infu) => infu.id).map((id) => (
-            <MenuItem value={id} key={id}>
+          {Object.entries(INFUSION_IDS).map(([attribute, id]) => (
+            <MenuItem value={attribute} key={attribute}>
               <Item id={id} disableLink />
             </MenuItem>
           ))}
@@ -78,7 +96,7 @@ const Infusions = ({ classes }) => {
   };
 
   const input = (name, varName, value, className) => {
-    const { error } = parseAmount(value);
+    const { error } = parseInfusionCount(value);
     return (
       <FormControl className={className}>
         <InputLabel htmlFor={`${varName}_input-with-icon-adornment`}>{name}</InputLabel>
@@ -94,7 +112,7 @@ const Infusions = ({ classes }) => {
   };
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={4}>
       <Grid container item spacing={2} alignItems="center" justifyContent="flex-start">
         <Grid item xs={12} sm>
           <CheckboxComponent
@@ -116,29 +134,18 @@ const Infusions = ({ classes }) => {
           />
         </Grid>
         <Grid item xs={12} sm>
-          <Autocomplete
+          <AmountInput
             className={classes.formControl}
-            freeSolo
-            disableClearable
-            options={['150', '162', '222']}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                error={arError}
-                InputProps={{
-                  ...params.InputProps,
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <Attribute name="Agony Resistance" disableLink disableText />
-                    </InputAdornment>
-                  ),
-                }}
-                label={t('Agony Resistance')}
-              />
-            )}
-            id="ar_input-with-icon-adornment"
+            useAutoComplete
+            parseFn={parseAr}
+            handleAmountChange={handleARChange}
+            label={t('Agony Resistance')}
+            endLabel={<Attribute name="Agony Resistance" disableLink disableText />}
+            autoCompleteProps={{
+              options: arOptions,
+              renderOption: (option) => arOptionLabels[option],
+            }}
             value={ar}
-            onInputChange={handleARChange}
           />
         </Grid>
       </Grid>
@@ -151,28 +158,21 @@ const Infusions = ({ classes }) => {
         alignItems="center"
       >
         <Grid item xs={12}>
-          {input('# Stat Infusions', 'maxInfusions', infusions.maxInfusions)}
+          {input('# Stat Infusions', 'maxInfusions', maxInfusions)}
         </Grid>
 
         <Grid item xs={12}>
-          {dropdown(t('Infusion Type #1'), 'primaryInfusion', infusions.primaryInfusion)}
-          {input(
-            t('Max #'),
-            'primaryMaxInfusions',
-            infusions.primaryMaxInfusions,
-            classes.formControl2,
-          )}
+          {dropdown(t('Infusion Type #1'), 'primaryInfusion', primaryInfusion)}
+          {input(t('Max #'), 'primaryMaxInfusions', primaryMaxInfusions, classes.formControl2)}
         </Grid>
 
         <Grid item xs={12}>
-          {dropdown(t('Infusion Type #2'), 'secondaryInfusion', infusions.secondaryInfusion)}
-          {input(
-            t('Max #'),
-            'secondaryMaxInfusions',
-            infusions.secondaryMaxInfusions,
-            classes.formControl2,
-          )}
+          {dropdown(t('Infusion Type #2'), 'secondaryInfusion', secondaryInfusion)}
+          {input(t('Max #'), 'secondaryMaxInfusions', secondaryMaxInfusions, classes.formControl2)}
         </Grid>
+      </Grid>
+      <Grid item xs={12}>
+        <InfusionHelper />
       </Grid>
     </Grid>
   );

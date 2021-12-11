@@ -1,12 +1,12 @@
-import elementalist from './elementalist.yaml';
-import engineer from './engineer.yaml';
-import guardian from './guardian.yaml';
-import mesmer from './mesmer.yaml';
-import necromancer from './necromancer.yaml';
-import ranger from './ranger.yaml';
-import revenant from './revenant.yaml';
-import thief from './thief.yaml';
-import warrior from './warrior.yaml';
+import Elementalist from './elementalist.yaml';
+import Engineer from './engineer.yaml';
+import Guardian from './guardian.yaml';
+import Mesmer from './mesmer.yaml';
+import Necromancer from './necromancer.yaml';
+import Ranger from './ranger.yaml';
+import Revenant from './revenant.yaml';
+import Thief from './thief.yaml';
+import Warrior from './warrior.yaml';
 
 import food from './food.yaml';
 import utility from './utility.yaml';
@@ -27,15 +27,15 @@ const allById = (group) =>
   Object.assign({}, ...Object.values(group).map((category) => byId(category)));
 
 export const classModifiers = {
-  elementalist,
-  engineer,
-  guardian,
-  mesmer,
-  necromancer,
-  ranger,
-  revenant,
-  thief,
-  warrior,
+  Elementalist,
+  Engineer,
+  Guardian,
+  Mesmer,
+  Necromancer,
+  Ranger,
+  Revenant,
+  Thief,
+  Warrior,
 };
 export const classModifiersById = allById(classModifiers);
 

@@ -10,7 +10,7 @@ const theme = createTheme({
       main: '#00cccc',
       dark: '#009a9b',
     },
-
+    star: '#FFDF00',
     text: {
       primary: '#ddd',
       secondary: '#b1b1b5',
@@ -180,11 +180,6 @@ export default createTheme({
       },
     },
     MuiDivider: {
-      root: {
-        marginBottom: theme.spacing(2),
-      },
-    },
-    MuiTable: {
       root: {
         marginBottom: theme.spacing(2),
       },

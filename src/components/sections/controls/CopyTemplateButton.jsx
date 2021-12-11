@@ -54,7 +54,7 @@ const CopyTemplateButton = ({ extras: extrasIds, data, infusions, weight, runeId
     navigator.clipboard.writeText(JSON.stringify(template, null, 2));
   };
 
-  const { weapons: useableWeapons } = Classes[profession.toLowerCase()];
+  const { weapons: useableWeapons } = Classes[profession];
 
   return (
     <>

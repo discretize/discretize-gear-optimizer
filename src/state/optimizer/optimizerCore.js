@@ -10,12 +10,14 @@ import {
   Slots,
   ForcedSlots,
   Classes,
-  Condition,
+  conditionData,
   Attributes,
   INFUSION_BONUS,
 } from '../../utils/gw2-data';
 
 import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
+
+import { parseAmount } from '../../utils/usefulFunctions';
 
 /**
  * ------------------------------------------------------------------------
@@ -34,11 +36,11 @@ let isChanged = true;
  * Sets up optimizer with input data
  *
  * @param {object} input
- * @param {object[]} input.modifiers - array of modifier objects
+ * @param {object[]} input.appliedModifiers - array of modifier objects
  * @param {?string[]} input.tags - modifier data for the UI
  *                      (passed unedited into character.settings)
  * @param {string} input.profession
- * @param {string} input.weapontype
+ * @param {string} input.weaponType
  * @param {string[]} input.affixes - all selected gear affixes to iterate over
  * @param {string[]} input.forcedAffixes - array of specific affix names for each slot,
  *                     or '' for unspecfied
@@ -57,6 +59,9 @@ let isChanged = true;
  *                                   (sums to 100)
  * @param {?object.<string, number>} input.distribution - new style distribution
  *                                   (coefficient * weaponstrength per second; average condition stacks)
+ * @param {?number} input.attackRate - boss attack rate (for confusion)
+ * @param {?number} input.movementUptime - boss movement uptime (for torment)
+ *
  * @returns {object} settings - parsed settings object
  */
 export function setup(input) {
@@ -65,7 +70,6 @@ export function setup(input) {
 
   /* eslint-disable prefer-const */
   let {
-    modifiers: modifiersInput,
     primaryInfusion: primaryInfusionInput,
     secondaryInfusion: secondaryInfusionInput,
     primaryMaxInfusions: primaryMaxInfusionsInput,
@@ -137,8 +141,7 @@ export function setup(input) {
 
   const parsePercent = (percentValue) => Number(percentValue.replace('%', '')) / 100;
 
-  modifiersInput = modifiersInput || [];
-  for (const item of modifiersInput) {
+  for (const item of settings.appliedModifiers) {
     const {
       id = '[no id]',
       visible = true,
@@ -280,7 +283,7 @@ export function setup(input) {
     settings.distribution = {};
     settings.distribution['Power'] = (Power * 2597) / 1025;
     for (const [condition, value] of Object.entries(rest)) {
-      settings.distribution[condition] = value / Condition[condition].baseDamage;
+      settings.distribution[condition] = value / conditionData[condition].baseDamage;
     }
   }
 
@@ -366,7 +369,7 @@ export function setup(input) {
 
   /* Equipment */
 
-  settings.slots = Slots[settings.weapontype];
+  settings.slots = Slots[settings.weaponType];
 
   // affixesArray: valid affixes for each slot, taking forced slots into account
   // e.g. [[Berserker, Assassin], [Assassin], [Berserker, Assassin]...]
@@ -442,8 +445,8 @@ export function setup(input) {
 
   settings.runsAfterThisSlot.push(1);
 
-  // const freeSlots = settings.weapontype === 'Dual wield' ? 5 : 6;
-  // const pairs = settings.weapontype === 'Dual wield' ? 3 : 2;
+  // const freeSlots = settings.weaponType === 'Dual wield' ? 5 : 6;
+  // const pairs = settings.weaponType === 'Dual wield' ? 3 : 2;
   // const triplets = 1;
   // calculationTotal
   //   = Math.pow(settings.affixes.length, freeSlots)
@@ -507,26 +510,6 @@ export function scaleValue(value, amountInput, amountData) {
   return amountData
     ? (value * (amountInput ?? amountData.default)) / amountData.quantityEntered
     : value;
-}
-
-/**
- * Parses a string to a number, treating non-parsable strings like empty inputs but indicating an
- * error so text boxes can display the error validaton state
- *
- * @param {*} text - the string to be parsed
- * @returns {{ value: ?number, error: boolean}} result
- *   result.value - the resulting number, or null
- *   result.error - whether the input was invalid
- */
-export function parseAmount(text) {
-  if (text === '' || text === null || text === undefined) {
-    return { value: null, error: false };
-  }
-  const value = Number(text);
-  if (Number.isNaN(value) || value < 0) {
-    return { value: null, error: true };
-  }
-  return { value, error: false };
 }
 
 /**
@@ -751,19 +734,19 @@ applyInfusions['Secondary'] = function (character) {
   }
 };
 
+const testInfusionUsefulness = function (character, settings) {
+  const temp = clone(character);
+  addBaseStats(temp, settings.primaryInfusion, settings.maxInfusions * INFUSION_BONUS);
+  addBaseStats(temp, settings.secondaryInfusion, settings.maxInfusions * INFUSION_BONUS);
+  updateAttributesFast(temp, true);
+  return temp.attributes[settings.rankby] > worstScore;
+};
+
 // Tests every valid combination of 18 infusions and inserts the best result
 applyInfusions['SecondaryNoDuplicates'] = function (character) {
   const { settings } = character;
 
-  const testInfusionUsefulness = function () {
-    const temp = clone(character);
-    addBaseStats(temp, settings.primaryInfusion, settings.maxInfusions * INFUSION_BONUS);
-    addBaseStats(temp, settings.secondaryInfusion, settings.maxInfusions * INFUSION_BONUS);
-    updateAttributesFast(temp, true);
-    return temp.attributes[settings.rankby] > worstScore;
-  };
-
-  if (!worstScore || testInfusionUsefulness()) {
+  if (!worstScore || testInfusionUsefulness(character, settings)) {
     let best = null;
 
     let primaryCount = settings.primaryMaxInfusions;
@@ -797,12 +780,12 @@ let uniqueIDCounter = 0;
 function insertCharacter(character) {
   const { settings, attributes, valid } = character;
 
-  character.results = { value: character.attributes[settings.rankby] };
-
   if (!valid || (worstScore && worstScore > attributes[settings.rankby])) {
     return;
   }
 
+  updateAttributes(character);
+  calcResults(character);
   character.id = uniqueIDCounter++;
 
   if (list.length === 0) {
@@ -848,15 +831,16 @@ export function characterLT(a, b) {
   //     return false;
   // }
 
+  // tiebreakers
   if (a.attributes[settings.rankby] === b.attributes[settings.rankby]) {
-    let sumA = 0;
-    let sumB = 0;
-    for (const attribute of Attributes.PRIMARY.concat(Attributes.SECONDARY)) {
-      sumA += a.attributes[attribute] || 0;
-      sumB += b.attributes[attribute] || 0;
+    switch (settings.rankby) {
+      case 'Damage':
+        return a.attributes['Survivability'] < b.attributes['Survivability'];
+      case 'Survivability':
+      case 'Healing':
+        return a.attributes['Damage'] < b.attributes['Damage'];
+      // no default
     }
-
-    return sumA < sumB;
   }
 
   return a.attributes[settings.rankby] < b.attributes[settings.rankby];
@@ -894,10 +878,8 @@ const clamp = (input, min, max) => {
  * calculated stats and damage/healing/survivability scores.
  *
  * @param {object} character
- * @param {*} results - calculates results data only if true (must be false inside calcResults,
- *  otherwise this is an infinite loop)
  */
-export function updateAttributes(character, results = true) {
+function updateAttributes(character) {
   const { damageMultiplier } = character.settings.modifiers;
   character.valid = true;
 
@@ -909,8 +891,6 @@ export function updateAttributes(character, results = true) {
 
   calcSurvivability(character, damageMultiplier);
   calcHealing(character);
-
-  if (results) calcResults(character);
 }
 
 /**
@@ -988,10 +968,11 @@ function checkInvalid(character) {
   const { settings, attributes } = character;
 
   const invalid =
-    (settings.minBoonDuration && attributes['Boon Duration'] < settings.minBoonDuration / 100) ||
-    (settings.minHealingPower && attributes['Healing Power'] < settings.minHealingPower) ||
-    (settings.minToughness && attributes['Toughness'] < settings.minToughness) ||
-    (settings.maxToughness && attributes['Toughness'] > settings.maxToughness);
+    (settings.minBoonDuration !== null &&
+      attributes['Boon Duration'] < settings.minBoonDuration / 100) ||
+    (settings.minHealingPower !== null && attributes['Healing Power'] < settings.minHealingPower) ||
+    (settings.minToughness !== null && attributes['Toughness'] < settings.minToughness) ||
+    (settings.maxToughness !== null && attributes['Toughness'] > settings.maxToughness);
   if (invalid) {
     character.valid = false;
   }
@@ -1018,17 +999,32 @@ function calcPower(character, damageMultiplier) {
   return damage;
 }
 
+const conditionDamageTick = (condition, cdmg, mult) =>
+  (conditionData[condition].factor * cdmg + conditionData[condition].baseDamage) * mult;
+
 function calcCondi(character, damageMultiplier, relevantConditions) {
   const { attributes, settings } = character;
 
   attributes['Condition Duration'] += attributes['Expertise'] / 15 / 100;
   let condiDamageScore = 0;
   for (const condition of relevantConditions) {
-    attributes[`${condition} Damage`] =
-      (Condition[condition].factor * attributes['Condition Damage'] +
-        Condition[condition].baseDamage) *
-      damageMultiplier['Condition Damage'] *
-      damageMultiplier[`${condition} Damage`];
+    const cdmg = attributes['Condition Damage'];
+    const mult = damageMultiplier['Condition Damage'] * damageMultiplier[`${condition} Damage`];
+
+    switch (condition) {
+      case 'Torment':
+        attributes[`Torment Damage`] =
+          conditionDamageTick('Torment', cdmg, mult) * (1 - settings.movementUptime) +
+          conditionDamageTick('TormentMoving', cdmg, mult) * settings.movementUptime;
+        break;
+      case 'Confusion':
+        attributes[`Confusion Damage`] =
+          conditionDamageTick('Confusion', cdmg, mult) +
+          conditionDamageTick('ConfusionActive', cdmg, mult) * settings.attackRate;
+        break;
+      default:
+        attributes[`${condition} Damage`] = conditionDamageTick(condition, cdmg, mult);
+    }
 
     const duration =
       1 +
@@ -1068,7 +1064,7 @@ function calcHealing(character) {
   // reasonably representative skill: druid celestial avatar 4 pulse
   // 390 base, 0.3 coefficient
   attributes['Effective Healing'] =
-    (attributes['Healing Power'] * 0.3 + 390) * (1 + attributes['Outgoing Healing'] || 0);
+    (attributes['Healing Power'] * 0.3 + 390) * (1 + (attributes['Outgoing Healing'] || 0));
   if (Object.prototype.hasOwnProperty.call(settings.modifiers, 'bountiful-maintenance-oil')) {
     const bonus =
       ((attributes['Healing Power'] || 0) * 0.6) / 10000 +
@@ -1142,7 +1138,7 @@ function calcResults(character) {
   }
 
   // template helper data (damage with distribution of one)
-  results.templateHelper = {};
+  results.coefficientHelper = {};
   const temp = clone(character);
   temp.settings = {
     ...temp.settings,
@@ -1156,12 +1152,12 @@ function calcResults(character) {
       Confusion: 1,
     },
   };
-  updateAttributes(temp, false);
+  updateAttributes(temp);
   for (const key of Object.keys(settings.distribution)) {
     if (key === 'Power') {
-      results.templateHelper['Power'] = temp.attributes['Power DPS'];
+      results.coefficientHelper['Power'] = temp.attributes['Power DPS'];
     } else {
-      results.templateHelper[key] = temp.attributes[`${key} DPS`];
+      results.coefficientHelper[key] = temp.attributes[`${key} DPS`];
     }
   }
 }

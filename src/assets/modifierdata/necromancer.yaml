@@ -3,6 +3,10 @@
 
     - id: signet-of-spite
       text: Signet of Spite
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Power: [180, buff]
@@ -301,7 +305,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [1%, unknown]
+          Strike Damage: [0.5%, unknown]
       gw2id: 2188
       defaultEnabled: true
 
@@ -313,7 +317,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Condition Damage: [1%, unknown]
+          Condition Damage: [0.5%, unknown]
       gw2id: 2185
       defaultEnabled: true
 

@@ -9,7 +9,6 @@ import {
   changeSelectedCharacter,
   getSelectedCharacter,
   getList,
-  setAllSelectedModifiers,
   changeError,
   changeAll,
 } from '../slices/controlsSlice';
@@ -18,94 +17,56 @@ import { getBuffsModifiers } from '../slices/buffs';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
 import { getInfusionsModifiers } from '../slices/infusions';
 import { getSkillsModifiers } from '../slices/skills';
-import { getTraitsModifiers } from '../slices/traits';
+import { getTraitsModifiers, getCurrentSpecialization } from '../slices/traits';
 
-import { INFUSIONS } from '../../utils/gw2-data';
 import { ERROR, SUCCESS, WAITING } from './status';
+
+import { parseInfusionCount, parsePriority, parseBoss } from '../../utils/usefulFunctions';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function createTraitsTemplate(state, list) {
-  // const { profession, traits, skills, extras } = state;
-
-  const withoutModifiers = (object) => {
-    // eslint-disable-next-line no-unused-vars
-    const { modifiers, ...rest } = object;
-    return { ...rest };
-  };
-
-  console.groupCollapsed('Template Creation Data');
-
-  const traitsTemplate = {
-    profession: state.control.profession,
-    traits: withoutModifiers(state.form.traits),
-    skills: withoutModifiers(state.form.skills),
-    extras: withoutModifiers(state.form.extras),
-  };
-
-  console.log('Traits:', traitsTemplate);
-
-  const distribution = state.form.distribution.values2;
-  console.log('Input Distribution (v2):');
-  console.table([distribution]);
-
-  if (list && list[0]) {
-    const bestResult = { ...list[0] };
-    optimizerCore.updateAttributes(bestResult);
-    console.log('Best Result Damage:');
-    console.table([
-      Object.fromEntries(
-        // eslint-disable-next-line id-length
-        Object.entries(bestResult.results.damageBreakdown).map(([a, b]) => [a, parseFloat(b)]),
-      ),
-    ]);
-  }
-  console.groupEnd();
-
-  return traitsTemplate;
-}
-
-function createInput(state, modifiers) {
+function createInput(state, specialization, appliedModifiers, cachedFormState) {
   const {
     control: { profession },
     form: {
       infusions: {
         primaryInfusion,
         secondaryInfusion,
-        maxInfusions: maxInfusionsInput,
-        primaryMaxInfusions: primaryMaxInfusionsInput,
-        secondaryMaxInfusions: secondaryMaxInfusionsInput,
+        maxInfusions: maxInfusionsText,
+        primaryMaxInfusions: primaryMaxInfusionsText,
+        secondaryMaxInfusions: secondaryMaxInfusionsText,
       },
       forcedSlots: { slots },
       priorities: {
         optimizeFor,
         weaponType,
-        minBoonDuration,
-        minHealingPower,
-        minToughness,
-        maxToughness,
+        minBoonDuration: minBoonDurationText,
+        minHealingPower: minHealingPowerText,
+        minToughness: minToughnessText,
+        maxToughness: maxToughnessText,
         affixes,
       },
       distribution: { version, values1, values2 },
+      boss: { attackRate: attackRateText, movementUptime: movementUptimeText },
     },
   } = state;
 
-  const parseTextNumber = (text, defaultValue) => {
-    const parsed = Number.parseInt(text, 10);
-    if (Number.isNaN(parsed)) {
-      return defaultValue;
-    }
-    return Math.max(parsed, 0);
-  };
+  const maxInfusions = parseInfusionCount(maxInfusionsText).value;
+  const primaryMaxInfusions = parseInfusionCount(primaryMaxInfusionsText).value;
+  const secondaryMaxInfusions = parseInfusionCount(secondaryMaxInfusionsText).value;
 
-  const maxInfusions = parseTextNumber(maxInfusionsInput, 18);
-  const primaryMaxInfusions = parseTextNumber(primaryMaxInfusionsInput, 18);
-  const secondaryMaxInfusions = parseTextNumber(secondaryMaxInfusionsInput, 18);
+  const minBoonDuration = parsePriority(minBoonDurationText).value;
+  const minHealingPower = parsePriority(minHealingPowerText).value;
+  const minToughness = parsePriority(minToughnessText).value;
+  const maxToughness = parsePriority(maxToughnessText).value;
+
+  const attackRate = parseBoss(attackRateText).value ?? 0;
+  const movementUptime = (parseBoss(movementUptimeText).value ?? 0) / 100;
 
   const input = {
     tags: undefined,
-    profession: profession.toLowerCase(),
-    weapontype: weaponType,
+    profession,
+    weaponType,
     affixes: affixes.map((affix) =>
       affix.toLowerCase().replace(/^\w/, (char) => char.toUpperCase()),
     ),
@@ -117,15 +78,19 @@ function createInput(state, modifiers) {
     maxToughness,
     maxResults: 50, // TODO MAX RESULTS
     maxInfusions,
-    primaryInfusion: INFUSIONS.find((entry) => entry.id === primaryInfusion)?.attribute,
-    secondaryInfusion: INFUSIONS.find((entry) => entry.id === secondaryInfusion)?.attribute,
+    primaryInfusion,
+    secondaryInfusion,
     primaryMaxInfusions,
     secondaryMaxInfusions,
     distributionVersion: version,
     percentDistribution: values1,
     distribution: values2,
+    attackRate,
+    movementUptime,
   };
-  input.modifiers = modifiers;
+  input.specialization = specialization;
+  input.appliedModifiers = appliedModifiers;
+  input.cachedFormState = cachedFormState;
 
   // temp: convert "poisoned" to "poison"
   const convertPoison = (distribution) =>
@@ -152,15 +117,22 @@ function* runCalc() {
   let input;
   let settings;
   let oldPercent;
-  let selectedCharacterIsStale = true;
+  let originalSelectedCharacter;
   try {
     yield delay(0);
-    console.time('Calculation');
 
     const reduxState = yield select();
     state = reduxState.optimizer;
 
-    const modifiers = [
+    const specialization = yield select(getCurrentSpecialization);
+
+    const cachedFormState = {
+      traits: state.form.traits,
+      skills: state.form.skills,
+      extras: state.form.extras,
+    };
+
+    const appliedModifiers = [
       ...(yield select(getExtrasModifiers) || []),
       ...(yield select(getBuffsModifiers) || []),
       ...(yield select(getExtraModifiersModifiers) || []),
@@ -168,9 +140,10 @@ function* runCalc() {
       ...(yield select(getSkillsModifiers) || []),
       ...(yield select(getTraitsModifiers) || []),
     ];
-    yield put(setAllSelectedModifiers(modifiers));
 
-    input = createInput(state, modifiers);
+    console.time('Calculation');
+
+    input = createInput(state, specialization, appliedModifiers, cachedFormState);
 
     console.groupCollapsed('Debug Info:');
     console.log('Redux State:', state);
@@ -181,10 +154,7 @@ function* runCalc() {
 
     const generatedResults = optimizerCore.calculate(settings);
 
-    // clear the selected character on click "instantly," but actually with a small delay
-    // (short calculations will update in-place without a flicker)
-    let clearResultsCounter = 0;
-    const clearResultsAfter = 5;
+    originalSelectedCharacter = yield select(getSelectedCharacter);
 
     // render list updates on a trailing throttle
     // back-to-back(to-back) list updates will only be rendered once
@@ -192,12 +162,6 @@ function* runCalc() {
     const listThrottle = 3;
 
     for (const { percent: newPercent, isChanged, newList } of generatedResults) {
-      clearResultsCounter++;
-      if (clearResultsCounter === clearResultsAfter) {
-        yield put(changeSelectedCharacter(null));
-        selectedCharacterIsStale = false;
-      }
-
       listRenderCounter++;
       if (isChanged) {
         currentList = newList;
@@ -218,9 +182,6 @@ function* runCalc() {
       yield delay(0);
     }
     yield put(changeList(currentList));
-    const traitsTemplate = createTraitsTemplate(state, currentList);
-    yield put(changeControl({ key: 'traitsTemplate', value: traitsTemplate }));
-    console.groupEnd();
 
     console.timeEnd('Calculation');
     console.time('Render Result');
@@ -239,7 +200,7 @@ function* runCalc() {
 
     // automatically select the top result unless the user clicked one during the calculation
     const selectedCharacter = yield select(getSelectedCharacter);
-    if (currentList && (!selectedCharacter || selectedCharacterIsStale)) {
+    if (currentList && (!selectedCharacter || selectedCharacter === originalSelectedCharacter)) {
       yield put(changeSelectedCharacter(currentList[0]));
     }
 
@@ -261,7 +222,7 @@ function* runCalc() {
       console.timeEnd('Calculation');
       console.time('Render Result');
       const selectedCharacter = yield select(getSelectedCharacter);
-      if (!selectedCharacter || selectedCharacterIsStale) {
+      if (!selectedCharacter || selectedCharacter === originalSelectedCharacter) {
         currentList = yield select(getList);
         if (currentList && currentList[0]) {
           yield put(changeSelectedCharacter(currentList[0]));
@@ -297,7 +258,6 @@ function* exportState({ onSuccess }) {
       ...state.control,
       list: modifiedList,
       selectedCharacter: null,
-      allSelectedModifiers: null,
     },
   };
 

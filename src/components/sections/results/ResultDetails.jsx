@@ -3,16 +3,9 @@ import { getImage } from 'gatsby-plugin-image';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import {
-  getAllSelectedModifiers,
-  getProfession,
-  getSelectedCharacter,
-} from '../../../state/slices/controlsSlice';
-import { updateAttributes } from '../../../state/optimizer/optimizerCore';
-import { getExtras } from '../../../state/slices/extras';
-import { getPriority } from '../../../state/slices/priorities';
-import { getTraitLines } from '../../../state/slices/traits';
-import { Classes, Defense, INFUSIONS, PROFESSIONS } from '../../../utils/gw2-data';
+import times from 'lodash/times';
+import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
+import { Classes, Defense, INFUSION_IDS } from '../../../utils/gw2-data';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 import Character from '../../gw2/Character';
 import TemplateHelperSections from './TemplateHelperSections';
@@ -23,15 +16,22 @@ import OutputDistribution from './OutputDistribution';
 import OutputInfusions from './OutputInfusions';
 import SpecialDurations from './SpecialDurations';
 
-import { classModifiers, extrasModifiersById } from '../../../assets/modifierdata';
+import { extrasModifiersById } from '../../../assets/modifierdata';
 
 const ResultDetails = ({ data }) => {
-  const profession = useSelector(getProfession);
-  const modifiers = useSelector(getAllSelectedModifiers);
-
   const { t } = useTranslation();
 
-  const extras = useSelector(getExtras);
+  const character = useSelector(getSelectedCharacter);
+  if (!character) {
+    return null;
+  }
+
+  // eslint-disable-next-line no-console
+  console.log('Selected Character Data:', character);
+
+  const { profession, weaponType } = character.settings;
+
+  const { extras } = character.settings.cachedFormState;
   const {
     Sigil1: sigil1,
     Sigil2: sigil2,
@@ -40,24 +40,9 @@ const ResultDetails = ({ data }) => {
     Runes: runeStringId,
   } = extras;
 
-  const priority = useSelector(getPriority('weaponType'));
-  const traits = useSelector(getTraitLines);
+  const classData = Classes[profession].weapons;
 
-  const charRaw = useSelector(getSelectedCharacter);
-  if (!charRaw) {
-    return null;
-  }
-
-  // Fetch additional result values from the optimizer core (on demand)
-  const character = { ...charRaw };
-  updateAttributes(character);
-
-  // eslint-disable-next-line no-console
-  console.log('Selected Character Data:', character);
-
-  const classData = Classes[profession.toLowerCase()].weapons;
-
-  const { defense } = Classes[profession.toLowerCase()];
+  const { defense } = Classes[profession];
   let weight = 'Light';
   if (defense === Defense.HEAVY) {
     weight = 'Heavy';
@@ -69,14 +54,13 @@ const ResultDetails = ({ data }) => {
 
   if (character.infusions) {
     infusions = Object.keys(character.infusions).flatMap((key) =>
-      // eslint-disable-next-line no-undef
-      _.times(character.infusions[key], () => INFUSIONS.find((infu) => infu.attribute === key).id),
+      times(character.infusions[key], () => INFUSION_IDS[key]),
     );
     // fill up the remaining slots with generic +9 Agony Infusions
     infusions = [
       ...infusions,
-      // eslint-disable-next-line no-undef, id-length
-      ..._.times(18 - Object.values(character.infusions).reduce((p, c) => p + c), () => 49432),
+      // eslint-disable-next-line id-length
+      ...times(18 - Object.values(character.infusions).reduce((p, c) => p + c), () => 49432),
     ];
   }
 
@@ -92,7 +76,7 @@ const ResultDetails = ({ data }) => {
   let wea2;
   let weapData;
 
-  if (priority === 'Dual wield') {
+  if (weaponType === 'Dual wield') {
     wea1 = classData.mainHand.find((item) => item.type === 'one-handed');
     [wea2] = classData.offHand;
     weapData = {
@@ -121,27 +105,15 @@ const ResultDetails = ({ data }) => {
     };
   }
 
-  // find the right image for the selected elite specialization
-  const { eliteSpecializations } = PROFESSIONS.find(
-    (prof) => prof.profession === profession.toUpperCase(),
-  );
-  // contains the names of the selected trait lines
-  const selectedTraitLinesNames = traits
-    .map((id) =>
-      classModifiers[profession.toLowerCase()].find((section) => section?.id === Number(id)),
-    )
-    .filter((section) => section !== undefined)
-    .map((section) => section.section);
+  const imageData = data.images.edges.flatMap((image) => image.node);
 
-  // currently selected specialization. In case multiple elite specializations are selected, only the first one is counted.
-  // In case no specialization is selected, the variable defaults to the core profession
-  const currentSpecialization =
-    selectedTraitLinesNames.find((spec) => eliteSpecializations.includes(spec.toUpperCase())) ||
-    profession;
-
-  const imageRaw = data.images.edges
-    .flatMap((image) => image.node)
-    .find((image) => image.original.src.includes(currentSpecialization.toLowerCase()));
+  const imageRaw =
+    imageData.find((image) =>
+      image.original.src.includes(character.settings.specialization.toLowerCase()),
+    ) ||
+    imageData.find((image) =>
+      image.original.src.includes(character.settings.profession.toLowerCase()),
+    );
   const image = getImage(imageRaw);
 
   // Replace the names to match gw2-ui names
@@ -198,7 +170,7 @@ const ResultDetails = ({ data }) => {
         <Grid item xs={12} sm={6} md={4} />
       </Grid>
 
-      <AppliedModifiers data={modifiers} />
+      <AppliedModifiers data={character?.settings?.appliedModifiers} />
 
       <TemplateHelperSections
         character={character}
