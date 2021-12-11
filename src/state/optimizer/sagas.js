@@ -261,6 +261,9 @@ function* exportState({ onSuccess }) {
     },
   };
 
+  // remove saved builds (at least for now)
+  delete modifiedState.control.saved;
+
   const compressed = yield lib.compress(modifiedState);
   console.timeEnd('created template');
   console.log('length:', compressed.length);
