@@ -18,7 +18,7 @@ import {
   getBuffAmounts,
   getBuffs,
 } from '../../../state/slices/buffs';
-import { firstUppercase } from '../../../utils/usefulFunctions';
+import { firstUppercase } from 'react-discretize-components';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import AmountInput from '../../baseComponents/AmountInput';
 

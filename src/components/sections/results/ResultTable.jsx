@@ -6,7 +6,7 @@ import TableHead from '@material-ui/core/TableHead';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import TextDivider from '../../baseComponents/TextDivider';
+import { TextDivider } from 'react-discretize-components';
 import {
   getList,
   getSelectedCharacter,

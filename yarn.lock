@@ -1031,6 +1031,14 @@
     core-js-pure "^3.19.0"
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime-corejs3@^7.16.3":
+  version "7.16.3"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.16.3.tgz#1e25de4fa994c57c18e5fdda6cc810dac70f5590"
+  integrity sha512-IAdDC7T0+wEB4y2gbIL0uOXEYpiZEeuFUTVbdGq+UwCcF35T/tS8KrmMomEwEc5wBbyfH3PJVpTSUqrhPDXFcQ==
+  dependencies:
+    core-js-pure "^3.19.0"
+    regenerator-runtime "^0.13.4"
+
 "@babel/runtime@^7.10.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.0", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.10", "@babel/runtime@^7.14.5", "@babel/runtime@^7.15.4", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
   version "7.16.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.16.0.tgz#e27b977f2e2088ba24748bf99b5e1dece64e4f0b"
@@ -1868,7 +1876,7 @@
     "@babel/runtime" "^7.7.2"
     regenerator-runtime "^0.13.3"
 
-"@material-ui/core@^4.12.2":
+"@material-ui/core@^4.12.2", "@material-ui/core@^4.12.3":
   version "4.12.3"
   resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.12.3.tgz#80d665caf0f1f034e52355c5450c0e38b099d3ca"
   integrity sha512-sdpgI/PL56QVsEJldwEe4FFaFTLUqN+rd7sSZiRCdx2E/C7z5yK0y/khAWVBH24tXwto7I1hCzNWfJGZIYJKnw==
@@ -3430,6 +3438,14 @@ babel-plugin-remove-graphql-queries@^3.14.0:
   dependencies:
     "@babel/runtime" "^7.15.4"
     gatsby-core-utils "^2.14.0"
+
+babel-plugin-remove-graphql-queries@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-4.3.0.tgz#f2f195c4ca525d9bbf15b2bf0683d15cc9d27825"
+  integrity sha512-YIH37ulNBHXCMZIME1sISke/0F/D7JFfVvzBHy1n+xKqx+o1gqQMbPabtIGvkA5dQhxfV1/2Pw/gx2+0lSpsRw==
+  dependencies:
+    "@babel/runtime" "^7.15.4"
+    gatsby-core-utils "^3.3.0"
 
 babel-plugin-syntax-jsx@^6.18.0:
   version "6.18.0"
@@ -6029,6 +6045,22 @@ gatsby-core-utils@^2.14.0:
     tmp "^0.2.1"
     xdg-basedir "^4.0.0"
 
+gatsby-core-utils@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-3.3.0.tgz#a8fb10e2341fd0e98a50ee3dd2b707bcca65fdee"
+  integrity sha512-Mr90+2T5mUie2fCkQS3dM6oHzTyt1vLbpJ2nU2OsdF95LHnLBt0kDgK+qEIuz7Ypr91gFN8y2HoP08vuokq7ZQ==
+  dependencies:
+    "@babel/runtime" "^7.15.4"
+    ci-info "2.0.0"
+    configstore "^5.0.1"
+    file-type "^16.5.3"
+    fs-extra "^10.0.0"
+    got "^11.8.2"
+    node-object-hash "^2.3.10"
+    proper-lockfile "^4.1.2"
+    tmp "^0.2.1"
+    xdg-basedir "^4.0.0"
+
 gatsby-graphiql-explorer@^1.14.0:
   version "1.14.0"
   resolved "https://registry.yarnpkg.com/gatsby-graphiql-explorer/-/gatsby-graphiql-explorer-1.14.0.tgz#2049d6b2cf1612c80faf3983c72a41cb9d6bb116"
@@ -6083,6 +6115,25 @@ gatsby-plugin-image@^1.11.0:
     common-tags "^1.8.0"
     fs-extra "^10.0.0"
     gatsby-core-utils "^2.14.0"
+    objectFitPolyfill "^2.3.5"
+    prop-types "^15.7.2"
+
+gatsby-plugin-image@^2.2.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-2.3.0.tgz#126f7a0666016c8879b97246ce4f4e1dd62e3c47"
+  integrity sha512-oxG+oZ1kYboX/75jOxHZeV6Xzo5xHZ/8KUQpni58nI1+xaxZRFBthXg1SetSs8nWRsXR5Y+bq8FAf0R0iGjySg==
+  dependencies:
+    "@babel/code-frame" "^7.14.0"
+    "@babel/parser" "^7.15.5"
+    "@babel/runtime" "^7.15.4"
+    "@babel/traverse" "^7.15.4"
+    babel-jsx-utils "^1.1.0"
+    babel-plugin-remove-graphql-queries "^4.3.0"
+    camelcase "^5.3.1"
+    chokidar "^3.5.2"
+    common-tags "^1.8.0"
+    fs-extra "^10.0.0"
+    gatsby-core-utils "^3.3.0"
     objectFitPolyfill "^2.3.5"
     prop-types "^15.7.2"
 
@@ -6818,7 +6869,7 @@ gw2-ui-builder-bulk@^0.2.4:
   resolved "https://registry.yarnpkg.com/gw2-ui-builder-bulk/-/gw2-ui-builder-bulk-0.2.4.tgz#cc468b8c001573c3b26dd0f3c3e5b379a5a2de53"
   integrity sha512-Lyut7wmI83zClIGnwHvMblpa/WTa45tFbhhzkww9B+lazoneE2ZFkCIUA2fsZYSn/9CYAeZSpMr4LOEFL8ds/g==
 
-gw2-ui-bulk@0.11.12:
+gw2-ui-bulk@0.11.12, gw2-ui-bulk@^0.11.12:
   version "0.11.12"
   resolved "https://registry.yarnpkg.com/gw2-ui-bulk/-/gw2-ui-bulk-0.11.12.tgz#deb71c3b4ee20e46bd7f9ff6bb0b5cd2ffda18dc"
   integrity sha512-efMzjYLjWaLz5llX2GpR5vct9h+LWcQMtjxpTG9ypGj9kzOohZVw9gZpbv/9RF5J09fbiqOBJINgY8K+UEwL4A==
@@ -9198,7 +9249,7 @@ node-lzw@^0.3.1:
   resolved "https://registry.yarnpkg.com/node-lzw/-/node-lzw-0.3.1.tgz#f50e37968976aca83320028b91f101df4a436b2d"
   integrity sha1-9Q43lol2rKgzIAKLkfEB30pDay0=
 
-node-object-hash@^2.3.9:
+node-object-hash@^2.3.10, node-object-hash@^2.3.9:
   version "2.3.10"
   resolved "https://registry.yarnpkg.com/node-object-hash/-/node-object-hash-2.3.10.tgz#4b0c1a3a8239e955f0db71f8e00b38b5c0b33992"
   integrity sha512-jY5dPJzw6NHd/KPSfPKJ+IHoFS81/tJ43r34ZeNMXGzCOM8jwQDCD12HYayKIB6MuznrnqIYy2e891NA2g0ibA==
@@ -10401,6 +10452,18 @@ react-dev-utils@^11.0.3:
     shell-quote "1.7.2"
     strip-ansi "6.0.0"
     text-table "0.2.0"
+
+react-discretize-components@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-discretize-components/-/react-discretize-components-1.0.2.tgz#26208c4a292d5b8b17dcf0693d95944f83dbffb1"
+  integrity sha512-TgFIPo0EEBYJnOJLz3rAoPUzNn244RTP6+elU1DKgP1h4y7yr/fwlOXpz/HYKiJDZA5LIv1CGM171BlDNjh9Og==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.16.3"
+    "@material-ui/core" "^4.12.3"
+    classnames "^2.3.1"
+    gatsby-plugin-image "^2.2.0"
+    gw2-ui-bulk "^0.11.12"
+    gw2-ui-components-bulk "^0.12.10"
 
 react-display-name@^0.2.4:
   version "0.2.5"
