@@ -271,12 +271,12 @@ function* watchExportState() {
   yield takeLeading('EXPORT_STATE', exportState);
 }
 
-function* importState(action) {
+function* importState() {
   try {
     console.log('restoring template...');
 
     // eslint-disable-next-line no-alert
-    const input = action?.payload || window.prompt('text plz', '');
+    const input = window.prompt('text plz', '');
     if (!input) return;
 
     console.time('decompressed template');

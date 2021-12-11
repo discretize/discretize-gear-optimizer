@@ -15,7 +15,7 @@ const styles = (theme) => ({
 });
 
 // markup
-const IndexPage = ({ classes, location }) => {
+const IndexPage = ({ classes }) => {
   return (
     <>
       <LanguageSelection />
@@ -41,7 +41,7 @@ const IndexPage = ({ classes, location }) => {
       <Typography variant="h2" className={classes.headline}>
         <Trans>Gear Optimizer</Trans>
       </Typography>
-      <GearOptimizer location={location} />
+      <GearOptimizer />
     </>
   );
 };
