@@ -18,6 +18,7 @@ import { ABORTED, ERROR, RUNNING, SUCCESS, WAITING } from '../../../state/optimi
 import { getPriority } from '../../../state/slices/priorities';
 import { firstUppercase } from '../../../utils/usefulFunctions';
 import ProgressIcon from '../../baseComponents/ProgressIcon';
+import URLStateExport from '../../url-state/URLStateExport';
 
 const useStyles = makeStyles((theme) => ({
   errorText: {
@@ -115,7 +116,7 @@ const ControlsBox = ({ profession }) => {
             </Typography>
           </Button>
         </Box>
-        <Box flexGrow={1}>
+        <Box>
           <Button
             variant="outlined"
             color="primary"
@@ -128,6 +129,9 @@ const ControlsBox = ({ profession }) => {
               <Trans>Abort</Trans>
             </Typography>
           </Button>
+        </Box>
+        <Box flexGrow={1} alignSelf="center">
+          <URLStateExport />
         </Box>
         <Box alignSelf="center" display="flex" m={1} maxWidth={300}>
           <Typography variant="caption" className={classes.errorText}>

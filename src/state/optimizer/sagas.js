@@ -284,7 +284,7 @@ function* watchStart() {
 
 const lib = JsonUrl('lzma');
 
-function* exportState() {
+function* exportState({ onSuccess }) {
   console.log('creating template...');
   console.time('created template');
   const reduxState = yield select();
@@ -305,18 +305,20 @@ function* exportState() {
   console.timeEnd('created template');
   console.log('length:', compressed.length);
   console.log(compressed);
+
+  onSuccess(compressed);
 }
 
 function* watchExportState() {
   yield takeLeading('EXPORT_STATE', exportState);
 }
 
-function* importState() {
+function* importState({ buildUrl: input, onSuccess, onError }) {
   try {
     console.log('restoring template...');
 
     // eslint-disable-next-line no-alert
-    const input = window.prompt('text plz', '');
+    // const input = window.prompt('text plz', '');
     if (!input) return;
 
     console.time('decompressed template');
@@ -329,9 +331,13 @@ function* importState() {
     console.time('applied state');
     yield put(changeAll(state));
     console.timeEnd('applied state');
+
+    // execute success callback
+    onSuccess();
   } catch (e) {
     console.log('problem restoring template');
     console.log(e);
+    onError();
   }
 }
 
