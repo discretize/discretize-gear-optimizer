@@ -1,5 +1,6 @@
 import { IconButton } from '@material-ui/core';
 import ShareIcon from '@material-ui/icons/Share';
+import axios from 'axios';
 import { Tooltip } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch } from 'react-redux';
@@ -22,14 +23,21 @@ const URLStateExport = () => {
     const prefixUrl = typeof window !== 'undefined' ? window.location.href : '';
     const url = `${prefixUrl}?data=${data}`;
 
-    setSnackbarState((state) => ({
-      ...state,
-      open: true,
-      success: true,
-      message: 'Copied link to clipboard!',
-    }));
+    // get request to create a new short-url
+    // this url points to a cloudflare worker, which acts as a url shortener
+    // Source for the shortener: https://gist.github.com/gw2princeps/dc88d11e6b2378db35bcb2dd3726c7c6
+    axios.get(`https://go.princeps.biz/?new=${url}`).then((res) => {
+      if (res?.data?.Status === 200) {
+        setSnackbarState((state) => ({
+          ...state,
+          open: true,
+          success: true,
+          message: 'Copied link to clipboard!',
+        }));
 
-    navigator.clipboard.writeText(url);
+        navigator.clipboard.writeText(res.data.ShortUrl);
+      }
+    });
 
     // setBuildUrl would trigger an update in the useEffects method of URLState... which is not what we want
     // setBuildUrl(data);
