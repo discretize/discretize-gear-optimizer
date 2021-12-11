@@ -1,4 +1,4 @@
-import { Link, Typography, withStyles } from '@material-ui/core';
+import { Link, makeStyles, Typography } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import MuiAlert from '@material-ui/lab/Alert';
 import { graphql } from 'gatsby';
@@ -6,18 +6,22 @@ import { Trans } from 'gatsby-plugin-react-i18next';
 import * as React from 'react';
 import LanguageSelection from '../components/baseComponents/LanguageSelection';
 import GearOptimizer from '../components/GearOptimizer';
+import URLStateImport from '../components/url-state/URLStateImport';
 import withLayout from '../hocs/withLayout';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   headline: {
     paddingBottom: theme.spacing(2),
   },
-});
+}));
 
 // markup
-const IndexPage = ({ classes }) => {
+const IndexPage = () => {
+  const classes = useStyles();
+
   return (
     <>
+      <URLStateImport />
       <LanguageSelection />
       <MuiAlert elevation={6} variant="filled" severity="warning">
         <Trans>
@@ -59,4 +63,4 @@ export const query = graphql`
   }
 `;
 
-export default withLayout({ disableContainer: false })(withStyles(styles)(IndexPage));
+export default withLayout({ disableContainer: false })(IndexPage);
