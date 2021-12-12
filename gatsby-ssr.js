@@ -1,14 +1,14 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable react/jsx-filename-extension */
 
+import { Spinner } from 'gw2-ui-bulk';
 import React from 'react';
-import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
 import { JssProvider } from 'react-jss';
+import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import { Spinner } from 'gw2-ui-bulk';
-import getPageContext from './src/utils/getPageContext';
 import createStore from './src/state/createStore';
+import getPageContext from './src/utils/getPageContext';
 
 export const replaceRenderer = ({ bodyComponent, replaceBodyHTMLString, setHeadComponents }) => {
   const { store, persistor } = createStore();

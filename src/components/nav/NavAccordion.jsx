@@ -5,8 +5,8 @@ import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import { withStyles } from '@material-ui/core/styles';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import Profession from '../baseComponents/Profession';
 import { setBuildTemplate } from '../../state/slices/controlsSlice';
+import Profession from '../baseComponents/Profession';
 
 const Accordion = withStyles({
   root: {

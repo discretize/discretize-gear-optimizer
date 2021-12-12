@@ -1,6 +1,6 @@
+import { TextField, Typography } from '@material-ui/core';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import { Typography, TextField } from '@material-ui/core';
-import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
 import { parseDistribution } from '../../../utils/usefulFunctions';
 
 const initial = {

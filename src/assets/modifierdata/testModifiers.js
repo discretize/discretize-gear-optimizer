@@ -1,26 +1,25 @@
+/* eslint-disable import/extensions */
 /* eslint-disable camelcase */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-console */
 import fs from 'fs/promises';
-import path from 'path';
-// import assert from 'assert';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import yaml from 'js-yaml';
+import path from 'path';
+import specializationData from '../../utils/mapping/specializations.json';
 import {
-  allDamageKeys,
-  allDamageModes,
+  allAttributePercentKeys,
   allAttributePointKeys,
   allAttributePointModes,
-  allAttributePercentKeys,
-  allConversionSourceKeys,
   allConversionDestinationKeys,
-  damageKeysBlacklist,
-  attributePointKeysBlacklist,
+  allConversionSourceKeys,
+  allDamageKeys,
+  allDamageModes,
   attributePercentKeysBlacklist,
-  // eslint-disable-next-line import/extensions
+  attributePointKeysBlacklist,
+  damageKeysBlacklist,
 } from './metadata.js';
-import specializationData from '../../utils/mapping/specializations.json';
 
 const directory = './src/assets/modifierdata/';
 

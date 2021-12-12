@@ -1,7 +1,6 @@
-import React from 'react';
 import { withStyles } from '@material-ui/core';
 import classNames from 'classnames';
-
+import React from 'react';
 import withGw2Theme from '../../hocs/withGw2Theme';
 
 const styles = (theme) => ({

@@ -3,7 +3,6 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-console */
 import fs from 'fs/promises';
-// import assert from 'assert';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import yaml from 'js-yaml';
 

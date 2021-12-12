@@ -1,7 +1,7 @@
-import React from 'react';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Grid } from '@material-ui/core';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { ConsumableEffect, Item } from 'gw2-ui-bulk';
+import React from 'react';
 import { extrasModifiers, extrasModifiersById } from '../../../assets/modifierdata';
 import GW2Select from './GW2Select';
 

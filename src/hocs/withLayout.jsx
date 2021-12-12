@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Layout from '../components/baseComponents/Layout';
 
 export default (layout) =>

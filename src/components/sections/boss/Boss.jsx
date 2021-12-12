@@ -1,16 +1,16 @@
-import React from 'react';
+import { Box, Slider, Typography } from '@material-ui/core';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
-import { Typography, Slider, Box } from '@material-ui/core';
 import { Condition as ConditionRaw } from 'gw2-ui-bulk';
-import AmountInput from '../../baseComponents/AmountInput';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
-  getAttackRate,
-  getMovementUptime,
   changeAttackRate,
   changeMovementUptime,
+  getAttackRate,
+  getMovementUptime,
 } from '../../../state/slices/boss';
 import { parseBoss } from '../../../utils/usefulFunctions';
+import AmountInput from '../../baseComponents/AmountInput';
 
 const Condition = React.memo(ConditionRaw);
 

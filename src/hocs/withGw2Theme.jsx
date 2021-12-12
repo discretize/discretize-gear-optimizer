@@ -1,6 +1,5 @@
-import React from 'react';
 import { MuiThemeProvider, withTheme } from '@material-ui/core/styles';
-
+import React from 'react';
 import gw2Styles from '../styles/gw2';
 
 const specializationAliases = {

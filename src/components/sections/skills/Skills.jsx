@@ -1,11 +1,11 @@
-import { Typography, withStyles, Box } from '@material-ui/core';
+import { Box, Typography, withStyles } from '@material-ui/core';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Skill } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getSkills, toggleSkill, setSkillAmount } from '../../../state/slices/skills';
-import CheckboxComponent from '../../baseComponents/CheckboxComponent';
+import { getSkills, setSkillAmount, toggleSkill } from '../../../state/slices/skills';
 import AmountInput from '../../baseComponents/AmountInput';
+import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
 const styles = (theme) => ({
   text: {

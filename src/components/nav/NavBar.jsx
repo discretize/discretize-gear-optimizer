@@ -19,7 +19,6 @@ import { bindHover, bindMenu, usePopupState } from 'material-ui-popup-state/hook
 import Menu from 'material-ui-popup-state/HoverMenu';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Profession from '../baseComponents/Profession';
 import {
   changeExpertMode,
   changeProfession,
@@ -28,6 +27,7 @@ import {
   setBuildTemplate,
 } from '../../state/slices/controlsSlice';
 import { PROFESSIONS } from '../../utils/gw2-data';
+import Profession from '../baseComponents/Profession';
 import NavAccordion from './NavAccordion';
 
 const styles = (theme) => ({

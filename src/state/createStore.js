@@ -1,23 +1,20 @@
 import { gw2UIReducer } from 'gw2-ui-bulk';
-import { persistReducer, persistStore, createMigrate } from 'redux-persist';
-
 import { applyMiddleware, combineReducers, compose, createStore as reduxCreateStore } from 'redux';
-import createSagaMiddleware from 'redux-saga';
-
+import { createMigrate, persistReducer, persistStore } from 'redux-persist';
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
-
-import { controlSlice } from './slices/controlsSlice';
-import { extrasSlice } from './slices/extras';
+import createSagaMiddleware from 'redux-saga';
 import gearOptimizerSaga from './optimizer/sagas';
-import { distributionSlice } from './slices/distribution';
-import { buffsSlice } from './slices/buffs';
-import { infusionsSlice } from './slices/infusions';
-import { traitsSlice } from './slices/traits';
-import { skillsSlice } from './slices/skills';
-import { prioritiesSlice } from './slices/priorities';
-import { extraModifiersSlice } from './slices/extraModifiers';
-import { forcedSlotsSlice } from './slices/forcedSlots';
 import { bossSlice } from './slices/boss';
+import { buffsSlice } from './slices/buffs';
+import { controlSlice } from './slices/controlsSlice';
+import { distributionSlice } from './slices/distribution';
+import { extraModifiersSlice } from './slices/extraModifiers';
+import { extrasSlice } from './slices/extras';
+import { forcedSlotsSlice } from './slices/forcedSlots';
+import { infusionsSlice } from './slices/infusions';
+import { prioritiesSlice } from './slices/priorities';
+import { skillsSlice } from './slices/skills';
+import { traitsSlice } from './slices/traits';
 
 const createNoopStorage = () => {
   return {

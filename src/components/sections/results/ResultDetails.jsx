@@ -1,23 +1,21 @@
 import { Grid } from '@material-ui/core';
 import { getImage } from 'gatsby-plugin-image';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import React from 'react';
-import { useSelector } from 'react-redux';
 import times from 'lodash/times';
+import React from 'react';
+import { Character, firstUppercase } from 'react-discretize-components';
+import { useSelector } from 'react-redux';
+import { extrasModifiersById } from '../../../assets/modifierdata';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import { Classes, Defense, INFUSION_IDS } from '../../../utils/gw2-data';
-import { firstUppercase } from 'react-discretize-components';
-import { Character } from 'react-discretize-components';
-import TemplateHelperSections from './TemplateHelperSections';
+import { resolveArmor, resolveBackAndTrinkets } from '../../../utils/map-gw2-ids';
 import AffixesStats from './AffixesStats';
 import AppliedModifiers from './AppliedModifiers';
 import Indicators from './Indicators';
 import OutputDistribution from './OutputDistribution';
 import OutputInfusions from './OutputInfusions';
 import SpecialDurations from './SpecialDurations';
-import { resolveArmor, resolveBackAndTrinkets } from '../../../utils/map-gw2-ids';
-
-import { extrasModifiersById } from '../../../assets/modifierdata';
+import TemplateHelperSections from './TemplateHelperSections';
 
 const ResultDetails = ({ data }) => {
   const { t } = useTranslation();

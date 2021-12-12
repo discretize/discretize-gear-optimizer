@@ -2,10 +2,10 @@ import {
   Box,
   Button,
   Chip,
-  makeStyles,
-  Typography,
   FormControlLabel,
+  makeStyles,
   Switch,
+  Typography,
 } from '@material-ui/core';
 import Cancel from '@material-ui/icons/Cancel';
 import DoneAllIcon from '@material-ui/icons/DoneAll';
@@ -14,18 +14,18 @@ import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 import classNames from 'classnames';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
+import { firstUppercase } from 'react-discretize-components';
 import { useDispatch, useSelector } from 'react-redux';
+import { ABORTED, ERROR, RUNNING, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import {
+  changeCompareByPercent,
   changeControl,
   changeError,
+  getCompareByPercent,
   getControl,
   getError,
-  getCompareByPercent,
-  changeCompareByPercent,
 } from '../../../state/slices/controlsSlice';
-import { ABORTED, ERROR, RUNNING, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import { getPriority } from '../../../state/slices/priorities';
-import { firstUppercase } from 'react-discretize-components';
 import ProgressIcon from '../../baseComponents/ProgressIcon';
 import URLStateExport from '../../url-state/URLStateExport';
 

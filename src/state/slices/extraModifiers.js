@@ -1,4 +1,4 @@
-import { createSlice, createSelector } from '@reduxjs/toolkit';
+import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { changeAll } from './controlsSlice';
 
 export const extraModifiersSlice = createSlice({

@@ -1,17 +1,16 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable react/jsx-filename-extension */
 
+import { Spinner, ThemeProvider } from 'gw2-ui-bulk';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { ThemeProvider, Spinner } from 'gw2-ui-bulk';
 import { PersistGate } from 'redux-persist/integration/react';
-import baseTheme from './src/styles/baseTheme';
-
 import 'typeface-fira-mono';
 import 'typeface-menomonia';
 import 'typeface-muli';
 import 'typeface-raleway';
 import createStore from './src/state/createStore';
+import baseTheme from './src/styles/baseTheme';
 
 const { store, persistor } = createStore();
 

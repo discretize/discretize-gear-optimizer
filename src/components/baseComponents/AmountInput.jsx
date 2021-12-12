@@ -1,6 +1,6 @@
-import React from 'react';
 import { InputAdornment, TextField } from '@material-ui/core';
 import { Autocomplete } from '@material-ui/lab';
+import React from 'react';
 import { parseAmount } from '../../utils/usefulFunctions';
 
 const AmountInput = ({

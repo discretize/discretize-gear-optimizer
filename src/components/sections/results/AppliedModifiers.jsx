@@ -13,8 +13,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Trans } from 'gatsby-plugin-react-i18next';
 // import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';
-import { parseAmount } from '../../../utils/usefulFunctions';
 import { scaleValue } from '../../../state/optimizer/optimizerCore';
+import { parseAmount } from '../../../utils/usefulFunctions';
 
 const styles = (theme) => ({
   root: {

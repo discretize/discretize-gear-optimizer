@@ -1,10 +1,10 @@
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import Section from '../../baseComponents/Section';
-import Presets from '../../baseComponents/Presets';
-import Infusions from './Infusions';
 import { changeInfusions } from '../../../state/slices/infusions';
+import Presets from '../../baseComponents/Presets';
+import Section from '../../baseComponents/Section';
+import Infusions from './Infusions';
 
 const InfusionsSection = ({ data }) => {
   const { t } = useTranslation();

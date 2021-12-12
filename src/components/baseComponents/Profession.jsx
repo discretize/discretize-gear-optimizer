@@ -1,5 +1,5 @@
-import React from 'react';
 import { Profession as ProfessionRaw } from 'gw2-ui-bulk';
+import React from 'react';
 import { PROFESSIONS } from '../../utils/gw2-data';
 
 const allEliteSpecs = PROFESSIONS.flatMap((entry) => entry.eliteSpecializations);

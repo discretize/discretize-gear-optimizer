@@ -1,23 +1,23 @@
 import {
-  TextField,
-  withStyles,
-  Typography,
   Accordion,
   AccordionDetails,
   AccordionSummary,
   Grid,
+  TextField,
+  Typography,
+  withStyles,
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
+import yaml from 'js-yaml';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import yaml from 'js-yaml';
+import { exampleModifiers, exampleModifiersJson } from '../../../assets/modifierdata/metadata';
 import {
   changeExtraModifiers,
   changeExtraModifiersError,
   getExtraModifiers,
 } from '../../../state/slices/extraModifiers';
-import { exampleModifiers, exampleModifiersJson } from '../../../assets/modifierdata/metadata';
 
 const styles = (theme) => ({
   text: {

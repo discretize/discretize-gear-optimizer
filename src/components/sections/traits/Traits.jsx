@@ -24,8 +24,8 @@ import {
   setTraitModiferAmount,
   toggleTraitModifier,
 } from '../../../state/slices/traits';
-import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import AmountInput from '../../baseComponents/AmountInput';
+import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
 const styles = (theme) => ({
   formControl: {

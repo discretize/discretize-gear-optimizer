@@ -1,11 +1,11 @@
 import { Chip, makeStyles, TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import classNames from 'classnames';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { getControl, getProfession } from '../../state/slices/controlsSlice';
 import Profession from './Profession';
-import { getProfession, getControl } from '../../state/slices/controlsSlice';
 
 const useStyles = makeStyles((theme) => ({
   root: {

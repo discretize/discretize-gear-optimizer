@@ -3,12 +3,12 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { classModifiers } from '../../../assets/modifierdata';
-import { getShowAllTraits, toggleShowAll, changeTraits } from '../../../state/slices/traits';
 import { changeSkills } from '../../../state/slices/skills';
-import Section from '../../baseComponents/Section';
-import Traits from './Traits';
+import { changeTraits, getShowAllTraits, toggleShowAll } from '../../../state/slices/traits';
 import { PROFESSIONS } from '../../../utils/gw2-data';
 import Presets from '../../baseComponents/Presets';
+import Section from '../../baseComponents/Section';
+import Traits from './Traits';
 
 const TraitsSection = ({ profession, data }) => {
   const dispatch = useDispatch();

@@ -3,8 +3,8 @@ import TableRow from '@material-ui/core/TableRow';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
+import { INFUSION_IDS, Slots } from '../../../utils/gw2-data';
 import HelperIcon from '../../baseComponents/HelperIcon';
-import { Slots, INFUSION_IDS } from '../../../utils/gw2-data';
 
 const ResultTableHeaderRow = ({
   classes,

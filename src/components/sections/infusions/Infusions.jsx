@@ -7,28 +7,28 @@ import {
   Select,
   withStyles,
 } from '@material-ui/core';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute, Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import {
-  getAR,
-  getOmniPotion,
-  getMaxInfusions,
-  getPrimaryInfusion,
-  getSecondaryInfusion,
-  getPrimaryMaxInfusions,
-  getSecondaryMaxInfusions,
   changeAR,
-  changeOmnipotion,
   changeInfusion,
+  changeOmnipotion,
+  getAR,
+  getMaxInfusions,
+  getOmniPotion,
+  getPrimaryInfusion,
+  getPrimaryMaxInfusions,
+  getSecondaryInfusion,
+  getSecondaryMaxInfusions,
 } from '../../../state/slices/infusions';
-import { parseAr, parseInfusionCount } from '../../../utils/usefulFunctions';
-import CheckboxComponent from '../../baseComponents/CheckboxComponent';
-import AmountInput from '../../baseComponents/AmountInput';
-import InfusionHelper from './InfusionHelper';
-import HelperIcon from '../../baseComponents/HelperIcon';
 import { INFUSION_IDS } from '../../../utils/gw2-data';
+import { parseAr, parseInfusionCount } from '../../../utils/usefulFunctions';
+import AmountInput from '../../baseComponents/AmountInput';
+import CheckboxComponent from '../../baseComponents/CheckboxComponent';
+import HelperIcon from '../../baseComponents/HelperIcon';
+import InfusionHelper from './InfusionHelper';
 
 const arOptionLabels = {
   '150': '150',

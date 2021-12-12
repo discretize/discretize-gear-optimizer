@@ -11,6 +11,7 @@ import Alert from '@material-ui/lab/Alert';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import { Coin as CoinRaw, CommonEffect as CommonEffectRaw, Item as ItemRaw } from 'gw2-ui-bulk';
 import React from 'react';
+import { TextDivider } from 'react-discretize-components';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   changeAR,
@@ -18,8 +19,8 @@ import {
   changeFreeWvW,
   changeHelperEnabled,
   changeImpedence,
-  changeOwnedMatrix,
   changeMaxInfusions,
+  changeOwnedMatrix,
   changeSingularity,
   changeSlots,
   changeTear,
@@ -31,9 +32,8 @@ import {
   getSecondaryInfusion,
 } from '../../../state/slices/infusions';
 import { infusionIds } from '../../../utils/gw2-data';
-import CheckboxComponent from '../../baseComponents/CheckboxComponent';
-import { TextDivider } from 'react-discretize-components';
 import { parseAr, parseInfusionCount } from '../../../utils/usefulFunctions';
+import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
 const Item = React.memo(ItemRaw);
 const CommonEffect = React.memo(CommonEffectRaw);

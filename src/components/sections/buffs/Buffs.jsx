@@ -10,6 +10,7 @@ import {
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';
+import { firstUppercase } from 'react-discretize-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { buffModifiers } from '../../../assets/modifierdata';
 import {
@@ -18,9 +19,8 @@ import {
   getBuffAmounts,
   getBuffs,
 } from '../../../state/slices/buffs';
-import { firstUppercase } from 'react-discretize-components';
-import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import AmountInput from '../../baseComponents/AmountInput';
+import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
 const styles = (theme) => ({
   boon: {

@@ -1,11 +1,11 @@
 import { Chip, TextField, withStyles } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { firstUppercase } from 'react-discretize-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { changePriority, getPriority } from '../../state/slices/priorities';
-import { firstUppercase } from 'react-discretize-components';
 import { Affix } from '../../utils/gw2-data';
 
 const AFFIXES = Object.keys(Affix);

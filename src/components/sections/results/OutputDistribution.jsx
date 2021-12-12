@@ -1,5 +1,5 @@
-import { Table, TableCell, TableRow, TableBody, withStyles, Typography } from '@material-ui/core';
-import { Condition, Attribute } from 'gw2-ui-bulk';
+import { Table, TableBody, TableCell, TableRow, Typography, withStyles } from '@material-ui/core';
+import { Attribute, Condition } from 'gw2-ui-bulk';
 import React from 'react';
 
 const styles = (theme) => ({

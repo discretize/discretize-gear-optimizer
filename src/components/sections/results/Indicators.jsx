@@ -1,6 +1,6 @@
 import { Table, TableBody, TableCell, TableRow, Typography, withStyles } from '@material-ui/core';
-import React from 'react';
 import { Trans } from 'gatsby-plugin-react-i18next';
+import React from 'react';
 
 const styles = (theme) => ({
   root: {

@@ -1,19 +1,17 @@
+import buffs from './buffs.yaml';
 import Elementalist from './elementalist.yaml';
 import Engineer from './engineer.yaml';
+import food from './food.yaml';
 import Guardian from './guardian.yaml';
 import Mesmer from './mesmer.yaml';
 import Necromancer from './necromancer.yaml';
 import Ranger from './ranger.yaml';
 import Revenant from './revenant.yaml';
-import Thief from './thief.yaml';
-import Warrior from './warrior.yaml';
-
-import food from './food.yaml';
-import utility from './utility.yaml';
 import runes from './runes.yaml';
 import sigils from './sigils.yaml';
-
-import buffs from './buffs.yaml';
+import Thief from './thief.yaml';
+import utility from './utility.yaml';
+import Warrior from './warrior.yaml';
 
 // combines items in all sections into one object
 const byId = (sections) => {

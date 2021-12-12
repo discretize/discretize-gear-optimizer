@@ -21,11 +21,11 @@ import {
   changeAllDistributionsOld,
   changeDistributionNew,
   changeTextBoxes,
+  coefficientsToPercents,
   getDistributionNew,
   getDistributionOld,
   getDistributionVersion,
   getTextBoxes,
-  coefficientsToPercents,
 } from '../../../state/slices/distribution';
 import { parseDistribution } from '../../../utils/usefulFunctions';
 

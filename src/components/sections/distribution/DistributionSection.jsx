@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { FormControlLabel, Switch, Link } from '@material-ui/core';
+import { FormControlLabel, Link, Switch } from '@material-ui/core';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';

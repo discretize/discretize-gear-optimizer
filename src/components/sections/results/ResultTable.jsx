@@ -3,18 +3,18 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
-import React from 'react';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import React from 'react';
 import { TextDivider } from 'react-discretize-components';
+import { useSelector } from 'react-redux';
 import {
-  getList,
-  getSelectedCharacter,
-  getSaved,
   getCompareByPercent,
+  getList,
+  getSaved,
+  getSelectedCharacter,
 } from '../../../state/slices/controlsSlice';
-import ResultTableRow from './ResultTableRow';
 import ResultTableHeaderRow from './ResultTableHeaderRow';
+import ResultTableRow from './ResultTableRow';
 
 const styles = (theme) => ({
   container: {

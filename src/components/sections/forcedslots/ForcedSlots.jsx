@@ -1,13 +1,13 @@
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Grid, TextField, withStyles } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
+import { firstUppercase } from 'react-discretize-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeForcedSlot, getForcedSlots } from '../../../state/slices/forcedSlots';
 import { getPriority } from '../../../state/slices/priorities';
-import { GEAR_SLOTS, Affix } from '../../../utils/gw2-data';
-import { firstUppercase } from 'react-discretize-components';
+import { Affix, GEAR_SLOTS } from '../../../utils/gw2-data';
 
 const AFFIXES = Object.keys(Affix);
 

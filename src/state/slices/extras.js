@@ -1,7 +1,6 @@
-import { createSlice, createSelector } from '@reduxjs/toolkit';
-import { changeAll, setBuildTemplate } from './controlsSlice';
-
+import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { extrasModifiersById } from '../../assets/modifierdata';
+import { changeAll, setBuildTemplate } from './controlsSlice';
 
 const extrasTypes = ['Runes', 'Sigil1', 'Sigil2', 'Nourishment', 'Enhancement'];
 

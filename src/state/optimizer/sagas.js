@@ -1,27 +1,24 @@
 /* eslint-disable no-console */
-import { put, take, race, call, all, select, cancelled, takeLeading } from 'redux-saga/effects';
 import JsonUrl from 'json-url';
-import * as optimizerCore from './optimizerCore';
-
+import { all, call, cancelled, put, race, select, take, takeLeading } from 'redux-saga/effects';
+import { parseBoss, parseInfusionCount, parsePriority } from '../../utils/usefulFunctions';
+import { getBuffsModifiers } from '../slices/buffs';
 import {
+  changeAll,
   changeControl,
+  changeError,
   changeList,
   changeSelectedCharacter,
-  getSelectedCharacter,
   getList,
-  changeError,
-  changeAll,
+  getSelectedCharacter,
 } from '../slices/controlsSlice';
-import { getExtrasModifiers } from '../slices/extras';
-import { getBuffsModifiers } from '../slices/buffs';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
+import { getExtrasModifiers } from '../slices/extras';
 import { getInfusionsModifiers } from '../slices/infusions';
 import { getSkillsModifiers } from '../slices/skills';
-import { getTraitsModifiers, getCurrentSpecialization } from '../slices/traits';
-
+import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
+import * as optimizerCore from './optimizerCore';
 import { ERROR, SUCCESS, WAITING } from './status';
-
-import { parseInfusionCount, parsePriority, parseBoss } from '../../utils/usefulFunctions';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 

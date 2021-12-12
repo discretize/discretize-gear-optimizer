@@ -6,6 +6,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { getControl, getProfession } from '../state/slices/controlsSlice';
 import NavBar from './nav/NavBar';
+import BossSection from './sections/boss/BossSection';
 import BuffsSection from './sections/buffs/BuffsSection';
 import Controls from './sections/controls/Controls';
 import DistributionSection from './sections/distribution/DistributionSection';
@@ -18,7 +19,6 @@ import ResultDetails from './sections/results/ResultDetails';
 import ResultTable from './sections/results/ResultTable';
 import SkillsSection from './sections/skills/SkillsSection';
 import TraitsSection from './sections/traits/TraitsSection';
-import BossSection from './sections/boss/BossSection';
 
 const styles = (theme) => ({
   root: {

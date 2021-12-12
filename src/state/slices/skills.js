@@ -1,7 +1,6 @@
-import { createSlice, createSelector } from '@reduxjs/toolkit';
-import { changeAll, changeProfession, setBuildTemplate } from './controlsSlice';
-
+import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { classModifiersById } from '../../assets/modifierdata';
+import { changeAll, changeProfession, setBuildTemplate } from './controlsSlice';
 
 export const skillsSlice = createSlice({
   name: 'skills',

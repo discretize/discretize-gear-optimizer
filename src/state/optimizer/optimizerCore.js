@@ -5,18 +5,16 @@
 /* eslint-disable prefer-template */
 /* eslint-disable dot-notation */
 
+import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
 import {
   Affix,
-  Slots,
-  ForcedSlots,
+  Attributes,
   Classes,
   conditionData,
-  Attributes,
+  ForcedSlots,
   INFUSION_BONUS,
+  Slots,
 } from '../../utils/gw2-data';
-
-import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
-
 import { parseAmount } from '../../utils/usefulFunctions';
 
 /**

@@ -1,6 +1,5 @@
-import React from 'react';
-
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import React from 'react';
 import Section from '../../baseComponents/Section';
 import Boss from './Boss';
 

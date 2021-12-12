@@ -1,5 +1,5 @@
-import { createSlice, createSelector } from '@reduxjs/toolkit';
-import { omnipotionModifiers, infusionIds } from '../../utils/gw2-data';
+import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { infusionIds, omnipotionModifiers } from '../../utils/gw2-data';
 import { parseAmount, parseAr, parseInfusionCount } from '../../utils/usefulFunctions';
 import { changeAll } from './controlsSlice';
 

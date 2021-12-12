@@ -1,10 +1,8 @@
-import React from 'react';
 import { CssBaseline, MuiThemeProvider } from '@material-ui/core';
+import React from 'react';
 import { JssProvider } from 'react-jss';
 import { ThemeProvider } from 'theme-ui';
-
 import baseTheme from '../styles/baseTheme';
-
 import getPageContext from '../utils/getPageContext';
 
 export default (Component) =>
