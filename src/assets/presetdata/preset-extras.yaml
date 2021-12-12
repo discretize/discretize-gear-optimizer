@@ -240,6 +240,28 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
+  - name: Power Tempest (Fractal)
+    profession: Tempest
+    value: |-
+      {
+        "Runes": "scholar",
+        "Sigil1": "force",
+        "Sigil2": "impact/night/slaying-both",
+        "Enhancement": "slaying-potion",
+        "Nourishment": "truffle-steak"
+      }
+
+  - name: Power Tempest (Raid)
+    profession: Tempest
+    value: |-
+      {
+        "Runes": "scholar",
+        "Sigil1": "force",
+        "Sigil2": "accuracy",
+        "Enhancement": "superior-sharpening-stone",
+        "Nourishment": "truffle-steak"
+      }
+
   - name: '[old] Condi Hammer Catalyst'
     profession: Catalyst
     value: |-

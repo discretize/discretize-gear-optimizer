@@ -256,6 +256,15 @@ list:
         traits: Condi Tempest
         extras: Condi Tempest
 
+      - name: Power Tempest
+        id: ptemp
+        specialization: Tempest
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Power Tempest
+        traits: Power Tempest
+        extras: Power Tempest (Fractal)
+
       - name: Heal Tempest
         id: healtemp
         specialization: Tempest

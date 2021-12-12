@@ -1819,6 +1819,84 @@ list:
         "skills": {}
       }
 
+  - name: Power Tempest
+    profession: Tempest
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "48"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1510
+          ],
+          [
+            232,
+            214,
+            1503
+          ],
+          [
+            1886,
+            1891,
+            1839
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "13"
+            },
+            "burning-precision": true,
+            "burning-rage": true,
+            "power-overwhelming": true,
+            "power-overwhelming-2": {
+              "amount": "13"
+            },
+            "pyromancers-training": true,
+            "persisting-flames": {
+              "amount": "7.5"
+            }
+          },
+          {
+            "ferocious-winds": true,
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": true,
+            "aeromancers-training-2": {
+              "amount": "80"
+            },
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": "60"
+            }
+          },
+          {
+            "gathered-focus": true,
+            "hardy-conduit": true,
+            "transcendent-tempest": {
+              "amount": "71"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-fire": true
+        }
+      }
+
   - name: '[old] Condi Hammer Catalyst'
     profession: Catalyst
     traits: |-
