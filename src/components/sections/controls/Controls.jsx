@@ -25,7 +25,7 @@ import {
 } from '../../../state/slices/controlsSlice';
 import { ABORTED, ERROR, RUNNING, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import { getPriority } from '../../../state/slices/priorities';
-import { firstUppercase } from '../../../utils/usefulFunctions';
+import { firstUppercase } from 'react-discretize-components';
 import ProgressIcon from '../../baseComponents/ProgressIcon';
 import URLStateExport from '../../url-state/URLStateExport';
 

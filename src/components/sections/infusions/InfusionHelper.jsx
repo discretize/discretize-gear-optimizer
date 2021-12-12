@@ -32,7 +32,7 @@ import {
 } from '../../../state/slices/infusions';
 import { infusionIds } from '../../../utils/gw2-data';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
-import TextDivider from '../../baseComponents/TextDivider';
+import { TextDivider } from 'react-discretize-components';
 import { parseAr, parseInfusionCount } from '../../../utils/usefulFunctions';
 
 const Item = React.memo(ItemRaw);

@@ -5,7 +5,7 @@ import React from 'react';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { changePriority, getPriority } from '../../state/slices/priorities';
-import { firstUppercase } from '../../utils/usefulFunctions';
+import { firstUppercase } from 'react-discretize-components';
 import { Affix } from '../../utils/gw2-data';
 
 const AFFIXES = Object.keys(Affix);

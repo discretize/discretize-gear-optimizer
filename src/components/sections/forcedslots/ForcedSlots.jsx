@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeForcedSlot, getForcedSlots } from '../../../state/slices/forcedSlots';
 import { getPriority } from '../../../state/slices/priorities';
 import { GEAR_SLOTS, Affix } from '../../../utils/gw2-data';
-import { firstUppercase } from '../../../utils/usefulFunctions';
+import { firstUppercase } from 'react-discretize-components';
 
 const AFFIXES = Object.keys(Affix);
 
