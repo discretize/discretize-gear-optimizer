@@ -6,6 +6,9 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import URLStateSnackbar from './URLStateSnackbar';
 
+// hard coded temporarily!
+const version = 0;
+
 const URLStateExport = () => {
   const dispatch = useDispatch();
 
@@ -21,7 +24,7 @@ const URLStateExport = () => {
 
   const onExportSuccess = React.useCallback((data) => {
     const prefixUrl = typeof window !== 'undefined' ? window.location.href : '';
-    const url = `${prefixUrl}?data=${data}`;
+    const url = `${prefixUrl}?version=${version}&data=${data}`.replace('&', '%26');
     console.log(`Exported long URL (${url.length} characters):`, url);
 
     // get request to create a new short-url
