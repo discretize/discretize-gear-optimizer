@@ -8,7 +8,7 @@ import {
   MenuItem,
   Select,
   Typography,
-  withStyles,
+  withStyles
 } from '@material-ui/core';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
