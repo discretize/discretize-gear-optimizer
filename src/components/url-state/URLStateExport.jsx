@@ -1,9 +1,13 @@
 import { IconButton } from '@material-ui/core';
 import ShareIcon from '@material-ui/icons/Share';
+import axios from 'axios';
 import { Tooltip } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import URLStateSnackbar from './URLStateSnackbar';
+
+// hard coded temporarily!
+const version = 0;
 
 const URLStateExport = () => {
   const dispatch = useDispatch();
@@ -20,16 +24,33 @@ const URLStateExport = () => {
 
   const onExportSuccess = React.useCallback((data) => {
     const prefixUrl = typeof window !== 'undefined' ? window.location.href : '';
-    const url = `${prefixUrl}?data=${data}`;
+    const longUrl = `${prefixUrl}?version=${version}&data=${data}`;
+    console.log(`Exported long URL (${longUrl.length} characters):`, longUrl);
 
-    setSnackbarState((state) => ({
-      ...state,
-      open: true,
-      success: true,
-      message: 'Copied link to clipboard!',
-    }));
+    // get request to create a new short-url
+    // this url points to a cloudflare worker, which acts as a url shortener
+    // Source for the shortener: https://gist.github.com/gw2princeps/dc88d11e6b2378db35bcb2dd3726c7c6
+    const shortenPromise = axios
+      .get(`https://go.princeps.biz/?new=${longUrl.replace('&', '%26')}`)
+      .then((res) => {
+        if (res?.data?.Status === 200) {
+          console.log('Exported short URL:', res.data.ShortUrl);
+          return res.data.ShortUrl;
+        }
+        console.log(`URL shortener returned status ${res?.data?.Status}!`);
+        return longUrl;
+      });
+    const timeoutPromise = new Promise((resolve) => setTimeout(resolve, 3000, longUrl));
 
-    navigator.clipboard.writeText(url);
+    Promise.any([shortenPromise, timeoutPromise]).then((url) => {
+      setSnackbarState((state) => ({
+        ...state,
+        open: true,
+        success: true,
+        message: 'Copied link to clipboard!',
+      }));
+      navigator.clipboard.writeText(url);
+    });
 
     // setBuildUrl would trigger an update in the useEffects method of URLState... which is not what we want
     // setBuildUrl(data);
