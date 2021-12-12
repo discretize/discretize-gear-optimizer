@@ -35,6 +35,8 @@ const URLStateExport = () => {
         console.log('Exported short URL:', res.data.ShortUrl);
         return res.data.ShortUrl;
       }
+      console.log(`URL shortener returned status ${res?.data?.Status}!`);
+      return longUrl;
     });
     const timeoutPromise = new Promise((resolve) => setTimeout(resolve, 3000)).then(() => {
       console.log('URL shortener failed or timed out!');
