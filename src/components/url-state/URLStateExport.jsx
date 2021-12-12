@@ -24,24 +24,31 @@ const URLStateExport = () => {
 
   const onExportSuccess = React.useCallback((data) => {
     const prefixUrl = typeof window !== 'undefined' ? window.location.href : '';
-    const url = `${prefixUrl}?version=${version}&data=${data}`;
-    console.log(`Exported long URL (${url.length} characters):`, url);
+    const longUrl = `${prefixUrl}?version=${version}&data=${data}`;
+    console.log(`Exported long URL (${longUrl.length} characters):`, longUrl);
 
     // get request to create a new short-url
     // this url points to a cloudflare worker, which acts as a url shortener
     // Source for the shortener: https://gist.github.com/gw2princeps/dc88d11e6b2378db35bcb2dd3726c7c6
-    axios.get(`https://go.princeps.biz/?new=${url.replace('&', '%26')}`).then((res) => {
+    const shortenPromise = axios.get(`https://go.princeps.biz/?new=${longUrl.replace('&', '%26')}`).then((res) => {
       if (res?.data?.Status === 200) {
-        setSnackbarState((state) => ({
-          ...state,
-          open: true,
-          success: true,
-          message: 'Copied link to clipboard!',
-        }));
-
         console.log('Exported short URL:', res.data.ShortUrl);
-        navigator.clipboard.writeText(res.data.ShortUrl);
+        return res.data.ShortUrl;
       }
+    });
+    const timeoutPromise = new Promise((resolve) => setTimeout(resolve, 3000)).then(() => {
+      console.log('URL shortener failed or timed out!');
+      return longUrl;
+    });
+
+    Promise.any([shortenPromise, timeoutPromise]).then((url) => {
+      setSnackbarState((state) => ({
+        ...state,
+        open: true,
+        success: true,
+        message: 'Copied link to clipboard!',
+      }));
+      navigator.clipboard.writeText(url);
     });
 
     // setBuildUrl would trigger an update in the useEffects method of URLState... which is not what we want
