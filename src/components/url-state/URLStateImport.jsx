@@ -42,6 +42,7 @@ const URLStateImport = () => {
 
   React.useEffect(() => {
     if (buildUrl) {
+      console.log('Imported URL data:', buildUrl);
       dispatch({ type: 'IMPORT_STATE', buildUrl, onSuccess: onLoadSuccess, onError: onLoadError });
     }
     return () => {};

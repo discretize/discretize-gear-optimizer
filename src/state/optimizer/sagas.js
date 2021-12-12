@@ -246,8 +246,7 @@ function* watchStart() {
 const lib = JsonUrl('lzma');
 
 function* exportState({ onSuccess }) {
-  console.log('creating template...');
-  console.time('created template');
+  console.time('Created template in:');
   const reduxState = yield select();
   const state = reduxState.optimizer;
 
@@ -265,9 +264,7 @@ function* exportState({ onSuccess }) {
   delete modifiedState.control.saved;
 
   const compressed = yield lib.compress(modifiedState);
-  console.timeEnd('created template');
-  console.log('length:', compressed.length);
-  console.log(compressed);
+  console.timeEnd('Created template in:');
 
   onSuccess(compressed);
 }
@@ -278,27 +275,25 @@ function* watchExportState() {
 
 function* importState({ buildUrl: input, onSuccess, onError }) {
   try {
-    console.log('restoring template...');
-
     // eslint-disable-next-line no-alert
     // const input = window.prompt('text plz', '');
     if (!input) return;
 
-    console.time('decompressed template');
+    console.time('Decompressed template in:');
     const modifiedState = yield lib.decompress(input);
     const state = { ...modifiedState }; // do stuff here
-    console.timeEnd('decompressed template');
+    console.timeEnd('Decompressed template in:');
 
     console.log(JSON.stringify(state));
 
-    console.time('applied state');
+    console.time('Applied state in:');
     yield put(changeAll(state));
-    console.timeEnd('applied state');
+    console.timeEnd('Applied state in:');
 
     // execute success callback
     onSuccess();
   } catch (e) {
-    console.log('problem restoring template');
+    console.log('Problem restoring template!');
     console.log(e);
     onError();
   }

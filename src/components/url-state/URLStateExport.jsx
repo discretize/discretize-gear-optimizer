@@ -22,6 +22,7 @@ const URLStateExport = () => {
   const onExportSuccess = React.useCallback((data) => {
     const prefixUrl = typeof window !== 'undefined' ? window.location.href : '';
     const url = `${prefixUrl}?data=${data}`;
+    console.log(`Exported long URL (${url.length} characters):`, url);
 
     // get request to create a new short-url
     // this url points to a cloudflare worker, which acts as a url shortener
@@ -35,6 +36,7 @@ const URLStateExport = () => {
           message: 'Copied link to clipboard!',
         }));
 
+        console.log('Exported short URL:', res.data.ShortUrl);
         navigator.clipboard.writeText(res.data.ShortUrl);
       }
     });
