@@ -139,7 +139,6 @@ const ResultDetails = ({ data }) => {
         attributes={character.attributes}
         armorPropsAPI={resolveArmor({
           weight,
-          weight: weight,
           helmAffix: gear[0],
           helmRuneId: runeId,
           helmRune: runeName,

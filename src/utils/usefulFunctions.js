@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 /**
  * Parses a string to a number, treating non-parsable strings like empty inputs but indicating an
  * error so text boxes can display the error validation state

@@ -272,8 +272,6 @@ function* watchExportState() {
 
 function* importState({ buildUrl: input, onSuccess, onError }) {
   try {
-    // eslint-disable-next-line no-alert
-    // const input = window.prompt('text plz', '');
     if (!input) return;
 
     console.time('Decompressed template in:');
