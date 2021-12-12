@@ -24,13 +24,13 @@ const URLStateExport = () => {
 
   const onExportSuccess = React.useCallback((data) => {
     const prefixUrl = typeof window !== 'undefined' ? window.location.href : '';
-    const url = `${prefixUrl}?version=${version}&data=${data}`.replace('&', '%26');
+    const url = `${prefixUrl}?version=${version}&data=${data}`;
     console.log(`Exported long URL (${url.length} characters):`, url);
 
     // get request to create a new short-url
     // this url points to a cloudflare worker, which acts as a url shortener
     // Source for the shortener: https://gist.github.com/gw2princeps/dc88d11e6b2378db35bcb2dd3726c7c6
-    axios.get(`https://go.princeps.biz/?new=${url}`).then((res) => {
+    axios.get(`https://go.princeps.biz/?new=${url.replace('&', '%26')}`).then((res) => {
       if (res?.data?.Status === 200) {
         setSnackbarState((state) => ({
           ...state,
