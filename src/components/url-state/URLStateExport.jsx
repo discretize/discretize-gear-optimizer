@@ -38,10 +38,7 @@ const URLStateExport = () => {
       console.log(`URL shortener returned status ${res?.data?.Status}!`);
       return longUrl;
     });
-    const timeoutPromise = new Promise((resolve) => setTimeout(resolve, 3000)).then(() => {
-      console.log('URL shortener failed or timed out!');
-      return longUrl;
-    });
+    const timeoutPromise = new Promise((resolve) => setTimeout(resolve, 3000, longUrl));
 
     Promise.any([shortenPromise, timeoutPromise]).then((url) => {
       setSnackbarState((state) => ({
