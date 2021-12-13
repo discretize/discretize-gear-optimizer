@@ -27,6 +27,16 @@ const URLStateExport = () => {
     const longUrl = `${prefixUrl}?version=${version}&data=${data}`;
     console.log(`Exported long URL (${longUrl.length} characters):`, longUrl);
 
+    if (longUrl.length > 8000) {
+      setSnackbarState((state) => ({
+        ...state,
+        open: true,
+        success: false,
+        message: 'Error: too much data!',
+      }));
+      return;
+    }
+
     // get request to create a new short-url
     // this url points to a cloudflare worker, which acts as a url shortener
     // Source for the shortener: https://gist.github.com/gw2princeps/dc88d11e6b2378db35bcb2dd3726c7c6
