@@ -242,25 +242,60 @@ function* watchStart() {
 
 const lib = JsonUrl('lzma');
 
-function* exportState({ onSuccess }) {
-  console.time('Created template in:');
-  const reduxState = yield select();
-  const state = reduxState.optimizer;
+const modifyState = (optimizerState) => {
+  // const list = optimizerState?.control?.list.slice(0, 6) || [];
+  // let modifiedList = list;
 
-  const modifiedList = [];
-  const modifiedState = {
-    ...state,
-    control: {
-      ...state.control,
-      list: modifiedList,
-      selectedCharacter: null,
+  // // extract settings object from characters (should be identical)
+  // let listSettings = null;
+  // if (list[0]?.settings) {
+  //   listSettings = list[0].settings;
+  //   modifiedList = list.map((character) => {
+  //     // eslint-disable-next-line no-unused-vars
+  //     const { settings, ...rest } = character;
+  //     return { ...rest };
+  //   });
+  // }
+
+  const exportData = {
+    // listSettings,
+    optimizerState: {
+      ...optimizerState,
+      control: {
+        ...optimizerState.control,
+        list: [],
+        saved: [],
+        selectedCharacter: null,
+      },
     },
   };
 
-  // remove saved builds (at least for now)
-  delete modifiedState.control.saved;
+  return exportData;
+};
 
-  const compressed = yield lib.compress(modifiedState);
+const unModifyState = (importData) => {
+  // eslint-disable-next-line no-unused-vars
+  const { optimizerState, listSettings } = importData;
+
+  // // replace settings objects in characters
+  // if (Array.isArray(optimizerState?.control?.list) && listSettings) {
+  //   optimizerState.control.list = optimizerState.control.list.map((character) => ({
+  //     ...character,
+  //     settings: listSettings,
+  //   }));
+  // }
+
+  return optimizerState;
+};
+
+function* exportState({ onSuccess }) {
+  const reduxState = yield select();
+
+  const exportData = modifyState(reduxState.optimizer);
+  console.log(exportData);
+
+  console.time('Created template in:');
+  const compressed = yield lib.compress(exportData);
   console.timeEnd('Created template in:');
 
   onSuccess(compressed);
@@ -275,14 +310,14 @@ function* importState({ buildUrl: input, onSuccess, onError }) {
     if (!input) return;
 
     console.time('Decompressed template in:');
-    const modifiedState = yield lib.decompress(input);
-    const state = { ...modifiedState }; // do stuff here
+    const importData = yield lib.decompress(input);
     console.timeEnd('Decompressed template in:');
 
-    console.log(JSON.stringify(state));
+    console.log(importData);
+    const optimizerState = unModifyState(importData);
 
     console.time('Applied state in:');
-    yield put(changeAll(state));
+    yield put(changeAll(optimizerState));
     console.timeEnd('Applied state in:');
 
     // execute success callback
