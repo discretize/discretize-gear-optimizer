@@ -141,6 +141,17 @@ list:
         "Nourishment": "fire-meat-chili"
       }
 
+  - name: Condi Quickbrand 35% Celestial
+    profession: Firebrand
+    value: |-
+      {
+        "Runes": "balthazar",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "toxic-maintenance-oil",
+        "Nourishment": "dragon's-revelry-starcake"
+      }
+
   - name: Hybrid FB Traveler
     profession: Firebrand
     value: |-
@@ -328,15 +339,15 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
-  - name: Condi Druid*
+  - name: Condi Druid
     profession: Druid
     value: |-
       {
-        "Runes": "",
-        "Sigil1": "",
+        "Runes": "lich",
+        "Sigil1": "malice",
         "Sigil2": "",
-        "Enhancement": "",
-        "Nourishment": ""
+        "Enhancement": "toxic-maintenance-oil",
+        "Nourishment": "rare-veggie-pizza"
       }
 
   - name: Condi Holo
@@ -493,7 +504,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: Boon Daredevil
+  - name: Power Boon Daredevil
     profession: Daredevil
     value: |-
       {
@@ -513,6 +524,17 @@ list:
         "Sigil2": "",
         "Enhancement": "master-tuning-crystal",
         "Nourishment": "beef-rendang"
+      }
+
+  - name: Condi Boon Daredevil
+    profession: Daredevil
+    value: |-
+      {
+        "Runes": "firebrand",
+        "Sigil1": "concentration",
+        "Sigil2": "malice",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "rare-veggie-pizza"
       }
 
   - name: '[old] DPS Specter'

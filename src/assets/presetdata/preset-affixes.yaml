@@ -7,12 +7,40 @@ list:
         "optimizeFor": "Damage",
         "minBoonDuration": 0
       }
+
   - name: Power Boon
     value: >-
       {
         "affixes": ["Berserker", "Assassin", "Diviner"],
         "optimizeFor": "Damage",
         "minBoonDuration": 79
+      }
+
+  - name: Power Boon 25%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 25
+      }
+
+  - name: Power Boon 33.5%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 33.5
+      }
+
+  - name: Power Boon 99.7%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 99.7
       }
 
   - name: Condi DPS
@@ -45,4 +73,31 @@ list:
         "affixes": ["Viper", "Seraph", "Celestial"],
         "optimizeFor": "Damage",
         "minBoonDuration": 79
+      }
+
+  - name: Condi Boon 52%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Seraph", "Celestial"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 52
+      }
+
+  - name: Condi Boon 62%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Seraph", "Celestial"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 62
+      }
+
+  - name: Condi Quickbrand 35% Celestial
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Sinister", "Celestial"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 35
       }
