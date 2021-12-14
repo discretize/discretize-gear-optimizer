@@ -17,17 +17,25 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // this many chips are allowed before they will be put into a dropdown select
-const MAX_CHIPS = 6;
+const maxChipsDefault = 6;
 
-const Presets = ({ className, data, handleClick, presetCategory }) => {
+const Presets = ({
+  className,
+  data: dataRaw = [],
+  handleClick,
+  presetCategory,
+  maxChips = maxChipsDefault,
+}) => {
   const classes = useStyles();
   const { t } = useTranslation();
   const profession = useSelector(getProfession);
   const selectedTemplateName = useSelector(getControl('selectedTemplate'));
 
+  const data = dataRaw.filter((entry) => !entry?.hidden);
+
   return (
     <div className={classNames(className, classes.root)}>
-      {data.length > MAX_CHIPS ? (
+      {data.length > maxChips ? (
         <Autocomplete
           key={`${selectedTemplateName || profession}-presets`}
           id="presets"

@@ -135,12 +135,14 @@ const GearOptimizer = ({ classes }) => {
             list {
               name
               value
+              hidden
             }
           }
           presetAffixes: presetAffixes {
             list {
               name
               value
+              hidden
             }
           }
           presetTraits: presetTraits {
@@ -149,6 +151,7 @@ const GearOptimizer = ({ classes }) => {
               traits
               skills
               profession
+              hidden
             }
           }
           presetExtras: presetExtras {
@@ -156,6 +159,7 @@ const GearOptimizer = ({ classes }) => {
               name
               value
               profession
+              hidden
             }
           }
           presetDistribution: presetDistribution {
@@ -163,6 +167,7 @@ const GearOptimizer = ({ classes }) => {
               name
               value
               profession
+              hidden
             }
           }
           templates {
@@ -185,6 +190,7 @@ const GearOptimizer = ({ classes }) => {
             list {
               name
               value
+              hidden
             }
           }
         }
