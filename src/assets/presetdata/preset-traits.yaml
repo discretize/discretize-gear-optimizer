@@ -3541,6 +3541,73 @@ list:
         "skills": {}
       }
 
+  - name: Power Reaper
+    profession: Reaper
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "53",
+          "50",
+          "34"
+        ],
+        "selectedTraits": [
+          [
+            914,
+            829,
+            853
+          ],
+          [
+            875,
+            894,
+            893
+          ],
+          [
+            2020,
+            1969,
+            2021
+          ]
+        ],
+        "items": [
+          {
+            "spiteful-talisman": {
+              "amount": ""
+            },
+            "awaken-the-pain": {
+              "amount": ""
+            },
+            "close-to-death": {
+              "amount": ""
+            }
+          },
+          {
+            "soul-barbs": {
+              "amount": ""
+            },
+            "vital-persistence": true,
+            "death-perception": true
+          },
+          {
+            "soul-eater": {
+              "amount": ""
+            },
+            "decimate-defenses-25x": true,
+            "cold-shoulder": {
+              "amount": ""
+            },
+            "reapers-onslaught": true
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-spite": {
+            "amount": ""
+          }
+        }
+      }
+
   - name: Condi Reaper
     profession: Reaper
     traits: |-

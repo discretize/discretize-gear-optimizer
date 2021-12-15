@@ -502,6 +502,15 @@ list:
         traits: DPS Scourge
         extras: DPS Scourge
 
+      # - name: Power Reaper (inaccurate)
+      #   id: preaper
+      #   specialization: Reaper
+      #   boons: Power (spotter)
+      #   priority: Power DPS
+      #   distribution: Power Reaper (inaccurate)
+      #   traits: Power Reaper
+      #   extras: Power (Fractal)
+
       - name: Condi Reaper
         id: creaper
         specialization: Reaper

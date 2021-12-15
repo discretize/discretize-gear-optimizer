@@ -558,6 +558,16 @@ list:
         "values2": { "Power": 1405, "Burning": 3.4, "Bleeding": 20.6, "Poisoned": 3.7, "Torment": 14.2, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=I1Tjyfk-DKI
+  # power: 33983, burn: 174, poison: 99, total: 34256
+  # "Reaper does approximately 29.28% of its damage outside of shroud" - https://discord.com/channels/380901000200060929/381160724409614356/828683461074092113
+  - name: Power Reaper (inaccurate)
+    profession: Reaper
+    value: >-
+      {
+        "values2": { "Power": 2990, "Burning": 0.6, "Bleeding": 0, "Poisoned": 1, "Torment": 0, "Confusion": 0 }
+      }
+
   # https://www.youtube.com/watch?v=prk0ZwXwLlA
   # power: 7817, burn: 2167, bleed: 24240, poison: 1135, torment: 2327, total: 37686
   # no grieving
