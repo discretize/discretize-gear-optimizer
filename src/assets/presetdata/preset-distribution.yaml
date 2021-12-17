@@ -290,6 +290,15 @@ list:
         "values2": { "Power": 4408, "Burning": 4.4, "Bleeding": 4.4, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=SPSg1eiz7IQ
+  # power: 47271, burn: 3231, bleed: 648, total: 51150
+  - name: '[beta] Power Hammer Catalyst'
+    profession: Catalyst
+    value: >-
+      {
+        "values2": { "Power": 3804, "Burning": 6.67, "Bleeding": 5.78, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
   # https://discord.com/channels/380901000200060929/888049167455379532/907951956864163870
   # power: 13422, burn: 18047, bleed: 11426, total: 42895
   - name: '[old] Condi Hammer Catalyst'
