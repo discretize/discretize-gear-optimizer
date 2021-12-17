@@ -148,6 +148,14 @@
       gw2id: 1333
       defaultEnabled: true
 
+    - id: blade-master-base-bugged
+      text: Blademaster
+      subText: base, BUGGED VERSION
+      modifiers:
+        attributes:
+          Expertise: [160, converted]
+      gw2id: 1333
+
     - id: blade-master-2
       text: Blademaster
       subText: with sword
