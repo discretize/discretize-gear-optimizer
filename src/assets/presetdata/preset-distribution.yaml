@@ -36,12 +36,12 @@ list:
 
   # https://www.youtube.com/watch?v=br9AGRrKHY8
   # power: 30836, burn: 200, total: 31036
-  # accuracy; optimized for 3 attacker's insight I guess w/e
+  # accuracy; optimized for 3 attacker's insight I guess w/e (assassin coat legs, full mighty)
   - name: Power Banner Spellbreaker
     profession: Spellbreaker
     value: >-
       {
-        "values2": { "Power": 2626, "Burning": 0.6, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2617, "Burning": 0.59, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=vf_JWsZP7t0
