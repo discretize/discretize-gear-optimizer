@@ -146,7 +146,7 @@
       subText: base (+80 prec)
       modifiers:
         attributes:
-          Precision: [80, buff]
+          Precision: [80, buff] # confirmed from bench hero panel
       gw2id: 566
       defaultEnabled: true
 
@@ -159,7 +159,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Power: [80, buff]
+          Power: [80, converted] # found by Cat
       gw2id: 566
       defaultEnabled: true
 
@@ -389,7 +389,7 @@
         attributes:
           Condition Damage: [250, converted]
           Healing Power: [250, converted]
-          Vitality: [250, converted]
+          Vitality: [250, converted] # confirmed from bench hero panel
       gw2id: 2148
       defaultEnabled: true
 

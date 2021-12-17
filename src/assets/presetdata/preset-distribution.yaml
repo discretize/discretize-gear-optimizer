@@ -95,11 +95,12 @@ list:
   # https://www.youtube.com/watch?v=XbbfgCUGwlY
   # power: 6399, burn: 28610, bleed: 1731, torment: 694, total: 37434
   # 12 boons, includes torment and geo sigils
+  # sinister shoulder coat gloves boot amulet acc
   - name: CFB (Virtues, 5 page, allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2325, "Burning": 15.2, "Bleeding": 4.8, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
+        "values2": { "Power": 2314, "Burning": 15.19, "Bleeding": 4.77, "Poisoned": 0, "Torment": 1.28, "Confusion": 0 }
       }
 
   # burn: 25416
@@ -107,7 +108,7 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2325, "Burning": 13.5, "Bleeding": 4.8, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
+        "values2": { "Power": 2314, "Burning": 13.49, "Bleeding": 4.77, "Poisoned": 0, "Torment": 1.28, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=KOEcwF066pc
@@ -117,7 +118,7 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2087, "Burning": 16.4, "Bleeding": 4.1, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
+        "values2": { "Power": 2087, "Burning": 16.39, "Bleeding": 4.08, "Poisoned": 0, "Torment": 1.28, "Confusion": 0 }
       }
 
   # burn 26203
@@ -125,15 +126,15 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2087, "Burning": 13.9, "Bleeding": 4.1, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
+        "values2": { "Power": 2087, "Burning": 13.88, "Bleeding": 4.08, "Poisoned": 0, "Torment": 1.28, "Confusion": 0 }
       }
 
   # stalwart speed and legendary lore, but balth rune setup
   # i.e. like 40% quickbrand but plus geo/torment; minus firebrand rune proc
   #
   # geo power: 0.25 coeff, 690.5 strength, every 26.5 sec -> 6.5 power coefficient
-  # geo bleed: 24 seconds, every 26.5 sec -> 0.9 avg bleed
-  # torment: 10 seconds, 14 procs/106 sec -> 1.3 avg torment
+  # geo bleed: 24 seconds, every 26.5 sec -> 0.91 avg bleed, using 0.9
+  # torment: 10 seconds, 14 procs/106 sec -> 1.32 avg torment, using 1.28
   # fb rune power: 0.8? coeff, 690.5 strength, every 54 sec -> 10 power coeff
   # fb rune burning: 1 second, every 54 sec -> 0.0185 avg burning
   #
@@ -141,15 +142,15 @@ list:
   # geo f1 passive: 1/3 * 2.2 / 54 sec = 0.0277 avg burning
   # fb rune f1 passive: 1/3 * 2.2 / 26.5 sec = 0.0136 avg burning
   #
-  # total: -4 power, +0.9 bleed, +1.3 torment, 0 burning
+  # total: -4 power, +0.9 bleed, +1.28 torment, 0 burning
   - name: CFB w/ Quickness (Virtues, allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2314, "Burning": 14.1, "Bleeding": 3.5, "Poisoned": 0, "Torment": 1.3, "Confusion": 0 }
+        "values2": { "Power": 2314, "Burning": 14.1, "Bleeding": 3.5, "Poisoned": 0, "Torment": 1.28, "Confusion": 0 }
       }
 
-  # +1.4 burning (36 seconds * 5 casts in ~130 seconds)
+  # +1.38 burning (36 seconds * 5 casts in ~130 seconds)
   - name: Condi Quickbrand 40% (Virtues, allies)
     profession: Firebrand
     value: >-
@@ -163,7 +164,7 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2318, "Burning": 12.7, "Bleeding": 2.6, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2318, "Burning": 12.72, "Bleeding": 2.57, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # - name: Hybrid FB (Virtues, no allies)
