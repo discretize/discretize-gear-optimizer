@@ -305,7 +305,7 @@ list:
     profession: Catalyst
     value: >-
       {
-        "values2": { "Power": 4152, "Burning": 10.9, "Bleeding": 20.3, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3559, "Burning": 10.41, "Bleeding": 19.43, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # dance of death

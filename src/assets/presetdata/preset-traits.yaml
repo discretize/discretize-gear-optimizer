@@ -2162,7 +2162,7 @@ list:
           [
             296,
             325,
-            0
+            1510
           ],
           [
             1507,
@@ -2211,7 +2211,12 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "flame-wheel": {
+            "amount": "92"
+          },
+          "crescent-wind": true
+        }
       }
 
   - name: Heal Tempest
