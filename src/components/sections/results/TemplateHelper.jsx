@@ -12,6 +12,7 @@ const initial = {
   Confusion: 0,
 };
 
+const roundTwo = (num) => Math.round(num * 100) / 100;
 const roundOne = (num) => Math.round(num * 10) / 10;
 const roundZero = (num) => Math.round(num);
 
@@ -44,7 +45,7 @@ const TemplateHelper = ({ character }) => {
 
   // round
   Object.keys(values2).forEach((key) => {
-    values2[key] = key === 'Power' ? roundZero(values2[key]) : roundOne(values2[key]);
+    values2[key] = key === 'Power' ? roundZero(values2[key]) : roundTwo(values2[key]);
   });
 
   values2 = fixPoison(values2);
