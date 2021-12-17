@@ -31,7 +31,7 @@ list:
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 1739, "Burning": 10.3, "Bleeding": 17.3, "Poisoned": 2.0, "Torment": 1.2, "Confusion": 0 }
+        "values2": { "Power": 1739, "Burning": 10.28, "Bleeding": 17.24, "Poisoned": 1.95, "Torment": 1.2, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=br9AGRrKHY8

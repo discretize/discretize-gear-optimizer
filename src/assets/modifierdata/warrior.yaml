@@ -144,7 +144,7 @@
       subText: base
       modifiers:
         attributes:
-          Expertise: [120, buff]
+          Expertise: [120, converted] # confirmed from bench hero panel
       gw2id: 1333
       defaultEnabled: true
 
