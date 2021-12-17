@@ -169,6 +169,15 @@ list:
         traits: Healbrand
         extras: Heal
 
+      - name: '[beta] Condi Willbender'
+        id: cwb
+        specialization: Willbender
+        boons: Condi
+        priority: Hybrid DPS
+        distribution: '[beta] Condi Willbender'
+        traits: '[beta] Condi Willbender'
+        extras: CFB DPS
+
       - name: '[old] Power Willbender Radiance'
         id: pwb-radiance
         specialization: Willbender
