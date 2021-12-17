@@ -71,7 +71,7 @@ list:
     profession: Dragonhunter
     value: >-
       {
-        "values2": { "Power": 3334, "Burning": 2.2, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3320, "Burning": 2.15, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=G3CngDG-cMg
