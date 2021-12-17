@@ -86,7 +86,7 @@
         quantityEntered: 25
       modifiers:
         attributes:
-          Power: [250, buff]
+          Power: [250, buff] # confirmed from bench hero panel
       gw2id: 1453
       defaultEnabled: true
 
@@ -331,7 +331,7 @@
       subText: base
       modifiers:
         attributes:
-          Ferocity: [120, buff]
+          Ferocity: [120, converted] # confirmed from bench hero panel
       gw2id: 1369
       defaultEnabled: true
 
@@ -344,7 +344,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Ferocity: [120, buff]
+          Ferocity: [120, converted] # confirmed from bench hero panel
       gw2id: 1369
       defaultEnabled: true
 
