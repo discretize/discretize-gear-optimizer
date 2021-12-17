@@ -54,14 +54,14 @@ list:
         "values2": { "Power": 3747, "Burning": 0.54, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  # https://www.youtube.com/watch?v=faIaiHFG1qI
-  # power: 34878, burn: 606, total: 35484
+  # https://www.youtube.com/watch?v=aIUZegO1_EA
+  # power: 35711, burn: 629, total: 36340
   # RHS
   - name: DH Radiance
     profession: Dragonhunter
     value: >-
       {
-        "values2": { "Power": 3283, "Burning": 1.85, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3361, "Burning": 1.92, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=iaMQVvspJFE
