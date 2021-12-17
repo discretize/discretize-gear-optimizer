@@ -185,17 +185,6 @@ list:
         "Nourishment": "sweet-and-spicy-butternut-squash-soup"
       }
 
-  - name: '[old] Bladesworn'
-    profession: Bladesworn
-    value: |-
-      {
-        "Runes": "scholar",
-        "Sigil1": "force",
-        "Sigil2": "accuracy",
-        "Enhancement": "superior-sharpening-stone",
-        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
-      }
-
   - name: Flame Legion Power Weaver (Raid)
     profession: Weaver
     value: |-

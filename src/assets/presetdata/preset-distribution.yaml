@@ -44,14 +44,14 @@ list:
         "values2": { "Power": 2617, "Burning": 0.59, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  # https://www.youtube.com/watch?v=vf_JWsZP7t0
-  # power: 54276, burn: 178, total: 54454
-  # accuracy, full berserker full mighty
-  - name: '[old] Bladesworn'
+  # https://www.youtube.com/watch?v=hkTNec9kJpg
+  # power: 36822, burn: 213, total: 37035
+  # force impact ass shoulder leg 11 mighty 6 precise (overcapped, missing 1 infu)
+  - name: '[beta] Banner Bladesworn'
     profession: Bladesworn
     value: >-
       {
-        "values2": { "Power": 5796, "Burning": 0.5, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3747, "Burning": 0.54, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=faIaiHFG1qI

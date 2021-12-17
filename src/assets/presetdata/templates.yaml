@@ -217,14 +217,14 @@ list:
         traits: Power Banner SPB
         extras: Power (Fractal)
 
-      - name: '[old] Bladesworn'
-        id: pbls
+      - name: '[beta] Banner Bladesworn'
+        id: bls-bs
         specialization: Bladesworn
         boons: Power (spotter)
         priority: Power DPS
-        distribution: '[old] Bladesworn'
-        traits: '[old] Bladesworn'
-        extras: '[old] Bladesworn'
+        distribution: '[beta] Banner Bladesworn'
+        traits: '[beta] Banner Bladesworn'
+        extras: Power (Fractal)
 
   - class: Elementalist
     builds:

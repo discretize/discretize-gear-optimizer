@@ -1436,7 +1436,7 @@ list:
         }
       }
 
-  - name: '[old] Bladesworn'
+  - name: '[beta] Banner Bladesworn'
     profession: Bladesworn
     traits: |-
       {
@@ -1455,20 +1455,18 @@ list:
           [
             1413,
             1484,
-            1657
+            1369
           ],
           [
             2225,
-            2240,
+            2302,
             2239
           ]
         ],
         "items": [
           {
             "peak-performance": true,
-            "peak-performance-2": {
-              "amount": "???"
-            },
+            "peak-performance-2": false,
             "forceful-greatsword": true,
             "forceful-greatsword-2": false,
             "great-fortitude": true,
@@ -1491,6 +1489,9 @@ list:
             }
           },
           {
+            "fierce-as-fire": {
+              "amount": ""
+            },
             "guns-and-glory": {
               "amount": ""
             }
@@ -1500,8 +1501,7 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-might": true,
-          "signet-of-fury": true
+          "signet-of-might": true
         }
       }
 
