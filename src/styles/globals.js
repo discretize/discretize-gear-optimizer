@@ -2,6 +2,14 @@ import theme from './theme';
 
 export default {
   '@global': {
+    '#___gatsby': {
+      cursor: `url('/images/cursors/default.png'), default`,
+    },
+    'a, button, input, .MuiMenuItem-root, .MuiInput-root, .MuiSelect-root, .MuiFormControlLabel-label, .MuiButtonBase-root, .noUi-handle, .MuiSlider-root, .MuiChip-root, .MuiSvgIcon-root, .MuiAutocomplete-option':
+      {
+        cursor: `url('/images/cursors/expand.png'), pointer !important`,
+      },
+
     '::selection': {
       backgroundColor: theme.palette.primary.dark,
       color: theme.palette.common.white,
