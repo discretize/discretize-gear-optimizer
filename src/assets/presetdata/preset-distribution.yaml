@@ -206,13 +206,13 @@ list:
 
   # https://www.youtube.com/watch?v=CCk_WNl_cjE
   # power: 9039, burn: 30327, bleed: 451, torment: 789, total: 40606
-  # chill bugged 10%, 12 boons
+  # 12 boons
   # sini trinkets except ring; viper else
   - name: '[beta] Condi Willbender'
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 2468, "Burning": 14.65, "Bleeding": 1.14, "Poisoned": 0, "Torment": 1.33, "Confusion": 0 }
+        "values2": { "Power": 2715, "Burning": 14.65, "Bleeding": 1.14, "Poisoned": 0, "Torment": 1.33, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=Vo4Qs6KeUHE
