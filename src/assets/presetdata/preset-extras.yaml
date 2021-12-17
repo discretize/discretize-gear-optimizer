@@ -262,7 +262,7 @@ list:
         "Nourishment": "truffle-steak"
       }
 
-  - name: '[old] Condi Hammer Catalyst'
+  - name: '[old] Condi Catalyst'
     profession: Catalyst
     value: |-
       {

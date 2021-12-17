@@ -292,7 +292,7 @@ list:
 
   # https://www.youtube.com/watch?v=SPSg1eiz7IQ
   # power: 47271, burn: 3231, bleed: 648, total: 51150
-  - name: '[beta] Power Hammer Catalyst'
+  - name: '[beta] Power Catalyst'
     profession: Catalyst
     value: >-
       {
@@ -301,7 +301,7 @@ list:
 
   # https://discord.com/channels/380901000200060929/888049167455379532/907951956864163870
   # power: 13422, burn: 18047, bleed: 11426, total: 42895
-  - name: '[old] Condi Hammer Catalyst'
+  - name: '[old] Condi Catalyst'
     profession: Catalyst
     value: >-
       {

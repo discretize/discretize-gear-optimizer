@@ -292,23 +292,32 @@ list:
         traits: Heal Tempest
         extras: Heal
 
-      - name: '[beta] Power Hammer Catalyst'
+      - name: '[beta] Power Catalyst'
         id: ppwer-cat
         specialization: Catalyst
         boons: Power (spotter)
         priority: Power DPS
-        distribution: '[beta] Power Hammer Catalyst'
-        traits: '[beta] Power Hammer Catalyst'
+        distribution: '[beta] Power Catalyst'
+        traits: '[beta] Power Catalyst'
         extras: Power (Fractal)
 
-      - name: '[old] Condi Hammer Catalyst'
+      - name: '[beta] Power Quickness Catalyst'
+        id: ppwer-cat
+        specialization: Catalyst
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: '[beta] Power Catalyst'
+        traits: '[beta] Power Quickness Catalyst'
+        extras: Power (Fractal)
+
+      - name: '[old] Condi Catalyst'
         id: condi-cat
         specialization: Catalyst
         boons: Condi
         priority: Condi DPS
-        distribution: '[old] Condi Hammer Catalyst'
-        traits: '[old] Condi Hammer Catalyst'
-        extras: '[old] Condi Hammer Catalyst'
+        distribution: '[old] Condi Catalyst'
+        traits: '[old] Condi Catalyst'
+        extras: '[old] Condi Catalyst'
 
   - class: Ranger
     builds:

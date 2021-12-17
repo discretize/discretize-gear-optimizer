@@ -1974,7 +1974,7 @@ list:
         }
       }
 
-  - name: '[beta] Power Hammer Catalyst'
+  - name: '[beta] Power Catalyst'
     profession: Catalyst
     traits: |-
       {
@@ -2061,7 +2061,94 @@ list:
         }
       }
 
-  - name: '[old] Condi Hammer Catalyst'
+  - name: '[beta] Power Quickness Catalyst'
+    profession: Catalyst
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "67"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1510
+          ],
+          [
+            232,
+            214,
+            226
+          ],
+          [
+            2252,
+            2247,
+            2251
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "40"
+            },
+            "burning-precision": true,
+            "burning-rage": true,
+            "power-overwhelming": true,
+            "power-overwhelming-2": {
+              "amount": "40"
+            },
+            "pyromancers-training": true,
+            "persisting-flames": {
+              "amount": ""
+            }
+          },
+          {
+            "ferocious-winds": true,
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": true,
+            "aeromancers-training-2": {
+              "amount": "32"
+            },
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "hardened-auras": {
+              "amount": ""
+            },
+            "elemental-empowerment": true,
+            "empowering-auras": {
+              "amount": "5"
+            },
+            "empowered-empowerment": true
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "flame-wheel": {
+            "amount": "79"
+          },
+          "crescent-wind": true,
+          "relentless-fire": {
+            "amount": "50"
+          }
+        }
+      }
+
+  - name: '[old] Condi Catalyst'
     profession: Catalyst
     traits: |-
       {
