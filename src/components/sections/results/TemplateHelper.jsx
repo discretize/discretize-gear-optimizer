@@ -13,7 +13,6 @@ const initial = {
 };
 
 const roundTwo = (num) => Math.round(num * 100) / 100;
-const roundOne = (num) => Math.round(num * 10) / 10;
 const roundZero = (num) => Math.round(num);
 
 const indent = (str, amount) => str.replace(/^/gm, ' '.repeat(amount));
