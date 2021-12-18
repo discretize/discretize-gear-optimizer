@@ -21,7 +21,7 @@ const IndexPage = () => {
 
   return (
     <>
-      <URLStateImport />
+      <URLStateImport sagaType="IMPORT_STATE" clearUrlOnSuccess />
       <LanguageSelection />
       <MuiAlert elevation={6} variant="filled" severity="warning">
         <Trans>

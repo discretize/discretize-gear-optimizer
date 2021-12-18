@@ -9,7 +9,7 @@ import URLStateSnackbar from './URLStateSnackbar';
 // hard coded temporarily!
 const version = 0;
 
-const URLStateExport = () => {
+const URLStateExport = ({ type }) => {
   const dispatch = useDispatch();
 
   // State for snackbar, which indicates the result of url load action

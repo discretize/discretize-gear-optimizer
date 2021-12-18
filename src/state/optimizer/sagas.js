@@ -3,6 +3,7 @@ import JsonUrl from 'json-url';
 import { all, call, cancelled, put, race, select, take, takeLeading } from 'redux-saga/effects';
 import { parseBoss, parseInfusionCount, parsePriority } from '../../utils/usefulFunctions';
 import { getBuffsModifiers } from '../slices/buffs';
+import { changeCharacter } from '../slices/buildPage';
 import {
   changeAll,
   changeControl,
@@ -333,11 +334,58 @@ function* watchImportState() {
   yield takeLeading('IMPORT_STATE', importState);
 }
 
+function* exportStateCharacter({ onSuccess }) {
+  const reduxState = yield select();
+
+  const exportData = reduxState.optimizer.control.selectedCharacter;
+  console.log(exportData);
+
+  console.time('Created template in:');
+  const compressed = yield lib.compress(exportData);
+  console.timeEnd('Created template in:');
+
+  onSuccess(compressed);
+}
+
+function* watchExportStateCharacter() {
+  yield takeLeading('EXPORT_STATE_CHARACTER', exportStateCharacter);
+}
+
+function* importStateCharacter({ buildUrl: input, onSuccess, onError }) {
+  try {
+    if (!input) return;
+
+    console.time('Decompressed template in:');
+    const importData = yield lib.decompress(input);
+    console.timeEnd('Decompressed template in:');
+
+    console.log(importData);
+    const optimizerState = importData;
+
+    console.time('Applied state in:');
+    yield put(changeCharacter(optimizerState));
+    console.timeEnd('Applied state in:');
+
+    // execute success callback
+    onSuccess();
+  } catch (e) {
+    console.log('Problem restoring template!');
+    console.log(e);
+    onError();
+  }
+}
+
+function* watchImportStateCharacter() {
+  yield takeLeading('IMPORT_STATE_CHARACTER', importStateCharacter);
+}
+
 export default function* rootSaga() {
   yield all([
     // other sagas go here
     watchStart(),
     watchExportState(),
     watchImportState(),
+    watchExportStateCharacter(),
+    watchImportStateCharacter(),
   ]);
 }

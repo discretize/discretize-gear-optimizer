@@ -6,6 +6,7 @@ import createSagaMiddleware from 'redux-saga';
 import gearOptimizerSaga from './optimizer/sagas';
 import { bossSlice } from './slices/boss';
 import { buffsSlice } from './slices/buffs';
+import { buildPageSlice } from './slices/buildPage';
 import { controlSlice } from './slices/controlsSlice';
 import { distributionSlice } from './slices/distribution';
 import { extraModifiersSlice } from './slices/extraModifiers';
@@ -62,6 +63,7 @@ const reducers = combineReducers({
       forcedSlots: forcedSlotsSlice.reducer,
       boss: bossSlice.reducer,
     }),
+    buildPage: buildPageSlice.reducer,
   }),
 });
 
