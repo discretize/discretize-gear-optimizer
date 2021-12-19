@@ -3,8 +3,6 @@ import React from 'react';
 import Section from '../../baseComponents/Section';
 import ForcedSlots from './ForcedSlots';
 
-const unnecessary = 1;
-
 const ForcedSlotsSection = () => {
   const { t } = useTranslation();
 
