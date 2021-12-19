@@ -1,0 +1,43 @@
+name: Check PR
+
+on:
+  workflow_dispatch:
+  pull_request:
+
+env:
+  NODE_VERSION: 16
+
+jobs:
+  testAll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Cache dependencies
+        id: node-modules-cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+
+      - name: Test modifiers
+        run: yarn testModifiers
+
+      - name: Test presets
+        run: yarn testPresets
+
+      - name: Lint with ESLint
+        run: yarn eslint
+
+      - name: Format with prettier
+        run: yarn prettierCheck

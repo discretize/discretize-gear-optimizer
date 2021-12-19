@@ -18,6 +18,7 @@
     "profile": "gatsby build --profile --no-uglify && gatsby serve",
     "clean": "gatsby clean",
     "prettier": "prettier --write . \"!**/*.{md,json,yaml,yml}\"",
+    "prettierCheck": "prettier --check . \"!**/*.{md,json,yaml,yml}\"",
     "eslint": "eslint --ignore-path .gitignore . --ext .js,.jsx,ts,tsx",
     "updateMappings": "node updateMappings.js",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
