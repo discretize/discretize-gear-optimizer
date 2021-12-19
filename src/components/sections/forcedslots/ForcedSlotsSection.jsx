@@ -23,4 +23,5 @@ const ForcedSlotsSection = () => {
     />
   );
 };
+
 export default React.memo(ForcedSlotsSection);
