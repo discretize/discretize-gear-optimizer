@@ -3,7 +3,7 @@ import React from 'react';
 import Section from '../../baseComponents/Section';
 import ForcedSlots from './ForcedSlots';
 
-const ForcedSlotsSection = () => {
+const ForcedSlotsSection =  () => {
   const { t } = useTranslation();
 
   return (
