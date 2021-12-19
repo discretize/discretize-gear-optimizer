@@ -6,7 +6,7 @@ import { Classes, Defense, INFUSION_IDS } from '../../../utils/gw2-data';
 import { resolveArmor, resolveBackAndTrinkets } from '../../../utils/map-gw2-ids';
 import { extrasModifiersById } from '../../../assets/modifierdata';
 
-export default function ResultCharacter({ data, character }) {
+export default function ResultCharacter({ data, character, weapons }) {
   const { profession, specialization, weaponType, cachedFormState } = character.settings;
   const { extras } = cachedFormState;
 
@@ -58,24 +58,31 @@ export default function ResultCharacter({ data, character }) {
   let weaponPropsAPI;
 
   if (weaponType === 'Dual wield') {
-    wea1 = classData.mainHand.find((item) => item.type === 'one-handed');
-    [wea2] = classData.offHand;
+    if (weapons) {
+      wea1 = weapons.mainhand1;
+      wea2 = weapons.offhand1;
+    } else {
+      wea1 = classData.mainHand.find((item) => item.type === 'one-handed').gw2id;
+      wea2 = classData.offHand[0].gw2id;
+    }
+
     weaponPropsAPI = {
-      weapon1MainId: wea1.gw2id,
+      weapon1MainId: wea1,
       weapon1MainAffix: character.gear[12],
       weapon1MainInfusion1Id: infusions ? infusions[16] : null,
       weapon1MainSigil1Id: sigil1Id,
       weapon1MainSigil1: firstUppercase(sigil1),
-      weapon1OffId: wea2.gw2id,
+      weapon1OffId: wea2,
       weapon1OffAffix: character.gear[13],
       weapon1OffInfusionId: infusions ? infusions[17] : null,
       weapon1OffSigilId: sigil2Id,
       weapon1OffSigil: firstUppercase(sigil2),
     };
   } else {
-    wea1 = classData.mainHand.find((item) => item.type === 'two-handed');
+    if (weapons) wea1 = weapons.mainhand1;
+    else wea1 = classData.mainHand.find((item) => item.type === 'two-handed').gw2id;
     weaponPropsAPI = {
-      weapon1MainId: wea1.gw2id,
+      weapon1MainId: wea1,
       weapon1MainAffix: character.gear[12],
       weapon1MainInfusion1Id: infusions[16],
       weapon1MainSigil1Id: sigil1Id,

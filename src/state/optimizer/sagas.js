@@ -3,7 +3,7 @@ import JsonUrl from 'json-url';
 import { all, call, cancelled, put, race, select, take, takeLeading } from 'redux-saga/effects';
 import { parseBoss, parseInfusionCount, parsePriority } from '../../utils/usefulFunctions';
 import { getBuffsModifiers } from '../slices/buffs';
-import { changeCharacter } from '../slices/buildPage';
+import { changeBuildPage, changeCharacter } from '../slices/buildPage';
 import {
   changeAll,
   changeControl,
@@ -337,7 +337,10 @@ function* watchImportState() {
 function* exportStateCharacter({ onSuccess }) {
   const reduxState = yield select();
 
-  const exportData = reduxState.optimizer.control.selectedCharacter;
+  const exportData = {
+    character: reduxState.optimizer.control.selectedCharacter,
+    weapons: reduxState.optimizer.buildPage.weapons,
+  };
   console.log(exportData);
 
   console.time('Created template in:');
@@ -363,7 +366,7 @@ function* importStateCharacter({ buildUrl: input, onSuccess, onError }) {
     const optimizerState = importData;
 
     console.time('Applied state in:');
-    yield put(changeCharacter(optimizerState));
+    yield put(changeBuildPage(optimizerState));
     console.timeEnd('Applied state in:');
 
     // execute success callback

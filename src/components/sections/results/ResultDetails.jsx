@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import AffixesStats from './AffixesStats';
 import AppliedModifiers from './AppliedModifiers';
+import BuildShareModal from './BuildShareModal/BuildShareModal';
 import Indicators from './Indicators';
 import OutputDistribution from './OutputDistribution';
 import OutputInfusions from './OutputInfusions';
@@ -14,7 +15,6 @@ import SpecialDurations from './SpecialDurations';
 
 const ResultDetails = ({ data }) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
 
   const character = useSelector(getSelectedCharacter);
   if (!character) {
@@ -41,19 +41,14 @@ const ResultDetails = ({ data }) => {
 
   return (
     <>
-      Open this character in a new tab:
-      <IconButton
-        onClick={() =>
-          dispatch({
-            type: 'EXPORT_STATE_CHARACTER',
-            onSuccess: (res) => {
-              window.open(`/build?data=${res}`, '_blank');
-            },
-          })
-        }
-      >
-        <ShareIcon />
-      </IconButton>
+      Open the sharing menu:
+      <BuildShareModal title="Build Share Settings" character={character}>
+        {(handleOpen) => (
+          <IconButton onClick={() => handleOpen()}>
+            <ShareIcon />
+          </IconButton>
+        )}
+      </BuildShareModal>
       <ResultCharacter data={data} character={character} />
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4}>

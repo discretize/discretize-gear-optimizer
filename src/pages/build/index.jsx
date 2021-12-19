@@ -7,7 +7,7 @@ import LanguageSelection from '../../components/baseComponents/LanguageSelection
 import ResultCharacter from '../../components/sections/results/ResultCharacter';
 import URLStateImport from '../../components/url-state/URLStateImport';
 import withLayout from '../../hocs/withLayout';
-import { getCharacter } from '../../state/slices/buildPage';
+import { getCharacter, getWeapons } from '../../state/slices/buildPage';
 
 const useStyles = makeStyles((theme) => ({
   headline: {
@@ -20,6 +20,7 @@ const IndexPage = ({ data }) => {
   const classes = useStyles();
 
   const character = useSelector(getCharacter);
+  const weapons = useSelector(getWeapons);
 
   return (
     <>
@@ -30,7 +31,7 @@ const IndexPage = ({ data }) => {
         <Trans>Build</Trans>
       </Typography>
 
-      {character && <ResultCharacter data={data} character={character} />}
+      {character && <ResultCharacter data={data} character={character} weapons={weapons} />}
     </>
   );
 };
