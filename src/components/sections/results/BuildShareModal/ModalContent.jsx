@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   changeSkill,
   changeWeapon,
+  changeCharacter,
   getSkills,
   getWeapons,
 } from '../../../../state/slices/buildPage';
@@ -208,6 +209,20 @@ export default function ModalContent({ character }) {
         onClick={() => {
           // fixes the browser protection against window opening without any user interaction due to opening the window in a callback
           const windRef = window.open('', '_blank');
+
+          const { attributes, gear, settings } = character;
+          const { specialization, weaponType, cachedFormState } = settings;
+          const minimalCharacter = {
+            attributes,
+            gear,
+            settings: {
+              profession,
+              specialization,
+              weaponType,
+              cachedFormState: { extras: cachedFormState.extras },
+            },
+          };
+          dispatch(changeCharacter(minimalCharacter));
           dispatch({
             type: 'EXPORT_STATE_CHARACTER',
             onSuccess: (res) => {

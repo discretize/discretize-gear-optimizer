@@ -337,9 +337,8 @@ function* watchImportState() {
 function* exportStateCharacter({ onSuccess }) {
   const reduxState = yield select();
 
-  const { selectedCharacter: character } = reduxState.optimizer.control;
   const { selectedLines: lines, selectedTraits: selected } = reduxState.optimizer.form.traits;
-  const { weapons, skills } = reduxState.optimizer.buildPage;
+  const { weapons, skills, character } = reduxState.optimizer.buildPage;
 
   const exportData = {
     character,
