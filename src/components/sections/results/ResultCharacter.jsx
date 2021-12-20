@@ -57,14 +57,49 @@ export default function ResultCharacter({ data, character, weapons, skills }) {
   let wea2;
   let weaponPropsAPI;
 
-  if (weaponType === 'Dual wield') {
-    if (weapons) {
-      wea1 = weapons.mainhand1;
-      wea2 = weapons.offhand1;
-    } else {
-      wea1 = classData.mainHand.find((item) => item.type === 'one-handed').gw2id;
-      wea2 = classData.offHand[0].gw2id;
+  if (weapons) {
+    weaponPropsAPI = {
+      weapon1MainId: weapons.mainhand1,
+      weapon1OffId: weapons.offhand1,
+      weapon2MainId: weapons.mainhand2,
+      weapon2OffId: weapons.offhand2,
+      weapon1MainAffix: character.gear[12],
+      weapon2MainAffix: character.gear[12],
+      weapon1OffAffix: character.gear[13],
+      weapon2OffAffix: character.gear[13],
+      weapon1MainSigil1: firstUppercase(sigil1),
+      weapon2MainSigil1: firstUppercase(sigil1),
+      weapon1OffSigil: firstUppercase(sigil2),
+      weapon2OffSigil: firstUppercase(sigil2),
+      weapon1MainSigil1Id: sigil1Id,
+      weapon2MainSigil1Id: sigil1Id,
+      weapon1OffSigilId: sigil2Id,
+      weapon2OffSigilId: sigil2Id,
+      weapon1MainInfusion1Id: infusions[16],
+      weapon2MainInfusion1Id: infusions[16],
+      weapon1OffInfusionId: infusions ? infusions[17] : null,
+      weapon2OffInfusionId: infusions ? infusions[17] : null,
+    };
+
+    if (!weapons.offhand1) {
+      weaponPropsAPI = {
+        ...weaponPropsAPI,
+        weapon1MainSigil2: firstUppercase(sigil2),
+        weapon1MainSigil2Id: sigil2Id,
+        weapon1MainInfusion2Id: infusions[17],
+      };
     }
+    if (!weapons.offhand2) {
+      weaponPropsAPI = {
+        ...weaponPropsAPI,
+        weapon2MainSigil2: firstUppercase(sigil2),
+        weapon2MainSigil2Id: sigil2Id,
+        weapon2MainInfusion2Id: infusions[17],
+      };
+    }
+  } else if (weaponType === 'Dual wield') {
+    wea1 = classData.mainHand.find((item) => item.type === 'one-handed').gw2id;
+    wea2 = classData.offHand[0].gw2id;
 
     weaponPropsAPI = {
       weapon1MainId: wea1,
@@ -79,8 +114,7 @@ export default function ResultCharacter({ data, character, weapons, skills }) {
       weapon1OffSigil: firstUppercase(sigil2),
     };
   } else {
-    if (weapons) wea1 = weapons.mainhand1;
-    else wea1 = classData.mainHand.find((item) => item.type === 'two-handed').gw2id;
+    wea1 = classData.mainHand.find((item) => item.type === 'two-handed').gw2id;
     weaponPropsAPI = {
       weapon1MainId: wea1,
       weapon1MainAffix: character.gear[12],
