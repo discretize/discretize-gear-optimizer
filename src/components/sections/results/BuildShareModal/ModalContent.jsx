@@ -82,7 +82,13 @@ export default function ModalContent({ character }) {
       >
         {skillList.map((skill) => (
           <MenuItem value={skill.id} key={skill.id}>
-            <Skill id={skill.id} disableLink />
+            <Skill
+              id={skill.id}
+              disableLink
+              disableText
+              style={{ marginRight: 4, fontSize: '1.2rem' }}
+            />
+            <Skill id={skill.id} disableLink disableTooltip disableIcon />
           </MenuItem>
         ))}
       </Select>

@@ -17,6 +17,10 @@ export const buildPageSlice = createSlice({
       utility3Id: '',
       eliteId: '',
     },
+    traits: {
+      lines: [],
+      selected: [],
+    },
   },
   reducers: {
     changeCharacter: (state, action) => {
@@ -37,6 +41,7 @@ export const buildPageSlice = createSlice({
 export const getCharacter = (state) => state.optimizer.buildPage.character;
 export const getWeapons = (state) => state.optimizer.buildPage.weapons;
 export const getSkills = (state) => state.optimizer.buildPage.skills;
+export const getTraits = (state) => state.optimizer.buildPage.traits;
 
 export const { changeCharacter, changeWeapon, changeBuildPage, changeSkill } =
   buildPageSlice.actions;

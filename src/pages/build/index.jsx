@@ -1,13 +1,14 @@
 import { makeStyles, Typography } from '@material-ui/core';
 import { graphql } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
+import { TraitLine } from 'gw2-ui-bulk';
 import * as React from 'react';
 import { useSelector } from 'react-redux';
 import LanguageSelection from '../../components/baseComponents/LanguageSelection';
 import ResultCharacter from '../../components/sections/results/ResultCharacter';
 import URLStateImport from '../../components/url-state/URLStateImport';
 import withLayout from '../../hocs/withLayout';
-import { getCharacter, getSkills, getWeapons } from '../../state/slices/buildPage';
+import { getCharacter, getSkills, getTraits, getWeapons } from '../../state/slices/buildPage';
 
 const useStyles = makeStyles((theme) => ({
   headline: {
@@ -22,19 +23,22 @@ const IndexPage = ({ data }) => {
   const character = useSelector(getCharacter);
   const weapons = useSelector(getWeapons);
   const skills = useSelector(getSkills);
+  const { lines, selected } = useSelector(getTraits);
 
   return (
     <>
       <URLStateImport sagaType="IMPORT_STATE_CHARACTER" clearUrlOnSuccess={false} />
-
       <LanguageSelection />
       <Typography variant="h2" className={classes.headline}>
         <Trans>Build</Trans>
       </Typography>
-
       {character && (
         <ResultCharacter data={data} character={character} weapons={weapons} skills={skills} />
       )}
+      Traits{' '}
+      {lines[0] && <TraitLine id={lines[0]} defaultSelected={selected[0]} selectable={false} />}
+      {lines[1] && <TraitLine id={lines[1]} defaultSelected={selected[1]} selectable={false} />}
+      {lines[2] && <TraitLine id={lines[2]} defaultSelected={selected[2]} selectable={false} />}
     </>
   );
 };
