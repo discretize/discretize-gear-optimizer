@@ -40,7 +40,7 @@ export default function ModalContent({ character }) {
   const { weapons: useableWeapons } = Classes[profession];
 
   const handleChangeWeapon = (e) => {
-    if (useableWeapons.mainHand.find((w) => w.gw2id === e.target.value)) {
+    if (useableWeapons.mainHand.find((w) => w.gw2id === e.target.value)?.type === 'two-handed') {
       if (e.target.name === 'mainhand1') dispatch(changeWeapon({ key: 'offhand1', value: '' }));
       if (e.target.name === 'mainhand2') dispatch(changeWeapon({ key: 'offhand2', value: '' }));
     }
