@@ -10453,10 +10453,10 @@ react-dev-utils@^11.0.3:
     strip-ansi "6.0.0"
     text-table "0.2.0"
 
-react-discretize-components@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/react-discretize-components/-/react-discretize-components-1.0.2.tgz#26208c4a292d5b8b17dcf0693d95944f83dbffb1"
-  integrity sha512-TgFIPo0EEBYJnOJLz3rAoPUzNn244RTP6+elU1DKgP1h4y7yr/fwlOXpz/HYKiJDZA5LIv1CGM171BlDNjh9Og==
+react-discretize-components@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-discretize-components/-/react-discretize-components-1.0.3.tgz#91148777c99beb0c665966013213c2baa904a853"
+  integrity sha512-JhTs/tussf6YwmSTJVuDcrnGEY8UUZR5LQOJraV7E0EA4fvekFAP+7JD/tCHDWJvrJNxvwESBU0BC9o6UFTHzg==
   dependencies:
     "@babel/runtime-corejs3" "^7.16.3"
     "@material-ui/core" "^4.12.3"

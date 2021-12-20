@@ -6,7 +6,7 @@ import { Classes, Defense, INFUSION_IDS } from '../../../utils/gw2-data';
 import { resolveArmor, resolveBackAndTrinkets } from '../../../utils/map-gw2-ids';
 import { extrasModifiersById } from '../../../assets/modifierdata';
 
-export default function ResultCharacter({ data, character, weapons }) {
+export default function ResultCharacter({ data, character, weapons, skills }) {
   const { profession, specialization, weaponType, cachedFormState } = character.settings;
   const { extras } = cachedFormState;
 
@@ -150,6 +150,11 @@ export default function ResultCharacter({ data, character, weapons }) {
     accessory2InfusionId: infusions[15],
   });
 
+  let skillsPropsAPI;
+  if (skills) {
+    skillsPropsAPI = skills;
+  }
+
   // Find right image
   const imageData = data.images.edges.flatMap((image) => image.node);
 
@@ -166,6 +171,7 @@ export default function ResultCharacter({ data, character, weapons }) {
       weaponPropsAPI={weaponPropsAPI}
       backAndTrinketPropsAPI={backAndTrinketPropsAPI}
       consumablesPropsAPI={{ foodId, utilityId }}
+      skillsPropsAPI={skillsPropsAPI}
       imageData={image}
     />
   );
