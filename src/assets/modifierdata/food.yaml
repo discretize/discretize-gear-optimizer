@@ -239,7 +239,7 @@
   items:
 
     - id: dragon's-revelry-starcake
-      text: Dragon's Revelry Starcake / Oyster Soup
+      text: Oyster Soup
       modifiers:
         attributes:
           Power: [45, converted]
@@ -251,6 +251,21 @@
           Expertise: [45, converted]
           Ferocity: [45, converted]
           Healing Power: [45, converted]
+      gw2id: 92471
+
+    - id: dragons-revelry-starcake-bugged
+      text: Dragon's Revelry Starcake (slightly bugged!)
+      modifiers:
+        attributes:
+          Power: [45, buff]
+          Precision: [45, buff]
+          Toughness: [45, buff]
+          Vitality: [45, buff]
+          Concentration: [45, buff]
+          Condition Damage: [45, buff]
+          Expertise: [45, buff]
+          Ferocity: [45, buff]
+          Healing Power: [45, buff]
       gw2id: 43550
 
     - id: birthday-blaster
