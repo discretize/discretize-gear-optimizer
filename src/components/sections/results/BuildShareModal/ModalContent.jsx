@@ -1,3 +1,4 @@
+import { compress } from '@discretize/object-compression';
 import { Box, Button, makeStyles, MenuItem, Select } from '@material-ui/core';
 import ShareIcon from '@material-ui/icons/Share';
 import axios from 'axios';
@@ -6,13 +7,15 @@ import React from 'react';
 import { firstUppercase, NoSelection } from 'react-discretize-components';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  changeCharacter,
   changeSkill,
   changeWeapon,
-  changeCharacter,
   getSkills,
   getWeapons,
 } from '../../../../state/slices/buildPage';
 import { Classes, WEAPONS } from '../../../../utils/gw2-data';
+import { BuildPageSchema } from '../../../url-state/BuildPageSchema';
+import { getTraitLines, getTraits } from '../../../../state/slices/traits';
 
 const useStyles = makeStyles((theme) => ({
   weaponItem: {
@@ -32,8 +35,12 @@ const useStyles = makeStyles((theme) => ({
 export default function ModalContent({ character }) {
   const dispatch = useDispatch();
   const classes = useStyles();
-  const { mainhand1, mainhand2, offhand1, offhand2 } = useSelector(getWeapons);
-  const { healId, utility1Id, utility2Id, utility3Id, eliteId } = useSelector(getSkills);
+  const weapons = useSelector(getWeapons);
+  const { mainhand1, mainhand2, offhand1, offhand2 } = weapons;
+  const skills = useSelector(getSkills);
+  const { healId, utility1Id, utility2Id, utility3Id, eliteId } = skills;
+  const lines = useSelector(getTraitLines);
+  const selected = useSelector(getTraits);
 
   const [apiSkills, setApiSkills] = React.useState(null);
 
@@ -210,25 +217,56 @@ export default function ModalContent({ character }) {
           // fixes the browser protection against window opening without any user interaction due to opening the window in a callback
           const windRef = window.open('', '_blank');
 
-          const { attributes, gear, settings } = character;
+          const { attributes: allAttributes, gear, settings } = character;
           const { specialization, weaponType, cachedFormState } = settings;
+
+          // filter out unnecessary attributes
+          const attributes = {};
+          Object.keys(BuildPageSchema.character.attributes).forEach((key) => {
+            attributes[key] = allAttributes[key];
+          });
+
           const minimalCharacter = {
             attributes,
             gear,
             settings: {
+              cachedFormState: {
+                extras: {
+                  Enhancement: cachedFormState.extras.Enhancement,
+                  Nourishment: cachedFormState.extras.Nourishment,
+                  Runes: cachedFormState.extras.Runes,
+                  Sigil1: cachedFormState.extras.Sigil1,
+                  Sigil2: cachedFormState.extras.Sigil2,
+                },
+              },
               profession,
               specialization,
               weaponType,
-              cachedFormState: { extras: cachedFormState.extras },
             },
           };
           dispatch(changeCharacter(minimalCharacter));
+          const object = {
+            character: minimalCharacter,
+            skills,
+            traits: { lines, selected },
+            weapons,
+          };
+
+          compress({
+            object,
+            schema: BuildPageSchema,
+            onSuccess: (result) => {
+              windRef.location.href = `/build?data=${result}`;
+            },
+          });
+          /*
           dispatch({
             type: 'EXPORT_STATE_CHARACTER',
             onSuccess: (res) => {
               windRef.location.href = `/build?data=${res}`;
             },
           });
+          */
         }}
       >
         Open Build

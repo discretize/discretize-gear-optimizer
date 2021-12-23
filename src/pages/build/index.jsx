@@ -1,44 +1,107 @@
-import { makeStyles, Typography } from '@material-ui/core';
+import { decompress } from '@discretize/object-compression';
+import { Box, makeStyles, Paper, Typography } from '@material-ui/core';
 import { graphql } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import { TraitLine } from 'gw2-ui-bulk';
 import * as React from 'react';
-import { useSelector } from 'react-redux';
+import { TextDivider } from 'react-discretize-components';
+import { useDispatch, useSelector } from 'react-redux';
+import { StringParam, useQueryParam } from 'use-query-params';
+import { classModifiers } from '../../assets/modifierdata';
 import LanguageSelection from '../../components/baseComponents/LanguageSelection';
 import ResultCharacter from '../../components/sections/results/ResultCharacter';
-import URLStateImport from '../../components/url-state/URLStateImport';
+import { BuildPageSchema } from '../../components/url-state/BuildPageSchema';
 import withLayout from '../../hocs/withLayout';
-import { getCharacter, getSkills, getTraits, getWeapons } from '../../state/slices/buildPage';
+import {
+  changeBuildPage,
+  getCharacter,
+  getSkills,
+  getTraits,
+  getWeapons,
+} from '../../state/slices/buildPage';
 
 const useStyles = makeStyles((theme) => ({
   headline: {
     paddingBottom: theme.spacing(2),
+  },
+  traitlineText: {
+    writingMode: 'vertical-rl',
+    textOrientation: 'mixed',
+    transform: 'rotate(180deg)',
+    fontWeight: 250,
+    textAlign: 'end',
+    overflowWrap: 'break-word',
+  },
+  traitlineRoot: {
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
+    borderTopStyle: 'solid',
+    borderColor: theme.palette.primary.main,
+    position: 'absolute',
+    zIndex: 9999,
+    maxHeight: 133,
   },
 }));
 
 // markup
 const IndexPage = ({ data }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const character = useSelector(getCharacter);
   const weapons = useSelector(getWeapons);
   const skills = useSelector(getSkills);
   const { lines, selected } = useSelector(getTraits);
 
+  const [buildUrl] = useQueryParam('data', StringParam);
+
+  React.useEffect(() => {
+    decompress({
+      string: buildUrl,
+      schema: BuildPageSchema,
+      onSuccess: (result) => dispatch(changeBuildPage(result)),
+    });
+
+    return () => {};
+  }, [buildUrl, dispatch]);
+
+  const traitLookup = [];
+  []
+    .concat(...Object.values(classModifiers))
+    .filter((item) => item.section !== 'Skills')
+    .forEach((traitLine) => {
+      traitLookup[traitLine.id] = traitLine.section;
+    });
+
+  const Traits = ({ id, selected: selectedTraits }) => {
+    return (
+      <Box display="flex" mb={1}>
+        <Paper elevation={4} className={classes.traitlineRoot}>
+          <Typography variant="body1" className={classes.traitlineText}>
+            {traitLookup[id]}
+          </Typography>
+        </Paper>
+        <TraitLine id={id} defaultSelected={selectedTraits} selectable={false} />
+      </Box>
+    );
+  };
+
   return (
     <>
-      <URLStateImport sagaType="IMPORT_STATE_CHARACTER" clearUrlOnSuccess={false} />
       <LanguageSelection />
-      <Typography variant="h2" className={classes.headline}>
-        <Trans>Build</Trans>
+      <Typography variant="h3" className={classes.headline}>
+        <Trans>Shared Build</Trans>
       </Typography>
+
+      <TextDivider text="Equipment" />
       {character && (
         <ResultCharacter data={data} character={character} weapons={weapons} skills={skills} />
       )}
-      Traits{' '}
-      {lines[0] && <TraitLine id={lines[0]} defaultSelected={selected[0]} selectable={false} />}
-      {lines[1] && <TraitLine id={lines[1]} defaultSelected={selected[1]} selectable={false} />}
-      {lines[2] && <TraitLine id={lines[2]} defaultSelected={selected[2]} selectable={false} />}
+
+      <TextDivider text="Traits" />
+      {lines[0] && <Traits id={lines[0]} selected={selected[0]} />}
+      {lines[1] && <Traits id={lines[1]} selected={selected[1]} />}
+      {lines[2] && <Traits id={lines[2]} selected={selected[2]} />}
     </>
   );
 };
@@ -62,68 +125,6 @@ export const query = graphql`
             src
           }
         }
-      }
-    }
-    presetBuffs: presetBuffs {
-      list {
-        name
-        value
-        hidden
-      }
-    }
-    presetAffixes: presetAffixes {
-      list {
-        name
-        value
-        hidden
-      }
-    }
-    presetTraits: presetTraits {
-      list {
-        name
-        traits
-        skills
-        profession
-        hidden
-      }
-    }
-    presetExtras: presetExtras {
-      list {
-        name
-        value
-        profession
-        hidden
-      }
-    }
-    presetDistribution: presetDistribution {
-      list {
-        name
-        value
-        profession
-        hidden
-      }
-    }
-    templates {
-      id
-      list {
-        class
-        builds {
-          id
-          name
-          traits
-          specialization
-          boons
-          priority
-          distribution
-          extras
-        }
-      }
-    }
-    presetInfusions {
-      list {
-        name
-        value
-        hidden
       }
     }
   }
