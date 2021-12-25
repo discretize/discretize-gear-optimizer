@@ -853,7 +853,7 @@ export class OptimizerCore {
   // returns true if B is better than A
   // eslint-disable-next-line id-length
   characterLT(a, b) {
-    const { settings } = a;
+    const { settings } = this;
 
     // if (!a.valid && b.valid) {
     //     // A is invalid, B is valid -> replace A
