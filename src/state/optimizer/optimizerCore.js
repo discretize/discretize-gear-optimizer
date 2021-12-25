@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 /* eslint-disable no-case-declarations */
 /* eslint-disable no-console */
 /* eslint-disable dot-notation */
@@ -687,7 +688,7 @@ export class OptimizerCore {
 
   // Just applies the primary infusion
   applyInfusionsPrimary(character) {
-    const { settings } = this;
+    const { settings } = character;
     character.infusions = { [settings.primaryInfusion]: settings.primaryMaxInfusions };
     this.addBaseStats(
       character,
@@ -700,7 +701,7 @@ export class OptimizerCore {
 
   // Just applies the maximum number of primary/secondary infusions, since the total is ≤18
   applyInfusionsFew(character) {
-    const { settings } = this;
+    const { settings } = character;
 
     character.infusions = {
       [settings.primaryInfusion]: settings.primaryMaxInfusions,
@@ -722,7 +723,7 @@ export class OptimizerCore {
 
   // Inserts every valid combination of 18 infusions
   applyInfusionsSecondary(character) {
-    const { settings } = this;
+    const { settings } = character;
 
     if (!this.worstScore || this.testInfusionUsefulness(character)) {
       let previousResult;
@@ -751,7 +752,7 @@ export class OptimizerCore {
 
   // Tests every valid combination of 18 infusions and inserts the best result
   applyInfusionsSecondaryNoDuplicates(character) {
-    const { settings } = this;
+    const { settings } = character;
 
     if (!this.worstScore || this.testInfusionUsefulness(character)) {
       let best = null;
@@ -784,7 +785,7 @@ export class OptimizerCore {
   }
 
   testInfusionUsefulness(character) {
-    const { settings } = this;
+    const { settings } = character;
     const temp = this.clone(character);
     this.addBaseStats(temp, settings.primaryInfusion, settings.maxInfusions * INFUSION_BONUS);
     this.addBaseStats(temp, settings.secondaryInfusion, settings.maxInfusions * INFUSION_BONUS);
@@ -793,7 +794,7 @@ export class OptimizerCore {
   }
 
   insertCharacter(character) {
-    const { settings } = this;
+    const { settings } = character;
 
     if (
       !character.valid ||
@@ -836,7 +837,6 @@ export class OptimizerCore {
     this.isChanged = true;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   addBaseStats(character, stat, amount) {
     character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + amount;
   }
@@ -844,7 +844,7 @@ export class OptimizerCore {
   // returns true if B is better than A
   // eslint-disable-next-line id-length
   characterLT(a, b) {
-    const { settings } = this;
+    const { rankby } = this.settings;
 
     // if (!a.valid && b.valid) {
     //     // A is invalid, B is valid -> replace A
@@ -855,8 +855,8 @@ export class OptimizerCore {
     // }
 
     // tiebreakers
-    if (a.attributes[settings.rankby] === b.attributes[settings.rankby]) {
-      switch (settings.rankby) {
+    if (a.attributes[rankby] === b.attributes[rankby]) {
+      switch (rankby) {
         case 'Damage':
           return a.attributes['Survivability'] < b.attributes['Survivability'];
         case 'Survivability':
@@ -866,7 +866,7 @@ export class OptimizerCore {
       }
     }
 
-    return a.attributes[settings.rankby] < b.attributes[settings.rankby];
+    return a.attributes[rankby] < b.attributes[rankby];
   }
 
   /**
@@ -876,7 +876,7 @@ export class OptimizerCore {
    * @param {object} character
    */
   updateAttributes(character) {
-    const { damageMultiplier } = character.settings.modifiers;
+    const { damageMultiplier } = this.settings.modifiers;
     character.valid = true;
 
     this.calcStats(character);
@@ -898,7 +898,7 @@ export class OptimizerCore {
    * @param {boolean} [skipValidation] - skips the validation check if true
    */
   updateAttributesFast(character, skipValidation = false) {
-    const { settings } = this;
+    const { settings } = character;
     const { damageMultiplier } = settings.modifiers;
     character.valid = true;
 
@@ -938,7 +938,7 @@ export class OptimizerCore {
   }
 
   calcStats(character) {
-    const { settings } = this;
+    const { settings } = character;
 
     character.attributes = { ...character.baseAttributes };
     const { attributes, baseAttributes } = character;
@@ -963,7 +963,7 @@ export class OptimizerCore {
   }
 
   checkInvalid(character) {
-    const { settings } = this;
+    const { settings } = character;
     const { attributes } = character;
 
     const invalid =
@@ -981,7 +981,7 @@ export class OptimizerCore {
   }
 
   calcPower(character, damageMultiplier) {
-    const { settings } = this;
+    const { settings } = character;
     const { attributes } = character;
 
     attributes['Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
@@ -1004,7 +1004,7 @@ export class OptimizerCore {
     (conditionData[condition].factor * cdmg + conditionData[condition].baseDamage) * mult;
 
   calcCondi(character, damageMultiplier, relevantConditions) {
-    const { settings } = this;
+    const { settings } = character;
     const { attributes } = character;
 
     attributes['Condition Duration'] += attributes['Expertise'] / 15 / 100;
@@ -1044,7 +1044,6 @@ export class OptimizerCore {
     return condiDamageScore;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   calcSurvivability(character, damageMultiplier) {
     const { attributes } = character;
 
@@ -1062,7 +1061,7 @@ export class OptimizerCore {
   }
 
   calcHealing(character) {
-    const { settings } = this;
+    const { settings } = character;
     const { attributes } = character;
 
     // reasonably representative skill: druid celestial avatar 4 pulse
@@ -1082,7 +1081,7 @@ export class OptimizerCore {
   }
 
   calcResults(character) {
-    const { settings } = this;
+    const { settings } = character;
 
     character.results = {};
     const { attributes, results } = character;
@@ -1177,7 +1176,6 @@ export class OptimizerCore {
    * @param {object} character
    * @returns {object} character
    */
-  // eslint-disable-next-line class-methods-use-this
   clone(character) {
     return {
       settings: character.settings, // passed by reference
