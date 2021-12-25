@@ -1,10 +1,6 @@
 /* eslint-disable lines-between-class-members */
-/* eslint-disable class-methods-use-this */
 /* eslint-disable no-case-declarations */
-/* eslint-disable no-use-before-define */
 /* eslint-disable no-console */
-/* eslint-disable prefer-object-spread */
-/* eslint-disable prefer-template */
 /* eslint-disable dot-notation */
 
 import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
@@ -387,8 +383,7 @@ export class OptimizerCore {
         settings.primaryMaxInfusions = primaryMaxInfusionsInput;
       } else {
         throw new Error(
-          'Primary infusion can only increase primary, secondary or derived attributes, not ' +
-            primaryInfusionInput,
+          `Primary infusion can only increase primary, secondary or derived attributes, not ${primaryInfusionInput}`,
         );
       }
     }
@@ -410,9 +405,7 @@ export class OptimizerCore {
         }
       } else {
         throw new Error(
-          'Secondary infusion can only increase ' +
-            'primary, secondary or derived attributes, not ' +
-            secondaryInfusionInput,
+          `Secondary infusion can only increase primary, secondary or derived attributes, not ${secondaryInfusionInput}`,
         );
       }
     }
@@ -439,7 +432,7 @@ export class OptimizerCore {
 
     if (this[`applyInfusions${infusionMode}`] === undefined) {
       throw new Error(
-        'Error: optimizer selected invalid infusion calculation mode: ' + infusionMode,
+        `Error: optimizer selected invalid infusion calculation mode: ${infusionMode}`,
       );
     }
 
@@ -636,7 +629,7 @@ export class OptimizerCore {
       // Recycle for Affix 0, clone for 1+
       for (let index = 1; index < settings.affixesArray[nextSlot].length; index++) {
         const newGear = gear.slice();
-        const newGearStats = Object.assign({}, gearStats);
+        const newGearStats = { ...gearStats };
 
         const currentAffix = settings.affixesArray[nextSlot][index];
         newGear[nextSlot] = currentAffix;
@@ -682,7 +675,7 @@ export class OptimizerCore {
       gearStats, // passed by reference
       attributes: null,
       valid: true,
-      baseAttributes: Object.assign({}, settings.baseAttributes),
+      baseAttributes: { ...settings.baseAttributes },
     };
 
     // apply gear
@@ -949,7 +942,7 @@ export class OptimizerCore {
   calcStats(character) {
     const { settings } = this;
 
-    character.attributes = Object.assign({}, character.baseAttributes);
+    character.attributes = { ...character.baseAttributes };
     const { attributes, baseAttributes } = character;
 
     for (const [attribute, conversion] of settings.modifiers['convert']) {
@@ -1053,6 +1046,7 @@ export class OptimizerCore {
     return condiDamageScore;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   calcSurvivability(character, damageMultiplier) {
     const { attributes } = character;
 
@@ -1185,6 +1179,7 @@ export class OptimizerCore {
    * @param {object} character
    * @returns {object} character
    */
+  // eslint-disable-next-line class-methods-use-this
   clone(character) {
     return {
       settings: character.settings, // passed by reference
@@ -1193,8 +1188,8 @@ export class OptimizerCore {
       gearStats: character.gearStats, // passed by reference
       valid: character.valid,
 
-      baseAttributes: Object.assign({}, character.baseAttributes),
-      infusions: Object.assign({}, character.infusions),
+      baseAttributes: { ...character.baseAttributes },
+      infusions: { ...character.infusions },
     };
   }
 }
