@@ -56,10 +56,6 @@ export function scaleValue(value, amountInput, amountData) {
     : value;
 }
 
-function addBaseStats(character, stat, amount) {
-  character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + amount;
-}
-
 /**
  * Rounds, tie-breaking exact halves to the nearest even integer. Apparently used by GW2
  * conversions according to ingame testing by Cat.
@@ -107,8 +103,6 @@ export class OptimizerCore {
    *
    * @param {object} input
    * @param {object[]} input.appliedModifiers - array of modifier objects
-   * @param {?string[]} input.tags - modifier data for the UI
-   *                      (passed unedited into character.settings)
    * @param {string} input.profession
    * @param {string} input.weaponType
    * @param {string[]} input.affixes - all selected gear affixes to iterate over
@@ -124,15 +118,14 @@ export class OptimizerCore {
    * @param {?string} input.secondaryInfusion
    * @param {?number} input.primaryMaxInfusions - number of infusions, 0-18
    * @param {?number} input.secondaryMaxInfusions - number of infusions, 0-18
-   * @param {?number} input.distributionVersion - version 1: old style (percentDistribution) - verison 2: new style (coeff / sec)
+   * @param {?number} input.distributionVersion - version 1: old style (percentDistribution)
+   *                                              verison 2: new style (coeff / sec)
    * @param {?object.<string, number>} input.percentDistribution - old style distribution
    *                                   (sums to 100)
    * @param {?object.<string, number>} input.distribution - new style distribution
    *                                   (coefficient * weaponstrength per second; average condition stacks)
    * @param {?number} input.attackRate - boss attack rate (for confusion)
    * @param {?number} input.movementUptime - boss movement uptime (for torment)
-   *
-   * @returns {object} settings - parsed settings object
    */
   constructor(input) {
     /* eslint-disable prefer-const */
@@ -696,7 +689,7 @@ export class OptimizerCore {
   applyInfusionsPrimary(character) {
     const { settings } = this;
     character.infusions = { [settings.primaryInfusion]: settings.primaryMaxInfusions };
-    addBaseStats(
+    this.addBaseStats(
       character,
       settings.primaryInfusion,
       settings.primaryMaxInfusions * INFUSION_BONUS,
@@ -713,12 +706,12 @@ export class OptimizerCore {
       [settings.primaryInfusion]: settings.primaryMaxInfusions,
       [settings.secondaryInfusion]: settings.secondaryMaxInfusions,
     };
-    addBaseStats(
+    this.addBaseStats(
       character,
       settings.primaryInfusion,
       settings.primaryMaxInfusions * INFUSION_BONUS,
     );
-    addBaseStats(
+    this.addBaseStats(
       character,
       settings.secondaryInfusion,
       settings.secondaryMaxInfusions * INFUSION_BONUS,
@@ -738,8 +731,8 @@ export class OptimizerCore {
       let secondaryCount = settings.maxInfusions - primaryCount;
       while (secondaryCount <= settings.secondaryMaxInfusions) {
         const temp = this.clone(character);
-        addBaseStats(temp, settings.primaryInfusion, primaryCount * INFUSION_BONUS);
-        addBaseStats(temp, settings.secondaryInfusion, secondaryCount * INFUSION_BONUS);
+        this.addBaseStats(temp, settings.primaryInfusion, primaryCount * INFUSION_BONUS);
+        this.addBaseStats(temp, settings.secondaryInfusion, secondaryCount * INFUSION_BONUS);
         this.updateAttributesFast(temp);
         if (temp.valid && temp.attributes[settings.rankby] !== previousResult) {
           temp.infusions = {
@@ -767,8 +760,8 @@ export class OptimizerCore {
       let secondaryCount = settings.maxInfusions - primaryCount;
       while (secondaryCount <= settings.secondaryMaxInfusions) {
         const temp = this.clone(character);
-        addBaseStats(temp, settings.primaryInfusion, primaryCount * INFUSION_BONUS);
-        addBaseStats(temp, settings.secondaryInfusion, secondaryCount * INFUSION_BONUS);
+        this.addBaseStats(temp, settings.primaryInfusion, primaryCount * INFUSION_BONUS);
+        this.addBaseStats(temp, settings.secondaryInfusion, secondaryCount * INFUSION_BONUS);
         this.updateAttributesFast(temp);
         if (temp.valid) {
           temp.infusions = {
@@ -793,17 +786,19 @@ export class OptimizerCore {
   testInfusionUsefulness(character) {
     const { settings } = this;
     const temp = this.clone(character);
-    addBaseStats(temp, settings.primaryInfusion, settings.maxInfusions * INFUSION_BONUS);
-    addBaseStats(temp, settings.secondaryInfusion, settings.maxInfusions * INFUSION_BONUS);
+    this.addBaseStats(temp, settings.primaryInfusion, settings.maxInfusions * INFUSION_BONUS);
+    this.addBaseStats(temp, settings.secondaryInfusion, settings.maxInfusions * INFUSION_BONUS);
     this.updateAttributesFast(temp, true);
     return temp.attributes[settings.rankby] > this.worstScore;
   }
 
   insertCharacter(character) {
     const { settings } = this;
-    const { attributes, valid } = character;
 
-    if (!valid || (this.worstScore && this.worstScore > attributes[settings.rankby])) {
+    if (
+      !character.valid ||
+      (this.worstScore && this.worstScore > character.attributes[settings.rankby])
+    ) {
       return;
     }
 
@@ -839,6 +834,11 @@ export class OptimizerCore {
     }
 
     this.isChanged = true;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  addBaseStats(character, stat, amount) {
+    character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + amount;
   }
 
   // returns true if B is better than A
