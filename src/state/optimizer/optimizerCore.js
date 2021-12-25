@@ -101,7 +101,7 @@ const clamp = (input, min, max) => {
 export class OptimizerCore {
   settings;
   applyInfusionsFunction;
-  condiResultCache;
+  condiResultCache = new Map();
   worstScore;
   list = [];
   isChanged = true;
@@ -549,18 +549,19 @@ export class OptimizerCore {
   }
 
   /**
-   * A generator function that iterates synchronously through all possible builds, updating the this.list
+   * A generator function that iterates synchronously through all possible builds, updating the list
    * object with the best results. Yields periodically to allow UI to be updated or cancelled.
    *
    * Remember, a generator's next() function returns a plain object { value, done }.
    *
-   * @yields {{done: boolean, value: {this.isChanged: boolean, percent: number}}} result
+   * @yields {{done: boolean, value: {isChanged: boolean, percent: number}}} result
    * yields {boolean} result.done - true if the calculation is finished
-   * yields {number} result.value.this.isChanged - true if this.list has been mutated
+   * yields {number} result.value.isChanged - true if this.list has been mutated
    * yields {number} result.value.percent - the progress percentage
    */
   *calculate() {
-    if (this.settings.affixes.length === 0) {
+    const { settings } = this;
+    if (settings.affixes.length === 0) {
       return {
         isChanged: true,
         percent: 100,
@@ -568,16 +569,15 @@ export class OptimizerCore {
       };
     }
 
-    this.applyInfusionsFunction = this[`applyInfusions${this.settings.infusionMode}`];
+    this.applyInfusionsFunction = this[`applyInfusions${settings.infusionMode}`];
 
     let calculationTotal = 1;
-    for (const affixes of this.settings.affixesArray) {
+    for (const affixes of settings.affixesArray) {
       calculationTotal *= affixes.length;
     }
 
     let calculationRuns = 0;
 
-    this.condiResultCache = new Map();
     const calculationQueue = [];
     calculationQueue.push([]);
     const calculationStatsQueue = [];
@@ -617,32 +617,32 @@ export class OptimizerCore {
        * Each check is disabled if forcing one or more of those slots to a specific gear type.
        */
       if (
-        (!this.settings.forcedRing && nextSlot === 9 && gear[nextSlot - 2] > gear[nextSlot - 1]) ||
-        (!this.settings.forcedAcc && nextSlot === 11 && gear[nextSlot - 2] > gear[nextSlot - 1]) ||
-        (!this.settings.forcedWep && nextSlot === 14 && gear[nextSlot - 2] > gear[nextSlot - 1]) ||
-        (!this.settings.forcedArmor && nextSlot === 6 && (gear[1] > gear[3] || gear[3] > gear[5]))
+        (!settings.forcedRing && nextSlot === 9 && gear[nextSlot - 2] > gear[nextSlot - 1]) ||
+        (!settings.forcedAcc && nextSlot === 11 && gear[nextSlot - 2] > gear[nextSlot - 1]) ||
+        (!settings.forcedWep && nextSlot === 14 && gear[nextSlot - 2] > gear[nextSlot - 1]) ||
+        (!settings.forcedArmor && nextSlot === 6 && (gear[1] > gear[3] || gear[3] > gear[5]))
       ) {
         // bump calculationRuns by the number of runs we just skipped
-        calculationRuns += this.settings.runsAfterThisSlot[nextSlot];
+        calculationRuns += settings.runsAfterThisSlot[nextSlot];
         continue;
       }
 
-      if (nextSlot >= this.settings.slots.length) {
+      if (nextSlot >= settings.slots.length) {
         calculationRuns++;
-        this.testCharacter(gear, gearStats, this.settings);
+        this.testCharacter(gear, gearStats);
         continue;
       }
 
       // Recycle for Affix 0, clone for 1+
-      for (let index = 1; index < this.settings.affixesArray[nextSlot].length; index++) {
+      for (let index = 1; index < settings.affixesArray[nextSlot].length; index++) {
         const newGear = gear.slice();
         const newGearStats = Object.assign({}, gearStats);
 
-        const currentAffix = this.settings.affixesArray[nextSlot][index];
+        const currentAffix = settings.affixesArray[nextSlot][index];
         newGear[nextSlot] = currentAffix;
 
         // add gear stats
-        for (const [stat, bonus] of this.settings.affixStatsArray[nextSlot][index]) {
+        for (const [stat, bonus] of settings.affixStatsArray[nextSlot][index]) {
           newGearStats[stat] = (newGearStats[stat] || 0) + bonus;
         }
 
@@ -650,11 +650,11 @@ export class OptimizerCore {
         calculationStatsQueue.push(newGearStats);
       }
 
-      const currentAffix = this.settings.affixesArray[nextSlot][0];
+      const currentAffix = settings.affixesArray[nextSlot][0];
       gear[nextSlot] = currentAffix;
 
       // add gear stats
-      for (const [stat, bonus] of this.settings.affixStatsArray[nextSlot][0]) {
+      for (const [stat, bonus] of settings.affixStatsArray[nextSlot][0]) {
         gearStats[stat] = (gearStats[stat] || 0) + bonus;
       }
 
@@ -669,7 +669,9 @@ export class OptimizerCore {
     };
   }
 
-  testCharacter(gear, gearStats, settings) {
+  testCharacter(gear, gearStats) {
+    const { settings } = this;
+
     if (!gear) {
       return;
     }
@@ -701,7 +703,7 @@ export class OptimizerCore {
 
   // Just applies the primary infusion
   applyInfusionsPrimary(character) {
-    const { settings } = character;
+    const { settings } = this;
     character.infusions = { [settings.primaryInfusion]: settings.primaryMaxInfusions };
     addBaseStats(
       character,
@@ -714,7 +716,7 @@ export class OptimizerCore {
 
   // Just applies the maximum number of primary/secondary infusions, since the total is ≤18
   applyInfusionsFew(character) {
-    const { settings } = character;
+    const { settings } = this;
 
     character.infusions = {
       [settings.primaryInfusion]: settings.primaryMaxInfusions,
@@ -736,17 +738,9 @@ export class OptimizerCore {
 
   // Inserts every valid combination of 18 infusions
   applyInfusionsSecondary(character) {
-    const { settings } = character;
+    const { settings } = this;
 
-    const testInfusionUsefulness = function () {
-      const temp = this.clone(character);
-      addBaseStats(temp, settings.primaryInfusion, settings.maxInfusions * INFUSION_BONUS);
-      addBaseStats(temp, settings.secondaryInfusion, settings.maxInfusions * INFUSION_BONUS);
-      this.updateAttributesFast(temp, true);
-      return temp.attributes[settings.rankby] > this.worstScore;
-    };
-
-    if (!this.worstScore || testInfusionUsefulness()) {
+    if (!this.worstScore || this.testInfusionUsefulness(character)) {
       let previousResult;
 
       let primaryCount = settings.primaryMaxInfusions;
@@ -773,9 +767,9 @@ export class OptimizerCore {
 
   // Tests every valid combination of 18 infusions and inserts the best result
   applyInfusionsSecondaryNoDuplicates(character) {
-    const { settings } = character;
+    const { settings } = this;
 
-    if (!this.worstScore || this.testInfusionUsefulness(character, settings)) {
+    if (!this.worstScore || this.testInfusionUsefulness(character)) {
       let best = null;
 
       let primaryCount = settings.primaryMaxInfusions;
@@ -805,7 +799,8 @@ export class OptimizerCore {
     }
   }
 
-  testInfusionUsefulness(character, settings) {
+  testInfusionUsefulness(character) {
+    const { settings } = this;
     const temp = this.clone(character);
     addBaseStats(temp, settings.primaryInfusion, settings.maxInfusions * INFUSION_BONUS);
     addBaseStats(temp, settings.secondaryInfusion, settings.maxInfusions * INFUSION_BONUS);
@@ -814,7 +809,8 @@ export class OptimizerCore {
   }
 
   insertCharacter(character) {
-    const { settings, attributes, valid } = character;
+    const { settings } = this;
+    const { attributes, valid } = character;
 
     if (!valid || (this.worstScore && this.worstScore > attributes[settings.rankby])) {
       return;
@@ -911,7 +907,7 @@ export class OptimizerCore {
    * @param {boolean} [skipValidation] - skips the validation check if true
    */
   updateAttributesFast(character, skipValidation = false) {
-    const { settings } = character;
+    const { settings } = this;
     const { damageMultiplier } = settings.modifiers;
     character.valid = true;
 
@@ -951,8 +947,10 @@ export class OptimizerCore {
   }
 
   calcStats(character) {
+    const { settings } = this;
+
     character.attributes = Object.assign({}, character.baseAttributes);
-    const { attributes, settings, baseAttributes } = character;
+    const { attributes, baseAttributes } = character;
 
     for (const [attribute, conversion] of settings.modifiers['convert']) {
       if (attribute === 'Outgoing Healing') {
@@ -974,7 +972,8 @@ export class OptimizerCore {
   }
 
   checkInvalid(character) {
-    const { settings, attributes } = character;
+    const { settings } = this;
+    const { attributes } = character;
 
     const invalid =
       (settings.minBoonDuration !== null &&
@@ -991,7 +990,8 @@ export class OptimizerCore {
   }
 
   calcPower(character, damageMultiplier) {
-    const { attributes, settings } = character;
+    const { settings } = this;
+    const { attributes } = character;
 
     attributes['Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
     attributes['Critical Damage'] += attributes['Ferocity'] / 15 / 100;
@@ -1013,7 +1013,8 @@ export class OptimizerCore {
     (conditionData[condition].factor * cdmg + conditionData[condition].baseDamage) * mult;
 
   calcCondi(character, damageMultiplier, relevantConditions) {
-    const { attributes, settings } = character;
+    const { settings } = this;
+    const { attributes } = character;
 
     attributes['Condition Duration'] += attributes['Expertise'] / 15 / 100;
     let condiDamageScore = 0;
@@ -1069,7 +1070,8 @@ export class OptimizerCore {
   }
 
   calcHealing(character) {
-    const { attributes, settings } = character;
+    const { settings } = this;
+    const { attributes } = character;
 
     // reasonably representative skill: druid celestial avatar 4 pulse
     // 390 base, 0.3 coefficient
@@ -1088,9 +1090,10 @@ export class OptimizerCore {
   }
 
   calcResults(character) {
-    character.results = {};
+    const { settings } = this;
 
-    const { attributes, settings, results } = character;
+    character.results = {};
+    const { attributes, results } = character;
 
     results.value = character.attributes[settings.rankby];
 
