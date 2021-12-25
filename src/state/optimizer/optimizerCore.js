@@ -1,4 +1,3 @@
-/* eslint-disable lines-between-class-members */
 /* eslint-disable no-case-declarations */
 /* eslint-disable no-console */
 /* eslint-disable dot-notation */
@@ -135,7 +134,6 @@ export class OptimizerCore {
    *
    * @returns {object} settings - parsed settings object
    */
-
   constructor(input) {
     /* eslint-disable prefer-const */
     let {
