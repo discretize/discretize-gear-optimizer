@@ -61,7 +61,6 @@ function createInput(state, specialization, appliedModifiers, cachedFormState) {
   const movementUptime = (parseBoss(movementUptimeText).value ?? 0) / 100;
 
   const input = {
-    tags: undefined,
     profession,
     weaponType,
     affixes: affixes.map((affix) =>
