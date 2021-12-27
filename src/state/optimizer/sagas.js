@@ -17,7 +17,7 @@ import { getExtrasModifiers } from '../slices/extras';
 import { getInfusionsModifiers } from '../slices/infusions';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
-import { OptimizerCore } from './optimizerCore';
+import { createOptimizerCore } from './optimizerCore';
 import { ERROR, SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -146,7 +146,7 @@ function* runCalc() {
     console.log('Redux State:', state);
     console.log('Input:', input);
 
-    const core = new OptimizerCore(input);
+    const core = createOptimizerCore(input);
     console.groupEnd();
 
     originalSelectedCharacter = yield select(getSelectedCharacter);
