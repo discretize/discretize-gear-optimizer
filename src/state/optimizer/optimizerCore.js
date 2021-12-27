@@ -237,9 +237,30 @@ class OptimizerCore {
       return;
     }
 
+    const {
+      cachedFormState,
+      profession,
+      specialization,
+      weaponType,
+      appliedModifiers,
+      rankby,
+      // ...rest
+    } = settings;
+    // console.log(Object.keys(rest));
+
+    // only supply character with settings it uses to render
+    const minimalSettings = {
+      cachedFormState,
+      profession,
+      specialization,
+      weaponType,
+      appliedModifiers,
+      rankby,
+    };
+
     const character = {
       gear, // passed by reference
-      settings, // passed by reference
+      settings: minimalSettings, // passed by reference
       gearStats, // passed by reference
       attributes: null,
       valid: true,
