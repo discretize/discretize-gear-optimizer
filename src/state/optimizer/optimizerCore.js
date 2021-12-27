@@ -264,7 +264,7 @@ class OptimizerCore {
 
   // Just applies the primary infusion
   applyInfusionsPrimary(character) {
-    const { settings } = character;
+    const { settings } = this;
     character.infusions = { [settings.primaryInfusion]: settings.primaryMaxInfusions };
     this.addBaseStats(
       character,
@@ -277,7 +277,7 @@ class OptimizerCore {
 
   // Just applies the maximum number of primary/secondary infusions, since the total is ≤18
   applyInfusionsFew(character) {
-    const { settings } = character;
+    const { settings } = this;
 
     character.infusions = {
       [settings.primaryInfusion]: settings.primaryMaxInfusions,
@@ -299,7 +299,7 @@ class OptimizerCore {
 
   // Inserts every valid combination of 18 infusions
   applyInfusionsSecondary(character) {
-    const { settings } = character;
+    const { settings } = this;
 
     if (!this.worstScore || this.testInfusionUsefulness(character)) {
       let previousResult;
@@ -328,7 +328,7 @@ class OptimizerCore {
 
   // Tests every valid combination of 18 infusions and inserts the best result
   applyInfusionsSecondaryNoDuplicates(character) {
-    const { settings } = character;
+    const { settings } = this;
 
     if (!this.worstScore || this.testInfusionUsefulness(character)) {
       let best = null;
@@ -361,7 +361,7 @@ class OptimizerCore {
   }
 
   testInfusionUsefulness(character) {
-    const { settings } = character;
+    const { settings } = this;
     const temp = this.clone(character);
     this.addBaseStats(temp, settings.primaryInfusion, settings.maxInfusions * INFUSION_BONUS);
     this.addBaseStats(temp, settings.secondaryInfusion, settings.maxInfusions * INFUSION_BONUS);
@@ -370,7 +370,7 @@ class OptimizerCore {
   }
 
   insertCharacter(character) {
-    const { settings } = character;
+    const { settings } = this;
 
     if (
       !character.valid ||
@@ -474,7 +474,7 @@ class OptimizerCore {
    * @param {boolean} [skipValidation] - skips the validation check if true
    */
   updateAttributesFast(character, skipValidation = false) {
-    const { settings } = character;
+    const { settings } = this;
     const { damageMultiplier } = settings.modifiers;
     character.valid = true;
 
@@ -514,7 +514,7 @@ class OptimizerCore {
   }
 
   calcStats(character) {
-    const { settings } = character;
+    const { settings } = this;
 
     character.attributes = { ...character.baseAttributes };
     const { attributes, baseAttributes } = character;
@@ -539,7 +539,7 @@ class OptimizerCore {
   }
 
   checkInvalid(character) {
-    const { settings } = character;
+    const { settings } = this;
     const { attributes } = character;
 
     const invalid =
@@ -557,7 +557,7 @@ class OptimizerCore {
   }
 
   calcPower(character, damageMultiplier) {
-    const { settings } = character;
+    const { settings } = this;
     const { attributes } = character;
 
     attributes['Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
@@ -580,7 +580,7 @@ class OptimizerCore {
     (conditionData[condition].factor * cdmg + conditionData[condition].baseDamage) * mult;
 
   calcCondi(character, damageMultiplier, relevantConditions) {
-    const { settings } = character;
+    const { settings } = this;
     const { attributes } = character;
 
     attributes['Condition Duration'] += attributes['Expertise'] / 15 / 100;
@@ -637,7 +637,7 @@ class OptimizerCore {
   }
 
   calcHealing(character) {
-    const { settings } = character;
+    const { settings } = this;
     const { attributes } = character;
 
     // reasonably representative skill: druid celestial avatar 4 pulse
@@ -657,7 +657,7 @@ class OptimizerCore {
   }
 
   calcResults(character) {
-    const { settings } = character;
+    const { settings } = this;
 
     character.results = {};
     const { attributes, results } = character;
@@ -722,7 +722,7 @@ class OptimizerCore {
     // template helper data (damage with distribution of one)
     results.coefficientHelper = {};
     const temp = this.clone(character);
-    temp.settings = {
+    const tempSettings = {
       ...temp.settings,
       distributionVersion: 2,
       distribution: {
@@ -734,7 +734,7 @@ class OptimizerCore {
         Confusion: 1,
       },
     };
-    this.updateAttributes(temp);
+    new OptimizerCore(tempSettings).updateAttributes(temp);
     for (const key of Object.keys(settings.distribution)) {
       if (key === 'Power') {
         results.coefficientHelper['Power'] = temp.attributes['Power DPS'];
