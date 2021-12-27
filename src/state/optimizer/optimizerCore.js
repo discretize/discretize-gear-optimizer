@@ -723,7 +723,7 @@ class OptimizerCore {
     results.coefficientHelper = {};
     const temp = this.clone(character);
     const tempSettings = {
-      ...temp.settings,
+      ...this.settings,
       distributionVersion: 2,
       distribution: {
         Power: 1,
