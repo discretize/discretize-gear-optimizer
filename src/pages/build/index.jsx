@@ -48,6 +48,7 @@ const IndexPage = ({ data }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
+  // selectors from buildPage slice, will be loaded from url
   const character = useSelector(getCharacter);
   const weapons = useSelector(getWeapons);
   const skills = useSelector(getSkills);
@@ -56,6 +57,7 @@ const IndexPage = ({ data }) => {
   const [buildUrl] = useQueryParam('data', StringParam);
 
   React.useEffect(() => {
+    // load build state from url
     decompress({
       string: buildUrl,
       schema: BuildPageSchema,
@@ -65,6 +67,7 @@ const IndexPage = ({ data }) => {
     return () => {};
   }, [buildUrl, dispatch]);
 
+  // lookup table for specialization id -> trait line name
   const traitLookup = [];
   []
     .concat(...Object.values(classModifiers))
@@ -73,6 +76,8 @@ const IndexPage = ({ data }) => {
       traitLookup[traitLine.id] = traitLine.section;
     });
 
+  // Component for a trait line, augmented with the name of the trait line
+  // TODO maybe move this into react-discretize-components
   const Traits = ({ id, selected: selectedTraits }) => {
     return (
       <Box display="flex" mb={1}>
