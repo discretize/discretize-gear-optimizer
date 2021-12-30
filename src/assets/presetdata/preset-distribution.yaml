@@ -147,7 +147,7 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2314, "Burning": 14.1, "Bleeding": 3.5, "Poisoned": 0, "Torment": 1.28, "Confusion": 0 }
+        "values2": { "Power": 2232, "Burning": 14.1, "Bleeding": 3.47, "Poisoned": 0, "Torment": 1.28, "Confusion": 0 }
       }
 
   # +1.38 burning (36 seconds * 5 casts in ~130 seconds)
@@ -155,16 +155,17 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2318, "Burning": 14.1, "Bleeding": 2.6, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2236, "Burning": 14.1, "Bleeding": 2.57, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=Jm3PLweimmU
   # power: 6264, burn: 22627, bleed: 974, total: 29865
+  # 12 boons
   - name: Condi Quickbrand 40% (Virtues, no allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2318, "Burning": 12.72, "Bleeding": 2.57, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2236, "Burning": 12.72, "Bleeding": 2.57, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # - name: Hybrid FB (Virtues, no allies)
