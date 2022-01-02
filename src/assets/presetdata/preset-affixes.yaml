@@ -70,9 +70,27 @@ list:
   - name: Condi Boon
     value: >-
       {
-        "affixes": ["Viper", "Seraph", "Celestial"],
+        "affixes": ["Viper", "Seraph", "Celestial", "Sinister"],
         "optimizeFor": "Damage",
         "minBoonDuration": 79
+      }
+
+  - name: Condi Boon 40%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Seraph", "Celestial"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 40
+      }
+
+  - name: Condi Boon 49%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Seraph", "Celestial"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 49
       }
 
   - name: Condi Boon 52%
@@ -91,6 +109,15 @@ list:
         "affixes": ["Viper", "Seraph", "Celestial"],
         "optimizeFor": "Damage",
         "minBoonDuration": 62
+      }
+
+  - name: Condi Boon 79%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Seraph", "Celestial"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 79
       }
 
   - name: Condi Quickbrand 35% Celestial
