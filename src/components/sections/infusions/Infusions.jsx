@@ -32,6 +32,7 @@ import InfusionHelper from './InfusionHelper';
 
 const arOptionLabels = {
   '150': '150',
+  '162': '162',
   '203': '203 (DH Radiance)',
   '222': '222',
   '243': '243 (Soulbeast)',
