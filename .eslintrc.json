@@ -20,6 +20,7 @@
     "no-param-reassign": ["warn", { "props": false }],
     "consistent-return": "off",
     "no-unused-vars": ["warn", { "argsIgnorePattern": "^e$|^theme$|^_" }],
+    "lines-between-class-members": ["warn", "always", { "exceptAfterSingleLine": true }],
 
     // temp
     "react/prop-types": "off",

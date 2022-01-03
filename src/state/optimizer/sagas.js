@@ -17,7 +17,7 @@ import { getExtrasModifiers } from '../slices/extras';
 import { getInfusionsModifiers } from '../slices/infusions';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
-import * as optimizerCore from './optimizerCore';
+import { createOptimizerCore } from './optimizerCore';
 import { ERROR, SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -61,7 +61,6 @@ function createInput(state, specialization, appliedModifiers, cachedFormState) {
   const movementUptime = (parseBoss(movementUptimeText).value ?? 0) / 100;
 
   const input = {
-    tags: undefined,
     profession,
     weaponType,
     affixes: affixes.map((affix) =>
@@ -146,10 +145,8 @@ function* runCalc() {
     console.log('Redux State:', state);
     console.log('Input:', input);
 
-    settings = optimizerCore.setup(input);
+    const core = createOptimizerCore(input);
     console.groupEnd();
-
-    const generatedResults = optimizerCore.calculate(settings);
 
     originalSelectedCharacter = yield select(getSelectedCharacter);
 
@@ -158,7 +155,7 @@ function* runCalc() {
     let listRenderCounter = Infinity;
     const listThrottle = 3;
 
-    for (const { percent: newPercent, isChanged, newList } of generatedResults) {
+    for (const { percent: newPercent, isChanged, newList } of core.calculate()) {
       listRenderCounter++;
       if (isChanged) {
         currentList = newList;
