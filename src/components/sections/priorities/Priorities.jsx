@@ -22,10 +22,6 @@ const styles = (theme) => ({
   text: {
     color: '#ddd !important',
   },
-  templateChip: {
-    margin: theme.spacing(1),
-    marginBottom: theme.spacing(2),
-  },
   formControl: {
     margin: theme.spacing(1),
     width: 180,
