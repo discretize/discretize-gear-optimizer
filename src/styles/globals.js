@@ -7,7 +7,7 @@ export default {
     },
     'a, button, input, .MuiMenuItem-root, .MuiInput-root, .MuiSelect-root, .MuiFormControlLabel-label, .MuiButtonBase-root, .noUi-handle, .MuiSlider-root, .MuiChip-root, .MuiSvgIcon-root, .MuiAutocomplete-option':
       {
-        cursor: `url('/images/cursors/expand.png'), pointer !important`,
+        cursor: `url('/images/cursors/green.png'), pointer !important`,
       },
 
     '::selection': {
