@@ -1,4 +1,4 @@
-import { Button } from '@material-ui/core';
+import { Button, Chip } from '@material-ui/core';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useStore } from 'react-redux';
@@ -24,6 +24,10 @@ const ForcedSlotsSection = () => {
     dispatch(clearForcedSlots());
   };
 
+  const chipStyle = {
+    margin: 4,
+  };
+
   return (
     <Section
       title={t('Forced Slots')}
@@ -38,8 +42,13 @@ const ForcedSlotsSection = () => {
       }
       extraInfo={
         <>
-          <Button onClick={handleClear}>Clear</Button>
-          <Button onClick={handleCopy}>Copy from selected character</Button>
+          <Chip style={chipStyle} variant="outlined" onClick={handleClear} label="Clear" />
+          <Chip
+            style={chipStyle}
+            variant="outlined"
+            onClick={handleCopy}
+            label="Copy from selected character"
+          />
         </>
       }
     />
