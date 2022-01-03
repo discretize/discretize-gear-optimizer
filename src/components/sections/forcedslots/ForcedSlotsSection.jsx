@@ -1,4 +1,4 @@
-import { Button, Chip } from '@material-ui/core';
+import { Chip } from '@material-ui/core';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useStore } from 'react-redux';
