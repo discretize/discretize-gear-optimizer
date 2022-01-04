@@ -7,6 +7,8 @@ import { useSelector } from 'react-redux';
 import { getProfession } from '../../../state/slices/controlsSlice';
 import { Classes } from '../../../utils/gw2-data';
 
+const indent = (str, amount) => str.replace(/^/gm, ' '.repeat(amount));
+
 const CopyTemplateButton = ({ extras: extrasIds, data, infusions, weight, runeId, runeName }) => {
   const [open, setOpen] = React.useState(false);
   const [w11, setw11] = React.useState('');
@@ -51,7 +53,7 @@ const CopyTemplateButton = ({ extras: extrasIds, data, infusions, weight, runeId
       skills: { heal: '', utility1: '', utility2: '', utility3: '', elite: '' },
     };
 
-    navigator.clipboard.writeText(JSON.stringify(template, null, 2));
+    navigator.clipboard.writeText(indent(`gear={${JSON.stringify(template, null, 2)}}`, 2));
   };
 
   const { weapons: useableWeapons } = Classes[profession];
