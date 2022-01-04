@@ -42,12 +42,12 @@ const CopyTemplateButton = ({ extras: extrasIds, data, infusions, weight, runeId
 
     const template = {
       profession,
+      weight,
       gear,
       attributes,
-      infusions,
-      weight,
       runeId,
       runeName,
+      infusions,
       weapons: weapData,
       consumables,
       skills: { heal: '', utility1: '', utility2: '', utility3: '', elite: '' },
