@@ -37,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
 
 /**
  * @param {object} props
- * @param {object} props.classes
  * @param {Array} props.data         Contains all the data regarding modifiers, ids and extra subtexts
  */
 const Traits = ({ data = [] }) => {
