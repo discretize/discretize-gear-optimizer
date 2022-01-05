@@ -5,8 +5,8 @@ import {
   Input,
   InputAdornment,
   InputLabel,
+  makeStyles,
   Typography,
-  withStyles,
 } from '@material-ui/core';
 import classNames from 'classnames';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
@@ -32,7 +32,7 @@ import { parseDistribution } from '../../../utils/usefulFunctions';
 const Attribute = React.memo(AttributeRaw);
 const Condition = React.memo(ConditionRaw);
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   textbox: {
     maxWidth: 195,
     marginBottom: theme.spacing(2),
@@ -79,7 +79,7 @@ const styles = (theme) => ({
       },
     },
   },
-});
+}));
 
 const DISTRIBUTION_NAMES = [
   { name: 'Power', min: 0, max: 6000, step: 10, color: '#b1b1b5' },
@@ -90,7 +90,9 @@ const DISTRIBUTION_NAMES = [
   { name: 'Confusion', min: 0, max: 60, step: 0.1 },
 ];
 
-const DamageDistribution = ({ classes }) => {
+const DamageDistribution = () => {
+  const classes = useStyles();
+
   const dispatch = useDispatch();
   const version = useSelector(getDistributionVersion);
   const distributionOld = useSelector(getDistributionOld); // actual real selected damage distribution at any time
@@ -237,4 +239,4 @@ const DamageDistribution = ({ classes }) => {
   return version === 1 ? SliderOld() : SlidersNew();
 };
 
-export default withStyles(styles)(DamageDistribution);
+export default DamageDistribution;

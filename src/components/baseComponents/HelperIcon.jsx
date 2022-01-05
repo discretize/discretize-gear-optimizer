@@ -1,15 +1,17 @@
-import { withStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import { HelpOutline } from '@material-ui/icons';
 import { Tooltip } from 'gw2-ui-bulk';
 import React from 'react';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   icon: {
     color: theme.palette.primary.dark,
   },
-});
+}));
 
-const HelperIcon = ({ classes, text, size, fontSize }) => {
+const HelperIcon = ({ text, size, fontSize }) => {
+  const classes = useStyles();
+
   return (
     <Tooltip content={text}>
       <span>
@@ -18,4 +20,4 @@ const HelperIcon = ({ classes, text, size, fontSize }) => {
     </Tooltip>
   );
 };
-export default withStyles(styles)(HelperIcon);
+export default HelperIcon;

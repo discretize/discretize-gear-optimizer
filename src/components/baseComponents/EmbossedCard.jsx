@@ -1,9 +1,9 @@
-import { withStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import classNames from 'classnames';
 import React from 'react';
 import withGw2Theme from '../../hocs/withGw2Theme';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     marginBottom: theme.spacing(2),
   },
@@ -41,20 +41,23 @@ const styles = (theme) => ({
     paddingTop: theme.spacing(5),
     marginTop: -theme.spacing(1) * 3,
   },
-});
+}));
 
-const EmbossedCard = ({ classes, className, title, specialization, children }) => (
-  <div className={classNames(classes.root, className)}>
-    {(title || specialization) && <div className={classes.title}>{title || specialization}</div>}
+const EmbossedCard = ({ className, title, specialization, children }) => {
+  const classes = useStyles();
+  return (
+    <div className={classNames(classes.root, className)}>
+      {(title || specialization) && <div className={classes.title}>{title || specialization}</div>}
 
-    <div
-      className={classNames(classes.content, {
-        [classes.contentWithTitle]: !!title || !!specialization,
-      })}
-    >
-      {children}
+      <div
+        className={classNames(classes.content, {
+          [classes.contentWithTitle]: !!title || !!specialization,
+        })}
+      >
+        {children}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
-export default withGw2Theme()(withStyles(styles)(EmbossedCard));
+export default withGw2Theme()(EmbossedCard);

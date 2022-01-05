@@ -1,4 +1,4 @@
-import { Box, Container, Paper, useMediaQuery, useTheme, withStyles } from '@material-ui/core';
+import { Box, Container, makeStyles, Paper, useMediaQuery, useTheme } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
 import injectSheet from 'react-jss';
@@ -9,14 +9,16 @@ import 'typeface-raleway';
 import withRoot from '../../hocs/withRoot';
 import globals from '../../styles/globals';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     backgroundColor: theme.palette.background.default,
   },
-});
+}));
 
-const Layout = ({ classes, children, ContainerProps, disableContainer = false }) => {
+const Layout = ({ children, ContainerProps, disableContainer = false }) => {
+  const classes = useStyles();
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
   return (
@@ -36,4 +38,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default withRoot(injectSheet(globals)(withStyles(styles)(Layout)));
+export default withRoot(injectSheet(globals)(Layout));

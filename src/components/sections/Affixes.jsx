@@ -1,4 +1,4 @@
-import { Chip, TextField, withStyles } from '@material-ui/core';
+import { Chip, makeStyles, TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
@@ -10,16 +10,18 @@ import { Affix } from '../../utils/gw2-data';
 
 const AFFIXES = Object.keys(Affix);
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   text: {
     color: '#ddd !important',
   },
   textfield: {
     minWidth: 180,
   },
-});
+}));
 
-const Affixes = ({ classes }) => {
+const Affixes = () => {
+  const classes = useStyles();
+
   const dispatch = useDispatch();
   const affixes = useSelector(getPriority('affixes'));
   const { t } = useTranslation();
@@ -70,4 +72,4 @@ const Affixes = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(Affixes);
+export default Affixes;

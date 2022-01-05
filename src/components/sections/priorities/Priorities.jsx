@@ -5,9 +5,9 @@ import {
   Grid,
   Input,
   InputLabel,
+  makeStyles,
   Radio,
   RadioGroup,
-  withStyles,
 } from '@material-ui/core';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute } from 'gw2-ui-bulk';
@@ -18,7 +18,7 @@ import { parsePriority } from '../../../utils/usefulFunctions';
 import HelperIcon from '../../baseComponents/HelperIcon';
 import Affixes from '../Affixes';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   text: {
     color: '#ddd !important',
   },
@@ -34,11 +34,12 @@ const styles = (theme) => ({
   helper: {
     fontSize: 10,
   },
-});
+}));
 
 const OPTIMIZATION_GOALS = ['Damage', 'Survivability', 'Healing'];
 
-const Priorities = ({ classes }) => {
+const Priorities = () => {
+  const classes = useStyles();
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
@@ -198,4 +199,4 @@ const Priorities = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(Priorities);
+export default Priorities;

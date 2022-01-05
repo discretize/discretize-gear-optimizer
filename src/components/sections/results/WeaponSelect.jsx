@@ -1,10 +1,10 @@
-import { FormControl, InputLabel, MenuItem, Select, withStyles } from '@material-ui/core';
+import { FormControl, InputLabel, makeStyles, MenuItem, Select } from '@material-ui/core';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeControl, getControl, getProfession } from '../../../state/slices/controlsSlice';
 import { Classes } from '../../../utils/gw2-data';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
   },
@@ -15,9 +15,11 @@ const styles = (theme) => ({
   formControl: {
     width: 100,
   },
-});
+}));
 
-const WeaponSelect = ({ classes }) => {
+const WeaponSelect = () => {
+  const classes = useStyles();
+
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
   const wea1mh = useSelector(getControl('wea1mh'));
@@ -61,4 +63,4 @@ const WeaponSelect = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(WeaponSelect);
+export default WeaponSelect;
