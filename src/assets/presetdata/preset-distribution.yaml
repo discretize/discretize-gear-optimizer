@@ -281,7 +281,7 @@ list:
     profession: Tempest
     value: >-
       {
-        "values2": { "Power": 3451, "Burning": 12.0, "Bleeding": 15.9, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3529, "Burning": 12.29, "Bleeding": 16.3, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   - name: Power Tempest

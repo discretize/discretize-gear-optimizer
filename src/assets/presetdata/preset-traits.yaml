@@ -1863,7 +1863,7 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "69"
+              "amount": "59"
             },
             "burning-precision": true,
             "burning-rage": true,
@@ -1873,7 +1873,7 @@ list:
             },
             "pyromancers-training": true,
             "persisting-flames": {
-              "amount": ""
+              "amount": "9.5"
             }
           },
           {
@@ -1886,7 +1886,7 @@ list:
             "gathered-focus": true,
             "hardy-conduit": true,
             "transcendent-tempest": {
-              "amount": ""
+              "amount": "62"
             }
           }
         ]
