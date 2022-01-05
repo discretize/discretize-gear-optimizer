@@ -5,16 +5,13 @@ import {
   Input,
   InputAdornment,
   InputLabel,
+  makeStyles,
+  Slider,
   Typography,
-  withStyles,
 } from '@material-ui/core';
 import classNames from 'classnames';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute as AttributeRaw, Condition as ConditionRaw } from 'gw2-ui-bulk';
-import debounce from 'lodash.debounce';
-import Nouislider from 'nouislider-react';
-// eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
-import 'nouislider/distribute/nouislider.css';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -32,7 +29,7 @@ import { parseDistribution } from '../../../utils/usefulFunctions';
 const Attribute = React.memo(AttributeRaw);
 const Condition = React.memo(ConditionRaw);
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   textbox: {
     maxWidth: 195,
     marginBottom: theme.spacing(2),
@@ -44,42 +41,7 @@ const styles = (theme) => ({
       marginLeft: theme.spacing(5),
     },
   },
-
-  sliderOld: {
-    marginBottom: theme.spacing(7),
-    '& div': {
-      '& .noUi-connects': {
-        '& .noUi-connect:nth-child(1)': {
-          background: '#b1b1b5 !important',
-        },
-        '& .noUi-connect:nth-child(2)': {
-          background: '#e25822 !important',
-        },
-        '& .noUi-connect:nth-child(3)': {
-          background: '#d2351e !important',
-        },
-        '& .noUi-connect:nth-child(4)': {
-          background: '#48631f !important',
-        },
-        '& .noUi-connect:nth-child(5)': {
-          background: 'orange !important',
-        },
-        '& .noUi-connect:nth-child(6)': {
-          background: '#a25aca !important',
-        },
-      },
-    },
-  },
-  sliderNew: {
-    '& div': {
-      '& .noUi-connects': {
-        '& .noUi-connect': {
-          background: '#00cccc !important',
-        },
-      },
-    },
-  },
-});
+}));
 
 const DISTRIBUTION_NAMES = [
   { name: 'Power', min: 0, max: 6000, step: 10, color: '#b1b1b5' },
@@ -90,7 +52,9 @@ const DISTRIBUTION_NAMES = [
   { name: 'Confusion', min: 0, max: 60, step: 0.1 },
 ];
 
-const DamageDistribution = ({ classes }) => {
+const DamageDistribution = () => {
+  const classes = useStyles();
+
   const dispatch = useDispatch();
   const version = useSelector(getDistributionVersion);
   const distributionOld = useSelector(getDistributionOld); // actual real selected damage distribution at any time
@@ -100,8 +64,19 @@ const DamageDistribution = ({ classes }) => {
   // locally displayed in the text boxes. Text boxes might contain a string that is not a real number (yet), so we need to store those separately
   const textBoxes = useSelector(getTextBoxes);
 
-  // eslint-disable-next-line no-unused-vars
-  const onUpdateOld = (render, handle, value, un, percent) => {
+  // const initialPercentDistribution = Object.values(coefficientsToPercents(distributionNew, true));
+  const percentToState = (percentDistribution) => {
+    return [0, 1, 2, 3, 4].map((i) => {
+      let total = 0;
+      for (let j = 0; j <= i; j++) {
+        total += percentDistribution[j];
+      }
+      return Math.min(total, 100);
+    });
+  };
+
+  // eslint-disable-next-line id-length
+  const onUpdateOld = (_, value) => {
     const distributionRecalc = [];
     let prev = 0;
     for (let i = 0; i < value.length; i++) {
@@ -117,37 +92,22 @@ const DamageDistribution = ({ classes }) => {
       Torment: distributionRecalc[4],
       Confusion: distributionRecalc[5],
     };
+
     dispatch(changeAllDistributionsOld(percentDistribution));
   };
-
-  const initialPercentDistribution = Object.values(coefficientsToPercents(distributionNew, true));
-  const initialPercentValue = [0, 1, 2, 3, 4].map((i) => {
-    let total = 0;
-    for (let j = 0; j <= i; j++) {
-      total += initialPercentDistribution[j];
-    }
-    return Math.min(total, 100);
-  });
 
   const SliderOld = () => {
     return (
       <>
         <div className={classes.sliderWrapper}>
-          <Nouislider
-            className={classNames(classes.sliderOld)}
-            start={initialPercentValue}
-            connect={[true, true, true, true, true, true]}
-            range={{
-              min: [0],
-              max: [100],
-            }}
-            step={1}
-            pips={{
-              mode: 'values',
-              values: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-              density: 5,
-            }}
-            onSlide={onUpdateOld}
+          <Slider
+            value={percentToState(Object.values(distributionOld))}
+            onChange={onUpdateOld}
+            valueLabelDisplay="auto"
+            aria-labelledby="range-slider"
+            marks={[...Array(11).keys()]
+              .map((v) => v * 10)
+              .map((value) => ({ value, label: `${value}` }))}
           />
         </div>
         <Grid container spacing={2}>
@@ -168,8 +128,8 @@ const DamageDistribution = ({ classes }) => {
     );
   };
 
-  // eslint-disable-next-line no-unused-vars
-  const onUpdateNew = (key) => (render, handle, value, un, percent) => {
+  // eslint-disable-next-line id-length
+  const onUpdateNew = (key) => (_, value) => {
     dispatch(changeTextBoxes({ index: key, value: Math.round(value * 100) / 100 }));
     dispatch(changeDistributionNew({ index: key, value: Math.round(value * 100) / 100 }));
   };
@@ -217,17 +177,20 @@ const DamageDistribution = ({ classes }) => {
             />
           </FormControl>
         </Box>
-        <Box flexGrow={1}>
-          <Nouislider
-            className={classNames(classes.sliderNew, classes.slider)}
-            start={distributionNew[dist.name]}
-            connect={[true, false]}
-            range={{
-              min: [dist.min],
-              max: [dist.max],
-            }}
+        <Box flexGrow={1} alignSelf="center" ml={2}>
+          <Slider
+            value={distributionNew[dist.name]}
             step={dist.step}
-            onSlide={debounce(onUpdateNew(dist.name), 50)}
+            marks={[...Array(7).keys()]
+              .map((value) => value * ((dist.max - dist.min) / 6))
+              .map((value) => ({
+                value,
+                label: `${value}`,
+              }))}
+            min={dist.min}
+            max={dist.max}
+            onChange={onUpdateNew(dist.name)}
+            valueLabelDisplay="auto"
           />
         </Box>
       </Box>
@@ -237,4 +200,4 @@ const DamageDistribution = ({ classes }) => {
   return version === 1 ? SliderOld() : SlidersNew();
 };
 
-export default withStyles(styles)(DamageDistribution);
+export default DamageDistribution;
