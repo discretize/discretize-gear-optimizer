@@ -1,4 +1,4 @@
-import { Box, Typography, withStyles } from '@material-ui/core';
+import { Box, makeStyles, Typography } from '@material-ui/core';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Skill } from 'gw2-ui-bulk';
 import React from 'react';
@@ -7,7 +7,7 @@ import { getSkills, setSkillAmount, toggleSkill } from '../../../state/slices/sk
 import AmountInput from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   text: {
     color: '#ddd !important',
   },
@@ -21,9 +21,11 @@ const styles = (theme) => ({
     marginRight: theme.spacing(1),
   },
   checkbox: {},
-});
+}));
 
-const Skills = ({ classes, data }) => {
+const Skills = ({ data }) => {
+  const classes = useStyles();
+
   const dispatch = useDispatch();
   const skillState = useSelector(getSkills);
 
@@ -86,4 +88,4 @@ const Skills = ({ classes, data }) => {
   });
 };
 
-export default withStyles(styles)(Skills);
+export default Skills;

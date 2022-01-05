@@ -6,7 +6,6 @@ import {
   InputAdornment,
   InputLabel,
   makeStyles,
-  Slider,
   Typography,
 } from '@material-ui/core';
 import classNames from 'classnames';

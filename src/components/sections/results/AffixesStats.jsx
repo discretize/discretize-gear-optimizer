@@ -1,8 +1,8 @@
-import { Table, TableBody, TableCell, TableRow, Typography, withStyles } from '@material-ui/core';
+import { makeStyles, Table, TableBody, TableCell, TableRow, Typography } from '@material-ui/core';
 import { Attribute } from 'gw2-ui-bulk';
 import React from 'react';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
   },
@@ -10,9 +10,11 @@ const styles = (theme) => ({
     fontSize: '20px',
     color: '#AAAAAA',
   },
-});
+}));
 
-const AffixesStats = ({ classes, data, title }) => {
+const AffixesStats = ({ data, title }) => {
+  const classes = useStyles();
+
   return (
     <>
       <Typography variant="h6">{title}</Typography>
@@ -32,4 +34,4 @@ const AffixesStats = ({ classes, data, title }) => {
   );
 };
 
-export default withStyles(styles)(AffixesStats);
+export default AffixesStats;

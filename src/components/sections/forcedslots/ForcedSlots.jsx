@@ -1,4 +1,4 @@
-import { Grid, TextField, withStyles } from '@material-ui/core';
+import { Grid, makeStyles, TextField } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
@@ -11,7 +11,7 @@ import { Affix, GEAR_SLOTS } from '../../../utils/gw2-data';
 
 const AFFIXES = Object.keys(Affix);
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   textField: { marginTop: 0, marginBottom: 0 },
   nowrap: {
     display: 'inline',
@@ -23,9 +23,11 @@ const styles = (theme) => ({
   text: {
     color: '#ddd !important',
   },
-});
+}));
 
-const ForcedSlots = ({ classes }) => {
+const ForcedSlots = () => {
+  const classes = useStyles();
+
   const dispatch = useDispatch();
   const forcedSlots = useSelector(getForcedSlots);
   const dualWielded = useSelector(getPriority('weaponType'));
@@ -93,4 +95,4 @@ const ForcedSlots = ({ classes }) => {
     // i18next-extract-mark-context-stop
   );
 };
-export default withStyles(styles)(ForcedSlots);
+export default ForcedSlots;

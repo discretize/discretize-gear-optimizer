@@ -1,4 +1,4 @@
-import { Box, Grid, Typography, withStyles } from '@material-ui/core';
+import { Box, Grid, makeStyles, Typography } from '@material-ui/core';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import { graphql, StaticQuery } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
@@ -20,7 +20,7 @@ import ResultTable from './sections/results/ResultTable';
 import SkillsSection from './sections/skills/SkillsSection';
 import TraitsSection from './sections/traits/TraitsSection';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     // adds padding on bigger (non smartphone) screens
     [theme.breakpoints.up('sm')]: {
@@ -28,7 +28,7 @@ const styles = (theme) => ({
       paddingRight: 20,
     },
   },
-});
+}));
 
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
@@ -36,7 +36,8 @@ const styles = (theme) => ({
  * @param {{classes, data}} styles and data fetched by graphiql
  */
 
-const MainComponent = ({ classes, data }) => {
+const MainComponent = ({ data }) => {
+  const classes = useStyles();
   // Query variables from redux store that should have a global scope
   const expertMode = useSelector(getControl('expertMode'));
   const profession = useSelector(getProfession);
@@ -200,4 +201,4 @@ const GearOptimizer = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(GearOptimizer);
+export default GearOptimizer;
