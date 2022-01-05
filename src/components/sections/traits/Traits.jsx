@@ -4,10 +4,10 @@ import {
   Input,
   InputLabel,
   ListItemText,
+  makeStyles,
   MenuItem,
   Select,
   Typography,
-  withStyles,
 } from '@material-ui/core';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Specialization, Trait, TraitLine } from 'gw2-ui-bulk';
@@ -27,22 +27,21 @@ import {
 import AmountInput from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   formControl: {
     minWidth: 120,
     margin: theme.spacing(1),
   },
   item: { lineHeight: '1 !important' },
-});
+}));
 
 /**
  * @param {object} props
- * @param {object} props.classes
  * @param {Array} props.data         Contains all the data regarding modifiers, ids and extra subtexts
  */
-const Traits = ({ classes, data = [] }) => {
+const Traits = ({ data = [] }) => {
+  const classes = useStyles();
   const dispatch = useDispatch();
-
   const { t } = useTranslation();
 
   // selected trait lines
@@ -199,4 +198,4 @@ const Traits = ({ classes, data = [] }) => {
   });
 };
 
-export default withStyles(styles)(Traits);
+export default Traits;

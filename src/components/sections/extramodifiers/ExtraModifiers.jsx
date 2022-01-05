@@ -5,7 +5,6 @@ import {
   Grid,
   TextField,
   Typography,
-  withStyles,
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
@@ -18,12 +17,6 @@ import {
   changeExtraModifiersError,
   getExtraModifiers,
 } from '../../../state/slices/extraModifiers';
-
-const styles = (theme) => ({
-  text: {
-    width: '100%',
-  },
-});
 
 function parseInput(str) {
   let parsed = [];
@@ -45,7 +38,7 @@ function parseInput(str) {
   return { data: Array.isArray(parsed) ? parsed : [parsed], error };
 }
 
-const ExtraModifiers = ({ classes }) => {
+const ExtraModifiers = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const errorMsg = useSelector(getExtraModifiers('error'));
@@ -63,7 +56,9 @@ const ExtraModifiers = ({ classes }) => {
     <>
       <TextField
         label={t('Extra Modifiers')}
-        className={classes.text}
+        style={{
+          width: '100%',
+        }}
         multiline
         minRows={5}
         value={text}
@@ -94,4 +89,4 @@ const ExtraModifiers = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(ExtraModifiers);
+export default ExtraModifiers;

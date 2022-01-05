@@ -3,9 +3,9 @@ import {
   Grid,
   Input,
   InputLabel,
+  makeStyles,
   MenuItem,
   Select,
-  withStyles,
 } from '@material-ui/core';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute, Item } from 'gw2-ui-bulk';
@@ -41,7 +41,7 @@ const arOptionLabels = {
 };
 const arOptions = Object.keys(arOptionLabels);
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   formControl: {
     width: 200,
     marginRight: theme.spacing(3),
@@ -50,9 +50,11 @@ const styles = (theme) => ({
     width: 80,
   },
   item: { lineHeight: '1 !important' },
-});
+}));
 
-const Infusions = ({ classes }) => {
+const Infusions = () => {
+  const classes = useStyles();
+
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const ar = useSelector(getAR);
@@ -179,4 +181,4 @@ const Infusions = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(Infusions);
+export default Infusions;

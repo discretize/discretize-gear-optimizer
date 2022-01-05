@@ -1,8 +1,8 @@
-import { Box, Divider, Grid, Paper, Typography, withStyles } from '@material-ui/core';
+import { Box, Divider, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
 import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 import React from 'react';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     // adds padding on bigger (non smartphone) screens
     [theme.breakpoints.up('sm')]: {
@@ -29,10 +29,12 @@ const styles = (theme) => ({
     marginTop: theme.spacing(0.5),
     marginBottom: theme.spacing(1),
   },
-});
+}));
 
 // First disables the delimiting line above!
-const Section = ({ classes, first, title, helpText, extraInfo, content }) => {
+const Section = ({ first, title, helpText, extraInfo, content }) => {
+  const classes = useStyles();
+
   const SectionInfo = ({ children }) => (
     <>
       <Typography variant="h5">{title}</Typography>
@@ -68,4 +70,4 @@ const Section = ({ classes, first, title, helpText, extraInfo, content }) => {
   );
 };
 
-export default withStyles(styles)(Section);
+export default Section;

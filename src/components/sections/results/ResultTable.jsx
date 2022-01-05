@@ -1,4 +1,4 @@
-import { Box, withStyles } from '@material-ui/core';
+import { Box, makeStyles } from '@material-ui/core';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableContainer from '@material-ui/core/TableContainer';
@@ -16,7 +16,7 @@ import {
 import ResultTableHeaderRow from './ResultTableHeaderRow';
 import ResultTableRow from './ResultTableRow';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     maxHeight: 440,
     borderColor: theme.palette.background.paper,
@@ -37,7 +37,7 @@ const styles = (theme) => ({
   marginTop: {
     marginTop: 20,
   },
-});
+}));
 
 // finds the most common element in an array
 const mode = (array) => {
@@ -54,7 +54,9 @@ const mode = (array) => {
   return best;
 };
 
-const StickyHeadTable = ({ classes }) => {
+const StickyHeadTable = () => {
+  const classes = useStyles();
+
   const { t } = useTranslation();
   const selectedCharacter = useSelector(getSelectedCharacter);
   const list = useSelector(getList) || [];
@@ -184,4 +186,4 @@ const StickyHeadTable = ({ classes }) => {
   );
 };
 
-export default React.memo(withStyles(styles)(StickyHeadTable));
+export default React.memo(StickyHeadTable);

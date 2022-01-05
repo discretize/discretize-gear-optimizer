@@ -5,12 +5,12 @@ import {
   debounce,
   FormControlLabel,
   IconButton,
+  makeStyles,
   MenuItem,
   SwipeableDrawer,
   Switch,
   Toolbar,
   Typography,
-  withStyles,
 } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -30,7 +30,7 @@ import { PROFESSIONS } from '../../utils/gw2-data';
 import Profession from '../baseComponents/Profession';
 import NavAccordion from './NavAccordion';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   topNav: {
     marginBottom: theme.spacing(2),
   },
@@ -40,10 +40,9 @@ const styles = (theme) => ({
   navProfession: {
     fontSize: '2rem',
   },
-});
+}));
 
 const Navbar = ({
-  classes,
   data,
   buffPresets,
   prioritiesPresets,
@@ -51,6 +50,8 @@ const Navbar = ({
   extrasPresets,
   traitPresets,
 }) => {
+  const classes = useStyles();
+
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
   const expertMode = useSelector(getControl('expertMode'));
@@ -282,4 +283,4 @@ const Navbar = ({
   );
 };
 
-export default React.memo(withStyles(styles)(Navbar));
+export default React.memo(Navbar);

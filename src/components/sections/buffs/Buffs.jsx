@@ -4,8 +4,8 @@ import {
   FormGroup,
   FormLabel,
   Grid,
+  makeStyles,
   Typography,
-  withStyles,
 } from '@material-ui/core';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
@@ -22,7 +22,7 @@ import {
 import AmountInput from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   boon: {
     fontSize: 18,
   },
@@ -32,9 +32,11 @@ const styles = (theme) => ({
   tinyNote: {
     fontWeight: 200,
   },
-});
+}));
 
-const Buffs = ({ classes }) => {
+const Buffs = () => {
+  const classes = useStyles();
+
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -146,4 +148,4 @@ const Buffs = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(Buffs);
+export default Buffs;
