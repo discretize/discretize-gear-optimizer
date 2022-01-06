@@ -28,6 +28,8 @@ import { parseDistribution } from '../../../utils/usefulFunctions';
 const Attribute = React.memo(AttributeRaw);
 const Condition = React.memo(ConditionRaw);
 
+const roundOne = (num) => Math.round(num * 10) / 10;
+
 const useStyles = makeStyles((theme) => ({
   textbox: {
     maxWidth: 195,
@@ -118,7 +120,7 @@ const DamageDistribution = () => {
                 ) : (
                   <Condition name={dist.name} disableLink style={{ whiteSpace: 'nowrap' }} />
                 )}{' '}
-                {distributionOld[dist.name]}%
+                {roundOne(distributionOld[dist.name])}%
               </Typography>
             </Grid>
           ))}
