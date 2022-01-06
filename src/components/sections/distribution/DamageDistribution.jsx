@@ -42,6 +42,9 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: theme.spacing(5),
     },
   },
+  percentSliderRail: {
+    opacity: 1,
+  },
 }));
 
 const DISTRIBUTION_NAMES = [
@@ -102,9 +105,11 @@ const DamageDistribution = () => {
       <>
         <div className={classes.sliderWrapper}>
           <Slider
+            classes={{ rail: classes.percentSliderRail }}
             value={percentToState(Object.values(distributionOld))}
             onChange={onUpdateOld}
             valueLabelDisplay="auto"
+            track={false}
             aria-labelledby="range-slider"
             marks={[...Array(11).keys()]
               .map((value) => value * 10)
