@@ -5,5 +5,3 @@
 */
 
 /*! js-yaml 4.1.0 https://github.com/nodeca/js-yaml @license MIT */
-
-/*! nouislider - 14.7.0 - 4/6/2021 */
