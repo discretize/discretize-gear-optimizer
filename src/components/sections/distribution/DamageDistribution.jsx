@@ -79,7 +79,6 @@ const DamageDistribution = () => {
     });
   };
 
-  // eslint-disable-next-line id-length
   const onUpdateOld = (_, value) => {
     const distributionRecalc = [];
     let prev = 0;
@@ -134,7 +133,6 @@ const DamageDistribution = () => {
     );
   };
 
-  // eslint-disable-next-line id-length
   const onUpdateNew = (key) => (_, value) => {
     dispatch(changeTextBoxes({ index: key, value: Math.round(value * 100) / 100 }));
     dispatch(changeDistributionNew({ index: key, value: Math.round(value * 100) / 100 }));

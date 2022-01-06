@@ -36,7 +36,7 @@
     "arrow-body-style": "off",
     "prefer-arrow-callback": "off",
 
-    "id-length": ["warn", { "exceptions": ["i", "j", "e", "t"] }],
+    "id-length": ["warn", { "exceptions": ["i", "j", "e", "t", "_"] }],
 
     "no-restricted-imports": [
       "error",
