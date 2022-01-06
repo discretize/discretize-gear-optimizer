@@ -75,7 +75,7 @@ const DamageDistribution = () => {
       for (let j = 0; j <= i; j++) {
         total += percentDistribution[j];
       }
-      return Math.min(total, 100);
+      return roundOne(Math.min(total, 100));
     });
   };
 
