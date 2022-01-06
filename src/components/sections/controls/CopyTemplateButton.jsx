@@ -1,6 +1,6 @@
 /* eslint-disable id-length */
-import { Button, MenuItem, Select, Snackbar } from '@material-ui/core';
-import { Alert } from '@material-ui/lab';
+import { Button, MenuItem, Select, Snackbar } from '@mui/material';
+import { Alert } from '@mui/material';
 import { Icon } from 'gw2-ui-bulk';
 import React from 'react';
 import { useSelector } from 'react-redux';

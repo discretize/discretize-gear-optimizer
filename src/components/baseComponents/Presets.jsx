@@ -1,5 +1,6 @@
-import { Chip, makeStyles, TextField } from '@material-ui/core';
-import Autocomplete from '@material-ui/lab/Autocomplete';
+import { Chip, TextField } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import Autocomplete from '@mui/material/Autocomplete';
 import classNames from 'classnames';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';

@@ -24,14 +24,14 @@ export default {
     'code, samp': {
       color: theme.palette.common.white,
       backgroundColor: theme.palette.background.embossed,
-      padding: `${theme.spacing(0.25)}px ${theme.spacing(0.75)}px`,
+      padding: `${theme.spacing(0.25)} ${theme.spacing(0.75)}`,
       border: `1px solid ${theme.palette.divider}`,
       borderRadius: theme.shape.borderRadius,
       boxShadow: theme.shadows[1],
     },
 
     pre: {
-      margin: `0 ${theme.spacing(2)}px ${theme.spacing(2)}px`,
+      margin: `0 ${theme.spacing(2)} ${theme.spacing(2)}`,
       [theme.breakpoints.up('sm')]: {
         marginLeft: theme.spacing(3),
         marginRight: theme.spacing(3),
@@ -52,7 +52,7 @@ export default {
     blockquote: {
       borderLeft: `2px solid ${theme.palette.primary.main}`,
       padding: theme.spacing(2),
-      margin: `${theme.spacing(2)}px ${theme.spacing(2)}px`,
+      margin: `${theme.spacing(2)} ${theme.spacing(2)}`,
       [theme.breakpoints.up('sm')]: {
         marginLeft: theme.spacing(3),
         marginRight: theme.spacing(3),

@@ -1,12 +1,12 @@
-import { CssBaseline, MuiThemeProvider } from '@material-ui/core';
+import { CssBaseline, ThemeProvider, StyledEngineProvider } from '@mui/material';
 import React from 'react';
 import { JssProvider } from 'react-jss';
-import { ThemeProvider } from 'theme-ui';
+import { ThemeProvider as ThemeUIProvider } from 'theme-ui';
 import baseTheme from '../styles/baseTheme';
 import getPageContext from '../utils/getPageContext';
 
 export default (Component) =>
-  class extends React.Component {
+  (class extends React.Component {
     constructor(props) {
       super(props);
       this.muiPageContext = getPageContext();
@@ -26,13 +26,15 @@ export default (Component) =>
 
       return (
         <JssProvider generateClassName={generateClassName}>
-          <MuiThemeProvider theme={theme}>
-            <CssBaseline />
-            <ThemeProvider theme={baseTheme}>
-              <Component {...this.props} />
+          <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <ThemeUIProvider theme={baseTheme}>
+                <Component {...this.props} />
+              </ThemeUIProvider>
             </ThemeProvider>
-          </MuiThemeProvider>
+          </StyledEngineProvider>
         </JssProvider>
       );
     }
-  };
+  });

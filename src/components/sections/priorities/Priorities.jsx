@@ -5,10 +5,10 @@ import {
   Grid,
   Input,
   InputLabel,
-  makeStyles,
   Radio,
   RadioGroup,
-} from '@material-ui/core';
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute } from 'gw2-ui-bulk';
 import React from 'react';

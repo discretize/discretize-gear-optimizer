@@ -1,4 +1,4 @@
-import { Box, Slider, Typography } from '@material-ui/core';
+import { Box, Slider, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Condition as ConditionRaw } from 'gw2-ui-bulk';
 import React from 'react';

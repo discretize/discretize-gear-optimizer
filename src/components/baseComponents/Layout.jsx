@@ -1,4 +1,5 @@
-import { Box, Container, makeStyles, Paper, useMediaQuery, useTheme } from '@material-ui/core';
+import { Box, Container, Paper, useMediaQuery, useTheme } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import PropTypes from 'prop-types';
 import React from 'react';
 import injectSheet from 'react-jss';
@@ -20,7 +21,7 @@ const Layout = ({ children, ContainerProps, disableContainer = false }) => {
   const classes = useStyles();
 
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
   return (
     <>
       {(!disableContainer && !isMobile && (

@@ -1,4 +1,4 @@
-import { TextField, Typography } from '@material-ui/core';
+import { TextField, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { parseDistribution } from '../../../utils/usefulFunctions';

@@ -1,4 +1,5 @@
-import { makeStyles, Table, TableBody, TableCell, TableRow, Typography } from '@material-ui/core';
+import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';

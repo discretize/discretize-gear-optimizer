@@ -5,15 +5,15 @@ import {
   debounce,
   FormControlLabel,
   IconButton,
-  makeStyles,
   MenuItem,
   SwipeableDrawer,
   Switch,
   Toolbar,
   Typography,
-} from '@material-ui/core';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import MenuIcon from '@material-ui/icons/Menu';
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import MenuIcon from '@mui/icons-material/Menu';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { bindHover, bindMenu, usePopupState } from 'material-ui-popup-state/hooks';
 import Menu from 'material-ui-popup-state/HoverMenu';
@@ -106,7 +106,7 @@ const Navbar = ({
           href="https://github.com/discretize/discretize-gear-optimizer/tree/staging"
           target="_blank"
           rel="noopener"
-        >
+          size="large">
           <GitHubIcon />
         </IconButton>
       </Box>
@@ -128,7 +128,7 @@ const Navbar = ({
               'aria-haspopup': 'true',
               onClick: handleDrawerOpen,
             }}
-          >
+            size="large">
             <MenuIcon />
           </IconButton>
         </Box>

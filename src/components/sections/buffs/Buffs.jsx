@@ -1,12 +1,5 @@
-import {
-  Box,
-  FormControl,
-  FormGroup,
-  FormLabel,
-  Grid,
-  makeStyles,
-  Typography,
-} from '@material-ui/core';
+import { Box, FormControl, FormGroup, FormLabel, Grid, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';

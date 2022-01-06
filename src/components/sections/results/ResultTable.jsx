@@ -1,8 +1,9 @@
-import { Box, makeStyles } from '@material-ui/core';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
+import { Box } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { TextDivider } from 'react-discretize-components';

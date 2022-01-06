@@ -1,16 +1,9 @@
-import {
-  Box,
-  Button,
-  Chip,
-  FormControlLabel,
-  makeStyles,
-  Switch,
-  Typography,
-} from '@material-ui/core';
-import Cancel from '@material-ui/icons/Cancel';
-import DoneAllIcon from '@material-ui/icons/DoneAll';
-import ErrorIcon from '@material-ui/icons/Error';
-import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
+import { Box, Button, Chip, FormControlLabel, Switch, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import Cancel from '@mui/icons-material/Cancel';
+import DoneAllIcon from '@mui/icons-material/DoneAll';
+import ErrorIcon from '@mui/icons-material/Error';
+import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import classNames from 'classnames';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';

@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
 import classNames from 'classnames';
 import React from 'react';
 import withGw2Theme from '../../hocs/withGw2Theme';
@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     position: 'relative',
-    width: `calc(100% - ${theme.spacing(2)}px)`,
+    width: `calc(100% - ${theme.spacing(2)})`,
     marginLeft: 'auto',
     marginRight: 'auto',
     backgroundColor: theme.palette.primary.dark,
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     border: `1px solid ${theme.palette.divider}`,
     ...theme.typography.h6,
     [theme.breakpoints.up('sm')]: {
-      width: `calc(100% - ${theme.spacing(4)}px)`,
+      width: `calc(100% - ${theme.spacing(4)})`,
     },
   },
   content: {

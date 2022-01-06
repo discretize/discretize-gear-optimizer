@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 
-import { createGenerateClassName } from '@material-ui/core/styles';
+import createGenerateClassName from '@mui/styles/createGenerateClassName';
 import { SheetsRegistry } from 'jss';
 import theme from '../styles/theme';
 

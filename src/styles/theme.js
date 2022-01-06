@@ -1,10 +1,10 @@
-import { createTheme } from '@material-ui/core/styles';
+import { createTheme, adaptV4Theme } from '@mui/material/styles';
 
-const theme = createTheme({
+const theme = createTheme(adaptV4Theme({
   name: 'default',
 
   palette: {
-    type: 'dark',
+    mode: 'dark',
     primary: {
       light: '#64ffff',
       main: '#00cccc',
@@ -83,9 +83,9 @@ const theme = createTheme({
       initialWidth: 'xl',
     },
   },
-});
+}));
 
-export default createTheme({
+export default createTheme(adaptV4Theme({
   ...theme,
 
   overrides: {
@@ -97,19 +97,19 @@ export default createTheme({
       }, */
       /*
       "spacing-xs-8": {
-        margin: `-${theme.spacing(0.5)}px !important`
+        margin: `-${theme.spacing(0.5)} !important`
       },
       "spacing-xs-16": {
-        margin: `-${theme.spacing(1)}px !important`
+        margin: `-${theme.spacing(1)} !important`
       },
       "spacing-xs-24": {
-        margin: `-${theme.spacing(1.5)}px !important`
+        margin: `-${theme.spacing(1.5)} !important`
       },
       "spacing-xs-32": {
-        margin: `-${theme.spacing(2)}px !important`
+        margin: `-${theme.spacing(2)} !important`
       },
       "spacing-xs-40": {
-        margin: `-${theme.spacing(2.5)}px !important`
+        margin: `-${theme.spacing(2.5)} !important`
       }
       */
     },
@@ -124,25 +124,25 @@ export default createTheme({
         hyphens: 'auto',
       },
       h1: {
-        [theme.breakpoints.down('xs')]: {
+        [theme.breakpoints.down('md')]: {
           fontSize: theme.typography.h2.fontSize,
           lineHeight: theme.typography.h2.lineHeight,
         },
       },
       h2: {
-        [theme.breakpoints.down('xs')]: {
+        [theme.breakpoints.down('md')]: {
           fontSize: theme.typography.h3.fontSize,
           lineHeight: theme.typography.h3.lineHeight,
         },
       },
       h3: {
-        [theme.breakpoints.down('xs')]: {
+        [theme.breakpoints.down('md')]: {
           fontSize: theme.typography.h4.fontSize,
           lineHeight: theme.typography.h4.lineHeight,
         },
       },
       h4: {
-        [theme.breakpoints.down('xs')]: {
+        [theme.breakpoints.down('md')]: {
           fontSize: '1.8125rem',
           lineHeight: '1.280025em',
         },
@@ -206,4 +206,4 @@ export default createTheme({
       },
     },
   },
-});
+}));

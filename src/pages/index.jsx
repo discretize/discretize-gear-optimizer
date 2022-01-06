@@ -1,6 +1,7 @@
-import { Link, makeStyles, Typography } from '@material-ui/core';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import MuiAlert from '@material-ui/lab/Alert';
+import { Link, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import MuiAlert from '@mui/material/Alert';
 import { graphql } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import * as React from 'react';

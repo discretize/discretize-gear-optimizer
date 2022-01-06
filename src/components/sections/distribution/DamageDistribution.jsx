@@ -5,10 +5,10 @@ import {
   Input,
   InputAdornment,
   InputLabel,
-  makeStyles,
   Slider,
   Typography,
-} from '@material-ui/core';
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import classNames from 'classnames';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute as AttributeRaw, Condition as ConditionRaw } from 'gw2-ui-bulk';

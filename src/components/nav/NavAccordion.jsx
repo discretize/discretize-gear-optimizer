@@ -1,7 +1,8 @@
-import { Chip, makeStyles } from '@material-ui/core';
-import MuiAccordion from '@material-ui/core/Accordion';
-import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
-import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
+import { Chip } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import MuiAccordion from '@mui/material/Accordion';
+import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setBuildTemplate } from '../../state/slices/controlsSlice';

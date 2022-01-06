@@ -1,5 +1,6 @@
-import { Box, Divider, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
-import LiveHelpIcon from '@material-ui/icons/LiveHelp';
+import { Box, Divider, Grid, Paper, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import LiveHelpIcon from '@mui/icons-material/LiveHelp';
 import React from 'react';
 
 const useStyles = makeStyles((theme) => ({

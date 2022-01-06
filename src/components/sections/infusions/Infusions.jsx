@@ -1,12 +1,5 @@
-import {
-  FormControl,
-  Grid,
-  Input,
-  InputLabel,
-  makeStyles,
-  MenuItem,
-  Select,
-} from '@material-ui/core';
+import { FormControl, Grid, Input, InputLabel, MenuItem, Select } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute, Item } from 'gw2-ui-bulk';
 import React from 'react';

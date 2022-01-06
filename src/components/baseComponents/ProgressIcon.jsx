@@ -1,4 +1,4 @@
-import EqualizerRoundedIcon from '@material-ui/icons/EqualizerRounded';
+import EqualizerRoundedIcon from '@mui/icons-material/EqualizerRounded';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getControl } from '../../state/slices/controlsSlice';

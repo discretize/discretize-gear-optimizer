@@ -4,11 +4,11 @@ import {
   Input,
   InputLabel,
   ListItemText,
-  makeStyles,
   MenuItem,
   Select,
   Typography,
-} from '@material-ui/core';
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Specialization, Trait, TraitLine } from 'gw2-ui-bulk';
 import React from 'react';

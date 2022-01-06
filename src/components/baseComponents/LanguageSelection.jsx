@@ -1,4 +1,5 @@
-import { Box, makeStyles } from '@material-ui/core';
+import { Box } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Link as LangLink, useI18next } from 'gatsby-plugin-react-i18next';
 import * as React from 'react';
 

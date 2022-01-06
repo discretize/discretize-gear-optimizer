@@ -1,5 +1,6 @@
-import { Box, Grid, makeStyles, Typography } from '@material-ui/core';
-import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import { Box, Grid, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { graphql, StaticQuery } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';

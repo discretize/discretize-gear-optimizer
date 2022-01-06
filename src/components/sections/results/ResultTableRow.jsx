@@ -1,7 +1,8 @@
-import { makeStyles, Typography } from '@material-ui/core';
-import TableCell from '@material-ui/core/TableCell';
-import TableRow from '@material-ui/core/TableRow';
-import StarRoundedIcon from '@material-ui/icons/StarRounded';
+import { Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import TableCell from '@mui/material/TableCell';
+import TableRow from '@mui/material/TableRow';
+import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { changeSelectedCharacter, toggleSaved } from '../../../state/slices/controlsSlice';

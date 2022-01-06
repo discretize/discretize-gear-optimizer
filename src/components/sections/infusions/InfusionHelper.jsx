@@ -1,13 +1,7 @@
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  makeStyles,
-  Slider,
-  Typography,
-} from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Alert from '@material-ui/lab/Alert';
+import { Accordion, AccordionDetails, AccordionSummary, Slider, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Alert from '@mui/material/Alert';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import { Coin as CoinRaw, CommonEffect as CommonEffectRaw, Item as ItemRaw } from 'gw2-ui-bulk';
 import React from 'react';
@@ -106,7 +100,7 @@ const useStyles = makeStyles((theme) => ({
   sliderMargin: { marginBottom: 28 },
   sliderMark: {
     transform: 'translateX(-100%)',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('lg')]: {
       display: 'none',
     },
   },
