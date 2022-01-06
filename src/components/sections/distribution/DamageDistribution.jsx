@@ -18,7 +18,6 @@ import {
   changeAllDistributionsOld,
   changeDistributionNew,
   changeTextBoxes,
-  coefficientsToPercents,
   getDistributionNew,
   getDistributionOld,
   getDistributionVersion,
@@ -106,7 +105,7 @@ const DamageDistribution = () => {
             valueLabelDisplay="auto"
             aria-labelledby="range-slider"
             marks={[...Array(11).keys()]
-              .map((v) => v * 10)
+              .map((value) => value * 10)
               .map((value) => ({ value, label: `${value}` }))}
           />
         </div>
