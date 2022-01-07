@@ -1,8 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 
 export default createTheme({
-  name: 'default',
-
   palette: {
     type: 'dark',
     primary: {
@@ -24,6 +22,7 @@ export default createTheme({
       secondary: '#b1b1b5',
     },
     divider: '#1e2124',
+    star: '#FFDF00',
   },
   typography: {
     fontFamily: 'Muli',
@@ -45,6 +44,32 @@ export default createTheme({
     },
     h6: {
       fontFamily: 'Raleway',
+    },
+  },
+  components: {
+    MuiTableBody: {
+      styleOverrides: {
+        root: {
+          '&> tr:last-child': {
+            '&> th, td': {
+              borderBottom: 'none',
+            },
+          },
+        },
+      },
+    },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          borderBottom: `1px solid #1e2124`,
+          'th&': {
+            fontWeight: 700,
+          },
+          '& > *:last-child': {
+            marginBottom: 0,
+          },
+        },
+      },
     },
   },
 });

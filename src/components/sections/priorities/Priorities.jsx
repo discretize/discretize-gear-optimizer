@@ -31,9 +31,6 @@ const useStyles = makeStyles()((theme) => ({
     alignItems: 'center',
     flexWrap: 'wrap',
   },
-  helper: {
-    fontSize: 10,
-  },
 }));
 
 const OPTIMIZATION_GOALS = ['Damage', 'Survivability', 'Healing'];

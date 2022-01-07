@@ -23,9 +23,6 @@ const useStyles = makeStyles()((theme) => ({
     borderColor: theme.palette.background.paper,
     border: '1px solid',
   },
-  pointer: {
-    cursor: 'pointer',
-  },
   tablehead: {
     backgroundColor: theme.palette.background.paper,
   },
@@ -34,9 +31,6 @@ const useStyles = makeStyles()((theme) => ({
   },
   underline: {
     borderBottom: `5px solid ${theme.palette.divider}`,
-  },
-  marginTop: {
-    marginTop: 20,
   },
 }));
 
@@ -89,7 +83,11 @@ const StickyHeadTable = () => {
                 rankBy={rankBy}
               />
             </TableHead>
-            <TableBody className={classes.pointer}>
+            <TableBody
+              sx={{
+                cursor: 'pointer',
+              }}
+            >
               {/* {saved.length
               ? saved.map((character, i) => {
                   return (
@@ -146,7 +144,7 @@ const StickyHeadTable = () => {
 
       {saved.length ? (
         <>
-          <TextDivider text={t('Saved Results')} className={classes.marginTop} />
+          <TextDivider text={t('Saved Results')} style={{ marginTop: 20 }} />
           <Box boxShadow={8}>
             <TableContainer className={classes.container}>
               <Table
@@ -162,7 +160,11 @@ const StickyHeadTable = () => {
                     rankBy={rankBy}
                   />
                 </TableHead>
-                <TableBody className={classes.pointer}>
+                <TableBody
+                  sx={{
+                    cursor: 'pointer',
+                  }}
+                >
                   {saved.map((character, i) => {
                     return (
                       <ResultTableRow
