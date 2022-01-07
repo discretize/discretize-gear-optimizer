@@ -60,7 +60,7 @@ const MainComponent = ({ data }) => {
       />
 
       {profession === '' && (
-        <Typography style={{ marginBottom: 8 }}>
+        <Typography sx={{ marginBottom: 1 }}>
           <ExpandLessIcon />
           <i>{expertMode ? classOrBuildText : classText}</i> <ExpandLessIcon />
         </Typography>

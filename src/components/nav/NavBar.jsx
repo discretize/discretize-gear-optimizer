@@ -30,18 +30,6 @@ import { PROFESSIONS } from '../../utils/gw2-data';
 import Profession from '../baseComponents/Profession';
 import NavAccordion from './NavAccordion';
 
-const useStyles = makeStyles()((theme) => ({
-  topNav: {
-    marginBottom: theme.spacing(2),
-  },
-  topNavNoMarge: {
-    marginBottom: 0,
-  },
-  navProfession: {
-    fontSize: '2rem',
-  },
-}));
-
 const Navbar = ({
   data,
   buffPresets,
@@ -50,8 +38,6 @@ const Navbar = ({
   extrasPresets,
   traitPresets,
 }) => {
-  const classes = useStyles();
-
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
   const expertMode = useSelector(getControl('expertMode'));
@@ -102,7 +88,7 @@ const Navbar = ({
           label={t('Expert')}
         />
         <IconButton
-          className={classes.githubIcon}
+          color="secondary"
           href="https://github.com/discretize/discretize-gear-optimizer/tree/staging"
           target="_blank"
           rel="noopener"
@@ -214,7 +200,9 @@ const Navbar = ({
                 name={prof.profession}
                 disableLink
                 disableText
-                className={classes.navProfession}
+                style={{
+                  fontSize: '2rem',
+                }}
               />
             </Button>
 
@@ -277,7 +265,7 @@ const Navbar = ({
   return (
     <AppBar
       position="sticky"
-      className={profession === '' ? classes.topNavNoMarge : classes.topNav}
+      sx={profession === '' ? { marginBottom: 0 } : { marginBottom: 2 }}
       color="inherit"
     >
       {mobileView ? displayMobile() : displayDesktop()}

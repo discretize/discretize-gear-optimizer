@@ -1,21 +1,10 @@
-import { Chip, TextField } from '@mui/material';
-import { makeStyles } from 'tss-react/mui';
+import { Box, Chip, TextField } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
-import classNames from 'classnames';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getControl, getProfession } from '../../state/slices/controlsSlice';
 import Profession from './Profession';
-
-const useStyles = makeStyles()((theme) => ({
-  root: {
-    marginTop: theme.spacing(1),
-  },
-  templateChip: {
-    margin: theme.spacing(0.5),
-  },
-}));
 
 // this many chips are allowed before they will be put into a dropdown select
 const maxChipsDefault = 6;
@@ -27,7 +16,6 @@ const Presets = ({
   presetCategory,
   maxChips = maxChipsDefault,
 }) => {
-  const classes = useStyles();
   const { t } = useTranslation();
   const profession = useSelector(getProfession);
   const selectedTemplateName = useSelector(getControl('selectedTemplate'));
@@ -35,7 +23,7 @@ const Presets = ({
   const data = dataRaw.filter((entry) => !entry?.hidden);
 
   return (
-    <div className={classNames(className, classes.root)}>
+    <Box className={className} sx={{ marginTop: 1 }}>
       {data.length > maxChips ? (
         <Autocomplete
           key={`${selectedTemplateName || profession}-presets`}
@@ -83,11 +71,11 @@ const Presets = ({
             }
             variant="outlined"
             onClick={() => handleClick(preset)}
-            className={classes.templateChip}
+            sx={{ margin: 0.5 }}
           />
         ))
       )}
-    </div>
+    </Box>
   );
 };
 export default Presets;
