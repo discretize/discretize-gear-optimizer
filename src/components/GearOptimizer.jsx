@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { graphql, StaticQuery } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
@@ -21,7 +21,7 @@ import ResultTable from './sections/results/ResultTable';
 import SkillsSection from './sections/skills/SkillsSection';
 import TraitsSection from './sections/traits/TraitsSection';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     // adds padding on bigger (non smartphone) screens
     [theme.breakpoints.up('sm')]: {

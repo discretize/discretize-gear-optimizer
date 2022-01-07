@@ -1,5 +1,5 @@
 import { FormControl, Grid, Input, InputLabel, MenuItem, Select } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute, Item } from 'gw2-ui-bulk';
 import React from 'react';
@@ -34,7 +34,7 @@ const arOptionLabels = {
 };
 const arOptions = Object.keys(arOptionLabels);
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   formControl: {
     width: 200,
     marginRight: theme.spacing(3),

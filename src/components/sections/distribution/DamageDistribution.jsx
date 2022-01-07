@@ -8,7 +8,7 @@ import {
   Slider,
   Typography,
 } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import classNames from 'classnames';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute as AttributeRaw, Condition as ConditionRaw } from 'gw2-ui-bulk';
@@ -30,7 +30,7 @@ const Condition = React.memo(ConditionRaw);
 
 const roundOne = (num) => Math.round(num * 10) / 10;
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   textbox: {
     maxWidth: 195,
     marginBottom: theme.spacing(2),

@@ -8,7 +8,7 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Trans } from 'gatsby-plugin-react-i18next';
 // import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
@@ -16,7 +16,7 @@ import React from 'react';
 import { scaleValue } from '../../../state/optimizer/optimizerCore';
 import { parseAmount } from '../../../utils/usefulFunctions';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     width: '100%',
   },

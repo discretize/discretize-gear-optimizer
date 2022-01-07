@@ -8,7 +8,7 @@ import {
   Radio,
   RadioGroup,
 } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute } from 'gw2-ui-bulk';
 import React from 'react';
@@ -18,7 +18,7 @@ import { parsePriority } from '../../../utils/usefulFunctions';
 import HelperIcon from '../../baseComponents/HelperIcon';
 import Affixes from '../Affixes';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   text: {
     color: '#ddd !important',
   },

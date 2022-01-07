@@ -11,7 +11,7 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
@@ -30,7 +30,7 @@ import { PROFESSIONS } from '../../utils/gw2-data';
 import Profession from '../baseComponents/Profession';
 import NavAccordion from './NavAccordion';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   topNav: {
     marginBottom: theme.spacing(2),
   },
@@ -106,7 +106,8 @@ const Navbar = ({
           href="https://github.com/discretize/discretize-gear-optimizer/tree/staging"
           target="_blank"
           rel="noopener"
-          size="large">
+          size="large"
+        >
           <GitHubIcon />
         </IconButton>
       </Box>
@@ -128,7 +129,8 @@ const Navbar = ({
               'aria-haspopup': 'true',
               onClick: handleDrawerOpen,
             }}
-            size="large">
+            size="large"
+          >
             <MenuIcon />
           </IconButton>
         </Box>

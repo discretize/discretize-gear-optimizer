@@ -1,9 +1,9 @@
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import classNames from 'classnames';
 import React from 'react';
 import withGw2Theme from '../../hocs/withGw2Theme';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     marginBottom: theme.spacing(2),
   },

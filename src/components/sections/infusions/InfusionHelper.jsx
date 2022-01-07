@@ -1,5 +1,5 @@
 import { Accordion, AccordionDetails, AccordionSummary, Slider, Typography } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Alert from '@mui/material/Alert';
 import { Trans } from 'gatsby-plugin-react-i18next';
@@ -94,7 +94,7 @@ const targetARMarks = [
   },
 ];
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   bigStyle: { fontSize: 17 },
   bigMargin: { marginBottom: 16 },
   sliderMargin: { marginBottom: 28 },

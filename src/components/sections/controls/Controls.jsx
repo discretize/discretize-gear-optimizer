@@ -1,5 +1,5 @@
 import { Box, Button, Chip, FormControlLabel, Switch, Typography } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import Cancel from '@mui/icons-material/Cancel';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import ErrorIcon from '@mui/icons-material/Error';
@@ -22,7 +22,7 @@ import { getPriority } from '../../../state/slices/priorities';
 import ProgressIcon from '../../baseComponents/ProgressIcon';
 import URLStateExport from '../../url-state/URLStateExport';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   errorText: {
     color: 'red',
   },

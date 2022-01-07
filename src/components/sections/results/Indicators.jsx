@@ -1,9 +1,9 @@
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     width: '100%',
   },

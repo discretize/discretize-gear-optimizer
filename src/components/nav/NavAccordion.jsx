@@ -1,5 +1,5 @@
 import { Chip } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { setBuildTemplate } from '../../state/slices/controlsSlice';
 import Profession from '../baseComponents/Profession';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   accordionRoot: {
     border: '1px solid rgba(0, 0, 0, .125)',
     boxShadow: 'none',

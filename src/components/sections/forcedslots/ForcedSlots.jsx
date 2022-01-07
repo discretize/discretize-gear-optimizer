@@ -1,5 +1,5 @@
 import { Grid, TextField } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
@@ -12,7 +12,7 @@ import { Affix, GEAR_SLOTS } from '../../../utils/gw2-data';
 
 const AFFIXES = Object.keys(Affix);
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   textField: { marginTop: 0, marginBottom: 0 },
   nowrap: {
     display: 'inline',

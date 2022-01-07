@@ -1,5 +1,5 @@
 import { Chip, TextField } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import Autocomplete from '@mui/material/Autocomplete';
 import classNames from 'classnames';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { getControl, getProfession } from '../../state/slices/controlsSlice';
 import Profession from './Profession';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     marginTop: theme.spacing(1),
   },

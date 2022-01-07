@@ -1,5 +1,5 @@
 import { Box, FormControl, FormGroup, FormLabel, Grid, Typography } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';
@@ -15,7 +15,7 @@ import {
 import AmountInput from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   boon: {
     fontSize: 18,
   },

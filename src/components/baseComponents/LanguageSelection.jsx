@@ -1,9 +1,9 @@
 import { Box } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import { Link as LangLink, useI18next } from 'gatsby-plugin-react-i18next';
 import * as React from 'react';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   langLink: {
     textDecoration: 'none',
     color: theme.palette.primary.main,

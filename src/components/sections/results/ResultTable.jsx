@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
@@ -17,7 +17,7 @@ import {
 import ResultTableHeaderRow from './ResultTableHeaderRow';
 import ResultTableRow from './ResultTableRow';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   container: {
     maxHeight: 440,
     borderColor: theme.palette.background.paper,

@@ -1,9 +1,9 @@
 import { Box, Divider, Grid, Paper, Typography } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import LiveHelpIcon from '@mui/icons-material/LiveHelp';
 import React from 'react';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     // adds padding on bigger (non smartphone) screens
     [theme.breakpoints.up('sm')]: {

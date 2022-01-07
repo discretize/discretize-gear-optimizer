@@ -1,11 +1,11 @@
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { INFUSION_IDS } from '../../../utils/gw2-data';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   gw2Item: {
     fontSize: '20px',
     color: '#AAAAAA',

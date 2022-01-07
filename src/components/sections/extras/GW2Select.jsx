@@ -8,14 +8,14 @@ import {
   Select,
   Typography,
 } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeExtra, getExtra } from '../../../state/slices/extras';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   formControl: {
     width: '100%',
   },

@@ -1,19 +1,16 @@
+import { makeStyles } from 'tss-react/mui';
 import { Box, Container, Paper, useMediaQuery, useTheme } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
 import PropTypes from 'prop-types';
 import React from 'react';
-import injectSheet from 'react-jss';
 import 'typeface-fira-mono';
 import 'typeface-menomonia';
 import 'typeface-muli';
 import 'typeface-raleway';
-import withRoot from '../../hocs/withRoot';
-import globals from '../../styles/globals';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   paper: {
     padding: theme.spacing(2),
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: 'inherit',
   },
 }));
 
@@ -26,7 +23,7 @@ const Layout = ({ children, ContainerProps, disableContainer = false }) => {
     <>
       {(!disableContainer && !isMobile && (
         <Container maxWidth="lg" {...ContainerProps}>
-          <Paper elevation={8} className={classes.paper}>
+          <Paper elevation={24} className={classes.paper}>
             {children}
           </Paper>
         </Container>
@@ -39,4 +36,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default withRoot(injectSheet(globals)(Layout));
+export default Layout;

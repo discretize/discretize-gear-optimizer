@@ -8,7 +8,7 @@ import {
   Select,
   Typography,
 } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { makeStyles } from 'tss-react/mui';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Specialization, Trait, TraitLine } from 'gw2-ui-bulk';
 import React from 'react';
@@ -27,7 +27,7 @@ import {
 import AmountInput from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   formControl: {
     minWidth: 120,
     margin: theme.spacing(1),
