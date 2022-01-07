@@ -8,7 +8,7 @@ const Section = ({ first, title, helpText, extraInfo, content }) => {
     <>
       <Typography variant="h5">{title}</Typography>
       {children && (
-        <Paper sx={{ marginTop: 0.5, marginBottom: 1 }}>
+        <Paper sx={{ marginTop: 0.5, marginBottom: 1 }} elevation={0}>
           <Box p={1}>
             <div>
               <LiveHelpIcon />

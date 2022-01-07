@@ -2,7 +2,7 @@ import { createTheme } from '@mui/material/styles';
 
 export default createTheme({
   palette: {
-    type: 'dark',
+    mode: 'dark',
     primary: {
       main: '#00cccc',
       light: '#64ffff',
@@ -69,6 +69,39 @@ export default createTheme({
             marginBottom: 0,
           },
         },
+      },
+    },
+    MuiGridList: {
+      styleOverrides: {
+        root: {
+          overflowY: 'initial',
+        },
+      },
+    },
+    MuiGridListTile: {
+      styleOverrides: {
+        tile: {
+          overflow: 'initial',
+        },
+      },
+    },
+    MuiList: {
+      styleOverrides: {
+        root: {
+          '& > hr': {
+            marginBottom: 0,
+          },
+        },
+      },
+    },
+    MuiAccordion: {
+      defaultProps: {
+        elevation: 0,
+      },
+    },
+    MuiMenu: {
+      defaultProps: {
+        elevation: 0,
       },
     },
   },

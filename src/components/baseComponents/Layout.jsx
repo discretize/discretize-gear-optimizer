@@ -1,4 +1,4 @@
-import { Box, Container, Paper, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Container, useMediaQuery, useTheme } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
 import 'typeface-fira-mono';
@@ -13,9 +13,7 @@ const Layout = ({ children, ContainerProps, disableContainer = false }) => {
     <>
       {(!disableContainer && !isMobile && (
         <Container maxWidth="lg" {...ContainerProps}>
-          <Paper elevation={8} sx={{ padding: 2, backgroundColor: 'inherit' }}>
-            {children}
-          </Paper>
+          <Box sx={{ padding: 2, backgroundColor: '#2f3136', boxShadow: 5 }}>{children}</Box>
         </Container>
       )) || <Box p={2}>{children}</Box>}
     </>

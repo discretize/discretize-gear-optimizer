@@ -1,3 +1,5 @@
+import GitHubIcon from '@mui/icons-material/GitHub';
+import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar,
   Box,
@@ -11,9 +13,6 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material';
-import { makeStyles } from 'tss-react/mui';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import MenuIcon from '@mui/icons-material/Menu';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { bindHover, bindMenu, usePopupState } from 'material-ui-popup-state/hooks';
 import Menu from 'material-ui-popup-state/HoverMenu';
@@ -208,7 +207,6 @@ const Navbar = ({
 
             <Menu
               {...bindMenu(popupState[index])}
-              getContentAnchorEl={null}
               anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
               transformOrigin={{ vertical: 'top', horizontal: 'left' }}
             >
@@ -267,6 +265,8 @@ const Navbar = ({
       position="sticky"
       sx={profession === '' ? { marginBottom: 0 } : { marginBottom: 2 }}
       color="inherit"
+      elevation={0}
+      enableColorOnDark
     >
       {mobileView ? displayMobile() : displayDesktop()}
     </AppBar>

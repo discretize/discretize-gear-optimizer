@@ -21,7 +21,7 @@ const Presets = ({
   const selectedTemplateName = useSelector(getControl('selectedTemplate'));
 
   const data = dataRaw.filter((entry) => !entry?.hidden);
-  if (data.length > maxChips) console.log(data);
+
   return (
     <Box className={className} sx={{ marginTop: 1 }}>
       {data.length > maxChips ? (

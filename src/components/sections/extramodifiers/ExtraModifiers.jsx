@@ -56,6 +56,7 @@ const ExtraModifiers = () => {
     <>
       <TextField
         label={t('Extra Modifiers')}
+        variant="standard"
         sx={{
           width: '100%',
           marginBottom: 1,

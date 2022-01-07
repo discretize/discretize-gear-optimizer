@@ -91,7 +91,7 @@ const Traits = ({ data = [] }) => {
         >
           <InputLabel id={`Traitline${lineNr}`}>{t('Traitline', { lineNr })}</InputLabel>
           <Select
-            labelIdid={`Traitline${lineNr}`}
+            labeldid={`Traitline${lineNr}`}
             value={traitlines[index]}
             input={<Input name={t(`Traitline`, { lineNr })} id={key} />}
             onChange={handleTraitlineChange(index)}
