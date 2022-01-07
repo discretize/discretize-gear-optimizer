@@ -44,17 +44,19 @@ const Affixes = () => {
           className={classes.textfield}
         />
       )}
-      renderOption={(option) => (
-        <Item
-          stat={firstUppercase(option)}
-          type="Ring"
-          disableLink
-          text={
-            // i18next-extract-mark-context-next-line {{affix}}
-            firstUppercase(t('affix', { context: option }))
-          }
-          className={classes.text}
-        />
+      renderOption={(prop, option) => (
+        <li {...prop}>
+          <Item
+            stat={firstUppercase(option)}
+            type="Ring"
+            disableLink
+            text={
+              // i18next-extract-mark-context-next-line {{affix}}
+              firstUppercase(t('affix', { context: option }))
+            }
+            className={classes.text}
+          />
+        </li>
       )}
       renderTags={(value, getTagProps) =>
         value.map((option, index) => (

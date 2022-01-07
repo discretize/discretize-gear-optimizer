@@ -56,8 +56,9 @@ const ExtraModifiers = () => {
     <>
       <TextField
         label={t('Extra Modifiers')}
-        style={{
+        sx={{
           width: '100%',
+          marginBottom: 1,
         }}
         multiline
         minRows={5}

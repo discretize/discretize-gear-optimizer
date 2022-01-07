@@ -29,6 +29,7 @@ const AmountInput = ({
             {...params}
             error={error}
             label={label}
+            variant="standard"
             InputProps={{
               ...params.InputProps,
               endAdornment: (
@@ -54,6 +55,7 @@ const AmountInput = ({
       value={value}
       placeholder={String(placeholder)}
       label={label}
+      variant="standard"
       InputProps={{
         endAdornment: (
           <InputAdornment disablePointerEvents position="end">

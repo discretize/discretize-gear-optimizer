@@ -42,7 +42,6 @@ const useStyles = makeStyles()((theme) => ({
   formControl2: {
     width: 80,
   },
-  item: { lineHeight: '1 !important' },
 }));
 
 const Infusions = () => {
@@ -76,9 +75,7 @@ const Infusions = () => {
               }),
             )
           }
-          renderValue={(value) => (
-            <Item id={INFUSION_IDS[value]} disableLink className={classes.item} />
-          )}
+          renderValue={(value) => <Item id={INFUSION_IDS[value]} disableLink />}
         >
           <MenuItem value="">{t('None')} </MenuItem>
           {Object.entries(INFUSION_IDS).map(([attribute, id]) => (

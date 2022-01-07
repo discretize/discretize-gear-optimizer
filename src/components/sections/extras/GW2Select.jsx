@@ -8,35 +8,13 @@ import {
   Select,
   Typography,
 } from '@mui/material';
-import { makeStyles } from 'tss-react/mui';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeExtra, getExtra } from '../../../state/slices/extras';
 
-const useStyles = makeStyles()((theme) => ({
-  formControl: {
-    width: '100%',
-  },
-  sectionText: {
-    fontWeight: 200,
-    textAlign: 'left',
-    marginTop: theme.spacing(1),
-  },
-  subText: {
-    fontWeight: 100,
-    textAlign: 'right',
-  },
-  menuItem: {
-    whiteSpace: 'normal',
-  },
-  item: { lineHeight: '1 !important' },
-}));
-
 const GW2Select = ({ name, label, modifierData, modifierDataById }) => {
-  const classes = useStyles();
-
   const dispatch = useDispatch();
   const bigValue = useSelector(getExtra(name));
 
@@ -52,7 +30,7 @@ const GW2Select = ({ name, label, modifierData, modifierDataById }) => {
   // return an array in the select: https://github.com/mui-org/material-ui/issues/16181
   // Fragments are not supported as children!
   return (
-    <FormControl className={classes.formControl}>
+    <FormControl sx={{ width: '100%' }}>
       <InputLabel htmlFor={name}>{label}</InputLabel>
       <Select
         value={bigValue || ''}
@@ -65,7 +43,7 @@ const GW2Select = ({ name, label, modifierData, modifierDataById }) => {
               id={item.gw2id}
               disableLink
               {...(!isChinese && { text: item.text.replace('Superior ', '') })}
-              className={classes.item}
+              style={{ lineHeight: '1 !important' }}
             />
           );
         }}
@@ -86,7 +64,13 @@ const GW2Select = ({ name, label, modifierData, modifierDataById }) => {
               }
             </ListSubheader>,
             category.items.map((item) => (
-              <MenuItem key={item.id} value={item.id} className={classes.menuItem}>
+              <MenuItem
+                key={item.id}
+                value={item.id}
+                sx={{
+                  whiteSpace: 'normal',
+                }}
+              >
                 <ListItemText
                   primary={
                     <Item
@@ -96,7 +80,13 @@ const GW2Select = ({ name, label, modifierData, modifierDataById }) => {
                     />
                   }
                   secondary={
-                    <Typography className={classes.subText}>
+                    <Typography
+                      sx={{
+                        fontWeight: 100,
+                        fontSize: '0.8rem',
+                        textAlign: 'right',
+                      }}
+                    >
                       {
                         // i18next-extract-mark-context-next-line {{extraSubText}}
                         t('extraSubText', { context: item.subText })

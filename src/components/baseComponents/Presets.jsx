@@ -1,4 +1,4 @@
-import { Box, Chip, TextField } from '@mui/material';
+import { Box, Chip, TextField, Typography } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
@@ -21,30 +21,33 @@ const Presets = ({
   const selectedTemplateName = useSelector(getControl('selectedTemplate'));
 
   const data = dataRaw.filter((entry) => !entry?.hidden);
-
+  if (data.length > maxChips) console.log(data);
   return (
     <Box className={className} sx={{ marginTop: 1 }}>
       {data.length > maxChips ? (
         <Autocomplete
           key={`${selectedTemplateName || profession}-presets`}
-          id="presets"
           options={data}
           getOptionLabel={(preset) => preset.name}
           renderInput={(params) => <TextField {...params} label="Presets" variant="standard" />}
-          renderOption={(preset) =>
-            preset.profession ? (
-              <Profession
-                name={preset.profession}
-                text={
-                  // i18next-extract-mark-context-next-line {{presetName}}
-                  t(`preset`, { context: `${presetCategory}_${preset.name}` })
-                }
-              />
-            ) : (
-              // i18next-extract-mark-context-next-line {{presetName}}
-              t(`preset`, { context: `${presetCategory}_${preset.name}` })
-            )
-          }
+          renderOption={(props, preset) => (
+            <li {...props}>
+              {preset.profession ? (
+                <Profession
+                  name={preset.profession}
+                  text={
+                    // i18next-extract-mark-context-next-line {{presetName}}
+                    t(`preset`, { context: `${presetCategory}_${preset.name}` })
+                  }
+                />
+              ) : (
+                // i18next-extract-mark-context-next-line {{presetName}}
+                <Typography>
+                  {t(`preset`, { context: `${presetCategory}_${preset.name}` })}
+                </Typography>
+              )}
+            </li>
+          )}
           blurOnSelect
           disableClearable
           clearOnBlur={false}
