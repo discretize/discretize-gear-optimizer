@@ -1355,6 +1355,19 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
+"@discretize/react-discretize-components@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@discretize/react-discretize-components/-/react-discretize-components-2.0.0.tgz#e248a5975cac4f39719822b103d96fa0fb9945ab"
+  integrity sha512-9r3krN2jrtnxoiaaT8Z27CtfAX1cnGflrgIxwDGvRYpC4XUkT1Jn6MXOrXc7xA3Nxwzpg02Klr+Ru7Qmm+vYXw==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.16.3"
+    "@mui/material" "^5.2.7"
+    classnames "^2.3.1"
+    gatsby-plugin-image "^2.2.0"
+    gw2-ui-bulk "^0.11.12"
+    gw2-ui-components-bulk "^0.12.10"
+    tss-react "^3.3.1"
+
 "@emotion/babel-plugin@^11.3.0":
   version "11.7.2"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin/-/babel-plugin-11.7.2.tgz#fec75f38a6ab5b304b0601c74e2a5e77c95e5fa0"
@@ -10387,21 +10400,6 @@ react-dev-utils@^11.0.4:
     shell-quote "1.7.2"
     strip-ansi "6.0.0"
     text-table "0.2.0"
-
-"react-discretize-components@file:../react-discretize-components":
-  version "1.0.3"
-  dependencies:
-    "@babel/runtime-corejs3" "^7.16.3"
-    "@mui/material" "^5.2.7"
-    classnames "^2.3.1"
-    gatsby-plugin-image "^2.2.0"
-    gw2-ui-bulk "^0.11.12"
-    gw2-ui-components-bulk "^0.12.10"
-    tss-react "^3.3.1"
-
-"react-discretize-components@link:/home/alex/Repositories/react-discretize-components":
-  version "0.0.0"
-  uid ""
 
 react-dom@^17.0.2:
   version "17.0.2"
