@@ -117,16 +117,18 @@ const Traits = ({ data = [] }) => {
           // minor traits that have an effect on the outcome of the optimization
           noCheckboxModis.length > 0 && (
             <div>
-              <Trans>Minors:</Trans>{' '}
-              {noCheckboxModis.map((itemData) => {
-                const { id, gw2id, subText } = itemData;
-                return (
-                  <React.Fragment key={id}>
-                    {gw2id && <Trait id={gw2id} disableLink />}{' '}
-                    <Typography variant="caption">{subText}</Typography>
-                  </React.Fragment>
-                );
-              })}{' '}
+              <Typography variant="caption">
+                <Trans>Minors:</Trans>{' '}
+                {noCheckboxModis.map((itemData) => {
+                  const { id, gw2id, subText } = itemData;
+                  return (
+                    <React.Fragment key={id}>
+                      {gw2id && <Trait id={gw2id} disableLink />}{' '}
+                      <Typography variant="caption">{subText}</Typography>
+                    </React.Fragment>
+                  );
+                })}
+              </Typography>
             </div>
           )
         }
