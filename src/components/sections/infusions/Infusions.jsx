@@ -62,7 +62,7 @@ const Infusions = () => {
 
   const dropdown = (name, varName, infusion) => {
     return (
-      <FormControl className={classes.formControl}>
+      <FormControl className={classes.formControl} variant="standard">
         <InputLabel id={`dropdown_${name}`}>{name}</InputLabel>
         <Select
           labelId={`dropdown_${name}`}
@@ -92,7 +92,7 @@ const Infusions = () => {
   const input = (name, varName, value, className) => {
     const { error } = parseInfusionCount(value);
     return (
-      <FormControl className={className}>
+      <FormControl className={className} variant="standard">
         <InputLabel htmlFor={`${varName}_input-with-icon-adornment`}>{name}</InputLabel>
         <Input
           id={`${varName}_input-with-icon-adornment`}

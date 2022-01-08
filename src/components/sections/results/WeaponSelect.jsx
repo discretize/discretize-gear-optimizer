@@ -33,12 +33,13 @@ const WeaponSelect = () => {
 
   return (
     <>
-      <FormControl className={classes.formControl}>
+      <FormControl className={classes.formControl} variant="standard">
         <InputLabel id="demo-simple-select-label">1. Wea MH</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={wea1mh || ''}
+          variant="standard"
           onChange={(e) => dispatch(changeControl({ key: 'wea1mh', value: e.target.value }))}
         >
           {classData.weapons.mainHand.map((wea) => (
@@ -47,12 +48,13 @@ const WeaponSelect = () => {
         </Select>
       </FormControl>
 
-      <FormControl className={classes.formControl}>
+      <FormControl className={classes.formControl} variant="standard">
         <InputLabel id="demo-simple-select-label">1. Wea OH</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={wea1oh || ''}
+          variant="standard"
           onChange={(e) => dispatch(changeControl({ key: 'wea1oh', value: e.target.value }))}
         >
           {classData.weapons.offHand.map((wea) => (

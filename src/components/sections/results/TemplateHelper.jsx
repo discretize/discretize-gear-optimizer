@@ -81,6 +81,7 @@ const TemplateHelper = ({ character }) => {
               return (
                 <td key={key}>
                   <TextField
+                    variant="standard"
                     error={error}
                     value={inputText}
                     onChange={(e) => {
@@ -114,7 +115,7 @@ const TemplateHelper = ({ character }) => {
             {Object.values(values2).map((value, index) => (
               // eslint-disable-next-line react/no-array-index-key
               <td key={index}>
-                <TextField disabled value={value} />
+                <TextField disabled value={value} variant="standard" />
               </td>
             ))}
           </tr>

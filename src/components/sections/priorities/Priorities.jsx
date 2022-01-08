@@ -122,7 +122,7 @@ const Priorities = () => {
 
       <Grid item xs={12} sm={6}>
         <div className={classes.box}>
-          <FormControl className={classes.formControl}>
+          <FormControl className={classes.formControl} variant="standard">
             <InputLabel htmlFor="minBoon-input-with-icon-adornment">
               <Trans>Min.</Trans> <Attribute name="Boon Duration" disableLink />
             </InputLabel>
@@ -140,7 +140,7 @@ const Priorities = () => {
           />
         </div>
         <div className={classes.box}>
-          <FormControl className={classes.formControl}>
+          <FormControl className={classes.formControl} variant="standard">
             <InputLabel htmlFor="minHeal-input-with-icon-adornment">
               <Trans>Min.</Trans> <Attribute name="Healing Power" disableLink />
             </InputLabel>
@@ -160,7 +160,7 @@ const Priorities = () => {
       </Grid>
       <Grid item xs={12} sm={6}>
         <div className={classes.box}>
-          <FormControl className={classes.formControl}>
+          <FormControl className={classes.formControl} variant="standard">
             <InputLabel htmlFor="minToughness-input-with-icon-adornment">
               <Trans>Min.</Trans> <Attribute name="Toughness" disableLink />
             </InputLabel>
@@ -176,7 +176,7 @@ const Priorities = () => {
           <HelperIcon text={t('Only show results that fulfill a minimum amount of Toughness.')} />
         </div>
         <div className={classes.box}>
-          <FormControl className={classes.formControl}>
+          <FormControl className={classes.formControl} variant="standard">
             <InputLabel htmlFor="maxToughness-input-with-icon-adornment">
               <Trans>Max.</Trans> <Attribute name="Toughness" disableLink />
             </InputLabel>

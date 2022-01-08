@@ -149,7 +149,7 @@ const DamageDistribution = () => {
     return DISTRIBUTION_NAMES.map((dist, index) => (
       <Box display="flex" flexWrap="wrap" key={`distriNew_${dist.name}`}>
         <Box>
-          <FormControl className={classNames(classes.margin, classes.textbox)}>
+          <FormControl className={classNames(classes.margin, classes.textbox)} variant="standard">
             <InputLabel htmlFor={`input-with-icon-adornment-${index}`}>
               {dist.name === 'Power' ? (
                 <Attribute name="Power" text={t('Power Coefficient')} />

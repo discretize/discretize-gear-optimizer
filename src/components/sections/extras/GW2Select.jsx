@@ -30,7 +30,7 @@ const GW2Select = ({ name, label, modifierData, modifierDataById }) => {
   // return an array in the select: https://github.com/mui-org/material-ui/issues/16181
   // Fragments are not supported as children!
   return (
-    <FormControl sx={{ width: '100%' }}>
+    <FormControl sx={{ width: '100%' }} variant="standard">
       <InputLabel htmlFor={name}>{label}</InputLabel>
       <Select
         value={bigValue || ''}

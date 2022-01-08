@@ -74,6 +74,7 @@ const Traits = ({ data = [] }) => {
     return (
       <React.Fragment key={key}>
         <FormControl
+          variant="standard"
           sx={{
             minWidth: 210,
             margin: 1,
@@ -81,6 +82,7 @@ const Traits = ({ data = [] }) => {
         >
           <InputLabel id={`Traitline${lineNr}`}>{t('Traitline', { lineNr })}</InputLabel>
           <Select
+            label={t('Traitline', { lineNr })}
             labeldid={`Traitline${lineNr}`}
             value={traitlines[index]}
             input={<Input name={t(`Traitline`, { lineNr })} id={key} />}
