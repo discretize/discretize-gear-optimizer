@@ -87,7 +87,6 @@ const Navbar = ({
           label={t('Expert')}
         />
         <IconButton
-          color="secondary"
           href="https://github.com/discretize/discretize-gear-optimizer/tree/staging"
           target="_blank"
           rel="noopener"
