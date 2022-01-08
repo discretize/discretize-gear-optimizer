@@ -1,4 +1,6 @@
+import { Paper } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
+import React from 'react';
 
 export default createTheme({
   palette: {
@@ -102,6 +104,11 @@ export default createTheme({
     MuiMenu: {
       defaultProps: {
         elevation: 0,
+      },
+    },
+    MuiAutocomplete: {
+      defaultProps: {
+        PaperComponent: ({ children }) => <Paper elevation={0}>{children}</Paper>,
       },
     },
   },
