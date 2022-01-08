@@ -1,3 +1,4 @@
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
   Accordion,
   AccordionDetails,
@@ -6,7 +7,6 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import yaml from 'js-yaml';
 import React from 'react';

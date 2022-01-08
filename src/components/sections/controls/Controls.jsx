@@ -1,14 +1,14 @@
-import { Box, Button, Chip, FormControlLabel, Switch, Typography } from '@mui/material';
-import { makeStyles } from 'tss-react/mui';
+import { firstUppercase } from '@discretize/react-discretize-components';
 import Cancel from '@mui/icons-material/Cancel';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import ErrorIcon from '@mui/icons-material/Error';
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
+import { Box, Button, Chip, FormControlLabel, Switch, Typography } from '@mui/material';
 import classNames from 'classnames';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import { firstUppercase } from 'react-discretize-components';
 import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import { ABORTED, ERROR, RUNNING, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import {
   changeCompareByPercent,

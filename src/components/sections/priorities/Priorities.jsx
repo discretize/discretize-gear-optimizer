@@ -8,11 +8,11 @@ import {
   Radio,
   RadioGroup,
 } from '@mui/material';
-import { makeStyles } from 'tss-react/mui';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import { changePriority, getPriority } from '../../../state/slices/priorities';
 import { parsePriority } from '../../../utils/usefulFunctions';
 import HelperIcon from '../../baseComponents/HelperIcon';

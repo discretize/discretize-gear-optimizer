@@ -1,9 +1,9 @@
+import { firstUppercase } from '@discretize/react-discretize-components';
 import { Grid, TextField } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
-import { firstUppercase } from 'react-discretize-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { changeForcedSlot, getForcedSlots } from '../../../state/slices/forcedSlots';

@@ -1,4 +1,4 @@
-import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
+import { StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
 import withTheme from '@mui/styles/withTheme';
 import React from 'react';
 import gw2Styles from '../styles/gw2';

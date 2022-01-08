@@ -8,12 +8,12 @@ import {
   Slider,
   Typography,
 } from '@mui/material';
-import { makeStyles } from 'tss-react/mui';
 import classNames from 'classnames';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute as AttributeRaw, Condition as ConditionRaw } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import {
   changeAllDistributionsOld,
   changeDistributionNew,

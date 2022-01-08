@@ -1,10 +1,10 @@
 import { Chip } from '@mui/material';
-import { makeStyles } from 'tss-react/mui';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import { setBuildTemplate } from '../../state/slices/controlsSlice';
 import Profession from '../baseComponents/Profession';
 

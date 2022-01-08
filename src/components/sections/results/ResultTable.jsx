@@ -1,13 +1,13 @@
+import { TextDivider } from '@discretize/react-discretize-components';
 import { Box } from '@mui/material';
-import { makeStyles } from 'tss-react/mui';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import { TextDivider } from 'react-discretize-components';
 import { useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import {
   getCompareByPercent,
   getList,

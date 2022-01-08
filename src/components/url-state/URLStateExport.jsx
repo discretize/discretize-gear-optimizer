@@ -1,5 +1,5 @@
-import { IconButton } from '@mui/material';
 import ShareIcon from '@mui/icons-material/Share';
+import { IconButton } from '@mui/material';
 import axios from 'axios';
 import { Tooltip } from 'gw2-ui-bulk';
 import React from 'react';

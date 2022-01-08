@@ -1,3 +1,4 @@
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
   Accordion,
   AccordionDetails,
@@ -8,11 +9,10 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import { makeStyles } from 'tss-react/mui';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Trans } from 'gatsby-plugin-react-i18next';
 // import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';
+import { makeStyles } from 'tss-react/mui';
 import { scaleValue } from '../../../state/optimizer/optimizerCore';
 import { parseAmount } from '../../../utils/usefulFunctions';
 

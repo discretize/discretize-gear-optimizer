@@ -1,8 +1,8 @@
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
-import { makeStyles } from 'tss-react/mui';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import { Boon, Condition } from 'gw2-ui-bulk';
 import React from 'react';
+import { makeStyles } from 'tss-react/mui';
 import { damagingConditions } from '../../../utils/gw2-data';
 
 const useStyles = makeStyles()((theme) => ({

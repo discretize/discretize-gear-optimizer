@@ -1,6 +1,6 @@
-import { makeStyles } from 'tss-react/mui';
 import classNames from 'classnames';
 import React from 'react';
+import { makeStyles } from 'tss-react/mui';
 import withGw2Theme from '../../hocs/withGw2Theme';
 
 const useStyles = makeStyles()((theme) => ({

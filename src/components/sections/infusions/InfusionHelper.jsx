@@ -1,12 +1,12 @@
-import { Accordion, AccordionDetails, AccordionSummary, Slider, Typography } from '@mui/material';
-import { makeStyles } from 'tss-react/mui';
+import { TextDivider } from '@discretize/react-discretize-components';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Accordion, AccordionDetails, AccordionSummary, Slider, Typography } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import { Coin as CoinRaw, CommonEffect as CommonEffectRaw, Item as ItemRaw } from 'gw2-ui-bulk';
 import React from 'react';
-import { TextDivider } from 'react-discretize-components';
 import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import {
   changeAR,
   changeAttunement,

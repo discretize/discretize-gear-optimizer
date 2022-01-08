@@ -1,5 +1,4 @@
-import { InputAdornment, TextField } from '@mui/material';
-import { Autocomplete } from '@mui/material';
+import { Autocomplete, InputAdornment, TextField } from '@mui/material';
 import React from 'react';
 import { parseAmount } from '../../utils/usefulFunctions';
 

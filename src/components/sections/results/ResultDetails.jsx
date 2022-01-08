@@ -1,9 +1,9 @@
+import { Character, firstUppercase } from '@discretize/react-discretize-components';
 import { Grid } from '@mui/material';
 import { getImage } from 'gatsby-plugin-image';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import times from 'lodash/times';
 import React from 'react';
-import { Character, firstUppercase } from 'react-discretize-components';
 import { useSelector } from 'react-redux';
 import { extrasModifiersById } from '../../../assets/modifierdata';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';

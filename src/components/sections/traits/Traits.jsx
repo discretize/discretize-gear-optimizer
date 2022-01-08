@@ -1,14 +1,4 @@
-import {
-  Box,
-  FormControl,
-  Input,
-  InputLabel,
-  ListItemText,
-  MenuItem,
-  Select,
-  Typography,
-} from '@mui/material';
-import { makeStyles } from 'tss-react/mui';
+import { Box, FormControl, Input, InputLabel, MenuItem, Select, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Specialization, Trait, TraitLine } from 'gw2-ui-bulk';
 import React from 'react';

@@ -1,7 +1,7 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import { makeStyles } from 'tss-react/mui';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import { changeControl, getControl, getProfession } from '../../../state/slices/controlsSlice';
 import { Classes } from '../../../utils/gw2-data';
 
