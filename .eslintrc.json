@@ -11,6 +11,7 @@
     "plugin:jsdoc/recommended",
     "prettier"
   ],
+  "ignorePatterns": ["/plugins/*"],
   "rules": {
     // disabled or reduced
     "no-restricted-syntax": "off",
