@@ -66,16 +66,19 @@ const URLStateExport = () => {
     // setBuildUrl(data);
   }, []);
 
-  return <>
-    <Tooltip content="Copy sharable link to clipboard">
-      <IconButton
-        onClick={() => dispatch({ type: 'EXPORT_STATE', onSuccess: onExportSuccess })}
-        size="large">
-        <ShareIcon />
-      </IconButton>
-    </Tooltip>
-    <URLStateSnackbar state={snackbarState} setState={setSnackbarState} />
-  </>;
+  return (
+    <>
+      <Tooltip content="Copy sharable link to clipboard">
+        <IconButton
+          onClick={() => dispatch({ type: 'EXPORT_STATE', onSuccess: onExportSuccess })}
+          size="large"
+        >
+          <ShareIcon />
+        </IconButton>
+      </Tooltip>
+      <URLStateSnackbar state={snackbarState} setState={setSnackbarState} />
+    </>
+  );
 };
 
 export default URLStateExport;
