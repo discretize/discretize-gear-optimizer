@@ -85,7 +85,7 @@ const Traits = ({ data = [] }) => {
       <React.Fragment key={key}>
         <FormControl
           sx={{
-            minWidth: 160,
+            minWidth: 210,
             margin: 1,
           }}
         >

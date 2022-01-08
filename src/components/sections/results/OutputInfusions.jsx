@@ -13,7 +13,7 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 const OutputInfusions = ({ data }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <>

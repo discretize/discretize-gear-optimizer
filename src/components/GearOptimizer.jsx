@@ -1,6 +1,5 @@
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { Box, Grid, Typography } from '@mui/material';
-import { useTheme } from '@mui/system';
 import { graphql, StaticQuery } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';

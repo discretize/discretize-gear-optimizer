@@ -16,7 +16,7 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 const SpecialDurations = ({ data }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const cleanedData = Object.keys(data).filter(
     (damageType) =>

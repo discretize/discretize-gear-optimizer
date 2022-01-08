@@ -44,7 +44,7 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 const EmbossedCard = ({ className, title, specialization, children }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   return (
     <div className={classNames(classes.root, className)}>
       {(title || specialization) && <div className={classes.title}>{title || specialization}</div>}

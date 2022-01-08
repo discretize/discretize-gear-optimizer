@@ -28,7 +28,7 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 const Buffs = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const dispatch = useDispatch();
   const { t } = useTranslation();

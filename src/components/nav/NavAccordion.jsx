@@ -50,7 +50,7 @@ export default function NavAccordion({
   extrasPresets,
   traitPresets,
 }) {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const [expanded, setExpanded] = React.useState('');
   const dispatch = useDispatch();

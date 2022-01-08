@@ -118,7 +118,9 @@ const Boss = () => {
         useAutoComplete
         autoCompleteProps={{
           options: confusionOptions,
-          renderOption: (option) => `${option}: ${confusionOptionLabels[option]}`,
+          renderOption: (props, option) => (
+            <li {...props}>{`${option}: ${confusionOptionLabels[option]}`}</li>
+          ),
         }}
       />
       <Box mx={3}>

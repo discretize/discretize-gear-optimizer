@@ -38,7 +38,7 @@ const useStyles = makeStyles()((theme) => ({
 const roundTwo = (num) => Math.round(num * 100) / 100;
 
 const AppliedModifiers = ({ data }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <>

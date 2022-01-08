@@ -17,7 +17,7 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 const LanguageSelection = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { originalPath, language } = useI18next();
 
   return (

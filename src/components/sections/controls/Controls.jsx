@@ -48,7 +48,7 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 const ControlsBox = ({ profession }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const dispatch = useDispatch();
   const { t } = useTranslation();
 

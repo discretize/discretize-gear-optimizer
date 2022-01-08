@@ -57,7 +57,7 @@ const DISTRIBUTION_NAMES = [
 ];
 
 const DamageDistribution = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const dispatch = useDispatch();
   const version = useSelector(getDistributionVersion);

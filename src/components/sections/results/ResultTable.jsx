@@ -21,7 +21,7 @@ const useStyles = makeStyles()((theme) => ({
   container: {
     maxHeight: 440,
     borderColor: theme.palette.background.paper,
-    border: '1px solid',
+    border: '1px solid inherit',
   },
   tablehead: {
     backgroundColor: theme.palette.background.paper,
@@ -50,7 +50,7 @@ const mode = (array) => {
 };
 
 const StickyHeadTable = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const { t } = useTranslation();
   const selectedCharacter = useSelector(getSelectedCharacter);

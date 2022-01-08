@@ -14,7 +14,7 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 const OutputDistribution = ({ title, data }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <>

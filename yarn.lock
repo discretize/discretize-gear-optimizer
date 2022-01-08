@@ -10399,6 +10399,10 @@ react-dev-utils@^11.0.4:
     gw2-ui-components-bulk "^0.12.10"
     tss-react "^3.3.1"
 
+"react-discretize-components@link:/home/alex/Repositories/react-discretize-components":
+  version "0.0.0"
+  uid ""
+
 react-dom@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"

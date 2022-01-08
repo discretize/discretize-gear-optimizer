@@ -19,7 +19,7 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 const WeaponSelect = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);

@@ -36,7 +36,7 @@ const useStyles = makeStyles()((theme) => ({
 const OPTIMIZATION_GOALS = ['Damage', 'Survivability', 'Healing'];
 
 const Priorities = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation();
 
   const dispatch = useDispatch();

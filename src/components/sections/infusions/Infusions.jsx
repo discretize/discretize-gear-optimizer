@@ -45,7 +45,7 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 const Infusions = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -63,8 +63,9 @@ const Infusions = () => {
   const dropdown = (name, varName, infusion) => {
     return (
       <FormControl className={classes.formControl}>
-        <InputLabel htmlFor={name}>{name}</InputLabel>
+        <InputLabel id={`dropdown_${name}`}>{name}</InputLabel>
         <Select
+          labelId={`dropdown_${name}`}
           value={typeof infusion === 'undefined' ? '' : infusion.toString()}
           input={<Input name={name} id={name} />}
           onChange={(e) =>
@@ -136,7 +137,7 @@ const Infusions = () => {
             endLabel={<Attribute name="Agony Resistance" disableLink disableText />}
             autoCompleteProps={{
               options: arOptions,
-              renderOption: (option) => arOptionLabels[option],
+              renderOption: (props, option) => <li {...props}>{arOptionLabels[option]}</li>,
             }}
             value={ar}
           />

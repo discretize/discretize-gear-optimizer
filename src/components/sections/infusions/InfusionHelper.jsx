@@ -108,7 +108,7 @@ const useStyles = makeStyles()((theme) => ({
 
 const InfusionHelper = () => {
   const dispatch = useDispatch();
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const ar = parseAr(useSelector(getAR)).value;
   const maxInfusions = parseInfusionCount(useSelector(getMaxInfusions)).value;

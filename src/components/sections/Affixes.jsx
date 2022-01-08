@@ -21,7 +21,7 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 const Affixes = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const dispatch = useDispatch();
   const affixes = useSelector(getPriority('affixes'));
