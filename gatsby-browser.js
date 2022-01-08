@@ -1,9 +1,11 @@
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable import/prefer-default-export */
 import { Spinner, ThemeProvider as GW2UIThemeProvider } from 'gw2-ui-bulk';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import React from 'react';
-import baseTheme from './src/styles/baseTheme';
 import createStore from './src/state/createStore';
+import baseTheme from './src/styles/baseTheme';
 
 const { store, persistor } = createStore();
 
