@@ -193,6 +193,7 @@ const Navbar = ({
                 }
               }}
               variant={prof.profession === profession ? 'contained' : 'text'}
+              color="inherit"
               {...bindHover(popupState[index])}
             >
               <Profession

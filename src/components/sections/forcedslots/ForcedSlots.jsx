@@ -5,13 +5,21 @@ import { Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { firstUppercase } from 'react-discretize-components';
 import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import { changeForcedSlot, getForcedSlots } from '../../../state/slices/forcedSlots';
 import { getPriority } from '../../../state/slices/priorities';
 import { Affix, GEAR_SLOTS } from '../../../utils/gw2-data';
 
 const AFFIXES = Object.keys(Affix);
 
+const useStyles = makeStyles()((theme) => ({
+  text: {
+    color: '#ddd !important',
+  },
+}));
+
 const ForcedSlots = () => {
+  const classes = useStyles();
   const dispatch = useDispatch();
   const forcedSlots = useSelector(getForcedSlots);
   const dualWielded = useSelector(getPriority('weaponType'));
@@ -45,7 +53,7 @@ const ForcedSlots = () => {
                   // i18next-extract-mark-context-next-line {{affix}}
                   t('affix', { context: option })
                 }
-                style={{ color: '#ddd !important' }}
+                className={classes.text}
               />
             </li>
           )}

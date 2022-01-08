@@ -118,7 +118,7 @@ const ControlsBox = ({ profession }) => {
             classes={{ label: classes.label }}
             disabled={status === RUNNING || profession === ''}
           >
-            <ProgressIcon />
+            <ProgressIcon className={classNames(classes.icon)} />
             <Typography>
               <Trans>Calculate</Trans>
             </Typography>
