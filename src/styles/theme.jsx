@@ -2,7 +2,7 @@ import { Paper } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import React from 'react';
 
-export default createTheme({
+const theme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
@@ -48,6 +48,8 @@ export default createTheme({
       fontFamily: 'Raleway',
     },
   },
+});
+export default createTheme(theme, {
   components: {
     MuiTableBody: {
       styleOverrides: {
@@ -63,7 +65,7 @@ export default createTheme({
     MuiTableCell: {
       styleOverrides: {
         root: {
-          borderBottom: `1px solid #1e2124`,
+          borderBottom: `1px solid ${theme.palette.divider}`,
           'th&': {
             fontWeight: 700,
           },
@@ -97,8 +99,8 @@ export default createTheme({
       },
     },
     MuiAccordion: {
-      defaultProps: {
-        elevation: 0,
+      styleOverrides: {
+        root: { background: theme.palette.background.paper },
       },
     },
     MuiMenu: {
@@ -108,7 +110,11 @@ export default createTheme({
     },
     MuiAutocomplete: {
       defaultProps: {
-        PaperComponent: ({ children }) => <Paper elevation={0}>{children}</Paper>,
+        PaperComponent: ({ children }) => (
+          <Paper elevation={3} sx={{ background: theme.palette.background.paper }}>
+            {children}
+          </Paper>
+        ),
       },
     },
   },
