@@ -1,25 +1,13 @@
-import { firstUppercase } from '@discretize/react-discretize-components';
-import { Grid, TextField } from '@mui/material';
-import Autocomplete from '@mui/material/Autocomplete';
+import { Grid } from '@mui/material';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { makeStyles } from 'tss-react/mui';
 import { changeForcedSlot, getForcedSlots } from '../../../state/slices/forcedSlots';
 import { getPriority } from '../../../state/slices/priorities';
-import { Affix, GEAR_SLOTS } from '../../../utils/gw2-data';
-
-const AFFIXES = Object.keys(Affix);
-
-const useStyles = makeStyles()((theme) => ({
-  text: {
-    color: '#ddd !important',
-  },
-}));
+import { GEAR_SLOTS } from '../../../utils/gw2-data';
+import AffixesSelect from '../../baseComponents/AffixesSelect';
 
 const ForcedSlots = () => {
-  const classes = useStyles();
   const dispatch = useDispatch();
   const forcedSlots = useSelector(getForcedSlots);
   const dualWielded = useSelector(getPriority('weaponType'));
@@ -31,45 +19,16 @@ const ForcedSlots = () => {
   }
 
   const handleChange = (index) => (event, newInput) => {
-    dispatch(changeForcedSlot({ index, value: newInput }));
+    dispatch(changeForcedSlot({ index, value: newInput?.label || null }));
   };
 
   const input2 = (name, index, offset) => {
     return (
       <Grid item xs={6} md={2} sm={4} key={name}>
-        <Autocomplete
-          options={AFFIXES}
-          value={forcedSlots[index + offset]}
-          id={name}
-          clearOnEscape
+        <AffixesSelect
+          name={name}
           onChange={handleChange(index + offset)}
-          renderOption={(props, option) => (
-            <li {...props}>
-              <Item
-                stat={option}
-                type="Ring"
-                disableLink
-                text={
-                  // i18next-extract-mark-context-next-line {{affix}}
-                  t('affix', { context: option })
-                }
-                className={classes.text}
-              />
-            </li>
-          )}
-          getOptionLabel={(option) =>
-            // i18next-extract-mark-context-next-line {{affix}}
-            t('affix', { context: option })
-          }
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              variant="standard"
-              sx={{ marginTop: 0, marginBottom: 0 }}
-              label={firstUppercase(name)}
-              margin="dense"
-            />
-          )}
+          value={forcedSlots[index + offset]}
         />
       </Grid>
     );
