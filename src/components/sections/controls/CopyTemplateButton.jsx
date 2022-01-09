@@ -1,6 +1,5 @@
 /* eslint-disable id-length */
-import { Button, MenuItem, Select, Snackbar } from '@material-ui/core';
-import { Alert } from '@material-ui/lab';
+import { Alert, Button, MenuItem, Select, Snackbar } from '@mui/material';
 import { Icon } from 'gw2-ui-bulk';
 import React from 'react';
 import { useSelector } from 'react-redux';
@@ -65,13 +64,13 @@ const CopyTemplateButton = ({ extras: extrasIds, data, infusions, weight, runeId
           Copied to clipboard!
         </Alert>
       </Snackbar>
-      <Select value={w11} onChange={(e) => setw11(e.target.value)}>
+      <Select value={w11} onChange={(e) => setw11(e.target.value)} variant="standard">
         {React.Children.toArray(
           useableWeapons.mainHand.map((w) => <MenuItem value={w.name}>{w.name}</MenuItem>),
         )}
       </Select>
       {useableWeapons.mainHand.find((w) => w.name === w11)?.type !== 'two-handed' && (
-        <Select value={w12} onChange={(e) => setw12(e.target.value)}>
+        <Select value={w12} onChange={(e) => setw12(e.target.value)} variant="standard">
           {React.Children.toArray(
             useableWeapons.offHand.map((w) => <MenuItem value={w.name}>{w.name}</MenuItem>),
           )}
@@ -79,13 +78,13 @@ const CopyTemplateButton = ({ extras: extrasIds, data, infusions, weight, runeId
       )}
       <Icon name="WeaponSwap" />
 
-      <Select value={w21} onChange={(e) => setw21(e.target.value)}>
+      <Select value={w21} onChange={(e) => setw21(e.target.value)} variant="standard">
         {React.Children.toArray(
           useableWeapons.mainHand.map((w) => <MenuItem value={w.name}>{w.name}</MenuItem>),
         )}
       </Select>
       {useableWeapons.mainHand.find((w) => w.name === w21)?.type !== 'two-handed' && (
-        <Select value={w22} onChange={(e) => setw22(e.target.value)}>
+        <Select value={w22} onChange={(e) => setw22(e.target.value)} variant="standard">
           {React.Children.toArray(
             useableWeapons.offHand.map((w) => <MenuItem value={w.name}>{w.name}</MenuItem>),
           )}

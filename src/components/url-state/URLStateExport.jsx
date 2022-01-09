@@ -1,5 +1,5 @@
-import { IconButton } from '@material-ui/core';
-import ShareIcon from '@material-ui/icons/Share';
+import ShareIcon from '@mui/icons-material/Share';
+import { IconButton } from '@mui/material';
 import axios from 'axios';
 import { Tooltip } from 'gw2-ui-bulk';
 import React from 'react';
@@ -69,7 +69,10 @@ const URLStateExport = () => {
   return (
     <>
       <Tooltip content="Copy sharable link to clipboard">
-        <IconButton onClick={() => dispatch({ type: 'EXPORT_STATE', onSuccess: onExportSuccess })}>
+        <IconButton
+          onClick={() => dispatch({ type: 'EXPORT_STATE', onSuccess: onExportSuccess })}
+          size="large"
+        >
           <ShareIcon />
         </IconButton>
       </Tooltip>

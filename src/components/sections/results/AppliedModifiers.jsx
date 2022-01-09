@@ -1,22 +1,22 @@
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  makeStyles,
   Table,
   TableBody,
   TableCell,
   TableRow,
   Typography,
-} from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+} from '@mui/material';
 import { Trans } from 'gatsby-plugin-react-i18next';
 // import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';
+import { makeStyles } from 'tss-react/mui';
 import { scaleValue } from '../../../state/optimizer/optimizerCore';
 import { parseAmount } from '../../../utils/usefulFunctions';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     width: '100%',
   },
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 const roundTwo = (num) => Math.round(num * 100) / 100;
 
 const AppliedModifiers = ({ data }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <>

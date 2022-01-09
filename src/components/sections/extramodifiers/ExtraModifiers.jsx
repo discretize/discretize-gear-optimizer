@@ -1,3 +1,4 @@
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
   Accordion,
   AccordionDetails,
@@ -5,8 +6,7 @@ import {
   Grid,
   TextField,
   Typography,
-} from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+} from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import yaml from 'js-yaml';
 import React from 'react';
@@ -56,8 +56,10 @@ const ExtraModifiers = () => {
     <>
       <TextField
         label={t('Extra Modifiers')}
-        style={{
+        variant="standard"
+        sx={{
           width: '100%',
+          marginBottom: 1,
         }}
         multiline
         minRows={5}

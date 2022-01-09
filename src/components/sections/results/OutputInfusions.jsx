@@ -1,10 +1,11 @@
-import { makeStyles, Table, TableBody, TableCell, TableRow, Typography } from '@material-ui/core';
+import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import { Item } from 'gw2-ui-bulk';
 import React from 'react';
+import { makeStyles } from 'tss-react/mui';
 import { INFUSION_IDS } from '../../../utils/gw2-data';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   gw2Item: {
     fontSize: '20px',
     color: '#AAAAAA',
@@ -12,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const OutputInfusions = ({ data }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <>

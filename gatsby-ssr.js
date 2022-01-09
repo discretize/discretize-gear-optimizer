@@ -1,40 +1,20 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable react/jsx-filename-extension */
-
-import { Spinner } from 'gw2-ui-bulk';
+import { Spinner, ThemeProvider as GW2UIThemeProvider } from 'gw2-ui-bulk';
 import React from 'react';
-import { renderToString } from 'react-dom/server';
-import { JssProvider } from 'react-jss';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import createStore from './src/state/createStore';
-import getPageContext from './src/utils/getPageContext';
+import baseTheme from './src/styles/baseTheme';
 
-export const replaceRenderer = ({ bodyComponent, replaceBodyHTMLString, setHeadComponents }) => {
-  const { store, persistor } = createStore();
-  const { sheetsRegistry } = getPageContext();
+const { store, persistor } = createStore();
 
-  replaceBodyHTMLString(
-    renderToString(
-      <Provider store={store}>
-        {/* TODO fix redux-persist breaking template swapping <PersistGate loading={<Spinner />} persistor={persistor}> */}
-        <PersistGate loading={<Spinner />} persistor={persistor}>
-          <JssProvider registry={sheetsRegistry}>{bodyComponent}</JssProvider>
-        </PersistGate>
-        {/* </PersistGate> */}
-      </Provider>,
-    ),
+export const wrapRootElement = ({ element }) => {
+  return (
+    <Provider store={store}>
+      <PersistGate loading={<Spinner />} persistor={persistor}>
+        <GW2UIThemeProvider theme={baseTheme}>{element}</GW2UIThemeProvider>
+      </PersistGate>
+    </Provider>
   );
-
-  setHeadComponents([
-    <style
-      type="text/css"
-      id="jss-server-side"
-      key="jss-server-side"
-      // eslint-disable-next-line react/no-danger
-      dangerouslySetInnerHTML={{
-        __html: sheetsRegistry.toString(),
-      }}
-    />,
-  ]);
 };

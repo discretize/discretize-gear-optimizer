@@ -1,20 +1,10 @@
-import { Chip, makeStyles, TextField } from '@material-ui/core';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import classNames from 'classnames';
+import { Box, Chip, TextField, Typography } from '@mui/material';
+import Autocomplete from '@mui/material/Autocomplete';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getControl, getProfession } from '../../state/slices/controlsSlice';
 import Profession from './Profession';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    marginTop: theme.spacing(1),
-  },
-  templateChip: {
-    margin: theme.spacing(0.5),
-  },
-}));
 
 // this many chips are allowed before they will be put into a dropdown select
 const maxChipsDefault = 6;
@@ -26,7 +16,6 @@ const Presets = ({
   presetCategory,
   maxChips = maxChipsDefault,
 }) => {
-  const classes = useStyles();
   const { t } = useTranslation();
   const profession = useSelector(getProfession);
   const selectedTemplateName = useSelector(getControl('selectedTemplate'));
@@ -34,28 +23,31 @@ const Presets = ({
   const data = dataRaw.filter((entry) => !entry?.hidden);
 
   return (
-    <div className={classNames(className, classes.root)}>
+    <Box className={className} sx={{ marginTop: 1 }}>
       {data.length > maxChips ? (
         <Autocomplete
           key={`${selectedTemplateName || profession}-presets`}
-          id="presets"
           options={data}
           getOptionLabel={(preset) => preset.name}
           renderInput={(params) => <TextField {...params} label="Presets" variant="standard" />}
-          renderOption={(preset) =>
-            preset.profession ? (
-              <Profession
-                name={preset.profession}
-                text={
-                  // i18next-extract-mark-context-next-line {{presetName}}
-                  t(`preset`, { context: `${presetCategory}_${preset.name}` })
-                }
-              />
-            ) : (
-              // i18next-extract-mark-context-next-line {{presetName}}
-              t(`preset`, { context: `${presetCategory}_${preset.name}` })
-            )
-          }
+          renderOption={(props, preset) => (
+            <li {...props}>
+              {preset.profession ? (
+                <Profession
+                  name={preset.profession}
+                  text={
+                    // i18next-extract-mark-context-next-line {{presetName}}
+                    t(`preset`, { context: `${presetCategory}_${preset.name}` })
+                  }
+                />
+              ) : (
+                // i18next-extract-mark-context-next-line {{presetName}}
+                <Typography>
+                  {t(`preset`, { context: `${presetCategory}_${preset.name}` })}
+                </Typography>
+              )}
+            </li>
+          )}
           blurOnSelect
           disableClearable
           clearOnBlur={false}
@@ -82,11 +74,11 @@ const Presets = ({
             }
             variant="outlined"
             onClick={() => handleClick(preset)}
-            className={classes.templateChip}
+            sx={{ margin: 0.5 }}
           />
         ))
       )}
-    </div>
+    </Box>
   );
 };
 export default Presets;

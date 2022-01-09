@@ -1,5 +1,5 @@
-import { Box, Grid, makeStyles, Typography } from '@material-ui/core';
-import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import { Box, Grid, Typography } from '@mui/material';
 import { graphql, StaticQuery } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
@@ -20,16 +20,6 @@ import ResultTable from './sections/results/ResultTable';
 import SkillsSection from './sections/skills/SkillsSection';
 import TraitsSection from './sections/traits/TraitsSection';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    // adds padding on bigger (non smartphone) screens
-    [theme.breakpoints.up('sm')]: {
-      paddingLeft: 20,
-      paddingRight: 20,
-    },
-  },
-}));
-
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
  *
@@ -37,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
  */
 
 const MainComponent = ({ data }) => {
-  const classes = useStyles();
   // Query variables from redux store that should have a global scope
   const expertMode = useSelector(getControl('expertMode'));
   const profession = useSelector(getProfession);
@@ -48,7 +37,7 @@ const MainComponent = ({ data }) => {
   const classText = t('Select a build template from the menu above!');
 
   return (
-    <div className={classes.root}>
+    <Box sx={{ paddingLeft: { sm: 2 }, paddingRight: { sm: 2 } }}>
       <NavBar
         data={data.templates.list}
         buffPresets={data.presetBuffs.list}
@@ -59,7 +48,7 @@ const MainComponent = ({ data }) => {
       />
 
       {profession === '' && (
-        <Typography style={{ marginBottom: 8 }}>
+        <Typography sx={{ marginBottom: 1 }}>
           <ExpandLessIcon />
           <i>{expertMode ? classOrBuildText : classText}</i> <ExpandLessIcon />
         </Typography>
@@ -112,7 +101,7 @@ const MainComponent = ({ data }) => {
         <Box m={3} />
         <ResultDetails data={data} />
       </div>
-    </div>
+    </Box>
   );
 };
 

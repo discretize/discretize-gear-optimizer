@@ -1,13 +1,14 @@
-import { Chip, makeStyles } from '@material-ui/core';
-import MuiAccordion from '@material-ui/core/Accordion';
-import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
-import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
+import { Chip } from '@mui/material';
+import MuiAccordion from '@mui/material/Accordion';
+import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import { setBuildTemplate } from '../../state/slices/controlsSlice';
 import Profession from '../baseComponents/Profession';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   accordionRoot: {
     border: '1px solid rgba(0, 0, 0, .125)',
     boxShadow: 'none',
@@ -49,7 +50,7 @@ export default function NavAccordion({
   extrasPresets,
   traitPresets,
 }) {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const [expanded, setExpanded] = React.useState('');
   const dispatch = useDispatch();

@@ -1,12 +1,13 @@
-import { Box, makeStyles } from '@material-ui/core';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
+import { TextDivider } from '@discretize/react-discretize-components';
+import { Box } from '@mui/material';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import { TextDivider } from 'react-discretize-components';
 import { useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import {
   getCompareByPercent,
   getList,
@@ -16,14 +17,11 @@ import {
 import ResultTableHeaderRow from './ResultTableHeaderRow';
 import ResultTableRow from './ResultTableRow';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   container: {
     maxHeight: 440,
     borderColor: theme.palette.background.paper,
-    border: '1px solid',
-  },
-  pointer: {
-    cursor: 'pointer',
+    border: '1px solid inherit',
   },
   tablehead: {
     backgroundColor: theme.palette.background.paper,
@@ -33,9 +31,6 @@ const useStyles = makeStyles((theme) => ({
   },
   underline: {
     borderBottom: `5px solid ${theme.palette.divider}`,
-  },
-  marginTop: {
-    marginTop: 20,
   },
 }));
 
@@ -55,7 +50,7 @@ const mode = (array) => {
 };
 
 const StickyHeadTable = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const { t } = useTranslation();
   const selectedCharacter = useSelector(getSelectedCharacter);
@@ -77,7 +72,7 @@ const StickyHeadTable = () => {
 
   return (
     <>
-      <Box boxShadow={8}>
+      <Box boxShadow={8} mb={3}>
         <TableContainer className={classes.container}>
           <Table stickyHeader aria-label="sticky table" className={classes.tableCollapse}>
             <TableHead>
@@ -88,7 +83,11 @@ const StickyHeadTable = () => {
                 rankBy={rankBy}
               />
             </TableHead>
-            <TableBody className={classes.pointer}>
+            <TableBody
+              sx={{
+                cursor: 'pointer',
+              }}
+            >
               {/* {saved.length
               ? saved.map((character, i) => {
                   return (
@@ -145,7 +144,7 @@ const StickyHeadTable = () => {
 
       {saved.length ? (
         <>
-          <TextDivider text={t('Saved Results')} className={classes.marginTop} />
+          <TextDivider text={t('Saved Results')} />
           <Box boxShadow={8}>
             <TableContainer className={classes.container}>
               <Table
@@ -161,7 +160,11 @@ const StickyHeadTable = () => {
                     rankBy={rankBy}
                   />
                 </TableHead>
-                <TableBody className={classes.pointer}>
+                <TableBody
+                  sx={{
+                    cursor: 'pointer',
+                  }}
+                >
                   {saved.map((character, i) => {
                     return (
                       <ResultTableRow

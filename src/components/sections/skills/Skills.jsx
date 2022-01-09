@@ -1,4 +1,4 @@
-import { Box, makeStyles, Typography } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Skill } from 'gw2-ui-bulk';
 import React from 'react';
@@ -7,25 +7,7 @@ import { getSkills, setSkillAmount, toggleSkill } from '../../../state/slices/sk
 import AmountInput from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
-const useStyles = makeStyles((theme) => ({
-  text: {
-    color: '#ddd !important',
-  },
-  label: {
-    display: 'flex',
-  },
-  subText: {
-    fontWeight: 200,
-  },
-  skill: {
-    marginRight: theme.spacing(1),
-  },
-  checkbox: {},
-}));
-
 const Skills = ({ data }) => {
-  const classes = useStyles();
-
   const dispatch = useDispatch();
   const skillState = useSelector(getSkills);
 
@@ -53,19 +35,18 @@ const Skills = ({ data }) => {
           <CheckboxComponent
             value={id}
             checked={enabled}
-            className={classes.checkbox}
             label={
-              <div className={classes.label}>
-                <Skill id={gw2id} disableLink className={classes.skill} />
+              <Box display="flex">
+                <Skill id={gw2id} disableLink />
                 {subText && (
-                  <Typography className={classes.subText}>
+                  <Typography sx={{ fontWeight: 200, marginLeft: 1 }}>
                     {
                       // i18next-extract-mark-context-next-line {{skillSubText}}
                       t('skillSubText', { context: subText })
                     }
                   </Typography>
                 )}
-              </div>
+              </Box>
             }
             onChange={handleCheckboxChange(id)}
           />

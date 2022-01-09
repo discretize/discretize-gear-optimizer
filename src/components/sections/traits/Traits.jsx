@@ -1,14 +1,4 @@
-import {
-  Box,
-  FormControl,
-  Input,
-  InputLabel,
-  ListItemText,
-  makeStyles,
-  MenuItem,
-  Select,
-  Typography,
-} from '@material-ui/core';
+import { Box, FormControl, Input, InputLabel, MenuItem, Select, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Specialization, Trait, TraitLine } from 'gw2-ui-bulk';
 import React from 'react';
@@ -27,20 +17,11 @@ import {
 import AmountInput from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    minWidth: 120,
-    margin: theme.spacing(1),
-  },
-  item: { lineHeight: '1 !important' },
-}));
-
 /**
  * @param {object} props
  * @param {Array} props.data         Contains all the data regarding modifiers, ids and extra subtexts
  */
 const Traits = ({ data = [] }) => {
-  const classes = useStyles();
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -92,14 +73,22 @@ const Traits = ({ data = [] }) => {
     const key = `traitNr${lineNr}`;
     return (
       <React.Fragment key={key}>
-        <FormControl className={classes.formControl}>
-          <InputLabel htmlFor={key}>{t('Traitline', { lineNr })}</InputLabel>
+        <FormControl
+          variant="standard"
+          sx={{
+            minWidth: 210,
+            margin: 1,
+          }}
+        >
+          <InputLabel id={`Traitline${lineNr}`}>{t('Traitline', { lineNr })}</InputLabel>
           <Select
+            label={t('Traitline', { lineNr })}
+            labeldid={`Traitline${lineNr}`}
             value={traitlines[index]}
             input={<Input name={t(`Traitline`, { lineNr })} id={key} />}
             onChange={handleTraitlineChange(index)}
             renderValue={(selected) => (
-              <Specialization id={selected} disableLink className={classes.item} />
+              <Specialization id={selected} disableLink style={{ lineHeight: '1 !important' }} />
             )}
           >
             {data
@@ -108,8 +97,8 @@ const Traits = ({ data = [] }) => {
                 (tr) => !traitlines.includes(tr.toString()) || traitlines[index] === tr.toString(),
               )
               .map((id) => (
-                <MenuItem key={id} value={id} className={classes.menuItem}>
-                  <ListItemText primary={<Specialization id={id} disableLink />} />
+                <MenuItem key={id} value={id}>
+                  <Specialization id={id} disableLink />
                 </MenuItem>
               ))}
           </Select>
@@ -128,16 +117,18 @@ const Traits = ({ data = [] }) => {
           // minor traits that have an effect on the outcome of the optimization
           noCheckboxModis.length > 0 && (
             <div>
-              <Trans>Minors:</Trans>{' '}
-              {noCheckboxModis.map((itemData) => {
-                const { id, gw2id, subText } = itemData;
-                return (
-                  <React.Fragment key={id}>
-                    {gw2id && <Trait id={gw2id} disableLink />}{' '}
-                    <Typography variant="caption">{subText}</Typography>
-                  </React.Fragment>
-                );
-              })}{' '}
+              <Typography variant="caption">
+                <Trans>Minors:</Trans>{' '}
+                {noCheckboxModis.map((itemData) => {
+                  const { id, gw2id, subText } = itemData;
+                  return (
+                    <React.Fragment key={id}>
+                      {gw2id && <Trait id={gw2id} disableLink />}{' '}
+                      <Typography variant="caption">{subText}</Typography>
+                    </React.Fragment>
+                  );
+                })}
+              </Typography>
             </div>
           )
         }

@@ -1,21 +1,14 @@
-import {
-  Box,
-  Button,
-  Chip,
-  FormControlLabel,
-  makeStyles,
-  Switch,
-  Typography,
-} from '@material-ui/core';
-import Cancel from '@material-ui/icons/Cancel';
-import DoneAllIcon from '@material-ui/icons/DoneAll';
-import ErrorIcon from '@material-ui/icons/Error';
-import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
+import { firstUppercase } from '@discretize/react-discretize-components';
+import Cancel from '@mui/icons-material/Cancel';
+import DoneAllIcon from '@mui/icons-material/DoneAll';
+import ErrorIcon from '@mui/icons-material/Error';
+import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
+import { Box, Button, Chip, FormControlLabel, Switch, Typography } from '@mui/material';
 import classNames from 'classnames';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import { firstUppercase } from 'react-discretize-components';
 import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import { ABORTED, ERROR, RUNNING, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import {
   changeCompareByPercent,
@@ -29,7 +22,7 @@ import { getPriority } from '../../../state/slices/priorities';
 import ProgressIcon from '../../baseComponents/ProgressIcon';
 import URLStateExport from '../../url-state/URLStateExport';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   errorText: {
     color: 'red',
   },
@@ -55,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ControlsBox = ({ profession }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -125,7 +118,7 @@ const ControlsBox = ({ profession }) => {
             classes={{ label: classes.label }}
             disabled={status === RUNNING || profession === ''}
           >
-            <ProgressIcon />
+            <ProgressIcon className={classNames(classes.icon)} />
             <Typography>
               <Trans>Calculate</Trans>
             </Typography>

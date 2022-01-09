@@ -5,20 +5,20 @@ import {
   Grid,
   Input,
   InputLabel,
-  makeStyles,
   Radio,
   RadioGroup,
-} from '@material-ui/core';
+} from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import { changePriority, getPriority } from '../../../state/slices/priorities';
 import { parsePriority } from '../../../utils/usefulFunctions';
 import HelperIcon from '../../baseComponents/HelperIcon';
 import Affixes from '../Affixes';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   text: {
     color: '#ddd !important',
   },
@@ -31,15 +31,12 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     flexWrap: 'wrap',
   },
-  helper: {
-    fontSize: 10,
-  },
 }));
 
 const OPTIMIZATION_GOALS = ['Damage', 'Survivability', 'Healing'];
 
 const Priorities = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
@@ -125,7 +122,7 @@ const Priorities = () => {
 
       <Grid item xs={12} sm={6}>
         <div className={classes.box}>
-          <FormControl className={classes.formControl}>
+          <FormControl className={classes.formControl} variant="standard">
             <InputLabel htmlFor="minBoon-input-with-icon-adornment">
               <Trans>Min.</Trans> <Attribute name="Boon Duration" disableLink />
             </InputLabel>
@@ -143,7 +140,7 @@ const Priorities = () => {
           />
         </div>
         <div className={classes.box}>
-          <FormControl className={classes.formControl}>
+          <FormControl className={classes.formControl} variant="standard">
             <InputLabel htmlFor="minHeal-input-with-icon-adornment">
               <Trans>Min.</Trans> <Attribute name="Healing Power" disableLink />
             </InputLabel>
@@ -163,7 +160,7 @@ const Priorities = () => {
       </Grid>
       <Grid item xs={12} sm={6}>
         <div className={classes.box}>
-          <FormControl className={classes.formControl}>
+          <FormControl className={classes.formControl} variant="standard">
             <InputLabel htmlFor="minToughness-input-with-icon-adornment">
               <Trans>Min.</Trans> <Attribute name="Toughness" disableLink />
             </InputLabel>
@@ -179,7 +176,7 @@ const Priorities = () => {
           <HelperIcon text={t('Only show results that fulfill a minimum amount of Toughness.')} />
         </div>
         <div className={classes.box}>
-          <FormControl className={classes.formControl}>
+          <FormControl className={classes.formControl} variant="standard">
             <InputLabel htmlFor="maxToughness-input-with-icon-adornment">
               <Trans>Max.</Trans> <Attribute name="Toughness" disableLink />
             </InputLabel>

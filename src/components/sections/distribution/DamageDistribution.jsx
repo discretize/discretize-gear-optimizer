@@ -5,15 +5,15 @@ import {
   Input,
   InputAdornment,
   InputLabel,
-  makeStyles,
   Slider,
   Typography,
-} from '@material-ui/core';
+} from '@mui/material';
 import classNames from 'classnames';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute as AttributeRaw, Condition as ConditionRaw } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import {
   changeAllDistributionsOld,
   changeDistributionNew,
@@ -30,7 +30,7 @@ const Condition = React.memo(ConditionRaw);
 
 const roundOne = (num) => Math.round(num * 10) / 10;
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   textbox: {
     maxWidth: 195,
     marginBottom: theme.spacing(2),
@@ -57,7 +57,7 @@ const DISTRIBUTION_NAMES = [
 ];
 
 const DamageDistribution = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const dispatch = useDispatch();
   const version = useSelector(getDistributionVersion);
@@ -149,7 +149,7 @@ const DamageDistribution = () => {
     return DISTRIBUTION_NAMES.map((dist, index) => (
       <Box display="flex" flexWrap="wrap" key={`distriNew_${dist.name}`}>
         <Box>
-          <FormControl className={classNames(classes.margin, classes.textbox)}>
+          <FormControl className={classNames(classes.margin, classes.textbox)} variant="standard">
             <InputLabel htmlFor={`input-with-icon-adornment-${index}`}>
               {dist.name === 'Power' ? (
                 <Attribute name="Power" text={t('Power Coefficient')} />

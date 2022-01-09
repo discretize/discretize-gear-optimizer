@@ -1,20 +1,8 @@
-import { makeStyles, Table, TableBody, TableCell, TableRow, Typography } from '@material-ui/core';
+import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
 import { Attribute } from 'gw2-ui-bulk';
 import React from 'react';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-  },
-  gw2Item: {
-    fontSize: '20px',
-    color: '#AAAAAA',
-  },
-}));
-
 const AffixesStats = ({ data, title }) => {
-  const classes = useStyles();
-
   return (
     <>
       <Typography variant="h6">{title}</Typography>
@@ -23,7 +11,7 @@ const AffixesStats = ({ data, title }) => {
           {Object.keys(data).map((attribute) => (
             <TableRow hover key={attribute}>
               <TableCell>
-                <Attribute name={attribute} className={classes.gw2Item} />
+                <Attribute name={attribute} style={{ fontSize: '20px', color: '#AAAAAA' }} />
               </TableCell>
               <TableCell>{data[attribute]}</TableCell>
             </TableRow>

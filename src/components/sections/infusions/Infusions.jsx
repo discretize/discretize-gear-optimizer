@@ -1,16 +1,9 @@
-import {
-  FormControl,
-  Grid,
-  Input,
-  InputLabel,
-  makeStyles,
-  MenuItem,
-  Select,
-} from '@material-ui/core';
+import { FormControl, Grid, Input, InputLabel, MenuItem, Select } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute, Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import {
   changeAR,
   changeInfusion,
@@ -41,7 +34,7 @@ const arOptionLabels = {
 };
 const arOptions = Object.keys(arOptionLabels);
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   formControl: {
     width: 200,
     marginRight: theme.spacing(3),
@@ -49,11 +42,10 @@ const useStyles = makeStyles((theme) => ({
   formControl2: {
     width: 80,
   },
-  item: { lineHeight: '1 !important' },
 }));
 
 const Infusions = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -70,9 +62,10 @@ const Infusions = () => {
 
   const dropdown = (name, varName, infusion) => {
     return (
-      <FormControl className={classes.formControl}>
-        <InputLabel htmlFor={name}>{name}</InputLabel>
+      <FormControl className={classes.formControl} variant="standard">
+        <InputLabel id={`dropdown_${name}`}>{name}</InputLabel>
         <Select
+          labelId={`dropdown_${name}`}
           value={typeof infusion === 'undefined' ? '' : infusion.toString()}
           input={<Input name={name} id={name} />}
           onChange={(e) =>
@@ -83,9 +76,7 @@ const Infusions = () => {
               }),
             )
           }
-          renderValue={(value) => (
-            <Item id={INFUSION_IDS[value]} disableLink className={classes.item} />
-          )}
+          renderValue={(value) => <Item id={INFUSION_IDS[value]} disableLink />}
         >
           <MenuItem value="">{t('None')} </MenuItem>
           {Object.entries(INFUSION_IDS).map(([attribute, id]) => (
@@ -101,7 +92,7 @@ const Infusions = () => {
   const input = (name, varName, value, className) => {
     const { error } = parseInfusionCount(value);
     return (
-      <FormControl className={className}>
+      <FormControl className={className} variant="standard">
         <InputLabel htmlFor={`${varName}_input-with-icon-adornment`}>{name}</InputLabel>
         <Input
           id={`${varName}_input-with-icon-adornment`}
@@ -146,7 +137,7 @@ const Infusions = () => {
             endLabel={<Attribute name="Agony Resistance" disableLink disableText />}
             autoCompleteProps={{
               options: arOptions,
-              renderOption: (option) => arOptionLabels[option],
+              renderOption: (props, option) => <li {...props}>{arOptionLabels[option]}</li>,
             }}
             value={ar}
           />

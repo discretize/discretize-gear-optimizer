@@ -1,17 +1,10 @@
-import {
-  Box,
-  FormControl,
-  FormGroup,
-  FormLabel,
-  Grid,
-  makeStyles,
-  Typography,
-} from '@material-ui/core';
+import { firstUppercase } from '@discretize/react-discretize-components';
+import { Box, FormControl, FormGroup, FormLabel, Grid, Typography } from '@mui/material';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';
-import { firstUppercase } from 'react-discretize-components';
 import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import { buffModifiers } from '../../../assets/modifierdata';
 import {
   changeBuff,
@@ -22,7 +15,7 @@ import {
 import AmountInput from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   boon: {
     fontSize: 18,
   },
@@ -35,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Buffs = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const dispatch = useDispatch();
   const { t } = useTranslation();

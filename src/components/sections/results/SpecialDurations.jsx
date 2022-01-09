@@ -1,10 +1,11 @@
-import { makeStyles, Table, TableBody, TableCell, TableRow, Typography } from '@material-ui/core';
+import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import { Boon, Condition } from 'gw2-ui-bulk';
 import React from 'react';
+import { makeStyles } from 'tss-react/mui';
 import { damagingConditions } from '../../../utils/gw2-data';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     width: '100%',
   },
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SpecialDurations = ({ data }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const cleanedData = Object.keys(data).filter(
     (damageType) =>

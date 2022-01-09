@@ -1,26 +1,18 @@
-import { Link, makeStyles, Typography } from '@material-ui/core';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import MuiAlert from '@material-ui/lab/Alert';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import { Link, Typography } from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
 import { graphql } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import * as React from 'react';
 import LanguageSelection from '../components/baseComponents/LanguageSelection';
+import Layout from '../components/baseComponents/Layout';
 import GearOptimizer from '../components/GearOptimizer';
 import URLStateImport from '../components/url-state/URLStateImport';
-import withLayout from '../hocs/withLayout';
-
-const useStyles = makeStyles((theme) => ({
-  headline: {
-    paddingBottom: theme.spacing(2),
-  },
-}));
 
 // markup
 const IndexPage = () => {
-  const classes = useStyles();
-
   return (
-    <>
+    <Layout>
       <URLStateImport />
       <LanguageSelection />
       <MuiAlert elevation={6} variant="filled" severity="warning">
@@ -42,11 +34,11 @@ const IndexPage = () => {
         </Link>
         .
       </MuiAlert>
-      <Typography variant="h2" className={classes.headline}>
+      <Typography variant="h2" sx={{ paddingBottom: 2 }}>
         <Trans>Gear Optimizer</Trans>
       </Typography>
       <GearOptimizer />
-    </>
+    </Layout>
   );
 };
 export const query = graphql`
@@ -63,4 +55,4 @@ export const query = graphql`
   }
 `;
 
-export default withLayout({ disableContainer: false })(IndexPage);
+export default IndexPage;

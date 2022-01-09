@@ -1,18 +1,12 @@
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  makeStyles,
-  Slider,
-  Typography,
-} from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Alert from '@material-ui/lab/Alert';
+import { TextDivider } from '@discretize/react-discretize-components';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Accordion, AccordionDetails, AccordionSummary, Slider, Typography } from '@mui/material';
+import Alert from '@mui/material/Alert';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import { Coin as CoinRaw, CommonEffect as CommonEffectRaw, Item as ItemRaw } from 'gw2-ui-bulk';
 import React from 'react';
-import { TextDivider } from 'react-discretize-components';
 import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import {
   changeAR,
   changeAttunement,
@@ -100,13 +94,13 @@ const targetARMarks = [
   },
 ];
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   bigStyle: { fontSize: 17 },
   bigMargin: { marginBottom: 16 },
   sliderMargin: { marginBottom: 28 },
   sliderMark: {
     transform: 'translateX(-100%)',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('lg')]: {
       display: 'none',
     },
   },
@@ -114,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
 
 const InfusionHelper = () => {
   const dispatch = useDispatch();
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const ar = parseAr(useSelector(getAR)).value;
   const maxInfusions = parseInfusionCount(useSelector(getMaxInfusions)).value;
