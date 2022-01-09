@@ -72,7 +72,7 @@ const StickyHeadTable = () => {
 
   return (
     <>
-      <Box boxShadow={8}>
+      <Box boxShadow={8} mb={3}>
         <TableContainer className={classes.container}>
           <Table stickyHeader aria-label="sticky table" className={classes.tableCollapse}>
             <TableHead>
@@ -144,7 +144,7 @@ const StickyHeadTable = () => {
 
       {saved.length ? (
         <>
-          <TextDivider text={t('Saved Results')} style={{ marginTop: 20 }} />
+          <TextDivider text={t('Saved Results')} />
           <Box boxShadow={8}>
             <TableContainer className={classes.container}>
               <Table
