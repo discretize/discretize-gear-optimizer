@@ -13,7 +13,9 @@ const Layout = ({ children, ContainerProps, disableContainer = false }) => {
     <>
       {(!disableContainer && !isMobile && (
         <Container maxWidth="lg" {...ContainerProps}>
-          <Box sx={{ padding: 2, backgroundColor: '#2f3136', boxShadow: 5 }}>{children}</Box>
+          <Box sx={{ padding: 2, backgroundColor: 'background.default', boxShadow: 5 }}>
+            {children}
+          </Box>
         </Container>
       )) || <Box p={2}>{children}</Box>}
     </>

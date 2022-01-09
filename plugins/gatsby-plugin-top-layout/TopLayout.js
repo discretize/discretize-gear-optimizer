@@ -4,8 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
-import globals from '../../src/styles/globals';
-import theme from '../../src/styles/theme';
+import { muiTheme, globals } from '@discretize/react-discretize-components';
 
 export default function TopLayout(props) {
   return (
@@ -15,7 +14,7 @@ export default function TopLayout(props) {
       </Helmet>
       <Global styles={globals} />
 
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={muiTheme}>
         <CssBaseline />
         {props.children}
       </ThemeProvider>
