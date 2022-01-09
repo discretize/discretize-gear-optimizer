@@ -16,7 +16,7 @@ import { makeStyles } from 'tss-react/mui';
 import { changePriority, getPriority } from '../../../state/slices/priorities';
 import { parsePriority } from '../../../utils/usefulFunctions';
 import HelperIcon from '../../baseComponents/HelperIcon';
-import Affixes from '../Affixes';
+import AffixesSelect from '../../baseComponents/AffixesSelect';
 
 const useStyles = makeStyles()((theme) => ({
   text: {
@@ -46,6 +46,7 @@ const Priorities = () => {
   const minHealingPower = useSelector(getPriority('minHealingPower'));
   const minToughness = useSelector(getPriority('minToughness'));
   const maxToughness = useSelector(getPriority('maxToughness'));
+  const affixes = useSelector(getPriority('affixes'));
 
   const handleChange = (event) => {
     dispatch(changePriority({ key: event.target.name, value: event.target.value }));
@@ -117,7 +118,15 @@ const Priorities = () => {
       </Grid>
 
       <Grid item xs={12}>
-        <Affixes />
+        <AffixesSelect
+          multiple
+          onChange={(event, value) => {
+            dispatch(
+              changePriority({ key: 'affixes', value: value.map((option) => option.label) }),
+            );
+          }}
+          value={affixes}
+        />
       </Grid>
 
       <Grid item xs={12} sm={6}>
