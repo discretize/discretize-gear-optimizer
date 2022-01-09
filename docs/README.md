@@ -33,12 +33,12 @@ See the Projects tab of this repository for planned features and improvements an
 
 ## Technologies
 
-- [Gatsby v3](https://www.gatsbyjs.org/) as a static site builder
+- [Gatsby v4](https://www.gatsbyjs.org/) as a static site builder
 - [React](https://reactjs.org/)
 - [gw2-ui](https://github.com/ManuelHaag/gw2-ui) for beautiful Guild Wars 2 components and tooltips
 - [redux](https://github.com/reduxjs/redux) and
 - [redux-saga](https://github.com/redux-saga/redux-saga) to manage our state
-- [Material UI v4](https://material-ui.com/) and [JSS](http://cssinjs.org) for styling
+- [Material UI v5](https://material-ui.com/) and [emotion](https://emotion.sh/docs/introduction) for styling
 - [ESLint](https://github.com/eslint/eslint), [Prettier](https://github.com/prettier/prettier) and [EditorConfig](https://editorconfig.org/) for linting and formatting
 
 ## License
