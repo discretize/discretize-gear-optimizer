@@ -37,14 +37,7 @@
     "arrow-body-style": "off",
     "prefer-arrow-callback": "off",
 
-    "id-length": ["warn", { "exceptions": ["i", "j", "e", "t", "_"] }],
-
-    "no-restricted-imports": [
-      "error",
-      {
-        "patterns": ["@material-ui/*/*/*", "!@material-ui/core/test-utils/*"]
-      }
-    ]
+    "id-length": ["warn", { "exceptions": ["i", "j", "e", "t", "_"] }]
   },
   "overrides": [
     {
