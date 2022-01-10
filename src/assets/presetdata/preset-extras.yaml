@@ -75,7 +75,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: '[old] Virtuoso'
+  - name: '[beta] Virtuoso'
     profession: Virtuoso
     value: |-
       {

@@ -40,14 +40,14 @@ list:
         traits: Condi Chrono
         extras: Condi Chrono STM
 
-      - name: '[old] Virtuoso'
+      - name: '[beta] Virtuoso'
         id: pvirt
         specialization: Virtuoso
         boons: Power (spotter)
         priority: Power DPS
-        distribution: '[old] Virtuoso'
-        traits: '[old] Virtuoso'
-        extras: '[old] Virtuoso'
+        distribution: '[beta] Virtuoso'
+        traits: '[beta] Virtuoso'
+        extras: '[beta] Virtuoso'
 
   - class: Guardian
     builds:

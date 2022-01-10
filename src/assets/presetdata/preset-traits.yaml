@@ -242,7 +242,7 @@ list:
         }
       }
 
-  - name: '[old] Virtuoso'
+  - name: '[beta] Virtuoso'
     profession: Virtuoso
     traits: |-
       {
@@ -254,7 +254,7 @@ list:
         ],
         "selectedTraits": [
           [
-            682,
+            0,
             713,
             681
           ],
@@ -292,6 +292,9 @@ list:
           },
           {
             "mental-focus": {
+              "amount": ""
+            },
+            "deadly-blades": {
               "amount": ""
             },
             "sharpening-sorrow": true,
