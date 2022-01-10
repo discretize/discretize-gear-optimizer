@@ -75,7 +75,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: '[old] Virtuoso'
+  - name: '[beta] Virtuoso'
     profession: Virtuoso
     value: |-
       {
@@ -394,6 +394,17 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
+  - name: '[beta] Vindicator'
+    profession: Vindicator
+    value: |-
+      {
+        "Runes": "scholar",
+        "Sigil1": "force",
+        "Sigil2": "",
+        "Enhancement": "superior-sharpening-stone",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+      }
+
   - name: '[old] Condi Mechanist Thorns'
     profession: Mechanist
     value: |-
@@ -524,6 +535,17 @@ list:
         "Sigil2": "malice",
         "Enhancement": "master-tuning-crystal",
         "Nourishment": "rare-veggie-pizza"
+      }
+
+  - name: '[beta] DPS Specter'
+    profession: Specter
+    value: |-
+      {
+        "Runes": "tormenting",
+        "Sigil1": "",
+        "Sigil2": "",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "beef-rendang"
       }
 
   - name: '[old] DPS Specter'

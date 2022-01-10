@@ -40,14 +40,14 @@ list:
         traits: Condi Chrono
         extras: Condi Chrono STM
 
-      - name: '[old] Virtuoso'
+      - name: '[beta] Virtuoso'
         id: pvirt
         specialization: Virtuoso
         boons: Power (spotter)
         priority: Power DPS
-        distribution: '[old] Virtuoso'
-        traits: '[old] Virtuoso'
-        extras: '[old] Virtuoso'
+        distribution: '[beta] Virtuoso'
+        traits: '[beta] Virtuoso'
+        extras: '[beta] Virtuoso'
 
   - class: Guardian
     builds:
@@ -460,6 +460,15 @@ list:
         traits: Heal Ren
         extras: Heal
 
+      - name: '[beta] Vindicator'
+        id: vindi
+        specialization: Vindicator
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: '[beta] Vindicator Large'
+        traits: '[beta] Vindicator'
+        extras: '[beta] Vindicator'
+
   - class: Engineer
     builds:
 
@@ -631,14 +640,14 @@ list:
         traits: Rifle Deadeye
         extras: Power (Fractal)
 
-      - name: '[old] DPS Specter Sc/D'
+      - name: '[beta] DPS Specter Sc/D'
         id: specterdagger
         specialization: Specter
         boons: Condi
         priority: Condi DPS
-        distribution: '[old] DPS Specter Sc/D'
-        traits: '[old] DPS Specter Sc/D'
-        extras: '[old] DPS Specter'
+        distribution: '[beta] DPS Specter Sc/D'
+        traits: '[beta] DPS Specter Sc/D'
+        extras: '[beta] DPS Specter'
 
       - name: '[old] DPS Specter Endless Night'
         id: specterpistol
