@@ -1,19 +1,19 @@
+import { globals, muiTheme } from '@discretize/react-discretize-components';
 import { Global } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
-import { muiTheme, globals } from '@discretize/react-discretize-components';
 
-export default function TopLayout(props) {
+export default function TopLayout({ children }) {
   const title = 'Discretize - Gear Optimizer';
   const description =
     'The Gear Optimizer helps players of the MMORPG Guild Wars 2 to find the most optimal builds for their favourit content while respecting input parameters.';
   const url = process.env.GATSBY_SITE_URL;
 
   return (
-    <React.Fragment>
+    <>
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -35,9 +35,9 @@ export default function TopLayout(props) {
 
       <ThemeProvider theme={muiTheme}>
         <CssBaseline />
-        {props.children}
+        {children}
       </ThemeProvider>
-    </React.Fragment>
+    </>
   );
 }
 
