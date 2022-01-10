@@ -409,7 +409,7 @@ list:
 
   # https://www.youtube.com/watch?v=czIeKhJ0rQs
   # power: 36264, burn: 194, torment: 141, total: 36599
-  - name: '[Beta] Vindicator Large'
+  - name: '[beta] Vindicator Large'
     profession: Vindicator
     value: >-
       {

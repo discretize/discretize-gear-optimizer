@@ -394,7 +394,7 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
-  - name: '[Beta] Vindicator'
+  - name: '[beta] Vindicator'
     profession: Vindicator
     value: |-
       {
