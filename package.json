@@ -28,7 +28,7 @@
     "extractLocaleCMD": "babel --config-file ./babel-extract.config.js \"src/**/*.{js,jsx,ts,tsx}\" > NUL"
   },
   "dependencies": {
-    "@discretize/react-discretize-components": "link:/home/alex/Repositories/react-discretize-components",
+    "@discretize/react-discretize-components": "^2.0.1",
     "@emotion/react": "^11.7.1",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.6.0",
