@@ -394,6 +394,17 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
+  - name: '[Beta] Vindicator'
+    profession: Vindicator
+    value: |-
+      {
+        "Runes": "scholar",
+        "Sigil1": "force",
+        "Sigil2": "",
+        "Enhancement": "superior-sharpening-stone",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+      }
+
   - name: '[old] Condi Mechanist Thorns'
     profession: Mechanist
     value: |-

@@ -3346,6 +3346,82 @@ list:
         "skills": {}
       }
 
+  - name: '[Beta] Vindicator'
+    profession: Vindicator
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "15",
+          "3",
+          "69"
+        ],
+        "selectedTraits": [
+          [
+            1767,
+            1765,
+            1800
+          ],
+          [
+            1761,
+            1774,
+            1719
+          ],
+          [
+            2258,
+            2255,
+            2257
+          ]
+        ],
+        "items": [
+          {
+            "unsuspecting-strikes": {
+              "amount": ""
+            },
+            "destructive-impulses-base": true,
+            "destructive-impulses-dual": {
+              "amount": ""
+            },
+            "notoriety": {
+              "amount": ""
+            },
+            "targeted-destruction": {
+              "amount": ""
+            },
+            "swift-termination": {
+              "amount": ""
+            }
+          },
+          {
+            "rising-tide": {
+              "amount": ""
+            },
+            "ferocious-aggression": {
+              "amount": ""
+            },
+            "roiling-mists": true
+          },
+          {
+            "leviathan-strength": {
+              "amount": ""
+            },
+            "empire-divided-above": {
+              "amount": ""
+            },
+            "empire-divided-below": {
+              "amount": ""
+            },
+            "forerunner-of-death": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
   - name: Power Holo ECSU
     profession: Holosmith
     traits: |-

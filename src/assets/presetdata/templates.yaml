@@ -460,6 +460,15 @@ list:
         traits: Heal Ren
         extras: Heal
 
+      - name: '[Beta] Vindicator'
+        id: vindi
+        specialization: Vindicator
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: '[Beta] Vindicator Large'
+        traits: '[Beta] Vindicator'
+        extras: '[Beta] Vindicator'
+
   - class: Engineer
     builds:
 
