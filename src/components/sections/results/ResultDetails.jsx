@@ -1,7 +1,8 @@
-import { Grid, IconButton } from '@material-ui/core';
+import { Grid, IconButton, Typography } from '@material-ui/core';
 import ShareIcon from '@material-ui/icons/Share';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
+import { TextDivider } from 'react-discretize-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import AffixesStats from './AffixesStats';
@@ -41,10 +42,11 @@ const ResultDetails = ({ data }) => {
 
   return (
     <>
-      Open the sharing menu:
+      <TextDivider text="Result Character" />
+      Click to generate a share link for this build
       <BuildShareModal title="Build Share Settings" character={character}>
         {(handleOpen) => (
-          <IconButton onClick={() => handleOpen()}>
+          <IconButton onClick={() => handleOpen()} style={{ display: 'inline-block' }}>
             <ShareIcon />
           </IconButton>
         )}
