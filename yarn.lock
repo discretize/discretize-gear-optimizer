@@ -1092,9 +1092,12 @@
     "@babel/helper-validator-identifier" "^7.15.7"
     to-fast-properties "^2.0.0"
 
-"@discretize/object-compression@link:../static-object-compression":
-  version "0.0.0"
-  uid ""
+"@discretize/object-compression@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@discretize/object-compression/-/object-compression-1.0.1.tgz#d2b695b8043d58b4b4534cf5d2f40fb78d893fcf"
+  integrity sha512-2hjREY+ZIh/VB5MyZVf479No869H1Ia558Hs+3iji/PmMtA3QUqP7DtkhEHvH46XkclEcTt8Q5ELMJVCKhPPjA==
+  dependencies:
+    json-url "^3.0.0"
 
 "@emotion/babel-plugin@^11.3.0":
   version "11.3.0"
