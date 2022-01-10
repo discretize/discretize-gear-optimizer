@@ -2773,6 +2773,122 @@ list:
         "skills": {}
       }
 
+  - name: '[beta] Condi Untamed'
+    profession: Untamed
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "30",
+          "33",
+          "72"
+        ],
+        "selectedTraits": [
+          [
+            1069,
+            1846,
+            1912
+          ],
+          [
+            1099,
+            1101,
+            1701
+          ],
+          [
+            2297,
+            2263,
+            2271
+          ]
+        ],
+        "items": [
+          {
+            "hidden-barbs": true,
+            "hunters-tactics": true,
+            "light-on-your-feet": false,
+            "vicious-quarry": true
+          },
+          {
+            "oakheart-salve": true,
+            "taste-for-danger": true,
+            "ambidexterity": true,
+            "ambidexterity-2": {
+              "amount": ""
+            },
+            "poison-master": true
+          },
+          {
+            "natural-fortitude": true,
+            "vow-of-the-untamed-you": true,
+            "vow-of-the-untamed-pet": false,
+            "ferocious-symbiosis": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: '[beta] Power Untamed'
+    profession: Untamed
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "8",
+          "30",
+          "72"
+        ],
+        "selectedTraits": [
+          [
+            1014,
+            1000,
+            996
+          ],
+          [
+            1075,
+            1016,
+            1888
+          ],
+          [
+            2301,
+            2263,
+            2271
+          ]
+        ],
+        "items": [
+          {
+            "farsighted": true,
+            "farsighted-2": false,
+            "predators-onslaught": {
+              "amount": ""
+            }
+          },
+          {
+            "hidden-barbs": true,
+            "hunters-tactics": true,
+            "light-on-your-feet": false,
+            "vicious-quarry": true
+          },
+          {
+            "natural-fortitude": true,
+            "vow-of-the-untamed-you": true,
+            "vow-of-the-untamed-pet": false,
+            "ferocious-symbiosis": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-the-wild": true
+        }
+      }
+
   - name: Power Alac Ren
     profession: Renegade
     traits: |-
