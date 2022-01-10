@@ -1,4 +1,4 @@
-import { Box, Typography } from '@material-ui/core';
+import { Box, Divider, Typography } from '@material-ui/core';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Modal from '@material-ui/core/Modal';
@@ -55,7 +55,7 @@ const BuildShareModal = ({ children, title, character }) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <Box display="flex" justifyContent="space-between">
+            <Box display="flex" justifyContent="space-between" mb={1}>
               {title && (
                 <Box alignSelf="center">
                   <Typography>{title}</Typography>
@@ -66,6 +66,7 @@ const BuildShareModal = ({ children, title, character }) => {
                 <CloseIcon className={classes.closeIcon} onClick={() => setOpen(false)} />
               </Box>
             </Box>
+            <Divider />
 
             <ModalContent character={character} />
           </div>

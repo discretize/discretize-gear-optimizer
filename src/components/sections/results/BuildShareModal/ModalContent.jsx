@@ -1,5 +1,5 @@
 import { compress } from '@discretize/object-compression';
-import { Box, Button, makeStyles, MenuItem, Select } from '@material-ui/core';
+import { Box, Button, makeStyles, MenuItem, Select, Typography } from '@material-ui/core';
 import ShareIcon from '@material-ui/icons/Share';
 import axios from 'axios';
 import { Icon, Item, Skill } from 'gw2-ui-bulk';
@@ -52,7 +52,6 @@ export default function ModalContent({ character }) {
       if (e.target.name === 'mainhand1') dispatch(changeWeapon({ key: 'offhand1', value: '' }));
       if (e.target.name === 'mainhand2') dispatch(changeWeapon({ key: 'offhand2', value: '' }));
     }
-
     dispatch(changeWeapon({ key: e.target.name, value: e.target.value }));
   };
 
@@ -105,6 +104,7 @@ export default function ModalContent({ character }) {
 
   return (
     <>
+      <Typography>Select weapons:</Typography>
       <Box mb={1}>
         <Select
           value={mainhand1}
@@ -177,6 +177,8 @@ export default function ModalContent({ character }) {
         )}
       </Box>
 
+      <Typography>Select skills:</Typography>
+
       <Box mb={1}>
         {apiSkills && (
           <>
@@ -245,6 +247,7 @@ export default function ModalContent({ character }) {
             },
           };
           dispatch(changeCharacter(minimalCharacter));
+          console.log(weapons);
           const object = {
             character: minimalCharacter,
             skills,

@@ -25,16 +25,13 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(2),
   },
   traitlineText: {
-    writingMode: 'vertical-rl',
     textOrientation: 'mixed',
-    transform: 'rotate(180deg)',
     fontWeight: 250,
     textAlign: 'end',
     overflowWrap: 'break-word',
   },
   traitlineRoot: {
-    paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(1),
+    padding: theme.spacing(1),
     borderTopStyle: 'solid',
     borderColor: theme.palette.primary.main,
     position: 'absolute',

@@ -1092,10 +1092,9 @@
     "@babel/helper-validator-identifier" "^7.15.7"
     to-fast-properties "^2.0.0"
 
-"@discretize/object-compression@file:../static-object-compression":
-  version "1.0.0"
-  dependencies:
-    json-url "^3.0.0"
+"@discretize/object-compression@link:../static-object-compression":
+  version "0.0.0"
+  uid ""
 
 "@emotion/babel-plugin@^11.3.0":
   version "11.3.0"
