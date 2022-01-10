@@ -2,18 +2,20 @@ import { decompress } from '@discretize/object-compression';
 import { Box, makeStyles, Paper, Typography } from '@material-ui/core';
 import { graphql } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
-import { TraitLine } from 'gw2-ui-bulk';
+import { Boon, CommonEffect, Condition, Skill, Trait, TraitLine } from 'gw2-ui-bulk';
 import * as React from 'react';
-import { TextDivider } from 'react-discretize-components';
+import { firstUppercase, TextDivider } from 'react-discretize-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { StringParam, useQueryParam } from 'use-query-params';
-import { classModifiers } from '../../assets/modifierdata';
+import { classModifiers, buffModifiers } from '../../assets/modifierdata';
+import HelperIcon from '../../components/baseComponents/HelperIcon';
 import LanguageSelection from '../../components/baseComponents/LanguageSelection';
 import ResultCharacter from '../../components/sections/results/ResultCharacter';
 import { BuildPageSchema } from '../../components/url-state/BuildPageSchema';
 import withLayout from '../../hocs/withLayout';
 import {
   changeBuildPage,
+  getBuffs,
   getCharacter,
   getSkills,
   getTraits,
@@ -38,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 9999,
     maxHeight: 133,
   },
+  gw2component: {
+    fontSize: 20,
+  },
 }));
 
 // markup
@@ -50,6 +55,7 @@ const IndexPage = ({ data }) => {
   const weapons = useSelector(getWeapons);
   const skills = useSelector(getSkills);
   const { lines, selected } = useSelector(getTraits);
+  const buffs = useSelector(getBuffs);
 
   const [buildUrl] = useQueryParam('data', StringParam);
 
@@ -88,6 +94,55 @@ const IndexPage = ({ data }) => {
     );
   };
 
+  const AssumedBuffs = () => {
+    // filter buffs that are not applied
+    const appliedBuffs = buffModifiers
+      .flatMap((buff) => buff.items)
+      .filter((buff) => buffs[buff.id]);
+
+    return (
+      <>
+        {appliedBuffs.map(({ id, type, gw2id }) => {
+          switch (type) {
+            case 'Boon':
+              return (
+                <Boon
+                  name={firstUppercase(id)}
+                  disableText
+                  key={id}
+                  className={classes.gw2component}
+                />
+              );
+            case 'Condition':
+              return (
+                <Condition
+                  name={firstUppercase(id)}
+                  disableText
+                  key={id}
+                  className={classes.gw2component}
+                />
+              );
+            case 'Skill':
+              return <Skill id={gw2id} disableText key={id} className={classes.gw2component} />;
+            case 'Trait':
+              return <Trait id={gw2id} disableText key={id} className={classes.gw2component} />;
+            case 'CommonEffect':
+              return (
+                <CommonEffect
+                  name={firstUppercase(id)}
+                  disableText
+                  key={id}
+                  className={classes.gw2component}
+                />
+              );
+            default:
+              return null;
+          }
+        })}
+      </>
+    );
+  };
+
   return (
     <>
       <LanguageSelection />
@@ -96,6 +151,10 @@ const IndexPage = ({ data }) => {
       </Typography>
 
       <TextDivider text="Equipment" />
+      <Box display="flex" justifyContent="flex-end">
+        <HelperIcon text="Assumed buffs for this build" />
+        <AssumedBuffs />
+      </Box>
       {character && (
         <ResultCharacter data={data} character={character} weapons={weapons} skills={skills} />
       )}

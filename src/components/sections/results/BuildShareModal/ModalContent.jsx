@@ -16,6 +16,7 @@ import {
 import { Classes, WEAPONS } from '../../../../utils/gw2-data';
 import { BuildPageSchema } from '../../../url-state/BuildPageSchema';
 import { getTraitLines, getTraits } from '../../../../state/slices/traits';
+import { getBuffs } from '../../../../state/slices/buffs';
 
 const useStyles = makeStyles((theme) => ({
   weaponItem: {
@@ -41,6 +42,7 @@ export default function ModalContent({ character }) {
   const { healId, utility1Id, utility2Id, utility3Id, eliteId } = skills;
   const lines = useSelector(getTraitLines);
   const selected = useSelector(getTraits);
+  const buffs = useSelector(getBuffs);
 
   const [apiSkills, setApiSkills] = React.useState(null);
 
@@ -247,12 +249,47 @@ export default function ModalContent({ character }) {
             },
           };
           dispatch(changeCharacter(minimalCharacter));
-          console.log(weapons);
+
+          const c = (val) => (val ? '1' : '0');
+          const {
+            might,
+            fury,
+            protection,
+            vulnerability,
+            bannerOfStrength,
+            bannerOfDiscipline,
+            bannerOfTactics,
+            bannerOfDefense,
+            spotter,
+            frostSpirit,
+            empowerAllies,
+            pinpointDistribution,
+            assassinsPresence,
+            riteDwarf,
+            strengthInNumbers,
+            baneSignet,
+            signetOfJudgement,
+            signetOfMercy,
+            signetOfWrath,
+            exposed,
+          } = buffs;
+          const buffsString = `${c(might)}${c(fury)}${c(protection)}${c(vulnerability)}${c(
+            bannerOfStrength,
+          )}${c(bannerOfDiscipline)}${c(bannerOfTactics)}${c(bannerOfDefense)}${c(spotter)}${c(
+            frostSpirit,
+          )}${c(empowerAllies)}${c(pinpointDistribution)}${c(assassinsPresence)}${c(riteDwarf)}${c(
+            strengthInNumbers,
+          )}${c(baneSignet)}${c(signetOfJudgement)}${c(signetOfMercy)}${c(signetOfWrath)}${c(
+            exposed,
+          )}`;
+          const buffsInteger = parseInt(buffsString, 2);
+
           const object = {
             character: minimalCharacter,
             skills,
             traits: { lines, selected },
             weapons,
+            buffs: buffsInteger,
           };
 
           compress({

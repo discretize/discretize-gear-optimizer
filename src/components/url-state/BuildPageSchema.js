@@ -291,4 +291,5 @@ export const BuildPageSchema = {
     offhand1: null,
     offhand2: null,
   },
+  buffs: null,
 };
