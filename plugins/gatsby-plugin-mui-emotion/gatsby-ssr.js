@@ -1,13 +1,14 @@
-import * as React from 'react';
 import { CacheProvider } from '@emotion/react';
 import createEmotionServer from '@emotion/server/create-instance';
+import * as React from 'react';
 import { renderToString } from 'react-dom/server';
-import getEmotionCache, { getTssCache } from './getEmotionCache';
 import { TssCacheProvider } from 'tss-react';
+import getEmotionCache, { getTssCache } from './getEmotionCache';
 
 // Inject MUI styles first to match with the prepend: true configuration.
 export const onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }) => {
   const headComponents = getHeadComponents();
+  // eslint-disable-next-line id-length
   headComponents.sort((x, y) => {
     if (x.key === 'emotion-css-global' || x.key === 'emotion-css') {
       return -1;

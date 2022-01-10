@@ -15,8 +15,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { changePriority, getPriority } from '../../../state/slices/priorities';
 import { parsePriority } from '../../../utils/usefulFunctions';
-import HelperIcon from '../../baseComponents/HelperIcon';
 import AffixesSelect from '../../baseComponents/AffixesSelect';
+import HelperIcon from '../../baseComponents/HelperIcon';
 
 const useStyles = makeStyles()((theme) => ({
   text: {
