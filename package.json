@@ -76,6 +76,7 @@
     "axios": "^0.21.4",
     "babel-eslint": "^10.0.0",
     "babel-plugin-i18next-extract": "^0.8.3",
+    "babel-preset-gatsby": "^2.4.0",
     "eslint": "^7.5.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-prettier": "^8.3.0",
