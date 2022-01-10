@@ -537,6 +537,17 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
+  - name: '[beta] DPS Specter'
+    profession: Specter
+    value: |-
+      {
+        "Runes": "tormenting",
+        "Sigil1": "",
+        "Sigil2": "",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
   - name: '[old] DPS Specter'
     profession: Specter
     value: |-

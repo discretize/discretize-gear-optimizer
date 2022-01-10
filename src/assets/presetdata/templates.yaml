@@ -640,14 +640,14 @@ list:
         traits: Rifle Deadeye
         extras: Power (Fractal)
 
-      - name: '[old] DPS Specter Sc/D'
+      - name: '[beta] DPS Specter Sc/D'
         id: specterdagger
         specialization: Specter
         boons: Condi
         priority: Condi DPS
-        distribution: '[old] DPS Specter Sc/D'
-        traits: '[old] DPS Specter Sc/D'
-        extras: '[old] DPS Specter'
+        distribution: '[beta] DPS Specter Sc/D'
+        traits: '[beta] DPS Specter Sc/D'
+        extras: '[beta] DPS Specter'
 
       - name: '[old] DPS Specter Endless Night'
         id: specterpistol

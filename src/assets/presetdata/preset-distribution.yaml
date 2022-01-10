@@ -665,13 +665,13 @@ list:
         "values2": { "Power": 3421, "Burning": 0.5, "Bleeding": 0.4, "Poisoned": 1.8, "Torment": 0, "Confusion": 0 }
       }
 
-  # https://www.youtube.com/watch?v=rUZ7XCMvn1g
-  # power: 6927, burn: 753, bleed: 993, poison: 13618, torment: 21889, total: 44180
-  - name: '[old] DPS Specter Sc/D'
+  # https://www.youtube.com/watch?v=XvS81O4mg8A
+  # power: 6162, burn: 698, bleed: 1137, poison: 14783, torment: 20672, total: 43452
+  - name: '[beta] DPS Specter Sc/D'
     profession: Specter
     value: >-
       {
-        "values2": { "Power": 2342, "Burning": 0.6, "Bleeding": 2.2, "Poisoned": 18, "Torment": 22.9, "Confusion": 0 }
+        "values2": { "Power": 2111, "Burning": 0.55, "Bleeding": 2.7, "Poisoned": 20.68, "Torment": 22.67, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=QjDA4W3nYYM

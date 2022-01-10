@@ -4668,7 +4668,7 @@ list:
         }
       }
 
-  - name: '[old] DPS Specter Sc/D'
+  - name: '[beta] DPS Specter Sc/D'
     profession: Specter
     traits: |-
       {
@@ -4713,7 +4713,7 @@ list:
           {
             "preparedness": true,
             "lead-attacks": {
-              "amount": ""
+              "amount": "13.4"
             },
             "deadly-ambush": true
           },
