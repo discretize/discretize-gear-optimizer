@@ -250,39 +250,13 @@ export default function ModalContent({ character }) {
           };
           dispatch(changeCharacter(minimalCharacter));
 
-          const c = (val) => (val ? '1' : '0');
-          const {
-            might,
-            fury,
-            protection,
-            vulnerability,
-            bannerOfStrength,
-            bannerOfDiscipline,
-            bannerOfTactics,
-            bannerOfDefense,
-            spotter,
-            frostSpirit,
-            empowerAllies,
-            pinpointDistribution,
-            assassinsPresence,
-            riteDwarf,
-            strengthInNumbers,
-            baneSignet,
-            signetOfJudgement,
-            signetOfMercy,
-            signetOfWrath,
-            exposed,
-          } = buffs;
-          const buffsString = `${c(might)}${c(fury)}${c(protection)}${c(vulnerability)}${c(
-            bannerOfStrength,
-          )}${c(bannerOfDiscipline)}${c(bannerOfTactics)}${c(bannerOfDefense)}${c(spotter)}${c(
-            frostSpirit,
-          )}${c(empowerAllies)}${c(pinpointDistribution)}${c(assassinsPresence)}${c(riteDwarf)}${c(
-            strengthInNumbers,
-          )}${c(baneSignet)}${c(signetOfJudgement)}${c(signetOfMercy)}${c(signetOfWrath)}${c(
-            exposed,
-          )}`;
-          const buffsInteger = parseInt(buffsString, 2);
+          // create bit map for buffs
+          const conv = (val) => (val ? 1 : 0);
+          const buffsInteger = Object.keys(buffs).reduce(
+            // eslint-disable-next-line no-bitwise
+            (acc, curr) => (acc + conv(buffs[curr])) << 1,
+            conv(buffs[0]),
+          );
 
           const object = {
             character: minimalCharacter,

@@ -1,9 +1,9 @@
-import { Grid, IconButton, Typography } from '@material-ui/core';
+import { Grid, IconButton } from '@material-ui/core';
 import ShareIcon from '@material-ui/icons/Share';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { TextDivider } from 'react-discretize-components';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import AffixesStats from './AffixesStats';
 import AppliedModifiers from './AppliedModifiers';

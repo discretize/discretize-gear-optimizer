@@ -34,8 +34,12 @@ export const buildPageSlice = createSlice({
       state.skills[action.payload.key] = action.payload.value;
     },
     changeBuildPage: (state, action) => {
-      const buffBits = action.payload.buffs.toString(2);
-      // force the same order during compress
+      // convert integer to bitstring
+      const tempBits = action.payload.buffs.toString(2);
+      // pad zeros
+      const buffBits =
+        tempBits.length < 21 ? '0'.repeat(21 - tempBits.length) + tempBits : tempBits;
+      // force the same order during as it was during compression
       const buffsUnpacked = {};
       [
         'might',
@@ -58,8 +62,9 @@ export const buildPageSlice = createSlice({
         'signetOfMercy',
         'signetOfWrath',
         'exposed',
+        'lightArmor',
       ].forEach((buff, index) => {
-        buffsUnpacked[buff] = buffBits[index] !== '0';
+        buffsUnpacked[buff] = buffBits[index] === '1';
       });
 
       return { ...action.payload, buffs: buffsUnpacked };
