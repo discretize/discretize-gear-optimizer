@@ -13,7 +13,7 @@ import URLStateImport from '../components/url-state/URLStateImport';
 const IndexPage = () => {
   return (
     <Layout>
-      <URLStateImport />
+      <URLStateImport sagaType="IMPORT_STATE" clearUrlOnSuccess />
       <LanguageSelection />
       <MuiAlert elevation={6} variant="filled" severity="warning">
         <Trans>

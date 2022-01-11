@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { StringParam, useQueryParam } from 'use-query-params';
 import URLStateSnackbar from './URLStateSnackbar';
 
-const URLStateImport = () => {
+const URLStateImport = ({ sagaType, clearUrlOnSuccess }) => {
   const dispatch = useDispatch();
 
   // State for snackbar, which indicates the result of url load action
@@ -22,8 +22,11 @@ const URLStateImport = () => {
 
   // Sets the url back to the original state, in case the loading of the state was successful
   const onLoadSuccess = React.useCallback(() => {
-    setBuildUrl(undefined);
-    setVersionUrl(undefined);
+    if (clearUrlOnSuccess) {
+      setBuildUrl(undefined);
+      setVersionUrl(undefined);
+    }
+
     setSnackbarState((state) => ({
       ...state,
       open: true,
@@ -31,7 +34,7 @@ const URLStateImport = () => {
       message: 'Template successfully loaded!',
     }));
     // console.log('success');
-  }, [setBuildUrl, setVersionUrl]);
+  }, [clearUrlOnSuccess, setBuildUrl, setVersionUrl]);
 
   // Callback in case an error occurs when trying to load the state from the url
   const onLoadError = React.useCallback(() => {
@@ -47,10 +50,10 @@ const URLStateImport = () => {
   React.useEffect(() => {
     if (buildUrl) {
       console.log('Imported URL data:', buildUrl);
-      dispatch({ type: 'IMPORT_STATE', buildUrl, onSuccess: onLoadSuccess, onError: onLoadError });
+      dispatch({ type: sagaType, buildUrl, onSuccess: onLoadSuccess, onError: onLoadError });
     }
     return () => {};
-  }, [buildUrl, onLoadError, onLoadSuccess, dispatch]);
+  }, [buildUrl, onLoadError, onLoadSuccess, dispatch, sagaType]);
 
   return <URLStateSnackbar state={snackbarState} setState={setSnackbarState} />;
 };
