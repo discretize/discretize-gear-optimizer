@@ -94,7 +94,13 @@ const Boss = () => {
             autoCompleteProps={{ options: [] }}
           />
         </Box>
-        <Box mx={3} mb={4} flexGrow={1} alignSelf="center">
+        <Box
+          mx={3}
+          mb={4}
+          flexGrow={1}
+          alignSelf="center"
+          sx={{ minWidth: 200, md: { marginLeft: 2 } }}
+        >
           <Slider
             value={movementUptime}
             step={1}
@@ -128,7 +134,13 @@ const Boss = () => {
             }}
           />
         </Box>
-        <Box mx={3} mb={4} flexGrow={1} alignSelf="center">
+        <Box
+          mx={3}
+          mb={4}
+          flexGrow={1}
+          alignSelf="center"
+          sx={{ minWidth: 200, md: { marginLeft: 2 } }}
+        >
           <Slider
             value={attackRate}
             step={0.01}

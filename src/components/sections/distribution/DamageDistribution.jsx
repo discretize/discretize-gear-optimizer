@@ -33,7 +33,6 @@ const roundOne = (num) => Math.round(num * 10) / 10;
 const useStyles = makeStyles()((theme) => ({
   textbox: {
     maxWidth: 195,
-    marginBottom: theme.spacing(2),
   },
   slider: {
     margin: theme.spacing(2),
@@ -149,7 +148,7 @@ const DamageDistribution = () => {
     return DISTRIBUTION_NAMES.map((dist, index) => (
       <Box display="flex" flexWrap="wrap" key={`distriNew_${dist.name}`}>
         <Box>
-          <FormControl className={classNames(classes.margin, classes.textbox)} variant="standard">
+          <FormControl mb={1} className={classes.textbox} variant="standard">
             <InputLabel htmlFor={`input-with-icon-adornment-${index}`}>
               {dist.name === 'Power' ? (
                 <Attribute name="Power" text={t('Power Coefficient')} />
@@ -181,7 +180,13 @@ const DamageDistribution = () => {
             />
           </FormControl>
         </Box>
-        <Box flexGrow={1} alignSelf="center" ml={2}>
+        <Box
+          flexGrow={1}
+          alignSelf="center"
+          mx={3}
+          mb={4}
+          sx={{ minWidth: 200, md: { marginLeft: 2 } }}
+        >
           <Slider
             value={distributionNew[dist.name]}
             step={dist.step}
