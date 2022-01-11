@@ -50,7 +50,10 @@ export default function ModalContent({ character }) {
   const { weapons: useableWeapons } = Classes[profession];
 
   const handleChangeWeapon = (e) => {
-    if (useableWeapons.mainHand.find((w) => w.gw2id === e.target.value)?.type === 'two-handed') {
+    if (
+      useableWeapons.mainHand.find((weapon) => weapon.gw2id === e.target.value)?.type ===
+      'two-handed'
+    ) {
       if (e.target.name === 'mainhand1') dispatch(changeWeapon({ key: 'offhand1', value: '' }));
       if (e.target.name === 'mainhand2') dispatch(changeWeapon({ key: 'offhand2', value: '' }));
     }
@@ -123,7 +126,8 @@ export default function ModalContent({ character }) {
             )),
           )}
         </Select>
-        {useableWeapons.mainHand.find((w) => w.gw2id === mainhand1)?.type !== 'two-handed' && (
+        {useableWeapons.mainHand.find((weapon) => weapon.gw2id === mainhand1)?.type !==
+          'two-handed' && (
           <Select
             value={offhand1}
             name="offhand1"
@@ -160,7 +164,8 @@ export default function ModalContent({ character }) {
             )),
           )}
         </Select>
-        {useableWeapons.mainHand.find((w) => w.gw2id === mainhand2)?.type !== 'two-handed' && (
+        {useableWeapons.mainHand.find((weapon) => weapon.gw2id === mainhand2)?.type !==
+          'two-handed' && (
           <Select
             value={offhand2}
             name="offhand2"

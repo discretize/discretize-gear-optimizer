@@ -9,6 +9,7 @@ import URLStateSnackbar from './URLStateSnackbar';
 // hard coded temporarily!
 const version = 0;
 
+// eslint-disable-next-line no-unused-vars
 const URLStateExport = ({ type }) => {
   const dispatch = useDispatch();
 

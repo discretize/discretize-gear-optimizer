@@ -3,7 +3,7 @@ import JsonUrl from 'json-url';
 import { all, call, cancelled, put, race, select, take, takeLeading } from 'redux-saga/effects';
 import { parseBoss, parseInfusionCount, parsePriority } from '../../utils/usefulFunctions';
 import { getBuffsModifiers } from '../slices/buffs';
-import { changeBuildPage, changeCharacter } from '../slices/buildPage';
+import { changeBuildPage } from '../slices/buildPage';
 import {
   changeAll,
   changeControl,
