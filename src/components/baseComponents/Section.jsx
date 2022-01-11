@@ -8,7 +8,7 @@ const Section = ({ first, title, helpText, extraInfo, content }) => {
     <>
       <Typography variant="h5">{title}</Typography>
       {children && (
-        <Paper sx={{ marginTop: 0.5, marginBottom: 1 }} elevation={0}>
+        <Paper mt={0.5} mb={1} elevation={0}>
           <Box p={1}>
             <div>
               <LiveHelpIcon />
@@ -21,7 +21,7 @@ const Section = ({ first, title, helpText, extraInfo, content }) => {
   );
 
   return (
-    <Grid item container spacing={2} sx={{ marginBottom: 2, borderColor: 'primary.main' }}>
+    <Grid item container spacing={2} mb={2} sx={{ borderColor: 'primary.main' }}>
       {!first && (
         <Grid item xs={12}>
           <Divider />

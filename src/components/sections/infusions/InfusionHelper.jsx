@@ -1,6 +1,13 @@
 import { TextDivider } from '@discretize/react-discretize-components';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Accordion, AccordionDetails, AccordionSummary, Slider, Typography } from '@mui/material';
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Box,
+  Slider,
+  Typography,
+} from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import { Coin as CoinRaw, CommonEffect as CommonEffectRaw, Item as ItemRaw } from 'gw2-ui-bulk';
@@ -96,8 +103,6 @@ const targetARMarks = [
 
 const useStyles = makeStyles()((theme) => ({
   bigStyle: { fontSize: 17 },
-  bigMargin: { marginBottom: 16 },
-  sliderMargin: { marginBottom: 28 },
   sliderMark: {
     transform: 'translateX(-100%)',
     [theme.breakpoints.down('lg')]: {
@@ -172,7 +177,7 @@ const InfusionHelper = () => {
           valueLabelDisplay="auto"
           onChange={handleImpedenceChange}
           classes={{ markLabel: classes.sliderMark }}
-          className={classes.sliderMargin}
+          mb={3.5}
         />
         <Slider
           value={attunement}
@@ -183,7 +188,7 @@ const InfusionHelper = () => {
           valueLabelDisplay="auto"
           onChange={handleAttunementChange}
           classes={{ markLabel: classes.sliderMark }}
-          className={classes.sliderMargin}
+          mb={3.5}
         />
 
         <CheckboxComponent
@@ -198,20 +203,20 @@ const InfusionHelper = () => {
           }
           onChange={(e) => dispatch(changeSingularity(e.target.checked))}
         />
-
-        <CheckboxComponent
-          value={tear}
-          checked={tear}
-          label={
-            <Typography variant="body2">
-              <Trans>
-                +15 AR from <Item id={70596} /> w/ mastery
-              </Trans>
-            </Typography>
-          }
-          onChange={(e) => dispatch(changeTear(e.target.checked))}
-          className={classes.bigMargin}
-        />
+        <Box mb={2}>
+          <CheckboxComponent
+            value={tear}
+            checked={tear}
+            label={
+              <Typography variant="body2">
+                <Trans>
+                  +15 AR from <Item id={70596} /> w/ mastery
+                </Trans>
+              </Typography>
+            }
+            onChange={(e) => dispatch(changeTear(e.target.checked))}
+          />
+        </Box>
 
         <Typography id="target-ar">
           <Trans>Target AR</Trans>
@@ -232,6 +237,7 @@ const InfusionHelper = () => {
         </Typography>
         <Slider
           value={maxInfusions}
+          mb={2}
           step={1}
           min={0}
           max={18}
@@ -239,7 +245,6 @@ const InfusionHelper = () => {
           valueLabelDisplay="auto"
           onChange={handleMaxInfusionsChange}
           aria-labelledby="total-infusion-slots"
-          className={classes.bigMargin}
         />
 
         <Typography id="total-infusion-slots">
@@ -255,18 +260,18 @@ const InfusionHelper = () => {
           onChange={handleSlotsChange}
           aria-labelledby="total-infusion-slots"
         />
-
-        <CheckboxComponent
-          value={freeWvW}
-          checked={freeWvW}
-          label={
-            <Typography variant="body2">
-              <Trans>Enable free WvW stat infusions</Trans>
-            </Typography>
-          }
-          onChange={(e) => dispatch(changeFreeWvW(e.target.checked))}
-          className={classes.bigMargin}
-        />
+        <Box mb={2}>
+          <CheckboxComponent
+            value={freeWvW}
+            checked={freeWvW}
+            label={
+              <Typography variant="body2">
+                <Trans>Enable free WvW stat infusions</Trans>
+              </Typography>
+            }
+            onChange={(e) => dispatch(changeFreeWvW(e.target.checked))}
+          />
+        </Box>
 
         {maxRequiredMatrix ? (
           <>
@@ -277,6 +282,7 @@ const InfusionHelper = () => {
             </Typography>
             <Slider
               value={ownedMatrix}
+              mb={2}
               step={5}
               min={0}
               max={360}
@@ -288,7 +294,6 @@ const InfusionHelper = () => {
               ]}
               valueLabelDisplay="auto"
               onChange={handleOwnedMatrixChange}
-              className={classes.bigMargin}
               aria-labelledby="owned-matrix"
             />
           </>

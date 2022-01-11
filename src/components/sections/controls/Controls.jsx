@@ -35,12 +35,6 @@ const useStyles = makeStyles()((theme) => ({
   icon: {
     fontSize: 40,
   },
-  containerItem: {
-    // borderBottom: `3px solid ${theme.palette.primary.dark}`,
-    marginBottom: theme.spacing(2),
-    // borderRadius: 20,
-    borderColor: theme.palette.primary.main,
-  },
   chipIcon: { marginBottom: '-6px !important' },
   comparisonLabel: {
     fontSize: '1rem',

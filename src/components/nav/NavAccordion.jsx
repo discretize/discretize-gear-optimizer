@@ -1,4 +1,4 @@
-import { Chip } from '@mui/material';
+import { Box, Chip } from '@mui/material';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
@@ -76,7 +76,7 @@ export default function NavAccordion({
       </MuiAccordionSummary>
       <MuiAccordionDetails classes={{ root: classes.accordionDetailsRoot }}>
         {prof.builds.map((build) => (
-          <div style={{ marginBottom: 8 }} key={`templateBuildMobile_${build.name}`}>
+          <Box mb={1} key={`templateBuildMobile_${build.name}`}>
             <Chip
               variant="outlined"
               label={<Profession name={build.specialization} text={build.name} />}
@@ -110,7 +110,7 @@ export default function NavAccordion({
                 );
               }}
             />
-          </div>
+          </Box>
         ))}
       </MuiAccordionDetails>
     </MuiAccordion>
