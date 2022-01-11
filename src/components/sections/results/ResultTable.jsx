@@ -22,9 +22,6 @@ const useStyles = makeStyles((theme) => ({
     borderColor: theme.palette.background.paper,
     border: '1px solid',
   },
-  pointer: {
-    cursor: 'pointer',
-  },
   tablehead: {
     backgroundColor: theme.palette.background.paper,
   },
@@ -88,7 +85,7 @@ const StickyHeadTable = () => {
                 rankBy={rankBy}
               />
             </TableHead>
-            <TableBody className={classes.pointer}>
+            <TableBody>
               {/* {saved.length
               ? saved.map((character, i) => {
                   return (

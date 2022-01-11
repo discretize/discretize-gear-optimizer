@@ -34,6 +34,9 @@ const ResultTableRow = ({
   const dispatch = useDispatch();
   const classes = useStyles();
 
+  // disable selection if this is true (character data has been removed due to URL export limitations)
+  const { disableSelection } = character;
+
   const { value } = character.results;
   const comparisonValue = selectedValue ? value - selectedValue : 0;
 
@@ -46,21 +49,30 @@ const ResultTableRow = ({
       }`
     : '';
 
+  const style = {
+    ...(selected ? { backgroundColor: 'rgba(0, 204, 204, 0.2)' } : null),
+    ...(!disableSelection ? { cursor: 'pointer' } : { opacity: 0.7 }),
+  };
+
   return (
     <TableRow
       selected={selected}
-      style={selected ? { backgroundColor: 'rgba(0, 204, 204, 0.2)' } : null}
-      onClick={(e) => dispatch(changeSelectedCharacter(character))}
+      style={style}
+      onClick={disableSelection ? null : (e) => dispatch(changeSelectedCharacter(character))}
       hover
       className={underlineClass}
     >
       <TableCell scope="row" align="center" padding="none">
         <StarRoundedIcon
           className={saved ? classes.selectedStar : classes.unselectedStar}
-          onClick={(e) => {
-            dispatch(toggleSaved(character));
-            e.stopPropagation();
-          }}
+          onClick={
+            disableSelection
+              ? null
+              : (e) => {
+                  dispatch(toggleSaved(character));
+                  e.stopPropagation();
+                }
+          }
         />
       </TableCell>
       <TableCell scope="row">

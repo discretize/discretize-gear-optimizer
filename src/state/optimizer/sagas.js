@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import equal from 'fast-deep-equal';
 import JsonUrl from 'json-url';
 import { all, call, cancelled, put, race, select, take, takeLeading } from 'redux-saga/effects';
 import { parseBoss, parseInfusionCount, parsePriority } from '../../utils/usefulFunctions';
@@ -239,9 +240,38 @@ function* watchStart() {
 
 const lib = JsonUrl('lzma');
 
+// const removeAppliedModifiers = list => list.map((character) => ({
+//   ...character,
+//   settings: { ...character.settings, appliedModifiers: [] },
+// }));
+
+// removes all data from a character except that needed to display it as a table row
+const minimal = (character) => {
+  const {
+    id,
+    gear,
+    infusions,
+    results: { value },
+  } = character;
+  return { id, gear, infusions, results: { value }, disableSelection: true };
+};
+
+// remove data from all list entries unless they are the selected character or first entry
+const simplifyList = (list, selectedCharacter) =>
+  list.map((character, i) => {
+    if (i !== 0 && character !== selectedCharacter) {
+      return minimal(character);
+    }
+    return character;
+  });
+
 const modifyState = (optimizerState) => {
-  // const list = optimizerState?.control?.list.slice(0, 6) || [];
-  // let modifiedList = list;
+  const selectedCharacter = optimizerState?.control?.selectedCharacter;
+  const list = optimizerState?.control?.list || [];
+  // const saved = optimizerState?.control?.saved || [];
+
+  const modifiedList = simplifyList(list, selectedCharacter);
+  // const modifiedSaved = removeAppliedModifiers(saved);
 
   // // extract settings object from characters (should be identical)
   // let listSettings = null;
@@ -260,15 +290,25 @@ const modifyState = (optimizerState) => {
       ...optimizerState,
       control: {
         ...optimizerState.control,
-        list: [],
-        saved: [],
-        selectedCharacter: null,
+        list: modifiedList,
+        // saved: modifiedSaved,
       },
     },
   };
 
   return exportData;
 };
+
+// ensures that references to the selected character are the same object and can be identified with ===
+const fixSelectedCharacter = (list, selectedCharacter) =>
+  list.map((character) => {
+    if (equal(character, selectedCharacter)) {
+      console.log('equal!');
+      return selectedCharacter;
+    }
+    console.log('nope');
+    return character;
+  });
 
 const unModifyState = (importData) => {
   // eslint-disable-next-line no-unused-vars
@@ -281,6 +321,16 @@ const unModifyState = (importData) => {
   //     settings: listSettings,
   //   }));
   // }
+
+  // fix selected character not being === equal to itself
+  if (Array.isArray(optimizerState?.control?.list) && optimizerState?.control?.selectedCharacter) {
+    const { list, selectedCharacter } = optimizerState.control;
+    optimizerState.control.list = fixSelectedCharacter(list, selectedCharacter);
+  }
+  if (Array.isArray(optimizerState?.control?.saved) && optimizerState?.control?.selectedCharacter) {
+    const { saved, selectedCharacter } = optimizerState.control;
+    optimizerState.control.saved = fixSelectedCharacter(saved, selectedCharacter);
+  }
 
   return optimizerState;
 };
