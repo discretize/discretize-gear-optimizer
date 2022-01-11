@@ -3,6 +3,7 @@ import { firstUppercase, NoSelection } from '@discretize/react-discretize-compon
 import ShareIcon from '@mui/icons-material/Share';
 import { Box, Button, MenuItem, Select, Typography } from '@mui/material';
 import axios from 'axios';
+import { withPrefix } from 'gatsby';
 import { Icon, Item, Skill } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -281,7 +282,7 @@ export default function ModalContent({ character }) {
             object,
             schema: BuildPageSchema,
             onSuccess: (result) => {
-              windRef.location.href = `/build?data=${result}`;
+              windRef.location.href = withPrefix(`/build?data=${result}`);
             },
           });
           /*
