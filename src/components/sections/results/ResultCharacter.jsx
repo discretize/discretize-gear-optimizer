@@ -1,7 +1,7 @@
 import { getImage } from 'gatsby-plugin-image';
 import times from 'lodash/times';
 import React from 'react';
-import { Character, firstUppercase } from 'react-discretize-components';
+import { Character, firstUppercase } from '@discretize/react-discretize-components';
 import { extrasModifiersById } from '../../../assets/modifierdata';
 import { Classes, Defense, INFUSION_IDS } from '../../../utils/gw2-data';
 import { resolveArmor, resolveBackAndTrinkets } from '../../../utils/map-gw2-ids';

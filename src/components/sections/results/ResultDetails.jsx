@@ -1,7 +1,6 @@
+import { TextDivider } from '@discretize/react-discretize-components';
 import ShareIcon from '@mui/icons-material/Share';
-import { Character, firstUppercase, TextDivider } from '@discretize/react-discretize-components';
 import { Grid, IconButton } from '@mui/material';
-import { getImage } from 'gatsby-plugin-image';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector } from 'react-redux';

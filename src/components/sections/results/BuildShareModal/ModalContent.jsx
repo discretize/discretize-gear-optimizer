@@ -1,11 +1,12 @@
 import { compress } from '@discretize/object-compression';
-import { Box, Button, makeStyles, MenuItem, Select, Typography } from '@material-ui/core';
-import ShareIcon from '@material-ui/icons/Share';
+import { firstUppercase, NoSelection } from '@discretize/react-discretize-components';
+import ShareIcon from '@mui/icons-material/Share';
+import { Box, Button, MenuItem, Select, Typography } from '@mui/material';
 import axios from 'axios';
 import { Icon, Item, Skill } from 'gw2-ui-bulk';
 import React from 'react';
-import { firstUppercase, NoSelection } from 'react-discretize-components';
 import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import { getBuffs } from '../../../../state/slices/buffs';
 import {
   changeCharacter,
@@ -18,7 +19,7 @@ import { getTraitLines, getTraits } from '../../../../state/slices/traits';
 import { Classes, WEAPONS } from '../../../../utils/gw2-data';
 import { BuildPageSchema } from '../../../url-state/BuildPageSchema';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   weaponItem: {
     marginRight: theme.spacing(1),
   },
@@ -35,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ModalContent({ character }) {
   const dispatch = useDispatch();
-  const classes = useStyles();
+  const { classes } = useStyles();
   const weapons = useSelector(getWeapons);
   const { mainhand1, mainhand2, offhand1, offhand2 } = weapons;
   const skills = useSelector(getSkills);
@@ -77,6 +78,7 @@ export default function ModalContent({ character }) {
   function SkillSelect(name, value, skillList) {
     return (
       <Select
+        variant="standard"
         value={value}
         name={name}
         onChange={handleChangeSkill}
@@ -112,6 +114,7 @@ export default function ModalContent({ character }) {
       <Typography>Select weapons:</Typography>
       <Box mb={1}>
         <Select
+          variant="standard"
           value={mainhand1}
           name="mainhand1"
           onChange={handleChangeWeapon}
@@ -129,6 +132,7 @@ export default function ModalContent({ character }) {
         {useableWeapons.mainHand.find((weapon) => weapon.gw2id === mainhand1)?.type !==
           'two-handed' && (
           <Select
+            variant="standard"
             value={offhand1}
             name="offhand1"
             onChange={handleChangeWeapon}
@@ -150,6 +154,7 @@ export default function ModalContent({ character }) {
       </Box>
       <Box mb={2}>
         <Select
+          variant="standard"
           value={mainhand2}
           name="mainhand2"
           onChange={handleChangeWeapon}
@@ -167,6 +172,7 @@ export default function ModalContent({ character }) {
         {useableWeapons.mainHand.find((weapon) => weapon.gw2id === mainhand2)?.type !==
           'two-handed' && (
           <Select
+            variant="standard"
             value={offhand2}
             name="offhand2"
             onChange={handleChangeWeapon}

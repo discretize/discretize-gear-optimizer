@@ -1,18 +1,18 @@
 import { decompress } from '@discretize/object-compression';
-import { Box, makeStyles, Paper, Typography } from '@material-ui/core';
+import { firstUppercase, Layout, TextDivider } from '@discretize/react-discretize-components';
+import { Box, Paper, Typography } from '@mui/material';
 import { graphql } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
 import { Boon, CommonEffect, Condition, Skill, Trait, TraitLine } from 'gw2-ui-bulk';
 import * as React from 'react';
-import { firstUppercase, TextDivider } from 'react-discretize-components';
 import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import { StringParam, useQueryParam } from 'use-query-params';
 import { buffModifiers, classModifiers } from '../../assets/modifierdata';
 import HelperIcon from '../../components/baseComponents/HelperIcon';
 import LanguageSelection from '../../components/baseComponents/LanguageSelection';
 import ResultCharacter from '../../components/sections/results/ResultCharacter';
 import { BuildPageSchema } from '../../components/url-state/BuildPageSchema';
-import withLayout from '../../hocs/withLayout';
 import {
   changeBuildPage,
   getBuffs,
@@ -22,7 +22,7 @@ import {
   getWeapons,
 } from '../../state/slices/buildPage';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   headline: {
     paddingBottom: theme.spacing(2),
   },
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 
 // markup
 const IndexPage = ({ data }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const dispatch = useDispatch();
 
   // selectors from buildPage slice, will be loaded from url
@@ -84,7 +84,7 @@ const IndexPage = ({ data }) => {
   const Traits = ({ id, selected: selectedTraits }) => {
     return (
       <Box display="flex" mb={1}>
-        <Paper elevation={4} className={classes.traitlineRoot}>
+        <Paper elevation={0} className={classes.traitlineRoot}>
           <Typography variant="body1" className={classes.traitlineText}>
             {traitLookup[id]}
           </Typography>
@@ -144,7 +144,7 @@ const IndexPage = ({ data }) => {
   };
 
   return (
-    <>
+    <Layout>
       <LanguageSelection />
       <Typography variant="h3" className={classes.headline}>
         <Trans>Shared Build</Trans>
@@ -163,7 +163,7 @@ const IndexPage = ({ data }) => {
       {lines[0] && <Traits id={lines[0]} selected={selected[0]} />}
       {lines[1] && <Traits id={lines[1]} selected={selected[1]} />}
       {lines[2] && <Traits id={lines[2]} selected={selected[2]} />}
-    </>
+    </Layout>
   );
 };
 export const query = graphql`
@@ -191,4 +191,4 @@ export const query = graphql`
   }
 `;
 
-export default withLayout({ disableContainer: false })(IndexPage);
+export default IndexPage;
