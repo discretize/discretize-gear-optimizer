@@ -1,3 +1,6 @@
+import { firstUppercase } from '@discretize/react-discretize-components';
+import { Classes, Defense } from './gw2-data';
+
 /**
  * Parses a string to a number, treating non-parsable strings like empty inputs but indicating an
  * error so text boxes can display the error validation state
@@ -34,3 +37,15 @@ export const parseDistribution = (text) =>
 export const parsePriority = (text) =>
   parseNumber(text, { defaultValue: null, integerMode: false });
 export const parseBoss = (text) => parseNumber(text, { defaultValue: null, integerMode: false });
+
+export const getWeight = (profession) => {
+  // Calculate weight class
+  const { defense } = Classes[firstUppercase(profession)];
+  let weight = 'Light';
+  if (defense === Defense.HEAVY) {
+    weight = 'Heavy';
+  } else if (defense === Defense.MEDIUM) {
+    weight = 'medium';
+  }
+  return weight;
+};

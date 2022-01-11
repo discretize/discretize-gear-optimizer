@@ -1,16 +1,13 @@
-import { compress } from '@discretize/object-compression';
 import { firstUppercase, NoSelection } from '@discretize/react-discretize-components';
 import ShareIcon from '@mui/icons-material/Share';
 import { Box, Button, MenuItem, Select, Typography } from '@mui/material';
 import axios from 'axios';
-import { withPrefix } from 'gatsby';
 import { Icon, Item, Skill } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { getBuffs } from '../../../../state/slices/buffs';
 import {
-  changeCharacter,
   changeSkill,
   changeWeapon,
   getSkills,
@@ -18,7 +15,6 @@ import {
 } from '../../../../state/slices/buildPage';
 import { getTraitLines, getTraits } from '../../../../state/slices/traits';
 import { Classes, WEAPONS } from '../../../../utils/gw2-data';
-import { BuildPageSchema } from '../../../url-state/BuildPageSchema';
 
 const useStyles = makeStyles()((theme) => ({
   weaponItem: {
@@ -35,7 +31,7 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-export default function ModalContent({ character }) {
+export default function ModalContent({ character, onClick }) {
   const dispatch = useDispatch();
   const { classes } = useStyles();
   const weapons = useSelector(getWeapons);
@@ -59,6 +55,7 @@ export default function ModalContent({ character }) {
       if (e.target.name === 'mainhand1') dispatch(changeWeapon({ key: 'offhand1', value: '' }));
       if (e.target.name === 'mainhand2') dispatch(changeWeapon({ key: 'offhand2', value: '' }));
     }
+    console.log(e);
     dispatch(changeWeapon({ key: e.target.name, value: e.target.value }));
   };
 
@@ -67,7 +64,7 @@ export default function ModalContent({ character }) {
   };
 
   const getWeaponId = (weaponName) => {
-    return WEAPONS[weaponName.toUpperCase()]?.gw2id;
+    return WEAPONS[weaponName.toUpperCase().replace(' ', '')]?.gw2id;
   };
 
   React.useEffect(() => {
@@ -229,71 +226,7 @@ export default function ModalContent({ character }) {
         variant="contained"
         color="primary"
         startIcon={<ShareIcon />}
-        onClick={() => {
-          // fixes the browser protection against window opening without any user interaction due to opening the window in a callback
-          const windRef = window.open('', '_blank');
-
-          const { attributes: allAttributes, gear, settings } = character;
-          const { specialization, weaponType, cachedFormState } = settings;
-
-          // filter out unnecessary attributes
-          const attributes = {};
-          Object.keys(BuildPageSchema.character.attributes).forEach((key) => {
-            attributes[key] = allAttributes[key];
-          });
-
-          const minimalCharacter = {
-            attributes,
-            gear,
-            settings: {
-              cachedFormState: {
-                extras: {
-                  Enhancement: cachedFormState.extras.Enhancement,
-                  Nourishment: cachedFormState.extras.Nourishment,
-                  Runes: cachedFormState.extras.Runes,
-                  Sigil1: cachedFormState.extras.Sigil1,
-                  Sigil2: cachedFormState.extras.Sigil2,
-                },
-              },
-              profession,
-              specialization,
-              weaponType,
-            },
-          };
-          dispatch(changeCharacter(minimalCharacter));
-
-          // create bit map for buffs
-          const conv = (val) => (val ? 1 : 0);
-          const buffsInteger = Object.keys(buffs).reduce(
-            // eslint-disable-next-line no-bitwise
-            (acc, curr) => (acc + conv(buffs[curr])) << 1,
-            conv(buffs[0]),
-          );
-
-          const object = {
-            character: minimalCharacter,
-            skills,
-            traits: { lines, selected },
-            weapons,
-            buffs: buffsInteger,
-          };
-
-          compress({
-            object,
-            schema: BuildPageSchema,
-            onSuccess: (result) => {
-              windRef.location.href = withPrefix(`/build?data=${result}`);
-            },
-          });
-          /*
-          dispatch({
-            type: 'EXPORT_STATE_CHARACTER',
-            onSuccess: (res) => {
-              windRef.location.href = `/build?data=${res}`;
-            },
-          });
-          */
-        }}
+        onClick={() => onClick({ profession, buffs, lines, selected, skills, weapons })}
       >
         Open Build
       </Button>

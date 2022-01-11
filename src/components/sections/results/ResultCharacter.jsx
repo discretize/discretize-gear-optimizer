@@ -1,10 +1,11 @@
+import { Character, firstUppercase } from '@discretize/react-discretize-components';
 import { getImage } from 'gatsby-plugin-image';
 import times from 'lodash/times';
 import React from 'react';
-import { Character, firstUppercase } from '@discretize/react-discretize-components';
 import { extrasModifiersById } from '../../../assets/modifierdata';
-import { Classes, Defense, INFUSION_IDS } from '../../../utils/gw2-data';
+import { Classes, INFUSION_IDS } from '../../../utils/gw2-data';
 import { resolveArmor, resolveBackAndTrinkets } from '../../../utils/map-gw2-ids';
+import { getWeight } from '../../../utils/usefulFunctions';
 
 export default function ResultCharacter({ data, character, weapons, skills }) {
   const { profession, specialization, weaponType, cachedFormState } = character.settings;
@@ -13,13 +14,7 @@ export default function ResultCharacter({ data, character, weapons, skills }) {
   const classData = Classes[profession].weapons;
 
   // Calculate weight class
-  const { defense } = Classes[profession];
-  let weight = 'Light';
-  if (defense === Defense.HEAVY) {
-    weight = 'Heavy';
-  } else if (defense === Defense.MEDIUM) {
-    weight = 'medium';
-  }
+  const weight = getWeight(profession);
 
   // Calculate infusions
   let infusions = [...Array(18).fill(49432)];

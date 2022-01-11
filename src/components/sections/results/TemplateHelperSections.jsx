@@ -2,15 +2,69 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Accordion, AccordionDetails, AccordionSummary, Grid, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
+import { extrasModifiersById } from '../../../assets/modifierdata';
+import { getWeight } from '../../../utils/usefulFunctions';
 import Section from '../../baseComponents/Section';
-import CopyTemplateButton from '../controls/CopyTemplateButton';
+import ModalContent from './BuildShareModal/ModalContent';
 import TemplateHelper from './TemplateHelper';
 
-const TemplateHelperSections = ({
-  character,
-  otherData: { utilityId, foodId, sigil1Id, sigil2Id, infusions, weight, rune, runeName },
-}) => {
+const indent = (str, amount) => str.replace(/^/gm, ' '.repeat(amount));
+
+const TemplateHelperSections = ({ character }) => {
   const { t } = useTranslation();
+
+  const onClick = ({ profession, skills, weapons }) => {
+    const { attributes, gear, settings } = character;
+
+    // Calculate extras
+    const {
+      Sigil1: sigil1,
+      Sigil2: sigil2,
+      Enhancement: utility,
+      Nourishment: food,
+      Runes: runeStringId,
+    } = settings.cachedFormState.extras;
+
+    const foodId = extrasModifiersById[food]?.gw2id;
+    const utilityId = extrasModifiersById[utility]?.gw2id;
+    const sigil1Id = extrasModifiersById[sigil1]?.gw2id;
+    const sigil2Id = extrasModifiersById[sigil2]?.gw2id;
+    const rune = runeStringId ? extrasModifiersById[runeStringId] : '';
+    const runeName = runeStringId ? rune.text.replace(/(Superior|Rune|of|the)/g, '').trim() : '';
+
+    const { mainhand1: w11, offhand1: w12, mainhand2: w21, offhand2: w22 } = weapons;
+    const weapData = {
+      ...(w11 && { weapon1MainType: w11 }),
+      ...(w11 && { weapon1MainSigil1Id: sigil1Id }),
+      ...(!w12 && { weapon1MainSigil2Id: sigil2Id }),
+      ...(w12 && { weapon1OffType: w12 }),
+      ...(w12 && { weapon1OffSigilId: sigil2Id }),
+
+      ...(w21 && { weapon2MainType: w21 }),
+      ...(w21 && { weapon2MainSigil1Id: sigil1Id }),
+      ...(!w22 && { weapon2MainSigil2Id: sigil2Id }),
+
+      ...(w22 && { weapon2OffType: w22 }),
+      ...(w22 && { weapon2OffSigilId: sigil2Id }),
+    };
+
+    const template = {
+      profession,
+      weight: getWeight(profession),
+      gear,
+      attributes,
+      runeId: rune.gw2id,
+      runeName,
+      infusions: [...Array(18).fill(49432)],
+      weapons: weapData,
+      consumables: { foodId, utilityId },
+      skills,
+    };
+
+    navigator.clipboard.writeText(
+      `<Character ${indent(`gear={${JSON.stringify(template, null, 2)}}`)} />`,
+    );
+  };
 
   return (
     <>
@@ -35,16 +89,7 @@ const TemplateHelperSections = ({
                     discretize-guides repo for more information.
                   </Trans>
                 }
-                content={
-                  <CopyTemplateButton
-                    extras={{ utilityId, foodId, sigil1Id, sigil2Id }}
-                    data={character}
-                    infusions={infusions}
-                    weight={weight}
-                    runeId={rune}
-                    runeName={runeName}
-                  />
-                }
+                content={<ModalContent character={character} onClick={onClick} />}
               />
             </Grid>
             <Grid item xs={12}>

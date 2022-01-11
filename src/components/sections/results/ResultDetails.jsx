@@ -13,6 +13,7 @@ import OutputDistribution from './OutputDistribution';
 import OutputInfusions from './OutputInfusions';
 import ResultCharacter from './ResultCharacter';
 import SpecialDurations from './SpecialDurations';
+import TemplateHelperSections from './TemplateHelperSections';
 
 const ResultDetails = ({ data }) => {
   const { t } = useTranslation();
@@ -77,22 +78,7 @@ const ResultDetails = ({ data }) => {
         <Grid item xs={12} sm={6} md={4} />
       </Grid>
       <AppliedModifiers data={character?.settings?.appliedModifiers} />
-      {/*
-      <TemplateHelperSections
-        character={character}
-        otherData={{
-          utilityId,
-          foodId,
-          sigil1Id,
-          sigil2Id,
-          infusions,
-          weight,
-          rune: rune.gw2id,
-          runeName,
-        }}
-      / >
-
-      */}
+      <TemplateHelperSections character={character} />
     </>
   );
 };

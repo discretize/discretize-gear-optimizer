@@ -8,7 +8,6 @@ import {
   Slider,
   Typography,
 } from '@mui/material';
-import classNames from 'classnames';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { Attribute as AttributeRaw, Condition as ConditionRaw } from 'gw2-ui-bulk';
 import React from 'react';
