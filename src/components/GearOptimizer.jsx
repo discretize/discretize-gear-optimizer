@@ -37,7 +37,7 @@ const MainComponent = ({ data }) => {
   const classText = t('Select a build template from the menu above!');
 
   return (
-    <Box sx={{ paddingLeft: { sm: 2 }, paddingRight: { sm: 2 } }}>
+    <>
       <NavBar
         data={data.templates.list}
         buffPresets={data.presetBuffs.list}
@@ -46,62 +46,63 @@ const MainComponent = ({ data }) => {
         extrasPresets={data.presetExtras.list}
         traitPresets={data.presetTraits.list}
       />
+      <Box>
+        {profession === '' && (
+          <Typography mb={1}>
+            <ExpandLessIcon />
+            <i>{expertMode ? classOrBuildText : classText}</i> <ExpandLessIcon />
+          </Typography>
+        )}
 
-      {profession === '' && (
-        <Typography mb={1}>
-          <ExpandLessIcon />
-          <i>{expertMode ? classOrBuildText : classText}</i> <ExpandLessIcon />
-        </Typography>
-      )}
+        <div style={profession === '' ? { opacity: 0.5 } : { opacity: 1.0 }}>
+          <Grid container>
+            {expertMode ? (
+              <>
+                <TraitsSection profession={profession} data={data} />
 
-      <div style={profession === '' ? { opacity: 0.5 } : { opacity: 1.0 }}>
-        <Grid container>
-          {expertMode ? (
-            <>
-              <TraitsSection profession={profession} data={data} />
+                <SkillsSection profession={profession} />
 
-              <SkillsSection profession={profession} />
+                <ExtrasSection profession={profession} data={data} />
 
-              <ExtrasSection profession={profession} data={data} />
+                <BuffsSection data={data} />
 
-              <BuffsSection data={data} />
+                <ExtraModifiersSection />
 
-              <ExtraModifiersSection />
+                <InfusionsSection data={data} />
 
-              <InfusionsSection data={data} />
+                <ForcedSlotsSection />
 
-              <ForcedSlotsSection />
+                <PrioritiesSection data={data} />
 
-              <PrioritiesSection data={data} />
+                <DistributionSection profession={profession} data={data} />
 
-              <DistributionSection profession={profession} data={data} />
+                <BossSection />
+              </>
+            ) : (
+              <>
+                <SkillsSection profession={profession} />
 
-              <BossSection />
-            </>
-          ) : (
-            <>
-              <SkillsSection profession={profession} />
+                <ExtrasSection profession={profession} data={data} />
 
-              <ExtrasSection profession={profession} data={data} />
+                <BuffsSection first data={data} />
 
-              <BuffsSection first data={data} />
+                <InfusionsSection data={data} />
 
-              <InfusionsSection data={data} />
+                <ForcedSlotsSection />
 
-              <ForcedSlotsSection />
+                <PrioritiesSection data={data} />
+              </>
+            )}
+          </Grid>
 
-              <PrioritiesSection data={data} />
-            </>
-          )}
-        </Grid>
+          <Controls profession={profession} />
 
-        <Controls profession={profession} />
-
-        <ResultTable />
-        <Box m={3} />
-        <ResultDetails data={data} />
-      </div>
-    </Box>
+          <ResultTable />
+          <Box m={3} />
+          <ResultDetails data={data} />
+        </div>
+      </Box>
+    </>
   );
 };
 
