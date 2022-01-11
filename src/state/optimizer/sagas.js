@@ -263,7 +263,7 @@ const modifyState = (optimizerState) => {
         ...optimizerState.control,
         list: [],
         saved: [],
-        selectedCharacter: null,
+        // selectedCharacter: null,
       },
     },
   };

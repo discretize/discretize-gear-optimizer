@@ -69,7 +69,7 @@ const URLStateExport = ({ type }) => {
 
   return (
     <>
-      <Tooltip content="Copy sharable link to clipboard">
+      <Tooltip content="Copy sharable link to clipboard (note: results are not currently included)">
         <IconButton
           onClick={() => dispatch({ type: 'EXPORT_STATE', onSuccess: onExportSuccess })}
           size="large"
