@@ -8,6 +8,22 @@ list:
         "minBoonDuration": 0
       }
 
+  - name: Condi DPS
+    value: >-
+      {
+        "affixes": ["Viper", "Sinister"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0
+      }
+
+  - name: Hybrid DPS
+    value: >-
+      {
+        "affixes": ["Viper", "Sinister", "Grieving"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0
+      }
+
   - name: Power Boon
     value: >-
       {
@@ -15,6 +31,24 @@ list:
         "optimizeFor": "Damage",
         "minBoonDuration": 79
       }
+
+  - name: Condi Boon/Support
+    value: >-
+      {
+        "affixes": ["Viper", "Seraph", "Celestial", "Sinister"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 79
+      }
+
+  - name: Heal
+    value: >-
+      {
+        "affixes": ["Harrier", "Minstrel", "Cleric"],
+        "optimizeFor": "Healing",
+        "minBoonDuration": 100
+      }
+
+  # -------------------------------------------------------------------------------------------- #
 
   - name: Power Boon 25%
     hidden: true
@@ -43,36 +77,22 @@ list:
         "minBoonDuration": 99.7
       }
 
-  - name: Condi DPS
-    value: >-
-      {
-        "affixes": ["Viper", "Sinister"],
-        "optimizeFor": "Damage",
-        "minBoonDuration": 0
-      }
-
-  - name: Hybrid DPS
-    value: >-
-      {
-        "affixes": ["Viper", "Sinister", "Grieving"],
-        "optimizeFor": "Damage",
-        "minBoonDuration": 0
-      }
-
-  - name: Heal
-    value: >-
-      {
-        "affixes": ["Harrier", "Minstrel", "Cleric"],
-        "optimizeFor": "Healing",
-        "minBoonDuration": 100
-      }
-
-  - name: Condi Boon
+  - name: Condi Boon 40%
+    hidden: true
     value: >-
       {
         "affixes": ["Viper", "Seraph", "Celestial"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 79
+        "minBoonDuration": 40
+      }
+
+  - name: Condi Boon 49%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Seraph", "Celestial"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 49
       }
 
   - name: Condi Boon 52%
@@ -91,6 +111,15 @@ list:
         "affixes": ["Viper", "Seraph", "Celestial"],
         "optimizeFor": "Damage",
         "minBoonDuration": 62
+      }
+
+  - name: Condi Boon 79%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Seraph", "Celestial"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 79
       }
 
   - name: Condi Quickbrand 35% Celestial

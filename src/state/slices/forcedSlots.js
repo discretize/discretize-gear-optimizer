@@ -4,11 +4,17 @@ import { changeAll } from './controlsSlice';
 export const forcedSlotsSlice = createSlice({
   name: 'forcedSlots',
   initialState: {
-    slots: [null, null, null, null, null, null, null, null, null, null, null, null, null],
+    slots: [null, null, null, null, null, null, null, null, null, null, null, null, null, null],
   },
   reducers: {
     changeForcedSlot: (state, action) => {
       state.slots[action.payload.index] = action.payload.value;
+    },
+    clearForcedSlots: (state) => {
+      state.slots = state.slots.map(() => null);
+    },
+    changeAllForcedSlots: (state, action) => {
+      state.slots = action.payload;
     },
   },
   extraReducers: {
@@ -20,4 +26,5 @@ export const forcedSlotsSlice = createSlice({
 
 export const getForcedSlots = (state) => state.optimizer.form.forcedSlots.slots;
 
-export const { changeForcedSlot } = forcedSlotsSlice.actions;
+export const { changeForcedSlot, clearForcedSlots, changeAllForcedSlots } =
+  forcedSlotsSlice.actions;

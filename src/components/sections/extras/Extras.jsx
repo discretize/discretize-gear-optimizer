@@ -1,4 +1,4 @@
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { ConsumableEffect, Item } from 'gw2-ui-bulk';
 import React from 'react';

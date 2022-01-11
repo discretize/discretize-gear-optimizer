@@ -1,3 +1,5 @@
+import GitHubIcon from '@mui/icons-material/GitHub';
+import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar,
   Box,
@@ -10,10 +12,7 @@ import {
   Switch,
   Toolbar,
   Typography,
-  withStyles,
-} from '@material-ui/core';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import MenuIcon from '@material-ui/icons/Menu';
+} from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { bindHover, bindMenu, usePopupState } from 'material-ui-popup-state/hooks';
 import Menu from 'material-ui-popup-state/HoverMenu';
@@ -30,20 +29,7 @@ import { PROFESSIONS } from '../../utils/gw2-data';
 import Profession from '../baseComponents/Profession';
 import NavAccordion from './NavAccordion';
 
-const styles = (theme) => ({
-  topNav: {
-    marginBottom: theme.spacing(2),
-  },
-  topNavNoMarge: {
-    marginBottom: 0,
-  },
-  navProfession: {
-    fontSize: '2rem',
-  },
-});
-
 const Navbar = ({
-  classes,
   data,
   buffPresets,
   prioritiesPresets,
@@ -101,10 +87,10 @@ const Navbar = ({
           label={t('Expert')}
         />
         <IconButton
-          className={classes.githubIcon}
           href="https://github.com/discretize/discretize-gear-optimizer/tree/staging"
           target="_blank"
           rel="noopener"
+          size="large"
         >
           <GitHubIcon />
         </IconButton>
@@ -127,6 +113,7 @@ const Navbar = ({
               'aria-haspopup': 'true',
               onClick: handleDrawerOpen,
             }}
+            size="large"
           >
             <MenuIcon />
           </IconButton>
@@ -205,19 +192,21 @@ const Navbar = ({
                 }
               }}
               variant={prof.profession === profession ? 'contained' : 'text'}
+              color="inherit"
               {...bindHover(popupState[index])}
             >
               <Profession
                 name={prof.profession}
                 disableLink
                 disableText
-                className={classes.navProfession}
+                style={{
+                  fontSize: '2rem',
+                }}
               />
             </Button>
 
             <Menu
               {...bindMenu(popupState[index])}
-              getContentAnchorEl={null}
               anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
               transformOrigin={{ vertical: 'top', horizontal: 'left' }}
             >
@@ -274,12 +263,14 @@ const Navbar = ({
   return (
     <AppBar
       position="sticky"
-      className={profession === '' ? classes.topNavNoMarge : classes.topNav}
+      sx={profession === '' ? { marginBottom: 0 } : { marginBottom: 2 }}
       color="inherit"
+      elevation={0}
+      enableColorOnDark
     >
       {mobileView ? displayMobile() : displayDesktop()}
     </AppBar>
   );
 };
 
-export default React.memo(withStyles(styles)(Navbar));
+export default React.memo(Navbar);

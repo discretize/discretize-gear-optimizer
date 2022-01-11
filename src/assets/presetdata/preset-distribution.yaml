@@ -142,12 +142,12 @@ list:
   # geo f1 passive: 1/3 * 2.2 / 54 sec = 0.0277 avg burning
   # fb rune f1 passive: 1/3 * 2.2 / 26.5 sec = 0.0136 avg burning
   #
-  # total: -4 power, +0.9 bleed, +1.28 torment, 0 burning
+  # total: -4 power, +0.9 bleed, +1.28 torment, -0.02 burning
   - name: CFB w/ Quickness (Virtues, allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2314, "Burning": 14.1, "Bleeding": 3.5, "Poisoned": 0, "Torment": 1.28, "Confusion": 0 }
+        "values2": { "Power": 2232, "Burning": 14.08, "Bleeding": 3.47, "Poisoned": 0, "Torment": 1.28, "Confusion": 0 }
       }
 
   # +1.38 burning (36 seconds * 5 casts in ~130 seconds)
@@ -155,16 +155,17 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2318, "Burning": 14.1, "Bleeding": 2.6, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2236, "Burning": 14.1, "Bleeding": 2.57, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=Jm3PLweimmU
   # power: 6264, burn: 22627, bleed: 974, total: 29865
+  # 12 boons
   - name: Condi Quickbrand 40% (Virtues, no allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2318, "Burning": 12.72, "Bleeding": 2.57, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2236, "Burning": 12.72, "Bleeding": 2.57, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # - name: Hybrid FB (Virtues, no allies)
@@ -280,7 +281,7 @@ list:
     profession: Tempest
     value: >-
       {
-        "values2": { "Power": 3451, "Burning": 12.0, "Bleeding": 15.9, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3529, "Burning": 12.29, "Bleeding": 16.3, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   - name: Power Tempest
@@ -404,6 +405,15 @@ list:
     value: >-
       {
         "values2": { "Power": 1900, "Burning": 5.1, "Bleeding": 2.2, "Poisoned": 6, "Torment": 17.1, "Confusion": 0 }
+      }
+
+  # https://www.youtube.com/watch?v=czIeKhJ0rQs
+  # power: 36264, burn: 194, torment: 141, total: 36599
+  - name: '[beta] Vindicator Large'
+    profession: Vindicator
+    value: >-
+      {
+        "values2": { "Power": 3274, "Burning": 0.61, "Bleeding": 0, "Poisoned": 0, "Torment": 1.16, "Confusion": 0 }
       }
 
   # longbow; actually skirmishing trappers expertise
@@ -560,13 +570,14 @@ list:
         "values2": { "Power": 1853, "Burning": 2.3, "Bleeding": 5.2, "Poisoned": 0, "Torment": 7.4, "Confusion": 17.0 }
       }
 
-  # https://www.youtube.com/watch?v=qMFZq0I3pIA
-  # power: 34398 + 6263 = 40660, burn: 190, bleed: 843, confusion: 57, total: 41750
-  - name: '[old] Virtuoso'
+  # https://www.youtube.com/watch?v=2SmXV9Yr1QM
+  # power: 37603, burn: 182, bleed: 851, confusion: 28, total: 38664
+  # assassin helm shoulders gloves boots, accuracy
+  - name: '[beta] Virtuoso'
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 4018, "Burning": 0.6, "Bleeding": 7.4, "Poisoned": 0, "Torment": 0, "Confusion": 0.6 }
+        "values2": { "Power": 3539, "Burning": 0.53, "Bleeding": 7.11, "Poisoned": 0, "Torment": 0, "Confusion": 0.24 }
       }
 
   # https://www.youtube.com/watch?v=x1dRcUqNIFo
@@ -654,13 +665,13 @@ list:
         "values2": { "Power": 3421, "Burning": 0.5, "Bleeding": 0.4, "Poisoned": 1.8, "Torment": 0, "Confusion": 0 }
       }
 
-  # https://www.youtube.com/watch?v=rUZ7XCMvn1g
-  # power: 6927, burn: 753, bleed: 993, poison: 13618, torment: 21889, total: 44180
-  - name: '[old] DPS Specter Sc/D'
+  # https://www.youtube.com/watch?v=XvS81O4mg8A
+  # power: 6162, burn: 698, bleed: 1137, poison: 14783, torment: 20672, total: 43452
+  - name: '[beta] DPS Specter Sc/D'
     profession: Specter
     value: >-
       {
-        "values2": { "Power": 2342, "Burning": 0.6, "Bleeding": 2.2, "Poisoned": 18, "Torment": 22.9, "Confusion": 0 }
+        "values2": { "Power": 2111, "Burning": 0.55, "Bleeding": 2.7, "Poisoned": 20.68, "Torment": 22.67, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=QjDA4W3nYYM

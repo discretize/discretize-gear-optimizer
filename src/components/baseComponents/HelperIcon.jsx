@@ -1,21 +1,14 @@
-import { withStyles } from '@material-ui/core';
-import { HelpOutline } from '@material-ui/icons';
+import { HelpOutline } from '@mui/icons-material';
 import { Tooltip } from 'gw2-ui-bulk';
 import React from 'react';
 
-const styles = (theme) => ({
-  icon: {
-    color: theme.palette.primary.dark,
-  },
-});
-
-const HelperIcon = ({ classes, text, size, fontSize }) => {
+const HelperIcon = ({ text, size, fontSize }) => {
   return (
     <Tooltip content={text}>
       <span>
-        <HelpOutline className={classes.icon} fontSize={size} style={{ fontSize }} />
+        <HelpOutline sx={{ color: 'primary.dark', fontSize }} fontSize={size} />
       </span>
     </Tooltip>
   );
 };
-export default withStyles(styles)(HelperIcon);
+export default HelperIcon;

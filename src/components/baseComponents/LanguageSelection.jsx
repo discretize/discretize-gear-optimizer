@@ -1,8 +1,9 @@
-import { Box, makeStyles } from '@material-ui/core';
+import { Box } from '@mui/material';
 import { Link as LangLink, useI18next } from 'gatsby-plugin-react-i18next';
 import * as React from 'react';
+import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles()((theme) => ({
   langLink: {
     textDecoration: 'none',
     color: theme.palette.primary.main,
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const LanguageSelection = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { originalPath, language } = useI18next();
 
   return (

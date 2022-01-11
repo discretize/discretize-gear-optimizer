@@ -1,4 +1,4 @@
-import { Box, Slider, Typography } from '@material-ui/core';
+import { Box, Slider } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { Condition as ConditionRaw } from 'gw2-ui-bulk';
 import React from 'react';
@@ -78,59 +78,67 @@ const Boss = () => {
 
   return (
     <>
-      <Typography>
-        <Trans>
-          <Condition name="Torment" disableText /> Movement Uptime
-        </Trans>
-      </Typography>
-
-      <AmountInput
-        endLabel="%"
-        handleAmountChange={(_e, value) => dispatch(changeMovementUptime(value))}
-        value={movementUptimeString}
-        maxWidth={180}
-        useAutoComplete
-        autoCompleteProps={{ options: [] }}
-      />
-      <Box mx={3} mb={4}>
-        <Slider
-          value={movementUptime}
-          step={1}
-          marks={[...Array(11).keys()].map((num) => ({ value: num * 10, label: num * 10 }))}
-          min={0}
-          max={100}
-          onChange={(_e, value) => dispatch(changeMovementUptime(String(value)))}
-          valueLabelDisplay="auto"
-          valueLabelFormat={(text) => `${text}%`}
-        />
+      <Box display="flex" flexWrap="wrap">
+        <Box sx={{ width: 195 }}>
+          <AmountInput
+            label={
+              <Trans>
+                <Condition name="Torment" disableText /> Movement Uptime
+              </Trans>
+            }
+            endLabel="%"
+            handleAmountChange={(_e, value) => dispatch(changeMovementUptime(value))}
+            value={movementUptimeString}
+            maxWidth={195}
+            useAutoComplete
+            autoCompleteProps={{ options: [] }}
+          />
+        </Box>
+        <Box mx={3} mb={4} flexGrow={1} alignSelf="center">
+          <Slider
+            value={movementUptime}
+            step={1}
+            marks={[...Array(11).keys()].map((num) => ({ value: num * 10, label: num * 10 }))}
+            min={0}
+            max={100}
+            onChange={(_e, value) => dispatch(changeMovementUptime(String(value)))}
+            valueLabelDisplay="auto"
+            valueLabelFormat={(text) => `${text}%`}
+          />
+        </Box>
       </Box>
-
-      <Typography>
-        <Trans>
-          <Condition name="Confusion" disableText /> Attack Rate
-        </Trans>
-      </Typography>
-      <AmountInput
-        endLabel={t('/s')}
-        handleAmountChange={(_e, value) => dispatch(changeAttackRate(value))}
-        value={attackRateString}
-        maxWidth={180}
-        useAutoComplete
-        autoCompleteProps={{
-          options: confusionOptions,
-          renderOption: (option) => `${option}: ${confusionOptionLabels[option]}`,
-        }}
-      />
-      <Box mx={3}>
-        <Slider
-          value={attackRate}
-          step={0.01}
-          min={0}
-          max={0.83}
-          marks={confusionMarks}
-          onChange={(_e, value) => dispatch(changeAttackRate(String(value)))}
-          valueLabelDisplay="auto"
-        />
+      <Box display="flex" flexWrap="wrap">
+        <Box sx={{ width: 195 }}>
+          <AmountInput
+            label={
+              <Trans>
+                <Condition name="Confusion" disableText /> Attack Rate
+              </Trans>
+            }
+            endLabel={t('/s')}
+            handleAmountChange={(_e, value) => dispatch(changeAttackRate(value))}
+            value={attackRateString}
+            maxWidth={180}
+            useAutoComplete
+            autoCompleteProps={{
+              options: confusionOptions,
+              renderOption: (props, option) => (
+                <li {...props}>{`${option}: ${confusionOptionLabels[option]}`}</li>
+              ),
+            }}
+          />
+        </Box>
+        <Box mx={3} mb={4} flexGrow={1} alignSelf="center">
+          <Slider
+            value={attackRate}
+            step={0.01}
+            min={0}
+            max={0.83}
+            marks={confusionMarks}
+            onChange={(_e, value) => dispatch(changeAttackRate(String(value)))}
+            valueLabelDisplay="auto"
+          />
+        </Box>
       </Box>
     </>
   );

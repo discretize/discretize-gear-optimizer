@@ -9,6 +9,7 @@
 export const Affix = {
   Berserker: {
     type: 'triple',
+    category: 'Power DPS',
     bonuses: {
       major: ['Power'],
       minor: ['Precision', 'Ferocity'],
@@ -16,6 +17,7 @@ export const Affix = {
   },
   Assassin: {
     type: 'triple',
+    category: 'Power DPS',
     bonuses: {
       major: ['Precision'],
       minor: ['Power', 'Ferocity'],
@@ -23,6 +25,7 @@ export const Affix = {
   },
   Harrier: {
     type: 'triple',
+    category: 'Support',
     bonuses: {
       major: ['Power'],
       minor: ['Concentration', 'Healing Power'],
@@ -30,6 +33,7 @@ export const Affix = {
   },
   Commander: {
     type: 'quadruple',
+    category: 'Support',
     bonuses: {
       major: ['Power', 'Precision'],
       minor: ['Toughness', 'Concentration'],
@@ -37,6 +41,7 @@ export const Affix = {
   },
   Minstrel: {
     type: 'quadruple',
+    category: 'Support',
     bonuses: {
       major: ['Toughness', 'Healing Power'],
       minor: ['Vitality', 'Concentration'],
@@ -44,6 +49,7 @@ export const Affix = {
   },
   Magi: {
     type: 'triple',
+    category: 'Support',
     bonuses: {
       major: ['Healing Power'],
       minor: ['Vitality', 'Precision'],
@@ -51,6 +57,7 @@ export const Affix = {
   },
   Marauder: {
     type: 'quadruple',
+    category: 'Open World',
     bonuses: {
       major: ['Power', 'Precision'],
       minor: ['Vitality', 'Ferocity'],
@@ -58,6 +65,7 @@ export const Affix = {
   },
   Cleric: {
     type: 'triple',
+    category: 'Support',
     bonuses: {
       major: ['Healing Power'],
       minor: ['Power', 'Toughness'],
@@ -65,6 +73,7 @@ export const Affix = {
   },
   Nomad: {
     type: 'triple',
+    category: 'Open World',
     bonuses: {
       major: ['Toughness'],
       minor: ['Vitality', 'Healing Power'],
@@ -72,6 +81,7 @@ export const Affix = {
   },
   Zealot: {
     type: 'triple',
+    category: 'Hybrid',
     bonuses: {
       major: ['Power'],
       minor: ['Precision', 'Healing Power'],
@@ -79,6 +89,7 @@ export const Affix = {
   },
   Viper: {
     type: 'quadruple',
+    category: 'Condi DPS',
     bonuses: {
       major: ['Power', 'Condition Damage'],
       minor: ['Precision', 'Expertise'],
@@ -86,6 +97,7 @@ export const Affix = {
   },
   Sinister: {
     type: 'triple',
+    category: 'Condi DPS',
     bonuses: {
       major: ['Condition Damage'],
       minor: ['Power', 'Precision'],
@@ -93,6 +105,7 @@ export const Affix = {
   },
   Grieving: {
     type: 'quadruple',
+    category: 'Condi DPS',
     bonuses: {
       major: ['Power', 'Condition Damage'],
       minor: ['Precision', 'Ferocity'],
@@ -100,6 +113,7 @@ export const Affix = {
   },
   Seraph: {
     type: 'quadruple',
+    category: 'Hybrid',
     bonuses: {
       major: ['Precision', 'Condition Damage'],
       minor: ['Healing Power', 'Concentration'],
@@ -107,6 +121,7 @@ export const Affix = {
   },
   Marshal: {
     type: 'quadruple',
+    category: 'Open World',
     bonuses: {
       major: ['Power', 'Healing Power'],
       minor: ['Precision', 'Condition Damage'],
@@ -114,6 +129,7 @@ export const Affix = {
   },
   Giver: {
     type: 'triple',
+    category: 'Open World',
     bonuses: {
       major: ['Toughness'],
       minor: ['Healing Power', 'Concentration'],
@@ -121,6 +137,7 @@ export const Affix = {
   },
   Knight: {
     type: 'triple',
+    category: 'Open World',
     bonuses: {
       major: ['Toughness'],
       minor: ['Power', 'Precision'],
@@ -128,6 +145,7 @@ export const Affix = {
   },
   Trailblazer: {
     type: 'quadruple',
+    category: 'Open World',
     bonuses: {
       major: ['Toughness', 'Condition Damage'],
       minor: ['Vitality', 'Expertise'],
@@ -135,6 +153,7 @@ export const Affix = {
   },
   Plaguedoctor: {
     type: 'quadruple',
+    category: 'Open World',
     bonuses: {
       major: ['Vitality', 'Condition Damage'],
       minor: ['Healing Power', 'Concentration'],
@@ -142,6 +161,7 @@ export const Affix = {
   },
   Carrion: {
     type: 'triple',
+    category: 'Open World',
     bonuses: {
       major: ['Condition Damage'],
       minor: ['Power', 'Vitality'],
@@ -149,6 +169,7 @@ export const Affix = {
   },
   Rabid: {
     type: 'triple',
+    category: 'Open World',
     bonuses: {
       major: ['Condition Damage'],
       minor: ['Toughness', 'Precision'],
@@ -156,6 +177,7 @@ export const Affix = {
   },
   Dire: {
     type: 'triple',
+    category: 'Open World',
     bonuses: {
       major: ['Condition Damage'],
       minor: ['Toughness', 'Vitality'],
@@ -163,6 +185,7 @@ export const Affix = {
   },
   Vigilant: {
     type: 'quadruple',
+    category: 'Open World',
     bonuses: {
       major: ['Power', 'Toughness'],
       minor: ['Concentration', 'Expertise'],
@@ -170,6 +193,7 @@ export const Affix = {
   },
   Valkyrie: {
     type: 'triple',
+    category: 'Open World',
     bonuses: {
       major: ['Power'],
       minor: ['Vitality', 'Ferocity'],
@@ -177,6 +201,7 @@ export const Affix = {
   },
   Cavalier: {
     type: 'triple',
+    category: 'Open World',
     bonuses: {
       major: ['Toughness'],
       minor: ['Power', 'Ferocity'],
@@ -184,6 +209,7 @@ export const Affix = {
   },
   Celestial: {
     type: 'celestial',
+    category: 'Hybrid',
     bonuses: {
       major: ['Power', 'Precision', 'Toughness', 'Vitality'],
       minor: ['Ferocity', 'Condition Damage', 'Expertise', 'Concentration', 'Healing Power'],
@@ -191,6 +217,7 @@ export const Affix = {
   },
   Diviner: {
     type: 'quadruple',
+    category: 'Support',
     bonuses: {
       major: ['Power', 'Concentration'],
       minor: ['Precision', 'Ferocity'],
@@ -198,6 +225,7 @@ export const Affix = {
   },
   Soldier: {
     type: 'triple',
+    category: 'Open World',
     bonuses: {
       major: ['Power'],
       minor: ['Toughness', 'Vitality'],
@@ -205,6 +233,7 @@ export const Affix = {
   },
   Sentinel: {
     type: 'triple',
+    category: 'Open World',
     bonuses: {
       major: ['Vitality'],
       minor: ['Power', 'Toughness'],
@@ -212,6 +241,7 @@ export const Affix = {
   },
   Wanderer: {
     type: 'quadruple',
+    category: 'Open World',
     bonuses: {
       major: ['Power', 'Vitality'],
       minor: ['Toughness', 'Concentration'],
@@ -219,6 +249,7 @@ export const Affix = {
   },
   Apothecary: {
     type: 'triple',
+    category: 'Open World',
     bonuses: {
       major: ['Healing Power'],
       minor: ['Condition Damage', 'Toughness'],
@@ -226,6 +257,7 @@ export const Affix = {
   },
   Shaman: {
     type: 'triple',
+    category: 'Open World',
     bonuses: {
       major: ['Vitality'],
       minor: ['Condition Damage', 'Healing Power'],
@@ -233,6 +265,7 @@ export const Affix = {
   },
   Crusader: {
     type: 'quadruple',
+    category: 'Open World',
     bonuses: {
       major: ['Power', 'Toughness'],
       minor: ['Ferocity', 'Healing Power'],
@@ -240,6 +273,7 @@ export const Affix = {
   },
   Rampager: {
     type: 'triple',
+    category: 'Open World',
     bonuses: {
       major: ['Precision'],
       minor: ['Condition Damage', 'Power'],
@@ -247,6 +281,7 @@ export const Affix = {
   },
   Settler: {
     type: 'triple',
+    category: 'Open World',
     bonuses: {
       major: ['Toughness'],
       minor: ['Condition Damage', 'Healing Power'],
@@ -254,6 +289,7 @@ export const Affix = {
   },
   Bringer: {
     type: 'triple',
+    category: 'Open World',
     bonuses: {
       major: ['Expertise'],
       minor: ['Precision', 'Vitality'],

@@ -11,6 +11,7 @@
     "plugin:jsdoc/recommended",
     "prettier"
   ],
+  "ignorePatterns": ["/plugins/*"],
   "rules": {
     // disabled or reduced
     "no-restricted-syntax": "off",
@@ -20,6 +21,7 @@
     "no-param-reassign": ["warn", { "props": false }],
     "consistent-return": "off",
     "no-unused-vars": ["warn", { "argsIgnorePattern": "^e$|^theme$|^_" }],
+    "lines-between-class-members": ["warn", "always", { "exceptAfterSingleLine": true }],
 
     // temp
     "react/prop-types": "off",
@@ -35,14 +37,7 @@
     "arrow-body-style": "off",
     "prefer-arrow-callback": "off",
 
-    "id-length": ["warn", { "exceptions": ["i", "j", "e", "t"] }],
-
-    "no-restricted-imports": [
-      "error",
-      {
-        "patterns": ["@material-ui/*/*/*", "!@material-ui/core/test-utils/*"]
-      }
-    ]
+    "id-length": ["warn", { "exceptions": ["i", "j", "e", "t", "_"] }]
   },
   "overrides": [
     {

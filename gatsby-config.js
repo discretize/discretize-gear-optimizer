@@ -13,8 +13,11 @@ module.exports = {
         path: `./src/assets/images`,
       },
     },
-    'gatsby-plugin-material-ui',
-    'gatsby-plugin-theme-ui',
+
+    'gatsby-plugin-top-layout',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-mui-emotion',
+
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,

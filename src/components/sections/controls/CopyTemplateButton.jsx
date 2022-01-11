@@ -1,11 +1,12 @@
 /* eslint-disable id-length */
-import { Button, MenuItem, Select, Snackbar } from '@material-ui/core';
-import { Alert } from '@material-ui/lab';
+import { Alert, Button, MenuItem, Select, Snackbar } from '@mui/material';
 import { Icon } from 'gw2-ui-bulk';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getProfession } from '../../../state/slices/controlsSlice';
 import { Classes } from '../../../utils/gw2-data';
+
+const indent = (str, amount) => str.replace(/^/gm, ' '.repeat(amount));
 
 const CopyTemplateButton = ({ extras: extrasIds, data, infusions, weight, runeId, runeName }) => {
   const [open, setOpen] = React.useState(false);
@@ -40,18 +41,18 @@ const CopyTemplateButton = ({ extras: extrasIds, data, infusions, weight, runeId
 
     const template = {
       profession,
+      weight,
       gear,
       attributes,
-      infusions,
-      weight,
       runeId,
       runeName,
+      infusions,
       weapons: weapData,
       consumables,
       skills: { heal: '', utility1: '', utility2: '', utility3: '', elite: '' },
     };
 
-    navigator.clipboard.writeText(JSON.stringify(template, null, 2));
+    navigator.clipboard.writeText(indent(`gear={${JSON.stringify(template, null, 2)}}`, 2));
   };
 
   const { weapons: useableWeapons } = Classes[profession];
@@ -63,13 +64,13 @@ const CopyTemplateButton = ({ extras: extrasIds, data, infusions, weight, runeId
           Copied to clipboard!
         </Alert>
       </Snackbar>
-      <Select value={w11} onChange={(e) => setw11(e.target.value)}>
+      <Select value={w11} onChange={(e) => setw11(e.target.value)} variant="standard">
         {React.Children.toArray(
           useableWeapons.mainHand.map((w) => <MenuItem value={w.name}>{w.name}</MenuItem>),
         )}
       </Select>
       {useableWeapons.mainHand.find((w) => w.name === w11)?.type !== 'two-handed' && (
-        <Select value={w12} onChange={(e) => setw12(e.target.value)}>
+        <Select value={w12} onChange={(e) => setw12(e.target.value)} variant="standard">
           {React.Children.toArray(
             useableWeapons.offHand.map((w) => <MenuItem value={w.name}>{w.name}</MenuItem>),
           )}
@@ -77,13 +78,13 @@ const CopyTemplateButton = ({ extras: extrasIds, data, infusions, weight, runeId
       )}
       <Icon name="WeaponSwap" />
 
-      <Select value={w21} onChange={(e) => setw21(e.target.value)}>
+      <Select value={w21} onChange={(e) => setw21(e.target.value)} variant="standard">
         {React.Children.toArray(
           useableWeapons.mainHand.map((w) => <MenuItem value={w.name}>{w.name}</MenuItem>),
         )}
       </Select>
       {useableWeapons.mainHand.find((w) => w.name === w21)?.type !== 'two-handed' && (
-        <Select value={w22} onChange={(e) => setw22(e.target.value)}>
+        <Select value={w22} onChange={(e) => setw22(e.target.value)} variant="standard">
           {React.Children.toArray(
             useableWeapons.offHand.map((w) => <MenuItem value={w.name}>{w.name}</MenuItem>),
           )}
