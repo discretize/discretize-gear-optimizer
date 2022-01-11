@@ -1,10 +1,10 @@
+import { getImage } from 'gatsby-plugin-image';
+import times from 'lodash/times';
 import React from 'react';
 import { Character, firstUppercase } from 'react-discretize-components';
-import times from 'lodash/times';
-import { getImage } from 'gatsby-plugin-image';
+import { extrasModifiersById } from '../../../assets/modifierdata';
 import { Classes, Defense, INFUSION_IDS } from '../../../utils/gw2-data';
 import { resolveArmor, resolveBackAndTrinkets } from '../../../utils/map-gw2-ids';
-import { extrasModifiersById } from '../../../assets/modifierdata';
 
 export default function ResultCharacter({ data, character, weapons, skills }) {
   const { profession, specialization, weaponType, cachedFormState } = character.settings;

@@ -6,6 +6,7 @@ import { Icon, Item, Skill } from 'gw2-ui-bulk';
 import React from 'react';
 import { firstUppercase, NoSelection } from 'react-discretize-components';
 import { useDispatch, useSelector } from 'react-redux';
+import { getBuffs } from '../../../../state/slices/buffs';
 import {
   changeCharacter,
   changeSkill,
@@ -13,10 +14,9 @@ import {
   getSkills,
   getWeapons,
 } from '../../../../state/slices/buildPage';
+import { getTraitLines, getTraits } from '../../../../state/slices/traits';
 import { Classes, WEAPONS } from '../../../../utils/gw2-data';
 import { BuildPageSchema } from '../../../url-state/BuildPageSchema';
-import { getTraitLines, getTraits } from '../../../../state/slices/traits';
-import { getBuffs } from '../../../../state/slices/buffs';
 
 const useStyles = makeStyles((theme) => ({
   weaponItem: {
