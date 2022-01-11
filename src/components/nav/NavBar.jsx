@@ -263,7 +263,7 @@ const Navbar = ({
   return (
     <AppBar
       position="sticky"
-      sx={profession === '' ? { marginBottom: 0 } : { marginBottom: 2 }}
+      sx={{ boxShadow: 4, ...(profession === '' ? { marginBottom: 0 } : { marginBottom: 2 }) }}
       color="inherit"
       elevation={0}
       enableColorOnDark

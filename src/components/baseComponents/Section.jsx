@@ -1,9 +1,12 @@
 import LiveHelpIcon from '@mui/icons-material/LiveHelp';
-import { Box, Divider, Grid, Paper, Typography } from '@mui/material';
+import { Box, Divider, Grid, Paper, Typography, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
 
 // First disables the delimiting line above!
 const Section = ({ first, title, helpText, extraInfo, content }) => {
+  const theme = useTheme();
+  const isSmall = useMediaQuery(theme.breakpoints.down('md'));
+
   const SectionInfo = ({ children }) => (
     <>
       <Typography variant="h5">{title}</Typography>
@@ -30,6 +33,7 @@ const Section = ({ first, title, helpText, extraInfo, content }) => {
       <Grid item xs={12} sm={3}>
         <SectionInfo>{helpText}</SectionInfo>
         {extraInfo}
+        {isSmall && extraInfo && <Divider sx={{ marginTop: 2 }} />}
       </Grid>
 
       <Grid item xs={12} sm={9}>
