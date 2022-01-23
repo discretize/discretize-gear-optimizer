@@ -28,7 +28,7 @@ const arOptionLabels = {
   '162': '162',
   '203': '203 (DH Radiance)',
   '222': '222',
-  '243': '243 (Soulbeast)',
+  '244': '244 (Soulbeast)',
   '245': '245 (Weaver)',
   '343': '343 (DH Virtues)',
 };
