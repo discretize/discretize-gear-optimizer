@@ -329,7 +329,7 @@ list:
         priority: Power DPS
         distribution: Power Slb Skirm
         traits: Power Slb Marks
-        extras: Power Slb Marks (Fractal)
+        extras: Power (Fractal)
 
       - name: Condi Slb SB
         id: cslb-sb

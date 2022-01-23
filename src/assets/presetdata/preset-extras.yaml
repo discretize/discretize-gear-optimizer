@@ -273,17 +273,6 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
-  - name: Power Slb Marks (Fractal)
-    profession: Soulbeast
-    value: |-
-      {
-        "Runes": "scholar",
-        "Sigil1": "force",
-        "Sigil2": "impact/night/slaying-both",
-        "Enhancement": "slaying-potion",
-        "Nourishment": "truffle-steak"
-      }
-
   - name: Power Slb Skirm (Raid)
     profession: Soulbeast
     value: |-
