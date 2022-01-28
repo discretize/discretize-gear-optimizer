@@ -24,7 +24,7 @@ export default function LoadingScreen() {
           transform: 'translate(-50%, -50%)',
         }}
       >
-        <img src="/logo.png" style={{ width: 200, height: 200 }} />
+        <img src="/logo.png" style={{ width: 200, height: 200 }} alt="Loading..." />
         <ThemeProvider theme={muiTheme}>
           <LinearProgress />
         </ThemeProvider>
