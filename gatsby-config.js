@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     language: 'en',
-    siteUrl: 'https://discretize.github.io/discretize-gear-optimizer/',
+    siteUrl: 'https://optimizer.discretize.eu',
     title: 'GW2 | Discretize [dT] - Discretize Gear Optimizer',
   },
   plugins: [
