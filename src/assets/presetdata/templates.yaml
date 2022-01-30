@@ -281,7 +281,7 @@ list:
         priority: Power DPS
         distribution: Power Tempest
         traits: Power Tempest
-        extras: Power Tempest (Fractal)
+        extras: Power (Fractal)
 
       - name: Heal Tempest
         id: healtemp
