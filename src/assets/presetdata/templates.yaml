@@ -503,7 +503,7 @@ list:
         id: qscrap
         specialization: Scrapper
         boons: Power (spotter)
-        priority: Power Boon 33.5%
+        priority: Power Boon 33.3%
         distribution: Quickness Scrapper
         traits: Quickness Scrapper
         extras: Power (Fractal)

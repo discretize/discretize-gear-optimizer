@@ -59,13 +59,13 @@ list:
         "minBoonDuration": 25
       }
 
-  - name: Power Boon 33.5%
+  - name: Power Boon 33.3%
     hidden: true
     value: >-
       {
         "affixes": ["Berserker", "Assassin", "Diviner"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 33.5
+        "minBoonDuration": 33.3
       }
 
   - name: Power Boon 99.7%
