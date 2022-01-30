@@ -1,5 +1,4 @@
 module.exports = {
-  pathPrefix: '/discretize-gear-optimizer',
   siteMetadata: {
     language: 'en',
     siteUrl: 'https://discretize.github.io/discretize-gear-optimizer/',
