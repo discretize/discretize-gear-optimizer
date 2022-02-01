@@ -259,6 +259,7 @@ export const BuildPageSchema = {
       'Armor': null,
     },
     gear: { type: 'array', dict: gearDict },
+    infusions: null,
     settings: {
       cachedFormState: {
         extras: {
