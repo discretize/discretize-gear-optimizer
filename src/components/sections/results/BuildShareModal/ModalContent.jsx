@@ -13,7 +13,6 @@ import {
   getSkills,
   getWeapons,
 } from '../../../../state/slices/buildPage';
-import { getTraitLines, getTraits } from '../../../../state/slices/traits';
 import { Classes, WEAPONS } from '../../../../utils/gw2-data';
 
 const useStyles = makeStyles()((theme) => ({
@@ -38,9 +37,9 @@ export default function ModalContent({ character, onClick }) {
   const { mainhand1, mainhand2, offhand1, offhand2 } = weapons;
   const skills = useSelector(getSkills);
   const { healId, utility1Id, utility2Id, utility3Id, eliteId } = skills;
-  const lines = useSelector(getTraitLines);
-  const selected = useSelector(getTraits);
-  const buffs = useSelector(getBuffs);
+  const lines = character.settings.cachedFormState.traits.selectedLines;
+  const selected = character.settings.cachedFormState.traits.selectedTraits;
+  const { buffs } = character.settings.cachedFormState.buffs;
 
   const [apiSkills, setApiSkills] = React.useState(null);
 
