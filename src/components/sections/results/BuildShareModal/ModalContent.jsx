@@ -6,7 +6,6 @@ import { Icon, Item, Skill } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { getBuffs } from '../../../../state/slices/buffs';
 import {
   changeSkill,
   changeWeapon,
@@ -54,7 +53,6 @@ export default function ModalContent({ character, onClick }) {
       if (e.target.name === 'mainhand1') dispatch(changeWeapon({ key: 'offhand1', value: '' }));
       if (e.target.name === 'mainhand2') dispatch(changeWeapon({ key: 'offhand2', value: '' }));
     }
-    console.log(e);
     dispatch(changeWeapon({ key: e.target.name, value: e.target.value }));
   };
 

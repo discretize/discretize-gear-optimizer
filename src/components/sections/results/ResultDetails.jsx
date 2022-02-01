@@ -44,7 +44,7 @@ const ResultDetails = ({ data }) => {
   return (
     <>
       <TextDivider text="Result Character" />
-      Click to generate a share link for this build
+      Click to generate a shareable link for this build
       <BuildShareModal title="Build Share Settings" character={character}>
         {(handleOpen) => (
           <IconButton onClick={() => handleOpen()} style={{ display: 'inline-block' }}>
