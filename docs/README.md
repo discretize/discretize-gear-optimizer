@@ -6,7 +6,7 @@ To learn about how the math works and its limitations, see [How It Works](<How I
 
 ## Usage
 
-The optimizer is currently hosted at [discretize.github.io/discretize-gear-optimizer](https://discretize.github.io/discretize-gear-optimizer/) and will soon be integrated directly into the [discretize.eu website](https://discretize.eu/).
+The optimizer is hosted at [optimizer.discretize.eu](https://optimizer.discretize.eu/).
 
 If you have an idea for a feature or improvement or find a bug, create a new issue in the Issues tab of this repository, or send us a message in our [Discord server](https://discord.gg/UDT2W6an2R)!
 
