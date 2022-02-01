@@ -696,8 +696,15 @@ class OptimizerCore {
     results.effectivePositiveValues = {};
     for (const attribute of ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise']) {
       const temp = this.clone(character);
-      temp.baseAttributes[attribute] += 5;
-      this.updateAttributesFast(temp, true);
+
+      const tempSettings = {
+        ...this.settings,
+        modifiers: {
+          ...this.settings.modifiers,
+          buff: [...(this.settings.modifiers.buff || []), [attribute, 5]],
+        },
+      };
+      new OptimizerCore(tempSettings).updateAttributes(temp);
       results.effectivePositiveValues[attribute] = Number(
         (temp.attributes['Damage'] - attributes['Damage']).toFixed(5),
       ).toLocaleString('en-US');
@@ -707,8 +714,15 @@ class OptimizerCore {
     results.effectiveNegativeValues = {};
     for (const attribute of ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise']) {
       const temp = this.clone(character);
-      temp.baseAttributes[attribute] = Math.max(temp.baseAttributes[attribute] - 5, 0);
-      this.updateAttributesFast(temp, true);
+
+      const tempSettings = {
+        ...this.settings,
+        modifiers: {
+          ...this.settings.modifiers,
+          buff: [...(this.settings.modifiers.buff || []), [attribute, -5]],
+        },
+      };
+      new OptimizerCore(tempSettings).updateAttributes(temp);
       results.effectiveNegativeValues[attribute] = Number(
         (temp.attributes['Damage'] - attributes['Damage']).toFixed(5),
       ).toLocaleString('en-US');
