@@ -47,7 +47,7 @@ module.exports = {
         languages: [`en`, `zh`],
         defaultLanguage: `en`,
         // if you are using Helmet, you must include siteUrl, and make sure you add http:https
-        siteUrl: `https://discretize.github.io/discretize-gear-optimizer/`,
+        siteUrl: `https://optimizer.discretize.eu/`,
         // you can pass any i18next options
         // pass following options to allow message content as a key
         i18nextOptions: {
