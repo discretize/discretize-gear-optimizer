@@ -9,7 +9,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { changeCharacter } from '../../../../state/slices/buildPage';
-import { BuildPageSchema } from '../../../url-state/BuildPageSchema';
+import { BuildPageSchema, version } from '../../../url-state/schema/BuildPageSchema_v1';
 import ModalContent from './ModalContent';
 
 const useStyles = makeStyles()((theme) => ({
@@ -60,7 +60,7 @@ const BuildShareModal = ({ children, title, character }) => {
     const minimalCharacter = {
       attributes,
       gear,
-      infusions: JSON.stringify(infusions),
+      infusions: JSON.stringify(infusions) || '',
       settings: {
         cachedFormState: {
           extras: {
@@ -98,7 +98,7 @@ const BuildShareModal = ({ children, title, character }) => {
       object,
       schema: BuildPageSchema,
       onSuccess: (result) => {
-        windRef.location.href = withPrefix(`/build?data=${result}`);
+        windRef.location.href = withPrefix(`/build?v=${version}&data=${result}`);
       },
     });
   };
