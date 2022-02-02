@@ -8,6 +8,7 @@ import {
   specializationDict,
   weaponTypeDict,
 } from './SchemaDicts';
+
 export const version = 1;
 // eslint-disable-next-line import/prefer-default-export
 export const BuildPageSchema = {
