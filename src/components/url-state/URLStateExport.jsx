@@ -25,7 +25,7 @@ const URLStateExport = ({ type }) => {
 
   const onExportSuccess = React.useCallback((data) => {
     const prefixUrl = typeof window !== 'undefined' ? window.location.href : '';
-    const longUrl = `${prefixUrl}?version=${version}&data=${data}`;
+    const longUrl = `${prefixUrl}?v=${version}&data=${data}`;
     console.log(`Exported long URL (${longUrl.length} characters):`, longUrl);
 
     if (longUrl.length > 8000) {

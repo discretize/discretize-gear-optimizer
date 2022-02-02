@@ -18,7 +18,7 @@ const URLStateImport = ({ sagaType, clearUrlOnSuccess }) => {
   const [buildUrl, setBuildUrl] = useQueryParam('data', StringParam);
 
   // eslint-disable-next-line no-unused-vars
-  const [versionUrl, setVersionUrl] = useQueryParam('version', StringParam);
+  const [versionUrl, setVersionUrl] = useQueryParam('v', StringParam);
 
   // Sets the url back to the original state, in case the loading of the state was successful
   const onLoadSuccess = React.useCallback(() => {
