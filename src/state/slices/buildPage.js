@@ -67,10 +67,14 @@ export const buildPageSlice = createSlice({
         buffsUnpacked[buff] = buffBits[index] === '1';
       });
 
+      const infusions = action.payload.character.infusions
+        ? JSON.parse(action.payload.character.infusions)
+        : undefined;
+
       // parse the stringified infusions object again to json
       const character = {
         ...action.payload.character,
-        infusions: JSON.parse(action.payload.character.infusions),
+        infusions,
       };
 
       return { ...action.payload, buffs: buffsUnpacked, character };
