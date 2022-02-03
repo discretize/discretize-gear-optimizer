@@ -127,6 +127,7 @@ function* runCalc() {
       traits: state.form.traits,
       skills: state.form.skills,
       extras: state.form.extras,
+      buffs: state.form.buffs, // buffs are also needed to share a build and display the assumed buffs for the result
     };
 
     const appliedModifiers = [

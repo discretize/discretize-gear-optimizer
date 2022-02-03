@@ -9,7 +9,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { changeCharacter } from '../../../../state/slices/buildPage';
-import { BuildPageSchema } from '../../../url-state/BuildPageSchema';
+import { BuildPageSchema, version } from '../../../url-state/schema/BuildPageSchema_v1';
 import ModalContent from './ModalContent';
 
 const useStyles = makeStyles()((theme) => ({
@@ -47,7 +47,7 @@ const BuildShareModal = ({ children, title, character }) => {
     // fixes the browser protection against window opening without any user interaction due to opening the window in a callback
     const windRef = window.open('', '_blank');
 
-    const { attributes: allAttributes, gear, settings } = character;
+    const { attributes: allAttributes, gear, settings, infusions } = character;
     const { specialization, weaponType, cachedFormState } = settings;
 
     // filter out unnecessary attributes
@@ -56,9 +56,11 @@ const BuildShareModal = ({ children, title, character }) => {
       attributes[key] = allAttributes[key];
     });
 
+    // since we cant use the compression library for object where the layout of keys is unknown, we stringify it.
     const minimalCharacter = {
       attributes,
       gear,
+      infusions: JSON.stringify(infusions) || '',
       settings: {
         cachedFormState: {
           extras: {
@@ -96,7 +98,7 @@ const BuildShareModal = ({ children, title, character }) => {
       object,
       schema: BuildPageSchema,
       onSuccess: (result) => {
-        windRef.location.href = withPrefix(`/build?data=${result}`);
+        windRef.location.href = withPrefix(`/build?v=${version}&data=${result}`);
       },
     });
   };

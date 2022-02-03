@@ -6,14 +6,12 @@ import { Icon, Item, Skill } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { getBuffs } from '../../../../state/slices/buffs';
 import {
   changeSkill,
   changeWeapon,
   getSkills,
   getWeapons,
 } from '../../../../state/slices/buildPage';
-import { getTraitLines, getTraits } from '../../../../state/slices/traits';
 import { Classes, WEAPONS } from '../../../../utils/gw2-data';
 
 const useStyles = makeStyles()((theme) => ({
@@ -38,9 +36,9 @@ export default function ModalContent({ character, onClick }) {
   const { mainhand1, mainhand2, offhand1, offhand2 } = weapons;
   const skills = useSelector(getSkills);
   const { healId, utility1Id, utility2Id, utility3Id, eliteId } = skills;
-  const lines = useSelector(getTraitLines);
-  const selected = useSelector(getTraits);
-  const buffs = useSelector(getBuffs);
+  const lines = character.settings.cachedFormState.traits.selectedLines;
+  const selected = character.settings.cachedFormState.traits.selectedTraits;
+  const { buffs } = character.settings.cachedFormState.buffs;
 
   const [apiSkills, setApiSkills] = React.useState(null);
 
@@ -55,7 +53,6 @@ export default function ModalContent({ character, onClick }) {
       if (e.target.name === 'mainhand1') dispatch(changeWeapon({ key: 'offhand1', value: '' }));
       if (e.target.name === 'mainhand2') dispatch(changeWeapon({ key: 'offhand2', value: '' }));
     }
-    console.log(e);
     dispatch(changeWeapon({ key: e.target.name, value: e.target.value }));
   };
 

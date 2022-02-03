@@ -67,7 +67,18 @@ export const buildPageSlice = createSlice({
         buffsUnpacked[buff] = buffBits[index] === '1';
       });
 
-      return { ...action.payload, buffs: buffsUnpacked };
+      // handle the case for when no infusions are present. Value must be undefined or else it wont get parsed correctly by the character component
+      const infusions = action.payload.character.infusions
+        ? JSON.parse(action.payload.character.infusions)
+        : undefined;
+
+      // parse the stringified infusions object again to json
+      const character = {
+        ...action.payload.character,
+        infusions,
+      };
+
+      return { ...action.payload, buffs: buffsUnpacked, character };
     },
   },
 });

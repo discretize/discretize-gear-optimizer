@@ -7,12 +7,11 @@ import { Boon, CommonEffect, Condition, Skill, Trait, TraitLine } from 'gw2-ui-b
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { StringParam, useQueryParam } from 'use-query-params';
+import { NumberParam, StringParam, useQueryParam } from 'use-query-params';
 import { buffModifiers, classModifiers } from '../../assets/modifierdata';
 import HelperIcon from '../../components/baseComponents/HelperIcon';
 import LanguageSelection from '../../components/baseComponents/LanguageSelection';
 import ResultCharacter from '../../components/sections/results/ResultCharacter';
-import { BuildPageSchema } from '../../components/url-state/BuildPageSchema';
 import {
   changeBuildPage,
   getBuffs,
@@ -58,17 +57,24 @@ const IndexPage = ({ data }) => {
   const buffs = useSelector(getBuffs);
 
   const [buildUrl] = useQueryParam('data', StringParam);
+  const [versionParam] = useQueryParam('v', NumberParam);
+
+  // if no version is present, default to version 0
+  const version = versionParam || 0;
 
   React.useEffect(() => {
     // load build state from url
-    decompress({
-      string: buildUrl,
-      schema: BuildPageSchema,
-      onSuccess: (result) => dispatch(changeBuildPage(result)),
-    });
+    import(`../../components/url-state/schema/BuildPageSchema_v${version}`).then(
+      ({ BuildPageSchema: schema }) =>
+        decompress({
+          string: buildUrl,
+          schema,
+          onSuccess: (result) => dispatch(changeBuildPage(result)),
+        }),
+    );
 
     return () => {};
-  }, [buildUrl, dispatch]);
+  }, [buildUrl, dispatch, version]);
 
   // lookup table for specialization id -> trait line name
   const traitLookup = [];
