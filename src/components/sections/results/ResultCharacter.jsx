@@ -188,8 +188,10 @@ export default function ResultCharacter({ data, character, weapons, skills }) {
   const imageData = data.images.edges.flatMap((image) => image.node);
 
   const imageRaw =
-    imageData.find((image) => image.original.src.includes(specialization.toLowerCase())) ||
-    imageData.find((image) => image.original.src.includes(profession.toLowerCase()));
+    (specialization &&
+      imageData.find((image) => image.original.src.includes(specialization.toLowerCase()))) ||
+    (profession &&
+      imageData.find((image) => image.original.src.includes(profession.toLowerCase())));
   const image = getImage(imageRaw);
 
   return (
