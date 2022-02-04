@@ -90,6 +90,8 @@ const clamp = (input, min, max) => {
  * ------------------------------------------------------------------------
  */
 
+let uniqueIDCounter = 0;
+
 class OptimizerCore {
   settings;
   applyInfusionsFunction;
@@ -97,7 +99,6 @@ class OptimizerCore {
   worstScore;
   list = [];
   isChanged = true;
-  uniqueIDCounter = 0;
 
   constructor(settings) {
     this.settings = settings;
@@ -402,7 +403,7 @@ class OptimizerCore {
 
     this.updateAttributes(character);
     this.calcResults(character);
-    character.id = this.uniqueIDCounter++;
+    character.id = uniqueIDCounter++;
 
     if (this.list.length === 0) {
       this.list.push(character);
