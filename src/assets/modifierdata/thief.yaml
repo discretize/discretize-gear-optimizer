@@ -177,6 +177,10 @@
       gw2id: 1904
       defaultEnabled: true
 
+- section: Shadow Arts
+  id: 20
+  items: []
+
 - section: Acrobatics
   id: 54
   items:
