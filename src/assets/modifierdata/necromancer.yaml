@@ -150,6 +150,10 @@
       gw2id: 855
       defaultEnabled: true
 
+- section: Blood Magic
+  id: 19
+  items: []
+
 - section: Soul Reaping
   id: 50
   items:
