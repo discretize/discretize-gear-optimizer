@@ -35,6 +35,8 @@ export const gearDict = [
   'Rampager',
   'Settler',
   'Bringer',
+  'Ritualist',
+  'Dragon',
 ];
 
 export const professionDict = [

@@ -295,6 +295,22 @@ export const Affix = {
       minor: ['Precision', 'Vitality'],
     },
   },
+  Ritualist: {
+    type: 'quadruple',
+    category: 'Hybrid',
+    bonuses: {
+      major: ['Condition Damage', 'Vitality'],
+      minor: ['Concentration', 'Expertise'],
+    },
+  },
+  Dragon: {
+    type: 'quadruple',
+    category: 'Open World',
+    bonuses: {
+      major: ['Power', 'Ferocity'],
+      minor: ['Precision', 'Vitality'],
+    },
+  },
 };
 
 export const Item = {
