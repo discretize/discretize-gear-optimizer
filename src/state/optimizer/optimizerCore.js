@@ -558,6 +558,11 @@ class OptimizerCore {
     }
 
     attributes['Boon Duration'] += attributes['Concentration'] / 15 / 100;
+
+    attributes['Health'] = roundEven(
+      (attributes['Health'] + attributes['Vitality'] * 10) *
+        (1 + (attributes['Maximum Health'] || 0)),
+    );
   }
 
   checkInvalid(character) {
@@ -646,11 +651,6 @@ class OptimizerCore {
     const { attributes } = character;
 
     attributes['Armor'] += attributes['Toughness'];
-
-    attributes['Health'] = roundEven(
-      (attributes['Health'] + attributes['Vitality'] * 10) *
-        (1 + (attributes['Maximum Health'] || 0)),
-    );
 
     attributes['Effective Health'] =
       attributes['Health'] * attributes['Armor'] * (1 / damageMultiplier['Damage Taken']);
