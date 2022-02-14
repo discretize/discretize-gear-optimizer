@@ -305,7 +305,7 @@ export const Affix = {
   },
   Dragon: {
     type: 'quadruple',
-    category: 'Open World',
+    category: 'Power DPS',
     bonuses: {
       major: ['Power', 'Ferocity'],
       minor: ['Precision', 'Vitality'],
