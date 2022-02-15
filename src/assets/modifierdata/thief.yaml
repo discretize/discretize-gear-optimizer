@@ -239,7 +239,7 @@
         damage:
           Damage Reduction: [10%, unknown]
         conversion:
-          Vitality: {Power: 13%}
+          Vitality: {Power: 7%}
       gw2id: 1933
       defaultEnabled: true
 
