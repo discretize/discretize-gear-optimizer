@@ -5,7 +5,7 @@
 
 import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
 import {
-  Affix,
+  Affix as unmodifiedAffix,
   Attributes,
   Classes,
   conditionData,
@@ -839,6 +839,7 @@ export function createOptimizerCore(input) {
     primaryMaxInfusions: primaryMaxInfusionsInput,
     secondaryMaxInfusions: secondaryMaxInfusionsInput,
     infusionNoDuplicates,
+    customAffixData,
     ...others
   } = input;
   /* eslint-enable prefer-const */
@@ -1125,6 +1126,8 @@ export function createOptimizerCore(input) {
   settings.infusionMode = infusionMode;
 
   /* Equipment */
+
+  const Affix = { ...unmodifiedAffix, Custom: { ...unmodifiedAffix.Custom, ...customAffixData } };
 
   settings.slots = Slots[settings.weaponType];
 

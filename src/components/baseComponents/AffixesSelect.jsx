@@ -15,7 +15,7 @@ const augumentAffixState = (array) =>
       label: affix,
       category: Affix[affix].category,
     }));
-const order = ['Power DPS', 'Condi DPS', 'Support', 'Hybrid', 'Open World'];
+const order = ['Power DPS', 'Condi DPS', 'Support', 'Hybrid', 'Open World', 'Custom'];
 const AFFIXES = augumentAffixState(Object.keys(Affix))
   // eslint-disable-next-line id-length
   .sort((a, b) => {
