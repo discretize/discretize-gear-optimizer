@@ -47,6 +47,7 @@ function parseInput(str) {
       }
     }
   }
+  if (error) parsed = {};
   return { data: parsed, error };
 }
 

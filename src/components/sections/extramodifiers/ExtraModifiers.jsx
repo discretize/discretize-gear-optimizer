@@ -35,6 +35,7 @@ function parseInput(str) {
       }
     }
   }
+  if (error) parsed = [];
   return { data: Array.isArray(parsed) ? parsed : [parsed], error };
 }
 
