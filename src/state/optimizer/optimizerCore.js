@@ -538,6 +538,8 @@ class OptimizerCore {
   calcStats(character) {
     const { settings } = this;
 
+    const round = settings.noRounding ? (val) => val : roundEven;
+
     character.attributes = { ...character.baseAttributes };
     const { attributes, baseAttributes } = character;
 
@@ -548,7 +550,7 @@ class OptimizerCore {
         }
       } else {
         for (const [source, percent] of conversion) {
-          attributes[attribute] += roundEven(baseAttributes[source] * percent);
+          attributes[attribute] += round(baseAttributes[source] * percent);
         }
       }
     }
@@ -559,7 +561,7 @@ class OptimizerCore {
 
     attributes['Boon Duration'] += attributes['Concentration'] / 15 / 100;
 
-    attributes['Health'] = roundEven(
+    attributes['Health'] = round(
       (attributes['Health'] + attributes['Vitality'] * 10) *
         (1 + (attributes['Maximum Health'] || 0)),
     );
@@ -693,21 +695,20 @@ class OptimizerCore {
       );
     }
 
+    // baseline for comparing adding/subtracting +5 infusions
+    const baseline = this.clone(character);
+    const noRoundingCore = new OptimizerCore({ ...this.settings, noRounding: true });
+    noRoundingCore.updateAttributes(baseline);
+
     // effective gain from adding +5 infusions
     results.effectivePositiveValues = {};
     for (const attribute of ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise']) {
       const temp = this.clone(character);
+      temp.baseAttributes[attribute] += 5;
 
-      const tempSettings = {
-        ...this.settings,
-        modifiers: {
-          ...this.settings.modifiers,
-          buff: [...(this.settings.modifiers.buff || []), [attribute, 5]],
-        },
-      };
-      new OptimizerCore(tempSettings).updateAttributes(temp);
+      noRoundingCore.updateAttributes(temp);
       results.effectivePositiveValues[attribute] = Number(
-        (temp.attributes['Damage'] - attributes['Damage']).toFixed(5),
+        (temp.attributes['Damage'] - baseline.attributes['Damage']).toFixed(5),
       ).toLocaleString('en-US');
     }
 
@@ -715,17 +716,11 @@ class OptimizerCore {
     results.effectiveNegativeValues = {};
     for (const attribute of ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise']) {
       const temp = this.clone(character);
+      temp.baseAttributes[attribute] = Math.max(temp.baseAttributes[attribute] - 5, 0);
 
-      const tempSettings = {
-        ...this.settings,
-        modifiers: {
-          ...this.settings.modifiers,
-          buff: [...(this.settings.modifiers.buff || []), [attribute, -5]],
-        },
-      };
-      new OptimizerCore(tempSettings).updateAttributes(temp);
+      noRoundingCore.updateAttributes(temp);
       results.effectiveNegativeValues[attribute] = Number(
-        (temp.attributes['Damage'] - attributes['Damage']).toFixed(5),
+        (temp.attributes['Damage'] - baseline.attributes['Damage']).toFixed(5),
       ).toLocaleString('en-US');
     }
 
