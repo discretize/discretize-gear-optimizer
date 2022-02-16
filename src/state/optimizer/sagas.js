@@ -16,6 +16,7 @@ import {
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
 import { getExtrasModifiers } from '../slices/extras';
 import { getInfusionsModifiers } from '../slices/infusions';
+import { getCustomAffixData } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import { createOptimizerCore } from './optimizerCore';
@@ -23,7 +24,7 @@ import { ERROR, SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function createInput(state, specialization, appliedModifiers, cachedFormState) {
+function createInput(state, specialization, appliedModifiers, cachedFormState, customAffixData) {
   const {
     control: { profession },
     form: {
@@ -88,6 +89,7 @@ function createInput(state, specialization, appliedModifiers, cachedFormState) {
   input.specialization = specialization;
   input.appliedModifiers = appliedModifiers;
   input.cachedFormState = cachedFormState;
+  input.customAffixData = customAffixData;
 
   // temp: convert "poisoned" to "poison"
   const convertPoison = (distribution) =>
@@ -139,9 +141,11 @@ function* runCalc() {
       ...(yield select(getTraitsModifiers) || []),
     ];
 
+    const customAffixData = yield select(getCustomAffixData);
+
     console.time('Calculation');
 
-    input = createInput(state, specialization, appliedModifiers, cachedFormState);
+    input = createInput(state, specialization, appliedModifiers, cachedFormState, customAffixData);
 
     console.groupCollapsed('Debug Info:');
     console.log('Redux State:', state);

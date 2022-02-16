@@ -17,6 +17,7 @@ import { changePriority, getPriority } from '../../../state/slices/priorities';
 import { parsePriority } from '../../../utils/usefulFunctions';
 import AffixesSelect from '../../baseComponents/AffixesSelect';
 import HelperIcon from '../../baseComponents/HelperIcon';
+import CustomAffix from './CustomAffix';
 
 const useStyles = makeStyles()((theme) => ({
   text: {
@@ -47,6 +48,8 @@ const Priorities = () => {
   const minToughness = useSelector(getPriority('minToughness'));
   const maxToughness = useSelector(getPriority('maxToughness'));
   const affixes = useSelector(getPriority('affixes'));
+
+  const customSelected = affixes.includes('Custom');
 
   const handleChange = (event) => {
     dispatch(changePriority({ key: event.target.name, value: event.target.value }));
@@ -201,6 +204,12 @@ const Priorities = () => {
           <HelperIcon text={t('Only show results that fulfill a maximum amount of Toughness.')} />
         </div>
       </Grid>
+
+      {customSelected ? (
+        <Grid item xs={12}>
+          <CustomAffix />
+        </Grid>
+      ) : null}
     </Grid>
   );
 };

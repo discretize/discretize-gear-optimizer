@@ -11,15 +11,27 @@ import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import yaml from 'js-yaml';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { exampleModifiers, exampleModifiersJson } from '../../../assets/modifierdata/metadata';
-import {
-  changeExtraModifiers,
-  changeExtraModifiersError,
-  getExtraModifiers,
-} from '../../../state/slices/extraModifiers';
+import { changePriority, getPriority } from '../../../state/slices/priorities';
+
+export const exampleAffix = `type: quadruple
+bonuses:
+  major:
+    - Power
+    - Ferocity
+  minor:
+    - Precision
+    - Vitality`;
+
+export const exampleAffixJson = `{
+  "type": "quadruple",
+  "bonuses": {
+    "major": ["Power", "Ferocity"],
+    "minor": ["Precision", "Vitality"]
+  }
+}`;
 
 function parseInput(str) {
-  let parsed = [];
+  let parsed = {};
   let error = false;
 
   if (str) {
@@ -35,28 +47,29 @@ function parseInput(str) {
       }
     }
   }
-  if (error) parsed = [];
-  return { data: Array.isArray(parsed) ? parsed : [parsed], error };
+  if (error) parsed = {};
+  return { data: parsed, error };
 }
 
-const ExtraModifiers = () => {
+const CustomAffix = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const errorMsg = useSelector(getExtraModifiers('error'));
-  const text = useSelector(getExtraModifiers('textBox'));
+  const errorMsg = useSelector(getPriority('customAffixError'));
+  const text = useSelector(getPriority('customAffixTextBox'));
 
   const handleChange = (e) => {
     const val = e.target.value;
-    dispatch(changeExtraModifiers({ key: 'textBox', value: val }));
+    dispatch(changePriority({ key: 'customAffixTextBox', value: val }));
 
     const { data, error } = parseInput(val);
-    dispatch(changeExtraModifiers({ key: 'extraModifiers', value: data }));
-    dispatch(changeExtraModifiersError(error ? t('Invalid Format.') : ''));
+    dispatch(changePriority({ key: 'customAffix', value: data }));
+    dispatch(changePriority({ key: 'customAffixError', value: error ? t('Invalid Format.') : '' }));
   };
+
   return (
     <>
       <TextField
-        label={t('Extra Modifiers')}
+        label={t('Custom Affix (valid types: "triple," "quadruple," "celestial")')}
         variant="standard"
         sx={{
           width: '100%',
@@ -79,11 +92,11 @@ const ExtraModifiers = () => {
           <Grid container>
             <Grid item xs={6}>
               <Typography>YAML</Typography>
-              <pre style={{ overflow: 'auto hidden' }}>{exampleModifiers}</pre>
+              <pre style={{ overflow: 'auto hidden' }}>{exampleAffix}</pre>
             </Grid>
             <Grid item xs={6}>
               <Typography>JSON</Typography>
-              <pre style={{ overflow: 'auto hidden' }}>{exampleModifiersJson}</pre>
+              <pre style={{ overflow: 'auto hidden' }}>{exampleAffixJson}</pre>
             </Grid>
           </Grid>
         </AccordionDetails>
@@ -92,4 +105,4 @@ const ExtraModifiers = () => {
   );
 };
 
-export default ExtraModifiers;
+export default React.memo(CustomAffix);

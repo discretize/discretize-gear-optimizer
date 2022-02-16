@@ -7,6 +7,14 @@
 // import { itemStats } from "gw2-ui-bulk";
 
 export const Affix = {
+  Custom: {
+    type: 'triple',
+    category: 'Custom',
+    bonuses: {
+      major: [],
+      minor: [],
+    },
+  },
   Berserker: {
     type: 'triple',
     category: 'Power DPS',
