@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@discretize/object-compression": "^1.0.1",
-    "@discretize/react-discretize-components": "^2.0.1",
+    "@discretize/react-discretize-components": "link:/home/alex/Repositories/react-discretize-components",
     "@emotion/react": "^11.7.1",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.6.0",

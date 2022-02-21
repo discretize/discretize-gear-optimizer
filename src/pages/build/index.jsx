@@ -166,9 +166,9 @@ const IndexPage = ({ data }) => {
       )}
 
       <TextDivider text="Traits" />
-      {lines[0] && <Traits id={lines[0]} selected={selected[0]} />}
-      {lines[1] && <Traits id={lines[1]} selected={selected[1]} />}
-      {lines[2] && <Traits id={lines[2]} selected={selected[2]} />}
+      {lines[0] && <Traits id={parseInt(lines[0], 10)} selected={selected[0]} />}
+      {lines[1] && <Traits id={parseInt(lines[1], 10)} selected={selected[1]} />}
+      {lines[2] && <Traits id={parseInt(lines[2], 10)} selected={selected[2]} />}
     </Layout>
   );
 };
