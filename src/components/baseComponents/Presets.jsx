@@ -1,10 +1,10 @@
 import { Box, Chip, TextField, Typography } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { Profession } from 'gw2-ui-new';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getControl, getProfession } from '../../state/slices/controlsSlice';
-import Profession from './Profession';
 
 // this many chips are allowed before they will be put into a dropdown select
 const maxChipsDefault = 6;

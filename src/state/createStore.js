@@ -1,4 +1,3 @@
-import { gw2UIReducer } from 'gw2-ui-bulk';
 import { applyMiddleware, combineReducers, compose, createStore as reduxCreateStore } from 'redux';
 import { createMigrate, persistReducer, persistStore } from 'redux-persist';
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
@@ -48,7 +47,6 @@ const persistConfig = {
 };
 
 const reducers = combineReducers({
-  gw2UiStore: gw2UIReducer,
   optimizer: combineReducers({
     control: controlSlice.reducer,
     form: combineReducers({

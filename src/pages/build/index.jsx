@@ -3,7 +3,7 @@ import { firstUppercase, Layout, TextDivider } from '@discretize/react-discretiz
 import { Box, Paper, Typography } from '@mui/material';
 import { graphql } from 'gatsby';
 import { Trans } from 'gatsby-plugin-react-i18next';
-import { Boon, CommonEffect, Condition, Skill, Trait, TraitLine } from 'gw2-ui-bulk';
+import { Boon, CommonEffect, Condition, Skill, Trait, TraitLine } from 'gw2-ui-new';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';

@@ -1,7 +1,7 @@
 import ShareIcon from '@mui/icons-material/Share';
 import { IconButton } from '@mui/material';
 import axios from 'axios';
-import { Tooltip } from 'gw2-ui-bulk';
+import { Tooltip } from 'gw2-ui-new';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import URLStateSnackbar from './URLStateSnackbar';

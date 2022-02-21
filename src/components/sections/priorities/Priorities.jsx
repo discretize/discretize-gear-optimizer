@@ -9,7 +9,7 @@ import {
   RadioGroup,
 } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { Attribute } from 'gw2-ui-bulk';
+import { Attribute } from 'gw2-ui-new';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';

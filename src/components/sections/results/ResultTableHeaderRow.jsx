@@ -1,7 +1,7 @@
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { Item } from 'gw2-ui-bulk';
+import { Item } from 'gw2-ui-new';
 import React from 'react';
 import { INFUSION_IDS, Slots } from '../../../utils/gw2-data';
 import HelperIcon from '../../baseComponents/HelperIcon';

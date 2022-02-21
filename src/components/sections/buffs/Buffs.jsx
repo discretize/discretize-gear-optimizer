@@ -1,7 +1,7 @@
 import { firstUppercase } from '@discretize/react-discretize-components';
 import { Box, FormControl, FormGroup, FormLabel, Grid, Typography } from '@mui/material';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
+import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-new';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';

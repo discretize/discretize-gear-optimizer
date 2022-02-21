@@ -46,7 +46,7 @@
     "gatsby-source-filesystem": "^4.4.0",
     "gatsby-transformer-sharp": "^4.4.0",
     "gatsby-transformer-yaml": "^4.4.0",
-    "gw2-ui-bulk": "0.11.12",
+    "gw2-ui-new": "link:/home/alex/Repositories/gw2-ui",
     "i18next": "^21.6.5",
     "js-yaml": "^4.1.0",
     "json-url": "^3.0.0",
