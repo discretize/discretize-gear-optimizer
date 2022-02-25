@@ -3,7 +3,10 @@
 /* eslint-disable no-console */
 /* eslint-disable dot-notation */
 
-import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
+import {
+  allAttributeCoefficientKeys,
+  allAttributePointKeys,
+} from '../../assets/modifierdata/metadata';
 import {
   Affix as unmodifiedAffix,
   Attributes,
@@ -481,7 +484,8 @@ class OptimizerCore {
 
     const powerDamageScore = this.calcPower(character, damageMultiplier);
     const condiDamageScore = this.calcCondi(character, damageMultiplier, Attributes.CONDITION);
-    character.attributes['Damage'] = powerDamageScore + condiDamageScore;
+    character.attributes['Damage'] =
+      powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] || 0);
 
     this.calcSurvivability(character, damageMultiplier);
     this.calcHealing(character);
@@ -521,7 +525,8 @@ class OptimizerCore {
           this.condiResultCache?.set(CONDI_CACHE_ID, condiDamageScore);
         }
 
-        attributes['Damage'] = powerDamageScore + condiDamageScore;
+        attributes['Damage'] =
+          powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] || 0);
         break;
       case 'Survivability':
         this.calcSurvivability(character, damageMultiplier);
@@ -544,14 +549,9 @@ class OptimizerCore {
     const { attributes, baseAttributes } = character;
 
     for (const [attribute, conversion] of settings.modifiers['convert']) {
-      if (attribute === 'Outgoing Healing') {
-        for (const [source, percent] of conversion) {
-          attributes[attribute] += baseAttributes[source] * percent;
-        }
-      } else {
-        for (const [source, percent] of conversion) {
-          attributes[attribute] += round(baseAttributes[source] * percent);
-        }
+      const maybeRound = allAttributePointKeys.includes(attribute) ? round : (val) => val;
+      for (const [source, percent] of conversion) {
+        attributes[attribute] += maybeRound(baseAttributes[source] * percent);
       }
     }
 
@@ -559,12 +559,24 @@ class OptimizerCore {
       attributes[attribute] = (attributes[attribute] || 0) + bonus;
     }
 
+    attributes['Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
+    attributes['Critical Damage'] += attributes['Ferocity'] / 15 / 100;
+
     attributes['Boon Duration'] += attributes['Concentration'] / 15 / 100;
 
     attributes['Health'] = round(
       (attributes['Health'] + attributes['Vitality'] * 10) *
         (1 + (attributes['Maximum Health'] || 0)),
     );
+
+    for (const [attribute, conversion] of settings.modifiers['convertAfterBuffs']) {
+      const maybeRound = allAttributePointKeys.includes(attribute) ? round : (val) => val;
+      for (const [source, percent] of conversion) {
+        const sourceAmount =
+          source === 'Critical Chance' ? clamp(attributes[source], 0, 1) : attributes[source];
+        attributes[attribute] += maybeRound(sourceAmount * percent);
+      }
+    }
   }
 
   checkInvalid(character) {
@@ -586,11 +598,7 @@ class OptimizerCore {
   }
 
   calcPower(character, damageMultiplier) {
-    const { settings } = this;
     const { attributes } = character;
-
-    attributes['Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
-    attributes['Critical Damage'] += attributes['Ferocity'] / 15 / 100;
 
     const critDmg = attributes['Critical Damage'] * damageMultiplier['Critical Damage'];
     const critChance = clamp(attributes['Critical Chance'], 0, 1);
@@ -599,7 +607,7 @@ class OptimizerCore {
       attributes['Power'] * (1 + critChance * (critDmg - 1)) * damageMultiplier['Strike Damage'];
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
-    const damage = (settings.distribution['Power'] / 2597) * attributes['Effective Power'];
+    const damage = ((attributes['Power Coefficient'] || 0) / 2597) * attributes['Effective Power'];
     attributes['Power DPS'] = damage;
 
     return damage;
@@ -637,7 +645,7 @@ class OptimizerCore {
         1 +
         clamp((attributes[`${condition} Duration`] || 0) + attributes['Condition Duration'], 0, 1);
 
-      const stacks = settings.distribution[condition] * duration;
+      const stacks = (attributes[`${condition} Coefficient`] || 0) * duration;
       attributes[`${condition} Stacks`] = stacks;
 
       const DPS = stacks * (attributes[`${condition} Damage`] || 1);
@@ -842,6 +850,19 @@ export function createOptimizerCore(input) {
   const settings = { ...others };
   console.debug('settings:', settings);
 
+  /* Distribution */
+
+  // legacy percent distribution conversion
+  // see: https://github.com/discretize/discretize-old/discussions/136
+  if (input.percentDistribution && input.distributionVersion !== 2) {
+    const { Power, ...rest } = input.percentDistribution;
+    settings.distribution = {};
+    settings.distribution['Power'] = (Power * 2597) / 1025;
+    for (const [condition, value] of Object.entries(rest)) {
+      settings.distribution[condition] = value / conditionData[condition].baseDamage;
+    }
+  }
+
   /* Base Attributes */
 
   settings.baseAttributes = {};
@@ -861,12 +882,17 @@ export function createOptimizerCore(input) {
   settings.baseAttributes['Critical Chance'] = 0.05;
   settings.baseAttributes['Critical Damage'] = 1.5;
 
+  for (const [key, value] of Object.entries(settings.distribution)) {
+    settings.baseAttributes[`${key} Coefficient`] = value;
+  }
+
   /* Modifiers */
 
   settings.modifiers = {
     damageMultiplier: {},
     buff: [],
     convert: [],
+    convertAfterBuffs: [],
   };
   const initialMultipliers = {
     'Strike Damage': 1,
@@ -912,7 +938,7 @@ export function createOptimizerCore(input) {
         damage = {},
         attributes = {},
         conversion = {},
-        // effect = {},
+        conversionAfterBuffs = {},
         // note,
         // ...otherModifiers
       },
@@ -968,8 +994,11 @@ export function createOptimizerCore(input) {
     }
 
     for (const [attribute, allPairs] of Object.entries(attributes)) {
-      if (allAttributePointKeys.includes(attribute)) {
-        // stat, i.e.
+      if (
+        allAttributePointKeys.includes(attribute) ||
+        allAttributeCoefficientKeys.includes(attribute)
+      ) {
+        // stat/coefficnent, i.e.
         //   Concentration: [70, converted, 100, buff]
 
         const allPairsMut = [...allPairs];
@@ -1021,6 +1050,25 @@ export function createOptimizerCore(input) {
           (settings.modifiers['convert'][attribute][source] || 0) + scaledAmount;
       }
     }
+
+    for (const [attribute, val] of Object.entries(conversionAfterBuffs)) {
+      // conversion after buffs, i.e.
+      //   Power: {Condition Damage: 6%, Expertise: 8%}
+
+      if (!settings.modifiers['convertAfterBuffs'][attribute]) {
+        settings.modifiers['convertAfterBuffs'][attribute] = {};
+      }
+      for (const [source, percentAmount] of Object.entries(val)) {
+        const valid = allAttributePointKeys.includes(source) || source === 'Critical Chance';
+        // eslint-disable-next-line no-alert
+        if (!valid) alert(`Unsupported after-buff conversion source: ${source}`);
+
+        const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
+
+        settings.modifiers['convertAfterBuffs'][attribute][source] =
+          (settings.modifiers['convertAfterBuffs'][attribute][source] || 0) + scaledAmount;
+      }
+    }
   }
 
   Object.keys(initialMultipliers).forEach((attribute) => {
@@ -1033,23 +1081,15 @@ export function createOptimizerCore(input) {
   settings.modifiers['convert'] = Object.entries(settings.modifiers['convert'] || {}).map(
     ([attribute, conversion]) => [attribute, Object.entries(conversion)],
   );
+  settings.modifiers['convertAfterBuffs'] = Object.entries(
+    settings.modifiers['convertAfterBuffs'] || {},
+  ).map(([attribute, conversion]) => [attribute, Object.entries(conversion)]);
 
-  /* Distribution */
-
-  // legacy percent distribution conversion
-  // see: https://github.com/discretize/discretize-old/discussions/136
-  if (input.percentDistribution && input.distributionVersion !== 2) {
-    const { Power, ...rest } = input.percentDistribution;
-    settings.distribution = {};
-    settings.distribution['Power'] = (Power * 2597) / 1025;
-    for (const [condition, value] of Object.entries(rest)) {
-      settings.distribution[condition] = value / conditionData[condition].baseDamage;
-    }
-  }
+  /* Relevant Conditions */
 
   settings.relevantConditions = [];
-  for (const [condition, value] of Object.entries(settings.distribution)) {
-    if (condition !== 'Power' && value) {
+  for (const condition of Object.keys(settings.distribution)) {
+    if (condition !== 'Power' && settings.baseAttributes[`${condition} Coefficient`]) {
       settings.relevantConditions.push(condition);
     }
   }
