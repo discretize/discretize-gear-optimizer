@@ -22,8 +22,8 @@
     "eslint": "eslint --ignore-path .gitignore --max-warnings 0 . --ext .js,.jsx,ts,tsx",
     "updateMappings": "node updateMappings.js",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "testModifiers": "node --experimental-json-modules ./src/assets/modifierdata/testModifiers.js",
-    "testPresets": "node --experimental-json-modules ./src/assets/presetdata/testPresets.js",
+    "testModifiers": "node ./src/assets/modifierdata/testModifiers.js",
+    "testPresets": "node ./src/assets/presetdata/testPresets.js",
     "extractLocale": "babel --config-file ./babel-extract.config.js 'src/**/*.{js,jsx,ts,tsx}' > /dev/null",
     "extractLocaleCMD": "babel --config-file ./babel-extract.config.js \"src/**/*.{js,jsx,ts,tsx}\" > NUL"
   },
