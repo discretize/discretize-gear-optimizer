@@ -7,7 +7,7 @@ import fs from 'fs/promises';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import yaml from 'js-yaml';
 import path from 'path';
-import specializationData from '../../utils/mapping/specializations.json';
+// import specializationData from '../../utils/mapping/specializations.json' assert { type: 'json' };
 import {
   allAttributePercentKeys,
   allAttributePointKeys,
@@ -32,6 +32,9 @@ const gentleAssert = (condition, message) => {
 };
 
 const testModifiers = async () => {
+  const specializationDataJSON = await fs.readFile('./src/utils/mapping/specializations.json');
+  const specializationData = JSON.parse(specializationDataJSON);
+
   const files = (await fs.readdir(directory)).filter(
     (filename) => path.extname(filename) === '.yaml',
   );
