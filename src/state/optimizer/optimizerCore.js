@@ -517,7 +517,13 @@ class OptimizerCore {
 
         // cache condi result based on cdmg and expertise
         let condiDamageScore = 0;
-        if (settings.relevantConditions.length > 0) {
+        if (settings.disableCondiResultCache) {
+          condiDamageScore = this.calcCondi(
+            character,
+            damageMultiplier,
+            settings.relevantConditions,
+          );
+        } else if (settings.relevantConditions.length > 0) {
           const CONDI_CACHE_ID = attributes['Expertise'] + attributes['Condition Damage'] * 10000;
           condiDamageScore =
             this.condiResultCache?.get(CONDI_CACHE_ID) ||
@@ -927,6 +933,19 @@ export function createOptimizerCore(input) {
 
   const parsePercent = (percentValue) => Number(percentValue.replace('%', '')) / 100;
 
+  // Special handler for conversions that convert to condi coefficients; ensures that
+  // relevantConditions includes them even if their coefficient sliders are 0
+  //
+  const extraRelevantConditions = Object.fromEntries(
+    Object.keys(conditionData).map((condition) => [condition, false]),
+  );
+  const makeConditionsRelevant = (attribute) => {
+    const condition = attribute.replace(' Coefficient', '');
+    if (extraRelevantConditions[condition] !== undefined) {
+      extraRelevantConditions[condition] = true;
+    }
+  };
+
   for (const item of settings.appliedModifiers) {
     const {
       id = '[no id]',
@@ -1040,6 +1059,8 @@ export function createOptimizerCore(input) {
       // conversion, i.e.
       //   Power: {Condition Damage: 6%, Expertise: 8%}
 
+      makeConditionsRelevant(attribute);
+
       if (!settings.modifiers['convert'][attribute]) {
         settings.modifiers['convert'][attribute] = {};
       }
@@ -1054,6 +1075,8 @@ export function createOptimizerCore(input) {
     for (const [attribute, val] of Object.entries(conversionAfterBuffs)) {
       // conversion after buffs, i.e.
       //   Power: {Condition Damage: 6%, Expertise: 8%}
+
+      makeConditionsRelevant(attribute);
 
       if (!settings.modifiers['convertAfterBuffs'][attribute]) {
         settings.modifiers['convertAfterBuffs'][attribute] = {};
@@ -1076,7 +1099,7 @@ export function createOptimizerCore(input) {
       allDmgMult.mult[attribute] * allDmgMult.add[attribute] * allDmgMult.target[attribute];
   });
 
-  // convert to arrays for simpler iteration
+  // convert modifiers to arrays for simpler iteration
   settings.modifiers['buff'] = Object.entries(settings.modifiers['buff'] || {});
   settings.modifiers['convert'] = Object.entries(settings.modifiers['convert'] || {}).map(
     ([attribute, conversion]) => [attribute, Object.entries(conversion)],
@@ -1085,14 +1108,16 @@ export function createOptimizerCore(input) {
     settings.modifiers['convertAfterBuffs'] || {},
   ).map(([attribute, conversion]) => [attribute, Object.entries(conversion)]);
 
-  /* Relevant Conditions */
+  /* Relevant Conditions + Condi Caching Toggle */
 
-  settings.relevantConditions = [];
-  for (const condition of Object.keys(settings.distribution)) {
-    if (condition !== 'Power' && settings.baseAttributes[`${condition} Coefficient`]) {
-      settings.relevantConditions.push(condition);
-    }
-  }
+  settings.relevantConditions = Object.keys(conditionData).filter(
+    (condition) =>
+      settings.baseAttributes[`${condition} Coefficient`] > 0 || extraRelevantConditions[condition],
+  );
+
+  // if any condition coefficnents are the result of a conversion, the same cdmg + expertise does
+  // not mean the same condition dps; disable caching if so
+  settings.disableCondiResultCache = Object.values(extraRelevantConditions).some(Boolean);
 
   /* Infusions */
 
