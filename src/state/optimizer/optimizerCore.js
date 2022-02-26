@@ -764,28 +764,30 @@ class OptimizerCore {
       }
     }
 
-    // template helper data (damage with distribution of one)
+    // template helper data
+    // (finds the slope and intercept (y = mx + b) of each condition's DPS relative to input
+    // coefficient; used to make templates easily)
     results.coefficientHelper = {};
-    const temp = this.clone(character);
-    const tempSettings = {
-      ...this.settings,
-      distributionVersion: 2,
-      distribution: {
-        Power: 1,
-        Burning: 1,
-        Bleeding: 1,
-        Poison: 1,
-        Torment: 1,
-        Confusion: 1,
-      },
+
+    const attrsWithModifiedCoefficient = (newCoefficient) => {
+      const newCharacter = this.clone(character);
+      newCharacter.baseAttributes = { ...character.baseAttributes };
+      Object.keys(settings.distribution).forEach((key) => {
+        newCharacter.baseAttributes[`${key} Coefficient`] -= settings.distribution[key];
+        newCharacter.baseAttributes[`${key} Coefficient`] += newCoefficient;
+      });
+      this.updateAttributes(newCharacter);
+      return newCharacter.attributes;
     };
-    new OptimizerCore(tempSettings).updateAttributes(temp);
+
+    const withOne = attrsWithModifiedCoefficient(1);
+    const withZero = attrsWithModifiedCoefficient(0);
+
     for (const key of Object.keys(settings.distribution)) {
-      if (key === 'Power') {
-        results.coefficientHelper['Power'] = temp.attributes['Power DPS'];
-      } else {
-        results.coefficientHelper[key] = temp.attributes[`${key} DPS`];
-      }
+      results.coefficientHelper[key] = {
+        slope: withOne[`${key} DPS`] - withZero[`${key} DPS`],
+        intercept: withZero[`${key} DPS`],
+      };
     }
   }
 
