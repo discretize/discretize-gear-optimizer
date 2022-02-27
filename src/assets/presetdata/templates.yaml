@@ -92,7 +92,7 @@ list:
         id: pqfb
         specialization: Firebrand
         boons: Power (spotter)
-        priority: Power Boon 25%
+        priority: Power Quickbrand 25%
         distribution: Power Quickbrand (approx.)
         traits: Power Quickbrand
         extras: Power (Fractal)
@@ -133,20 +133,20 @@ list:
         traits: Condi Quickbrand
         extras: Condi Quickbrand 40%
 
-      - name: Condi Quickbrand 35% Celestial
+      - name: Condi Quickbrand 35%
         id: cqfb-cele-35
         specialization: Firebrand
         boons: Condi
-        priority: Condi Quickbrand 35% Celestial
+        priority: Condi Quickbrand 35%
         distribution: CFB w/ Quickness (Virtues, allies)
         traits: Condi Quickbrand
-        extras: Condi Quickbrand 35% Celestial
+        extras: Condi Quickbrand 35%
 
       - name: Hybrid FB Virtues
         id: hycfb-virtues-leadership
         specialization: Firebrand
         boons: Condi
-        priority: Condi Boon 40%
+        priority: Condi Hybrid Firebrand 40%
         distribution: Hybrid FB Virtues
         traits: Hybrid FB Virtues
         extras: Hybrid FB Traveler
@@ -155,7 +155,7 @@ list:
         id: hycfb-honor-leadership
         specialization: Firebrand
         boons: Condi
-        priority: Condi Boon 40%
+        priority: Condi Hybrid Firebrand 40%
         distribution: Hybrid FB Honor
         traits: Hybrid FB Honor
         extras: Hybrid FB Traveler
@@ -371,7 +371,7 @@ list:
         id: condidruid
         specialization: Druid
         boons: Power (spotter)
-        priority: Condi Boon 52%
+        priority: Condi Hybrid Druid 52%
         distribution: Condi Druid (approx.)
         traits: Condi Druid
         extras: Condi Druid
@@ -401,7 +401,7 @@ list:
         id: celeren-rr-invo
         specialization: Renegade
         boons: Condi
-        priority: Condi Boon 79%
+        priority: Condi Alacrity Renegade 79%
         distribution: Condi RR Invocation
         traits: Condi RR Ren Invo
         extras: Cele Ren (Fractal)
@@ -503,7 +503,7 @@ list:
         id: qscrap
         specialization: Scrapper
         boons: Power (spotter)
-        priority: Power Boon 33.3%
+        priority: Power Quickness Scrapper 33.3%
         distribution: Quickness Scrapper
         traits: Quickness Scrapper
         extras: Power (Fractal)
@@ -578,7 +578,7 @@ list:
         id: qharb-cele
         specialization: Harbinger
         boons: Condi
-        priority: Condi Boon 49%
+        priority: Condi Quickness Harbinger 49%
         distribution: '[old] Quickness Harbinger (approx.)'
         traits: '[old] Quickness Harbinger'
         extras: '[old] Quickness Harbinger (Cele)'
@@ -608,7 +608,7 @@ list:
         id: boondd-power
         specialization: Daredevil
         boons: Power (spotter)
-        priority: Power Boon 99.7%
+        priority: Power Boon Daredevil 99.7%
         distribution: Staff Daredevil
         traits: Power Boon Daredevil
         extras: Power Boon Daredevil
@@ -626,7 +626,7 @@ list:
         id: boondd-condi
         specialization: Daredevil
         boons: Condi
-        priority: Condi Boon 62%
+        priority: Condi Boon Daredevil 62%
         distribution: None
         traits: Condi Boon Daredevil
         extras: Condi Boon Daredevil

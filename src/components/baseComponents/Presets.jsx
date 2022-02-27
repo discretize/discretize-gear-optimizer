@@ -7,7 +7,7 @@ import { getControl, getProfession } from '../../state/slices/controlsSlice';
 import Profession from './Profession';
 
 // this many chips are allowed before they will be put into a dropdown select
-const maxChipsDefault = 6;
+const maxChipsDefault = 7;
 
 const Presets = ({
   className,
