@@ -242,7 +242,7 @@ list:
         }
       }
 
-  - name: '[beta] Virtuoso'
+  - name: '[beta2] Virtuoso'
     profession: Virtuoso
     traits: |-
       {
@@ -1059,7 +1059,7 @@ list:
         }
       }
 
-  - name: '[beta] Condi Willbender'
+  - name: '[beta2] Condi Willbender'
     profession: Willbender
     traits: |-
       {
@@ -1136,7 +1136,7 @@ list:
         }
       }
 
-  - name: '[old] Power Willbender Radiance'
+  - name: '[beta1] Power Willbender Radiance'
     profession: Willbender
     traits: |-
       {
@@ -1208,7 +1208,7 @@ list:
         }
       }
 
-  - name: '[old] Power Willbender Virtues'
+  - name: '[beta1] Power Willbender Virtues'
     profession: Willbender
     traits: |-
       {
@@ -1516,7 +1516,7 @@ list:
         }
       }
 
-  - name: '[beta] Banner Bladesworn'
+  - name: '[beta2] Banner Bladesworn'
     profession: Bladesworn
     traits: |-
       {
@@ -1977,7 +1977,7 @@ list:
         }
       }
 
-  - name: '[beta] Power Catalyst'
+  - name: '[beta2] Power Catalyst'
     profession: Catalyst
     traits: |-
       {
@@ -2064,7 +2064,7 @@ list:
         }
       }
 
-  - name: '[beta] Power Quickness Catalyst'
+  - name: '[beta2] Power Quickness Catalyst'
     profession: Catalyst
     traits: |-
       {
@@ -2151,7 +2151,7 @@ list:
         }
       }
 
-  - name: '[old] Condi Catalyst'
+  - name: '[beta1] Condi Catalyst'
     profession: Catalyst
     traits: |-
       {
@@ -2776,7 +2776,7 @@ list:
         "skills": {}
       }
 
-  - name: '[beta] Condi Untamed'
+  - name: '[beta2] Condi Untamed'
     profession: Untamed
     traits: |-
       {
@@ -2834,7 +2834,7 @@ list:
         "skills": {}
       }
 
-  - name: '[beta] Power Untamed'
+  - name: '[beta2] Power Untamed'
     profession: Untamed
     traits: |-
       {
@@ -3465,7 +3465,7 @@ list:
         "skills": {}
       }
 
-  - name: '[beta] Vindicator'
+  - name: '[beta2] Vindicator'
     profession: Vindicator
     traits: |-
       {
@@ -3675,7 +3675,7 @@ list:
         "skills": {}
       }
 
-  - name: '[old] Condi Mechanist'
+  - name: '[beta1] Condi Mechanist'
     profession: Mechanist
     traits: |-
       {
@@ -4120,7 +4120,7 @@ list:
         "skills": {}
       }
 
-  - name: '[old] DPS Harbinger'
+  - name: '[beta1] DPS Harbinger'
     profession: Harbinger
     traits: |-
       {
@@ -4184,7 +4184,7 @@ list:
         "skills": {}
       }
 
-  - name: '[old] Quickness Harbinger'
+  - name: '[beta1] Quickness Harbinger'
     profession: Harbinger
     traits: |-
       {
@@ -4668,7 +4668,7 @@ list:
         }
       }
 
-  - name: '[beta] DPS Specter Sc/D'
+  - name: '[beta2] DPS Specter Sc/D'
     profession: Specter
     traits: |-
       {
@@ -4736,7 +4736,7 @@ list:
         "skills": {}
       }
 
-  - name: '[old] DPS Specter Endless Night'
+  - name: '[beta1] DPS Specter Endless Night'
     profession: Specter
     traits: |-
       {

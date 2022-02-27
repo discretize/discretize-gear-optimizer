@@ -47,7 +47,7 @@ list:
   # https://www.youtube.com/watch?v=hkTNec9kJpg
   # power: 36822, burn: 213, total: 37035
   # force impact ass shoulder leg 11 mighty 6 precise (overcapped, missing 1 infu)
-  - name: '[beta] Banner Bladesworn'
+  - name: '[beta2] Banner Bladesworn'
     profession: Bladesworn
     value: >-
       {
@@ -209,7 +209,7 @@ list:
   # power: 9039, burn: 30327, bleed: 451, torment: 789, total: 40606
   # 12 boons
   # sini trinkets except ring; viper else
-  - name: '[beta] Condi Willbender'
+  - name: '[beta2] Condi Willbender'
     profession: Willbender
     value: >-
       {
@@ -219,7 +219,7 @@ list:
   # https://www.youtube.com/watch?v=Vo4Qs6KeUHE
   # power: 36331, burn: 946, total: 37277
   # chill bugged 10%, RHS
-  - name: '[old] Power Willbender Radiance Focus'
+  - name: '[beta1] Power Willbender Radiance Focus'
     profession: Willbender
     value: >-
       {
@@ -229,7 +229,7 @@ list:
   # https://www.youtube.com/watch?v=fsdvYFmFcDs
   # power: 40239, burn: 1665, total: 41904
   # chill bugged 10%, 12 boons, thief accuracy
-  - name: '[old] Power Willbender Virtues Focus'
+  - name: '[beta1] Power Willbender Virtues Focus'
     profession: Willbender
     value: >-
       {
@@ -293,7 +293,7 @@ list:
 
   # https://www.youtube.com/watch?v=SPSg1eiz7IQ
   # power: 47271, burn: 3231, bleed: 648, total: 51150
-  - name: '[beta] Power Catalyst'
+  - name: '[beta2] Power Catalyst'
     profession: Catalyst
     value: >-
       {
@@ -302,7 +302,7 @@ list:
 
   # https://discord.com/channels/380901000200060929/888049167455379532/907951956864163870
   # power: 13422, burn: 18047, bleed: 11426, total: 42895
-  - name: '[old] Condi Catalyst'
+  - name: '[beta1] Condi Catalyst'
     profession: Catalyst
     value: >-
       {
@@ -409,7 +409,7 @@ list:
 
   # https://www.youtube.com/watch?v=czIeKhJ0rQs
   # power: 36264, burn: 194, torment: 141, total: 36599
-  - name: '[beta] Vindicator Large'
+  - name: '[beta2] Vindicator Large'
     profession: Vindicator
     value: >-
       {
@@ -496,7 +496,7 @@ list:
   # https://www.youtube.com/watch?v=RJUBAGISNC0
   # https://www.youtube.com/watch?v=oR6U_nvTzNo
   # https://www.youtube.com/watch?v=rG-yP2AMua0
-  - name: '[old] Condi Mechanist'
+  - name: '[beta1] Condi Mechanist'
     profession: Mechanist
     value: >-
       {
@@ -573,7 +573,7 @@ list:
   # https://www.youtube.com/watch?v=2SmXV9Yr1QM
   # power: 37603, burn: 182, bleed: 851, confusion: 28, total: 38664
   # assassin helm shoulders gloves boots, accuracy
-  - name: '[beta] Virtuoso'
+  - name: '[beta2] Virtuoso'
     profession: Virtuoso
     value: >-
       {
@@ -612,7 +612,7 @@ list:
 
   # https://www.youtube.com/watch?v=AyDxFUGZOYQ (log is off ingame # by 3%)
   # power: 4902, burn: 3838, bleed: 7601, poison: 4393, torment: 23779, total: 44513
-  - name: '[old] Harbinger (approx.)'
+  - name: '[beta1] Harbinger (approx.)'
     profession: Harbinger
     value: >-
       {
@@ -621,7 +621,7 @@ list:
 
   # https://www.youtube.com/watch?v=AyDxFUGZOYQ (log is off ingame #)
   # power: 5462, burn: 2897, bleed: 5893, poison: 3167, torment: 15872, total: 33291
-  - name: '[old] Quickness Harbinger (approx.)'
+  - name: '[beta1] Quickness Harbinger (approx.)'
     profession: Harbinger
     value: >-
       {
@@ -667,7 +667,7 @@ list:
 
   # https://www.youtube.com/watch?v=XvS81O4mg8A
   # power: 6162, burn: 698, bleed: 1137, poison: 14783, torment: 20672, total: 43452
-  - name: '[beta] DPS Specter Sc/D'
+  - name: '[beta2] DPS Specter Sc/D'
     profession: Specter
     value: >-
       {
@@ -677,7 +677,7 @@ list:
   # https://www.youtube.com/watch?v=QjDA4W3nYYM
   # power: 1503, burn: 641, poison: 9195, torment: 39826, total: 51165
   # writ, carrion/viper mix
-  - name: '[old] DPS Specter Endless Night'
+  - name: '[beta1] DPS Specter Endless Night'
     profession: Specter
     value: >-
       {
