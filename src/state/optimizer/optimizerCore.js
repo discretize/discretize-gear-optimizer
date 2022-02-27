@@ -894,6 +894,8 @@ export function createOptimizerCore(input) {
     settings.baseAttributes[`${key} Coefficient`] = value;
   }
 
+  settings.baseAttributes[`Flat DPS`] = 0;
+
   /* Modifiers */
 
   settings.modifiers = {
