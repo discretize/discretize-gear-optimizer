@@ -162,6 +162,22 @@
           Expertise: [70, converted]
       gw2id: 86997
 
+    - id: fire-meat-chili
+      text: Bowl of Fire Meat Chili
+      modifiers:
+        attributes:
+          Burning Duration: 15%
+          Precision: [70, converted]
+      gw2id: 12484
+
+    - id: fancy-truffle-burger
+      text: Fancy Truffle Burger
+      modifiers:
+        attributes:
+          Poison Duration: 15%
+          Precision: [70, converted]
+      gw2id: 12463
+
     - id: saffron-stuffed-mushroom
       text: Saffron Stuffed Mushroom
       subText: (100% uptime)
@@ -179,22 +195,6 @@
           Power: [200, converted]
           Condition Damage: [140, converted]
       gw2id: 68635
-
-    - id: fire-meat-chili
-      text: Bowl of Fire Meat Chili
-      modifiers:
-        attributes:
-          Burning Duration: 15%
-          Precision: [70, converted]
-      gw2id: 12484
-
-    - id: fancy-truffle-burger
-      text: Fancy Truffle Burger
-      modifiers:
-        attributes:
-          Poison Duration: 15%
-          Precision: [70, converted]
-      gw2id: 12463
 
     - id: truffle-risotto
       text: Bowl of Truffle Risotto
