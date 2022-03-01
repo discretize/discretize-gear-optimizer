@@ -162,6 +162,46 @@
           Expertise: [70, converted]
       gw2id: 86997
 
+    - id: fishy-rice-bowl
+      text: Fishy Rice Bowl
+      modifiers:
+        attributes:
+          Burning Duration: 15%
+          Condition Damage: [70, converted]
+      gw2id:
+
+    - id: plate-of-kimchi-pancakes
+      text: Plate of Kimchi Pancakes
+      modifiers:
+        attributes:
+          Bleeding Duration: 15%
+          Condition Damage: [70, converted]
+      gw2id:
+
+    - id: bowl-of-kimchi-tofu-stew
+      text: Bowl of Kimchi Tofu Stew
+      modifiers:
+        attributes:
+          Poison Duration: 15%
+          Condition Damage: [70, converted]
+      gw2id:
+
+    - id: meaty-asparagus-skewer
+      text: Meaty Asparagus Skewer
+      modifiers:
+        attributes:
+          Torment Duration: 15%
+          Condition Damage: [70, converted]
+      gw2id:
+
+    - id: meaty-rice-bowl
+      text: Meaty Rice Bowl
+      modifiers:
+        attributes:
+          Confusion Duration: 15%
+          Condition Damage: [70, converted]
+      gw2id:
+
     - id: fire-meat-chili
       text: Bowl of Fire Meat Chili
       modifiers:
