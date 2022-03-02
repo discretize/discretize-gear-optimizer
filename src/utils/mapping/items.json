@@ -12838,5 +12838,57 @@
     "name": "plushzhaia",
     "type": "accessory",
     "affix": "grieving"
+  },
+  {
+    "id": 95517,
+    "name": "plushmordy",
+    "type": "accessory",
+    "affix": "trailblazer"
+  },
+  {
+    "id": 95568,
+    "name": "plushjorms",
+    "type": "accessory",
+    "affix": "bringer"
+  },
+  {
+    "id": 95942,
+    "name": "meatyasparagusskewer",
+    "type": "food"
+  },
+  {
+    "id": 96578,
+    "name": "plateofkimchipancakes",
+    "type": "food"
+  },
+  {
+    "id": 96707,
+    "name": "bowloffishstew",
+    "type": "food"
+  },
+  {
+    "id": 96793,
+    "name": "blockoftofu",
+    "type": "food"
+  },
+  {
+    "id": 96916,
+    "name": "meatyricebowl",
+    "type": "food"
+  },
+  {
+    "id": 97422,
+    "name": "bowlofkimchitofustew",
+    "type": "food"
+  },
+  {
+    "id": 97767,
+    "name": "fishyricebowl",
+    "type": "food"
+  },
+  {
+    "id": 97771,
+    "name": "redfishsushi",
+    "type": "food"
   }
 ]
