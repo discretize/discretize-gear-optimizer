@@ -243,4 +243,5 @@ export const nourishmentDict = [
   'bowl-of-kimchi-tofu-stew',
   'meaty-asparagus-skewer',
   'meaty-rice-bowl',
+  'block-of-tofu',
 ];
