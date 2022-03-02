@@ -168,7 +168,7 @@
         attributes:
           Burning Duration: 15%
           Condition Damage: [70, converted]
-      gw2id:
+      gw2id: 97767
 
     - id: plate-of-kimchi-pancakes
       text: Plate of Kimchi Pancakes
@@ -176,7 +176,7 @@
         attributes:
           Bleeding Duration: 15%
           Condition Damage: [70, converted]
-      gw2id:
+      gw2id: 96578
 
     - id: bowl-of-kimchi-tofu-stew
       text: Bowl of Kimchi Tofu Stew
@@ -184,7 +184,7 @@
         attributes:
           Poison Duration: 15%
           Condition Damage: [70, converted]
-      gw2id:
+      gw2id: 97422
 
     - id: meaty-asparagus-skewer
       text: Meaty Asparagus Skewer
@@ -192,7 +192,7 @@
         attributes:
           Torment Duration: 15%
           Condition Damage: [70, converted]
-      gw2id:
+      gw2id: 95942
 
     - id: meaty-rice-bowl
       text: Meaty Rice Bowl
@@ -200,7 +200,7 @@
         attributes:
           Confusion Duration: 15%
           Condition Damage: [70, converted]
-      gw2id:
+      gw2id: 96916
 
     - id: fire-meat-chili
       text: Bowl of Fire Meat Chili
