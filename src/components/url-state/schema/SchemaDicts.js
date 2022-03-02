@@ -238,4 +238,10 @@ export const nourishmentDict = [
   'chocolate-tapioca-pudding',
   'tropical-mousse',
   'elon-red',
+  'fishy-rice-bowl',
+  'plate-of-kimchi-pancakes',
+  'bowl-of-kimchi-tofu-stew',
+  'meaty-asparagus-skewer',
+  'meaty-rice-bowl',
+  'block-of-tofu',
 ];

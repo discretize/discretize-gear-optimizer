@@ -17382,11 +17382,6 @@
     "profession": "warrior"
   },
   {
-    "id": 62981,
-    "name": "dragontriggerlocked",
-    "profession": "warrior"
-  },
-  {
     "id": 62982,
     "name": "invigoratingair",
     "profession": "elementalist"
@@ -17757,6 +17752,11 @@
     "profession": "bundle"
   },
   {
+    "id": 63374,
+    "name": "jadebustercannon",
+    "profession": "engineer"
+  },
+  {
     "id": 63396,
     "name": "deployjadesphere",
     "profession": "elementalist"
@@ -17805,5 +17805,715 @@
     "id": 63472,
     "name": "deployjadesphere",
     "profession": "elementalist"
+  },
+  {
+    "id": 63503,
+    "name": "falloftheaxe",
+    "profession": "bundle"
+  },
+  {
+    "id": 63607,
+    "name": "stormfall",
+    "profession": "bundle"
+  },
+  {
+    "id": 63654,
+    "name": "jadericochet",
+    "profession": "bundle"
+  },
+  {
+    "id": 63716,
+    "name": "galebreath"
+  },
+  {
+    "id": 63739,
+    "name": "rainofblades",
+    "profession": "bundle"
+  },
+  {
+    "id": 63788,
+    "name": "missedstroke",
+    "profession": "bundle"
+  },
+  {
+    "id": 63802,
+    "name": "wispofwill",
+    "profession": "bundle"
+  },
+  {
+    "id": 63838,
+    "name": "stormofswords",
+    "profession": "bundle"
+  },
+  {
+    "id": 63841,
+    "name": "explosivethrust",
+    "profession": "bundle"
+  },
+  {
+    "id": 63984,
+    "name": "discardedgrasp",
+    "profession": "bundle"
+  },
+  {
+    "id": 64016,
+    "name": "jadebustercannon",
+    "profession": "bundle"
+  },
+  {
+    "id": 64038,
+    "name": "wickedbite",
+    "profession": "ranger"
+  },
+  {
+    "id": 64039,
+    "name": "heavenspalm",
+    "profession": "bundle"
+  },
+  {
+    "id": 64042,
+    "name": "destructiveaura",
+    "profession": "bundle"
+  },
+  {
+    "id": 64044,
+    "name": "leybreach",
+    "profession": "bundle"
+  },
+  {
+    "id": 64080,
+    "name": "recklessleap",
+    "profession": "bundle"
+  },
+  {
+    "id": 64104,
+    "name": "firedance",
+    "profession": "bundle"
+  },
+  {
+    "id": 64153,
+    "name": "jadericochet",
+    "profession": "bundle"
+  },
+  {
+    "id": 64214,
+    "name": "mistmeteorite",
+    "profession": "bundle"
+  },
+  {
+    "id": 64217,
+    "name": "jadericochet",
+    "profession": "bundle"
+  },
+  {
+    "id": 64236,
+    "name": "embalmingbarrage",
+    "profession": "bundle"
+  },
+  {
+    "id": 64239,
+    "name": "consuminghatred",
+    "profession": "bundle"
+  },
+  {
+    "id": 64266,
+    "name": "seismicstomp",
+    "profession": "bundle"
+  },
+  {
+    "id": 64277,
+    "name": "targetedexpulsion",
+    "profession": "bundle"
+  },
+  {
+    "id": 64282,
+    "name": "jadelob",
+    "profession": "bundle"
+  },
+  {
+    "id": 64338,
+    "name": "barrage",
+    "profession": "bundle"
+  },
+  {
+    "id": 64409,
+    "name": "heavenspalm",
+    "profession": "bundle"
+  },
+  {
+    "id": 64435,
+    "name": "jademine",
+    "profession": "bundle"
+  },
+  {
+    "id": 64514,
+    "name": "hallucinatingshot",
+    "profession": "bundle"
+  },
+  {
+    "id": 64522,
+    "name": "explosion",
+    "profession": "bundle"
+  },
+  {
+    "id": 64566,
+    "name": "cyclone",
+    "profession": "bundle"
+  },
+  {
+    "id": 64602,
+    "name": "jadericochet",
+    "profession": "bundle"
+  },
+  {
+    "id": 64619,
+    "name": "dragonslashrush",
+    "profession": "bundle"
+  },
+  {
+    "id": 64652,
+    "name": "mistsprojection",
+    "profession": "bundle"
+  },
+  {
+    "id": 64659,
+    "name": "bursterexplosion",
+    "profession": "bundle"
+  },
+  {
+    "id": 64664,
+    "name": "painterlystance",
+    "profession": "bundle"
+  },
+  {
+    "id": 64669,
+    "name": "waveoftorment",
+    "profession": "bundle"
+  },
+  {
+    "id": 64699,
+    "name": "jadecannon",
+    "profession": "ranger"
+  },
+  {
+    "id": 64718,
+    "name": "toxicorb",
+    "profession": "bundle"
+  },
+  {
+    "id": 64738,
+    "name": "stormofswords",
+    "profession": "bundle"
+  },
+  {
+    "id": 64766,
+    "name": "artilleryslash",
+    "profession": "bundle"
+  },
+  {
+    "id": 64882,
+    "name": "undeadplague",
+    "profession": "ranger"
+  },
+  {
+    "id": 64895,
+    "name": "fissureoftorment",
+    "profession": "bundle"
+  },
+  {
+    "id": 64914,
+    "name": "toxicbullet",
+    "profession": "bundle"
+  },
+  {
+    "id": 64920,
+    "name": "explosiveuppercut",
+    "profession": "bundle"
+  },
+  {
+    "id": 64940,
+    "name": "dragonslashburst",
+    "profession": "bundle"
+  },
+  {
+    "id": 64952,
+    "name": "dragonslashwave",
+    "profession": "bundle"
+  },
+  {
+    "id": 64965,
+    "name": "flankingstrike",
+    "profession": "bundle"
+  },
+  {
+    "id": 64997,
+    "name": "stonesweep",
+    "profession": "bundle"
+  },
+  {
+    "id": 65023,
+    "name": "boomingcommand",
+    "profession": "bundle"
+  },
+  {
+    "id": 65031,
+    "name": "tormentingwave",
+    "profession": "bundle"
+  },
+  {
+    "id": 65109,
+    "name": "guardiansroar"
+  },
+  {
+    "id": 65145,
+    "name": "heavenspalm",
+    "profession": "bundle"
+  },
+  {
+    "id": 65157,
+    "name": "electricblast",
+    "profession": "bundle"
+  },
+  {
+    "id": 65179,
+    "name": "rescueprotocol",
+    "profession": "guardian"
+  },
+  {
+    "id": 65193,
+    "name": "wispofwill",
+    "profession": "bundle"
+  },
+  {
+    "id": 65205,
+    "name": "flankingshot",
+    "profession": "bundle"
+  },
+  {
+    "id": 65206,
+    "name": "rushingjustice",
+    "profession": "bundle"
+  },
+  {
+    "id": 65243,
+    "name": "boomingcommand",
+    "profession": "bundle"
+  },
+  {
+    "id": 65249,
+    "name": "jadelob",
+    "profession": "bundle"
+  },
+  {
+    "id": 65294,
+    "name": "spirituallightning",
+    "profession": "bundle"
+  },
+  {
+    "id": 65301,
+    "name": "soulfeast",
+    "profession": "bundle"
+  },
+  {
+    "id": 65338,
+    "name": "callmeteor",
+    "profession": "bundle"
+  },
+  {
+    "id": 65378,
+    "name": "dragonslashburst",
+    "profession": "bundle"
+  },
+  {
+    "id": 65418,
+    "name": "hunkerdown"
+  },
+  {
+    "id": 65423,
+    "name": "enhanceddestructiveaura",
+    "profession": "bundle"
+  },
+  {
+    "id": 65432,
+    "name": "enhanceddestructiveaura",
+    "profession": "bundle"
+  },
+  {
+    "id": 65461,
+    "name": "unrelentingassault",
+    "profession": "bundle"
+  },
+  {
+    "id": 65528,
+    "name": "spottersshot",
+    "profession": "bundle"
+  },
+  {
+    "id": 65535,
+    "name": "electricrain",
+    "profession": "bundle"
+  },
+  {
+    "id": 65538,
+    "name": "embersweep",
+    "profession": "bundle"
+  },
+  {
+    "id": 65569,
+    "name": "stormofswords",
+    "profession": "bundle"
+  },
+  {
+    "id": 65574,
+    "name": "rushingjustice",
+    "profession": "bundle"
+  },
+  {
+    "id": 65608,
+    "name": "rushingjustice",
+    "profession": "bundle"
+  },
+  {
+    "id": 65618,
+    "name": "steeldivide",
+    "profession": "bundle"
+  },
+  {
+    "id": 65655,
+    "name": "recklessleap",
+    "profession": "bundle"
+  },
+  {
+    "id": 65674,
+    "name": "stormfall",
+    "profession": "bundle"
+  },
+  {
+    "id": 65680,
+    "name": "targetedexpulsion",
+    "profession": "bundle"
+  },
+  {
+    "id": 65681,
+    "name": "wingbuffet",
+    "profession": "bundle"
+  },
+  {
+    "id": 65696,
+    "name": "arcingjade",
+    "profession": "bundle"
+  },
+  {
+    "id": 65712,
+    "name": "blindingretreat",
+    "profession": "bundle"
+  },
+  {
+    "id": 65749,
+    "name": "nightmarefusillade",
+    "profession": "bundle"
+  },
+  {
+    "id": 65753,
+    "name": "deathsgaze",
+    "profession": "bundle"
+  },
+  {
+    "id": 65805,
+    "name": "flurry",
+    "profession": "bundle"
+  },
+  {
+    "id": 65815,
+    "name": "destructiveaura",
+    "profession": "bundle"
+  },
+  {
+    "id": 65861,
+    "name": "bladethrust",
+    "profession": "bundle"
+  },
+  {
+    "id": 65949,
+    "name": "boomingcommand",
+    "profession": "bundle"
+  },
+  {
+    "id": 65980,
+    "name": "throatslash",
+    "profession": "bundle"
+  },
+  {
+    "id": 65995,
+    "name": "shareddestruction",
+    "profession": "bundle"
+  },
+  {
+    "id": 66021,
+    "name": "boomingcommand",
+    "profession": "bundle"
+  },
+  {
+    "id": 66025,
+    "name": "targetedexpulsion",
+    "profession": "bundle"
+  },
+  {
+    "id": 66089,
+    "name": "nightmarefusillade",
+    "profession": "bundle"
+  },
+  {
+    "id": 66090,
+    "name": "dragonslashrush",
+    "profession": "bundle"
+  },
+  {
+    "id": 66156,
+    "name": "terrifyingapparition",
+    "profession": "bundle"
+  },
+  {
+    "id": 66187,
+    "name": "falloftheaxe",
+    "profession": "bundle"
+  },
+  {
+    "id": 66198,
+    "name": "inevitabilityofdeath",
+    "profession": "bundle"
+  },
+  {
+    "id": 66246,
+    "name": "graspinghorror",
+    "profession": "bundle"
+  },
+  {
+    "id": 66256,
+    "name": "shatterearth",
+    "profession": "bundle"
+  },
+  {
+    "id": 66258,
+    "name": "snap",
+    "profession": "ranger"
+  },
+  {
+    "id": 66266,
+    "name": "soulfeast",
+    "profession": "bundle"
+  },
+  {
+    "id": 66386,
+    "name": "leap",
+    "profession": "bundle"
+  },
+  {
+    "id": 66436,
+    "name": "dragonslashwave",
+    "profession": "bundle"
+  },
+  {
+    "id": 66465,
+    "name": "dragonslashburst",
+    "profession": "bundle"
+  },
+  {
+    "id": 66472,
+    "name": "fracturedbrand",
+    "profession": "bundle"
+  },
+  {
+    "id": 66473,
+    "name": "swiftcut",
+    "profession": "bundle"
+  },
+  {
+    "id": 66505,
+    "name": "shockwave",
+    "profession": "bundle"
+  },
+  {
+    "id": 66538,
+    "name": "shareddestruction",
+    "profession": "bundle"
+  },
+  {
+    "id": 66564,
+    "name": "deathshand",
+    "profession": "bundle"
+  },
+  {
+    "id": 66568,
+    "name": "kaleidoscopicchaos",
+    "profession": "bundle"
+  },
+  {
+    "id": 66622,
+    "name": "bloodthirstycharge"
+  },
+  {
+    "id": 66626,
+    "name": "hallucinatingshot",
+    "profession": "bundle"
+  },
+  {
+    "id": 66675,
+    "profession": "bundle"
+  },
+  {
+    "id": 66760,
+    "name": "pulverize",
+    "profession": "bundle"
+  },
+  {
+    "id": 66780,
+    "name": "vampiricbite",
+    "profession": "ranger"
+  },
+  {
+    "id": 66824,
+    "name": "walloffear",
+    "profession": "bundle"
+  },
+  {
+    "id": 66840,
+    "name": "stormofswords",
+    "profession": "bundle"
+  },
+  {
+    "id": 66896,
+    "name": "heartpiercer",
+    "profession": "bundle"
+  },
+  {
+    "id": 66912,
+    "name": "embersweep",
+    "profession": "bundle"
+  },
+  {
+    "id": 66952,
+    "name": "callmeteor",
+    "profession": "bundle"
+  },
+  {
+    "id": 66960,
+    "name": "slash",
+    "profession": "bundle"
+  },
+  {
+    "id": 67070,
+    "name": "targetedexpulsion",
+    "profession": "bundle"
+  },
+  {
+    "id": 67104,
+    "name": "shatterearth",
+    "profession": "bundle"
+  },
+  {
+    "id": 67160,
+    "name": "deathsembrace",
+    "profession": "bundle"
+  },
+  {
+    "id": 67163,
+    "name": "toxicbullet",
+    "profession": "bundle"
+  },
+  {
+    "id": 67244,
+    "name": "stonesweep",
+    "profession": "bundle"
+  },
+  {
+    "id": 67295,
+    "name": "focuseddestruction",
+    "profession": "bundle"
+  },
+  {
+    "id": 67327,
+    "name": "volatileexpulsion",
+    "profession": "bundle"
+  },
+  {
+    "id": 67362,
+    "name": "volatileexpulsion",
+    "profession": "bundle"
+  },
+  {
+    "id": 67382,
+    "name": "phasepounce",
+    "profession": "ranger"
+  },
+  {
+    "id": 67401,
+    "name": "targetedexpulsion",
+    "profession": "bundle"
+  },
+  {
+    "id": 67408,
+    "name": "spirituallightning",
+    "profession": "bundle"
+  },
+  {
+    "id": 67422,
+    "name": "targetedexpulsion",
+    "profession": "bundle"
+  },
+  {
+    "id": 67438,
+    "name": "slice",
+    "profession": "bundle"
+  },
+  {
+    "id": 67443,
+    "name": "embalmingshot",
+    "profession": "bundle"
+  },
+  {
+    "id": 67455,
+    "name": "rushingjustice",
+    "profession": "bundle"
+  },
+  {
+    "id": 67480,
+    "name": "jadelasershot",
+    "profession": "bundle"
+  },
+  {
+    "id": 67500,
+    "name": "cripplingstrike",
+    "profession": "bundle"
+  },
+  {
+    "id": 67541,
+    "name": "stormofswords",
+    "profession": "bundle"
+  },
+  {
+    "id": 67605,
+    "name": "chaosanddestruction",
+    "profession": "bundle"
+  },
+  {
+    "id": 67611,
+    "name": "jadericochet",
+    "profession": "bundle"
+  },
+  {
+    "id": 67691,
+    "name": "jadelasershot",
+    "profession": "bundle"
+  },
+  {
+    "id": 67702,
+    "name": "stonesweep",
+    "profession": "bundle"
+  },
+  {
+    "id": 67715,
+    "name": "jadericochet",
+    "profession": "bundle"
   }
 ]

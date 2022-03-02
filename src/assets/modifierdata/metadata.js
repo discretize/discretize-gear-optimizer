@@ -42,6 +42,22 @@ const boons = [
 // ];
 const damagingConditions = ['Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment'];
 
+const percents = [
+  'Critical Chance',
+  'Boon Duration',
+  ...boons.map((boon) => `${boon} Duration`),
+  'Condition Duration',
+  ...damagingConditions.map((condition) => `${condition} Duration`),
+  'Maximum Health',
+  'Outgoing Healing',
+];
+
+const coefficients = [
+  'Power Coefficient',
+  ...damagingConditions.map((condition) => `${condition} Coefficient`),
+  'Flat DPS',
+];
+
 export const allDamageKeys = [
   'Strike Damage',
   'Condition Damage',
@@ -56,18 +72,14 @@ export const allDamageModes = ['add', 'mult', 'target', 'unknown'];
 export const allAttributePointKeys = stats;
 export const allAttributePointModes = ['buff', 'converted', 'unknown'];
 
-export const allAttributePercentKeys = [
-  'Critical Chance',
-  'Boon Duration',
-  ...boons.map((boon) => `${boon} Duration`),
-  'Condition Duration',
-  ...damagingConditions.map((condition) => `${condition} Duration`),
-  'Maximum Health',
-  'Outgoing Healing',
-];
+export const allAttributeCoefficientKeys = coefficients;
+export const allAttributePercentKeys = percents;
 
 export const allConversionSourceKeys = stats;
-export const allConversionDestinationKeys = [...stats, 'Outgoing Healing'];
+export const allConversionDestinationKeys = [...stats, ...percents, ...coefficients];
+
+export const allConversionAfterBuffsSourceKeys = [...stats, 'Critical Chance'];
+export const allConversionAfterBuffsDestinationKeys = [...stats, ...percents, ...coefficients];
 
 // these values don't behave well if scaled up and down,
 // so disallow them in modifiers with an amount key

@@ -34,6 +34,16 @@
           Ferocity: [70, converted]
       gw2id: 43360
 
+    - id: block-of-tofu
+      text: Block of Tofu
+      subText: (100% uptime)
+      modifiers:
+        attributes:
+          Power: [100, converted]
+          Ferocity: [100, converted]
+          Precision: [70, converted]
+      gw2id: 96793
+
     - id: seaweed-salad
       text: Bowl of Seaweed Salad
       subText: (90% uptime)
@@ -162,6 +172,62 @@
           Expertise: [70, converted]
       gw2id: 86997
 
+    - id: fishy-rice-bowl
+      text: Fishy Rice Bowl
+      modifiers:
+        attributes:
+          Burning Duration: 15%
+          Condition Damage: [70, converted]
+      gw2id: 97767
+
+    - id: plate-of-kimchi-pancakes
+      text: Plate of Kimchi Pancakes
+      modifiers:
+        attributes:
+          Bleeding Duration: 15%
+          Condition Damage: [70, converted]
+      gw2id: 96578
+
+    - id: bowl-of-kimchi-tofu-stew
+      text: Bowl of Kimchi Tofu Stew
+      modifiers:
+        attributes:
+          Poison Duration: 15%
+          Condition Damage: [70, converted]
+      gw2id: 97422
+
+    - id: meaty-asparagus-skewer
+      text: Meaty Asparagus Skewer
+      modifiers:
+        attributes:
+          Torment Duration: 15%
+          Condition Damage: [70, converted]
+      gw2id: 95942
+
+    - id: meaty-rice-bowl
+      text: Meaty Rice Bowl
+      modifiers:
+        attributes:
+          Confusion Duration: 15%
+          Condition Damage: [70, converted]
+      gw2id: 96916
+
+    - id: fire-meat-chili
+      text: Bowl of Fire Meat Chili
+      modifiers:
+        attributes:
+          Burning Duration: 15%
+          Precision: [70, converted]
+      gw2id: 12484
+
+    - id: fancy-truffle-burger
+      text: Fancy Truffle Burger
+      modifiers:
+        attributes:
+          Poison Duration: 15%
+          Precision: [70, converted]
+      gw2id: 12463
+
     - id: saffron-stuffed-mushroom
       text: Saffron Stuffed Mushroom
       subText: (100% uptime)
@@ -179,22 +245,6 @@
           Power: [200, converted]
           Condition Damage: [140, converted]
       gw2id: 68635
-
-    - id: fire-meat-chili
-      text: Bowl of Fire Meat Chili
-      modifiers:
-        attributes:
-          Burning Duration: 15%
-          Precision: [70, converted]
-      gw2id: 12484
-
-    - id: fancy-truffle-burger
-      text: Fancy Truffle Burger
-      modifiers:
-        attributes:
-          Poison Duration: 15%
-          Precision: [70, converted]
-      gw2id: 12463
 
     - id: truffle-risotto
       text: Bowl of Truffle Risotto

@@ -7,11 +7,13 @@ import fs from 'fs/promises';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import yaml from 'js-yaml';
 import path from 'path';
-import specializationData from '../../utils/mapping/specializations.json';
+// import specializationData from '../../utils/mapping/specializations.json' assert { type: 'json' };
 import {
   allAttributePercentKeys,
   allAttributePointKeys,
   allAttributePointModes,
+  allConversionAfterBuffsDestinationKeys,
+  allConversionAfterBuffsSourceKeys,
   allConversionDestinationKeys,
   allConversionSourceKeys,
   allDamageKeys,
@@ -32,6 +34,9 @@ const gentleAssert = (condition, message) => {
 };
 
 const testModifiers = async () => {
+  const specializationDataJSON = await fs.readFile('./src/utils/mapping/specializations.json');
+  const specializationData = JSON.parse(specializationDataJSON);
+
   const files = (await fs.readdir(directory)).filter(
     (filename) => path.extname(filename) === '.yaml',
   );
@@ -175,7 +180,8 @@ const testModifiers = async () => {
 
         gentleAssert(typeof modifiers === 'object', `err: invalid or missing modifiers in ${id}`);
 
-        const { damage, attributes, conversion, effect, ...otherModifiers } = modifiers;
+        const { damage, attributes, conversion, conversionAfterBuffs, ...otherModifiers } =
+          modifiers;
         gentleAssert(
           Object.keys(otherModifiers).length === 0,
           `err: invalid modifier type(s): ${Object.keys(otherModifiers)}`,
@@ -193,8 +199,8 @@ const testModifiers = async () => {
           parseConversion(conversion, id, amountData);
         }
 
-        if (effect) {
-          console.log('note: this script is missing validation for effects right now');
+        if (conversionAfterBuffs) {
+          parseConversionAfterBuffs(conversionAfterBuffs, id, amountData);
         }
       }
     }
@@ -273,6 +279,26 @@ function parseConversion(conversion, id, amountData) {
     for (const [source, amount] of Object.entries(value)) {
       gentleAssert(
         allConversionSourceKeys.includes(source),
+        `invalid conversion source ${source} in ${id}`,
+      );
+      parsePercent(amount, key, id);
+    }
+  }
+}
+
+function parseConversionAfterBuffs(conversion, id, amountData) {
+  for (const [key, value] of Object.entries(conversion)) {
+    gentleAssert(
+      allConversionAfterBuffsDestinationKeys.includes(key),
+      `invalid conversion destination ${key} in ${id}`,
+    );
+
+    if (amountData && !amountData.disableBlacklist && attributePointKeysBlacklist.includes(key))
+      gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
+
+    for (const [source, amount] of Object.entries(value)) {
+      gentleAssert(
+        allConversionAfterBuffsSourceKeys.includes(source),
         `invalid conversion source ${source} in ${id}`,
       );
       parsePercent(amount, key, id);

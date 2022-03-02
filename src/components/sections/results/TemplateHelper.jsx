@@ -38,8 +38,17 @@ const TemplateHelper = ({ character }) => {
   const { cachedFormState } = character.settings;
   const { coefficientHelper } = character.results;
 
+  // reverse engineer coefficient needed to reach target damage
+  // DPS = slope * coefficient + intercept
+  // coefficient = (DPS - intercept) / slope
+  const calculateRequiredCoefficient = (key, targetDPS = 0) => {
+    const { slope, intercept } = coefficientHelper[key];
+    if (targetDPS === intercept) return 0;
+    return (targetDPS - intercept) / slope;
+  };
+
   let values2 = Object.fromEntries(
-    data.map(({ key, value }) => [key, (value ?? 0) / coefficientHelper[key]]),
+    data.map(({ key, value }) => [key, calculateRequiredCoefficient(key, value)]),
   );
 
   // round

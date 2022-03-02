@@ -4071,6 +4071,7 @@
   },
   {
     "id": 2224,
+    "name": "energizedelements",
     "profession": "elementalist"
   },
   {
@@ -4100,6 +4101,7 @@
   },
   {
     "id": 2230,
+    "name": "hardenedauras",
     "profession": "elementalist"
   },
   {
@@ -4119,6 +4121,7 @@
   },
   {
     "id": 2234,
+    "name": "spectacularsphere",
     "profession": "elementalist"
   },
   {
@@ -4173,6 +4176,7 @@
   },
   {
     "id": 2247,
+    "name": "empoweringauras",
     "profession": "elementalist"
   },
   {
@@ -4197,6 +4201,7 @@
   },
   {
     "id": 2252,
+    "name": "viciousempowerment",
     "profession": "elementalist"
   },
   {

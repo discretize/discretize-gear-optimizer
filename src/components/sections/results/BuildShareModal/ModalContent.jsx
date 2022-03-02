@@ -67,7 +67,11 @@ export default function ModalContent({ character, onClick }) {
   React.useEffect(() => {
     axios
       .get(`https://api.guildwars2.com/v2/professions/${firstUppercase(profession)}`)
-      .then((res) => setApiSkills(res.data.skills));
+      .then((res) => setApiSkills(res.data.skills))
+      .catch((e) => {
+        console.error(e);
+        return null;
+      });
   }, [profession]);
 
   function SkillSelect(name, value, skillList) {

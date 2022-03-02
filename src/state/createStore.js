@@ -33,7 +33,7 @@ const createNoopStorage = () => {
 const storage = typeof window === 'undefined' ? createNoopStorage() : createWebStorage('local');
 
 // bump this to cache invalidate the persisted state
-const CURRENT_VERSION = 2;
+const CURRENT_VERSION = 3;
 
 const migrations = {
   [CURRENT_VERSION]: (_state) => ({}),
