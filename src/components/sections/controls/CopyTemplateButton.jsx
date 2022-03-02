@@ -1,6 +1,6 @@
 /* eslint-disable id-length */
 import { Alert, Button, MenuItem, Select, Snackbar } from '@mui/material';
-import { Icon } from 'gw2-ui-new';
+import { Icon } from '@discretize/gw2-ui-new';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getProfession } from '../../../state/slices/controlsSlice';

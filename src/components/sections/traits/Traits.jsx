@@ -1,6 +1,6 @@
 import { Box, FormControl, Input, InputLabel, MenuItem, Select, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { Specialization, Trait, TraitLine } from 'gw2-ui-new';
+import { Specialization, Trait, TraitLine } from '@discretize/gw2-ui-new';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { traitSectionsById } from '../../../assets/modifierdata';

@@ -28,8 +28,9 @@
     "extractLocaleCMD": "babel --config-file ./babel-extract.config.js \"src/**/*.{js,jsx,ts,tsx}\" > NUL"
   },
   "dependencies": {
+    "@discretize/gw2-ui-new": "^0.0.3",
     "@discretize/object-compression": "^1.0.1",
-    "@discretize/react-discretize-components": "link:/home/alex/Repositories/react-discretize-components",
+    "@discretize/react-discretize-components": "^2.1.1",
     "@emotion/react": "^11.7.1",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.6.0",
@@ -46,7 +47,6 @@
     "gatsby-source-filesystem": "^4.4.0",
     "gatsby-transformer-sharp": "^4.4.0",
     "gatsby-transformer-yaml": "^4.4.0",
-    "gw2-ui-new": "link:/home/alex/Repositories/gw2-ui",
     "i18next": "^21.6.5",
     "js-yaml": "^4.1.0",
     "json-url": "^3.0.0",

@@ -10,7 +10,7 @@ import {
   Typography,
 } from '@mui/material';
 import { Trans } from 'gatsby-plugin-react-i18next';
-// import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-new';
+// import { Boon, CommonEffect, Condition, Skill, Trait } from '@discretize/gw2-ui-new';
 import React from 'react';
 import { makeStyles } from 'tss-react/mui';
 import { scaleValue } from '../../../state/optimizer/optimizerCore';

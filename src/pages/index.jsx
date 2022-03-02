@@ -4,7 +4,7 @@ import { Link, Typography } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 import { graphql } from 'gatsby';
 import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
-import { APILanguageProvider } from 'gw2-ui-new';
+import { APILanguageProvider } from '@discretize/gw2-ui-new';
 import * as React from 'react';
 import LanguageSelection from '../components/baseComponents/LanguageSelection';
 import GearOptimizer from '../components/GearOptimizer';

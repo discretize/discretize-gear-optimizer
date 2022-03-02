@@ -6,8 +6,8 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import LoadingScreen from './src/components/baseComponents/LoadingScreen';
 import createStore from './src/state/createStore';
-import 'gw2-ui-new/dist/default_style.css';
-import 'gw2-ui-new/dist/index.css';
+import '@discretize/gw2-ui-new/dist/default_style.css';
+import '@discretize/gw2-ui-new/dist/index.css';
 
 const { store, persistor } = createStore();
 

@@ -11,7 +11,7 @@ import {
   Skill,
   Trait,
   TraitLine,
-} from 'gw2-ui-new';
+} from '@discretize/gw2-ui-new';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';

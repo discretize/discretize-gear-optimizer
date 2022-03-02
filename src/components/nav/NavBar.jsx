@@ -14,7 +14,7 @@ import {
   Typography,
 } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { Profession } from 'gw2-ui-new';
+import { Profession } from '@discretize/gw2-ui-new';
 import { bindHover, bindMenu, usePopupState } from 'material-ui-popup-state/hooks';
 import Menu from 'material-ui-popup-state/HoverMenu';
 import React, { useEffect, useState } from 'react';

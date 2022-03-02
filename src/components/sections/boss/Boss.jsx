@@ -1,6 +1,6 @@
 import { Box, Slider } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { Condition as ConditionRaw } from 'gw2-ui-new';
+import { Condition as ConditionRaw } from '@discretize/gw2-ui-new';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {

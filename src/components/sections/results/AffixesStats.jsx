@@ -1,5 +1,5 @@
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
-import { Attribute } from 'gw2-ui-new';
+import { Attribute } from '@discretize/gw2-ui-new';
 import React from 'react';
 
 const AffixesStats = ({ data, title }) => {

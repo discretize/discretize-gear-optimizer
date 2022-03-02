@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { Item } from 'gw2-ui-new';
+import { Item } from '@discretize/gw2-ui-new';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeExtra, getExtra } from '../../../state/slices/extras';

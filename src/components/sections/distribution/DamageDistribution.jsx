@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@mui/material';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { Attribute as AttributeRaw, Condition as ConditionRaw } from 'gw2-ui-new';
+import { Attribute as AttributeRaw, Condition as ConditionRaw } from '@discretize/gw2-ui-new';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';

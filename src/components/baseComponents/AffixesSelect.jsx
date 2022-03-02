@@ -3,7 +3,7 @@ import { Box, Chip, Divider, TextField, Typography } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 import classNames from 'classnames';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { CreateItem } from 'gw2-ui-new';
+import { CreateItem } from '@discretize/gw2-ui-new';
 import React from 'react';
 import { makeStyles } from 'tss-react/mui';
 import { Affix } from '../../utils/gw2-data';

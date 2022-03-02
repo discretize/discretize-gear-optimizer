@@ -2,7 +2,7 @@ import { firstUppercase, NoSelection } from '@discretize/react-discretize-compon
 import ShareIcon from '@mui/icons-material/Share';
 import { Box, Button, MenuItem, Select, Typography } from '@mui/material';
 import axios from 'axios';
-import { Icon, Item, Skill } from 'gw2-ui-new';
+import { Icon, Item, Skill } from '@discretize/gw2-ui-new';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
