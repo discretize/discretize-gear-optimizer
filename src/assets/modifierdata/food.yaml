@@ -34,6 +34,16 @@
           Ferocity: [70, converted]
       gw2id: 43360
 
+    - id: block-of-tofu
+      text: Block of Tofu
+      subText: (100% uptime)
+      modifiers:
+        attributes:
+          Power: [100, converted]
+          Ferocity: [100, converted]
+          Precision: [70, converted]
+      gw2id: 96793
+
     - id: seaweed-salad
       text: Bowl of Seaweed Salad
       subText: (90% uptime)
