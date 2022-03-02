@@ -12852,9 +12852,86 @@
     "affix": "bringer"
   },
   {
+    "id": 95714,
+    "name": "togosleggings",
+    "type": "leggings",
+    "affix": "ritualist",
+    "weight": "medium"
+  },
+  {
+    "id": 95781,
+    "name": "togosreaver",
+    "type": "axe",
+    "affix": "ritualist"
+  },
+  {
+    "id": 95892,
+    "name": "kurzickbrooch",
+    "type": "amulet",
+    "affix": "ritualist"
+  },
+  {
     "id": 95942,
     "name": "meatyasparagusskewer",
     "type": "food"
+  },
+  {
+    "id": 95996,
+    "name": "luxonbrooch",
+    "type": "amulet",
+    "affix": "dragon"
+  },
+  {
+    "id": 96005,
+    "name": "togosmasque",
+    "type": "helm",
+    "affix": "ritualist",
+    "weight": "light"
+  },
+  {
+    "id": 96044,
+    "name": "togosflangedmace",
+    "type": "mace",
+    "affix": "ritualist"
+  },
+  {
+    "id": 96114,
+    "name": "togospauldrons",
+    "type": "shoulders",
+    "affix": "ritualist",
+    "weight": "heavy"
+  },
+  {
+    "id": 96140,
+    "name": "togoswristguards",
+    "type": "gloves",
+    "affix": "ritualist",
+    "weight": "light"
+  },
+  {
+    "id": 96199,
+    "name": "travelingtankard",
+    "type": "accessory",
+    "affix": "dragon"
+  },
+  {
+    "id": 96278,
+    "name": "togosbreastplate",
+    "type": "coat",
+    "affix": "ritualist",
+    "weight": "heavy"
+  },
+  {
+    "id": 96528,
+    "name": "togosshortbow",
+    "type": "shortbow",
+    "affix": "ritualist"
+  },
+  {
+    "id": 96544,
+    "name": "togosherald",
+    "type": "warhorn",
+    "affix": "ritualist"
   },
   {
     "id": 96578,
@@ -12867,9 +12944,42 @@
     "type": "food"
   },
   {
+    "id": 96711,
+    "name": "togosvisor",
+    "type": "helm",
+    "affix": "ritualist",
+    "weight": "heavy"
+  },
+  {
+    "id": 96739,
+    "name": "togosfootwear",
+    "type": "boots",
+    "affix": "ritualist",
+    "weight": "light"
+  },
+  {
     "id": 96793,
     "name": "blockoftofu",
     "type": "food"
+  },
+  {
+    "id": 96795,
+    "name": "togosgrips",
+    "type": "gloves",
+    "affix": "ritualist",
+    "weight": "medium"
+  },
+  {
+    "id": 96821,
+    "name": "togosrazor",
+    "type": "dagger",
+    "affix": "ritualist"
+  },
+  {
+    "id": 96869,
+    "name": "togosspire",
+    "type": "staff",
+    "affix": "ritualist"
   },
   {
     "id": 96916,
@@ -12877,9 +12987,108 @@
     "type": "food"
   },
   {
+    "id": 96932,
+    "name": "togosgreaves",
+    "type": "boots",
+    "affix": "ritualist",
+    "weight": "heavy"
+  },
+  {
+    "id": 96962,
+    "name": "togosdoublet",
+    "type": "coat",
+    "affix": "ritualist",
+    "weight": "light"
+  },
+  {
+    "id": 96967,
+    "name": "togoswarfist",
+    "type": "gloves",
+    "affix": "ritualist",
+    "weight": "heavy"
+  },
+  {
+    "id": 97154,
+    "name": "togosguise",
+    "type": "coat",
+    "affix": "ritualist",
+    "weight": "medium"
+  },
+  {
+    "id": 97272,
+    "name": "togoswand",
+    "type": "scepter",
+    "affix": "ritualist"
+  },
+  {
+    "id": 97313,
+    "name": "togosepaulets",
+    "type": "shoulders",
+    "affix": "ritualist",
+    "weight": "light"
+  },
+  {
+    "id": 97322,
+    "name": "storytellerslute",
+    "type": "accessory",
+    "affix": "ritualist"
+  },
+  {
+    "id": 97395,
+    "name": "togosstriders",
+    "type": "boots",
+    "affix": "ritualist",
+    "weight": "medium"
+  },
+  {
     "id": 97422,
     "name": "bowlofkimchitofustew",
     "type": "food"
+  },
+  {
+    "id": 97425,
+    "name": "togosbastion",
+    "type": "shield",
+    "affix": "ritualist"
+  },
+  {
+    "id": 97440,
+    "name": "togosvisage",
+    "type": "helm",
+    "affix": "ritualist",
+    "weight": "medium"
+  },
+  {
+    "id": 97476,
+    "name": "togosbreeches",
+    "type": "leggings",
+    "affix": "ritualist",
+    "weight": "light"
+  },
+  {
+    "id": 97508,
+    "name": "togosrevolver",
+    "type": "pistol",
+    "affix": "ritualist"
+  },
+  {
+    "id": 97555,
+    "name": "togostrident",
+    "type": "trident",
+    "affix": "ritualist"
+  },
+  {
+    "id": 97710,
+    "name": "togostassets",
+    "type": "leggings",
+    "affix": "ritualist",
+    "weight": "heavy"
+  },
+  {
+    "id": 97752,
+    "name": "togosbrazier",
+    "type": "torch",
+    "affix": "ritualist"
   },
   {
     "id": 97767,
@@ -12890,5 +13099,12 @@
     "id": 97771,
     "name": "redfishsushi",
     "type": "food"
+  },
+  {
+    "id": 97862,
+    "name": "togosshoulderguard",
+    "type": "shoulders",
+    "affix": "ritualist",
+    "weight": "medium"
   }
 ]
