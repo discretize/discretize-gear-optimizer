@@ -1,3 +1,8 @@
+import {
+  Coin as CoinRaw,
+  CommonEffect as CommonEffectRaw,
+  Item as ItemRaw,
+} from '@discretize/gw2-ui-new';
 import { TextDivider } from '@discretize/react-discretize-components';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
@@ -10,7 +15,6 @@ import {
 } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import { Trans } from 'gatsby-plugin-react-i18next';
-import { Coin as CoinRaw, CommonEffect as CommonEffectRaw, Item as ItemRaw } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';

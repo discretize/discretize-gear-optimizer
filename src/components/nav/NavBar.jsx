@@ -14,10 +14,12 @@ import {
   Typography,
 } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
+import { Profession } from '@discretize/gw2-ui-new';
 import { bindHover, bindMenu, usePopupState } from 'material-ui-popup-state/hooks';
 import Menu from 'material-ui-popup-state/HoverMenu';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import {
   changeExpertMode,
   changeProfession,
@@ -26,8 +28,13 @@ import {
   setBuildTemplate,
 } from '../../state/slices/controlsSlice';
 import { PROFESSIONS } from '../../utils/gw2-data';
-import Profession from '../baseComponents/Profession';
 import NavAccordion from './NavAccordion';
+
+const useStyles = makeStyles()((theme) => ({
+  icon: {
+    fontSize: '2rem',
+  },
+}));
 
 const Navbar = ({
   data,
@@ -37,6 +44,7 @@ const Navbar = ({
   extrasPresets,
   traitPresets,
 }) => {
+  const { classes } = useStyles();
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
   const expertMode = useSelector(getControl('expertMode'));
@@ -195,14 +203,7 @@ const Navbar = ({
               color="inherit"
               {...bindHover(popupState[index])}
             >
-              <Profession
-                name={prof.profession}
-                disableLink
-                disableText
-                style={{
-                  fontSize: '2rem',
-                }}
-              />
+              <Profession name={prof.profession} disableLink disableText className={classes.icon} />
             </Button>
 
             <Menu

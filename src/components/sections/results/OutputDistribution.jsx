@@ -1,5 +1,5 @@
+import { Attribute, Condition } from '@discretize/gw2-ui-new';
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
-import { Attribute, Condition } from 'gw2-ui-bulk';
 import React from 'react';
 import { makeStyles } from 'tss-react/mui';
 

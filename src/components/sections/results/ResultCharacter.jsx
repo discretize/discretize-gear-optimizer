@@ -44,8 +44,10 @@ export default function ResultCharacter({ data, character, weapons, skills }) {
   const utilityId = extrasModifiersById[utility]?.gw2id;
   const sigil1Id = extrasModifiersById[sigil1]?.gw2id;
   const sigil2Id = extrasModifiersById[sigil2]?.gw2id;
-  const rune = runeStringId ? extrasModifiersById[runeStringId] : '';
-  const runeName = runeStringId ? rune.text.replace(/(Superior|Rune|of|the)/g, '').trim() : '';
+  const rune = runeStringId ? extrasModifiersById[runeStringId] : undefined;
+  const runeName = runeStringId
+    ? rune.text.replace(/(Superior|Rune|of|the)/g, '').trim()
+    : undefined;
 
   // Calculate the props for the weapons component
   let wea1;
@@ -124,7 +126,7 @@ export default function ResultCharacter({ data, character, weapons, skills }) {
 
   // Calculate armor props
   const { gear, attributes } = character;
-  const runeId = rune.gw2id;
+  const runeId = rune ? rune.gw2id : undefined;
   const armorPropsAPI = resolveArmor({
     weight,
     helmAffix: gear[0],

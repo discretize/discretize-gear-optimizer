@@ -1,6 +1,6 @@
+import { Specialization, Trait, TraitLine } from '@discretize/gw2-ui-new';
 import { Box, FormControl, Input, InputLabel, MenuItem, Select, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { Specialization, Trait, TraitLine } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { traitSectionsById } from '../../../assets/modifierdata';
@@ -88,7 +88,11 @@ const Traits = ({ data = [] }) => {
             input={<Input name={t(`Traitline`, { lineNr })} id={key} />}
             onChange={handleTraitlineChange(index)}
             renderValue={(selected) => (
-              <Specialization id={selected} disableLink style={{ lineHeight: '1 !important' }} />
+              <Specialization
+                id={parseInt(selected, 10)}
+                disableLink
+                style={{ lineHeight: '1 !important' }}
+              />
             )}
           >
             {data
@@ -105,7 +109,7 @@ const Traits = ({ data = [] }) => {
         </FormControl>
         {traitlines[index] ? (
           <TraitLine
-            id={traitlines[index]}
+            id={parseInt(traitlines[index], 10)}
             selectable
             selected={selectedTraits[index]}
             onSelect={handleTraitChange(index)}

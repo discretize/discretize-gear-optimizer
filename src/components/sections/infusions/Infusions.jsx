@@ -1,6 +1,6 @@
+import { Attribute, Item } from '@discretize/gw2-ui-new';
 import { FormControl, Grid, Input, InputLabel, MenuItem, Select } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { Attribute, Item } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
