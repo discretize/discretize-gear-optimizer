@@ -79,7 +79,7 @@ export default function NavAccordion({
           <Box mb={1} key={`templateBuildMobile_${build.name}`}>
             <Chip
               variant="outlined"
-              label={<Profession name={build.specialization} text={build.name} />}
+              label={<Profession name={build.specialization} text={build.name} disableLink />}
               onClick={(e) => {
                 dispatch({ type: 'CANCEL' });
                 dispatch(

@@ -250,9 +250,10 @@ const Navbar = ({
                 // i18next-extract-mark-context-next-line {{buildTemplateName}}
                 t('buildTemplateName', { context: selectedTemplateName })
               }
+              disableLink
             />
           ) : (
-            <Profession name={selectedSpecialization} />
+            <Profession name={selectedSpecialization} disableLink />
           )}
         </Box>
       )}
