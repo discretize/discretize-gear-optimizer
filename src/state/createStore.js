@@ -1,6 +1,4 @@
-import { applyMiddleware, combineReducers, compose, createStore as reduxCreateStore } from 'redux';
-import { createMigrate, persistReducer, persistStore } from 'redux-persist';
-import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import gearOptimizerSaga from './optimizer/sagas';
 import { bossSlice } from './slices/boss';
@@ -15,36 +13,6 @@ import { infusionsSlice } from './slices/infusions';
 import { prioritiesSlice } from './slices/priorities';
 import { skillsSlice } from './slices/skills';
 import { traitsSlice } from './slices/traits';
-
-const createNoopStorage = () => {
-  return {
-    getItem(_key) {
-      return Promise.resolve(null);
-    },
-    setItem(_key, value) {
-      return Promise.resolve(value);
-    },
-    removeItem(_key) {
-      return Promise.resolve();
-    },
-  };
-};
-
-const storage = typeof window === 'undefined' ? createNoopStorage() : createWebStorage('local');
-
-// bump this to cache invalidate the persisted state
-const CURRENT_VERSION = 3;
-
-const migrations = {
-  [CURRENT_VERSION]: (_state) => ({}),
-};
-const persistConfig = {
-  key: 'root',
-  whitelist: 'gw2UiStore',
-  storage,
-  version: CURRENT_VERSION,
-  migrate: createMigrate(migrations),
-};
 
 const reducers = combineReducers({
   optimizer: combineReducers({
@@ -65,8 +33,6 @@ const reducers = combineReducers({
   }),
 });
 
-const persistedReducer = persistReducer(persistConfig, reducers);
-
 const saga = createSagaMiddleware();
 const composeEnhancers =
   (typeof window !== 'undefined' &&
@@ -75,11 +41,7 @@ const composeEnhancers =
   compose;
 
 export default () => {
-  const store = reduxCreateStore(persistedReducer, composeEnhancers(applyMiddleware(saga)));
-
+  const store = createStore(reducers, composeEnhancers(applyMiddleware(saga)));
   saga.run(gearOptimizerSaga);
-
-  const persistor = persistStore(store);
-
-  return { store, persistor };
+  return store;
 };
