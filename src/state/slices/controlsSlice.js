@@ -101,7 +101,6 @@ export const getError = (state) => state.optimizer.control.error;
 
 export const {
   changeAll,
-  reset,
   changeProfession,
   changeExpertMode,
   changeControl,

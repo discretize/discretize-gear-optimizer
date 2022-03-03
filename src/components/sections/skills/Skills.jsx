@@ -1,6 +1,6 @@
+import { Skill } from '@discretize/gw2-ui-new';
 import { Box, Typography } from '@mui/material';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { Skill } from '@discretize/gw2-ui-new';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSkills, setSkillAmount, toggleSkill } from '../../../state/slices/skills';

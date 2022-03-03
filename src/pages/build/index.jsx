@@ -1,8 +1,3 @@
-import { decompress } from '@discretize/object-compression';
-import { firstUppercase, Layout, TextDivider } from '@discretize/react-discretize-components';
-import { Box, Paper, Typography } from '@mui/material';
-import { graphql } from 'gatsby';
-import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
 import {
   APILanguageProvider,
   Boon,
@@ -12,6 +7,11 @@ import {
   Trait,
   TraitLine,
 } from '@discretize/gw2-ui-new';
+import { decompress } from '@discretize/object-compression';
+import { firstUppercase, Layout, TextDivider } from '@discretize/react-discretize-components';
+import { Box, Paper, Typography } from '@mui/material';
+import { graphql } from 'gatsby';
+import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
