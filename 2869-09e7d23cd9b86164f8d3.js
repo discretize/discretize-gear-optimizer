@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[2869],{32869:function(e,i,c){c.r(i),i.default=c.p+"static/Mirage-e34e6641d9e8c7d6a81572d7087d6cc0.png"}}]);
-//# sourceMappingURL=2869-09e7d23cd9b86164f8d3.js.map

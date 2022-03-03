@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[453],{80453:function(e,i,r){r.r(i),i.default=r.p+"static/Charr-40bc21635272939218830d3d88270e3f.png"}}]);
-//# sourceMappingURL=453-201618323594c870bfc8.js.map

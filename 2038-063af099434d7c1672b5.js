@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[2038],{82038:function(e,i,c){c.r(i),i.default=c.p+"static/Druid-cacc50faddb1ba62d3ff7d632662cadd.png"}}]);
-//# sourceMappingURL=2038-063af099434d7c1672b5.js.map

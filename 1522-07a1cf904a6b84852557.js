@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[1522],{11522:function(e,i,t){t.r(i),i.default=t.p+"static/Holosmith-e2f6e337e6ddf770d81f11c4e704c1f2.png"}}]);
-//# sourceMappingURL=1522-07a1cf904a6b84852557.js.map

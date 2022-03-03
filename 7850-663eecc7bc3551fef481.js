@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[7850],{97850:function(e,c,i){i.r(c),c.default=i.p+"static/Chronomancer-c8ca8f44d5655c341a4eb4ca35812db0.png"}}]);
-//# sourceMappingURL=7850-663eecc7bc3551fef481.js.map

@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[7875],{27875:function(e,i,a){a.r(i),i.default=a.p+"static/Guardian-e2f17c12e20088516674bbaa68ca8845.png"}}]);
-//# sourceMappingURL=7875-35c4b1e2f234b8953bfb.js.map

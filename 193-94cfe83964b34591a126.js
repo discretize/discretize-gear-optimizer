@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkdiscretize_gear_optimizer=self.webpackChunkdiscretize_gear_optimizer||[]).push([[193],{60193:function(e,i,t){t.r(i),i.default=t.p+"static/Revenant-570092105f499880ac371fe823b631b0.png"}}]);
-//# sourceMappingURL=193-94cfe83964b34591a126.js.map
