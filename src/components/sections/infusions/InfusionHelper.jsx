@@ -281,7 +281,7 @@ const InfusionHelper = () => {
           <>
             <Typography id="owned-matrix">
               <Trans>
-                Use Owned <Item id={79230} />:
+                Use Owned <Item id={79230} disableLink />:
               </Trans>
             </Typography>
             <Slider
