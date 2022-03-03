@@ -1355,10 +1355,10 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
-"@discretize/gw2-ui-new@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@discretize/gw2-ui-new/-/gw2-ui-new-0.0.3.tgz#f752c9f0998c85d9f82548b02dd8b0caa0fc2b5c"
-  integrity sha512-g0oRCi1qvy94Ka650/WuyDZEJgnu7vH4OG5W5s1WlLGCSDbryTvSlBcuUxpmUbNkbUrpnYMYm0qfbf2XYTUjjQ==
+"@discretize/gw2-ui-new@^0.0.3", "@discretize/gw2-ui-new@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@discretize/gw2-ui-new/-/gw2-ui-new-0.0.4.tgz#749934f3efa0bf350e3cb030fe50819ce473a3e6"
+  integrity sha512-VqaRCqkPKKmUwo3pTJCG4txYTENxORsfRX/Lm4SusoTGJu3CJikafrPePvihWw2cks2m16qbGzmIa12dzfyw7Q==
   dependencies:
     "@tippyjs/react" "^4.2.5"
     clsx "^1.1.1"

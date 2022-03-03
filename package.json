@@ -27,8 +27,11 @@
     "extractLocale": "babel --config-file ./babel-extract.config.js 'src/**/*.{js,jsx,ts,tsx}' > /dev/null",
     "extractLocaleCMD": "babel --config-file ./babel-extract.config.js \"src/**/*.{js,jsx,ts,tsx}\" > NUL"
   },
+  "resolutions": {
+    "@discretize/gw2-ui-new": "^0.0.4"
+  },
   "dependencies": {
-    "@discretize/gw2-ui-new": "^0.0.3",
+    "@discretize/gw2-ui-new": "^0.0.4",
     "@discretize/object-compression": "^1.0.1",
     "@discretize/react-discretize-components": "^2.1.3",
     "@emotion/react": "^11.7.1",
