@@ -38,7 +38,7 @@ const Extras = () => {
       <Grid item xs={12} md={6}>
         <GW2Select
           name="Nourishment"
-          label={<ConsumableEffect text={t('Nourishment')} name="Nourishment" />}
+          label={<ConsumableEffect disableLink text={t('Nourishment')} name="Nourishment" />}
           modifierData={extrasModifiers.food}
           modifierDataById={extrasModifiersById}
         />
@@ -46,7 +46,7 @@ const Extras = () => {
       <Grid item xs={12} md={6}>
         <GW2Select
           name="Enhancement"
-          label={<ConsumableEffect text={t('Enhancement')} name="Enhancement" />}
+          label={<ConsumableEffect disableLink text={t('Enhancement')} name="Enhancement" />}
           modifierData={extrasModifiers.utility}
           modifierDataById={extrasModifiersById}
         />
