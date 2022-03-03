@@ -1,5 +1,5 @@
-import { HelpOutline } from '@mui/icons-material';
 import { Tooltip } from '@discretize/gw2-ui-new';
+import { HelpOutline } from '@mui/icons-material';
 import React from 'react';
 
 const HelperIcon = ({ text, size, fontSize }) => {

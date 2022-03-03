@@ -1,8 +1,8 @@
+import { Profession } from '@discretize/gw2-ui-new';
 import { Box, Chip } from '@mui/material';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
-import { Profession } from '@discretize/gw2-ui-new';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
