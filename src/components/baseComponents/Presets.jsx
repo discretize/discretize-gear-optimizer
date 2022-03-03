@@ -34,6 +34,7 @@ const Presets = ({
             <li {...props}>
               {preset.profession ? (
                 <Profession
+                  disableLink
                   name={preset.profession}
                   text={
                     // i18next-extract-mark-context-next-line {{presetName}}
