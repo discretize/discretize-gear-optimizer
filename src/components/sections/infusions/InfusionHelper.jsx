@@ -201,7 +201,7 @@ const InfusionHelper = () => {
           label={
             <Typography variant="body2">
               <Trans>
-                +5 AR from <CommonEffect name="Rigorous Certainty" />
+                +5 AR from <CommonEffect name="Rigorous Certainty" disableLink />
               </Trans>
             </Typography>
           }
@@ -214,7 +214,7 @@ const InfusionHelper = () => {
             label={
               <Typography variant="body2">
                 <Trans>
-                  +15 AR from <Item id={70596} /> w/ mastery
+                  +15 AR from <Item id={70596} disableLink /> w/ mastery
                 </Trans>
               </Typography>
             }

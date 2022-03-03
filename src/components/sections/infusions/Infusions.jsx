@@ -115,7 +115,7 @@ const Infusions = () => {
             label={
               <>
                 <Trans>Include </Trans>
-                <Item id={79722} />
+                <Item id={79722} disableLink />
                 <HelperIcon
                   text={t(
                     'Adds 150% of your Agony Resistance to Precision, Toughness, and Concentration.',
