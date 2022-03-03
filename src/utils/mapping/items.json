@@ -13154,6 +13154,12 @@
     "weight": "light"
   },
   {
+    "id": 97162,
+    "name": "jadepunkmace",
+    "type": "mace",
+    "affix": "dragon"
+  },
+  {
     "id": 97260,
     "name": "suunsclaymore",
     "type": "greatsword",
