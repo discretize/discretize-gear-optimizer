@@ -118,7 +118,7 @@ const DamageDistribution = () => {
             <Grid key={dist.name} item xs>
               <Typography style={{ whiteSpace: 'nowrap' }}>
                 {dist.name === 'Power' ? (
-                  <Attribute name="Power" style={{ whiteSpace: 'nowrap' }} />
+                  <Attribute name="Power" disableLink style={{ whiteSpace: 'nowrap' }} />
                 ) : (
                   <Condition name={dist.name} disableLink style={{ whiteSpace: 'nowrap' }} />
                 )}{' '}
@@ -150,10 +150,11 @@ const DamageDistribution = () => {
           <FormControl mb={1} className={classes.textbox} variant="standard">
             <InputLabel htmlFor={`input-with-icon-adornment-${index}`}>
               {dist.name === 'Power' ? (
-                <Attribute name="Power" text={t('Power Coefficient')} />
+                <Attribute name="Power" disableLink text={t('Power Coefficient')} />
               ) : (
                 <Condition
                   name={dist.name}
+                  disableLink
                   text={
                     // i18next-extract-mark-context-next-line ["Burning","Bleeding","Poisoned","Torment", "Confusion"]
                     t(`avgStacks`, { context: dist.name })
