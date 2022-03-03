@@ -28,6 +28,7 @@ const useStyles = makeStyles()((theme) => ({
   },
   tableCollapse: {
     borderCollapse: 'collapse !important',
+    marginBottom: '0px !important',
   },
   underline: {
     borderBottom: `5px solid ${theme.palette.divider}`,
