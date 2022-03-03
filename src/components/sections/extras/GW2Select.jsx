@@ -1,3 +1,4 @@
+import { Item } from '@discretize/gw2-ui-new';
 import {
   FormControl,
   Input,
@@ -8,8 +9,7 @@ import {
   Select,
   Typography,
 } from '@mui/material';
-import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { Item } from '@discretize/gw2-ui-new';
+import { Trans, useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeExtra, getExtra } from '../../../state/slices/extras';
@@ -18,6 +18,7 @@ const GW2Select = ({ name, label, modifierData, modifierDataById }) => {
   const dispatch = useDispatch();
   const bigValue = useSelector(getExtra(name));
 
+  const { language } = useI18next();
   const { t } = useTranslation();
 
   const handleChange = (event) => {
@@ -25,8 +26,7 @@ const GW2Select = ({ name, label, modifierData, modifierDataById }) => {
       dispatch(changeExtra({ key: event.target.name, value: event.target.value }));
   };
 
-  const userLang = navigator.language || navigator.userLanguage;
-  const isChinese = userLang.includes('zh');
+  const isChinese = language === 'zh';
   // return an array in the select: https://github.com/mui-org/material-ui/issues/16181
   // Fragments are not supported as children!
   return (
