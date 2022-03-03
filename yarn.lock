@@ -1373,10 +1373,10 @@
   dependencies:
     json-url "^3.0.0"
 
-"@discretize/react-discretize-components@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@discretize/react-discretize-components/-/react-discretize-components-2.1.1.tgz#34fcbf593e32992c5b60f576fbcab932afb95fc4"
-  integrity sha512-kvcQSsUpBvkxgPU0BZSSPvEUYuJEpU6RKZcx3gZlG/ZGfIUrIUHiEpKTRkQKnEySzVRcC71nK14Dxm9wepLWpA==
+"@discretize/react-discretize-components@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@discretize/react-discretize-components/-/react-discretize-components-2.1.2.tgz#ad7e3d0737a9207c0420f4790ea5a93239bcee15"
+  integrity sha512-j9QAyW7ZC4vV3NU3FIKeZIdXf9oIOfWdlPlpLQmV5W9Hq3Kp8S28y41YTK7T/ekOfbEoMnA7xtYAD9KXQVAyWA==
   dependencies:
     "@babel/runtime-corejs3" "^7.16.3"
     "@discretize/gw2-ui-new" "^0.0.3"
