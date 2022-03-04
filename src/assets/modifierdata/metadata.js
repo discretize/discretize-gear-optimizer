@@ -10,7 +10,7 @@ const stats = [
   'Healing Power',
   'Agony Resistance',
 ];
-const boons = [
+export const boons = [
   'Aegis',
   'Alacrity',
   'Fury',
@@ -40,7 +40,7 @@ const boons = [
 //   'Vulnerability',
 //   'Weakness',
 // ];
-const damagingConditions = ['Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment'];
+export const damagingConditions = ['Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment'];
 
 const percents = [
   'Critical Chance',

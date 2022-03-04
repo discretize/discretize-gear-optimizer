@@ -3,7 +3,10 @@ import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material
 import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { makeStyles } from 'tss-react/mui';
-import { damagingConditions } from '../../../utils/gw2-data';
+import { boons, damagingConditions } from '../../../assets/modifierdata/metadata';
+
+const conditionDurations = damagingConditions.map((name) => `${name} Duration`);
+const boonDurations = boons.map((name) => `${name} Duration`);
 
 const useStyles = makeStyles()((theme) => ({
   root: {
@@ -15,17 +18,18 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-const SpecialDurations = ({ data }) => {
+const SpecialDurations = ({ data: attributes }) => {
   const { classes } = useStyles();
 
-  const cleanedData = Object.keys(data).filter(
-    (damageType) =>
-      damageType.includes('Duration') &&
-      !damageType.includes('Boon') &&
-      !damageType.includes('Condition'),
+  const conditionEntries = Object.entries(attributes).filter(([attribute]) =>
+    conditionDurations.includes(attribute),
   );
 
-  if (cleanedData.length === 0) return null;
+  const boonEntries = Object.entries(attributes).filter(([attribute]) =>
+    boonDurations.includes(attribute),
+  );
+
+  if (boonEntries.length === 0 && conditionEntries.length === 0) return null;
 
   return (
     <>
@@ -35,22 +39,24 @@ const SpecialDurations = ({ data }) => {
 
       <Table padding="none">
         <TableBody>
-          {cleanedData.map((duration) => (
-            <TableRow hover key={duration}>
-              {damagingConditions.includes(duration.split(' ')[0]) ? (
-                <TableCell>
-                  <Condition
-                    name={duration.split(' ')[0]}
-                    text={duration}
-                    className={classes.gw2Item}
-                  />
-                </TableCell>
-              ) : (
-                <TableCell>
-                  <Boon name={duration.split(' ')[0]} text={duration} className={classes.gw2Item} />
-                </TableCell>
-              )}
-              <TableCell>{data[duration] * 100}%</TableCell>
+          {conditionEntries.map(([attribute, value]) => (
+            <TableRow hover key={attribute}>
+              <TableCell>
+                <Condition
+                  name={attribute.split(' ')[0].replace('Poison', 'Poisoned')}
+                  text={attribute}
+                  className={classes.gw2Item}
+                />
+              </TableCell>
+              <TableCell>{(value + (attributes['Boon Duration'] || 0)) * 100}%</TableCell>
+            </TableRow>
+          ))}
+          {boonEntries.map(([attribute, value]) => (
+            <TableRow hover key={attribute}>
+              <TableCell>
+                <Boon name={attribute.split(' ')[0]} text={attribute} className={classes.gw2Item} />
+              </TableCell>
+              <TableCell>{(value + (attributes['Condition Duration'] || 0)) * 100}%</TableCell>
             </TableRow>
           ))}
         </TableBody>
