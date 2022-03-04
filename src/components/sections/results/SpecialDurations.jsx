@@ -8,6 +8,8 @@ import { boons, damagingConditions } from '../../../assets/modifierdata/metadata
 const conditionDurations = damagingConditions.map((name) => `${name} Duration`);
 const boonDurations = boons.map((name) => `${name} Duration`);
 
+const roundTwo = (num) => Math.round(num * 100) / 100;
+
 const useStyles = makeStyles()((theme) => ({
   root: {
     width: '100%',
@@ -48,7 +50,9 @@ const SpecialDurations = ({ data: attributes }) => {
                   className={classes.gw2Item}
                 />
               </TableCell>
-              <TableCell>{(value + (attributes['Boon Duration'] || 0)) * 100}%</TableCell>
+              <TableCell>
+                {roundTwo((value + (attributes['Condition Duration'] || 0)) * 100)}%
+              </TableCell>
             </TableRow>
           ))}
           {boonEntries.map(([attribute, value]) => (
@@ -56,7 +60,7 @@ const SpecialDurations = ({ data: attributes }) => {
               <TableCell>
                 <Boon name={attribute.split(' ')[0]} text={attribute} className={classes.gw2Item} />
               </TableCell>
-              <TableCell>{(value + (attributes['Condition Duration'] || 0)) * 100}%</TableCell>
+              <TableCell>{roundTwo((value + (attributes['Boon Duration'] || 0)) * 100)}%</TableCell>
             </TableRow>
           ))}
         </TableBody>
