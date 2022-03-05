@@ -198,7 +198,7 @@ export default function ResultCharacter({ data, character, weapons, skills }) {
   const image = getImage(imageRaw);
 
   return (
-    <ErrorBoundary location="ResultCharacter">
+    <ErrorBoundary location="Character" resetKeys={[character]}>
       <Character
         profession={profession}
         attributes={attributes}

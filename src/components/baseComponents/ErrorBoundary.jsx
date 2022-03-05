@@ -17,6 +17,8 @@ const fallback =
       </Card>
     );
 
-export default ({ children, location }) => (
-  <ErrorBoundary FallbackComponent={fallback(location)}>{children}</ErrorBoundary>
+export default ({ children, location, resetKeys }) => (
+  <ErrorBoundary FallbackComponent={fallback(location)} resetKeys={resetKeys}>
+    {children}
+  </ErrorBoundary>
 );

@@ -43,7 +43,7 @@ const ResultDetails = ({ data }) => {
   );
 
   return (
-    <ErrorBoundary location="ResultDetails">
+    <ErrorBoundary location="ResultDetails" resetKeys={[character]}>
       <TextDivider text="Result Character" />
       Click to generate a shareable link for this build
       <BuildShareModal title="Build Share Settings" character={character}>
