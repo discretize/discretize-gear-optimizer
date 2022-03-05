@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { NumberParam, StringParam, useQueryParam } from 'use-query-params';
 import { buffModifiers, classModifiers } from '../../assets/modifierdata';
+import ErrorBoundary from '../../components/baseComponents/ErrorBoundary';
 import HelperIcon from '../../components/baseComponents/HelperIcon';
 import LanguageSelection from '../../components/baseComponents/LanguageSelection';
 import ResultCharacter from '../../components/sections/results/ResultCharacter';
@@ -213,4 +214,8 @@ export const query = graphql`
   }
 `;
 
-export default IndexPage;
+export default (props) => (
+  <ErrorBoundary location="/build">
+    <IndexPage {...props} />
+  </ErrorBoundary>
+);
