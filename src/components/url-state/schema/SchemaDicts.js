@@ -37,6 +37,7 @@ export const gearDict = [
   'Bringer',
   'Ritualist',
   'Dragon',
+  'Custom',
 ];
 
 export const professionDict = [
