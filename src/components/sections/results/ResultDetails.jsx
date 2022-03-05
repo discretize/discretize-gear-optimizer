@@ -5,6 +5,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
+import ErrorBoundary from '../../baseComponents/ErrorBoundary';
 import AffixesStats from './AffixesStats';
 import AppliedModifiers from './AppliedModifiers';
 import BuildShareModal from './BuildShareModal/BuildShareModal';
@@ -42,7 +43,7 @@ const ResultDetails = ({ data }) => {
   );
 
   return (
-    <>
+    <ErrorBoundary location="ResultDetails">
       <TextDivider text="Result Character" />
       Click to generate a shareable link for this build
       <BuildShareModal title="Build Share Settings" character={character}>
@@ -79,7 +80,7 @@ const ResultDetails = ({ data }) => {
       </Grid>
       <AppliedModifiers data={character?.settings?.appliedModifiers} />
       <TemplateHelperSections character={character} />
-    </>
+    </ErrorBoundary>
   );
 };
 

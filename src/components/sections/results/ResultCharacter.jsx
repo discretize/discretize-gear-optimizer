@@ -6,6 +6,7 @@ import { extrasModifiersById } from '../../../assets/modifierdata';
 import { Classes, INFUSION_IDS } from '../../../utils/gw2-data';
 import { resolveArmor, resolveBackAndTrinkets } from '../../../utils/map-gw2-ids';
 import { getWeight } from '../../../utils/usefulFunctions';
+import ErrorBoundary from '../../baseComponents/ErrorBoundary';
 
 export default function ResultCharacter({ data, character, weapons, skills }) {
   const { profession, specialization, weaponType, cachedFormState } = character.settings;
@@ -197,15 +198,17 @@ export default function ResultCharacter({ data, character, weapons, skills }) {
   const image = getImage(imageRaw);
 
   return (
-    <Character
-      profession={profession}
-      attributes={attributes}
-      armorPropsAPI={armorPropsAPI}
-      weaponPropsAPI={weaponPropsAPI}
-      backAndTrinketPropsAPI={backAndTrinketPropsAPI}
-      consumablesPropsAPI={{ foodId, utilityId }}
-      skillsPropsAPI={skillsPropsAPI}
-      imageData={image}
-    />
+    <ErrorBoundary location="ResultCharacter">
+      <Character
+        profession={profession}
+        attributes={attributes}
+        armorPropsAPI={armorPropsAPI}
+        weaponPropsAPI={weaponPropsAPI}
+        backAndTrinketPropsAPI={backAndTrinketPropsAPI}
+        consumablesPropsAPI={{ foodId, utilityId }}
+        skillsPropsAPI={skillsPropsAPI}
+        imageData={image}
+      />
+    </ErrorBoundary>
   );
 }
