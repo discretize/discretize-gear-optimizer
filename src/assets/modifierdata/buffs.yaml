@@ -118,6 +118,24 @@
       type: Trait
       gw2id: 584
 
+    - id: jade-bot-base
+      text: Jade Bot
+      modifiers:
+        attributes:
+          Vitality: [75, converted]
+      type: Text
+
+    - id: jade-bot-per-tier
+      text: Jade Bot Tier
+      amountData:
+        label: ''
+        default: 10
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Vitality: [15, converted]
+      type: Text
+
 - section: Guardian - Perfect Inscriptions (100% uptime)
   items:
     - id: baneSignet
