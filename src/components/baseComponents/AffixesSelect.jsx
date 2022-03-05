@@ -1,4 +1,4 @@
-import { CreateItem } from '@discretize/gw2-ui-new';
+import { CreateItem, Item } from '@discretize/gw2-ui-new';
 import CheckIcon from '@mui/icons-material/Check';
 import { Box, Chip, Divider, TextField, Typography } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -7,6 +7,8 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { makeStyles } from 'tss-react/mui';
 import { Affix } from '../../utils/gw2-data';
+
+const customRingId = 80793;
 
 const augumentAffixState = (array) =>
   array
@@ -89,16 +91,29 @@ const AffixesSelect = ({ name, multiple, onChange, value: affixes }) => {
               )}
             </Box>
           )}
-          <CreateItem
-            stat={option.label}
-            type="Ring"
-            disableLink
-            text={
-              // i18next-extract-mark-context-next-line {{affix}}
-              t('affix', { context: option.label })
-            }
-            className={classes.text}
-          />
+          {option.label === 'Custom' ? (
+            <Item
+              id={customRingId}
+              disableIcon
+              disableLink
+              text={
+                // i18next-extract-mark-context-next-line {{affix}}
+                t('affix', { context: option.label })
+              }
+              className={classes.text}
+            />
+          ) : (
+            <CreateItem
+              stat={option.label}
+              type="Ring"
+              disableLink
+              text={
+                // i18next-extract-mark-context-next-line {{affix}}
+                t('affix', { context: option.label })
+              }
+              className={classes.text}
+            />
+          )}
         </li>
       )}
       renderTags={(value, getTagProps) =>
