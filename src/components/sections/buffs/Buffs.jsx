@@ -69,55 +69,39 @@ const Buffs = () => {
               {section.items.map((buff) => {
                 const { type, text, id, gw2id, subText, amountData } = buff;
 
-                let Component;
-                let name;
+                const Component = components[type];
+                const name = ['Boon', 'Condition', 'CommonEffect'].includes(type)
+                  ? firstUppercase(id)
+                  : undefined;
 
-                switch (type) {
-                  case 'Text':
-                    return (
-                      <CheckboxComponent
-                        key={id}
-                        value={id}
-                        checked={buffs[id]}
-                        label={
-                          <>
-                            <Typography className={classes.note}>
-                              {
-                                // i18next-extract-mark-context-next-line {{buffText}}
-                                t('buffText', { context: text })
-                              }
-                            </Typography>
-                            <Typography variant="caption" className={classes.tinyNote}>
-                              {subText}
-                            </Typography>
-                          </>
+                const label =
+                  type === 'Text' ? (
+                    <>
+                      <Typography className={classes.note}>
+                        {
+                          // i18next-extract-mark-context-next-line {{buffText}}
+                          t('buffText', { context: text })
                         }
-                        onChange={handleChange(buff)}
-                      />
-                    );
-                  case 'Boon':
-                  case 'Condition':
-                  case 'CommonEffect':
-                    name = id.toLowerCase();
-                    name = firstUppercase(name);
-                  // eslint-disable-next-line no-fallthrough
-                  default:
-                    Component = components[type];
-                }
+                      </Typography>
+                      <Typography variant="caption" className={classes.tinyNote}>
+                        {subText}
+                      </Typography>
+                    </>
+                  ) : (
+                    <Component id={gw2id} name={name} disableLink className={classes.boon} />
+                  );
 
                 return (
                   <Box justifyContent="space-between" display="flex" key={id}>
                     <Box display="flex">
                       <CheckboxComponent
+                        key={id}
                         value={id}
                         checked={buffs[id]}
-                        label={
-                          <Component id={gw2id} name={name} disableLink className={classes.boon} />
-                        }
+                        label={label}
                         onChange={handleChange(buff)}
                       />
                     </Box>
-
                     {amountData ? (
                       <Box display="flex">
                         <AmountInput
