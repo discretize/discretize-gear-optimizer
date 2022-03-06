@@ -5,7 +5,6 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getControl, getProfession } from '../state/slices/controlsSlice';
-import ErrorBoundary from './baseComponents/ErrorBoundary';
 import NavBar from './nav/NavBar';
 import BossSection from './sections/boss/BossSection';
 import BuffsSection from './sections/buffs/BuffsSection';
@@ -187,11 +186,7 @@ const GearOptimizer = ({ classes }) => {
           }
         }
       `}
-      render={(data) => (
-        <ErrorBoundary location="GearOptimizer">
-          <MainComponent classes={classes} data={data} />
-        </ErrorBoundary>
-      )}
+      render={(data) => <MainComponent classes={classes} data={data} />}
     />
   );
 };

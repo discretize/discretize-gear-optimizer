@@ -6,6 +6,7 @@ import MuiAlert from '@mui/material/Alert';
 import { graphql } from 'gatsby';
 import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
 import * as React from 'react';
+import ErrorBoundary from '../components/baseComponents/ErrorBoundary';
 import LanguageSelection from '../components/baseComponents/LanguageSelection';
 import GearOptimizer from '../components/GearOptimizer';
 import URLStateImport from '../components/url-state/URLStateImport';
@@ -46,7 +47,9 @@ const IndexPage = ({ location }) => {
         <Typography variant="h2" sx={{ paddingBottom: 2 }}>
           <Trans>Gear Optimizer</Trans>
         </Typography>
-        <GearOptimizer />
+        <ErrorBoundary location="GearOptimizer">
+          <GearOptimizer />
+        </ErrorBoundary>
       </Layout>
     </APILanguageProvider>
   );
