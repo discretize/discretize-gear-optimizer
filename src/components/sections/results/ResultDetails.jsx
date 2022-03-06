@@ -4,6 +4,7 @@ import { Grid, IconButton } from '@mui/material';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { buffModifiers } from '../../../assets/modifierdata';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
 import AffixesStats from './AffixesStats';
@@ -42,6 +43,10 @@ const ResultDetails = ({ data }) => {
     }),
   );
 
+  const assumedBuffs = buffModifiers
+    .flatMap((buff) => buff.items)
+    .filter((buff) => character.settings.cachedFormState.buffs.buffs[buff.id]);
+
   return (
     <ErrorBoundary location="ResultDetails" resetKeys={[character]}>
       <TextDivider text="Result Character" />
@@ -53,7 +58,7 @@ const ResultDetails = ({ data }) => {
           </IconButton>
         )}
       </BuildShareModal>
-      <ResultCharacter data={data} character={character} />
+      <ResultCharacter data={data} character={character} assumedBuffs={assumedBuffs} />
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4}>
           <SpecialDurations data={character.attributes} />

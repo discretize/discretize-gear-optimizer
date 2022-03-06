@@ -1,4 +1,5 @@
 import { Attribute } from '@discretize/gw2-ui-new';
+import { HelperIcon } from '@discretize/react-discretize-components';
 import {
   FormControl,
   FormControlLabel,
@@ -16,7 +17,6 @@ import { makeStyles } from 'tss-react/mui';
 import { changePriority, getPriority } from '../../../state/slices/priorities';
 import { parsePriority } from '../../../utils/usefulFunctions';
 import AffixesSelect from '../../baseComponents/AffixesSelect';
-import HelperIcon from '../../baseComponents/HelperIcon';
 import CustomAffix from './CustomAffix';
 
 const useStyles = makeStyles()((theme) => ({
