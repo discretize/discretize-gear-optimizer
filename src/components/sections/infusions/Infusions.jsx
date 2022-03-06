@@ -1,4 +1,5 @@
 import { Attribute, Item } from '@discretize/gw2-ui-new';
+import { HelperIcon } from '@discretize/react-discretize-components';
 import { FormControl, Grid, Input, InputLabel, MenuItem, Select } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
@@ -20,7 +21,6 @@ import { INFUSION_IDS } from '../../../utils/gw2-data';
 import { parseAr, parseInfusionCount } from '../../../utils/usefulFunctions';
 import AmountInput from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
-import HelperIcon from '../../baseComponents/HelperIcon';
 import InfusionHelper from './InfusionHelper';
 
 const arOptionLabels = {

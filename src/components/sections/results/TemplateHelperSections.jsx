@@ -2,7 +2,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Accordion, AccordionDetails, AccordionSummary, Grid, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import { extrasModifiersById } from '../../../assets/modifierdata';
+import { buffModifiers, extrasModifiersById } from '../../../assets/modifierdata';
 import { WEAPONS } from '../../../utils/gw2-data';
 import { getWeight } from '../../../utils/usefulFunctions';
 import Section from '../../baseComponents/Section';
@@ -19,7 +19,7 @@ const TemplateHelperSections = ({ character }) => {
 
   const onClick = ({ profession, skills, weapons }) => {
     const { attributes, gear, settings } = character;
-
+    const { extras, buffs } = settings.cachedFormState;
     // Calculate extras
     const {
       Sigil1: sigil1,
@@ -27,7 +27,7 @@ const TemplateHelperSections = ({ character }) => {
       Enhancement: utility,
       Nourishment: food,
       Runes: runeStringId,
-    } = settings.cachedFormState.extras;
+    } = extras;
 
     const foodId = extrasModifiersById[food]?.gw2id;
     const utilityId = extrasModifiersById[utility]?.gw2id;
@@ -53,6 +53,11 @@ const TemplateHelperSections = ({ character }) => {
       ...(w22 && { weapon2OffSigilId: sigil2Id }),
     };
 
+    const assumedBuffs = buffModifiers
+      .flatMap((buff) => buff.items)
+      .filter((buff) => buffs.buffs[buff.id])
+      .map(({ id, gw2id, type }) => ({ id, gw2id, type }));
+
     const template = {
       profession,
       weight: getWeight(profession),
@@ -64,6 +69,7 @@ const TemplateHelperSections = ({ character }) => {
       weapons: weapData,
       consumables: { foodId, utilityId },
       skills,
+      assumedBuffs,
     };
 
     navigator.clipboard.writeText(

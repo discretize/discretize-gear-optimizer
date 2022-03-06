@@ -1,6 +1,6 @@
-import { Boon, CommonEffect, Condition, Skill, Trait, TraitLine } from '@discretize/gw2-ui-new';
+import { TraitLine } from '@discretize/gw2-ui-new';
 import { decompress } from '@discretize/object-compression';
-import { firstUppercase, TextDivider } from '@discretize/react-discretize-components';
+import { TextDivider } from '@discretize/react-discretize-components';
 import { Box, Paper, Typography } from '@mui/material';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,7 +15,6 @@ import {
   getTraits,
   getWeapons,
 } from '../state/slices/buildPage';
-import HelperIcon from './baseComponents/HelperIcon';
 import ResultCharacter from './sections/results/ResultCharacter';
 
 const useStyles = makeStyles()((theme) => ({
@@ -97,64 +96,20 @@ const BuildPage = ({ data }) => {
     );
   };
 
-  const AssumedBuffs = () => {
-    // filter buffs that are not applied
-    const appliedBuffs = buffModifiers
-      .flatMap((buff) => buff.items)
-      .filter((buff) => buffs[buff.id]);
-
-    return (
-      <>
-        {appliedBuffs.map(({ id, type, gw2id }) => {
-          switch (type) {
-            case 'Boon':
-              return (
-                <Boon
-                  name={firstUppercase(id)}
-                  disableText
-                  key={id}
-                  className={classes.gw2component}
-                />
-              );
-            case 'Condition':
-              return (
-                <Condition
-                  name={firstUppercase(id)}
-                  disableText
-                  key={id}
-                  className={classes.gw2component}
-                />
-              );
-            case 'Skill':
-              return <Skill id={gw2id} disableText key={id} className={classes.gw2component} />;
-            case 'Trait':
-              return <Trait id={gw2id} disableText key={id} className={classes.gw2component} />;
-            case 'CommonEffect':
-              return (
-                <CommonEffect
-                  name={firstUppercase(id)}
-                  disableText
-                  key={id}
-                  className={classes.gw2component}
-                />
-              );
-            default:
-              return null;
-          }
-        })}
-      </>
-    );
-  };
+  const assumedBuffs = buffModifiers.flatMap((buff) => buff.items).filter((buff) => buffs[buff.id]);
 
   return (
     <>
       <TextDivider text="Equipment" />
-      <Box display="flex" justifyContent="flex-end">
-        <HelperIcon text="Assumed buffs for this build" />
-        <AssumedBuffs />
-      </Box>
+
       {character && (
-        <ResultCharacter data={data} character={character} weapons={weapons} skills={skills} />
+        <ResultCharacter
+          data={data}
+          character={character}
+          weapons={weapons}
+          skills={skills}
+          assumedBuffs={assumedBuffs}
+        />
       )}
 
       <TextDivider text="Traits" />

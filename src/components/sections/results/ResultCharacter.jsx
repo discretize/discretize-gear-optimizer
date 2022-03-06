@@ -8,7 +8,7 @@ import { resolveArmor, resolveBackAndTrinkets } from '../../../utils/map-gw2-ids
 import { getWeight } from '../../../utils/usefulFunctions';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
 
-export default function ResultCharacter({ data, character, weapons, skills }) {
+export default function ResultCharacter({ data, character, weapons, skills, assumedBuffs }) {
   const { profession, specialization, weaponType, cachedFormState } = character.settings;
   const { extras } = cachedFormState;
 
@@ -207,6 +207,7 @@ export default function ResultCharacter({ data, character, weapons, skills }) {
         backAndTrinketPropsAPI={backAndTrinketPropsAPI}
         consumablesPropsAPI={{ foodId, utilityId }}
         skillsPropsAPI={skillsPropsAPI}
+        assumedBuffs={assumedBuffs}
         imageData={image}
       />
     </ErrorBoundary>

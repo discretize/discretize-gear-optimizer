@@ -1276,6 +1276,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.17.2":
+  version "7.17.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.17.2.tgz#66f68591605e59da47523c631416b18508779941"
+  integrity sha512-hzeyJyMA1YGdJTuWU0e/j4wKXrU4OMFvY2MSlaI9B7VQb0r5cxTE3EAIS2Q7Tn2RIcDkRvTA/v2JsAEhxe99uw==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/standalone@^7.15.5":
   version "7.16.2"
   resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.16.2.tgz#089a693e0e59577b512a62f344def62127d4b4a2"
@@ -1355,7 +1362,7 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
-"@discretize/gw2-ui-new@^0.0.3", "@discretize/gw2-ui-new@^0.0.7":
+"@discretize/gw2-ui-new@^0.0.7":
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/@discretize/gw2-ui-new/-/gw2-ui-new-0.0.7.tgz#fdfe8d2caa1a44b394fcba75e4fc5696748ec692"
   integrity sha512-j2A5QwubpjjYxb+owX9KCTSdK8zlmp/3QiYXbRUnmD1YqtmU7XB4uR8bZR9qz/zsn7RY9LXPgN/6vkoZ86pnGQ==
@@ -1372,14 +1379,15 @@
   dependencies:
     json-url "^3.0.0"
 
-"@discretize/react-discretize-components@^2.1.4":
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/@discretize/react-discretize-components/-/react-discretize-components-2.1.4.tgz#427656d76d9d1d7794f607ff05d54ae680b4de72"
-  integrity sha512-k/cpqAYOXEpQ0d+xdizwXwK0YTTMJcan/DmgjhBvcOmY/fZaRTyIo+hVACe/os6M5+WoF+cB0u7kGrXVdERf+g==
+"@discretize/react-discretize-components@^2.1.5":
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/@discretize/react-discretize-components/-/react-discretize-components-2.1.5.tgz#d4423a5f33fd1e79a603b1d58cd1f1a1db9567e3"
+  integrity sha512-pLJDHBNOKFEINjKC70J6qPojnXCYi9wcrovh2RSyGGPP99RSOZ4QovW/MMGizUgti6bcDAKFJsFeruiYPljUow==
   dependencies:
     "@babel/runtime-corejs3" "^7.16.3"
-    "@discretize/gw2-ui-new" "^0.0.3"
+    "@discretize/gw2-ui-new" "^0.0.7"
     "@emotion/styled" "^11.6.0"
+    "@mui/icons-material" "^5.4.4"
     "@mui/material" "^5.2.7"
     classnames "^2.3.1"
     gatsby-plugin-image "^2.4.0"
@@ -2113,6 +2121,13 @@
   integrity sha512-uQiUz+l0xy+2jExyKyU19MkMAR2F7bQFcsQ5hdqAtsB14Jw2zlmIAD55mV6f0NxKCut7Rx6cA3ZpfzlzAfoK8Q==
   dependencies:
     "@babel/runtime" "^7.16.3"
+
+"@mui/icons-material@^5.4.4":
+  version "5.4.4"
+  resolved "https://registry.yarnpkg.com/@mui/icons-material/-/icons-material-5.4.4.tgz#0dc7b4e68cbbdfc675f09f0763be1100aad910af"
+  integrity sha512-7zoRpjO8vsd+bPvXq6rtXu0V8Saj70X09dtTQogZmxQKabrYW3g7+Yym7SCRA7IYVF3ysz2AvdQrGD1P/sGepg==
+  dependencies:
+    "@babel/runtime" "^7.17.2"
 
 "@mui/material@^5.0.0", "@mui/material@^5.2.7":
   version "5.2.7"
