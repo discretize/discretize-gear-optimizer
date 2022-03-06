@@ -19,9 +19,6 @@ import HelperIcon from './baseComponents/HelperIcon';
 import ResultCharacter from './sections/results/ResultCharacter';
 
 const useStyles = makeStyles()((theme) => ({
-  headline: {
-    paddingBottom: theme.spacing(2),
-  },
   traitlineText: {
     textOrientation: 'mixed',
     fontWeight: 250,
