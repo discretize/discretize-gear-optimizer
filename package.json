@@ -28,7 +28,7 @@
     "extractLocaleCMD": "babel --config-file ./babel-extract.config.js \"src/**/*.{js,jsx,ts,tsx}\" > NUL"
   },
   "resolutions": {
-    "@discretize/gw2-ui-new": "^0.0.4"
+    "@discretize/gw2-ui-new": "^0.0.7"
   },
   "dependencies": {
     "@discretize/gw2-ui-new": "^0.0.7",
