@@ -29,7 +29,7 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-export default function ModalContent({ character, onClick }) {
+export default function ModalContent({ character, onClick, label = 'Open Build' }) {
   const dispatch = useDispatch();
   const { classes } = useStyles();
   const weapons = useSelector(getWeapons);
@@ -229,7 +229,7 @@ export default function ModalContent({ character, onClick }) {
         startIcon={<ShareIcon />}
         onClick={() => onClick({ profession, buffs, lines, selected, skills, weapons })}
       >
-        Open Build
+        {label}
       </Button>
     </>
   );
