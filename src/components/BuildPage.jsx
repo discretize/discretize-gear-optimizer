@@ -1,25 +1,12 @@
-import {
-  APILanguageProvider,
-  Boon,
-  CommonEffect,
-  Condition,
-  Skill,
-  Trait,
-  TraitLine,
-} from '@discretize/gw2-ui-new';
+import { Boon, CommonEffect, Condition, Skill, Trait, TraitLine } from '@discretize/gw2-ui-new';
 import { decompress } from '@discretize/object-compression';
-import { firstUppercase, Layout, TextDivider } from '@discretize/react-discretize-components';
+import { firstUppercase, TextDivider } from '@discretize/react-discretize-components';
 import { Box, Paper, Typography } from '@mui/material';
-import { graphql } from 'gatsby';
-import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { NumberParam, StringParam, useQueryParam } from 'use-query-params';
-import { buffModifiers, classModifiers } from '../../assets/modifierdata';
-import HelperIcon from '../../components/baseComponents/HelperIcon';
-import LanguageSelection from '../../components/baseComponents/LanguageSelection';
-import ResultCharacter from '../../components/sections/results/ResultCharacter';
+import { buffModifiers, classModifiers } from '../assets/modifierdata';
 import {
   changeBuildPage,
   getBuffs,
@@ -27,7 +14,9 @@ import {
   getSkills,
   getTraits,
   getWeapons,
-} from '../../state/slices/buildPage';
+} from '../state/slices/buildPage';
+import HelperIcon from './baseComponents/HelperIcon';
+import ResultCharacter from './sections/results/ResultCharacter';
 
 const useStyles = makeStyles()((theme) => ({
   headline: {
@@ -52,11 +41,9 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-// markup
-const IndexPage = ({ data, location }) => {
+const BuildPage = ({ data }) => {
   const { classes } = useStyles();
   const dispatch = useDispatch();
-  const { language } = useI18next();
 
   // selectors from buildPage slice, will be loaded from url
   const character = useSelector(getCharacter);
@@ -78,13 +65,12 @@ const IndexPage = ({ data, location }) => {
     }
 
     // load build state from url
-    import(`../../components/url-state/schema/BuildPageSchema_v${version}`).then(
-      ({ BuildPageSchema: schema }) =>
-        decompress({
-          string: buildUrl,
-          schema,
-          onSuccess: (result) => dispatch(changeBuildPage(result)),
-        }),
+    import(`./url-state/schema/BuildPageSchema_v${version}`).then(({ BuildPageSchema: schema }) =>
+      decompress({
+        string: buildUrl,
+        schema,
+        onSuccess: (result) => dispatch(changeBuildPage(result)),
+      }),
     );
 
     return () => {};
@@ -164,53 +150,22 @@ const IndexPage = ({ data, location }) => {
   };
 
   return (
-    <APILanguageProvider value={language}>
-      <Layout>
-        <LanguageSelection location={location} />
-        <Typography variant="h3" className={classes.headline}>
-          <Trans>Shared Build</Trans>
-        </Typography>
+    <>
+      <TextDivider text="Equipment" />
+      <Box display="flex" justifyContent="flex-end">
+        <HelperIcon text="Assumed buffs for this build" />
+        <AssumedBuffs />
+      </Box>
+      {character && (
+        <ResultCharacter data={data} character={character} weapons={weapons} skills={skills} />
+      )}
 
-        <TextDivider text="Equipment" />
-        <Box display="flex" justifyContent="flex-end">
-          <HelperIcon text="Assumed buffs for this build" />
-          <AssumedBuffs />
-        </Box>
-        {character && (
-          <ResultCharacter data={data} character={character} weapons={weapons} skills={skills} />
-        )}
-
-        <TextDivider text="Traits" />
-        {lines[0] && <Traits id={parseInt(lines[0], 10)} selected={selected[0]} />}
-        {lines[1] && <Traits id={parseInt(lines[1], 10)} selected={selected[1]} />}
-        {lines[2] && <Traits id={parseInt(lines[2], 10)} selected={selected[2]} />}
-      </Layout>
-    </APILanguageProvider>
+      <TextDivider text="Traits" />
+      {lines[0] && <Traits id={parseInt(lines[0], 10)} selected={selected[0]} />}
+      {lines[1] && <Traits id={parseInt(lines[1], 10)} selected={selected[1]} />}
+      {lines[2] && <Traits id={parseInt(lines[2], 10)} selected={selected[2]} />}
+    </>
   );
 };
-export const query = graphql`
-  query ($language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
 
-    images: allImageSharp {
-      edges {
-        node {
-          gatsbyImageData
-          original {
-            src
-          }
-        }
-      }
-    }
-  }
-`;
-
-export default IndexPage;
+export default BuildPage;
