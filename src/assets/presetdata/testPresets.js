@@ -105,11 +105,13 @@ const testModifiers = async () => {
     }
   }
 
+  const ids = new Set();
+
   for (const section of templates.list) {
     for (const item of section.builds) {
       const {
         name = 'missing name',
-        // id,
+        id,
         specialization,
         // boons,
         // priority,
@@ -117,6 +119,11 @@ const testModifiers = async () => {
         // traits,
         // extras,
       } = item;
+
+      if (id) {
+        gentleAssert(!ids.has(id), `err: templates has duplicate id ${id}`);
+        ids.add(id);
+      }
 
       const checkNullRecursively = (obj) => {
         for (const value of Object.values(obj)) {

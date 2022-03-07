@@ -293,7 +293,7 @@ list:
         extras: Heal
 
       - name: '[beta2] Power Catalyst'
-        id: ppwer-cat
+        id: power-cat
         specialization: Catalyst
         boons: Power (spotter)
         priority: Power DPS
@@ -302,7 +302,7 @@ list:
         extras: Power (Fractal)
 
       - name: '[beta2] Power Quickness Catalyst'
-        id: ppwer-cat
+        id: power-cat-quick
         specialization: Catalyst
         boons: Power (spotter)
         priority: Power DPS
@@ -443,7 +443,7 @@ list:
         extras: Power (Fractal)
 
       - name: Condi Herald
-        id: herald
+        id: cherald
         specialization: Herald
         boons: Condi
         priority: Condi DPS
