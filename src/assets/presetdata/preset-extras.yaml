@@ -130,7 +130,7 @@ list:
         "Nourishment": "sweet-and-spicy-butternut-squash-soup"
       }
 
-  - name: CFB w/ Quickness
+  - name: CFB w/ Quickness (balthazar)
     profession: Firebrand
     value: |-
       {
@@ -141,7 +141,18 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: CFB DPS
+  - name: CFB w/ Quickness (renegade)
+    profession: Firebrand
+    value: |-
+      {
+        "Runes": "renegade",
+        "Sigil1": "bursting",
+        "Sigil2": "smoldering",
+        "Enhancement": "toxic-maintenance-oil",
+        "Nourishment": "fishy-rice-bowl"
+      }
+
+  - name: CFB DPS (balthazar)
     profession: Firebrand
     value: |-
       {
@@ -150,6 +161,17 @@ list:
         "Sigil2": "",
         "Enhancement": "toxic-focusing-crystal",
         "Nourishment": "beef-rendang"
+      }
+
+  - name: CFB DPS (renegade)
+    profession: Firebrand
+    value: |-
+      {
+        "Runes": "renegade",
+        "Sigil1": "bursting",
+        "Sigil2": "smoldering",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "fishy-rice-bowl"
       }
 
   - name: '[beta2] Condi Willbender'
@@ -171,7 +193,7 @@ list:
         "Sigil1": "bursting",
         "Sigil2": "smoldering",
         "Enhancement": "toxic-focusing-crystal",
-        "Nourishment": "fire-meat-chili"
+        "Nourishment": "fishy-rice-bowl"
       }
 
   - name: Condi Quickbrand 35%

@@ -97,48 +97,75 @@ list:
         traits: Power Quickbrand
         extras: Power (Fractal)
 
-      - name: CFB w/ Quickness
-        id: cqfb
+      - name: CFB w/ Quickness (balthazar)
+        id: cqfb-balth
         specialization: Firebrand
         boons: Condi
         priority: Condi DPS
-        distribution: CFB w/ Quickness (Virtues, allies)
+        distribution: Condi Quickbrand (torment/geo, allies)
         traits: Condi Quickbrand
-        extras: CFB w/ Quickness
+        extras: CFB w/ Quickness (balthazar)
 
-      - name: CFB DPS 5 page
-        id: cfb
+      - name: CFB w/ Quickness (renegade)
+        id: cqfb-ren
         specialization: Firebrand
         boons: Condi
         priority: Condi DPS
-        distribution: CFB (Virtues, 5 page, allies)
+        distribution: Condi Quickbrand (smoldering, allies)
+        traits: Condi Quickbrand
+        extras: CFB w/ Quickness (renegade)
+
+      - name: CFB DPS 5 page (balthazar)
+        id: cfb-geo
+        specialization: Firebrand
+        boons: Condi
+        priority: Condi DPS
+        distribution: CFB (5 page, torment/geo, allies)
         traits: CFB DPS 5 page
-        extras: CFB DPS
+        extras: CFB DPS (balthazar)
 
-      - name: CFB DPS 8 page
-        id: cfb-8
+      - name: CFB DPS 5 page (renegade)
+        id: cfb-smoldering
         specialization: Firebrand
         boons: Condi
         priority: Condi DPS
-        distribution: CFB (Virtues, 8 page, allies)
+        distribution: CFB (5 page, smoldering, allies)
+        traits: CFB DPS 5 page
+        extras: CFB DPS (renegade)
+
+      - name: CFB DPS 8 page (balthazar)
+        id: cfb-8-balth
+        specialization: Firebrand
+        boons: Condi
+        priority: Condi DPS
+        distribution: CFB (8 page, torment/geo, allies)
         traits: CFB DPS 8 page
-        extras: CFB DPS
+        extras: CFB DPS (balthazar)
+
+      - name: CFB DPS 8 page (renegade)
+        id: cfb-8-ren
+        specialization: Firebrand
+        boons: Condi
+        priority: Condi DPS
+        distribution: CFB (8 page, smoldering, allies)
+        traits: CFB DPS 8 page
+        extras: CFB DPS (renegade)
 
       - name: Condi Quickbrand 40%
-        id: cqfb-firebrand
+        id: cqfb-firebrand-40
         specialization: Firebrand
         boons: Condi
         priority: Condi DPS
-        distribution: Condi Quickbrand 40% (Virtues, allies)
+        distribution: Condi Quickbrand (smoldering, allies)
         traits: Condi Quickbrand
         extras: Condi Quickbrand 40%
 
-      - name: Condi Quickbrand 35%
+      - name: Condi Quickbrand Celestial 35%
         id: cqfb-cele-35
         specialization: Firebrand
         boons: Condi
         priority: Condi Quickbrand 35%
-        distribution: CFB w/ Quickness (Virtues, allies)
+        distribution: Condi Quickbrand (torment/geo, allies)
         traits: Condi Quickbrand
         extras: Condi Quickbrand 35%
 
