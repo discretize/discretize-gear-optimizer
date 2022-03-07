@@ -14,14 +14,31 @@ const logAttributeDiff = (newCharacter, oldCharacter) => {
     const baseAttributeComparisonEntries = Object.keys(newCharacter.baseAttributes)
       .map((key) => [
         key,
-        roundThree(newCharacter.baseAttributes[key] - oldCharacter.baseAttributes[key]),
+        {
+          value: roundThree(newCharacter.baseAttributes[key] - oldCharacter.baseAttributes[key]),
+          percent: roundThree(
+            ((newCharacter.baseAttributes[key] - oldCharacter.baseAttributes[key]) /
+              oldCharacter.baseAttributes[key]) *
+              100,
+          ),
+        },
       ])
-      .filter(([_key, value]) => value);
+      .filter(([_key, value]) => value.value);
     console.log('Base attributes changed (not including modifiers):');
     console.table(Object.fromEntries(baseAttributeComparisonEntries));
     const attributeComparisonEntries = Object.keys(newCharacter.attributes)
-      .map((key) => [key, roundThree(newCharacter.attributes[key] - oldCharacter.attributes[key])])
-      .filter(([_key, value]) => value);
+      .map((key) => [
+        key,
+        {
+          value: roundThree(newCharacter.attributes[key] - oldCharacter.attributes[key]),
+          percent: roundThree(
+            ((newCharacter.attributes[key] - oldCharacter.attributes[key]) /
+              oldCharacter.attributes[key]) *
+              100,
+          ),
+        },
+      ])
+      .filter(([_key, value]) => value.value);
     console.log('Final attributes changed:');
     console.table(Object.fromEntries(attributeComparisonEntries));
     console.groupEnd();
