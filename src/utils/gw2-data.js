@@ -719,6 +719,7 @@ export const Classes = {
         WEAPONS.AXE,
         WEAPONS.DAGGER,
         WEAPONS.MACE,
+        WEAPONS.PISTOL,
         WEAPONS.SWORD,
         WEAPONS.SHIELD,
         WEAPONS.TORCH,
@@ -730,7 +731,14 @@ export const Classes = {
     health: Health.HIGH,
     defense: Defense.LIGHT,
     weapons: {
-      mainHand: [WEAPONS.AXE, WEAPONS.DAGGER, WEAPONS.SCEPTER, WEAPONS.GREATSWORD, WEAPONS.STAFF],
+      mainHand: [
+        WEAPONS.AXE,
+        WEAPONS.DAGGER,
+        WEAPONS.PISTOL,
+        WEAPONS.SCEPTER,
+        WEAPONS.GREATSWORD,
+        WEAPONS.STAFF,
+      ],
       offHand: [WEAPONS.FOCUS, WEAPONS.WARHORN, WEAPONS.TORCH, WEAPONS.DAGGER],
     },
   },
@@ -738,7 +746,14 @@ export const Classes = {
     health: Health.MEDIUM,
     defense: Defense.HEAVY,
     weapons: {
-      mainHand: [WEAPONS.MACE, WEAPONS.SWORD, WEAPONS.HAMMER, WEAPONS.SHORTBOW, WEAPONS.STAFF],
+      mainHand: [
+        WEAPONS.GREATSWORD,
+        WEAPONS.MACE,
+        WEAPONS.SWORD,
+        WEAPONS.HAMMER,
+        WEAPONS.SHORTBOW,
+        WEAPONS.STAFF,
+      ],
       offHand: [WEAPONS.AXE, WEAPONS.SWORD, WEAPONS.SHIELD],
     },
   },
@@ -746,7 +761,7 @@ export const Classes = {
     health: Health.MEDIUM,
     defense: Defense.MEDIUM,
     weapons: {
-      mainHand: [WEAPONS.PISTOL, WEAPONS.SWORD, WEAPONS.RIFLE, WEAPONS.HAMMER],
+      mainHand: [WEAPONS.MACE, WEAPONS.PISTOL, WEAPONS.SWORD, WEAPONS.RIFLE, WEAPONS.HAMMER],
       offHand: [WEAPONS.PISTOL, WEAPONS.SHIELD],
     },
   },
@@ -757,6 +772,7 @@ export const Classes = {
       mainHand: [
         WEAPONS.AXE,
         WEAPONS.DAGGER,
+        WEAPONS.HAMMER,
         WEAPONS.SWORD,
         WEAPONS.GREATSWORD,
         WEAPONS.LONGBOW,
@@ -770,7 +786,14 @@ export const Classes = {
     health: Health.MEDIUM,
     defense: Defense.LIGHT,
     weapons: {
-      mainHand: [WEAPONS.AXE, WEAPONS.SWORD, WEAPONS.SCEPTER, WEAPONS.GREATSWORD, WEAPONS.STAFF],
+      mainHand: [
+        WEAPONS.AXE,
+        WEAPONS.DAGGER,
+        WEAPONS.SWORD,
+        WEAPONS.SCEPTER,
+        WEAPONS.GREATSWORD,
+        WEAPONS.STAFF,
+      ],
       offHand: [WEAPONS.PISTOL, WEAPONS.SWORD, WEAPONS.FOCUS, WEAPONS.SHIELD, WEAPONS.TORCH],
     },
   },
@@ -788,7 +811,7 @@ export const Classes = {
         WEAPONS.LONGBOW,
         WEAPONS.STAFF,
       ],
-      offHand: [WEAPONS.FOCUS, WEAPONS.SHIELD, WEAPONS.TORCH],
+      offHand: [WEAPONS.FOCUS, WEAPONS.SHIELD, WEAPONS.SWORD, WEAPONS.TORCH],
     },
   },
   Thief: {
@@ -798,6 +821,7 @@ export const Classes = {
       mainHand: [
         WEAPONS.DAGGER,
         WEAPONS.PISTOL,
+        WEAPONS.SCEPTER,
         WEAPONS.SWORD,
         WEAPONS.RIFLE,
         WEAPONS.SHORTBOW,
@@ -810,7 +834,7 @@ export const Classes = {
     health: Health.LOW,
     defense: Defense.LIGHT,
     weapons: {
-      mainHand: [WEAPONS.DAGGER, WEAPONS.SWORD, WEAPONS.SCEPTER, WEAPONS.STAFF],
+      mainHand: [WEAPONS.DAGGER, WEAPONS.HAMMER, WEAPONS.SWORD, WEAPONS.SCEPTER, WEAPONS.STAFF],
       offHand: [WEAPONS.FOCUS, WEAPONS.DAGGER, WEAPONS.WARHORN],
     },
   },
