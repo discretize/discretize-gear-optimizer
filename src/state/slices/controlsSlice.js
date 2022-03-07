@@ -1,6 +1,33 @@
 import { createSlice, original } from '@reduxjs/toolkit';
 import { WAITING } from '../optimizer/status';
 
+const roundThree = (num) => Math.round(num * 1000) / 1000;
+
+const logAttributeDiff = (newCharacter, oldCharacter) => {
+  if (
+    oldCharacter?.attributes &&
+    oldCharacter?.baseAttributes &&
+    newCharacter?.attributes &&
+    newCharacter?.baseAttributes
+  ) {
+    console.groupCollapsed('Selected Character Comparison');
+    const baseAttributeComparisonEntries = Object.keys(newCharacter.baseAttributes)
+      .map((key) => [
+        key,
+        roundThree(newCharacter.baseAttributes[key] - oldCharacter.baseAttributes[key]),
+      ])
+      .filter(([_key, value]) => value);
+    console.log('Base attributes changed (not including modifiers):');
+    console.table(Object.fromEntries(baseAttributeComparisonEntries));
+    const attributeComparisonEntries = Object.keys(newCharacter.attributes)
+      .map((key) => [key, roundThree(newCharacter.attributes[key] - oldCharacter.attributes[key])])
+      .filter(([_key, value]) => value);
+    console.log('Final attributes changed:');
+    console.table(Object.fromEntries(attributeComparisonEntries));
+    console.groupEnd();
+  }
+};
+
 export const controlSlice = createSlice({
   name: 'control',
   initialState: {
@@ -83,6 +110,10 @@ export const controlSlice = createSlice({
       state.compareByPercent = action.payload;
     },
     changeSelectedCharacter: (state, action) => {
+      const oldCharacter = state.selectedCharacter ? original(state.selectedCharacter) : null;
+      const newCharacter = action.payload;
+      logAttributeDiff(newCharacter, oldCharacter);
+
       state.selectedCharacter = action.payload;
     },
     changeError: (state, action) => {
