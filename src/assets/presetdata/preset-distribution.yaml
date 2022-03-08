@@ -111,20 +111,27 @@ list:
         "values2": { "Power": 2314, "Burning": 13.49, "Bleeding": 4.77, "Poisoned": 0, "Torment": 1.28, "Confusion": 0 }
       }
 
-  # compared to torment/geo: +3.5 power, -0.9 bleed, -1.28 torment, +0.014 burning
+  # geo power: 0.25 coeff, 690.5 strength, every 26.5 sec -> 6.5 power coefficient
+  # geo bleed: 24 seconds, every 26.5 sec -> 0.91 avg bleed, using 0.9
+  # torment: 10 seconds, 14 procs/106 sec -> 1.32 avg torment, using 1.28
+  #
+  # f1 passives from procs are 2.2s because of amplified wrath; every 3 hits if virtues
+  # geo f1 passive: 1/3 * 2.2 / 26.5 sec = 0.0277 avg burning
+  #
+  # total: -6.5 power, -0.9 bleed, -1.28 torment, -0.028 burning
   - name: CFB (5 page, smoldering, allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2317.5, "Burning": 15.204, "Bleeding": 3.87, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2307.5, "Burning": 15.162, "Bleeding": 3.87, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  # compared to torment/geo: +3.5 power, -0.9 bleed, -1.28 torment, +0.014 burning
+  # total: -6.5 power, -0.9 bleed, -1.28 torment, -0.028 burning
   - name: CFB (5 page, smoldering, no allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2317.5, "Burning": 13.504, "Bleeding": 3.87, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2307.5, "Burning": 13.462, "Bleeding": 3.87, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=KOEcwF066pc
@@ -145,20 +152,27 @@ list:
         "values2": { "Power": 2087, "Burning": 13.88, "Bleeding": 4.08, "Poisoned": 0, "Torment": 1.28, "Confusion": 0 }
       }
 
-  # compared to torment/geo: +3.5 power, -0.9 bleed, -1.28 torment, +0.014 burning
+  # geo power: 0.25 coeff, 690.5 strength, every 14.5 sec -> 11.9 power coefficient
+  # geo bleed: 24 seconds, every 14.5 sec -> 1.65 avg bleed
+  # torment: 10 seconds, 14 procs/106 sec -> 1.32 avg torment, using 1.28
+  #
+  # f1 passives from procs are 2.2s because of amplified wrath; every 3 hits if virtues
+  # geo f1 passive: 1/3 * 2.2 / 14.5 sec = 0.051 avg burning
+  #
+  # total: -11.9 power, -1.65 bleed, -1.28 torment, -0.051 burning
   - name: CFB (8 page, smoldering, allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2090.5, "Burning": 16.404, "Bleeding": 3.18, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2075.1, "Burning": 16.339, "Bleeding": 2.43, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  # compared to torment/geo: +3.5 power, -0.9 bleed, -1.28 torment, +0.014 burning
+  # total: -11.9 power, -1.65 bleed, -1.28 torment, -0.051 burning
   - name: CFB (8 page, smoldering, no allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2090.5, "Burning": 13.894, "Bleeding": 3.18, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2075.1, "Burning": 13.829, "Bleeding": 2.43, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # stalwart speed and legendary lore, but balth rune setup
@@ -171,8 +185,8 @@ list:
   # fb rune burning: 1 second, every 54 sec -> 0.0185 avg burning
   #
   # f1 passives from procs are 2.2s because of amplified wrath; every 3 hits if virtues
-  # geo f1 passive: 1/3 * 2.2 / 54 sec = 0.0277 avg burning
-  # fb rune f1 passive: 1/3 * 2.2 / 26.5 sec = 0.0136 avg burning
+  # geo f1 passive: 1/3 * 2.2 / 26.5 sec = 0.0277 avg burning
+  # fb rune f1 passive: 1/3 * 2.2 / 54 sec = 0.0136 avg burning
   #
   # total: -3.5 power, +0.9 bleed, +1.28 torment, -0.014 burning
   - name: Condi Quickbrand (torment/geo, allies)
