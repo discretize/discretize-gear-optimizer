@@ -10,6 +10,9 @@
   "engines": {
     "node": "16"
   },
+  "browserslist": [
+    "defaults and supports es6-module"
+  ],
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
