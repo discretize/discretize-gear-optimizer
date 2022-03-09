@@ -46,10 +46,13 @@
 
     - id: seaweed-salad
       text: Bowl of Seaweed Salad
-      subText: (90% uptime)
+      amountData:
+        label: '% uptime'
+        default: 90
+        quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [4.5%, mult]
+          Strike Damage: [5%, mult]
       gw2id: 12471
 
     - id: jerk-poultry
