@@ -110,6 +110,7 @@
       modifiers:
         attributes:
           Vitality: [120, buff]
+          Expertise: [8, buff] # conversion of own 120 vitality
         conversion:
           Expertise: {Vitality: 7%}
       gw2id: 1099

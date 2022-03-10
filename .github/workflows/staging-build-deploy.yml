@@ -40,7 +40,7 @@ jobs:
           path: |
             public
             .cache
-          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-gatsby-cache-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/gatsby-config.js') }}
+          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-gatsby-cache-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/gatsby-config.js') }}-${{ hashFiles('**/gatsby-node.js') }}-${{ hashFiles('**/gatsby-browser.js') }}-${{ hashFiles('**/gatsby-ssr.js') }}
 
       - name: Build and deploy with gh-pages
         run: |

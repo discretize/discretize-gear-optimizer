@@ -1,3 +1,4 @@
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
   Accordion,
   AccordionDetails,
@@ -7,16 +8,15 @@ import {
   TableCell,
   TableRow,
   Typography,
-  withStyles,
-} from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+} from '@mui/material';
 import { Trans } from 'gatsby-plugin-react-i18next';
-// import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
+// import { Boon, CommonEffect, Condition, Skill, Trait } from '@discretize/gw2-ui-new';
 import React from 'react';
-import { parseAmount } from '../../../utils/usefulFunctions';
+import { makeStyles } from 'tss-react/mui';
 import { scaleValue } from '../../../state/optimizer/optimizerCore';
+import { parseAmount } from '../../../utils/usefulFunctions';
 
-const styles = (theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     width: '100%',
   },
@@ -24,7 +24,7 @@ const styles = (theme) => ({
     fontSize: '20px',
     color: '#AAAAAA',
   },
-});
+}));
 
 // Dynamic component creation for buffs from a string
 // const components = {
@@ -37,7 +37,9 @@ const styles = (theme) => ({
 
 const roundTwo = (num) => Math.round(num * 100) / 100;
 
-const AppliedModifiers = ({ classes, data }) => {
+const AppliedModifiers = ({ data }) => {
+  const { classes } = useStyles();
+
   return (
     <>
       <Accordion>
@@ -78,4 +80,4 @@ const AppliedModifiers = ({ classes, data }) => {
   );
 };
 
-export default withStyles(styles)(AppliedModifiers);
+export default AppliedModifiers;

@@ -1,29 +1,22 @@
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
-  TextField,
-  withStyles,
-  Typography,
   Accordion,
   AccordionDetails,
   AccordionSummary,
   Grid,
-} from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+  TextField,
+  Typography,
+} from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
+import yaml from 'js-yaml';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import yaml from 'js-yaml';
+import { exampleModifiers, exampleModifiersJson } from '../../../assets/modifierdata/metadata';
 import {
   changeExtraModifiers,
   changeExtraModifiersError,
   getExtraModifiers,
 } from '../../../state/slices/extraModifiers';
-import { exampleModifiers, exampleModifiersJson } from '../../../assets/modifierdata/metadata';
-
-const styles = (theme) => ({
-  text: {
-    width: '100%',
-  },
-});
 
 function parseInput(str) {
   let parsed = [];
@@ -42,10 +35,11 @@ function parseInput(str) {
       }
     }
   }
+  if (error) parsed = [];
   return { data: Array.isArray(parsed) ? parsed : [parsed], error };
 }
 
-const ExtraModifiers = ({ classes }) => {
+const ExtraModifiers = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const errorMsg = useSelector(getExtraModifiers('error'));
@@ -63,7 +57,11 @@ const ExtraModifiers = ({ classes }) => {
     <>
       <TextField
         label={t('Extra Modifiers')}
-        className={classes.text}
+        variant="standard"
+        sx={{
+          width: '100%',
+          marginBottom: 1,
+        }}
         multiline
         minRows={5}
         value={text}
@@ -94,4 +92,4 @@ const ExtraModifiers = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(ExtraModifiers);
+export default ExtraModifiers;

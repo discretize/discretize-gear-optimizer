@@ -1,7 +1,6 @@
-import { createSlice, createSelector } from '@reduxjs/toolkit';
-import { changeAll, setBuildTemplate } from './controlsSlice';
-
+import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { buffModifiersById } from '../../assets/modifierdata';
+import { changeAll, setBuildTemplate } from './controlsSlice';
 
 export const buffsSlice = createSlice({
   name: 'buffs',

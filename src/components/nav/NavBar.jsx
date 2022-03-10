@@ -1,3 +1,6 @@
+import { Profession } from '@discretize/gw2-ui-new';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar,
   Box,
@@ -10,16 +13,13 @@ import {
   Switch,
   Toolbar,
   Typography,
-  withStyles,
-} from '@material-ui/core';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import MenuIcon from '@material-ui/icons/Menu';
+} from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import { bindHover, bindMenu, usePopupState } from 'material-ui-popup-state/hooks';
 import Menu from 'material-ui-popup-state/HoverMenu';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Profession from '../baseComponents/Profession';
+import { makeStyles } from 'tss-react/mui';
 import {
   changeExpertMode,
   changeProfession,
@@ -30,20 +30,13 @@ import {
 import { PROFESSIONS } from '../../utils/gw2-data';
 import NavAccordion from './NavAccordion';
 
-const styles = (theme) => ({
-  topNav: {
-    marginBottom: theme.spacing(2),
-  },
-  topNavNoMarge: {
-    marginBottom: 0,
-  },
-  navProfession: {
+const useStyles = makeStyles()((theme) => ({
+  icon: {
     fontSize: '2rem',
   },
-});
+}));
 
 const Navbar = ({
-  classes,
   data,
   buffPresets,
   prioritiesPresets,
@@ -51,6 +44,7 @@ const Navbar = ({
   extrasPresets,
   traitPresets,
 }) => {
+  const { classes } = useStyles();
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
   const expertMode = useSelector(getControl('expertMode'));
@@ -101,10 +95,10 @@ const Navbar = ({
           label={t('Expert')}
         />
         <IconButton
-          className={classes.githubIcon}
           href="https://github.com/discretize/discretize-gear-optimizer/tree/staging"
           target="_blank"
           rel="noopener"
+          size="large"
         >
           <GitHubIcon />
         </IconButton>
@@ -127,6 +121,7 @@ const Navbar = ({
               'aria-haspopup': 'true',
               onClick: handleDrawerOpen,
             }}
+            size="large"
           >
             <MenuIcon />
           </IconButton>
@@ -205,19 +200,14 @@ const Navbar = ({
                 }
               }}
               variant={prof.profession === profession ? 'contained' : 'text'}
+              color="inherit"
               {...bindHover(popupState[index])}
             >
-              <Profession
-                name={prof.profession}
-                disableLink
-                disableText
-                className={classes.navProfession}
-              />
+              <Profession name={prof.profession} disableLink disableText className={classes.icon} />
             </Button>
 
             <Menu
               {...bindMenu(popupState[index])}
-              getContentAnchorEl={null}
               anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
               transformOrigin={{ vertical: 'top', horizontal: 'left' }}
             >
@@ -260,9 +250,10 @@ const Navbar = ({
                 // i18next-extract-mark-context-next-line {{buildTemplateName}}
                 t('buildTemplateName', { context: selectedTemplateName })
               }
+              disableLink
             />
           ) : (
-            <Profession name={selectedSpecialization} />
+            <Profession name={selectedSpecialization} disableLink />
           )}
         </Box>
       )}
@@ -274,12 +265,14 @@ const Navbar = ({
   return (
     <AppBar
       position="sticky"
-      className={profession === '' ? classes.topNavNoMarge : classes.topNav}
+      sx={{ boxShadow: 4, ...(profession === '' ? { marginBottom: 0 } : { marginBottom: 2 }) }}
       color="inherit"
+      elevation={0}
+      enableColorOnDark
     >
       {mobileView ? displayMobile() : displayDesktop()}
     </AppBar>
   );
 };
 
-export default React.memo(withStyles(styles)(Navbar));
+export default React.memo(Navbar);

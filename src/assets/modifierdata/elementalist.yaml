@@ -15,50 +15,82 @@
           Toughness: [180, buff]
       gw2id: 5571
 
-    - id: flame-axe
-      text: Flame Axe
-      subText: when equipped
+    - id: flame-wheel
+      text: Flame Wheel
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
-        attributes:
-          Power: [180, buff]
-          Condition Damage: [180, buff]
-      gw2id: 5540
+        damage:
+          Strike Damage: [5%, unknown]
+          Condition Damage: [5%, unknown]
+      gw2id: 62758
 
-    - id: earth-shield
-      text: Earth Shield
-      subText: when equipped
+    - id: crescent-wind
+      text: Crescent Wind
+      subText: 100% uptime
       modifiers:
         attributes:
-          Vitality: [180, buff]
-          Toughness: [180, buff]
-      gw2id: 5546
+          Critical Chance: 7%
+      gw2id: 62887
 
-    - id: fiery-greatsword
-      text: Fiery Greatsword
-      subText: when equipped
+    - id: relentless-fire
+      text: Relentless Fire
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
-        attributes:
-          Power: [260, buff]
-          Condition Damage: [180, buff]
-      gw2id: 5516
+        damage:
+          Strike Damage: [15%, unknown]
+          Condition Damage: [15%, unknown]
+      gw2id: 62965
 
-    - id: lightning-hammer
-      text: Lightning Hammer
-      subText: when equipped
-      modifiers:
-        attributes:
-          Precision: [180, buff]
-          Ferocity: [75, buff]
-      gw2id: 5624
+    # - id: flame-axe
+    #   text: Flame Axe
+    #   subText: when equipped
+    #   modifiers:
+    #     attributes:
+    #       Power: [180, buff]
+    #       Condition Damage: [180, buff]
+    #   gw2id: 5540
 
-    - id: frost-bow
-      text: Frost Bow
-      subText: when equipped
-      modifiers:
-        attributes:
-          Healing Power: [180, buff]
-          Condition Duration: 20%
-      gw2id: 5567
+    # - id: earth-shield
+    #   text: Earth Shield
+    #   subText: when equipped
+    #   modifiers:
+    #     attributes:
+    #       Vitality: [180, buff]
+    #       Toughness: [180, buff]
+    #   gw2id: 5546
+
+    # - id: fiery-greatsword
+    #   text: Fiery Greatsword
+    #   subText: when equipped
+    #   modifiers:
+    #     attributes:
+    #       Power: [260, buff]
+    #       Condition Damage: [180, buff]
+    #   gw2id: 5516
+
+    # - id: lightning-hammer
+    #   text: Lightning Hammer
+    #   subText: when equipped
+    #   modifiers:
+    #     attributes:
+    #       Precision: [180, buff]
+    #       Ferocity: [75, buff]
+    #   gw2id: 5624
+
+    # - id: frost-bow
+    #   text: Frost Bow
+    #   subText: when equipped
+    #   modifiers:
+    #     attributes:
+    #       Healing Power: [180, buff]
+    #       Condition Duration: 20%
+    #   gw2id: 5567
 
 - section: Fire
   id: 31

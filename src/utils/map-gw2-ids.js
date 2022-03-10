@@ -186,7 +186,7 @@ const findMatchWithFallback = (props) => {
 
   const fallback = type === 'Back item' && pofAffixes.includes(affix) ? 82982 : fallbacks[type];
   if (fallback !== undefined) {
-    const statsId = itemstatMapping.find(({ name }) => name === affix).ids || {};
+    const statsId = itemstatMapping.find(({ name }) => name === affix)?.ids || {};
     if (statsId !== undefined) {
       const sid = statsId[0];
       return {

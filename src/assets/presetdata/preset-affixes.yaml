@@ -3,16 +3,9 @@ list:
   - name: Power DPS
     value: >-
       {
-        "affixes": ["Berserker", "Assassin"],
+        "affixes": ["Berserker", "Assassin", "Dragon"],
         "optimizeFor": "Damage",
         "minBoonDuration": 0
-      }
-  - name: Power Boon
-    value: >-
-      {
-        "affixes": ["Berserker", "Assassin", "Diviner"],
-        "optimizeFor": "Damage",
-        "minBoonDuration": 79
       }
 
   - name: Condi DPS
@@ -31,6 +24,30 @@ list:
         "minBoonDuration": 0
       }
 
+  - name: Power Boon
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 79
+      }
+
+  - name: Condi Boon
+    value: >-
+      {
+        "affixes": ["Viper", "Sinister", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 79
+      }
+
+  - name: Condi Boon/Support
+    value: >-
+      {
+        "affixes": ["Viper", "Seraph", "Celestial"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 79
+      }
+
   - name: Heal
     value: >-
       {
@@ -39,10 +56,85 @@ list:
         "minBoonDuration": 100
       }
 
-  - name: Condi Boon
+  # -------------------------------------------------------------------------------------------- #
+
+  - name: Power Quickbrand 25%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 25
+      }
+
+  - name: Power Quickness Scrapper 33.3%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 33.3
+      }
+
+  - name: Power Boon Daredevil 99.7%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 99.7
+      }
+
+  - name: Condi Hybrid Firebrand 40%
+    hidden: true
     value: >-
       {
         "affixes": ["Viper", "Seraph", "Celestial"],
         "optimizeFor": "Damage",
+        "minBoonDuration": 40
+      }
+
+  - name: Condi Quickness Harbinger 49%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Sinister", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 49
+      }
+
+  - name: Condi Hybrid Druid 52%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Seraph", "Celestial"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 52
+      }
+
+  - name: Condi Boon Daredevil 62%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Sinister", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 62
+      }
+
+  - name: Condi Alacrity Renegade 79%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Sinister", "Ritualist"],
+        "optimizeFor": "Damage",
         "minBoonDuration": 79
+      }
+
+  - name: Condi Quickbrand 35%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Sinister", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 35
       }

@@ -150,6 +150,10 @@
       gw2id: 855
       defaultEnabled: true
 
+- section: Blood Magic
+  id: 19
+  items: []
+
 - section: Soul Reaping
   id: 50
   items:
@@ -297,6 +301,15 @@
   id: 64
   items:
 
+    - id: wicked-corruption-base
+      text: Wicked Corruption
+      subText: base
+      modifiers:
+        damage:
+          Critical Damage: [10%, unknown]
+      gw2id: 2188
+      defaultEnabled: true
+
     - id: wicked-corruption
       text: Wicked Corruption
       amountData:
@@ -358,7 +371,7 @@
       text: Cascading Corruption
       modifiers:
         attributes:
-          Power: [180, unknown]
+          Power: [240, unknown]
       gw2id: 2218
       defaultEnabled: true
 
@@ -366,6 +379,6 @@
       text: Doom Approaches
       modifiers:
         attributes:
-          Condition Damage: [180, unknown]
+          Condition Damage: [240, unknown]
       gw2id: 2203
       defaultEnabled: true

@@ -1,6 +1,6 @@
+import { TextField, Typography } from '@mui/material';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import { Typography, TextField } from '@material-ui/core';
-import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
 import { parseDistribution } from '../../../utils/usefulFunctions';
 
 const initial = {
@@ -12,7 +12,7 @@ const initial = {
   Confusion: 0,
 };
 
-const roundOne = (num) => Math.round(num * 10) / 10;
+const roundTwo = (num) => Math.round(num * 100) / 100;
 const roundZero = (num) => Math.round(num);
 
 const indent = (str, amount) => str.replace(/^/gm, ' '.repeat(amount));
@@ -38,13 +38,22 @@ const TemplateHelper = ({ character }) => {
   const { cachedFormState } = character.settings;
   const { coefficientHelper } = character.results;
 
+  // reverse engineer coefficient needed to reach target damage
+  // DPS = slope * coefficient + intercept
+  // coefficient = (DPS - intercept) / slope
+  const calculateRequiredCoefficient = (key, targetDPS = 0) => {
+    const { slope, intercept } = coefficientHelper[key];
+    if (targetDPS === intercept) return 0;
+    return (targetDPS - intercept) / slope;
+  };
+
   let values2 = Object.fromEntries(
-    data.map(({ key, value }) => [key, (value ?? 0) / coefficientHelper[key]]),
+    data.map(({ key, value }) => [key, calculateRequiredCoefficient(key, value)]),
   );
 
   // round
   Object.keys(values2).forEach((key) => {
-    values2[key] = key === 'Power' ? roundZero(values2[key]) : roundOne(values2[key]);
+    values2[key] = key === 'Power' ? roundZero(values2[key]) : roundTwo(values2[key]);
   });
 
   values2 = fixPoison(values2);
@@ -81,6 +90,7 @@ const TemplateHelper = ({ character }) => {
               return (
                 <td key={key}>
                   <TextField
+                    variant="standard"
                     error={error}
                     value={inputText}
                     onChange={(e) => {
@@ -114,7 +124,7 @@ const TemplateHelper = ({ character }) => {
             {Object.values(values2).map((value, index) => (
               // eslint-disable-next-line react/no-array-index-key
               <td key={index}>
-                <TextField disabled value={value} />
+                <TextField disabled value={value} variant="standard" />
               </td>
             ))}
           </tr>

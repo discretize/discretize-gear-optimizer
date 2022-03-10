@@ -1,3 +1,4 @@
+import { Item } from '@discretize/gw2-ui-new';
 import {
   FormControl,
   Input,
@@ -7,37 +8,17 @@ import {
   MenuItem,
   Select,
   Typography,
-  withStyles,
-} from '@material-ui/core';
-import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { Item } from 'gw2-ui-bulk';
+} from '@mui/material';
+import { Trans, useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeExtra, getExtra } from '../../../state/slices/extras';
 
-const styles = (theme) => ({
-  formControl: {
-    width: '100%',
-  },
-  sectionText: {
-    fontWeight: 200,
-    textAlign: 'left',
-    marginTop: theme.spacing(1),
-  },
-  subText: {
-    fontWeight: 100,
-    textAlign: 'right',
-  },
-  menuItem: {
-    whiteSpace: 'normal',
-  },
-  item: { lineHeight: '1 !important' },
-});
-
-const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => {
+const GW2Select = ({ name, label, modifierData, modifierDataById }) => {
   const dispatch = useDispatch();
   const bigValue = useSelector(getExtra(name));
 
+  const { language } = useI18next();
   const { t } = useTranslation();
 
   const handleChange = (event) => {
@@ -45,12 +26,11 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => 
       dispatch(changeExtra({ key: event.target.name, value: event.target.value }));
   };
 
-  const userLang = navigator.language || navigator.userLanguage;
-  const isChinese = userLang.includes('zh');
+  const isChinese = language === 'zh';
   // return an array in the select: https://github.com/mui-org/material-ui/issues/16181
   // Fragments are not supported as children!
   return (
-    <FormControl className={classes.formControl}>
+    <FormControl sx={{ width: '100%' }} variant="standard">
       <InputLabel htmlFor={name}>{label}</InputLabel>
       <Select
         value={bigValue || ''}
@@ -63,7 +43,7 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => 
               id={item.gw2id}
               disableLink
               {...(!isChinese && { text: item.text.replace('Superior ', '') })}
-              className={classes.item}
+              style={{ lineHeight: '1 !important' }}
             />
           );
         }}
@@ -84,7 +64,13 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => 
               }
             </ListSubheader>,
             category.items.map((item) => (
-              <MenuItem key={item.id} value={item.id} className={classes.menuItem}>
+              <MenuItem
+                key={item.id}
+                value={item.id}
+                sx={{
+                  whiteSpace: 'normal',
+                }}
+              >
                 <ListItemText
                   primary={
                     <Item
@@ -94,7 +80,13 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => 
                     />
                   }
                   secondary={
-                    <Typography className={classes.subText}>
+                    <Typography
+                      sx={{
+                        fontWeight: 100,
+                        fontSize: '0.8rem',
+                        textAlign: 'right',
+                      }}
+                    >
                       {
                         // i18next-extract-mark-context-next-line {{extraSubText}}
                         t('extraSubText', { context: item.subText })
@@ -111,4 +103,4 @@ const GW2Select = ({ classes, name, label, modifierData, modifierDataById }) => 
     </FormControl>
   );
 };
-export default withStyles(styles)(GW2Select);
+export default GW2Select;

@@ -1,11 +1,12 @@
-import { Box, Grid, Typography, withStyles } from '@material-ui/core';
-import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import { Box, Grid, Typography } from '@mui/material';
 import { graphql, StaticQuery } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { getControl, getProfession } from '../state/slices/controlsSlice';
 import NavBar from './nav/NavBar';
+import BossSection from './sections/boss/BossSection';
 import BuffsSection from './sections/buffs/BuffsSection';
 import Controls from './sections/controls/Controls';
 import DistributionSection from './sections/distribution/DistributionSection';
@@ -18,34 +19,6 @@ import ResultDetails from './sections/results/ResultDetails';
 import ResultTable from './sections/results/ResultTable';
 import SkillsSection from './sections/skills/SkillsSection';
 import TraitsSection from './sections/traits/TraitsSection';
-import BossSection from './sections/boss/BossSection';
-
-const useTemplateLoadOnMount = (location) => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (location?.search) {
-      const searchParams = new URLSearchParams(location.search);
-      // const versionString = searchParams.get('version');
-      const stateString = searchParams.get('SECRET_ALPHA_RESTORE_STATE_FROM_URL');
-      if (stateString) {
-        console.log('dispatching state import');
-        dispatch({ type: 'IMPORT_STATE', payload: stateString });
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-};
-
-const styles = (theme) => ({
-  root: {
-    // adds padding on bigger (non smartphone) screens
-    [theme.breakpoints.up('sm')]: {
-      paddingLeft: 20,
-      paddingRight: 20,
-    },
-  },
-});
 
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
@@ -53,20 +26,18 @@ const styles = (theme) => ({
  * @param {{classes, data}} styles and data fetched by graphiql
  */
 
-const MainComponent = ({ classes, data, location }) => {
+const MainComponent = ({ data }) => {
   // Query variables from redux store that should have a global scope
   const expertMode = useSelector(getControl('expertMode'));
   const profession = useSelector(getProfession);
 
   const { t } = useTranslation();
 
-  useTemplateLoadOnMount(location);
-
   const classOrBuildText = t('Select a class or a build template from the menu above!');
   const classText = t('Select a build template from the menu above!');
 
   return (
-    <div className={classes.root}>
+    <>
       <NavBar
         data={data.templates.list}
         buffPresets={data.presetBuffs.list}
@@ -75,67 +46,68 @@ const MainComponent = ({ classes, data, location }) => {
         extrasPresets={data.presetExtras.list}
         traitPresets={data.presetTraits.list}
       />
+      <Box>
+        {profession === '' && (
+          <Typography mb={1}>
+            <ExpandLessIcon />
+            <i>{expertMode ? classOrBuildText : classText}</i> <ExpandLessIcon />
+          </Typography>
+        )}
 
-      {profession === '' && (
-        <Typography style={{ marginBottom: 8 }}>
-          <ExpandLessIcon />
-          <i>{expertMode ? classOrBuildText : classText}</i> <ExpandLessIcon />
-        </Typography>
-      )}
+        <div style={profession === '' ? { opacity: 0.5 } : { opacity: 1.0 }}>
+          <Grid container>
+            {expertMode ? (
+              <>
+                <TraitsSection profession={profession} data={data} />
 
-      <div style={profession === '' ? { opacity: 0.5 } : { opacity: 1.0 }}>
-        <Grid container>
-          {expertMode ? (
-            <>
-              <TraitsSection profession={profession} data={data} />
+                <SkillsSection profession={profession} />
 
-              <SkillsSection profession={profession} />
+                <ExtrasSection profession={profession} data={data} />
 
-              <ExtrasSection profession={profession} data={data} />
+                <BuffsSection data={data} />
 
-              <BuffsSection data={data} />
+                <ExtraModifiersSection />
 
-              <ExtraModifiersSection />
+                <InfusionsSection data={data} />
 
-              <InfusionsSection data={data} />
+                <ForcedSlotsSection />
 
-              <ForcedSlotsSection />
+                <PrioritiesSection data={data} />
 
-              <PrioritiesSection data={data} />
+                <DistributionSection profession={profession} data={data} />
 
-              <DistributionSection profession={profession} data={data} />
+                <BossSection />
+              </>
+            ) : (
+              <>
+                <SkillsSection profession={profession} />
 
-              <BossSection />
-            </>
-          ) : (
-            <>
-              <SkillsSection profession={profession} />
+                <ExtrasSection profession={profession} data={data} />
 
-              <ExtrasSection profession={profession} data={data} />
+                <BuffsSection first data={data} />
 
-              <BuffsSection first data={data} />
+                <InfusionsSection data={data} />
 
-              <InfusionsSection data={data} />
+                <ForcedSlotsSection />
 
-              <ForcedSlotsSection />
+                <PrioritiesSection data={data} />
+              </>
+            )}
+          </Grid>
 
-              <PrioritiesSection data={data} />
-            </>
-          )}
-        </Grid>
+          <Controls profession={profession} />
 
-        <Controls profession={profession} />
-
-        <ResultTable />
-        <Box m={3} />
-        <ResultDetails data={data} />
-      </div>
-    </div>
+          <ResultTable />
+          <Box m={3} />
+          <ResultDetails data={data} />
+        </div>
+      </Box>
+    </>
   );
 };
 
 // Wrapper around the main component. GraphQL is queried here.
-const GearOptimizer = ({ classes, ...rest }) => {
+const GearOptimizer = ({ classes }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -154,12 +126,14 @@ const GearOptimizer = ({ classes, ...rest }) => {
             list {
               name
               value
+              hidden
             }
           }
           presetAffixes: presetAffixes {
             list {
               name
               value
+              hidden
             }
           }
           presetTraits: presetTraits {
@@ -168,6 +142,7 @@ const GearOptimizer = ({ classes, ...rest }) => {
               traits
               skills
               profession
+              hidden
             }
           }
           presetExtras: presetExtras {
@@ -175,6 +150,7 @@ const GearOptimizer = ({ classes, ...rest }) => {
               name
               value
               profession
+              hidden
             }
           }
           presetDistribution: presetDistribution {
@@ -182,6 +158,7 @@ const GearOptimizer = ({ classes, ...rest }) => {
               name
               value
               profession
+              hidden
             }
           }
           templates {
@@ -204,13 +181,14 @@ const GearOptimizer = ({ classes, ...rest }) => {
             list {
               name
               value
+              hidden
             }
           }
         }
       `}
-      render={(data) => <MainComponent classes={classes} data={data} {...rest} />}
+      render={(data) => <MainComponent classes={classes} data={data} />}
     />
   );
 };
 
-export default withStyles(styles)(GearOptimizer);
+export default GearOptimizer;

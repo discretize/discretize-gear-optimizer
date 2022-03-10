@@ -1,6 +1,5 @@
+import { Autocomplete, InputAdornment, TextField } from '@mui/material';
 import React from 'react';
-import { InputAdornment, TextField } from '@material-ui/core';
-import { Autocomplete } from '@material-ui/lab';
 import { parseAmount } from '../../utils/usefulFunctions';
 
 const AmountInput = ({
@@ -29,6 +28,7 @@ const AmountInput = ({
             {...params}
             error={error}
             label={label}
+            variant="standard"
             InputProps={{
               ...params.InputProps,
               endAdornment: (
@@ -54,6 +54,7 @@ const AmountInput = ({
       value={value}
       placeholder={String(placeholder)}
       label={label}
+      variant="standard"
       InputProps={{
         endAdornment: (
           <InputAdornment disablePointerEvents position="end">

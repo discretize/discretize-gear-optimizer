@@ -1,46 +1,40 @@
-import {
-  FormControl,
-  Grid,
-  Input,
-  InputLabel,
-  MenuItem,
-  Select,
-  withStyles,
-} from '@material-ui/core';
-import { Attribute, Item } from 'gw2-ui-bulk';
+import { Attribute, Item } from '@discretize/gw2-ui-new';
+import { HelperIcon } from '@discretize/react-discretize-components';
+import { FormControl, Grid, Input, InputLabel, MenuItem, Select } from '@mui/material';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
+import { makeStyles } from 'tss-react/mui';
 import {
-  getAR,
-  getOmniPotion,
-  getMaxInfusions,
-  getPrimaryInfusion,
-  getSecondaryInfusion,
-  getPrimaryMaxInfusions,
-  getSecondaryMaxInfusions,
   changeAR,
-  changeOmnipotion,
   changeInfusion,
+  changeOmnipotion,
+  getAR,
+  getMaxInfusions,
+  getOmniPotion,
+  getPrimaryInfusion,
+  getPrimaryMaxInfusions,
+  getSecondaryInfusion,
+  getSecondaryMaxInfusions,
 } from '../../../state/slices/infusions';
-import { parseAr, parseInfusionCount } from '../../../utils/usefulFunctions';
-import CheckboxComponent from '../../baseComponents/CheckboxComponent';
-import AmountInput from '../../baseComponents/AmountInput';
-import InfusionHelper from './InfusionHelper';
-import HelperIcon from '../../baseComponents/HelperIcon';
 import { INFUSION_IDS } from '../../../utils/gw2-data';
+import { parseAr, parseInfusionCount } from '../../../utils/usefulFunctions';
+import AmountInput from '../../baseComponents/AmountInput';
+import CheckboxComponent from '../../baseComponents/CheckboxComponent';
+import InfusionHelper from './InfusionHelper';
 
 const arOptionLabels = {
   '150': '150',
+  '162': '162',
   '203': '203 (DH Radiance)',
   '222': '222',
-  '243': '243 (Soulbeast)',
+  '244': '244 (Soulbeast)',
   '245': '245 (Weaver)',
   '343': '343 (DH Virtues)',
 };
 const arOptions = Object.keys(arOptionLabels);
 
-const styles = (theme) => ({
+const useStyles = makeStyles()((theme) => ({
   formControl: {
     width: 200,
     marginRight: theme.spacing(3),
@@ -48,10 +42,11 @@ const styles = (theme) => ({
   formControl2: {
     width: 80,
   },
-  item: { lineHeight: '1 !important' },
-});
+}));
 
-const Infusions = ({ classes }) => {
+const Infusions = () => {
+  const { classes } = useStyles();
+
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const ar = useSelector(getAR);
@@ -67,9 +62,10 @@ const Infusions = ({ classes }) => {
 
   const dropdown = (name, varName, infusion) => {
     return (
-      <FormControl className={classes.formControl}>
-        <InputLabel htmlFor={name}>{name}</InputLabel>
+      <FormControl className={classes.formControl} variant="standard">
+        <InputLabel id={`dropdown_${name}`}>{name}</InputLabel>
         <Select
+          labelId={`dropdown_${name}`}
           value={typeof infusion === 'undefined' ? '' : infusion.toString()}
           input={<Input name={name} id={name} />}
           onChange={(e) =>
@@ -80,9 +76,7 @@ const Infusions = ({ classes }) => {
               }),
             )
           }
-          renderValue={(value) => (
-            <Item id={INFUSION_IDS[value]} disableLink className={classes.item} />
-          )}
+          renderValue={(value) => <Item id={INFUSION_IDS[value]} disableLink />}
         >
           <MenuItem value="">{t('None')} </MenuItem>
           {Object.entries(INFUSION_IDS).map(([attribute, id]) => (
@@ -98,7 +92,7 @@ const Infusions = ({ classes }) => {
   const input = (name, varName, value, className) => {
     const { error } = parseInfusionCount(value);
     return (
-      <FormControl className={className}>
+      <FormControl className={className} variant="standard">
         <InputLabel htmlFor={`${varName}_input-with-icon-adornment`}>{name}</InputLabel>
         <Input
           id={`${varName}_input-with-icon-adornment`}
@@ -121,7 +115,7 @@ const Infusions = ({ classes }) => {
             label={
               <>
                 <Trans>Include </Trans>
-                <Item id={79722} />
+                <Item id={79722} disableLink />
                 <HelperIcon
                   text={t(
                     'Adds 150% of your Agony Resistance to Precision, Toughness, and Concentration.',
@@ -143,7 +137,7 @@ const Infusions = ({ classes }) => {
             endLabel={<Attribute name="Agony Resistance" disableLink disableText />}
             autoCompleteProps={{
               options: arOptions,
-              renderOption: (option) => arOptionLabels[option],
+              renderOption: (props, option) => <li {...props}>{arOptionLabels[option]}</li>,
             }}
             value={ar}
           />
@@ -178,4 +172,4 @@ const Infusions = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(Infusions);
+export default Infusions;

@@ -1,3 +1,5 @@
+import { Attribute } from '@discretize/gw2-ui-new';
+import { HelperIcon } from '@discretize/react-discretize-components';
 import {
   FormControl,
   FormControlLabel,
@@ -7,24 +9,19 @@ import {
   InputLabel,
   Radio,
   RadioGroup,
-  withStyles,
-} from '@material-ui/core';
+} from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
-import { Attribute } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import { changePriority, getPriority } from '../../../state/slices/priorities';
-import HelperIcon from '../../baseComponents/HelperIcon';
-import Affixes from '../Affixes';
 import { parsePriority } from '../../../utils/usefulFunctions';
+import AffixesSelect from '../../baseComponents/AffixesSelect';
+import CustomAffix from './CustomAffix';
 
-const styles = (theme) => ({
+const useStyles = makeStyles()((theme) => ({
   text: {
     color: '#ddd !important',
-  },
-  templateChip: {
-    margin: theme.spacing(1),
-    marginBottom: theme.spacing(2),
   },
   formControl: {
     margin: theme.spacing(1),
@@ -35,14 +32,12 @@ const styles = (theme) => ({
     alignItems: 'center',
     flexWrap: 'wrap',
   },
-  helper: {
-    fontSize: 10,
-  },
-});
+}));
 
 const OPTIMIZATION_GOALS = ['Damage', 'Survivability', 'Healing'];
 
-const Priorities = ({ classes }) => {
+const Priorities = () => {
+  const { classes } = useStyles();
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
@@ -52,6 +47,9 @@ const Priorities = ({ classes }) => {
   const minHealingPower = useSelector(getPriority('minHealingPower'));
   const minToughness = useSelector(getPriority('minToughness'));
   const maxToughness = useSelector(getPriority('maxToughness'));
+  const affixes = useSelector(getPriority('affixes'));
+
+  const customSelected = affixes.includes('Custom');
 
   const handleChange = (event) => {
     dispatch(changePriority({ key: event.target.name, value: event.target.value }));
@@ -123,12 +121,20 @@ const Priorities = ({ classes }) => {
       </Grid>
 
       <Grid item xs={12}>
-        <Affixes />
+        <AffixesSelect
+          multiple
+          onChange={(event, value) => {
+            dispatch(
+              changePriority({ key: 'affixes', value: value.map((option) => option.label) }),
+            );
+          }}
+          value={affixes}
+        />
       </Grid>
 
       <Grid item xs={12} sm={6}>
         <div className={classes.box}>
-          <FormControl className={classes.formControl}>
+          <FormControl className={classes.formControl} variant="standard">
             <InputLabel htmlFor="minBoon-input-with-icon-adornment">
               <Trans>Min.</Trans> <Attribute name="Boon Duration" disableLink />
             </InputLabel>
@@ -146,7 +152,7 @@ const Priorities = ({ classes }) => {
           />
         </div>
         <div className={classes.box}>
-          <FormControl className={classes.formControl}>
+          <FormControl className={classes.formControl} variant="standard">
             <InputLabel htmlFor="minHeal-input-with-icon-adornment">
               <Trans>Min.</Trans> <Attribute name="Healing Power" disableLink />
             </InputLabel>
@@ -166,7 +172,7 @@ const Priorities = ({ classes }) => {
       </Grid>
       <Grid item xs={12} sm={6}>
         <div className={classes.box}>
-          <FormControl className={classes.formControl}>
+          <FormControl className={classes.formControl} variant="standard">
             <InputLabel htmlFor="minToughness-input-with-icon-adornment">
               <Trans>Min.</Trans> <Attribute name="Toughness" disableLink />
             </InputLabel>
@@ -182,7 +188,7 @@ const Priorities = ({ classes }) => {
           <HelperIcon text={t('Only show results that fulfill a minimum amount of Toughness.')} />
         </div>
         <div className={classes.box}>
-          <FormControl className={classes.formControl}>
+          <FormControl className={classes.formControl} variant="standard">
             <InputLabel htmlFor="maxToughness-input-with-icon-adornment">
               <Trans>Max.</Trans> <Attribute name="Toughness" disableLink />
             </InputLabel>
@@ -198,8 +204,14 @@ const Priorities = ({ classes }) => {
           <HelperIcon text={t('Only show results that fulfill a maximum amount of Toughness.')} />
         </div>
       </Grid>
+
+      {customSelected ? (
+        <Grid item xs={12}>
+          <CustomAffix />
+        </Grid>
+      ) : null}
     </Grid>
   );
 };
 
-export default withStyles(styles)(Priorities);
+export default Priorities;

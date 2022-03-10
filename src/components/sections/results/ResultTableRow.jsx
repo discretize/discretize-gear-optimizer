@@ -1,26 +1,10 @@
-import { Typography, makeStyles } from '@material-ui/core';
-import TableCell from '@material-ui/core/TableCell';
-import TableRow from '@material-ui/core/TableRow';
-import StarRoundedIcon from '@material-ui/icons/StarRounded';
+import StarRoundedIcon from '@mui/icons-material/StarRounded';
+import { Typography } from '@mui/material';
+import TableCell from '@mui/material/TableCell';
+import TableRow from '@mui/material/TableRow';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { changeSelectedCharacter, toggleSaved } from '../../../state/slices/controlsSlice';
-
-const useStyles = makeStyles((theme) => ({
-  comparisonText: {
-    color: theme.palette.text.secondary,
-  },
-  unselectedStar: {
-    opacity: '0.2',
-    '&:hover': {
-      opacity: '1',
-      color: theme.palette.primary.dark,
-    },
-  },
-  selectedStar: {
-    color: theme.palette.primary.dark,
-  },
-}));
 
 const ResultTableRow = ({
   character,
@@ -32,7 +16,6 @@ const ResultTableRow = ({
   compareByPercent,
 }) => {
   const dispatch = useDispatch();
-  const classes = useStyles();
 
   const { value } = character.results;
   const comparisonValue = selectedValue ? value - selectedValue : 0;
@@ -56,7 +39,19 @@ const ResultTableRow = ({
     >
       <TableCell scope="row" align="center" padding="none">
         <StarRoundedIcon
-          className={saved ? classes.selectedStar : classes.unselectedStar}
+          sx={
+            saved
+              ? {
+                  color: 'star',
+                }
+              : {
+                  opacity: '0.2',
+                  '&:hover': {
+                    opacity: '1',
+                    color: 'star',
+                  },
+                }
+          }
           onClick={(e) => {
             dispatch(toggleSaved(character));
             e.stopPropagation();
@@ -66,7 +61,7 @@ const ResultTableRow = ({
       <TableCell scope="row">
         {value.toFixed(0)}
         {comparisonText ? (
-          <Typography variant="caption" className={classes.comparisonText}>
+          <Typography variant="caption" sx={{ color: 'text.secondary' }}>
             {comparisonText}
           </Typography>
         ) : null}

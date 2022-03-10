@@ -49,7 +49,7 @@ list:
         "Runes": "nightmare",
         "Sigil1": "bursting",
         "Sigil2": "",
-        "Enhancement": "toxic-focusing-crystal",
+        "Enhancement": "master-tuning-crystal",
         "Nourishment": "beef-rendang"
       }
 
@@ -75,7 +75,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: '[old] Virtuoso'
+  - name: '[beta2] Virtuoso'
     profession: Virtuoso
     value: |-
       {
@@ -97,6 +97,17 @@ list:
         "Nourishment": "sweet-and-spicy-butternut-squash-soup"
       }
 
+  - name: '[beta1] Power Willbender Virtues (Fractal)'
+    profession: Willbender
+    value: |-
+      {
+        "Runes": "thief",
+        "Sigil1": "force",
+        "Sigil2": "impact/night/slaying-both",
+        "Enhancement": "slaying-potion",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+      }
+
   - name: DH Virtues (Raid)
     profession: Dragonhunter
     value: |-
@@ -104,11 +115,22 @@ list:
         "Runes": "thief",
         "Sigil1": "force",
         "Sigil2": "accuracy",
-        "Enhancement": "superior-sharpening-stone",
+        "Enhancement": "furious-sharpening-stone",
         "Nourishment": "sweet-and-spicy-butternut-squash-soup"
       }
 
-  - name: CFB w/ Quickness
+  - name: '[beta1] Power Willbender Virtues (Raid)'
+    profession: Willbender
+    value: |-
+      {
+        "Runes": "thief",
+        "Sigil1": "force",
+        "Sigil2": "accuracy",
+        "Enhancement": "furious-sharpening-stone",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+      }
+
+  - name: CFB w/ Quickness (balthazar)
     profession: Firebrand
     value: |-
       {
@@ -119,8 +141,41 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: CFB DPS
+  - name: CFB w/ Quickness (renegade)
     profession: Firebrand
+    value: |-
+      {
+        "Runes": "renegade",
+        "Sigil1": "bursting",
+        "Sigil2": "smoldering",
+        "Enhancement": "toxic-maintenance-oil",
+        "Nourishment": "fishy-rice-bowl"
+      }
+
+  - name: CFB DPS (balthazar)
+    profession: Firebrand
+    value: |-
+      {
+        "Runes": "balthazar",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: CFB DPS (renegade)
+    profession: Firebrand
+    value: |-
+      {
+        "Runes": "renegade",
+        "Sigil1": "bursting",
+        "Sigil2": "smoldering",
+        "Enhancement": "toxic-focusing-crystal",
+        "Nourishment": "fishy-rice-bowl"
+      }
+
+  - name: '[beta2] Condi Willbender'
+    profession: Willbender
     value: |-
       {
         "Runes": "balthazar",
@@ -138,7 +193,18 @@ list:
         "Sigil1": "bursting",
         "Sigil2": "smoldering",
         "Enhancement": "toxic-focusing-crystal",
-        "Nourishment": "fire-meat-chili"
+        "Nourishment": "fishy-rice-bowl"
+      }
+
+  - name: Condi Quickbrand 35%
+    profession: Firebrand
+    value: |-
+      {
+        "Runes": "balthazar",
+        "Sigil1": "bursting",
+        "Sigil2": "",
+        "Enhancement": "toxic-maintenance-oil",
+        "Nourishment": "dragon's-revelry-starcake"
       }
 
   - name: Hybrid FB Traveler
@@ -170,17 +236,6 @@ list:
         "Runes": "thief",
         "Sigil1": "force",
         "Sigil2": "impact/night/slaying-only-3",
-        "Enhancement": "superior-sharpening-stone",
-        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
-      }
-
-  - name: '[old] Bladesworn'
-    profession: Bladesworn
-    value: |-
-      {
-        "Runes": "scholar",
-        "Sigil1": "force",
-        "Sigil2": "accuracy",
         "Enhancement": "superior-sharpening-stone",
         "Nourishment": "sweet-and-spicy-butternut-squash-soup"
       }
@@ -240,7 +295,18 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
-  - name: '[old] Condi Hammer Catalyst'
+  - name: Power Tempest (Raid)
+    profession: Tempest
+    value: |-
+      {
+        "Runes": "scholar",
+        "Sigil1": "force",
+        "Sigil2": "accuracy",
+        "Enhancement": "superior-sharpening-stone",
+        "Nourishment": "truffle-steak"
+      }
+
+  - name: '[beta1] Condi Catalyst'
     profession: Catalyst
     value: |-
       {
@@ -249,17 +315,6 @@ list:
         "Sigil2": "",
         "Enhancement": "toxic-focusing-crystal",
         "Nourishment": "rare-veggie-pizza"
-      }
-
-  - name: Power Slb Marks (Fractal)
-    profession: Soulbeast
-    value: |-
-      {
-        "Runes": "scholar",
-        "Sigil1": "force",
-        "Sigil2": "impact/night/slaying-both",
-        "Enhancement": "slaying-potion",
-        "Nourishment": "truffle-steak"
       }
 
   - name: Power Slb Skirm (Raid)
@@ -306,15 +361,15 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
-  - name: Condi Druid*
+  - name: Condi Druid
     profession: Druid
     value: |-
       {
-        "Runes": "",
-        "Sigil1": "",
+        "Runes": "lich",
+        "Sigil1": "malice",
         "Sigil2": "",
-        "Enhancement": "",
-        "Nourishment": ""
+        "Enhancement": "toxic-maintenance-oil",
+        "Nourishment": "rare-veggie-pizza"
       }
 
   - name: Condi Holo
@@ -372,7 +427,18 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
-  - name: '[old] Condi Mechanist Thorns'
+  - name: '[beta2] Vindicator'
+    profession: Vindicator
+    value: |-
+      {
+        "Runes": "scholar",
+        "Sigil1": "force",
+        "Sigil2": "",
+        "Enhancement": "superior-sharpening-stone",
+        "Nourishment": "sweet-and-spicy-butternut-squash-soup"
+      }
+
+  - name: '[beta1] Condi Mechanist Thorns'
     profession: Mechanist
     value: |-
       {
@@ -383,7 +449,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: '[old] Condi Mechanist Renegade'
+  - name: '[beta1] Condi Mechanist Renegade'
     profession: Mechanist
     value: |-
       {
@@ -394,7 +460,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: '[old] Condi Mechanist Elementalist'
+  - name: '[beta1] Condi Mechanist Elementalist'
     profession: Mechanist
     value: |-
       {
@@ -424,10 +490,10 @@ list:
         "Sigil1": "",
         "Sigil2": "",
         "Enhancement": "toxic-focusing-crystal",
-        "Nourishment": "rare-veggie-pizza"
+        "Nourishment": "beef-rendang"
       }
 
-  - name: '[old] DPS Harbinger'
+  - name: '[beta1] DPS Harbinger'
     profession: Harbinger
     value: |-
       {
@@ -438,7 +504,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: '[old] Quickness Harbinger (Firebrand)'
+  - name: '[beta1] Quickness Harbinger (Firebrand)'
     profession: Harbinger
     value: |-
       {
@@ -449,7 +515,7 @@ list:
         "Nourishment": "rare-veggie-pizza"
       }
 
-  - name: '[old] Quickness Harbinger (Cele)'
+  - name: '[beta1] Quickness Harbinger (Cele)'
     profession: Harbinger
     value: |-
       {
@@ -471,7 +537,7 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: Boon Daredevil
+  - name: Power Boon Daredevil
     profession: Daredevil
     value: |-
       {
@@ -493,7 +559,29 @@ list:
         "Nourishment": "beef-rendang"
       }
 
-  - name: '[old] DPS Specter'
+  - name: Condi Boon Daredevil
+    profession: Daredevil
+    value: |-
+      {
+        "Runes": "firebrand",
+        "Sigil1": "concentration",
+        "Sigil2": "malice",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "rare-veggie-pizza"
+      }
+
+  - name: '[beta2] DPS Specter'
+    profession: Specter
+    value: |-
+      {
+        "Runes": "tormenting",
+        "Sigil1": "",
+        "Sigil2": "",
+        "Enhancement": "master-tuning-crystal",
+        "Nourishment": "beef-rendang"
+      }
+
+  - name: '[beta1] DPS Specter'
     profession: Specter
     value: |-
       {

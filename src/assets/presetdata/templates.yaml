@@ -40,14 +40,14 @@ list:
         traits: Condi Chrono
         extras: Condi Chrono STM
 
-      - name: '[old] Virtuoso'
+      - name: '[beta2] Virtuoso'
         id: pvirt
         specialization: Virtuoso
         boons: Power (spotter)
         priority: Power DPS
-        distribution: '[old] Virtuoso'
-        traits: '[old] Virtuoso'
-        extras: '[old] Virtuoso'
+        distribution: '[beta2] Virtuoso'
+        traits: '[beta2] Virtuoso'
+        extras: '[beta2] Virtuoso'
 
   - class: Guardian
     builds:
@@ -92,52 +92,88 @@ list:
         id: pqfb
         specialization: Firebrand
         boons: Power (spotter)
-        priority: Power DPS
+        priority: Power Quickbrand 25%
         distribution: Power Quickbrand (approx.)
         traits: Power Quickbrand
         extras: Power (Fractal)
 
-      - name: CFB w/ Quickness
-        id: cqfb
+      - name: CFB w/ Quickness (balthazar)
+        id: cqfb-balth
         specialization: Firebrand
         boons: Condi
         priority: Condi DPS
-        distribution: CFB w/ Quickness (Virtues, allies)
+        distribution: Condi Quickbrand (torment/geo, allies)
         traits: Condi Quickbrand
-        extras: CFB w/ Quickness
+        extras: CFB w/ Quickness (balthazar)
 
-      - name: CFB DPS 5 page
-        id: cfb
+      - name: CFB w/ Quickness (renegade)
+        id: cqfb-ren
         specialization: Firebrand
         boons: Condi
         priority: Condi DPS
-        distribution: CFB (Virtues, 5 page, allies)
+        distribution: Condi Quickbrand (smoldering, allies)
+        traits: Condi Quickbrand
+        extras: CFB w/ Quickness (renegade)
+
+      - name: CFB DPS 5 page (balthazar)
+        id: cfb-geo
+        specialization: Firebrand
+        boons: Condi
+        priority: Condi DPS
+        distribution: CFB (5 page, torment/geo, allies)
         traits: CFB DPS 5 page
-        extras: CFB DPS
+        extras: CFB DPS (balthazar)
 
-      - name: CFB DPS 8 page
-        id: cfb-8
+      - name: CFB DPS 5 page (renegade)
+        id: cfb-smoldering
         specialization: Firebrand
         boons: Condi
         priority: Condi DPS
-        distribution: CFB (Virtues, 8 page, allies)
+        distribution: CFB (5 page, smoldering, allies)
+        traits: CFB DPS 5 page
+        extras: CFB DPS (renegade)
+
+      - name: CFB DPS 8 page (balthazar)
+        id: cfb-8-balth
+        specialization: Firebrand
+        boons: Condi
+        priority: Condi DPS
+        distribution: CFB (8 page, torment/geo, allies)
         traits: CFB DPS 8 page
-        extras: CFB DPS
+        extras: CFB DPS (balthazar)
+
+      - name: CFB DPS 8 page (renegade)
+        id: cfb-8-ren
+        specialization: Firebrand
+        boons: Condi
+        priority: Condi DPS
+        distribution: CFB (8 page, smoldering, allies)
+        traits: CFB DPS 8 page
+        extras: CFB DPS (renegade)
 
       - name: Condi Quickbrand 40%
-        id: cqfb-firebrand
+        id: cqfb-firebrand-40
         specialization: Firebrand
         boons: Condi
         priority: Condi DPS
-        distribution: Condi Quickbrand 40% (Virtues, allies)
+        distribution: Condi Quickbrand (smoldering, allies)
         traits: Condi Quickbrand
         extras: Condi Quickbrand 40%
+
+      - name: Condi Quickbrand Celestial 35%
+        id: cqfb-cele-35
+        specialization: Firebrand
+        boons: Condi
+        priority: Condi Quickbrand 35%
+        distribution: Condi Quickbrand (torment/geo, allies)
+        traits: Condi Quickbrand
+        extras: Condi Quickbrand 35%
 
       - name: Hybrid FB Virtues
         id: hycfb-virtues-leadership
         specialization: Firebrand
         boons: Condi
-        priority: Condi Boon
+        priority: Condi Hybrid Firebrand 40%
         distribution: Hybrid FB Virtues
         traits: Hybrid FB Virtues
         extras: Hybrid FB Traveler
@@ -146,7 +182,7 @@ list:
         id: hycfb-honor-leadership
         specialization: Firebrand
         boons: Condi
-        priority: Condi Boon
+        priority: Condi Hybrid Firebrand 40%
         distribution: Hybrid FB Honor
         traits: Hybrid FB Honor
         extras: Hybrid FB Traveler
@@ -160,23 +196,32 @@ list:
         traits: Healbrand
         extras: Heal
 
-      - name: '[old] Power Willbender Radiance'
+      - name: '[beta2] Condi Willbender'
+        id: cwb
+        specialization: Willbender
+        boons: Condi
+        priority: Hybrid DPS
+        distribution: '[beta2] Condi Willbender'
+        traits: '[beta2] Condi Willbender'
+        extras: '[beta2] Condi Willbender'
+
+      - name: '[beta1] Power Willbender Radiance'
         id: pwb-radiance
         specialization: Willbender
         boons: Power (spotter)
         priority: Power DPS
-        distribution: '[old] Power Willbender Radiance Focus'
-        traits: '[old] Power Willbender Radiance'
+        distribution: '[beta1] Power Willbender Radiance Focus'
+        traits: '[beta1] Power Willbender Radiance'
         extras: Power (Fractal)
 
-      - name: '[old] Power Willbender Virtues'
+      - name: '[beta1] Power Willbender Virtues'
         id: pwb-virtues
         specialization: Willbender
         boons: Power (spotter)
         priority: Power DPS
-        distribution: '[old] Power Willbender Virtues Focus'
-        traits: '[old] Power Willbender Virtues'
-        extras: DH Virtues (Fractal)
+        distribution: '[beta1] Power Willbender Virtues Focus'
+        traits: '[beta1] Power Willbender Virtues'
+        extras: '[beta1] Power Willbender Virtues (Fractal)'
 
   - class: Warrior
     builds:
@@ -208,14 +253,14 @@ list:
         traits: Power Banner SPB
         extras: Power (Fractal)
 
-      - name: '[old] Bladesworn'
-        id: pbls
+      - name: '[beta2] Banner Bladesworn'
+        id: bls-bs
         specialization: Bladesworn
         boons: Power (spotter)
         priority: Power DPS
-        distribution: '[old] Bladesworn'
-        traits: '[old] Bladesworn'
-        extras: '[old] Bladesworn'
+        distribution: '[beta2] Banner Bladesworn'
+        traits: '[beta2] Banner Bladesworn'
+        extras: Power (Fractal)
 
   - class: Elementalist
     builds:
@@ -256,6 +301,15 @@ list:
         traits: Condi Tempest
         extras: Condi Tempest
 
+      - name: Power Tempest
+        id: ptemp
+        specialization: Tempest
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Power Tempest
+        traits: Power Tempest
+        extras: Power (Fractal)
+
       - name: Heal Tempest
         id: healtemp
         specialization: Tempest
@@ -265,14 +319,32 @@ list:
         traits: Heal Tempest
         extras: Heal
 
-      - name: '[old] Condi Hammer Catalyst'
+      - name: '[beta2] Power Catalyst'
+        id: power-cat
+        specialization: Catalyst
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: '[beta2] Power Catalyst'
+        traits: '[beta2] Power Catalyst'
+        extras: Power (Fractal)
+
+      - name: '[beta2] Power Quickness Catalyst'
+        id: power-cat-quick
+        specialization: Catalyst
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: '[beta2] Power Catalyst'
+        traits: '[beta2] Power Quickness Catalyst'
+        extras: Power (Fractal)
+
+      - name: '[beta1] Condi Catalyst'
         id: condi-cat
         specialization: Catalyst
         boons: Condi
         priority: Condi DPS
-        distribution: '[old] Condi Hammer Catalyst'
-        traits: '[old] Condi Hammer Catalyst'
-        extras: '[old] Condi Hammer Catalyst'
+        distribution: '[beta1] Condi Catalyst'
+        traits: '[beta1] Condi Catalyst'
+        extras: '[beta1] Condi Catalyst'
 
   - class: Ranger
     builds:
@@ -284,7 +356,7 @@ list:
         priority: Power DPS
         distribution: Power Slb Skirm
         traits: Power Slb Marks
-        extras: Power Slb Marks (Fractal)
+        extras: Power (Fractal)
 
       - name: Condi Slb SB
         id: cslb-sb
@@ -322,14 +394,14 @@ list:
       #   traits: Pure Shortbow Slb BM
       #   extras: Pure Shortbow Slb BM
 
-      - name: Condi Druid*
+      - name: Condi Druid
         id: condidruid
         specialization: Druid
         boons: Power (spotter)
-        priority: Condi Boon
+        priority: Condi Hybrid Druid 52%
         distribution: Condi Druid (approx.)
-        traits: Condi Druid*
-        extras: Condi Druid*
+        traits: Condi Druid
+        extras: Condi Druid
 
       - name: Heal Druid
         id: druid
@@ -356,7 +428,7 @@ list:
         id: celeren-rr-invo
         specialization: Renegade
         boons: Condi
-        priority: Condi Boon
+        priority: Condi Alacrity Renegade 79%
         distribution: Condi RR Invocation
         traits: Condi RR Ren Invo
         extras: Cele Ren (Fractal)
@@ -398,7 +470,7 @@ list:
         extras: Power (Fractal)
 
       - name: Condi Herald
-        id: herald
+        id: cherald
         specialization: Herald
         boons: Condi
         priority: Condi DPS
@@ -414,6 +486,15 @@ list:
         distribution: None
         traits: Heal Ren
         extras: Heal
+
+      - name: '[beta2] Vindicator'
+        id: vindi
+        specialization: Vindicator
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: '[beta2] Vindicator Large'
+        traits: '[beta2] Vindicator'
+        extras: '[beta2] Vindicator'
 
   - class: Engineer
     builds:
@@ -449,7 +530,7 @@ list:
         id: qscrap
         specialization: Scrapper
         boons: Power (spotter)
-        priority: Power DPS
+        priority: Power Quickness Scrapper 33.3%
         distribution: Quickness Scrapper
         traits: Quickness Scrapper
         extras: Power (Fractal)
@@ -463,14 +544,14 @@ list:
         traits: Heal Scrapper
         extras: Heal
 
-      - name: '[old] Condi Mechanist'
+      - name: '[beta1] Condi Mechanist'
         id: cmech
         specialization: Mechanist
         boons: Condi
         priority: Condi DPS
-        distribution: '[old] Condi Mechanist'
-        traits: '[old] Condi Mechanist'
-        extras: '[old] Condi Mechanist Thorns'
+        distribution: '[beta1] Condi Mechanist'
+        traits: '[beta1] Condi Mechanist'
+        extras: '[beta1] Condi Mechanist Thorns'
 
   - class: Necromancer
     builds:
@@ -484,6 +565,15 @@ list:
         traits: DPS Scourge
         extras: DPS Scourge
 
+      # - name: Power Reaper (inaccurate)
+      #   id: preaper
+      #   specialization: Reaper
+      #   boons: Power (spotter)
+      #   priority: Power DPS
+      #   distribution: Power Reaper (inaccurate)
+      #   traits: Power Reaper
+      #   extras: Power (Fractal)
+
       - name: Condi Reaper
         id: creaper
         specialization: Reaper
@@ -493,32 +583,32 @@ list:
         traits: Condi Reaper
         extras: Condi Reaper
 
-      - name: '[old] DPS Harbinger'
+      - name: '[beta1] DPS Harbinger'
         id: charb
         specialization: Harbinger
         boons: Condi
         priority: Condi DPS
-        distribution: '[old] Harbinger (approx.)'
-        traits: '[old] DPS Harbinger'
-        extras: '[old] DPS Harbinger'
+        distribution: '[beta1] Harbinger (approx.)'
+        traits: '[beta1] DPS Harbinger'
+        extras: '[beta1] DPS Harbinger'
 
-      - name: '[old] Quickness Harbinger (Firebrand)'
+      - name: '[beta1] Quickness Harbinger (Firebrand)'
         id: qharb-fb
         specialization: Harbinger
         boons: Condi
         priority: Condi DPS
-        distribution: '[old] Quickness Harbinger (approx.)'
-        traits: '[old] Quickness Harbinger'
-        extras: '[old] Quickness Harbinger (Firebrand)'
+        distribution: '[beta1] Quickness Harbinger (approx.)'
+        traits: '[beta1] Quickness Harbinger'
+        extras: '[beta1] Quickness Harbinger (Firebrand)'
 
-      - name: '[old] Quickness Harbinger (Cele)'
+      - name: '[beta1] Quickness Harbinger (Cele)'
         id: qharb-cele
         specialization: Harbinger
         boons: Condi
-        priority: Condi Boon
-        distribution: '[old] Quickness Harbinger (approx.)'
-        traits: '[old] Quickness Harbinger'
-        extras: '[old] Quickness Harbinger (Cele)'
+        priority: Condi Quickness Harbinger 49%
+        distribution: '[beta1] Quickness Harbinger (approx.)'
+        traits: '[beta1] Quickness Harbinger'
+        extras: '[beta1] Quickness Harbinger (Cele)'
 
   - class: Thief
     builds:
@@ -541,14 +631,14 @@ list:
         traits: Staff Daredevil
         extras: Power (Fractal)
 
-      - name: Boon Daredevil*
-        id: boondd
+      - name: Power Boon Daredevil
+        id: boondd-power
         specialization: Daredevil
         boons: Power (spotter)
-        priority: Power Boon
+        priority: Power Boon Daredevil 99.7%
         distribution: Staff Daredevil
-        traits: Boon Daredevil*
-        extras: Boon Daredevil
+        traits: Power Boon Daredevil
+        extras: Power Boon Daredevil
 
       - name: Condi Daredevil
         id: cdd
@@ -559,6 +649,15 @@ list:
         traits: Condi Daredevil
         extras: Condi Daredevil
 
+      - name: Condi Boon Daredevil
+        id: boondd-condi
+        specialization: Daredevil
+        boons: Condi
+        priority: Condi Boon Daredevil 62%
+        distribution: None
+        traits: Condi Boon Daredevil
+        extras: Condi Boon Daredevil
+
       - name: Rifle Deadeye
         id: rifleded
         specialization: Deadeye
@@ -568,20 +667,20 @@ list:
         traits: Rifle Deadeye
         extras: Power (Fractal)
 
-      - name: '[old] DPS Specter Sc/D'
+      - name: '[beta2] DPS Specter Sc/D'
         id: specterdagger
         specialization: Specter
         boons: Condi
         priority: Condi DPS
-        distribution: '[old] DPS Specter Sc/D'
-        traits: '[old] DPS Specter Sc/D'
-        extras: '[old] DPS Specter'
+        distribution: '[beta2] DPS Specter Sc/D'
+        traits: '[beta2] DPS Specter Sc/D'
+        extras: '[beta2] DPS Specter'
 
-      - name: '[old] DPS Specter Endless Night'
+      - name: '[beta1] DPS Specter Endless Night'
         id: specterpistol
         specialization: Specter
         boons: Condi
         priority: Heal
-        distribution: '[old] DPS Specter Endless Night'
-        traits: '[old] DPS Specter Endless Night'
-        extras: '[old] DPS Specter'
+        distribution: '[beta1] DPS Specter Endless Night'
+        traits: '[beta1] DPS Specter Endless Night'
+        extras: '[beta1] DPS Specter'

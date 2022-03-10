@@ -1,8 +1,9 @@
-import { Table, TableCell, TableRow, TableBody, withStyles, Typography } from '@material-ui/core';
-import { Condition, Attribute } from 'gw2-ui-bulk';
+import { Attribute, Condition } from '@discretize/gw2-ui-new';
+import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
 import React from 'react';
+import { makeStyles } from 'tss-react/mui';
 
-const styles = (theme) => ({
+const useStyles = makeStyles()((theme) => ({
   root: {
     width: '100%',
   },
@@ -10,9 +11,11 @@ const styles = (theme) => ({
     fontSize: '20px',
     color: '#AAAAAA',
   },
-});
+}));
 
-const OutputDistribution = ({ classes, title, data }) => {
+const OutputDistribution = ({ title, data }) => {
+  const { classes } = useStyles();
+
   return (
     <>
       <Typography variant="h6">{title}</Typography>
@@ -36,4 +39,4 @@ const OutputDistribution = ({ classes, title, data }) => {
   );
 };
 
-export default withStyles(styles)(OutputDistribution);
+export default OutputDistribution;

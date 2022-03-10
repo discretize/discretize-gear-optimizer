@@ -1,5 +1,4 @@
-import { Link } from '@material-ui/core';
-
+import { Link } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import Section from '../../baseComponents/Section';

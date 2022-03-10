@@ -1,16 +1,10 @@
-import {
-  Box,
-  FormControl,
-  FormGroup,
-  FormLabel,
-  Grid,
-  Typography,
-  withStyles,
-} from '@material-ui/core';
+import { Boon, CommonEffect, Condition, Skill, Trait } from '@discretize/gw2-ui-new';
+import { firstUppercase } from '@discretize/react-discretize-components';
+import { Box, FormControl, FormGroup, FormLabel, Grid, Typography } from '@mui/material';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { Boon, CommonEffect, Condition, Skill, Trait } from 'gw2-ui-bulk';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import { buffModifiers } from '../../../assets/modifierdata';
 import {
   changeBuff,
@@ -18,11 +12,10 @@ import {
   getBuffAmounts,
   getBuffs,
 } from '../../../state/slices/buffs';
-import { firstUppercase } from '../../../utils/usefulFunctions';
-import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import AmountInput from '../../baseComponents/AmountInput';
+import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
-const styles = (theme) => ({
+const useStyles = makeStyles()((theme) => ({
   boon: {
     fontSize: 18,
   },
@@ -32,9 +25,11 @@ const styles = (theme) => ({
   tinyNote: {
     fontWeight: 200,
   },
-});
+}));
 
-const Buffs = ({ classes }) => {
+const Buffs = () => {
+  const { classes } = useStyles();
+
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -74,55 +69,39 @@ const Buffs = ({ classes }) => {
               {section.items.map((buff) => {
                 const { type, text, id, gw2id, subText, amountData } = buff;
 
-                let Component;
-                let name;
+                const Component = components[type];
+                const name = ['Boon', 'Condition', 'CommonEffect'].includes(type)
+                  ? firstUppercase(id)
+                  : undefined;
 
-                switch (type) {
-                  case 'Text':
-                    return (
-                      <CheckboxComponent
-                        key={id}
-                        value={id}
-                        checked={buffs[id]}
-                        label={
-                          <>
-                            <Typography className={classes.note}>
-                              {
-                                // i18next-extract-mark-context-next-line {{buffText}}
-                                t('buffText', { context: text })
-                              }
-                            </Typography>
-                            <Typography variant="caption" className={classes.tinyNote}>
-                              {subText}
-                            </Typography>
-                          </>
+                const label =
+                  type === 'Text' ? (
+                    <>
+                      <Typography className={classes.note}>
+                        {
+                          // i18next-extract-mark-context-next-line {{buffText}}
+                          t('buffText', { context: text })
                         }
-                        onChange={handleChange(buff)}
-                      />
-                    );
-                  case 'Boon':
-                  case 'Condition':
-                  case 'CommonEffect':
-                    name = id.toLowerCase();
-                    name = firstUppercase(name);
-                  // eslint-disable-next-line no-fallthrough
-                  default:
-                    Component = components[type];
-                }
+                      </Typography>
+                      <Typography variant="caption" className={classes.tinyNote}>
+                        {subText}
+                      </Typography>
+                    </>
+                  ) : (
+                    <Component id={gw2id} name={name} disableLink className={classes.boon} />
+                  );
 
                 return (
                   <Box justifyContent="space-between" display="flex" key={id}>
                     <Box display="flex">
                       <CheckboxComponent
+                        key={id}
                         value={id}
                         checked={buffs[id]}
-                        label={
-                          <Component id={gw2id} name={name} disableLink className={classes.boon} />
-                        }
+                        label={label}
                         onChange={handleChange(buff)}
                       />
                     </Box>
-
                     {amountData ? (
                       <Box display="flex">
                         <AmountInput
@@ -146,4 +125,4 @@ const Buffs = ({ classes }) => {
   );
 };
 
-export default withStyles(styles)(Buffs);
+export default Buffs;

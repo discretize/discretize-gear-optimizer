@@ -1,11 +1,10 @@
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import Section from '../../baseComponents/Section';
+import { changeExtras } from '../../../state/slices/extras';
 import { PROFESSIONS } from '../../../utils/gw2-data';
 import Presets from '../../baseComponents/Presets';
-import { changeExtras } from '../../../state/slices/extras';
-
+import Section from '../../baseComponents/Section';
 import Extras from './Extras';
 
 const ExtrasSection = ({ profession, data }) => {

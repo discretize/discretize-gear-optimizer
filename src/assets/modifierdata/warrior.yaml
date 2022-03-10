@@ -52,7 +52,7 @@
       subText: base
       modifiers:
         attributes:
-          Power: [120, buff]
+          Power: [120, converted] # from sheet by Bekko
       gw2id: 1338
       defaultEnabled: true
 
@@ -65,7 +65,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Power: [120, buff]
+          Power: [120, converted] # from sheet by Bekko
       gw2id: 1338
 
     - id: great-fortitude
@@ -86,7 +86,7 @@
         quantityEntered: 25
       modifiers:
         attributes:
-          Power: [250, buff]
+          Power: [250, buff] # confirmed from bench hero panel
       gw2id: 1453
       defaultEnabled: true
 
@@ -135,7 +135,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Condition Damage: [180, buff]
+          Condition Damage: [180, converted] # from sheet by Bekko
       gw2id: 1343
       defaultEnabled: true
 
@@ -144,9 +144,17 @@
       subText: base
       modifiers:
         attributes:
-          Expertise: [120, buff]
+          Expertise: [120, converted] # confirmed from bench hero panel
       gw2id: 1333
       defaultEnabled: true
+
+    - id: blade-master-base-bugged
+      text: Blademaster
+      subText: base, BUGGED VERSION
+      modifiers:
+        attributes:
+          Expertise: [160, converted]
+      gw2id: 1333
 
     - id: blade-master-2
       text: Blademaster
@@ -157,7 +165,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Condition Damage: [120, buff]
+          Condition Damage: [120, converted] # from sheet by Bekko
       gw2id: 1333
       defaultEnabled: true
 
@@ -323,7 +331,7 @@
       subText: base
       modifiers:
         attributes:
-          Ferocity: [120, buff]
+          Ferocity: [120, converted] # confirmed from bench hero panel
       gw2id: 1369
       defaultEnabled: true
 
@@ -336,7 +344,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Ferocity: [120, buff]
+          Ferocity: [120, converted] # confirmed from bench hero panel
       gw2id: 1369
       defaultEnabled: true
 
@@ -371,7 +379,7 @@
       subText: base
       modifiers:
         attributes:
-          Condition Damage: [120, buff]
+          Condition Damage: [120, converted] # from sheet by Bekko
       gw2id: 2042
       defaultEnabled: true
 
@@ -384,7 +392,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Condition Damage: [120, buff]
+          Condition Damage: [120, converted] # from sheet by Bekko
       gw2id: 2042
       defaultEnabled: true
 

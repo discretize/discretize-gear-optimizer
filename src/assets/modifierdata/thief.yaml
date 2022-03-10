@@ -177,6 +177,10 @@
       gw2id: 1904
       defaultEnabled: true
 
+- section: Shadow Arts
+  id: 20
+  items: []
+
 - section: Acrobatics
   id: 54
   items:
@@ -235,7 +239,7 @@
         damage:
           Damage Reduction: [10%, unknown]
         conversion:
-          Vitality: {Power: 13%}
+          Vitality: {Power: 7%}
       gw2id: 1933
       defaultEnabled: true
 

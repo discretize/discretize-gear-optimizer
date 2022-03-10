@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { changeAll, setBuildTemplate } from './controlsSlice';
 import { conditionData } from '../../utils/gw2-data';
+import { changeAll, setBuildTemplate } from './controlsSlice';
 
 const fixedConditionData = { ...conditionData, Poisoned: conditionData.Poison };
 
@@ -92,6 +92,11 @@ export const distributionSlice = createSlice({
     },
     changeDistributionVersion: (state, action) => {
       state.version = action.payload;
+
+      // update percentage distribution from coefficients if switching in that direction
+      if (action.payload === 1) {
+        state.values1 = coefficientsToPercents(state.values2, true);
+      }
     },
     changeDistributionNew: (state, action) => {
       return {

@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 
 export const prioritiesSlice = createSlice({
@@ -11,6 +11,9 @@ export const prioritiesSlice = createSlice({
     minToughness: '',
     maxToughness: '',
     affixes: [],
+    customAffix: {},
+    customAffixTextBox: '',
+    customAffixError: '',
   },
   reducers: {
     changePriority: (state, action) => {
@@ -29,5 +32,16 @@ export const prioritiesSlice = createSlice({
 });
 
 export const getPriority = (key) => (state) => state.optimizer.form.priorities[key];
+
+export const getCustomAffixData = createSelector(
+  (state) => state.optimizer.form.priorities.customAffix,
+  (customAffix) => {
+    const type = customAffix?.type || 'triple';
+    const major = customAffix?.bonuses?.major || [];
+    const minor = customAffix?.bonuses?.minor || [];
+
+    return { type, bonuses: { major, minor } };
+  },
+);
 
 export const { changePriority } = prioritiesSlice.actions;

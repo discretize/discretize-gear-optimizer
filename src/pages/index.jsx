@@ -1,48 +1,57 @@
-import { Link, Typography, withStyles } from '@material-ui/core';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import MuiAlert from '@material-ui/lab/Alert';
+import { APILanguageProvider } from '@discretize/gw2-ui-new';
+import { Layout } from '@discretize/react-discretize-components';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import { Link, Typography } from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
 import { graphql } from 'gatsby';
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
 import * as React from 'react';
+import ErrorBoundary from '../components/baseComponents/ErrorBoundary';
 import LanguageSelection from '../components/baseComponents/LanguageSelection';
 import GearOptimizer from '../components/GearOptimizer';
-import withLayout from '../hocs/withLayout';
-
-const styles = (theme) => ({
-  headline: {
-    paddingBottom: theme.spacing(2),
-  },
-});
+import URLStateImport from '../components/url-state/URLStateImport';
 
 // markup
-const IndexPage = ({ classes, location }) => {
+const IndexPage = ({ location }) => {
+  const { language } = useI18next();
+
   return (
-    <>
-      <LanguageSelection />
-      <MuiAlert elevation={6} variant="filled" severity="warning">
-        <Trans>
-          The gear optimizer is currently in beta! Templates are not final and phantasm and
-          lifesteal damage is inaccurate. Please report potential issues to us in
-        </Trans>{' '}
-        <Link href="https://discord.gg/Qdt7nFY" color="textPrimary" target="_blank" rel="noopener">
-          Discord
-        </Link>{' '}
-        <Trans>or</Trans>{' '}
-        <Link
-          href="https://github.com/discretize/discretize-gear-optimizer/tree/staging"
-          color="textPrimary"
-          target="_blank"
-          rel="noopener"
-        >
-          <GitHubIcon fontSize="small" /> Github
-        </Link>
-        .
-      </MuiAlert>
-      <Typography variant="h2" className={classes.headline}>
-        <Trans>Gear Optimizer</Trans>
-      </Typography>
-      <GearOptimizer location={location} />
-    </>
+    <APILanguageProvider value={language}>
+      <Layout>
+        <URLStateImport sagaType="IMPORT_STATE" clearUrlOnSuccess />
+        <LanguageSelection location={location} />
+        <MuiAlert elevation={6} variant="filled" severity="warning">
+          <Trans>
+            The gear optimizer is currently in beta! Templates are not final and phantasm and
+            lifesteal damage is inaccurate. Please report potential issues to us in
+          </Trans>{' '}
+          <Link
+            href="https://discord.gg/Qdt7nFY"
+            color="textPrimary"
+            target="_blank"
+            rel="noopener"
+          >
+            Discord
+          </Link>{' '}
+          <Trans>or</Trans>{' '}
+          <Link
+            href="https://github.com/discretize/discretize-gear-optimizer/tree/staging"
+            color="textPrimary"
+            target="_blank"
+            rel="noopener"
+          >
+            <GitHubIcon fontSize="small" /> Github
+          </Link>
+          .
+        </MuiAlert>
+        <Typography variant="h2" sx={{ paddingBottom: 2 }}>
+          <Trans>Gear Optimizer</Trans>
+        </Typography>
+        <ErrorBoundary location="GearOptimizer">
+          <GearOptimizer />
+        </ErrorBoundary>
+      </Layout>
+    </APILanguageProvider>
   );
 };
 export const query = graphql`
@@ -59,4 +68,4 @@ export const query = graphql`
   }
 `;
 
-export default withLayout({ disableContainer: false })(withStyles(styles)(IndexPage));
+export default IndexPage;

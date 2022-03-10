@@ -1,43 +1,17 @@
-import { Box, Divider, Grid, Paper, Typography, withStyles } from '@material-ui/core';
+import LiveHelpIcon from '@mui/icons-material/LiveHelp';
+import { Box, Divider, Grid, Paper, Typography, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
-import LiveHelpIcon from '@material-ui/icons/LiveHelp';
-
-const styles = (theme) => ({
-  root: {
-    // adds padding on bigger (non smartphone) screens
-    [theme.breakpoints.up('sm')]: {
-      paddingLeft: 20,
-      paddingRight: 20,
-    },
-  },
-  button: {
-    margin: theme.spacing(1),
-  },
-  icon: {
-    fontSize: 18,
-  },
-  margin: {
-    marginBottom: theme.spacing(2),
-  },
-  containerItem: {
-    // borderBottom: `3px solid ${theme.palette.primary.dark}`,
-    marginBottom: theme.spacing(2),
-    // borderRadius: 20,
-    borderColor: theme.palette.primary.main,
-  },
-  helpTextContainer: {
-    marginTop: theme.spacing(0.5),
-    marginBottom: theme.spacing(1),
-  },
-});
 
 // First disables the delimiting line above!
-const Section = ({ classes, first, title, helpText, extraInfo, content }) => {
+const Section = ({ first, title, helpText, extraInfo, content }) => {
+  const theme = useTheme();
+  const isSmall = useMediaQuery(theme.breakpoints.down('md'));
+
   const SectionInfo = ({ children }) => (
     <>
       <Typography variant="h5">{title}</Typography>
       {children && (
-        <Paper className={classes.helpTextContainer}>
+        <Paper mt={0.5} mb={1} elevation={0}>
           <Box p={1}>
             <div>
               <LiveHelpIcon />
@@ -50,7 +24,7 @@ const Section = ({ classes, first, title, helpText, extraInfo, content }) => {
   );
 
   return (
-    <Grid item container spacing={2} className={classes.containerItem}>
+    <Grid item container spacing={2} mb={2} sx={{ borderColor: 'primary.main' }}>
       {!first && (
         <Grid item xs={12}>
           <Divider />
@@ -59,6 +33,7 @@ const Section = ({ classes, first, title, helpText, extraInfo, content }) => {
       <Grid item xs={12} sm={3}>
         <SectionInfo>{helpText}</SectionInfo>
         {extraInfo}
+        {isSmall && extraInfo && <Divider sx={{ marginTop: 2 }} />}
       </Grid>
 
       <Grid item xs={12} sm={9}>
@@ -68,4 +43,4 @@ const Section = ({ classes, first, title, helpText, extraInfo, content }) => {
   );
 };
 
-export default withStyles(styles)(Section);
+export default Section;

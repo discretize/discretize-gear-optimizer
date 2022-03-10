@@ -1,7 +1,7 @@
-import { createSlice, createSelector } from '@reduxjs/toolkit';
-import { changeAll, changeProfession, setBuildTemplate, getProfession } from './controlsSlice';
-import { PROFESSIONS } from '../../utils/gw2-data';
+import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { classModifiers, classModifiersById, traitSectionsById } from '../../assets/modifierdata';
+import { PROFESSIONS } from '../../utils/gw2-data';
+import { changeAll, changeProfession, getProfession, setBuildTemplate } from './controlsSlice';
 
 const getInitialItems = (traitline) => {
   const allItemData = traitSectionsById[traitline].items || [];
