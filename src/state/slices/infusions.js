@@ -156,12 +156,14 @@ export const getHelperResult = createSelector(
     maxInfusionsString,
     primaryInfusion,
     secondaryInfusion,
-    primaryMaxInfusions,
-    secondaryMaxInfusions,
+    primaryMaxInfusionsString,
+    secondaryMaxInfusionsString,
     helperData,
   ) => {
     const ar = parseAr(arString).value;
     const maxInfusions = parseInfusionCount(maxInfusionsString).value;
+    const primaryMaxInfusions = parseInfusionCount(primaryMaxInfusionsString).value;
+    const secondaryMaxInfusions = parseInfusionCount(secondaryMaxInfusionsString).value;
 
     const { impedence, attunement, singularity, tear, slots, freeWvW, ownedMatrix } = helperData;
 
