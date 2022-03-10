@@ -480,7 +480,7 @@ list:
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 1591, "Burning": 2.4, "Bleeding": 27.7, "Poisoned": 16.5, "Torment": 0.2, "Confusion": 0 }
+        "values2": { "Power": 1591, "Burning": 2.42, "Bleeding": 27.74, "Poisoned": 16.41, "Torment": 0.15, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=rr-gJuN3ECA
@@ -489,7 +489,7 @@ list:
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 1664, "Burning": 3.6, "Bleeding": 26.5, "Poisoned": 14.1, "Torment": 0.2, "Confusion": 0 }
+        "values2": { "Power": 1664, "Burning": 3.6, "Bleeding": 26.49, "Poisoned": 14.09, "Torment": 0.15, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=HdwqDoINnq0
