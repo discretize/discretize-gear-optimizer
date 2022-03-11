@@ -1,24 +1,39 @@
 import { Card, CardContent, Typography } from '@mui/material';
+import PropTypes from 'prop-types';
 import React from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
+import { ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary';
 
-const fallback =
-  (location = 'unspecified component') =>
-  ({ error }) =>
-    (
-      <Card>
-        <CardContent>
-          <Typography>
-            {`Rendering error caught in ${location}! Please report this to the developers on GitHub or Discord.`}
-          </Typography>
-          <pre>{error.message}</pre>
-          <pre>{error.stack}</pre>
-        </CardContent>
-      </Card>
-    );
+export default function ErrorBoundary({ children, location, resetKeys }) {
+  const fallbackRender = React.useCallback(
+    function FallbackComponent({ error }) {
+      return (
+        <Card>
+          <CardContent>
+            <Typography>
+              {`Rendering error caught in ${location}! Please report this to the developers on GitHub or Discord.`}
+            </Typography>
+            <pre>{error.message}</pre>
+            <pre>{error.stack}</pre>
+          </CardContent>
+        </Card>
+      );
+    },
+    [location],
+  );
+  return (
+    <ReactErrorBoundary fallbackRender={fallbackRender} resetKeys={resetKeys}>
+      {children}
+    </ReactErrorBoundary>
+  );
+}
 
-export default ({ children, location, resetKeys }) => (
-  <ErrorBoundary FallbackComponent={fallback(location)} resetKeys={resetKeys}>
-    {children}
-  </ErrorBoundary>
-);
+ErrorBoundary.propTypes = {
+  children: PropTypes.node.isRequired,
+  location: PropTypes.string,
+  resetKeys: PropTypes.arrayOf(PropTypes.string),
+};
+
+ErrorBoundary.defaultProps = {
+  location: 'unspecified component',
+  resetKeys: [],
+};
