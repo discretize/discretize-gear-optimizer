@@ -12,7 +12,9 @@ list:
         "fury": true,
         "protection": true,
         "vulnerability": true,
-        "assassinsPresence": true
+        "assassinsPresence": true,
+        "jade-bot-base": true,
+        "jade-bot-per-tier": true
       }
 
   - name: Power (no spotter)
@@ -23,7 +25,9 @@ list:
         "protection": true,
         "vulnerability": true,
         "frostSpirit": true,
-        "assassinsPresence": true
+        "assassinsPresence": true,
+        "jade-bot-base": true,
+        "jade-bot-per-tier": true
       }
 
   - name: Power (spotter)
@@ -35,7 +39,9 @@ list:
         "vulnerability": true,
         "spotter": true,
         "frostSpirit": true,
-        "assassinsPresence": true
+        "assassinsPresence": true,
+        "jade-bot-base": true,
+        "jade-bot-per-tier": true
       }
 
   - name: Benchmark
@@ -49,5 +55,7 @@ list:
         "bannerOfDiscipline": true,
         "empowerAllies": true,
         "frostSpirit": true,
-        "spotter": true
+        "spotter": true,
+        "jade-bot-base": true,
+        "jade-bot-per-tier": true
       }
