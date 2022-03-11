@@ -35,7 +35,7 @@ export const classModifiers = {
   Thief,
   Warrior,
 };
-export const classModifiersById = allById(classModifiers);
+export const allClassModifiersById = allById(classModifiers);
 
 const traitSectionsArray = Object.values(classModifiers)
   .flat()
@@ -51,7 +51,7 @@ export const extrasModifiers = {
   runes,
   sigils,
 };
-export const extrasModifiersById = allById(extrasModifiers);
+export const allExtrasModifiersById = allById(extrasModifiers);
 
 export const buffModifiers = buffs;
 export const buffModifiersById = byId(buffs);

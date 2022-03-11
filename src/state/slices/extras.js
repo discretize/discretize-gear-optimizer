@@ -1,5 +1,5 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit';
-import { extrasModifiersById } from '../../assets/modifierdata';
+import { allExtrasModifiersById } from '../../assets/modifierdata';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 
 const extrasTypes = ['Runes', 'Sigil1', 'Sigil2', 'Nourishment', 'Enhancement'];
@@ -42,7 +42,7 @@ export const getExtrasModifiers = createSelector(
 
     return enabledTypes.map((type) => {
       const id = extras[type];
-      const { modifiers } = extrasModifiersById[id];
+      const { modifiers } = allExtrasModifiersById[id];
       return { id, modifiers, source: type };
     });
   },

@@ -2,7 +2,7 @@ import { ConsumableEffect, Item } from '@discretize/gw2-ui-new';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import { extrasModifiers, extrasModifiersById } from '../../../assets/modifierdata';
+import { allExtrasModifiersById, extrasModifiers } from '../../../assets/modifierdata';
 import GW2Select from './GW2Select';
 
 const Extras = () => {
@@ -15,7 +15,7 @@ const Extras = () => {
           name="Sigil1"
           label={<Item id={24615} disableLink disableTooltip text={t('Sigil 1')} />}
           modifierData={extrasModifiers.sigils}
-          modifierDataById={extrasModifiersById}
+          modifierDataById={allExtrasModifiersById}
         />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -23,7 +23,7 @@ const Extras = () => {
           name="Sigil2"
           label={<Item id={24868} disableLink disableTooltip text={t('Sigil 2')} />}
           modifierData={extrasModifiers.sigils}
-          modifierDataById={extrasModifiersById}
+          modifierDataById={allExtrasModifiersById}
         />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -31,7 +31,7 @@ const Extras = () => {
           name="Runes"
           label={<Item id={24836} disableLink disableTooltip text={t('Rune')} />}
           modifierData={extrasModifiers.runes}
-          modifierDataById={extrasModifiersById}
+          modifierDataById={allExtrasModifiersById}
         />
       </Grid>
       <Grid item md={6} />
@@ -40,7 +40,7 @@ const Extras = () => {
           name="Nourishment"
           label={<ConsumableEffect disableLink text={t('Nourishment')} name="Nourishment" />}
           modifierData={extrasModifiers.food}
-          modifierDataById={extrasModifiersById}
+          modifierDataById={allExtrasModifiersById}
         />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -48,7 +48,7 @@ const Extras = () => {
           name="Enhancement"
           label={<ConsumableEffect disableLink text={t('Enhancement')} name="Enhancement" />}
           modifierData={extrasModifiers.utility}
-          modifierDataById={extrasModifiersById}
+          modifierDataById={allExtrasModifiersById}
         />
       </Grid>
     </Grid>

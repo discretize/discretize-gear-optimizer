@@ -2,7 +2,7 @@ import { Character, firstUppercase } from '@discretize/react-discretize-componen
 import { getImage } from 'gatsby-plugin-image';
 import times from 'lodash/times';
 import React from 'react';
-import { extrasModifiersById } from '../../../assets/modifierdata';
+import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import { Classes, INFUSION_IDS } from '../../../utils/gw2-data';
 import { resolveArmor, resolveBackAndTrinkets } from '../../../utils/map-gw2-ids';
 import { getWeight } from '../../../utils/usefulFunctions';
@@ -41,11 +41,11 @@ export default function ResultCharacter({ data, character, weapons, skills, assu
     Runes: runeStringId,
   } = extras;
 
-  const foodId = extrasModifiersById[food]?.gw2id;
-  const utilityId = extrasModifiersById[utility]?.gw2id;
-  const sigil1Id = extrasModifiersById[sigil1]?.gw2id;
-  const sigil2Id = extrasModifiersById[sigil2]?.gw2id;
-  const rune = runeStringId ? extrasModifiersById[runeStringId] : undefined;
+  const foodId = allExtrasModifiersById[food]?.gw2id;
+  const utilityId = allExtrasModifiersById[utility]?.gw2id;
+  const sigil1Id = allExtrasModifiersById[sigil1]?.gw2id;
+  const sigil2Id = allExtrasModifiersById[sigil2]?.gw2id;
+  const rune = runeStringId ? allExtrasModifiersById[runeStringId] : undefined;
   const runeName = runeStringId
     ? rune.text.replace(/(Superior|Rune|of|the)/g, '').trim()
     : undefined;

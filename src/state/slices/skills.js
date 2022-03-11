@@ -1,5 +1,5 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit';
-import { classModifiersById } from '../../assets/modifierdata';
+import { allClassModifiersById } from '../../assets/modifierdata';
 import { changeAll, changeProfession, setBuildTemplate } from './controlsSlice';
 
 export const skillsSlice = createSlice({
@@ -12,7 +12,7 @@ export const skillsSlice = createSlice({
       const { id, enabled } = action.payload;
 
       if (enabled) {
-        const itemData = classModifiersById[id];
+        const itemData = allClassModifiersById[id];
         state.skills[id] = itemData?.amountData ? { amount: '' } : true;
       } else {
         delete state.skills[id];
@@ -53,7 +53,7 @@ export const getSkillsModifiers = createSelector(
   (skills) => {
     const result = [];
     Object.entries(skills.skills).forEach(([id, value]) => {
-      const itemData = classModifiersById[id];
+      const itemData = allClassModifiersById[id];
       if (!itemData) return;
 
       result.push({ id, ...itemData, amount: value?.amount });

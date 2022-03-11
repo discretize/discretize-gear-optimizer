@@ -1,5 +1,9 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit';
-import { classModifiers, classModifiersById, traitSectionsById } from '../../assets/modifierdata';
+import {
+  allClassModifiersById,
+  classModifiers,
+  traitSectionsById,
+} from '../../assets/modifierdata';
 import { PROFESSIONS } from '../../utils/gw2-data';
 import { changeAll, changeProfession, getProfession, setBuildTemplate } from './controlsSlice';
 
@@ -47,7 +51,7 @@ export const traitsSlice = createSlice({
       const { index, id, enabled } = action.payload;
 
       if (enabled) {
-        const itemData = classModifiersById[id];
+        const itemData = allClassModifiersById[id];
         state.items[index][id] = itemData?.amountData ? { amount: '' } : true;
       } else {
         state.items[index][id] = false;
@@ -100,7 +104,7 @@ export const getTraitsModifiers = createSelector(
     const result = [];
     traits.items.forEach((object) => {
       Object.entries(object).forEach(([id, value]) => {
-        const itemData = classModifiersById[id];
+        const itemData = allClassModifiersById[id];
         if (!itemData) return;
 
         const visible = itemData.minor || allSelectedTraits.includes(itemData.gw2id);

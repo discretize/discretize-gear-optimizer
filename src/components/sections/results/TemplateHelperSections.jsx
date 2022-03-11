@@ -2,7 +2,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Accordion, AccordionDetails, AccordionSummary, Grid, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import { buffModifiers, extrasModifiersById } from '../../../assets/modifierdata';
+import { allExtrasModifiersById, buffModifiers } from '../../../assets/modifierdata';
 import { WEAPONS } from '../../../utils/gw2-data';
 import { getWeight } from '../../../utils/usefulFunctions';
 import Section from '../../baseComponents/Section';
@@ -29,11 +29,11 @@ const TemplateHelperSections = ({ character }) => {
       Runes: runeStringId,
     } = extras;
 
-    const foodId = extrasModifiersById[food]?.gw2id;
-    const utilityId = extrasModifiersById[utility]?.gw2id;
-    const sigil1Id = extrasModifiersById[sigil1]?.gw2id;
-    const sigil2Id = extrasModifiersById[sigil2]?.gw2id;
-    const rune = runeStringId ? extrasModifiersById[runeStringId] : '';
+    const foodId = allExtrasModifiersById[food]?.gw2id;
+    const utilityId = allExtrasModifiersById[utility]?.gw2id;
+    const sigil1Id = allExtrasModifiersById[sigil1]?.gw2id;
+    const sigil2Id = allExtrasModifiersById[sigil2]?.gw2id;
+    const rune = runeStringId ? allExtrasModifiersById[runeStringId] : '';
     const runeName = runeStringId ? rune.text.replace(/(Superior|Rune|of|the)/g, '').trim() : '';
 
     const { mainhand1: w11, offhand1: w12, mainhand2: w21, offhand2: w22 } = weapons;
