@@ -97,7 +97,7 @@ const Buffs = () => {
                       <CheckboxComponent
                         key={id}
                         value={id}
-                        checked={buffs[id]}
+                        checked={Boolean(buffs[id])}
                         label={label}
                         onChange={handleChange(buff)}
                       />
