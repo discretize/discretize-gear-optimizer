@@ -49,3 +49,27 @@ export const getWeight = (profession) => {
   }
   return weight;
 };
+
+/**
+ * Like Array.prototype.map(), but for key-value objects.
+ * Creates a new key-value object containing the key-value pairs of the input object, except the
+ * values are transformed by the input function.
+ *
+ * @param {object} obj - initial object
+ * @param {Function} callbackFn - function to transform the values
+ * @returns {object} - transformed object
+ */
+export const mapValues = (obj, callbackFn) =>
+  Object.fromEntries(Object.entries(obj).map(([key, value]) => [key, callbackFn(value)]));
+
+/**
+ * Like Array.prototype.map(), but for key-value objects.
+ * Creates a new key-value object containing the key-value pairs of the input object, except the
+ * keys and values are transformed by the input function.
+ *
+ * @param {object} obj - initial object
+ * @param {Function} callbackFn - function to transform the key-value pairs
+ * @returns {object} - transformed object
+ */
+export const mapEntries = (obj, callbackFn) =>
+  Object.fromEntries(Object.entries(obj).map(callbackFn));

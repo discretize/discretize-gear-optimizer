@@ -1,7 +1,12 @@
 /* eslint-disable no-console */
 import JsonUrl from 'json-url';
 import { all, call, cancelled, put, race, select, take, takeLeading } from 'redux-saga/effects';
-import { parseBoss, parseInfusionCount, parsePriority } from '../../utils/usefulFunctions';
+import {
+  parseBoss,
+  parseInfusionCount,
+  parsePriority,
+  mapEntries,
+} from '../../utils/usefulFunctions';
 import { getBuffsModifiers } from '../slices/buffs';
 import { changeBuildPage } from '../slices/buildPage';
 import {
@@ -99,12 +104,7 @@ function createInput(state, specialization, appliedModifiers, cachedFormState, c
 
   // temp: convert "poisoned" to "poison"
   const convertPoison = (distribution) =>
-    Object.fromEntries(
-      Object.entries(distribution).map(([key, value]) => [
-        key === 'Poisoned' ? 'Poison' : key,
-        value,
-      ]),
-    );
+    mapEntries(distribution, ([key, value]) => [key === 'Poisoned' ? 'Poison' : key, value]);
 
   if ({}.hasOwnProperty.call(input.distribution, 'Poisoned')) {
     input.distribution = convertPoison(input.distribution);
