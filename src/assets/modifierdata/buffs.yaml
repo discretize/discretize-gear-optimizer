@@ -120,6 +120,7 @@
 
     - id: jade-bot-base
       text: Jade Bot
+      subText: (select both boxes)
       modifiers:
         attributes:
           Vitality: [85, converted]
