@@ -336,10 +336,14 @@
 
     - id: alchemic-vigor
       text: Alchemic Vigor
+      subText: 'bug: converted like 360 vitality'
       minor: true
       modifiers:
         attributes:
-          Vitality: [360, converted] # checked 2 bench videos (from EoD beta 1)
+          # inexplicable EoD launch nerf; tested by Jezereal + Marcus
+          # trait gives 240 vitality in hero panel and health amount, but 360 is converted by
+          # master traits and magnanimous utility
+          Vitality: [360, converted, -120, buff]
       gw2id: 2186
       defaultEnabled: true
 
@@ -371,7 +375,7 @@
       text: Cascading Corruption
       modifiers:
         attributes:
-          Power: [240, unknown]
+          Power: [240, converted] # tested by Jezereal
       gw2id: 2218
       defaultEnabled: true
 
@@ -379,6 +383,6 @@
       text: Doom Approaches
       modifiers:
         attributes:
-          Condition Damage: [240, unknown]
+          Condition Damage: [240, converted] # tested by Jezereal
       gw2id: 2203
       defaultEnabled: true
