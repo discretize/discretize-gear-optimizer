@@ -43,6 +43,7 @@ function createInput(state, specialization, appliedModifiers, cachedFormState, c
         minHealingPower: minHealingPowerText,
         minToughness: minToughnessText,
         maxToughness: maxToughnessText,
+        minHealth: minHealthText,
         affixes,
       },
       distribution: { version, values1, values2 },
@@ -58,6 +59,7 @@ function createInput(state, specialization, appliedModifiers, cachedFormState, c
   const minHealingPower = parsePriority(minHealingPowerText).value;
   const minToughness = parsePriority(minToughnessText).value;
   const maxToughness = parsePriority(maxToughnessText).value;
+  const minHealth = parsePriority(minHealthText).value;
 
   const attackRate = parseBoss(attackRateText).value ?? 0;
   const movementUptime = (parseBoss(movementUptimeText).value ?? 0) / 100;
@@ -74,6 +76,7 @@ function createInput(state, specialization, appliedModifiers, cachedFormState, c
     minHealingPower,
     minToughness,
     maxToughness,
+    minHealth,
     maxResults: 50, // TODO MAX RESULTS
     maxInfusions,
     primaryInfusion,
