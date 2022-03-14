@@ -30,7 +30,7 @@ export default function ErrorBoundary({ children, location, resetKeys }) {
 ErrorBoundary.propTypes = {
   children: PropTypes.node.isRequired,
   location: PropTypes.string,
-  resetKeys: PropTypes.arrayOf(PropTypes.string),
+  resetKeys: PropTypes.arrayOf(PropTypes.any),
 };
 
 ErrorBoundary.defaultProps = {
