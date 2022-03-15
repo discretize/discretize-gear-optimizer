@@ -9,6 +9,7 @@ import yaml from 'js-yaml';
 import path from 'path';
 // import specializationData from '../../utils/mapping/specializations.json' assert { type: 'json' };
 import {
+  allAttributeCoefficientKeys,
   allAttributePercentKeys,
   allAttributePointKeys,
   allAttributePointModes,
@@ -235,7 +236,7 @@ function parseDamage(damage, id, amountData) {
 
 function parseAttributes(attributes, id, amountData) {
   for (const [key, allPairs] of Object.entries(attributes)) {
-    if (allAttributePointKeys.includes(key)) {
+    if (allAttributePointKeys.includes(key) || allAttributeCoefficientKeys.includes(key)) {
       gentleAssert(
         Array.isArray(allPairs),
         `invalid value for ${key} in ${id} (use 'unknown' if you don't know if it's converted!)`,
