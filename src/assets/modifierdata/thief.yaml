@@ -415,7 +415,7 @@
       text: Larcenous Torment
       modifiers:
         damage:
-          Torment Damage: [20%, unknown]
+          Torment Damage: [10%, unknown]
       gw2id: 2290
       defaultEnabled: true
 

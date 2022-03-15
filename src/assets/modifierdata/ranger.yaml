@@ -358,7 +358,7 @@
       subText: player unleashed
       modifiers:
         damage:
-          All Damage: [15%, unknown]
+          All Damage: [25%, unknown]
       minor: true
       gw2id: 2269
       defaultEnabled: true
@@ -368,7 +368,7 @@
       subText: pet unleashed
       modifiers:
         damage:
-          Damage Reduction: [10%, unknown]
+          Damage Reduction: [25%, unknown]
       minor: true
       gw2id: 2269
 
