@@ -48,11 +48,11 @@ const ExtrasSelect = ({ type, label, modifierData, modifierDataById: data }) => 
       disableCloseOnSelect
       options={allIds}
       getOptionLabel={(id) =>
-        `${id} ${data[id].text} ${
-          data[id].subText ? t('extraSubText', { context: data[id].subText }) : ''
+        `${id} ${data[id]?.text} ${
+          data[id]?.subText ? t('extraSubText', { context: data[id]?.subText }) : ''
         }`
       }
-      groupBy={(id) => data[id].section}
+      groupBy={(id) => data[id]?.section}
       value={currentValue}
       onChange={(event, value) => dispatch(changeExtra({ key: type, value }))}
       renderInput={(params) => (
@@ -76,13 +76,13 @@ const ExtrasSelect = ({ type, label, modifierData, modifierDataById: data }) => 
             primary={
               <>
                 <Item
-                  id={data[id].gw2id}
+                  id={data[id]?.gw2id}
                   disableLink
-                  {...(!isChinese && { text: data[id].text.replace('Superior ', '') })}
+                  {...(!isChinese && { text: data[id]?.text.replace('Superior ', '') })}
                 />
-                {data[id].subText && (
+                {data[id]?.subText && (
                   <Typography variant="caption" sx={{ marginLeft: 1, fontWeight: 200 }}>
-                    {t('extraSubText', { context: data[id].subText })}
+                    {t('extraSubText', { context: data[id]?.subText })}
                   </Typography>
                 )}
               </>
@@ -96,10 +96,10 @@ const ExtrasSelect = ({ type, label, modifierData, modifierDataById: data }) => 
             variant="outlined"
             label={
               <Item
-                id={data[id].gw2id}
+                id={data[id]?.gw2id}
                 disableLink
                 {...(!isChinese && {
-                  text: data[id].text
+                  text: data[id]?.text
                     .replace('Superior ', '')
                     .replace('Rune of the', '')
                     .replace('Rune of ', '')

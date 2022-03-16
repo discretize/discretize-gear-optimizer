@@ -40,6 +40,7 @@ export const getSigilsModifiers = createSelector(
 
     return enabledSigils.map((key) => {
       const id = extras[key];
+      if (!allExtrasModifiersById[id]) throw new Error(`missing data for extras id: ${id}`);
       const { modifiers } = allExtrasModifiersById[id];
       return { id, modifiers, source: key };
     });
@@ -95,6 +96,7 @@ export const getExtrasCombinationsAndModifiers = createSelector(
       Object.entries(extrasCombination)
         .filter(([_, id]) => id)
         .map(([key, id]) => {
+          if (!allExtrasModifiersById[id]) throw new Error(`missing data for extras id: ${id}`);
           const { modifiers } = allExtrasModifiersById[id];
           return { id, modifiers, source: key };
         });
