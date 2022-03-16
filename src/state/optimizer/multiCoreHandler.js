@@ -3,7 +3,10 @@ import { characterLT, createOptimizerCore } from './optimizerCore';
 // todo: convert this file to a web worker handler
 
 // eslint-disable-next-line import/prefer-default-export
-export function* calculate(combinations) {
+export function* calculate(inputCombinations) {
+  // do not mutate input; it will be reused if the same calculation is run twice
+  const combinations = inputCombinations.map((combination) => ({ ...combination }));
+
   for (const combination of combinations) {
     combination.core = createOptimizerCore(combination.input);
     combination.calculation = combination.core.calculate();
