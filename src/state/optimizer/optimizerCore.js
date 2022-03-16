@@ -367,7 +367,7 @@ class OptimizerCore {
             [settings.primaryInfusion]: primaryCount,
             [settings.secondaryInfusion]: secondaryCount,
           };
-          if (!best || characterLT(best, temp, settings.rankby)) {
+          if (!best || characterLT(best, temp, settings.rankby) > 0) {
             best = temp;
           }
         }
@@ -409,7 +409,7 @@ class OptimizerCore {
       this.list.push(character);
     } else {
       let position = this.list.length;
-      while (position > 0 && characterLT(this.list[position - 1], character, settings.rankby)) {
+      while (position > 0 && characterLT(this.list[position - 1], character, settings.rankby) > 0) {
         position--;
       }
 
@@ -1268,7 +1268,7 @@ export function createOptimizerCore(input) {
   return new OptimizerCore(settings);
 }
 
-// returns true if B is better than A
+// returns a positive value if B is better than A
 // eslint-disable-next-line id-length
 export function characterLT(a, b, rankby) {
   // const { rankby } = this.settings;
@@ -1285,13 +1285,13 @@ export function characterLT(a, b, rankby) {
   if (a.attributes[rankby] === b.attributes[rankby]) {
     switch (rankby) {
       case 'Damage':
-        return a.attributes['Survivability'] < b.attributes['Survivability'];
+        return b.attributes['Survivability'] - a.attributes['Survivability'];
       case 'Survivability':
       case 'Healing':
-        return a.attributes['Damage'] < b.attributes['Damage'];
+        return b.attributes['Damage'] - a.attributes['Damage'];
       // no default
     }
   }
 
-  return a.attributes[rankby] < b.attributes[rankby];
+  return b.attributes[rankby] - a.attributes[rankby];
 }
