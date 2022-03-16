@@ -103,6 +103,7 @@ class OptimizerCore {
   worstScore;
   list = [];
   isChanged = true;
+  randomId = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
 
   constructor(settings) {
     this.settings = settings;
@@ -402,7 +403,7 @@ class OptimizerCore {
 
     this.updateAttributes(character);
     this.calcResults(character);
-    character.id = uniqueIDCounter++;
+    character.id = `${uniqueIDCounter++} (${this.randomId})`;
 
     if (this.list.length === 0) {
       this.list.push(character);
