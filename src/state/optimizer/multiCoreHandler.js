@@ -12,7 +12,7 @@ export function* calculate(inputCombinations) {
     combination.calculation = combination.core.calculate();
   }
 
-  const { rankby, runsAfterThisSlot, maxResults } = combinations[0].core.settings;
+  const { rankby, runsAfterThisSlot } = combinations[0].core.settings;
   const globalCalculationTotal = runsAfterThisSlot[0] * combinations.length;
 
   let i = 0;
@@ -37,23 +37,13 @@ export function* calculate(inputCombinations) {
     combination.list = newList;
     combination.calculationRuns = calculationRuns;
 
-    let globalNewList = null;
-    let globalNewExtraList = null;
-
-    if (isChanged) {
-      globalNewList = combinations
-        .flatMap(({ list }) => list || [])
-        // eslint-disable-next-line id-length
-        .sort((a, b) => characterLT(a, b, rankby))
-        .slice(0, maxResults);
-
-      globalNewExtraList = combinations
-        .map(({ list }) => list?.[0])
-        .filter(Boolean)
-        .filter((item) => !globalNewList.includes(item))
-        // eslint-disable-next-line id-length
-        .sort((a, b) => characterLT(a, b, rankby));
-    }
+    const globalNewList = isChanged
+      ? combinations
+          .flatMap(({ list }) => list || [])
+          // eslint-disable-next-line id-length
+          .sort((a, b) => characterLT(a, b, rankby))
+          .slice(0, 50)
+      : null;
 
     const globalCalculationRuns = combinations.reduce(
       (prev, cur) => prev + (cur.calculationRuns ?? 0),
@@ -66,7 +56,6 @@ export function* calculate(inputCombinations) {
       percent: Math.floor((globalCalculationRuns * 100) / globalCalculationTotal),
       isChanged,
       newList: globalNewList,
-      newExtraList: globalNewExtraList,
     };
   }
 }
