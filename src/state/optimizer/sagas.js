@@ -13,6 +13,7 @@ import {
   changeAll,
   changeControl,
   changeError,
+  changeExtraList,
   changeList,
   changeSelectedCharacter,
   getList,
@@ -119,6 +120,7 @@ function createInput(state, specialization, appliedModifiers, cachedFormState, c
 function* runCalc() {
   let state;
   let currentList;
+  let currentExtraList;
   let combinations;
   let settings;
   let oldPercent;
@@ -179,16 +181,20 @@ function* runCalc() {
     let listRenderCounter = Infinity;
     const listThrottle = 3;
 
-    for (const { percent: newPercent, isChanged, newList } of calculate(combinations)) {
+    for (const { percent: newPercent, isChanged, newList, newExtraList } of calculate(
+      combinations,
+    )) {
       listRenderCounter++;
       if (isChanged) {
         currentList = newList;
+        currentExtraList = newExtraList;
         if (listRenderCounter > listThrottle) {
           listRenderCounter = 0;
         }
       }
       if (listRenderCounter === listThrottle) {
         yield put(changeList(currentList));
+        yield put(changeExtraList(currentExtraList));
       }
 
       if (newPercent !== oldPercent) {
@@ -200,6 +206,7 @@ function* runCalc() {
       yield delay(0);
     }
     yield put(changeList(currentList));
+    yield put(changeExtraList(currentExtraList));
 
     console.timeEnd('Calculation');
     console.time('Render Result');

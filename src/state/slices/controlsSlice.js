@@ -50,6 +50,7 @@ export const controlSlice = createSlice({
   initialState: {
     expertMode: true,
     list: [],
+    extraList: [],
     saved: [],
     compareByPercent: false,
     progress: 0,
@@ -113,6 +114,9 @@ export const controlSlice = createSlice({
     changeList: (state, action) => {
       return { ...state, list: action.payload };
     },
+    changeExtraList: (state, action) => {
+      return { ...state, extraList: action.payload };
+    },
     toggleSaved: (state, action) => {
       // required to use reference equality check with immer.js
       const originalSaved = original(state.saved);
@@ -142,6 +146,7 @@ export const controlSlice = createSlice({
 export const getProfession = (state) => state.optimizer.control.profession;
 export const getControl = (key) => (state) => state.optimizer.control[key];
 export const getList = (state) => state.optimizer.control.list;
+export const getExtraList = (state) => state.optimizer.control.extraList;
 export const getSaved = (state) => state.optimizer.control.saved;
 export const getCompareByPercent = (state) => state.optimizer.control.compareByPercent;
 export const getSelectedCharacter = (state) => state.optimizer.control.selectedCharacter;
@@ -153,6 +158,7 @@ export const {
   changeExpertMode,
   changeControl,
   changeList,
+  changeExtraList,
   toggleSaved,
   changeCompareByPercent,
   setBuildTemplate,

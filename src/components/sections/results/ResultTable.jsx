@@ -11,6 +11,7 @@ import { makeStyles } from 'tss-react/mui';
 import {
   getCompareByPercent,
   getList,
+  getExtraList,
   getSaved,
   getSelectedCharacter,
 } from '../../../state/slices/controlsSlice';
@@ -32,6 +33,9 @@ const useStyles = makeStyles()((theme) => ({
   },
   underline: {
     borderBottom: `5px solid ${theme.palette.divider}`,
+  },
+  bigUnderline: {
+    borderBottom: `20px solid ${theme.palette.divider}`,
   },
 }));
 
@@ -55,9 +59,12 @@ const StickyHeadTable = () => {
 
   const { t } = useTranslation();
   const selectedCharacter = useSelector(getSelectedCharacter);
-  const list = useSelector(getList) || [];
+  const mainList = useSelector(getList) || [];
+  const extraList = useSelector(getExtraList) || [];
   const saved = useSelector(getSaved) || [];
   const compareByPercent = useSelector(getCompareByPercent);
+
+  const list = [...mainList, ...extraList];
 
   let mostCommonAffix = null;
   if (/* status !== RUNNING && */ list[0]) {
@@ -105,11 +112,20 @@ const StickyHeadTable = () => {
                 })
               : null} */}
               {list.map((character, i) => {
+                let underlineClass = null;
+
                 // underline under the set of equivalent, optimal results
                 const firstResult = list[0]?.results.value;
                 const thisResult = list[i]?.results.value;
                 const nextResult = list[i + 1]?.results.value;
-                const underline = thisResult === firstResult && thisResult !== nextResult;
+                if (thisResult === firstResult && thisResult !== nextResult) {
+                  underlineClass = classes.underline;
+                }
+
+                // underline under the main list section before the suboptimal results
+                if (extraList?.length && i === mainList.length - 1) {
+                  underlineClass = classes.bigUnderline;
+                }
 
                 return (
                   <ResultTableRow
@@ -118,7 +134,7 @@ const StickyHeadTable = () => {
                     selected={character === selectedCharacter}
                     saved={saved.includes(character)}
                     mostCommonAffix={mostCommonAffix}
-                    underlineClass={underline ? classes.underline : null}
+                    underlineClass={underlineClass}
                     selectedValue={selectedValue}
                     compareByPercent={compareByPercent}
                   />
