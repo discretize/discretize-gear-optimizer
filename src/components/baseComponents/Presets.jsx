@@ -29,7 +29,7 @@ const Presets = ({
           key={`${selectedTemplateName || profession}-presets`}
           options={data}
           getOptionLabel={(preset) => preset.name}
-          renderInput={(params) => <TextField {...params} label="Presets" variant="standard" />}
+          renderInput={(params) => <TextField {...params} label={t("Presets")} variant="standard" />}
           renderOption={(props, preset) => (
             <li {...props}>
               {preset.profession ? (
