@@ -37,6 +37,9 @@ const ExtrasSection = ({ profession, data }) => {
     <Section
       title={t('Runes & Sigils & Food')}
       content={<Extras />}
+      helpText={t(
+        'Select multiple rune or food options if desired and every combination will be tested.',
+      )}
       extraInfo={
         <>
           {profession !== '' && (

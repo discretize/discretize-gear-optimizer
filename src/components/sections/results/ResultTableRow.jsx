@@ -1,9 +1,11 @@
+import { Item } from '@discretize/gw2-ui-new';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import { Typography } from '@mui/material';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import { changeSelectedCharacter, toggleSaved } from '../../../state/slices/controlsSlice';
 
 const ResultTableRow = ({
@@ -88,6 +90,17 @@ const ResultTableRow = ({
             </TableCell>
           ))
         : null}
+      {['Runes', 'Nourishment', 'Enhancement'].map((key, index) => {
+        const extra = character.settings.cachedFormState.extras[key];
+        return (
+          // eslint-disable-next-line react/no-array-index-key
+          <TableCell align="center" key={`extras${index}`} padding="none">
+            {extra ? (
+              <Item id={allExtrasModifiersById[extra]?.gw2id} disableText disableLink />
+            ) : null}
+          </TableCell>
+        );
+      })}
     </TableRow>
   );
 };

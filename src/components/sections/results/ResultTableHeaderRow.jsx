@@ -1,4 +1,4 @@
-import { Item } from '@discretize/gw2-ui-new';
+import { ConsumableEffect, Item } from '@discretize/gw2-ui-new';
 import { HelperIcon } from '@discretize/react-discretize-components';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
@@ -37,6 +37,16 @@ const ResultTableHeaderRow = ({
           <Item id={INFUSION_IDS[type]} disableText disableLink />
         </TableCell>
       ))}
+
+      <TableCell className={classes.tablehead} align="center" padding="none">
+        <Item id={24836} disableLink disableText disableTooltip />
+      </TableCell>
+      <TableCell className={classes.tablehead} align="center" padding="none">
+        <ConsumableEffect disableLink disableText name="Nourishment" />
+      </TableCell>
+      <TableCell className={classes.tablehead} align="center" padding="none">
+        <ConsumableEffect disableLink disableText name="Enhancement" />
+      </TableCell>
     </TableRow>
   );
 };

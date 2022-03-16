@@ -2,10 +2,10 @@
 import JsonUrl from 'json-url';
 import { all, call, cancelled, put, race, select, take, takeLeading } from 'redux-saga/effects';
 import {
+  mapEntries,
   parseBoss,
   parseInfusionCount,
   parsePriority,
-  mapEntries,
 } from '../../utils/usefulFunctions';
 import { getBuffsModifiers } from '../slices/buffs';
 import { changeBuildPage } from '../slices/buildPage';
@@ -19,12 +19,12 @@ import {
   getSelectedCharacter,
 } from '../slices/controlsSlice';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
-import { getExtrasModifiers } from '../slices/extras';
+import { getExtrasCombinationsAndModifiers, getSigilsModifiers } from '../slices/extras';
 import { getInfusionsModifiers } from '../slices/infusions';
 import { getCustomAffixData } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
-import { createOptimizerCore } from './optimizerCore';
+import { calculate } from './multiCoreHandler';
 import { ERROR, SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -119,7 +119,7 @@ function createInput(state, specialization, appliedModifiers, cachedFormState, c
 function* runCalc() {
   let state;
   let currentList;
-  let input;
+  let combinations;
   let settings;
   let oldPercent;
   let originalSelectedCharacter;
@@ -131,15 +131,8 @@ function* runCalc() {
 
     const specialization = yield select(getCurrentSpecialization);
 
-    const cachedFormState = {
-      traits: state.form.traits,
-      skills: state.form.skills,
-      extras: state.form.extras,
-      buffs: state.form.buffs, // buffs are also needed to share a build and display the assumed buffs for the result
-    };
-
-    const appliedModifiers = [
-      ...(yield select(getExtrasModifiers) || []),
+    const sharedModifiers = [
+      ...(yield select(getSigilsModifiers) || []),
       ...(yield select(getBuffsModifiers) || []),
       ...(yield select(getExtraModifiersModifiers) || []),
       ...(yield select(getInfusionsModifiers) || []),
@@ -151,13 +144,32 @@ function* runCalc() {
 
     console.time('Calculation');
 
-    input = createInput(state, specialization, appliedModifiers, cachedFormState, customAffixData);
-
     console.groupCollapsed('Debug Info:');
     console.log('Redux State:', state);
-    console.log('Input:', input);
 
-    const core = createOptimizerCore(input);
+    combinations = yield select(getExtrasCombinationsAndModifiers);
+
+    for (const combination of combinations) {
+      const { extrasCombination, extrasModifiers } = combination;
+      const appliedModifiers = [...sharedModifiers, ...extrasModifiers];
+
+      const cachedFormState = {
+        traits: state.form.traits,
+        skills: state.form.skills,
+        extras: { ...state.form.extras, ...extrasCombination },
+        buffs: state.form.buffs, // buffs are also needed to share a build and display the assumed buffs for the result
+      };
+
+      combination.input = createInput(
+        state,
+        specialization,
+        appliedModifiers,
+        cachedFormState,
+        customAffixData,
+      );
+      console.log('Input option:', combination);
+    }
+
     console.groupEnd();
 
     originalSelectedCharacter = yield select(getSelectedCharacter);
@@ -167,7 +179,7 @@ function* runCalc() {
     let listRenderCounter = Infinity;
     const listThrottle = 3;
 
-    for (const { percent: newPercent, isChanged, newList } of core.calculate()) {
+    for (const { percent: newPercent, isChanged, newList } of calculate(combinations)) {
       listRenderCounter++;
       if (isChanged) {
         currentList = newList;
@@ -217,7 +229,7 @@ function* runCalc() {
     alert(`There was an error in the calculation!\n\n${e}`);
     console.log(e);
     console.log('state:', { ...state });
-    console.log('input:', { ...input });
+    console.log('input combinations:', { ...combinations });
     console.log('settings:', { ...settings });
     console.log('list:', { ...currentList });
     yield put(changeControl({ key: 'status', value: WAITING }));

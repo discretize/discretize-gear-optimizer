@@ -16,7 +16,7 @@ import Warrior from './warrior.yaml';
 // combines items in all sections into one object
 const byId = (sections) => {
   const sectionsFlat = sections.flatMap(
-    (section) => section.items?.map(({ id, ...rest }) => [id, { ...rest }]) || [],
+    ({ section, items }) => items?.map(({ id, ...rest }) => [id, { ...rest, section }]) || [],
   );
   return Object.fromEntries(sectionsFlat);
 };
