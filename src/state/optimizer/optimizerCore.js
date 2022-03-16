@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-case-declarations */
 /* eslint-disable no-console */
@@ -102,6 +103,7 @@ class OptimizerCore {
   worstScore;
   list = [];
   isChanged = true;
+  randomId = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
 
   constructor(settings) {
     this.settings = settings;
@@ -116,7 +118,7 @@ class OptimizerCore {
    * @yields {{done: boolean, value: {isChanged: boolean, percent: number}}} result
    * yields {boolean} result.done - true if the calculation is finished
    * yields {number} result.value.isChanged - true if this.list has been mutated
-   * yields {number} result.value.percent - the progress percentage
+   * yields {number} result.value.calculationRuns - the calculation progress
    */
   *calculate() {
     const { settings } = this;
@@ -136,11 +138,6 @@ class OptimizerCore {
 
     this.applyInfusionsFunction = this[`applyInfusions${settings.infusionMode}`];
 
-    let calculationTotal = 1;
-    for (const affixes of settings.affixesArray) {
-      calculationTotal *= affixes.length;
-    }
-
     let calculationRuns = 0;
 
     const calculationQueue = [];
@@ -149,7 +146,7 @@ class OptimizerCore {
     calculationStatsQueue.push({});
 
     let iterationTimer = Date.now();
-    let UPDATE_MS = 90;
+    const UPDATE_MS = 90;
     let cycles = 0;
     this.isChanged = true;
     while (calculationQueue.length > 0) {
@@ -159,11 +156,11 @@ class OptimizerCore {
       if (cycles % 1000 === 0 && Date.now() - iterationTimer > UPDATE_MS) {
         yield {
           isChanged: this.isChanged,
-          percent: Math.floor((calculationRuns * 100) / calculationTotal),
+          calculationRuns,
           newList: this.isChanged ? this.list.slice() : null,
         };
         this.isChanged = false;
-        UPDATE_MS = 55;
+        // UPDATE_MS = 55;
         iterationTimer = Date.now();
       }
 
@@ -229,7 +226,7 @@ class OptimizerCore {
 
     yield {
       isChanged: this.isChanged,
-      percent: Math.floor((calculationRuns * 100) / calculationTotal),
+      calculationRuns,
       newList: this.list.slice(),
     };
   }
@@ -370,7 +367,7 @@ class OptimizerCore {
             [settings.primaryInfusion]: primaryCount,
             [settings.secondaryInfusion]: secondaryCount,
           };
-          if (!best || this.characterLT(best, temp)) {
+          if (!best || characterLT(best, temp, settings.rankby) > 0) {
             best = temp;
           }
         }
@@ -406,13 +403,13 @@ class OptimizerCore {
 
     this.updateAttributes(character);
     this.calcResults(character);
-    character.id = uniqueIDCounter++;
+    character.id = `${uniqueIDCounter++} (${this.randomId})`;
 
     if (this.list.length === 0) {
       this.list.push(character);
     } else {
       let position = this.list.length;
-      while (position > 0 && this.characterLT(this.list[position - 1], character)) {
+      while (position > 0 && characterLT(this.list[position - 1], character, settings.rankby) > 0) {
         position--;
       }
 
@@ -440,34 +437,6 @@ class OptimizerCore {
 
   addBaseStats(character, stat, amount) {
     character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + amount;
-  }
-
-  // returns true if B is better than A
-  // eslint-disable-next-line id-length
-  characterLT(a, b) {
-    const { rankby } = this.settings;
-
-    // if (!a.valid && b.valid) {
-    //     // A is invalid, B is valid -> replace A
-    //     return true;
-    // } else if (!b.valid) {
-    //     // B is invalid -> do not replace A
-    //     return false;
-    // }
-
-    // tiebreakers
-    if (a.attributes[rankby] === b.attributes[rankby]) {
-      switch (rankby) {
-        case 'Damage':
-          return a.attributes['Survivability'] < b.attributes['Survivability'];
-        case 'Survivability':
-        case 'Healing':
-          return a.attributes['Damage'] < b.attributes['Damage'];
-        // no default
-      }
-    }
-
-    return a.attributes[rankby] < b.attributes[rankby];
   }
 
   /**
@@ -1297,4 +1266,32 @@ export function createOptimizerCore(input) {
   // }
 
   return new OptimizerCore(settings);
+}
+
+// returns a positive value if B is better than A
+// eslint-disable-next-line id-length
+export function characterLT(a, b, rankby) {
+  // const { rankby } = this.settings;
+
+  // if (!a.valid && b.valid) {
+  //     // A is invalid, B is valid -> replace A
+  //     return true;
+  // } else if (!b.valid) {
+  //     // B is invalid -> do not replace A
+  //     return false;
+  // }
+
+  // tiebreakers
+  if (a.attributes[rankby] === b.attributes[rankby]) {
+    switch (rankby) {
+      case 'Damage':
+        return b.attributes['Survivability'] - a.attributes['Survivability'];
+      case 'Survivability':
+      case 'Healing':
+        return b.attributes['Damage'] - a.attributes['Damage'];
+      // no default
+    }
+  }
+
+  return b.attributes[rankby] - a.attributes[rankby];
 }
