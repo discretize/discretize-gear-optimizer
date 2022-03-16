@@ -39,13 +39,13 @@ const ResultTableHeaderRow = ({
       ))}
 
       <TableCell className={classes.tablehead} align="center" padding="none">
-        <Item id={24836} disableLink disableText disableTooltip />
+        <Item id={24836} disableLink disableText disableTooltip style={{ fontSize: 18 }} />
       </TableCell>
       <TableCell className={classes.tablehead} align="center" padding="none">
-        <ConsumableEffect disableLink disableText name="Nourishment" />
+        <ConsumableEffect disableLink disableText name="Nourishment" style={{ fontSize: 18 }} />
       </TableCell>
       <TableCell className={classes.tablehead} align="center" padding="none">
-        <ConsumableEffect disableLink disableText name="Enhancement" />
+        <ConsumableEffect disableLink disableText name="Enhancement" style={{ fontSize: 18 }} />
       </TableCell>
     </TableRow>
   );

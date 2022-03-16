@@ -54,7 +54,6 @@ const ExtrasSelect = ({ type, label, modifierData, modifierDataById: data }) => 
       }
       groupBy={(id) => data[id].section}
       value={currentValue}
-      classes={{ inputRoot: classes.input }}
       onChange={(event, value) => dispatch(changeExtra({ key: type, value }))}
       renderInput={(params) => (
         <TextField {...params} variant="standard" label={label} margin="dense" />
@@ -65,7 +64,7 @@ const ExtrasSelect = ({ type, label, modifierData, modifierDataById: data }) => 
             {group}
           </Typography>
           {children}
-          <Divider />
+          <Divider sx={{ marginTop: 1, marginBottom: 0 }} />
         </React.Fragment>
       )}
       renderOption={({ className, ...prop }, id) => (
@@ -75,25 +74,18 @@ const ExtrasSelect = ({ type, label, modifierData, modifierDataById: data }) => 
           </Box>
           <ListItemText
             primary={
-              <Item
-                id={data[id].gw2id}
-                disableLink
-                {...(!isChinese && { text: data[id].text.replace('Superior ', '') })}
-              />
-            }
-            secondary={
-              <Typography
-                sx={{
-                  fontWeight: 100,
-                  fontSize: '0.8rem',
-                  textAlign: 'right',
-                }}
-              >
-                {
-                  // i18next-extract-mark-context-next-line {{extraSubText}}
-                  t('extraSubText', { context: data[id].subText })
-                }
-              </Typography>
+              <>
+                <Item
+                  id={data[id].gw2id}
+                  disableLink
+                  {...(!isChinese && { text: data[id].text.replace('Superior ', '') })}
+                />
+                {data[id].subText && (
+                  <Typography variant="caption" sx={{ marginLeft: 1, fontWeight: 200 }}>
+                    {t('extraSubText', { context: data[id].subText })}
+                  </Typography>
+                )}
+              </>
             }
           />
         </li>

@@ -96,7 +96,12 @@ const ResultTableRow = ({
           // eslint-disable-next-line react/no-array-index-key
           <TableCell align="center" key={`extras${index}`} padding="none">
             {extra ? (
-              <Item id={allExtrasModifiersById[extra]?.gw2id} disableText disableLink />
+              <Item
+                id={allExtrasModifiersById[extra]?.gw2id}
+                disableText
+                disableLink
+                style={{ fontSize: 18 }}
+              />
             ) : null}
           </TableCell>
         );
