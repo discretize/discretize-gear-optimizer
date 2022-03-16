@@ -596,7 +596,9 @@ class OptimizerCore {
         attributes['Healing Power'] < settings.minHealingPower) ||
       (settings.minToughness !== null && attributes['Toughness'] < settings.minToughness) ||
       (settings.maxToughness !== null && attributes['Toughness'] > settings.maxToughness) ||
-      (settings.minHealth !== null && attributes['Health'] < settings.minHealth);
+      (settings.minHealth !== null && attributes['Health'] < settings.minHealth) ||
+      (settings.minCritChance !== null &&
+        attributes['Critical Chance'] < settings.minCritChance / 100);
     if (invalid) {
       character.valid = false;
     }
@@ -830,6 +832,7 @@ class OptimizerCore {
  * @param {number} input.minToughness
  * @param {number} input.maxToughness
  * @param {number} input.minHealth
+ * @param {number} input.minCritChance
  * @param {number} input.maxResults
  * @param {?string} input.primaryInfusion
  * @param {?string} input.secondaryInfusion

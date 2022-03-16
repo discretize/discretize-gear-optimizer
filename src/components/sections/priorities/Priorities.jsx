@@ -48,6 +48,7 @@ const Priorities = () => {
   const minToughness = useSelector(getPriority('minToughness'));
   const maxToughness = useSelector(getPriority('maxToughness'));
   const minHealth = useSelector(getPriority('minHealth'));
+  const minCritChance = useSelector(getPriority('minCritChance'));
   const affixes = useSelector(getPriority('affixes'));
 
   const customSelected = affixes.includes('Custom');
@@ -197,7 +198,6 @@ const Priorities = () => {
         </FormControl>
         <HelperIcon text={t('Only show results that fulfill a certain amount of Healing Power.')} />
       </Grid>
-
       <Grid item xs={6} md={4} className={classes.box}>
         <FormControl className={classes.formControl} variant="standard">
           <InputLabel htmlFor="minHealth-input-with-icon-adornment">
@@ -213,6 +213,24 @@ const Priorities = () => {
           />
         </FormControl>
         <HelperIcon text={t('Only show results that fulfill a certain amount of Health.')} />
+      </Grid>
+      <Grid item xs={6} md={4} className={classes.box}>
+        <FormControl className={classes.formControl} variant="standard">
+          <InputLabel htmlFor="minCritChance-input-with-icon-adornment">
+            <Trans>Min.</Trans> <Attribute name="Critical Chance" disableLink />
+          </InputLabel>
+          <Input
+            id="minCritChance-input-with-icon-adornment"
+            value={minCritChance}
+            onChange={handleChange}
+            name="minCritChance"
+            error={parsePriority(minCritChance).error}
+            autoComplete="off"
+          />
+        </FormControl>
+        <HelperIcon
+          text={t('Only show results that fulfill a certain amount of Critical Chance.')}
+        />
       </Grid>
 
       {customSelected ? (
