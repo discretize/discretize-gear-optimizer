@@ -37,6 +37,7 @@ function createInput(
   cachedFormState,
   customAffixData,
   shouldDisplayExtras,
+  realExtras,
 ) {
   const {
     control: { profession },
@@ -110,6 +111,7 @@ function createInput(
   input.cachedFormState = cachedFormState;
   input.customAffixData = customAffixData;
   input.shouldDisplayExtras = shouldDisplayExtras;
+  input.realExtras = realExtras;
 
   // temp: convert "poisoned" to "poison"
   const convertPoison = (distribution) =>
@@ -171,6 +173,9 @@ function* runCalc() {
         buffs: state.form.buffs, // buffs are also needed to share a build and display the assumed buffs for the result
       };
 
+      // insert real (with arrays of all options) extras data for the template helper
+      const realExtras = state.form.extras;
+
       // display extras in table if they have multiple options
       const shouldDisplayExtras = mapValues(
         state.form.extras.extras,
@@ -184,6 +189,7 @@ function* runCalc() {
         cachedFormState,
         customAffixData,
         shouldDisplayExtras,
+        realExtras,
       );
       console.log('Input option:', combination);
     }
