@@ -35,7 +35,7 @@ const TemplateHelper = ({ character }) => {
     return { key, inputText, value, error };
   });
 
-  const { cachedFormState, realExtras } = character.settings;
+  const { cachedFormState } = character.settings;
   const { coefficientHelper } = character.results;
 
   // reverse engineer coefficient needed to reach target damage
@@ -156,7 +156,7 @@ const TemplateHelper = ({ character }) => {
       </Typography>
 
       <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
-        {indent(JSON.stringify(realExtras, null, 2) || '', 6)}
+        {indent(JSON.stringify(cachedFormState?.extras, null, 2) || '', 6)}
       </pre>
     </>
   );

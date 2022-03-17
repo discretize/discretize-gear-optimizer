@@ -34,16 +34,12 @@ export const BuildPageSchema = {
     gear: { type: 'array', dict: gearDict },
     infusions: null,
     settings: {
-      cachedFormState: {
-        extras: {
-          extras: {
-            Enhancement: { type: 'value', dict: enhancementDict },
-            Nourishment: { type: 'value', dict: nourishmentDict },
-            Runes: { type: 'value', dict: runesDict },
-            Sigil1: { type: 'value', dict: sigilDict },
-            Sigil2: { type: 'value', dict: sigilDict },
-          },
-        },
+      extrasCombination: {
+        Enhancement: { type: 'value', dict: enhancementDict },
+        Nourishment: { type: 'value', dict: nourishmentDict },
+        Runes: { type: 'value', dict: runesDict },
+        Sigil1: { type: 'value', dict: sigilDict },
+        Sigil2: { type: 'value', dict: sigilDict },
       },
       profession: { type: 'value', dict: professionDict },
       specialization: { type: 'value', dict: specializationDict },

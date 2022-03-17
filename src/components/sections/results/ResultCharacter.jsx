@@ -9,7 +9,8 @@ import { getWeight } from '../../../utils/usefulFunctions';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
 
 export default function ResultCharacter({ data, character, weapons, skills, assumedBuffs }) {
-  const { profession, specialization, weaponType, cachedFormState } = character.settings;
+  const { profession, specialization, weaponType, cachedFormState, extrasCombination } =
+    character.settings;
 
   const classData = Classes[profession].weapons;
 
@@ -38,7 +39,7 @@ export default function ResultCharacter({ data, character, weapons, skills, assu
     Enhancement: utility,
     Nourishment: food,
     Runes: runeStringId,
-  } = cachedFormState.extras.extras;
+  } = extrasCombination || cachedFormState.extras; // fallback for builds from before extras refactor
 
   const foodId = allExtrasModifiersById[food]?.gw2id;
   const utilityId = allExtrasModifiersById[utility]?.gw2id;

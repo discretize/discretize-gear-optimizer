@@ -95,7 +95,7 @@ const ResultTableRow = ({
       {extrasTypes
         .filter((type) => displayExtras[type])
         .map((key, index) => {
-          const extra = character.settings.cachedFormState.extras.extras[key];
+          const extra = character.settings.extrasCombination[key];
           return (
             // eslint-disable-next-line react/no-array-index-key
             <TableCell align="center" key={`extras${index}`} padding="none">

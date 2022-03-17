@@ -1257,7 +1257,7 @@ export function createOptimizerCore(input) {
     appliedModifiers,
     rankby,
     shouldDisplayExtras,
-    realExtras,
+    extrasCombination,
     // ...rest
   } = settings;
   // console.log(Object.keys(rest));
@@ -1271,7 +1271,7 @@ export function createOptimizerCore(input) {
     appliedModifiers,
     rankby,
     shouldDisplayExtras,
-    realExtras,
+    extrasCombination,
   };
 
   return new OptimizerCore(settings, minimalSettings);

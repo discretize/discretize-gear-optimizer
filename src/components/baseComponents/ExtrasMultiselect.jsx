@@ -7,7 +7,14 @@ import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { changeExtra, getExtra } from '../../state/slices/extras';
+import { allExtrasModifiersById } from '../../assets/modifierdata';
+import {
+  changeExtraAmount,
+  changeExtraIds,
+  getExtrasData,
+  getExtrasIds,
+} from '../../state/slices/extras';
+import AmountInput from './AmountInput';
 
 const useStyles = makeStyles()((theme) => ({
   input: {
@@ -35,7 +42,7 @@ const ExtrasSelect = ({ type, label, modifierData, modifierDataById: data }) => 
   const { language } = useI18next();
   const isChinese = language === 'zh';
 
-  const currentValue = useSelector(getExtra(type)) || [];
+  const currentIds = useSelector(getExtrasIds)[type] || [];
 
   const allIds = React.useMemo(
     () => modifierData.flatMap(({ items }) => items.map((item) => item.id)),
@@ -53,8 +60,8 @@ const ExtrasSelect = ({ type, label, modifierData, modifierDataById: data }) => 
         }`
       }
       groupBy={(id) => data[id]?.section}
-      value={currentValue}
-      onChange={(event, value) => dispatch(changeExtra({ key: type, value }))}
+      value={currentIds}
+      onChange={(event, value) => dispatch(changeExtraIds({ type, ids: value }))}
       renderInput={(params) => (
         <TextField {...params} variant="standard" label={label} margin="dense" />
       )}
@@ -70,7 +77,7 @@ const ExtrasSelect = ({ type, label, modifierData, modifierDataById: data }) => 
       renderOption={({ className, ...prop }, id) => (
         <li {...prop} className={classNames(classes.option, className)}>
           <Box sx={{ width: 32 }}>
-            {currentValue.includes(id) && <CheckIcon sx={{ fontSize: '1rem' }} />}
+            {currentIds.includes(id) && <CheckIcon sx={{ fontSize: '1rem' }} />}
           </Box>
           <ListItemText
             primary={
@@ -124,4 +131,68 @@ const ExtrasSelect = ({ type, label, modifierData, modifierDataById: data }) => 
   );
 };
 
-export default ExtrasSelect;
+// separate component for now is mostly just for git diff reasons
+const ExtrasSelectWithMediocreAmounts = (props) => {
+  const { type } = props;
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
+  const { language } = useI18next();
+  const isChinese = language === 'zh';
+
+  const handleAmountChange = (id) => (e) => {
+    dispatch(changeExtraAmount({ type, id, amount: e.target.value }));
+  };
+
+  const currentIds = useSelector(getExtrasIds)[type] || [];
+  const extrasData = useSelector(getExtrasData);
+
+  return (
+    <>
+      <ExtrasSelect {...props} />
+      {currentIds
+        .filter((id) => allExtrasModifiersById[id].amountData)
+        .map((id) => {
+          const { gw2id, text, subText, amountData } = allExtrasModifiersById[id];
+          const amount = extrasData[type][id]?.amount || '';
+          return (
+            <Box key={id} justifyContent="space-between" display="flex" maxWidth="648px">
+              <Box>
+                <Item
+                  id={gw2id}
+                  disableLink
+                  {...(!isChinese && { text: text.replace('Superior ', '') })}
+                />
+                {subText && (
+                  <Typography
+                    sx={{
+                      fontWeight: 100,
+                      fontSize: '0.8rem',
+                      textAlign: 'right',
+                    }}
+                  >
+                    {
+                      // i18next-extract-mark-context-next-line {{extraSubText}}
+                      t('extraSubText', { context: subText })
+                    }
+                  </Typography>
+                )}
+              </Box>
+
+              <Box>
+                <AmountInput
+                  placeholder={amountData.default}
+                  // i18next-extract-mark-context-next-line {{amountLabel}}
+                  endLabel={t('amountLabel', { context: amountData.label })}
+                  handleAmountChange={handleAmountChange(id)}
+                  value={amount}
+                  maxWidth={32}
+                />
+              </Box>
+            </Box>
+          );
+        })}
+    </>
+  );
+};
+
+export default React.memo(ExtrasSelectWithMediocreAmounts);

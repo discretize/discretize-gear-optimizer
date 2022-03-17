@@ -20,7 +20,7 @@ import {
   getSelectedCharacter,
 } from '../slices/controlsSlice';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
-import { getExtrasCombinationsAndModifiers } from '../slices/extras';
+import { getExtrasCombinationsAndModifiers, getExtrasIds } from '../slices/extras';
 import { getInfusionsModifiers } from '../slices/infusions';
 import { getCustomAffixData } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
@@ -37,7 +37,7 @@ function createInput(
   cachedFormState,
   customAffixData,
   shouldDisplayExtras,
-  realExtras,
+  extrasCombination,
 ) {
   const {
     control: { profession },
@@ -111,7 +111,7 @@ function createInput(
   input.cachedFormState = cachedFormState;
   input.customAffixData = customAffixData;
   input.shouldDisplayExtras = shouldDisplayExtras;
-  input.realExtras = realExtras;
+  input.extrasCombination = extrasCombination;
 
   // temp: convert "poisoned" to "poison"
   const convertPoison = (distribution) =>
@@ -152,6 +152,12 @@ function* runCalc() {
 
     const customAffixData = yield select(getCustomAffixData);
 
+    // display extras in table if they have multiple options
+    const shouldDisplayExtras = mapValues(
+      yield select(getExtrasIds),
+      (value) => Array.isArray(value) && value.length > 1,
+    );
+
     console.time('Calculation');
 
     console.groupCollapsed('Debug Info:');
@@ -166,21 +172,9 @@ function* runCalc() {
       const cachedFormState = {
         traits: state.form.traits,
         skills: state.form.skills,
-        extras: {
-          ...state.form.extras,
-          extras: { ...state.form.extras.extras, ...extrasCombination },
-        },
+        extras: state.form.extras,
         buffs: state.form.buffs, // buffs are also needed to share a build and display the assumed buffs for the result
       };
-
-      // insert real (with arrays of all options) extras data for the template helper
-      const realExtras = state.form.extras;
-
-      // display extras in table if they have multiple options
-      const shouldDisplayExtras = mapValues(
-        state.form.extras.extras,
-        (value) => Array.isArray(value) && value.length > 1,
-      );
 
       combination.input = createInput(
         state,
@@ -189,7 +183,7 @@ function* runCalc() {
         cachedFormState,
         customAffixData,
         shouldDisplayExtras,
-        realExtras,
+        extrasCombination,
       );
       console.log('Input option:', combination);
     }

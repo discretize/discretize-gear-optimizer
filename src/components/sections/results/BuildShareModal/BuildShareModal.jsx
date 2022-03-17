@@ -48,7 +48,7 @@ const BuildShareModal = ({ children, title, character }) => {
     const windRef = window.open('', '_blank');
 
     const { attributes: allAttributes, gear, settings, infusions } = character;
-    const { specialization, weaponType, cachedFormState } = settings;
+    const { specialization, weaponType, extrasCombination } = settings;
 
     // filter out unnecessary attributes
     const attributes = {};
@@ -62,11 +62,7 @@ const BuildShareModal = ({ children, title, character }) => {
       gear,
       infusions: JSON.stringify(infusions) || '',
       settings: {
-        cachedFormState: {
-          extras: {
-            extras: cachedFormState.extras.extras,
-          },
-        },
+        extrasCombination,
         profession,
         specialization,
         weaponType,
