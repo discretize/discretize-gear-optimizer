@@ -4,590 +4,752 @@ list:
   - name: Power (Fractal)
     value: |-
       {
-        "Runes": ["scholar"],
-        "Sigil1": "force",
-        "Sigil2": "impact/night/slaying-both",
-        "Enhancement": ["slaying-potion"],
-        "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        "extras": {
+          "Runes": ["scholar"],
+          "Sigil1": ["force"],
+          "Sigil2": ["impact/night/slaying-both"],
+          "Enhancement": ["slaying-potion"],
+          "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        },
+        "amounts": {}
       }
 
   - name: Power (Raid)
     value: |-
       {
-        "Runes": ["scholar"],
-        "Sigil1": "force",
-        "Sigil2": "impact/night/slaying-only-3",
-        "Enhancement": ["superior-sharpening-stone"],
-        "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        "extras": {
+          "Runes": ["scholar"],
+          "Sigil1": ["force"],
+          "Sigil2": ["impact/night/slaying-only-3"],
+          "Enhancement": ["superior-sharpening-stone"],
+          "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        },
+        "amounts": {}
       }
 
   - name: Heal
     value: |-
       {
-        "Runes": ["monk"],
-        "Sigil1": "concentration",
-        "Sigil2": "transference",
-        "Enhancement": ["bountiful-maintenance-oil"],
-        "Nourishment": ["fruit-salad-mint-garnish"]
+        "extras": {
+          "Runes": ["monk"],
+          "Sigil1": ["concentration"],
+          "Sigil2": ["transference"],
+          "Enhancement": ["bountiful-maintenance-oil"],
+          "Nourishment": ["fruit-salad-mint-garnish"]
+        },
+        "amounts": {}
       }
 
   - name: Alacrity Mirage (Raid)
     profession: Mirage
     value: |-
       {
-        "Runes": ["nightmare"],
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": ["toxic-maintenance-oil"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["nightmare"],
+          "Sigil1": ["bursting"],
+          "Sigil2": [],
+          "Enhancement": ["toxic-maintenance-oil"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: DPS Mirage (Raid)
     profession: Mirage
     value: |-
       {
-        "Runes": ["nightmare"],
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": ["master-tuning-crystal"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["nightmare"],
+          "Sigil1": ["bursting"],
+          "Sigil2": [],
+          "Enhancement": ["master-tuning-crystal"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: Condi Chrono STM
     profession: Chronomancer
     value: |-
       {
-        "Runes": ["perplexity"],
-        "Sigil1": "bursting",
-        "Sigil2": "concentration",
-        "Enhancement": ["toxic-maintenance-oil"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["perplexity"],
+          "Sigil1": ["bursting"],
+          "Sigil2": ["concentration"],
+          "Enhancement": ["toxic-maintenance-oil"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: Condi Chrono DPS
     profession: Chronomancer
     value: |-
       {
-        "Runes": ["perplexity"],
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": ["toxic-focusing-crystal"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["perplexity"],
+          "Sigil1": ["bursting"],
+          "Sigil2": [],
+          "Enhancement": ["toxic-focusing-crystal"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: '[beta2] Virtuoso'
     profession: Virtuoso
     value: |-
       {
-        "Runes": ["scholar"],
-        "Sigil1": "force",
-        "Sigil2": "accuracy",
-        "Enhancement": ["superior-sharpening-stone"],
-        "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        "extras": {
+          "Runes": ["scholar"],
+          "Sigil1": ["force"],
+          "Sigil2": ["accuracy"],
+          "Enhancement": ["superior-sharpening-stone"],
+          "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        },
+        "amounts": {}
       }
 
   - name: DH Virtues (Fractal)
     profession: Dragonhunter
     value: |-
       {
-        "Runes": ["thief"],
-        "Sigil1": "force",
-        "Sigil2": "impact/night/slaying-both",
-        "Enhancement": ["slaying-potion"],
-        "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        "extras": {
+          "Runes": ["thief"],
+          "Sigil1": ["force"],
+          "Sigil2": ["impact/night/slaying-both"],
+          "Enhancement": ["slaying-potion"],
+          "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        },
+        "amounts": {}
       }
 
   - name: '[beta1] Power Willbender Virtues (Fractal)'
     profession: Willbender
     value: |-
       {
-        "Runes": ["thief"],
-        "Sigil1": "force",
-        "Sigil2": "impact/night/slaying-both",
-        "Enhancement": ["slaying-potion"],
-        "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        "extras": {
+          "Runes": ["thief"],
+          "Sigil1": ["force"],
+          "Sigil2": ["impact/night/slaying-both"],
+          "Enhancement": ["slaying-potion"],
+          "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        },
+        "amounts": {}
       }
 
   - name: DH Virtues (Raid)
     profession: Dragonhunter
     value: |-
       {
-        "Runes": ["thief"],
-        "Sigil1": "force",
-        "Sigil2": "accuracy",
-        "Enhancement": ["furious-sharpening-stone"],
-        "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        "extras": {
+          "Runes": ["thief"],
+          "Sigil1": ["force"],
+          "Sigil2": ["accuracy"],
+          "Enhancement": ["furious-sharpening-stone"],
+          "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        },
+        "amounts": {}
       }
 
   - name: '[beta1] Power Willbender Virtues (Raid)'
     profession: Willbender
     value: |-
       {
-        "Runes": ["thief"],
-        "Sigil1": "force",
-        "Sigil2": "accuracy",
-        "Enhancement": ["furious-sharpening-stone"],
-        "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        "extras": {
+          "Runes": ["thief"],
+          "Sigil1": ["force"],
+          "Sigil2": ["accuracy"],
+          "Enhancement": ["furious-sharpening-stone"],
+          "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        },
+        "amounts": {}
       }
 
   - name: CFB w/ Quickness (balthazar)
     profession: Firebrand
     value: |-
       {
-        "Runes": ["balthazar"],
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": ["toxic-maintenance-oil"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["balthazar"],
+          "Sigil1": ["bursting"],
+          "Sigil2": [],
+          "Enhancement": ["toxic-maintenance-oil"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: CFB w/ Quickness (renegade)
     profession: Firebrand
     value: |-
       {
-        "Runes": ["renegade"],
-        "Sigil1": "bursting",
-        "Sigil2": "smoldering",
-        "Enhancement": ["toxic-maintenance-oil"],
-        "Nourishment": ["fishy-rice-bowl"]
+        "extras": {
+          "Runes": ["renegade"],
+          "Sigil1": ["bursting"],
+          "Sigil2": ["smoldering"],
+          "Enhancement": ["toxic-maintenance-oil"],
+          "Nourishment": ["fishy-rice-bowl"]
+        },
+        "amounts": {}
       }
 
   - name: CFB DPS (balthazar)
     profession: Firebrand
     value: |-
       {
-        "Runes": ["balthazar"],
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": ["toxic-focusing-crystal"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["balthazar"],
+          "Sigil1": ["bursting"],
+          "Sigil2": [],
+          "Enhancement": ["toxic-focusing-crystal"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: CFB DPS (renegade)
     profession: Firebrand
     value: |-
       {
-        "Runes": ["renegade"],
-        "Sigil1": "bursting",
-        "Sigil2": "smoldering",
-        "Enhancement": ["toxic-focusing-crystal"],
-        "Nourishment": ["fishy-rice-bowl"]
+        "extras": {
+          "Runes": ["renegade"],
+          "Sigil1": ["bursting"],
+          "Sigil2": ["smoldering"],
+          "Enhancement": ["toxic-focusing-crystal"],
+          "Nourishment": ["fishy-rice-bowl"]
+        },
+        "amounts": {}
       }
 
   - name: '[beta2] Condi Willbender'
     profession: Willbender
     value: |-
       {
-        "Runes": ["balthazar"],
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": ["toxic-focusing-crystal"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["balthazar"],
+          "Sigil1": ["bursting"],
+          "Sigil2": [],
+          "Enhancement": ["toxic-focusing-crystal"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: Condi Quickbrand 40%
     profession: Firebrand
     value: |-
       {
-        "Runes": ["firebrand"],
-        "Sigil1": "bursting",
-        "Sigil2": "smoldering",
-        "Enhancement": ["toxic-focusing-crystal"],
-        "Nourishment": ["fishy-rice-bowl"]
+        "extras": {
+          "Runes": ["firebrand"],
+          "Sigil1": ["bursting"],
+          "Sigil2": ["smoldering"],
+          "Enhancement": ["toxic-focusing-crystal"],
+          "Nourishment": ["fishy-rice-bowl"]
+        },
+        "amounts": {}
       }
 
   - name: Condi Quickbrand 35%
     profession: Firebrand
     value: |-
       {
-        "Runes": ["balthazar"],
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": ["toxic-maintenance-oil"],
-        "Nourishment": ["dragon's-revelry-starcake"]
+        "extras": {
+          "Runes": ["balthazar"],
+          "Sigil1": ["bursting"],
+          "Sigil2": [],
+          "Enhancement": ["toxic-maintenance-oil"],
+          "Nourishment": ["dragon's-revelry-starcake"]
+        },
+        "amounts": {}
       }
 
   - name: Hybrid FB Traveler
     profession: Firebrand
     value: |-
       {
-        "Runes": ["traveler"],
-        "Sigil1": "bursting",
-        "Sigil2": "smoldering",
-        "Enhancement": ["master-tuning-crystal"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["traveler"],
+          "Sigil1": ["bursting"],
+          "Sigil2": ["smoldering"],
+          "Enhancement": ["master-tuning-crystal"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: Condi Bers
     profession: Berserker
     value: |-
       {
-        "Runes": ["renegade"],
-        "Sigil1": "",
-        "Sigil2": "",
-        "Enhancement": ["master-tuning-crystal"],
-        "Nourishment": ["rare-veggie-pizza"]
+        "extras": {
+          "Runes": ["renegade"],
+          "Sigil1": [],
+          "Sigil2": [],
+          "Enhancement": ["master-tuning-crystal"],
+          "Nourishment": ["rare-veggie-pizza"]
+        },
+        "amounts": {}
       }
 
   - name: Power Bers (Raid spotter)
     profession: Berserker
     value: |-
       {
-        "Runes": ["thief"],
-        "Sigil1": "force",
-        "Sigil2": "impact/night/slaying-only-3",
-        "Enhancement": ["superior-sharpening-stone"],
-        "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        "extras": {
+          "Runes": ["thief"],
+          "Sigil1": ["force"],
+          "Sigil2": ["impact/night/slaying-only-3"],
+          "Enhancement": ["superior-sharpening-stone"],
+          "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        },
+        "amounts": {}
       }
 
   - name: Flame Legion Power Weaver (Raid)
     profession: Weaver
     value: |-
       {
-        "Runes": ["flame-legion"],
-        "Sigil1": "force",
-        "Sigil2": "impact/night/slaying-only-3",
-        "Enhancement": ["superior-sharpening-stone"],
-        "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        "extras": {
+          "Runes": ["flame-legion"],
+          "Sigil1": ["force"],
+          "Sigil2": ["impact/night/slaying-only-3"],
+          "Enhancement": ["superior-sharpening-stone"],
+          "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        },
+        "amounts": {}
       }
 
   - name: Condi Weaver Sword
     profession: Weaver
     value: |-
       {
-        "Runes": ["elementalist"],
-        "Sigil1": "",
-        "Sigil2": "",
-        "Enhancement": ["toxic-focusing-crystal"],
-        "Nourishment": ["rare-veggie-pizza"]
+        "extras": {
+          "Runes": ["elementalist"],
+          "Sigil1": [],
+          "Sigil2": [],
+          "Enhancement": ["toxic-focusing-crystal"],
+          "Nourishment": ["rare-veggie-pizza"]
+        },
+        "amounts": {}
       }
 
   - name: Hybrid Weaver (Fractal)
     profession: Weaver
     value: |-
       {
-        "Runes": ["flame-legion"],
-        "Sigil1": "impact/night/slaying-both",
-        "Sigil2": "bursting",
-        "Enhancement": ["toxic-focusing-crystal"],
-        "Nourishment": ["dragon's-revelry-starcake"]
+        "extras": {
+          "Runes": ["flame-legion"],
+          "Sigil1": ["impact/night/slaying-both"],
+          "Sigil2": ["bursting"],
+          "Enhancement": ["toxic-focusing-crystal"],
+          "Nourishment": ["dragon's-revelry-starcake"]
+        },
+        "amounts": {}
       }
 
   - name: Hybrid Weaver (Raid)
     profession: Weaver
     value: |-
       {
-        "Runes": ["flame-legion"],
-        "Sigil1": "force",
-        "Sigil2": "bursting",
-        "Enhancement": ["toxic-focusing-crystal"],
-        "Nourishment": ["dragon's-revelry-starcake"]
+        "extras": {
+          "Runes": ["flame-legion"],
+          "Sigil1": ["force"],
+          "Sigil2": ["bursting"],
+          "Enhancement": ["toxic-focusing-crystal"],
+          "Nourishment": ["dragon's-revelry-starcake"]
+        },
+        "amounts": {}
       }
 
   - name: Condi Tempest
     profession: Tempest
     value: |-
       {
-        "Runes": ["elementalist"],
-        "Sigil1": "bursting",
-        "Sigil2": "smoldering",
-        "Enhancement": ["toxic-focusing-crystal"],
-        "Nourishment": ["rare-veggie-pizza"]
+        "extras": {
+          "Runes": ["elementalist"],
+          "Sigil1": ["bursting"],
+          "Sigil2": ["smoldering"],
+          "Enhancement": ["toxic-focusing-crystal"],
+          "Nourishment": ["rare-veggie-pizza"]
+        },
+        "amounts": {}
       }
 
   - name: Power Tempest (Raid)
     profession: Tempest
     value: |-
       {
-        "Runes": ["scholar"],
-        "Sigil1": "force",
-        "Sigil2": "accuracy",
-        "Enhancement": ["superior-sharpening-stone"],
-        "Nourishment": ["truffle-steak"]
+        "extras": {
+          "Runes": ["scholar"],
+          "Sigil1": ["force"],
+          "Sigil2": ["accuracy"],
+          "Enhancement": ["superior-sharpening-stone"],
+          "Nourishment": ["truffle-steak"]
+        },
+        "amounts": {}
       }
 
   - name: '[beta1] Condi Catalyst'
     profession: Catalyst
     value: |-
       {
-        "Runes": ["nightmare"],
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": ["toxic-focusing-crystal"],
-        "Nourishment": ["rare-veggie-pizza"]
+        "extras": {
+          "Runes": ["nightmare"],
+          "Sigil1": ["bursting"],
+          "Sigil2": [],
+          "Enhancement": ["toxic-focusing-crystal"],
+          "Nourishment": ["rare-veggie-pizza"]
+        },
+        "amounts": {}
       }
 
   - name: Power Slb Skirm (Raid)
     profession: Soulbeast
     value: |-
       {
-        "Runes": ["scholar"],
-        "Sigil1": "force",
-        "Sigil2": "impact/night/slaying-only-3",
-        "Enhancement": ["superior-sharpening-stone"],
-        "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        "extras": {
+          "Runes": ["scholar"],
+          "Sigil1": ["force"],
+          "Sigil2": ["impact/night/slaying-only-3"],
+          "Enhancement": ["superior-sharpening-stone"],
+          "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        },
+        "amounts": {}
       }
 
   - name: Condi Slb
     profession: Soulbeast
     value: |-
       {
-        "Runes": ["krait"],
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": ["toxic-focusing-crystal"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["krait"],
+          "Sigil1": ["bursting"],
+          "Sigil2": [],
+          "Enhancement": ["toxic-focusing-crystal"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: Hybrid Slb
     profession: Soulbeast
     value: |-
       {
-        "Runes": ["krait"],
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": ["toxic-focusing-crystal"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["krait"],
+          "Sigil1": ["bursting"],
+          "Sigil2": [],
+          "Enhancement": ["toxic-focusing-crystal"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: Pure Shortbow Slb BM
     profession: Soulbeast
     value: |-
       {
-        "Runes": ["krait"],
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": ["toxic-focusing-crystal"],
-        "Nourishment": ["rare-veggie-pizza"]
+        "extras": {
+          "Runes": ["krait"],
+          "Sigil1": ["bursting"],
+          "Sigil2": [],
+          "Enhancement": ["toxic-focusing-crystal"],
+          "Nourishment": ["rare-veggie-pizza"]
+        },
+        "amounts": {}
       }
 
   - name: Condi Druid
     profession: Druid
     value: |-
       {
-        "Runes": ["lich"],
-        "Sigil1": "malice",
-        "Sigil2": "",
-        "Enhancement": ["toxic-maintenance-oil"],
-        "Nourishment": ["rare-veggie-pizza"]
+        "extras": {
+          "Runes": ["lich"],
+          "Sigil1": ["malice"],
+          "Sigil2": [],
+          "Enhancement": ["toxic-maintenance-oil"],
+          "Nourishment": ["rare-veggie-pizza"]
+        },
+        "amounts": {}
       }
 
   - name: Condi Holo
     profession: Holosmith
     value: |-
       {
-        "Runes": ["renegade"],
-        "Sigil1": "malice",
-        "Sigil2": "bursting",
-        "Enhancement": ["master-tuning-crystal"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["renegade"],
+          "Sigil1": ["malice"],
+          "Sigil2": ["bursting"],
+          "Enhancement": ["master-tuning-crystal"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: Cele Ren (Fractal)
     profession: Renegade
     value: |-
       {
-        "Runes": ["leadership"],
-        "Sigil1": "",
-        "Sigil2": "",
-        "Enhancement": ["toxic-maintenance-oil"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["leadership"],
+          "Sigil1": [],
+          "Sigil2": [],
+          "Enhancement": ["toxic-maintenance-oil"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: Cele Ren (Raid)
     profession: Renegade
     value: |-
       {
-        "Runes": ["leadership"],
-        "Sigil1": "",
-        "Sigil2": "",
-        "Enhancement": ["writ-of-masterful-malice"],
-        "Nourishment": ["dragon's-revelry-starcake"]
+        "extras": {
+          "Runes": ["leadership"],
+          "Sigil1": [],
+          "Sigil2": [],
+          "Enhancement": ["writ-of-masterful-malice"],
+          "Nourishment": ["dragon's-revelry-starcake"]
+        },
+        "amounts": {}
       }
 
   - name: Condi Ren
     profession: Renegade
     value: |-
       {
-        "Runes": ["nightmare"],
-        "Sigil1": "",
-        "Sigil2": "",
-        "Enhancement": ["toxic-focusing-crystal"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["nightmare"],
+          "Sigil1": [],
+          "Sigil2": [],
+          "Enhancement": ["toxic-focusing-crystal"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: Condi Herald
     profession: Herald
     value: |-
       {
-        "Runes": ["nightmare"],
-        "Sigil1": "",
-        "Sigil2": "",
-        "Enhancement": ["master-tuning-crystal"],
-        "Nourishment": ["rare-veggie-pizza"]
+        "extras": {
+          "Runes": ["nightmare"],
+          "Sigil1": [],
+          "Sigil2": [],
+          "Enhancement": ["master-tuning-crystal"],
+          "Nourishment": ["rare-veggie-pizza"]
+        },
+        "amounts": {}
       }
 
   - name: '[beta2] Vindicator'
     profession: Vindicator
     value: |-
       {
-        "Runes": ["scholar"],
-        "Sigil1": "force",
-        "Sigil2": "",
-        "Enhancement": ["superior-sharpening-stone"],
-        "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        "extras": {
+          "Runes": ["scholar"],
+          "Sigil1": ["force"],
+          "Sigil2": [],
+          "Enhancement": ["superior-sharpening-stone"],
+          "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        },
+        "amounts": {}
       }
 
   - name: '[beta1] Condi Mechanist Thorns'
     profession: Mechanist
     value: |-
       {
-        "Runes": ["thorns"],
-        "Sigil1": "bursting",
-        "Sigil2": "malice",
-        "Enhancement": ["master-tuning-crystal"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["thorns"],
+          "Sigil1": ["bursting"],
+          "Sigil2": ["malice"],
+          "Enhancement": ["master-tuning-crystal"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: '[beta1] Condi Mechanist Renegade'
     profession: Mechanist
     value: |-
       {
-        "Runes": ["renegade"],
-        "Sigil1": "bursting",
-        "Sigil2": "malice",
-        "Enhancement": ["master-tuning-crystal"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["renegade"],
+          "Sigil1": ["bursting"],
+          "Sigil2": ["malice"],
+          "Enhancement": ["master-tuning-crystal"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: '[beta1] Condi Mechanist Elementalist'
     profession: Mechanist
     value: |-
       {
-        "Runes": ["elementalist"],
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": ["master-tuning-crystal"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["elementalist"],
+          "Sigil1": ["bursting"],
+          "Sigil2": [],
+          "Enhancement": ["master-tuning-crystal"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: DPS Scourge
     profession: Scourge
     value: |-
       {
-        "Runes": ["nightmare"],
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": ["master-tuning-crystal"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["nightmare"],
+          "Sigil1": ["bursting"],
+          "Sigil2": [],
+          "Enhancement": ["master-tuning-crystal"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: Condi Reaper
     profession: Reaper
     value: |-
       {
-        "Runes": ["krait"],
-        "Sigil1": "",
-        "Sigil2": "",
-        "Enhancement": ["toxic-focusing-crystal"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["krait"],
+          "Sigil1": [],
+          "Sigil2": [],
+          "Enhancement": ["toxic-focusing-crystal"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: '[beta1] DPS Harbinger'
     profession: Harbinger
     value: |-
       {
-        "Runes": ["tormenting"],
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": ["toxic-focusing-crystal"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["tormenting"],
+          "Sigil1": ["bursting"],
+          "Sigil2": [],
+          "Enhancement": ["toxic-focusing-crystal"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: '[beta1] Quickness Harbinger (Firebrand)'
     profession: Harbinger
     value: |-
       {
-        "Runes": ["firebrand"],
-        "Sigil1": "demons",
-        "Sigil2": "",
-        "Enhancement": ["master-tuning-crystal"],
-        "Nourishment": ["rare-veggie-pizza"]
+        "extras": {
+          "Runes": ["firebrand"],
+          "Sigil1": ["demons"],
+          "Sigil2": [],
+          "Enhancement": ["master-tuning-crystal"],
+          "Nourishment": ["rare-veggie-pizza"]
+        },
+        "amounts": {}
       }
 
   - name: '[beta1] Quickness Harbinger (Cele)'
     profession: Harbinger
     value: |-
       {
-        "Runes": ["tormenting"],
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": ["master-tuning-crystal"],
-        "Nourishment": ["rare-veggie-pizza"]
+        "extras": {
+          "Runes": ["tormenting"],
+          "Sigil1": ["bursting"],
+          "Sigil2": [],
+          "Enhancement": ["master-tuning-crystal"],
+          "Nourishment": ["rare-veggie-pizza"]
+        },
+        "amounts": {}
       }
 
   - name: Condi Deadeye
     profession: Deadeye
     value: |-
       {
-        "Runes": ["nightmare"],
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": ["master-tuning-crystal"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["nightmare"],
+          "Sigil1": ["bursting"],
+          "Sigil2": [],
+          "Enhancement": ["master-tuning-crystal"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: Power Boon Daredevil
     profession: Daredevil
     value: |-
       {
-        "Runes": ["thief"],
-        "Sigil1": "force",
-        "Sigil2": "concentration",
-        "Enhancement": ["potent-lucent-oil"],
-        "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        "extras": {
+          "Runes": ["thief"],
+          "Sigil1": ["force"],
+          "Sigil2": ["concentration"],
+          "Enhancement": ["potent-lucent-oil"],
+          "Nourishment": ["sweet-and-spicy-butternut-squash-soup"]
+        },
+        "amounts": {}
       }
 
   - name: Condi Daredevil
     profession: Daredevil
     value: |-
       {
-        "Runes": ["krait"],
-        "Sigil1": "",
-        "Sigil2": "",
-        "Enhancement": ["master-tuning-crystal"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["krait"],
+          "Sigil1": [],
+          "Sigil2": [],
+          "Enhancement": ["master-tuning-crystal"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: Condi Boon Daredevil
     profession: Daredevil
     value: |-
       {
-        "Runes": ["firebrand"],
-        "Sigil1": "concentration",
-        "Sigil2": "malice",
-        "Enhancement": ["master-tuning-crystal"],
-        "Nourishment": ["rare-veggie-pizza"]
+        "extras": {
+          "Runes": ["firebrand"],
+          "Sigil1": ["concentration"],
+          "Sigil2": ["malice"],
+          "Enhancement": ["master-tuning-crystal"],
+          "Nourishment": ["rare-veggie-pizza"]
+        },
+        "amounts": {}
       }
 
   - name: '[beta2] DPS Specter'
     profession: Specter
     value: |-
       {
-        "Runes": ["tormenting"],
-        "Sigil1": "",
-        "Sigil2": "",
-        "Enhancement": ["master-tuning-crystal"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["tormenting"],
+          "Sigil1": [],
+          "Sigil2": [],
+          "Enhancement": ["master-tuning-crystal"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
 
   - name: '[beta1] DPS Specter'
     profession: Specter
     value: |-
       {
-        "Runes": ["tormenting"],
-        "Sigil1": "bursting",
-        "Sigil2": "",
-        "Enhancement": ["toxic-focusing-crystal"],
-        "Nourishment": ["beef-rendang"]
+        "extras": {
+          "Runes": ["tormenting"],
+          "Sigil1": ["bursting"],
+          "Sigil2": [],
+          "Enhancement": ["toxic-focusing-crystal"],
+          "Nourishment": ["beef-rendang"]
+        },
+        "amounts": {}
       }
