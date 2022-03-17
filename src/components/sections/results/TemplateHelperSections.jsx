@@ -27,7 +27,7 @@ const TemplateHelperSections = ({ character }) => {
       Enhancement: utility,
       Nourishment: food,
       Runes: runeStringId,
-    } = extras;
+    } = extras.extras;
 
     const foodId = allExtrasModifiersById[food]?.gw2id;
     const utilityId = allExtrasModifiersById[utility]?.gw2id;

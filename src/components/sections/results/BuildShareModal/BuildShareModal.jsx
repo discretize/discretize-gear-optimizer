@@ -9,7 +9,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { changeCharacter } from '../../../../state/slices/buildPage';
-import { BuildPageSchema, version } from '../../../url-state/schema/BuildPageSchema_v1';
+import { BuildPageSchema, version } from '../../../url-state/schema/BuildPageSchema_v2';
 import ModalContent from './ModalContent';
 
 const useStyles = makeStyles()((theme) => ({
@@ -64,11 +64,7 @@ const BuildShareModal = ({ children, title, character }) => {
       settings: {
         cachedFormState: {
           extras: {
-            Enhancement: cachedFormState.extras.Enhancement,
-            Nourishment: cachedFormState.extras.Nourishment,
-            Runes: cachedFormState.extras.Runes,
-            Sigil1: cachedFormState.extras.Sigil1,
-            Sigil2: cachedFormState.extras.Sigil2,
+            extras: cachedFormState.extras.extras,
           },
         },
         profession,

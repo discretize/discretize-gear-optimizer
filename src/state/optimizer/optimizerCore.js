@@ -1256,6 +1256,7 @@ export function createOptimizerCore(input) {
     weaponType,
     appliedModifiers,
     rankby,
+    shouldDisplayExtras,
     // ...rest
   } = settings;
   // console.log(Object.keys(rest));
@@ -1268,6 +1269,7 @@ export function createOptimizerCore(input) {
     weaponType,
     appliedModifiers,
     rankby,
+    shouldDisplayExtras,
   };
 
   return new OptimizerCore(settings, minimalSettings);

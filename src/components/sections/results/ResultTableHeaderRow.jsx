@@ -4,13 +4,27 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
+import { extrasTypes } from '../../../state/slices/extras';
 import { INFUSION_IDS, Slots } from '../../../utils/gw2-data';
+
+const extrasLabels = {
+  Sigil1: <Item id={24615} disableLink disableText disableTooltip style={{ fontSize: 18 }} />,
+  Sigil2: <Item id={24615} disableLink disableText disableTooltip style={{ fontSize: 18 }} />,
+  Runes: <Item id={24836} disableLink disableText disableTooltip style={{ fontSize: 18 }} />,
+  Nourishment: (
+    <ConsumableEffect disableLink disableText name="Nourishment" style={{ fontSize: 18 }} />
+  ),
+  Enhancement: (
+    <ConsumableEffect disableLink disableText name="Enhancement" style={{ fontSize: 18 }} />
+  ),
+};
 
 const ResultTableHeaderRow = ({
   classes,
   weaponType = 'Two-handed',
   infusions = {},
   rankBy = 'Damage',
+  displayExtras,
 }) => {
   const { t } = useTranslation();
 
@@ -38,15 +52,19 @@ const ResultTableHeaderRow = ({
         </TableCell>
       ))}
 
-      <TableCell className={classes.tablehead} align="center" padding="none">
-        <Item id={24836} disableLink disableText disableTooltip style={{ fontSize: 18 }} />
-      </TableCell>
-      <TableCell className={classes.tablehead} align="center" padding="none">
-        <ConsumableEffect disableLink disableText name="Nourishment" style={{ fontSize: 18 }} />
-      </TableCell>
-      <TableCell className={classes.tablehead} align="center" padding="none">
-        <ConsumableEffect disableLink disableText name="Enhancement" style={{ fontSize: 18 }} />
-      </TableCell>
+      {extrasTypes
+        .filter((type) => displayExtras[type])
+        .map((type, index) => (
+          <TableCell
+            className={classes.tablehead}
+            // eslint-disable-next-line react/no-array-index-key
+            key={`extras${index}`}
+            align="center"
+            padding="none"
+          >
+            {extrasLabels[type]}
+          </TableCell>
+        ))}
     </TableRow>
   );
 };

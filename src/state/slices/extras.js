@@ -1,19 +1,28 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { allExtrasModifiersById } from '../../assets/modifierdata';
+import { mapValues } from '../../utils/usefulFunctions';
 import { changeAll, setBuildTemplate } from './controlsSlice';
+
+export const extrasTypes = ['Sigil1', 'Sigil2', 'Runes', 'Nourishment', 'Enhancement'];
 
 export const extrasSlice = createSlice({
   name: 'extras',
   initialState: {
-    Sigil1: '',
-    Sigil2: '',
-    Runes: [],
-    Nourishment: [],
-    Enhancement: [],
+    extras: {
+      Sigil1: '',
+      Sigil2: '',
+      Runes: [],
+      Nourishment: [],
+      Enhancement: [],
+    },
+    amounts: {},
   },
   reducers: {
     changeExtra: (state, action) => {
-      state[action.payload.key] = action.payload.value;
+      state.extras[action.payload.key] = action.payload.value;
+    },
+    changeExtraAmount: (state, action) => {
+      state.extras[action.payload.key] = action.payload.value;
     },
     changeExtras: (state, action) => {
       return { ...state, ...action.payload };
@@ -21,7 +30,18 @@ export const extrasSlice = createSlice({
   },
   extraReducers: {
     [changeAll]: (state, action) => {
-      return { ...state, ...action.payload?.form?.extras };
+      // best effort conversion of old data from before multiple selection
+      const input = action.payload?.form?.extras;
+      if (!input.extras) {
+        return {
+          ...state,
+          ...{
+            extras: mapValues(input, (value) => (Array.isArray(value) ? value : [value])),
+            amounts: {},
+          },
+        };
+      }
+      return { ...state, ...input };
     },
     [setBuildTemplate]: (state, action) => {
       const { extrasPreset = {} } = action.payload;
@@ -30,22 +50,8 @@ export const extrasSlice = createSlice({
   },
 });
 
-export const getExtra = (key) => (state) => state.optimizer.form.extras[key];
-export const getExtras = (state) => state.optimizer.form.extras;
-
-export const getSigilsModifiers = createSelector(
-  (state) => state.optimizer.form.extras,
-  (extras) => {
-    const enabledSigils = ['Sigil1', 'Sigil2'].filter((key) => extras[key]);
-
-    return enabledSigils.map((key) => {
-      const id = extras[key];
-      if (!allExtrasModifiersById[id]) throw new Error(`missing data for extras id: ${id}`);
-      const { modifiers } = allExtrasModifiersById[id];
-      return { id, modifiers, source: key };
-    });
-  },
-);
+export const getExtra = (key) => (state) => state.optimizer.form.extras.extras[key];
+export const getExtras = (state) => state.optimizer.form.extras.extras;
 
 // todo: document and clean this up and maybe move it elsewhere?
 /**
@@ -87,25 +93,22 @@ const findCombinations = (data) => {
   return combinations;
 };
 
-export const getExtrasCombinationsAndModifiers = createSelector(
-  (state) => state.optimizer.form.extras,
-  ({ Runes, Nourishment, Enhancement }) => {
-    const extrasCombinations = findCombinations({ Runes, Nourishment, Enhancement });
+export const getExtrasCombinationsAndModifiers = createSelector(getExtras, (extras) => {
+  const extrasCombinations = findCombinations(extras);
 
-    const getModifiers = (extrasCombination) =>
-      Object.entries(extrasCombination)
-        .filter(([_, id]) => id)
-        .map(([key, id]) => {
-          if (!allExtrasModifiersById[id]) throw new Error(`missing data for extras id: ${id}`);
-          const { modifiers } = allExtrasModifiersById[id];
-          return { id, modifiers, source: key };
-        });
+  const getModifiers = (extrasCombination) =>
+    Object.entries(extrasCombination)
+      .filter(([_, id]) => id)
+      .map(([key, id]) => {
+        if (!allExtrasModifiersById[id]) throw new Error(`missing data for extras id: ${id}`);
+        const { modifiers } = allExtrasModifiersById[id];
+        return { id, modifiers, source: key };
+      });
 
-    return extrasCombinations.map((extrasCombination) => ({
-      extrasCombination,
-      extrasModifiers: getModifiers(extrasCombination),
-    }));
-  },
-);
+  return extrasCombinations.map((extrasCombination) => ({
+    extrasCombination,
+    extrasModifiers: getModifiers(extrasCombination),
+  }));
+});
 
 export const { changeExtra, changeExtras } = extrasSlice.actions;

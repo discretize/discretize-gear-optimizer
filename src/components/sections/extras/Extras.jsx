@@ -4,24 +4,23 @@ import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { allExtrasModifiersById, extrasModifiers } from '../../../assets/modifierdata';
 import ExtrasMultiselect from '../../baseComponents/ExtrasMultiselect';
-import GW2Select from './GW2Select';
 
 const Extras = () => {
   const { t } = useTranslation();
   return (
     <>
       <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
-          <GW2Select
-            name="Sigil1"
+        <Grid item xs={12}>
+          <ExtrasMultiselect
+            type="Sigil1"
             label={<Item id={24615} disableLink disableTooltip text={t('Sigil 1')} />}
             modifierData={extrasModifiers.sigils}
             modifierDataById={allExtrasModifiersById}
           />
         </Grid>
-        <Grid item xs={12} md={6}>
-          <GW2Select
-            name="Sigil2"
+        <Grid item xs={12}>
+          <ExtrasMultiselect
+            type="Sigil2"
             label={<Item id={24868} disableLink disableTooltip text={t('Sigil 2')} />}
             modifierData={extrasModifiers.sigils}
             modifierDataById={allExtrasModifiersById}

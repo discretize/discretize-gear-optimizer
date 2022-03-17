@@ -10,7 +10,6 @@ import ErrorBoundary from '../../baseComponents/ErrorBoundary';
 
 export default function ResultCharacter({ data, character, weapons, skills, assumedBuffs }) {
   const { profession, specialization, weaponType, cachedFormState } = character.settings;
-  const { extras } = cachedFormState;
 
   const classData = Classes[profession].weapons;
 
@@ -39,7 +38,7 @@ export default function ResultCharacter({ data, character, weapons, skills, assu
     Enhancement: utility,
     Nourishment: food,
     Runes: runeStringId,
-  } = extras;
+  } = cachedFormState.extras.extras;
 
   const foodId = allExtrasModifiersById[food]?.gw2id;
   const utilityId = allExtrasModifiersById[utility]?.gw2id;

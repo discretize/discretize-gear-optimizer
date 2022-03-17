@@ -3,6 +3,7 @@ import JsonUrl from 'json-url';
 import { all, call, cancelled, put, race, select, take, takeLeading } from 'redux-saga/effects';
 import {
   mapEntries,
+  mapValues,
   parseBoss,
   parseInfusionCount,
   parsePriority,
@@ -19,7 +20,7 @@ import {
   getSelectedCharacter,
 } from '../slices/controlsSlice';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
-import { getExtrasCombinationsAndModifiers, getSigilsModifiers } from '../slices/extras';
+import { getExtrasCombinationsAndModifiers } from '../slices/extras';
 import { getInfusionsModifiers } from '../slices/infusions';
 import { getCustomAffixData } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
@@ -29,7 +30,14 @@ import { ERROR, SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function createInput(state, specialization, appliedModifiers, cachedFormState, customAffixData) {
+function createInput(
+  state,
+  specialization,
+  appliedModifiers,
+  cachedFormState,
+  customAffixData,
+  shouldDisplayExtras,
+) {
   const {
     control: { profession },
     form: {
@@ -101,6 +109,7 @@ function createInput(state, specialization, appliedModifiers, cachedFormState, c
   input.appliedModifiers = appliedModifiers;
   input.cachedFormState = cachedFormState;
   input.customAffixData = customAffixData;
+  input.shouldDisplayExtras = shouldDisplayExtras;
 
   // temp: convert "poisoned" to "poison"
   const convertPoison = (distribution) =>
@@ -132,7 +141,6 @@ function* runCalc() {
     const specialization = yield select(getCurrentSpecialization);
 
     const sharedModifiers = [
-      ...(yield select(getSigilsModifiers) || []),
       ...(yield select(getBuffsModifiers) || []),
       ...(yield select(getExtraModifiersModifiers) || []),
       ...(yield select(getInfusionsModifiers) || []),
@@ -156,9 +164,18 @@ function* runCalc() {
       const cachedFormState = {
         traits: state.form.traits,
         skills: state.form.skills,
-        extras: { ...state.form.extras, ...extrasCombination },
+        extras: {
+          ...state.form.extras,
+          extras: { ...state.form.extras.extras, ...extrasCombination },
+        },
         buffs: state.form.buffs, // buffs are also needed to share a build and display the assumed buffs for the result
       };
+
+      // display extras in table if they have multiple options
+      const shouldDisplayExtras = mapValues(
+        state.form.extras.extras,
+        (value) => Array.isArray(value) && value.length > 1,
+      );
 
       combination.input = createInput(
         state,
@@ -166,6 +183,7 @@ function* runCalc() {
         appliedModifiers,
         cachedFormState,
         customAffixData,
+        shouldDisplayExtras,
       );
       console.log('Input option:', combination);
     }
