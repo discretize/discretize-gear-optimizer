@@ -110,7 +110,7 @@ export const getExtrasCombinationsAndModifiers = createSelector(
           if (!allExtrasModifiersById[id]) throw new Error(`missing data for extras id: ${id}`);
           const itemData = allExtrasModifiersById[id];
 
-          return { id, ...itemData, source: type, amount: data[type][id]?.amount };
+          return { id, ...itemData, amount: data[type][id]?.amount };
         });
 
     return extrasCombinations.map((extrasCombination) => ({

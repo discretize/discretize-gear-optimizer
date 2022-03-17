@@ -155,7 +155,7 @@ function* runCalc() {
     // display extras in table if they have multiple options
     const shouldDisplayExtras = mapValues(
       yield select(getExtrasIds),
-      (value) => Array.isArray(value) && value.length > 1,
+      (ids) => Array.isArray(ids) && ids.length > 1,
     );
 
     console.time('Calculation');
