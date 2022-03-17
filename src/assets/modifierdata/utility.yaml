@@ -85,7 +85,7 @@
       gw2id: 81157
 
     - id: master-maintenance-oil
-      text: Master Maintenance Oil
+      text: Master Maintenance Oil / Peppermint Oil
       modifiers:
         conversion:
           Concentration: {Precision: 3%, Healing Power: 6%}
@@ -128,7 +128,7 @@
       gw2id: 67524
 
     - id: master-tuning-crystal
-      text: Master Tuning Crystal
+      text: Master Tuning Crystal / Tuning Icicle
       modifiers:
         conversion:
           Condition Damage: {Precision: 3%, Expertise: 8%}

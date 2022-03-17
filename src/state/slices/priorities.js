@@ -10,6 +10,8 @@ export const prioritiesSlice = createSlice({
     minHealingPower: '',
     minToughness: '',
     maxToughness: '',
+    minHealth: '',
+    minCritChance: '',
     affixes: [],
     customAffix: {},
     customAffixTextBox: '',

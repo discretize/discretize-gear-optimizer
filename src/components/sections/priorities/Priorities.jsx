@@ -25,7 +25,7 @@ const useStyles = makeStyles()((theme) => ({
   },
   formControl: {
     margin: theme.spacing(1),
-    width: 180,
+    width: 160,
   },
   box: {
     display: 'flex',
@@ -47,6 +47,8 @@ const Priorities = () => {
   const minHealingPower = useSelector(getPriority('minHealingPower'));
   const minToughness = useSelector(getPriority('minToughness'));
   const maxToughness = useSelector(getPriority('maxToughness'));
+  const minHealth = useSelector(getPriority('minHealth'));
+  const minCritChance = useSelector(getPriority('minCritChance'));
   const affixes = useSelector(getPriority('affixes'));
 
   const customSelected = affixes.includes('Custom');
@@ -132,77 +134,103 @@ const Priorities = () => {
         />
       </Grid>
 
-      <Grid item xs={12} sm={6}>
-        <div className={classes.box}>
-          <FormControl className={classes.formControl} variant="standard">
-            <InputLabel htmlFor="minBoon-input-with-icon-adornment">
-              <Trans>Min.</Trans> <Attribute name="Boon Duration" disableLink />
-            </InputLabel>
-            <Input
-              id="minBoon-input-with-icon-adornment"
-              value={minBoonDuration}
-              onChange={handleChange}
-              name="minBoonDuration"
-              error={parsePriority(minBoonDuration).error}
-              autoComplete="off"
-            />
-          </FormControl>
-          <HelperIcon
-            text={t('Only show results that fulfill a certain amount of Boon Duration.')}
+      <Grid item xs={6} md={4} className={classes.box}>
+        <FormControl className={classes.formControl} variant="standard">
+          <InputLabel htmlFor="minToughness-input-with-icon-adornment">
+            <Trans>Min.</Trans> <Attribute name="Toughness" disableLink />
+          </InputLabel>
+          <Input
+            id="minToughness-input-with-icon-adornment"
+            value={minToughness}
+            onChange={handleChange}
+            name="minToughness"
+            error={parsePriority(minToughness).error}
+            autoComplete="off"
           />
-        </div>
-        <div className={classes.box}>
-          <FormControl className={classes.formControl} variant="standard">
-            <InputLabel htmlFor="minHeal-input-with-icon-adornment">
-              <Trans>Min.</Trans> <Attribute name="Healing Power" disableLink />
-            </InputLabel>
-            <Input
-              id="minHeal-input-with-icon-adornment"
-              value={minHealingPower}
-              onChange={handleChange}
-              name="minHealingPower"
-              error={parsePriority(minHealingPower).error}
-              autoComplete="off"
-            />
-          </FormControl>
-          <HelperIcon
-            text={t('Only show results that fulfill a certain amount of Healing Power.')}
-          />
-        </div>
+        </FormControl>
+        <HelperIcon text={t('Only show results that fulfill a minimum amount of Toughness.')} />
       </Grid>
-      <Grid item xs={12} sm={6}>
-        <div className={classes.box}>
-          <FormControl className={classes.formControl} variant="standard">
-            <InputLabel htmlFor="minToughness-input-with-icon-adornment">
-              <Trans>Min.</Trans> <Attribute name="Toughness" disableLink />
-            </InputLabel>
-            <Input
-              id="minToughness-input-with-icon-adornment"
-              value={minToughness}
-              onChange={handleChange}
-              name="minToughness"
-              error={parsePriority(minToughness).error}
-              autoComplete="off"
-            />
-          </FormControl>
-          <HelperIcon text={t('Only show results that fulfill a minimum amount of Toughness.')} />
-        </div>
-        <div className={classes.box}>
-          <FormControl className={classes.formControl} variant="standard">
-            <InputLabel htmlFor="maxToughness-input-with-icon-adornment">
-              <Trans>Max.</Trans> <Attribute name="Toughness" disableLink />
-            </InputLabel>
-            <Input
-              id="maxToughness-input-with-icon-adornment"
-              value={maxToughness}
-              onChange={handleChange}
-              name="maxToughness"
-              error={parsePriority(maxToughness).error}
-              autoComplete="off"
-            />
-          </FormControl>
-          <HelperIcon text={t('Only show results that fulfill a maximum amount of Toughness.')} />
-        </div>
+      <Grid item xs={6} md={4} className={classes.box}>
+        <FormControl className={classes.formControl} variant="standard">
+          <InputLabel htmlFor="maxToughness-input-with-icon-adornment">
+            <Trans>Max.</Trans> <Attribute name="Toughness" disableLink />
+          </InputLabel>
+          <Input
+            id="maxToughness-input-with-icon-adornment"
+            value={maxToughness}
+            onChange={handleChange}
+            name="maxToughness"
+            error={parsePriority(maxToughness).error}
+            autoComplete="off"
+          />
+        </FormControl>
+        <HelperIcon text={t('Only show results that fulfill a maximum amount of Toughness.')} />
+      </Grid>
+      <Grid item xs={6} md={4} className={classes.box}>
+        <FormControl className={classes.formControl} variant="standard">
+          <InputLabel htmlFor="minBoon-input-with-icon-adornment">
+            <Trans>Min.</Trans> <Attribute name="Boon Duration" disableLink />
+          </InputLabel>
+          <Input
+            id="minBoon-input-with-icon-adornment"
+            value={minBoonDuration}
+            onChange={handleChange}
+            name="minBoonDuration"
+            error={parsePriority(minBoonDuration).error}
+            autoComplete="off"
+          />
+        </FormControl>
+        <HelperIcon text={t('Only show results that fulfill a certain amount of Boon Duration.')} />
+      </Grid>
+      <Grid item xs={6} md={4} className={classes.box}>
+        <FormControl className={classes.formControl} variant="standard">
+          <InputLabel htmlFor="minHeal-input-with-icon-adornment">
+            <Trans>Min.</Trans> <Attribute name="Healing Power" disableLink />
+          </InputLabel>
+          <Input
+            id="minHeal-input-with-icon-adornment"
+            value={minHealingPower}
+            onChange={handleChange}
+            name="minHealingPower"
+            error={parsePriority(minHealingPower).error}
+            autoComplete="off"
+          />
+        </FormControl>
+        <HelperIcon text={t('Only show results that fulfill a certain amount of Healing Power.')} />
+      </Grid>
+      <Grid item xs={6} md={4} className={classes.box}>
+        <FormControl className={classes.formControl} variant="standard">
+          <InputLabel htmlFor="minHealth-input-with-icon-adornment">
+            <Trans>Min.</Trans> <Attribute name="Health" disableLink />
+          </InputLabel>
+          <Input
+            id="minHealth-input-with-icon-adornment"
+            value={minHealth}
+            onChange={handleChange}
+            name="minHealth"
+            error={parsePriority(minHealth).error}
+            autoComplete="off"
+          />
+        </FormControl>
+        <HelperIcon text={t('Only show results that fulfill a certain amount of Health.')} />
+      </Grid>
+      <Grid item xs={6} md={4} className={classes.box}>
+        <FormControl className={classes.formControl} variant="standard">
+          <InputLabel htmlFor="minCritChance-input-with-icon-adornment">
+            <Trans>Min.</Trans> <Attribute name="Critical Chance" disableLink />
+          </InputLabel>
+          <Input
+            id="minCritChance-input-with-icon-adornment"
+            value={minCritChance}
+            onChange={handleChange}
+            name="minCritChance"
+            error={parsePriority(minCritChance).error}
+            autoComplete="off"
+          />
+        </FormControl>
+        <HelperIcon
+          text={t('Only show results that fulfill a certain amount of Critical Chance.')}
+        />
       </Grid>
 
       {customSelected ? (

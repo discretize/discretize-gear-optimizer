@@ -22,8 +22,9 @@ const IndexPage = ({ location }) => {
         <LanguageSelection location={location} />
         <MuiAlert elevation={6} variant="filled" severity="warning">
           <Trans>
-            The gear optimizer is currently in beta! Templates are not final and phantasm and
-            lifesteal damage is inaccurate. Please report potential issues to us in
+            The gear optimizer is currently in beta! Templates are not final and
+            illusion/summon/mech and lifesteal damage is inaccurate. Please report potential issues
+            to us in
           </Trans>{' '}
           <Link
             href="https://discord.gg/Qdt7nFY"
