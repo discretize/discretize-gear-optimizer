@@ -278,6 +278,14 @@ const modifyState = (optimizerState) => {
   //   });
   // }
 
+  let modifiedSelectedCharacter = null;
+  if (optimizerState.control.selectedCharacter) {
+    modifiedSelectedCharacter = JSON.parse(
+      JSON.stringify(optimizerState.control.selectedCharacter),
+    );
+    modifiedSelectedCharacter.settings.appliedModifiers = [];
+  }
+
   const exportData = {
     // listSettings,
     optimizerState: {
@@ -286,7 +294,7 @@ const modifyState = (optimizerState) => {
         ...optimizerState.control,
         list: [],
         saved: [],
-        // selectedCharacter: null,
+        selectedCharacter: modifiedSelectedCharacter,
       },
     },
   };
