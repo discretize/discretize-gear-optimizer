@@ -37,11 +37,21 @@ const ExtrasSection = ({ profession, data }) => {
     <Section
       title={t('Runes & Sigils & Food')}
       content={<Extras />}
-      helpText={t(
-        'Select multiple rune or food options if desired and every combination will be tested.',
-      )}
+      helpText={t('Select multiple options if desired and every combination will be tested.')}
       extraInfo={
         <>
+          {/* <FormControlLabel
+            control={
+              <Switch
+                checked={false}
+                onChange={(e) => dispatch(toggleAdvanced(e.target.checked))}
+                name="checked"
+                color="primary"
+                disabled
+              />
+            }
+            label={t('Enable custom mismatched sigils (todo)')}
+          /> */}
           {profession !== '' && (
             <Presets
               data={extrasPresets}

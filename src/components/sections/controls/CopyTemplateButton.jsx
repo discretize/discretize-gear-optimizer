@@ -1,4 +1,5 @@
 /* eslint-disable id-length */
+/*
 import { Icon } from '@discretize/gw2-ui-new';
 import { Alert, Button, MenuItem, Select, Snackbar } from '@mui/material';
 import React from 'react';
@@ -99,3 +100,4 @@ const CopyTemplateButton = ({ extras: extrasIds, data, infusions, weight, runeId
 };
 
 export default CopyTemplateButton;
+*/

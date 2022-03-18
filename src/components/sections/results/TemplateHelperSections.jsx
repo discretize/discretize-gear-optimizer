@@ -19,7 +19,8 @@ const TemplateHelperSections = ({ character }) => {
 
   const onClick = ({ profession, skills, weapons }) => {
     const { attributes, gear, settings } = character;
-    const { extras, buffs } = settings.cachedFormState;
+    const { buffs } = settings.cachedFormState.buffs;
+
     // Calculate extras
     const {
       Sigil1: sigil1,
@@ -27,7 +28,7 @@ const TemplateHelperSections = ({ character }) => {
       Enhancement: utility,
       Nourishment: food,
       Runes: runeStringId,
-    } = extras;
+    } = settings.extrasCombination;
 
     const foodId = allExtrasModifiersById[food]?.gw2id;
     const utilityId = allExtrasModifiersById[utility]?.gw2id;
@@ -55,7 +56,7 @@ const TemplateHelperSections = ({ character }) => {
 
     const assumedBuffs = buffModifiers
       .flatMap((buff) => buff.items)
-      .filter((buff) => buffs.buffs[buff.id])
+      .filter((buff) => buffs[buff.id])
       .map(({ id, gw2id, type }) => ({ id, gw2id, type }));
 
     const template = {

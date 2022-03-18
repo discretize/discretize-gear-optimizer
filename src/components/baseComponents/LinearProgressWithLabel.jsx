@@ -1,3 +1,4 @@
+/*
 import { Box, LinearProgress, Typography } from '@mui/material';
 import React from 'react';
 
@@ -16,3 +17,4 @@ function LinearProgressWithLabel(props) {
 }
 
 export default LinearProgressWithLabel;
+*/

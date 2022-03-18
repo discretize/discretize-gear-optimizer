@@ -3,12 +3,13 @@ import JsonUrl from 'json-url';
 import { all, call, cancelled, put, race, select, take, takeLeading } from 'redux-saga/effects';
 import {
   mapEntries,
+  mapValues,
   parseBoss,
   parseInfusionCount,
   parsePriority,
 } from '../../utils/usefulFunctions';
 import { getBuffsModifiers } from '../slices/buffs';
-import { changeBuildPage } from '../slices/buildPage';
+// import { changeBuildPage } from '../slices/buildPage';
 import {
   changeAll,
   changeControl,
@@ -19,7 +20,7 @@ import {
   getSelectedCharacter,
 } from '../slices/controlsSlice';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
-import { getExtrasCombinationsAndModifiers, getSigilsModifiers } from '../slices/extras';
+import { getExtrasCombinationsAndModifiers, getExtrasIds } from '../slices/extras';
 import { getInfusionsModifiers } from '../slices/infusions';
 import { getCustomAffixData } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
@@ -29,7 +30,15 @@ import { ERROR, SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function createInput(state, specialization, appliedModifiers, cachedFormState, customAffixData) {
+function createInput(
+  state,
+  specialization,
+  appliedModifiers,
+  cachedFormState,
+  customAffixData,
+  shouldDisplayExtras,
+  extrasCombination,
+) {
   const {
     control: { profession },
     form: {
@@ -101,6 +110,8 @@ function createInput(state, specialization, appliedModifiers, cachedFormState, c
   input.appliedModifiers = appliedModifiers;
   input.cachedFormState = cachedFormState;
   input.customAffixData = customAffixData;
+  input.shouldDisplayExtras = shouldDisplayExtras;
+  input.extrasCombination = extrasCombination;
 
   // temp: convert "poisoned" to "poison"
   const convertPoison = (distribution) =>
@@ -132,7 +143,6 @@ function* runCalc() {
     const specialization = yield select(getCurrentSpecialization);
 
     const sharedModifiers = [
-      ...(yield select(getSigilsModifiers) || []),
       ...(yield select(getBuffsModifiers) || []),
       ...(yield select(getExtraModifiersModifiers) || []),
       ...(yield select(getInfusionsModifiers) || []),
@@ -141,6 +151,12 @@ function* runCalc() {
     ];
 
     const customAffixData = yield select(getCustomAffixData);
+
+    // display extras in table if they have multiple options
+    const shouldDisplayExtras = mapValues(
+      yield select(getExtrasIds),
+      (ids) => Array.isArray(ids) && ids.length > 1,
+    );
 
     console.time('Calculation');
 
@@ -156,7 +172,7 @@ function* runCalc() {
       const cachedFormState = {
         traits: state.form.traits,
         skills: state.form.skills,
-        extras: { ...state.form.extras, ...extrasCombination },
+        extras: state.form.extras,
         buffs: state.form.buffs, // buffs are also needed to share a build and display the assumed buffs for the result
       };
 
@@ -166,6 +182,8 @@ function* runCalc() {
         appliedModifiers,
         cachedFormState,
         customAffixData,
+        shouldDisplayExtras,
+        extrasCombination,
       );
       console.log('Input option:', combination);
     }
@@ -188,6 +206,7 @@ function* runCalc() {
         }
       }
       if (listRenderCounter === listThrottle) {
+        yield delay(0);
         yield put(changeList(currentList));
       }
 
@@ -362,6 +381,7 @@ function* watchImportState() {
   yield takeLeading('IMPORT_STATE', importState);
 }
 
+/*
 function* exportStateCharacter({ onSuccess }) {
   const reduxState = yield select();
 
@@ -414,9 +434,11 @@ function* importStateCharacter({ buildUrl: input, onSuccess, onError }) {
   }
 }
 
+
 function* watchImportStateCharacter() {
   yield takeLeading('IMPORT_STATE_CHARACTER', importStateCharacter);
 }
+*/
 
 export default function* rootSaga() {
   yield all([
@@ -424,7 +446,7 @@ export default function* rootSaga() {
     watchStart(),
     watchExportState(),
     watchImportState(),
-    watchExportStateCharacter(),
-    watchImportStateCharacter(),
+    // watchExportStateCharacter(),
+    // watchImportStateCharacter(),
   ]);
 }

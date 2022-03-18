@@ -71,6 +71,27 @@ const StickyHeadTable = () => {
 
   const selectedValue = selectedCharacter?.results?.value;
 
+  // display extra types if any displayed character has the flag set to true
+  const shouldDisplay = (type) =>
+    firstCharacter?.settings?.shouldDisplayExtras?.[type] ||
+    saved.some((character) => character?.settings?.shouldDisplayExtras?.[type]);
+
+  // this code looks awful but a working useMemo is very important here (rerendering every row = bad)
+  const displaySigils = shouldDisplay('Sigil1') || shouldDisplay('Sigil2');
+  const displayRunes = shouldDisplay('Runes');
+  const displayNourishment = shouldDisplay('Nourishment');
+  const displayEnhancement = shouldDisplay('Enhancement');
+  const displayExtras = React.useMemo(
+    () => ({
+      Sigil1: displaySigils,
+      Sigil2: displaySigils,
+      Runes: displayRunes,
+      Nourishment: displayNourishment,
+      Enhancement: displayEnhancement,
+    }),
+    [displaySigils, displayRunes, displayNourishment, displayEnhancement],
+  );
+
   return (
     <>
       <Box boxShadow={8} mb={3}>
@@ -82,6 +103,7 @@ const StickyHeadTable = () => {
                 weaponType={weaponType}
                 infusions={infusions}
                 rankBy={rankBy}
+                displayExtras={displayExtras}
               />
             </TableHead>
             <TableBody
@@ -121,6 +143,7 @@ const StickyHeadTable = () => {
                     underlineClass={underline ? classes.underline : null}
                     selectedValue={selectedValue}
                     compareByPercent={compareByPercent}
+                    displayExtras={displayExtras}
                   />
                 );
               })}
@@ -159,6 +182,7 @@ const StickyHeadTable = () => {
                     weaponType={weaponType}
                     infusions={infusions}
                     rankBy={rankBy}
+                    displayExtras={displayExtras}
                   />
                 </TableHead>
                 <TableBody
@@ -177,6 +201,7 @@ const StickyHeadTable = () => {
                         underlineClass={i === saved.length - 1 ? classes.bigUnderline : null}
                         selectedValue={selectedValue}
                         compareByPercent={compareByPercent}
+                        displayExtras={displayExtras}
                       />
                     );
                   })}

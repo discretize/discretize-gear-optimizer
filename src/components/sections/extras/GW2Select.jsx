@@ -1,3 +1,4 @@
+/*
 import { Item } from '@discretize/gw2-ui-new';
 import {
   FormControl,
@@ -104,3 +105,4 @@ const GW2Select = ({ name, label, modifierData, modifierDataById }) => {
   );
 };
 export default GW2Select;
+*/

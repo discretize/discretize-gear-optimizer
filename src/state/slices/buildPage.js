@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { buffsDict } from '../../components/url-state/schema/SchemaDicts';
 
 export const buildPageSlice = createSlice({
   name: 'buildPage',
@@ -38,32 +39,12 @@ export const buildPageSlice = createSlice({
       const tempBits = action.payload.buffs.toString(2);
       // pad zeros
       const buffBits =
-        tempBits.length < 21 ? '0'.repeat(21 - tempBits.length) + tempBits : tempBits;
+        tempBits.length < buffsDict.length
+          ? '0'.repeat(buffsDict.length - tempBits.length) + tempBits
+          : tempBits;
       // force the same order during as it was during compression
       const buffsUnpacked = {};
-      [
-        'might',
-        'fury',
-        'protection',
-        'vulnerability',
-        'bannerOfStrength',
-        'bannerOfDiscipline',
-        'bannerOfTactics',
-        'bannerOfDefense',
-        'spotter',
-        'frostSpirit',
-        'empowerAllies',
-        'pinpointDistribution',
-        'assassinsPresence',
-        'riteDwarf',
-        'strengthInNumbers',
-        'baneSignet',
-        'signetOfJudgement',
-        'signetOfMercy',
-        'signetOfWrath',
-        'exposed',
-        'lightArmor',
-      ].forEach((buff, index) => {
+      buffsDict.forEach((buff, index) => {
         buffsUnpacked[buff] = buffBits[index] === '1';
       });
 

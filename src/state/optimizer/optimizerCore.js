@@ -98,6 +98,7 @@ let uniqueIDCounter = 0;
 
 class OptimizerCore {
   settings;
+  minimalSettings;
   applyInfusionsFunction;
   condiResultCache = new Map();
   worstScore;
@@ -105,8 +106,9 @@ class OptimizerCore {
   isChanged = true;
   randomId = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
 
-  constructor(settings) {
+  constructor(settings, minimalSettings) {
     this.settings = settings;
+    this.minimalSettings = minimalSettings;
   }
 
   /**
@@ -238,30 +240,9 @@ class OptimizerCore {
       return;
     }
 
-    const {
-      cachedFormState,
-      profession,
-      specialization,
-      weaponType,
-      appliedModifiers,
-      rankby,
-      // ...rest
-    } = settings;
-    // console.log(Object.keys(rest));
-
-    // only supply character with settings it uses to render
-    const minimalSettings = {
-      cachedFormState,
-      profession,
-      specialization,
-      weaponType,
-      appliedModifiers,
-      rankby,
-    };
-
     const character = {
       gear, // passed by reference
-      settings: minimalSettings, // passed by reference
+      settings: this.minimalSettings, // passed by reference
       gearStats, // passed by reference
       attributes: null,
       valid: true,
@@ -683,7 +664,10 @@ class OptimizerCore {
 
     // baseline for comparing adding/subtracting +5 infusions
     const baseline = this.clone(character);
-    const noRoundingCore = new OptimizerCore({ ...this.settings, noRounding: true });
+    const noRoundingCore = new OptimizerCore(
+      { ...this.settings, noRounding: true },
+      this.minimalSettings,
+    );
     noRoundingCore.updateAttributes(baseline);
 
     // effective gain from adding +5 infusions
@@ -1265,7 +1249,32 @@ export function createOptimizerCore(input) {
   //   return num / denom;
   // }
 
-  return new OptimizerCore(settings);
+  const {
+    cachedFormState,
+    profession,
+    specialization,
+    weaponType,
+    appliedModifiers,
+    rankby,
+    shouldDisplayExtras,
+    extrasCombination,
+    // ...rest
+  } = settings;
+  // console.log(Object.keys(rest));
+
+  // only supply character with settings it uses to render
+  const minimalSettings = {
+    cachedFormState,
+    profession,
+    specialization,
+    weaponType,
+    appliedModifiers,
+    rankby,
+    shouldDisplayExtras,
+    extrasCombination,
+  };
+
+  return new OptimizerCore(settings, minimalSettings);
 }
 
 // returns a positive value if B is better than A

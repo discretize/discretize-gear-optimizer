@@ -7,6 +7,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import { changeSelectedCharacter, toggleSaved } from '../../../state/slices/controlsSlice';
+import { extrasTypes } from '../../../state/slices/extras';
 
 const ResultTableRow = ({
   character,
@@ -16,6 +17,7 @@ const ResultTableRow = ({
   underlineClass,
   selectedValue,
   compareByPercent,
+  displayExtras,
 }) => {
   const dispatch = useDispatch();
 
@@ -90,22 +92,24 @@ const ResultTableRow = ({
             </TableCell>
           ))
         : null}
-      {['Runes', 'Nourishment', 'Enhancement'].map((key, index) => {
-        const extra = character.settings.cachedFormState.extras[key];
-        return (
-          // eslint-disable-next-line react/no-array-index-key
-          <TableCell align="center" key={`extras${index}`} padding="none">
-            {extra ? (
-              <Item
-                id={allExtrasModifiersById[extra]?.gw2id}
-                disableText
-                disableLink
-                style={{ fontSize: 18 }}
-              />
-            ) : null}
-          </TableCell>
-        );
-      })}
+      {extrasTypes
+        .filter((type) => displayExtras[type])
+        .map((key, index) => {
+          const extra = character.settings.extrasCombination[key];
+          return (
+            // eslint-disable-next-line react/no-array-index-key
+            <TableCell align="center" key={`extras${index}`} padding="none">
+              {extra ? (
+                <Item
+                  id={allExtrasModifiersById[extra]?.gw2id}
+                  disableText
+                  disableLink
+                  style={{ fontSize: 18 }}
+                />
+              ) : null}
+            </TableCell>
+          );
+        })}
     </TableRow>
   );
 };
