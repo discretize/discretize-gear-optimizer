@@ -78,7 +78,12 @@ export const allAttributePercentKeys = percents;
 export const allConversionSourceKeys = stats;
 export const allConversionDestinationKeys = [...stats, ...percents, ...coefficients];
 
-export const allConversionAfterBuffsSourceKeys = [...stats, 'Critical Chance'];
+export const allConversionAfterBuffsSourceKeys = [
+  ...stats,
+  'Critical Chance',
+  'Critical Chance -20',
+  'Critical Chance -30',
+];
 export const allConversionAfterBuffsDestinationKeys = [...stats, ...percents, ...coefficients];
 
 // these values don't behave well if scaled up and down,

@@ -528,9 +528,15 @@ class OptimizerCore {
     for (const [attribute, conversion] of settings.modifiers['convertAfterBuffs']) {
       const maybeRound = allAttributePointKeys.includes(attribute) ? round : (val) => val;
       for (const [source, percent] of conversion) {
-        const sourceAmount =
-          source === 'Critical Chance' ? clamp(attributes[source], 0, 1) : attributes[source];
-        attributes[attribute] += maybeRound(sourceAmount * percent);
+        if (source === 'Critical Chance') {
+          attributes[attribute] += maybeRound(clamp(attributes[source], 0, 1) * percent);
+        } else if (source === 'Critical Chance -20') {
+          attributes[attribute] += maybeRound(clamp(attributes[source] - 0.2, 0, 1) * percent);
+        } else if (source === 'Critical Chance -30') {
+          attributes[attribute] += maybeRound(clamp(attributes[source] - 0.3, 0, 1) * percent);
+        } else {
+          attributes[attribute] += maybeRound(attributes[source] * percent);
+        }
       }
     }
   }
