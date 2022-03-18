@@ -3,7 +3,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import { Box, Chip, Divider, ListItemText, TextField, Typography } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 import classNames from 'classnames';
-import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
@@ -39,8 +39,10 @@ const ExtrasSelect = ({ type, label, modifierData, modifierDataById: data }) => 
   const { classes } = useStyles();
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const { language } = useI18next();
-  const isChinese = language === 'zh';
+  // const { language } = useI18next();
+  // const isChinese = language === 'zh';
+  // todo: replace this once dual sigils are not hardcoded with fake ids
+  const isChinese = false;
 
   const currentIds = useSelector(getExtrasIds)[type] || [];
 
@@ -136,8 +138,10 @@ const ExtrasSelectWithMediocreAmounts = (props) => {
   const { type } = props;
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const { language } = useI18next();
-  const isChinese = language === 'zh';
+  // const { language } = useI18next();
+  // const isChinese = language === 'zh';
+  // todo: replace this once dual sigils are not hardcoded with fake ids
+  const isChinese = false;
 
   const handleAmountChange = (id) => (e) => {
     dispatch(changeExtraAmount({ type, id, amount: e.target.value }));
