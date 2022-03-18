@@ -208,6 +208,15 @@
           Toughness: [100, converted]
       gw2id: 71276
 
+    - id: vampirism
+      text: Superior Rune of Vampirism
+      modifiers:
+        attributes:
+          Power: [175, converted]
+          Vitality: [100, converted]
+          Maximum Health: 10%
+      gw2id: 24711
+      
     - id: sanctuary
       text: Superior Rune of Sanctuary
       modifiers:

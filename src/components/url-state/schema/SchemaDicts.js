@@ -139,6 +139,7 @@ export const runesDict = [
   'divinity',
   'revenant',
   'exuberance',
+  'vampirism',
 ];
 
 export const sigilDict = [
