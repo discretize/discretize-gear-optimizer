@@ -36,8 +36,8 @@ import {
 const schemaKeys = {
   'runes.yaml': runesDict,
   'sigils.yaml': sigilDict,
-  'food.yaml': enhancementDict,
-  'utility.yaml': nourishmentDict,
+  'food.yaml': nourishmentDict,
+  'utility.yaml': enhancementDict,
   'buffs.yaml': buffsDict,
 };
 
