@@ -140,6 +140,7 @@ export const runesDict = [
   'revenant',
   'exuberance',
   'vampirism',
+  'firebrand-firebrand',
 ];
 
 export const sigilDict = [
@@ -166,6 +167,16 @@ export const sigilDict = [
   'momentum',
   'stars',
   'platinum-doubloon',
+  'hydromancy',
+  'hydromancy-bonus',
+  'geomancy',
+  'earth',
+  'doom',
+  'torment',
+  'mischief-ineptitude',
+  'geomancy-torment-cfb5-virtues',
+  'geomancy-torment-cfb8-virtues',
+  'geomancy-torment-cwb',
 ];
 
 export const enhancementDict = [

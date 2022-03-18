@@ -97,12 +97,30 @@ list:
         traits: Power Quickbrand
         extras: Power (Fractal)
 
+      - name: Condi Willbender Sword
+        id: cwb-sw
+        specialization: Willbender
+        boons: Condi
+        priority: Hybrid DPS
+        distribution: Condi Willbender Sword
+        traits: Condi Willbender
+        extras: Condi Willbender
+
+      - name: Condi Willbender GS
+        id: cwb-gs
+        specialization: Willbender
+        boons: Condi
+        priority: Hybrid DPS
+        distribution: Condi Willbender GS
+        traits: Condi Willbender
+        extras: Condi Willbender
+
       - name: CFB w/ Quickness (balthazar)
         id: cqfb-balth
         specialization: Firebrand
         boons: Condi
         priority: Condi DPS
-        distribution: Condi Quickbrand (torment/geo, allies)
+        distribution: Condi Quickbrand (allies)
         traits: Condi Quickbrand
         extras: CFB w/ Quickness (balthazar)
 
@@ -111,7 +129,7 @@ list:
         specialization: Firebrand
         boons: Condi
         priority: Condi DPS
-        distribution: Condi Quickbrand (smoldering, allies)
+        distribution: Condi Quickbrand (allies)
         traits: Condi Quickbrand
         extras: CFB w/ Quickness (renegade)
 
@@ -120,16 +138,16 @@ list:
         specialization: Firebrand
         boons: Condi
         priority: Condi DPS
-        distribution: CFB (5 page, torment/geo, allies)
+        distribution: CFB (5 page RF, allies)
         traits: CFB DPS 5 page
-        extras: CFB DPS (balthazar)
+        extras: CFB DPS (5 page, balthazar)
 
       - name: CFB DPS 5 page (renegade)
         id: cfb-smoldering
         specialization: Firebrand
         boons: Condi
         priority: Condi DPS
-        distribution: CFB (5 page, smoldering, allies)
+        distribution: CFB (5 page RF, allies)
         traits: CFB DPS 5 page
         extras: CFB DPS (renegade)
 
@@ -138,36 +156,36 @@ list:
         specialization: Firebrand
         boons: Condi
         priority: Condi DPS
-        distribution: CFB (8 page, torment/geo, allies)
+        distribution: CFB (8 page, allies)
         traits: CFB DPS 8 page
-        extras: CFB DPS (balthazar)
+        extras: CFB DPS (8 page, balthazar)
 
       - name: CFB DPS 8 page (renegade)
         id: cfb-8-ren
         specialization: Firebrand
         boons: Condi
         priority: Condi DPS
-        distribution: CFB (8 page, smoldering, allies)
+        distribution: CFB (8 page, allies)
         traits: CFB DPS 8 page
         extras: CFB DPS (renegade)
 
-      - name: Condi Quickbrand 40%
-        id: cqfb-firebrand-40
+      - name: Condi Quickbrand 49%
+        id: cqfb-firebrand-49
         specialization: Firebrand
         boons: Condi
-        priority: Condi DPS
-        distribution: Condi Quickbrand (smoldering, allies)
+        priority: Condi Quickbrand 49
+        distribution: Condi Quickbrand (allies)
         traits: Condi Quickbrand
-        extras: Condi Quickbrand 40%
+        extras: Condi Quickbrand
 
-      - name: Condi Quickbrand Celestial 35%
-        id: cqfb-cele-35
-        specialization: Firebrand
-        boons: Condi
-        priority: Condi Quickbrand 35%
-        distribution: Condi Quickbrand (torment/geo, allies)
-        traits: Condi Quickbrand
-        extras: Condi Quickbrand 35%
+      # - name: Condi Quickbrand Celestial 35%
+      #   id: cqfb-cele-35
+      #   specialization: Firebrand
+      #   boons: Condi
+      #   priority: Condi Quickbrand 35%
+      #   distribution: Condi Quickbrand (allies)
+      #   traits: Condi Quickbrand
+      #   extras: Condi Quickbrand 35%
 
       - name: Hybrid FB Virtues
         id: hycfb-virtues-leadership
@@ -195,15 +213,6 @@ list:
         distribution: None
         traits: Healbrand
         extras: Heal
-
-      - name: '[beta2] Condi Willbender'
-        id: cwb
-        specialization: Willbender
-        boons: Condi
-        priority: Hybrid DPS
-        distribution: '[beta2] Condi Willbender'
-        traits: '[beta2] Condi Willbender'
-        extras: '[beta2] Condi Willbender'
 
       - name: '[beta1] Power Willbender Radiance'
         id: pwb-radiance

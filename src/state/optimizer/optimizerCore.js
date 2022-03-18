@@ -975,11 +975,8 @@ export function createOptimizerCore(input) {
     }
 
     for (const [attribute, allPairs] of Object.entries(attributes)) {
-      if (
-        allAttributePointKeys.includes(attribute) ||
-        allAttributeCoefficientKeys.includes(attribute)
-      ) {
-        // stat/coefficnent, i.e.
+      if (allAttributePointKeys.includes(attribute)) {
+        // stat, i.e.
         //   Concentration: [70, converted, 100, buff]
 
         const allPairsMut = [...allPairs];
@@ -1000,11 +997,20 @@ export function createOptimizerCore(input) {
               break;
           }
         }
+      } else if (allAttributeCoefficientKeys.includes(attribute)) {
+        // coefficient, i.e.
+        //   Power Coefficient: 69.05
+
+        const value = Array.isArray(allPairs) ? allPairs[0] : allPairs;
+        const scaledAmount = scaleValue(value, amountInput, amountData);
+        settings.baseAttributes[attribute] =
+          (settings.baseAttributes[attribute] || 0) + scaledAmount;
       } else {
         // percent, i.e.
         //   Torment Duration: 15%
 
-        const scaledAmount = scaleValue(parsePercent(allPairs), amountInput, amountData);
+        const value = Array.isArray(allPairs) ? allPairs[0] : allPairs;
+        const scaledAmount = scaleValue(parsePercent(value), amountInput, amountData);
         // unconfirmed if +max health mods are mult but ¯\_(ツ)_/¯
         // +outgoing healing is assumed additive
         if (attribute === 'Maximum Health') {
