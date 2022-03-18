@@ -97,6 +97,24 @@ list:
         traits: Power Quickbrand
         extras: Power (Fractal)
 
+      - name: Condi Willbender Sword
+        id: cwb-sw
+        specialization: Willbender
+        boons: Condi
+        priority: Hybrid DPS
+        distribution: Condi Willbender Sword
+        traits: Condi Willbender
+        extras: Condi Willbender
+
+      - name: Condi Willbender GS
+        id: cwb-gs
+        specialization: Willbender
+        boons: Condi
+        priority: Hybrid DPS
+        distribution: Condi Willbender GS
+        traits: Condi Willbender
+        extras: Condi Willbender
+
       - name: CFB w/ Quickness (balthazar)
         id: cqfb-balth
         specialization: Firebrand
@@ -195,15 +213,6 @@ list:
         distribution: None
         traits: Healbrand
         extras: Heal
-
-      - name: '[beta2] Condi Willbender'
-        id: cwb
-        specialization: Willbender
-        boons: Condi
-        priority: Hybrid DPS
-        distribution: '[beta2] Condi Willbender'
-        traits: '[beta2] Condi Willbender'
-        extras: '[beta2] Condi Willbender'
 
       - name: '[beta1] Power Willbender Radiance'
         id: pwb-radiance

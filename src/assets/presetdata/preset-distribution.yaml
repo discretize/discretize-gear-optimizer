@@ -92,6 +92,28 @@ list:
         "values2": { "Power": 3390, "Burning": 1.1, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
+  # https://www.youtube.com/watch?v=5Llk01nbHkU&t=30s
+  # power: 10388, burn: 27971, bleed: 406, torment: 659, total: 39424
+  # 12 boons
+  # viper glove boot ring ear ear back, rest grieving, balth, fishy
+  - name: Condi Willbender Sword
+    profession: Willbender
+    value: >-
+      {
+        "values2": { "Power": 2719, "Burning": 13.8, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
+  # https://www.youtube.com/watch?v=mCOEGlJkRJ0
+  # power: 12973, burn: 25702, bleed: 389, torment: 512, total: 39576
+  # 12 boons
+  # viper glove boot ring ear ear back, rest grieving, flame legion, fishy
+  - name: Condi Willbender GS
+    profession: Willbender
+    value: >-
+      {
+        "values2": { "Power": 3010, "Burning": 13.27, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
   # https://www.youtube.com/watch?v=mqnlk-j1e0Q
   # power: 5955, burn: 30706, bleed: 1783, torment: 543, total: 38987
   # 12 boons
@@ -177,17 +199,6 @@ list:
     value: >-
       {
         "values2": { "Power": 2242, "Burning": 12.2, "Bleeding": 3.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-      }
-
-  # https://www.youtube.com/watch?v=CCk_WNl_cjE
-  # power: 9039, burn: 30327, bleed: 451, torment: 789, total: 40606
-  # 12 boons
-  # sini trinkets except ring; viper else
-  - name: '[beta2] Condi Willbender'
-    profession: Willbender
-    value: >-
-      {
-        "values2": { "Power": 2715, "Burning": 14.65, "Bleeding": 1.14, "Poisoned": 0, "Torment": 1.33, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=Vo4Qs6KeUHE

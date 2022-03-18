@@ -236,6 +236,22 @@
           Burning Coefficient: 0.051
       gw2id: 24605
 
+    # geo power: 0.25 coeff, 690.5 strength, every 20 sec -> 8.6 power coefficient
+    # geo bleed: 24 seconds, every 20 sec -> 1.2 avg bleed
+    # torment: 10 seconds, every 8.5 sec -> 1.18 avg torment
+    #
+    # f1 passives from procs are 2.2s because of amplified wrath; every 3 hits if virtues
+    # geo f1 passive: 1/3 * 2.2 / 20 sec = 0.0367 avg burning
+    - id: geomancy-torment-cwb
+      text: 'Geo + Torment CWB'
+      modifiers:
+        attributes:
+          Power Coefficient: 8.6
+          Bleeding Coefficient: 1.2
+          Torment Coefficient: 1.18
+          Burning Coefficient: 0.0367
+      gw2id: 24605
+
 - section: Stacking Sigils
   items:
 

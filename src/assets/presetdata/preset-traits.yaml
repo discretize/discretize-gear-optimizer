@@ -657,6 +657,83 @@ list:
         }
       }
 
+  - name: Condi Willbender
+    profession: Willbender
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "16",
+          "46",
+          "65"
+        ],
+        "selectedTraits": [
+          [
+            566,
+            567,
+            1686
+          ],
+          [
+            617,
+            603,
+            622
+          ],
+          [
+            2191,
+            2197,
+            2201
+          ]
+        ],
+        "items": [
+          {
+            "right-hand-strength": true,
+            "right-hand-strength-1h": {
+              "amount": "100"
+            },
+            "radiant-fire": true,
+            "retribution": {
+              "amount": ""
+            },
+            "radiant-power": true,
+            "amplified-wrath": true,
+            "righteous-instincts": true
+          },
+          {
+            "inspired-virtue": {
+              "amount": ""
+            },
+            "unscathed-contender": {
+              "amount": ""
+            },
+            "virtue-of-retribution": true,
+            "inspiring-virtue": {
+              "amount": ""
+            },
+            "power-of-the-virtuous": true
+          },
+          {
+            "searing-pact": true,
+            "power-for-power": false,
+            "conceited-curate": false,
+            "lethal-tempo": {
+              "amount": ""
+            },
+            "tyrants-momentum": {
+              "amount": ""
+            },
+            "tyrants-momentum-bugged": false
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-wrath": {
+            "amount": ""
+          }
+        }
+      }
+
   - name: Condi Quickbrand
     profession: Firebrand
     traits: |-
@@ -1055,83 +1132,6 @@ list:
       {
         "skills": {
           "bane-signet-2": {
-            "amount": ""
-          }
-        }
-      }
-
-  - name: '[beta2] Condi Willbender'
-    profession: Willbender
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "16",
-          "46",
-          "65"
-        ],
-        "selectedTraits": [
-          [
-            566,
-            567,
-            1686
-          ],
-          [
-            617,
-            603,
-            622
-          ],
-          [
-            2191,
-            2197,
-            2201
-          ]
-        ],
-        "items": [
-          {
-            "right-hand-strength": true,
-            "right-hand-strength-1h": {
-              "amount": "100"
-            },
-            "radiant-fire": true,
-            "retribution": {
-              "amount": ""
-            },
-            "radiant-power": true,
-            "amplified-wrath": true,
-            "righteous-instincts": true
-          },
-          {
-            "inspired-virtue": {
-              "amount": ""
-            },
-            "unscathed-contender": {
-              "amount": ""
-            },
-            "virtue-of-retribution": true,
-            "inspiring-virtue": {
-              "amount": ""
-            },
-            "power-of-the-virtuous": true
-          },
-          {
-            "searing-pact": true,
-            "power-for-power": false,
-            "conceited-curate": false,
-            "lethal-tempo": {
-              "amount": ""
-            },
-            "tyrants-momentum": {
-              "amount": ""
-            },
-            "tyrants-momentum-bugged": false
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {
-          "signet-of-wrath": {
             "amount": ""
           }
         }

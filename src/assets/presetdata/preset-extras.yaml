@@ -244,6 +244,28 @@ list:
         }
       }
 
+  - name: Condi Willbender
+    profession: Willbender
+    value: |-
+      {
+        "Sigil1": {
+          "bursting": {}
+        },
+        "Sigil2": {
+          "geomancy-torment-cwb": {}
+        },
+        "Runes": {
+          "balthazar": {},
+          "flame-legion-2": {}
+        },
+        "Nourishment": {
+          "fishy-rice-bowl": {}
+        },
+        "Enhancement": {
+          "toxic-focusing-crystal": {}
+        }
+      }
+
   - name: CFB w/ Quickness (balthazar)
     profession: Firebrand
     value: |-
@@ -346,25 +368,6 @@ list:
         },
         "Nourishment": {
           "fishy-rice-bowl": {}
-        }
-      }
-
-  - name: '[beta2] Condi Willbender'
-    profession: Willbender
-    value: |-
-      {
-        "Runes": {
-          "balthazar": {}
-        },
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {},
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
         }
       }
 
