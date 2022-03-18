@@ -270,4 +270,6 @@ export const buffsDict = [
   'signetOfWrath',
   'exposed',
   'lightArmor',
+  'jade-bot-base',
+  'jade-bot-per-tier',
 ];
