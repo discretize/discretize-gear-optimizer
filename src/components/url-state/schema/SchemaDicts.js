@@ -247,3 +247,27 @@ export const nourishmentDict = [
   'meaty-rice-bowl',
   'block-of-tofu',
 ];
+
+export const buffsDict = [
+  'might',
+  'fury',
+  'protection',
+  'vulnerability',
+  'bannerOfStrength',
+  'bannerOfDiscipline',
+  'bannerOfTactics',
+  'bannerOfDefense',
+  'spotter',
+  'frostSpirit',
+  'empowerAllies',
+  'pinpointDistribution',
+  'assassinsPresence',
+  'riteDwarf',
+  'strengthInNumbers',
+  'baneSignet',
+  'signetOfJudgement',
+  'signetOfMercy',
+  'signetOfWrath',
+  'exposed',
+  'lightArmor',
+];

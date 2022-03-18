@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { buffModifiers } from '../../assets/modifierdata';
+import { buffsDict } from '../../components/url-state/schema/SchemaDicts';
 
 export const buildPageSlice = createSlice({
   name: 'buildPage',
@@ -42,13 +42,9 @@ export const buildPageSlice = createSlice({
         tempBits.length < 21 ? '0'.repeat(21 - tempBits.length) + tempBits : tempBits;
       // force the same order during as it was during compression
       const buffsUnpacked = {};
-      // grab the list of buffs like they are in buffs.yml and map it to get a list of ids.
-      buffModifiers
-        .flatMap((buff) => buff.items)
-        .map((buff) => buff.id)
-        .forEach((buff, index) => {
-          buffsUnpacked[buff] = buffBits[index] === '1';
-        });
+      buffsDict.forEach((buff, index) => {
+        buffsUnpacked[buff] = buffBits[index] === '1';
+      });
 
       // handle the case for when no infusions are present. Value must be undefined or else it wont get parsed correctly by the character component
       const infusions = action.payload.character.infusions
