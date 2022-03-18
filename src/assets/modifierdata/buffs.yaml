@@ -147,7 +147,7 @@
       type: Skill
       gw2id: 9093
 
-    - id: signetOfJudgment
+    - id: signetOfJudgement
       text: Signet of Judgement
       modifiers:
         damage:

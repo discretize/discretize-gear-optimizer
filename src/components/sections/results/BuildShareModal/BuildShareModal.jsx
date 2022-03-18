@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { changeCharacter } from '../../../../state/slices/buildPage';
 import { BuildPageSchema, version } from '../../../url-state/schema/BuildPageSchema_v2';
+import { buffsDict } from '../../../url-state/schema/SchemaDicts';
 import ModalContent from './ModalContent';
 
 const useStyles = makeStyles()((theme) => ({
@@ -72,7 +73,7 @@ const BuildShareModal = ({ children, title, character }) => {
 
     // create bit map for buffs
     const conv = (val) => (val ? 1 : 0);
-    const buffsInteger = Object.keys(buffs).reduce(
+    const buffsInteger = buffsDict.reduce(
       // eslint-disable-next-line no-bitwise
       (acc, curr) => (acc + conv(buffs[curr])) << 1,
       conv(buffs[0]),

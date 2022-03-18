@@ -7,6 +7,13 @@ import fs from 'fs/promises';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import yaml from 'js-yaml';
 import path from 'path';
+import {
+  buffsDict,
+  enhancementDict,
+  nourishmentDict,
+  runesDict,
+  sigilDict,
+} from '../../components/url-state/schema/SchemaDicts.js';
 // import specializationData from '../../utils/mapping/specializations.json' assert { type: 'json' };
 import {
   allAttributeCoefficientKeys,
@@ -23,6 +30,14 @@ import {
   attributePointKeysBlacklist,
   damageKeysBlacklist,
 } from './metadata.js';
+
+const schemaKeys = {
+  'runes.yaml': runesDict,
+  'sigils.yaml': sigilDict,
+  'food.yaml': nourishmentDict,
+  'utility.yaml': enhancementDict,
+  'buffs.yaml': buffsDict,
+};
 
 const directory = './src/assets/modifierdata/';
 
@@ -108,6 +123,13 @@ const testModifiers = async () => {
           !Object.keys(otherKeys).length,
           `err: this script is missing validation for ${JSON.stringify(otherKeys)}`,
         );
+
+        if (schemaKeys[fileName]) {
+          gentleAssert(
+            schemaKeys[fileName].includes(id),
+            `err: schema for ${fileName} doesn't include ${id}!`,
+          );
+        }
 
         const checkNullRecursively = (obj) => {
           for (const value of Object.values(obj)) {
