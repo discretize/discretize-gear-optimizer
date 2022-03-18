@@ -246,6 +246,7 @@ export const nourishmentDict = [
   'meaty-asparagus-skewer',
   'meaty-rice-bowl',
   'block-of-tofu',
+  'dragons-revelry-starcake-bugged',
 ];
 
 export const buffsDict = [
