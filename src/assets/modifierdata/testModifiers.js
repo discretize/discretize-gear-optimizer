@@ -258,7 +258,7 @@ function parseDamage(damage, id, amountData) {
 
 function parseAttributes(attributes, id, amountData) {
   for (const [key, allPairs] of Object.entries(attributes)) {
-    if (allAttributePointKeys.includes(key) || allAttributeCoefficientKeys.includes(key)) {
+    if (allAttributePointKeys.includes(key)) {
       gentleAssert(
         Array.isArray(allPairs),
         `invalid value for ${key} in ${id} (use 'unknown' if you don't know if it's converted!)`,
@@ -278,6 +278,8 @@ function parseAttributes(attributes, id, amountData) {
           `invalid val ${allPairs} for ${key} in ${id}`,
         );
       }
+    } else if (allAttributeCoefficientKeys.includes(key)) {
+      parseNumber(allPairs, key, id);
     } else if (allAttributePercentKeys.includes(key)) {
       if (amountData && !amountData.disableBlacklist && attributePercentKeysBlacklist.includes(key))
         gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
