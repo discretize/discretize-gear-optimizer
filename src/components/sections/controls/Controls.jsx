@@ -14,9 +14,11 @@ import {
   changeCompareByPercent,
   changeControl,
   changeError,
+  changeFilterByExtras,
   getCompareByPercent,
   getControl,
   getError,
+  getFilterByExtras,
 } from '../../../state/slices/controlsSlice';
 import { getPriority } from '../../../state/slices/priorities';
 import ProgressIcon from '../../baseComponents/ProgressIcon';
@@ -51,6 +53,7 @@ const ControlsBox = ({ profession }) => {
   const affixes = useSelector(getPriority('affixes'));
 
   const compareByPercent = useSelector(getCompareByPercent);
+  const filterByExtras = useSelector(getFilterByExtras);
 
   const onStartCalculate = React.useCallback(
     (e) => {
@@ -134,6 +137,20 @@ const ControlsBox = ({ profession }) => {
         </Box>
         <Box flexGrow={1} alignSelf="center">
           <URLStateExport />
+        </Box>
+        <Box alignSelf="center">
+          <FormControlLabel
+            control={
+              <Switch
+                checked={filterByExtras}
+                onChange={(e) => dispatch(changeFilterByExtras(e.target.checked))}
+                name="checked"
+                color="primary"
+              />
+            }
+            label={t('Filter by (idk what to call this)')}
+            classes={{ label: classes.comparisonLabel }}
+          />
         </Box>
         <Box alignSelf="center">
           <FormControlLabel

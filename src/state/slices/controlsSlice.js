@@ -50,8 +50,10 @@ export const controlSlice = createSlice({
   initialState: {
     expertMode: true,
     list: [],
+    filteredList: [],
     saved: [],
     compareByPercent: false,
+    filterByExtras: false,
     progress: 0,
     selectedCharacter: null,
     selectedTemplate: '',
@@ -113,6 +115,9 @@ export const controlSlice = createSlice({
     changeList: (state, action) => {
       return { ...state, list: action.payload };
     },
+    changeFilteredList: (state, action) => {
+      return { ...state, filteredList: action.payload };
+    },
     toggleSaved: (state, action) => {
       // required to use reference equality check with immer.js
       const originalSaved = original(state.saved);
@@ -126,6 +131,10 @@ export const controlSlice = createSlice({
     changeCompareByPercent: (state, action) => {
       state.compareByPercent = action.payload;
     },
+    changeFilterByExtras: (state, action) => {
+      state.filterByExtras = action.payload;
+    },
+
     changeSelectedCharacter: (state, action) => {
       const oldCharacter = state.selectedCharacter ? original(state.selectedCharacter) : null;
       const newCharacter = action.payload;
@@ -142,8 +151,10 @@ export const controlSlice = createSlice({
 export const getProfession = (state) => state.optimizer.control.profession;
 export const getControl = (key) => (state) => state.optimizer.control[key];
 export const getList = (state) => state.optimizer.control.list;
+export const getFilteredList = (state) => state.optimizer.control.filteredList;
 export const getSaved = (state) => state.optimizer.control.saved;
 export const getCompareByPercent = (state) => state.optimizer.control.compareByPercent;
+export const getFilterByExtras = (state) => state.optimizer.control.filterByExtras;
 export const getSelectedCharacter = (state) => state.optimizer.control.selectedCharacter;
 export const getError = (state) => state.optimizer.control.error;
 
@@ -153,6 +164,8 @@ export const {
   changeExpertMode,
   changeControl,
   changeList,
+  changeFilteredList,
+  changeFilterByExtras,
   toggleSaved,
   changeCompareByPercent,
   setBuildTemplate,

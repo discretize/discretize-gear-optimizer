@@ -10,6 +10,8 @@ import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import {
   getCompareByPercent,
+  getFilterByExtras,
+  getFilteredList,
   getList,
   getSaved,
   getSelectedCharacter,
@@ -55,9 +57,13 @@ const StickyHeadTable = () => {
 
   const { t } = useTranslation();
   const selectedCharacter = useSelector(getSelectedCharacter);
-  const list = useSelector(getList) || [];
+  const normalList = useSelector(getList) || [];
+  const filteredList = useSelector(getFilteredList) || [];
   const saved = useSelector(getSaved) || [];
   const compareByPercent = useSelector(getCompareByPercent);
+  const filterByExtras = useSelector(getFilterByExtras);
+
+  const list = filterByExtras ? filteredList : normalList;
 
   let mostCommonAffix = null;
   if (/* status !== RUNNING && */ list[0]) {

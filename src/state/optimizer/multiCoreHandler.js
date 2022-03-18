@@ -17,6 +17,7 @@ export function* calculate(inputCombinations) {
 
   let i = 0;
   let globalList = [];
+  let globalFilteredList = [];
   while (combinations.some((combination) => !combination.done)) {
     const combination = combinations[i];
 
@@ -40,6 +41,14 @@ export function* calculate(inputCombinations) {
         // eslint-disable-next-line id-length
         .sort((a, b) => characterLT(a, b, rankby))
         .slice(0, 50);
+
+      if (combinations.length > 1) {
+        globalFilteredList = combinations
+          .map(({ list }) => list?.[0])
+          .filter(Boolean)
+          // eslint-disable-next-line id-length
+          .sort((a, b) => characterLT(a, b, rankby));
+      }
     }
 
     console.log(`option ${currentIndex} progress: ${calculationRuns} / ${runsAfterThisSlot[0]}`);
@@ -56,6 +65,7 @@ export function* calculate(inputCombinations) {
       percent: Math.floor((globalCalculationRuns * 100) / globalCalculationTotal),
       isChanged,
       newList: globalList,
+      newFilteredList: globalFilteredList,
     };
   }
 }

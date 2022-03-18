@@ -14,6 +14,7 @@ import {
   changeAll,
   changeControl,
   changeError,
+  changeFilteredList,
   changeList,
   changeSelectedCharacter,
   getList,
@@ -130,6 +131,7 @@ function createInput(
 function* runCalc() {
   let state;
   let currentList;
+  let currentFilteredList;
   let combinations;
   let settings;
   let oldPercent;
@@ -197,10 +199,13 @@ function* runCalc() {
     let listRenderCounter = Infinity;
     const listThrottle = 3;
 
-    for (const { percent: newPercent, isChanged, newList } of calculate(combinations)) {
+    for (const { percent: newPercent, isChanged, newList, newFilteredList } of calculate(
+      combinations,
+    )) {
       listRenderCounter++;
       if (isChanged) {
         currentList = newList;
+        currentFilteredList = newFilteredList;
         if (listRenderCounter > listThrottle) {
           listRenderCounter = 0;
         }
@@ -208,6 +213,7 @@ function* runCalc() {
       if (listRenderCounter === listThrottle) {
         yield delay(0);
         yield put(changeList(currentList));
+        yield put(changeFilteredList(currentFilteredList));
       }
 
       if (newPercent !== oldPercent) {
@@ -219,6 +225,7 @@ function* runCalc() {
       yield delay(0);
     }
     yield put(changeList(currentList));
+    yield put(changeFilteredList(currentFilteredList));
 
     console.timeEnd('Calculation');
     console.time('Render Result');
@@ -312,6 +319,7 @@ const modifyState = (optimizerState) => {
       control: {
         ...optimizerState.control,
         list: [],
+        filteredList: [],
         saved: [],
         selectedCharacter: modifiedSelectedCharacter,
       },
