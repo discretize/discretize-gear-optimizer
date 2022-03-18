@@ -39,7 +39,9 @@ export const buildPageSlice = createSlice({
       const tempBits = action.payload.buffs.toString(2);
       // pad zeros
       const buffBits =
-        tempBits.length < 21 ? '0'.repeat(21 - tempBits.length) + tempBits : tempBits;
+        tempBits.length < buffsDict.length
+          ? '0'.repeat(buffsDict.length - tempBits.length) + tempBits
+          : tempBits;
       // force the same order during as it was during compression
       const buffsUnpacked = {};
       buffsDict.forEach((buff, index) => {
