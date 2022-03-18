@@ -206,6 +206,7 @@ function* runCalc() {
         }
       }
       if (listRenderCounter === listThrottle) {
+        yield delay(0);
         yield put(changeList(currentList));
       }
 
