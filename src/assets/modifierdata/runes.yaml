@@ -163,8 +163,8 @@
     # fb rune power: 0.8? coeff, 690.5 strength, every 54 sec -> 10 power coeff
     # fb rune burning: 1 second, every 54 sec -> 0.0185 avg burning
     #
-    # f1 passives from procs are 2.2s because of amplified wrath; every 3 hits if virtues
-    # fb rune f1 passive: 1/3 * 2.2 / 54 sec = 0.0136 avg burning
+    # f1 passives from procs are 2.4s because of amplified wrath; every 3 hits if virtues
+    # fb rune f1 passive: 1/3 * 2.4 / 54 sec = 0.0148 avg burning
     - id: firebrand-firebrand
       text: Superior Rune of the Firebrand
       subText: (Virtues CFB)
@@ -174,7 +174,7 @@
           Boon Duration: 10%
           Quickness Duration: 30%
           Power Coefficient: 10
-          Burning Coefficient: 0.0321
+          Burning Coefficient: 0.0333
       gw2id: 83338
 
     - id: surging-and-ruby-orb

@@ -160,7 +160,7 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2219, "Burning": 13.45, "Bleeding": 2.26, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2220, "Burning": 13.43, "Bleeding": 2.25, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # burn 23245
@@ -168,7 +168,7 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2219, "Burning": 11.93, "Bleeding": 2.26, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2220, "Burning": 11.92, "Bleeding": 2.25, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # - name: Hybrid FB (Virtues, no allies)
