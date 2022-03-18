@@ -7,6 +7,15 @@ import fs from 'fs/promises';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import yaml from 'js-yaml';
 import path from 'path';
+import {
+  buffsDict,
+  enhancementDict,
+  gearDict,
+  nourishmentDict,
+  runesDict,
+  sigilDict,
+} from '../../components/url-state/schema/SchemaDicts.js';
+import { Affix } from '../../utils/gw2-data.js';
 // import specializationData from '../../utils/mapping/specializations.json' assert { type: 'json' };
 import {
   allAttributeCoefficientKeys,
@@ -24,6 +33,14 @@ import {
   damageKeysBlacklist,
 } from './metadata.js';
 
+const schemaKeys = {
+  'runes.yaml': runesDict,
+  'sigils.yaml': sigilDict,
+  'food.yaml': enhancementDict,
+  'utility.yaml': nourishmentDict,
+  'buffs.yaml': buffsDict,
+};
+
 const directory = './src/assets/modifierdata/';
 
 // causes the script to fail if condition is false, but does not stop execution
@@ -35,6 +52,11 @@ const gentleAssert = (condition, message) => {
 };
 
 const testModifiers = async () => {
+  // not really modifiers, but, whatever
+  Object.keys(Affix).forEach((affix) =>
+    gentleAssert(gearDict.includes(affix), `err: gearDict doesn't include ${affix}!`),
+  );
+
   const specializationDataJSON = await fs.readFile('./src/utils/mapping/specializations.json');
   const specializationData = JSON.parse(specializationDataJSON);
 
@@ -108,6 +130,13 @@ const testModifiers = async () => {
           !Object.keys(otherKeys).length,
           `err: this script is missing validation for ${JSON.stringify(otherKeys)}`,
         );
+
+        if (schemaKeys[fileName]) {
+          gentleAssert(
+            schemaKeys[fileName].includes(id),
+            `err: schema for ${fileName} doesn't include ${id}!`,
+          );
+        }
 
         const checkNullRecursively = (obj) => {
           for (const value of Object.values(obj)) {
