@@ -680,7 +680,7 @@ list:
           ],
           [
             2101,
-            2076,
+            2063,
             2159
           ]
         ],
@@ -723,7 +723,8 @@ list:
         "skills": {
           "signet-of-wrath": {
             "amount": ""
-          }
+          },
+          "mantra-of-flame": true
         }
       }
 

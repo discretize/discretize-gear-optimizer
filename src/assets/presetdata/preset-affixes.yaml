@@ -138,3 +138,12 @@ list:
         "optimizeFor": "Damage",
         "minBoonDuration": 35
       }
+
+  - name: Condi Quickbrand 49
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Sinister", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 18.8
+      }

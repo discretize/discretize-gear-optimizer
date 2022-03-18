@@ -254,7 +254,9 @@ list:
         "Sigil1": {
           "bursting": {}
         },
-        "Sigil2": {},
+        "Sigil2": {
+          "geomancy-torment-cfb5-virtues": {}
+        },
         "Enhancement": {
           "toxic-maintenance-oil": {}
         },
@@ -284,7 +286,7 @@ list:
         }
       }
 
-  - name: CFB DPS (balthazar)
+  - name: CFB DPS (5 page, balthazar)
     profession: Firebrand
     value: |-
       {
@@ -294,7 +296,30 @@ list:
         "Sigil1": {
           "bursting": {}
         },
-        "Sigil2": {},
+        "Sigil2": {
+          "geomancy-torment-cfb5-virtues": {}
+        },
+        "Enhancement": {
+          "toxic-focusing-crystal": {}
+        },
+        "Nourishment": {
+          "beef-rendang": {}
+        }
+      }
+
+  - name: CFB DPS (8 page, balthazar)
+    profession: Firebrand
+    value: |-
+      {
+        "Runes": {
+          "balthazar": {}
+        },
+        "Sigil1": {
+          "bursting": {}
+        },
+        "Sigil2": {
+          "geomancy-torment-cfb8-virtues": {}
+        },
         "Enhancement": {
           "toxic-focusing-crystal": {}
         },
@@ -343,45 +368,47 @@ list:
         }
       }
 
-  - name: Condi Quickbrand 40%
+  - name: Condi Quickbrand
     profession: Firebrand
     value: |-
       {
-        "Runes": {
-          "firebrand": {}
-        },
         "Sigil1": {
           "bursting": {}
         },
         "Sigil2": {
           "smoldering": {}
         },
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
+        "Runes": {
+          "firebrand-firebrand": {}
         },
         "Nourishment": {
           "fishy-rice-bowl": {}
+        },
+        "Enhancement": {
+          "toxic-focusing-crystal": {}
         }
       }
 
-  - name: Condi Quickbrand 35%
-    profession: Firebrand
-    value: |-
-      {
-        "Runes": {
-          "balthazar": {}
-        },
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {},
-        "Enhancement": {
-          "toxic-maintenance-oil": {}
-        },
-        "Nourishment": {
-          "dragon's-revelry-starcake": {}
-        }
-      }
+  # - name: Condi Quickbrand 35%
+  #   profession: Firebrand
+  #   value: |-
+  #     {
+  #       "Runes": {
+  #         "balthazar": {}
+  #       },
+  #       "Sigil1": {
+  #         "bursting": {}
+  #       },
+  #       "Sigil2": {
+  #         "geomancy-torment-cfb5-virtues": {}
+  #       },
+  #       "Enhancement": {
+  #         "toxic-maintenance-oil": {}
+  #       },
+  #       "Nourishment": {
+  #         "dragon's-revelry-starcake": {}
+  #       }
+  #     }
 
   - name: Hybrid FB Traveler
     profession: Firebrand
