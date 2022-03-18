@@ -10,12 +10,10 @@ import path from 'path';
 import {
   buffsDict,
   enhancementDict,
-  gearDict,
   nourishmentDict,
   runesDict,
   sigilDict,
 } from '../../components/url-state/schema/SchemaDicts.js';
-import { Affix } from '../../utils/gw2-data.js';
 // import specializationData from '../../utils/mapping/specializations.json' assert { type: 'json' };
 import {
   allAttributeCoefficientKeys,
@@ -52,11 +50,6 @@ const gentleAssert = (condition, message) => {
 };
 
 const testModifiers = async () => {
-  // not really modifiers, but, whatever
-  Object.keys(Affix).forEach((affix) =>
-    gentleAssert(gearDict.includes(affix), `err: gearDict doesn't include ${affix}!`),
-  );
-
   const specializationDataJSON = await fs.readFile('./src/utils/mapping/specializations.json');
   const specializationData = JSON.parse(specializationDataJSON);
 
