@@ -53,13 +53,18 @@ module.exports = {
         buffSection: [...new Set(buffs.map((item) => item.section))],
         buffText: [...new Set(buffs.flatMap((item) => item.items).map((item) => item.text))],
         amountLabel: [
-          ...new Set(
-            Object.values(professions)
+          ...new Set([
+            ...Object.values(professions)
               .flat()
               .flatMap((item) => item.items)
               .map((item) => item?.amountData?.label)
               .filter((item) => item),
-          ),
+            ...Object.values(extra)
+              .flat()
+              .flatMap((section) => section.items)
+              .map((item) => item?.amountData?.label)
+              .filter((item) => item),
+          ]),
           'x',
         ],
         skillSubText: [
