@@ -9,7 +9,7 @@ import {
   parsePriority,
 } from '../../utils/usefulFunctions';
 import { getBuffsModifiers } from '../slices/buffs';
-import { changeBuildPage } from '../slices/buildPage';
+// import { changeBuildPage } from '../slices/buildPage';
 import {
   changeAll,
   changeControl,
@@ -381,6 +381,7 @@ function* watchImportState() {
   yield takeLeading('IMPORT_STATE', importState);
 }
 
+/*
 function* exportStateCharacter({ onSuccess }) {
   const reduxState = yield select();
 
@@ -433,9 +434,11 @@ function* importStateCharacter({ buildUrl: input, onSuccess, onError }) {
   }
 }
 
+
 function* watchImportStateCharacter() {
   yield takeLeading('IMPORT_STATE_CHARACTER', importStateCharacter);
 }
+*/
 
 export default function* rootSaga() {
   yield all([
@@ -443,7 +446,7 @@ export default function* rootSaga() {
     watchStart(),
     watchExportState(),
     watchImportState(),
-    watchExportStateCharacter(),
-    watchImportStateCharacter(),
+    // watchExportStateCharacter(),
+    // watchImportStateCharacter(),
   ]);
 }
