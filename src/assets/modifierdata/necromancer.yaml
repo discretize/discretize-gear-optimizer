@@ -59,12 +59,27 @@
 
     - id: barbed-precision
       text: Barbed Precision
+      subText: base
       minor: true
       modifiers:
         attributes:
           Bleeding Duration: 20%
       gw2id: 802
       defaultEnabled: true
+
+    - id: barbed-precision-on-crit
+      text: Barbed Precision
+      subText: per hit (including non critical)
+      minor: true
+      amountData:
+        label: 'hit/s'
+        default: 0
+        quantityEntered: 1
+      modifiers:
+        conversionAfterBuffs:
+          Bleeding Coefficient: {Critical Chance: 100%}
+      gw2id: 802
+      defaultEnabled: false
 
     - id: furious-demise
       text: Furious Demise

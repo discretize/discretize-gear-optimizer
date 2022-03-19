@@ -281,6 +281,19 @@
       gw2id: 2208
       defaultEnabled: true
 
+    - id: jagged-mind
+      text: Jagged Mind
+      subText: per blade hit (including non critical)
+      amountData:
+        label: 'hit/s'
+        default: 0
+        quantityEntered: 1
+      modifiers:
+        conversionAfterBuffs:
+          Bleeding Coefficient: {Critical Chance: 500%}
+      gw2id: 2202
+      defaultEnabled: false
+
     - id: deadly-blades
       text: Deadly Blades
       minor: true

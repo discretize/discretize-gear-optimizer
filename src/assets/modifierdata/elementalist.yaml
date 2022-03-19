@@ -111,11 +111,25 @@
 
     - id: burning-precision
       text: Burning Precision
+      subText: base
       modifiers:
         attributes:
           Burning Duration: 20%
       gw2id: 296
       defaultEnabled: true
+
+    - id: burning-precision-on-crit
+      text: Burning Precision
+      subText: per hit (including non critical)
+      amountData:
+        label: 'hit/s'
+        default: 0
+        quantityEntered: 1
+      modifiers:
+        conversionAfterBuffs:
+          Burning Coefficient: {Critical Chance: 100%}
+      gw2id: 296
+      defaultEnabled: false
 
     - id: burning-rage
       text: Burning Rage

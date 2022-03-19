@@ -52,6 +52,19 @@
   id: 30
   items:
 
+    - id: sharpened-edges
+      text: Sharpened Edges
+      subText: per hit (including non critical)
+      amountData:
+        label: 'hit/s'
+        default: 0
+        quantityEntered: 1
+      modifiers:
+        conversionAfterBuffs:
+          Bleeding Coefficient: {Critical Chance: 100%}
+      gw2id: 1069
+      defaultEnabled: false
+
     - id: hidden-barbs
       text: Hidden Barbs
       modifiers:
