@@ -84,12 +84,14 @@
 
     - id: ogre
       text: Superior Rune of the Ogre
+      subText: (Approx.)
       modifiers:
         damage:
           Strike Damage: [4%, add]
         attributes:
           Power: [175, converted]
           Ferocity: [100, converted]
+          Flat DPS: 500 # copied from wiki
       gw2id: 24756
 
     - id: ranger
@@ -122,6 +124,16 @@
           Might Duration: 10%
           Burning Duration: 10%
       gw2id: 24747
+
+    - id: golemancer
+      text: Superior Rune of the Golemancer
+      subText: (Approx.)
+      modifiers:
+        attributes:
+          Ferocity: [300, converted]
+          Precision: [100, converted]
+          Flat DPS: 750 # copied from wiki
+      gw2id: 24785
 
 - section: Support Runes
   items:
@@ -201,6 +213,16 @@
         attributes:
           Vitality: [175, converted]
           Boon Duration: 25%
+      gw2id: 67342
+
+    - id: privateer
+      text: Superior Rune of the Privateer
+      subText: (Approx.)
+      modifiers:
+        attributes:
+          Power: [175, converted]
+          Might Duration: 30%
+          Flat DPS: 625
       gw2id: 67342
 
 - section: Defensive Runes
@@ -345,6 +367,8 @@
         attributes:
           Vitality: [175, converted]
           Condition Duration: 15%
+          Flat DPS: 86
+          Bleeding Coefficient: 1.33 # .266 * 5
       gw2id: 24688
 
     - id: trapper
@@ -470,6 +494,7 @@
 
     - id: mad-king
       text: Superior Rune of the Mad King
+      subText: (Not including elite)
       modifiers:
         attributes:
           Condition Duration: 5%

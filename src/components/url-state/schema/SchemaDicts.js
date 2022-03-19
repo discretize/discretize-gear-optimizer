@@ -141,6 +141,8 @@ export const runesDict = [
   'exuberance',
   'vampirism',
   'firebrand-firebrand',
+  'golemancer',
+  'privateer',
 ];
 
 export const sigilDict = [
