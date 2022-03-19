@@ -314,7 +314,7 @@
       text: Wicked Corruption
       amountData:
         label: 'blight stacks'
-        default: 25
+        default: 11.6
         quantityEntered: 1
       modifiers:
         damage:
@@ -326,7 +326,7 @@
       text: Septic Corruption
       amountData:
         label: 'blight stacks'
-        default: 25
+        default: 11.6
         quantityEntered: 1
       modifiers:
         damage:

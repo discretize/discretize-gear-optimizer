@@ -915,41 +915,41 @@ list:
         }
       }
 
-  - name: '[beta1] DPS Harbinger'
+  - name: DPS Harbinger
     profession: Harbinger
     value: |-
       {
-        "Runes": {
-          "tormenting": {}
-        },
         "Sigil1": {
           "bursting": {}
         },
         "Sigil2": {},
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
+        "Runes": {
+          "nightmare": {}
         },
         "Nourishment": {
-          "beef-rendang": {}
+          "meaty-asparagus-skewer": {}
+        },
+        "Enhancement": {
+          "toxic-focusing-crystal": {}
         }
       }
 
-  - name: '[beta1] Quickness Harbinger (Firebrand)'
+  - name: Quickness Harbinger
     profession: Harbinger
     value: |-
       {
-        "Runes": {
-          "firebrand": {}
-        },
         "Sigil1": {
-          "demons": {}
+          "bursting": {}
         },
         "Sigil2": {},
-        "Enhancement": {
-          "master-tuning-crystal": {}
+        "Runes": {
+          "tormenting": {}
         },
         "Nourishment": {
           "rare-veggie-pizza": {}
+        },
+        "Enhancement": {
+          "master-tuning-crystal": {}
         }
       }
 
@@ -1050,38 +1050,50 @@ list:
         }
       }
 
-  - name: '[beta2] DPS Specter'
+  - name: DPS Specter
     profession: Specter
     value: |-
       {
-        "Runes": {
-          "tormenting": {}
-        },
-        "Sigil1": {},
-        "Sigil2": {},
-        "Enhancement": {
-          "master-tuning-crystal": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
-        }
-      }
-
-  - name: '[beta1] DPS Specter'
-    profession: Specter
-    value: |-
-      {
-        "Runes": {
-          "tormenting": {}
-        },
         "Sigil1": {
           "bursting": {}
         },
-        "Sigil2": {},
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
+        "Sigil2": {
+          "doom": {
+            "amount": "0.93"
+          }
+        },
+        "Runes": {
+          "tormenting": {}
         },
         "Nourishment": {
-          "beef-rendang": {}
+          "bowl-of-kimchi-tofu-stew": {}
+        },
+        "Enhancement": {
+          "toxic-focusing-crystal": {}
+        }
+      }
+
+  - name: Alacrity Specter
+    profession: Specter
+    value: |-
+      {
+        "Sigil1": {
+          "demons": {},
+          "concentration": {}
+        },
+        "Sigil2": {
+          "doom": {
+            "amount": "0.93"
+          }
+        },
+        "Runes": {
+          "renegade": {}
+        },
+        "Nourishment": {
+          "eggs-benedict": {},
+          "meaty-asparagus-skewer": {}
+        },
+        "Enhancement": {
+          "toxic-maintenance-oil": {}
         }
       }

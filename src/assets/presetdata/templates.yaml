@@ -592,32 +592,23 @@ list:
         traits: Condi Reaper
         extras: Condi Reaper
 
-      - name: '[beta1] DPS Harbinger'
+      - name: DPS Harbinger
         id: charb
         specialization: Harbinger
         boons: Condi
         priority: Condi DPS
-        distribution: '[beta1] Harbinger (approx.)'
-        traits: '[beta1] DPS Harbinger'
-        extras: '[beta1] DPS Harbinger'
+        distribution: DPS Harbinger
+        traits: DPS Harbinger
+        extras: DPS Harbinger
 
-      - name: '[beta1] Quickness Harbinger (Firebrand)'
-        id: qharb-fb
+      - name: Quickness Harbinger
+        id: qharb
         specialization: Harbinger
         boons: Condi
-        priority: Condi DPS
-        distribution: '[beta1] Quickness Harbinger (approx.)'
-        traits: '[beta1] Quickness Harbinger'
-        extras: '[beta1] Quickness Harbinger (Firebrand)'
-
-      - name: '[beta1] Quickness Harbinger (Cele)'
-        id: qharb-cele
-        specialization: Harbinger
-        boons: Condi
-        priority: Condi Quickness Harbinger 49%
-        distribution: '[beta1] Quickness Harbinger (approx.)'
-        traits: '[beta1] Quickness Harbinger'
-        extras: '[beta1] Quickness Harbinger (Cele)'
+        priority: Condi Quickness Harbinger 23%
+        distribution: Quickness Harbinger
+        traits: Quickness Harbinger
+        extras: Quickness Harbinger
 
   - class: Thief
     builds:
@@ -676,20 +667,20 @@ list:
         traits: Rifle Deadeye
         extras: Power (Fractal)
 
-      - name: '[beta2] DPS Specter Sc/D'
-        id: specterdagger
+      - name: DPS Specter
+        id: specter
         specialization: Specter
         boons: Condi
         priority: Condi DPS
-        distribution: '[beta2] DPS Specter Sc/D'
-        traits: '[beta2] DPS Specter Sc/D'
-        extras: '[beta2] DPS Specter'
+        distribution: DPS Specter (allies)
+        traits: DPS Specter
+        extras: DPS Specter
 
-      - name: '[beta1] DPS Specter Endless Night'
-        id: specterpistol
+      - name: Alacrity Specter
+        id: specter-alac
         specialization: Specter
         boons: Condi
-        priority: Heal
-        distribution: '[beta1] DPS Specter Endless Night'
-        traits: '[beta1] DPS Specter Endless Night'
-        extras: '[beta1] DPS Specter'
+        priority: Condi Alacrity Specter 55%
+        distribution: Alacrity Specter (allies)
+        traits: Alacrity Specter
+        extras: Alacrity Specter

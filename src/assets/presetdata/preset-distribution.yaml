@@ -595,22 +595,28 @@ list:
         "values2": { "Power": 2385, "Burning": 2, "Bleeding": 44, "Poisoned": 3, "Torment": 4.3, "Confusion": 0 }
       }
 
-  # https://www.youtube.com/watch?v=AyDxFUGZOYQ (log is off ingame # by 3%)
-  # power: 4902, burn: 3838, bleed: 7601, poison: 4393, torment: 23779, total: 44513
-  - name: '[beta1] Harbinger (approx.)'
+  # https://www.youtube.com/watch?v=TLNU5y7jZnA
+  # power: 6001, burn: 3014, bleed: 8134, poison: 3492, torment: 20360, total: 41001
+  # arc bugged (septic corruption 1%); condis reduced
+  # game bug: alchemic vigor converted at 360
+  # meaty asparagus, nightmare, 4 geo / 97s, ??? torment, 11.6 blight avg, 6 malign 12 spiteful
+  - name: DPS Harbinger
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 1855, "Burning": 2.2, "Bleeding": 11.3, "Poisoned": 7, "Torment": 21.2, "Confusion": 0 }
+        "values2": { "Power": 2271, "Burning": 1.81, "Bleeding": 12.9, "Poisoned": 5.83, "Torment": 22.17, "Confusion": 0 }
       }
 
-  # https://www.youtube.com/watch?v=AyDxFUGZOYQ (log is off ingame #)
-  # power: 5462, burn: 2897, bleed: 5893, poison: 3167, torment: 15872, total: 33291
-  - name: '[beta1] Quickness Harbinger (approx.)'
+  # https://www.youtube.com/watch?v=zcFY7nNhZwg
+  # power: 5334, burn: 2188, bleed: 6098, poison: 2797, torment: 16736, total: 33153
+  # arc bugged (septic corruption 1%); condis reduced
+  # game bug: alchemic vigor converted at 360
+  # ritualist coat leg, condi food (either), tormenting, double torment
+  - name: Quickness Harbinger
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 1987, "Burning": 2, "Bleeding": 11.1, "Poisoned": 6.3, "Torment": 17, "Confusion": 0 }
+        "values2": { "Power": 2202, "Burning": 1.67, "Bleeding": 12.15, "Poisoned": 5.97, "Torment": 18.98, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=1yAvjWJoAyE
@@ -650,13 +656,24 @@ list:
         "values2": { "Power": 3421, "Burning": 0.5, "Bleeding": 0.4, "Poisoned": 1.8, "Torment": 0, "Confusion": 0 }
       }
 
-  # https://www.youtube.com/watch?v=XvS81O4mg8A
-  # power: 6162, burn: 698, bleed: 1137, poison: 14783, torment: 20672, total: 43452
-  - name: '[beta2] DPS Specter Sc/D'
+  # https://www.youtube.com/watch?v=V2nn6jf7DF0
+  # power: 6215, burn: 634, bleed: 1056, poison: 15012, torment: 17877, total: 40794
+  # 9 doom/97s, kimchi, sini shld glov back acc acc
+  - name: DPS Specter (allies)
     profession: Specter
     value: >-
       {
-        "values2": { "Power": 2111, "Burning": 0.55, "Bleeding": 2.7, "Poisoned": 20.68, "Torment": 22.67, "Confusion": 0 }
+        "values2": { "Power": 2131, "Burning": 0.52, "Bleeding": 2.59, "Poisoned": 17.55, "Torment": 20.25, "Confusion": 0 }
+      }
+
+  # https://www.youtube.com/watch?v=20NDybU2G9k
+  # power: 3057, burn: 767, poison: 12208, torment: 13589, total: 29621
+  # 11 doom/133s, full rit renegade doom demons benedict toxic malign, bountiful theft
+  - name: Alacrity Specter (allies)
+    profession: Specter
+    value: >-
+      {
+        "values2": { "Power": 1878, "Burning": 0.57, "Bleeding": 0, "Poisoned": 14.87, "Torment": 18.34, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=QjDA4W3nYYM
