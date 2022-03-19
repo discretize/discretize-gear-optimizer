@@ -296,6 +296,7 @@
 
     - id: piercing-blades
       text: Piercing Shards
+      subText: base
       modifiers:
         damage:
           Strike Damage: [10%, mult]

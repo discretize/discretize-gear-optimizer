@@ -78,7 +78,7 @@ const testModifiers = async () => {
     );
 
     const fileIds = new Set();
-    const allGw2ids = new Set();
+    const allDataByGw2id = new Map();
 
     const fileIsExtra = ['food', 'utility', 'runes', 'sigils'].some((name) =>
       fileName.includes(name),
@@ -170,15 +170,24 @@ const testModifiers = async () => {
         }
 
         if (minor && !subText && !amountData) {
-          gentleAssert(defaultEnabled, `err: minor ${id} should be defaultEnabled!`);
+          gentleAssert(
+            defaultEnabled,
+            `err: minor ${id} should be defaultEnabled! add subText if it's optional`,
+          );
         }
 
         if (section.id && gw2id) {
-          gentleAssert(
-            !allGw2ids.has(gw2id) || subText || amountData,
-            `missing subtext for same gw2id in ${id}`,
-          );
-          allGw2ids.add(gw2id);
+          if (allDataByGw2id.has(gw2id)) {
+            // more than one item for this gw2id; make sure they are easy to distinguish
+            const otherItem = allDataByGw2id.get(gw2id);
+
+            gentleAssert(
+              (subText || amountData) && (otherItem.subText || otherItem.amountData),
+              `missing subtext/amountData for same gw2id in ${id} - label one e.g. "base!"`,
+            );
+          }
+
+          allDataByGw2id.set(gw2id, item);
         }
 
         gentleAssert(
