@@ -1,5 +1,5 @@
 import { FormControlLabel, Switch } from '@mui/material';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { classModifiers } from '../../../assets/modifierdata';
@@ -46,9 +46,24 @@ const TraitsSection = ({ profession, data }) => {
     <Section
       first
       title={t('Traits')}
-      helpText={t(
-        'Select your traits here. Remember to also select the corresponding checkbox below each traitline. This is necessary, because many traits grant conditional bonus stats and you might get different results with different conditional traits.',
-      )}
+      helpText={
+        <>
+          <p>
+            <Trans>
+              Select your traits, then select and customize the trait bonuses you want to simulate
+              using the checkboxes below each line. Many bonuses are conditional and may not apply
+              to your setup.
+            </Trans>
+          </p>
+          <p>
+            <Trans>
+              Only the bonuses with checkboxes are applied here, so be sure to change the Skill
+              Coefficients section when changing to/from traits without checkboxes like Lingering
+              Curse or Legendary Lore for accurate results.
+            </Trans>
+          </p>
+        </>
+      }
       content={<Traits data={traitsData} />}
       extraInfo={
         <>
