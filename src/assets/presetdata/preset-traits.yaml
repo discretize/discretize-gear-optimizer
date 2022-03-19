@@ -4121,7 +4121,7 @@ list:
         "skills": {}
       }
 
-  - name: '[beta1] DPS Harbinger'
+  - name: DPS Harbinger
     profession: Harbinger
     traits: |-
       {
@@ -4170,7 +4170,7 @@ list:
               "amount": ""
             },
             "septic-corruption": {
-              "amount": ""
+              "amount": "11.6"
             },
             "alchemic-vigor": true,
             "implacable-foe": true,
@@ -4185,7 +4185,7 @@ list:
         "skills": {}
       }
 
-  - name: '[beta1] Quickness Harbinger'
+  - name: Quickness Harbinger
     profession: Harbinger
     traits: |-
       {
@@ -4234,7 +4234,7 @@ list:
               "amount": ""
             },
             "septic-corruption": {
-              "amount": ""
+              "amount": "11.6"
             },
             "alchemic-vigor": true,
             "implacable-foe": true,

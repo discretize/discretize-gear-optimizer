@@ -94,13 +94,13 @@ list:
         "minBoonDuration": 40
       }
 
-  - name: Condi Quickness Harbinger 49%
+  - name: Condi Quickness Harbinger 23%
     hidden: true
     value: >-
       {
         "affixes": ["Viper", "Sinister", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 49
+        "minBoonDuration": 23
       }
 
   - name: Condi Hybrid Druid 52%

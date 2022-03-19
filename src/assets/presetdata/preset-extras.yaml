@@ -915,41 +915,41 @@ list:
         }
       }
 
-  - name: '[beta1] DPS Harbinger'
+  - name: DPS Harbinger
     profession: Harbinger
     value: |-
       {
-        "Runes": {
-          "tormenting": {}
-        },
         "Sigil1": {
           "bursting": {}
         },
         "Sigil2": {},
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
+        "Runes": {
+          "nightmare": {}
         },
         "Nourishment": {
-          "beef-rendang": {}
+          "meaty-asparagus-skewer": {}
+        },
+        "Enhancement": {
+          "toxic-focusing-crystal": {}
         }
       }
 
-  - name: '[beta1] Quickness Harbinger (Firebrand)'
+  - name: Quickness Harbinger
     profession: Harbinger
     value: |-
       {
-        "Runes": {
-          "firebrand": {}
-        },
         "Sigil1": {
-          "demons": {}
+          "bursting": {}
         },
         "Sigil2": {},
-        "Enhancement": {
-          "master-tuning-crystal": {}
+        "Runes": {
+          "tormenting": {}
         },
         "Nourishment": {
           "rare-veggie-pizza": {}
+        },
+        "Enhancement": {
+          "master-tuning-crystal": {}
         }
       }
 
