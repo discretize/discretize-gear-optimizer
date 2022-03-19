@@ -1078,7 +1078,8 @@ list:
     value: |-
       {
         "Sigil1": {
-          "demons": {}
+          "demons": {},
+          "concentration": {}
         },
         "Sigil2": {
           "doom": {
@@ -1089,7 +1090,8 @@ list:
           "renegade": {}
         },
         "Nourishment": {
-          "eggs-benedict": {}
+          "eggs-benedict": {},
+          "meaty-asparagus-skewer": {}
         },
         "Enhancement": {
           "toxic-maintenance-oil": {}
