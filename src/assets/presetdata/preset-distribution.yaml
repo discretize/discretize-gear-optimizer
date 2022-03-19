@@ -418,7 +418,7 @@ list:
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 1591, "Burning": 2.42, "Bleeding": 27.74, "Poisoned": 16.41, "Torment": 0.15, "Confusion": 0 }
+        "values2": { "Power": 1591, "Burning": 2.42, "Bleeding": 25.12, "Poisoned": 16.25, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=rr-gJuN3ECA
@@ -427,7 +427,7 @@ list:
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 1664, "Burning": 3.6, "Bleeding": 26.49, "Poisoned": 14.09, "Torment": 0.15, "Confusion": 0 }
+        "values2": { "Power": 1664, "Burning": 3.54, "Bleeding": 23.38, "Poisoned": 13.69, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=HdwqDoINnq0
@@ -436,7 +436,7 @@ list:
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 2315, "Burning": 2.8, "Bleeding": 26.9, "Poisoned": 7.1, "Torment": 0.2, "Confusion": 0 }
+        "values2": { "Power": 2315, "Burning": 2.76, "Bleeding": 26.72, "Poisoned": 6.89, "Torment": 0, "Confusion": 0 }
       }
 
   # im sorry
@@ -447,7 +447,7 @@ list:
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 1661, "Burning": 0.5, "Bleeding": 28.1, "Poisoned": 11.6, "Torment": 0.1, "Confusion": 0 }
+        "values2": { "Power": 1661, "Burning": 0.54, "Bleeding": 25.48, "Poisoned": 11.45, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=5Wipvn8loPk (very old)
@@ -587,12 +587,12 @@ list:
 
   # https://www.youtube.com/watch?v=prk0ZwXwLlA
   # power: 7817, burn: 2167, bleed: 24240, poison: 1135, torment: 2327, total: 37686
-  # no grieving
+  # sini shld coat glov boot amul ear, rest viper
   - name: Condi Reaper
     profession: Reaper
     value: >-
       {
-        "values2": { "Power": 2385, "Burning": 2, "Bleeding": 44, "Poisoned": 3, "Torment": 4.3, "Confusion": 0 }
+        "values2": { "Power": 2378, "Burning": 2.04, "Bleeding": 43.57, "Poisoned": 2.82, "Torment": 4.16, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=TLNU5y7jZnA

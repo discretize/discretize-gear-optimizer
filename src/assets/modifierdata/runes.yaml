@@ -486,10 +486,16 @@
 
     - id: krait
       text: Superior Rune of the Krait
+      subText: (elite every 50s)
       modifiers:
         attributes:
           Condition Damage: [175, converted]
           Bleeding Duration: 50%
+
+          # 8 seconds every 50 seconds
+          Bleeding Coefficient: 0.16
+          Torment Coefficient: 0.16
+          Poison Coefficient: 0.16
       gw2id: 24762
 
     - id: mad-king

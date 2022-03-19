@@ -638,18 +638,20 @@ list:
     profession: Soulbeast
     value: |-
       {
-        "Runes": {
-          "krait": {}
-        },
         "Sigil1": {
           "bursting": {}
         },
-        "Sigil2": {},
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
+        "Sigil2": {
+          "earth": {}
+        },
+        "Runes": {
+          "krait": {}
         },
         "Nourishment": {
           "beef-rendang": {}
+        },
+        "Enhancement": {
+          "toxic-focusing-crystal": {}
         }
       }
 
@@ -676,18 +678,20 @@ list:
     profession: Soulbeast
     value: |-
       {
-        "Runes": {
-          "krait": {}
-        },
         "Sigil1": {
           "bursting": {}
         },
-        "Sigil2": {},
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
+        "Sigil2": {
+          "earth": {}
+        },
+        "Runes": {
+          "krait": {}
         },
         "Nourishment": {
           "rare-veggie-pizza": {}
+        },
+        "Enhancement": {
+          "toxic-focusing-crystal": {}
         }
       }
 
