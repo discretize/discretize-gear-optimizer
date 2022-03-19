@@ -7,6 +7,7 @@
 import {
   allAttributeCoefficientKeys,
   allAttributePointKeys,
+  allConversionAfterBuffsSourceKeys,
 } from '../../assets/modifierdata/metadata';
 import {
   Affix as unmodifiedAffix,
@@ -1056,7 +1057,7 @@ export function createOptimizerCore(input) {
         settings.modifiers['convertAfterBuffs'][attribute] = {};
       }
       for (const [source, percentAmount] of Object.entries(val)) {
-        const valid = allAttributePointKeys.includes(source) || source === 'Critical Chance';
+        const valid = allConversionAfterBuffsSourceKeys.includes(source);
         // eslint-disable-next-line no-alert
         if (!valid) alert(`Unsupported after-buff conversion source: ${source}`);
 
