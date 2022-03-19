@@ -154,7 +154,7 @@
       text: Superior Sigil of Earth
       amountData:
         label: '/10s'
-        default: 4.1
+        default: 4.3
         quantityEntered: 10
       modifiers:
         attributes:
@@ -179,7 +179,7 @@
       text: Superior Sigil of Torment
       amountData:
         label: '/10s'
-        default: 1.8
+        default: 1.9
         quantityEntered: 10
       modifiers:
         attributes:
