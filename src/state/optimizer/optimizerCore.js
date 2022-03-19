@@ -530,11 +530,15 @@ class OptimizerCore {
       const maybeRound = allAttributePointKeys.includes(attribute) ? round : (val) => val;
       for (const [source, percent] of conversion) {
         if (source === 'Critical Chance') {
-          attributes[attribute] += maybeRound(clamp(attributes[source], 0, 1) * percent);
+          attributes[attribute] += maybeRound(clamp(attributes['Critical Chance'], 0, 1) * percent);
         } else if (source === 'Critical Chance -20') {
-          attributes[attribute] += maybeRound(clamp(attributes[source] - 0.2, 0, 1) * percent);
+          attributes[attribute] += maybeRound(
+            clamp(attributes['Critical Chance'] - 0.2, 0, 1) * percent,
+          );
         } else if (source === 'Critical Chance -30') {
-          attributes[attribute] += maybeRound(clamp(attributes[source] - 0.3, 0, 1) * percent);
+          attributes[attribute] += maybeRound(
+            clamp(attributes['Critical Chance'] - 0.3, 0, 1) * percent,
+          );
         } else {
           attributes[attribute] += maybeRound(attributes[source] * percent);
         }
