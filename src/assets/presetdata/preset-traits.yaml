@@ -4669,7 +4669,7 @@ list:
         }
       }
 
-  - name: '[beta2] DPS Specter Sc/D'
+  - name: DPS Specter
     profession: Specter
     traits: |-
       {
@@ -4714,7 +4714,75 @@ list:
           {
             "preparedness": true,
             "lead-attacks": {
-              "amount": "13.4"
+              "amount": "13.6"
+            },
+            "deadly-ambush": true
+          },
+          {
+            "second-opinion-base": true,
+            "second-opinion-scepter": {
+              "amount": ""
+            },
+            "dark-sentry": true,
+            "larcenous-torment": true,
+            "strength-of-shadows-base": true,
+            "strength-of-shadows-condis": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Alacrity Specter
+    profession: Specter
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "28",
+          "44",
+          "71"
+        ],
+        "selectedTraits": [
+          [
+            1164,
+            1292,
+            1291
+          ],
+          [
+            1163,
+            1277,
+            1187
+          ],
+          [
+            2275,
+            2285,
+            2264
+          ]
+        ],
+        "items": [
+          {
+            "dagger-training-base": true,
+            "dagger-training-dagger": false,
+            "deadly-ambition": true,
+            "revealed-training-base": true,
+            "revealed-training-revealed": false,
+            "exposed-weakness": {
+              "amount": ""
+            },
+            "potent-poison": true,
+            "executioner": {
+              "amount": ""
+            }
+          },
+          {
+            "preparedness": true,
+            "lead-attacks": {
+              "amount": "13.6"
             },
             "deadly-ambush": true
           },

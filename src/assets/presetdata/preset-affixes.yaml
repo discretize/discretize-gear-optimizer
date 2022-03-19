@@ -147,3 +147,12 @@ list:
         "optimizeFor": "Damage",
         "minBoonDuration": 18.8
       }
+
+  - name: Condi Alacrity Specter 55%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 55
+      }

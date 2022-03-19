@@ -1050,38 +1050,48 @@ list:
         }
       }
 
-  - name: '[beta2] DPS Specter'
+  - name: DPS Specter
     profession: Specter
     value: |-
       {
-        "Runes": {
-          "tormenting": {}
-        },
-        "Sigil1": {},
-        "Sigil2": {},
-        "Enhancement": {
-          "master-tuning-crystal": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
-        }
-      }
-
-  - name: '[beta1] DPS Specter'
-    profession: Specter
-    value: |-
-      {
-        "Runes": {
-          "tormenting": {}
-        },
         "Sigil1": {
           "bursting": {}
         },
-        "Sigil2": {},
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
+        "Sigil2": {
+          "doom": {
+            "amount": "0.93"
+          }
+        },
+        "Runes": {
+          "tormenting": {}
         },
         "Nourishment": {
-          "beef-rendang": {}
+          "bowl-of-kimchi-tofu-stew": {}
+        },
+        "Enhancement": {
+          "toxic-focusing-crystal": {}
+        }
+      }
+
+  - name: Alacrity Specter
+    profession: Specter
+    value: |-
+      {
+        "Sigil1": {
+          "demons": {}
+        },
+        "Sigil2": {
+          "doom": {
+            "amount": "0.93"
+          }
+        },
+        "Runes": {
+          "renegade": {}
+        },
+        "Nourishment": {
+          "eggs-benedict": {}
+        },
+        "Enhancement": {
+          "toxic-maintenance-oil": {}
         }
       }
