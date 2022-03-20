@@ -42,13 +42,11 @@ export function* calculate(inputCombinations) {
         .sort((a, b) => characterLT(a, b, rankby))
         .slice(0, 50);
 
-      if (combinations.length > 1) {
-        globalFilteredList = combinations
-          .map(({ list }) => list?.[0])
-          .filter(Boolean)
-          // eslint-disable-next-line id-length
-          .sort((a, b) => characterLT(a, b, rankby));
-      }
+      globalFilteredList = combinations
+        .map(({ list }) => list?.[0])
+        .filter(Boolean)
+        // eslint-disable-next-line id-length
+        .sort((a, b) => characterLT(a, b, rankby));
     }
 
     console.log(`option ${currentIndex} progress: ${calculationRuns} / ${runsAfterThisSlot[0]}`);
