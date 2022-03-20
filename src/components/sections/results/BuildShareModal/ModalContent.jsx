@@ -1,5 +1,6 @@
 import { Error, Icon, Item, Progress } from '@discretize/gw2-ui-new';
 import { firstUppercase } from '@discretize/react-discretize-components';
+import DoneIcon from '@mui/icons-material/Done';
 import { Box, Button, ButtonGroup, MenuItem, Select, Typography } from '@mui/material';
 import axios from 'axios';
 import React from 'react';
@@ -36,6 +37,7 @@ export default function ModalContent({ character, buttons }) {
   const { buffs } = character.settings.cachedFormState.buffs;
 
   const [state, setState] = React.useState({ skills: undefined, error: undefined });
+  const [buttonState, setButtonState] = React.useState(new Array(buttons.length));
 
   const { profession } = character.settings;
   const { weapons: useableWeapons } = Classes[profession];
@@ -185,10 +187,22 @@ export default function ModalContent({ character, buttons }) {
       </Box>
 
       <ButtonGroup variant="contained" color="primary">
-        {buttons.map(({ label, icon: ButtonIcon, onClick }) => (
+        {buttons.map(({ label, icon: ButtonIcon, onClick }, index) => (
           <Button
-            startIcon={<ButtonIcon />}
-            onClick={() => onClick({ profession, buffs, lines, selected, skills, weapons })}
+            startIcon={buttonState[index] ? <DoneIcon /> : <ButtonIcon />}
+            disabled={buttonState[index]}
+            onClick={() => {
+              const newState = [...buttonState];
+              newState[index] = true;
+              setButtonState(newState);
+
+              setTimeout(() => {
+                const tmpState = [...buttonState];
+                tmpState[index] = false;
+                setButtonState(tmpState);
+              }, 5000);
+              onClick({ profession, buffs, lines, selected, skills, weapons });
+            }}
           >
             {label}
           </Button>

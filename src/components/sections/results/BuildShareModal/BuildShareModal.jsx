@@ -1,6 +1,7 @@
 import CloseIcon from '@mui/icons-material/Close';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import ShareIcon from '@mui/icons-material/Share';
 import { Box, Divider, IconButton, Typography } from '@mui/material';
-import Backdrop from '@mui/material/Backdrop';
 import Fade from '@mui/material/Fade';
 import Modal from '@mui/material/Modal';
 import { withPrefix } from 'gatsby';
@@ -10,8 +11,6 @@ import { makeStyles } from 'tss-react/mui';
 import { version } from '../../../url-state/schema/BuildPageSchema_v2';
 import generateLink from './generateLink';
 import ModalContent from './ModalContent';
-import ShareIcon from '@mui/icons-material/Share';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 const useStyles = makeStyles()((theme) => ({
   modal: {

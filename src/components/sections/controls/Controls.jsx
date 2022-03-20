@@ -18,7 +18,6 @@ import {
 } from '../../../state/slices/controlsSlice';
 import { getPriority } from '../../../state/slices/priorities';
 import ProgressIcon from '../../baseComponents/ProgressIcon';
-import URLStateExport from '../../url-state/URLStateExport';
 import ResultTableSettings from './ResultTableSettings';
 
 const useStyles = makeStyles()((theme) => ({

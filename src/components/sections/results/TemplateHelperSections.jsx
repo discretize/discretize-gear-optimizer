@@ -1,5 +1,5 @@
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ShareIcon from '@mui/icons-material/Share';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { Accordion, AccordionDetails, AccordionSummary, Grid, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
@@ -105,7 +105,7 @@ const TemplateHelperSections = ({ character }) => {
                 content={
                   <ModalContent
                     character={character}
-                    buttons={[{ label: 'Copy Build to clipboard', onClick, icon: ShareIcon }]}
+                    buttons={[{ label: 'Copy Build to clipboard', onClick, icon: ContentCopyIcon }]}
                   />
                 }
               />
