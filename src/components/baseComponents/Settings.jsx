@@ -1,54 +1,50 @@
 import SettingsIcon from '@mui/icons-material/Settings';
-import { Box, IconButton, Popover } from '@mui/material';
-import React, { useEffect } from 'react';
+import { ClickAwayListener, Grow, IconButton, Paper, Popper } from '@mui/material';
+import React from 'react';
 
 export default function Settings({ children }) {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const anchorRef = React.useRef();
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const [open, setOpen] = React.useState(false);
+
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen);
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
+  const handleClose = (event) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+
+    setOpen(false);
   };
-
-  /*
-   * Hide the settings popover as soon as the user scrolls.
-   * Related mui issue (to disableScrollLock): https://github.com/mui/material-ui/issues/17353#issuecomment-1007275913
-   */
-  useEffect(() => {
-    window.addEventListener('scroll', handleClose);
-    return () => {
-      window.removeEventListener('scroll', handleClose);
-    };
-  }, []);
-
-  const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
 
   return (
     <>
-      <IconButton aria-label="settings" size="medium" onClick={handleClick}>
+      <IconButton aria-label="settings" size="medium" onClick={handleToggle} ref={anchorRef}>
         <SettingsIcon fontSize="inherit" />
       </IconButton>
-      <Popover
-        id={id}
+
+      <Popper
+        style={{ zIndex: 99 }}
         open={open}
-        anchorEl={anchorEl}
+        anchorEl={anchorRef.current}
         onClose={handleClose}
-        disableScrollLock
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
+        placement="bottom-end"
+        transition
+        role={undefined}
+        disablePortal
       >
-        <Box sx={{ padding: 2 }}>{children}</Box>
-      </Popover>
+        {({ TransitionProps }) => (
+          <Grow {...TransitionProps}>
+            <Paper sx={{ padding: 2 }} elevation={6}>
+              <ClickAwayListener onClickAway={handleClose}>
+                <div>{children}</div>
+              </ClickAwayListener>
+            </Paper>
+          </Grow>
+        )}
+      </Popper>
     </>
   );
 }
