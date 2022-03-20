@@ -1,6 +1,6 @@
 import { Box, FormControlLabel, Switch, Typography } from '@mui/material';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import {
@@ -30,9 +30,11 @@ export default function ResultTableSettings() {
 
   return (
     <Settings>
-      <Typography sx={{ fontWeight: 700 }}>Result Settings:</Typography>
+      <Typography sx={{ fontWeight: 700 }}>
+        <Trans>Result Display Settings:</Trans>
+      </Typography>
 
-      <Box>
+      <Box sx={{ mt: 1.5 }}>
         <FormControlLabel
           control={
             <Switch
@@ -42,12 +44,17 @@ export default function ResultTableSettings() {
               color="primary"
             />
           }
-          label={t('Only show one of each extra combination')}
+          label={t('Filter results by combination')}
           classes={{ label: classes.comparisonLabel }}
         />
+        <Typography sx={{ fontSize: '0.85rem', maxWidth: '320px' }}>
+          <Trans>
+            Displays only the top result for each combination of runes, sigils, food, and utility.
+          </Trans>
+        </Typography>
       </Box>
 
-      <Box>
+      <Box sx={{ mt: 1.5 }}>
         <FormControlLabel
           control={
             <Switch
@@ -57,7 +64,7 @@ export default function ResultTableSettings() {
               color="primary"
             />
           }
-          label={t('% Comparison')}
+          label={t('Compare by percentage')}
           classes={{ label: classes.comparisonLabel }}
         />
       </Box>
