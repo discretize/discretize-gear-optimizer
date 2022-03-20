@@ -555,6 +555,18 @@ list:
         "values2": { "Power": 1853, "Burning": 2.3, "Bleeding": 5.2, "Poisoned": 0, "Torment": 7.4, "Confusion": 17.0 }
       }
 
+  # power: 12582, burn: 516, bleed: 23587, poison: 58, torment: 4185, confusion: 546, total: 41474
+  # signet of illusions
+  # ~1.73 phantasm hit/sec, ~5.0 blade hit/sec
+  # sini shld glov boot acc acc, rampager amul ring, rest viper
+  # bursting earth krait, kimchi pancake, precise infu, accuracy writ
+  - name: Condi Virtuoso
+    profession: Virtuoso
+    value: >-
+      {
+        "values2": { "Power": 3540, "Burning": 0.52, "Bleeding": 2.03, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
+      }
+
   # https://www.youtube.com/watch?v=2SmXV9Yr1QM
   # power: 37603, burn: 182, bleed: 851, confusion: 28, total: 38664
   # assassin helm shoulders gloves boots, accuracy

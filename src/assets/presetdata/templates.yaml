@@ -40,6 +40,15 @@ list:
         traits: Condi Chrono
         extras: Condi Chrono STM
 
+      - name: Condi Virtuoso
+        id: cvirt
+        specialization: Virtuoso
+        boons: Condi
+        priority: Condi DPS Rampager
+        distribution: Condi Virtuoso
+        traits: Condi Virtuoso
+        extras: Condi Virtuoso
+
       - name: '[beta2] Virtuoso'
         id: pvirt
         specialization: Virtuoso

@@ -156,3 +156,11 @@ list:
         "optimizeFor": "Damage",
         "minBoonDuration": 55
       }
+
+  - name: Condi DPS Rampager
+    value: >-
+      {
+        "affixes": ["Viper", "Sinister", "Rampager"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0
+      }

@@ -242,6 +242,75 @@ list:
         }
       }
 
+  - name: Condi Virtuoso
+    profession: Virtuoso
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "24",
+          "1",
+          "66"
+        ],
+        "selectedTraits": [
+          [
+            721,
+            1690,
+            733
+          ],
+          [
+            701,
+            708,
+            692
+          ],
+          [
+            2202,
+            2205,
+            2223
+          ]
+        ],
+        "items": [
+          {
+            "compounding-power": {
+              "amount": ""
+            }
+          },
+          {
+            "fencers-finesse": {
+              "amount": "5.3"
+            },
+            "superiority-complex-base": true,
+            "superiority-complex": {
+              "amount": ""
+            },
+            "sharper-images": {
+              "amount": "1.73"
+            }
+          },
+          {
+            "mental-focus": {
+              "amount": ""
+            },
+            "deadly-blades": {
+              "amount": "98"
+            },
+            "sharpening-sorrow": true,
+            "quiet-intensity": true,
+            "bloodsong": true,
+            "jagged-mind": {
+              "amount": "5"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-domination": true,
+          "signet-of-midnight": true
+        }
+      }
+
   - name: '[beta2] Virtuoso'
     profession: Virtuoso
     traits: |-

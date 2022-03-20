@@ -281,7 +281,7 @@ export const Affix = {
   },
   Rampager: {
     type: 'triple',
-    category: 'Open World',
+    category: 'Condi DPS',
     bonuses: {
       major: ['Precision'],
       minor: ['Condition Damage', 'Power'],

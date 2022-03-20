@@ -28,6 +28,15 @@ list:
         "secondaryMaxInfusions": ""
       }
 
+  - name: Condition Damage + Precision
+    value: |-
+      {
+        "primaryInfusion": "Condition Damage",
+        "secondaryInfusion": "Precision",
+        "primaryMaxInfusions": "",
+        "secondaryMaxInfusions": ""
+      }
+
   - name: Healing Power + Concentration
     value: |-
       {

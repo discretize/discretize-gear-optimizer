@@ -139,6 +139,31 @@ list:
         }
       }
 
+  - name: Condi Virtuoso
+    profession: Virtuoso
+    value: |-
+      {
+        "Sigil1": {
+          "bursting": {}
+        },
+        "Sigil2": {
+          "earth": {
+            "amount": "4.3"
+          },
+          "agony": {}
+        },
+        "Runes": {
+          "krait": {}
+        },
+        "Nourishment": {
+          "plate-of-kimchi-pancakes": {},
+          "fancy-potato-and-leek-soup": {}
+        },
+        "Enhancement": {
+          "writ-of-masterful-accuracy": {}
+        }
+      }
+
   - name: '[beta2] Virtuoso'
     profession: Virtuoso
     value: |-
