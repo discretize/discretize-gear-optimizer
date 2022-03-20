@@ -49,6 +49,15 @@ list:
         traits: Condi Virtuoso
         extras: Condi Virtuoso
 
+      - name: Condi Virtuoso (sharpening sorrow)
+        id: cvirt-sorrow
+        specialization: Virtuoso
+        boons: Condi
+        priority: Condi DPS Rampager
+        distribution: Condi Virtuoso (sharpening sorrow)
+        traits: Condi Virtuoso (sharpening sorrow)
+        extras: Condi Virtuoso
+
       - name: '[beta2] Virtuoso'
         id: pvirt
         specialization: Virtuoso

@@ -567,6 +567,17 @@ list:
         "values2": { "Power": 3540, "Burning": 0.52, "Bleeding": 2.03, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
       }
 
+  # simulated from above log
+  # remove 17 jagged mind procs in 97 sec
+  # 17 blade hits in 97 sec => - 0.18 jagged mind hit/sec
+  # 0.7 coefficient with 2615.5 weapon strength => -321 power coefficient
+  - name: Condi Virtuoso (sharpening sorrow)
+    profession: Virtuoso
+    value: >-
+      {
+        "values2": { "Power": 3219, "Burning": 0.52, "Bleeding": 2.03, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
+      }
+
   # https://www.youtube.com/watch?v=2SmXV9Yr1QM
   # power: 37603, burn: 182, bleed: 851, confusion: 28, total: 38664
   # assassin helm shoulders gloves boots, accuracy
