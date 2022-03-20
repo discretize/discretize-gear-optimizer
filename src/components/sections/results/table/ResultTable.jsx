@@ -15,7 +15,7 @@ import {
   getList,
   getSaved,
   getSelectedCharacter,
-} from '../../../state/slices/controlsSlice';
+} from '../../../../state/slices/controlsSlice';
 import ResultTableHeaderRow from './ResultTableHeaderRow';
 import ResultTableRow from './ResultTableRow';
 
