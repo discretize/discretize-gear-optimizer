@@ -3,26 +3,23 @@ import Cancel from '@mui/icons-material/Cancel';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import ErrorIcon from '@mui/icons-material/Error';
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
-import { Box, Button, Chip, FormControlLabel, Switch, Typography } from '@mui/material';
+import { Box, Button, Chip, Typography } from '@mui/material';
 import classNames from 'classnames';
-import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
+import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { ABORTED, ERROR, RUNNING, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import {
-  changeCompareByPercent,
   changeControl,
   changeError,
-  changeFilterByExtras,
-  getCompareByPercent,
   getControl,
   getError,
-  getFilterByExtras,
 } from '../../../state/slices/controlsSlice';
 import { getPriority } from '../../../state/slices/priorities';
 import ProgressIcon from '../../baseComponents/ProgressIcon';
 import URLStateExport from '../../url-state/URLStateExport';
+import Settings from './Settings';
 
 const useStyles = makeStyles()((theme) => ({
   errorText: {
@@ -38,22 +35,15 @@ const useStyles = makeStyles()((theme) => ({
     fontSize: 40,
   },
   chipIcon: { marginBottom: '-6px !important' },
-  comparisonLabel: {
-    fontSize: '1rem',
-  },
 }));
 
 const ControlsBox = ({ profession }) => {
   const { classes } = useStyles();
   const dispatch = useDispatch();
-  const { t } = useTranslation();
 
   const status = useSelector(getControl('status'));
   const error = useSelector(getError);
   const affixes = useSelector(getPriority('affixes'));
-
-  const compareByPercent = useSelector(getCompareByPercent);
-  const filterByExtras = useSelector(getFilterByExtras);
 
   const onStartCalculate = React.useCallback(
     (e) => {
@@ -138,34 +128,7 @@ const ControlsBox = ({ profession }) => {
         <Box flexGrow={1} alignSelf="center">
           <URLStateExport />
         </Box>
-        <Box alignSelf="center">
-          <FormControlLabel
-            control={
-              <Switch
-                checked={filterByExtras}
-                onChange={(e) => dispatch(changeFilterByExtras(e.target.checked))}
-                name="checked"
-                color="primary"
-              />
-            }
-            label={t('Filter by (idk what to call this)')}
-            classes={{ label: classes.comparisonLabel }}
-          />
-        </Box>
-        <Box alignSelf="center">
-          <FormControlLabel
-            control={
-              <Switch
-                checked={compareByPercent}
-                onChange={(e) => dispatch(changeCompareByPercent(e.target.checked))}
-                name="checked"
-                color="primary"
-              />
-            }
-            label={t('% Comparison')}
-            classes={{ label: classes.comparisonLabel }}
-          />
-        </Box>
+
         <Box alignSelf="center" display="flex" m={1} maxWidth={300}>
           <Typography variant="caption" className={classes.errorText}>
             {error}
@@ -173,6 +136,7 @@ const ControlsBox = ({ profession }) => {
         </Box>
         <Box alignSelf="center">
           <Chip
+            sx={{ marginRight: 1 }}
             label={
               <>
                 <Trans>Status:</Trans> {firstUppercase(status)} {icon}
@@ -180,6 +144,7 @@ const ControlsBox = ({ profession }) => {
             }
             color={[SUCCESS, WAITING, RUNNING].includes(status) ? 'primary' : 'secondary'}
           />
+          <Settings />
         </Box>
       </Box>
     </>
