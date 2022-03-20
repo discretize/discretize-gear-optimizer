@@ -4,8 +4,8 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import { extrasTypes } from '../../../state/slices/extras';
-import { INFUSION_IDS, Slots } from '../../../utils/gw2-data';
+import { extrasTypes } from '../../../../state/slices/extras';
+import { INFUSION_IDS, Slots } from '../../../../utils/gw2-data';
 
 const extrasLabels = {
   Sigil1: <Item id={24615} disableLink disableText disableTooltip style={{ fontSize: 18 }} />,

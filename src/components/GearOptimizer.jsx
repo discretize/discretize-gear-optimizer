@@ -16,7 +16,7 @@ import ForcedSlotsSection from './sections/forcedslots/ForcedSlotsSection';
 import InfusionsSection from './sections/infusions/InfusionsSection';
 import PrioritiesSection from './sections/priorities/PrioritiesSection';
 import ResultDetails from './sections/results/ResultDetails';
-import ResultTable from './sections/results/ResultTable';
+import ResultTable from './sections/results/table/ResultTable';
 import SkillsSection from './sections/skills/SkillsSection';
 import TraitsSection from './sections/traits/TraitsSection';
 

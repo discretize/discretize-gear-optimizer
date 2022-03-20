@@ -5,9 +5,9 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { allExtrasModifiersById } from '../../../assets/modifierdata';
-import { changeSelectedCharacter, toggleSaved } from '../../../state/slices/controlsSlice';
-import { extrasTypes } from '../../../state/slices/extras';
+import { allExtrasModifiersById } from '../../../../assets/modifierdata';
+import { changeSelectedCharacter, toggleSaved } from '../../../../state/slices/controlsSlice';
+import { extrasTypes } from '../../../../state/slices/extras';
 
 const ResultTableRow = ({
   character,
