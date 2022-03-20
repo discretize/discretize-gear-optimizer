@@ -208,6 +208,9 @@ export const enhancementDict = [
   'writ-of-masterful-malice',
   'writ-of-masterful-strength',
   'potion-of-karka-toughness',
+  'writ-of-learned-accuracy',
+  'writ-of-calculated-accuracy',
+  'writ-of-studied-accuracy',
 ];
 
 export const nourishmentDict = [

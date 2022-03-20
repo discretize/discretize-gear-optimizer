@@ -208,6 +208,30 @@
           Power: [200, converted]
       gw2id: 73191
 
+    - id: writ-of-learned-accuracy
+      text: Writ of Learned Accuracy
+      subText: (100% uptime)
+      modifiers:
+        attributes:
+          Precision: [160, converted]
+      gw2id: 75610
+
+    - id: writ-of-calculated-accuracy
+      text: Writ of Calculated Accuracy
+      subText: (100% uptime)
+      modifiers:
+        attributes:
+          Precision: [120, converted]
+      gw2id: 72821
+
+    - id: writ-of-studied-accuracy
+      text: Writ of Studied Accuracy
+      subText: (100% uptime)
+      modifiers:
+        attributes:
+          Precision: [100, converted]
+      gw2id: 71514
+
 - section: Misc
   items:
 
