@@ -19,7 +19,7 @@ import {
 import { getPriority } from '../../../state/slices/priorities';
 import ProgressIcon from '../../baseComponents/ProgressIcon';
 import URLStateExport from '../../url-state/URLStateExport';
-import Settings from './Settings';
+import ResultTableSettings from './ResultTableSettings';
 
 const useStyles = makeStyles()((theme) => ({
   errorText: {
@@ -144,7 +144,7 @@ const ControlsBox = ({ profession }) => {
             }
             color={[SUCCESS, WAITING, RUNNING].includes(status) ? 'primary' : 'secondary'}
           />
-          <Settings />
+          <ResultTableSettings />
         </Box>
       </Box>
     </>
