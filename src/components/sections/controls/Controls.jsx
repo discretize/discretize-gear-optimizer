@@ -111,7 +111,7 @@ const ControlsBox = ({ profession }) => {
             </Typography>
           </Button>
         </Box>
-        <Box>
+        <Box flexGrow={1}>
           <Button
             variant="outlined"
             color="primary"
@@ -124,9 +124,6 @@ const ControlsBox = ({ profession }) => {
               <Trans>Abort</Trans>
             </Typography>
           </Button>
-        </Box>
-        <Box flexGrow={1} alignSelf="center">
-          <URLStateExport />
         </Box>
 
         <Box alignSelf="center" display="flex" m={1} maxWidth={300}>

@@ -1,6 +1,5 @@
 import { TextDivider } from '@discretize/react-discretize-components';
-import ShareIcon from '@mui/icons-material/Share';
-import { Grid, IconButton } from '@mui/material';
+import { Grid } from '@mui/material';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector } from 'react-redux';
@@ -9,7 +8,6 @@ import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
 import AffixesStats from './AffixesStats';
 import AppliedModifiers from './AppliedModifiers';
-import BuildShareModal from './BuildShareModal/BuildShareModal';
 import Indicators from './Indicators';
 import OutputDistribution from './OutputDistribution';
 import OutputInfusions from './OutputInfusions';
@@ -50,14 +48,7 @@ const ResultDetails = ({ data }) => {
   return (
     <ErrorBoundary location="ResultDetails" resetKeys={[character]}>
       <TextDivider text="Result Character" />
-      Click to generate a shareable link for this build
-      <BuildShareModal title="Build Share Settings" character={character}>
-        {(handleOpen) => (
-          <IconButton onClick={() => handleOpen()} style={{ display: 'inline-block' }}>
-            <ShareIcon />
-          </IconButton>
-        )}
-      </BuildShareModal>
+
       <ResultCharacter data={data} character={character} assumedBuffs={assumedBuffs} />
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4}>

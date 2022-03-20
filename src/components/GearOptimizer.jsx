@@ -17,6 +17,7 @@ import InfusionsSection from './sections/infusions/InfusionsSection';
 import PrioritiesSection from './sections/priorities/PrioritiesSection';
 import ResultDetails from './sections/results/ResultDetails';
 import ResultTable from './sections/results/table/ResultTable';
+import SharingSection from './sections/sharing/SharingSection';
 import SkillsSection from './sections/skills/SkillsSection';
 import TraitsSection from './sections/traits/TraitsSection';
 
@@ -98,6 +99,7 @@ const MainComponent = ({ data }) => {
           <Controls profession={profession} />
 
           <ResultTable />
+          <SharingSection />
           <Box m={3} />
           <ResultDetails data={data} />
         </div>
