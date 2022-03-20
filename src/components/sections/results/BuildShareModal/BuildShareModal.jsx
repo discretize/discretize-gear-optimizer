@@ -1,5 +1,5 @@
 import CloseIcon from '@mui/icons-material/Close';
-import { Box, Divider, Typography } from '@mui/material';
+import { Box, Divider, IconButton, Typography } from '@mui/material';
 import Backdrop from '@mui/material/Backdrop';
 import Fade from '@mui/material/Fade';
 import Modal from '@mui/material/Modal';
@@ -10,6 +10,8 @@ import { makeStyles } from 'tss-react/mui';
 import { version } from '../../../url-state/schema/BuildPageSchema_v2';
 import generateLink from './generateLink';
 import ModalContent from './ModalContent';
+import ShareIcon from '@mui/icons-material/Share';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 const useStyles = makeStyles()((theme) => ({
   modal: {
@@ -65,10 +67,6 @@ const BuildShareModal = ({ children, title, character }) => {
         className={classes.modal}
         open={open}
         onClose={handleClose}
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 1000,
-        }}
       >
         <Fade in={open}>
           <div className={classes.paper}>
@@ -80,12 +78,34 @@ const BuildShareModal = ({ children, title, character }) => {
               )}
 
               <Box alignSelf="center">
-                <CloseIcon className={classes.closeIcon} onClick={handleClose} />
+                <IconButton onClick={handleClose}>
+                  <CloseIcon className={classes.closeIcon} />
+                </IconButton>
               </Box>
             </Box>
             <Divider />
 
-            <ModalContent character={character} onClick={onClick} />
+            <ModalContent
+              character={character}
+              buttons={[
+                { label: 'Open build', onClick, icon: ShareIcon },
+                {
+                  label: 'Copy build',
+                  onClick: ({ profession, buffs, lines, selected, skills, weapons }) =>
+                    generateLink(
+                      { character, profession, buffs, lines, selected, skills, weapons },
+                      (result) => {
+                        navigator.clipboard.writeText(
+                          window.location.href.slice(0, window.location.href.length - 1) +
+                            withPrefix(`/build?v=${version}&data=${result}`),
+                        );
+                      },
+                      dispatch,
+                    ),
+                  icon: ContentCopyIcon,
+                },
+              ]}
+            />
           </div>
         </Fade>
       </Modal>
