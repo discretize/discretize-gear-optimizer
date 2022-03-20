@@ -144,13 +144,13 @@ list:
     value: |-
       {
         "Sigil1": {
-          "bursting": {}
+          "bursting": {},
+          "agony": {}
         },
         "Sigil2": {
           "earth": {
             "amount": "4.3"
-          },
-          "agony": {}
+          }
         },
         "Runes": {
           "krait": {}
