@@ -67,15 +67,19 @@ const ExtrasSelect = ({ type, label, modifierData, modifierDataById: data }) => 
       renderInput={(params) => (
         <TextField {...params} variant="standard" label={label} margin="dense" />
       )}
-      renderGroup={({ group, children }) => (
-        <React.Fragment key={group}>
-          <Typography variant="caption" className={classes.group}>
-            {group}
-          </Typography>
-          {children}
-          <Divider sx={{ marginTop: 1, marginBottom: 0 }} />
-        </React.Fragment>
-      )}
+      renderGroup={({ group, children }) => {
+        // i18next-extract-mark-context-next-line {{extraSection}}
+        const groupTranslated = t('extraSection', { context: group });
+        return (
+          <React.Fragment key={group}>
+            <Typography variant="caption" className={classes.group}>
+              {groupTranslated}
+            </Typography>
+            {children}
+            <Divider sx={{ marginTop: 1, marginBottom: 0 }} />
+          </React.Fragment>
+        );
+      }}
       renderOption={({ className, ...prop }, id) => (
         <li {...prop} className={classNames(classes.option, className)}>
           <Box sx={{ width: 32 }}>
