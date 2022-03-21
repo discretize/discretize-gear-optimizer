@@ -46,6 +46,11 @@ const TemplateHelper = ({ character }) => {
           const data = await response.json();
           console.log('got data from dps.report: ', data);
 
+          if (data.error) {
+            setUrlResult(JSON.stringify(data, null, 2));
+            return;
+          }
+
           const duration = (data?.phases?.[0]?.end - data?.phases?.[0]?.start) / 1000;
 
           let sum = 0;
@@ -98,6 +103,7 @@ const TemplateHelper = ({ character }) => {
           setUrlResult(resultAreaText);
         } catch (e) {
           console.error(e);
+          setUrlResult(String(e));
         }
       }
     }
