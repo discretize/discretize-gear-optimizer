@@ -25,13 +25,14 @@ list:
       }
 
   # https://www.youtube.com/watch?v=nXUtdasJCXY
+  # https://dps.report/8fBf-20210514-231817_golem
   # power: 4303, burn: 17955, bleed: 10339, poison: 1026, torment: 897, total: 34520
   # includes geo/earth + doom/torment
   - name: Condi Banner Bers
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 1739, "Burning": 10.28, "Bleeding": 17.24, "Poisoned": 1.95, "Torment": 1.2, "Confusion": 0 }
+        "values2": { "Power": 1739, "Burning": 10.28, "Bleeding": 15.12, "Poisoned": 1.95, "Torment": 1.2, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=br9AGRrKHY8

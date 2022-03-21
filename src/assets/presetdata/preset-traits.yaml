@@ -1542,6 +1542,9 @@ list:
             "bloodlust": true,
             "furious": {
               "amount": ""
+            },
+            "bloodlust-on-crit": {
+              "amount": "3.17"
             }
           },
           {
