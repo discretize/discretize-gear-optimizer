@@ -222,52 +222,57 @@ list:
         "values2": { "Power": 3332, "Burning": 4.5, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  # small hitbox, superior elements, raging storm
+  # small hitbox, ****superior elements****, raging storm
   # https://www.youtube.com/watch?v=x2sRASCvRMY
+  # https://dps.report/zjWV-20210518-004634_golem
   # power: 34138 (subtracted asc food), burn: 2773, total: 36911
   # scholar rune, not flame legion
   - name: Power Weaver (BTTH, small)
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 3603, "Burning": 6.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3604, "Burning": 1.09, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=H5ZyMQln6hw
+  # https://dps.report/Bb0l-20210609-103359_golem
   # power: 8868, burn: 20663, bleed: 8798, total: 38329
   - name: Condi Weaver Sword
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 2728, "Burning": 12.9, "Bleeding": 16.3, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2728, "Burning": 9.04, "Bleeding": 16.3, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=5XgoudKAKRw
+  # https://dps.report/g1E9-20210609-022715_golem
   # power: 7059, burn: 21986, bleed: 12387, total: 41432
   - name: Condi Weaver (Dagger)
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 2172, "Burning": 13.7, "Bleeding": 22.9, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2172, "Burning": 10.13, "Bleeding": 19.41, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=s7ASBjZq5GY
+  # https://dps.report/gVsR-20210516-155431_golem
   # power: 16710, burn: 21449, bleed: 336, total: 38495
-  # force bursting, slightly suboptimal gear
+  # force bursting, slightly suboptimal gear (15 malign 3 precise)
   - name: Hybrid Weaver
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 3252, "Burning": 14.0, "Bleeding": 1.0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3235, "Burning": 9.13, "Bleeding": 1.02, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=iE8E7wzwSaQ
+  # https://dps.report/PIGw-20210620-161840_golem
   # power: 10789, burn: 18927, bleed: 7590, total: 37306
   - name: Condi Tempest
     profession: Tempest
     value: >-
       {
-        "values2": { "Power": 3529, "Burning": 12.29, "Bleeding": 16.3, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3529, "Burning": 8.32, "Bleeding": 16.29, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   - name: Power Tempest

@@ -535,6 +535,27 @@ list:
         }
       }
 
+  - name: Condi Weaver Dagger
+    profession: Weaver
+    value: |-
+      {
+        "Sigil1": {
+          "earth": {}
+        },
+        "Sigil2": {
+          "bursting": {}
+        },
+        "Runes": {
+          "elementalist": {}
+        },
+        "Nourishment": {
+          "rare-veggie-pizza": {}
+        },
+        "Enhancement": {
+          "toxic-focusing-crystal": {}
+        }
+      }
+
   - name: Hybrid Weaver (Fractal)
     profession: Weaver
     value: |-
