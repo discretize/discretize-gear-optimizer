@@ -1,18 +1,14 @@
-import { Icon, Item, Skill } from '@discretize/gw2-ui-new';
-import { firstUppercase, NoSelection } from '@discretize/react-discretize-components';
-import ShareIcon from '@mui/icons-material/Share';
-import { Box, Button, MenuItem, Select, Typography } from '@mui/material';
+import { Error, Icon, Item, Progress } from '@discretize/gw2-ui-new';
+import { firstUppercase } from '@discretize/react-discretize-components';
+import DoneIcon from '@mui/icons-material/Done';
+import { Box, Button, ButtonGroup, MenuItem, Select, Typography } from '@mui/material';
 import axios from 'axios';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import {
-  changeSkill,
-  changeWeapon,
-  getSkills,
-  getWeapons,
-} from '../../../../state/slices/buildPage';
+import { changeWeapon, getSkills, getWeapons } from '../../../../state/slices/buildPage';
 import { Classes, WEAPONS } from '../../../../utils/gw2-data';
+import SkillSelect from './SkillSelect';
 
 const useStyles = makeStyles()((theme) => ({
   weaponItem: {
@@ -29,7 +25,7 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-export default function ModalContent({ character, onClick, label = 'Open Build' }) {
+export default function ModalContent({ character, buttons }) {
   const dispatch = useDispatch();
   const { classes } = useStyles();
   const weapons = useSelector(getWeapons);
@@ -40,7 +36,8 @@ export default function ModalContent({ character, onClick, label = 'Open Build' 
   const selected = character.settings.cachedFormState.traits.selectedTraits;
   const { buffs } = character.settings.cachedFormState.buffs;
 
-  const [apiSkills, setApiSkills] = React.useState(null);
+  const [state, setState] = React.useState({ skills: undefined, error: undefined });
+  const [buttonState, setButtonState] = React.useState(new Array(buttons.length));
 
   const { profession } = character.settings;
   const { weapons: useableWeapons } = Classes[profession];
@@ -56,10 +53,6 @@ export default function ModalContent({ character, onClick, label = 'Open Build' 
     dispatch(changeWeapon({ key: e.target.name, value: e.target.value }));
   };
 
-  const handleChangeSkill = (e) => {
-    dispatch(changeSkill({ key: e.target.name, value: e.target.value }));
-  };
-
   const getWeaponId = (weaponName) => {
     return WEAPONS[weaponName.toUpperCase().replace(' ', '')]?.gw2id;
   };
@@ -67,47 +60,15 @@ export default function ModalContent({ character, onClick, label = 'Open Build' 
   React.useEffect(() => {
     axios
       .get(`https://api.guildwars2.com/v2/professions/${firstUppercase(profession)}`)
-      .then((res) => setApiSkills(res.data.skills))
+      .then((res) => setState({ error: undefined, skills: res.data.skills }))
       .catch((e) => {
         console.error(e);
+        setState({ error: e.message });
         return null;
       });
   }, [profession]);
 
-  function SkillSelect(name, value, skillList) {
-    return (
-      <Select
-        variant="standard"
-        value={value}
-        name={name}
-        onChange={handleChangeSkill}
-        className={classes.skillSelect}
-        renderValue={(skill) =>
-          skill === '' ? (
-            <div style={{ fontSize: 60, lineHeight: 0 }}>
-              <NoSelection />
-            </div>
-          ) : (
-            <Skill id={skill} disableText style={{ fontSize: 60, lineHeight: 0 }} />
-          )
-        }
-        displayEmpty
-      >
-        {skillList.map((skill) => (
-          <MenuItem value={skill.id} key={skill.id}>
-            <Skill
-              id={skill.id}
-              disableLink
-              disableText
-              style={{ marginRight: 4, fontSize: '1.2rem' }}
-            />
-            <Skill id={skill.id} disableLink disableTooltip disableIcon />
-          </MenuItem>
-        ))}
-      </Select>
-    );
-  }
-
+  const isLoading = !state.error && !state.skills;
   return (
     <>
       <Typography>Select weapons:</Typography>
@@ -191,46 +152,62 @@ export default function ModalContent({ character, onClick, label = 'Open Build' 
 
       <Typography>Select skills:</Typography>
 
-      <Box mb={1}>
-        {apiSkills && (
+      <Box mb={2}>
+        {isLoading && <Progress />}
+        {state.error && <Error name="ERROR" message={state.error} />}
+        {state.skills && (
           <>
-            {SkillSelect(
-              'healId',
-              healId,
-              apiSkills.filter((skill) => skill.type === 'Heal'),
-            )}
-            {SkillSelect(
-              'utility1Id',
-              utility1Id,
-              apiSkills.filter((skill) => skill.type === 'Utility'),
-            )}
-            {SkillSelect(
-              'utility2Id',
-              utility2Id,
-              apiSkills.filter((skill) => skill.type === 'Utility'),
-            )}
-            {SkillSelect(
-              'utility3Id',
-              utility3Id,
-              apiSkills.filter((skill) => skill.type === 'Utility'),
-            )}
-            {SkillSelect(
-              'eliteId',
-              eliteId,
-              apiSkills.filter((skill) => skill.type === 'Elite'),
-            )}
+            <SkillSelect
+              name="healId"
+              value={healId}
+              skillList={state.skills.filter((skill) => skill.type === 'Heal')}
+            />
+            <SkillSelect
+              name="utility1Id"
+              value={utility1Id}
+              skillList={state.skills.filter((skill) => skill.type === 'Utility')}
+            />
+            <SkillSelect
+              name="utility2Id"
+              value={utility2Id}
+              skillList={state.skills.filter((skill) => skill.type === 'Utility')}
+            />
+            <SkillSelect
+              name="utility3Id"
+              value={utility3Id}
+              skillList={state.skills.filter((skill) => skill.type === 'Utility')}
+            />
+            <SkillSelect
+              name="eliteId"
+              value={eliteId}
+              skillList={state.skills.filter((skill) => skill.type === 'Elite')}
+            />
           </>
         )}
       </Box>
 
-      <Button
-        variant="contained"
-        color="primary"
-        startIcon={<ShareIcon />}
-        onClick={() => onClick({ profession, buffs, lines, selected, skills, weapons })}
-      >
-        {label}
-      </Button>
+      <ButtonGroup variant="contained" color="primary">
+        {buttons.map(({ label, icon: ButtonIcon, onClick }, index) => (
+          <Button
+            startIcon={buttonState[index] ? <DoneIcon /> : <ButtonIcon />}
+            disabled={buttonState[index]}
+            onClick={() => {
+              const newState = [...buttonState];
+              newState[index] = true;
+              setButtonState(newState);
+
+              setTimeout(() => {
+                const tmpState = [...buttonState];
+                tmpState[index] = false;
+                setButtonState(tmpState);
+              }, 5000);
+              onClick({ profession, buffs, lines, selected, skills, weapons });
+            }}
+          >
+            {label}
+          </Button>
+        ))}
+      </ButtonGroup>
     </>
   );
 }

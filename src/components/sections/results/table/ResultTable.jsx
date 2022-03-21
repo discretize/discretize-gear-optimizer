@@ -175,7 +175,7 @@ const StickyHeadTable = () => {
       {saved.length ? (
         <>
           <TextDivider text={t('Saved Results')} />
-          <Box boxShadow={8}>
+          <Box boxShadow={8} mb={3}>
             <TableContainer className={classes.container}>
               <Table
                 stickyHeader

@@ -1,16 +1,15 @@
-import { compress } from '@discretize/object-compression';
 import CloseIcon from '@mui/icons-material/Close';
-import { Box, Divider, Typography } from '@mui/material';
-import Backdrop from '@mui/material/Backdrop';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import ShareIcon from '@mui/icons-material/Share';
+import { Box, Divider, IconButton, Typography } from '@mui/material';
 import Fade from '@mui/material/Fade';
 import Modal from '@mui/material/Modal';
 import { withPrefix } from 'gatsby';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { changeCharacter } from '../../../../state/slices/buildPage';
-import { BuildPageSchema, version } from '../../../url-state/schema/BuildPageSchema_v2';
-import { buffsDict } from '../../../url-state/schema/SchemaDicts';
+import { version } from '../../../url-state/schema/BuildPageSchema_v2';
+import generateLink from './generateLink';
 import ModalContent from './ModalContent';
 
 const useStyles = makeStyles()((theme) => ({
@@ -48,52 +47,13 @@ const BuildShareModal = ({ children, title, character }) => {
     // fixes the browser protection against window opening without any user interaction due to opening the window in a callback
     const windRef = window.open('', '_blank');
 
-    const { attributes: allAttributes, gear, settings, infusions } = character;
-    const { specialization, weaponType, extrasCombination } = settings;
-
-    // filter out unnecessary attributes
-    const attributes = {};
-    Object.keys(BuildPageSchema.character.attributes).forEach((key) => {
-      attributes[key] = allAttributes[key];
-    });
-
-    // since we cant use the compression library for object where the layout of keys is unknown, we stringify it.
-    const minimalCharacter = {
-      attributes,
-      gear,
-      infusions: JSON.stringify(infusions) || '',
-      settings: {
-        extrasCombination,
-        profession,
-        specialization,
-        weaponType,
-      },
-    };
-    dispatch(changeCharacter(minimalCharacter));
-
-    // create bit map for buffs
-    const conv = (val) => (val ? 1 : 0);
-    const buffsInteger = buffsDict.reduce(
-      // eslint-disable-next-line no-bitwise
-      (acc, curr) => (acc + conv(buffs[curr])) << 1,
-      conv(buffs[0]),
-    );
-
-    const object = {
-      character: minimalCharacter,
-      skills,
-      traits: { lines, selected },
-      weapons,
-      buffs: buffsInteger,
-    };
-
-    compress({
-      object,
-      schema: BuildPageSchema,
-      onSuccess: (result) => {
+    generateLink(
+      { character, profession, buffs, lines, selected, skills, weapons },
+      (result) => {
         windRef.location.href = withPrefix(`/build?v=${version}&data=${result}`);
       },
-    });
+      dispatch,
+    );
   };
 
   return (
@@ -106,10 +66,6 @@ const BuildShareModal = ({ children, title, character }) => {
         className={classes.modal}
         open={open}
         onClose={handleClose}
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 1000,
-        }}
       >
         <Fade in={open}>
           <div className={classes.paper}>
@@ -121,12 +77,34 @@ const BuildShareModal = ({ children, title, character }) => {
               )}
 
               <Box alignSelf="center">
-                <CloseIcon className={classes.closeIcon} onClick={handleClose} />
+                <IconButton onClick={handleClose}>
+                  <CloseIcon className={classes.closeIcon} />
+                </IconButton>
               </Box>
             </Box>
             <Divider />
 
-            <ModalContent character={character} onClick={onClick} />
+            <ModalContent
+              character={character}
+              buttons={[
+                { label: 'Open build', onClick, icon: ShareIcon },
+                {
+                  label: 'Copy build',
+                  onClick: ({ profession, buffs, lines, selected, skills, weapons }) =>
+                    generateLink(
+                      { character, profession, buffs, lines, selected, skills, weapons },
+                      (result) => {
+                        navigator.clipboard.writeText(
+                          window.location.href.slice(0, window.location.href.length - 1) +
+                            withPrefix(`/build?v=${version}&data=${result}`),
+                        );
+                      },
+                      dispatch,
+                    ),
+                  icon: ContentCopyIcon,
+                },
+              ]}
+            />
           </div>
         </Fade>
       </Modal>
