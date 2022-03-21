@@ -4133,7 +4133,10 @@ list:
             "target-the-weak": {
               "amount": ""
             },
-            "lingering-curse": true
+            "lingering-curse": true,
+            "barbed-precision-on-crit": {
+              "amount": "2.7"
+            }
           },
           {
             "soul-barbs": {
@@ -4257,7 +4260,10 @@ list:
             "target-the-weak": {
               "amount": ""
             },
-            "lingering-curse": true
+            "lingering-curse": true,
+            "barbed-precision-on-crit": {
+              "amount": "2.74"
+            }
           },
           {
             "soul-barbs": {
@@ -4318,7 +4324,10 @@ list:
             "target-the-weak": {
               "amount": ""
             },
-            "lingering-curse": true
+            "lingering-curse": true,
+            "barbed-precision-on-crit": {
+              "amount": "3.39"
+            }
           },
           {
             "soul-barbs": {
@@ -4382,7 +4391,10 @@ list:
             "target-the-weak": {
               "amount": ""
             },
-            "lingering-curse": true
+            "lingering-curse": true,
+            "barbed-precision-on-crit": {
+              "amount": "3.21"
+            }
           },
           {
             "soul-barbs": {

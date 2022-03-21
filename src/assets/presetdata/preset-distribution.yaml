@@ -601,13 +601,14 @@ list:
       }
 
   # https://www.youtube.com/watch?v=x1dRcUqNIFo
+  # https://dps.report/y99d-20210830-203941_golem
   # power: 3711, burn: 5429, bleed: 11785, poison: 2117, torment: 14341, total: 37383
   # nightmare icicle
   - name: Condi Scourge
     profession: Scourge
     value: >-
       {
-        "values2": { "Power": 1405, "Burning": 3.4, "Bleeding": 20.6, "Poisoned": 3.7, "Torment": 14.2, "Confusion": 0 }
+        "values2": { "Power": 1405, "Burning": 3.4, "Bleeding": 18.11, "Poisoned": 3.71, "Torment": 14.22, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=I1Tjyfk-DKI
@@ -621,13 +622,14 @@ list:
       }
 
   # https://www.youtube.com/watch?v=prk0ZwXwLlA
+  # https://dps.report/dlNX-20210928-041540_golem
   # power: 7817, burn: 2167, bleed: 24240, poison: 1135, torment: 2327, total: 37686
   # sini shld coat glov boot amul ear, rest viper
   - name: Condi Reaper
     profession: Reaper
     value: >-
       {
-        "values2": { "Power": 2378, "Burning": 2.04, "Bleeding": 43.57, "Poisoned": 2.82, "Torment": 4.16, "Confusion": 0 }
+        "values2": { "Power": 2378, "Burning": 2.04, "Bleeding": 40.85, "Poisoned": 2.82, "Torment": 4.16, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=TLNU5y7jZnA
@@ -639,19 +641,19 @@ list:
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 2271, "Burning": 1.81, "Bleeding": 12.9, "Poisoned": 5.83, "Torment": 22.17, "Confusion": 0 }
+        "values2": { "Power": 2271, "Burning": 1.81, "Bleeding": 9.74, "Poisoned": 5.83, "Torment": 22.17, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=zcFY7nNhZwg
   # power: 5334, burn: 2188, bleed: 6098, poison: 2797, torment: 16736, total: 33153
   # arc bugged (septic corruption 1%); condis reduced
   # game bug: alchemic vigor converted at 360
-  # ritualist coat leg, condi food (either), tormenting, double torment
+  # ritualist coat leg, condi food (either; rendang here), tormenting, double torment, 9 malign 9 spiteful
   - name: Quickness Harbinger
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 2202, "Burning": 1.67, "Bleeding": 12.15, "Poisoned": 5.97, "Torment": 18.98, "Confusion": 0 }
+        "values2": { "Power": 2202, "Burning": 1.67, "Bleeding": 9.33, "Poisoned": 5.97, "Torment": 18.98, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=1yAvjWJoAyE
