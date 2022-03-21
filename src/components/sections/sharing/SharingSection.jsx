@@ -12,6 +12,8 @@ const SharingSection = () => {
   const { t } = useTranslation();
   const character = useSelector(getSelectedCharacter);
 
+  if (!character) return null;
+
   return (
     <Section
       title={t('Share Builds')}
