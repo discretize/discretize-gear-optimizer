@@ -465,22 +465,25 @@ list:
       }
 
   # https://www.youtube.com/watch?v=aemjSrxAN_c
+  # https://dps.report/8W5H-20210512-045910_golem
+  # berserker
   # power: 34698, burn: 1015, bleed: 1625, poison: 290, total: 37628
   - name: Power Holo ECSU
     profession: Holosmith
     value: >-
       {
-        "values2": { "Power": 3153, "Burning": 3.1, "Bleeding": 13.4, "Poisoned": 2.7, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3153, "Burning": 3.09, "Bleeding": 8.57, "Poisoned": 2.75, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=ZuBId0hZ0mo
+  # https://dps.report/qsSO-20200715-025640_golem
   # power: 7803, burn: 17705, bleed: 7184, poison: 3741, confusion: [7.735 stacks at 66.86% duration]
   # old confusion balance
   - name: Condi Holo
     profession: Holosmith
     value: >-
       {
-        "values2": { "Power": 2363, "Burning": 11.3, "Bleeding": 13.7, "Poisoned": 8, "Torment": 0, "Confusion": 4.6 }
+        "values2": { "Power": 2363, "Burning": 11.26, "Bleeding": 10.33, "Poisoned": 8.03, "Torment": 0, "Confusion": 4.6 }
       }
 
   # logs are totally broken (~9% off)
@@ -495,22 +498,25 @@ list:
       }
 
   # https://www.youtube.com/watch?v=yGg0pqSu8RA
+  # https://dps.report/iGev-20210526-215831_golem
+  # berserker
   # power: 30744, burn: 190, bleed: 988, poison: 312, total: 32234
   - name: Power Scrapper
     profession: Scrapper
     value: >-
       {
-        "values2": { "Power": 2700, "Burning": 0.7, "Bleeding": 11.8, "Poisoned": 4.0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2713, "Burning": 0.74, "Bleeding": 8.17, "Poisoned": 4.03, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=oD7fBTMmWFE
+  # https://dps.report/uRLc-20210823-152656_golem
   # power: 26854, burn: 204, bleed: 984, poison: 441, total: 28483
   # diviner amulet, 1x ring
   - name: Quickness Scrapper
     profession: Scrapper
     value: >-
       {
-        "values2": { "Power": 2670, "Burning": 0.6, "Bleeding": 8.1, "Poisoned": 4.2, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2683, "Burning": 0.62, "Bleeding": 4.57, "Poisoned": 4.17, "Torment": 0, "Confusion": 0 }
       }
 
   # IA focus domi/duel
