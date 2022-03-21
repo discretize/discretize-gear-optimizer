@@ -2578,7 +2578,10 @@ list:
             "hidden-barbs": true,
             "hunters-tactics": true,
             "light-on-your-feet": false,
-            "vicious-quarry": true
+            "vicious-quarry": true,
+            "sharpened-edges": {
+              "amount": "4.17"
+            }
           },
           {
             "oakheart-salve": true,
@@ -2646,7 +2649,10 @@ list:
             "hidden-barbs": true,
             "hunters-tactics": true,
             "light-on-your-feet": false,
-            "vicious-quarry": true
+            "vicious-quarry": true,
+            "sharpened-edges": {
+              "amount": "4.17"
+            }
           },
           {
             "oakheart-salve": true,
@@ -2714,7 +2720,10 @@ list:
             "hidden-barbs": true,
             "hunters-tactics": true,
             "light-on-your-feet": false,
-            "vicious-quarry": true
+            "vicious-quarry": true,
+            "sharpened-edges": {
+              "amount": "4.2"
+            }
           },
           {
             "honed-axes": true,

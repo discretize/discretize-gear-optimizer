@@ -414,30 +414,35 @@ list:
       }
 
   # https://www.youtube.com/watch?v=-bipnEirEGA
+  # https://dps.report/JBAr-20210620-110933_golem
+  # no jade bot
   # power: 4750, burn: 2865, bleed: 19386, poison: 8687, torment: 90, total: 35778
   - name: Condi Slb (D/T SB)
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 1591, "Burning": 2.42, "Bleeding": 25.12, "Poisoned": 16.25, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1591, "Burning": 2.42, "Bleeding": 21.69, "Poisoned": 16.25, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=rr-gJuN3ECA
-  # power: 4968, burn: 4269, bleed: 18512, poison: 7459, torment: 90, total: 35298
+  # https://dps.report/zzE6-20210514-155136_golem
+  # no jade bot
+  # power: 4968, burn: 4269, bleed: 18512, poison: 7459, torment: 90, total: 35388
   - name: Condi Slb (D/T A/D)
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 1664, "Burning": 3.54, "Bleeding": 23.38, "Poisoned": 13.69, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1664, "Burning": 3.54, "Bleeding": 19.95, "Poisoned": 13.86, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=HdwqDoINnq0
+  # https://dps.report/SgbF-20210526-004829_golem
   # power: 12065, burn: 3264, bleed: 18950, poison: 2974, torment: 90, total: 37343
   - name: Hybrid Slb (A/T D/A)
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 2315, "Burning": 2.76, "Bleeding": 26.72, "Poisoned": 6.89, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2315, "Burning": 2.76, "Bleeding": 22.67, "Poisoned": 6.89, "Torment": 0, "Confusion": 0 }
       }
 
   # im sorry
