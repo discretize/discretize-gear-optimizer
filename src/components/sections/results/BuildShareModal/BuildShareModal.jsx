@@ -8,8 +8,7 @@ import { withPrefix } from 'gatsby';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { version } from '../../../url-state/schema/BuildPageSchema_v2';
-import generateLink from './generateLink';
+import SagaTypes from '../../../../state/sagas/sagaTypes';
 import ModalContent from './ModalContent';
 
 const useStyles = makeStyles()((theme) => ({
@@ -43,17 +42,27 @@ const BuildShareModal = ({ children, title, character }) => {
     setOpen(false);
   };
 
-  const onClick = ({ profession, buffs, lines, selected, skills, weapons }) => {
+  const onClick = () => {
     // fixes the browser protection against window opening without any user interaction due to opening the window in a callback
     const windRef = window.open('', '_blank');
 
-    generateLink(
-      { character, profession, buffs, lines, selected, skills, weapons },
-      (result) => {
-        windRef.location.href = withPrefix(`/build?v=${version}&data=${result}`);
+    dispatch({
+      type: SagaTypes.ExportBuildPageState,
+      onSuccess: (result) => {
+        windRef.location.href = withPrefix(result);
       },
-      dispatch,
-    );
+    });
+  };
+
+  const onClickCopy = () => {
+    dispatch({
+      type: SagaTypes.ExportBuildPageState,
+      onSuccess: (result) => {
+        navigator.clipboard.writeText(
+          window.location.href.slice(0, window.location.href.length - 1) + withPrefix(result),
+        );
+      },
+    });
   };
 
   return (
@@ -90,17 +99,7 @@ const BuildShareModal = ({ children, title, character }) => {
                 { label: 'Open build', onClick, icon: ShareIcon },
                 {
                   label: 'Copy build',
-                  onClick: ({ profession, buffs, lines, selected, skills, weapons }) =>
-                    generateLink(
-                      { character, profession, buffs, lines, selected, skills, weapons },
-                      (result) => {
-                        navigator.clipboard.writeText(
-                          window.location.href.slice(0, window.location.href.length - 1) +
-                            withPrefix(`/build?v=${version}&data=${result}`),
-                        );
-                      },
-                      dispatch,
-                    ),
+                  onClick: onClickCopy,
                   icon: ContentCopyIcon,
                 },
               ]}
