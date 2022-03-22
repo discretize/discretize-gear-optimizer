@@ -210,6 +210,11 @@ const Navbar = ({
               {...bindMenu(popupState[index])}
               anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
               transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+              PaperProps={{
+                style: {
+                  maxHeight: '75vh',
+                },
+              }}
             >
               {data
                 .find((elem) => elem.class === prof.profession)
