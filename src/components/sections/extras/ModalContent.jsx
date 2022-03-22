@@ -161,7 +161,12 @@ function ModalContent(props) {
         return (
           <div>
             <FormControl sx={{ margin: 1 }} component="fieldset" variant="standard">
-              <FormLabel component="legend">{label}</FormLabel>
+              <FormLabel component="legend">
+                {
+                  // i18next-extract-mark-context-next-line {{extraSection}}
+                  t('extraSection', { context: label })
+                }
+              </FormLabel>
               <FormGroup>
                 {options.map(({ id, gw2id, subText, text }) => (
                   <FormControlLabel
@@ -178,7 +183,10 @@ function ModalContent(props) {
                         <Item id={gw2id} disableLink text={text.replace('Superior ', '')} />
                         {subText && (
                           <Typography variant="caption" sx={{ marginLeft: 1, fontWeight: 200 }}>
-                            {t('extraSubText', { context: subText })}
+                            {
+                              // i18next-extract-mark-context-next-line {{extraSubText}}
+                              t('extraSubText', { context: subText })
+                            }
                           </Typography>
                         )}
                       </>
