@@ -77,9 +77,23 @@
       gw2id: 710
       defaultEnabled: false
 
+    - id: sharper-images-minus-7
+      text: Sharper Images
+      subText: '-7% crit'
+      minor: true
+      amountData:
+        label: 'hit/s'
+        default: 0
+        quantityEntered: 1
+      modifiers:
+        conversionAfterBuffs:
+          Bleeding Coefficient: {Critical Chance -7: 500%}
+      gw2id: 710
+      defaultEnabled: false
+
     - id: sharper-images-minus-fury
       text: Sharper Images
-      subText: '-20% crit %'
+      subText: '-20% crit'
       minor: true
       amountData:
         label: 'hit/s'
@@ -91,9 +105,9 @@
       gw2id: 710
       defaultEnabled: false
 
-    - id: sharper-images-minus-fury-quiet-intensity
+    - id: sharper-images-minus-27
       text: Sharper Images
-      subText: '-30% crit %'
+      subText: '-27% crit'
       minor: true
       amountData:
         label: 'hit/s'
@@ -101,7 +115,7 @@
         quantityEntered: 1
       modifiers:
         conversionAfterBuffs:
-          Bleeding Coefficient: {Critical Chance -30: 500%}
+          Bleeding Coefficient: {Critical Chance -27: 500%}
       gw2id: 710
       defaultEnabled: false
 
