@@ -531,15 +531,26 @@ class OptimizerCore {
       for (const [source, percent] of conversion) {
         if (source === 'Critical Chance') {
           attributes[attribute] += maybeRound(clamp(attributes['Critical Chance'], 0, 1) * percent);
+        } else if (source === 'Critical Chance -7') {
+          attributes[attribute] += maybeRound(
+            clamp(attributes['Critical Chance'] - 0.07, 0, 1) * percent,
+          );
         } else if (source === 'Critical Chance -20') {
           attributes[attribute] += maybeRound(
             clamp(attributes['Critical Chance'] - 0.2, 0, 1) * percent,
+          );
+        } else if (source === 'Critical Chance -27') {
+          attributes[attribute] += maybeRound(
+            clamp(attributes['Critical Chance'] - 0.27, 0, 1) * percent,
           );
         } else if (source === 'Critical Chance -30') {
           attributes[attribute] += maybeRound(
             clamp(attributes['Critical Chance'] - 0.3, 0, 1) * percent,
           );
-        } else {
+        } else if (source === 'Critical Chance -37') {
+          attributes[attribute] += maybeRound(
+            clamp(attributes['Critical Chance'] - 0.37, 0, 1) * percent,
+          );
           attributes[attribute] += maybeRound(attributes[source] * percent);
         }
       }

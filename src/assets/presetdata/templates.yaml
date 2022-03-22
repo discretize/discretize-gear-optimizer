@@ -302,13 +302,22 @@ list:
         extras: Power (Fractal)
 
       - name: Condi Weaver Sword
-        id: cwea
+        id: cwea-sw
         specialization: Weaver
         boons: Condi
         priority: Condi DPS
         distribution: Condi Weaver Sword
         traits: Condi Weaver Sword
         extras: Condi Weaver Sword
+
+      - name: Condi Weaver Dagger
+        id: cwea-dg
+        specialization: Weaver
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Weaver (Dagger)
+        traits: Condi Weaver Dagger
+        extras: Condi Weaver Dagger
 
       - name: Hybrid Weaver
         id: hwea
@@ -328,7 +337,7 @@ list:
         traits: Condi Tempest
         extras: Condi Tempest
 
-      - name: Power Tempest
+      - name: Power Tempest (approx.)
         id: ptemp
         specialization: Tempest
         boons: Power (spotter)

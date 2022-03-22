@@ -81,8 +81,11 @@ export const allConversionDestinationKeys = [...stats, ...percents, ...coefficie
 export const allConversionAfterBuffsSourceKeys = [
   ...stats,
   'Critical Chance',
+  'Critical Chance -7',
   'Critical Chance -20',
+  'Critical Chance -27',
   'Critical Chance -30',
+  'Critical Chance -37',
 ];
 export const allConversionAfterBuffsDestinationKeys = [...stats, ...percents, ...coefficients];
 

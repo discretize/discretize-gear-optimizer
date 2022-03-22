@@ -1542,6 +1542,9 @@ list:
             "bloodlust": true,
             "furious": {
               "amount": ""
+            },
+            "bloodlust-on-crit": {
+              "amount": "3.17"
             }
           },
           {
@@ -1765,6 +1768,9 @@ list:
             "pyromancers-training": true,
             "persisting-flames": {
               "amount": ""
+            },
+            "burning-precision-on-crit": {
+              "amount": "5.61"
             }
           },
           {
@@ -1853,6 +1859,87 @@ list:
             "pyromancers-training": true,
             "persisting-flames": {
               "amount": ""
+            },
+            "burning-precision-on-crit": {
+              "amount": "4.74"
+            }
+          },
+          {
+            "stone-flesh": false,
+            "serrated-stones": true,
+            "strength-of-stone": true,
+            "geomancers-training": true
+          },
+          {
+            "superior-elements": true,
+            "masters-fortitude": true,
+            "masters-fortitude-sword": true,
+            "weavers-prowess": true,
+            "swift-revenge": {
+              "amount": ""
+            },
+            "elemental-polyphony-fire": {
+              "amount": "83"
+            },
+            "elemental-polyphony-air": {
+              "amount": "29"
+            },
+            "elements-of-rage-base": true,
+            "elements-of-rage-buff": {
+              "amount": "80"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Condi Weaver Dagger
+    profession: Weaver
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "56"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            1510
+          ],
+          [
+            1507,
+            275,
+            287
+          ],
+          [
+            2177,
+            2180,
+            2131
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": ""
+            },
+            "burning-precision": true,
+            "burning-rage": true,
+            "power-overwhelming": true,
+            "power-overwhelming-2": {
+              "amount": ""
+            },
+            "pyromancers-training": true,
+            "persisting-flames": {
+              "amount": ""
+            },
+            "burning-precision-on-crit": {
+              "amount": "3.69"
             }
           },
           {
@@ -1928,6 +2015,9 @@ list:
             "pyromancers-training": true,
             "persisting-flames": {
               "amount": ""
+            },
+            "burning-precision-on-crit": {
+              "amount": "5.81"
             }
           },
           {
@@ -2016,6 +2106,9 @@ list:
             "pyromancers-training": true,
             "persisting-flames": {
               "amount": "9.5"
+            },
+            "burning-precision-on-crit": {
+              "amount": "5.94"
             }
           },
           {
@@ -2575,7 +2668,10 @@ list:
             "hidden-barbs": true,
             "hunters-tactics": true,
             "light-on-your-feet": false,
-            "vicious-quarry": true
+            "vicious-quarry": true,
+            "sharpened-edges": {
+              "amount": "4.17"
+            }
           },
           {
             "oakheart-salve": true,
@@ -2643,7 +2739,10 @@ list:
             "hidden-barbs": true,
             "hunters-tactics": true,
             "light-on-your-feet": false,
-            "vicious-quarry": true
+            "vicious-quarry": true,
+            "sharpened-edges": {
+              "amount": "4.17"
+            }
           },
           {
             "oakheart-salve": true,
@@ -2711,7 +2810,10 @@ list:
             "hidden-barbs": true,
             "hunters-tactics": true,
             "light-on-your-feet": false,
-            "vicious-quarry": true
+            "vicious-quarry": true,
+            "sharpened-edges": {
+              "amount": "4.2"
+            }
           },
           {
             "honed-axes": true,
@@ -3720,7 +3822,10 @@ list:
             "modified-ammunition": {
               "amount": ""
             },
-            "incendiary-powder": true
+            "incendiary-powder": true,
+            "sharpshooter": {
+              "amount": "4.82"
+            }
           },
           {
             "glass-cannon": {
@@ -3787,7 +3892,10 @@ list:
             "modified-ammunition": {
               "amount": ""
             },
-            "incendiary-powder": true
+            "incendiary-powder": true,
+            "sharpshooter": {
+              "amount": "4.51"
+            }
           },
           {
             "glass-cannon": {
@@ -3917,7 +4025,10 @@ list:
             "modified-ammunition": {
               "amount": ""
             },
-            "incendiary-powder": true
+            "incendiary-powder": true,
+            "sharpshooter": {
+              "amount": "3.6"
+            }
           },
           {
             "glass-cannon": {
@@ -3989,7 +4100,10 @@ list:
             "modified-ammunition": {
               "amount": ""
             },
-            "incendiary-powder": true
+            "incendiary-powder": true,
+            "sharpshooter": {
+              "amount": "3.54"
+            }
           },
           {
             "glass-cannon": {
@@ -4109,7 +4223,10 @@ list:
             "target-the-weak": {
               "amount": ""
             },
-            "lingering-curse": true
+            "lingering-curse": true,
+            "barbed-precision-on-crit": {
+              "amount": "2.7"
+            }
           },
           {
             "soul-barbs": {
@@ -4233,7 +4350,10 @@ list:
             "target-the-weak": {
               "amount": ""
             },
-            "lingering-curse": true
+            "lingering-curse": true,
+            "barbed-precision-on-crit": {
+              "amount": "2.74"
+            }
           },
           {
             "soul-barbs": {
@@ -4294,7 +4414,10 @@ list:
             "target-the-weak": {
               "amount": ""
             },
-            "lingering-curse": true
+            "lingering-curse": true,
+            "barbed-precision-on-crit": {
+              "amount": "3.39"
+            }
           },
           {
             "soul-barbs": {
@@ -4358,7 +4481,10 @@ list:
             "target-the-weak": {
               "amount": ""
             },
-            "lingering-curse": true
+            "lingering-curse": true,
+            "barbed-precision-on-crit": {
+              "amount": "3.21"
+            }
           },
           {
             "soul-barbs": {
