@@ -742,7 +742,8 @@ list:
           "krait": {}
         },
         "Nourishment": {
-          "beef-rendang": {}
+          "beef-rendang": {},
+          "bowl-of-kimchi-tofu-stew": {}
         },
         "Enhancement": {
           "toxic-focusing-crystal": {}
@@ -753,18 +754,19 @@ list:
     profession: Soulbeast
     value: |-
       {
-        "Runes": {
-          "krait": {}
-        },
         "Sigil1": {
           "bursting": {}
         },
         "Sigil2": {},
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
+        "Runes": {
+          "krait": {}
         },
         "Nourishment": {
-          "beef-rendang": {}
+          "beef-rendang": {},
+          "plate-of-kimchi-pancakes": {}
+        },
+        "Enhancement": {
+          "toxic-focusing-crystal": {}
         }
       }
 
