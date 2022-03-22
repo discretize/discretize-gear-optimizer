@@ -1,5 +1,8 @@
 import { Item } from '@discretize/gw2-ui-new';
+import SelectAllIcon from '@mui/icons-material/SelectAll';
 import {
+  Box,
+  Button,
   Checkbox,
   DialogContent,
   FormControl,
@@ -26,6 +29,9 @@ const useStyles = makeStyles()((theme) => ({
     [theme.breakpoints.down('sm')]: {
       minWidth: 'unset',
     },
+  },
+  toggleAllLabel: {
+    marginLeft: theme.spacing(0.5),
   },
 }));
 
@@ -59,6 +65,14 @@ function ModalContent(props) {
     [data, modifierData],
   );
 
+  const filteredItems = Object.entries(grouped).map(([label, options]) => {
+    const searched = options.filter(
+      ({ text, gw2id }) =>
+        text.toLowerCase().includes(search.toLowerCase()) || `${gw2id}`.includes(search),
+    );
+    return [label, searched];
+  });
+
   const handleCheckboxChange = (event) => {
     const ids = [...currentIds.filter((id) => id !== event.target.name || event.target.checked)];
     if (event.target.checked) {
@@ -72,10 +86,29 @@ function ModalContent(props) {
     setSearch(event.target.value);
   };
 
+  const selectAllVisible = () => {
+    const tmp = filteredItems.flatMap((array) => array[1]).map(({ id }) => id);
+    dispatch(changeExtraIds({ type, ids: [...currentIds, ...tmp] }));
+  };
+
+  const unselectAllVisible = () => {
+    const tmp = filteredItems.flatMap((array) => array[1]).map(({ id }) => id);
+    const filtered = currentIds.filter((id) => !tmp.includes(id));
+    dispatch(changeExtraIds({ type, ids: filtered }));
+  };
+
   React.useEffect(() => {
     document.onkeydown = function (e) {
       if (e.ctrlKey && e.code === 'KeyK') {
         searchRef.current.focus();
+        e.preventDefault();
+      }
+      if (e.ctrlKey && e.code === 'KeyS') {
+        selectAllVisible();
+        e.preventDefault();
+      }
+      if (e.ctrlKey && e.code === 'KeyD') {
+        unselectAllVisible();
         e.preventDefault();
       }
     };
@@ -105,19 +138,31 @@ function ModalContent(props) {
           ),
         }}
       />
-      {Object.entries(grouped).map(([label, options]) => {
-        const searched = options.filter(
-          ({ text, gw2id }) =>
-            text.toLowerCase().includes(search.toLowerCase()) || `${gw2id}`.includes(search),
-        );
-
-        if (searched.length === 0) return null;
+      <Box display="flex">
+        <Box flexGrow={1} />
+        <Button
+          sx={{ textTransform: 'unset' }}
+          startIcon={<SelectAllIcon />}
+          onClick={unselectAllVisible}
+        >
+          Delete visible <Label className={classes.toggleAllLabel}>Ctrl+d</Label>
+        </Button>
+        <Button
+          sx={{ textTransform: 'unset' }}
+          startIcon={<SelectAllIcon />}
+          onClick={selectAllVisible}
+        >
+          Select visible <Label className={classes.toggleAllLabel}>Ctrl+s</Label>
+        </Button>
+      </Box>
+      {filteredItems.map(([label, options]) => {
+        if (options.length === 0) return null;
         return (
           <div>
             <FormControl sx={{ m: 1 }} component="fieldset" variant="standard">
               <FormLabel component="legend">{label}</FormLabel>
               <FormGroup>
-                {searched.map(({ id, gw2id, subText, text }) => (
+                {options.map(({ id, gw2id, subText, text }) => (
                   <FormControlLabel
                     key={id}
                     control={
