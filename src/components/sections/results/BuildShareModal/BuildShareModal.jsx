@@ -4,7 +4,6 @@ import ShareIcon from '@mui/icons-material/Share';
 import { Box, Divider, IconButton, Typography } from '@mui/material';
 import Fade from '@mui/material/Fade';
 import Modal from '@mui/material/Modal';
-import { withPrefix } from 'gatsby';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
@@ -48,20 +47,14 @@ const BuildShareModal = ({ children, title, character }) => {
 
     dispatch({
       type: SagaTypes.ExportBuildPageState,
-      onSuccess: (result) => {
-        windRef.location.href = withPrefix(result);
-      },
+      newPage: windRef,
     });
   };
 
   const onClickCopy = () => {
     dispatch({
       type: SagaTypes.ExportBuildPageState,
-      onSuccess: (result) => {
-        navigator.clipboard.writeText(
-          window.location.href.slice(0, window.location.href.length - 1) + withPrefix(result),
-        );
-      },
+      copyToClipboard: true,
     });
   };
 

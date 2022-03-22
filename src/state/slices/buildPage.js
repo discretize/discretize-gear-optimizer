@@ -4,11 +4,6 @@ import { buffsDict } from '../../components/url-state/schema/SchemaDicts';
 export const buildPageSlice = createSlice({
   name: 'buildPage',
   initialState: {
-    compression: {
-      id: '',
-      url: '',
-      error: '',
-    },
     character: null,
     weapons: {
       mainhand1: '',
@@ -30,9 +25,6 @@ export const buildPageSlice = createSlice({
     buffs: 0,
   },
   reducers: {
-    changeCompression: (state, action) => {
-      state.compression = action.payload;
-    },
     changeCharacter: (state, action) => {
       state.character = action.payload;
     },
@@ -72,12 +64,11 @@ export const buildPageSlice = createSlice({
   },
 });
 
-export const getCompression = (state) => state.optimizer.buildPage.compression;
 export const getCharacter = (state) => state.optimizer.buildPage.character;
 export const getWeapons = (state) => state.optimizer.buildPage.weapons;
 export const getSkills = (state) => state.optimizer.buildPage.skills;
 export const getTraits = (state) => state.optimizer.buildPage.traits;
 export const getBuffs = (state) => state.optimizer.buildPage.buffs;
 
-export const { changeCompression, changeCharacter, changeWeapon, changeBuildPage, changeSkill } =
+export const { changeCharacter, changeWeapon, changeBuildPage, changeSkill } =
   buildPageSlice.actions;

@@ -1,4 +1,5 @@
 import { compress, decompress } from '@discretize/object-compression';
+import { withPrefix } from 'gatsby';
 import { channel } from 'redux-saga';
 import { all, put, select, take, takeLeading } from 'redux-saga/effects';
 import {
@@ -6,13 +7,13 @@ import {
   version as schemaVersion,
 } from '../../components/url-state/schema/BuildPageSchema_v2';
 import { buffsDict } from '../../components/url-state/schema/SchemaDicts';
-import { changeBuildPage, changeCharacter, changeCompression } from '../slices/buildPage';
+import { changeBuildPage, changeCharacter } from '../slices/buildPage';
 import SagaTypes from './sagaTypes';
 
 // channels solve the problem "how to get value out of callback"
 // https://stackoverflow.com/questions/43031832/how-to-yield-put-in-redux-saga-within-a-callback
 const compressChannel = channel();
-function* exportStateCharacter({ onSuccess }) {
+function* exportStateCharacter({ newPage, copyToClipboard }) {
   const { optimizer } = yield select();
   const { buildPage, control } = optimizer;
   // extract all variables
@@ -69,10 +70,16 @@ function* exportStateCharacter({ onSuccess }) {
   });
 
   const { result } = yield take(compressChannel);
-  const url = `/build?v=${schemaVersion}&data=${result}`;
-  // TODO where should we put this url ideally?
-  yield put(changeCompression({ id, error: '', url }));
-  onSuccess(url);
+  const url = withPrefix(`/build?v=${schemaVersion}&data=${result}`);
+
+  if (newPage) {
+    newPage.location.href = url;
+  }
+  if (copyToClipboard) {
+    navigator.clipboard.writeText(
+      window.location.href.slice(0, window.location.href.length - 1) + url,
+    );
+  }
 }
 
 function* watchExportStateCharacter() {
