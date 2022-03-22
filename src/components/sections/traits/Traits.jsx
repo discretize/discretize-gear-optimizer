@@ -180,7 +180,7 @@ const Traits = ({ data = [] }) => {
                       handleAmountChange={handleAmountChange(index, id)}
                       value={amount}
                       disabled={!visible || !enabled}
-                      maxWidth={32}
+                      maxWidth={38}
                     />
                   </Box>
                 ) : null}
