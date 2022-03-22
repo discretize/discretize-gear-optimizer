@@ -99,7 +99,7 @@ const TemplateHelper = ({ character }) => {
             minionCounts[type].names.add(name);
 
             for (const skill of targetDamageDist?.[0]?.[0] ?? []) {
-              const { indirectDamage, hits: minionHits, crit: minionCrits } = skill;
+              const { indirectDamage, connectedHits: minionHits, crit: minionCrits } = skill;
               if (indirectDamage) continue;
               console.log(minionCrits, minionHits);
               minionCounts[type].minionHits += minionHits ?? 0;
