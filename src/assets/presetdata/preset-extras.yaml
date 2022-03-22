@@ -829,37 +829,23 @@ list:
         }
       }
 
-  - name: Cele Ren (Fractal)
+  - name: Condi Alac Ren
     profession: Renegade
     value: |-
       {
+        "Sigil1": {},
+        "Sigil2": {},
         "Runes": {
           "leadership": {}
         },
-        "Sigil1": {},
-        "Sigil2": {},
+        "Nourishment": {
+          "meaty-asparagus-skewer": {},
+          "eggs-benedict": {},
+          "dragon's-revelry-starcake": {},
+          "beef-rendang": {}
+        },
         "Enhancement": {
           "toxic-maintenance-oil": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
-        }
-      }
-
-  - name: Cele Ren (Raid)
-    profession: Renegade
-    value: |-
-      {
-        "Runes": {
-          "leadership": {}
-        },
-        "Sigil1": {},
-        "Sigil2": {},
-        "Enhancement": {
-          "writ-of-masterful-malice": {}
-        },
-        "Nourishment": {
-          "dragon's-revelry-starcake": {}
         }
       }
 
@@ -867,16 +853,17 @@ list:
     profession: Renegade
     value: |-
       {
+        "Sigil1": {},
+        "Sigil2": {},
         "Runes": {
           "nightmare": {}
         },
-        "Sigil1": {},
-        "Sigil2": {},
+        "Nourishment": {
+          "beef-rendang": {},
+          "meaty-asparagus-skewer": {}
+        },
         "Enhancement": {
           "toxic-focusing-crystal": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
         }
       }
 

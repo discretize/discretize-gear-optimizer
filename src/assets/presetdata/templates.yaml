@@ -478,40 +478,31 @@ list:
         traits: Power Alac Ren
         extras: Power (Fractal)
 
-      - name: Condi Alac Ren Invo (outdated)
-        id: celeren-rr-invo
+      - name: Condi Alac Ren Invo
+        id: cren-alac-invo
         specialization: Renegade
         boons: Condi
-        priority: Condi Alacrity Renegade 79%
-        distribution: Condi RR Invocation
-        traits: Condi RR Ren Invo
-        extras: Cele Ren (Fractal)
+        priority: Condi Alacrity Renegade 78%
+        distribution: Condi Alac Invocation
+        traits: Condi Alac Ren Invo
+        extras: Condi Alac Ren
 
-      - name: Condi RR Ren Invo (outdated)
-        id: cren-rr-invo
-        specialization: Renegade
-        boons: Condi
-        priority: Condi DPS
-        distribution: Condi RR Invocation
-        traits: Condi RR Ren Invo
-        extras: Condi Ren
-
-      - name: Condi RR Ren Deva (outdated)
-        id: cren-rr-deva
-        specialization: Renegade
-        boons: Condi
-        priority: Condi DPS
-        distribution: Condi RR Devastation
-        traits: Condi RR Ren Deva
-        extras: Condi Ren
-
-      - name: Condi DPS Ren Deva (outdated)
+      - name: Condi DPS Ren Deva
         id: cren-deva
         specialization: Renegade
         boons: Condi
         priority: Condi DPS
-        distribution: Condi Renegade (Devastation)
+        distribution: Condi Renegade Devastation
         traits: Condi DPS Ren Deva
+        extras: Condi Ren
+
+      - name: Condi DPS Ren Invo
+        id: cren-invo
+        specialization: Renegade
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Renegade Invocation
+        traits: Condi DPS Ren Invo
         extras: Condi Ren
 
       - name: Power Herald DE (outdated)

@@ -311,71 +311,62 @@ list:
         "values2": { "Power": 3861, "Burning": 1.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  # https://www.youtube.com/watch?v=jhE54G8L4EE
-  # power: 6013, burn: 7597, bleed: 6752 + ~2500 = 9252, poison: 2259, torment: 15214, total: 40335
-  # added w/ allies bleed
-  - name: Condi RR Invocation
+  # add razorclaw casts every 20sec to simulate allies
+  # 4 players * 10 pulses * 2 seconds / 20 sec = 4.00 avg bleed
+  - name: Condi Alac Invocation
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 1973, "Burning": 5.0, "Bleeding": 14.1, "Poisoned": 4.2, "Torment": 18.4, "Confusion": 0 }
+        "values2": { "Power": 1928, "Burning": 5.15, "Bleeding": 14.69, "Poisoned": 1.97, "Torment": 16.64, "Confusion": 0 }
       }
 
-  # https://www.youtube.com/watch?v=jhE54G8L4EE
-  # power: 6013, burn: 7597, bleed: 6752, poison: 2259, torment: 15214, total: 37835
-  - name: Condi RR Invocation (no allies)
+  # https://www.youtube.com/watch?v=jI-4rT32uqc
+  # https://dps.report/pzqt-20220319-012000_golem
+  # asparagus food, 13 malign 5 mystical
+  - name: Condi Alac Invocation (no allies)
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 1973, "Burning": 5.0, "Bleeding": 10.3, "Poisoned": 4.2, "Torment": 18.4, "Confusion": 0 }
+        "values2": { "Power": 1928, "Burning": 5.15, "Bleeding": 10.69, "Poisoned": 1.97, "Torment": 16.64, "Confusion": 0 }
       }
 
-  # dance of death
-  # https://www.youtube.com/watch?v=HwJFmdgF88U
-  # power: 6379 + 1661 lifesteal = 8040, burn: 6353, bleed: 6320 + ~2500 = 8820, poison: 2420, torment: 13756, total: 39389
-  # AP, added w/ allies bleed
-  - name: Condi RR Devastation
+
+  # add razorclaw casts every 20sec to simulate allies
+  # 4 players * 10 pulses * 2 seconds / 20 sec = 4.00 avg bleed
+  - name: Condi Renegade Devastation
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 2284, "Burning": 4.2, "Bleeding": 13.5, "Poisoned": 4.5, "Torment": 16.8, "Confusion": 0 }
+        "values2": { "Power": 2301, "Burning": 4.07, "Bleeding": 14.02, "Poisoned": 2.16, "Torment": 16.86, "Confusion": 0 }
       }
 
-  # dance of death
-  # https://www.youtube.com/watch?v=HwJFmdgF88U
-  # power: 6379 + 1661 lifesteal = 8040, burn: 6353, bleed: 6320, poison: 2420, torment: 13756, total: 36889
-  # AP
-  - name: Condi RR Devastation (no allies)
+  # https://www.youtube.com/watch?v=PvE-x43QrHo
+  # https://dps.report/kByf-20220314-131547_golem
+  # AP, rendang
+  - name: Condi Renegade Devastation (no allies)
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 2284, "Burning": 4.2, "Bleeding": 9.7, "Poisoned": 4.5, "Torment": 16.8, "Confusion": 0 }
+        "values2": { "Power": 2301, "Burning": 4.07, "Bleeding": 10.02, "Poisoned": 2.16, "Torment": 16.86, "Confusion": 0 }
       }
 
-  # https://www.youtube.com/watch?v=URIgUbp-x5M
-  # power: 7285 + 3087 lifesteal = 10372, burn: 6666, bleed: 6525 + ~2500 = 9025, poison: 2497, torment: 14425, total: 42985
-  # AP, added w/ allies bleed
-  - name: Condi Renegade (Devastation)
+  # add razorclaw casts every 20sec to simulate allies
+  # 4 players * 10 pulses * 2 seconds / 20 sec = 4.00 avg bleed
+  - name: Condi Renegade Invocation
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 2829, "Burning": 4.3, "Bleeding": 13.3, "Poisoned": 4.5, "Torment": 16.8, "Confusion": 0 }
+        "values2": { "Power": 2122, "Burning": 5.07, "Bleeding": 14.09, "Poisoned": 1.77, "Torment": 18.44, "Confusion": 0 }
       }
 
-  # https://www.youtube.com/watch?v=URIgUbp-x5M
-  # power: 7285 + 3087 lifesteal = 10372, burn: 6666, bleed: 6525, poison: 2497, torment: 14425, total: 40485
-  # AP
-  - name: Condi Renegade (Devastation, no allies)
+  # https://www.youtube.com/watch?v=pVKQNutvFIU
+  # https://dps.report/YPqz-20220309-020938_golem
+  - name: Condi Renegade Invocation (no allies)
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 2829, "Burning": 4.3, "Bleeding": 9.6, "Poisoned": 4.5, "Torment": 16.8, "Confusion": 0 }
+        "values2": { "Power": 2122, "Burning": 5.07, "Bleeding": 10.09, "Poisoned": 1.77, "Torment": 18.44, "Confusion": 0 }
       }
-
-  # - name: Condi Renegade (Invocation)
-  #   profession: Renegade
-  #   value: >-
-
 
   # not including ally lifesteal
   # https://www.youtube.com/watch?v=ZG_FFbmNcCo

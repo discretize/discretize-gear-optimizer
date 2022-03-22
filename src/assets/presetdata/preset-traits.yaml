@@ -3357,7 +3357,7 @@ list:
         "skills": {}
       }
 
-  - name: Condi RR Ren Invo
+  - name: Condi Alac Ren Invo
     profession: Renegade
     traits: |-
       {
@@ -3419,7 +3419,7 @@ list:
         "skills": {}
       }
 
-  - name: Condi RR Ren Deva
+  - name: Condi Alac Ren Deva
     profession: Renegade
     traits: |-
       {
@@ -3542,6 +3542,68 @@ list:
             "swift-termination": {
               "amount": ""
             }
+          },
+          {
+            "ambush-commander": {
+              "amount": ""
+            },
+            "blood-fury": true,
+            "heartpiercer": true,
+            "brutal-momentum": true,
+            "lasting-legacy": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Condi DPS Ren Invo
+    profession: Renegade
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "14",
+          "3",
+          "63"
+        ],
+        "selectedTraits": [
+          [
+            1793,
+            1714,
+            1795
+          ],
+          [
+            1761,
+            1781,
+            1791
+          ],
+          [
+            2079,
+            2092,
+            2100
+          ]
+        ],
+        "items": [
+          {
+            "acolyte-of-torment": true,
+            "seething-malice": true,
+            "demonic-resistance": true,
+            "pact-of-pain": true,
+            "yearning-empowerment": true
+          },
+          {
+            "rising-tide": {
+              "amount": ""
+            },
+            "ferocious-aggression": {
+              "amount": ""
+            },
+            "roiling-mists": true
           },
           {
             "ambush-commander": {
