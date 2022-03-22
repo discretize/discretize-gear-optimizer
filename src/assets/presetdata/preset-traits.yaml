@@ -1289,7 +1289,7 @@ list:
         }
       }
 
-  - name: '[beta1] Power Willbender Radiance'
+  - name: Power Willbender Radiance
     profession: Willbender
     traits: |-
       {
@@ -1312,7 +1312,7 @@ list:
           ],
           [
             2190,
-            2210,
+            2197,
             2201
           ]
         ],
@@ -1361,7 +1361,7 @@ list:
         }
       }
 
-  - name: '[beta1] Power Willbender Virtues'
+  - name: Power Willbender Virtues
     profession: Willbender
     traits: |-
       {
@@ -1384,8 +1384,157 @@ list:
           ],
           [
             2190,
-            2210,
+            2197,
             2201
+          ]
+        ],
+        "items": [
+          {
+            "inspired-virtue": {
+              "amount": ""
+            },
+            "unscathed-contender": {
+              "amount": ""
+            },
+            "virtue-of-retribution": true,
+            "inspiring-virtue": {
+              "amount": ""
+            },
+            "power-of-the-virtuous": true
+          },
+          {
+            "fiery-wrath": true,
+            "symbolic-exposure": true,
+            "zealous-blade-base": true,
+            "zealous-blade-gs": {
+              "amount": ""
+            },
+            "kindled-zeal": true,
+            "symbolic-avenger": true
+          },
+          {
+            "power-for-power": true,
+            "lethal-tempo": {
+              "amount": ""
+            },
+            "tyrants-momentum": {
+              "amount": ""
+            },
+            "tyrants-momentum-bugged": false
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "bane-signet": {
+            "amount": ""
+          }
+        }
+      }
+
+  - name: Condi Alacrity Willbender
+    profession: Willbender
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "16",
+          "46",
+          "65"
+        ],
+        "selectedTraits": [
+          [
+            566,
+            567,
+            1686
+          ],
+          [
+            617,
+            603,
+            554
+          ],
+          [
+            2191,
+            2197,
+            2201
+          ]
+        ],
+        "items": [
+          {
+            "right-hand-strength": true,
+            "right-hand-strength-1h": {
+              "amount": "100"
+            },
+            "radiant-fire": true,
+            "retribution": {
+              "amount": ""
+            },
+            "radiant-power": true,
+            "amplified-wrath": true,
+            "righteous-instincts": true
+          },
+          {
+            "inspired-virtue": {
+              "amount": ""
+            },
+            "unscathed-contender": {
+              "amount": ""
+            },
+            "virtue-of-retribution": true,
+            "inspiring-virtue": {
+              "amount": ""
+            },
+            "power-of-the-virtuous": true
+          },
+          {
+            "searing-pact": true,
+            "power-for-power": true,
+            "conceited-curate": false,
+            "lethal-tempo": {
+              "amount": ""
+            },
+            "tyrants-momentum": {
+              "amount": ""
+            },
+            "tyrants-momentum-bugged": false
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-wrath": {
+            "amount": ""
+          }
+        }
+      }
+
+  - name: Power Alacrity Willbender
+    profession: Willbender
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "46",
+          "42",
+          "65"
+        ],
+        "selectedTraits": [
+          [
+            624,
+            603,
+            554
+          ],
+          [
+            634,
+            653,
+            2017
+          ],
+          [
+            2190,
+            2197,
+            2195
           ]
         ],
         "items": [

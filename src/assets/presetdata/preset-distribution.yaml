@@ -202,24 +202,45 @@ list:
         "values2": { "Power": 2242, "Burning": 12.2, "Bleeding": 3.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  # https://www.youtube.com/watch?v=Vo4Qs6KeUHE
-  # power: 36331, burn: 946, total: 37277
-  # chill bugged 10%, RHS
-  - name: '[beta1] Power Willbender Radiance Focus'
+  # https://www.youtube.com/watch?v=-OiH1BLuJpo
+  # https://dps.report/QdzV-35062rwb_golem
+  # RHS
+  - name: Power Willbender Radiance
     profession: Willbender
     value: >-
       {
         "values2": { "Power": 3289, "Burning": 2.9, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  # https://www.youtube.com/watch?v=fsdvYFmFcDs
-  # power: 40239, burn: 1665, total: 41904
-  # chill bugged 10%, 12 boons, thief accuracy
-  - name: '[beta1] Power Willbender Virtues Focus'
+  # https://www.youtube.com/watch?v=DkGBUZngpQM
+  # https://dps.report/Axzm-40120vwb_golem
+  # 12 boons, thief accuracy, dragon ring
+  - name: Power Willbender Virtues
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 3332, "Burning": 4.5, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3734, "Burning": 5.43, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+
+  # https://www.youtube.com/watch?v=Xd5eTz9es-M
+  # https://dps.report/Er9w-20220319-141322_golem
+  # 12 boons
+  # Power for power trait
+  - name: Condi Alacrity Willbender
+    profession: Willbender
+    value: >-
+      {
+        "values2": { "Power": 2493, "Burning": 8.55, "Bleeding": -0.27, "Poisoned": 0, "Torment": -0.09, "Confusion": 0 }
+      }
+
+  # https://www.youtube.com/watch?v=nJTkHlFedOI
+  # https://dps.report/VuDl-20220318-185053_golem
+  # 12 boons, thief accuracy, dragon ring
+  - name: Power Alacrity Willbender
+    profession: Willbender
+    value: >-
+      {
+        "values2": { "Power": 3439, "Burning": 2.33, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # small hitbox, ****superior elements****, raging storm

@@ -212,7 +212,7 @@ list:
         }
       }
 
-  - name: '[beta1] Power Willbender Virtues (Fractal)'
+  - name: Power Willbender Virtues (Fractal)
     profession: Willbender
     value: |-
       {
@@ -254,7 +254,7 @@ list:
         }
       }
 
-  - name: '[beta1] Power Willbender Virtues (Raid)'
+  - name: Power Willbender Virtues (Raid)
     profession: Willbender
     value: |-
       {

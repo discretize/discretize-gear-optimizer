@@ -232,23 +232,41 @@ list:
         traits: Healbrand
         extras: Heal
 
-      - name: '[beta1] Power Willbender Radiance'
+      - name: Power Willbender Radiance
         id: pwb-radiance
         specialization: Willbender
         boons: Power (spotter)
         priority: Power DPS
-        distribution: '[beta1] Power Willbender Radiance Focus'
-        traits: '[beta1] Power Willbender Radiance'
+        distribution: Power Willbender Radiance
+        traits: Power Willbender Radiance
         extras: Power (Fractal)
 
-      - name: '[beta1] Power Willbender Virtues'
+      - name: Power Willbender Virtues
         id: pwb-virtues
         specialization: Willbender
         boons: Power (spotter)
         priority: Power DPS
-        distribution: '[beta1] Power Willbender Virtues Focus'
-        traits: '[beta1] Power Willbender Virtues'
-        extras: '[beta1] Power Willbender Virtues (Fractal)'
+        distribution: Power Willbender Virtues
+        traits: Power Willbender Virtues
+        extras: Power Willbender Virtues (Fractal)
+
+      - name: Condi Alacrity Willbender
+        id: cwb-alac
+        specialization: Willbender
+        boons: Condi
+        priority: Hybrid DPS
+        distribution: Condi Alacrity Willbender
+        traits: Condi Alacrity Willbender
+        extras: Condi Willbender
+
+      - name: Power Alacrity Willbender
+        id: pwb-alac
+        specialization: Willbender
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Power Alacrity Willbender
+        traits: Power Alacrity Willbender
+        extras: Power Willbender Virtues (Fractal)
 
   - class: Warrior
     builds:
