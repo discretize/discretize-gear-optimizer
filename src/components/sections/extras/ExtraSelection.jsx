@@ -132,7 +132,7 @@ export default function ExtraSelection(props) {
                           endLabel={t('amountLabel', { context: amountData.label })}
                           handleAmountChange={handleAmountChange(extraId)}
                           value={amount}
-                          maxWidth={32}
+                          maxWidth={38}
                         />
                       )}
                     </Box>
