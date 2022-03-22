@@ -76,8 +76,55 @@ const TemplateHelper = ({ character }) => {
 
           const totalDPS = data?.players?.[0]?.dpsTargets?.[0]?.[0]?.dps;
 
-          const hitRate =
-            data?.players?.[0]?.statsTargets?.[0]?.[0]?.critableDirectDamageCount / duration;
+          const hits = data?.players?.[0]?.statsTargets?.[0]?.[0]?.critableDirectDamageCount;
+          const crits = data?.players?.[0]?.statsTargets?.[0]?.[0]?.criticalRate;
+
+          const hitsPerSecond = hits / duration;
+          const critPercent = (crits / hits) * 100;
+
+          const minions = data?.players?.[0]?.minions ?? [];
+
+          const minionCounts = {
+            'Clone': { names: new Set(), minionHits: 0, minionCrits: 0 },
+            'Phantasm': { names: new Set(), minionHits: 0, minionCrits: 0 },
+            'Minion': { names: new Set(), minionHits: 0, minionCrits: 0 },
+          };
+
+          for (const { name, targetDamageDist } of minions) {
+            console.log(name);
+            let type = 'Minion';
+            if (name === 'Clone') type = 'Clone';
+            if (name?.startsWith('Illusionary')) type = 'Phantasm';
+
+            minionCounts[type].names.add(name);
+
+            for (const skill of targetDamageDist?.[0]?.[0] ?? []) {
+              const { indirectDamage, hits: minionHits, crit: minionCrits } = skill;
+              if (indirectDamage) continue;
+              console.log(minionCrits, minionHits);
+              minionCounts[type].minionHits += minionHits ?? 0;
+              minionCounts[type].minionCrits += minionCrits ?? 0;
+            }
+          }
+
+          const minionData = Object.entries(minionCounts)
+            .filter(([_type, { minionHits }]) => minionHits)
+            .flatMap(([type, { names, minionHits, minionCrits }]) => {
+              const namesString = [...names].join(', ');
+
+              const minionHitsPerSecond = minionHits / duration;
+              const minionCritPercent = (minionCrits / minionHits) * 100;
+
+              return [
+                [
+                  `${type} hits/sec (${minionCrits}/${minionHits}: ${minionCritPercent.toFixed(
+                    2,
+                  )}% crit)`,
+                  minionHitsPerSecond,
+                ],
+                `            - ${namesString}\n`,
+              ];
+            });
 
           const result = [
             ['Duration (sec)', duration],
@@ -88,7 +135,14 @@ const TemplateHelper = ({ character }) => {
             ['Sum', sum],
             ['Total dps (log)', totalDPS],
             '\n',
-            ['Crittable hits per second', hitRate],
+            [
+              `Player crittable hits per second (${crits}/${hits}: ${critPercent.toFixed(
+                2,
+              )}% crit)`,
+              hitsPerSecond,
+            ],
+            '\n',
+            ...minionData,
           ];
 
           const resultAreaText = result
