@@ -451,7 +451,7 @@ list:
   - class: Revenant
     builds:
 
-      - name: Power Alac Ren
+      - name: Power Alac Ren (outdated)
         id: pren
         specialization: Renegade
         boons: Power (spotter)
@@ -460,7 +460,7 @@ list:
         traits: Power Alac Ren
         extras: Power (Fractal)
 
-      - name: Condi Alac Ren Invo
+      - name: Condi Alac Ren Invo (outdated)
         id: celeren-rr-invo
         specialization: Renegade
         boons: Condi
@@ -469,7 +469,7 @@ list:
         traits: Condi RR Ren Invo
         extras: Cele Ren (Fractal)
 
-      - name: Condi RR Ren Invo
+      - name: Condi RR Ren Invo (outdated)
         id: cren-rr-invo
         specialization: Renegade
         boons: Condi
@@ -478,7 +478,7 @@ list:
         traits: Condi RR Ren Invo
         extras: Condi Ren
 
-      - name: Condi RR Ren Deva
+      - name: Condi RR Ren Deva (outdated)
         id: cren-rr-deva
         specialization: Renegade
         boons: Condi
@@ -487,7 +487,7 @@ list:
         traits: Condi RR Ren Deva
         extras: Condi Ren
 
-      - name: Condi DPS Ren Deva
+      - name: Condi DPS Ren Deva (outdated)
         id: cren-deva
         specialization: Renegade
         boons: Condi
@@ -496,7 +496,7 @@ list:
         traits: Condi DPS Ren Deva
         extras: Condi Ren
 
-      - name: Power Herald DE
+      - name: Power Herald DE (outdated)
         id: herald
         specialization: Herald
         boons: Power (spotter)
@@ -505,7 +505,7 @@ list:
         traits: Power Herald DE
         extras: Power (Fractal)
 
-      - name: Condi Herald
+      - name: Condi Herald (outdated)
         id: cherald
         specialization: Herald
         boons: Condi
