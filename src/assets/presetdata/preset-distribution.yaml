@@ -611,14 +611,14 @@ list:
         "values2": { "Power": 3219, "Burning": 0.52, "Bleeding": 2.03, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
       }
 
-  # https://www.youtube.com/watch?v=2SmXV9Yr1QM
-  # power: 37603, burn: 182, bleed: 851, confusion: 28, total: 38664
-  # assassin helm shoulders gloves boots, accuracy
-  - name: '[beta2] Virtuoso'
+  # https://www.youtube.com/watch?v=92FJUY1IKh4
+  # https://dps.report/bz6U-20220306-210357_golem
+  # accuracy
+  - name: Power Virtuoso
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 3539, "Burning": 0.53, "Bleeding": 7.11, "Poisoned": 0, "Torment": 0, "Confusion": 0.24 }
+        "values2": { "Power": 3535, "Burning": 0.53, "Bleeding": 0.53, "Poisoned": 0, "Torment": 0, "Confusion": 0.59 }
       }
 
   # https://www.youtube.com/watch?v=x1dRcUqNIFo

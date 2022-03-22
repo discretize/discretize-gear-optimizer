@@ -394,7 +394,7 @@ list:
         }
       }
 
-  - name: '[beta2] Virtuoso'
+  - name: Power Virtuoso (accuracy)
     profession: Virtuoso
     traits: |-
       {
@@ -440,7 +440,81 @@ list:
             "superiority-complex-base": true,
             "superiority-complex": {
               "amount": ""
+            },
+            "sharper-images": false,
+            "sharper-images-minus-7": {
+              "amount": "1.75"
             }
+          },
+          {
+            "mental-focus": {
+              "amount": ""
+            },
+            "deadly-blades": {
+              "amount": ""
+            },
+            "sharpening-sorrow": true,
+            "quiet-intensity": true,
+            "bloodsong": true
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Power Virtuoso (no accuracy)
+    profession: Virtuoso
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "10",
+          "1",
+          "66"
+        ],
+        "selectedTraits": [
+          [
+            0,
+            713,
+            681
+          ],
+          [
+            701,
+            708,
+            692
+          ],
+          [
+            2208,
+            2205,
+            2223
+          ]
+        ],
+        "items": [
+          {
+            "fragility": {
+              "amount": ""
+            },
+            "egotism": {
+              "amount": ""
+            },
+            "vicious-expression": {
+              "amount": ""
+            }
+          },
+          {
+            "fencers-finesse": {
+              "amount": ""
+            },
+            "superiority-complex-base": true,
+            "superiority-complex": {
+              "amount": ""
+            },
+            "sharper-images": {
+              "amount": "1.75"
+            },
+            "sharper-images-minus-7": false
           },
           {
             "mental-focus": {

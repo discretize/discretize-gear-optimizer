@@ -170,7 +170,7 @@ list:
         }
       }
 
-  - name: '[beta2] Virtuoso'
+  - name: Power Virtuoso (Raid spotter)
     profession: Virtuoso
     value: |-
       {

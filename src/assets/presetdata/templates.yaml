@@ -40,6 +40,15 @@ list:
         traits: Condi Chrono STM
         extras: Condi Chrono STM
 
+      - name: Power Virtuoso
+        id: pvirt
+        specialization: Virtuoso
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Power Virtuoso
+        traits: Power Virtuoso (no accuracy)
+        extras: Power (Fractal)
+
       - name: Condi Virtuoso
         id: cvirt
         specialization: Virtuoso
@@ -57,15 +66,6 @@ list:
         distribution: Condi Virtuoso (sharpening sorrow)
         traits: Condi Virtuoso (sharpening sorrow)
         extras: Condi Virtuoso
-
-      - name: '[beta2] Virtuoso'
-        id: pvirt
-        specialization: Virtuoso
-        boons: Power (spotter)
-        priority: Power DPS
-        distribution: '[beta2] Virtuoso'
-        traits: '[beta2] Virtuoso'
-        extras: '[beta2] Virtuoso'
 
   - class: Guardian
     builds:
