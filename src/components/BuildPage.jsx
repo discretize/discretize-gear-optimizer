@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { NumberParam, StringParam, useQueryParam } from 'use-query-params';
 import { buffModifiers, classModifiers } from '../assets/modifierdata';
-import SagaTypes from '../state/optimizer/sagaTypes';
+import SagaTypes from '../state/sagas/sagaTypes';
 import {
   getBuffs,
   getCharacter,

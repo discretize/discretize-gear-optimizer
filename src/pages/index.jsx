@@ -10,7 +10,7 @@ import ErrorBoundary from '../components/baseComponents/ErrorBoundary';
 import LanguageSelection from '../components/baseComponents/LanguageSelection';
 import GearOptimizer from '../components/GearOptimizer';
 import URLStateImport from '../components/url-state/URLStateImport';
-import SagaTypes from '../state/optimizer/sagaTypes';
+import SagaTypes from '../state/sagas/sagaTypes';
 
 // markup
 const IndexPage = ({ location }) => {

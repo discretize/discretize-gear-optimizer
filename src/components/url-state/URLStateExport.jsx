@@ -4,7 +4,7 @@ import { IconButton } from '@mui/material';
 import axios from 'axios';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import SagaTypes from '../../state/optimizer/sagaTypes';
+import SagaTypes from '../../state/sagas/sagaTypes';
 import URLStateSnackbar from './URLStateSnackbar';
 
 // hard coded temporarily!
