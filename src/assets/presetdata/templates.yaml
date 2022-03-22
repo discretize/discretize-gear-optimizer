@@ -271,15 +271,6 @@ list:
         traits: Condi Bers
         extras: Condi Bers
 
-      - name: Power Banner SPB
-        id: spb-bs
-        specialization: Spellbreaker
-        boons: Power (spotter)
-        priority: Power DPS
-        distribution: Power Banner Spellbreaker
-        traits: Power Banner SPB
-        extras: Power (Fractal)
-
       - name: Banner Bladesworn
         id: bls-bs
         specialization: Bladesworn
@@ -305,6 +296,15 @@ list:
         priority: Power DPS
         distribution: Bladesworn
         traits: Might Bladesworn
+        extras: Power (Fractal)
+
+      - name: Power Banner SPB
+        id: spb-bs
+        specialization: Spellbreaker
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Power Banner Spellbreaker
+        traits: Power Banner SPB
         extras: Power (Fractal)
 
   - class: Elementalist
