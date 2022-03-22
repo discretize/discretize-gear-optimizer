@@ -103,20 +103,22 @@ list:
     profession: Chronomancer
     value: |-
       {
-        "Runes": {
-          "perplexity": {}
-        },
         "Sigil1": {
           "bursting": {}
         },
         "Sigil2": {
-          "concentration": {}
+          "mischief-ineptitude": {
+            "amount": "0.9"
+          }
         },
-        "Enhancement": {
-          "toxic-maintenance-oil": {}
+        "Runes": {
+          "perplexity": {}
         },
         "Nourishment": {
-          "beef-rendang": {}
+          "rare-veggie-pizza": {}
+        },
+        "Enhancement": {
+          "toxic-focusing-crystal": {}
         }
       }
 
@@ -124,18 +126,22 @@ list:
     profession: Chronomancer
     value: |-
       {
-        "Runes": {
-          "perplexity": {}
-        },
         "Sigil1": {
           "bursting": {}
         },
-        "Sigil2": {},
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
+        "Sigil2": {
+          "mischief-ineptitude": {
+            "amount": "0.9"
+          }
+        },
+        "Runes": {
+          "perplexity": {}
         },
         "Nourishment": {
-          "beef-rendang": {}
+          "rare-veggie-pizza": {}
+        },
+        "Enhancement": {
+          "toxic-focusing-crystal": {}
         }
       }
 

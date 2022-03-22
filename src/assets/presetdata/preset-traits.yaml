@@ -47,6 +47,12 @@ list:
             "superiority-complex-base": true,
             "superiority-complex": {
               "amount": ""
+            },
+            "sharper-images": {
+              "amount": "4.01"
+            },
+            "sharper-images-minus-fury": {
+              "amount": "1.02"
             }
           },
           {
@@ -105,6 +111,9 @@ list:
             "superiority-complex-base": true,
             "superiority-complex": {
               "amount": ""
+            },
+            "sharper-images-minus-fury": {
+              "amount": "4.43"
             }
           },
           {
@@ -170,6 +179,9 @@ list:
             "superiority-complex-base": true,
             "superiority-complex": {
               "amount": ""
+            },
+            "sharper-images-minus-fury": {
+              "amount": "2.68"
             }
           },
           {
@@ -187,7 +199,7 @@ list:
         }
       }
 
-  - name: Condi Chrono
+  - name: Condi Chrono STM
     profession: Chronomancer
     traits: |-
       {
@@ -211,7 +223,7 @@ list:
           [
             1995,
             1978,
-            0
+            2022
           ]
         ],
         "items": [
@@ -227,6 +239,9 @@ list:
             "superiority-complex-base": true,
             "superiority-complex": {
               "amount": ""
+            },
+            "sharper-images-minus-fury": {
+              "amount": "1.51"
             }
           },
           {
@@ -237,8 +252,7 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-domination": true,
-          "signet-of-midnight": true
+          "signet-of-domination": true
         }
       }
 

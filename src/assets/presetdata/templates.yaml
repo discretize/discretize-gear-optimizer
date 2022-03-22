@@ -37,7 +37,7 @@ list:
         boons: Condi
         priority: Condi DPS
         distribution: Condi Chrono STM
-        traits: Condi Chrono
+        traits: Condi Chrono STM
         extras: Condi Chrono STM
 
       - name: Condi Virtuoso

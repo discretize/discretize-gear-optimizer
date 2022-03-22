@@ -526,13 +526,14 @@ list:
 
   # IA focus domi/duel
   # https://www.youtube.com/watch?v=zdIAYu7R8lk
+  # https://dps.report/0pRk-20210521-152703_golem
   # power: 20608 + 12314 = 32922, burn: 219, bleed: 2371, confusion: 4, total: 35516
   # thief rune, truffle steak
   - name: Power Chrono IA
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 3857, "Burning": 0.63, "Bleeding": 24, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3849, "Burning": 0.63, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.09 }
       }
 
   # DT focus domi/duel
@@ -544,32 +545,34 @@ list:
   #   value: >-
 
   # https://www.youtube.com/watch?v=Lg85Tj1-QeQ
+  # https://dps.report/u9Cu-20210910-041935_golem
+  # removed 126 power damage from lifesteal food
   # power: 2711, burn: 898, bleed: 9273, poison: 480, torment: 12643, confusion: 4865, total: 30870
   - name: Staff Mirage
     profession: Mirage
     value: >-
       {
-        "values2": { "Power": 1257, "Burning": 0.5, "Bleeding": 16.5, "Poisoned": 0.8, "Torment": 15.1, "Confusion": 17.3 }
+        "values2": { "Power": 1257, "Burning": 0.54, "Bleeding": 10.51, "Poisoned": 0.81, "Torment": 15.06, "Confusion": 17.32 }
       }
 
-
   # https://www.youtube.com/watch?v=R8g-fJZSaGI
+  # https://dps.report/6Klp-20210819-172536_golem
   # power: 4975, burn: 2722, bleed: 8794, poison: 95, torment: 20033, confusion: 3515, total: 40134
   - name: Axe Mirage (Deception Torch)
     profession: Mirage
     value: >-
       {
-        "values2": { "Power": 2307, "Burning": 1.6, "Bleeding": 15.7, "Poisoned": 0.2, "Torment": 23.9, "Confusion": 12.5 }
+        "values2": { "Power": 2307, "Burning": 1.63, "Bleeding": 5.71, "Poisoned": 0.16, "Torment": 23.79, "Confusion": 12.47 }
       }
 
-  # https://www.youtube.com/watch?v=FgIWv4NmhqM
-  # power: 4362, burn: 2520, bleed: 1912, torment: 4094, confusion: [34.15 stacks at 100% duration]
-  # old confusion balance
+  # https://www.youtube.com/watch?v=DxfbbefyT0c
+  # https://dps.report/rvMU-20220110-005722_golem
+  # domi WoA, full viper bursting mischief rendang toxic crystal 7 spiteful
   - name: Condi Chrono STM
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 1853, "Burning": 2.3, "Bleeding": 5.2, "Poisoned": 0, "Torment": 7.4, "Confusion": 17.0 }
+        "values2": { "Power": 1980, "Burning": 2.26, "Bleeding": 3.94, "Poisoned": 0, "Torment": 6.39, "Confusion": 17.07 }
       }
 
   # power: 12582, burn: 516, bleed: 23587, poison: 58, torment: 4185, confusion: 546, total: 41474
