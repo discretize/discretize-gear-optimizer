@@ -1672,7 +1672,7 @@ list:
         }
       }
 
-  - name: '[beta2] Banner Bladesworn'
+  - name: Banner Bladesworn
     profession: Bladesworn
     traits: |-
       {
@@ -1710,7 +1710,7 @@ list:
               "amount": ""
             },
             "berserkers-power": {
-              "amount": ""
+              "amount": "2.8"
             }
           },
           {
@@ -1726,7 +1726,7 @@ list:
           },
           {
             "fierce-as-fire": {
-              "amount": ""
+              "amount": "9.6"
             },
             "guns-and-glory": {
               "amount": ""
@@ -1739,6 +1739,143 @@ list:
         "skills": {
           "signet-of-might": true
         }
+      }
+
+  - name: DPS Bladesworn
+    profession: Bladesworn
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "4",
+          "51",
+          "68"
+        ],
+        "selectedTraits": [
+          [
+            1444,
+            1449,
+            1437
+          ],
+          [
+            1413,
+            1484,
+            1369
+          ],
+          [
+            2225,
+            2302,
+            2239
+          ]
+        ],
+        "items": [
+          {
+            "peak-performance": true,
+            "peak-performance-2": false,
+            "forceful-greatsword": true,
+            "forceful-greatsword-2": false,
+            "great-fortitude": true,
+            "pinnacle-of-strength": {
+              "amount": ""
+            },
+            "berserkers-power": {
+              "amount": "2.8"
+            }
+          },
+          {
+            "warriors-sprint": {
+              "amount": ""
+            },
+            "double-standards-str": true,
+            "double-standards-disc": true,
+            "axe-mastery-one": true,
+            "axe-mastery-axe": {
+              "amount": ""
+            }
+          },
+          {
+            "fierce-as-fire": {
+              "amount": "10"
+            },
+            "guns-and-glory": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-might": true,
+          "signet-of-fury": true
+        }
+      }
+
+  - name: Might Bladesworn
+    profession: Bladesworn
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "11",
+          "51",
+          "68"
+        ],
+        "selectedTraits": [
+          [
+            1469,
+            1482,
+            1711
+          ],
+          [
+            1413,
+            1484,
+            1369
+          ],
+          [
+            2225,
+            2302,
+            2239
+          ]
+        ],
+        "items": [
+          {
+            "leg-specialist": {
+              "amount": ""
+            },
+            "roaring-reveille": true,
+            "empowered": {
+              "amount": "7"
+            },
+            "warriors-cunning": {
+              "amount": ""
+            },
+            "vigorous-shouts": true
+          },
+          {
+            "warriors-sprint": {
+              "amount": ""
+            },
+            "double-standards-str": true,
+            "double-standards-disc": true,
+            "axe-mastery-one": true,
+            "axe-mastery-axe": {
+              "amount": ""
+            }
+          },
+          {
+            "fierce-as-fire": {
+              "amount": "9.6"
+            },
+            "guns-and-glory": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
       }
 
   - name: Power Weaver Stormsoul

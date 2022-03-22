@@ -280,13 +280,31 @@ list:
         traits: Power Banner SPB
         extras: Power (Fractal)
 
-      - name: '[beta2] Banner Bladesworn'
+      - name: Banner Bladesworn
         id: bls-bs
         specialization: Bladesworn
         boons: Power (spotter)
         priority: Power DPS
-        distribution: '[beta2] Banner Bladesworn'
-        traits: '[beta2] Banner Bladesworn'
+        distribution: Bladesworn
+        traits: Banner Bladesworn
+        extras: Power (Fractal)
+
+      - name: DPS Bladesworn
+        id: bls-dps
+        specialization: Bladesworn
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Bladesworn
+        traits: DPS Bladesworn
+        extras: Power (Fractal)
+
+      - name: Might Bladesworn
+        id: bls-might
+        specialization: Bladesworn
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Bladesworn
+        traits: Might Bladesworn
         extras: Power (Fractal)
 
   - class: Elementalist

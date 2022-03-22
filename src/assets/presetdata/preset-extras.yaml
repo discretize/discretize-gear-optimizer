@@ -503,6 +503,48 @@ list:
         }
       }
 
+  - name: Banner Bladesworn (Raid spotter)
+    profession: Bladesworn
+    value: |-
+      {
+        "Runes": {
+          "thief": {}
+        },
+        "Sigil1": {
+          "force": {}
+        },
+        "Sigil2": {
+          "impact/night/slaying-only-3": {}
+        },
+        "Enhancement": {
+          "superior-sharpening-stone": {}
+        },
+        "Nourishment": {
+          "sweet-and-spicy-butternut-squash-soup": {}
+        }
+      }
+
+  - name: DPS Bladesworn (Raid spotter)
+    profession: Bladesworn
+    value: |-
+      {
+        "Sigil1": {
+          "force": {}
+        },
+        "Sigil2": {
+          "accuracy": {}
+        },
+        "Runes": {
+          "scholar": {}
+        },
+        "Nourishment": {
+          "sweet-and-spicy-butternut-squash-soup": {}
+        },
+        "Enhancement": {
+          "superior-sharpening-stone": {}
+        }
+      }
+
   - name: Flame Legion Power Weaver (Raid)
     profession: Weaver
     value: |-

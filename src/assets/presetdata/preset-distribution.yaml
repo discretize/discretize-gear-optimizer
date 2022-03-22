@@ -45,14 +45,14 @@ list:
         "values2": { "Power": 2617, "Burning": 0.59, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  # https://www.youtube.com/watch?v=hkTNec9kJpg
-  # power: 36822, burn: 213, total: 37035
-  # force impact ass shoulder leg 11 mighty 6 precise (overcapped, missing 1 infu)
-  - name: '[beta2] Banner Bladesworn'
+  # https://www.youtube.com/watch?v=jT02tOOVGC8
+  # https://dps.report/sv2U-20220308-163944_golem
+  # banner setup, thief impact
+  - name: Bladesworn
     profession: Bladesworn
     value: >-
       {
-        "values2": { "Power": 3747, "Burning": 0.54, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3775, "Burning": 0.54, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=aIUZegO1_EA
