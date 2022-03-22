@@ -469,14 +469,23 @@ list:
   - class: Revenant
     builds:
 
-      - name: Power Alac Ren (outdated)
-        id: pren
-        specialization: Renegade
+      - name: Vindicator
+        id: vindi
+        specialization: Vindicator
         boons: Power (spotter)
-        priority: Power Boon
-        distribution: Alacrity Renegade
-        traits: Power Alac Ren
-        extras: Power (Fractal)
+        priority: Power DPS
+        distribution: DPS Vindicator
+        traits: DPS Vindicator
+        extras: DPS Vindicator
+
+      - name: Condi DPS Ren Invo
+        id: cren-invo
+        specialization: Renegade
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Renegade Invocation
+        traits: Condi DPS Ren Invo
+        extras: Condi Ren
 
       - name: Condi Alac Ren Invo
         id: cren-alac-invo
@@ -487,23 +496,14 @@ list:
         traits: Condi Alac Ren Invo
         extras: Condi Alac Ren
 
-      - name: Condi DPS Ren Deva
-        id: cren-deva
+      - name: Power Alac Ren (outdated)
+        id: pren
         specialization: Renegade
-        boons: Condi
-        priority: Condi DPS
-        distribution: Condi Renegade Devastation
-        traits: Condi DPS Ren Deva
-        extras: Condi Ren
-
-      - name: Condi DPS Ren Invo
-        id: cren-invo
-        specialization: Renegade
-        boons: Condi
-        priority: Condi DPS
-        distribution: Condi Renegade Invocation
-        traits: Condi DPS Ren Invo
-        extras: Condi Ren
+        boons: Power (spotter)
+        priority: Power Boon
+        distribution: Alacrity Renegade
+        traits: Power Alac Ren
+        extras: Power (Fractal)
 
       - name: Power Herald DE (outdated)
         id: herald
@@ -531,15 +531,6 @@ list:
         distribution: None
         traits: Heal Ren
         extras: Heal
-
-      - name: Vindicator
-        id: vindi
-        specialization: Vindicator
-        boons: Power (spotter)
-        priority: Power DPS
-        distribution: DPS Vindicator
-        traits: DPS Vindicator
-        extras: DPS Vindicator
 
   - class: Engineer
     builds:
