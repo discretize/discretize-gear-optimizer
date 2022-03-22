@@ -23,7 +23,7 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
   const { buffs } = character.settings.cachedFormState.buffs;
   const { skills, weapons } = buildPage;
 
-  const { attributes: allAttributes, gear, settings, infusions, id } = character;
+  const { attributes: allAttributes, gear, settings, infusions } = character;
   const { specialization, weaponType, extrasCombination } = settings;
 
   // filter out unnecessary attributes
