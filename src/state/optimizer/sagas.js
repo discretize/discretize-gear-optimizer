@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
+import { decompress } from '@discretize/object-compression';
 import JsonUrl from 'json-url';
+import { channel } from 'redux-saga';
 import { all, call, cancelled, put, race, select, take, takeLeading } from 'redux-saga/effects';
 import {
   mapEntries,
@@ -9,6 +11,7 @@ import {
   parsePriority,
 } from '../../utils/usefulFunctions';
 import { getBuffsModifiers } from '../slices/buffs';
+import { changeBuildPage } from '../slices/buildPage';
 // import { changeBuildPage } from '../slices/buildPage';
 import {
   changeAll,
@@ -27,6 +30,7 @@ import { getCustomAffixData } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import { calculate } from './multiCoreHandler';
+import SagaTypes from './sagaTypes';
 import { ERROR, SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -358,7 +362,7 @@ function* exportState({ onSuccess }) {
 }
 
 function* watchExportState() {
-  yield takeLeading('EXPORT_STATE', exportState);
+  yield takeLeading(SagaTypes.ExportFormState, exportState);
 }
 
 function* importState({ buildUrl: input, onSuccess, onError }) {
@@ -386,7 +390,7 @@ function* importState({ buildUrl: input, onSuccess, onError }) {
 }
 
 function* watchImportState() {
-  yield takeLeading('IMPORT_STATE', importState);
+  yield takeLeading(SagaTypes.ImportFormState, importState);
 }
 
 /*
@@ -417,36 +421,45 @@ function* exportStateCharacter({ onSuccess }) {
 function* watchExportStateCharacter() {
   yield takeLeading('EXPORT_STATE_CHARACTER', exportStateCharacter);
 }
+*/
 
-function* importStateCharacter({ buildUrl: input, onSuccess, onError }) {
+// channels solve the problem "how to get a value out of a callback"
+// https://stackoverflow.com/questions/43031832/how-to-yield-put-in-redux-saga-within-a-callback
+const decompressChannel = channel();
+function* importStateCharacter({ buildUrl: input, version }) {
+  if (!input) {
+    console.error('SAGA: No url parameter supplied');
+    return;
+  }
+  if (typeof version === 'undefined') {
+    console.error('SAGA: No version parameter supplied');
+    return;
+  }
+
   try {
-    if (!input) return;
+    // load build state from url
+    const { BuildPageSchema: schema } = yield import(
+      `../../components/url-state/schema/BuildPageSchema_v${version}`
+    );
 
-    console.time('Decompressed template in:');
-    const importData = yield lib.decompress(input);
-    console.timeEnd('Decompressed template in:');
+    decompress({
+      string: input,
+      schema,
+      onSuccess: (result) => decompressChannel.put({ type: 'STATE_DECOMPRESS_FINISHED', result }),
+    });
 
-    console.log(importData);
-    const optimizerState = importData;
+    const { result } = yield take(decompressChannel);
 
-    console.time('Applied state in:');
-    yield put(changeBuildPage(optimizerState));
-    console.timeEnd('Applied state in:');
-
-    // execute success callback
-    onSuccess();
+    yield put(changeBuildPage(result));
   } catch (e) {
     console.log('Problem restoring template!');
     console.log(e);
-    onError();
   }
 }
 
-
 function* watchImportStateCharacter() {
-  yield takeLeading('IMPORT_STATE_CHARACTER', importStateCharacter);
+  yield takeLeading(SagaTypes.ImportBuildPageState, importStateCharacter);
 }
-*/
 
 export default function* rootSaga() {
   yield all([
@@ -455,6 +468,6 @@ export default function* rootSaga() {
     watchExportState(),
     watchImportState(),
     // watchExportStateCharacter(),
-    // watchImportStateCharacter(),
+    watchImportStateCharacter(),
   ]);
 }
