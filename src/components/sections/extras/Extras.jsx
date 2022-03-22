@@ -1,56 +1,43 @@
 import { ConsumableEffect, Item } from '@discretize/gw2-ui-new';
-import { Grid } from '@mui/material';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { allExtrasModifiersById, extrasModifiers } from '../../../assets/modifierdata';
-import ExtrasMultiselect from '../../baseComponents/ExtrasMultiselect';
+import ExtraSelection from './ExtraSelection';
 
 const Extras = () => {
   const { t } = useTranslation();
   return (
     <>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <ExtrasMultiselect
-            type="Sigil1"
-            label={<Item id={24615} disableLink disableTooltip text={t('Sigil 1')} />}
-            modifierData={extrasModifiers.sigils}
-            modifierDataById={allExtrasModifiersById}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <ExtrasMultiselect
-            type="Sigil2"
-            label={<Item id={24868} disableLink disableTooltip text={t('Sigil 2')} />}
-            modifierData={extrasModifiers.sigils}
-            modifierDataById={allExtrasModifiersById}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <ExtrasMultiselect
-            type="Runes"
-            label={<Item id={24836} disableLink disableTooltip text={t('Rune')} />}
-            modifierData={extrasModifiers.runes}
-            modifierDataById={allExtrasModifiersById}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <ExtrasMultiselect
-            type="Nourishment"
-            label={<ConsumableEffect disableLink text={t('Nourishment')} name="Nourishment" />}
-            modifierData={extrasModifiers.food}
-            modifierDataById={allExtrasModifiersById}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <ExtrasMultiselect
-            type="Enhancement"
-            label={<ConsumableEffect disableLink text={t('Enhancement')} name="Enhancement" />}
-            modifierData={extrasModifiers.utility}
-            modifierDataById={allExtrasModifiersById}
-          />
-        </Grid>
-      </Grid>
+      <ExtraSelection
+        type="Sigil1"
+        label={<Item id={24615} disableLink disableTooltip text={t('Sigil 1')} />}
+        modifierData={extrasModifiers.sigils}
+        modifierDataById={allExtrasModifiersById}
+      />
+      <ExtraSelection
+        type="Sigil2"
+        label={<Item id={24868} disableLink disableTooltip text={t('Sigil 2')} />}
+        modifierData={extrasModifiers.sigils}
+        modifierDataById={allExtrasModifiersById}
+      />
+      <ExtraSelection
+        type="Runes"
+        label={<Item id={24836} disableLink disableTooltip text={t('Runes')} />}
+        modifierData={extrasModifiers.runes}
+        modifierDataById={allExtrasModifiersById}
+      />
+      <ExtraSelection
+        type="Nourishment"
+        label={<ConsumableEffect disableLink name="Nourishment" text={t('Nourishment')} />}
+        modifierData={extrasModifiers.food}
+        modifierDataById={allExtrasModifiersById}
+      />
+      <ExtraSelection
+        type="Enhancement"
+        label={<ConsumableEffect disableLink name="Enhancement" text={t('Enhancement')} />}
+        modifierData={extrasModifiers.utility}
+        modifierDataById={allExtrasModifiersById}
+      />
     </>
   );
 };
