@@ -30,7 +30,17 @@ import {
 import AmountInput from '../../baseComponents/AmountInput';
 import ModalContent from './ModalContent';
 
-const useStyles = makeStyles()((theme) => ({}));
+const useStyles = makeStyles()((theme) => ({
+  list: {
+    width: '100%',
+    backgroundColor: theme.palette.background.embossed,
+    marginBottom: theme.spacing(2),
+  },
+  subText: {
+    marginLeft: theme.spacing(1),
+    fontWeight: 200,
+  },
+}));
 
 export default function ExtraSelection(props) {
   const { type, label, modifierDataById: data } = props;
@@ -66,7 +76,7 @@ export default function ExtraSelection(props) {
     dispatch(changeExtraAmount({ type, id, amount: e.target.value }));
   };
 
-  const handleDelete = (id) => (e) => {
+  const handleDelete = (id) => () => {
     dispatch(changeExtraIds({ type, ids: currentIds.filter((id0) => id0 !== id) }));
   };
 
@@ -77,7 +87,7 @@ export default function ExtraSelection(props) {
   return (
     <>
       <Box display="flex" mb={1}>
-        <Typography variant="h6" component="span" sx={{ flexGrow: 1 }}>
+        <Typography variant="h6" component="span" flexGrow={1}>
           {label}
         </Typography>
         <Button variant="contained" size="small" startIcon={<AddIcon />} onClick={handleOpen}>
@@ -85,7 +95,7 @@ export default function ExtraSelection(props) {
         </Button>
       </Box>
 
-      <List sx={{ width: '100%', bgcolor: 'background.embossed', mb: 2 }} disablePadding>
+      <List className={classes.list} disablePadding>
         {currentIds.length > 0 ? (
           currentIds.map((extraId) => {
             const { amountData } = allExtrasModifiersById[extraId];
@@ -109,7 +119,7 @@ export default function ExtraSelection(props) {
                         {...(!isChinese && { text: data[extraId]?.text.replace('Superior ', '') })}
                       />
                       {data[extraId]?.subText && (
-                        <Typography variant="caption" sx={{ marginLeft: 1, fontWeight: 200 }}>
+                        <Typography variant="caption" className={classes.subText}>
                           {t('extraSubText', { context: data[extraId]?.subText })}
                         </Typography>
                       )}

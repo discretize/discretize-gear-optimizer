@@ -36,6 +36,7 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 function groupBy(xs, key) {
+  // eslint-disable-next-line id-length
   return xs.reduce(function (rv, x) {
     (rv[x[key]] = rv[x[key]] || []).push(x);
     return rv;
@@ -159,7 +160,7 @@ function ModalContent(props) {
         if (options.length === 0) return null;
         return (
           <div>
-            <FormControl sx={{ m: 1 }} component="fieldset" variant="standard">
+            <FormControl sx={{ margin: 1 }} component="fieldset" variant="standard">
               <FormLabel component="legend">{label}</FormLabel>
               <FormGroup>
                 {options.map(({ id, gw2id, subText, text }) => (
