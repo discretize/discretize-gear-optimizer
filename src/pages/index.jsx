@@ -12,14 +12,14 @@ import GearOptimizer from '../components/GearOptimizer';
 import URLStateImport from '../components/url-state/URLStateImport';
 
 // markup
-const IndexPage = ({ location }) => {
+const IndexPage = () => {
   const { language } = useI18next();
 
   return (
     <APILanguageProvider value={language}>
       <Layout>
         <URLStateImport sagaType="IMPORT_STATE" clearUrlOnSuccess />
-        <LanguageSelection location={location} />
+        <LanguageSelection />
         <MuiAlert elevation={6} variant="filled" severity="warning">
           <Trans>
             The gear optimizer is currently in beta! Templates are not final and

@@ -8,13 +8,13 @@ import ErrorBoundary from '../../components/baseComponents/ErrorBoundary';
 import LanguageSelection from '../../components/baseComponents/LanguageSelection';
 import BuildPage from '../../components/BuildPage';
 
-const IndexPage = ({ location, data }) => {
+const IndexPage = ({ data }) => {
   const { language } = useI18next();
 
   return (
     <APILanguageProvider value={language}>
       <Layout>
-        <LanguageSelection location={location} />
+        <LanguageSelection />
         <Typography variant="h3" sx={{ paddingBottom: 2 }}>
           <Trans>Shared Build</Trans>
         </Typography>

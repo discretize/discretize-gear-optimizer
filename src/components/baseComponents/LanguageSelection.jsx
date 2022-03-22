@@ -1,39 +1,37 @@
-import { Box } from '@mui/material';
-import { Link as LangLink, useI18next } from 'gatsby-plugin-react-i18next';
+import { Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import * as React from 'react';
-import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles()((theme) => ({
-  langLink: {
-    textDecoration: 'none',
-    color: theme.palette.primary.main,
-    transition: theme.transitions.create(['color'], {
-      duration: theme.transitions.duration.short,
-    }),
-    '&:hover': {
-      color: theme.palette.primary.light,
-    },
-  },
-}));
+const LANGUAGES = [
+  { value: 'en', label: 'English' },
+  { value: 'zh', label: '中文' },
+  { value: 'de', label: 'Deutsch' },
+];
 
-const LanguageSelection = ({ location }) => {
-  const { classes } = useStyles();
-  const { originalPath, language } = useI18next();
-  const targetPath = originalPath + location.search;
+const LanguageSelection = () => {
+  const { language, changeLanguage } = useI18next();
+
+  const onChange = (e) => {
+    changeLanguage(e.target.value);
+  };
+
   return (
     <>
       <Box display="flex" flexDirection="row-reverse" m={1}>
-        <Box>
-          {language === 'zh' ? (
-            <LangLink to={targetPath} language="en" className={classes.langLink}>
-              English
-            </LangLink>
-          ) : (
-            <LangLink to={targetPath} language="zh" className={classes.langLink}>
-              中文
-            </LangLink>
-          )}
-        </Box>
+        <FormControl sx={{ minWidth: 150 }} size="small" variant="standard">
+          <InputLabel id="language-select-label">Language</InputLabel>
+          <Select
+            labelId="language-select-label"
+            id="language-select"
+            onChange={onChange}
+            value={language}
+            label="Age"
+          >
+            {LANGUAGES.map(({ value, label }) => (
+              <MenuItem value={value}>{label}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       </Box>
     </>
   );
