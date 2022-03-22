@@ -398,13 +398,14 @@ list:
         "values2": { "Power": 1900, "Burning": 5.1, "Bleeding": 2.2, "Poisoned": 6, "Torment": 17.1, "Confusion": 0 }
       }
 
-  # https://www.youtube.com/watch?v=czIeKhJ0rQs
-  # power: 36264, burn: 194, torment: 141, total: 36599
-  - name: '[beta2] Vindicator Large'
+  # https://www.youtube.com/watch?v=gItQj2jezkc
+  # https://dps.report/Q54J-20220302-145450_golem
+  # force impact force air
+  - name: DPS Vindicator
     profession: Vindicator
     value: >-
       {
-        "values2": { "Power": 3274, "Burning": 0.61, "Bleeding": 0, "Poisoned": 0, "Torment": 1.16, "Confusion": 0 }
+        "values2": { "Power": 3450, "Burning": 0.61, "Bleeding": 0, "Poisoned": 0, "Torment": 1.86, "Confusion": 0 }
       }
 
   # longbow; actually skirmishing trappers expertise

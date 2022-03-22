@@ -897,7 +897,7 @@ list:
         }
       }
 
-  - name: '[beta2] Vindicator'
+  - name: DPS Vindicator
     profession: Vindicator
     value: |-
       {

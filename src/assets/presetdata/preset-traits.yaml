@@ -3857,7 +3857,7 @@ list:
         "skills": {}
       }
 
-  - name: '[beta2] Vindicator'
+  - name: DPS Vindicator
     profession: Vindicator
     traits: |-
       {
@@ -3870,12 +3870,12 @@ list:
         "selectedTraits": [
           [
             1767,
-            1765,
+            1786,
             1800
           ],
           [
             1761,
-            1774,
+            1781,
             1719
           ],
           [
