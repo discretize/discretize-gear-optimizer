@@ -394,7 +394,7 @@ list:
         }
       }
 
-  - name: '[beta2] Virtuoso'
+  - name: Power Virtuoso (accuracy)
     profession: Virtuoso
     traits: |-
       {
@@ -440,7 +440,81 @@ list:
             "superiority-complex-base": true,
             "superiority-complex": {
               "amount": ""
+            },
+            "sharper-images": false,
+            "sharper-images-minus-7": {
+              "amount": "1.75"
             }
+          },
+          {
+            "mental-focus": {
+              "amount": ""
+            },
+            "deadly-blades": {
+              "amount": ""
+            },
+            "sharpening-sorrow": true,
+            "quiet-intensity": true,
+            "bloodsong": true
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Power Virtuoso (no accuracy)
+    profession: Virtuoso
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "10",
+          "1",
+          "66"
+        ],
+        "selectedTraits": [
+          [
+            0,
+            713,
+            681
+          ],
+          [
+            701,
+            708,
+            692
+          ],
+          [
+            2208,
+            2205,
+            2223
+          ]
+        ],
+        "items": [
+          {
+            "fragility": {
+              "amount": ""
+            },
+            "egotism": {
+              "amount": ""
+            },
+            "vicious-expression": {
+              "amount": ""
+            }
+          },
+          {
+            "fencers-finesse": {
+              "amount": ""
+            },
+            "superiority-complex-base": true,
+            "superiority-complex": {
+              "amount": ""
+            },
+            "sharper-images": {
+              "amount": "1.75"
+            },
+            "sharper-images-minus-7": false
           },
           {
             "mental-focus": {
@@ -1289,7 +1363,7 @@ list:
         }
       }
 
-  - name: '[beta1] Power Willbender Radiance'
+  - name: Power Willbender Radiance
     profession: Willbender
     traits: |-
       {
@@ -1312,7 +1386,7 @@ list:
           ],
           [
             2190,
-            2210,
+            2197,
             2201
           ]
         ],
@@ -1361,7 +1435,7 @@ list:
         }
       }
 
-  - name: '[beta1] Power Willbender Virtues'
+  - name: Power Willbender Virtues
     profession: Willbender
     traits: |-
       {
@@ -1384,8 +1458,157 @@ list:
           ],
           [
             2190,
-            2210,
+            2197,
             2201
+          ]
+        ],
+        "items": [
+          {
+            "inspired-virtue": {
+              "amount": ""
+            },
+            "unscathed-contender": {
+              "amount": ""
+            },
+            "virtue-of-retribution": true,
+            "inspiring-virtue": {
+              "amount": ""
+            },
+            "power-of-the-virtuous": true
+          },
+          {
+            "fiery-wrath": true,
+            "symbolic-exposure": true,
+            "zealous-blade-base": true,
+            "zealous-blade-gs": {
+              "amount": ""
+            },
+            "kindled-zeal": true,
+            "symbolic-avenger": true
+          },
+          {
+            "power-for-power": true,
+            "lethal-tempo": {
+              "amount": ""
+            },
+            "tyrants-momentum": {
+              "amount": ""
+            },
+            "tyrants-momentum-bugged": false
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "bane-signet": {
+            "amount": ""
+          }
+        }
+      }
+
+  - name: Condi Alacrity Willbender
+    profession: Willbender
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "16",
+          "46",
+          "65"
+        ],
+        "selectedTraits": [
+          [
+            566,
+            567,
+            1686
+          ],
+          [
+            617,
+            603,
+            554
+          ],
+          [
+            2191,
+            2197,
+            2201
+          ]
+        ],
+        "items": [
+          {
+            "right-hand-strength": true,
+            "right-hand-strength-1h": {
+              "amount": "100"
+            },
+            "radiant-fire": true,
+            "retribution": {
+              "amount": ""
+            },
+            "radiant-power": true,
+            "amplified-wrath": true,
+            "righteous-instincts": true
+          },
+          {
+            "inspired-virtue": {
+              "amount": ""
+            },
+            "unscathed-contender": {
+              "amount": ""
+            },
+            "virtue-of-retribution": true,
+            "inspiring-virtue": {
+              "amount": ""
+            },
+            "power-of-the-virtuous": true
+          },
+          {
+            "searing-pact": true,
+            "power-for-power": true,
+            "conceited-curate": false,
+            "lethal-tempo": {
+              "amount": ""
+            },
+            "tyrants-momentum": {
+              "amount": ""
+            },
+            "tyrants-momentum-bugged": false
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-wrath": {
+            "amount": ""
+          }
+        }
+      }
+
+  - name: Power Alacrity Willbender
+    profession: Willbender
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "46",
+          "42",
+          "65"
+        ],
+        "selectedTraits": [
+          [
+            624,
+            603,
+            554
+          ],
+          [
+            634,
+            653,
+            2017
+          ],
+          [
+            2190,
+            2197,
+            2195
           ]
         ],
         "items": [
@@ -1672,7 +1895,7 @@ list:
         }
       }
 
-  - name: '[beta2] Banner Bladesworn'
+  - name: Banner Bladesworn
     profession: Bladesworn
     traits: |-
       {
@@ -1710,7 +1933,7 @@ list:
               "amount": ""
             },
             "berserkers-power": {
-              "amount": ""
+              "amount": "2.8"
             }
           },
           {
@@ -1726,7 +1949,7 @@ list:
           },
           {
             "fierce-as-fire": {
-              "amount": ""
+              "amount": "9.6"
             },
             "guns-and-glory": {
               "amount": ""
@@ -1739,6 +1962,143 @@ list:
         "skills": {
           "signet-of-might": true
         }
+      }
+
+  - name: DPS Bladesworn
+    profession: Bladesworn
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "4",
+          "51",
+          "68"
+        ],
+        "selectedTraits": [
+          [
+            1444,
+            1449,
+            1437
+          ],
+          [
+            1413,
+            1484,
+            1369
+          ],
+          [
+            2225,
+            2302,
+            2239
+          ]
+        ],
+        "items": [
+          {
+            "peak-performance": true,
+            "peak-performance-2": false,
+            "forceful-greatsword": true,
+            "forceful-greatsword-2": false,
+            "great-fortitude": true,
+            "pinnacle-of-strength": {
+              "amount": ""
+            },
+            "berserkers-power": {
+              "amount": "2.8"
+            }
+          },
+          {
+            "warriors-sprint": {
+              "amount": ""
+            },
+            "double-standards-str": true,
+            "double-standards-disc": true,
+            "axe-mastery-one": true,
+            "axe-mastery-axe": {
+              "amount": ""
+            }
+          },
+          {
+            "fierce-as-fire": {
+              "amount": "10"
+            },
+            "guns-and-glory": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-might": true,
+          "signet-of-fury": true
+        }
+      }
+
+  - name: Might Bladesworn
+    profession: Bladesworn
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "11",
+          "51",
+          "68"
+        ],
+        "selectedTraits": [
+          [
+            1469,
+            1482,
+            1711
+          ],
+          [
+            1413,
+            1484,
+            1369
+          ],
+          [
+            2225,
+            2302,
+            2239
+          ]
+        ],
+        "items": [
+          {
+            "leg-specialist": {
+              "amount": ""
+            },
+            "roaring-reveille": true,
+            "empowered": {
+              "amount": "7"
+            },
+            "warriors-cunning": {
+              "amount": ""
+            },
+            "vigorous-shouts": true
+          },
+          {
+            "warriors-sprint": {
+              "amount": ""
+            },
+            "double-standards-str": true,
+            "double-standards-disc": true,
+            "axe-mastery-one": true,
+            "axe-mastery-axe": {
+              "amount": ""
+            }
+          },
+          {
+            "fierce-as-fire": {
+              "amount": "9.6"
+            },
+            "guns-and-glory": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
       }
 
   - name: Power Weaver Stormsoul
@@ -3220,7 +3580,7 @@ list:
         "skills": {}
       }
 
-  - name: Condi RR Ren Invo
+  - name: Condi Alac Ren Invo
     profession: Renegade
     traits: |-
       {
@@ -3282,7 +3642,7 @@ list:
         "skills": {}
       }
 
-  - name: Condi RR Ren Deva
+  - name: Condi Alac Ren Deva
     profession: Renegade
     traits: |-
       {
@@ -3405,6 +3765,68 @@ list:
             "swift-termination": {
               "amount": ""
             }
+          },
+          {
+            "ambush-commander": {
+              "amount": ""
+            },
+            "blood-fury": true,
+            "heartpiercer": true,
+            "brutal-momentum": true,
+            "lasting-legacy": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Condi DPS Ren Invo
+    profession: Renegade
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "14",
+          "3",
+          "63"
+        ],
+        "selectedTraits": [
+          [
+            1793,
+            1714,
+            1795
+          ],
+          [
+            1761,
+            1781,
+            1791
+          ],
+          [
+            2079,
+            2092,
+            2100
+          ]
+        ],
+        "items": [
+          {
+            "acolyte-of-torment": true,
+            "seething-malice": true,
+            "demonic-resistance": true,
+            "pact-of-pain": true,
+            "yearning-empowerment": true
+          },
+          {
+            "rising-tide": {
+              "amount": ""
+            },
+            "ferocious-aggression": {
+              "amount": ""
+            },
+            "roiling-mists": true
           },
           {
             "ambush-commander": {
@@ -3720,7 +4142,7 @@ list:
         "skills": {}
       }
 
-  - name: '[beta2] Vindicator'
+  - name: DPS Vindicator
     profession: Vindicator
     traits: |-
       {
@@ -3733,12 +4155,12 @@ list:
         "selectedTraits": [
           [
             1767,
-            1765,
+            1786,
             1800
           ],
           [
             1761,
-            1774,
+            1781,
             1719
           ],
           [
