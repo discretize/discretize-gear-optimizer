@@ -1,4 +1,4 @@
-import { Autocomplete, InputAdornment, TextField } from '@mui/material';
+import { Autocomplete, InputAdornment, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { parseAmount } from '../../utils/usefulFunctions';
 
@@ -32,8 +32,8 @@ const AmountInput = ({
             InputProps={{
               ...params.InputProps,
               endAdornment: (
-                <InputAdornment disablePointerEvents position="end">
-                  {endLabel}
+                <InputAdornment disablePointerEvents position="end" disableTypography>
+                  <Typography sx={{ fontSize: '0.8rem', color: '#b1b1b5' }}>{endLabel}</Typography>
                 </InputAdornment>
               ),
             }}
@@ -55,10 +55,12 @@ const AmountInput = ({
       placeholder={String(placeholder)}
       label={label}
       variant="standard"
+      size="small"
+      sx={{ height: 26 }}
       InputProps={{
         endAdornment: (
-          <InputAdornment disablePointerEvents position="end">
-            {endLabel}
+          <InputAdornment disablePointerEvents position="end" disableTypography>
+            <Typography sx={{ fontSize: '0.8rem', color: '#b1b1b5' }}>{endLabel}</Typography>
           </InputAdornment>
         ),
         inputProps: { style: maxWidth ? { maxWidth } : null },
