@@ -13,10 +13,14 @@ export function* calculate(inputCombinations) {
   // do not mutate input; it will be reused if the same calculation is run twice
   const combinations = inputCombinations.map((combination) => ({ ...combination }));
 
+  console.groupCollapsed('More debug Info:');
+
   for (const combination of combinations) {
     combination.core = createOptimizerCore(combination.input);
     combination.calculation = combination.core.calculate();
   }
+
+  console.groupEnd();
 
   const { rankby, runsAfterThisSlot } = combinations[0].core.settings;
   const globalCalculationTotal = runsAfterThisSlot[0] * combinations.length;
