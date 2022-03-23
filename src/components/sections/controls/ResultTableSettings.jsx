@@ -1,13 +1,23 @@
-import { Box, FormControlLabel, Switch, Typography } from '@mui/material';
+import {
+  Box,
+  FormControl,
+  FormControlLabel,
+  FormHelperText,
+  FormLabel,
+  Radio,
+  RadioGroup,
+  Switch,
+  Typography,
+} from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import {
   changeCompareByPercent,
-  changeFilterByExtras,
+  changeFilterMode,
   getCompareByPercent,
-  getFilterByExtras,
+  getFilterMode,
 } from '../../../state/slices/controlsSlice';
 import Settings from '../../baseComponents/Settings';
 
@@ -26,33 +36,13 @@ export default function ResultTableSettings() {
   const dispatch = useDispatch();
 
   const compareByPercent = useSelector(getCompareByPercent);
-  const filterByExtras = useSelector(getFilterByExtras);
+  const filterMode = useSelector(getFilterMode);
 
   return (
     <Settings>
       <Typography sx={{ fontWeight: 700 }}>
         <Trans>Result Display Settings:</Trans>
       </Typography>
-
-      <Box sx={{ mt: 1.5 }}>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={filterByExtras}
-              onChange={(e) => dispatch(changeFilterByExtras(e.target.checked))}
-              name="checked"
-              color="primary"
-            />
-          }
-          label={t('Filter results by combination')}
-          classes={{ label: classes.comparisonLabel }}
-        />
-        <Typography sx={{ fontSize: '0.85rem', maxWidth: '320px' }}>
-          <Trans>
-            Displays only the top result for each combination of runes, sigils, food, and utility.
-          </Trans>
-        </Typography>
-      </Box>
 
       <Box sx={{ mt: 1.5 }}>
         <FormControlLabel
@@ -67,6 +57,46 @@ export default function ResultTableSettings() {
           label={t('Compare by percentage')}
           classes={{ label: classes.comparisonLabel }}
         />
+      </Box>
+
+      <Box sx={{ mt: 1.5 }}>
+        <FormControl>
+          <FormLabel id="filter-button-group">
+            <Trans>Filter results:</Trans>
+          </FormLabel>
+
+          <RadioGroup
+            aria-labelledby="filter-button-group"
+            value={filterMode}
+            onChange={(e) => dispatch(changeFilterMode(e.target.value))}
+            name="checked"
+            color="primary"
+          >
+            {[
+              ['None', t('No Filtering')],
+              ['Combinations', t('All Combinations')],
+              ['Sigils', t('Sigils')],
+              ['Runes', t('Runes')],
+              ['Nourishment', t('Food')],
+              ['Enhancement', t('Utility')],
+            ].map(([value, label]) => (
+              <FormControlLabel
+                key={value}
+                value={value}
+                control={<Radio />}
+                label={label}
+                classes={{ label: classes.comparisonLabel }}
+              />
+            ))}
+          </RadioGroup>
+
+          <FormHelperText sx={{ maxWidth: 320 }}>
+            <Trans>
+              Displays only the top result for each rune, sigil, food, or utility option or each
+              combination of all of the above.
+            </Trans>
+          </FormHelperText>
+        </FormControl>
       </Box>
     </Settings>
   );
