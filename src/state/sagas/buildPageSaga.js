@@ -1,5 +1,4 @@
 import { compress, decompress } from '@discretize/object-compression';
-import { withPrefix } from 'gatsby';
 import { channel } from 'redux-saga';
 import { all, put, select, take, takeLeading } from 'redux-saga/effects';
 import {
@@ -70,15 +69,17 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
   });
 
   const { result } = yield take(compressChannel);
-  const url = withPrefix(`/build?v=${schemaVersion}&data=${result}`);
+
+  const urlObject = new URL('build', window.location.href);
+  urlObject.searchParams.set('v', schemaVersion);
+  urlObject.searchParams.set('data', result);
+  const url = urlObject.href;
 
   if (newPage) {
     newPage.location.href = url;
   }
   if (copyToClipboard) {
-    navigator.clipboard.writeText(
-      window.location.href.slice(0, window.location.href.length - 1) + url,
-    );
+    navigator.clipboard.writeText(url);
   }
 }
 
