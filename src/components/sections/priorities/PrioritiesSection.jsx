@@ -28,6 +28,7 @@ const PrioritiesSection = ({ data }) => {
           data={data.presetAffixes.list}
           handleClick={handleTemplateClickPriorities}
           presetCategory="affix"
+          maxChips={Infinity}
         />
       }
     />
