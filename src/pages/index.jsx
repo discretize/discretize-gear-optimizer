@@ -13,14 +13,15 @@ import URLStateImport from '../components/url-state/URLStateImport';
 import SagaTypes from '../state/sagas/sagaTypes';
 
 // markup
-const IndexPage = ({ location }) => {
+const IndexPage = () => {
   const { language } = useI18next();
 
   return (
     <APILanguageProvider value={language}>
       <Layout>
         <URLStateImport sagaType={SagaTypes.ImportFormState} clearUrlOnSuccess />
-        <LanguageSelection location={location} />
+        <LanguageSelection />
+
         <MuiAlert elevation={6} variant="filled" severity="warning">
           <Trans>
             The gear optimizer is currently in beta! Templates are not final and
