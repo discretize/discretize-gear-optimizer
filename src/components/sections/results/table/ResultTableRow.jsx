@@ -104,7 +104,7 @@ const ResultTableRow = ({
                   id={allExtrasModifiersById[extra]?.gw2id}
                   disableText
                   disableLink
-                  style={{ fontSize: 18 }}
+                  style={{ fontSize: 23 }}
                 />
               ) : null}
             </TableCell>
