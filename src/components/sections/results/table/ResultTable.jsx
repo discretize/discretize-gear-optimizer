@@ -10,8 +10,8 @@ import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import {
   getCompareByPercent,
-  getFilterByExtras,
   getFilteredList,
+  getFilterMode,
   getList,
   getSaved,
   getSelectedCharacter,
@@ -52,18 +52,49 @@ const mode = (array) => {
   return best;
 };
 
+const emptyArray = [];
+
 const StickyHeadTable = () => {
   const { classes } = useStyles();
 
   const { t } = useTranslation();
   const selectedCharacter = useSelector(getSelectedCharacter);
-  const normalList = useSelector(getList) || [];
-  const filteredList = useSelector(getFilteredList) || [];
-  const saved = useSelector(getSaved) || [];
+  const normalList = useSelector(getList) || emptyArray;
+  const rawFilteredList = useSelector(getFilteredList) || emptyArray;
+  const saved = useSelector(getSaved) || emptyArray;
   const compareByPercent = useSelector(getCompareByPercent);
-  const filterByExtras = useSelector(getFilterByExtras);
+  const filterMode = useSelector(getFilterMode);
 
-  const list = filterByExtras ? filteredList : normalList;
+  const list = React.useMemo(() => {
+    if (filterMode === 'None') {
+      return normalList;
+    }
+    if (filterMode === 'Combinations') {
+      return rawFilteredList;
+    }
+    if (filterMode === 'Sigils') {
+      return rawFilteredList.filter((character, i) => {
+        const isWorse = rawFilteredList.slice(0, i).some((prevChar) => {
+          const sameSigils =
+            prevChar.settings.extrasCombination.Sigil1 ===
+              character.settings.extrasCombination.Sigil1 &&
+            prevChar.settings.extrasCombination.Sigil2 ===
+              character.settings.extrasCombination.Sigil2;
+          return sameSigils && prevChar.results.value > character.results.value;
+        });
+        return !isWorse;
+      });
+    }
+    return rawFilteredList.filter((character, i) => {
+      const isWorse = rawFilteredList.slice(0, i).some((prevChar) => {
+        const sameExtra =
+          prevChar.settings.extrasCombination[filterMode] ===
+          character.settings.extrasCombination[filterMode];
+        return sameExtra && prevChar.results.value > character.results.value;
+      });
+      return !isWorse;
+    });
+  }, [filterMode, normalList, rawFilteredList]);
 
   let mostCommonAffix = null;
   if (/* status !== RUNNING && */ list[0]) {
