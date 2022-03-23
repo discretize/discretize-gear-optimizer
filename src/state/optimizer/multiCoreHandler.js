@@ -1,5 +1,11 @@
 import { characterLT, createOptimizerCore } from './optimizerCore';
 
+// eslint-disable-next-line id-length
+const isArrayDifferent = (a, b) => {
+  if (a.length !== b.length) return true;
+  return a.some((_, i) => a[i] !== b[i]);
+};
+
 // todo: convert this file to a web worker handler
 
 // eslint-disable-next-line import/prefer-default-export
@@ -36,17 +42,28 @@ export function* calculate(inputCombinations) {
 
     if (isChanged) {
       combination.list = newList;
-      globalList = combinations
+
+      // avoid pushing different arrays with the same contents, as this breaks react memoization
+
+      const newGlobalList = combinations
         .flatMap(({ list }) => list || [])
         // eslint-disable-next-line id-length
         .sort((a, b) => characterLT(a, b, rankby))
         .slice(0, 50);
 
-      globalFilteredList = combinations
+      if (isArrayDifferent(globalList, newGlobalList)) {
+        globalList = newGlobalList;
+      }
+
+      const newGlobalFilteredList = combinations
         .map(({ list }) => list?.[0])
         .filter(Boolean)
         // eslint-disable-next-line id-length
         .sort((a, b) => characterLT(a, b, rankby));
+
+      if (isArrayDifferent(globalFilteredList, newGlobalFilteredList)) {
+        globalFilteredList = newGlobalFilteredList;
+      }
     }
 
     console.log(`option ${currentIndex} progress: ${calculationRuns} / ${runsAfterThisSlot[0]}`);
