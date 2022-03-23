@@ -2,6 +2,7 @@ import {
   Box,
   FormControl,
   FormControlLabel,
+  FormHelperText,
   FormLabel,
   Radio,
   RadioGroup,
@@ -44,10 +45,26 @@ export default function ResultTableSettings() {
       </Typography>
 
       <Box sx={{ mt: 1.5 }}>
+        <FormControlLabel
+          control={
+            <Switch
+              checked={compareByPercent}
+              onChange={(e) => dispatch(changeCompareByPercent(e.target.checked))}
+              name="checked"
+              color="primary"
+            />
+          }
+          label={t('Compare by percentage')}
+          classes={{ label: classes.comparisonLabel }}
+        />
+      </Box>
+
+      <Box sx={{ mt: 1.5 }}>
         <FormControl>
           <FormLabel id="filter-button-group">
             <Trans>Filter results:</Trans>
           </FormLabel>
+
           <RadioGroup
             aria-labelledby="filter-button-group"
             value={filterMode}
@@ -72,29 +89,14 @@ export default function ResultTableSettings() {
               />
             ))}
           </RadioGroup>
+
+          <FormHelperText sx={{ maxWidth: 320 }}>
+            <Trans>
+              Displays only the top result for each rune, sigil, food, or utility option or each
+              combination of all of the above.
+            </Trans>
+          </FormHelperText>
         </FormControl>
-
-        <Typography sx={{ fontSize: '0.85rem', maxWidth: '320px' }}>
-          <Trans>
-            Displays only the top result for each rune, sigil, food, or utility option or each
-            combination of all of the above.
-          </Trans>
-        </Typography>
-      </Box>
-
-      <Box sx={{ mt: 1.5 }}>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={compareByPercent}
-              onChange={(e) => dispatch(changeCompareByPercent(e.target.checked))}
-              name="checked"
-              color="primary"
-            />
-          }
-          label={t('Compare by percentage')}
-          classes={{ label: classes.comparisonLabel }}
-        />
       </Box>
     </Settings>
   );
