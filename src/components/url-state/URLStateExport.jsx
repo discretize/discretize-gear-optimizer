@@ -25,11 +25,15 @@ const URLStateExport = ({ type }) => {
   /// const [_, setBuildUrl] = useQueryParam('data', StringParam);
 
   const onExportSuccess = React.useCallback((data) => {
-    const prefixUrl = typeof window !== 'undefined' ? window.location.href : '';
-    const longUrl = `${prefixUrl}?v=${version}&data=${data}`;
-    console.log(`Exported long URL (${longUrl.length} characters):`, longUrl);
+    if (typeof window === 'undefined') return;
+
+    const urlObject = new URL(window.location.href);
+    urlObject.searchParams.set('v', version);
+    urlObject.searchParams.set('data', data);
+    const longUrl = urlObject.href;
 
     if (longUrl.length > 8000) {
+      console.log(`URL is too long! (${longUrl.length} characters):`, longUrl);
       setSnackbarState((state) => ({
         ...state,
         open: true,
@@ -38,6 +42,7 @@ const URLStateExport = ({ type }) => {
       }));
       return;
     }
+    console.log(`Exported long URL (${longUrl.length} characters):`, longUrl);
 
     // get request to create a new short-url
     // this url points to a cloudflare worker, which acts as a url shortener
