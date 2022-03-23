@@ -1,5 +1,4 @@
 import { TraitLine } from '@discretize/gw2-ui-new';
-import { decompress } from '@discretize/object-compression';
 import { TextDivider } from '@discretize/react-discretize-components';
 import { Box, Paper, Typography } from '@mui/material';
 import * as React from 'react';
@@ -7,8 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { NumberParam, StringParam, useQueryParam } from 'use-query-params';
 import { buffModifiers, classModifiers } from '../assets/modifierdata';
+import SagaTypes from '../state/sagas/sagaTypes';
 import {
-  changeBuildPage,
   getBuffs,
   getCharacter,
   getSkills,
@@ -29,7 +28,7 @@ const useStyles = makeStyles()((theme) => ({
     borderTopStyle: 'solid',
     borderColor: theme.palette.primary.main,
     position: 'absolute',
-    zIndex: 9999,
+    zIndex: 2,
     maxHeight: 133,
   },
   gw2component: {
@@ -55,20 +54,7 @@ const BuildPage = ({ data }) => {
   const version = versionParam || 0;
 
   React.useEffect(() => {
-    if (!buildUrl) {
-      console.error('No url parameter supplied');
-      return;
-    }
-
-    // load build state from url
-    import(`./url-state/schema/BuildPageSchema_v${version}`).then(({ BuildPageSchema: schema }) =>
-      decompress({
-        string: buildUrl,
-        schema,
-        onSuccess: (result) => dispatch(changeBuildPage(result)),
-      }),
-    );
-
+    dispatch({ type: SagaTypes.ImportBuildPageState, version, buildUrl });
     return () => {};
   }, [buildUrl, dispatch, version]);
 

@@ -28,13 +28,12 @@ const useStyles = makeStyles()((theme) => ({
 export default function ModalContent({ character, buttons }) {
   const dispatch = useDispatch();
   const { classes } = useStyles();
+
   const weapons = useSelector(getWeapons);
-  const { mainhand1, mainhand2, offhand1, offhand2 } = weapons;
   const skills = useSelector(getSkills);
+
+  const { mainhand1, mainhand2, offhand1, offhand2 } = weapons;
   const { healId, utility1Id, utility2Id, utility3Id, eliteId } = skills;
-  const lines = character.settings.cachedFormState.traits.selectedLines;
-  const selected = character.settings.cachedFormState.traits.selectedTraits;
-  const { buffs } = character.settings.cachedFormState.buffs;
 
   const [state, setState] = React.useState({ skills: undefined, error: undefined });
   const [buttonState, setButtonState] = React.useState(new Array(buttons.length));
@@ -200,8 +199,8 @@ export default function ModalContent({ character, buttons }) {
                 const tmpState = [...buttonState];
                 tmpState[index] = false;
                 setButtonState(tmpState);
-              }, 5000);
-              onClick({ profession, buffs, lines, selected, skills, weapons });
+              }, 3000);
+              onClick();
             }}
           >
             {label}

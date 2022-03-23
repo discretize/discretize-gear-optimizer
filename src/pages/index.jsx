@@ -10,6 +10,7 @@ import ErrorBoundary from '../components/baseComponents/ErrorBoundary';
 import LanguageSelection from '../components/baseComponents/LanguageSelection';
 import GearOptimizer from '../components/GearOptimizer';
 import URLStateImport from '../components/url-state/URLStateImport';
+import SagaTypes from '../state/sagas/sagaTypes';
 
 // markup
 const IndexPage = ({ location }) => {
@@ -18,7 +19,7 @@ const IndexPage = ({ location }) => {
   return (
     <APILanguageProvider value={language}>
       <Layout>
-        <URLStateImport sagaType="IMPORT_STATE" clearUrlOnSuccess />
+        <URLStateImport sagaType={SagaTypes.ImportFormState} clearUrlOnSuccess />
         <LanguageSelection location={location} />
         <MuiAlert elevation={6} variant="filled" severity="warning">
           <Trans>
