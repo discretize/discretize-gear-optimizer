@@ -37,8 +37,17 @@ list:
         boons: Condi
         priority: Condi DPS
         distribution: Condi Chrono STM
-        traits: Condi Chrono
+        traits: Condi Chrono STM
         extras: Condi Chrono STM
+
+      - name: Power Virtuoso
+        id: pvirt
+        specialization: Virtuoso
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Power Virtuoso
+        traits: Power Virtuoso (no accuracy)
+        extras: Power (Fractal)
 
       - name: Condi Virtuoso
         id: cvirt
@@ -57,15 +66,6 @@ list:
         distribution: Condi Virtuoso (sharpening sorrow)
         traits: Condi Virtuoso (sharpening sorrow)
         extras: Condi Virtuoso
-
-      - name: '[beta2] Virtuoso'
-        id: pvirt
-        specialization: Virtuoso
-        boons: Power (spotter)
-        priority: Power DPS
-        distribution: '[beta2] Virtuoso'
-        traits: '[beta2] Virtuoso'
-        extras: '[beta2] Virtuoso'
 
   - class: Guardian
     builds:
@@ -106,6 +106,33 @@ list:
         traits: Core Guardian
         extras: Power (Fractal)
 
+      - name: Power Willbender Virtues
+        id: pwb-virtues
+        specialization: Willbender
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Power Willbender Virtues
+        traits: Power Willbender Virtues
+        extras: Power Willbender Virtues (Fractal)
+
+      - name: Power Willbender Radiance
+        id: pwb-radiance
+        specialization: Willbender
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Power Willbender Radiance
+        traits: Power Willbender Radiance
+        extras: Power (Fractal)
+
+      - name: Power Alacrity Willbender
+        id: pwb-alac
+        specialization: Willbender
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Power Alacrity Willbender
+        traits: Power Alacrity Willbender
+        extras: Power Willbender Virtues (Fractal)
+
       - name: Power Quickbrand
         id: pqfb
         specialization: Firebrand
@@ -133,23 +160,23 @@ list:
         traits: Condi Willbender
         extras: Condi Willbender
 
-      - name: CFB w/ Quickness (balthazar)
-        id: cqfb-balth
-        specialization: Firebrand
-        boons: Condi
-        priority: Condi DPS
-        distribution: Condi Quickbrand (allies)
-        traits: Condi Quickbrand
-        extras: CFB w/ Quickness (balthazar)
+      # - name: CFB w/ Quickness (balthazar)
+      #   id: cqfb-balth
+      #   specialization: Firebrand
+      #   boons: Condi
+      #   priority: Condi DPS
+      #   distribution: Condi Quickbrand (allies)
+      #   traits: Condi Quickbrand
+      #   extras: CFB w/ Quickness (balthazar)
 
-      - name: CFB w/ Quickness (renegade)
-        id: cqfb-ren
-        specialization: Firebrand
-        boons: Condi
-        priority: Condi DPS
-        distribution: Condi Quickbrand (allies)
-        traits: Condi Quickbrand
-        extras: CFB w/ Quickness (renegade)
+      # - name: CFB w/ Quickness (renegade)
+      #   id: cqfb-ren
+      #   specialization: Firebrand
+      #   boons: Condi
+      #   priority: Condi DPS
+      #   distribution: Condi Quickbrand (allies)
+      #   traits: Condi Quickbrand
+      #   extras: CFB w/ Quickness (renegade)
 
       - name: CFB DPS 5 page (balthazar)
         id: cfb-geo
@@ -232,23 +259,14 @@ list:
         traits: Healbrand
         extras: Heal
 
-      - name: '[beta1] Power Willbender Radiance'
-        id: pwb-radiance
+      - name: Condi Alacrity Willbender
+        id: cwb-alac
         specialization: Willbender
-        boons: Power (spotter)
-        priority: Power DPS
-        distribution: '[beta1] Power Willbender Radiance Focus'
-        traits: '[beta1] Power Willbender Radiance'
-        extras: Power (Fractal)
-
-      - name: '[beta1] Power Willbender Virtues'
-        id: pwb-virtues
-        specialization: Willbender
-        boons: Power (spotter)
-        priority: Power DPS
-        distribution: '[beta1] Power Willbender Virtues Focus'
-        traits: '[beta1] Power Willbender Virtues'
-        extras: '[beta1] Power Willbender Virtues (Fractal)'
+        boons: Condi
+        priority: Hybrid DPS
+        distribution: Condi Alacrity Willbender
+        traits: Condi Alacrity Willbender
+        extras: Condi Willbender
 
   - class: Warrior
     builds:
@@ -271,6 +289,33 @@ list:
         traits: Condi Bers
         extras: Condi Bers
 
+      - name: Banner Bladesworn
+        id: bls-bs
+        specialization: Bladesworn
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Bladesworn
+        traits: Banner Bladesworn
+        extras: Power (Fractal)
+
+      - name: DPS Bladesworn
+        id: bls-dps
+        specialization: Bladesworn
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Bladesworn
+        traits: DPS Bladesworn
+        extras: Power (Fractal)
+
+      - name: Might Bladesworn
+        id: bls-might
+        specialization: Bladesworn
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: Bladesworn
+        traits: Might Bladesworn
+        extras: Power (Fractal)
+
       - name: Power Banner SPB
         id: spb-bs
         specialization: Spellbreaker
@@ -278,15 +323,6 @@ list:
         priority: Power DPS
         distribution: Power Banner Spellbreaker
         traits: Power Banner SPB
-        extras: Power (Fractal)
-
-      - name: '[beta2] Banner Bladesworn'
-        id: bls-bs
-        specialization: Bladesworn
-        boons: Power (spotter)
-        priority: Power DPS
-        distribution: '[beta2] Banner Bladesworn'
-        traits: '[beta2] Banner Bladesworn'
         extras: Power (Fractal)
 
   - class: Elementalist
@@ -302,13 +338,22 @@ list:
         extras: Power (Fractal)
 
       - name: Condi Weaver Sword
-        id: cwea
+        id: cwea-sw
         specialization: Weaver
         boons: Condi
         priority: Condi DPS
         distribution: Condi Weaver Sword
         traits: Condi Weaver Sword
         extras: Condi Weaver Sword
+
+      - name: Condi Weaver Dagger
+        id: cwea-dg
+        specialization: Weaver
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Weaver (Dagger)
+        traits: Condi Weaver Dagger
+        extras: Condi Weaver Dagger
 
       - name: Hybrid Weaver
         id: hwea
@@ -328,7 +373,7 @@ list:
         traits: Condi Tempest
         extras: Condi Tempest
 
-      - name: Power Tempest
+      - name: Power Tempest (approx.)
         id: ptemp
         specialization: Tempest
         boons: Power (spotter)
@@ -442,7 +487,34 @@ list:
   - class: Revenant
     builds:
 
-      - name: Power Alac Ren
+      - name: Vindicator
+        id: vindi
+        specialization: Vindicator
+        boons: Power (spotter)
+        priority: Power DPS
+        distribution: DPS Vindicator
+        traits: DPS Vindicator
+        extras: DPS Vindicator
+
+      - name: Condi DPS Ren Invo
+        id: cren-invo
+        specialization: Renegade
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Renegade Invocation
+        traits: Condi DPS Ren Invo
+        extras: Condi Ren
+
+      - name: Condi Alac Ren Invo
+        id: cren-alac-invo
+        specialization: Renegade
+        boons: Condi
+        priority: Condi Alacrity Renegade 78%
+        distribution: Condi Alac Invocation
+        traits: Condi Alac Ren Invo
+        extras: Condi Alac Ren
+
+      - name: Power Alac Ren (outdated)
         id: pren
         specialization: Renegade
         boons: Power (spotter)
@@ -451,43 +523,7 @@ list:
         traits: Power Alac Ren
         extras: Power (Fractal)
 
-      - name: Condi Alac Ren Invo
-        id: celeren-rr-invo
-        specialization: Renegade
-        boons: Condi
-        priority: Condi Alacrity Renegade 79%
-        distribution: Condi RR Invocation
-        traits: Condi RR Ren Invo
-        extras: Cele Ren (Fractal)
-
-      - name: Condi RR Ren Invo
-        id: cren-rr-invo
-        specialization: Renegade
-        boons: Condi
-        priority: Condi DPS
-        distribution: Condi RR Invocation
-        traits: Condi RR Ren Invo
-        extras: Condi Ren
-
-      - name: Condi RR Ren Deva
-        id: cren-rr-deva
-        specialization: Renegade
-        boons: Condi
-        priority: Condi DPS
-        distribution: Condi RR Devastation
-        traits: Condi RR Ren Deva
-        extras: Condi Ren
-
-      - name: Condi DPS Ren Deva
-        id: cren-deva
-        specialization: Renegade
-        boons: Condi
-        priority: Condi DPS
-        distribution: Condi Renegade (Devastation)
-        traits: Condi DPS Ren Deva
-        extras: Condi Ren
-
-      - name: Power Herald DE
+      - name: Power Herald DE (outdated)
         id: herald
         specialization: Herald
         boons: Power (spotter)
@@ -496,7 +532,7 @@ list:
         traits: Power Herald DE
         extras: Power (Fractal)
 
-      - name: Condi Herald
+      - name: Condi Herald (outdated)
         id: cherald
         specialization: Herald
         boons: Condi
@@ -513,15 +549,6 @@ list:
         distribution: None
         traits: Heal Ren
         extras: Heal
-
-      - name: '[beta2] Vindicator'
-        id: vindi
-        specialization: Vindicator
-        boons: Power (spotter)
-        priority: Power DPS
-        distribution: '[beta2] Vindicator Large'
-        traits: '[beta2] Vindicator'
-        extras: '[beta2] Vindicator'
 
   - class: Engineer
     builds:

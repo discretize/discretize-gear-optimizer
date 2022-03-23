@@ -1,3 +1,4 @@
+/*
 import { Item } from '@discretize/gw2-ui-new';
 import CheckIcon from '@mui/icons-material/Check';
 import { Box, Chip, Divider, ListItemText, TextField, Typography } from '@mui/material';
@@ -204,3 +205,4 @@ const ExtrasSelectWithMediocreAmounts = (props) => {
 };
 
 export default React.memo(ExtrasSelectWithMediocreAmounts);
+*/

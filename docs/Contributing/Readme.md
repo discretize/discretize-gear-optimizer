@@ -62,7 +62,7 @@ The optimizer is currently hosted on [Github Pages](https://pages.github.com/). 
 
 ### Site Framework
 
-The site is built in [Gatsby v3](https://www.gatsbyjs.com/), which generates static sites using React.js.
+The site is built in [Gatsby v4](https://www.gatsbyjs.com/), which generates static sites using React.js.
 
 To start the gatsby-cli development server, which will build the site on your computer and update with your changes in real time, use:
 
@@ -76,27 +76,26 @@ Check out the [Gatsby documentation](https://www.gatsbyjs.com/docs/) for more in
 
 ### UI Components
 
-Most of the optimizer UI is built from React components from [Material UI v4](https://material-ui.com/).
+Most of the optimizer UI is built from React components from [Material UI v5](https://mui.com/).
 
 [add something about how best to import them here]
 
-Check out the [MUI v4 documentation](https://v4.mui.com/) for more information.
-
-> todo: migrate to MUI v5
+Check out the [MUI v5 documentation](https://mui.com/) for more information.
 
 ### Styling
 
-> todo: document styling solution
+For styling we use emotion (comes with MUIv5) and [tss-react](https://www.tss-react.dev/). For creating styles there are two options:
 
-(this will change with MUI v5)
+1. Use the `sx` [prop](https://mui.com/system/the-sx-prop/) from emotion. All Mui components support styling with `sx`. Ideally, you only use short statements in `sx`. There are performance implications when using `sx`.
+2. Use `makeStyles` from tss-react. [Example usage here](https://github.com/discretize/discretize-gear-optimizer/blob/db4e9afee6219b504cb013f79310fa801bbb3aa2/src/components/baseComponents/AffixesSelect.jsx#L29)
 
 ### GW2 Components
 
-GW2 items, traits, skills, etc are rendered using the [gw2-ui](https://github.com/ManuelHaag/gw2-ui) library, created in-house for the discretize website and the optimizer. The latest version with performance improvements is actually currently on [a branch in Princeps' fork](https://github.com/gw2princeps/gw2-ui/tree/refactor-build), which is published to NPM as gw2-ui-bulk.
+GW2 items, traits, skills, etc are rendered using the [gw2-ui](https://github.com/discretize/gw2-ui/tree/develop) library, created in-house for the discretize website and the optimizer by Kulinda and Princeps. This version of gw2-ui is a fork of the original one by [ManuelHaag](https://github.com/ManuelHaag/gw2-ui).
 
-> todo: fix the branching mess on princeps' gw2-ui repo
+Feel free to check the [storybook](https://storybook.js.org/) [here](https://discretize.github.io/gw2-ui/?path=/story/components-attribute--boon-duration). It demonstrates most of the available props for the GW2-UI components. For more information, ask in Discord.
 
-Running `yarn develop` in a clone of that repository will open a [storybook](https://storybook.js.org/) which demonstrates most of the available props for the GW2-UI components. For more information, ask in Discord.
+Alternatively you can clone the gw2-ui repository and run `yarn dev`, which will open a [storybook](https://storybook.js.org/).
 
 ### UI State
 

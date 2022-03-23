@@ -1,8 +1,11 @@
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Accordion, AccordionDetails, AccordionSummary, Grid, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { allExtrasModifiersById, buffModifiers } from '../../../assets/modifierdata';
+import { getSkills, getWeapons } from '../../../state/slices/buildPage';
 import { WEAPONS } from '../../../utils/gw2-data';
 import { getWeight } from '../../../utils/usefulFunctions';
 import Section from '../../baseComponents/Section';
@@ -16,9 +19,12 @@ function idToWeapon(id) {
 
 const TemplateHelperSections = ({ character }) => {
   const { t } = useTranslation();
+  const weapons = useSelector(getWeapons);
+  const skills = useSelector(getSkills);
 
-  const onClick = ({ profession, skills, weapons }) => {
+  const onClick = () => {
     const { attributes, gear, settings } = character;
+    const { profession } = settings;
     const { buffs } = settings.cachedFormState.buffs;
 
     // Calculate extras
@@ -104,8 +110,7 @@ const TemplateHelperSections = ({ character }) => {
                 content={
                   <ModalContent
                     character={character}
-                    onClick={onClick}
-                    label="Copy Build to clipboard"
+                    buttons={[{ label: 'Copy Build to clipboard', onClick, icon: ContentCopyIcon }]}
                   />
                 }
               />

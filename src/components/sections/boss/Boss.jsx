@@ -89,7 +89,7 @@ const Boss = () => {
             endLabel="%"
             handleAmountChange={(_e, value) => dispatch(changeMovementUptime(value))}
             value={movementUptimeString}
-            maxWidth={195}
+            maxWidth={180}
             useAutoComplete
             autoCompleteProps={{ options: [] }}
           />

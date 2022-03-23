@@ -101,7 +101,19 @@ export const getExtrasCombinationsAndModifiers = createSelector(
   getExtrasIds,
   getExtrasData,
   (ids, data) => {
-    const extrasCombinations = findCombinations(ids);
+    const allExtrasCombinations = findCombinations(ids);
+    const extrasCombinations = allExtrasCombinations.filter(({ Sigil1, Sigil2 }) => {
+      // remove duplicate sigils
+      if (Sigil1 === Sigil2) return false;
+
+      if (ids.Sigil1.includes(Sigil2) || ids.Sigil2.includes(Sigil1)) {
+        // potential duplicate; deduplicate in arbitrary order
+        if (Sigil1 > Sigil2) return false;
+      }
+      return true;
+    });
+
+    console.log('extrasCombinations', extrasCombinations);
 
     const getModifiers = (extrasCombination) =>
       Object.entries(extrasCombination)

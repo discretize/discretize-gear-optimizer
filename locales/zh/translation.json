@@ -94,7 +94,7 @@
   "Target settings": "目标设置",
   "The gear optimizer is currently in beta! Templates are not final and phantasm and lifesteal damage is inaccurate. Please report potential issues to us in": "配装优化器目前还在beta测试阶段。模板还没有最终确定。幻影和生命偷取伤害也还不准确。反馈问题请前往",
   "This class does not appear to have skills with extra buffs": "该职业没有具有额外buff的技能",
-  "This data represents your rotation. If we don't supply a template for a build, you can calulate the correct coefficients so that a tested build matches a golem log using the tool under \"development\" below, or calculate them manually.": "此处的数据代表着你的循环。如果我们没有提供对应的配置模板，你可以使用下面的开发工具输入木桩日志的数据来获取正确的系数，或手动计算。",
+  "This data represents your rotation. If we don't supply a template for a build, you can calculate the correct coefficients so that a tested build matches a golem log using the tool under \"development\" below, or calculate them manually.": "此处的数据代表着你的循环。如果我们没有提供对应的配置模板，你可以使用下面的开发工具输入木桩日志的数据来获取正确的系数，或手动计算。",
   "This data represents your rotation. If we don't supply a template for a build, you can move these sliders until the results match a golem log, or calculate them manually.": "此处的数据代表着你的循环。如果我们没有提供对应的配置模板，你可以拖动滑块来匹配魔像（木桩）日志，或者自行计算",
   "To do so, perform your rotation on a golem with no gear, traits, or other modifiers, then enter the distribution here.": "如果要自行计算, 在魔像（木桩）上执行一次循环, 不要使用任何装备、特性或其他修正，然后输出得到的伤害分布",
   "Total Infusion Slots": "总灌注槽",

@@ -1,7 +1,7 @@
 import { TextField, Typography } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
-import { parseDistribution } from '../../../utils/usefulFunctions';
+import { mapValues, parseDistribution } from '../../../utils/usefulFunctions';
 
 const initial = {
   Power: 0,
@@ -30,6 +30,140 @@ const TemplateHelper = ({ character }) => {
   const { t } = useTranslation();
 
   const [input, setInput] = React.useState(initial);
+
+  const [url, setUrl] = React.useState('');
+  const [urlResult, setUrlResult] = React.useState('');
+
+  React.useEffect(() => {
+    async function fetchData() {
+      setUrlResult('');
+      if (url) {
+        try {
+          const permalink = url.split('/').slice(-1);
+          if (!permalink) return;
+          console.log('loading data from dps.report...');
+          const response = await fetch(`https://dps.report/getJson?permalink=${permalink}`);
+          const data = await response.json();
+          console.log('got data from dps.report: ', data);
+
+          if (data.error) {
+            setUrlResult(JSON.stringify(data, null, 2));
+            return;
+          }
+
+          const duration = (data?.phases?.[0]?.end - data?.phases?.[0]?.start) / 1000;
+
+          let sum = 0;
+          const powerDPS = data?.players?.[0]?.dpsTargets?.[0]?.[0]?.powerDps;
+          sum += powerDPS;
+
+          const conditionIds = {
+            Burning: 737,
+            Bleeding: 736,
+            Poison: 723,
+            Torment: 19426,
+            Confusion: 861,
+          };
+
+          const conditionData = mapValues(conditionIds, (id) => {
+            const damage = data?.players?.[0]?.targetDamageDist?.[0]?.[0]?.find(
+              (entry) => entry?.id === id,
+            )?.totalDamage;
+            const dps = roundTwo((damage ?? 0) / duration);
+            sum += dps;
+            return dps;
+          });
+
+          const totalDPS = data?.players?.[0]?.dpsTargets?.[0]?.[0]?.dps;
+
+          const hits = data?.players?.[0]?.statsTargets?.[0]?.[0]?.critableDirectDamageCount;
+          const crits = data?.players?.[0]?.statsTargets?.[0]?.[0]?.criticalRate;
+
+          const hitsPerSecond = hits / duration;
+          const critPercent = (crits / hits) * 100;
+
+          const minions = data?.players?.[0]?.minions ?? [];
+
+          const minionCounts = {
+            'Clone': { names: new Set(), minionHits: 0, minionCrits: 0 },
+            'Phantasm': { names: new Set(), minionHits: 0, minionCrits: 0 },
+            'Minion': { names: new Set(), minionHits: 0, minionCrits: 0 },
+          };
+
+          for (const { name, targetDamageDist } of minions) {
+            console.log(name);
+            let type = 'Minion';
+            if (name === 'Clone') type = 'Clone';
+            if (name?.startsWith('Illusionary')) type = 'Phantasm';
+
+            minionCounts[type].names.add(name);
+
+            for (const skill of targetDamageDist?.[0]?.[0] ?? []) {
+              const { indirectDamage, connectedHits: minionHits, crit: minionCrits } = skill;
+              if (indirectDamage) continue;
+              console.log(minionCrits, minionHits);
+              minionCounts[type].minionHits += minionHits ?? 0;
+              minionCounts[type].minionCrits += minionCrits ?? 0;
+            }
+          }
+
+          const minionData = Object.entries(minionCounts)
+            .filter(([_type, { minionHits }]) => minionHits)
+            .flatMap(([type, { names, minionHits, minionCrits }]) => {
+              const namesString = [...names].join(', ');
+
+              const minionHitsPerSecond = minionHits / duration;
+              const minionCritPercent = (minionCrits / minionHits) * 100;
+
+              return [
+                [
+                  `${type} hits/sec (${minionCrits}/${minionHits}: ${minionCritPercent.toFixed(
+                    2,
+                  )}% crit)`,
+                  minionHitsPerSecond,
+                ],
+                `            - ${namesString}\n`,
+              ];
+            });
+
+          const result = [
+            ['Duration (sec)', duration],
+            '\n',
+            ['Power DPS (including minions)', powerDPS],
+            ...Object.entries(conditionData).map(([key, value]) => [`${key} DPS`, value]),
+            '\n',
+            ['Sum', sum],
+            ['Total dps (log)', totalDPS],
+            '\n',
+            [
+              `Player crittable hits per second (${crits}/${hits}: ${critPercent.toFixed(
+                2,
+              )}% crit)`,
+              hitsPerSecond,
+            ],
+            '\n',
+            ...minionData,
+          ];
+
+          const resultAreaText = result
+            .map((item) => {
+              if (typeof item === 'string') return item;
+              const [key, value] = item;
+              return `${String(value.toFixed(2)).padStart(9)}: ${key}`;
+            })
+            .join('\n');
+
+          setInput({ Power: powerDPS, ...conditionData });
+          setUrlResult(resultAreaText);
+        } catch (e) {
+          console.error(e);
+          setUrlResult(String(e));
+        }
+      }
+    }
+    fetchData();
+  }, [url]);
+
   const data = Object.entries(input).map(([key, inputText]) => {
     const { value, error } = parseDistribution(inputText);
     return { key, inputText, value, error };
@@ -109,6 +243,21 @@ const TemplateHelper = ({ character }) => {
       <br />
 
       <Typography variant="caption">
+        <Trans>or, enter a dps.report URL to attempt to to fetch the data automatically:</Trans>
+      </Typography>
+      <br />
+      <TextField
+        fullWidth
+        variant="standard"
+        onChange={(e) => {
+          setUrl(e.target.value);
+        }}
+      />
+      <pre style={{ margin: '1rem' }}>{urlResult}</pre>
+
+      <br />
+
+      <Typography variant="caption">
         <Trans>result:</Trans>
       </Typography>
 
@@ -131,7 +280,7 @@ const TemplateHelper = ({ character }) => {
         </tbody>
       </table>
 
-      <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
+      <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px', margin: '1rem' }}>
         {indent(formattedDistribution, 6)}
       </pre>
 
@@ -139,7 +288,7 @@ const TemplateHelper = ({ character }) => {
         <Trans>Trait Template</Trans>
       </Typography>
 
-      <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
+      <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px', margin: '1rem' }}>
         {indent(JSON.stringify(cachedFormState?.traits, null, 2) || '', 6)}
       </pre>
 
@@ -147,7 +296,7 @@ const TemplateHelper = ({ character }) => {
         <Trans>Skills Template</Trans>
       </Typography>
 
-      <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
+      <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px', margin: '1rem' }}>
         {indent(JSON.stringify(cachedFormState?.skills, null, 2) || '', 6)}
       </pre>
 
@@ -155,7 +304,7 @@ const TemplateHelper = ({ character }) => {
         <Trans>Extras Template</Trans>
       </Typography>
 
-      <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px' }}>
+      <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px', margin: '1rem' }}>
         {indent(JSON.stringify(cachedFormState?.extras, null, 2) || '', 6)}
       </pre>
     </>

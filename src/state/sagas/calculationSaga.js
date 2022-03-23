@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
-import JsonUrl from 'json-url';
-import { all, call, cancelled, put, race, select, take, takeLeading } from 'redux-saga/effects';
+import { all, call, cancelled, put, race, select, take } from 'redux-saga/effects';
 import {
   mapEntries,
   mapValues,
@@ -8,10 +7,10 @@ import {
   parseInfusionCount,
   parsePriority,
 } from '../../utils/usefulFunctions';
+import { calculate } from '../optimizer/multiCoreHandler';
+import { ERROR, SUCCESS, WAITING } from '../optimizer/status';
 import { getBuffsModifiers } from '../slices/buffs';
-// import { changeBuildPage } from '../slices/buildPage';
 import {
-  changeAll,
   changeControl,
   changeError,
   changeFilteredList,
@@ -26,8 +25,6 @@ import { getInfusionsModifiers } from '../slices/infusions';
 import { getCustomAffixData } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
-import { calculate } from './multiCoreHandler';
-import { ERROR, SUCCESS, WAITING } from './status';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -287,174 +284,6 @@ function* watchStart() {
   }
 }
 
-const lib = JsonUrl('lzma');
-
-const modifyState = (optimizerState) => {
-  // const list = optimizerState?.control?.list.slice(0, 6) || [];
-  // let modifiedList = list;
-
-  // // extract settings object from characters (should be identical)
-  // let listSettings = null;
-  // if (list[0]?.settings) {
-  //   listSettings = list[0].settings;
-  //   modifiedList = list.map((character) => {
-  //     // eslint-disable-next-line no-unused-vars
-  //     const { settings, ...rest } = character;
-  //     return { ...rest };
-  //   });
-  // }
-
-  let modifiedSelectedCharacter = null;
-  if (optimizerState.control.selectedCharacter) {
-    modifiedSelectedCharacter = JSON.parse(
-      JSON.stringify(optimizerState.control.selectedCharacter),
-    );
-    modifiedSelectedCharacter.settings.appliedModifiers = [];
-  }
-
-  const exportData = {
-    // listSettings,
-    optimizerState: {
-      ...optimizerState,
-      control: {
-        ...optimizerState.control,
-        list: [],
-        filteredList: [],
-        saved: [],
-        selectedCharacter: modifiedSelectedCharacter,
-      },
-    },
-  };
-
-  return exportData;
-};
-
-const unModifyState = (importData) => {
-  // eslint-disable-next-line no-unused-vars
-  const { optimizerState, listSettings } = importData;
-
-  // // replace settings objects in characters
-  // if (Array.isArray(optimizerState?.control?.list) && listSettings) {
-  //   optimizerState.control.list = optimizerState.control.list.map((character) => ({
-  //     ...character,
-  //     settings: listSettings,
-  //   }));
-  // }
-
-  return optimizerState;
-};
-
-function* exportState({ onSuccess }) {
-  const reduxState = yield select();
-
-  const exportData = modifyState(reduxState.optimizer);
-  console.log(exportData);
-
-  console.time('Created template in:');
-  const compressed = yield lib.compress(exportData);
-  console.timeEnd('Created template in:');
-
-  onSuccess(compressed);
-}
-
-function* watchExportState() {
-  yield takeLeading('EXPORT_STATE', exportState);
-}
-
-function* importState({ buildUrl: input, onSuccess, onError }) {
-  try {
-    if (!input) return;
-
-    console.time('Decompressed template in:');
-    const importData = yield lib.decompress(input);
-    console.timeEnd('Decompressed template in:');
-
-    console.log(importData);
-    const optimizerState = unModifyState(importData);
-
-    console.time('Applied state in:');
-    yield put(changeAll(optimizerState));
-    console.timeEnd('Applied state in:');
-
-    // execute success callback
-    onSuccess();
-  } catch (e) {
-    console.log('Problem restoring template!');
-    console.log(e);
-    onError();
-  }
-}
-
-function* watchImportState() {
-  yield takeLeading('IMPORT_STATE', importState);
-}
-
-/*
-function* exportStateCharacter({ onSuccess }) {
-  const reduxState = yield select();
-
-  const { selectedLines: lines, selectedTraits: selected } = reduxState.optimizer.form.traits;
-  const { weapons, skills, character } = reduxState.optimizer.buildPage;
-
-  const exportData = {
-    character,
-    weapons,
-    skills,
-    traits: {
-      lines,
-      selected,
-    },
-  };
-  console.log(exportData);
-
-  console.time('Created template in:');
-  const compressed = yield lib.compress(exportData);
-  console.timeEnd('Created template in:');
-
-  onSuccess(compressed);
-}
-
-function* watchExportStateCharacter() {
-  yield takeLeading('EXPORT_STATE_CHARACTER', exportStateCharacter);
-}
-
-function* importStateCharacter({ buildUrl: input, onSuccess, onError }) {
-  try {
-    if (!input) return;
-
-    console.time('Decompressed template in:');
-    const importData = yield lib.decompress(input);
-    console.timeEnd('Decompressed template in:');
-
-    console.log(importData);
-    const optimizerState = importData;
-
-    console.time('Applied state in:');
-    yield put(changeBuildPage(optimizerState));
-    console.timeEnd('Applied state in:');
-
-    // execute success callback
-    onSuccess();
-  } catch (e) {
-    console.log('Problem restoring template!');
-    console.log(e);
-    onError();
-  }
-}
-
-
-function* watchImportStateCharacter() {
-  yield takeLeading('IMPORT_STATE_CHARACTER', importStateCharacter);
-}
-*/
-
 export default function* rootSaga() {
-  yield all([
-    // other sagas go here
-    watchStart(),
-    watchExportState(),
-    watchImportState(),
-    // watchExportStateCharacter(),
-    // watchImportStateCharacter(),
-  ]);
+  yield all([watchStart()]);
 }

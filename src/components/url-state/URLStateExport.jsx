@@ -4,6 +4,7 @@ import { IconButton } from '@mui/material';
 import axios from 'axios';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import SagaTypes from '../../state/sagas/sagaTypes';
 import URLStateSnackbar from './URLStateSnackbar';
 
 // hard coded temporarily!
@@ -71,7 +72,7 @@ const URLStateExport = ({ type }) => {
     <>
       <Tooltip content="Copy sharable link to clipboard (note: results are not currently included)">
         <IconButton
-          onClick={() => dispatch({ type: 'EXPORT_STATE', onSuccess: onExportSuccess })}
+          onClick={() => dispatch({ type: SagaTypes.ExportFormState, onSuccess: onExportSuccess })}
           size="large"
         >
           <ShareIcon />

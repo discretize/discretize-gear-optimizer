@@ -103,20 +103,22 @@ list:
     profession: Chronomancer
     value: |-
       {
-        "Runes": {
-          "perplexity": {}
-        },
         "Sigil1": {
           "bursting": {}
         },
         "Sigil2": {
-          "concentration": {}
+          "mischief-ineptitude": {
+            "amount": "0.9"
+          }
         },
-        "Enhancement": {
-          "toxic-maintenance-oil": {}
+        "Runes": {
+          "perplexity": {}
         },
         "Nourishment": {
-          "beef-rendang": {}
+          "rare-veggie-pizza": {}
+        },
+        "Enhancement": {
+          "toxic-focusing-crystal": {}
         }
       }
 
@@ -124,18 +126,22 @@ list:
     profession: Chronomancer
     value: |-
       {
-        "Runes": {
-          "perplexity": {}
-        },
         "Sigil1": {
           "bursting": {}
         },
-        "Sigil2": {},
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
+        "Sigil2": {
+          "mischief-ineptitude": {
+            "amount": "0.9"
+          }
+        },
+        "Runes": {
+          "perplexity": {}
         },
         "Nourishment": {
-          "beef-rendang": {}
+          "rare-veggie-pizza": {}
+        },
+        "Enhancement": {
+          "toxic-focusing-crystal": {}
         }
       }
 
@@ -164,7 +170,7 @@ list:
         }
       }
 
-  - name: '[beta2] Virtuoso'
+  - name: Power Virtuoso (Raid spotter)
     profession: Virtuoso
     value: |-
       {
@@ -206,7 +212,7 @@ list:
         }
       }
 
-  - name: '[beta1] Power Willbender Virtues (Fractal)'
+  - name: Power Willbender Virtues (Fractal)
     profession: Willbender
     value: |-
       {
@@ -248,7 +254,7 @@ list:
         }
       }
 
-  - name: '[beta1] Power Willbender Virtues (Raid)'
+  - name: Power Willbender Virtues (Raid)
     profession: Willbender
     value: |-
       {
@@ -497,6 +503,48 @@ list:
         }
       }
 
+  - name: Banner Bladesworn (Raid spotter)
+    profession: Bladesworn
+    value: |-
+      {
+        "Runes": {
+          "thief": {}
+        },
+        "Sigil1": {
+          "force": {}
+        },
+        "Sigil2": {
+          "impact/night/slaying-only-3": {}
+        },
+        "Enhancement": {
+          "superior-sharpening-stone": {}
+        },
+        "Nourishment": {
+          "sweet-and-spicy-butternut-squash-soup": {}
+        }
+      }
+
+  - name: DPS Bladesworn (Raid spotter)
+    profession: Bladesworn
+    value: |-
+      {
+        "Sigil1": {
+          "force": {}
+        },
+        "Sigil2": {
+          "accuracy": {}
+        },
+        "Runes": {
+          "scholar": {}
+        },
+        "Nourishment": {
+          "sweet-and-spicy-butternut-squash-soup": {}
+        },
+        "Enhancement": {
+          "superior-sharpening-stone": {}
+        }
+      }
+
   - name: Flame Legion Power Weaver (Raid)
     profession: Weaver
     value: |-
@@ -532,6 +580,27 @@ list:
         },
         "Nourishment": {
           "rare-veggie-pizza": {}
+        }
+      }
+
+  - name: Condi Weaver Dagger
+    profession: Weaver
+    value: |-
+      {
+        "Sigil1": {
+          "earth": {}
+        },
+        "Sigil2": {
+          "bursting": {}
+        },
+        "Runes": {
+          "elementalist": {}
+        },
+        "Nourishment": {
+          "rare-veggie-pizza": {}
+        },
+        "Enhancement": {
+          "toxic-focusing-crystal": {}
         }
       }
 
@@ -673,7 +742,8 @@ list:
           "krait": {}
         },
         "Nourishment": {
-          "beef-rendang": {}
+          "beef-rendang": {},
+          "bowl-of-kimchi-tofu-stew": {}
         },
         "Enhancement": {
           "toxic-focusing-crystal": {}
@@ -684,18 +754,19 @@ list:
     profession: Soulbeast
     value: |-
       {
-        "Runes": {
-          "krait": {}
-        },
         "Sigil1": {
           "bursting": {}
         },
         "Sigil2": {},
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
+        "Runes": {
+          "krait": {}
         },
         "Nourishment": {
-          "beef-rendang": {}
+          "beef-rendang": {},
+          "plate-of-kimchi-pancakes": {}
+        },
+        "Enhancement": {
+          "toxic-focusing-crystal": {}
         }
       }
 
@@ -760,37 +831,23 @@ list:
         }
       }
 
-  - name: Cele Ren (Fractal)
+  - name: Condi Alac Ren
     profession: Renegade
     value: |-
       {
+        "Sigil1": {},
+        "Sigil2": {},
         "Runes": {
           "leadership": {}
         },
-        "Sigil1": {},
-        "Sigil2": {},
+        "Nourishment": {
+          "meaty-asparagus-skewer": {},
+          "eggs-benedict": {},
+          "dragon's-revelry-starcake": {},
+          "beef-rendang": {}
+        },
         "Enhancement": {
           "toxic-maintenance-oil": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
-        }
-      }
-
-  - name: Cele Ren (Raid)
-    profession: Renegade
-    value: |-
-      {
-        "Runes": {
-          "leadership": {}
-        },
-        "Sigil1": {},
-        "Sigil2": {},
-        "Enhancement": {
-          "writ-of-masterful-malice": {}
-        },
-        "Nourishment": {
-          "dragon's-revelry-starcake": {}
         }
       }
 
@@ -798,16 +855,17 @@ list:
     profession: Renegade
     value: |-
       {
+        "Sigil1": {},
+        "Sigil2": {},
         "Runes": {
           "nightmare": {}
         },
-        "Sigil1": {},
-        "Sigil2": {},
+        "Nourishment": {
+          "beef-rendang": {},
+          "meaty-asparagus-skewer": {}
+        },
         "Enhancement": {
           "toxic-focusing-crystal": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
         }
       }
 
@@ -828,7 +886,7 @@ list:
         }
       }
 
-  - name: '[beta2] Vindicator'
+  - name: DPS Vindicator
     profession: Vindicator
     value: |-
       {

@@ -139,11 +139,21 @@ const testModifiers = async () => {
       for (const type of testTypes) {
         const match = data[type].find((pre) => pre.name === item[type]);
         gentleAssert(match, `err: ${name}'s ${type} is not found!`);
+        if (match) match.used = true;
         const profIsFine = !match.profession || match?.profession === specialization;
         if (!profIsFine) console.log(`❓ ${name}'s ${type}'s profession is wrong!`);
       }
     }
   }
+
+  // for (const [type, entries] of Object.entries(data)) {
+  //   if (!testTypes.includes(type)) return;
+  //   for (const entry of entries) {
+  //     if (!entry.used) {
+  //       console.log(`note: the ${type} ${entry.name} is not used in a template!`);
+  //     }
+  //   }
+  // }
 };
 
 testModifiers()

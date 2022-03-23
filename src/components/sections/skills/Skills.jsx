@@ -60,7 +60,7 @@ const Skills = ({ data }) => {
               handleAmountChange={handleAmountChange(id)}
               value={amount}
               disabled={!enabled}
-              maxWidth={32}
+              maxWidth={38}
             />
           </Box>
         ) : null}

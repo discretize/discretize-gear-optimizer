@@ -73,7 +73,7 @@ const DistributionSection = ({ profession, data }) => {
             <p>
               <Trans>
                 This data represents your rotation. If we don't supply a template for a build, you
-                can calulate the correct coefficients so that a tested build matches a golem log
+                can calculate the correct coefficients so that a tested build matches a golem log
                 using the tool under "development" below, or calculate them manually.
               </Trans>
             </p>

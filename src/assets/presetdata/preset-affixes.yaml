@@ -121,13 +121,13 @@ list:
         "minBoonDuration": 62
       }
 
-  - name: Condi Alacrity Renegade 79%
+  - name: Condi Alacrity Renegade 78%
     hidden: true
     value: >-
       {
-        "affixes": ["Viper", "Sinister", "Ritualist"],
+        "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 79
+        "minBoonDuration": 78
       }
 
   - name: Condi Quickbrand 35%
