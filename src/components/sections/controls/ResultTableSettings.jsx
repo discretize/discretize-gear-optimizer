@@ -16,8 +16,10 @@ import { makeStyles } from 'tss-react/mui';
 import {
   changeCompareByPercent,
   changeFilterMode,
+  changeTallTable,
   getCompareByPercent,
   getFilterMode,
+  getTallTable,
 } from '../../../state/slices/controlsSlice';
 import Settings from '../../baseComponents/Settings';
 
@@ -36,6 +38,7 @@ export default function ResultTableSettings() {
   const dispatch = useDispatch();
 
   const compareByPercent = useSelector(getCompareByPercent);
+  const tallTable = useSelector(getTallTable);
   const filterMode = useSelector(getFilterMode);
 
   return (
@@ -55,6 +58,21 @@ export default function ResultTableSettings() {
             />
           }
           label={t('Compare by percentage')}
+          classes={{ label: classes.comparisonLabel }}
+        />
+      </Box>
+
+      <Box sx={{ mt: 1.5 }}>
+        <FormControlLabel
+          control={
+            <Switch
+              checked={tallTable}
+              onChange={(e) => dispatch(changeTallTable(e.target.checked))}
+              name="checked"
+              color="primary"
+            />
+          }
+          label={t('Increase table height')}
           classes={{ label: classes.comparisonLabel }}
         />
       </Box>

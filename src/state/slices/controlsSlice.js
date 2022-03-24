@@ -53,6 +53,7 @@ export const controlSlice = createSlice({
     filteredList: [],
     saved: [],
     compareByPercent: false,
+    tallTable: false,
     filterMode: 'None',
     progress: 0,
     selectedCharacter: null,
@@ -134,7 +135,9 @@ export const controlSlice = createSlice({
     changeFilterMode: (state, action) => {
       state.filterMode = action.payload;
     },
-
+    changeTallTable: (state, action) => {
+      state.tallTable = action.payload;
+    },
     changeSelectedCharacter: (state, action) => {
       const oldCharacter = state.selectedCharacter ? original(state.selectedCharacter) : null;
       const newCharacter = action.payload;
@@ -155,6 +158,7 @@ export const getFilteredList = (state) => state.optimizer.control.filteredList;
 export const getSaved = (state) => state.optimizer.control.saved;
 export const getCompareByPercent = (state) => state.optimizer.control.compareByPercent;
 export const getFilterMode = (state) => state.optimizer.control.filterMode;
+export const getTallTable = (state) => state.optimizer.control.tallTable;
 export const getSelectedCharacter = (state) => state.optimizer.control.selectedCharacter;
 export const getError = (state) => state.optimizer.control.error;
 
@@ -166,6 +170,7 @@ export const {
   changeList,
   changeFilteredList,
   changeFilterMode,
+  changeTallTable,
   toggleSaved,
   changeCompareByPercent,
   setBuildTemplate,

@@ -4,6 +4,7 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
+import classNames from 'classnames';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useSelector } from 'react-redux';
@@ -15,15 +16,21 @@ import {
   getList,
   getSaved,
   getSelectedCharacter,
+  getTallTable,
 } from '../../../../state/slices/controlsSlice';
 import ResultTableHeaderRow from './ResultTableHeaderRow';
 import ResultTableRow from './ResultTableRow';
 
 const useStyles = makeStyles()((theme) => ({
   container: {
-    maxHeight: 440,
     borderColor: theme.palette.background.paper,
     border: '1px solid inherit',
+  },
+  shortTable: {
+    maxHeight: 440,
+  },
+  tallTable: {
+    maxHeight: '90vh',
   },
   tablehead: {
     backgroundColor: theme.palette.background.paper,
@@ -73,6 +80,7 @@ const StickyHeadTable = () => {
   const saved = useSelector(getSaved) || emptyArray;
   const compareByPercent = useSelector(getCompareByPercent);
   const filterMode = useSelector(getFilterMode);
+  const tallTable = useSelector(getTallTable);
 
   const list = React.useMemo(() => {
     if (filterMode === 'None') {
@@ -141,7 +149,12 @@ const StickyHeadTable = () => {
   return (
     <>
       <Box boxShadow={8} mb={3}>
-        <TableContainer className={classes.container}>
+        <TableContainer
+          className={classNames(
+            classes.container,
+            tallTable ? classes.tallTable : classes.shortTable,
+          )}
+        >
           <Table stickyHeader aria-label="sticky table" className={classes.tableCollapse}>
             <TableHead>
               <ResultTableHeaderRow
@@ -216,7 +229,12 @@ const StickyHeadTable = () => {
         <>
           <TextDivider text={t('Saved Results')} />
           <Box boxShadow={8} mb={3}>
-            <TableContainer className={classes.container}>
+            <TableContainer
+              className={classNames(
+                classes.container,
+                tallTable ? classes.tallTable : classes.shortTable,
+              )}
+            >
               <Table
                 stickyHeader
                 aria-label="saved results table"
