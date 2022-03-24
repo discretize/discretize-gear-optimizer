@@ -43,7 +43,7 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 export default function ExtraSelection(props) {
-  const { type, label, modifierDataById: data } = props;
+  const { type, label, modifierDataById: data, text } = props;
 
   const { classes } = useStyles();
   const dispatch = useDispatch();
@@ -91,7 +91,7 @@ export default function ExtraSelection(props) {
           {label}
         </Typography>
         <Button variant="contained" size="small" startIcon={<AddIcon />} onClick={handleOpen}>
-          Add {type}
+          {t('Add')} {text}
         </Button>
       </Box>
 
@@ -143,7 +143,7 @@ export default function ExtraSelection(props) {
           })
         ) : (
           <ListItem>
-            <ListItemText>None</ListItemText>
+            <ListItemText>{t('None')}</ListItemText>
           </ListItem>
         )}
       </List>
@@ -169,10 +169,10 @@ export default function ExtraSelection(props) {
         <ModalContent {...props} />
         <DialogActions>
           <Button startIcon={<DeleteIcon />} onClick={deleteAll}>
-            Unselect all
+            {t('Unselect all')}
           </Button>
 
-          <Button onClick={handleClose}>Okay</Button>
+          <Button onClick={handleClose}>{t('Okay')}</Button>
         </DialogActions>
       </Dialog>
     </>

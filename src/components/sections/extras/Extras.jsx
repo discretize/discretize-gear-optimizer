@@ -10,30 +10,35 @@ const Extras = () => {
     <>
       <ExtraSelection
         type="Sigil1"
+        text={t('Sigil 1')}
         label={<Item id={24615} disableLink disableTooltip text={t('Sigil 1')} />}
         modifierData={extrasModifiers.sigils}
         modifierDataById={allExtrasModifiersById}
       />
       <ExtraSelection
         type="Sigil2"
+        text={t('Sigil 2')}
         label={<Item id={24868} disableLink disableTooltip text={t('Sigil 2')} />}
         modifierData={extrasModifiers.sigils}
         modifierDataById={allExtrasModifiersById}
       />
       <ExtraSelection
         type="Runes"
+        text={t('Runes')}
         label={<Item id={24836} disableLink disableTooltip text={t('Runes')} />}
         modifierData={extrasModifiers.runes}
         modifierDataById={allExtrasModifiersById}
       />
       <ExtraSelection
         type="Nourishment"
+        text={t('Nourishment')}
         label={<ConsumableEffect disableLink name="Nourishment" text={t('Nourishment')} />}
         modifierData={extrasModifiers.food}
         modifierDataById={allExtrasModifiersById}
       />
       <ExtraSelection
         type="Enhancement"
+        text={t('Enhancement')}
         label={<ConsumableEffect disableLink name="Enhancement" text={t('Enhancement')} />}
         modifierData={extrasModifiers.utility}
         modifierDataById={allExtrasModifiersById}
