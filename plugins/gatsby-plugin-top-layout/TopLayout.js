@@ -1,10 +1,11 @@
-import { globals, muiTheme } from '@discretize/react-discretize-components';
+import { globals } from '@discretize/react-discretize-components';
 import { Global } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
+import muiTheme from '../../src/utils/placeholder-unused-theme';
 
 export default function TopLayout({ children }) {
   const title = 'Discretize - Gear Optimizer';
