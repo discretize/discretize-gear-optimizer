@@ -2,6 +2,7 @@ import { Tooltip } from '@discretize/gw2-ui-new';
 import ShareIcon from '@mui/icons-material/Share';
 import { IconButton } from '@mui/material';
 import axios from 'axios';
+import { t } from 'i18next';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import SagaTypes from '../../state/sagas/sagaTypes';
@@ -38,7 +39,7 @@ const URLStateExport = ({ type }) => {
         ...state,
         open: true,
         success: false,
-        message: 'Error: too much data!',
+        message: t('Error: too much data!'),
       }));
       return;
     }
@@ -64,7 +65,7 @@ const URLStateExport = ({ type }) => {
         ...state,
         open: true,
         success: true,
-        message: 'Copied link to clipboard!',
+        message: t('Copied link to clipboard!'),
       }));
       navigator.clipboard.writeText(url);
     });
@@ -75,7 +76,9 @@ const URLStateExport = ({ type }) => {
 
   return (
     <>
-      <Tooltip content="Copy sharable link to clipboard (note: results are not currently included)">
+      <Tooltip
+        content={t('Copy sharable link to clipboard (note: results are not currently included)')}
+      >
         <IconButton
           onClick={() => dispatch({ type: SagaTypes.ExportFormState, onSuccess: onExportSuccess })}
           size="large"

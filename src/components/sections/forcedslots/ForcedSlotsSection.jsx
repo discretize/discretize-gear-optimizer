@@ -42,12 +42,12 @@ const ForcedSlotsSection = () => {
       }
       extraInfo={
         <>
-          <Chip style={chipStyle} variant="outlined" onClick={handleClear} label="Clear" />
+          <Chip style={chipStyle} variant="outlined" onClick={handleClear} label={t('Clear')} />
           <Chip
             style={chipStyle}
             variant="outlined"
             onClick={handleCopy}
-            label="Copy from selected character"
+            label={t('Copy from selected character')}
           />
         </>
       }

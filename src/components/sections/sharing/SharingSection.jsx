@@ -2,6 +2,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import { IconButton, Typography } from '@mui/material';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
+import { Trans } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import Section from '../../baseComponents/Section';
@@ -22,14 +23,16 @@ const SharingSection = () => {
         <>
           <URLStateExport />{' '}
           <Typography variant="body1" component="span">
-            Share settings.
+            <Trans>Share settings.</Trans>
           </Typography>{' '}
           <Typography variant="caption">
-            Includes the current selected options on this page only. Does not include result builds
-            in the table above
+            <Trans>
+              Includes the current selected options on this page only. Does not include result
+              builds in the table above
+            </Trans>
           </Typography>
           <br />
-          <BuildShareModal title="Build Share Settings" character={character}>
+          <BuildShareModal title={t('Build Share Settings')} character={character}>
             {(handleOpen) => (
               <IconButton onClick={() => handleOpen()} size="large">
                 <ShareIcon />
@@ -37,9 +40,12 @@ const SharingSection = () => {
             )}
           </BuildShareModal>{' '}
           <Typography variant="body1" component="span">
-            Share Character.{' '}
+            <Trans>Share Character.</Trans>{' '}
           </Typography>
-          <Typography variant="caption"> Select weapons and skills as you please.</Typography>
+          <Typography variant="caption">
+            {' '}
+            <Trans>Select weapons and skills as you please.</Trans>
+          </Typography>
         </>
       }
       extraInfo={<></>}

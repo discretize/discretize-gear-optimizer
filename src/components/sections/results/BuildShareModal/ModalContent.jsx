@@ -4,6 +4,7 @@ import DoneIcon from '@mui/icons-material/Done';
 import { Box, Button, ButtonGroup, MenuItem, Select, Typography } from '@mui/material';
 import axios from 'axios';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { changeWeapon, getSkills, getWeapons } from '../../../../state/slices/buildPage';
@@ -28,6 +29,7 @@ const useStyles = makeStyles()((theme) => ({
 export default function ModalContent({ character, buttons }) {
   const dispatch = useDispatch();
   const { classes } = useStyles();
+  const { t } = useTranslation();
 
   const weapons = useSelector(getWeapons);
   const skills = useSelector(getSkills);
@@ -70,7 +72,7 @@ export default function ModalContent({ character, buttons }) {
   const isLoading = !state.error && !state.skills;
   return (
     <>
-      <Typography>Select weapons:</Typography>
+      <Typography>{t('Select weapons:')}</Typography>
       <Box mb={1}>
         <Select
           variant="standard"
@@ -149,7 +151,7 @@ export default function ModalContent({ character, buttons }) {
         )}
       </Box>
 
-      <Typography>Select skills:</Typography>
+      <Typography>{t('Select skills:')}</Typography>
 
       <Box mb={2}>
         {isLoading && <Progress />}
