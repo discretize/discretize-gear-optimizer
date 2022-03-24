@@ -134,7 +134,7 @@ function ModalContent(props) {
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              <Label>Ctrl+k</Label>
+              <Label>{t('Ctrl+k')}</Label>
             </InputAdornment>
           ),
         }}
@@ -146,14 +146,14 @@ function ModalContent(props) {
           startIcon={<SelectAllIcon />}
           onClick={unselectAllVisible}
         >
-          Delete visible <Label className={classes.toggleAllLabel}>Ctrl+d</Label>
+          {t('Delete visible')} <Label className={classes.toggleAllLabel}>{t('Ctrl+d')}</Label>
         </Button>
         <Button
           sx={{ textTransform: 'unset' }}
           startIcon={<SelectAllIcon />}
           onClick={selectAllVisible}
         >
-          Select visible <Label className={classes.toggleAllLabel}>Ctrl+s</Label>
+          {t('Select visible')} <Label className={classes.toggleAllLabel}>{t('Ctrl+s')}</Label>
         </Button>
       </Box>
       {filteredItems.map(([label, options]) => {

@@ -28,7 +28,9 @@ const LanguageSelection = () => {
             label="Age"
           >
             {LANGUAGES.map(({ value, label }) => (
-              <MenuItem value={value}>{label}</MenuItem>
+              <MenuItem key={value} value={value}>
+                {label}
+              </MenuItem>
             ))}
           </Select>
         </FormControl>

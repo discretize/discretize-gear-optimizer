@@ -5,6 +5,7 @@ import { Box, Divider, IconButton, Typography } from '@mui/material';
 import Fade from '@mui/material/Fade';
 import Modal from '@mui/material/Modal';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import SagaTypes from '../../../../state/sagas/sagaTypes';
@@ -30,6 +31,7 @@ const useStyles = makeStyles()((theme) => ({
 const BuildShareModal = ({ children, title, character }) => {
   const { classes } = useStyles();
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const [open, setOpen] = React.useState(false);
 
@@ -89,9 +91,9 @@ const BuildShareModal = ({ children, title, character }) => {
             <ModalContent
               character={character}
               buttons={[
-                { label: 'Open build', onClick, icon: ShareIcon },
+                { label: t('Open build'), onClick, icon: ShareIcon },
                 {
-                  label: 'Copy build',
+                  label: t('Copy build'),
                   onClick: onClickCopy,
                   icon: ContentCopyIcon,
                 },
