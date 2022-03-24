@@ -498,6 +498,15 @@
           Poison Coefficient: 0.16
       gw2id: 24762
 
+    - id: krait-no-elite
+      text: Superior Rune of the Krait
+      subText: (no elite proc)
+      modifiers:
+        attributes:
+          Condition Damage: [175, converted]
+          Bleeding Duration: 50%
+      gw2id: 24762
+
     - id: mad-king
       text: Superior Rune of the Mad King
       subText: (Not including elite)

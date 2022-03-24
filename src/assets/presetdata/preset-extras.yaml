@@ -1111,11 +1111,12 @@ list:
         },
         "Runes": {
           "afflicted": {},
-          "krait": {}
+          "krait-no-elite": {}
         },
         "Nourishment": {
           "beef-rendang": {},
-          "plate-of-kimchi-pancakes": {}
+          "plate-of-kimchi-pancakes": {},
+          "bowl-of-kimchi-tofu-stew": {}
         },
         "Enhancement": {
           "master-tuning-crystal": {},

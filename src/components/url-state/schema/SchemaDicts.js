@@ -143,6 +143,7 @@ export const runesDict = [
   'firebrand-firebrand',
   'golemancer',
   'privateer',
+  'krait-no-elite',
 ];
 
 export const sigilDict = [
