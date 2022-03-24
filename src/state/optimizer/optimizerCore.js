@@ -426,12 +426,13 @@ class OptimizerCore {
    * calculated stats and damage/healing/survivability scores.
    *
    * @param {object} character
+   * @param {boolean} [noRounding] - does not round conversions if true
    */
-  updateAttributes(character) {
+  updateAttributes(character, noRounding = false) {
     const { damageMultiplier } = this.settings.modifiers;
     character.valid = true;
 
-    this.calcStats(character);
+    this.calcStats(character, noRounding);
 
     const powerDamageScore = this.calcPower(character, damageMultiplier);
     const condiDamageScore = this.calcCondi(character, damageMultiplier, Attributes.CONDITION);
@@ -497,10 +498,10 @@ class OptimizerCore {
     return true;
   }
 
-  calcStats(character) {
+  calcStats(character, noRounding = false) {
     const { settings } = this;
 
-    const round = settings.noRounding ? (val) => val : roundEven;
+    const round = noRounding ? (val) => val : roundEven;
 
     character.attributes = { ...character.baseAttributes };
     const { attributes, baseAttributes } = character;
@@ -686,11 +687,7 @@ class OptimizerCore {
 
     // baseline for comparing adding/subtracting +5 infusions
     const baseline = this.clone(character);
-    const noRoundingCore = new OptimizerCore(
-      { ...this.settings, noRounding: true },
-      this.minimalSettings,
-    );
-    noRoundingCore.updateAttributes(baseline);
+    this.updateAttributes(baseline, true);
 
     // effective gain from adding +5 infusions
     results.effectivePositiveValues = {};
@@ -698,7 +695,7 @@ class OptimizerCore {
       const temp = this.clone(character);
       temp.baseAttributes[attribute] += 5;
 
-      noRoundingCore.updateAttributes(temp);
+      this.updateAttributes(temp, true);
       results.effectivePositiveValues[attribute] = Number(
         (temp.attributes['Damage'] - baseline.attributes['Damage']).toFixed(5),
       ).toLocaleString('en-US');
@@ -710,7 +707,7 @@ class OptimizerCore {
       const temp = this.clone(character);
       temp.baseAttributes[attribute] = Math.max(temp.baseAttributes[attribute] - 5, 0);
 
-      noRoundingCore.updateAttributes(temp);
+      this.updateAttributes(temp, true);
       results.effectiveNegativeValues[attribute] = Number(
         (temp.attributes['Damage'] - baseline.attributes['Damage']).toFixed(5),
       ).toLocaleString('en-US');
