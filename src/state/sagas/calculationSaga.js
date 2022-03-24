@@ -193,13 +193,12 @@ function* runCalc() {
 
     // render list updates on a trailing throttle
     // back-to-back(to-back) list updates will only be rendered once
-    let listRenderCounter = Infinity;
+    let listRenderCounter = 3;
     const listThrottle = 3;
 
     for (const { percent: newPercent, isChanged, newList, newFilteredList } of calculate(
       combinations,
     )) {
-      listRenderCounter++;
       if (isChanged) {
         currentList = newList;
         currentFilteredList = newFilteredList;
@@ -220,6 +219,7 @@ function* runCalc() {
       }
 
       yield delay(0);
+      listRenderCounter++;
     }
     yield put(changeList(currentList));
     yield put(changeFilteredList(currentFilteredList));
