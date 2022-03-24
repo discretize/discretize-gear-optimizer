@@ -2,6 +2,7 @@ import { ConsumableEffect, Item } from '@discretize/gw2-ui-new';
 import { HelperIcon } from '@discretize/react-discretize-components';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
+import classNames from 'classnames';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { extrasTypes } from '../../../../state/slices/extras';
@@ -42,12 +43,22 @@ const ResultTableHeaderRow = ({
         })}
       </TableCell>
       {Slots[weaponType].map((slot) => (
-        <TableCell className={classes.tablehead} key={slot.name} align="center" padding="none">
+        <TableCell
+          className={classNames(classes.tablehead, classes.gearColumn)}
+          key={slot.name}
+          align="center"
+          padding="none"
+        >
           {slot.short}
         </TableCell>
       ))}
       {Object.keys(infusions).map((type) => (
-        <TableCell className={classes.tablehead} key={type} align="center" padding="none">
+        <TableCell
+          className={classNames(classes.tablehead, classes.infusionColumn)}
+          key={type}
+          align="center"
+          padding="none"
+        >
           <Item id={INFUSION_IDS[type]} disableText disableLink />
         </TableCell>
       ))}
@@ -56,7 +67,7 @@ const ResultTableHeaderRow = ({
         .filter((type) => displayExtras[type])
         .map((type, index) => (
           <TableCell
-            className={classes.tablehead}
+            className={classNames(classes.tablehead, classes.extrasColumn)}
             // eslint-disable-next-line react/no-array-index-key
             key={`extras${index}`}
             align="center"

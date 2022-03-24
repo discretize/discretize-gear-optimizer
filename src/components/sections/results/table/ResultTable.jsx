@@ -35,6 +35,15 @@ const useStyles = makeStyles()((theme) => ({
   underline: {
     borderBottom: `5px solid ${theme.palette.divider}`,
   },
+  gearColumn: {
+    minWidth: '3em',
+  },
+  infusionColumn: {
+    minWidth: '1.8em',
+  },
+  extrasColumn: {
+    minWidth: '2.2em',
+  },
 }));
 
 // finds the most common element in an array

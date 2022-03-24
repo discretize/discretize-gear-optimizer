@@ -17,6 +17,7 @@ const theme = createTheme({
     },
     background: {
       default: '#2f3136',
+      embossed: '#2a2c31',
       paper: '#26292e',
     },
     text: {
@@ -49,11 +50,40 @@ const theme = createTheme({
     },
   },
 });
+
 export default createTheme(theme, {
   components: {
+    MuiSvgIcon: {
+      styleOverrides: {
+        root: {
+          marginBottom: '-2px !important',
+        },
+      },
+    },
+    MuiTable: {
+      styleOverrides: {
+        root: {
+          marginBottom: theme.spacing(2),
+        },
+      },
+    },
+    // MuiTableHead: {
+    //   styleOverrides: {
+    //     root: {
+    //       [theme.breakpoints.down('md')]: {
+    //         display: 'block',
+    //         width: 'auto',
+    //       },
+    //     },
+    //   },
+    // },
     MuiTableBody: {
       styleOverrides: {
         root: {
+          // [theme.breakpoints.down('md')]: {
+          //   display: 'block',
+          //   width: 'auto',
+          // },
           '&> tr:last-child': {
             '&> th, td': {
               borderBottom: 'none',
@@ -62,10 +92,38 @@ export default createTheme(theme, {
         },
       },
     },
+    // MuiTableRow: {
+    //   styleOverrides: {
+    //     root: {
+    //       [theme.breakpoints.down('md')]: {
+    //         paddingTop: theme.spacing(1),
+    //         paddingBottom: theme.spacing(1),
+    //         display: 'block',
+    //         width: 'auto',
+    //         height: 'auto',
+    //         '&:not(:last-child)': {
+    //           borderBottom: `1px solid ${theme.palette.divider}`,
+    //         },
+    //       },
+    //     },
+    //     head: {
+    //       [theme.breakpoints.down('md')]: {
+    //         height: 'auto',
+    //         borderBottom: `1px solid ${theme.palette.divider}`,
+    //       },
+    //     },
+    //   },
+    // },
     MuiTableCell: {
       styleOverrides: {
         root: {
           borderBottom: `1px solid ${theme.palette.divider}`,
+          // [theme.breakpoints.down('md')]: {
+          //   display: 'block',
+          //   width: 'auto',
+          //   borderBottom: 'none',
+          //   padding: '4px 24px 4px 24px',
+          // },
           'th&': {
             fontWeight: 700,
           },
@@ -73,8 +131,30 @@ export default createTheme(theme, {
             marginBottom: 0,
           },
         },
+        head: {
+          fontSize: '0.8571428571428571rem',
+          color: theme.palette.text.secondary,
+          lineHeight: 'inherit',
+        },
       },
     },
+    MuiButton: {
+      styleOverrides: {
+        contained: {
+          fontWeight: 600,
+          transition: theme.transitions.create(
+            ['background-color', 'box-shadow', 'border', 'color'],
+            {
+              duration: theme.transitions.duration.short,
+            },
+          ),
+          '&:hover': {
+            color: 'white !important',
+          },
+        },
+      },
+    },
+    MuiButtonBase: { defaultProps: { disableRipple: true } },
     MuiGridList: {
       styleOverrides: {
         root: {
@@ -98,6 +178,30 @@ export default createTheme(theme, {
         },
       },
     },
+    MuiListItem: {
+      styleOverrides: {
+        root: {
+          paddingTop: '11px',
+          paddingBottom: '11px',
+          '& > *:first-child': {
+            paddingLeft: 0,
+          },
+        },
+        dense: {
+          paddingTop: '8px',
+          paddingBottom: '8px',
+        },
+      },
+    },
+    MuiListItemText: {
+      styleOverrides: {
+        root: {
+          marginTop: 0,
+          marginBottom: 0,
+          padding: '0 16px',
+        },
+      },
+    },
     MuiAccordion: {
       styleOverrides: {
         root: { background: theme.palette.background.paper },
@@ -106,6 +210,23 @@ export default createTheme(theme, {
     MuiMenu: {
       defaultProps: {
         elevation: 0,
+      },
+    },
+    MuiPaper: {
+      defaultProps: {
+        elevation: 0,
+      },
+      styleOverrides: {
+        root: {
+          boxShadow: theme.shadows[1],
+        },
+      },
+    },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          marginBottom: theme.spacing(2),
+        },
       },
     },
     MuiAutocomplete: {
