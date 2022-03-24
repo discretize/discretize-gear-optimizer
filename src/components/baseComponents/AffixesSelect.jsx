@@ -8,7 +8,7 @@ import React from 'react';
 import { makeStyles } from 'tss-react/mui';
 import { Affix } from '../../utils/gw2-data';
 
-const customRingId = 80793;
+const mistBandId = 80793;
 
 const augumentAffixState = (array) =>
   array
@@ -93,7 +93,7 @@ const AffixesSelect = ({ name, multiple, onChange, value: affixes }) => {
           )}
           {option.label === 'Custom' ? (
             <Item
-              id={customRingId}
+              id={mistBandId}
               disableIcon
               disableLink
               text={
