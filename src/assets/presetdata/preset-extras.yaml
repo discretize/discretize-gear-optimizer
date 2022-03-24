@@ -1103,16 +1103,23 @@ list:
     profession: Daredevil
     value: |-
       {
+        "Sigil1": {
+          "earth": {}
+        },
+        "Sigil2": {
+          "doom": {}
+        },
         "Runes": {
+          "afflicted": {},
           "krait": {}
         },
-        "Sigil1": {},
-        "Sigil2": {},
-        "Enhancement": {
-          "master-tuning-crystal": {}
-        },
         "Nourishment": {
-          "beef-rendang": {}
+          "beef-rendang": {},
+          "plate-of-kimchi-pancakes": {}
+        },
+        "Enhancement": {
+          "master-tuning-crystal": {},
+          "toxic-focusing-crystal": {}
         }
       }
 

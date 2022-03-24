@@ -695,14 +695,14 @@ list:
         "values2": { "Power": 2742, "Burning": 0.6, "Bleeding": 1.1, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  # still has precasted venoms
-  # https://www.youtube.com/watch?v=ESV8Hsf4hmI
-  # power: 4515, burn: 800, bleed: 16756, poison: 14023, torment: 4571, total: 40665
+  # https://www.youtube.com/watch?v=OCYkMxrvVC0
+  # https://www.dps.report/14Yx-20220308-145858_golem
+  # afflicted kimchi
   - name: Condi Daredevil
     profession: Daredevil
     value: >-
       {
-        "values2": { "Power": 1241, "Burning": 0.6, "Bleeding": 23.0, "Poisoned": 17.9, "Torment": 6.7, "Confusion": 0 }
+        "values2": { "Power": 1323, "Burning": 0.6, "Bleeding": 21.07, "Poisoned": 14.52, "Torment": 5.88, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=si71D-O4kf8

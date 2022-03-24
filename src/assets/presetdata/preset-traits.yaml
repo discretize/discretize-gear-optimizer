@@ -5205,7 +5205,7 @@ list:
           {
             "preparedness": true,
             "lead-attacks": {
-              "amount": ""
+              "amount": "11.5"
             },
             "deadly-ambush": true
           },
