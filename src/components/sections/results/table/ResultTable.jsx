@@ -79,7 +79,7 @@ const StickyHeadTable = () => {
       return normalList;
     }
     if (filterMode === 'Combinations') {
-      return rawFilteredList;
+      return rawFilteredList.slice(0, 100);
     }
     if (filterMode === 'Sigils') {
       return rawFilteredList.filter((character, i) => {

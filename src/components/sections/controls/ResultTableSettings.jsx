@@ -93,7 +93,7 @@ export default function ResultTableSettings() {
           <FormHelperText sx={{ maxWidth: 320 }}>
             <Trans>
               Displays only the top result for each rune, sigil, food, or utility option or each
-              combination of all of the above.
+              combination of all of the above (up to 100 results).
             </Trans>
           </FormHelperText>
         </FormControl>
