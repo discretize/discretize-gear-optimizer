@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { FormControlLabel, Link, Switch } from '@mui/material';
+import { Box, FormControlLabel, Link, Switch } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -70,42 +70,37 @@ const DistributionSection = ({ profession, data }) => {
       helpText={
         distributionVersion === 2 ? (
           <>
-            <p>
-              <Trans>
-                This data represents your rotation. If we don't supply a template for a build, you
-                can calculate the correct coefficients so that a tested build matches a golem log
-                using the tool under "development" below, or calculate them manually.
-              </Trans>
-            </p>
-            <p>
-              <Trans>
-                For more information,{' '}
-                <Link
-                  href="https://github.com/discretize/discretize-gear-optimizer/tree/staging/docs/Coefficients.md"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  see the coefficients documentation on Github
-                </Link>{' '}
-                or ask in Discord!
-              </Trans>
-            </p>
+            <Trans>
+              This data represents your rotation. If we don't supply a template for a build, you can
+              calculate the correct coefficients so that a tested build matches a golem log using
+              the tool under "development" below, or calculate them manually.
+            </Trans>
+            <Box sx={{ mt: 1 }} />
+
+            <Trans>
+              For more information,{' '}
+              <Link
+                href="https://github.com/discretize/discretize-gear-optimizer/tree/staging/docs/Coefficients.md"
+                target="_blank"
+                rel="noopener"
+              >
+                see the coefficients documentation on Github
+              </Link>{' '}
+              or ask in Discord!
+            </Trans>
           </>
         ) : (
           <>
-            <p>
-              <Trans>
-                This data represents your rotation. If we don't supply a template for a build, you
-                can move these sliders until the results match a golem log, or calculate them
-                manually.
-              </Trans>
-            </p>
-            <p>
-              <Trans>
-                To do so, perform your rotation on a golem with no gear, traits, or other modifiers,
-                then enter the distribution here.
-              </Trans>
-            </p>
+            <Trans>
+              This data represents your rotation. If we don't supply a template for a build, you can
+              move these sliders until the results match a golem log, or calculate them manually.
+            </Trans>
+            <Box sx={{ mt: 1 }} />
+
+            <Trans>
+              To do so, perform your rotation on a golem with no gear, traits, or other modifiers,
+              then enter the distribution here.
+            </Trans>
           </>
         )
       }

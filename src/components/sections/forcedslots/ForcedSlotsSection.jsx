@@ -33,12 +33,10 @@ const ForcedSlotsSection = () => {
       title={t('Forced Slots')}
       content={<ForcedSlots />}
       helpText={
-        <p>
-          <Trans>
-            Lock any gear slots to a specific type to work with what you already have or share gear
-            between multiple builds.
-          </Trans>
-        </p>
+        <Trans>
+          Lock any gear slots to a specific type to work with what you already have or share gear
+          between multiple builds.
+        </Trans>
       }
       extraInfo={
         <>
