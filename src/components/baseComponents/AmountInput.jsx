@@ -33,7 +33,7 @@ const AmountInput = ({
               ...params.InputProps,
               endAdornment: (
                 <InputAdornment disablePointerEvents position="end" disableTypography>
-                  <Typography sx={{ fontSize: '0.8rem', color: '#b1b1b5' }}>{endLabel}</Typography>
+                  <Typography sx={{ fontSize: '0.9rem', color: '#b1b1b5' }}>{endLabel}</Typography>
                 </InputAdornment>
               ),
             }}
@@ -60,7 +60,7 @@ const AmountInput = ({
       InputProps={{
         endAdornment: (
           <InputAdornment disablePointerEvents position="end" disableTypography>
-            <Typography sx={{ fontSize: '0.8rem', color: '#b1b1b5' }}>{endLabel}</Typography>
+            <Typography sx={{ fontSize: '0.9rem', color: '#b1b1b5' }}>{endLabel}</Typography>
           </InputAdornment>
         ),
         inputProps: { style: maxWidth ? { maxWidth } : null },
