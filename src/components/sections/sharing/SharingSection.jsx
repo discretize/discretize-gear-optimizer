@@ -17,7 +17,11 @@ const SharingSection = () => {
 
   return (
     <Section
-      title={t('Share Builds')}
+      title={
+        <a style={{ textDecoration: 'none', color: 'inherit' }} id="#share" href="#share">
+          {t('Share Builds')}
+        </a>
+      }
       helpText={t('Generate shareable links here!')}
       content={
         <>

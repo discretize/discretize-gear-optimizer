@@ -6,7 +6,7 @@ import React from 'react';
 const Section = ({ first, title, helpText, extraInfo, content }) => {
   const SectionInfo = ({ children }) => (
     <>
-      <Typography variant="h5">{title}</Typography>
+      <Typography variant="h5">{title}</Typography>{' '}
       {children && (
         <Paper sx={{ mt: 0.5, mb: 1 }} elevation={0}>
           <Box p={1}>

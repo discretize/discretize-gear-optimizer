@@ -1,5 +1,5 @@
 import { Profession } from '@discretize/gw2-ui-new';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import ShareIcon from '@mui/icons-material/Share';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar,
@@ -95,12 +95,14 @@ const Navbar = ({
           label={t('Expert')}
         />
         <IconButton
-          href="https://github.com/discretize/discretize-gear-optimizer/tree/staging"
-          target="_blank"
-          rel="noopener"
+          href="#share"
           size="large"
+          onClick={() => {
+            const elem = document.getElementById('#share');
+            if (elem) elem.scrollIntoView();
+          }}
         >
-          <GitHubIcon />
+          <ShareIcon />
         </IconButton>
       </Box>
     );

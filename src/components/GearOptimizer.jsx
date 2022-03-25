@@ -99,9 +99,11 @@ const MainComponent = ({ data }) => {
           <Controls profession={profession} />
 
           <ResultTable />
-          <SharingSection />
           <Box m={3} />
           <ResultDetails data={data} />
+          <Box m={3} />
+
+          <SharingSection />
         </div>
       </Box>
     </>
