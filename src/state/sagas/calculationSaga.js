@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { all, call, cancelled, put, race, select, take } from 'redux-saga/effects';
+import { all, put, select, take, takeEvery, takeLatest } from 'redux-saga/effects';
 import {
   mapEntries,
   mapValues,
@@ -8,7 +8,7 @@ import {
   parsePriority,
 } from '../../utils/usefulFunctions';
 import { calculate } from '../optimizer/multiCoreHandler';
-import { ERROR, SUCCESS, WAITING } from '../optimizer/status';
+import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../optimizer/status';
 import { getBuffsModifiers } from '../slices/buffs';
 import {
   changeControl,
@@ -16,7 +16,7 @@ import {
   changeFilteredList,
   changeList,
   changeSelectedCharacter,
-  getList,
+  getControl,
   getSelectedCharacter,
 } from '../slices/controlsSlice';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
@@ -25,6 +25,7 @@ import { getInfusionsModifiers } from '../slices/infusions';
 import { getCustomAffixData } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
+import SagaTypes from './sagaTypes';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -134,6 +135,8 @@ function* runCalc() {
   let settings;
   let originalSelectedCharacter;
   try {
+    yield put(changeControl({ key: 'status', value: RUNNING }));
+    yield put(changeControl({ key: 'progress', value: 0 }));
     yield delay(0);
 
     const reduxState = yield select();
@@ -157,7 +160,8 @@ function* runCalc() {
       (ids) => Array.isArray(ids) && ids.length > 1,
     );
 
-    console.time('Calculation');
+    let elapsed = 0;
+    let timer = performance.now();
 
     console.groupCollapsed('Debug Info:');
     console.log('Redux State:', state);
@@ -223,6 +227,17 @@ function* runCalc() {
       listRenderCounter++;
 
       yield delay(0);
+
+      const status = yield select(getControl('status'));
+      if (status !== RUNNING) {
+        elapsed += performance.now() - timer;
+        console.log(`Stopped at ${currentPercent}% in ${elapsed} ms`);
+
+        yield take(SagaTypes.Resume);
+
+        timer = performance.now();
+        yield put(changeControl({ key: 'status', value: RUNNING }));
+      }
     }
 
     yield delay(0);
@@ -230,7 +245,8 @@ function* runCalc() {
     yield put(changeFilteredList(currentFilteredList));
     yield put(changeControl({ key: 'progress', value: currentPercent }));
 
-    console.timeEnd('Calculation');
+    elapsed += performance.now() - timer;
+    console.log(`Finished calculation in ${elapsed} ms`);
     console.time('Render Result');
     if (currentList.length > 0) {
       yield put(changeControl({ key: 'status', value: SUCCESS }));
@@ -262,30 +278,16 @@ function* runCalc() {
     yield put(changeControl({ key: 'status', value: WAITING }));
   } finally {
     console.groupEnd();
-    if (yield cancelled()) {
-      console.log(`Cancelled!`);
-      console.timeEnd('Calculation');
-      console.time('Render Result');
-      const selectedCharacter = yield select(getSelectedCharacter);
-      if (!selectedCharacter || selectedCharacter === originalSelectedCharacter) {
-        currentList = yield select(getList);
-        if (currentList && currentList[0]) {
-          yield put(changeSelectedCharacter(currentList[0]));
-        }
-      }
-      console.timeEnd('Render Result');
-    }
   }
 }
 
+function* stopCalc() {
+  yield put(changeControl({ key: 'status', value: STOPPED }));
+}
+
 function* watchStart() {
-  while (true) {
-    yield take('START');
-    yield race({
-      task: call(runCalc),
-      cancel: take('CANCEL'),
-    });
-  }
+  yield takeLatest(SagaTypes.Start, runCalc);
+  yield takeEvery(SagaTypes.Stop, stopCalc);
 }
 
 export default function* rootSaga() {
