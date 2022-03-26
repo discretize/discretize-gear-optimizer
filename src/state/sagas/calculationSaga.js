@@ -142,21 +142,21 @@ function* runCalc() {
     const reduxState = yield select();
     state = reduxState.optimizer;
 
-    const specialization = yield select(getCurrentSpecialization);
+    const specialization = getCurrentSpecialization(reduxState);
 
     const sharedModifiers = [
-      ...(yield select(getBuffsModifiers) || []),
-      ...(yield select(getExtraModifiersModifiers) || []),
-      ...(yield select(getInfusionsModifiers) || []),
-      ...(yield select(getSkillsModifiers) || []),
-      ...(yield select(getTraitsModifiers) || []),
+      ...(getBuffsModifiers(reduxState) || []),
+      ...(getExtraModifiersModifiers(reduxState) || []),
+      ...(getInfusionsModifiers(reduxState) || []),
+      ...(getSkillsModifiers(reduxState) || []),
+      ...(getTraitsModifiers(reduxState) || []),
     ];
 
-    const customAffixData = yield select(getCustomAffixData);
+    const customAffixData = getCustomAffixData(reduxState);
 
     // display extras in table if they have multiple options
     const shouldDisplayExtras = mapValues(
-      yield select(getExtrasIds),
+      getExtrasIds(reduxState),
       (ids) => Array.isArray(ids) && ids.length > 1,
     );
 
@@ -166,7 +166,7 @@ function* runCalc() {
     console.groupCollapsed('Debug Info:');
     console.log('Redux State:', state);
 
-    combinations = yield select(getExtrasCombinationsAndModifiers);
+    combinations = getExtrasCombinationsAndModifiers(reduxState);
 
     for (const combination of combinations) {
       const { extrasCombination, extrasModifiers } = combination;
