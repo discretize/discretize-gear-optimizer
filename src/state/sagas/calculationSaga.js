@@ -129,9 +129,9 @@ function* runCalc() {
   let state;
   let currentList;
   let currentFilteredList;
+  let currentPercent;
   let combinations;
   let settings;
-  let oldPercent;
   let originalSelectedCharacter;
   try {
     yield delay(0);
@@ -196,12 +196,20 @@ function* runCalc() {
     let listRenderCounter = 3;
     const listThrottle = 3;
 
-    for (const { percent: newPercent, isChanged, newList, newFilteredList } of calculate(
-      combinations,
-    )) {
+    let done = false;
+    let value;
+
+    const resultGenerator = calculate(combinations);
+
+    while (true) {
+      ({ value, done } = yield resultGenerator.next());
+      const { percent, isChanged, list, filteredList } = value;
+      currentList = list;
+      currentFilteredList = filteredList;
+      currentPercent = percent;
+      if (done) break;
+
       if (isChanged) {
-        currentList = newList;
-        currentFilteredList = newFilteredList;
         if (listRenderCounter > listThrottle) {
           listRenderCounter = 0;
         }
@@ -211,18 +219,16 @@ function* runCalc() {
         yield put(changeList(currentList));
         yield put(changeFilteredList(currentFilteredList));
       }
-
-      if (newPercent !== oldPercent) {
-        yield put(changeControl({ key: 'progress', value: newPercent }));
-        // console.log(`${newPercent}% done`);
-        oldPercent = newPercent;
-      }
+      yield put(changeControl({ key: 'progress', value: currentPercent }));
+      listRenderCounter++;
 
       yield delay(0);
-      listRenderCounter++;
     }
+
+    yield delay(0);
     yield put(changeList(currentList));
     yield put(changeFilteredList(currentFilteredList));
+    yield put(changeControl({ key: 'progress', value: currentPercent }));
 
     console.timeEnd('Calculation');
     console.time('Render Result');
@@ -236,8 +242,6 @@ function* runCalc() {
         ),
       );
     }
-
-    yield delay(0);
 
     // automatically select the top result unless the user clicked one during the calculation
     const selectedCharacter = yield select(getSelectedCharacter);

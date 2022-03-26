@@ -227,10 +227,10 @@ class OptimizerCore {
       calculationStatsQueue.push(gearStats);
     }
 
-    yield {
+    return {
       isChanged: this.isChanged,
       calculationRuns,
-      newList: this.list.slice(),
+      newList: this.isChanged ? this.list.slice() : null,
     };
   }
 

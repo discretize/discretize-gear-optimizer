@@ -28,7 +28,7 @@ export function* calculate(inputCombinations) {
   let i = 0;
   let globalList = [];
   let globalFilteredList = [];
-  while (combinations.some((combination) => !combination.done)) {
+  while (true) {
     const combination = combinations[i];
 
     const currentIndex = i;
@@ -41,7 +41,6 @@ export function* calculate(inputCombinations) {
 
     if (done) {
       combination.done = true;
-      continue;
     }
 
     if (isChanged) {
@@ -80,11 +79,17 @@ export function* calculate(inputCombinations) {
     );
     console.log(`total progress: ${globalCalculationRuns} / ${globalCalculationTotal}`);
 
-    yield {
+    const result = {
       percent: Math.floor((globalCalculationRuns * 100) / globalCalculationTotal),
       isChanged,
-      newList: globalList,
-      newFilteredList: globalFilteredList,
+      list: globalList,
+      filteredList: globalFilteredList,
     };
+
+    if (combinations.some((comb) => !comb.done)) {
+      yield result;
+    } else {
+      return result;
+    }
   }
 }
