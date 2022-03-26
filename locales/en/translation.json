@@ -379,6 +379,7 @@
   "extraSubText_(Without on-hit/on-crit effects)": "(Without on-hit/on-crit effects)",
   "extraSubText_(always below 50)": "(always below 50)",
   "extraSubText_(elite every 50s)": "(elite every 50s)",
+  "extraSubText_(no elite proc)": "(no elite proc)",
   "extraSubText_(with pet)": "(with pet)",
   "extraSubText_(without active bonus)": "(without active bonus)",
   "extraSubText_female": "female",
