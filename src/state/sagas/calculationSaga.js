@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { all, put, select, take, takeEvery, takeLatest } from 'redux-saga/effects';
-import { calculate } from '../optimizer/multiCoreHandler';
+import { calculate } from '../optimizer/optimizer';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../optimizer/status';
 import {
   changeControl,
