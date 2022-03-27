@@ -725,7 +725,7 @@ list:
         id: specter-alac
         specialization: Specter
         boons: Condi
-        priority: Condi Alacrity Specter 55%
+        priority: Condi Alacrity Specter 57%
         distribution: Alacrity Specter (allies)
         traits: Alacrity Specter
         extras: Alacrity Specter
