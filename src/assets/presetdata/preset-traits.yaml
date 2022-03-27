@@ -44,7 +44,7 @@ list:
             "fencers-finesse": {
               "amount": ""
             },
-            "superiority-complex-base": true,
+            "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
@@ -56,7 +56,7 @@ list:
             }
           },
           {
-            "danger-time": true
+            "danger-time": {}
           }
         ]
       }
@@ -100,15 +100,14 @@ list:
             "illusionary-membrane": {
               "amount": ""
             },
-            "chaotic-potency": true,
-            "chaotic-potency-2": false,
-            "chaotic-persistence": true
+            "chaotic-potency": {},
+            "chaotic-persistence": {}
           },
           {
             "fencers-finesse": {
               "amount": ""
             },
-            "superiority-complex-base": true,
+            "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
@@ -126,8 +125,8 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-domination": true,
-          "signet-of-midnight": true
+          "signet-of-domination": {},
+          "signet-of-midnight": {}
         }
       }
 
@@ -166,17 +165,17 @@ list:
             "illusionary-membrane": {
               "amount": ""
             },
-            "chaotic-potency": true,
+            "chaotic-potency": {},
             "chaotic-potency-2": {
               "amount": ""
             },
-            "chaotic-persistence": true
+            "chaotic-persistence": {}
           },
           {
             "fencers-finesse": {
               "amount": ""
             },
-            "superiority-complex-base": true,
+            "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
@@ -194,8 +193,8 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-domination": true,
-          "signet-of-midnight": true
+          "signet-of-domination": {},
+          "signet-of-midnight": {}
         }
       }
 
@@ -236,7 +235,7 @@ list:
             "fencers-finesse": {
               "amount": ""
             },
-            "superiority-complex-base": true,
+            "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
@@ -245,14 +244,14 @@ list:
             }
           },
           {
-            "danger-time": true
+            "danger-time": {}
           }
         ]
       }
     skills: |-
       {
         "skills": {
-          "signet-of-domination": true
+          "signet-of-domination": {}
         }
       }
 
@@ -293,7 +292,7 @@ list:
             "fencers-finesse": {
               "amount": "5.3"
             },
-            "superiority-complex-base": true,
+            "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
@@ -308,9 +307,9 @@ list:
             "deadly-blades": {
               "amount": "98"
             },
-            "sharpening-sorrow": true,
-            "quiet-intensity": true,
-            "bloodsong": true,
+            "sharpening-sorrow": {},
+            "quiet-intensity": {},
+            "bloodsong": {},
             "jagged-mind": {
               "amount": "5"
             }
@@ -320,8 +319,8 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-domination": true,
-          "signet-of-midnight": true
+          "signet-of-domination": {},
+          "signet-of-midnight": {}
         }
       }
 
@@ -362,7 +361,7 @@ list:
             "fencers-finesse": {
               "amount": "5.3"
             },
-            "superiority-complex-base": true,
+            "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
@@ -377,9 +376,9 @@ list:
             "deadly-blades": {
               "amount": "98"
             },
-            "sharpening-sorrow": true,
-            "quiet-intensity": true,
-            "bloodsong": true,
+            "sharpening-sorrow": {},
+            "quiet-intensity": {},
+            "bloodsong": {},
             "jagged-mind": {
               "amount": "4.82"
             }
@@ -389,8 +388,8 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-domination": true,
-          "signet-of-midnight": true
+          "signet-of-domination": {},
+          "signet-of-midnight": {}
         }
       }
 
@@ -437,11 +436,10 @@ list:
             "fencers-finesse": {
               "amount": ""
             },
-            "superiority-complex-base": true,
+            "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
-            "sharper-images": false,
             "sharper-images-minus-7": {
               "amount": "1.75"
             }
@@ -453,9 +451,9 @@ list:
             "deadly-blades": {
               "amount": ""
             },
-            "sharpening-sorrow": true,
-            "quiet-intensity": true,
-            "bloodsong": true
+            "sharpening-sorrow": {},
+            "quiet-intensity": {},
+            "bloodsong": {}
           }
         ]
       }
@@ -507,14 +505,13 @@ list:
             "fencers-finesse": {
               "amount": ""
             },
-            "superiority-complex-base": true,
+            "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
             "sharper-images": {
               "amount": "1.75"
-            },
-            "sharper-images-minus-7": false
+            }
           },
           {
             "mental-focus": {
@@ -523,9 +520,9 @@ list:
             "deadly-blades": {
               "amount": ""
             },
-            "sharpening-sorrow": true,
-            "quiet-intensity": true,
-            "bloodsong": true
+            "sharpening-sorrow": {},
+            "quiet-intensity": {},
+            "bloodsong": {}
           }
         ]
       }
@@ -563,34 +560,33 @@ list:
         ],
         "items": [
           {
-            "right-hand-strength": true,
+            "right-hand-strength": {},
             "right-hand-strength-1h": {
               "amount": ""
             },
-            "radiant-fire": true,
+            "radiant-fire": {},
             "retribution": {
               "amount": ""
             },
-            "radiant-power": true,
-            "amplified-wrath": true,
-            "righteous-instincts": true
+            "radiant-power": {},
+            "amplified-wrath": {},
+            "righteous-instincts": {}
           },
           {
-            "fiery-wrath": true,
-            "symbolic-exposure": true,
-            "zealous-blade-base": true,
+            "fiery-wrath": {},
+            "symbolic-exposure": {},
+            "zealous-blade-base": {},
             "zealous-blade-gs": {
               "amount": ""
             },
-            "kindled-zeal": true,
-            "symbolic-avenger": true
+            "kindled-zeal": {},
+            "symbolic-avenger": {}
           },
           {
-            "zealots-aggression": true,
-            "pure-of-sight": true,
-            "pure-of-sight-ranged": false,
-            "hunters-fortification": true,
-            "big-game-hunter": true
+            "zealots-aggression": {},
+            "pure-of-sight": {},
+            "hunters-fortification": {},
+            "big-game-hunter": {}
           }
         ]
       }
@@ -632,34 +628,33 @@ list:
         ],
         "items": [
           {
-            "right-hand-strength": true,
+            "right-hand-strength": {},
             "right-hand-strength-1h": {
               "amount": ""
             },
-            "radiant-fire": true,
+            "radiant-fire": {},
             "retribution": {
               "amount": ""
             },
-            "radiant-power": true,
-            "amplified-wrath": true,
-            "righteous-instincts": true
+            "radiant-power": {},
+            "amplified-wrath": {},
+            "righteous-instincts": {}
           },
           {
-            "fiery-wrath": true,
-            "symbolic-exposure": true,
-            "zealous-blade-base": true,
+            "fiery-wrath": {},
+            "symbolic-exposure": {},
+            "zealous-blade-base": {},
             "zealous-blade-gs": {
               "amount": ""
             },
-            "kindled-zeal": true,
-            "symbolic-avenger": true
+            "kindled-zeal": {},
+            "symbolic-avenger": {}
           },
           {
-            "zealots-aggression": true,
-            "pure-of-sight": true,
-            "pure-of-sight-ranged": false,
-            "hunters-fortification": true,
-            "big-game-hunter": true
+            "zealots-aggression": {},
+            "pure-of-sight": {},
+            "hunters-fortification": {},
+            "big-game-hunter": {}
           }
         ]
       }
@@ -707,28 +702,27 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": true,
+            "virtue-of-retribution": {},
             "inspiring-virtue": {
               "amount": ""
             },
-            "power-of-the-virtuous": true
+            "power-of-the-virtuous": {}
           },
           {
-            "fiery-wrath": true,
-            "symbolic-exposure": true,
-            "zealous-blade-base": true,
+            "fiery-wrath": {},
+            "symbolic-exposure": {},
+            "zealous-blade-base": {},
             "zealous-blade-gs": {
               "amount": ""
             },
-            "kindled-zeal": true,
-            "symbolic-avenger": true
+            "kindled-zeal": {},
+            "symbolic-avenger": {}
           },
           {
-            "zealots-aggression": true,
-            "pure-of-sight": true,
-            "pure-of-sight-ranged": false,
-            "hunters-fortification": true,
-            "big-game-hunter": true
+            "zealots-aggression": {},
+            "pure-of-sight": {},
+            "hunters-fortification": {},
+            "big-game-hunter": {}
           }
         ]
       }
@@ -770,27 +764,27 @@ list:
         ],
         "items": [
           {
-            "right-hand-strength": true,
+            "right-hand-strength": {},
             "right-hand-strength-1h": {
               "amount": ""
             },
-            "radiant-fire": true,
+            "radiant-fire": {},
             "retribution": {
               "amount": ""
             },
-            "radiant-power": true,
-            "amplified-wrath": true,
-            "righteous-instincts": true
+            "radiant-power": {},
+            "amplified-wrath": {},
+            "righteous-instincts": {}
           },
           {
-            "fiery-wrath": true,
-            "symbolic-exposure": true,
-            "zealous-blade-base": true,
+            "fiery-wrath": {},
+            "symbolic-exposure": {},
+            "zealous-blade-base": {},
             "zealous-blade-gs": {
               "amount": ""
             },
-            "kindled-zeal": true,
-            "symbolic-avenger": true
+            "kindled-zeal": {},
+            "symbolic-avenger": {}
           },
           {
             "inspired-virtue": {
@@ -799,11 +793,11 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": true,
+            "virtue-of-retribution": {},
             "inspiring-virtue": {
               "amount": "80"
             },
-            "power-of-the-virtuous": true
+            "power-of-the-virtuous": {}
           }
         ]
       }
@@ -845,27 +839,27 @@ list:
         ],
         "items": [
           {
-            "right-hand-strength": true,
+            "right-hand-strength": {},
             "right-hand-strength-1h": {
               "amount": ""
             },
-            "radiant-fire": true,
+            "radiant-fire": {},
             "retribution": {
               "amount": ""
             },
-            "radiant-power": true,
-            "amplified-wrath": true,
-            "righteous-instincts": true
+            "radiant-power": {},
+            "amplified-wrath": {},
+            "righteous-instincts": {}
           },
           {
-            "fiery-wrath": true,
-            "symbolic-exposure": true,
-            "zealous-blade-base": true,
+            "fiery-wrath": {},
+            "symbolic-exposure": {},
+            "zealous-blade-base": {},
             "zealous-blade-gs": {
               "amount": ""
             },
-            "kindled-zeal": true,
-            "symbolic-avenger": true
+            "kindled-zeal": {},
+            "symbolic-avenger": {}
           },
           {
             "imbued-haste": {
@@ -912,17 +906,17 @@ list:
         ],
         "items": [
           {
-            "right-hand-strength": true,
+            "right-hand-strength": {},
             "right-hand-strength-1h": {
               "amount": "100"
             },
-            "radiant-fire": true,
+            "radiant-fire": {},
             "retribution": {
               "amount": ""
             },
-            "radiant-power": true,
-            "amplified-wrath": true,
-            "righteous-instincts": true
+            "radiant-power": {},
+            "amplified-wrath": {},
+            "righteous-instincts": {}
           },
           {
             "inspired-virtue": {
@@ -931,23 +925,20 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": true,
+            "virtue-of-retribution": {},
             "inspiring-virtue": {
               "amount": ""
             },
-            "power-of-the-virtuous": true
+            "power-of-the-virtuous": {}
           },
           {
-            "searing-pact": true,
-            "power-for-power": false,
-            "conceited-curate": false,
+            "searing-pact": {},
             "lethal-tempo": {
               "amount": ""
             },
             "tyrants-momentum": {
               "amount": ""
-            },
-            "tyrants-momentum-bugged": false
+            }
           }
         ]
       }
@@ -989,17 +980,17 @@ list:
         ],
         "items": [
           {
-            "right-hand-strength": true,
+            "right-hand-strength": {},
             "right-hand-strength-1h": {
               "amount": "100"
             },
-            "radiant-fire": true,
+            "radiant-fire": {},
             "retribution": {
               "amount": ""
             },
-            "radiant-power": true,
-            "amplified-wrath": true,
-            "righteous-instincts": true
+            "radiant-power": {},
+            "amplified-wrath": {},
+            "righteous-instincts": {}
           },
           {
             "inspired-virtue": {
@@ -1008,11 +999,11 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": true,
+            "virtue-of-retribution": {},
             "inspiring-virtue": {
               "amount": ""
             },
-            "power-of-the-virtuous": true
+            "power-of-the-virtuous": {}
           },
           {
             "imbued-haste": {
@@ -1027,7 +1018,7 @@ list:
           "signet-of-wrath": {
             "amount": ""
           },
-          "mantra-of-flame": true
+          "mantra-of-flame": {}
         }
       }
 
@@ -1060,17 +1051,17 @@ list:
         ],
         "items": [
           {
-            "right-hand-strength": true,
+            "right-hand-strength": {},
             "right-hand-strength-1h": {
               "amount": "100"
             },
-            "radiant-fire": true,
+            "radiant-fire": {},
             "retribution": {
               "amount": ""
             },
-            "radiant-power": true,
-            "amplified-wrath": true,
-            "righteous-instincts": true
+            "radiant-power": {},
+            "amplified-wrath": {},
+            "righteous-instincts": {}
           },
           {
             "inspired-virtue": {
@@ -1079,11 +1070,11 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": true,
+            "virtue-of-retribution": {},
             "inspiring-virtue": {
               "amount": ""
             },
-            "power-of-the-virtuous": true
+            "power-of-the-virtuous": {}
           },
           {
             "imbued-haste": {
@@ -1130,17 +1121,17 @@ list:
         ],
         "items": [
           {
-            "right-hand-strength": true,
+            "right-hand-strength": {},
             "right-hand-strength-1h": {
               "amount": "100"
             },
-            "radiant-fire": true,
+            "radiant-fire": {},
             "retribution": {
               "amount": ""
             },
-            "radiant-power": true,
-            "amplified-wrath": true,
-            "righteous-instincts": true
+            "radiant-power": {},
+            "amplified-wrath": {},
+            "righteous-instincts": {}
           },
           {
             "inspired-virtue": {
@@ -1149,11 +1140,11 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": true,
+            "virtue-of-retribution": {},
             "inspiring-virtue": {
               "amount": ""
             },
-            "power-of-the-virtuous": true
+            "power-of-the-virtuous": {}
           },
           {
             "imbued-haste": {
@@ -1200,17 +1191,17 @@ list:
         ],
         "items": [
           {
-            "right-hand-strength": true,
+            "right-hand-strength": {},
             "right-hand-strength-1h": {
               "amount": "100"
             },
-            "radiant-fire": true,
+            "radiant-fire": {},
             "retribution": {
               "amount": ""
             },
-            "radiant-power": true,
-            "amplified-wrath": true,
-            "righteous-instincts": true
+            "radiant-power": {},
+            "amplified-wrath": {},
+            "righteous-instincts": {}
           },
           {
             "inspired-virtue": {
@@ -1219,11 +1210,11 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": true,
+            "virtue-of-retribution": {},
             "inspiring-virtue": {
               "amount": ""
             },
-            "power-of-the-virtuous": true
+            "power-of-the-virtuous": {}
           },
           {
             "imbued-haste": {
@@ -1266,25 +1257,25 @@ list:
         ],
         "items": [
           {
-            "right-hand-strength": true,
+            "right-hand-strength": {},
             "right-hand-strength-1h": {
               "amount": "100"
             },
-            "radiant-fire": true,
+            "radiant-fire": {},
             "retribution": {
               "amount": ""
             },
-            "radiant-power": true,
-            "amplified-wrath": true,
-            "righteous-instincts": true
+            "radiant-power": {},
+            "amplified-wrath": {},
+            "righteous-instincts": {}
           },
           {
             "invigorating-bulwark": {
               "amount": ""
             },
-            "honorable-staff": true,
-            "honorable-staff-2": true,
-            "force-of-will": true
+            "honorable-staff": {},
+            "honorable-staff-2": {},
+            "force-of-will": {}
           },
           {
             "imbued-haste": {
@@ -1327,25 +1318,24 @@ list:
         ],
         "items": [
           {
-            "right-hand-strength": true,
+            "right-hand-strength": {},
             "right-hand-strength-1h": {
               "amount": ""
             },
-            "radiant-fire": true,
+            "radiant-fire": {},
             "retribution": {
               "amount": ""
             },
-            "radiant-power": true,
-            "amplified-wrath": true,
-            "righteous-instincts": true
+            "radiant-power": {},
+            "amplified-wrath": {},
+            "righteous-instincts": {}
           },
           {
             "invigorating-bulwark": {
               "amount": ""
             },
-            "honorable-staff": true,
-            "honorable-staff-2": false,
-            "force-of-will": true
+            "honorable-staff": {},
+            "force-of-will": {}
           },
           {
             "imbued-haste": {
@@ -1392,37 +1382,36 @@ list:
         ],
         "items": [
           {
-            "right-hand-strength": true,
+            "right-hand-strength": {},
             "right-hand-strength-1h": {
               "amount": ""
             },
-            "radiant-fire": true,
+            "radiant-fire": {},
             "retribution": {
               "amount": ""
             },
-            "radiant-power": true,
-            "amplified-wrath": true,
-            "righteous-instincts": true
+            "radiant-power": {},
+            "amplified-wrath": {},
+            "righteous-instincts": {}
           },
           {
-            "fiery-wrath": true,
-            "symbolic-exposure": true,
-            "zealous-blade-base": true,
+            "fiery-wrath": {},
+            "symbolic-exposure": {},
+            "zealous-blade-base": {},
             "zealous-blade-gs": {
               "amount": ""
             },
-            "kindled-zeal": true,
-            "symbolic-avenger": true
+            "kindled-zeal": {},
+            "symbolic-avenger": {}
           },
           {
-            "power-for-power": true,
+            "power-for-power": {},
             "lethal-tempo": {
               "amount": ""
             },
             "tyrants-momentum": {
               "amount": ""
-            },
-            "tyrants-momentum-bugged": false
+            }
           }
         ]
       }
@@ -1470,31 +1459,30 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": true,
+            "virtue-of-retribution": {},
             "inspiring-virtue": {
               "amount": ""
             },
-            "power-of-the-virtuous": true
+            "power-of-the-virtuous": {}
           },
           {
-            "fiery-wrath": true,
-            "symbolic-exposure": true,
-            "zealous-blade-base": true,
+            "fiery-wrath": {},
+            "symbolic-exposure": {},
+            "zealous-blade-base": {},
             "zealous-blade-gs": {
               "amount": ""
             },
-            "kindled-zeal": true,
-            "symbolic-avenger": true
+            "kindled-zeal": {},
+            "symbolic-avenger": {}
           },
           {
-            "power-for-power": true,
+            "power-for-power": {},
             "lethal-tempo": {
               "amount": ""
             },
             "tyrants-momentum": {
               "amount": ""
-            },
-            "tyrants-momentum-bugged": false
+            }
           }
         ]
       }
@@ -1536,17 +1524,17 @@ list:
         ],
         "items": [
           {
-            "right-hand-strength": true,
+            "right-hand-strength": {},
             "right-hand-strength-1h": {
               "amount": "100"
             },
-            "radiant-fire": true,
+            "radiant-fire": {},
             "retribution": {
               "amount": ""
             },
-            "radiant-power": true,
-            "amplified-wrath": true,
-            "righteous-instincts": true
+            "radiant-power": {},
+            "amplified-wrath": {},
+            "righteous-instincts": {}
           },
           {
             "inspired-virtue": {
@@ -1555,23 +1543,21 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": true,
+            "virtue-of-retribution": {},
             "inspiring-virtue": {
               "amount": ""
             },
-            "power-of-the-virtuous": true
+            "power-of-the-virtuous": {}
           },
           {
-            "searing-pact": true,
-            "power-for-power": true,
-            "conceited-curate": false,
+            "searing-pact": {},
+            "power-for-power": {},
             "lethal-tempo": {
               "amount": ""
             },
             "tyrants-momentum": {
               "amount": ""
-            },
-            "tyrants-momentum-bugged": false
+            }
           }
         ]
       }
@@ -1619,31 +1605,30 @@ list:
             "unscathed-contender": {
               "amount": ""
             },
-            "virtue-of-retribution": true,
+            "virtue-of-retribution": {},
             "inspiring-virtue": {
               "amount": ""
             },
-            "power-of-the-virtuous": true
+            "power-of-the-virtuous": {}
           },
           {
-            "fiery-wrath": true,
-            "symbolic-exposure": true,
-            "zealous-blade-base": true,
+            "fiery-wrath": {},
+            "symbolic-exposure": {},
+            "zealous-blade-base": {},
             "zealous-blade-gs": {
               "amount": ""
             },
-            "kindled-zeal": true,
-            "symbolic-avenger": true
+            "kindled-zeal": {},
+            "symbolic-avenger": {}
           },
           {
-            "power-for-power": true,
+            "power-for-power": {},
             "lethal-tempo": {
               "amount": ""
             },
             "tyrants-momentum": {
               "amount": ""
-            },
-            "tyrants-momentum-bugged": false
+            }
           }
         ]
       }
@@ -1685,11 +1670,9 @@ list:
         ],
         "items": [
           {
-            "peak-performance": true,
-            "peak-performance-2": false,
-            "forceful-greatsword": true,
-            "forceful-greatsword-2": false,
-            "great-fortitude": true,
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
             "pinnacle-of-strength": {
               "amount": ""
             },
@@ -1701,38 +1684,38 @@ list:
             "warriors-sprint": {
               "amount": ""
             },
-            "double-standards-str": true,
-            "double-standards-disc": true,
-            "axe-mastery-one": true,
+            "double-standards-str": {},
+            "double-standards-disc": {},
+            "axe-mastery-one": {},
             "axe-mastery-axe": {
               "amount": ""
             }
           },
           {
-            "blood-reaction-base": true,
+            "blood-reaction-base": {},
             "blood-reaction-with": {
               "amount": ""
             },
-            "heat-the-soul": true,
+            "heat-the-soul": {},
             "heat-the-soul-with": {
               "amount": ""
             },
             "fatal-frenzy-power-condi": {
               "amount": ""
             },
-            "fatal-frenzy-toughness": true,
+            "fatal-frenzy-toughness": {},
             "bloody-roar": {
               "amount": ""
             },
-            "king-of-fires": true,
-            "eternal-champion": true
+            "king-of-fires": {},
+            "eternal-champion": {}
           }
         ]
       }
     skills: |-
       {
         "skills": {
-          "signet-of-might": true
+          "signet-of-might": {}
         }
       }
 
@@ -1765,18 +1748,18 @@ list:
         ],
         "items": [
           {
-            "wounding-precision": true,
+            "wounding-precision": {},
             "signet-mastery": {
               "amount": ""
             },
             "deep-strikes": {
               "amount": ""
             },
-            "blade-master": true,
+            "blade-master": {},
             "blade-master-2": {
               "amount": ""
             },
-            "bloodlust": true,
+            "bloodlust": {},
             "furious": {
               "amount": ""
             },
@@ -1788,31 +1771,31 @@ list:
             "warriors-sprint": {
               "amount": ""
             },
-            "double-standards-str": true,
-            "double-standards-disc": true,
-            "axe-mastery-one": true,
+            "double-standards-str": {},
+            "double-standards-disc": {},
+            "axe-mastery-one": {},
             "axe-mastery-axe": {
               "amount": ""
             }
           },
           {
-            "blood-reaction-base": true,
+            "blood-reaction-base": {},
             "blood-reaction-with": {
               "amount": ""
             },
-            "heat-the-soul": true,
+            "heat-the-soul": {},
             "heat-the-soul-with": {
               "amount": ""
             },
             "fatal-frenzy-power-condi": {
               "amount": ""
             },
-            "fatal-frenzy-toughness": true,
+            "fatal-frenzy-toughness": {},
             "bloody-roar": {
               "amount": ""
             },
-            "king-of-fires": true,
-            "eternal-champion": true
+            "king-of-fires": {},
+            "eternal-champion": {}
           }
         ]
       }
@@ -1850,11 +1833,9 @@ list:
         ],
         "items": [
           {
-            "peak-performance": true,
-            "peak-performance-2": false,
-            "forceful-greatsword": true,
-            "forceful-greatsword-2": false,
-            "great-fortitude": true,
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
             "pinnacle-of-strength": {
               "amount": ""
             },
@@ -1866,19 +1847,18 @@ list:
             "warriors-sprint": {
               "amount": ""
             },
-            "double-standards-str": true,
-            "double-standards-disc": true,
-            "axe-mastery-one": true,
+            "double-standards-str": {},
+            "double-standards-disc": {},
+            "axe-mastery-one": {},
             "axe-mastery-axe": {
               "amount": ""
             }
           },
           {
-            "pure-strike-base": true,
+            "pure-strike-base": {},
             "pure-strike-boonless": {
               "amount": ""
             },
-            "sun-and-moon-style": false,
             "attackers-insight": {
               "amount": "4"
             },
@@ -1891,7 +1871,7 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-might": true
+          "signet-of-might": {}
         }
       }
 
@@ -1924,11 +1904,9 @@ list:
         ],
         "items": [
           {
-            "peak-performance": true,
-            "peak-performance-2": false,
-            "forceful-greatsword": true,
-            "forceful-greatsword-2": false,
-            "great-fortitude": true,
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
             "pinnacle-of-strength": {
               "amount": ""
             },
@@ -1940,9 +1918,9 @@ list:
             "warriors-sprint": {
               "amount": ""
             },
-            "double-standards-str": true,
-            "double-standards-disc": true,
-            "axe-mastery-one": true,
+            "double-standards-str": {},
+            "double-standards-disc": {},
+            "axe-mastery-one": {},
             "axe-mastery-axe": {
               "amount": ""
             }
@@ -1960,7 +1938,7 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-might": true
+          "signet-of-might": {}
         }
       }
 
@@ -1993,11 +1971,9 @@ list:
         ],
         "items": [
           {
-            "peak-performance": true,
-            "peak-performance-2": false,
-            "forceful-greatsword": true,
-            "forceful-greatsword-2": false,
-            "great-fortitude": true,
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
             "pinnacle-of-strength": {
               "amount": ""
             },
@@ -2009,9 +1985,9 @@ list:
             "warriors-sprint": {
               "amount": ""
             },
-            "double-standards-str": true,
-            "double-standards-disc": true,
-            "axe-mastery-one": true,
+            "double-standards-str": {},
+            "double-standards-disc": {},
+            "axe-mastery-one": {},
             "axe-mastery-axe": {
               "amount": ""
             }
@@ -2029,8 +2005,8 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-might": true,
-          "signet-of-fury": true
+          "signet-of-might": {},
+          "signet-of-fury": {}
         }
       }
 
@@ -2066,22 +2042,22 @@ list:
             "leg-specialist": {
               "amount": ""
             },
-            "roaring-reveille": true,
+            "roaring-reveille": {},
             "empowered": {
               "amount": "7"
             },
             "warriors-cunning": {
               "amount": ""
             },
-            "vigorous-shouts": true
+            "vigorous-shouts": {}
           },
           {
             "warriors-sprint": {
               "amount": ""
             },
-            "double-standards-str": true,
-            "double-standards-disc": true,
-            "axe-mastery-one": true,
+            "double-standards-str": {},
+            "double-standards-disc": {},
+            "axe-mastery-one": {},
             "axe-mastery-axe": {
               "amount": ""
             }
@@ -2133,13 +2109,13 @@ list:
             "empowering-flame": {
               "amount": "51"
             },
-            "burning-precision": true,
-            "burning-rage": true,
-            "power-overwhelming": true,
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
             "power-overwhelming-2": {
               "amount": "51"
             },
-            "pyromancers-training": true,
+            "pyromancers-training": {},
             "persisting-flames": {
               "amount": ""
             },
@@ -2148,14 +2124,14 @@ list:
             }
           },
           {
-            "ferocious-winds": true,
+            "ferocious-winds": {},
             "raging-storm": {
               "amount": ""
             },
             "stormsoul": {
               "amount": ""
             },
-            "aeromancers-training": true,
+            "aeromancers-training": {},
             "aeromancers-training-2": {
               "amount": "49"
             },
@@ -2167,10 +2143,10 @@ list:
             }
           },
           {
-            "superior-elements": true,
-            "masters-fortitude": true,
-            "masters-fortitude-sword": true,
-            "weavers-prowess": true,
+            "superior-elements": {},
+            "masters-fortitude": {},
+            "masters-fortitude-sword": {},
+            "weavers-prowess": {},
             "swift-revenge": {
               "amount": ""
             },
@@ -2180,7 +2156,7 @@ list:
             "elemental-polyphony-air": {
               "amount": "74"
             },
-            "elements-of-rage-base": true,
+            "elements-of-rage-base": {},
             "elements-of-rage-buff": {
               "amount": ""
             }
@@ -2224,13 +2200,13 @@ list:
             "empowering-flame": {
               "amount": ""
             },
-            "burning-precision": true,
-            "burning-rage": true,
-            "power-overwhelming": true,
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
             "power-overwhelming-2": {
               "amount": ""
             },
-            "pyromancers-training": true,
+            "pyromancers-training": {},
             "persisting-flames": {
               "amount": ""
             },
@@ -2239,16 +2215,15 @@ list:
             }
           },
           {
-            "stone-flesh": false,
-            "serrated-stones": true,
-            "strength-of-stone": true,
-            "geomancers-training": true
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
           },
           {
-            "superior-elements": true,
-            "masters-fortitude": true,
-            "masters-fortitude-sword": true,
-            "weavers-prowess": true,
+            "superior-elements": {},
+            "masters-fortitude": {},
+            "masters-fortitude-sword": {},
+            "weavers-prowess": {},
             "swift-revenge": {
               "amount": ""
             },
@@ -2258,7 +2233,7 @@ list:
             "elemental-polyphony-air": {
               "amount": "29"
             },
-            "elements-of-rage-base": true,
+            "elements-of-rage-base": {},
             "elements-of-rage-buff": {
               "amount": "80"
             }
@@ -2302,13 +2277,13 @@ list:
             "empowering-flame": {
               "amount": ""
             },
-            "burning-precision": true,
-            "burning-rage": true,
-            "power-overwhelming": true,
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
             "power-overwhelming-2": {
               "amount": ""
             },
-            "pyromancers-training": true,
+            "pyromancers-training": {},
             "persisting-flames": {
               "amount": ""
             },
@@ -2317,16 +2292,15 @@ list:
             }
           },
           {
-            "stone-flesh": false,
-            "serrated-stones": true,
-            "strength-of-stone": true,
-            "geomancers-training": true
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
           },
           {
-            "superior-elements": true,
-            "masters-fortitude": true,
-            "masters-fortitude-sword": true,
-            "weavers-prowess": true,
+            "superior-elements": {},
+            "masters-fortitude": {},
+            "masters-fortitude-sword": {},
+            "weavers-prowess": {},
             "swift-revenge": {
               "amount": ""
             },
@@ -2336,7 +2310,7 @@ list:
             "elemental-polyphony-air": {
               "amount": "29"
             },
-            "elements-of-rage-base": true,
+            "elements-of-rage-base": {},
             "elements-of-rage-buff": {
               "amount": "80"
             }
@@ -2380,13 +2354,13 @@ list:
             "empowering-flame": {
               "amount": "57"
             },
-            "burning-precision": true,
-            "burning-rage": true,
-            "power-overwhelming": true,
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
             "power-overwhelming-2": {
               "amount": ""
             },
-            "pyromancers-training": true,
+            "pyromancers-training": {},
             "persisting-flames": {
               "amount": ""
             },
@@ -2395,14 +2369,14 @@ list:
             }
           },
           {
-            "ferocious-winds": true,
+            "ferocious-winds": {},
             "raging-storm": {
               "amount": ""
             },
             "stormsoul": {
               "amount": ""
             },
-            "aeromancers-training": true,
+            "aeromancers-training": {},
             "aeromancers-training-2": {
               "amount": "33"
             },
@@ -2414,10 +2388,10 @@ list:
             }
           },
           {
-            "superior-elements": true,
-            "masters-fortitude": true,
-            "masters-fortitude-sword": true,
-            "weavers-prowess": true,
+            "superior-elements": {},
+            "masters-fortitude": {},
+            "masters-fortitude-sword": {},
+            "weavers-prowess": {},
             "swift-revenge": {
               "amount": ""
             },
@@ -2427,7 +2401,7 @@ list:
             "elemental-polyphony-air": {
               "amount": "60"
             },
-            "elements-of-rage-base": true,
+            "elements-of-rage-base": {},
             "elements-of-rage-buff": {
               "amount": ""
             }
@@ -2471,13 +2445,13 @@ list:
             "empowering-flame": {
               "amount": "59"
             },
-            "burning-precision": true,
-            "burning-rage": true,
-            "power-overwhelming": true,
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
             "power-overwhelming-2": {
               "amount": ""
             },
-            "pyromancers-training": true,
+            "pyromancers-training": {},
             "persisting-flames": {
               "amount": "9.5"
             },
@@ -2486,14 +2460,13 @@ list:
             }
           },
           {
-            "stone-flesh": false,
-            "serrated-stones": true,
-            "strength-of-stone": true,
-            "geomancers-training": true
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
           },
           {
-            "gathered-focus": true,
-            "hardy-conduit": true,
+            "gathered-focus": {},
+            "hardy-conduit": {},
             "transcendent-tempest": {
               "amount": "62"
             }
@@ -2537,26 +2510,26 @@ list:
             "empowering-flame": {
               "amount": "13"
             },
-            "burning-precision": true,
-            "burning-rage": true,
-            "power-overwhelming": true,
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
             "power-overwhelming-2": {
               "amount": "13"
             },
-            "pyromancers-training": true,
+            "pyromancers-training": {},
             "persisting-flames": {
               "amount": "7.5"
             }
           },
           {
-            "ferocious-winds": true,
+            "ferocious-winds": {},
             "raging-storm": {
               "amount": ""
             },
             "stormsoul": {
               "amount": ""
             },
-            "aeromancers-training": true,
+            "aeromancers-training": {},
             "aeromancers-training-2": {
               "amount": "80"
             },
@@ -2568,8 +2541,8 @@ list:
             }
           },
           {
-            "gathered-focus": true,
-            "hardy-conduit": true,
+            "gathered-focus": {},
+            "hardy-conduit": {},
             "transcendent-tempest": {
               "amount": "71"
             }
@@ -2579,7 +2552,7 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-fire": true
+          "signet-of-fire": {}
         }
       }
 
@@ -2615,26 +2588,26 @@ list:
             "empowering-flame": {
               "amount": "40"
             },
-            "burning-precision": true,
-            "burning-rage": true,
-            "power-overwhelming": true,
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
             "power-overwhelming-2": {
               "amount": "40"
             },
-            "pyromancers-training": true,
+            "pyromancers-training": {},
             "persisting-flames": {
               "amount": ""
             }
           },
           {
-            "ferocious-winds": true,
+            "ferocious-winds": {},
             "raging-storm": {
               "amount": ""
             },
             "stormsoul": {
               "amount": ""
             },
-            "aeromancers-training": true,
+            "aeromancers-training": {},
             "aeromancers-training-2": {
               "amount": "32"
             },
@@ -2649,11 +2622,11 @@ list:
             "hardened-auras": {
               "amount": ""
             },
-            "elemental-empowerment": true,
+            "elemental-empowerment": {},
             "empowering-auras": {
               "amount": "5"
             },
-            "empowered-empowerment": true
+            "empowered-empowerment": {}
           }
         ]
       }
@@ -2663,7 +2636,7 @@ list:
           "flame-wheel": {
             "amount": "79"
           },
-          "crescent-wind": true,
+          "crescent-wind": {},
           "relentless-fire": {
             "amount": "50"
           }
@@ -2702,26 +2675,26 @@ list:
             "empowering-flame": {
               "amount": "40"
             },
-            "burning-precision": true,
-            "burning-rage": true,
-            "power-overwhelming": true,
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
             "power-overwhelming-2": {
               "amount": "40"
             },
-            "pyromancers-training": true,
+            "pyromancers-training": {},
             "persisting-flames": {
               "amount": ""
             }
           },
           {
-            "ferocious-winds": true,
+            "ferocious-winds": {},
             "raging-storm": {
               "amount": ""
             },
             "stormsoul": {
               "amount": ""
             },
-            "aeromancers-training": true,
+            "aeromancers-training": {},
             "aeromancers-training-2": {
               "amount": "32"
             },
@@ -2736,11 +2709,11 @@ list:
             "hardened-auras": {
               "amount": ""
             },
-            "elemental-empowerment": true,
+            "elemental-empowerment": {},
             "empowering-auras": {
               "amount": "5"
             },
-            "empowered-empowerment": true
+            "empowered-empowerment": {}
           }
         ]
       }
@@ -2750,7 +2723,7 @@ list:
           "flame-wheel": {
             "amount": "79"
           },
-          "crescent-wind": true,
+          "crescent-wind": {},
           "relentless-fire": {
             "amount": "50"
           }
@@ -2789,32 +2762,31 @@ list:
             "empowering-flame": {
               "amount": "45"
             },
-            "burning-precision": true,
-            "burning-rage": true,
-            "power-overwhelming": true,
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
             "power-overwhelming-2": {
               "amount": ""
             },
-            "pyromancers-training": true,
+            "pyromancers-training": {},
             "persisting-flames": {
               "amount": ""
             }
           },
           {
-            "stone-flesh": false,
-            "serrated-stones": true,
-            "strength-of-stone": true,
-            "geomancers-training": true
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
           },
           {
             "hardened-auras": {
               "amount": ""
             },
-            "elemental-empowerment": true,
+            "elemental-empowerment": {},
             "empowering-auras": {
               "amount": "2.5"
             },
-            "empowered-empowerment": true
+            "empowered-empowerment": {}
           }
         ]
       }
@@ -2824,7 +2796,7 @@ list:
           "flame-wheel": {
             "amount": "92"
           },
-          "crescent-wind": true
+          "crescent-wind": {}
         }
       }
 
@@ -2858,16 +2830,15 @@ list:
         "items": [
           {},
           {
-            "piercing-blades": true,
-            "piercing-blades-2": false,
+            "piercing-blades": {},
             "flow-like-water": {
               "amount": ""
             },
-            "aquamancers-training": true
+            "aquamancers-training": {}
           },
           {
-            "gathered-focus": true,
-            "hardy-conduit": true,
+            "gathered-focus": {},
+            "hardy-conduit": {},
             "transcendent-tempest": {
               "amount": ""
             }
@@ -2908,14 +2879,13 @@ list:
         ],
         "items": [
           {
-            "farsighted": true,
-            "farsighted-2": false,
+            "farsighted": {},
             "predators-onslaught": {
               "amount": ""
             }
           },
           {
-            "honed-axes": true,
+            "honed-axes": {},
             "honed-axes-axe": {
               "amount": ""
             }
@@ -2927,16 +2897,12 @@ list:
             "twice-as-vicious": {
               "amount": ""
             },
-            "oppressive-superiority": true,
-            "archetype-stout": false,
-            "archetype-deadly": false,
-            "archetype-versatile": false,
-            "archetype-ferocious": true,
-            "archetype-supportive": false,
-            "pack-alpha-merged": true,
-            "loud-whistle-merged": true,
-            "pets-prowess-merged": true,
-            "honed-axes-merged": true
+            "oppressive-superiority": {},
+            "archetype-ferocious": {},
+            "pack-alpha-merged": {},
+            "loud-whistle-merged": {},
+            "pets-prowess-merged": {},
+            "honed-axes-merged": {}
           }
         ]
       }
@@ -2974,13 +2940,12 @@ list:
         ],
         "items": [
           {
-            "hidden-barbs": true,
-            "hunters-tactics": true,
-            "light-on-your-feet": false,
-            "vicious-quarry": true
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {}
           },
           {
-            "honed-axes": true,
+            "honed-axes": {},
             "honed-axes-axe": {
               "amount": ""
             }
@@ -2992,16 +2957,12 @@ list:
             "twice-as-vicious": {
               "amount": ""
             },
-            "oppressive-superiority": true,
-            "archetype-stout": false,
-            "archetype-deadly": false,
-            "archetype-versatile": false,
-            "archetype-ferocious": true,
-            "archetype-supportive": false,
-            "pack-alpha-merged": true,
-            "loud-whistle-merged": true,
-            "pets-prowess-merged": true,
-            "honed-axes-merged": true
+            "oppressive-superiority": {},
+            "archetype-ferocious": {},
+            "pack-alpha-merged": {},
+            "loud-whistle-merged": {},
+            "pets-prowess-merged": {},
+            "honed-axes-merged": {}
           }
         ]
       }
@@ -3039,22 +3000,21 @@ list:
         ],
         "items": [
           {
-            "hidden-barbs": true,
-            "hunters-tactics": true,
-            "light-on-your-feet": false,
-            "vicious-quarry": true,
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {},
             "sharpened-edges": {
               "amount": "4.17"
             }
           },
           {
-            "oakheart-salve": true,
-            "taste-for-danger": true,
-            "ambidexterity": true,
+            "oakheart-salve": {},
+            "taste-for-danger": {},
+            "ambidexterity": {},
             "ambidexterity-2": {
               "amount": ""
             },
-            "poison-master": true
+            "poison-master": {}
           },
           {
             "furious-strength": {
@@ -3063,16 +3023,8 @@ list:
             "twice-as-vicious": {
               "amount": "45"
             },
-            "oppressive-superiority": true,
-            "archetype-stout": false,
-            "archetype-deadly": true,
-            "archetype-versatile": false,
-            "archetype-ferocious": false,
-            "archetype-supportive": false,
-            "pack-alpha-merged": false,
-            "loud-whistle-merged": false,
-            "pets-prowess-merged": false,
-            "honed-axes-merged": false
+            "oppressive-superiority": {},
+            "archetype-deadly": {}
           }
         ]
       }
@@ -3110,22 +3062,21 @@ list:
         ],
         "items": [
           {
-            "hidden-barbs": true,
-            "hunters-tactics": true,
-            "light-on-your-feet": false,
-            "vicious-quarry": true,
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {},
             "sharpened-edges": {
               "amount": "4.17"
             }
           },
           {
-            "oakheart-salve": true,
-            "taste-for-danger": true,
-            "ambidexterity": true,
+            "oakheart-salve": {},
+            "taste-for-danger": {},
+            "ambidexterity": {},
             "ambidexterity-2": {
               "amount": "100"
             },
-            "poison-master": true
+            "poison-master": {}
           },
           {
             "furious-strength": {
@@ -3134,16 +3085,8 @@ list:
             "twice-as-vicious": {
               "amount": "45"
             },
-            "oppressive-superiority": true,
-            "archetype-stout": false,
-            "archetype-deadly": true,
-            "archetype-versatile": false,
-            "archetype-ferocious": false,
-            "archetype-supportive": false,
-            "pack-alpha-merged": false,
-            "loud-whistle-merged": false,
-            "pets-prowess-merged": false,
-            "honed-axes-merged": false
+            "oppressive-superiority": {},
+            "archetype-deadly": {}
           }
         ]
       }
@@ -3181,16 +3124,15 @@ list:
         ],
         "items": [
           {
-            "hidden-barbs": true,
-            "hunters-tactics": true,
-            "light-on-your-feet": false,
-            "vicious-quarry": true,
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {},
             "sharpened-edges": {
               "amount": "4.2"
             }
           },
           {
-            "honed-axes": true,
+            "honed-axes": {},
             "honed-axes-axe": {
               "amount": "100"
             }
@@ -3202,16 +3144,12 @@ list:
             "twice-as-vicious": {
               "amount": "82"
             },
-            "oppressive-superiority": true,
-            "archetype-stout": false,
-            "archetype-deadly": true,
-            "archetype-versatile": false,
-            "archetype-ferocious": false,
-            "archetype-supportive": false,
-            "pack-alpha-merged": true,
-            "loud-whistle-merged": true,
-            "pets-prowess-merged": true,
-            "honed-axes-merged": true
+            "oppressive-superiority": {},
+            "archetype-deadly": {},
+            "pack-alpha-merged": {},
+            "loud-whistle-merged": {},
+            "pets-prowess-merged": {},
+            "honed-axes-merged": {}
           }
         ]
       }
@@ -3249,13 +3187,12 @@ list:
         ],
         "items": [
           {
-            "hidden-barbs": true,
-            "hunters-tactics": true,
-            "light-on-your-feet": false,
-            "vicious-quarry": true
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {}
           },
           {
-            "honed-axes": true,
+            "honed-axes": {},
             "honed-axes-axe": {
               "amount": ""
             }
@@ -3267,16 +3204,11 @@ list:
             "twice-as-vicious": {
               "amount": ""
             },
-            "oppressive-superiority": true,
-            "archetype-stout": false,
-            "archetype-deadly": true,
-            "archetype-versatile": false,
-            "archetype-ferocious": false,
-            "archetype-supportive": false,
-            "pack-alpha-merged": true,
-            "loud-whistle-merged": true,
-            "pets-prowess-merged": true,
-            "honed-axes-merged": false
+            "oppressive-superiority": {},
+            "archetype-deadly": {},
+            "pack-alpha-merged": {},
+            "loud-whistle-merged": {},
+            "pets-prowess-merged": {}
           }
         ]
       }
@@ -3314,17 +3246,17 @@ list:
         ],
         "items": [
           {
-            "hidden-barbs": true,
-            "hunters-tactics": true,
-            "light-on-your-feet": true,
-            "vicious-quarry": true
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "light-on-your-feet": {},
+            "vicious-quarry": {}
           },
           {
             "bountiful-hunter": {
               "amount": ""
             },
-            "instinctive-reaction": true,
-            "lingering-magic": true
+            "instinctive-reaction": {},
+            "lingering-magic": {}
           },
           {
             "natural-mender": {
@@ -3367,17 +3299,16 @@ list:
         ],
         "items": [
           {
-            "hidden-barbs": true,
-            "hunters-tactics": true,
-            "light-on-your-feet": false,
-            "vicious-quarry": true
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {}
           },
           {
             "bountiful-hunter": {
               "amount": ""
             },
-            "instinctive-reaction": true,
-            "lingering-magic": true
+            "instinctive-reaction": {},
+            "lingering-magic": {}
           },
           {
             "natural-mender": {
@@ -3420,24 +3351,22 @@ list:
         ],
         "items": [
           {
-            "hidden-barbs": true,
-            "hunters-tactics": true,
-            "light-on-your-feet": false,
-            "vicious-quarry": true
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {}
           },
           {
-            "oakheart-salve": true,
-            "taste-for-danger": true,
-            "ambidexterity": true,
+            "oakheart-salve": {},
+            "taste-for-danger": {},
+            "ambidexterity": {},
             "ambidexterity-2": {
               "amount": ""
             },
-            "poison-master": true
+            "poison-master": {}
           },
           {
-            "natural-fortitude": true,
-            "vow-of-the-untamed-you": true,
-            "vow-of-the-untamed-pet": false,
+            "natural-fortitude": {},
+            "vow-of-the-untamed-you": {},
             "ferocious-symbiosis": {
               "amount": ""
             }
@@ -3478,22 +3407,19 @@ list:
         ],
         "items": [
           {
-            "farsighted": true,
-            "farsighted-2": false,
+            "farsighted": {},
             "predators-onslaught": {
               "amount": ""
             }
           },
           {
-            "hidden-barbs": true,
-            "hunters-tactics": true,
-            "light-on-your-feet": false,
-            "vicious-quarry": true
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {}
           },
           {
-            "natural-fortitude": true,
-            "vow-of-the-untamed-you": true,
-            "vow-of-the-untamed-pet": false,
+            "natural-fortitude": {},
+            "vow-of-the-untamed-you": {},
             "ferocious-symbiosis": {
               "amount": ""
             }
@@ -3503,7 +3429,7 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-the-wild": true
+          "signet-of-the-wild": {}
         }
       }
 
@@ -3539,7 +3465,7 @@ list:
             "unsuspecting-strikes": {
               "amount": ""
             },
-            "destructive-impulses-base": true,
+            "destructive-impulses-base": {},
             "destructive-impulses-dual": {
               "amount": "100"
             },
@@ -3560,15 +3486,15 @@ list:
             "ferocious-aggression": {
               "amount": ""
             },
-            "roiling-mists": true
+            "roiling-mists": {}
           },
           {
             "ambush-commander": {
               "amount": ""
             },
-            "blood-fury": true,
-            "heartpiercer": true,
-            "brutal-momentum": true,
+            "blood-fury": {},
+            "heartpiercer": {},
+            "brutal-momentum": {},
             "lasting-legacy": {
               "amount": ""
             }
@@ -3609,11 +3535,11 @@ list:
         ],
         "items": [
           {
-            "acolyte-of-torment": true,
-            "seething-malice": true,
-            "demonic-resistance": true,
-            "pact-of-pain": true,
-            "yearning-empowerment": true
+            "acolyte-of-torment": {},
+            "seething-malice": {},
+            "demonic-resistance": {},
+            "pact-of-pain": {},
+            "yearning-empowerment": {}
           },
           {
             "rising-tide": {
@@ -3622,15 +3548,15 @@ list:
             "ferocious-aggression": {
               "amount": ""
             },
-            "roiling-mists": true
+            "roiling-mists": {}
           },
           {
             "ambush-commander": {
               "amount": ""
             },
-            "blood-fury": true,
-            "heartpiercer": true,
-            "brutal-momentum": true,
+            "blood-fury": {},
+            "heartpiercer": {},
+            "brutal-momentum": {},
             "lasting-legacy": {
               "amount": ""
             }
@@ -3671,17 +3597,17 @@ list:
         ],
         "items": [
           {
-            "acolyte-of-torment": true,
-            "seething-malice": true,
-            "demonic-resistance": true,
-            "pact-of-pain": true,
-            "yearning-empowerment": true
+            "acolyte-of-torment": {},
+            "seething-malice": {},
+            "demonic-resistance": {},
+            "pact-of-pain": {},
+            "yearning-empowerment": {}
           },
           {
             "unsuspecting-strikes": {
               "amount": ""
             },
-            "destructive-impulses-base": true,
+            "destructive-impulses-base": {},
             "destructive-impulses-dual": {
               "amount": ""
             },
@@ -3699,9 +3625,9 @@ list:
             "ambush-commander": {
               "amount": ""
             },
-            "blood-fury": true,
-            "heartpiercer": true,
-            "brutal-momentum": true,
+            "blood-fury": {},
+            "heartpiercer": {},
+            "brutal-momentum": {},
             "lasting-legacy": {
               "amount": ""
             }
@@ -3742,17 +3668,17 @@ list:
         ],
         "items": [
           {
-            "acolyte-of-torment": true,
-            "seething-malice": true,
-            "demonic-resistance": true,
-            "pact-of-pain": true,
-            "yearning-empowerment": true
+            "acolyte-of-torment": {},
+            "seething-malice": {},
+            "demonic-resistance": {},
+            "pact-of-pain": {},
+            "yearning-empowerment": {}
           },
           {
             "unsuspecting-strikes": {
               "amount": ""
             },
-            "destructive-impulses-base": true,
+            "destructive-impulses-base": {},
             "destructive-impulses-dual": {
               "amount": ""
             },
@@ -3770,9 +3696,9 @@ list:
             "ambush-commander": {
               "amount": ""
             },
-            "blood-fury": true,
-            "heartpiercer": true,
-            "brutal-momentum": true,
+            "blood-fury": {},
+            "heartpiercer": {},
+            "brutal-momentum": {},
             "lasting-legacy": {
               "amount": ""
             }
@@ -3813,11 +3739,11 @@ list:
         ],
         "items": [
           {
-            "acolyte-of-torment": true,
-            "seething-malice": true,
-            "demonic-resistance": true,
-            "pact-of-pain": true,
-            "yearning-empowerment": true
+            "acolyte-of-torment": {},
+            "seething-malice": {},
+            "demonic-resistance": {},
+            "pact-of-pain": {},
+            "yearning-empowerment": {}
           },
           {
             "rising-tide": {
@@ -3826,15 +3752,15 @@ list:
             "ferocious-aggression": {
               "amount": ""
             },
-            "roiling-mists": true
+            "roiling-mists": {}
           },
           {
             "ambush-commander": {
               "amount": ""
             },
-            "blood-fury": true,
-            "heartpiercer": true,
-            "brutal-momentum": true,
+            "blood-fury": {},
+            "heartpiercer": {},
+            "brutal-momentum": {},
             "lasting-legacy": {
               "amount": ""
             }
@@ -3878,7 +3804,7 @@ list:
             "unsuspecting-strikes": {
               "amount": ""
             },
-            "destructive-impulses-base": true,
+            "destructive-impulses-base": {},
             "destructive-impulses-dual": {
               "amount": "100"
             },
@@ -3899,12 +3825,11 @@ list:
             "ferocious-aggression": {
               "amount": ""
             },
-            "roiling-mists": true
+            "roiling-mists": {}
           },
           {
-            "draconic-fortitude": true,
-            "hardening-persistence": false,
-            "reinforced-potency-base": true,
+            "draconic-fortitude": {},
+            "reinforced-potency-base": {},
             "reinforced-potency-boons": {
               "amount": ""
             },
@@ -3951,17 +3876,17 @@ list:
         ],
         "items": [
           {
-            "acolyte-of-torment": true,
-            "seething-malice": true,
-            "demonic-resistance": true,
-            "pact-of-pain": true,
-            "yearning-empowerment": true
+            "acolyte-of-torment": {},
+            "seething-malice": {},
+            "demonic-resistance": {},
+            "pact-of-pain": {},
+            "yearning-empowerment": {}
           },
           {
             "unsuspecting-strikes": {
               "amount": ""
             },
-            "destructive-impulses-base": true,
+            "destructive-impulses-base": {},
             "destructive-impulses-dual": {
               "amount": "100"
             },
@@ -3976,9 +3901,8 @@ list:
             }
           },
           {
-            "draconic-fortitude": true,
-            "hardening-persistence": false,
-            "reinforced-potency-base": true,
+            "draconic-fortitude": {},
+            "reinforced-potency-base": {},
             "reinforced-potency-boons": {
               "amount": ""
             },
@@ -4028,7 +3952,7 @@ list:
             "unsuspecting-strikes": {
               "amount": ""
             },
-            "destructive-impulses-base": true,
+            "destructive-impulses-base": {},
             "destructive-impulses-dual": {
               "amount": "100"
             },
@@ -4049,15 +3973,15 @@ list:
             "ferocious-aggression": {
               "amount": ""
             },
-            "roiling-mists": true
+            "roiling-mists": {}
           },
           {
             "ambush-commander": {
               "amount": ""
             },
-            "blood-fury": true,
-            "heartpiercer": true,
-            "brutal-momentum": true,
+            "blood-fury": {},
+            "heartpiercer": {},
+            "brutal-momentum": {},
             "lasting-legacy": {
               "amount": ""
             }
@@ -4101,7 +4025,7 @@ list:
             "tranquil-balance": {
               "amount": ""
             },
-            "life-attunement": true,
+            "life-attunement": {},
             "invoking-harmony": {
               "amount": ""
             }
@@ -4110,7 +4034,7 @@ list:
             "unsuspecting-strikes": {
               "amount": ""
             },
-            "destructive-impulses-base": true,
+            "destructive-impulses-base": {},
             "destructive-impulses-dual": {
               "amount": ""
             },
@@ -4128,9 +4052,9 @@ list:
             "ambush-commander": {
               "amount": ""
             },
-            "blood-fury": true,
-            "heartpiercer": true,
-            "brutal-momentum": true,
+            "blood-fury": {},
+            "heartpiercer": {},
+            "brutal-momentum": {},
             "lasting-legacy": {
               "amount": ""
             }
@@ -4174,7 +4098,7 @@ list:
             "unsuspecting-strikes": {
               "amount": ""
             },
-            "destructive-impulses-base": true,
+            "destructive-impulses-base": {},
             "destructive-impulses-dual": {
               "amount": ""
             },
@@ -4195,7 +4119,7 @@ list:
             "ferocious-aggression": {
               "amount": ""
             },
-            "roiling-mists": true
+            "roiling-mists": {}
           },
           {
             "leviathan-strength": {
@@ -4247,18 +4171,18 @@ list:
         ],
         "items": [
           {
-            "chemical-rounds": true,
-            "high-caliber": true,
-            "hematic-focus": true,
-            "thermal-vision": true,
+            "chemical-rounds": {},
+            "high-caliber": {},
+            "hematic-focus": {},
+            "thermal-vision": {},
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": true,
+            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
-            "incendiary-powder": true,
+            "incendiary-powder": {},
             "sharpshooter": {
               "amount": "4.82"
             }
@@ -4270,11 +4194,11 @@ list:
             "explosive-temper": {
               "amount": ""
             },
-            "blast-shield": true,
+            "blast-shield": {},
             "shaped-charge": {
               "amount": ""
             },
-            "big-boomer": true
+            "big-boomer": {}
           },
           {
             "lasers-edge": {
@@ -4317,18 +4241,18 @@ list:
         ],
         "items": [
           {
-            "chemical-rounds": true,
-            "high-caliber": true,
-            "hematic-focus": true,
-            "thermal-vision": true,
+            "chemical-rounds": {},
+            "high-caliber": {},
+            "hematic-focus": {},
+            "thermal-vision": {},
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": true,
+            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
-            "incendiary-powder": true,
+            "incendiary-powder": {},
             "sharpshooter": {
               "amount": "4.51"
             }
@@ -4340,11 +4264,11 @@ list:
             "explosive-temper": {
               "amount": ""
             },
-            "blast-shield": true,
+            "blast-shield": {},
             "shaped-charge": {
               "amount": ""
             },
-            "big-boomer": true
+            "big-boomer": {}
           },
           {
             "lasers-edge": {
@@ -4387,18 +4311,18 @@ list:
         ],
         "items": [
           {
-            "chemical-rounds": true,
-            "high-caliber": true,
-            "hematic-focus": true,
-            "thermal-vision": true,
+            "chemical-rounds": {},
+            "high-caliber": {},
+            "hematic-focus": {},
+            "thermal-vision": {},
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": true,
+            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
-            "incendiary-powder": true
+            "incendiary-powder": {}
           },
           {
             "glass-cannon": {
@@ -4407,11 +4331,11 @@ list:
             "explosive-temper": {
               "amount": ""
             },
-            "blast-shield": true,
+            "blast-shield": {},
             "shaped-charge": {
               "amount": ""
             },
-            "big-boomer": true
+            "big-boomer": {}
           },
           {}
         ]
@@ -4450,18 +4374,18 @@ list:
         ],
         "items": [
           {
-            "chemical-rounds": true,
-            "high-caliber": true,
-            "hematic-focus": true,
-            "thermal-vision": true,
+            "chemical-rounds": {},
+            "high-caliber": {},
+            "hematic-focus": {},
+            "thermal-vision": {},
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": true,
+            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
-            "incendiary-powder": true,
+            "incendiary-powder": {},
             "sharpshooter": {
               "amount": "3.6"
             }
@@ -4473,18 +4397,18 @@ list:
             "explosive-temper": {
               "amount": ""
             },
-            "blast-shield": true,
+            "blast-shield": {},
             "shaped-charge": {
               "amount": ""
             },
-            "big-boomer": true
+            "big-boomer": {}
           },
           {
             "object-in-motion": {
               "amount": ""
             },
-            "impact-savant": true,
-            "kinetic-accelerators": true,
+            "impact-savant": {},
+            "kinetic-accelerators": {},
             "applied-force": {
               "amount": ""
             }
@@ -4525,18 +4449,18 @@ list:
         ],
         "items": [
           {
-            "chemical-rounds": true,
-            "high-caliber": true,
-            "hematic-focus": true,
-            "thermal-vision": true,
+            "chemical-rounds": {},
+            "high-caliber": {},
+            "hematic-focus": {},
+            "thermal-vision": {},
             "no-scope": {
               "amount": ""
             },
-            "serrated-steel": true,
+            "serrated-steel": {},
             "modified-ammunition": {
               "amount": ""
             },
-            "incendiary-powder": true,
+            "incendiary-powder": {},
             "sharpshooter": {
               "amount": "3.54"
             }
@@ -4548,18 +4472,18 @@ list:
             "explosive-temper": {
               "amount": ""
             },
-            "blast-shield": true,
+            "blast-shield": {},
             "shaped-charge": {
               "amount": ""
             },
-            "big-boomer": true
+            "big-boomer": {}
           },
           {
             "object-in-motion": {
               "amount": ""
             },
-            "impact-savant": true,
-            "kinetic-accelerators": true,
+            "impact-savant": {},
+            "kinetic-accelerators": {},
             "applied-force": {
               "amount": ""
             }
@@ -4600,19 +4524,18 @@ list:
         ],
         "items": [
           {
-            "over-shield": true,
-            "energy-amplifier": true
+            "over-shield": {},
+            "energy-amplifier": {}
           },
           {
-            "health-insurance": false,
-            "compounding-chemicals": true
+            "compounding-chemicals": {}
           },
           {
             "object-in-motion": {
               "amount": ""
             },
-            "impact-savant": true,
-            "kinetic-accelerators": true,
+            "impact-savant": {},
+            "kinetic-accelerators": {},
             "applied-force": {
               "amount": ""
             }
@@ -4653,13 +4576,13 @@ list:
         ],
         "items": [
           {
-            "barbed-precision": true,
-            "furious-demise": true,
-            "target-the-weak-base": true,
+            "barbed-precision": {},
+            "furious-demise": {},
+            "target-the-weak-base": {},
             "target-the-weak": {
               "amount": ""
             },
-            "lingering-curse": true,
+            "lingering-curse": {},
             "barbed-precision-on-crit": {
               "amount": "2.7"
             }
@@ -4668,14 +4591,13 @@ list:
             "soul-barbs": {
               "amount": ""
             },
-            "vital-persistence": true,
-            "death-perception": true
+            "vital-persistence": {},
+            "death-perception": {}
           },
           {
-            "fell-beacon": true,
-            "sand-sage-2x": false,
-            "sand-sage-3x": true,
-            "demonic-lore": true
+            "fell-beacon": {},
+            "sand-sage-3x": {},
+            "demonic-lore": {}
           }
         ]
       }
@@ -4727,18 +4649,18 @@ list:
             "soul-barbs": {
               "amount": ""
             },
-            "vital-persistence": true,
-            "death-perception": true
+            "vital-persistence": {},
+            "death-perception": {}
           },
           {
             "soul-eater": {
               "amount": ""
             },
-            "decimate-defenses-25x": true,
+            "decimate-defenses-25x": {},
             "cold-shoulder": {
               "amount": ""
             },
-            "reapers-onslaught": true
+            "reapers-onslaught": {}
           }
         ]
       }
@@ -4780,13 +4702,13 @@ list:
         ],
         "items": [
           {
-            "barbed-precision": true,
-            "furious-demise": true,
-            "target-the-weak-base": true,
+            "barbed-precision": {},
+            "furious-demise": {},
+            "target-the-weak-base": {},
             "target-the-weak": {
               "amount": ""
             },
-            "lingering-curse": true,
+            "lingering-curse": {},
             "barbed-precision-on-crit": {
               "amount": "2.74"
             }
@@ -4795,18 +4717,18 @@ list:
             "soul-barbs": {
               "amount": "85"
             },
-            "vital-persistence": true,
-            "death-perception": true
+            "vital-persistence": {},
+            "death-perception": {}
           },
           {
             "soul-eater": {
               "amount": ""
             },
-            "decimate-defenses-25x": true,
+            "decimate-defenses-25x": {},
             "cold-shoulder": {
               "amount": ""
             },
-            "reapers-onslaught": true
+            "reapers-onslaught": {}
           }
         ]
       }
@@ -4844,13 +4766,13 @@ list:
         ],
         "items": [
           {
-            "barbed-precision": true,
-            "furious-demise": true,
-            "target-the-weak-base": true,
+            "barbed-precision": {},
+            "furious-demise": {},
+            "target-the-weak-base": {},
             "target-the-weak": {
               "amount": ""
             },
-            "lingering-curse": true,
+            "lingering-curse": {},
             "barbed-precision-on-crit": {
               "amount": "3.39"
             }
@@ -4859,8 +4781,8 @@ list:
             "soul-barbs": {
               "amount": ""
             },
-            "vital-persistence": true,
-            "death-perception": true
+            "vital-persistence": {},
+            "death-perception": {}
           },
           {
             "wicked-corruption": {
@@ -4869,11 +4791,11 @@ list:
             "septic-corruption": {
               "amount": "11.6"
             },
-            "alchemic-vigor": true,
-            "implacable-foe": true,
-            "dark-gunslinger": true,
-            "cascading-corruption": true,
-            "doom-approaches": true
+            "alchemic-vigor": {},
+            "implacable-foe": {},
+            "dark-gunslinger": {},
+            "cascading-corruption": {},
+            "doom-approaches": {}
           }
         ]
       }
@@ -4911,13 +4833,13 @@ list:
         ],
         "items": [
           {
-            "barbed-precision": true,
-            "furious-demise": true,
-            "target-the-weak-base": true,
+            "barbed-precision": {},
+            "furious-demise": {},
+            "target-the-weak-base": {},
             "target-the-weak": {
               "amount": ""
             },
-            "lingering-curse": true,
+            "lingering-curse": {},
             "barbed-precision-on-crit": {
               "amount": "3.21"
             }
@@ -4926,8 +4848,8 @@ list:
             "soul-barbs": {
               "amount": ""
             },
-            "vital-persistence": true,
-            "death-perception": true
+            "vital-persistence": {},
+            "death-perception": {}
           },
           {
             "wicked-corruption": {
@@ -4936,12 +4858,12 @@ list:
             "septic-corruption": {
               "amount": "11.6"
             },
-            "alchemic-vigor": true,
-            "implacable-foe": true,
-            "dark-gunslinger": true,
-            "cascading-corruption": true,
-            "doom-approaches": true,
-            "twisted-medicine": true
+            "alchemic-vigor": {},
+            "implacable-foe": {},
+            "dark-gunslinger": {},
+            "cascading-corruption": {},
+            "doom-approaches": {},
+            "twisted-medicine": {}
           }
         ]
       }
@@ -4979,35 +4901,33 @@ list:
         ],
         "items": [
           {
-            "dagger-training-base": true,
-            "dagger-training-dagger": false,
-            "deadly-ambition": true,
-            "revealed-training-base": true,
-            "revealed-training-revealed": false,
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
             "exposed-weakness": {
               "amount": ""
             },
-            "potent-poison": true,
+            "potent-poison": {},
             "executioner": {
               "amount": ""
             }
           },
           {
-            "preparedness": true,
+            "preparedness": {},
             "lead-attacks": {
               "amount": ""
             },
-            "deadly-ambush": true
+            "deadly-ambush": {}
           },
           {
-            "silent-scope-base": true,
-            "silent-scope-rifle": true,
-            "premeditation-base": true,
+            "silent-scope-base": {},
+            "silent-scope-rifle": {},
+            "premeditation-base": {},
             "premeditation": {
               "amount": ""
             },
-            "iron-sight": true,
-            "be-quick-or-be-killed": true
+            "iron-sight": {},
+            "be-quick-or-be-killed": {}
           }
         ]
       }
@@ -5045,24 +4965,22 @@ list:
         ],
         "items": [
           {
-            "dagger-training-base": true,
-            "dagger-training-dagger": false,
-            "deadly-ambition": true,
-            "revealed-training-base": true,
-            "revealed-training-revealed": false,
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
             "exposed-weakness": {
               "amount": ""
             },
-            "potent-poison": true,
+            "potent-poison": {},
             "executioner": {
               "amount": ""
             }
           },
           {
-            "keen-observer": true,
-            "twin-fangs-scholar": true,
-            "twin-fangs-flank": true,
-            "practiced-tolerance": true,
+            "keen-observer": {},
+            "twin-fangs-scholar": {},
+            "twin-fangs-flank": {},
+            "practiced-tolerance": {},
             "ferocious-strikes": {
               "amount": ""
             },
@@ -5071,23 +4989,23 @@ list:
             }
           },
           {
-            "marauders-resilience": true,
-            "weakening-strikes": true,
-            "staff-master-base": true,
-            "staff-master-staff": true,
+            "marauders-resilience": {},
+            "weakening-strikes": {},
+            "staff-master-base": {},
+            "staff-master-staff": {},
             "havoc-specialist": {
               "amount": ""
             },
-            "bounding-dodger": true,
-            "lotus-training": true
+            "bounding-dodger": {},
+            "lotus-training": {}
           }
         ]
       }
     skills: |-
       {
         "skills": {
-          "signet-of-agility": true,
-          "assassins-signet": true
+          "signet-of-agility": {},
+          "assassins-signet": {}
         }
       }
 
@@ -5120,43 +5038,41 @@ list:
         ],
         "items": [
           {
-            "dagger-training-base": true,
-            "dagger-training-dagger": false,
-            "deadly-ambition": true,
-            "revealed-training-base": true,
-            "revealed-training-revealed": false,
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
             "exposed-weakness": {
               "amount": ""
             },
-            "potent-poison": true,
+            "potent-poison": {},
             "executioner": {
               "amount": ""
             }
           },
           {
-            "preparedness": true,
+            "preparedness": {},
             "lead-attacks": {
               "amount": ""
             },
-            "deadly-ambush": true
+            "deadly-ambush": {}
           },
           {
-            "marauders-resilience": true,
-            "weakening-strikes": true,
-            "staff-master-base": true,
-            "staff-master-staff": true,
+            "marauders-resilience": {},
+            "weakening-strikes": {},
+            "staff-master-base": {},
+            "staff-master-staff": {},
             "havoc-specialist": {
               "amount": ""
             },
-            "bounding-dodger": true,
-            "lotus-training": true
+            "bounding-dodger": {},
+            "lotus-training": {}
           }
         ]
       }
     skills: |-
       {
         "skills": {
-          "signet-of-agility": true
+          "signet-of-agility": {}
         }
       }
 
@@ -5189,36 +5105,34 @@ list:
         ],
         "items": [
           {
-            "dagger-training-base": true,
-            "dagger-training-dagger": false,
-            "deadly-ambition": true,
-            "revealed-training-base": true,
-            "revealed-training-revealed": false,
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
             "exposed-weakness": {
               "amount": ""
             },
-            "potent-poison": true,
+            "potent-poison": {},
             "executioner": {
               "amount": ""
             }
           },
           {
-            "preparedness": true,
+            "preparedness": {},
             "lead-attacks": {
               "amount": "11.5"
             },
-            "deadly-ambush": true
+            "deadly-ambush": {}
           },
           {
-            "marauders-resilience": true,
-            "weakening-strikes": true,
-            "staff-master-base": true,
-            "staff-master-staff": true,
+            "marauders-resilience": {},
+            "weakening-strikes": {},
+            "staff-master-base": {},
+            "staff-master-staff": {},
             "havoc-specialist": {
               "amount": ""
             },
-            "bounding-dodger": true,
-            "lotus-training": true
+            "bounding-dodger": {},
+            "lotus-training": {}
           }
         ]
       }
@@ -5256,36 +5170,34 @@ list:
         ],
         "items": [
           {
-            "dagger-training-base": true,
-            "dagger-training-dagger": false,
-            "deadly-ambition": true,
-            "revealed-training-base": true,
-            "revealed-training-revealed": false,
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
             "exposed-weakness": {
               "amount": ""
             },
-            "potent-poison": true,
+            "potent-poison": {},
             "executioner": {
               "amount": ""
             }
           },
           {
-            "preparedness": true,
+            "preparedness": {},
             "lead-attacks": {
               "amount": ""
             },
-            "deadly-ambush": true
+            "deadly-ambush": {}
           },
           {
-            "marauders-resilience": true,
-            "weakening-strikes": true,
-            "staff-master-base": true,
-            "staff-master-staff": true,
+            "marauders-resilience": {},
+            "weakening-strikes": {},
+            "staff-master-base": {},
+            "staff-master-staff": {},
             "havoc-specialist": {
               "amount": ""
             },
-            "bounding-dodger": true,
-            "lotus-training": true
+            "bounding-dodger": {},
+            "lotus-training": {}
           }
         ]
       }
@@ -5323,26 +5235,25 @@ list:
         ],
         "items": [
           {
-            "dagger-training-base": true,
-            "dagger-training-dagger": false,
-            "deadly-ambition": true,
-            "revealed-training-base": true,
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
             "revealed-training-revealed": {
               "amount": "61"
             },
             "exposed-weakness": {
               "amount": ""
             },
-            "potent-poison": true,
+            "potent-poison": {},
             "executioner": {
               "amount": ""
             }
           },
           {
-            "keen-observer": true,
-            "twin-fangs-scholar": true,
-            "twin-fangs-flank": true,
-            "practiced-tolerance": true,
+            "keen-observer": {},
+            "twin-fangs-scholar": {},
+            "twin-fangs-flank": {},
+            "practiced-tolerance": {},
             "ferocious-strikes": {
               "amount": ""
             },
@@ -5351,21 +5262,21 @@ list:
             }
           },
           {
-            "silent-scope-base": true,
-            "silent-scope-rifle": true,
-            "premeditation-base": true,
+            "silent-scope-base": {},
+            "silent-scope-rifle": {},
+            "premeditation-base": {},
             "premeditation": {
               "amount": ""
             },
-            "iron-sight": true,
-            "be-quick-or-be-killed": true
+            "iron-sight": {},
+            "be-quick-or-be-killed": {}
           }
         ]
       }
     skills: |-
       {
         "skills": {
-          "assassins-signet": true
+          "assassins-signet": {}
         }
       }
 
@@ -5398,34 +5309,32 @@ list:
         ],
         "items": [
           {
-            "dagger-training-base": true,
-            "dagger-training-dagger": false,
-            "deadly-ambition": true,
-            "revealed-training-base": true,
-            "revealed-training-revealed": false,
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
             "exposed-weakness": {
               "amount": ""
             },
-            "potent-poison": true,
+            "potent-poison": {},
             "executioner": {
               "amount": ""
             }
           },
           {
-            "preparedness": true,
+            "preparedness": {},
             "lead-attacks": {
               "amount": "13.6"
             },
-            "deadly-ambush": true
+            "deadly-ambush": {}
           },
           {
-            "second-opinion-base": true,
+            "second-opinion-base": {},
             "second-opinion-scepter": {
               "amount": ""
             },
-            "dark-sentry": true,
-            "larcenous-torment": true,
-            "strength-of-shadows-base": true,
+            "dark-sentry": {},
+            "larcenous-torment": {},
+            "strength-of-shadows-base": {},
             "strength-of-shadows-condis": {
               "amount": ""
             }
@@ -5466,34 +5375,32 @@ list:
         ],
         "items": [
           {
-            "dagger-training-base": true,
-            "dagger-training-dagger": false,
-            "deadly-ambition": true,
-            "revealed-training-base": true,
-            "revealed-training-revealed": false,
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
             "exposed-weakness": {
               "amount": ""
             },
-            "potent-poison": true,
+            "potent-poison": {},
             "executioner": {
               "amount": ""
             }
           },
           {
-            "preparedness": true,
+            "preparedness": {},
             "lead-attacks": {
               "amount": "13.6"
             },
-            "deadly-ambush": true
+            "deadly-ambush": {}
           },
           {
-            "second-opinion-base": true,
+            "second-opinion-base": {},
             "second-opinion-scepter": {
               "amount": ""
             },
-            "dark-sentry": true,
-            "larcenous-torment": true,
-            "strength-of-shadows-base": true,
+            "dark-sentry": {},
+            "larcenous-torment": {},
+            "strength-of-shadows-base": {},
             "strength-of-shadows-condis": {
               "amount": ""
             }
@@ -5534,34 +5441,32 @@ list:
         ],
         "items": [
           {
-            "dagger-training-base": true,
-            "dagger-training-dagger": false,
-            "deadly-ambition": true,
-            "revealed-training-base": true,
-            "revealed-training-revealed": false,
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
             "exposed-weakness": {
               "amount": ""
             },
-            "potent-poison": true,
+            "potent-poison": {},
             "executioner": {
               "amount": ""
             }
           },
           {
-            "preparedness": true,
+            "preparedness": {},
             "lead-attacks": {
               "amount": ""
             },
-            "deadly-ambush": true
+            "deadly-ambush": {}
           },
           {
-            "second-opinion-base": true,
+            "second-opinion-base": {},
             "second-opinion-scepter": {
               "amount": ""
             },
-            "dark-sentry": true,
-            "larcenous-torment": true,
-            "strength-of-shadows-base": true,
+            "dark-sentry": {},
+            "larcenous-torment": {},
+            "strength-of-shadows-base": {},
             "strength-of-shadows-condis": {
               "amount": ""
             }

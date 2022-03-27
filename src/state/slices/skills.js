@@ -13,7 +13,7 @@ export const skillsSlice = createSlice({
 
       if (enabled) {
         const itemData = allClassModifiersById[id];
-        state.skills[id] = itemData?.amountData ? { amount: '' } : true;
+        state.skills[id] = itemData?.amountData ? { amount: '' } : {};
       } else {
         delete state.skills[id];
       }
