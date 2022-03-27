@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { all, put, select, take, takeEvery, takeLatest } from 'redux-saga/effects';
+import { put, select, take, takeEvery, takeLatest } from 'redux-saga/effects';
 import { calculate } from '../optimizer/optimizer';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../optimizer/status';
 import {
@@ -65,11 +65,14 @@ function* runCalc() {
 
       yield delay(0);
 
+      // check if calculation stopped
       const status = yield select(getControl('status'));
       if (status !== RUNNING) {
         elapsed += performance.now() - timer;
         console.log(`Stopped at ${currentPercent}% in ${elapsed} ms`);
 
+        // block until resume button pressed
+        // (takeLatest cancels any previous runCalc() so this is not a memory leak)
         yield take(SagaTypes.Resume);
 
         timer = performance.now();
@@ -118,11 +121,7 @@ function* stopCalc() {
   yield put(changeControl({ key: 'status', value: STOPPED }));
 }
 
-function* watchStart() {
+export default function* rootSaga() {
   yield takeLatest(SagaTypes.Start, runCalc);
   yield takeEvery(SagaTypes.Stop, stopCalc);
-}
-
-export default function* rootSaga() {
-  yield all([watchStart()]);
 }
