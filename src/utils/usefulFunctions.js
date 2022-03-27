@@ -1,5 +1,12 @@
-import { firstUppercase } from '@discretize/react-discretize-components';
+// import { firstUppercase } from '@discretize/react-discretize-components';
 import { Classes, Defense } from './gw2-data';
+
+function firstUppercase(text) {
+  if (typeof text === 'undefined' || text === null || text === '') return '';
+
+  const toUpper = (str) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  return text.split(' ').map(toUpper).join(' ').trim();
+}
 
 /**
  * Parses a string to a number, treating non-parsable strings like empty inputs but indicating an

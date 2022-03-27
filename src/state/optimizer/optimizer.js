@@ -1,3 +1,5 @@
+/* eslint-disable no-await-in-loop */
+import * as Comlink from 'comlink';
 import {
   mapEntries,
   mapValues,
@@ -23,7 +25,7 @@ const isArrayDifferent = (a, b) => {
 // todo: convert this file to a web worker handler
 
 // eslint-disable-next-line import/prefer-default-export
-export function* calculate(reduxState) {
+export async function* calculate(reduxState) {
   /**
    * set up input
    */
@@ -159,7 +161,12 @@ export function* calculate(reduxState) {
     console.log('Input option:', combination);
 
     combination.core = new OptimizerCore(settings, minimalSettings);
-    combination.calculation = combination.core.calculate();
+    const link = Comlink.wrap(new Worker(new URL('./worker', import.meta.url)));
+    await link.setup(settings, minimalSettings);
+
+    combination.link = link;
+
+    // combination.promise = combination.link.next();
   }
 
   console.groupEnd();
@@ -182,8 +189,12 @@ export function* calculate(reduxState) {
 
     if (combination.done) continue;
 
+    // const { value: { isChanged, calculationRuns, newList } = {}, done } = await combination.promise;
+
+    // combination.promise = combination.link.next();
+
     const { value: { isChanged, calculationRuns, newList } = {}, done } =
-      combination.calculation.next();
+      await combination.link.next();
 
     if (done) {
       combination.done = true;
