@@ -10,10 +10,12 @@ import {
   Radio,
   RadioGroup,
 } from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import { getProfession } from '../../../state/slices/controlsSlice';
 import { changePriority, getPriority } from '../../../state/slices/priorities';
 import { parsePriority } from '../../../utils/usefulFunctions';
 import AffixesSelect from '../../baseComponents/AffixesSelect';
@@ -50,8 +52,12 @@ const Priorities = () => {
   const minHealth = useSelector(getPriority('minHealth'));
   const minCritChance = useSelector(getPriority('minCritChance'));
   const affixes = useSelector(getPriority('affixes'));
+  const profession = useSelector(getProfession);
 
   const customSelected = affixes.includes('Custom');
+
+  const minCritChanceValue = parsePriority(minCritChance).value;
+  const showWarning = profession !== 'Warrior' && minCritChanceValue && minCritChanceValue >= 99.9;
 
   const handleChange = (event) => {
     dispatch(changePriority({ key: event.target.name, value: event.target.value }));
@@ -232,6 +238,18 @@ const Priorities = () => {
           text={t('Only show results that fulfill a certain amount of Critical Chance.')}
         />
       </Grid>
+
+      {showWarning ? (
+        <Grid item xs={12}>
+          <MuiAlert elevation={6} variant="filled" severity="warning">
+            <Trans>
+              Forcing 100% critical chance is not recommended in most cases. If capping critical
+              chance is optimal, the optimizer will do so automatically, and if it is not, forcing
+              it will lead to a worse result!
+            </Trans>
+          </MuiAlert>
+        </Grid>
+      ) : null}
 
       {customSelected ? (
         <Grid item xs={12}>
