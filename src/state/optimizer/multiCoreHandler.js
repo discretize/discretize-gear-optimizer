@@ -22,104 +22,6 @@ const isArrayDifferent = (a, b) => {
 
 // todo: convert this file to a web worker handler
 
-// todo: combine this with setup
-function createInput(
-  state,
-  specialization,
-  appliedModifiers,
-  cachedFormState,
-  customAffixData,
-  shouldDisplayExtras,
-  extrasCombination,
-) {
-  const {
-    control: { profession },
-    form: {
-      infusions: {
-        primaryInfusion,
-        secondaryInfusion,
-        maxInfusions: maxInfusionsText,
-        primaryMaxInfusions: primaryMaxInfusionsText,
-        secondaryMaxInfusions: secondaryMaxInfusionsText,
-      },
-      forcedSlots: { slots },
-      priorities: {
-        optimizeFor,
-        weaponType,
-        minBoonDuration: minBoonDurationText,
-        minHealingPower: minHealingPowerText,
-        minToughness: minToughnessText,
-        maxToughness: maxToughnessText,
-        minHealth: minHealthText,
-        minCritChance: minCritChanceText,
-        affixes,
-      },
-      distribution: { version, values1, values2 },
-      boss: { attackRate: attackRateText, movementUptime: movementUptimeText },
-    },
-  } = state;
-
-  const maxInfusions = parseInfusionCount(maxInfusionsText).value;
-  const primaryMaxInfusions = parseInfusionCount(primaryMaxInfusionsText).value;
-  const secondaryMaxInfusions = parseInfusionCount(secondaryMaxInfusionsText).value;
-
-  const minBoonDuration = parsePriority(minBoonDurationText).value;
-  const minHealingPower = parsePriority(minHealingPowerText).value;
-  const minToughness = parsePriority(minToughnessText).value;
-  const maxToughness = parsePriority(maxToughnessText).value;
-  const minHealth = parsePriority(minHealthText).value;
-  const minCritChance = parsePriority(minCritChanceText).value;
-
-  const attackRate = parseBoss(attackRateText).value ?? 0;
-  const movementUptime = (parseBoss(movementUptimeText).value ?? 0) / 100;
-
-  const input = {
-    profession,
-    weaponType,
-    affixes: affixes.map((affix) =>
-      affix.toLowerCase().replace(/^\w/, (char) => char.toUpperCase()),
-    ),
-    forcedAffixes: slots,
-    rankby: optimizeFor,
-    minBoonDuration,
-    minHealingPower,
-    minToughness,
-    maxToughness,
-    minHealth,
-    minCritChance,
-    maxResults: 50, // TODO MAX RESULTS
-    maxInfusions,
-    primaryInfusion,
-    secondaryInfusion,
-    primaryMaxInfusions,
-    secondaryMaxInfusions,
-    distributionVersion: version,
-    percentDistribution: values1,
-    distribution: values2,
-    attackRate,
-    movementUptime,
-  };
-  input.specialization = specialization;
-  input.appliedModifiers = appliedModifiers;
-  input.cachedFormState = cachedFormState;
-  input.customAffixData = customAffixData;
-  input.shouldDisplayExtras = shouldDisplayExtras;
-  input.extrasCombination = extrasCombination;
-
-  // temp: convert "poisoned" to "poison"
-  const convertPoison = (distribution) =>
-    mapEntries(distribution, ([key, value]) => [key === 'Poisoned' ? 'Poison' : key, value]);
-
-  if ({}.hasOwnProperty.call(input.distribution, 'Poisoned')) {
-    input.distribution = convertPoison(input.distribution);
-  }
-  if ({}.hasOwnProperty.call(input.percentDistribution, 'Poisoned')) {
-    input.percentDistribution = convertPoison(input.percentDistribution);
-  }
-
-  return input;
-}
-
 // eslint-disable-next-line import/prefer-default-export
 export function* calculate(reduxState) {
   /**
@@ -165,25 +67,99 @@ export function* calculate(reduxState) {
       buffs: state.form.buffs, // buffs are also needed to share a build and display the assumed buffs for the result
     };
 
-    combination.input = createInput(
-      state,
-      specialization,
-      appliedModifiers,
-      cachedFormState,
-      customAffixData,
-      shouldDisplayExtras,
-      extrasCombination,
-    );
+    const {
+      control: { profession },
+      form: {
+        infusions: {
+          primaryInfusion,
+          secondaryInfusion,
+          maxInfusions: maxInfusionsText,
+          primaryMaxInfusions: primaryMaxInfusionsText,
+          secondaryMaxInfusions: secondaryMaxInfusionsText,
+        },
+        forcedSlots: { slots },
+        priorities: {
+          optimizeFor,
+          weaponType,
+          minBoonDuration: minBoonDurationText,
+          minHealingPower: minHealingPowerText,
+          minToughness: minToughnessText,
+          maxToughness: maxToughnessText,
+          minHealth: minHealthText,
+          minCritChance: minCritChanceText,
+          affixes,
+        },
+        distribution: { version, values1, values2 },
+        boss: { attackRate: attackRateText, movementUptime: movementUptimeText },
+      },
+    } = state;
+
+    const maxInfusions = parseInfusionCount(maxInfusionsText).value;
+    const primaryMaxInfusions = parseInfusionCount(primaryMaxInfusionsText).value;
+    const secondaryMaxInfusions = parseInfusionCount(secondaryMaxInfusionsText).value;
+
+    const minBoonDuration = parsePriority(minBoonDurationText).value;
+    const minHealingPower = parsePriority(minHealingPowerText).value;
+    const minToughness = parsePriority(minToughnessText).value;
+    const maxToughness = parsePriority(maxToughnessText).value;
+    const minHealth = parsePriority(minHealthText).value;
+    const minCritChance = parsePriority(minCritChanceText).value;
+
+    const attackRate = parseBoss(attackRateText).value ?? 0;
+    const movementUptime = (parseBoss(movementUptimeText).value ?? 0) / 100;
+
+    const input = {
+      profession,
+      weaponType,
+      affixes: affixes.map((affix) =>
+        affix.toLowerCase().replace(/^\w/, (char) => char.toUpperCase()),
+      ),
+      forcedAffixes: slots,
+      rankby: optimizeFor,
+      minBoonDuration,
+      minHealingPower,
+      minToughness,
+      maxToughness,
+      minHealth,
+      minCritChance,
+      maxResults: 50, // TODO MAX RESULTS
+      maxInfusions,
+      primaryInfusion,
+      secondaryInfusion,
+      primaryMaxInfusions,
+      secondaryMaxInfusions,
+      distributionVersion: version,
+      percentDistribution: values1,
+      distribution: values2,
+      attackRate,
+      movementUptime,
+    };
+    input.specialization = specialization;
+    input.appliedModifiers = appliedModifiers;
+    input.cachedFormState = cachedFormState;
+    input.customAffixData = customAffixData;
+    input.shouldDisplayExtras = shouldDisplayExtras;
+    input.extrasCombination = extrasCombination;
+
+    // temp: convert "poisoned" to "poison"
+    const convertPoison = (distribution) =>
+      mapEntries(distribution, ([key, value]) => [key === 'Poisoned' ? 'Poison' : key, value]);
+
+    if ({}.hasOwnProperty.call(input.distribution, 'Poisoned')) {
+      input.distribution = convertPoison(input.distribution);
+    }
+    if ({}.hasOwnProperty.call(input.percentDistribution, 'Poisoned')) {
+      input.percentDistribution = convertPoison(input.percentDistribution);
+    }
+
+    combination.input = input;
+
     console.log('Input option:', combination);
   }
-
-  console.groupEnd();
 
   /**
    * set up multiple cores
    */
-
-  console.groupCollapsed('More debug Info:');
 
   for (const combination of combinations) {
     combination.core = createOptimizerCore(combination.input);
