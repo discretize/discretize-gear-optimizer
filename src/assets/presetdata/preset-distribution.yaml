@@ -358,7 +358,7 @@ list:
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 2301, "Burning": 4.21, "Bleeding": 14.13, "Poisoned": 2.23, "Torment": 16.34, "Confusion": 0 }
+        "values2": { "Power": 2092, "Burning": 4.21, "Bleeding": 14.13, "Poisoned": 2.23, "Torment": 16.34, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=PvE-x43QrHo
@@ -368,7 +368,7 @@ list:
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 2301, "Burning": 4.21, "Bleeding": 10.13, "Poisoned": 2.23, "Torment": 16.34, "Confusion": 0 }
+        "values2": { "Power": 2092, "Burning": 4.21, "Bleeding": 10.13, "Poisoned": 2.23, "Torment": 16.34, "Confusion": 0 }
       }
 
   # add razorclaw casts every 20sec to simulate allies
