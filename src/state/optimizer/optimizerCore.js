@@ -883,6 +883,7 @@ export function inputToSettings(input) {
   const initialMultipliers = {
     'Strike Damage': 1,
     'Condition Damage': 1,
+    'Lifesteal Damage': 1,
     'Damage Taken': 1,
     'Critical Damage': 1,
     'Bleeding Damage': 1,
@@ -974,6 +975,7 @@ export function inputToSettings(input) {
           case 'All Damage':
             dmgBuff('Strike Damage', scaledAmount, addOrMult);
             dmgBuff('Condition Damage', scaledAmount, addOrMult);
+            dmgBuff('Lifesteal Damage', scaledAmount, addOrMult);
             break;
           case 'Damage Reduction':
             const negativeAmount = -scaledAmount;
