@@ -95,8 +95,6 @@ const clamp = (input, min, max) => {
  * ------------------------------------------------------------------------
  */
 
-let uniqueIDCounter = 0;
-
 export class OptimizerCore {
   settings;
   minimalSettings;
@@ -105,6 +103,7 @@ export class OptimizerCore {
   worstScore;
   list = [];
   isChanged = true;
+  uniqueIDCounter = 0;
   randomId = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
 
   constructor(settings, minimalSettings) {
@@ -385,7 +384,7 @@ export class OptimizerCore {
 
     this.updateAttributes(character);
     this.calcResults(character);
-    character.id = `${uniqueIDCounter++} (${this.randomId})`;
+    character.id = `${this.uniqueIDCounter++} (${this.randomId})`;
 
     if (this.list.length === 0) {
       this.list.push(character);
