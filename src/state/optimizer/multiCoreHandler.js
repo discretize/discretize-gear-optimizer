@@ -12,7 +12,7 @@ import { getInfusionsModifiers } from '../slices/infusions';
 import { getCustomAffixData } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
-import { characterLT, createOptimizerCore } from './optimizerCore';
+import { characterLT, inputToSettings, OptimizerCore } from './optimizerCore';
 
 // eslint-disable-next-line id-length
 const isArrayDifferent = (a, b) => {
@@ -154,15 +154,11 @@ export function* calculate(reduxState) {
 
     combination.input = input;
 
+    const [settings, minimalSettings] = inputToSettings(input);
+
     console.log('Input option:', combination);
-  }
 
-  /**
-   * set up multiple cores
-   */
-
-  for (const combination of combinations) {
-    combination.core = createOptimizerCore(combination.input);
+    combination.core = new OptimizerCore(settings, minimalSettings);
     combination.calculation = combination.core.calculate();
   }
 

@@ -97,7 +97,7 @@ const clamp = (input, min, max) => {
 
 let uniqueIDCounter = 0;
 
-class OptimizerCore {
+export class OptimizerCore {
   settings;
   minimalSettings;
   applyInfusionsFunction;
@@ -819,7 +819,7 @@ class OptimizerCore {
  * @param {?number} input.attackRate - boss attack rate (for confusion)
  * @param {?number} input.movementUptime - boss movement uptime (for torment)
  */
-export function createOptimizerCore(input) {
+export function inputToSettings(input) {
   /* eslint-disable prefer-const */
   let {
     primaryInfusion: primaryInfusionInput,
@@ -1299,7 +1299,7 @@ export function createOptimizerCore(input) {
     extrasCombination,
   };
 
-  return new OptimizerCore(settings, minimalSettings);
+  return [settings, minimalSettings];
 }
 
 // returns a positive value if B is better than A
