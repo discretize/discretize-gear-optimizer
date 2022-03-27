@@ -95,9 +95,7 @@ const clamp = (input, min, max) => {
  * ------------------------------------------------------------------------
  */
 
-let uniqueIDCounter = 0;
-
-class OptimizerCore {
+export class OptimizerCore {
   settings;
   minimalSettings;
   applyInfusionsFunction;
@@ -105,6 +103,7 @@ class OptimizerCore {
   worstScore;
   list = [];
   isChanged = true;
+  uniqueIDCounter = 0;
   randomId = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
 
   constructor(settings, minimalSettings) {
@@ -227,10 +226,10 @@ class OptimizerCore {
       calculationStatsQueue.push(gearStats);
     }
 
-    yield {
+    return {
       isChanged: this.isChanged,
       calculationRuns,
-      newList: this.list.slice(),
+      newList: this.isChanged ? this.list.slice() : null,
     };
   }
 
@@ -385,7 +384,7 @@ class OptimizerCore {
 
     this.updateAttributes(character);
     this.calcResults(character);
-    character.id = `${uniqueIDCounter++} (${this.randomId})`;
+    character.id = `${this.uniqueIDCounter++} (${this.randomId})`;
 
     if (this.list.length === 0) {
       this.list.push(character);
@@ -426,12 +425,13 @@ class OptimizerCore {
    * calculated stats and damage/healing/survivability scores.
    *
    * @param {object} character
+   * @param {boolean} [noRounding] - does not round conversions if true
    */
-  updateAttributes(character) {
+  updateAttributes(character, noRounding = false) {
     const { damageMultiplier } = this.settings.modifiers;
     character.valid = true;
 
-    this.calcStats(character);
+    this.calcStats(character, noRounding);
 
     const powerDamageScore = this.calcPower(character, damageMultiplier);
     const condiDamageScore = this.calcCondi(character, damageMultiplier, Attributes.CONDITION);
@@ -497,10 +497,10 @@ class OptimizerCore {
     return true;
   }
 
-  calcStats(character) {
+  calcStats(character, noRounding = false) {
     const { settings } = this;
 
-    const round = settings.noRounding ? (val) => val : roundEven;
+    const round = noRounding ? (val) => val : roundEven;
 
     character.attributes = { ...character.baseAttributes };
     const { attributes, baseAttributes } = character;
@@ -686,11 +686,7 @@ class OptimizerCore {
 
     // baseline for comparing adding/subtracting +5 infusions
     const baseline = this.clone(character);
-    const noRoundingCore = new OptimizerCore(
-      { ...this.settings, noRounding: true },
-      this.minimalSettings,
-    );
-    noRoundingCore.updateAttributes(baseline);
+    this.updateAttributes(baseline, true);
 
     // effective gain from adding +5 infusions
     results.effectivePositiveValues = {};
@@ -698,7 +694,7 @@ class OptimizerCore {
       const temp = this.clone(character);
       temp.baseAttributes[attribute] += 5;
 
-      noRoundingCore.updateAttributes(temp);
+      this.updateAttributes(temp, true);
       results.effectivePositiveValues[attribute] = Number(
         (temp.attributes['Damage'] - baseline.attributes['Damage']).toFixed(5),
       ).toLocaleString('en-US');
@@ -710,7 +706,7 @@ class OptimizerCore {
       const temp = this.clone(character);
       temp.baseAttributes[attribute] = Math.max(temp.baseAttributes[attribute] - 5, 0);
 
-      noRoundingCore.updateAttributes(temp);
+      this.updateAttributes(temp, true);
       results.effectiveNegativeValues[attribute] = Number(
         (temp.attributes['Damage'] - baseline.attributes['Damage']).toFixed(5),
       ).toLocaleString('en-US');
@@ -822,7 +818,7 @@ class OptimizerCore {
  * @param {?number} input.attackRate - boss attack rate (for confusion)
  * @param {?number} input.movementUptime - boss movement uptime (for torment)
  */
-export function createOptimizerCore(input) {
+export function inputToSettings(input) {
   /* eslint-disable prefer-const */
   let {
     primaryInfusion: primaryInfusionInput,
@@ -1302,7 +1298,7 @@ export function createOptimizerCore(input) {
     extrasCombination,
   };
 
-  return new OptimizerCore(settings, minimalSettings);
+  return [settings, minimalSettings];
 }
 
 // returns a positive value if B is better than A

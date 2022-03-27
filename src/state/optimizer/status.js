@@ -1,5 +1,5 @@
 export const WAITING = 'WAITING';
 export const RUNNING = 'RUNNING';
-export const ABORTED = 'ABORTED';
+export const STOPPED = 'STOPPED';
 export const SUCCESS = 'SUCCESS';
 export const ERROR = 'ERROR';

@@ -1,6 +1,7 @@
 import { firstUppercase } from '@discretize/react-discretize-components';
 import Cancel from '@mui/icons-material/Cancel';
 import DoneAllIcon from '@mui/icons-material/DoneAll';
+import EqualizerRoundedIcon from '@mui/icons-material/EqualizerRounded';
 import ErrorIcon from '@mui/icons-material/Error';
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import { Box, Button, Chip, Typography } from '@mui/material';
@@ -9,7 +10,8 @@ import { Trans } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { ABORTED, ERROR, RUNNING, SUCCESS, WAITING } from '../../../state/optimizer/status';
+import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../../../state/optimizer/status';
+import SagaTypes from '../../../state/sagas/sagaTypes';
 import {
   changeControl,
   changeError,
@@ -56,23 +58,9 @@ const ControlsBox = ({ profession }) => {
       console.log('calculate');
 
       dispatch(changeError(''));
-      dispatch(changeControl({ key: 'status', value: RUNNING }));
-      dispatch({
-        type: 'START',
-      });
+      dispatch({ type: SagaTypes.Start });
     },
     [dispatch, affixes],
-  );
-
-  const onCancelCalculate = React.useCallback(
-    (e) => {
-      dispatch({
-        type: 'CANCEL',
-      });
-      dispatch(changeControl({ key: 'status', value: ABORTED }));
-      console.log('cancel button pressed');
-    },
-    [dispatch],
   );
 
   let icon;
@@ -104,25 +92,44 @@ const ControlsBox = ({ profession }) => {
             classes={{ label: classes.label }}
             disabled={status === RUNNING || profession === ''}
           >
-            <ProgressIcon className={classNames(classes.icon)} />
+            {status === RUNNING ? (
+              <ProgressIcon className={classes.icon} />
+            ) : (
+              <EqualizerRoundedIcon className={classes.icon} />
+            )}
             <Typography>
               <Trans>Calculate</Trans>
             </Typography>
           </Button>
         </Box>
-        <Box flexGrow={1}>
+        <Box>
           <Button
             variant="outlined"
             color="primary"
             className={classes.button}
-            onClick={onCancelCalculate}
+            onClick={(e) => dispatch({ type: SagaTypes.Stop })}
             disabled={status !== RUNNING}
           >
             <Cancel className={classNames(classes.icon)} />
             <Typography style={{ marginLeft: 8 }}>
-              <Trans>Abort</Trans>
+              <Trans>Stop</Trans>
             </Typography>
           </Button>
+        </Box>
+        <Box flexGrow={1}>
+          {status === STOPPED ? (
+            <Button
+              variant="outlined"
+              color="primary"
+              className={classes.button}
+              onClick={(e) => dispatch({ type: SagaTypes.Resume })}
+            >
+              <ProgressIcon className={classes.icon} />
+              <Typography style={{ marginLeft: 8 }}>
+                <Trans>Resume</Trans>
+              </Typography>
+            </Button>
+          ) : null}
         </Box>
 
         <Box alignSelf="center" display="flex" m={1} maxWidth={300}>
