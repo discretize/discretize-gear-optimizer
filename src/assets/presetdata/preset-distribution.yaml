@@ -246,7 +246,7 @@ list:
   # small hitbox, ****superior elements****, raging storm
   # https://www.youtube.com/watch?v=x2sRASCvRMY
   # https://dps.report/zjWV-20210518-004634_golem
-  # power: 34138 (subtracted asc food), burn: 2773, total: 36911
+  # power: 34138 (subtracted 149 dps from lifesteal food), burn: 2773, total: 36911
   # scholar rune, not flame legion
   - name: Power Weaver (BTTH, small)
     profession: Weaver
