@@ -8,21 +8,23 @@ export const extrasTypes = ['Sigil1', 'Sigil2', 'Runes', 'Nourishment', 'Enhance
 export const extrasSlice = createSlice({
   name: 'extras',
   initialState: {
-    Sigil1: {},
-    Sigil2: {},
-    Runes: {},
-    Nourishment: {},
-    Enhancement: {},
+    extras: {
+      Sigil1: {},
+      Sigil2: {},
+      Runes: {},
+      Nourishment: {},
+      Enhancement: {},
+    },
   },
   reducers: {
     changeExtraIds: (state, action) => {
       const { type, ids } = action.payload;
-      const previousState = original(state[type]);
-      state[type] = Object.fromEntries(ids.map((key) => [key, previousState[key] || {}]));
+      const previousState = original(state.extras[type]);
+      state.extras[type] = Object.fromEntries(ids.map((key) => [key, previousState[key] || {}]));
     },
     changeExtraAmount: (state, action) => {
       const { type, id, amount } = action.payload;
-      state[type][id].amount = amount;
+      state.extras[type][id].amount = amount;
     },
     changeExtras: (state, action) => {
       return { ...state, ...action.payload };
@@ -31,21 +33,24 @@ export const extrasSlice = createSlice({
   extraReducers: {
     [changeAll]: (state, action) => {
       // best effort conversion of old data from before multiple selection
-      const input = action.payload?.form?.extras;
-      const convertedInput = mapValues(input, (data) => {
-        if (data === '') {
-          return {};
-        }
-        if (typeof data === 'string') {
-          return { [data]: {} };
-        }
-        if (Array.isArray(data)) {
-          return Object.fromEntries(data.map((key) => [key, {}]));
-        }
-        return data;
-      });
+      if (action.payload?.form?.extras?.Runes) {
+        const convertedExtras = mapValues(action.payload.form.extras, (data) => {
+          if (data === '') {
+            return {};
+          }
+          if (typeof data === 'string') {
+            return { [data]: {} };
+          }
+          if (Array.isArray(data)) {
+            return Object.fromEntries(data.map((key) => [key, {}]));
+          }
+          return data;
+        });
 
-      return { ...state, ...convertedInput };
+        return { ...state, extras: convertedExtras };
+      }
+
+      return { ...state, ...action.payload?.form?.extras };
     },
     [setBuildTemplate]: (state, action) => {
       const { extrasPreset = {} } = action.payload;
@@ -54,7 +59,7 @@ export const extrasSlice = createSlice({
   },
 });
 
-export const getExtrasData = (state) => state.optimizer.form.extras;
+export const getExtrasData = (state) => state.optimizer.form.extras.extras;
 export const getExtrasIds = createSelector(getExtrasData, (data) => mapValues(data, Object.keys));
 
 // todo: document and clean this up and maybe move it elsewhere?

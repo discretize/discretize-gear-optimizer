@@ -10,11 +10,12 @@ import { changeAll, changeProfession, getProfession, setBuildTemplate } from './
 const getInitialItems = (traitline) => {
   const allItemData = traitSectionsById[traitline].items || [];
   return Object.fromEntries(
-    allItemData.map((itemData) => {
-      const enabled = itemData.defaultEnabled;
-      const value = itemData.amountData ? { amount: '' } : true;
-      return [itemData.id, enabled ? value : false];
-    }),
+    allItemData
+      .filter((itemData) => itemData.defaultEnabled)
+      .map((itemData) => {
+        const value = itemData.amountData ? { amount: '' } : {};
+        return [itemData.id, value];
+      }),
   );
 };
 
@@ -52,9 +53,9 @@ export const traitsSlice = createSlice({
 
       if (enabled) {
         const itemData = allClassModifiersById[id];
-        state.items[index][id] = itemData?.amountData ? { amount: '' } : true;
+        state.items[index][id] = itemData?.amountData ? { amount: '' } : {};
       } else {
-        state.items[index][id] = false;
+        delete state.items[index][id];
       }
     },
     setTraitModiferAmount: (state, action) => {
@@ -104,13 +105,12 @@ export const getTraitsModifiers = createSelector(
     const result = [];
     traits.items.forEach((object) => {
       Object.entries(object).forEach(([id, value]) => {
+        if (!value) return; // used to set value to false instead of deleting
         const itemData = allClassModifiersById[id];
         if (!itemData) return;
 
         const visible = itemData.minor || allSelectedTraits.includes(itemData.gw2id);
-        const enabled = Boolean(value);
-
-        if (enabled && visible) {
+        if (visible) {
           result.push({ id, ...itemData, amount: value?.amount });
         }
       });

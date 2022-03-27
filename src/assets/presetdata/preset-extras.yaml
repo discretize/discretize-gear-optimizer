@@ -4,60 +4,66 @@ list:
   - name: Power (Fractal)
     value: |-
       {
-        "Runes": {
-          "scholar": {}
-        },
-        "Sigil1": {
-          "force": {}
-        },
-        "Sigil2": {
-          "impact/night/slaying-both": {}
-        },
-        "Enhancement": {
-          "slaying-potion": {}
-        },
-        "Nourishment": {
-          "sweet-and-spicy-butternut-squash-soup": {}
+        "extras": {
+          "Runes": {
+            "scholar": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-both": {}
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "sweet-and-spicy-butternut-squash-soup": {}
+          }
         }
       }
 
   - name: Power (Raid)
     value: |-
       {
-        "Runes": {
-          "scholar": {}
-        },
-        "Sigil1": {
-          "force": {}
-        },
-        "Sigil2": {
-          "impact/night/slaying-only-3": {}
-        },
-        "Enhancement": {
-          "superior-sharpening-stone": {}
-        },
-        "Nourishment": {
-          "sweet-and-spicy-butternut-squash-soup": {}
+        "extras": {
+          "Runes": {
+            "scholar": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "sweet-and-spicy-butternut-squash-soup": {}
+          }
         }
       }
 
   - name: Heal
     value: |-
       {
-        "Runes": {
-          "monk": {}
-        },
-        "Sigil1": {
-          "concentration": {}
-        },
-        "Sigil2": {
-          "transference": {}
-        },
-        "Enhancement": {
-          "bountiful-maintenance-oil": {}
-        },
-        "Nourishment": {
-          "fruit-salad-mint-garnish": {}
+        "extras": {
+          "Runes": {
+            "monk": {}
+          },
+          "Sigil1": {
+            "concentration": {}
+          },
+          "Sigil2": {
+            "transference": {}
+          },
+          "Enhancement": {
+            "bountiful-maintenance-oil": {}
+          },
+          "Nourishment": {
+            "fruit-salad-mint-garnish": {}
+          }
         }
       }
 
@@ -65,18 +71,20 @@ list:
     profession: Mirage
     value: |-
       {
-        "Runes": {
-          "nightmare": {}
-        },
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {},
-        "Enhancement": {
-          "toxic-maintenance-oil": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
+        "extras": {
+          "Runes": {
+            "nightmare": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {},
+          "Enhancement": {
+            "toxic-maintenance-oil": {}
+          },
+          "Nourishment": {
+            "beef-rendang": {}
+          }
         }
       }
 
@@ -84,18 +92,20 @@ list:
     profession: Mirage
     value: |-
       {
-        "Runes": {
-          "nightmare": {}
-        },
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {},
-        "Enhancement": {
-          "master-tuning-crystal": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
+        "extras": {
+          "Runes": {
+            "nightmare": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {},
+          "Enhancement": {
+            "master-tuning-crystal": {}
+          },
+          "Nourishment": {
+            "beef-rendang": {}
+          }
         }
       }
 
@@ -103,22 +113,24 @@ list:
     profession: Chronomancer
     value: |-
       {
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {
-          "mischief-ineptitude": {
-            "amount": "0.9"
+        "extras": {
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "mischief-ineptitude": {
+              "amount": "0.9"
+            }
+          },
+          "Runes": {
+            "perplexity": {}
+          },
+          "Nourishment": {
+            "rare-veggie-pizza": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
           }
-        },
-        "Runes": {
-          "perplexity": {}
-        },
-        "Nourishment": {
-          "rare-veggie-pizza": {}
-        },
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
         }
       }
 
@@ -126,22 +138,24 @@ list:
     profession: Chronomancer
     value: |-
       {
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {
-          "mischief-ineptitude": {
-            "amount": "0.9"
+        "extras": {
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "mischief-ineptitude": {
+              "amount": "0.9"
+            }
+          },
+          "Runes": {
+            "perplexity": {}
+          },
+          "Nourishment": {
+            "rare-veggie-pizza": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
           }
-        },
-        "Runes": {
-          "perplexity": {}
-        },
-        "Nourishment": {
-          "rare-veggie-pizza": {}
-        },
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
         }
       }
 
@@ -149,24 +163,26 @@ list:
     profession: Virtuoso
     value: |-
       {
-        "Sigil1": {
-          "bursting": {},
-          "agony": {}
-        },
-        "Sigil2": {
-          "earth": {
-            "amount": "4.3"
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "agony": {}
+          },
+          "Sigil2": {
+            "earth": {
+              "amount": "4.3"
+            }
+          },
+          "Runes": {
+            "krait": {}
+          },
+          "Nourishment": {
+            "plate-of-kimchi-pancakes": {},
+            "fancy-potato-and-leek-soup": {}
+          },
+          "Enhancement": {
+            "writ-of-masterful-accuracy": {}
           }
-        },
-        "Runes": {
-          "krait": {}
-        },
-        "Nourishment": {
-          "plate-of-kimchi-pancakes": {},
-          "fancy-potato-and-leek-soup": {}
-        },
-        "Enhancement": {
-          "writ-of-masterful-accuracy": {}
         }
       }
 
@@ -174,20 +190,22 @@ list:
     profession: Virtuoso
     value: |-
       {
-        "Runes": {
-          "scholar": {}
-        },
-        "Sigil1": {
-          "force": {}
-        },
-        "Sigil2": {
-          "accuracy": {}
-        },
-        "Enhancement": {
-          "superior-sharpening-stone": {}
-        },
-        "Nourishment": {
-          "sweet-and-spicy-butternut-squash-soup": {}
+        "extras": {
+          "Runes": {
+            "scholar": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "sweet-and-spicy-butternut-squash-soup": {}
+          }
         }
       }
 
@@ -195,20 +213,22 @@ list:
     profession: Dragonhunter
     value: |-
       {
-        "Runes": {
-          "thief": {}
-        },
-        "Sigil1": {
-          "force": {}
-        },
-        "Sigil2": {
-          "impact/night/slaying-both": {}
-        },
-        "Enhancement": {
-          "slaying-potion": {}
-        },
-        "Nourishment": {
-          "sweet-and-spicy-butternut-squash-soup": {}
+        "extras": {
+          "Runes": {
+            "thief": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-both": {}
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "sweet-and-spicy-butternut-squash-soup": {}
+          }
         }
       }
 
@@ -216,20 +236,22 @@ list:
     profession: Willbender
     value: |-
       {
-        "Runes": {
-          "thief": {}
-        },
-        "Sigil1": {
-          "force": {}
-        },
-        "Sigil2": {
-          "impact/night/slaying-both": {}
-        },
-        "Enhancement": {
-          "slaying-potion": {}
-        },
-        "Nourishment": {
-          "sweet-and-spicy-butternut-squash-soup": {}
+        "extras": {
+          "Runes": {
+            "thief": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-both": {}
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "sweet-and-spicy-butternut-squash-soup": {}
+          }
         }
       }
 
@@ -237,20 +259,22 @@ list:
     profession: Dragonhunter
     value: |-
       {
-        "Runes": {
-          "thief": {}
-        },
-        "Sigil1": {
-          "force": {}
-        },
-        "Sigil2": {
-          "accuracy": {}
-        },
-        "Enhancement": {
-          "furious-sharpening-stone": {}
-        },
-        "Nourishment": {
-          "sweet-and-spicy-butternut-squash-soup": {}
+        "extras": {
+          "Runes": {
+            "thief": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "furious-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "sweet-and-spicy-butternut-squash-soup": {}
+          }
         }
       }
 
@@ -258,20 +282,22 @@ list:
     profession: Willbender
     value: |-
       {
-        "Runes": {
-          "thief": {}
-        },
-        "Sigil1": {
-          "force": {}
-        },
-        "Sigil2": {
-          "accuracy": {}
-        },
-        "Enhancement": {
-          "furious-sharpening-stone": {}
-        },
-        "Nourishment": {
-          "sweet-and-spicy-butternut-squash-soup": {}
+        "extras": {
+          "Runes": {
+            "thief": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "furious-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "sweet-and-spicy-butternut-squash-soup": {}
+          }
         }
       }
 
@@ -279,21 +305,23 @@ list:
     profession: Willbender
     value: |-
       {
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {
-          "geomancy-torment-cwb": {}
-        },
-        "Runes": {
-          "balthazar": {},
-          "flame-legion-2": {}
-        },
-        "Nourishment": {
-          "fishy-rice-bowl": {}
-        },
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
+        "extras": {
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "geomancy-torment-cwb": {}
+          },
+          "Runes": {
+            "balthazar": {},
+            "flame-legion-2": {}
+          },
+          "Nourishment": {
+            "fishy-rice-bowl": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          }
         }
       }
 
@@ -301,20 +329,22 @@ list:
     profession: Firebrand
     value: |-
       {
-        "Runes": {
-          "balthazar": {}
-        },
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {
-          "geomancy-torment-cfb5-virtues": {}
-        },
-        "Enhancement": {
-          "toxic-maintenance-oil": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
+        "extras": {
+          "Runes": {
+            "balthazar": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "geomancy-torment-cfb5-virtues": {}
+          },
+          "Enhancement": {
+            "toxic-maintenance-oil": {}
+          },
+          "Nourishment": {
+            "beef-rendang": {}
+          }
         }
       }
 
@@ -322,20 +352,22 @@ list:
     profession: Firebrand
     value: |-
       {
-        "Runes": {
-          "renegade": {}
-        },
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {
-          "smoldering": {}
-        },
-        "Enhancement": {
-          "toxic-maintenance-oil": {}
-        },
-        "Nourishment": {
-          "fishy-rice-bowl": {}
+        "extras": {
+          "Runes": {
+            "renegade": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "smoldering": {}
+          },
+          "Enhancement": {
+            "toxic-maintenance-oil": {}
+          },
+          "Nourishment": {
+            "fishy-rice-bowl": {}
+          }
         }
       }
 
@@ -343,20 +375,22 @@ list:
     profession: Firebrand
     value: |-
       {
-        "Runes": {
-          "balthazar": {}
-        },
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {
-          "geomancy-torment-cfb5-virtues": {}
-        },
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
+        "extras": {
+          "Runes": {
+            "balthazar": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "geomancy-torment-cfb5-virtues": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "beef-rendang": {}
+          }
         }
       }
 
@@ -364,20 +398,22 @@ list:
     profession: Firebrand
     value: |-
       {
-        "Runes": {
-          "balthazar": {}
-        },
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {
-          "geomancy-torment-cfb8-virtues": {}
-        },
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
+        "extras": {
+          "Runes": {
+            "balthazar": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "geomancy-torment-cfb8-virtues": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "beef-rendang": {}
+          }
         }
       }
 
@@ -385,20 +421,22 @@ list:
     profession: Firebrand
     value: |-
       {
-        "Runes": {
-          "renegade": {}
-        },
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {
-          "smoldering": {}
-        },
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
-        },
-        "Nourishment": {
-          "fishy-rice-bowl": {}
+        "extras": {
+          "Runes": {
+            "renegade": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "smoldering": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "fishy-rice-bowl": {}
+          }
         }
       }
 
@@ -406,20 +444,22 @@ list:
     profession: Firebrand
     value: |-
       {
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {
-          "smoldering": {}
-        },
-        "Runes": {
-          "firebrand-firebrand": {}
-        },
-        "Nourishment": {
-          "fishy-rice-bowl": {}
-        },
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
+        "extras": {
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "smoldering": {}
+          },
+          "Runes": {
+            "firebrand-firebrand": {}
+          },
+          "Nourishment": {
+            "fishy-rice-bowl": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          }
         }
       }
 
@@ -428,19 +468,19 @@ list:
   #   value: |-
   #     {
   #       "Runes": {
-  #         "balthazar": {}
+  #           "balthazar": {}
   #       },
   #       "Sigil1": {
-  #         "bursting": {}
+  #           "bursting": {}
   #       },
   #       "Sigil2": {
-  #         "geomancy-torment-cfb5-virtues": {}
+  #           "geomancy-torment-cfb5-virtues": {}
   #       },
   #       "Enhancement": {
-  #         "toxic-maintenance-oil": {}
+  #           "toxic-maintenance-oil": {}
   #       },
   #       "Nourishment": {
-  #         "dragon's-revelry-starcake": {}
+  #           "dragon's-revelry-starcake": {}
   #       }
   #     }
 
@@ -448,20 +488,22 @@ list:
     profession: Firebrand
     value: |-
       {
-        "Runes": {
-          "traveler": {}
-        },
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {
-          "smoldering": {}
-        },
-        "Enhancement": {
-          "master-tuning-crystal": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
+        "extras": {
+          "Runes": {
+            "traveler": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "smoldering": {}
+          },
+          "Enhancement": {
+            "master-tuning-crystal": {}
+          },
+          "Nourishment": {
+            "beef-rendang": {}
+          }
         }
       }
 
@@ -469,16 +511,18 @@ list:
     profession: Berserker
     value: |-
       {
-        "Runes": {
-          "renegade": {}
-        },
-        "Sigil1": {},
-        "Sigil2": {},
-        "Enhancement": {
-          "master-tuning-crystal": {}
-        },
-        "Nourishment": {
-          "rare-veggie-pizza": {}
+        "extras": {
+          "Runes": {
+            "renegade": {}
+          },
+          "Sigil1": {},
+          "Sigil2": {},
+          "Enhancement": {
+            "master-tuning-crystal": {}
+          },
+          "Nourishment": {
+            "rare-veggie-pizza": {}
+          }
         }
       }
 
@@ -486,20 +530,22 @@ list:
     profession: Berserker
     value: |-
       {
-        "Runes": {
-          "thief": {}
-        },
-        "Sigil1": {
-          "force": {}
-        },
-        "Sigil2": {
-          "impact/night/slaying-only-3": {}
-        },
-        "Enhancement": {
-          "superior-sharpening-stone": {}
-        },
-        "Nourishment": {
-          "sweet-and-spicy-butternut-squash-soup": {}
+        "extras": {
+          "Runes": {
+            "thief": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "sweet-and-spicy-butternut-squash-soup": {}
+          }
         }
       }
 
@@ -507,20 +553,22 @@ list:
     profession: Bladesworn
     value: |-
       {
-        "Runes": {
-          "thief": {}
-        },
-        "Sigil1": {
-          "force": {}
-        },
-        "Sigil2": {
-          "impact/night/slaying-only-3": {}
-        },
-        "Enhancement": {
-          "superior-sharpening-stone": {}
-        },
-        "Nourishment": {
-          "sweet-and-spicy-butternut-squash-soup": {}
+        "extras": {
+          "Runes": {
+            "thief": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "sweet-and-spicy-butternut-squash-soup": {}
+          }
         }
       }
 
@@ -528,20 +576,22 @@ list:
     profession: Bladesworn
     value: |-
       {
-        "Sigil1": {
-          "force": {}
-        },
-        "Sigil2": {
-          "accuracy": {}
-        },
-        "Runes": {
-          "scholar": {}
-        },
-        "Nourishment": {
-          "sweet-and-spicy-butternut-squash-soup": {}
-        },
-        "Enhancement": {
-          "superior-sharpening-stone": {}
+        "extras": {
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "accuracy": {}
+          },
+          "Runes": {
+            "scholar": {}
+          },
+          "Nourishment": {
+            "sweet-and-spicy-butternut-squash-soup": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          }
         }
       }
 
@@ -549,20 +599,22 @@ list:
     profession: Weaver
     value: |-
       {
-        "Runes": {
-          "flame-legion": {}
-        },
-        "Sigil1": {
-          "force": {}
-        },
-        "Sigil2": {
-          "impact/night/slaying-only-3": {}
-        },
-        "Enhancement": {
-          "superior-sharpening-stone": {}
-        },
-        "Nourishment": {
-          "sweet-and-spicy-butternut-squash-soup": {}
+        "extras": {
+          "Runes": {
+            "flame-legion": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "sweet-and-spicy-butternut-squash-soup": {}
+          }
         }
       }
 
@@ -570,16 +622,18 @@ list:
     profession: Weaver
     value: |-
       {
-        "Runes": {
-          "elementalist": {}
-        },
-        "Sigil1": {},
-        "Sigil2": {},
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
-        },
-        "Nourishment": {
-          "rare-veggie-pizza": {}
+        "extras": {
+          "Runes": {
+            "elementalist": {}
+          },
+          "Sigil1": {},
+          "Sigil2": {},
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "rare-veggie-pizza": {}
+          }
         }
       }
 
@@ -587,20 +641,22 @@ list:
     profession: Weaver
     value: |-
       {
-        "Sigil1": {
-          "earth": {}
-        },
-        "Sigil2": {
-          "bursting": {}
-        },
-        "Runes": {
-          "elementalist": {}
-        },
-        "Nourishment": {
-          "rare-veggie-pizza": {}
-        },
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
+        "extras": {
+          "Sigil1": {
+            "earth": {}
+          },
+          "Sigil2": {
+            "bursting": {}
+          },
+          "Runes": {
+            "elementalist": {}
+          },
+          "Nourishment": {
+            "rare-veggie-pizza": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          }
         }
       }
 
@@ -608,20 +664,22 @@ list:
     profession: Weaver
     value: |-
       {
-        "Runes": {
-          "flame-legion": {}
-        },
-        "Sigil1": {
-          "impact/night/slaying-both": {}
-        },
-        "Sigil2": {
-          "bursting": {}
-        },
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
-        },
-        "Nourishment": {
-          "dragon's-revelry-starcake": {}
+        "extras": {
+          "Runes": {
+            "flame-legion": {}
+          },
+          "Sigil1": {
+            "impact/night/slaying-both": {}
+          },
+          "Sigil2": {
+            "bursting": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "dragon's-revelry-starcake": {}
+          }
         }
       }
 
@@ -629,20 +687,22 @@ list:
     profession: Weaver
     value: |-
       {
-        "Runes": {
-          "flame-legion": {}
-        },
-        "Sigil1": {
-          "force": {}
-        },
-        "Sigil2": {
-          "bursting": {}
-        },
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
-        },
-        "Nourishment": {
-          "dragon's-revelry-starcake": {}
+        "extras": {
+          "Runes": {
+            "flame-legion": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "bursting": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "dragon's-revelry-starcake": {}
+          }
         }
       }
 
@@ -650,20 +710,22 @@ list:
     profession: Tempest
     value: |-
       {
-        "Runes": {
-          "elementalist": {}
-        },
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {
-          "smoldering": {}
-        },
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
-        },
-        "Nourishment": {
-          "rare-veggie-pizza": {}
+        "extras": {
+          "Runes": {
+            "elementalist": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "smoldering": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "rare-veggie-pizza": {}
+          }
         }
       }
 
@@ -671,20 +733,22 @@ list:
     profession: Tempest
     value: |-
       {
-        "Runes": {
-          "scholar": {}
-        },
-        "Sigil1": {
-          "force": {}
-        },
-        "Sigil2": {
-          "accuracy": {}
-        },
-        "Enhancement": {
-          "superior-sharpening-stone": {}
-        },
-        "Nourishment": {
-          "truffle-steak": {}
+        "extras": {
+          "Runes": {
+            "scholar": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "truffle-steak": {}
+          }
         }
       }
 
@@ -692,18 +756,20 @@ list:
     profession: Catalyst
     value: |-
       {
-        "Runes": {
-          "nightmare": {}
-        },
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {},
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
-        },
-        "Nourishment": {
-          "rare-veggie-pizza": {}
+        "extras": {
+          "Runes": {
+            "nightmare": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {},
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "rare-veggie-pizza": {}
+          }
         }
       }
 
@@ -711,20 +777,22 @@ list:
     profession: Soulbeast
     value: |-
       {
-        "Runes": {
-          "scholar": {}
-        },
-        "Sigil1": {
-          "force": {}
-        },
-        "Sigil2": {
-          "impact/night/slaying-only-3": {}
-        },
-        "Enhancement": {
-          "superior-sharpening-stone": {}
-        },
-        "Nourishment": {
-          "sweet-and-spicy-butternut-squash-soup": {}
+        "extras": {
+          "Runes": {
+            "scholar": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "sweet-and-spicy-butternut-squash-soup": {}
+          }
         }
       }
 
@@ -732,21 +800,23 @@ list:
     profession: Soulbeast
     value: |-
       {
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {
-          "earth": {}
-        },
-        "Runes": {
-          "krait": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {},
-          "bowl-of-kimchi-tofu-stew": {}
-        },
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
+        "extras": {
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "earth": {}
+          },
+          "Runes": {
+            "krait": {}
+          },
+          "Nourishment": {
+            "beef-rendang": {},
+            "bowl-of-kimchi-tofu-stew": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          }
         }
       }
 
@@ -754,19 +824,21 @@ list:
     profession: Soulbeast
     value: |-
       {
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {},
-        "Runes": {
-          "krait": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {},
-          "plate-of-kimchi-pancakes": {}
-        },
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
+        "extras": {
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {},
+          "Runes": {
+            "krait": {}
+          },
+          "Nourishment": {
+            "beef-rendang": {},
+            "plate-of-kimchi-pancakes": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          }
         }
       }
 
@@ -774,20 +846,22 @@ list:
     profession: Soulbeast
     value: |-
       {
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {
-          "earth": {}
-        },
-        "Runes": {
-          "krait": {}
-        },
-        "Nourishment": {
-          "rare-veggie-pizza": {}
-        },
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
+        "extras": {
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "earth": {}
+          },
+          "Runes": {
+            "krait": {}
+          },
+          "Nourishment": {
+            "rare-veggie-pizza": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          }
         }
       }
 
@@ -795,18 +869,20 @@ list:
     profession: Druid
     value: |-
       {
-        "Runes": {
-          "lich": {}
-        },
-        "Sigil1": {
-          "malice": {}
-        },
-        "Sigil2": {},
-        "Enhancement": {
-          "toxic-maintenance-oil": {}
-        },
-        "Nourishment": {
-          "rare-veggie-pizza": {}
+        "extras": {
+          "Runes": {
+            "lich": {}
+          },
+          "Sigil1": {
+            "malice": {}
+          },
+          "Sigil2": {},
+          "Enhancement": {
+            "toxic-maintenance-oil": {}
+          },
+          "Nourishment": {
+            "rare-veggie-pizza": {}
+          }
         }
       }
 
@@ -814,20 +890,22 @@ list:
     profession: Holosmith
     value: |-
       {
-        "Runes": {
-          "renegade": {}
-        },
-        "Sigil1": {
-          "malice": {}
-        },
-        "Sigil2": {
-          "bursting": {}
-        },
-        "Enhancement": {
-          "master-tuning-crystal": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
+        "extras": {
+          "Runes": {
+            "renegade": {}
+          },
+          "Sigil1": {
+            "malice": {}
+          },
+          "Sigil2": {
+            "bursting": {}
+          },
+          "Enhancement": {
+            "master-tuning-crystal": {}
+          },
+          "Nourishment": {
+            "beef-rendang": {}
+          }
         }
       }
 
@@ -835,19 +913,21 @@ list:
     profession: Renegade
     value: |-
       {
-        "Sigil1": {},
-        "Sigil2": {},
-        "Runes": {
-          "leadership": {}
-        },
-        "Nourishment": {
-          "meaty-asparagus-skewer": {},
-          "eggs-benedict": {},
-          "dragon's-revelry-starcake": {},
-          "beef-rendang": {}
-        },
-        "Enhancement": {
-          "toxic-maintenance-oil": {}
+        "extras": {
+          "Sigil1": {},
+          "Sigil2": {},
+          "Runes": {
+            "leadership": {}
+          },
+          "Nourishment": {
+            "meaty-asparagus-skewer": {},
+            "eggs-benedict": {},
+            "dragon's-revelry-starcake": {},
+            "beef-rendang": {}
+          },
+          "Enhancement": {
+            "toxic-maintenance-oil": {}
+          }
         }
       }
 
@@ -855,17 +935,19 @@ list:
     profession: Renegade
     value: |-
       {
-        "Sigil1": {},
-        "Sigil2": {},
-        "Runes": {
-          "nightmare": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {},
-          "meaty-asparagus-skewer": {}
-        },
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
+        "extras": {
+          "Sigil1": {},
+          "Sigil2": {},
+          "Runes": {
+            "nightmare": {}
+          },
+          "Nourishment": {
+            "beef-rendang": {},
+            "meaty-asparagus-skewer": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          }
         }
       }
 
@@ -873,16 +955,18 @@ list:
     profession: Herald
     value: |-
       {
-        "Runes": {
-          "nightmare": {}
-        },
-        "Sigil1": {},
-        "Sigil2": {},
-        "Enhancement": {
-          "master-tuning-crystal": {}
-        },
-        "Nourishment": {
-          "rare-veggie-pizza": {}
+        "extras": {
+          "Runes": {
+            "nightmare": {}
+          },
+          "Sigil1": {},
+          "Sigil2": {},
+          "Enhancement": {
+            "master-tuning-crystal": {}
+          },
+          "Nourishment": {
+            "rare-veggie-pizza": {}
+          }
         }
       }
 
@@ -890,18 +974,20 @@ list:
     profession: Vindicator
     value: |-
       {
-        "Runes": {
-          "scholar": {}
-        },
-        "Sigil1": {
-          "force": {}
-        },
-        "Sigil2": {},
-        "Enhancement": {
-          "superior-sharpening-stone": {}
-        },
-        "Nourishment": {
-          "sweet-and-spicy-butternut-squash-soup": {}
+        "extras": {
+          "Runes": {
+            "scholar": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {},
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "sweet-and-spicy-butternut-squash-soup": {}
+          }
         }
       }
 
@@ -909,20 +995,22 @@ list:
     profession: Mechanist
     value: |-
       {
-        "Runes": {
-          "thorns": {}
-        },
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {
-          "malice": {}
-        },
-        "Enhancement": {
-          "master-tuning-crystal": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
+        "extras": {
+          "Runes": {
+            "thorns": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "malice": {}
+          },
+          "Enhancement": {
+            "master-tuning-crystal": {}
+          },
+          "Nourishment": {
+            "beef-rendang": {}
+          }
         }
       }
 
@@ -930,20 +1018,22 @@ list:
     profession: Mechanist
     value: |-
       {
-        "Runes": {
-          "renegade": {}
-        },
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {
-          "malice": {}
-        },
-        "Enhancement": {
-          "master-tuning-crystal": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
+        "extras": {
+          "Runes": {
+            "renegade": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "malice": {}
+          },
+          "Enhancement": {
+            "master-tuning-crystal": {}
+          },
+          "Nourishment": {
+            "beef-rendang": {}
+          }
         }
       }
 
@@ -951,18 +1041,20 @@ list:
     profession: Mechanist
     value: |-
       {
-        "Runes": {
-          "elementalist": {}
-        },
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {},
-        "Enhancement": {
-          "master-tuning-crystal": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
+        "extras": {
+          "Runes": {
+            "elementalist": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {},
+          "Enhancement": {
+            "master-tuning-crystal": {}
+          },
+          "Nourishment": {
+            "beef-rendang": {}
+          }
         }
       }
 
@@ -970,18 +1062,20 @@ list:
     profession: Scourge
     value: |-
       {
-        "Runes": {
-          "nightmare": {}
-        },
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {},
-        "Enhancement": {
-          "master-tuning-crystal": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
+        "extras": {
+          "Runes": {
+            "nightmare": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {},
+          "Enhancement": {
+            "master-tuning-crystal": {}
+          },
+          "Nourishment": {
+            "beef-rendang": {}
+          }
         }
       }
 
@@ -989,16 +1083,18 @@ list:
     profession: Reaper
     value: |-
       {
-        "Runes": {
-          "krait": {}
-        },
-        "Sigil1": {},
-        "Sigil2": {},
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
+        "extras": {
+          "Runes": {
+            "krait": {}
+          },
+          "Sigil1": {},
+          "Sigil2": {},
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "beef-rendang": {}
+          }
         }
       }
 
@@ -1006,18 +1102,20 @@ list:
     profession: Harbinger
     value: |-
       {
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {},
-        "Runes": {
-          "nightmare": {}
-        },
-        "Nourishment": {
-          "meaty-asparagus-skewer": {}
-        },
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
+        "extras": {
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {},
+          "Runes": {
+            "nightmare": {}
+          },
+          "Nourishment": {
+            "meaty-asparagus-skewer": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          }
         }
       }
 
@@ -1025,18 +1123,20 @@ list:
     profession: Harbinger
     value: |-
       {
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {},
-        "Runes": {
-          "tormenting": {}
-        },
-        "Nourishment": {
-          "rare-veggie-pizza": {}
-        },
-        "Enhancement": {
-          "master-tuning-crystal": {}
+        "extras": {
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {},
+          "Runes": {
+            "tormenting": {}
+          },
+          "Nourishment": {
+            "rare-veggie-pizza": {}
+          },
+          "Enhancement": {
+            "master-tuning-crystal": {}
+          }
         }
       }
 
@@ -1044,18 +1144,20 @@ list:
     profession: Harbinger
     value: |-
       {
-        "Runes": {
-          "tormenting": {}
-        },
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {},
-        "Enhancement": {
-          "master-tuning-crystal": {}
-        },
-        "Nourishment": {
-          "rare-veggie-pizza": {}
+        "extras": {
+          "Runes": {
+            "tormenting": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {},
+          "Enhancement": {
+            "master-tuning-crystal": {}
+          },
+          "Nourishment": {
+            "rare-veggie-pizza": {}
+          }
         }
       }
 
@@ -1063,18 +1165,20 @@ list:
     profession: Deadeye
     value: |-
       {
-        "Runes": {
-          "nightmare": {}
-        },
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {},
-        "Enhancement": {
-          "master-tuning-crystal": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {}
+        "extras": {
+          "Runes": {
+            "nightmare": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {},
+          "Enhancement": {
+            "master-tuning-crystal": {}
+          },
+          "Nourishment": {
+            "beef-rendang": {}
+          }
         }
       }
 
@@ -1082,20 +1186,22 @@ list:
     profession: Daredevil
     value: |-
       {
-        "Runes": {
-          "thief": {}
-        },
-        "Sigil1": {
-          "force": {}
-        },
-        "Sigil2": {
-          "concentration": {}
-        },
-        "Enhancement": {
-          "potent-lucent-oil": {}
-        },
-        "Nourishment": {
-          "sweet-and-spicy-butternut-squash-soup": {}
+        "extras": {
+          "Runes": {
+            "thief": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "concentration": {}
+          },
+          "Enhancement": {
+            "potent-lucent-oil": {}
+          },
+          "Nourishment": {
+            "sweet-and-spicy-butternut-squash-soup": {}
+          }
         }
       }
 
@@ -1103,24 +1209,26 @@ list:
     profession: Daredevil
     value: |-
       {
-        "Sigil1": {
-          "earth": {}
-        },
-        "Sigil2": {
-          "doom": {}
-        },
-        "Runes": {
-          "afflicted": {},
-          "krait-no-elite": {}
-        },
-        "Nourishment": {
-          "beef-rendang": {},
-          "plate-of-kimchi-pancakes": {},
-          "bowl-of-kimchi-tofu-stew": {}
-        },
-        "Enhancement": {
-          "master-tuning-crystal": {},
-          "toxic-focusing-crystal": {}
+        "extras": {
+          "Sigil1": {
+            "earth": {}
+          },
+          "Sigil2": {
+            "doom": {}
+          },
+          "Runes": {
+            "afflicted": {},
+            "krait-no-elite": {}
+          },
+          "Nourishment": {
+            "beef-rendang": {},
+            "plate-of-kimchi-pancakes": {},
+            "bowl-of-kimchi-tofu-stew": {}
+          },
+          "Enhancement": {
+            "master-tuning-crystal": {},
+            "toxic-focusing-crystal": {}
+          }
         }
       }
 
@@ -1128,20 +1236,22 @@ list:
     profession: Daredevil
     value: |-
       {
-        "Runes": {
-          "firebrand": {}
-        },
-        "Sigil1": {
-          "concentration": {}
-        },
-        "Sigil2": {
-          "malice": {}
-        },
-        "Enhancement": {
-          "master-tuning-crystal": {}
-        },
-        "Nourishment": {
-          "rare-veggie-pizza": {}
+        "extras": {
+          "Runes": {
+            "firebrand": {}
+          },
+          "Sigil1": {
+            "concentration": {}
+          },
+          "Sigil2": {
+            "malice": {}
+          },
+          "Enhancement": {
+            "master-tuning-crystal": {}
+          },
+          "Nourishment": {
+            "rare-veggie-pizza": {}
+          }
         }
       }
 
@@ -1149,22 +1259,24 @@ list:
     profession: Specter
     value: |-
       {
-        "Sigil1": {
-          "bursting": {}
-        },
-        "Sigil2": {
-          "doom": {
-            "amount": "0.93"
+        "extras": {
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "doom": {
+              "amount": "0.93"
+            }
+          },
+          "Runes": {
+            "tormenting": {}
+          },
+          "Nourishment": {
+            "bowl-of-kimchi-tofu-stew": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
           }
-        },
-        "Runes": {
-          "tormenting": {}
-        },
-        "Nourishment": {
-          "bowl-of-kimchi-tofu-stew": {}
-        },
-        "Enhancement": {
-          "toxic-focusing-crystal": {}
         }
       }
 
@@ -1172,23 +1284,25 @@ list:
     profession: Specter
     value: |-
       {
-        "Sigil1": {
-          "demons": {},
-          "concentration": {}
-        },
-        "Sigil2": {
-          "doom": {
-            "amount": "0.93"
+        "extras": {
+          "Sigil1": {
+            "demons": {},
+            "concentration": {}
+          },
+          "Sigil2": {
+            "doom": {
+              "amount": "0.93"
+            }
+          },
+          "Runes": {
+            "renegade": {}
+          },
+          "Nourishment": {
+            "eggs-benedict": {},
+            "meaty-asparagus-skewer": {}
+          },
+          "Enhancement": {
+            "toxic-maintenance-oil": {}
           }
-        },
-        "Runes": {
-          "renegade": {}
-        },
-        "Nourishment": {
-          "eggs-benedict": {},
-          "meaty-asparagus-skewer": {}
-        },
-        "Enhancement": {
-          "toxic-maintenance-oil": {}
         }
       }
