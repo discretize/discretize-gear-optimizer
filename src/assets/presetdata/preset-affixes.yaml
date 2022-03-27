@@ -148,13 +148,13 @@ list:
         "minBoonDuration": 18.8
       }
 
-  - name: Condi Alacrity Specter 55%
+  - name: Condi Alacrity Specter 57%
     hidden: true
     value: >-
       {
         "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 55
+        "minBoonDuration": 56.7
       }
 
   - name: Condi DPS Rampager

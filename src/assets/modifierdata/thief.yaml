@@ -53,7 +53,7 @@
       text: Deadly Ambition
       modifiers:
         attributes:
-          Condition Damage: [120, buff]
+          Condition Damage: [120, converted]
       gw2id: 1164
       defaultEnabled: true
 
