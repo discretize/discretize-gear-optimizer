@@ -29,9 +29,6 @@ const AFFIXES = augumentAffixState(Object.keys(Affix))
   });
 
 const useStyles = makeStyles()((theme) => ({
-  input: {
-    height: 40,
-  },
   text: {
     color: '#ddd !important',
   },
@@ -62,7 +59,6 @@ const AffixesSelect = ({ name, multiple, onChange, value: affixes }) => {
       getOptionLabel={(option) => t('affix', { context: option.label })}
       groupBy={(option) => option.category}
       value={multiple ? augumentAffixState(affixes) : augumentAffixState([affixes])[0] || null}
-      classes={{ inputRoot: classes.input }}
       onChange={onChange}
       renderInput={(params) => (
         <TextField
