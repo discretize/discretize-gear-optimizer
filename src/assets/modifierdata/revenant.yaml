@@ -149,6 +149,7 @@
 
 - section: Devastation
   id: 15
+  note: Battle scars is not currently simulated.
   items:
 
     - id: unsuspecting-strikes

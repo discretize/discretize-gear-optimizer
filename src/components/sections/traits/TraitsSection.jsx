@@ -72,7 +72,7 @@ const TraitsSection = ({ profession, data }) => {
                 color="primary"
               />
             }
-            label={t('Show all possible modifiers')}
+            label={t('Show all implemented modifier effects')}
           />
           {profession !== '' && (
             <Presets

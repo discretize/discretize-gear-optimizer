@@ -1,4 +1,5 @@
 - section: Skills
+  note: Power damage from illusions is not currently accurate, particularly with accuracy sigil or Phantasmal Force and/or without Phantasmal Fury.
   items:
 
     - id: signet-of-domination
@@ -251,6 +252,7 @@
 
 - section: Chronomancer
   id: 40
+  note: Be sure to change the power coefficient value below when adding or removing traits without checkboxes like improved alacrity or chronophantasma.
   items:
 
     - id: danger-time

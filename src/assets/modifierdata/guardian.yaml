@@ -409,6 +409,7 @@
 
 - section: Firebrand
   id: 62
+  note: Be sure to change the burning coefficient value below when adding or removing traits without checkboxes like legendary lore.
   items:
 
     - id: imbued-haste

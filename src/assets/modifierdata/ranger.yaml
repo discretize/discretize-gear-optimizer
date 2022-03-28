@@ -220,6 +220,7 @@
 
 - section: Druid
   id: 5
+  note: Pet damage is not currently simulated.
   items:
 
     - id: natural-mender
@@ -355,6 +356,7 @@
 
 - section: Untamed
   id: 72
+  note: Pet damage is not currently simulated.
   items:
 
     - id: natural-fortitude

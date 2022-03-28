@@ -334,4 +334,5 @@
 
 - section: Mechanist
   id: 70
+  note: Mech condition damage is only accurate with the conductive alloys trait. Mech power damage is not currently accurate at all. Use this optimizer with condi DPS mechanist only.
   items: []
