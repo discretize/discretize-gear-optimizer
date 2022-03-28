@@ -1,0 +1,20 @@
+name: 'Build and Deploy'
+on:
+  push:
+    branches:
+      - staging
+  workflow_dispatch:
+  
+  
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    timeout-minutes: 10
+
+    steps:
+    - name: Trigger Cloudflare deploy hook
+      uses: fjogeleit/http-request-action@v1
+      with:
+        url: ${{ secrets.STAGING_HOOK }}
+        method: 'POST'
