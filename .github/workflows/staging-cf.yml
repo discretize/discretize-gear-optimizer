@@ -22,5 +22,5 @@ jobs:
           project-name: '${{ env.PAGES_PROJECT_NAME }}'
           api-key: '${{ secrets.CF_GLOBAL_APIKEY }}'
           email: '${{ secrets.CF_EMAIL }}'
-          preview: true
+          branch: 'staging'
           github-token: ${{ secrets.GITHUB_TOKEN }}
