@@ -40,7 +40,27 @@
     "arrow-body-style": "off",
     "prefer-arrow-callback": "off",
 
-    "id-length": ["warn", { "exceptions": ["i", "j", "e", "t", "_"] }]
+    "id-length": [
+      "warn",
+      {
+        "exceptions": [
+          // counters and comparisons
+          "i",
+          "j",
+          "a",
+          "b",
+          // events and errors
+          "e",
+          // i18next translation function
+          "t",
+          // unused arguments
+          "_",
+          // mui system margin/padding
+          "m",
+          "p"
+        ]
+      }
+    ]
   },
   "overrides": [
     {

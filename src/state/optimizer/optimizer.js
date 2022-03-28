@@ -14,7 +14,6 @@ import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import { characterLT, inputToSettings, OptimizerCore } from './optimizerCore';
 
-// eslint-disable-next-line id-length
 const isArrayDifferent = (a, b) => {
   if (a.length !== b.length) return true;
   return a.some((_, i) => a[i] !== b[i]);
@@ -199,7 +198,6 @@ export function* calculate(reduxState) {
         .flatMap(({ list }) => list || [])
         // eslint-disable-next-line no-loop-func
         .filter((character) => character.attributes[rankby] >= globalWorstScore)
-        // eslint-disable-next-line id-length
         .sort((a, b) => characterLT(a, b, rankby))
         .slice(0, 50);
 
@@ -213,7 +211,6 @@ export function* calculate(reduxState) {
       const newGlobalFilteredList = combinations
         .map(({ list }) => list?.[0])
         .filter(Boolean)
-        // eslint-disable-next-line id-length
         .sort((a, b) => characterLT(a, b, rankby));
 
       if (isArrayDifferent(globalFilteredList, newGlobalFilteredList)) {

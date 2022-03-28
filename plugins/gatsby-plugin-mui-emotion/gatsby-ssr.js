@@ -8,12 +8,11 @@ import getEmotionCache, { getTssCache } from './getEmotionCache';
 // Inject MUI styles first to match with the prepend: true configuration.
 export const onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }) => {
   const headComponents = getHeadComponents();
-  // eslint-disable-next-line id-length
-  headComponents.sort((x, y) => {
-    if (x.key === 'emotion-css-global' || x.key === 'emotion-css') {
+  headComponents.sort((a, b) => {
+    if (a.key === 'emotion-css-global' || a.key === 'emotion-css') {
       return -1;
     }
-    if (y.key === 'style') {
+    if (b.key === 'style') {
       return 1;
     }
     return 0;

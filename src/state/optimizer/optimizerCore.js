@@ -1313,7 +1313,6 @@ export function inputToSettings(input) {
 }
 
 // returns a positive value if B is better than A
-// eslint-disable-next-line id-length
 export function characterLT(a, b, rankby) {
   // const { rankby } = this.settings;
 
