@@ -1047,6 +1047,7 @@ export function inputToSettings(input) {
             (settings.baseAttributes[attribute] || 0) + scaledAmount;
         }
       } else {
+        // eslint-disable-next-line no-alert
         alert(`invalid attribute ${attribute}`);
       }
     }
