@@ -18,7 +18,7 @@ jobs:
       - name: Deploy preview
         uses: tomjschuster/cloudflare-pages-deploy-action@v0
         with:
-          account-id: '${{ secret.CF_ACCOUNT_ID }}'
+          account-id: '${{ secrets.CF_ACCOUNT_ID }}'
           project-name: '${{ env.PAGES_PROJECT_NAME }}'
           api-key: '${{ secrets.CF_GLOBAL_APIKEY }}'
           email: '${{ secrets.CF_EMAIL }}'
