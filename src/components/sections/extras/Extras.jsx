@@ -64,7 +64,7 @@ const Extras = () => {
             endLabel={lifestealData.amountData.label}
             handleAmountChange={(event) => dispatch(changeLifestealAmount(event.target.value))}
             value={lifestealAmount}
-            maxWidth={30}
+            maxWidth={38}
           />
         </Box>
       ) : null}
