@@ -2,7 +2,7 @@ name: 'Build and Deploy'
 on:
   push:
     branches:
-      - staging
+      - main
   workflow_dispatch:
 
 env:
