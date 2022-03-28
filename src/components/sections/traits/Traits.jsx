@@ -3,7 +3,7 @@ import { Box, FormControl, Input, InputLabel, MenuItem, Select, Typography } fro
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { traitSectionsById } from '../../../assets/modifierdata';
+import { classModifiers, traitSectionsById } from '../../../assets/modifierdata';
 import {
   changeTrait,
   changeTraitLine,
@@ -17,13 +17,11 @@ import {
 import AmountInput from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
-/**
- * @param {object} props
- * @param {Array} props.data         Contains all the data regarding modifiers, ids and extra subtexts
- */
-const Traits = ({ data = [] }) => {
+const Traits = ({ profession }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
+
+  const data = classModifiers[profession]?.filter((section) => section.id > 0) ?? [];
 
   // selected trait lines
   const traitlines = useSelector(getTraitLines);
@@ -58,10 +56,13 @@ const Traits = ({ data = [] }) => {
   };
 
   return [1, 2, 3].map((lineNr, index) => {
+    const traitlineIdString = traitlines[index];
+    const traitlineId = traitlineIdString ? parseInt(traitlineIdString, 10) : null;
+
     // hide checkboxes for minor traits without configuration or subtext
     const checkboxModis = [];
     const noCheckboxModis = [];
-    traitSectionsById[Number(traitlines[index])]?.items.forEach((itemData) => {
+    traitSectionsById[traitlineId]?.items.forEach((itemData) => {
       const { minor, subText, amountData } = itemData;
       if (minor && !subText && !amountData) {
         noCheckboxModis.push(itemData);
@@ -84,7 +85,7 @@ const Traits = ({ data = [] }) => {
           <Select
             label={t('Traitline', { lineNr })}
             labeldid={`Traitline${lineNr}`}
-            value={traitlines[index]}
+            value={traitlineIdString}
             input={<Input name={t(`Traitline`, { lineNr })} id={key} />}
             onChange={handleTraitlineChange(index)}
             renderValue={(selected) => (
@@ -97,19 +98,17 @@ const Traits = ({ data = [] }) => {
           >
             {data
               .map((line) => line.id)
-              .filter(
-                (tr) => !traitlines.includes(tr.toString()) || traitlines[index] === tr.toString(),
-              )
+              .filter((id) => !traitlines.includes(id.toString()) || traitlineId === id)
               .map((id) => (
-                <MenuItem key={id} value={id}>
+                <MenuItem key={id} value={String(id)}>
                   <Specialization id={id} disableLink />
                 </MenuItem>
               ))}
           </Select>
         </FormControl>
-        {traitlines[index] ? (
+        {traitlineId ? (
           <TraitLine
-            id={parseInt(traitlines[index], 10)}
+            id={traitlineId}
             selectable
             selected={selectedTraits[index]}
             onSelect={handleTraitChange(index)}

@@ -2,7 +2,6 @@ import { Box, FormControlLabel, Switch } from '@mui/material';
 import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { classModifiers } from '../../../assets/modifierdata';
 import { changeSkills } from '../../../state/slices/skills';
 import { changeTraits, getShowAllTraits, toggleShowAll } from '../../../state/slices/traits';
 import { PROFESSIONS } from '../../../utils/gw2-data';
@@ -15,7 +14,6 @@ const TraitsSection = ({ profession, data }) => {
   const showAll = useSelector(getShowAllTraits);
 
   const { t } = useTranslation();
-  const traitsData = classModifiers[profession]?.filter((section) => section.id > 0);
 
   let traitsPresets;
   if (profession) {
@@ -62,7 +60,7 @@ const TraitsSection = ({ profession, data }) => {
           </Trans>
         </>
       }
-      content={<Traits data={traitsData} />}
+      content={<Traits profession={profession} />}
       extraInfo={
         <>
           <FormControlLabel
