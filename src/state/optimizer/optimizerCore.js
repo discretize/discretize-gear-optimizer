@@ -6,6 +6,7 @@
 
 import {
   allAttributeCoefficientKeys,
+  allAttributePercentKeys,
   allAttributePointKeys,
   allConversionAfterBuffsSourceKeys,
 } from '../../assets/modifierdata/metadata';
@@ -1025,7 +1026,7 @@ export function inputToSettings(input) {
         const scaledAmount = scaleValue(value, amountInput, amountData);
         settings.baseAttributes[attribute] =
           (settings.baseAttributes[attribute] || 0) + scaledAmount;
-      } else {
+      } else if (allAttributePercentKeys.includes(attribute)) {
         // percent, i.e.
         //   Torment Duration: 15%
 
@@ -1040,6 +1041,8 @@ export function inputToSettings(input) {
           settings.baseAttributes[attribute] =
             (settings.baseAttributes[attribute] || 0) + scaledAmount;
         }
+      } else {
+        alert(`invalid attribute ${attribute}`);
       }
     }
 
