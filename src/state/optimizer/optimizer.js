@@ -174,6 +174,9 @@ export function* calculate(reduxState) {
   let i = 0;
   let globalList = [];
   let globalFilteredList = [];
+
+  let globalWorstScore = 0;
+
   while (true) {
     const combination = combinations[i];
 
@@ -192,13 +195,16 @@ export function* calculate(reduxState) {
     if (isChanged) {
       combination.list = newList;
 
-      // avoid pushing different arrays with the same contents, as this breaks react memoization
-
       const newGlobalList = combinations
         .flatMap(({ list }) => list || [])
+        // eslint-disable-next-line no-loop-func
+        .filter((character) => character.attributes[rankby] >= globalWorstScore)
         // eslint-disable-next-line id-length
         .sort((a, b) => characterLT(a, b, rankby))
         .slice(0, 50);
+
+      if (newGlobalList.length === 50)
+        globalWorstScore = newGlobalList[newGlobalList.length - 1].attributes[rankby];
 
       if (isArrayDifferent(globalList, newGlobalList)) {
         globalList = newGlobalList;
