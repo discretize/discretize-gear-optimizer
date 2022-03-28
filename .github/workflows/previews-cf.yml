@@ -1,0 +1,25 @@
+
+  
+name: 'Build and Deploy - pullrequest CF'
+on:
+  pull_request:
+  
+env:
+  PAGES_PROJECT_NAME: discretize-optimizer
+  
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    timeout-minutes: 10
+
+    steps:
+      - name: Generate preview
+        uses: tomjschuster/cloudflare-pages-deploy-action@v0
+        with:
+          account-id: '${{ secrets.CF_ACCOUNT_ID }}'
+          project-name: '${{ env.PAGES_PROJECT_NAME }}'
+          api-key: '${{ secrets.CF_GLOBAL_APIKEY }}'
+          email: '${{ secrets.CF_EMAIL }}'
+          preview: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
