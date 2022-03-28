@@ -46,15 +46,22 @@ const TemplateHelper = ({ character }) => {
           const data = await response.json();
           console.log('got data from dps.report: ', data);
 
-          if (data.error) {
+          if (data.error || !Array.isArray(data?.players)) {
             setUrlResult(JSON.stringify(data, null, 2));
             return;
           }
 
-          const duration = (data?.phases?.[0]?.end - data?.phases?.[0]?.start) / 1000;
+          const playerData = data.players.find((player) => player.name === data.recordedBy);
+
+          if (!playerData) {
+            setUrlResult('no player data!');
+            return;
+          }
+
+          const duration = (data.phases?.[0]?.end - data.phases?.[0]?.start) / 1000;
 
           let sum = 0;
-          const powerDPS = data?.players?.[0]?.dpsTargets?.[0]?.[0]?.powerDps;
+          const powerDPS = playerData.dpsTargets?.[0]?.[0]?.powerDps;
           sum += powerDPS;
 
           const conditionIds = {
@@ -66,7 +73,7 @@ const TemplateHelper = ({ character }) => {
           };
 
           const conditionData = mapValues(conditionIds, (id) => {
-            const damage = data?.players?.[0]?.targetDamageDist?.[0]?.[0]?.find(
+            const damage = playerData.targetDamageDist?.[0]?.[0]?.find(
               (entry) => entry?.id === id,
             )?.totalDamage;
             const dps = roundTwo((damage ?? 0) / duration);
@@ -74,15 +81,15 @@ const TemplateHelper = ({ character }) => {
             return dps;
           });
 
-          const totalDPS = data?.players?.[0]?.dpsTargets?.[0]?.[0]?.dps;
+          const totalDPS = playerData.dpsTargets?.[0]?.[0]?.dps;
 
-          const hits = data?.players?.[0]?.statsTargets?.[0]?.[0]?.critableDirectDamageCount;
-          const crits = data?.players?.[0]?.statsTargets?.[0]?.[0]?.criticalRate;
+          const hits = playerData.statsTargets?.[0]?.[0]?.critableDirectDamageCount;
+          const crits = playerData.statsTargets?.[0]?.[0]?.criticalRate;
 
           const hitsPerSecond = hits / duration;
           const critPercent = (crits / hits) * 100;
 
-          const minions = data?.players?.[0]?.minions ?? [];
+          const minions = playerData.minions ?? [];
 
           const minionCounts = {
             'Clone': { names: new Set(), minionHits: 0, minionCrits: 0 },
