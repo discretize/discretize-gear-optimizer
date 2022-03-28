@@ -1,7 +1,8 @@
 import { ConsumableEffect, Item } from '@discretize/gw2-ui-new';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
+import { Trans } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { allExtrasModifiersById, extrasModifiers } from '../../../assets/modifierdata';
 import {
@@ -52,14 +53,18 @@ const Extras = () => {
         modifierDataById={allExtrasModifiersById}
       />
       {hasLifestealFood ? (
-        <Box sx={{ mb: 2 }}>
-          lifesteal frequency:{' '}
+        <Box
+          sx={{ mt: -1, mb: 2, display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}
+        >
+          <Typography variant="caption" sx={{ mr: 1, mt: 1 }}>
+            <Trans>Lifesteal frequency:</Trans>
+          </Typography>
           <AmountInput
             placeholder={lifestealData.amountData.default}
             endLabel={lifestealData.amountData.label}
             handleAmountChange={(event) => dispatch(changeLifestealAmount(event.target.value))}
             value={lifestealAmount}
-            maxWidth={38}
+            maxWidth={30}
           />
         </Box>
       ) : null}
