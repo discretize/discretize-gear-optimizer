@@ -56,6 +56,7 @@ const coefficients = [
   'Power Coefficient',
   ...damagingConditions.map((condition) => `${condition} Coefficient`),
   'Flat DPS',
+  'Siphon Base Coefficient',
 ];
 
 export const allDamageKeys = [

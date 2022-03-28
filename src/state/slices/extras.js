@@ -5,6 +5,20 @@ import { changeAll, setBuildTemplate } from './controlsSlice';
 
 export const extrasTypes = ['Sigil1', 'Sigil2', 'Runes', 'Nourishment', 'Enhancement'];
 
+export const lifestealData = {
+  id: 'food-lifesteal-effect',
+  amountData: {
+    label: '/10s',
+    default: 4.3,
+    quantityEntered: 10,
+  },
+  modifiers: {
+    attributes: {
+      'Siphon Base Coefficient': 325,
+    },
+  },
+};
+
 export const extrasSlice = createSlice({
   name: 'extras',
   initialState: {
@@ -15,6 +29,7 @@ export const extrasSlice = createSlice({
       Nourishment: {},
       Enhancement: {},
     },
+    lifestealAmount: '',
   },
   reducers: {
     changeExtraIds: (state, action) => {
@@ -28,6 +43,9 @@ export const extrasSlice = createSlice({
     },
     changeExtras: (state, action) => {
       return { ...state, ...action.payload };
+    },
+    changeLifestealAmount: (state, action) => {
+      state.lifestealAmount = action.payload;
     },
   },
   extraReducers: {
@@ -61,6 +79,8 @@ export const extrasSlice = createSlice({
 
 export const getExtrasData = (state) => state.optimizer.form.extras.extras;
 export const getExtrasIds = createSelector(getExtrasData, (data) => mapValues(data, Object.keys));
+
+export const getLifestealAmount = (state) => state.optimizer.form.extras.lifestealAmount;
 
 // todo: document and clean this up and maybe move it elsewhere?
 /**
@@ -105,7 +125,8 @@ const findCombinations = (data) => {
 export const getExtrasCombinationsAndModifiers = createSelector(
   getExtrasIds,
   getExtrasData,
-  (ids, data) => {
+  getLifestealAmount,
+  (ids, data, lifestealAmount) => {
     const allExtrasCombinations = findCombinations(ids);
     const extrasCombinations = allExtrasCombinations.filter(({ Sigil1, Sigil2 }) => {
       // remove duplicate sigils
@@ -120,8 +141,8 @@ export const getExtrasCombinationsAndModifiers = createSelector(
 
     console.log('extrasCombinations', extrasCombinations);
 
-    const getModifiers = (extrasCombination) =>
-      Object.entries(extrasCombination)
+    const getModifiers = (extrasCombination) => {
+      const allModifiers = Object.entries(extrasCombination)
         .filter(([_, id]) => id)
         .map(([type, id]) => {
           if (!allExtrasModifiersById[id]) throw new Error(`missing data for extras id: ${id}`);
@@ -129,6 +150,11 @@ export const getExtrasCombinationsAndModifiers = createSelector(
 
           return { id, ...itemData, amount: data[type][id]?.amount };
         });
+      if (allExtrasModifiersById?.[extrasCombination?.Nourishment]?.hasLifesteal) {
+        allModifiers.push({ ...lifestealData, amount: lifestealAmount });
+      }
+      return allModifiers;
+    };
 
     return extrasCombinations.map((extrasCombination) => ({
       extrasCombination,
@@ -137,4 +163,5 @@ export const getExtrasCombinationsAndModifiers = createSelector(
   },
 );
 
-export const { changeExtraIds, changeExtraAmount, changeExtras } = extrasSlice.actions;
+export const { changeExtraIds, changeExtraAmount, changeExtras, changeLifestealAmount } =
+  extrasSlice.actions;

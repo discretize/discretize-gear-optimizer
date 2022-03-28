@@ -6,6 +6,7 @@
 
 import {
   allAttributeCoefficientKeys,
+  allAttributePercentKeys,
   allAttributePointKeys,
   allConversionAfterBuffsSourceKeys,
 } from '../../assets/modifierdata/metadata';
@@ -588,10 +589,15 @@ export class OptimizerCore {
       attributes['Power'] * (1 + critChance * (critDmg - 1)) * damageMultiplier['Strike Damage'];
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
-    const damage = ((attributes['Power Coefficient'] || 0) / 2597) * attributes['Effective Power'];
-    attributes['Power DPS'] = damage;
+    const powerDamage =
+      ((attributes['Power Coefficient'] || 0) / 2597) * attributes['Effective Power'];
+    attributes['Power DPS'] = powerDamage;
 
-    return damage;
+    const siphonDamage =
+      (character.attributes['Siphon Base Coefficient'] || 0) * damageMultiplier['Siphon Damage'];
+    attributes['Siphon DPS'] = powerDamage;
+
+    return powerDamage + siphonDamage;
   }
 
   conditionDamageTick = (condition, cdmg, mult) =>
@@ -883,7 +889,7 @@ export function inputToSettings(input) {
   const initialMultipliers = {
     'Strike Damage': 1,
     'Condition Damage': 1,
-    'Lifesteal Damage': 1,
+    'Siphon Damage': 1,
     'Damage Taken': 1,
     'Critical Damage': 1,
     'Bleeding Damage': 1,
@@ -975,7 +981,7 @@ export function inputToSettings(input) {
           case 'All Damage':
             dmgBuff('Strike Damage', scaledAmount, addOrMult);
             dmgBuff('Condition Damage', scaledAmount, addOrMult);
-            dmgBuff('Lifesteal Damage', scaledAmount, addOrMult);
+            dmgBuff('Siphon Damage', scaledAmount, addOrMult);
             break;
           case 'Damage Reduction':
             const negativeAmount = -scaledAmount;
@@ -1025,7 +1031,7 @@ export function inputToSettings(input) {
         const scaledAmount = scaleValue(value, amountInput, amountData);
         settings.baseAttributes[attribute] =
           (settings.baseAttributes[attribute] || 0) + scaledAmount;
-      } else {
+      } else if (allAttributePercentKeys.includes(attribute)) {
         // percent, i.e.
         //   Torment Duration: 15%
 
@@ -1040,6 +1046,8 @@ export function inputToSettings(input) {
           settings.baseAttributes[attribute] =
             (settings.baseAttributes[attribute] || 0) + scaledAmount;
         }
+      } else {
+        alert(`invalid attribute ${attribute}`);
       }
     }
 

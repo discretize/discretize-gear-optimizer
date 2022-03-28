@@ -1,16 +1,34 @@
 - section: Power Food
   items:
 
+    - id: cilantro-lime-sous-vide-steak
+      text: Cilantro Lime Sous-Vide Steak
+      hasLifesteal: true
+      modifiers:
+        attributes:
+          Power: [100, converted]
+          Ferocity: [70, converted]
+      gw2id: 91805
+
     - id: sweet-and-spicy-butternut-squash-soup
-      text: Bowl of Sweet and Spicy Butternut Squash Soup / Sous-Vide Steak
+      text: Bowl of Sweet and Spicy Butternut Squash Soup
       modifiers:
         attributes:
           Power: [100, converted]
           Ferocity: [70, converted]
       gw2id: 41569
 
+    - id: plate-of-coq-au-vin-with-salsa
+      text: Plate of Coq Au Vin with Salsa
+      hasLifesteal: true
+      modifiers:
+        attributes:
+          Power: [100, converted]
+          Precision: [70, converted]
+      gw2id: 91709
+
     - id: truffle-steak
-      text: Plate of Truffle Steak / Coq Au Vin
+      text: Plate of Truffle Steak
       modifiers:
         attributes:
           Power: [100, converted]
@@ -83,16 +101,50 @@
           Concentration: [100, converted]
       gw2id: 68633
 
+    - id: slice-of-candied-dragon-roll
+      text: Slice of Candied Dragon Roll
+      hasLifesteal: true
+      modifiers:
+        attributes:
+          Precision: [70, converted]
+      gw2id: 43362
+
+    - id: slice-of-allspice-cake
+      text: Slice of Allspice Cake
+      hasLifesteal: true
+      modifiers:
+        attributes:
+          Power: [70, converted]
+      gw2id: 75126
+
 - section: Support Food
   items:
 
+    - id: plate-of-beef-carpaccio-with-salsa-garnish
+      text: Plate of Beef Carpaccio with Salsa Garnish
+      hasLifesteal: true
+      modifiers:
+        attributes:
+          Concentration: [100, converted]
+          Power: [70, converted]
+      gw2id: 91862
+
     - id: soul-pastry
-      text: Soul Pastry / Beef Carpaccio
+      text: Soul Pastry
       modifiers:
         attributes:
           Concentration: [100, converted]
           Power: [70, converted]
       gw2id: 89002
+
+    - id: salsa-eggs-benedict
+      text: Salsa Eggs Benedict
+      hasLifesteal: true
+      modifiers:
+        attributes:
+          Concentration: [100, converted]
+          Expertise: [70, converted]
+      gw2id: 91847
 
     - id: eggs-benedict
       text: Plate of Eggs Benedict
@@ -159,16 +211,34 @@
 - section: Condition Food
   items:
 
+    - id: salsa-topped-veggie-flatbread
+      text: Salsa-Topped Veggie Flatbread
+      hasLifesteal: true
+      modifiers:
+        attributes:
+          Expertise: [100, converted]
+          Condition Damage: [70, converted]
+      gw2id: 91876
+
     - id: rare-veggie-pizza
-      text: Rare Veggie Pizza / Veggie flatbread
+      text: Rare Veggie Pizza
       modifiers:
         attributes:
           Expertise: [100, converted]
           Condition Damage: [70, converted]
       gw2id: 12464
 
+    - id: cilantro-and-cured-meat-flatbread
+      text: Cilantro and Cured Meat Flatbread
+      hasLifesteal: true
+      modifiers:
+        attributes:
+          Condition Damage: [100, converted]
+          Expertise: [70, converted]
+      gw2id: 91878
+
     - id: beef-rendang
-      text: Plate of Beef Rendang / Cured Meat flatbread
+      text: Plate of Beef Rendang
       modifiers:
         attributes:
           Condition Damage: [100, converted]
@@ -283,13 +353,38 @@
 
     - id: prickly-pear-pie
       text: Prickly Pear Pie
+      hasLifesteal: true
       modifiers:
         attributes:
           Expertise: [100, converted]
       gw2id: 66538
 
+    - id: slice-of-allspice-cake-with-ice-cream
+      text: Slice of Allspice Cake with Ice Cream
+      hasLifesteal: true
+      modifiers:
+        attributes:
+          Condition Damage: [70, converted]
+      gw2id: 76359
+
 - section: Hybrid Food
   items:
+
+    - id: spherified-cilantro-oyster-soup
+      text: Spherified Cilantro Oyster Soup
+      hasLifesteal: true
+      modifiers:
+        attributes:
+          Power: [45, converted]
+          Precision: [45, converted]
+          Toughness: [45, converted]
+          Vitality: [45, converted]
+          Concentration: [45, converted]
+          Condition Damage: [45, converted]
+          Expertise: [45, converted]
+          Ferocity: [45, converted]
+          Healing Power: [45, converted]
+      gw2id: 91804
 
     - id: dragon's-revelry-starcake
       text: Oyster Soup
