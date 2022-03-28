@@ -1,11 +1,27 @@
 import { ConsumableEffect, Item } from '@discretize/gw2-ui-new';
+import { Box, Typography } from '@mui/material';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
+import { Trans } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 import { allExtrasModifiersById, extrasModifiers } from '../../../assets/modifierdata';
+import {
+  changeLifestealAmount,
+  getExtrasIds,
+  getLifestealAmount,
+  lifestealData,
+} from '../../../state/slices/extras';
+import AmountInput from '../../baseComponents/AmountInput';
 import ExtraSelection from './ExtraSelection';
 
 const Extras = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+
+  const foodIds = useSelector(getExtrasIds).Nourishment || [];
+  const hasLifestealFood = foodIds.some((id) => allExtrasModifiersById[id]?.hasLifesteal);
+  const lifestealAmount = useSelector(getLifestealAmount);
+
   return (
     <>
       <ExtraSelection
@@ -36,6 +52,22 @@ const Extras = () => {
         modifierData={extrasModifiers.food}
         modifierDataById={allExtrasModifiersById}
       />
+      {hasLifestealFood ? (
+        <Box
+          sx={{ mt: -1, mb: 2, display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}
+        >
+          <Typography variant="caption" sx={{ mr: 1, mt: 1 }}>
+            <Trans>Lifesteal frequency:</Trans>
+          </Typography>
+          <AmountInput
+            placeholder={lifestealData.amountData.default}
+            endLabel={lifestealData.amountData.label}
+            handleAmountChange={(event) => dispatch(changeLifestealAmount(event.target.value))}
+            value={lifestealAmount}
+            maxWidth={38}
+          />
+        </Box>
+      ) : null}
       <ExtraSelection
         type="Enhancement"
         text={t('Enhancement')}
