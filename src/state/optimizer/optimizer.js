@@ -155,10 +155,14 @@ export function* calculate(reduxState) {
     combination.input = input;
 
     const [settings, minimalSettings] = inputToSettings(input);
+    combination.settings = settings;
+    combination.minimalSettings = minimalSettings;
+
+    combination.list = [];
 
     console.log('Input option:', combination);
 
-    combination.core = new OptimizerCore(settings, minimalSettings);
+    combination.core = new OptimizerCore(settings);
     combination.calculation = combination.core.calculate();
   }
 
@@ -185,15 +189,22 @@ export function* calculate(reduxState) {
 
     if (combination.done) continue;
 
-    const { value: { isChanged, calculationRuns, newList } = {}, done } =
+    const { value: { isChanged, calculationRuns, newCharacters } = {}, done } =
       combination.calculation.next();
 
     if (done) {
       combination.done = true;
     }
 
+    for (const character of newCharacters) {
+      character.settings = combination.minimalSettings;
+    }
+
     if (isChanged) {
-      combination.list = newList;
+      combination.list = [...combination.list, ...newCharacters]
+        // eslint-disable-next-line id-length
+        .sort((a, b) => characterLT(a, b, rankby))
+        .slice(0, 50);
 
       const newGlobalList = combinations
         .flatMap(({ list }) => list || [])
