@@ -55,6 +55,7 @@
 
 - section: Curses
   id: 39
+  note: Be sure to change the condition coefficient values below when adding or removing traits without checkboxes that implement their full effects like lingering curse.
   items:
 
     - id: barbed-precision
@@ -206,6 +207,7 @@
 
 - section: Scourge
   id: 60
+  note: Be sure to change the condition coefficient values below when adding or removing traits without checkboxes that implement their full effects like demonic lore.
   items:
 
     - id: fell-beacon

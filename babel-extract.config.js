@@ -105,6 +105,15 @@ module.exports = {
           ),
           '',
         ],
+        traitNote: [
+          ...new Set(
+            Object.values(professions)
+              .flat()
+              .flatMap((item) => item.note)
+              .filter(Boolean),
+          ),
+          '',
+        ],
         slotName: [...new Set(Object.values(GEAR_SLOTS).map((item) => item.name))],
         affix: Object.keys(Affix),
       },
