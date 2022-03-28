@@ -58,8 +58,8 @@ const IndexPage = () => {
   );
 };
 export const query = graphql`
-  query ($language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
+  query {
+    locales: allLocale {
       edges {
         node {
           ns
