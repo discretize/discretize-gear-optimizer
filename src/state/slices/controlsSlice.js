@@ -122,6 +122,12 @@ export const controlSlice = createSlice({
     changeFilteredList: (state, action) => {
       return { ...state, filteredList: action.payload };
     },
+    updateResults: (state, action) => {
+      const { list, filteredList, progress } = action.payload;
+      state.progress = progress;
+      if (list) state.list = list;
+      if (filteredList) state.filteredList = filteredList;
+    },
     toggleSaved: (state, action) => {
       // required to use reference equality check with immer.js
       const originalSaved = original(state.saved);
@@ -173,6 +179,7 @@ export const {
   changeProgress,
   changeList,
   changeFilteredList,
+  updateResults,
   changeFilterMode,
   changeTallTable,
   toggleSaved,

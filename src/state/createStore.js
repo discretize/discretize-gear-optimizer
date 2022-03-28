@@ -1,8 +1,8 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import buildPageSaga from './sagas/buildPageSaga';
 import calculationSaga from './sagas/calculationSaga';
 import formStateSaga from './sagas/formStateSaga';
-import buildPageSaga from './sagas/buildPageSaga';
 import { bossSlice } from './slices/boss';
 import { buffsSlice } from './slices/buffs';
 import { buildPageSlice } from './slices/buildPage';
@@ -38,8 +38,7 @@ const reducers = combineReducers({
 const saga = createSagaMiddleware();
 const composeEnhancers =
   (typeof window !== 'undefined' &&
-    // eslint-disable-next-line no-underscore-dangle
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ actionsBlacklist: ['control/updateResults'] })) ||
   compose;
 
 export default () => {

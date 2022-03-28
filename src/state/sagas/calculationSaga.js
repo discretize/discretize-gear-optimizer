@@ -11,6 +11,7 @@ import {
   changeStatus,
   getControl,
   getSelectedCharacter,
+  updateResults,
 } from '../slices/controlsSlice';
 import SagaTypes from './sagaTypes';
 
@@ -58,10 +59,20 @@ function* runCalc() {
       }
       if (listRenderCounter === listThrottle) {
         yield delay(0);
-        yield put(changeList(currentList));
-        yield put(changeFilteredList(currentFilteredList));
+        yield put(
+          updateResults({
+            list: currentList,
+            filteredList: currentFilteredList,
+            progress: currentPercent,
+          }),
+        );
+      } else {
+        yield put(
+          updateResults({
+            progress: currentPercent,
+          }),
+        );
       }
-      yield put(changeProgress(currentPercent));
       listRenderCounter++;
 
       yield delay(0);
