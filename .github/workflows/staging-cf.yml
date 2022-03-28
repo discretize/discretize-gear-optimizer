@@ -5,6 +5,8 @@ on:
       - staging
   workflow_dispatch:
   
+env:
+  PAGES_PROJECT_NAME: discretize-optimizer
   
 jobs:
   deployment:
@@ -13,8 +15,12 @@ jobs:
     timeout-minutes: 10
 
     steps:
-    - name: Trigger Cloudflare deploy hook
-      uses: fjogeleit/http-request-action@v1
-      with:
-        url: ${{ secrets.STAGING_HOOK }}
-        method: 'POST'
+      - name: Deploy preview
+        uses: tomjschuster/cloudflare-pages-deploy-action@v0
+        with:
+          account-id: '${{ secret.CF_ACCOUNT_ID }}'
+          project-name: '${{ env.PAGES_PROJECT_NAME }}'
+          api-key: '${{ secrets.CF_GLOBAL_APIKEY }}'
+          email: '${{ secrets.CF_EMAIL }}'
+          preview: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
