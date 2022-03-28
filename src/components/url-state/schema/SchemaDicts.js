@@ -264,6 +264,16 @@ export const nourishmentDict = [
   'meaty-rice-bowl',
   'block-of-tofu',
   'dragons-revelry-starcake-bugged',
+  'cilantro-lime-sous-vide-steak',
+  'plate-of-coq-au-vin-with-salsa',
+  'plate-of-beef-carpaccio-with-salsa-garnish',
+  'salsa-eggs-benedict',
+  'salsa-topped-veggie-flatbread',
+  'cilantro-and-cured-meat-flatbread',
+  'spherified-cilantro-oyster-soup',
+  'slice-of-candied-dragon-roll',
+  'slice-of-allspice-cake',
+  'slice-of-allspice-cake-with-ice-cream',
 ];
 
 export const buffsDict = [

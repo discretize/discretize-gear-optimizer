@@ -116,6 +116,8 @@ const testModifiers = async () => {
           minor,
           amountData,
           defaultEnabled,
+          // eslint-disable-next-line no-unused-vars
+          hasLifesteal,
           ...otherKeys
         } = item;
 
