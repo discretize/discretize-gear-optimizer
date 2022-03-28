@@ -16,6 +16,7 @@ import {
 } from '../../../state/slices/traits';
 import AmountInput from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
+import Info from '../../baseComponents/Info';
 
 const Traits = ({ profession }) => {
   const dispatch = useDispatch();
@@ -55,7 +56,7 @@ const Traits = ({ profession }) => {
     dispatch(setTraitModiferAmount({ index, id, amount: e.target.value }));
   };
 
-  return [1, 2, 3].map((lineNr, index) => {
+  const traitSections = [1, 2, 3].map((lineNr, index) => {
     const traitlineIdString = traitlines[index];
     const traitlineId = traitlineIdString ? parseInt(traitlineIdString, 10) : null;
 
@@ -70,6 +71,8 @@ const Traits = ({ profession }) => {
         checkboxModis.push(itemData);
       }
     });
+
+    const note = traitSectionsById[traitlineId]?.note;
 
     const key = `traitNr${lineNr}`;
     return (
@@ -187,9 +190,39 @@ const Traits = ({ profession }) => {
             );
           })
         }
+        {note ? (
+          <Box sx={{ p: 1 }} maxWidth="648px">
+            <Info direction="row">
+              {
+                // i18next-extract-mark-context-next-line {{traitNote}}
+                t('traitNote', { context: note })
+              }
+            </Info>
+          </Box>
+        ) : null}
       </React.Fragment>
     );
   });
+
+  const classNote = classModifiers[profession]?.find(
+    (section) => section.section === 'Skills',
+  )?.note;
+
+  return (
+    <>
+      {classNote ? (
+        <Box sx={{ p: 1 }} maxWidth="648px">
+          <Info direction="row">
+            {
+              // i18next-extract-mark-context-next-line {{traitNote}}
+              t('traitNote', { context: classNote })
+            }
+          </Info>
+        </Box>
+      ) : null}
+      {traitSections}
+    </>
+  );
 };
 
 export default Traits;
