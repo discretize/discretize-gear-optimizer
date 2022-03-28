@@ -1,4 +1,4 @@
-name: 'Build and Deploy'
+name: 'Build and Deploy - staging cf'
 on:
   push:
     branches:
@@ -15,7 +15,7 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - name: Deploy preview
+      - name: Deploy staging
         uses: tomjschuster/cloudflare-pages-deploy-action@v0
         with:
           account-id: '${{ secrets.CF_ACCOUNT_ID }}'
