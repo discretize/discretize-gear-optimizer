@@ -13,8 +13,8 @@ import { makeStyles } from 'tss-react/mui';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import SagaTypes from '../../../state/sagas/sagaTypes';
 import {
-  changeControl,
   changeError,
+  changeStatus,
   getControl,
   getError,
 } from '../../../state/slices/controlsSlice';
@@ -51,7 +51,7 @@ const ControlsBox = ({ profession }) => {
       if (affixes.length < 1) {
         // no affixes selected, display message
         dispatch(changeError('Please select at least one affix.'));
-        dispatch(changeControl({ key: 'status', value: ERROR }));
+        dispatch(changeStatus(ERROR));
         return;
       }
 

@@ -110,8 +110,11 @@ export const controlSlice = createSlice({
         error: '',
       };
     },
-    changeControl: (state, action) => {
-      state[action.payload.key] = action.payload.value;
+    changeStatus: (state, action) => {
+      state.status = action.payload;
+    },
+    changeProgress: (state, action) => {
+      state.progress = action.payload;
     },
     changeList: (state, action) => {
       return { ...state, list: action.payload };
@@ -166,7 +169,8 @@ export const {
   changeAll,
   changeProfession,
   changeExpertMode,
-  changeControl,
+  changeStatus,
+  changeProgress,
   changeList,
   changeFilteredList,
   changeFilterMode,

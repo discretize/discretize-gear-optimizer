@@ -3,11 +3,12 @@ import { put, select, take, takeEvery, takeLatest } from 'redux-saga/effects';
 import { calculate } from '../optimizer/optimizer';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../optimizer/status';
 import {
-  changeControl,
   changeError,
   changeFilteredList,
   changeList,
+  changeProgress,
   changeSelectedCharacter,
+  changeStatus,
   getControl,
   getSelectedCharacter,
 } from '../slices/controlsSlice';
@@ -21,8 +22,8 @@ function* runCalc() {
   let currentFilteredList;
   let currentPercent;
   try {
-    yield put(changeControl({ key: 'status', value: RUNNING }));
-    yield put(changeControl({ key: 'progress', value: 0 }));
+    yield put(changeStatus(RUNNING));
+    yield put(changeProgress(0));
     yield delay(0);
 
     const reduxState = yield select();
@@ -60,7 +61,7 @@ function* runCalc() {
         yield put(changeList(currentList));
         yield put(changeFilteredList(currentFilteredList));
       }
-      yield put(changeControl({ key: 'progress', value: currentPercent }));
+      yield put(changeProgress(currentPercent));
       listRenderCounter++;
 
       yield delay(0);
@@ -76,22 +77,22 @@ function* runCalc() {
         yield take(SagaTypes.Resume);
 
         timer = performance.now();
-        yield put(changeControl({ key: 'status', value: RUNNING }));
+        yield put(changeStatus(RUNNING));
       }
     }
 
     yield delay(0);
     yield put(changeList(currentList));
     yield put(changeFilteredList(currentFilteredList));
-    yield put(changeControl({ key: 'progress', value: currentPercent }));
+    yield put(changeProgress(currentPercent));
 
     elapsed += performance.now() - timer;
     console.log(`Finished calculation in ${elapsed} ms`);
     console.time('Render Result');
     if (currentList.length > 0) {
-      yield put(changeControl({ key: 'status', value: SUCCESS }));
+      yield put(changeStatus(SUCCESS));
     } else {
-      yield put(changeControl({ key: 'status', value: ERROR }));
+      yield put(changeStatus(ERROR));
       yield put(
         changeError(
           'No result could be generated for the provided input. Please check your constraints (min boon duration, ...)!',
@@ -113,12 +114,12 @@ function* runCalc() {
     console.log(e);
     console.log('state:', { ...state });
     console.log('list:', { ...currentList });
-    yield put(changeControl({ key: 'status', value: WAITING }));
+    yield put(changeStatus(WAITING));
   }
 }
 
 function* stopCalc() {
-  yield put(changeControl({ key: 'status', value: STOPPED }));
+  yield put(changeStatus(STOPPED));
 }
 
 export default function* rootSaga() {
