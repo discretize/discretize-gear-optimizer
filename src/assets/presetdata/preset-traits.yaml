@@ -4282,7 +4282,75 @@ list:
         "skills": {}
       }
 
-  - name: '[beta1] Condi Mechanist'
+  - name: Condi Mechanist J-Drive
+    profession: Mechanist
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "38",
+          "6",
+          "70"
+        ],
+        "selectedTraits": [
+          [
+            1878,
+            2006,
+            433
+          ],
+          [
+            1882,
+            1892,
+            505
+          ],
+          [
+            2282,
+            2270,
+            2298
+          ]
+        ],
+        "items": [
+          {
+            "chemical-rounds": {},
+            "high-caliber": {},
+            "hematic-focus": {},
+            "thermal-vision": {},
+            "no-scope": {
+              "amount": ""
+            },
+            "serrated-steel": {},
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": {},
+            "sharpshooter": {
+              "amount": "2.29"
+            }
+          },
+          {
+            "glass-cannon": {
+              "amount": ""
+            },
+            "explosive-temper": {
+              "amount": ""
+            },
+            "blast-shield": {},
+            "shaped-charge": {
+              "amount": ""
+            },
+            "big-boomer": {}
+          },
+          {}
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "superconducting-signet-traited": {}
+        }
+      }
+
+  - name: Condi Mechanist Jade Dynamo
     profession: Mechanist
     traits: |-
       {
@@ -4322,7 +4390,10 @@ list:
             "modified-ammunition": {
               "amount": ""
             },
-            "incendiary-powder": {}
+            "incendiary-powder": {},
+            "sharpshooter": {
+              "amount": "4.01"
+            }
           },
           {
             "glass-cannon": {

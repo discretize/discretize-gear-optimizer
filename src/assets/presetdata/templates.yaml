@@ -598,14 +598,23 @@ list:
         traits: Heal Scrapper
         extras: Heal
 
-      - name: '[beta1] Condi Mechanist'
-        id: cmech
+      - name: Condi Mechanist J-Drive (approx.)
+        id: cmech-sig-mace
         specialization: Mechanist
         boons: Condi
         priority: Condi DPS
-        distribution: '[beta1] Condi Mechanist'
-        traits: '[beta1] Condi Mechanist'
-        extras: '[beta1] Condi Mechanist Thorns'
+        distribution: Condi Mechanist J-Drive Mace (approx.)
+        traits: Condi Mechanist J-Drive
+        extras: Condi Mechanist
+
+      - name: Condi Mechanist Jade Dynamo (approx.)
+        id: cmech-dynamo-pistol
+        specialization: Mechanist
+        boons: Condi
+        priority: Condi DPS
+        distribution: Condi Mechanist Jade Dynamo Pistol (approx.)
+        traits: Condi Mechanist Jade Dynamo
+        extras: Condi Mechanist
 
   - class: Necromancer
     builds:

@@ -991,53 +991,7 @@ list:
         }
       }
 
-  - name: '[beta1] Condi Mechanist Thorns'
-    profession: Mechanist
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "thorns": {}
-          },
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {
-            "malice": {}
-          },
-          "Enhancement": {
-            "master-tuning-crystal": {}
-          },
-          "Nourishment": {
-            "cilantro-and-cured-meat-flatbread": {}
-          }
-        }
-      }
-
-  - name: '[beta1] Condi Mechanist Renegade'
-    profession: Mechanist
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "renegade": {}
-          },
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {
-            "malice": {}
-          },
-          "Enhancement": {
-            "master-tuning-crystal": {}
-          },
-          "Nourishment": {
-            "cilantro-and-cured-meat-flatbread": {}
-          }
-        }
-      }
-
-  - name: '[beta1] Condi Mechanist Elementalist'
+  - name: Condi Mechanist
     profession: Mechanist
     value: |-
       {
@@ -1048,14 +1002,17 @@ list:
           "Sigil1": {
             "bursting": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "earth": {}
+          },
           "Enhancement": {
-            "master-tuning-crystal": {}
+            "toxic-focusing-crystal": {}
           },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {}
           }
-        }
+        },
+        "lifestealAmount": "3.4"
       }
 
   - name: DPS Scourge

@@ -505,15 +505,25 @@ list:
         "values2": { "Power": 2363, "Burning": 11.26, "Bleeding": 10.33, "Poisoned": 8.03, "Torment": 0, "Confusion": 4.6 }
       }
 
-  # logs are totally broken (~9% off)
-  # https://www.youtube.com/watch?v=RJUBAGISNC0
-  # https://www.youtube.com/watch?v=oR6U_nvTzNo
-  # https://www.youtube.com/watch?v=rG-yP2AMua0
-  - name: '[beta1] Condi Mechanist'
+  # https://www.youtube.com/watch?v=D_XVn26s8S4
+  # https://dps.report/Vtz8-20220321-012350_golem
+  # (subtracted 110 dps from lifesteal food)
+  # icicle
+  - name: Condi Mechanist J-Drive Mace (approx.)
     profession: Mechanist
     value: >-
       {
-        "values2": { "Power": 2966, "Burning": 9.6, "Bleeding": 13.7, "Poisoned": 10.2, "Torment": 0, "Confusion": 2.4 }
+        "values2": { "Power": 3597, "Burning": 7.55, "Bleeding": 13.29, "Poisoned": 3.57, "Torment": 0, "Confusion": 15.46 }
+      }
+
+  # https://www.youtube.com/watch?v=URNB2JkmtG0
+  # https://dps.report/8GVP-20220308-005706_golem
+  # icicle
+  - name: Condi Mechanist Jade Dynamo Pistol (approx.)
+    profession: Mechanist
+    value: >-
+      {
+        "values2": { "Power": 3566, "Burning": 7.42, "Bleeding": 17.54, "Poisoned": 10.05, "Torment": 0, "Confusion": 9.18 }
       }
 
   # https://www.youtube.com/watch?v=yGg0pqSu8RA
