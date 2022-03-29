@@ -214,7 +214,7 @@ const Navbar = ({
               transformOrigin={{ vertical: 'top', horizontal: 'left' }}
               PaperProps={{
                 style: {
-                  maxHeight: '75vh',
+                  maxHeight: 'calc(100vh - 340px)',
                 },
               }}
             >
