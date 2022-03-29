@@ -160,6 +160,15 @@ list:
         traits: Condi Willbender
         extras: Condi Willbender
 
+      - name: Condi Alacrity Willbender
+        id: cwb-alac
+        specialization: Willbender
+        boons: Condi
+        priority: Condi Alacrity Willbender 19%
+        distribution: Condi Alacrity Willbender
+        traits: Condi Alacrity Willbender
+        extras: Condi Alacrity Willbender
+
       # - name: CFB w/ Quickness (balthazar)
       #   id: cqfb-balth
       #   specialization: Firebrand
@@ -258,15 +267,6 @@ list:
         distribution: None
         traits: Healbrand
         extras: Heal
-
-      - name: Condi Alacrity Willbender
-        id: cwb-alac
-        specialization: Willbender
-        boons: Condi
-        priority: Hybrid DPS
-        distribution: Condi Alacrity Willbender
-        traits: Condi Alacrity Willbender
-        extras: Condi Willbender
 
   - class: Warrior
     builds:

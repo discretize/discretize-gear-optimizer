@@ -230,15 +230,18 @@ list:
         "values2": { "Power": 3734, "Burning": 5.43, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  # https://www.youtube.com/watch?v=Xd5eTz9es-M
-  # https://dps.report/Er9w-20220319-141322_golem
+  # https://www.youtube.com/watch?v=c9BBsYQ0J4A
+  # https://dps.report/rEUF-20220329-113027_golem
   # 12 boons
-  # Power for power trait
+  # cele helm coat acc, viper ring back, flamelegion, fishy toxicoil (no oil in vid)
+  # 18 malign
+  # NO JADE BOT (in arc log, probably - seems bugged)
+  # https://go.princeps.biz/A+lQsApL matches log (I think)
   - name: Condi Alacrity Willbender
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 2493, "Burning": 8.55, "Bleeding": -0.27, "Poisoned": 0, "Torment": -0.09, "Confusion": 0 }
+        "values2": { "Power": 2467, "Burning": 9.3, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=nJTkHlFedOI

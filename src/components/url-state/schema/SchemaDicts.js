@@ -180,6 +180,7 @@ export const sigilDict = [
   'geomancy-torment-cfb5-virtues',
   'geomancy-torment-cfb8-virtues',
   'geomancy-torment-cwb',
+  'geomancy-torment-cwb-alac',
 ];
 
 export const enhancementDict = [

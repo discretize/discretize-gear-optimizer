@@ -325,6 +325,31 @@ list:
         }
       }
 
+  - name: Condi Alacrity Willbender
+    profession: Willbender
+    value: |-
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "geomancy-torment-cwb-alac": {}
+          },
+          "Runes": {
+            "flame-legion-2": {}
+          },
+          "Nourishment": {
+            "fishy-rice-bowl": {},
+            "spherified-cilantro-oyster-soup": {}
+          },
+          "Enhancement": {
+            "toxic-maintenance-oil": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: CFB w/ Quickness (balthazar)
     profession: Firebrand
     value: |-
