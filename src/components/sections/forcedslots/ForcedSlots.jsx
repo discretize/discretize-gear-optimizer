@@ -22,31 +22,20 @@ const ForcedSlots = () => {
     dispatch(changeForcedSlot({ index, value: newInput?.label || null }));
   };
 
-  const input2 = (name, index, offset) => {
-    return (
-      <Grid item xs={6} md={2} sm={4} key={name}>
-        <AffixesSelect
-          name={name}
-          onChange={handleChange(index + offset)}
-          value={forcedSlots[index + offset]}
-        />
-      </Grid>
-    );
-  };
   return (
-    // i18next-extract-mark-context-start {{slotName}}
     <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" spacing={1}>
-      {SLOTS.slice(0, 6).map((slot, index) =>
-        input2(t('slotName', { context: slot.name }), index, 0),
-      )}
-      {SLOTS.slice(6, 10).map((slot, index) =>
-        input2(t('slotName', { context: slot.name }), index, 6),
-      )}
-      {SLOTS.slice(10).map((slot, index) =>
-        input2(t('slotName', { context: slot.name }), index, 10),
-      )}
+      {SLOTS.map((slot, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <Grid item xs={6} sm={4} md={2} key={index}>
+          <AffixesSelect
+            // i18next-extract-mark-context-next-line {{slotName}}
+            name={t('slotName', { context: slot.name })}
+            onChange={handleChange(index)}
+            value={forcedSlots[index]}
+          />
+        </Grid>
+      ))}
     </Grid>
-    // i18next-extract-mark-context-stop
   );
 };
 export default ForcedSlots;
