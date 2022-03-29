@@ -351,7 +351,18 @@
       gw2id: 2185
       defaultEnabled: true
 
+    # using subtext on this to ensure it is a checkbox
     - id: alchemic-vigor
+      text: Alchemic Vigor
+      subText: 'fixed'
+      minor: true
+      modifiers:
+        attributes:
+          Vitality: [240, converted]
+      gw2id: 2186
+      defaultEnabled: true
+
+    - id: alchemic-vigor-bugged
       text: Alchemic Vigor
       subText: 'bug: converted like 360 vitality'
       minor: true
@@ -362,7 +373,7 @@
           # master traits and magnanimous utility
           Vitality: [360, converted, -120, buff]
       gw2id: 2186
-      defaultEnabled: true
+      defaultEnabled: false
 
     - id: implacable-foe
       text: Implacable Foe
