@@ -38,7 +38,7 @@ const reducers = combineReducers({
 const saga = createSagaMiddleware();
 const composeEnhancers =
   typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ actionsBlacklist: ['control/updateResults'] })
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ actionsDenylist: ['control/updateResults'] })
     : compose;
 
 export default () => {
