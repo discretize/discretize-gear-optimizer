@@ -525,6 +525,7 @@
 
 - section: Catalyst
   id: 67
+  note: Non-constant critical chance is not currently simulated. Using dragon gear to take advantage of >100% critical chance with full berserker may be a DPS loss in reality.
   items:
 
     - id: hardened-auras
