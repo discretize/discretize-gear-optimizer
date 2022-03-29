@@ -75,7 +75,7 @@ const DistributionSection = ({ profession, data }) => {
               calculate the correct coefficients so that a tested build matches a golem log using
               the tool under "development" below, or calculate them manually.
             </Trans>
-            <Box sx={{ mt: 1 }} />
+            <Box component="span" sx={{ mt: 1, display: 'block' }} />
 
             <Trans>
               For more information,{' '}
@@ -95,7 +95,7 @@ const DistributionSection = ({ profession, data }) => {
               This data represents your rotation. If we don't supply a template for a build, you can
               move these sliders until the results match a golem log, or calculate them manually.
             </Trans>
-            <Box sx={{ mt: 1 }} />
+            <Box component="span" sx={{ mt: 1, display: 'block' }} />
 
             <Trans>
               To do so, perform your rotation on a golem with no gear, traits, or other modifiers,

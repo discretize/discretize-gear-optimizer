@@ -16,7 +16,7 @@ const ExtraModifiersSection = () => {
             Allows adding arbitrary extra modifiers. The textbox expects valid YAML or JSON
             formatting. Multiple modifiers can be entered as an array.
           </Trans>
-          <Box sx={{ mt: 1 }} />
+          <Box component="span" sx={{ mt: 1, display: 'block' }} />
           <Trans>
             For more information,{' '}
             <Link

@@ -51,7 +51,7 @@ const TraitsSection = ({ profession, data }) => {
             using the checkboxes below each line. Many bonuses are conditional and may not apply to
             your setup.
           </Trans>
-          <Box mb={1} />
+          <Box component="span" sx={{ mt: 1, display: 'block' }} />
 
           <Trans>
             Only the bonuses with checkboxes are applied here, so be sure to change the Skill
