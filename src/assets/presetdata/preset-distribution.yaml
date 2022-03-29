@@ -709,12 +709,12 @@ list:
       }
 
   # https://www.youtube.com/watch?v=UD7TaxND8vc
-  # power: 34651, burn: 203, bleed: 101, total: 34955
+  # https://dps.report/iSRR-20200320-131145_golem
   - name: Staff Daredevil
     profession: Daredevil
     value: >-
       {
-        "values2": { "Power": 2742, "Burning": 0.6, "Bleeding": 1.1, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2712, "Burning": 0.62, "Bleeding": 0, "Poisoned": 0.96, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=OCYkMxrvVC0
@@ -728,12 +728,12 @@ list:
       }
 
   # https://www.youtube.com/watch?v=si71D-O4kf8
-  # power: 38556, burn: 176, bleed: 35, poison: 191, total: 38958
+  # https://dps.report/7zEL-20200721-034734_golem
   - name: Rifle Deadeye
     profession: Deadeye
     value: >-
       {
-        "values2": { "Power": 3421, "Burning": 0.5, "Bleeding": 0.4, "Poisoned": 1.8, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3383, "Burning": 0.53, "Bleeding": 0.39, "Poisoned": 1.8, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=V2nn6jf7DF0

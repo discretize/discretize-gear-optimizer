@@ -148,7 +148,7 @@
       text: Practiced Tolerance
       modifiers:
         conversion:
-          Ferocity: {Precision: 7%}
+          Ferocity: {Precision: 10%}
       gw2id: 1272
       defaultEnabled: true
 
@@ -173,7 +173,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Ferocity: [250, converted]
+          Ferocity: [250, buff]
       gw2id: 1904
       defaultEnabled: true
 
