@@ -56,7 +56,11 @@ At present, this project is built directly off `staging` while in beta; the plan
 
 ### Hosting:
 
-The optimizer is currently hosted on [Github Pages](https://pages.github.com/). Pushing to the `staging` branch of this repository will automatically deploy to Github Pages using the [gh-pages](https://www.npmjs.com/package/gh-pages) package in a Github action, unless the description of the head commit (the merge commit, if you are merging a PR) contains `[skip ci]`.
+The optimizer is currently hosted on [Github Pages](https://pages.github.com/). Merging into the `main` branch of this repository will automatically deploy to Github Pages using the [gh-pages](https://www.npmjs.com/package/gh-pages) package in a Github action, unless the description of the head commit (the merge commit, if you are merging a PR) contains `[skip ci]`.
+
+For the optimizer staging environment we are using [Cloudflare Pages](https://pages.cloudflare.com/). Commiting to the `staging` branch will automatically deploy to Cloudflare pages using the github action found in `../../.github/workflows/staging-cf.yml`.
+
+Opening a pullrequest will deploy a preview version to Cloudflare pages as well (action in `../../.github/workflows/previews-cf.yml`). A bot will notify about the deployment in the pullrequest. Every commit in a pullrequest will rebuild the preview. If you want to skip deploying a preview build, use `skip ci` in the commit description.
 
 > todo: integrate the optimizer directly into the discretize.eu website and document its deploy process here.
 
