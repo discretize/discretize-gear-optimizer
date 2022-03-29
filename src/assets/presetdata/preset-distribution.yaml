@@ -93,37 +93,41 @@ list:
         "values2": { "Power": 3390, "Burning": 1.1, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
-  # https://www.youtube.com/watch?v=5Llk01nbHkU&t=30s
-  # power: 10388, burn: 27971, bleed: 406, torment: 659, total: 39424
+  # https://www.youtube.com/watch?v=x76DgzoGCnA
+  # https://dps.report/4PDN-20220325-121117_golem
   # 12 boons
   # viper glove boot ring ear ear back, rest grieving, balth, fishy
+  # NO JADE BOT (in arc log, probably - seems bugged)
   - name: Condi Willbender Sword
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 2719, "Burning": 13.8, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2734, "Burning": 14.18, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=mCOEGlJkRJ0
-  # power: 12973, burn: 25702, bleed: 389, torment: 512, total: 39576
+  # https://dps.report/z2Zl-20220316-172733_golem
   # 12 boons
   # viper glove boot ring ear ear back, rest grieving, flame legion, fishy
+  # NO JADE BOT (in arc log, probably - seems bugged)
   - name: Condi Willbender GS
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 3010, "Burning": 13.27, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3010, "Burning": 13.38, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=mqnlk-j1e0Q
+  # https://dps.report/YM0x-20220314-200134_golem
   # power: 5955, burn: 30706, bleed: 1783, torment: 543, total: 38987
   # 12 boons
   # sinister amulet ring acc acc back
+  # NO JADE BOT (in arc log, probably - seems bugged)
   - name: CFB (5 page RF, allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2157, "Burning": 16.1, "Bleeding": 3.41, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2157, "Burning": 16.22, "Bleeding": 3.46, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # burn 26678
@@ -131,18 +135,20 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2157, "Burning": 13.98, "Bleeding": 3.41, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2157, "Burning": 14.09, "Bleeding": 3.46, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=_GFennqOKVg
+  # https://dps.report/G0dp-20220303-132136_golem
   # power: 5798, burn: 30917, bleed: 1480, torment: 693, total: 38888
   # 12 boons
   # sinister amulet ring acc acc back
+  # NO JADE BOT (in arc log, probably - seems bugged)
   - name: CFB (8 page, allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2094, "Burning": 16.2, "Bleeding": 2.38, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2094, "Burning": 16.32, "Bleeding": 2.41, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # burn 26304
@@ -150,18 +156,20 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2094, "Burning": 13.78, "Bleeding": 2.38, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2094, "Burning": 13.88, "Bleeding": 2.41, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=N6fQZd81huA
+  # https://dps.report/8Th9-20220311-191507_golem
   # power: 5715, burn: 26023, bleed: 886, total: 32624
   # 12 boons
   # ritualist shld coat glov boot, weighty terms
+  # NO JADE BOT (in arc log, probably - seems bugged)
   - name: Condi Quickbrand (allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2220, "Burning": 13.43, "Bleeding": 2.25, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2219, "Burning": 13.55, "Bleeding": 2.27, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # burn 23245
@@ -169,7 +177,7 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2220, "Burning": 11.92, "Bleeding": 2.25, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2219, "Burning": 12.02, "Bleeding": 2.27, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # - name: Hybrid FB (Virtues, no allies)
