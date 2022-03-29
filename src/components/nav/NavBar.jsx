@@ -1,6 +1,6 @@
 import { Profession } from '@discretize/gw2-ui-new';
-import ShareIcon from '@mui/icons-material/Share';
 import MenuIcon from '@mui/icons-material/Menu';
+import ShareIcon from '@mui/icons-material/Share';
 import {
   AppBar,
   Box,
