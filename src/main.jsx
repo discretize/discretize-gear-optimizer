@@ -15,6 +15,8 @@ import '@discretize/typeface-menomonia';
 import 'typeface-muli';
 import 'typeface-raleway';
 
+import './utils/i18n';
+
 const store = createStore();
 
 ReactDOM.render(

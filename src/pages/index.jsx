@@ -3,16 +3,16 @@ import { Layout } from '@discretize/react-discretize-components';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { Link, Typography } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
-import { Trans } from 'react-i18next';
+import React from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 import ErrorBoundary from '../components/baseComponents/ErrorBoundary';
+import LanguageSelection from '../components/baseComponents/LanguageSelection';
 import GearOptimizer from '../components/GearOptimizer';
-import URLStateImport from '../components/url-state/URLStateImport';
-import SagaTypes from '../state/sagas/sagaTypes';
 
 // markup
 const IndexPage = () => {
-  const language = 'en';
-  //const { language } = useI18next();
+  const { i18n } = useTranslation();
+  const { language } = i18n;
 
   return (
     <APILanguageProvider value={language}>
@@ -20,9 +20,9 @@ const IndexPage = () => {
         {/*
                 <URLStateImport sagaType={SagaTypes.ImportFormState} clearUrlOnSuccess />
 
-                <LanguageSelection />
 
          */}
+        <LanguageSelection />
 
         <MuiAlert elevation={6} variant="filled" severity="warning">
           <Trans>

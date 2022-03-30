@@ -1,14 +1,16 @@
-import { APILanguageProvider } from "@discretize/gw2-ui-new";
-import { Layout } from "@discretize/react-discretize-components";
-import { Typography } from "@mui/material";
-import * as React from "react";
-import ErrorBoundary from "../../components/baseComponents/ErrorBoundary";
-import LanguageSelection from "../../components/baseComponents/LanguageSelection";
-import BuildPage from "../../components/BuildPage";
+import { APILanguageProvider } from '@discretize/gw2-ui-new';
+import { Layout } from '@discretize/react-discretize-components';
+import { Typography } from '@mui/material';
+import * as React from 'react';
+import { Trans, useTranslation } from 'react-i18next';
+import ErrorBoundary from '../../components/baseComponents/ErrorBoundary';
+import LanguageSelection from '../../components/baseComponents/LanguageSelection';
+import BuildPage from '../../components/BuildPage';
 
 const IndexPage = () => {
-  //const { language } = useI18next();
-  const language = "en";
+  const { i18n } = useTranslation();
+  const { language } = i18n;
+
   return (
     <APILanguageProvider value={language}>
       <Layout>
