@@ -3,7 +3,7 @@ import { HelperIcon } from '@discretize/react-discretize-components';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import classNames from 'classnames';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import { extrasTypes } from '../../../../state/slices/extras';
 import { INFUSION_IDS, Slots } from '../../../../utils/gw2-data';

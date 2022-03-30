@@ -1,5 +1,5 @@
 import { Box, Link } from '@mui/material';
-import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import React from 'react';
 import Section from '../../baseComponents/Section';
 import ExtraModifiers from './ExtraModifiers';

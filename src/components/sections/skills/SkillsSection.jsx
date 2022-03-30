@@ -1,4 +1,4 @@
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import { classModifiers } from '../../../assets/modifierdata';
 import Section from '../../baseComponents/Section';

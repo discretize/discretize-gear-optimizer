@@ -3,24 +3,24 @@ import { Layout } from '@discretize/react-discretize-components';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { Link, Typography } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
-import { graphql } from 'gatsby';
-import { Trans, useI18next } from 'gatsby-plugin-react-i18next';
-import * as React from 'react';
+import { Trans } from 'react-i18next';
 import ErrorBoundary from '../components/baseComponents/ErrorBoundary';
-import LanguageSelection from '../components/baseComponents/LanguageSelection';
 import GearOptimizer from '../components/GearOptimizer';
 import URLStateImport from '../components/url-state/URLStateImport';
 import SagaTypes from '../state/sagas/sagaTypes';
 
 // markup
 const IndexPage = () => {
-  const { language } = useI18next();
+  const language = 'en';
+  //const { language } = useI18next();
 
   return (
     <APILanguageProvider value={language}>
       <Layout>
-        <URLStateImport sagaType={SagaTypes.ImportFormState} clearUrlOnSuccess />
-        <LanguageSelection />
+        {/*
+                <LanguageSelection />
+
+         */}
 
         <MuiAlert elevation={6} variant="filled" severity="warning">
           <Trans>
@@ -51,24 +51,11 @@ const IndexPage = () => {
           <Trans>Gear Optimizer</Trans>
         </Typography>
         <ErrorBoundary location="GearOptimizer">
-          <GearOptimizer />
+          <GearOptimizer />{' '}
         </ErrorBoundary>
       </Layout>
     </APILanguageProvider>
   );
 };
-export const query = graphql`
-  query ($language: String!) {
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-  }
-`;
 
 export default IndexPage;

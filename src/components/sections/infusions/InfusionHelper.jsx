@@ -14,7 +14,7 @@ import {
   Typography,
 } from '@mui/material';
 import Alert from '@mui/material/Alert';
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Trans } from 'react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';

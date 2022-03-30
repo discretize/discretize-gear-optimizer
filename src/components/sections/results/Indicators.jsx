@@ -1,5 +1,5 @@
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Trans } from 'react-i18next';
 import React from 'react';
 
 const AffixesStats = ({ data }) => {

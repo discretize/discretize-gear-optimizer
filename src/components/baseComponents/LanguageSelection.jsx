@@ -1,5 +1,5 @@
 import { Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import { useI18next } from 'gatsby-plugin-react-i18next';
+import { useI18next } from 'react-i18next';
 import * as React from 'react';
 
 const LANGUAGES = [

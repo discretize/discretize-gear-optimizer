@@ -1,5 +1,4 @@
 import { Character, firstUppercase } from '@discretize/react-discretize-components';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import times from 'lodash/times';
 import React from 'react';
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
@@ -187,16 +186,6 @@ export default function ResultCharacter({ data, character, weapons, skills, assu
     skillsPropsAPI = skills;
   }
 
-  // Find right image
-  const imageData = data.images.edges.flatMap((image) => image.node);
-
-  const imageRaw =
-    (specialization &&
-      imageData.find((image) => image.original.src.includes(specialization.toLowerCase()))) ||
-    (profession &&
-      imageData.find((image) => image.original.src.includes(profession.toLowerCase())));
-  const image = getImage(imageRaw);
-
   return (
     <ErrorBoundary location="Character" resetKeys={[character]}>
       <Character
@@ -208,7 +197,7 @@ export default function ResultCharacter({ data, character, weapons, skills, assu
         consumablesPropsAPI={{ foodId, utilityId }}
         skillsPropsAPI={skillsPropsAPI}
         assumedBuffs={assumedBuffs}
-        imageElement={<GatsbyImage image={image} alt="Profession Image" />}
+        imageElement={<img src={`/professions/${profession.toLowerCase()}.png`} alt="Profession" />}
       />
     </ErrorBoundary>
   );

@@ -6,7 +6,7 @@ import ErrorIcon from '@mui/icons-material/Error';
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import { Box, Button, Chip, Typography } from '@mui/material';
 import classNames from 'classnames';
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Trans } from 'react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';

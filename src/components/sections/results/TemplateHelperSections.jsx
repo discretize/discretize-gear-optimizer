@@ -1,7 +1,7 @@
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Accordion, AccordionDetails, AccordionSummary, Grid, Typography } from '@mui/material';
-import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { allExtrasModifiersById, buffModifiers } from '../../../assets/modifierdata';

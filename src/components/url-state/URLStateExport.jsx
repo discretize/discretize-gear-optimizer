@@ -2,7 +2,7 @@ import { Tooltip } from '@discretize/gw2-ui-new';
 import ShareIcon from '@mui/icons-material/Share';
 import { IconButton } from '@mui/material';
 import axios from 'axios';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import SagaTypes from '../../state/sagas/sagaTypes';

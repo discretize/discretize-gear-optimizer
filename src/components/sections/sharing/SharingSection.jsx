@@ -1,6 +1,6 @@
 import ShareIcon from '@mui/icons-material/Share';
 import { IconButton, Typography } from '@mui/material';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import { Trans } from 'react-i18next';
 import { useSelector } from 'react-redux';

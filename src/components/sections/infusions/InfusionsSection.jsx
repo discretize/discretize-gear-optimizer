@@ -1,4 +1,4 @@
-import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { changeInfusions } from '../../../state/slices/infusions';

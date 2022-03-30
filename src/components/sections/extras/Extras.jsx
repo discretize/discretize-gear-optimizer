@@ -1,6 +1,6 @@
 import { ConsumableEffect, Item } from '@discretize/gw2-ui-new';
 import { Box, Typography } from '@mui/material';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import { Trans } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';

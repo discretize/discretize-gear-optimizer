@@ -1,13 +1,10 @@
-import { compress, decompress } from '@discretize/object-compression';
-import { channel } from 'redux-saga';
-import { all, put, select, take, takeLeading } from 'redux-saga/effects';
-import {
-  BuildPageSchema,
-  version as schemaVersion,
-} from '../../components/url-state/schema/BuildPageSchema_v2';
-import { buffsDict } from '../../components/url-state/schema/SchemaDicts';
-import { changeBuildPage, changeCharacter } from '../slices/buildPage';
-import SagaTypes from './sagaTypes';
+import { compress, decompress } from "@discretize/object-compression";
+import { channel } from "redux-saga";
+import { all, put, select, take, takeLeading } from "redux-saga/effects";
+import { BuildPageSchema, version as schemaVersion } from "../../components/url-state/schema/BuildPageSchema_v2";
+import { buffsDict } from "../../components/url-state/schema/SchemaDicts";
+import { changeBuildPage, changeCharacter } from "../slices/buildPage";
+import SagaTypes from "./sagaTypes";
 
 // channels solve the problem "how to get value out of callback"
 // https://stackoverflow.com/questions/43031832/how-to-yield-put-in-redux-saga-within-a-callback
@@ -35,7 +32,7 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
   const minimalCharacter = {
     attributes,
     gear,
-    infusions: JSON.stringify(infusions) || '',
+    infusions: JSON.stringify(infusions) || "",
     settings: {
       extrasCombination,
       profession,
@@ -51,7 +48,7 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
   const buffsInteger = buffsDict.reduce(
     // eslint-disable-next-line no-bitwise
     (acc, curr) => (acc + conv(buffs[curr])) << 1,
-    conv(buffs[0]),
+    conv(buffs[0])
   );
 
   const object = {
@@ -65,14 +62,14 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
   compress({
     object,
     schema: BuildPageSchema,
-    onSuccess: (result) => compressChannel.put({ type: 'STATE_COMPRESS_FINISHED', result }),
+    onSuccess: (result) => compressChannel.put({ type: "STATE_COMPRESS_FINISHED", result }),
   });
 
   const { result } = yield take(compressChannel);
 
-  const urlObject = new URL('build', window.location.href);
-  urlObject.searchParams.set('v', schemaVersion);
-  urlObject.searchParams.set('data', result);
+  const urlObject = new URL("build", window.location.href);
+  urlObject.searchParams.set("v", schemaVersion);
+  urlObject.searchParams.set("data", result);
   const url = urlObject.href;
 
   if (newPage) {
@@ -90,31 +87,31 @@ function* watchExportStateCharacter() {
 const decompressChannel = channel();
 function* importStateCharacter({ buildUrl: input, version }) {
   if (!input) {
-    console.error('SAGA: No url parameter supplied');
+    console.error("SAGA: No url parameter supplied");
     return;
   }
-  if (typeof version === 'undefined') {
-    console.error('SAGA: No version parameter supplied');
+  if (typeof version === "undefined") {
+    console.error("SAGA: No version parameter supplied");
     return;
   }
 
   try {
     // load build state from url
     const { BuildPageSchema: schema } = yield import(
-      `../../components/url-state/schema/BuildPageSchema_v${version}`
+      `../../components/url-state/schema/BuildPageSchema_v${version}.js`
     );
 
     decompress({
       string: input,
       schema,
-      onSuccess: (result) => decompressChannel.put({ type: 'STATE_DECOMPRESS_FINISHED', result }),
+      onSuccess: (result) => decompressChannel.put({ type: "STATE_DECOMPRESS_FINISHED", result }),
     });
 
     const { result } = yield take(decompressChannel);
 
     yield put(changeBuildPage(result));
   } catch (e) {
-    console.log('Problem restoring template!');
+    console.log("Problem restoring template!");
     console.log(e);
   }
 }
