@@ -10,6 +10,11 @@ import IndexPage from './pages';
 import createStore from './state/createStore';
 import muiTheme from './utils/placeholder-unused-theme';
 
+import 'typeface-fira-mono';
+import '@discretize/typeface-menomonia';
+import 'typeface-muli';
+import 'typeface-raleway';
+
 const store = createStore();
 
 ReactDOM.render(
