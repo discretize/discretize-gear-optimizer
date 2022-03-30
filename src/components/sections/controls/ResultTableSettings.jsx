@@ -1,5 +1,9 @@
+import { Attribute } from '@discretize/gw2-ui-new';
+import CheckIcon from '@mui/icons-material/Check';
 import {
+  Autocomplete,
   Box,
+  Chip,
   FormControl,
   FormControlLabel,
   FormHelperText,
@@ -7,6 +11,7 @@ import {
   Radio,
   RadioGroup,
   Switch,
+  TextField,
   Typography,
 } from '@mui/material';
 import React from 'react';
@@ -15,9 +20,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import {
   changeCompareByPercent,
+  changeDisplayAttributes,
   changeFilterMode,
   changeTallTable,
   getCompareByPercent,
+  getDisplayAttributes,
   getFilterMode,
   getTallTable,
 } from '../../../state/slices/controlsSlice';
@@ -40,9 +47,10 @@ export default function ResultTableSettings() {
   const compareByPercent = useSelector(getCompareByPercent);
   const tallTable = useSelector(getTallTable);
   const filterMode = useSelector(getFilterMode);
+  const displayAttributes = useSelector(getDisplayAttributes);
 
   return (
-    <Settings>
+    <Settings maxWidth={360}>
       <Typography sx={{ fontWeight: 700 }}>
         <Trans>Result Display Settings:</Trans>
       </Typography>
@@ -77,7 +85,36 @@ export default function ResultTableSettings() {
         />
       </Box>
 
-      <Box sx={{ mt: 1.5 }}>
+      <Box>
+        <Autocomplete
+          multiple
+          disableCloseOnSelect
+          value={displayAttributes}
+          options={['Toughness', 'Boon Duration', 'Health', 'Critical Chance']}
+          onChange={(event, value) => dispatch(changeDisplayAttributes(value))}
+          renderInput={(params) => (
+            <TextField {...params} variant="standard" label={t('Show Attributes')} margin="dense" />
+          )}
+          renderOption={(props, option, { selected }) => (
+            <li {...props}>
+              <Box sx={{ width: 28 }}>{selected && <CheckIcon sx={{ fontSize: '1rem' }} />}</Box>
+              <Attribute name={option} disableLink />
+            </li>
+          )}
+          renderTags={(value, getTagProps) =>
+            value.map((option, index) => (
+              <Chip
+                variant="outlined"
+                label={<Attribute name={option} disableLink disableText />}
+                {...getTagProps({ index })}
+                onDelete={null}
+              />
+            ))
+          }
+        />
+      </Box>
+
+      <Box sx={{ mt: 2 }}>
         <FormControl>
           <FormLabel id="filter-button-group">
             <Trans>Filter results:</Trans>
@@ -108,7 +145,7 @@ export default function ResultTableSettings() {
             ))}
           </RadioGroup>
 
-          <FormHelperText sx={{ maxWidth: 320 }}>
+          <FormHelperText>
             <Trans>
               Displays only the top result for each rune, sigil, food, or utility option or each
               combination of all of the above (up to 100 results).

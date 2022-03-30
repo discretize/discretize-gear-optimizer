@@ -6,6 +6,7 @@ import TableRow from '@mui/material/TableRow';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { allExtrasModifiersById } from '../../../../assets/modifierdata';
+import { percents } from '../../../../assets/modifierdata/metadata';
 import { changeSelectedCharacter, toggleSaved } from '../../../../state/slices/controlsSlice';
 import { extrasTypes } from '../../../../state/slices/extras';
 
@@ -20,7 +21,7 @@ const ResultTableRow = ({
   selectedValue,
   compareByPercent,
   displayExtras,
-  displayBoonDuration,
+  displayAttributes,
 }) => {
   const dispatch = useDispatch();
 
@@ -114,11 +115,20 @@ const ResultTableRow = ({
           );
         })}
 
-      {displayBoonDuration ? (
-        <TableCell key="displayAttribute" align="center" padding="none">
-          {roundTwo((character.attributes['Boon Duration'] ?? 0) * 100)}
+      {displayAttributes.map((attribute, index) => (
+        <TableCell
+          // eslint-disable-next-line react/no-array-index-key
+          key={`attrs${index}`}
+          align="center"
+          padding="none"
+        >
+          <Typography variant="caption">
+            {roundTwo(
+              (character.attributes[attribute] ?? 0) * (percents.includes(attribute) ? 100 : 1),
+            )}
+          </Typography>
         </TableCell>
-      ) : null}
+      ))}
     </TableRow>
   );
 };

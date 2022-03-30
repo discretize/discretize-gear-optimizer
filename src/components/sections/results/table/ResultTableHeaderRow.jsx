@@ -1,4 +1,4 @@
-import { ConsumableEffect, Item } from '@discretize/gw2-ui-new';
+import { Attribute, ConsumableEffect, Item } from '@discretize/gw2-ui-new';
 import { HelperIcon } from '@discretize/react-discretize-components';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
@@ -26,7 +26,7 @@ const ResultTableHeaderRow = ({
   infusions = {},
   rankBy = 'Damage',
   displayExtras,
-  displayBoonDuration,
+  displayAttributes,
 }) => {
   const { t } = useTranslation();
 
@@ -78,16 +78,17 @@ const ResultTableHeaderRow = ({
           </TableCell>
         ))}
 
-      {displayBoonDuration ? (
+      {displayAttributes.map((attribute, index) => (
         <TableCell
-          className={classNames(classes.tablehead, classes.extrasColumn)}
-          key="displayAttribute"
+          className={classNames(classes.tablehead, classes.attributesColumn)}
+          // eslint-disable-next-line react/no-array-index-key
+          key={`attrs${index}`}
           align="center"
           padding="none"
         >
-          {t('BD%')}
+          <Attribute name={attribute} disableLink disableText style={{ fontSize: 18 }} />
         </TableCell>
-      ) : null}
+      ))}
     </TableRow>
   );
 };
