@@ -4,7 +4,6 @@ import { Box, Paper, Typography } from '@mui/material';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { NumberParam, StringParam, useQueryParam } from 'use-query-params';
 import { buffModifiers, classModifiers } from '../assets/modifierdata';
 import SagaTypes from '../state/sagas/sagaTypes';
 import {
@@ -47,6 +46,7 @@ const BuildPage = ({ data }) => {
   const { lines, selected } = useSelector(getTraits);
   const buffs = useSelector(getBuffs);
 
+  // migrate to own implementation
   const [buildUrl] = useQueryParam('data', StringParam);
   const [versionParam] = useQueryParam('v', NumberParam);
 
