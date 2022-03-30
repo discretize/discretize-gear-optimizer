@@ -197,7 +197,13 @@ export default function ResultCharacter({ data, character, weapons, skills, assu
         consumablesPropsAPI={{ foodId, utilityId }}
         skillsPropsAPI={skillsPropsAPI}
         assumedBuffs={assumedBuffs}
-        imageElement={<img src={`/professions/${profession.toLowerCase()}.png`} alt="Profession" />}
+        imageElement={
+          <img
+            style={{ width: '100%' }}
+            src={`/images/professions/${profession.toLowerCase()}.png`}
+            alt="Profession"
+          />
+        }
       />
     </ErrorBoundary>
   );

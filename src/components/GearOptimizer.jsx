@@ -20,13 +20,31 @@ import SharingSection from './sections/sharing/SharingSection';
 import SkillsSection from './sections/skills/SkillsSection';
 import TraitsSection from './sections/traits/TraitsSection';
 
+import templates from '../assets/presetdata/templates.yaml';
+import presetBuffs from '../assets/presetdata/preset-buffs.yaml';
+import presetAffixes from '../assets/presetdata/preset-affixes.yaml';
+import presetDistribution from '../assets/presetdata/preset-distribution.yaml';
+import presetExtras from '../assets/presetdata/preset-extras.yaml';
+import presetInfusions from '../assets/presetdata/preset-infusions.yaml';
+import presetTraits from '../assets/presetdata/preset-traits.yaml';
+
+const data = {
+  templates,
+  presetBuffs,
+  presetAffixes,
+  presetDistribution,
+  presetExtras,
+  presetInfusions,
+  presetTraits,
+};
+
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
  *
  * @param {{classes, data}} styles and data fetched by graphiql
  */
 
-const GearOptimizer = ({ data }) => {
+const GearOptimizer = () => {
   // Query variables from redux store that should have a global scope
   const expertMode = useSelector(getControl('expertMode'));
   const profession = useSelector(getProfession);
