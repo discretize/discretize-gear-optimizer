@@ -9,6 +9,8 @@ import { allExtrasModifiersById } from '../../../../assets/modifierdata';
 import { changeSelectedCharacter, toggleSaved } from '../../../../state/slices/controlsSlice';
 import { extrasTypes } from '../../../../state/slices/extras';
 
+const roundTwo = (num) => Math.round(num * 100) / 100;
+
 const ResultTableRow = ({
   character,
   selected,
@@ -18,6 +20,7 @@ const ResultTableRow = ({
   selectedValue,
   compareByPercent,
   displayExtras,
+  displayBoonDuration,
 }) => {
   const dispatch = useDispatch();
 
@@ -110,6 +113,12 @@ const ResultTableRow = ({
             </TableCell>
           );
         })}
+
+      {displayBoonDuration ? (
+        <TableCell key="displayAttribute" align="center" padding="none">
+          {roundTwo((character.attributes['Boon Duration'] ?? 0) * 100)}
+        </TableCell>
+      ) : null}
     </TableRow>
   );
 };

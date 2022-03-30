@@ -146,6 +146,8 @@ const StickyHeadTable = () => {
     [displaySigils, displayRunes, displayNourishment, displayEnhancement],
   );
 
+  const displayBoonDuration = true;
+
   return (
     <>
       <Box boxShadow={8} mb={3}>
@@ -163,6 +165,7 @@ const StickyHeadTable = () => {
                 infusions={infusions}
                 rankBy={rankBy}
                 displayExtras={displayExtras}
+                displayBoonDuration={displayBoonDuration}
               />
             </TableHead>
             <TableBody
@@ -203,6 +206,7 @@ const StickyHeadTable = () => {
                     selectedValue={selectedValue}
                     compareByPercent={compareByPercent}
                     displayExtras={displayExtras}
+                    displayBoonDuration={displayBoonDuration}
                   />
                 );
               })}
@@ -247,6 +251,7 @@ const StickyHeadTable = () => {
                     infusions={infusions}
                     rankBy={rankBy}
                     displayExtras={displayExtras}
+                    displayBoonDuration={displayBoonDuration}
                   />
                 </TableHead>
                 <TableBody
@@ -266,6 +271,7 @@ const StickyHeadTable = () => {
                         selectedValue={selectedValue}
                         compareByPercent={compareByPercent}
                         displayExtras={displayExtras}
+                        displayBoonDuration={displayBoonDuration}
                       />
                     );
                   })}

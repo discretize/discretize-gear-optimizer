@@ -26,6 +26,7 @@ const ResultTableHeaderRow = ({
   infusions = {},
   rankBy = 'Damage',
   displayExtras,
+  displayBoonDuration,
 }) => {
   const { t } = useTranslation();
 
@@ -76,6 +77,17 @@ const ResultTableHeaderRow = ({
             {extrasLabels[type]}
           </TableCell>
         ))}
+
+      {displayBoonDuration ? (
+        <TableCell
+          className={classNames(classes.tablehead, classes.extrasColumn)}
+          key="displayAttribute"
+          align="center"
+          padding="none"
+        >
+          {t('BD%')}
+        </TableCell>
+      ) : null}
     </TableRow>
   );
 };
