@@ -1,5 +1,5 @@
 import { Character, firstUppercase } from '@discretize/react-discretize-components';
-import { getImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import times from 'lodash/times';
 import React from 'react';
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
@@ -208,7 +208,7 @@ export default function ResultCharacter({ data, character, weapons, skills, assu
         consumablesPropsAPI={{ foodId, utilityId }}
         skillsPropsAPI={skillsPropsAPI}
         assumedBuffs={assumedBuffs}
-        imageData={image}
+        imageElement={<GatsbyImage image={image} alt="Profession Image" />}
       />
     </ErrorBoundary>
   );

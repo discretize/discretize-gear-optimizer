@@ -31,12 +31,12 @@
     "extractLocaleCMD": "babel --config-file ./babel-extract.config.js \"src/**/*.{js,jsx,ts,tsx}\" > NUL"
   },
   "resolutions": {
-    "@discretize/gw2-ui-new": "^0.0.10"
+    "@discretize/gw2-ui-new": "^0.0.11"
   },
   "dependencies": {
-    "@discretize/gw2-ui-new": "^0.0.10",
+    "@discretize/gw2-ui-new": "^0.0.11",
     "@discretize/object-compression": "^1.0.1",
-    "@discretize/react-discretize-components": "^2.1.5",
+    "@discretize/react-discretize-components": "^2.1.12",
     "@emotion/react": "^11.7.1",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.6.0",

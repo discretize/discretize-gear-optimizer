@@ -1254,14 +1254,6 @@
     core-js-pure "^3.19.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime-corejs3@^7.16.3":
-  version "7.16.3"
-  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.16.3.tgz#1e25de4fa994c57c18e5fdda6cc810dac70f5590"
-  integrity sha512-IAdDC7T0+wEB4y2gbIL0uOXEYpiZEeuFUTVbdGq+UwCcF35T/tS8KrmMomEwEc5wBbyfH3PJVpTSUqrhPDXFcQ==
-  dependencies:
-    core-js-pure "^3.19.0"
-    regenerator-runtime "^0.13.4"
-
 "@babel/runtime@^7.10.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.0", "@babel/runtime@^7.12.5", "@babel/runtime@^7.14.5", "@babel/runtime@^7.15.4", "@babel/runtime@^7.3.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
   version "7.16.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.16.0.tgz#e27b977f2e2088ba24748bf99b5e1dece64e4f0b"
@@ -1362,15 +1354,15 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
-"@discretize/gw2-ui-new@^0.0.10", "@discretize/gw2-ui-new@^0.0.7":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@discretize/gw2-ui-new/-/gw2-ui-new-0.0.10.tgz#6555918a1e422003c77df8a5de3e1cd49556161c"
-  integrity sha512-8CclUROPg6vqYrD8TDsjFZ7Nx/2VfPQg6Qeqoa6URXV/033El9OUlR+jvx/ova+6Hrpk12TGY3ZrTFAHuAgKIg==
+"@discretize/gw2-ui-new@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@discretize/gw2-ui-new/-/gw2-ui-new-0.0.11.tgz#8f84e82f744ced3b10b44176d636c62670903a41"
+  integrity sha512-yj3YCNC/5O37aQVQXT8T72JjPd45CCWfyjHZRx49BS7PYkrtv0zhmGuuIdRKtJud4vhuASubxX0+ii5K3x+7RQ==
   dependencies:
+    "@discretize/typeface-menomonia" "^0.1.3"
     clsx "^1.1.1"
     react "^17.0.0"
     react-dom "^17.0.0"
-    typeface-menomonia "^0.1.2"
 
 "@discretize/object-compression@^1.0.1":
   version "1.0.1"
@@ -1379,23 +1371,28 @@
   dependencies:
     json-url "^3.0.0"
 
-"@discretize/react-discretize-components@^2.1.5":
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/@discretize/react-discretize-components/-/react-discretize-components-2.1.5.tgz#d4423a5f33fd1e79a603b1d58cd1f1a1db9567e3"
-  integrity sha512-pLJDHBNOKFEINjKC70J6qPojnXCYi9wcrovh2RSyGGPP99RSOZ4QovW/MMGizUgti6bcDAKFJsFeruiYPljUow==
+"@discretize/react-discretize-components@^2.1.12":
+  version "2.1.12"
+  resolved "https://registry.yarnpkg.com/@discretize/react-discretize-components/-/react-discretize-components-2.1.12.tgz#d151b43c5d26fc13596281ef7b04d31b4a42b121"
+  integrity sha512-XFh4FOITycT05T0o/S57uGrkh+A2Hkvwb7jYcC7aaK7pIUImmcn9oITqDHJW72fDj8BE8UEvz1ROMP7buVn7vg==
   dependencies:
-    "@babel/runtime-corejs3" "^7.16.3"
-    "@discretize/gw2-ui-new" "^0.0.7"
+    "@discretize/gw2-ui-new" "^0.0.11"
+    "@discretize/typeface-menomonia" "^0.1.3"
+    "@emotion/react" "^11.7.1"
     "@emotion/styled" "^11.6.0"
     "@mui/icons-material" "^5.4.4"
     "@mui/material" "^5.2.7"
+    "@mui/styles" "^5.4.4"
     classnames "^2.3.1"
-    gatsby-plugin-image "^2.4.0"
     tss-react "^3.3.1"
     typeface-fira-mono "^0.0.72"
-    typeface-menomonia "^0.1.2"
     typeface-muli "^1.1.3"
     typeface-raleway "^0.0.75"
+
+"@discretize/typeface-menomonia@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@discretize/typeface-menomonia/-/typeface-menomonia-0.1.3.tgz#33f2ca1ae2dae67afe61ea42d1e65f5b9bbd6d25"
+  integrity sha512-ySpM/tSXGFGGgBuv5KEHTVwdOYjcXCAmB8wwgKUCgWCsU0XlGGBPpoBwJUMxsW6fFCP/8a8Pv89Tpj5YMLt2Sw==
 
 "@emotion/babel-plugin@^11.3.0":
   version "11.7.2"
@@ -2156,6 +2153,15 @@
     "@mui/utils" "^5.2.3"
     prop-types "^15.7.2"
 
+"@mui/private-theming@^5.5.3":
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/@mui/private-theming/-/private-theming-5.5.3.tgz#c232a39dd3c268fdef7e92ccc40d51bda9eec3ab"
+  integrity sha512-Wf7NurY7lk8SBWelSBY2U02zxLt1773JpIcXTHuEC9/GZdQA4CXCJGl2cVQzheKhee5rZ+8JwGulrRiVl1m+4A==
+  dependencies:
+    "@babel/runtime" "^7.17.2"
+    "@mui/utils" "^5.5.3"
+    prop-types "^15.7.2"
+
 "@mui/styled-engine@^5.2.6":
   version "5.2.6"
   resolved "https://registry.yarnpkg.com/@mui/styled-engine/-/styled-engine-5.2.6.tgz#eac4a98b05b17190c2155b31b0e36338b3fb09f2"
@@ -2188,6 +2194,29 @@
     jss-plugin-vendor-prefixer "^10.8.2"
     prop-types "^15.7.2"
 
+"@mui/styles@^5.4.4":
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/@mui/styles/-/styles-5.5.3.tgz#e462adec9a24ee4f6982394c172f20221bef30d7"
+  integrity sha512-jxiXgyzYXDh5pUdfKvs5ZTJqQRNFUgbG9Q/hOPh0nHrKYmlrikt2Z3b9Rjrkp2QCh9R3kuy8LHlv/u+QjnnIqg==
+  dependencies:
+    "@babel/runtime" "^7.17.2"
+    "@emotion/hash" "^0.8.0"
+    "@mui/private-theming" "^5.5.3"
+    "@mui/types" "^7.1.3"
+    "@mui/utils" "^5.5.3"
+    clsx "^1.1.1"
+    csstype "^3.0.11"
+    hoist-non-react-statics "^3.3.2"
+    jss "^10.8.2"
+    jss-plugin-camel-case "^10.8.2"
+    jss-plugin-default-unit "^10.8.2"
+    jss-plugin-global "^10.8.2"
+    jss-plugin-nested "^10.8.2"
+    jss-plugin-props-sort "^10.8.2"
+    jss-plugin-rule-value-function "^10.8.2"
+    jss-plugin-vendor-prefixer "^10.8.2"
+    prop-types "^15.7.2"
+
 "@mui/system@^5.2.6":
   version "5.2.6"
   resolved "https://registry.yarnpkg.com/@mui/system/-/system-5.2.6.tgz#153b534223caae254a98162eef06d6ab48ecff34"
@@ -2207,12 +2236,28 @@
   resolved "https://registry.yarnpkg.com/@mui/types/-/types-7.1.0.tgz#5ed928c5a41cfbf9a4be82ea3bbdc47bcc9610d5"
   integrity sha512-Hh7ALdq/GjfIwLvqH3XftuY3bcKhupktTm+S6qRIDGOtPtRuq2L21VWzOK4p7kblirK0XgGVH5BLwa6u8z/6QQ==
 
+"@mui/types@^7.1.3":
+  version "7.1.3"
+  resolved "https://registry.yarnpkg.com/@mui/types/-/types-7.1.3.tgz#d7636f3046110bcccc63e6acfd100e2ad9ca712a"
+  integrity sha512-DDF0UhMBo4Uezlk+6QxrlDbchF79XG6Zs0zIewlR4c0Dt6GKVFfUtzPtHCH1tTbcSlq/L2bGEdiaoHBJ9Y1gSA==
+
 "@mui/utils@^5.2.3":
   version "5.2.3"
   resolved "https://registry.yarnpkg.com/@mui/utils/-/utils-5.2.3.tgz#994f3a500679804483732596fcfa531e59c56445"
   integrity sha512-sQujlajIS0zQKcGIS6tZR0L1R+ib26B6UtuEn+cZqwKHsPo3feuS+SkdscYBdcCdMbrZs4gj8WIJHl2z6tbSzQ==
   dependencies:
     "@babel/runtime" "^7.16.3"
+    "@types/prop-types" "^15.7.4"
+    "@types/react-is" "^16.7.1 || ^17.0.0"
+    prop-types "^15.7.2"
+    react-is "^17.0.2"
+
+"@mui/utils@^5.5.3":
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/@mui/utils/-/utils-5.5.3.tgz#f6e1f10c0e8f4d0bf750588c2c3a96ad819c5b65"
+  integrity sha512-t627eVRpl3SlxVya0cIVNs8jPl4KCEiGaTSWY9iKKTcMNaeDbuRML+zv/CFHDPr1zFv+FjJSP02ySB+tZ8xIag==
+  dependencies:
+    "@babel/runtime" "^7.17.2"
     "@types/prop-types" "^15.7.4"
     "@types/react-is" "^16.7.1 || ^17.0.0"
     prop-types "^15.7.2"
@@ -4516,6 +4561,11 @@ csstype@^3.0.10:
   version "3.0.10"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.10.tgz#2ad3a7bed70f35b965707c092e5f30b327c290e5"
   integrity sha512-2u44ZG2OcNUO9HDp/Jl8C07x6pU/eTR3ncV91SiK3dhG9TWvRVsCoJw14Ckx5DgWkzGA3waZWO3d7pgqpUI/XA==
+
+csstype@^3.0.11:
+  version "3.0.11"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.11.tgz#d66700c5eacfac1940deb4e3ee5642792d85cd33"
+  integrity sha512-sa6P2wJ+CAbgyy4KFssIb/JNMLxFvKF1pCYCSXS8ZMuqZnMsrxqI2E5sPyoTpxoPU/gVZMzr2zjOfg8GIZOMsw==
 
 csstype@^3.0.2:
   version "3.0.9"
@@ -11629,11 +11679,6 @@ typeface-fira-mono@^0.0.72:
   version "0.0.72"
   resolved "https://registry.yarnpkg.com/typeface-fira-mono/-/typeface-fira-mono-0.0.72.tgz#b396d2a08814bb3a32d94ef71c74d37883c3475b"
   integrity sha512-bouzjtniGMrakhazipUl6mskswe7UvH3qynU5Wsl0O7NMuL178VtZ0pOqUGsjBJ42l64GZo9nUMI1eSK4kvJbQ==
-
-typeface-menomonia@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/typeface-menomonia/-/typeface-menomonia-0.1.2.tgz#5f5f4d01ad7278ccfdcb1d58dd14f0cefc748c03"
-  integrity sha512-1mp+AYaaBLPylg0cAJgAZ0foU07UlOfb425Hoq/n8xYCo4XZ4Ecn2Z+W91PmRHV5+oxGnM9xnS9En+AZgdUl3Q==
 
 typeface-muli@^1.1.3:
   version "1.1.13"
