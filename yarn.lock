@@ -4532,11 +4532,6 @@ semver@^7.2.1, semver@^7.3.2, semver@^7.3.5:
   dependencies:
     lru-cache "^6.0.0"
 
-serialize-query-params@^1.3.5:
-  version "1.3.6"
-  resolved "https://registry.yarnpkg.com/serialize-query-params/-/serialize-query-params-1.3.6.tgz#5dd5225db85ce747fe6fbc4897628504faafec6d"
-  integrity sha512-VlH7sfWNyPVZClPkRacopn6sn5uQMXBsjPVz1+pBHX895VpcYVznfJtZ49e6jymcrz+l/vowkepCZn/7xEAEdw==
-
 shebang-command@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/shebang-command/-/shebang-command-2.0.0.tgz#ccd0af4f8835fbdc265b82461aaf0c36663f34ea"
@@ -4967,13 +4962,6 @@ urlsafe-base64@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/urlsafe-base64/-/urlsafe-base64-1.0.0.tgz#23f89069a6c62f46cf3a1d3b00169cefb90be0c6"
   integrity sha1-I/iQaabGL0bPOh07ABac77kL4MY=
-
-use-query-params@^1.2.3:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/use-query-params/-/use-query-params-1.2.3.tgz#306c31a0cbc714e8a3b4bd7e91a6a9aaccaa5e22"
-  integrity sha512-cdG0tgbzK+FzsV6DAt2CN8Saa3WpRnze7uC4Rdh7l15epSFq7egmcB/zuREvPNwO5Yk80nUpDZpiyHsoq50d8w==
-  dependencies:
-    serialize-query-params "^1.3.5"
 
 util-deprecate@^1.0.1, util-deprecate@~1.0.1:
   version "1.0.2"
