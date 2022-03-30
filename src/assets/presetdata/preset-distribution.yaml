@@ -236,12 +236,12 @@ list:
   # cele helm coat acc, viper ring back, flamelegion, fishy toxicoil (no oil in vid)
   # 18 malign
   # NO JADE BOT (in arc log, probably - seems bugged)
-  # https://go.princeps.biz/A+lQsApL matches log (I think)
+  # https://go.princeps.biz/tizggIHP matches log (I think)
   - name: Condi Alacrity Willbender
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 2467, "Burning": 9.3, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2678, "Burning": 10.14, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=nJTkHlFedOI
