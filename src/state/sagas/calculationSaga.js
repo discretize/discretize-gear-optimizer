@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import { put, select, take, takeEvery, takeLatest } from 'redux-saga/effects';
 import { calculate } from '../optimizer/optimizer';
+import { stateToCombinations } from '../optimizer/optimizerSetup';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../optimizer/status';
 import {
   changeError,
@@ -32,7 +33,8 @@ function* runCalc() {
 
     const originalSelectedCharacter = yield select(getSelectedCharacter);
 
-    const resultGenerator = calculate(reduxState);
+    const combinations = stateToCombinations(reduxState);
+    const resultGenerator = calculate(combinations);
     let done = false;
     let value;
 

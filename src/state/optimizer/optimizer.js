@@ -1,29 +1,16 @@
 import { characterLT, OptimizerCore } from './optimizerCore';
-import { stateToCombinations } from './optimizerSetup';
 
 const isArrayDifferent = (a, b) => {
   if (a.length !== b.length) return true;
   return a.some((_, i) => a[i] !== b[i]);
 };
 
-// todo: convert this file to a web worker handler
-
 // eslint-disable-next-line import/prefer-default-export
-export function* calculate(reduxState) {
-  /**
-   * set up input
-   */
-
-  const combinations = stateToCombinations(reduxState);
-
+export function* calculate(combinations) {
   for (const combination of combinations) {
     combination.core = new OptimizerCore(combination.settings, combination.minimalSettings);
     combination.calculation = combination.core.calculate();
   }
-
-  /**
-   * iteration
-   */
 
   const { rankby, runsAfterThisSlot } = combinations[0].core.settings;
   const globalCalculationTotal = runsAfterThisSlot[0] * combinations.length;
