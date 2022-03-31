@@ -200,7 +200,7 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
         imageElement={
           <img
             style={{ width: '100%' }}
-            src={`/images/professions/${profession.toLowerCase()}.png`}
+            src={`/images/professions/${specialization.toLowerCase()}.png`}
             alt="Profession"
           />
         }
