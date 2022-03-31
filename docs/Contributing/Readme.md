@@ -30,7 +30,7 @@ After cloning the repository, install its dependencies with:
 yarn install
 ```
 
-To start the gatsby-cli development server, which will build the site on your computer and update with your changes in real time, use:
+To start the vite development server, which will build the site on your computer and update with your changes in real time, use:
 
 ```sh
 yarn develop
@@ -66,17 +66,17 @@ Opening a pullrequest will deploy a preview version to Cloudflare pages as well 
 
 ### Site Framework
 
-The site is built in [Gatsby v4](https://www.gatsbyjs.com/), which generates static sites using React.js.
+The site is built using [Vite](https://vitejs.dev/), which generates static sites using React.js.
 
-To start the gatsby-cli development server, which will build the site on your computer and update with your changes in real time, use:
+To start the Vite development server, which will build the site on your computer and update with your changes in real time, use:
 
 ```sh
-yarn develop
+yarn dev
 ```
 
-Note that this builds in development mode, with verbose error messages but reduced performance. To build the site in production mode to test actual performance, you can run `yarn build --profile` and then `yarn serve`, or shortcut both steps using `yarn profile`.
+Note that this builds in development mode, with verbose error messages but reduced performance. To build the site in production mode to test actual performance, you can run `yarn build` and then `yarn serve`, or shortcut both steps using `yarn buildserve`.
 
-Check out the [Gatsby documentation](https://www.gatsbyjs.com/docs/) for more information.
+For more options, run `npx vite --help`.
 
 ### UI Components
 

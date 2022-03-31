@@ -35,7 +35,7 @@ See the Projects tab of this repository for planned features and improvements an
 
 ## Technologies
 
-- [Gatsby v4](https://www.gatsbyjs.org/) as a static site builder
+- [Vite](https://vitejs.dev/) as a static site builder
 - [React](https://reactjs.org/)
 - [gw2-ui](https://github.com/discretize/discretize-ui) for beautiful Guild Wars 2 components and tooltips
 - [redux](https://github.com/reduxjs/redux) and
