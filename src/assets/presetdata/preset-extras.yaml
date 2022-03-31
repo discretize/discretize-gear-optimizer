@@ -1116,23 +1116,29 @@ list:
       {
         "extras": {
           "Sigil1": {
-            "bursting": {}
+            "bursting": {},
+            "demons": {}
           },
           "Sigil2": {
             "torment": {
               "amount": "1.85"
-            }
+            },
+            "geomancy-torment-cwb-alac": {}
           },
           "Runes": {
-            "tormenting": {}
+            "tormenting": {},
+            "nightmare": {}
           },
           "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "salsa-topped-veggie-flatbread": {},
+            "meaty-asparagus-skewer": {}
           },
           "Enhancement": {
             "master-tuning-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: '[beta1] Quickness Harbinger (Cele)'

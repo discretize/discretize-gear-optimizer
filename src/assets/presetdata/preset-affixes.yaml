@@ -107,7 +107,7 @@ list:
     hidden: true
     value: >-
       {
-        "affixes": ["Viper", "Sinister", "Ritualist"],
+        "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
         "minBoonDuration": 23
       }
