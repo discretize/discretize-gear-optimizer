@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@discretize/gw2-ui-new": "^0.0.11",
-    "@discretize/object-compression": "^1.0.1",
+    "@discretize/object-compression": "^1.0.2",
     "@discretize/react-discretize-components": "^2.1.12",
     "@discretize/typeface-menomonia": "^0.1.3",
     "@emotion/react": "^11.7.1",
