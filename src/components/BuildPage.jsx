@@ -49,7 +49,7 @@ const BuildPage = () => {
 
   // migrate to own implementation
   const buildUrl = useQueryParam({ key: PARAMS.BUILD });
-  const [versionParam] = useQueryParam({ key: PARAMS.VERSION });
+  const versionParam = useQueryParam({ key: PARAMS.VERSION });
 
   // if no version is present, default to version 0
   const version = parseInt(versionParam || 0, 10);

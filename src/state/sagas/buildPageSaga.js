@@ -70,7 +70,7 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
 
   const { result } = yield take(compressChannel);
 
-  const urlObject = new URL('build', window.location.href);
+  const urlObject = new URL('build/', window.location.href);
   urlObject.searchParams.set('v', schemaVersion);
   urlObject.searchParams.set('data', result);
   const url = urlObject.href;
