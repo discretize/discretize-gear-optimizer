@@ -650,7 +650,7 @@ list:
         id: charb
         specialization: Harbinger
         boons: Condi
-        priority: Condi DPS
+        priority: Viper Only
         distribution: DPS Harbinger
         traits: DPS Harbinger
         extras: DPS Harbinger

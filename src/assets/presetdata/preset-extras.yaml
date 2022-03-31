@@ -1086,16 +1086,22 @@ list:
       {
         "extras": {
           "Sigil1": {
-            "bursting": {}
+            "bursting": {},
+            "demons": {}
           },
           "Sigil2": {
-            "geomancy-torment-harb": {}
+            "geomancy-torment-harb": {},
+            "torment": {
+              "amount": "1.85"
+            }
           },
           "Runes": {
-            "nightmare": {}
+            "nightmare": {},
+            "tormenting": {}
           },
           "Nourishment": {
-            "meaty-asparagus-skewer": {}
+            "meaty-asparagus-skewer": {},
+            "cilantro-and-cured-meat-flatbread": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
