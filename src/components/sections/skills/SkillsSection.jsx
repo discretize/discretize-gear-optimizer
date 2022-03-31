@@ -1,5 +1,5 @@
-import { useTranslation } from 'react-i18next';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { classModifiers } from '../../../assets/modifierdata';
 import Section from '../../baseComponents/Section';
 import Skills from './Skills';

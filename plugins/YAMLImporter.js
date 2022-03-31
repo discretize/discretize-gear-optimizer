@@ -1,10 +1,10 @@
-import yaml from "js-yaml";
+import yaml from 'js-yaml';
 
 const fileRegex = /\.yaml$/;
 
 export default function discretizeVitePluginYaml() {
   return {
-    name: "@discretize/load-yaml",
+    name: '@discretize/load-yaml',
 
     transform(src, id) {
       if (fileRegex.test(id)) {

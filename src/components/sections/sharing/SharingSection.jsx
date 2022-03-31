@@ -1,8 +1,7 @@
 import ShareIcon from '@mui/icons-material/Share';
 import { IconButton, Typography } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 import React from 'react';
-import { Trans } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import Section from '../../baseComponents/Section';

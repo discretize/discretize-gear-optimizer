@@ -1,6 +1,6 @@
 import { Box, Link } from '@mui/material';
-import { Trans, useTranslation } from 'react-i18next';
 import React from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 import Section from '../../baseComponents/Section';
 import ExtraModifiers from './ExtraModifiers';
 

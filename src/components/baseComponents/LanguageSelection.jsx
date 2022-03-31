@@ -1,6 +1,6 @@
 import { Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const LANGUAGES = [
   { value: 'en', label: 'English' },

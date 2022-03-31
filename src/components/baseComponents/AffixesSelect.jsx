@@ -3,8 +3,8 @@ import CheckIcon from '@mui/icons-material/Check';
 import { Box, Chip, Divider, TextField, Typography } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
 import { Affix } from '../../utils/gw2-data';
 

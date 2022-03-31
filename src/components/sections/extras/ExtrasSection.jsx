@@ -1,5 +1,5 @@
-import { useTranslation } from 'react-i18next';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { changeExtras } from '../../../state/slices/extras';
 import { PROFESSIONS } from '../../../utils/gw2-data';

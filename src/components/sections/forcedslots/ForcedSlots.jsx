@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
-import { useTranslation } from 'react-i18next';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeForcedSlot, getForcedSlots } from '../../../state/slices/forcedSlots';
 import { getPriority } from '../../../state/slices/priorities';
