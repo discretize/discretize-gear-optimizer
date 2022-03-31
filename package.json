@@ -5,7 +5,7 @@
   "description": "Discretize Gear Optimizer",
   "author": "marcustyphoon, gw2princeps, metagame",
   "engines": {
-    "node": "16"
+    "node": ">=16"
   },
   "browserslist": [
     "defaults and supports es6-module"
