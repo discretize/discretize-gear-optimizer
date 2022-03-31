@@ -15,8 +15,8 @@ import {
   Typography,
 } from '@mui/material';
 import { Trans, useTranslation } from 'react-i18next';
-import { bindHover, bindMenu, usePopupState } from 'material-ui-popup-state/hooks';
-import Menu from 'material-ui-popup-state/HoverMenu';
+import { bindHover, bindMenu, usePopupState } from 'material-ui-popup-state/es/hooks';
+import Menu from 'material-ui-popup-state/es/HoverMenu';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';

@@ -1,5 +1,10 @@
 import queryString from 'query-string';
 
+export const PARAMS = {
+  BUILD: 'data',
+  VERSION: 'v',
+};
+
 export function useQueryParam({ key }) {
   if (typeof window === 'undefined') return '';
   const queryParam = queryString.parse(window.location.search)[key];
