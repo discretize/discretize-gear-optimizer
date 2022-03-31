@@ -62,15 +62,37 @@ const URLStateExport = ({ type }) => {
         });
       const timeoutPromise = new Promise((resolve) => setTimeout(resolve, 3000, longUrl));
 
-      Promise.any([shortenPromise, timeoutPromise]).then((url) => {
-        setSnackbarState((state) => ({
-          ...state,
-          open: true,
-          success: true,
-          message: t('Copied link to clipboard!'),
-        }));
-        navigator.clipboard.writeText(url);
-      });
+      const urlPromise = Promise.any([shortenPromise, timeoutPromise]);
+      const urlBlobPromise = urlPromise.then((url) => new Blob([url], { type: 'text/plain' }));
+
+      // iOS browsers and desktop Safari require the use of the async clipboard API, calling
+      // navigator.clipboard.write synchronously and passing it a Promise
+      // (see: https://web.dev/async-clipboard/).
+      // Firefox does not support this API but allows writing to the clipboard in a callback.
+      // Chrome doesn't care.
+      const clipboardPromise =
+        typeof ClipboardItem !== 'undefined'
+          ? // eslint-disable-next-line no-undef
+            navigator.clipboard.write([new ClipboardItem({ 'text/plain': urlBlobPromise })])
+          : urlPromise.then((url) => navigator.clipboard.writeText(url));
+
+      clipboardPromise
+        .then(() =>
+          setSnackbarState((state) => ({
+            ...state,
+            open: true,
+            success: true,
+            message: t('Copied link to clipboard!'),
+          })),
+        )
+        .catch(() =>
+          setSnackbarState((state) => ({
+            ...state,
+            open: true,
+            success: true,
+            message: t('Failed to copy link to clipboard!'),
+          })),
+        );
 
       // setBuildUrl would trigger an update in the useEffects method of URLState... which is not what we want
       // setBuildUrl(data);
