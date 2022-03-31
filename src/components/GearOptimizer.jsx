@@ -1,9 +1,15 @@
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { Box, Grid, Typography } from '@mui/material';
-import { graphql, StaticQuery } from 'gatsby';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import presetAffixes from '../assets/presetdata/preset-affixes.yaml';
+import presetBuffs from '../assets/presetdata/preset-buffs.yaml';
+import presetDistribution from '../assets/presetdata/preset-distribution.yaml';
+import presetExtras from '../assets/presetdata/preset-extras.yaml';
+import presetInfusions from '../assets/presetdata/preset-infusions.yaml';
+import presetTraits from '../assets/presetdata/preset-traits.yaml';
+import templates from '../assets/presetdata/templates.yaml';
 import { getControl, getProfession } from '../state/slices/controlsSlice';
 import NavBar from './nav/NavBar';
 import BossSection from './sections/boss/BossSection';
@@ -21,13 +27,23 @@ import SharingSection from './sections/sharing/SharingSection';
 import SkillsSection from './sections/skills/SkillsSection';
 import TraitsSection from './sections/traits/TraitsSection';
 
+const data = {
+  templates,
+  presetBuffs,
+  presetAffixes,
+  presetDistribution,
+  presetExtras,
+  presetInfusions,
+  presetTraits,
+};
+
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
  *
  * @param {{classes, data}} styles and data fetched by graphiql
  */
 
-const MainComponent = ({ data }) => {
+const GearOptimizer = () => {
   // Query variables from redux store that should have a global scope
   const expertMode = useSelector(getControl('expertMode'));
   const profession = useSelector(getProfession);
@@ -107,91 +123,6 @@ const MainComponent = ({ data }) => {
         </div>
       </Box>
     </>
-  );
-};
-
-// Wrapper around the main component. GraphQL is queried here.
-const GearOptimizer = ({ classes }) => {
-  return (
-    <StaticQuery
-      query={graphql`
-        query myEpicQuery {
-          images: allImageSharp {
-            edges {
-              node {
-                gatsbyImageData
-                original {
-                  src
-                }
-              }
-            }
-          }
-          presetBuffs: presetBuffs {
-            list {
-              name
-              value
-              hidden
-            }
-          }
-          presetAffixes: presetAffixes {
-            list {
-              name
-              value
-              hidden
-            }
-          }
-          presetTraits: presetTraits {
-            list {
-              name
-              traits
-              skills
-              profession
-              hidden
-            }
-          }
-          presetExtras: presetExtras {
-            list {
-              name
-              value
-              profession
-              hidden
-            }
-          }
-          presetDistribution: presetDistribution {
-            list {
-              name
-              value
-              profession
-              hidden
-            }
-          }
-          templates {
-            id
-            list {
-              class
-              builds {
-                id
-                name
-                traits
-                specialization
-                boons
-                priority
-                distribution
-                extras
-              }
-            }
-          }
-          presetInfusions {
-            list {
-              name
-              value
-              hidden
-            }
-          }
-        }
-      `}
-      render={(data) => <MainComponent classes={classes} data={data} />}
-    />
   );
 };
 

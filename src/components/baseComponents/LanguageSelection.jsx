@@ -1,6 +1,6 @@
 import { Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import { useI18next } from 'gatsby-plugin-react-i18next';
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const LANGUAGES = [
   { value: 'en', label: 'English' },
@@ -9,7 +9,8 @@ const LANGUAGES = [
 ];
 
 const LanguageSelection = () => {
-  const { language, changeLanguage } = useI18next();
+  const { i18n } = useTranslation();
+  const { language, changeLanguage } = i18n;
 
   const onChange = (e) => {
     changeLanguage(e.target.value);

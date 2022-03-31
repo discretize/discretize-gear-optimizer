@@ -2,8 +2,8 @@ import { Tooltip } from '@discretize/gw2-ui-new';
 import ShareIcon from '@mui/icons-material/Share';
 import { IconButton } from '@mui/material';
 import axios from 'axios';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import URLStateSnackbar from './URLStateSnackbar';
@@ -46,6 +46,19 @@ const URLStateExport = ({ type }) => {
         return;
       }
       console.log(`Exported long URL (${longUrl.length} characters):`, longUrl);
+
+      // skip link shortener if build in staging/preview/local development
+      // (prevents sharing short links that redirect to an invalid location)
+      if (!longUrl.includes('optimizer.discretize.eu')) {
+        setSnackbarState((state) => ({
+          ...state,
+          open: true,
+          success: true,
+          message: t('Copied link to clipboard! (Link shortener disabled in preview builds.)'),
+        }));
+        navigator.clipboard.writeText(longUrl);
+        return;
+      }
 
       // get request to create a new short-url
       // this url points to a cloudflare worker, which acts as a url shortener

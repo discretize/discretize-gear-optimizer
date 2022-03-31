@@ -11,8 +11,8 @@ import {
   RadioGroup,
 } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
-import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { getProfession } from '../../../state/slices/controlsSlice';

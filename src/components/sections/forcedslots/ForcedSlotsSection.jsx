@@ -1,6 +1,6 @@
 import { Chip } from '@mui/material';
-import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useStore } from 'react-redux';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import { changeAllForcedSlots, clearForcedSlots } from '../../../state/slices/forcedSlots';

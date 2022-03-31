@@ -1,6 +1,6 @@
 import { Box, FormControlLabel, Switch } from '@mui/material';
-import { Trans, useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeSkills } from '../../../state/slices/skills';
 import { changeTraits, getShowAllTraits, toggleShowAll } from '../../../state/slices/traits';

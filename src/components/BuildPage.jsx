@@ -4,7 +4,6 @@ import { Box, Paper, Typography } from '@mui/material';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { NumberParam, StringParam, useQueryParam } from 'use-query-params';
 import { buffModifiers, classModifiers } from '../assets/modifierdata';
 import SagaTypes from '../state/sagas/sagaTypes';
 import {
@@ -14,6 +13,7 @@ import {
   getTraits,
   getWeapons,
 } from '../state/slices/buildPage';
+import { PARAMS, useQueryParam } from '../utils/queryParam';
 import ResultCharacter from './sections/results/ResultCharacter';
 
 const useStyles = makeStyles()((theme) => ({
@@ -36,7 +36,7 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-const BuildPage = ({ data }) => {
+const BuildPage = () => {
   const { classes } = useStyles();
   const dispatch = useDispatch();
 
@@ -47,11 +47,12 @@ const BuildPage = ({ data }) => {
   const { lines, selected } = useSelector(getTraits);
   const buffs = useSelector(getBuffs);
 
-  const [buildUrl] = useQueryParam('data', StringParam);
-  const [versionParam] = useQueryParam('v', NumberParam);
+  // migrate to own implementation
+  const buildUrl = useQueryParam({ key: PARAMS.BUILD });
+  const versionParam = useQueryParam({ key: PARAMS.VERSION });
 
   // if no version is present, default to version 0
-  const version = versionParam || 0;
+  const version = parseInt(versionParam || 0, 10);
 
   React.useEffect(() => {
     dispatch({ type: SagaTypes.ImportBuildPageState, version, buildUrl });
@@ -90,7 +91,6 @@ const BuildPage = ({ data }) => {
 
       {character && (
         <ResultCharacter
-          data={data}
           character={character}
           weapons={weapons}
           skills={skills}

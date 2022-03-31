@@ -1,10 +1,15 @@
-const startCase = require('lodash/startCase');
+import itemMapping from './mappingMJS/items.mjs'; // assert { type: 'json' };
+import skillMapping from './mappingMJS/skills.mjs'; // assert { type: 'json' };
+import traitMapping from './mappingMJS/traits.mjs'; // assert { type: 'json' };
+import itemstatMapping from './mappingMJS/itemstats.mjs'; // assert { type: 'json' };
+import specializationMapping from './mappingMJS/specializations.mjs'; // assert { type: 'json' };
 
-const itemMapping = require('./mapping/items.json');
-const skillMapping = require('./mapping/skills.json');
-const traitMapping = require('./mapping/traits.json');
-const itemstatMapping = require('./mapping/itemstats.json');
-const specializationMapping = require('./mapping/specializations.json');
+function firstUppercase(text) {
+  if (typeof text === 'undefined' || text === null || text === '') return '';
+
+  const toUpper = (str) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  return text.split(' ').map(toUpper).join(' ').trim();
+}
 
 const stripRuneName = (name) => name.replace(/(Superior|Rune|of|the)/g, '');
 
@@ -259,7 +264,7 @@ export const resolveArmor = ({ weight, ...rest }) => {
         props[affixKey] = newAffix;
       }
     }
-    props[affixKey] = startCase(props[affixKey]);
+    props[affixKey] = firstUppercase(props[affixKey]);
 
     const runeIdKey = `${lowerCaseType}RuneId`;
     const runeKey = `${lowerCaseType}Rune`;
@@ -286,7 +291,7 @@ export const resolveArmor = ({ weight, ...rest }) => {
         props[runeKey] = newRune;
       }
     }
-    props[runeKey] = startCase(props[runeKey]);
+    props[runeKey] = firstUppercase(props[runeKey]);
 
     if (props[runeKey]) {
       runeCounts[props[runeKey]] = !runeCounts[props[runeKey]] ? 1 : runeCounts[props[runeKey]] + 1;
@@ -332,8 +337,8 @@ const resolveWeapons = ({ ...rest }) => {
         props[typeKey] = newType;
       }
     }
-    props[affixKey] = startCase(props[affixKey]);
-    props[typeKey] = startCase(props[typeKey]);
+    props[affixKey] = firstUppercase(props[affixKey]);
+    props[typeKey] = firstUppercase(props[typeKey]);
 
     sigilSlots.forEach((sigilSlot) => {
       const sigilIdKey = `${slot}${sigilSlot}Id`;
@@ -360,7 +365,7 @@ const resolveWeapons = ({ ...rest }) => {
           props[sigilIdKey] = newSigilId;
           props[sigilKey] = newSigil;
         }
-        props[sigilKey] = startCase(props[sigilKey]);
+        props[sigilKey] = firstUppercase(props[sigilKey]);
       }
     });
   });
@@ -433,7 +438,7 @@ export const resolveBackAndTrinkets = ({ ...rest }) => {
         }
       }
     }
-    props[affixKey] = startCase(props[affixKey]);
+    props[affixKey] = firstUppercase(props[affixKey]);
 
     (usedCombinations[type] || (usedCombinations[type] = [])).push(props[affixKey]);
   });
@@ -535,7 +540,7 @@ const resolveTraits = ({ ...rest }) => {
         profession = newProfession;
       }
     }
-    props[key] = startCase(props[key]);
+    props[key] = firstUppercase(props[key]);
 
     const selectedIdsKey = `${slot}SelectedIds`;
     const selectedKey = `${slot}Selected`;
