@@ -651,7 +651,7 @@ list:
     profession: Scourge
     value: >-
       {
-        "values2": { "Power": 1405, "Burning": 3.4, "Bleeding": 18.11, "Poisoned": 3.71, "Torment": 14.22, "Confusion": 0 }
+        "values2": { "Power": 1405, "Burning": 3.4, "Bleeding": 18.11, "Poisoned": 3.71, "Torment": 12.37, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=I1Tjyfk-DKI

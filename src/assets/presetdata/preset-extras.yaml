@@ -1051,14 +1051,19 @@ list:
           "Sigil1": {
             "bursting": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "torment": {
+              "amount": "1.85"
+            }
+          },
           "Enhancement": {
             "master-tuning-crystal": {}
           },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Condi Reaper
