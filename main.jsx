@@ -6,16 +6,16 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import IndexPage from './pages';
-import createStore from './state/createStore';
-import muiTheme from './utils/placeholder-unused-theme';
+import IndexPage from './src/pages/index';
+import createStore from './src/state/createStore';
+import muiTheme from './src/utils/placeholder-unused-theme';
 
 import 'typeface-fira-mono';
 import '@discretize/typeface-menomonia';
 import 'typeface-muli';
 import 'typeface-raleway';
 
-import './utils/i18n';
+import './src/utils/i18n';
 
 const store = createStore();
 

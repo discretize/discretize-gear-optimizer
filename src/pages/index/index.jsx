@@ -5,11 +5,11 @@ import { Link, Typography } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import ErrorBoundary from '../components/baseComponents/ErrorBoundary';
-import LanguageSelection from '../components/baseComponents/LanguageSelection';
-import GearOptimizer from '../components/GearOptimizer';
-import URLStateImport from '../components/url-state/URLStateImport';
-import SagaTypes from '../state/sagas/sagaTypes';
+import ErrorBoundary from '../../components/baseComponents/ErrorBoundary';
+import LanguageSelection from '../../components/baseComponents/LanguageSelection';
+import GearOptimizer from '../../components/GearOptimizer';
+import URLStateImport from '../../components/url-state/URLStateImport';
+import SagaTypes from '../../state/sagas/sagaTypes';
 
 // markup
 const IndexPage = () => {

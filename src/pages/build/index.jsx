@@ -20,7 +20,7 @@ const IndexPage = () => {
         </Typography>
 
         <ErrorBoundary location="BuildPage">
-          <BuildPage data={data} />
+          <BuildPage />
         </ErrorBoundary>
       </Layout>
     </APILanguageProvider>

@@ -7,7 +7,7 @@ import { resolveArmor, resolveBackAndTrinkets } from '../../../utils/map-gw2-ids
 import { getWeight } from '../../../utils/usefulFunctions';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
 
-export default function ResultCharacter({ data, character, weapons, skills, assumedBuffs }) {
+export default function ResultCharacter({ character, weapons, skills, assumedBuffs }) {
   const { profession, specialization, weaponType, cachedFormState, extrasCombination } =
     character.settings;
 
