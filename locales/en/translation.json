@@ -27,7 +27,7 @@
   "Ctrl+d": "Ctrl+d",
   "Ctrl+k": "Ctrl+k",
   "Ctrl+s": "Ctrl+s",
-  "Custom Affix (valid types: \"triple,\" \"quadruple,\" \"celestial\")": "Custom Affix (valid types: \"triple\", \"quadruple\", \"celestial\")",
+  "Custom Affix (valid types: \"triple,\" \"quadruple,\" \"celestial\")": "Custom Affix (valid types: \"triple,\" \"quadruple,\" \"celestial\")",
   "DPSType_Bleeding": "Bleeding DPS",
   "DPSType_Burning": "Burning DPS",
   "DPSType_Confusion": "Confusion DPS",

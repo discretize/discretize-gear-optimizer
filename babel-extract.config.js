@@ -35,7 +35,7 @@ const extra = {
   utility: YAML.load(fs.readFileSync('./src/assets/modifierdata/utility.yaml', 'utf8')),
 };
 module.exports = {
-  presets: ['babel-preset-gatsby'],
+  presets: ['@babel/preset-react'],
   plugins: [
     [
       './extract_context_injection',
