@@ -1088,7 +1088,9 @@ list:
           "Sigil1": {
             "bursting": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "geomancy-torment-harb": {}
+          },
           "Runes": {
             "nightmare": {}
           },
@@ -1098,7 +1100,8 @@ list:
           "Enhancement": {
             "toxic-focusing-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Quickness Harbinger

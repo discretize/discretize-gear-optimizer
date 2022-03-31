@@ -268,6 +268,27 @@
           Burning Coefficient: 0.035
       gw2id: 24605
 
+    # 4 geo in 97 sec
+    # 12 torment in 97 sec; thanks jezereal for calculation
+    #
+    # geo power: 0.25 coeff, 690.5 strength, every 24.3 sec -> 7.1 power coefficient
+    # geo bleed: 24 seconds, every 24.3 sec -> 0.99 avg bleed
+    # torment: 10 seconds, every 8.1 sec -> 1.23 avg torment
+    #
+    # geo bleed on crit with barbed precision: 1/3 chance of 3s every 24.3 s, if critical
+    - id: geomancy-torment-harb
+      text: 'Geo + Torment Harbinger'
+      subText: (with Barbed Precision)
+      modifiers:
+        attributes:
+          Power Coefficient: 7.5
+          Bleeding Coefficient: 1.04
+          Torment Coefficient: 1.2
+          Burning Coefficient: 0.035
+        conversionAfterBuffs:
+          Bleeding Coefficient: {Critical Chance: 4.1%}
+      gw2id: 24605
+
 - section: Stacking Sigils
   items:
 

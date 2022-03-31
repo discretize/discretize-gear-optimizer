@@ -684,7 +684,7 @@ list:
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 2271, "Burning": 1.81, "Bleeding": 9.74, "Poisoned": 5.83, "Torment": 22.17, "Confusion": 0 }
+        "values2": { "Power": 2264, "Burning": 1.77, "Bleeding": 8.67, "Poisoned": 5.83, "Torment": 20.97, "Confusion": 0 }
       }
 
   # https://www.youtube.com/watch?v=zcFY7nNhZwg
