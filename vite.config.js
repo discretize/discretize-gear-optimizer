@@ -15,4 +15,10 @@ export default defineConfig({
     },
   },
   plugins: [react(), yamlImporter()],
+  resolve: {
+    alias: {
+      'react-dom': 'react-dom/profiling',
+      'scheduler/tracing': 'scheduler/tracing-profiling',
+    },
+  },
 });
