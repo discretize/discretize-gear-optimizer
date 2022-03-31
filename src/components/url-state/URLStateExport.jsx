@@ -47,19 +47,6 @@ const URLStateExport = ({ type }) => {
       }
       console.log(`Exported long URL (${longUrl.length} characters):`, longUrl);
 
-      // skip link shortener if build in staging/preview/local development
-      // (prevents sharing short links that redirect to an invalid location)
-      if (!longUrl.includes('optimizer.discretize.eu')) {
-        setSnackbarState((state) => ({
-          ...state,
-          open: true,
-          success: true,
-          message: t('Copied link to clipboard! (Link shortener disabled in preview builds.)'),
-        }));
-        navigator.clipboard.writeText(longUrl);
-        return;
-      }
-
       // get request to create a new short-url
       // this url points to a cloudflare worker, which acts as a url shortener
       // Source for the shortener: https://gist.github.com/gw2princeps/dc88d11e6b2378db35bcb2dd3726c7c6
