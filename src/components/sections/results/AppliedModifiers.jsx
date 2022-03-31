@@ -13,7 +13,7 @@ import {
 import React from 'react';
 import { Trans } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
-import { scaleValue } from '../../../state/optimizer/optimizerCore';
+import { scaleValue } from '../../../state/optimizer/optimizerSetup';
 import { parseAmount } from '../../../utils/usefulFunctions';
 
 const useStyles = makeStyles()((theme) => ({
