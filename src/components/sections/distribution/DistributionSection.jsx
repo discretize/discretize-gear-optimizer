@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Box, FormControlLabel, Link, Switch } from '@mui/material';
-import { Trans, useTranslation } from 'react-i18next';
 import React from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   changeAllDistributions,

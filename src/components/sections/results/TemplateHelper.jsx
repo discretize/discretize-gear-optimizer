@@ -1,6 +1,6 @@
 import { TextField, Typography } from '@mui/material';
-import { Trans, useTranslation } from 'react-i18next';
 import React from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 import { mapValues, parseDistribution } from '../../../utils/usefulFunctions';
 
 const initial = {

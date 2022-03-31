@@ -9,9 +9,9 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import { Trans } from 'react-i18next';
 // import { Boon, CommonEffect, Condition, Skill, Trait } from '@discretize/gw2-ui-new';
 import React from 'react';
+import { Trans } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
 import { scaleValue } from '../../../state/optimizer/optimizerCore';
 import { parseAmount } from '../../../utils/usefulFunctions';

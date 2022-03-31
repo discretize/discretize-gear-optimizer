@@ -7,9 +7,9 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import { Trans, useTranslation } from 'react-i18next';
 import yaml from 'js-yaml';
 import React from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { changePriority, getPriority } from '../../../state/slices/priorities';
 
