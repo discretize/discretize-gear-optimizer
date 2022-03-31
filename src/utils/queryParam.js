@@ -21,7 +21,7 @@ export function setQueryParm({ key, value }) {
   } else {
     current.searchParams.set(key, value);
   }
-  console.log(current);
+
   if (window.history.pushState) window.history.pushState(null, '', current.href);
   /*
   const current = queryString.parse(window.location.search);
