@@ -1118,7 +1118,11 @@ list:
           "Sigil1": {
             "bursting": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "torment": {
+              "amount": "1.85"
+            }
+          },
           "Runes": {
             "tormenting": {}
           },
