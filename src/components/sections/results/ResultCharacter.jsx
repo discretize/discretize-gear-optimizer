@@ -1,5 +1,4 @@
 import { Character, firstUppercase } from '@discretize/react-discretize-components';
-import times from 'lodash/times';
 import React from 'react';
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import { Classes, INFUSION_IDS } from '../../../utils/gw2-data';
@@ -20,15 +19,11 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
   let infusions = [...Array(18).fill(49432)];
 
   if (character.infusions) {
-    infusions = Object.keys(character.infusions).flatMap((key) =>
-      times(character.infusions[key], () => INFUSION_IDS[key]),
-    );
+    infusions = Object.keys(character.infusions).flatMap((key) => [
+      ...Array(character.infusions[key]).fill(INFUSION_IDS[key]),
+    ]);
     // fill up the remaining slots with generic +9 Agony Infusions
-    infusions = [
-      ...infusions,
-      // eslint-disable-next-line id-length
-      ...times(18 - Object.values(character.infusions).reduce((p, c) => p + c), () => 49432),
-    ];
+    infusions = [...infusions, ...Array(18).fill(49432)].slice(0, 18);
   }
 
   // Calculate extras
