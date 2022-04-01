@@ -8,7 +8,8 @@ const isArrayDifferent = (a, b) => {
 // eslint-disable-next-line import/prefer-default-export
 export function* calculate(combinations) {
   for (const combination of combinations) {
-    combination.core = new OptimizerCore(combination.settings, combination.minimalSettings);
+    combination.list = [];
+    combination.core = new OptimizerCore(combination.settings);
     combination.calculation = combination.core.calculate();
   }
 
@@ -29,15 +30,23 @@ export function* calculate(combinations) {
 
     if (combination.done) continue;
 
-    const { value: { isChanged, calculationRuns, newList } = {}, done } =
+    const { value: { isChanged, calculationRuns, newCharacters } = {}, done } =
       combination.calculation.next();
 
     if (done) {
       combination.done = true;
     }
 
+    for (const character of newCharacters) {
+      character.settings = combination.minimalSettings;
+    }
+
     if (isChanged) {
-      combination.list = newList;
+      combination.list = [...combination.list, ...newCharacters]
+        // eslint-disable-next-line no-loop-func
+        .filter((character) => character.attributes[rankby] >= globalWorstScore)
+        .sort((a, b) => characterLT(a, b, rankby))
+        .slice(0, 50);
 
       const newGlobalList = combinations
         .flatMap(({ list }) => list || [])

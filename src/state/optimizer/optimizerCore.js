@@ -42,18 +42,17 @@ export const clamp = (input, min, max) => {
 
 export class OptimizerCore {
   settings;
-  minimalSettings;
   applyInfusionsFunction;
   condiResultCache = new Map();
   worstScore;
+  previousList = [];
   list = [];
   isChanged = true;
   uniqueIDCounter = 0;
   randomId = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
 
-  constructor(settings, minimalSettings) {
+  constructor(settings) {
     this.settings = settings;
-    this.minimalSettings = minimalSettings;
   }
 
   /**
@@ -73,7 +72,7 @@ export class OptimizerCore {
       return {
         isChanged: true,
         percent: 100,
-        newList: [],
+        newCharacters: [],
       };
     }
 
@@ -104,8 +103,11 @@ export class OptimizerCore {
         yield {
           isChanged: this.isChanged,
           calculationRuns,
-          newList: this.isChanged ? this.list.slice() : null,
+          newCharacters: this.isChanged
+            ? this.list.filter((character) => !this.previousList.includes(character))
+            : [],
         };
+        this.previousList = [...this.list];
         this.isChanged = false;
         // UPDATE_MS = 55;
         iterationTimer = Date.now();
@@ -174,7 +176,9 @@ export class OptimizerCore {
     return {
       isChanged: this.isChanged,
       calculationRuns,
-      newList: this.isChanged ? this.list.slice() : null,
+      newCharacters: this.isChanged
+        ? this.list.filter((character) => !this.previousList.includes(character))
+        : [],
     };
   }
 
@@ -187,7 +191,6 @@ export class OptimizerCore {
 
     const character = {
       gear, // passed by reference
-      settings: this.minimalSettings, // passed by reference
       gearStats, // passed by reference
       attributes: null,
       valid: true,
