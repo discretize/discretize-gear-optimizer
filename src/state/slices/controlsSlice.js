@@ -72,43 +72,23 @@ export const controlSlice = createSlice({
         return {
           ...state,
           profession: action.payload,
-          progress: 0,
           selectedTemplate: '',
           selectedSpecialization: action.payload,
-          status: WAITING,
-          error: '',
         };
       }
       return state;
     },
     changeExpertMode: (state, action) => {
-      if (action.payload) {
-        // just change expertMode to true
-        return {
-          ...state,
-          expertMode: action.payload,
-        };
-      }
-      // wipe state and force usr to select a template
-      return {
-        ...state,
-        expertMode: action.payload,
-        progress: 0,
-        status: WAITING,
-        error: '',
-      };
+      state.expertMode = action.payload;
     },
     setBuildTemplate: (state, action) => {
       const { build, specialization, profession } = action.payload;
 
       return {
         ...state,
-        progress: 0,
         selectedTemplate: build.name,
         selectedSpecialization: specialization,
-        status: WAITING,
         profession,
-        error: '',
       };
     },
     changeStatus: (state, action) => {

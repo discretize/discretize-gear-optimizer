@@ -130,7 +130,10 @@ function* runCalc() {
 }
 
 function* stopCalc() {
-  yield put(changeStatus(STOPPED));
+  const status = yield select(getStatus);
+  if (status === RUNNING) {
+    yield put(changeStatus(STOPPED));
+  }
 }
 
 export default function* rootSaga() {

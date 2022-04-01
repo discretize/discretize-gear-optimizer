@@ -20,6 +20,7 @@ import React, { useEffect, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import SagaTypes from '../../state/sagas/sagaTypes';
 import {
   changeExpertMode,
   changeProfession,
@@ -87,7 +88,7 @@ const Navbar = ({
             <Switch
               checked={expertMode}
               onChange={(e) => {
-                dispatch({ type: 'CANCEL' });
+                dispatch({ type: SagaTypes.Stop });
                 dispatch(changeExpertMode(e.target.checked));
               }}
               name="checked"
@@ -158,7 +159,7 @@ const Navbar = ({
 
   // eslint-disable-next-line no-shadow
   const handleTemplateSelect = (popup, build, specialization, profession) => {
-    dispatch({ type: 'CANCEL' });
+    dispatch({ type: SagaTypes.Stop });
     dispatch(
       setBuildTemplate({
         build,
@@ -198,7 +199,7 @@ const Navbar = ({
           <React.Fragment key={prof.profession}>
             <Button
               onClick={() => {
-                dispatch({ type: 'CANCEL' });
+                dispatch({ type: SagaTypes.Stop });
                 if (expertMode) {
                   dispatch(changeProfession(prof.profession));
                 }

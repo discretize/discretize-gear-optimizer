@@ -6,6 +6,7 @@ import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import SagaTypes from '../../state/sagas/sagaTypes';
 import { setBuildTemplate } from '../../state/slices/controlsSlice';
 
 const useStyles = makeStyles()((theme) => ({
@@ -81,7 +82,7 @@ export default function NavAccordion({
               variant="outlined"
               label={<Profession name={build.specialization} text={build.name} disableLink />}
               onClick={(e) => {
-                dispatch({ type: 'CANCEL' });
+                dispatch({ type: SagaTypes.Stop });
                 dispatch(
                   setBuildTemplate({
                     build,
