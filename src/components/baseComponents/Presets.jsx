@@ -4,7 +4,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { getControl, getProfession } from '../../state/slices/controlsSlice';
+import { getProfession, getSelectedTemplate } from '../../state/slices/controlsSlice';
 
 // this many chips are allowed before they will be put into a dropdown select
 const maxChipsDefault = 7;
@@ -18,7 +18,7 @@ const Presets = ({
 }) => {
   const { t } = useTranslation();
   const profession = useSelector(getProfession);
-  const selectedTemplateName = useSelector(getControl('selectedTemplate'));
+  const selectedTemplateName = useSelector(getSelectedTemplate);
 
   const data = dataRaw.filter((entry) => !entry?.hidden);
 

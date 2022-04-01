@@ -10,7 +10,7 @@ import presetExtras from '../assets/presetdata/preset-extras.yaml';
 import presetInfusions from '../assets/presetdata/preset-infusions.yaml';
 import presetTraits from '../assets/presetdata/preset-traits.yaml';
 import templates from '../assets/presetdata/templates.yaml';
-import { getControl, getProfession } from '../state/slices/controlsSlice';
+import { getExpertMode, getProfession } from '../state/slices/controlsSlice';
 import NavBar from './nav/NavBar';
 import BossSection from './sections/boss/BossSection';
 import BuffsSection from './sections/buffs/BuffsSection';
@@ -45,7 +45,7 @@ const data = {
 
 const GearOptimizer = () => {
   // Query variables from redux store that should have a global scope
-  const expertMode = useSelector(getControl('expertMode'));
+  const expertMode = useSelector(getExpertMode);
   const profession = useSelector(getProfession);
 
   const { t } = useTranslation();

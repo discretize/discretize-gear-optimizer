@@ -165,7 +165,11 @@ export const controlSlice = createSlice({
 });
 
 export const getProfession = (state) => state.optimizer.control.profession;
-export const getControl = (key) => (state) => state.optimizer.control[key];
+export const getExpertMode = (state) => state.optimizer.control.expertMode;
+export const getSelectedTemplate = (state) => state.optimizer.control.selectedTemplate;
+export const getProgress = (state) => state.optimizer.control.progress;
+export const getSelectedSpecialization = (state) => state.optimizer.control.selectedSpecialization;
+export const getStatus = (state) => state.optimizer.control.status;
 export const getList = (state) => state.optimizer.control.list;
 export const getFilteredList = (state) => state.optimizer.control.filteredList;
 export const getSaved = (state) => state.optimizer.control.saved;

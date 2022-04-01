@@ -23,8 +23,10 @@ import { makeStyles } from 'tss-react/mui';
 import {
   changeExpertMode,
   changeProfession,
-  getControl,
+  getExpertMode,
   getProfession,
+  getSelectedSpecialization,
+  getSelectedTemplate,
   setBuildTemplate,
 } from '../../state/slices/controlsSlice';
 import { PROFESSIONS } from '../../utils/gw2-data';
@@ -47,9 +49,9 @@ const Navbar = ({
   const { classes } = useStyles();
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
-  const expertMode = useSelector(getControl('expertMode'));
-  const selectedSpecialization = useSelector(getControl('selectedSpecialization'));
-  const selectedTemplateName = useSelector(getControl('selectedTemplate'));
+  const expertMode = useSelector(getExpertMode);
+  const selectedSpecialization = useSelector(getSelectedSpecialization);
+  const selectedTemplateName = useSelector(getSelectedTemplate);
 
   const { t } = useTranslation();
 

@@ -15,8 +15,8 @@ import SagaTypes from '../../../state/sagas/sagaTypes';
 import {
   changeError,
   changeStatus,
-  getControl,
   getError,
+  getStatus,
 } from '../../../state/slices/controlsSlice';
 import { getPriority } from '../../../state/slices/priorities';
 import ProgressIcon from '../../baseComponents/ProgressIcon';
@@ -42,7 +42,7 @@ const ControlsBox = ({ profession }) => {
   const { classes } = useStyles();
   const dispatch = useDispatch();
 
-  const status = useSelector(getControl('status'));
+  const status = useSelector(getStatus);
   const error = useSelector(getError);
   const affixes = useSelector(getPriority('affixes'));
 

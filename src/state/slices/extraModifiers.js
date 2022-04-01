@@ -23,7 +23,8 @@ export const extraModifiersSlice = createSlice({
   },
 });
 
-export const getExtraModifiers = (key) => (state) => state.optimizer.form.extraModifiers[key];
+export const getExtraModifiersError = (state) => state.optimizer.form.extraModifiers.error;
+export const getExtraModifiersTextBox = (state) => state.optimizer.form.extraModifiers.textBox;
 
 export const getExtraModifiersModifiers = createSelector(
   (state) => state.optimizer.form.extraModifiers,

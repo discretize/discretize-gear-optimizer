@@ -9,8 +9,8 @@ import {
   changeProgress,
   changeSelectedCharacter,
   changeStatus,
-  getControl,
   getSelectedCharacter,
+  getStatus,
   updateResults,
 } from '../slices/controlsSlice';
 import SagaTypes from './sagaTypes';
@@ -78,7 +78,7 @@ function* runCalc() {
       yield delay(0);
 
       // check if calculation stopped
-      const status = yield select(getControl('status'));
+      const status = yield select(getStatus);
       if (status !== RUNNING) {
         elapsed += performance.now() - timer;
         console.log(`Stopped at ${currentPercent}% in ${elapsed} ms`);

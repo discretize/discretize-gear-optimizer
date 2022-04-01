@@ -15,7 +15,8 @@ import { exampleModifiers, exampleModifiersJson } from '../../../assets/modifier
 import {
   changeExtraModifiers,
   changeExtraModifiersError,
-  getExtraModifiers,
+  getExtraModifiersError,
+  getExtraModifiersTextBox,
 } from '../../../state/slices/extraModifiers';
 
 function parseInput(str) {
@@ -42,8 +43,8 @@ function parseInput(str) {
 const ExtraModifiers = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const errorMsg = useSelector(getExtraModifiers('error'));
-  const text = useSelector(getExtraModifiers('textBox'));
+  const errorMsg = useSelector(getExtraModifiersError);
+  const text = useSelector(getExtraModifiersTextBox);
 
   const handleChange = (e) => {
     const val = e.target.value;
