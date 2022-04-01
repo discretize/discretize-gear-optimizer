@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    // Target latest version of ECMAScript.
+    "target": "es2020",
+    // Search under node_modules for non-relative imports.
+    "moduleResolution": "node",
+    // Process & infer types from .js files.
+    "allowJs": true,
+    // Don't emit; allow Babel to transform files.
+    "noEmit": true,
+    // Enable strictest settings like strictNullChecks & noImplicitAny.
+    "strict": true,
+    // Import non-ES modules as default imports.
+    "esModuleInterop": true,
+    // Do not create bindings, rollup does that.
+    "declaration": false,
+    // Ensure that Babel can safely transpile files in the TypeScript project
+    "isolatedModules": true,
+    // Other configuration
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "es2020",
+    "resolveJsonModule": true,
+    "jsx": "react-jsx",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+  },
+  "exclude": ["node_modules/**/*"]
+}
