@@ -25,7 +25,7 @@ const ExtrasSection = ({ profession, data }) => {
 
   const onTemplateClickExtras = React.useCallback(
     (value) => {
-      if (value === null) return;
+      if (!value) return;
 
       const newExtras = JSON.parse(value.value);
       dispatch(changeExtras(newExtras));

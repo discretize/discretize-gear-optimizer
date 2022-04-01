@@ -33,7 +33,7 @@ const DistributionSection = ({ profession, data }) => {
 
   const onTemplateClickDistribution = React.useCallback(
     (value) => {
-      if (value === null) return;
+      if (!value) return;
 
       dispatch(changeAllDistributions(JSON.parse(value.value)));
     },

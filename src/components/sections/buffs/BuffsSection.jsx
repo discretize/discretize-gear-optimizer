@@ -12,7 +12,7 @@ const BuffsSection = ({ data }) => {
 
   const handleTemplateClickBuffs = React.useCallback(
     (value) => {
-      if (value === null) return;
+      if (!value) return;
 
       const state = JSON.parse(value.value);
       dispatch(replaceBuffs(state));

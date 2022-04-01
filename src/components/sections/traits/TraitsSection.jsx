@@ -29,7 +29,7 @@ const TraitsSection = ({ profession, data }) => {
 
   const onTemplateClickTraits = React.useCallback(
     (value) => {
-      if (value === null) return;
+      if (!value) return;
 
       const newTraits = JSON.parse(value.traits);
       dispatch(changeTraits(newTraits));

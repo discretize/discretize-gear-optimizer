@@ -14,7 +14,7 @@ const InfusionsSection = ({ data }) => {
 
   const onTemplateClickInfusions = React.useCallback(
     (value) => {
-      if (value === null) return;
+      if (!value) return;
 
       const newInfusions = JSON.parse(value.value);
       dispatch(changeInfusions(newInfusions));

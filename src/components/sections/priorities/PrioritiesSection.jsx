@@ -12,7 +12,7 @@ const PrioritiesSection = ({ data }) => {
 
   const handleTemplateClickPriorities = React.useCallback(
     (value) => {
-      if (value === null) return;
+      if (!value) return;
       const state = JSON.parse(value.value);
       Object.keys(state).forEach((key) => dispatch(changePriority({ key, value: state[key] })));
     },
