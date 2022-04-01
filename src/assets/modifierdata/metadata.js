@@ -42,7 +42,7 @@ export const boons = [
 // ];
 export const damagingConditions = ['Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment'];
 
-const percents = [
+export const percents = [
   'Critical Chance',
   'Boon Duration',
   ...boons.map((boon) => `${boon} Duration`),

@@ -6,8 +6,11 @@ import TableRow from '@mui/material/TableRow';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { allExtrasModifiersById } from '../../../../assets/modifierdata';
+import { percents } from '../../../../assets/modifierdata/metadata';
 import { changeSelectedCharacter, toggleSaved } from '../../../../state/slices/controlsSlice';
 import { extrasTypes } from '../../../../state/slices/extras';
+
+const roundTwo = (num) => Math.round(num * 100) / 100;
 
 const ResultTableRow = ({
   character,
@@ -18,6 +21,7 @@ const ResultTableRow = ({
   selectedValue,
   compareByPercent,
   displayExtras,
+  displayAttributes,
 }) => {
   const dispatch = useDispatch();
 
@@ -110,6 +114,21 @@ const ResultTableRow = ({
             </TableCell>
           );
         })}
+
+      {displayAttributes.map((attribute, index) => (
+        <TableCell
+          // eslint-disable-next-line react/no-array-index-key
+          key={`attrs${index}`}
+          align="center"
+          padding="none"
+        >
+          <Typography variant="caption">
+            {roundTwo(
+              (character.attributes[attribute] ?? 0) * (percents.includes(attribute) ? 100 : 1),
+            )}
+          </Typography>
+        </TableCell>
+      ))}
     </TableRow>
   );
 };

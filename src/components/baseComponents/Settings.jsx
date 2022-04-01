@@ -2,7 +2,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import { ClickAwayListener, Grow, IconButton, Paper, Popper } from '@mui/material';
 import React from 'react';
 
-export default function Settings({ children }) {
+export default function Settings({ children, maxWidth = 'unset' }) {
   const anchorRef = React.useRef();
 
   const [open, setOpen] = React.useState(false);
@@ -37,7 +37,7 @@ export default function Settings({ children }) {
       >
         {({ TransitionProps }) => (
           <Grow {...TransitionProps}>
-            <Paper sx={{ padding: 2 }} elevation={6}>
+            <Paper sx={{ padding: 2, maxWidth }} elevation={6}>
               <ClickAwayListener onClickAway={handleClose}>
                 <div>{children}</div>
               </ClickAwayListener>

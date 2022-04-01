@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import {
   getCompareByPercent,
+  getDisplayAttributes,
   getFilteredList,
   getFilterMode,
   getList,
@@ -50,6 +51,9 @@ const useStyles = makeStyles()((theme) => ({
   },
   extrasColumn: {
     minWidth: '2.2em',
+  },
+  attributesColumn: {
+    minWidth: '2.8em',
   },
 }));
 
@@ -146,6 +150,8 @@ const StickyHeadTable = () => {
     [displaySigils, displayRunes, displayNourishment, displayEnhancement],
   );
 
+  const displayAttributes = useSelector(getDisplayAttributes);
+
   return (
     <>
       <Box boxShadow={8} mb={3}>
@@ -163,6 +169,7 @@ const StickyHeadTable = () => {
                 infusions={infusions}
                 rankBy={rankBy}
                 displayExtras={displayExtras}
+                displayAttributes={displayAttributes}
               />
             </TableHead>
             <TableBody
@@ -203,6 +210,7 @@ const StickyHeadTable = () => {
                     selectedValue={selectedValue}
                     compareByPercent={compareByPercent}
                     displayExtras={displayExtras}
+                    displayAttributes={displayAttributes}
                   />
                 );
               })}
@@ -247,6 +255,7 @@ const StickyHeadTable = () => {
                     infusions={infusions}
                     rankBy={rankBy}
                     displayExtras={displayExtras}
+                    displayAttributes={displayAttributes}
                   />
                 </TableHead>
                 <TableBody
@@ -266,6 +275,7 @@ const StickyHeadTable = () => {
                         selectedValue={selectedValue}
                         compareByPercent={compareByPercent}
                         displayExtras={displayExtras}
+                        displayAttributes={displayAttributes}
                       />
                     );
                   })}
