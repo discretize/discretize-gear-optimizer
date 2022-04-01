@@ -70,7 +70,7 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
 
   const { result } = yield take(compressChannel);
 
-  const urlObject = new URL('build', window.location.href);
+  const urlObject = new URL('build/', window.location.href);
   urlObject.searchParams.set('v', schemaVersion);
   urlObject.searchParams.set('data', result);
   const url = urlObject.href;
@@ -101,7 +101,7 @@ function* importStateCharacter({ buildUrl: input, version }) {
   try {
     // load build state from url
     const { BuildPageSchema: schema } = yield import(
-      `../../components/url-state/schema/BuildPageSchema_v${version}`
+      `../../components/url-state/schema/BuildPageSchema_v${version}.js`
     );
 
     decompress({

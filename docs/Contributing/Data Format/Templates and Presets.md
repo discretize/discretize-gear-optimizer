@@ -33,7 +33,7 @@ This file contains the metadata for the build templates.
 
 You can run `yarn testPresets` in a clone of the repository to run the testPresets.js script, which will make sure the boons, priority, distribution, traits, and extras all refer to entries in the other YAML files.
 
-> todo: This script will be run automatically by GitHub when you push to a the source branch of an open pull request, including draft PRs, so don't worry if you don't want to set up NPM and Yarn just for this!
+This script will be run automatically by GitHub when you push to a the source branch of an open pull request if it is not set to draft, so don't worry if you don't want to set up NPM and Yarn just for this!
 
 ## preset-buffs.yaml
 

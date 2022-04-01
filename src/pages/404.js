@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-filename-extension */
-import { Link } from 'gatsby';
 import * as React from 'react';
 
 // styles
@@ -46,7 +45,7 @@ const NotFoundPage = () => {
           </>
         ) : null}
         <br />
-        <Link to="/">Go home</Link>.
+        <a href="/">Go home</a>.
       </p>
     </main>
   );

@@ -2,8 +2,8 @@ import { Tooltip } from '@discretize/gw2-ui-new';
 import ShareIcon from '@mui/icons-material/Share';
 import { IconButton } from '@mui/material';
 import axios from 'axios';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import URLStateSnackbar from './URLStateSnackbar';
@@ -47,6 +47,19 @@ const URLStateExport = ({ type }) => {
       }
       console.log(`Exported long URL (${longUrl.length} characters):`, longUrl);
 
+      // skip link shortener if build in staging/preview/local development
+      // (prevents sharing short links that redirect to an invalid location)
+      if (!longUrl.includes('optimizer.discretize.eu')) {
+        setSnackbarState((state) => ({
+          ...state,
+          open: true,
+          success: true,
+          message: t('Copied link to clipboard! (Link shortener disabled in preview builds.)'),
+        }));
+        navigator.clipboard.writeText(longUrl);
+        return;
+      }
+
       // get request to create a new short-url
       // this url points to a cloudflare worker, which acts as a url shortener
       // Source for the shortener: https://gist.github.com/gw2princeps/dc88d11e6b2378db35bcb2dd3726c7c6
@@ -62,15 +75,37 @@ const URLStateExport = ({ type }) => {
         });
       const timeoutPromise = new Promise((resolve) => setTimeout(resolve, 3000, longUrl));
 
-      Promise.any([shortenPromise, timeoutPromise]).then((url) => {
-        setSnackbarState((state) => ({
-          ...state,
-          open: true,
-          success: true,
-          message: t('Copied link to clipboard!'),
-        }));
-        navigator.clipboard.writeText(url);
-      });
+      const urlPromise = Promise.any([shortenPromise, timeoutPromise]);
+      const urlBlobPromise = urlPromise.then((url) => new Blob([url], { type: 'text/plain' }));
+
+      // iOS browsers and desktop Safari require the use of the async clipboard API, calling
+      // navigator.clipboard.write synchronously and passing it a Promise
+      // (see: https://web.dev/async-clipboard/).
+      // Firefox does not support this API but allows writing to the clipboard in a callback.
+      // Chrome doesn't care.
+      const clipboardPromise =
+        typeof ClipboardItem !== 'undefined'
+          ? // eslint-disable-next-line no-undef
+            navigator.clipboard.write([new ClipboardItem({ 'text/plain': urlBlobPromise })])
+          : urlPromise.then((url) => navigator.clipboard.writeText(url));
+
+      clipboardPromise
+        .then(() =>
+          setSnackbarState((state) => ({
+            ...state,
+            open: true,
+            success: true,
+            message: t('Copied link to clipboard!'),
+          })),
+        )
+        .catch(() =>
+          setSnackbarState((state) => ({
+            ...state,
+            open: true,
+            success: true,
+            message: t('Failed to copy link to clipboard!'),
+          })),
+        );
 
       // setBuildUrl would trigger an update in the useEffects method of URLState... which is not what we want
       // setBuildUrl(data);

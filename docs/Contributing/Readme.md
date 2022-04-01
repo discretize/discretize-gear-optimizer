@@ -30,7 +30,7 @@ After cloning the repository, install its dependencies with:
 yarn install
 ```
 
-To start the gatsby-cli development server, which will build the site on your computer and update with your changes in real time, use:
+To start the vite development server, which will build the site on your computer and update with your changes in real time, use:
 
 ```sh
 yarn develop
@@ -58,7 +58,7 @@ At present, this project is built directly off `staging` while in beta; the plan
 
 The optimizer is currently hosted on [Github Pages](https://pages.github.com/). Merging into the `main` branch of this repository will automatically deploy to Github Pages using the [gh-pages](https://www.npmjs.com/package/gh-pages) package in a Github action, unless the description of the head commit (the merge commit, if you are merging a PR) contains `[skip ci]`.
 
-For the optimizer staging environment we are using [Cloudflare Pages](https://pages.cloudflare.com/). Commiting to the `staging` branch will automatically deploy to Cloudflare pages using the github action found in `../../.github/workflows/staging-cf.yml`.
+For the optimizer staging environment we are using [Cloudflare Pages](https://pages.cloudflare.com/). Commiting to the `staging` branch will automatically deploy to Cloudflare pages using the github action found in `../../.github/workflows/staging-cf.yml`. This build can be accessed at [discretize-optimizer.pages.dev](https://discretize-optimizer.pages.dev/).
 
 Opening a pullrequest will deploy a preview version to Cloudflare pages as well (action in `../../.github/workflows/previews-cf.yml`). A bot will notify about the deployment in the pullrequest. Every commit in a pullrequest will rebuild the preview. If you want to skip deploying a preview build, use `skip ci` in the commit description.
 
@@ -66,17 +66,17 @@ Opening a pullrequest will deploy a preview version to Cloudflare pages as well 
 
 ### Site Framework
 
-The site is built in [Gatsby v4](https://www.gatsbyjs.com/), which generates static sites using React.js.
+The site is built using [Vite](https://vitejs.dev/), which generates static sites using React.js.
 
-To start the gatsby-cli development server, which will build the site on your computer and update with your changes in real time, use:
+To start the Vite development server, which will build the site on your computer and update with your changes in real time, use:
 
 ```sh
-yarn develop
+yarn dev
 ```
 
-Note that this builds in development mode, with verbose error messages but reduced performance. To build the site in production mode to test actual performance, you can run `yarn build --profile` and then `yarn serve`, or shortcut both steps using `yarn profile`.
+Note that this builds in development mode, with verbose error messages but reduced performance. To build the site in production mode to test actual performance, you can run `yarn build` and then `yarn serve`, or shortcut both steps using `yarn buildserve`.
 
-Check out the [Gatsby documentation](https://www.gatsbyjs.com/docs/) for more information.
+For more options, run `npx vite --help`.
 
 ### UI Components
 

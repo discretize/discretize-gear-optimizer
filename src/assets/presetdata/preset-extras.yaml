@@ -1051,14 +1051,19 @@ list:
           "Sigil1": {
             "bursting": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "torment": {
+              "amount": "1.85"
+            }
+          },
           "Enhancement": {
             "master-tuning-crystal": {}
           },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Condi Reaper
@@ -1086,19 +1091,28 @@ list:
       {
         "extras": {
           "Sigil1": {
-            "bursting": {}
+            "bursting": {},
+            "demons": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "geomancy-torment-harb": {},
+            "torment": {
+              "amount": "1.85"
+            }
+          },
           "Runes": {
-            "nightmare": {}
+            "nightmare": {},
+            "tormenting": {}
           },
           "Nourishment": {
-            "meaty-asparagus-skewer": {}
+            "meaty-asparagus-skewer": {},
+            "cilantro-and-cured-meat-flatbread": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Quickness Harbinger
@@ -1107,19 +1121,29 @@ list:
       {
         "extras": {
           "Sigil1": {
-            "bursting": {}
+            "bursting": {},
+            "demons": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "torment": {
+              "amount": "1.85"
+            },
+            "geomancy-torment-cwb-alac": {}
+          },
           "Runes": {
-            "tormenting": {}
+            "tormenting": {},
+            "nightmare": {}
           },
           "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "salsa-topped-veggie-flatbread": {},
+            "meaty-asparagus-skewer": {}
           },
           "Enhancement": {
             "master-tuning-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: '[beta1] Quickness Harbinger (Cele)'
