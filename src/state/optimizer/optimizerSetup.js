@@ -31,7 +31,7 @@ import { getInfusionsModifiers } from '../slices/infusions';
 import { getCustomAffixData } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
-import { clamp, OptimizerCore } from './optimizerCore';
+import { clamp } from './optimizerCore';
 
 /**
  * Scales a modifier value linearly up or down by a user-specified amount, in accordance with the
