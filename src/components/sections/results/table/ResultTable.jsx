@@ -129,25 +129,38 @@ const StickyHeadTable = () => {
 
   const selectedValue = selectedCharacter?.results?.value;
 
-  // display extra types if any displayed character has the flag set to true
-  const shouldDisplay = (type) =>
-    firstCharacter?.settings?.shouldDisplayExtras?.[type] ||
-    saved.some((character) => character?.settings?.shouldDisplayExtras?.[type]);
+  const shouldDisplay = (type) => {
+    // display extras in a column if any displayed character was run in multiselect mode
+    if (
+      firstCharacter?.settings?.shouldDisplayExtras?.[type] ||
+      saved.some((character) => character?.settings?.shouldDisplayExtras?.[type])
+    ) {
+      return true;
+    }
+
+    // ...or if the user saved a build, then ran the same profession with a different extra
+    const variations = new Set();
+    [...list.slice(0, 1), ...saved]
+      .filter((character) => character.settings.profession !== firstCharacter?.settings?.profession)
+      .forEach((character) => variations.add(character.settings.extrasCombination[type]));
+    return variations.size > 1;
+  };
 
   // this code looks awful but a working useMemo is very important here (rerendering every row = bad)
-  const displaySigils = shouldDisplay('Sigil1') || shouldDisplay('Sigil2');
+  const displaySigil1 = shouldDisplay('Sigil1');
+  const displaySigil2 = shouldDisplay('Sigil2');
   const displayRunes = shouldDisplay('Runes');
   const displayNourishment = shouldDisplay('Nourishment');
   const displayEnhancement = shouldDisplay('Enhancement');
   const displayExtras = React.useMemo(
     () => ({
-      Sigil1: displaySigils,
-      Sigil2: displaySigils,
+      Sigil1: displaySigil1,
+      Sigil2: displaySigil2,
       Runes: displayRunes,
       Nourishment: displayNourishment,
       Enhancement: displayEnhancement,
     }),
-    [displaySigils, displayRunes, displayNourishment, displayEnhancement],
+    [displaySigil1, displaySigil2, displayRunes, displayNourishment, displayEnhancement],
   );
 
   const displayAttributes = useSelector(getDisplayAttributes);
