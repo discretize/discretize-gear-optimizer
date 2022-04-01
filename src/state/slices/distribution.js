@@ -1,50 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { conditionData } from '../../utils/gw2-data';
 import { changeAll, setBuildTemplate } from './controlsSlice';
-
-const fixedConditionData = { ...conditionData, Poisoned: conditionData.Poison };
-
-// reverse legacy percent distribution conversion
-// see: https://github.com/discretize/discretize-gear-optimizer/discussions/136
-export const coefficientsToPercents = (values2, round = false) => {
-  const { Power, ...rest } = values2;
-  const values1 = {};
-
-  // reverse magic numbers
-  values1.Power = (Power / 2597) * 1025;
-  for (const [key, value] of Object.entries(rest)) {
-    values1[key] = value * fixedConditionData[key].baseDamage;
-  }
-
-  // scale up/down so sum is 100
-  const sum = Object.values(values1).reduce((prev, cur) => prev + cur, 0);
-  if (sum) {
-    for (const key of Object.keys(values1)) {
-      values1[key] *= 100 / sum;
-    }
-  }
-
-  if (round) {
-    Object.keys(values1).forEach((key) => {
-      values1[key] = Math.round(values1[key] * 10) / 10;
-    });
-  }
-
-  return values1;
-};
 
 export const distributionSlice = createSlice({
   name: 'distribution',
   initialState: {
     version: 2,
-    values1: {
-      Power: 100,
-      Burning: 0,
-      Bleeding: 0,
-      Poisoned: 0,
-      Torment: 0,
-      Confusion: 0,
-    },
+    values1: {},
     values2: {
       Power: 3000,
       Burning: 0,
@@ -63,41 +24,6 @@ export const distributionSlice = createSlice({
     },
   },
   reducers: {
-    resetDistributions: (state) => {
-      state.values1 = {
-        Power: 0,
-        Burning: 0,
-        Bleeding: 0,
-        Poisoned: 0,
-        Torment: 0,
-        Confusion: 0,
-      };
-      state.values2 = {
-        Power: 0,
-        Burning: 0,
-        Bleeding: 0,
-        Poisoned: 0,
-        Torment: 0,
-        Confusion: 0,
-      };
-      state.textBoxes = {
-        Power: '0',
-        Burning: '0',
-        Bleeding: '0',
-        Poisoned: '0',
-        Torment: '0',
-        Confusion: '0',
-      };
-      return state;
-    },
-    changeDistributionVersion: (state, action) => {
-      state.version = action.payload;
-
-      // update percentage distribution from coefficients if switching in that direction
-      if (action.payload === 1) {
-        state.values1 = coefficientsToPercents(state.values2, true);
-      }
-    },
     changeDistributionNew: (state, action) => {
       return {
         ...state,
@@ -113,19 +39,12 @@ export const distributionSlice = createSlice({
         },
       };
     },
-    changeAllTextBoxes: (state, action) => {
-      state.textBoxes = action.payload;
-    },
-    changeAllDistributionsOld: (state, action) => {
-      state.values1 = action.payload;
-    },
     changeAllDistributions: (state, action) => {
       const distributionPreset = action.payload;
 
       if (distributionPreset) {
         return {
           ...state,
-          values1: coefficientsToPercents(distributionPreset.values2, true),
           values2: distributionPreset.values2,
           textBoxes: distributionPreset.values2,
         };
@@ -143,7 +62,7 @@ export const distributionSlice = createSlice({
       if (distributionPreset) {
         return {
           version: 2,
-          values1: coefficientsToPercents(distributionPreset.values2, true),
+          values1: {},
           values2: distributionPreset.values2,
           textBoxes: distributionPreset.values2,
         };
@@ -153,17 +72,8 @@ export const distributionSlice = createSlice({
   },
 });
 
-export const getDistributionVersion = (state) => state.optimizer.form.distribution.version;
-export const getDistributionOld = (state) => state.optimizer.form.distribution.values1;
 export const getDistributionNew = (state) => state.optimizer.form.distribution.values2;
 export const getTextBoxes = (state) => state.optimizer.form.distribution.textBoxes;
 
-export const {
-  changeDistributionVersion,
-  changeDistributionNew,
-  changeTextBoxes,
-  changeAllTextBoxes,
-  changeAllDistributionsOld,
-  changeAllDistributions,
-  resetDistributions,
-} = distributionSlice.actions;
+export const { changeDistributionNew, changeTextBoxes, changeAllDistributions } =
+  distributionSlice.actions;
