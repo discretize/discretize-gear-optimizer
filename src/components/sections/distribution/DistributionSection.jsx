@@ -16,12 +16,12 @@ import DamageDistribution from './DamageDistribution';
 
 const useStyles = makeStyles()((theme) => ({
   smallLabel: {
-    fontSize: '0.5rem',
+    fontSize: '0.8rem',
   },
 }));
 
 const DistributionSection = ({ profession, data }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const dispatch = useDispatch();
   const distributionVersion = useSelector(getDistributionVersion);
   const { t } = useTranslation();
