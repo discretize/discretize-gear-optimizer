@@ -3,6 +3,7 @@ import { Box, FormControlLabel, Link, Switch } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { makeStyles } from 'tss-react/mui';
 import {
   changeAllDistributions,
   changeDistributionVersion,
@@ -13,7 +14,14 @@ import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import DamageDistribution from './DamageDistribution';
 
+const useStyles = makeStyles()((theme) => ({
+  smallLabel: {
+    fontSize: '0.5rem',
+  },
+}));
+
 const DistributionSection = ({ profession, data }) => {
+  const classes = useStyles();
   const dispatch = useDispatch();
   const distributionVersion = useSelector(getDistributionVersion);
   const { t } = useTranslation();
@@ -56,6 +64,7 @@ const DistributionSection = ({ profession, data }) => {
               />
             }
             label={t('Switch to %-wise damage distribution')}
+            classes={{ label: classes.smallLabel }}
           />
 
           {profession !== '' && (
