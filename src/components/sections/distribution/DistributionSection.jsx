@@ -1,13 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Box, FormControlLabel, Link, Switch } from '@mui/material';
+import { Box, Link } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  changeAllDistributions,
-  changeDistributionVersion,
-  getDistributionVersion,
-} from '../../../state/slices/distribution';
+import { useDispatch } from 'react-redux';
+import { changeAllDistributions } from '../../../state/slices/distribution';
 import { PROFESSIONS } from '../../../utils/gw2-data';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
@@ -15,7 +11,6 @@ import DamageDistribution from './DamageDistribution';
 
 const DistributionSection = ({ profession, data }) => {
   const dispatch = useDispatch();
-  const distributionVersion = useSelector(getDistributionVersion);
   const { t } = useTranslation();
 
   let distributionPresets;
@@ -46,18 +41,6 @@ const DistributionSection = ({ profession, data }) => {
       content={<DamageDistribution />}
       extraInfo={
         <>
-          <FormControlLabel
-            control={
-              <Switch
-                checked={distributionVersion === 1}
-                onChange={(e) => dispatch(changeDistributionVersion(e.target.checked ? 1 : 2))}
-                name="checked"
-                color="primary"
-              />
-            }
-            label={t('Switch to %-wise damage distribution')}
-          />
-
           {profession !== '' && (
             <Presets
               data={distributionPresets}
@@ -68,41 +51,26 @@ const DistributionSection = ({ profession, data }) => {
         </>
       }
       helpText={
-        distributionVersion === 2 ? (
-          <>
-            <Trans>
-              This data represents your rotation. If we don't supply a template for a build, you can
-              calculate the correct coefficients so that a tested build matches a golem log using
-              the tool under "development" below, or calculate them manually.
-            </Trans>
-            <Box component="span" sx={{ mt: 1, display: 'block' }} />
+        <>
+          <Trans>
+            This data represents your rotation. If we don't supply a template for a build, you can
+            calculate the correct coefficients so that a tested build matches a golem log using the
+            tool under "development" below, or calculate them manually.
+          </Trans>
+          <Box component="span" sx={{ mt: 1, display: 'block' }} />
 
-            <Trans>
-              For more information,{' '}
-              <Link
-                href="https://github.com/discretize/discretize-gear-optimizer/tree/staging/docs/Coefficients.md"
-                target="_blank"
-                rel="noopener"
-              >
-                see the coefficients documentation on Github
-              </Link>{' '}
-              or ask in Discord!
-            </Trans>
-          </>
-        ) : (
-          <>
-            <Trans>
-              This data represents your rotation. If we don't supply a template for a build, you can
-              move these sliders until the results match a golem log, or calculate them manually.
-            </Trans>
-            <Box component="span" sx={{ mt: 1, display: 'block' }} />
-
-            <Trans>
-              To do so, perform your rotation on a golem with no gear, traits, or other modifiers,
-              then enter the distribution here.
-            </Trans>
-          </>
-        )
+          <Trans>
+            For more information,{' '}
+            <Link
+              href="https://github.com/discretize/discretize-gear-optimizer/tree/staging/docs/Coefficients.md"
+              target="_blank"
+              rel="noopener"
+            >
+              see the coefficients documentation on Github
+            </Link>{' '}
+            or ask in Discord!
+          </Trans>
+        </>
       }
     />
   );

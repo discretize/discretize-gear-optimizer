@@ -1,33 +1,19 @@
 import { Attribute as AttributeRaw, Condition as ConditionRaw } from '@discretize/gw2-ui-new';
-import {
-  Box,
-  FormControl,
-  Grid,
-  Input,
-  InputAdornment,
-  InputLabel,
-  Slider,
-  Typography,
-} from '@mui/material';
+import { Box, FormControl, Input, InputAdornment, InputLabel, Slider } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import {
-  changeAllDistributionsOld,
   changeDistributionNew,
   changeTextBoxes,
   getDistributionNew,
-  getDistributionOld,
-  getDistributionVersion,
   getTextBoxes,
 } from '../../../state/slices/distribution';
 import { parseDistribution } from '../../../utils/usefulFunctions';
 
 const Attribute = React.memo(AttributeRaw);
 const Condition = React.memo(ConditionRaw);
-
-const roundOne = (num) => Math.round(num * 10) / 10;
 
 const useStyles = makeStyles()((theme) => ({
   textbox: {
@@ -58,80 +44,13 @@ const DamageDistribution = () => {
   const { classes } = useStyles();
 
   const dispatch = useDispatch();
-  const version = useSelector(getDistributionVersion);
-  const distributionOld = useSelector(getDistributionOld); // actual real selected damage distribution at any time
   const distributionNew = useSelector(getDistributionNew);
   const { t } = useTranslation();
 
   // locally displayed in the text boxes. Text boxes might contain a string that is not a real number (yet), so we need to store those separately
   const textBoxes = useSelector(getTextBoxes);
 
-  // const initialPercentDistribution = Object.values(coefficientsToPercents(distributionNew, true));
-  const percentToState = (percentDistribution) => {
-    return [0, 1, 2, 3, 4].map((i) => {
-      let total = 0;
-      for (let j = 0; j <= i; j++) {
-        total += percentDistribution[j];
-      }
-      return roundOne(Math.min(total, 100));
-    });
-  };
-
-  const onUpdateOld = (_, value) => {
-    const distributionRecalc = [];
-    let prev = 0;
-    for (let i = 0; i < value.length; i++) {
-      distributionRecalc.push(value[i] - prev);
-      prev = value[i];
-    }
-    distributionRecalc.push(100 - prev);
-    const percentDistribution = {
-      Power: distributionRecalc[0],
-      Burning: distributionRecalc[1],
-      Bleeding: distributionRecalc[2],
-      Poisoned: distributionRecalc[3],
-      Torment: distributionRecalc[4],
-      Confusion: distributionRecalc[5],
-    };
-
-    dispatch(changeAllDistributionsOld(percentDistribution));
-  };
-
-  const SliderOld = () => {
-    return (
-      <>
-        <div className={classes.sliderWrapper}>
-          <Slider
-            classes={{ rail: classes.percentSliderRail }}
-            value={percentToState(Object.values(distributionOld))}
-            onChange={onUpdateOld}
-            valueLabelDisplay="auto"
-            track={false}
-            aria-labelledby="range-slider"
-            marks={[...Array(11).keys()]
-              .map((value) => value * 10)
-              .map((value) => ({ value, label: `${value}` }))}
-          />
-        </div>
-        <Grid container spacing={2}>
-          {DISTRIBUTION_NAMES.map((dist) => (
-            <Grid key={dist.name} item xs>
-              <Typography style={{ whiteSpace: 'nowrap' }}>
-                {dist.name === 'Power' ? (
-                  <Attribute name="Power" disableLink style={{ whiteSpace: 'nowrap' }} />
-                ) : (
-                  <Condition name={dist.name} disableLink style={{ whiteSpace: 'nowrap' }} />
-                )}{' '}
-                {roundOne(distributionOld[dist.name])}%
-              </Typography>
-            </Grid>
-          ))}
-        </Grid>
-      </>
-    );
-  };
-
-  const onUpdateNew = (key) => (_, value) => {
+  const onUpdate = (key) => (_, value) => {
     dispatch(changeTextBoxes({ index: key, value: Math.round(value * 100) / 100 }));
     dispatch(changeDistributionNew({ index: key, value: Math.round(value * 100) / 100 }));
   };
@@ -143,70 +62,67 @@ const DamageDistribution = () => {
     const parsedValue = parseDistribution(value).value;
     dispatch(changeDistributionNew({ index: key, value: parsedValue }));
   };
-  const SlidersNew = () => {
-    return DISTRIBUTION_NAMES.map((dist, index) => (
-      <Box display="flex" flexWrap="wrap" key={`distriNew_${dist.name}`}>
-        <Box>
-          <FormControl mb={1} className={classes.textbox} variant="standard">
-            <InputLabel htmlFor={`input-with-icon-adornment-${index}`}>
-              {dist.name === 'Power' ? (
-                <Attribute name="Power" disableLink text={t('Power Coefficient')} />
-              ) : (
-                <Condition
-                  name={dist.name}
-                  disableLink
-                  text={
-                    // i18next-extract-mark-context-next-line ["Burning","Bleeding","Poisoned","Torment", "Confusion"]
-                    t(`avgStacks`, { context: dist.name })
-                  }
-                />
-              )}
-            </InputLabel>
-            <Input
-              id={`input-with-icon-adornment-${index}`}
-              value={textBoxes[dist.name]}
-              endAdornment={
-                <InputAdornment position="end">
-                  {dist.name === 'Power' ? (
-                    <Attribute name="Power" disableLink disableText />
-                  ) : (
-                    <Condition name={dist.name} disableLink disableText />
-                  )}
-                </InputAdornment>
-              }
-              error={parseDistribution(textBoxes[dist.name]).error}
-              onChange={handleChangeTextNew(dist.name)}
-              autoComplete="off"
-            />
-          </FormControl>
-        </Box>
-        <Box
-          flexGrow={1}
-          alignSelf="center"
-          mx={3}
-          mb={4}
-          sx={{ minWidth: 200, md: { marginLeft: 2 } }}
-        >
-          <Slider
-            value={distributionNew[dist.name]}
-            step={dist.step}
-            marks={[...Array(7).keys()]
-              .map((value) => value * ((dist.max - dist.min) / 6))
-              .map((value) => ({
-                value,
-                label: `${value}`,
-              }))}
-            min={dist.min}
-            max={dist.max}
-            onChange={onUpdateNew(dist.name)}
-            valueLabelDisplay="auto"
-          />
-        </Box>
-      </Box>
-    ));
-  };
 
-  return version === 1 ? SliderOld() : SlidersNew();
+  return DISTRIBUTION_NAMES.map((dist, index) => (
+    <Box display="flex" flexWrap="wrap" key={`distriNew_${dist.name}`}>
+      <Box>
+        <FormControl mb={1} className={classes.textbox} variant="standard">
+          <InputLabel htmlFor={`input-with-icon-adornment-${index}`}>
+            {dist.name === 'Power' ? (
+              <Attribute name="Power" disableLink text={t('Power Coefficient')} />
+            ) : (
+              <Condition
+                name={dist.name}
+                disableLink
+                text={
+                  // i18next-extract-mark-context-next-line ["Burning","Bleeding","Poisoned","Torment", "Confusion"]
+                  t(`avgStacks`, { context: dist.name })
+                }
+              />
+            )}
+          </InputLabel>
+          <Input
+            id={`input-with-icon-adornment-${index}`}
+            value={textBoxes[dist.name]}
+            endAdornment={
+              <InputAdornment position="end">
+                {dist.name === 'Power' ? (
+                  <Attribute name="Power" disableLink disableText />
+                ) : (
+                  <Condition name={dist.name} disableLink disableText />
+                )}
+              </InputAdornment>
+            }
+            error={parseDistribution(textBoxes[dist.name]).error}
+            onChange={handleChangeTextNew(dist.name)}
+            autoComplete="off"
+          />
+        </FormControl>
+      </Box>
+      <Box
+        flexGrow={1}
+        alignSelf="center"
+        mx={3}
+        mb={4}
+        sx={{ minWidth: 200, md: { marginLeft: 2 } }}
+      >
+        <Slider
+          value={distributionNew[dist.name]}
+          step={dist.step}
+          marks={[...Array(7).keys()]
+            .map((value) => value * ((dist.max - dist.min) / 6))
+            .map((value) => ({
+              value,
+              label: `${value}`,
+            }))}
+          min={dist.min}
+          max={dist.max}
+          onChange={onUpdate(dist.name)}
+          valueLabelDisplay="auto"
+        />
+      </Box>
+    </Box>
+  ));
 };
 
 export default DamageDistribution;
