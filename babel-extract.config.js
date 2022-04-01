@@ -35,7 +35,7 @@ const extra = {
   utility: YAML.load(fs.readFileSync('./src/assets/modifierdata/utility.yaml', 'utf8')),
 };
 module.exports = {
-  presets: ['babel-preset-gatsby'],
+  presets: ['@babel/preset-react'],
   plugins: [
     [
       './extract_context_injection',
@@ -128,7 +128,7 @@ module.exports = {
         useI18nextDefaultValue: ['en'],
         discardOldKeys: true,
         outputPath: 'locales/{{locale}}/{{ns}}.json',
-        customTransComponents: [['gatsby-plugin-react-i18next', 'Trans']],
+        customTransComponents: [['react-i18next', 'Trans']],
       },
     ],
   ],

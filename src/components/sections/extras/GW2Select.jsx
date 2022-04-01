@@ -10,7 +10,7 @@ import {
   Select,
   Typography,
 } from '@mui/material';
-import { Trans, useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
+import { Trans, useI18next, useTranslation } from 'react-i18next';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeExtra, getExtra } from '../../../state/slices/extras';

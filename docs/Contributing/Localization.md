@@ -1,24 +1,24 @@
-We use [gatsby-plugin-react-i18next](https://www.gatsbyjs.com/plugins/gatsby-plugin-react-i18next/) for localization. All you need to know can be found in this link. However, since I'm such a nice guy I will sum it up.
+We use [react-i18next](https://react.i18next.com/) for localization. All you need to know can be found in this link. However, since I'm such a nice guy I will sum it up.
 
 ## Finding translatable strings
 
-The first step is to find occurrences of english language in the code. When you find such an occurrence, you have two options to instruct gatsby that this is a translatable string.
+The first step is to find occurrences of english language in the code. When you find such an occurrence, you have two options to instruct React that this is a translatable string.
 
 1. Wrap the string in a `Trans` component:
 
 ```js
-import { Trans } from 'gatsby-plugin-react-i18next';
+import { Trans } from 'react-i18next';
 
 <Trans>
-  The gear optimizer is currently in beta! Templates are not final and phantasm and
-  lifesteal damage is inaccurate. Please report potential issues to us in
-</Trans>
+  The gear optimizer is currently in beta! Templates are not final and phantasm and lifesteal damage
+  is inaccurate. Please report potential issues to us in
+</Trans>;
 ```
 
 2. Alternatively, in case the string is a props you can translate it with the `useTranslation` hook and executing the `t`-function on the string:
 
 ```js
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { useTranslation } from 'react-i18next';
 
 const ARSection = ({ first }) => {
   const { t } = useTranslation();

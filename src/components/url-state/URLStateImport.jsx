@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { StringParam, useQueryParam } from 'use-query-params';
+import { PARAMS, setQueryParm, useQueryParam } from '../../utils/queryParam';
 import URLStateSnackbar from './URLStateSnackbar';
 
 const URLStateImport = ({ sagaType, clearUrlOnSuccess }) => {
@@ -15,16 +15,13 @@ const URLStateImport = ({ sagaType, clearUrlOnSuccess }) => {
 
   // data, which is provided by a query parameter to the url
   // in this case we are looking for any ?data=buildUrl occurences so that we can access buildUrl without needing to parse the query parameters on our own.
-  const [buildUrl, setBuildUrl] = useQueryParam('data', StringParam);
-
-  // eslint-disable-next-line no-unused-vars
-  const [versionUrl, setVersionUrl] = useQueryParam('v', StringParam);
+  const buildUrl = useQueryParam({ key: PARAMS.BUILD });
 
   // Sets the url back to the original state, in case the loading of the state was successful
   const onLoadSuccess = React.useCallback(() => {
     if (clearUrlOnSuccess && process.env.NODE_ENV !== 'development') {
-      setBuildUrl(undefined);
-      setVersionUrl(undefined);
+      setQueryParm({ key: PARAMS.BUILD, value: undefined });
+      setQueryParm({ key: PARAMS.VERSION, value: undefined });
     }
 
     setSnackbarState((state) => ({
@@ -34,7 +31,7 @@ const URLStateImport = ({ sagaType, clearUrlOnSuccess }) => {
       message: 'Template successfully loaded!',
     }));
     // console.log('success');
-  }, [clearUrlOnSuccess, setBuildUrl, setVersionUrl]);
+  }, [clearUrlOnSuccess]);
 
   // Callback in case an error occurs when trying to load the state from the url
   const onLoadError = React.useCallback(() => {

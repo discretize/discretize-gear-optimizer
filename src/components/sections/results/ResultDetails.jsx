@@ -1,7 +1,7 @@
 import { TextDivider } from '@discretize/react-discretize-components';
 import { Grid } from '@mui/material';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { buffModifiers } from '../../../assets/modifierdata';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
