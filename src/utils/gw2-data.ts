@@ -318,6 +318,7 @@ export const Affix = {
     },
   },
 };
+export type AffixName = keyof typeof Affix;
 
 export const Item = {
   HELM: {
@@ -489,6 +490,7 @@ export const Item = {
     },
   },
 };
+export type ItemSlot = keyof typeof Item;
 
 export const WeaponTypes = {
   dualWield: 'Dual wield',
@@ -636,6 +638,7 @@ export const Slots = {
     },
   ],
 };
+export type WeaponHandednessType = keyof typeof Slots;
 
 // used for forcing slots to a certain affix
 export const ForcedSlots = [
@@ -702,6 +705,7 @@ export const WEAPONS = {
   TORCH: { name: 'Torch', type: 'offHand', gw2id: 30700 },
   WARHORN: { name: 'Warhorn', type: 'offHand', gw2id: 30702 },
 };
+export type WeaponType = keyof typeof WEAPONS;
 
 export const Classes = {
   Warrior: {
@@ -842,8 +846,7 @@ export const Classes = {
     },
   },
 };
-
-export const damagingConditions = ['Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment'];
+export type ProfessionName = keyof typeof Classes;
 
 export const conditionData = {
   Burning: {
@@ -875,6 +878,15 @@ export const conditionData = {
     factor: 0.0975,
   },
 };
+export type ConditionName = keyof typeof conditionData;
+
+export const damagingConditions: ConditionName[] = [
+  'Bleeding',
+  'Burning',
+  'Confusion',
+  'Poison',
+  'Torment',
+];
 
 export const Attributes = {
   PRIMARY: ['Power', 'Precision', 'Toughness', 'Vitality'],
