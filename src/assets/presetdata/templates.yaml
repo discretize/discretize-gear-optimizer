@@ -12,6 +12,7 @@ list:
         distribution: Power Chrono IA
         traits: Power Chrono IA
         extras: Power (Fractal)
+        weaponType: unset
 
       - name: Alacrity Mirage
         id: alacmirage
@@ -21,6 +22,7 @@ list:
         distribution: Staff Mirage
         traits: Staff Mirage
         extras: Alacrity Mirage (Raid)
+        weaponType: Two-handed
 
       - name: Axe Mirage
         id: axe-mirage-deception-torch
@@ -30,6 +32,7 @@ list:
         distribution: Axe Mirage (Deception Torch)
         traits: Axe Mirage
         extras: DPS Mirage (Raid)
+        weaponType: Dual wield
 
       - name: Condi Chrono STM
         id: condi-chrono-stm
@@ -39,6 +42,7 @@ list:
         distribution: Condi Chrono STM
         traits: Condi Chrono STM
         extras: Condi Chrono STM
+        weaponType: Dual wield
 
       - name: Power Virtuoso
         id: pvirt
@@ -48,6 +52,7 @@ list:
         distribution: Power Virtuoso
         traits: Power Virtuoso (no accuracy)
         extras: Power (Fractal)
+        weaponType: unset
 
       - name: Condi Virtuoso
         id: cvirt
@@ -57,6 +62,7 @@ list:
         distribution: Condi Virtuoso
         traits: Condi Virtuoso
         extras: Condi Virtuoso
+        weaponType: Dual wield
 
       - name: Condi Virtuoso (sharpening sorrow)
         id: cvirt-sorrow
@@ -66,6 +72,7 @@ list:
         distribution: Condi Virtuoso (sharpening sorrow)
         traits: Condi Virtuoso (sharpening sorrow)
         extras: Condi Virtuoso
+        weaponType: Dual wield
 
   - class: Guardian
     builds:
@@ -78,6 +85,7 @@ list:
         distribution: DH Radiance
         traits: DH Radiance w/ PI
         extras: Power (Fractal)
+        weaponType: Two-handed
 
       - name: DH Radiance
         id: dh-radiance
@@ -87,6 +95,7 @@ list:
         distribution: DH Radiance
         traits: DH Radiance
         extras: Power (Fractal)
+        weaponType: Two-handed
 
       - name: DH Virtues
         id: dh-virtues
@@ -96,6 +105,7 @@ list:
         distribution: DH Virtues
         traits: DH Virtues
         extras: DH Virtues (Fractal)
+        weaponType: Two-handed
 
       - name: Core Guardian
         id: core-guard
@@ -105,6 +115,7 @@ list:
         distribution: Core Guardian
         traits: Core Guardian
         extras: Power (Fractal)
+        weaponType: Two-handed
 
       - name: Power Willbender Virtues
         id: pwb-virtues
@@ -114,6 +125,7 @@ list:
         distribution: Power Willbender Virtues
         traits: Power Willbender Virtues
         extras: Power Willbender Virtues (Fractal)
+        weaponType: Two-handed
 
       - name: Power Willbender Radiance
         id: pwb-radiance
@@ -123,6 +135,7 @@ list:
         distribution: Power Willbender Radiance
         traits: Power Willbender Radiance
         extras: Power (Fractal)
+        weaponType: Two-handed
 
       - name: Power Alacrity Willbender
         id: pwb-alac
@@ -132,6 +145,7 @@ list:
         distribution: Power Alacrity Willbender
         traits: Power Alacrity Willbender
         extras: Power Willbender Virtues (Fractal)
+        weaponType: Two-handed
 
       - name: Power Quickbrand
         id: pqfb
@@ -141,6 +155,7 @@ list:
         distribution: Power Quickbrand (approx.)
         traits: Power Quickbrand
         extras: Power (Fractal)
+        weaponType: Two-handed
 
       - name: Condi Willbender Sword
         id: cwb-sw
@@ -150,6 +165,7 @@ list:
         distribution: Condi Willbender Sword
         traits: Condi Willbender
         extras: Condi Willbender
+        weaponType: Dual wield
 
       - name: Condi Willbender GS
         id: cwb-gs
@@ -159,6 +175,7 @@ list:
         distribution: Condi Willbender GS
         traits: Condi Willbender
         extras: Condi Willbender
+        weaponType: Two-handed
 
       - name: Condi Alacrity Willbender
         id: cwb-alac
@@ -168,6 +185,7 @@ list:
         distribution: Condi Alacrity Willbender
         traits: Condi Alacrity Willbender
         extras: Condi Alacrity Willbender
+        weaponType: Dual wield
 
       # - name: CFB w/ Quickness (balthazar)
       #   id: cqfb-balth
@@ -195,6 +213,7 @@ list:
         distribution: CFB (5 page RF, allies)
         traits: CFB DPS 5 page
         extras: CFB DPS (5 page, balthazar)
+        weaponType: Dual wield
 
       - name: CFB DPS 5 page (renegade)
         id: cfb-smoldering
@@ -204,6 +223,7 @@ list:
         distribution: CFB (5 page RF, allies)
         traits: CFB DPS 5 page
         extras: CFB DPS (renegade)
+        weaponType: Dual wield
 
       - name: CFB DPS 8 page (balthazar)
         id: cfb-8-balth
@@ -213,6 +233,7 @@ list:
         distribution: CFB (8 page, allies)
         traits: CFB DPS 8 page
         extras: CFB DPS (8 page, balthazar)
+        weaponType: Dual wield
 
       - name: CFB DPS 8 page (renegade)
         id: cfb-8-ren
@@ -222,6 +243,7 @@ list:
         distribution: CFB (8 page, allies)
         traits: CFB DPS 8 page
         extras: CFB DPS (renegade)
+        weaponType: Dual wield
 
       - name: Condi Quickbrand 49%
         id: cqfb-firebrand-49
@@ -231,6 +253,7 @@ list:
         distribution: Condi Quickbrand (allies)
         traits: Condi Quickbrand
         extras: Condi Quickbrand
+        weaponType: Dual wield
 
       # - name: Condi Quickbrand Celestial 35%
       #   id: cqfb-cele-35
@@ -249,6 +272,7 @@ list:
         distribution: Hybrid FB Virtues
         traits: Hybrid FB Virtues
         extras: Hybrid FB Traveler
+        weaponType: unset
 
       - name: Hybrid FB Honor
         id: hycfb-honor-leadership
@@ -258,6 +282,7 @@ list:
         distribution: Hybrid FB Honor
         traits: Hybrid FB Honor
         extras: Hybrid FB Traveler
+        weaponType: unset
 
       - name: Healbrand
         id: hb
@@ -267,6 +292,7 @@ list:
         distribution: None
         traits: Healbrand
         extras: Heal
+        weaponType: Two-handed
 
   - class: Warrior
     builds:
@@ -279,6 +305,7 @@ list:
         distribution: Power Banner Bers Strength
         traits: Power Banner Bers Strength
         extras: Power (Fractal)
+        weaponType: unset
 
       - name: Condi Banner Bers
         id: cbers
@@ -288,6 +315,7 @@ list:
         distribution: Condi Banner Bers
         traits: Condi Bers
         extras: Condi Bers
+        weaponType: Two-handed
 
       - name: Banner Bladesworn
         id: bls-bs
@@ -297,6 +325,7 @@ list:
         distribution: Bladesworn
         traits: Banner Bladesworn
         extras: Power (Fractal)
+        weaponType: Dual wield
 
       - name: DPS Bladesworn
         id: bls-dps
@@ -306,6 +335,7 @@ list:
         distribution: Bladesworn
         traits: DPS Bladesworn
         extras: Power (Fractal)
+        weaponType: Dual wield
 
       - name: Might Bladesworn
         id: bls-might
@@ -315,6 +345,7 @@ list:
         distribution: Bladesworn
         traits: Might Bladesworn
         extras: Power (Fractal)
+        weaponType: Dual wield
 
       - name: Power Banner SPB
         id: spb-bs
@@ -324,6 +355,7 @@ list:
         distribution: Power Banner Spellbreaker
         traits: Power Banner SPB
         extras: Power (Fractal)
+        weaponType: unset
 
   - class: Elementalist
     builds:
@@ -336,6 +368,7 @@ list:
         distribution: Power Weaver (BTTH, small)
         traits: Power Weaver Stormsoul
         extras: Power (Fractal)
+        weaponType: Dual wield
 
       - name: Condi Weaver Sword
         id: cwea-sw
@@ -345,6 +378,7 @@ list:
         distribution: Condi Weaver Sword
         traits: Condi Weaver Sword
         extras: Condi Weaver Sword
+        weaponType: Dual wield
 
       - name: Condi Weaver Dagger
         id: cwea-dg
@@ -354,6 +388,7 @@ list:
         distribution: Condi Weaver (Dagger)
         traits: Condi Weaver Dagger
         extras: Condi Weaver Dagger
+        weaponType: Dual wield
 
       - name: Hybrid Weaver
         id: hwea
@@ -363,6 +398,7 @@ list:
         distribution: Hybrid Weaver
         traits: Hybrid Weaver
         extras: Hybrid Weaver (Fractal)
+        weaponType: Dual wield
 
       - name: Condi Tempest
         id: ctemp
@@ -372,6 +408,7 @@ list:
         distribution: Condi Tempest
         traits: Condi Tempest
         extras: Condi Tempest
+        weaponType: Dual wield
 
       - name: Power Tempest (approx.)
         id: ptemp
@@ -381,6 +418,7 @@ list:
         distribution: Power Tempest
         traits: Power Tempest
         extras: Power (Fractal)
+        weaponType: Dual wield
 
       - name: Heal Tempest
         id: healtemp
@@ -390,6 +428,7 @@ list:
         distribution: None
         traits: Heal Tempest
         extras: Heal
+        weaponType: unset
 
       - name: '[beta2] Power Catalyst'
         id: power-cat
@@ -399,6 +438,7 @@ list:
         distribution: '[beta2] Power Catalyst'
         traits: '[beta2] Power Catalyst'
         extras: Power (Fractal)
+        weaponType: Two-handed
 
       - name: '[beta2] Power Quickness Catalyst'
         id: power-cat-quick
@@ -408,6 +448,7 @@ list:
         distribution: '[beta2] Power Catalyst'
         traits: '[beta2] Power Quickness Catalyst'
         extras: Power (Fractal)
+        weaponType: Two-handed
 
       - name: '[beta1] Condi Catalyst'
         id: condi-cat
@@ -417,6 +458,7 @@ list:
         distribution: '[beta1] Condi Catalyst'
         traits: '[beta1] Condi Catalyst'
         extras: '[beta1] Condi Catalyst'
+        weaponType: Two-handed
 
   - class: Ranger
     builds:
@@ -429,6 +471,7 @@ list:
         distribution: Power Slb Skirm
         traits: Power Slb Marks
         extras: Power (Fractal)
+        weaponType: Two-handed
 
       - name: Condi Slb SB
         id: cslb-sb
@@ -438,6 +481,7 @@ list:
         distribution: Condi Slb (D/T SB)
         traits: Condi Slb SB
         extras: Condi Slb
+        weaponType: Two-handed
 
       - name: Condi Slb D/T A/D
         id: cslb-dtad
@@ -447,6 +491,7 @@ list:
         distribution: Condi Slb (D/T A/D)
         traits: Condi Slb D/T A/D
         extras: Condi Slb
+        weaponType: Dual wield
 
       - name: Hybrid Slb
         id: hslb
@@ -456,6 +501,7 @@ list:
         distribution: Hybrid Slb (A/T D/A)
         traits: Hybrid Slb
         extras: Hybrid Slb
+        weaponType: Dual wield
 
       # - name: Pure Shortbow Slb BM
       #   id: sbsbsb-BM
@@ -474,6 +520,7 @@ list:
         distribution: Condi Druid (approx.)
         traits: Condi Druid
         extras: Condi Druid
+        weaponType: Two-handed
 
       - name: Heal Druid
         id: druid
@@ -483,6 +530,7 @@ list:
         distribution: None
         traits: Heal Druid
         extras: Heal
+        weaponType: Two-handed
 
   - class: Revenant
     builds:
@@ -495,6 +543,7 @@ list:
         distribution: DPS Vindicator
         traits: DPS Vindicator
         extras: DPS Vindicator
+        weaponType: Two-handed
 
       - name: Condi DPS Ren Invo
         id: cren-invo
@@ -504,6 +553,7 @@ list:
         distribution: Condi Renegade Invocation
         traits: Condi DPS Ren Invo
         extras: Condi Ren
+        weaponType: Two-handed
 
       - name: Condi Alac Ren Invo
         id: cren-alac-invo
@@ -513,6 +563,7 @@ list:
         distribution: Condi Alac Invocation
         traits: Condi Alac Ren Invo
         extras: Condi Alac Ren
+        weaponType: Two-handed
 
       - name: Power Alac Ren (outdated)
         id: pren
@@ -522,6 +573,7 @@ list:
         distribution: Alacrity Renegade
         traits: Power Alac Ren
         extras: Power (Fractal)
+        weaponType: Two-handed
 
       - name: Power Herald DE (outdated)
         id: herald
@@ -531,6 +583,7 @@ list:
         distribution: Power Herald DE
         traits: Power Herald DE
         extras: Power (Fractal)
+        weaponType: Dual wield
 
       - name: Condi Herald (outdated)
         id: cherald
@@ -540,6 +593,7 @@ list:
         distribution: Condi Herald
         traits: Condi Herald
         extras: Condi Herald
+        weaponType: Dual wield
 
       - name: Heal Ren
         id: healren
@@ -549,6 +603,7 @@ list:
         distribution: None
         traits: Heal Ren
         extras: Heal
+        weaponType: Two-handed
 
   - class: Engineer
     builds:
@@ -561,6 +616,7 @@ list:
         distribution: Power Holo ECSU
         traits: Power Holo ECSU
         extras: Power (Fractal)
+        weaponType: unset
 
       - name: Condi Holo
         id: cholo
@@ -570,6 +626,7 @@ list:
         distribution: Condi Holo
         traits: Condi Holo
         extras: Condi Holo
+        weaponType: Dual wield
 
       - name: Power Scrapper
         id: pscrap
@@ -579,6 +636,7 @@ list:
         distribution: Power Scrapper
         traits: Power Scrapper
         extras: Power (Fractal)
+        weaponType: Two-handed
 
       - name: Quickness Scrapper
         id: qscrap
@@ -588,6 +646,7 @@ list:
         distribution: Quickness Scrapper
         traits: Quickness Scrapper
         extras: Power (Fractal)
+        weaponType: Two-handed
 
       - name: Heal Scrapper
         id: healscrapper
@@ -597,6 +656,7 @@ list:
         distribution: None
         traits: Heal Scrapper
         extras: Heal
+        weaponType: unset
 
       - name: Condi Mechanist J-Drive (approx.)
         id: cmech-sig-mace
@@ -606,6 +666,7 @@ list:
         distribution: Condi Mechanist J-Drive Mace (approx.)
         traits: Condi Mechanist J-Drive
         extras: Condi Mechanist
+        weaponType: Dual wield
 
       - name: Condi Mechanist Jade Dynamo (approx.)
         id: cmech-dynamo-pistol
@@ -615,6 +676,7 @@ list:
         distribution: Condi Mechanist Jade Dynamo Pistol (approx.)
         traits: Condi Mechanist Jade Dynamo
         extras: Condi Mechanist
+        weaponType: Dual wield
 
   - class: Necromancer
     builds:
@@ -627,6 +689,7 @@ list:
         distribution: Condi Scourge
         traits: DPS Scourge
         extras: DPS Scourge
+        weaponType: Dual wield
 
       # - name: Power Reaper (inaccurate)
       #   id: preaper
@@ -645,6 +708,7 @@ list:
         distribution: Condi Reaper
         traits: Condi Reaper
         extras: Condi Reaper
+        weaponType: Two-handed
 
       - name: DPS Harbinger
         id: charb
@@ -654,6 +718,7 @@ list:
         distribution: DPS Harbinger
         traits: DPS Harbinger
         extras: DPS Harbinger
+        weaponType: Dual wield
 
       - name: Quickness Harbinger
         id: qharb
@@ -663,6 +728,7 @@ list:
         distribution: Quickness Harbinger
         traits: Quickness Harbinger
         extras: Quickness Harbinger
+        weaponType: Dual wield
 
   - class: Thief
     builds:
@@ -675,6 +741,7 @@ list:
         distribution: Condi Deadeye
         traits: Condi Deadeye
         extras: Condi Deadeye
+        weaponType: Dual wield
 
       - name: Staff Daredevil
         id: staffdd
@@ -684,6 +751,7 @@ list:
         distribution: Staff Daredevil
         traits: Staff Daredevil
         extras: Power (Fractal)
+        weaponType: Two-handed
 
       - name: Power Boon Daredevil
         id: boondd-power
@@ -693,6 +761,7 @@ list:
         distribution: Staff Daredevil
         traits: Power Boon Daredevil
         extras: Power Boon Daredevil
+        weaponType: Two-handed
 
       - name: Condi Daredevil
         id: cdd
@@ -702,6 +771,7 @@ list:
         distribution: Condi Daredevil
         traits: Condi Daredevil
         extras: Condi Daredevil
+        weaponType: Dual wield
 
       - name: Condi Boon Daredevil
         id: boondd-condi
@@ -711,6 +781,7 @@ list:
         distribution: None
         traits: Condi Boon Daredevil
         extras: Condi Boon Daredevil
+        weaponType: Dual wield
 
       - name: Rifle Deadeye
         id: rifleded
@@ -720,6 +791,7 @@ list:
         distribution: Rifle Deadeye
         traits: Rifle Deadeye
         extras: Power (Fractal)
+        weaponType: Two-handed
 
       - name: DPS Specter
         id: specter
@@ -729,6 +801,7 @@ list:
         distribution: DPS Specter (allies)
         traits: DPS Specter
         extras: DPS Specter
+        weaponType: Dual wield
 
       - name: Alacrity Specter
         id: specter-alac
@@ -738,3 +811,4 @@ list:
         distribution: Alacrity Specter (allies)
         traits: Alacrity Specter
         extras: Alacrity Specter
+        weaponType: Dual wield

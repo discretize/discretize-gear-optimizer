@@ -28,8 +28,12 @@ export const prioritiesSlice = createSlice({
       return { ...state, ...action.payload?.form?.priorities };
     },
     [setBuildTemplate]: (state, action) => {
-      const { prioritiesPreset = {} } = action.payload;
-      return { ...state, ...prioritiesPreset };
+      const {
+        prioritiesPreset = {},
+        build: { weaponType },
+      } = action.payload;
+
+      return { ...state, ...prioritiesPreset, ...(weaponType ? { weaponType } : {}) };
     },
   },
 });
