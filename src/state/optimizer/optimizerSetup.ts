@@ -31,11 +31,22 @@ import {
   parseInfusionCount,
   parsePriority,
 } from '../../utils/usefulFunctions';
+import { getAttackRate, getMovementUptime } from '../slices/boss';
 import { getBuffsModifiers } from '../slices/buffs';
+import { getProfession } from '../slices/controlsSlice';
+import { getDistributionNew } from '../slices/distribution';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
 import { getExtrasCombinationsAndModifiers, getExtrasIds } from '../slices/extras';
-import { getInfusionsModifiers } from '../slices/infusions';
-import { getCustomAffixData } from '../slices/priorities';
+import { getForcedSlots } from '../slices/forcedSlots';
+import {
+  getInfusionsModifiers,
+  getMaxInfusions,
+  getPrimaryInfusion,
+  getPrimaryMaxInfusions,
+  getSecondaryInfusion,
+  getSecondaryMaxInfusions,
+} from '../slices/infusions';
+import { getCustomAffixData, getPriority } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import type { OptimizerCoreMinimalSettings, OptimizerCoreSettings } from './optimizerCore';
@@ -141,32 +152,25 @@ export function stateToCombinations(reduxState) {
       buffs: state.form.buffs, // buffs are also needed to share a build and display the assumed buffs for the result
     };
 
-    const {
-      control: { profession },
-      form: {
-        infusions: {
-          primaryInfusion,
-          secondaryInfusion,
-          maxInfusions: maxInfusionsText,
-          primaryMaxInfusions: primaryMaxInfusionsText,
-          secondaryMaxInfusions: secondaryMaxInfusionsText,
-        },
-        forcedSlots: { slots },
-        priorities: {
-          optimizeFor,
-          weaponType,
-          minBoonDuration: minBoonDurationText,
-          minHealingPower: minHealingPowerText,
-          minToughness: minToughnessText,
-          maxToughness: maxToughnessText,
-          minHealth: minHealthText,
-          minCritChance: minCritChanceText,
-          affixes: unmodifiedAffixes,
-        },
-        distribution: { values2 },
-        boss: { attackRate: attackRateText, movementUptime: movementUptimeText },
-      },
-    } = state;
+    const profession = getProfession(reduxState);
+    const primaryInfusion = getPrimaryInfusion(reduxState);
+    const secondaryInfusion = getSecondaryInfusion(reduxState);
+    const maxInfusionsText = getMaxInfusions(reduxState);
+    const primaryMaxInfusionsText = getPrimaryMaxInfusions(reduxState);
+    const secondaryMaxInfusionsText = getSecondaryMaxInfusions(reduxState);
+    const slots = getForcedSlots(reduxState);
+    const optimizeFor = getPriority('optimizeFor')(reduxState);
+    const weaponType = getPriority('weaponType')(reduxState);
+    const minBoonDurationText = getPriority('minBoonDuration')(reduxState);
+    const minHealingPowerText = getPriority('minHealingPower')(reduxState);
+    const minToughnessText = getPriority('minToughness')(reduxState);
+    const maxToughnessText = getPriority('maxToughness')(reduxState);
+    const minHealthText = getPriority('minHealth')(reduxState);
+    const minCritChanceText = getPriority('minCritChance')(reduxState);
+    const unmodifiedAffixes = getPriority('affixes')(reduxState);
+    const unmodifiedDistribution = getDistributionNew(reduxState);
+    const attackRateText = getAttackRate(reduxState);
+    const movementUptimeText = getMovementUptime(reduxState);
 
     const affixes = unmodifiedAffixes.map((affix) =>
       affix.toLowerCase().replace(/^\w/, (char) => char.toUpperCase()),
@@ -186,7 +190,7 @@ export function stateToCombinations(reduxState) {
     const attackRate = parseBoss(attackRateText).value ?? 0;
     const movementUptime = (parseBoss(movementUptimeText).value ?? 0) / 100;
 
-    let distribution = values2;
+    let distribution = unmodifiedDistribution;
 
     // temp: convert "poisoned" to "poison"
     const convertPoison = (dist) =>
