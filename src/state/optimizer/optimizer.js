@@ -12,7 +12,8 @@ import { getInfusionsModifiers } from '../slices/infusions';
 import { getCustomAffixData } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
-import { characterLT, inputToSettings, OptimizerCore } from './optimizerCore';
+import { characterLT, OptimizerCore } from './optimizerCore';
+import { inputToSettings } from './optimizerSetup';
 
 const isArrayDifferent = (a, b) => {
   if (a.length !== b.length) return true;
