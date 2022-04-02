@@ -82,7 +82,7 @@ export const specializationDict = [
   'Specter',
 ];
 
-export const weaponTypeDict = ['Dual wield', 'two-handed'];
+export const weaponTypeDict = ['Dual wield', 'Two-handed'];
 
 export const runesDict = [
   'scholar',
