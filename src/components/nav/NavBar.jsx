@@ -251,7 +251,7 @@ const Navbar = ({
       {(selectedSpecialization || selectedTemplateName) && (
         <Box flexGrow={1}>
           <Typography>
-            <Trans>Selected:</Trans>{' '}
+            <Trans>Selected</Trans>:{' '}
           </Typography>
           {selectedTemplateName ? (
             <Profession
