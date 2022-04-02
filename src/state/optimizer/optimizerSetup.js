@@ -163,7 +163,7 @@ export function stateToCombinations(reduxState) {
           minCritChance: minCritChanceText,
           affixes: unmodifiedAffixes,
         },
-        distribution: { version, values1, values2 },
+        distribution: { values2 },
         boss: { attackRate: attackRateText, movementUptime: movementUptimeText },
       },
     } = state;
