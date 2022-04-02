@@ -19,7 +19,7 @@ const URLStateImport = ({ sagaType, clearUrlOnSuccess }) => {
 
   // Sets the url back to the original state, in case the loading of the state was successful
   const onLoadSuccess = React.useCallback(() => {
-    if (clearUrlOnSuccess && process.env.NODE_ENV !== 'development') {
+    if (clearUrlOnSuccess) {
       setQueryParm({ key: PARAMS.BUILD, value: undefined });
       setQueryParm({ key: PARAMS.VERSION, value: undefined });
     }
