@@ -12,6 +12,7 @@ import type {
   WeaponHandednessType,
 } from '../../utils/gw2-data';
 import { Attributes, conditionData, INFUSION_BONUS } from '../../utils/gw2-data';
+import type { AppliedModifier } from './optimizerSetup';
 
 /**
  * Scales a modifier value linearly up or down by a user-specified amount, in accordance with the
@@ -132,9 +133,9 @@ export interface OptimizerCoreSettings {
   relevantConditions: ConditionName[];
 
   shouldDisplayExtras: Record<string, boolean>;
-  appliedModifiers?: any;
-  cachedFormState?: any;
-  extrasCombination?: any;
+  appliedModifiers: AppliedModifier[];
+  cachedFormState: any;
+  extrasCombination: Record<string, string>;
 }
 export type OptimizerCoreMinimalSettings = Pick<
   OptimizerCoreSettings,

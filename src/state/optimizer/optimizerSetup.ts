@@ -82,7 +82,7 @@ type AttributeModifierValue = [number | string, AttributePointMode] | number | s
 
 type ConversionValue = Record<string, string>;
 
-interface AppliedModifier {
+export interface AppliedModifier {
   id: string;
   visible: boolean;
   enabled: boolean;
@@ -154,7 +154,7 @@ interface CustomAffixData {
 export function stateToCombinations(reduxState: any) {
   const state = reduxState.optimizer;
 
-  const specialization = getCurrentSpecialization(reduxState);
+  const specialization: string = getCurrentSpecialization(reduxState);
 
   const sharedModifiers: AppliedModifier[] = [
     ...(getBuffsModifiers(reduxState) || []),
@@ -176,11 +176,8 @@ export function stateToCombinations(reduxState: any) {
   console.log('Redux State:', state);
 
   // do not mutate selector result; it may be reused if the same calculation is run twice
-  const combinations = getExtrasCombinationsAndModifiers(reduxState).map(
-    (combination) =>
-      ({
-        ...combination,
-      } as Combination), // not how you are supposed to use type assertions I bet?
+  const combinations: Combination[] = getExtrasCombinationsAndModifiers(reduxState).map(
+    (combination) => ({ ...combination }),
   );
 
   for (const combination of combinations) {
@@ -713,7 +710,7 @@ export function stateToCombinations(reduxState: any) {
     //   return num / denom;
     // }
 
-    const settings: OptimizerCoreSettings = {
+    const settings = {
       profession,
       weaponType,
       affixes,
