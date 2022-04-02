@@ -492,6 +492,11 @@ export const Item = {
   },
 };
 
+export const WeaponTypes = {
+  dualWield: 'Dual wield',
+  twoHanded: 'Two-handed',
+};
+
 export const Slots = {
   'Dual wield': [
     {

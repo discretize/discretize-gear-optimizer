@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { getProfession } from '../../../state/slices/controlsSlice';
 import { changePriority, getPriority } from '../../../state/slices/priorities';
+import { WeaponTypes } from '../../../utils/gw2-data';
 import { parsePriority } from '../../../utils/usefulFunctions';
 import AffixesSelect from '../../baseComponents/AffixesSelect';
 import CustomAffix from './CustomAffix';
@@ -115,12 +116,12 @@ const Priorities = () => {
             onChange={handleChange}
           >
             <FormControlLabel
-              value="Dual wield"
+              value={WeaponTypes.dualWield}
               control={<Radio color="primary" />}
               label={t('Dual wielded')}
             />
             <FormControlLabel
-              value="Two-handed"
+              value={WeaponTypes.twoHanded}
               control={<Radio color="primary" />}
               label={t('Two-handed')}
             />

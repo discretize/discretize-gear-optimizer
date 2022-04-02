@@ -1,7 +1,7 @@
 import { Character, firstUppercase } from '@discretize/react-discretize-components';
 import React from 'react';
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
-import { Classes, INFUSION_IDS } from '../../../utils/gw2-data';
+import { Classes, INFUSION_IDS, WeaponTypes } from '../../../utils/gw2-data';
 import { resolveArmor, resolveBackAndTrinkets } from '../../../utils/map-gw2-ids';
 import { getWeight } from '../../../utils/usefulFunctions';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
@@ -89,7 +89,7 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
         weapon2MainInfusion2Id: infusions[17],
       };
     }
-  } else if (weaponType === 'Dual wield') {
+  } else if (weaponType === WeaponTypes.dualWield) {
     wea1 = classData.mainHand.find((item) => item.type === 'one-handed').gw2id;
     wea2 = classData.offHand[0].gw2id;
 

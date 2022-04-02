@@ -1262,8 +1262,8 @@ export function inputToSettings(input) {
 
   settings.runsAfterThisSlot.push(1);
 
-  // const freeSlots = settings.weaponType === 'Dual wield' ? 5 : 6;
-  // const pairs = settings.weaponType === 'Dual wield' ? 3 : 2;
+  // const freeSlots = settings.weaponType === WeaponTypes.dualWield ? 5 : 6;
+  // const pairs = settings.weaponType === WeaponTypes.dualWield ? 3 : 2;
   // const triplets = 1;
   // calculationTotal
   //   = Math.pow(settings.affixes.length, freeSlots)

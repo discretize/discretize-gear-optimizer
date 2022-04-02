@@ -1,11 +1,12 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { WeaponTypes } from '../../utils/gw2-data';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 
 export const prioritiesSlice = createSlice({
   name: 'priorities',
   initialState: {
     optimizeFor: 'Damage',
-    weaponType: 'Dual wield',
+    weaponType: WeaponTypes.dualWield,
     minBoonDuration: '',
     minHealingPower: '',
     minToughness: '',

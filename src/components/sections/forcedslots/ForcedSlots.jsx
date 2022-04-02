@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeForcedSlot, getForcedSlots } from '../../../state/slices/forcedSlots';
 import { getPriority } from '../../../state/slices/priorities';
-import { GEAR_SLOTS } from '../../../utils/gw2-data';
+import { GEAR_SLOTS, WeaponTypes } from '../../../utils/gw2-data';
 import AffixesSelect from '../../baseComponents/AffixesSelect';
 
 const ForcedSlots = () => {
@@ -14,7 +14,7 @@ const ForcedSlots = () => {
   const { t } = useTranslation();
 
   let SLOTS = GEAR_SLOTS;
-  if (dualWielded !== 'Dual wield') {
+  if (dualWielded !== WeaponTypes.dualWield) {
     SLOTS = GEAR_SLOTS.slice(0, 13);
   }
 
