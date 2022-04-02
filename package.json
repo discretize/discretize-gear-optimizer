@@ -19,7 +19,7 @@
     "buildserve": "vite build && vite preview --host",
     "prettier": "prettier --write . \"!**/*.{md,json,yaml,yml}\"",
     "prettierCheck": "prettier --check . \"!**/*.{md,json,yaml,yml}\"",
-    "eslint": "eslint --ignore-path .gitignore --max-warnings 0 . --ext .js,.jsx,ts,tsx",
+    "eslint": "eslint --ignore-path .gitignore --max-warnings 0 . --ext .js,.jsx,.ts,.tsx",
     "updateMappings": "node updateMappings.js",
     "deploy": "vite build && gh-pages -d dist",
     "testModifiers": "node ./src/assets/modifierdata/testModifiers.js",
@@ -87,6 +87,7 @@
     "esm": "^3.2.25",
     "gh-pages": "^3.2.3",
     "prettier": "^2.4.1",
+    "typescript": "~4.4.4",
     "vite": "^2.9.0"
   }
 }
