@@ -7,7 +7,7 @@ import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import { Box, Button, Chip, Typography } from '@mui/material';
 import classNames from 'classnames';
 import React from 'react';
-import { Trans } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../../../state/optimizer/status';
@@ -41,27 +41,30 @@ const useStyles = makeStyles()((theme) => ({
 const ControlsBox = ({ profession }) => {
   const { classes } = useStyles();
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const status = useSelector(getStatus);
   const error = useSelector(getError);
   const affixes = useSelector(getPriority('affixes'));
+  const weaponType = useSelector(getPriority('weaponType'));
 
-  const onStartCalculate = React.useCallback(
-    (e) => {
-      if (affixes.length < 1) {
-        // no affixes selected, display message
-        dispatch(changeError('Please select at least one affix.'));
-        dispatch(changeStatus(ERROR));
-        return;
-      }
+  const onStartCalculate = (e) => {
+    if (affixes.length < 1) {
+      dispatch(changeError(t('Select at least one affix in the priorities section!')));
+      dispatch(changeStatus(ERROR));
+      return;
+    }
+    if (weaponType === 'unset') {
+      dispatch(changeError(t('Select a weapon type in the priorities section!')));
+      dispatch(changeStatus(ERROR));
+      return;
+    }
 
-      console.log('calculate');
+    console.log('calculate');
 
-      dispatch(changeError(''));
-      dispatch({ type: SagaTypes.Start });
-    },
-    [dispatch, affixes],
-  );
+    dispatch(changeError(''));
+    dispatch({ type: SagaTypes.Start });
+  };
 
   let icon;
 
