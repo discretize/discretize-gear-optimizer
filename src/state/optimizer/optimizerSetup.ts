@@ -120,6 +120,19 @@ interface CustomAffixData {
   };
 }
 
+// todo increase specificity
+interface CollectedModifiers {
+  buff: Record<string, number>;
+  convert: Record<string, Record<string, number>>;
+  convertAfterBuffs: Record<string, Record<string, number>>;
+}
+export interface Modifiers {
+  damageMultiplier: Record<string, number>;
+  buff: [string, number][];
+  convert: [string, [string, number][]][];
+  convertAfterBuffs: [string, [string, number][]][];
+}
+
 // interface OptimizerInput {
 //   profession: ProfessionName;
 //   specialization: string;
@@ -274,11 +287,11 @@ export function stateToCombinations(reduxState: any) {
 
     /* Modifiers */
 
-    const settings_modifiers: OptimizerCoreSettings['modifiers'] = {
+    const collectedModifiers: CollectedModifiers = {
       damageMultiplier: {},
-      buff: [],
-      convert: [],
-      convertAfterBuffs: [],
+      buff: {},
+      convert: {},
+      convertAfterBuffs: {},
     };
     const initialMultipliers: Record<MultiplierName, number> = {
       'Strike Damage': 1,
@@ -419,8 +432,8 @@ export function stateToCombinations(reduxState: any) {
               case 'buff':
               case 'unknown':
               default:
-                settings_modifiers['buff'][attribute] =
-                  (settings_modifiers['buff'][attribute] || 0) + scaledAmount;
+                collectedModifiers['buff'][attribute] =
+                  (collectedModifiers['buff'][attribute] || 0) + scaledAmount;
                 break;
             }
           }
@@ -459,8 +472,8 @@ export function stateToCombinations(reduxState: any) {
 
         makeConditionsRelevant(attribute);
 
-        if (!settings_modifiers['convert'][attribute]) {
-          settings_modifiers['convert'][attribute] = {};
+        if (!collectedModifiers['convert'][attribute]) {
+          collectedModifiers['convert'][attribute] = {};
         }
         for (const [source, percentAmount] of Object.entries(val)) {
           const scaledAmount = scaleValue(
@@ -469,8 +482,8 @@ export function stateToCombinations(reduxState: any) {
             amountData,
           );
 
-          settings_modifiers['convert'][attribute][source] =
-            (settings_modifiers['convert'][attribute][source] || 0) + scaledAmount;
+          collectedModifiers['convert'][attribute][source] =
+            (collectedModifiers['convert'][attribute][source] || 0) + scaledAmount;
         }
       }
 
@@ -480,8 +493,8 @@ export function stateToCombinations(reduxState: any) {
 
         makeConditionsRelevant(attribute);
 
-        if (!settings_modifiers['convertAfterBuffs'][attribute]) {
-          settings_modifiers['convertAfterBuffs'][attribute] = {};
+        if (!collectedModifiers['convertAfterBuffs'][attribute]) {
+          collectedModifiers['convertAfterBuffs'][attribute] = {};
         }
         for (const [source, percentAmount] of Object.entries(val)) {
           const valid = allConversionAfterBuffsSourceKeys.includes(source);
@@ -494,27 +507,38 @@ export function stateToCombinations(reduxState: any) {
             amountData,
           );
 
-          settings_modifiers['convertAfterBuffs'][attribute][source] =
-            (settings_modifiers['convertAfterBuffs'][attribute][source] || 0) + scaledAmount;
+          collectedModifiers['convertAfterBuffs'][attribute][source] =
+            (collectedModifiers['convertAfterBuffs'][attribute][source] || 0) + scaledAmount;
         }
       }
     }
 
+    const damageMultiplier: Record<string, number> = {};
+
     Object.keys(initialMultipliers).forEach((attribute) => {
-      settings_modifiers.damageMultiplier[attribute] =
+      damageMultiplier[attribute] =
         allDmgMult.mult[attribute as MultiplierName] *
         allDmgMult.add[attribute as MultiplierName] *
         allDmgMult.target[attribute as MultiplierName];
     });
 
     // convert modifiers to arrays for simpler iteration
-    settings_modifiers['buff'] = Object.entries(settings_modifiers['buff'] || {});
-    settings_modifiers['convert'] = Object.entries(settings_modifiers['convert'] || {}).map(
-      ([attribute, conversion]) => [attribute, Object.entries(conversion as any)],
+    const buff = Object.entries(collectedModifiers['buff']);
+    const convert = Object.entries(collectedModifiers['convert']).map(
+      ([attribute, conversion]) =>
+        [attribute, Object.entries(conversion)] as [string, [string, number][]],
     );
-    settings_modifiers['convertAfterBuffs'] = Object.entries(
-      settings_modifiers['convertAfterBuffs'] || {},
-    ).map(([attribute, conversion]) => [attribute, Object.entries(conversion as any)]);
+    const convertAfterBuffs = Object.entries(collectedModifiers['convertAfterBuffs']).map(
+      ([attribute, conversion]) =>
+        [attribute, Object.entries(conversion)] as [string, [string, number][]],
+    );
+
+    const modifiers: Modifiers = {
+      damageMultiplier,
+      buff,
+      convert,
+      convertAfterBuffs,
+    };
 
     /* Relevant Conditions + Condi Caching Toggle */
 
@@ -732,7 +756,7 @@ export function stateToCombinations(reduxState: any) {
       extrasCombination,
       distribution,
       baseAttributes: settings_baseAttributes,
-      modifiers: settings_modifiers,
+      modifiers,
       relevantConditions: settings_relevantConditions,
       disableCondiResultCache: settings_disableCondiResultCache,
       maxInfusions: settings_maxInfusions,

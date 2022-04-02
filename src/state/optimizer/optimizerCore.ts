@@ -12,7 +12,7 @@ import type {
   WeaponHandednessType,
 } from '../../utils/gw2-data';
 import { Attributes, conditionData, INFUSION_BONUS } from '../../utils/gw2-data';
-import type { AppliedModifier } from './optimizerSetup';
+import type { AppliedModifier, Modifiers } from './optimizerSetup';
 
 /**
  * Scales a modifier value linearly up or down by a user-specified amount, in accordance with the
@@ -128,7 +128,7 @@ export interface OptimizerCoreSettings {
   affixesArray: AffixName[][];
   affixStatsArray: any;
   baseAttributes: Record<string, number>;
-  modifiers: any;
+  modifiers: Modifiers;
   disableCondiResultCache: boolean;
   relevantConditions: ConditionName[];
 
