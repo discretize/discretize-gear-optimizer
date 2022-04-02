@@ -33,7 +33,7 @@ export const prioritiesSlice = createSlice({
         build: { weaponType },
       } = action.payload;
 
-      return { ...state, ...prioritiesPreset, ...(weaponType === 'unset' ? { weaponType } : {}) };
+      return { ...state, ...prioritiesPreset, ...(weaponType !== 'unset' ? { weaponType } : {}) };
     },
   },
 });
