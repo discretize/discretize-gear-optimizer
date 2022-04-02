@@ -53,6 +53,13 @@ import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import type { OptimizerCoreMinimalSettings, OptimizerCoreSettings } from './optimizerCore';
 import { clamp, scaleValue } from './optimizerCore';
 
+interface Combination {
+  extrasCombination: Record<string, string>;
+  extrasModifiers: AppliedModifier[];
+  settings?: OptimizerCoreSettings;
+  minimalSettings?: OptimizerCoreMinimalSettings;
+}
+
 type MultiplierName =
   | 'Strike Damage'
   | 'Condition Damage'
@@ -65,16 +72,26 @@ type MultiplierName =
   | 'Poison Damage'
   | 'Torment Damage';
 
+// these types should be metadata.js
+
+type DamageMode = 'add' | 'mult' | 'target' | 'unknown';
+type AttributePointMode = 'buff' | 'converted' | 'unknown';
+
+type DamageModifierValue = [string, DamageMode, string?, DamageMode?];
+type AttributeModifierValue = [number | string, AttributePointMode] | number | string;
+
+type ConversionValue = Record<string, string>;
+
 interface AppliedModifier {
   id: string;
   visible: boolean;
   enabled: boolean;
   amount: string;
   modifiers: {
-    damage: Record<string, any>;
-    attributes: Record<string, any>;
-    conversion: Record<string, any>;
-    conversionAfterBuffs: Record<string, any>;
+    damage: Record<string, DamageModifierValue>;
+    attributes: Record<string, AttributeModifierValue>;
+    conversion: Record<string, ConversionValue>;
+    conversionAfterBuffs: Record<string, ConversionValue>;
     // note,
     // ...otherModifiers
   };
@@ -159,13 +176,15 @@ export function stateToCombinations(reduxState: any) {
   console.log('Redux State:', state);
 
   // do not mutate selector result; it may be reused if the same calculation is run twice
-  const combinations = getExtrasCombinationsAndModifiers(reduxState).map((combination) => ({
-    ...combination,
-  }));
+  const combinations = getExtrasCombinationsAndModifiers(reduxState).map(
+    (combination) =>
+      ({
+        ...combination,
+      } as Combination), // not how you are supposed to use type assertions I bet?
+  );
 
   for (const combination of combinations) {
-    const { extrasCombination } = combination;
-    const { extrasModifiers }: { extrasModifiers: AppliedModifier[] } = combination;
+    const { extrasCombination, extrasModifiers } = combination;
     const appliedModifiers = [...sharedModifiers, ...extrasModifiers];
 
     const cachedFormState = {
@@ -284,7 +303,7 @@ export function stateToCombinations(reduxState: any) {
     const dmgBuff = (
       attribute: keyof typeof initialMultipliers,
       amount: number,
-      addOrMult: 'add' | 'target' | 'mult',
+      addOrMult: 'add' | 'target' | 'mult' | 'unknown',
     ) => {
       switch (addOrMult) {
         case 'add':
@@ -344,9 +363,10 @@ export function stateToCombinations(reduxState: any) {
         // damage, i.e.
         //   Strike Damage: [3%, add, 7%, mult]
 
-        const allPairsMut = [...allPairs /*  as any[] */];
+        const allPairsMut = [...allPairs];
         while (allPairsMut.length) {
-          const [percentAmount, addOrMult] = allPairsMut.splice(0, 2);
+          const pairs = allPairsMut.splice(0, 2);
+          const [percentAmount, addOrMult] = pairs as any as [string, DamageMode];
 
           const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
 
@@ -387,9 +407,11 @@ export function stateToCombinations(reduxState: any) {
           // stat, i.e.
           //   Concentration: [70, converted, 100, buff]
 
-          const allPairsMut = [...allPairs /*  as any[] */];
+          const allPairsMut = [...(allPairs as any[])];
           while (allPairsMut.length) {
-            const [amount, convertedOrBuff] = allPairsMut.splice(0, 2);
+            const pairs = allPairsMut.splice(0, 2);
+            const [amount, convertedOrBuff] = pairs as any as [number, AttributePointMode];
+
             const scaledAmount = scaleValue(amount, amountInput, amountData);
 
             switch (convertedOrBuff) {
@@ -410,7 +432,7 @@ export function stateToCombinations(reduxState: any) {
           //   Power Coefficient: 69.05
 
           const value = Array.isArray(allPairs) ? allPairs[0] : allPairs;
-          const scaledAmount = scaleValue(value, amountInput, amountData);
+          const scaledAmount = scaleValue(value as number, amountInput, amountData);
           settings_baseAttributes[attribute] =
             (settings_baseAttributes[attribute] || 0) + scaledAmount;
         } else if (allAttributePercentKeys.includes(attribute)) {
@@ -418,7 +440,7 @@ export function stateToCombinations(reduxState: any) {
           //   Torment Duration: 15%
 
           const value = Array.isArray(allPairs) ? allPairs[0] : allPairs;
-          const scaledAmount = scaleValue(parsePercent(value), amountInput, amountData);
+          const scaledAmount = scaleValue(parsePercent(value as string), amountInput, amountData);
           // unconfirmed if +max health mods are mult but ¯\_(ツ)_/¯
           // +outgoing healing is assumed additive
           if (attribute === 'Maximum Health') {
@@ -483,30 +505,29 @@ export function stateToCombinations(reduxState: any) {
 
     Object.keys(initialMultipliers).forEach((attribute) => {
       settings_modifiers.damageMultiplier[attribute] =
-        allDmgMult.mult[attribute /*  as MultiplierName */] *
-        allDmgMult.add[attribute /*  as MultiplierName */] *
-        allDmgMult.target[attribute /*  as MultiplierName */];
+        allDmgMult.mult[attribute as MultiplierName] *
+        allDmgMult.add[attribute as MultiplierName] *
+        allDmgMult.target[attribute as MultiplierName];
     });
 
     // convert modifiers to arrays for simpler iteration
     settings_modifiers['buff'] = Object.entries(settings_modifiers['buff'] || {});
     settings_modifiers['convert'] = Object.entries(settings_modifiers['convert'] || {}).map(
-      ([attribute, conversion]) => [attribute, Object.entries(conversion /*  as any */)],
+      ([attribute, conversion]) => [attribute, Object.entries(conversion as any)],
     );
     settings_modifiers['convertAfterBuffs'] = Object.entries(
       settings_modifiers['convertAfterBuffs'] || {},
-    ).map(([attribute, conversion]) => [attribute, Object.entries(conversion /*  as any */)]);
+    ).map(([attribute, conversion]) => [attribute, Object.entries(conversion as any)]);
 
     /* Relevant Conditions + Condi Caching Toggle */
 
-    const settings_relevantConditions: OptimizerCoreSettings['relevantConditions'] = Object.keys(
-      conditionData,
-    ) /*  as ConditionName[] */
-      .filter(
-        (condition) =>
-          (settings_baseAttributes[`${condition} Coefficient`] ?? 0) > 0 ||
-          extraRelevantConditions[condition],
-      );
+    const settings_relevantConditions: OptimizerCoreSettings['relevantConditions'] = (
+      Object.keys(conditionData) as ConditionName[]
+    ).filter(
+      (condition) =>
+        (settings_baseAttributes[`${condition} Coefficient`] ?? 0) > 0 ||
+        extraRelevantConditions[condition],
+    );
 
     // if any condition coefficnents are the result of a conversion, the same cdmg + expertise does
     // not mean the same condition dps; disable caching if so
@@ -532,7 +553,7 @@ export function stateToCombinations(reduxState: any) {
     let settings_secondaryMaxInfusions: OptimizerCoreSettings['secondaryMaxInfusions'] = 0;
 
     let activeInfusions = 0;
-    if (primaryInfusion && primaryInfusion !== 'None') {
+    if (primaryInfusion) {
       if (validInfusionStats.has(primaryInfusion)) {
         activeInfusions++;
         settings_primaryInfusion = primaryInfusion;
@@ -544,11 +565,7 @@ export function stateToCombinations(reduxState: any) {
       }
     }
 
-    if (
-      secondaryInfusion &&
-      secondaryInfusion !== 'None' &&
-      secondaryInfusion !== primaryInfusion
-    ) {
+    if (secondaryInfusion && secondaryInfusion !== primaryInfusion) {
       if (validInfusionStats.has(secondaryInfusion)) {
         activeInfusions++;
         if (activeInfusions === 2) {
@@ -649,11 +666,11 @@ export function stateToCombinations(reduxState: any) {
         possibleAffixes.map((affix) => {
           const statTotals: Record<string, number> = {};
           const bonuses = Object.entries(
-            settings_slots[slotindex].item[Affix[affix /* as keyof typeof Affix */].type],
+            settings_slots[slotindex].item[Affix[affix as keyof typeof Affix].type],
           );
           for (const [type, bonus] of bonuses) {
-            for (const stat of Affix[affix /* as keyof typeof Affix */].bonuses[type]) {
-              statTotals[stat] = (statTotals[stat] || 0) + bonus /* as number */;
+            for (const stat of Affix[affix as keyof typeof Affix].bonuses[type]) {
+              statTotals[stat] = (statTotals[stat] || 0) + (bonus as number);
             }
           }
 

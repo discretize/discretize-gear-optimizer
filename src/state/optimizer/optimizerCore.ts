@@ -131,7 +131,7 @@ export interface OptimizerCoreSettings {
   disableCondiResultCache: boolean;
   relevantConditions: ConditionName[];
 
-  shouldDisplayExtras?: boolean;
+  shouldDisplayExtras: Record<string, boolean>;
   appliedModifiers?: any;
   cachedFormState?: any;
   extrasCombination?: any;
