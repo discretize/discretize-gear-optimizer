@@ -39,10 +39,7 @@ const data = {
 
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
- *
- * @param {{classes, data}} styles and data fetched by graphiql
  */
-
 const GearOptimizer = () => {
   // Query variables from redux store that should have a global scope
   const expertMode = useSelector(getExpertMode);

@@ -9,7 +9,6 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-// import { Boon, CommonEffect, Condition, Skill, Trait } from '@discretize/gw2-ui-new';
 import React from 'react';
 import { Trans } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
@@ -25,15 +24,6 @@ const useStyles = makeStyles()((theme) => ({
     color: '#AAAAAA',
   },
 }));
-
-// Dynamic component creation for buffs from a string
-// const components = {
-//   Boon,
-//   Trait,
-//   Skill,
-//   CommonEffect,
-//   Condition,
-// };
 
 const roundTwo = (num) => Math.round(num * 100) / 100;
 

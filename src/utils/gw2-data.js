@@ -3,8 +3,6 @@
  * GW2 Data
  * ------------------------------------------------------------------------
  */
-// TODO integrate gw2-ui data
-// import { itemStats } from "gw2-ui-bulk";
 
 export const Affix = {
   Custom: {

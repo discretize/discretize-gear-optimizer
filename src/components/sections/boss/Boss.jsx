@@ -68,11 +68,9 @@ const Boss = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
-  // const exposedUptimeString = useSelector(getExposedUptime);
   const attackRateString = useSelector(getAttackRate);
   const movementUptimeString = useSelector(getMovementUptime);
 
-  // const exposedUptime = parseBoss(exposedUptimeString).value;
   const attackRate = parseBoss(attackRateString).value;
   const movementUptime = parseBoss(movementUptimeString).value;
 

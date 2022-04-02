@@ -190,21 +190,6 @@ const StickyHeadTable = () => {
                 cursor: 'pointer',
               }}
             >
-              {/* {saved.length
-              ? saved.map((character, i) => {
-                  return (
-                    <ResultTableRow
-                      character={character}
-                      key={character.id}
-                      selected={character === selectedCharacter}
-                      saved={saved.includes(character)}
-                      mostCommonAffix={mostCommonAffix}
-                      underlineClass={i === saved.length - 1 ? classes.bigUnderline : null}
-                      compareByPercent={compareByPercent}
-                    />
-                  );
-                })
-              : null} */}
               {list.map((character, i) => {
                 // underline under the set of equivalent, optimal results
                 const firstResult = list[0]?.results.value;
@@ -228,20 +213,6 @@ const StickyHeadTable = () => {
                 );
               })}
             </TableBody>
-            {/* <TableFooter style={{ position: 'sticky', bottom: '0', zIndex: '2' }}>
-            {saved.map((character) => {
-              return (
-                <ResultTableRow
-                  character={character}
-                  key={character.id}
-                  selected={character === selectedCharacter}
-                  saved={saved.includes(character)}
-                  mostCommonAffix={mostCommonAffix}
-                  compareByPercent={compareByPercent}
-                />
-              );
-            })}
-          </TableFooter> */}
           </Table>
         </TableContainer>
       </Box>

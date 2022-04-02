@@ -1,6 +1,5 @@
 /* eslint-disable id-length */
 /* eslint-disable no-console */
-// eslint-disable-next-line import/no-extraneous-dependencies
 const axios = require('axios');
 const fs = require('fs');
 const itemstatMapping = require('./src/utils/mapping/itemstats.json');

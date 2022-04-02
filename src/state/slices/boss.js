@@ -4,14 +4,10 @@ import { changeAll } from './controlsSlice';
 export const bossSlice = createSlice({
   name: 'boss',
   initialState: {
-    // exposedUptime: '0',
     attackRate: '0.4',
     movementUptime: '0',
   },
   reducers: {
-    // changeExposedUptime: (state, action) => {
-    //   state.exposedUptime = action.payload;
-    // },
     changeAttackRate: (state, action) => {
       state.attackRate = action.payload;
     },
@@ -26,9 +22,7 @@ export const bossSlice = createSlice({
   },
 });
 
-// export const getExposedUptime = (state) => state.optimizer.form.boss.exposedUptime;
 export const getAttackRate = (state) => state.optimizer.form.boss.attackRate;
 export const getMovementUptime = (state) => state.optimizer.form.boss.movementUptime;
 
-export const { /* changeExposedUptime, */ changeAttackRate, changeMovementUptime } =
-  bossSlice.actions;
+export const { changeAttackRate, changeMovementUptime } = bossSlice.actions;
