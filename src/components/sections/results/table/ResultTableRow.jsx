@@ -29,11 +29,10 @@ const ResultTableRow = ({
   const comparisonValue = selectedValue ? value - selectedValue : 0;
 
   const comparisonText = comparisonValue
-    ? ` ${comparisonValue > 0 ? '+' : ''}${
+    ? ` ${comparisonValue > 0 ? '+' : '-'}${
         compareByPercent
-          ? `${((100 * comparisonValue) / selectedValue).toFixed(1)}%`
-          : // using toLocaleString to display a minus sign on negative zero
-            Math.round(comparisonValue).toLocaleString()
+          ? `${((100 * Math.abs(comparisonValue)) / selectedValue).toFixed(1)}%`
+          : Math.round(Math.abs(comparisonValue))
       }`
     : '';
 
