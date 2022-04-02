@@ -9,12 +9,12 @@ import {
   allAttributePointKeys,
   allConversionAfterBuffsSourceKeys,
 } from '../../assets/modifierdata/metadata';
-// import type {
-//   AffixName,
-//   ConditionName,
-//   ProfessionName,
-//   WeaponHandednessType
-// } from '../../utils/gw2-data';
+import type {
+  AffixName,
+  ConditionName,
+  ProfessionName,
+  WeaponHandednessType,
+} from '../../utils/gw2-data';
 import {
   Affix as unmodifiedAffix,
   Attributes,
@@ -38,37 +38,37 @@ import { getInfusionsModifiers } from '../slices/infusions';
 import { getCustomAffixData } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
-// import type { OptimizerCoreMinimalSettings, OptimizerCoreSettings } from './optimizerCore';
+import type { OptimizerCoreMinimalSettings, OptimizerCoreSettings } from './optimizerCore';
 import { clamp, scaleValue } from './optimizerCore';
 
-// type MultiplierName =
-//   | 'Strike Damage'
-//   | 'Condition Damage'
-//   | 'Siphon Damage'
-//   | 'Damage Taken'
-//   | 'Critical Damage'
-//   | 'Bleeding Damage'
-//   | 'Burning Damage'
-//   | 'Confusion Damage'
-//   | 'Poison Damage'
-//   | 'Torment Damage';
+type MultiplierName =
+  | 'Strike Damage'
+  | 'Condition Damage'
+  | 'Siphon Damage'
+  | 'Damage Taken'
+  | 'Critical Damage'
+  | 'Bleeding Damage'
+  | 'Burning Damage'
+  | 'Confusion Damage'
+  | 'Poison Damage'
+  | 'Torment Damage';
 
-// interface AppliedModifier {
-//   id: string;
-//   visible: boolean;
-//   enabled: boolean;
-//   amount: string;
-//   modifiers: {
-//     damage: Record<string, any>;
-//     attributes: Record<string, any>;
-//     conversion: Record<string, any>;
-//     conversionAfterBuffs: Record<string, any>;
-//     // note,
-//     // ...otherModifiers
-//   };
-//   amountData: any;
-//   // },
-// }
+interface AppliedModifier {
+  id: string;
+  visible: boolean;
+  enabled: boolean;
+  amount: string;
+  modifiers: {
+    damage: Record<string, any>;
+    attributes: Record<string, any>;
+    conversion: Record<string, any>;
+    conversionAfterBuffs: Record<string, any>;
+    // note,
+    // ...otherModifiers
+  };
+  amountData: any;
+  // },
+}
 
 // interface OptimizerInput {
 //   profession: ProfessionName;
@@ -198,7 +198,7 @@ export function stateToCombinations(reduxState) {
 
     /* Base Attributes */
 
-    const settings_baseAttributes /* : OptimizerCoreSettings['baseAttributes'] */ = {};
+    const settings_baseAttributes: OptimizerCoreSettings['baseAttributes'] = {};
     settings_baseAttributes.Health = Classes[profession].health;
     settings_baseAttributes.Armor = Classes[profession].defense;
 
@@ -223,13 +223,13 @@ export function stateToCombinations(reduxState) {
 
     /* Modifiers */
 
-    const settings_modifiers /* : OptimizerCoreSettings['modifiers'] */ = {
+    const settings_modifiers: OptimizerCoreSettings['modifiers'] = {
       damageMultiplier: {},
       buff: [],
       convert: [],
       convertAfterBuffs: [],
     };
-    const initialMultipliers /* : Record<MultiplierName, number> */ = {
+    const initialMultipliers: Record<MultiplierName, number> = {
       'Strike Damage': 1,
       'Condition Damage': 1,
       'Siphon Damage': 1,
@@ -247,9 +247,9 @@ export function stateToCombinations(reduxState) {
       target: { ...initialMultipliers },
     };
     const dmgBuff = (
-      attribute /* : keyof typeof initialMultipliers */,
-      amount /* : number */,
-      addOrMult /* : 'add' | 'target' | 'mult' */,
+      attribute: keyof typeof initialMultipliers,
+      amount: number,
+      addOrMult: 'add' | 'target' | 'mult',
     ) => {
       switch (addOrMult) {
         case 'add':
@@ -265,8 +265,7 @@ export function stateToCombinations(reduxState) {
       }
     };
 
-    const parsePercent = (percentValue /* : string */) =>
-      Number(percentValue.replace('%', '')) / 100;
+    const parsePercent = (percentValue: string) => Number(percentValue.replace('%', '')) / 100;
 
     // Special handler for conversions that convert to condi coefficients; ensures that
     // relevantConditions includes them even if their coefficient sliders are 0
@@ -274,7 +273,7 @@ export function stateToCombinations(reduxState) {
     const extraRelevantConditions = Object.fromEntries(
       Object.keys(conditionData).map((condition) => [condition, false]),
     );
-    const makeConditionsRelevant = (attribute /* : string */) => {
+    const makeConditionsRelevant = (attribute: string) => {
       const condition = attribute.replace(' Coefficient', '');
       if (extraRelevantConditions[condition] !== undefined) {
         extraRelevantConditions[condition] = true;
@@ -465,26 +464,23 @@ export function stateToCombinations(reduxState) {
 
     /* Relevant Conditions + Condi Caching Toggle */
 
-    const settings_relevantConditions /* : OptimizerCoreSettings['relevantConditions'] */ =
-      Object.keys(conditionData) /*  as ConditionName[] */
-        .filter(
-          (condition) =>
-            (settings_baseAttributes[`${condition} Coefficient`] ?? 0) > 0 ||
-            extraRelevantConditions[condition],
-        );
+    const settings_relevantConditions: OptimizerCoreSettings['relevantConditions'] = Object.keys(
+      conditionData,
+    ) /*  as ConditionName[] */
+      .filter(
+        (condition) =>
+          (settings_baseAttributes[`${condition} Coefficient`] ?? 0) > 0 ||
+          extraRelevantConditions[condition],
+      );
 
     // if any condition coefficnents are the result of a conversion, the same cdmg + expertise does
     // not mean the same condition dps; disable caching if so
-    const settings_disableCondiResultCache /* : OptimizerCoreSettings['disableCondiResultCache'] */ =
+    const settings_disableCondiResultCache: OptimizerCoreSettings['disableCondiResultCache'] =
       Object.values(extraRelevantConditions).some(Boolean);
 
     /* Infusions */
 
-    const settings_maxInfusions /* : OptimizerCoreSettings['maxInfusions'] */ = clamp(
-      maxInfusions,
-      0,
-      18,
-    );
+    const settings_maxInfusions: OptimizerCoreSettings['maxInfusions'] = clamp(maxInfusions, 0, 18);
 
     const primaryMaxInfusionsInput = clamp(primaryMaxInfusions, 0, settings_maxInfusions);
     const secondaryMaxInfusionsInput = clamp(secondaryMaxInfusions, 0, settings_maxInfusions);
@@ -495,10 +491,10 @@ export function stateToCombinations(reduxState) {
       ...Attributes.DERIVED,
     ]);
 
-    let settings_primaryInfusion /* : OptimizerCoreSettings['primaryInfusion'] */ = '';
-    let settings_primaryMaxInfusions /* : OptimizerCoreSettings['primaryMaxInfusions'] */ = 0;
-    let settings_secondaryInfusion /* : OptimizerCoreSettings['secondaryInfusion'] */ = '';
-    let settings_secondaryMaxInfusions /* : OptimizerCoreSettings['secondaryMaxInfusions'] */ = 0;
+    let settings_primaryInfusion: OptimizerCoreSettings['primaryInfusion'] = '';
+    let settings_primaryMaxInfusions: OptimizerCoreSettings['primaryMaxInfusions'] = 0;
+    let settings_secondaryInfusion: OptimizerCoreSettings['secondaryInfusion'] = '';
+    let settings_secondaryMaxInfusions: OptimizerCoreSettings['secondaryMaxInfusions'] = 0;
 
     let activeInfusions = 0;
     if (primaryInfusion && primaryInfusion !== 'None') {
@@ -538,7 +534,7 @@ export function stateToCombinations(reduxState) {
     // currently unimplemented setting
     const infusionNoDuplicates = false;
 
-    let settings_infusionMode /* : OptimizerCoreSettings['infusionMode'] */ = 'None';
+    let settings_infusionMode: OptimizerCoreSettings['infusionMode'] = 'None';
     switch (activeInfusions) {
       case 0:
         settings_infusionMode = 'None';
@@ -562,18 +558,18 @@ export function stateToCombinations(reduxState) {
 
     const Affix = { ...unmodifiedAffix, Custom: { ...unmodifiedAffix.Custom, ...customAffixData } };
 
-    const settings_slots /* : OptimizerCoreSettings['slots'] */ = Slots[weaponType];
+    const settings_slots: OptimizerCoreSettings['slots'] = Slots[weaponType];
 
     // affixesArray: valid affixes for each slot, taking forced slots into account
     // e.g. [[Berserker, Assassin], [Assassin], [Berserker, Assassin]...]
-    let settings_affixesArray /* : OptimizerCoreSettings['affixesArray'] */ = new Array(
+    let settings_affixesArray: OptimizerCoreSettings['affixesArray'] = new Array(
       settings_slots.length,
     ).fill(affixes);
 
-    let settings_forcedArmor /* : OptimizerCoreSettings['forcedArmor'] */ = false;
-    let settings_forcedRing /* : OptimizerCoreSettings['forcedRing'] */ = false;
-    let settings_forcedAcc /* : OptimizerCoreSettings['forcedAcc'] */ = false;
-    let settings_forcedWep /* : OptimizerCoreSettings['forcedWep'] */ = false;
+    let settings_forcedArmor: OptimizerCoreSettings['forcedArmor'] = false;
+    let settings_forcedRing: OptimizerCoreSettings['forcedRing'] = false;
+    let settings_forcedAcc: OptimizerCoreSettings['forcedAcc'] = false;
+    let settings_forcedWep: OptimizerCoreSettings['forcedWep'] = false;
 
     slots.forEach((affix, index) => {
       if (!affix) {
@@ -602,7 +598,7 @@ export function stateToCombinations(reduxState) {
       if (affixOptions.length === 1) {
         return affixOptions;
       }
-      const result /* : AffixName[] */ = [];
+      const result: AffixName[] = [];
       for (const [index, affix] of affixOptions.entries()) {
         result[(index + slotindex) % affixOptions.length] = affix;
       }
@@ -613,10 +609,10 @@ export function stateToCombinations(reduxState) {
     // like affixesArray, but each entry is an array of arrays of stats given by that piece with
     // that affix
     // e.g. berserker helm -> [[Power, 63],[Precision, 45],[Ferocity, 45]]
-    const settings_affixStatsArray /* : OptimizerCoreSettings['affixStatsArray'] */ =
+    const settings_affixStatsArray: OptimizerCoreSettings['affixStatsArray'] =
       settings_affixesArray.map((possibleAffixes, slotindex) =>
         possibleAffixes.map((affix) => {
-          const statTotals /* : Record<string, number> */ = {};
+          const statTotals: Record<string, number> = {};
           const bonuses = Object.entries(
             settings_slots[slotindex].item[Affix[affix /* as keyof typeof Affix */].type],
           );
@@ -631,7 +627,7 @@ export function stateToCombinations(reduxState) {
       );
 
     // used to keep the progress counter in sync when skipping identical gear combinations.
-    const settings_runsAfterThisSlot /* : OptimizerCoreSettings['runsAfterThisSlot'] */ = [];
+    const settings_runsAfterThisSlot: OptimizerCoreSettings['runsAfterThisSlot'] = [];
     for (let index = 0; index < settings_affixesArray.length; index++) {
       let counter = 1;
       for (const affixOptions of settings_affixesArray.slice(index)) {
@@ -665,7 +661,7 @@ export function stateToCombinations(reduxState) {
     //   return num / denom;
     // }
 
-    const settings /* : OptimizerCoreSettings */ = {
+    const settings: OptimizerCoreSettings = {
       profession,
       weaponType,
       affixes,
@@ -707,7 +703,7 @@ export function stateToCombinations(reduxState) {
     };
 
     // only supply character with settings it uses to render
-    const minimalSettings /* : OptimizerCoreMinimalSettings */ = {
+    const minimalSettings: OptimizerCoreMinimalSettings = {
       cachedFormState: settings.cachedFormState,
       profession: settings.profession,
       specialization: settings.specialization,
