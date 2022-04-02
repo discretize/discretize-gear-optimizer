@@ -1034,6 +1034,8 @@ export const INFUSION_IDS = {
   'Vitality': 37136,
 };
 
+export type InfusionName = keyof typeof INFUSION_IDS;
+
 export const infusionIds = {
   '+1 Agony Infusion': { id: 49424, cost: 7 },
   '+2 Agony Infusion': { id: 49425, cost: 164 },

@@ -12,6 +12,7 @@ import {
 import type {
   AffixName,
   ConditionName,
+  InfusionName,
   ProfessionName,
   WeaponHandednessType,
 } from '../../utils/gw2-data';
@@ -81,6 +82,27 @@ interface AppliedModifier {
   // },
 }
 
+// todo: move these; they should be synchronized with ../../assets/modifierdata/metadata.js and
+// ../../components/sections/distribution/DamageDistribution.jsx
+// (unsure how that would best be done)
+type DistributionNameUI = 'Power' | 'Burning' | 'Bleeding' | 'Poisoned' | 'Torment' | 'Confusion';
+type DistributionNameInternal =
+  | 'Power'
+  | 'Burning'
+  | 'Bleeding'
+  | 'Poison'
+  | 'Torment'
+  | 'Confusion';
+
+// todo: integrate this with gw2-data.js?
+interface CustomAffixData {
+  type: 'triple' | 'quadruple' | 'celestial';
+  bonuses: {
+    major?: AffixName[];
+    minor?: AffixName[];
+  };
+}
+
 // interface OptimizerInput {
 //   profession: ProfessionName;
 //   specialization: string;
@@ -112,12 +134,12 @@ interface AppliedModifier {
 //   customAffixData: any;
 // }
 
-export function stateToCombinations(reduxState) {
+export function stateToCombinations(reduxState: any) {
   const state = reduxState.optimizer;
 
   const specialization = getCurrentSpecialization(reduxState);
 
-  const sharedModifiers = [
+  const sharedModifiers: AppliedModifier[] = [
     ...(getBuffsModifiers(reduxState) || []),
     ...(getExtraModifiersModifiers(reduxState) || []),
     ...(getInfusionsModifiers(reduxState) || []),
@@ -125,7 +147,7 @@ export function stateToCombinations(reduxState) {
     ...(getTraitsModifiers(reduxState) || []),
   ];
 
-  const customAffixData = getCustomAffixData(reduxState);
+  const customAffixData: CustomAffixData = getCustomAffixData(reduxState);
 
   // display extras in table if they have multiple options
   const shouldDisplayExtras = mapValues(
@@ -142,7 +164,8 @@ export function stateToCombinations(reduxState) {
   }));
 
   for (const combination of combinations) {
-    const { extrasCombination, extrasModifiers } = combination;
+    const { extrasCombination } = combination;
+    const { extrasModifiers }: { extrasModifiers: AppliedModifier[] } = combination;
     const appliedModifiers = [...sharedModifiers, ...extrasModifiers];
 
     const cachedFormState = {
@@ -152,29 +175,37 @@ export function stateToCombinations(reduxState) {
       buffs: state.form.buffs, // buffs are also needed to share a build and display the assumed buffs for the result
     };
 
-    const profession = getProfession(reduxState);
-    const primaryInfusion = getPrimaryInfusion(reduxState);
-    const secondaryInfusion = getSecondaryInfusion(reduxState);
-    const maxInfusionsText = getMaxInfusions(reduxState);
-    const primaryMaxInfusionsText = getPrimaryMaxInfusions(reduxState);
-    const secondaryMaxInfusionsText = getSecondaryMaxInfusions(reduxState);
-    const slots = getForcedSlots(reduxState);
-    const optimizeFor = getPriority('optimizeFor')(reduxState);
-    const weaponType = getPriority('weaponType')(reduxState);
-    const minBoonDurationText = getPriority('minBoonDuration')(reduxState);
-    const minHealingPowerText = getPriority('minHealingPower')(reduxState);
-    const minToughnessText = getPriority('minToughness')(reduxState);
-    const maxToughnessText = getPriority('maxToughness')(reduxState);
-    const minHealthText = getPriority('minHealth')(reduxState);
-    const minCritChanceText = getPriority('minCritChance')(reduxState);
-    const unmodifiedAffixes = getPriority('affixes')(reduxState);
-    const unmodifiedDistribution = getDistributionNew(reduxState);
-    const attackRateText = getAttackRate(reduxState);
-    const movementUptimeText = getMovementUptime(reduxState);
+    const profession: ProfessionName | '' = getProfession(reduxState);
+    const primaryInfusion: InfusionName | '' = getPrimaryInfusion(reduxState);
+    const secondaryInfusion: InfusionName | '' = getSecondaryInfusion(reduxState);
+    const maxInfusionsText: string = getMaxInfusions(reduxState);
+    const primaryMaxInfusionsText: string = getPrimaryMaxInfusions(reduxState);
+    const secondaryMaxInfusionsText: string = getSecondaryMaxInfusions(reduxState);
+    const slots: (AffixName | null)[] = getForcedSlots(reduxState);
+    // todo: extract this as a type
+    const optimizeFor: 'Damage' | 'Survivability' | 'Healing' =
+      getPriority('optimizeFor')(reduxState);
+    const weaponType: WeaponHandednessType = getPriority('weaponType')(reduxState);
+    const minBoonDurationText: string = getPriority('minBoonDuration')(reduxState);
+    const minHealingPowerText: string = getPriority('minHealingPower')(reduxState);
+    const minToughnessText: string = getPriority('minToughness')(reduxState);
+    const maxToughnessText: string = getPriority('maxToughness')(reduxState);
+    const minHealthText: string = getPriority('minHealth')(reduxState);
+    const minCritChanceText: string = getPriority('minCritChance')(reduxState);
+    const affixes: AffixName[] = getPriority('affixes')(reduxState);
+    const unmodifiedDistribution: Record<DistributionNameUI, number> =
+      getDistributionNew(reduxState);
+    const attackRateText: string = getAttackRate(reduxState);
+    const movementUptimeText: string = getMovementUptime(reduxState);
 
-    const affixes = unmodifiedAffixes.map((affix) =>
-      affix.toLowerCase().replace(/^\w/, (char) => char.toUpperCase()),
-    );
+    // todo: consolidate error handling
+    if (profession === '') {
+      throw new Error('missing profession!');
+    }
+
+    // const affixes = unmodifiedAffixes.map((affix) =>
+    //   affix.toLowerCase().replace(/^\w/, (char) => char.toUpperCase()),
+    // );
 
     const maxInfusions = parseInfusionCount(maxInfusionsText).value;
     const primaryMaxInfusions = parseInfusionCount(primaryMaxInfusionsText).value;
@@ -193,7 +224,7 @@ export function stateToCombinations(reduxState) {
     let distribution = unmodifiedDistribution;
 
     // temp: convert "poisoned" to "poison"
-    const convertPoison = (dist) =>
+    const convertPoison = (dist: Record<DistributionNameUI, number>) =>
       mapEntries(dist, ([key, value]) => [key === 'Poisoned' ? 'Poison' : key, value]);
 
     if ({}.hasOwnProperty.call(distribution, 'Poisoned')) {
