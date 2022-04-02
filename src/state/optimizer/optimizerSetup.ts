@@ -8,12 +8,12 @@ import {
   allAttributePointKeys,
   allConversionAfterBuffsSourceKeys,
 } from '../../assets/modifierdata/metadata';
-import type {
-  AffixName,
-  ConditionName,
-  ProfessionName,
-  WeaponHandednessType,
-} from '../../utils/gw2-data';
+// import type {
+//   AffixName,
+//   ConditionName,
+//   ProfessionName,
+//   WeaponHandednessType
+// } from '../../utils/gw2-data';
 import {
   Affix as unmodifiedAffix,
   Attributes,
@@ -37,76 +37,76 @@ import { getInfusionsModifiers } from '../slices/infusions';
 import { getCustomAffixData } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
-import type { OptimizerCoreMinimalSettings, OptimizerCoreSettings } from './optimizerCore';
+// import type { OptimizerCoreMinimalSettings, OptimizerCoreSettings } from './optimizerCore';
 import { clamp, scaleValue } from './optimizerCore';
 
-type MultiplierName =
-  | 'Strike Damage'
-  | 'Condition Damage'
-  | 'Siphon Damage'
-  | 'Damage Taken'
-  | 'Critical Damage'
-  | 'Bleeding Damage'
-  | 'Burning Damage'
-  | 'Confusion Damage'
-  | 'Poison Damage'
-  | 'Torment Damage';
+// type MultiplierName =
+//   | 'Strike Damage'
+//   | 'Condition Damage'
+//   | 'Siphon Damage'
+//   | 'Damage Taken'
+//   | 'Critical Damage'
+//   | 'Bleeding Damage'
+//   | 'Burning Damage'
+//   | 'Confusion Damage'
+//   | 'Poison Damage'
+//   | 'Torment Damage';
 
-interface AppliedModifier {
-  id: string;
-  visible: boolean;
-  enabled: boolean;
-  amount: string;
-  modifiers: {
-    damage: Record<string, any>;
-    attributes: Record<string, any>;
-    conversion: Record<string, any>;
-    conversionAfterBuffs: Record<string, any>;
-    // note,
-    // ...otherModifiers
-  };
-  amountData: any;
-  // },
-}
+// interface AppliedModifier {
+//   id: string;
+//   visible: boolean;
+//   enabled: boolean;
+//   amount: string;
+//   modifiers: {
+//     damage: Record<string, any>;
+//     attributes: Record<string, any>;
+//     conversion: Record<string, any>;
+//     conversionAfterBuffs: Record<string, any>;
+//     // note,
+//     // ...otherModifiers
+//   };
+//   amountData: any;
+//   // },
+// }
 
-interface OptimizerInput {
-  profession: ProfessionName;
-  specialization: string;
-  weaponType: WeaponHandednessType;
-  affixes: AffixName[]; // all selected gear affixes to iterate over
-  forcedAffixes: (AffixName | null)[]; // array of specific affix names for each slot, or '' for unspecfied
-  rankby: 'Damage' | 'Survivability' | 'Healing';
-  minBoonDuration: number | null;
-  minHealingPower: number | null;
-  minToughness: number | null;
-  maxToughness: number | null;
-  minHealth: number | null;
-  minCritChance: number | null;
-  maxResults: number;
-  primaryInfusion?: string;
-  secondaryInfusion?: string;
-  maxInfusions: number; // number of infusions, 0-18
-  primaryMaxInfusions: number; // number of infusions, 0-18
-  secondaryMaxInfusions: number; // number of infusions, 0-18
-  distributionVersion?: 1 | 2; // version 1: old style (percentDistribution), verison 2: new style (coeff / sec)
-  percentDistribution?: Record<string, number>; // old style distribution (sums to 100)
-  distribution?: Record<string, number>; // new style distribution (coefficient * weaponstrength per second; average condition stacks)
-  attackRate: number; // boss attack rate (for confusion)
-  movementUptime: number; // boss movement uptime (for torment)
+// interface OptimizerInput {
+//   profession: ProfessionName;
+//   specialization: string;
+//   weaponType: WeaponHandednessType;
+//   affixes: AffixName[]; // all selected gear affixes to iterate over
+//   forcedAffixes: (AffixName | null)[]; // array of specific affix names for each slot, or '' for unspecfied
+//   rankby: 'Damage' | 'Survivability' | 'Healing';
+//   minBoonDuration: number | null;
+//   minHealingPower: number | null;
+//   minToughness: number | null;
+//   maxToughness: number | null;
+//   minHealth: number | null;
+//   minCritChance: number | null;
+//   maxResults: number;
+//   primaryInfusion?: string;
+//   secondaryInfusion?: string;
+//   maxInfusions: number; // number of infusions, 0-18
+//   primaryMaxInfusions: number; // number of infusions, 0-18
+//   secondaryMaxInfusions: number; // number of infusions, 0-18
+//   distributionVersion?: 1 | 2; // version 1: old style (percentDistribution), verison 2: new style (coeff / sec)
+//   percentDistribution?: Record<string, number>; // old style distribution (sums to 100)
+//   distribution?: Record<string, number>; // new style distribution (coefficient * weaponstrength per second; average condition stacks)
+//   attackRate: number; // boss attack rate (for confusion)
+//   movementUptime: number; // boss movement uptime (for torment)
 
-  appliedModifiers: AppliedModifier[]; // array of modifier objects
+//   appliedModifiers: AppliedModifier[]; // array of modifier objects
 
-  infusionNoDuplicates: any;
-  customAffixData: any;
-}
+//   infusionNoDuplicates: any;
+//   customAffixData: any;
+// }
 /**
  * Sets up optimizer with input data
  *
  * @param {object} input See typescript
  */
 export function inputToSettings(
-  input: OptimizerInput,
-): [OptimizerCoreSettings, OptimizerCoreMinimalSettings] {
+  input /* : OptimizerInput */,
+) /* : [OptimizerCoreSettings, OptimizerCoreMinimalSettings] */ {
   /* eslint-disable camelcase */
   /* eslint-disable prefer-const */
   let {
@@ -124,14 +124,14 @@ export function inputToSettings(
 
   // legacy percent distribution conversion
   // see: https://github.com/discretize/discretize-old/discussions/136
-  let settings_distribution: OptimizerCoreSettings['distribution'];
+  let settings_distribution /* : OptimizerCoreSettings['distribution'] */;
   if (input.percentDistribution && input.distributionVersion !== 2) {
     const { Power, ...rest } = input.percentDistribution;
     settings_distribution = {};
     settings_distribution['Power'] = (Power * 2597) / 1025;
     for (const [condition, value] of Object.entries(rest)) {
       settings_distribution[condition] =
-        value / conditionData[condition as ConditionName].baseDamage;
+        value / conditionData[condition /*  as ConditionName */].baseDamage;
     }
   } else if (others.distribution) {
     settings_distribution = others.distribution;
@@ -141,7 +141,7 @@ export function inputToSettings(
 
   /* Base Attributes */
 
-  const settings_baseAttributes: OptimizerCoreSettings['baseAttributes'] = {};
+  const settings_baseAttributes /* : OptimizerCoreSettings['baseAttributes'] */ = {};
   settings_baseAttributes.Health = Classes[others.profession].health;
   settings_baseAttributes.Armor = Classes[others.profession].defense;
 
@@ -166,13 +166,13 @@ export function inputToSettings(
 
   /* Modifiers */
 
-  const settings_modifiers: OptimizerCoreSettings['modifiers'] = {
+  const settings_modifiers /* : OptimizerCoreSettings['modifiers'] */ = {
     damageMultiplier: {},
     buff: [],
     convert: [],
     convertAfterBuffs: [],
   };
-  const initialMultipliers: Record<MultiplierName, number> = {
+  const initialMultipliers /* : Record<MultiplierName, number> */ = {
     'Strike Damage': 1,
     'Condition Damage': 1,
     'Siphon Damage': 1,
@@ -190,9 +190,9 @@ export function inputToSettings(
     target: { ...initialMultipliers },
   };
   const dmgBuff = (
-    attribute: keyof typeof initialMultipliers,
-    amount: number,
-    addOrMult: 'add' | 'target' | 'mult',
+    attribute /* : keyof typeof initialMultipliers */,
+    amount /* : number */,
+    addOrMult /* : 'add' | 'target' | 'mult' */,
   ) => {
     switch (addOrMult) {
       case 'add':
@@ -208,7 +208,7 @@ export function inputToSettings(
     }
   };
 
-  const parsePercent = (percentValue: string) => Number(percentValue.replace('%', '')) / 100;
+  const parsePercent = (percentValue /* : string */) => Number(percentValue.replace('%', '')) / 100;
 
   // Special handler for conversions that convert to condi coefficients; ensures that
   // relevantConditions includes them even if their coefficient sliders are 0
@@ -216,7 +216,7 @@ export function inputToSettings(
   const extraRelevantConditions = Object.fromEntries(
     Object.keys(conditionData).map((condition) => [condition, false]),
   );
-  const makeConditionsRelevant = (attribute: string) => {
+  const makeConditionsRelevant = (attribute /* : string */) => {
     const condition = attribute.replace(' Coefficient', '');
     if (extraRelevantConditions[condition] !== undefined) {
       extraRelevantConditions[condition] = true;
@@ -252,7 +252,7 @@ export function inputToSettings(
       // damage, i.e.
       //   Strike Damage: [3%, add, 7%, mult]
 
-      const allPairsMut = [...(allPairs as any[])];
+      const allPairsMut = [...allPairs /*  as any[] */];
       while (allPairsMut.length) {
         const [percentAmount, addOrMult] = allPairsMut.splice(0, 2);
 
@@ -295,7 +295,7 @@ export function inputToSettings(
         // stat, i.e.
         //   Concentration: [70, converted, 100, buff]
 
-        const allPairsMut = [...(allPairs as any[])];
+        const allPairsMut = [...allPairs /*  as any[] */];
         while (allPairsMut.length) {
           const [amount, convertedOrBuff] = allPairsMut.splice(0, 2);
           const scaledAmount = scaleValue(amount, amountInput, amountData);
@@ -353,7 +353,7 @@ export function inputToSettings(
       }
       for (const [source, percentAmount] of Object.entries(val)) {
         const scaledAmount = scaleValue(
-          parsePercent(percentAmount as string),
+          parsePercent(percentAmount /*  as string */),
           amountInput,
           amountData,
         );
@@ -378,7 +378,7 @@ export function inputToSettings(
         if (!valid) alert(`Unsupported after-buff conversion source: ${source}`);
 
         const scaledAmount = scaleValue(
-          parsePercent(percentAmount as string),
+          parsePercent(percentAmount /*  as string */),
           amountInput,
           amountData,
         );
@@ -391,38 +391,38 @@ export function inputToSettings(
 
   Object.keys(initialMultipliers).forEach((attribute) => {
     settings_modifiers.damageMultiplier[attribute] =
-      allDmgMult.mult[attribute as MultiplierName] *
-      allDmgMult.add[attribute as MultiplierName] *
-      allDmgMult.target[attribute as MultiplierName];
+      allDmgMult.mult[attribute /*  as MultiplierName */] *
+      allDmgMult.add[attribute /*  as MultiplierName */] *
+      allDmgMult.target[attribute /*  as MultiplierName */];
   });
 
   // convert modifiers to arrays for simpler iteration
   settings_modifiers['buff'] = Object.entries(settings_modifiers['buff'] || {});
   settings_modifiers['convert'] = Object.entries(settings_modifiers['convert'] || {}).map(
-    ([attribute, conversion]) => [attribute, Object.entries(conversion as any)],
+    ([attribute, conversion]) => [attribute, Object.entries(conversion /*  as any */)],
   );
   settings_modifiers['convertAfterBuffs'] = Object.entries(
     settings_modifiers['convertAfterBuffs'] || {},
-  ).map(([attribute, conversion]) => [attribute, Object.entries(conversion as any)]);
+  ).map(([attribute, conversion]) => [attribute, Object.entries(conversion /*  as any */)]);
 
   /* Relevant Conditions + Condi Caching Toggle */
 
-  const settings_relevantConditions: OptimizerCoreSettings['relevantConditions'] = (
-    Object.keys(conditionData) as ConditionName[]
-  ).filter(
-    (condition) =>
-      (settings_baseAttributes[`${condition} Coefficient`] ?? 0) > 0 ||
-      extraRelevantConditions[condition],
-  );
+  const settings_relevantConditions /* : OptimizerCoreSettings['relevantConditions'] */ =
+    Object.keys(conditionData) /*  as ConditionName[] */
+      .filter(
+        (condition) =>
+          (settings_baseAttributes[`${condition} Coefficient`] ?? 0) > 0 ||
+          extraRelevantConditions[condition],
+      );
 
   // if any condition coefficnents are the result of a conversion, the same cdmg + expertise does
   // not mean the same condition dps; disable caching if so
-  const settings_disableCondiResultCache: OptimizerCoreSettings['disableCondiResultCache'] =
+  const settings_disableCondiResultCache /* : OptimizerCoreSettings['disableCondiResultCache'] */ =
     Object.values(extraRelevantConditions).some(Boolean);
 
   /* Infusions */
 
-  const settings_maxInfusions: OptimizerCoreSettings['maxInfusions'] = clamp(
+  const settings_maxInfusions /* : OptimizerCoreSettings['maxInfusions'] */ = clamp(
     others.maxInfusions,
     0,
     18,
@@ -436,10 +436,10 @@ export function inputToSettings(
     ...Attributes.DERIVED,
   ]);
 
-  let settings_primaryInfusion: OptimizerCoreSettings['primaryInfusion'] = '';
-  let settings_primaryMaxInfusions: OptimizerCoreSettings['primaryMaxInfusions'] = 0;
-  let settings_secondaryInfusion: OptimizerCoreSettings['secondaryInfusion'] = '';
-  let settings_secondaryMaxInfusions: OptimizerCoreSettings['secondaryMaxInfusions'] = 0;
+  let settings_primaryInfusion /* : OptimizerCoreSettings['primaryInfusion'] */ = '';
+  let settings_primaryMaxInfusions /* : OptimizerCoreSettings['primaryMaxInfusions'] */ = 0;
+  let settings_secondaryInfusion /* : OptimizerCoreSettings['secondaryInfusion'] */ = '';
+  let settings_secondaryMaxInfusions /* : OptimizerCoreSettings['secondaryMaxInfusions'] */ = 0;
 
   let activeInfusions = 0;
   if (primaryInfusionInput && primaryInfusionInput !== 'None') {
@@ -476,7 +476,7 @@ export function inputToSettings(
     }
   }
 
-  let settings_infusionMode: OptimizerCoreSettings['infusionMode'] = 'None';
+  let settings_infusionMode /* : OptimizerCoreSettings['infusionMode'] */ = 'None';
   switch (activeInfusions) {
     case 0:
       settings_infusionMode = 'None';
@@ -497,18 +497,18 @@ export function inputToSettings(
 
   const Affix = { ...unmodifiedAffix, Custom: { ...unmodifiedAffix.Custom, ...customAffixData } };
 
-  const settings_slots: OptimizerCoreSettings['slots'] = Slots[others.weaponType];
+  const settings_slots /* : OptimizerCoreSettings['slots'] */ = Slots[others.weaponType];
 
   // affixesArray: valid affixes for each slot, taking forced slots into account
   // e.g. [[Berserker, Assassin], [Assassin], [Berserker, Assassin]...]
-  let settings_affixesArray: OptimizerCoreSettings['affixesArray'] = new Array(
+  let settings_affixesArray /* : OptimizerCoreSettings['affixesArray'] */ = new Array(
     settings_slots.length,
   ).fill(others.affixes);
 
-  let settings_forcedArmor: OptimizerCoreSettings['forcedArmor'] = false;
-  let settings_forcedRing: OptimizerCoreSettings['forcedRing'] = false;
-  let settings_forcedAcc: OptimizerCoreSettings['forcedAcc'] = false;
-  let settings_forcedWep: OptimizerCoreSettings['forcedWep'] = false;
+  let settings_forcedArmor /* : OptimizerCoreSettings['forcedArmor'] */ = false;
+  let settings_forcedRing /* : OptimizerCoreSettings['forcedRing'] */ = false;
+  let settings_forcedAcc /* : OptimizerCoreSettings['forcedAcc'] */ = false;
+  let settings_forcedWep /* : OptimizerCoreSettings['forcedWep'] */ = false;
 
   others.forcedAffixes.forEach((affix, index) => {
     if (!affix) {
@@ -537,7 +537,7 @@ export function inputToSettings(
     if (affixes.length === 1) {
       return affixes;
     }
-    const result: AffixName[] = [];
+    const result /* : AffixName[] */ = [];
     for (const [index, affix] of affixes.entries()) {
       result[(index + slotindex) % affixes.length] = affix;
     }
@@ -548,16 +548,16 @@ export function inputToSettings(
   // like affixesArray, but each entry is an array of arrays of stats given by that piece with
   // that affix
   // e.g. berserker helm -> [[Power, 63],[Precision, 45],[Ferocity, 45]]
-  const settings_affixStatsArray: OptimizerCoreSettings['affixStatsArray'] =
+  const settings_affixStatsArray /* : OptimizerCoreSettings['affixStatsArray'] */ =
     settings_affixesArray.map((possibleAffixes, slotindex) =>
       possibleAffixes.map((affix) => {
-        const statTotals: Record<string, number> = {};
+        const statTotals /* : Record<string, number> */ = {};
         const bonuses = Object.entries(
-          settings_slots[slotindex].item[Affix[affix as keyof typeof Affix].type],
+          settings_slots[slotindex].item[Affix[affix /* as keyof typeof Affix */].type],
         );
         for (const [type, bonus] of bonuses) {
-          for (const stat of Affix[affix as keyof typeof Affix].bonuses[type]) {
-            statTotals[stat] = (statTotals[stat] || 0) + (bonus as number);
+          for (const stat of Affix[affix /* as keyof typeof Affix */].bonuses[type]) {
+            statTotals[stat] = (statTotals[stat] || 0) + bonus /* as number */;
           }
         }
 
@@ -566,7 +566,7 @@ export function inputToSettings(
     );
 
   // used to keep the progress counter in sync when skipping identical gear combinations.
-  const settings_runsAfterThisSlot: OptimizerCoreSettings['runsAfterThisSlot'] = [];
+  const settings_runsAfterThisSlot /* : OptimizerCoreSettings['runsAfterThisSlot'] */ = [];
   for (let index = 0; index < settings_affixesArray.length; index++) {
     let counter = 1;
     for (const affixes of settings_affixesArray.slice(index)) {
@@ -600,7 +600,7 @@ export function inputToSettings(
   //   return num / denom;
   // }
 
-  const settings: OptimizerCoreSettings = {
+  const settings /* : OptimizerCoreSettings */ = {
     ...others,
     distribution: settings_distribution,
     baseAttributes: settings_baseAttributes,
@@ -624,7 +624,7 @@ export function inputToSettings(
   };
 
   // only supply character with settings it uses to render
-  const minimalSettings: OptimizerCoreMinimalSettings = {
+  const minimalSettings /* : OptimizerCoreMinimalSettings */ = {
     cachedFormState: settings.cachedFormState,
     profession: settings.profession,
     specialization: settings.specialization,
