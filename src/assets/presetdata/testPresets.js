@@ -118,6 +118,7 @@ const testModifiers = async () => {
         // distribution,
         // traits,
         // extras,
+        weaponType,
       } = item;
 
       if (id) {
@@ -143,6 +144,11 @@ const testModifiers = async () => {
         const profIsFine = !match.profession || match?.profession === specialization;
         if (!profIsFine) console.log(`❓ ${name}'s ${type}'s profession is wrong!`);
       }
+
+      gentleAssert(
+        ['Dual wield', 'Two-handed', 'unset'].includes(weaponType),
+        `err: ${name}'s weaponType is not valid!`,
+      );
     }
   }
 
