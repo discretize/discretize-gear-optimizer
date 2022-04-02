@@ -184,14 +184,13 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
   return (
     <ErrorBoundary location="Character" resetKeys={[character]}>
       <Character
-        profession={profession}
-        attributes={attributes}
-        armorPropsAPI={armorPropsAPI}
-        weaponPropsAPI={weaponPropsAPI}
-        backAndTrinketPropsAPI={backAndTrinketPropsAPI}
-        consumablesPropsAPI={{ foodId, utilityId }}
-        skillsPropsAPI={skillsPropsAPI}
-        assumedBuffs={assumedBuffs}
+        attributes={{ profession, data: attributes }}
+        armor={armorPropsAPI}
+        weapon={weaponPropsAPI}
+        backAndTrinket={backAndTrinketPropsAPI}
+        consumables={{ foodId, utilityId }}
+        skills={skillsPropsAPI}
+        assumedBuffs={{ value: assumedBuffs }}
         imageElement={
           <img
             style={{ width: '100%' }}
