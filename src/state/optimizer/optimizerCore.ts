@@ -8,11 +8,17 @@ import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
 import type {
   AffixName,
   ConditionName,
+  InfusionName,
   ProfessionName,
   WeaponHandednessType,
 } from '../../utils/gw2-data';
 import { Attributes, conditionData, INFUSION_BONUS } from '../../utils/gw2-data';
-import type { AppliedModifier, Modifiers } from './optimizerSetup';
+import type {
+  AppliedModifier,
+  DistributionNameInternal,
+  InfusionMode,
+  Modifiers,
+} from './optimizerSetup';
 
 /**
  * Scales a modifier value linearly up or down by a user-specified amount, in accordance with the
@@ -107,27 +113,27 @@ export interface OptimizerCoreSettings {
   minHealth: number | null;
   minCritChance: number | null;
   maxResults: number;
-  primaryInfusion: string;
-  secondaryInfusion: string;
+  primaryInfusion: InfusionName | '';
+  secondaryInfusion: InfusionName | '';
   primaryMaxInfusions: number;
   secondaryMaxInfusions: number;
   maxInfusions: number;
-  distribution: Record<string, number>;
+  distribution: Record<DistributionNameInternal, number>;
   attackRate: number;
   movementUptime: number;
 
   // these are in addition to the input
-  infusionMode: string;
+  infusionMode: InfusionMode;
   affixes: AffixName[];
   forcedRing: boolean;
   forcedAcc: boolean;
   forcedWep: boolean;
   forcedArmor: boolean;
   slots: any;
-  runsAfterThisSlot: any;
+  runsAfterThisSlot: number[];
   affixesArray: AffixName[][];
-  affixStatsArray: any;
-  baseAttributes: Record<string, number>;
+  affixStatsArray: [AttributeName, number][][][];
+  baseAttributes: Record<AttributeName, number>;
   modifiers: Modifiers;
   disableCondiResultCache: boolean;
   relevantConditions: ConditionName[];

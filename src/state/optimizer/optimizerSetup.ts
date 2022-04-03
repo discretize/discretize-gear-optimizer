@@ -103,7 +103,7 @@ export interface AppliedModifier {
 // ../../components/sections/distribution/DamageDistribution.jsx
 // (unsure how that would best be done)
 type DistributionNameUI = 'Power' | 'Burning' | 'Bleeding' | 'Poisoned' | 'Torment' | 'Confusion';
-type DistributionNameInternal =
+export type DistributionNameInternal =
   | 'Power'
   | 'Burning'
   | 'Bleeding'
@@ -132,6 +132,8 @@ export interface Modifiers {
   convert: [string, [string, number][]][];
   convertAfterBuffs: [string, [string, number][]][];
 }
+
+export type InfusionMode = 'None' | 'Primary' | 'Few' | 'Secondary' | 'SecondaryNoDuplicates';
 
 // interface OptimizerInput {
 //   profession: ProfessionName;
@@ -164,7 +166,7 @@ export interface Modifiers {
 //   customAffixData: any;
 // }
 
-export function stateToCombinations(reduxState: any) {
+export function setupCombinations(reduxState: any) {
   const state = reduxState.optimizer;
 
   const specialization: string = getCurrentSpecialization(reduxState);
@@ -210,7 +212,7 @@ export function stateToCombinations(reduxState: any) {
     const maxInfusionsText: string = getMaxInfusions(reduxState);
     const primaryMaxInfusionsText: string = getPrimaryMaxInfusions(reduxState);
     const secondaryMaxInfusionsText: string = getSecondaryMaxInfusions(reduxState);
-    const slots: (AffixName | null)[] = getForcedSlots(reduxState);
+    const forcedSlots: (AffixName | null)[] = getForcedSlots(reduxState);
     // todo: extract this as a type
     const optimizeFor: 'Damage' | 'Survivability' | 'Healing' =
       getPriority('optimizeFor')(reduxState);
@@ -288,7 +290,6 @@ export function stateToCombinations(reduxState: any) {
     /* Modifiers */
 
     const collectedModifiers: CollectedModifiers = {
-      damageMultiplier: {},
       buff: {},
       convert: {},
       convertAfterBuffs: {},
@@ -644,7 +645,7 @@ export function stateToCombinations(reduxState: any) {
     let settings_forcedAcc: OptimizerCoreSettings['forcedAcc'] = false;
     let settings_forcedWep: OptimizerCoreSettings['forcedWep'] = false;
 
-    slots.forEach((affix, index) => {
+    forcedSlots.forEach((affix, index) => {
       if (!affix) {
         return;
       }
@@ -738,7 +739,7 @@ export function stateToCombinations(reduxState: any) {
       profession,
       weaponType,
       affixes,
-      forcedAffixes: slots,
+      forcedAffixes: forcedSlots,
       rankby: optimizeFor,
       minBoonDuration,
       minHealingPower,

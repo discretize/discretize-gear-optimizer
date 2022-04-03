@@ -1,5 +1,5 @@
 import { characterLT, OptimizerCore } from './optimizerCore';
-import { stateToCombinations } from './optimizerSetup';
+import { setupCombinations } from './optimizerSetup';
 
 const isArrayDifferent = (a, b) => {
   if (a.length !== b.length) return true;
@@ -14,7 +14,7 @@ export function* calculate(reduxState) {
    * set up input
    */
 
-  const combinations = stateToCombinations(reduxState);
+  const combinations = setupCombinations(reduxState);
 
   for (const combination of combinations) {
     combination.core = new OptimizerCore(combination.settings, combination.minimalSettings);
