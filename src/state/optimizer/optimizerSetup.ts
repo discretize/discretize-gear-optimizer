@@ -252,15 +252,11 @@ export function setupCombinations(reduxState: any) {
     const attackRate = parseBoss(attackRateText).value ?? 0;
     const movementUptime = (parseBoss(movementUptimeText).value ?? 0) / 100;
 
-    let distribution = unmodifiedDistribution;
-
     // temp: convert "poisoned" to "poison"
     const convertPoison = (dist: Record<DistributionNameUI, number>) =>
       mapEntries(dist, ([key, value]) => [key === 'Poisoned' ? 'Poison' : key, value]);
 
-    if ({}.hasOwnProperty.call(distribution, 'Poisoned')) {
-      distribution = convertPoison(distribution);
-    }
+    const distribution = convertPoison(unmodifiedDistribution);
 
     /* Base Attributes */
 
