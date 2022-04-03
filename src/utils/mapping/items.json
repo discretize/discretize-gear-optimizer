@@ -12892,10 +12892,22 @@
     "weight": "medium"
   },
   {
+    "id": 95749,
+    "name": "suunsherald",
+    "type": "warhorn",
+    "affix": "dragon"
+  },
+  {
     "id": 95781,
     "name": "togosreaver",
     "type": "axe",
     "affix": "ritualist"
+  },
+  {
+    "id": 95785,
+    "name": "jadepunktorch",
+    "type": "torch",
+    "affix": "dragon"
   },
   {
     "id": 95852,
@@ -12915,9 +12927,21 @@
     "type": "food"
   },
   {
+    "id": 95963,
+    "name": "jadepunkaxe",
+    "type": "axe",
+    "affix": "dragon"
+  },
+  {
     "id": 95985,
     "name": "jadepunkscepter",
     "type": "scepter",
+    "affix": "dragon"
+  },
+  {
+    "id": 95987,
+    "name": "suunsbastion",
+    "type": "shield",
     "affix": "dragon"
   },
   {
@@ -12932,6 +12956,18 @@
     "type": "helm",
     "affix": "ritualist",
     "weight": "light"
+  },
+  {
+    "id": 96029,
+    "name": "suunsharpoongun",
+    "type": "speargun",
+    "affix": "dragon"
+  },
+  {
+    "id": 96042,
+    "name": "suunsflangedmace",
+    "type": "mace",
+    "affix": "dragon"
   },
   {
     "id": 96044,
@@ -12967,6 +13003,12 @@
     "affix": "dragon"
   },
   {
+    "id": 96216,
+    "name": "jadepunkwarhorn",
+    "type": "warhorn",
+    "affix": "dragon"
+  },
+  {
     "id": 96230,
     "name": "suunsleggings",
     "type": "leggings",
@@ -12981,6 +13023,12 @@
     "weight": "medium"
   },
   {
+    "id": 96254,
+    "name": "suunswand",
+    "type": "scepter",
+    "affix": "dragon"
+  },
+  {
     "id": 96278,
     "name": "togosbreastplate",
     "type": "coat",
@@ -12988,11 +13036,59 @@
     "weight": "heavy"
   },
   {
+    "id": 96286,
+    "name": "suunsbrazier",
+    "type": "torch",
+    "affix": "dragon"
+  },
+  {
+    "id": 96331,
+    "name": "jadepunkpistol",
+    "type": "pistol",
+    "affix": "dragon"
+  },
+  {
+    "id": 96387,
+    "name": "jadepunkshortbow",
+    "type": "shortbow",
+    "affix": "dragon"
+  },
+  {
+    "id": 96417,
+    "name": "suunstrident",
+    "type": "trident",
+    "affix": "dragon"
+  },
+  {
     "id": 96431,
     "name": "suunsguise",
     "type": "coat",
     "affix": "dragon",
     "weight": "medium"
+  },
+  {
+    "id": 96433,
+    "name": "togosclaymore",
+    "type": "greatsword",
+    "affix": "ritualist"
+  },
+  {
+    "id": 96518,
+    "name": "jadepunklongbow",
+    "type": "longbow",
+    "affix": "dragon"
+  },
+  {
+    "id": 96522,
+    "name": "suunsshortbow",
+    "type": "shortbow",
+    "affix": "dragon"
+  },
+  {
+    "id": 96525,
+    "name": "togosimpaler",
+    "type": "harpoon",
+    "affix": "ritualist"
   },
   {
     "id": 96528,
@@ -13069,6 +13165,12 @@
     "weight": "medium"
   },
   {
+    "id": 96796,
+    "name": "suunsmusket",
+    "type": "rifle",
+    "affix": "dragon"
+  },
+  {
     "id": 96818,
     "name": "suunsbreeches",
     "type": "leggings",
@@ -13087,6 +13189,12 @@
     "type": "helm",
     "affix": "dragon",
     "weight": "medium"
+  },
+  {
+    "id": 96835,
+    "name": "suunsreaver",
+    "type": "axe",
+    "affix": "dragon"
   },
   {
     "id": 96869,
@@ -13128,9 +13236,21 @@
     "weight": "heavy"
   },
   {
+    "id": 96974,
+    "name": "suunsimpaler",
+    "type": "harpoon",
+    "affix": "dragon"
+  },
+  {
     "id": 96994,
     "name": "jadepunkgreatsword",
     "type": "greatsword",
+    "affix": "dragon"
+  },
+  {
+    "id": 97000,
+    "name": "jadepunkstaff",
+    "type": "staff",
     "affix": "dragon"
   },
   {
@@ -13147,6 +13267,12 @@
     "weight": "medium"
   },
   {
+    "id": 97156,
+    "name": "suunswarhammer",
+    "type": "hammer",
+    "affix": "dragon"
+  },
+  {
     "id": 97161,
     "name": "suunsmasque",
     "type": "helm",
@@ -13157,6 +13283,18 @@
     "id": 97162,
     "name": "jadepunkmace",
     "type": "mace",
+    "affix": "dragon"
+  },
+  {
+    "id": 97180,
+    "name": "togosharpoongun",
+    "type": "speargun",
+    "affix": "ritualist"
+  },
+  {
+    "id": 97184,
+    "name": "jadepunkfocus",
+    "type": "focus",
     "affix": "dragon"
   },
   {
@@ -13242,6 +13380,12 @@
     "affix": "ritualist"
   },
   {
+    "id": 97531,
+    "name": "togosmusket",
+    "type": "rifle",
+    "affix": "ritualist"
+  },
+  {
     "id": 97540,
     "name": "suunstassets",
     "type": "leggings",
@@ -13253,6 +13397,12 @@
     "name": "togostrident",
     "type": "trident",
     "affix": "ritualist"
+  },
+  {
+    "id": 97593,
+    "name": "suunsspire",
+    "type": "staff",
+    "affix": "dragon"
   },
   {
     "id": 97663,
@@ -13310,11 +13460,23 @@
     "type": "food"
   },
   {
+    "id": 97791,
+    "name": "togosgreatbow",
+    "type": "longbow",
+    "affix": "ritualist"
+  },
+  {
     "id": 97812,
     "name": "suunsbreastplate",
     "type": "coat",
     "affix": "dragon",
     "weight": "heavy"
+  },
+  {
+    "id": 97827,
+    "name": "jadepunkdagger",
+    "type": "dagger",
+    "affix": "dragon"
   },
   {
     "id": 97831,
