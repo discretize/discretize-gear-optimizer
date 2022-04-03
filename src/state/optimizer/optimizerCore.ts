@@ -144,7 +144,7 @@ export interface OptimizerCoreSettings {
   cachedFormState: any;
   extrasCombination: Record<string, string>;
 }
-export type OptimizerCoreMinimalSettings = Pick<
+type OptimizerCoreMinimalSettings = Pick<
   OptimizerCoreSettings,
   | 'cachedFormState'
   | 'profession'
@@ -171,8 +171,8 @@ interface Character {
 type AttributeName = string; // TODO: replace with AttributeName from gw2-data
 
 export class OptimizerCore {
-  settings;
-  minimalSettings;
+  settings: OptimizerCoreSettings;
+  minimalSettings: OptimizerCoreMinimalSettings;
   applyInfusionsFunction: (this: OptimizerCore, character: Character) => void;
   condiResultCache = new Map();
   worstScore: number = 0;
@@ -181,9 +181,19 @@ export class OptimizerCore {
   uniqueIDCounter = 0;
   randomId = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
 
-  constructor(settings: OptimizerCoreSettings, minimalSettings: OptimizerCoreMinimalSettings) {
+  constructor(settings: OptimizerCoreSettings) {
     this.settings = settings;
-    this.minimalSettings = minimalSettings;
+    // only supply character with settings it uses to render
+    this.minimalSettings = {
+      cachedFormState: settings.cachedFormState,
+      profession: settings.profession,
+      specialization: settings.specialization,
+      weaponType: settings.weaponType,
+      appliedModifiers: settings.appliedModifiers,
+      rankby: settings.rankby,
+      shouldDisplayExtras: settings.shouldDisplayExtras,
+      extrasCombination: settings.extrasCombination,
+    };
 
     let applyInfusionsFunction: OptimizerCore['applyInfusionsFunction'];
     switch (settings.infusionMode) {

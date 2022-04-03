@@ -53,14 +53,13 @@ import {
 import { getCustomAffixData, getPriority } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
-import type { OptimizerCoreMinimalSettings, OptimizerCoreSettings } from './optimizerCore';
+import type { OptimizerCoreSettings } from './optimizerCore';
 import { clamp, scaleValue } from './optimizerCore';
 
 interface Combination {
   extrasCombination: Record<string, string>;
   extrasModifiers: AppliedModifier[];
   settings?: OptimizerCoreSettings;
-  minimalSettings?: OptimizerCoreMinimalSettings;
 }
 
 type MultiplierName =
@@ -778,22 +777,9 @@ export function setupCombinations(reduxState: any) {
       runsAfterThisSlot: settings_runsAfterThisSlot,
     };
 
-    // only supply character with settings it uses to render
-    const minimalSettings: OptimizerCoreMinimalSettings = {
-      cachedFormState: settings.cachedFormState,
-      profession: settings.profession,
-      specialization: settings.specialization,
-      weaponType: settings.weaponType,
-      appliedModifiers: settings.appliedModifiers,
-      rankby: settings.rankby,
-      shouldDisplayExtras: settings.shouldDisplayExtras,
-      extrasCombination: settings.extrasCombination,
-    };
-
     console.log('Input option:', combination);
 
     combination.settings = settings;
-    combination.minimalSettings = minimalSettings;
   }
 
   console.groupEnd();

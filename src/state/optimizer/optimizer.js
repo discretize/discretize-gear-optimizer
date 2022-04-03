@@ -17,7 +17,7 @@ export function* calculate(reduxState) {
   const combinations = setupCombinations(reduxState);
 
   for (const combination of combinations) {
-    combination.core = new OptimizerCore(combination.settings, combination.minimalSettings);
+    combination.core = new OptimizerCore(combination.settings);
     combination.calculation = combination.core.calculate();
   }
 
