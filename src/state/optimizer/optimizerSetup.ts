@@ -37,7 +37,10 @@ import { getBuffsModifiers } from '../slices/buffs';
 import { getProfession } from '../slices/controlsSlice';
 import { getDistributionNew } from '../slices/distribution';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
-import { getExtrasCombinationsAndModifiers, getExtrasIds } from '../slices/extras';
+import {
+  getExtrasCombinationsAndModifiers as getExtrasCombinationsAndModifiersRaw,
+  getExtrasIds,
+} from '../slices/extras';
 import { getForcedSlots } from '../slices/forcedSlots';
 import {
   getInfusionsModifiers,
@@ -125,6 +128,12 @@ export interface Modifiers {
 }
 
 export type InfusionMode = 'None' | 'Primary' | 'Few' | 'Secondary' | 'SecondaryNoDuplicates';
+
+// Reselect's createSelector apparently sometimes exports the wrong type if its arguments are not
+// explicitly typed; override this
+const getExtrasCombinationsAndModifiers = getExtrasCombinationsAndModifiersRaw as any as (
+  state: any,
+) => Combination[];
 
 // interface OptimizerInput {
 //   profession: ProfessionName;
