@@ -8,6 +8,7 @@ import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
 import type {
   AffixName,
   ConditionName,
+  IndicatorName,
   InfusionName,
   ProfessionName,
   WeaponHandednessType,
@@ -105,7 +106,7 @@ export interface OptimizerCoreSettings {
   specialization: string;
   weaponType: WeaponHandednessType;
   forcedAffixes: (AffixName | null)[]; // array of specific affix names for each slot, or '' for unspecfied
-  rankby: 'Damage' | 'Survivability' | 'Healing';
+  rankby: IndicatorName;
   minBoonDuration: number | null;
   minHealingPower: number | null;
   minToughness: number | null;
@@ -167,7 +168,7 @@ interface Character {
   infusions?: Record<string, any>;
   results?: Record<string, any>;
 }
-type AttributeName = string;
+type AttributeName = string; // TODO: replace with AttributeName from gw2-data
 
 export class OptimizerCore {
   settings;
@@ -850,7 +851,8 @@ export class OptimizerCore {
       const newCharacter = this.clone(character);
       newCharacter.baseAttributes = { ...character.baseAttributes };
       Object.keys(settings.distribution).forEach((key) => {
-        newCharacter.baseAttributes[`${key} Coefficient`] -= settings.distribution[key];
+        newCharacter.baseAttributes[`${key} Coefficient`] -=
+          settings.distribution[key as keyof typeof settings.distribution];
         newCharacter.baseAttributes[`${key} Coefficient`] += newCoefficient;
       });
       this.updateAttributes(newCharacter);

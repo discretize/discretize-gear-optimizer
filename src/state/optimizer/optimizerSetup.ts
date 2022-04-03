@@ -111,15 +111,6 @@ export type DistributionNameInternal =
   | 'Torment'
   | 'Confusion';
 
-// todo: integrate this with gw2-data.js?
-interface CustomAffixData {
-  type: 'triple' | 'quadruple' | 'celestial';
-  bonuses: {
-    major?: AffixName[];
-    minor?: AffixName[];
-  };
-}
-
 // todo increase specificity
 interface CollectedModifiers {
   buff: Record<string, number>;
@@ -179,7 +170,8 @@ export function setupCombinations(reduxState: any) {
     ...(getTraitsModifiers(reduxState) || []),
   ];
 
-  const customAffixData: CustomAffixData = getCustomAffixData(reduxState);
+  const customAffixData: Omit<typeof unmodifiedAffix.Custom, 'category'> =
+    getCustomAffixData(reduxState);
 
   // display extras in table if they have multiple options
   const shouldDisplayExtras = mapValues(
@@ -626,7 +618,10 @@ export function setupCombinations(reduxState: any) {
 
     /* Equipment */
 
-    const Affix = { ...unmodifiedAffix, Custom: { ...unmodifiedAffix.Custom, ...customAffixData } };
+    const Affix: typeof unmodifiedAffix = {
+      ...unmodifiedAffix,
+      Custom: { ...unmodifiedAffix.Custom, ...customAffixData },
+    };
 
     const settings_slots: OptimizerCoreSettings['slots'] = Slots[weaponType];
 
@@ -687,7 +682,9 @@ export function setupCombinations(reduxState: any) {
             settings_slots[slotindex].item[Affix[affix as keyof typeof Affix].type],
           );
           for (const [type, bonus] of bonuses) {
-            for (const stat of Affix[affix as keyof typeof Affix].bonuses[type]) {
+            for (const stat of Affix[affix as keyof typeof Affix].bonuses[
+              type as 'major' | 'minor'
+            ]) {
               statTotals[stat] = (statTotals[stat] || 0) + (bonus as number);
             }
           }
