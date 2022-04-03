@@ -103,6 +103,7 @@ const AffixesSelect = ({ name, multiple, onChange, value: affixes }) => {
               stat={option.label}
               type="Ring"
               disableLink
+              disableIcon
               text={
                 // i18next-extract-mark-context-next-line {{affix}}
                 t('affix', { context: option.label })
