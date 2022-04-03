@@ -731,7 +731,7 @@ export function setupCombinations(reduxState: any) {
     //   return num / denom;
     // }
 
-    const settings = {
+    const settings: OptimizerCoreSettings = {
       profession,
       weaponType,
       affixes,
