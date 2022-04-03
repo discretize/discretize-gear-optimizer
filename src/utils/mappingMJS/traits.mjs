@@ -880,11 +880,7 @@ export default [
   { id: 2290, name: 'larcenoustorment', profession: 'thief' },
   { id: 2291, name: 'mechanicalgenius', profession: 'engineer' },
   { id: 2292, name: 'mechcorejadedynamo', profession: 'engineer' },
-  {
-    id: 2294,
-    name: 'mechframevariablemassdistributor',
-    profession: 'engineer',
-  },
+  { id: 2294, name: 'mechframevariablemassdistributor', profession: 'engineer' },
   { id: 2295, name: 'scepterproficiency', profession: 'thief' },
   { id: 2296, name: 'mecharmshighimpactdrivers', profession: 'engineer' },
   { id: 2297, name: 'debilitatingblows', profession: 'ranger' },
