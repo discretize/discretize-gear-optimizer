@@ -401,10 +401,10 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
-"@discretize/gw2-ui-new@^0.0.12":
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/@discretize/gw2-ui-new/-/gw2-ui-new-0.0.12.tgz#3068c2d233e51bed57d42b6737784a9dd4c6e27f"
-  integrity sha512-fe+Ljg/74iygpHHlx6uGj0FmGgqE1c1d3OkZn9Fdpq5a7BwuqlvAGimSqt+DuAIV0ln5HVgTq7AyTjK3TmcwfQ==
+"@discretize/gw2-ui-new@^0.0.12", "@discretize/gw2-ui-new@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@discretize/gw2-ui-new/-/gw2-ui-new-0.0.13.tgz#b0581c2159402b99399e330e0c2da61385ac8a80"
+  integrity sha512-dzgnC+3duppaywCuJ2ZdTx2eE2eOp6ls/kJQeeOeBDcKmCwrMSzWOUnXMCk6CQppin1X671H1KRyNhZpTLdAeQ==
   dependencies:
     "@discretize/typeface-menomonia" "^0.1.3"
     clsx "^1.1.1"
@@ -418,10 +418,10 @@
   dependencies:
     json-url "^3.0.0"
 
-"@discretize/react-discretize-components@^2.2.2":
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/@discretize/react-discretize-components/-/react-discretize-components-2.2.2.tgz#4897e5b7f5b60649c5b81cb764acc228614ab3a8"
-  integrity sha512-RWgr+vyHhmXv00qGpN+kFocO9mny7e3OJc1w8jeZFsrh5sJ+mDFR4WLdnulVhftv8RJcK3SUwWMCJHgQi3dCvw==
+"@discretize/react-discretize-components@^2.2.3":
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@discretize/react-discretize-components/-/react-discretize-components-2.2.3.tgz#2bdf77d50e02d50f3056e28597881eeff34bfdd2"
+  integrity sha512-M3PwSCZcfpIO2+NHgXQFSLou1FyhYEiVCt4VVi4xQve4lI9MGKWCmBVARMH0aGieO3GP2sr/67oPg3pOsm4HHg==
   dependencies:
     "@discretize/gw2-ui-new" "^0.0.12"
     "@discretize/typeface-menomonia" "^0.1.3"
