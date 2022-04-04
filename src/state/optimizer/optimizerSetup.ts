@@ -419,6 +419,7 @@ export function setupCombinations(reduxState: any) {
               break;
             default:
               const _: never = attribute;
+              throw new Error(`invalid damage modifier: ${attribute} in ${id}`);
           }
         }
       }
