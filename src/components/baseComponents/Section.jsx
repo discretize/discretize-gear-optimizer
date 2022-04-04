@@ -1,23 +1,63 @@
 import LiveHelpIcon from '@mui/icons-material/LiveHelp';
-import { Box, Divider, Grid, Paper, Typography } from '@mui/material';
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Box,
+  Collapse,
+  Divider,
+  Fade,
+  Grid,
+  Paper,
+  Typography,
+} from '@mui/material';
 import React from 'react';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useSelector } from 'react-redux';
+import { getExpertMode } from '../../state/slices/controlsSlice';
+import { makeStyles } from 'tss-react/mui';
 
-// First disables the delimiting line above!
+const useStyles = makeStyles()((theme) => ({
+  accordion: {
+    marginBottom: 10,
+    '&:hover': {
+      boxShadow: theme.shadows[10],
+    },
+  },
+}));
+
+// first disables the delimiting line above!
 const Section = ({ first, title, helpText, extraInfo, content }) => {
+  const expert = useSelector(getExpertMode);
+  const { classes } = useStyles();
+
+  const [expandedHover, setExpandedHover] = React.useState(false);
+  const [expandedClick, setExpandedClick] = React.useState(!expert);
+
   const SectionInfo = ({ children }) => (
     <>
       <Typography variant="h5">{title}</Typography>{' '}
       {children && (
-        <Paper sx={{ mt: 0.5, mb: 1 }} elevation={0}>
-          <Box p={1}>
-            <div>
-              <LiveHelpIcon />
-            </div>
+        <Accordion
+          expanded={expandedClick || expandedHover}
+          className={classes.accordion}
+          onMouseOver={() => setExpandedHover(true)}
+          onMouseLeave={() => setExpandedHover(false)}
+          onClick={() => setExpandedClick(!expandedClick)}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="help-content"
+            id="help-header"
+          >
+            <LiveHelpIcon sx={{ marginRight: 1 }} /> <Typography>Help</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
             <Typography variant="caption" paragraph sx={{ mb: 0 }}>
               {children}
             </Typography>
-          </Box>
-        </Paper>
+          </AccordionDetails>
+        </Accordion>
       )}
     </>
   );
