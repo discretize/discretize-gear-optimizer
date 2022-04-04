@@ -4,6 +4,7 @@
 /* eslint-disable dot-notation */
 
 import type {
+  AmountData,
   AttributePointMode,
   DamageMode,
   Modifiers as YamlModifiers,
@@ -85,11 +86,7 @@ export interface AppliedModifier {
   enabled: boolean;
   amount: string;
   modifiers: YamlModifiers;
-  amountData?: {
-    label: string;
-    default: number;
-    quantityEntered: number;
-  };
+  amountData?: AmountData;
   // },
 }
 

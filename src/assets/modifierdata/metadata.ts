@@ -277,12 +277,19 @@ const test: Modifiers = {
   },
 };
 
+export interface AmountData {
+  label: string;
+  default: number;
+  quantityEntered: number;
+  disableBlacklist?: boolean;
+}
+
 export interface ModifierItem {
   id: string;
   text?: string;
   subText?: string;
   minor?: boolean;
-  amountData?: any;
+  amountData?: AmountData;
   hasLifesteal?: boolean;
   modifiers: Modifiers;
   gw2id?: number;
