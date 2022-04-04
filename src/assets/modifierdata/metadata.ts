@@ -125,11 +125,13 @@ export const allConversionAfterBuffsSourceKeys = [
   'Critical Chance -30',
   'Critical Chance -37',
 ] as const;
+type ConversionAfterBuffsSourceKey = typeof allConversionAfterBuffsSourceKeys[number];
 export const allConversionAfterBuffsDestinationKeys = [
   ...stats,
   ...percents,
   ...coefficients,
 ] as const;
+type ConversionAfterBuffsDestinationKey = typeof allConversionAfterBuffsDestinationKeys[number];
 
 // these values don't behave well if scaled up and down,
 // so disallow them in modifiers with an amount key
@@ -228,7 +230,7 @@ type DamageModifiers = Partial<Record<DamageKey, DamageValue>>;
 
 type AttributeModifiers = {
   [Key in AttributeKey]?: Key extends AttributePointKey
-    ? [number, AttributePointMode]
+    ? [number, AttributePointMode, number?, AttributePointMode?]
     : Key extends AttributeCoefficientKey
     ? number
     : Key extends AttributePercentKey
@@ -239,11 +241,16 @@ type AttributeModifiers = {
 type ConversionValue = Partial<Record<ConversionSourceKey, Percent>>;
 type ConversionModifers = Partial<Record<ConversionDestinationKey, ConversionValue>>;
 
+type ConversionAfterBuffsValue = Partial<Record<ConversionAfterBuffsSourceKey, Percent>>;
+type ConversionAfterBuffsModifers = Partial<
+  Record<ConversionAfterBuffsDestinationKey, ConversionAfterBuffsValue>
+>;
+
 export interface Modifiers {
   damage?: DamageModifiers;
   attributes?: AttributeModifiers;
   conversion?: ConversionModifers;
-  conversionAfterBuffs?: ConversionModifers;
+  conversionAfterBuffs?: ConversionAfterBuffsModifers;
 }
 
 const test: Modifiers = {
@@ -255,6 +262,7 @@ const test: Modifiers = {
   },
   'attributes': {
     'Ferocity': [100, 'converted'],
+    'Vitality': [360, 'converted', -120, 'buff'],
     'Healing Power': [30, 'buff'],
     'Condition Damage': [60, 'converted'],
     'Critical Chance': '20%',
@@ -268,3 +276,25 @@ const test: Modifiers = {
     'Outgoing Healing': { 'Healing Power': '0.006%' },
   },
 };
+
+export interface ModifierItem {
+  id: string;
+  text?: string;
+  subText?: string;
+  minor?: boolean;
+  amountData?: any;
+  hasLifesteal?: boolean;
+  modifiers: Modifiers;
+  gw2id?: number;
+  defaultEnabled?: boolean;
+  type?: string;
+}
+
+export interface Section {
+  section: string;
+  id?: number;
+  note?: string;
+  items: ModifierItem[];
+}
+
+export type ModifierData = Section[];
