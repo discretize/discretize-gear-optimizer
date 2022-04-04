@@ -61,6 +61,7 @@ export const controlSlice = createSlice({
     selectedTemplate: '',
     status: WAITING,
     profession: '',
+    gameMode: 'fractals',
   },
   reducers: {
     changeAll: (state, action) => {
@@ -141,6 +142,9 @@ export const controlSlice = createSlice({
     changeError: (state, action) => {
       state.error = action.payload;
     },
+    changeGameMode: (state, action) => {
+      state.gameMode = action.payload;
+    },
   },
 });
 
@@ -159,6 +163,7 @@ export const getDisplayAttributes = (state) => state.optimizer.control.displayAt
 export const getTallTable = (state) => state.optimizer.control.tallTable;
 export const getSelectedCharacter = (state) => state.optimizer.control.selectedCharacter;
 export const getError = (state) => state.optimizer.control.error;
+export const getGameMode = (state) => state.optimizer.control.gameMode;
 
 export const {
   changeAll,
@@ -177,6 +182,7 @@ export const {
   setBuildTemplate,
   changeSelectedCharacter,
   changeError,
+  changeGameMode,
 } = controlSlice.actions;
 
 export default controlSlice.reducer;
