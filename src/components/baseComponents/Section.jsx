@@ -1,21 +1,17 @@
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LiveHelpIcon from '@mui/icons-material/LiveHelp';
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Box,
-  Collapse,
   Divider,
-  Fade,
   Grid,
-  Paper,
   Typography,
 } from '@mui/material';
 import React from 'react';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useSelector } from 'react-redux';
-import { getExpertMode } from '../../state/slices/controlsSlice';
 import { makeStyles } from 'tss-react/mui';
+import { getExpertMode } from '../../state/slices/controlsSlice';
 
 const useStyles = makeStyles()((theme) => ({
   accordion: {
