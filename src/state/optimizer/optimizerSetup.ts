@@ -30,6 +30,7 @@ import type {
   AffixData,
   AffixName,
   ConditionName,
+  IndicatorName,
   InfusionName,
   ProfessionName,
   WeaponHandednessType,
@@ -233,9 +234,7 @@ export function setupCombinations(reduxState: any) {
     const primaryMaxInfusionsText: string = getPrimaryMaxInfusions(reduxState);
     const secondaryMaxInfusionsText: string = getSecondaryMaxInfusions(reduxState);
     const forcedSlots: (AffixName | null)[] = getForcedSlots(reduxState);
-    // todo: extract this as a type
-    const optimizeFor: 'Damage' | 'Survivability' | 'Healing' =
-      getPriority('optimizeFor')(reduxState);
+    const optimizeFor: IndicatorName = getPriority('optimizeFor')(reduxState);
     const weaponType: WeaponHandednessType = getPriority('weaponType')(reduxState);
     const minBoonDurationText: string = getPriority('minBoonDuration')(reduxState);
     const minHealingPowerText: string = getPriority('minHealingPower')(reduxState);
@@ -252,6 +251,9 @@ export function setupCombinations(reduxState: any) {
     // todo: consolidate error handling
     if (profession === '') {
       throw new Error('missing profession!');
+    }
+    if (affixes.length < 1) {
+      throw new Error('No affixes selected');
     }
 
     // const affixes = unmodifiedAffixes.map((affix) =>
@@ -653,7 +655,7 @@ export function setupCombinations(reduxState: any) {
       Custom: { ...unmodifiedAffix.Custom, ...customAffixData },
     };
 
-    const settings_slots: OptimizerCoreSettings['slots'] = Slots[weaponType];
+    const settings_slots = Slots[weaponType];
 
     // affixesArray: valid affixes for each slot, taking forced slots into account
     // e.g. [[Berserker, Assassin], [Assassin], [Berserker, Assassin]...]
@@ -760,7 +762,6 @@ export function setupCombinations(reduxState: any) {
     const settings: OptimizerCoreSettings = {
       profession,
       weaponType,
-      affixes,
       forcedAffixes: forcedSlots,
       rankby: optimizeFor,
       minBoonDuration,
@@ -788,7 +789,7 @@ export function setupCombinations(reduxState: any) {
       secondaryInfusion: settings_secondaryInfusion,
       secondaryMaxInfusions: settings_secondaryMaxInfusions,
       infusionMode: settings_infusionMode,
-      slots: settings_slots,
+      slots: settings_slots.length,
       affixesArray: settings_affixesArray,
       forcedArmor: settings_forcedArmor,
       forcedRing: settings_forcedRing,

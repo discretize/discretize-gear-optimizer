@@ -13,7 +13,7 @@ import type {
   ProfessionName,
   WeaponHandednessType,
 } from '../../utils/gw2-data';
-import { Attributes, conditionData, INFUSION_BONUS, SlotsEntry } from '../../utils/gw2-data';
+import { Attributes, conditionData, INFUSION_BONUS } from '../../utils/gw2-data';
 import { enumArrayIncludes } from '../../utils/usefulFunctions';
 import type {
   AppliedModifier,
@@ -127,12 +127,11 @@ export interface OptimizerCoreSettings {
 
   // these are in addition to the input
   infusionMode: InfusionMode;
-  affixes: AffixName[];
   forcedRing: boolean;
   forcedAcc: boolean;
   forcedWep: boolean;
   forcedArmor: boolean;
-  slots: SlotsEntry;
+  slots: number; // The length of the former slots array
   runsAfterThisSlot: number[];
   affixesArray: AffixName[][];
   affixStatsArray: [AttributeName, number][][][];
@@ -141,6 +140,7 @@ export interface OptimizerCoreSettings {
   disableCondiResultCache: boolean;
   relevantConditions: ConditionName[];
 
+  // these aren't used by the optimizer, they're just attached to the results
   shouldDisplayExtras: Record<string, boolean>;
   appliedModifiers: AppliedModifier[];
   cachedFormState: CachedFormState;
@@ -235,13 +235,6 @@ export class OptimizerCore {
    */
   *calculate() {
     const { settings } = this;
-    if (settings.affixes.length === 0) {
-      return {
-        isChanged: true,
-        percent: 100,
-        newList: [],
-      };
-    }
 
     let calculationRuns = 0;
 
@@ -298,7 +291,7 @@ export class OptimizerCore {
         continue;
       }
 
-      if (nextSlot >= settings.slots.length) {
+      if (nextSlot >= settings.slots) {
         calculationRuns++;
         this.testCharacter(gear, gearStats);
         continue;
