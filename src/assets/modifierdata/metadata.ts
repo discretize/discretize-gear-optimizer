@@ -10,6 +10,7 @@ const stats = [
   'Healing Power',
   'Agony Resistance',
 ] as const;
+
 export const boons = [
   'Aegis',
   'Alacrity',
@@ -24,6 +25,10 @@ export const boons = [
   'Swiftness',
   'Vigor',
 ] as const;
+type Boon = typeof boons[number];
+
+const boonDurations = boons.map((boon) => `${boon} Duration`) as `${Boon} Duration`[];
+
 // const conditions = [
 //   'Bleeding',
 //   'Blind',
@@ -47,20 +52,33 @@ export const damagingConditions = [
   'Poison',
   'Torment',
 ] as const;
+type DamagingCondition = typeof damagingConditions[number];
+
+const conditionDurations = damagingConditions.map(
+  (condition) => `${condition} Duration`,
+) as `${DamagingCondition} Duration`[];
+
+const conditionCoefficients = damagingConditions.map(
+  (condition) => `${condition} Coefficient`,
+) as `${DamagingCondition} Coefficient`[];
+
+const conditionDamages = damagingConditions.map(
+  (condition) => `${condition} Damage`,
+) as `${DamagingCondition} Damage`[];
 
 export const percents = [
   'Critical Chance',
   'Boon Duration',
-  ...boons.map((boon) => `${boon} Duration`),
+  ...boonDurations,
   'Condition Duration',
-  ...damagingConditions.map((condition) => `${condition} Duration`),
+  ...conditionDurations,
   'Maximum Health',
   'Outgoing Healing',
 ] as const;
 
 const coefficients = [
   'Power Coefficient',
-  ...damagingConditions.map((condition) => `${condition} Coefficient`),
+  ...conditionCoefficients,
   'Flat DPS',
   'Siphon Base Coefficient',
 ] as const;
@@ -72,7 +90,7 @@ export const allDamageKeys = [
   'Damage Reduction',
   // 'Condition Damage Reduction',
   'Critical Damage',
-  ...damagingConditions.map((condition) => `${condition} Damage`),
+  ...conditionDamages,
 ] as const;
 export const allDamageModes = ['add', 'mult', 'target', 'unknown'] as const;
 
@@ -112,9 +130,9 @@ export const attributePointKeysBlacklist = [
 export const attributePercentKeysBlacklist = [
   'Critical Chance',
   'Boon Duration',
-  ...boons.map((boon) => `${boon} Duration`),
+  ...boonDurations,
   'Condition Duration',
-  ...damagingConditions.map((condition) => `${condition} Duration`),
+  ...conditionDurations,
   'Maximum Health',
 ] as const;
 
