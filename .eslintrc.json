@@ -4,14 +4,24 @@
     "es6": true,
     "jquery": true
   },
+  "plugins": ["@typescript-eslint"],
   "extends": [
     "react-app",
     "airbnb/whitespace",
     "airbnb/hooks",
     "plugin:jsdoc/recommended",
+    "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
+  "parser": "@typescript-eslint/parser",
   "ignorePatterns": ["/plugins/*"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
   "rules": {
     // disabled or reduced
     "no-restricted-syntax": "off",
@@ -20,7 +30,7 @@
     "no-continue": "off",
     "no-param-reassign": ["warn", { "props": false }],
     "consistent-return": "off",
-    "no-unused-vars": [
+    "@typescript-eslint/no-unused-vars": [
       "warn",
       { "argsIgnorePattern": "^e$|^theme$|^_", "varsIgnorePattern": "^e$|^theme$|^_" }
     ],
@@ -60,7 +70,23 @@
           "p"
         ]
       }
-    ]
+    ],
+
+    // typescript:
+    "react/jsx-filename-extension": ["warn", { "extensions": [".jsx", ".tsx"] }],
+    "import/extensions": [
+      "warn",
+      "ignorePackages",
+      { "js": "never", "jsx": "never", "ts": "never", "tsx": "never" }
+    ],
+    // Replace base rules with typescript-aware rules
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    // Being explicit about types is sometimes good
+    "@typescript-eslint/no-inferrable-types": "off",
+    // We want to enable these eventually
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   },
   "overrides": [
     {
@@ -68,6 +94,17 @@
       "rules": {
         "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
         "no-console": "off"
+      }
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {
+        // Disable these rules on javascript files because they would enforce new rules or yield false positives.
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-use-before-define": "off"
       }
     }
   ]
