@@ -29,7 +29,7 @@ import {
   attributePercentKeysBlacklist,
   attributePointKeysBlacklist,
   damageKeysBlacklist,
-} from './metadata';
+} from './metadata.ts';
 
 const schemaKeys = {
   'runes.yaml': runesDict,
