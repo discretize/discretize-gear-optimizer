@@ -45,7 +45,7 @@ export type AffixName =
   | 'Dragon';
 
 type AffixNameOrCustom = AffixName | 'Custom';
-interface AffixData {
+export interface AffixData {
   type: 'triple' | 'quadruple' | 'celestial';
   category: string;
   bonuses: {

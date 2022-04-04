@@ -1,8 +1,25 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable camelcase */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable no-case-declarations */
 /* eslint-disable dot-notation */
 
+import type {
+  AmountData,
+  AttributeKey,
+  AttributePointMode,
+  ConversionAfterBuffsDestinationKey,
+  ConversionAfterBuffsSourceKey,
+  ConversionAfterBuffsValue,
+  ConversionDestinationKey,
+  ConversionSourceKey,
+  ConversionValue,
+  DamageKey,
+  DamageMode,
+  DamageValue,
+  Modifiers as YamlModifiers,
+  Percent,
+} from '../../assets/modifierdata/metadata';
 import {
   allAttributeCoefficientKeys,
   allAttributePercentKeys,
@@ -10,6 +27,7 @@ import {
   allConversionAfterBuffsSourceKeys,
 } from '../../assets/modifierdata/metadata';
 import type {
+  AffixData,
   AffixName,
   ConditionName,
   InfusionName,
@@ -25,6 +43,7 @@ import {
   Slots,
 } from '../../utils/gw2-data';
 import {
+  enumArrayIncludes,
   mapEntries,
   mapValues,
   parseAmount,
@@ -74,34 +93,13 @@ type MultiplierName =
   | 'Poison Damage'
   | 'Torment Damage';
 
-// these types should be metadata.js
-
-type DamageMode = 'add' | 'mult' | 'target' | 'unknown';
-type AttributePointMode = 'buff' | 'converted' | 'unknown';
-
-type DamageModifierValue = [string, DamageMode, string?, DamageMode?];
-type AttributeModifierValue = [number | string, AttributePointMode] | number | string;
-
-type ConversionValue = Record<string, string>;
-
 export interface AppliedModifier {
   id: string;
   visible: boolean;
   enabled: boolean;
   amount: string;
-  modifiers: {
-    damage?: Record<string, DamageModifierValue>;
-    attributes?: Record<string, AttributeModifierValue>;
-    conversion?: Record<string, ConversionValue>;
-    conversionAfterBuffs?: Record<string, ConversionValue>;
-    // note,
-    // ...otherModifiers
-  };
-  amountData?: {
-    label: string;
-    default: number;
-    quantityEntered: number;
-  };
+  modifiers: YamlModifiers;
+  amountData?: AmountData;
   // },
 }
 
@@ -117,11 +115,22 @@ export type DistributionNameInternal =
   | 'Torment'
   | 'Confusion';
 
-// todo increase specificity
+type CollectedAttributeModifiers = Partial<Record<AttributeKey, number>>;
+
+type CollectedConversionValue = Partial<Record<ConversionSourceKey, number>>;
+export type CollectedConversionModifers = Partial<
+  Record<ConversionDestinationKey, CollectedConversionValue>
+>;
+
+type CollectedConversionAfterBuffsValue = Partial<Record<ConversionAfterBuffsSourceKey, number>>;
+export type CollectedConversionAfterBuffsModifers = Partial<
+  Record<ConversionAfterBuffsDestinationKey, CollectedConversionAfterBuffsValue>
+>;
+
 interface CollectedModifiers {
-  buff: Record<string, number>;
-  convert: Record<string, Record<string, number>>;
-  convertAfterBuffs: Record<string, Record<string, number>>;
+  buff: CollectedAttributeModifiers;
+  convert: CollectedConversionModifers;
+  convertAfterBuffs: CollectedConversionAfterBuffsModifers;
 }
 export interface Modifiers {
   damageMultiplier: Record<string, number>;
@@ -377,7 +386,7 @@ export function setupCombinations(reduxState: any) {
 
       const { value: amountInput } = parseAmount(amountText);
 
-      for (const [attribute, allPairs] of Object.entries(damage)) {
+      for (const [attribute, allPairs] of Object.entries(damage) as [DamageKey, DamageValue][]) {
         // damage, i.e.
         //   Strike Damage: [3%, add, 7%, mult]
 
@@ -411,17 +420,15 @@ export function setupCombinations(reduxState: any) {
               // assuming multiplicative until someone tests  twin fangs + ferocious strikes
               dmgBuff('Critical Damage', scaledAmount, 'mult');
               break;
-            case 'Condition Damage Reduction':
-              console.log('Condition Damage Reduction is currently unsupported');
-              break;
             default:
+              const _: never = attribute;
               throw new Error(`invalid damage modifier: ${attribute} in ${id}`);
           }
         }
       }
 
-      for (const [attribute, allPairs] of Object.entries(attributes)) {
-        if (allAttributePointKeys.includes(attribute)) {
+      for (const [attribute, allPairs] of Object.entries(attributes) as [AttributeKey, any][]) {
+        if (enumArrayIncludes(allAttributePointKeys, attribute)) {
           // stat, i.e.
           //   Concentration: [70, converted, 100, buff]
 
@@ -445,7 +452,7 @@ export function setupCombinations(reduxState: any) {
                 break;
             }
           }
-        } else if (allAttributeCoefficientKeys.includes(attribute)) {
+        } else if (enumArrayIncludes(allAttributeCoefficientKeys, attribute)) {
           // coefficient, i.e.
           //   Power Coefficient: 69.05
 
@@ -453,7 +460,7 @@ export function setupCombinations(reduxState: any) {
           const scaledAmount = scaleValue(value as number, amountInput, amountData);
           settings_baseAttributes[attribute] =
             (settings_baseAttributes[attribute] || 0) + scaledAmount;
-        } else if (allAttributePercentKeys.includes(attribute)) {
+        } else if (enumArrayIncludes(allAttributePercentKeys, attribute)) {
           // percent, i.e.
           //   Torment Duration: 15%
 
@@ -474,7 +481,10 @@ export function setupCombinations(reduxState: any) {
         }
       }
 
-      for (const [attribute, val] of Object.entries(conversion)) {
+      for (const [attribute, val] of Object.entries(conversion) as [
+        ConversionDestinationKey,
+        ConversionValue,
+      ][]) {
         // conversion, i.e.
         //   Power: {Condition Damage: 6%, Expertise: 8%}
 
@@ -483,15 +493,21 @@ export function setupCombinations(reduxState: any) {
         if (!collectedModifiers['convert'][attribute]) {
           collectedModifiers['convert'][attribute] = {};
         }
-        for (const [source, percentAmount] of Object.entries(val)) {
+        for (const [source, percentAmount] of Object.entries(val) as [
+          ConversionSourceKey,
+          Percent,
+        ][]) {
           const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
 
-          collectedModifiers['convert'][attribute][source] =
-            (collectedModifiers['convert'][attribute][source] || 0) + scaledAmount;
+          collectedModifiers['convert'][attribute]![source] =
+            (collectedModifiers['convert'][attribute]![source] || 0) + scaledAmount;
         }
       }
 
-      for (const [attribute, val] of Object.entries(conversionAfterBuffs)) {
+      for (const [attribute, val] of Object.entries(conversionAfterBuffs) as [
+        ConversionAfterBuffsDestinationKey,
+        ConversionAfterBuffsValue,
+      ][]) {
         // conversion after buffs, i.e.
         //   Power: {Condition Damage: 6%, Expertise: 8%}
 
@@ -500,15 +516,18 @@ export function setupCombinations(reduxState: any) {
         if (!collectedModifiers['convertAfterBuffs'][attribute]) {
           collectedModifiers['convertAfterBuffs'][attribute] = {};
         }
-        for (const [source, percentAmount] of Object.entries(val)) {
-          const valid = allConversionAfterBuffsSourceKeys.includes(source);
+        for (const [source, percentAmount] of Object.entries(val) as [
+          ConversionAfterBuffsSourceKey,
+          Percent,
+        ][]) {
+          const valid = enumArrayIncludes(allConversionAfterBuffsSourceKeys, source);
           // eslint-disable-next-line no-alert
           if (!valid) alert(`Unsupported after-buff conversion source: ${source}`);
 
           const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
 
-          collectedModifiers['convertAfterBuffs'][attribute][source] =
-            (collectedModifiers['convertAfterBuffs'][attribute][source] || 0) + scaledAmount;
+          collectedModifiers['convertAfterBuffs'][attribute]![source] =
+            (collectedModifiers['convertAfterBuffs'][attribute]![source] || 0) + scaledAmount;
         }
       }
     }
@@ -689,7 +708,10 @@ export function setupCombinations(reduxState: any) {
       settings_affixesArray.map((possibleAffixes, slotindex) =>
         possibleAffixes.map((affix) => {
           const statTotals: Record<string, number> = {};
-          const bonuses = Object.entries(settings_slots[slotindex].item[Affix[affix].type]);
+          const bonuses = Object.entries(settings_slots[slotindex].item[Affix[affix].type]) as [
+            keyof AffixData['bonuses'],
+            number,
+          ][];
           for (const [type, bonus] of bonuses) {
             for (const stat of Affix[affix].bonuses[type]) {
               statTotals[stat] = (statTotals[stat] || 0) + bonus;
