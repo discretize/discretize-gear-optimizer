@@ -124,7 +124,7 @@ const Traits = ({ profession }) => {
           noCheckboxModis.length > 0 && (
             <div>
               <Typography variant="caption">
-                <Trans>Minors:</Trans>{' '}
+                <Trans>Minors</Trans>:{' '}
                 {noCheckboxModis.map((itemData) => {
                   const { id, gw2id, subText } = itemData;
                   return (
