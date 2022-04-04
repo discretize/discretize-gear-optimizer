@@ -13,23 +13,6 @@ import Thief from './thief.yaml';
 import utility from './utility.yaml';
 import Warrior from './warrior.yaml';
 
-console.log({
-  buffs,
-  Elementalist,
-  Engineer,
-  food,
-  Guardian,
-  Mesmer,
-  Necromancer,
-  Ranger,
-  Revenant,
-  runes,
-  sigils,
-  Thief,
-  utility,
-  Warrior,
-});
-
 // combines items in all sections into one object
 const byId = (sections) => {
   const sectionsFlat = sections.flatMap(
