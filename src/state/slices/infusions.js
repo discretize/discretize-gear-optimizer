@@ -1,7 +1,7 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { infusionIds, omnipotionModifiers } from '../../utils/gw2-data';
 import { parseAmount, parseAr, parseInfusionCount } from '../../utils/usefulFunctions';
-import { changeAll } from './controlsSlice';
+import { changeAll, changeGameMode } from './controlsSlice';
 
 export const infusionsSlice = createSlice({
   name: 'infusions',
@@ -71,6 +71,13 @@ export const infusionsSlice = createSlice({
   extraReducers: {
     [changeAll]: (state, action) => {
       return { ...state, ...action.payload?.form?.infusions };
+    },
+    [changeGameMode]: (state, action) => {
+      if (action.payload === 'fractals') {
+        return { ...state, omnipotion: true, ar: '162' };
+      } else {
+        return { ...state, omnipotion: false, ar: '0' };
+      }
     },
   },
 });

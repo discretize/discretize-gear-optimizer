@@ -5,6 +5,7 @@ import { Link, Typography } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
+import BackgroundImage from '../../components/baseComponents/BackgroundImage';
 import ErrorBoundary from '../../components/baseComponents/ErrorBoundary';
 import GearOptimizer from '../../components/GearOptimizer';
 import URLStateImport from '../../components/url-state/URLStateImport';
@@ -17,6 +18,7 @@ const IndexPage = () => {
 
   return (
     <APILanguageProvider value={language}>
+      <BackgroundImage />
       <Layout>
         <URLStateImport sagaType={SagaTypes.ImportFormState} clearUrlOnSuccess />
 

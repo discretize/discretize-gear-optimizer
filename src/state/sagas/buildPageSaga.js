@@ -7,6 +7,7 @@ import {
 } from '../../components/url-state/schema/BuildPageSchema_v2';
 import { buffsDict } from '../../components/url-state/schema/SchemaDicts';
 import { changeBuildPage, changeCharacter } from '../slices/buildPage';
+import { changeGameMode } from '../slices/controlsSlice';
 import SagaTypes from './sagaTypes';
 
 // channels solve the problem "how to get value out of callback"
@@ -112,6 +113,9 @@ function* importStateCharacter({ buildUrl: input, version }) {
 
     const { result } = yield take(decompressChannel);
 
+    // guess the game mode based on agony resistance
+    const gameMode = result.character.attributes['Agony Resistance'] > 0 ? 'fractals' : 'r-aids';
+    yield put(changeGameMode(gameMode));
     yield put(changeBuildPage(result));
   } catch (e) {
     console.log('Problem restoring template!');
