@@ -6,7 +6,6 @@ import MuiAlert from '@mui/material/Alert';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import ErrorBoundary from '../../components/baseComponents/ErrorBoundary';
-import LanguageSelection from '../../components/baseComponents/LanguageSelection';
 import GearOptimizer from '../../components/GearOptimizer';
 import URLStateImport from '../../components/url-state/URLStateImport';
 import SagaTypes from '../../state/sagas/sagaTypes';
@@ -20,7 +19,7 @@ const IndexPage = () => {
     <APILanguageProvider value={language}>
       <Layout>
         <URLStateImport sagaType={SagaTypes.ImportFormState} clearUrlOnSuccess />
-        <LanguageSelection />
+
         <MuiAlert elevation={6} variant="filled" severity="warning">
           <Trans>
             The gear optimizer is currently in beta! Templates are not final and

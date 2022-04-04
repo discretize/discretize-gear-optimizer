@@ -1,4 +1,4 @@
-import { Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -18,24 +18,20 @@ const LanguageSelection = () => {
 
   return (
     <>
-      <Box display="flex" flexDirection="row-reverse" m={1}>
-        <FormControl sx={{ minWidth: 150 }} size="small" variant="standard">
-          <InputLabel id="language-select-label">Language</InputLabel>
-          <Select
-            labelId="language-select-label"
-            id="language-select"
-            onChange={onChange}
-            value={language}
-            label="Age"
-          >
-            {LANGUAGES.map(({ value, label }) => (
-              <MenuItem key={value} value={value}>
-                {label}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </Box>
+      <FormControl sx={{ minWidth: 150 }} size="small" variant="standard">
+        <FormLabel id="filter-button-group">Language</FormLabel>
+
+        <RadioGroup
+          aria-labelledby="language-select-label"
+          value={language}
+          onChange={onChange}
+          color="primary"
+        >
+          {LANGUAGES.map(({ value, label }) => (
+            <FormControlLabel key={value} value={value} control={<Radio />} label={label} />
+          ))}
+        </RadioGroup>
+      </FormControl>
     </>
   );
 };

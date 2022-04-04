@@ -6,11 +6,9 @@ import {
   Box,
   Button,
   debounce,
-  FormControlLabel,
   IconButton,
   MenuItem,
   SwipeableDrawer,
-  Switch,
   Toolbar,
   Typography,
 } from '@mui/material';
@@ -22,7 +20,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import {
-  changeExpertMode,
   changeProfession,
   getExpertMode,
   getProfession,
@@ -32,6 +29,7 @@ import {
 } from '../../state/slices/controlsSlice';
 import { PROFESSIONS } from '../../utils/gw2-data';
 import NavAccordion from './NavAccordion';
+import NavSettings from './NavSettings';
 
 const useStyles = makeStyles()((theme) => ({
   icon: {
@@ -83,20 +81,6 @@ const Navbar = ({
   const stickyRight = () => {
     return (
       <Box>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={expertMode}
-              onChange={(e) => {
-                dispatch({ type: SagaTypes.Stop });
-                dispatch(changeExpertMode(e.target.checked));
-              }}
-              name="checked"
-              color="primary"
-            />
-          }
-          label={t('Expert')}
-        />
         <IconButton
           href="#share"
           size="large"
@@ -107,6 +91,8 @@ const Navbar = ({
         >
           <ShareIcon />
         </IconButton>
+
+        <NavSettings />
       </Box>
     );
   };
