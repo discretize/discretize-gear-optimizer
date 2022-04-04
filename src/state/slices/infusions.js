@@ -75,9 +75,8 @@ export const infusionsSlice = createSlice({
     [changeGameMode]: (state, action) => {
       if (action.payload === 'fractals') {
         return { ...state, omnipotion: true, ar: '162' };
-      } else {
-        return { ...state, omnipotion: false, ar: '0' };
       }
+      return { ...state, omnipotion: false, ar: '0' };
     },
   },
 });

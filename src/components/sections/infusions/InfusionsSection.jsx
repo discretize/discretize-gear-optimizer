@@ -1,7 +1,6 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getGameMode } from '../../../state/slices/controlsSlice';
 import { changeInfusions } from '../../../state/slices/infusions';
 import Presets from '../../baseComponents/Presets';
