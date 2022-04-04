@@ -73,3 +73,25 @@ export function mapEntries<In, Out>(
 ): Record<string, Out> {
   return Object.fromEntries(Object.entries(obj).map(callbackFn));
 }
+
+/*
+ * For enum-like arrays, array.include() is too strict on the types.
+ * Example:
+ * const arr = ['A', 'B'] as const;
+ * arr.includes('C') <- does not typecheck
+ *
+ * This helper function sidesteps the issue by (safely) downcasting the array to readonly string[] first.
+ * enumArrayIncludes('C') <- will now typecheck
+ * enumArrayIncludes(42) <- still fails
+ *
+ * As a bonus, the return value is marked as a type guard, and the type of the value will be narrowed to 'A' | 'B'.
+ *
+ * Warning: don't call this on anything that's not a strictly typed const array!
+ * When passing a string[] as the first parameter, the typeguard may claim that your string is not a string.
+ */
+export function enumArrayIncludes<T extends readonly string[]>(
+  arr: T,
+  value: string,
+): value is T[number] {
+  return arr.includes(value);
+}

@@ -14,6 +14,7 @@ import type {
   WeaponHandednessType,
 } from '../../utils/gw2-data';
 import { Attributes, conditionData, INFUSION_BONUS, SlotsEntry } from '../../utils/gw2-data';
+import { enumArrayIncludes } from '../../utils/usefulFunctions';
 import type {
   AppliedModifier,
   CachedFormState,
@@ -612,7 +613,9 @@ export class OptimizerCore {
     const { attributes, baseAttributes } = character;
 
     for (const [attribute, conversion] of settings.modifiers['convert']) {
-      const maybeRound = allAttributePointKeys.includes(attribute) ? round : (val: number) => val;
+      const maybeRound = enumArrayIncludes(allAttributePointKeys, attribute)
+        ? round
+        : (val: number) => val;
       for (const [source, percent] of conversion) {
         attributes[attribute] += maybeRound(baseAttributes[source] * percent);
       }
@@ -633,7 +636,9 @@ export class OptimizerCore {
     );
 
     for (const [attribute, conversion] of settings.modifiers['convertAfterBuffs']) {
-      const maybeRound = allAttributePointKeys.includes(attribute) ? round : (val: number) => val;
+      const maybeRound = enumArrayIncludes(allAttributePointKeys, attribute)
+        ? round
+        : (val: number) => val;
       for (const [source, percent] of conversion) {
         if (source === 'Critical Chance') {
           attributes[attribute] += maybeRound(clamp(attributes['Critical Chance'], 0, 1) * percent);

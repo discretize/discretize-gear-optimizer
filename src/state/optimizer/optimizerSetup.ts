@@ -31,6 +31,7 @@ import {
   Slots,
 } from '../../utils/gw2-data';
 import {
+  enumArrayIncludes,
   mapEntries,
   mapValues,
   parseAmount,
@@ -406,7 +407,7 @@ export function setupCombinations(reduxState: any) {
       }
 
       for (const [attribute, allPairs] of Object.entries(attributes)) {
-        if (allAttributePointKeys.includes(attribute)) {
+        if (enumArrayIncludes(allAttributePointKeys, attribute)) {
           // stat, i.e.
           //   Concentration: [70, converted, 100, buff]
 
@@ -430,7 +431,7 @@ export function setupCombinations(reduxState: any) {
                 break;
             }
           }
-        } else if (allAttributeCoefficientKeys.includes(attribute)) {
+        } else if (enumArrayIncludes(allAttributeCoefficientKeys, attribute)) {
           // coefficient, i.e.
           //   Power Coefficient: 69.05
 
@@ -438,7 +439,7 @@ export function setupCombinations(reduxState: any) {
           const scaledAmount = scaleValue(value as number, amountInput, amountData);
           settings_baseAttributes[attribute] =
             (settings_baseAttributes[attribute] || 0) + scaledAmount;
-        } else if (allAttributePercentKeys.includes(attribute)) {
+        } else if (enumArrayIncludes(allAttributePercentKeys, attribute)) {
           // percent, i.e.
           //   Torment Duration: 15%
 
@@ -486,7 +487,7 @@ export function setupCombinations(reduxState: any) {
           collectedModifiers['convertAfterBuffs'][attribute] = {};
         }
         for (const [source, percentAmount] of Object.entries(val)) {
-          const valid = allConversionAfterBuffsSourceKeys.includes(source);
+          const valid = enumArrayIncludes(allConversionAfterBuffsSourceKeys, source);
           // eslint-disable-next-line no-alert
           if (!valid) alert(`Unsupported after-buff conversion source: ${source}`);
 
