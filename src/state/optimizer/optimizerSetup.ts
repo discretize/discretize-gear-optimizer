@@ -417,11 +417,8 @@ export function setupCombinations(reduxState: any) {
               // assuming multiplicative until someone tests  twin fangs + ferocious strikes
               dmgBuff('Critical Damage', scaledAmount, 'mult');
               break;
-            case 'Condition Damage Reduction':
-              console.log('Condition Damage Reduction is currently unsupported');
-              break;
             default:
-              throw new Error(`invalid damage modifier: ${attribute} in ${id}`);
+              const _: never = attribute;
           }
         }
       }
