@@ -843,13 +843,9 @@ export class OptimizerCore {
     results.damageBreakdown = {};
     for (const key of Object.keys(settings.distribution)) {
       if (key === 'Power') {
-        results.damageBreakdown['Power'] = attributes['Power DPS']
-          .toFixed(2)
-          .toLocaleString('en-US');
+        results.damageBreakdown['Power'] = attributes['Power DPS'].toFixed(2);
       } else {
-        results.damageBreakdown[`${key} Damage`] = attributes[`${key} DPS`]
-          .toFixed(2)
-          .toLocaleString('en-US');
+        results.damageBreakdown[`${key} Damage`] = attributes[`${key} DPS`].toFixed(2);
       }
     }
 
