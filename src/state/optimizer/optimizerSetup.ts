@@ -3,6 +3,11 @@
 /* eslint-disable no-case-declarations */
 /* eslint-disable dot-notation */
 
+import type {
+  AttributePointMode,
+  DamageMode,
+  Modifiers as YamlModifiers,
+} from '../../assets/modifierdata/metadata';
 import {
   allAttributeCoefficientKeys,
   allAttributePercentKeys,
@@ -74,29 +79,12 @@ type MultiplierName =
   | 'Poison Damage'
   | 'Torment Damage';
 
-// these types should be metadata.js
-
-type DamageMode = 'add' | 'mult' | 'target' | 'unknown';
-type AttributePointMode = 'buff' | 'converted' | 'unknown';
-
-type DamageModifierValue = [string, DamageMode, string?, DamageMode?];
-type AttributeModifierValue = [number | string, AttributePointMode] | number | string;
-
-type ConversionValue = Record<string, string>;
-
 export interface AppliedModifier {
   id: string;
   visible: boolean;
   enabled: boolean;
   amount: string;
-  modifiers: {
-    damage?: Record<string, DamageModifierValue>;
-    attributes?: Record<string, AttributeModifierValue>;
-    conversion?: Record<string, ConversionValue>;
-    conversionAfterBuffs?: Record<string, ConversionValue>;
-    // note,
-    // ...otherModifiers
-  };
+  modifiers: YamlModifiers;
   amountData?: {
     label: string;
     default: number;

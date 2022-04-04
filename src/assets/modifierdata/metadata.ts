@@ -96,13 +96,13 @@ export const allDamageKeys = [
 type DamageKey = typeof allDamageKeys[number];
 
 export const allDamageModes = ['add', 'mult', 'target', 'unknown'] as const;
-type DamageMode = typeof allDamageModes[number];
+export type DamageMode = typeof allDamageModes[number];
 
 export const allAttributePointKeys = stats;
 type AttributePointKey = typeof allAttributePointKeys[number];
 
 export const allAttributePointModes = ['buff', 'converted', 'unknown'] as const;
-type AttributePointMode = typeof allAttributePointModes[number];
+export type AttributePointMode = typeof allAttributePointModes[number];
 
 export const allAttributeCoefficientKeys = coefficients;
 type AttributeCoefficientKey = typeof allAttributeCoefficientKeys[number];
