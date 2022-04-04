@@ -2,6 +2,7 @@
 /* eslint-disable no-console */
 const axios = require('axios');
 const fs = require('fs');
+// eslint-disable-next-line import/no-unresolved
 const itemstatMapping = require('./src/utils/mapping/itemstats.json');
 const specializationMapping = require('./src/utils/mapping/specializations.json');
 
