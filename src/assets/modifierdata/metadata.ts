@@ -9,7 +9,7 @@ const stats = [
   'Concentration',
   'Healing Power',
   'Agony Resistance',
-];
+] as const;
 export const boons = [
   'Aegis',
   'Alacrity',
@@ -23,7 +23,7 @@ export const boons = [
   'Stability',
   'Swiftness',
   'Vigor',
-];
+] as const;
 // const conditions = [
 //   'Bleeding',
 //   'Blind',
@@ -40,7 +40,13 @@ export const boons = [
 //   'Vulnerability',
 //   'Weakness',
 // ];
-export const damagingConditions = ['Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment'];
+export const damagingConditions = [
+  'Bleeding',
+  'Burning',
+  'Confusion',
+  'Poison',
+  'Torment',
+] as const;
 
 export const percents = [
   'Critical Chance',
@@ -50,14 +56,14 @@ export const percents = [
   ...damagingConditions.map((condition) => `${condition} Duration`),
   'Maximum Health',
   'Outgoing Healing',
-];
+] as const;
 
 const coefficients = [
   'Power Coefficient',
   ...damagingConditions.map((condition) => `${condition} Coefficient`),
   'Flat DPS',
   'Siphon Base Coefficient',
-];
+] as const;
 
 export const allDamageKeys = [
   'Strike Damage',
@@ -67,17 +73,17 @@ export const allDamageKeys = [
   // 'Condition Damage Reduction',
   'Critical Damage',
   ...damagingConditions.map((condition) => `${condition} Damage`),
-];
-export const allDamageModes = ['add', 'mult', 'target', 'unknown'];
+] as const;
+export const allDamageModes = ['add', 'mult', 'target', 'unknown'] as const;
 
 export const allAttributePointKeys = stats;
-export const allAttributePointModes = ['buff', 'converted', 'unknown'];
+export const allAttributePointModes = ['buff', 'converted', 'unknown'] as const;
 
 export const allAttributeCoefficientKeys = coefficients;
 export const allAttributePercentKeys = percents;
 
 export const allConversionSourceKeys = stats;
-export const allConversionDestinationKeys = [...stats, ...percents, ...coefficients];
+export const allConversionDestinationKeys = [...stats, ...percents, ...coefficients] as const;
 
 export const allConversionAfterBuffsSourceKeys = [
   ...stats,
@@ -87,13 +93,22 @@ export const allConversionAfterBuffsSourceKeys = [
   'Critical Chance -27',
   'Critical Chance -30',
   'Critical Chance -37',
-];
-export const allConversionAfterBuffsDestinationKeys = [...stats, ...percents, ...coefficients];
+] as const;
+export const allConversionAfterBuffsDestinationKeys = [
+  ...stats,
+  ...percents,
+  ...coefficients,
+] as const;
 
 // these values don't behave well if scaled up and down,
 // so disallow them in modifiers with an amount key
-export const damageKeysBlacklist = ['Damage Reduction', 'Condition Damage Reduction'];
-export const attributePointKeysBlacklist = ['Precision', 'Toughness', 'Expertise', 'Concentration'];
+export const damageKeysBlacklist = ['Damage Reduction', 'Condition Damage Reduction'] as const;
+export const attributePointKeysBlacklist = [
+  'Precision',
+  'Toughness',
+  'Expertise',
+  'Concentration',
+] as const;
 export const attributePercentKeysBlacklist = [
   'Critical Chance',
   'Boon Duration',
@@ -101,7 +116,7 @@ export const attributePercentKeysBlacklist = [
   'Condition Duration',
   ...damagingConditions.map((condition) => `${condition} Duration`),
   'Maximum Health',
-];
+] as const;
 
 export const exampleItem = `
     - id: example
