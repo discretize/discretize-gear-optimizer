@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { PARAMS, setQueryParm, useQueryParam } from '../../utils/queryParam';
@@ -13,6 +14,10 @@ const URLStateImport = ({ sagaType, clearUrlOnSuccess }) => {
     message: '',
   });
 
+  // query param in case the site gets called with the shortener param.
+  // Must be unshortend then, check useEffects
+  const shortie = useQueryParam({ key: PARAMS.SHORTENER });
+
   // data, which is provided by a query parameter to the url
   // in this case we are looking for any ?data=buildUrl occurences so that we can access buildUrl without needing to parse the query parameters on our own.
   const buildUrl = useQueryParam({ key: PARAMS.BUILD });
@@ -22,6 +27,7 @@ const URLStateImport = ({ sagaType, clearUrlOnSuccess }) => {
     if (clearUrlOnSuccess) {
       setQueryParm({ key: PARAMS.BUILD, value: undefined });
       setQueryParm({ key: PARAMS.VERSION, value: undefined });
+      setQueryParm({ key: PARAMS.SHORTENER, value: undefined });
     }
 
     setSnackbarState((state) => ({
@@ -45,12 +51,29 @@ const URLStateImport = ({ sagaType, clearUrlOnSuccess }) => {
   }, []);
 
   React.useEffect(() => {
+    if (shortie) {
+      // found shortened link, resolve the data.
+      // cf-function can be found in /functions/share/load.ts
+      axios.get(`share/load?${PARAMS.SHORTENER}=${shortie}`).then((result) => {
+        console.log('Imported URL data:', result.data.long);
+        const dataOnly = result.data.long.split(`&${PARAMS.BUILD}=`)[1];
+
+        dispatch({
+          type: sagaType,
+          buildUrl: dataOnly,
+          onSuccess: onLoadSuccess,
+          onError: onLoadError,
+        });
+      });
+    }
+
+    // unshortened data found, for example when someone copy pasts the long url.
     if (buildUrl) {
       console.log('Imported URL data:', buildUrl);
       dispatch({ type: sagaType, buildUrl, onSuccess: onLoadSuccess, onError: onLoadError });
     }
     return () => {};
-  }, [buildUrl, onLoadError, onLoadSuccess, dispatch, sagaType]);
+  }, [buildUrl, onLoadError, onLoadSuccess, dispatch, sagaType, shortie]);
 
   return <URLStateSnackbar state={snackbarState} setState={setSnackbarState} />;
 };

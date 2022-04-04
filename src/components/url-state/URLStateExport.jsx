@@ -11,6 +11,103 @@ import URLStateSnackbar from './URLStateSnackbar';
 // hard coded temporarily!
 const version = 0;
 
+const cloudflare = (longUrl, setSnackbarState, t) => {
+  const shortenPromise = axios.get(`share/create${longUrl}`).then((res) => {
+    if (res?.data?.Status === 200) {
+      console.log('Exported short URL:', res.data.ShortUrl);
+      return res.data.ShortUrl;
+    }
+    console.log(`URL shortener returned status ${res?.data?.Status}!`);
+    return longUrl;
+  });
+  const timeoutPromise = new Promise((resolve) => setTimeout(resolve, 3000, longUrl));
+
+  const urlPromise = Promise.any([shortenPromise, timeoutPromise]);
+  const urlBlobPromise = urlPromise.then((url) => new Blob([url], { type: 'text/plain' }));
+
+  // iOS browsers and desktop Safari require the use of the async clipboard API, calling
+  // navigator.clipboard.write synchronously and passing it a Promise
+  // (see: https://web.dev/async-clipboard/).
+  // Firefox does not support this API but allows writing to the clipboard in a callback.
+  // Chrome doesn't care.
+  const clipboardPromise =
+    typeof ClipboardItem !== 'undefined'
+      ? // eslint-disable-next-line no-undef
+        navigator.clipboard.write([new ClipboardItem({ 'text/plain': urlBlobPromise })])
+      : urlPromise.then((url) => navigator.clipboard.writeText(url));
+
+  clipboardPromise
+    .then(() =>
+      setSnackbarState((state) => ({
+        ...state,
+        open: true,
+        success: true,
+        message: t('Copied link to clipboard!'),
+      })),
+    )
+    .catch(() =>
+      setSnackbarState((state) => ({
+        ...state,
+        open: true,
+        success: true,
+        message: t('Failed to copy link to clipboard!'),
+      })),
+    );
+};
+
+// TODO remove once the optimizer is on cloudflare exclusively
+const oldShortener = (longUrl, setSnackbarState, t) => {
+  // get request to create a new short-url
+  // this url points to a cloudflare worker, which acts as a url shortener
+  // Source for the shortener: https://gist.github.com/gw2princeps/dc88d11e6b2378db35bcb2dd3726c7c6
+  const shortenPromise = axios
+    .get(`https://go.princeps.biz/?new=${longUrl.replace('&', '%26')}`)
+    .then((res) => {
+      if (res?.data?.Status === 200) {
+        console.log('Exported short URL:', res.data.ShortUrl);
+        return res.data.ShortUrl;
+      }
+      console.log(`URL shortener returned status ${res?.data?.Status}!`);
+      return longUrl;
+    });
+  const timeoutPromise = new Promise((resolve) => setTimeout(resolve, 3000, longUrl));
+
+  const urlPromise = Promise.any([shortenPromise, timeoutPromise]);
+  const urlBlobPromise = urlPromise.then((url) => new Blob([url], { type: 'text/plain' }));
+
+  // iOS browsers and desktop Safari require the use of the async clipboard API, calling
+  // navigator.clipboard.write synchronously and passing it a Promise
+  // (see: https://web.dev/async-clipboard/).
+  // Firefox does not support this API but allows writing to the clipboard in a callback.
+  // Chrome doesn't care.
+  const clipboardPromise =
+    typeof ClipboardItem !== 'undefined'
+      ? // eslint-disable-next-line no-undef
+        navigator.clipboard.write([new ClipboardItem({ 'text/plain': urlBlobPromise })])
+      : urlPromise.then((url) => navigator.clipboard.writeText(url));
+
+  clipboardPromise
+    .then(() =>
+      setSnackbarState((state) => ({
+        ...state,
+        open: true,
+        success: true,
+        message: t('Copied link to clipboard!'),
+      })),
+    )
+    .catch(() =>
+      setSnackbarState((state) => ({
+        ...state,
+        open: true,
+        success: true,
+        message: t('Failed to copy link to clipboard!'),
+      })),
+    );
+
+  // setBuildUrl would trigger an update in the useEffects method of URLState... which is not what we want
+  // setBuildUrl(data);
+};
+
 // eslint-disable-next-line no-unused-vars
 const URLStateExport = ({ type }) => {
   const dispatch = useDispatch();
@@ -47,9 +144,11 @@ const URLStateExport = ({ type }) => {
       }
       console.log(`Exported long URL (${longUrl.length} characters):`, longUrl);
 
-      // skip link shortener if build in staging/preview/local development
-      // (prevents sharing short links that redirect to an invalid location)
-      if (!longUrl.includes('optimizer.discretize.eu')) {
+      if (import.meta.env.VITE_HAS_CF) {
+        cloudflare(urlObject.search, setSnackbarState, t);
+      } else if (!longUrl.includes('optimizer.discretize.eu')) {
+        // skip link shortener if build in staging/preview/local development
+        // (prevents sharing short links that redirect to an invalid location)
         setSnackbarState((state) => ({
           ...state,
           open: true,
@@ -57,58 +156,9 @@ const URLStateExport = ({ type }) => {
           message: t('Copied link to clipboard! (Link shortener disabled in preview builds.)'),
         }));
         navigator.clipboard.writeText(longUrl);
-        return;
+      } else {
+        oldShortener(longUrl, setSnackbarState, t);
       }
-
-      // get request to create a new short-url
-      // this url points to a cloudflare worker, which acts as a url shortener
-      // Source for the shortener: https://gist.github.com/gw2princeps/dc88d11e6b2378db35bcb2dd3726c7c6
-      const shortenPromise = axios
-        .get(`https://go.princeps.biz/?new=${longUrl.replace('&', '%26')}`)
-        .then((res) => {
-          if (res?.data?.Status === 200) {
-            console.log('Exported short URL:', res.data.ShortUrl);
-            return res.data.ShortUrl;
-          }
-          console.log(`URL shortener returned status ${res?.data?.Status}!`);
-          return longUrl;
-        });
-      const timeoutPromise = new Promise((resolve) => setTimeout(resolve, 3000, longUrl));
-
-      const urlPromise = Promise.any([shortenPromise, timeoutPromise]);
-      const urlBlobPromise = urlPromise.then((url) => new Blob([url], { type: 'text/plain' }));
-
-      // iOS browsers and desktop Safari require the use of the async clipboard API, calling
-      // navigator.clipboard.write synchronously and passing it a Promise
-      // (see: https://web.dev/async-clipboard/).
-      // Firefox does not support this API but allows writing to the clipboard in a callback.
-      // Chrome doesn't care.
-      const clipboardPromise =
-        typeof ClipboardItem !== 'undefined'
-          ? // eslint-disable-next-line no-undef
-            navigator.clipboard.write([new ClipboardItem({ 'text/plain': urlBlobPromise })])
-          : urlPromise.then((url) => navigator.clipboard.writeText(url));
-
-      clipboardPromise
-        .then(() =>
-          setSnackbarState((state) => ({
-            ...state,
-            open: true,
-            success: true,
-            message: t('Copied link to clipboard!'),
-          })),
-        )
-        .catch(() =>
-          setSnackbarState((state) => ({
-            ...state,
-            open: true,
-            success: true,
-            message: t('Failed to copy link to clipboard!'),
-          })),
-        );
-
-      // setBuildUrl would trigger an update in the useEffects method of URLState... which is not what we want
-      // setBuildUrl(data);
     },
     [t],
   );
