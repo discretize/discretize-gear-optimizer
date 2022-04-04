@@ -305,3 +305,20 @@ export interface Section {
 }
 
 export type ModifierData = Section[];
+
+export interface data {
+  buffs: ModifierData;
+  Elementalist: ModifierData;
+  Engineer: ModifierData;
+  food: ModifierData;
+  Guardian: ModifierData;
+  Mesmer: ModifierData;
+  Necromancer: ModifierData;
+  Ranger: ModifierData;
+  Revenant: ModifierData;
+  runes: ModifierData;
+  sigils: ModifierData;
+  Thief: ModifierData;
+  utility: ModifierData;
+  Warrior: ModifierData;
+}
