@@ -672,9 +672,9 @@ export function setupCombinations(reduxState: any) {
         return affixOptions;
       }
       const result: AffixName[] = [];
-      for (const [index, affix] of affixOptions.entries()) {
+      affixOptions.forEach((affix, index) => {
         result[(index + slotindex) % affixOptions.length] = affix;
-      }
+      });
       return result;
     });
     // console.log(settings.affixesArray.map(item => item.toString()));
