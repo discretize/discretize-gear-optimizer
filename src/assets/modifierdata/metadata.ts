@@ -93,7 +93,7 @@ export const allDamageKeys = [
   'Critical Damage',
   ...conditionDamages,
 ] as const;
-type DamageKey = typeof allDamageKeys[number];
+export type DamageKey = typeof allDamageKeys[number];
 
 export const allDamageModes = ['add', 'mult', 'target', 'unknown'] as const;
 export type DamageMode = typeof allDamageModes[number];
@@ -105,16 +105,16 @@ export const allAttributePointModes = ['buff', 'converted', 'unknown'] as const;
 export type AttributePointMode = typeof allAttributePointModes[number];
 
 export const allAttributeCoefficientKeys = coefficients;
-type AttributeCoefficientKey = typeof allAttributeCoefficientKeys[number];
+export type AttributeCoefficientKey = typeof allAttributeCoefficientKeys[number];
 export const allAttributePercentKeys = percents;
-type AttributePercentKey = typeof allAttributePercentKeys[number];
+export type AttributePercentKey = typeof allAttributePercentKeys[number];
 
-type AttributeKey = AttributePointKey | AttributeCoefficientKey | AttributePercentKey;
+export type AttributeKey = AttributePointKey | AttributeCoefficientKey | AttributePercentKey;
 
 export const allConversionSourceKeys = stats;
-type ConversionSourceKey = typeof allConversionSourceKeys[number];
+export type ConversionSourceKey = typeof allConversionSourceKeys[number];
 export const allConversionDestinationKeys = [...stats, ...percents, ...coefficients] as const;
-type ConversionDestinationKey = typeof allConversionDestinationKeys[number];
+export type ConversionDestinationKey = typeof allConversionDestinationKeys[number];
 
 export const allConversionAfterBuffsSourceKeys = [
   ...stats,
@@ -125,13 +125,14 @@ export const allConversionAfterBuffsSourceKeys = [
   'Critical Chance -30',
   'Critical Chance -37',
 ] as const;
-type ConversionAfterBuffsSourceKey = typeof allConversionAfterBuffsSourceKeys[number];
+export type ConversionAfterBuffsSourceKey = typeof allConversionAfterBuffsSourceKeys[number];
 export const allConversionAfterBuffsDestinationKeys = [
   ...stats,
   ...percents,
   ...coefficients,
 ] as const;
-type ConversionAfterBuffsDestinationKey = typeof allConversionAfterBuffsDestinationKeys[number];
+export type ConversionAfterBuffsDestinationKey =
+  typeof allConversionAfterBuffsDestinationKeys[number];
 
 // these values don't behave well if scaled up and down,
 // so disallow them in modifiers with an amount key
@@ -223,12 +224,12 @@ export const exampleModifiersJson = `{
   }
 }`;
 
-type Percent = string;
+export type Percent = string;
 
-type DamageValue = [Percent, DamageMode, Percent?, DamageMode?];
-type DamageModifiers = Partial<Record<DamageKey, DamageValue>>;
+export type DamageValue = [Percent, DamageMode, Percent?, DamageMode?];
+export type DamageModifiers = Partial<Record<DamageKey, DamageValue>>;
 
-type AttributeModifiers = {
+export type AttributeModifiers = {
   [Key in AttributeKey]?: Key extends AttributePointKey
     ? [number, AttributePointMode, number?, AttributePointMode?]
     : Key extends AttributeCoefficientKey
@@ -238,11 +239,11 @@ type AttributeModifiers = {
     : never;
 };
 
-type ConversionValue = Partial<Record<ConversionSourceKey, Percent>>;
-type ConversionModifers = Partial<Record<ConversionDestinationKey, ConversionValue>>;
+export type ConversionValue = Partial<Record<ConversionSourceKey, Percent>>;
+export type ConversionModifers = Partial<Record<ConversionDestinationKey, ConversionValue>>;
 
-type ConversionAfterBuffsValue = Partial<Record<ConversionAfterBuffsSourceKey, Percent>>;
-type ConversionAfterBuffsModifers = Partial<
+export type ConversionAfterBuffsValue = Partial<Record<ConversionAfterBuffsSourceKey, Percent>>;
+export type ConversionAfterBuffsModifers = Partial<
   Record<ConversionAfterBuffsDestinationKey, ConversionAfterBuffsValue>
 >;
 

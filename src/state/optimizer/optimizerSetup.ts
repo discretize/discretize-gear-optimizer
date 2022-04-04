@@ -5,9 +5,18 @@
 
 import type {
   AmountData,
+  AttributeKey,
   AttributePointMode,
+  ConversionAfterBuffsDestinationKey,
+  ConversionAfterBuffsSourceKey,
+  ConversionDestinationKey,
+  ConversionSourceKey,
+  ConversionValue,
+  DamageKey,
   DamageMode,
+  DamageValue,
   Modifiers as YamlModifiers,
+  Percent,
 } from '../../assets/modifierdata/metadata';
 import {
   allAttributeCoefficientKeys,
@@ -103,11 +112,22 @@ export type DistributionNameInternal =
   | 'Torment'
   | 'Confusion';
 
-// todo increase specificity
+type CollectedAttributeModifiers = Partial<Record<AttributeKey, number>>;
+
+type CollectedConversionValue = Partial<Record<ConversionSourceKey, number>>;
+export type CollectedConversionModifers = Partial<
+  Record<ConversionDestinationKey, CollectedConversionValue>
+>;
+
+type CollectedConversionAfterBuffsValue = Partial<Record<ConversionAfterBuffsSourceKey, number>>;
+export type CollectedConversionAfterBuffsModifers = Partial<
+  Record<ConversionAfterBuffsDestinationKey, CollectedConversionAfterBuffsValue>
+>;
+
 interface CollectedModifiers {
-  buff: Record<string, number>;
-  convert: Record<string, Record<string, number>>;
-  convertAfterBuffs: Record<string, Record<string, number>>;
+  buff: CollectedAttributeModifiers;
+  convert: CollectedConversionModifers;
+  convertAfterBuffs: CollectedConversionAfterBuffsModifers;
 }
 export interface Modifiers {
   damageMultiplier: Record<string, number>;
@@ -363,7 +383,7 @@ export function setupCombinations(reduxState: any) {
 
       const { value: amountInput } = parseAmount(amountText);
 
-      for (const [attribute, allPairs] of Object.entries(damage)) {
+      for (const [attribute, allPairs] of Object.entries(damage) as [DamageKey, DamageValue][]) {
         // damage, i.e.
         //   Strike Damage: [3%, add, 7%, mult]
 
@@ -406,7 +426,7 @@ export function setupCombinations(reduxState: any) {
         }
       }
 
-      for (const [attribute, allPairs] of Object.entries(attributes)) {
+      for (const [attribute, allPairs] of Object.entries(attributes) as [AttributeKey, any][]) {
         if (enumArrayIncludes(allAttributePointKeys, attribute)) {
           // stat, i.e.
           //   Concentration: [70, converted, 100, buff]
@@ -460,7 +480,10 @@ export function setupCombinations(reduxState: any) {
         }
       }
 
-      for (const [attribute, val] of Object.entries(conversion)) {
+      for (const [attribute, val] of Object.entries(conversion) as [
+        ConversionDestinationKey,
+        ConversionValue,
+      ][]) {
         // conversion, i.e.
         //   Power: {Condition Damage: 6%, Expertise: 8%}
 
@@ -469,7 +492,10 @@ export function setupCombinations(reduxState: any) {
         if (!collectedModifiers['convert'][attribute]) {
           collectedModifiers['convert'][attribute] = {};
         }
-        for (const [source, percentAmount] of Object.entries(val)) {
+        for (const [source, percentAmount] of Object.entries(val) as [
+          ConversionSourceKey,
+          Percent,
+        ][]) {
           const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
 
           collectedModifiers['convert'][attribute][source] =
