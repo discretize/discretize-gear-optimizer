@@ -351,7 +351,7 @@ export class OptimizerCore {
       gear, // passed by reference
       settings: this.minimalSettings, // passed by reference
       gearStats, // passed by reference
-      attributes: null,
+      attributes: {},
       valid: true,
       baseAttributes: { ...settings.baseAttributes },
     };

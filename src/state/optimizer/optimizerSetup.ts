@@ -9,6 +9,7 @@ import type {
   AttributePointMode,
   ConversionAfterBuffsDestinationKey,
   ConversionAfterBuffsSourceKey,
+  ConversionAfterBuffsValue,
   ConversionDestinationKey,
   ConversionSourceKey,
   ConversionValue,
@@ -25,6 +26,7 @@ import {
   allConversionAfterBuffsSourceKeys,
 } from '../../assets/modifierdata/metadata';
 import type {
+  AffixData,
   AffixName,
   ConditionName,
   InfusionName,
@@ -496,12 +498,15 @@ export function setupCombinations(reduxState: any) {
         ][]) {
           const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
 
-          collectedModifiers['convert'][attribute][source] =
-            (collectedModifiers['convert'][attribute][source] || 0) + scaledAmount;
+          collectedModifiers['convert'][attribute]![source] =
+            (collectedModifiers['convert'][attribute]![source] || 0) + scaledAmount;
         }
       }
 
-      for (const [attribute, val] of Object.entries(conversionAfterBuffs)) {
+      for (const [attribute, val] of Object.entries(conversionAfterBuffs) as [
+        ConversionAfterBuffsDestinationKey,
+        ConversionAfterBuffsValue,
+      ][]) {
         // conversion after buffs, i.e.
         //   Power: {Condition Damage: 6%, Expertise: 8%}
 
@@ -510,15 +515,18 @@ export function setupCombinations(reduxState: any) {
         if (!collectedModifiers['convertAfterBuffs'][attribute]) {
           collectedModifiers['convertAfterBuffs'][attribute] = {};
         }
-        for (const [source, percentAmount] of Object.entries(val)) {
+        for (const [source, percentAmount] of Object.entries(val) as [
+          ConversionAfterBuffsSourceKey,
+          Percent,
+        ][]) {
           const valid = enumArrayIncludes(allConversionAfterBuffsSourceKeys, source);
           // eslint-disable-next-line no-alert
           if (!valid) alert(`Unsupported after-buff conversion source: ${source}`);
 
           const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
 
-          collectedModifiers['convertAfterBuffs'][attribute][source] =
-            (collectedModifiers['convertAfterBuffs'][attribute][source] || 0) + scaledAmount;
+          collectedModifiers['convertAfterBuffs'][attribute]![source] =
+            (collectedModifiers['convertAfterBuffs'][attribute]![source] || 0) + scaledAmount;
         }
       }
     }
@@ -699,7 +707,10 @@ export function setupCombinations(reduxState: any) {
       settings_affixesArray.map((possibleAffixes, slotindex) =>
         possibleAffixes.map((affix) => {
           const statTotals: Record<string, number> = {};
-          const bonuses = Object.entries(settings_slots[slotindex].item[Affix[affix].type]);
+          const bonuses = Object.entries(settings_slots[slotindex].item[Affix[affix].type]) as [
+            keyof AffixData['bonuses'],
+            number,
+          ][];
           for (const [type, bonus] of bonuses) {
             for (const stat of Affix[affix].bonuses[type]) {
               statTotals[stat] = (statTotals[stat] || 0) + bonus;
