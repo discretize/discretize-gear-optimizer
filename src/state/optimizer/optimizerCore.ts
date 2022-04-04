@@ -13,9 +13,10 @@ import type {
   ProfessionName,
   WeaponHandednessType,
 } from '../../utils/gw2-data';
-import { Attributes, conditionData, INFUSION_BONUS } from '../../utils/gw2-data';
+import { Attributes, conditionData, INFUSION_BONUS, SlotsEntry } from '../../utils/gw2-data';
 import type {
   AppliedModifier,
+  CachedFormState,
   DistributionNameInternal,
   InfusionMode,
   Modifiers,
@@ -130,7 +131,7 @@ export interface OptimizerCoreSettings {
   forcedAcc: boolean;
   forcedWep: boolean;
   forcedArmor: boolean;
-  slots: any;
+  slots: SlotsEntry;
   runsAfterThisSlot: number[];
   affixesArray: AffixName[][];
   affixStatsArray: [AttributeName, number][][][];
@@ -141,7 +142,7 @@ export interface OptimizerCoreSettings {
 
   shouldDisplayExtras: Record<string, boolean>;
   appliedModifiers: AppliedModifier[];
-  cachedFormState: any;
+  cachedFormState: CachedFormState;
   extrasCombination: Record<string, string>;
 }
 type OptimizerCoreMinimalSettings = Pick<
@@ -160,7 +161,7 @@ type GearStats = Record<string, number>;
 interface Character {
   id?: string;
   settings: OptimizerCoreMinimalSettings;
-  attributes: any;
+  attributes: Record<AttributeName, number>;
   gear: Gear;
   gearStats: GearStats;
   valid: boolean;

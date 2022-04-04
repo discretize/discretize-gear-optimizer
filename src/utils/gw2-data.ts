@@ -688,6 +688,8 @@ export const Slots = {
 };
 export type WeaponHandednessType = keyof typeof Slots;
 
+export type SlotsEntry = typeof Slots['Dual wield'];
+
 // used for forcing slots to a certain affix
 export const ForcedSlots = [
   'helm', // 0

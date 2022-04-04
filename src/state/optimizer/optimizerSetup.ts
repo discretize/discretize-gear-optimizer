@@ -90,14 +90,18 @@ export interface AppliedModifier {
   enabled: boolean;
   amount: string;
   modifiers: {
-    damage: Record<string, DamageModifierValue>;
-    attributes: Record<string, AttributeModifierValue>;
-    conversion: Record<string, ConversionValue>;
-    conversionAfterBuffs: Record<string, ConversionValue>;
+    damage?: Record<string, DamageModifierValue>;
+    attributes?: Record<string, AttributeModifierValue>;
+    conversion?: Record<string, ConversionValue>;
+    conversionAfterBuffs?: Record<string, ConversionValue>;
     // note,
     // ...otherModifiers
   };
-  amountData: any;
+  amountData?: {
+    label: string;
+    default: number;
+    quantityEntered: number;
+  };
   // },
 }
 
@@ -133,6 +137,13 @@ export type InfusionMode = 'None' | 'Primary' | 'Few' | 'Secondary' | 'Secondary
 const getExtrasCombinationsAndModifiers = getExtrasCombinationsAndModifiersRaw as any as (
   state: any,
 ) => Combination[];
+
+export interface CachedFormState {
+  traits: Record<string, any>;
+  skills: Record<string, any>;
+  extras: Record<string, any>;
+  buffs: Record<string, any>;
+}
 
 // interface OptimizerInput {
 //   profession: ProfessionName;
@@ -473,11 +484,7 @@ export function setupCombinations(reduxState: any) {
           collectedModifiers['convert'][attribute] = {};
         }
         for (const [source, percentAmount] of Object.entries(val)) {
-          const scaledAmount = scaleValue(
-            parsePercent(percentAmount /*  as string */),
-            amountInput,
-            amountData,
-          );
+          const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
 
           collectedModifiers['convert'][attribute][source] =
             (collectedModifiers['convert'][attribute][source] || 0) + scaledAmount;
@@ -498,11 +505,7 @@ export function setupCombinations(reduxState: any) {
           // eslint-disable-next-line no-alert
           if (!valid) alert(`Unsupported after-buff conversion source: ${source}`);
 
-          const scaledAmount = scaleValue(
-            parsePercent(percentAmount /*  as string */),
-            amountInput,
-            amountData,
-          );
+          const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
 
           collectedModifiers['convertAfterBuffs'][attribute][source] =
             (collectedModifiers['convertAfterBuffs'][attribute][source] || 0) + scaledAmount;
@@ -686,14 +689,10 @@ export function setupCombinations(reduxState: any) {
       settings_affixesArray.map((possibleAffixes, slotindex) =>
         possibleAffixes.map((affix) => {
           const statTotals: Record<string, number> = {};
-          const bonuses = Object.entries(
-            settings_slots[slotindex].item[Affix[affix as keyof typeof Affix].type],
-          );
+          const bonuses = Object.entries(settings_slots[slotindex].item[Affix[affix].type]);
           for (const [type, bonus] of bonuses) {
-            for (const stat of Affix[affix as keyof typeof Affix].bonuses[
-              type as 'major' | 'minor'
-            ]) {
-              statTotals[stat] = (statTotals[stat] || 0) + (bonus as number);
+            for (const stat of Affix[affix].bonuses[type]) {
+              statTotals[stat] = (statTotals[stat] || 0) + bonus;
             }
           }
 
