@@ -5,4 +5,4 @@ Vite allows access to variables with `import.meta.env.VARIABLENAME`. This call g
 ## Cloudflare related
 
 - `VITE_HAS_CF`: is true, when the applications runs in an environment where cloudflare functions can be executed.
-- `VITE_IS_PREVIEW`: is true, when the application runs in a preview build.
+- `VITE_IS_CF_PREVIEW`: is true, when the application runs in a preview build.
