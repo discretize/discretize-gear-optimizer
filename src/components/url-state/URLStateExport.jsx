@@ -1,6 +1,6 @@
 import { Tooltip } from '@discretize/gw2-ui-new';
 import ShareIcon from '@mui/icons-material/Share';
-import { CircularProgress, IconButton } from '@mui/material';
+import { IconButton } from '@mui/material';
 import axios from 'axios';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
