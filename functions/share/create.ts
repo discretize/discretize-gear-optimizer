@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import { PARAMS } from '../../src/utils/queryParam';
 
 // stolen from https://gist.github.com/obezuk/4394d1b2a1b057af997bab4363e631bc
@@ -23,7 +24,7 @@ async function generate_rand(KV_NAMESPACE, i: number) {
   }
 }
 
-export async function onRequestGet(context) {
+export async function onRequestPost(context) {
   // Contents of context object
   const {
     request, // same as existing Worker API
@@ -32,11 +33,8 @@ export async function onRequestGet(context) {
 
   const KV: KVNamespace = env.SHORT_LINKS;
 
-  const urlObject = new URL(request.url);
-  const longLink = urlObject.search;
-
   try {
-    var randomKey = await generate_rand(KV, 0);
+    var key = await generate_rand(KV, 0);
   } catch (e) {
     return new Response(
       JSON.stringify({
@@ -52,14 +50,13 @@ export async function onRequestGet(context) {
     );
   }
 
-  await KV.put(randomKey, longLink);
+  await KV.put(key, request.body);
 
-  const shortLink = `${urlObject.origin}/?${PARAMS.SHORTENER}=${randomKey}`;
   return new Response(
     JSON.stringify({
       'Status': 200,
       'Message': 'Successfully created new link',
-      'ShortUrl': shortLink,
+      'Key': key,
     }),
     {
       'headers': { 'Content-Type': 'application/json' },

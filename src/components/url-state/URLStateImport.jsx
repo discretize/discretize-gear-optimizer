@@ -54,17 +54,19 @@ const URLStateImport = ({ sagaType, clearUrlOnSuccess }) => {
     if (shortie) {
       // found shortened link, resolve the data.
       // cf-function can be found in /functions/share/load.ts
-      axios.get(`share/load?${PARAMS.SHORTENER}=${shortie}`).then((result) => {
-        console.log('Imported URL data:', result.data.long);
-        const dataOnly = result.data.long.split(`&${PARAMS.BUILD}=`)[1];
+      axios
+        .get(`share/load?${PARAMS.SHORTENER}=${shortie}`, { responseType: 'arraybuffer' })
+        .then((response) => {
+          const binaryData = new Int8Array(response.data);
+          console.log(binaryData);
 
-        dispatch({
-          type: sagaType,
-          buildUrl: dataOnly,
-          onSuccess: onLoadSuccess,
-          onError: onLoadError,
+          dispatch({
+            type: sagaType,
+            binaryData,
+            onSuccess: onLoadSuccess,
+            onError: onLoadError,
+          });
         });
-      });
     }
 
     // unshortened data found, for example when someone copy pasts the long url.
