@@ -199,8 +199,8 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [30%, target]
-          Condition Damage: [100%, target]
+          Strike Damage: [10%, target]
+          Condition Damage: [20%, target]
       type: CommonEffect
 
     - id: lightArmor
