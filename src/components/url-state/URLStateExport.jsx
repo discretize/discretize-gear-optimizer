@@ -139,13 +139,20 @@ const URLStateExport = ({ type }) => {
   /// const [_, setBuildUrl] = useQueryParam('data', StringParam);
 
   const onExportSuccess = React.useCallback(
-    (data, binaryData) => {
+    (jsonUrlData, binaryData) => {
       if (typeof window === 'undefined') return;
 
       const urlObject = new URL(window.location.href);
-      urlObject.searchParams.set('v', version);
-      urlObject.searchParams.set('data', data);
+      urlObject.searchParams.set(PARAMS.VERSION, version);
+      urlObject.searchParams.set(PARAMS.BUILD, jsonUrlData);
       const longUrl = urlObject.href;
+
+      console.log(`Exported long URL (${longUrl.length} characters):`, longUrl);
+
+      if (import.meta.env.VITE_HAS_CF) {
+        cloudflare(longUrl, binaryData, setSnackbarState, setLoading, t);
+        return;
+      }
 
       if (longUrl.length > 8000) {
         console.log(`URL is too long! (${longUrl.length} characters):`, longUrl);
@@ -157,11 +164,8 @@ const URLStateExport = ({ type }) => {
         }));
         return;
       }
-      console.log(`Exported long URL (${longUrl.length} characters):`, longUrl);
 
-      if (import.meta.env.VITE_HAS_CF) {
-        cloudflare(urlObject.search, binaryData, setSnackbarState, setLoading, t);
-      } else if (!longUrl.includes('optimizer.discretize.eu')) {
+      if (!longUrl.includes('optimizer.discretize.eu')) {
         // skip link shortener if build in staging/preview/local development
         // (prevents sharing short links that redirect to an invalid location)
         setSnackbarState((state) => ({

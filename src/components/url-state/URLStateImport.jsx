@@ -20,7 +20,7 @@ const URLStateImport = ({ sagaType, clearUrlOnSuccess }) => {
 
   // data, which is provided by a query parameter to the url
   // in this case we are looking for any ?data=buildUrl occurences so that we can access buildUrl without needing to parse the query parameters on our own.
-  const buildUrl = useQueryParam({ key: PARAMS.BUILD });
+  const jsonUrlData = useQueryParam({ key: PARAMS.BUILD });
 
   // Sets the url back to the original state, in case the loading of the state was successful
   const onLoadSuccess = React.useCallback(() => {
@@ -71,12 +71,12 @@ const URLStateImport = ({ sagaType, clearUrlOnSuccess }) => {
     }
 
     // unshortened data found, for example when someone copy pasts the long url.
-    if (buildUrl) {
-      console.log('Imported URL data:', buildUrl);
-      dispatch({ type: sagaType, buildUrl, onSuccess: onLoadSuccess, onError: onLoadError });
+    if (jsonUrlData) {
+      console.log('Imported URL data:', jsonUrlData);
+      dispatch({ type: sagaType, jsonUrlData, onSuccess: onLoadSuccess, onError: onLoadError });
     }
     return () => {};
-  }, [buildUrl, onLoadError, onLoadSuccess, dispatch, sagaType, shortie]);
+  }, [jsonUrlData, onLoadError, onLoadSuccess, dispatch, sagaType, shortie]);
 
   return <URLStateSnackbar state={snackbarState} setState={setSnackbarState} />;
 };
