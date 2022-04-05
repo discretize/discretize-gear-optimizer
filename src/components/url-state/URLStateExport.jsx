@@ -18,7 +18,7 @@ const cloudflare = (longUrl, binaryData, setSnackbarState, setLoading, t) => {
       const { Key } = res.data;
 
       const urlObject = new URL(window.location.href);
-      urlObject.searchParams.set(PARAMS.SHORTENER, Key);
+      urlObject.searchParams.set(PARAMS.SHORTENER, `${Key}v1`);
       const shortUrl = urlObject.href;
 
       console.log('Exported short URL:', shortUrl);

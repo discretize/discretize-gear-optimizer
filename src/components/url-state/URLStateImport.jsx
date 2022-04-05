@@ -51,11 +51,12 @@ const URLStateImport = ({ sagaType, clearUrlOnSuccess }) => {
   }, []);
 
   React.useEffect(() => {
-    if (shortie) {
+    if (shortie && shortie.endsWith('v1')) {
       // found shortened link, resolve the data.
       // cf-function can be found in /functions/share/load.ts
+      const key = shortie.slice(0, -2);
       axios
-        .get(`share/load?${PARAMS.SHORTENER}=${shortie}`, { responseType: 'arraybuffer' })
+        .get(`share/load?${PARAMS.SHORTENER}=${key}`, { responseType: 'arraybuffer' })
         .then((response) => {
           const binaryData = new Uint8Array(response.data);
           console.log(binaryData);
