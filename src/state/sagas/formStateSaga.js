@@ -70,14 +70,14 @@ function* exportState({ onSuccess, onError }) {
     console.log(exportData);
 
     console.time('Created template in:');
-    const compressed = yield lib.compress(exportData);
+    const jsonUrlCompressed = yield lib.compress(exportData);
     console.timeEnd('Created template in:');
 
     console.time('Created binary template in:');
     const binaryCompressed = pako.deflate(JSON.stringify(exportData));
     console.timeEnd('Created binary template in:');
 
-    onSuccess(compressed, binaryCompressed);
+    onSuccess(jsonUrlCompressed, binaryCompressed);
   } catch (e) {
     console.log('Problem saving and sharing state!');
     console.log(e);
@@ -89,7 +89,7 @@ function* watchExportState() {
   yield takeLeading(SagaTypes.ExportFormState, exportState);
 }
 
-function* importState({ buildUrl: input, binaryData, onSuccess, onError }) {
+function* importState({ jsonUrlData, binaryData, onSuccess, onError }) {
   try {
     if (binaryData) {
       const decompressed = pako.inflate(binaryData, { to: 'string' });
@@ -104,9 +104,9 @@ function* importState({ buildUrl: input, binaryData, onSuccess, onError }) {
 
       // execute success callback
       onSuccess();
-    } else if (input) {
+    } else if (jsonUrlData) {
       console.time('Decompressed template in:');
-      const importData = yield lib.decompress(input);
+      const importData = yield lib.decompress(jsonUrlData);
       console.timeEnd('Decompressed template in:');
 
       console.log(importData);
