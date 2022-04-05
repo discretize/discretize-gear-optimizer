@@ -185,6 +185,7 @@ const URLStateExport = ({ type }) => {
       success: false,
       message: 'There was an error exporting the state!',
     }));
+    setLoading(false);
     // console.log('An error occured!');
   }, []);
 
