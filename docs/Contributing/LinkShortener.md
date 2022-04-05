@@ -10,7 +10,7 @@ When loading the optimizer with the query param `PARAMS.SHORTENER`, a GET reques
 
 ## Developing locally
 
-The shortener is only available in environments where the cloudflare functions may be served (the calls are made to `http://host:PORT/share/{load|create}`, not to an external URL). This implies, the functions will only be available when the dev server is launched with `yarn cfdev`.
+The shortener is only available in environments where the cloudflare functions may be served (the calls are made to `http://host:PORT/share/{load|create}`, not to an external URL). This implies, the functions will only be available when the dev server is launched with `yarn cfdev` or `yarn cfserve`.
 
 # Further information
 
