@@ -78,7 +78,7 @@ Note that this builds in development mode, with verbose error messages but reduc
 
 To test changes to builds quickly in production mode, you can run `yarn build --watch` in one terminal window and `yarn serve` in another.
 
-To test the Cloudflare functions used to shorten shared state links, use `yarn cfdev` in place of `yarn dev` or `yarn cfserve` in place of `yarn serve`. This will use Cloudflare's Wrangler CLI to simulate the real server using a proxy. The data generated in this local environment is stored in `.mf/kv/SHORT_LINKS/`.
+To test the Cloudflare functions used to shorten shared state links, use `yarn cfdev` in place of `yarn dev` or `yarn cfbuild` and `yarn cfserve` in place of `yarn build` and `yarn serve`. This will use Cloudflare's Wrangler CLI to simulate the real server using a proxy. The data generated in this local environment is stored in `.mf/kv/SHORT_LINKS/`.
 
 For more options, run `npx vite --help`.
 

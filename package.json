@@ -16,6 +16,7 @@
     "start": "vite",
     "cfdev": "VITE_HAS_CF=true wrangler pages dev --kv SHORT_LINKS -- yarn dev",
     "build": "vite build",
+    "cfbuild": "VITE_HAS_CF=true vite build --watch",
     "serve": "vite preview --host",
     "cfserve": "VITE_HAS_CF=true wrangler pages dev --kv SHORT_LINKS -- yarn serve",
     "buildserve": "vite build && vite preview --host",
