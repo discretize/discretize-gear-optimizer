@@ -1,5 +1,5 @@
+/* eslint-disable camelcase */
 /* eslint-disable import/prefer-default-export */
-import { PARAMS } from '../../src/utils/queryParam';
 
 // stolen from https://gist.github.com/obezuk/4394d1b2a1b057af997bab4363e631bc
 async function generate_rand(KV_NAMESPACE, i: number) {
@@ -8,19 +8,20 @@ async function generate_rand(KV_NAMESPACE, i: number) {
     throw new Error('Limiting random key checks to 5');
   }
 
+  let random_data;
+
   try {
-    var rand_response = await fetch(new Request('https://csprng.xyz/v1/api?length=6'));
-    var rand: { Data: string } = await rand_response.json();
-    var random_data = rand.Data;
-    var exists = await KV_NAMESPACE.get(random_data);
+    const rand_response = await fetch(new Request('https://csprng.xyz/v1/api?length=6'));
+    const rand: { Data: string } = await rand_response.json();
+    random_data = rand.Data;
+    const exists = await KV_NAMESPACE.get(random_data);
     if (exists) {
       throw new Error('Collision!');
     } else {
       return random_data;
     }
   } catch (e) {
-    i++;
-    return await generate_rand(KV_NAMESPACE, i);
+    return generate_rand(KV_NAMESPACE, i + 1);
   }
 }
 
@@ -33,8 +34,10 @@ export async function onRequestPost(context) {
 
   const KV: KVNamespace = env.SHORT_LINKS;
 
+  let key;
+
   try {
-    var key = await generate_rand(KV, 0);
+    key = await generate_rand(KV, 0);
   } catch (e) {
     return new Response(
       JSON.stringify({
