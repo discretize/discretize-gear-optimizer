@@ -65,41 +65,47 @@ const unModifyState = (importData) => {
   return optimizerState;
 };
 
-function* exportState({ onSuccess }) {
-  const reduxState = yield select();
+function* exportState({ onSuccess, onError }) {
+  try {
+    const reduxState = yield select();
 
-  const exportData = modifyState(reduxState.optimizer);
-  console.log(exportData);
+    const exportData = modifyState(reduxState.optimizer);
+    console.log(exportData);
 
-  console.time('Created template in:');
-  const compressed = yield lib.compress(exportData);
-  console.timeEnd('Created template in:');
+    console.time('Created template in:');
+    const compressed = yield lib.compress(exportData);
+    console.timeEnd('Created template in:');
 
-  console.time('Created binary template in:');
+    console.time('Created binary template in:');
 
-  const packed = encode(exportData);
-  console.log('packed', packed);
+    const packed = encode(exportData);
+    console.log('packed', packed);
 
-  const lzmaCompressed = LZMA.compress(packed);
-  console.log('lzmaCompressed', lzmaCompressed);
+    const lzmaCompressed = LZMA.compress(packed);
+    console.log('lzmaCompressed', lzmaCompressed);
 
-  const binaryCompressed = Int8Array.from(lzmaCompressed);
-  console.log('binaryCompressed', binaryCompressed);
+    const binaryCompressed = Int8Array.from(lzmaCompressed);
+    console.log('binaryCompressed', binaryCompressed);
 
-  console.timeEnd('Created binary template in:');
+    console.timeEnd('Created binary template in:');
 
-  // tests
+    // tests
 
-  // const array = Int8Array.from(binaryCompressed);
-  // console.log('array', array);
+    // const array = Int8Array.from(binaryCompressed);
+    // console.log('array', array);
 
-  // const decompressed = LZMA.decompress(array);
-  // console.log('decompressed', decompressed);
+    // const decompressed = LZMA.decompress(array);
+    // console.log('decompressed', decompressed);
 
-  // const decoded = decode(decompressed);
-  // console.log(decoded);
+    // const decoded = decode(decompressed);
+    // console.log(decoded);
 
-  onSuccess(compressed, binaryCompressed);
+    onSuccess(compressed, binaryCompressed);
+  } catch (e) {
+    console.log('Problem saving and sharing state!');
+    console.log(e);
+    onError();
+  }
 }
 
 function* watchExportState() {

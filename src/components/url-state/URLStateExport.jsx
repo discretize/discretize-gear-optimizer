@@ -1,6 +1,6 @@
 import { Tooltip } from '@discretize/gw2-ui-new';
 import ShareIcon from '@mui/icons-material/Share';
-import { IconButton, CircularProgress } from '@mui/material';
+import { CircularProgress, IconButton } from '@mui/material';
 import axios from 'axios';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -178,13 +178,27 @@ const URLStateExport = ({ type }) => {
     [t],
   );
 
+  const onLoadError = React.useCallback(() => {
+    setSnackbarState((state) => ({
+      ...state,
+      open: true,
+      success: false,
+      message: 'There was an error exporting the state!',
+    }));
+    // console.log('An error occured!');
+  }, []);
+
   return (
     <>
       <Tooltip content={t('Copy Settings to clipboard')}>
         <IconButton
           onClick={() => {
             setLoading(true);
-            dispatch({ type: SagaTypes.ExportFormState, onSuccess: onExportSuccess });
+            dispatch({
+              type: SagaTypes.ExportFormState,
+              onSuccess: onExportSuccess,
+              onError: onLoadError,
+            });
           }}
           size="large"
           disabled={loading}
