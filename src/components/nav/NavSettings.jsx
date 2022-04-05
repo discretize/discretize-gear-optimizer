@@ -28,6 +28,8 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
+const SETTINGS_STORAGE_KEY = 'globalSettings';
+
 const GAME_MODES = (t) => [
   { value: 'fractals', label: t('Fractals') },
   { value: 'r-aids', label: t('R-Aids/Strikes') },
@@ -38,8 +40,49 @@ export default function NavSettings() {
   const dispatch = useDispatch();
   const { classes } = useStyles();
 
+  const { i18n } = useTranslation();
+  const { language, changeLanguage } = i18n;
+
   const expertMode = useSelector(getExpertMode);
   const gameMode = useSelector(getGameMode);
+
+  React.useEffect(() => {
+    const settings = JSON.parse(localStorage.getItem(SETTINGS_STORAGE_KEY) || '{}');
+    const { expertMode, gameMode, language } = settings;
+    console.log('Found settings: ' + JSON.stringify(settings));
+
+    if (language) changeLanguage(language);
+    if (typeof expertMode !== 'undefined') dispatch(changeExpertMode(expertMode));
+    if (gameMode) dispatch(changeGameMode(gameMode));
+  }, [SETTINGS_STORAGE_KEY]);
+
+  const saveToLocalstorage = ({
+    expertMode: expertModeProps,
+    gameMode: gameModeProps,
+    language: languageProps,
+  }) => {
+    if (typeof window !== 'undefined') {
+      const settings = {
+        expertMode: typeof expertMode !== 'undefined' ? expertModeProps : expertMode,
+        gameMode: gameModeProps || gameMode,
+        language: languageProps || language,
+      };
+      console.log('saving...' + JSON.stringify(settings));
+      localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(settings));
+    }
+  };
+
+  const changeExpertModeHandler = (e) => {
+    dispatch({ type: SagaTypes.Stop });
+    dispatch(changeExpertMode(e.target.checked));
+    saveToLocalstorage({ expertMode: e.target.checked });
+  };
+  const changeGameModeHandler = (e) => {
+    const newGameMode = e.target.value;
+    dispatch(changeGameMode(newGameMode));
+    saveToLocalstorage({ gameMode: newGameMode });
+  };
+  const changeLanguageHandler = (newLang) => saveToLocalstorage({ language: newLang });
 
   return (
     <Settings maxWidth={400}>
@@ -51,10 +94,7 @@ export default function NavSettings() {
         control={
           <Switch
             checked={expertMode}
-            onChange={(e) => {
-              dispatch({ type: SagaTypes.Stop });
-              dispatch(changeExpertMode(e.target.checked));
-            }}
+            onChange={changeExpertModeHandler}
             name="checked"
             color="primary"
           />
@@ -62,7 +102,7 @@ export default function NavSettings() {
         label={t('Expert')}
       />
       <Divider className={classes.divider} />
-      <LanguageSelection />
+      <LanguageSelection onChange={changeLanguageHandler} />
 
       <FormControl sx={{ minWidth: 150 }} size="small" variant="standard">
         <FormLabel id="gamemode-button-group">
@@ -72,7 +112,7 @@ export default function NavSettings() {
         <RadioGroup
           aria-labelledby="gamemode-select-label"
           value={gameMode}
-          onChange={(event) => dispatch(changeGameMode(event.target.value))}
+          onChange={changeGameModeHandler}
           color="primary"
         >
           {GAME_MODES(t).map(({ value, label }) => (

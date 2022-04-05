@@ -8,12 +8,13 @@ const LANGUAGES = [
   { value: 'de', label: 'Deutsch' },
 ];
 
-const LanguageSelection = () => {
+const LanguageSelection = ({ onChange }) => {
   const { i18n } = useTranslation();
   const { language, changeLanguage } = i18n;
 
-  const onChange = (e) => {
+  const onChangeLanguage = (e) => {
     changeLanguage(e.target.value);
+    onChange(e.target.value);
   };
 
   return (
@@ -24,7 +25,7 @@ const LanguageSelection = () => {
         <RadioGroup
           aria-labelledby="language-select-label"
           value={language}
-          onChange={onChange}
+          onChange={onChangeLanguage}
           color="primary"
         >
           {LANGUAGES.map(({ value, label }) => (

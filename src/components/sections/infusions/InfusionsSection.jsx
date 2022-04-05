@@ -28,7 +28,6 @@ const InfusionsSection = ({ data }) => {
 
   const title = t('Infusions') + (isFractals ? ` ${t('+ AR')}` : '');
 
-  console.log(isFractals);
   return (
     <Section
       title={title}
