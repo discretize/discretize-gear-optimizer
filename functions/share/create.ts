@@ -1,5 +1,14 @@
 /* eslint-disable camelcase */
 /* eslint-disable import/prefer-default-export */
+import isEqual from 'arraybuffer-equal';
+import { Buffer } from 'buffer';
+import base64 from 'urlsafe-base64';
+
+async function generate_hash(data: ArrayBuffer) {
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hash = base64.encode(Buffer.from(hashBuffer));
+  return hash.slice(0, 8);
+}
 
 // stolen from https://gist.github.com/obezuk/4394d1b2a1b057af997bab4363e631bc
 async function generate_rand(KV_NAMESPACE, i: number) {
@@ -28,16 +37,42 @@ async function generate_rand(KV_NAMESPACE, i: number) {
 export async function onRequestPost(context) {
   // Contents of context object
   const {
-    request, // same as existing Worker API
+    request,
     env, // same as existing Worker API
   } = context;
+  const dataBuffer = await request.arrayBuffer();
 
   const KV: KVNamespace = env.SHORT_LINKS;
 
-  let key;
-
   try {
-    key = await generate_rand(KV, 0);
+    let key = await generate_hash(dataBuffer);
+
+    const current = await KV.get(key, { type: 'stream' });
+    if (!current) {
+      console.log(`writing new key: ${key}`);
+      await KV.put(key, dataBuffer);
+    } else {
+      const currentBuffer = await new Response(current).arrayBuffer();
+      if (isEqual(dataBuffer, currentBuffer)) {
+        console.log(`returning saved key: ${key}`);
+      } else {
+        // this should probably never happen unless developing?
+        key = await generate_rand(KV, 0);
+        console.warn(`current key has mismatched data! writing new key: ${key}`);
+        await KV.put(key, dataBuffer);
+      }
+    }
+
+    return new Response(
+      JSON.stringify({
+        'Status': 200,
+        'Message': 'Successfully created new link',
+        'Key': key,
+      }),
+      {
+        'headers': { 'Content-Type': 'application/json' },
+      },
+    );
   } catch (e) {
     return new Response(
       JSON.stringify({
@@ -52,17 +87,4 @@ export async function onRequestPost(context) {
       },
     );
   }
-
-  await KV.put(key, request.body);
-
-  return new Response(
-    JSON.stringify({
-      'Status': 200,
-      'Message': 'Successfully created new link',
-      'Key': key,
-    }),
-    {
-      'headers': { 'Content-Type': 'application/json' },
-    },
-  );
 }
