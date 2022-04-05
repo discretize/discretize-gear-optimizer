@@ -75,13 +75,8 @@ function* exportState({ onSuccess, onError }) {
     console.timeEnd('Created template in:');
 
     console.time('Created binary template in:');
-
     const packed = encode(exportData);
-    console.log('packed', packed);
-
     const binaryCompressed = pako.deflate(packed);
-    console.log(binaryCompressed);
-
     console.timeEnd('Created binary template in:');
 
     onSuccess(compressed, binaryCompressed);
@@ -99,11 +94,9 @@ function* watchExportState() {
 function* importState({ buildUrl: input, binaryData, onSuccess, onError }) {
   try {
     if (binaryData) {
-      console.log('binaryData', binaryData);
       const decompressed = pako.inflate(binaryData);
-      console.log('decompressed', decompressed);
       const decoded = decode(decompressed);
-      console.log('decoded', decoded);
+      console.log(decoded);
 
       const optimizerState = unModifyState(decoded);
 
