@@ -29,7 +29,7 @@ import {
   attributePercentKeysBlacklist,
   attributePointKeysBlacklist,
   damageKeysBlacklist,
-} from './metadata.js';
+} from './metadata.ts';
 
 const schemaKeys = {
   'runes.yaml': runesDict,
@@ -107,7 +107,7 @@ const testModifiers = async () => {
       for (const item of items) {
         const {
           id,
-          // eslint-disable-next-line no-unused-vars
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
           text,
           subText,
           modifiers,
@@ -116,7 +116,7 @@ const testModifiers = async () => {
           minor,
           amountData,
           defaultEnabled,
-          // eslint-disable-next-line no-unused-vars
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
           hasLifesteal,
           ...otherKeys
         } = item;

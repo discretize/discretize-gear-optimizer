@@ -4,7 +4,56 @@
  * ------------------------------------------------------------------------
  */
 
-export const Affix = {
+export type AffixName =
+  | 'Berserker'
+  | 'Assassin'
+  | 'Harrier'
+  | 'Commander'
+  | 'Minstrel'
+  | 'Magi'
+  | 'Marauder'
+  | 'Cleric'
+  | 'Nomad'
+  | 'Zealot'
+  | 'Viper'
+  | 'Sinister'
+  | 'Grieving'
+  | 'Seraph'
+  | 'Marshal'
+  | 'Giver'
+  | 'Knight'
+  | 'Trailblazer'
+  | 'Plaguedoctor'
+  | 'Carrion'
+  | 'Rabid'
+  | 'Dire'
+  | 'Vigilant'
+  | 'Valkyrie'
+  | 'Cavalier'
+  | 'Celestial'
+  | 'Diviner'
+  | 'Soldier'
+  | 'Sentinel'
+  | 'Wanderer'
+  | 'Apothecary'
+  | 'Shaman'
+  | 'Crusader'
+  | 'Rampager'
+  | 'Settler'
+  | 'Bringer'
+  | 'Ritualist'
+  | 'Dragon';
+
+type AffixNameOrCustom = AffixName | 'Custom';
+export interface AffixData {
+  type: 'triple' | 'quadruple' | 'celestial';
+  category: string;
+  bonuses: {
+    major: (PrimaryAttributeName | SecondaryAttributeName)[];
+    minor: (PrimaryAttributeName | SecondaryAttributeName)[];
+  };
+}
+export const Affix: Record<AffixNameOrCustom, AffixData> = {
   Custom: {
     type: 'triple',
     category: 'Custom',
@@ -489,6 +538,7 @@ export const Item = {
     },
   },
 };
+export type ItemSlot = keyof typeof Item;
 
 export const WeaponTypes = {
   dualWield: 'Dual wield',
@@ -636,6 +686,9 @@ export const Slots = {
     },
   ],
 };
+export type WeaponHandednessType = keyof typeof Slots;
+
+export type SlotsEntry = typeof Slots['Dual wield'];
 
 // used for forcing slots to a certain affix
 export const ForcedSlots = [
@@ -702,6 +755,7 @@ export const WEAPONS = {
   TORCH: { name: 'Torch', type: 'offHand', gw2id: 30700 },
   WARHORN: { name: 'Warhorn', type: 'offHand', gw2id: 30702 },
 };
+export type WeaponType = keyof typeof WEAPONS;
 
 export const Classes = {
   Warrior: {
@@ -842,8 +896,7 @@ export const Classes = {
     },
   },
 };
-
-export const damagingConditions = ['Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment'];
+export type ProfessionName = keyof typeof Classes;
 
 export const conditionData = {
   Burning: {
@@ -875,66 +928,105 @@ export const conditionData = {
     factor: 0.0975,
   },
 };
+export type ConditionName = keyof typeof conditionData;
+
+export const damagingConditions: ConditionName[] = [
+  'Bleeding',
+  'Burning',
+  'Confusion',
+  'Poison',
+  'Torment',
+];
+
+const PrimaryAttributes = ['Power', 'Precision', 'Toughness', 'Vitality'] as const;
+export type PrimaryAttributeName = typeof PrimaryAttributes[number];
+
+const SecondaryAttributes = [
+  'Ferocity',
+  'Condition Damage',
+  'Expertise',
+  'Concentration',
+  'Healing Power',
+  'Agony Resistance',
+] as const;
+export type SecondaryAttributeName = typeof SecondaryAttributes[number];
+
+const DerivedAttributes = [
+  'Critical Chance',
+  'Critical Damage',
+  'Condition Duration',
+  'Boon Duration',
+  'Health',
+  'Armor',
+] as const;
+export type DerivedAttributeName = typeof DerivedAttributes[number];
+
+const BoonDurationAttributes = [
+  'Aegis Duration',
+  'Fury Duration',
+  'Might Duration',
+  'Protection Duration',
+  'Quickness Duration',
+  'Regeneration Duration',
+  'Resistance Duration',
+  'Resolution Duration',
+  'Stability Duration',
+  'Swiftness Duration',
+  'Vigor Duration',
+] as const;
+export type BoonDurationAttributeName = typeof BoonDurationAttributes[number];
+
+const ConditionDurationAttributes = [
+  'Bleeding Duration',
+  'Blind Duration',
+  'Burning Duration',
+  'Chilled Duration',
+  'Confusion Duration',
+  'Crippled Duration',
+  'Fear Duration',
+  'Immobile Duration',
+  'Poison Duration',
+  'Slow Duration',
+  'Taunt Duration',
+  'Torment Duration',
+  'Vulnerability Duration',
+  'Weakness Duration',
+] as const;
+export type ConditionDurationAttributeName = typeof ConditionDurationAttributes[number];
+
+const ConditionDamageAttributes = [
+  'Bleeding Damage',
+  'Burning Damage',
+  'Confusion Damage',
+  'Poison Damage',
+  'Torment Damage',
+] as const;
+export type ConditionDamageAttributeName = typeof ConditionDamageAttributes[number];
+
+const EffectiveAttributes = ['Effective Power', 'Effective Health', 'Effective Healing'] as const;
+export type EffectiveAttributeName = typeof EffectiveAttributes[number];
+
+const Indicators = ['Damage', 'Survivability', 'Healing'] as const;
+export type IndicatorName = typeof Indicators[number];
+
+export type AttributeName =
+  | PrimaryAttributeName
+  | SecondaryAttributeName
+  | DerivedAttributeName
+  | BoonDurationAttributeName
+  | ConditionDurationAttributeName
+  | ConditionDamageAttributeName;
 
 export const Attributes = {
-  PRIMARY: ['Power', 'Precision', 'Toughness', 'Vitality'],
-
-  SECONDARY: [
-    'Ferocity',
-    'Condition Damage',
-    'Expertise',
-    'Concentration',
-    'Healing Power',
-    'Agony Resistance',
-  ],
-
-  DERIVED: [
-    'Critical Chance',
-    'Critical Damage',
-    'Condition Duration',
-    'Boon Duration',
-    'Health',
-    'Armor',
-  ],
-
-  BOON_DURATION: [
-    'Aegis Duration',
-    'Fury Duration',
-    'Might Duration',
-    'Protection Duration',
-    'Quickness Duration',
-    'Regeneration Duration',
-    'Resistance Duration',
-    'Resolution Duration',
-    'Stability Duration',
-    'Swiftness Duration',
-    'Vigor Duration',
-  ],
-
-  CONDITION_DURATION: [
-    'Bleeding Duration',
-    'Blind Duration',
-    'Burning Duration',
-    'Chilled Duration',
-    'Confusion Duration',
-    'Crippled Duration',
-    'Fear Duration',
-    'Immobile Duration',
-    'Poison Duration',
-    'Slow Duration',
-    'Taunt Duration',
-    'Torment Duration',
-    'Vulnerability Duration',
-    'Weakness Duration',
-  ],
-
+  PRIMARY: PrimaryAttributes,
+  SECONDARY: SecondaryAttributes,
+  DERIVED: DerivedAttributes,
+  BOON_DURATION: BoonDurationAttributes,
+  CONDITION_DURATION: ConditionDurationAttributes,
   CONDITION: damagingConditions,
-
-  CONDITION_DAMAGE: damagingConditions.map((condition) => `${condition} Damage`),
-
-  EFFECTIVE: ['Effective Power', 'Effective Health', 'Effective Healing'],
-
-  INDICATORS: ['Damage', 'Survivability', 'Healing'],
+  CONDITION_DAMAGE: ConditionDamageAttributes,
+  EFFECTIVE: EffectiveAttributes,
+  INDICATORS: Indicators,
 };
 
 export const MAX_INFUSIONS = 18;
@@ -1021,6 +1113,8 @@ export const INFUSION_IDS = {
   'Toughness': 37135,
   'Vitality': 37136,
 };
+
+export type InfusionName = keyof typeof INFUSION_IDS;
 
 export const infusionIds = {
   '+1 Agony Infusion': { id: 49424, cost: 7 },
