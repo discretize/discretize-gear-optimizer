@@ -1,9 +1,7 @@
-/* global LZMA */
-
 import { decode, encode } from '@msgpack/msgpack';
 import JsonUrl from 'json-url';
+import pako from 'pako';
 import { all, put, select, takeLeading } from 'redux-saga/effects';
-import '../../../LZMA-JS/src/lzma_worker';
 // import { changeBuildPage } from '../slices/buildPage';
 import { changeAll } from '../slices/controlsSlice';
 import SagaTypes from './sagaTypes';
@@ -81,24 +79,10 @@ function* exportState({ onSuccess, onError }) {
     const packed = encode(exportData);
     console.log('packed', packed);
 
-    const lzmaCompressed = LZMA.compress(packed);
-    console.log('lzmaCompressed', lzmaCompressed);
-
-    const binaryCompressed = Int8Array.from(lzmaCompressed);
-    console.log('binaryCompressed', binaryCompressed);
+    const binaryCompressed = pako.deflate(packed);
+    console.log(binaryCompressed);
 
     console.timeEnd('Created binary template in:');
-
-    // tests
-
-    // const array = Int8Array.from(binaryCompressed);
-    // console.log('array', array);
-
-    // const decompressed = LZMA.decompress(array);
-    // console.log('decompressed', decompressed);
-
-    // const decoded = decode(decompressed);
-    // console.log(decoded);
 
     onSuccess(compressed, binaryCompressed);
   } catch (e) {
@@ -116,7 +100,7 @@ function* importState({ buildUrl: input, binaryData, onSuccess, onError }) {
   try {
     if (binaryData) {
       console.log('binaryData', binaryData);
-      const decompressed = LZMA.decompress(binaryData);
+      const decompressed = pako.inflate(binaryData);
       console.log('decompressed', decompressed);
       const decoded = decode(decompressed);
       console.log('decoded', decoded);

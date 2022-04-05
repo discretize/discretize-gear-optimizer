@@ -57,7 +57,7 @@ const URLStateImport = ({ sagaType, clearUrlOnSuccess }) => {
       axios
         .get(`share/load?${PARAMS.SHORTENER}=${shortie}`, { responseType: 'arraybuffer' })
         .then((response) => {
-          const binaryData = new Int8Array(response.data);
+          const binaryData = new Uint8Array(response.data);
           console.log(binaryData);
 
           dispatch({
