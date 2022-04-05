@@ -48,13 +48,17 @@ export default function NavSettings() {
 
   React.useEffect(() => {
     const settings = JSON.parse(localStorage.getItem(SETTINGS_STORAGE_KEY) || '{}');
-    const { expertMode, gameMode, language } = settings;
-    console.log('Found settings: ' + JSON.stringify(settings));
+    const {
+      expertMode: expertModeProps,
+      gameMode: gameModeProps,
+      language: languageProps,
+    } = settings;
+    console.log(`Found settings: ${JSON.stringify(settings)}`);
 
-    if (language) changeLanguage(language);
-    if (typeof expertMode !== 'undefined') dispatch(changeExpertMode(expertMode));
-    if (gameMode) dispatch(changeGameMode(gameMode));
-  }, [SETTINGS_STORAGE_KEY]);
+    if (languageProps) changeLanguage(languageProps);
+    if (typeof expertModeProps !== 'undefined') dispatch(changeExpertMode(expertModeProps));
+    if (gameModeProps) dispatch(changeGameMode(gameModeProps));
+  }, [changeLanguage, dispatch]);
 
   const saveToLocalstorage = ({
     expertMode: expertModeProps,
@@ -67,7 +71,7 @@ export default function NavSettings() {
         gameMode: gameModeProps || gameMode,
         language: languageProps || language,
       };
-      console.log('saving...' + JSON.stringify(settings));
+      console.log(`saving... ${JSON.stringify(settings)}`);
       localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(settings));
     }
   };
