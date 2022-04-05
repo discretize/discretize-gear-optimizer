@@ -6,16 +6,23 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import SagaTypes from '../../state/sagas/sagaTypes';
+import { PARAMS } from '../../utils/queryParam';
 import URLStateSnackbar from './URLStateSnackbar';
 
 // hard coded temporarily!
 const version = 0;
 
-const cloudflare = (longUrl, setSnackbarState, t) => {
-  const shortenPromise = axios.get(`share/create${longUrl}`).then((res) => {
+const cloudflare = (longUrl, binaryData, setSnackbarState, t) => {
+  const shortenPromise = axios.post(`share/create`, binaryData).then((res) => {
     if (res?.data?.Status === 200) {
-      console.log('Exported short URL:', res.data.ShortUrl);
-      return res.data.ShortUrl;
+      const { Key } = res.data;
+
+      const urlObject = new URL(window.location.href);
+      urlObject.searchParams.set(PARAMS.SHORTENER, Key);
+      const shortUrl = urlObject.href;
+
+      console.log('Exported short URL:', shortUrl);
+      return shortUrl;
     }
     console.log(`URL shortener returned status ${res?.data?.Status}!`);
     return longUrl;
@@ -124,7 +131,7 @@ const URLStateExport = ({ type }) => {
   /// const [_, setBuildUrl] = useQueryParam('data', StringParam);
 
   const onExportSuccess = React.useCallback(
-    (data) => {
+    (data, binaryData) => {
       if (typeof window === 'undefined') return;
 
       const urlObject = new URL(window.location.href);
@@ -145,7 +152,7 @@ const URLStateExport = ({ type }) => {
       console.log(`Exported long URL (${longUrl.length} characters):`, longUrl);
 
       if (import.meta.env.VITE_HAS_CF) {
-        cloudflare(urlObject.search, setSnackbarState, t);
+        cloudflare(urlObject.search, binaryData, setSnackbarState, t);
       } else if (!longUrl.includes('optimizer.discretize.eu')) {
         // skip link shortener if build in staging/preview/local development
         // (prevents sharing short links that redirect to an invalid location)

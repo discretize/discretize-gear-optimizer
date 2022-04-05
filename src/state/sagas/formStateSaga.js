@@ -1,4 +1,6 @@
+import { decode, encode } from '@msgpack/msgpack';
 import JsonUrl from 'json-url';
+import { LZMA } from 'lzma/src/lzma_worker';
 import { all, put, select, takeLeading } from 'redux-saga/effects';
 // import { changeBuildPage } from '../slices/buildPage';
 import { changeAll } from '../slices/controlsSlice';
@@ -71,30 +73,69 @@ function* exportState({ onSuccess }) {
   const compressed = yield lib.compress(exportData);
   console.timeEnd('Created template in:');
 
-  onSuccess(compressed);
+  console.time('Created binary template in:');
+
+  const packed = encode(exportData);
+  console.log('packed', packed);
+
+  const lzmaCompressed = LZMA.compress(packed);
+  console.log('lzmaCompressed', lzmaCompressed);
+
+  const binaryCompressed = Int8Array.from(lzmaCompressed);
+  console.log('binaryCompressed', binaryCompressed);
+
+  console.timeEnd('Created binary template in:');
+
+  // tests
+
+  // const array = Int8Array.from(binaryCompressed);
+  // console.log('array', array);
+
+  // const decompressed = LZMA.decompress(array);
+  // console.log('decompressed', decompressed);
+
+  // const decoded = decode(decompressed);
+  // console.log(decoded);
+
+  onSuccess(compressed, binaryCompressed);
 }
 
 function* watchExportState() {
   yield takeLeading(SagaTypes.ExportFormState, exportState);
 }
 
-function* importState({ buildUrl: input, onSuccess, onError }) {
+function* importState({ buildUrl: input, binaryData, onSuccess, onError }) {
   try {
-    if (!input) return;
+    if (binaryData) {
+      console.log('binaryData', binaryData);
+      const decompressed = LZMA.decompress(binaryData);
+      console.log('decompressed', decompressed);
+      const decoded = decode(decompressed);
+      console.log('decoded', decoded);
 
-    console.time('Decompressed template in:');
-    const importData = yield lib.decompress(input);
-    console.timeEnd('Decompressed template in:');
+      const optimizerState = unModifyState(decoded);
 
-    console.log(importData);
-    const optimizerState = unModifyState(importData);
+      console.time('Applied state in:');
+      yield put(changeAll(optimizerState));
+      console.timeEnd('Applied state in:');
 
-    console.time('Applied state in:');
-    yield put(changeAll(optimizerState));
-    console.timeEnd('Applied state in:');
+      // execute success callback
+      onSuccess();
+    } else if (input) {
+      console.time('Decompressed template in:');
+      const importData = yield lib.decompress(input);
+      console.timeEnd('Decompressed template in:');
 
-    // execute success callback
-    onSuccess();
+      console.log(importData);
+      const optimizerState = unModifyState(importData);
+
+      console.time('Applied state in:');
+      yield put(changeAll(optimizerState));
+      console.timeEnd('Applied state in:');
+
+      // execute success callback
+      onSuccess();
+    }
   } catch (e) {
     console.log('Problem restoring template!');
     console.log(e);
