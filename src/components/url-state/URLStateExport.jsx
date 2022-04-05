@@ -1,6 +1,6 @@
 import { Tooltip } from '@discretize/gw2-ui-new';
 import ShareIcon from '@mui/icons-material/Share';
-import { IconButton } from '@mui/material';
+import { IconButton, CircularProgress } from '@mui/material';
 import axios from 'axios';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -12,7 +12,7 @@ import URLStateSnackbar from './URLStateSnackbar';
 // hard coded temporarily!
 const version = 0;
 
-const cloudflare = (longUrl, binaryData, setSnackbarState, t) => {
+const cloudflare = (longUrl, binaryData, setSnackbarState, setLoading, t) => {
   const shortenPromise = axios.post(`share/create`, binaryData).then((res) => {
     if (res?.data?.Status === 200) {
       const { Key } = res.data;
@@ -59,11 +59,14 @@ const cloudflare = (longUrl, binaryData, setSnackbarState, t) => {
         success: true,
         message: t('Failed to copy link to clipboard!'),
       })),
-    );
+    )
+    .finally(() => {
+      setLoading(false);
+    });
 };
 
 // TODO remove once the optimizer is on cloudflare exclusively
-const oldShortener = (longUrl, setSnackbarState, t) => {
+const oldShortener = (longUrl, setSnackbarState, setLoading, t) => {
   // get request to create a new short-url
   // this url points to a cloudflare worker, which acts as a url shortener
   // Source for the shortener: https://gist.github.com/gw2princeps/dc88d11e6b2378db35bcb2dd3726c7c6
@@ -109,7 +112,10 @@ const oldShortener = (longUrl, setSnackbarState, t) => {
         success: true,
         message: t('Failed to copy link to clipboard!'),
       })),
-    );
+    )
+    .finally(() => {
+      setLoading(false);
+    });
 
   // setBuildUrl would trigger an update in the useEffects method of URLState... which is not what we want
   // setBuildUrl(data);
@@ -119,6 +125,8 @@ const oldShortener = (longUrl, setSnackbarState, t) => {
 const URLStateExport = ({ type }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
+
+  const [loading, setLoading] = React.useState(false);
 
   // State for snackbar, which indicates the result of url load action
   const [snackbarState, setSnackbarState] = React.useState({
@@ -152,7 +160,7 @@ const URLStateExport = ({ type }) => {
       console.log(`Exported long URL (${longUrl.length} characters):`, longUrl);
 
       if (import.meta.env.VITE_HAS_CF) {
-        cloudflare(urlObject.search, binaryData, setSnackbarState, t);
+        cloudflare(urlObject.search, binaryData, setSnackbarState, setLoading, t);
       } else if (!longUrl.includes('optimizer.discretize.eu')) {
         // skip link shortener if build in staging/preview/local development
         // (prevents sharing short links that redirect to an invalid location)
@@ -164,7 +172,7 @@ const URLStateExport = ({ type }) => {
         }));
         navigator.clipboard.writeText(longUrl);
       } else {
-        oldShortener(longUrl, setSnackbarState, t);
+        oldShortener(longUrl, setSnackbarState, setLoading, t);
       }
     },
     [t],
@@ -172,12 +180,14 @@ const URLStateExport = ({ type }) => {
 
   return (
     <>
-      <Tooltip
-        content={t('Copy sharable link to clipboard (note: results are not currently included)')}
-      >
+      <Tooltip content={t('Copy Settings to clipboard')}>
         <IconButton
-          onClick={() => dispatch({ type: SagaTypes.ExportFormState, onSuccess: onExportSuccess })}
+          onClick={() => {
+            setLoading(true);
+            dispatch({ type: SagaTypes.ExportFormState, onSuccess: onExportSuccess });
+          }}
           size="large"
+          disabled={loading}
         >
           <ShareIcon />
         </IconButton>
