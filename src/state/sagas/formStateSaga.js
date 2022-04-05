@@ -1,7 +1,9 @@
+/* global LZMA */
+
 import { decode, encode } from '@msgpack/msgpack';
 import JsonUrl from 'json-url';
-import { LZMA } from 'lzma/src/lzma_worker';
 import { all, put, select, takeLeading } from 'redux-saga/effects';
+import '../../../LZMA-JS/src/lzma_worker';
 // import { changeBuildPage } from '../slices/buildPage';
 import { changeAll } from '../slices/controlsSlice';
 import SagaTypes from './sagaTypes';
