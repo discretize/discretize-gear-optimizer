@@ -1,4 +1,3 @@
-import { decode, encode } from '@msgpack/msgpack';
 import JsonUrl from 'json-url';
 import pako from 'pako';
 import { all, put, select, takeLeading } from 'redux-saga/effects';
@@ -75,8 +74,7 @@ function* exportState({ onSuccess, onError }) {
     console.timeEnd('Created template in:');
 
     console.time('Created binary template in:');
-    const packed = encode(exportData);
-    const binaryCompressed = pako.deflate(packed);
+    const binaryCompressed = pako.deflate(JSON.stringify(exportData));
     console.timeEnd('Created binary template in:');
 
     onSuccess(compressed, binaryCompressed);
@@ -94,11 +92,11 @@ function* watchExportState() {
 function* importState({ buildUrl: input, binaryData, onSuccess, onError }) {
   try {
     if (binaryData) {
-      const decompressed = pako.inflate(binaryData);
-      const decoded = decode(decompressed);
-      console.log(decoded);
+      const decompressed = pako.inflate(binaryData, { to: 'string' });
+      const importData = JSON.parse(decompressed);
+      console.log(importData);
 
-      const optimizerState = unModifyState(decoded);
+      const optimizerState = unModifyState(importData);
 
       console.time('Applied state in:');
       yield put(changeAll(optimizerState));
