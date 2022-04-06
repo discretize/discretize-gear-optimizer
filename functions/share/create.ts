@@ -45,16 +45,23 @@ export async function onRequestPost(context) {
   const KV: KVNamespace = env.SHORT_LINKS;
 
   try {
+    // generate the based on the buffer. The first 8 symbols of the hash will be our key
     let key = await generate_hash(dataBuffer);
 
-    const current = await KV.get(key, { type: 'stream' });
-    if (!current) {
+    // check if there is an existing entry for this specific key - dont insert duplicates
+    const existingValue = await KV.get(key, { type: 'stream' });
+    if (!existingValue) {
+      // no duplicate, insert value
       console.log(`writing new key: ${key}`);
       await KV.put(key, dataBuffer);
     } else {
-      const currentBuffer = await new Response(current).arrayBuffer();
-      if (isEqual(dataBuffer, currentBuffer)) {
+      // duplicate detected.
+      const existingBuffer = await new Response(existingValue).arrayBuffer();
+
+      // checks if the saved buffer in KV is equals with what was transmitted in the request
+      if (isEqual(dataBuffer, existingBuffer)) {
         console.log(`returning saved key: ${key}`);
+        // in case we have a duplicate, we dont need to do anything - the key is already stored in the key variable
       } else {
         // this should probably never happen unless developing?
         key = await generate_rand(KV, 0);
