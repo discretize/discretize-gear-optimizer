@@ -20,6 +20,7 @@ import React, { useEffect, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import templateTransform from '../../assets/presetdata/templateTransform';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import {
   changeExpertMode,
@@ -149,6 +150,7 @@ const Navbar = ({
               distributionPresets={distributionPresets}
               extrasPresets={extrasPresets}
               traitPresets={traitPresets}
+              handleTemplateSelect={handleTemplateSelect}
             />
           </div>
         </SwipeableDrawer>
@@ -158,29 +160,51 @@ const Navbar = ({
     );
   };
 
-  // eslint-disable-next-line no-shadow
-  const handleTemplateSelect = (popup, build, specialization, profession) => {
-    dispatch({ type: SagaTypes.Stop });
-    dispatch(
-      setBuildTemplate({
-        build,
-        specialization,
-        profession,
-        buffPreset: JSON.parse(buffPresets.find((pre) => pre.name === build.boons).value),
-        distributionPreset: JSON.parse(
-          distributionPresets.find((pre) => pre.name === build.distribution)?.value || 'null',
-        ),
-        prioritiesPreset: JSON.parse(
-          prioritiesPresets.find((pre) => pre.name === build.priority)?.value,
-        ),
-        extrasPreset: JSON.parse(extrasPresets.find((pre) => pre.name === build.extras)?.value),
-        traitsPreset: JSON.parse(traitPresets.find((pre) => pre.name === build.traits)?.traits),
-        skillsPreset: JSON.parse(traitPresets.find((pre) => pre.name === build.traits)?.skills),
-      }),
-    );
+  // temp
+  const isFractals = true;
+  // const isFractals = false;
 
-    popup.close();
-  };
+  const handleTemplateSelect = React.useCallback(
+    // eslint-disable-next-line no-shadow
+    (popup, buildData, profession) => {
+      dispatch({ type: SagaTypes.Stop });
+      try {
+        const build = templateTransform(buildData, isFractals);
+
+        dispatch(
+          setBuildTemplate({
+            build,
+            specialization: build.specialization,
+            profession,
+            buffPreset: JSON.parse(buffPresets.find((pre) => pre.name === build.boons).value),
+            distributionPreset: JSON.parse(
+              distributionPresets.find((pre) => pre.name === build.distribution)?.value || 'null',
+            ),
+            prioritiesPreset: JSON.parse(
+              prioritiesPresets.find((pre) => pre.name === build.priority)?.value,
+            ),
+            extrasPreset: JSON.parse(extrasPresets.find((pre) => pre.name === build.extras)?.value),
+            traitsPreset: JSON.parse(traitPresets.find((pre) => pre.name === build.traits)?.traits),
+            skillsPreset: JSON.parse(traitPresets.find((pre) => pre.name === build.traits)?.skills),
+          }),
+        );
+      } catch (e) {
+        // eslint-disable-next-line no-alert
+        alert('Error loading build template!');
+        console.error(e);
+      }
+      popup?.close();
+    },
+    [
+      dispatch,
+      isFractals,
+      buffPresets,
+      distributionPresets,
+      extrasPresets,
+      prioritiesPresets,
+      traitPresets,
+    ],
+  );
 
   const popupState = [
     usePopupState({ variant: 'popover', popupId: 'warriorTemplates', disableAutoFocus: true }),
@@ -227,14 +251,7 @@ const Navbar = ({
                 ?.builds?.map((elem) => (
                   <MenuItem
                     key={elem.name}
-                    onClick={(e) =>
-                      handleTemplateSelect(
-                        popupState[index],
-                        elem,
-                        elem.specialization,
-                        prof.profession,
-                      )
-                    }
+                    onClick={(e) => handleTemplateSelect(popupState[index], elem, prof.profession)}
                   >
                     <Profession
                       name={elem.specialization}

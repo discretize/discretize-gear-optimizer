@@ -43,14 +43,7 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-export default function NavAccordion({
-  data,
-  buffPresets,
-  prioritiesPresets,
-  distributionPresets,
-  extrasPresets,
-  traitPresets,
-}) {
+export default function NavAccordion({ data, handleTemplateSelect }) {
   const { classes } = useStyles();
 
   const [expanded, setExpanded] = React.useState('');
@@ -82,33 +75,7 @@ export default function NavAccordion({
               variant="outlined"
               label={<Profession name={build.specialization} text={build.name} disableLink />}
               onClick={(e) => {
-                dispatch({ type: SagaTypes.Stop });
-                dispatch(
-                  setBuildTemplate({
-                    build,
-                    specialization: build.specialization,
-                    profession: prof.class,
-                    buffPreset: JSON.parse(
-                      buffPresets.find((pre) => pre.name === build.boons).value,
-                    ),
-                    distributionPreset: JSON.parse(
-                      distributionPresets.find((pre) => pre.name === build.distribution)?.value ||
-                        'null',
-                    ),
-                    prioritiesPreset: JSON.parse(
-                      prioritiesPresets.find((pre) => pre.name === build.priority)?.value,
-                    ),
-                    extrasPreset: JSON.parse(
-                      extrasPresets.find((pre) => pre.name === build.extras)?.value,
-                    ),
-                    traitsPreset: JSON.parse(
-                      traitPresets.find((pre) => pre.name === build.traits)?.traits,
-                    ),
-                    skillsPreset: JSON.parse(
-                      traitPresets.find((pre) => pre.name === build.traits)?.skills,
-                    ),
-                  }),
-                );
+                handleTemplateSelect(null, build, prof.class);
               }}
             />
           </Box>
