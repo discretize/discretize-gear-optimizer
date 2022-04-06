@@ -1,7 +1,7 @@
 export const PARAMS = {
   BUILD: 'data',
   VERSION: 'v',
-  SHORTENER: 'shortie',
+  SHORTENER: 's',
 };
 
 export function useQueryParam({ key }) {
