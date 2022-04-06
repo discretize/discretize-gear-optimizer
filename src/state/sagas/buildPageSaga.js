@@ -118,7 +118,7 @@ function* importStateCharacter({ buildUrl: input, version }) {
     const { result } = yield take(decompressChannel);
 
     // guess the game mode based on agony resistance
-    const gameMode = result.character.attributes['Agony Resistance'] > 0 ? 'fractals' : 'r-aids';
+    const gameMode = result.character.attributes['Agony Resistance'] > 0 ? 'fractals' : 'raids';
     yield put(changeGameMode(gameMode));
     yield put(changeBuildPage(result));
   } catch (e) {

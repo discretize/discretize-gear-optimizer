@@ -33,7 +33,7 @@ const SETTINGS_STORAGE_KEY = 'globalSettings';
 
 const GAME_MODES = (t) => [
   { value: 'fractals', label: t('Fractals') },
-  { value: 'r-aids', label: t('R-Aids/Strikes') },
+  { value: 'raids', label: t('Raids/Strikes') },
 ];
 
 export default function NavSettings() {
