@@ -1,11 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { PARAMS, useQueryParam } from '../../utils/queryParam';
 
 const SETTINGS_STORAGE_KEY = 'globalSettings';
 
 const defaultState = JSON.stringify({ expertMode: true, gameMode: 'fractals', language: 'en' });
-export const loadedSettings = JSON.parse(
-  localStorage.getItem(SETTINGS_STORAGE_KEY) || defaultState,
-);
+// eslint-disable-next-line react-hooks/rules-of-hooks
+const gameModeParam = useQueryParam({ key: PARAMS.GAMEMODE });
+export const loadedSettings = {
+  ...(JSON.parse(localStorage.getItem(SETTINGS_STORAGE_KEY)) || defaultState),
+  ...(gameModeParam && { gameMode: gameModeParam }), // gamemode from query param takes priority
+};
 
 export const userSettingsSlice = createSlice({
   name: 'userSettings',
@@ -14,7 +18,7 @@ export const userSettingsSlice = createSlice({
     gameMode: loadedSettings?.gameMode,
   },
   reducers: {
-    changeAll: (state, action) => {
+    changeAllUserSettings: (state, action) => {
       return { ...state, ...action.payload?.userSettings };
     },
     changeExpertMode: (state, action) => {
@@ -29,6 +33,7 @@ export const userSettingsSlice = createSlice({
 export const getExpertMode = (state) => state.optimizer.userSettings.expertMode;
 export const getGameMode = (state) => state.optimizer.userSettings.gameMode;
 
-export const { changeAll, changeExpertMode, changeGameMode } = userSettingsSlice.actions;
+export const { changeAllUserSettings, changeExpertMode, changeGameMode } =
+  userSettingsSlice.actions;
 
 export default userSettingsSlice.reducer;

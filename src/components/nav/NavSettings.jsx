@@ -19,6 +19,7 @@ import {
   getExpertMode,
   getGameMode,
 } from '../../state/slices/userSettings';
+import { PARAMS, setQueryParm } from '../../utils/queryParam';
 import LanguageSelection from '../baseComponents/LanguageSelection';
 import Settings from '../baseComponents/Settings';
 
@@ -41,27 +42,11 @@ export default function NavSettings() {
   const { classes } = useStyles();
 
   const { i18n } = useTranslation();
-  const { language, changeLanguage } = i18n;
+  const { language } = i18n;
 
   const expertMode = useSelector(getExpertMode);
   const gameMode = useSelector(getGameMode);
 
-  /*
-  // Load data from local storage
-  React.useEffect(() => {
-    const settings = JSON.parse(localStorage.getItem(SETTINGS_STORAGE_KEY) || '{}');
-    const {
-      expertMode: expertModeProps,
-      gameMode: gameModeProps,
-      language: languageProps,
-    } = settings;
-    console.log(`Found settings: ${JSON.stringify(settings)}`);
-
-    if (languageProps) changeLanguage(languageProps);
-    if (typeof expertModeProps !== 'undefined') dispatch(changeExpertMode(expertModeProps));
-    if (gameModeProps) dispatch(changeGameMode(gameModeProps));
-  }, [changeLanguage, dispatch]);
-*/
   // save user settings to localStorage
   React.useEffect(() => {
     const settings = JSON.stringify({ expertMode, gameMode, language });
@@ -76,6 +61,7 @@ export default function NavSettings() {
   };
   const changeGameModeHandler = (e) => {
     const newGameMode = e.target.value;
+    setQueryParm({ key: PARAMS.GAMEMODE, value: newGameMode });
     dispatch(changeGameMode(newGameMode));
   };
 

@@ -1,6 +1,7 @@
 export const PARAMS = {
   BUILD: 'data',
   VERSION: 'v',
+  GAMEMODE: 'm',
 };
 
 export function useQueryParam({ key }) {
