@@ -14,7 +14,7 @@ const LanguageSelection = ({ onChange }) => {
 
   const onChangeLanguage = (e) => {
     changeLanguage(e.target.value);
-    onChange(e.target.value);
+    if (onChange) onChange(e.target.value);
   };
 
   return (

@@ -21,12 +21,12 @@ import { makeStyles } from 'tss-react/mui';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import {
   changeProfession,
-  getExpertMode,
   getProfession,
   getSelectedSpecialization,
   getSelectedTemplate,
   setBuildTemplate,
 } from '../../state/slices/controlsSlice';
+import { getExpertMode } from '../../state/slices/userSettings';
 import { PROFESSIONS } from '../../utils/gw2-data';
 import NavAccordion from './NavAccordion';
 import NavSettings from './NavSettings';

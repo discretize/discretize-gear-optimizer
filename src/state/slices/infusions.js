@@ -1,7 +1,8 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { infusionIds, omnipotionModifiers } from '../../utils/gw2-data';
 import { parseAmount, parseAr, parseInfusionCount } from '../../utils/usefulFunctions';
-import { changeAll, changeGameMode } from './controlsSlice';
+import { changeAll } from './controlsSlice';
+import { changeGameMode } from './userSettings';
 
 export const infusionsSlice = createSlice({
   name: 'infusions',

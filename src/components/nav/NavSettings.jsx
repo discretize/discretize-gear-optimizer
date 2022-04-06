@@ -18,7 +18,7 @@ import {
   changeGameMode,
   getExpertMode,
   getGameMode,
-} from '../../state/slices/controlsSlice';
+} from '../../state/slices/userSettings';
 import LanguageSelection from '../baseComponents/LanguageSelection';
 import Settings from '../baseComponents/Settings';
 
@@ -46,6 +46,8 @@ export default function NavSettings() {
   const expertMode = useSelector(getExpertMode);
   const gameMode = useSelector(getGameMode);
 
+  // Load data from local storage
+
   React.useEffect(() => {
     const settings = JSON.parse(localStorage.getItem(SETTINGS_STORAGE_KEY) || '{}');
     const {
@@ -60,33 +62,22 @@ export default function NavSettings() {
     if (gameModeProps) dispatch(changeGameMode(gameModeProps));
   }, [changeLanguage, dispatch]);
 
-  const saveToLocalstorage = ({
-    expertMode: expertModeProps,
-    gameMode: gameModeProps,
-    language: languageProps,
-  }) => {
-    if (typeof window !== 'undefined') {
-      const settings = {
-        expertMode: typeof expertMode !== 'undefined' ? expertModeProps : expertMode,
-        gameMode: gameModeProps || gameMode,
-        language: languageProps || language,
-      };
-      console.log(`saving... ${JSON.stringify(settings)}`);
-      localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(settings));
-    }
-  };
+  // save user settings to localStorage
+  React.useEffect(() => {
+    const settings = JSON.stringify({ expertMode, gameMode, language });
+    console.log(`saving... ${settings}`);
+
+    localStorage.setItem(SETTINGS_STORAGE_KEY, settings);
+  }, [expertMode, gameMode, language]);
 
   const changeExpertModeHandler = (e) => {
     dispatch({ type: SagaTypes.Stop });
     dispatch(changeExpertMode(e.target.checked));
-    saveToLocalstorage({ expertMode: e.target.checked });
   };
   const changeGameModeHandler = (e) => {
     const newGameMode = e.target.value;
     dispatch(changeGameMode(newGameMode));
-    saveToLocalstorage({ gameMode: newGameMode });
   };
-  const changeLanguageHandler = (newLang) => saveToLocalstorage({ language: newLang });
 
   return (
     <Settings maxWidth={400}>
@@ -106,7 +97,7 @@ export default function NavSettings() {
         label={t('Expert')}
       />
       <Divider className={classes.divider} />
-      <LanguageSelection onChange={changeLanguageHandler} />
+      <LanguageSelection />
 
       <FormControl sx={{ minWidth: 150 }} size="small" variant="standard">
         <FormLabel id="gamemode-button-group">

@@ -48,7 +48,6 @@ const logAttributeDiff = (newCharacter, oldCharacter) => {
 export const controlSlice = createSlice({
   name: 'control',
   initialState: {
-    expertMode: true,
     list: [],
     filteredList: [],
     saved: [],
@@ -61,7 +60,6 @@ export const controlSlice = createSlice({
     selectedTemplate: '',
     status: WAITING,
     profession: '',
-    gameMode: 'fractals',
   },
   reducers: {
     changeAll: (state, action) => {
@@ -78,9 +76,6 @@ export const controlSlice = createSlice({
         };
       }
       return state;
-    },
-    changeExpertMode: (state, action) => {
-      state.expertMode = action.payload;
     },
     setBuildTemplate: (state, action) => {
       const { build, specialization, profession } = action.payload;
@@ -142,14 +137,10 @@ export const controlSlice = createSlice({
     changeError: (state, action) => {
       state.error = action.payload;
     },
-    changeGameMode: (state, action) => {
-      state.gameMode = action.payload;
-    },
   },
 });
 
 export const getProfession = (state) => state.optimizer.control.profession;
-export const getExpertMode = (state) => state.optimizer.control.expertMode;
 export const getSelectedTemplate = (state) => state.optimizer.control.selectedTemplate;
 export const getProgress = (state) => state.optimizer.control.progress;
 export const getSelectedSpecialization = (state) => state.optimizer.control.selectedSpecialization;
@@ -163,12 +154,10 @@ export const getDisplayAttributes = (state) => state.optimizer.control.displayAt
 export const getTallTable = (state) => state.optimizer.control.tallTable;
 export const getSelectedCharacter = (state) => state.optimizer.control.selectedCharacter;
 export const getError = (state) => state.optimizer.control.error;
-export const getGameMode = (state) => state.optimizer.control.gameMode;
 
 export const {
   changeAll,
   changeProfession,
-  changeExpertMode,
   changeStatus,
   changeProgress,
   changeList,
@@ -182,7 +171,6 @@ export const {
   setBuildTemplate,
   changeSelectedCharacter,
   changeError,
-  changeGameMode,
 } = controlSlice.actions;
 
 export default controlSlice.reducer;

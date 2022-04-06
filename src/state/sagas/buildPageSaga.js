@@ -7,7 +7,7 @@ import {
 } from '../../components/url-state/schema/BuildPageSchema_v2';
 import { buffsDict } from '../../components/url-state/schema/SchemaDicts';
 import { changeBuildPage, changeCharacter } from '../slices/buildPage';
-import { changeGameMode } from '../slices/controlsSlice';
+import { changeGameMode } from '../slices/userSettings';
 import SagaTypes from './sagaTypes';
 
 // channels solve the problem "how to get value out of callback"

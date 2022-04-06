@@ -11,7 +11,7 @@ import {
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { getExpertMode } from '../../state/slices/controlsSlice';
+import { getExpertMode } from '../../state/slices/userSettings';
 
 const useStyles = makeStyles()((theme) => ({
   accordion: {

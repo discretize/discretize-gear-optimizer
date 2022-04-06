@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import fractalImg from '../../assets/images/background/fractals.jpg';
 import raidImg from '../../assets/images/background/raids.jpg';
-import { getGameMode } from '../../state/slices/controlsSlice';
+import { getGameMode } from '../../state/slices/userSettings';
 
 export default function BackgroundImage() {
   const gameMode = useSelector(getGameMode);
