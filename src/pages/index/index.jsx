@@ -5,20 +5,23 @@ import { Link, Typography } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import BackgroundImage from '../../components/baseComponents/BackgroundImage';
 import ErrorBoundary from '../../components/baseComponents/ErrorBoundary';
 import GearOptimizer from '../../components/GearOptimizer';
 import URLStateImport from '../../components/url-state/URLStateImport';
 import SagaTypes from '../../state/sagas/sagaTypes';
+import { getGameMode } from '../../state/slices/userSettings';
 
 // markup
 const IndexPage = () => {
   const { i18n } = useTranslation();
   const { language } = i18n;
+  const gameMode = useSelector(getGameMode);
 
   return (
     <APILanguageProvider value={language}>
-      <BackgroundImage />
+      <BackgroundImage gameMode={gameMode} />
       <Layout>
         <URLStateImport sagaType={SagaTypes.ImportFormState} clearUrlOnSuccess />
 

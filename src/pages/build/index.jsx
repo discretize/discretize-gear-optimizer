@@ -7,14 +7,16 @@ import BackgroundImage from '../../components/baseComponents/BackgroundImage';
 import ErrorBoundary from '../../components/baseComponents/ErrorBoundary';
 import LanguageSelection from '../../components/baseComponents/LanguageSelection';
 import BuildPage from '../../components/BuildPage';
+import { PARAMS, useQueryParam } from '../../utils/queryParam';
 
 const IndexPage = () => {
   const { i18n } = useTranslation();
   const { language } = i18n;
+  const gameMode = useQueryParam({ key: PARAMS.GAMEMODE });
 
   return (
     <APILanguageProvider value={language}>
-      <BackgroundImage />
+      <BackgroundImage gameMode={gameMode} />
       <Layout>
         <LanguageSelection />
         <Typography variant="h3" sx={{ paddingBottom: 2 }}>
