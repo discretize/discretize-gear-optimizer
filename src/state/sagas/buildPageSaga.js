@@ -6,8 +6,9 @@ import {
   version as schemaVersion,
 } from '../../components/url-state/schema/BuildPageSchema_v2';
 import { buffsDict } from '../../components/url-state/schema/SchemaDicts';
+import { PARAMS } from '../../utils/queryParam';
 import { changeBuildPage, changeCharacter } from '../slices/buildPage';
-import { changeGameMode } from '../slices/userSettings';
+import userSettings, { changeGameMode } from '../slices/userSettings';
 import SagaTypes from './sagaTypes';
 
 // channels solve the problem "how to get value out of callback"
@@ -15,7 +16,7 @@ import SagaTypes from './sagaTypes';
 const compressChannel = channel();
 function* exportStateCharacter({ newPage, copyToClipboard }) {
   const { optimizer } = yield select();
-  const { buildPage, control } = optimizer;
+  const { buildPage, control, userSettings } = optimizer;
   // extract all variables
   const { selectedCharacter: character, profession } = control;
   const lines = character.settings.cachedFormState.traits.selectedLines;
@@ -25,6 +26,8 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
 
   const { attributes: allAttributes, gear, settings, infusions } = character;
   const { specialization, weaponType, extrasCombination } = settings;
+
+  const { gameMode } = userSettings;
 
   // filter out unnecessary attributes
   const attributes = {};
@@ -72,8 +75,9 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
   const { result } = yield take(compressChannel);
 
   const urlObject = new URL('build/', window.location.href);
-  urlObject.searchParams.set('v', schemaVersion);
-  urlObject.searchParams.set('data', result);
+  urlObject.searchParams.set(PARAMS.GAMEMODE, gameMode);
+  urlObject.searchParams.set(PARAMS.VERSION, schemaVersion);
+  urlObject.searchParams.set(PARAMS.BUILD, result);
   const url = urlObject.href;
 
   if (newPage) {
