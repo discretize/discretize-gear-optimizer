@@ -25,17 +25,4 @@ export function setQueryParm({ key, value }) {
   }
 
   if (window.history.pushState) window.history.pushState(null, '', current.href);
-  /*
-  const current = queryString.parse(window.location.search);
-  current[key] = value;
-
-  const newPath = `?${queryString.stringify(current)}`;
-
-  if (window.history.pushState)
-    window.history.pushState(
-      null,
-      '',
-      window.location.pathname + (newPath.length > 1) ? newPath : undefined,
-    );
-    */
 }
