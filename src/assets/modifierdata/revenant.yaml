@@ -247,7 +247,7 @@
       minor: true
       modifiers:
         attributes:
-          Healing Power: [120, buff]
+          Healing Power: [120, converted] # tested by Leder
         conversion:
           Concentration: {Healing Power: 7%}
       gw2id: 1821
