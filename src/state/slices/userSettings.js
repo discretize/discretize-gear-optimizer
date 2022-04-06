@@ -2,8 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const SETTINGS_STORAGE_KEY = 'globalSettings';
 
-const defaultState = JSON.stringify({ expertMode: true, gameMode: 'fractals' });
-const loadedSettings = JSON.parse(localStorage.getItem(SETTINGS_STORAGE_KEY || defaultState));
+const defaultState = JSON.stringify({ expertMode: true, gameMode: 'fractals', language: 'en' });
+export const loadedSettings = JSON.parse(
+  localStorage.getItem(SETTINGS_STORAGE_KEY) || defaultState,
+);
 
 export const userSettingsSlice = createSlice({
   name: 'userSettings',
