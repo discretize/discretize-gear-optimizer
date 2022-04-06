@@ -51,7 +51,7 @@ const gentleAssert = (condition, message) => {
 
 const testModifiers = async () => {
   const specializationDataJSON = await fs.readFile('./src/utils/mapping/specializations.json');
-  const specializationData = JSON.parse(specializationDataJSON);
+  const specializationData = JSON.parse(specializationDataJSON.toString());
 
   const files = (await fs.readdir(directory)).filter(
     (filename) => path.extname(filename) === '.yaml',
@@ -66,7 +66,7 @@ const testModifiers = async () => {
 
     let data;
     try {
-      data = yaml.load(fileData);
+      data = yaml.load(fileData.toString());
     } catch (e) {
       gentleAssert(false, `err: ${fileName} is invalid YAML`);
       continue;

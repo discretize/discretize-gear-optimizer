@@ -43,6 +43,8 @@
     "@mui/icons-material": "^5.2.5",
     "@mui/material": "^5.2.7",
     "@reduxjs/toolkit": "^1.7.1",
+    "@types/js-yaml": "^4.0.5",
+    "@types/node": "^17.0.23",
     "arraybuffer-equal": "^1.0.4",
     "buffer": "^6.0.3",
     "classnames": "^2.3.1",
