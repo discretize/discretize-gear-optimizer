@@ -82,8 +82,8 @@ export default function ModalContent({ character, buttons }) {
           className={classes.weaponSelect}
         >
           {React.Children.toArray(
-            useableWeapons.mainHand.map(({ name }) => (
-              <MenuItem value={getWeaponId(name)}>
+            useableWeapons.mainHand.map(({ name }, index) => (
+              <MenuItem key={`${name}${index.toString()}`} value={getWeaponId(name)}>
                 <Item id={getWeaponId(name)} disableText className={classes.weaponItem} />
                 {` ${name}`}
               </MenuItem>
