@@ -1,18 +1,20 @@
+import React from 'react';
 import { APILanguageProvider } from '@discretize/gw2-ui-new';
 import { Layout } from '@discretize/react-discretize-components';
 import { Box, Chip, Typography } from '@mui/material';
-import * as React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import BackgroundImage from '../../components/baseComponents/BackgroundImage';
 import ErrorBoundary from '../../components/baseComponents/ErrorBoundary';
 import BuildPage from '../../components/BuildPage';
 import NavSettings, { GAME_MODES } from '../../components/nav/NavSettings';
-import { PARAMS, useQueryParam } from '../../utils/queryParam';
+import { getGameMode } from '../../state/slices/userSettings';
 
 const IndexPage = () => {
   const { i18n, t } = useTranslation();
   const { language } = i18n;
-  const gameMode = useQueryParam({ key: PARAMS.GAMEMODE });
+
+  const gameMode = useSelector(getGameMode);
 
   return (
     <APILanguageProvider value={language}>

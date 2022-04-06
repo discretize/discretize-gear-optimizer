@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { PARAMS, useQueryParam } from '../../utils/queryParam';
+import { PARAMS, setQueryParm, useQueryParam } from '../../utils/queryParam';
 
 function trycatch(func, fail) {
   try {
@@ -14,11 +14,17 @@ const SETTINGS_STORAGE_KEY = 'globalSettings';
 const defaultState = { expertMode: true, gameMode: 'fractals', language: 'en' };
 // eslint-disable-next-line react-hooks/rules-of-hooks
 const gameModeParam = useQueryParam({ key: PARAMS.GAMEMODE });
+
+// settings grabbed from the local storage. Not the final settings, there are overrides!
+const localStorageSettings = JSON.parse(localStorage.getItem(SETTINGS_STORAGE_KEY));
 export const loadedSettings = {
   ...defaultState,
-  ...trycatch(() => JSON.parse(localStorage.getItem(SETTINGS_STORAGE_KEY)), {}), // override default state with potentially saved localstorage variables
-  ...(gameModeParam && { gameMode: gameModeParam }), // gamemode from query param takes priority
+  ...trycatch(() => localStorageSettings, {}), // override default state with potentially saved localStorage variables
+  ...(gameModeParam && { gameMode: gameModeParam }), // gameMode from query param takes priority
 };
+
+// append the gamemode to the query param if no query param is present
+if (!gameModeParam) setQueryParm({ key: PARAMS.GAMEMODE, value: loadedSettings.gameMode });
 
 export const userSettingsSlice = createSlice({
   name: 'userSettings',

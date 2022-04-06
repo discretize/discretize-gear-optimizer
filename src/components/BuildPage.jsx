@@ -48,16 +48,16 @@ const BuildPage = () => {
   const buffs = useSelector(getBuffs);
 
   // migrate to own implementation
-  const buildUrl = useQueryParam({ key: PARAMS.BUILD });
+  const buildData = useQueryParam({ key: PARAMS.BUILD });
   const versionParam = useQueryParam({ key: PARAMS.VERSION });
 
   // if no version is present, default to version 0
   const version = parseInt(versionParam || 0, 10);
 
   React.useEffect(() => {
-    dispatch({ type: SagaTypes.ImportBuildPageState, version, buildUrl });
+    dispatch({ type: SagaTypes.ImportBuildPageState, version, buildUrl: buildData });
     return () => {};
-  }, [buildUrl, dispatch, version]);
+  }, [buildData, dispatch, version]);
 
   // lookup table for specialization id -> trait line name
   const traitLookup = [];
