@@ -296,7 +296,7 @@ function fetchItems() {
     });
 }
 fetchSpecializations();
-fetchTraits();
-fetchSkills();
-fetchItemStats();
-fetchItems();
+// fetchTraits();
+// fetchSkills();
+// fetchItemStats();
+// fetchItems();

@@ -2,6 +2,7 @@ export const PARAMS = {
   BUILD: 'data',
   VERSION: 'v',
   GAMEMODE: 'm',
+  SHORTENER: 's',
 };
 
 export function useQueryParam({ key }) {
