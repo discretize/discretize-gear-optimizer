@@ -31,12 +31,18 @@ const useStyles = makeStyles()((theme) => ({
 
 const SETTINGS_STORAGE_KEY = 'globalSettings';
 
-const GAME_MODES = (t) => [
+export const GAME_MODES = (t) => [
   { value: 'fractals', label: t('Fractals') },
   { value: 'raids', label: t('Raids/Strikes') },
 ];
 
-export default function NavSettings() {
+export default function NavSettings({
+  disableSettings: {
+    language: languageDisabled,
+    expertMode: expertModeDisabled,
+    gameMode: gameModeDisabled,
+  } = {},
+}) {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { classes } = useStyles();
@@ -71,36 +77,42 @@ export default function NavSettings() {
         <Trans>Global Settings</Trans>
       </Typography>
       <Divider className={classes.divider} />
-      <FormControlLabel
-        control={
-          <Switch
-            checked={expertMode}
-            onChange={changeExpertModeHandler}
-            name="checked"
-            color="primary"
+      {!expertModeDisabled && (
+        <>
+          <FormControlLabel
+            control={
+              <Switch
+                checked={expertMode}
+                onChange={changeExpertModeHandler}
+                name="checked"
+                color="primary"
+              />
+            }
+            label={t('Expert')}
           />
-        }
-        label={t('Expert')}
-      />
-      <Divider className={classes.divider} />
-      <LanguageSelection />
+          <Divider className={classes.divider} />
+        </>
+      )}
+      {!languageDisabled && <LanguageSelection />}
 
-      <FormControl sx={{ minWidth: 150 }} size="small" variant="standard">
-        <FormLabel id="gamemode-button-group">
-          <Trans>Game Mode</Trans>
-        </FormLabel>
+      {!gameModeDisabled && (
+        <FormControl sx={{ minWidth: 150 }} size="small" variant="standard">
+          <FormLabel id="gamemode-button-group">
+            <Trans>Game Mode</Trans>
+          </FormLabel>
 
-        <RadioGroup
-          aria-labelledby="gamemode-select-label"
-          value={gameMode}
-          onChange={changeGameModeHandler}
-          color="primary"
-        >
-          {GAME_MODES(t).map(({ value, label }) => (
-            <FormControlLabel key={value} value={value} control={<Radio />} label={label} />
-          ))}
-        </RadioGroup>
-      </FormControl>
+          <RadioGroup
+            aria-labelledby="gamemode-select-label"
+            value={gameMode}
+            onChange={changeGameModeHandler}
+            color="primary"
+          >
+            {GAME_MODES(t).map(({ value, label }) => (
+              <FormControlLabel key={value} value={value} control={<Radio />} label={label} />
+            ))}
+          </RadioGroup>
+        </FormControl>
+      )}
     </Settings>
   );
 }
