@@ -2,13 +2,15 @@ import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { infusionIds, omnipotionModifiers } from '../../utils/gw2-data';
 import { parseAmount, parseAr, parseInfusionCount } from '../../utils/usefulFunctions';
 import { changeAll } from './controlsSlice';
-import { changeGameMode } from './userSettings';
+import { changeGameMode, loadedSettings } from './userSettings';
+
+const isFractal = loadedSettings.gameMode === 'fractals';
 
 export const infusionsSlice = createSlice({
   name: 'infusions',
   initialState: {
-    omnipotion: true,
-    ar: '162',
+    omnipotion: isFractal,
+    ar: isFractal ? '162' : '',
     maxInfusions: '18',
     primaryInfusion: '',
     secondaryInfusion: '',
