@@ -46,8 +46,8 @@ export default function NavSettings() {
   const expertMode = useSelector(getExpertMode);
   const gameMode = useSelector(getGameMode);
 
+  /*
   // Load data from local storage
-
   React.useEffect(() => {
     const settings = JSON.parse(localStorage.getItem(SETTINGS_STORAGE_KEY) || '{}');
     const {
@@ -61,7 +61,7 @@ export default function NavSettings() {
     if (typeof expertModeProps !== 'undefined') dispatch(changeExpertMode(expertModeProps));
     if (gameModeProps) dispatch(changeGameMode(gameModeProps));
   }, [changeLanguage, dispatch]);
-
+*/
   // save user settings to localStorage
   React.useEffect(() => {
     const settings = JSON.stringify({ expertMode, gameMode, language });
