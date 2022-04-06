@@ -100,9 +100,10 @@ const Navbar = ({
         <IconButton
           href="#share"
           size="large"
-          onClick={() => {
+          onClick={(e) => {
             const elem = document.getElementById('#share');
             if (elem) elem.scrollIntoView();
+            e.preventDefault();
           }}
         >
           <ShareIcon />
