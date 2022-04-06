@@ -1,13 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { PARAMS, useQueryParam } from '../../utils/queryParam';
 
+function trycatch(func, fail) {
+  try {
+    return func();
+  } catch (e) {
+    return fail;
+  }
+}
+
 const SETTINGS_STORAGE_KEY = 'globalSettings';
 
-const defaultState = JSON.stringify({ expertMode: true, gameMode: 'fractals', language: 'en' });
+const defaultState = { expertMode: true, gameMode: 'fractals', language: 'en' };
 // eslint-disable-next-line react-hooks/rules-of-hooks
 const gameModeParam = useQueryParam({ key: PARAMS.GAMEMODE });
 export const loadedSettings = {
-  ...(JSON.parse(localStorage.getItem(SETTINGS_STORAGE_KEY)) || defaultState),
+  ...defaultState,
+  ...trycatch(() => JSON.parse(localStorage.getItem(SETTINGS_STORAGE_KEY)), {}), // override default state with potentially saved localstorage variables
   ...(gameModeParam && { gameMode: gameModeParam }), // gamemode from query param takes priority
 };
 
