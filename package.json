@@ -25,8 +25,8 @@
     "eslint": "eslint --ignore-path .gitignore --max-warnings 0 . --ext .js,.jsx,.ts,.tsx",
     "updateMappings": "node updateMappings.js",
     "deploy": "vite build && gh-pages -d dist",
-    "testModifiers": "ts-node --esm --transpileOnly ./src/assets/modifierdata/testModifiers.ts",
-    "testPresets": "ts-node --esm --transpileOnly ./src/assets/presetdata/testPresets.ts",
+    "testModifiers": "node ./src/assets/modifierdata/testModifiers.js",
+    "testPresets": "node ./src/assets/presetdata/testPresets.js",
     "extractLocale": "babel --config-file ./babel-extract.config.js 'src/**/*.{js,jsx,ts,tsx}' > /dev/null",
     "extractLocaleCMD": "babel --config-file ./babel-extract.config.js \"src/**/*.{js,jsx,ts,tsx}\" > NUL",
     "cleanupLocale": "node cleanupLocale.js"
