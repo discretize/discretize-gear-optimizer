@@ -4,7 +4,6 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import data from '../../utils/data';
 
@@ -46,7 +45,6 @@ export default function NavAccordion({ handleTemplateSelect }) {
   const { classes } = useStyles();
 
   const [expanded, setExpanded] = React.useState('');
-  const dispatch = useDispatch();
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
