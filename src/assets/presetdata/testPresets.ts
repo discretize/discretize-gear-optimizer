@@ -6,7 +6,7 @@ import fs from 'fs/promises';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import yaml from 'js-yaml';
 // eslint-disable-next-line import/extensions
-import templateTransform from './templateTransform.js';
+import { templateTransform } from './templateTransform.js';
 
 const directory = './src/assets/presetdata/';
 

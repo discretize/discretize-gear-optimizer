@@ -18,9 +18,13 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import templateTransform, { changeTemplate } from '../../assets/presetdata/templateTransform';
+import { getBuildTemplateData, templateTransform } from '../../assets/presetdata/templateTransform';
 import SagaTypes from '../../state/sagas/sagaTypes';
-import { getProfession, getSelectedTemplate } from '../../state/slices/controlsSlice';
+import {
+  getProfession,
+  getSelectedTemplate,
+  setBuildTemplate,
+} from '../../state/slices/controlsSlice';
 import {
   changeExpertMode,
   changeGameMode,
@@ -69,16 +73,8 @@ export default function NavSettings({
   const isFractals = gameMode === 'fractals';
 
   const handleAcceptTemplateReapply = () => {
-    const buildData = data.templates.list
-      .flatMap((allBuilds) => allBuilds.builds)
-      .find((build) => build.name === selectedTemplate);
-
-    const build = templateTransform(buildData, isFractals);
-
-    changeTemplate(dispatch, {
-      build,
-      profession,
-    });
+    const buildTemplateData = getBuildTemplateData({ selectedTemplate, isFractals, profession });
+    dispatch(setBuildTemplate(buildTemplateData));
 
     setOpen(false);
   };

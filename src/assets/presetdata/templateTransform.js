@@ -1,4 +1,3 @@
-import { setBuildTemplate } from '../../state/slices/controlsSlice';
 import data from '../../utils/data';
 
 const defaultBoonTemplates = {
@@ -12,8 +11,8 @@ const defaultBoonTemplates = {
   },
 };
 
-export default function (buildData, isFractals) {
-  const { boonType, fractal = {}, raid = {}, ...rest } = buildData;
+export function templateTransform(templateData, isFractals) {
+  const { boonType, fractal = {}, raid = {}, ...rest } = templateData;
   const mode = isFractals ? 'fractal' : 'raid';
 
   const boons = defaultBoonTemplates[mode]?.[boonType] ?? boonType;
@@ -23,7 +22,15 @@ export default function (buildData, isFractals) {
     : { boons, ...rest, ...fractal, ...raid };
 }
 
-export function changeTemplate(dispatch, { build, profession }) {
+export function getBuildTemplateData({ selectedTemplate, isFractals, profession }) {
+  const templateData = data.templates.list
+    .flatMap((section) => section.builds)
+    .find((build) => build.name === selectedTemplate);
+
+  if (!templateData) throw new Error(`No data for template ${selectedTemplate}!`);
+
+  const build = templateTransform(templateData, isFractals);
+
   const {
     presetBuffs,
     presetDistribution,
@@ -32,21 +39,19 @@ export function changeTemplate(dispatch, { build, profession }) {
     presetAffixes: prioritiesPresets,
   } = data;
 
-  dispatch(
-    setBuildTemplate({
-      build,
-      specialization: build.specialization,
-      profession,
-      buffPreset: JSON.parse(presetBuffs.list.find((pre) => pre.name === build.boons).value),
-      distributionPreset: JSON.parse(
-        presetDistribution.list.find((pre) => pre.name === build.distribution)?.value || 'null',
-      ),
-      prioritiesPreset: JSON.parse(
-        prioritiesPresets.list.find((pre) => pre.name === build.priority)?.value,
-      ),
-      extrasPreset: JSON.parse(presetExtras.list.find((pre) => pre.name === build.extras)?.value),
-      traitsPreset: JSON.parse(presetTraits.list.find((pre) => pre.name === build.traits)?.traits),
-      skillsPreset: JSON.parse(presetTraits.list.find((pre) => pre.name === build.traits)?.skills),
-    }),
-  );
+  return {
+    build,
+    specialization: build.specialization,
+    profession,
+    buffPreset: JSON.parse(presetBuffs.list.find((pre) => pre.name === build.boons).value),
+    distributionPreset: JSON.parse(
+      presetDistribution.list.find((pre) => pre.name === build.distribution)?.value || 'null',
+    ),
+    prioritiesPreset: JSON.parse(
+      prioritiesPresets.list.find((pre) => pre.name === build.priority)?.value,
+    ),
+    extrasPreset: JSON.parse(presetExtras.list.find((pre) => pre.name === build.extras)?.value),
+    traitsPreset: JSON.parse(presetTraits.list.find((pre) => pre.name === build.traits)?.traits),
+    skillsPreset: JSON.parse(presetTraits.list.find((pre) => pre.name === build.traits)?.skills),
+  };
 }

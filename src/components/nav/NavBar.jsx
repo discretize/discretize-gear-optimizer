@@ -18,7 +18,7 @@ import React, { useEffect, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import templateTransform, { changeTemplate } from '../../assets/presetdata/templateTransform';
+import { getBuildTemplateData, templateTransform } from '../../assets/presetdata/templateTransform';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import {
   changeProfession,
@@ -147,15 +147,15 @@ const Navbar = () => {
 
   const handleTemplateSelect = React.useCallback(
     // eslint-disable-next-line no-shadow
-    (popup, buildData, profession) => {
+    (popup, selectedTemplate, profession) => {
       dispatch({ type: SagaTypes.Stop });
       try {
-        const build = templateTransform(buildData, isFractals);
-
-        changeTemplate(dispatch, {
-          build,
+        const buildTemplateData = getBuildTemplateData({
+          selectedTemplate,
+          isFractals,
           profession,
         });
+        dispatch(setBuildTemplate(buildTemplateData));
       } catch (e) {
         // eslint-disable-next-line no-alert
         alert('Error loading build template!');
@@ -211,7 +211,9 @@ const Navbar = () => {
                 ?.builds?.map((elem) => (
                   <MenuItem
                     key={elem.name}
-                    onClick={(e) => handleTemplateSelect(popupState[index], elem, prof.profession)}
+                    onClick={(e) =>
+                      handleTemplateSelect(popupState[index], elem.name, prof.profession)
+                    }
                   >
                     <Profession
                       name={elem.specialization}
