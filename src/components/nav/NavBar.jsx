@@ -27,7 +27,7 @@ import {
   getSelectedTemplate,
   setBuildTemplate,
 } from '../../state/slices/controlsSlice';
-import { getExpertMode } from '../../state/slices/userSettings';
+import { getExpertMode, getGameMode } from '../../state/slices/userSettings';
 import { PROFESSIONS } from '../../utils/gw2-data';
 import NavAccordion from './NavAccordion';
 import NavSettings from './NavSettings';
@@ -50,6 +50,7 @@ const Navbar = ({
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
   const expertMode = useSelector(getExpertMode);
+  const gamemode = useSelector(getGameMode);
   const selectedSpecialization = useSelector(getSelectedSpecialization);
   const selectedTemplateName = useSelector(getSelectedTemplate);
 
@@ -146,9 +147,7 @@ const Navbar = ({
     );
   };
 
-  // temp
-  const isFractals = true;
-  // const isFractals = false;
+  const isFractals = gamemode === 'fractals';
 
   const handleTemplateSelect = React.useCallback(
     // eslint-disable-next-line no-shadow
