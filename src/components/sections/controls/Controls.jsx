@@ -16,6 +16,7 @@ import {
   changeError,
   changeStatus,
   getError,
+  getProfession,
   getStatus,
 } from '../../../state/slices/controlsSlice';
 import { getPriority } from '../../../state/slices/priorities';
@@ -38,7 +39,7 @@ const useStyles = makeStyles()((theme) => ({
   chipIcon: { marginBottom: '-6px !important' },
 }));
 
-const ControlsBox = ({ profession }) => {
+const ControlsBox = () => {
   const { classes } = useStyles();
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -47,6 +48,7 @@ const ControlsBox = ({ profession }) => {
   const error = useSelector(getError);
   const affixes = useSelector(getPriority('affixes'));
   const weaponType = useSelector(getPriority('weaponType'));
+  const profession = useSelector(getProfession);
 
   const onStartCalculate = (e) => {
     if (affixes.length < 1) {

@@ -15,7 +15,6 @@ export default function Settings({ children, maxWidth = 'unset' }) {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
     }
-
     setOpen(false);
   };
 

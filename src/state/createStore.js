@@ -15,9 +15,11 @@ import { infusionsSlice } from './slices/infusions';
 import { prioritiesSlice } from './slices/priorities';
 import { skillsSlice } from './slices/skills';
 import { traitsSlice } from './slices/traits';
+import { userSettingsSlice } from './slices/userSettings';
 
 const reducers = combineReducers({
   optimizer: combineReducers({
+    userSettings: userSettingsSlice.reducer,
     control: controlSlice.reducer,
     form: combineReducers({
       extras: extrasSlice.reducer,

@@ -5,6 +5,8 @@
 import fs from 'fs/promises';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import yaml from 'js-yaml';
+// eslint-disable-next-line import/extensions
+import { templateTransform } from './templateTransform.js';
 
 const directory = './src/assets/presetdata/';
 
@@ -112,13 +114,13 @@ const testModifiers = async () => {
       const {
         name = 'missing name',
         id,
-        specialization,
+        // specialization,
         // boons,
         // priority,
         // distribution,
         // traits,
         // extras,
-        weaponType,
+        // weaponType,
       } = item;
 
       if (id) {
@@ -136,19 +138,67 @@ const testModifiers = async () => {
         }
       };
       checkNullRecursively(item);
+    }
+  }
 
-      for (const type of testTypes) {
-        const match = data[type].find((pre) => pre.name === item[type]);
-        gentleAssert(match, `err: ${name}'s ${type} is not found!`);
-        if (match) match.used = true;
-        const profIsFine = !match.profession || match?.profession === specialization;
-        if (!profIsFine) console.log(`❓ ${name}'s ${type}'s profession is wrong!`);
+  // test valid references in both fractal and raid modes
+  for (const section of templates.list) {
+    for (const isFractals of [true, false]) {
+      const mode = isFractals ? 'fractal' : 'raid';
+      for (const unmodifiedItem of section.builds) {
+        const item = templateTransform(unmodifiedItem, isFractals);
+        const {
+          name = 'missing name',
+          // id,
+          specialization,
+          // boons,
+          // priority,
+          // distribution,
+          // traits,
+          // extras,
+          weaponType,
+        } = item;
+
+        for (const type of testTypes) {
+          const match = data[type].find((pre) => pre.name === item[type]);
+          gentleAssert(match, `err: ${name}'s ${type} is not found! (mode: ${mode})`);
+          if (match) match.used = true;
+          const profIsFine = !match.profession || match?.profession === specialization;
+          if (!profIsFine)
+            console.log(`❓ ${name}'s ${type}'s profession is wrong! (mode: ${mode})`);
+
+          if (type === 'extras') {
+            const extrasData = JSON.parse(match.value);
+            if (isFractals) {
+              if (
+                extrasData.extras.Sigil1?.['impact/night/slaying-only-3'] ||
+                extrasData.extras.Sigil2?.['impact/night/slaying-only-3']
+              ) {
+                gentleAssert(false, `err: ${name} has the wrong impact sigil in ${mode} mode!`);
+              }
+              if (extrasData.extras.Enhancement?.['superior-sharpening-stone']) {
+                gentleAssert(false, `err: ${name} has no slaying potion in ${mode} mode!`);
+              }
+            } else {
+              // eslint-disable-next-line no-lonely-if
+              if (
+                extrasData.extras.Sigil1?.['impact/night/slaying-both'] ||
+                extrasData.extras.Sigil2?.['impact/night/slaying-both']
+              ) {
+                gentleAssert(false, `err: ${name} has the wrong impact sigil in ${mode} mode!`);
+              }
+              if (extrasData.extras.Enhancement?.['slaying-potion']) {
+                gentleAssert(false, `err: ${name} has a slaying potion in ${mode} mode!`);
+              }
+            }
+          }
+        }
+
+        gentleAssert(
+          ['Dual wield', 'Two-handed', 'unset'].includes(weaponType),
+          `err: ${name}'s weaponType is not valid! (mode: ${mode})`,
+        );
       }
-
-      gentleAssert(
-        ['Dual wield', 'Two-handed', 'unset'].includes(weaponType),
-        `err: ${name}'s weaponType is not valid!`,
-      );
     }
   }
 

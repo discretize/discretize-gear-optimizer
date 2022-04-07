@@ -1,14 +1,19 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getGameMode } from '../../../state/slices/userSettings';
 import { changeInfusions } from '../../../state/slices/infusions';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Infusions from './Infusions';
+import data from '../../../utils/data';
 
-const InfusionsSection = ({ data }) => {
+const InfusionsSection = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const gamemode = useSelector(getGameMode);
+
+  const isFractals = gamemode === 'fractals';
 
   const infusionPresets = data.presetInfusions.list;
 
@@ -22,9 +27,11 @@ const InfusionsSection = ({ data }) => {
     [dispatch],
   );
 
+  const title = t('Infusions') + (isFractals ? ` ${t('+ AR')}` : '');
+
   return (
     <Section
-      title={t('Infusions + AR')}
+      title={title}
       content={<Infusions />}
       helpText={
         <>

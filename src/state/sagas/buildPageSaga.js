@@ -6,21 +6,29 @@ import {
   version as schemaVersion,
 } from '../../components/url-state/schema/BuildPageSchema_v2';
 import { buffsDict } from '../../components/url-state/schema/SchemaDicts';
-import { changeBuildPage, changeCharacter } from '../slices/buildPage';
+import { PARAMS } from '../../utils/queryParam';
+import { changeBuildPage, changeCharacter, getSkills, getWeapons } from '../slices/buildPage';
+import { getProfession, getSelectedCharacter } from '../slices/controlsSlice';
+import { getGameMode } from '../slices/userSettings';
 import SagaTypes from './sagaTypes';
 
 // channels solve the problem "how to get value out of callback"
 // https://stackoverflow.com/questions/43031832/how-to-yield-put-in-redux-saga-within-a-callback
 const compressChannel = channel();
 function* exportStateCharacter({ newPage, copyToClipboard }) {
-  const { optimizer } = yield select();
-  const { buildPage, control } = optimizer;
+  const state = yield select();
+
   // extract all variables
-  const { selectedCharacter: character, profession } = control;
+  const skills = getSkills(state);
+  const weapons = getWeapons(state);
+  const gameMode = getGameMode(state);
+
+  const profession = getProfession(state);
+  const character = getSelectedCharacter(state);
+
   const lines = character.settings.cachedFormState.traits.selectedLines;
   const selected = character.settings.cachedFormState.traits.selectedTraits;
   const { buffs } = character.settings.cachedFormState.buffs;
-  const { skills, weapons } = buildPage;
 
   const { attributes: allAttributes, gear, settings, infusions } = character;
   const { specialization, weaponType, extrasCombination } = settings;
@@ -71,8 +79,9 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
   const { result } = yield take(compressChannel);
 
   const urlObject = new URL('build/', window.location.href);
-  urlObject.searchParams.set('v', schemaVersion);
-  urlObject.searchParams.set('data', result);
+  urlObject.searchParams.set(PARAMS.GAMEMODE, gameMode);
+  urlObject.searchParams.set(PARAMS.VERSION, schemaVersion);
+  urlObject.searchParams.set(PARAMS.BUILD, result);
   const url = urlObject.href;
 
   if (newPage) {
@@ -111,7 +120,6 @@ function* importStateCharacter({ buildUrl: input, version }) {
     });
 
     const { result } = yield take(decompressChannel);
-
     yield put(changeBuildPage(result));
   } catch (e) {
     console.log('Problem restoring template!');

@@ -48,7 +48,6 @@ const logAttributeDiff = (newCharacter, oldCharacter) => {
 export const controlSlice = createSlice({
   name: 'control',
   initialState: {
-    expertMode: true,
     list: [],
     filteredList: [],
     saved: [],
@@ -77,9 +76,6 @@ export const controlSlice = createSlice({
         };
       }
       return state;
-    },
-    changeExpertMode: (state, action) => {
-      state.expertMode = action.payload;
     },
     setBuildTemplate: (state, action) => {
       const { build, specialization, profession } = action.payload;
@@ -145,7 +141,6 @@ export const controlSlice = createSlice({
 });
 
 export const getProfession = (state) => state.optimizer.control.profession;
-export const getExpertMode = (state) => state.optimizer.control.expertMode;
 export const getSelectedTemplate = (state) => state.optimizer.control.selectedTemplate;
 export const getProgress = (state) => state.optimizer.control.progress;
 export const getSelectedSpecialization = (state) => state.optimizer.control.selectedSpecialization;
@@ -163,7 +158,6 @@ export const getError = (state) => state.optimizer.control.error;
 export const {
   changeAll,
   changeProfession,
-  changeExpertMode,
   changeStatus,
   changeProgress,
   changeList,
