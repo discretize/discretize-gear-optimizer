@@ -1,4 +1,4 @@
-import { Profession } from '@discretize/gw2-ui-new';
+import { Profession, Tooltip } from '@discretize/gw2-ui-new';
 import MenuIcon from '@mui/icons-material/Menu';
 import ShareIcon from '@mui/icons-material/Share';
 import {
@@ -32,6 +32,8 @@ import data from '../../utils/data';
 import { PROFESSIONS } from '../../utils/gw2-data';
 import NavAccordion from './NavAccordion';
 import NavSettings from './NavSettings';
+import fractalImg from '../../assets/images/icons/fractals.png';
+import raidImg from '../../assets/images/icons/raids.png';
 
 const useStyles = makeStyles()((theme) => ({
   icon: {
@@ -76,7 +78,15 @@ const Navbar = () => {
 
   const stickyRight = () => {
     return (
-      <Box>
+      <Box display="flex" alignItems="center" gap={1}>
+        <Tooltip content={`${t('Selected Game Mode')}: ${isFractals ? t('Fractals') : t('Raids')}`}>
+          <img
+            style={{ width: '40px' }}
+            src={isFractals ? fractalImg : raidImg}
+            alt={isFractals ? t('Fractal') : t('Raid')}
+          />
+        </Tooltip>
+
         <IconButton
           href="#share"
           size="large"

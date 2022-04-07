@@ -167,10 +167,10 @@ export default function NavSettings({
             </DialogContent>
             <DialogActions>
               <Button onClick={handleClose}>
-                <Trans>Disagree</Trans>
+                <Trans>Decline</Trans>
               </Button>
-              <Button onClick={handleAcceptTemplateReapply} autoFocus>
-                <Trans>Agree</Trans>
+              <Button onClick={handleAcceptTemplateReapply} autoFocus variant="outlined">
+                <Trans>Accept</Trans>
               </Button>
             </DialogActions>
           </Dialog>
