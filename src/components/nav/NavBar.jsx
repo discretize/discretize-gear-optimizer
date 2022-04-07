@@ -18,7 +18,10 @@ import React, { useEffect, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import templateTransform from '../../assets/presetdata/templateTransform';
+import templateTransform, {
+  changeTemplate,
+  getDispatchableTemplate,
+} from '../../assets/presetdata/templateTransform';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import {
   changeProfession,
@@ -95,7 +98,17 @@ const Navbar = ({
           <ShareIcon />
         </IconButton>
 
-        <NavSettings />
+        <NavSettings
+          templates={data}
+          presets={{
+            distributionPresets,
+            profession,
+            buffPresets,
+            prioritiesPresets,
+            extrasPresets,
+            traitPresets,
+          }}
+        />
       </Box>
     );
   };
@@ -156,23 +169,15 @@ const Navbar = ({
       try {
         const build = templateTransform(buildData, isFractals);
 
-        dispatch(
-          setBuildTemplate({
-            build,
-            specialization: build.specialization,
-            profession,
-            buffPreset: JSON.parse(buffPresets.find((pre) => pre.name === build.boons).value),
-            distributionPreset: JSON.parse(
-              distributionPresets.find((pre) => pre.name === build.distribution)?.value || 'null',
-            ),
-            prioritiesPreset: JSON.parse(
-              prioritiesPresets.find((pre) => pre.name === build.priority)?.value,
-            ),
-            extrasPreset: JSON.parse(extrasPresets.find((pre) => pre.name === build.extras)?.value),
-            traitsPreset: JSON.parse(traitPresets.find((pre) => pre.name === build.traits)?.traits),
-            skillsPreset: JSON.parse(traitPresets.find((pre) => pre.name === build.traits)?.skills),
-          }),
-        );
+        changeTemplate(dispatch, {
+          build,
+          distributionPresets,
+          profession,
+          buffPresets,
+          prioritiesPresets,
+          extrasPresets,
+          traitPresets,
+        });
       } catch (e) {
         // eslint-disable-next-line no-alert
         alert('Error loading build template!');
