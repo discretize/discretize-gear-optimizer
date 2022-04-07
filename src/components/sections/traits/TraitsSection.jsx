@@ -2,6 +2,7 @@ import { Box, FormControlLabel, Switch } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { getProfession } from '../../../state/slices/controlsSlice';
 import { changeSkills } from '../../../state/slices/skills';
 import { changeTraits, getShowAllTraits, toggleShowAll } from '../../../state/slices/traits';
 import data from '../../../utils/data';
@@ -10,9 +11,10 @@ import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Traits from './Traits';
 
-const TraitsSection = ({ profession }) => {
+const TraitsSection = () => {
   const dispatch = useDispatch();
   const showAll = useSelector(getShowAllTraits);
+  const profession = useSelector(getProfession);
 
   const { t } = useTranslation();
 
@@ -61,7 +63,7 @@ const TraitsSection = ({ profession }) => {
           </Trans>
         </>
       }
-      content={<Traits profession={profession} />}
+      content={<Traits />}
       extraInfo={
         <>
           <FormControlLabel

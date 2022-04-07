@@ -49,11 +49,11 @@ const GearOptimizer = () => {
           <Grid container>
             {expertMode ? (
               <>
-                <TraitsSection profession={profession} />
+                <TraitsSection />
 
-                <SkillsSection profession={profession} />
+                <SkillsSection />
 
-                <ExtrasSection profession={profession} />
+                <ExtrasSection />
 
                 <BuffsSection />
 
@@ -65,15 +65,15 @@ const GearOptimizer = () => {
 
                 <PrioritiesSection />
 
-                <DistributionSection profession={profession} />
+                <DistributionSection />
 
                 <BossSection />
               </>
             ) : (
               <>
-                <SkillsSection profession={profession} />
+                <SkillsSection />
 
-                <ExtrasSection profession={profession} />
+                <ExtrasSection />
 
                 <BuffsSection first />
 
@@ -86,7 +86,7 @@ const GearOptimizer = () => {
             )}
           </Grid>
 
-          <Controls profession={profession} />
+          <Controls />
 
           <ResultTable />
           <Box m={3} />

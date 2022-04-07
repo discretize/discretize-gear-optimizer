@@ -2,7 +2,8 @@
 import { Box, Link } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProfession } from '../../../state/slices/controlsSlice';
 import { changeAllDistributions } from '../../../state/slices/distribution';
 import data from '../../../utils/data';
 import { PROFESSIONS } from '../../../utils/gw2-data';
@@ -10,9 +11,10 @@ import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import DamageDistribution from './DamageDistribution';
 
-const DistributionSection = ({ profession }) => {
+const DistributionSection = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const profession = useSelector(getProfession);
 
   let distributionPresets;
   if (profession) {
