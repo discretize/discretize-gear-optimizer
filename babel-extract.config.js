@@ -1,8 +1,9 @@
+/* eslint-disable import/extensions */
 const YAML = require('js-yaml');
 const fs = require('fs');
-const { require_ts } = require('./src/utils/require-ts.js');
+const { requireTS } = require('./src/utils/require-ts.js');
 
-const { GEAR_SLOTS, Affix } = require_ts('./src/utils/gw2-data.ts');
+const { GEAR_SLOTS, Affix } = requireTS('./src/utils/gw2-data.ts');
 
 const templates = YAML.load(fs.readFileSync('./src/assets/presetdata/templates.yaml', 'utf8'));
 const presets = {
