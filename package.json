@@ -27,7 +27,7 @@
     "deploy": "vite build && gh-pages -d dist",
     "testModifiers": "ts-node --esm --transpileOnly ./src/assets/modifierdata/testModifiers.ts",
     "testPresets": "ts-node --esm --transpileOnly ./src/assets/presetdata/testPresets.ts",
-    "extractLocale": "babel --config-file ./babel-extract.config.js 'src/**/*.{js,jsx,ts,tsx}' > /dev/null",
+    "extractLocale": "esbuild src/utils/gw2-data.ts --outfile=extract_temporary/gw2-data.js && babel --config-file ./babel-extract.config.js 'src/**/*.{js,jsx,ts,tsx}' > /dev/null",
     "extractLocaleCMD": "babel --config-file ./babel-extract.config.js \"src/**/*.{js,jsx,ts,tsx}\" > NUL",
     "cleanupLocale": "node cleanupLocale.js"
   },

@@ -14,3 +14,5 @@ install.bat
 
 .DS_Store
 .mf/
+
+extract_temporary/

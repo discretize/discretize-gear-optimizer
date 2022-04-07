@@ -3,7 +3,7 @@ const fs = require('fs');
 
 // eslint-disable-next-line no-global-assign
 require = require('esm')(module);
-// const { GEAR_SLOTS, Affix } = require('./src/utils/gw2-data');
+const { GEAR_SLOTS, Affix } = require('./extract_temporary/gw2-data');
 
 const templates = YAML.load(fs.readFileSync('./src/assets/presetdata/templates.yaml', 'utf8'));
 const presets = {
@@ -114,8 +114,8 @@ module.exports = {
           ),
           '',
         ],
-        // slotName: [...new Set(Object.values(GEAR_SLOTS).map((item) => item.name))],
-        // affix: Object.keys(Affix),
+        slotName: [...new Set(Object.values(GEAR_SLOTS).map((item) => item.name))],
+        affix: Object.keys(Affix),
       },
     ],
     [
@@ -126,7 +126,7 @@ module.exports = {
         nsSeparator: null,
         keyAsDefaultValue: ['en'],
         useI18nextDefaultValue: ['en'],
-        discardOldKeys: false,
+        discardOldKeys: true,
         outputPath: 'locales/{{locale}}/{{ns}}.json',
         customTransComponents: [['react-i18next', 'Trans']],
       },
