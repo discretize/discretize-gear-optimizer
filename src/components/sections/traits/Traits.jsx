@@ -4,6 +4,7 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { classModifiers, traitSectionsById } from '../../../assets/modifierdata';
+import { getProfession } from '../../../state/slices/controlsSlice';
 import {
   changeTrait,
   changeTraitLine,
@@ -18,9 +19,10 @@ import AmountInput from '../../baseComponents/AmountInput';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 import Info from '../../baseComponents/Info';
 
-const Traits = ({ profession }) => {
+const Traits = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const profession = useSelector(getProfession);
 
   const data = classModifiers[profession]?.filter((section) => section.id > 0) ?? [];
 

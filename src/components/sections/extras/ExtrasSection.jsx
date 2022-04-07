@@ -1,15 +1,18 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProfession } from '../../../state/slices/controlsSlice';
 import { changeExtras } from '../../../state/slices/extras';
+import data from '../../../utils/data';
 import { PROFESSIONS } from '../../../utils/gw2-data';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Extras from './Extras';
 
-const ExtrasSection = ({ profession, data }) => {
+const ExtrasSection = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const profession = useSelector(getProfession);
 
   let extrasPresets;
   if (profession) {

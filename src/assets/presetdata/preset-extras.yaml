@@ -209,6 +209,54 @@ list:
         }
       }
 
+  - name: DH Radiance w/ PI (Raid)
+    profession: Dragonhunter
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Quickbrand (Raid)
+    profession: Firebrand
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: DH Virtues (Fractal)
     profession: Dragonhunter
     value: |-
@@ -563,7 +611,8 @@ list:
             "force": {}
           },
           "Sigil2": {
-            "impact/night/slaying-only-3": {}
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
           },
           "Enhancement": {
             "superior-sharpening-stone": {}
@@ -571,7 +620,33 @@ list:
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {}
           }
-        }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Spellbreaker (Raid)
+    profession: Spellbreaker
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {}
+          }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Banner Bladesworn (Raid spotter)
@@ -798,13 +873,13 @@ list:
         }
       }
 
-  - name: Power Slb Skirm (Raid)
+  - name: Power Slb Marks (Raid)
     profession: Soulbeast
     value: |-
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "thief": {}
           },
           "Sigil1": {
             "force": {}
@@ -818,7 +893,8 @@ list:
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Condi Slb
@@ -995,7 +1071,28 @@ list:
         }
       }
 
-  - name: DPS Vindicator
+  - name: DPS Vindicator (Fractal)
+    profession: Vindicator
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {},
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {}
+          }
+        }
+      }
+
+  - name: DPS Vindicator (Raid)
     profession: Vindicator
     value: |-
       {
@@ -1144,27 +1241,6 @@ list:
           }
         },
         "lifestealAmount": ""
-      }
-
-  - name: '[beta1] Quickness Harbinger (Cele)'
-    profession: Harbinger
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "tormenting": {}
-          },
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {},
-          "Enhancement": {
-            "master-tuning-crystal": {}
-          },
-          "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
-          }
-        }
       }
 
   - name: Condi Deadeye

@@ -2,11 +2,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { changePriority } from '../../../state/slices/priorities';
+import data from '../../../utils/data';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Priorities from './Priorities';
 
-const PrioritiesSection = ({ data }) => {
+const PrioritiesSection = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
