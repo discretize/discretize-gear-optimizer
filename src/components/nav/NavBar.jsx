@@ -18,7 +18,9 @@ import React, { useEffect, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { getBuildTemplateData, templateTransform } from '../../assets/presetdata/templateTransform';
+import fractalImg from '../../assets/images/icons/fractals.png';
+import raidImg from '../../assets/images/icons/raids.png';
+import { getBuildTemplateData } from '../../assets/presetdata/templateTransform';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import {
   changeProfession,
@@ -32,8 +34,6 @@ import data from '../../utils/data';
 import { PROFESSIONS } from '../../utils/gw2-data';
 import NavAccordion from './NavAccordion';
 import NavSettings from './NavSettings';
-import fractalImg from '../../assets/images/icons/fractals.png';
-import raidImg from '../../assets/images/icons/raids.png';
 
 const useStyles = makeStyles()((theme) => ({
   icon: {
@@ -154,6 +154,7 @@ const Navbar = () => {
           selectedTemplate,
           isFractals,
           profession,
+          data,
         });
         dispatch(setBuildTemplate(buildTemplateData));
       } catch (e) {

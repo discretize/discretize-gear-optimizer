@@ -18,7 +18,7 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { getBuildTemplateData, templateTransform } from '../../assets/presetdata/templateTransform';
+import { getBuildTemplateData } from '../../assets/presetdata/templateTransform';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import {
   getProfession,
@@ -73,7 +73,12 @@ export default function NavSettings({
   const isFractals = gameMode === 'fractals';
 
   const handleAcceptTemplateReapply = () => {
-    const buildTemplateData = getBuildTemplateData({ selectedTemplate, isFractals, profession });
+    const buildTemplateData = getBuildTemplateData({
+      selectedTemplate,
+      isFractals,
+      profession,
+      data,
+    });
     dispatch(setBuildTemplate(buildTemplateData));
 
     setOpen(false);

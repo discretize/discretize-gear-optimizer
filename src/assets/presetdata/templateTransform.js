@@ -1,5 +1,3 @@
-import data from '../../utils/data';
-
 const defaultBoonTemplates = {
   fractal: {
     Power: 'Power (spotter)',
@@ -22,7 +20,7 @@ export function templateTransform(templateData, isFractals) {
     : { boons, ...rest, ...fractal, ...raid };
 }
 
-export function getBuildTemplateData({ selectedTemplate, isFractals, profession }) {
+export function getBuildTemplateData({ selectedTemplate, isFractals, profession, data }) {
   const templateData = data.templates.list
     .flatMap((section) => section.builds)
     .find((build) => build.name === selectedTemplate);
