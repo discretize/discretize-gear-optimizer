@@ -165,6 +165,32 @@ const testModifiers = async () => {
           const profIsFine = !match.profession || match?.profession === specialization;
           if (!profIsFine)
             console.log(`❓ ${name}'s ${type}'s profession is wrong! (mode: ${mode})`);
+
+          if (type === 'extras') {
+            const extrasData = JSON.parse(match.value);
+            if (isFractals) {
+              if (
+                extrasData.extras.Sigil1?.['impact/night/slaying-only-3'] ||
+                extrasData.extras.Sigil2?.['impact/night/slaying-only-3']
+              ) {
+                gentleAssert(false, `err: ${name} has the wrong impact sigil in ${mode} mode!`);
+              }
+              if (extrasData.extras.Enhancement?.['superior-sharpening-stone']) {
+                gentleAssert(false, `err: ${name} has no slaying potion in ${mode} mode!`);
+              }
+            } else {
+              // eslint-disable-next-line no-lonely-if
+              if (
+                extrasData.extras.Sigil1?.['impact/night/slaying-both'] ||
+                extrasData.extras.Sigil2?.['impact/night/slaying-both']
+              ) {
+                gentleAssert(false, `err: ${name} has the wrong impact sigil in ${mode} mode!`);
+              }
+              if (extrasData.extras.Enhancement?.['slaying-potion']) {
+                gentleAssert(false, `err: ${name} has a slaying potion in ${mode} mode!`);
+              }
+            }
+          }
         }
 
         gentleAssert(
