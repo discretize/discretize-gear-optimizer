@@ -28,7 +28,8 @@
     "testModifiers": "ts-node --esm --transpileOnly ./src/assets/modifierdata/testModifiers.ts",
     "testPresets": "ts-node --esm --transpileOnly ./src/assets/presetdata/testPresets.ts",
     "extractLocale": "babel --config-file ./babel-extract.config.js 'src/**/*.{js,jsx,ts,tsx}' > /dev/null",
-    "extractLocaleCMD": "babel --config-file ./babel-extract.config.js \"src/**/*.{js,jsx,ts,tsx}\" > NUL"
+    "extractLocaleCMD": "babel --config-file ./babel-extract.config.js \"src/**/*.{js,jsx,ts,tsx}\" > NUL",
+    "cleanupLocale": "node cleanupLocale.js"
   },
   "resolutions": {
     "@discretize/gw2-ui-new": "^0.0.13"
