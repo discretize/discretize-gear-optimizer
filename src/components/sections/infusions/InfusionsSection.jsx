@@ -6,8 +6,9 @@ import { changeInfusions } from '../../../state/slices/infusions';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Infusions from './Infusions';
+import data from '../../../utils/data';
 
-const InfusionsSection = ({ data }) => {
+const InfusionsSection = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const gamemode = useSelector(getGameMode);

@@ -3,13 +3,6 @@ import { Box, Grid, Typography } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import presetAffixes from '../assets/presetdata/preset-affixes.yaml';
-import presetBuffs from '../assets/presetdata/preset-buffs.yaml';
-import presetDistribution from '../assets/presetdata/preset-distribution.yaml';
-import presetExtras from '../assets/presetdata/preset-extras.yaml';
-import presetInfusions from '../assets/presetdata/preset-infusions.yaml';
-import presetTraits from '../assets/presetdata/preset-traits.yaml';
-import templates from '../assets/presetdata/templates.yaml';
 import { getProfession } from '../state/slices/controlsSlice';
 import { getExpertMode } from '../state/slices/userSettings';
 import NavBar from './nav/NavBar';
@@ -28,16 +21,6 @@ import SharingSection from './sections/sharing/SharingSection';
 import SkillsSection from './sections/skills/SkillsSection';
 import TraitsSection from './sections/traits/TraitsSection';
 
-const data = {
-  templates,
-  presetBuffs,
-  presetAffixes,
-  presetDistribution,
-  presetExtras,
-  presetInfusions,
-  presetTraits,
-};
-
 /**
  * Contains the main UI for the optimizer. All the components are being put together here.
  */
@@ -53,14 +36,7 @@ const GearOptimizer = () => {
 
   return (
     <>
-      <NavBar
-        data={data.templates.list}
-        buffPresets={data.presetBuffs.list}
-        prioritiesPresets={data.presetAffixes.list}
-        distributionPresets={data.presetDistribution.list}
-        extrasPresets={data.presetExtras.list}
-        traitPresets={data.presetTraits.list}
-      />
+      <NavBar />
       <Box>
         {profession === '' && (
           <Typography mb={1}>
@@ -73,23 +49,23 @@ const GearOptimizer = () => {
           <Grid container>
             {expertMode ? (
               <>
-                <TraitsSection profession={profession} data={data} />
+                <TraitsSection profession={profession} />
 
                 <SkillsSection profession={profession} />
 
-                <ExtrasSection profession={profession} data={data} />
+                <ExtrasSection profession={profession} />
 
-                <BuffsSection data={data} />
+                <BuffsSection />
 
                 <ExtraModifiersSection />
 
-                <InfusionsSection data={data} />
+                <InfusionsSection />
 
                 <ForcedSlotsSection />
 
-                <PrioritiesSection data={data} />
+                <PrioritiesSection />
 
-                <DistributionSection profession={profession} data={data} />
+                <DistributionSection profession={profession} />
 
                 <BossSection />
               </>
@@ -97,15 +73,15 @@ const GearOptimizer = () => {
               <>
                 <SkillsSection profession={profession} />
 
-                <ExtrasSection profession={profession} data={data} />
+                <ExtrasSection profession={profession} />
 
-                <BuffsSection first data={data} />
+                <BuffsSection first />
 
-                <InfusionsSection data={data} />
+                <InfusionsSection />
 
                 <ForcedSlotsSection />
 
-                <PrioritiesSection data={data} />
+                <PrioritiesSection />
               </>
             )}
           </Grid>
@@ -114,7 +90,7 @@ const GearOptimizer = () => {
 
           <ResultTable />
           <Box m={3} />
-          <ResultDetails data={data} />
+          <ResultDetails />
           <Box m={3} />
 
           <SharingSection />

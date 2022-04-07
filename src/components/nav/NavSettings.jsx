@@ -20,18 +20,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import templateTransform, { changeTemplate } from '../../assets/presetdata/templateTransform';
 import SagaTypes from '../../state/sagas/sagaTypes';
-import {
-  getProfession,
-  getSelectedTemplate,
-  setBuildTemplate,
-} from '../../state/slices/controlsSlice';
-import { changeExtras } from '../../state/slices/extras';
+import { getProfession, getSelectedTemplate } from '../../state/slices/controlsSlice';
 import {
   changeExpertMode,
   changeGameMode,
   getExpertMode,
   getGameMode,
 } from '../../state/slices/userSettings';
+import data from '../../utils/data';
 import { PARAMS, setQueryParm } from '../../utils/queryParam';
 import LanguageSelection from '../baseComponents/LanguageSelection';
 import Settings from '../baseComponents/Settings';
@@ -50,15 +46,6 @@ export const GAME_MODES = (t) => [
 ];
 
 export default function NavSettings({
-  templates,
-  presets: {
-    distributionPresets,
-    profession,
-    buffPresets,
-    prioritiesPresets,
-    extrasPresets,
-    traitPresets,
-  },
   disableSettings: {
     language: languageDisabled,
     expertMode: expertModeDisabled,
@@ -75,13 +62,14 @@ export default function NavSettings({
   const expertMode = useSelector(getExpertMode);
   const gameMode = useSelector(getGameMode);
   const selectedTemplate = useSelector(getSelectedTemplate);
+  const profession = useSelector(getProfession);
 
   const [open, setOpen] = React.useState(false);
 
   const isFractals = gameMode === 'fractals';
 
   const handleAcceptTemplateReapply = () => {
-    const buildData = templates
+    const buildData = data.templates.list
       .flatMap((allBuilds) => allBuilds.builds)
       .find((build) => build.name === selectedTemplate);
 
@@ -89,12 +77,7 @@ export default function NavSettings({
 
     changeTemplate(dispatch, {
       build,
-      distributionPresets,
       profession,
-      buffPresets,
-      prioritiesPresets,
-      extrasPresets,
-      traitPresets,
     });
 
     setOpen(false);

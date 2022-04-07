@@ -4,12 +4,13 @@ import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeSkills } from '../../../state/slices/skills';
 import { changeTraits, getShowAllTraits, toggleShowAll } from '../../../state/slices/traits';
+import data from '../../../utils/data';
 import { PROFESSIONS } from '../../../utils/gw2-data';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Traits from './Traits';
 
-const TraitsSection = ({ profession, data }) => {
+const TraitsSection = ({ profession }) => {
   const dispatch = useDispatch();
   const showAll = useSelector(getShowAllTraits);
 

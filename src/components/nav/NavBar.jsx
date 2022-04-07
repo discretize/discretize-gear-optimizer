@@ -18,10 +18,7 @@ import React, { useEffect, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import templateTransform, {
-  changeTemplate,
-  getDispatchableTemplate,
-} from '../../assets/presetdata/templateTransform';
+import templateTransform, { changeTemplate } from '../../assets/presetdata/templateTransform';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import {
   changeProfession,
@@ -31,6 +28,7 @@ import {
   setBuildTemplate,
 } from '../../state/slices/controlsSlice';
 import { getExpertMode, getGameMode } from '../../state/slices/userSettings';
+import data from '../../utils/data';
 import { PROFESSIONS } from '../../utils/gw2-data';
 import NavAccordion from './NavAccordion';
 import NavSettings from './NavSettings';
@@ -41,14 +39,7 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-const Navbar = ({
-  data,
-  buffPresets,
-  prioritiesPresets,
-  distributionPresets,
-  extrasPresets,
-  traitPresets,
-}) => {
+const Navbar = () => {
   const { classes } = useStyles();
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
@@ -98,17 +89,7 @@ const Navbar = ({
           <ShareIcon />
         </IconButton>
 
-        <NavSettings
-          templates={data}
-          presets={{
-            distributionPresets,
-            profession,
-            buffPresets,
-            prioritiesPresets,
-            extrasPresets,
-            traitPresets,
-          }}
-        />
+        <NavSettings />
       </Box>
     );
   };
@@ -143,15 +124,7 @@ const Navbar = ({
           }}
         >
           <div>
-            <NavAccordion
-              data={data}
-              buffPresets={buffPresets}
-              prioritiesPresets={prioritiesPresets}
-              distributionPresets={distributionPresets}
-              extrasPresets={extrasPresets}
-              traitPresets={traitPresets}
-              handleTemplateSelect={handleTemplateSelect}
-            />
+            <NavAccordion handleTemplateSelect={handleTemplateSelect} />
           </div>
         </SwipeableDrawer>
 
@@ -171,12 +144,7 @@ const Navbar = ({
 
         changeTemplate(dispatch, {
           build,
-          distributionPresets,
           profession,
-          buffPresets,
-          prioritiesPresets,
-          extrasPresets,
-          traitPresets,
         });
       } catch (e) {
         // eslint-disable-next-line no-alert
@@ -185,15 +153,7 @@ const Navbar = ({
       }
       popup?.close();
     },
-    [
-      dispatch,
-      isFractals,
-      buffPresets,
-      distributionPresets,
-      extrasPresets,
-      prioritiesPresets,
-      traitPresets,
-    ],
+    [dispatch, isFractals],
   );
 
   const popupState = [
@@ -236,7 +196,7 @@ const Navbar = ({
                 },
               }}
             >
-              {data
+              {data.templates.list
                 .find((elem) => elem.class === prof.profession)
                 ?.builds?.map((elem) => (
                   <MenuItem

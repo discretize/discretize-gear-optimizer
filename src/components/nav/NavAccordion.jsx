@@ -6,8 +6,7 @@ import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import SagaTypes from '../../state/sagas/sagaTypes';
-import { setBuildTemplate } from '../../state/slices/controlsSlice';
+import data from '../../utils/data';
 
 const useStyles = makeStyles()((theme) => ({
   accordionRoot: {
@@ -43,7 +42,7 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-export default function NavAccordion({ data, handleTemplateSelect }) {
+export default function NavAccordion({ handleTemplateSelect }) {
   const { classes } = useStyles();
 
   const [expanded, setExpanded] = React.useState('');
@@ -53,7 +52,7 @@ export default function NavAccordion({ data, handleTemplateSelect }) {
     setExpanded(newExpanded ? panel : false);
   };
 
-  return data.map((prof) => (
+  return data.templates.map((prof) => (
     <MuiAccordion
       classes={{ root: classes.accordionRoot }}
       square

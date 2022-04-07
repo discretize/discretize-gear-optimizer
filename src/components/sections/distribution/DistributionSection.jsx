@@ -4,12 +4,13 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { changeAllDistributions } from '../../../state/slices/distribution';
+import data from '../../../utils/data';
 import { PROFESSIONS } from '../../../utils/gw2-data';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import DamageDistribution from './DamageDistribution';
 
-const DistributionSection = ({ profession, data }) => {
+const DistributionSection = ({ profession }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
