@@ -1,9 +1,8 @@
 const YAML = require('js-yaml');
 const fs = require('fs');
+const { require_ts } = require('./src/utils/require-ts.js');
 
-// eslint-disable-next-line no-global-assign
-require = require('esm')(module);
-// const { GEAR_SLOTS, Affix } = require('./src/utils/gw2-data');
+const { GEAR_SLOTS, Affix } = require_ts('./src/utils/gw2-data.ts');
 
 const templates = YAML.load(fs.readFileSync('./src/assets/presetdata/templates.yaml', 'utf8'));
 const presets = {
@@ -114,8 +113,8 @@ module.exports = {
           ),
           '',
         ],
-        // slotName: [...new Set(Object.values(GEAR_SLOTS).map((item) => item.name))],
-        // affix: Object.keys(Affix),
+        slotName: [...new Set(Object.values(GEAR_SLOTS).map((item) => item.name))],
+        affix: Object.keys(Affix),
       },
     ],
     [
