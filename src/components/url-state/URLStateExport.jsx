@@ -71,7 +71,7 @@ const oldShortener = (longUrl, setSnackbarState, setLoading, t) => {
   // this url points to a cloudflare worker, which acts as a url shortener
   // Source for the shortener: https://gist.github.com/gw2princeps/dc88d11e6b2378db35bcb2dd3726c7c6
   const shortenPromise = axios
-    .get(`https://go.princeps.biz/?new=${longUrl.replace('&', '%26')}`)
+    .get(`https://go.princeps.biz/?new=${longUrl.replaceAll('&', '%26')}`)
     .then((res) => {
       if (res?.data?.Status === 200) {
         console.log('Exported short URL:', res.data.ShortUrl);
