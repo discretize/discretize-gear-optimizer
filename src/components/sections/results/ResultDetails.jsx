@@ -15,7 +15,7 @@ import ResultCharacter from './ResultCharacter';
 import SpecialDurations from './SpecialDurations';
 import TemplateHelperSections from './TemplateHelperSections';
 
-const ResultDetails = ({ data }) => {
+const ResultDetails = () => {
   const { t } = useTranslation();
 
   const character = useSelector(getSelectedCharacter);
@@ -49,7 +49,7 @@ const ResultDetails = ({ data }) => {
     <ErrorBoundary location="ResultDetails" resetKeys={[character]}>
       <TextDivider text="Result Character" />
 
-      <ResultCharacter data={data} character={character} assumedBuffs={assumedBuffs} />
+      <ResultCharacter character={character} assumedBuffs={assumedBuffs} />
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4}>
           <SpecialDurations data={character.attributes} />

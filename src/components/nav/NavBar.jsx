@@ -1,4 +1,4 @@
-import { Profession } from '@discretize/gw2-ui-new';
+import { Profession, Tooltip } from '@discretize/gw2-ui-new';
 import MenuIcon from '@mui/icons-material/Menu';
 import ShareIcon from '@mui/icons-material/Share';
 import {
@@ -6,11 +6,9 @@ import {
   Box,
   Button,
   debounce,
-  FormControlLabel,
   IconButton,
   MenuItem,
   SwipeableDrawer,
-  Switch,
   Toolbar,
   Typography,
 } from '@mui/material';
@@ -20,18 +18,22 @@ import React, { useEffect, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import fractalImg from '../../assets/images/icons/fractals.png';
+import raidImg from '../../assets/images/icons/raids.png';
+import { getBuildTemplateData } from '../../assets/presetdata/templateTransform';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import {
-  changeExpertMode,
   changeProfession,
-  getExpertMode,
   getProfession,
   getSelectedSpecialization,
   getSelectedTemplate,
   setBuildTemplate,
 } from '../../state/slices/controlsSlice';
+import { getExpertMode, getGameMode } from '../../state/slices/userSettings';
+import data from '../../utils/data';
 import { PROFESSIONS } from '../../utils/gw2-data';
 import NavAccordion from './NavAccordion';
+import NavSettings from './NavSettings';
 
 const useStyles = makeStyles()((theme) => ({
   icon: {
@@ -39,18 +41,12 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-const Navbar = ({
-  data,
-  buffPresets,
-  prioritiesPresets,
-  distributionPresets,
-  extrasPresets,
-  traitPresets,
-}) => {
+const Navbar = () => {
   const { classes } = useStyles();
   const dispatch = useDispatch();
   const profession = useSelector(getProfession);
   const expertMode = useSelector(getExpertMode);
+  const gamemode = useSelector(getGameMode);
   const selectedSpecialization = useSelector(getSelectedSpecialization);
   const selectedTemplateName = useSelector(getSelectedTemplate);
 
@@ -82,21 +78,15 @@ const Navbar = ({
 
   const stickyRight = () => {
     return (
-      <Box>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={expertMode}
-              onChange={(e) => {
-                dispatch({ type: SagaTypes.Stop });
-                dispatch(changeExpertMode(e.target.checked));
-              }}
-              name="checked"
-              color="primary"
-            />
-          }
-          label={t('Expert')}
-        />
+      <Box display="flex" alignItems="center" gap={1}>
+        <Tooltip content={`${t('Selected Game Mode')}: ${isFractals ? t('Fractals') : t('Raids')}`}>
+          <img
+            style={{ width: '40px' }}
+            src={isFractals ? fractalImg : raidImg}
+            alt={isFractals ? t('Fractal') : t('Raid')}
+          />
+        </Tooltip>
+
         <IconButton
           href="#share"
           size="large"
@@ -108,6 +98,8 @@ const Navbar = ({
         >
           <ShareIcon />
         </IconButton>
+
+        <NavSettings />
       </Box>
     );
   };
@@ -142,14 +134,7 @@ const Navbar = ({
           }}
         >
           <div>
-            <NavAccordion
-              data={data}
-              buffPresets={buffPresets}
-              prioritiesPresets={prioritiesPresets}
-              distributionPresets={distributionPresets}
-              extrasPresets={extrasPresets}
-              traitPresets={traitPresets}
-            />
+            <NavAccordion handleTemplateSelect={handleTemplateSelect} />
           </div>
         </SwipeableDrawer>
 
@@ -158,29 +143,29 @@ const Navbar = ({
     );
   };
 
-  // eslint-disable-next-line no-shadow
-  const handleTemplateSelect = (popup, build, specialization, profession) => {
-    dispatch({ type: SagaTypes.Stop });
-    dispatch(
-      setBuildTemplate({
-        build,
-        specialization,
-        profession,
-        buffPreset: JSON.parse(buffPresets.find((pre) => pre.name === build.boons).value),
-        distributionPreset: JSON.parse(
-          distributionPresets.find((pre) => pre.name === build.distribution)?.value || 'null',
-        ),
-        prioritiesPreset: JSON.parse(
-          prioritiesPresets.find((pre) => pre.name === build.priority)?.value,
-        ),
-        extrasPreset: JSON.parse(extrasPresets.find((pre) => pre.name === build.extras)?.value),
-        traitsPreset: JSON.parse(traitPresets.find((pre) => pre.name === build.traits)?.traits),
-        skillsPreset: JSON.parse(traitPresets.find((pre) => pre.name === build.traits)?.skills),
-      }),
-    );
+  const isFractals = gamemode === 'fractals';
 
-    popup.close();
-  };
+  const handleTemplateSelect = React.useCallback(
+    // eslint-disable-next-line no-shadow
+    (popup, selectedTemplate, profession) => {
+      dispatch({ type: SagaTypes.Stop });
+      try {
+        const buildTemplateData = getBuildTemplateData({
+          selectedTemplate,
+          isFractals,
+          profession,
+          data,
+        });
+        dispatch(setBuildTemplate(buildTemplateData));
+      } catch (e) {
+        // eslint-disable-next-line no-alert
+        alert('Error loading build template!');
+        console.error(e);
+      }
+      popup?.close();
+    },
+    [dispatch, isFractals],
+  );
 
   const popupState = [
     usePopupState({ variant: 'popover', popupId: 'warriorTemplates', disableAutoFocus: true }),
@@ -222,18 +207,13 @@ const Navbar = ({
                 },
               }}
             >
-              {data
+              {data.templates.list
                 .find((elem) => elem.class === prof.profession)
                 ?.builds?.map((elem) => (
                   <MenuItem
                     key={elem.name}
                     onClick={(e) =>
-                      handleTemplateSelect(
-                        popupState[index],
-                        elem,
-                        elem.specialization,
-                        prof.profession,
-                      )
+                      handleTemplateSelect(popupState[index], elem.name, prof.profession)
                     }
                   >
                     <Profession

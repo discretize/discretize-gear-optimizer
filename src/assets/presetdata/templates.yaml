@@ -7,17 +7,20 @@ list:
       - name: Power Chrono IA
         id: pchrono
         specialization: Chronomancer
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: Power Chrono IA
         traits: Power Chrono IA
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
         weaponType: unset
 
       - name: Alacrity Mirage
         id: alacmirage
         specialization: Mirage
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: Staff Mirage
         traits: Staff Mirage
@@ -27,7 +30,7 @@ list:
       - name: Axe Mirage
         id: axe-mirage-deception-torch
         specialization: Mirage
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: Axe Mirage (Deception Torch)
         traits: Axe Mirage
@@ -37,7 +40,7 @@ list:
       - name: Condi Chrono STM
         id: condi-chrono-stm
         specialization: Chronomancer
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: Condi Chrono STM
         traits: Condi Chrono STM
@@ -47,17 +50,21 @@ list:
       - name: Power Virtuoso
         id: pvirt
         specialization: Virtuoso
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: Power Virtuoso
-        traits: Power Virtuoso (no accuracy)
-        extras: Power (Fractal)
+        fractal:
+          traits: Power Virtuoso (no accuracy)
+          extras: Power (Fractal)
+        raid:
+          traits: Power Virtuoso (accuracy)
+          extras: Power Virtuoso (Raid spotter)
         weaponType: unset
 
       - name: Condi Virtuoso
         id: cvirt
         specialization: Virtuoso
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS Rampager
         distribution: Condi Virtuoso
         traits: Condi Virtuoso
@@ -67,7 +74,7 @@ list:
       - name: Condi Virtuoso (sharpening sorrow)
         id: cvirt-sorrow
         specialization: Virtuoso
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS Rampager
         distribution: Condi Virtuoso (sharpening sorrow)
         traits: Condi Virtuoso (sharpening sorrow)
@@ -80,87 +87,111 @@ list:
       - name: DH Radiance w/ PI
         id: dh-radiance-pi
         specialization: Dragonhunter
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: DH Radiance
         traits: DH Radiance w/ PI
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: DH Radiance w/ PI (Raid)
         weaponType: Two-handed
 
       - name: DH Radiance
         id: dh-radiance
         specialization: Dragonhunter
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: DH Radiance
         traits: DH Radiance
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
         weaponType: Two-handed
 
       - name: DH Virtues
         id: dh-virtues
         specialization: Dragonhunter
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: DH Virtues
         traits: DH Virtues
-        extras: DH Virtues (Fractal)
+        fractal:
+          extras: DH Virtues (Fractal)
+        raid:
+          extras: DH Virtues (Raid)
         weaponType: Two-handed
 
       - name: Core Guardian
         id: core-guard
         specialization: Guardian
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: Core Guardian
         traits: Core Guardian
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
         weaponType: Two-handed
 
       - name: Power Willbender Virtues
         id: pwb-virtues
         specialization: Willbender
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: Power Willbender Virtues
         traits: Power Willbender Virtues
-        extras: Power Willbender Virtues (Fractal)
+        fractal:
+          extras: Power Willbender Virtues (Fractal)
+        raid:
+          extras: Power Willbender Virtues (Raid)
         weaponType: Two-handed
 
       - name: Power Willbender Radiance
         id: pwb-radiance
         specialization: Willbender
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: Power Willbender Radiance
         traits: Power Willbender Radiance
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
         weaponType: Two-handed
 
       - name: Power Alacrity Willbender
         id: pwb-alac
         specialization: Willbender
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: Power Alacrity Willbender
         traits: Power Alacrity Willbender
-        extras: Power Willbender Virtues (Fractal)
+        fractal:
+          extras: Power Willbender Virtues (Fractal)
+        raid:
+          extras: Power Willbender Virtues (Raid)
         weaponType: Two-handed
 
       - name: Power Quickbrand
         id: pqfb
         specialization: Firebrand
-        boons: Power (spotter)
+        boonType: Power
         priority: Power Quickbrand 25%
         distribution: Power Quickbrand (approx.)
         traits: Power Quickbrand
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power Quickbrand (Raid)
         weaponType: Two-handed
 
       - name: Condi Willbender Sword
         id: cwb-sw
         specialization: Willbender
-        boons: Condi
+        boonType: Condi
         priority: Hybrid DPS
         distribution: Condi Willbender Sword
         traits: Condi Willbender
@@ -170,7 +201,7 @@ list:
       - name: Condi Willbender GS
         id: cwb-gs
         specialization: Willbender
-        boons: Condi
+        boonType: Condi
         priority: Hybrid DPS
         distribution: Condi Willbender GS
         traits: Condi Willbender
@@ -180,7 +211,7 @@ list:
       - name: Condi Alacrity Willbender
         id: cwb-alac
         specialization: Willbender
-        boons: Condi
+        boonType: Condi
         priority: Condi Alacrity Willbender 19%
         distribution: Condi Alacrity Willbender
         traits: Condi Alacrity Willbender
@@ -190,7 +221,7 @@ list:
       # - name: CFB w/ Quickness (balthazar)
       #   id: cqfb-balth
       #   specialization: Firebrand
-      #   boons: Condi
+      #   boonType: Condi
       #   priority: Condi DPS
       #   distribution: Condi Quickbrand (allies)
       #   traits: Condi Quickbrand
@@ -199,7 +230,7 @@ list:
       # - name: CFB w/ Quickness (renegade)
       #   id: cqfb-ren
       #   specialization: Firebrand
-      #   boons: Condi
+      #   boonType: Condi
       #   priority: Condi DPS
       #   distribution: Condi Quickbrand (allies)
       #   traits: Condi Quickbrand
@@ -208,7 +239,7 @@ list:
       - name: CFB DPS 5 page (balthazar)
         id: cfb-geo
         specialization: Firebrand
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: CFB (5 page RF, allies)
         traits: CFB DPS 5 page
@@ -218,7 +249,7 @@ list:
       - name: CFB DPS 5 page (renegade)
         id: cfb-smoldering
         specialization: Firebrand
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: CFB (5 page RF, allies)
         traits: CFB DPS 5 page
@@ -228,7 +259,7 @@ list:
       - name: CFB DPS 8 page (balthazar)
         id: cfb-8-balth
         specialization: Firebrand
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: CFB (8 page, allies)
         traits: CFB DPS 8 page
@@ -238,7 +269,7 @@ list:
       - name: CFB DPS 8 page (renegade)
         id: cfb-8-ren
         specialization: Firebrand
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: CFB (8 page, allies)
         traits: CFB DPS 8 page
@@ -248,7 +279,7 @@ list:
       - name: Condi Quickbrand 49%
         id: cqfb-firebrand-49
         specialization: Firebrand
-        boons: Condi
+        boonType: Condi
         priority: Condi Quickbrand 49
         distribution: Condi Quickbrand (allies)
         traits: Condi Quickbrand
@@ -258,26 +289,26 @@ list:
       # - name: Condi Quickbrand Celestial 35%
       #   id: cqfb-cele-35
       #   specialization: Firebrand
-      #   boons: Condi
+      #   boonType: Condi
       #   priority: Condi Quickbrand 35%
       #   distribution: Condi Quickbrand (allies)
       #   traits: Condi Quickbrand
       #   extras: Condi Quickbrand 35%
 
-      - name: Hybrid FB Virtues
+      - name: Hybrid FB Virtues (outdated)
         id: hycfb-virtues-leadership
         specialization: Firebrand
-        boons: Condi
+        boonType: Condi
         priority: Condi Hybrid Firebrand 40%
         distribution: Hybrid FB Virtues
         traits: Hybrid FB Virtues
         extras: Hybrid FB Traveler
         weaponType: unset
 
-      - name: Hybrid FB Honor
+      - name: Hybrid FB Honor (outdated)
         id: hycfb-honor-leadership
         specialization: Firebrand
-        boons: Condi
+        boonType: Condi
         priority: Condi Hybrid Firebrand 40%
         distribution: Hybrid FB Honor
         traits: Hybrid FB Honor
@@ -287,7 +318,7 @@ list:
       - name: Healbrand
         id: hb
         specialization: Firebrand
-        boons: Power (spotter)
+        boonType: Power
         priority: Heal
         distribution: None
         traits: Healbrand
@@ -300,17 +331,20 @@ list:
       - name: Power Banner Bers
         id: pbers
         specialization: Berserker
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: Power Banner Bers Strength
         traits: Power Banner Bers Strength
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power Bers (Raid spotter)
         weaponType: unset
 
       - name: Condi Banner Bers
         id: cbers
         specialization: Berserker
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: Condi Banner Bers
         traits: Condi Bers
@@ -320,41 +354,53 @@ list:
       - name: Banner Bladesworn
         id: bls-bs
         specialization: Bladesworn
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: Bladesworn
         traits: Banner Bladesworn
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Banner Bladesworn (Raid spotter)
         weaponType: Dual wield
 
       - name: DPS Bladesworn
         id: bls-dps
         specialization: Bladesworn
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: Bladesworn
         traits: DPS Bladesworn
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: DPS Bladesworn (Raid spotter)
         weaponType: Dual wield
 
       - name: Might Bladesworn
         id: bls-might
         specialization: Bladesworn
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: Bladesworn
         traits: Might Bladesworn
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
         weaponType: Dual wield
 
       - name: Power Banner SPB
         id: spb-bs
         specialization: Spellbreaker
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: Power Banner Spellbreaker
         traits: Power Banner SPB
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power Spellbreaker (Raid)
         weaponType: unset
 
   - class: Elementalist
@@ -363,17 +409,21 @@ list:
       - name: Power Weaver
         id: pwea
         specialization: Weaver
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: Power Weaver (BTTH, small)
-        traits: Power Weaver Stormsoul
-        extras: Power (Fractal)
+        fractal:
+          traits: Power Weaver Stormsoul
+          extras: Power (Fractal)
+        raid:
+          traits: Power Weaver Raging Storm
+          extras: Power (Raid)
         weaponType: Dual wield
 
       - name: Condi Weaver Sword
         id: cwea-sw
         specialization: Weaver
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: Condi Weaver Sword
         traits: Condi Weaver Sword
@@ -383,7 +433,7 @@ list:
       - name: Condi Weaver Dagger
         id: cwea-dg
         specialization: Weaver
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: Condi Weaver (Dagger)
         traits: Condi Weaver Dagger
@@ -393,17 +443,20 @@ list:
       - name: Hybrid Weaver
         id: hwea
         specialization: Weaver
-        boons: Condi
+        boonType: Condi
         priority: Hybrid DPS
         distribution: Hybrid Weaver
         traits: Hybrid Weaver
-        extras: Hybrid Weaver (Fractal)
+        fractal:
+          extras: Hybrid Weaver (Fractal)
+        raid:
+          extras: Hybrid Weaver (Raid)
         weaponType: Dual wield
 
       - name: Condi Tempest
         id: ctemp
         specialization: Tempest
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: Condi Tempest
         traits: Condi Tempest
@@ -413,17 +466,20 @@ list:
       - name: Power Tempest (approx.)
         id: ptemp
         specialization: Tempest
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: Power Tempest
         traits: Power Tempest
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power Tempest (Raid)
         weaponType: Dual wield
 
       - name: Heal Tempest
         id: healtemp
         specialization: Tempest
-        boons: Power (spotter)
+        boonType: Power
         priority: Heal
         distribution: None
         traits: Heal Tempest
@@ -433,27 +489,33 @@ list:
       - name: '[beta2] Power Catalyst'
         id: power-cat
         specialization: Catalyst
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: '[beta2] Power Catalyst'
         traits: '[beta2] Power Catalyst'
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
         weaponType: Two-handed
 
       - name: '[beta2] Power Quickness Catalyst'
         id: power-cat-quick
         specialization: Catalyst
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: '[beta2] Power Catalyst'
         traits: '[beta2] Power Quickness Catalyst'
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
         weaponType: Two-handed
 
       - name: '[beta1] Condi Catalyst'
         id: condi-cat
         specialization: Catalyst
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: '[beta1] Condi Catalyst'
         traits: '[beta1] Condi Catalyst'
@@ -464,19 +526,35 @@ list:
     builds:
 
       - name: Power Slb Marks
-        id: pslb
+        id: pslb-marks
         specialization: Soulbeast
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: Power Slb Skirm
         traits: Power Slb Marks
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power Slb Marks (Raid)
+        weaponType: Two-handed
+
+      - name: Power Slb Skirm
+        id: pslb-skirm
+        specialization: Soulbeast
+        boonType: Power
+        priority: Power DPS
+        distribution: Power Slb Skirm
+        traits: Power Slb Skirm
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
         weaponType: Two-handed
 
       - name: Condi Slb SB
         id: cslb-sb
         specialization: Soulbeast
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: Condi Slb (D/T SB)
         traits: Condi Slb SB
@@ -486,7 +564,7 @@ list:
       - name: Condi Slb D/T A/D
         id: cslb-dtad
         specialization: Soulbeast
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: Condi Slb (D/T A/D)
         traits: Condi Slb D/T A/D
@@ -496,7 +574,7 @@ list:
       - name: Hybrid Slb
         id: hslb
         specialization: Soulbeast
-        boons: Condi
+        boonType: Condi
         priority: Hybrid DPS
         distribution: Hybrid Slb (A/T D/A)
         traits: Hybrid Slb
@@ -506,7 +584,7 @@ list:
       # - name: Pure Shortbow Slb BM
       #   id: sbsbsb-BM
       #   specialization: Soulbeast
-      #   boons: Condi
+      #   boonType: Condi
       #   priority: Condi DPS
       #   distribution: Pure Shortbow Slb BM
       #   traits: Pure Shortbow Slb BM
@@ -515,7 +593,7 @@ list:
       - name: Condi Druid
         id: condidruid
         specialization: Druid
-        boons: Power (spotter)
+        boonType: Power
         priority: Condi Hybrid Druid 52%
         distribution: Condi Druid (approx.)
         traits: Condi Druid
@@ -525,7 +603,7 @@ list:
       - name: Heal Druid
         id: druid
         specialization: Druid
-        boons: Power (spotter)
+        boonType: Power
         priority: Heal
         distribution: None
         traits: Heal Druid
@@ -538,17 +616,20 @@ list:
       - name: Vindicator
         id: vindi
         specialization: Vindicator
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: DPS Vindicator
         traits: DPS Vindicator
-        extras: DPS Vindicator
+        fractal:
+          extras: DPS Vindicator (Fractal)
+        raid:
+          extras: DPS Vindicator (Raid)
         weaponType: Two-handed
 
       - name: Condi DPS Ren Invo
         id: cren-invo
         specialization: Renegade
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: Condi Renegade Invocation
         traits: Condi DPS Ren Invo
@@ -558,7 +639,7 @@ list:
       - name: Condi Alac Ren Invo
         id: cren-alac-invo
         specialization: Renegade
-        boons: Condi
+        boonType: Condi
         priority: Condi Alacrity Renegade 78%
         distribution: Condi Alac Invocation
         traits: Condi Alac Ren Invo
@@ -568,27 +649,33 @@ list:
       - name: Power Alac Ren (outdated)
         id: pren
         specialization: Renegade
-        boons: Power (spotter)
+        boonType: Power
         priority: Power Boon
         distribution: Alacrity Renegade
         traits: Power Alac Ren
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
         weaponType: Two-handed
 
       - name: Power Herald DE (outdated)
         id: herald
         specialization: Herald
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: Power Herald DE
         traits: Power Herald DE
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
         weaponType: Dual wield
 
       - name: Condi Herald (outdated)
         id: cherald
         specialization: Herald
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: Condi Herald
         traits: Condi Herald
@@ -598,7 +685,7 @@ list:
       - name: Heal Ren
         id: healren
         specialization: Renegade
-        boons: Power (spotter)
+        boonType: Power
         priority: Heal
         distribution: None
         traits: Heal Ren
@@ -611,17 +698,20 @@ list:
       - name: Power Holo ECSU
         id: pholo-ecsu
         specialization: Holosmith
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: Power Holo ECSU
         traits: Power Holo ECSU
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
         weaponType: unset
 
       - name: Condi Holo
         id: cholo
         specialization: Holosmith
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: Condi Holo
         traits: Condi Holo
@@ -631,27 +721,33 @@ list:
       - name: Power Scrapper
         id: pscrap
         specialization: Scrapper
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: Power Scrapper
         traits: Power Scrapper
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
         weaponType: Two-handed
 
       - name: Quickness Scrapper
         id: qscrap
         specialization: Scrapper
-        boons: Power (spotter)
+        boonType: Power
         priority: Power Quickness Scrapper 33.3%
         distribution: Quickness Scrapper
         traits: Quickness Scrapper
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
         weaponType: Two-handed
 
       - name: Heal Scrapper
         id: healscrapper
         specialization: Scrapper
-        boons: Power (spotter)
+        boonType: Power
         priority: Heal
         distribution: None
         traits: Heal Scrapper
@@ -661,7 +757,7 @@ list:
       - name: Condi Mechanist J-Drive (approx.)
         id: cmech-sig-mace
         specialization: Mechanist
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: Condi Mechanist J-Drive Mace (approx.)
         traits: Condi Mechanist J-Drive
@@ -671,7 +767,7 @@ list:
       - name: Condi Mechanist Jade Dynamo (approx.)
         id: cmech-dynamo-pistol
         specialization: Mechanist
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: Condi Mechanist Jade Dynamo Pistol (approx.)
         traits: Condi Mechanist Jade Dynamo
@@ -684,7 +780,7 @@ list:
       - name: DPS Scourge
         id: scourge
         specialization: Scourge
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: Condi Scourge
         traits: DPS Scourge
@@ -694,16 +790,20 @@ list:
       # - name: Power Reaper (inaccurate)
       #   id: preaper
       #   specialization: Reaper
-      #   boons: Power (spotter)
+      #   boonType: Power (spotter)
       #   priority: Power DPS
       #   distribution: Power Reaper (inaccurate)
       #   traits: Power Reaper
-      #   extras: Power (Fractal)
+      #   fractal:
+      #     extras: Power (Fractal)
+      #   raid:
+      #     extras: Power (Raid)
+      #   weaponType: Two-handed
 
       - name: Condi Reaper
         id: creaper
         specialization: Reaper
-        boons: Condi
+        boonType: Condi
         priority: Hybrid DPS
         distribution: Condi Reaper
         traits: Condi Reaper
@@ -713,7 +813,7 @@ list:
       - name: DPS Harbinger
         id: charb
         specialization: Harbinger
-        boons: Condi
+        boonType: Condi
         priority: Viper Only
         distribution: DPS Harbinger
         traits: DPS Harbinger
@@ -723,7 +823,7 @@ list:
       - name: Quickness Harbinger
         id: qharb
         specialization: Harbinger
-        boons: Condi
+        boonType: Condi
         priority: Condi Quickness Harbinger 23%
         distribution: Quickness Harbinger
         traits: Quickness Harbinger
@@ -736,7 +836,7 @@ list:
       - name: Condi Deadeye
         id: cded
         specialization: Deadeye
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: Condi Deadeye
         traits: Condi Deadeye
@@ -746,17 +846,20 @@ list:
       - name: Staff Daredevil
         id: staffdd
         specialization: Daredevil
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: Staff Daredevil
         traits: Staff Daredevil
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
         weaponType: Two-handed
 
       - name: Power Boon Daredevil
         id: boondd-power
         specialization: Daredevil
-        boons: Power (spotter)
+        boonType: Power
         priority: Power Boon Daredevil 99.7%
         distribution: Staff Daredevil
         traits: Power Boon Daredevil
@@ -766,7 +869,7 @@ list:
       - name: Condi Daredevil
         id: cdd
         specialization: Daredevil
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: Condi Daredevil
         traits: Condi Daredevil
@@ -776,7 +879,7 @@ list:
       - name: Condi Boon Daredevil
         id: boondd-condi
         specialization: Daredevil
-        boons: Condi
+        boonType: Condi
         priority: Condi Boon Daredevil 62%
         distribution: None
         traits: Condi Boon Daredevil
@@ -786,17 +889,20 @@ list:
       - name: Rifle Deadeye
         id: rifleded
         specialization: Deadeye
-        boons: Power (spotter)
+        boonType: Power
         priority: Power DPS
         distribution: Rifle Deadeye
         traits: Rifle Deadeye
-        extras: Power (Fractal)
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
         weaponType: Two-handed
 
       - name: DPS Specter
         id: specter
         specialization: Specter
-        boons: Condi
+        boonType: Condi
         priority: Condi DPS
         distribution: DPS Specter (allies)
         traits: DPS Specter
@@ -806,7 +912,7 @@ list:
       - name: Alacrity Specter
         id: specter-alac
         specialization: Specter
-        boons: Condi
+        boonType: Condi
         priority: Condi Alacrity Specter 57%
         distribution: Alacrity Specter (allies)
         traits: Alacrity Specter
