@@ -101,7 +101,6 @@
     "esm": "^3.2.25",
     "gh-pages": "^3.2.3",
     "prettier": "^2.4.1",
-    "ts-node": "^10.7.0",
     "typescript": "~4.4.4",
     "vite": "^2.9.0",
     "wrangler": "^0.0.24"
