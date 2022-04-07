@@ -7,27 +7,31 @@ import {
 } from '../../components/url-state/schema/BuildPageSchema_v2';
 import { buffsDict } from '../../components/url-state/schema/SchemaDicts';
 import { PARAMS } from '../../utils/queryParam';
-import { changeBuildPage, changeCharacter } from '../slices/buildPage';
-import { changeGameMode } from '../slices/userSettings';
+import { changeBuildPage, changeCharacter, getSkills, getWeapons } from '../slices/buildPage';
+import { getProfession, getSelectedCharacter } from '../slices/controlsSlice';
+import { changeGameMode, getGameMode } from '../slices/userSettings';
 import SagaTypes from './sagaTypes';
 
 // channels solve the problem "how to get value out of callback"
 // https://stackoverflow.com/questions/43031832/how-to-yield-put-in-redux-saga-within-a-callback
 const compressChannel = channel();
 function* exportStateCharacter({ newPage, copyToClipboard }) {
-  const { optimizer } = yield select();
-  const { buildPage, control, userSettings } = optimizer;
+  const state = yield select();
+
   // extract all variables
-  const { selectedCharacter: character, profession } = control;
+  const skills = getSkills(state);
+  const weapons = getWeapons(state);
+  const gameMode = getGameMode(state);
+
+  const profession = getProfession(state);
+  const character = getSelectedCharacter(state);
+
   const lines = character.settings.cachedFormState.traits.selectedLines;
   const selected = character.settings.cachedFormState.traits.selectedTraits;
   const { buffs } = character.settings.cachedFormState.buffs;
-  const { skills, weapons } = buildPage;
 
   const { attributes: allAttributes, gear, settings, infusions } = character;
   const { specialization, weaponType, extrasCombination } = settings;
-
-  const { gameMode } = userSettings;
 
   // filter out unnecessary attributes
   const attributes = {};
@@ -116,10 +120,6 @@ function* importStateCharacter({ buildUrl: input, version }) {
     });
 
     const { result } = yield take(decompressChannel);
-
-    // guess the game mode based on agony resistance
-    const gameMode = result.character.attributes['Agony Resistance'] > 0 ? 'fractals' : 'raids';
-    yield put(changeGameMode(gameMode));
     yield put(changeBuildPage(result));
   } catch (e) {
     console.log('Problem restoring template!');

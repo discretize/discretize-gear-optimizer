@@ -8,13 +8,12 @@ const LANGUAGES = [
   { value: 'de', label: 'Deutsch' },
 ];
 
-const LanguageSelection = ({ onChange }) => {
+const LanguageSelection = () => {
   const { i18n } = useTranslation();
   const { language, changeLanguage } = i18n;
 
   const onChangeLanguage = (e) => {
     changeLanguage(e.target.value);
-    if (onChange) onChange(e.target.value);
   };
 
   return (

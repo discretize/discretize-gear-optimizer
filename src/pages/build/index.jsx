@@ -20,7 +20,7 @@ const IndexPage = () => {
     <APILanguageProvider value={language}>
       <BackgroundImage gameMode={gameMode} />
       <Layout>
-        <Box display="flex" gap={1} alignItems="flex-end" pb={2}>
+        <Box display="flex" gap={1} alignItems="center" pb={2}>
           <Typography variant="h3">
             <Trans>Shared Build</Trans>
           </Typography>

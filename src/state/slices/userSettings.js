@@ -15,11 +15,9 @@ const defaultState = { expertMode: true, gameMode: 'fractals', language: 'en' };
 // eslint-disable-next-line react-hooks/rules-of-hooks
 const gameModeParam = useQueryParam({ key: PARAMS.GAMEMODE });
 
-// settings grabbed from the local storage. Not the final settings, there are overrides!
-const localStorageSettings = JSON.parse(localStorage.getItem(SETTINGS_STORAGE_KEY));
 export const loadedSettings = {
   ...defaultState,
-  ...trycatch(() => localStorageSettings, {}), // override default state with potentially saved localStorage variables
+  ...trycatch(() => JSON.parse(localStorage.getItem(SETTINGS_STORAGE_KEY)), {}), // override default state with potentially saved localStorage variables
   ...(gameModeParam && { gameMode: gameModeParam }), // gameMode from query param takes priority
 };
 
