@@ -2168,6 +2168,98 @@ list:
         "skills": {}
       }
 
+  - name: Power Weaver Raging Storm
+    profession: Weaver
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "56"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1510
+          ],
+          [
+            232,
+            214,
+            226
+          ],
+          [
+            2115,
+            2061,
+            2131
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "51"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "51"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "burning-precision-on-crit": {
+              "amount": "5.61"
+            }
+          },
+          {
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "aeromancers-training-2": {
+              "amount": "49"
+            },
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "superior-elements": {},
+            "masters-fortitude": {},
+            "masters-fortitude-sword": {},
+            "weavers-prowess": {},
+            "swift-revenge": {
+              "amount": ""
+            },
+            "elemental-polyphony-fire": {
+              "amount": "76"
+            },
+            "elemental-polyphony-air": {
+              "amount": "74"
+            },
+            "elements-of-rage-base": {},
+            "elements-of-rage-buff": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+
   - name: Condi Weaver Sword
     profession: Weaver
     traits: |-
@@ -2908,7 +3000,9 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "signet-of-the-wild": {}
+        }
       }
 
   - name: Power Slb Skirm
@@ -2968,7 +3062,9 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "signet-of-the-wild": {}
+        }
       }
 
   - name: Condi Slb SB

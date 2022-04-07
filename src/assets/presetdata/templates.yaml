@@ -53,11 +53,12 @@ list:
         boonType: Power
         priority: Power DPS
         distribution: Power Virtuoso
-        traits: Power Virtuoso (no accuracy)
         fractal:
+          traits: Power Virtuoso (no accuracy)
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
+          traits: Power Virtuoso (accuracy)
+          extras: Power Virtuoso (Raid spotter)
         weaponType: unset
 
       - name: Condi Virtuoso
@@ -93,7 +94,7 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: DH Radiance w/ PI (Raid)
         weaponType: Two-handed
 
       - name: DH Radiance
@@ -116,7 +117,10 @@ list:
         priority: Power DPS
         distribution: DH Virtues
         traits: DH Virtues
-        extras: DH Virtues (Fractal)
+        fractal:
+          extras: DH Virtues (Fractal)
+        raid:
+          extras: DH Virtues (Raid)
         weaponType: Two-handed
 
       - name: Core Guardian
@@ -139,7 +143,10 @@ list:
         priority: Power DPS
         distribution: Power Willbender Virtues
         traits: Power Willbender Virtues
-        extras: Power Willbender Virtues (Fractal)
+        fractal:
+          extras: Power Willbender Virtues (Fractal)
+        raid:
+          extras: Power Willbender Virtues (Raid)
         weaponType: Two-handed
 
       - name: Power Willbender Radiance
@@ -162,7 +169,10 @@ list:
         priority: Power DPS
         distribution: Power Alacrity Willbender
         traits: Power Alacrity Willbender
-        extras: Power Willbender Virtues (Fractal)
+        fractal:
+          extras: Power Willbender Virtues (Fractal)
+        raid:
+          extras: Power Willbender Virtues (Raid)
         weaponType: Two-handed
 
       - name: Power Quickbrand
@@ -175,7 +185,7 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: Power Quickbrand (Raid)
         weaponType: Two-handed
 
       - name: Condi Willbender Sword
@@ -285,7 +295,7 @@ list:
       #   traits: Condi Quickbrand
       #   extras: Condi Quickbrand 35%
 
-      - name: Hybrid FB Virtues
+      - name: Hybrid FB Virtues (outdated)
         id: hycfb-virtues-leadership
         specialization: Firebrand
         boonType: Condi
@@ -295,7 +305,7 @@ list:
         extras: Hybrid FB Traveler
         weaponType: unset
 
-      - name: Hybrid FB Honor
+      - name: Hybrid FB Honor (outdated)
         id: hycfb-honor-leadership
         specialization: Firebrand
         boonType: Condi
@@ -328,7 +338,7 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: Power Bers (Raid spotter)
         weaponType: unset
 
       - name: Condi Banner Bers
@@ -351,7 +361,7 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: Banner Bladesworn (Raid spotter)
         weaponType: Dual wield
 
       - name: DPS Bladesworn
@@ -364,7 +374,7 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: DPS Bladesworn (Raid spotter)
         weaponType: Dual wield
 
       - name: Might Bladesworn
@@ -390,7 +400,7 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: Power Spellbreaker (Raid)
         weaponType: unset
 
   - class: Elementalist
@@ -402,10 +412,11 @@ list:
         boonType: Power
         priority: Power DPS
         distribution: Power Weaver (BTTH, small)
-        traits: Power Weaver Stormsoul
         fractal:
+          traits: Power Weaver Stormsoul
           extras: Power (Fractal)
         raid:
+          traits: Power Weaver Raging Storm
           extras: Power (Raid)
         weaponType: Dual wield
 
@@ -436,7 +447,10 @@ list:
         priority: Hybrid DPS
         distribution: Hybrid Weaver
         traits: Hybrid Weaver
-        extras: Hybrid Weaver (Fractal)
+        fractal:
+          extras: Hybrid Weaver (Fractal)
+        raid:
+          extras: Hybrid Weaver (Raid)
         weaponType: Dual wield
 
       - name: Condi Tempest
@@ -459,7 +473,7 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: Power Tempest (Raid)
         weaponType: Dual wield
 
       - name: Heal Tempest
@@ -512,12 +526,25 @@ list:
     builds:
 
       - name: Power Slb Marks
-        id: pslb
+        id: pslb-marks
         specialization: Soulbeast
         boonType: Power
         priority: Power DPS
         distribution: Power Slb Skirm
         traits: Power Slb Marks
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power Slb Marks (Raid)
+        weaponType: Two-handed
+
+      - name: Power Slb Skirm
+        id: pslb-skirm
+        specialization: Soulbeast
+        boonType: Power
+        priority: Power DPS
+        distribution: Power Slb Skirm
+        traits: Power Slb Skirm
         fractal:
           extras: Power (Fractal)
         raid:
@@ -593,7 +620,10 @@ list:
         priority: Power DPS
         distribution: DPS Vindicator
         traits: DPS Vindicator
-        extras: DPS Vindicator
+        fractal:
+          extras: DPS Vindicator (Fractal)
+        raid:
+          extras: DPS Vindicator (Raid)
         weaponType: Two-handed
 
       - name: Condi DPS Ren Invo
@@ -764,7 +794,11 @@ list:
       #   priority: Power DPS
       #   distribution: Power Reaper (inaccurate)
       #   traits: Power Reaper
-      #   extras: Power (Fractal)
+      #   fractal:
+      #     extras: Power (Fractal)
+      #   raid:
+      #     extras: Power (Raid)
+      #   weaponType: Two-handed
 
       - name: Condi Reaper
         id: creaper
