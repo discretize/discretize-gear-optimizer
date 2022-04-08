@@ -15,7 +15,7 @@ list:
           extras: Power (Fractal)
         raid:
           extras: Power (Raid)
-        weaponType: unset
+        weaponType: Two-handed
 
       - name: Alacrity Mirage
         id: alacmirage
@@ -59,7 +59,7 @@ list:
         raid:
           traits: Power Virtuoso (accuracy)
           extras: Power Virtuoso (Raid spotter)
-        weaponType: unset
+        weaponType: Two-handed
 
       - name: Condi Virtuoso
         id: cvirt
@@ -303,7 +303,7 @@ list:
         distribution: Hybrid FB Virtues
         traits: Hybrid FB Virtues
         extras: Hybrid FB Traveler
-        weaponType: unset
+        weaponType: Two-handed
 
       - name: Hybrid FB Honor (outdated)
         id: hycfb-honor-leadership
@@ -313,7 +313,7 @@ list:
         distribution: Hybrid FB Honor
         traits: Hybrid FB Honor
         extras: Hybrid FB Traveler
-        weaponType: unset
+        weaponType: Two-handed
 
       - name: Healbrand
         id: hb
@@ -339,7 +339,7 @@ list:
           extras: Power (Fractal)
         raid:
           extras: Power Bers (Raid spotter)
-        weaponType: unset
+        weaponType: Dual wield
 
       - name: Condi Banner Bers
         id: cbers
@@ -401,7 +401,7 @@ list:
           extras: Power (Fractal)
         raid:
           extras: Power Spellbreaker (Raid)
-        weaponType: unset
+        weaponType: Dual wield
 
   - class: Elementalist
     builds:
@@ -484,7 +484,7 @@ list:
         distribution: None
         traits: Heal Tempest
         extras: Heal
-        weaponType: unset
+        weaponType: Dual wield
 
       - name: '[beta2] Power Catalyst'
         id: power-cat
@@ -706,7 +706,7 @@ list:
           extras: Power (Fractal)
         raid:
           extras: Power (Raid)
-        weaponType: unset
+        weaponType: Dual wield
 
       - name: Condi Holo
         id: cholo
@@ -752,7 +752,7 @@ list:
         distribution: None
         traits: Heal Scrapper
         extras: Heal
-        weaponType: unset
+        weaponType: Dual wield
 
       - name: Condi Mechanist J-Drive (approx.)
         id: cmech-sig-mace
