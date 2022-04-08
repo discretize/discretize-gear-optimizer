@@ -121,7 +121,7 @@ const oldShortener = (longUrl, setSnackbarState, setLoading, t) => {
   // setBuildUrl(data);
 };
 
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const URLStateExport = ({ type }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();

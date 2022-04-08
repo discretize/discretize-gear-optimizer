@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable id-length */
 /* eslint-disable no-console */
 const axios = require('axios');
