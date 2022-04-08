@@ -22,13 +22,22 @@ const useStyles = makeStyles()((theme) => ({
 const SpecialDurations = ({ data: attributes }) => {
   const { classes } = useStyles();
 
-  const conditionEntries = damagingConditions
-    .filter((name) => attributes[`${name} DPS`])
-    .map((name) => [`${name} Duration`, attributes[`${name} Duration`] ?? 0]);
+  // show if relevant and non zero
+  const relevantConditions = damagingConditions.filter((name) => attributes[`${name} DPS`]);
+  const conditionEntries = relevantConditions
+    .map((name) => [
+      `${name} Duration`,
+      (attributes[`${name} Duration`] ?? 0) + (attributes['Condition Duration'] ?? 0),
+    ])
+    .filter(([_key, value]) => value);
 
-  const boonEntries = Object.entries(attributes).filter(([attribute]) =>
-    boonDurations.includes(attribute),
-  );
+  // show only if specific !== general
+  const boonEntries = boons
+    .filter((name) => attributes[`${name} Duration`])
+    .map((name) => [
+      `${name} Duration`,
+      (attributes[`${name} Duration`] ?? 0) + (attributes['Boon Duration'] ?? 0),
+    ]);
 
   if (boonEntries.length === 0 && conditionEntries.length === 0) return null;
 
@@ -49,9 +58,7 @@ const SpecialDurations = ({ data: attributes }) => {
                   className={classes.gw2Item}
                 />
               </TableCell>
-              <TableCell>
-                {roundTwo((value + (attributes['Condition Duration'] || 0)) * 100)}%
-              </TableCell>
+              <TableCell>{roundTwo(value * 100)}%</TableCell>
             </TableRow>
           ))}
           {boonEntries.map(([attribute, value]) => (
@@ -59,7 +66,7 @@ const SpecialDurations = ({ data: attributes }) => {
               <TableCell>
                 <Boon name={attribute.split(' ')[0]} text={attribute} className={classes.gw2Item} />
               </TableCell>
-              <TableCell>{roundTwo((value + (attributes['Boon Duration'] || 0)) * 100)}%</TableCell>
+              <TableCell>{roundTwo(value * 100)}%</TableCell>
             </TableRow>
           ))}
         </TableBody>
