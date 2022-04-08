@@ -64,7 +64,7 @@ function fetchSpecializations() {
         });
     });
 }
-
+/*
 function fetchTraits() {
   console.log('Fetching traits...');
   // get item stats (affixes)
@@ -296,6 +296,7 @@ function fetchItems() {
       console.log(error);
     });
 }
+*/
 fetchSpecializations();
 // fetchTraits();
 // fetchSkills();
