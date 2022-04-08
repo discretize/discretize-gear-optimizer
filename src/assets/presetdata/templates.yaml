@@ -413,10 +413,10 @@ list:
         priority: Power DPS
         distribution: Power Weaver (BTTH, small)
         fractal:
-          traits: Power Weaver Stormsoul
+          traits: Power Weaver Stormsoul Fractal
           extras: Power (Fractal)
         raid:
-          traits: Power Weaver Raging Storm
+          traits: Power Weaver Raid
           extras: Power (Raid)
         weaponType: Dual wield
 
