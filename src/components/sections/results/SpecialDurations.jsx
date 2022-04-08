@@ -5,7 +5,6 @@ import { Trans } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
 import { boons, damagingConditions } from '../../../assets/modifierdata/metadata';
 
-const conditionDurations = damagingConditions.map((name) => `${name} Duration`);
 const boonDurations = boons.map((name) => `${name} Duration`);
 
 const roundTwo = (num) => Math.round(num * 100) / 100;
@@ -23,9 +22,9 @@ const useStyles = makeStyles()((theme) => ({
 const SpecialDurations = ({ data: attributes }) => {
   const { classes } = useStyles();
 
-  const conditionEntries = Object.entries(attributes).filter(([attribute]) =>
-    conditionDurations.includes(attribute),
-  );
+  const conditionEntries = damagingConditions
+    .filter((name) => attributes[`${name} DPS`])
+    .map((name) => [`${name} Duration`, attributes[`${name} Duration`] ?? 0]);
 
   const boonEntries = Object.entries(attributes).filter(([attribute]) =>
     boonDurations.includes(attribute),
@@ -36,7 +35,7 @@ const SpecialDurations = ({ data: attributes }) => {
   return (
     <>
       <Typography variant="h6">
-        <Trans>Special Durations</Trans>
+        <Trans>Specific Durations</Trans>
       </Typography>
 
       <Table padding="none">
