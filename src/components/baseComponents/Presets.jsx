@@ -1,5 +1,5 @@
 import { Profession } from '@discretize/gw2-ui-new';
-import { Box, Chip, TextField, Typography } from '@mui/material';
+import { Box, Chip, Tab, Tabs, TextField, Typography } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -24,7 +24,37 @@ const Presets = ({
 
   return (
     <Box className={className} sx={{ marginTop: 1 }}>
-      {data.length > maxChips ? (
+      <Tabs
+        orientation="vertical"
+        variant="scrollable"
+        visibleScrollbar
+        scrollButtons={false}
+        sx={{ maxHeight: 420 }}
+      >
+        {data.map((preset) => (
+          <Tab
+            sx={{ fontSize: 'inherit', textTransform: 'inherit', py: 0 }}
+            label={
+              preset.profession ? (
+                <Profession
+                  disableLink
+                  name={preset.profession}
+                  text={
+                    // i18next-extract-mark-context-next-line {{presetName}}
+                    t(`preset`, { context: `${presetCategory}_${preset.name}` })
+                  }
+                />
+              ) : (
+                // i18next-extract-mark-context-next-line {{presetName}}
+                <Typography>
+                  {t(`preset`, { context: `${presetCategory}_${preset.name}` })}
+                </Typography>
+              )
+            }
+          />
+        ))}
+      </Tabs>
+      {/* {data.length > maxChips ? (
         <Autocomplete
           key={`${selectedTemplateName || profession}-presets`}
           options={data}
@@ -81,7 +111,7 @@ const Presets = ({
             sx={{ margin: 0.5 }}
           />
         ))
-      )}
+      )} */}
     </Box>
   );
 };
