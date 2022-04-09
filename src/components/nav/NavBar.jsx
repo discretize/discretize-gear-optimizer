@@ -29,7 +29,7 @@ import {
   getSelectedTemplate,
   setBuildTemplate,
 } from '../../state/slices/controlsSlice';
-import { getExpertMode, getGameMode } from '../../state/slices/userSettings';
+import { getExpertMode, getGameMode, toggleGameMode } from '../../state/slices/userSettings';
 import data from '../../utils/data';
 import { PROFESSIONS } from '../../utils/gw2-data';
 import NavAccordion from './NavAccordion';
@@ -80,11 +80,13 @@ const Navbar = () => {
     return (
       <Box display="flex" alignItems="center" gap={1}>
         <Tooltip content={`${t('Selected Game Mode')}: ${isFractals ? t('Fractals') : t('Raids')}`}>
-          <img
-            style={{ width: '40px' }}
-            src={isFractals ? fractalImg : raidImg}
-            alt={isFractals ? t('Fractal') : t('Raid')}
-          />
+          <IconButton size="medium" onClick={() => alert('this needs to be in NavSettings rip')}>
+            <img
+              style={{ width: '40px' }}
+              src={isFractals ? fractalImg : raidImg}
+              alt={isFractals ? t('Fractal') : t('Raid')}
+            />
+          </IconButton>
         </Tooltip>
 
         <IconButton

@@ -40,13 +40,20 @@ export const userSettingsSlice = createSlice({
     changeGameMode: (state, action) => {
       state.gameMode = action.payload;
     },
+    toggleGameMode: (state) => {
+      if (state.gameMode === 'fractals') {
+        state.gameMode = 'raids';
+      } else {
+        state.gameMode = 'fractals';
+      }
+    },
   },
 });
 
 export const getExpertMode = (state) => state.optimizer.userSettings.expertMode;
 export const getGameMode = (state) => state.optimizer.userSettings.gameMode;
 
-export const { changeAllUserSettings, changeExpertMode, changeGameMode } =
+export const { changeAllUserSettings, changeExpertMode, changeGameMode, toggleGameMode } =
   userSettingsSlice.actions;
 
 export default userSettingsSlice.reducer;
