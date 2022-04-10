@@ -59,6 +59,15 @@ export default function SavedResultManager({ isOpen, setOpen }) {
   }, [stored]);
 
   const handleClose = () => setOpen(false);
+  const handleSaveLocally = (character) => () => {
+    setStored([
+      {
+        name: selectedTemplate || character.settings.specialization,
+        character,
+      },
+      ...stored,
+    ]);
+  };
   const handleNameChange = (index) => (event) => {
     const newStored = [...stored];
     newStored[index].name = event.target.value;
@@ -128,24 +137,14 @@ export default function SavedResultManager({ isOpen, setOpen }) {
             </TableHead>
             <TableBody>
               {temporarySaved.map((character) => (
-                <TableRow>
+                <TableRow key={character.id}>
                   <TableCell>
                     <Profession name={character.settings.specialization} disableText />
                   </TableCell>
                   <TableCell>{Math.round(character.results.value)}</TableCell>
                   <TableCell sx={{ textAlign: 'right' }}>
                     <Tooltip title={t('Save locally')}>
-                      <IconButton
-                        onClick={() => {
-                          setStored([
-                            ...stored,
-                            {
-                              name: selectedTemplate || character.settings.specialization,
-                              character,
-                            },
-                          ]);
-                        }}
-                      >
+                      <IconButton onClick={handleSaveLocally(character)}>
                         <SaveIcon fontSize="small" />
                       </IconButton>
                     </Tooltip>
@@ -181,7 +180,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
             </TableHead>
             <TableBody>
               {stored.map(({ name, character }, index) => (
-                <TableRow>
+                <TableRow key={`${name}${index.toString()}`}>
                   <TableCell>
                     <Checkbox value={marked[index]} onChange={handleMarkChange(index)} />
                   </TableCell>
