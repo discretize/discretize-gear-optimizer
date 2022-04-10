@@ -87,17 +87,19 @@ const Navbar = () => {
           />
         </Tooltip>
 
-        <IconButton
-          href="#share"
-          size="large"
-          onClick={(e) => {
-            const elem = document.getElementById('#share');
-            if (elem) elem.scrollIntoView();
-            e.preventDefault();
-          }}
-        >
-          <ShareIcon />
-        </IconButton>
+        <Tooltip content={t('Jump to sharing section')}>
+          <IconButton
+            href="#share"
+            size="large"
+            onClick={(e) => {
+              const elem = document.getElementById('#share');
+              if (elem) elem.scrollIntoView();
+              e.preventDefault();
+            }}
+          >
+            <ShareIcon />
+          </IconButton>
+        </Tooltip>
 
         <NavSettings />
       </Box>
