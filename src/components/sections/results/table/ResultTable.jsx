@@ -187,7 +187,7 @@ const StickyHeadTable = () => {
             </TableHead>
             <TableBody
               sx={{
-                cursor: 'pointer',
+                cursor: `url('/images/cursors/green.png'),pointer !important`,
               }}
             >
               {list.map((character, i) => {
@@ -244,7 +244,7 @@ const StickyHeadTable = () => {
                 </TableHead>
                 <TableBody
                   sx={{
-                    cursor: 'pointer',
+                    cursor: `url('/images/cursors/green.png'),pointer !important`,
                   }}
                 >
                   {saved.map((character, i) => {
