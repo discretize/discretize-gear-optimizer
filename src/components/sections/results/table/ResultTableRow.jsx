@@ -7,7 +7,11 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { allExtrasModifiersById } from '../../../../assets/modifierdata';
 import { percents } from '../../../../assets/modifierdata/metadata';
-import { changeSelectedCharacter, toggleSaved } from '../../../../state/slices/controlsSlice';
+import {
+  changeSelectedCharacter,
+  removeFromSaved,
+  toggleSaved,
+} from '../../../../state/slices/controlsSlice';
 import { extrasTypes } from '../../../../state/slices/extras';
 import CloseIcon from '@mui/icons-material/Close';
 const roundTwo = (num) => Math.round(num * 100) / 100;
@@ -71,7 +75,8 @@ const ResultTableRow = ({
                 }
           }
           onClick={(e) => {
-            dispatch(toggleSaved(character));
+            if (savedSection) dispatch(removeFromSaved(character));
+            else dispatch(toggleSaved(character));
             e.stopPropagation();
           }}
         />

@@ -1,12 +1,13 @@
 import { TextDivider } from '@discretize/react-discretize-components';
-import { Box } from '@mui/material';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import { Box, IconButton, Typography } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import classNames from 'classnames';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import {
@@ -19,6 +20,7 @@ import {
   getSelectedCharacter,
   getTallTable,
 } from '../../../../state/slices/controlsSlice';
+import SavedResultManager from '../SavedResultManager/SavedResultManager';
 import ResultTableHeaderRow from './ResultTableHeaderRow';
 import ResultTableRow from './ResultTableRow';
 
@@ -76,6 +78,8 @@ const emptyArray = [];
 
 const StickyHeadTable = () => {
   const { classes } = useStyles();
+
+  const [managerOpen, setManagerOpen] = React.useState(false);
 
   const { t } = useTranslation();
   const selectedCharacter = useSelector(getSelectedCharacter);
@@ -219,7 +223,15 @@ const StickyHeadTable = () => {
 
       {saved.length ? (
         <>
-          <TextDivider text={t('Saved Results')} />
+          <Box display="flex" alignItems="center" className={classes.tablehead}>
+            <Typography flexGrow={1} ml={2} fontWeight={600} fontFamily="Raleway">
+              <Trans>Saved Results</Trans>
+            </Typography>
+            <IconButton size="small" sx={{ margin: 1 }} onClick={() => setManagerOpen(true)}>
+              <ManageAccountsIcon />
+            </IconButton>
+            <SavedResultManager isOpen={managerOpen} setOpen={setManagerOpen} />
+          </Box>
           <Box boxShadow={8} mb={3}>
             <TableContainer
               className={classNames(
