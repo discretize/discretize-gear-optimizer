@@ -146,13 +146,13 @@ export default function SavedResultManager({ isOpen, setOpen }) {
                           ]);
                         }}
                       >
-                        <SaveIcon />
+                        <SaveIcon fontSize="small" />
                       </IconButton>
                     </Tooltip>
 
                     <Tooltip title={t('Delete')}>
                       <IconButton onClick={handleDeleteTemporary(character)}>
-                        <ClearIcon />
+                        <ClearIcon fontSize="small" />
                       </IconButton>
                     </Tooltip>
                   </TableCell>
@@ -198,20 +198,20 @@ export default function SavedResultManager({ isOpen, setOpen }) {
                   <TableCell>{Math.round(character.results.value)}</TableCell>
                   <TableCell sx={{ textAlign: 'right' }}>
                     <Tooltip title={t('Copy JSON to clipboard')}>
-                      <IconButton>
-                        <ContentCopyIcon onClick={handleCopy(character)} />
+                      <IconButton onClick={handleCopy(character)}>
+                        <ContentCopyIcon fontSize="small" />
                       </IconButton>
                     </Tooltip>
 
                     <Tooltip title={t('Copy build to temporary saved builds')}>
-                      <IconButton>
-                        <ArrowCircleUpIcon onClick={handleCopyToTemporary(character)} />
+                      <IconButton onClick={handleCopyToTemporary(character)}>
+                        <ArrowCircleUpIcon fontSize="small" />
                       </IconButton>
                     </Tooltip>
 
                     <Tooltip title={t('Delete')}>
                       <IconButton onClick={handleDelete(character)}>
-                        <ClearIcon />
+                        <ClearIcon fontSize="small" />
                       </IconButton>
                     </Tooltip>
                   </TableCell>
