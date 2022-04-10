@@ -1,4 +1,5 @@
-import { Item } from '@discretize/gw2-ui-new';
+import { Item, Profession } from '@discretize/gw2-ui-new';
+import CloseIcon from '@mui/icons-material/Close';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import { IconButton, Typography } from '@mui/material';
 import TableCell from '@mui/material/TableCell';
@@ -13,7 +14,7 @@ import {
   toggleSaved,
 } from '../../../../state/slices/controlsSlice';
 import { extrasTypes } from '../../../../state/slices/extras';
-import CloseIcon from '@mui/icons-material/Close';
+
 const roundTwo = (num) => Math.round(num * 100) / 100;
 
 const ResultTableRow = ({
@@ -82,6 +83,7 @@ const ResultTableRow = ({
         />
       </TableCell>
       <TableCell scope="row">
+        {savedSection && <Profession name={character.settings.specialization} disableText />}{' '}
         {value.toFixed(0)}
         {comparisonText ? (
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
@@ -103,6 +105,7 @@ const ResultTableRow = ({
           </Typography>
         </TableCell>
       ))}
+      {character.gear.length < 14 && <TableCell />}
       {character.infusions
         ? Object.values(character.infusions).map((element, index) => (
             // eslint-disable-next-line react/no-array-index-key
