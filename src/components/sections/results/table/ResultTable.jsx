@@ -1,4 +1,3 @@
-import { TextDivider } from '@discretize/react-discretize-components';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import { Box, IconButton, Typography } from '@mui/material';
 import Table from '@mui/material/Table';

@@ -17,6 +17,7 @@ import {
   Table,
   TableBody,
   TableCell,
+  TableContainer,
   TableHead,
   TableRow,
   Tooltip,
@@ -34,7 +35,13 @@ import {
 } from '../../../../state/slices/controlsSlice';
 import { getAll, save } from './localStorage';
 
-const useStyles = makeStyles()((theme) => ({}));
+const useStyles = makeStyles()((theme) => ({
+  container: {
+    borderColor: theme.palette.background.paper,
+    border: '1px solid inherit',
+    backgroundColor: theme.palette.background.default,
+  },
+}));
 
 export default function SavedResultManager({ isOpen, setOpen }) {
   const { t } = useTranslation();
@@ -110,107 +117,111 @@ export default function SavedResultManager({ isOpen, setOpen }) {
           <Trans>Current temporary saved builds</Trans>
         </Typography>
 
-        <Table>
-          <TableHead>
-            <TableCell />
-            <TableCell>
-              <Trans>Damage</Trans>
-            </TableCell>
-            <TableCell />
-          </TableHead>
-          <TableBody>
-            {temporarySaved.map((character) => (
-              <TableRow>
-                <TableCell>
-                  <Profession name={character.settings.specialization} disableText />
-                </TableCell>
-                <TableCell>{Math.round(character.results.value)}</TableCell>
-                <TableCell sx={{ textAlign: 'right' }}>
-                  <Tooltip title={t('Save locally')}>
-                    <IconButton
-                      onClick={() => {
-                        setStored([
-                          ...stored,
-                          {
-                            name: selectedTemplate || character.settings.specialization,
-                            character,
-                          },
-                        ]);
-                      }}
-                    >
-                      <SaveIcon />
-                    </IconButton>
-                  </Tooltip>
+        <TableContainer className={classes.container}>
+          <Table>
+            <TableHead>
+              <TableCell />
+              <TableCell>
+                <Trans>Damage</Trans>
+              </TableCell>
+              <TableCell />
+            </TableHead>
+            <TableBody>
+              {temporarySaved.map((character) => (
+                <TableRow>
+                  <TableCell>
+                    <Profession name={character.settings.specialization} disableText />
+                  </TableCell>
+                  <TableCell>{Math.round(character.results.value)}</TableCell>
+                  <TableCell sx={{ textAlign: 'right' }}>
+                    <Tooltip title={t('Save locally')}>
+                      <IconButton
+                        onClick={() => {
+                          setStored([
+                            ...stored,
+                            {
+                              name: selectedTemplate || character.settings.specialization,
+                              character,
+                            },
+                          ]);
+                        }}
+                      >
+                        <SaveIcon />
+                      </IconButton>
+                    </Tooltip>
 
-                  <Tooltip title={t('Delete')}>
-                    <IconButton onClick={handleDeleteTemporary(character)}>
-                      <ClearIcon />
-                    </IconButton>
-                  </Tooltip>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+                    <Tooltip title={t('Delete')}>
+                      <IconButton onClick={handleDeleteTemporary(character)}>
+                        <ClearIcon />
+                      </IconButton>
+                    </Tooltip>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
 
         <Typography fontWeight={200}>
           <Trans>Persistently saved builds</Trans>
         </Typography>
 
-        <Table>
-          <TableHead>
-            <TableCell />
-            <TableCell />
-            <TableCell>
-              <Trans>Name</Trans>
-            </TableCell>
-            <TableCell>
-              <Trans>Damage</Trans>
-            </TableCell>
-            <TableCell />
-          </TableHead>
-          <TableBody>
-            {stored.map(({ name, character }, index) => (
-              <TableRow>
-                <TableCell>
-                  <Checkbox value={marked[index]} onChange={handleMarkChange(index)} />
-                </TableCell>
-                <TableCell>
-                  <Profession
-                    style={{ fontSize: 20 }}
-                    name={character.settings.specialization}
-                    disableText
-                  />
-                </TableCell>
-                <TableCell>
-                  <Input value={name} onChange={handleNameChange(index)} />
-                </TableCell>
-                <TableCell>{Math.round(character.results.value)}</TableCell>
-                <TableCell sx={{ textAlign: 'right' }}>
-                  <Tooltip title={t('Copy JSON to clipboard')}>
-                    <IconButton>
-                      <ContentCopyIcon onClick={handleCopy(character)} />
-                    </IconButton>
-                  </Tooltip>
+        <TableContainer className={classes.container}>
+          <Table>
+            <TableHead>
+              <TableCell />
+              <TableCell />
+              <TableCell>
+                <Trans>Name</Trans>
+              </TableCell>
+              <TableCell>
+                <Trans>Damage</Trans>
+              </TableCell>
+              <TableCell />
+            </TableHead>
+            <TableBody>
+              {stored.map(({ name, character }, index) => (
+                <TableRow>
+                  <TableCell>
+                    <Checkbox value={marked[index]} onChange={handleMarkChange(index)} />
+                  </TableCell>
+                  <TableCell>
+                    <Profession
+                      style={{ fontSize: 20 }}
+                      name={character.settings.specialization}
+                      disableText
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <Input value={name} onChange={handleNameChange(index)} />
+                  </TableCell>
+                  <TableCell>{Math.round(character.results.value)}</TableCell>
+                  <TableCell sx={{ textAlign: 'right' }}>
+                    <Tooltip title={t('Copy JSON to clipboard')}>
+                      <IconButton>
+                        <ContentCopyIcon onClick={handleCopy(character)} />
+                      </IconButton>
+                    </Tooltip>
 
-                  <Tooltip title={t('Copy build to temporary saved builds')}>
-                    <IconButton>
-                      <ArrowCircleUpIcon onClick={handleCopyToTemporary(character)} />
-                    </IconButton>
-                  </Tooltip>
+                    <Tooltip title={t('Copy build to temporary saved builds')}>
+                      <IconButton>
+                        <ArrowCircleUpIcon onClick={handleCopyToTemporary(character)} />
+                      </IconButton>
+                    </Tooltip>
 
-                  <Tooltip title={t('Delete')}>
-                    <IconButton onClick={handleDelete(character)}>
-                      <ClearIcon />
-                    </IconButton>
-                  </Tooltip>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+                    <Tooltip title={t('Delete')}>
+                      <IconButton onClick={handleDelete(character)}>
+                        <ClearIcon />
+                      </IconButton>
+                    </Tooltip>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
 
-        <Button variant="outlined" onClick={handleDownload}>
+        <Button variant="outlined" onClick={handleDownload} sx={{ mt: 1 }}>
           Download {marked.filter((a) => a).length} saved
         </Button>
       </DialogContent>
