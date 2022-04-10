@@ -250,6 +250,7 @@ const StickyHeadTable = () => {
                   {saved.map((character, i) => {
                     return (
                       <ResultTableRow
+                        savedSection
                         character={character}
                         key={character.id}
                         selected={character === selectedCharacter}

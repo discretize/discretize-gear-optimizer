@@ -1,6 +1,6 @@
 import { Item } from '@discretize/gw2-ui-new';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
-import { Typography } from '@mui/material';
+import { IconButton, Typography } from '@mui/material';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import React from 'react';
@@ -9,7 +9,7 @@ import { allExtrasModifiersById } from '../../../../assets/modifierdata';
 import { percents } from '../../../../assets/modifierdata/metadata';
 import { changeSelectedCharacter, toggleSaved } from '../../../../state/slices/controlsSlice';
 import { extrasTypes } from '../../../../state/slices/extras';
-
+import CloseIcon from '@mui/icons-material/Close';
 const roundTwo = (num) => Math.round(num * 100) / 100;
 
 const ResultTableRow = ({
@@ -22,6 +22,7 @@ const ResultTableRow = ({
   compareByPercent,
   displayExtras,
   displayAttributes,
+  savedSection,
 }) => {
   const dispatch = useDispatch();
 
@@ -36,6 +37,16 @@ const ResultTableRow = ({
       }`
     : '';
 
+  const SavedComponent = React.memo(
+    savedSection
+      ? ({ onClick }) => (
+          <IconButton onClick={onClick} size="small">
+            <CloseIcon sx={{ color: 'red' }} />
+          </IconButton>
+        )
+      : StarRoundedIcon,
+  );
+
   return (
     <TableRow
       selected={selected}
@@ -45,7 +56,7 @@ const ResultTableRow = ({
       className={underlineClass}
     >
       <TableCell scope="row" align="center" padding="none">
-        <StarRoundedIcon
+        <SavedComponent
           sx={
             saved
               ? {
