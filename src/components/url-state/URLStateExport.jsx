@@ -175,6 +175,7 @@ const URLStateExport = ({ type }) => {
           message: t('Copied link to clipboard! (Link shortener disabled in preview builds.)'),
         }));
         navigator.clipboard.writeText(longUrl);
+        setLoading(false);
       } else {
         oldShortener(longUrl, setSnackbarState, setLoading, t);
       }
