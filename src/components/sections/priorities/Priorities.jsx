@@ -64,70 +64,133 @@ const Priorities = () => {
     dispatch(changePriority({ key: event.target.name, value: event.target.value }));
   };
 
+  const optimizeForControl = (
+    <Grid item xs={12} sm={6}>
+      <FormControl component="fieldset">
+        <FormLabel component="legend">
+          <Trans>Optimize for:</Trans>{' '}
+          <HelperIcon
+            text={t(
+              "What to optimize the results for. 'Damage' includes power and condition damage according to the distribution below.",
+            )}
+            size="small"
+          />
+        </FormLabel>
+        <RadioGroup
+          aria-label="optimizeFor"
+          name="optimizeFor"
+          value={optimizeFor}
+          onChange={handleChange}
+        >
+          {OPTIMIZATION_GOALS.map((goal) => (
+            <FormControlLabel
+              key={goal}
+              value={goal}
+              control={<Radio color="primary" />}
+              // i18next-extract-mark-context-next-line ["Damage","Survivability","Survivability (WIP)","Healing"]
+              label={t('priorityGoal', {
+                context: goal,
+              })}
+            />
+          ))}
+        </RadioGroup>
+      </FormControl>
+    </Grid>
+  );
+
+  const weaponTypeControl = (
+    <Grid item xs={12} sm={6}>
+      <FormControl component="fieldset">
+        <FormLabel component="legend">
+          <Trans>Weapon type:</Trans>{' '}
+          <HelperIcon
+            text={t(
+              "Select 'Dual wield' if you're using weapons in both hands or 'Two-handed' when using a two-handed weapon.",
+            )}
+            size="small"
+          />
+        </FormLabel>
+        <RadioGroup
+          aria-label="weaponType"
+          name="weaponType"
+          value={weaponType}
+          onChange={handleChange}
+        >
+          <FormControlLabel
+            value={WeaponTypes.dualWield}
+            control={<Radio color="primary" />}
+            label={t('Dual wielded')}
+          />
+          <FormControlLabel
+            value={WeaponTypes.twoHanded}
+            control={<Radio color="primary" />}
+            label={t('Two-handed')}
+          />
+        </RadioGroup>
+      </FormControl>
+    </Grid>
+  );
+
+  const constraints = [
+    {
+      type: 'minToughness',
+      value: minToughness,
+      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Toughness" disableLink />],
+      helpText: t('Only show results that fulfill a minimum amount of Toughness.'),
+    },
+    {
+      type: 'maxToughness',
+      value: maxToughness,
+      label: [<Trans>Max.</Trans>, ' ', <Attribute name="Toughness" disableLink />],
+      helpText: t('Only show results that fulfill a maximum amount of Toughness.'),
+    },
+    {
+      type: 'minBoonDuration',
+      value: minBoonDuration,
+      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Boon Duration" disableLink />],
+      helpText: t('Only show results that fulfill a minimum amount of Boon Duration.'),
+    },
+    {
+      type: 'minHealingPower',
+      value: minHealingPower,
+      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Healing Power" disableLink />],
+      helpText: t('Only show results that fulfill a minimum amount of Healing Power.'),
+    },
+    {
+      type: 'minHealth',
+      value: minHealth,
+      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Health" disableLink />],
+      helpText: t('Only show results that fulfill a minimum amount of Health.'),
+    },
+    {
+      type: 'minCritChance',
+      value: minCritChance,
+      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Critical Chance" disableLink />],
+      helpText: t('Only show results that fulfill a minimum amount of Critical Chance.'),
+    },
+  ].map(({ type, label, value, helpText }) => {
+    return (
+      <Grid item xs={6} md={4} className={classes.box}>
+        <FormControl className={classes.formControl} variant="standard">
+          <InputLabel htmlFor={`${type}-input-with-icon-adornment`}>{label}</InputLabel>
+          <Input
+            id={`${type}-input-with-icon-adornment`}
+            value={value}
+            onChange={handleChange}
+            name={`${type}`}
+            error={parsePriority(value).error}
+            autoComplete="off"
+          />
+        </FormControl>
+        <HelperIcon text={helpText} />
+      </Grid>
+    );
+  });
+
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12} sm={6}>
-        <FormControl component="fieldset">
-          <FormLabel component="legend">
-            <Trans>Optimize for:</Trans>{' '}
-            <HelperIcon
-              text={t(
-                "What to optimize the results for. 'Damage' includes power and condition damage according to the distribution below.",
-              )}
-              size="small"
-            />
-          </FormLabel>
-          <RadioGroup
-            aria-label="optimizeFor"
-            name="optimizeFor"
-            value={optimizeFor}
-            onChange={handleChange}
-          >
-            {OPTIMIZATION_GOALS.map((goal) => (
-              <FormControlLabel
-                key={goal}
-                value={goal}
-                control={<Radio color="primary" />}
-                // i18next-extract-mark-context-next-line ["Damage","Survivability","Survivability (WIP)","Healing"]
-                label={t('priorityGoal', {
-                  context: goal,
-                })}
-              />
-            ))}
-          </RadioGroup>
-        </FormControl>
-      </Grid>
-
-      <Grid item xs={12} sm={6}>
-        <FormControl component="fieldset">
-          <FormLabel component="legend">
-            <Trans>Weapon type:</Trans>{' '}
-            <HelperIcon
-              text={t(
-                "Select 'Dual wield' if you're using weapons in both hands or 'Two-handed' when using a two-handed weapon.",
-              )}
-              size="small"
-            />
-          </FormLabel>
-          <RadioGroup
-            aria-label="weaponType"
-            name="weaponType"
-            value={weaponType}
-            onChange={handleChange}
-          >
-            <FormControlLabel
-              value={WeaponTypes.dualWield}
-              control={<Radio color="primary" />}
-              label={t('Dual wielded')}
-            />
-            <FormControlLabel
-              value={WeaponTypes.twoHanded}
-              control={<Radio color="primary" />}
-              label={t('Two-handed')}
-            />
-          </RadioGroup>
-        </FormControl>
-      </Grid>
+      {optimizeForControl}
+      {weaponTypeControl}
 
       <Grid item xs={12}>
         <AffixesSelect
@@ -141,104 +204,7 @@ const Priorities = () => {
         />
       </Grid>
 
-      <Grid item xs={6} md={4} className={classes.box}>
-        <FormControl className={classes.formControl} variant="standard">
-          <InputLabel htmlFor="minToughness-input-with-icon-adornment">
-            <Trans>Min.</Trans> <Attribute name="Toughness" disableLink />
-          </InputLabel>
-          <Input
-            id="minToughness-input-with-icon-adornment"
-            value={minToughness}
-            onChange={handleChange}
-            name="minToughness"
-            error={parsePriority(minToughness).error}
-            autoComplete="off"
-          />
-        </FormControl>
-        <HelperIcon text={t('Only show results that fulfill a minimum amount of Toughness.')} />
-      </Grid>
-      <Grid item xs={6} md={4} className={classes.box}>
-        <FormControl className={classes.formControl} variant="standard">
-          <InputLabel htmlFor="maxToughness-input-with-icon-adornment">
-            <Trans>Max.</Trans> <Attribute name="Toughness" disableLink />
-          </InputLabel>
-          <Input
-            id="maxToughness-input-with-icon-adornment"
-            value={maxToughness}
-            onChange={handleChange}
-            name="maxToughness"
-            error={parsePriority(maxToughness).error}
-            autoComplete="off"
-          />
-        </FormControl>
-        <HelperIcon text={t('Only show results that fulfill a maximum amount of Toughness.')} />
-      </Grid>
-      <Grid item xs={6} md={4} className={classes.box}>
-        <FormControl className={classes.formControl} variant="standard">
-          <InputLabel htmlFor="minBoon-input-with-icon-adornment">
-            <Trans>Min.</Trans> <Attribute name="Boon Duration" disableLink />
-          </InputLabel>
-          <Input
-            id="minBoon-input-with-icon-adornment"
-            value={minBoonDuration}
-            onChange={handleChange}
-            name="minBoonDuration"
-            error={parsePriority(minBoonDuration).error}
-            autoComplete="off"
-          />
-        </FormControl>
-        <HelperIcon text={t('Only show results that fulfill a certain amount of Boon Duration.')} />
-      </Grid>
-      <Grid item xs={6} md={4} className={classes.box}>
-        <FormControl className={classes.formControl} variant="standard">
-          <InputLabel htmlFor="minHeal-input-with-icon-adornment">
-            <Trans>Min.</Trans> <Attribute name="Healing Power" disableLink />
-          </InputLabel>
-          <Input
-            id="minHeal-input-with-icon-adornment"
-            value={minHealingPower}
-            onChange={handleChange}
-            name="minHealingPower"
-            error={parsePriority(minHealingPower).error}
-            autoComplete="off"
-          />
-        </FormControl>
-        <HelperIcon text={t('Only show results that fulfill a certain amount of Healing Power.')} />
-      </Grid>
-      <Grid item xs={6} md={4} className={classes.box}>
-        <FormControl className={classes.formControl} variant="standard">
-          <InputLabel htmlFor="minHealth-input-with-icon-adornment">
-            <Trans>Min.</Trans> <Attribute name="Health" disableLink />
-          </InputLabel>
-          <Input
-            id="minHealth-input-with-icon-adornment"
-            value={minHealth}
-            onChange={handleChange}
-            name="minHealth"
-            error={parsePriority(minHealth).error}
-            autoComplete="off"
-          />
-        </FormControl>
-        <HelperIcon text={t('Only show results that fulfill a certain amount of Health.')} />
-      </Grid>
-      <Grid item xs={6} md={4} className={classes.box}>
-        <FormControl className={classes.formControl} variant="standard">
-          <InputLabel htmlFor="minCritChance-input-with-icon-adornment">
-            <Trans>Min.</Trans> <Attribute name="Critical Chance" disableLink />
-          </InputLabel>
-          <Input
-            id="minCritChance-input-with-icon-adornment"
-            value={minCritChance}
-            onChange={handleChange}
-            name="minCritChance"
-            error={parsePriority(minCritChance).error}
-            autoComplete="off"
-          />
-        </FormControl>
-        <HelperIcon
-          text={t('Only show results that fulfill a certain amount of Critical Chance.')}
-        />
-      </Grid>
+      {constraints}
 
       {showWarning ? (
         <Grid item xs={12}>
