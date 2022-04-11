@@ -59,13 +59,6 @@ const unModifyState = (importData) => {
   //   }));
   // }
 
-  // load the selected character as a list item
-  // (remove this if implementing saved lists/saved shared characters)
-  if (optimizerState.control.selectedCharacter && optimizerState.control.list.length === 0) {
-    optimizerState.control.list = [optimizerState.control.selectedCharacter];
-    optimizerState.control.filteredList = [optimizerState.control.selectedCharacter];
-  }
-
   return optimizerState;
 };
 
