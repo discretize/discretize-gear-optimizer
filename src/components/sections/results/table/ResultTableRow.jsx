@@ -83,7 +83,13 @@ const ResultTableRow = ({
         />
       </TableCell>
       <TableCell scope="row">
-        {savedSection && <Profession name={character.settings.specialization} disableText />}{' '}
+        {savedSection && (
+          <Profession
+            name={character.settings.specialization}
+            disableText
+            style={{ fontSize: '1.1rem' }}
+          />
+        )}{' '}
         {value.toFixed(0)}
         {comparisonText ? (
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
