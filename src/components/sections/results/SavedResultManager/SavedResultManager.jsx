@@ -1,10 +1,11 @@
-import { Profession } from '@discretize/gw2-ui-new';
+import { Item, Profession, Specialization, Tooltip as Gw2Tooltip } from '@discretize/gw2-ui-new';
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import ClearIcon from '@mui/icons-material/Clear';
 import CloseIcon from '@mui/icons-material/Close';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import SaveIcon from '@mui/icons-material/Save';
 import {
+  Box,
   Button,
   Checkbox,
   Dialog,
@@ -18,7 +19,6 @@ import {
   TableBody,
   TableCell,
   TableContainer,
-  TableHead,
   TableRow,
   Tooltip,
   Typography,
@@ -27,6 +27,7 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import { allExtrasModifiersById } from '../../../../assets/modifierdata';
 import {
   addToSaved,
   getSaved,
@@ -41,7 +42,47 @@ const useStyles = makeStyles()((theme) => ({
     border: '1px solid inherit',
     backgroundColor: theme.palette.background.default,
   },
+  gw2icon: {
+    fontSize: '1.8rem',
+  },
+  table: { marginBottom: 0 },
 }));
+
+function Gear({ gear }) {
+  return (
+    <Gw2Tooltip
+      content={
+        <>
+          <Typography color="gold">
+            <Trans>Armor</Trans>:
+          </Typography>
+          {gear.slice(0, 6).map((affix) => `${affix.slice(0, 4)} `)}
+          <Typography color="gold">
+            <Trans>Trinkets</Trans>:
+          </Typography>
+          {gear.slice(6, 12).map((affix) => `${affix.slice(0, 4)} `)}
+          <Typography color="gold">
+            <Trans>Weapons</Trans>:
+          </Typography>
+          {gear.slice(12).map((affix) => `${affix.slice(0, 4)} `)}
+        </>
+      }
+    >
+      <Box sx={{ borderBottom: 'dotted' }}>
+        <Trans>Gear</Trans>
+      </Box>
+    </Gw2Tooltip>
+  );
+}
+
+function Extras({ classes, character }) {
+  return Object.entries(character.settings.extrasCombination).map(([key, value]) => {
+    console.log(allExtrasModifiersById);
+    return (
+      <Item className={classes.gw2icon} id={allExtrasModifiersById[value]?.gw2id} disableText />
+    );
+  });
+}
 
 export default function SavedResultManager({ isOpen, setOpen }) {
   const { t } = useTranslation();
@@ -101,6 +142,8 @@ export default function SavedResultManager({ isOpen, setOpen }) {
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
   };
+
+  console.log(stored);
   return (
     <Dialog
       open={isOpen}
@@ -109,7 +152,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
       aria-labelledby="scroll-dialog-title"
       aria-describedby="scroll-dialog-description"
       TransitionComponent={Fade}
-      maxWidth="md"
+      maxWidth="lg"
       PaperProps={{ elevation: 4 }}
     >
       <DialogTitle id="scroll-dialog-title" display="flex">
@@ -123,26 +166,42 @@ export default function SavedResultManager({ isOpen, setOpen }) {
 
       <DialogContent sx={{ padding: 2 }} dividers>
         <Typography fontWeight={200}>
-          <Trans>Current temporary saved builds</Trans>
+          <Trans>Temporary saved builds</Trans>
         </Typography>
 
         <TableContainer className={classes.container}>
-          <Table>
-            <TableHead>
-              <TableCell />
-              <TableCell>
-                <Trans>Damage</Trans>
-              </TableCell>
-              <TableCell />
-            </TableHead>
+          <Table className={classes.table}>
             <TableBody>
               {temporarySaved.map((character) => (
                 <TableRow key={character.id}>
-                  <TableCell>
-                    <Profession name={character.settings.specialization} disableText />
+                  <TableCell width={77.42} />
+                  <TableCell width={64}>
+                    <Profession
+                      name={character.settings.specialization}
+                      disableText
+                      className={classes.gw2icon}
+                    />
                   </TableCell>
-                  <TableCell>{Math.round(character.results.value)}</TableCell>
-                  <TableCell sx={{ textAlign: 'right' }}>
+                  <TableCell>
+                    {character.settings.cachedFormState.traits.selectedLines.map(
+                      (specializationId) => (
+                        <Specialization
+                          id={specializationId}
+                          disableText
+                          className={classes.gw2icon}
+                        />
+                      ),
+                    )}
+                  </TableCell>
+                  <TableCell width={261} />
+                  <TableCell>{Math.round(character.results.value)}</TableCell>{' '}
+                  <TableCell>
+                    <Extras classes={classes} character={character} />
+                  </TableCell>
+                  <TableCell>
+                    <Gear gear={character.gear} />
+                  </TableCell>
+                  <TableCell sx={{ textAlign: 'right', width: 155.53 }}>
                     <Tooltip title={t('Save locally')}>
                       <IconButton onClick={handleSaveLocally(character)}>
                         <SaveIcon fontSize="small" />
@@ -166,18 +225,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
         </Typography>
 
         <TableContainer className={classes.container}>
-          <Table>
-            <TableHead>
-              <TableCell />
-              <TableCell />
-              <TableCell>
-                <Trans>Name</Trans>
-              </TableCell>
-              <TableCell>
-                <Trans>Damage</Trans>
-              </TableCell>
-              <TableCell />
-            </TableHead>
+          <Table className={classes.table}>
             <TableBody>
               {stored.map(({ name, character }, index) => (
                 <TableRow key={`${name}${index.toString()}`}>
@@ -186,15 +234,32 @@ export default function SavedResultManager({ isOpen, setOpen }) {
                   </TableCell>
                   <TableCell>
                     <Profession
-                      style={{ fontSize: 20 }}
+                      className={classes.gw2icon}
                       name={character.settings.specialization}
                       disableText
                     />
                   </TableCell>
                   <TableCell>
+                    {character.settings.cachedFormState.traits.selectedLines.map(
+                      (specializationId) => (
+                        <Specialization
+                          id={specializationId}
+                          disableText
+                          className={classes.gw2icon}
+                        />
+                      ),
+                    )}
+                  </TableCell>
+                  <TableCell>
                     <Input value={name} onChange={handleNameChange(index)} />
                   </TableCell>
                   <TableCell>{Math.round(character.results.value)}</TableCell>
+                  <TableCell>
+                    <Extras classes={classes} character={character} />
+                  </TableCell>
+                  <TableCell>
+                    <Gear gear={character.gear} />
+                  </TableCell>
                   <TableCell sx={{ textAlign: 'right' }}>
                     <Tooltip title={t('Copy JSON to clipboard')}>
                       <IconButton onClick={handleCopy(character)}>

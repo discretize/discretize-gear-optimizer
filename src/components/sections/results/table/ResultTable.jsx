@@ -220,67 +220,59 @@ const StickyHeadTable = () => {
         </TableContainer>
       </Box>
 
-      {saved.length ? (
-        <>
-          <Box display="flex" alignItems="center" className={classes.tablehead}>
-            <Typography flexGrow={1} ml={2} fontWeight={600} fontFamily="Raleway">
-              <Trans>Saved Results</Trans>
-            </Typography>
-            <IconButton size="small" sx={{ margin: 1 }} onClick={() => setManagerOpen(true)}>
-              <ManageAccountsIcon />
-            </IconButton>
-            <SavedResultManager isOpen={managerOpen} setOpen={setManagerOpen} />
-          </Box>
-          <Box boxShadow={8} mb={3}>
-            <TableContainer
-              className={classNames(
-                classes.container,
-                tallTable ? classes.tallTable : classes.shortTable,
-              )}
+      <Box display="flex" alignItems="center" className={classes.tablehead}>
+        <Typography flexGrow={1} ml={2} fontWeight={600} fontFamily="Raleway">
+          <Trans>Saved Results</Trans>
+        </Typography>
+        <IconButton size="small" sx={{ margin: 1 }} onClick={() => setManagerOpen(true)}>
+          <ManageAccountsIcon />
+        </IconButton>
+        <SavedResultManager isOpen={managerOpen} setOpen={setManagerOpen} />
+      </Box>
+      <Box boxShadow={8} mb={3}>
+        <TableContainer
+          className={classNames(
+            classes.container,
+            tallTable ? classes.tallTable : classes.shortTable,
+          )}
+        >
+          <Table stickyHeader aria-label="saved results table" className={classes.tableCollapse}>
+            <TableHead style={{ visibility: 'collapse' }}>
+              <ResultTableHeaderRow
+                classes={classes}
+                weaponType={weaponType}
+                infusions={infusions}
+                rankBy={rankBy}
+                displayExtras={displayExtras}
+                displayAttributes={displayAttributes}
+              />
+            </TableHead>
+            <TableBody
+              sx={{
+                cursor: `url('/images/cursors/green.png'),pointer !important`,
+              }}
             >
-              <Table
-                stickyHeader
-                aria-label="saved results table"
-                className={classes.tableCollapse}
-              >
-                <TableHead style={{ visibility: 'collapse' }}>
-                  <ResultTableHeaderRow
-                    classes={classes}
-                    weaponType={weaponType}
-                    infusions={infusions}
-                    rankBy={rankBy}
+              {saved.map((character, i) => {
+                return (
+                  <ResultTableRow
+                    savedSection
+                    character={character}
+                    key={character.id}
+                    selected={character === selectedCharacter}
+                    saved={saved.includes(character)}
+                    mostCommonAffix={mostCommonAffix}
+                    underlineClass={i === saved.length - 1 ? classes.bigUnderline : null}
+                    selectedValue={selectedValue}
+                    compareByPercent={compareByPercent}
                     displayExtras={displayExtras}
                     displayAttributes={displayAttributes}
                   />
-                </TableHead>
-                <TableBody
-                  sx={{
-                    cursor: `url('/images/cursors/green.png'),pointer !important`,
-                  }}
-                >
-                  {saved.map((character, i) => {
-                    return (
-                      <ResultTableRow
-                        savedSection
-                        character={character}
-                        key={character.id}
-                        selected={character === selectedCharacter}
-                        saved={saved.includes(character)}
-                        mostCommonAffix={mostCommonAffix}
-                        underlineClass={i === saved.length - 1 ? classes.bigUnderline : null}
-                        selectedValue={selectedValue}
-                        compareByPercent={compareByPercent}
-                        displayExtras={displayExtras}
-                        displayAttributes={displayAttributes}
-                      />
-                    );
-                  })}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </Box>
-        </>
-      ) : null}
+                );
+              })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Box>
     </>
   );
 };
