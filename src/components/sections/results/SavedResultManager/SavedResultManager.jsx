@@ -3,12 +3,12 @@ import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import ClearIcon from '@mui/icons-material/Clear';
 import CloseIcon from '@mui/icons-material/Close';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import InputIcon from '@mui/icons-material/Input';
 import SaveIcon from '@mui/icons-material/Save';
 import {
   Box,
   Button,
   Checkbox,
-  Collapse,
   Dialog,
   DialogActions,
   DialogContent,
@@ -36,8 +36,8 @@ import {
   getSelectedTemplate,
   removeFromSaved,
 } from '../../../../state/slices/controlsSlice';
+import { INFUSION_IDS } from '../../../../utils/gw2-data';
 import { getAll, save } from './localStorage';
-import InputIcon from '@mui/icons-material/Input';
 
 const useStyles = makeStyles()((theme) => ({
   container: {
@@ -51,23 +51,33 @@ const useStyles = makeStyles()((theme) => ({
   table: { marginBottom: 0 },
 }));
 
-function Gear({ gear }) {
+function Gear({ gear, infusions }) {
   return (
     <Gw2Tooltip
       content={
         <>
-          <Typography color="gold">
+          <Typography color="primary" variant="body2">
             <Trans>Armor</Trans>:
           </Typography>
           {gear.slice(0, 6).map((affix) => `${affix.slice(0, 4)} `)}
-          <Typography color="gold">
+          <Typography color="primary" variant="body2">
             <Trans>Trinkets</Trans>:
           </Typography>
           {gear.slice(6, 12).map((affix) => `${affix.slice(0, 4)} `)}
-          <Typography color="gold">
+          <Typography color="primary" variant="body2">
             <Trans>Weapons</Trans>:
           </Typography>
           {gear.slice(12).map((affix) => `${affix.slice(0, 4)} `)}
+          {infusions && (
+            <>
+              <Typography color="primary" variant="body2">
+                <Trans>Infusions</Trans>:
+              </Typography>
+              {Object.entries(infusions).map(([name, count]) => (
+                <Item count={count} id={INFUSION_IDS[name]} />
+              ))}
+            </>
+          )}
         </>
       }
     >
@@ -228,7 +238,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
                     <Extras classes={classes} character={character} />
                   </TableCell>
                   <TableCell>
-                    <Gear gear={character.gear} />
+                    <Gear gear={character.gear} infusions={character.infusions} />
                   </TableCell>
                   <TableCell sx={{ textAlign: 'right', width: 155.53 }}>
                     <Tooltip title={t('Save locally')}>
@@ -287,7 +297,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
                     <Extras classes={classes} character={character} />
                   </TableCell>
                   <TableCell>
-                    <Gear gear={character.gear} />
+                    <Gear gear={character.gear} infusions={character.infusions} />
                   </TableCell>
                   <TableCell sx={{ textAlign: 'right' }}>
                     <Tooltip title={t('Copy JSON to clipboard')}>
