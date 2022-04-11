@@ -8,6 +8,7 @@ import {
   Box,
   Button,
   Checkbox,
+  Collapse,
   Dialog,
   DialogActions,
   DialogContent,
@@ -20,6 +21,7 @@ import {
   TableCell,
   TableContainer,
   TableRow,
+  TextField,
   Tooltip,
   Typography,
 } from '@mui/material';
@@ -35,6 +37,7 @@ import {
   removeFromSaved,
 } from '../../../../state/slices/controlsSlice';
 import { getAll, save } from './localStorage';
+import InputIcon from '@mui/icons-material/Input';
 
 const useStyles = makeStyles()((theme) => ({
   container: {
@@ -76,8 +79,7 @@ function Gear({ gear }) {
 }
 
 function Extras({ classes, character }) {
-  return Object.entries(character.settings.extrasCombination).map(([key, value]) => {
-    console.log(allExtrasModifiersById);
+  return Object.entries(character.settings.extrasCombination).map(([_, value]) => {
     return (
       <Item className={classes.gw2icon} id={allExtrasModifiersById[value]?.gw2id} disableText />
     );
@@ -91,6 +93,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
 
   const [stored, setStored] = React.useState(getAll());
   const [marked, setMarked] = React.useState(new Array(stored.length).fill(false));
+  const [importText, setImportText] = React.useState('');
 
   const temporarySaved = useSelector(getSaved);
   const selectedTemplate = useSelector(getSelectedTemplate);
@@ -131,6 +134,15 @@ export default function SavedResultManager({ isOpen, setOpen }) {
     newChecked[index] = event.target.checked;
     setMarked(newChecked);
   };
+  const handleImport = () => {
+    try {
+      const toImport = JSON.parse(importText);
+      dispatch(addToSaved(toImport.character));
+    } catch (e) {
+      console.warn('Error while importing build!');
+      // TODO add snackbar
+    }
+  };
   const handleDownload = () => {
     // https://gist.github.com/alexreiling/64a99f3b064ca0ad53db0ab153e6ee49
     const selected = stored.filter((_, index) => marked[index]);
@@ -142,8 +154,10 @@ export default function SavedResultManager({ isOpen, setOpen }) {
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
   };
+  const handleImportTextChange = (event) => {
+    setImportText(event.target.value);
+  };
 
-  console.log(stored);
   return (
     <Dialog
       open={isOpen}
@@ -165,9 +179,24 @@ export default function SavedResultManager({ isOpen, setOpen }) {
       </DialogTitle>
 
       <DialogContent sx={{ padding: 2 }} dividers>
-        <Typography fontWeight={200}>
-          <Trans>Temporary saved builds</Trans>
-        </Typography>
+        <Box display="flex" alignItems="center" mb={1}>
+          <Typography fontWeight={200} flexGrow={1}>
+            <Trans>Temporary saved builds</Trans>
+          </Typography>
+
+          <TextField
+            size="small"
+            label={t('Paste build to import')}
+            variant="standard"
+            value={importText}
+            onChange={handleImportTextChange}
+          />
+          <Tooltip title={t('Import')}>
+            <IconButton onClick={handleImport}>
+              <InputIcon fontSize="small" />
+            </IconButton>
+          </Tooltip>
+        </Box>
 
         <TableContainer className={classes.container}>
           <Table className={classes.table}>
@@ -220,7 +249,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
           </Table>
         </TableContainer>
 
-        <Typography fontWeight={200}>
+        <Typography fontWeight={200} marginTop={2}>
           <Trans>Persistently saved builds</Trans>
         </Typography>
 
@@ -262,7 +291,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
                   </TableCell>
                   <TableCell sx={{ textAlign: 'right' }}>
                     <Tooltip title={t('Copy JSON to clipboard')}>
-                      <IconButton onClick={handleCopy(character)}>
+                      <IconButton onClick={handleCopy({ name, character })}>
                         <ContentCopyIcon fontSize="small" />
                       </IconButton>
                     </Tooltip>
