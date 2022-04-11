@@ -214,6 +214,7 @@ export const enhancementDict = [
   'writ-of-learned-accuracy',
   'writ-of-calculated-accuracy',
   'writ-of-studied-accuracy',
+  'writ-of-learned-malice',
 ];
 
 export const nourishmentDict = [

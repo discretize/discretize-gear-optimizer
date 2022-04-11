@@ -178,13 +178,16 @@
 - section: Writs
   items:
 
-    - id: writ-of-masterful-accuracy
-      text: Writ of Masterful Accuracy
-      subText: (100% uptime)
+    - id: writ-of-masterful-strength
+      text: Writ of Masterful Strength
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
-          Precision: [200, converted]
-      gw2id: 76833
+          Power: [200, converted]
+      gw2id: 73191
 
     - id: writ-of-masterful-malice
       text: Writ of Masterful Malice
@@ -197,16 +200,24 @@
           Condition Damage: [200, converted]
       gw2id: 72510
 
-    - id: writ-of-masterful-strength
-      text: Writ of Masterful Strength
+    - id: writ-of-learned-malice
+      text: Writ of Learned Malice
       amountData:
         label: '% uptime'
         default: 100
         quantityEntered: 100
       modifiers:
         attributes:
-          Power: [200, converted]
-      gw2id: 73191
+          Condition Damage: [160, converted]
+      gw2id: 76478
+
+    - id: writ-of-masterful-accuracy
+      text: Writ of Masterful Accuracy
+      subText: (100% uptime)
+      modifiers:
+        attributes:
+          Precision: [200, converted]
+      gw2id: 76833
 
     - id: writ-of-learned-accuracy
       text: Writ of Learned Accuracy
