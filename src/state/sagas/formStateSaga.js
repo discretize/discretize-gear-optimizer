@@ -22,6 +22,9 @@ const modifyState = (optimizerState) => {
   //   });
   // }
 
+  const { selectedCharacter, list, filteredList, saved } = optimizerState.control;
+
+  // remove appliedModifiers from selected character
   let modifiedSelectedCharacter = null;
   if (optimizerState.control.selectedCharacter) {
     modifiedSelectedCharacter = JSON.parse(
@@ -30,15 +33,25 @@ const modifyState = (optimizerState) => {
     modifiedSelectedCharacter.settings.appliedModifiers = [];
   }
 
+  // remove all list entries that are not selected character
+  const modifiedList =
+    selectedCharacter && list.includes(selectedCharacter) ? [modifiedSelectedCharacter] : [];
+  const modifiedFilteredList =
+    selectedCharacter && filteredList.includes(selectedCharacter)
+      ? [modifiedSelectedCharacter]
+      : [];
+  const modifiedSaved =
+    selectedCharacter && saved.includes(selectedCharacter) ? [modifiedSelectedCharacter] : [];
+
   const exportData = {
     // listSettings,
     optimizerState: {
       ...optimizerState,
       control: {
         ...optimizerState.control,
-        list: [],
-        filteredList: [],
-        saved: [],
+        list: modifiedList,
+        filteredList: modifiedFilteredList,
+        saved: modifiedSaved,
         selectedCharacter: modifiedSelectedCharacter,
       },
     },
