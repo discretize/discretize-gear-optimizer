@@ -74,7 +74,7 @@ function Gear({ gear, infusions }) {
                 <Trans>Infusions</Trans>:
               </Typography>
               {Object.entries(infusions).map(([name, count]) => (
-                <Item count={count} id={INFUSION_IDS[name]} />
+                <Item key={name} count={count} id={INFUSION_IDS[name]} />
               ))}
             </>
           )}
@@ -89,9 +89,15 @@ function Gear({ gear, infusions }) {
 }
 
 function Extras({ classes, character }) {
-  return Object.entries(character.settings.extrasCombination).map(([_, value]) => {
+  return Object.entries(character.settings.extrasCombination).map(([key, value]) => {
+    if (!value) return null;
     return (
-      <Item className={classes.gw2icon} id={allExtrasModifiersById[value]?.gw2id} disableText />
+      <Item
+        key={key}
+        className={classes.gw2icon}
+        id={allExtrasModifiersById[value]?.gw2id}
+        disableText
+      />
     );
   });
 }
@@ -225,6 +231,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
                     {character.settings.cachedFormState.traits.selectedLines.map(
                       (specializationId) => (
                         <Specialization
+                          key={specializationId}
                           id={specializationId}
                           disableText
                           className={classes.gw2icon}
@@ -233,7 +240,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
                     )}
                   </TableCell>
                   <TableCell width={261} />
-                  <TableCell>{Math.round(character.results.value)}</TableCell>{' '}
+                  <TableCell>{Math.round(character.results.value)}</TableCell>
                   <TableCell>
                     <Extras classes={classes} character={character} />
                   </TableCell>
@@ -282,6 +289,7 @@ export default function SavedResultManager({ isOpen, setOpen }) {
                     {character.settings.cachedFormState.traits.selectedLines.map(
                       (specializationId) => (
                         <Specialization
+                          key={specializationId}
                           id={specializationId}
                           disableText
                           className={classes.gw2icon}
