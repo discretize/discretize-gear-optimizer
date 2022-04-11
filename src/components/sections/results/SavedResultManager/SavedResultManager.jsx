@@ -44,6 +44,7 @@ const useStyles = makeStyles()((theme) => ({
     borderColor: theme.palette.background.paper,
     border: '1px solid inherit',
     backgroundColor: theme.palette.background.default,
+    minWidth: 989,
   },
   gw2icon: {
     fontSize: '1.8rem',
@@ -153,10 +154,14 @@ export default function SavedResultManager({ isOpen, setOpen }) {
   const handleImport = () => {
     try {
       const toImport = JSON.parse(importText);
-      dispatch(addToSaved(toImport.character));
+      if (Array.isArray(toImport))
+        toImport.forEach((importable) => dispatch(addToSaved(importable.character)));
+      else dispatch(addToSaved(toImport.character));
     } catch (e) {
       console.warn('Error while importing build!');
       // TODO add snackbar
+    } finally {
+      setImportText('');
     }
   };
   const handleDownload = () => {
