@@ -10,6 +10,7 @@
   "Add": "Add",
   "Adds 150% of your Agony Resistance to Precision, Toughness, and Concentration.": "Adds 150% of your Agony Resistance to Precision, Toughness, and Concentration.",
   "Affixes": "Affixes",
+  "Agony Infusion": "Agony Infusion",
   "Agony Resistance": "Agony Resistance",
   "All Combinations": "All Combinations",
   "Allows adding arbitrary extra modifiers. The textbox expects valid YAML or JSON formatting. Multiple modifiers can be entered as an array.": "Allows adding arbitrary extra modifiers. The textbox expects valid YAML or JSON formatting. Multiple modifiers can be entered as an array.",
