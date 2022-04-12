@@ -18,5 +18,6 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - run: echo ${{ toJSON(github) }}
-      - run: env
+      - run: echo $JSON
+        env:
+          JSON: ${{ toJSON(github) }}
