@@ -5,7 +5,7 @@ import { Trans } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
 import { boons, damagingConditions } from '../../../assets/modifierdata/metadata';
 
-const boonDurations = boons.map((name) => `${name} Duration`);
+// const boonDurations = boons.map((name) => `${name} Duration`);
 
 const roundTwo = (num) => Math.round(num * 100) / 100;
 
