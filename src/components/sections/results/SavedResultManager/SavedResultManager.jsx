@@ -1,4 +1,5 @@
 import { Item, Profession, Specialization, Tooltip as Gw2Tooltip } from '@discretize/gw2-ui-new';
+import { HelperIcon } from '@discretize/react-discretize-components';
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import ClearIcon from '@mui/icons-material/Clear';
 import CloseIcon from '@mui/icons-material/Close';
@@ -202,7 +203,11 @@ export default function SavedResultManager({ isOpen, setOpen }) {
       <DialogContent sx={{ padding: 2 }} dividers>
         <Box display="flex" alignItems="center" mb={1}>
           <Typography fontWeight={200} flexGrow={1}>
-            <Trans>Temporary saved builds</Trans>
+            <Trans>Temporary saved builds</Trans>{' '}
+            <HelperIcon
+              text="These builds will be deleted after you leave or refresh this page"
+              size="small"
+            />
           </Typography>
 
           <TextField
@@ -273,6 +278,10 @@ export default function SavedResultManager({ isOpen, setOpen }) {
 
         <Typography fontWeight={200} marginTop={2}>
           <Trans>Persistently saved builds</Trans>
+          <HelperIcon
+            text="These builds will remain saved in your browser's local storage. Clearing your cache or application data will remove your build."
+            size="small"
+          />
         </Typography>
 
         <TableContainer className={classes.container}>
