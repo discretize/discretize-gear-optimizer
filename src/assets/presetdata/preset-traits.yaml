@@ -1663,7 +1663,7 @@ list:
             1369
           ],
           [
-            1977,
+            0,
             2011,
             1928
           ]
@@ -2077,7 +2077,7 @@ list:
         "skills": {}
       }
 
-  - name: Power Weaver Stormsoul
+  - name: Power Weaver Stormsoul Fractal
     profession: Weaver
     traits: |-
       {
@@ -2168,7 +2168,7 @@ list:
         "skills": {}
       }
 
-  - name: Power Weaver Raging Storm
+  - name: Power Weaver Raging Storm Fractal
     profession: Weaver
     traits: |-
       {
@@ -2259,6 +2259,96 @@ list:
         "skills": {}
       }
 
+  - name: Power Weaver Raid
+    profession: Weaver
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "41",
+          "56"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            334,
+            1510
+          ],
+          [
+            232,
+            214,
+            226
+          ],
+          [
+            2177,
+            2061,
+            2131
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "51"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": "51"
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            },
+            "burning-precision-on-crit": {
+              "amount": "5.61"
+            }
+          },
+          {
+            "ferocious-winds": {},
+            "raging-storm": {
+              "amount": ""
+            },
+            "stormsoul": {
+              "amount": ""
+            },
+            "aeromancers-training": {},
+            "aeromancers-training-2": {
+              "amount": "49"
+            },
+            "bolt-to-the-heart": {
+              "amount": ""
+            },
+            "fresh-air": {
+              "amount": ""
+            }
+          },
+          {
+            "superior-elements": {},
+            "masters-fortitude": {},
+            "masters-fortitude-sword": {},
+            "weavers-prowess": {},
+            "swift-revenge": {
+              "amount": ""
+            },
+            "elemental-polyphony-fire": {
+              "amount": "76"
+            },
+            "elemental-polyphony-air": {
+              "amount": "74"
+            },
+            "elements-of-rage-base": {},
+            "elements-of-rage-buff": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
 
   - name: Condi Weaver Sword
     profession: Weaver
@@ -2965,7 +3055,7 @@ list:
           ],
           [
             2071,
-            2085,
+            2161,
             2128
           ]
         ],
@@ -3028,7 +3118,7 @@ list:
           ],
           [
             2071,
-            2085,
+            2161,
             2128
           ]
         ],

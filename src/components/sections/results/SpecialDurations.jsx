@@ -5,7 +5,6 @@ import { Trans } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
 import { boons, damagingConditions } from '../../../assets/modifierdata/metadata';
 
-const conditionDurations = damagingConditions.map((name) => `${name} Duration`);
 const boonDurations = boons.map((name) => `${name} Duration`);
 
 const roundTwo = (num) => Math.round(num * 100) / 100;
@@ -23,20 +22,29 @@ const useStyles = makeStyles()((theme) => ({
 const SpecialDurations = ({ data: attributes }) => {
   const { classes } = useStyles();
 
-  const conditionEntries = Object.entries(attributes).filter(([attribute]) =>
-    conditionDurations.includes(attribute),
-  );
+  // show if relevant and non zero
+  const relevantConditions = damagingConditions.filter((name) => attributes[`${name} DPS`]);
+  const conditionEntries = relevantConditions
+    .map((name) => [
+      `${name} Duration`,
+      (attributes[`${name} Duration`] ?? 0) + (attributes['Condition Duration'] ?? 0),
+    ])
+    .filter(([_key, value]) => value);
 
-  const boonEntries = Object.entries(attributes).filter(([attribute]) =>
-    boonDurations.includes(attribute),
-  );
+  // show only if specific !== general
+  const boonEntries = boons
+    .filter((name) => attributes[`${name} Duration`])
+    .map((name) => [
+      `${name} Duration`,
+      (attributes[`${name} Duration`] ?? 0) + (attributes['Boon Duration'] ?? 0),
+    ]);
 
   if (boonEntries.length === 0 && conditionEntries.length === 0) return null;
 
   return (
     <>
       <Typography variant="h6">
-        <Trans>Special Durations</Trans>
+        <Trans>Specific Durations</Trans>
       </Typography>
 
       <Table padding="none">
@@ -50,9 +58,7 @@ const SpecialDurations = ({ data: attributes }) => {
                   className={classes.gw2Item}
                 />
               </TableCell>
-              <TableCell>
-                {roundTwo((value + (attributes['Condition Duration'] || 0)) * 100)}%
-              </TableCell>
+              <TableCell>{roundTwo(value * 100)}%</TableCell>
             </TableRow>
           ))}
           {boonEntries.map(([attribute, value]) => (
@@ -60,7 +66,7 @@ const SpecialDurations = ({ data: attributes }) => {
               <TableCell>
                 <Boon name={attribute.split(' ')[0]} text={attribute} className={classes.gw2Item} />
               </TableCell>
-              <TableCell>{roundTwo((value + (attributes['Boon Duration'] || 0)) * 100)}%</TableCell>
+              <TableCell>{roundTwo(value * 100)}%</TableCell>
             </TableRow>
           ))}
         </TableBody>

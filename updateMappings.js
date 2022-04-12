@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable id-length */
 /* eslint-disable no-console */
 const axios = require('axios');
@@ -63,7 +64,7 @@ function fetchSpecializations() {
         });
     });
 }
-
+/*
 function fetchTraits() {
   console.log('Fetching traits...');
   // get item stats (affixes)
@@ -295,6 +296,7 @@ function fetchItems() {
       console.log(error);
     });
 }
+*/
 fetchSpecializations();
 // fetchTraits();
 // fetchSkills();

@@ -50,7 +50,7 @@ export default function NavAccordion({ handleTemplateSelect }) {
     setExpanded(newExpanded ? panel : false);
   };
 
-  return data.templates.map((prof) => (
+  return data.templates.list.map((prof) => (
     <MuiAccordion
       classes={{ root: classes.accordionRoot }}
       square
@@ -72,7 +72,7 @@ export default function NavAccordion({ handleTemplateSelect }) {
               variant="outlined"
               label={<Profession name={build.specialization} text={build.name} disableLink />}
               onClick={(e) => {
-                handleTemplateSelect(null, build, prof.class);
+                handleTemplateSelect(null, build.name, prof.class);
               }}
             />
           </Box>

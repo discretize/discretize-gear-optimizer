@@ -71,7 +71,7 @@ const oldShortener = (longUrl, setSnackbarState, setLoading, t) => {
   // this url points to a cloudflare worker, which acts as a url shortener
   // Source for the shortener: https://gist.github.com/gw2princeps/dc88d11e6b2378db35bcb2dd3726c7c6
   const shortenPromise = axios
-    .get(`https://go.princeps.biz/?new=${longUrl.replace('&', '%26')}`)
+    .get(`https://go.princeps.biz/?new=${longUrl.replaceAll('&', '%26')}`)
     .then((res) => {
       if (res?.data?.Status === 200) {
         console.log('Exported short URL:', res.data.ShortUrl);
@@ -121,7 +121,7 @@ const oldShortener = (longUrl, setSnackbarState, setLoading, t) => {
   // setBuildUrl(data);
 };
 
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const URLStateExport = ({ type }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -175,6 +175,7 @@ const URLStateExport = ({ type }) => {
           message: t('Copied link to clipboard! (Link shortener disabled in preview builds.)'),
         }));
         navigator.clipboard.writeText(longUrl);
+        setLoading(false);
       } else {
         oldShortener(longUrl, setSnackbarState, setLoading, t);
       }

@@ -1,4 +1,5 @@
 *.yaml
+*.yml
 src/utils/mapping/
 
 node_modules/

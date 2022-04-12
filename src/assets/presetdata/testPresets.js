@@ -198,7 +198,7 @@ const testModifiers = async () => {
         }
 
         gentleAssert(
-          ['Dual wield', 'Two-handed', 'unset'].includes(weaponType),
+          ['Dual wield', 'Two-handed'].includes(weaponType),
           `err: ${name}'s weaponType is not valid! (mode: ${mode})`,
         );
       }

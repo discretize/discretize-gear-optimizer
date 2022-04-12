@@ -194,9 +194,9 @@ export const getHelperResult = createSelector(
       return { error: 'More stat infusions selected than slots!' };
     }
 
-    if (ARFromGear > 30 * agonySlots + 9 * statSlots) {
-      return { error: 'Target AR is too high!' };
-    }
+    // if (ARFromGear > 30 * agonySlots + 9 * statSlots) {
+    //   return { error: 'Target AR is too high!' };
+    // }
 
     let nine = statSlots;
     let seven = 0;
