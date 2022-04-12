@@ -29,11 +29,13 @@ import {
   getSelectedTemplate,
   setBuildTemplate,
 } from '../../state/slices/controlsSlice';
-import { getExpertMode, getGameMode } from '../../state/slices/userSettings';
+import { changeGameMode, getExpertMode, getGameMode } from '../../state/slices/userSettings';
 import data from '../../utils/data';
 import { PROFESSIONS } from '../../utils/gw2-data';
+import { PARAMS, setQueryParm } from '../../utils/queryParam';
 import NavAccordion from './NavAccordion';
-import NavSettings from './NavSettings';
+import NavSettings, { GAME_MODES } from './NavSettings';
+import ReappplyTemplateDialog from './ReappplyTemplateDialog';
 
 const useStyles = makeStyles()((theme) => ({
   icon: {
@@ -44,13 +46,16 @@ const useStyles = makeStyles()((theme) => ({
 const Navbar = () => {
   const { classes } = useStyles();
   const dispatch = useDispatch();
+  const { t } = useTranslation();
+
   const profession = useSelector(getProfession);
   const expertMode = useSelector(getExpertMode);
   const gamemode = useSelector(getGameMode);
   const selectedSpecialization = useSelector(getSelectedSpecialization);
   const selectedTemplateName = useSelector(getSelectedTemplate);
 
-  const { t } = useTranslation();
+  const isFractals = gamemode === 'fractals';
+  const selectedGameModeText = isFractals ? t('Fractals') : t('Raids');
 
   const [state, setState] = useState({
     mobileView: typeof window !== 'undefined' ? window.innerWidth < 900 : false,
@@ -58,6 +63,9 @@ const Navbar = () => {
     hover: [false, false, false, false, false, false, false, false, false],
     anchor: null,
   });
+  // state for the reapply dialog
+  const [open, setOpen] = React.useState(false);
+
   const { mobileView, drawerOpen } = state;
 
   useEffect(() => {
@@ -76,16 +84,37 @@ const Navbar = () => {
     };
   }, [mobileView]);
 
+  const handleModeCycle = () => {
+    const currentMode = gamemode;
+    const index = GAME_MODES(t)
+      .map((mode) => mode.value)
+      .indexOf(currentMode);
+    const newIndex = (index + 1) % GAME_MODES(t).length;
+    const newGameMode = GAME_MODES(t)[newIndex]?.value;
+
+    setQueryParm({ key: PARAMS.GAMEMODE, value: newGameMode });
+    dispatch(changeGameMode(newGameMode));
+    if (selectedTemplateName && selectedTemplateName.length > 0) setOpen(true);
+  };
+
   const stickyRight = () => {
     return (
       <Box display="flex" alignItems="center" gap={1}>
-        <Tooltip content={`${t('Selected Game Mode')}: ${isFractals ? t('Fractals') : t('Raids')}`}>
-          <img
-            style={{ width: '40px' }}
-            src={isFractals ? fractalImg : raidImg}
-            alt={isFractals ? t('Fractal') : t('Raid')}
-          />
-        </Tooltip>
+        <Box display="flex" flexDirection="column" alignItems="center">
+          <Tooltip content={`${t('Selected Game Mode')}: ${selectedGameModeText}`}>
+            <IconButton size="small" onClick={handleModeCycle}>
+              <img
+                style={{ width: '40px' }}
+                src={isFractals ? fractalImg : raidImg}
+                alt={isFractals ? t('Fractal') : t('Raid')}
+              />
+            </IconButton>
+          </Tooltip>
+
+          <Typography sx={{ mt: -1 }} variant="caption">
+            {selectedGameModeText}
+          </Typography>
+        </Box>
 
         <Tooltip content={t('Jump to sharing section')}>
           <IconButton
@@ -102,6 +131,8 @@ const Navbar = () => {
         </Tooltip>
 
         <NavSettings />
+
+        <ReappplyTemplateDialog open={open} handleClose={() => setOpen(false)} />
       </Box>
     );
   };
@@ -144,8 +175,6 @@ const Navbar = () => {
       </Toolbar>
     );
   };
-
-  const isFractals = gamemode === 'fractals';
 
   const handleTemplateSelect = React.useCallback(
     // eslint-disable-next-line no-shadow
