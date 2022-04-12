@@ -1,13 +1,11 @@
-import { Box, Container, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import React from 'react';
 
 const Layout = ({ children, ContainerProps, disableContainer = false }) => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('lg'));
   return (
     <>
-      {(!disableContainer && !isMobile && (
-        <Container maxWidth="lg" {...ContainerProps}>
+      {(!disableContainer && (
+        <Container disableGutters maxWidth="lg" {...ContainerProps}>
           <Box
             sx={{
               padding: 2,
