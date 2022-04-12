@@ -11,12 +11,13 @@ env:
 jobs:
   deployment:
     runs-on: ubuntu-latest
+    if: >
+      !contains(github.event.head_commit.message, 'skip ci') &&
+      !contains(github.event.head_commit.message, 'skip preview') &&
+      github.event.pull_request.draft == false
     timeout-minutes: 10
 
-    # hello
-
     steps:
-      - name: print variables
       - run: echo ${{ github.event.head_commit.message }}
       - run: echo ${{ github.event.head_commit }}
       - run: echo ${{ github.event }}
