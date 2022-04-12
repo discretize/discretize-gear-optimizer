@@ -349,7 +349,13 @@ const InfusionHelper = () => {
                 } else if (text.includes('Agony Infusion')) {
                   // fake higher infusions with a +24 with no tooltip
                   renderInfusions = (
-                    <Item id={49447} disableLink disableTooltip className={classes.bigStyle} />
+                    <Item
+                      id={49447}
+                      disableLink
+                      disableTooltip
+                      text={text}
+                      className={classes.bigStyle}
+                    />
                   );
                 } else {
                   renderInfusions = text;
