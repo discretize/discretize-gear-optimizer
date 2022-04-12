@@ -42,6 +42,7 @@ export function getBuildTemplateData({ selectedTemplate, isFractals, profession,
     specialization: build.specialization,
     profession,
     buffPreset: JSON.parse(presetBuffs.list.find((pre) => pre.name === build.boons).value),
+    selectedDistribution: build.distribution,
     distributionPreset: JSON.parse(
       presetDistribution.list.find((pre) => pre.name === build.distribution)?.value || 'null',
     ),

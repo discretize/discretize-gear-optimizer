@@ -4,6 +4,7 @@ import { changeAll, setBuildTemplate } from './controlsSlice';
 export const distributionSlice = createSlice({
   name: 'distribution',
   initialState: {
+    selectedDistribution: '',
     version: 2,
     values1: {},
     values2: {
@@ -40,14 +41,18 @@ export const distributionSlice = createSlice({
       };
     },
     changeAllDistributions: (state, action) => {
-      const distributionPreset = action.payload;
+      const { name, value } = action.payload;
+      try {
+        const distributionPreset = JSON.parse(value);
 
-      if (distributionPreset) {
         return {
           ...state,
+          selectedDistribution: name,
           values2: distributionPreset.values2,
           textBoxes: distributionPreset.values2,
         };
+      } catch (e) {
+        console.error(e);
       }
       return state;
     },
@@ -57,10 +62,11 @@ export const distributionSlice = createSlice({
       return { ...state, ...action.payload?.form?.distribution };
     },
     [setBuildTemplate]: (state, action) => {
-      const { distributionPreset } = action.payload;
+      const { distributionPreset, selectedDistribution } = action.payload;
 
       if (distributionPreset) {
         return {
+          selectedDistribution,
           version: 2,
           values1: {},
           values2: distributionPreset.values2,
@@ -74,6 +80,8 @@ export const distributionSlice = createSlice({
 
 export const getDistributionNew = (state) => state.optimizer.form.distribution.values2;
 export const getTextBoxes = (state) => state.optimizer.form.distribution.textBoxes;
+export const getSelectedDistribution = (state) =>
+  state.optimizer.form.distribution.selectedDistribution;
 
 export const { changeDistributionNew, changeTextBoxes, changeAllDistributions } =
   distributionSlice.actions;

@@ -33,7 +33,7 @@ const DistributionSection = () => {
     (value) => {
       if (!value) return;
 
-      dispatch(changeAllDistributions(JSON.parse(value.value)));
+      dispatch(changeAllDistributions(value));
     },
     [dispatch],
   );
