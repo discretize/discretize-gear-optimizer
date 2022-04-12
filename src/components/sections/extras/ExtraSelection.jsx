@@ -86,8 +86,8 @@ export default function ExtraSelection(props) {
 
   return (
     <>
-      <Box display="flex" mb={1}>
-        <Typography variant="h6" component="span" flexGrow={1}>
+      <Box display="flex" alignItems="flex-end" mb={1}>
+        <Typography component="span" flexGrow={1}>
           {label}
         </Typography>
         <Button variant="contained" size="small" startIcon={<AddIcon />} onClick={handleOpen}>
