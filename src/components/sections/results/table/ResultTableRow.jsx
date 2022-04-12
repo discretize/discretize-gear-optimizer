@@ -46,7 +46,7 @@ const ResultTableRow = ({
     savedSection
       ? ({ onClick }) => (
           <IconButton onClick={onClick} size="small">
-            <CloseIcon sx={{ color: 'red' }} />
+            <CloseIcon sx={{ opacity: 0.3, '&:hover': { opacity: 0.8, color: 'red' } }} />
           </IconButton>
         )
       : StarRoundedIcon,
