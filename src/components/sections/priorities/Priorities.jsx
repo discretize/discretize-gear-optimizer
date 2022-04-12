@@ -170,7 +170,7 @@ const Priorities = () => {
     },
   ].map(({ type, label, value, helpText }) => {
     return (
-      <Grid item xs={6} md={4} className={classes.box}>
+      <Grid key={type} item xs={6} md={4} className={classes.box}>
         <FormControl className={classes.formControl} variant="standard">
           <InputLabel htmlFor={`${type}-input-with-icon-adornment`}>{label}</InputLabel>
           <Input

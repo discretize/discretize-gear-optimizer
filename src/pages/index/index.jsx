@@ -25,7 +25,12 @@ const IndexPage = () => {
       <Layout>
         <URLStateImport sagaType={SagaTypes.ImportFormState} clearUrlOnSuccess />
 
-        <MuiAlert elevation={6} variant="filled" severity="warning">
+        <MuiAlert elevation={6} variant="filled" severity="info" sx={{ marginBottom: 1 }}>
+          Bonjour! ¡Hola! 你好! <br />
+          We are looking for translators for spanish, french and chinese.
+        </MuiAlert>
+
+        <MuiAlert elevation={6} variant="filled" severity="info">
           <Trans>
             The gear optimizer is currently in beta! Templates are not final and
             illusion/summon/mech and lifesteal and condition-on-crit damage is inaccurate. Please
