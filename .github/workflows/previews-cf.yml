@@ -18,7 +18,5 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - run: echo ${{ github.event.head_commit.message }}
-      - run: echo ${{ github.event.head_commit }}
-      - run: echo ${{ github.event }}
+      - run: echo ${{ toJSON(github.event) }}
       - run: env
