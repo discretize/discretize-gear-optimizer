@@ -1,5 +1,4 @@
 import { APILanguageProvider } from '@discretize/gw2-ui-new';
-import { Layout } from '@discretize/react-discretize-components';
 import CloseIcon from '@mui/icons-material/Close';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { Collapse, IconButton, Link, Typography } from '@mui/material';
@@ -9,6 +8,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import BackgroundImage from '../../components/baseComponents/BackgroundImage';
 import ErrorBoundary from '../../components/baseComponents/ErrorBoundary';
+import Layout from '../../components/baseComponents/Layout';
 import GearOptimizer from '../../components/GearOptimizer';
 import URLStateImport from '../../components/url-state/URLStateImport';
 import SagaTypes from '../../state/sagas/sagaTypes';
