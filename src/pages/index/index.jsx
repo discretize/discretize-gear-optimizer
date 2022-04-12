@@ -1,7 +1,8 @@
 import { APILanguageProvider } from '@discretize/gw2-ui-new';
 import { Layout } from '@discretize/react-discretize-components';
+import CloseIcon from '@mui/icons-material/Close';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { Link, Typography } from '@mui/material';
+import { Collapse, IconButton, Link, Typography } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
@@ -19,42 +20,66 @@ const IndexPage = () => {
   const { language } = i18n;
   const gameMode = useSelector(getGameMode);
 
+  const [alertOpen, setAlertOpen] = React.useState([true, true]);
+
+  const ALERTS = [
+    <>
+      Bonjour! ¡Hola! 你好! <br />
+      We are looking for translators for spanish, french and chinese.
+    </>,
+    <>
+      <Trans>
+        The gear optimizer is currently in beta! Templates are not final and illusion/summon/mech
+        and lifesteal and condition-on-crit damage is inaccurate. Please report potential issues to
+        us in
+      </Trans>{' '}
+      <Link href="https://discord.gg/Qdt7nFY" color="textPrimary" target="_blank" rel="noopener">
+        Discord
+      </Link>{' '}
+      <Trans>or</Trans>{' '}
+      <Link
+        href="https://github.com/discretize/discretize-gear-optimizer/tree/staging"
+        color="textPrimary"
+        target="_blank"
+        rel="noopener"
+      >
+        <GitHubIcon fontSize="small" /> Github
+      </Link>
+      .
+    </>,
+  ];
+
   return (
     <APILanguageProvider value={language}>
       <BackgroundImage gameMode={gameMode} />
       <Layout>
         <URLStateImport sagaType={SagaTypes.ImportFormState} clearUrlOnSuccess />
-
-        <MuiAlert elevation={6} variant="filled" severity="info" sx={{ marginBottom: 1 }}>
-          Bonjour! ¡Hola! 你好! <br />
-          We are looking for translators for spanish, french and chinese.
-        </MuiAlert>
-
-        <MuiAlert elevation={6} variant="filled" severity="info">
-          <Trans>
-            The gear optimizer is currently in beta! Templates are not final and
-            illusion/summon/mech and lifesteal and condition-on-crit damage is inaccurate. Please
-            report potential issues to us in
-          </Trans>{' '}
-          <Link
-            href="https://discord.gg/Qdt7nFY"
-            color="textPrimary"
-            target="_blank"
-            rel="noopener"
-          >
-            Discord
-          </Link>{' '}
-          <Trans>or</Trans>{' '}
-          <Link
-            href="https://github.com/discretize/discretize-gear-optimizer/tree/staging"
-            color="textPrimary"
-            target="_blank"
-            rel="noopener"
-          >
-            <GitHubIcon fontSize="small" /> Github
-          </Link>
-          .
-        </MuiAlert>
+        {ALERTS.map((alert, index) => (
+          <Collapse key={`alert-${index.toString()}`} in={alertOpen[index]}>
+            <MuiAlert
+              action={
+                <IconButton
+                  aria-label="close"
+                  color="inherit"
+                  size="small"
+                  onClick={() => {
+                    const newAlertOpen = [...alertOpen];
+                    newAlertOpen[index] = false;
+                    setAlertOpen(newAlertOpen);
+                  }}
+                >
+                  <CloseIcon fontSize="inherit" />
+                </IconButton>
+              }
+              elevation={6}
+              variant="filled"
+              severity="info"
+              sx={{ marginBottom: 1 }}
+            >
+              {alert}
+            </MuiAlert>
+          </Collapse>
+        ))}
         <Typography variant="h2" sx={{ paddingBottom: 2 }}>
           <Trans>Gear Optimizer</Trans>
         </Typography>
