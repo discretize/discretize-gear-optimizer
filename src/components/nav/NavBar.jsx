@@ -58,6 +58,7 @@ const Navbar = () => {
   const selectedGameModeText = isFractals ? t('Fractals') : t('Raids');
 
   const mobileView = !useMediaQuery('(min-width:900px)');
+  const showSelectedTemplate = useMediaQuery('(min-width:960px)');
 
   const [state, setState] = useState({
     drawerOpen: false,
@@ -245,7 +246,7 @@ const Navbar = () => {
         ))}
       </Box>
 
-      {(selectedSpecialization || selectedTemplateName) && (
+      {showSelectedTemplate && (selectedSpecialization || selectedTemplateName) && (
         <Box flexGrow={1}>
           <Typography>
             <Trans>Selected</Trans>:{' '}
