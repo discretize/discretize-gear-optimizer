@@ -5,16 +5,16 @@ import {
   AppBar,
   Box,
   Button,
-  debounce,
   IconButton,
   MenuItem,
   SwipeableDrawer,
   Toolbar,
   Typography,
+  useMediaQuery,
 } from '@mui/material';
 import { bindHover, bindMenu, usePopupState } from 'material-ui-popup-state/es/hooks';
 import Menu from 'material-ui-popup-state/es/HoverMenu';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
@@ -57,8 +57,10 @@ const Navbar = () => {
   const isFractals = gamemode === 'fractals';
   const selectedGameModeText = isFractals ? t('Fractals') : t('Raids');
 
+  const mobileView = !useMediaQuery('(min-width:900px)');
+  const showSelectedTemplate = useMediaQuery('(min-width:960px)');
+
   const [state, setState] = useState({
-    mobileView: typeof window !== 'undefined' ? window.innerWidth < 900 : false,
     drawerOpen: false,
     hover: [false, false, false, false, false, false, false, false, false],
     anchor: null,
@@ -66,23 +68,7 @@ const Navbar = () => {
   // state for the reapply dialog
   const [open, setOpen] = React.useState(false);
 
-  const { mobileView, drawerOpen } = state;
-
-  useEffect(() => {
-    const setResponsiveness = () => {
-      const mobileViewCurrent = window.innerWidth < 900;
-      if (mobileViewCurrent !== mobileView) {
-        setState((prevState) => ({ ...prevState, mobileView: mobileViewCurrent }));
-      }
-    };
-    const debouncedResponsive = debounce(setResponsiveness, 300);
-
-    window.addEventListener('resize', debouncedResponsive);
-
-    return () => {
-      window.removeEventListener('resize', debouncedResponsive);
-    };
-  }, [mobileView]);
+  const { drawerOpen } = state;
 
   const handleModeCycle = () => {
     const currentMode = gamemode;
@@ -260,7 +246,7 @@ const Navbar = () => {
         ))}
       </Box>
 
-      {(selectedSpecialization || selectedTemplateName) && (
+      {showSelectedTemplate && (selectedSpecialization || selectedTemplateName) && (
         <Box flexGrow={1}>
           <Typography>
             <Trans>Selected</Trans>:{' '}
