@@ -1,17 +1,7 @@
 import { APILanguageProvider } from '@discretize/gw2-ui-new';
 import CloseIcon from '@mui/icons-material/Close';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import {
-  Collapse,
-  Grid,
-  IconButton,
-  Link,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Typography,
-} from '@mui/material';
+import { Collapse, IconButton, Link, Typography } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
@@ -24,7 +14,6 @@ import Footer from '../../components/sections/footer/Footer';
 import URLStateImport from '../../components/url-state/URLStateImport';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import { getGameMode } from '../../state/slices/userSettings';
-import Discord from '../../utils/discord';
 
 // markup
 const IndexPage = () => {
