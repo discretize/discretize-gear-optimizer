@@ -126,7 +126,7 @@ module.exports = {
         nsSeparator: null,
         keyAsDefaultValue: ['en'],
         useI18nextDefaultValue: ['en'],
-        discardOldKeys: false,
+        discardOldKeys: true,
         outputPath: 'locales/{{locale}}/{{ns}}.json',
         customTransComponents: [['react-i18next', 'Trans']],
       },
