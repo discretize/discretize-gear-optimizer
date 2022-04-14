@@ -420,15 +420,15 @@
       text: Birthday Blaster
       modifiers:
         attributes:
-          Power: [40, converted]
-          Precision: [40, converted]
-          Toughness: [40, converted]
-          Vitality: [40, converted]
-          Concentration: [40, converted]
-          Condition Damage: [40, converted]
-          Expertise: [40, converted]
-          Ferocity: [40, converted]
-          Healing Power: [40, converted]
+          Power: [40, buff]
+          Precision: [40, buff]
+          Toughness: [40, buff]
+          Vitality: [40, buff]
+          Concentration: [40, buff]
+          Condition Damage: [40, buff]
+          Expertise: [40, buff]
+          Ferocity: [40, buff]
+          Healing Power: [40, buff]
       gw2id: 66961
 
     - id: passion-fruit-tapioca-pudding
