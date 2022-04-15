@@ -66,6 +66,7 @@ const cloudflare = (longUrl, binaryData, setSnackbarState, setLoading, t) => {
 };
 
 // TODO remove once the optimizer is on cloudflare exclusively
+/*
 const oldShortener = (longUrl, setSnackbarState, setLoading, t) => {
   // get request to create a new short-url
   // this url points to a cloudflare worker, which acts as a url shortener
@@ -120,6 +121,7 @@ const oldShortener = (longUrl, setSnackbarState, setLoading, t) => {
   // setBuildUrl would trigger an update in the useEffects method of URLState... which is not what we want
   // setBuildUrl(data);
 };
+*/
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const URLStateExport = ({ type }) => {
@@ -162,23 +164,18 @@ const URLStateExport = ({ type }) => {
           success: false,
           message: t('Error: too much data!'),
         }));
+        setLoading(false);
         return;
       }
 
-      if (!longUrl.includes('optimizer.discretize.eu')) {
-        // skip link shortener if build in staging/preview/local development
-        // (prevents sharing short links that redirect to an invalid location)
-        setSnackbarState((state) => ({
-          ...state,
-          open: true,
-          success: true,
-          message: t('Copied link to clipboard! (Link shortener disabled in preview builds.)'),
-        }));
-        navigator.clipboard.writeText(longUrl);
-        setLoading(false);
-      } else {
-        oldShortener(longUrl, setSnackbarState, setLoading, t);
-      }
+      setSnackbarState((state) => ({
+        ...state,
+        open: true,
+        success: true,
+        message: t('Copied long link to clipboard! (Link shortener requires cloudflare mode.)'),
+      }));
+      navigator.clipboard.writeText(longUrl);
+      setLoading(false);
     },
     [t],
   );
