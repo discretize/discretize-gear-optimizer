@@ -80,6 +80,42 @@ const unModifyState = (importData) => {
   return optimizerState;
 };
 
+const getShortUrl = async (exportData) => {
+  console.time('Compressed binary data in:');
+  const binaryData = pako.deflate(JSON.stringify(exportData));
+  console.timeEnd('Compressed binary data in:');
+
+  const response = await axios.post(`share/create`, binaryData).catch(console.error);
+  if (response?.data?.Status !== 200) {
+    console.log(
+      `URL shortener returned status ${response?.data?.Status}! Falling back to long URL.`,
+    );
+    throw new Error('failure');
+  }
+  const { Key } = response.data;
+
+  const urlObject = new URL(window.location.href);
+  urlObject.searchParams.set(PARAMS.SHORTENER, `${Key}v1`);
+  const shortUrl = urlObject.href;
+
+  console.log('Exported short URL:', shortUrl);
+  return shortUrl;
+};
+
+const getLongUrl = async (exportData) => {
+  console.time('Compressed json-url data in:');
+  const jsonUrlData = await lib.compress(exportData);
+  console.timeEnd('Compressed json-url data in:');
+
+  const urlObject = new URL(window.location.href);
+  urlObject.searchParams.set(PARAMS.VERSION, version);
+  urlObject.searchParams.set(PARAMS.BUILD, jsonUrlData);
+  const longUrl = urlObject.href;
+
+  console.log(`Exported long URL (${longUrl.length} characters):`, longUrl);
+  return longUrl;
+};
+
 function* exportState({ t, onSuccess, onFailure }) {
   if (typeof window === 'undefined') return;
   try {
@@ -96,50 +132,28 @@ function* exportState({ t, onSuccess, onFailure }) {
     // is nothing to copy.
 
     // eslint-disable-next-line no-async-promise-executor
-    const urlPromise = new Promise(async function createUrlPromise(resolve) {
+    const urlPromise = new Promise(async (resolve) => {
+      let url;
       // in cloudflare environments, use CF function URL shortener (see functions/share/create.ts)
       if (import.meta.env.VITE_HAS_CF) {
-        console.time('Compressed binary data in:');
-        const binaryData = pako.deflate(JSON.stringify(exportData));
-        console.timeEnd('Compressed binary data in:');
-
-        const response = await axios.post(`share/create`, binaryData).catch(console.error);
-        if (response?.data?.Status === 200) {
-          const { Key } = response.data;
-
-          const urlObject = new URL(window.location.href);
-          urlObject.searchParams.set(PARAMS.SHORTENER, `${Key}v1`);
-          const shortUrl = urlObject.href;
-
-          console.log('Exported short URL:', shortUrl);
-          resolve(shortUrl);
-          return;
+        try {
+          url = await getShortUrl(exportData);
+        } catch (e) {
+          successMessage = t('Copied long link to clipboard! (Link shortener failed.)');
+          url = await getLongUrl(exportData);
         }
-        console.log(
-          `URL shortener returned status ${response?.data?.Status}! Falling back to long URL.`,
-        );
-        successMessage = t('Copied long link to clipboard! (Link shortener failed.)');
       } else {
         successMessage = t(
           'Copied long link to clipboard! (Link shortener requires cloudflare environment.)',
         );
+        url = await getLongUrl(exportData);
       }
 
-      // fall back to long URL
-      console.time('Compressed json-url data in:');
-      const jsonUrlData = await lib.compress(exportData);
-      console.timeEnd('Compressed json-url data in:');
-
-      const urlObject = new URL(window.location.href);
-      urlObject.searchParams.set(PARAMS.VERSION, version);
-      urlObject.searchParams.set(PARAMS.BUILD, jsonUrlData);
-      const longUrl = urlObject.href;
-
-      if (longUrl.length > 8000) {
-        console.log(`Long URL (${longUrl.length} characters) is too long:`, longUrl);
+      if (url.length > 8000) {
+        console.error('URL is too long!');
         onFailure(t('Error: too much data!'));
       } else {
-        resolve(longUrl);
+        resolve(url);
       }
     });
 
@@ -160,7 +174,7 @@ function* exportState({ t, onSuccess, onFailure }) {
       .catch(() => onFailure(t('Failed to copy link to clipboard!')));
   } catch (e) {
     console.log('Problem saving and sharing state!');
-    console.log(e);
+    console.error(e);
     onFailure(t('There was an error exporting the state!'));
   }
 }
