@@ -169,7 +169,7 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2219, "Burning": 13.55, "Bleeding": 2.27, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2219, "Burning": 14.24, "Bleeding": 2.4, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
 
   # burn 23245
