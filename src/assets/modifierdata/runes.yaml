@@ -135,6 +135,26 @@
           Flat DPS: 750 # copied from wiki
       gw2id: 24785
 
+    # - id: rage
+    #   text: Superior Rune of Rage
+    #   modifiers:
+    #     damage:
+    #       Strike Damage: [5%, unknown]
+    #     attributes:
+    #       Power: [175, converted]
+    #       Fury Duration: 50%
+    #   gw2id: 24717
+
+    # - id: infiltration
+    #   text: Superior Rune of Infiltration
+    #   modifiers:
+    #     damage:
+    #       Strike Damage: [5%, unknown]
+    #     attributes:
+    #       Power: [175, converted]
+    #       Precision: [100, converted]
+    #   gw2id: 24703
+
 - section: Support Runes
   items:
 
