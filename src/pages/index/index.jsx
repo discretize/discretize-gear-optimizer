@@ -74,6 +74,7 @@ const IndexPage = () => {
               elevation={6}
               variant="filled"
               severity="info"
+              color="subtleThemed"
               sx={{ marginBottom: 1 }}
             >
               {alert}
