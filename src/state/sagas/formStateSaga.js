@@ -102,7 +102,7 @@ const getShortUrl = async (exportData) => {
   return shortUrl;
 };
 
-const getLongUrl = async (exportData) => {
+const getLongUrl = async (exportData, onFailure, t) => {
   console.time('Compressed json-url data in:');
   const jsonUrlData = await lib.compress(exportData);
   console.timeEnd('Compressed json-url data in:');
@@ -111,6 +111,14 @@ const getLongUrl = async (exportData) => {
   urlObject.searchParams.set(PARAMS.VERSION, version);
   urlObject.searchParams.set(PARAMS.BUILD, jsonUrlData);
   const longUrl = urlObject.href;
+
+  if (longUrl.length > 8000) {
+    console.log(`URL is too long! (${longUrl.length} characters):`, longUrl);
+    onFailure(t('Error: too much data!'));
+
+    // copy nothing to the clipboard by never settling this promise
+    return new Promise(() => {});
+  }
 
   console.log(`Exported long URL (${longUrl.length} characters):`, longUrl);
   return longUrl;
@@ -124,38 +132,17 @@ function* exportState({ t, onSuccess, onFailure }) {
     const exportData = modifyState(reduxState.optimizer);
     console.log(exportData);
 
-    let successMessage = t('Copied link to clipboard!');
+    let successMessage = import.meta.env.VITE_HAS_CF
+      ? t('Copied link to clipboard!')
+      : t('Copied long link to clipboard! (Link shortener requires cloudflare environment.)');
 
-    // navigator.clipboard.write() must be called synchronously and unconditionally.
-    // To avoid copying garbage to clipboard if there is an asynchronous error, we pass it an
-    // unresolved promise by simply never calling resolve() inside a Promise constructor if there
-    // is nothing to copy.
-
-    // eslint-disable-next-line no-async-promise-executor
-    const urlPromise = new Promise(async (resolve) => {
-      let url;
-      // in cloudflare environments, use CF function URL shortener (see functions/share/create.ts)
-      if (import.meta.env.VITE_HAS_CF) {
-        try {
-          url = await getShortUrl(exportData);
-        } catch (e) {
+    const urlPromise = import.meta.env.VITE_HAS_CF
+      ? getShortUrl(exportData).catch((e) => {
+          // fall back to long URL on link shortner failure
           successMessage = t('Copied long link to clipboard! (Link shortener failed.)');
-          url = await getLongUrl(exportData);
-        }
-      } else {
-        successMessage = t(
-          'Copied long link to clipboard! (Link shortener requires cloudflare environment.)',
-        );
-        url = await getLongUrl(exportData);
-      }
-
-      if (url.length > 8000) {
-        console.error('URL is too long!');
-        onFailure(t('Error: too much data!'));
-      } else {
-        resolve(url);
-      }
-    });
+          return getLongUrl(exportData, onFailure, t);
+        })
+      : getLongUrl(exportData, onFailure, t);
 
     // iOS browsers and desktop Safari require the use of the async clipboard API, calling
     // navigator.clipboard.write synchronously and passing it a Promise
