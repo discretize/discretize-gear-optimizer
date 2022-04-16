@@ -1,9 +1,9 @@
 import React from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { Grid, Link, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
+import { Trans } from 'react-i18next';
 import Discord from '../../../utils/discord';
 import Layout from '../../baseComponents/Layout';
-import { Trans } from 'react-i18next';
 
 const LINK_PROPS = {
   target: '_blank',
