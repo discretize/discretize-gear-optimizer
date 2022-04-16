@@ -96,6 +96,7 @@ const getShortUrl = async (exportData) => {
 
   const urlObject = new URL(window.location.href);
   urlObject.searchParams.set(PARAMS.SHORTENER, `${Key}v1`);
+  urlObject.searchParams.delete(PARAMS.GAMEMODE);
   const shortUrl = urlObject.href;
 
   console.log('Exported short URL:', shortUrl);
