@@ -40,6 +40,9 @@ const useStyles = makeStyles()((theme) => ({
     marginLeft: theme.spacing(1),
     fontWeight: 200,
   },
+  item: {
+    cursor: 'url(/images/cursors/green.png),pointer',
+  },
 }));
 
 export default function ExtraSelection(props) {
@@ -76,7 +79,7 @@ export default function ExtraSelection(props) {
     dispatch(changeExtraAmount({ type, id, amount: e.target.value }));
   };
 
-  const handleDelete = (id) => () => {
+  const handleDelete = (id) => (e) => {
     dispatch(changeExtraIds({ type, ids: currentIds.filter((id0) => id0 !== id) }));
   };
 
@@ -142,7 +145,7 @@ export default function ExtraSelection(props) {
             );
           })
         ) : (
-          <ListItem>
+          <ListItem onClick={handleOpen} className={classes.item}>
             <ListItemText>{t('None')}</ListItemText>
           </ListItem>
         )}
