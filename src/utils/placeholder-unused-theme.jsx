@@ -183,7 +183,7 @@ export default createTheme(theme, {
         root: {
           paddingTop: '11px',
           paddingBottom: '11px',
-          '& > *:first-child': {
+          '& > *:first-of-type': {
             paddingLeft: 0,
           },
         },
