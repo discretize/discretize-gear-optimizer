@@ -25,7 +25,7 @@ const IndexPage = () => {
   const ALERTS = [
     <>
       Bonjour! ¡Hola! 你好! <br />
-      We are looking for translators for Spanish, French and Chinese.
+      We are looking for translators for Spanish, French and Chinese. Contact us!
     </>,
     <>
       <Trans>
