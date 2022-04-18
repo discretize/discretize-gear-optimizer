@@ -483,20 +483,20 @@ list:
   # https://www.youtube.com/watch?v=70F-uEOb-Bg
   # power: 6847, burn: 651, bleed: 20124, poison: 4975, torment: 81, total: 32678
   # koi cake
-  - name: Pure Shortbow Slb BM
-    profession: Soulbeast
-    value: >-
-      {
-        "values2": { "Power": 1661, "Burning": 0.54, "Bleeding": 25.48, "Poisoned": 11.45, "Torment": 0, "Confusion": 0 }
-      }
+  # - name: Pure Shortbow Slb BM
+  #   profession: Soulbeast
+  #   value: >-
+  #     {
+  #       "values2": { "Power": 1661, "Burning": 0.54, "Bleeding": 25.48, "Poisoned": 11.45, "Torment": 0, "Confusion": 0 }
+  #     }
 
   # https://www.youtube.com/watch?v=5Wipvn8loPk (very old)
-  - name: Condi Druid (approx.)
-    profession: Druid
-    value: >-
-      {
-        "values2": { "Power": 1610, "Burning": 2.3, "Bleeding": 19.5, "Poisoned": 4.9, "Torment": 0, "Confusion": 0 }
-      }
+  # - name: Condi Druid (approx.)
+  #   profession: Druid
+  #   value: >-
+  #     {
+  #       "values2": { "Power": 1610, "Burning": 2.3, "Bleeding": 19.5, "Poisoned": 4.9, "Torment": 0, "Confusion": 0 }
+  #     }
 
   # https://www.youtube.com/watch?v=aemjSrxAN_c
   # https://dps.report/8W5H-20210512-045910_golem

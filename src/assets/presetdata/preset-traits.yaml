@@ -3323,64 +3323,64 @@ list:
         "skills": {}
       }
 
-  - name: Pure Shortbow Slb BM
-    profession: Soulbeast
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "30",
-          "32",
-          "55"
-        ],
-        "selectedTraits": [
-          [
-            1069,
-            1846,
-            1912
-          ],
-          [
-            1606,
-            970,
-            1945
-          ],
-          [
-            2071,
-            2161,
-            2128
-          ]
-        ],
-        "items": [
-          {
-            "hidden-barbs": {},
-            "hunters-tactics": {},
-            "vicious-quarry": {}
-          },
-          {
-            "honed-axes": {},
-            "honed-axes-axe": {
-              "amount": ""
-            }
-          },
-          {
-            "furious-strength": {
-              "amount": ""
-            },
-            "twice-as-vicious": {
-              "amount": ""
-            },
-            "oppressive-superiority": {},
-            "archetype-deadly": {},
-            "pack-alpha-merged": {},
-            "loud-whistle-merged": {},
-            "pets-prowess-merged": {}
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {}
-      }
+  # - name: Pure Shortbow Slb BM
+  #   profession: Soulbeast
+  #   traits: |-
+  #     {
+  #       "showAll": false,
+  #       "selectedLines": [
+  #         "30",
+  #         "32",
+  #         "55"
+  #       ],
+  #       "selectedTraits": [
+  #         [
+  #           1069,
+  #           1846,
+  #           1912
+  #         ],
+  #         [
+  #           1606,
+  #           970,
+  #           1945
+  #         ],
+  #         [
+  #           2071,
+  #           2161,
+  #           2128
+  #         ]
+  #       ],
+  #       "items": [
+  #         {
+  #           "hidden-barbs": {},
+  #           "hunters-tactics": {},
+  #           "vicious-quarry": {}
+  #         },
+  #         {
+  #           "honed-axes": {},
+  #           "honed-axes-axe": {
+  #             "amount": ""
+  #           }
+  #         },
+  #         {
+  #           "furious-strength": {
+  #             "amount": ""
+  #           },
+  #           "twice-as-vicious": {
+  #             "amount": ""
+  #           },
+  #           "oppressive-superiority": {},
+  #           "archetype-deadly": {},
+  #           "pack-alpha-merged": {},
+  #           "loud-whistle-merged": {},
+  #           "pets-prowess-merged": {}
+  #         }
+  #       ]
+  #     }
+  #   skills: |-
+  #     {
+  #       "skills": {}
+  #     }
 
   - name: Condi Druid
     profession: Druid

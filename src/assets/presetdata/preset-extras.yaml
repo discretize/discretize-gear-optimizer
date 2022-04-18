@@ -944,28 +944,28 @@ list:
         }
       }
 
-  - name: Pure Shortbow Slb BM
-    profession: Soulbeast
-    value: |-
-      {
-        "extras": {
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {
-            "earth": {}
-          },
-          "Runes": {
-            "krait": {}
-          },
-          "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
-          },
-          "Enhancement": {
-            "toxic-focusing-crystal": {}
-          }
-        }
-      }
+  # - name: Pure Shortbow Slb BM
+  #   profession: Soulbeast
+  #   value: |-
+  #     {
+  #       "extras": {
+  #         "Sigil1": {
+  #           "bursting": {}
+  #         },
+  #         "Sigil2": {
+  #           "earth": {}
+  #         },
+  #         "Runes": {
+  #           "krait": {}
+  #         },
+  #         "Nourishment": {
+  #           "salsa-topped-veggie-flatbread": {}
+  #         },
+  #         "Enhancement": {
+  #           "toxic-focusing-crystal": {}
+  #         }
+  #       }
+  #     }
 
   - name: Condi Druid
     profession: Druid

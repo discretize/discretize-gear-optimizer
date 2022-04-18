@@ -595,7 +595,7 @@ list:
         specialization: Druid
         boonType: Power
         priority: Condi Hybrid Druid 52%
-        distribution: Condi Druid (approx.)
+        distribution: None
         traits: Condi Druid
         extras: Condi Druid
         weaponType: Two-handed
