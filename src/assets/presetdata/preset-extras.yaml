@@ -1080,6 +1080,30 @@ list:
         }
       }
 
+  - name: Power Alac Ren (Raid)
+    profession: Renegade
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "concentration": {}
+          },
+          "Enhancement": {
+            "writ-of-masterful-strength": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Herald
     profession: Herald
     value: |-

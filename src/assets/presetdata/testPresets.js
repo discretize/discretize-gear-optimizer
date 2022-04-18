@@ -75,6 +75,17 @@ const testModifiers = async () => {
     }
   }
 
+  const creditData = await fs.readFile(`${directory}credit.yaml`);
+
+  let credit;
+  try {
+    credit = yaml.load(creditData);
+    gentleAssert(templates, `err: credit.yaml is missing`);
+  } catch (e) {
+    gentleAssert(false, `err: credit.yaml is invalid YAML`);
+    return;
+  }
+
   for (const [type, entries] of Object.entries(data)) {
     for (const entry of entries) {
       try {
@@ -86,6 +97,26 @@ const testModifiers = async () => {
         }
       } catch (e) {
         gentleAssert(false, `err: the ${entry.name} ${type} entry is invalid JSON`);
+      }
+      if (type === 'distribution') {
+        if (!entry.noCreditOkay) {
+          if (entry.credit && Array.isArray(entry.credit)) {
+            entry.credit.forEach((creditEntry) => {
+              gentleAssert(
+                credit[creditEntry.author],
+                `err: ${creditEntry.author} is not listed in credit.yaml! (${entry.name})`,
+              );
+              if (creditEntry.url && credit[creditEntry.author]) {
+                gentleAssert(
+                  credit[creditEntry.author]?.authorUrl,
+                  `err: ${entry.name} has a url, but ${creditEntry.author} in credit.yaml does not! This user may want to be anonymous.`,
+                );
+              }
+            });
+          } else {
+            gentleAssert(false, `err: the ${entry.name} ${type} entry is missing credit!`);
+          }
+        }
       }
     }
   }

@@ -646,7 +646,7 @@ list:
         extras: Condi Alac Ren
         weaponType: Two-handed
 
-      - name: Power Alac Ren (outdated)
+      - name: Power Alac Ren
         id: pren
         specialization: Renegade
         boonType: Power
@@ -656,7 +656,7 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: Power Alac Ren (Raid)
         weaponType: Two-handed
 
       - name: Power Herald DE (outdated)

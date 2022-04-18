@@ -11,6 +11,7 @@ import {
   getTextBoxes,
 } from '../../../state/slices/distribution';
 import { parseDistribution } from '../../../utils/usefulFunctions';
+import TemplateInfo from '../../TemplateInfo';
 
 const Attribute = React.memo(AttributeRaw);
 const Condition = React.memo(ConditionRaw);
@@ -63,7 +64,7 @@ const DamageDistribution = () => {
     dispatch(changeDistributionNew({ index: key, value: parsedValue }));
   };
 
-  return DISTRIBUTION_NAMES.map((dist, index) => (
+  const controls = DISTRIBUTION_NAMES.map((dist, index) => (
     <Box display="flex" flexWrap="wrap" key={`distriNew_${dist.name}`}>
       <Box>
         <FormControl mb={1} className={classes.textbox} variant="standard">
@@ -123,6 +124,13 @@ const DamageDistribution = () => {
       </Box>
     </Box>
   ));
+
+  return (
+    <>
+      {controls}
+      <TemplateInfo />
+    </>
+  );
 };
 
 export default DamageDistribution;
