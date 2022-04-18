@@ -1015,6 +1015,9 @@ list:
     skills: |-
       {
         "skills": {
+          "signet-of-wrath": {
+            "amount": ""
+          },
           "mantra-of-flame": {}
         }
       }
@@ -2115,9 +2118,6 @@ list:
             "pyromancers-training": {},
             "persisting-flames": {
               "amount": ""
-            },
-            "burning-precision-on-crit": {
-              "amount": "5.61"
             }
           },
           {
@@ -2206,9 +2206,6 @@ list:
             "pyromancers-training": {},
             "persisting-flames": {
               "amount": ""
-            },
-            "burning-precision-on-crit": {
-              "amount": "5.61"
             }
           },
           {
@@ -2297,9 +2294,6 @@ list:
             "pyromancers-training": {},
             "persisting-flames": {
               "amount": ""
-            },
-            "burning-precision-on-crit": {
-              "amount": "5.61"
             }
           },
           {
@@ -2388,9 +2382,6 @@ list:
             "pyromancers-training": {},
             "persisting-flames": {
               "amount": ""
-            },
-            "burning-precision-on-crit": {
-              "amount": "4.74"
             }
           },
           {
@@ -2465,9 +2456,6 @@ list:
             "pyromancers-training": {},
             "persisting-flames": {
               "amount": ""
-            },
-            "burning-precision-on-crit": {
-              "amount": "3.69"
             }
           },
           {
@@ -2542,9 +2530,6 @@ list:
             "pyromancers-training": {},
             "persisting-flames": {
               "amount": ""
-            },
-            "burning-precision-on-crit": {
-              "amount": "5.81"
             }
           },
           {
@@ -2633,9 +2618,6 @@ list:
             "pyromancers-training": {},
             "persisting-flames": {
               "amount": "9.5"
-            },
-            "burning-precision-on-crit": {
-              "amount": "5.94"
             }
           },
           {
