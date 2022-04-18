@@ -122,6 +122,8 @@ const findCombinations = (data) => {
   return combinations;
 };
 
+const allowedDuplicateSigils = ['impact/night/slaying-both', 'impact/night/slaying-only-3'];
+
 export const getExtrasCombinationsAndModifiers = createSelector(
   getExtrasIds,
   getExtrasData,
@@ -130,7 +132,8 @@ export const getExtrasCombinationsAndModifiers = createSelector(
     const allExtrasCombinations = findCombinations(ids);
     const extrasCombinations = allExtrasCombinations.filter(({ Sigil1, Sigil2 }) => {
       // remove duplicate sigils
-      if (Sigil1 && Sigil2 && Sigil1 === Sigil2) return false;
+      if (Sigil1 && Sigil2 && Sigil1 === Sigil2 && !allowedDuplicateSigils.includes(Sigil1))
+        return false;
 
       if (ids.Sigil1.includes(Sigil2) && ids.Sigil2.includes(Sigil1)) {
         // potential duplicate; deduplicate in arbitrary order
