@@ -29,7 +29,7 @@ list:
       {
         "affixes": ["Berserker", "Assassin", "Diviner"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 79
+        "minBoonDuration": 84.5
       }
 
   - name: Condi Boon
