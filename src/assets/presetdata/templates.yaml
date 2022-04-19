@@ -486,30 +486,30 @@ list:
         extras: Heal
         weaponType: Dual wield
 
-      - name: '[beta2] Power Catalyst'
+      - name: Power Catalyst
         id: power-cat
         specialization: Catalyst
         boonType: Power
-        priority: Power DPS
-        distribution: '[beta2] Power Catalyst'
-        traits: '[beta2] Power Catalyst'
+        priority: No Dragon
+        distribution: Power Catalyst
+        traits: Power Catalyst
         fractal:
           extras: Power (Fractal)
         raid:
           extras: Power (Raid)
         weaponType: Two-handed
 
-      - name: '[beta2] Power Quickness Catalyst'
+      - name: Power Quickness Catalyst
         id: power-cat-quick
         specialization: Catalyst
         boonType: Power
-        priority: Power DPS
-        distribution: '[beta2] Power Catalyst'
-        traits: '[beta2] Power Quickness Catalyst'
+        priority: Power Quickness Catalyst 38%
+        distribution: Power Catalyst
+        traits: Power Quickness Catalyst
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: Power Quickness Catalyst (Raid)
         weaponType: Two-handed
 
       - name: '[beta1] Condi Catalyst'

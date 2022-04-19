@@ -875,6 +875,30 @@ list:
         }
       }
 
+  - name: Power Quickness Catalyst (Raid)
+    profession: Catalyst
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Power Slb Marks (Raid)
     profession: Soulbeast
     value: |-

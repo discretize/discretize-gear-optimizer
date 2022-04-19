@@ -58,6 +58,15 @@ list:
 
   # -------------------------------------------------------------------------------------------- #
 
+  - name: No Dragon
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0
+      }
+
   - name: Viper Only
     hidden: true
     value: >-
@@ -83,6 +92,15 @@ list:
         "affixes": ["Berserker", "Assassin", "Diviner"],
         "optimizeFor": "Damage",
         "minBoonDuration": 33.3
+      }
+
+  - name: Power Quickness Catalyst 38%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 38
       }
 
   - name: Power Boon Daredevil 99.7%

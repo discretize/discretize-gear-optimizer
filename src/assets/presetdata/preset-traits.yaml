@@ -2717,7 +2717,7 @@ list:
         }
       }
 
-  - name: '[beta2] Power Catalyst'
+  - name: Power Catalyst
     profession: Catalyst
     traits: |-
       {
@@ -2747,17 +2747,17 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "40"
+              "amount": "24.3"
             },
             "burning-precision": {},
             "burning-rage": {},
             "power-overwhelming": {},
             "power-overwhelming-2": {
-              "amount": "40"
+              "amount": "24.3"
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": ""
+              "amount": "5.3"
             }
           },
           {
@@ -2770,7 +2770,7 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "32"
+              "amount": "37.9"
             },
             "bolt-to-the-heart": {
               "amount": ""
@@ -2785,7 +2785,7 @@ list:
             },
             "elemental-empowerment": {},
             "empowering-auras": {
-              "amount": "5"
+              "amount": "4.8"
             },
             "empowered-empowerment": {}
           }
@@ -2795,16 +2795,16 @@ list:
       {
         "skills": {
           "flame-wheel": {
-            "amount": "79"
+            "amount": "90"
           },
           "crescent-wind": {},
           "relentless-fire": {
-            "amount": "50"
+            "amount": "47.6"
           }
         }
       }
 
-  - name: '[beta2] Power Quickness Catalyst'
+  - name: Power Quickness Catalyst
     profession: Catalyst
     traits: |-
       {
@@ -2834,17 +2834,17 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "40"
+              "amount": "23.1"
             },
             "burning-precision": {},
             "burning-rage": {},
             "power-overwhelming": {},
             "power-overwhelming-2": {
-              "amount": "40"
+              "amount": "23.1"
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": ""
+              "amount": "5.3"
             }
           },
           {
@@ -2857,7 +2857,7 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "32"
+              "amount": "36.2"
             },
             "bolt-to-the-heart": {
               "amount": ""
@@ -2872,7 +2872,7 @@ list:
             },
             "elemental-empowerment": {},
             "empowering-auras": {
-              "amount": "5"
+              "amount": "4.8"
             },
             "empowered-empowerment": {}
           }
@@ -2882,11 +2882,11 @@ list:
       {
         "skills": {
           "flame-wheel": {
-            "amount": "79"
+            "amount": "92.6"
           },
           "crescent-wind": {},
           "relentless-fire": {
-            "amount": "50"
+            "amount": "47.9"
           }
         }
       }
