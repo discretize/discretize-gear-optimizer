@@ -76,7 +76,7 @@ list:
         "minBoonDuration": 0
       }
 
-  - name: Power Alacrity WB 14%
+  - name: Power Alacrity Willbender 14%
     hidden: true
     value: >-
       {

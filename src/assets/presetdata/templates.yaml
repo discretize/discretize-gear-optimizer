@@ -166,7 +166,7 @@ list:
         id: pwb-alac
         specialization: Willbender
         boonType: Power
-        priority: Power Alacrity WB 14%
+        priority: Power Alacrity Willbender 14%
         distribution: Power Alacrity Willbender
         traits: Power Alacrity Willbender
         fractal:
