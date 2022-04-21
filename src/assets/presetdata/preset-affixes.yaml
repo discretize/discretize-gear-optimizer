@@ -76,6 +76,15 @@ list:
         "minBoonDuration": 0
       }
 
+  - name: Power Alacrity WB 14%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 14
+      }
+
   - name: Power Quickbrand 25%
     hidden: true
     value: >-
@@ -184,13 +193,13 @@ list:
         "minBoonDuration": 56.7
       }
 
-  - name: Condi Alacrity Willbender 19%
+  - name: Condi Alacrity Willbender 14%
     hidden: true
     value: >-
       {
         "affixes": ["Viper", "Grieving", "Celestial"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 19
+        "minBoonDuration": 14
       }
 
   - name: Condi DPS Rampager

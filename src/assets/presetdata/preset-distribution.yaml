@@ -285,33 +285,30 @@ list:
       }
     noCreditOkay: true
 
-  # https://www.youtube.com/watch?v=c9BBsYQ0J4A
+  # https://www.youtube.com/watch?v=cu8N1ZDKmzU
   # https://dps.report/rEUF-20220329-113027_golem
-  # 12 boons
-  # cele helm coat acc, viper ring back, flamelegion, fishy toxicoil (no oil in vid)
-  # 18 malign
-  # NO JADE BOT (in arc log, probably - seems bugged)
-  # https://go.princeps.biz/tizggIHP matches log (I think)
+  # 12 boons, celefood toxiccrystal, 14%
   - name: Condi Alacrity Willbender
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 2678, "Burning": 10.14, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2711, "Burning": 9.8, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
+        url: https://www.youtube.com/watch?v=cu8N1ZDKmzU
+        log: https://dps.report/rEUF-20220329-113027_golem
 
-  # https://www.youtube.com/watch?v=nJTkHlFedOI
-  # https://dps.report/VuDl-20220318-185053_golem
-  # 12 boons, thief accuracy, dragon ring
+  # https://www.youtube.com/watch?v=uPQfoQ0sUYU
+  # https://www.youtube.com/watch?v=uPQfoQ0sUYU
+  # 12 boons, thief accuracy, 14%
   - name: Power Alacrity Willbender
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 3439, "Burning": 2.33, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3506, "Burning": 2.49, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
-    credit:
-      - author: '[CnD] DaedDee'
+    noCreditOkay: true
 
   # small hitbox, ****superior elements****, raging storm
   # https://www.youtube.com/watch?v=x2sRASCvRMY

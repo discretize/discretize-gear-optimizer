@@ -252,20 +252,20 @@
           Burning Coefficient: 0.04
       gw2id: 24605
 
-    # geo power: 0.25 coeff, 690.5 strength, every 23 sec -> 7.5 power coefficient
-    # geo bleed: 24 seconds, every 23 sec -> 1.04 avg bleed
-    # torment: 10 seconds, every 8.5 sec -> 1.2 avg torment
+    # geo power: 0.25 coeff, 690.5 strength, every 27 sec -> 6.4 power coefficient
+    # geo bleed: 24 seconds, every 27 sec -> 0.89 avg bleed
+    # torment: 10 seconds, every 9.8 sec -> 1.02 avg torment
     #
     # f1 passives from procs are 2.4s because of amplified wrath; every 3 hits if virtues
-    # geo f1 passive: 1/3 * 2.4 / 23 sec = 0.035 avg burning
+    # geo f1 passive: 1/3 * 2.4 / 27 sec = 0.030 avg burning
     - id: geomancy-torment-cwb-alac
       text: 'Geo + Torment CWB Alac'
       modifiers:
         attributes:
-          Power Coefficient: 7.5
-          Bleeding Coefficient: 1.04
-          Torment Coefficient: 1.2
-          Burning Coefficient: 0.035
+          Power Coefficient: 6.4
+          Bleeding Coefficient: 0.89
+          Torment Coefficient: 1.02
+          Burning Coefficient: 0.03
       gw2id: 24605
 
     # 4 geo in 97 sec
