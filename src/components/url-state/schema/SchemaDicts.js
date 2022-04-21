@@ -80,6 +80,15 @@ export const specializationDict = [
   'Daredevil',
   'Deadeye',
   'Specter',
+  'Warrior',
+  'Revenant',
+  'Guardian',
+  'Ranger',
+  'Engineer',
+  'Elementalist',
+  'Mesmer',
+  'Necromancer',
+  'Thief',
 ];
 
 export const weaponTypeDict = ['Dual wield', 'Two-handed'];
