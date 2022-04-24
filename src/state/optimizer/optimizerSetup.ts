@@ -684,6 +684,13 @@ export function setupCombinations(reduxState: any) {
       }
     });
 
+    settings_affixesArray = settings_affixesArray.map((affixOptions, slotindex) => {
+      if ([7, 8, 9, 10, 11].includes(slotindex) && affixOptions.length > 1) {
+        return affixOptions.filter((affix) => affix !== 'Ritualist');
+      }
+      return affixOptions;
+    });
+
     // rearrange affixes so you don't always start with e.g. full berserker. Example:
     // [vipe sini grie] helm
     // [grie vipe sini] shld
