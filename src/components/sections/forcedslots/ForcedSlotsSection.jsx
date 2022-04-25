@@ -5,10 +5,12 @@ import { useDispatch, useSelector, useStore } from 'react-redux';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import {
   changeAllForcedSlots,
+  changeExclusion,
   changeExclusionsEnabled,
   clearForcedSlots,
   getExclusionsEnabled,
 } from '../../../state/slices/forcedSlots';
+import { changePriority, getPriority } from '../../../state/slices/priorities';
 import Section from '../../baseComponents/Section';
 import ExcludedSlots from './ExcludedSlots';
 import ForcedSlots from './ForcedSlots';
@@ -19,6 +21,7 @@ const ForcedSlotsSection = () => {
   const dispatch = useDispatch();
 
   const exclusionsEnabled = useSelector(getExclusionsEnabled);
+  const affixes = useSelector(getPriority('affixes'));
 
   const handleCopy = () => {
     const selectedCharacter = getSelectedCharacter(store.getState());
@@ -30,6 +33,20 @@ const ForcedSlotsSection = () => {
 
   const handleClear = () => {
     dispatch(clearForcedSlots());
+  };
+
+  const handleRitualist = () => {
+    dispatch(changeExclusionsEnabled(true));
+    [6, 7, 8, 9, 10, 11].forEach((index) =>
+      dispatch(changeExclusion({ affix: 'Ritualist', index, value: true })),
+    );
+
+    dispatch(
+      changePriority({
+        key: 'affixes',
+        value: affixes.includes('Celestial') ? affixes : [...affixes, 'Celestial'],
+      }),
+    );
   };
 
   const chipStyle = {
@@ -71,6 +88,14 @@ const ForcedSlotsSection = () => {
             onClick={handleCopy}
             label={t('Copy from selected character')}
           />
+          {affixes.includes('Ritualist') ? (
+            <Chip
+              style={chipStyle}
+              variant="outlined"
+              onClick={handleRitualist}
+              label={t('Auto-disable ritualist trinkets')}
+            />
+          ) : null}
         </>
       }
     />
