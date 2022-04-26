@@ -21,7 +21,7 @@ list:
         id: alacmirage
         specialization: Mirage
         boonType: Condi
-        priority: Condi DPS
+        priority: Condi Alacrity Mirage 27%
         distribution: Staff Mirage
         traits: Staff Mirage
         extras: Alacrity Mirage (Raid)
