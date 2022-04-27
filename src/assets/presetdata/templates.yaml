@@ -525,12 +525,25 @@ list:
   - class: Ranger
     builds:
 
+      # - name: Power Slb Marks (allies)
+      #   id: pslb-marks-allies
+      #   specialization: Soulbeast
+      #   boonType: Power
+      #   priority: Power DPS
+      #   distribution: Power Slb
+      #   traits: Power Slb Marks (allies)
+      #   fractal:
+      #     extras: Power (Fractal)
+      #   raid:
+      #     extras: Power Slb Marks (Raid)
+      #   weaponType: Two-handed
+
       - name: Power Slb Marks
         id: pslb-marks
         specialization: Soulbeast
         boonType: Power
         priority: Power DPS
-        distribution: Power Slb Skirm
+        distribution: Power Slb
         traits: Power Slb Marks
         fractal:
           extras: Power (Fractal)
@@ -538,17 +551,40 @@ list:
           extras: Power Slb Marks (Raid)
         weaponType: Two-handed
 
+      # - name: Power Slb Skirm (allies)
+      #   id: pslb-skirm-allies
+      #   specialization: Soulbeast
+      #   boonType: Power
+      #   priority: Power DPS
+      #   distribution: Power Slb
+      #   traits: Power Slb Skirm (allies)
+      #   fractal:
+      #     extras: Power (Fractal)
+      #   raid:
+      #     extras: Power (Raid)
+      #   weaponType: Two-handed
+
       - name: Power Slb Skirm
         id: pslb-skirm
         specialization: Soulbeast
         boonType: Power
         priority: Power DPS
-        distribution: Power Slb Skirm
+        distribution: Power Slb
         traits: Power Slb Skirm
         fractal:
           extras: Power (Fractal)
         raid:
           extras: Power (Raid)
+        weaponType: Two-handed
+
+      - name: Condi Slb SB (allies)
+        id: cslb-sb-allies
+        specialization: Soulbeast
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Slb (D/T SB)
+        traits: Condi Slb SB (allies)
+        extras: Condi Slb
         weaponType: Two-handed
 
       - name: Condi Slb SB
@@ -561,6 +597,16 @@ list:
         extras: Condi Slb
         weaponType: Two-handed
 
+      - name: Condi Slb D/T A/D (allies)
+        id: cslb-dtad-allies
+        specialization: Soulbeast
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Slb (D/T A/D)
+        traits: Condi Slb D/T A/D (allies)
+        extras: Condi Slb
+        weaponType: Dual wield
+
       - name: Condi Slb D/T A/D
         id: cslb-dtad
         specialization: Soulbeast
@@ -569,6 +615,16 @@ list:
         distribution: Condi Slb (D/T A/D)
         traits: Condi Slb D/T A/D
         extras: Condi Slb
+        weaponType: Dual wield
+
+      - name: Hybrid Slb (allies)
+        id: hslb-allies
+        specialization: Soulbeast
+        boonType: Condi
+        priority: Hybrid DPS
+        distribution: Hybrid Slb (A/T D/A)
+        traits: Hybrid Slb (allies)
+        extras: Hybrid Slb
         weaponType: Dual wield
 
       - name: Hybrid Slb

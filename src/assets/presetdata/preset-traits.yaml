@@ -3011,6 +3011,75 @@ list:
         "skills": {}
       }
 
+  - name: Power Slb Marks (allies)
+    profession: Soulbeast
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "8",
+          "32",
+          "55"
+        ],
+        "selectedTraits": [
+          [
+            1014,
+            1000,
+            996
+          ],
+          [
+            1606,
+            970,
+            1066
+          ],
+          [
+            2071,
+            2161,
+            2128
+          ]
+        ],
+        "items": [
+          {
+            "farsighted": {},
+            "predators-onslaught": {
+              "amount": ""
+            }
+          },
+          {
+            "honed-axes": {},
+            "honed-axes-axe": {
+              "amount": ""
+            }
+          },
+          {
+            "furious-strength": {
+              "amount": ""
+            },
+            "twice-as-vicious": {
+              "amount": ""
+            },
+            "oppressive-superiority": {},
+            "archetype-ferocious": {},
+            "pack-alpha-merged": {},
+            "loud-whistle-merged": {},
+            "pets-prowess-merged": {},
+            "honed-axes-merged": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-the-wild": {},
+          "one-wolf-pack-sic-em": {
+            "amount": "1.116"
+          },
+          "one-wolf-pack-no-sic-em": {
+            "amount": "0.186"
+          }
+        }
+      }
+
   - name: Power Slb Marks
     profession: Soulbeast
     traits: |-
@@ -3070,7 +3139,81 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-the-wild": {}
+          "signet-of-the-wild": {},
+          "one-wolf-pack-sic-em": {
+            "amount": "0.372"
+          },
+          "one-wolf-pack-no-sic-em": {
+            "amount": "0.186"
+          }
+        }
+      }
+
+  - name: Power Slb Skirm (allies)
+    profession: Soulbeast
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "30",
+          "32",
+          "55"
+        ],
+        "selectedTraits": [
+          [
+            0,
+            1016,
+            1888
+          ],
+          [
+            1606,
+            970,
+            1066
+          ],
+          [
+            2071,
+            2161,
+            2128
+          ]
+        ],
+        "items": [
+          {
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {}
+          },
+          {
+            "honed-axes": {},
+            "honed-axes-axe": {
+              "amount": ""
+            }
+          },
+          {
+            "furious-strength": {
+              "amount": ""
+            },
+            "twice-as-vicious": {
+              "amount": ""
+            },
+            "oppressive-superiority": {},
+            "archetype-ferocious": {},
+            "pack-alpha-merged": {},
+            "loud-whistle-merged": {},
+            "pets-prowess-merged": {},
+            "honed-axes-merged": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-the-wild": {},
+          "one-wolf-pack-sic-em": {
+            "amount": "1.072"
+          },
+          "one-wolf-pack-no-sic-em": {
+            "amount": "0.186"
+          }
         }
       }
 
@@ -3132,7 +3275,79 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-the-wild": {}
+          "signet-of-the-wild": {},
+          "one-wolf-pack-sic-em": {
+            "amount": "0.372"
+          },
+          "one-wolf-pack-no-sic-em": {
+            "amount": "0.186"
+          }
+        }
+      }
+
+  - name: Condi Slb SB (allies)
+    profession: Soulbeast
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "30",
+          "33",
+          "55"
+        ],
+        "selectedTraits": [
+          [
+            1069,
+            1846,
+            1912
+          ],
+          [
+            1099,
+            1101,
+            1701
+          ],
+          [
+            2071,
+            2161,
+            2128
+          ]
+        ],
+        "items": [
+          {
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {},
+            "sharpened-edges": {
+              "amount": "3.65"
+            }
+          },
+          {
+            "oakheart-salve": {},
+            "taste-for-danger": {},
+            "ambidexterity": {},
+            "ambidexterity-2": {
+              "amount": ""
+            },
+            "poison-master": {}
+          },
+          {
+            "furious-strength": {
+              "amount": ""
+            },
+            "twice-as-vicious": {
+              "amount": "45"
+            },
+            "oppressive-superiority": {},
+            "archetype-deadly": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "one-wolf-pack-no-sic-em-sharpened": {
+            "amount": "1.22"
+          }
         }
       }
 
@@ -3169,7 +3384,7 @@ list:
             "hunters-tactics": {},
             "vicious-quarry": {},
             "sharpened-edges": {
-              "amount": "4.17"
+              "amount": "3.65"
             }
           },
           {
@@ -3195,7 +3410,77 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "one-wolf-pack-no-sic-em-sharpened": {
+            "amount": "0.52"
+          }
+        }
+      }
+
+  - name: Condi Slb D/T A/D (allies)
+    profession: Soulbeast
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "30",
+          "33",
+          "55"
+        ],
+        "selectedTraits": [
+          [
+            1069,
+            1846,
+            1064
+          ],
+          [
+            1099,
+            1101,
+            1701
+          ],
+          [
+            2071,
+            2161,
+            2128
+          ]
+        ],
+        "items": [
+          {
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {},
+            "sharpened-edges": {
+              "amount": "3.66"
+            }
+          },
+          {
+            "oakheart-salve": {},
+            "taste-for-danger": {},
+            "ambidexterity": {},
+            "ambidexterity-2": {
+              "amount": "100"
+            },
+            "poison-master": {}
+          },
+          {
+            "furious-strength": {
+              "amount": ""
+            },
+            "twice-as-vicious": {
+              "amount": "45"
+            },
+            "oppressive-superiority": {},
+            "archetype-deadly": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "one-wolf-pack-no-sic-em-sharpened": {
+            "amount": "1.21"
+          }
+        }
       }
 
   - name: Condi Slb D/T A/D
@@ -3231,7 +3516,7 @@ list:
             "hunters-tactics": {},
             "vicious-quarry": {},
             "sharpened-edges": {
-              "amount": "4.17"
+              "amount": "3.66"
             }
           },
           {
@@ -3257,7 +3542,81 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "one-wolf-pack-no-sic-em-sharpened": {
+            "amount": "0.51"
+          }
+        }
+      }
+
+  - name: Hybrid Slb (allies)
+    profession: Soulbeast
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "30",
+          "32",
+          "55"
+        ],
+        "selectedTraits": [
+          [
+            1069,
+            1846,
+            1888
+          ],
+          [
+            1606,
+            970,
+            1066
+          ],
+          [
+            2071,
+            2161,
+            2128
+          ]
+        ],
+        "items": [
+          {
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {},
+            "sharpened-edges": {
+              "amount": "3.69"
+            }
+          },
+          {
+            "honed-axes": {},
+            "honed-axes-axe": {
+              "amount": "100"
+            }
+          },
+          {
+            "furious-strength": {
+              "amount": ""
+            },
+            "twice-as-vicious": {
+              "amount": "82"
+            },
+            "oppressive-superiority": {},
+            "archetype-deadly": {},
+            "pack-alpha-merged": {},
+            "loud-whistle-merged": {},
+            "pets-prowess-merged": {},
+            "honed-axes-merged": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "one-wolf-pack-sic-em-sharpened": {
+            "amount": "1.13"
+          },
+          "one-wolf-pack-no-sic-em-sharpened": {
+            "amount": "0.08"
+          }
+        }
       }
 
   - name: Hybrid Slb
@@ -3293,7 +3652,7 @@ list:
             "hunters-tactics": {},
             "vicious-quarry": {},
             "sharpened-edges": {
-              "amount": "4.2"
+              "amount": "3.69"
             }
           },
           {
@@ -3320,7 +3679,14 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "one-wolf-pack-sic-em-sharpened": {
+            "amount": "0.43"
+          },
+          "one-wolf-pack-no-sic-em-sharpened": {
+            "amount": "0.08"
+          }
+        }
       }
 
   # - name: Pure Shortbow Slb BM
