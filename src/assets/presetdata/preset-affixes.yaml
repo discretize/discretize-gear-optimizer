@@ -139,6 +139,15 @@ list:
         "minBoonDuration": 23
       }
 
+  - name: Condi Alacrity Mirage 27%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 26.86
+      }
+
   - name: Condi Hybrid Druid 52%
     hidden: true
     value: >-

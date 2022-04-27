@@ -578,40 +578,63 @@ list:
         url: https://www.youtube.com/watch?v=gItQj2jezkc
         log: https://dps.report/Q54J-20220302-145450_golem
 
-  # longbow; actually skirmishing trappers expertise
+  # NOTE: for consistency and simplicity, I am using 0.7 hits per second as the with-allies OWP bonus.
+  # This is about 77 hits in a bench, 19.25 per player, in 2 OWP casts lasting 4 seconds (2.4 proc/s)
+
+  # longbow; actually skirmishing trappers expertise **OS**
   # https://www.youtube.com/watch?v=hL9EDMihcDk
-  # power: 33853, burn: 250, bleed: 559, poison: 344, total: 35006
-  # OS, signet
-  - name: Power Slb Skirm
+  # https://dps.report/zUfg-20210529-225956_golem
+  #
+  # 2420 dps from OWP (which is ~200 power coefficient with OS)
+  # 42 hits in 113s, 0.372 hit/s
+  # sic em coefficient: .63 * 690.5 * 1.25 = 543.8 * hitrate
+  # no sic em coefficient: .63 * 690.5 = 435.0 * hitrate
+  # bench has OS; all 42 hits in 113s are under sic em
+  # 0.372 hit/s * 543.8 = 202
+  #
+  # (for LOTP template, assuming personal LOTP stacks are not under sic em; 50% of 0.372 hit/s = 0.186)
+  - name: Power Slb
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 2797, "Burning": 0.6, "Bleeding": 4.5, "Poisoned": 2.4, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2594, "Burning": 0.58, "Bleeding": 4.51, "Poisoned": 2.43, "Torment": 0, "Confusion": 0 }
       }
     noCreditOkay: true
 
   # https://www.youtube.com/watch?v=-bipnEirEGA
   # https://dps.report/JBAr-20210620-110933_golem
-  # no jade bot
+  # no jade bot, rendang
   # power: 4750, burn: 2865, bleed: 19386, poison: 8687, torment: 90, total: 35778
+  #
+  # 698 dps from OWP (which is ~234 power coefficient)
+  # 57 hits in 110s, 0.518 hit/s
+  # no sic em coefficient: .63 * 690.5 = 435.0 * hitrate
+  # 0.518 hit/s * 435.0 = 225
+  # (does not match well because of higher than average TaV on OWP, but whatever)
   - name: Condi Slb (D/T SB)
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 1591, "Burning": 2.42, "Bleeding": 21.69, "Poisoned": 16.25, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1366, "Burning": 2.42, "Bleeding": 21.7, "Poisoned": 16.26, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Snow Crows
 
   # https://www.youtube.com/watch?v=rr-gJuN3ECA
   # https://dps.report/zzE6-20210514-155136_golem
-  # no jade bot
+  # no jade bot, rendang
   # power: 4968, burn: 4269, bleed: 18512, poison: 7459, torment: 90, total: 35388
+  #
+  # 644 dps from OWP (which is ~216 power coefficient)
+  # 56 hits in 110s, 0.51 hit/s
+  # no sic em coefficient: .63 * 690.5 = 435.0 * hitrate
+  # 0.51 hit/s * 435.0 = 222
+  # (does not match well because of higher than average TaV on OWP, but whatever)
   - name: Condi Slb (D/T A/D)
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 1664, "Burning": 3.54, "Bleeding": 19.95, "Poisoned": 13.86, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1442, "Burning": 3.54, "Bleeding": 19.95, "Poisoned": 13.86, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Snow Crows
@@ -619,11 +642,21 @@ list:
   # https://www.youtube.com/watch?v=HdwqDoINnq0
   # https://dps.report/SgbF-20210526-004829_golem
   # power: 12065, burn: 3264, bleed: 18950, poison: 2974, torment: 90, total: 37343
+  #
+  # 1495 dps from OWP (which is ~287 power coefficient)
+  # 57 hits in 105s, 0.54 hit/s
+  # sic em coefficient: .63 * 690.5 * 1.25 = 543.8 * hitrate
+  # no sic em coefficient: .63 * 690.5 = 435.0 * hitrate
+  # owp in log has ~10/12 sic em uptime
+  # 0.51 hit/s * 10/12 * 543.8 = 0.43 hit/s * 543.8 = 234
+  # 0.51 hit/s * 2/12 * 435.0 = 0.08 hit/s * 435.0 = 34
+  # 234 + 34 = 268
+  # ...well it's kind of close
   - name: Hybrid Slb (A/T D/A)
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 2315, "Burning": 2.76, "Bleeding": 22.67, "Poisoned": 6.89, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2046, "Burning": 2.76, "Bleeding": 22.67, "Poisoned": 6.89, "Torment": 0, "Confusion": 0 }
       }
     noCreditOkay: true
 
