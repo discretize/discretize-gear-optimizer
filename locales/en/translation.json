@@ -406,6 +406,7 @@
   "extraSubText_(Without on-hit/on-crit effects)": "(Without on-hit/on-crit effects)",
   "extraSubText_(always below 50)": "(always below 50)",
   "extraSubText_(elite every 50s)": "(elite every 50s)",
+  "extraSubText_(maybe inaccurate)": "(maybe inaccurate)",
   "extraSubText_(no elite proc)": "(no elite proc)",
   "extraSubText_(with Barbed Precision)": "(with Barbed Precision)",
   "extraSubText_(with pet)": "(with pet)",
