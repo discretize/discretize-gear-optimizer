@@ -18,11 +18,12 @@
       gw2id: 67530
 
     - id: superior-sharpening-stone
-      text: Superior Sharpening Stone
+      text: Superior Sharpening Stone / Tin of Fruitcake
       modifiers:
         conversion:
           Power: {Precision: 3%, Ferocity: 6%}
       gw2id: 9443
+      # gw2id: 77569
 
     - id: toxic-sharpening-stone
       text: Toxic Sharpening Stone
