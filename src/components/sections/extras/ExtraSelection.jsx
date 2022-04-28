@@ -118,7 +118,7 @@ export default function ExtraSelection(props) {
                     <Box display="flex">
                       <Item
                         id={data[extraId]?.gw2id}
-                        {...(!isChinese && { text: data[extraId]?.text.replace('Superior ', '') })}
+                        {...(!isChinese && { text: data[extraId]?.text.replace(/^Superior /, '') })}
                       />
                       {data[extraId]?.subText && (
                         <Typography variant="caption" className={classes.subText}>
