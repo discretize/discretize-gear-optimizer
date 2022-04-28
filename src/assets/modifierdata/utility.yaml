@@ -85,11 +85,11 @@
       gw2id: 81157
 
     - id: master-maintenance-oil
-      text: Master Maintenance Oil / Peppermint Oil
+      text: Peppermint Oil / Master Maintenance Oil
       modifiers:
         conversion:
           Concentration: {Precision: 3%, Healing Power: 6%}
-      gw2id: 9461
+      gw2id: 77632
 
     - id: corsair-maintenance-oil
       text: Corsair Maintenance Oil
@@ -128,11 +128,11 @@
       gw2id: 67524
 
     - id: master-tuning-crystal
-      text: Master Tuning Crystal / Tuning Icicle
+      text: Tuning Icicle / Master Tuning Crystal
       modifiers:
         conversion:
           Condition Damage: {Precision: 3%, Expertise: 8%}
-      gw2id: 9476
+      gw2id: 77567
 
     - id: magnanimous-tuning-crystal
       text: Magnanimous Tuning Crystal

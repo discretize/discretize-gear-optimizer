@@ -291,6 +291,7 @@ export const nourishmentDict = [
   'slice-of-candied-dragon-roll',
   'slice-of-allspice-cake',
   'slice-of-allspice-cake-with-ice-cream',
+  'avocado-smoothie',
 ];
 
 export const buffsDict = [

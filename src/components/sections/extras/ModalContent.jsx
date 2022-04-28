@@ -183,7 +183,7 @@ function ModalContent(props) {
                       }
                       label={
                         <>
-                          <Item id={gw2id} disableLink text={text.replace('Superior ', '')} />
+                          <Item id={gw2id} disableLink text={text.replace(/^Superior /, '')} />
                           {subText && (
                             <Typography variant="caption" sx={{ marginLeft: 1, fontWeight: 200 }}>
                               {

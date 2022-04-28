@@ -11,12 +11,21 @@
       gw2id: 91805
 
     - id: sweet-and-spicy-butternut-squash-soup
-      text: Bowl of Sweet and Spicy Butternut Squash Soup
+      text: Sweet and Spicy Butternut Squash Soup / Spicy Moa Wings
       modifiers:
         attributes:
           Power: [100, converted]
           Ferocity: [70, converted]
       gw2id: 41569
+      # gw2id: 91917
+
+    - id: avocado-smoothie
+      text: Avocado Smoothie
+      modifiers:
+        attributes:
+          Power: [80, converted]
+          Ferocity: [60, converted]
+      gw2id: 87029
 
     - id: plate-of-coq-au-vin-with-salsa
       text: Plate of Coq Au Vin with Salsa
@@ -88,11 +97,11 @@
       gw2id: 75010
 
     - id: roasted-cactus
-      text: Plate of Roasted Cactus
+      text: Bowl of Prickly Pear Sorbet / Roasted Cactus
       modifiers:
         attributes:
           Ferocity: [100, converted]
-      gw2id: 66536
+      gw2id: 66539
 
     - id: fried-golden-dumpling
       text: Fried Golden Dumpling / Cheesecake
@@ -221,7 +230,7 @@
       gw2id: 91876
 
     - id: rare-veggie-pizza
-      text: Rare Veggie Pizza
+      text: Rare Veggie Pizza / Koi Cake
       modifiers:
         attributes:
           Expertise: [100, converted]
