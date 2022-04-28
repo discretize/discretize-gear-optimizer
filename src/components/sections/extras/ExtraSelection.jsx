@@ -6,10 +6,12 @@ import DeleteIcon from '@mui/icons-material/DeleteOutline';
 import {
   Box,
   Button,
+  Checkbox,
   Dialog,
   DialogActions,
   DialogTitle,
   Fade,
+  FormControlLabel,
   IconButton,
   List,
   ListItem,
@@ -27,8 +29,11 @@ import {
   getExtrasData,
   getExtrasIds,
 } from '../../../state/slices/extras';
+import { chunkArray } from '../../../utils/usefulFunctions';
 import AmountInput from '../../baseComponents/AmountInput';
 import ModalContent from './ModalContent';
+
+const roundHundred = (num) => Math.round(num / 100) * 100;
 
 const useStyles = makeStyles()((theme) => ({
   list: {
@@ -46,7 +51,7 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 export default function ExtraSelection(props) {
-  const { type, label, modifierDataById: data, text } = props;
+  const { type, label, modifierData, modifierDataById: data, text } = props;
 
   const { classes } = useStyles();
   const dispatch = useDispatch();
@@ -85,6 +90,24 @@ export default function ExtraSelection(props) {
 
   const deleteAll = () => {
     dispatch(changeExtraIds({ type, ids: [] }));
+  };
+
+  const [priceData, setPriceData] = React.useState({});
+  const [showPriceData, setShowPriceData] = React.useState(false);
+
+  const getPriceData = async () => {
+    const allIds = modifierData.flatMap(({ items }) => items.map((item) => item.gw2id));
+    const dataChunks = await Promise.all(
+      chunkArray(allIds, 200).map((ids) =>
+        fetch(`https://api.guildwars2.com/v2/commerce/prices?ids=${ids.join(',')}`).then(
+          (response) => response.json(),
+        ),
+      ),
+    );
+    const priceDataEntries = dataChunks
+      .flat()
+      .map(({ id, sells: { unit_price: price } = {} }) => [id, roundHundred(price)]);
+    setPriceData(Object.fromEntries(priceDataEntries));
   };
 
   return (
@@ -169,8 +192,22 @@ export default function ExtraSelection(props) {
             <CloseIcon />
           </IconButton>
         </DialogTitle>
-        <ModalContent {...props} />
+        <ModalContent {...props} priceData={showPriceData ? priceData : {}} />
         <DialogActions>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={showPriceData}
+                onChange={(e) => {
+                  if (e.target.checked) getPriceData();
+                  setShowPriceData(e.target.checked);
+                }}
+              />
+            }
+            label={t('Show prices')}
+            sx={{ ml: 0, mr: 'auto' }}
+          />
+
           <Button startIcon={<DeleteIcon />} onClick={deleteAll}>
             {t('Unselect all')}
           </Button>
