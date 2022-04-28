@@ -203,7 +203,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Condition Damage: [120, buff]
+          Condition Damage: [120, converted] # tested by marcus
       gw2id: 669
 
     - id: chaotic-persistence

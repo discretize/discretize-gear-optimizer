@@ -145,7 +145,7 @@ list:
       {
         "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 26.86
+        "minBoonDuration": 27.4
       }
 
   - name: Condi Hybrid Druid 52%
