@@ -118,7 +118,6 @@ export default function ExtraSelection(props) {
                     <Box display="flex">
                       <Item
                         id={data[extraId]?.gw2id}
-                        disableLink
                         {...(!isChinese && { text: data[extraId]?.text.replace('Superior ', '') })}
                       />
                       {data[extraId]?.subText && (
