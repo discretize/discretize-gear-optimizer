@@ -27,6 +27,7 @@ const {
   attributePercentKeysBlacklist,
   attributePointKeysBlacklist,
   damageKeysBlacklist,
+  // mayBeConvertedToBlacklist,
 } = requireTS(path.join(__dirname, './metadata.ts'));
 
 const schemaKeys = {
@@ -275,6 +276,9 @@ function parseAttributes(attributes, id, amountData) {
 
       if (amountData && !amountData.disableBlacklist && attributePointKeysBlacklist.includes(key))
         gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
+
+      // if (mayBeConvertedToBlacklist.includes(key) && amountData && allPairs.includes('converted'))
+      //   console.log(`❓ careful, ${id} may convert ${key} to a blacklisted amount`);
 
       // handle more than 2 pairs i.e. Concentration: [70, converted, 100, buff]
       const allPairsMut = [...allPairs];

@@ -152,6 +152,14 @@ export const attributePercentKeysBlacklist = [
   'Maximum Health',
 ] as const;
 
+// stats which are not on the blacklist, but may be converted to something on the blacklist
+export const mayBeConvertedToBlacklist = [
+  'Vitality', // magnanimous, weaver, harbinger, ranger, specter; exuberance rune
+  'Condition Damage', // toxic/lucent, scourge;
+  'Power', // toxic/lucent, scrapper, baelfire rune,
+  'Healing Power', // master, revenant
+] as const;
+
 export const exampleItem = `
     - id: example
       text: Example Item
