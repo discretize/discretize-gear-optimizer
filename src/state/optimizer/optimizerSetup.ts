@@ -495,6 +495,8 @@ export function setupCombinations(reduxState: any) {
         if (!collectedModifiers['convert'][attribute]) {
           collectedModifiers['convert'][attribute] = {};
         }
+        settings_baseAttributes[attribute] ??= 0;
+
         for (const [source, percentAmount] of Object.entries(val) as [
           ConversionSourceKey,
           Percent,
