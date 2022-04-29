@@ -105,7 +105,7 @@ export const getInfusionsModifiers = createSelector(
         id: 'agony-resistance',
         modifiers: {
           attributes: {
-            'Agony Resistance': [value || 0, 'converted'],
+            'Agony Resistance': [value ?? 0, 'converted'],
           },
         },
       });

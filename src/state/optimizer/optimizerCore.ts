@@ -307,7 +307,7 @@ export class OptimizerCore {
 
         // add gear stats
         for (const [stat, bonus] of settings.affixStatsArray[nextSlot][index]) {
-          newGearStats[stat] = (newGearStats[stat] || 0) + bonus;
+          newGearStats[stat] = (newGearStats[stat] ?? 0) + bonus;
         }
 
         calculationQueue.push(newGear);
@@ -319,7 +319,7 @@ export class OptimizerCore {
 
       // add gear stats
       for (const [stat, bonus] of settings.affixStatsArray[nextSlot][0]) {
-        gearStats[stat] = (gearStats[stat] || 0) + bonus;
+        gearStats[stat] = (gearStats[stat] ?? 0) + bonus;
       }
 
       calculationQueue.push(gear);
@@ -517,7 +517,7 @@ export class OptimizerCore {
   }
 
   addBaseStats(character: Character, stat: AttributeName, amount: number) {
-    character.baseAttributes[stat] = (character.baseAttributes[stat] || 0) + amount;
+    character.baseAttributes[stat] = (character.baseAttributes[stat] ?? 0) + amount;
   }
 
   /**
@@ -536,7 +536,7 @@ export class OptimizerCore {
     const powerDamageScore = this.calcPower(character, damageMultiplier);
     const condiDamageScore = this.calcCondi(character, damageMultiplier, Attributes.CONDITION);
     character.attributes['Damage'] =
-      powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] || 0);
+      powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] ?? 0);
 
     this.calcSurvivability(character, damageMultiplier);
     this.calcHealing(character);
@@ -583,7 +583,7 @@ export class OptimizerCore {
         }
 
         attributes['Damage'] =
-          powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] || 0);
+          powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] ?? 0);
         break;
       case 'Survivability':
         this.calcSurvivability(character, damageMultiplier);
@@ -615,7 +615,7 @@ export class OptimizerCore {
     }
 
     for (const [attribute, bonus] of settings.modifiers['buff']) {
-      attributes[attribute] = (attributes[attribute] || 0) + bonus;
+      attributes[attribute] = (attributes[attribute] ?? 0) + bonus;
     }
 
     attributes['Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
@@ -625,7 +625,7 @@ export class OptimizerCore {
 
     attributes['Health'] = round(
       (attributes['Health'] + attributes['Vitality'] * 10) *
-        (1 + (attributes['Maximum Health'] || 0)),
+        (1 + (attributes['Maximum Health'] ?? 0)),
     );
 
     for (const [attribute, conversion] of settings.modifiers['convertAfterBuffs']) {
@@ -693,11 +693,11 @@ export class OptimizerCore {
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
     const powerDamage =
-      ((attributes['Power Coefficient'] || 0) / 2597) * attributes['Effective Power'];
+      ((attributes['Power Coefficient'] ?? 0) / 2597) * attributes['Effective Power'];
     attributes['Power DPS'] = powerDamage;
 
     const siphonDamage =
-      (character.attributes['Siphon Base Coefficient'] || 0) * damageMultiplier['Siphon Damage'];
+      (character.attributes['Siphon Base Coefficient'] ?? 0) * damageMultiplier['Siphon Damage'];
     attributes['Siphon DPS'] = siphonDamage;
 
     return powerDamage + siphonDamage;
@@ -737,9 +737,9 @@ export class OptimizerCore {
 
       const duration =
         1 +
-        clamp((attributes[`${condition} Duration`] || 0) + attributes['Condition Duration'], 0, 1);
+        clamp((attributes[`${condition} Duration`] ?? 0) + attributes['Condition Duration'], 0, 1);
 
-      const stacks = (attributes[`${condition} Coefficient`] || 0) * duration;
+      const stacks = (attributes[`${condition} Coefficient`] ?? 0) * duration;
       attributes[`${condition} Stacks`] = stacks;
 
       const DPS = stacks * (attributes[`${condition} Damage`] || 1);
@@ -769,11 +769,11 @@ export class OptimizerCore {
     // reasonably representative skill: druid celestial avatar 4 pulse
     // 390 base, 0.3 coefficient
     attributes['Effective Healing'] =
-      (attributes['Healing Power'] * 0.3 + 390) * (1 + (attributes['Outgoing Healing'] || 0));
+      (attributes['Healing Power'] * 0.3 + 390) * (1 + (attributes['Outgoing Healing'] ?? 0));
     if (Object.prototype.hasOwnProperty.call(settings.modifiers, 'bountiful-maintenance-oil')) {
       const bonus =
-        ((attributes['Healing Power'] || 0) * 0.6) / 10000 +
-        ((attributes['Concentration'] || 0) * 0.8) / 10000;
+        ((attributes['Healing Power'] ?? 0) * 0.6) / 10000 +
+        ((attributes['Concentration'] ?? 0) * 0.8) / 10000;
       if (bonus) {
         attributes['Effective Healing'] *= 1 + bonus;
       }

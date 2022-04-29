@@ -63,7 +63,7 @@ const mode = (array) => {
   let highestCounter = 0;
   let best = null;
   for (const element of array) {
-    counters[element] = (counters[element] || 0) + 1;
+    counters[element] = (counters[element] ?? 0) + 1;
     if (counters[element] > highestCounter) {
       highestCounter = counters[element];
       best = element;

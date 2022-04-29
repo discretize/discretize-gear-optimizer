@@ -444,13 +444,13 @@ export function setupCombinations(reduxState: any) {
             switch (convertedOrBuff) {
               case 'converted':
                 settings_baseAttributes[attribute] =
-                  (settings_baseAttributes[attribute] || 0) + scaledAmount;
+                  (settings_baseAttributes[attribute] ?? 0) + scaledAmount;
                 break;
               case 'buff':
               case 'unknown':
               default:
                 collectedModifiers['buff'][attribute] =
-                  (collectedModifiers['buff'][attribute] || 0) + scaledAmount;
+                  (collectedModifiers['buff'][attribute] ?? 0) + scaledAmount;
                 break;
             }
           }
@@ -461,7 +461,7 @@ export function setupCombinations(reduxState: any) {
           const value = Array.isArray(allPairs) ? allPairs[0] : allPairs;
           const scaledAmount = scaleValue(value as number, amountInput, amountData);
           settings_baseAttributes[attribute] =
-            (settings_baseAttributes[attribute] || 0) + scaledAmount;
+            (settings_baseAttributes[attribute] ?? 0) + scaledAmount;
         } else if (enumArrayIncludes(allAttributePercentKeys, attribute)) {
           // percent, i.e.
           //   Torment Duration: 15%
@@ -472,10 +472,10 @@ export function setupCombinations(reduxState: any) {
           // +outgoing healing is assumed additive
           if (attribute === 'Maximum Health') {
             settings_baseAttributes[attribute] =
-              ((settings_baseAttributes[attribute] || 0) + 1) * (1 + scaledAmount) - 1;
+              ((settings_baseAttributes[attribute] ?? 0) + 1) * (1 + scaledAmount) - 1;
           } else {
             settings_baseAttributes[attribute] =
-              (settings_baseAttributes[attribute] || 0) + scaledAmount;
+              (settings_baseAttributes[attribute] ?? 0) + scaledAmount;
           }
         } else {
           // eslint-disable-next-line no-alert
@@ -504,7 +504,7 @@ export function setupCombinations(reduxState: any) {
           const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
 
           collectedModifiers['convert'][attribute]![source] =
-            (collectedModifiers['convert'][attribute]![source] || 0) + scaledAmount;
+            (collectedModifiers['convert'][attribute]![source] ?? 0) + scaledAmount;
         }
       }
 
@@ -531,7 +531,7 @@ export function setupCombinations(reduxState: any) {
           const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
 
           collectedModifiers['convertAfterBuffs'][attribute]![source] =
-            (collectedModifiers['convertAfterBuffs'][attribute]![source] || 0) + scaledAmount;
+            (collectedModifiers['convertAfterBuffs'][attribute]![source] ?? 0) + scaledAmount;
         }
       }
     }
@@ -718,7 +718,7 @@ export function setupCombinations(reduxState: any) {
           ][];
           for (const [type, bonus] of bonuses) {
             for (const stat of Affix[affix].bonuses[type]) {
-              statTotals[stat] = (statTotals[stat] || 0) + bonus;
+              statTotals[stat] = (statTotals[stat] ?? 0) + bonus;
             }
           }
 
