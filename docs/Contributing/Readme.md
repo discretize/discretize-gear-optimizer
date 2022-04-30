@@ -62,6 +62,8 @@ For the optimizer staging environment we are using [Cloudflare Pages](https://pa
 
 Opening a pullrequest will deploy a preview version to Cloudflare pages as well (action in `../../.github/workflows/previews-cf.yml`). A bot will notify about the deployment in the pullrequest. Every commit in a pullrequest will rebuild the preview. If you want to skip deploying a preview build, use `skip ci` in the commit description.
 
+Previews can be disabled with a [no previews] comment anywhere in the PR description body, and can be force-enabled in draft PRs with a [draft previews] comment.
+
 > todo: integrate the optimizer directly into the discretize.eu website and document its deploy process here.
 
 ### Site Framework
