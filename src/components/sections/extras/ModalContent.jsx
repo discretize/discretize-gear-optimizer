@@ -13,6 +13,7 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
+import { current } from '@reduxjs/toolkit';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -87,16 +88,16 @@ function ModalContent(props) {
     setSearch(event.target.value);
   };
 
-  const selectAllVisible = () => {
+  const selectAllVisible = React.useCallback(() => {
     const tmp = filteredItems.flatMap((array) => array[1]).map(({ id }) => id);
     dispatch(changeExtraIds({ type, ids: [...currentIds, ...tmp] }));
-  };
+  }, [filteredItems, dispatch, currentIds, type]);
 
-  const unselectAllVisible = () => {
+  const unselectAllVisible = React.useCallback(() => {
     const tmp = filteredItems.flatMap((array) => array[1]).map(({ id }) => id);
     const filtered = currentIds.filter((id) => !tmp.includes(id));
     dispatch(changeExtraIds({ type, ids: filtered }));
-  };
+  }, [filteredItems, currentIds, dispatch, type]);
 
   React.useEffect(() => {
     function handleKeyEvent(e) {
@@ -117,7 +118,7 @@ function ModalContent(props) {
     return () => {
       document.removeEventListener('keydown', handleKeyEvent);
     };
-  });
+  }, [dispatch, selectAllVisible, unselectAllVisible]);
 
   return (
     <DialogContent dividers className={classes.root}>

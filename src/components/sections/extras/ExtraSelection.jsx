@@ -97,7 +97,7 @@ export default function ExtraSelection(props) {
   const [priceData, setPriceData] = React.useState({});
   const [showPriceData, setShowPriceData] = React.useState(false);
 
-  const getPriceData = async () => {
+  const getPriceData = React.useCallback(async () => {
     const allIds = modifierData.flatMap(({ items }) => items.map((item) => item.gw2id));
     const dataChunks = await Promise.all(
       chunkArray(allIds, 200).map((ids) =>
@@ -110,14 +110,24 @@ export default function ExtraSelection(props) {
       .flat()
       .map(({ id, sells: { unit_price: price } = {} }) => [id, roundPrice(price)]);
     setPriceData(Object.fromEntries(priceDataEntries));
-  };
+  }, [modifierData]);
+
+  const handlePriceChange = React.useCallback(
+    (e) => {
+      if (e.target.checked) getPriceData();
+      setShowPriceData(e.target.checked);
+    },
+    [getPriceData],
+  );
 
   React.useEffect(() => {
     function handleKeyEvent(e) {
       // shortcut to show prices
-      console.log(e);
       if (e.ctrlKey && e.code === 'KeyP') {
-        setShowPriceData(!showPriceData);
+        setShowPriceData((prev) => {
+          if (!prev) getPriceData();
+          return !prev;
+        });
         e.preventDefault();
       }
     }
@@ -126,7 +136,7 @@ export default function ExtraSelection(props) {
     return () => {
       document.removeEventListener('keydown', handleKeyEvent);
     };
-  });
+  }, [dispatch, handlePriceChange, getPriceData]);
 
   return (
     <>
@@ -212,15 +222,7 @@ export default function ExtraSelection(props) {
         <ModalContent {...props} priceData={showPriceData ? priceData : {}} />
         <DialogActions>
           <FormControlLabel
-            control={
-              <Checkbox
-                checked={showPriceData}
-                onChange={(e) => {
-                  if (e.target.checked) getPriceData();
-                  setShowPriceData(e.target.checked);
-                }}
-              />
-            }
+            control={<Checkbox checked={showPriceData} onChange={handlePriceChange} />}
             label={
               <>
                 {t('Show prices')} <Label>{t('Ctrl+p')}</Label>
