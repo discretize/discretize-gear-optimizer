@@ -73,6 +73,7 @@ import {
 import { getCustomAffixData, getPriority } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
+import { getGameMode } from '../slices/userSettings';
 import type { OptimizerCoreSettings } from './optimizerCore';
 import { clamp, scaleValue } from './optimizerCore';
 
@@ -100,6 +101,7 @@ export interface AppliedModifier {
   enabled: boolean;
   amount: string;
   modifiers: YamlModifiers;
+  wvwModifiers?: YamlModifiers;
   amountData?: AmountData;
   // },
 }
@@ -248,6 +250,8 @@ export function setupCombinations(reduxState: any) {
     const attackRateText: string = getAttackRate(reduxState);
     const movementUptimeText: string = getMovementUptime(reduxState);
 
+    const isWvW: boolean = getGameMode(reduxState) === 'wvw';
+
     // todo: consolidate error handling
     if (profession === '') {
       throw new Error('missing profession!');
@@ -370,17 +374,20 @@ export function setupCombinations(reduxState: any) {
         enabled = true,
         amount: amountText,
         // data: {
-        modifiers: {
-          damage = {},
-          attributes = {},
-          conversion = {},
-          conversionAfterBuffs = {},
-          // note,
-          // ...otherModifiers
-        },
+        modifiers,
+        wvwModifiers,
         amountData,
         // },
       } = item;
+
+      const {
+        damage = {},
+        attributes = {},
+        conversion = {},
+        conversionAfterBuffs = {},
+        // note,
+        // ...otherModifiers
+      } = isWvW ? wvwModifiers ?? modifiers : modifiers;
 
       if (!visible || !enabled) {
         continue;
