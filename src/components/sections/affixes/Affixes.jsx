@@ -1,8 +1,8 @@
+import { HelperIcon } from '@discretize/react-discretize-components';
 import { Typography } from '@mui/material';
 import React from 'react';
-import { HelperIcon } from '@discretize/react-discretize-components';
-import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   changePriority,
   getExclusionsEnabled,
