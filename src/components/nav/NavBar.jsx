@@ -35,7 +35,7 @@ import data from '../../utils/data';
 import { PROFESSIONS } from '../../utils/gw2-data';
 import { PARAMS, setQueryParm } from '../../utils/queryParam';
 import NavAccordion from './NavAccordion';
-import NavSettings, { GAME_MODES } from './NavSettings';
+import NavSettings from './NavSettings';
 import ReappplyTemplateDialog from './ReappplyTemplateDialog';
 
 const useStyles = makeStyles()((theme) => ({
@@ -85,12 +85,15 @@ const Navbar = () => {
   const { drawerOpen } = state;
 
   const handleModeCycle = () => {
-    const currentMode = gamemode;
-    const index = GAME_MODES(t)
-      .map((mode) => mode.value)
-      .indexOf(currentMode);
-    const newIndex = (index + 1) % GAME_MODES(t).length;
-    const newGameMode = GAME_MODES(t)[newIndex]?.value;
+    // const currentMode = gamemode;
+    // const index = GAME_MODES(t)
+    //   .map((mode) => mode.value)
+    //   .indexOf(currentMode);
+    // const newIndex = (index + 1) % GAME_MODES(t).length;
+    // const newGameMode = GAME_MODES(t)[newIndex]?.value;
+
+    // only cycles between raids and fractals
+    const newGameMode = gamemode === 'raids' ? 'fractals' : 'raids';
 
     setQueryParm({ key: PARAMS.GAMEMODE, value: newGameMode });
     dispatch(changeGameMode(newGameMode));
