@@ -49,7 +49,7 @@ const ExcludedSlots = () => {
 
   return (
     <Box mt={3}>
-      <Typography fontWeight={800} mb={0.5}>
+      <Typography fontWeight={700} mb={0.5}>
         {t('Per-Slot Exclusions')}{' '}
         <HelperIcon
           text={t(

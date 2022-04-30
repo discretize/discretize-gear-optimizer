@@ -20,7 +20,7 @@ export default function Affixes() {
 
   return (
     <>
-      <Typography fontWeight={800} mb={0.5}>
+      <Typography fontWeight={700} mb={0.5}>
         {t('Desired Affixes')}{' '}
         <HelperIcon
           text={t(
