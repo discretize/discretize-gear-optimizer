@@ -9,6 +9,8 @@ import {
   getExclusionsEnabled,
   getPriority,
 } from '../../../state/slices/priorities';
+import data from '../../../utils/data';
+import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Affixes from './Affixes';
 
@@ -18,6 +20,15 @@ const AffixesSection = () => {
 
   const affixes = useSelector(getPriority('affixes'));
   const exclusionsEnabled = useSelector(getExclusionsEnabled);
+
+  const handleTemplateClickPriorities = React.useCallback(
+    (value) => {
+      if (!value) return;
+      const state = JSON.parse(value.value);
+      Object.keys(state).forEach((key) => dispatch(changePriority({ key, value: state[key] })));
+    },
+    [dispatch],
+  );
 
   const handleRitualist = () => {
     dispatch(changeExclusionsEnabled(true));
@@ -51,6 +62,12 @@ const AffixesSection = () => {
       content={<Affixes />}
       extraInfo={
         <>
+          <Presets
+            data={data.presetAffixes.list}
+            handleClick={handleTemplateClickPriorities}
+            presetCategory="affix"
+            maxChips={Infinity}
+          />
           <FormControlLabel
             control={
               <Switch
