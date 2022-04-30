@@ -154,6 +154,11 @@
           Condition Damage: [5%, add]
         attributes:
           Expertise: [150, converted]
+      wvwModifiers:
+        damage:
+          Condition Damage: [5%, add]
+        attributes:
+          Expertise: [60, converted]
       gw2id: 2006
       defaultEnabled: true
 
@@ -174,6 +179,9 @@
       modifiers:
         attributes:
           Bleeding Duration: 33%
+      wvwModifiers:
+        attributes:
+          Bleeding Duration: 15%
       minor: true
       gw2id: 516
       defaultEnabled: true
@@ -195,6 +203,9 @@
       modifiers:
         attributes:
           Burning Duration: 33%
+      wvwModifiers:
+        attributes:
+          Burning Duration: 10%
       gw2id: 433
       defaultEnabled: true
 
@@ -214,7 +225,7 @@
       text: Energy Amplifier
       modifiers:
         attributes:
-          Healing Power: [120, buff]
+          Healing Power: [250, buff]   #this is 250 instead of 120
       minor: true
       gw2id: 519
       defaultEnabled: true
@@ -229,6 +240,9 @@
       modifiers:
         attributes:
           Outgoing Healing: 20%
+      wvwModifiers:
+        attributes:
+          Outgoing Healing: 7%
       gw2id: 521
 
     - id: compounding-chemicals
@@ -236,6 +250,9 @@
       modifiers:
         attributes:
           Concentration: [240, buff]
+      wvwModifiers:
+        attributes:
+          Concentration: [75, buff]
       minor: true
       gw2id: 413
       defaultEnabled: true

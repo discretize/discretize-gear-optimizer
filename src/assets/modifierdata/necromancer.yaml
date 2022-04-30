@@ -215,8 +215,25 @@
       modifiers:
         conversion:
           Expertise: {Condition Damage: 7%}
+      wvwModifiers:
+        conversion:
+          Expertise: {Condition Damage: 4%}
       gw2id: 2074
       defaultEnabled: true
+
+    - id: sand-sage-1x
+      text: Sand Sage
+      subText: 1x
+      minor: true
+      modifiers:
+        attributes:
+          Concentration: [75, converted]
+          Expertise: [75, converted]
+      wvwModifiers:
+        attributes:
+          Concentration: [45, converted]
+          Expertise: [45, converted]
+      gw2id: 2121
 
     - id: sand-sage-2x
       text: Sand Sage
@@ -226,6 +243,10 @@
         attributes:
           Concentration: [150, converted]
           Expertise: [150, converted]
+      wvwModifiers:
+        attributes:
+          Concentration: [90, converted]
+          Expertise: [90, converted]
       gw2id: 2121
 
     - id: sand-sage-3x
@@ -236,16 +257,35 @@
         attributes:
           Concentration: [225, converted]
           Expertise: [225, converted]
+      wvwModifiers:
+        attributes:
+          Concentration: [135, converted]
+          Expertise: [135, converted]
       gw2id: 2121
       defaultEnabled: true
-
+    
+    - id: blood-as-sand-1x
+      text: Blood as Sand
+      subText: 1x
+      minor: true
+      modifiers:
+        damage:
+          Damage Reduction: [5%, unknown]
+      wvwModifiers:
+        damage:
+          Damage Reduction: [3%, unknown]
+      gw2id: 2096
+    
     - id: blood-as-sand-2x
       text: Blood as Sand
       subText: 2x
       minor: true
       modifiers:
         damage:
-          Damage Reduction: [15%, unknown]
+          Damage Reduction: [10%, unknown]
+      wvwModifiers:
+        damage:
+          Damage Reduction: [6%, unknown]
       gw2id: 2096
 
     - id: blood-as-sand-3x
@@ -255,6 +295,9 @@
       modifiers:
         damage:
           Damage Reduction: [15%, unknown]
+      wvwModifiers:
+        damage:
+          Damage Reduction: [9%, unknown]
       gw2id: 2096
       defaultEnabled: true
 
@@ -264,6 +307,9 @@
       modifiers:
         damage:
           Torment Damage: [25%, unknown]
+      wvwModifiers:
+        damage:
+          Torment Damage: [33%, unknown]
       gw2id: 2164
       defaultEnabled: true
 
@@ -302,6 +348,9 @@
       modifiers:
         damage:
           Strike Damage: [15%, mult]
+      wvwModifiers:
+        damage:
+          Strike Damage: [10%, mult]
       gw2id: 2018
       defaultEnabled: true
 
