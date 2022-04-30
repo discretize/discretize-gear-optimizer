@@ -20,6 +20,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import fractalImg from '../../assets/images/icons/fractals.png';
 import raidImg from '../../assets/images/icons/raids.png';
+import wvwImg from '../../assets/images/icons/wvw.png';
 import { getBuildTemplateData } from '../../assets/presetdata/templateTransform';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import {
@@ -55,7 +56,20 @@ const Navbar = () => {
   const selectedTemplateName = useSelector(getSelectedTemplate);
 
   const isFractals = gamemode === 'fractals';
-  const selectedGameModeText = isFractals ? t('Fractals') : t('Raids');
+
+  const selectedGameModeTexts = {
+    fractals: t('Fractals'),
+    raids: t('Raids'),
+    wvw: t('WvW'),
+  };
+  const selectedGameModeText = selectedGameModeTexts[gamemode];
+
+  const gameModeImages = {
+    fractals: fractalImg,
+    raids: raidImg,
+    wvw: wvwImg,
+  };
+  const gameModeImage = gameModeImages[gamemode];
 
   const mobileView = !useMediaQuery('(min-width:900px)');
   const showSelectedTemplate = useMediaQuery('(min-width:960px)');
@@ -89,11 +103,7 @@ const Navbar = () => {
         <Box display="flex" flexDirection="column" alignItems="center">
           <Tooltip content={`${t('Selected Game Mode')}: ${selectedGameModeText}`}>
             <IconButton size="small" onClick={handleModeCycle}>
-              <img
-                style={{ width: '40px' }}
-                src={isFractals ? fractalImg : raidImg}
-                alt={isFractals ? t('Fractal') : t('Raid')}
-              />
+              <img style={{ width: '40px' }} src={gameModeImage} alt={selectedGameModeText} />
             </IconButton>
           </Tooltip>
 
