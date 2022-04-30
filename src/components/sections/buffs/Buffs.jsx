@@ -1,6 +1,7 @@
 import { Boon, CommonEffect, Condition, Skill, Trait } from '@discretize/gw2-ui-new';
 import { firstUppercase } from '@discretize/react-discretize-components';
 import { Box, FormControl, FormGroup, FormLabel, Grid, Typography } from '@mui/material';
+import classNames from 'classnames';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,6 +22,9 @@ const useStyles = makeStyles()((theme) => ({
   },
   note: {
     fontSize: '1rem',
+  },
+  hasSubText: {
+    marginBottom: -4,
   },
   tinyNote: {
     fontWeight: 200,
@@ -77,7 +81,11 @@ const Buffs = () => {
                 const label =
                   type === 'Text' ? (
                     <>
-                      <Typography className={classes.note}>
+                      <Typography
+                        variant="body2"
+                        component="div"
+                        className={classNames(classes.note, subText && classes.hasSubText)}
+                      >
                         {
                           // i18next-extract-mark-context-next-line {{buffText}}
                           t('buffText', { context: text })
