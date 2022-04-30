@@ -97,7 +97,12 @@ const Navbar = () => {
 
     setQueryParm({ key: PARAMS.GAMEMODE, value: newGameMode });
     dispatch(changeGameMode(newGameMode));
-    if (selectedTemplateName && selectedTemplateName.length > 0) setOpen(true);
+
+    const isFractalsNew = newGameMode === 'fractals';
+    const isFractalsOld = gamemode === 'fractals';
+    const isFractalsChanged = isFractalsNew !== isFractalsOld;
+    if (isFractalsChanged && selectedTemplateName && selectedTemplateName.length > 0 && newGameMode)
+      setOpen(true);
   };
 
   const stickyRight = () => {
