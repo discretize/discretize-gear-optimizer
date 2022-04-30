@@ -1,4 +1,3 @@
-import React from 'react';
 import { HelperIcon } from '@discretize/react-discretize-components';
 import {
   Box,
@@ -11,6 +10,7 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
@@ -50,10 +50,10 @@ const ExcludedSlots = () => {
   return (
     <Box mt={3}>
       <Typography fontWeight={800} mb={0.5}>
-        {t('Excluded Affixes')}{' '}
+        {t('Per-Slot Exclusions')}{' '}
         <HelperIcon
           text={t(
-            'Allows you to disable a stat for a gear slot. Example: tick the helmet for the stat x. Stat x will not be ever assigned to the helmet.',
+            'Allows you to exclude an affix from being chosen for any gear slot. Example: select the amulet/ritualist checkbox to prevent ritualist from being assigned to the amulet slot.',
           )}
           size="small"
         />

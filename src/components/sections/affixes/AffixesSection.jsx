@@ -77,7 +77,7 @@ const AffixesSection = () => {
                 color="primary"
               />
             }
-            label={t('Show affix exclusion controls')}
+            label={t('Show per-slot controls')}
           />
           {affixes.includes('Ritualist') ? (
             <Chip
