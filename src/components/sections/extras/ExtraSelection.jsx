@@ -32,6 +32,7 @@ import {
 import { chunkArray } from '../../../utils/usefulFunctions';
 import AmountInput from '../../baseComponents/AmountInput';
 import ModalContent from './ModalContent';
+import Label from '../../baseComponents/Label';
 
 const roundHundred = (num) => Math.round(num / 100) * 100;
 
@@ -109,6 +110,20 @@ export default function ExtraSelection(props) {
       .map(({ id, sells: { unit_price: price } = {} }) => [id, roundHundred(price)]);
     setPriceData(Object.fromEntries(priceDataEntries));
   };
+
+  React.useEffect(() => {
+    document.onkeydown = function (e) {
+      // shortcut to show prices
+      if (e.ctrlKey && e.code === 'KeyP') {
+        setShowPriceData(!showPriceData);
+        e.preventDefault();
+      }
+    };
+
+    return () => {
+      document.onkeydown = undefined;
+    };
+  });
 
   return (
     <>
@@ -203,7 +218,11 @@ export default function ExtraSelection(props) {
                 }}
               />
             }
-            label={t('Show prices')}
+            label={
+              <>
+                {t('Show prices')} <Label>{t('Ctrl+p')}</Label>
+              </>
+            }
             sx={{ ml: 0, mr: 'auto' }}
           />
 
