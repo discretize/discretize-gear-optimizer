@@ -1,4 +1,4 @@
-import { Chip, FormControlLabel, Switch } from '@mui/material';
+import { Box, Chip, FormControlLabel, Switch } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -54,8 +54,13 @@ const AffixesSection = () => {
       helpText={
         <>
           <Trans>
-            Select the affixes you want to optimize for here. Keep in mind that selecting more than
-            3 Affixes might become computational infeasible.
+            Select the affixes, or gear stat combinations, you want the optimizer to test. Keep in
+            mind that optimizing more than 3 affixes may be prohibitively slow.
+          </Trans>
+          <Box component="span" sx={{ mt: 1, display: 'block' }} />
+          <Trans>
+            You can exclude any affix from any slot using the per-slot exclusion checkboxes. This is
+            useful for affix/slot combinations like ritualist trinkets that are difficult to obtain.
           </Trans>
         </>
       }
