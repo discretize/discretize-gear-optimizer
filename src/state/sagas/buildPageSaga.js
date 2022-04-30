@@ -33,6 +33,10 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
   const { attributes: allAttributes, gear, settings, infusions } = character;
   const { specialization, weaponType, extrasCombination } = settings;
 
+  // TODO ================================================================
+  // TODO ==       ON NEXT SCHEMA UPGRADE ADD JADE BOT TIER             ==
+  // TODO ================================================================
+
   // filter out unnecessary attributes
   const attributes = {};
   Object.keys(BuildPageSchema.character.attributes).forEach((key) => {

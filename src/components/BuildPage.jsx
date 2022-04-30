@@ -13,6 +13,7 @@ import {
   getTraits,
   getWeapons,
 } from '../state/slices/buildPage';
+import { JADE_BOT_CORE_IDS } from '../utils/gw2-data';
 import { PARAMS, useQueryParam } from '../utils/queryParam';
 import ResultCharacter from './sections/results/ResultCharacter';
 
@@ -83,7 +84,17 @@ const BuildPage = () => {
     );
   };
 
-  const assumedBuffs = buffModifiers.flatMap((buff) => buff.items).filter((buff) => buffs[buff.id]);
+  let assumedBuffs = buffModifiers.flatMap((buff) => buff.items).filter((buff) => buffs[buff.id]);
+
+  if (assumedBuffs.find((buff) => buff.id.includes('jade-bot-')))
+    assumedBuffs = assumedBuffs.concat({
+      type: 'Item',
+      id: 'jade-bot',
+      gw2id: JADE_BOT_CORE_IDS[9], // TODO hard coded level 10 at the moment until we encode the jade bot tier into the url (-> next schema upgrade)
+    });
+  const ar = character && character.attributes['Agony Resistance'];
+  // TODO this condition is also technically not correct. would need to transmit the game mode
+  if (ar > 0) assumedBuffs = assumedBuffs.concat({ type: 'Item', id: 'omnipotion', gw2id: 79722 });
 
   return (
     <>
