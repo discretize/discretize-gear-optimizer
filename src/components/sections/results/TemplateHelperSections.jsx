@@ -8,7 +8,7 @@ import { allExtrasModifiersById, buffModifiers } from '../../../assets/modifierd
 import { getSkills, getWeapons } from '../../../state/slices/buildPage';
 import { getGameMode } from '../../../state/slices/userSettings';
 import { infusionIds, WEAPONS } from '../../../utils/gw2-data';
-import { createAssumedBuffs } from '../../../utils/toLazyToType-usefulFuncitons';
+import { createAssumedBuffs } from '../../../utils/toLazyToType-usefulFunctions';
 import { getWeight } from '../../../utils/usefulFunctions';
 import Section from '../../baseComponents/Section';
 import ModalContent from './BuildShareModal/ModalContent';
