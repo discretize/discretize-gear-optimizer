@@ -14,6 +14,10 @@ export const prioritiesSlice = createSlice({
     minHealth: '',
     minCritChance: '',
     affixes: [],
+    exclusions: {
+      enabled: false,
+      data: {},
+    },
     customAffix: {},
     customAffixTextBox: '',
     customAffixError: '',
@@ -21,6 +25,17 @@ export const prioritiesSlice = createSlice({
   reducers: {
     changePriority: (state, action) => {
       state[action.payload.key] = action.payload.value;
+    },
+    changeExclusion: (state, action) => {
+      const { affix, index, value } = action.payload;
+      if (!state.exclusions.data[affix]) state.exclusions.data[affix] = Array(14).fill(false);
+      state.exclusions.data[affix][index] = Boolean(value);
+    },
+    changeExclusionsEnabled: (state, action) => {
+      state.exclusions.enabled = action.payload;
+      if (!action.payload) {
+        state.exclusions.data = {};
+      }
     },
   },
   extraReducers: {
@@ -39,6 +54,8 @@ export const prioritiesSlice = createSlice({
 });
 
 export const getPriority = (key) => (state) => state.optimizer.form.priorities[key];
+export const getExclusionsEnabled = (state) => state.optimizer.form.priorities.exclusions.enabled;
+export const getExclusionData = (state) => state.optimizer.form.priorities.exclusions.data;
 
 export const getCustomAffixData = createSelector(
   (state) => state.optimizer.form.priorities.customAffix,
@@ -51,4 +68,4 @@ export const getCustomAffixData = createSelector(
   },
 );
 
-export const { changePriority } = prioritiesSlice.actions;
+export const { changePriority, changeExclusion, changeExclusionsEnabled } = prioritiesSlice.actions;

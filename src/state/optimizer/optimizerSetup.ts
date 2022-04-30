@@ -61,7 +61,7 @@ import {
   getExtrasCombinationsAndModifiers as getExtrasCombinationsAndModifiersRaw,
   getExtrasIds,
 } from '../slices/extras';
-import { getExclusionData, getForcedSlots } from '../slices/forcedSlots';
+import { getForcedSlots } from '../slices/forcedSlots';
 import {
   getInfusionsModifiers,
   getMaxInfusions,
@@ -70,7 +70,7 @@ import {
   getSecondaryInfusion,
   getSecondaryMaxInfusions,
 } from '../slices/infusions';
-import { getCustomAffixData, getPriority } from '../slices/priorities';
+import { getCustomAffixData, getExclusionData, getPriority } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import type { OptimizerCoreSettings } from './optimizerCore';
