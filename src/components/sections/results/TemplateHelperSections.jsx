@@ -89,7 +89,7 @@ const TemplateHelperSections = ({ character }) => {
     };
 
     navigator.clipboard.writeText(
-      `<Character ${indent(`gear={${JSON.stringify(template, null, 2)}}`)} />`,
+      `<Character ${indent(`gear={${JSON.stringify(template, null, 2)}}`)}>\n\n</Character>`,
     );
   };
 
