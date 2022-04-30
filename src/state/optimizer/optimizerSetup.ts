@@ -70,7 +70,7 @@ import {
   getSecondaryInfusion,
   getSecondaryMaxInfusions,
 } from '../slices/infusions';
-import { getCustomAffixData, getPriority } from '../slices/priorities';
+import { getCustomAffixData, getExclusionData, getPriority } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import type { OptimizerCoreSettings } from './optimizerCore';
@@ -234,6 +234,7 @@ export function setupCombinations(reduxState: any) {
     const primaryMaxInfusionsText: string = getPrimaryMaxInfusions(reduxState);
     const secondaryMaxInfusionsText: string = getSecondaryMaxInfusions(reduxState);
     const forcedSlots: (AffixName | null)[] = getForcedSlots(reduxState);
+    const exclusions: Record<AffixName, boolean[]> = getExclusionData(reduxState);
     const optimizeFor: IndicatorName = getPriority('optimizeFor')(reduxState);
     const weaponType: WeaponHandednessType = getPriority('weaponType')(reduxState);
     const minBoonDurationText: string = getPriority('minBoonDuration')(reduxState);
@@ -670,19 +671,31 @@ export function setupCombinations(reduxState: any) {
     let settings_forcedAcc: OptimizerCoreSettings['forcedAcc'] = false;
     let settings_forcedWep: OptimizerCoreSettings['forcedWep'] = false;
 
-    forcedSlots.forEach((affix, index) => {
-      if (!affix) {
-        return;
-      }
-      settings_affixesArray[index] = [affix];
-      if (['shld', 'glov', 'boot'].includes(ForcedSlots[index])) {
-        settings_forcedArmor = true;
-      } else if (['rng1', 'rng2'].includes(ForcedSlots[index])) {
-        settings_forcedRing = true;
-      } else if (['acc1', 'acc2'].includes(ForcedSlots[index])) {
-        settings_forcedAcc = true;
-      } else if (['wep1', 'wep2'].includes(ForcedSlots[index])) {
-        settings_forcedWep = true;
+    forcedSlots.forEach((forcedAffix, index) => {
+      if (forcedAffix || Object.values(exclusions).some((arr) => arr[index])) {
+        if (forcedAffix) {
+          settings_affixesArray[index] = [forcedAffix];
+        } else {
+          const filtered = settings_affixesArray[index].filter(
+            (affix) => !exclusions?.[affix]?.[index],
+          );
+          if (filtered.length) {
+            settings_affixesArray[index] = filtered;
+          } else {
+            // user excluded every possible affix; fallback to excluding nothing
+            return;
+          }
+        }
+
+        if (['shld', 'glov', 'boot'].includes(ForcedSlots[index])) {
+          settings_forcedArmor = true;
+        } else if (['rng1', 'rng2'].includes(ForcedSlots[index])) {
+          settings_forcedRing = true;
+        } else if (['acc1', 'acc2'].includes(ForcedSlots[index])) {
+          settings_forcedAcc = true;
+        } else if (['wep1', 'wep2'].includes(ForcedSlots[index])) {
+          settings_forcedWep = true;
+        }
       }
     });
 

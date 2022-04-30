@@ -4,7 +4,7 @@ import { changeAll } from './controlsSlice';
 export const forcedSlotsSlice = createSlice({
   name: 'forcedSlots',
   initialState: {
-    slots: [null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+    slots: Array(14).fill(null),
   },
   reducers: {
     changeForcedSlot: (state, action) => {
