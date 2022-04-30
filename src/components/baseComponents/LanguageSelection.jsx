@@ -6,6 +6,7 @@ const LANGUAGES = [
   { value: 'en', label: 'English' },
   { value: 'zh', label: '中文' },
   { value: 'de', label: 'Deutsch' },
+  { value: 'es', label: 'Español' },
 ];
 
 const LanguageSelection = () => {
