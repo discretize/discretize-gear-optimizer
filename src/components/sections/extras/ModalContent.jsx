@@ -99,7 +99,7 @@ function ModalContent(props) {
   };
 
   React.useEffect(() => {
-    document.onkeydown = function (e) {
+    function handleKeyEvent(e) {
       if (e.ctrlKey && e.code === 'KeyK') {
         searchRef.current.focus();
         e.preventDefault();
@@ -112,10 +112,10 @@ function ModalContent(props) {
         unselectAllVisible();
         e.preventDefault();
       }
-    };
-
+    }
+    document.addEventListener('keydown', handleKeyEvent);
     return () => {
-      document.onkeydown = undefined;
+      document.removeEventListener('keydown', handleKeyEvent);
     };
   });
 

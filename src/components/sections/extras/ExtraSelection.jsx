@@ -113,16 +113,18 @@ export default function ExtraSelection(props) {
   };
 
   React.useEffect(() => {
-    document.onkeydown = function (e) {
+    function handleKeyEvent(e) {
       // shortcut to show prices
+      console.log(e);
       if (e.ctrlKey && e.code === 'KeyP') {
         setShowPriceData(!showPriceData);
         e.preventDefault();
       }
-    };
+    }
+    document.addEventListener('keydown', handleKeyEvent);
 
     return () => {
-      document.onkeydown = undefined;
+      document.removeEventListener('keydown', handleKeyEvent);
     };
   });
 
