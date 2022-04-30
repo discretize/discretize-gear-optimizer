@@ -8,12 +8,15 @@ import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
 import AffixesStats from './AffixesStats';
 import AppliedModifiers from './AppliedModifiers';
+import Bonuses from './Bonuses';
 import Indicators from './Indicators';
 import OutputDistribution from './OutputDistribution';
 import OutputInfusions from './OutputInfusions';
 import ResultCharacter from './ResultCharacter';
 import SpecialDurations from './SpecialDurations';
 import TemplateHelperSections from './TemplateHelperSections';
+
+const roundTwo = (num) => Math.round(num * 100) / 100;
 
 const ResultDetails = () => {
   const { t } = useTranslation();
@@ -45,6 +48,11 @@ const ResultDetails = () => {
     .flatMap((buff) => buff.items)
     .filter((buff) => character.settings.cachedFormState.buffs.buffs[buff.id]);
 
+  const bonuses = {};
+  if (character.attributes['Outgoing Healing']) {
+    bonuses[t('Outgoing Healing')] = `${roundTwo(character.attributes['Outgoing Healing'] * 100)}%`;
+  }
+
   return (
     <ErrorBoundary location="ResultDetails" resetKeys={[character]}>
       <TextDivider text="Result Character" />
@@ -53,6 +61,7 @@ const ResultDetails = () => {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4}>
           <SpecialDurations data={character.attributes} />
+          {Object.keys(bonuses).length ? <Bonuses data={bonuses} title={t('Bonuses')} /> : null}
           <Indicators data={character.results.indicators} />
           <AffixesStats data={character.gearStats} title={t('Stats from affixes')} />
           {character.infusions && <OutputInfusions data={character.infusions} />}

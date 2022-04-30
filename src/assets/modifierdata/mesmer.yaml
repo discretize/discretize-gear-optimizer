@@ -194,16 +194,17 @@
       gw2id: 669
       defaultEnabled: true
 
+    # no configurable amount; causes scaled boon duration with toxic oil
     - id: chaotic-potency-2
       text: Chaotic Potency
       subText: with staff
-      amountData:
-        label: '% uptime'
-        default: 100
-        quantityEntered: 100
+      # amountData:
+      #   label: '% uptime'
+      #   default: 100
+      #   quantityEntered: 100
       modifiers:
         attributes:
-          Condition Damage: [120, buff]
+          Condition Damage: [120, converted] # tested by marcus
       gw2id: 669
 
     - id: chaotic-persistence

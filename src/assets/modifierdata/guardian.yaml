@@ -412,13 +412,15 @@
   note: Be sure to change the burning coefficient value below when adding or removing traits without checkboxes like legendary lore.
   items:
 
+    # no configurable amount; causes scaled boon duration with various utilities
     - id: imbued-haste
       text: Imbued Haste
+      subText: 100% quickness
       minor: true
-      amountData:
-        label: '% quickness'
-        default: 100
-        quantityEntered: 100
+      # amountData:
+      #   label: '% quickness'
+      #   default: 100
+      #   quantityEntered: 100
       modifiers:
         attributes:
           Condition Damage: [250, converted]

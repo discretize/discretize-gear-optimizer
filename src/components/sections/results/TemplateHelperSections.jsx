@@ -6,7 +6,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { allExtrasModifiersById, buffModifiers } from '../../../assets/modifierdata';
 import { getSkills, getWeapons } from '../../../state/slices/buildPage';
-import { WEAPONS } from '../../../utils/gw2-data';
+import { infusionIds, WEAPONS } from '../../../utils/gw2-data';
 import { getWeight } from '../../../utils/usefulFunctions';
 import Section from '../../baseComponents/Section';
 import ModalContent from './BuildShareModal/ModalContent';
@@ -23,7 +23,7 @@ const TemplateHelperSections = ({ character }) => {
   const skills = useSelector(getSkills);
 
   const onClick = () => {
-    const { attributes, gear, settings } = character;
+    const { attributes, gear, settings, infusions: infusionsRaw } = character;
     const { profession } = settings;
     const { buffs } = settings.cachedFormState.buffs;
 
@@ -65,6 +65,11 @@ const TemplateHelperSections = ({ character }) => {
       .filter((buff) => buffs[buff.id])
       .map(({ id, gw2id, type }) => ({ id, gw2id, type }));
 
+    const infusionsTemp = Object.entries(infusionsRaw)
+      .map(([type, count]) => [...Array(count).fill(infusionIds['+9 Stat Infusion'][type].id)])
+      .flat();
+    const infusions = infusionsTemp.concat(Array(18 - infusionsTemp.length).fill(49432));
+
     const template = {
       profession,
       weight: getWeight(profession),
@@ -72,7 +77,7 @@ const TemplateHelperSections = ({ character }) => {
       attributes,
       runeId: rune.gw2id,
       runeName,
-      infusions: [...Array(18).fill(49432)],
+      infusions,
       weapons: weapData,
       consumables: { foodId, utilityId },
       skills,

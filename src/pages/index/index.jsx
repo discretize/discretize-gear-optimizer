@@ -38,7 +38,7 @@ const IndexPage = () => {
       </Link>{' '}
       <Trans>or</Trans>{' '}
       <Link
-        href="https://github.com/discretize/discretize-gear-optimizer/tree/staging"
+        href="https://github.com/discretize/discretize-gear-optimizer"
         color="textPrimary"
         target="_blank"
         rel="noopener"

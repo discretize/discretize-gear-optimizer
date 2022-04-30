@@ -153,6 +153,8 @@ export const runesDict = [
   'golemancer',
   'privateer',
   'krait-no-elite',
+  'rage',
+  'infiltration',
 ];
 
 export const sigilDict = [
@@ -224,6 +226,9 @@ export const enhancementDict = [
   'writ-of-calculated-accuracy',
   'writ-of-studied-accuracy',
   'writ-of-learned-malice',
+  'writ-of-calculated-malice',
+  'writ-of-learned-strength',
+  'writ-of-calculated-strength',
 ];
 
 export const nourishmentDict = [
@@ -286,6 +291,7 @@ export const nourishmentDict = [
   'slice-of-candied-dragon-roll',
   'slice-of-allspice-cake',
   'slice-of-allspice-cake-with-ice-cream',
+  'avocado-smoothie',
 ];
 
 export const buffsDict = [

@@ -65,7 +65,7 @@ const DistributionSection = () => {
           <Trans>
             For more information,{' '}
             <Link
-              href="https://github.com/discretize/discretize-gear-optimizer/tree/staging/docs/Coefficients.md"
+              href="https://github.com/discretize/discretize-gear-optimizer/tree/main/docs/Coefficients.md"
               target="_blank"
               rel="noopener"
             >

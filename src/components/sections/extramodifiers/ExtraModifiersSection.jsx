@@ -20,7 +20,7 @@ const ExtraModifiersSection = () => {
           <Trans>
             For more information,{' '}
             <Link
-              href="https://github.com/discretize/discretize-gear-optimizer/tree/staging/docs/Contributing/Data%20Format"
+              href="https://github.com/discretize/discretize-gear-optimizer/tree/main/docs/Contributing/Data%20Format"
               target="_blank"
               rel="noopener"
             >
