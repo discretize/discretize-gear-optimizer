@@ -13,7 +13,6 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import { current } from '@reduxjs/toolkit';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -51,6 +50,7 @@ function ModalContent(props) {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const currentIds = useSelector(getExtrasIds)[type] || [];
 
   const [search, setSearch] = React.useState('');
