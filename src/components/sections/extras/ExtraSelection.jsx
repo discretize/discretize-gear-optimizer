@@ -6,10 +6,12 @@ import DeleteIcon from '@mui/icons-material/DeleteOutline';
 import {
   Box,
   Button,
+  Checkbox,
   Dialog,
   DialogActions,
   DialogTitle,
   Fade,
+  FormControlLabel,
   IconButton,
   List,
   ListItem,
@@ -27,8 +29,13 @@ import {
   getExtrasData,
   getExtrasIds,
 } from '../../../state/slices/extras';
+import { chunkArray } from '../../../utils/usefulFunctions';
 import AmountInput from '../../baseComponents/AmountInput';
 import ModalContent from './ModalContent';
+import Label from '../../baseComponents/Label';
+
+// const roundPrice = (num) => Math.round(num / 100) * 100;
+const roundPrice = (num) => num;
 
 const useStyles = makeStyles()((theme) => ({
   list: {
@@ -46,7 +53,7 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 export default function ExtraSelection(props) {
-  const { type, label, modifierDataById: data, text } = props;
+  const { type, label, modifierData, modifierDataById: data, text } = props;
 
   const { classes } = useStyles();
   const dispatch = useDispatch();
@@ -86,6 +93,50 @@ export default function ExtraSelection(props) {
   const deleteAll = () => {
     dispatch(changeExtraIds({ type, ids: [] }));
   };
+
+  const [priceData, setPriceData] = React.useState({});
+  const [showPriceData, setShowPriceData] = React.useState(false);
+
+  const getPriceData = React.useCallback(async () => {
+    const allIds = modifierData.flatMap(({ items }) => items.map((item) => item.gw2id));
+    const dataChunks = await Promise.all(
+      chunkArray(allIds, 200).map((ids) =>
+        fetch(`https://api.guildwars2.com/v2/commerce/prices?ids=${ids.join(',')}`).then(
+          (response) => response.json(),
+        ),
+      ),
+    );
+    const priceDataEntries = dataChunks
+      .flat()
+      .map(({ id, sells: { unit_price: price } = {} }) => [id, roundPrice(price)]);
+    setPriceData(Object.fromEntries(priceDataEntries));
+  }, [modifierData]);
+
+  const handlePriceChange = React.useCallback(
+    (e) => {
+      if (e.target.checked) getPriceData();
+      setShowPriceData(e.target.checked);
+    },
+    [getPriceData],
+  );
+
+  React.useEffect(() => {
+    function handleKeyEvent(e) {
+      // shortcut to show prices
+      if (e.ctrlKey && e.code === 'KeyP') {
+        setShowPriceData((prev) => {
+          if (!prev) getPriceData();
+          return !prev;
+        });
+        e.preventDefault();
+      }
+    }
+    document.addEventListener('keydown', handleKeyEvent);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyEvent);
+    };
+  }, [dispatch, handlePriceChange, getPriceData]);
 
   return (
     <>
@@ -168,8 +219,18 @@ export default function ExtraSelection(props) {
             <CloseIcon />
           </IconButton>
         </DialogTitle>
-        <ModalContent {...props} />
+        <ModalContent {...props} priceData={showPriceData ? priceData : {}} />
         <DialogActions>
+          <FormControlLabel
+            control={<Checkbox checked={showPriceData} onChange={handlePriceChange} />}
+            label={
+              <>
+                {t('Show prices')} <Label>{t('Ctrl+p')}</Label>
+              </>
+            }
+            sx={{ ml: 0, mr: 'auto' }}
+          />
+
           <Button startIcon={<DeleteIcon />} onClick={deleteAll}>
             {t('Unselect all')}
           </Button>
