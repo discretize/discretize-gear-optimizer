@@ -22,6 +22,9 @@ const useStyles = makeStyles()((theme) => ({
     borderCollapse: 'collapse !important',
     marginBottom: '0px !important',
   },
+  checkbox: {
+    padding: '6px',
+  },
 }));
 
 const ExcludedSlots = () => {
@@ -45,7 +48,8 @@ const ExcludedSlots = () => {
 
   return (
     <Box mt={5}>
-      <Typography>{t('Excluded Affixes (WIP)')}</Typography>
+      <Typography fontWeight={800}>{t('Excluded Affixes')}</Typography>
+
       <TableContainer>
         <Table className={classes.tableCollapse}>
           <TableHead>
@@ -63,9 +67,10 @@ const ExcludedSlots = () => {
                 <TableCell padding="none">{affix}</TableCell>
                 {SLOTS.map((slot, index) => (
                   // eslint-disable-next-line react/no-array-index-key
-                  <TableCell padding="none" key={index}>
+                  <TableCell padding="none" sx={{ padding: 0.3 }} key={index}>
                     <Checkbox
                       size="small"
+                      classes={{ root: classes.checkbox }}
                       checked={Boolean(exclusions?.[affix]?.[index])}
                       disabled={forcedSlots[index] !== null}
                       onChange={handleChange(index, affix)}
