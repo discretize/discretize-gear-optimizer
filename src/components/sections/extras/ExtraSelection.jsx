@@ -33,7 +33,8 @@ import { chunkArray } from '../../../utils/usefulFunctions';
 import AmountInput from '../../baseComponents/AmountInput';
 import ModalContent from './ModalContent';
 
-const roundHundred = (num) => Math.round(num / 100) * 100;
+// const roundPrice = (num) => Math.round(num / 100) * 100;
+const roundPrice = (num) => num;
 
 const useStyles = makeStyles()((theme) => ({
   list: {
@@ -106,7 +107,7 @@ export default function ExtraSelection(props) {
     );
     const priceDataEntries = dataChunks
       .flat()
-      .map(({ id, sells: { unit_price: price } = {} }) => [id, roundHundred(price)]);
+      .map(({ id, sells: { unit_price: price } = {} }) => [id, roundPrice(price)]);
     setPriceData(Object.fromEntries(priceDataEntries));
   };
 
