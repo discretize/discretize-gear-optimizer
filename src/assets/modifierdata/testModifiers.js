@@ -110,6 +110,7 @@ const testModifiers = async () => {
           text,
           subText,
           modifiers,
+          wvwModifiers,
           gw2id,
           type,
           minor,
@@ -212,29 +213,37 @@ const testModifiers = async () => {
           gentleAssert(false, `err: ${id} doesn't have a type`);
 
         gentleAssert(typeof modifiers === 'object', `err: invalid or missing modifiers in ${id}`);
-
-        const { damage, attributes, conversion, conversionAfterBuffs, ...otherModifiers } =
-          modifiers;
         gentleAssert(
-          Object.keys(otherModifiers).length === 0,
-          `err: invalid modifier type(s): ${Object.keys(otherModifiers)}`,
+          wvwModifiers === undefined || typeof wvwModifiers === 'object',
+          `err: invalid wvwModifiers in ${id}`,
         );
 
-        if (damage) {
-          parseDamage(damage, id, amountData);
-        }
+        [modifiers, wvwModifiers].forEach((modifierData) => {
+          if (!modifierData) return;
 
-        if (attributes) {
-          parseAttributes(attributes, id, amountData);
-        }
+          const { damage, attributes, conversion, conversionAfterBuffs, ...otherModifiers } =
+            modifierData;
+          gentleAssert(
+            Object.keys(otherModifiers).length === 0,
+            `err: invalid modifier type(s): ${Object.keys(otherModifiers)}`,
+          );
 
-        if (conversion) {
-          parseConversion(conversion, id, amountData);
-        }
+          if (damage) {
+            parseDamage(damage, id, amountData);
+          }
 
-        if (conversionAfterBuffs) {
-          parseConversionAfterBuffs(conversionAfterBuffs, id, amountData);
-        }
+          if (attributes) {
+            parseAttributes(attributes, id, amountData);
+          }
+
+          if (conversion) {
+            parseConversion(conversion, id, amountData);
+          }
+
+          if (conversionAfterBuffs) {
+            parseConversionAfterBuffs(conversionAfterBuffs, id, amountData);
+          }
+        });
       }
     }
   }
