@@ -48,8 +48,8 @@ const ExcludedSlots = () => {
   };
 
   return (
-    <Box mt={5}>
-      <Typography fontWeight={800}>
+    <Box mt={3}>
+      <Typography fontWeight={800} mb={0.5}>
         {t('Excluded Affixes')}{' '}
         <HelperIcon
           text={t(
