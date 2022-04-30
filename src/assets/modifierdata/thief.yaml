@@ -97,6 +97,11 @@
           Poison Damage: [33%, unknown]
         attributes:
           Poison Duration: 33%
+      wvwModifiers:
+        damage:
+          Poison Damage: [20%, unknown]
+        attributes:
+          Poison Duration: 5%
       gw2id: 1291
       defaultEnabled: true
 
@@ -149,6 +154,9 @@
       modifiers:
         conversion:
           Ferocity: {Precision: 10%}
+      wvwModifiers:
+        conversion:
+          Ferocity: {Precision: 15%}
       gw2id: 1272
       defaultEnabled: true
 
@@ -174,6 +182,9 @@
       modifiers:
         attributes:
           Ferocity: [250, buff]
+      wvwModifiers:
+        attributes:
+          Ferocity: [300, buff]
       gw2id: 1904
       defaultEnabled: true
 
@@ -191,6 +202,9 @@
       modifiers:
         attributes:
           Concentration: [240, buff]
+      wvwModifiers:
+        attributes:
+          Concentration: [60, buff]
       gw2id: 1242
       defaultEnabled: true
 
@@ -308,6 +322,9 @@
       modifiers:
         damage:
           Strike Damage: [10%, add]
+      wvwModifiers:
+        damage:
+          Strike Damage: [15%, add]
       gw2id: 2047
       defaultEnabled: true
 
@@ -339,6 +356,9 @@
       modifiers:
         attributes:
           Concentration: [180, buff]
+      wvwModifiers:
+        attributes:
+          Concentration: [60, buff]
       gw2id: 2160
       defaultEnabled: true
 
@@ -408,6 +428,9 @@
       modifiers:
         attributes:
           Outgoing Healing: 20%
+      wvwModifiers:
+        attributes:
+          Outgoing Healing: 10%
       gw2id: 2272
       defaultEnabled: true
 
