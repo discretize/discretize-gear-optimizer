@@ -6,7 +6,9 @@ import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { allExtrasModifiersById, buffModifiers } from '../../../assets/modifierdata';
 import { getSkills, getWeapons } from '../../../state/slices/buildPage';
+import { getGameMode } from '../../../state/slices/userSettings';
 import { infusionIds, WEAPONS } from '../../../utils/gw2-data';
+import { createAssumedBuffs } from '../../../utils/toLazyToType-usefulFuncitons';
 import { getWeight } from '../../../utils/usefulFunctions';
 import Section from '../../baseComponents/Section';
 import ModalContent from './BuildShareModal/ModalContent';
@@ -21,6 +23,7 @@ const TemplateHelperSections = ({ character }) => {
   const { t } = useTranslation();
   const weapons = useSelector(getWeapons);
   const skills = useSelector(getSkills);
+  const gameMode = useSelector(getGameMode);
 
   const onClick = () => {
     const { attributes, gear, settings, infusions: infusionsRaw } = character;
@@ -60,14 +63,15 @@ const TemplateHelperSections = ({ character }) => {
       ...(w22 && { weapon2OffSigilId: sigil2Id }),
     };
 
-    const assumedBuffs = buffModifiers
-      .flatMap((buff) => buff.items)
-      .filter((buff) => buffs[buff.id])
-      .map(({ id, gw2id, type }) => ({ id, gw2id, type }));
+    let assumedBuffs = buffModifiers.flatMap((buff) => buff.items).filter((buff) => buffs[buff.id]);
+    // gamemode is technically not correct since the gamemode is not tied to a character at the moment.
+    assumedBuffs = createAssumedBuffs({ buffsRaw: assumedBuffs, gameMode, character });
 
-    const infusionsTemp = Object.entries(infusionsRaw)
-      .map(([type, count]) => [...Array(count).fill(infusionIds['+9 Stat Infusion'][type].id)])
-      .flat();
+    const infusionsTemp = infusionsRaw
+      ? Object.entries(infusionsRaw)
+          .map(([type, count]) => [...Array(count).fill(infusionIds['+9 Stat Infusion'][type].id)])
+          .flat()
+      : [];
     const infusions = infusionsTemp.concat(Array(18 - infusionsTemp.length).fill(49432));
 
     const template = {

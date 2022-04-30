@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { buffModifiers } from '../../../assets/modifierdata';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
+import { getGameMode } from '../../../state/slices/userSettings';
+import { createAssumedBuffs } from '../../../utils/toLazyToType-usefulFuncitons';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
 import AffixesStats from './AffixesStats';
 import AppliedModifiers from './AppliedModifiers';
@@ -22,6 +24,8 @@ const ResultDetails = () => {
   const { t } = useTranslation();
 
   const character = useSelector(getSelectedCharacter);
+  const gameMode = useSelector(getGameMode);
+
   if (!character) {
     return null;
   }
@@ -44,9 +48,11 @@ const ResultDetails = () => {
     }),
   );
 
-  const assumedBuffs = buffModifiers
+  let assumedBuffs = buffModifiers
     .flatMap((buff) => buff.items)
     .filter((buff) => character.settings.cachedFormState.buffs.buffs[buff.id]);
+  // gamemode is technically not correct since the gamemode is not tied to a character at the moment.
+  assumedBuffs = createAssumedBuffs({ buffsRaw: assumedBuffs, character, gameMode });
 
   const bonuses = {};
   if (character.attributes['Outgoing Healing']) {
