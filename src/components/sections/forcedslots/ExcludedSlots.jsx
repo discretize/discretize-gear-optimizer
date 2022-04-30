@@ -13,12 +13,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import {
-  changeExclusion,
-  getExclusionData,
-  getForcedSlots,
-} from '../../../state/slices/forcedSlots';
-import { getPriority } from '../../../state/slices/priorities';
+import { getForcedSlots } from '../../../state/slices/forcedSlots';
+import { changeExclusion, getExclusionData, getPriority } from '../../../state/slices/priorities';
 import { GEAR_SLOTS, WeaponTypes } from '../../../utils/gw2-data';
 
 const useStyles = makeStyles()((theme) => ({
@@ -63,7 +59,7 @@ const ExcludedSlots = () => {
           </TableHead>
           <TableBody>
             {affixes.map((affix) => (
-              <TableRow>
+              <TableRow key={affix}>
                 <TableCell padding="none">{affix}</TableCell>
                 {SLOTS.map((slot, index) => (
                   // eslint-disable-next-line react/no-array-index-key

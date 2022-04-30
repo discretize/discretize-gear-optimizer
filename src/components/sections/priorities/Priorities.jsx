@@ -19,7 +19,6 @@ import { getProfession } from '../../../state/slices/controlsSlice';
 import { changePriority, getPriority } from '../../../state/slices/priorities';
 import { WeaponTypes } from '../../../utils/gw2-data';
 import { parsePriority } from '../../../utils/usefulFunctions';
-import AffixesSelect from '../../baseComponents/AffixesSelect';
 import CustomAffix from './CustomAffix';
 
 const useStyles = makeStyles()((theme) => ({
@@ -191,18 +190,6 @@ const Priorities = () => {
     <Grid container spacing={2}>
       {optimizeForControl}
       {weaponTypeControl}
-
-      <Grid item xs={12}>
-        <AffixesSelect
-          multiple
-          onChange={(event, value) => {
-            dispatch(
-              changePriority({ key: 'affixes', value: value.map((option) => option.label) }),
-            );
-          }}
-          value={affixes}
-        />
-      </Grid>
 
       {constraints}
 
