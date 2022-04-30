@@ -24,14 +24,14 @@ const ForcedSlotsSection = () => {
     dispatch(clearForcedSlots());
   };
 
+  const chipStyle = {
+    margin: 4,
+  };
+
   return (
     <Section
       title={t('Forced Slots')}
-      content={
-        <>
-          <ForcedSlots />
-        </>
-      }
+      content={<ForcedSlots />}
       helpText={
         <Trans>
           Lock any gear slots to a specific type to work with what you already have or share gear
@@ -40,9 +40,9 @@ const ForcedSlotsSection = () => {
       }
       extraInfo={
         <>
-          <Chip style={{ margin: 4 }} variant="outlined" onClick={handleClear} label={t('Clear')} />
+          <Chip style={chipStyle} variant="outlined" onClick={handleClear} label={t('Clear')} />
           <Chip
-            style={{ margin: 4 }}
+            style={chipStyle}
             variant="outlined"
             onClick={handleCopy}
             label={t('Copy from selected character')}
