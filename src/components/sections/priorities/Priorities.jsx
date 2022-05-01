@@ -51,6 +51,9 @@ const Priorities = () => {
   const maxToughness = useSelector(getPriority('maxToughness'));
   const minHealth = useSelector(getPriority('minHealth'));
   const minCritChance = useSelector(getPriority('minCritChance'));
+  const minDamage = useSelector(getPriority('minDamage'));
+  const minHealing = useSelector(getPriority('minHealing'));
+  const minSurvivability = useSelector(getPriority('minSurvivability'));
   const affixes = useSelector(getPriority('affixes'));
   const profession = useSelector(getProfession);
 
@@ -135,37 +138,59 @@ const Priorities = () => {
       type: 'minToughness',
       value: minToughness,
       label: [<Trans>Min.</Trans>, ' ', <Attribute name="Toughness" disableLink />],
-      helpText: t('Only show results that fulfill a minimum amount of Toughness.'),
+      helpText: t('Only show results that fulfill a minimum amount of toughness.'),
     },
     {
       type: 'maxToughness',
       value: maxToughness,
       label: [<Trans>Max.</Trans>, ' ', <Attribute name="Toughness" disableLink />],
-      helpText: t('Only show results that fulfill a maximum amount of Toughness.'),
+      helpText: t('Only show results that fulfill a maximum amount of toughness.'),
     },
     {
       type: 'minBoonDuration',
       value: minBoonDuration,
       label: [<Trans>Min.</Trans>, ' ', <Attribute name="Boon Duration" disableLink />],
-      helpText: t('Only show results that fulfill a minimum amount of Boon Duration.'),
+      helpText: t('Only show results that fulfill a minimum amount of boon Duration.'),
     },
     {
       type: 'minHealingPower',
       value: minHealingPower,
       label: [<Trans>Min.</Trans>, ' ', <Attribute name="Healing Power" disableLink />],
-      helpText: t('Only show results that fulfill a minimum amount of Healing Power.'),
+      helpText: t('Only show results that fulfill a minimum amount of healing power.'),
     },
     {
       type: 'minHealth',
       value: minHealth,
       label: [<Trans>Min.</Trans>, ' ', <Attribute name="Health" disableLink />],
-      helpText: t('Only show results that fulfill a minimum amount of Health.'),
+      helpText: t('Only show results that fulfill a minimum amount of health.'),
     },
     {
       type: 'minCritChance',
       value: minCritChance,
       label: [<Trans>Min.</Trans>, ' ', <Attribute name="Critical Chance" disableLink />],
-      helpText: t('Only show results that fulfill a minimum amount of Critical Chance.'),
+      helpText: t('Only show results that fulfill a minimum amount of critical chance.'),
+    },
+    {
+      type: 'minDamage',
+      value: minDamage,
+      label: [<Trans>Min.</Trans>, ' ', 'Damage'],
+      helpText: t('Only show results that fulfill a minimum amount of damage.'),
+    },
+    {
+      type: 'minHealing',
+      value: minHealing,
+      label: [
+        <Trans>Min.</Trans>,
+        ' ',
+        <Attribute name="Healing Power" text={t('Healing Output')} disableLink />,
+      ],
+      helpText: t('Only show results that fulfill a minimum amount of healing output'),
+    },
+    {
+      type: 'minSurvivability',
+      value: minSurvivability,
+      label: [<Trans>Min.</Trans>, ' ', 'Survivability'],
+      helpText: t('Only show results that fulfill a minimum amount of survivability.'),
     },
   ].map(({ type, label, value, helpText }) => {
     return (
