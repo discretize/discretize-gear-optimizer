@@ -837,6 +837,8 @@ list:
     credit:
       - author: '[CnD] Tipcat'
 
+  # https://www.youtube.com/watch?v=-aewT19Miz8
+  # https://dps.report/mFi9-20220319-014029_golem
   # power: 12582, burn: 516, bleed: 23587, poison: 58, torment: 4185, confusion: 546, total: 41474
   # signet of illusions
   # ~1.73 phantasm hit/sec, ~5.0 blade hit/sec
@@ -848,7 +850,10 @@ list:
       {
         "values2": { "Power": 3540, "Burning": 0.52, "Bleeding": 2.03, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
       }
-    noCreditOkay: true
+    credit:
+      - author: 'REMagic'
+        url: https://www.youtube.com/watch?v=-aewT19Miz8
+        log: https://dps.report/mFi9-20220319-014029_golem
 
   # simulated from above log
   # remove 17 jagged mind procs in 97 sec
@@ -860,7 +865,8 @@ list:
       {
         "values2": { "Power": 3219, "Burning": 0.52, "Bleeding": 2.03, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
       }
-    noCreditOkay: true
+    credit:
+      - author: 'REMagic'
 
   # https://www.youtube.com/watch?v=92FJUY1IKh4
   # https://dps.report/bz6U-20220306-210357_golem
