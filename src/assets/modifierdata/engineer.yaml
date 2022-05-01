@@ -225,7 +225,7 @@
       text: Energy Amplifier
       modifiers:
         attributes:
-          Healing Power: [250, buff]   #this is 250 instead of 120
+          Healing Power: [250, buff]
       minor: true
       gw2id: 519
       defaultEnabled: true
