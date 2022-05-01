@@ -283,10 +283,10 @@
       subText: base
       modifiers:
         attributes:
-          Concentration: [120, buff]
+          Concentration: [120, buff] # tested by Stephan
       wvwModifiers:
         attributes:
-          Concentration: [60, buff]
+          Concentration: [60, buff] # tested by Stephan
       gw2id: 557
       defaultEnabled: true
 
@@ -295,10 +295,10 @@
       subText: with staff
       modifiers:
         attributes:
-          Concentration: [120, buff]
+          Concentration: [120, converted] # tested by Stephan
       wvwModifiers:
         attributes:
-          Concentration: [60, buff]
+          Concentration: [60, converted] # tested by Stephan
       gw2id: 557
       defaultEnabled: true
 
@@ -306,12 +306,12 @@
       text: Force of Will
       modifiers:
         attributes:
-          Vitality: [300, buff]
+          Vitality: [300, converted] # tested by Stephan
         conversion:
           Outgoing Healing: {Vitality: 0.01%}
       wvwModifiers:
         attributes:
-          Vitality: [300, buff]
+          Vitality: [300, converted] # tested by Stephan
         conversion:
           Outgoing Healing: {Vitality: 0.005%}
       gw2id: 1682
