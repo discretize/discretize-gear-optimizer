@@ -117,6 +117,7 @@ export interface OptimizerCoreSettings {
   minCritChance: number | null;
   minDamage: number | null;
   minHealing: number | null;
+  minOutgoingHealing: number | null;
   minSurvivability: number | null;
   maxResults: number;
   primaryInfusion: InfusionName | '';
@@ -674,7 +675,9 @@ export class OptimizerCore {
       (settings.maxToughness !== null && attributes['Toughness'] > settings.maxToughness) ||
       (settings.minHealth !== null && attributes['Health'] < settings.minHealth) ||
       (settings.minCritChance !== null &&
-        attributes['Critical Chance'] < settings.minCritChance / 100);
+        attributes['Critical Chance'] < settings.minCritChance / 100) ||
+      (settings.minOutgoingHealing !== null &&
+        (attributes['Outgoing Healing'] ?? 0) < settings.minOutgoingHealing / 100);
     if (invalid) {
       character.valid = false;
     }

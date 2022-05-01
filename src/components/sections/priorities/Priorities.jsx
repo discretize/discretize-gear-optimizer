@@ -53,6 +53,7 @@ const Priorities = () => {
   const minCritChance = useSelector(getPriority('minCritChance'));
   const minDamage = useSelector(getPriority('minDamage'));
   const minHealing = useSelector(getPriority('minHealing'));
+  const minOutgoingHealing = useSelector(getPriority('minOutgoingHealing'));
   const minSurvivability = useSelector(getPriority('minSurvivability'));
   const affixes = useSelector(getPriority('affixes'));
   const profession = useSelector(getProfession);
@@ -191,6 +192,18 @@ const Priorities = () => {
       value: minSurvivability,
       label: [<Trans>Min.</Trans>, ' ', 'Survivability'],
       helpText: t('Only show results that fulfill a minimum amount of survivability.'),
+    },
+    {
+      type: 'minOutgoingHealing',
+      value: minOutgoingHealing,
+      label: [
+        <Trans>Min.</Trans>,
+        ' ',
+        <Attribute name="Healing Power" text={t('Outgoing Healing %')} disableLink />,
+      ],
+      helpText: t(
+        'Only show results that fulfill a minimum amount of outgoing healing percentage modifier',
+      ),
     },
   ].map(({ type, label, value, helpText }) => {
     return (
