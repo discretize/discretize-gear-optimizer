@@ -42,6 +42,9 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
+      wvwModifiers:
+        damage:
+          Strike Damage: [5%, mult]
       gw2id: 713
       defaultEnabled: true
 
@@ -169,6 +172,9 @@
       modifiers:
         damage:
           Damage Reduction: [5%, unknown]
+      wvwModifiers:
+        damage:
+          Damage Reduction: [2%, unknown]
       gw2id: 675
       defaultEnabled: true
 
@@ -194,14 +200,13 @@
       gw2id: 669
       defaultEnabled: true
 
-    # no configurable amount; causes scaled boon duration with toxic oil
     - id: chaotic-potency-2
       text: Chaotic Potency
       subText: with staff
-      # amountData:
-      #   label: '% uptime'
-      #   default: 100
-      #   quantityEntered: 100
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Condition Damage: [120, converted] # tested by marcus
@@ -296,6 +301,9 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult] # tested by Snappy Joe
+      wvwModifiers:
+        damage:
+          Strike Damage: [7%, mult]
       gw2id: 2208
       defaultEnabled: true
 
