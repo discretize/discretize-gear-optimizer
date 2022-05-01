@@ -185,7 +185,7 @@
       wvwModifiers:
         attributes:
           Vitality: [120, buff]
-          Expertise: [8, buff] # conversion of own 120 vitality
+          Expertise: [5, buff] # conversion of own 120 vitality
         conversion:
           Expertise: {Vitality: 4%}
       gw2id: 1099
