@@ -689,7 +689,8 @@ export class OptimizerCore {
     const invalid =
       (settings.minDamage !== null && attributes['Damage'] < settings.minDamage) ||
       (settings.minHealing !== null && attributes['Healing'] < settings.minHealing) ||
-      (settings.minSurvivability !== null && attributes['Damage'] < settings.minSurvivability);
+      (settings.minSurvivability !== null &&
+        attributes['Survivability'] < settings.minSurvivability);
     if (invalid) {
       character.valid = false;
     }
