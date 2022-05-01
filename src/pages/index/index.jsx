@@ -82,7 +82,7 @@ const IndexPage = () => {
           </Collapse>
         ))}
         <Typography variant="h2" sx={{ paddingBottom: 2 }}>
-          <Trans>Gear Optimizer</Trans>
+          <Trans>Gear Optimizer test string goes here hello</Trans>
         </Typography>
         <ErrorBoundary location="GearOptimizer">
           <GearOptimizer />{' '}
