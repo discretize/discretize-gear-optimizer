@@ -772,6 +772,22 @@ list:
         url: https://www.youtube.com/watch?v=oD7fBTMmWFE
         log: https://dps.report/uRLc-20210823-152656_golem
 
+  # DT focus domi/duel
+  # https://www.youtube.com/watch?v=hkl9kewy_1k
+  # https://dps.report/Ki5n-20210520-152542_golem
+  # power: 21867 + 14485 = 36352 ---- total: 38707
+  # asassin leg acc acc
+  - name: Power Chrono DT
+    profession: Chronomancer
+    value: >-
+      {
+        "values2": { "Power": 2384, "Power2": 824, "Burning": 0.62, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.03 }
+      }
+    credit:
+      - author: '[CnD] Tipcat'
+        url: https://www.youtube.com/watch?v=hkl9kewy_1k
+        log: https://dps.report/Ki5n-20210520-152542_golem
+
   # IA focus domi/duel
   # https://www.youtube.com/watch?v=zdIAYu7R8lk
   # https://dps.report/0pRk-20210521-152703_golem
