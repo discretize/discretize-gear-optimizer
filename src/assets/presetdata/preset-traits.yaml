@@ -38,7 +38,8 @@ list:
             },
             "vicious-expression": {
               "amount": ""
-            }
+            },
+            "empowered-illusions": {}
           },
           {
             "fencers-finesse": {
@@ -48,15 +49,17 @@ list:
             "superiority-complex": {
               "amount": ""
             },
-            "sharper-images": {
+            "phantasmal-fury": {},
+            "sharper-images-phantasm": {
               "amount": "4.01"
             },
-            "sharper-images-minus-fury": {
+            "sharper-images-clone": {
               "amount": "1.02"
             }
           },
           {
-            "danger-time": {}
+            "danger-time": {},
+            "chronophantasma": {}
           }
         ]
       }

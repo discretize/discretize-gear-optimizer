@@ -776,12 +776,12 @@ list:
   # https://www.youtube.com/watch?v=zdIAYu7R8lk
   # https://dps.report/0pRk-20210521-152703_golem
   # power: 20608 + 12314 = 32922, burn: 219, bleed: 2371, confusion: 4, total: 35516
-  # thief rune, truffle steak
+  # thief rune, truffle steak, assassin helm glove boot
   - name: Power Chrono IA
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 3849, "Power2": 0, "Burning": 0.63, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.09 }
+        "values2": { "Power": 2410, "Power2": 751, "Burning": 0.63, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.04 }
       }
     credit:
       - author: '[CnD] Tipcat'
