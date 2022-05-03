@@ -9,6 +9,11 @@ const stats = [
   'Concentration',
   'Healing Power',
   'Agony Resistance',
+
+  // added during the "buff" phase, so these cannot be "converted"
+  'Secondary Power',
+  'Secondary Precision',
+  'Secondary Ferocity',
 ] as const;
 export type StatName = typeof stats[number];
 
@@ -75,6 +80,9 @@ export const percents = [
   ...conditionDurations,
   'Maximum Health',
   'Outgoing Healing',
+  'Secondary Critical Chance',
+  'Phantasm Critical Chance',
+  'Clone Critical Chance',
 ] as const;
 
 const coefficients = [
@@ -92,6 +100,8 @@ export const allDamageKeys = [
   // 'Condition Damage Reduction',
   'Critical Damage',
   ...conditionDamages,
+  'Secondary Damage',
+  'Phantasm Damage',
 ] as const;
 export type DamageKey = typeof allDamageKeys[number];
 
@@ -119,11 +129,8 @@ export type ConversionDestinationKey = typeof allConversionDestinationKeys[numbe
 export const allConversionAfterBuffsSourceKeys = [
   ...stats,
   'Critical Chance',
-  'Critical Chance -7',
-  'Critical Chance -20',
-  'Critical Chance -27',
-  'Critical Chance -30',
-  'Critical Chance -37',
+  'Clone Critical Chance',
+  'Phantasm Critical Chance',
 ] as const;
 export type ConversionAfterBuffsSourceKey = typeof allConversionAfterBuffsSourceKeys[number];
 export const allConversionAfterBuffsDestinationKeys = [
