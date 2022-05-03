@@ -73,7 +73,7 @@
   id: 1
   items:
 
-    - id: Phantasmal Fury
+    - id: phantasmal-fury
       text: Phantasmal Fury
       modifiers:
         attributes:
