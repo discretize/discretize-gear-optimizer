@@ -12,6 +12,16 @@
           Power: [180, buff]
       gw2id: 10622
 
+    # additional 270 - 180 = 90 power while in shroud
+    - id: signet-of-spite-traited
+      text: Signet of Spite
+      subText: traited, 100%
+      modifiers:
+        attributes:
+          Power: [180, buff]
+          Secondary Power: [90, buff]
+      gw2id: 10622
+
 - section: Spite
   id: 53
   items:
@@ -197,11 +207,10 @@
 
     - id: death-perception
       text: Death Perception
-      subText: 'INACCURATE: 100% in shroud'
       modifiers:
         attributes:
-          Critical Chance: 33%
-          Ferocity: [300, buff]
+          Secondary Critical Chance: 33%
+          Secondary Ferocity: [300, buff]
       gw2id: 893
       defaultEnabled: true
 
@@ -356,10 +365,9 @@
 
     - id: reapers-onslaught
       text: Reaper's Onslaught
-      subText: 'INACCURATE: 100% in shroud'
       modifiers:
         attributes:
-          Ferocity: [300, buff]
+          Secondary Ferocity: [300, buff]
       gw2id: 2021
       defaultEnabled: true
 
