@@ -5,6 +5,7 @@ import { mapValues, parseDistribution } from '../../../utils/usefulFunctions';
 
 const initial = {
   Power: 0,
+  Power2: 0,
   Burning: 0,
   Bleeding: 0,
   Poison: 0,
@@ -194,7 +195,7 @@ const TemplateHelper = ({ character }) => {
 
   // round
   Object.keys(values2).forEach((key) => {
-    values2[key] = key === 'Power' ? roundZero(values2[key]) : roundTwo(values2[key]);
+    values2[key] = key.startsWith('Power') ? roundZero(values2[key]) : roundTwo(values2[key]);
   });
 
   values2 = fixPoison(values2);
@@ -220,7 +221,7 @@ const TemplateHelper = ({ character }) => {
             {data.map(({ key }) => (
               <td key={key}>
                 {
-                  // i18next-extract-mark-context-next-line ["Power","Burning","Bleeding","Poison","Torment", "Confusion"]
+                  // i18next-extract-mark-context-next-line ["Power","Power2","Burning","Bleeding","Poison","Torment", "Confusion"]
                   t('DPSType', { context: key })
                 }
               </td>
@@ -272,7 +273,7 @@ const TemplateHelper = ({ character }) => {
         <tbody>
           <tr>
             {Object.keys(values2).map((key) => {
-              const type = key === 'Power' ? 'Power Coefficient' : `Avg. ${key} Stacks`;
+              const type = key.startsWith('Power') ? `${key} Coefficient` : `Avg. ${key} Stacks`;
               return <td key={type}>{type}</td>;
             })}
           </tr>

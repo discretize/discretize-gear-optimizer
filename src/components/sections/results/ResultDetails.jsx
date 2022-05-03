@@ -36,14 +36,14 @@ const ResultDetails = () => {
   // Replace the names to match gw2-ui names
   const damageBreakdown = Object.keys(character.results.effectiveDamageDistribution).map(
     (damageType) => ({
-      name: damageType === 'Poison Damage' ? 'Poisoned' : damageType.replace('Damage', '').trim(),
+      name: damageType === 'Poison' ? 'Poisoned' : damageType.replace('Damage', '').trim(),
       value: character.results.damageBreakdown[damageType],
     }),
   );
 
   const effectiveDistribution = Object.keys(character.results.effectiveDamageDistribution).map(
     (damageType) => ({
-      name: damageType === 'Poison Damage' ? 'Poisoned' : damageType.replace('Damage', '').trim(),
+      name: damageType === 'Poison' ? 'Poisoned' : damageType.replace('Damage', '').trim(),
       value: character.results.effectiveDamageDistribution[damageType],
     }),
   );

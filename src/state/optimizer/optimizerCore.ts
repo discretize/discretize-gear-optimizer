@@ -736,6 +736,8 @@ export class OptimizerCore {
         attributes['Power2 DPS'] = secondaryPowerDamage;
         powerDamage += secondaryPowerDamage;
       }
+    } else {
+      attributes['Power2 DPS'] = 0;
     }
 
     const siphonDamage =
@@ -871,24 +873,17 @@ export class OptimizerCore {
     results.effectiveDamageDistribution = {};
     for (const key of Object.keys(settings.distribution)) {
       if (attributes[`${key} DPS`] === undefined) continue;
-      if (key === 'Power') {
-        const damage = attributes['Power DPS'] / attributes['Damage'];
-        results.effectiveDamageDistribution['Power'] = `${(damage * 100).toFixed(1)}%`;
-      } else {
-        const damage = attributes[`${key} DPS`] / attributes['Damage'];
-        results.effectiveDamageDistribution[`${key} Damage`] = `${(damage * 100).toFixed(1)}%`;
-      }
+
+      const damage = attributes[`${key} DPS`] / attributes['Damage'];
+      results.effectiveDamageDistribution[`${key}`] = `${(damage * 100).toFixed(1)}%`;
     }
 
     // damage indicator breakdown
     results.damageBreakdown = {};
     for (const key of Object.keys(settings.distribution)) {
       if (attributes[`${key} DPS`] === undefined) continue;
-      if (key === 'Power') {
-        results.damageBreakdown['Power'] = attributes['Power DPS'].toFixed(2);
-      } else {
-        results.damageBreakdown[`${key} Damage`] = attributes[`${key} DPS`].toFixed(2);
-      }
+
+      results.damageBreakdown[`${key}`] = attributes[`${key} DPS`].toFixed(2);
     }
 
     // template helper data

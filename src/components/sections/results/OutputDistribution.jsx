@@ -1,6 +1,7 @@
 import { Attribute, Condition } from '@discretize/gw2-ui-new';
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
 
 const useStyles = makeStyles()((theme) => ({
@@ -15,6 +16,7 @@ const useStyles = makeStyles()((theme) => ({
 
 const OutputDistribution = ({ title, data }) => {
   const { classes } = useStyles();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -24,8 +26,8 @@ const OutputDistribution = ({ title, data }) => {
           {data.map((damageType) => (
             <TableRow hover key={damageType.name}>
               <TableCell>
-                {damageType.name === 'Power' ? (
-                  <Attribute name="Power" className={classes.gw2Item} />
+                {damageType.name.startsWith('Power') ? (
+                  <Attribute name="Power" text={t(damageType.name)} className={classes.gw2Item} />
                 ) : (
                   <Condition name={damageType.name} className={classes.gw2Item} />
                 )}

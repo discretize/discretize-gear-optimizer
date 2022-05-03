@@ -102,7 +102,7 @@ const DamageDistribution = () => {
             value={textBoxes[dist.name]}
             endAdornment={
               <InputAdornment position="end">
-                {dist.name === 'Power' ? (
+                {dist.name.startsWith('Power') ? (
                   <Attribute name="Power" disableLink disableText />
                 ) : (
                   <Condition name={dist.name} disableLink disableText />
