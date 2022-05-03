@@ -4,14 +4,14 @@ list:
   - name: None
     value: >-
       {
-        "values2": { "Power": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 0, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     noCreditOkay: true
 
   - name: 100% Power
     value: >-
       {
-        "values2": { "Power": 3000, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3000, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     noCreditOkay: true
 
@@ -23,7 +23,7 @@ list:
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 3079, "Burning": 0.73, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3079, "Power2": 0, "Burning": 0.73, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[SC] Luna'
@@ -38,7 +38,7 @@ list:
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 1740, "Burning": 10.38, "Bleeding": 15.31, "Poisoned": 1.97, "Torment": 1.21, "Confusion": 0 }
+        "values2": { "Power": 1740, "Power2": 0, "Burning": 10.38, "Bleeding": 15.31, "Poisoned": 1.97, "Torment": 1.21, "Confusion": 0 }
       }
     credit:
       - author: 'Costa Primo'
@@ -52,7 +52,7 @@ list:
     profession: Spellbreaker
     value: >-
       {
-        "values2": { "Power": 2617, "Burning": 0.59, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2617, "Power2": 0, "Burning": 0.59, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[CnD] Bekko'
@@ -66,7 +66,7 @@ list:
     profession: Bladesworn
     value: >-
       {
-        "values2": { "Power": 3775, "Burning": 0.54, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3775, "Power2": 0, "Burning": 0.54, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Costa Primo'
@@ -80,7 +80,7 @@ list:
     profession: Dragonhunter
     value: >-
       {
-        "values2": { "Power": 3361, "Burning": 1.92, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3361, "Power2": 0, "Burning": 1.92, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     noCreditOkay: true
 
@@ -91,7 +91,7 @@ list:
     profession: Dragonhunter
     value: >-
       {
-        "values2": { "Power": 3320, "Burning": 2.15, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3320, "Power2": 0, "Burning": 2.15, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     noCreditOkay: true
 
@@ -102,7 +102,7 @@ list:
     profession: Guardian
     value: >-
       {
-        "values2": { "Power": 3340, "Burning": 1.1, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3340, "Power2": 0, "Burning": 1.1, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     noCreditOkay: true
 
@@ -111,7 +111,7 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 3390, "Burning": 1.1, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3390, "Power2": 0, "Burning": 1.1, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     noCreditOkay: true
 
@@ -124,7 +124,7 @@ list:
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 2734, "Burning": 14.18, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2734, "Power2": 0, "Burning": 14.18, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
@@ -140,7 +140,7 @@ list:
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 3010, "Burning": 13.38, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3010, "Power2": 0, "Burning": 13.38, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[CnD] DaedDee'
@@ -157,7 +157,7 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2157, "Burning": 16.22, "Bleeding": 3.46, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2157, "Power2": 0, "Burning": 16.22, "Bleeding": 3.46, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
@@ -169,7 +169,7 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2157, "Burning": 14.09, "Bleeding": 3.46, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2157, "Power2": 0, "Burning": 14.09, "Bleeding": 3.46, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
@@ -185,7 +185,7 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2094, "Burning": 16.32, "Bleeding": 2.41, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2094, "Power2": 0, "Burning": 16.32, "Bleeding": 2.41, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
@@ -197,7 +197,7 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2094, "Burning": 13.88, "Bleeding": 2.41, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2094, "Power2": 0, "Burning": 13.88, "Bleeding": 2.41, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
@@ -213,7 +213,7 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2219, "Burning": 14.24, "Bleeding": 2.4, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2219, "Power2": 0, "Burning": 14.24, "Bleeding": 2.4, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
@@ -225,7 +225,7 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2219, "Burning": 12.02, "Bleeding": 2.27, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2219, "Power2": 0, "Burning": 12.02, "Bleeding": 2.27, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
@@ -235,7 +235,7 @@ list:
   #   profession: Firebrand
   #   value: >-
   #     {
-  #       "values2": { "Power": 1942, "Burning": 12.1, "Bleeding": 3.0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #       "values2": { "Power": 1942, "Power2": 0, "Burning": 12.1, "Bleeding": 3.0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
 
   # +1.7 burning for no allies/with allies split on 5 page seems to hold up well
@@ -244,7 +244,7 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 1864, "Burning": 13.8, "Bleeding": 3.0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1864, "Power2": 0, "Burning": 13.8, "Bleeding": 3.0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     noCreditOkay: true
 
@@ -252,14 +252,14 @@ list:
   #   profession: Firebrand
   #   value: >-
   #     {
-  #       "values2": { "Power": 2242, "Burning": 10.5, "Bleeding": 3.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+  #       "values2": { "Power": 2242, "Power2": 0, "Burning": 10.5, "Bleeding": 3.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
   #     }
 
   - name: Hybrid FB Honor
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2242, "Burning": 12.2, "Bleeding": 3.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2242, "Power2": 0, "Burning": 12.2, "Bleeding": 3.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     noCreditOkay: true
 
@@ -270,7 +270,7 @@ list:
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 3289, "Burning": 2.9, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3289, "Power2": 0, "Burning": 2.9, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     noCreditOkay: true
 
@@ -281,7 +281,7 @@ list:
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 3734, "Burning": 5.43, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3734, "Power2": 0, "Burning": 5.43, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     noCreditOkay: true
 
@@ -292,7 +292,7 @@ list:
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 2711, "Burning": 9.8, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2711, "Power2": 0, "Burning": 9.8, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
@@ -306,7 +306,7 @@ list:
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 3506, "Burning": 2.49, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3506, "Power2": 0, "Burning": 2.49, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     noCreditOkay: true
 
@@ -320,7 +320,7 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 3603, "Burning": 6.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3603, "Power2": 0, "Burning": 6.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Fines'
@@ -335,7 +335,7 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 2728, "Burning": 12.87, "Bleeding": 16.3, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2728, "Power2": 0, "Burning": 12.87, "Bleeding": 16.3, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[SC] Roul'
@@ -350,7 +350,7 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 2172, "Burning": 13.12, "Bleeding": 19.41, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2172, "Power2": 0, "Burning": 13.12, "Bleeding": 19.41, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Ryan'
@@ -366,7 +366,7 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 3235, "Burning": 14.02, "Bleeding": 1.02, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3235, "Power2": 0, "Burning": 14.02, "Bleeding": 1.02, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[SC] Roul'
@@ -380,7 +380,7 @@ list:
     profession: Tempest
     value: >-
       {
-        "values2": { "Power": 3529, "Burning": 12.16, "Bleeding": 16.29, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3529, "Power2": 0, "Burning": 12.16, "Bleeding": 16.29, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[NA] Crone'
@@ -393,7 +393,7 @@ list:
     profession: Tempest
     value: >-
       {
-        "values2": { "Power": 4408, "Burning": 4.4, "Bleeding": 4.4, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4408, "Power2": 0, "Burning": 4.4, "Bleeding": 4.4, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[SC] Roul'
@@ -406,7 +406,7 @@ list:
     profession: Catalyst
     value: >-
       {
-        "values2": { "Power": 3025, "Burning": 3.97, "Bleeding": 4.87, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3025, "Power2": 0, "Burning": 3.97, "Bleeding": 4.87, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[SC] Roul'
@@ -419,7 +419,7 @@ list:
     profession: Catalyst
     value: >-
       {
-        "values2": { "Power": 3118, "Burning": 3.94, "Bleeding": 5.04, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3118, "Power2": 0, "Burning": 3.94, "Bleeding": 5.04, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[SC] Roul'
@@ -432,7 +432,7 @@ list:
     profession: Catalyst
     value: >-
       {
-        "values2": { "Power": 3559, "Burning": 10.41, "Bleeding": 19.43, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3559, "Power2": 0, "Burning": 10.41, "Bleeding": 19.43, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     noCreditOkay: true
 
@@ -445,7 +445,7 @@ list:
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 3299, "Burning": 1.72, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3299, "Power2": 0, "Burning": 1.72, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[dT/XVII] Seatek'
@@ -458,7 +458,7 @@ list:
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 1928, "Burning": 5.15, "Bleeding": 14.69, "Poisoned": 1.97, "Torment": 16.64, "Confusion": 0 }
+        "values2": { "Power": 1928, "Power2": 0, "Burning": 5.15, "Bleeding": 14.69, "Poisoned": 1.97, "Torment": 16.64, "Confusion": 0 }
       }
     credit:
       - author: '[Inn] Xorxy'
@@ -472,7 +472,7 @@ list:
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 1928, "Burning": 5.15, "Bleeding": 10.69, "Poisoned": 1.97, "Torment": 16.64, "Confusion": 0 }
+        "values2": { "Power": 1928, "Power2": 0, "Burning": 5.15, "Bleeding": 10.69, "Poisoned": 1.97, "Torment": 16.64, "Confusion": 0 }
       }
     credit:
       - author: '[Inn] Xorxy'
@@ -486,7 +486,7 @@ list:
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 2092, "Burning": 4.21, "Bleeding": 14.13, "Poisoned": 2.23, "Torment": 16.34, "Confusion": 0 }
+        "values2": { "Power": 2092, "Power2": 0, "Burning": 4.21, "Bleeding": 14.13, "Poisoned": 2.23, "Torment": 16.34, "Confusion": 0 }
       }
     credit:
       - author: '[Inn] Xorxy'
@@ -500,7 +500,7 @@ list:
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 2092, "Burning": 4.21, "Bleeding": 10.13, "Poisoned": 2.23, "Torment": 16.34, "Confusion": 0 }
+        "values2": { "Power": 2092, "Power2": 0, "Burning": 4.21, "Bleeding": 10.13, "Poisoned": 2.23, "Torment": 16.34, "Confusion": 0 }
       }
     credit:
       - author: '[Inn] Xorxy'
@@ -513,7 +513,7 @@ list:
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 2122, "Burning": 5.24, "Bleeding": 14.2, "Poisoned": 1.83, "Torment": 17.87, "Confusion": 0 }
+        "values2": { "Power": 2122, "Power2": 0, "Burning": 5.24, "Bleeding": 14.2, "Poisoned": 1.83, "Torment": 17.87, "Confusion": 0 }
       }
     credit:
       - author: '[Inn] Xorxy'
@@ -527,7 +527,7 @@ list:
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 2122, "Burning": 5.24, "Bleeding": 10.2, "Poisoned": 1.83, "Torment": 17.87, "Confusion": 0 }
+        "values2": { "Power": 2122, "Power2": 0, "Burning": 5.24, "Bleeding": 10.2, "Poisoned": 1.83, "Torment": 17.87, "Confusion": 0 }
       }
     credit:
       - author: '[Inn] Xorxy'
@@ -543,7 +543,7 @@ list:
     profession: Herald
     value: >-
       {
-        "values2": { "Power": 3192, "Burning": 1.46, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3192, "Power2": 0, "Burning": 1.46, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[Inn] Xorxy'
@@ -557,7 +557,7 @@ list:
     profession: Herald
     value: >-
       {
-        "values2": { "Power": 1900, "Burning": 5.1, "Bleeding": 2.2, "Poisoned": 6, "Torment": 17.1, "Confusion": 0 }
+        "values2": { "Power": 1900, "Power2": 0, "Burning": 5.1, "Bleeding": 2.2, "Poisoned": 6, "Torment": 17.1, "Confusion": 0 }
       }
     credit:
       - author: '[Aves] Leder'
@@ -571,7 +571,7 @@ list:
     profession: Vindicator
     value: >-
       {
-        "values2": { "Power": 3450, "Burning": 0.61, "Bleeding": 0, "Poisoned": 0, "Torment": 1.86, "Confusion": 0 }
+        "values2": { "Power": 3450, "Power2": 0, "Burning": 0.61, "Bleeding": 0, "Poisoned": 0, "Torment": 1.86, "Confusion": 0 }
       }
     credit:
       - author: 'Fennec'
@@ -597,7 +597,7 @@ list:
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 2594, "Burning": 0.58, "Bleeding": 4.51, "Poisoned": 2.43, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2594, "Power2": 0, "Burning": 0.58, "Bleeding": 4.51, "Poisoned": 2.43, "Torment": 0, "Confusion": 0 }
       }
     noCreditOkay: true
 
@@ -615,7 +615,7 @@ list:
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 1366, "Burning": 2.42, "Bleeding": 21.7, "Poisoned": 16.26, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1366, "Power2": 0, "Burning": 2.42, "Bleeding": 21.7, "Poisoned": 16.26, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Snow Crows
@@ -634,7 +634,7 @@ list:
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 1442, "Burning": 3.54, "Bleeding": 19.95, "Poisoned": 13.86, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1442, "Power2": 0, "Burning": 3.54, "Bleeding": 19.95, "Poisoned": 13.86, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Snow Crows
@@ -656,7 +656,7 @@ list:
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 2046, "Burning": 2.76, "Bleeding": 22.67, "Poisoned": 6.89, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2046, "Power2": 0, "Burning": 2.76, "Bleeding": 22.67, "Poisoned": 6.89, "Torment": 0, "Confusion": 0 }
       }
     noCreditOkay: true
 
@@ -668,7 +668,7 @@ list:
   #   profession: Soulbeast
   #   value: >-
   #     {
-  #       "values2": { "Power": 1661, "Burning": 0.54, "Bleeding": 25.48, "Poisoned": 11.45, "Torment": 0, "Confusion": 0 }
+  #       "values2": { "Power": 1661, "Power2": 0, "Burning": 0.54, "Bleeding": 25.48, "Poisoned": 11.45, "Torment": 0, "Confusion": 0 }
   #     }
   #   credit:
   #     - author: 'Talonflame'
@@ -680,7 +680,7 @@ list:
   #   profession: Druid
   #   value: >-
   #     {
-  #       "values2": { "Power": 1610, "Burning": 2.3, "Bleeding": 19.5, "Poisoned": 4.9, "Torment": 0, "Confusion": 0 }
+  #       "values2": { "Power": 1610, "Power2": 0, "Burning": 2.3, "Bleeding": 19.5, "Poisoned": 4.9, "Torment": 0, "Confusion": 0 }
   #     }
 
   # https://www.youtube.com/watch?v=aemjSrxAN_c
@@ -691,7 +691,7 @@ list:
     profession: Holosmith
     value: >-
       {
-        "values2": { "Power": 3153, "Burning": 3.09, "Bleeding": 8.57, "Poisoned": 2.75, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3153, "Power2": 0, "Burning": 3.09, "Bleeding": 8.57, "Poisoned": 2.75, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[XVII] ster'
@@ -706,7 +706,7 @@ list:
     profession: Holosmith
     value: >-
       {
-        "values2": { "Power": 2363, "Burning": 11.26, "Bleeding": 10.33, "Poisoned": 8.03, "Torment": 0, "Confusion": 4.6 }
+        "values2": { "Power": 2363, "Power2": 0, "Burning": 11.26, "Bleeding": 10.33, "Poisoned": 8.03, "Torment": 0, "Confusion": 4.6 }
       }
     credit:
       - author: '[CnD] Lunar'
@@ -721,7 +721,7 @@ list:
     profession: Mechanist
     value: >-
       {
-        "values2": { "Power": 3597, "Burning": 7.55, "Bleeding": 13.29, "Poisoned": 3.57, "Torment": 0, "Confusion": 15.46 }
+        "values2": { "Power": 3597, "Power2": 0, "Burning": 7.55, "Bleeding": 13.29, "Poisoned": 3.57, "Torment": 0, "Confusion": 15.46 }
       }
     credit:
       - author: '[CnD] Xyonon'
@@ -735,7 +735,7 @@ list:
     profession: Mechanist
     value: >-
       {
-        "values2": { "Power": 3566, "Burning": 7.42, "Bleeding": 17.54, "Poisoned": 10.05, "Torment": 0, "Confusion": 9.18 }
+        "values2": { "Power": 3566, "Power2": 0, "Burning": 7.42, "Bleeding": 17.54, "Poisoned": 10.05, "Torment": 0, "Confusion": 9.18 }
       }
     credit:
       - author: '[CnD] Lunar'
@@ -750,7 +750,7 @@ list:
     profession: Scrapper
     value: >-
       {
-        "values2": { "Power": 2713, "Burning": 0.74, "Bleeding": 8.17, "Poisoned": 4.03, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2713, "Power2": 0, "Burning": 0.74, "Bleeding": 8.17, "Poisoned": 4.03, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[CnD] Xyonon'
@@ -765,7 +765,7 @@ list:
     profession: Scrapper
     value: >-
       {
-        "values2": { "Power": 2683, "Burning": 0.62, "Bleeding": 4.57, "Poisoned": 4.17, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2683, "Power2": 0, "Burning": 0.62, "Bleeding": 4.57, "Poisoned": 4.17, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[CnD] Xyonon'
@@ -781,7 +781,7 @@ list:
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 3849, "Burning": 0.63, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.09 }
+        "values2": { "Power": 3849, "Power2": 0, "Burning": 0.63, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.09 }
       }
     credit:
       - author: '[CnD] Tipcat'
@@ -804,7 +804,7 @@ list:
     profession: Mirage
     value: >-
       {
-        "values2": { "Power": 1257, "Burning": 0.54, "Bleeding": 10.51, "Poisoned": 0.81, "Torment": 15.06, "Confusion": 17.32 }
+        "values2": { "Power": 1257, "Power2": 0, "Burning": 0.54, "Bleeding": 10.51, "Poisoned": 0.81, "Torment": 15.06, "Confusion": 17.32 }
       }
     credit:
       - author: '[CnD] Xyonon'
@@ -818,7 +818,7 @@ list:
     profession: Mirage
     value: >-
       {
-        "values2": { "Power": 2307, "Burning": 1.63, "Bleeding": 5.71, "Poisoned": 0.16, "Torment": 23.79, "Confusion": 12.47 }
+        "values2": { "Power": 2307, "Power2": 0, "Burning": 1.63, "Bleeding": 5.71, "Poisoned": 0.16, "Torment": 23.79, "Confusion": 12.47 }
       }
     credit:
       - author: 'Ryan'
@@ -832,7 +832,7 @@ list:
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 1980, "Burning": 2.26, "Bleeding": 3.94, "Poisoned": 0, "Torment": 6.39, "Confusion": 17.07 }
+        "values2": { "Power": 1980, "Power2": 0, "Burning": 2.26, "Bleeding": 3.94, "Poisoned": 0, "Torment": 6.39, "Confusion": 17.07 }
       }
     credit:
       - author: '[CnD] Tipcat'
@@ -848,7 +848,7 @@ list:
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 3540, "Burning": 0.52, "Bleeding": 2.03, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
+        "values2": { "Power": 3540, "Power2": 0, "Burning": 0.52, "Bleeding": 2.03, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
       }
     credit:
       - author: 'REMagic'
@@ -863,7 +863,7 @@ list:
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 3219, "Burning": 0.52, "Bleeding": 2.03, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
+        "values2": { "Power": 3219, "Power2": 0, "Burning": 0.52, "Bleeding": 2.03, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
       }
     credit:
       - author: 'REMagic'
@@ -875,7 +875,7 @@ list:
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 3535, "Burning": 0.53, "Bleeding": 0.53, "Poisoned": 0, "Torment": 0, "Confusion": 0.59 }
+        "values2": { "Power": 3535, "Power2": 0, "Burning": 0.53, "Bleeding": 0.53, "Poisoned": 0, "Torment": 0, "Confusion": 0.59 }
       }
     credit:
       - author: '[CnD] Tipcat'
@@ -890,7 +890,7 @@ list:
     profession: Scourge
     value: >-
       {
-        "values2": { "Power": 1405, "Burning": 3.4, "Bleeding": 18.11, "Poisoned": 3.71, "Torment": 12.37, "Confusion": 0 }
+        "values2": { "Power": 1405, "Power2": 0, "Burning": 3.4, "Bleeding": 18.11, "Poisoned": 3.71, "Torment": 12.37, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
@@ -904,7 +904,7 @@ list:
     profession: Reaper
     value: >-
       {
-        "values2": { "Power": 2990, "Burning": 0.6, "Bleeding": 0, "Poisoned": 1, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2990, "Power2": 0, "Burning": 0.6, "Bleeding": 0, "Poisoned": 1, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[SC] Westet'
@@ -919,7 +919,7 @@ list:
     profession: Reaper
     value: >-
       {
-        "values2": { "Power": 2378, "Burning": 2.04, "Bleeding": 40.85, "Poisoned": 2.82, "Torment": 4.16, "Confusion": 0 }
+        "values2": { "Power": 2378, "Power2": 0, "Burning": 2.04, "Bleeding": 40.85, "Poisoned": 2.82, "Torment": 4.16, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
@@ -935,7 +935,7 @@ list:
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 2264, "Burning": 1.77, "Bleeding": 8.67, "Poisoned": 5.83, "Torment": 20.97, "Confusion": 0 }
+        "values2": { "Power": 2264, "Power2": 0, "Burning": 1.77, "Bleeding": 8.67, "Poisoned": 5.83, "Torment": 20.97, "Confusion": 0 }
       }
     noCreditOkay: true
 
@@ -948,7 +948,7 @@ list:
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 2202, "Burning": 1.67, "Bleeding": 9.33, "Poisoned": 5.97, "Torment": 17.13, "Confusion": 0 }
+        "values2": { "Power": 2202, "Power2": 0, "Burning": 1.67, "Bleeding": 9.33, "Poisoned": 5.97, "Torment": 17.13, "Confusion": 0 }
       }
     credit:
       - author: '[CnD] Aphrodite Lady'
@@ -960,7 +960,7 @@ list:
     profession: Deadeye
     value: >-
       {
-        "values2": { "Power": 1690, "Burning": 0.5, "Bleeding": 19, "Poisoned": 14.6, "Torment": 9.5, "Confusion": 0 }
+        "values2": { "Power": 1690, "Power2": 0, "Burning": 0.5, "Bleeding": 19, "Poisoned": 14.6, "Torment": 9.5, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
@@ -973,7 +973,7 @@ list:
     profession: Daredevil
     value: >-
       {
-        "values2": { "Power": 2712, "Burning": 0.62, "Bleeding": 0, "Poisoned": 0.96, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2712, "Power2": 0, "Burning": 0.62, "Bleeding": 0, "Poisoned": 0.96, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Left'
@@ -987,7 +987,7 @@ list:
     profession: Daredevil
     value: >-
       {
-        "values2": { "Power": 1323, "Burning": 0.6, "Bleeding": 21.07, "Poisoned": 14.52, "Torment": 5.88, "Confusion": 0 }
+        "values2": { "Power": 1323, "Power2": 0, "Burning": 0.6, "Bleeding": 21.07, "Poisoned": 14.52, "Torment": 5.88, "Confusion": 0 }
       }
     credit:
       - author: 'Left'
@@ -1000,7 +1000,7 @@ list:
     profession: Deadeye
     value: >-
       {
-        "values2": { "Power": 3383, "Burning": 0.53, "Bleeding": 0.39, "Poisoned": 1.8, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3383, "Power2": 0, "Burning": 0.53, "Bleeding": 0.39, "Poisoned": 1.8, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[CnD] Lunar'
@@ -1014,7 +1014,7 @@ list:
     profession: Specter
     value: >-
       {
-        "values2": { "Power": 2131, "Burning": 0.52, "Bleeding": 2.59, "Poisoned": 17.55, "Torment": 20.25, "Confusion": 0 }
+        "values2": { "Power": 2131, "Power2": 0, "Burning": 0.52, "Bleeding": 2.59, "Poisoned": 17.55, "Torment": 20.25, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
@@ -1028,7 +1028,7 @@ list:
     profession: Specter
     value: >-
       {
-        "values2": { "Power": 1878, "Burning": 0.57, "Bleeding": 0, "Poisoned": 14.87, "Torment": 18.34, "Confusion": 0 }
+        "values2": { "Power": 1878, "Power2": 0, "Burning": 0.57, "Bleeding": 0, "Poisoned": 14.87, "Torment": 18.34, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
@@ -1042,7 +1042,7 @@ list:
     profession: Specter
     value: >-
       {
-        "values2": { "Power": 556, "Burning": 0.5, "Bleeding": 0, "Poisoned": 12.5, "Torment": 38.9, "Confusion": 0 }
+        "values2": { "Power": 556, "Power2": 0, "Burning": 0.5, "Bleeding": 0, "Poisoned": 12.5, "Torment": 38.9, "Confusion": 0 }
       }
     credit:
       - author: 'Left'

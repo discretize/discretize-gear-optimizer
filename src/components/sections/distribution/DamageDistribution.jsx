@@ -32,15 +32,6 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-const DISTRIBUTION_NAMES = [
-  { name: 'Power', min: 0, max: 6000, step: 10, color: '#b1b1b5' },
-  { name: 'Burning', min: 0, max: 60, step: 0.1 },
-  { name: 'Bleeding', min: 0, max: 60, step: 0.1 },
-  { name: 'Poisoned', min: 0, max: 60, step: 0.1 },
-  { name: 'Torment', min: 0, max: 60, step: 0.1 },
-  { name: 'Confusion', min: 0, max: 60, step: 0.1 },
-];
-
 const DamageDistribution = () => {
   const { classes } = useStyles();
 
@@ -64,13 +55,37 @@ const DamageDistribution = () => {
     dispatch(changeDistributionNew({ index: key, value: parsedValue }));
   };
 
+  const DISTRIBUTION_NAMES = [
+    {
+      name: 'Power',
+      min: 0,
+      max: 6000,
+      step: 10,
+      color: '#b1b1b5',
+      label: <Attribute name="Power" disableLink text={t('Power Coefficient')} />,
+    },
+    {
+      name: 'Power2',
+      min: 0,
+      max: 6000,
+      step: 10,
+      color: '#b1b1b5',
+      label: <Attribute name="Power" disableLink text={t('Power Coefficient 2')} />,
+    },
+    { name: 'Burning', min: 0, max: 60, step: 0.1 },
+    { name: 'Bleeding', min: 0, max: 60, step: 0.1 },
+    { name: 'Poisoned', min: 0, max: 60, step: 0.1 },
+    { name: 'Torment', min: 0, max: 60, step: 0.1 },
+    { name: 'Confusion', min: 0, max: 60, step: 0.1 },
+  ];
+
   const controls = DISTRIBUTION_NAMES.map((dist, index) => (
     <Box display="flex" flexWrap="wrap" key={`distriNew_${dist.name}`}>
       <Box>
         <FormControl mb={1} className={classes.textbox} variant="standard">
           <InputLabel htmlFor={`input-with-icon-adornment-${index}`}>
-            {dist.name === 'Power' ? (
-              <Attribute name="Power" disableLink text={t('Power Coefficient')} />
+            {dist.label ? (
+              dist.label
             ) : (
               <Condition
                 name={dist.name}
