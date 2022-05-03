@@ -93,12 +93,12 @@ const TemplateHelper = ({ character }) => {
           const minions = playerData.minions ?? [];
 
           const minionCounts = {
-            'Clone': { names: new Set(), minionHits: 0, minionCrits: 0 },
-            'Phantasm': { names: new Set(), minionHits: 0, minionCrits: 0 },
-            'Minion': { names: new Set(), minionHits: 0, minionCrits: 0 },
+            'Clone': { names: new Set(), minionHits: 0, minionCrits: 0, damage: 0 },
+            'Phantasm': { names: new Set(), minionHits: 0, minionCrits: 0, damage: 0 },
+            'Minion': { names: new Set(), minionHits: 0, minionCrits: 0, damage: 0 },
           };
 
-          for (const { name, targetDamageDist } of minions) {
+          for (const { name, totalTargetDamage, targetDamageDist } of minions) {
             console.log(name);
             let type = 'Minion';
             if (name === 'Clone') type = 'Clone';
@@ -113,6 +113,8 @@ const TemplateHelper = ({ character }) => {
               minionCounts[type].minionHits += minionHits ?? 0;
               minionCounts[type].minionCrits += minionCrits ?? 0;
             }
+
+            minionCounts[type].damage += totalTargetDamage?.[0]?.[0] ?? 0;
           }
 
           const minionData = Object.entries(minionCounts)
@@ -134,6 +136,20 @@ const TemplateHelper = ({ character }) => {
               ];
             });
 
+          let splitDamageTotal = 0;
+          let clonePhantasmDamageSum = 0;
+          const powerDPSPlayer = playerData.dpsTargets?.[0]?.[0]?.actorPowerDps;
+          splitDamageTotal += powerDPSPlayer;
+          const minionDamageData = Object.entries(minionCounts)
+            .filter(([_type, { damage }]) => damage)
+            .map(([type, { damage }]) => {
+              const dps = (damage ?? 0) / duration;
+              splitDamageTotal += dps;
+              if (['Clone', 'Phantasm'].includes(type)) clonePhantasmDamageSum += dps;
+
+              return [`${type} DPS`, dps];
+            });
+
           const result = [
             ['Duration (sec)', duration],
             '\n',
@@ -142,6 +158,12 @@ const TemplateHelper = ({ character }) => {
             '\n',
             ['Sum', sum],
             ['Total dps (log)', totalDPS],
+            '\n',
+            ['Power DPS (player only)', powerDPSPlayer],
+            ...minionDamageData,
+            ['Power DPS Sum', splitDamageTotal],
+            '\n',
+            ['Clone+Phantasm DPS', clonePhantasmDamageSum],
             '\n',
             [
               `Player crittable hits per second (${crits}/${hits}: ${critPercent.toFixed(
@@ -161,7 +183,7 @@ const TemplateHelper = ({ character }) => {
             })
             .join('\n');
 
-          setInput({ Power: powerDPS, ...conditionData });
+          setInput({ Power: powerDPS, Power2: 0, ...conditionData });
           setUrlResult(resultAreaText);
         } catch (e) {
           console.error(e);
