@@ -55,9 +55,18 @@ const ResultDetails = () => {
   assumedBuffs = createAssumedBuffs({ buffsRaw: assumedBuffs, character, gameMode });
 
   const bonuses = {};
-  if (character.attributes['Outgoing Healing']) {
-    bonuses[t('Outgoing Healing')] = `${roundTwo(character.attributes['Outgoing Healing'] * 100)}%`;
-  }
+  Object.entries({
+    'Outgoing Healing': t('Outgoing Healing'),
+    'Clone Critical Chance': t('Clone Critical Chance'),
+    'Phantasm Critical Chance': t('Phantasm Critical Chance'),
+    'Phantasm Critical Damage': t('Phantasm Critical Damage'),
+    'Secondary Critical Chance': t('Secondary Critical Chance'),
+    'Secondary Critical Damage': t('Secondary Critical Damage'),
+  }).forEach(([attribute, label]) => {
+    if (character.attributes[attribute]) {
+      bonuses[label] = `${roundTwo(character.attributes[attribute] * 100)}%`;
+    }
+  });
 
   return (
     <ErrorBoundary location="ResultDetails" resetKeys={[character]}>
