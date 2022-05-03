@@ -85,7 +85,7 @@
 
     - id: sharper-images-phantasm
       text: Sharper Images
-      subText: Phantasm
+      subText: phantasm
       minor: true
       amountData:
         label: 'hit/s'
