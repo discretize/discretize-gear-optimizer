@@ -712,7 +712,6 @@ export class OptimizerCore {
         attributes['Phantasm Effective Power'] =
           attributes['Power'] *
           (1 + phantasmCritChance * (phantasmCritDmg - 1)) *
-          damageMultiplier['Strike Damage'] *
           damageMultiplier['Phantasm Damage'];
 
         const phantasmPowerDamage =
