@@ -60,17 +60,17 @@ list:
         extras: Condi Chrono STM
         weaponType: Dual wield
 
-      - name: Power Virtuoso
-        id: pvirt
+      - name: Power Virtuoso GS
+        id: pvirt-gs
         specialization: Virtuoso
         boonType: Power
         priority: Power DPS
-        distribution: Power Virtuoso
+        distribution: Power Virtuoso GS
         fractal:
-          traits: Power Virtuoso (no accuracy)
+          traits: Power Virtuoso
           extras: Power (Fractal)
         raid:
-          traits: Power Virtuoso (accuracy)
+          traits: Power Virtuoso
           extras: Power Virtuoso (Raid spotter)
         weaponType: Two-handed
 

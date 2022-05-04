@@ -807,12 +807,13 @@ list:
   # https://www.youtube.com/watch?v=Lg85Tj1-QeQ
   # https://dps.report/u9Cu-20210910-041935_golem
   # removed 126 power damage from lifesteal food
-  # power: 2711, burn: 898, bleed: 9273, poison: 480, torment: 12643, confusion: 4865, total: 30870
+  # power: 2600 + 124, burn: 898, bleed: 9273, poison: 480, torment: 12643, confusion: 4865, total: 30870
+  # full viper toxic oil
   - name: Staff Mirage
     profession: Mirage
     value: >-
       {
-        "values2": { "Power": 1257, "Power2": 0, "Burning": 0.54, "Bleeding": 10.51, "Poisoned": 0.81, "Torment": 15.06, "Confusion": 17.32 }
+        "values2": { "Power": 1206, "Power2": 57, "Burning": 0.54, "Bleeding": 10.47, "Poisoned": 0.81, "Torment": 15.07, "Confusion": 17.32 }
       }
     credit:
       - author: '[CnD] Xyonon'
@@ -826,7 +827,7 @@ list:
     profession: Mirage
     value: >-
       {
-        "values2": { "Power": 2307, "Power2": 0, "Burning": 1.63, "Bleeding": 5.71, "Poisoned": 0.16, "Torment": 23.79, "Confusion": 12.47 }
+        "values2": { "Power": 1942, "Power2": 397, "Burning": 1.63, "Bleeding": 5.71, "Poisoned": 0.16, "Torment": 23.79, "Confusion": 12.47 }
       }
     credit:
       - author: 'Ryan'
@@ -840,7 +841,7 @@ list:
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 1980, "Power2": 0, "Burning": 2.26, "Bleeding": 3.94, "Poisoned": 0, "Torment": 6.39, "Confusion": 17.07 }
+        "values2": { "Power": 1686, "Power2": 321, "Burning": 2.26, "Bleeding": 3.95, "Poisoned": 0, "Torment": 6.4, "Confusion": 17.07 }
       }
     credit:
       - author: '[CnD] Tipcat'
@@ -856,7 +857,7 @@ list:
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 3540, "Power2": 0, "Burning": 0.52, "Bleeding": 2.03, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
+        "values2": { "Power": 2763, "Power2": 938, "Burning": 0.52, "Bleeding": 1.53, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
       }
     credit:
       - author: 'REMagic'
@@ -871,19 +872,19 @@ list:
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 3219, "Power2": 0, "Burning": 0.52, "Bleeding": 2.03, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
+        "values2": { "Power": 2442, "Power2": 938, "Burning": 0.52, "Bleeding": 1.53, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
       }
     credit:
       - author: 'REMagic'
 
   # https://www.youtube.com/watch?v=92FJUY1IKh4
   # https://dps.report/bz6U-20220306-210357_golem
-  # accuracy
-  - name: Power Virtuoso
+  # accuracy, assassin helm shld glove boot
+  - name: Power Virtuoso GS
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 3535, "Power2": 0, "Burning": 0.53, "Bleeding": 0.53, "Poisoned": 0, "Torment": 0, "Confusion": 0.59 }
+        "values2": { "Power": 2994, "Power2": 594, "Burning": 0.53, "Bleeding": 0.54, "Poisoned": 0, "Torment": 0, "Confusion": 0.59 }
       }
     credit:
       - author: '[CnD] Tipcat'
