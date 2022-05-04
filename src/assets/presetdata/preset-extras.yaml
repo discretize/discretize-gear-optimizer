@@ -1416,6 +1416,7 @@ list:
         }
       }
 
+  # credit to Boz in SC discord for the scavenging idea!
   - name: Alacrity Specter
     profession: Specter
     value: |-
@@ -1431,7 +1432,8 @@ list:
             }
           },
           "Runes": {
-            "renegade": {}
+            "renegade": {},
+            "scavenging": {}
           },
           "Nourishment": {
             "salsa-eggs-benedict": {},
