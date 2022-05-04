@@ -856,18 +856,18 @@ list:
         extras: DPS Scourge
         weaponType: Dual wield
 
-      # - name: Power Reaper (inaccurate)
-      #   id: preaper
-      #   specialization: Reaper
-      #   boonType: Power (spotter)
-      #   priority: Power DPS
-      #   distribution: Power Reaper (inaccurate)
-      #   traits: Power Reaper
-      #   fractal:
-      #     extras: Power (Fractal)
-      #   raid:
-      #     extras: Power (Raid)
-      #   weaponType: Two-handed
+      - name: Power Reaper
+        id: preaper
+        specialization: Reaper
+        boonType: Power
+        priority: Power DPS
+        distribution: Power Reaper
+        traits: Power Reaper
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
+        weaponType: Two-handed
 
       - name: Condi Reaper
         id: creaper

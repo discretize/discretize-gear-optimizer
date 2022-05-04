@@ -907,13 +907,14 @@ list:
         log: https://dps.report/y99d-20210830-203941_golem
 
   # https://www.youtube.com/watch?v=I1Tjyfk-DKI
-  # power: 33983, burn: 174, poison: 99, total: 34256
+  # https://dps.report/1MCV-20200715-182303_golem
+  # power: 9950 + 24033 = 33983, burn: 174, poison: 99, total: 34256
   # "Reaper does approximately 29.28% of its damage outside of shroud" - https://discord.com/channels/380901000200060929/381160724409614356/828683461074092113
-  - name: Power Reaper (inaccurate)
+  - name: Power Reaper
     profession: Reaper
     value: >-
       {
-        "values2": { "Power": 2990, "Power2": 0, "Burning": 0.6, "Bleeding": 0, "Poisoned": 1, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1154, "Power2": 2115, "Burning": 0.57, "Bleeding": 0, "Poisoned": 1.03, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[SC] Westet'
