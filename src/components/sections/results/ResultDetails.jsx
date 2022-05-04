@@ -60,8 +60,8 @@ const ResultDetails = () => {
     'Clone Critical Chance': t('Clone Critical Chance'),
     'Phantasm Critical Chance': t('Phantasm Critical Chance'),
     'Phantasm Critical Damage': t('Phantasm Critical Damage'),
-    'Secondary Critical Chance': t('Secondary Critical Chance'),
-    'Secondary Critical Damage': t('Secondary Critical Damage'),
+    'Alternative Critical Chance': t('Alternative Critical Chance'),
+    'Alternative Critical Damage': t('Alternative Critical Damage'),
   }).forEach(([attribute, label]) => {
     if (character.attributes[attribute]) {
       bonuses[label] = `${roundTwo(character.attributes[attribute] * 100)}%`;

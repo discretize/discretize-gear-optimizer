@@ -11,9 +11,9 @@ const stats = [
   'Agony Resistance',
 
   // added during the "buff" phase, so these cannot be "converted"
-  'Secondary Power',
-  'Secondary Precision',
-  'Secondary Ferocity',
+  'Alternative Power',
+  'Alternative Precision',
+  'Alternative Ferocity',
 ] as const;
 export type StatName = typeof stats[number];
 
@@ -80,7 +80,7 @@ export const percents = [
   ...conditionDurations,
   'Maximum Health',
   'Outgoing Healing',
-  'Secondary Critical Chance',
+  'Alternative Critical Chance',
   'Phantasm Critical Chance',
   'Clone Critical Chance',
 ] as const;
@@ -100,7 +100,7 @@ export const allDamageKeys = [
   // 'Condition Damage Reduction',
   'Critical Damage',
   ...conditionDamages,
-  'Secondary Damage',
+  'Alternative Damage',
   'Phantasm Damage',
 ] as const;
 export type DamageKey = typeof allDamageKeys[number];

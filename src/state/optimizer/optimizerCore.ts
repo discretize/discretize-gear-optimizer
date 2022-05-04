@@ -635,15 +635,16 @@ export class OptimizerCore {
       attributes['Phantasm Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
       attributes['Phantasm Critical Damage'] += attributes['Ferocity'] / 15 / 100;
     } else if (attributes['Power2 Coefficient']) {
-      attributes['Secondary Power'] = (attributes['Secondary Power'] ?? 0) + attributes['Power'];
-      attributes['Secondary Critical Chance'] =
-        (attributes['Secondary Critical Chance'] ?? 0) +
+      attributes['Alternative Power'] =
+        (attributes['Alternative Power'] ?? 0) + attributes['Power'];
+      attributes['Alternative Critical Chance'] =
+        (attributes['Alternative Critical Chance'] ?? 0) +
         attributes['Critical Chance'] +
-        (attributes['Secondary Precision'] ?? 0) / 21 / 100;
-      attributes['Secondary Critical Damage'] =
-        (attributes['Secondary Critical Damage'] ?? 0) +
+        (attributes['Alternative Precision'] ?? 0) / 21 / 100;
+      attributes['Alternative Critical Damage'] =
+        (attributes['Alternative Critical Damage'] ?? 0) +
         attributes['Critical Damage'] +
-        (attributes['Secondary Ferocity'] ?? 0) / 15 / 100;
+        (attributes['Alternative Ferocity'] ?? 0) / 15 / 100;
     }
 
     for (const [attribute, conversion] of settings.modifiers['convertAfterBuffs']) {
@@ -719,21 +720,21 @@ export class OptimizerCore {
         attributes['Power2 DPS'] = phantasmPowerDamage;
         powerDamage += phantasmPowerDamage;
       } else {
-        const secondaryCritDmg =
-          attributes['Secondary Critical Damage'] * damageMultiplier['Critical Damage'];
-        const secondaryCritChance = clamp(attributes['Secondary Critical Chance'], 0, 1);
+        const alternativeCritDmg =
+          attributes['Alternative Critical Damage'] * damageMultiplier['Critical Damage'];
+        const alternativeCritChance = clamp(attributes['Alternative Critical Chance'], 0, 1);
 
-        attributes['Secondary Effective Power'] =
-          attributes['Secondary Power'] *
-          (1 + secondaryCritChance * (secondaryCritDmg - 1)) *
+        attributes['Alternative Effective Power'] =
+          attributes['Alternative Power'] *
+          (1 + alternativeCritChance * (alternativeCritDmg - 1)) *
           damageMultiplier['Strike Damage'] *
-          damageMultiplier['Secondary Damage'];
+          damageMultiplier['Alternative Damage'];
 
-        const secondaryPowerDamage =
+        const alternativePowerDamage =
           ((attributes['Power2 Coefficient'] || 0) / 2597) *
-          attributes['Secondary Effective Power'];
-        attributes['Power2 DPS'] = secondaryPowerDamage;
-        powerDamage += secondaryPowerDamage;
+          attributes['Alternative Effective Power'];
+        attributes['Power2 DPS'] = alternativePowerDamage;
+        powerDamage += alternativePowerDamage;
       }
     } else {
       attributes['Power2 DPS'] = 0;

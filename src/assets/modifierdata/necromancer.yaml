@@ -19,7 +19,7 @@
       modifiers:
         attributes:
           Power: [180, buff]
-          Secondary Power: [90, buff]
+          Alternative Power: [90, buff]
       gw2id: 10622
 
 - section: Spite
@@ -209,8 +209,8 @@
       text: Death Perception
       modifiers:
         attributes:
-          Secondary Critical Chance: 33%
-          Secondary Ferocity: [300, buff]
+          Alternative Critical Chance: 33%
+          Alternative Ferocity: [300, buff]
       gw2id: 893
       defaultEnabled: true
 
@@ -272,7 +272,7 @@
           Expertise: [135, converted]
       gw2id: 2121
       defaultEnabled: true
-    
+
     - id: blood-as-sand-1x
       text: Blood as Sand
       subText: 1x
@@ -284,7 +284,7 @@
         damage:
           Damage Reduction: [3%, unknown]
       gw2id: 2096
-    
+
     - id: blood-as-sand-2x
       text: Blood as Sand
       subText: 2x
@@ -367,7 +367,7 @@
       text: Reaper's Onslaught
       modifiers:
         attributes:
-          Secondary Ferocity: [300, buff]
+          Alternative Ferocity: [300, buff]
       gw2id: 2021
       defaultEnabled: true
 

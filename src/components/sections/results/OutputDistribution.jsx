@@ -2,7 +2,7 @@ import { Attribute, Condition } from '@discretize/gw2-ui-new';
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
 import React from 'react';
 import { makeStyles } from 'tss-react/mui';
-import useAlternateDamage from '../../baseComponents/useAlternateDamage';
+import useAlternativeDamage from '../../baseComponents/useAlternativeDamage';
 
 const useStyles = makeStyles()((theme) => ({
   root: {
@@ -16,7 +16,7 @@ const useStyles = makeStyles()((theme) => ({
 
 const OutputDistribution = ({ title, data }) => {
   const { classes } = useStyles();
-  const [alternateDamageLabel] = useAlternateDamage();
+  const [alternativeDamageLabel] = useAlternativeDamage();
 
   return (
     <>
@@ -30,7 +30,7 @@ const OutputDistribution = ({ title, data }) => {
                   <Attribute
                     name="Power"
                     className={classes.gw2Item}
-                    text={damageType.name === 'Power2' ? alternateDamageLabel : undefined}
+                    text={damageType.name === 'Power2' ? alternativeDamageLabel : undefined}
                   />
                 ) : (
                   <Condition name={damageType.name} className={classes.gw2Item} />

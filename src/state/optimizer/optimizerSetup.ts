@@ -94,7 +94,7 @@ type MultiplierName =
   | 'Confusion Damage'
   | 'Poison Damage'
   | 'Torment Damage'
-  | 'Secondary Damage'
+  | 'Alternative Damage'
   | 'Phantasm Damage';
 
 export interface AppliedModifier {
@@ -344,7 +344,7 @@ export function setupCombinations(reduxState: any) {
       'Confusion Damage': 1,
       'Poison Damage': 1,
       'Torment Damage': 1,
-      'Secondary Damage': 1,
+      'Alternative Damage': 1,
       'Phantasm Damage': 1,
     };
     const allDmgMult = {
@@ -433,7 +433,7 @@ export function setupCombinations(reduxState: any) {
             case 'Confusion Damage':
             case 'Poison Damage':
             case 'Torment Damage':
-            case 'Secondary Damage':
+            case 'Alternative Damage':
             case 'Phantasm Damage':
               dmgBuff(attribute, scaledAmount, addOrMult);
               break;

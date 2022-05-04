@@ -11,7 +11,7 @@ import {
   getTextBoxes,
 } from '../../../state/slices/distribution';
 import { parseDistribution } from '../../../utils/usefulFunctions';
-import useAlternateDamage from '../../baseComponents/useAlternateDamage';
+import useAlternativeDamage from '../../baseComponents/useAlternativeDamage';
 import TemplateInfo from '../../TemplateInfo';
 
 const Attribute = React.memo(AttributeRaw);
@@ -66,18 +66,18 @@ const DamageDistribution = () => {
     dispatch(changeDistributionNew({ index: key, value: parsedValue }));
   };
 
-  const [alternateDamageLabel, alternateDamageEnabled] = useAlternateDamage();
+  const [alternativeDamageLabel, alternativeDamageEnabled] = useAlternativeDamage();
 
   // shows the slider (faded) if the user switched classes and left a nonzero value
-  const showAlternateDamage = alternateDamageEnabled || distributionNew.Power2;
+  const showAlternativeDamage = alternativeDamageEnabled || distributionNew.Power2;
 
   const controls = DISTRIBUTION_NAMES.filter(
-    ({ name }) => name !== 'Power2' || showAlternateDamage,
+    ({ name }) => name !== 'Power2' || showAlternativeDamage,
   ).map((dist, index) => {
     let style;
     if (dist.name === 'Power2') {
-      if (!showAlternateDamage) return null;
-      if (!alternateDamageEnabled) style = { opacity: 0.5 };
+      if (!showAlternativeDamage) return null;
+      if (!alternativeDamageEnabled) style = { opacity: 0.5 };
     }
     return (
       <Box display="flex" flexWrap="wrap" key={`distriNew_${dist.name}`} style={style}>
@@ -88,7 +88,7 @@ const DamageDistribution = () => {
                 <Attribute
                   name="Power"
                   disableLink
-                  text={dist.name === 'Power2' ? alternateDamageLabel : undefined}
+                  text={dist.name === 'Power2' ? alternativeDamageLabel : undefined}
                 />
               ) : (
                 <Condition
