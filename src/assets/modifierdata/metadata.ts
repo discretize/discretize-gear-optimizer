@@ -9,13 +9,15 @@ const stats = [
   'Concentration',
   'Healing Power',
   'Agony Resistance',
+] as const;
+export type StatName = typeof stats[number];
 
-  // added during the "buff" phase, so these cannot be "converted"
+// added during the "buff" phase, so these cannot be "converted"
+export const alternateStats = [
   'Alternative Power',
   'Alternative Precision',
   'Alternative Ferocity',
-] as const;
-export type StatName = typeof stats[number];
+];
 
 export const boons = [
   'Aegis',
@@ -108,7 +110,7 @@ export type DamageKey = typeof allDamageKeys[number];
 export const allDamageModes = ['add', 'mult', 'target', 'unknown'] as const;
 export type DamageMode = typeof allDamageModes[number];
 
-export const allAttributePointKeys = stats;
+export const allAttributePointKeys = [...stats, ...alternateStats];
 type AttributePointKey = typeof allAttributePointKeys[number];
 
 export const allAttributePointModes = ['buff', 'converted', 'unknown'] as const;

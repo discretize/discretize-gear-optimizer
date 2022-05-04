@@ -27,6 +27,7 @@ const {
   attributePercentKeysBlacklist,
   attributePointKeysBlacklist,
   damageKeysBlacklist,
+  alternateStats,
   // mayBeConvertedToBlacklist,
 } = requireTS(path.join(__dirname, './metadata.ts'));
 
@@ -302,6 +303,11 @@ function parseAttributes(attributes, id, amountData) {
         gentleAssert(
           allAttributePointModes.includes(mode),
           `invalid val ${allPairs} for ${key} in ${id}`,
+        );
+
+        gentleAssert(
+          mode === 'buff' || !alternateStats.includes(key),
+          `cannot convert stat ${key} in ${id}`,
         );
       }
     } else if (allAttributeCoefficientKeys.includes(key)) {
