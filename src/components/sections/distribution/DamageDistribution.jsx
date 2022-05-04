@@ -71,9 +71,7 @@ const DamageDistribution = () => {
   // shows the slider (faded) if the user switched classes and left a nonzero value
   const showAlternativeDamage = alternativeDamageEnabled || distributionNew.Power2;
 
-  const controls = DISTRIBUTION_NAMES.filter(
-    ({ name }) => name !== 'Power2' || showAlternativeDamage,
-  ).map((dist, index) => {
+  const controls = DISTRIBUTION_NAMES.map((dist, index) => {
     let style;
     if (dist.name === 'Power2') {
       if (!showAlternativeDamage) return null;
