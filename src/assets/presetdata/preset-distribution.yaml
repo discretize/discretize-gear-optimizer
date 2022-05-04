@@ -781,7 +781,7 @@ list:
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 2384, "Power2": 824, "Burning": 0.62, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.03 }
+        "values2": { "Power": 2384, "Power2": 824, "Burning": 0.62, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.08 }
       }
     credit:
       - author: '[CnD] Tipcat'
@@ -797,20 +797,12 @@ list:
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 2400, "Power2": 748, "Burning": 0.63, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.04 }
+        "values2": { "Power": 2400, "Power2": 748, "Burning": 0.63, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.09 }
       }
     credit:
       - author: '[CnD] Tipcat'
         url: https://www.youtube.com/watch?v=zdIAYu7R8lk
         log: https://dps.report/0pRk-20210521-152703_golem
-
-  # DT focus domi/duel
-  # https://www.youtube.com/watch?v=hkl9kewy_1k
-  # power: 2171 + 14485 = 36356, burn: 204, bleed: 2147, total: 38707
-  # scholar
-  # - name: Power Chrono DT
-  #   profession: Chronomancer
-  #   value: >-
 
   # https://www.youtube.com/watch?v=Lg85Tj1-QeQ
   # https://dps.report/u9Cu-20210910-041935_golem
