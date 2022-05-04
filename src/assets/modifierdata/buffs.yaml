@@ -36,6 +36,7 @@
         damage:
           Strike Damage: [1%, target]
           Condition Damage: [1%, target]
+          Phantasm Damage: [1%, target]
       type: Condition
 
 - section: Warrior buffs
@@ -201,6 +202,7 @@
         damage:
           Strike Damage: [10%, target]
           Condition Damage: [20%, target]
+          Phantasm Damage: [10%, target]
       type: CommonEffect
 
     - id: lightArmor

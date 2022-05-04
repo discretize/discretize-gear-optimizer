@@ -271,6 +271,10 @@ function parseDamage(damage, id, amountData) {
         key !== 'Critical Damage' || mode === 'unknown',
         `set mode unknown for critical damage for now`,
       );
+
+      if (mode === 'target') {
+        gentleAssert(damage['Phantasm Damage'] !== undefined, `${id} is missing phantasm damage`);
+      }
     }
   }
 }
