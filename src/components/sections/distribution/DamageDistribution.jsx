@@ -11,6 +11,7 @@ import {
   getTextBoxes,
 } from '../../../state/slices/distribution';
 import { parseDistribution } from '../../../utils/usefulFunctions';
+import useAlternateDamage from '../../baseComponents/useAlternateDamage';
 import TemplateInfo from '../../TemplateInfo';
 
 const Attribute = React.memo(AttributeRaw);
@@ -31,6 +32,16 @@ const useStyles = makeStyles()((theme) => ({
     opacity: 1,
   },
 }));
+
+const DISTRIBUTION_NAMES = [
+  { name: 'Power', min: 0, max: 6000, step: 10, color: '#b1b1b5' },
+  { name: 'Power2', min: 0, max: 6000, step: 10, color: '#b1b1b5' },
+  { name: 'Burning', min: 0, max: 60, step: 0.1 },
+  { name: 'Bleeding', min: 0, max: 60, step: 0.1 },
+  { name: 'Poisoned', min: 0, max: 60, step: 0.1 },
+  { name: 'Torment', min: 0, max: 60, step: 0.1 },
+  { name: 'Confusion', min: 0, max: 60, step: 0.1 },
+];
 
 const DamageDistribution = () => {
   const { classes } = useStyles();
@@ -55,90 +66,84 @@ const DamageDistribution = () => {
     dispatch(changeDistributionNew({ index: key, value: parsedValue }));
   };
 
-  const DISTRIBUTION_NAMES = [
-    {
-      name: 'Power',
-      min: 0,
-      max: 6000,
-      step: 10,
-      color: '#b1b1b5',
-      label: <Attribute name="Power" disableLink text={t('Power Coefficient')} />,
-    },
-    {
-      name: 'Power2',
-      min: 0,
-      max: 6000,
-      step: 10,
-      color: '#b1b1b5',
-      label: <Attribute name="Power" disableLink text={t('Power Coefficient 2')} />,
-    },
-    { name: 'Burning', min: 0, max: 60, step: 0.1 },
-    { name: 'Bleeding', min: 0, max: 60, step: 0.1 },
-    { name: 'Poisoned', min: 0, max: 60, step: 0.1 },
-    { name: 'Torment', min: 0, max: 60, step: 0.1 },
-    { name: 'Confusion', min: 0, max: 60, step: 0.1 },
-  ];
+  const [alternateDamageLabel, alternateDamageEnabled] = useAlternateDamage();
 
-  const controls = DISTRIBUTION_NAMES.map((dist, index) => (
-    <Box display="flex" flexWrap="wrap" key={`distriNew_${dist.name}`}>
-      <Box>
-        <FormControl mb={1} className={classes.textbox} variant="standard">
-          <InputLabel htmlFor={`input-with-icon-adornment-${index}`}>
-            {dist.label ? (
-              dist.label
-            ) : (
-              <Condition
-                name={dist.name}
-                disableLink
-                text={
-                  // i18next-extract-mark-context-next-line ["Burning","Bleeding","Poisoned","Torment", "Confusion"]
-                  t(`avgStacks`, { context: dist.name })
-                }
-              />
-            )}
-          </InputLabel>
-          <Input
-            id={`input-with-icon-adornment-${index}`}
-            value={textBoxes[dist.name]}
-            endAdornment={
-              <InputAdornment position="end">
-                {dist.name.startsWith('Power') ? (
-                  <Attribute name="Power" disableLink disableText />
-                ) : (
-                  <Condition name={dist.name} disableLink disableText />
-                )}
-              </InputAdornment>
-            }
-            error={parseDistribution(textBoxes[dist.name]).error}
-            onChange={handleChangeTextNew(dist.name)}
-            autoComplete="off"
+  // shows the slider (faded) if the user switched classes and left a nonzero value
+  const showAlternateDamage = alternateDamageEnabled || distributionNew.Power2;
+
+  const controls = DISTRIBUTION_NAMES.filter(
+    ({ name }) => name !== 'Power2' || showAlternateDamage,
+  ).map((dist, index) => {
+    let style;
+    if (dist.name === 'Power2') {
+      if (!showAlternateDamage) return null;
+      if (!alternateDamageEnabled) style = { opacity: 0.5 };
+    }
+    return (
+      <Box display="flex" flexWrap="wrap" key={`distriNew_${dist.name}`} style={style}>
+        <Box>
+          <FormControl mb={1} className={classes.textbox} variant="standard">
+            <InputLabel htmlFor={`input-with-icon-adornment-${index}`}>
+              {dist.name.startsWith('Power') ? (
+                <Attribute
+                  name="Power"
+                  disableLink
+                  text={dist.name === 'Power2' ? alternateDamageLabel : undefined}
+                />
+              ) : (
+                <Condition
+                  name={dist.name}
+                  disableLink
+                  text={
+                    // i18next-extract-mark-context-next-line ["Burning","Bleeding","Poisoned","Torment", "Confusion"]
+                    t(`avgStacks`, { context: dist.name })
+                  }
+                />
+              )}
+            </InputLabel>
+            <Input
+              id={`input-with-icon-adornment-${index}`}
+              value={textBoxes[dist.name]}
+              endAdornment={
+                <InputAdornment position="end">
+                  {dist.name.startsWith('Power') ? (
+                    <Attribute name="Power" disableLink disableText />
+                  ) : (
+                    <Condition name={dist.name} disableLink disableText />
+                  )}
+                </InputAdornment>
+              }
+              error={parseDistribution(textBoxes[dist.name]).error}
+              onChange={handleChangeTextNew(dist.name)}
+              autoComplete="off"
+            />
+          </FormControl>
+        </Box>
+        <Box
+          flexGrow={1}
+          alignSelf="center"
+          mx={3}
+          mb={4}
+          sx={{ minWidth: 200, md: { marginLeft: 2 } }}
+        >
+          <Slider
+            value={distributionNew[dist.name]}
+            step={dist.step}
+            marks={[...Array(7).keys()]
+              .map((value) => value * ((dist.max - dist.min) / 6))
+              .map((value) => ({
+                value,
+                label: `${value}`,
+              }))}
+            min={dist.min}
+            max={dist.max}
+            onChange={onUpdate(dist.name)}
+            valueLabelDisplay="auto"
           />
-        </FormControl>
+        </Box>
       </Box>
-      <Box
-        flexGrow={1}
-        alignSelf="center"
-        mx={3}
-        mb={4}
-        sx={{ minWidth: 200, md: { marginLeft: 2 } }}
-      >
-        <Slider
-          value={distributionNew[dist.name]}
-          step={dist.step}
-          marks={[...Array(7).keys()]
-            .map((value) => value * ((dist.max - dist.min) / 6))
-            .map((value) => ({
-              value,
-              label: `${value}`,
-            }))}
-          min={dist.min}
-          max={dist.max}
-          onChange={onUpdate(dist.name)}
-          valueLabelDisplay="auto"
-        />
-      </Box>
-    </Box>
-  ));
+    );
+  });
 
   return (
     <>

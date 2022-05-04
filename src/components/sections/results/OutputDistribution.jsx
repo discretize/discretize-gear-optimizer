@@ -1,8 +1,8 @@
 import { Attribute, Condition } from '@discretize/gw2-ui-new';
 import { Table, TableBody, TableCell, TableRow, Typography } from '@mui/material';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
+import useAlternateDamage from '../../baseComponents/useAlternateDamage';
 
 const useStyles = makeStyles()((theme) => ({
   root: {
@@ -16,7 +16,7 @@ const useStyles = makeStyles()((theme) => ({
 
 const OutputDistribution = ({ title, data }) => {
   const { classes } = useStyles();
-  const { t } = useTranslation();
+  const [alternateDamageLabel] = useAlternateDamage();
 
   return (
     <>
@@ -27,7 +27,11 @@ const OutputDistribution = ({ title, data }) => {
             <TableRow hover key={damageType.name}>
               <TableCell>
                 {damageType.name.startsWith('Power') ? (
-                  <Attribute name="Power" text={t(damageType.name)} className={classes.gw2Item} />
+                  <Attribute
+                    name="Power"
+                    className={classes.gw2Item}
+                    text={damageType.name === 'Power2' ? alternateDamageLabel : undefined}
+                  />
                 ) : (
                   <Condition name={damageType.name} className={classes.gw2Item} />
                 )}
