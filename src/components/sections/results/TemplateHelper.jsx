@@ -87,7 +87,7 @@ const TemplateHelper = ({ character }) => {
           const hits = playerData.statsTargets?.[0]?.[0]?.critableDirectDamageCount;
           const crits = playerData.statsTargets?.[0]?.[0]?.criticalRate;
 
-          const hitsPerSecond = hits / duration;
+          const hitsPerSecond = (hits / duration) * 0.95;
           const critPercent = (crits / hits) * 100;
 
           const minions = playerData.minions ?? [];
@@ -122,12 +122,12 @@ const TemplateHelper = ({ character }) => {
             .flatMap(([type, { names, minionHits, minionCrits }]) => {
               const namesString = [...names].join(', ');
 
-              const minionHitsPerSecond = minionHits / duration;
+              const minionHitsPerSecond = (minionHits / duration) * 0.95;
               const minionCritPercent = (minionCrits / minionHits) * 100;
 
               return [
                 [
-                  `${type} hits/sec (${minionCrits}/${minionHits}: ${minionCritPercent.toFixed(
+                  `95% ${type} hits/sec (${minionCrits}/${minionHits}: ${minionCritPercent.toFixed(
                     2,
                   )}% crit)`,
                   minionHitsPerSecond,
@@ -166,13 +166,14 @@ const TemplateHelper = ({ character }) => {
             ['Clone+Phantasm DPS', clonePhantasmDamageSum],
             '\n',
             [
-              `Player crittable hits per second (${crits}/${hits}: ${critPercent.toFixed(
+              `95% Player crittable hits per second (${crits}/${hits}: ${critPercent.toFixed(
                 2,
               )}% crit)`,
               hitsPerSecond,
             ],
             '\n',
             ...minionData,
+            `      (~95% multiplier discounts on-crit stacks that expire at phase end)`,
           ];
 
           const resultAreaText = result
