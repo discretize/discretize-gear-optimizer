@@ -781,7 +781,7 @@ list:
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 2384, "Power2": 824, "Burning": 0.62, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.08 }
+        "values2": { "Power": 2384, "Power2": 1391, "Burning": 0.62, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.08 }
       }
     credit:
       - author: '[CnD] Tipcat'
@@ -797,7 +797,7 @@ list:
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 2400, "Power2": 748, "Burning": 0.63, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.09 }
+        "values2": { "Power": 2400, "Power2": 1324, "Burning": 0.63, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.09 }
       }
     credit:
       - author: '[CnD] Tipcat'
@@ -813,7 +813,7 @@ list:
     profession: Mirage
     value: >-
       {
-        "values2": { "Power": 1206, "Power2": 57, "Burning": 0.54, "Bleeding": 10.47, "Poisoned": 0.81, "Torment": 15.07, "Confusion": 17.32 }
+        "values2": { "Power": 1206, "Power2": 60, "Burning": 0.54, "Bleeding": 10.47, "Poisoned": 0.81, "Torment": 15.07, "Confusion": 17.32 }
       }
     credit:
       - author: '[CnD] Xyonon'
@@ -827,7 +827,7 @@ list:
     profession: Mirage
     value: >-
       {
-        "values2": { "Power": 1942, "Power2": 397, "Burning": 1.63, "Bleeding": 5.71, "Poisoned": 0.16, "Torment": 23.79, "Confusion": 12.47 }
+        "values2": { "Power": 1942, "Power2": 417, "Burning": 1.63, "Bleeding": 5.71, "Poisoned": 0.16, "Torment": 23.79, "Confusion": 12.47 }
       }
     credit:
       - author: 'Ryan'
@@ -841,7 +841,7 @@ list:
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 1686, "Power2": 321, "Burning": 2.26, "Bleeding": 3.95, "Poisoned": 0, "Torment": 6.4, "Confusion": 17.07 }
+        "values2": { "Power": 1686, "Power2": 369, "Burning": 2.26, "Bleeding": 3.95, "Poisoned": 0, "Torment": 6.4, "Confusion": 17.07 }
       }
     credit:
       - author: '[CnD] Tipcat'
@@ -857,7 +857,7 @@ list:
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 2763, "Power2": 938, "Burning": 0.52, "Bleeding": 1.53, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
+        "values2": { "Power": 2763, "Power2": 1131, "Burning": 0.52, "Bleeding": 1.53, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
       }
     credit:
       - author: 'REMagic'
@@ -872,7 +872,7 @@ list:
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 2442, "Power2": 938, "Burning": 0.52, "Bleeding": 1.53, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
+        "values2": { "Power": 2442, "Power2": 1131, "Burning": 0.52, "Bleeding": 1.53, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
       }
     credit:
       - author: 'REMagic'
@@ -884,7 +884,7 @@ list:
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 2994, "Power2": 594, "Burning": 0.53, "Bleeding": 0.54, "Poisoned": 0, "Torment": 0, "Confusion": 0.59 }
+        "values2": { "Power": 2994, "Power2": 1205, "Burning": 0.53, "Bleeding": 1.41, "Poisoned": 0, "Torment": 0, "Confusion": 0.59 }
       }
     credit:
       - author: '[CnD] Tipcat'
