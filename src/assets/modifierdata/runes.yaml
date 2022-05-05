@@ -2,6 +2,7 @@
   items:
 
     - id: scholar
+      text: Superior Rune of the Scholar
       subText: (100% active bonus)
       modifiers:
         damage:
@@ -12,6 +13,7 @@
       gw2id: 24836
 
     - id: scholar-without
+      text: Superior Rune of the Scholar
       subText: (without active bonus)
       modifiers:
         attributes:
@@ -20,6 +22,7 @@
       gw2id: 24836
 
     - id: eagle
+      text: Superior Rune of the Eagle
       modifiers:
         damage:
           Strike Damage: [5%, mult]
@@ -29,6 +32,7 @@
       gw2id: 24723
 
     - id: eagle-perma
+      text: Superior Rune of the Eagle
       subText: (always below 50)
       modifiers:
         damage:
@@ -39,6 +43,7 @@
       gw2id: 24723
 
     - id: thief
+      text: Superior Rune of the Thief
       modifiers:
         damage:
           Strike Damage: [10%, mult]
@@ -48,6 +53,7 @@
       gw2id: 24818
 
     - id: spellbreaker
+      text: Superior Rune of the Spellbreaker
       modifiers:
         damage:
           Strike Damage: [7%, mult]
@@ -57,6 +63,7 @@
       gw2id: 84749
 
     - id: flame-legion
+      text: Superior Rune of the Flame Legion
       modifiers:
         damage:
           Strike Damage: [7%, mult]
@@ -66,6 +73,7 @@
       gw2id: 24797
 
     - id: strength
+      text: Superior Rune of Strength
       modifiers:
         damage:
           Strike Damage: [5%, mult]
@@ -75,6 +83,7 @@
       gw2id: 24714
 
     - id: ogre
+      text: Superior Rune of the Ogre
       subText: (Approx.)
       modifiers:
         damage:
@@ -86,6 +95,7 @@
       gw2id: 24756
 
     - id: ranger
+      text: Superior Rune of the Ranger
       subText: (with pet)
       modifiers:
         damage:
@@ -96,6 +106,7 @@
       gw2id: 24815
 
     - id: chronomancer
+      text: Superior Rune of the Chronomancer
       modifiers:
         attributes:
           Power: [175, converted]
@@ -103,6 +114,7 @@
       gw2id: 73399
 
     - id: fire
+      text: Superior Rune of the Fire
       subText: (100% With Fire Aura)
       modifiers:
         damage:
@@ -114,6 +126,7 @@
       gw2id: 24747
 
     - id: golemancer
+      text: Superior Rune of the Golemancer
       subText: (Approx.)
       modifiers:
         attributes:
@@ -123,6 +136,7 @@
       gw2id: 24785
 
     - id: rage
+      text: Superior Rune of Rage
       subText: (maybe inaccurate)
       modifiers:
         damage:
@@ -133,6 +147,7 @@
       gw2id: 24717
 
     - id: infiltration
+      text: Superior Rune of Infiltration
       subText: (maybe inaccurate)
       modifiers:
         damage:
@@ -146,6 +161,7 @@
   items:
 
     - id: pack
+      text: Superior Rune of the Pack
       modifiers:
         attributes:
           Power: [175, converted]
@@ -154,6 +170,7 @@
       gw2id: 24702
 
     - id: leadership
+      text: Superior Rune of Leadership
       modifiers:
         attributes:
           Power: [36, converted]
@@ -169,6 +186,7 @@
       gw2id: 70600
 
     - id: firebrand
+      text: Superior Rune of the Firebrand
       modifiers:
         attributes:
           Condition Damage: [175, converted]
@@ -182,6 +200,7 @@
     # f1 passives from procs are 2.4s because of amplified wrath; every 3 hits if virtues
     # fb rune f1 passive: 1/3 * 2.4 / 54 sec = 0.0148 avg burning
     - id: firebrand-firebrand
+      text: Superior Rune of the Firebrand
       subText: (Virtues CFB)
       modifiers:
         attributes:
@@ -193,6 +212,7 @@
       gw2id: 83338
 
     - id: surging-and-ruby-orb
+      text: Superior Rune of Surging (5x) + Ruby Orb
       textOverride: Rune of Surging (5x) + Ruby Orb
       modifiers:
         attributes:
@@ -204,6 +224,7 @@
       priceIds: []
 
     - id: surging
+      text: Superior Rune of Surging
       modifiers:
         attributes:
           Power: [175, converted]
@@ -211,6 +232,7 @@
       gw2id: 76813
 
     - id: radiance
+      text: Superior Rune of Radiance
       modifiers:
         attributes:
           Vitality: [175, converted]
@@ -218,6 +240,7 @@
       gw2id: 67342
 
     - id: privateer
+      text: Superior Rune of the Privateer
       subText: (Approx.)
       modifiers:
         attributes:
@@ -230,6 +253,7 @@
   items:
 
     - id: durability
+      text: Superior Rune of Durability
       modifiers:
         attributes:
           Toughness: [175, converted]
@@ -238,6 +262,7 @@
       gw2id: 73653
 
     - id: scrapper
+      text: Superior Rune of the Scrapper
       modifiers:
         damage:
           Damage Reduction: [7%, unknown]
@@ -247,6 +272,7 @@
       gw2id: 71276
 
     - id: vampirism
+      text: Superior Rune of Vampirism
       modifiers:
         attributes:
           Power: [175, converted]
@@ -255,6 +281,7 @@
       gw2id: 24711
 
     - id: sanctuary
+      text: Superior Rune of Sanctuary
       modifiers:
         attributes:
           Vitality: [175, converted]
@@ -262,6 +289,7 @@
       gw2id: 24857
 
     - id: herald
+      text: Superior Rune of the Herald
       modifiers:
         attributes:
           Toughness: [175, converted]
@@ -269,6 +297,7 @@
       gw2id: 76100
 
     - id: rebirth
+      text: Superior Rune of the Rebirth
       modifiers:
         attributes:
           Healing Power: [300, converted]
@@ -279,6 +308,7 @@
   items:
 
     - id: monk
+      text: Superior Rune of the Monk
       subText: (10x)
       modifiers:
         attributes:
@@ -288,6 +318,7 @@
       gw2id: 24842
 
     - id: water
+      text: Superior Rune of the Water
       modifiers:
         attributes:
           Healing Power: [175, converted]
@@ -295,6 +326,7 @@
       gw2id: 24839
 
     - id: altruism
+      text: Superior Rune of Altruism
       modifiers:
         attributes:
           Healing Power: [300, converted]
@@ -302,6 +334,7 @@
       gw2id: 38206
 
     - id: rebirth-2
+      text: Superior Rune of the Rebirth
       modifiers:
         attributes:
           Healing Power: [300, converted]
@@ -309,6 +342,7 @@
       gw2id: 84171
 
     - id: flock
+      text: Superior Rune of the Flock
       modifiers:
         attributes:
           Healing Power: [175, converted]
@@ -320,6 +354,7 @@
   items:
 
     - id: berserker
+      text: Superior Rune of the Berserker
       modifiers:
         damage:
           Strike Damage: [5%, add]
@@ -330,6 +365,7 @@
       gw2id: 71425
 
     - id: renegade
+      text: Superior Rune of the Renegade
       modifiers:
         damage:
           Condition Damage: [7%, add]
@@ -339,6 +375,7 @@
       gw2id: 83502
 
     - id: elementalist
+      text: Superior Rune of the Elementalist
       modifiers:
         attributes:
           Power: [175, converted]
@@ -347,6 +384,7 @@
       gw2id: 24800
 
     - id: lich
+      text: Superior Rune of the Lich
       modifiers:
         damage:
           Condition Damage: [4%, add]
@@ -358,6 +396,7 @@
       gw2id: 24688
 
     - id: trapper
+      text: Superior Rune of the Trapper
       modifiers:
         attributes:
           Condition Damage: [175, converted]
@@ -365,6 +404,7 @@
       gw2id: 67339
 
     - id: trapper-and-black-diamond
+      text: Superior Rune of the Trapper (5x) + Black Diamond
       textOverride: Rune of the Trapper (5x) + Black Diamond
       modifiers:
         attributes:
@@ -377,6 +417,7 @@
       priceIds: []
 
     - id: nightmare
+      text: Superior Rune of the Nightmare
       modifiers:
         attributes:
           Condition Damage: [175, converted]
@@ -384,6 +425,7 @@
       gw2id: 24848
 
     - id: tempest
+      text: Superior Rune of the Tempest
       modifiers:
         attributes:
           Power: [36, converted]
@@ -399,6 +441,7 @@
       gw2id: 76166
 
     - id: undead
+      text: Superior Rune of the Undead
       modifiers:
         attributes:
           Condition Damage: [175, converted]
@@ -408,6 +451,7 @@
       gw2id: 24757
 
     - id: necromancer
+      text: Superior Rune of the Necromancer
       modifiers:
         attributes:
           Condition Damage: [300, converted]
@@ -415,6 +459,7 @@
       gw2id: 24806
 
     - id: soulbeast
+      text: Superior Rune of the Soulbeast
       subText: (Active Bonus)
       modifiers:
         attributes:
@@ -425,6 +470,7 @@
       gw2id: 83964
 
     - id: aristocracy
+      text: Superior Rune of the Aristocracy
       modifiers:
         attributes:
           Condition Damage: [175, converted]
@@ -435,6 +481,7 @@
   items:
 
     - id: balthazar
+      text: Superior Rune of Balthazar
       modifiers:
         attributes:
           Condition Damage: [175, converted]
@@ -443,6 +490,7 @@
       gw2id: 24765
 
     - id: flame-legion-2
+      text: Superior Rune of the Flame Legion
       modifiers:
         damage:
           Strike Damage: [7%, mult]
@@ -452,6 +500,7 @@
       gw2id: 24797
 
     - id: baelfire
+      text: Superior Rune of the Baelfire
       modifiers:
         attributes:
           Power: [175, converted]
@@ -462,6 +511,7 @@
       gw2id: 24854
 
     - id: krait
+      text: Superior Rune of the Krait
       subText: (elite every 50s)
       modifiers:
         attributes:
@@ -475,6 +525,7 @@
       gw2id: 24762
 
     - id: krait-no-elite
+      text: Superior Rune of the Krait
       subText: (no elite proc)
       modifiers:
         attributes:
@@ -483,6 +534,7 @@
       gw2id: 24762
 
     - id: mad-king
+      text: Superior Rune of the Mad King
       subText: (Not including elite)
       modifiers:
         attributes:
@@ -492,6 +544,7 @@
       gw2id: 36044
 
     - id: afflicted
+      text: Superior Rune of the Afflicted
       modifiers:
         attributes:
           Condition Damage: [175, converted]
@@ -501,6 +554,7 @@
       gw2id: 24687
 
     - id: thorns
+      text: Superior Rune of Thorns
       modifiers:
         attributes:
           Condition Damage: [300, converted]
@@ -508,6 +562,7 @@
       gw2id: 72912
 
     - id: scavenging
+      text: Superior Rune of Scavenging
       modifiers:
         attributes:
           Condition Damage: [175, converted]
@@ -518,6 +573,7 @@
       gw2id: 24738
 
     - id: tormenting
+      text: Superior Rune of Tormenting
       modifiers:
         attributes:
           Condition Damage: [175, converted]
@@ -525,6 +581,7 @@
       gw2id: 44956
 
     - id: perplexity
+      text: Superior Rune of Perplexity
       modifiers:
         damage:
           Damage Reduction: [10%, unknown]
@@ -537,6 +594,7 @@
   items:
 
     - id: traveler
+      text: Superior Rune of the Traveler
       modifiers:
         attributes:
           Power: [36, converted]
@@ -553,6 +611,7 @@
       gw2id: 24691
 
     - id: divinity
+      text: Superior Rune of Divinity
       modifiers:
         attributes:
           Power: [78, converted]
@@ -568,6 +627,7 @@
       gw2id: 24732
 
     - id: revenant
+      text: Superior Rune of the Revenant
       modifiers:
         attributes:
           Power: [78, converted]
@@ -582,6 +642,7 @@
       gw2id: 69370
 
     - id: exuberance
+      text: Superior Rune of Exuberance
       modifiers:
         attributes:
           Vitality: [175, converted]

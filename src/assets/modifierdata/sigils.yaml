@@ -2,18 +2,21 @@
   items:
 
     - id: force
+      text: Superior Sigil of Force
       modifiers:
         damage:
           Strike Damage: [5%, add]
       gw2id: 24615
 
     - id: accuracy
+      text: Superior Sigil of Accuracy
       modifiers:
         attributes:
           Critical Chance: 7%
       gw2id: 24618
 
     - id: impact/night/slaying-both
+      text: Superior Sigil of Impact/Night/Slaying
       textOverride: Sigil of Impact/Night/Slaying
       subText: (Both 7%/3%)
       modifiers:
@@ -22,6 +25,7 @@
       gw2id: 24868
 
     - id: impact/night/slaying-only-3
+      text: Superior Sigil of Impact/Night/Slaying
       textOverride: Sigil of Impact/Night/Slaying
       subText: (Only 3%)
       modifiers:
@@ -30,6 +34,7 @@
       gw2id: 24868
 
     - id: severance-perma
+      text: Superior Sigil of Severance
       subText: (While Active)
       modifiers:
         attributes:
@@ -39,6 +44,7 @@
 
     # 1.0 coefficient, 690.5 strength
     - id: hydromancy
+      text: Superior Sigil of Hydromancy
       subText: (Without on-hit/on-crit effects)
       amountData:
         label: '/10s'
@@ -50,6 +56,7 @@
       gw2id: 24597
 
     - id: hydromancy-bonus
+      text: Superior Sigil of Hydromancy
       subText: (+12.5%)
       amountData:
         label: '/10s'
@@ -64,6 +71,7 @@
   items:
 
     - id: concentration
+      text: Superior Sigil of Concentration
       modifiers:
         attributes:
           Boon Duration: 10%
@@ -73,6 +81,7 @@
   items:
 
     - id: transference
+      text: Superior Sigil of Transference
       modifiers:
         attributes:
           Outgoing Healing: 10%
@@ -82,36 +91,42 @@
   items:
 
     - id: malice
+      text: Superior Sigil of Malice
       modifiers:
         attributes:
           Condition Duration: 10%
       gw2id: 44950
 
     - id: bursting
+      text: Superior Sigil of Bursting
       modifiers:
         damage:
           Condition Damage: [5%, add]
       gw2id: 44944
 
     - id: agony
+      text: Superior Sigil of Agony
       modifiers:
         attributes:
           Bleeding Duration: 20%
       gw2id: 24612
 
     - id: smoldering
+      text: Superior Sigil of Smoldering
       modifiers:
         attributes:
           Burning Duration: 20%
       gw2id: 24624
 
     - id: venom
+      text: Superior Sigil of Venom
       modifiers:
         attributes:
           Poison Duration: 20%
       gw2id: 24632
 
     - id: demons
+      text: Superior Sigil of Demons
       modifiers:
         attributes:
           Torment Duration: 20%
@@ -123,6 +138,7 @@
     # 3 stacks * 8 seconds
     # 0.25 coefficient, 690.5 strength
     - id: geomancy
+      text: Superior Sigil of Geomancy
       subText: (Without on-hit/on-crit effects)
       amountData:
         label: '/10s'
@@ -137,6 +153,7 @@
     # 1 stack * 6 seconds
     # 2s icd
     - id: earth
+      text: Superior Sigil of Earth
       amountData:
         label: '/10s'
         default: 4.3
@@ -148,6 +165,7 @@
 
     # 3 stacks * 8 seconds
     - id: doom
+      text: Superior Sigil of Doom
       amountData:
         label: '/10s'
         default: 1
@@ -160,6 +178,7 @@
     # 2 stacks * 5 seconds
     # 5s icd
     - id: torment
+      text: Superior Sigil of Torment
       amountData:
         label: '/10s'
         default: 1.9
@@ -172,6 +191,7 @@
     # 0.15 coefficient * (probably) 690.5 weapon strength
     # Ineptitide: 2 stacks * 5 seconds
     - id: mischief-ineptitude
+      text: Superior Sigil of Mischief
       subText: (With Ineptitide; 1 snowball)
       amountData:
         label: '/10s'
@@ -193,6 +213,7 @@
     # f1 passives from procs are 2.4s because of amplified wrath; every 3 hits if virtues
     # geo f1 passive: 1/3 * 2.4 * 6 procs/100 sec = 0.048 avg burning
     - id: geomancy-torment-cfb5-virtues
+      text: 'Geo + Torment CFB 5 page RF'
       textOverride: 'Geo + Torment CFB 5 page RF'
       modifiers:
         attributes:
@@ -210,6 +231,7 @@
     # f1 passives from procs are 2.4s because of amplified wrath; every 3 hits if virtues
     # geo f1 passive: 1/3 * 2.4 / 14.5 sec = 0.055 avg burning
     - id: geomancy-torment-cfb8-virtues
+      text: 'Geo + Torment CFB 8 page'
       textOverride: 'Geo + Torment CFB 8 page'
       modifiers:
         attributes:
@@ -227,6 +249,7 @@
     # f1 passives from procs are 2.4s because of amplified wrath; every 3 hits if virtues
     # geo f1 passive: 1/3 * 2.4 / 20 sec = 0.04 avg burning
     - id: geomancy-torment-cwb
+      text: 'Geo + Torment CWB'
       textOverride: 'Geo + Torment CWB'
       modifiers:
         attributes:
@@ -244,6 +267,7 @@
     # f1 passives from procs are 2.4s because of amplified wrath; every 3 hits if virtues
     # geo f1 passive: 1/3 * 2.4 / 27 sec = 0.030 avg burning
     - id: geomancy-torment-cwb-alac
+      text: 'Geo + Torment CWB Alac'
       textOverride: 'Geo + Torment CWB Alac'
       modifiers:
         attributes:
@@ -263,6 +287,7 @@
     #
     # geo bleed on crit with barbed precision: 1/3 chance of 3s every 24.3 s, if critical
     - id: geomancy-torment-harb
+      text: 'Geo + Torment Harbinger'
       textOverride: 'Geo + Torment Harbinger'
       subText: (with Barbed Precision)
       modifiers:
@@ -280,6 +305,7 @@
   items:
 
     - id: bloodlust
+      text: Superior Sigil of Bloodlust
       amountData:
         label: 'stacks'
         default: 25
@@ -290,6 +316,7 @@
       gw2id: 24575
 
     - id: cruelty
+      text: Superior Sigil of Cruelty
       amountData:
         label: 'stacks'
         default: 25
@@ -300,6 +327,7 @@
       gw2id: 67341
 
     - id: perception
+      text: Superior Sigil of Perception
       amountData:
         label: 'stacks'
         default: 25
@@ -311,6 +339,7 @@
       gw2id: 24580
 
     - id: corruption
+      text: Superior Sigil of Corruption
       amountData:
         label: 'stacks'
         default: 25
@@ -321,6 +350,7 @@
       gw2id: 24578
 
     - id: life
+      text: Superior Sigil of Life
       amountData:
         label: 'stacks'
         default: 25
@@ -331,6 +361,7 @@
       gw2id: 24582
 
     - id: bounty
+      text: Superior Sigil of Bounty
       amountData:
         label: 'stacks'
         default: 25
@@ -342,6 +373,7 @@
       gw2id: 81045
 
     - id: benevolence
+      text: Superior Sigil of Benevolence
       amountData:
         label: 'stacks'
         default: 25
@@ -352,6 +384,7 @@
       gw2id: 24584
 
     - id: momentum
+      text: Superior Sigil of Momentum
       amountData:
         label: 'stacks'
         default: 25
@@ -363,6 +396,7 @@
       gw2id: 49457
 
     - id: stars
+      text: Superior Sigil of the Stars
       amountData:
         label: 'stacks'
         default: 25
@@ -385,6 +419,7 @@
   items:
 
     - id: platinum-doubloon
+      text: Platinum Doubloon
       modifiers:
         attributes:
           Concentration: [40, converted]
