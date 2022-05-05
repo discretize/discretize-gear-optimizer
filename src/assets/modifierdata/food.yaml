@@ -381,7 +381,7 @@
       gw2id: 91804
 
     - id: dragon's-revelry-starcake
-      text: Oyster Soup
+      textOverride: Oyster Soup
       modifiers:
         attributes:
           Power: [45, converted]

@@ -200,7 +200,7 @@ function ModalContent(props) {
                 }
               </FormLabel>
               <FormGroup>
-                {options.map(({ id, gw2id, displayIds, subText, text }) => (
+                {options.map(({ id, gw2id, displayIds, subText, textOverride }) => (
                   <Box
                     sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
                   >
@@ -218,12 +218,16 @@ function ModalContent(props) {
                           {displayIds ? (
                             joinWith(
                               displayIds.map((displayId) => (
-                                <Item id={displayId} disableLink text={text ?? formatApiText} />
+                                <Item
+                                  id={displayId}
+                                  disableLink
+                                  text={textOverride ?? formatApiText}
+                                />
                               )),
                               ' / ',
                             )
                           ) : (
-                            <Item id={gw2id} disableLink text={text ?? formatApiText} />
+                            <Item id={gw2id} disableLink text={textOverride ?? formatApiText} />
                           )}
                           {subText && (
                             <Typography variant="caption" sx={{ marginLeft: 1, fontWeight: 200 }}>

@@ -2,7 +2,7 @@
   items:
 
     - id: slaying-potion
-      text: Slaying Potion
+      textOverride: Slaying Potion
       modifiers:
         damage:
           Strike Damage: [10%, mult]

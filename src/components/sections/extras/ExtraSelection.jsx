@@ -170,7 +170,7 @@ export default function ExtraSelection(props) {
       <List className={classes.list} disablePadding>
         {currentIds.length > 0 ? (
           currentIds.map((extraId) => {
-            const { gw2id, displayIds, subText, text } = data[extraId];
+            const { gw2id, displayIds, subText, textOverride } = data[extraId];
             const { amountData } = allExtrasModifiersById[extraId];
             const amount = extrasData[type][extraId]?.amount || '';
 
@@ -189,12 +189,12 @@ export default function ExtraSelection(props) {
                       {displayIds ? (
                         joinWith(
                           displayIds.map((id) => (
-                            <Item id={id} disableLink text={text ?? formatApiText} />
+                            <Item id={id} disableLink text={textOverride ?? formatApiText} />
                           )),
                           ' / ',
                         )
                       ) : (
-                        <Item id={gw2id} disableLink text={text ?? formatApiText} />
+                        <Item id={gw2id} disableLink text={textOverride ?? formatApiText} />
                       )}
 
                       {subText && (
