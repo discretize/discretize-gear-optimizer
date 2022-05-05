@@ -9,6 +9,7 @@ import {
   Typography,
 } from '@mui/material';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { getExpertMode } from '../../state/slices/userSettings';
@@ -24,6 +25,7 @@ const useStyles = makeStyles()((theme) => ({
 
 // first disables the delimiting line above!
 const Section = ({ first, title, helpText, extraInfo, content }) => {
+  const { t } = useTranslation();
   const expert = useSelector(getExpertMode);
   const { classes } = useStyles();
 
@@ -43,7 +45,7 @@ const Section = ({ first, title, helpText, extraInfo, content }) => {
             aria-controls="help-content"
             id="help-header"
           >
-            <LiveHelpIcon sx={{ marginRight: 1 }} /> <Typography>Help</Typography>
+            <LiveHelpIcon sx={{ marginRight: 1 }} /> <Typography>{t('Help')}</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography variant="caption" paragraph sx={{ mb: 0 }}>
