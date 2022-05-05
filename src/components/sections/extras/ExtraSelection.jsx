@@ -1,4 +1,4 @@
-import { Item } from '@discretize/gw2-ui-new';
+import { APILanguageProvider, Item } from '@discretize/gw2-ui-new';
 import AddIcon from '@mui/icons-material/Add';
 import ClearIcon from '@mui/icons-material/Clear';
 import CloseIcon from '@mui/icons-material/Close';
@@ -58,7 +58,10 @@ export default function ExtraSelection(props) {
 
   const { classes } = useStyles();
   const dispatch = useDispatch();
-  const { t } = useTranslation();
+  const { i18n, t } = useTranslation();
+  const { language } = i18n;
+
+  const extrasOverrideLanguage = language === 'zh' ? 'zh' : 'en';
 
   // state for the modal
   const [open, setOpen] = React.useState(false);
@@ -157,7 +160,7 @@ export default function ExtraSelection(props) {
   }, [dispatch, handlePriceChange, getPriceData]);
 
   return (
-    <>
+    <APILanguageProvider value={extrasOverrideLanguage}>
       <Box display="flex" alignItems="flex-end" mb={1}>
         <Typography component="span" flexGrow={1}>
           {label}
@@ -264,6 +267,6 @@ export default function ExtraSelection(props) {
           <Button onClick={handleClose}>{t('Okay')}</Button>
         </DialogActions>
       </Dialog>
-    </>
+    </APILanguageProvider>
   );
 }
