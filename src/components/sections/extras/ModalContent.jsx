@@ -206,7 +206,12 @@ function ModalContent(props) {
                     />
                     {priceData[id] !== undefined ? (
                       <Typography variant="body2">
-                        <Coin value={priceData[id]} />
+                        {priceData[id].cheapestId ? (
+                          <>
+                            <Item id={priceData[id].cheapestId} disableText />{' '}
+                          </>
+                        ) : null}
+                        <Coin value={priceData[id].price} />
                       </Typography>
                     ) : null}
                   </Box>

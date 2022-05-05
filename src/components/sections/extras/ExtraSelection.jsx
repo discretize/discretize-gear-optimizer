@@ -100,8 +100,8 @@ export default function ExtraSelection(props) {
   const getPriceData = React.useCallback(async () => {
     const allItems = modifierData
       .flatMap(({ items }) => items)
-      .map(({ id, gw2id, priceIds }) => ({ id, gw2ids: priceIds ?? [gw2id] }));
-    const allIds = allItems.flatMap((item) => item.gw2ids);
+      .map(({ id, gw2id, priceIds }) => ({ id, gw2id, priceIds, allIds: priceIds ?? [gw2id] }));
+    const allIds = allItems.flatMap((item) => item.allIds);
     const apiDataChunks = await Promise.all(
       chunkArray(allIds, 200).map((ids) =>
         fetch(`https://api.guildwars2.com/v2/commerce/prices?ids=${ids.join(',')}`).then(
@@ -115,12 +115,20 @@ export default function ExtraSelection(props) {
     const apiData = Object.fromEntries(apiDataEntries);
 
     const priceDataEntries = allItems
-      .map(({ id, gw2ids }) => {
-        const prices = gw2ids.map((gw2id) => apiData[gw2id] ?? Infinity);
-        const lowestPrice = Math.min(Infinity, ...prices);
-        return [id, lowestPrice];
+      .map(({ id, gw2id, priceIds = [] }) => {
+        let price = apiData[gw2id] ?? Infinity;
+        let cheapestId;
+
+        priceIds.forEach((thisId) => {
+          const thisPrice = apiData[thisId] ?? Infinity;
+          if (thisPrice < price) {
+            price = thisPrice;
+            cheapestId = thisId;
+          }
+        });
+        return [id, { price, cheapestId }];
       })
-      .filter(([_id, lowestPrice]) => lowestPrice !== Infinity);
+      .filter(([_id, { price }]) => price !== Infinity);
 
     setPriceData(Object.fromEntries(priceDataEntries));
   }, [modifierData]);
