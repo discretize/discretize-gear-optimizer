@@ -35,7 +35,8 @@ import Label from '../../baseComponents/Label';
 import ModalContent from './ModalContent';
 
 // const roundPrice = (num) => Math.round(num / 100) * 100;
-const roundPrice = (num) => num;
+const roundPrice = (num) => Math.round(num / 10) * 10;
+// const roundPrice = (num) => num;
 
 const useStyles = makeStyles()((theme) => ({
   list: {
