@@ -54,15 +54,11 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 export default function ExtraSelection(props) {
-  const { type, label, modifierData, modifierDataById: data, text } = props;
+  const { type, label, modifierData, modifierDataById: data, text: labelText } = props;
 
   const { classes } = useStyles();
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  // const { language } = useI18next();
-  // const isChinese = language === 'zh';
-  // todo: replace this once dual sigils are not hardcoded with fake ids
-  const isChinese = false;
 
   // state for the modal
   const [open, setOpen] = React.useState(false);
@@ -167,7 +163,7 @@ export default function ExtraSelection(props) {
           {label}
         </Typography>
         <Button variant="contained" size="small" startIcon={<AddIcon />} onClick={handleOpen}>
-          {t('Add')} {text}
+          {t('Add')} {labelText}
         </Button>
       </Box>
 

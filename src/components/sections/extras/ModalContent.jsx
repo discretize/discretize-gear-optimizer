@@ -200,7 +200,7 @@ function ModalContent(props) {
                 }
               </FormLabel>
               <FormGroup>
-                {options.map(({ id, gw2id, displayIds, subText, text, priceIds }) => (
+                {options.map(({ id, gw2id, displayIds, subText, text }) => (
                   <Box
                     sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
                   >
@@ -217,8 +217,8 @@ function ModalContent(props) {
                         <>
                           {displayIds ? (
                             joinWith(
-                              displayIds.map((id) => (
-                                <Item id={id} disableLink text={text ?? formatApiText} />
+                              displayIds.map((displayId) => (
+                                <Item id={displayId} disableLink text={text ?? formatApiText} />
                               )),
                               ' / ',
                             )
