@@ -2,7 +2,6 @@
   items:
 
     - id: cilantro-lime-sous-vide-steak
-      text: Cilantro Lime Sous-Vide Steak
       hasLifesteal: true
       modifiers:
         attributes:
@@ -11,16 +10,15 @@
       gw2id: 91805
 
     - id: sweet-and-spicy-butternut-squash-soup
-      text: Sweet and Spicy Butternut Squash Soup / Spicy Moa Wings
       modifiers:
         attributes:
           Power: [100, converted]
           Ferocity: [70, converted]
       gw2id: 41569
+      displayIds: [41569, 91917]
       priceIds: [41569, 91917]
 
     - id: avocado-smoothie
-      text: Avocado Smoothie
       modifiers:
         attributes:
           Power: [80, converted]
@@ -28,7 +26,6 @@
       gw2id: 87029
 
     - id: plate-of-coq-au-vin-with-salsa
-      text: Plate of Coq Au Vin with Salsa
       hasLifesteal: true
       modifiers:
         attributes:
@@ -37,7 +34,6 @@
       gw2id: 91709
 
     - id: truffle-steak
-      text: Plate of Truffle Steak
       modifiers:
         attributes:
           Power: [100, converted]
@@ -46,7 +42,6 @@
       priceIds: [12467, 79786]
 
     - id: curry-butternut-squash-soup
-      text: Bowl of Curry Butternut Squash Soup
       modifiers:
         attributes:
           Precision: [100, converted]
@@ -54,7 +49,6 @@
       gw2id: 12486
 
     - id: dragon's-breath-bun
-      text: Dragon's Breath Bun
       subText: (100% uptime)
       modifiers:
         attributes:
@@ -64,7 +58,6 @@
       priceIds: [43360, 12469, 41561]
 
     - id: block-of-tofu
-      text: Block of Tofu
       subText: (100% uptime)
       modifiers:
         attributes:
@@ -74,7 +67,6 @@
       gw2id: 96793
 
     - id: seaweed-salad
-      text: Bowl of Seaweed Salad
       amountData:
         label: '% uptime'
         default: 90
@@ -83,48 +75,52 @@
         damage:
           Strike Damage: [5%, mult]
       gw2id: 12471
+      displayIds: [12471, 79793]
       priceIds: [12471, 79793]
 
     - id: jerk-poultry
-      text: Plate of Jerk Poultry
       modifiers:
         attributes:
           Power: [150, converted]
       gw2id: 71797
 
     - id: sawgill-mushroom-risotto
-      text: Bowl of Sawgill Mushroom Risotto
       modifiers:
         attributes:
           Precision: [150, converted]
       gw2id: 75010
 
     - id: roasted-cactus
-      text: Bowl of Prickly Pear Sorbet / Roasted Cactus
       modifiers:
         attributes:
           Ferocity: [100, converted]
       gw2id: 66539
+      displayIds: [66539, 66536]
       priceIds: [66539, 66536]
 
+    - id: strawberry-cilantro-cheesecake
+      hasLifesteal: true
+      modifiers:
+        attributes:
+          Concentration: [100, converted]
+      gw2id: 91851
+
     - id: fried-golden-dumpling
-      text: Fried Golden Dumpling / Cheesecake
       modifiers:
         attributes:
           Concentration: [100, converted]
       gw2id: 68633
 
     - id: slice-of-candied-dragon-roll
-      text: Slice of Candied Dragon Roll
       hasLifesteal: true
       modifiers:
         attributes:
           Precision: [70, converted]
       gw2id: 43362
-      priceIds: [43362, 12457, 77630, 36083, 79748]
+      displayIds: [43362, 77630]
+      priceIds: [43362, 77630, 12457, 36083, 79748]
 
     - id: slice-of-allspice-cake
-      text: Slice of Allspice Cake
       hasLifesteal: true
       modifiers:
         attributes:
@@ -135,7 +131,6 @@
   items:
 
     - id: plate-of-beef-carpaccio-with-salsa-garnish
-      text: Plate of Beef Carpaccio with Salsa Garnish
       hasLifesteal: true
       modifiers:
         attributes:
@@ -144,7 +139,6 @@
       gw2id: 91862
 
     - id: soul-pastry
-      text: Soul Pastry
       modifiers:
         attributes:
           Concentration: [100, converted]
@@ -152,7 +146,6 @@
       gw2id: 89002
 
     - id: salsa-eggs-benedict
-      text: Salsa Eggs Benedict
       hasLifesteal: true
       modifiers:
         attributes:
@@ -161,7 +154,6 @@
       gw2id: 91847
 
     - id: eggs-benedict
-      text: Plate of Eggs Benedict
       modifiers:
         attributes:
           Concentration: [100, converted]
@@ -169,8 +161,15 @@
       gw2id: 91842
       priceIds: [91842, 91950, 91954, 92078]
 
+    - id: plate-of-poultry-aspic-with-salsa-garnish
+      hasLifesteal: true
+      modifiers:
+        attributes:
+          Concentration: [100, converted]
+          Toughness: [70, converted]
+      gw2id: 91704
+
     - id: nopalitos-saute
-      text: Bowl of Nopalitos Sauté / Poultry Aspic
       modifiers:
         attributes:
           Concentration: [100, converted]
@@ -179,7 +178,6 @@
       priceIds: [66530, 66527]
 
     - id: mussels-gnashblade
-      text: Plate of Mussels Gnashblade
       modifiers:
         damage:
           Damage Reduction: [10%, unknown]
@@ -191,7 +189,6 @@
   items:
 
     - id: fruit-salad-mint-garnish
-      text: Bowl of Fruit Salad with Mint Garnish
       modifiers:
         attributes:
           Healing Power: [100, converted]
@@ -200,7 +197,6 @@
       gw2id: 91690
 
     - id: mint-creme-brulee
-      text: Mint Creme Brulee
       modifiers:
         attributes:
           Concentration: [100, converted]
@@ -209,7 +205,6 @@
       gw2id: 91743
 
     - id: delicious-rice-ball
-      text: Delicious Rice Ball
       modifiers:
         attributes:
           Healing Power: [100, converted]
@@ -217,7 +212,6 @@
       gw2id: 68634
 
     - id: poultry-satay
-      text: Bowl of Poultry Satay
       modifiers:
         attributes:
           Healing Power: [100, converted]
@@ -228,7 +222,6 @@
   items:
 
     - id: salsa-topped-veggie-flatbread
-      text: Salsa-Topped Veggie Flatbread
       hasLifesteal: true
       modifiers:
         attributes:
@@ -237,16 +230,15 @@
       gw2id: 91876
 
     - id: rare-veggie-pizza
-      text: Rare Veggie Pizza / Koi Cake
       modifiers:
         attributes:
           Expertise: [100, converted]
           Condition Damage: [70, converted]
       gw2id: 12464
-      priceIds: [12464, 43361, 41565, 84550]
+      displayIds: [12464, 43361]
+      priceIds: [12464, 43361, 84550, 41565]
 
     - id: cilantro-and-cured-meat-flatbread
-      text: Cilantro and Cured Meat Flatbread
       hasLifesteal: true
       modifiers:
         attributes:
@@ -255,7 +247,6 @@
       gw2id: 91878
 
     - id: beef-rendang
-      text: Plate of Beef Rendang
       modifiers:
         attributes:
           Condition Damage: [100, converted]
@@ -263,7 +254,6 @@
       gw2id: 86997
 
     - id: fishy-rice-bowl
-      text: Fishy Rice Bowl
       modifiers:
         attributes:
           Burning Duration: 15%
@@ -271,7 +261,6 @@
       gw2id: 97767
 
     - id: plate-of-kimchi-pancakes
-      text: Plate of Kimchi Pancakes
       modifiers:
         attributes:
           Bleeding Duration: 15%
@@ -279,7 +268,6 @@
       gw2id: 96578
 
     - id: bowl-of-kimchi-tofu-stew
-      text: Bowl of Kimchi Tofu Stew
       modifiers:
         attributes:
           Poison Duration: 15%
@@ -287,7 +275,6 @@
       gw2id: 97422
 
     - id: meaty-asparagus-skewer
-      text: Meaty Asparagus Skewer
       modifiers:
         attributes:
           Torment Duration: 15%
@@ -295,7 +282,6 @@
       gw2id: 95942
 
     - id: meaty-rice-bowl
-      text: Meaty Rice Bowl
       modifiers:
         attributes:
           Confusion Duration: 15%
@@ -303,7 +289,6 @@
       gw2id: 96916
 
     - id: fire-meat-chili
-      text: Bowl of Fire Meat Chili
       modifiers:
         attributes:
           Burning Duration: 15%
@@ -311,7 +296,6 @@
       gw2id: 12484
 
     - id: fancy-truffle-burger
-      text: Fancy Truffle Burger
       modifiers:
         attributes:
           Poison Duration: 15%
@@ -319,7 +303,6 @@
       gw2id: 12463
 
     - id: saffron-stuffed-mushroom
-      text: Saffron Stuffed Mushroom
       subText: (100% uptime)
       modifiers:
         attributes:
@@ -328,7 +311,6 @@
       gw2id: 12476
 
     - id: steamed-red-dumpling
-      text: Steamed Red Dumpling
       subText: (100% uptime)
       modifiers:
         attributes:
@@ -337,7 +319,6 @@
       gw2id: 68635
 
     - id: truffle-risotto
-      text: Bowl of Truffle Risotto
       modifiers:
         attributes:
           Condition Damage: [100, converted]
@@ -345,7 +326,6 @@
       gw2id: 12465
 
     - id: sweet-and-spicy-beans
-      text: Bowl of Sweet and Spicy Beans
       modifiers:
         attributes:
           Expertise: [100, converted]
@@ -354,7 +334,6 @@
       priceIds: [66528, 66526]
 
     - id: fire-flank-steak
-      text: Plate of Fire Flank Steak
       modifiers:
         attributes:
           Power: [100, converted]
@@ -362,7 +341,6 @@
       gw2id: 12466
 
     - id: fancy-potato-and-leek-soup
-      text: Bowl of Fancy Potato and Leek Soup
       modifiers:
         attributes:
           Precision: [100, converted]
@@ -370,7 +348,6 @@
       gw2id: 12485
 
     - id: prickly-pear-pie
-      text: Prickly Pear Pie
       hasLifesteal: true
       modifiers:
         attributes:
@@ -379,7 +356,6 @@
       priceIds: [66538, 66523]
 
     - id: slice-of-allspice-cake-with-ice-cream
-      text: Slice of Allspice Cake with Ice Cream
       hasLifesteal: true
       modifiers:
         attributes:
@@ -390,7 +366,6 @@
   items:
 
     - id: spherified-cilantro-oyster-soup
-      text: Spherified Cilantro Oyster Soup
       hasLifesteal: true
       modifiers:
         attributes:
@@ -421,7 +396,7 @@
       gw2id: 92471
 
     - id: dragons-revelry-starcake-bugged
-      text: Dragon's Revelry Starcake (slightly bugged!)
+      subText: (slightly bugged!)
       modifiers:
         attributes:
           Power: [45, buff]
@@ -436,7 +411,6 @@
       gw2id: 43550
 
     - id: birthday-blaster
-      text: Birthday Blaster
       modifiers:
         attributes:
           Power: [40, buff]
@@ -451,7 +425,6 @@
       gw2id: 66961
 
     - id: passion-fruit-tapioca-pudding
-      text: Bowl of Passion Fruit Tapioca Pudding
       modifiers:
         attributes:
           Power: [100, converted]
@@ -459,7 +432,6 @@
       gw2id: 71826
 
     - id: prickly-pear-tapioca-pudding
-      text: Bowl of Prickly Pear Tapioca Pudding
       modifiers:
         attributes:
           Condition Damage: [100, converted]
@@ -467,7 +439,6 @@
       gw2id: 76135
 
     - id: tropical-fruit-salad
-      text: Bowl of Tropical Fruit Salad
       modifiers:
         attributes:
           Condition Damage: [70, converted]
@@ -475,7 +446,6 @@
       gw2id: 36793
 
     - id: spicy-chocolate-cookie
-      text: Spicy Chocolate Cookie
       modifiers:
         attributes:
           Healing Power: [100, converted]
@@ -486,7 +456,6 @@
   items:
 
     - id: spicy-marinated-mushroom
-      text: Spicy Marinated Mushroom
       modifiers:
         attributes:
           Power: [100, converted]
@@ -494,7 +463,6 @@
       gw2id: 41563
 
     - id: spicy-herbed-chicken
-      text: Plate of Spicy Herbed Chicken
       modifiers:
         attributes:
           Power: [70, converted]
@@ -502,7 +470,6 @@
       gw2id: 41567
 
     - id: truffle-ravioli
-      text: Bowl of Truffle Ravioli
       modifiers:
         attributes:
           Precision: [70, converted]
@@ -510,8 +477,15 @@
       gw2id: 12461
       priceIds: [12461, 41564]
 
+    - id: plate-of-clear-truffle-and-cilantro-ravioli
+      hasLifesteal: true
+      modifiers:
+        attributes:
+          Vitality: [100, converted]
+          Toughness: [70, converted]
+      gw2id: 91735
+
     - id: omnomberry-bread
-      text: Loaf of Omnomberry Bread / Ravioli
       modifiers:
         attributes:
           Vitality: [100, converted]
@@ -519,7 +493,6 @@
       gw2id: 12473
 
     - id: kralkachocolate-bar
-      text: Kralkachocolate Bar
       modifiers:
         attributes:
           Healing Power: [100, converted]
@@ -528,7 +501,6 @@
       priceIds: [43358, 38210]
 
     - id: chocolate-tapioca-pudding
-      text: Bowl of Chocolate Tapioca Pudding
       modifiers:
         attributes:
           Healing Power: [70, converted]
@@ -536,7 +508,6 @@
       gw2id: 76415
 
     - id: tropical-mousse
-      text: Bowl of Tropical Mousse
       modifiers:
         attributes:
           Condition Damage: [70, converted]
@@ -544,7 +515,6 @@
       gw2id: 36841
 
     - id: elon-red
-      text: Bowl of "Elon Red"
       modifiers:
         attributes:
           Expertise: [100, converted]

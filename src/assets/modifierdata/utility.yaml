@@ -11,7 +11,6 @@
       priceIds: []
 
     - id: furious-sharpening-stone
-      text: Furious Sharpening Stone
       modifiers:
         conversion:
           Power: {Precision: 3%}
@@ -19,29 +18,26 @@
       gw2id: 67530
 
     - id: superior-sharpening-stone
-      text: Tin of Fruitcake / Superior Sharpening Stone
       modifiers:
         conversion:
           Power: {Precision: 3%, Ferocity: 6%}
       gw2id: 77569
+      displayIds: [77569, 9443]
       priceIds: [77569, 9443]
 
     - id: toxic-sharpening-stone
-      text: Toxic Sharpening Stone
       modifiers:
         conversion:
           Power: {Condition Damage: 6%, Expertise: 8%}
       gw2id: 48915
 
     - id: magnanimous-sharpening-stone
-      text: Magnanimous Sharpening Stone
       modifiers:
         conversion:
           Power: {Vitality: 3%, Toughness: 3%}
       gw2id: 81034
 
     - id: bountiful-sharpening-stone
-      text: Bountiful Sharpening Stone
       modifiers:
         conversion:
           Power: {Healing Power: 6%, Concentration: 8%}
@@ -51,28 +47,24 @@
   items:
 
     - id: potent-lucent-oil
-      text: Potent Lucent Oil
       modifiers:
         conversion:
           Concentration: {Power: 3%, Precision: 3%}
       gw2id: 89203
 
     - id: toxic-maintenance-oil
-      text: Toxic Maintenance Oil
       modifiers:
         conversion:
           Concentration: {Power: 3%, Condition Damage: 6%}
       gw2id: 48916
 
     - id: enhanced-lucent-oil
-      text: Enhanced Lucent Oil
       modifiers:
         conversion:
           Concentration: {Precision: 3%, Condition Damage: 6%}
       gw2id: 89157
 
     - id: furious-maintenance-oil
-      text: Furious Maintenance Oil
       modifiers:
         conversion:
           Concentration: {Precision: 3%}
@@ -80,22 +72,20 @@
       gw2id: 67529
 
     - id: magnanimous-maintenance-oil
-      text: Magnanimous Maintenance Oil
       modifiers:
         conversion:
           Concentration: {Vitality: 3%, Toughness: 3%}
       gw2id: 81157
 
     - id: master-maintenance-oil
-      text: Peppermint Oil / Master Maintenance Oil
       modifiers:
         conversion:
           Concentration: {Precision: 3%, Healing Power: 6%}
       gw2id: 77632
+      displayIds: [77632, 9461]
       priceIds: [77632, 9461]
 
     - id: corsair-maintenance-oil
-      text: Corsair Maintenance Oil
       modifiers:
         conversion:
           Concentration: {Toughness: 3%}
@@ -106,7 +96,6 @@
   items:
 
     - id: bountiful-maintenance-oil
-      text: Bountiful Maintenance Oil
       modifiers:
         conversion:
           Outgoing Healing: {Healing Power: 0.006%, Concentration: 0.008%}
@@ -116,14 +105,12 @@
   items:
 
     - id: toxic-focusing-crystal
-      text: Toxic Focusing Crystal
       modifiers:
         conversion:
           Condition Damage: {Power: 3%, Precision: 3%}
       gw2id: 48917
 
     - id: furious-tuning-crystal
-      text: Furious Tuning Crystal
       modifiers:
         conversion:
           Condition Damage: {Precision: 3%}
@@ -131,22 +118,20 @@
       gw2id: 67524
 
     - id: master-tuning-crystal
-      text: Tuning Icicle / Master Tuning Crystal
       modifiers:
         conversion:
           Condition Damage: {Precision: 3%, Expertise: 8%}
       gw2id: 77567
+      displayIds: [77567, 9476]
       priceIds: [77567, 9476]
 
     - id: magnanimous-tuning-crystal
-      text: Magnanimous Tuning Crystal
       modifiers:
         conversion:
           Condition Damage: {Vitality: 3%, Toughness: 3%}
       gw2id: 81079
 
     - id: bountiful-tuning-crystal
-      text: Bountiful Tuning Crystal
       modifiers:
         conversion:
           Condition Damage: {Healing Power: 6%, Concentration: 8%}
@@ -156,7 +141,6 @@
   items:
 
     - id: holographic-super-apple
-      text: Holographic Super Apple
       modifiers:
         conversion:
           Condition Damage: {Concentration: 8%}
@@ -164,7 +148,6 @@
       gw2id: 87336
 
     - id: holographic-super-drumstick
-      text: Holographic Super Drumstick
       modifiers:
         conversion:
           Healing Power: {Concentration: 8%}
@@ -172,7 +155,6 @@
       gw2id: 87329
 
     - id: holographic-super-cheese
-      text: Holographic Super Cheese
       modifiers:
         conversion:
           Power: {Concentration: 8%}
@@ -183,7 +165,6 @@
   items:
 
     - id: writ-of-masterful-strength
-      text: Writ of Masterful Strength
       amountData:
         label: '% uptime'
         default: 100
@@ -194,7 +175,6 @@
       gw2id: 73191
 
     - id: writ-of-learned-strength
-      text: Writ of Learned Strength
       amountData:
         label: '% uptime'
         default: 100
@@ -205,7 +185,6 @@
       gw2id: 72807
 
     - id: writ-of-calculated-strength
-      text: Writ of Calculated Strength
       amountData:
         label: '% uptime'
         default: 100
@@ -216,7 +195,6 @@
       gw2id: 77128
 
     - id: writ-of-masterful-malice
-      text: Writ of Masterful Malice
       amountData:
         label: '% uptime'
         default: 100
@@ -227,7 +205,6 @@
       gw2id: 72510
 
     - id: writ-of-learned-malice
-      text: Writ of Learned Malice
       amountData:
         label: '% uptime'
         default: 100
@@ -238,7 +215,6 @@
       gw2id: 76478
 
     - id: writ-of-calculated-malice
-      text: Writ of Calculated Malice
       amountData:
         label: '% uptime'
         default: 100
@@ -249,7 +225,6 @@
       gw2id: 72572
 
     - id: writ-of-masterful-accuracy
-      text: Writ of Masterful Accuracy
       subText: (100% uptime)
       modifiers:
         attributes:
@@ -257,7 +232,6 @@
       gw2id: 76833
 
     - id: writ-of-learned-accuracy
-      text: Writ of Learned Accuracy
       subText: (100% uptime)
       modifiers:
         attributes:
@@ -265,7 +239,6 @@
       gw2id: 75610
 
     - id: writ-of-calculated-accuracy
-      text: Writ of Calculated Accuracy
       subText: (100% uptime)
       modifiers:
         attributes:
@@ -276,7 +249,6 @@
   items:
 
     - id: potion-of-karka-toughness
-      text: Potion Of Karka Toughness
       modifiers:
         attributes:
           Toughness: [150, converted]
