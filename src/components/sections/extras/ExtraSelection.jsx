@@ -189,12 +189,12 @@ export default function ExtraSelection(props) {
                       {displayIds ? (
                         joinWith(
                           displayIds.map((id) => (
-                            <Item id={id} disableLink text={textOverride ?? formatApiText} />
+                            <Item id={id} text={textOverride ?? formatApiText} />
                           )),
                           ' / ',
                         )
                       ) : (
-                        <Item id={gw2id} disableLink text={textOverride ?? formatApiText} />
+                        <Item id={gw2id} text={textOverride ?? formatApiText} />
                       )}
 
                       {subText && (
