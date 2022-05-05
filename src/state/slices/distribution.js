@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 
+const clone =
+  typeof structuredClone === 'function'
+    ? (value) => structuredClone(value)
+    : (value) => JSON.parse(JSON.stringify(value));
+
 export const distributionSlice = createSlice({
   name: 'distribution',
   initialState: {
@@ -9,6 +14,7 @@ export const distributionSlice = createSlice({
     values1: {},
     values2: {
       Power: 3000,
+      Power2: 0,
       Burning: 0,
       Bleeding: 0,
       Poisoned: 0,
@@ -17,6 +23,7 @@ export const distributionSlice = createSlice({
     },
     textBoxes: {
       Power: '3000',
+      Power2: '0',
       Burning: '0',
       Bleeding: '0',
       Poisoned: '0',
@@ -59,7 +66,11 @@ export const distributionSlice = createSlice({
   },
   extraReducers: {
     [changeAll]: (state, action) => {
-      return { ...state, ...action.payload?.form?.distribution };
+      const newState = clone(action.payload?.form?.distribution);
+      newState.values2.Power2 ??= 0;
+      newState.textBoxes.Power2 ??= '0';
+
+      return { ...state, ...newState };
     },
     [setBuildTemplate]: (state, action) => {
       const { distributionPreset, selectedDistribution } = action.payload;
