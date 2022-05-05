@@ -804,6 +804,21 @@ list:
         url: https://www.youtube.com/watch?v=zdIAYu7R8lk
         log: https://dps.report/0pRk-20210521-152703_golem
 
+  # IA GS/SW
+  # https://www.youtube.com/watch?v=3VQqzxB6Pn8
+  # https://dps.report/mv3g-20210604-005500_golem
+  # thief rune, truffle steak, furious stone, assassin helm glove boot
+  - name: Power Quickness Chrono
+    profession: Chronomancer
+    value: >-
+      {
+        "values2": { "Power": 2380, "Power2": 1334, "Burning": 0.6, "Bleeding": 0.45, "Poisoned": 0, "Torment": 0, "Confusion": 0.17 }
+      }
+    credit:
+      - author: '[CnD] DaedDee'
+        url: https://www.youtube.com/watch?v=3VQqzxB6Pn8
+        log: https://dps.report/mv3g-20210604-005500_golem
+
   # https://www.youtube.com/watch?v=Lg85Tj1-QeQ
   # https://dps.report/u9Cu-20210910-041935_golem
   # removed 126 power damage from lifesteal food

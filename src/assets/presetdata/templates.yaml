@@ -30,6 +30,19 @@ list:
           extras: Power Chrono IA (Raid)
         weaponType: Two-handed
 
+      - name: Power Quickness Chrono
+        id: pchrono-stm-gs
+        specialization: Chronomancer
+        boonType: Power
+        priority: Power DPS
+        distribution: Power Quickness Chrono
+        traits: Power Quickness Chrono
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power Chrono IA (Raid)
+        weaponType: Two-handed
+
       - name: Staff Alacrity Mirage
         id: alacmirage
         specialization: Mirage
