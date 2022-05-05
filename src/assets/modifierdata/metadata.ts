@@ -17,7 +17,7 @@ export const alternateStats = [
   'Alternative Power',
   'Alternative Precision',
   'Alternative Ferocity',
-];
+] as const;
 
 export const boons = [
   'Aegis',
