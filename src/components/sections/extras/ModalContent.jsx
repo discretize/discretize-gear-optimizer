@@ -100,8 +100,7 @@ function ModalContent(props) {
   const filteredItems = Object.entries(grouped).map(([label, options]) => {
     const searched = options.filter(
       ({ text, gw2id }) =>
-        // text.toLowerCase().includes(search.toLowerCase()) || `${gw2id}`.includes(search),
-        true,
+        text.toLowerCase().includes(search.toLowerCase()) || `${gw2id}`.includes(search),
     );
     return [label, searched];
   });
