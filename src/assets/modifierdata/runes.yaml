@@ -220,6 +220,7 @@
           Ferocity: [14, converted]
           Boon Duration: 15%
       gw2id: 76813
+      priceIds: []
 
     - id: surging
       text: Superior Rune of Surging
@@ -411,6 +412,7 @@
           Expertise: [9, converted]
           Precision: [9, converted]
       gw2id: 67339
+      priceIds: []
 
     - id: nightmare
       text: Superior Rune of the Nightmare

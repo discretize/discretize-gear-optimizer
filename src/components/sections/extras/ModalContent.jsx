@@ -193,12 +193,20 @@ function ModalContent(props) {
                               }
                             </Typography>
                           )}
+                          {/* {priceIds && (
+                            <span style={{ fontSize: '0.6em' }}>
+                              <br />
+                              {priceIds.map((id) => (
+                                <Item id={id} />
+                              ))}
+                            </span>
+                          )} */}
                         </>
                       }
                     />
-                    {priceData[gw2id] !== undefined ? (
+                    {priceData[id] !== undefined ? (
                       <Typography variant="body2">
-                        <Coin value={priceData[gw2id]} />
+                        <Coin value={priceData[id]} />
                       </Typography>
                     ) : null}
                   </Box>

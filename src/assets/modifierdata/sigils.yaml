@@ -219,6 +219,7 @@
           Torment Coefficient: 0.94
           Burning Coefficient: 0.048
       gw2id: 24605
+      priceIds: []
 
     # geo power: 0.25 coeff, 690.5 strength, every 14.5 sec -> 11.9 power coefficient
     # geo bleed: 24 seconds, every 14.5 sec -> 1.65 avg bleed
@@ -235,6 +236,7 @@
           Torment Coefficient: 1.28
           Burning Coefficient: 0.055
       gw2id: 24605
+      priceIds: []
 
     # geo power: 0.25 coeff, 690.5 strength, every 20 sec -> 8.6 power coefficient
     # geo bleed: 24 seconds, every 20 sec -> 1.2 avg bleed
@@ -251,6 +253,7 @@
           Torment Coefficient: 1.18
           Burning Coefficient: 0.04
       gw2id: 24605
+      priceIds: []
 
     # geo power: 0.25 coeff, 690.5 strength, every 27 sec -> 6.4 power coefficient
     # geo bleed: 24 seconds, every 27 sec -> 0.89 avg bleed
@@ -267,6 +270,7 @@
           Torment Coefficient: 1.02
           Burning Coefficient: 0.03
       gw2id: 24605
+      priceIds: []
 
     # 4 geo in 97 sec
     # 12 torment in 97 sec; thanks jezereal for calculation
@@ -288,6 +292,7 @@
         conversionAfterBuffs:
           Bleeding Coefficient: {Critical Chance: 4.1%}
       gw2id: 24605
+      priceIds: []
 
 - section: Stacking Sigils
   items:
