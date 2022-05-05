@@ -36,6 +36,7 @@ const SETTINGS_STORAGE_KEY = 'globalSettings';
 export const GAME_MODES = (t) => [
   { value: 'fractals', label: t('Fractals') },
   { value: 'raids', label: t('Raids/Strikes') },
+  { value: 'wvw', label: t('WvW') },
 ];
 
 export default function NavSettings({
@@ -78,7 +79,11 @@ export default function NavSettings({
     const newGameMode = e.target.value;
     setQueryParm({ key: PARAMS.GAMEMODE, value: newGameMode });
     dispatch(changeGameMode(newGameMode));
-    if (selectedTemplate && selectedTemplate.length > 0) setOpen(true);
+
+    const isFractalsNew = newGameMode === 'fractals';
+    const isFractalsOld = gameMode === 'fractals';
+    const isFractalsChanged = isFractalsNew !== isFractalsOld;
+    if (isFractalsChanged && selectedTemplate && selectedTemplate.length > 0) setOpen(true);
   };
 
   return (

@@ -201,6 +201,9 @@
       modifiers:
         attributes:
           Burning Duration: 20%
+      wvwModifiers:
+        attributes:
+          Burning Duration: 7%
       gw2id: 567
       defaultEnabled: true
 
@@ -269,6 +272,9 @@
       modifiers:
         attributes:
           Outgoing Healing: 25%
+      wvwModifiers:
+        attributes:
+          Outgoing Healing: 10%
       gw2id: 1899
       defaultEnabled: true
 
@@ -277,7 +283,10 @@
       subText: base
       modifiers:
         attributes:
-          Concentration: [120, buff]
+          Concentration: [120, buff] # tested by Stephan
+      wvwModifiers:
+        attributes:
+          Concentration: [60, buff] # tested by Stephan
       gw2id: 557
       defaultEnabled: true
 
@@ -286,7 +295,10 @@
       subText: with staff
       modifiers:
         attributes:
-          Concentration: [120, buff]
+          Concentration: [120, converted] # tested by Stephan
+      wvwModifiers:
+        attributes:
+          Concentration: [60, converted] # tested by Stephan
       gw2id: 557
       defaultEnabled: true
 
@@ -294,9 +306,14 @@
       text: Force of Will
       modifiers:
         attributes:
-          Vitality: [300, buff]
+          Vitality: [300, converted] # tested by Stephan
         conversion:
           Outgoing Healing: {Vitality: 0.01%}
+      wvwModifiers:
+        attributes:
+          Vitality: [300, converted] # tested by Stephan
+        conversion:
+          Outgoing Healing: {Vitality: 0.005%}
       gw2id: 1682
       defaultEnabled: true
 
@@ -412,20 +429,23 @@
   note: Be sure to change the burning coefficient value below when adding or removing traits without checkboxes like legendary lore.
   items:
 
-    # no configurable amount; causes scaled boon duration with various utilities
     - id: imbued-haste
       text: Imbued Haste
-      subText: 100% quickness
       minor: true
-      # amountData:
-      #   label: '% quickness'
-      #   default: 100
-      #   quantityEntered: 100
+      amountData:
+        label: '% quickness'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Condition Damage: [250, converted]
           Healing Power: [250, converted]
           Vitality: [250, converted] # confirmed from bench hero panel
+      wvwModifiers:
+        attributes:
+          Condition Damage: [150, converted]
+          Healing Power: [150, converted]
+          Vitality: [150, converted]
       gw2id: 2148
       defaultEnabled: true
 
@@ -466,6 +486,10 @@
         damage:
           Strike Damage: [1%, add] # as per Cat
           Condition Damage: [1%, add] # ???
+      wvwModifiers:
+        damage:
+          Strike Damage: [3%, add] # as per Cat
+          Condition Damage: [3%, add] # ???
       gw2id: 2189
       defaultEnabled: true
 
@@ -480,6 +504,10 @@
         damage:
           Strike Damage: [2%, add] # as per Cat
           Condition Damage: [2%, add] # ???
+      wvwModifiers:
+        damage:
+          Strike Damage: [4%, add] # as per Cat
+          Condition Damage: [4%, add] # ???
       gw2id: 2201
       defaultEnabled: true
 

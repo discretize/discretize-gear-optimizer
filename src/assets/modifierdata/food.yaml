@@ -17,7 +17,7 @@
           Power: [100, converted]
           Ferocity: [70, converted]
       gw2id: 41569
-      # gw2id: 91917
+      priceIds: [41569, 91917]
 
     - id: avocado-smoothie
       text: Avocado Smoothie
@@ -43,6 +43,7 @@
           Power: [100, converted]
           Precision: [70, converted]
       gw2id: 12467
+      priceIds: [12467, 79786]
 
     - id: curry-butternut-squash-soup
       text: Bowl of Curry Butternut Squash Soup
@@ -60,6 +61,7 @@
           Power: [200, converted]
           Ferocity: [70, converted]
       gw2id: 43360
+      priceIds: [43360, 12469, 41561]
 
     - id: block-of-tofu
       text: Block of Tofu
@@ -81,6 +83,7 @@
         damage:
           Strike Damage: [5%, mult]
       gw2id: 12471
+      priceIds: [12471, 79793]
 
     - id: jerk-poultry
       text: Plate of Jerk Poultry
@@ -102,6 +105,7 @@
         attributes:
           Ferocity: [100, converted]
       gw2id: 66539
+      priceIds: [66539, 66536]
 
     - id: fried-golden-dumpling
       text: Fried Golden Dumpling / Cheesecake
@@ -117,6 +121,7 @@
         attributes:
           Precision: [70, converted]
       gw2id: 43362
+      priceIds: [43362, 12457, 77630, 36083, 79748]
 
     - id: slice-of-allspice-cake
       text: Slice of Allspice Cake
@@ -162,6 +167,7 @@
           Concentration: [100, converted]
           Expertise: [70, converted]
       gw2id: 91842
+      priceIds: [91842, 91950, 91954, 92078]
 
     - id: nopalitos-saute
       text: Bowl of Nopalitos Sauté / Poultry Aspic
@@ -170,6 +176,7 @@
           Concentration: [100, converted]
           Toughness: [70, converted]
       gw2id: 66530
+      priceIds: [66530, 66527]
 
     - id: mussels-gnashblade
       text: Plate of Mussels Gnashblade
@@ -236,6 +243,7 @@
           Expertise: [100, converted]
           Condition Damage: [70, converted]
       gw2id: 12464
+      priceIds: [12464, 43361, 41565, 84550]
 
     - id: cilantro-and-cured-meat-flatbread
       text: Cilantro and Cured Meat Flatbread
@@ -343,6 +351,7 @@
           Expertise: [100, converted]
           Power: [70, converted]
       gw2id: 66528
+      priceIds: [66528, 66526]
 
     - id: fire-flank-steak
       text: Plate of Fire Flank Steak
@@ -367,6 +376,7 @@
         attributes:
           Expertise: [100, converted]
       gw2id: 66538
+      priceIds: [66538, 66523]
 
     - id: slice-of-allspice-cake-with-ice-cream
       text: Slice of Allspice Cake with Ice Cream
@@ -498,6 +508,7 @@
           Precision: [70, converted]
           Toughness: [100, converted]
       gw2id: 12461
+      priceIds: [12461, 41564]
 
     - id: omnomberry-bread
       text: Loaf of Omnomberry Bread / Ravioli
@@ -514,6 +525,7 @@
           Healing Power: [100, converted]
           Toughness: [70, converted]
       gw2id: 43358
+      priceIds: [43358, 38210]
 
     - id: chocolate-tapioca-pudding
       text: Bowl of Chocolate Tapioca Pudding

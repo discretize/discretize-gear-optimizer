@@ -430,10 +430,10 @@
   resolved "https://registry.yarnpkg.com/@cloudflare/workers-types/-/workers-types-3.4.0.tgz#80311e14df2f7f8c2cfcdce945b4f4ad8f9b03b1"
   integrity sha512-i/3czUrt6YqbOWl44OtIqd0cSZvEVXp/1oD/DZylC4PHZL3q/BhbamdEVeVhc/HPk4iD/7MZ2HGaIMO4Z4b12A==
 
-"@discretize/gw2-ui-new@^0.0.13":
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/@discretize/gw2-ui-new/-/gw2-ui-new-0.0.13.tgz#b0581c2159402b99399e330e0c2da61385ac8a80"
-  integrity sha512-dzgnC+3duppaywCuJ2ZdTx2eE2eOp6ls/kJQeeOeBDcKmCwrMSzWOUnXMCk6CQppin1X671H1KRyNhZpTLdAeQ==
+"@discretize/gw2-ui-new@^0.0.17":
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/@discretize/gw2-ui-new/-/gw2-ui-new-0.0.17.tgz#c4dbbd66f77cdf73592ef9d17fbb4dd6e5316003"
+  integrity sha512-43/DHSgRPQP9uGf7hQ0MvtA6btwnSRM7Gzc41HCyUIq38G8YqIQeGkyIGrIf4ajt8cDD/Qne8h2d+ltF5/tMvQ==
   dependencies:
     "@discretize/typeface-menomonia" "^0.1.3"
     clsx "^1.1.1"
@@ -447,12 +447,12 @@
   dependencies:
     json-url "^3.0.0"
 
-"@discretize/react-discretize-components@^2.2.5":
-  version "2.2.5"
-  resolved "https://registry.yarnpkg.com/@discretize/react-discretize-components/-/react-discretize-components-2.2.5.tgz#0db9c52a6f1f768e97e6d8cf2651d5f1e7f98e09"
-  integrity sha512-lhZe/ueAxTRq1bTvTfXClmDcAfUs7fDZUGsieroCvTLwmUbLu6n/8z5REri8kTeinjs5eosZimUVbE1RNI/g5A==
+"@discretize/react-discretize-components@^2.2.7":
+  version "2.2.7"
+  resolved "https://registry.yarnpkg.com/@discretize/react-discretize-components/-/react-discretize-components-2.2.7.tgz#98d2ea6a2b519f3dac365d699bebaba53b301a56"
+  integrity sha512-wDtvkPpDipTgSJBS4ieR4p9zIJ6rs26xzcOBhCEX/qVpv30CXV5QQNgZWk85MCrfhKtgQppIiFbvMmvaO6qvIQ==
   dependencies:
-    "@discretize/gw2-ui-new" "^0.0.13"
+    "@discretize/gw2-ui-new" "^0.0.17"
     "@discretize/typeface-menomonia" "^0.1.3"
     "@emotion/react" "^11.7.1"
     "@emotion/styled" "^11.6.0"

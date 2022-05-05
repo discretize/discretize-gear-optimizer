@@ -6,7 +6,8 @@ list:
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "eagle": {}
           },
           "Sigil1": {
             "force": {}
@@ -28,7 +29,8 @@ list:
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "eagle": {}
           },
           "Sigil1": {
             "force": {}
@@ -65,6 +67,32 @@ list:
             "fruit-salad-mint-garnish": {}
           }
         }
+      }
+
+  - name: Power Chrono IA (Raid)
+    profession: Chronomancer
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "thief": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {}
+          }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Alacrity Mirage (Raid)
@@ -1416,6 +1444,7 @@ list:
         }
       }
 
+  # credit to Boz in SC discord for the scavenging idea!
   - name: Alacrity Specter
     profession: Specter
     value: |-
@@ -1431,7 +1460,8 @@ list:
             }
           },
           "Runes": {
-            "renegade": {}
+            "renegade": {},
+            "scavenging": {}
           },
           "Nourishment": {
             "salsa-eggs-benedict": {},

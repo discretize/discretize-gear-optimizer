@@ -9,6 +9,7 @@ import {
   Typography,
 } from '@mui/material';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import { getExpertMode } from '../../state/slices/userSettings';
@@ -24,10 +25,10 @@ const useStyles = makeStyles()((theme) => ({
 
 // first disables the delimiting line above!
 const Section = ({ first, title, helpText, extraInfo, content }) => {
+  const { t } = useTranslation();
   const expert = useSelector(getExpertMode);
   const { classes } = useStyles();
 
-  const [expandedHover, setExpandedHover] = React.useState(false);
   const [expandedClick, setExpandedClick] = React.useState(!expert);
 
   const SectionInfo = ({ children }) => (
@@ -35,10 +36,8 @@ const Section = ({ first, title, helpText, extraInfo, content }) => {
       <Typography variant="h5">{title}</Typography>{' '}
       {children && (
         <Accordion
-          expanded={expandedClick || expandedHover}
+          expanded={expandedClick}
           className={classes.accordion}
-          onMouseOver={() => setExpandedHover(true)}
-          onMouseLeave={() => setExpandedHover(false)}
           onClick={() => setExpandedClick(!expandedClick)}
         >
           <AccordionSummary
@@ -46,7 +45,7 @@ const Section = ({ first, title, helpText, extraInfo, content }) => {
             aria-controls="help-content"
             id="help-header"
           >
-            <LiveHelpIcon sx={{ marginRight: 1 }} /> <Typography>Help</Typography>
+            <LiveHelpIcon sx={{ marginRight: 1 }} /> <Typography>{t('Help')}</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography variant="caption" paragraph sx={{ mb: 0 }}>

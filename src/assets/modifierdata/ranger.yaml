@@ -182,6 +182,12 @@
           Expertise: [8, buff] # conversion of own 120 vitality
         conversion:
           Expertise: {Vitality: 7%}
+      wvwModifiers:
+        attributes:
+          Vitality: [120, buff]
+          Expertise: [5, buff] # conversion of own 120 vitality
+        conversion:
+          Expertise: {Vitality: 4%}
       gw2id: 1099
       defaultEnabled: true
 
@@ -244,6 +250,9 @@
       modifiers:
         attributes:
           Concentration: [240, buff]
+      wvwModifiers:
+        attributes:
+          Concentration: [120, buff]
       minor: true
       gw2id: 1059
       defaultEnabled: true
@@ -288,6 +297,9 @@
       modifiers:
         attributes:
           Outgoing Healing: 2%
+      wvwModifiers:
+        attributes:
+          Outgoing Healing: 1%
       minor: true
       gw2id: 1992
       defaultEnabled: true
@@ -305,6 +317,9 @@
       modifiers:
         damage:
           Strike Damage: [15%, add]
+      wvwModifiers:
+        damage:
+          Strike Damage: [7%, add]
       minor: true
       gw2id: 2156
       defaultEnabled: true
@@ -319,6 +334,10 @@
         damage:
           Strike Damage: [10%, add]
           Condition Damage: [10%, add]
+      wvwModifiers:
+        damage:
+          Strike Damage: [5%, add]
+          Condition Damage: [5%, add]
       minor: true
       gw2id: 2127
       defaultEnabled: true
@@ -340,6 +359,10 @@
         attributes:
           Toughness: [200, buff]
           Vitality: [100, buff]
+      wvwModifiers:
+        attributes:
+          Toughness: [200, buff]
+          Vitality: [100, buff]
       minor: true
 
     - id: archetype-deadly
@@ -348,11 +371,19 @@
         attributes:
           Condition Damage: [150, buff]
           Precision: [100, buff]
+      wvwModifiers:
+        attributes:
+          Condition Damage: [200, buff]
+          Precision: [100, buff]
       minor: true
 
     - id: archetype-versatile
       subText: Archetype Versatile (Vit/Conc)
       modifiers:
+        attributes:
+          Vitality: [200, buff]
+          Concentration: [225, buff]
+      wvwModifiers:
         attributes:
           Vitality: [200, buff]
           Concentration: [225, buff]
@@ -364,11 +395,19 @@
         attributes:
           Power: [150, buff]
           Ferocity: [100, buff]
+      wvwModifiers:
+        attributes:
+          Power: [100, buff]
+          Ferocity: [100, buff]
       minor: true
 
     - id: archetype-supportive
       subText: Archetype Supportive (Vit/Heal)
       modifiers:
+        attributes:
+          Vitality: [100, buff]
+          Outgoing Healing: 25%
+      wvwModifiers:
         attributes:
           Vitality: [100, buff]
           Outgoing Healing: 25%
@@ -383,6 +422,13 @@
           Condition Damage: [150, buff]
           Toughness: [150, buff]
           Vitality: [150, buff]
+      wvwModifiers:
+        attributes:
+          Power: [75, buff]
+          Precision: [75, buff]
+          Condition Damage: [75, buff]
+          Toughness: [75, buff]
+          Vitality: [75, buff]
       minor: true
       gw2id: 1900
 
@@ -399,6 +445,9 @@
       modifiers:
         attributes:
           Ferocity: [300, buff]
+      wvwModifiers:
+        attributes:
+          Ferocity: [150, buff]
       minor: true
       gw2id: 1065
 
@@ -430,6 +479,9 @@
       modifiers:
         damage:
           All Damage: [25%, unknown]
+      wvwModifiers:
+        damage:
+          All Damage: [15%, unknown]
       minor: true
       gw2id: 2269
       defaultEnabled: true
@@ -440,6 +492,9 @@
       modifiers:
         damage:
           Damage Reduction: [25%, unknown]
+      wvwModifiers:
+        damage:
+          Damage Reduction: [10%, unknown]
       minor: true
       gw2id: 2269
 

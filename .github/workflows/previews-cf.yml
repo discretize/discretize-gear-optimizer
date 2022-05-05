@@ -19,6 +19,9 @@ jobs:
 
     steps:
       - name: Generate preview
+        env:
+          APIKEY: ${{ secrets.CF_GLOBAL_APIKEY }}
+        if: env.APIKEY != null
         uses: tomjschuster/cloudflare-pages-deploy-action@v0
         with:
           account-id: '${{ secrets.CF_ACCOUNT_ID }}'

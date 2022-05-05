@@ -31,11 +31,12 @@ import {
 } from '../../../state/slices/extras';
 import { chunkArray } from '../../../utils/usefulFunctions';
 import AmountInput from '../../baseComponents/AmountInput';
-import ModalContent from './ModalContent';
 import Label from '../../baseComponents/Label';
+import ModalContent from './ModalContent';
 
 // const roundPrice = (num) => Math.round(num / 100) * 100;
-const roundPrice = (num) => num;
+const roundPrice = (num) => Math.round(num / 10) * 10;
+// const roundPrice = (num) => num;
 
 const useStyles = makeStyles()((theme) => ({
   list: {
@@ -98,17 +99,38 @@ export default function ExtraSelection(props) {
   const [showPriceData, setShowPriceData] = React.useState(false);
 
   const getPriceData = React.useCallback(async () => {
-    const allIds = modifierData.flatMap(({ items }) => items.map((item) => item.gw2id));
-    const dataChunks = await Promise.all(
+    const allItems = modifierData
+      .flatMap(({ items }) => items)
+      .map(({ id, gw2id, priceIds }) => ({ id, gw2id, priceIds, gw2ids: priceIds ?? [gw2id] }));
+    const allIds = allItems.flatMap((item) => item.gw2ids);
+    const apiDataChunks = await Promise.all(
       chunkArray(allIds, 200).map((ids) =>
         fetch(`https://api.guildwars2.com/v2/commerce/prices?ids=${ids.join(',')}`).then(
           (response) => response.json(),
         ),
       ),
     );
-    const priceDataEntries = dataChunks
+    const apiDataEntries = apiDataChunks
       .flat()
       .map(({ id, sells: { unit_price: price } = {} }) => [id, roundPrice(price)]);
+    const apiData = Object.fromEntries(apiDataEntries);
+
+    const priceDataEntries = allItems
+      .map(({ id, gw2id, gw2ids = [] }) => {
+        let price = Infinity;
+        let cheapestId;
+
+        gw2ids.forEach((thisId) => {
+          const thisPrice = apiData[thisId] ?? Infinity;
+          if (thisPrice < price) {
+            price = thisPrice;
+            if (thisId !== gw2id) cheapestId = thisId;
+          }
+        });
+        return [id, { price, cheapestId }];
+      })
+      .filter(([_id, { price }]) => price !== Infinity);
+
     setPriceData(Object.fromEntries(priceDataEntries));
   }, [modifierData]);
 
