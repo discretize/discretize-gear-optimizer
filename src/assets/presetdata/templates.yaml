@@ -4,33 +4,33 @@ list:
   - class: Mesmer
     builds:
 
-      - name: Power Chrono DT
-        id: pchrono-dt
+      - name: Power Chrono DT Focus
+        id: pchrono-dt-focus
         specialization: Chronomancer
         boonType: Power
         priority: Power DPS
-        distribution: Power Chrono DT
-        traits: Power Chrono DT
+        distribution: Power Chrono DT Focus
+        traits: Power Chrono DT Focus
         fractal:
           extras: Power (Fractal)
         raid:
           extras: Power (Raid)
         weaponType: Two-handed
 
-      - name: Power Chrono IA
-        id: pchrono-ia
+      - name: Power Chrono IA Focus
+        id: pchrono-ia-focus
         specialization: Chronomancer
         boonType: Power
         priority: Power DPS
-        distribution: Power Chrono IA
-        traits: Power Chrono IA
+        distribution: Power Chrono IA Focus
+        traits: Power Chrono IA Focus
         fractal:
           extras: Power (Fractal)
         raid:
           extras: Power Chrono IA (Raid)
         weaponType: Two-handed
 
-      - name: Alacrity Mirage
+      - name: Staff Alacrity Mirage
         id: alacmirage
         specialization: Mirage
         boonType: Condi

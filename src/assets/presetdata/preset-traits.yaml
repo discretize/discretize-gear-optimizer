@@ -1,7 +1,7 @@
 GraphQL ID: presetTraits
 list:
 
-  - name: Power Chrono DT
+  - name: Power Chrono DT Focus
     profession: Chronomancer
     traits: |-
       {
@@ -68,7 +68,7 @@ list:
         "skills": {}
       }
 
-  - name: Power Chrono IA
+  - name: Power Chrono IA Focus
     profession: Chronomancer
     traits: |-
       {

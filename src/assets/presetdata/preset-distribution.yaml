@@ -777,7 +777,7 @@ list:
   # https://dps.report/Ki5n-20210520-152542_golem
   # power: 21867 + 14485 = 36352 ---- total: 38707
   # asassin leg acc acc
-  - name: Power Chrono DT
+  - name: Power Chrono DT Focus
     profession: Chronomancer
     value: >-
       {
@@ -793,7 +793,7 @@ list:
   # https://dps.report/0pRk-20210521-152703_golem
   # power: 20608 + 12314 = 32922, burn: 219, bleed: 2371, confusion: 4, total: 35516
   # thief rune, truffle steak, furious stone, assassin helm glove boot
-  - name: Power Chrono IA
+  - name: Power Chrono IA Focus
     profession: Chronomancer
     value: >-
       {
