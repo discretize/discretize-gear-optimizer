@@ -27,7 +27,6 @@ const Section = ({ first, title, helpText, extraInfo, content }) => {
   const expert = useSelector(getExpertMode);
   const { classes } = useStyles();
 
-  const [expandedHover, setExpandedHover] = React.useState(false);
   const [expandedClick, setExpandedClick] = React.useState(!expert);
 
   const SectionInfo = ({ children }) => (
@@ -35,10 +34,8 @@ const Section = ({ first, title, helpText, extraInfo, content }) => {
       <Typography variant="h5">{title}</Typography>{' '}
       {children && (
         <Accordion
-          expanded={expandedClick || expandedHover}
+          expanded={expandedClick}
           className={classes.accordion}
-          onMouseOver={() => setExpandedHover(true)}
-          onMouseLeave={() => setExpandedHover(false)}
           onClick={() => setExpandedClick(!expandedClick)}
         >
           <AccordionSummary
