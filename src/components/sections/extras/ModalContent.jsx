@@ -63,8 +63,8 @@ export const formatApiText = (apiText) =>
       .replace(/^Scoop of /, '')
       .replace(/ Squash Soup$/, '')
 
-      .replace(/^Schüssel mit /, '')
-      .replace(/^Teller mit /, '')
+      // .replace(/^Schüssel mit /, '')
+      // .replace(/^Teller mit /, '')
 
       .replace(/^Plato de /, '')
       .replace(/^Cuenco de /, ''),
