@@ -43,6 +43,36 @@ function groupBy(xs, key) {
   }, {});
 }
 
+const firstUppercase = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+
+export const formatApiText = (apiText) =>
+  firstUppercase(
+    apiText
+      .replace(/^Superior Sigil /, 'Sigil ')
+      .replace(/^Überlegenes Sigill /, 'Sigill ')
+      .replace(/^Sello superior /, 'Sello ')
+
+      .replace(/^Superior Rune /, 'Rune ')
+      .replace(/^Überlegene Rune /, 'Rune ')
+      .replace(/^Runa superior /, 'Runa ')
+
+      .replaceAll('"', '')
+      .replace(/^Plate of /, '')
+      .replace(/^Bowl of /, '')
+      .replace(/^Slice of /, '')
+      .replace(/^Scoop of /, '')
+      .replace(/ Squash Soup$/, '')
+
+      .replace(/^Schüssel mit /, '')
+      .replace(/^Teller mit /, '')
+
+      .replace(/^Plato de /, '')
+      .replace(/^Cuenco de /, ''),
+  );
+
+export const joinWith = (array, separator) =>
+  array.flatMap((element) => [element, separator]).slice(0, -1);
+
 function ModalContent(props) {
   const { type, modifierData, modifierDataById: data, priceData } = props;
 
@@ -170,7 +200,7 @@ function ModalContent(props) {
                 }
               </FormLabel>
               <FormGroup>
-                {options.map(({ id, gw2id, subText, text }) => (
+                {options.map(({ id, gw2id, displayIds, subText, text, priceIds }) => (
                   <Box
                     sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
                   >
@@ -185,7 +215,16 @@ function ModalContent(props) {
                       }
                       label={
                         <>
-                          <Item id={gw2id} disableLink text={text.replace(/^Superior /, '')} />
+                          {displayIds ? (
+                            joinWith(
+                              displayIds.map((id) => (
+                                <Item id={id} disableLink text={text ?? formatApiText} />
+                              )),
+                              ' / ',
+                            )
+                          ) : (
+                            <Item id={gw2id} disableLink text={text ?? formatApiText} />
+                          )}
                           {subText && (
                             <Typography variant="caption" sx={{ marginLeft: 1, fontWeight: 200 }}>
                               {

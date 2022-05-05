@@ -32,7 +32,7 @@ import {
 import { chunkArray } from '../../../utils/usefulFunctions';
 import AmountInput from '../../baseComponents/AmountInput';
 import Label from '../../baseComponents/Label';
-import ModalContent from './ModalContent';
+import ModalContent, { formatApiText, joinWith } from './ModalContent';
 
 // const roundPrice = (num) => Math.round(num / 100) * 100;
 const roundPrice = (num) => Math.round(num / 10) * 10;
@@ -174,6 +174,7 @@ export default function ExtraSelection(props) {
       <List className={classes.list} disablePadding>
         {currentIds.length > 0 ? (
           currentIds.map((extraId) => {
+            const { gw2id, displayIds, subText, text } = data[extraId];
             const { amountData } = allExtrasModifiersById[extraId];
             const amount = extrasData[type][extraId]?.amount || '';
 
@@ -189,13 +190,20 @@ export default function ExtraSelection(props) {
                 <ListItemText
                   primary={
                     <Box display="flex">
-                      <Item
-                        id={data[extraId]?.gw2id}
-                        {...(!isChinese && { text: data[extraId]?.text.replace(/^Superior /, '') })}
-                      />
-                      {data[extraId]?.subText && (
+                      {displayIds ? (
+                        joinWith(
+                          displayIds.map((id) => (
+                            <Item id={id} disableLink text={text ?? formatApiText} />
+                          )),
+                          ' / ',
+                        )
+                      ) : (
+                        <Item id={gw2id} disableLink text={text ?? formatApiText} />
+                      )}
+
+                      {subText && (
                         <Typography variant="caption" className={classes.subText}>
-                          {t('extraSubText', { context: data[extraId]?.subText })}
+                          {t('extraSubText', { context: subText })}
                         </Typography>
                       )}
 
