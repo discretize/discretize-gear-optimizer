@@ -1,4 +1,4 @@
-import { Item } from '@discretize/gw2-ui-new';
+import { APILanguageProvider, Item } from '@discretize/gw2-ui-new';
 import AddIcon from '@mui/icons-material/Add';
 import ClearIcon from '@mui/icons-material/Clear';
 import CloseIcon from '@mui/icons-material/Close';
@@ -32,7 +32,7 @@ import {
 import { chunkArray } from '../../../utils/usefulFunctions';
 import AmountInput from '../../baseComponents/AmountInput';
 import Label from '../../baseComponents/Label';
-import ModalContent from './ModalContent';
+import ModalContent, { formatApiText, joinWith } from './ModalContent';
 
 // const roundPrice = (num) => Math.round(num / 100) * 100;
 const roundPrice = (num) => Math.round(num / 10) * 10;
@@ -54,15 +54,14 @@ const useStyles = makeStyles()((theme) => ({
 }));
 
 export default function ExtraSelection(props) {
-  const { type, label, modifierData, modifierDataById: data, text } = props;
+  const { type, label, modifierData, modifierDataById: data, text: labelText } = props;
 
   const { classes } = useStyles();
   const dispatch = useDispatch();
-  const { t } = useTranslation();
-  // const { language } = useI18next();
-  // const isChinese = language === 'zh';
-  // todo: replace this once dual sigils are not hardcoded with fake ids
-  const isChinese = false;
+  const { i18n, t } = useTranslation();
+  const { language } = i18n;
+
+  const extrasOverrideLanguage = language === 'zh' ? 'zh' : 'en';
 
   // state for the modal
   const [open, setOpen] = React.useState(false);
@@ -161,19 +160,20 @@ export default function ExtraSelection(props) {
   }, [dispatch, handlePriceChange, getPriceData]);
 
   return (
-    <>
+    <APILanguageProvider value={extrasOverrideLanguage}>
       <Box display="flex" alignItems="flex-end" mb={1}>
         <Typography component="span" flexGrow={1}>
           {label}
         </Typography>
         <Button variant="contained" size="small" startIcon={<AddIcon />} onClick={handleOpen}>
-          {t('Add')} {text}
+          {t('Add')} {labelText}
         </Button>
       </Box>
 
       <List className={classes.list} disablePadding>
         {currentIds.length > 0 ? (
           currentIds.map((extraId) => {
+            const { gw2id, displayIds, subText, textOverride } = data[extraId];
             const { amountData } = allExtrasModifiersById[extraId];
             const amount = extrasData[type][extraId]?.amount || '';
 
@@ -189,13 +189,22 @@ export default function ExtraSelection(props) {
                 <ListItemText
                   primary={
                     <Box display="flex">
-                      <Item
-                        id={data[extraId]?.gw2id}
-                        {...(!isChinese && { text: data[extraId]?.text.replace(/^Superior /, '') })}
-                      />
-                      {data[extraId]?.subText && (
+                      <Box>
+                        {displayIds ? (
+                          joinWith(
+                            displayIds.map((id) => (
+                              <Item id={id} text={textOverride ?? formatApiText} />
+                            )),
+                            ' / ',
+                          )
+                        ) : (
+                          <Item id={gw2id} text={textOverride ?? formatApiText} />
+                        )}
+                      </Box>
+
+                      {subText && (
                         <Typography variant="caption" className={classes.subText}>
-                          {t('extraSubText', { context: data[extraId]?.subText })}
+                          {t('extraSubText', { context: subText })}
                         </Typography>
                       )}
 
@@ -260,6 +269,6 @@ export default function ExtraSelection(props) {
           <Button onClick={handleClose}>{t('Okay')}</Button>
         </DialogActions>
       </Dialog>
-    </>
+    </APILanguageProvider>
   );
 }

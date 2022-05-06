@@ -17,6 +17,7 @@
           Power: [100, converted]
           Ferocity: [70, converted]
       gw2id: 41569
+      displayIds: [41569, 91917]
       priceIds: [41569, 91917]
 
     - id: avocado-smoothie
@@ -74,7 +75,7 @@
       gw2id: 96793
 
     - id: seaweed-salad
-      text: Bowl of Seaweed Salad
+      text: Bowl of Seaweed Salad / Bowl of Winterberry Seaweed Salad
       amountData:
         label: '% uptime'
         default: 90
@@ -83,6 +84,7 @@
         damage:
           Strike Damage: [5%, mult]
       gw2id: 12471
+      displayIds: [12471, 79793]
       priceIds: [12471, 79793]
 
     - id: jerk-poultry
@@ -105,7 +107,16 @@
         attributes:
           Ferocity: [100, converted]
       gw2id: 66539
+      displayIds: [66539, 66536]
       priceIds: [66539, 66536]
+
+    - id: strawberry-cilantro-cheesecake
+      text: Strawberry Cilantro Cheesecake
+      hasLifesteal: true
+      modifiers:
+        attributes:
+          Concentration: [100, converted]
+      gw2id: 91851
 
     - id: fried-golden-dumpling
       text: Fried Golden Dumpling / Cheesecake
@@ -115,13 +126,14 @@
       gw2id: 68633
 
     - id: slice-of-candied-dragon-roll
-      text: Slice of Candied Dragon Roll
+      text: Slice of Candied Dragon Roll / Mintberry Swirl Ice Cream
       hasLifesteal: true
       modifiers:
         attributes:
           Precision: [70, converted]
       gw2id: 43362
-      priceIds: [43362, 12457, 77630, 36083, 79748]
+      displayIds: [43362, 77630]
+      priceIds: [43362, 77630, 12457, 36083, 79748]
 
     - id: slice-of-allspice-cake
       text: Slice of Allspice Cake
@@ -168,6 +180,15 @@
           Expertise: [70, converted]
       gw2id: 91842
       priceIds: [91842, 91950, 91954, 92078]
+
+    - id: plate-of-poultry-aspic-with-salsa-garnish
+      text: Plate of Poultry Aspic with Salsa Garnish
+      hasLifesteal: true
+      modifiers:
+        attributes:
+          Concentration: [100, converted]
+          Toughness: [70, converted]
+      gw2id: 91704
 
     - id: nopalitos-saute
       text: Bowl of Nopalitos Sauté / Poultry Aspic
@@ -243,7 +264,8 @@
           Expertise: [100, converted]
           Condition Damage: [70, converted]
       gw2id: 12464
-      priceIds: [12464, 43361, 41565, 84550]
+      displayIds: [12464, 43361]
+      priceIds: [12464, 43361, 84550, 41565]
 
     - id: cilantro-and-cured-meat-flatbread
       text: Cilantro and Cured Meat Flatbread
@@ -407,6 +429,7 @@
 
     - id: dragon's-revelry-starcake
       text: Oyster Soup
+      textOverride: Oyster Soup
       modifiers:
         attributes:
           Power: [45, converted]
@@ -421,7 +444,8 @@
       gw2id: 92471
 
     - id: dragons-revelry-starcake-bugged
-      text: Dragon's Revelry Starcake (slightly bugged!)
+      text: Dragon's Revelry Starcake
+      subText: (slightly bugged!)
       modifiers:
         attributes:
           Power: [45, buff]
@@ -509,6 +533,15 @@
           Toughness: [100, converted]
       gw2id: 12461
       priceIds: [12461, 41564]
+
+    - id: plate-of-clear-truffle-and-cilantro-ravioli
+      text: Plate of Clear Truffle and Cilantro Ravioli
+      hasLifesteal: true
+      modifiers:
+        attributes:
+          Vitality: [100, converted]
+          Toughness: [70, converted]
+      gw2id: 91735
 
     - id: omnomberry-bread
       text: Loaf of Omnomberry Bread / Ravioli

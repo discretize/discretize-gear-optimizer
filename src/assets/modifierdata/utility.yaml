@@ -3,6 +3,7 @@
 
     - id: slaying-potion
       text: Slaying Potion
+      textOverride: Slaying Potion
       modifiers:
         damage:
           Strike Damage: [10%, mult]
@@ -24,6 +25,7 @@
         conversion:
           Power: {Precision: 3%, Ferocity: 6%}
       gw2id: 77569
+      displayIds: [77569, 9443]
       priceIds: [77569, 9443]
 
     - id: toxic-sharpening-stone
@@ -92,6 +94,7 @@
         conversion:
           Concentration: {Precision: 3%, Healing Power: 6%}
       gw2id: 77632
+      displayIds: [77632, 9461]
       priceIds: [77632, 9461]
 
     - id: corsair-maintenance-oil
@@ -136,6 +139,7 @@
         conversion:
           Condition Damage: {Precision: 3%, Expertise: 8%}
       gw2id: 77567
+      displayIds: [77567, 9476]
       priceIds: [77567, 9476]
 
     - id: magnanimous-tuning-crystal

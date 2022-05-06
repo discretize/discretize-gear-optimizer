@@ -213,6 +213,7 @@
 
     - id: surging-and-ruby-orb
       text: Superior Rune of Surging (5x) + Ruby Orb
+      textOverride: Rune of Surging (5x) + Ruby Orb
       modifiers:
         attributes:
           Power: [195, converted]
@@ -404,6 +405,7 @@
 
     - id: trapper-and-black-diamond
       text: Superior Rune of the Trapper (5x) + Black Diamond
+      textOverride: Rune of the Trapper (5x) + Black Diamond
       modifiers:
         attributes:
           Condition Damage: [192, converted]
