@@ -189,16 +189,18 @@ export default function ExtraSelection(props) {
                 <ListItemText
                   primary={
                     <Box display="flex">
-                      {displayIds ? (
-                        joinWith(
-                          displayIds.map((id) => (
-                            <Item id={id} text={textOverride ?? formatApiText} />
-                          )),
-                          ' / ',
-                        )
-                      ) : (
-                        <Item id={gw2id} text={textOverride ?? formatApiText} />
-                      )}
+                      <Box>
+                        {displayIds ? (
+                          joinWith(
+                            displayIds.map((id) => (
+                              <Item id={id} text={textOverride ?? formatApiText} />
+                            )),
+                            ' / ',
+                          )
+                        ) : (
+                          <Item id={gw2id} text={textOverride ?? formatApiText} />
+                        )}
+                      </Box>
 
                       {subText && (
                         <Typography variant="caption" className={classes.subText}>
