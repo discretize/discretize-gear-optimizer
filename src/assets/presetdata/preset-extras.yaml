@@ -1438,10 +1438,12 @@ list:
             "tormenting": {}
           },
           "Nourishment": {
-            "bowl-of-kimchi-tofu-stew": {}
+            "bowl-of-kimchi-tofu-stew": {},
+            "cilantro-and-cured-meat-flatbread": {}
           },
           "Enhancement": {
-            "toxic-focusing-crystal": {}
+            "toxic-focusing-crystal": {},
+            "master-tuning-crystal": {}
           }
         }
       }
