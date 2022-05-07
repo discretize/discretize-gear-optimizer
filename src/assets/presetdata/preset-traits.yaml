@@ -1836,7 +1836,6 @@ list:
             "deep-strikes": {
               "amount": ""
             },
-            "blade-master": {},
             "blade-master-2": {
               "amount": ""
             },
@@ -1846,7 +1845,8 @@ list:
             },
             "bloodlust-on-crit": {
               "amount": "3.17"
-            }
+            },
+            "blade-master-base-bugged": {}
           },
           {
             "warriors-sprint": {
