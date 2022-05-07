@@ -103,6 +103,39 @@ list:
         "lifestealAmount": ""
       }
 
+
+  - name: Power Boon (Raid)
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "eagle": {},
+            "thief": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {},
+            "concentration": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "holographic-super-cheese": {},
+            "potent-lucent-oil": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "plate-of-beef-carpaccio-with-salsa-garnish": {},
+            "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Heal
     value: |-
       {
@@ -253,19 +286,25 @@ list:
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "eagle": {},
+            "thief": {}
           },
           "Sigil1": {
             "force": {}
           },
           "Sigil2": {
-            "accuracy": {}
+            "impact/night/slaying-only-3": {},
+            "accuracy": {},
+            "concentration": {}
           },
           "Enhancement": {
             "superior-sharpening-stone": {}
           },
           "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "spherified-cilantro-oyster-soup": {}
           }
         },
         "lifestealAmount": ""
@@ -729,29 +768,6 @@ list:
         }
       }
 
-  - name: Power Tempest (Raid)
-    profession: Tempest
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "scholar": {}
-          },
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {
-            "accuracy": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {}
-          },
-          "Nourishment": {
-            "plate-of-coq-au-vin-with-salsa": {}
-          }
-        }
-      }
-
   - name: '[beta1] Condi Catalyst'
     profession: Catalyst
     value: |-
@@ -779,7 +795,9 @@ list:
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "eagle": {},
+            "thief": {}
           },
           "Sigil1": {
             "force": {}
@@ -799,7 +817,6 @@ list:
         },
         "lifestealAmount": ""
       }
-
   - name: Condi Slb
     profession: Soulbeast
     value: |-
@@ -1308,6 +1325,7 @@ list:
       {
         "extras": {
           "Runes": {
+            "eagle": {},
             "thief": {}
           },
           "Sigil1": {
@@ -1317,12 +1335,17 @@ list:
             "concentration": {}
           },
           "Enhancement": {
+            "superior-sharpening-stone": {},
+            "holographic-super-cheese": {},
             "potent-lucent-oil": {}
           },
           "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-beef-carpaccio-with-salsa-garnish": {},
+            "spherified-cilantro-oyster-soup": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Condi Daredevil

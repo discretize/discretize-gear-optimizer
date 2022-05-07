@@ -499,7 +499,7 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power Tempest (Raid)
+          extras: Power (Raid)
         weaponType: Dual wield
 
       - name: Heal Tempest
