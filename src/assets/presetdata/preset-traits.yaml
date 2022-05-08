@@ -433,6 +433,9 @@ list:
           {
             "compounding-power": {
               "amount": ""
+            },
+            "Phantasmal Force": {
+              "amount": ""
             }
           },
           {
@@ -502,6 +505,9 @@ list:
         "items": [
           {
             "compounding-power": {
+              "amount": ""
+            },
+            "Phantasmal Force": {
               "amount": ""
             }
           },
