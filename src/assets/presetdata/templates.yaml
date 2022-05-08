@@ -856,6 +856,16 @@ list:
         extras: Condi Mechanist
         weaponType: Dual wield
 
+      - name: Heal Mechanist
+        id: healmech
+        specialization: Mechanist
+        boonType: Power
+        priority: Heal
+        distribution: None
+        traits: Heal Mechanist
+        extras: Heal
+        weaponType: Dual wield
+
   - class: Necromancer
     builds:
 

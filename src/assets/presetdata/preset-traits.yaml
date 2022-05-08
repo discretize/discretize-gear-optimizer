@@ -5230,6 +5230,49 @@ list:
         "skills": {}
       }
 
+  - name: Heal Mechanist
+    profession: Mechanist
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "47",
+          "29",
+          "70"
+        ],
+        "selectedTraits": [
+          [
+            394,
+            1834,
+            1916
+          ],
+          [
+            521,
+            470,
+            473
+          ],
+          [
+            2296,
+            2276,
+            2281
+          ]
+        ],
+        "items": [
+          {
+            "over-shield": {},
+            "energy-amplifier": {}
+          },
+          {
+            "compounding-chemicals": {}
+          },
+          {}
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
   - name: DPS Scourge
     profession: Scourge
     traits: |-
