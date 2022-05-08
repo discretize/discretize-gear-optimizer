@@ -548,6 +548,76 @@ list:
         }
       }
 
+  - name: Condi Virtuoso (chaos)
+    profession: Virtuoso
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "24",
+          "45",
+          "66"
+        ],
+        "selectedTraits": [
+          [
+            721,
+            1690,
+            2035
+          ],
+          [
+            670,
+            669,
+            671
+          ],
+          [
+            2202,
+            2207,
+            2223
+          ]
+        ],
+        "items": [
+          {
+            "compounding-power": {
+              "amount": ""
+            },
+            "Phantasmal Force": {
+              "amount": ""
+            }
+          },
+          {
+            "illusionary-defense": {
+              "amount": ""
+            },
+            "illusionary-membrane": {
+              "amount": ""
+            },
+            "chaotic-potency": {},
+            "chaotic-persistence": {}
+          },
+          {
+            "mental-focus": {
+              "amount": ""
+            },
+            "deadly-blades": {
+              "amount": "98"
+            },
+            "sharpening-sorrow": {},
+            "quiet-intensity": {},
+            "bloodsong": {},
+            "jagged-mind": {
+              "amount": "5.8"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-domination": {},
+          "signet-of-midnight": {}
+        }
+      }
+
   - name: Power Virtuoso
     profession: Virtuoso
     traits: |-

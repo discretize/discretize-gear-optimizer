@@ -280,6 +280,34 @@ list:
         }
       }
 
+  - name: Condi Virtuoso (chaos)
+    profession: Virtuoso
+    value: |-
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "earth": {
+              "amount": "4.3"
+            }
+          },
+          "Runes": {
+            "krait": {}
+          },
+          "Nourishment": {
+            "spherified-cilantro-oyster-soup": {},
+            "fancy-potato-and-leek-soup": {},
+            "truffle-risotto": {}
+          },
+          "Enhancement": {
+            "writ-of-masterful-malice": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Power Quickbrand (Raid)
     profession: Firebrand
     value: |-
