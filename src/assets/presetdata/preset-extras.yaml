@@ -1143,6 +1143,51 @@ list:
         }
       }
 
+  - name: Power Alacrity Mechanist (Fractal, inaccurate)
+    hidden: true
+    profession: Mechanist
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "strength": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {},
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power Alacrity Mechanist (Raid, inaccurate)
+    profession: Mechanist
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "strength": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {},
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Mechanist
     profession: Mechanist
     value: |-
@@ -1165,6 +1210,30 @@ list:
           }
         },
         "lifestealAmount": "3.4"
+      }
+
+  - name: Condi Alac Mechanist (inaccurate)
+    profession: Mechanist
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "aristocracy": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "malice": {}
+          },
+          "Enhancement": {
+            "toxic-maintenance-oil": {}
+          },
+          "Nourishment": {
+            "cilantro-and-cured-meat-flatbread": {}
+          }
+        },
+        "lifestealAmount": ""
       }
 
   - name: DPS Scourge

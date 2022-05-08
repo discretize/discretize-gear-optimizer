@@ -836,6 +836,19 @@ list:
         extras: Heal
         weaponType: Dual wield
 
+      # - name: Power Alac Mechanist (inaccurate)
+      #   id: mech-alac-power
+      #   specialization: Mechanist
+      #   boonType: Condi
+      #   priority: Power Alacrity Mechanist 40%
+      #   distribution: Power Alacrity Mechanist (inaccurate)
+      #   traits: Power Alacrity Mechanist (inaccurate)
+      #   fractal:
+      #     extras: Power Alacrity Mechanist (Fractal, inaccurate)
+      #   raid:
+      #     extras: Power Alacrity Mechanist (Raid, inaccurate)
+      #   weaponType: Dual wield
+
       - name: Condi Mechanist J-Drive (approx.)
         id: cmech-sig-mace
         specialization: Mechanist
@@ -855,6 +868,16 @@ list:
         traits: Condi Mechanist Jade Dynamo
         extras: Condi Mechanist
         weaponType: Dual wield
+
+      # - name: Condi Alac Mechanist (inaccurate)
+      #   id: cmech-alac-condi
+      #   specialization: Mechanist
+      #   boonType: Condi
+      #   priority: Condi Alacrity Mechanist 50%
+      #   distribution: Condi Alac Mechanist (inaccurate)
+      #   traits: Condi Alac Mechanist (inaccurate)
+      #   extras: Condi Alac Mechanist (inaccurate)
+      #   weaponType: Dual wield
 
       - name: Heal Mechanist
         id: healmech

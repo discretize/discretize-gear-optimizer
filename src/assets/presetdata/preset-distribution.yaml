@@ -713,6 +713,21 @@ list:
         url: https://www.youtube.com/watch?v=ZuBId0hZ0mo
         log: https://dps.report/qsSO-20200715-025640_golem
 
+  # https://www.youtube.com/watch?v=xjCNAyzVmQM
+  # https://dps.report/PRXW-20220416-225625_golem
+  # has lifesteal food; subtracy 127 power dps
+  # mech does burning (???) - import tool breaks
+  - name: Power Alacrity Mechanist (inaccurate)
+    profession: Mechanist
+    value: >-
+      {
+        "values2": { "Power": 2745, "Power2": 0, "Burning": 4.38, "Bleeding": 5.45, "Poisoned": 3.45, "Torment": 0, "Confusion": 10.45 }
+      }
+    credit:
+      - author: '[CnD] Xyonon'
+        url: https://www.youtube.com/watch?v=xjCNAyzVmQM
+        log: https://dps.report/PRXW-20220416-225625_golem
+
   # https://www.youtube.com/watch?v=D_XVn26s8S4
   # https://dps.report/Vtz8-20220321-012350_golem
   # (subtracted 110 dps from lifesteal food)
@@ -741,6 +756,19 @@ list:
       - author: '[CnD] Lunar'
         url: https://www.youtube.com/watch?v=URNB2JkmtG0
         log: https://dps.report/8GVP-20220308-005706_golem
+
+  # https://www.youtube.com/watch?v=dMdGeWnKaRA
+  # https://dps.report/Hjvb-20220312-192709_golem
+  - name: Condi Alac Mechanist (inaccurate)
+    profession: Mechanist
+    value: >-
+      {
+        "values2": { "Power": 3124, "Power2": 0, "Burning": 8.81, "Bleeding": 9.98, "Poisoned": 9.25, "Torment": 0, "Confusion": 5.02 }
+      }
+    credit:
+      - author: '[CnD] Xyonon'
+        url: https://www.youtube.com/watch?v=dMdGeWnKaRA
+        log: https://dps.report/Hjvb-20220312-192709_golem
 
   # https://www.youtube.com/watch?v=yGg0pqSu8RA
   # https://dps.report/iGev-20210526-215831_golem

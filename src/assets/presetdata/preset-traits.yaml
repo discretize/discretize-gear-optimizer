@@ -4894,6 +4894,74 @@ list:
         "skills": {}
       }
 
+  - name: Power Alacrity Mechanist (inaccurate)
+    profession: Mechanist
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "38",
+          "6",
+          "70"
+        ],
+        "selectedTraits": [
+          [
+            1914,
+            1923,
+            526
+          ],
+          [
+            1882,
+            1892,
+            1947
+          ],
+          [
+            2296,
+            2276,
+            2281
+          ]
+        ],
+        "items": [
+          {
+            "chemical-rounds": {},
+            "high-caliber": {},
+            "hematic-focus": {},
+            "thermal-vision": {},
+            "no-scope": {
+              "amount": ""
+            },
+            "serrated-steel": {},
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": {},
+            "sharpshooter": {
+              "amount": "2"
+            }
+          },
+          {
+            "glass-cannon": {
+              "amount": ""
+            },
+            "explosive-temper": {
+              "amount": ""
+            },
+            "blast-shield": {},
+            "shaped-charge": {
+              "amount": ""
+            },
+            "big-boomer": {}
+          },
+          {}
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "force-signet": {}
+        }
+      }
+
   - name: Condi Mechanist J-Drive
     profession: Mechanist
     traits: |-
@@ -5005,6 +5073,72 @@ list:
             "incendiary-powder": {},
             "sharpshooter": {
               "amount": "4.01"
+            }
+          },
+          {
+            "glass-cannon": {
+              "amount": ""
+            },
+            "explosive-temper": {
+              "amount": ""
+            },
+            "blast-shield": {},
+            "shaped-charge": {
+              "amount": ""
+            },
+            "big-boomer": {}
+          },
+          {}
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Condi Alac Mechanist (inaccurate)
+    profession: Mechanist
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "38",
+          "6",
+          "70"
+        ],
+        "selectedTraits": [
+          [
+            1878,
+            2006,
+            433
+          ],
+          [
+            1882,
+            1892,
+            505
+          ],
+          [
+            2296,
+            2276,
+            2281
+          ]
+        ],
+        "items": [
+          {
+            "chemical-rounds": {},
+            "high-caliber": {},
+            "hematic-focus": {},
+            "thermal-vision": {},
+            "no-scope": {
+              "amount": ""
+            },
+            "serrated-steel": {},
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": {},
+            "sharpshooter": {
+              "amount": "4"
             }
           },
           {
