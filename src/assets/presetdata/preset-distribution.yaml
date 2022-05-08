@@ -920,6 +920,16 @@ list:
     credit:
       - author: 'REMagic'
 
+  - name: Condi Virtuoso (chaos)
+    profession: Virtuoso
+    value: >-
+      {
+        "values2": { "Power": 2780, "Power2": 0, "Burning": 0.86, "Bleeding": 0.77, "Poisoned": 0.42, "Torment": 7.36, "Confusion": 3.54 }
+      }
+    credit:
+      - author: 'REMagic'
+      - author: 'Masel'
+
   # https://www.youtube.com/watch?v=92FJUY1IKh4
   # https://dps.report/bz6U-20220306-210357_golem
   # accuracy, assassin helm shld glove boot
