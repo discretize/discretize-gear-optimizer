@@ -29,8 +29,63 @@ list:
       {
         "extras": {
           "Runes": {
+            "thief": {},
             "scholar": {},
             "eagle": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power (Raid, furious)
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "thief": {},
+            "scholar": {},
+            "eagle": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Power (Raid, capped)
+    hidden: true
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {}
           },
           "Sigil1": {
             "force": {}
@@ -44,7 +99,41 @@ list:
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {}
           }
-        }
+        },
+        "lifestealAmount": ""
+      }
+
+
+  - name: Power Boon (Raid)
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "eagle": {},
+            "thief": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {},
+            "concentration": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "holographic-super-cheese": {},
+            "potent-lucent-oil": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "plate-of-beef-carpaccio-with-salsa-garnish": {},
+            "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Heal
@@ -67,32 +156,6 @@ list:
             "fruit-salad-mint-garnish": {}
           }
         }
-      }
-
-  - name: Power Chrono IA (Raid)
-    profession: Chronomancer
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "thief": {}
-          },
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {
-            "impact/night/slaying-only-3": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {},
-            "furious-sharpening-stone": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {},
-            "plate-of-coq-au-vin-with-salsa": {}
-          }
-        },
-        "lifestealAmount": ""
       }
 
   - name: Alacrity Mirage (Raid)
@@ -217,72 +280,31 @@ list:
         }
       }
 
-  - name: Power Virtuoso (Raid spotter)
-    profession: Virtuoso
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "scholar": {}
-          },
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {
-            "accuracy": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
-          }
-        }
-      }
-
-  - name: DH Radiance w/ PI (Raid)
-    profession: Dragonhunter
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "scholar": {}
-          },
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {
-            "accuracy": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
-          }
-        },
-        "lifestealAmount": ""
-      }
-
   - name: Power Quickbrand (Raid)
     profession: Firebrand
     value: |-
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "eagle": {},
+            "thief": {}
           },
           "Sigil1": {
             "force": {}
           },
           "Sigil2": {
-            "accuracy": {}
+            "impact/night/slaying-only-3": {},
+            "accuracy": {},
+            "concentration": {}
           },
           "Enhancement": {
             "superior-sharpening-stone": {}
           },
           "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "spherified-cilantro-oyster-soup": {}
           }
         },
         "lifestealAmount": ""
@@ -334,30 +356,7 @@ list:
         }
       }
 
-  - name: DH Virtues (Raid)
-    profession: Dragonhunter
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "thief": {}
-          },
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {
-            "accuracy": {}
-          },
-          "Enhancement": {
-            "furious-sharpening-stone": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
-          }
-        }
-      }
-
-  - name: Power Willbender Virtues (Raid)
+  - name: Power Alacrity Willbender (Raid)
     profession: Willbender
     value: |-
       {
@@ -375,9 +374,11 @@ list:
             "furious-sharpening-stone": {}
           },
           "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
+            "cilantro-lime-sous-vide-steak": {},
+            "spherified-cilantro-oyster-soup": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Condi Willbender
@@ -633,124 +634,28 @@ list:
         }
       }
 
-  - name: Power Bers (Raid spotter)
-    profession: Berserker
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "thief": {}
-          },
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {
-            "impact/night/slaying-only-3": {},
-            "accuracy": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
-          }
-        },
-        "lifestealAmount": ""
-      }
-
-  - name: Power Spellbreaker (Raid)
-    profession: Spellbreaker
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "scholar": {}
-          },
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {
-            "impact/night/slaying-only-3": {},
-            "accuracy": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
-          }
-        },
-        "lifestealAmount": ""
-      }
-
-  - name: Banner Bladesworn (Raid spotter)
-    profession: Bladesworn
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "thief": {}
-          },
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {
-            "impact/night/slaying-only-3": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
-          }
-        }
-      }
-
-  - name: DPS Bladesworn (Raid spotter)
-    profession: Bladesworn
-    value: |-
-      {
-        "extras": {
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {
-            "accuracy": {}
-          },
-          "Runes": {
-            "scholar": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {}
-          }
-        }
-      }
-
-  - name: Flame Legion Power Weaver (Raid)
-    profession: Weaver
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "flame-legion": {}
-          },
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {
-            "impact/night/slaying-only-3": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
-          }
-        }
-      }
+  # - name: Flame Legion Power Weaver (Raid)
+  #   profession: Weaver
+  #   value: |-
+  #     {
+  #       "extras": {
+  #         "Runes": {
+  #           "flame-legion": {}
+  #         },
+  #         "Sigil1": {
+  #           "force": {}
+  #         },
+  #         "Sigil2": {
+  #           "impact/night/slaying-only-3": {}
+  #         },
+  #         "Enhancement": {
+  #           "superior-sharpening-stone": {}
+  #         },
+  #         "Nourishment": {
+  #           "cilantro-lime-sous-vide-steak": {}
+  #         }
+  #       }
+  #     }
 
   - name: Condi Weaver Sword
     profession: Weaver
@@ -863,29 +768,6 @@ list:
         }
       }
 
-  - name: Power Tempest (Raid)
-    profession: Tempest
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "scholar": {}
-          },
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {
-            "accuracy": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {}
-          },
-          "Nourishment": {
-            "plate-of-coq-au-vin-with-salsa": {}
-          }
-        }
-      }
-
   - name: '[beta1] Condi Catalyst'
     profession: Catalyst
     value: |-
@@ -913,48 +795,28 @@ list:
       {
         "extras": {
           "Runes": {
-            "scholar": {}
-          },
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {
-            "accuracy": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
-          }
-        },
-        "lifestealAmount": ""
-      }
-
-  - name: Power Slb Marks (Raid)
-    profession: Soulbeast
-    value: |-
-      {
-        "extras": {
-          "Runes": {
+            "scholar": {},
+            "eagle": {},
             "thief": {}
           },
           "Sigil1": {
             "force": {}
           },
           "Sigil2": {
-            "impact/night/slaying-only-3": {}
+            "impact/night/slaying-only-3": {},
+            "accuracy": {},
+            "concentration": {}
           },
           "Enhancement": {
             "superior-sharpening-stone": {}
           },
           "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
+            "cilantro-lime-sous-vide-steak": {},
+            "spherified-cilantro-oyster-soup": {}
           }
         },
         "lifestealAmount": ""
       }
-
   - name: Condi Slb
     profession: Soulbeast
     value: |-
@@ -1047,6 +909,32 @@ list:
         }
       }
 
+  - name: Power Holo (Raid)
+    profession: Holosmith
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Holo
     profession: Holosmith
     value: |-
@@ -1068,6 +956,60 @@ list:
             "cilantro-and-cured-meat-flatbread": {}
           }
         }
+      }
+
+  - name: Power Scrapper (Raid)
+    profession: Scrapper
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Quickness Scrapper (Raid)
+    profession: Scrapper
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {},
+            "concentration": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Condi Alac Ren
@@ -1127,10 +1069,14 @@ list:
             "concentration": {}
           },
           "Enhancement": {
-            "writ-of-masterful-strength": {}
+            "writ-of-masterful-strength": {},
+            "holographic-super-cheese": {},
+            "potent-lucent-oil": {}
           },
           "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-beef-carpaccio-with-salsa-garnish": {},
+            "spherified-cilantro-oyster-soup": {}
           }
         },
         "lifestealAmount": ""
@@ -1348,12 +1294,38 @@ list:
         }
       }
 
+  - name: Staff Daredevil (Raid)
+    profession: Daredevil
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Power Boon Daredevil
     profession: Daredevil
     value: |-
       {
         "extras": {
           "Runes": {
+            "eagle": {},
             "thief": {}
           },
           "Sigil1": {
@@ -1363,12 +1335,16 @@ list:
             "concentration": {}
           },
           "Enhancement": {
+            "holographic-super-cheese": {},
             "potent-lucent-oil": {}
           },
           "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-beef-carpaccio-with-salsa-garnish": {},
+            "spherified-cilantro-oyster-soup": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Condi Daredevil
