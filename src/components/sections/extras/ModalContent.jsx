@@ -1,4 +1,4 @@
-import { Item } from '@discretize/gw2-ui-new';
+import { Coin, Item } from '@discretize/gw2-ui-new';
 import SelectAllIcon from '@mui/icons-material/SelectAll';
 import {
   Box,
@@ -43,13 +43,44 @@ function groupBy(xs, key) {
   }, {});
 }
 
+const firstUppercase = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+
+export const formatApiText = (apiText) =>
+  firstUppercase(
+    apiText
+      .replace(/^Superior Sigil /, 'Sigil ')
+      .replace(/^Überlegenes Sigill /, 'Sigill ')
+      .replace(/^Sello superior /, 'Sello ')
+
+      .replace(/^Superior Rune /, 'Rune ')
+      .replace(/^Überlegene Rune /, 'Rune ')
+      .replace(/^Runa superior /, 'Runa ')
+
+      .replaceAll('"', '')
+      .replace(/^Plate of /, '')
+      .replace(/^Bowl of /, '')
+      .replace(/^Slice of /, '')
+      .replace(/^Scoop of /, '')
+      .replace(/ Squash Soup$/, '')
+
+      // .replace(/^Schüssel mit /, '')
+      // .replace(/^Teller mit /, '')
+
+      .replace(/^Plato de /, '')
+      .replace(/^Cuenco de /, ''),
+  );
+
+export const joinWith = (array, separator) =>
+  array.flatMap((element) => [element, separator]).slice(0, -1);
+
 function ModalContent(props) {
-  const { type, modifierData, modifierDataById: data } = props;
+  const { type, modifierData, modifierDataById: data, priceData } = props;
 
   const { classes } = useStyles();
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const currentIds = useSelector(getExtrasIds)[type] || [];
 
   const [search, setSearch] = React.useState('');
@@ -87,19 +118,19 @@ function ModalContent(props) {
     setSearch(event.target.value);
   };
 
-  const selectAllVisible = () => {
+  const selectAllVisible = React.useCallback(() => {
     const tmp = filteredItems.flatMap((array) => array[1]).map(({ id }) => id);
     dispatch(changeExtraIds({ type, ids: [...currentIds, ...tmp] }));
-  };
+  }, [filteredItems, dispatch, currentIds, type]);
 
-  const unselectAllVisible = () => {
+  const unselectAllVisible = React.useCallback(() => {
     const tmp = filteredItems.flatMap((array) => array[1]).map(({ id }) => id);
     const filtered = currentIds.filter((id) => !tmp.includes(id));
     dispatch(changeExtraIds({ type, ids: filtered }));
-  };
+  }, [filteredItems, currentIds, dispatch, type]);
 
   React.useEffect(() => {
-    document.onkeydown = function (e) {
+    function handleKeyEvent(e) {
       if (e.ctrlKey && e.code === 'KeyK') {
         searchRef.current.focus();
         e.preventDefault();
@@ -112,12 +143,12 @@ function ModalContent(props) {
         unselectAllVisible();
         e.preventDefault();
       }
-    };
-
+    }
+    document.addEventListener('keydown', handleKeyEvent);
     return () => {
-      document.onkeydown = undefined;
+      document.removeEventListener('keydown', handleKeyEvent);
     };
-  });
+  }, [dispatch, selectAllVisible, unselectAllVisible]);
 
   return (
     <DialogContent dividers className={classes.root}>
@@ -160,7 +191,7 @@ function ModalContent(props) {
         if (options.length === 0) return null;
         return (
           <div>
-            <FormControl sx={{ margin: 1 }} component="fieldset" variant="standard">
+            <FormControl sx={{ margin: 1, width: '100%' }} component="fieldset" variant="standard">
               <FormLabel component="legend">
                 {
                   // i18next-extract-mark-context-next-line {{extraSection}}
@@ -168,30 +199,65 @@ function ModalContent(props) {
                 }
               </FormLabel>
               <FormGroup>
-                {options.map(({ id, gw2id, subText, text }) => (
-                  <FormControlLabel
-                    key={id}
-                    control={
-                      <Checkbox
-                        name={id}
-                        checked={currentIds.includes(id)}
-                        onChange={handleCheckboxChange}
-                      />
-                    }
-                    label={
-                      <>
-                        <Item id={gw2id} disableLink text={text.replace('Superior ', '')} />
-                        {subText && (
-                          <Typography variant="caption" sx={{ marginLeft: 1, fontWeight: 200 }}>
-                            {
-                              // i18next-extract-mark-context-next-line {{extraSubText}}
-                              t('extraSubText', { context: subText })
-                            }
-                          </Typography>
-                        )}
-                      </>
-                    }
-                  />
+                {options.map(({ id, gw2id, displayIds, subText, textOverride }) => (
+                  <Box
+                    sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+                  >
+                    <FormControlLabel
+                      key={id}
+                      control={
+                        <Checkbox
+                          name={id}
+                          checked={currentIds.includes(id)}
+                          onChange={handleCheckboxChange}
+                        />
+                      }
+                      label={
+                        <>
+                          {displayIds ? (
+                            joinWith(
+                              displayIds.map((displayId) => (
+                                <Item
+                                  id={displayId}
+                                  disableLink
+                                  text={textOverride ?? formatApiText}
+                                />
+                              )),
+                              ' / ',
+                            )
+                          ) : (
+                            <Item id={gw2id} disableLink text={textOverride ?? formatApiText} />
+                          )}
+                          {subText && (
+                            <Typography variant="caption" sx={{ marginLeft: 1, fontWeight: 200 }}>
+                              {
+                                // i18next-extract-mark-context-next-line {{extraSubText}}
+                                t('extraSubText', { context: subText })
+                              }
+                            </Typography>
+                          )}
+                          {/* {priceIds && (
+                            <span style={{ fontSize: '0.6em' }}>
+                              <br />
+                              {priceIds.map((id) => (
+                                <Item id={id} />
+                              ))}
+                            </span>
+                          )} */}
+                        </>
+                      }
+                    />
+                    {priceData[id] !== undefined ? (
+                      <Typography variant="body2">
+                        {priceData[id].cheapestId ? (
+                          <>
+                            <Item id={priceData[id].cheapestId} disableText />{' '}
+                          </>
+                        ) : null}
+                        <Coin value={priceData[id].price} />
+                      </Typography>
+                    ) : null}
+                  </Box>
                 ))}
               </FormGroup>
             </FormControl>

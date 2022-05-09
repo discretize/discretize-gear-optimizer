@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { PARAMS, setQueryParm, useQueryParam } from '../../utils/queryParam';
+import { changeAll } from './controlsSlice';
 
 function trycatch(func, fail) {
   try {
@@ -39,6 +40,15 @@ export const userSettingsSlice = createSlice({
     },
     changeGameMode: (state, action) => {
       state.gameMode = action.payload;
+    },
+  },
+  extraReducers: {
+    [changeAll]: (state, action) => {
+      if (action.payload?.userSettings?.gameMode) {
+        setQueryParm({ key: PARAMS.GAMEMODE, value: action.payload.userSettings.gameMode });
+      }
+
+      return { ...state, ...action.payload?.userSettings };
     },
   },
 });

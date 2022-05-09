@@ -1,4 +1,5 @@
 import { Specialization, Trait, TraitLine } from '@discretize/gw2-ui-new';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import { Box, FormControl, Input, InputLabel, MenuItem, Select, Typography } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
@@ -194,7 +195,7 @@ const Traits = () => {
         }
         {note ? (
           <Box sx={{ p: 1 }} maxWidth="648px">
-            <Info direction="row">
+            <Info icon={<WarningAmberIcon />}>
               {
                 // i18next-extract-mark-context-next-line {{traitNote}}
                 t('traitNote', { context: note })
@@ -214,7 +215,7 @@ const Traits = () => {
     <>
       {classNote ? (
         <Box sx={{ p: 1 }} maxWidth="648px">
-          <Info direction="row">
+          <Info icon={<WarningAmberIcon />}>
             {
               // i18next-extract-mark-context-next-line {{traitNote}}
               t('traitNote', { context: classNote })

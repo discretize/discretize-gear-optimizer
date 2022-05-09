@@ -1,5 +1,5 @@
-import { Classes, Defense } from './gw2-data';
 import type { ProfessionName } from './gw2-data';
+import { Classes, Defense } from './gw2-data';
 
 function firstUppercase(text: string | undefined | null): string {
   if (typeof text === 'undefined' || text === null || text === '') return '';
@@ -72,6 +72,15 @@ export function mapEntries<In, Out>(
   callbackFn: (v: [string, In]) => [string, Out],
 ): Record<string, Out> {
   return Object.fromEntries(Object.entries(obj).map(callbackFn));
+}
+
+export function chunkArray(arr: unknown[], size = 0) {
+  if (size < 1) throw new Error('Invalid chunk size');
+  const result = [];
+  for (let i = 0; i < arr.length; i += size) {
+    result.push(arr.slice(i, i + size));
+  }
+  return result;
 }
 
 /*

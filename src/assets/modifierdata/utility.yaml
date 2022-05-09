@@ -3,11 +3,13 @@
 
     - id: slaying-potion
       text: Slaying Potion
+      textOverride: Slaying Potion
       modifiers:
         damage:
           Strike Damage: [10%, mult]
           Damage Reduction: [10%, unknown]
       gw2id: 50082
+      priceIds: []
 
     - id: furious-sharpening-stone
       text: Furious Sharpening Stone
@@ -18,11 +20,13 @@
       gw2id: 67530
 
     - id: superior-sharpening-stone
-      text: Superior Sharpening Stone
+      text: Tin of Fruitcake / Superior Sharpening Stone
       modifiers:
         conversion:
           Power: {Precision: 3%, Ferocity: 6%}
-      gw2id: 9443
+      gw2id: 77569
+      displayIds: [77569, 9443]
+      priceIds: [77569, 9443]
 
     - id: toxic-sharpening-stone
       text: Toxic Sharpening Stone
@@ -85,11 +89,13 @@
       gw2id: 81157
 
     - id: master-maintenance-oil
-      text: Master Maintenance Oil / Peppermint Oil
+      text: Peppermint Oil / Master Maintenance Oil
       modifiers:
         conversion:
           Concentration: {Precision: 3%, Healing Power: 6%}
-      gw2id: 9461
+      gw2id: 77632
+      displayIds: [77632, 9461]
+      priceIds: [77632, 9461]
 
     - id: corsair-maintenance-oil
       text: Corsair Maintenance Oil
@@ -128,11 +134,13 @@
       gw2id: 67524
 
     - id: master-tuning-crystal
-      text: Master Tuning Crystal / Tuning Icicle
+      text: Tuning Icicle / Master Tuning Crystal
       modifiers:
         conversion:
           Condition Damage: {Precision: 3%, Expertise: 8%}
-      gw2id: 9476
+      gw2id: 77567
+      displayIds: [77567, 9476]
+      priceIds: [77567, 9476]
 
     - id: magnanimous-tuning-crystal
       text: Magnanimous Tuning Crystal
@@ -178,13 +186,38 @@
 - section: Writs
   items:
 
-    - id: writ-of-masterful-accuracy
-      text: Writ of Masterful Accuracy
-      subText: (100% uptime)
+    - id: writ-of-masterful-strength
+      text: Writ of Masterful Strength
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
-          Precision: [200, converted]
-      gw2id: 76833
+          Power: [200, converted]
+      gw2id: 73191
+
+    - id: writ-of-learned-strength
+      text: Writ of Learned Strength
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Power: [160, converted]
+      gw2id: 72807
+
+    - id: writ-of-calculated-strength
+      text: Writ of Calculated Strength
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Power: [120, converted]
+      gw2id: 77128
 
     - id: writ-of-masterful-malice
       text: Writ of Masterful Malice
@@ -197,16 +230,35 @@
           Condition Damage: [200, converted]
       gw2id: 72510
 
-    - id: writ-of-masterful-strength
-      text: Writ of Masterful Strength
+    - id: writ-of-learned-malice
+      text: Writ of Learned Malice
       amountData:
         label: '% uptime'
         default: 100
         quantityEntered: 100
       modifiers:
         attributes:
-          Power: [200, converted]
-      gw2id: 73191
+          Condition Damage: [160, converted]
+      gw2id: 76478
+
+    - id: writ-of-calculated-malice
+      text: Writ of Calculated Malice
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        attributes:
+          Condition Damage: [120, converted]
+      gw2id: 72572
+
+    - id: writ-of-masterful-accuracy
+      text: Writ of Masterful Accuracy
+      subText: (100% uptime)
+      modifiers:
+        attributes:
+          Precision: [200, converted]
+      gw2id: 76833
 
     - id: writ-of-learned-accuracy
       text: Writ of Learned Accuracy
@@ -223,14 +275,6 @@
         attributes:
           Precision: [120, converted]
       gw2id: 72821
-
-    - id: writ-of-studied-accuracy
-      text: Writ of Studied Accuracy
-      subText: (100% uptime)
-      modifiers:
-        attributes:
-          Precision: [100, converted]
-      gw2id: 71514
 
 - section: Misc
   items:

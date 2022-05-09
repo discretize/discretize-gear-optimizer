@@ -70,9 +70,10 @@ import {
   getSecondaryInfusion,
   getSecondaryMaxInfusions,
 } from '../slices/infusions';
-import { getCustomAffixData, getPriority } from '../slices/priorities';
+import { getCustomAffixData, getExclusionData, getPriority } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
+import { getGameMode } from '../slices/userSettings';
 import type { OptimizerCoreSettings } from './optimizerCore';
 import { clamp, scaleValue } from './optimizerCore';
 
@@ -92,7 +93,9 @@ type MultiplierName =
   | 'Burning Damage'
   | 'Confusion Damage'
   | 'Poison Damage'
-  | 'Torment Damage';
+  | 'Torment Damage'
+  | 'Alternative Damage'
+  | 'Phantasm Damage';
 
 export interface AppliedModifier {
   id: string;
@@ -100,6 +103,7 @@ export interface AppliedModifier {
   enabled: boolean;
   amount: string;
   modifiers: YamlModifiers;
+  wvwModifiers?: YamlModifiers;
   amountData?: AmountData;
   // },
 }
@@ -107,9 +111,17 @@ export interface AppliedModifier {
 // todo: move these; they should be synchronized with ../../assets/modifierdata/metadata.js and
 // ../../components/sections/distribution/DamageDistribution.jsx
 // (unsure how that would best be done)
-type DistributionNameUI = 'Power' | 'Burning' | 'Bleeding' | 'Poisoned' | 'Torment' | 'Confusion';
+type DistributionNameUI =
+  | 'Power'
+  | 'Power2'
+  | 'Burning'
+  | 'Bleeding'
+  | 'Poisoned'
+  | 'Torment'
+  | 'Confusion';
 export type DistributionNameInternal =
   | 'Power'
+  | 'Power2'
   | 'Burning'
   | 'Bleeding'
   | 'Poison'
@@ -234,6 +246,7 @@ export function setupCombinations(reduxState: any) {
     const primaryMaxInfusionsText: string = getPrimaryMaxInfusions(reduxState);
     const secondaryMaxInfusionsText: string = getSecondaryMaxInfusions(reduxState);
     const forcedSlots: (AffixName | null)[] = getForcedSlots(reduxState);
+    const exclusions: Record<AffixName, boolean[]> = getExclusionData(reduxState);
     const optimizeFor: IndicatorName = getPriority('optimizeFor')(reduxState);
     const weaponType: WeaponHandednessType = getPriority('weaponType')(reduxState);
     const minBoonDurationText: string = getPriority('minBoonDuration')(reduxState);
@@ -247,6 +260,8 @@ export function setupCombinations(reduxState: any) {
       getDistributionNew(reduxState);
     const attackRateText: string = getAttackRate(reduxState);
     const movementUptimeText: string = getMovementUptime(reduxState);
+
+    const isWvW: boolean = getGameMode(reduxState) === 'wvw';
 
     // todo: consolidate error handling
     if (profession === '') {
@@ -299,6 +314,12 @@ export function setupCombinations(reduxState: any) {
     settings_baseAttributes['Critical Chance'] = 0.05;
     settings_baseAttributes['Critical Damage'] = 1.5;
 
+    if (profession === 'Mesmer') {
+      settings_baseAttributes['Clone Critical Chance'] = 0.05;
+      settings_baseAttributes['Phantasm Critical Chance'] = 0.05;
+      settings_baseAttributes['Phantasm Critical Damage'] = 1.5;
+    }
+
     for (const [key, value] of Object.entries(distribution)) {
       settings_baseAttributes[`${key} Coefficient`] = value;
     }
@@ -323,6 +344,8 @@ export function setupCombinations(reduxState: any) {
       'Confusion Damage': 1,
       'Poison Damage': 1,
       'Torment Damage': 1,
+      'Alternative Damage': 1,
+      'Phantasm Damage': 1,
     };
     const allDmgMult = {
       mult: { ...initialMultipliers },
@@ -370,17 +393,20 @@ export function setupCombinations(reduxState: any) {
         enabled = true,
         amount: amountText,
         // data: {
-        modifiers: {
-          damage = {},
-          attributes = {},
-          conversion = {},
-          conversionAfterBuffs = {},
-          // note,
-          // ...otherModifiers
-        },
+        modifiers,
+        wvwModifiers,
         amountData,
         // },
       } = item;
+
+      const {
+        damage = {},
+        attributes = {},
+        conversion = {},
+        conversionAfterBuffs = {},
+        // note,
+        // ...otherModifiers
+      } = isWvW ? wvwModifiers ?? modifiers : modifiers;
 
       if (!visible || !enabled) {
         continue;
@@ -407,6 +433,8 @@ export function setupCombinations(reduxState: any) {
             case 'Confusion Damage':
             case 'Poison Damage':
             case 'Torment Damage':
+            case 'Alternative Damage':
+            case 'Phantasm Damage':
               dmgBuff(attribute, scaledAmount, addOrMult);
               break;
             case 'All Damage':
@@ -495,6 +523,8 @@ export function setupCombinations(reduxState: any) {
         if (!collectedModifiers['convert'][attribute]) {
           collectedModifiers['convert'][attribute] = {};
         }
+        settings_baseAttributes[attribute] ??= 0;
+
         for (const [source, percentAmount] of Object.entries(val) as [
           ConversionSourceKey,
           Percent,
@@ -668,19 +698,31 @@ export function setupCombinations(reduxState: any) {
     let settings_forcedAcc: OptimizerCoreSettings['forcedAcc'] = false;
     let settings_forcedWep: OptimizerCoreSettings['forcedWep'] = false;
 
-    forcedSlots.forEach((affix, index) => {
-      if (!affix) {
-        return;
-      }
-      settings_affixesArray[index] = [affix];
-      if (['shld', 'glov', 'boot'].includes(ForcedSlots[index])) {
-        settings_forcedArmor = true;
-      } else if (['rng1', 'rng2'].includes(ForcedSlots[index])) {
-        settings_forcedRing = true;
-      } else if (['acc1', 'acc2'].includes(ForcedSlots[index])) {
-        settings_forcedAcc = true;
-      } else if (['wep1', 'wep2'].includes(ForcedSlots[index])) {
-        settings_forcedWep = true;
+    forcedSlots.forEach((forcedAffix, index) => {
+      if (forcedAffix || Object.values(exclusions).some((arr) => arr[index])) {
+        if (forcedAffix) {
+          settings_affixesArray[index] = [forcedAffix];
+        } else {
+          const filtered = settings_affixesArray[index].filter(
+            (affix) => !exclusions?.[affix]?.[index],
+          );
+          if (filtered.length) {
+            settings_affixesArray[index] = filtered;
+          } else {
+            // user excluded every possible affix; fallback to excluding nothing
+            return;
+          }
+        }
+
+        if (['shld', 'glov', 'boot'].includes(ForcedSlots[index])) {
+          settings_forcedArmor = true;
+        } else if (['rng1', 'rng2'].includes(ForcedSlots[index])) {
+          settings_forcedRing = true;
+        } else if (['acc1', 'acc2'].includes(ForcedSlots[index])) {
+          settings_forcedAcc = true;
+        } else if (['wep1', 'wep2'].includes(ForcedSlots[index])) {
+          settings_forcedWep = true;
+        }
       }
     });
 

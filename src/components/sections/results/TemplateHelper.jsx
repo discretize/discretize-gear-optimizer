@@ -5,6 +5,7 @@ import { mapValues, parseDistribution } from '../../../utils/usefulFunctions';
 
 const initial = {
   Power: 0,
+  Power2: 0,
   Burning: 0,
   Bleeding: 0,
   Poison: 0,
@@ -86,18 +87,18 @@ const TemplateHelper = ({ character }) => {
           const hits = playerData.statsTargets?.[0]?.[0]?.critableDirectDamageCount;
           const crits = playerData.statsTargets?.[0]?.[0]?.criticalRate;
 
-          const hitsPerSecond = hits / duration;
+          const hitsPerSecond = (hits / duration) * 0.95;
           const critPercent = (crits / hits) * 100;
 
           const minions = playerData.minions ?? [];
 
           const minionCounts = {
-            'Clone': { names: new Set(), minionHits: 0, minionCrits: 0 },
-            'Phantasm': { names: new Set(), minionHits: 0, minionCrits: 0 },
-            'Minion': { names: new Set(), minionHits: 0, minionCrits: 0 },
+            'Clone': { names: new Set(), minionHits: 0, minionCrits: 0, damage: 0 },
+            'Phantasm': { names: new Set(), minionHits: 0, minionCrits: 0, damage: 0 },
+            'Minion': { names: new Set(), minionHits: 0, minionCrits: 0, damage: 0 },
           };
 
-          for (const { name, targetDamageDist } of minions) {
+          for (const { name, totalTargetDamage, targetDamageDist } of minions) {
             console.log(name);
             let type = 'Minion';
             if (name === 'Clone') type = 'Clone';
@@ -112,6 +113,8 @@ const TemplateHelper = ({ character }) => {
               minionCounts[type].minionHits += minionHits ?? 0;
               minionCounts[type].minionCrits += minionCrits ?? 0;
             }
+
+            minionCounts[type].damage += totalTargetDamage?.[0]?.[0] ?? 0;
           }
 
           const minionData = Object.entries(minionCounts)
@@ -119,18 +122,32 @@ const TemplateHelper = ({ character }) => {
             .flatMap(([type, { names, minionHits, minionCrits }]) => {
               const namesString = [...names].join(', ');
 
-              const minionHitsPerSecond = minionHits / duration;
+              const minionHitsPerSecond = (minionHits / duration) * 0.95;
               const minionCritPercent = (minionCrits / minionHits) * 100;
 
               return [
                 [
-                  `${type} hits/sec (${minionCrits}/${minionHits}: ${minionCritPercent.toFixed(
+                  `95% ${type} hits/sec (${minionCrits}/${minionHits}: ${minionCritPercent.toFixed(
                     2,
                   )}% crit)`,
                   minionHitsPerSecond,
                 ],
                 `            - ${namesString}\n`,
               ];
+            });
+
+          let splitDamageTotal = 0;
+          let clonePhantasmDamageSum = 0;
+          const powerDPSPlayer = playerData.dpsTargets?.[0]?.[0]?.actorPowerDps;
+          splitDamageTotal += powerDPSPlayer;
+          const minionDamageData = Object.entries(minionCounts)
+            .filter(([_type, { damage }]) => damage)
+            .map(([type, { damage }]) => {
+              const dps = (damage ?? 0) / duration;
+              splitDamageTotal += dps;
+              if (['Clone', 'Phantasm'].includes(type)) clonePhantasmDamageSum += dps;
+
+              return [`${type} DPS`, dps];
             });
 
           const result = [
@@ -142,14 +159,21 @@ const TemplateHelper = ({ character }) => {
             ['Sum', sum],
             ['Total dps (log)', totalDPS],
             '\n',
+            ['Power DPS (player only)', powerDPSPlayer],
+            ...minionDamageData,
+            ['Power DPS Sum', splitDamageTotal],
+            '\n',
+            ['Clone+Phantasm DPS', clonePhantasmDamageSum],
+            '\n',
             [
-              `Player crittable hits per second (${crits}/${hits}: ${critPercent.toFixed(
+              `95% Player crittable hits per second (${crits}/${hits}: ${critPercent.toFixed(
                 2,
               )}% crit)`,
               hitsPerSecond,
             ],
             '\n',
             ...minionData,
+            `      (~95% multiplier discounts on-crit stacks that expire at phase end)`,
           ];
 
           const resultAreaText = result
@@ -160,7 +184,7 @@ const TemplateHelper = ({ character }) => {
             })
             .join('\n');
 
-          setInput({ Power: powerDPS, ...conditionData });
+          setInput({ Power: powerDPS, Power2: 0, ...conditionData });
           setUrlResult(resultAreaText);
         } catch (e) {
           console.error(e);
@@ -194,7 +218,7 @@ const TemplateHelper = ({ character }) => {
 
   // round
   Object.keys(values2).forEach((key) => {
-    values2[key] = key === 'Power' ? roundZero(values2[key]) : roundTwo(values2[key]);
+    values2[key] = key.startsWith('Power') ? roundZero(values2[key]) : roundTwo(values2[key]);
   });
 
   values2 = fixPoison(values2);
@@ -220,7 +244,7 @@ const TemplateHelper = ({ character }) => {
             {data.map(({ key }) => (
               <td key={key}>
                 {
-                  // i18next-extract-mark-context-next-line ["Power","Burning","Bleeding","Poison","Torment", "Confusion"]
+                  // i18next-extract-mark-context-next-line ["Power","Power2","Burning","Bleeding","Poison","Torment", "Confusion"]
                   t('DPSType', { context: key })
                 }
               </td>
@@ -272,7 +296,7 @@ const TemplateHelper = ({ character }) => {
         <tbody>
           <tr>
             {Object.keys(values2).map((key) => {
-              const type = key === 'Power' ? 'Power Coefficient' : `Avg. ${key} Stacks`;
+              const type = key.startsWith('Power') ? `${key} Coefficient` : `Avg. ${key} Stacks`;
               return <td key={type}>{type}</td>;
             })}
           </tr>

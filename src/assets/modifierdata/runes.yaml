@@ -135,6 +135,28 @@
           Flat DPS: 750 # copied from wiki
       gw2id: 24785
 
+    - id: rage
+      text: Superior Rune of Rage
+      subText: (maybe inaccurate)
+      modifiers:
+        damage:
+          Strike Damage: [5%, unknown]
+        attributes:
+          Ferocity: [175, converted]
+          Fury Duration: 50%
+      gw2id: 24717
+
+    - id: infiltration
+      text: Superior Rune of Infiltration
+      subText: (maybe inaccurate)
+      modifiers:
+        damage:
+          Strike Damage: [5%, unknown]
+        attributes:
+          Power: [175, converted]
+          Precision: [100, converted]
+      gw2id: 24703
+
 - section: Support Runes
   items:
 
@@ -191,6 +213,7 @@
 
     - id: surging-and-ruby-orb
       text: Superior Rune of Surging (5x) + Ruby Orb
+      textOverride: Rune of Surging (5x) + Ruby Orb
       modifiers:
         attributes:
           Power: [195, converted]
@@ -198,6 +221,7 @@
           Ferocity: [14, converted]
           Boon Duration: 15%
       gw2id: 76813
+      priceIds: []
 
     - id: surging
       text: Superior Rune of Surging
@@ -381,6 +405,7 @@
 
     - id: trapper-and-black-diamond
       text: Superior Rune of the Trapper (5x) + Black Diamond
+      textOverride: Rune of the Trapper (5x) + Black Diamond
       modifiers:
         attributes:
           Condition Damage: [192, converted]
@@ -389,6 +414,7 @@
           Expertise: [9, converted]
           Precision: [9, converted]
       gw2id: 67339
+      priceIds: []
 
     - id: nightmare
       text: Superior Rune of the Nightmare

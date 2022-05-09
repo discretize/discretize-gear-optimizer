@@ -1,13 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 
+const clone =
+  typeof structuredClone === 'function'
+    ? (value) => structuredClone(value)
+    : (value) => JSON.parse(JSON.stringify(value));
+
 export const distributionSlice = createSlice({
   name: 'distribution',
   initialState: {
+    selectedDistribution: '',
     version: 2,
     values1: {},
     values2: {
       Power: 3000,
+      Power2: 0,
       Burning: 0,
       Bleeding: 0,
       Poisoned: 0,
@@ -16,6 +23,7 @@ export const distributionSlice = createSlice({
     },
     textBoxes: {
       Power: '3000',
+      Power2: '0',
       Burning: '0',
       Bleeding: '0',
       Poisoned: '0',
@@ -40,27 +48,36 @@ export const distributionSlice = createSlice({
       };
     },
     changeAllDistributions: (state, action) => {
-      const distributionPreset = action.payload;
+      const { name, value } = action.payload;
+      try {
+        const distributionPreset = JSON.parse(value);
 
-      if (distributionPreset) {
         return {
           ...state,
+          selectedDistribution: name,
           values2: distributionPreset.values2,
           textBoxes: distributionPreset.values2,
         };
+      } catch (e) {
+        console.error(e);
       }
       return state;
     },
   },
   extraReducers: {
     [changeAll]: (state, action) => {
-      return { ...state, ...action.payload?.form?.distribution };
+      const newState = clone(action.payload?.form?.distribution);
+      newState.values2.Power2 ??= 0;
+      newState.textBoxes.Power2 ??= '0';
+
+      return { ...state, ...newState };
     },
     [setBuildTemplate]: (state, action) => {
-      const { distributionPreset } = action.payload;
+      const { distributionPreset, selectedDistribution } = action.payload;
 
       if (distributionPreset) {
         return {
+          selectedDistribution,
           version: 2,
           values1: {},
           values2: distributionPreset.values2,
@@ -74,6 +91,8 @@ export const distributionSlice = createSlice({
 
 export const getDistributionNew = (state) => state.optimizer.form.distribution.values2;
 export const getTextBoxes = (state) => state.optimizer.form.distribution.textBoxes;
+export const getSelectedDistribution = (state) =>
+  state.optimizer.form.distribution.selectedDistribution;
 
 export const { changeDistributionNew, changeTextBoxes, changeAllDistributions } =
   distributionSlice.actions;

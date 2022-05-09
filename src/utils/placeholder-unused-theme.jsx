@@ -10,6 +10,21 @@ const theme = createTheme({
       light: '#64ffff',
       dark: '#009a9b',
     },
+    themed: {
+      main: '#00cccc',
+      light: '#64ffff',
+      dark: '#009a9b',
+    },
+    subtleThemed: {
+      main: '#00cccc',
+      light: '#64ffff',
+      dark: '#066464',
+    },
+    unthemed: {
+      main: '#009a9b',
+      light: '#2f3136',
+      dark: '#2f3136',
+    },
     secondary: {
       main: '#ff6e40',
       light: '#FF8B66',

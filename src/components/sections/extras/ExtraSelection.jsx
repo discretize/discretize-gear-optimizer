@@ -1,4 +1,4 @@
-import { Item } from '@discretize/gw2-ui-new';
+import { APILanguageProvider, Item } from '@discretize/gw2-ui-new';
 import AddIcon from '@mui/icons-material/Add';
 import ClearIcon from '@mui/icons-material/Clear';
 import CloseIcon from '@mui/icons-material/Close';
@@ -6,10 +6,12 @@ import DeleteIcon from '@mui/icons-material/DeleteOutline';
 import {
   Box,
   Button,
+  Checkbox,
   Dialog,
   DialogActions,
   DialogTitle,
   Fade,
+  FormControlLabel,
   IconButton,
   List,
   ListItem,
@@ -27,8 +29,14 @@ import {
   getExtrasData,
   getExtrasIds,
 } from '../../../state/slices/extras';
+import { chunkArray } from '../../../utils/usefulFunctions';
 import AmountInput from '../../baseComponents/AmountInput';
-import ModalContent from './ModalContent';
+import Label from '../../baseComponents/Label';
+import ModalContent, { formatApiText, joinWith } from './ModalContent';
+
+// const roundPrice = (num) => Math.round(num / 100) * 100;
+const roundPrice = (num) => Math.round(num / 10) * 10;
+// const roundPrice = (num) => num;
 
 const useStyles = makeStyles()((theme) => ({
   list: {
@@ -40,18 +48,20 @@ const useStyles = makeStyles()((theme) => ({
     marginLeft: theme.spacing(1),
     fontWeight: 200,
   },
+  item: {
+    cursor: 'url(/images/cursors/green.png),pointer',
+  },
 }));
 
 export default function ExtraSelection(props) {
-  const { type, label, modifierDataById: data, text } = props;
+  const { type, label, modifierData, modifierDataById: data, text: labelText } = props;
 
   const { classes } = useStyles();
   const dispatch = useDispatch();
-  const { t } = useTranslation();
-  // const { language } = useI18next();
-  // const isChinese = language === 'zh';
-  // todo: replace this once dual sigils are not hardcoded with fake ids
-  const isChinese = false;
+  const { i18n, t } = useTranslation();
+  const { language } = i18n;
+
+  const extrasOverrideLanguage = language === 'zh' ? 'zh' : 'en';
 
   // state for the modal
   const [open, setOpen] = React.useState(false);
@@ -76,7 +86,7 @@ export default function ExtraSelection(props) {
     dispatch(changeExtraAmount({ type, id, amount: e.target.value }));
   };
 
-  const handleDelete = (id) => () => {
+  const handleDelete = (id) => (e) => {
     dispatch(changeExtraIds({ type, ids: currentIds.filter((id0) => id0 !== id) }));
   };
 
@@ -84,20 +94,86 @@ export default function ExtraSelection(props) {
     dispatch(changeExtraIds({ type, ids: [] }));
   };
 
+  const [priceData, setPriceData] = React.useState({});
+  const [showPriceData, setShowPriceData] = React.useState(false);
+
+  const getPriceData = React.useCallback(async () => {
+    const allItems = modifierData
+      .flatMap(({ items }) => items)
+      .map(({ id, gw2id, priceIds }) => ({ id, gw2id, priceIds, gw2ids: priceIds ?? [gw2id] }));
+    const allIds = allItems.flatMap((item) => item.gw2ids);
+    const apiDataChunks = await Promise.all(
+      chunkArray(allIds, 200).map((ids) =>
+        fetch(`https://api.guildwars2.com/v2/commerce/prices?ids=${ids.join(',')}`).then(
+          (response) => response.json(),
+        ),
+      ),
+    );
+    const apiDataEntries = apiDataChunks
+      .flat()
+      .map(({ id, sells: { unit_price: price } = {} }) => [id, roundPrice(price)]);
+    const apiData = Object.fromEntries(apiDataEntries);
+
+    const priceDataEntries = allItems
+      .map(({ id, gw2id, gw2ids = [] }) => {
+        let price = Infinity;
+        let cheapestId;
+
+        gw2ids.forEach((thisId) => {
+          const thisPrice = apiData[thisId] ?? Infinity;
+          if (thisPrice < price) {
+            price = thisPrice;
+            if (thisId !== gw2id) cheapestId = thisId;
+          }
+        });
+        return [id, { price, cheapestId }];
+      })
+      .filter(([_id, { price }]) => price !== Infinity);
+
+    setPriceData(Object.fromEntries(priceDataEntries));
+  }, [modifierData]);
+
+  const handlePriceChange = React.useCallback(
+    (e) => {
+      if (e.target.checked) getPriceData();
+      setShowPriceData(e.target.checked);
+    },
+    [getPriceData],
+  );
+
+  React.useEffect(() => {
+    function handleKeyEvent(e) {
+      // shortcut to show prices
+      if (e.ctrlKey && e.code === 'KeyP') {
+        setShowPriceData((prev) => {
+          if (!prev) getPriceData();
+          return !prev;
+        });
+        e.preventDefault();
+      }
+    }
+    document.addEventListener('keydown', handleKeyEvent);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyEvent);
+    };
+  }, [dispatch, handlePriceChange, getPriceData]);
+
   return (
-    <>
-      <Box display="flex" mb={1}>
-        <Typography variant="h6" component="span" flexGrow={1}>
+    <APILanguageProvider value={extrasOverrideLanguage}>
+      <Box display="flex" alignItems="flex-end" mb={1}>
+        <Typography component="span" flexGrow={1}>
           {label}
         </Typography>
         <Button variant="contained" size="small" startIcon={<AddIcon />} onClick={handleOpen}>
-          {t('Add')} {text}
+          {t('Add')} {labelText}
         </Button>
       </Box>
 
       <List className={classes.list} disablePadding>
         {currentIds.length > 0 ? (
           currentIds.map((extraId) => {
+            const { gw2id, displayIds, subText, textOverride } = data[extraId];
             const { amountData } = allExtrasModifiersById[extraId];
             const amount = extrasData[type][extraId]?.amount || '';
 
@@ -113,14 +189,22 @@ export default function ExtraSelection(props) {
                 <ListItemText
                   primary={
                     <Box display="flex">
-                      <Item
-                        id={data[extraId]?.gw2id}
-                        disableLink
-                        {...(!isChinese && { text: data[extraId]?.text.replace('Superior ', '') })}
-                      />
-                      {data[extraId]?.subText && (
+                      <Box>
+                        {displayIds ? (
+                          joinWith(
+                            displayIds.map((id) => (
+                              <Item id={id} text={textOverride ?? formatApiText} />
+                            )),
+                            ' / ',
+                          )
+                        ) : (
+                          <Item id={gw2id} text={textOverride ?? formatApiText} />
+                        )}
+                      </Box>
+
+                      {subText && (
                         <Typography variant="caption" className={classes.subText}>
-                          {t('extraSubText', { context: data[extraId]?.subText })}
+                          {t('extraSubText', { context: subText })}
                         </Typography>
                       )}
 
@@ -142,7 +226,7 @@ export default function ExtraSelection(props) {
             );
           })
         ) : (
-          <ListItem>
+          <ListItem onClick={handleOpen} className={classes.item}>
             <ListItemText>{t('None')}</ListItemText>
           </ListItem>
         )}
@@ -166,8 +250,18 @@ export default function ExtraSelection(props) {
             <CloseIcon />
           </IconButton>
         </DialogTitle>
-        <ModalContent {...props} />
+        <ModalContent {...props} priceData={showPriceData ? priceData : {}} />
         <DialogActions>
+          <FormControlLabel
+            control={<Checkbox checked={showPriceData} onChange={handlePriceChange} />}
+            label={
+              <>
+                {t('Show prices')} <Label>{t('Ctrl+p')}</Label>
+              </>
+            }
+            sx={{ ml: 0, mr: 'auto' }}
+          />
+
           <Button startIcon={<DeleteIcon />} onClick={deleteAll}>
             {t('Unselect all')}
           </Button>
@@ -175,6 +269,6 @@ export default function ExtraSelection(props) {
           <Button onClick={handleClose}>{t('Okay')}</Button>
         </DialogActions>
       </Dialog>
-    </>
+    </APILanguageProvider>
   );
 }

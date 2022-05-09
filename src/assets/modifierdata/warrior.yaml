@@ -32,6 +32,9 @@
       modifiers:
         damage:
           Strike Damage: [5%, add]
+      wvwModifiers:
+        damage:
+          Strike Damage: [3%, add]
       gw2id: 1444
       defaultEnabled: true
 
@@ -45,6 +48,9 @@
       modifiers:
         damage:
           Strike Damage: [10%, add]
+      wvwModifiers:
+        damage:
+          Strike Damage: [7%, add]
       gw2id: 1444
 
     - id: forceful-greatsword
@@ -111,6 +117,9 @@
       modifiers:
         conversion:
           Expertise: {Precision: 7%}
+      wvwModifiers:
+        conversion:
+          Expertise: {Precision: 4%}
       gw2id: 1455
       defaultEnabled: true
 
@@ -176,6 +185,9 @@
       modifiers:
         attributes:
           Bleeding Duration: 33%
+      wvwModifiers:
+        attributes:
+          Bleeding Duration: 15%
       gw2id: 1337
       defaultEnabled: true
 
@@ -197,7 +209,7 @@
       text: Furious
       amountData:
         label: 'stacks'
-        default: 25
+        default: 21
         quantityEntered: 25
       modifiers:
         attributes:
@@ -227,6 +239,9 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
+      wvwModifiers:
+        damage:
+          Strike Damage: [7%, mult]
       gw2id: 1372
       defaultEnabled: true
 
@@ -261,6 +276,9 @@
       modifiers:
         damage:
           Strike Damage: [10%, mult]
+      wvwModifiers:
+        damage:
+          Strike Damage: [7%, mult]
       gw2id: 1469
       defaultEnabled: true
 
@@ -269,6 +287,9 @@
       modifiers:
         attributes:
           Concentration: [120, buff]
+      wvwModifiers:
+        attributes:
+          Concentration: [60, buff]
       gw2id: 1471
       defaultEnabled: true
 
@@ -318,6 +339,9 @@
       modifiers:
         damage:
           Strike Damage: [10%, add]
+      wvwModifiers:
+        damage:
+          Strike Damage: [3%, add]
       gw2id: 1413
       defaultEnabled: true
 
@@ -445,6 +469,9 @@
       modifiers:
         damage:
           Strike Damage: [20%, mult]
+      wvwModifiers:
+        damage:
+          Strike Damage: [15%, mult]
       gw2id: 1928
       defaultEnabled: true
 
@@ -453,6 +480,9 @@
       modifiers:
         attributes:
           Burning Duration: 33%
+      wvwModifiers:
+        attributes:
+          Burning Duration: 10%
       gw2id: 2038
       defaultEnabled: true
 
@@ -518,6 +548,11 @@
           Ferocity: [250, buff]
           Power: [250, buff]
           Precision: [250, buff]
+      wvwModifiers:
+        attributes:
+          Ferocity: [175, buff]
+          Power: [175, buff]
+          Precision: [175, buff]
       gw2id: 2130
       defaultEnabled: true
 

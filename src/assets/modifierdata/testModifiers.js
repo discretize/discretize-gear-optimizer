@@ -3,19 +3,17 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-console */
-import fs from 'fs/promises';
+const fs = require('fs/promises');
 // eslint-disable-next-line import/no-extraneous-dependencies
-import yaml from 'js-yaml';
-import path from 'path';
-import {
-  buffsDict,
-  enhancementDict,
-  nourishmentDict,
-  runesDict,
-  sigilDict,
-} from '../../components/url-state/schema/SchemaDicts.js';
+const yaml = require('js-yaml');
+const path = require('path');
+const { requireTS } = require('../../utils/require-ts.js');
+
+const { buffsDict, enhancementDict, nourishmentDict, runesDict, sigilDict } = requireTS(
+  path.join(__dirname, '../../components/url-state/schema/SchemaDicts.js'),
+);
 // import specializationData from '../../utils/mapping/specializations.json' assert { type: 'json' };
-import {
+const {
   allAttributeCoefficientKeys,
   allAttributePercentKeys,
   allAttributePointKeys,
@@ -29,7 +27,9 @@ import {
   attributePercentKeysBlacklist,
   attributePointKeysBlacklist,
   damageKeysBlacklist,
-} from './metadata.ts';
+  alternateStats,
+  // mayBeConvertedToBlacklist,
+} = requireTS(path.join(__dirname, './metadata.ts'));
 
 const schemaKeys = {
   'runes.yaml': runesDict,
@@ -107,10 +107,12 @@ const testModifiers = async () => {
       for (const item of items) {
         const {
           id,
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
           text,
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          textOverride,
           subText,
           modifiers,
+          wvwModifiers,
           gw2id,
           type,
           minor,
@@ -118,8 +120,18 @@ const testModifiers = async () => {
           defaultEnabled,
           // eslint-disable-next-line @typescript-eslint/no-unused-vars
           hasLifesteal,
+          displayIds,
+          priceIds,
           ...otherKeys
         } = item;
+
+        if (fileIsExtra) {
+          if (!text) {
+            console.log(`❓ no text for ${id}!`);
+          } else if (displayIds?.length > 1 && !text.includes('/')) {
+            console.log(`❓ single text for multiple ids in ${id}!`);
+          }
+        }
 
         gentleAssert(
           !Object.keys(otherKeys).length,
@@ -143,6 +155,16 @@ const testModifiers = async () => {
           }
         };
         checkNullRecursively(item);
+
+        gentleAssert(
+          displayIds === undefined || Array.isArray(displayIds),
+          `err: invalid displayIds value ${displayIds} in ${id}!`,
+        );
+
+        gentleAssert(
+          priceIds === undefined || Array.isArray(priceIds),
+          `err: invalid priceIds value ${priceIds} in ${id}!`,
+        );
 
         if (amountData) {
           gentleAssert(typeof amountData.label === 'string', `err: missing amount label in ${id}`);
@@ -213,29 +235,37 @@ const testModifiers = async () => {
           gentleAssert(false, `err: ${id} doesn't have a type`);
 
         gentleAssert(typeof modifiers === 'object', `err: invalid or missing modifiers in ${id}`);
-
-        const { damage, attributes, conversion, conversionAfterBuffs, ...otherModifiers } =
-          modifiers;
         gentleAssert(
-          Object.keys(otherModifiers).length === 0,
-          `err: invalid modifier type(s): ${Object.keys(otherModifiers)}`,
+          wvwModifiers === undefined || typeof wvwModifiers === 'object',
+          `err: invalid wvwModifiers in ${id}`,
         );
 
-        if (damage) {
-          parseDamage(damage, id, amountData);
-        }
+        [modifiers, wvwModifiers].forEach((modifierData) => {
+          if (!modifierData) return;
 
-        if (attributes) {
-          parseAttributes(attributes, id, amountData);
-        }
+          const { damage, attributes, conversion, conversionAfterBuffs, ...otherModifiers } =
+            modifierData;
+          gentleAssert(
+            Object.keys(otherModifiers).length === 0,
+            `err: invalid modifier type(s): ${Object.keys(otherModifiers)}`,
+          );
 
-        if (conversion) {
-          parseConversion(conversion, id, amountData);
-        }
+          if (damage) {
+            parseDamage(damage, id, amountData);
+          }
 
-        if (conversionAfterBuffs) {
-          parseConversionAfterBuffs(conversionAfterBuffs, id, amountData);
-        }
+          if (attributes) {
+            parseAttributes(attributes, id, amountData);
+          }
+
+          if (conversion) {
+            parseConversion(conversion, id, amountData);
+          }
+
+          if (conversionAfterBuffs) {
+            parseConversionAfterBuffs(conversionAfterBuffs, id, amountData);
+          }
+        });
       }
     }
   }
@@ -263,6 +293,10 @@ function parseDamage(damage, id, amountData) {
         key !== 'Critical Damage' || mode === 'unknown',
         `set mode unknown for critical damage for now`,
       );
+
+      if (mode === 'target') {
+        gentleAssert(damage['Phantasm Damage'] !== undefined, `${id} is missing phantasm damage`);
+      }
     }
   }
 }
@@ -278,6 +312,9 @@ function parseAttributes(attributes, id, amountData) {
       if (amountData && !amountData.disableBlacklist && attributePointKeysBlacklist.includes(key))
         gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
 
+      // if (mayBeConvertedToBlacklist.includes(key) && amountData && allPairs.includes('converted'))
+      //   console.log(`❓ careful, ${id} may convert ${key} to a blacklisted amount`);
+
       // handle more than 2 pairs i.e. Concentration: [70, converted, 100, buff]
       const allPairsMut = [...allPairs];
       while (allPairsMut.length) {
@@ -287,6 +324,11 @@ function parseAttributes(attributes, id, amountData) {
         gentleAssert(
           allAttributePointModes.includes(mode),
           `invalid val ${allPairs} for ${key} in ${id}`,
+        );
+
+        gentleAssert(
+          mode === 'buff' || !alternateStats.includes(key),
+          `cannot convert stat ${key} in ${id}`,
         );
       }
     } else if (allAttributeCoefficientKeys.includes(key)) {

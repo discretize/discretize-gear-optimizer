@@ -80,6 +80,15 @@ export const specializationDict = [
   'Daredevil',
   'Deadeye',
   'Specter',
+  'Warrior',
+  'Revenant',
+  'Guardian',
+  'Ranger',
+  'Engineer',
+  'Elementalist',
+  'Mesmer',
+  'Necromancer',
+  'Thief',
 ];
 
 export const weaponTypeDict = ['Dual wield', 'Two-handed'];
@@ -144,6 +153,8 @@ export const runesDict = [
   'golemancer',
   'privateer',
   'krait-no-elite',
+  'rage',
+  'infiltration',
 ];
 
 export const sigilDict = [
@@ -214,6 +225,10 @@ export const enhancementDict = [
   'writ-of-learned-accuracy',
   'writ-of-calculated-accuracy',
   'writ-of-studied-accuracy',
+  'writ-of-learned-malice',
+  'writ-of-calculated-malice',
+  'writ-of-learned-strength',
+  'writ-of-calculated-strength',
 ];
 
 export const nourishmentDict = [
@@ -276,6 +291,10 @@ export const nourishmentDict = [
   'slice-of-candied-dragon-roll',
   'slice-of-allspice-cake',
   'slice-of-allspice-cake-with-ice-cream',
+  'avocado-smoothie',
+  'strawberry-cilantro-cheesecake',
+  'plate-of-poultry-aspic-with-salsa-garnish',
+  'plate-of-clear-truffle-and-cilantro-ravioli',
 ];
 
 export const buffsDict = [

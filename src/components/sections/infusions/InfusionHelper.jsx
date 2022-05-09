@@ -15,7 +15,7 @@ import {
 } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import React from 'react';
-import { Trans } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import {
@@ -118,6 +118,7 @@ const useStyles = makeStyles()((theme) => ({
 const InfusionHelper = () => {
   const dispatch = useDispatch();
   const { classes } = useStyles();
+  const { t } = useTranslation();
 
   const ar = parseAr(useSelector(getAR)).value;
   const maxInfusions = parseInfusionCount(useSelector(getMaxInfusions)).value;
@@ -349,7 +350,13 @@ const InfusionHelper = () => {
                 } else if (text.includes('Agony Infusion')) {
                   // fake higher infusions with a +24 with no tooltip
                   renderInfusions = (
-                    <Item id={49447} disableLink disableTooltip className={classes.bigStyle} />
+                    <Item
+                      id={49447}
+                      disableLink
+                      disableTooltip
+                      text={text.replace('Agony Infusion', t('Agony Infusion'))}
+                      className={classes.bigStyle}
+                    />
                   );
                 } else {
                   renderInfusions = text;

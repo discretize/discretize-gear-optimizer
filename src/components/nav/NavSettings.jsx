@@ -1,10 +1,4 @@
 import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
   Divider,
   FormControl,
   FormControlLabel,
@@ -18,23 +12,18 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { getBuildTemplateData } from '../../assets/presetdata/templateTransform';
 import SagaTypes from '../../state/sagas/sagaTypes';
-import {
-  getProfession,
-  getSelectedTemplate,
-  setBuildTemplate,
-} from '../../state/slices/controlsSlice';
+import { getSelectedTemplate } from '../../state/slices/controlsSlice';
 import {
   changeExpertMode,
   changeGameMode,
   getExpertMode,
   getGameMode,
 } from '../../state/slices/userSettings';
-import data from '../../utils/data';
 import { PARAMS, setQueryParm } from '../../utils/queryParam';
 import LanguageSelection from '../baseComponents/LanguageSelection';
 import Settings from '../baseComponents/Settings';
+import ReappplyTemplateDialog from './ReappplyTemplateDialog';
 
 const useStyles = makeStyles()((theme) => ({
   divider: {
@@ -47,6 +36,7 @@ const SETTINGS_STORAGE_KEY = 'globalSettings';
 export const GAME_MODES = (t) => [
   { value: 'fractals', label: t('Fractals') },
   { value: 'raids', label: t('Raids/Strikes') },
+  { value: 'wvw', label: t('WvW') },
 ];
 
 export default function NavSettings({
@@ -66,23 +56,8 @@ export default function NavSettings({
   const expertMode = useSelector(getExpertMode);
   const gameMode = useSelector(getGameMode);
   const selectedTemplate = useSelector(getSelectedTemplate);
-  const profession = useSelector(getProfession);
 
   const [open, setOpen] = React.useState(false);
-
-  const isFractals = gameMode === 'fractals';
-
-  const handleAcceptTemplateReapply = () => {
-    const buildTemplateData = getBuildTemplateData({
-      selectedTemplate,
-      isFractals,
-      profession,
-      data,
-    });
-    dispatch(setBuildTemplate(buildTemplateData));
-
-    setOpen(false);
-  };
 
   const handleClose = () => {
     setOpen(false);
@@ -104,7 +79,11 @@ export default function NavSettings({
     const newGameMode = e.target.value;
     setQueryParm({ key: PARAMS.GAMEMODE, value: newGameMode });
     dispatch(changeGameMode(newGameMode));
-    if (selectedTemplate && selectedTemplate.length > 0) setOpen(true);
+
+    const isFractalsNew = newGameMode === 'fractals';
+    const isFractalsOld = gameMode === 'fractals';
+    const isFractalsChanged = isFractalsNew !== isFractalsOld;
+    if (isFractalsChanged && selectedTemplate && selectedTemplate.length > 0) setOpen(true);
   };
 
   return (
@@ -148,33 +127,8 @@ export default function NavSettings({
                 <FormControlLabel key={value} value={value} control={<Radio />} label={label} />
               ))}
             </RadioGroup>
-          </FormControl>{' '}
-          <Dialog
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
-          >
-            <DialogTitle id="alert-dialog-title">
-              <Trans>Reapply template?</Trans>
-            </DialogTitle>
-            <DialogContent>
-              <DialogContentText id="alert-dialog-description">
-                <Trans>
-                  Would you like to apply the {isFractals ? 'fractal' : 'raid'} version of your
-                  current template? This will overwrite your current form selections.
-                </Trans>
-              </DialogContentText>
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClose}>
-                <Trans>Decline</Trans>
-              </Button>
-              <Button onClick={handleAcceptTemplateReapply} autoFocus variant="outlined">
-                <Trans>Accept</Trans>
-              </Button>
-            </DialogActions>
-          </Dialog>
+          </FormControl>
+          <ReappplyTemplateDialog open={open} handleClose={handleClose} />
         </>
       )}
     </Settings>
