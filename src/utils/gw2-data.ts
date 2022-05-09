@@ -368,89 +368,260 @@ export const Affix: Record<AffixNameOrCustom, AffixData> = {
   },
 };
 
+// export const Item = {
+//   HELM: {
+//     triple: {
+//       major: 63,
+//       minor: 45,
+//     },
+//     quadruple: {
+//       major: 54,
+//       minor: 30,
+//     },
+//     celestial: {
+//       major: 30,
+//       minor: 30,
+//     },
+//   },
+//   SHOULDERS: {
+//     triple: {
+//       major: 47,
+//       minor: 34,
+//     },
+//     quadruple: {
+//       major: 40,
+//       minor: 22,
+//     },
+//     celestial: {
+//       major: 22,
+//       minor: 22,
+//     },
+//   },
+//   CHEST: {
+//     triple: {
+//       major: 141,
+//       minor: 101,
+//     },
+//     quadruple: {
+//       major: 121,
+//       minor: 67,
+//     },
+//     celestial: {
+//       major: 67,
+//       minor: 67,
+//     },
+//   },
+//   GLOVES: {
+//     triple: {
+//       major: 47,
+//       minor: 34,
+//     },
+//     quadruple: {
+//       major: 40,
+//       minor: 22,
+//     },
+//     celestial: {
+//       major: 22,
+//       minor: 22,
+//     },
+//   },
+//   LEGGINGS: {
+//     triple: {
+//       major: 94,
+//       minor: 67,
+//     },
+//     quadruple: {
+//       major: 81,
+//       minor: 44,
+//     },
+//     celestial: {
+//       major: 44,
+//       minor: 44,
+//     },
+//   },
+//   BOOTS: {
+//     triple: {
+//       major: 47,
+//       minor: 34,
+//     },
+//     quadruple: {
+//       major: 40,
+//       minor: 22,
+//     },
+//     celestial: {
+//       major: 22,
+//       minor: 22,
+//     },
+//   },
+//   AMULET: {
+//     triple: {
+//       major: 157,
+//       minor: 108,
+//     },
+//     quadruple: {
+//       major: 133,
+//       minor: 71,
+//     },
+//     celestial: {
+//       major: 72,
+//       minor: 72,
+//     },
+//   },
+//   RING: {
+//     triple: {
+//       major: 126,
+//       minor: 85,
+//     },
+//     quadruple: {
+//       major: 106,
+//       minor: 56,
+//     },
+//     celestial: {
+//       major: 57,
+//       minor: 57,
+//     },
+//   },
+//   ACCESSORY: {
+//     triple: {
+//       major: 110,
+//       minor: 74,
+//     },
+//     quadruple: {
+//       major: 92,
+//       minor: 49,
+//     },
+//     celestial: {
+//       major: 50,
+//       minor: 50,
+//     },
+//   },
+//   BACK_ITEM: {
+//     triple: {
+//       major: 63,
+//       minor: 40,
+//     },
+//     quadruple: {
+//       major: 52,
+//       minor: 27,
+//     },
+//     celestial: {
+//       major: 28,
+//       minor: 28,
+//     },
+//   },
+//   ONEHANDED_WEAPON: {
+//     triple: {
+//       major: 125,
+//       minor: 90,
+//     },
+//     quadruple: {
+//       major: 108,
+//       minor: 59,
+//     },
+//     celestial: {
+//       major: 59,
+//       minor: 59,
+//     },
+//   },
+//   TWOHANDED_WEAPON: {
+//     triple: {
+//       major: 251,
+//       minor: 179,
+//     },
+//     quadruple: {
+//       major: 215,
+//       minor: 118,
+//     },
+//     celestial: {
+//       major: 118,
+//       minor: 118,
+//     },
+//   },
+// };
+
 export const Item = {
   HELM: {
     triple: {
-      major: 63,
-      minor: 45,
+      major: 60,
+      minor: 43,
     },
     quadruple: {
-      major: 54,
-      minor: 30,
+      major: 51,
+      minor: 28,
     },
     celestial: {
-      major: 30,
-      minor: 30,
+      major: 28,
+      minor: 28,
     },
   },
   SHOULDERS: {
     triple: {
-      major: 47,
-      minor: 34,
+      major: 45,
+      minor: 32,
     },
     quadruple: {
-      major: 40,
-      minor: 22,
+      major: 38,
+      minor: 21,
     },
     celestial: {
-      major: 22,
-      minor: 22,
+      major: 21,
+      minor: 21,
     },
   },
   CHEST: {
     triple: {
-      major: 141,
-      minor: 101,
+      major: 134,
+      minor: 96,
     },
     quadruple: {
-      major: 121,
-      minor: 67,
+      major: 115,
+      minor: 63,
     },
     celestial: {
-      major: 67,
-      minor: 67,
+      major: 63,
+      minor: 63,
     },
   },
   GLOVES: {
     triple: {
-      major: 47,
-      minor: 34,
+      major: 45,
+      minor: 32,
     },
     quadruple: {
-      major: 40,
-      minor: 22,
+      major: 38,
+      minor: 21,
     },
     celestial: {
-      major: 22,
-      minor: 22,
+      major: 21,
+      minor: 21,
     },
   },
   LEGGINGS: {
     triple: {
-      major: 94,
-      minor: 67,
+      major: 90,
+      minor: 64,
     },
     quadruple: {
-      major: 81,
-      minor: 44,
+      major: 77,
+      minor: 42,
     },
     celestial: {
-      major: 44,
-      minor: 44,
+      major: 42,
+      minor: 42,
     },
   },
   BOOTS: {
     triple: {
-      major: 47,
-      minor: 34,
+      major: 45,
+      minor: 32,
     },
     quadruple: {
-      major: 40,
-      minor: 22,
+      major: 38,
+      minor: 21,
     },
     celestial: {
-      major: 22,
-      minor: 22,
+      major: 21,
+      minor: 21,
     },
   },
   AMULET: {
