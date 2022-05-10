@@ -42,15 +42,7 @@ const ResultTableRow = ({
       }`
     : '';
 
-  const SavedComponent = React.memo(
-    savedSection
-      ? ({ onClick }) => (
-          <IconButton onClick={onClick} size="small">
-            <CloseIcon sx={{ opacity: 0.3, '&:hover': { opacity: 0.8, color: 'red' } }} />
-          </IconButton>
-        )
-      : StarRoundedIcon,
-  );
+  const SavedComponent = savedSection ? CloseIcon : StarRoundedIcon;
 
   return (
     <TableRow
@@ -65,7 +57,11 @@ const ResultTableRow = ({
           sx={
             saved
               ? {
-                  color: 'star',
+                  opacity: '0.3',
+                  '&:hover': {
+                    opacity: '0.8',
+                    color: 'red',
+                  },
                 }
               : {
                   opacity: '0.2',
