@@ -19,7 +19,6 @@ import { getProfession } from '../../../state/slices/controlsSlice';
 import { changePriority, getPriority } from '../../../state/slices/priorities';
 import { WeaponTypes } from '../../../utils/gw2-data';
 import { parsePriority } from '../../../utils/usefulFunctions';
-import CustomAffix from './CustomAffix';
 
 const useStyles = makeStyles()((theme) => ({
   text: {
@@ -55,10 +54,7 @@ const Priorities = () => {
   const minHealing = useSelector(getPriority('minHealing'));
   const minOutgoingHealing = useSelector(getPriority('minOutgoingHealing'));
   const minSurvivability = useSelector(getPriority('minSurvivability'));
-  const affixes = useSelector(getPriority('affixes'));
   const profession = useSelector(getProfession);
-
-  const customSelected = affixes.includes('Custom');
 
   const minCritChanceValue = parsePriority(minCritChance).value;
   const showWarning = profession !== 'Warrior' && minCritChanceValue && minCritChanceValue >= 99.9;
@@ -240,7 +236,6 @@ const Priorities = () => {
           </Trans>
         </MuiAlert>
       ) : null}
-      {customSelected ? <CustomAffix /> : null}
     </>
   );
 };

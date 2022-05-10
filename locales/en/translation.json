@@ -1,5 +1,6 @@
 {
   "% Outgoing Healing": "% Outgoing Healing",
+  "(valid types: \"triple,\" \"quadruple,\" \"celestial\")": "(valid types: \"triple,\" \"quadruple,\" \"celestial\")",
   "+ AR": "+ AR",
   "+15 AR from <1></1> w/ mastery": "+15 AR from <1></1> w/ mastery",
   "+5 AR from <1></1>": "+5 AR from <1></1>",
@@ -44,7 +45,7 @@
   "Ctrl+k": "Ctrl+k",
   "Ctrl+p": "Ctrl+p",
   "Ctrl+s": "Ctrl+s",
-  "Custom Affix (valid types: \"triple,\" \"quadruple,\" \"celestial\")": "Custom Affix (valid types: \"triple,\" \"quadruple,\" \"celestial\")",
+  "Custom Affix Data": "Custom Affix Data",
   "DPSType_Bleeding": "Bleeding DPS",
   "DPSType_Burning": "Burning DPS",
   "DPSType_Confusion": "Confusion DPS",
@@ -161,6 +162,7 @@
   "Skills": "Skills",
   "Skills Template": "Skills Template",
   "Specific Durations": "Specific Durations",
+  "Specify any attributes to simulate with the \"custom\" affix type.": "Specify any attributes to simulate with the \"custom\" affix type.",
   "Stat Infusion Slots": "Stat Infusion Slots",
   "Stats from affixes": "Stats from affixes",
   "Status:": "Status:",
