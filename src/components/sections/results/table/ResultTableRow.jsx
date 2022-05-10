@@ -1,7 +1,7 @@
 import { Item, Profession } from '@discretize/gw2-ui-new';
 import CloseIcon from '@mui/icons-material/Close';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
-import { IconButton, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import React from 'react';
