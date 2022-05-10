@@ -69,14 +69,14 @@ const CustomAffix = () => {
   return (
     <>
       <TextField
-        label={t('Custom Affix (valid types: "triple," "quadruple," "celestial")')}
+        placeholder={t('(valid types: "triple," "quadruple," "celestial")')}
         variant="standard"
         sx={{
           width: '100%',
           marginBottom: 1,
         }}
         multiline
-        minRows={5}
+        minRows={4}
         value={text}
         error={errorMsg !== ''}
         helperText={errorMsg}
