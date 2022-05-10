@@ -115,6 +115,10 @@ export interface OptimizerCoreSettings {
   maxToughness: number | null;
   minHealth: number | null;
   minCritChance: number | null;
+  minDamage: number | null;
+  minHealing: number | null;
+  minOutgoingHealing: number | null;
+  minSurvivability: number | null;
   maxResults: number;
   primaryInfusion: InfusionName | '';
   secondaryInfusion: InfusionName | '';
@@ -562,36 +566,33 @@ export class OptimizerCore {
       return false;
     }
 
-    switch (settings.rankby) {
-      case 'Damage':
-        const powerDamageScore = this.calcPower(character, damageMultiplier);
+    if (settings.rankby === 'Damage' || settings.minDamage) {
+      const powerDamageScore = this.calcPower(character, damageMultiplier);
 
-        // cache condi result based on cdmg and expertise
-        let condiDamageScore = 0;
-        if (settings.disableCondiResultCache) {
-          condiDamageScore = this.calcCondi(
-            character,
-            damageMultiplier,
-            settings.relevantConditions,
-          );
-        } else if (settings.relevantConditions.length > 0) {
-          const CONDI_CACHE_ID = attributes['Expertise'] + attributes['Condition Damage'] * 10000;
-          condiDamageScore =
-            this.condiResultCache?.get(CONDI_CACHE_ID) ||
-            this.calcCondi(character, damageMultiplier, settings.relevantConditions);
-          this.condiResultCache?.set(CONDI_CACHE_ID, condiDamageScore);
-        }
+      // cache condi result based on cdmg and expertise
+      let condiDamageScore = 0;
+      if (settings.disableCondiResultCache) {
+        condiDamageScore = this.calcCondi(character, damageMultiplier, settings.relevantConditions);
+      } else if (settings.relevantConditions.length > 0) {
+        const CONDI_CACHE_ID = attributes['Expertise'] + attributes['Condition Damage'] * 10000;
+        condiDamageScore =
+          this.condiResultCache?.get(CONDI_CACHE_ID) ||
+          this.calcCondi(character, damageMultiplier, settings.relevantConditions);
+        this.condiResultCache?.set(CONDI_CACHE_ID, condiDamageScore);
+      }
 
-        attributes['Damage'] =
-          powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] || 0);
-        break;
-      case 'Survivability':
-        this.calcSurvivability(character, damageMultiplier);
-        break;
-      case 'Healing':
-        this.calcHealing(character);
-        break;
-      // no default
+      attributes['Damage'] =
+        powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] || 0);
+    }
+    if (settings.rankby === 'Healing' || settings.minHealing) {
+      this.calcHealing(character);
+    }
+    if (settings.rankby === 'Survivability' || settings.minSurvivability) {
+      this.calcSurvivability(character, damageMultiplier);
+    }
+
+    if (!skipValidation && this.checkInvalidIndicators(character)) {
+      return false;
     }
 
     return true;
@@ -682,7 +683,25 @@ export class OptimizerCore {
       (settings.maxToughness !== null && attributes['Toughness'] > settings.maxToughness) ||
       (settings.minHealth !== null && attributes['Health'] < settings.minHealth) ||
       (settings.minCritChance !== null &&
-        attributes['Critical Chance'] < settings.minCritChance / 100);
+        attributes['Critical Chance'] < settings.minCritChance / 100) ||
+      (settings.minOutgoingHealing !== null &&
+        (attributes['Outgoing Healing'] ?? 0) < settings.minOutgoingHealing / 100);
+    if (invalid) {
+      character.valid = false;
+    }
+
+    return invalid;
+  }
+
+  checkInvalidIndicators(character: Character) {
+    const { settings } = this;
+    const { attributes } = character;
+
+    const invalid =
+      (settings.minDamage !== null && attributes['Damage'] < settings.minDamage) ||
+      (settings.minHealing !== null && attributes['Healing'] < settings.minHealing) ||
+      (settings.minSurvivability !== null &&
+        attributes['Survivability'] < settings.minSurvivability);
     if (invalid) {
       character.valid = false;
     }

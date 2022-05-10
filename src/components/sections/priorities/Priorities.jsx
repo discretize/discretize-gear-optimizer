@@ -27,7 +27,7 @@ const useStyles = makeStyles()((theme) => ({
   },
   formControl: {
     margin: theme.spacing(1),
-    width: 160,
+    width: 190,
   },
   box: {
     display: 'flex',
@@ -51,6 +51,10 @@ const Priorities = () => {
   const maxToughness = useSelector(getPriority('maxToughness'));
   const minHealth = useSelector(getPriority('minHealth'));
   const minCritChance = useSelector(getPriority('minCritChance'));
+  const minDamage = useSelector(getPriority('minDamage'));
+  const minHealing = useSelector(getPriority('minHealing'));
+  const minOutgoingHealing = useSelector(getPriority('minOutgoingHealing'));
+  const minSurvivability = useSelector(getPriority('minSurvivability'));
   const affixes = useSelector(getPriority('affixes'));
   const profession = useSelector(getProfession);
 
@@ -64,7 +68,7 @@ const Priorities = () => {
   };
 
   const optimizeForControl = (
-    <Grid item xs={12} sm={6}>
+    <Grid item xs={6}>
       <FormControl component="fieldset">
         <FormLabel component="legend">
           <Trans>Optimize for:</Trans>{' '}
@@ -86,10 +90,8 @@ const Priorities = () => {
               key={goal}
               value={goal}
               control={<Radio color="primary" />}
-              // i18next-extract-mark-context-next-line ["Damage","Survivability","Survivability (WIP)","Healing"]
-              label={t('priorityGoal', {
-                context: goal,
-              })}
+              // i18next-extract-mark-context-next-line ["Damage","Survivability","Healing"]
+              label={t(goal, { context: goal })}
             />
           ))}
         </RadioGroup>
@@ -98,7 +100,7 @@ const Priorities = () => {
   );
 
   const weaponTypeControl = (
-    <Grid item xs={12} sm={6}>
+    <Grid item xs={6}>
       <FormControl component="fieldset">
         <FormLabel component="legend">
           <Trans>Weapon type:</Trans>{' '}
@@ -130,44 +132,23 @@ const Priorities = () => {
     </Grid>
   );
 
-  const constraints = [
+  const resultConstraints = [
     {
-      type: 'minToughness',
-      value: minToughness,
-      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Toughness" disableLink />],
-      helpText: t('Only show results that fulfill a minimum amount of Toughness.'),
+      type: 'minDamage',
+      value: minDamage,
+      label: [<Trans>Min.</Trans>, ' ', t('Damage')],
     },
     {
-      type: 'maxToughness',
-      value: maxToughness,
-      label: [<Trans>Max.</Trans>, ' ', <Attribute name="Toughness" disableLink />],
-      helpText: t('Only show results that fulfill a maximum amount of Toughness.'),
+      type: 'minHealing',
+      value: minHealing,
+      label: [<Trans>Min.</Trans>, ' ', t('Healing')],
     },
     {
-      type: 'minBoonDuration',
-      value: minBoonDuration,
-      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Boon Duration" disableLink />],
-      helpText: t('Only show results that fulfill a minimum amount of Boon Duration.'),
+      type: 'minSurvivability',
+      value: minSurvivability,
+      label: [<Trans>Min.</Trans>, ' ', t('Survivability')],
     },
-    {
-      type: 'minHealingPower',
-      value: minHealingPower,
-      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Healing Power" disableLink />],
-      helpText: t('Only show results that fulfill a minimum amount of Healing Power.'),
-    },
-    {
-      type: 'minHealth',
-      value: minHealth,
-      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Health" disableLink />],
-      helpText: t('Only show results that fulfill a minimum amount of Health.'),
-    },
-    {
-      type: 'minCritChance',
-      value: minCritChance,
-      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Critical Chance" disableLink />],
-      helpText: t('Only show results that fulfill a minimum amount of Critical Chance.'),
-    },
-  ].map(({ type, label, value, helpText }) => {
+  ].map(({ type, label, value }) => {
     return (
       <Grid key={type} item xs={6} md={4} className={classes.box}>
         <FormControl className={classes.formControl} variant="standard">
@@ -181,36 +162,86 @@ const Priorities = () => {
             autoComplete="off"
           />
         </FormControl>
-        <HelperIcon text={helpText} />
+      </Grid>
+    );
+  });
+
+  const statConstraints = [
+    {
+      type: 'minToughness',
+      value: minToughness,
+      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Toughness" disableLink />],
+    },
+    {
+      type: 'maxToughness',
+      value: maxToughness,
+      label: [<Trans>Max.</Trans>, ' ', <Attribute name="Toughness" disableLink />],
+    },
+    {
+      type: 'minBoonDuration',
+      value: minBoonDuration,
+      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Boon Duration" disableLink />],
+    },
+    {
+      type: 'minHealingPower',
+      value: minHealingPower,
+      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Healing Power" disableLink />],
+    },
+    {
+      type: 'minHealth',
+      value: minHealth,
+      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Health" disableLink />],
+    },
+    {
+      type: 'minCritChance',
+      value: minCritChance,
+      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Critical Chance" disableLink />],
+    },
+    {
+      type: 'minOutgoingHealing',
+      value: minOutgoingHealing,
+      label: [<Trans>Min.</Trans>, ' ', t('% Outgoing Healing')],
+    },
+  ].map(({ type, label, value }) => {
+    return (
+      <Grid key={type} item xs={6} md={4} className={classes.box}>
+        <FormControl className={classes.formControl} variant="standard">
+          <InputLabel htmlFor={`${type}-input-with-icon-adornment`}>{label}</InputLabel>
+          <Input
+            id={`${type}-input-with-icon-adornment`}
+            value={value}
+            onChange={handleChange}
+            name={`${type}`}
+            error={parsePriority(value).error}
+            autoComplete="off"
+          />
+        </FormControl>
       </Grid>
     );
   });
 
   return (
-    <Grid container spacing={2}>
-      {optimizeForControl}
-      {weaponTypeControl}
+    <>
+      <Grid container m={1}>
+        {optimizeForControl}
+        {weaponTypeControl}
+      </Grid>
 
-      {constraints}
+      <Grid container>{statConstraints}</Grid>
+
+      <Grid container>{resultConstraints}</Grid>
 
       {showWarning ? (
-        <Grid item xs={12}>
-          <MuiAlert elevation={6} variant="filled" severity="warning">
-            <Trans>
-              Forcing 100% critical chance is not recommended in most cases. If capping critical
-              chance is optimal, the optimizer will do so automatically, and if it is not, forcing
-              it will lead to a worse result!
-            </Trans>
-          </MuiAlert>
-        </Grid>
+        <MuiAlert elevation={6} variant="filled" severity="warning">
+          <Trans>
+            Forcing 100% critical chance is not recommended in most cases. If capping critical
+            chance is optimal, the optimizer will do so automatically, and if it is not, forcing it
+            will lead to a worse result!
+          </Trans>
+        </MuiAlert>
       ) : null}
-
-      {customSelected ? (
-        <Grid item xs={12}>
-          <CustomAffix />
-        </Grid>
-      ) : null}
-    </Grid>
+      {customSelected ? <CustomAffix /> : null}
+    </>
   );
 };
 
