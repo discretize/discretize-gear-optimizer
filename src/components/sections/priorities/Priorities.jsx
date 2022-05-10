@@ -27,7 +27,7 @@ const useStyles = makeStyles()((theme) => ({
   },
   formControl: {
     margin: theme.spacing(1),
-    width: 160,
+    width: 190,
   },
   box: {
     display: 'flex',
@@ -90,10 +90,8 @@ const Priorities = () => {
               key={goal}
               value={goal}
               control={<Radio color="primary" />}
-              // i18next-extract-mark-context-next-line ["Damage","Survivability","Survivability (WIP)","Healing"]
-              label={t('priorityGoal', {
-                context: goal,
-              })}
+              // i18next-extract-mark-context-next-line ["Damage","Survivability","Healing"]
+              label={t(goal, { context: goal })}
             />
           ))}
         </RadioGroup>
@@ -168,30 +166,22 @@ const Priorities = () => {
     {
       type: 'minDamage',
       value: minDamage,
-      label: [<Trans>Min.</Trans>, ' ', 'Damage'],
+      label: [<Trans>Min.</Trans>, ' ', t('Damage')],
     },
     {
       type: 'minHealing',
       value: minHealing,
-      label: [
-        <Trans>Min.</Trans>,
-        ' ',
-        <Attribute name="Healing Power" text={t('Healing Output')} disableLink />,
-      ],
+      label: [<Trans>Min.</Trans>, ' ', t('Healing')],
     },
     {
       type: 'minSurvivability',
       value: minSurvivability,
-      label: [<Trans>Min.</Trans>, ' ', 'Survivability'],
+      label: [<Trans>Min.</Trans>, ' ', t('Survivability')],
     },
     {
       type: 'minOutgoingHealing',
       value: minOutgoingHealing,
-      label: [
-        <Trans>Min.</Trans>,
-        ' ',
-        <Attribute name="Healing Power" text={t('Outgoing Healing %')} disableLink />,
-      ],
+      label: [<Trans>Min.</Trans>, ' ', t('% Outgoing Healing')],
     },
   ].map(({ type, label, value }) => {
     return (
