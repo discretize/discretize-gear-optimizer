@@ -68,7 +68,7 @@ const Priorities = () => {
   };
 
   const optimizeForControl = (
-    <Grid item xs={12} sm={6}>
+    <Grid item xs={6}>
       <FormControl component="fieldset">
         <FormLabel component="legend">
           <Trans>Optimize for:</Trans>{' '}
@@ -100,7 +100,7 @@ const Priorities = () => {
   );
 
   const weaponTypeControl = (
-    <Grid item xs={12} sm={6}>
+    <Grid item xs={6}>
       <FormControl component="fieldset">
         <FormLabel component="legend">
           <Trans>Weapon type:</Trans>{' '}
@@ -132,7 +132,41 @@ const Priorities = () => {
     </Grid>
   );
 
-  const constraints = [
+  const resultConstraints = [
+    {
+      type: 'minDamage',
+      value: minDamage,
+      label: [<Trans>Min.</Trans>, ' ', t('Damage')],
+    },
+    {
+      type: 'minHealing',
+      value: minHealing,
+      label: [<Trans>Min.</Trans>, ' ', t('Healing')],
+    },
+    {
+      type: 'minSurvivability',
+      value: minSurvivability,
+      label: [<Trans>Min.</Trans>, ' ', t('Survivability')],
+    },
+  ].map(({ type, label, value }) => {
+    return (
+      <Grid key={type} item xs={6} md={4} className={classes.box}>
+        <FormControl className={classes.formControl} variant="standard">
+          <InputLabel htmlFor={`${type}-input-with-icon-adornment`}>{label}</InputLabel>
+          <Input
+            id={`${type}-input-with-icon-adornment`}
+            value={value}
+            onChange={handleChange}
+            name={`${type}`}
+            error={parsePriority(value).error}
+            autoComplete="off"
+          />
+        </FormControl>
+      </Grid>
+    );
+  });
+
+  const statConstraints = [
     {
       type: 'minToughness',
       value: minToughness,
@@ -164,21 +198,6 @@ const Priorities = () => {
       label: [<Trans>Min.</Trans>, ' ', <Attribute name="Critical Chance" disableLink />],
     },
     {
-      type: 'minDamage',
-      value: minDamage,
-      label: [<Trans>Min.</Trans>, ' ', t('Damage')],
-    },
-    {
-      type: 'minHealing',
-      value: minHealing,
-      label: [<Trans>Min.</Trans>, ' ', t('Healing')],
-    },
-    {
-      type: 'minSurvivability',
-      value: minSurvivability,
-      label: [<Trans>Min.</Trans>, ' ', t('Survivability')],
-    },
-    {
       type: 'minOutgoingHealing',
       value: minOutgoingHealing,
       label: [<Trans>Min.</Trans>, ' ', t('% Outgoing Healing')],
@@ -206,7 +225,13 @@ const Priorities = () => {
       {optimizeForControl}
       {weaponTypeControl}
 
-      {constraints}
+      <Grid item xs={12}>
+        <Grid container>{statConstraints}</Grid>
+      </Grid>
+
+      <Grid item xs={12}>
+        <Grid container>{resultConstraints}</Grid>
+      </Grid>
 
       {showWarning ? (
         <Grid item xs={12}>
