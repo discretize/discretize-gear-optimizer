@@ -1,4 +1,5 @@
-import { Item } from '@discretize/gw2-ui-new';
+import { Item, Profession } from '@discretize/gw2-ui-new';
+import CloseIcon from '@mui/icons-material/Close';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import { Typography } from '@mui/material';
 import TableCell from '@mui/material/TableCell';
@@ -7,7 +8,11 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { allExtrasModifiersById } from '../../../../assets/modifierdata';
 import { percents } from '../../../../assets/modifierdata/metadata';
-import { changeSelectedCharacter, toggleSaved } from '../../../../state/slices/controlsSlice';
+import {
+  changeSelectedCharacter,
+  removeFromSaved,
+  toggleSaved,
+} from '../../../../state/slices/controlsSlice';
 import { extrasTypes } from '../../../../state/slices/extras';
 
 const roundTwo = (num) => Math.round(num * 100) / 100;
@@ -22,6 +27,7 @@ const ResultTableRow = ({
   compareByPercent,
   displayExtras,
   displayAttributes,
+  savedSection,
 }) => {
   const dispatch = useDispatch();
 
@@ -36,6 +42,8 @@ const ResultTableRow = ({
       }`
     : '';
 
+  const SavedComponent = savedSection ? CloseIcon : StarRoundedIcon;
+
   return (
     <TableRow
       selected={selected}
@@ -45,11 +53,15 @@ const ResultTableRow = ({
       className={underlineClass}
     >
       <TableCell scope="row" align="center" padding="none">
-        <StarRoundedIcon
+        <SavedComponent
           sx={
             saved
               ? {
-                  color: 'star',
+                  opacity: '0.3',
+                  '&:hover': {
+                    opacity: '0.8',
+                    color: 'red',
+                  },
                 }
               : {
                   opacity: '0.2',
@@ -60,12 +72,20 @@ const ResultTableRow = ({
                 }
           }
           onClick={(e) => {
-            dispatch(toggleSaved(character));
+            if (savedSection) dispatch(removeFromSaved(character));
+            else dispatch(toggleSaved(character));
             e.stopPropagation();
           }}
         />
       </TableCell>
       <TableCell scope="row">
+        {savedSection && (
+          <Profession
+            name={character.settings.specialization}
+            disableText
+            style={{ fontSize: '1.1rem' }}
+          />
+        )}{' '}
         {value.toFixed(0)}
         {comparisonText ? (
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
@@ -87,6 +107,7 @@ const ResultTableRow = ({
           </Typography>
         </TableCell>
       ))}
+      {character.gear.length < 14 && <TableCell />}
       {character.infusions
         ? Object.values(character.infusions).map((element, index) => (
             // eslint-disable-next-line react/no-array-index-key

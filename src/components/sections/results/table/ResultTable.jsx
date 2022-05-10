@@ -1,12 +1,13 @@
-import { TextDivider } from '@discretize/react-discretize-components';
-import { Box } from '@mui/material';
+import { HelperIcon } from '@discretize/react-discretize-components';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import { Box, IconButton, Typography } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import classNames from 'classnames';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import {
@@ -19,6 +20,7 @@ import {
   getSelectedCharacter,
   getTallTable,
 } from '../../../../state/slices/controlsSlice';
+import SavedResultManager from '../SavedResultManager/SavedResultManager';
 import ResultTableHeaderRow from './ResultTableHeaderRow';
 import ResultTableRow from './ResultTableRow';
 
@@ -76,8 +78,10 @@ const emptyArray = [];
 
 const StickyHeadTable = () => {
   const { classes } = useStyles();
-
   const { t } = useTranslation();
+
+  const [managerOpen, setManagerOpen] = React.useState(false);
+
   const selectedCharacter = useSelector(getSelectedCharacter);
   const normalList = useSelector(getList) || emptyArray;
   const rawFilteredList = useSelector(getFilteredList) || emptyArray;
@@ -187,7 +191,7 @@ const StickyHeadTable = () => {
             </TableHead>
             <TableBody
               sx={{
-                cursor: 'pointer',
+                cursor: `url('/images/cursors/green.png'),pointer !important`,
               }}
             >
               {list.map((character, i) => {
@@ -217,58 +221,64 @@ const StickyHeadTable = () => {
         </TableContainer>
       </Box>
 
-      {saved.length ? (
-        <>
-          <TextDivider text={t('Saved Results')} />
-          <Box boxShadow={8} mb={3}>
-            <TableContainer
-              className={classNames(
-                classes.container,
-                tallTable ? classes.tallTable : classes.shortTable,
-              )}
+      <Box display="flex" alignItems="center" className={classes.tablehead}>
+        <Typography flexGrow={1} ml={2} fontWeight={600} fontFamily="Raleway">
+          <Trans>Saved Results</Trans>{' '}
+          <HelperIcon
+            text={t('Click the star icon to save a result for comparison.')}
+            fontSize="1rem"
+          />
+        </Typography>
+
+        <IconButton size="small" sx={{ margin: 1 }} onClick={() => setManagerOpen(true)}>
+          <ManageAccountsIcon />
+        </IconButton>
+        <SavedResultManager isOpen={managerOpen} setOpen={setManagerOpen} />
+      </Box>
+      <Box boxShadow={8} mb={3}>
+        <TableContainer
+          className={classNames(
+            classes.container,
+            tallTable ? classes.tallTable : classes.shortTable,
+          )}
+        >
+          <Table stickyHeader aria-label="saved results table" className={classes.tableCollapse}>
+            <TableHead style={{ visibility: 'collapse' }}>
+              <ResultTableHeaderRow
+                classes={classes}
+                weaponType={weaponType}
+                infusions={infusions}
+                rankBy={rankBy}
+                displayExtras={displayExtras}
+                displayAttributes={displayAttributes}
+              />
+            </TableHead>
+            <TableBody
+              sx={{
+                cursor: `url('/images/cursors/green.png'),pointer !important`,
+              }}
             >
-              <Table
-                stickyHeader
-                aria-label="saved results table"
-                className={classes.tableCollapse}
-              >
-                <TableHead style={{ visibility: 'collapse' }}>
-                  <ResultTableHeaderRow
-                    classes={classes}
-                    weaponType={weaponType}
-                    infusions={infusions}
-                    rankBy={rankBy}
+              {saved.map((character, i) => {
+                return (
+                  <ResultTableRow
+                    savedSection
+                    character={character}
+                    key={character.id}
+                    selected={character === selectedCharacter}
+                    saved={saved.includes(character)}
+                    mostCommonAffix={mostCommonAffix}
+                    underlineClass={i === saved.length - 1 ? classes.bigUnderline : null}
+                    selectedValue={selectedValue}
+                    compareByPercent={compareByPercent}
                     displayExtras={displayExtras}
                     displayAttributes={displayAttributes}
                   />
-                </TableHead>
-                <TableBody
-                  sx={{
-                    cursor: 'pointer',
-                  }}
-                >
-                  {saved.map((character, i) => {
-                    return (
-                      <ResultTableRow
-                        character={character}
-                        key={character.id}
-                        selected={character === selectedCharacter}
-                        saved={saved.includes(character)}
-                        mostCommonAffix={mostCommonAffix}
-                        underlineClass={i === saved.length - 1 ? classes.bigUnderline : null}
-                        selectedValue={selectedValue}
-                        compareByPercent={compareByPercent}
-                        displayExtras={displayExtras}
-                        displayAttributes={displayAttributes}
-                      />
-                    );
-                  })}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </Box>
-        </>
-      ) : null}
+                );
+              })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Box>
     </>
   );
 };

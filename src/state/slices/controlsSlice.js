@@ -115,6 +115,13 @@ export const controlSlice = createSlice({
         state.saved.push(action.payload);
       }
     },
+    addToSaved: (state, action) => {
+      state.saved.push(action.payload);
+    },
+    removeFromSaved: (state, action) => {
+      const originalSaved = original(state.saved);
+      state.saved = originalSaved.filter((character) => character !== action.payload);
+    },
     changeCompareByPercent: (state, action) => {
       state.compareByPercent = action.payload;
     },
@@ -167,6 +174,8 @@ export const {
   changeDisplayAttributes,
   changeTallTable,
   toggleSaved,
+  addToSaved,
+  removeFromSaved,
   changeCompareByPercent,
   setBuildTemplate,
   changeSelectedCharacter,

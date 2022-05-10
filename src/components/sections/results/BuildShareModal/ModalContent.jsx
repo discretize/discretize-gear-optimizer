@@ -190,6 +190,7 @@ export default function ModalContent({ character, buttons }) {
       <ButtonGroup variant="contained" color="primary">
         {buttons.map(({ label, icon: ButtonIcon, onClick }, index) => (
           <Button
+            key={label}
             startIcon={buttonState[index] ? <DoneIcon /> : <ButtonIcon />}
             disabled={buttonState[index]}
             onClick={() => {
