@@ -9,6 +9,7 @@ import {
   InputLabel,
   Radio,
   RadioGroup,
+  Typography,
 } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 import React from 'react';
@@ -221,36 +222,27 @@ const Priorities = () => {
   });
 
   return (
-    <Grid container spacing={2}>
-      {optimizeForControl}
-      {weaponTypeControl}
-
-      <Grid item xs={12}>
-        <Grid container>{statConstraints}</Grid>
+    <>
+      <Grid container m={1}>
+        {optimizeForControl}
+        {weaponTypeControl}
       </Grid>
 
-      <Grid item xs={12}>
-        <Grid container>{resultConstraints}</Grid>
-      </Grid>
+      <Grid container>{statConstraints}</Grid>
+
+      <Grid container>{resultConstraints}</Grid>
 
       {showWarning ? (
-        <Grid item xs={12}>
-          <MuiAlert elevation={6} variant="filled" severity="warning">
-            <Trans>
-              Forcing 100% critical chance is not recommended in most cases. If capping critical
-              chance is optimal, the optimizer will do so automatically, and if it is not, forcing
-              it will lead to a worse result!
-            </Trans>
-          </MuiAlert>
-        </Grid>
+        <MuiAlert elevation={6} variant="filled" severity="warning">
+          <Trans>
+            Forcing 100% critical chance is not recommended in most cases. If capping critical
+            chance is optimal, the optimizer will do so automatically, and if it is not, forcing it
+            will lead to a worse result!
+          </Trans>
+        </MuiAlert>
       ) : null}
-
-      {customSelected ? (
-        <Grid item xs={12}>
-          <CustomAffix />
-        </Grid>
-      ) : null}
-    </Grid>
+      {customSelected ? <CustomAffix /> : null}
+    </>
   );
 };
 
