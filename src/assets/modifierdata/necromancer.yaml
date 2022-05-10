@@ -12,6 +12,16 @@
           Power: [180, buff]
       gw2id: 10622
 
+    # additional 270 - 180 = 90 power while in shroud
+    - id: signet-of-spite-traited
+      text: Signet of Spite
+      subText: traited, 100%
+      modifiers:
+        attributes:
+          Power: [180, buff]
+          Alternative Power: [90, buff]
+      gw2id: 10622
+
 - section: Spite
   id: 53
   items:
@@ -197,11 +207,10 @@
 
     - id: death-perception
       text: Death Perception
-      subText: 'INACCURATE: 100% in shroud'
       modifiers:
         attributes:
-          Critical Chance: 33%
-          Ferocity: [300, buff]
+          Alternative Critical Chance: 33%
+          Alternative Ferocity: [300, buff]
       gw2id: 893
       defaultEnabled: true
 
@@ -263,7 +272,7 @@
           Expertise: [135, converted]
       gw2id: 2121
       defaultEnabled: true
-    
+
     - id: blood-as-sand-1x
       text: Blood as Sand
       subText: 1x
@@ -275,7 +284,7 @@
         damage:
           Damage Reduction: [3%, unknown]
       gw2id: 2096
-    
+
     - id: blood-as-sand-2x
       text: Blood as Sand
       subText: 2x
@@ -356,10 +365,9 @@
 
     - id: reapers-onslaught
       text: Reaper's Onslaught
-      subText: 'INACCURATE: 100% in shroud'
       modifiers:
         attributes:
-          Ferocity: [300, buff]
+          Alternative Ferocity: [300, buff]
       gw2id: 2021
       defaultEnabled: true
 

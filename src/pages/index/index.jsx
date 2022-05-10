@@ -29,9 +29,7 @@ const IndexPage = () => {
     </>,
     <>
       <Trans>
-        The gear optimizer is currently in beta! Templates are not final and illusion/summon/mech
-        and lifesteal and condition-on-crit damage is inaccurate. Please report potential issues to
-        us in
+        The gear optimizer is currently in beta! Please report potential issues to us in
       </Trans>{' '}
       <Link href="https://discord.gg/Qdt7nFY" color="textPrimary" target="_blank" rel="noopener">
         Discord

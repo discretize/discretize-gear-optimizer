@@ -2,6 +2,13 @@ import { useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
 import fractalImg from '../../assets/images/background/fractals.jpg';
 import raidImg from '../../assets/images/background/raids.jpg';
+import wvwImg from '../../assets/images/background/wvw.jpg';
+
+const images = {
+  'fractals': fractalImg,
+  'raids': raidImg,
+  'wvw': wvwImg,
+};
 
 export default function BackgroundImage({ gameMode }) {
   const theme = useTheme();
@@ -11,7 +18,7 @@ export default function BackgroundImage({ gameMode }) {
 
   return (
     <img
-      src={gameMode === 'fractals' ? fractalImg : raidImg}
+      src={images[gameMode] ?? raidImg}
       style={{
         objectFit: 'cover',
         position: 'fixed',

@@ -1,7 +1,74 @@
 GraphQL ID: presetTraits
 list:
 
-  - name: Power Chrono IA
+  - name: Power Chrono DT Focus
+    profession: Chronomancer
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "10",
+          "1",
+          "40"
+        ],
+        "selectedTraits": [
+          [
+            682,
+            713,
+            681
+          ],
+          [
+            701,
+            708,
+            692
+          ],
+          [
+            1995,
+            2009,
+            1890
+          ]
+        ],
+        "items": [
+          {
+            "fragility": {
+              "amount": ""
+            },
+            "egotism": {
+              "amount": ""
+            },
+            "vicious-expression": {
+              "amount": ""
+            },
+            "empowered-illusions": {}
+          },
+          {
+            "fencers-finesse": {
+              "amount": ""
+            },
+            "superiority-complex-base": {},
+            "superiority-complex": {
+              "amount": ""
+            },
+            "phantasmal-fury": {},
+            "sharper-images-phantasm": {
+              "amount": "3.87"
+            },
+            "sharper-images-clone": {
+              "amount": ".97"
+            }
+          },
+          {
+            "danger-time": {},
+            "chronophantasma": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Power Chrono IA Focus
     profession: Chronomancer
     traits: |-
       {
@@ -38,7 +105,8 @@ list:
             },
             "vicious-expression": {
               "amount": ""
-            }
+            },
+            "empowered-illusions": {}
           },
           {
             "fencers-finesse": {
@@ -48,15 +116,84 @@ list:
             "superiority-complex": {
               "amount": ""
             },
-            "sharper-images": {
-              "amount": "4.01"
+            "phantasmal-fury": {},
+            "sharper-images-phantasm": {
+              "amount": "3.81"
             },
-            "sharper-images-minus-fury": {
-              "amount": "1.02"
+            "sharper-images-clone": {
+              "amount": "0.97"
             }
           },
           {
-            "danger-time": {}
+            "danger-time": {},
+            "chronophantasma": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Power Quickness Chrono
+    profession: Chronomancer
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "10",
+          "1",
+          "40"
+        ],
+        "selectedTraits": [
+          [
+            686,
+            713,
+            681
+          ],
+          [
+            701,
+            708,
+            692
+          ],
+          [
+            1995,
+            1978,
+            2022
+          ]
+        ],
+        "items": [
+          {
+            "fragility": {
+              "amount": ""
+            },
+            "egotism": {
+              "amount": ""
+            },
+            "vicious-expression": {
+              "amount": ""
+            },
+            "empowered-illusions": {}
+          },
+          {
+            "fencers-finesse": {
+              "amount": ""
+            },
+            "superiority-complex-base": {},
+            "superiority-complex": {
+              "amount": ""
+            },
+            "phantasmal-fury": {},
+            "sharper-images-phantasm": {
+              "amount": "1.99"
+            },
+            "sharper-images-clone": {
+              "amount": "0.88"
+            }
+          },
+          {
+            "danger-time": {},
+            "chronophantasma": {}
           }
         ]
       }
@@ -111,8 +248,11 @@ list:
             "superiority-complex": {
               "amount": ""
             },
-            "sharper-images-minus-fury": {
-              "amount": "4.43"
+            "sharper-images-clone": {
+              "amount": "3.48"
+            },
+            "sharper-images-phantasm": {
+              "amount": "0.73"
             }
           },
           {
@@ -179,9 +319,13 @@ list:
             "superiority-complex": {
               "amount": ""
             },
-            "sharper-images-minus-fury": {
-              "amount": "2.68"
-            }
+            "sharper-images-clone": {
+              "amount": "2.50"
+            },
+            "sharper-images-phantasm": {
+              "amount": "0.04"
+            },
+            "phantasmal-fury": {}
           },
           {
             "nomads-endurance": {
@@ -239,8 +383,11 @@ list:
             "superiority-complex": {
               "amount": ""
             },
-            "sharper-images-minus-fury": {
-              "amount": "1.51"
+            "sharper-images-clone": {
+              "amount": "0.41"
+            },
+            "sharper-images-phantasm": {
+              "amount": "1.02"
             }
           },
           {
@@ -286,19 +433,23 @@ list:
           {
             "compounding-power": {
               "amount": ""
+            },
+            "Phantasmal Force": {
+              "amount": ""
             }
           },
           {
             "fencers-finesse": {
-              "amount": "5.3"
+              "amount": "5.09"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
-            "sharper-images": {
+            "sharper-images-phantasm": {
               "amount": "1.73"
-            }
+            },
+            "phantasmal-fury-virtuoso": {}
           },
           {
             "mental-focus": {
@@ -355,19 +506,23 @@ list:
           {
             "compounding-power": {
               "amount": ""
+            },
+            "Phantasmal Force": {
+              "amount": ""
             }
           },
           {
             "fencers-finesse": {
-              "amount": "5.3"
+              "amount": "5.09"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
-            "sharper-images": {
+            "sharper-images-phantasm": {
               "amount": "1.73"
-            }
+            },
+            "phantasmal-fury-virtuoso": {}
           },
           {
             "mental-focus": {
@@ -393,76 +548,77 @@ list:
         }
       }
 
-  - name: Power Virtuoso (accuracy)
+  - name: Condi Virtuoso (chaos)
     profession: Virtuoso
     traits: |-
       {
         "showAll": false,
         "selectedLines": [
-          "10",
-          "1",
+          "24",
+          "45",
           "66"
         ],
         "selectedTraits": [
           [
-            0,
-            713,
-            681
+            721,
+            1690,
+            2035
           ],
           [
-            701,
-            708,
-            692
+            670,
+            669,
+            671
           ],
           [
-            2208,
-            2205,
+            2202,
+            2207,
             2223
           ]
         ],
         "items": [
           {
-            "fragility": {
+            "compounding-power": {
               "amount": ""
             },
-            "egotism": {
-              "amount": ""
-            },
-            "vicious-expression": {
+            "Phantasmal Force": {
               "amount": ""
             }
           },
           {
-            "fencers-finesse": {
+            "illusionary-defense": {
               "amount": ""
             },
-            "superiority-complex-base": {},
-            "superiority-complex": {
+            "illusionary-membrane": {
               "amount": ""
             },
-            "sharper-images-minus-7": {
-              "amount": "1.75"
-            }
+            "chaotic-potency": {},
+            "chaotic-persistence": {}
           },
           {
             "mental-focus": {
               "amount": ""
             },
             "deadly-blades": {
-              "amount": ""
+              "amount": "98"
             },
             "sharpening-sorrow": {},
             "quiet-intensity": {},
-            "bloodsong": {}
+            "bloodsong": {},
+            "jagged-mind": {
+              "amount": "5.8"
+            }
           }
         ]
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "signet-of-domination": {},
+          "signet-of-midnight": {}
+        }
       }
 
-  - name: Power Virtuoso (no accuracy)
+  - name: Power Virtuoso
     profession: Virtuoso
     traits: |-
       {
@@ -474,7 +630,7 @@ list:
         ],
         "selectedTraits": [
           [
-            0,
+            686,
             713,
             681
           ],
@@ -509,9 +665,10 @@ list:
             "superiority-complex": {
               "amount": ""
             },
-            "sharper-images": {
-              "amount": "1.75"
-            }
+            "sharper-images-phantasm": {
+              "amount": "1.66"
+            },
+            "phantasmal-fury": {}
           },
           {
             "mental-focus": {
@@ -1755,7 +1912,6 @@ list:
             "deep-strikes": {
               "amount": ""
             },
-            "blade-master": {},
             "blade-master-2": {
               "amount": ""
             },
@@ -1765,7 +1921,8 @@ list:
             },
             "bloodlust-on-crit": {
               "amount": "3.17"
-            }
+            },
+            "blade-master-base-bugged": {}
           },
           {
             "warriors-sprint": {
@@ -4813,6 +4970,74 @@ list:
         "skills": {}
       }
 
+  - name: Power Alacrity Mechanist (inaccurate)
+    profession: Mechanist
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "38",
+          "6",
+          "70"
+        ],
+        "selectedTraits": [
+          [
+            1914,
+            1923,
+            526
+          ],
+          [
+            1882,
+            1892,
+            1947
+          ],
+          [
+            2296,
+            2276,
+            2281
+          ]
+        ],
+        "items": [
+          {
+            "chemical-rounds": {},
+            "high-caliber": {},
+            "hematic-focus": {},
+            "thermal-vision": {},
+            "no-scope": {
+              "amount": ""
+            },
+            "serrated-steel": {},
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": {},
+            "sharpshooter": {
+              "amount": "2"
+            }
+          },
+          {
+            "glass-cannon": {
+              "amount": ""
+            },
+            "explosive-temper": {
+              "amount": ""
+            },
+            "blast-shield": {},
+            "shaped-charge": {
+              "amount": ""
+            },
+            "big-boomer": {}
+          },
+          {}
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "force-signet": {}
+        }
+      }
+
   - name: Condi Mechanist J-Drive
     profession: Mechanist
     traits: |-
@@ -4924,6 +5149,72 @@ list:
             "incendiary-powder": {},
             "sharpshooter": {
               "amount": "4.01"
+            }
+          },
+          {
+            "glass-cannon": {
+              "amount": ""
+            },
+            "explosive-temper": {
+              "amount": ""
+            },
+            "blast-shield": {},
+            "shaped-charge": {
+              "amount": ""
+            },
+            "big-boomer": {}
+          },
+          {}
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Condi Alac Mechanist (inaccurate)
+    profession: Mechanist
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "38",
+          "6",
+          "70"
+        ],
+        "selectedTraits": [
+          [
+            1878,
+            2006,
+            433
+          ],
+          [
+            1882,
+            1892,
+            505
+          ],
+          [
+            2296,
+            2276,
+            2281
+          ]
+        ],
+        "items": [
+          {
+            "chemical-rounds": {},
+            "high-caliber": {},
+            "hematic-focus": {},
+            "thermal-vision": {},
+            "no-scope": {
+              "amount": ""
+            },
+            "serrated-steel": {},
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": {},
+            "sharpshooter": {
+              "amount": "4"
             }
           },
           {
@@ -5142,6 +5433,49 @@ list:
               "amount": ""
             }
           }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Heal Mechanist
+    profession: Mechanist
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "47",
+          "29",
+          "70"
+        ],
+        "selectedTraits": [
+          [
+            394,
+            1834,
+            1916
+          ],
+          [
+            521,
+            470,
+            473
+          ],
+          [
+            2296,
+            2276,
+            2281
+          ]
+        ],
+        "items": [
+          {
+            "over-shield": {},
+            "energy-amplifier": {}
+          },
+          {
+            "compounding-chemicals": {}
+          },
+          {}
         ]
       }
     skills: |-

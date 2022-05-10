@@ -93,7 +93,9 @@ type MultiplierName =
   | 'Burning Damage'
   | 'Confusion Damage'
   | 'Poison Damage'
-  | 'Torment Damage';
+  | 'Torment Damage'
+  | 'Alternative Damage'
+  | 'Phantasm Damage';
 
 export interface AppliedModifier {
   id: string;
@@ -109,9 +111,17 @@ export interface AppliedModifier {
 // todo: move these; they should be synchronized with ../../assets/modifierdata/metadata.js and
 // ../../components/sections/distribution/DamageDistribution.jsx
 // (unsure how that would best be done)
-type DistributionNameUI = 'Power' | 'Burning' | 'Bleeding' | 'Poisoned' | 'Torment' | 'Confusion';
+type DistributionNameUI =
+  | 'Power'
+  | 'Power2'
+  | 'Burning'
+  | 'Bleeding'
+  | 'Poisoned'
+  | 'Torment'
+  | 'Confusion';
 export type DistributionNameInternal =
   | 'Power'
+  | 'Power2'
   | 'Burning'
   | 'Bleeding'
   | 'Poison'
@@ -312,6 +322,12 @@ export function setupCombinations(reduxState: any) {
     settings_baseAttributes['Critical Chance'] = 0.05;
     settings_baseAttributes['Critical Damage'] = 1.5;
 
+    if (profession === 'Mesmer') {
+      settings_baseAttributes['Clone Critical Chance'] = 0.05;
+      settings_baseAttributes['Phantasm Critical Chance'] = 0.05;
+      settings_baseAttributes['Phantasm Critical Damage'] = 1.5;
+    }
+
     for (const [key, value] of Object.entries(distribution)) {
       settings_baseAttributes[`${key} Coefficient`] = value;
     }
@@ -336,6 +352,8 @@ export function setupCombinations(reduxState: any) {
       'Confusion Damage': 1,
       'Poison Damage': 1,
       'Torment Damage': 1,
+      'Alternative Damage': 1,
+      'Phantasm Damage': 1,
     };
     const allDmgMult = {
       mult: { ...initialMultipliers },
@@ -423,6 +441,8 @@ export function setupCombinations(reduxState: any) {
             case 'Confusion Damage':
             case 'Poison Damage':
             case 'Torment Damage':
+            case 'Alternative Damage':
+            case 'Phantasm Damage':
               dmgBuff(attribute, scaledAmount, addOrMult);
               break;
             case 'All Damage':

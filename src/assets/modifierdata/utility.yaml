@@ -3,11 +3,13 @@
 
     - id: slaying-potion
       text: Slaying Potion
+      textOverride: Slaying Potion
       modifiers:
         damage:
           Strike Damage: [10%, mult]
           Damage Reduction: [10%, unknown]
       gw2id: 50082
+      priceIds: []
 
     - id: furious-sharpening-stone
       text: Furious Sharpening Stone
@@ -18,12 +20,13 @@
       gw2id: 67530
 
     - id: superior-sharpening-stone
-      text: Superior Sharpening Stone / Tin of Fruitcake
+      text: Tin of Fruitcake / Superior Sharpening Stone
       modifiers:
         conversion:
           Power: {Precision: 3%, Ferocity: 6%}
-      gw2id: 9443
-      # gw2id: 77569
+      gw2id: 77569
+      displayIds: [77569, 9443]
+      priceIds: [77569, 9443]
 
     - id: toxic-sharpening-stone
       text: Toxic Sharpening Stone
@@ -91,6 +94,8 @@
         conversion:
           Concentration: {Precision: 3%, Healing Power: 6%}
       gw2id: 77632
+      displayIds: [77632, 9461]
+      priceIds: [77632, 9461]
 
     - id: corsair-maintenance-oil
       text: Corsair Maintenance Oil
@@ -134,6 +139,8 @@
         conversion:
           Condition Damage: {Precision: 3%, Expertise: 8%}
       gw2id: 77567
+      displayIds: [77567, 9476]
+      priceIds: [77567, 9476]
 
     - id: magnanimous-tuning-crystal
       text: Magnanimous Tuning Crystal

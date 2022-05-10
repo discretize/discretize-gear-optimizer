@@ -1,5 +1,4 @@
 - section: Skills
-  note: Power damage from illusions is not currently accurate, particularly with accuracy sigil or Phantasmal Force and/or without Phantasmal Fury.
   items:
 
     - id: signet-of-domination
@@ -19,6 +18,14 @@
 - section: Domination
   id: 10
   items:
+
+    - id: empowered-illusions
+      text: Empowered Illusions
+      modifiers:
+        damage:
+          Phantasm Damage: [15%, unknown]
+      gw2id: 682
+      defaultEnabled: true
 
     - id: fragility
       text: Fragility
@@ -57,20 +64,34 @@
       modifiers:
         damage:
           Strike Damage: [15%, mult]
+          Phantasm Damage: [15%, unknown]
       gw2id: 681
       defaultEnabled: true
 
 - section: Dueling
   id: 1
-  note: For accurate Sharper Images simulation, manually specify how your illusions' critical chance differs from yours. Illusions are not affected by accuracy sigils or by the player's fury.
   items:
 
-    # clones and fury-less phantasms have 20% less critical chance than player (with fury)
-    # or 30% (with fury and quiet intensity)
+    - id: phantasmal-fury
+      text: Phantasmal Fury
+      subText: normal
+      modifiers:
+        attributes:
+          Phantasm Critical Chance: 20%
+      gw2id: 701
 
-    - id: sharper-images
+    - id: phantasmal-fury-virtuoso
+      text: Phantasmal Fury
+      subText: virtuoso
+      modifiers:
+        attributes:
+          Phantasm Critical Chance: 30%
+      gw2id: 701
+      defaultEnabled: false
+
+    - id: sharper-images-phantasm
       text: Sharper Images
-      subText: 'player crit %'
+      subText: phantasm
       minor: true
       amountData:
         label: 'hit/s'
@@ -78,13 +99,13 @@
         quantityEntered: 1
       modifiers:
         conversionAfterBuffs:
-          Bleeding Coefficient: {Critical Chance: 500%}
+          Bleeding Coefficient: {Phantasm Critical Chance: 500%}
       gw2id: 710
       defaultEnabled: false
 
-    - id: sharper-images-minus-7
+    - id: sharper-images-clone
       text: Sharper Images
-      subText: '-7% crit'
+      subText: clone
       minor: true
       amountData:
         label: 'hit/s'
@@ -92,35 +113,7 @@
         quantityEntered: 1
       modifiers:
         conversionAfterBuffs:
-          Bleeding Coefficient: {Critical Chance -7: 500%}
-      gw2id: 710
-      defaultEnabled: false
-
-    - id: sharper-images-minus-fury
-      text: Sharper Images
-      subText: '-20% crit'
-      minor: true
-      amountData:
-        label: 'hit/s'
-        default: 0
-        quantityEntered: 1
-      modifiers:
-        conversionAfterBuffs:
-          Bleeding Coefficient: {Critical Chance -20: 500%}
-      gw2id: 710
-      defaultEnabled: false
-
-    - id: sharper-images-minus-27
-      text: Sharper Images
-      subText: '-27% crit'
-      minor: true
-      amountData:
-        label: 'hit/s'
-        default: 0
-        quantityEntered: 1
-      modifiers:
-        conversionAfterBuffs:
-          Bleeding Coefficient: {Critical Chance -27: 500%}
+          Bleeding Coefficient: {Clone Critical Chance: 500%}
       gw2id: 710
       defaultEnabled: false
 
@@ -258,9 +251,21 @@
       gw2id: 723
       defaultEnabled: true
 
+    - id: Phantasmal Force
+      text: Phantasmal Force
+      amountData:
+        label: 'might'
+        default: 25
+        quantityEntered: 25
+      modifiers:
+        damage:
+          Phantasm Damage: [25%, unknown]
+      gw2id: 733
+      defaultEnabled: true
+
 - section: Chronomancer
   id: 40
-  note: Be sure to change the power coefficient value below when adding or removing traits without checkboxes like improved alacrity or chronophantasma.
+  note: Be sure to change the power coefficient value below when adding or removing traits without checkboxes like improved alacrity.
   items:
 
     - id: danger-time
@@ -269,7 +274,17 @@
       modifiers:
         attributes:
           Critical Chance: 15%
+          Phantasm Critical Chance: 15%
+          Clone Critical Chance: 15%
       gw2id: 2009
+      defaultEnabled: true
+
+    - id: chronophantasma
+      text: Chronophantasma
+      modifiers:
+        damage:
+          Phantasm Damage: [75%, mult]
+      gw2id: 1890
       defaultEnabled: true
 
 - section: Mirage

@@ -629,6 +629,25 @@ export class OptimizerCore {
         (1 + (attributes['Maximum Health'] || 0)),
     );
 
+    // clones/phantasms/shroud
+
+    if (settings.profession === 'Mesmer') {
+      attributes['Clone Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
+      attributes['Phantasm Critical Chance'] += (attributes['Precision'] - 1000) / 21 / 100;
+      attributes['Phantasm Critical Damage'] += attributes['Ferocity'] / 15 / 100;
+    } else if (attributes['Power2 Coefficient']) {
+      attributes['Alternative Power'] =
+        (attributes['Alternative Power'] ?? 0) + attributes['Power'];
+      attributes['Alternative Critical Chance'] =
+        (attributes['Alternative Critical Chance'] ?? 0) +
+        attributes['Critical Chance'] +
+        (attributes['Alternative Precision'] ?? 0) / 21 / 100;
+      attributes['Alternative Critical Damage'] =
+        (attributes['Alternative Critical Damage'] ?? 0) +
+        attributes['Critical Damage'] +
+        (attributes['Alternative Ferocity'] ?? 0) / 15 / 100;
+    }
+
     for (const [attribute, conversion] of settings.modifiers['convertAfterBuffs']) {
       const maybeRound = enumArrayIncludes(allAttributePointKeys, attribute)
         ? round
@@ -636,26 +655,15 @@ export class OptimizerCore {
       for (const [source, percent] of conversion) {
         if (source === 'Critical Chance') {
           attributes[attribute] += maybeRound(clamp(attributes['Critical Chance'], 0, 1) * percent);
-        } else if (source === 'Critical Chance -7') {
+        } else if (source === 'Clone Critical Chance') {
           attributes[attribute] += maybeRound(
-            clamp(attributes['Critical Chance'] - 0.07, 0, 1) * percent,
+            clamp(attributes['Clone Critical Chance'] ?? 0, 0, 1) * percent,
           );
-        } else if (source === 'Critical Chance -20') {
+        } else if (source === 'Phantasm Critical Chance') {
           attributes[attribute] += maybeRound(
-            clamp(attributes['Critical Chance'] - 0.2, 0, 1) * percent,
+            clamp(attributes['Phantasm Critical Chance'] ?? 0, 0, 1) * percent,
           );
-        } else if (source === 'Critical Chance -27') {
-          attributes[attribute] += maybeRound(
-            clamp(attributes['Critical Chance'] - 0.27, 0, 1) * percent,
-          );
-        } else if (source === 'Critical Chance -30') {
-          attributes[attribute] += maybeRound(
-            clamp(attributes['Critical Chance'] - 0.3, 0, 1) * percent,
-          );
-        } else if (source === 'Critical Chance -37') {
-          attributes[attribute] += maybeRound(
-            clamp(attributes['Critical Chance'] - 0.37, 0, 1) * percent,
-          );
+        } else {
           attributes[attribute] += maybeRound(attributes[source] * percent);
         }
       }
@@ -702,6 +710,7 @@ export class OptimizerCore {
   }
 
   calcPower(character: Character, damageMultiplier: Record<string, number>) {
+    const { settings } = this;
     const { attributes } = character;
 
     const critDmg = attributes['Critical Damage'] * damageMultiplier['Critical Damage'];
@@ -711,9 +720,44 @@ export class OptimizerCore {
       attributes['Power'] * (1 + critChance * (critDmg - 1)) * damageMultiplier['Strike Damage'];
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
-    const powerDamage =
+    let powerDamage =
       ((attributes['Power Coefficient'] || 0) / 2597) * attributes['Effective Power'];
     attributes['Power DPS'] = powerDamage;
+
+    if (attributes['Power2 Coefficient']) {
+      if (settings.profession === 'Mesmer') {
+        const phantasmCritDmg = attributes['Phantasm Critical Damage'];
+        const phantasmCritChance = clamp(attributes['Phantasm Critical Chance'], 0, 1);
+
+        attributes['Phantasm Effective Power'] =
+          attributes['Power'] *
+          (1 + phantasmCritChance * (phantasmCritDmg - 1)) *
+          damageMultiplier['Phantasm Damage'];
+
+        const phantasmPowerDamage =
+          ((attributes['Power2 Coefficient'] || 0) / 2597) * attributes['Phantasm Effective Power'];
+        attributes['Power2 DPS'] = phantasmPowerDamage;
+        powerDamage += phantasmPowerDamage;
+      } else {
+        const alternativeCritDmg =
+          attributes['Alternative Critical Damage'] * damageMultiplier['Critical Damage'];
+        const alternativeCritChance = clamp(attributes['Alternative Critical Chance'], 0, 1);
+
+        attributes['Alternative Effective Power'] =
+          attributes['Alternative Power'] *
+          (1 + alternativeCritChance * (alternativeCritDmg - 1)) *
+          damageMultiplier['Strike Damage'] *
+          damageMultiplier['Alternative Damage'];
+
+        const alternativePowerDamage =
+          ((attributes['Power2 Coefficient'] || 0) / 2597) *
+          attributes['Alternative Effective Power'];
+        attributes['Power2 DPS'] = alternativePowerDamage;
+        powerDamage += alternativePowerDamage;
+      }
+    } else {
+      attributes['Power2 DPS'] = 0;
+    }
 
     const siphonDamage =
       (character.attributes['Siphon Base Coefficient'] || 0) * damageMultiplier['Siphon Damage'];
@@ -847,23 +891,18 @@ export class OptimizerCore {
     // effective damage distribution
     results.effectiveDamageDistribution = {};
     for (const key of Object.keys(settings.distribution)) {
-      if (key === 'Power') {
-        const damage = attributes['Power DPS'] / attributes['Damage'];
-        results.effectiveDamageDistribution['Power'] = `${(damage * 100).toFixed(1)}%`;
-      } else {
-        const damage = attributes[`${key} DPS`] / attributes['Damage'];
-        results.effectiveDamageDistribution[`${key} Damage`] = `${(damage * 100).toFixed(1)}%`;
-      }
+      if (attributes[`${key} DPS`] === undefined) continue;
+
+      const damage = attributes[`${key} DPS`] / attributes['Damage'];
+      results.effectiveDamageDistribution[`${key}`] = `${(damage * 100).toFixed(1)}%`;
     }
 
     // damage indicator breakdown
     results.damageBreakdown = {};
     for (const key of Object.keys(settings.distribution)) {
-      if (key === 'Power') {
-        results.damageBreakdown['Power'] = attributes['Power DPS'].toFixed(2);
-      } else {
-        results.damageBreakdown[`${key} Damage`] = attributes[`${key} DPS`].toFixed(2);
-      }
+      if (attributes[`${key} DPS`] === undefined) continue;
+
+      results.damageBreakdown[`${key}`] = attributes[`${key} DPS`].toFixed(2);
     }
 
     // template helper data

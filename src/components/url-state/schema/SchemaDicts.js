@@ -292,6 +292,9 @@ export const nourishmentDict = [
   'slice-of-allspice-cake',
   'slice-of-allspice-cake-with-ice-cream',
   'avocado-smoothie',
+  'strawberry-cilantro-cheesecake',
+  'plate-of-poultry-aspic-with-salsa-garnish',
+  'plate-of-clear-truffle-and-cilantro-ravioli',
 ];
 
 export const buffsDict = [

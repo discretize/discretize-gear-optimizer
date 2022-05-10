@@ -8,6 +8,15 @@ list:
         "minBoonDuration": 0
       }
 
+  - name: Power DPS (no dragon)
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0
+      }
+
   - name: Condi DPS
     value: >-
       {
@@ -58,15 +67,6 @@ list:
 
   # -------------------------------------------------------------------------------------------- #
 
-  - name: No Dragon
-    hidden: true
-    value: >-
-      {
-        "affixes": ["Berserker", "Assassin"],
-        "optimizeFor": "Damage",
-        "minBoonDuration": 0
-      }
-
   - name: Viper Only
     hidden: true
     value: >-
@@ -110,6 +110,15 @@ list:
         "affixes": ["Berserker", "Assassin", "Diviner"],
         "optimizeFor": "Damage",
         "minBoonDuration": 38
+      }
+
+  - name: Power Alacrity Mechanist 40%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 40
       }
 
   - name: Power Boon Daredevil 99.7%
@@ -209,6 +218,15 @@ list:
         "affixes": ["Viper", "Grieving", "Celestial"],
         "optimizeFor": "Damage",
         "minBoonDuration": 14
+      }
+
+  - name: Condi Alacrity Mechanist 50%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 50.3
       }
 
   - name: Condi DPS Rampager

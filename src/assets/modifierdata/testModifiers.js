@@ -27,6 +27,7 @@ const {
   attributePercentKeysBlacklist,
   attributePointKeysBlacklist,
   damageKeysBlacklist,
+  alternateStats,
   // mayBeConvertedToBlacklist,
 } = requireTS(path.join(__dirname, './metadata.ts'));
 
@@ -106,8 +107,9 @@ const testModifiers = async () => {
       for (const item of items) {
         const {
           id,
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
           text,
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          textOverride,
           subText,
           modifiers,
           wvwModifiers,
@@ -118,8 +120,18 @@ const testModifiers = async () => {
           defaultEnabled,
           // eslint-disable-next-line @typescript-eslint/no-unused-vars
           hasLifesteal,
+          displayIds,
+          priceIds,
           ...otherKeys
         } = item;
+
+        if (fileIsExtra) {
+          if (!text) {
+            console.log(`❓ no text for ${id}!`);
+          } else if (displayIds?.length > 1 && !text.includes('/')) {
+            console.log(`❓ single text for multiple ids in ${id}!`);
+          }
+        }
 
         gentleAssert(
           !Object.keys(otherKeys).length,
@@ -143,6 +155,16 @@ const testModifiers = async () => {
           }
         };
         checkNullRecursively(item);
+
+        gentleAssert(
+          displayIds === undefined || Array.isArray(displayIds),
+          `err: invalid displayIds value ${displayIds} in ${id}!`,
+        );
+
+        gentleAssert(
+          priceIds === undefined || Array.isArray(priceIds),
+          `err: invalid priceIds value ${priceIds} in ${id}!`,
+        );
 
         if (amountData) {
           gentleAssert(typeof amountData.label === 'string', `err: missing amount label in ${id}`);
@@ -271,6 +293,10 @@ function parseDamage(damage, id, amountData) {
         key !== 'Critical Damage' || mode === 'unknown',
         `set mode unknown for critical damage for now`,
       );
+
+      if (mode === 'target') {
+        gentleAssert(damage['Phantasm Damage'] !== undefined, `${id} is missing phantasm damage`);
+      }
     }
   }
 }
@@ -298,6 +324,11 @@ function parseAttributes(attributes, id, amountData) {
         gentleAssert(
           allAttributePointModes.includes(mode),
           `invalid val ${allPairs} for ${key} in ${id}`,
+        );
+
+        gentleAssert(
+          mode === 'buff' || !alternateStats.includes(key),
+          `cannot convert stat ${key} in ${id}`,
         );
       }
     } else if (allAttributeCoefficientKeys.includes(key)) {

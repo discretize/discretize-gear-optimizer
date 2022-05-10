@@ -213,6 +213,7 @@
 
     - id: surging-and-ruby-orb
       text: Superior Rune of Surging (5x) + Ruby Orb
+      textOverride: Rune of Surging (5x) + Ruby Orb
       modifiers:
         attributes:
           Power: [195, converted]
@@ -220,6 +221,7 @@
           Ferocity: [14, converted]
           Boon Duration: 15%
       gw2id: 76813
+      priceIds: []
 
     - id: surging
       text: Superior Rune of Surging
@@ -403,6 +405,7 @@
 
     - id: trapper-and-black-diamond
       text: Superior Rune of the Trapper (5x) + Black Diamond
+      textOverride: Rune of the Trapper (5x) + Black Diamond
       modifiers:
         attributes:
           Condition Damage: [192, converted]
@@ -411,6 +414,7 @@
           Expertise: [9, converted]
           Precision: [9, converted]
       gw2id: 67339
+      priceIds: []
 
     - id: nightmare
       text: Superior Rune of the Nightmare
