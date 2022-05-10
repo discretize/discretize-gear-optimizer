@@ -9,7 +9,6 @@ import {
   InputLabel,
   Radio,
   RadioGroup,
-  Typography,
 } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
 import React from 'react';
