@@ -937,7 +937,7 @@ list:
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 2994, "Power2": 1205, "Burning": 0.53, "Bleeding": 1.78, "Poisoned": 0, "Torment": 0, "Confusion": 0.59 }
+        "values2": { "Power": 2994, "Power2": 1129, "Burning": 0.53, "Bleeding": 0.95, "Poisoned": 0, "Torment": 0, "Confusion": 0.59 }
       }
     credit:
       - author: '[CnD] Tipcat'
