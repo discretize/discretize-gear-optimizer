@@ -364,7 +364,7 @@
       minor: true
       modifiers:
         conversion:
-          Ferocity: {Vitality: 7%}
+          Ferocity: {Vitality: 10%}
         attributes:
           Critical Chance: 10%
       gw2id: 2193
