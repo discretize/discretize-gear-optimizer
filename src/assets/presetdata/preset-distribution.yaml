@@ -900,7 +900,7 @@ list:
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 2766, "Power2": 906, "Burning": 0.52, "Bleeding": 2.03, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
+        "values2": { "Power": 2725, "Power2": 893, "Burning": 0.52, "Bleeding": 2.03, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
       }
     credit:
       - author: 'REMagic'
@@ -915,7 +915,7 @@ list:
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 2445, "Power2": 906, "Burning": 0.52, "Bleeding": 2.03, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
+        "values2": { "Power": 2404, "Power2": 893, "Burning": 0.52, "Bleeding": 2.03, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
       }
     credit:
       - author: 'REMagic'
@@ -937,7 +937,7 @@ list:
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 2994, "Power2": 1129, "Burning": 0.53, "Bleeding": 0.95, "Poisoned": 0, "Torment": 0, "Confusion": 0.59 }
+        "values2": { "Power": 2964, "Power2": 1118, "Burning": 0.53, "Bleeding": 0.95, "Poisoned": 0, "Torment": 0, "Confusion": 0.59 }
       }
     credit:
       - author: '[CnD] Tipcat'
