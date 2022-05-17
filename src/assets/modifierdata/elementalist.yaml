@@ -347,7 +347,7 @@
     - id: flow-like-water
       text: Flow like Water
       amountData:
-        label: '% scholar'
+        label: '% uptime'
         default: 100
         quantityEntered: 100
       modifiers:
