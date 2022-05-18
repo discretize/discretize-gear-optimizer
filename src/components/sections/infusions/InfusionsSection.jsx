@@ -1,12 +1,12 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { getGameMode } from '../../../state/slices/userSettings';
 import { changeInfusions } from '../../../state/slices/infusions';
+import { getGameMode } from '../../../state/slices/userSettings';
+import data from '../../../utils/data';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Infusions from './Infusions';
-import data from '../../../utils/data';
 
 const InfusionsSection = () => {
   const { t } = useTranslation();

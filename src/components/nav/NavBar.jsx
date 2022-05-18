@@ -36,7 +36,7 @@ import { PROFESSIONS } from '../../utils/gw2-data';
 import { PARAMS, setQueryParm } from '../../utils/queryParam';
 import NavAccordion from './NavAccordion';
 import NavSettings from './NavSettings';
-import ReappplyTemplateDialog from './ReappplyTemplateDialog';
+import ReapplyTemplateDialog from './ReapplyTemplateDialog';
 
 const useStyles = makeStyles()((theme) => ({
   icon: {
@@ -136,7 +136,7 @@ const Navbar = () => {
 
         <NavSettings />
 
-        <ReappplyTemplateDialog open={open} handleClose={() => setOpen(false)} />
+        <ReapplyTemplateDialog open={open} handleClose={() => setOpen(false)} />
       </Box>
     );
   };

@@ -347,7 +347,7 @@
     - id: flow-like-water
       text: Flow like Water
       amountData:
-        label: '% scholar'
+        label: '% uptime'
         default: 100
         quantityEntered: 100
       modifiers:
@@ -424,10 +424,10 @@
       minor: true
       gw2id: 1938
       defaultEnabled: true
-      
+
     - id: gathered-focus-2
       text: Gathered Focus
-      subText: above 90% bonus 
+      subText: above 90% bonus
       modifiers:
         attributes:
           Concentration: [120, buff]

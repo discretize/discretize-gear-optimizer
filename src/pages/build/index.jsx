@@ -1,7 +1,7 @@
-import React from 'react';
 import { APILanguageProvider } from '@discretize/gw2-ui-new';
 import { Layout } from '@discretize/react-discretize-components';
 import { Box, Chip, Typography } from '@mui/material';
+import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import BackgroundImage from '../../components/baseComponents/BackgroundImage';
