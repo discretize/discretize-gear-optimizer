@@ -4,11 +4,12 @@ import { Typography } from '@mui/material';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { allExtrasModifiersById } from '../../../../assets/modifierdata';
 import { percents } from '../../../../assets/modifierdata/metadata';
 import { changeSelectedCharacter, toggleSaved } from '../../../../state/slices/controlsSlice';
 import { extrasTypes } from '../../../../state/slices/extras';
+import { getExoticsData } from '../../../../state/slices/priorities';
 
 const roundTwo = (num) => Math.round(num * 100) / 100;
 
@@ -35,7 +36,7 @@ const ResultTableRow = ({
           : Math.round(Math.abs(comparisonValue))
       }`
     : '';
-
+  const exotics = useSelector(getExoticsData);
   return (
     <TableRow
       selected={selected}
@@ -73,17 +74,20 @@ const ResultTableRow = ({
           </Typography>
         ) : null}
       </TableCell>
-      {character.gear.map((element, index) => (
+      {character.gear.map((affix, index) => (
         // eslint-disable-next-line react/no-array-index-key
-        <TableCell align="center" key={element + index} padding="none">
+        <TableCell align="center" key={affix + index} padding="none">
           <Typography
-            style={
-              mostCommonAffix && mostCommonAffix !== element
-                ? { fontWeight: 300, fontSize: '1rem', color: '#00cccc' }
-                : { fontWeight: 300, fontSize: '1rem' }
-            }
+            style={{
+              fontWeight: 300,
+              fontSize: '1rem',
+              textDecoration: `underline dotted ${
+                exotics?.[affix]?.[index] ? '#ffa405' : '#fb3e8d'
+              }`,
+              color: mostCommonAffix && mostCommonAffix !== affix ? '#00cccc' : 'inherit',
+            }}
           >
-            {element.slice(0, 4)}
+            {affix.slice(0, 4)}
           </Typography>
         </TableCell>
       ))}
