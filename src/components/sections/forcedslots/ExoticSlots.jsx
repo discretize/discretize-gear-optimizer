@@ -10,8 +10,12 @@ import {
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { getForcedSlots } from '../../../state/slices/forcedSlots';
-import { changeExotic, getExoticsData, getPriority } from '../../../state/slices/priorities';
+import {
+  changeExotic,
+  getExoticsData,
+  getPriority,
+  getExclusionData,
+} from '../../../state/slices/priorities';
 import { GEAR_SLOTS, WeaponTypes } from '../../../utils/gw2-data';
 
 const useStyles = makeStyles()((theme) => ({
@@ -28,7 +32,7 @@ const ExoticSlots = () => {
   const { classes } = useStyles();
 
   const dispatch = useDispatch();
-  const forcedSlots = useSelector(getForcedSlots);
+  const excludedSlots = useSelector(getExclusionData);
   const dualWielded = useSelector(getPriority('weaponType'));
   const affixes = useSelector(getPriority('affixes'));
   const exotics = useSelector(getExoticsData);
@@ -47,10 +51,9 @@ const ExoticSlots = () => {
       <Table className={classes.tableCollapse}>
         <TableHead>
           <TableCell padding="none" />
-          {SLOTS.map((slot, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <TableCell padding="none" key={index}>
-              {slot.short}
+          {SLOTS.map(({ short }) => (
+            <TableCell padding="none" key={`header ${short}`}>
+              {short}
             </TableCell>
           ))}
         </TableHead>
@@ -58,14 +61,13 @@ const ExoticSlots = () => {
           {affixes.map((affix) => (
             <TableRow key={affix}>
               <TableCell padding="none">{affix}</TableCell>
-              {SLOTS.map((slot, index) => (
-                // eslint-disable-next-line react/no-array-index-key
-                <TableCell padding="none" sx={{ padding: 0.3 }} key={index}>
+              {SLOTS.map(({ short }, index) => (
+                <TableCell padding="none" sx={{ padding: 0.3 }} key={affix + short}>
                   <Checkbox
                     size="small"
                     classes={{ root: classes.checkbox }}
                     checked={Boolean(exotics?.[affix]?.[index])}
-                    disabled={forcedSlots[index] !== null}
+                    disabled={excludedSlots?.[affix]?.[index]}
                     onChange={handleChange(index, affix)}
                   />
                 </TableCell>
