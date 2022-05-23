@@ -335,7 +335,7 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 2728, "Power2": 0, "Burning": 12.87, "Bleeding": 16.3, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2728, "Power2": 0, "Burning": 11.78, "Bleeding": 14.92, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[SC] Roul'
@@ -350,7 +350,7 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 2172, "Power2": 0, "Burning": 13.12, "Bleeding": 19.41, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2172, "Power2": 0, "Burning": 12.01, "Bleeding": 17.55, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Ryan'
@@ -366,7 +366,7 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 3235, "Power2": 0, "Burning": 14.02, "Bleeding": 1.02, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3235, "Power2": 0, "Burning": 12.9, "Bleeding": 0.94, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[SC] Roul'

@@ -15,6 +15,18 @@
           Toughness: [180, buff]
       gw2id: 5571
 
+    - id: woven-fire
+      text: Weave Self
+      subText: Woven Fire
+      amountData:
+        label: '% uptime'
+        default: 38
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Condition Damage: [20%, add]
+      gw2id: 43638
+
     - id: flame-wheel
       text: Flame Wheel
       amountData:

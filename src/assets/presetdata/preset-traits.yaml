@@ -2569,7 +2569,11 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "woven-fire": {
+            "amount": "52.6"
+          }
+        }
       }
 
   - name: Condi Weaver Dagger
@@ -2643,7 +2647,11 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "woven-fire": {
+            "amount": "55"
+          }
+        }
       }
 
   - name: Hybrid Weaver
@@ -2731,7 +2739,11 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "woven-fire": {
+            "amount": "52"
+          }
+        }
       }
 
   - name: Condi Tempest
