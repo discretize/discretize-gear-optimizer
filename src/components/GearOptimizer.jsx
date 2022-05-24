@@ -91,6 +91,9 @@ const GearOptimizer = () => {
             )}
           </Grid>
 
+          <div id="canvaselelement" />
+          <Typography variant="caption">x = healing (max 1300), y = damage (max 30000)</Typography>
+
           <Controls />
 
           <ResultTable />

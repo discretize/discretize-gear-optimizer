@@ -149,6 +149,9 @@ export interface OptimizerCoreSettings {
   appliedModifiers: AppliedModifier[];
   cachedFormState: CachedFormState;
   extrasCombination: Record<string, string>;
+
+  //
+  canvasContext: CanvasRenderingContext2D;
 }
 type OptimizerCoreMinimalSettings = Pick<
   OptimizerCoreSettings,
@@ -175,6 +178,11 @@ interface Character {
   results?: Record<string, any>;
 }
 type AttributeName = string; // TODO: replace with AttributeName from gw2-data
+
+const graphWidth = 500;
+const graphHeight = 500;
+const maxHealing = 1300;
+const maxDamage = 30000;
 
 export class OptimizerCore {
   settings: OptimizerCoreSettings;
@@ -479,10 +487,18 @@ export class OptimizerCore {
   insertCharacter(character: Character) {
     const { settings } = this;
 
-    if (
-      !character.valid ||
-      (this.worstScore && this.worstScore > character.attributes[settings.rankby])
-    ) {
+    if (!character.valid) return;
+
+    // eslint-disable-next-line id-length
+    const x = Math.round(((character.attributes['Healing'] ?? 0) / maxHealing) * graphWidth);
+    // eslint-disable-next-line id-length
+    const y = Math.round(
+      graphHeight - ((character.attributes['Damage'] ?? 0) / maxDamage) * graphHeight,
+    );
+
+    settings.canvasContext.fillRect(x, y, 2, 2);
+
+    if (this.worstScore && this.worstScore > character.attributes[settings.rankby]) {
       return;
     }
 
@@ -544,6 +560,9 @@ export class OptimizerCore {
 
     this.calcSurvivability(character, damageMultiplier);
     this.calcHealing(character);
+
+    character.attributes['DamageHealing'] =
+      character.attributes['Damage'] * character.attributes['Healing'];
   }
 
   /**
@@ -566,7 +585,7 @@ export class OptimizerCore {
       return false;
     }
 
-    if (settings.rankby === 'Damage' || settings.minDamage) {
+    if (settings.rankby === 'Damage' || settings.minDamage || true) {
       const powerDamageScore = this.calcPower(character, damageMultiplier);
 
       // cache condi result based on cdmg and expertise
@@ -584,9 +603,11 @@ export class OptimizerCore {
       attributes['Damage'] =
         powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] || 0);
     }
-    if (settings.rankby === 'Healing' || settings.minHealing) {
+    if (settings.rankby === 'Healing' || settings.minHealing || true) {
       this.calcHealing(character);
     }
+    character.attributes['DamageHealing'] =
+      character.attributes['Damage'] * character.attributes['Healing'];
     if (settings.rankby === 'Survivability' || settings.minSurvivability) {
       this.calcSurvivability(character, damageMultiplier);
     }
