@@ -35,9 +35,9 @@
     "@discretize/gw2-ui-new": "^0.0.18"
   },
   "dependencies": {
-    "@discretize/gw2-ui-new": "^0.0.18",
+    "@discretize/gw2-ui-new": "^0.0.19",
     "@discretize/object-compression": "^1.0.3",
-    "@discretize/react-discretize-components": "^2.2.7",
+    "@discretize/react-discretize-components": "^2.2.8",
     "@discretize/typeface-menomonia": "^0.1.3",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",

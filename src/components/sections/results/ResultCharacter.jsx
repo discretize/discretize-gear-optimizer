@@ -40,6 +40,12 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
   const sigil2Id = allExtrasModifiersById[sigil2]?.gw2id;
   const rune = runeStringId ? allExtrasModifiersById[runeStringId] : undefined;
 
+  const getRarity = (index) => {
+    const isExotic =
+      character.settings.cachedFormState.priorities.exotics.data?.[character.gear[index]]?.[index];
+    return isExotic ? 'Exotic' : 'Ascended';
+  };
+
   // Calculate the props for the weapons component
   let wea1;
   let wea2;
@@ -55,6 +61,10 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
       weapon2MainAffix: character.gear[12],
       weapon1OffAffix: character.gear[13],
       weapon2OffAffix: character.gear[13],
+      weapon1MainRarity: getRarity(12),
+      weapon1OffRarity: getRarity(12),
+      weapon2MainRarity: getRarity(13),
+      weapon2OffRarity: getRarity(13),
       weapon1MainSigil1Id: sigil1Id,
       weapon2MainSigil1Id: sigil1Id,
       weapon1OffSigilId: sigil2Id,
@@ -86,10 +96,12 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
     weaponPropsAPI = {
       weapon1MainId: wea1,
       weapon1MainAffix: character.gear[12],
+      weapon1MainRarity: getRarity(12),
       weapon1MainInfusion1Id: infusions ? infusions[16] : null,
       weapon1MainSigil1Id: sigil1Id,
       weapon1OffId: wea2,
       weapon1OffAffix: character.gear[13],
+      weapon1OffRarity: getRarity(13),
       weapon1OffInfusionId: infusions ? infusions[17] : null,
       weapon1OffSigilId: sigil2Id,
     };
@@ -98,6 +110,7 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
     weaponPropsAPI = {
       weapon1MainId: wea1,
       weapon1MainAffix: character.gear[12],
+      weapon1MainRarity: getRarity(12),
       weapon1MainInfusion1Id: infusions[16],
       weapon1MainSigil1Id: sigil1Id,
       weapon1MainInfusion2Id: infusions[17],
@@ -111,21 +124,27 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
   const armorPropsAPI = {
     weight: firstUppercase(weight),
     helmAffix: gear[0],
+    helmRarity: getRarity(0),
     helmRuneId: runeId,
     helmInfusionId: infusions[0],
     shouldersAffix: gear[1],
+    shouldersRarity: getRarity(1),
     shouldersRuneId: runeId,
     shouldersInfusionId: infusions[1],
     coatAffix: gear[2],
+    coatRarity: getRarity(2),
     coatRuneId: runeId,
     coatInfusionId: infusions[2],
     glovesAffix: gear[3],
+    glovesRarity: getRarity(3),
     glovesRuneId: runeId,
     glovesInfusionId: infusions[3],
     leggingsAffix: gear[4],
+    leggingsRarity: getRarity(4),
     leggingsRuneId: runeId,
     leggingsInfusionId: infusions[4],
     bootsAffix: gear[5],
+    bootsRarity: getRarity(5),
     bootsRuneId: runeId,
     bootsInfusionId: infusions[5],
   };
@@ -133,20 +152,26 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
   // Calculate back and trinkets props
   const backAndTrinketPropsAPI = {
     backItemAffix: gear[11],
+    backItemRarity: getRarity(11),
     backItemInfusion1Id: infusions[6],
     backItemInfusion2Id: infusions[7],
     amuletAffix: gear[6],
+    amuletRarity: getRarity(6),
     ring1Affix: gear[7],
+    ring1Rarity: getRarity(7),
     ring1Infusion1Id: infusions[8],
     ring1Infusion2Id: infusions[9],
     ring1Infusion3Id: infusions[10],
     ring2Affix: gear[8],
+    ring2Rarity: getRarity(8),
     ring2Infusion1Id: infusions[11],
     ring2Infusion2Id: infusions[12],
     ring2Infusion3Id: infusions[13],
     accessory1Affix: gear[9],
+    accessory1Rarity: getRarity(9),
     accessory1InfusionId: infusions[14],
     accessory2Affix: gear[10],
+    accessory2Rarity: getRarity(10),
     accessory2InfusionId: infusions[15],
   };
 
