@@ -32,7 +32,7 @@
     "cleanupLocale": "node cleanupLocale.js"
   },
   "resolutions": {
-    "@discretize/gw2-ui-new": "^0.0.18"
+    "@discretize/gw2-ui-new": "^0.0.19"
   },
   "dependencies": {
     "@discretize/gw2-ui-new": "^0.0.19",
