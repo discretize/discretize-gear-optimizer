@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import {
   changeExotic,
+  changeAllExotic,
   getExoticsData,
   getPriority,
   getExclusionData,
@@ -45,12 +46,26 @@ const ExoticSlots = () => {
   const handleChange = (index, affix) => (event) => {
     dispatch(changeExotic({ index, affix, value: event.target.checked }));
   };
-
+  const handleChangeAll = (event) => {
+    dispatch(changeAllExotic({ value: event.target.checked }));
+  };
+  const allExotics = Object.values(exotics).flat();
+  const identity = (arg) => arg;
+  const allExoticsChecked = allExotics.every(identity);
+  const someExoticsChecked = !allExoticsChecked && allExotics.some(identity);
   return (
     <TableContainer>
       <Table className={classes.tableCollapse}>
         <TableHead>
-          <TableCell padding="none" />
+          <TableCell padding="none">
+            <Checkbox
+              size="small"
+              classes={{ root: classes.checkbox }}
+              checked={allExoticsChecked}
+              indeterminate={someExoticsChecked}
+              onChange={handleChangeAll}
+            />
+          </TableCell>
           {SLOTS.map(({ short }) => (
             <TableCell padding="none" key={`header ${short}`}>
               {short}

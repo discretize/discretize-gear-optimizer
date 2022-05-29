@@ -43,6 +43,12 @@ export const prioritiesSlice = createSlice({
       if (!state.exotics.data[affix]) state.exotics.data[affix] = Array(14).fill(false);
       state.exotics.data[affix][index] = Boolean(value);
     },
+    changeAllExotic: (state, action) => {
+      const { value } = action.payload;
+      state.affixes.forEach((affix) => {
+        state.exotics.data[affix] = Array(14).fill(Boolean(value));
+      });
+    },
     changeExclusionsEnabled: (state, action) => {
       state.exclusions.enabled = action.payload;
       if (!action.payload) {
@@ -93,5 +99,6 @@ export const {
   changeExclusion,
   changeExclusionsEnabled,
   changeExotic,
+  changeAllExotic,
   changeExoticsEnabled,
 } = prioritiesSlice.actions;
