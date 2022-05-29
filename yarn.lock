@@ -432,10 +432,10 @@
   dependencies:
     json-url "^3.0.0"
 
-"@discretize/react-discretize-components@^2.2.8":
-  version "2.2.8"
-  resolved "https://registry.yarnpkg.com/@discretize/react-discretize-components/-/react-discretize-components-2.2.8.tgz#c16e5f0bbcb48aed1fa08d20482e24d6259dc764"
-  integrity sha512-rjyXCDjs5B8huvs/b8wBm9w8dSt9DbBCSJ9XaqHqkJB0F/rOhYTM8588vuzpKcT6pNwka/YmN7fdFbLlB37Ahg==
+"@discretize/react-discretize-components@^2.2.9":
+  version "2.2.9"
+  resolved "https://registry.yarnpkg.com/@discretize/react-discretize-components/-/react-discretize-components-2.2.9.tgz#a71bff962db6544f68766e0f05f228f9bce5e14f"
+  integrity sha512-gI4iqgnW/muIH5M+TEaLFxBRSLK8qmzdVeAYK67hHtqED01rJxRroBBwB+CROyIziFq1AurGg3umzpaqYKYUfA==
   dependencies:
     "@discretize/gw2-ui-new" "^0.0.19"
     "@discretize/typeface-menomonia" "^0.1.3"
