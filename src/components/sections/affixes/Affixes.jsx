@@ -63,8 +63,11 @@ export default function Affixes() {
       {exoticsEnabled && (
         <Box>
           <Typography fontWeight={700} mb={0.5}>
-            {t('Exotic')}{' '}
-            <HelperIcon text={t('Use exotic equipment instead of ascended.')} size="small" />
+            {t('Use exotic rarity')}{' '}
+            <HelperIcon
+              text={t('Allows you to use exotic rarity instead of ascended for any gear slot.')}
+              size="small"
+            />
           </Typography>
           <ExoticSlots />
         </Box>

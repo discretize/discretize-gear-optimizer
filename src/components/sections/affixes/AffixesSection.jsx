@@ -104,7 +104,7 @@ const AffixesSection = () => {
                 color="primary"
               />
             }
-            label={t('Change to Exotic items')}
+            label={t('Show rarity controls')}
           />
         </>
       }
