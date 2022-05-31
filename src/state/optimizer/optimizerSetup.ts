@@ -30,6 +30,7 @@ import type {
   AffixData,
   AffixName,
   ConditionName,
+  ForcedSlotName,
   IndicatorName,
   InfusionName,
   ProfessionName,
@@ -707,11 +708,6 @@ export function setupCombinations(reduxState: any) {
       settings_slots.length,
     ).fill(affixes);
 
-    let settings_forcedArmor: OptimizerCoreSettings['forcedArmor'] = false;
-    let settings_forcedRing: OptimizerCoreSettings['forcedRing'] = false;
-    let settings_forcedAcc: OptimizerCoreSettings['forcedAcc'] = false;
-    let settings_forcedWep: OptimizerCoreSettings['forcedWep'] = false;
-
     forcedSlots.forEach((forcedAffix, index) => {
       if (forcedAffix || Object.values(exclusions).some((arr) => arr[index])) {
         if (forcedAffix) {
@@ -724,21 +720,43 @@ export function setupCombinations(reduxState: any) {
             settings_affixesArray[index] = filtered;
           } else {
             // user excluded every possible affix; fallback to excluding nothing
-            return;
           }
-        }
-
-        if (['shld', 'glov', 'boot'].includes(ForcedSlots[index])) {
-          settings_forcedArmor = true;
-        } else if (['rng1', 'rng2'].includes(ForcedSlots[index])) {
-          settings_forcedRing = true;
-        } else if (['acc1', 'acc2'].includes(ForcedSlots[index])) {
-          settings_forcedAcc = true;
-        } else if (['wep1', 'wep2'].includes(ForcedSlots[index])) {
-          settings_forcedWep = true;
         }
       }
     });
+
+    const arrayEntriesDeepEqual = (arr: any[]) =>
+      arr.every((entry) => JSON.stringify(entry) === JSON.stringify(arr[0]));
+
+    /**
+     * Returns true if the given slots have identical settings.
+     *
+     * If true, a performance optimization will skip one of e.g.
+     *    berserker ring + assassin ring
+     *    assassin ring + berserker ring
+     *
+     * This optimization must be disabled if these are actually different results,
+     * like if the second ring slot is actually exotic.
+     *
+     * @param {string[]} slotNames
+     * @returns {boolean} identical
+     */
+    const slotSettingsIdentical = (slotNames: ForcedSlotName[]) => {
+      const slotIndexes = slotNames.map((slotName) => ForcedSlots.indexOf(slotName));
+
+      const slotAffixesArrays = slotIndexes.map((index) => settings_affixesArray[index]);
+      const slotAffixesArraysIdentical = arrayEntriesDeepEqual(slotAffixesArrays);
+
+      const slotRarities = slotIndexes.map((index) => Object.values(exotics).map((e) => e[index]));
+      const slotRaritiesIdentical = arrayEntriesDeepEqual(slotRarities);
+
+      return slotAffixesArraysIdentical && slotRaritiesIdentical;
+    };
+
+    const settings_identicalArmor = slotSettingsIdentical(['shld', 'glov', 'boot']);
+    const settings_identicalRing = slotSettingsIdentical(['rng1', 'rng2']);
+    const settings_identicalAcc = slotSettingsIdentical(['acc1', 'acc2']);
+    const settings_identicalWep = slotSettingsIdentical(['wep1', 'wep2']);
 
     // rearrange affixes so you don't always start with e.g. full berserker. Example:
     // [vipe sini grie] helm
@@ -854,10 +872,10 @@ export function setupCombinations(reduxState: any) {
       infusionMode: settings_infusionMode,
       slots: settings_slots.length,
       affixesArray: settings_affixesArray,
-      forcedArmor: settings_forcedArmor,
-      forcedRing: settings_forcedRing,
-      forcedAcc: settings_forcedAcc,
-      forcedWep: settings_forcedWep,
+      identicalArmor: settings_identicalArmor,
+      identicalRing: settings_identicalRing,
+      identicalAcc: settings_identicalAcc,
+      identicalWep: settings_identicalWep,
       affixStatsArray: settings_affixStatsArray,
       runsAfterThisSlot: settings_runsAfterThisSlot,
     };

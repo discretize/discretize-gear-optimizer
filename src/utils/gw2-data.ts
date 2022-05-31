@@ -905,7 +905,9 @@ export const ForcedSlots = [
   'back', // 11
   'wep1', // 12
   'wep2', // 13
-];
+] as const;
+
+export type ForcedSlotName = typeof ForcedSlots[number];
 
 export const omnipotionModifiers = {
   // Condi dmg from omnipot has been removed

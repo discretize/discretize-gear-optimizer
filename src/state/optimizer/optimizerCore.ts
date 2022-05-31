@@ -131,10 +131,10 @@ export interface OptimizerCoreSettings {
 
   // these are in addition to the input
   infusionMode: InfusionMode;
-  forcedRing: boolean;
-  forcedAcc: boolean;
-  forcedWep: boolean;
-  forcedArmor: boolean;
+  identicalRing: boolean;
+  identicalAcc: boolean;
+  identicalWep: boolean;
+  identicalArmor: boolean;
   slots: number; // The length of the former slots array
   runsAfterThisSlot: number[];
   affixesArray: AffixName[][];
@@ -285,10 +285,10 @@ export class OptimizerCore {
        * Each check is disabled if forcing one or more of those slots to a specific gear type.
        */
       if (
-        (!settings.forcedRing && nextSlot === 9 && gear[nextSlot - 2] > gear[nextSlot - 1]) ||
-        (!settings.forcedAcc && nextSlot === 11 && gear[nextSlot - 2] > gear[nextSlot - 1]) ||
-        (!settings.forcedWep && nextSlot === 14 && gear[nextSlot - 2] > gear[nextSlot - 1]) ||
-        (!settings.forcedArmor && nextSlot === 6 && (gear[1] > gear[3] || gear[3] > gear[5]))
+        (settings.identicalRing && nextSlot === 9 && gear[nextSlot - 2] > gear[nextSlot - 1]) ||
+        (settings.identicalAcc && nextSlot === 11 && gear[nextSlot - 2] > gear[nextSlot - 1]) ||
+        (settings.identicalWep && nextSlot === 14 && gear[nextSlot - 2] > gear[nextSlot - 1]) ||
+        (settings.identicalArmor && nextSlot === 6 && (gear[1] > gear[3] || gear[3] > gear[5]))
       ) {
         // bump calculationRuns by the number of runs we just skipped
         calculationRuns += settings.runsAfterThisSlot[nextSlot];
