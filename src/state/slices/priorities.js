@@ -2,6 +2,9 @@ import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { WeaponTypes } from '../../utils/gw2-data';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 
+const fillAffix = (data, affix, value = false) => {
+  data[affix] = Array(14).fill(value);
+};
 export const prioritiesSlice = createSlice({
   name: 'priorities',
   initialState: {
@@ -35,18 +38,21 @@ export const prioritiesSlice = createSlice({
     },
     changeExclusion: (state, action) => {
       const { affix, index, value } = action.payload;
-      if (!state.exclusions.data[affix]) state.exclusions.data[affix] = Array(14).fill(false);
+      if (!state.exclusions.data[affix]) fillAffix(state.exclusions.data, affix);
       state.exclusions.data[affix][index] = Boolean(value);
     },
     changeExotic: (state, action) => {
+      if (Object.keys(state.exotics.data).length === 0)
+        state.affixes.forEach((affix) => {
+          if (!state.exotics.data[affix]) fillAffix(state.exotics.data, affix);
+        });
       const { affix, index, value } = action.payload;
-      if (!state.exotics.data[affix]) state.exotics.data[affix] = Array(14).fill(false);
       state.exotics.data[affix][index] = Boolean(value);
     },
     changeAllExotic: (state, action) => {
       const { value } = action.payload;
       state.affixes.forEach((affix) => {
-        state.exotics.data[affix] = Array(14).fill(Boolean(value));
+        fillAffix(state.exotics.data, affix, value);
       });
     },
     changeExclusionsEnabled: (state, action) => {
@@ -71,7 +77,6 @@ export const prioritiesSlice = createSlice({
         prioritiesPreset = {},
         build: { weaponType },
       } = action.payload;
-
       return { ...state, ...prioritiesPreset, ...(weaponType ? { weaponType } : {}) };
     },
   },

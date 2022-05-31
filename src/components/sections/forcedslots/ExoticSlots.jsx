@@ -51,7 +51,7 @@ const ExoticSlots = () => {
   };
   const allExotics = Object.values(exotics).flat();
   const identity = (arg) => arg;
-  const allExoticsChecked = allExotics.every(identity);
+  const allExoticsChecked = allExotics.length > 0 && allExotics.every(identity);
   const someExoticsChecked = !allExoticsChecked && allExotics.some(identity);
   return (
     <TableContainer>
