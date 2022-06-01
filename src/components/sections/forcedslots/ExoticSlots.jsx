@@ -17,6 +17,7 @@ import {
   getPriority,
   getExclusionData,
 } from '../../../state/slices/priorities';
+import { getForcedSlots } from '../../../state/slices/forcedSlots';
 import { GEAR_SLOTS, WeaponTypes } from '../../../utils/gw2-data';
 
 const useStyles = makeStyles()((theme) => ({
@@ -33,6 +34,7 @@ const ExoticSlots = () => {
   const { classes } = useStyles();
 
   const dispatch = useDispatch();
+  const forcedSlots = useSelector(getForcedSlots);
   const excludedSlots = useSelector(getExclusionData);
   const dualWielded = useSelector(getPriority('weaponType'));
   const affixes = useSelector(getPriority('affixes'));
@@ -81,7 +83,7 @@ const ExoticSlots = () => {
                     size="small"
                     classes={{ root: classes.checkbox }}
                     checked={Boolean(exotics?.[affix]?.[index])}
-                    disabled={excludedSlots?.[affix]?.[index]}
+                    disabled={forcedSlots[index] !== null || excludedSlots?.[affix]?.[index]}
                     onChange={handleChange(index, affix)}
                   />
                 </TableCell>
