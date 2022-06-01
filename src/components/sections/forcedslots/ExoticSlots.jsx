@@ -13,7 +13,7 @@ import { makeStyles } from 'tss-react/mui';
 import {
   changeExotic,
   changeAllExotic,
-  getExoticsData,
+  getUsedExoticsData,
   getPriority,
   getExclusionData,
 } from '../../../state/slices/priorities';
@@ -36,7 +36,7 @@ const ExoticSlots = () => {
   const excludedSlots = useSelector(getExclusionData);
   const dualWielded = useSelector(getPriority('weaponType'));
   const affixes = useSelector(getPriority('affixes'));
-  const exotics = useSelector(getExoticsData);
+  const exotics = useSelector(getUsedExoticsData);
 
   let SLOTS = GEAR_SLOTS;
   if (dualWielded !== WeaponTypes.dualWield) {
@@ -50,9 +50,8 @@ const ExoticSlots = () => {
     dispatch(changeAllExotic({ value: event.target.checked }));
   };
   const allExotics = Object.values(exotics).flat();
-  const identity = (arg) => arg;
-  const allExoticsChecked = allExotics.length > 0 && allExotics.every(identity);
-  const someExoticsChecked = !allExoticsChecked && allExotics.some(identity);
+  const allExoticsChecked = allExotics.length > 0 && allExotics.every(Boolean);
+  const someExoticsChecked = !allExoticsChecked && allExotics.some(Boolean);
   return (
     <TableContainer>
       <Table className={classes.tableCollapse}>

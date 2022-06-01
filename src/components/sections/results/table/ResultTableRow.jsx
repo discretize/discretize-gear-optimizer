@@ -4,12 +4,11 @@ import { Typography } from '@mui/material';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { allExtrasModifiersById } from '../../../../assets/modifierdata';
 import { percents } from '../../../../assets/modifierdata/metadata';
 import { changeSelectedCharacter, toggleSaved } from '../../../../state/slices/controlsSlice';
 import { extrasTypes } from '../../../../state/slices/extras';
-import { getExoticsData } from '../../../../state/slices/priorities';
 
 const roundTwo = (num) => Math.round(num * 100) / 100;
 
@@ -39,7 +38,6 @@ const ResultTableRow = ({
     : '';
   const exoticRarity = (affix, index) =>
     character.settings.cachedFormState.priorities.exotics.data?.[affix]?.[index];
-  console.log('character.settings', character.settings);
   return (
     <TableRow
       selected={selected}

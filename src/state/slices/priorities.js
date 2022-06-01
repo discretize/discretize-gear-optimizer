@@ -5,6 +5,8 @@ import { changeAll, setBuildTemplate } from './controlsSlice';
 const fillAffix = (data, affix, value = false) => {
   data[affix] = Array(14).fill(value);
 };
+const pick = (object, keysToPick) =>
+  Object.fromEntries(keysToPick.filter((key) => key in object).map((key) => [key, object[key]]));
 export const prioritiesSlice = createSlice({
   name: 'priorities',
   initialState: {
@@ -42,11 +44,8 @@ export const prioritiesSlice = createSlice({
       state.exclusions.data[affix][index] = Boolean(value);
     },
     changeExotic: (state, action) => {
-      if (Object.keys(state.exotics.data).length === 0)
-        state.affixes.forEach((affix) => {
-          if (!state.exotics.data[affix]) fillAffix(state.exotics.data, affix);
-        });
       const { affix, index, value } = action.payload;
+      if (!state.exotics.data[affix]) fillAffix(state.exotics.data, affix);
       state.exotics.data[affix][index] = Boolean(value);
     },
     changeAllExotic: (state, action) => {
@@ -87,6 +86,8 @@ export const getExclusionsEnabled = (state) => state.optimizer.form.priorities.e
 export const getExoticsEnabled = (state) => state.optimizer.form.priorities.exotics.enabled;
 export const getExclusionData = (state) => state.optimizer.form.priorities.exclusions.data;
 export const getExoticsData = (state) => state.optimizer.form.priorities.exotics.data;
+export const getUsedExoticsData = (state) =>
+  pick(state.optimizer.form.priorities.exotics.data, state.optimizer.form.priorities.affixes);
 
 export const getCustomAffixData = createSelector(
   (state) => state.optimizer.form.priorities.customAffix,
