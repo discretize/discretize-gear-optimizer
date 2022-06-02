@@ -39,9 +39,8 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
   const sigil1Id = allExtrasModifiersById[sigil1]?.gw2id;
   const sigil2Id = allExtrasModifiersById[sigil2]?.gw2id;
   const rune = runeStringId ? allExtrasModifiersById[runeStringId] : undefined;
-
   const isExotic = (index) =>
-    character.settings.cachedFormState.priorities?.exotics?.data?.[character.gear[index]]?.[index];
+    cachedFormState?.priorities?.exotics?.data?.[character.gear[index]]?.[index];
   const getRarity = (index) => (isExotic(index) ? 'Exotic' : 'Ascended');
   // Calculate the props for the weapons component
   let wea1;
