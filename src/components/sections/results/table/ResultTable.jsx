@@ -122,7 +122,7 @@ const StickyHeadTable = () => {
   if (/* status !== RUNNING && */ list[0]) {
     mostCommonAffix = mode(list[0].gear);
     const [exo, asc] = Object.entries(
-      list[0].settings.cachedFormState.priorities.exotics.data,
+      list[0].settings.cachedFormState.priorities?.exotics?.data || {},
     ).reduce(
       (sum, [, value]) => {
         sum[0] += value.filter((isExotic) => isExotic).length;

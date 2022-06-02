@@ -37,7 +37,7 @@ const ResultTableRow = ({
       }`
     : '';
   const exoticRarity = (affix, index) =>
-    character.settings.cachedFormState.priorities.exotics.data?.[affix]?.[index];
+    character.settings.cachedFormState.priorities?.exotics.data?.[affix]?.[index];
   return (
     <TableRow
       selected={selected}
