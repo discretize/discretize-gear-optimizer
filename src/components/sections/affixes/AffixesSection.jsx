@@ -5,8 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   changeExclusion,
   changeExclusionsEnabled,
+  changeExoticsEnabled,
   changePriority,
   getExclusionsEnabled,
+  getExoticsEnabled,
   getPriority,
 } from '../../../state/slices/priorities';
 import data from '../../../utils/data';
@@ -20,6 +22,7 @@ const AffixesSection = () => {
 
   const affixes = useSelector(getPriority('affixes'));
   const exclusionsEnabled = useSelector(getExclusionsEnabled);
+  const exoticsEnabled = useSelector(getExoticsEnabled);
 
   const handleTemplateClickPriorities = React.useCallback(
     (value) => {
@@ -92,6 +95,17 @@ const AffixesSection = () => {
               label={t('Auto-disable ritualist trinkets')}
             />
           ) : null}
+          <FormControlLabel
+            control={
+              <Switch
+                checked={exoticsEnabled}
+                onChange={(e) => dispatch(changeExoticsEnabled(e.target.checked))}
+                name="checked"
+                color="primary"
+              />
+            }
+            label={t('Show rarity controls')}
+          />
         </>
       }
     />

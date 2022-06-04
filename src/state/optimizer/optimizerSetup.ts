@@ -70,7 +70,12 @@ import {
   getSecondaryInfusion,
   getSecondaryMaxInfusions,
 } from '../slices/infusions';
-import { getCustomAffixData, getExclusionData, getPriority } from '../slices/priorities';
+import {
+  getCustomAffixData,
+  getExclusionData,
+  getExoticsData,
+  getPriority,
+} from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import { getGameMode } from '../slices/userSettings';
@@ -231,12 +236,12 @@ export function setupCombinations(reduxState: any) {
   for (const combination of combinations) {
     const { extrasCombination, extrasModifiers } = combination;
     const appliedModifiers = [...sharedModifiers, ...extrasModifiers];
-
     const cachedFormState = {
       traits: state.form.traits,
       skills: state.form.skills,
       extras: state.form.extras,
       buffs: state.form.buffs, // buffs are also needed to share a build and display the assumed buffs for the result
+      priorities: state.form.priorities,
     };
 
     const profession: ProfessionName | '' = getProfession(reduxState);
@@ -247,6 +252,7 @@ export function setupCombinations(reduxState: any) {
     const secondaryMaxInfusionsText: string = getSecondaryMaxInfusions(reduxState);
     const forcedSlots: (AffixName | null)[] = getForcedSlots(reduxState);
     const exclusions: Record<AffixName, boolean[]> = getExclusionData(reduxState);
+    const exotics: Record<AffixName, boolean[]> = getExoticsData(reduxState);
     const optimizeFor: IndicatorName = getPriority('optimizeFor')(reduxState);
     const weaponType: WeaponHandednessType = getPriority('weaponType')(reduxState);
     const minBoonDurationText: string = getPriority('minBoonDuration')(reduxState);
@@ -760,7 +766,10 @@ export function setupCombinations(reduxState: any) {
       settings_affixesArray.map((possibleAffixes, slotindex) =>
         possibleAffixes.map((affix) => {
           const statTotals: Record<string, number> = {};
-          const bonuses = Object.entries(settings_slots[slotindex].item[Affix[affix].type]) as [
+          const item = exotics?.[affix]?.[slotindex]
+            ? settings_slots[slotindex].exo
+            : settings_slots[slotindex].asc;
+          const bonuses = Object.entries(item[Affix[affix].type]) as [
             keyof AffixData['bonuses'],
             number,
           ][];

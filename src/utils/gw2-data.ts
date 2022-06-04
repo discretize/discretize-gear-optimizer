@@ -368,7 +368,178 @@ export const Affix: Record<AffixNameOrCustom, AffixData> = {
   },
 };
 
-export const Item = {
+export const ExoticItem = {
+  HELM: {
+    triple: {
+      major: 60,
+      minor: 43,
+    },
+    quadruple: {
+      major: 51,
+      minor: 28,
+    },
+    celestial: {
+      major: 28,
+      minor: 28,
+    },
+  },
+  SHOULDERS: {
+    triple: {
+      major: 45,
+      minor: 32,
+    },
+    quadruple: {
+      major: 38,
+      minor: 21,
+    },
+    celestial: {
+      major: 21,
+      minor: 21,
+    },
+  },
+  CHEST: {
+    triple: {
+      major: 134,
+      minor: 96,
+    },
+    quadruple: {
+      major: 115,
+      minor: 63,
+    },
+    celestial: {
+      major: 63,
+      minor: 63,
+    },
+  },
+  GLOVES: {
+    triple: {
+      major: 45,
+      minor: 32,
+    },
+    quadruple: {
+      major: 38,
+      minor: 21,
+    },
+    celestial: {
+      major: 21,
+      minor: 21,
+    },
+  },
+  LEGGINGS: {
+    triple: {
+      major: 90,
+      minor: 64,
+    },
+    quadruple: {
+      major: 77,
+      minor: 42,
+    },
+    celestial: {
+      major: 42,
+      minor: 42,
+    },
+  },
+  BOOTS: {
+    triple: {
+      major: 45,
+      minor: 32,
+    },
+    quadruple: {
+      major: 38,
+      minor: 21,
+    },
+    celestial: {
+      major: 21,
+      minor: 21,
+    },
+  },
+  AMULET: {
+    triple: {
+      major: 145,
+      minor: 100,
+    },
+    quadruple: {
+      major: 122,
+      minor: 66,
+    },
+    celestial: {
+      major: 68,
+      minor: 68,
+    },
+  },
+  RING: {
+    triple: {
+      major: 115,
+      minor: 79,
+    },
+    quadruple: {
+      major: 97,
+      minor: 52,
+    },
+    celestial: {
+      major: 54,
+      minor: 54,
+    },
+  },
+  ACCESSORY: {
+    triple: {
+      major: 100,
+      minor: 68,
+    },
+    quadruple: {
+      major: 84,
+      minor: 45,
+    },
+    celestial: {
+      major: 47,
+      minor: 47,
+    },
+  },
+  BACK_ITEM: {
+    triple: {
+      major: 55,
+      minor: 36,
+    },
+    quadruple: {
+      major: 46,
+      minor: 24,
+    },
+    celestial: {
+      major: 26,
+      minor: 26,
+    },
+  },
+  ONEHANDED_WEAPON: {
+    triple: {
+      major: 120,
+      minor: 85,
+    },
+    quadruple: {
+      major: 102,
+      minor: 56,
+    },
+    celestial: {
+      major: 56,
+      minor: 56,
+    },
+  },
+  TWOHANDED_WEAPON: {
+    triple: {
+      major: 239,
+      minor: 171,
+    },
+    quadruple: {
+      major: 205,
+      minor: 113,
+    },
+    celestial: {
+      major: 113,
+      minor: 113,
+    },
+  },
+};
+
+export const AscendedItem = {
   HELM: {
     triple: {
       major: 63,
@@ -538,7 +709,8 @@ export const Item = {
     },
   },
 };
-export type ItemSlot = keyof typeof Item;
+
+export type ItemSlot = keyof typeof AscendedItem;
 
 export const WeaponTypes = {
   dualWield: 'Dual wield',
@@ -550,139 +722,166 @@ export const Slots = {
     {
       name: 'Helm',
       short: 'Helm',
-      item: Item.HELM,
+      asc: AscendedItem.HELM,
+      exo: ExoticItem.HELM,
     },
     {
       name: 'Shoulders',
       short: 'Shld',
-      item: Item.SHOULDERS,
+      asc: AscendedItem.SHOULDERS,
+      exo: ExoticItem.SHOULDERS,
     },
     {
       name: 'Coat',
       short: 'Coat',
-      item: Item.CHEST,
+      asc: AscendedItem.CHEST,
+      exo: ExoticItem.CHEST,
     },
     {
       name: 'Gloves',
       short: 'Glov',
-      item: Item.GLOVES,
+      asc: AscendedItem.GLOVES,
+      exo: ExoticItem.GLOVES,
     },
     {
       name: 'Leggings',
       short: 'Legs',
-      item: Item.LEGGINGS,
+      asc: AscendedItem.LEGGINGS,
+      exo: ExoticItem.LEGGINGS,
     },
     {
       name: 'Boots',
       short: 'Boot',
-      item: Item.BOOTS,
+      asc: AscendedItem.BOOTS,
+      exo: ExoticItem.BOOTS,
     },
     {
       name: 'Amulet',
       short: 'Amul',
-      item: Item.AMULET,
+      asc: AscendedItem.AMULET,
+      exo: ExoticItem.AMULET,
     },
     {
       name: 'Ring 1',
       short: 'Rng1',
-      item: Item.RING,
+      asc: AscendedItem.RING,
+      exo: ExoticItem.RING,
     },
     {
       name: 'Ring 2',
       short: 'Rng2',
-      item: Item.RING,
+      asc: AscendedItem.RING,
+      exo: ExoticItem.RING,
     },
     {
       name: 'Accessory 1',
       short: 'Acc1',
-      item: Item.ACCESSORY,
+      asc: AscendedItem.ACCESSORY,
+      exo: ExoticItem.ACCESSORY,
     },
     {
       name: 'Accessory 2',
       short: 'Acc2',
-      item: Item.ACCESSORY,
+      asc: AscendedItem.ACCESSORY,
+      exo: ExoticItem.ACCESSORY,
     },
     {
       name: 'Back Item',
       short: 'Back',
-      item: Item.BACK_ITEM,
+      asc: AscendedItem.BACK_ITEM,
+      exo: ExoticItem.BACK_ITEM,
     },
     {
       name: 'Mainhand',
       short: 'Wep1',
-      item: Item.ONEHANDED_WEAPON,
+      asc: AscendedItem.ONEHANDED_WEAPON,
+      exo: ExoticItem.ONEHANDED_WEAPON,
     },
     {
       name: 'Offhand',
       short: 'Wep2',
-      item: Item.ONEHANDED_WEAPON,
+      asc: AscendedItem.ONEHANDED_WEAPON,
+      exo: ExoticItem.ONEHANDED_WEAPON,
     },
   ],
   'Two-handed': [
     {
       name: 'Helm',
       short: 'Helm',
-      item: Item.HELM,
+      asc: AscendedItem.HELM,
+      exo: ExoticItem.HELM,
     },
     {
       name: 'Shoulders',
       short: 'Shld',
-      item: Item.SHOULDERS,
+      asc: AscendedItem.SHOULDERS,
+      exo: ExoticItem.SHOULDERS,
     },
     {
       name: 'Coat',
       short: 'Coat',
-      item: Item.CHEST,
+      asc: AscendedItem.CHEST,
+      exo: ExoticItem.CHEST,
     },
     {
       name: 'Gloves',
       short: 'Glov',
-      item: Item.GLOVES,
+      asc: AscendedItem.GLOVES,
+      exo: ExoticItem.GLOVES,
     },
     {
       name: 'Leggings',
       short: 'Legs',
-      item: Item.LEGGINGS,
+      asc: AscendedItem.LEGGINGS,
+      exo: ExoticItem.LEGGINGS,
     },
     {
       name: 'Boots',
       short: 'Boot',
-      item: Item.BOOTS,
+      asc: AscendedItem.BOOTS,
+      exo: ExoticItem.BOOTS,
     },
     {
       name: 'Amulet',
       short: 'Amul',
-      item: Item.AMULET,
+      asc: AscendedItem.AMULET,
+      exo: ExoticItem.AMULET,
     },
     {
       name: 'Ring 1',
       short: 'Rng1',
-      item: Item.RING,
+      asc: AscendedItem.RING,
+      exo: ExoticItem.RING,
     },
     {
       name: 'Ring 2',
       short: 'Rng2',
-      item: Item.RING,
+      asc: AscendedItem.RING,
+      exo: ExoticItem.RING,
     },
     {
       name: 'Accessory 1',
       short: 'Acc1',
-      item: Item.ACCESSORY,
+      asc: AscendedItem.ACCESSORY,
+      exo: ExoticItem.ACCESSORY,
     },
     {
       name: 'Accessory 2',
       short: 'Acc2',
-      item: Item.ACCESSORY,
+      asc: AscendedItem.ACCESSORY,
+      exo: ExoticItem.ACCESSORY,
     },
     {
       name: 'Back Item',
       short: 'Back',
-      item: Item.BACK_ITEM,
+      asc: AscendedItem.BACK_ITEM,
+      exo: ExoticItem.BACK_ITEM,
     },
     {
       name: 'Weapon',
       short: 'Weap',
-      item: Item.TWOHANDED_WEAPON,
+      asc: AscendedItem.TWOHANDED_WEAPON,
+      exo: ExoticItem.TWOHANDED_WEAPON,
     },
   ],
 };

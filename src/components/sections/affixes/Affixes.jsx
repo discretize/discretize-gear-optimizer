@@ -6,10 +6,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   changePriority,
   getExclusionsEnabled,
+  getExoticsEnabled,
   getPriority,
 } from '../../../state/slices/priorities';
 import AffixesSelect from '../../baseComponents/AffixesSelect';
 import ExcludedSlots from '../forcedslots/ExcludedSlots';
+import ExoticSlots from '../forcedslots/ExoticSlots';
 import CustomAffix from './CustomAffix';
 
 export default function Affixes() {
@@ -18,6 +20,7 @@ export default function Affixes() {
 
   const affixes = useSelector(getPriority('affixes'));
   const exclusionsEnabled = useSelector(getExclusionsEnabled);
+  const exoticsEnabled = useSelector(getExoticsEnabled);
 
   const customSelected = affixes.includes('Custom');
 
@@ -55,6 +58,18 @@ export default function Affixes() {
             />
           </Typography>
           <ExcludedSlots />
+        </Box>
+      )}
+      {exoticsEnabled && (
+        <Box>
+          <Typography fontWeight={700} mb={0.5}>
+            {t('Use exotic rarity')}{' '}
+            <HelperIcon
+              text={t('Allows you to use exotic rarity instead of ascended for any gear slot.')}
+              size="small"
+            />
+          </Typography>
+          <ExoticSlots />
         </Box>
       )}
       {customSelected && (

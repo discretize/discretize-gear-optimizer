@@ -39,7 +39,9 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
   const sigil1Id = allExtrasModifiersById[sigil1]?.gw2id;
   const sigil2Id = allExtrasModifiersById[sigil2]?.gw2id;
   const rune = runeStringId ? allExtrasModifiersById[runeStringId] : undefined;
-
+  const isExotic = (index) =>
+    cachedFormState?.priorities?.exotics?.data?.[character.gear[index]]?.[index];
+  const getRarity = (index) => (isExotic(index) ? 'Exotic' : 'Ascended');
   // Calculate the props for the weapons component
   let wea1;
   let wea2;
@@ -55,52 +57,62 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
       weapon2MainAffix: character.gear[12],
       weapon1OffAffix: character.gear[13],
       weapon2OffAffix: character.gear[13],
+      weapon1MainRarity: getRarity(12),
+      weapon1OffRarity: getRarity(12),
+      weapon2MainRarity: getRarity(13),
+      weapon2OffRarity: getRarity(13),
       weapon1MainSigil1Id: sigil1Id,
       weapon2MainSigil1Id: sigil1Id,
       weapon1OffSigilId: sigil2Id,
       weapon2OffSigilId: sigil2Id,
-      weapon1MainInfusion1Id: infusions[16],
-      weapon2MainInfusion1Id: infusions[16],
-      weapon1OffInfusionId: infusions ? infusions[17] : null,
-      weapon2OffInfusionId: infusions ? infusions[17] : null,
+      weapon1MainInfusion1Id: isExotic(12) ? null : infusions[16],
+      weapon2MainInfusion1Id: isExotic(13) ? null : infusions[16],
+      weapon1OffInfusionId: isExotic(12) ? null : infusions[17],
+      weapon2OffInfusionId: isExotic(13) ? null : infusions[17],
     };
 
     if (!weapons.offhand1) {
       weaponPropsAPI = {
         ...weaponPropsAPI,
         weapon1MainSigil2Id: sigil2Id,
-        weapon1MainInfusion2Id: infusions[17],
+        weapon1MainInfusion2Id: isExotic(12) ? null : infusions[17],
       };
     }
     if (!weapons.offhand2) {
       weaponPropsAPI = {
         ...weaponPropsAPI,
         weapon2MainSigil2Id: sigil2Id,
-        weapon2MainInfusion2Id: infusions[17],
+        weapon2MainInfusion2Id: isExotic(13) ? null : infusions[17],
       };
     }
   } else if (weaponType === WeaponTypes.dualWield) {
-    wea1 = classData.mainHand.find((item) => item.type === 'one-handed').gw2id;
-    wea2 = classData.offHand[0].gw2id;
+    wea1 = classData.mainHand.find((item) => item.type === 'one-handed');
+    [wea2] = classData.offHand;
 
     weaponPropsAPI = {
-      weapon1MainId: wea1,
+      weapon1MainId: isExotic(12) ? undefined : wea1.gw2id,
+      weapon1MainType: wea1.name,
       weapon1MainAffix: character.gear[12],
-      weapon1MainInfusion1Id: infusions ? infusions[16] : null,
+      weapon1MainRarity: getRarity(12),
+      weapon1MainInfusion1Id: isExotic(12) ? null : infusions[16],
       weapon1MainSigil1Id: sigil1Id,
-      weapon1OffId: wea2,
+      weapon1OffId: isExotic(13) ? null : wea2.gw2id,
+      weapon1OffType: wea2.name,
       weapon1OffAffix: character.gear[13],
-      weapon1OffInfusionId: infusions ? infusions[17] : null,
+      weapon1OffRarity: getRarity(13),
+      weapon1OffInfusionId: isExotic(13) ? null : infusions[17],
       weapon1OffSigilId: sigil2Id,
     };
   } else {
-    wea1 = classData.mainHand.find((item) => item.type === 'two-handed').gw2id;
+    wea1 = classData.mainHand.find((item) => item.type === 'two-handed');
     weaponPropsAPI = {
-      weapon1MainId: wea1,
+      weapon1MainId: isExotic(12) ? undefined : wea1.gw2id,
+      weapon1MainType: wea1.name,
       weapon1MainAffix: character.gear[12],
-      weapon1MainInfusion1Id: infusions[16],
+      weapon1MainRarity: getRarity(12),
+      weapon1MainInfusion1Id: isExotic(12) ? null : infusions[16],
       weapon1MainSigil1Id: sigil1Id,
-      weapon1MainInfusion2Id: infusions[17],
+      weapon1MainInfusion2Id: isExotic(12) ? null : infusions[17],
       weapon1MainSigil2Id: sigil2Id,
     };
   }
@@ -111,43 +123,55 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
   const armorPropsAPI = {
     weight: firstUppercase(weight),
     helmAffix: gear[0],
+    helmRarity: getRarity(0),
     helmRuneId: runeId,
-    helmInfusionId: infusions[0],
+    helmInfusionId: isExotic(0) ? null : infusions[0],
     shouldersAffix: gear[1],
+    shouldersRarity: getRarity(1),
     shouldersRuneId: runeId,
-    shouldersInfusionId: infusions[1],
+    shouldersInfusionId: isExotic(1) ? null : infusions[1],
     coatAffix: gear[2],
+    coatRarity: getRarity(2),
     coatRuneId: runeId,
-    coatInfusionId: infusions[2],
+    coatInfusionId: isExotic(2) ? null : infusions[2],
     glovesAffix: gear[3],
+    glovesRarity: getRarity(3),
     glovesRuneId: runeId,
-    glovesInfusionId: infusions[3],
+    glovesInfusionId: isExotic(3) ? null : infusions[3],
     leggingsAffix: gear[4],
+    leggingsRarity: getRarity(4),
     leggingsRuneId: runeId,
-    leggingsInfusionId: infusions[4],
+    leggingsInfusionId: isExotic(4) ? null : infusions[4],
     bootsAffix: gear[5],
+    bootsRarity: getRarity(5),
     bootsRuneId: runeId,
-    bootsInfusionId: infusions[5],
+    bootsInfusionId: isExotic(5) ? null : infusions[5],
   };
 
   // Calculate back and trinkets props
   const backAndTrinketPropsAPI = {
     backItemAffix: gear[11],
-    backItemInfusion1Id: infusions[6],
-    backItemInfusion2Id: infusions[7],
+    backItemRarity: getRarity(11),
+    backItemInfusion1Id: isExotic(11) ? null : infusions[6],
+    backItemInfusion2Id: isExotic(11) ? null : infusions[7],
     amuletAffix: gear[6],
+    amuletRarity: getRarity(6),
     ring1Affix: gear[7],
-    ring1Infusion1Id: infusions[8],
-    ring1Infusion2Id: infusions[9],
-    ring1Infusion3Id: infusions[10],
+    ring1Rarity: getRarity(7),
+    ring1Infusion1Id: isExotic(7) ? null : infusions[8],
+    ring1Infusion2Id: isExotic(7) ? null : infusions[9],
+    ring1Infusion3Id: isExotic(7) ? null : infusions[10],
     ring2Affix: gear[8],
-    ring2Infusion1Id: infusions[11],
-    ring2Infusion2Id: infusions[12],
-    ring2Infusion3Id: infusions[13],
+    ring2Rarity: getRarity(8),
+    ring2Infusion1Id: isExotic(8) ? null : infusions[11],
+    ring2Infusion2Id: isExotic(8) ? null : infusions[12],
+    ring2Infusion3Id: isExotic(8) ? null : infusions[13],
     accessory1Affix: gear[9],
-    accessory1InfusionId: infusions[14],
+    accessory1Rarity: getRarity(9),
+    accessory1InfusionId: isExotic(9) ? null : infusions[14],
     accessory2Affix: gear[10],
-    accessory2InfusionId: infusions[15],
+    accessory2Rarity: getRarity(10),
+    accessory2InfusionId: isExotic(10) ? null : infusions[15],
   };
 
   let skillsPropsAPI;
