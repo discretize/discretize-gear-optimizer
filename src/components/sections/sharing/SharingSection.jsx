@@ -1,9 +1,11 @@
 import ShareIcon from '@mui/icons-material/Share';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import { IconButton, Typography } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getSelectedCharacter } from '../../../state/slices/controlsSlice';
+import Info from '../../baseComponents/Info';
 import Section from '../../baseComponents/Section';
 import URLStateExport from '../../url-state/URLStateExport';
 import BuildShareModal from '../results/BuildShareModal/BuildShareModal';
@@ -11,6 +13,8 @@ import BuildShareModal from '../results/BuildShareModal/BuildShareModal';
 const SharingSection = () => {
   const { t } = useTranslation();
   const character = useSelector(getSelectedCharacter);
+
+  const exoticsEnabled = character?.settings?.cachedFormState?.priorities?.exotics?.enabled;
 
   return (
     <Section
@@ -47,6 +51,11 @@ const SharingSection = () => {
             {' '}
             <Trans>Select weapons and skills as you please.</Trans>
           </Typography>
+          {exoticsEnabled ? (
+            <Info icon={<WarningAmberIcon />}>
+              {t('Warning: Shared character links do not currently support exotic gear.')}
+            </Info>
+          ) : null}
         </>
       }
       extraInfo={<></>}

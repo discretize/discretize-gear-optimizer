@@ -1,4 +1,5 @@
 import { HelperIcon } from '@discretize/react-discretize-components';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -10,6 +11,7 @@ import {
   getPriority,
 } from '../../../state/slices/priorities';
 import AffixesSelect from '../../baseComponents/AffixesSelect';
+import Info from '../../baseComponents/Info';
 import ExcludedSlots from '../forcedslots/ExcludedSlots';
 import ExoticSlots from '../forcedslots/ExoticSlots';
 import CustomAffix from './CustomAffix';
@@ -70,6 +72,9 @@ export default function Affixes() {
             />
           </Typography>
           <ExoticSlots />
+          <Info icon={<WarningAmberIcon />}>
+            {t('Warning: Shared character links do not currently support exotic gear.')}
+          </Info>
         </Box>
       )}
       {customSelected && (
