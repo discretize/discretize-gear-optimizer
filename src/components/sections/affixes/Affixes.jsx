@@ -75,6 +75,11 @@ export default function Affixes() {
           <Info icon={<WarningAmberIcon />}>
             {t('Warning: Shared character links do not currently support exotic gear.')}
           </Info>
+          <Info icon={<WarningAmberIcon />}>
+            {t(
+              'Warning: Exotic celestial trinket simulation is currently incorrect due to inconsistent jewel stats ingame (missing concentration and expertise).',
+            )}
+          </Info>
         </Box>
       )}
       {customSelected && (
