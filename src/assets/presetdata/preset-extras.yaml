@@ -94,8 +94,8 @@ list:
             "thief": {}
           },
           "Sigil1": {
-            "force": {}
-            "accuracy": {},
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-only-3": {},
