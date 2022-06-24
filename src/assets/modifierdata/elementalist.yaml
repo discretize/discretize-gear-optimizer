@@ -204,7 +204,17 @@
 
 - section: Air
   id: 41
+  note: CRITICAL CHANCE SIMULATION IS INCORRECT
   items:
+
+    - id: zephyrs-speed
+      text: Zephyr's Speed
+      subText: 100% air attunement (WARNING THIS IS NOT ACCURATE)
+      minor: true
+      modifiers:
+        attributes:
+          Critical Chance: 5%
+      gw2id: 221
 
     - id: ferocious-winds
       text: Ferocious Winds
@@ -628,6 +638,15 @@
           Strike Damage: [2%, unknown]
           Condition Damage: [2%, unknown]
       gw2id: 2247
+      defaultEnabled: true
+
+    - id: spectacular-sphere
+      text: Spectacular Sphere
+      modifiers:
+        damage:
+          All Damage: [-10%, unknown]
+      wvwModifiers: {}
+      gw2id: 2234
       defaultEnabled: true
 
     - id: empowered-empowerment

@@ -15,7 +15,8 @@
           Ferocity: [180, buff]
       gw2id: 12491
 
-    # .63 * 690.5 * 1.25 = 543.8
+    # pve: .95 * 690.5 * 1.25 = 820.0
+    # wvw: .63 * 690.5 * 1.25 = 543.8
     - id: one-wolf-pack-sic-em
       text: One Wolf Pack
       subText: sic em
@@ -25,10 +26,14 @@
         quantityEntered: 1
       modifiers:
         attributes:
+          Power Coefficient: 820
+      wvwModifiers:
+        attributes:
           Power Coefficient: 543.8
       gw2id: 45717
 
-    # .63 * 690.5 = 435.0
+    # pve: .95 * 690.5 = 655.0
+    # wvw: .63 * 690.5 = 435.0
     - id: one-wolf-pack-no-sic-em
       text: One Wolf Pack
       subText: no sic em
@@ -38,10 +43,14 @@
         quantityEntered: 1
       modifiers:
         attributes:
+          Power Coefficient: 655
+      wvwModifiers:
+        attributes:
           Power Coefficient: 435
       gw2id: 45717
 
-    # .63 * 690.5 * 1.25 = 543.8
+    # pve: .95 * 690.5 * 1.25 = 820.0
+    # wvw: .63 * 690.5 * 1.25 = 543.8
     - id: one-wolf-pack-sic-em-sharpened
       text: One Wolf Pack
       subText: sic em, sharpened edges
@@ -51,12 +60,18 @@
         quantityEntered: 1
       modifiers:
         attributes:
+          Power Coefficient: 820
+        conversionAfterBuffs:
+          Bleeding Coefficient: {Critical Chance: 100%}
+      wvwModifiers:
+        attributes:
           Power Coefficient: 543.8
         conversionAfterBuffs:
           Bleeding Coefficient: {Critical Chance: 100%}
       gw2id: 45717
 
-    # .63 * 690.5 = 435.0
+    # pve: .95 * 690.5 = 655.0
+    # wvw: .63 * 690.5 = 435.0
     - id: one-wolf-pack-no-sic-em-sharpened
       text: One Wolf Pack
       subText: no sic em, sharpened edges
@@ -65,6 +80,11 @@
         default: 0
         quantityEntered: 1
       modifiers:
+        attributes:
+          Power Coefficient: 655
+        conversionAfterBuffs:
+          Bleeding Coefficient: {Critical Chance: 100%}
+      wvwModifiers:
         attributes:
           Power Coefficient: 435
         conversionAfterBuffs:
@@ -136,6 +156,11 @@
         damage:
           Strike Damage: [10%, mult]
         attributes:
+          Critical Chance: 15%
+      wvwModifiers:
+        damage:
+          Strike Damage: [10%, mult]
+        attributes:
           Critical Chance: 10%
       minor: true
       gw2id: 1068
@@ -155,6 +180,10 @@
       text: Vicious Quarry
       subText: 100% fury
       modifiers:
+        attributes:
+          Ferocity: [250, buff]
+          Critical Chance: 15%
+      wvwModifiers:
         attributes:
           Ferocity: [250, buff]
           Critical Chance: 10%
@@ -299,7 +328,7 @@
           Outgoing Healing: 2%
       wvwModifiers:
         attributes:
-          Outgoing Healing: 1%
+          Outgoing Healing: 1.5%
       minor: true
       gw2id: 1992
       defaultEnabled: true

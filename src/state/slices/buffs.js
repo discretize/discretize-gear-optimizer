@@ -52,7 +52,17 @@ export const buffsSlice = createSlice({
   },
   extraReducers: {
     [changeAll]: (state, action) => {
-      return { ...state, ...action.payload?.form?.buffs };
+      const removeOldBuffs = (data) => {
+        if (!data) return data;
+        const validEntries = Object.entries(data).filter(([key]) => buffModifiersById[key]);
+        return Object.fromEntries(validEntries);
+      };
+
+      const { buffs, amounts } = action.payload?.form?.buffs ?? {};
+      const validData = { buffs: removeOldBuffs(buffs), amounts: removeOldBuffs(amounts) };
+
+      console.log({ buffs, amounts, validData });
+      return { ...state, ...validData };
     },
     [setBuildTemplate]: (state, action) => {
       const { buffPreset } = action.payload;
@@ -76,10 +86,12 @@ export const getBuffsModifiers = createSelector(
   (buffs) => {
     const enabledModifiers = Object.keys(buffs.buffs).filter((key) => buffs.buffs[key]);
 
-    return enabledModifiers.map((id) => {
-      const itemData = buffModifiersById[id];
-      return { id, ...itemData, amount: buffs.amounts?.[id] };
-    });
+    return enabledModifiers
+      .filter((id) => buffModifiersById[id])
+      .map((id) => {
+        const itemData = buffModifiersById[id];
+        return { id, ...itemData, amount: buffs.amounts?.[id] };
+      });
   },
 );
 

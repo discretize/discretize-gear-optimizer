@@ -917,7 +917,7 @@ export const omnipotionModifiers = {
     'Damage Reduction': ['25%', 'add'],
   },
   'conversion': {
-    'Precision': { 'Agony Resistance': '150%' },
+    'Vitality': { 'Agony Resistance': '150%' },
     'Toughness': { 'Agony Resistance': '150%' },
     'Concentration': { 'Agony Resistance': '150%' },
   },

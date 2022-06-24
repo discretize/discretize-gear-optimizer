@@ -30,7 +30,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Power Quickness Chrono
+      - name: Power STM Chrono (outdated)
         id: pchrono-stm-gs
         specialization: Chronomancer
         boonType: Power
@@ -87,7 +87,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Condi Virtuoso
+      - name: Condi Virtuoso (outdated)
         id: cvirt
         specialization: Virtuoso
         boonType: Condi
@@ -97,7 +97,7 @@ list:
         extras: Condi Virtuoso
         weaponType: Dual wield
 
-      - name: Condi Virtuoso (sharpening sorrow)
+      - name: Condi Virtuoso (sharpening sorrow) (outdated)
         id: cvirt-sorrow
         specialization: Virtuoso
         boonType: Condi
@@ -107,7 +107,7 @@ list:
         extras: Condi Virtuoso
         weaponType: Dual wield
 
-      - name: Condi Virtuoso (chaos)
+      - name: Condi Virtuoso (chaos) (outdated)
         id: cvirt-chaos
         specialization: Virtuoso
         boonType: Condi
@@ -387,7 +387,7 @@ list:
         extras: Condi Bers
         weaponType: Two-handed
 
-      - name: Banner Bladesworn
+      - name: Banner Bladesworn (outdated)
         id: bls-bs
         specialization: Bladesworn
         boonType: Power
@@ -400,7 +400,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: DPS Bladesworn
+      - name: DPS Bladesworn (outdated)
         id: bls-dps
         specialization: Bladesworn
         boonType: Power
@@ -413,7 +413,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Might Bladesworn
+      - name: Might Bladesworn (outdated)
         id: bls-might
         specialization: Bladesworn
         boonType: Power
@@ -522,7 +522,7 @@ list:
         extras: Heal
         weaponType: Dual wield
 
-      - name: Power Catalyst
+      - name: Power Catalyst (outdated)
         id: power-cat
         specialization: Catalyst
         boonType: Power
@@ -535,7 +535,7 @@ list:
           extras: Power (Raid)
         weaponType: Two-handed
 
-      - name: Power Quickness Catalyst
+      - name: Power Quickness Catalyst (outdated)
         id: power-cat-quick
         specialization: Catalyst
         boonType: Power
@@ -561,7 +561,7 @@ list:
   - class: Ranger
     builds:
 
-      # - name: Power Slb Marks (allies)
+      # - name: Power Slb Marks (allies) (outdated)
       #   id: pslb-marks-allies
       #   specialization: Soulbeast
       #   boonType: Power
@@ -574,7 +574,7 @@ list:
       #     extras: Power (Raid)
       #   weaponType: Two-handed
 
-      - name: Power Slb Marks
+      - name: Power Slb Marks (outdated)
         id: pslb-marks
         specialization: Soulbeast
         boonType: Power
@@ -587,7 +587,7 @@ list:
           extras: Power (Raid)
         weaponType: Two-handed
 
-      # - name: Power Slb Skirm (allies)
+      # - name: Power Slb Skirm (allies) (outdated)
       #   id: pslb-skirm-allies
       #   specialization: Soulbeast
       #   boonType: Power
@@ -600,7 +600,7 @@ list:
       #     extras: Power (Raid, capped)
       #   weaponType: Two-handed
 
-      - name: Power Slb Skirm
+      - name: Power Slb Skirm (outdated)
         id: pslb-skirm
         specialization: Soulbeast
         boonType: Power
@@ -613,7 +613,7 @@ list:
           extras: Power (Raid, capped)
         weaponType: Two-handed
 
-      - name: Condi Slb SB (allies)
+      - name: Condi Slb SB (allies) (outdated)
         id: cslb-sb-allies
         specialization: Soulbeast
         boonType: Condi
@@ -623,7 +623,7 @@ list:
         extras: Condi Slb
         weaponType: Two-handed
 
-      - name: Condi Slb SB
+      - name: Condi Slb SB (outdated)
         id: cslb-sb
         specialization: Soulbeast
         boonType: Condi
@@ -633,7 +633,7 @@ list:
         extras: Condi Slb
         weaponType: Two-handed
 
-      - name: Condi Slb D/T A/D (allies)
+      - name: Condi Slb D/T A/D (allies) (outdated)
         id: cslb-dtad-allies
         specialization: Soulbeast
         boonType: Condi
@@ -643,7 +643,7 @@ list:
         extras: Condi Slb
         weaponType: Dual wield
 
-      - name: Condi Slb D/T A/D
+      - name: Condi Slb D/T A/D (outdated)
         id: cslb-dtad
         specialization: Soulbeast
         boonType: Condi
@@ -653,7 +653,7 @@ list:
         extras: Condi Slb
         weaponType: Dual wield
 
-      - name: Hybrid Slb (allies)
+      - name: Hybrid Slb (allies) (outdated)
         id: hslb-allies
         specialization: Soulbeast
         boonType: Condi
@@ -663,7 +663,7 @@ list:
         extras: Hybrid Slb
         weaponType: Dual wield
 
-      - name: Hybrid Slb
+      - name: Hybrid Slb (outdated)
         id: hslb
         specialization: Soulbeast
         boonType: Condi
@@ -673,7 +673,7 @@ list:
         extras: Hybrid Slb
         weaponType: Dual wield
 
-      # - name: Pure Shortbow Slb BM
+      # - name: Pure Shortbow Slb BM (outdated)
       #   id: sbsbsb-BM
       #   specialization: Soulbeast
       #   boonType: Condi
@@ -859,7 +859,7 @@ list:
       #     extras: Power Alacrity Mechanist (Raid, inaccurate)
       #   weaponType: Dual wield
 
-      - name: Condi Mechanist J-Drive (approx.)
+      - name: Condi Mechanist J-Drive (approx.) (outdated)
         id: cmech-sig-mace
         specialization: Mechanist
         boonType: Condi
@@ -869,7 +869,7 @@ list:
         extras: Condi Mechanist
         weaponType: Dual wield
 
-      - name: Condi Mechanist Jade Dynamo (approx.)
+      - name: Condi Mechanist Jade Dynamo (approx.) (outdated)
         id: cmech-dynamo-pistol
         specialization: Mechanist
         boonType: Condi

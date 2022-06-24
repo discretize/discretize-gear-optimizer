@@ -1922,7 +1922,8 @@ list:
             "bloodlust-on-crit": {
               "amount": "3.17"
             },
-            "blade-master-base-bugged": {}
+            "blade-master-base-bugged": {},
+            "furious-burst": {}
           },
           {
             "warriors-sprint": {
@@ -2294,7 +2295,8 @@ list:
             },
             "fresh-air": {
               "amount": ""
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "superior-elements": {},
@@ -2382,7 +2384,8 @@ list:
             },
             "fresh-air": {
               "amount": ""
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "superior-elements": {},
@@ -2470,7 +2473,8 @@ list:
             },
             "fresh-air": {
               "amount": ""
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "superior-elements": {},
@@ -2714,7 +2718,8 @@ list:
             },
             "fresh-air": {
               "amount": "48"
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "superior-elements": {},
@@ -2868,7 +2873,8 @@ list:
             },
             "fresh-air": {
               "amount": "60"
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "gathered-focus": {},
@@ -2946,7 +2952,8 @@ list:
             },
             "fresh-air": {
               "amount": ""
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "hardened-auras": {
@@ -2996,7 +3003,7 @@ list:
           ],
           [
             2252,
-            2247,
+            2234,
             2251
           ]
         ],
@@ -3033,7 +3040,8 @@ list:
             },
             "fresh-air": {
               "amount": ""
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "hardened-auras": {
@@ -3043,7 +3051,8 @@ list:
             "empowering-auras": {
               "amount": "4.8"
             },
-            "empowered-empowerment": {}
+            "empowered-empowerment": {},
+            "spectacular-sphere": {}
           }
         ]
       }

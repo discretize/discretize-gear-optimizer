@@ -112,6 +112,15 @@
   id: 36
   items:
 
+    - id: furious-burst
+      text: Furious Burst
+      subText: 100% fury
+      minor: true
+      modifiers:
+        attributes:
+          Critical Chance: 5%
+      gw2id: 1342
+
     - id: wounding-precision
       text: Wounding Precision
       modifiers:
@@ -343,26 +352,6 @@
         damage:
           Strike Damage: [3%, add]
       gw2id: 1413
-      defaultEnabled: true
-
-    - id: double-standards-str
-      text: Doubled Standards
-      subText: +50 Pwr/Cond
-      modifiers:
-        attributes:
-          Power: [50, buff]
-          Condition Damage: [50, buff]
-      gw2id: 1484
-      defaultEnabled: true
-
-    - id: double-standards-disc
-      text: Doubled Standards
-      subText: +50 Prec/Fero
-      modifiers:
-        attributes:
-          Precision: [50, buff]
-          Ferocity: [50, buff]
-      gw2id: 1484
       defaultEnabled: true
 
     - id: axe-mastery-one

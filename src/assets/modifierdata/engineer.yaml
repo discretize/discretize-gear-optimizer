@@ -142,6 +142,9 @@
       text: Hematic Focus
       modifiers:
         attributes:
+          Critical Chance: 15%
+      wvwModifiers:
+        attributes:
           Critical Chance: 10%
       minor: true
       gw2id: 536
