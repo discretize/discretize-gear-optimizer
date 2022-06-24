@@ -143,7 +143,7 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid, capped)
+          extras: Power (Raid)
         weaponType: Two-handed
 
       - name: DH Virtues
@@ -169,7 +169,7 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid, capped)
+          extras: Power (Raid)
         weaponType: Two-handed
 
       - name: Power Willbender Virtues
@@ -195,7 +195,7 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid, capped)
+          extras: Power (Raid)
         weaponType: Two-handed
 
       - name: Power Alacrity Willbender
@@ -597,7 +597,7 @@ list:
       #   fractal:
       #     extras: Power (Fractal)
       #   raid:
-      #     extras: Power (Raid, capped)
+      #     extras: Power (Raid)
       #   weaponType: Two-handed
 
       - name: Power Slb Skirm (outdated)
@@ -610,7 +610,7 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid, capped)
+          extras: Power (Raid)
         weaponType: Two-handed
 
       - name: Condi Slb SB (allies) (outdated)
@@ -922,7 +922,7 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid, capped)
+          extras: Power (Raid)
         weaponType: Two-handed
 
       - name: Condi Reaper
