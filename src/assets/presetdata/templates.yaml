@@ -120,19 +120,6 @@ list:
   - class: Guardian
     builds:
 
-      - name: DH Radiance w/ PI
-        id: dh-radiance-pi
-        specialization: Dragonhunter
-        boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: DH Radiance
-        traits: DH Radiance w/ PI
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid, furious)
-        weaponType: Two-handed
-
       - name: DH Radiance
         id: dh-radiance
         specialization: Dragonhunter
