@@ -233,6 +233,9 @@
       text: Amplified Wrath
       modifiers:
         damage:
+          Burning Damage: [10%, unknown]
+      wvwModifiers:
+        damage:
           Burning Damage: [15%, unknown]
       gw2id: 1686
       defaultEnabled: true

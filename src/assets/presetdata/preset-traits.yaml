@@ -688,74 +688,6 @@ list:
         "skills": {}
       }
 
-  - name: DH Radiance w/ PI
-    profession: Dragonhunter
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "16",
-          "42",
-          "27"
-        ],
-        "selectedTraits": [
-          [
-            574,
-            565,
-            579
-          ],
-          [
-            634,
-            653,
-            2017
-          ],
-          [
-            1898,
-            1835,
-            1955
-          ]
-        ],
-        "items": [
-          {
-            "right-hand-strength": {},
-            "right-hand-strength-1h": {
-              "amount": ""
-            },
-            "radiant-fire": {},
-            "retribution": {
-              "amount": ""
-            },
-            "radiant-power": {},
-            "amplified-wrath": {},
-            "righteous-instincts": {}
-          },
-          {
-            "fiery-wrath": {},
-            "symbolic-exposure": {},
-            "zealous-blade-base": {},
-            "zealous-blade-gs": {
-              "amount": ""
-            },
-            "kindled-zeal": {},
-            "symbolic-avenger": {}
-          },
-          {
-            "zealots-aggression": {},
-            "pure-of-sight": {},
-            "hunters-fortification": {},
-            "big-game-hunter": {}
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {
-          "bane-signet-2": {
-            "amount": ""
-          }
-        }
-      }
-
   - name: DH Radiance
     profession: Dragonhunter
     traits: |-
@@ -981,7 +913,7 @@ list:
           [
             574,
             565,
-            579
+            1683
           ],
           [
             634,
@@ -1028,7 +960,7 @@ list:
     skills: |-
       {
         "skills": {
-          "bane-signet-2": {
+          "bane-signet": {
             "amount": ""
           }
         }
@@ -1452,15 +1384,15 @@ list:
       {
         "showAll": false,
         "selectedLines": [
-          "16",
+          "46",
           "49",
           "62"
         ],
         "selectedTraits": [
           [
-            574,
-            578,
-            579
+            617,
+            610,
+            554
           ],
           [
             1899,
@@ -1475,17 +1407,17 @@ list:
         ],
         "items": [
           {
-            "right-hand-strength": {},
-            "right-hand-strength-1h": {
+            "inspired-virtue": {
               "amount": ""
             },
-            "radiant-fire": {},
-            "retribution": {
+            "unscathed-contender": {
               "amount": ""
             },
-            "radiant-power": {},
-            "amplified-wrath": {},
-            "righteous-instincts": {}
+            "virtue-of-retribution": {},
+            "inspiring-virtue": {
+              "amount": ""
+            },
+            "power-of-the-virtuous": {}
           },
           {
             "invigorating-bulwark": {
@@ -1503,11 +1435,7 @@ list:
       }
     skills: |-
       {
-        "skills": {
-          "bane-signet-2": {
-            "amount": ""
-          }
-        }
+        "skills": {}
       }
 
   - name: Power Willbender Radiance
@@ -1922,7 +1850,8 @@ list:
             "bloodlust-on-crit": {
               "amount": "3.17"
             },
-            "blade-master-base-bugged": {}
+            "blade-master-base-bugged": {},
+            "furious-burst": {}
           },
           {
             "warriors-sprint": {
@@ -2294,7 +2223,8 @@ list:
             },
             "fresh-air": {
               "amount": ""
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "superior-elements": {},
@@ -2382,7 +2312,8 @@ list:
             },
             "fresh-air": {
               "amount": ""
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "superior-elements": {},
@@ -2470,7 +2401,8 @@ list:
             },
             "fresh-air": {
               "amount": ""
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "superior-elements": {},
@@ -2714,7 +2646,8 @@ list:
             },
             "fresh-air": {
               "amount": "48"
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "superior-elements": {},
@@ -2868,7 +2801,8 @@ list:
             },
             "fresh-air": {
               "amount": "60"
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "gathered-focus": {},
@@ -2946,7 +2880,8 @@ list:
             },
             "fresh-air": {
               "amount": ""
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "hardened-auras": {
@@ -2996,7 +2931,7 @@ list:
           ],
           [
             2252,
-            2247,
+            2234,
             2251
           ]
         ],
@@ -3033,7 +2968,8 @@ list:
             },
             "fresh-air": {
               "amount": ""
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "hardened-auras": {
@@ -3043,7 +2979,8 @@ list:
             "empowering-auras": {
               "amount": "4.8"
             },
-            "empowered-empowerment": {}
+            "empowered-empowerment": {},
+            "spectacular-sphere": {}
           }
         ]
       }
@@ -4146,7 +4083,7 @@ list:
         "selectedTraits": [
           [
             1767,
-            1786,
+            1765,
             1800
           ],
           [
@@ -4485,7 +4422,7 @@ list:
         "selectedTraits": [
           [
             1767,
-            1786,
+            1765,
             1800
           ],
           [
@@ -4779,7 +4716,7 @@ list:
         "selectedTraits": [
           [
             1767,
-            1786,
+            1765,
             1800
           ],
           [

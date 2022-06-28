@@ -178,7 +178,14 @@
 
 - section: Blood Magic
   id: 19
-  items: []
+  items:
+    - id: banshees-wail
+      text: Banshee's Wail
+      modifiers:
+        attributes:
+          Outgoing Healing: 10%
+      gw2id: 799
+      defaultEnabled: true
 
 - section: Soul Reaping
   id: 50
@@ -209,8 +216,9 @@
       text: Death Perception
       modifiers:
         attributes:
-          Alternative Critical Chance: 33%
-          Alternative Ferocity: [300, buff]
+          Critical Chance: 10%
+        damage:
+          Critical Damage: [15%, unknown]
       gw2id: 893
       defaultEnabled: true
 

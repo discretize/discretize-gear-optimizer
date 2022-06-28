@@ -6,6 +6,7 @@ list:
       {
         "extras": {
           "Runes": {
+            "thief": {},
             "scholar": {},
             "eagle": {}
           },
@@ -19,7 +20,9 @@ list:
             "slaying-potion": {}
           },
           "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
           }
         }
       }
@@ -45,7 +48,8 @@ list:
           },
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {},
-            "plate-of-coq-au-vin-with-salsa": {}
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
           }
         },
         "lifestealAmount": ""
@@ -73,36 +77,12 @@ list:
           },
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {},
-            "plate-of-coq-au-vin-with-salsa": {}
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
           }
         },
         "lifestealAmount": ""
       }
-
-  - name: Power (Raid, capped)
-    hidden: true
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "scholar": {}
-          },
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {
-            "impact/night/slaying-only-3": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {}
-          }
-        },
-        "lifestealAmount": ""
-      }
-
 
   - name: Power Boon (Raid)
     value: |-
@@ -114,7 +94,8 @@ list:
             "thief": {}
           },
           "Sigil1": {
-            "force": {}
+            "force": {},
+            "accuracy": {}
           },
           "Sigil2": {
             "impact/night/slaying-only-3": {},
@@ -272,12 +253,14 @@ list:
           },
           "Nourishment": {
             "plate-of-kimchi-pancakes": {},
-            "fancy-potato-and-leek-soup": {}
+            "fancy-potato-and-leek-soup": {},
+            "spherified-cilantro-oyster-soup": {}
           },
           "Enhancement": {
-            "writ-of-masterful-accuracy": {}
+            "writ-of-masterful-malice": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Condi Virtuoso (chaos)
