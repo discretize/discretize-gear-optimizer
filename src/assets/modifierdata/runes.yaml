@@ -44,6 +44,7 @@
 
     - id: thief
       text: Superior Rune of the Thief
+      subText: (100% flanking)
       modifiers:
         damage:
           Strike Damage: [10%, mult]
