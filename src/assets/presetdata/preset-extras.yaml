@@ -256,9 +256,10 @@ list:
             "fancy-potato-and-leek-soup": {}
           },
           "Enhancement": {
-            "writ-of-masterful-accuracy": {}
+            "writ-of-masterful-malice": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Condi Virtuoso (chaos)
