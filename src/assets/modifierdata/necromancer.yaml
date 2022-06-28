@@ -218,7 +218,7 @@
         attributes:
           Critical Chance: 10%
         damage:
-          Critical Damage: [15%, unknown]
+          Alternative Critical Damage: [15%, unknown]
       gw2id: 893
       defaultEnabled: true
 

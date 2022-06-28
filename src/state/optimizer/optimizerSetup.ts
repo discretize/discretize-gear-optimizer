@@ -101,6 +101,7 @@ type MultiplierName =
   | 'Poison Damage'
   | 'Torment Damage'
   | 'Alternative Damage'
+  | 'Alternative Critical Damage'
   | 'Phantasm Damage';
 
 export interface AppliedModifier {
@@ -360,6 +361,7 @@ export function setupCombinations(reduxState: any) {
       'Poison Damage': 1,
       'Torment Damage': 1,
       'Alternative Damage': 1,
+      'Alternative Critical Damage': 1,
       'Phantasm Damage': 1,
     };
     const allDmgMult = {
@@ -465,6 +467,11 @@ export function setupCombinations(reduxState: any) {
               // assuming multiplicative until someone tests  twin fangs + ferocious strikes
               dmgBuff('Critical Damage', scaledAmount, 'mult');
               break;
+            case 'Alternative Critical Damage':
+              // as of this comment, this is only death perception
+              dmgBuff('Alternative Critical Damage', scaledAmount, 'mult');
+              break;
+
             default:
               const _: never = attribute;
               throw new Error(`invalid damage modifier: ${attribute} in ${id}`);

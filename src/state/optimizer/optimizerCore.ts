@@ -740,7 +740,7 @@ export class OptimizerCore {
         powerDamage += phantasmPowerDamage;
       } else {
         const alternativeCritDmg =
-          attributes['Alternative Critical Damage'] * damageMultiplier['Critical Damage'];
+          attributes['Critical Damage'] * damageMultiplier['Alternative Critical Damage'];
         const alternativeCritChance = clamp(attributes['Alternative Critical Chance'], 0, 1);
 
         attributes['Alternative Effective Power'] =
