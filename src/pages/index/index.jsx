@@ -24,8 +24,9 @@ const IndexPage = () => {
 
   const ALERTS = [
     <>
-      Core game changes are updated for the June 28 game patch, but preset coefficients are not yet
-      updated. Most gear results will be correctly optimized, but DPS estimates will be wrong.
+      Core game changes are updated for the June 28 game patch, but preset coefficients and trait
+      selections are not yet updated. Most gear results will be correctly optimized, but DPS
+      estimates will be wrong.
     </>,
     <>
       <Trans>
