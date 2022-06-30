@@ -152,7 +152,7 @@
       subText: 100% fury
       modifiers:
         attributes:
-          Critical Chance: 20%
+          Critical Chance: 25%
       gw2id: 1719
       defaultEnabled: true
 

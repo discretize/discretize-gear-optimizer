@@ -204,12 +204,10 @@
 
 - section: Air
   id: 41
-  note: CRITICAL CHANCE SIMULATION IS INCORRECT
   items:
 
     - id: zephyrs-speed
       text: Zephyr's Speed
-      subText: 100% air attunement (WARNING THIS IS NOT ACCURATE)
       minor: true
       modifiers:
         attributes:
