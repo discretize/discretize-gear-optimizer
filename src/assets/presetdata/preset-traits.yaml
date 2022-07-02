@@ -3117,6 +3117,62 @@ list:
         "skills": {}
       }
 
+  - name: Condi Untamed Axe
+    profession: Untamed
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "30",
+          "32",
+          "72"
+        ],
+        "selectedTraits": [
+          [
+            1069,
+            1846,
+            1888
+          ],
+          [
+            1072,
+            0,
+            1066
+          ],
+          [
+            2301,
+            2263,
+            2271
+          ]
+        ],
+        "items": [
+          {
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {},
+            "sharpened-edges": {
+              "amount": "4.34"
+            }
+          },
+          {
+            "honed-axes": {},
+            "honed-axes-axe": {
+              "amount": "100"
+            }
+          },
+          {
+            "natural-fortitude": {},
+            "ferocious-symbiosis": {
+              "amount": ""
+            },
+            "vow-of-the-untamed-pet": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
   - name: Power Slb Marks (allies)
     profession: Soulbeast
     traits: |-

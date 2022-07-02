@@ -27,6 +27,9 @@ const IndexPage = () => {
       Core game changes are updated for the June 28 game patch, but preset coefficients and trait
       selections are not yet updated. Most gear results will be correctly optimized, but DPS
       estimates will be wrong.
+      <br />
+      <br />
+      Only templates with * asterisks are currently generated from post-patch logs.
     </>,
     <>
       <Trans>
