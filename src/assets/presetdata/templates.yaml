@@ -552,7 +552,7 @@ list:
         id: condi-untamed-axe
         specialization: Untamed
         boonType: Condi
-        priority: Condi DPS
+        priority: Hybrid DPS
         distribution: Condi Untamed Axe
         traits: Condi Untamed Axe
         extras: Condi Untamed Axe
