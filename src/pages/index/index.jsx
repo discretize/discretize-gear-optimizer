@@ -23,22 +23,21 @@ const IndexPage = () => {
   const [alertOpen, setAlertOpen] = React.useState([true, true]);
 
   const ALERTS = [
-    <>
+    <Trans>
       Core game changes are updated for the June 28 game patch, but preset coefficients and trait
       selections are not yet updated. Most gear results will be correctly optimized, but DPS
       estimates will be wrong.
       <br />
       <br />
       Only templates with * asterisks are currently generated from post-patch logs.
-    </>,
-    <>
-      <Trans>
-        The gear optimizer is currently in beta! Please report potential issues to us in
-      </Trans>{' '}
+    </Trans>,
+    <Trans>
+      The gear optimizer is still being developed! Please report issues or suggest improvements in
+      the Discretize{' '}
       <Link href="https://discord.gg/Qdt7nFY" color="textPrimary" target="_blank" rel="noopener">
         Discord
       </Link>{' '}
-      <Trans>or</Trans>{' '}
+      or on{' '}
       <Link
         href="https://github.com/discretize/discretize-gear-optimizer"
         color="textPrimary"
@@ -48,7 +47,7 @@ const IndexPage = () => {
         <GitHubIcon fontSize="small" /> Github
       </Link>
       .
-    </>,
+    </Trans>,
   ];
 
   return (
