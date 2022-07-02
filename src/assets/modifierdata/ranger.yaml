@@ -154,9 +154,9 @@
       subText: 100% flanking
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Strike Damage: [15%, mult]
         attributes:
-          Critical Chance: 15%
+          Critical Chance: 10%
       wvwModifiers:
         damage:
           Strike Damage: [10%, mult]
