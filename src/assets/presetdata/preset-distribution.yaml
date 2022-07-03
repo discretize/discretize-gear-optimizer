@@ -582,7 +582,7 @@ list:
     profession: Untamed
     value: >-
       {
-        "values2": { "Power": 3121, "Power2": 0, "Burning": 0, "Bleeding": 34.02, "Poisoned": 4.42, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3057, "Power2": 0, "Burning": 0, "Bleeding": 34.24, "Poisoned": 4.42, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
