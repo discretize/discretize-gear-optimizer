@@ -408,12 +408,14 @@ list:
             "flame-legion-2": {}
           },
           "Nourishment": {
-            "fishy-rice-bowl": {}
+            "fishy-rice-bowl": {},
+            "cilantro-and-cured-meat-flatbread": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Condi Alacrity Willbender
@@ -428,10 +430,12 @@ list:
             "geomancy-torment-cwb-alac": {}
           },
           "Runes": {
+            "balthazar": {},
             "flame-legion-2": {}
           },
           "Nourishment": {
             "fishy-rice-bowl": {},
+            "cilantro-and-cured-meat-flatbread": {},
             "spherified-cilantro-oyster-soup": {}
           },
           "Enhancement": {
