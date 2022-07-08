@@ -919,7 +919,7 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: Power (Raid, furious)
         weaponType: Two-handed
 
       - name: Condi Reaper
