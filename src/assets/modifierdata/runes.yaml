@@ -165,7 +165,7 @@
           Strike Damage: [5%, unknown]
         attributes:
           Ferocity: [175, converted]
-          Fury Duration: 50%
+          Fury Duration: 30%
       gw2id: 24717
 
     - id: infiltration
