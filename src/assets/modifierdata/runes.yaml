@@ -76,6 +76,7 @@
 
     - id: spellbreaker
       text: Superior Rune of the Spellbreaker
+      subText: (100% with no boons)
       modifiers:
         damage:
           Strike Damage: [7%, mult]
