@@ -103,7 +103,7 @@
           Strike Damage: [7%, mult] # tested by Marcus
         attributes:
           Precision: [175, converted]
-          Ferocity: [225, converted]
+          Ferocity: [100, converted]
       gw2id: 24815
 
     - id: chronomancer
