@@ -12,9 +12,20 @@
           Ferocity: [225, converted]
       gw2id: 24836
 
+    - id: scholar-90
+      text: Superior Rune of the Scholar
+      subText: (90% active bonus)
+      modifiers:
+        damage:
+          Strike Damage: [4.5%, mult]
+        attributes:
+          Power: [175, converted]
+          Ferocity: [225, converted]
+      gw2id: 24836
+
     - id: scholar-without
       text: Superior Rune of the Scholar
-      subText: (without active bonus)
+      subText: (no bonus)
       modifiers:
         attributes:
           Power: [175, converted]
@@ -23,6 +34,7 @@
 
     - id: eagle
       text: Superior Rune of the Eagle
+      subText: (50% below half health)
       modifiers:
         damage:
           Strike Damage: [5%, mult]
@@ -33,10 +45,19 @@
 
     - id: eagle-perma
       text: Superior Rune of the Eagle
-      subText: (always below 50)
+      subText: (always below half health)
       modifiers:
         damage:
           Strike Damage: [10%, mult]
+        attributes:
+          Precision: [175, converted]
+          Ferocity: [225, converted]
+      gw2id: 24723
+
+    - id: eagle-never
+      text: Superior Rune of the Eagle
+      subText: (never below half health)
+      modifiers:
         attributes:
           Precision: [175, converted]
           Ferocity: [225, converted]
