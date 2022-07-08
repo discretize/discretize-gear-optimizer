@@ -156,6 +156,7 @@ export const runesDict = [
   'rage',
   'infiltration',
   'scholar-90',
+  'eagle-never',
 ];
 
 export const sigilDict = [
