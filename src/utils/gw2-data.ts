@@ -912,7 +912,7 @@ export type ForcedSlotName = typeof ForcedSlots[number];
 export const omnipotionModifiers = {
   // Condi dmg from omnipot has been removed
   'damage': {
-    'Strike Damage': ['15%', 'mult'],
+    'Strike Damage': ['15%', 'add'],
     'Condition Damage': ['15%', 'add'],
     'Damage Reduction': ['25%', 'add'],
   },
