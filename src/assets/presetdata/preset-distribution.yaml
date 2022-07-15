@@ -900,33 +900,29 @@ list:
     credit:
       - author: '[CnD] Tipcat'
 
-  # https://www.youtube.com/watch?v=-aewT19Miz8
-  # https://dps.report/mFi9-20220319-014029_golem
-  # power: 12582, burn: 516, bleed: 23587, poison: 58, torment: 4185, confusion: 546, total: 41474
-  # signet of illusions
-  # ~1.73 phantasm hit/sec, ~5.0 blade hit/sec
-  # sini shld glov boot acc acc, rampager amul ring, rest viper
-  # bursting earth krait, kimchi pancake, precise infu, accuracy writ
-  - name: Condi Virtuoso
+  # https://www.youtube.com/watch?v=yr43nlsQP1A
+  # https://dps.report/wkSf-20220701-190503_golem
+  # https://optimizer.discretize.eu/?s=ReeYNhV3v1
+  - name: Condi Virtuoso*
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 2725, "Power2": 893, "Burning": 0.52, "Bleeding": 2.03, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
+        "values2": { "Power": 2806, "Power2": 883, "Burning": 0, "Bleeding": 0.13, "Poisoned": 0.06, "Torment": 7.84, "Confusion": 3.38 }
       }
     credit:
       - author: 'REMagic'
-        url: https://www.youtube.com/watch?v=-aewT19Miz8
-        log: https://dps.report/mFi9-20220319-014029_golem
+        url: https://www.youtube.com/watch?v=yr43nlsQP1A
+        log: https://dps.report/wkSf-20220701-190503_golem
 
   # simulated from above log
-  # remove 17 jagged mind procs in 97 sec
-  # 17 blade hits in 97 sec => - 0.18 jagged mind hit/sec
-  # 0.7 coefficient with 2615.5 weapon strength => -321 power coefficient
-  - name: Condi Virtuoso (sharpening sorrow)
+  # remove 19 phantasmal blades procs in 97 sec
+  # 19 blade hits in 107 sec => - 0.1776 jagged mind hit/sec
+  # 0.7 coefficient with 2615.5 weapon strength => -325 power coefficient
+  - name: Condi Virtuoso (sharpening sorrow)*
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 2404, "Power2": 893, "Burning": 0.52, "Bleeding": 2.03, "Poisoned": 0, "Torment": 8.3, "Confusion": 3.3 }
+        "values2": { "Power": 2481, "Power2": 883, "Burning": 0, "Bleeding": 0.13, "Poisoned": 0.06, "Torment": 7.84, "Confusion": 3.38 }
       }
     credit:
       - author: 'REMagic'

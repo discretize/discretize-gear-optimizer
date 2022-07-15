@@ -402,7 +402,7 @@ list:
         }
       }
 
-  - name: Condi Virtuoso
+  - name: Condi Virtuoso*
     profession: Virtuoso
     traits: |-
       {
@@ -440,14 +440,14 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": "5.09"
+              "amount": "5.41"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
             "sharper-images-phantasm": {
-              "amount": "1.73"
+              "amount": "1.75"
             },
             "phantasmal-fury-virtuoso": {}
           },
@@ -456,13 +456,13 @@ list:
               "amount": ""
             },
             "deadly-blades": {
-              "amount": "98"
+              "amount": "96.7"
             },
             "sharpening-sorrow": {},
             "quiet-intensity": {},
             "bloodsong": {},
             "jagged-mind": {
-              "amount": "5"
+              "amount": "5.21"
             }
           }
         ]
@@ -475,7 +475,7 @@ list:
         }
       }
 
-  - name: Condi Virtuoso (sharpening sorrow)
+  - name: Condi Virtuoso (sharpening sorrow)*
     profession: Virtuoso
     traits: |-
       {
@@ -513,14 +513,14 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": "5.09"
+              "amount": "5.41"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
             "sharper-images-phantasm": {
-              "amount": "1.73"
+              "amount": "1.75"
             },
             "phantasmal-fury-virtuoso": {}
           },
@@ -529,13 +529,13 @@ list:
               "amount": ""
             },
             "deadly-blades": {
-              "amount": "98"
+              "amount": "96.7"
             },
             "sharpening-sorrow": {},
             "quiet-intensity": {},
             "bloodsong": {},
             "jagged-mind": {
-              "amount": "4.82"
+              "amount": "5.03"
             }
           }
         ]

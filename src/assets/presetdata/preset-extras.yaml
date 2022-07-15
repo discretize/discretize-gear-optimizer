@@ -234,7 +234,7 @@ list:
         }
       }
 
-  - name: Condi Virtuoso
+  - name: Condi Virtuoso*
     profession: Virtuoso
     value: |-
       {

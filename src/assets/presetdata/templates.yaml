@@ -87,24 +87,24 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Condi Virtuoso (outdated)
+      - name: Condi Virtuoso*
         id: cvirt
         specialization: Virtuoso
         boonType: Condi
         priority: Condi DPS Rampager
-        distribution: Condi Virtuoso
-        traits: Condi Virtuoso
-        extras: Condi Virtuoso
+        distribution: Condi Virtuoso*
+        traits: Condi Virtuoso*
+        extras: Condi Virtuoso*
         weaponType: Dual wield
 
-      - name: Condi Virtuoso (sharpening sorrow) (outdated)
+      - name: Condi Virtuoso (sharpening sorrow)*
         id: cvirt-sorrow
         specialization: Virtuoso
         boonType: Condi
         priority: Condi DPS Rampager
-        distribution: Condi Virtuoso (sharpening sorrow)
-        traits: Condi Virtuoso (sharpening sorrow)
-        extras: Condi Virtuoso
+        distribution: Condi Virtuoso (sharpening sorrow)*
+        traits: Condi Virtuoso (sharpening sorrow)*
+        extras: Condi Virtuoso*
         weaponType: Dual wield
 
       - name: Condi Virtuoso (chaos) (outdated)
