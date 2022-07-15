@@ -553,9 +553,9 @@ list:
         specialization: Untamed
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Untamed Axe
-        traits: Condi Untamed Axe
-        extras: Condi Untamed Axe
+        distribution: Condi Untamed Axe*
+        traits: Condi Untamed Axe*
+        extras: Condi Untamed Axe*
         weaponType: Dual wield
 
       # - name: Power Slb Marks (allies) (outdated)
