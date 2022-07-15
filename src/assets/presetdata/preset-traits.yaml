@@ -2028,14 +2028,14 @@ list:
         }
       }
 
-  - name: DPS Bladesworn
+  - name: DPS Bladesworn Tactics*
     profession: Bladesworn
     traits: |-
       {
         "showAll": false,
         "selectedLines": [
           "4",
-          "51",
+          "11",
           "68"
         ],
         "selectedTraits": [
@@ -2045,9 +2045,9 @@ list:
             1437
           ],
           [
-            1413,
-            1484,
-            1369
+            1469,
+            1486,
+            0
           ],
           [
             2225,
@@ -2064,36 +2064,35 @@ list:
               "amount": ""
             },
             "berserkers-power": {
-              "amount": "2.8"
+              "amount": "2.91"
             }
           },
           {
-            "warriors-sprint": {
+            "leg-specialist": {
               "amount": ""
             },
-            "double-standards-str": {},
-            "double-standards-disc": {},
-            "axe-mastery-one": {},
-            "axe-mastery-axe": {
+            "roaring-reveille": {},
+            "empowered": {
               "amount": ""
-            }
+            },
+            "warriors-cunning": {
+              "amount": ""
+            },
+            "vigorous-shouts": {}
           },
           {
             "fierce-as-fire": {
               "amount": "10"
             },
             "guns-and-glory": {
-              "amount": ""
+              "amount": "9.9"
             }
           }
         ]
       }
     skills: |-
       {
-        "skills": {
-          "signet-of-might": {},
-          "signet-of-fury": {}
-        }
+        "skills": {}
       }
 
   - name: Might Bladesworn

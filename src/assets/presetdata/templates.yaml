@@ -374,43 +374,17 @@ list:
         extras: Condi Bers
         weaponType: Two-handed
 
-      - name: Banner Bladesworn (outdated)
-        id: bls-bs
-        specialization: Bladesworn
-        boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: Bladesworn
-        traits: Banner Bladesworn
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid)
-        weaponType: Dual wield
-
-      - name: DPS Bladesworn (outdated)
+      - name: DPS Bladesworn*
         id: bls-dps
         specialization: Bladesworn
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Bladesworn
-        traits: DPS Bladesworn
+        distribution: Bladesworn*
+        traits: DPS Bladesworn Tactics*
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
-        weaponType: Dual wield
-
-      - name: Might Bladesworn (outdated)
-        id: bls-might
-        specialization: Bladesworn
-        boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: Bladesworn
-        traits: Might Bladesworn
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid)
+          extras: Bladesworn
         weaponType: Dual wield
 
       - name: Power Banner SPB (approx.)

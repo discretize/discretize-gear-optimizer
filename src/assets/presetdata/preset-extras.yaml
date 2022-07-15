@@ -84,6 +84,37 @@ list:
         "lifestealAmount": ""
       }
 
+
+  # just reduced lifesteal frequency
+  - name: Bladesworn
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "thief": {},
+            "scholar": {},
+            "eagle": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": "2.55"
+      }
+
   - name: Power Boon (Raid)
     value: |-
       {
