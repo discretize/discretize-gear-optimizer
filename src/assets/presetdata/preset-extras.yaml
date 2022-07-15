@@ -1236,10 +1236,10 @@ list:
             "cilantro-lime-sous-vide-steak": {}
           }
         },
-        "lifestealAmount": ""
+        "lifestealAmount": "0"
       }
 
-  - name: Power Alacrity Mechanist (Raid, inaccurate)
+  - name: Power Alacrity Mechanist (Raid, air, inaccurate)
     profession: Mechanist
     value: |-
       {
@@ -1252,13 +1252,41 @@ list:
           },
           "Sigil2": {},
           "Enhancement": {
-            "superior-sharpening-stone": {}
+            "superior-sharpening-stone": {},
+            "potent-lucent-oil": {},
+            "holographic-super-cheese": {}
           },
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {}
           }
         },
-        "lifestealAmount": ""
+        "lifestealAmount": "0"
+      }
+
+  - name: Power Alacrity Mechanist (Raid, concentration, inaccurate)
+    profession: Mechanist
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "strength": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "concentration": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {},
+            "potent-lucent-oil": {},
+            "holographic-super-cheese": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {}
+          }
+        },
+        "lifestealAmount": "0"
       }
 
   - name: Condi Mechanist

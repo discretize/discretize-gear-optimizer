@@ -830,6 +830,32 @@ list:
       #     extras: Power Alacrity Mechanist (Raid, inaccurate)
       #   weaponType: Dual wield
 
+      - name: Power Alac Mechanist Air (no simulation)
+        id: mech-alac-power
+        specialization: Mechanist
+        boonType: Condi
+        priority: Power Alacrity Mechanist 40%
+        distribution: No Simulation
+        traits: Power Alacrity Mechanist (inaccurate)
+        fractal:
+          extras: Power Alacrity Mechanist (Fractal, inaccurate)
+        raid:
+          extras: Power Alacrity Mechanist (Raid, air, inaccurate)
+        weaponType: Dual wield
+
+      - name: Power Alac Mechanist Concentration (no simulation)
+        id: mech-alac-power-conc
+        specialization: Mechanist
+        boonType: Condi
+        priority: Power Alacrity Mechanist 40%
+        distribution: No Simulation
+        traits: Power Alacrity Mechanist (inaccurate)
+        fractal:
+          extras: Power Alacrity Mechanist (Fractal, inaccurate)
+        raid:
+          extras: Power Alacrity Mechanist (Raid, concentration, inaccurate)
+        weaponType: Dual wield
+
       - name: Condi Mechanist J-Drive (approx.) (outdated)
         id: cmech-sig-mace
         specialization: Mechanist

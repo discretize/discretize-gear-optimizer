@@ -116,7 +116,7 @@ list:
     hidden: true
     value: >-
       {
-        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "affixes": ["Berserker", "Diviner"],
         "optimizeFor": "Damage",
         "minBoonDuration": 40
       }
