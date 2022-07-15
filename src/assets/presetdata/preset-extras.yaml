@@ -263,7 +263,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Virtuoso (chaos)
+  - name: Condi Virtuoso (chaos)*
     profession: Virtuoso
     value: |-
       {

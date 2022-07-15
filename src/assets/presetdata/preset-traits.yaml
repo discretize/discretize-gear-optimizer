@@ -548,7 +548,7 @@ list:
         }
       }
 
-  - name: Condi Virtuoso (chaos)
+  - name: Condi Virtuoso (chaos)*
     profession: Virtuoso
     traits: |-
       {
@@ -599,13 +599,13 @@ list:
               "amount": ""
             },
             "deadly-blades": {
-              "amount": "98"
+              "amount": "96.4"
             },
             "sharpening-sorrow": {},
             "quiet-intensity": {},
             "bloodsong": {},
             "jagged-mind": {
-              "amount": "5.8"
+              "amount": "5.86"
             }
           }
         ]

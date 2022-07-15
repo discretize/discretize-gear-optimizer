@@ -927,19 +927,19 @@ list:
     credit:
       - author: 'REMagic'
 
-  # https://dps.report/BDic-20220508-122429_golem
-  # -142 lifesteal damage: 8000 power
-  # rampager amulet and armor except coat, viper weapons, sinister rest
-  # cele food, precise
-  # (not real gear but close enough)
-  - name: Condi Virtuoso (chaos)
+  # https://www.youtube.com/watch?v=cPTDrcTpPTo
+  # https://dps.report/ljwo-20220701-194156_golem
+  # https://optimizer.discretize.eu/?s=tC0aBKlpv1
+  - name: Condi Virtuoso (chaos)*
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 2738, "Power2": 0, "Burning": 0.86, "Bleeding": 0.77, "Poisoned": 0.42, "Torment": 7.36, "Confusion": 3.55 }
+        "values2": { "Power": 2898, "Power2": 0, "Burning": 0.37, "Bleeding": 0, "Poisoned": 0.34, "Torment": 6.93, "Confusion": 3.51 }
       }
     credit:
       - author: 'REMagic'
+        url: https://www.youtube.com/watch?v=cPTDrcTpPTo
+        log: https://dps.report/ljwo-20220701-194156_golem
       - author: 'Masel'
 
   # https://www.youtube.com/watch?v=92FJUY1IKh4

@@ -107,14 +107,14 @@ list:
         extras: Condi Virtuoso*
         weaponType: Dual wield
 
-      - name: Condi Virtuoso (chaos) (outdated)
+      - name: Condi Virtuoso (chaos)*
         id: cvirt-chaos
         specialization: Virtuoso
         boonType: Condi
         priority: Condi DPS Rampager
-        distribution: Condi Virtuoso (chaos)
-        traits: Condi Virtuoso (chaos)
-        extras: Condi Virtuoso (chaos)
+        distribution: Condi Virtuoso (chaos)*
+        traits: Condi Virtuoso (chaos)*
+        extras: Condi Virtuoso (chaos)*
         weaponType: Dual wield
 
   - class: Guardian
