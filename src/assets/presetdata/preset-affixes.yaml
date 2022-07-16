@@ -121,6 +121,15 @@ list:
         "minBoonDuration": 40
       }
 
+  - name: Power Quickness Herald 45%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 45
+      }
+
   - name: Power Boon Daredevil 99.7%
     hidden: true
     value: >-

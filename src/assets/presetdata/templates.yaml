@@ -722,13 +722,26 @@ list:
           extras: Power Alac Ren (Raid)
         weaponType: Two-handed
 
+      - name: Power Quickness Herald*
+        id: herald-quick
+        specialization: Herald
+        boonType: Power
+        priority: Power Quickness Herald 45%
+        distribution: Power Quickness Herald*
+        traits: Power (Quickness) Herald DE*
+        fractal:
+          extras: Power Quickness Herald (Fractal)*
+        raid:
+          extras: Power Quickness Herald (Raid)*
+        weaponType: Dual wield
+
       - name: Power Herald DE (outdated)
         id: herald
         specialization: Herald
         boonType: Power
         priority: Power DPS (no dragon)
         distribution: Power Herald DE
-        traits: Power Herald DE
+        traits: Power (Quickness) Herald DE*
         fractal:
           extras: Power (Fractal)
         raid:

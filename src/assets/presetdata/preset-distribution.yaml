@@ -543,6 +543,21 @@ list:
         log: https://dps.report/YPqz-20220309-020938_golem
 
   # not including ally lifesteal
+  # https://www.youtube.com/watch?v=0-2SkSgZafc
+  # https://dps.report/jcrR-20220701-030632_golem
+  # missing air sigil damage (818 dps)
+  - name: Power Quickness Herald*
+    profession: Herald
+    value: >-
+      {
+        "values2": { "Power": 2971, "Power2": 0, "Burning": 1.15, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Umbra
+        url: https://www.youtube.com/watch?v=0-2SkSgZafc
+        log: https://dps.report/jcrR-20220701-030632_golem
+
+  # not including ally lifesteal
   # https://www.youtube.com/watch?v=9yfpvu0_A-s
   # https://dps.report/v6ov-20211016-003439_golem
   # add 250 dps for buffed FoN: 27912 + 250 = 28162 power
