@@ -93,6 +93,7 @@
       modifiers:
         attributes:
           Power: [250, buff] # confirmed from bench hero panel
+          Critical Chance: 5%
       gw2id: 1453
       defaultEnabled: true
 
