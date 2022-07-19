@@ -83,6 +83,16 @@
       gw2id: 1449
       defaultEnabled: true
 
+    - id: pinnacle-of-strength-crit
+      text: Pinnacle Of Strength
+      subText: passive
+      minor: true
+      modifiers:
+        attributes:
+          Critical Chance: 5%
+      gw2id: 1453
+      defaultEnabled: true
+
     - id: pinnacle-of-strength
       text: Pinnacle Of Strength
       minor: true
@@ -93,7 +103,6 @@
       modifiers:
         attributes:
           Power: [250, buff] # confirmed from bench hero panel
-          Critical Chance: 5%
       gw2id: 1453
       defaultEnabled: true
 

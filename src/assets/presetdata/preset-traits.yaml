@@ -1761,6 +1761,7 @@ list:
             "pinnacle-of-strength": {
               "amount": ""
             },
+            "pinnacle-of-strength-crit": {},
             "berserkers-power": {
               "amount": ""
             }
@@ -1925,6 +1926,7 @@ list:
             "pinnacle-of-strength": {
               "amount": ""
             },
+            "pinnacle-of-strength-crit": {},
             "berserkers-power": {
               "amount": ""
             }
@@ -1996,6 +1998,7 @@ list:
             "pinnacle-of-strength": {
               "amount": ""
             },
+            "pinnacle-of-strength-crit": {},
             "berserkers-power": {
               "amount": "2.8"
             }
@@ -2063,6 +2066,7 @@ list:
             "pinnacle-of-strength": {
               "amount": ""
             },
+            "pinnacle-of-strength-crit": {},
             "berserkers-power": {
               "amount": "2.91"
             }
