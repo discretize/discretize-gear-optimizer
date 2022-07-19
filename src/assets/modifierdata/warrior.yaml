@@ -96,16 +96,6 @@
       gw2id: 1453
       defaultEnabled: true
 
-    - id: pinnacle-of-strength-extra
-      text: Pinnacle Of Strength
-      subText: UPCOMING BONUS 5% CRIT POG
-      minor: true
-      modifiers:
-        attributes:
-          Critical Chance: 5%
-      gw2id: 1453
-      defaultEnabled: false
-
     - id: berserkers-power
       text: Berserker's Power
       amountData:
