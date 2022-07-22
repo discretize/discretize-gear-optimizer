@@ -105,6 +105,33 @@
           Expertise: {Toughness: 3%}
       gw2id: 86016
 
+- section: Support Utilities (SAB)
+  items:
+
+    - id: holographic-super-cheese
+      text: Holographic Super Cheese
+      modifiers:
+        conversion:
+          Power: {Concentration: 8%}
+          Concentration: {Precision: 3%}
+      gw2id: 87358
+
+    - id: holographic-super-apple
+      text: Holographic Super Apple
+      modifiers:
+        conversion:
+          Condition Damage: {Concentration: 8%}
+          Concentration: {Precision: 3%}
+      gw2id: 87336
+
+    - id: holographic-super-drumstick
+      text: Holographic Super Drumstick
+      modifiers:
+        conversion:
+          Healing Power: {Concentration: 8%}
+          Concentration: {Precision: 3%}
+      gw2id: 87329
+
 - section: Heal Utilities
   items:
 
@@ -163,33 +190,6 @@
         conversion:
           Condition Damage: {Healing Power: 6%, Concentration: 8%}
       gw2id: 67522
-
-- section: SAB Utilities
-  items:
-
-    - id: holographic-super-apple
-      text: Holographic Super Apple
-      modifiers:
-        conversion:
-          Condition Damage: {Concentration: 8%}
-          Concentration: {Precision: 3%}
-      gw2id: 87336
-
-    - id: holographic-super-drumstick
-      text: Holographic Super Drumstick
-      modifiers:
-        conversion:
-          Healing Power: {Concentration: 8%}
-          Concentration: {Precision: 3%}
-      gw2id: 87329
-
-    - id: holographic-super-cheese
-      text: Holographic Super Cheese
-      modifiers:
-        conversion:
-          Power: {Concentration: 8%}
-          Concentration: {Precision: 3%}
-      gw2id: 87358
 
 - section: Writs
   items:
