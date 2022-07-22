@@ -231,6 +231,8 @@ export const enhancementDict = [
   'writ-of-calculated-malice',
   'writ-of-learned-strength',
   'writ-of-calculated-strength',
+  'corsair-tuning-crystal',
+  'corsair-sharpening-stone',
 ];
 
 export const nourishmentDict = [

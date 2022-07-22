@@ -149,6 +149,14 @@
           Condition Damage: {Vitality: 3%, Toughness: 3%}
       gw2id: 81079
 
+    - id: corsair-tuning-crystal
+      text: Corsair Tuning Crystal
+      modifiers:
+        conversion:
+          Condition Damage: {Toughness: 3%}
+          Expertise: {Toughness: 3%}
+      gw2id: 86287
+
     - id: bountiful-tuning-crystal
       text: Bountiful Tuning Crystal
       modifiers:
@@ -285,3 +293,11 @@
         attributes:
           Toughness: [150, converted]
       gw2id: 42428
+
+    - id: corsair-sharpening-stone
+      text: Corsair Sharpening Stone
+      modifiers:
+        conversion:
+          Power: {Toughness: 3%}
+          Expertise: {Toughness: 3%}
+      gw2id: 86378
