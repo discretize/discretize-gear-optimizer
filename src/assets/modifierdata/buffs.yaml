@@ -84,4 +84,5 @@
       modifiers:
         damage:
           Strike Damage: [35.9686%, mult]
+          Phantasm Damage: [35.9686%, mult]
       type: Text
