@@ -86,3 +86,12 @@
           Strike Damage: [35.9686%, mult]
           Phantasm Damage: [35.9686%, mult]
       type: Text
+
+    - id: lightArmor2
+      text: Low Boss Armor (HT)
+      subText: 2141 vs 2597
+      modifiers:
+        damage:
+          Strike Damage: [21.2985%, mult]
+          Phantasm Damage: [21.2985%, mult]
+      type: Text

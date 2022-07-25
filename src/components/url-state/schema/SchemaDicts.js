@@ -325,4 +325,5 @@ export const buffsDict = [
   'lightArmor',
   'jade-bot-base',
   'jade-bot-per-tier',
+  'lightArmor2',
 ];
