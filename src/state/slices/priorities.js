@@ -21,6 +21,8 @@ export const prioritiesSlice = createSlice({
     minDamage: '',
     minHealing: '',
     minSurvivability: '',
+    minOutgoingHealing: '',
+    minQuicknessDuration: '',
     affixes: [],
     exclusions: {
       enabled: false,

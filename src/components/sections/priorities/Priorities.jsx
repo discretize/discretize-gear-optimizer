@@ -1,4 +1,4 @@
-import { Attribute } from '@discretize/gw2-ui-new';
+import { Attribute, Boon } from '@discretize/gw2-ui-new';
 import { HelperIcon } from '@discretize/react-discretize-components';
 import {
   FormControl,
@@ -53,6 +53,7 @@ const Priorities = () => {
   const minDamage = useSelector(getPriority('minDamage'));
   const minHealing = useSelector(getPriority('minHealing'));
   const minOutgoingHealing = useSelector(getPriority('minOutgoingHealing'));
+  const minQuicknessDuration = useSelector(getPriority('minQuicknessDuration'));
   const minSurvivability = useSelector(getPriority('minSurvivability'));
   const profession = useSelector(getProfession);
 
@@ -197,6 +198,18 @@ const Priorities = () => {
       type: 'minOutgoingHealing',
       value: minOutgoingHealing,
       label: [<Trans>Min.</Trans>, ' ', t('% Outgoing Healing')],
+    },
+    {
+      type: 'minQuicknessDuration',
+      value: minQuicknessDuration,
+      label: [
+        <Trans>Min.</Trans>,
+        ' ',
+        <>
+          <Boon name="Quickness" disableLink />
+          {t(' duration')}
+        </>,
+      ],
     },
   ].map(({ type, label, value }) => {
     return (

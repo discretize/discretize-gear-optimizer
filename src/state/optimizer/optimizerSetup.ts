@@ -266,6 +266,7 @@ export function setupCombinations(reduxState: any) {
     const minDamageText: string = getPriority('minDamage')(reduxState);
     const minHealingText: string = getPriority('minHealing')(reduxState);
     const minOutgoingHealingText: string = getPriority('minOutgoingHealing')(reduxState);
+    const minQuicknessDurationText: string = getPriority('minQuicknessDuration')(reduxState);
     const minSurvivabilityText: string = getPriority('minSurvivability')(reduxState);
     const affixes: AffixName[] = getPriority('affixes')(reduxState);
     const unmodifiedDistribution: Record<DistributionNameUI, number> =
@@ -301,6 +302,7 @@ export function setupCombinations(reduxState: any) {
     const minDamage = parsePriority(minDamageText).value;
     const minHealing = parsePriority(minHealingText).value;
     const minOutgoingHealing = parsePriority(minOutgoingHealingText).value;
+    const minQuicknessDuration = parsePriority(minQuicknessDurationText).value;
 
     const attackRate = parseBoss(attackRateText).value ?? 0;
     const movementUptime = (parseBoss(movementUptimeText).value ?? 0) / 100;
@@ -858,6 +860,7 @@ export function setupCombinations(reduxState: any) {
       minHealing,
       minSurvivability,
       minOutgoingHealing,
+      minQuicknessDuration,
       maxResults: 50, // TODO MAX RESULTS
       attackRate,
       movementUptime,
