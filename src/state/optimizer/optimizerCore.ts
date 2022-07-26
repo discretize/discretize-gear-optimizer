@@ -118,6 +118,7 @@ export interface OptimizerCoreSettings {
   minDamage: number | null;
   minHealing: number | null;
   minOutgoingHealing: number | null;
+  minQuicknessDuration: number | null;
   minSurvivability: number | null;
   maxResults: number;
   primaryInfusion: InfusionName | '';
@@ -677,6 +678,9 @@ export class OptimizerCore {
     const invalid =
       (settings.minBoonDuration !== null &&
         attributes['Boon Duration'] < settings.minBoonDuration / 100) ||
+      (settings.minQuicknessDuration !== null &&
+        attributes['Boon Duration'] + (attributes['Quickness Duration'] ?? 0) <
+          settings.minQuicknessDuration / 100) ||
       (settings.minHealingPower !== null &&
         attributes['Healing Power'] < settings.minHealingPower) ||
       (settings.minToughness !== null && attributes['Toughness'] < settings.minToughness) ||
