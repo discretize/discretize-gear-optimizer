@@ -105,6 +105,7 @@ export const allDamageKeys = [
   'Alternative Damage',
   'Alternative Critical Damage',
   'Phantasm Damage',
+  'Phantasm Critical Damage',
 ] as const;
 export type DamageKey = typeof allDamageKeys[number];
 

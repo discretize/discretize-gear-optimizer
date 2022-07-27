@@ -102,7 +102,8 @@ type MultiplierName =
   | 'Torment Damage'
   | 'Alternative Damage'
   | 'Alternative Critical Damage'
-  | 'Phantasm Damage';
+  | 'Phantasm Damage'
+  | 'Phantasm Critical Damage';
 
 export interface AppliedModifier {
   id: string;
@@ -365,6 +366,7 @@ export function setupCombinations(reduxState: any) {
       'Alternative Damage': 1,
       'Alternative Critical Damage': 1,
       'Phantasm Damage': 1,
+      'Phantasm Critical Damage': 1,
     };
     const allDmgMult = {
       mult: { ...initialMultipliers },
@@ -472,6 +474,10 @@ export function setupCombinations(reduxState: any) {
             case 'Alternative Critical Damage':
               // as of this comment, this is only death perception
               dmgBuff('Alternative Critical Damage', scaledAmount, 'mult');
+              break;
+            case 'Phantasm Critical Damage':
+              // currently unused as far as I know
+              dmgBuff('Phantasm Critical Damage', scaledAmount, 'mult');
               break;
 
             default:

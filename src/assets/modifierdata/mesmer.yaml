@@ -273,7 +273,7 @@
 
 - section: Chronomancer
   id: 40
-  note: Be sure to change the power coefficient value below when adding or removing traits without checkboxes like improved alacrity.
+  note: Be sure to change the power coefficient value below when adding or removing traits that change your rotation like improved alacrity.
   items:
 
     - id: danger-time
@@ -286,6 +286,25 @@
           Clone Critical Chance: 15%
       gw2id: 2009
       defaultEnabled: true
+
+    - id: improved-alacrity
+      text: Improved Alacrity
+      subText: upcoming patch - critical damage only - self
+      modifiers:
+        damage:
+          Critical Damage: [10%, unknown]
+      gw2id: 1978
+      defaultEnabled: false
+
+    - id: improved-alacrity-phantasms
+      text: Improved Alacrity
+      subText: upcoming patch - critical damage only - self + phantasms
+      modifiers:
+        damage:
+          Critical Damage: [10%, unknown]
+          Phantasm Critical Damage: [10%, unknown]
+      gw2id: 1978
+      defaultEnabled: false
 
     - id: chronophantasma
       text: Chronophantasma

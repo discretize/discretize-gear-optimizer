@@ -730,7 +730,8 @@ export class OptimizerCore {
 
     if (attributes['Power2 Coefficient']) {
       if (settings.profession === 'Mesmer') {
-        const phantasmCritDmg = attributes['Phantasm Critical Damage'];
+        const phantasmCritDmg =
+          attributes['Phantasm Critical Damage'] * damageMultiplier['Phantasm Critical Damage'];
         const phantasmCritChance = clamp(attributes['Phantasm Critical Chance'], 0, 1);
 
         attributes['Phantasm Effective Power'] =
