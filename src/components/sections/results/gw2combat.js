@@ -14,18 +14,15 @@ export const formatCharacterData = (character) => {
     traits: { selectedLines, selectedTraits },
   } = cachedFormState;
 
-  console.log('selectedLines', selectedLines);
-
   const formattedTraits = (selectedLines ?? []).map((line, i) => ({
     name: traitSectionsById[line]?.section,
     traitlineId: line,
     selectedIds: selectedTraits[i],
   }));
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Runes, Nourishment, Enhancement } = extrasCombination;
 
-  const specificDurations = Object.fromEntries(
+  const specificConditionDurations = Object.fromEntries(
     damagingConditions.map((name) => {
       const conditionDuration = attributes['Condition Duration'] ?? 0;
       const specificDuration = attributes[`${name} Duration`] ?? 0;
@@ -52,7 +49,7 @@ export const formatCharacterData = (character) => {
       critical_damage_pct_missing_bonuses: attributes['Critical Damage'] * 100,
       condition_duration_pct: attributes['Condition Duration'] * 100,
       max_health: attributes['Health'],
-      ...specificDurations,
+      ...specificConditionDurations,
     },
     traits: formattedTraits,
     solve_sigils_later: {},
