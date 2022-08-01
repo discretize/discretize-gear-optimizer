@@ -1,8 +1,8 @@
-import { TextField, Typography } from '@mui/material';
+import { Button, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { mapValues, parseDistribution } from '../../../utils/usefulFunctions';
-import { formatCharacterData } from './gw2combat';
+import { copyCharacterData } from './gw2combat';
 
 const initial = {
   Power: 0,
@@ -230,8 +230,6 @@ const TemplateHelper = ({ character }) => {
     .replaceAll('\n    ', ' ')
     .replaceAll('\n  }', ' }');
 
-  const gw2CombatData = formatCharacterData(character);
-
   return (
     <>
       <Typography variant="h6">
@@ -346,9 +344,9 @@ const TemplateHelper = ({ character }) => {
         <Trans>gw2combat development (under construction)</Trans>
       </Typography>
 
-      <pre style={{ userSelect: 'all', overflowY: 'auto', margin: '1rem' }}>
-        {JSON.stringify(gw2CombatData, null, 2) || ''}
-      </pre>
+      <Button variant="contained" onClick={() => copyCharacterData(character)}>
+        export data
+      </Button>
     </>
   );
 };
