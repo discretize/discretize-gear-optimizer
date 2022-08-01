@@ -229,6 +229,9 @@ const TemplateHelper = ({ character }) => {
     .replaceAll('\n    ', ' ')
     .replaceAll('\n  }', ' }');
 
+  const { attributes, gearStats } = character;
+  const gw2CombatData = { attributes, gearStats };
+
   return (
     <>
       <Typography variant="h6">
@@ -337,6 +340,14 @@ const TemplateHelper = ({ character }) => {
 
       <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px', margin: '1rem' }}>
         {indent(JSON.stringify(cachedFormState?.extras, null, 2) || '', 6)}
+      </pre>
+
+      <Typography variant="body1">
+        <Trans>gw2combat development (under construction)</Trans>
+      </Typography>
+
+      <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '100px', margin: '1rem' }}>
+        {JSON.stringify(gw2CombatData, null, 2) || ''}
       </pre>
     </>
   );
