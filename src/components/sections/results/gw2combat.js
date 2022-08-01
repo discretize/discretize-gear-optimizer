@@ -2,6 +2,7 @@
 /* eslint-disable import/prefer-default-export */
 
 import { traitSectionsById } from '../../../assets/modifierdata/index';
+import { damagingConditions } from '../../../assets/modifierdata/metadata';
 
 export const formatCharacterData = (character) => {
   const {
@@ -24,6 +25,15 @@ export const formatCharacterData = (character) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { Runes, Nourishment, Enhancement } = extrasCombination;
 
+  const specificDurations = Object.fromEntries(
+    damagingConditions.map((name) => {
+      const conditionDuration = attributes['Condition Duration'] ?? 0;
+      const specificDuration = attributes[`${name} Duration`] ?? 0;
+      const realDuration = Math.min(1, conditionDuration + specificDuration);
+      return [`${name.toLowerCase()}_duration_pct`, realDuration * 100];
+    }),
+  );
+
   const result = {
     base_class: profession.toLowerCase(),
     attributes: {
@@ -42,6 +52,7 @@ export const formatCharacterData = (character) => {
       critical_damage_pct_missing_bonuses: attributes['Critical Damage'] * 100,
       condition_duration_pct: attributes['Condition Duration'] * 100,
       max_health: attributes['Health'],
+      ...specificDurations,
     },
     traits: formattedTraits,
     solve_sigils_later: {},
