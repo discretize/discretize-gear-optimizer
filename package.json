@@ -33,10 +33,10 @@
     "cleanupLocale": "node cleanupLocale.js"
   },
   "resolutions": {
-    "@discretize/gw2-ui-new": "^0.0.19"
+    "@discretize/gw2-ui-new": "^0.0.20"
   },
   "dependencies": {
-    "@discretize/gw2-ui-new": "^0.0.19",
+    "@discretize/gw2-ui-new": "^0.0.20",
     "@discretize/object-compression": "^1.0.3",
     "@discretize/react-discretize-components": "^2.2.9",
     "@discretize/typeface-menomonia": "^0.1.3",
