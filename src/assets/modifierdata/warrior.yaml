@@ -226,13 +226,10 @@
 
     - id: furious
       text: Furious
-      amountData:
-        label: 'stacks'
-        default: 21
-        quantityEntered: 25
+      subText: based on crit chance (overestimated)
       modifiers:
-        attributes:
-          Condition Damage: [250, buff]
+        conversionAfterBuffs:
+          Condition Damage: {Critical Chance: 32300%}
       gw2id: 1346
       defaultEnabled: true
 
