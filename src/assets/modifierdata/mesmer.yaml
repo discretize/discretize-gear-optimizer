@@ -299,22 +299,12 @@
 
     - id: improved-alacrity
       text: Improved Alacrity
-      subText: upcoming patch - critical damage only - self
+      subText: critical damage bonus only
       modifiers:
         damage:
           Critical Damage: [10%, unknown]
       gw2id: 1978
-      defaultEnabled: false
-
-    - id: improved-alacrity-phantasms
-      text: Improved Alacrity
-      subText: upcoming patch - critical damage only - self + phantasms
-      modifiers:
-        damage:
-          Critical Damage: [10%, unknown]
-          Phantasm Critical Damage: [10%, unknown]
-      gw2id: 1978
-      defaultEnabled: false
+      defaultEnabled: true
 
     - id: chronophantasma
       text: Chronophantasma
