@@ -4,7 +4,7 @@ list:
   - class: Mesmer
     builds:
 
-      - name: Power Chrono DT Focus
+      - name: Power Chrono DT Focus (outdated)
         id: pchrono-dt-focus
         specialization: Chronomancer
         boonType: Power
@@ -17,7 +17,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Power Chrono IA Focus
+      - name: Power Chrono IA Focus (outdated)
         id: pchrono-ia-focus
         specialization: Chronomancer
         boonType: Power
@@ -73,7 +73,7 @@ list:
         extras: Condi Chrono STM
         weaponType: Dual wield
 
-      - name: Power Virtuoso GS
+      - name: Power Virtuoso GS (outdated)
         id: pvirt-gs
         specialization: Virtuoso
         boonType: Power
