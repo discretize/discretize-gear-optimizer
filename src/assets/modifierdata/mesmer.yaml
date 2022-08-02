@@ -83,11 +83,21 @@
           Phantasm Critical Chance: 20%
       gw2id: 701
 
-    # bug: quiet intensity is currently 10% instead of 15% on phantasms only
-    # tested by remagic and tipcat
     - id: phantasmal-fury-virtuoso
       text: Phantasmal Fury
-      subText: 'virtuoso (note: bugged)'
+      subText: virtuoso
+      modifiers:
+        attributes:
+          Phantasm Critical Chance: 40%
+      wvwModifiers:
+        attributes:
+          Phantasm Critical Chance: 35%
+      gw2id: 701
+      defaultEnabled: false
+
+    - id: phantasmal-fury-virtuoso-bugged
+      text: Phantasmal Fury
+      subText: 'virtuoso (bugged version)'
       modifiers:
         attributes:
           Phantasm Critical Chance: 35%
