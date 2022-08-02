@@ -83,11 +83,21 @@
           Phantasm Critical Chance: 20%
       gw2id: 701
 
-    # bug: quiet intensity is currently 10% instead of 15% on phantasms only
-    # tested by remagic and tipcat
     - id: phantasmal-fury-virtuoso
       text: Phantasmal Fury
-      subText: 'virtuoso (note: bugged)'
+      subText: virtuoso
+      modifiers:
+        attributes:
+          Phantasm Critical Chance: 40%
+      wvwModifiers:
+        attributes:
+          Phantasm Critical Chance: 35%
+      gw2id: 701
+      defaultEnabled: false
+
+    - id: phantasmal-fury-virtuoso-bugged
+      text: Phantasmal Fury
+      subText: 'virtuoso (bugged version)'
       modifiers:
         attributes:
           Phantasm Critical Chance: 35%
@@ -289,22 +299,12 @@
 
     - id: improved-alacrity
       text: Improved Alacrity
-      subText: upcoming patch - critical damage only - self
+      subText: critical damage bonus only
       modifiers:
         damage:
           Critical Damage: [10%, unknown]
       gw2id: 1978
-      defaultEnabled: false
-
-    - id: improved-alacrity-phantasms
-      text: Improved Alacrity
-      subText: upcoming patch - critical damage only - self + phantasms
-      modifiers:
-        damage:
-          Critical Damage: [10%, unknown]
-          Phantasm Critical Damage: [10%, unknown]
-      gw2id: 1978
-      defaultEnabled: false
+      defaultEnabled: true
 
     - id: chronophantasma
       text: Chronophantasma

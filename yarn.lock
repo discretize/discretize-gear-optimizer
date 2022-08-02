@@ -415,10 +415,10 @@
   resolved "https://registry.yarnpkg.com/@cloudflare/workers-types/-/workers-types-3.11.0.tgz#8067dede888ea495cae06898d5e75e4401acf435"
   integrity sha512-XmKgZZHrCdPsoVQkdd365R7GvwTwDVJsMyEG3Dq/Tgxz6vgrps2c8PXBqEutguwvl0zDAF0AL0e2Z8WG9Dffjw==
 
-"@discretize/gw2-ui-new@^0.0.19":
-  version "0.0.19"
-  resolved "https://registry.yarnpkg.com/@discretize/gw2-ui-new/-/gw2-ui-new-0.0.19.tgz#f2ad072bf6e75890bb31535129582cfaadbb11ab"
-  integrity sha512-46zvNIs2P9PbLnNGK7lc8IVRay23ZUrxfM4Rf7nBwZYwfDTs5OWsFnHCPC6Wje+oQzIf8XUpt2CvxyP5ypJpMQ==
+"@discretize/gw2-ui-new@^0.0.19", "@discretize/gw2-ui-new@^0.0.21":
+  version "0.0.21"
+  resolved "https://registry.yarnpkg.com/@discretize/gw2-ui-new/-/gw2-ui-new-0.0.21.tgz#8e2253293fc58549e646d4ec9568d43bf4c7188d"
+  integrity sha512-d7u/esbv4Jz9U761p+nHRak4w+tWoY1JbOdULXkLIkZ9wyvL2EXH8onBXZy0LiTjnGNkyqsG1GpKo4SPvwzy/A==
   dependencies:
     "@discretize/typeface-menomonia" "^0.1.3"
     clsx "^1.1.1"
