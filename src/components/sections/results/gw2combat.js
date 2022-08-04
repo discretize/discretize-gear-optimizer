@@ -12,20 +12,28 @@ const formatCharacterData = async (character) => {
   } = character;
 
   const {
-    traits: { selectedLines, selectedTraits },
+    traits: { selectedLines, selectedTraits: selectedTraitsByLine },
   } = cachedFormState;
 
+  const majorTraits = selectedTraitsByLine.flat();
+
+  const traitLineData = await fetch(
+    `https://api.guildwars2.com/v2/specializations?ids=${selectedLines.join(',')}`,
+  ).then((response) => response.json());
+  const minorTraits = traitLineData.map(({ minor_traits: traits }) => traits).flat();
+
+  const allTraits = [...majorTraits, ...minorTraits];
+
   const traitData = await fetch(
-    `https://api.guildwars2.com/v2/traits?ids=${selectedTraits.flat().join(',')}`,
+    `https://api.guildwars2.com/v2/traits?ids=${allTraits.join(',')}`,
   ).then((response) => response.json());
 
-  const formattedTraits = (selectedLines ?? []).map((line, i) => ({
-    traitlineId: Number(line),
-    traitline: traitSectionsById[line]?.section,
-
-    selectedIds: selectedTraits[i],
-    selected: selectedTraits[i].map((traitId) => traitData.find(({ id }) => traitId === id)?.name),
-  }));
+  const formattedTraits = {
+    trait_lines: (selectedLines ?? []).map((line) => traitSectionsById[line]?.section),
+    trait_line_ids: (selectedLines ?? []).map((idString) => Number(idString)),
+    traits: allTraits.map((traitId) => traitData.find(({ id }) => traitId === id)?.name),
+    trait_ids: allTraits,
+  };
 
   const { Runes, Nourishment, Enhancement } = extrasCombination;
 
