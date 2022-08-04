@@ -30,9 +30,9 @@ const formatCharacterData = async (character) => {
 
   const formattedTraits = {
     trait_lines: (selectedLines ?? []).map((line) => traitSectionsById[line]?.section),
-    trait_line_ids: (selectedLines ?? []).map((idString) => Number(idString)),
+    // trait_line_ids: (selectedLines ?? []).map((idString) => Number(idString)),
     traits: allTraits.map((traitId) => traitData.find(({ id }) => traitId === id)?.name),
-    trait_ids: allTraits,
+    // trait_ids: allTraits,
   };
 
   const { Runes, Nourishment, Enhancement } = extrasCombination;
@@ -66,7 +66,7 @@ const formatCharacterData = async (character) => {
       max_health: attributes['Health'],
       ...specificConditionDurations,
     },
-    traits: formattedTraits,
+    ...formattedTraits,
     solve_sigils_later: {},
     rune: Runes,
     nourishment: Nourishment,
