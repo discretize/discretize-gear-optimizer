@@ -1,6 +1,74 @@
 GraphQL ID: presetTraits
 list:
 
+  - name: Power Chrono IA GS
+    profession: Chronomancer
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "10",
+          "1",
+          "40"
+        ],
+        "selectedTraits": [
+          [
+            686,
+            713,
+            681
+          ],
+          [
+            701,
+            708,
+            692
+          ],
+          [
+            1995,
+            1978,
+            1890
+          ]
+        ],
+        "items": [
+          {
+            "fragility": {
+              "amount": ""
+            },
+            "egotism": {
+              "amount": ""
+            },
+            "vicious-expression": {
+              "amount": ""
+            },
+            "empowered-illusions": {}
+          },
+          {
+            "fencers-finesse": {
+              "amount": ""
+            },
+            "superiority-complex-base": {},
+            "superiority-complex": {
+              "amount": ""
+            },
+            "phantasmal-fury": {},
+            "sharper-images-phantasm": {
+              "amount": "4.07"
+            },
+            "sharper-images-clone": {
+              "amount": "1.06"
+            }
+          },
+          {
+            "danger-time": {},
+            "chronophantasma": {},
+            "improved-alacrity": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
   - name: Power Chrono DT Focus
     profession: Chronomancer
     traits: |-

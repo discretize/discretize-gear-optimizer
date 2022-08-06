@@ -4,6 +4,19 @@ list:
   - class: Mesmer
     builds:
 
+      - name: Power Chrono IA GS*
+        id: pchrono-ia-gs
+        specialization: Chronomancer
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Chrono IA GS
+        traits: Power Chrono IA GS
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid, furious)
+        weaponType: Two-handed
+
       - name: Power Chrono DT Focus (outdated)
         id: pchrono-dt-focus
         specialization: Chronomancer

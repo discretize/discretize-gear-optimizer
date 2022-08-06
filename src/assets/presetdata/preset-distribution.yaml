@@ -834,6 +834,17 @@ list:
         url: https://www.youtube.com/watch?v=oD7fBTMmWFE
         log: https://dps.report/uRLc-20210823-152656_golem
 
+  - name: Power Chrono IA GS
+    profession: Chronomancer
+    value: >-
+      {
+        "values2": { "Power": 2976, "Power2": 1332, "Burning": 0, "Bleeding": 0.91, "Poisoned": 0, "Torment": 0, "Confusion": 0.83 }
+      }
+    credit:
+      - author: 'Luxroy'
+        url: https://www.youtube.com/watch?v=YfEK5GyAIL4
+        log: https://dps.report/ulws-20220804-153218_golem
+
   # DT focus domi/duel
   # https://www.youtube.com/watch?v=hkl9kewy_1k
   # https://dps.report/Ki5n-20210520-152542_golem
