@@ -427,22 +427,22 @@
           Healing Power: [45, converted]
       gw2id: 91804
 
-      - id: spherified-oyster-soup-with-mint-garnish
-        text: Spherified Oyster Soup with Mint Garnish
-        hasLifesteal: false
-        modifiers:
-          attributes:
-            Power: [45, converted]
-            Precision: [45, converted]
-            Toughness: [45, converted]
-            Vitality: [45, converted]
-            Concentration: [45, converted]
-            Condition Damage: [45, converted]
-            Expertise: [45, converted]
-            Ferocity: [45, converted]
-            Healing Power: [45, converted]
-            Outgoing Healing: 10%
-        gw2id: 91748
+    - id: spherified-oyster-soup-with-mint-garnish
+      text: Spherified Oyster Soup with Mint Garnish
+      hasLifesteal: false
+      modifiers:
+        attributes:
+          Power: [45, converted]
+          Precision: [45, converted]
+          Toughness: [45, converted]
+          Vitality: [45, converted]
+          Concentration: [45, converted]
+          Condition Damage: [45, converted]
+          Expertise: [45, converted]
+          Ferocity: [45, converted]
+          Healing Power: [45, converted]
+          Outgoing Healing: 10%
+      gw2id: 91748
 
     - id: dragon's-revelry-starcake
       text: Oyster Soup
