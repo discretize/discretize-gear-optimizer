@@ -372,6 +372,7 @@
 
     - id: power-of-the-virtuous
       text: Power of the Virtuous
+      subText: conversion only
       minor: true
       modifiers:
         conversion:
