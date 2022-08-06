@@ -76,7 +76,7 @@ const formatCharacterData = async (character) => {
   return JSON.stringify(result, null, 2);
 };
 
-export const copyCharacterData = (character) => {
+export const copyGw2CombatData = (character) => {
   const dataPromise = formatCharacterData(character);
 
   // iOS browsers and desktop Safari require the use of the async clipboard API, calling

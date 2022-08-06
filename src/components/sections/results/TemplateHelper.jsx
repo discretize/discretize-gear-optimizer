@@ -1,8 +1,7 @@
-import { Button, TextField, Typography } from '@mui/material';
+import { TextField, Typography } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { mapValues, parseDistribution } from '../../../utils/usefulFunctions';
-import { copyCharacterData } from './gw2combat';
 
 const initial = {
   Power: 0,
@@ -339,14 +338,6 @@ const TemplateHelper = ({ character }) => {
       <pre style={{ userSelect: 'all', overflowY: 'auto', maxHeight: '250px', margin: '1rem' }}>
         {indent(JSON.stringify(cachedFormState?.extras, null, 2) || '', 6)}
       </pre>
-
-      <Typography variant="body1">
-        <Trans>gw2combat development (under construction)</Trans>
-      </Typography>
-
-      <Button variant="contained" onClick={() => copyCharacterData(character)}>
-        export data
-      </Button>
     </>
   );
 };
