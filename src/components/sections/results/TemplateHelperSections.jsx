@@ -12,6 +12,7 @@ import { createAssumedBuffs } from '../../../utils/toLazyToType-usefulFunctions'
 import { getWeight } from '../../../utils/usefulFunctions';
 import Section from '../../baseComponents/Section';
 import ModalContent from './BuildShareModal/ModalContent';
+import GW2Combat from './GW2Combat';
 import TemplateHelper from './TemplateHelper';
 
 const indent = (str, amount) => str.replace(/^/gm, ' '.repeat(amount));
@@ -131,6 +132,12 @@ const TemplateHelperSections = ({ character }) => {
                 helpText={
                   <Trans>Create build templates that can be used for the gear optimizer.</Trans>
                 }
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Section
+                title={t('gw2combat project')}
+                content={<GW2Combat character={character} />}
               />
             </Grid>
           </Grid>
