@@ -221,6 +221,7 @@
 
     - id: radiant-power
       text: Radiant Power
+      subText: 100% burning enemy
       minor: true
       modifiers:
         attributes:
