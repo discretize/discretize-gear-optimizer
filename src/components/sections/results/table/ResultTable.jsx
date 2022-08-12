@@ -153,7 +153,7 @@ const StickyHeadTable = () => {
     // ...or if the user saved a build, then ran the same profession with a different extra
     const variations = new Set();
     [...list.slice(0, 1), ...saved]
-      .filter((character) => character.settings.profession !== firstCharacter?.settings?.profession)
+      .filter((character) => character.settings.profession === firstCharacter?.settings?.profession)
       .forEach((character) => variations.add(character.settings.extrasCombination[type]));
     return variations.size > 1;
   };
