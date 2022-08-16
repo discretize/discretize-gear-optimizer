@@ -195,6 +195,7 @@ export const sigilDict = [
   'geomancy-torment-cwb',
   'geomancy-torment-cwb-alac',
   'geomancy-torment-harb',
+  'air',
 ];
 
 export const enhancementDict = [
