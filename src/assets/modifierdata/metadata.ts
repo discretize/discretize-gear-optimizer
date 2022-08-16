@@ -89,6 +89,8 @@ export const percents = [
 
 const coefficients = [
   'Power Coefficient',
+  'NonCrit Power Coefficient',
+  'Power2 Coefficient',
   ...conditionCoefficients,
   'Flat DPS',
   'Siphon Base Coefficient',

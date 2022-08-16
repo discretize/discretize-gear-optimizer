@@ -33,6 +33,18 @@
           Strike Damage: [3%, add]
       gw2id: 24868
 
+    - id: air
+      text: Superior Sigil of Air
+      subText: (Single Target)
+      amountData:
+        label: '/10s'
+        default: 3.1
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          NonCrit Power Coefficient: 759.55
+      gw2id: 24554
+
     - id: severance-perma
       text: Superior Sigil of Severance
       subText: (While Active)
