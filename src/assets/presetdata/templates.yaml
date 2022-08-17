@@ -133,7 +133,7 @@ list:
   - class: Guardian
     builds:
 
-      - name: DH Radiance
+      - name: DH Radiance (minor outdated)
         id: dh-radiance
         specialization: Dragonhunter
         boonType: Power
@@ -146,7 +146,7 @@ list:
           extras: Power (Raid)
         weaponType: Two-handed
 
-      - name: DH Virtues
+      - name: DH Virtues (minor outdated)
         id: dh-virtues
         specialization: Dragonhunter
         boonType: Power
@@ -991,7 +991,7 @@ list:
         extras: Condi Deadeye
         weaponType: Dual wield
 
-      - name: Staff Daredevil
+      - name: Staff Daredevil (minor outdated)
         id: staffdd
         specialization: Daredevil
         boonType: Power
@@ -1004,7 +1004,7 @@ list:
           extras: Staff Daredevil (Raid)
         weaponType: Two-handed
 
-      - name: Power Boon Daredevil
+      - name: Power Boon Daredevil (minor outdated)
         id: boondd-power
         specialization: Daredevil
         boonType: Power
