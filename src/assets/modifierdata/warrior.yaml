@@ -169,7 +169,7 @@
 
     - id: blade-master
       text: Blademaster
-      subText: base
+      subText: 'base, intended: 120 expertise'
       modifiers:
         attributes:
           Expertise: [120, converted] # confirmed from bench hero panel
