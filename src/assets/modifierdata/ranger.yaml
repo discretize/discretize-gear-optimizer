@@ -97,7 +97,7 @@
 
     - id: farsighted
       text: Farsighted
-      subText: melee
+      subText: melee, not accurate
       modifiers:
         damage:
           Strike Damage: [5%, mult]
@@ -106,7 +106,7 @@
 
     - id: farsighted-2
       text: Farsighted
-      subText: ranged
+      subText: ranged, not accurate
       modifiers:
         damage:
           Strike Damage: [15%, mult]
