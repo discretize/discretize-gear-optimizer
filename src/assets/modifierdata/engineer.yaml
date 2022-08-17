@@ -132,6 +132,7 @@
 
     - id: high-caliber
       text: High Caliber
+      subText: 100% melee
       modifiers:
         attributes:
           Critical Chance: 15%
