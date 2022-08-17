@@ -35,7 +35,7 @@
 
     - id: air
       text: Superior Sigil of Air
-      subText: (single target)
+      subText: '(single target; may be inaccurate)'
       amountData:
         label: '/10s'
         default: 3.1
