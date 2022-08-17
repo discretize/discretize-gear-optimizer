@@ -462,7 +462,7 @@
 
     - id: dragons-revelry-starcake-bugged
       text: Dragon's Revelry Starcake
-      subText: (slightly bugged!)
+      subText: '(slightly bugged: no conversion)'
       modifiers:
         attributes:
           Power: [45, buff]

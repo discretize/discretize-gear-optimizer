@@ -84,7 +84,7 @@
     # passive burning : 1/3 * 2.4 = 0.8
     - id: mantra-of-flame
       text: Mantra of Flame
-      subText: (With passive + permeating + amplified)
+      subText: (with passive + permeating + amplified)
       amountData:
         label: '/10s'
         default: 1.5
@@ -99,7 +99,7 @@
     # burning: 4s
     - id: mantra-of-flame-base
       text: Mantra of Flame
-      subText: (No passive)
+      subText: (no passive)
       amountData:
         label: '/10s'
         default: 1.5

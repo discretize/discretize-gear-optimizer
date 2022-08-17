@@ -178,7 +178,7 @@
 
     - id: blade-master-base-bugged
       text: Blademaster
-      subText: base, BUGGED VERSION
+      subText: 'base, bugged: 160 expertise'
       modifiers:
         attributes:
           Expertise: [160, converted]
