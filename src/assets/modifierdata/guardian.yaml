@@ -423,6 +423,10 @@
 
     - id: big-game-hunter
       text: Big Game Hunter
+      amountData:
+        label: '% uptime'
+        default: 75
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [15%, mult]
