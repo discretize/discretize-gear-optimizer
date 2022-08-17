@@ -303,7 +303,10 @@
 
     - id: lotus-training
       text: Lotus Training
-      subText: 100% uptime
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         damage:
           Condition Damage: [15%, add]
@@ -321,7 +324,10 @@
 
     - id: bounding-dodger
       text: Bounding Dodger
-      subText: 100% uptime
+      amountData:
+        label: '% uptime'
+        default: 67
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, add]

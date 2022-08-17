@@ -6013,7 +6013,9 @@ list:
             "havoc-specialist": {
               "amount": ""
             },
-            "bounding-dodger": {},
+            "bounding-dodger": {
+              "amount": "100"
+            },
             "lotus-training": {}
           }
         ]
@@ -6081,7 +6083,9 @@ list:
             "havoc-specialist": {
               "amount": ""
             },
-            "bounding-dodger": {},
+            "bounding-dodger": {
+              "amount": "100"
+            },
             "lotus-training": {}
           }
         ]
