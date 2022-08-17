@@ -167,10 +167,7 @@
 
     - id: no-scope
       text: No Scope
-      amountData:
-        label: '% melee'
-        default: 100
-        quantityEntered: 100
+      subText: 100% fury
       modifiers:
         attributes:
           Ferocity: [150, buff]
