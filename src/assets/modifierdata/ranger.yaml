@@ -506,6 +506,10 @@
 
     - id: vow-of-the-untamed-you
       text: Vow of the Untamed
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       subText: player unleashed
       modifiers:
         damage:
@@ -519,6 +523,10 @@
 
     - id: vow-of-the-untamed-pet
       text: Vow of the Untamed
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       subText: pet unleashed
       modifiers:
         damage:
