@@ -756,6 +756,7 @@
   "slotName_Weapon 1": "Weapon 1",
   "slotName_Weapon 2": "Weapon 2",
   "traitNote": "traitNote",
+  "traitNote_\"Sic 'Em!\" currently breaks air and hydromancy sigil simulation, and possibly some other effects.": "\"Sic 'Em!\" currently breaks air and hydromancy sigil simulation, and possibly some other effects.",
   "traitNote_Battle scars is not currently simulated.": "Battle scars is not currently simulated.",
   "traitNote_Be sure to change the burning coefficient value below when adding or removing traits without checkboxes like legendary lore.": "Be sure to change the burning coefficient value below when adding or removing traits without checkboxes like legendary lore.",
   "traitNote_Be sure to change the condition coefficient values below when adding or removing traits without checkboxes that implement their full effects like demonic lore.": "Be sure to change the condition coefficient values below when adding or removing traits without checkboxes that implement their full effects like demonic lore.",

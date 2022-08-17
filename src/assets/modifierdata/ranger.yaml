@@ -335,6 +335,8 @@
 
 - section: Soulbeast
   id: 55
+  note: >-
+    "Sic 'Em!" currently breaks air and hydromancy sigil simulation, and possibly some other effects.
   items:
 
     - id: furious-strength
