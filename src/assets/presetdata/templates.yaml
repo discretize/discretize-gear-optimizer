@@ -48,7 +48,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Quickness STM Chrono (outdated)
+      - name: Quickness Power Chrono (outdated)
         id: pchrono-stm-gs
         specialization: Chronomancer
         boonType: Power
