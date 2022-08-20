@@ -232,6 +232,9 @@
         quantityEntered: 25
       modifiers:
         attributes:
+          Condition Damage: [375, buff]
+      wvwModifiers:
+        attributes:
           Condition Damage: [250, buff]
       gw2id: 1346
       defaultEnabled: true
