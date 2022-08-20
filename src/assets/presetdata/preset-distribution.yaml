@@ -822,15 +822,17 @@ list:
         url: https://www.youtube.com/watch?v=R8g-fJZSaGI
         log: https://dps.report/6Klp-20210819-172536_golem
 
-  # domi WoA, full viper bursting mischief rendang toxic crystal 7 spiteful
-  - name: Condi Chrono STM
+  # rit: shoulders coat gloves leggings, domi midnight, mischief, rendang icicle
+  - name: Quickness Condi Chrono*
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 1686, "Power2": 369, "Burning": 2.26, "Bleeding": 4.12, "Poisoned": 0, "Torment": 6.4, "Confusion": 17.07 }
+        "values2": { "Power": 1894, "Power2": 426, "Burning": 1.57, "Bleeding": 4.99, "Poisoned": 0, "Torment": 6.75, "Confusion": 16.42 }
       }
     credit:
-      - author: '[CnD] Tipcat'
+      - author: '[Vs] Nico'
+        url: https://www.youtube.com/watch?v=wvL3EvG7iZs
+        log: https://dps.report/WItI-20220804-134453_golem
 
   # https://optimizer.discretize.eu/?s=ReeYNhV3v1
   - name: Condi Virtuoso*

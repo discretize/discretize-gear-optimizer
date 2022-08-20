@@ -411,7 +411,7 @@ list:
         }
       }
 
-  - name: Condi Chrono STM
+  - name: Quickness Condi Chrono*
     profession: Chronomancer
     traits: |-
       {
@@ -441,7 +441,7 @@ list:
         "items": [
           {
             "compounding-power": {
-              "amount": ""
+              "amount": "4.7"
             }
           },
           {
@@ -453,21 +453,23 @@ list:
               "amount": ""
             },
             "sharper-images-clone": {
-              "amount": "0.41"
+              "amount": "0.39"
             },
             "sharper-images-phantasm": {
-              "amount": "1.02"
+              "amount": "1.09"
             }
           },
           {
-            "danger-time": {}
+            "danger-time": {},
+            "improved-alacrity": {}
           }
         ]
       }
     skills: |-
       {
         "skills": {
-          "signet-of-domination": {}
+          "signet-of-domination": {},
+          "signet-of-midnight": {}
         }
       }
 

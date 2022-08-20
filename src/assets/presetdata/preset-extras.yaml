@@ -215,7 +215,7 @@ list:
         }
       }
 
-  - name: Condi Chrono STM
+  - name: Quickness Condi Chrono*
     profession: Chronomancer
     value: |-
       {
@@ -226,16 +226,19 @@ list:
           "Sigil2": {
             "mischief-ineptitude": {
               "amount": "0.9"
-            }
+            },
+            "concentration": {}
           },
           "Runes": {
             "perplexity": {}
           },
           "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "spherified-cilantro-oyster-soup": {}
           },
           "Enhancement": {
-            "toxic-focusing-crystal": {}
+            "toxic-focusing-crystal": {},
+            "master-tuning-crystal": {}
           }
         }
       }
@@ -257,10 +260,11 @@ list:
             "perplexity": {}
           },
           "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {}
           },
           "Enhancement": {
-            "toxic-focusing-crystal": {}
+            "toxic-focusing-crystal": {},
+            "master-tuning-crystal": {}
           }
         }
       }

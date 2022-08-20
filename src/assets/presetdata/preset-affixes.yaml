@@ -185,6 +185,16 @@ list:
         "minQuicknessDuration": 40
       }
 
+  - name: Quickness Condi Chrono 10%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 10.3
+      }
+
   - name: Condi Quickness Harbinger 23%
     hidden: true
     value: >-
