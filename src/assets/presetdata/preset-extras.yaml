@@ -1159,7 +1159,14 @@ list:
           "Sigil1": {
             "force": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "air": {
+              "amount": "3.0"
+            },
+            "accuracy": {},
+            "impact/night/slaying-only-3": {},
+            "concentration": {}
+          },
           "Enhancement": {
             "potent-lucent-oil": {},
             "superior-sharpening-stone": {}
