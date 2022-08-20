@@ -1109,7 +1109,7 @@ list:
         }
       }
 
-  - name: Condi Quickbrand
+  - name: Condi Quickbrand*
     profession: Firebrand
     traits: |-
       {

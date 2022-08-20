@@ -133,24 +133,24 @@ list:
   - class: Guardian
     builds:
 
-      - name: Quickness Condi Firebrand 49%
+      - name: Quickness Condi Firebrand 49%*
         id: cqfb-firebrand-49
         specialization: Firebrand
         boonType: Condi
         priority: Condi Quickbrand 49
-        distribution: Condi Quickbrand (allies)
-        traits: Condi Quickbrand
-        extras: Condi Quickbrand
+        distribution: Condi Quickbrand (allies)*
+        traits: Condi Quickbrand*
+        extras: Condi Quickbrand*
         weaponType: Dual wield
 
-      - name: Quickness Condi Firebrand 79%
+      - name: Quickness Condi Firebrand 79%*
         id: cqfb-firebrand-79
         specialization: Firebrand
         boonType: Condi
         priority: Condi Quickbrand 79
-        distribution: Condi Quickbrand (allies)
-        traits: Condi Quickbrand
-        extras: Condi Quickbrand
+        distribution: Condi Quickbrand (allies)*
+        traits: Condi Quickbrand*
+        extras: Condi Quickbrand*
         weaponType: Dual wield
 
       - name: Quickness Power Firebrand (outdated)

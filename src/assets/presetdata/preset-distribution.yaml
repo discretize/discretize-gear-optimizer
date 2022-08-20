@@ -192,7 +192,7 @@ list:
   # 10 boons
   # ritualist shld coat glov boot, weighty terms
   # T10 JADE BOT and reinforced armor (in video)
-  - name: Condi Quickbrand (allies)
+  - name: Condi Quickbrand (allies)*
     profession: Firebrand
     value: >-
       {
@@ -203,7 +203,7 @@ list:
         url: https://www.youtube.com/watch?v=2phGf78VtaU
         log: https://dps.report/97jG-20220701-141403_golem
 
-  - name: Condi Quickbrand (no allies)
+  - name: Condi Quickbrand (no allies)*
     profession: Firebrand
     value: >-
       {
