@@ -500,29 +500,6 @@ list:
         }
       }
 
-  - name: CFB w/ Quickness (renegade)
-    profession: Firebrand
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "renegade": {}
-          },
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {
-            "smoldering": {}
-          },
-          "Enhancement": {
-            "toxic-maintenance-oil": {}
-          },
-          "Nourishment": {
-            "fishy-rice-bowl": {}
-          }
-        }
-      }
-
   - name: CFB DPS (5 page, balthazar)
     profession: Firebrand
     value: |-
@@ -565,29 +542,6 @@ list:
           },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {}
-          }
-        }
-      }
-
-  - name: CFB DPS (renegade)
-    profession: Firebrand
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "renegade": {}
-          },
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {
-            "smoldering": {}
-          },
-          "Enhancement": {
-            "toxic-focusing-crystal": {}
-          },
-          "Nourishment": {
-            "fishy-rice-bowl": {}
           }
         }
       }
