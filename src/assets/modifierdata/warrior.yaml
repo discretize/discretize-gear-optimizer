@@ -319,7 +319,7 @@
       text: Empowered
       amountData:
         label: 'boons'
-        default: 8
+        default: 10
         quantityEntered: 1
       minor: true
       modifiers:

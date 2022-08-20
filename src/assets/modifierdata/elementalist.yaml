@@ -421,7 +421,7 @@
       text: Bountiful Power
       amountData:
         label: 'boons'
-        default: 8
+        default: 10
         quantityEntered: 1
       modifiers:
         damage:
