@@ -1625,7 +1625,7 @@ list:
         }
       }
 
-  - name: '"Carrion" Specter'
+  - name: Condi Barrier Specter
     profession: Specter
     value: |-
       {

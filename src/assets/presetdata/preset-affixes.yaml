@@ -85,7 +85,7 @@ list:
         "minQuicknessDuration": 0
       }
 
-  - name: '"Carrion" Specter'
+  - name: Condi Barrier Specter
     hidden: true
     value: >-
       {
