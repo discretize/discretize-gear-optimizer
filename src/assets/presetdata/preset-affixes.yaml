@@ -259,10 +259,20 @@ list:
     hidden: true
     value: >-
       {
-        "affixes": ["Viper", "Sinister", "Ritualist"],
+        "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
         "minBoonDuration": 0,
         "minQuicknessDuration": 48.8
+      }
+
+  - name: Condi Quickbrand 79
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 79
       }
 
   - name: Condi Alacrity Specter 57%

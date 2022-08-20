@@ -564,7 +564,9 @@ list:
             "fishy-rice-bowl": {}
           },
           "Enhancement": {
-            "toxic-focusing-crystal": {}
+            "toxic-focusing-crystal": {},
+            "magnanimous-tuning-crystal": {},
+            "toxic-maintenance-oil": {}
           }
         }
       }
