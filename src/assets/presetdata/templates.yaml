@@ -1078,7 +1078,7 @@ list:
         extras: Condi Deadeye
         weaponType: Dual wield
 
-      - name: Power Rifle Deadeye
+      - name: Power Rifle Deadeye (outdated)
         id: rifleded
         specialization: Deadeye
         boonType: Power
