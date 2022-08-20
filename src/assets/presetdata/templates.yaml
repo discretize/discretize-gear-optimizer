@@ -133,7 +133,7 @@ list:
   - class: Guardian
     builds:
 
-      - name: DH Radiance (minor outdated)
+      - name: DH Radiance (outdated)
         id: dh-radiance
         specialization: Dragonhunter
         boonType: Power
@@ -146,7 +146,7 @@ list:
           extras: Power (Raid)
         weaponType: Two-handed
 
-      - name: DH Virtues (minor outdated)
+      - name: DH Virtues (outdated)
         id: dh-virtues
         specialization: Dragonhunter
         boonType: Power
@@ -159,7 +159,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Core Guardian
+      - name: Core Guardian (outdated)
         id: core-guard
         specialization: Guardian
         boonType: Power
@@ -172,7 +172,7 @@ list:
           extras: Power (Raid)
         weaponType: Two-handed
 
-      - name: Power Willbender Virtues
+      - name: Power Willbender Virtues (outdated)
         id: pwb-virtues
         specialization: Willbender
         boonType: Power
@@ -185,7 +185,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Power Willbender Radiance
+      - name: Power Willbender Radiance (outdated)
         id: pwb-radiance
         specialization: Willbender
         boonType: Power
@@ -198,7 +198,7 @@ list:
           extras: Power (Raid)
         weaponType: Two-handed
 
-      - name: Power Alacrity Willbender
+      - name: Power Alacrity Willbender (outdated)
         id: pwb-alac
         specialization: Willbender
         boonType: Power
@@ -234,7 +234,7 @@ list:
         extras: Condi Willbender
         weaponType: Dual wield
 
-      - name: Condi Willbender GS
+      - name: Condi Willbender GS (outdated)
         id: cwb-gs
         specialization: Willbender
         boonType: Condi
@@ -396,7 +396,7 @@ list:
   - class: Elementalist
     builds:
 
-      - name: Power Weaver
+      - name: Power Weaver (outdated)
         id: pwea
         specialization: Weaver
         boonType: Power
@@ -410,7 +410,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Condi Weaver Sword
+      - name: Condi Weaver Sword (outdated)
         id: cwea-sw
         specialization: Weaver
         boonType: Condi
@@ -420,7 +420,7 @@ list:
         extras: Condi Weaver Sword
         weaponType: Dual wield
 
-      - name: Condi Weaver Dagger
+      - name: Condi Weaver Dagger (outdated)
         id: cwea-dg
         specialization: Weaver
         boonType: Condi
@@ -443,7 +443,7 @@ list:
           extras: Hybrid Weaver (Raid)
         weaponType: Dual wield
 
-      - name: Condi Tempest
+      - name: Condi Tempest (outdated)
         id: ctemp
         specialization: Tempest
         boonType: Condi
@@ -453,7 +453,7 @@ list:
         extras: Condi Tempest
         weaponType: Dual wield
 
-      - name: Power Tempest (approx.)
+      - name: Power Tempest (outdated)
         id: ptemp
         specialization: Tempest
         boonType: Power
@@ -515,7 +515,7 @@ list:
   - class: Ranger
     builds:
 
-      - name: Condi Untamed Axe*
+      - name: Condi Untamed Axe (outdated)
         id: condi-untamed-axe
         specialization: Untamed
         boonType: Condi
@@ -669,7 +669,7 @@ list:
   - class: Revenant
     builds:
 
-      - name: Power Vindicator
+      - name: Power Vindicator (outdated)
         id: vindi
         specialization: Vindicator
         boonType: Power
@@ -764,7 +764,7 @@ list:
   - class: Engineer
     builds:
 
-      - name: Power Holo ECSU
+      - name: Power Holo ECSU (outdated)
         id: pholo-ecsu
         specialization: Holosmith
         boonType: Power
@@ -787,7 +787,7 @@ list:
         extras: Condi Holo
         weaponType: Dual wield
 
-      - name: Power Scrapper
+      - name: Power Scrapper (outdated)
         id: pscrap
         specialization: Scrapper
         boonType: Power
@@ -800,7 +800,7 @@ list:
           extras: Power Scrapper (Raid)
         weaponType: Two-handed
 
-      - name: Quickness Scrapper
+      - name: Quickness Scrapper (outdated)
         id: qscrap
         specialization: Scrapper
         boonType: Power
@@ -938,7 +938,7 @@ list:
         extras: Condi Reaper
         weaponType: Two-handed
 
-      - name: DPS Harbinger
+      - name: DPS Harbinger (slightly outdated)
         id: charb
         specialization: Harbinger
         boonType: Condi
@@ -948,7 +948,7 @@ list:
         extras: DPS Harbinger
         weaponType: Dual wield
 
-      - name: Quickness Harbinger
+      - name: Quickness Harbinger (slightly outdated)
         id: qharb
         specialization: Harbinger
         boonType: Condi
@@ -961,7 +961,7 @@ list:
   - class: Thief
     builds:
 
-      - name: Condi Deadeye
+      - name: Condi Deadeye (outdated)
         id: cded
         specialization: Deadeye
         boonType: Condi
@@ -971,7 +971,7 @@ list:
         extras: Condi Deadeye
         weaponType: Dual wield
 
-      - name: Staff Daredevil (minor outdated)
+      - name: Staff Daredevil (outdated)
         id: staffdd
         specialization: Daredevil
         boonType: Power
@@ -984,7 +984,7 @@ list:
           extras: Staff Daredevil (Raid)
         weaponType: Two-handed
 
-      - name: Power Boon Daredevil (minor outdated)
+      - name: Power Boon Daredevil (outdated)
         id: boondd-power
         specialization: Daredevil
         boonType: Power
@@ -994,7 +994,7 @@ list:
         extras: Power Boon Daredevil
         weaponType: Two-handed
 
-      - name: Condi Daredevil
+      - name: Condi Daredevil (outdated)
         id: cdd
         specialization: Daredevil
         boonType: Condi
@@ -1004,7 +1004,7 @@ list:
         extras: Condi Daredevil
         weaponType: Dual wield
 
-      - name: Condi Boon Daredevil
+      - name: Condi Boon Daredevil (no log)
         id: boondd-condi
         specialization: Daredevil
         boonType: Condi
@@ -1027,7 +1027,7 @@ list:
           extras: Power (Raid)
         weaponType: Two-handed
 
-      - name: DPS Specter
+      - name: DPS Specter (outdated)
         id: specter
         specialization: Specter
         boonType: Condi
@@ -1037,7 +1037,7 @@ list:
         extras: DPS Specter
         weaponType: Dual wield
 
-      - name: Alacrity Specter
+      - name: Alacrity Specter (outdated)
         id: specter-alac
         specialization: Specter
         boonType: Condi
