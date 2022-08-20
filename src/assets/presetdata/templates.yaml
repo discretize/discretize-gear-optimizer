@@ -344,40 +344,63 @@ list:
   - class: Warrior
     builds:
 
-      - name: Power Banner Bers (outdated)
-        id: pbers
-        specialization: Berserker
-        boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: Power Banner Bers Strength
-        traits: Power Banner Bers Strength
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid)
-        weaponType: Dual wield
-
-      - name: Condi Banner Bers (outdated)
-        id: cbers
-        specialization: Berserker
-        boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Banner Bers
-        traits: Condi Bers
-        extras: Condi Bers
-        weaponType: Two-handed
-
       - name: DPS Bladesworn*
         id: bls-dps
         specialization: Bladesworn
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Bladesworn*
+        distribution: DPS Bladesworn Tactics*
         traits: DPS Bladesworn Tactics*
         fractal:
           extras: Power (Fractal)
         raid:
           extras: Bladesworn
+        weaponType: Dual wield
+
+      - name: Quickness Bladesworn (wip)
+        id: bls-quick
+        specialization: Bladesworn
+        boonType: Power
+        priority: Power Quickness Bladesworn 2.6%
+        distribution: None
+        traits: Quickness Bladesworn
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Bladesworn
+        weaponType: Dual wield
+
+      - name: Condi Quickness Bers (outdated)
+        id: cbers
+        specialization: Berserker
+        boonType: Condi
+        priority: Condi Quickness Berserker 40%
+        distribution: Condi Quickness Bers
+        traits: Condi Bers
+        extras: Condi Quickness Bers
+        weaponType: Two-handed
+
+      - name: Condi DPS Bers (outdated)
+        id: cbers-dps
+        specialization: Berserker
+        boonType: Condi
+        priority: Condi DPS
+        distribution: None
+        traits: Condi Bers
+        extras: Condi Bers
+        weaponType: Two-handed
+
+      - name: Power DPS Bers (outdated)
+        id: pbers
+        specialization: Berserker
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power DPS Bers
+        traits: Power Banner Bers Strength
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
         weaponType: Dual wield
 
       - name: Power Banner SPB (outdated)

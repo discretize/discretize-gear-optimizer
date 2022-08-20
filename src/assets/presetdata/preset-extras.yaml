@@ -680,6 +680,27 @@ list:
         }
       }
 
+  - name: Condi Quickness Bers
+    profession: Berserker
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "firebrand": {}
+          },
+          "Sigil1": {},
+          "Sigil2": {},
+          "Enhancement": {
+            "master-tuning-crystal": {},
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "salsa-topped-veggie-flatbread": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          }
+        }
+      }
+
   # - name: Flame Legion Power Weaver (Raid)
   #   profession: Weaver
   #   value: |-

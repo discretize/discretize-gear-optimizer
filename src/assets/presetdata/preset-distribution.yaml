@@ -25,7 +25,7 @@ list:
 
   # strength/discipline
   # thief rune
-  - name: Power Banner Bers Strength
+  - name: Power DPS Bers
     profession: Berserker
     value: >-
       {
@@ -37,7 +37,7 @@ list:
         log: https://dps.report/FfCw-20210530-072038_golem
 
   # includes geo/earth + doom/torment
-  - name: Condi Banner Bers
+  - name: Condi Quickness Bers
     profession: Berserker
     value: >-
       {
@@ -61,7 +61,7 @@ list:
         log: https://dps.report/jpAe-20210515-174310_golem
 
   # 100% crit (thief accuracy, assassin shoulders amulet, furious)
-  - name: Bladesworn*
+  - name: DPS Bladesworn Tactics*
     profession: Bladesworn
     value: >-
       {

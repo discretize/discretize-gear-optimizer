@@ -2032,7 +2032,7 @@ list:
         }
       }
 
-  - name: Banner Bladesworn
+  - name: Quickness Bladesworn
     profession: Bladesworn
     traits: |-
       {
@@ -2069,15 +2069,13 @@ list:
             },
             "pinnacle-of-strength-crit": {},
             "berserkers-power": {
-              "amount": "2.8"
+              "amount": "2.91"
             }
           },
           {
             "warriors-sprint": {
               "amount": ""
             },
-            "double-standards-str": {},
-            "double-standards-disc": {},
             "axe-mastery-one": {},
             "axe-mastery-axe": {
               "amount": ""
@@ -2085,19 +2083,17 @@ list:
           },
           {
             "fierce-as-fire": {
-              "amount": "9.6"
+              "amount": "10"
             },
             "guns-and-glory": {
-              "amount": ""
+              "amount": "9.9"
             }
           }
         ]
       }
     skills: |-
       {
-        "skills": {
-          "signet-of-might": {}
-        }
+        "skills": {}
       }
 
   - name: DPS Bladesworn Tactics*
