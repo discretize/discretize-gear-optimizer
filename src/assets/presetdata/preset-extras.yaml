@@ -571,6 +571,35 @@ list:
         }
       }
 
+  - name: Condi Quickbrand Ritualist (inaccurate)
+    profession: Firebrand
+    value: |-
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "smoldering": {},
+            "geomancy-torment-cfb5-virtues": {}
+          },
+          "Runes": {
+            "firebrand-firebrand": {},
+            "balthazar": {}
+          },
+          "Nourishment": {
+            "fishy-rice-bowl": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {},
+            "magnanimous-tuning-crystal": {},
+            "toxic-maintenance-oil": {},
+            "magnanimous-maintenance-oil": {}
+          }
+        }
+      }
+
   # - name: Condi Quickbrand 35%
   #   profession: Firebrand
   #   value: |-
