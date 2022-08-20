@@ -196,7 +196,7 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2181, "Power2": 0, "Burning": 12.81, "Bleeding": 2.32, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2181, "Power2": 0, "Burning": 13.48, "Bleeding": 2.46, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
@@ -207,7 +207,7 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2189, "Power2": 0, "Burning": 11.39, "Bleeding": 2.38, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2189, "Power2": 0, "Burning": 11.99, "Bleeding": 2.51, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
