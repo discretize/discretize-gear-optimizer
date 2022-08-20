@@ -211,33 +211,34 @@ list:
       - author: 'Support Hero'
         url: https://www.youtube.com/watch?v=_GFennqOKVg
 
-  # https://www.youtube.com/watch?v=N6fQZd81huA
-  # https://dps.report/8Th9-20220311-191507_golem
-  # power: 5715, burn: 26023, bleed: 886, total: 32624
-  # 12 boons
+  # https://www.youtube.com/watch?v=2phGf78VtaU
+  # https://dps.report/97jG-20220701-141403_golem
+  # power: 4653, burn: 23184, bleed: 886, total: 28724
+  # 10 boons
   # ritualist shld coat glov boot, weighty terms
-  # NO JADE BOT (in arc log, probably - seems bugged)
+  # T10 JADE BOT and reinforced armor (in video)
   - name: Condi Quickbrand (allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2219, "Power2": 0, "Burning": 14.24, "Bleeding": 2.4, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2181, "Power2": 0, "Burning": 12.81, "Bleeding": 2.32, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=N6fQZd81huA
-        log: https://dps.report/8Th9-20220311-191507_golem
+        url: https://www.youtube.com/watch?v=2phGf78VtaU
+        log: https://dps.report/97jG-20220701-141403_golem
 
-  # burn 23245
+  # power: 4669, burn: 20762, bleed: 907, total: 26338
   - name: Condi Quickbrand (no allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2219, "Power2": 0, "Burning": 12.02, "Bleeding": 2.27, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2189, "Power2": 0, "Burning": 11.39, "Bleeding": 2.38, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=N6fQZd81huA
+        url: https://www.youtube.com/watch?v=2phGf78VtaU
+        log: https://dps.report/4b5x-20220630-205054_golem
 
   # - name: Hybrid FB (Virtues, no allies)
   #   profession: Firebrand
