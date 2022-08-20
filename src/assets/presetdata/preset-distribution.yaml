@@ -25,7 +25,6 @@ list:
 
   # strength/discipline
   # https://youtube.com/watch/NkoFpwfcxfw
-  # power: 33273, burn: 290, total: 33563
   # thief rune
   - name: Power Banner Bers Strength
     profession: Berserker
@@ -40,7 +39,6 @@ list:
 
   # https://www.youtube.com/watch?v=nXUtdasJCXY
   # https://dps.report/8fBf-20210514-231817_golem
-  # power: 4303, burn: 17955, bleed: 10339, poison: 1026, torment: 897, total: 34520
   # includes geo/earth + doom/torment
   - name: Condi Banner Bers
     profession: Berserker
@@ -54,7 +52,6 @@ list:
         log: https://dps.report/8fBf-20210514-231817_golem
 
   # https://www.youtube.com/watch?v=br9AGRrKHY8
-  # power: 30836, burn: 200, total: 31036
   # accuracy; optimized for 3 attacker's insight I guess w/e (assassin coat legs, full mighty)
   - name: Power Banner Spellbreaker
     profession: Spellbreaker
@@ -82,7 +79,6 @@ list:
         log: https://dps.report/6uMK-20220704-170031_golem
 
   # https://www.youtube.com/watch?v=aIUZegO1_EA
-  # power: 35711, burn: 629, total: 36340
   # RHS
   - name: DH Radiance
     profession: Dragonhunter
@@ -93,7 +89,6 @@ list:
     noCreditOkay: true
 
   # https://www.youtube.com/watch?v=iaMQVvspJFE
-  # power: 39212, burn: 802, total: 40014
   # 12 boons; thief rune, accuracy
   - name: DH Virtues
     profession: Dragonhunter
@@ -104,7 +99,6 @@ list:
     noCreditOkay: true
 
   # https://www.youtube.com/watch?v=G3CngDG-cMg
-  # power: 36225, burn: 388, total: 36613
   # 12 boons
   - name: Core Guardian
     profession: Guardian
@@ -157,7 +151,6 @@ list:
 
   # https://www.youtube.com/watch?v=mqnlk-j1e0Q
   # https://dps.report/YM0x-20220314-200134_golem
-  # power: 5955, burn: 30706, bleed: 1783, torment: 543, total: 38987
   # 12 boons
   # sinister amulet ring acc acc back
   # NO JADE BOT (in arc log, probably - seems bugged)
@@ -185,7 +178,6 @@ list:
 
   # https://www.youtube.com/watch?v=_GFennqOKVg
   # https://dps.report/G0dp-20220303-132136_golem
-  # power: 5798, burn: 30917, bleed: 1480, torment: 693, total: 38888
   # 12 boons
   # sinister amulet ring acc acc back
   # NO JADE BOT (in arc log, probably - seems bugged)
@@ -213,7 +205,6 @@ list:
 
   # https://www.youtube.com/watch?v=2phGf78VtaU
   # https://dps.report/97jG-20220701-141403_golem
-  # power: 4653, burn: 23184, bleed: 886, total: 28724
   # 10 boons
   # ritualist shld coat glov boot, weighty terms
   # T10 JADE BOT and reinforced armor (in video)
@@ -228,7 +219,6 @@ list:
         url: https://www.youtube.com/watch?v=2phGf78VtaU
         log: https://dps.report/97jG-20220701-141403_golem
 
-  # power: 4669, burn: 20762, bleed: 907, total: 26338
   - name: Condi Quickbrand (no allies)
     profession: Firebrand
     value: >-
@@ -339,7 +329,6 @@ list:
   # https://www.youtube.com/watch?v=H5ZyMQln6hw
   # https://dps.report/Bb0l-20210609-103359_golem
   # no jade bot
-  # power: 8868, burn: 20663, bleed: 8798, total: 38329
   - name: Condi Weaver Sword
     profession: Weaver
     value: >-
@@ -354,7 +343,6 @@ list:
   # https://www.youtube.com/watch?v=5XgoudKAKRw
   # https://dps.report/g1E9-20210609-022715_golem
   # no jade bot
-  # power: 7059, burn: 21986, bleed: 12387, total: 41432
   - name: Condi Weaver (Dagger)
     profession: Weaver
     value: >-
@@ -369,7 +357,6 @@ list:
   # https://www.youtube.com/watch?v=s7ASBjZq5GY
   # https://dps.report/gVsR-20210516-155431_golem
   # no jade bot
-  # power: 16710, burn: 21449, bleed: 336, total: 38495
   # force bursting, slightly suboptimal gear (15 malign 3 precise)
   - name: Hybrid Weaver
     profession: Weaver
@@ -384,7 +371,6 @@ list:
 
   # https://www.youtube.com/watch?v=iE8E7wzwSaQ
   # https://dps.report/PIGw-20210620-161840_golem
-  # power: 10789, burn: 18927, bleed: 7590, total: 37306
   - name: Condi Tempest
     profession: Tempest
     value: >-
@@ -639,7 +625,6 @@ list:
   # https://www.youtube.com/watch?v=-bipnEirEGA
   # https://dps.report/JBAr-20210620-110933_golem
   # no jade bot, rendang
-  # power: 4750, burn: 2865, bleed: 19386, poison: 8687, torment: 90, total: 35778
   #
   # 698 dps from OWP (which is ~234 power coefficient)
   # 57 hits in 110s, 0.518 hit/s
@@ -658,7 +643,6 @@ list:
   # https://www.youtube.com/watch?v=rr-gJuN3ECA
   # https://dps.report/zzE6-20210514-155136_golem
   # no jade bot, rendang
-  # power: 4968, burn: 4269, bleed: 18512, poison: 7459, torment: 90, total: 35388
   #
   # 644 dps from OWP (which is ~216 power coefficient)
   # 56 hits in 110s, 0.51 hit/s
@@ -676,7 +660,6 @@ list:
 
   # https://www.youtube.com/watch?v=HdwqDoINnq0
   # https://dps.report/SgbF-20210526-004829_golem
-  # power: 12065, burn: 3264, bleed: 18950, poison: 2974, torment: 90, total: 37343
   #
   # 1495 dps from OWP (which is ~287 power coefficient)
   # 57 hits in 105s, 0.54 hit/s
@@ -697,7 +680,6 @@ list:
 
   # im sorry
   # https://www.youtube.com/watch?v=70F-uEOb-Bg
-  # power: 6847, burn: 651, bleed: 20124, poison: 4975, torment: 81, total: 32678
   # koi cake
   # - name: Pure Shortbow Slb BM
   #   profession: Soulbeast
@@ -721,7 +703,6 @@ list:
   # https://www.youtube.com/watch?v=aemjSrxAN_c
   # https://dps.report/8W5H-20210512-045910_golem
   # berserker
-  # power: 34698, burn: 1015, bleed: 1625, poison: 290, total: 37628
   - name: Power Holo ECSU
     profession: Holosmith
     value: >-
@@ -808,7 +789,6 @@ list:
   # https://www.youtube.com/watch?v=yGg0pqSu8RA
   # https://dps.report/iGev-20210526-215831_golem
   # berserker
-  # power: 30744, burn: 190, bleed: 988, poison: 312, total: 32234
   - name: Power Scrapper
     profession: Scrapper
     value: >-
@@ -822,7 +802,6 @@ list:
 
   # https://www.youtube.com/watch?v=oD7fBTMmWFE
   # https://dps.report/uRLc-20210823-152656_golem
-  # power: 26854, burn: 204, bleed: 984, poison: 441, total: 28483
   # diviner amulet, 1x ring
   - name: Quickness Scrapper
     profession: Scrapper
@@ -849,7 +828,6 @@ list:
   # DT focus domi/duel
   # https://www.youtube.com/watch?v=hkl9kewy_1k
   # https://dps.report/Ki5n-20210520-152542_golem
-  # power: 21867 + 14485 = 36352 ---- total: 38707
   # asassin leg acc acc
   - name: Power Chrono DT Focus
     profession: Chronomancer
@@ -865,7 +843,6 @@ list:
   # IA focus domi/duel
   # https://www.youtube.com/watch?v=zdIAYu7R8lk
   # https://dps.report/0pRk-20210521-152703_golem
-  # power: 20608 + 12314 = 32922, burn: 219, bleed: 2371, confusion: 4, total: 35516
   # thief rune, truffle steak, furious stone, assassin helm glove boot
   - name: Power Chrono IA Focus
     profession: Chronomancer
@@ -896,7 +873,6 @@ list:
   # https://www.youtube.com/watch?v=Lg85Tj1-QeQ
   # https://dps.report/u9Cu-20210910-041935_golem
   # removed 126 power damage from lifesteal food
-  # power: 2600 + 124, burn: 898, bleed: 9273, poison: 480, torment: 12643, confusion: 4865, total: 30870
   # full viper toxic oil
   - name: Staff Mirage
     profession: Mirage
@@ -911,7 +887,6 @@ list:
 
   # https://www.youtube.com/watch?v=R8g-fJZSaGI
   # https://dps.report/6Klp-20210819-172536_golem
-  # power: 4975, burn: 2722, bleed: 8794, poison: 95, torment: 20033, confusion: 3515, total: 40134
   - name: Axe Mirage (Deception Torch)
     profession: Mirage
     value: >-
@@ -993,7 +968,6 @@ list:
 
   # https://www.youtube.com/watch?v=x1dRcUqNIFo
   # https://dps.report/y99d-20210830-203941_golem
-  # power: 3711, burn: 5429, bleed: 11785, poison: 2117, torment: 14341, total: 37383
   # nightmare icicle
   - name: Condi Scourge
     profession: Scourge
@@ -1008,7 +982,6 @@ list:
 
   # https://www.youtube.com/watch?v=I1Tjyfk-DKI
   # https://dps.report/1MCV-20200715-182303_golem
-  # power: 9950 + 24033 = 33983, burn: 174, poison: 99, total: 34256
   # "Reaper does approximately 29.28% of its damage outside of shroud" - https://discord.com/channels/380901000200060929/381160724409614356/828683461074092113
   - name: Power Reaper
     profession: Reaper
@@ -1023,7 +996,6 @@ list:
 
   # https://www.youtube.com/watch?v=prk0ZwXwLlA
   # https://dps.report/dlNX-20210928-041540_golem
-  # power: 7817, burn: 2167, bleed: 24240, poison: 1135, torment: 2327, total: 37686
   # sini shld coat glov boot amul ear, rest viper
   - name: Condi Reaper
     profession: Reaper
@@ -1037,7 +1009,6 @@ list:
         log: https://dps.report/dlNX-20210928-041540_golem
 
   # https://www.youtube.com/watch?v=TLNU5y7jZnA
-  # power: 6001, burn: 3014, bleed: 8134, poison: 3492, torment: 20360, total: 41001
   # arc bugged (septic corruption 1%); condis reduced
   # game bug: alchemic vigor converted at 360
   # meaty asparagus, nightmare, 4 geo / 97s, ??? torment, 11.6 blight avg, 6 malign 12 spiteful
@@ -1050,7 +1021,6 @@ list:
     noCreditOkay: true
 
   # https://www.youtube.com/watch?v=zcFY7nNhZwg
-  # power: 5334, burn: 2188, bleed: 6098, poison: 2797, torment: 16736, total: 33153
   # arc bugged (septic corruption 1%); condis reduced
   # game bug: alchemic vigor converted at 360
   # ritualist coat leg, condi food (either; rendang here), tormenting, double torment, 9 malign 9 spiteful
@@ -1065,7 +1035,6 @@ list:
         url: https://www.youtube.com/watch?v=zcFY7nNhZwg
 
   # https://www.youtube.com/watch?v=1yAvjWJoAyE
-  # power: 5940, burn: 729, bleed: 11314, poison: 11138, torment: 6783, total: 35904
   - name: Condi Deadeye
     profession: Deadeye
     value: >-
@@ -1118,7 +1087,6 @@ list:
         log: https://dps.report/7zEL-20200721-034734_golem
 
   # https://www.youtube.com/watch?v=V2nn6jf7DF0
-  # power: 6215, burn: 634, bleed: 1056, poison: 15012, torment: 17877, total: 40794
   # 9 doom/97s, kimchi, sini shld glov back acc acc
   - name: DPS Specter (allies)
     profession: Specter
@@ -1132,7 +1100,6 @@ list:
         log: https://dps.report/e8m3-20220316-011451_golem
 
   # https://www.youtube.com/watch?v=20NDybU2G9k
-  # power: 3057, burn: 767, poison: 12208, torment: 13589, total: 29621
   # 11 doom/133s, full rit renegade doom demons benedict toxic malign, bountiful theft
   - name: Alacrity Specter (allies)
     profession: Specter
@@ -1146,7 +1113,6 @@ list:
         log: https://dps.report/pMMZ-20220308-194513_golem
 
   # https://www.youtube.com/watch?v=QjDA4W3nYYM
-  # power: 1503, burn: 641, poison: 9195, torment: 39826, total: 51165
   # writ, carrion/viper mix
   - name: '[beta1] DPS Specter Endless Night'
     profession: Specter
