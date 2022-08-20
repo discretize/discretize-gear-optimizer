@@ -1177,9 +1177,6 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-wrath": {
-            "amount": ""
-          },
           "mantra-of-flame": {}
         }
       }
