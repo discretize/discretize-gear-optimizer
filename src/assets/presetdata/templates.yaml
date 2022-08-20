@@ -282,16 +282,6 @@ list:
         extras: CFB DPS (5 page, balthazar)
         weaponType: Dual wield
 
-      - name: CFB DPS 5 page (renegade)
-        id: cfb-smoldering
-        specialization: Firebrand
-        boonType: Condi
-        priority: Condi DPS
-        distribution: CFB (5 page RF, allies)
-        traits: CFB DPS 5 page
-        extras: CFB DPS (renegade)
-        weaponType: Dual wield
-
       - name: CFB DPS 8 page (balthazar)
         id: cfb-8-balth
         specialization: Firebrand
@@ -300,16 +290,6 @@ list:
         distribution: CFB (8 page, allies)
         traits: CFB DPS 8 page
         extras: CFB DPS (8 page, balthazar)
-        weaponType: Dual wield
-
-      - name: CFB DPS 8 page (renegade)
-        id: cfb-8-ren
-        specialization: Firebrand
-        boonType: Condi
-        priority: Condi DPS
-        distribution: CFB (8 page, allies)
-        traits: CFB DPS 8 page
-        extras: CFB DPS (renegade)
         weaponType: Dual wield
 
       - name: Condi Quickbrand 49%
@@ -364,7 +344,7 @@ list:
   - class: Warrior
     builds:
 
-      - name: Power Banner Bers
+      - name: Power Banner Bers (outdated)
         id: pbers
         specialization: Berserker
         boonType: Power
@@ -377,7 +357,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Condi Banner Bers
+      - name: Condi Banner Bers (outdated)
         id: cbers
         specialization: Berserker
         boonType: Condi
@@ -400,7 +380,7 @@ list:
           extras: Bladesworn
         weaponType: Dual wield
 
-      - name: Power Banner SPB (approx.)
+      - name: Power Banner SPB (outdated)
         id: spb-bs
         specialization: Spellbreaker
         boonType: Power
@@ -689,7 +669,7 @@ list:
   - class: Revenant
     builds:
 
-      - name: Vindicator
+      - name: Power Vindicator
         id: vindi
         specialization: Vindicator
         boonType: Power
