@@ -85,6 +85,16 @@ list:
         "minQuicknessDuration": 0
       }
 
+  - name: '"Carrion" Specter'
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Ritualist", "Carrion"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 0
+      }
+
   - name: Power Quickness Bladesworn 2.6%
     hidden: true
     value: >-

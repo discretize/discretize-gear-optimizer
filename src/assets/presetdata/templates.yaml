@@ -1009,10 +1009,10 @@ list:
         id: specter-carrion
         specialization: Specter
         boonType: Condi
-        priority: Condi DPS
+        priority: '"Carrion" Specter'
         distribution: DPS Specter (allies)
         traits: DPS Specter
-        extras: DPS Specter
+        extras: '"Carrion" Specter'
         weaponType: Dual wield
 
       - name: Boon Condi Daredevil (no log)

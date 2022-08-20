@@ -1664,6 +1664,36 @@ list:
         }
       }
 
+  - name: '"Carrion" Specter'
+    profession: Specter
+    value: |-
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "demons": {}
+          },
+          "Sigil2": {
+            "doom": {
+              "amount": "0.93"
+            }
+          },
+          "Runes": {
+            "tormenting": {},
+            "scavenging": {}
+          },
+          "Nourishment": {
+            "bowl-of-kimchi-tofu-stew": {},
+            "cilantro-and-cured-meat-flatbread": {},
+            "meaty-asparagus-skewer": {}
+          },
+          "Enhancement": {
+            "magnanimous-tuning-crystal": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   # credit to Boz in SC discord for the scavenging idea!
   - name: Alacrity Specter
     profession: Specter
