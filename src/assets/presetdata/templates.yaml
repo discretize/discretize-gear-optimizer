@@ -144,7 +144,7 @@ list:
         weaponType: Dual wield
 
       - name: Quickness Condi Firebrand 79%
-        id: cqfb-firebrand-49
+        id: cqfb-firebrand-79
         specialization: Firebrand
         boonType: Condi
         priority: Condi Quickbrand 79
