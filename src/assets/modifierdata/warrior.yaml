@@ -467,7 +467,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [20%, mult]
+          Strike Damage: [25%, mult]
       wvwModifiers:
         damage:
           Strike Damage: [15%, mult]
@@ -503,6 +503,9 @@
       subText: base
       modifiers:
         damage:
+          Critical Damage: [7.5%, unknown]
+      wvwModifiers:
+        damage:
           Critical Damage: [7%, unknown]
       gw2id: 2107
       defaultEnabled: true
@@ -515,6 +518,9 @@
         default: 100
         quantityEntered: 100
       modifiers:
+        damage:
+          Critical Damage: [7.5%, unknown]
+      wvwModifiers:
         damage:
           Critical Damage: [7%, unknown]
       gw2id: 2107
@@ -562,6 +568,9 @@
         default: 75
         quantityEntered: 100
       modifiers:
+        damage:
+          Strike Damage: [15%, mult]
+      wvwModifiers:
         damage:
           Strike Damage: [10%, mult]
       gw2id: 2060

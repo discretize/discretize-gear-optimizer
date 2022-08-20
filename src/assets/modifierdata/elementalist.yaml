@@ -476,6 +476,10 @@
         quantityEntered: 100
       modifiers:
         damage:
+          Strike Damage: [15%, add]
+          Condition Damage: [15%, add]
+      wvwModifiers:
+        damage:
           Strike Damage: [7%, add]
           Condition Damage: [7%, add]
       gw2id: 1839

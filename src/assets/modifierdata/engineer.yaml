@@ -100,6 +100,9 @@
       subText: 100%
       modifiers:
         damage:
+          Strike Damage: [15%, mult]
+      wvwModifiers:
+        damage:
           Strike Damage: [10%, mult]
       gw2id: 1947
       defaultEnabled: true
