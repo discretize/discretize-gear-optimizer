@@ -812,9 +812,7 @@ list:
             "zealots-aggression": {},
             "pure-of-sight": {},
             "hunters-fortification": {},
-            "big-game-hunter": {
-              "amount": "100"
-            }
+            "big-game-hunter": {}
           }
         ]
       }
@@ -882,9 +880,7 @@ list:
             "zealots-aggression": {},
             "pure-of-sight": {},
             "hunters-fortification": {},
-            "big-game-hunter": {
-              "amount": "100"
-            }
+            "big-game-hunter": {}
           }
         ]
       }
