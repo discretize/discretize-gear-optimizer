@@ -486,7 +486,7 @@ list:
         extras: Condi Weaver Dagger
         weaponType: Dual wield
 
-      - name: Hybrid Weaver
+      - name: Hybrid Weaver (outdated)
         id: hwea
         specialization: Weaver
         boonType: Condi
@@ -679,7 +679,7 @@ list:
       #   traits: Pure Shortbow Slb BM
       #   extras: Pure Shortbow Slb BM
 
-      - name: Condi Druid
+      - name: Condi Druid (very old)
         id: condidruid
         specialization: Druid
         boonType: Power
@@ -823,7 +823,7 @@ list:
           extras: Power Scrapper (Raid)
         weaponType: Two-handed
 
-      - name: Power Holo ECSU (outdated)
+      - name: Power Holo ECSU
         id: pholo-ecsu
         specialization: Holosmith
         boonType: Power
@@ -968,7 +968,7 @@ list:
         extras: DPS Scourge
         weaponType: Dual wield
 
-      - name: Power Reaper
+      - name: Power Reaper (outdated)
         id: preaper
         specialization: Reaper
         boonType: Power
@@ -981,7 +981,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Condi Reaper
+      - name: Condi Reaper (outdated)
         id: creaper
         specialization: Reaper
         boonType: Condi
