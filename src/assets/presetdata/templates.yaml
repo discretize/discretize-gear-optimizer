@@ -702,7 +702,7 @@ list:
   - class: Revenant
     builds:
 
-      - name: Quickness Power Herald*
+      - name: Quickness Power Herald (outdated)
         id: herald-quick
         specialization: Herald
         boonType: Power
