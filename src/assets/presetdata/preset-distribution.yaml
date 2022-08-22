@@ -365,7 +365,7 @@ list:
         url: https://www.youtube.com/watch?v=5IXjEP0fSsw
         log: https://dps.report/0B8L-20211120-200426_golem
 
-  - name: Power Catalyst
+  - name: Power Catalyst*
     profession: Catalyst
     value: >-
       {
@@ -811,7 +811,7 @@ list:
         url: https://www.youtube.com/watch?v=Lg85Tj1-QeQ
         log: https://dps.report/u9Cu-20210910-041935_golem
 
-  - name: Axe Mirage (Deception Torch)
+  - name: Axe Mirage (Deception Torch)*
     profession: Mirage
     value: >-
       {
