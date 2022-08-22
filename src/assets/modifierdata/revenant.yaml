@@ -279,7 +279,7 @@
       wvwModifiers:
         attributes:
           Outgoing Healing: 10%
-      gw2id: 1818
+      gw2id: 1823
       defaultEnabled: true
 
     - id: serene-rejuvenation

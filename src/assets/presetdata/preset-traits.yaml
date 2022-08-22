@@ -4692,54 +4692,35 @@ list:
       {
         "showAll": false,
         "selectedLines": [
+          "",
           "12",
-          "15",
           "63"
         ],
         "selectedTraits": [
           [
-            1822,
-            1818,
+            0,
+            0,
+            0
+          ],
+          [
+            1823,
+            0,
             1815
           ],
           [
-            1767,
-            1786,
-            1754
-          ],
-          [
-            2120,
+            0,
             2108,
             2182
           ]
         ],
         "items": [
+          {},
           {
-            "tranquil-balance": {
-              "amount": ""
-            },
             "life-attunement": {},
             "invoking-harmony": {
               "amount": ""
-            }
-          },
-          {
-            "unsuspecting-strikes": {
-              "amount": ""
             },
-            "destructive-impulses-base": {},
-            "destructive-impulses-dual": {
-              "amount": ""
-            },
-            "notoriety": {
-              "amount": ""
-            },
-            "targeted-destruction": {
-              "amount": ""
-            },
-            "swift-termination": {
-              "amount": ""
-            }
+            "serene-rejuvenation": {}
           },
           {
             "ambush-commander": {
