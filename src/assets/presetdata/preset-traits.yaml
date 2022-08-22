@@ -689,7 +689,7 @@ list:
         }
       }
 
-  - name: Power Virtuoso
+  - name: Power Virtuoso*
     profession: Virtuoso
     traits: |-
       {
@@ -730,14 +730,14 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": ""
+              "amount": "4.79"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
             "sharper-images-phantasm": {
-              "amount": "1.66"
+              "amount": "1.81"
             },
             "phantasmal-fury-virtuoso": {}
           },
@@ -746,7 +746,7 @@ list:
               "amount": ""
             },
             "deadly-blades": {
-              "amount": ""
+              "amount": "76.8"
             },
             "sharpening-sorrow": {},
             "quiet-intensity": {},

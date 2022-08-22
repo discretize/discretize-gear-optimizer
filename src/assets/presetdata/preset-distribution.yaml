@@ -872,17 +872,17 @@ list:
         log: https://dps.report/ljwo-20220701-194156_golem
       - author: 'Masel'
 
-  # accuracy, assassin helm shld glove boot
-  - name: Power Virtuoso GS
+  # accuracy, assassin legs, 4 precise (2007 prec)
+  - name: Power Virtuoso GS*
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 2964, "Power2": 1118, "Burning": 0.53, "Bleeding": 0.95, "Poisoned": 0, "Torment": 0, "Confusion": 0.59 }
+        "values2": { "Power": 3395, "Power2": 1189, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.26 }
       }
     credit:
-      - author: '[CnD] Tipcat'
-        url: https://www.youtube.com/watch?v=92FJUY1IKh4
-        log: https://dps.report/bz6U-20220306-210357_golem
+      - author: beng / L3m0n
+        url: https://www.youtube.com/watch?v=DpBnvYF9ZnE
+        log: https://dps.report/3K6u-20220818-152539_golem
 
   # nightmare icicle
   - name: Condi Scourge

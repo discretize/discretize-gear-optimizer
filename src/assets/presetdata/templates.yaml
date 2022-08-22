@@ -34,17 +34,16 @@ list:
         extras: Condi Virtuoso (chaos)*
         weaponType: Dual wield
 
-      - name: Power Virtuoso GS (outdated)
+      - name: Power Virtuoso GS*
         id: pvirt-gs
         specialization: Virtuoso
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Virtuoso GS
+        distribution: Power Virtuoso GS*
+        traits: Power Virtuoso*
         fractal:
-          traits: Power Virtuoso
           extras: Power (Fractal)
         raid:
-          traits: Power Virtuoso
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
