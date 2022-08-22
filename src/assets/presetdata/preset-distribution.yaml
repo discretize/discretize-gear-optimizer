@@ -850,7 +850,7 @@ list:
   # remove 19 phantasmal blades procs in 97 sec
   # 19 blade hits in 107 sec => - 0.1776 jagged mind hit/sec
   # 0.7 coefficient with 2615.5 weapon strength => -325 power coefficient
-  - name: Condi Virtuoso (sharpening sorrow)*
+  - name: Condi Virtuoso (sharpening sorrow)
     profession: Virtuoso
     value: >-
       {
