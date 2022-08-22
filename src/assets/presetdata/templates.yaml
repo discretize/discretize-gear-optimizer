@@ -83,31 +83,31 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Power Chrono DT Focus (outdated)
-        id: pchrono-dt-focus
-        specialization: Chronomancer
-        boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: Power Chrono DT Focus
-        traits: Power Chrono DT Focus
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid, furious)
-        weaponType: Two-handed
+      # - name: Power Chrono DT Focus (outdated)
+      #   id: pchrono-dt-focus
+      #   specialization: Chronomancer
+      #   boonType: Power
+      #   priority: Power DPS (no dragon)
+      #   distribution: Power Chrono DT Focus
+      #   traits: Power Chrono DT Focus
+      #   fractal:
+      #     extras: Power (Fractal)
+      #   raid:
+      #     extras: Power (Raid, furious)
+      #   weaponType: Two-handed
 
-      - name: Power Chrono IA Focus (outdated)
-        id: pchrono-ia-focus
-        specialization: Chronomancer
-        boonType: Power
-        priority: Power DPS (no dragon)
-        distribution: Power Chrono IA Focus
-        traits: Power Chrono IA Focus
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid, furious)
-        weaponType: Two-handed
+      # - name: Power Chrono IA Focus (outdated)
+      #   id: pchrono-ia-focus
+      #   specialization: Chronomancer
+      #   boonType: Power
+      #   priority: Power DPS (no dragon)
+      #   distribution: Power Chrono IA Focus
+      #   traits: Power Chrono IA Focus
+      #   fractal:
+      #     extras: Power (Fractal)
+      #   raid:
+      #     extras: Power (Raid, furious)
+      #   weaponType: Two-handed
 
       - name: Alacrity Staff Mirage (outdated)
         id: alacmirage
