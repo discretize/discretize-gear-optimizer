@@ -120,13 +120,13 @@ list:
         extras: Alacrity Mirage (Raid)
         weaponType: Two-handed
 
-      - name: Condi Axe Mirage (outdated)
+      - name: Condi Axe Mirage*
         id: axe-mirage-deception-torch
         specialization: Mirage
         boonType: Condi
         priority: Condi DPS
-        distribution: Axe Mirage (Deception Torch)
-        traits: Axe Mirage
+        distribution: Axe Mirage (Deception Torch)*
+        traits: Axe Mirage*
         extras: DPS Mirage (Raid)
         weaponType: Dual wield
 
@@ -504,7 +504,7 @@ list:
         specialization: Catalyst
         boonType: Power
         priority: Power Quickness Catalyst 38%
-        distribution: Power Catalyst
+        distribution: Power Catalyst*
         traits: Power Quickness Catalyst
         fractal:
           extras: Power (Fractal)
@@ -512,13 +512,13 @@ list:
           extras: Power Quickness Catalyst (Raid)
         weaponType: Two-handed
 
-      - name: Power Catalyst (outdated)
+      - name: Power Catalyst*
         id: power-cat
         specialization: Catalyst
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Catalyst
-        traits: Power Catalyst
+        distribution: Power Catalyst*
+        traits: Power Catalyst*
         fractal:
           extras: Power (Fractal)
         raid:

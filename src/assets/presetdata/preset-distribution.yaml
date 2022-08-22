@@ -365,16 +365,16 @@ list:
         url: https://www.youtube.com/watch?v=5IXjEP0fSsw
         log: https://dps.report/0B8L-20211120-200426_golem
 
-  - name: Power Catalyst
+  - name: Power Catalyst*
     profession: Catalyst
     value: >-
       {
-        "values2": { "Power": 3025, "Power2": 0, "Burning": 3.97, "Bleeding": 4.87, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3125, "Power2": 0, "Burning": 4.51, "Bleeding": 6.15, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[SC] Roul'
-        url: https://www.youtube.com/watch?v=FGZ67w2VUws
-        log: https://dps.report/DLtw-20220330-164910_golem
+      - author: '[SC] Obvious Trash'
+        url: https://www.youtube.com/watch?v=v2UVt1HZYlw
+        log: https://dps.report/fX61-20220713-211905_golem
 
   - name: Power Quickness Catalyst
     profession: Catalyst
@@ -811,16 +811,16 @@ list:
         url: https://www.youtube.com/watch?v=Lg85Tj1-QeQ
         log: https://dps.report/u9Cu-20210910-041935_golem
 
-  - name: Axe Mirage (Deception Torch)
+  - name: Axe Mirage (Deception Torch)*
     profession: Mirage
     value: >-
       {
-        "values2": { "Power": 1942, "Power2": 417, "Burning": 1.63, "Bleeding": 6.2, "Poisoned": 0.16, "Torment": 23.79, "Confusion": 12.47 }
+        "values2": { "Power": 1988, "Power2": 404, "Burning": 1.05, "Bleeding": 8.26, "Poisoned": 0.34, "Torment": 23.94, "Confusion": 12.75 }
       }
     credit:
       - author: 'Ryan'
-        url: https://www.youtube.com/watch?v=R8g-fJZSaGI
-        log: https://dps.report/6Klp-20210819-172536_golem
+        url: https://www.youtube.com/watch?v=WLW0pyDu5jI
+        log: https://dps.report/une5-20220723-180845_golem
 
   # rit: shoulders coat gloves leggings, domi midnight, mischief, rendang icicle
   - name: Quickness Condi Chrono*
@@ -839,12 +839,12 @@ list:
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 2806, "Power2": 883, "Burning": 0, "Bleeding": 0.13, "Poisoned": 0.06, "Torment": 7.84, "Confusion": 3.38 }
+        "values2": { "Power": 2854, "Power2": 896, "Burning": 0, "Bleeding": 0.18, "Poisoned": 0.04, "Torment": 8.12, "Confusion": 3.46 }
       }
     credit:
       - author: 'REMagic'
-        url: https://www.youtube.com/watch?v=yr43nlsQP1A
-        log: https://dps.report/wkSf-20220701-190503_golem
+        url: https://www.youtube.com/watch?v=WNCn66u-nhQ
+        log: https://dps.report/xE4Z-20220807-013444_golem
 
   # simulated from above log
   # remove 19 phantasmal blades procs in 97 sec
