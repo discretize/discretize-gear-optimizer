@@ -846,7 +846,7 @@ list:
         url: https://www.youtube.com/watch?v=WNCn66u-nhQ
         log: https://dps.report/xE4Z-20220807-013444_golem
 
-  # simulated from above log
+  # simulated from above log (currently outdated)
   # remove 19 phantasmal blades procs in 97 sec
   # 19 blade hits in 107 sec => - 0.1776 jagged mind hit/sec
   # 0.7 coefficient with 2615.5 weapon strength => -325 power coefficient
