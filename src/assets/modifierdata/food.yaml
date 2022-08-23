@@ -600,3 +600,22 @@
           Expertise: [100, converted]
           Toughness: [70, converted]
       gw2id: 82541
+
+- section: ???
+  items:
+
+    - id: tray-of-decade-desserts
+      text: Tray of Decade Desserts
+      subText: (untested)
+      modifiers:
+        conversion:
+          Power: {Power: 3%}
+          Precision: {Precision: 3%}
+          Toughness: {Toughness: 3%}
+          Vitality: {Vitality: 3%}
+          Concentration: {Concentration: 3%}
+          Condition Damage: {Condition Damage: 3%}
+          Expertise: {Expertise: 3%}
+          Ferocity: {Ferocity: 3%}
+          Healing Power: {Healing Power: 3%}
+      gw2id: 98924

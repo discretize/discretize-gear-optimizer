@@ -301,3 +301,22 @@
           Power: {Toughness: 3%}
           Expertise: {Toughness: 3%}
       gw2id: 86378
+
+- section: ???
+  items:
+
+    - id: decade-enhancement-station
+      text: Decade Enhancement Station
+      subText: (untested)
+      modifiers:
+        conversion:
+          Power: {Power: 3%}
+          Precision: {Precision: 3%}
+          Toughness: {Toughness: 3%}
+          Vitality: {Vitality: 3%}
+          Concentration: {Concentration: 3%}
+          Condition Damage: {Condition Damage: 3%}
+          Expertise: {Expertise: 3%}
+          Ferocity: {Ferocity: 3%}
+          Healing Power: {Healing Power: 3%}
+      gw2id: 98893
