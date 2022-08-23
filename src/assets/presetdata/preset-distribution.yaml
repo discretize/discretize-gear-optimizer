@@ -539,16 +539,16 @@ list:
         url: https://www.youtube.com/watch?v=gItQj2jezkc
         log: https://dps.report/Q54J-20220302-145450_golem
 
-  - name: Condi Untamed Axe
+  - name: Condi Untamed Axe*
     profession: Untamed
     value: >-
       {
-        "values2": { "Power": 3057, "Power2": 0, "Burning": 0, "Bleeding": 34.24, "Poisoned": 4.42, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3042, "Power2": 0, "Burning": 0, "Bleeding": 33.54, "Poisoned": 4.9, "Torment": 0.03, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
-        url: https://www.youtube.com/watch?v=cOA8F2q03rA
-        log: https://dps.report/20Jo-20220702-020615_golem
+        url: https://www.youtube.com/watch?v=lV1_qh6rWMI
+        log: https://dps.report/8UuX-20220803-155645_golem
 
   # outdated
   - name: Power Slb

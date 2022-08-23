@@ -874,7 +874,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Untamed Axe
+  - name: Condi Untamed Axe*
     profession: Untamed
     value: |-
       {
