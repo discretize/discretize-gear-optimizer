@@ -232,6 +232,9 @@
         quantityEntered: 25
       modifiers:
         attributes:
+          Condition Damage: [375, buff]
+      wvwModifiers:
+        attributes:
           Condition Damage: [250, buff]
       gw2id: 1346
       defaultEnabled: true
@@ -316,7 +319,7 @@
       text: Empowered
       amountData:
         label: 'boons'
-        default: 8
+        default: 10
         quantityEntered: 1
       minor: true
       modifiers:
@@ -467,7 +470,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [20%, mult]
+          Strike Damage: [25%, mult]
       wvwModifiers:
         damage:
           Strike Damage: [15%, mult]
@@ -503,6 +506,9 @@
       subText: base
       modifiers:
         damage:
+          Critical Damage: [7.5%, unknown]
+      wvwModifiers:
+        damage:
           Critical Damage: [7%, unknown]
       gw2id: 2107
       defaultEnabled: true
@@ -515,6 +521,9 @@
         default: 100
         quantityEntered: 100
       modifiers:
+        damage:
+          Critical Damage: [7.5%, unknown]
+      wvwModifiers:
         damage:
           Critical Damage: [7%, unknown]
       gw2id: 2107
@@ -562,6 +571,9 @@
         default: 75
         quantityEntered: 100
       modifiers:
+        damage:
+          Strike Damage: [15%, mult]
+      wvwModifiers:
         damage:
           Strike Damage: [10%, mult]
       gw2id: 2060

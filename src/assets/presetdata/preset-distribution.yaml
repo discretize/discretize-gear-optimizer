@@ -25,7 +25,7 @@ list:
 
   # strength/discipline
   # thief rune
-  - name: Power Banner Bers Strength
+  - name: Power DPS Bers
     profession: Berserker
     value: >-
       {
@@ -37,7 +37,7 @@ list:
         log: https://dps.report/FfCw-20210530-072038_golem
 
   # includes geo/earth + doom/torment
-  - name: Condi Banner Bers
+  - name: Condi Quickness Bers
     profession: Berserker
     value: >-
       {
@@ -61,7 +61,7 @@ list:
         log: https://dps.report/jpAe-20210515-174310_golem
 
   # 100% crit (thief accuracy, assassin shoulders amulet, furious)
-  - name: Bladesworn*
+  - name: DPS Bladesworn Tactics*
     profession: Bladesworn
     value: >-
       {
@@ -192,7 +192,7 @@ list:
   # 10 boons
   # ritualist shld coat glov boot, weighty terms
   # T10 JADE BOT and reinforced armor (in video)
-  - name: Condi Quickbrand (allies)
+  - name: Condi Quickbrand (allies)*
     profession: Firebrand
     value: >-
       {
@@ -203,7 +203,7 @@ list:
         url: https://www.youtube.com/watch?v=2phGf78VtaU
         log: https://dps.report/97jG-20220701-141403_golem
 
-  - name: Condi Quickbrand (no allies)
+  - name: Condi Quickbrand (no allies)*
     profession: Firebrand
     value: >-
       {
@@ -365,16 +365,16 @@ list:
         url: https://www.youtube.com/watch?v=5IXjEP0fSsw
         log: https://dps.report/0B8L-20211120-200426_golem
 
-  - name: Power Catalyst
+  - name: Power Catalyst*
     profession: Catalyst
     value: >-
       {
-        "values2": { "Power": 3025, "Power2": 0, "Burning": 3.97, "Bleeding": 4.87, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3125, "Power2": 0, "Burning": 4.51, "Bleeding": 6.15, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[SC] Roul'
-        url: https://www.youtube.com/watch?v=FGZ67w2VUws
-        log: https://dps.report/DLtw-20220330-164910_golem
+      - author: '[SC] Obvious Trash'
+        url: https://www.youtube.com/watch?v=v2UVt1HZYlw
+        log: https://dps.report/fX61-20220713-211905_golem
 
   - name: Power Quickness Catalyst
     profession: Catalyst
@@ -489,7 +489,7 @@ list:
 
   # not including ally lifesteal
   # missing air sigil damage (818 dps)
-  - name: Power Quickness Herald*
+  - name: Power Quickness Herald
     profession: Herald
     value: >-
       {
@@ -543,28 +543,14 @@ list:
     profession: Untamed
     value: >-
       {
-        "values2": { "Power": 3057, "Power2": 0, "Burning": 0, "Bleeding": 34.24, "Poisoned": 4.42, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3042, "Power2": 0, "Burning": 0, "Bleeding": 33.54, "Poisoned": 4.9, "Torment": 0.03, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
-        url: https://www.youtube.com/watch?v=cOA8F2q03rA
-        log: https://dps.report/20Jo-20220702-020615_golem
+        url: https://www.youtube.com/watch?v=lV1_qh6rWMI
+        log: https://dps.report/8UuX-20220803-155645_golem
 
-  # NOTE: for consistency and simplicity, I am using 0.7 hits per second as the with-allies OWP bonus.
-  # This is about 77 hits in a bench, 19.25 per player, in 2 OWP casts lasting 4 seconds (2.4 proc/s)
-
-  # longbow; actually skirmishing trappers expertise **OS**
-  # https://www.youtube.com/watch?v=hL9EDMihcDk
-  # https://dps.report/zUfg-20210529-225956_golem
-  #
-  # 2420 dps from OWP (which is ~200 power coefficient with OS)
-  # 42 hits in 113s, 0.372 hit/s
-  # sic em coefficient: .63 * 690.5 * 1.25 = 543.8 * hitrate
-  # no sic em coefficient: .63 * 690.5 = 435.0 * hitrate
-  # bench has OS; all 42 hits in 113s are under sic em
-  # 0.372 hit/s * 543.8 = 202
-  #
-  # (for LOTP template, assuming personal LOTP stacks are not under sic em; 50% of 0.372 hit/s = 0.186)
+  # outdated
   - name: Power Slb
     profession: Soulbeast
     value: >-
@@ -609,25 +595,16 @@ list:
     credit:
       - author: Snow Crows
 
-  # https://www.youtube.com/watch?v=HdwqDoINnq0
-  # https://dps.report/SgbF-20210526-004829_golem
-  #
-  # 1495 dps from OWP (which is ~287 power coefficient)
-  # 57 hits in 105s, 0.54 hit/s
-  # sic em coefficient: .63 * 690.5 * 1.25 = 543.8 * hitrate
-  # no sic em coefficient: .63 * 690.5 = 435.0 * hitrate
-  # owp in log has ~10/12 sic em uptime
-  # 0.51 hit/s * 10/12 * 543.8 = 0.43 hit/s * 543.8 = 234
-  # 0.51 hit/s * 2/12 * 435.0 = 0.08 hit/s * 435.0 = 34
-  # 234 + 34 = 268
-  # ...well it's kind of close
-  - name: Hybrid Slb (A/T D/A)
+  - name: Hybrid Slb OS (A/T D/A)*
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 2046, "Power2": 0, "Burning": 2.76, "Bleeding": 22.67, "Poisoned": 6.89, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2520, "Power2": 0, "Burning": 2.25, "Bleeding": 23.28, "Poisoned": 5.67, "Torment": 0.05, "Confusion": 0 }
       }
-    noCreditOkay: true
+    credit:
+      - author: Umbra
+        url: https://www.youtube.com/watch?v=SgCNpLWO-KA
+        log: https://dps.report/qHdT-20220712-170120_golem
 
   # im sorry
   # koi cake
@@ -811,44 +788,46 @@ list:
         url: https://www.youtube.com/watch?v=Lg85Tj1-QeQ
         log: https://dps.report/u9Cu-20210910-041935_golem
 
-  - name: Axe Mirage (Deception Torch)
+  - name: Axe Mirage (Deception Torch)*
     profession: Mirage
     value: >-
       {
-        "values2": { "Power": 1942, "Power2": 417, "Burning": 1.63, "Bleeding": 6.2, "Poisoned": 0.16, "Torment": 23.79, "Confusion": 12.47 }
+        "values2": { "Power": 1988, "Power2": 404, "Burning": 1.05, "Bleeding": 8.26, "Poisoned": 0.34, "Torment": 23.94, "Confusion": 12.75 }
       }
     credit:
       - author: 'Ryan'
-        url: https://www.youtube.com/watch?v=R8g-fJZSaGI
-        log: https://dps.report/6Klp-20210819-172536_golem
+        url: https://www.youtube.com/watch?v=WLW0pyDu5jI
+        log: https://dps.report/une5-20220723-180845_golem
 
-  # domi WoA, full viper bursting mischief rendang toxic crystal 7 spiteful
-  - name: Condi Chrono STM
+  # rit: shoulders coat gloves leggings, domi midnight, mischief, rendang icicle
+  - name: Quickness Condi Chrono*
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 1686, "Power2": 369, "Burning": 2.26, "Bleeding": 4.12, "Poisoned": 0, "Torment": 6.4, "Confusion": 17.07 }
+        "values2": { "Power": 1894, "Power2": 426, "Burning": 1.57, "Bleeding": 4.99, "Poisoned": 0, "Torment": 6.75, "Confusion": 16.42 }
       }
     credit:
-      - author: '[CnD] Tipcat'
+      - author: '[Vs] Nico'
+        url: https://www.youtube.com/watch?v=wvL3EvG7iZs
+        log: https://dps.report/WItI-20220804-134453_golem
 
   # https://optimizer.discretize.eu/?s=ReeYNhV3v1
   - name: Condi Virtuoso*
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 2806, "Power2": 883, "Burning": 0, "Bleeding": 0.13, "Poisoned": 0.06, "Torment": 7.84, "Confusion": 3.38 }
+        "values2": { "Power": 2854, "Power2": 896, "Burning": 0, "Bleeding": 0.18, "Poisoned": 0.04, "Torment": 8.12, "Confusion": 3.46 }
       }
     credit:
       - author: 'REMagic'
-        url: https://www.youtube.com/watch?v=yr43nlsQP1A
-        log: https://dps.report/wkSf-20220701-190503_golem
+        url: https://www.youtube.com/watch?v=WNCn66u-nhQ
+        log: https://dps.report/xE4Z-20220807-013444_golem
 
-  # simulated from above log
+  # simulated from above log (currently outdated)
   # remove 19 phantasmal blades procs in 97 sec
   # 19 blade hits in 107 sec => - 0.1776 jagged mind hit/sec
   # 0.7 coefficient with 2615.5 weapon strength => -325 power coefficient
-  - name: Condi Virtuoso (sharpening sorrow)*
+  - name: Condi Virtuoso (sharpening sorrow)
     profession: Virtuoso
     value: >-
       {
@@ -870,17 +849,17 @@ list:
         log: https://dps.report/ljwo-20220701-194156_golem
       - author: 'Masel'
 
-  # accuracy, assassin helm shld glove boot
-  - name: Power Virtuoso GS
+  # accuracy, assassin legs, 4 precise (2007 prec)
+  - name: Power Virtuoso GS*
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 2964, "Power2": 1118, "Burning": 0.53, "Bleeding": 0.95, "Poisoned": 0, "Torment": 0, "Confusion": 0.59 }
+        "values2": { "Power": 3395, "Power2": 1189, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0.26 }
       }
     credit:
-      - author: '[CnD] Tipcat'
-        url: https://www.youtube.com/watch?v=92FJUY1IKh4
-        log: https://dps.report/bz6U-20220306-210357_golem
+      - author: beng / L3m0n
+        url: https://www.youtube.com/watch?v=DpBnvYF9ZnE
+        log: https://dps.report/3K6u-20220818-152539_golem
 
   # nightmare icicle
   - name: Condi Scourge

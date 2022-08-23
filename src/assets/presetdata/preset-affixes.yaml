@@ -85,6 +85,26 @@ list:
         "minQuicknessDuration": 0
       }
 
+  - name: Condi Barrier Specter
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Ritualist", "Carrion"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 0
+      }
+
+  - name: Power Quickness Bladesworn 2.6%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 2.6,
+        "minQuicknessDuration": 0
+      }
+
   - name: Power Alacrity Willbender 14%
     hidden: true
     value: >-
@@ -165,6 +185,16 @@ list:
         "minQuicknessDuration": 40
       }
 
+  - name: Quickness Condi Chrono 10%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 10.3
+      }
+
   - name: Condi Quickness Harbinger 23%
     hidden: true
     value: >-
@@ -183,6 +213,16 @@ list:
         "optimizeFor": "Damage",
         "minBoonDuration": 27.4,
         "minQuicknessDuration": 0
+      }
+
+  - name: Condi Quickness Berserker 40%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 40
       }
 
   - name: Condi Hybrid Druid 52%
@@ -229,10 +269,20 @@ list:
     hidden: true
     value: >-
       {
-        "affixes": ["Viper", "Sinister", "Ritualist"],
+        "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
         "minBoonDuration": 0,
         "minQuicknessDuration": 48.8
+      }
+
+  - name: Condi Quickbrand 79
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 79
       }
 
   - name: Condi Alacrity Specter 57%

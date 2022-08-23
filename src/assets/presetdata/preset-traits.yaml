@@ -271,7 +271,7 @@ list:
         "skills": {}
       }
 
-  - name: Axe Mirage
+  - name: Axe Mirage*
     profession: Mirage
     traits: |-
       {
@@ -411,7 +411,7 @@ list:
         }
       }
 
-  - name: Condi Chrono STM
+  - name: Quickness Condi Chrono*
     profession: Chronomancer
     traits: |-
       {
@@ -441,7 +441,7 @@ list:
         "items": [
           {
             "compounding-power": {
-              "amount": ""
+              "amount": "4.7"
             }
           },
           {
@@ -453,21 +453,23 @@ list:
               "amount": ""
             },
             "sharper-images-clone": {
-              "amount": "0.41"
+              "amount": "0.39"
             },
             "sharper-images-phantasm": {
-              "amount": "1.02"
+              "amount": "1.09"
             }
           },
           {
-            "danger-time": {}
+            "danger-time": {},
+            "improved-alacrity": {}
           }
         ]
       }
     skills: |-
       {
         "skills": {
-          "signet-of-domination": {}
+          "signet-of-domination": {},
+          "signet-of-midnight": {}
         }
       }
 
@@ -544,7 +546,7 @@ list:
         }
       }
 
-  - name: Condi Virtuoso (sharpening sorrow)*
+  - name: Condi Virtuoso (sharpening sorrow)
     profession: Virtuoso
     traits: |-
       {
@@ -687,7 +689,7 @@ list:
         }
       }
 
-  - name: Power Virtuoso
+  - name: Power Virtuoso*
     profession: Virtuoso
     traits: |-
       {
@@ -728,14 +730,14 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": ""
+              "amount": "4.79"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
             "sharper-images-phantasm": {
-              "amount": "1.66"
+              "amount": "1.81"
             },
             "phantasmal-fury-virtuoso": {}
           },
@@ -744,7 +746,7 @@ list:
               "amount": ""
             },
             "deadly-blades": {
-              "amount": ""
+              "amount": "76.8"
             },
             "sharpening-sorrow": {},
             "quiet-intensity": {},
@@ -812,9 +814,7 @@ list:
             "zealots-aggression": {},
             "pure-of-sight": {},
             "hunters-fortification": {},
-            "big-game-hunter": {
-              "amount": "100"
-            }
+            "big-game-hunter": {}
           }
         ]
       }
@@ -882,9 +882,7 @@ list:
             "zealots-aggression": {},
             "pure-of-sight": {},
             "hunters-fortification": {},
-            "big-game-hunter": {
-              "amount": "100"
-            }
+            "big-game-hunter": {}
           }
         ]
       }
@@ -1113,7 +1111,7 @@ list:
         }
       }
 
-  - name: Condi Quickbrand
+  - name: Condi Quickbrand*
     profession: Firebrand
     traits: |-
       {
@@ -1156,7 +1154,7 @@ list:
           },
           {
             "inspired-virtue": {
-              "amount": "10"
+              "amount": ""
             },
             "unscathed-contender": {
               "amount": ""
@@ -2033,7 +2031,7 @@ list:
         }
       }
 
-  - name: Banner Bladesworn
+  - name: Quickness Bladesworn
     profession: Bladesworn
     traits: |-
       {
@@ -2070,15 +2068,13 @@ list:
             },
             "pinnacle-of-strength-crit": {},
             "berserkers-power": {
-              "amount": "2.8"
+              "amount": "2.91"
             }
           },
           {
             "warriors-sprint": {
               "amount": ""
             },
-            "double-standards-str": {},
-            "double-standards-disc": {},
             "axe-mastery-one": {},
             "axe-mastery-axe": {
               "amount": ""
@@ -2086,19 +2082,17 @@ list:
           },
           {
             "fierce-as-fire": {
-              "amount": "9.6"
+              "amount": "10"
             },
             "guns-and-glory": {
-              "amount": ""
+              "amount": "9.9"
             }
           }
         ]
       }
     skills: |-
       {
-        "skills": {
-          "signet-of-might": {}
-        }
+        "skills": {}
       }
 
   - name: DPS Bladesworn Tactics*
@@ -2160,73 +2154,6 @@ list:
             },
             "guns-and-glory": {
               "amount": "9.9"
-            }
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {}
-      }
-
-  - name: Might Bladesworn
-    profession: Bladesworn
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "11",
-          "51",
-          "68"
-        ],
-        "selectedTraits": [
-          [
-            1469,
-            1482,
-            1711
-          ],
-          [
-            1413,
-            1484,
-            1369
-          ],
-          [
-            2225,
-            2302,
-            2239
-          ]
-        ],
-        "items": [
-          {
-            "leg-specialist": {
-              "amount": ""
-            },
-            "roaring-reveille": {},
-            "empowered": {
-              "amount": "7"
-            },
-            "warriors-cunning": {
-              "amount": ""
-            },
-            "vigorous-shouts": {}
-          },
-          {
-            "warriors-sprint": {
-              "amount": ""
-            },
-            "double-standards-str": {},
-            "double-standards-disc": {},
-            "axe-mastery-one": {},
-            "axe-mastery-axe": {
-              "amount": ""
-            }
-          },
-          {
-            "fierce-as-fire": {
-              "amount": "9.6"
-            },
-            "guns-and-glory": {
-              "amount": ""
             }
           }
         ]
@@ -2893,7 +2820,7 @@ list:
         }
       }
 
-  - name: Power Catalyst
+  - name: Power Catalyst*
     profession: Catalyst
     traits: |-
       {
@@ -2923,13 +2850,13 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "24.3"
+              "amount": "28.3"
             },
             "burning-precision": {},
             "burning-rage": {},
             "power-overwhelming": {},
             "power-overwhelming-2": {
-              "amount": "24.3"
+              "amount": "28.3"
             },
             "pyromancers-training": {},
             "persisting-flames": {
@@ -2946,7 +2873,7 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "37.9"
+              "amount": "17.3"
             },
             "bolt-to-the-heart": {
               "amount": ""
@@ -2972,11 +2899,11 @@ list:
       {
         "skills": {
           "flame-wheel": {
-            "amount": "90"
+            "amount": "98.6"
           },
           "crescent-wind": {},
           "relentless-fire": {
-            "amount": "47.6"
+            "amount": "50.91"
           }
         }
       }
@@ -3159,12 +3086,12 @@ list:
           [
             363,
             358,
-            361
+            2028
           ],
           [
-            1886,
+            1962,
             2015,
-            1986
+            2033
           ]
         ],
         "items": [
@@ -3223,7 +3150,7 @@ list:
             "hunters-tactics": {},
             "vicious-quarry": {},
             "sharpened-edges": {
-              "amount": "4.34"
+              "amount": "4.47"
             }
           },
           {
@@ -3237,7 +3164,10 @@ list:
             "ferocious-symbiosis": {
               "amount": ""
             },
-            "vow-of-the-untamed-pet": {}
+            "vow-of-the-untamed-pet": {},
+            "vow-of-the-untamed-you": {
+              "amount": "7.5"
+            }
           }
         ]
       }
@@ -3246,21 +3176,21 @@ list:
         "skills": {}
       }
 
-  - name: Power Slb Marks (allies)
+  - name: Power Slb Skirm
     profession: Soulbeast
     traits: |-
       {
         "showAll": false,
         "selectedLines": [
-          "8",
+          "30",
           "32",
           "55"
         ],
         "selectedTraits": [
           [
-            1014,
-            1000,
-            996
+            0,
+            1016,
+            1888
           ],
           [
             1606,
@@ -3270,15 +3200,14 @@ list:
           [
             2071,
             2161,
-            2128
+            2143
           ]
         ],
         "items": [
           {
-            "farsighted": {},
-            "predators-onslaught": {
-              "amount": ""
-            }
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {}
           },
           {
             "honed-axes": {},
@@ -3305,13 +3234,7 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-the-wild": {},
-          "one-wolf-pack-sic-em": {
-            "amount": "1.116"
-          },
-          "one-wolf-pack-no-sic-em": {
-            "amount": "0.186"
-          }
+          "signet-of-the-wild": {}
         }
       }
 
@@ -3339,7 +3262,7 @@ list:
           [
             2071,
             2161,
-            2128
+            2143
           ]
         ],
         "items": [
@@ -3374,215 +3297,7 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-the-wild": {},
-          "one-wolf-pack-sic-em": {
-            "amount": "0.372"
-          },
-          "one-wolf-pack-no-sic-em": {
-            "amount": "0.186"
-          }
-        }
-      }
-
-  - name: Power Slb Skirm (allies)
-    profession: Soulbeast
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "30",
-          "32",
-          "55"
-        ],
-        "selectedTraits": [
-          [
-            0,
-            1016,
-            1888
-          ],
-          [
-            1606,
-            970,
-            1066
-          ],
-          [
-            2071,
-            2161,
-            2128
-          ]
-        ],
-        "items": [
-          {
-            "hidden-barbs": {},
-            "hunters-tactics": {},
-            "vicious-quarry": {}
-          },
-          {
-            "honed-axes": {},
-            "honed-axes-axe": {
-              "amount": ""
-            }
-          },
-          {
-            "furious-strength": {
-              "amount": ""
-            },
-            "twice-as-vicious": {
-              "amount": ""
-            },
-            "oppressive-superiority": {},
-            "archetype-ferocious": {},
-            "pack-alpha-merged": {},
-            "loud-whistle-merged": {},
-            "pets-prowess-merged": {},
-            "honed-axes-merged": {}
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {
-          "signet-of-the-wild": {},
-          "one-wolf-pack-sic-em": {
-            "amount": "1.072"
-          },
-          "one-wolf-pack-no-sic-em": {
-            "amount": "0.186"
-          }
-        }
-      }
-
-  - name: Power Slb Skirm
-    profession: Soulbeast
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "30",
-          "32",
-          "55"
-        ],
-        "selectedTraits": [
-          [
-            0,
-            1016,
-            1888
-          ],
-          [
-            1606,
-            970,
-            1066
-          ],
-          [
-            2071,
-            2161,
-            2128
-          ]
-        ],
-        "items": [
-          {
-            "hidden-barbs": {},
-            "hunters-tactics": {},
-            "vicious-quarry": {}
-          },
-          {
-            "honed-axes": {},
-            "honed-axes-axe": {
-              "amount": ""
-            }
-          },
-          {
-            "furious-strength": {
-              "amount": ""
-            },
-            "twice-as-vicious": {
-              "amount": ""
-            },
-            "oppressive-superiority": {},
-            "archetype-ferocious": {},
-            "pack-alpha-merged": {},
-            "loud-whistle-merged": {},
-            "pets-prowess-merged": {},
-            "honed-axes-merged": {}
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {
-          "signet-of-the-wild": {},
-          "one-wolf-pack-sic-em": {
-            "amount": "0.372"
-          },
-          "one-wolf-pack-no-sic-em": {
-            "amount": "0.186"
-          }
-        }
-      }
-
-  - name: Condi Slb SB (allies)
-    profession: Soulbeast
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "30",
-          "33",
-          "55"
-        ],
-        "selectedTraits": [
-          [
-            1069,
-            1846,
-            1912
-          ],
-          [
-            1099,
-            1101,
-            1701
-          ],
-          [
-            2071,
-            2161,
-            2128
-          ]
-        ],
-        "items": [
-          {
-            "hidden-barbs": {},
-            "hunters-tactics": {},
-            "vicious-quarry": {},
-            "sharpened-edges": {
-              "amount": "3.65"
-            }
-          },
-          {
-            "oakheart-salve": {},
-            "taste-for-danger": {},
-            "ambidexterity": {},
-            "ambidexterity-2": {
-              "amount": ""
-            },
-            "poison-master": {}
-          },
-          {
-            "furious-strength": {
-              "amount": ""
-            },
-            "twice-as-vicious": {
-              "amount": "45"
-            },
-            "oppressive-superiority": {},
-            "archetype-deadly": {}
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {
-          "one-wolf-pack-no-sic-em-sharpened": {
-            "amount": "1.22"
-          }
+          "signet-of-the-wild": {}
         }
       }
 
@@ -3645,77 +3360,7 @@ list:
       }
     skills: |-
       {
-        "skills": {
-          "one-wolf-pack-no-sic-em-sharpened": {
-            "amount": "0.52"
-          }
-        }
-      }
-
-  - name: Condi Slb D/T A/D (allies)
-    profession: Soulbeast
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "30",
-          "33",
-          "55"
-        ],
-        "selectedTraits": [
-          [
-            1069,
-            1846,
-            1064
-          ],
-          [
-            1099,
-            1101,
-            1701
-          ],
-          [
-            2071,
-            2161,
-            2128
-          ]
-        ],
-        "items": [
-          {
-            "hidden-barbs": {},
-            "hunters-tactics": {},
-            "vicious-quarry": {},
-            "sharpened-edges": {
-              "amount": "3.66"
-            }
-          },
-          {
-            "oakheart-salve": {},
-            "taste-for-danger": {},
-            "ambidexterity": {},
-            "ambidexterity-2": {
-              "amount": "100"
-            },
-            "poison-master": {}
-          },
-          {
-            "furious-strength": {
-              "amount": ""
-            },
-            "twice-as-vicious": {
-              "amount": "45"
-            },
-            "oppressive-superiority": {},
-            "archetype-deadly": {}
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {
-          "one-wolf-pack-no-sic-em-sharpened": {
-            "amount": "1.21"
-          }
-        }
+        "skills": {}
       }
 
   - name: Condi Slb D/T A/D
@@ -3777,14 +3422,10 @@ list:
       }
     skills: |-
       {
-        "skills": {
-          "one-wolf-pack-no-sic-em-sharpened": {
-            "amount": "0.51"
-          }
-        }
+        "skills": {}
       }
 
-  - name: Hybrid Slb (allies)
+  - name: Hybrid Slb OS*
     profession: Soulbeast
     traits: |-
       {
@@ -3808,7 +3449,7 @@ list:
           [
             2071,
             2161,
-            2128
+            2143
           ]
         ],
         "items": [
@@ -3817,7 +3458,7 @@ list:
             "hunters-tactics": {},
             "vicious-quarry": {},
             "sharpened-edges": {
-              "amount": "3.69"
+              "amount": "3.56"
             }
           },
           {
@@ -3831,7 +3472,7 @@ list:
               "amount": ""
             },
             "twice-as-vicious": {
-              "amount": "82"
+              "amount": "80.5"
             },
             "oppressive-superiority": {},
             "archetype-deadly": {},
@@ -3844,84 +3485,7 @@ list:
       }
     skills: |-
       {
-        "skills": {
-          "one-wolf-pack-sic-em-sharpened": {
-            "amount": "1.13"
-          },
-          "one-wolf-pack-no-sic-em-sharpened": {
-            "amount": "0.08"
-          }
-        }
-      }
-
-  - name: Hybrid Slb
-    profession: Soulbeast
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "30",
-          "32",
-          "55"
-        ],
-        "selectedTraits": [
-          [
-            1069,
-            1846,
-            1888
-          ],
-          [
-            1606,
-            970,
-            1066
-          ],
-          [
-            2071,
-            2161,
-            2128
-          ]
-        ],
-        "items": [
-          {
-            "hidden-barbs": {},
-            "hunters-tactics": {},
-            "vicious-quarry": {},
-            "sharpened-edges": {
-              "amount": "3.69"
-            }
-          },
-          {
-            "honed-axes": {},
-            "honed-axes-axe": {
-              "amount": "100"
-            }
-          },
-          {
-            "furious-strength": {
-              "amount": ""
-            },
-            "twice-as-vicious": {
-              "amount": "82"
-            },
-            "oppressive-superiority": {},
-            "archetype-deadly": {},
-            "pack-alpha-merged": {},
-            "loud-whistle-merged": {},
-            "pets-prowess-merged": {},
-            "honed-axes-merged": {}
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {
-          "one-wolf-pack-sic-em-sharpened": {
-            "amount": "0.43"
-          },
-          "one-wolf-pack-no-sic-em-sharpened": {
-            "amount": "0.08"
-          }
-        }
+        "skills": {}
       }
 
   # - name: Pure Shortbow Slb BM
@@ -4538,7 +4102,7 @@ list:
         "skills": {}
       }
 
-  - name: Power (Quickness) Herald DE*
+  - name: Power (Quickness) Herald DE
     profession: Herald
     traits: |-
       {
@@ -4765,54 +4329,35 @@ list:
       {
         "showAll": false,
         "selectedLines": [
+          "",
           "12",
-          "15",
           "63"
         ],
         "selectedTraits": [
           [
-            1822,
-            1818,
+            0,
+            0,
+            0
+          ],
+          [
+            1823,
+            0,
             1815
           ],
           [
-            1767,
-            1786,
-            1754
-          ],
-          [
-            2120,
+            0,
             2108,
             2182
           ]
         ],
         "items": [
+          {},
           {
-            "tranquil-balance": {
-              "amount": ""
-            },
             "life-attunement": {},
             "invoking-harmony": {
               "amount": ""
-            }
-          },
-          {
-            "unsuspecting-strikes": {
-              "amount": ""
             },
-            "destructive-impulses-base": {},
-            "destructive-impulses-dual": {
-              "amount": ""
-            },
-            "notoriety": {
-              "amount": ""
-            },
-            "targeted-destruction": {
-              "amount": ""
-            },
-            "swift-termination": {
-              "amount": ""
-            }
+            "serene-rejuvenation": {}
           },
           {
             "ambush-commander": {

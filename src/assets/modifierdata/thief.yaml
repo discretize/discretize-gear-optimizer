@@ -53,6 +53,9 @@
       text: Deadly Ambition
       modifiers:
         attributes:
+          Condition Damage: [180, converted]
+      wvwModifiers:
+        attributes:
           Condition Damage: [120, converted]
       gw2id: 1164
       defaultEnabled: true
@@ -266,6 +269,10 @@
       minor: true
       modifiers:
         damage:
+          Strike Damage: [10%, mult]
+          Damage Reduction: [10%, unknown]
+      wvwModifiers:
+        damage:
           Strike Damage: [7%, mult]
           Damage Reduction: [10%, unknown]
       gw2id: 1887
@@ -330,9 +337,6 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, add]
-      wvwModifiers:
-        damage:
           Strike Damage: [15%, add]
       gw2id: 2047
       defaultEnabled: true
@@ -375,9 +379,12 @@
       text: Premeditation
       amountData:
         label: 'boons'
-        default: 8
+        default: 10
         quantityEntered: 1
       modifiers:
+        damage:
+          Strike Damage: [1.5%, mult]
+      wvwModifiers:
         damage:
           Strike Damage: [1%, mult]
       gw2id: 2160
@@ -387,6 +394,10 @@
       text: Iron Sight
       minor: true
       modifiers:
+        damage:
+          Strike Damage: [15%, mult]
+          Damage Reduction: [15%, unknown]
+      wvwModifiers:
         damage:
           Strike Damage: [10%, mult]
           Damage Reduction: [10%, unknown]

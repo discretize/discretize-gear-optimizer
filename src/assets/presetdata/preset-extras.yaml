@@ -86,7 +86,7 @@ list:
 
 
   # just reduced lifesteal frequency
-  - name: Bladesworn
+  - name: Bladesworn*
     value: |-
       {
         "extras": {
@@ -193,7 +193,7 @@ list:
         }
       }
 
-  - name: DPS Mirage (Raid)
+  - name: DPS Mirage (Raid)*
     profession: Mirage
     value: |-
       {
@@ -215,7 +215,7 @@ list:
         }
       }
 
-  - name: Condi Chrono STM
+  - name: Quickness Condi Chrono*
     profession: Chronomancer
     value: |-
       {
@@ -226,16 +226,19 @@ list:
           "Sigil2": {
             "mischief-ineptitude": {
               "amount": "0.9"
-            }
+            },
+            "concentration": {}
           },
           "Runes": {
             "perplexity": {}
           },
           "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "spherified-cilantro-oyster-soup": {}
           },
           "Enhancement": {
-            "toxic-focusing-crystal": {}
+            "toxic-focusing-crystal": {},
+            "master-tuning-crystal": {}
           }
         }
       }
@@ -257,10 +260,11 @@ list:
             "perplexity": {}
           },
           "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {}
           },
           "Enhancement": {
-            "toxic-focusing-crystal": {}
+            "toxic-focusing-crystal": {},
+            "master-tuning-crystal": {}
           }
         }
       }
@@ -500,29 +504,6 @@ list:
         }
       }
 
-  - name: CFB w/ Quickness (renegade)
-    profession: Firebrand
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "renegade": {}
-          },
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {
-            "smoldering": {}
-          },
-          "Enhancement": {
-            "toxic-maintenance-oil": {}
-          },
-          "Nourishment": {
-            "fishy-rice-bowl": {}
-          }
-        }
-      }
-
   - name: CFB DPS (5 page, balthazar)
     profession: Firebrand
     value: |-
@@ -569,30 +550,7 @@ list:
         }
       }
 
-  - name: CFB DPS (renegade)
-    profession: Firebrand
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "renegade": {}
-          },
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {
-            "smoldering": {}
-          },
-          "Enhancement": {
-            "toxic-focusing-crystal": {}
-          },
-          "Nourishment": {
-            "fishy-rice-bowl": {}
-          }
-        }
-      }
-
-  - name: Condi Quickbrand
+  - name: Condi Quickbrand*
     profession: Firebrand
     value: |-
       {
@@ -610,7 +568,38 @@ list:
             "fishy-rice-bowl": {}
           },
           "Enhancement": {
-            "toxic-focusing-crystal": {}
+            "toxic-focusing-crystal": {},
+            "magnanimous-tuning-crystal": {},
+            "toxic-maintenance-oil": {}
+          }
+        }
+      }
+
+  - name: Condi Quickbrand Ritualist (inaccurate)
+    profession: Firebrand
+    value: |-
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "smoldering": {},
+            "geomancy-torment-cfb5-virtues": {}
+          },
+          "Runes": {
+            "firebrand-firebrand": {},
+            "balthazar": {}
+          },
+          "Nourishment": {
+            "fishy-rice-bowl": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {},
+            "magnanimous-tuning-crystal": {},
+            "toxic-maintenance-oil": {},
+            "magnanimous-maintenance-oil": {}
           }
         }
       }
@@ -666,6 +655,27 @@ list:
         "extras": {
           "Runes": {
             "renegade": {}
+          },
+          "Sigil1": {},
+          "Sigil2": {},
+          "Enhancement": {
+            "master-tuning-crystal": {},
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "salsa-topped-veggie-flatbread": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          }
+        }
+      }
+
+  - name: Condi Quickness Bers
+    profession: Berserker
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "firebrand": {}
           },
           "Sigil1": {},
           "Sigil2": {},
@@ -914,14 +924,12 @@ list:
         }
       }
 
-  - name: Hybrid Slb
+  - name: Hybrid Slb*
     profession: Soulbeast
     value: |-
       {
         "extras": {
-          "Sigil1": {
-            "bursting": {}
-          },
+          "Sigil1": {},
           "Sigil2": {},
           "Runes": {
             "krait": {}
@@ -1127,7 +1135,7 @@ list:
         }
       }
 
-  - name: Power Quickness Herald (Raid)*
+  - name: Power Quickness Herald (Raid)
     profession: Herald
     value: |-
       {
@@ -1138,7 +1146,14 @@ list:
           "Sigil1": {
             "force": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "air": {
+              "amount": "3.0"
+            },
+            "accuracy": {},
+            "impact/night/slaying-only-3": {},
+            "concentration": {}
+          },
           "Enhancement": {
             "potent-lucent-oil": {},
             "superior-sharpening-stone": {}
@@ -1151,7 +1166,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Power Quickness Herald (Fractal)*
+  - name: Power Quickness Herald (Fractal)
     profession: Herald
     value: |-
       {
@@ -1641,6 +1656,36 @@ list:
             "master-tuning-crystal": {}
           }
         }
+      }
+
+  - name: Condi Barrier Specter
+    profession: Specter
+    value: |-
+      {
+        "extras": {
+          "Sigil1": {
+            "bursting": {},
+            "demons": {}
+          },
+          "Sigil2": {
+            "doom": {
+              "amount": "0.93"
+            }
+          },
+          "Runes": {
+            "tormenting": {},
+            "scavenging": {}
+          },
+          "Nourishment": {
+            "bowl-of-kimchi-tofu-stew": {},
+            "cilantro-and-cured-meat-flatbread": {},
+            "meaty-asparagus-skewer": {}
+          },
+          "Enhancement": {
+            "magnanimous-tuning-crystal": {}
+          }
+        },
+        "lifestealAmount": ""
       }
 
   # credit to Boz in SC discord for the scavenging idea!

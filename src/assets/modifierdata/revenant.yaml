@@ -130,6 +130,9 @@
         quantityEntered: 100
       modifiers:
         damage:
+          Strike Damage: [10%, mult]
+      wvwModifiers:
+        damage:
           Strike Damage: [7%, mult]
       gw2id: 1761
       defaultEnabled: true
@@ -142,6 +145,9 @@
         default: 100
         quantityEntered: 100
       modifiers:
+        damage:
+          All Damage: [10%, add]
+      wvwModifiers:
         damage:
           All Damage: [7%, add]
       gw2id: 1758
@@ -273,7 +279,7 @@
       wvwModifiers:
         attributes:
           Outgoing Healing: 10%
-      gw2id: 1818
+      gw2id: 1823
       defaultEnabled: true
 
     - id: serene-rejuvenation
@@ -339,9 +345,12 @@
       minor: true
       amountData:
         label: 'boons'
-        default: 8
+        default: 10
         quantityEntered: 1
       modifiers:
+        damage:
+          Strike Damage: [1.5%, mult]
+      wvwModifiers:
         damage:
           Strike Damage: [1%, mult]
       gw2id: 1788
