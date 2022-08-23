@@ -126,7 +126,7 @@ list:
         priority: Condi DPS
         distribution: Axe Mirage (Deception Torch)*
         traits: Axe Mirage*
-        extras: DPS Mirage (Raid)
+        extras: DPS Mirage (Raid)*
         weaponType: Dual wield
 
   - class: Guardian
@@ -363,7 +363,7 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Bladesworn
+          extras: Bladesworn*
         weaponType: Dual wield
 
       - name: Power Bladesworn*
@@ -376,7 +376,7 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Bladesworn
+          extras: Bladesworn*
         weaponType: Dual wield
 
       - name: Quickness Condi Bers (outdated)
@@ -552,9 +552,9 @@ list:
         specialization: Untamed
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Untamed Axe*
-        traits: Condi Untamed Axe*
-        extras: Condi Untamed Axe*
+        distribution: Condi Untamed Axe
+        traits: Condi Untamed Axe
+        extras: Condi Untamed Axe
         weaponType: Dual wield
 
       # - name: Power Slb Marks (allies) (outdated)
@@ -706,12 +706,12 @@ list:
         specialization: Herald
         boonType: Power
         priority: Power Quickness Herald 45%
-        distribution: Power Quickness Herald*
-        traits: Power (Quickness) Herald DE*
+        distribution: Power Quickness Herald
+        traits: Power (Quickness) Herald DE
         fractal:
-          extras: Power Quickness Herald (Fractal)*
+          extras: Power Quickness Herald (Fractal)
         raid:
-          extras: Power Quickness Herald (Raid)*
+          extras: Power Quickness Herald (Raid)
         weaponType: Dual wield
 
       - name: Condi Herald (outdated)
@@ -730,7 +730,7 @@ list:
         boonType: Power
         priority: Power DPS (no dragon)
         distribution: Power Herald DE
-        traits: Power (Quickness) Herald DE*
+        traits: Power (Quickness) Herald DE
         fractal:
           extras: Power (Fractal)
         raid:

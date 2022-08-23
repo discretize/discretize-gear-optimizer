@@ -489,7 +489,7 @@ list:
 
   # not including ally lifesteal
   # missing air sigil damage (818 dps)
-  - name: Power Quickness Herald*
+  - name: Power Quickness Herald
     profession: Herald
     value: >-
       {
@@ -539,7 +539,7 @@ list:
         url: https://www.youtube.com/watch?v=gItQj2jezkc
         log: https://dps.report/Q54J-20220302-145450_golem
 
-  - name: Condi Untamed Axe*
+  - name: Condi Untamed Axe
     profession: Untamed
     value: >-
       {

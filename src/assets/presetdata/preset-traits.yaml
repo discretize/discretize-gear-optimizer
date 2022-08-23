@@ -3117,7 +3117,7 @@ list:
         "skills": {}
       }
 
-  - name: Condi Untamed Axe*
+  - name: Condi Untamed Axe
     profession: Untamed
     traits: |-
       {
@@ -4465,7 +4465,7 @@ list:
         "skills": {}
       }
 
-  - name: Power (Quickness) Herald DE*
+  - name: Power (Quickness) Herald DE
     profession: Herald
     traits: |-
       {

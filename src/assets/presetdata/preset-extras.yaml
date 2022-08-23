@@ -86,7 +86,7 @@ list:
 
 
   # just reduced lifesteal frequency
-  - name: Bladesworn
+  - name: Bladesworn*
     value: |-
       {
         "extras": {
@@ -193,7 +193,7 @@ list:
         }
       }
 
-  - name: DPS Mirage (Raid)
+  - name: DPS Mirage (Raid)*
     profession: Mirage
     value: |-
       {
@@ -874,7 +874,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Untamed Axe*
+  - name: Condi Untamed Axe
     profession: Untamed
     value: |-
       {
@@ -1137,7 +1137,7 @@ list:
         }
       }
 
-  - name: Power Quickness Herald (Raid)*
+  - name: Power Quickness Herald (Raid)
     profession: Herald
     value: |-
       {
@@ -1168,7 +1168,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Power Quickness Herald (Fractal)*
+  - name: Power Quickness Herald (Fractal)
     profession: Herald
     value: |-
       {
