@@ -924,14 +924,12 @@ list:
         }
       }
 
-  - name: Hybrid Slb
+  - name: Hybrid Slb*
     profession: Soulbeast
     value: |-
       {
         "extras": {
-          "Sigil1": {
-            "bursting": {}
-          },
+          "Sigil1": {},
           "Sigil2": {},
           "Runes": {
             "krait": {}

@@ -557,18 +557,18 @@ list:
         extras: Condi Untamed Axe
         weaponType: Dual wield
 
-      # - name: Power Slb Marks (allies) (outdated)
-      #   id: pslb-marks-allies
-      #   specialization: Soulbeast
-      #   boonType: Power
-      #   priority: Power DPS
-      #   distribution: Power Slb
-      #   traits: Power Slb Marks (allies)
-      #   fractal:
-      #     extras: Power (Fractal)
-      #   raid:
-      #     extras: Power (Raid)
-      #   weaponType: Two-handed
+      - name: Power Slb Skirm (outdated)
+        id: pslb-skirm
+        specialization: Soulbeast
+        boonType: Power
+        priority: Power DPS
+        distribution: Power Slb
+        traits: Power Slb Skirm
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
+        weaponType: Two-handed
 
       - name: Power Slb Marks (outdated)
         id: pslb-marks
@@ -583,41 +583,15 @@ list:
           extras: Power (Raid)
         weaponType: Two-handed
 
-      # - name: Power Slb Skirm (allies) (outdated)
-      #   id: pslb-skirm-allies
-      #   specialization: Soulbeast
-      #   boonType: Power
-      #   priority: Power DPS
-      #   distribution: Power Slb
-      #   traits: Power Slb Skirm (allies)
-      #   fractal:
-      #     extras: Power (Fractal)
-      #   raid:
-      #     extras: Power (Raid)
-      #   weaponType: Two-handed
-
-      - name: Power Slb Skirm (outdated)
-        id: pslb-skirm
-        specialization: Soulbeast
-        boonType: Power
-        priority: Power DPS
-        distribution: Power Slb
-        traits: Power Slb Skirm
-        fractal:
-          extras: Power (Fractal)
-        raid:
-          extras: Power (Raid)
-        weaponType: Two-handed
-
-      - name: Condi Slb SB (allies) (outdated)
-        id: cslb-sb-allies
+      - name: Hybrid Slb OS*
+        id: hslb
         specialization: Soulbeast
         boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Slb (D/T SB)
-        traits: Condi Slb SB (allies)
-        extras: Condi Slb
-        weaponType: Two-handed
+        priority: Hybrid DPS
+        distribution: Hybrid Slb OS (A/T D/A)*
+        traits: Hybrid Slb OS*
+        extras: Hybrid Slb*
+        weaponType: Dual wield
 
       - name: Condi Slb SB (outdated)
         id: cslb-sb
@@ -629,16 +603,6 @@ list:
         extras: Condi Slb
         weaponType: Two-handed
 
-      - name: Condi Slb D/T A/D (allies) (outdated)
-        id: cslb-dtad-allies
-        specialization: Soulbeast
-        boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Slb (D/T A/D)
-        traits: Condi Slb D/T A/D (allies)
-        extras: Condi Slb
-        weaponType: Dual wield
-
       - name: Condi Slb D/T A/D (outdated)
         id: cslb-dtad
         specialization: Soulbeast
@@ -648,35 +612,6 @@ list:
         traits: Condi Slb D/T A/D
         extras: Condi Slb
         weaponType: Dual wield
-
-      - name: Hybrid Slb (allies) (outdated)
-        id: hslb-allies
-        specialization: Soulbeast
-        boonType: Condi
-        priority: Hybrid DPS
-        distribution: Hybrid Slb (A/T D/A)
-        traits: Hybrid Slb (allies)
-        extras: Hybrid Slb
-        weaponType: Dual wield
-
-      - name: Hybrid Slb (outdated)
-        id: hslb
-        specialization: Soulbeast
-        boonType: Condi
-        priority: Hybrid DPS
-        distribution: Hybrid Slb (A/T D/A)
-        traits: Hybrid Slb
-        extras: Hybrid Slb
-        weaponType: Dual wield
-
-      # - name: Pure Shortbow Slb BM (outdated)
-      #   id: sbsbsb-BM
-      #   specialization: Soulbeast
-      #   boonType: Condi
-      #   priority: Condi DPS
-      #   distribution: Pure Shortbow Slb BM
-      #   traits: Pure Shortbow Slb BM
-      #   extras: Pure Shortbow Slb BM
 
       - name: Condi Druid (very old)
         id: condidruid

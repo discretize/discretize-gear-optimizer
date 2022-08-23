@@ -550,21 +550,7 @@ list:
         url: https://www.youtube.com/watch?v=cOA8F2q03rA
         log: https://dps.report/20Jo-20220702-020615_golem
 
-  # NOTE: for consistency and simplicity, I am using 0.7 hits per second as the with-allies OWP bonus.
-  # This is about 77 hits in a bench, 19.25 per player, in 2 OWP casts lasting 4 seconds (2.4 proc/s)
-
-  # longbow; actually skirmishing trappers expertise **OS**
-  # https://www.youtube.com/watch?v=hL9EDMihcDk
-  # https://dps.report/zUfg-20210529-225956_golem
-  #
-  # 2420 dps from OWP (which is ~200 power coefficient with OS)
-  # 42 hits in 113s, 0.372 hit/s
-  # sic em coefficient: .63 * 690.5 * 1.25 = 543.8 * hitrate
-  # no sic em coefficient: .63 * 690.5 = 435.0 * hitrate
-  # bench has OS; all 42 hits in 113s are under sic em
-  # 0.372 hit/s * 543.8 = 202
-  #
-  # (for LOTP template, assuming personal LOTP stacks are not under sic em; 50% of 0.372 hit/s = 0.186)
+  # outdated
   - name: Power Slb
     profession: Soulbeast
     value: >-
@@ -609,25 +595,16 @@ list:
     credit:
       - author: Snow Crows
 
-  # https://www.youtube.com/watch?v=HdwqDoINnq0
-  # https://dps.report/SgbF-20210526-004829_golem
-  #
-  # 1495 dps from OWP (which is ~287 power coefficient)
-  # 57 hits in 105s, 0.54 hit/s
-  # sic em coefficient: .63 * 690.5 * 1.25 = 543.8 * hitrate
-  # no sic em coefficient: .63 * 690.5 = 435.0 * hitrate
-  # owp in log has ~10/12 sic em uptime
-  # 0.51 hit/s * 10/12 * 543.8 = 0.43 hit/s * 543.8 = 234
-  # 0.51 hit/s * 2/12 * 435.0 = 0.08 hit/s * 435.0 = 34
-  # 234 + 34 = 268
-  # ...well it's kind of close
-  - name: Hybrid Slb (A/T D/A)
+  - name: Hybrid Slb OS (A/T D/A)*
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 2046, "Power2": 0, "Burning": 2.76, "Bleeding": 22.67, "Poisoned": 6.89, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2520, "Power2": 0, "Burning": 2.25, "Bleeding": 23.28, "Poisoned": 5.67, "Torment": 0.05, "Confusion": 0 }
       }
-    noCreditOkay: true
+    credit:
+      - author: Umbra
+        url: https://www.youtube.com/watch?v=SgCNpLWO-KA
+        log: https://dps.report/qHdT-20220712-170120_golem
 
   # im sorry
   # koi cake
