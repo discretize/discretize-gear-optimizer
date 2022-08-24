@@ -17,7 +17,7 @@
 
     - id: woven-fire
       text: Weave Self
-      subText: woven fire
+      subText: woven fire / perfect weave
       amountData:
         label: '% uptime'
         default: 38
