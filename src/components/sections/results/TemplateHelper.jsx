@@ -1,6 +1,8 @@
-import { TextField, Typography } from '@mui/material';
+import { Button, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { changeAllDistributionNew } from '../../../state/slices/distribution';
 import { mapValues, parseDistribution } from '../../../utils/usefulFunctions';
 
 const initial = {
@@ -29,6 +31,7 @@ const fixPoison = (input) =>
 
 const TemplateHelper = ({ character }) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
 
   const [input, setInput] = React.useState(initial);
 
@@ -315,7 +318,11 @@ const TemplateHelper = ({ character }) => {
         {indent(formattedDistribution, 6)}
       </pre>
 
-      <Typography variant="h6">
+      <Button variant="contained" onClick={() => dispatch(changeAllDistributionNew(values2))}>
+        copy to coefficients section
+      </Button>
+
+      <Typography variant="h6" style={{ marginTop: '2rem' }}>
         <Trans>Trait Template</Trans>
       </Typography>
 
