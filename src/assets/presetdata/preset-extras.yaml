@@ -1696,7 +1696,8 @@ list:
         "extras": {
           "Sigil1": {
             "demons": {},
-            "concentration": {}
+            "concentration": {},
+            "bursting": {}
           },
           "Sigil2": {
             "doom": {
@@ -1705,14 +1706,17 @@ list:
           },
           "Runes": {
             "renegade": {},
-            "scavenging": {}
+            "scavenging": {},
+            "leadership": {}
           },
           "Nourishment": {
             "salsa-eggs-benedict": {},
-            "meaty-asparagus-skewer": {}
+            "meaty-asparagus-skewer": {},
+            "cilantro-and-cured-meat-flatbread": {}
           },
           "Enhancement": {
-            "toxic-maintenance-oil": {}
+            "toxic-maintenance-oil": {},
+            "magnanimous-tuning-crystal": {}
           }
         }
       }
