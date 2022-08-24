@@ -2586,6 +2586,84 @@ list:
         }
       }
 
+  - name: Condi Weaver Staff*
+    profession: Weaver
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "56"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            1510
+          ],
+          [
+            1507,
+            275,
+            287
+          ],
+          [
+            2177,
+            2180,
+            2131
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": ""
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": ""
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": ""
+            }
+          },
+          {
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
+          },
+          {
+            "superior-elements": {},
+            "masters-fortitude": {},
+            "masters-fortitude-sword": {},
+            "weavers-prowess": {},
+            "swift-revenge": {
+              "amount": ""
+            },
+            "elemental-polyphony-fire": {
+              "amount": "83"
+            },
+            "elemental-polyphony-air": {
+              "amount": "29"
+            },
+            "elements-of-rage-base": {},
+            "elements-of-rage-buff": {
+              "amount": "80"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "woven-fire": {
+            "amount": "55"
+          }
+        }
+      }
+
   - name: Hybrid Weaver
     profession: Weaver
     traits: |-

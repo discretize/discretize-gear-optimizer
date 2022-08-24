@@ -755,6 +755,31 @@ list:
         }
       }
 
+  - name: Condi Weaver Staff*
+    profession: Weaver
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "elementalist": {}
+          },
+          "Sigil1": {
+            "earth": {}
+          },
+          "Sigil2": {
+            "torment": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "salsa-topped-veggie-flatbread": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Hybrid Weaver (Fractal)
     profession: Weaver
     value: |-

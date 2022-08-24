@@ -330,6 +330,17 @@ list:
         url: https://www.youtube.com/watch?v=5XgoudKAKRw
         log: https://dps.report/g1E9-20210609-022715_golem
 
+  - name: Condi Weaver Staff (Large)*
+    profession: Weaver
+    value: >-
+      {
+        "values2": { "Power": 3233, "Power2": 0, "Burning": 10.32, "Bleeding": 16.06, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Fennec'
+        url: https://www.youtube.com/watch?v=zjQ3e_09eB8
+        log: https://dps.report/KyoI-20220824-095213_golem
+
   # no jade bot
   # force bursting, slightly suboptimal gear (15 malign 3 precise)
   - name: Hybrid Weaver

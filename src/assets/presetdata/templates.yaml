@@ -465,6 +465,16 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
+      - name: Condi Weaver Staff*
+        id: cwea-staff
+        specialization: Weaver
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Weaver Staff (Large)*
+        traits: Condi Weaver Staff*
+        extras: Condi Weaver Staff*
+        weaponType: Two-handed
+
       - name: Condi Weaver Sword (outdated)
         id: cwea-sw
         specialization: Weaver
