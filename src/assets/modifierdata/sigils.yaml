@@ -436,3 +436,12 @@
         attributes:
           Concentration: [40, converted]
       gw2id: 24773
+
+    - id: ruby-orb
+      text: Ruby Orb
+      modifiers:
+        attributes:
+          Power: [20, converted]
+          Precision: [14, converted]
+          Ferocity: [14, converted]
+      gw2id: 24508
