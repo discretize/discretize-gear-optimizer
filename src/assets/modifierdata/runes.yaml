@@ -138,6 +138,26 @@
           Ferocity: [100, converted]
       gw2id: 24815
 
+    - id: mesmer-0
+      text: Superior Rune of the Mesmer
+      subText: (0% dazed)
+      modifiers:
+        attributes:
+          Power: [175, converted]
+          Precision: [100, converted]
+      gw2id: 24803
+
+    - id: mesmer-100
+      text: Superior Rune of the Mesmer
+      subText: (100% dazed; may be inaccurate)
+      modifiers:
+        damage:
+          Strike Damage: [10%, unknown]
+        attributes:
+          Power: [175, converted]
+          Precision: [100, converted]
+      gw2id: 24803
+
     - id: chronomancer
       text: Superior Rune of the Chronomancer
       modifiers:
