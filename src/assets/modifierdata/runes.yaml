@@ -117,6 +117,16 @@
           Flat DPS: 500 # copied from wiki
       gw2id: 24756
 
+    - id: golemancer
+      text: Superior Rune of the Golemancer
+      subText: (approx.)
+      modifiers:
+        attributes:
+          Ferocity: [300, converted]
+          Precision: [100, converted]
+          Flat DPS: 750 # copied from wiki
+      gw2id: 24785
+
     - id: ranger
       text: Superior Rune of the Ranger
       subText: (with pet)
@@ -147,16 +157,6 @@
           Might Duration: 10%
           Burning Duration: 10%
       gw2id: 24747
-
-    - id: golemancer
-      text: Superior Rune of the Golemancer
-      subText: (approx.)
-      modifiers:
-        attributes:
-          Ferocity: [300, converted]
-          Precision: [100, converted]
-          Flat DPS: 750 # copied from wiki
-      gw2id: 24785
 
     - id: rage
       text: Superior Rune of Rage
