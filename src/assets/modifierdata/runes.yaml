@@ -553,6 +553,14 @@
           Expertise: {Power: 7%}
       gw2id: 24854
 
+    - id: forgeman
+      text: Superior Rune of the Forgeman
+      modifiers:
+        attributes:
+          Toughness: [175, converted]
+          Burning Duration: 50%
+      gw2id: 24851
+
     - id: krait
       text: Superior Rune of the Krait
       subText: (elite every 50s)
