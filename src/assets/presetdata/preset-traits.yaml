@@ -204,7 +204,7 @@ list:
         "skills": {}
       }
 
-  - name: Power Quickness Chrono
+  - name: Quickness Power Chrono GS*
     profession: Chronomancer
     traits: |-
       {
@@ -246,7 +246,7 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": ""
+              "amount": "5.7"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
@@ -254,15 +254,16 @@ list:
             },
             "phantasmal-fury": {},
             "sharper-images-phantasm": {
-              "amount": "1.99"
+              "amount": "1.24"
             },
             "sharper-images-clone": {
-              "amount": "0.88"
+              "amount": "0.90"
             }
           },
           {
             "danger-time": {},
-            "chronophantasma": {}
+            "chronophantasma": {},
+            "improved-alacrity": {}
           }
         ]
       }
@@ -2616,7 +2617,7 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": ""
+              "amount": "55.2"
             },
             "burning-precision": {},
             "burning-rage": {},
@@ -2626,7 +2627,7 @@ list:
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": ""
+              "amount": "9.7"
             }
           },
           {
@@ -2643,14 +2644,14 @@ list:
               "amount": ""
             },
             "elemental-polyphony-fire": {
-              "amount": "83"
+              "amount": "96.3"
             },
             "elemental-polyphony-air": {
-              "amount": "29"
+              "amount": "10.1"
             },
             "elements-of-rage-base": {},
             "elements-of-rage-buff": {
-              "amount": "80"
+              "amount": "91.9"
             }
           }
         ]
@@ -2659,7 +2660,7 @@ list:
       {
         "skills": {
           "woven-fire": {
-            "amount": "55"
+            "amount": "56.9"
           }
         }
       }

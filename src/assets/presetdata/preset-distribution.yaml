@@ -747,6 +747,18 @@ list:
         url: https://www.youtube.com/watch?v=YfEK5GyAIL4
         log: https://dps.report/ulws-20220804-153218_golem
 
+  # impact
+  - name: Quickness Power Chrono GS*
+    profession: Chronomancer
+    value: >-
+      {
+        "values2": { "Power": 2959, "Power2": 838, "Burning": 0, "Bleeding": 0.73, "Poisoned": 0, "Torment": 0, "Confusion": 0.96 }
+      }
+    credit:
+      - author: '[CnD] Tipcat'
+        url: https://www.youtube.com/watch?v=4SsM2FhqSU0
+        log: https://dps.report/5pxz-20220824-141459_golem
+
   # DT focus domi/duel
   # asassin leg acc acc
   - name: Power Chrono DT Focus

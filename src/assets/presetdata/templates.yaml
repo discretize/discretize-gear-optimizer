@@ -47,13 +47,13 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Quickness Power Chrono (outdated)
+      - name: Quickness Power Chrono GS*
         id: pchrono-stm-gs
         specialization: Chronomancer
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Quickness Chrono
-        traits: Power Quickness Chrono
+        distribution: Quickness Power Chrono GS*
+        traits: Quickness Power Chrono GS*
         fractal:
           extras: Power (Fractal)
         raid:
