@@ -322,6 +322,14 @@
           Boon Duration: 15%
       gw2id: 24857
 
+    - id: dolyak
+      text: Superior Rune of the Dolyak
+      modifiers:
+        attributes:
+          Toughness: [300, converted]
+          Vitality: [100, converted]
+      gw2id: 24699
+
     - id: herald
       text: Superior Rune of the Herald
       modifiers:
