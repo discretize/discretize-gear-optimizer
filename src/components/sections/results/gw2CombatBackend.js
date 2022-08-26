@@ -11,7 +11,7 @@ const formatCharacterData = async (character) => {
       profession,
       cachedFormState,
       extrasCombination,
-      modifiers: { damageMultiplier, damageMultiplierBreakdown },
+      modifiers: { damageMultiplier },
     },
     attributes,
   } = character;
@@ -79,10 +79,6 @@ const formatCharacterData = async (character) => {
     rune: Runes,
     nourishment: Nourishment,
     enhancement: Enhancement,
-    temporary: {
-      damageMultiplier,
-      damageMultiplierBreakdown,
-    },
   };
 
   return JSON.stringify(result, null, 2);
