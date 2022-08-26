@@ -79,6 +79,10 @@ const formatCharacterData = async (character) => {
     rune: Runes,
     nourishment: Nourishment,
     enhancement: Enhancement,
+    temporary: {
+      damageMultiplier,
+      damageMultiplierBreakdown,
+    },
   };
 
   return JSON.stringify(result, null, 2);
