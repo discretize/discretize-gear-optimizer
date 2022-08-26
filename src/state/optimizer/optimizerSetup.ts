@@ -153,8 +153,15 @@ interface CollectedModifiers {
   convert: CollectedConversionModifers;
   convertAfterBuffs: CollectedConversionAfterBuffsModifers;
 }
+export interface MultiplierBreakdown {
+  mult: number;
+  add: number;
+  target: number;
+}
+export type DamageMultiplierBreakdown = Partial<Record<MultiplierName, MultiplierBreakdown>>;
 export interface Modifiers {
   damageMultiplier: Record<string, number>;
+  damageMultiplierBreakdown: DamageMultiplierBreakdown;
   buff: [string, number][];
   convert: [string, [string, number][]][];
   convertAfterBuffs: [string, [string, number][]][];
@@ -595,12 +602,19 @@ export function setupCombinations(reduxState: any) {
     }
 
     const damageMultiplier: Record<string, number> = {};
+    const damageMultiplierBreakdown: DamageMultiplierBreakdown = {};
 
-    Object.keys(initialMultipliers).forEach((attribute) => {
+    Object.keys(initialMultipliers).forEach((attr) => {
+      const attribute = attr as keyof typeof initialMultipliers;
+
       damageMultiplier[attribute] =
-        allDmgMult.mult[attribute as MultiplierName] *
-        allDmgMult.add[attribute as MultiplierName] *
-        allDmgMult.target[attribute as MultiplierName];
+        allDmgMult.mult[attribute] * allDmgMult.add[attribute] * allDmgMult.target[attribute];
+
+      damageMultiplierBreakdown[attribute] = {
+        mult: allDmgMult.mult[attribute],
+        add: allDmgMult.add[attribute],
+        target: allDmgMult.target[attribute],
+      };
     });
 
     // convert modifiers to arrays for simpler iteration
@@ -616,6 +630,7 @@ export function setupCombinations(reduxState: any) {
 
     const modifiers: Modifiers = {
       damageMultiplier,
+      damageMultiplierBreakdown,
       buff,
       convert,
       convertAfterBuffs,
