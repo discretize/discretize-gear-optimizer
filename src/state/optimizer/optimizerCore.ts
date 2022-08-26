@@ -161,6 +161,7 @@ type OptimizerCoreMinimalSettings = Pick<
   | 'rankby'
   | 'shouldDisplayExtras'
   | 'extrasCombination'
+  | 'modifiers'
 >;
 type Gear = AffixName[];
 type GearStats = Record<string, number>;
@@ -200,6 +201,7 @@ export class OptimizerCore {
       rankby: settings.rankby,
       shouldDisplayExtras: settings.shouldDisplayExtras,
       extrasCombination: settings.extrasCombination,
+      modifiers: settings.modifiers,
     };
 
     let applyInfusionsFunction: OptimizerCore['applyInfusionsFunction'];
