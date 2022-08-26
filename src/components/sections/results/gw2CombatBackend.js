@@ -7,7 +7,12 @@ import { damagingConditions } from '../../../assets/modifierdata/metadata';
 
 const formatCharacterData = async (character) => {
   const {
-    settings: { profession, cachedFormState, extrasCombination },
+    settings: {
+      profession,
+      cachedFormState,
+      extrasCombination,
+      modifiers: { damageMultiplier, damageMultiplierBreakdown },
+    },
     attributes,
   } = character;
 
@@ -46,6 +51,8 @@ const formatCharacterData = async (character) => {
     }),
   );
 
+  const critDmg = attributes['Critical Damage'] * damageMultiplier['Critical Damage'];
+
   const result = {
     base_class: profession.toLowerCase(),
     attributes: {
@@ -62,6 +69,7 @@ const formatCharacterData = async (character) => {
       boon_duration_pct: attributes['Boon Duration'] * 100,
       critical_chance_pct: attributes['Critical Chance'] * 100,
       critical_damage_pct_missing_bonuses: attributes['Critical Damage'] * 100,
+      critical_damage_pct: critDmg * 100,
       condition_duration_pct: attributes['Condition Duration'] * 100,
       max_health: attributes['Health'],
       ...specificConditionDurations,
