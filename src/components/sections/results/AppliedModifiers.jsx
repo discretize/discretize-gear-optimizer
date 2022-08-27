@@ -3,6 +3,7 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Button,
   Table,
   TableBody,
   TableCell,
@@ -10,7 +11,7 @@ import {
   Typography,
 } from '@mui/material';
 import React from 'react';
-import { Trans } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { makeStyles } from 'tss-react/mui';
 import { scaleValue } from '../../../state/optimizer/optimizerCore';
 import { parseAmount } from '../../../utils/usefulFunctions';
@@ -27,8 +28,11 @@ const useStyles = makeStyles()((theme) => ({
 
 const roundTwo = (num) => Math.round(num * 100) / 100;
 
-const AppliedModifiers = ({ data }) => {
+const AppliedModifiers = ({ character }) => {
   const { classes } = useStyles();
+  const { t } = useTranslation();
+
+  const appliedModifiers = character?.settings?.appliedModifiers ?? [];
 
   return (
     <>
@@ -45,7 +49,7 @@ const AppliedModifiers = ({ data }) => {
         <AccordionDetails>
           <Table padding="none">
             <TableBody>
-              {data.map(({ type, id, modifiers, amount, amountData }) => {
+              {appliedModifiers.map(({ type, id, modifiers, amount, amountData }) => {
                 const { value: amountInput } = parseAmount(amount);
                 const multiplierNote = amountData
                   ? `${roundTwo(scaleValue(1, amountInput, amountData))}x`
@@ -64,6 +68,16 @@ const AppliedModifiers = ({ data }) => {
               })}
             </TableBody>
           </Table>
+          <Button
+            variant="contained"
+            onClick={() => {
+              navigator.clipboard.writeText(JSON.stringify(character, null, 2));
+              // eslint-disable-next-line no-alert
+              alert('copied raw character data JSON!');
+            }}
+          >
+            {t('copy raw data to clipboard')}
+          </Button>
         </AccordionDetails>
       </Accordion>
     </>
