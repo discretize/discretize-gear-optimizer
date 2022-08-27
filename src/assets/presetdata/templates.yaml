@@ -969,12 +969,12 @@ list:
         extras: DPS Specter
         weaponType: Dual wield
 
-      - name: Condi Barrier "Carrion" Specter (outdated)
+      - name: Condi Barrier "Carrion" Specter*
         id: specter-carrion
         specialization: Specter
         boonType: Condi
         priority: Condi Barrier Specter
-        distribution: DPS Specter (allies)
+        distribution: DPS Barrier Specter (allies)
         traits: DPS Specter
         extras: Condi Barrier Specter
         weaponType: Dual wield
