@@ -950,7 +950,7 @@ list:
         weaponType: Dual wield
 
       - name: Alacrity Specter 61% (outdated)
-        id: specter-alac
+        id: specter-alac-61
         specialization: Specter
         boonType: Condi
         priority: Condi Alacrity Specter 61%
