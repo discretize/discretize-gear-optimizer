@@ -213,7 +213,30 @@ export interface CachedFormState {
 //   customAffixData: any;
 // }
 
+const setupCanvas = () => {
+  const canvas = document.createElement('canvas');
+  canvas.width = 500;
+  canvas.height = 500;
+  // canvas.style.width = '500px';
+  // canvas.style.height = '500px';
+  canvas.style.imageRendering = 'pixelated';
+  [...(document.querySelector('#canvaselelement')?.children ?? [])].forEach((el) => el?.remove());
+  document.querySelector('#canvaselelement')?.append(canvas);
+
+  // should remove non null assertion
+  const canvasContext = canvas.getContext('2d')!;
+
+  canvasContext.fillStyle = 'grey';
+  canvasContext.fillRect(0, 0, 500, 500);
+
+  canvasContext.fillStyle = '#00cccc';
+
+  return canvasContext;
+};
+
 export function setupCombinations(reduxState: any) {
+  const canvasContext = setupCanvas();
+
   const state = reduxState.optimizer;
 
   const specialization: string = getCurrentSpecialization(reduxState);
@@ -909,6 +932,7 @@ export function setupCombinations(reduxState: any) {
       identicalWep: settings_identicalWep,
       affixStatsArray: settings_affixStatsArray,
       runsAfterThisSlot: settings_runsAfterThisSlot,
+      canvasContext,
     };
 
     console.log('Input option:', combination);

@@ -91,6 +91,11 @@ const GearOptimizer = () => {
             )}
           </Grid>
 
+          <div id="canvaselelement" />
+          <Typography variant="caption">
+            x = quickness duration or generic boon duration (max 100%), y = damage (max 33000)
+          </Typography>
+
           <Controls />
 
           <ResultTable />

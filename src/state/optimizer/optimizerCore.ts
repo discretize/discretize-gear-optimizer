@@ -150,6 +150,9 @@ export interface OptimizerCoreSettings {
   appliedModifiers: AppliedModifier[];
   cachedFormState: CachedFormState;
   extrasCombination: Record<string, string>;
+
+  //
+  canvasContext: CanvasRenderingContext2D;
 }
 type OptimizerCoreMinimalSettings = Pick<
   OptimizerCoreSettings,
@@ -177,6 +180,11 @@ interface Character {
   results?: Record<string, any>;
 }
 type AttributeName = string; // TODO: replace with AttributeName from gw2-data
+
+const graphWidth = 500;
+const graphHeight = 500;
+const maxQuicknessDuration = 1;
+const maxDamage = 33000;
 
 export class OptimizerCore {
   settings: OptimizerCoreSettings;
@@ -482,10 +490,22 @@ export class OptimizerCore {
   insertCharacter(character: Character) {
     const { settings } = this;
 
-    if (
-      !character.valid ||
-      (this.worstScore && this.worstScore > character.attributes[settings.rankby])
-    ) {
+    if (!character.valid) return;
+
+    const quicknessDuration =
+      (character.attributes['Boon Duration'] ?? 0) +
+      (character.attributes['Quickness Duration'] ?? 0);
+
+    // eslint-disable-next-line id-length
+    const x = Math.round((quicknessDuration / maxQuicknessDuration) * graphWidth);
+    // eslint-disable-next-line id-length
+    const y = Math.round(
+      graphHeight - ((character.attributes['Damage'] ?? 0) / maxDamage) * graphHeight,
+    );
+
+    settings.canvasContext.fillRect(x, y, 2, 2);
+
+    if (this.worstScore && this.worstScore > character.attributes[settings.rankby]) {
       return;
     }
 
