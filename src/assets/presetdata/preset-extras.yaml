@@ -1656,18 +1656,20 @@ list:
         }
       }
 
-  - name: DPS Specter
+  - name: DPS Specter*
     profession: Specter
     value: |-
       {
         "extras": {
           "Sigil1": {
+            "torment": {},
             "bursting": {}
           },
           "Sigil2": {
             "doom": {
-              "amount": "0.93"
-            }
+              "amount": "0.89"
+            },
+            "bursting": {}
           },
           "Runes": {
             "tormenting": {}
@@ -1680,10 +1682,11 @@ list:
             "toxic-focusing-crystal": {},
             "master-tuning-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": "3.5"
       }
 
-  - name: Condi Barrier Specter
+  - name: Condi Barrier Specter*
     profession: Specter
     value: |-
       {
@@ -1694,7 +1697,7 @@ list:
           },
           "Sigil2": {
             "doom": {
-              "amount": "0.93"
+              "amount": "0.89"
             }
           },
           "Runes": {
@@ -1710,7 +1713,7 @@ list:
             "magnanimous-tuning-crystal": {}
           }
         },
-        "lifestealAmount": ""
+        "lifestealAmount": "3.5"
       }
 
   # credit to Boz in SC discord for the scavenging idea!

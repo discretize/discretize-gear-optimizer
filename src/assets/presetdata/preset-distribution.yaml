@@ -990,25 +990,26 @@ list:
         url: https://www.youtube.com/watch?v=si71D-O4kf8
         log: https://dps.report/7zEL-20200721-034734_golem
 
-  # 9 doom/97s, kimchi, sini shld glov back acc acc
-  - name: DPS Specter (allies)
+  # https://optimizer.discretize.eu/?s=QqygohE8v1
+  # https://dps.report/KzkD-20220827-170023_golem
+  # bugged log: has leeching venoms
+  - name: DPS Specter (allies)*
     profession: Specter
     value: >-
       {
-        "values2": { "Power": 2131, "Power2": 0, "Burning": 0.52, "Bleeding": 2.59, "Poisoned": 17.55, "Torment": 20.25, "Confusion": 0 }
+        "values2": { "Power": 2316, "Power2": 0, "Burning": 0, "Bleeding": 2.43, "Poisoned": 15.8, "Torment": 20.47, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
-        url: https://www.youtube.com/watch?v=V2nn6jf7DF0
-        log: https://dps.report/e8m3-20220316-011451_golem
 
+  # https://optimizer.discretize.eu/?s=wpWaF0plv1
   # https://dps.report/pfgp-20220827-121511_golem
-  # bugged: has leeching venoms
-  - name: DPS Barrier Specter (allies)
+  # bugged log: has leeching venoms
+  - name: DPS Barrier Specter (allies)*
     profession: Specter
     value: >-
       {
-        "values2": { "Power": 2167, "Power2": 0, "Burning": 0, "Bleeding": 2.56, "Poisoned": 15.87, "Torment": 20.07, "Confusion": 0 }
+        "values2": { "Power": 2163, "Power2": 0, "Burning": 0, "Bleeding": 2.55, "Poisoned": 15.94, "Torment": 20.03, "Confusion": 0 }
       }
     credit:
       - author: 'Iskarel'

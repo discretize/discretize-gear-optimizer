@@ -959,14 +959,14 @@ list:
         extras: Alacrity Specter
         weaponType: Dual wield
 
-      - name: Condi Specter (outdated)
+      - name: Condi Specter*
         id: specter
         specialization: Specter
         boonType: Condi
         priority: Condi DPS
-        distribution: DPS Specter (allies)
-        traits: DPS Specter
-        extras: DPS Specter
+        distribution: DPS Specter (allies)*
+        traits: DPS Specter*
+        extras: DPS Specter*
         weaponType: Dual wield
 
       - name: Condi Barrier "Carrion" Specter*
@@ -974,9 +974,9 @@ list:
         specialization: Specter
         boonType: Condi
         priority: Condi Barrier Specter
-        distribution: DPS Barrier Specter (allies)
-        traits: DPS Specter
-        extras: Condi Barrier Specter
+        distribution: DPS Barrier Specter (allies)*
+        traits: DPS Specter*
+        extras: Condi Barrier Specter*
         weaponType: Dual wield
 
       - name: Boon Condi Daredevil (no log)
