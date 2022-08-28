@@ -35,9 +35,8 @@ const AffixesSection = () => {
 
   const handleRitualist = () => {
     dispatch(changeExclusionsEnabled(true));
-    [6, 7, 8, 9, 10, 11].forEach((index) =>
-      dispatch(changeExclusion({ affix: 'Ritualist', index, value: true })),
-    );
+    const backSlot = 11;
+    const trinketSlots = [6, 7, 8, 9, 10];
 
     dispatch(
       changePriority({
@@ -45,6 +44,24 @@ const AffixesSection = () => {
         value: affixes.includes('Celestial') ? affixes : [...affixes, 'Celestial'],
       }),
     );
+
+    // exotic ritualist is usually better than cele;
+    // this option disabled until exotics disable infusions correctly
+
+    // dispatch(changeExoticsEnabled(true));
+
+    for (let index = 0; index < 14; index++) {
+      if (index === backSlot) {
+        dispatch(changeExclusion({ affix: 'Ritualist', index, value: true }));
+        dispatch(changeExclusion({ affix: 'Celestial', index, value: false }));
+      } else if (trinketSlots.includes(index)) {
+        // dispatch(changeExotic({ affix: 'Ritualist', index, value: trinketSlots.includes(index) }));
+        dispatch(changeExclusion({ affix: 'Ritualist', index, value: true }));
+        dispatch(changeExclusion({ affix: 'Celestial', index, value: false }));
+      } else {
+        dispatch(changeExclusion({ affix: 'Celestial', index, value: true }));
+      }
+    }
   };
 
   const chipStyle = {
