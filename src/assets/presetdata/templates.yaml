@@ -949,11 +949,11 @@ list:
         extras: Alacrity Specter
         weaponType: Dual wield
 
-      - name: Alacrity Specter 61% (outdated)
-        id: specter-alac-61
+      - name: Alacrity Specter 60% (outdated)
+        id: specter-alac-60
         specialization: Specter
         boonType: Condi
-        priority: Condi Alacrity Specter 61%
+        priority: Condi Alacrity Specter 60%
         distribution: Alacrity Specter (allies)
         traits: Alacrity Specter
         extras: Alacrity Specter
