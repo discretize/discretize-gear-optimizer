@@ -1723,14 +1723,22 @@ list:
       {
         "extras": {
           "Sigil1": {
-            "demons": {},
+            "doom": {
+              "amount": "0.79"
+            },
+            "bursting": {},
             "concentration": {},
-            "bursting": {}
+            "torment": {},
+            "demons": {}
           },
           "Sigil2": {
             "doom": {
-              "amount": "0.93"
-            }
+              "amount": "0.79"
+            },
+            "bursting": {},
+            "concentration": {},
+            "torment": {},
+            "demons": {}
           },
           "Runes": {
             "renegade": {},
@@ -1746,5 +1754,6 @@ list:
             "toxic-maintenance-oil": {},
             "magnanimous-tuning-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": "3.5"
       }

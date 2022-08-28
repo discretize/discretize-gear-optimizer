@@ -939,7 +939,7 @@ list:
   - class: Thief
     builds:
 
-      - name: Alacrity Specter 57% (outdated)
+      - name: Alacrity Specter 57%
         id: specter-alac
         specialization: Specter
         boonType: Condi
@@ -949,7 +949,7 @@ list:
         extras: Alacrity Specter
         weaponType: Dual wield
 
-      - name: Alacrity Specter 60% (outdated)
+      - name: Alacrity Specter 60%
         id: specter-alac-60
         specialization: Specter
         boonType: Condi

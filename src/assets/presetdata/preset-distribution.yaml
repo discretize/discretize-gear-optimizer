@@ -1020,12 +1020,9 @@ list:
     profession: Specter
     value: >-
       {
-        "values2": { "Power": 1878, "Power2": 0, "Burning": 0.57, "Bleeding": 0, "Poisoned": 14.87, "Torment": 18.34, "Confusion": 0 }
+        "values2": { "Power": 1845, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 14.77, "Torment": 20.55, "Confusion": 0 }
       }
-    credit:
-      - author: 'Incera'
-        url: https://www.youtube.com/watch?v=20NDybU2G9k
-        log: https://dps.report/pMMZ-20220308-194513_golem
+    noCreditOkay: true
 
   # writ, carrion/viper mix
   - name: '[beta1] DPS Specter Endless Night'
