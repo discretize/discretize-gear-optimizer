@@ -445,3 +445,19 @@
           Precision: [14, converted]
           Ferocity: [14, converted]
       gw2id: 24508
+
+# - section: Dev/Demo Items
+#   items:
+
+#     - id: empty
+#       text: No Stats
+#       textOverride: No Stats
+#       subText: (Doesn't give any stats)
+#       modifiers: {}
+#       gw2id: 0
+#       gw2id: 68761 # ???
+#       gw2id: 68390 # pile of glittery garbage
+#       gw2id: 77359 # no reward
+#       gw2id: 78005 # bloodstone bisque
+#       gw2id: 39223 # unidentified object
+#       gw2id: 84449 # lentil-like stone
