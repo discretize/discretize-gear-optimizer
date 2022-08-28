@@ -991,7 +991,6 @@ list:
         log: https://dps.report/7zEL-20200721-034734_golem
 
   # https://optimizer.discretize.eu/?s=QqygohE8v1
-  # https://dps.report/KzkD-20220827-170023_golem
   # bugged log: has leeching venoms
   - name: DPS Specter (allies)*
     profession: Specter
@@ -1001,6 +1000,8 @@ list:
       }
     credit:
       - author: 'Incera'
+        url: https://www.youtube.com/watch?v=5adAPDBnIIs
+        log: https://dps.report/KzkD-20220827-170023_golem
 
   # https://optimizer.discretize.eu/?s=wpWaF0plv1
   # https://dps.report/pfgp-20220827-121511_golem
