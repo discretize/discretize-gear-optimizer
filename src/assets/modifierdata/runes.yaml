@@ -710,3 +710,12 @@
           Precision: {Vitality: 5%}
           Power: {Vitality: 7%}
       gw2id: 44951
+
+- section: Placeholder Items
+  items:
+
+    - id: no-item-rune
+      text: No Item (doesn't give any stats)
+      subText: No Item (doesn't give any stats)
+      modifiers: {}
+      # gw2id intentionally omitted

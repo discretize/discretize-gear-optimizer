@@ -22,7 +22,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import { allExtrasModifiersById } from '../../../assets/modifierdata';
+import { allExtrasModifiersById, placeholderItem } from '../../../assets/modifierdata';
 import {
   changeExtraAmount,
   changeExtraIds,
@@ -193,12 +193,22 @@ export default function ExtraSelection(props) {
                         {displayIds ? (
                           joinWith(
                             displayIds.map((id) => (
-                              <Item id={id} text={textOverride ?? formatApiText} />
+                              <Item
+                                id={id ?? placeholderItem}
+                                text={textOverride ?? formatApiText}
+                                disableText={!id}
+                                disableTooltip={!id}
+                              />
                             )),
                             ' / ',
                           )
                         ) : (
-                          <Item id={gw2id} text={textOverride ?? formatApiText} />
+                          <Item
+                            id={gw2id ?? placeholderItem}
+                            text={textOverride ?? formatApiText}
+                            disableText={!gw2id}
+                            disableTooltip={!gw2id}
+                          />
                         )}
                       </Box>
 

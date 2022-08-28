@@ -161,6 +161,7 @@ export const runesDict = [
   'mesmer-100',
   'forgeman',
   'dolyak',
+  'no-item-rune',
 ];
 
 export const sigilDict = [
@@ -201,6 +202,7 @@ export const sigilDict = [
   'geomancy-torment-harb',
   'air',
   'ruby-orb',
+  'no-item-sigil',
 ];
 
 export const enhancementDict = [
@@ -240,6 +242,7 @@ export const enhancementDict = [
   'corsair-tuning-crystal',
   'corsair-sharpening-stone',
   'decade-enhancement-station',
+  'no-item-utility',
 ];
 
 export const nourishmentDict = [
@@ -308,6 +311,7 @@ export const nourishmentDict = [
   'plate-of-clear-truffle-and-cilantro-ravioli',
   'spherified-oyster-soup-with-mint-garnish',
   'tray-of-decade-desserts',
+  'no-item-food',
 ];
 
 export const buffsDict = [

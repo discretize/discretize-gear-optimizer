@@ -320,3 +320,12 @@
           Ferocity: {Ferocity: 3%}
           Healing Power: {Healing Power: 3%}
       gw2id: 98893
+
+- section: Placeholder Items
+  items:
+
+    - id: no-item-utility
+      text: No Item (doesn't give any stats)
+      subText: No Item (doesn't give any stats)
+      modifiers: {}
+      # gw2id intentionally omitted

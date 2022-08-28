@@ -5,7 +5,7 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { allExtrasModifiersById } from '../../../../assets/modifierdata';
+import { allExtrasModifiersById, placeholderItem } from '../../../../assets/modifierdata';
 import { percents } from '../../../../assets/modifierdata/metadata';
 import { changeSelectedCharacter, toggleSaved } from '../../../../state/slices/controlsSlice';
 import { extrasTypes } from '../../../../state/slices/extras';
@@ -109,14 +109,16 @@ const ResultTableRow = ({
         .filter((type) => displayExtras[type])
         .map((key, index) => {
           const extra = character.settings.extrasCombination[key];
+          const id = allExtrasModifiersById[extra]?.gw2id;
           return (
             // eslint-disable-next-line react/no-array-index-key
             <TableCell align="center" key={`extras${index}`} padding="none">
               {extra ? (
                 <Item
-                  id={allExtrasModifiersById[extra]?.gw2id}
+                  id={id ?? placeholderItem}
                   disableText
                   disableLink
+                  disableTooltip={!id}
                   style={{ fontSize: 23 }}
                 />
               ) : null}

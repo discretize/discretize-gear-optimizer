@@ -55,3 +55,12 @@ export const allExtrasModifiersById = allById(extrasModifiers);
 
 export const buffModifiers = buffs;
 export const buffModifiersById = byId(buffs);
+
+// item used to represent nothing
+export const placeholderItem = 77359; // no reward
+
+// export const placeholderItem = 68761; // ???
+// export const placeholderItem = 68390; // pile of glittery garbage
+// export const placeholderItem = 78005; // bloodstone bisque
+// export const placeholderItem = 39223; // unidentified object
+// export const placeholderItem = 84449; // lentil-like stone
