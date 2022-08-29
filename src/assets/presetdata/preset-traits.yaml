@@ -4251,7 +4251,11 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "burst-of-strength": {
+            "amount": ""
+          }
+        }
       }
 
   - name: Condi Herald

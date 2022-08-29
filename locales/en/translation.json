@@ -748,6 +748,7 @@
   "skillSubText_(no passive)": "(no passive)",
   "skillSubText_(with passive + permeating + amplified)": "(with passive + permeating + amplified)",
   "skillSubText_100% uptime": "100% uptime",
+  "skillSubText_damage buff only": "damage buff only",
   "skillSubText_no sic em": "no sic em",
   "skillSubText_no sic em, sharpened edges": "no sic em, sharpened edges",
   "skillSubText_passive": "passive",

@@ -1,6 +1,18 @@
 - section: Skills
   items:
 
+    - id: burst-of-strength
+      text: Burst of Strength
+      subText: damage buff only
+      amountData:
+        label: '% uptime'
+        default: 39
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Strike Damage: [25%, add]
+      gw2id: 28113
+
     - id: vengeful-hammers
       text: Vengeful Hammers
       modifiers:

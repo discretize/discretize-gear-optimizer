@@ -516,7 +516,7 @@ list:
     profession: Herald
     value: >-
       {
-        "values2": { "Power": 3021, "Power2": 0, "Burning": 1.16, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2791, "Power2": 0, "Burning": 1.16, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Umbra
