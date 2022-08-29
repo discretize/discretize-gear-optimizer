@@ -17,6 +17,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import { placeholderItem } from '../../../assets/modifierdata';
 import { changeExtraIds, getExtrasIds } from '../../../state/slices/extras';
 import Label from '../../baseComponents/Label';
 
@@ -218,15 +219,23 @@ function ModalContent(props) {
                             joinWith(
                               displayIds.map((displayId) => (
                                 <Item
-                                  id={displayId}
+                                  id={displayId ?? placeholderItem}
                                   disableLink
                                   text={textOverride ?? formatApiText}
+                                  disableText={!displayId}
+                                  disableTooltip={!displayId}
                                 />
                               )),
                               ' / ',
                             )
                           ) : (
-                            <Item id={gw2id} disableLink text={textOverride ?? formatApiText} />
+                            <Item
+                              id={gw2id ?? placeholderItem}
+                              disableLink
+                              text={textOverride ?? formatApiText}
+                              disableText={!gw2id}
+                              disableTooltip={!gw2id}
+                            />
                           )}
                           {subText && (
                             <Typography variant="caption" sx={{ marginLeft: 1, fontWeight: 200 }}>

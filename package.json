@@ -28,16 +28,17 @@
     "testModifiers": "node ./src/assets/modifierdata/testModifiers.js",
     "testPresets": "node ./src/assets/presetdata/testPresets.js",
     "extractLocale": "babel --config-file ./babel-extract.config.js 'src/**/*.{js,jsx,ts,tsx}' > /dev/null",
+    "extractLocaleEn": "babel --config-file ./babel-extract-en.config.js 'src/**/*.{js,jsx,ts,tsx}' > /dev/null && node cleanupLocale.js",
     "extractLocaleCMD": "babel --config-file ./babel-extract.config.js \"src/**/*.{js,jsx,ts,tsx}\" > NUL",
     "cleanupLocale": "node cleanupLocale.js"
   },
   "resolutions": {
-    "@discretize/gw2-ui-new": "^0.0.17"
+    "@discretize/gw2-ui-new": "^0.0.21"
   },
   "dependencies": {
-    "@discretize/gw2-ui-new": "^0.0.17",
+    "@discretize/gw2-ui-new": "^0.0.21",
     "@discretize/object-compression": "^1.0.3",
-    "@discretize/react-discretize-components": "^2.2.7",
+    "@discretize/react-discretize-components": "^2.2.9",
     "@discretize/typeface-menomonia": "^0.1.3",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",

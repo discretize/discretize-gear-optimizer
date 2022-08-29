@@ -83,6 +83,16 @@
       gw2id: 1449
       defaultEnabled: true
 
+    - id: pinnacle-of-strength-crit
+      text: Pinnacle Of Strength
+      subText: passive
+      minor: true
+      modifiers:
+        attributes:
+          Critical Chance: 5%
+      gw2id: 1453
+      defaultEnabled: true
+
     - id: pinnacle-of-strength
       text: Pinnacle Of Strength
       minor: true
@@ -111,6 +121,15 @@
 - section: Arms
   id: 36
   items:
+
+    - id: furious-burst
+      text: Furious Burst
+      subText: 100% fury
+      minor: true
+      modifiers:
+        attributes:
+          Critical Chance: 5%
+      gw2id: 1342
 
     - id: wounding-precision
       text: Wounding Precision
@@ -150,7 +169,7 @@
 
     - id: blade-master
       text: Blademaster
-      subText: base
+      subText: 'base, intended: 120 expertise'
       modifiers:
         attributes:
           Expertise: [120, converted] # confirmed from bench hero panel
@@ -159,7 +178,7 @@
 
     - id: blade-master-base-bugged
       text: Blademaster
-      subText: base, BUGGED VERSION
+      subText: 'base, bugged: 160 expertise'
       modifiers:
         attributes:
           Expertise: [160, converted]
@@ -207,11 +226,15 @@
 
     - id: furious
       text: Furious
+      subText: not automatically adjusted with crit chance!
       amountData:
         label: 'stacks'
         default: 21
         quantityEntered: 25
       modifiers:
+        attributes:
+          Condition Damage: [375, buff]
+      wvwModifiers:
         attributes:
           Condition Damage: [250, buff]
       gw2id: 1346
@@ -297,7 +320,7 @@
       text: Empowered
       amountData:
         label: 'boons'
-        default: 8
+        default: 10
         quantityEntered: 1
       minor: true
       modifiers:
@@ -343,26 +366,6 @@
         damage:
           Strike Damage: [3%, add]
       gw2id: 1413
-      defaultEnabled: true
-
-    - id: double-standards-str
-      text: Doubled Standards
-      subText: +50 Pwr/Cond
-      modifiers:
-        attributes:
-          Power: [50, buff]
-          Condition Damage: [50, buff]
-      gw2id: 1484
-      defaultEnabled: true
-
-    - id: double-standards-disc
-      text: Doubled Standards
-      subText: +50 Prec/Fero
-      modifiers:
-        attributes:
-          Precision: [50, buff]
-          Ferocity: [50, buff]
-      gw2id: 1484
       defaultEnabled: true
 
     - id: axe-mastery-one
@@ -468,7 +471,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [20%, mult]
+          Strike Damage: [25%, mult]
       wvwModifiers:
         damage:
           Strike Damage: [15%, mult]
@@ -504,6 +507,9 @@
       subText: base
       modifiers:
         damage:
+          Critical Damage: [7.5%, unknown]
+      wvwModifiers:
+        damage:
           Critical Damage: [7%, unknown]
       gw2id: 2107
       defaultEnabled: true
@@ -516,6 +522,9 @@
         default: 100
         quantityEntered: 100
       modifiers:
+        damage:
+          Critical Damage: [7.5%, unknown]
+      wvwModifiers:
         damage:
           Critical Damage: [7%, unknown]
       gw2id: 2107
@@ -563,6 +572,9 @@
         default: 75
         quantityEntered: 100
       modifiers:
+        damage:
+          Strike Damage: [15%, mult]
+      wvwModifiers:
         damage:
           Strike Damage: [10%, mult]
       gw2id: 2060

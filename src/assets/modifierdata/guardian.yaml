@@ -84,7 +84,7 @@
     # passive burning : 1/3 * 2.4 = 0.8
     - id: mantra-of-flame
       text: Mantra of Flame
-      subText: (With passive + permeating + amplified)
+      subText: (with passive + permeating + amplified)
       amountData:
         label: '/10s'
         default: 1.5
@@ -99,7 +99,7 @@
     # burning: 4s
     - id: mantra-of-flame-base
       text: Mantra of Flame
-      subText: (No passive)
+      subText: (no passive)
       amountData:
         label: '/10s'
         default: 1.5
@@ -221,6 +221,7 @@
 
     - id: radiant-power
       text: Radiant Power
+      subText: 100% burning enemy
       minor: true
       modifiers:
         attributes:
@@ -232,6 +233,9 @@
     - id: amplified-wrath
       text: Amplified Wrath
       modifiers:
+        damage:
+          Burning Damage: [10%, unknown]
+      wvwModifiers:
         damage:
           Burning Damage: [15%, unknown]
       gw2id: 1686
@@ -325,7 +329,7 @@
       text: Inspired Virtue
       amountData:
         label: 'boons'
-        default: 8
+        default: 10
         quantityEntered: 1
       minor: true
       modifiers:
@@ -369,6 +373,7 @@
 
     - id: power-of-the-virtuous
       text: Power of the Virtuous
+      subText: conversion only
       minor: true
       modifiers:
         conversion:
@@ -418,6 +423,10 @@
 
     - id: big-game-hunter
       text: Big Game Hunter
+      amountData:
+        label: '% uptime'
+        default: 75
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [15%, mult]

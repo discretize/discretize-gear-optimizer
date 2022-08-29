@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Button,
   Dialog,
@@ -7,6 +6,7 @@ import {
   DialogContentText,
   DialogTitle,
 } from '@mui/material';
+import React from 'react';
 import { Trans } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBuildTemplateData } from '../../assets/presetdata/templateTransform';
@@ -18,7 +18,7 @@ import {
 import { getGameMode } from '../../state/slices/userSettings';
 import data from '../../utils/data';
 
-export default function ReappplyTemplateDialog({ open, handleClose }) {
+export default function ReapplyTemplateDialog({ open, handleClose }) {
   const dispatch = useDispatch();
 
   const gameMode = useSelector(getGameMode);

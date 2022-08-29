@@ -30,6 +30,7 @@ import type {
   AffixData,
   AffixName,
   ConditionName,
+  ForcedSlotName,
   IndicatorName,
   InfusionName,
   ProfessionName,
@@ -70,7 +71,12 @@ import {
   getSecondaryInfusion,
   getSecondaryMaxInfusions,
 } from '../slices/infusions';
-import { getCustomAffixData, getExclusionData, getPriority } from '../slices/priorities';
+import {
+  getCustomAffixData,
+  getExclusionData,
+  getExoticsData,
+  getPriority,
+} from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import { getGameMode } from '../slices/userSettings';
@@ -95,7 +101,9 @@ type MultiplierName =
   | 'Poison Damage'
   | 'Torment Damage'
   | 'Alternative Damage'
-  | 'Phantasm Damage';
+  | 'Alternative Critical Damage'
+  | 'Phantasm Damage'
+  | 'Phantasm Critical Damage';
 
 export interface AppliedModifier {
   id: string;
@@ -145,8 +153,15 @@ interface CollectedModifiers {
   convert: CollectedConversionModifers;
   convertAfterBuffs: CollectedConversionAfterBuffsModifers;
 }
+export interface MultiplierBreakdown {
+  mult: number;
+  add: number;
+  target: number;
+}
+export type DamageMultiplierBreakdown = Partial<Record<MultiplierName, MultiplierBreakdown>>;
 export interface Modifiers {
   damageMultiplier: Record<string, number>;
+  damageMultiplierBreakdown: DamageMultiplierBreakdown;
   buff: [string, number][];
   convert: [string, [string, number][]][];
   convertAfterBuffs: [string, [string, number][]][];
@@ -231,12 +246,12 @@ export function setupCombinations(reduxState: any) {
   for (const combination of combinations) {
     const { extrasCombination, extrasModifiers } = combination;
     const appliedModifiers = [...sharedModifiers, ...extrasModifiers];
-
     const cachedFormState = {
       traits: state.form.traits,
       skills: state.form.skills,
       extras: state.form.extras,
       buffs: state.form.buffs, // buffs are also needed to share a build and display the assumed buffs for the result
+      priorities: state.form.priorities,
     };
 
     const profession: ProfessionName | '' = getProfession(reduxState);
@@ -247,6 +262,7 @@ export function setupCombinations(reduxState: any) {
     const secondaryMaxInfusionsText: string = getSecondaryMaxInfusions(reduxState);
     const forcedSlots: (AffixName | null)[] = getForcedSlots(reduxState);
     const exclusions: Record<AffixName, boolean[]> = getExclusionData(reduxState);
+    const exotics: Record<AffixName, boolean[]> = getExoticsData(reduxState);
     const optimizeFor: IndicatorName = getPriority('optimizeFor')(reduxState);
     const weaponType: WeaponHandednessType = getPriority('weaponType')(reduxState);
     const minBoonDurationText: string = getPriority('minBoonDuration')(reduxState);
@@ -255,6 +271,11 @@ export function setupCombinations(reduxState: any) {
     const maxToughnessText: string = getPriority('maxToughness')(reduxState);
     const minHealthText: string = getPriority('minHealth')(reduxState);
     const minCritChanceText: string = getPriority('minCritChance')(reduxState);
+    const minDamageText: string = getPriority('minDamage')(reduxState);
+    const minHealingText: string = getPriority('minHealing')(reduxState);
+    const minOutgoingHealingText: string = getPriority('minOutgoingHealing')(reduxState);
+    const minQuicknessDurationText: string = getPriority('minQuicknessDuration')(reduxState);
+    const minSurvivabilityText: string = getPriority('minSurvivability')(reduxState);
     const affixes: AffixName[] = getPriority('affixes')(reduxState);
     const unmodifiedDistribution: Record<DistributionNameUI, number> =
       getDistributionNew(reduxState);
@@ -285,6 +306,11 @@ export function setupCombinations(reduxState: any) {
     const maxToughness = parsePriority(maxToughnessText).value;
     const minHealth = parsePriority(minHealthText).value;
     const minCritChance = parsePriority(minCritChanceText).value;
+    const minSurvivability = parsePriority(minSurvivabilityText).value;
+    const minDamage = parsePriority(minDamageText).value;
+    const minHealing = parsePriority(minHealingText).value;
+    const minOutgoingHealing = parsePriority(minOutgoingHealingText).value;
+    const minQuicknessDuration = parsePriority(minQuicknessDurationText).value;
 
     const attackRate = parseBoss(attackRateText).value ?? 0;
     const movementUptime = (parseBoss(movementUptimeText).value ?? 0) / 100;
@@ -345,7 +371,9 @@ export function setupCombinations(reduxState: any) {
       'Poison Damage': 1,
       'Torment Damage': 1,
       'Alternative Damage': 1,
+      'Alternative Critical Damage': 1,
       'Phantasm Damage': 1,
+      'Phantasm Critical Damage': 1,
     };
     const allDmgMult = {
       mult: { ...initialMultipliers },
@@ -450,6 +478,15 @@ export function setupCombinations(reduxState: any) {
               // assuming multiplicative until someone tests  twin fangs + ferocious strikes
               dmgBuff('Critical Damage', scaledAmount, 'mult');
               break;
+            case 'Alternative Critical Damage':
+              // as of this comment, this is only death perception
+              dmgBuff('Alternative Critical Damage', scaledAmount, 'mult');
+              break;
+            case 'Phantasm Critical Damage':
+              // currently unused as far as I know
+              dmgBuff('Phantasm Critical Damage', scaledAmount, 'mult');
+              break;
+
             default:
               const _: never = attribute;
               throw new Error(`invalid damage modifier: ${attribute} in ${id}`);
@@ -565,12 +602,19 @@ export function setupCombinations(reduxState: any) {
     }
 
     const damageMultiplier: Record<string, number> = {};
+    const damageMultiplierBreakdown: DamageMultiplierBreakdown = {};
 
-    Object.keys(initialMultipliers).forEach((attribute) => {
+    Object.keys(initialMultipliers).forEach((attr) => {
+      const attribute = attr as keyof typeof initialMultipliers;
+
       damageMultiplier[attribute] =
-        allDmgMult.mult[attribute as MultiplierName] *
-        allDmgMult.add[attribute as MultiplierName] *
-        allDmgMult.target[attribute as MultiplierName];
+        allDmgMult.mult[attribute] * allDmgMult.add[attribute] * allDmgMult.target[attribute];
+
+      damageMultiplierBreakdown[attribute] = {
+        mult: allDmgMult.mult[attribute],
+        add: allDmgMult.add[attribute],
+        target: allDmgMult.target[attribute],
+      };
     });
 
     // convert modifiers to arrays for simpler iteration
@@ -586,6 +630,7 @@ export function setupCombinations(reduxState: any) {
 
     const modifiers: Modifiers = {
       damageMultiplier,
+      damageMultiplierBreakdown,
       buff,
       convert,
       convertAfterBuffs,
@@ -693,11 +738,6 @@ export function setupCombinations(reduxState: any) {
       settings_slots.length,
     ).fill(affixes);
 
-    let settings_forcedArmor: OptimizerCoreSettings['forcedArmor'] = false;
-    let settings_forcedRing: OptimizerCoreSettings['forcedRing'] = false;
-    let settings_forcedAcc: OptimizerCoreSettings['forcedAcc'] = false;
-    let settings_forcedWep: OptimizerCoreSettings['forcedWep'] = false;
-
     forcedSlots.forEach((forcedAffix, index) => {
       if (forcedAffix || Object.values(exclusions).some((arr) => arr[index])) {
         if (forcedAffix) {
@@ -710,21 +750,43 @@ export function setupCombinations(reduxState: any) {
             settings_affixesArray[index] = filtered;
           } else {
             // user excluded every possible affix; fallback to excluding nothing
-            return;
           }
-        }
-
-        if (['shld', 'glov', 'boot'].includes(ForcedSlots[index])) {
-          settings_forcedArmor = true;
-        } else if (['rng1', 'rng2'].includes(ForcedSlots[index])) {
-          settings_forcedRing = true;
-        } else if (['acc1', 'acc2'].includes(ForcedSlots[index])) {
-          settings_forcedAcc = true;
-        } else if (['wep1', 'wep2'].includes(ForcedSlots[index])) {
-          settings_forcedWep = true;
         }
       }
     });
+
+    const arrayEntriesDeepEqual = (arr: any[]) =>
+      arr.every((entry) => JSON.stringify(entry) === JSON.stringify(arr[0]));
+
+    /**
+     * Returns true if the given slots have identical settings.
+     *
+     * If true, a performance optimization will skip one of e.g.
+     *    berserker ring + assassin ring
+     *    assassin ring + berserker ring
+     *
+     * This optimization must be disabled if these are actually different results,
+     * like if the second ring slot is actually exotic.
+     *
+     * @param {string[]} slotNames
+     * @returns {boolean} identical
+     */
+    const slotSettingsIdentical = (slotNames: ForcedSlotName[]) => {
+      const slotIndexes = slotNames.map((slotName) => ForcedSlots.indexOf(slotName));
+
+      const slotAffixesArrays = slotIndexes.map((index) => settings_affixesArray[index]);
+      const slotAffixesArraysIdentical = arrayEntriesDeepEqual(slotAffixesArrays);
+
+      const slotRarities = slotIndexes.map((index) => Object.values(exotics).map((e) => e[index]));
+      const slotRaritiesIdentical = arrayEntriesDeepEqual(slotRarities);
+
+      return slotAffixesArraysIdentical && slotRaritiesIdentical;
+    };
+
+    const settings_identicalArmor = slotSettingsIdentical(['shld', 'glov', 'boot']);
+    const settings_identicalRing = slotSettingsIdentical(['rng1', 'rng2']);
+    const settings_identicalAcc = slotSettingsIdentical(['acc1', 'acc2']);
+    const settings_identicalWep = slotSettingsIdentical(['wep1', 'wep2']);
 
     // rearrange affixes so you don't always start with e.g. full berserker. Example:
     // [vipe sini grie] helm
@@ -752,7 +814,10 @@ export function setupCombinations(reduxState: any) {
       settings_affixesArray.map((possibleAffixes, slotindex) =>
         possibleAffixes.map((affix) => {
           const statTotals: Record<string, number> = {};
-          const bonuses = Object.entries(settings_slots[slotindex].item[Affix[affix].type]) as [
+          const item = exotics?.[affix]?.[slotindex]
+            ? settings_slots[slotindex].exo
+            : settings_slots[slotindex].asc;
+          const bonuses = Object.entries(item[Affix[affix].type]) as [
             keyof AffixData['bonuses'],
             number,
           ][];
@@ -812,6 +877,11 @@ export function setupCombinations(reduxState: any) {
       maxToughness,
       minHealth,
       minCritChance,
+      minDamage,
+      minHealing,
+      minSurvivability,
+      minOutgoingHealing,
+      minQuicknessDuration,
       maxResults: 50, // TODO MAX RESULTS
       attackRate,
       movementUptime,
@@ -833,10 +903,10 @@ export function setupCombinations(reduxState: any) {
       infusionMode: settings_infusionMode,
       slots: settings_slots.length,
       affixesArray: settings_affixesArray,
-      forcedArmor: settings_forcedArmor,
-      forcedRing: settings_forcedRing,
-      forcedAcc: settings_forcedAcc,
-      forcedWep: settings_forcedWep,
+      identicalArmor: settings_identicalArmor,
+      identicalRing: settings_identicalRing,
+      identicalAcc: settings_identicalAcc,
+      identicalWep: settings_identicalWep,
       affixStatsArray: settings_affixStatsArray,
       runsAfterThisSlot: settings_runsAfterThisSlot,
     };

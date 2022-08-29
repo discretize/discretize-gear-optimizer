@@ -89,6 +89,8 @@ export const percents = [
 
 const coefficients = [
   'Power Coefficient',
+  'NonCrit Power Coefficient',
+  'Power2 Coefficient',
   ...conditionCoefficients,
   'Flat DPS',
   'Siphon Base Coefficient',
@@ -103,7 +105,9 @@ export const allDamageKeys = [
   'Critical Damage',
   ...conditionDamages,
   'Alternative Damage',
+  'Alternative Critical Damage',
   'Phantasm Damage',
+  'Phantasm Critical Damage',
 ] as const;
 export type DamageKey = typeof allDamageKeys[number];
 

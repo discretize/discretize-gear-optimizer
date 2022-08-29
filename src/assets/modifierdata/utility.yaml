@@ -105,6 +105,33 @@
           Expertise: {Toughness: 3%}
       gw2id: 86016
 
+- section: Support Utilities (SAB)
+  items:
+
+    - id: holographic-super-cheese
+      text: Holographic Super Cheese
+      modifiers:
+        conversion:
+          Power: {Concentration: 8%}
+          Concentration: {Precision: 3%}
+      gw2id: 87358
+
+    - id: holographic-super-apple
+      text: Holographic Super Apple
+      modifiers:
+        conversion:
+          Condition Damage: {Concentration: 8%}
+          Concentration: {Precision: 3%}
+      gw2id: 87336
+
+    - id: holographic-super-drumstick
+      text: Holographic Super Drumstick
+      modifiers:
+        conversion:
+          Healing Power: {Concentration: 8%}
+          Concentration: {Precision: 3%}
+      gw2id: 87329
+
 - section: Heal Utilities
   items:
 
@@ -149,39 +176,20 @@
           Condition Damage: {Vitality: 3%, Toughness: 3%}
       gw2id: 81079
 
+    - id: corsair-tuning-crystal
+      text: Corsair Tuning Crystal
+      modifiers:
+        conversion:
+          Condition Damage: {Toughness: 3%}
+          Expertise: {Toughness: 3%}
+      gw2id: 86287
+
     - id: bountiful-tuning-crystal
       text: Bountiful Tuning Crystal
       modifiers:
         conversion:
           Condition Damage: {Healing Power: 6%, Concentration: 8%}
       gw2id: 67522
-
-- section: SAB Utilities
-  items:
-
-    - id: holographic-super-apple
-      text: Holographic Super Apple
-      modifiers:
-        conversion:
-          Condition Damage: {Concentration: 8%}
-          Concentration: {Precision: 3%}
-      gw2id: 87336
-
-    - id: holographic-super-drumstick
-      text: Holographic Super Drumstick
-      modifiers:
-        conversion:
-          Healing Power: {Concentration: 8%}
-          Concentration: {Precision: 3%}
-      gw2id: 87329
-
-    - id: holographic-super-cheese
-      text: Holographic Super Cheese
-      modifiers:
-        conversion:
-          Power: {Concentration: 8%}
-          Concentration: {Precision: 3%}
-      gw2id: 87358
 
 - section: Writs
   items:
@@ -285,3 +293,39 @@
         attributes:
           Toughness: [150, converted]
       gw2id: 42428
+
+    - id: corsair-sharpening-stone
+      text: Corsair Sharpening Stone
+      modifiers:
+        conversion:
+          Power: {Toughness: 3%}
+          Expertise: {Toughness: 3%}
+      gw2id: 86378
+
+- section: ???
+  items:
+
+    - id: decade-enhancement-station
+      text: Decade Enhancement Station
+      subText: (untested)
+      modifiers:
+        conversion:
+          Power: {Power: 3%}
+          Precision: {Precision: 3%}
+          Toughness: {Toughness: 3%}
+          Vitality: {Vitality: 3%}
+          Concentration: {Concentration: 3%}
+          Condition Damage: {Condition Damage: 3%}
+          Expertise: {Expertise: 3%}
+          Ferocity: {Ferocity: 3%}
+          Healing Power: {Healing Power: 3%}
+      gw2id: 98893
+
+- section: Placeholder Items
+  items:
+
+    - id: no-item-utility
+      text: No Item (doesn't give any stats)
+      subText: No Item (doesn't give any stats)
+      modifiers: {}
+      # gw2id intentionally omitted

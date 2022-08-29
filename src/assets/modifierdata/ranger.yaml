@@ -1,6 +1,17 @@
 - section: Skills
   items:
 
+    - id: pet-dps
+      text: ''
+      subText: Total Flat Pet Damage (no modifiers)
+      amountData:
+        label: 'dps'
+        default: 0
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Flat DPS: 1
+
     - id: signet-of-stone
       text: Signet of Stone
       modifiers:
@@ -15,7 +26,8 @@
           Ferocity: [180, buff]
       gw2id: 12491
 
-    # .63 * 690.5 * 1.25 = 543.8
+    # pve: .95 * 690.5 * 1.25 = 820.0
+    # wvw: .63 * 690.5 * 1.25 = 543.8
     - id: one-wolf-pack-sic-em
       text: One Wolf Pack
       subText: sic em
@@ -25,10 +37,14 @@
         quantityEntered: 1
       modifiers:
         attributes:
+          Power Coefficient: 820
+      wvwModifiers:
+        attributes:
           Power Coefficient: 543.8
       gw2id: 45717
 
-    # .63 * 690.5 = 435.0
+    # pve: .95 * 690.5 = 655.0
+    # wvw: .63 * 690.5 = 435.0
     - id: one-wolf-pack-no-sic-em
       text: One Wolf Pack
       subText: no sic em
@@ -38,10 +54,14 @@
         quantityEntered: 1
       modifiers:
         attributes:
+          Power Coefficient: 655
+      wvwModifiers:
+        attributes:
           Power Coefficient: 435
       gw2id: 45717
 
-    # .63 * 690.5 * 1.25 = 543.8
+    # pve: .95 * 690.5 * 1.25 = 820.0
+    # wvw: .63 * 690.5 * 1.25 = 543.8
     - id: one-wolf-pack-sic-em-sharpened
       text: One Wolf Pack
       subText: sic em, sharpened edges
@@ -51,12 +71,18 @@
         quantityEntered: 1
       modifiers:
         attributes:
+          Power Coefficient: 820
+        conversionAfterBuffs:
+          Bleeding Coefficient: {Critical Chance: 100%}
+      wvwModifiers:
+        attributes:
           Power Coefficient: 543.8
         conversionAfterBuffs:
           Bleeding Coefficient: {Critical Chance: 100%}
       gw2id: 45717
 
-    # .63 * 690.5 = 435.0
+    # pve: .95 * 690.5 = 655.0
+    # wvw: .63 * 690.5 = 435.0
     - id: one-wolf-pack-no-sic-em-sharpened
       text: One Wolf Pack
       subText: no sic em, sharpened edges
@@ -66,6 +92,11 @@
         quantityEntered: 1
       modifiers:
         attributes:
+          Power Coefficient: 655
+        conversionAfterBuffs:
+          Bleeding Coefficient: {Critical Chance: 100%}
+      wvwModifiers:
+        attributes:
           Power Coefficient: 435
         conversionAfterBuffs:
           Bleeding Coefficient: {Critical Chance: 100%}
@@ -73,11 +104,12 @@
 
 - section: Marksmanship
   id: 8
+  note: Farsighted currently breaks air and hydromancy sigil simulation, and possibly some other effects.
   items:
 
     - id: farsighted
       text: Farsighted
-      subText: melee
+      subText: melee, not accurate
       modifiers:
         damage:
           Strike Damage: [5%, mult]
@@ -86,7 +118,7 @@
 
     - id: farsighted-2
       text: Farsighted
-      subText: ranged
+      subText: ranged, not accurate
       modifiers:
         damage:
           Strike Damage: [15%, mult]
@@ -134,6 +166,11 @@
       subText: 100% flanking
       modifiers:
         damage:
+          Strike Damage: [15%, mult]
+        attributes:
+          Critical Chance: 10%
+      wvwModifiers:
+        damage:
           Strike Damage: [10%, mult]
         attributes:
           Critical Chance: 10%
@@ -155,6 +192,10 @@
       text: Vicious Quarry
       subText: 100% fury
       modifiers:
+        attributes:
+          Ferocity: [250, buff]
+          Critical Chance: 15%
+      wvwModifiers:
         attributes:
           Ferocity: [250, buff]
           Critical Chance: 10%
@@ -229,7 +270,7 @@
       text: Bountiful Hunter
       amountData:
         label: 'boons'
-        default: 8
+        default: 10
         quantityEntered: 1
       modifiers:
         damage:
@@ -299,13 +340,15 @@
           Outgoing Healing: 2%
       wvwModifiers:
         attributes:
-          Outgoing Healing: 1%
+          Outgoing Healing: 1.5%
       minor: true
       gw2id: 1992
       defaultEnabled: true
 
 - section: Soulbeast
   id: 55
+  note: >-
+    "Sic 'Em!" currently breaks air and hydromancy sigil simulation, and possibly some other effects.
   items:
 
     - id: furious-strength
@@ -475,6 +518,10 @@
 
     - id: vow-of-the-untamed-you
       text: Vow of the Untamed
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       subText: player unleashed
       modifiers:
         damage:

@@ -98,7 +98,7 @@ const ResultDetails = () => {
         </Grid>
         <Grid item xs={12} sm={6} md={4} />
       </Grid>
-      <AppliedModifiers data={character?.settings?.appliedModifiers} />
+      <AppliedModifiers character={character} />
       <TemplateHelperSections character={character} />
     </ErrorBoundary>
   );

@@ -18,7 +18,7 @@
     - id: impact/night/slaying-both
       text: Superior Sigil of Impact/Night/Slaying
       textOverride: Sigil of Impact/Night/Slaying
-      subText: (Both 7%/3%)
+      subText: (both 7%/3%)
       modifiers:
         damage:
           Strike Damage: [3%, add, 7%, mult]
@@ -27,15 +27,27 @@
     - id: impact/night/slaying-only-3
       text: Superior Sigil of Impact/Night/Slaying
       textOverride: Sigil of Impact/Night/Slaying
-      subText: (Only 3%)
+      subText: (only 3%)
       modifiers:
         damage:
           Strike Damage: [3%, add]
       gw2id: 24868
 
+    - id: air
+      text: Superior Sigil of Air
+      subText: '(single target; may be inaccurate)'
+      amountData:
+        label: '/10s'
+        default: 3.1
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          NonCrit Power Coefficient: 759.55
+      gw2id: 24554
+
     - id: severance-perma
       text: Superior Sigil of Severance
-      subText: (While Active)
+      subText: (100% uptime)
       modifiers:
         attributes:
           Precision: [250, buff] # tested unconverted by Snappy Joe
@@ -45,7 +57,7 @@
     # 1.0 coefficient, 690.5 strength
     - id: hydromancy
       text: Superior Sigil of Hydromancy
-      subText: (Without on-hit/on-crit effects)
+      subText: (without on-hit/on-crit effects)
       amountData:
         label: '/10s'
         default: 1
@@ -57,7 +69,7 @@
 
     - id: hydromancy-bonus
       text: Superior Sigil of Hydromancy
-      subText: (+12.5%)
+      subText: (+12.5% for "Sic 'Em!")
       amountData:
         label: '/10s'
         default: 1
@@ -139,7 +151,7 @@
     # 0.25 coefficient, 690.5 strength
     - id: geomancy
       text: Superior Sigil of Geomancy
-      subText: (Without on-hit/on-crit effects)
+      subText: (without on-hit/on-crit effects)
       amountData:
         label: '/10s'
         default: 1
@@ -192,7 +204,7 @@
     # Ineptitide: 2 stacks * 5 seconds
     - id: mischief-ineptitude
       text: Superior Sigil of Mischief
-      subText: (With Ineptitide; 1 snowball)
+      subText: (with Ineptitide; 1 snowball)
       amountData:
         label: '/10s'
         default: 1
@@ -424,3 +436,21 @@
         attributes:
           Concentration: [40, converted]
       gw2id: 24773
+
+    - id: ruby-orb
+      text: Ruby Orb
+      modifiers:
+        attributes:
+          Power: [20, converted]
+          Precision: [14, converted]
+          Ferocity: [14, converted]
+      gw2id: 24508
+
+- section: Placeholder Items
+  items:
+
+    - id: no-item-sigil
+      text: No Item (doesn't give any stats)
+      subText: No Item (doesn't give any stats)
+      modifiers: {}
+      # gw2id intentionally omitted

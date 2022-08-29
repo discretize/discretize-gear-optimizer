@@ -155,6 +155,13 @@ export const runesDict = [
   'krait-no-elite',
   'rage',
   'infiltration',
+  'scholar-90',
+  'eagle-never',
+  'mesmer-0',
+  'mesmer-100',
+  'forgeman',
+  'dolyak',
+  'no-item-rune',
 ];
 
 export const sigilDict = [
@@ -193,6 +200,9 @@ export const sigilDict = [
   'geomancy-torment-cwb',
   'geomancy-torment-cwb-alac',
   'geomancy-torment-harb',
+  'air',
+  'ruby-orb',
+  'no-item-sigil',
 ];
 
 export const enhancementDict = [
@@ -229,6 +239,10 @@ export const enhancementDict = [
   'writ-of-calculated-malice',
   'writ-of-learned-strength',
   'writ-of-calculated-strength',
+  'corsair-tuning-crystal',
+  'corsair-sharpening-stone',
+  'decade-enhancement-station',
+  'no-item-utility',
 ];
 
 export const nourishmentDict = [
@@ -295,6 +309,9 @@ export const nourishmentDict = [
   'strawberry-cilantro-cheesecake',
   'plate-of-poultry-aspic-with-salsa-garnish',
   'plate-of-clear-truffle-and-cilantro-ravioli',
+  'spherified-oyster-soup-with-mint-garnish',
+  'tray-of-decade-desserts',
+  'no-item-food',
 ];
 
 export const buffsDict = [
@@ -321,4 +338,5 @@ export const buffsDict = [
   'lightArmor',
   'jade-bot-base',
   'jade-bot-per-tier',
+  'lightArmor2',
 ];

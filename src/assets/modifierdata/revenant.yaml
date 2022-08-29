@@ -1,6 +1,18 @@
 - section: Skills
   items:
 
+    - id: burst-of-strength
+      text: Burst of Strength
+      subText: damage buff only
+      amountData:
+        label: '% uptime'
+        default: 39
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Strike Damage: [25%, add]
+      gw2id: 28113
+
     - id: vengeful-hammers
       text: Vengeful Hammers
       modifiers:
@@ -130,6 +142,9 @@
         quantityEntered: 100
       modifiers:
         damage:
+          Strike Damage: [10%, mult]
+      wvwModifiers:
+        damage:
           Strike Damage: [7%, mult]
       gw2id: 1761
       defaultEnabled: true
@@ -143,6 +158,9 @@
         quantityEntered: 100
       modifiers:
         damage:
+          All Damage: [10%, add]
+      wvwModifiers:
+        damage:
           All Damage: [7%, add]
       gw2id: 1758
       defaultEnabled: true
@@ -152,7 +170,7 @@
       subText: 100% fury
       modifiers:
         attributes:
-          Critical Chance: 20%
+          Critical Chance: 25%
       gw2id: 1719
       defaultEnabled: true
 
@@ -245,21 +263,6 @@
   id: 12
   items:
 
-    - id: tranquil-balance
-      text: Tranquil Balance
-      amountData:
-        label: '% scholar'
-        default: 100
-        quantityEntered: 100
-      modifiers:
-        attributes:
-          Outgoing Healing: 20%
-      wvwModifiers:
-        attributes:
-          Outgoing Healing: 7%
-      gw2id: 1822
-      defaultEnabled: true
-
     - id: life-attunement
       text: Life Attunement
       minor: true
@@ -288,7 +291,7 @@
       wvwModifiers:
         attributes:
           Outgoing Healing: 10%
-      gw2id: 1818
+      gw2id: 1823
       defaultEnabled: true
 
     - id: serene-rejuvenation
@@ -296,10 +299,10 @@
       minor: true
       modifiers:
         attributes:
-          Outgoing Healing: 15%
+          Outgoing Healing: 20%
       wvwModifiers:
         attributes:
-          Outgoing Healing: 10%
+          Outgoing Healing: 15%
       gw2id: 1814
       defaultEnabled: true
 
@@ -311,16 +314,9 @@
           Damage Reduction: [15%, unknown]
       gw2id: 1825
 
-    - id: selfless-amplification
-      text: Selfless Amplification
-      modifiers:
-        conversion:
-          Outgoing Healing: {Healing Power: 0.015%}
-      gw2id: 1820
-      defaultEnabled: true
-
 - section: Herald
   id: 52
+  note: Shiro lifesteal is not currently simulated separately.
   items:
 
     - id: draconic-fortitude
@@ -362,11 +358,14 @@
       minor: true
       amountData:
         label: 'boons'
-        default: 8
+        default: 10
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [1%, unknown]
+          Strike Damage: [1.5%, mult]
+      wvwModifiers:
+        damage:
+          Strike Damage: [1%, mult]
       gw2id: 1788
       defaultEnabled: true
 
@@ -379,7 +378,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [13%, add] # add according to wiki
+          Strike Damage: [15%, add] # add according to wiki
       gw2id: 1803
       defaultEnabled: true
 
@@ -392,7 +391,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [4%, add] # add according to wiki
+          Strike Damage: [5%, add] # add according to wiki
       wvwModifiers:
         damage:
           Strike Damage: [3%, add]

@@ -122,7 +122,11 @@ const findCombinations = (data) => {
   return combinations;
 };
 
-const allowedDuplicateSigils = ['impact/night/slaying-both', 'impact/night/slaying-only-3'];
+const allowedDuplicateSigils = [
+  'impact/night/slaying-both',
+  'impact/night/slaying-only-3',
+  'no-item-sigil',
+];
 
 export const getExtrasCombinationsAndModifiers = createSelector(
   getExtrasIds,

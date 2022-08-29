@@ -5,7 +5,7 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { allExtrasModifiersById } from '../../../../assets/modifierdata';
+import { allExtrasModifiersById, placeholderItem } from '../../../../assets/modifierdata';
 import { percents } from '../../../../assets/modifierdata/metadata';
 import { changeSelectedCharacter, toggleSaved } from '../../../../state/slices/controlsSlice';
 import { extrasTypes } from '../../../../state/slices/extras';
@@ -17,6 +17,7 @@ const ResultTableRow = ({
   selected,
   saved = false,
   mostCommonAffix,
+  mostCommonRarity,
   underlineClass,
   selectedValue,
   compareByPercent,
@@ -35,7 +36,8 @@ const ResultTableRow = ({
           : Math.round(Math.abs(comparisonValue))
       }`
     : '';
-
+  const exoticRarity = (affix, index) =>
+    character.settings.cachedFormState.priorities?.exotics.data?.[affix]?.[index];
   return (
     <TableRow
       selected={selected}
@@ -73,20 +75,28 @@ const ResultTableRow = ({
           </Typography>
         ) : null}
       </TableCell>
-      {character.gear.map((element, index) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <TableCell align="center" key={element + index} padding="none">
-          <Typography
-            style={
-              mostCommonAffix && mostCommonAffix !== element
-                ? { fontWeight: 300, fontSize: '1rem', color: '#00cccc' }
-                : { fontWeight: 300, fontSize: '1rem' }
-            }
-          >
-            {element.slice(0, 4)}
-          </Typography>
-        </TableCell>
-      ))}
+      {character.gear.map((affix, index) => {
+        let textDecoration;
+        if (exoticRarity(affix, index) && mostCommonRarity !== 'exotic')
+          textDecoration = 'underline dotted #ffa405';
+        if (!exoticRarity(affix, index) && mostCommonRarity !== 'ascended')
+          textDecoration = 'underline dotted #fb3e8d';
+        return (
+          // eslint-disable-next-line react/no-array-index-key
+          <TableCell align="center" key={affix + index} padding="none">
+            <Typography
+              style={{
+                fontWeight: 300,
+                fontSize: '1rem',
+                textDecoration,
+                color: mostCommonAffix && mostCommonAffix !== affix ? '#00cccc' : 'inherit',
+              }}
+            >
+              {affix.slice(0, 4)}
+            </Typography>
+          </TableCell>
+        );
+      })}
       {character.infusions
         ? Object.values(character.infusions).map((element, index) => (
             // eslint-disable-next-line react/no-array-index-key
@@ -99,14 +109,16 @@ const ResultTableRow = ({
         .filter((type) => displayExtras[type])
         .map((key, index) => {
           const extra = character.settings.extrasCombination[key];
+          const id = allExtrasModifiersById[extra]?.gw2id;
           return (
             // eslint-disable-next-line react/no-array-index-key
             <TableCell align="center" key={`extras${index}`} padding="none">
               {extra ? (
                 <Item
-                  id={allExtrasModifiersById[extra]?.gw2id}
+                  id={id ?? placeholderItem}
                   disableText
                   disableLink
+                  disableTooltip={!id}
                   style={{ fontSize: 23 }}
                 />
               ) : null}

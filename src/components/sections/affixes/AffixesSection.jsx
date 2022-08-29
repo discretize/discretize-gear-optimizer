@@ -5,8 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   changeExclusion,
   changeExclusionsEnabled,
+  changeExoticsEnabled,
   changePriority,
   getExclusionsEnabled,
+  getExoticsEnabled,
   getPriority,
 } from '../../../state/slices/priorities';
 import data from '../../../utils/data';
@@ -20,6 +22,7 @@ const AffixesSection = () => {
 
   const affixes = useSelector(getPriority('affixes'));
   const exclusionsEnabled = useSelector(getExclusionsEnabled);
+  const exoticsEnabled = useSelector(getExoticsEnabled);
 
   const handleTemplateClickPriorities = React.useCallback(
     (value) => {
@@ -32,9 +35,8 @@ const AffixesSection = () => {
 
   const handleRitualist = () => {
     dispatch(changeExclusionsEnabled(true));
-    [6, 7, 8, 9, 10, 11].forEach((index) =>
-      dispatch(changeExclusion({ affix: 'Ritualist', index, value: true })),
-    );
+    const backSlot = 11;
+    const trinketSlots = [6, 7, 8, 9, 10];
 
     dispatch(
       changePriority({
@@ -42,6 +44,24 @@ const AffixesSection = () => {
         value: affixes.includes('Celestial') ? affixes : [...affixes, 'Celestial'],
       }),
     );
+
+    // exotic ritualist is usually better than cele;
+    // this option disabled until exotics disable infusions correctly
+
+    // dispatch(changeExoticsEnabled(true));
+
+    for (let index = 0; index < 14; index++) {
+      if (index === backSlot) {
+        dispatch(changeExclusion({ affix: 'Ritualist', index, value: true }));
+        dispatch(changeExclusion({ affix: 'Celestial', index, value: false }));
+      } else if (trinketSlots.includes(index)) {
+        // dispatch(changeExotic({ affix: 'Ritualist', index, value: trinketSlots.includes(index) }));
+        dispatch(changeExclusion({ affix: 'Ritualist', index, value: true }));
+        dispatch(changeExclusion({ affix: 'Celestial', index, value: false }));
+      } else {
+        dispatch(changeExclusion({ affix: 'Celestial', index, value: true }));
+      }
+    }
   };
 
   const chipStyle = {
@@ -92,6 +112,17 @@ const AffixesSection = () => {
               label={t('Auto-disable ritualist trinkets')}
             />
           ) : null}
+          <FormControlLabel
+            control={
+              <Switch
+                checked={exoticsEnabled}
+                onChange={(e) => dispatch(changeExoticsEnabled(e.target.checked))}
+                name="checked"
+                color="primary"
+              />
+            }
+            label={t('Show rarity controls')}
+          />
         </>
       }
     />

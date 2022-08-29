@@ -16,6 +16,9 @@
       text: Fury
       modifiers:
         attributes:
+          Critical Chance: 25%
+      wvwModifiers:
+        attributes:
           Critical Chance: 20%
       type: Boon
 
@@ -39,86 +42,8 @@
           Phantasm Damage: [1%, target]
       type: Condition
 
-- section: Warrior buffs
-  items:
-    - id: bannerOfStrength
-      text: Banner of Strength
-      modifiers:
-        attributes:
-          Power: [100, buff]
-          Condition Damage: [100, buff]
-      type: Skill
-      gw2id: 14405
-
-    - id: bannerOfDiscipline
-      text: Banner of Discipline
-      modifiers:
-        attributes:
-          Precision: [100, buff]
-          Ferocity: [100, buff]
-      type: Skill
-      gw2id: 14407
-
-    - id: bannerOfTactics
-      text: Banner of Tactics
-      modifiers:
-        attributes:
-          Healing Power: [100, buff]
-          Boon Duration: 10%
-      type: Skill
-      gw2id: 14408
-
-    - id: bannerOfDefense
-      text: Banner of Defense
-      modifiers:
-        attributes:
-          Toughness: [100, buff]
-          Vitality: [100, buff]
-      type: Skill
-      gw2id: 14528
-
-    - id: empowerAllies
-      text: Empower Allies
-      modifiers:
-        attributes:
-          Power: [100, buff]
-      type: Trait
-      gw2id: 1482
-
 - section: Other buffs
   items:
-    - id: spotter
-      text: Spotter
-      modifiers:
-        attributes:
-          Precision: [100, buff]
-      type: Trait
-      gw2id: 1016
-
-    - id: frostSpirit
-      text: Frost Spirit
-      modifiers:
-        damage:
-          Strike Damage: [5%, add]
-      type: Skill
-      gw2id: 12497
-
-    - id: pinpointDistribution
-      text: Pinpoint Distribution
-      modifiers:
-        attributes:
-          Condition Damage: [100, buff]
-      type: Trait
-      gw2id: 1984
-
-    - id: strengthInNumbers
-      text: Strength in Numbers
-      modifiers:
-        attributes:
-          Toughness: [100, buff]
-      type: Trait
-      gw2id: 584
-
     - id: jade-bot-base
       text: Jade Bot
       subText: (select both boxes)
@@ -137,58 +62,6 @@
         attributes:
           Vitality: [15, converted]
       type: Text
-
-- section: Guardian - Perfect Inscriptions (100% uptime)
-  items:
-    - id: baneSignet
-      text: Bane Signet
-      modifiers:
-        attributes:
-          Power: [216, buff]
-      type: Skill
-      gw2id: 9093
-
-    - id: signetOfJudgement
-      text: Signet of Judgement
-      modifiers:
-        damage:
-          Damage Reduction: [12%, unknown]
-      type: Skill
-      gw2id: 9150
-
-    - id: signetOfMercy
-      text: Signet of Mercy
-      modifiers:
-        attributes:
-          Boon Duration: 10%
-      type: Skill
-      gw2id: 9163
-
-    - id: signetOfWrath
-      text: Signet of Wrath
-      modifiers:
-        attributes:
-          Condition Damage: [216, buff]
-      type: Skill
-      gw2id: 9151
-
-- section: Revenant buffs
-  items:
-    - id: assassinsPresence
-      text: Assassin's Presence
-      modifiers:
-        attributes:
-          Ferocity: [150, buff]
-      type: Trait
-      gw2id: 1786
-
-    - id: riteDwarf
-      text: Rite of the Great Dwarf
-      modifiers:
-        damage:
-          Damage Reduction: [50%, unknown]
-      type: Skill
-      gw2id: 27975
 
 - section: Effects
   items:
@@ -211,4 +84,14 @@
       modifiers:
         damage:
           Strike Damage: [35.9686%, mult]
+          Phantasm Damage: [35.9686%, mult]
+      type: Text
+
+    - id: lightArmor2
+      text: Low Boss Armor (HT)
+      subText: 2141 vs 2597
+      modifiers:
+        damage:
+          Strike Damage: [21.2985%, mult]
+          Phantasm Damage: [21.2985%, mult]
       type: Text

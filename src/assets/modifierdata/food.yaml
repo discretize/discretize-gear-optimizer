@@ -427,6 +427,23 @@
           Healing Power: [45, converted]
       gw2id: 91804
 
+    - id: spherified-oyster-soup-with-mint-garnish
+      text: Spherified Oyster Soup with Mint Garnish
+      hasLifesteal: false
+      modifiers:
+        attributes:
+          Power: [45, converted]
+          Precision: [45, converted]
+          Toughness: [45, converted]
+          Vitality: [45, converted]
+          Concentration: [45, converted]
+          Condition Damage: [45, converted]
+          Expertise: [45, converted]
+          Ferocity: [45, converted]
+          Healing Power: [45, converted]
+          Outgoing Healing: 10%
+      gw2id: 91748
+
     - id: dragon's-revelry-starcake
       text: Oyster Soup
       textOverride: Oyster Soup
@@ -445,7 +462,7 @@
 
     - id: dragons-revelry-starcake-bugged
       text: Dragon's Revelry Starcake
-      subText: (slightly bugged!)
+      subText: '(slightly bugged: no conversion)'
       modifiers:
         attributes:
           Power: [45, buff]
@@ -583,3 +600,31 @@
           Expertise: [100, converted]
           Toughness: [70, converted]
       gw2id: 82541
+
+- section: ???
+  items:
+
+    - id: tray-of-decade-desserts
+      text: Tray of Decade Desserts
+      subText: (untested)
+      modifiers:
+        conversion:
+          Power: {Power: 3%}
+          Precision: {Precision: 3%}
+          Toughness: {Toughness: 3%}
+          Vitality: {Vitality: 3%}
+          Concentration: {Concentration: 3%}
+          Condition Damage: {Condition Damage: 3%}
+          Expertise: {Expertise: 3%}
+          Ferocity: {Ferocity: 3%}
+          Healing Power: {Healing Power: 3%}
+      gw2id: 98924
+
+- section: Placeholder Items
+  items:
+
+    - id: no-item-food
+      text: No Item (doesn't give any stats)
+      subText: No Item (doesn't give any stats)
+      modifiers: {}
+      # gw2id intentionally omitted

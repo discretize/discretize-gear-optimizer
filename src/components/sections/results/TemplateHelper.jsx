@@ -1,6 +1,8 @@
-import { TextField, Typography } from '@mui/material';
+import { Button, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { changeAllDistributionNew } from '../../../state/slices/distribution';
 import { mapValues, parseDistribution } from '../../../utils/usefulFunctions';
 
 const initial = {
@@ -29,6 +31,7 @@ const fixPoison = (input) =>
 
 const TemplateHelper = ({ character }) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
 
   const [input, setInput] = React.useState(initial);
 
@@ -73,14 +76,50 @@ const TemplateHelper = ({ character }) => {
             Confusion: 861,
           };
 
+          const damageDist = playerData.targetDamageDist?.[0]?.[0] ?? [];
+
           const conditionData = mapValues(conditionIds, (id) => {
-            const damage = playerData.targetDamageDist?.[0]?.[0]?.find(
-              (entry) => entry?.id === id,
-            )?.totalDamage;
+            const damage = damageDist.find((entry) => entry?.id === id)?.totalDamage;
             const dps = roundTwo((damage ?? 0) / duration);
             sum += dps;
             return dps;
           });
+
+          const nonConditionBuffEntries = Object.entries(data.buffMap)
+            .map(([buffId, { name }]) => [Number(buffId.replace('b', '')), name])
+            .filter(([id]) => Object.values(conditionIds).includes(id) === false);
+
+          const nonConditionDataEntries = nonConditionBuffEntries
+            .map(([id, name]) => {
+              const { totalDamage, connectedHits } =
+                damageDist.find((entry) => entry?.id === id) ?? {};
+
+              if (!totalDamage) return;
+
+              const dps = roundTwo((totalDamage ?? 0) / duration);
+              const hitsPerSecond = roundTwo(connectedHits / duration);
+
+              return [`${name} "Power" DPS (${hitsPerSecond} hit/sec)`, dps];
+            })
+            .filter(Boolean);
+
+          const possibleLifestealDamageSum = nonConditionDataEntries.reduce(
+            (prev, [_, dps]) => prev + dps,
+            0,
+          );
+
+          const powerDPSWithoutLifesteal = powerDPS - possibleLifestealDamageSum;
+
+          const nonConditionDataSection = nonConditionDataEntries.length
+            ? [
+                '   -- lifesteal effects must be subtracted from power DPS! --',
+                '      (not automated; not all of these are lifesteal)',
+                '\n',
+                [`Power DPS raw`, powerDPS],
+                ...nonConditionDataEntries,
+                [`Power DPS minus buff damage`, powerDPSWithoutLifesteal],
+              ]
+            : ['      (no lifesteal effects detected)'];
 
           const totalDPS = playerData.dpsTargets?.[0]?.[0]?.dps;
 
@@ -159,11 +198,24 @@ const TemplateHelper = ({ character }) => {
             ['Sum', sum],
             ['Total dps (log)', totalDPS],
             '\n',
-            ['Power DPS (player only)', powerDPSPlayer],
+            ...nonConditionDataSection,
+            '\n',
+            ['Power DPS (including minions, no "lifesteal")', powerDPSWithoutLifesteal],
+            ...Object.entries(conditionData).map(([key, value]) => [`${key} DPS`, value]),
+            '\n',
+            '   -- minion damage split --',
+            '\n',
+            [
+              'Power DPS (player only, no "lifesteal")',
+              powerDPSPlayer - possibleLifestealDamageSum,
+            ],
+            ['Power DPS (player only, including "lifesteal")', powerDPSPlayer],
             ...minionDamageData,
-            ['Power DPS Sum', splitDamageTotal],
+            ['Power DPS Sum (should match total)', splitDamageTotal],
             '\n',
             ['Clone+Phantasm DPS', clonePhantasmDamageSum],
+            '\n',
+            '   -- hit per second counts --',
             '\n',
             [
               `95% Player crittable hits per second (${crits}/${hits}: ${critPercent.toFixed(
@@ -207,7 +259,7 @@ const TemplateHelper = ({ character }) => {
   // DPS = slope * coefficient + intercept
   // coefficient = (DPS - intercept) / slope
   const calculateRequiredCoefficient = (key, targetDPS = 0) => {
-    const { slope, intercept } = coefficientHelper[key];
+    const { slope = 0, intercept = 0 } = coefficientHelper[key] ?? {};
     if (targetDPS === intercept) return 0;
     return (targetDPS - intercept) / slope;
   };
@@ -315,7 +367,11 @@ const TemplateHelper = ({ character }) => {
         {indent(formattedDistribution, 6)}
       </pre>
 
-      <Typography variant="h6">
+      <Button variant="contained" onClick={() => dispatch(changeAllDistributionNew(values2))}>
+        copy to coefficients section
+      </Button>
+
+      <Typography variant="h6" style={{ marginTop: '2rem' }}>
         <Trans>Trait Template</Trans>
       </Typography>
 

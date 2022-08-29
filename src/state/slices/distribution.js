@@ -47,6 +47,14 @@ export const distributionSlice = createSlice({
         },
       };
     },
+    changeAllDistributionNew: (state, action) => {
+      console.log(action);
+      return {
+        ...state,
+        values2: action.payload,
+        textBoxes: action.payload,
+      };
+    },
     changeAllDistributions: (state, action) => {
       const { name, value } = action.payload;
       try {
@@ -94,5 +102,9 @@ export const getTextBoxes = (state) => state.optimizer.form.distribution.textBox
 export const getSelectedDistribution = (state) =>
   state.optimizer.form.distribution.selectedDistribution;
 
-export const { changeDistributionNew, changeTextBoxes, changeAllDistributions } =
-  distributionSlice.actions;
+export const {
+  changeDistributionNew,
+  changeTextBoxes,
+  changeAllDistributionNew,
+  changeAllDistributions,
+} = distributionSlice.actions;

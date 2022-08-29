@@ -118,8 +118,20 @@ const StickyHeadTable = () => {
   }, [filterMode, normalList, rawFilteredList]);
 
   let mostCommonAffix = null;
+  let mostCommonRarity = null;
   if (/* status !== RUNNING && */ list[0]) {
     mostCommonAffix = mode(list[0].gear);
+    const [exo, asc] = Object.entries(
+      list[0].settings.cachedFormState.priorities?.exotics?.data || {},
+    ).reduce(
+      (sum, [, value]) => {
+        sum[0] += value.filter((isExotic) => isExotic).length;
+        sum[1] += value.filter((isExotic) => !isExotic).length;
+        return sum;
+      },
+      [0, 0],
+    );
+    mostCommonRarity = exo > asc ? 'exotic' : 'ascended';
   }
 
   const firstCharacter = list[0];
@@ -141,7 +153,7 @@ const StickyHeadTable = () => {
     // ...or if the user saved a build, then ran the same profession with a different extra
     const variations = new Set();
     [...list.slice(0, 1), ...saved]
-      .filter((character) => character.settings.profession !== firstCharacter?.settings?.profession)
+      .filter((character) => character.settings.profession === firstCharacter?.settings?.profession)
       .forEach((character) => variations.add(character.settings.extrasCombination[type]));
     return variations.size > 1;
   };
@@ -204,6 +216,7 @@ const StickyHeadTable = () => {
                     selected={character === selectedCharacter}
                     saved={saved.includes(character)}
                     mostCommonAffix={mostCommonAffix}
+                    mostCommonRarity={mostCommonRarity}
                     underlineClass={underline ? classes.underline : null}
                     selectedValue={selectedValue}
                     compareByPercent={compareByPercent}
@@ -255,6 +268,7 @@ const StickyHeadTable = () => {
                         selected={character === selectedCharacter}
                         saved={saved.includes(character)}
                         mostCommonAffix={mostCommonAffix}
+                        mostCommonRarity={mostCommonRarity}
                         underlineClass={i === saved.length - 1 ? classes.bigUnderline : null}
                         selectedValue={selectedValue}
                         compareByPercent={compareByPercent}

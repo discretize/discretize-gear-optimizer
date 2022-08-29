@@ -5,7 +5,18 @@ list:
       {
         "affixes": ["Berserker", "Assassin", "Dragon"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 0
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 0
+      }
+
+  - name: Power DPS (no dragon)
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 0
       }
 
   - name: Condi DPS
@@ -13,7 +24,8 @@ list:
       {
         "affixes": ["Viper", "Sinister"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 0
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 0
       }
 
   - name: Hybrid DPS
@@ -21,7 +33,8 @@ list:
       {
         "affixes": ["Viper", "Sinister", "Grieving"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 0
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 0
       }
 
   - name: Power Boon
@@ -29,7 +42,8 @@ list:
       {
         "affixes": ["Berserker", "Assassin", "Diviner"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 84.5
+        "minBoonDuration": 84.5,
+        "minQuicknessDuration": 0
       }
 
   - name: Condi Boon
@@ -37,7 +51,8 @@ list:
       {
         "affixes": ["Viper", "Sinister", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 79
+        "minBoonDuration": 79,
+        "minQuicknessDuration": 0
       }
 
   - name: Condi Boon/Support
@@ -45,7 +60,8 @@ list:
       {
         "affixes": ["Viper", "Seraph", "Celestial"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 79
+        "minBoonDuration": 79,
+        "minQuicknessDuration": 0
       }
 
   - name: Heal
@@ -53,19 +69,11 @@ list:
       {
         "affixes": ["Harrier", "Minstrel", "Cleric"],
         "optimizeFor": "Healing",
-        "minBoonDuration": 100
+        "minBoonDuration": 100,
+        "minQuicknessDuration": 0
       }
 
   # -------------------------------------------------------------------------------------------- #
-
-  - name: No Dragon
-    hidden: true
-    value: >-
-      {
-        "affixes": ["Berserker", "Assassin"],
-        "optimizeFor": "Damage",
-        "minBoonDuration": 0
-      }
 
   - name: Viper Only
     hidden: true
@@ -73,7 +81,28 @@ list:
       {
         "affixes": ["Viper"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 0
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 0
+      }
+
+  - name: Condi Barrier Specter
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Ritualist", "Carrion"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 0
+      }
+
+  - name: Power Quickness Bladesworn 2.6%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 2.6,
+        "minQuicknessDuration": 0
       }
 
   - name: Power Alacrity Willbender 14%
@@ -82,7 +111,8 @@ list:
       {
         "affixes": ["Berserker", "Assassin", "Diviner"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 14
+        "minBoonDuration": 14,
+        "minQuicknessDuration": 0
       }
 
   - name: Power Quickbrand 25%
@@ -91,7 +121,8 @@ list:
       {
         "affixes": ["Berserker", "Assassin", "Diviner"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 25
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 25
       }
 
   - name: Power Quickness Scrapper 33.3%
@@ -100,7 +131,8 @@ list:
       {
         "affixes": ["Berserker", "Assassin", "Diviner"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 33.3
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 33.3
       }
 
   - name: Power Quickness Catalyst 38%
@@ -109,7 +141,38 @@ list:
       {
         "affixes": ["Berserker", "Assassin", "Diviner"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 38
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 38
+      }
+
+  - name: Power Alacrity Mechanist 55%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 55,
+        "minQuicknessDuration": 0
+      }
+
+  - name: Power Quickness Herald 30%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 30
+      }
+
+  - name: Power Quickness Herald 45%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 45
       }
 
   - name: Power Boon Daredevil 99.7%
@@ -118,7 +181,8 @@ list:
       {
         "affixes": ["Berserker", "Assassin", "Diviner"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 99.7
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 99.7
       }
 
   - name: Condi Hybrid Firebrand 40%
@@ -127,7 +191,18 @@ list:
       {
         "affixes": ["Viper", "Seraph", "Celestial"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 40
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 40
+      }
+
+  - name: Quickness Condi Chrono 10%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 10.3
       }
 
   - name: Condi Quickness Harbinger 23%
@@ -136,7 +211,8 @@ list:
       {
         "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 23
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 23
       }
 
   - name: Condi Alacrity Mirage 27%
@@ -145,7 +221,18 @@ list:
       {
         "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 27.4
+        "minBoonDuration": 27.4,
+        "minQuicknessDuration": 0
+      }
+
+  - name: Condi Quickness Berserker 40%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 40
       }
 
   - name: Condi Hybrid Druid 52%
@@ -154,7 +241,8 @@ list:
       {
         "affixes": ["Viper", "Seraph", "Celestial"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 52
+        "minBoonDuration": 52,
+        "minQuicknessDuration": 0
       }
 
   - name: Condi Boon Daredevil 62%
@@ -163,7 +251,8 @@ list:
       {
         "affixes": ["Viper", "Sinister", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 62
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 92
       }
 
   - name: Condi Alacrity Renegade 78%
@@ -172,7 +261,8 @@ list:
       {
         "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 78
+        "minBoonDuration": 78,
+        "minQuicknessDuration": 0
       }
 
   - name: Condi Quickbrand 35%
@@ -181,16 +271,28 @@ list:
       {
         "affixes": ["Viper", "Sinister", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 35
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 35
       }
 
   - name: Condi Quickbrand 49
     hidden: true
     value: >-
       {
-        "affixes": ["Viper", "Sinister", "Ritualist"],
+        "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 18.8
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 48.8
+      }
+
+  - name: Condi Quickbrand 79
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 79
       }
 
   - name: Condi Alacrity Specter 57%
@@ -199,7 +301,18 @@ list:
       {
         "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 56.7
+        "minBoonDuration": 56.7,
+        "minQuicknessDuration": 0
+      }
+
+  - name: Condi Alacrity Specter 60%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 60,
+        "minQuicknessDuration": 0
       }
 
   - name: Condi Alacrity Willbender 14%
@@ -208,7 +321,18 @@ list:
       {
         "affixes": ["Viper", "Grieving", "Celestial"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 14
+        "minBoonDuration": 14,
+        "minQuicknessDuration": 0
+      }
+
+  - name: Condi Alacrity Mechanist 50%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 50.3,
+        "minQuicknessDuration": 0
       }
 
   - name: Condi DPS Rampager
@@ -216,5 +340,6 @@ list:
       {
         "affixes": ["Viper", "Sinister", "Rampager"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 0
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 0
       }

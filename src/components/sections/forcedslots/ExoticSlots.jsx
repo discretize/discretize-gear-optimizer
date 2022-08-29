@@ -10,8 +10,14 @@ import {
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import {
+  changeExotic,
+  changeAllExotic,
+  getUsedExoticsData,
+  getPriority,
+  getExclusionData,
+} from '../../../state/slices/priorities';
 import { getForcedSlots } from '../../../state/slices/forcedSlots';
-import { changeExclusion, getExclusionData, getPriority } from '../../../state/slices/priorities';
 import { GEAR_SLOTS, WeaponTypes } from '../../../utils/gw2-data';
 
 const useStyles = makeStyles()((theme) => ({
@@ -24,14 +30,15 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-const ExcludedSlots = () => {
+const ExoticSlots = () => {
   const { classes } = useStyles();
 
   const dispatch = useDispatch();
   const forcedSlots = useSelector(getForcedSlots);
+  const excludedSlots = useSelector(getExclusionData);
   const dualWielded = useSelector(getPriority('weaponType'));
   const affixes = useSelector(getPriority('affixes'));
-  const exclusions = useSelector(getExclusionData);
+  const exotics = useSelector(getUsedExoticsData);
 
   let SLOTS = GEAR_SLOTS;
   if (dualWielded !== WeaponTypes.dualWield) {
@@ -39,18 +46,30 @@ const ExcludedSlots = () => {
   }
 
   const handleChange = (index, affix) => (event) => {
-    dispatch(changeExclusion({ index, affix, value: event.target.checked }));
+    dispatch(changeExotic({ index, affix, value: event.target.checked }));
   };
-
+  const handleChangeAll = (event) => {
+    dispatch(changeAllExotic({ value: event.target.checked }));
+  };
+  const allExotics = Object.values(exotics).flat();
+  const allExoticsChecked = allExotics.length > 0 && allExotics.every(Boolean);
+  const someExoticsChecked = !allExoticsChecked && allExotics.some(Boolean);
   return (
     <TableContainer>
       <Table className={classes.tableCollapse}>
         <TableHead>
-          <TableCell padding="none" />
-          {SLOTS.map((slot, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <TableCell padding="none" key={index}>
-              {slot.short}
+          <TableCell padding="none">
+            <Checkbox
+              size="small"
+              classes={{ root: classes.checkbox }}
+              checked={allExoticsChecked}
+              indeterminate={someExoticsChecked}
+              onChange={handleChangeAll}
+            />
+          </TableCell>
+          {SLOTS.map(({ short }) => (
+            <TableCell padding="none" key={`header ${short}`}>
+              {short}
             </TableCell>
           ))}
         </TableHead>
@@ -58,14 +77,13 @@ const ExcludedSlots = () => {
           {affixes.map((affix) => (
             <TableRow key={affix}>
               <TableCell padding="none">{affix}</TableCell>
-              {SLOTS.map((slot, index) => (
-                // eslint-disable-next-line react/no-array-index-key
-                <TableCell padding="none" sx={{ padding: 0.3 }} key={index}>
+              {SLOTS.map(({ short }, index) => (
+                <TableCell padding="none" sx={{ padding: 0.3 }} key={affix + short}>
                   <Checkbox
                     size="small"
                     classes={{ root: classes.checkbox }}
-                    checked={Boolean(exclusions?.[affix]?.[index])}
-                    disabled={forcedSlots[index] !== null}
+                    checked={Boolean(exotics?.[affix]?.[index])}
+                    disabled={forcedSlots[index] !== null || excludedSlots?.[affix]?.[index]}
                     onChange={handleChange(index, affix)}
                   />
                 </TableCell>
@@ -77,4 +95,4 @@ const ExcludedSlots = () => {
     </TableContainer>
   );
 };
-export default ExcludedSlots;
+export default ExoticSlots;

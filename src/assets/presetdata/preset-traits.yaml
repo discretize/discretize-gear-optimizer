@@ -1,6 +1,74 @@
 GraphQL ID: presetTraits
 list:
 
+  - name: Power Chrono IA GS
+    profession: Chronomancer
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "10",
+          "1",
+          "40"
+        ],
+        "selectedTraits": [
+          [
+            686,
+            713,
+            681
+          ],
+          [
+            701,
+            708,
+            692
+          ],
+          [
+            1995,
+            1978,
+            1890
+          ]
+        ],
+        "items": [
+          {
+            "fragility": {
+              "amount": ""
+            },
+            "egotism": {
+              "amount": ""
+            },
+            "vicious-expression": {
+              "amount": ""
+            },
+            "empowered-illusions": {}
+          },
+          {
+            "fencers-finesse": {
+              "amount": ""
+            },
+            "superiority-complex-base": {},
+            "superiority-complex": {
+              "amount": ""
+            },
+            "phantasmal-fury": {},
+            "sharper-images-phantasm": {
+              "amount": "4.07"
+            },
+            "sharper-images-clone": {
+              "amount": "1.06"
+            }
+          },
+          {
+            "danger-time": {},
+            "chronophantasma": {},
+            "improved-alacrity": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
   - name: Power Chrono DT Focus
     profession: Chronomancer
     traits: |-
@@ -126,7 +194,8 @@ list:
           },
           {
             "danger-time": {},
-            "chronophantasma": {}
+            "chronophantasma": {},
+            "improved-alacrity": {}
           }
         ]
       }
@@ -135,7 +204,7 @@ list:
         "skills": {}
       }
 
-  - name: Power Quickness Chrono
+  - name: Quickness Power Chrono GS*
     profession: Chronomancer
     traits: |-
       {
@@ -177,7 +246,7 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": ""
+              "amount": "5.7"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
@@ -185,15 +254,16 @@ list:
             },
             "phantasmal-fury": {},
             "sharper-images-phantasm": {
-              "amount": "1.99"
+              "amount": "1.24"
             },
             "sharper-images-clone": {
-              "amount": "0.88"
+              "amount": "0.90"
             }
           },
           {
             "danger-time": {},
-            "chronophantasma": {}
+            "chronophantasma": {},
+            "improved-alacrity": {}
           }
         ]
       }
@@ -202,7 +272,7 @@ list:
         "skills": {}
       }
 
-  - name: Axe Mirage
+  - name: Axe Mirage*
     profession: Mirage
     traits: |-
       {
@@ -342,7 +412,7 @@ list:
         }
       }
 
-  - name: Condi Chrono STM
+  - name: Quickness Condi Chrono*
     profession: Chronomancer
     traits: |-
       {
@@ -372,7 +442,7 @@ list:
         "items": [
           {
             "compounding-power": {
-              "amount": ""
+              "amount": "4.7"
             }
           },
           {
@@ -384,25 +454,27 @@ list:
               "amount": ""
             },
             "sharper-images-clone": {
-              "amount": "0.41"
+              "amount": "0.39"
             },
             "sharper-images-phantasm": {
-              "amount": "1.02"
+              "amount": "1.09"
             }
           },
           {
-            "danger-time": {}
+            "danger-time": {},
+            "improved-alacrity": {}
           }
         ]
       }
     skills: |-
       {
         "skills": {
-          "signet-of-domination": {}
+          "signet-of-domination": {},
+          "signet-of-midnight": {}
         }
       }
 
-  - name: Condi Virtuoso
+  - name: Condi Virtuoso*
     profession: Virtuoso
     traits: |-
       {
@@ -433,18 +505,21 @@ list:
           {
             "compounding-power": {
               "amount": ""
+            },
+            "Phantasmal Force": {
+              "amount": ""
             }
           },
           {
             "fencers-finesse": {
-              "amount": "5.09"
+              "amount": "5.41"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
             "sharper-images-phantasm": {
-              "amount": "1.73"
+              "amount": "1.75"
             },
             "phantasmal-fury-virtuoso": {}
           },
@@ -453,13 +528,13 @@ list:
               "amount": ""
             },
             "deadly-blades": {
-              "amount": "98"
+              "amount": "96.7"
             },
             "sharpening-sorrow": {},
             "quiet-intensity": {},
             "bloodsong": {},
             "jagged-mind": {
-              "amount": "5"
+              "amount": "5.21"
             }
           }
         ]
@@ -503,18 +578,21 @@ list:
           {
             "compounding-power": {
               "amount": ""
+            },
+            "Phantasmal Force": {
+              "amount": ""
             }
           },
           {
             "fencers-finesse": {
-              "amount": "5.09"
+              "amount": "5.41"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
             "sharper-images-phantasm": {
-              "amount": "1.73"
+              "amount": "1.75"
             },
             "phantasmal-fury-virtuoso": {}
           },
@@ -523,13 +601,13 @@ list:
               "amount": ""
             },
             "deadly-blades": {
-              "amount": "98"
+              "amount": "96.7"
             },
             "sharpening-sorrow": {},
             "quiet-intensity": {},
             "bloodsong": {},
             "jagged-mind": {
-              "amount": "4.82"
+              "amount": "5.03"
             }
           }
         ]
@@ -542,7 +620,77 @@ list:
         }
       }
 
-  - name: Power Virtuoso
+  - name: Condi Virtuoso (chaos)*
+    profession: Virtuoso
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "24",
+          "45",
+          "66"
+        ],
+        "selectedTraits": [
+          [
+            721,
+            1690,
+            2035
+          ],
+          [
+            670,
+            669,
+            671
+          ],
+          [
+            2202,
+            2207,
+            2223
+          ]
+        ],
+        "items": [
+          {
+            "compounding-power": {
+              "amount": ""
+            },
+            "Phantasmal Force": {
+              "amount": ""
+            }
+          },
+          {
+            "illusionary-defense": {
+              "amount": ""
+            },
+            "illusionary-membrane": {
+              "amount": ""
+            },
+            "chaotic-potency": {},
+            "chaotic-persistence": {}
+          },
+          {
+            "mental-focus": {
+              "amount": ""
+            },
+            "deadly-blades": {
+              "amount": "96.4"
+            },
+            "sharpening-sorrow": {},
+            "quiet-intensity": {},
+            "bloodsong": {},
+            "jagged-mind": {
+              "amount": "5.86"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-domination": {},
+          "signet-of-midnight": {}
+        }
+      }
+
+  - name: Power Virtuoso*
     profession: Virtuoso
     traits: |-
       {
@@ -583,23 +731,23 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": ""
+              "amount": "4.79"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
             "sharper-images-phantasm": {
-              "amount": "1.66"
+              "amount": "1.81"
             },
-            "phantasmal-fury": {}
+            "phantasmal-fury-virtuoso": {}
           },
           {
             "mental-focus": {
               "amount": ""
             },
             "deadly-blades": {
-              "amount": ""
+              "amount": "76.8"
             },
             "sharpening-sorrow": {},
             "quiet-intensity": {},
@@ -610,74 +758,6 @@ list:
     skills: |-
       {
         "skills": {}
-      }
-
-  - name: DH Radiance w/ PI
-    profession: Dragonhunter
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "16",
-          "42",
-          "27"
-        ],
-        "selectedTraits": [
-          [
-            574,
-            565,
-            579
-          ],
-          [
-            634,
-            653,
-            2017
-          ],
-          [
-            1898,
-            1835,
-            1955
-          ]
-        ],
-        "items": [
-          {
-            "right-hand-strength": {},
-            "right-hand-strength-1h": {
-              "amount": ""
-            },
-            "radiant-fire": {},
-            "retribution": {
-              "amount": ""
-            },
-            "radiant-power": {},
-            "amplified-wrath": {},
-            "righteous-instincts": {}
-          },
-          {
-            "fiery-wrath": {},
-            "symbolic-exposure": {},
-            "zealous-blade-base": {},
-            "zealous-blade-gs": {
-              "amount": ""
-            },
-            "kindled-zeal": {},
-            "symbolic-avenger": {}
-          },
-          {
-            "zealots-aggression": {},
-            "pure-of-sight": {},
-            "hunters-fortification": {},
-            "big-game-hunter": {}
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {
-          "bane-signet-2": {
-            "amount": ""
-          }
-        }
       }
 
   - name: DH Radiance
@@ -905,7 +985,7 @@ list:
           [
             574,
             565,
-            579
+            1683
           ],
           [
             634,
@@ -952,7 +1032,7 @@ list:
     skills: |-
       {
         "skills": {
-          "bane-signet-2": {
+          "bane-signet": {
             "amount": ""
           }
         }
@@ -1032,7 +1112,7 @@ list:
         }
       }
 
-  - name: Condi Quickbrand
+  - name: Condi Quickbrand*
     profession: Firebrand
     traits: |-
       {
@@ -1096,9 +1176,6 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-wrath": {
-            "amount": ""
-          },
           "mantra-of-flame": {}
         }
       }
@@ -1376,15 +1453,15 @@ list:
       {
         "showAll": false,
         "selectedLines": [
-          "16",
+          "46",
           "49",
           "62"
         ],
         "selectedTraits": [
           [
-            574,
-            578,
-            579
+            617,
+            610,
+            554
           ],
           [
             1899,
@@ -1399,17 +1476,17 @@ list:
         ],
         "items": [
           {
-            "right-hand-strength": {},
-            "right-hand-strength-1h": {
+            "inspired-virtue": {
               "amount": ""
             },
-            "radiant-fire": {},
-            "retribution": {
+            "unscathed-contender": {
               "amount": ""
             },
-            "radiant-power": {},
-            "amplified-wrath": {},
-            "righteous-instincts": {}
+            "virtue-of-retribution": {},
+            "inspiring-virtue": {
+              "amount": ""
+            },
+            "power-of-the-virtuous": {}
           },
           {
             "invigorating-bulwark": {
@@ -1427,11 +1504,7 @@ list:
       }
     skills: |-
       {
-        "skills": {
-          "bane-signet-2": {
-            "amount": ""
-          }
-        }
+        "skills": {}
       }
 
   - name: Power Willbender Radiance
@@ -1757,6 +1830,7 @@ list:
             "pinnacle-of-strength": {
               "amount": ""
             },
+            "pinnacle-of-strength-crit": {},
             "berserkers-power": {
               "amount": ""
             }
@@ -1800,7 +1874,7 @@ list:
         }
       }
 
-  - name: Condi Bers
+  - name: Condi (Quickness) Berserker*
     profession: Berserker
     traits: |-
       {
@@ -1836,24 +1910,23 @@ list:
             "deep-strikes": {
               "amount": ""
             },
-            "blade-master": {},
             "blade-master-2": {
               "amount": ""
             },
             "bloodlust": {},
             "furious": {
-              "amount": ""
+              "amount": "20"
             },
             "bloodlust-on-crit": {
-              "amount": "3.17"
-            }
+              "amount": "2.94"
+            },
+            "blade-master-base-bugged": {},
+            "furious-burst": {}
           },
           {
             "warriors-sprint": {
               "amount": ""
             },
-            "double-standards-str": {},
-            "double-standards-disc": {},
             "axe-mastery-one": {},
             "axe-mastery-axe": {
               "amount": ""
@@ -1920,6 +1993,7 @@ list:
             "pinnacle-of-strength": {
               "amount": ""
             },
+            "pinnacle-of-strength-crit": {},
             "berserkers-power": {
               "amount": ""
             }
@@ -1956,7 +2030,7 @@ list:
         }
       }
 
-  - name: Banner Bladesworn
+  - name: Quickness Bladesworn
     profession: Bladesworn
     traits: |-
       {
@@ -1991,83 +2065,15 @@ list:
             "pinnacle-of-strength": {
               "amount": ""
             },
+            "pinnacle-of-strength-crit": {},
             "berserkers-power": {
-              "amount": "2.8"
+              "amount": "2.91"
             }
           },
           {
             "warriors-sprint": {
               "amount": ""
             },
-            "double-standards-str": {},
-            "double-standards-disc": {},
-            "axe-mastery-one": {},
-            "axe-mastery-axe": {
-              "amount": ""
-            }
-          },
-          {
-            "fierce-as-fire": {
-              "amount": "9.6"
-            },
-            "guns-and-glory": {
-              "amount": ""
-            }
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {
-          "signet-of-might": {}
-        }
-      }
-
-  - name: DPS Bladesworn
-    profession: Bladesworn
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "4",
-          "51",
-          "68"
-        ],
-        "selectedTraits": [
-          [
-            1444,
-            1449,
-            1437
-          ],
-          [
-            1413,
-            1484,
-            1369
-          ],
-          [
-            2225,
-            2302,
-            2239
-          ]
-        ],
-        "items": [
-          {
-            "peak-performance": {},
-            "forceful-greatsword": {},
-            "great-fortitude": {},
-            "pinnacle-of-strength": {
-              "amount": ""
-            },
-            "berserkers-power": {
-              "amount": "2.8"
-            }
-          },
-          {
-            "warriors-sprint": {
-              "amount": ""
-            },
-            "double-standards-str": {},
-            "double-standards-disc": {},
             "axe-mastery-one": {},
             "axe-mastery-axe": {
               "amount": ""
@@ -2078,39 +2084,36 @@ list:
               "amount": "10"
             },
             "guns-and-glory": {
-              "amount": ""
+              "amount": "9.9"
             }
           }
         ]
       }
     skills: |-
       {
-        "skills": {
-          "signet-of-might": {},
-          "signet-of-fury": {}
-        }
+        "skills": {}
       }
 
-  - name: Might Bladesworn
+  - name: DPS Bladesworn Tactics*
     profession: Bladesworn
     traits: |-
       {
         "showAll": false,
         "selectedLines": [
+          "4",
           "11",
-          "51",
           "68"
         ],
         "selectedTraits": [
           [
-            1469,
-            1482,
-            1711
+            1444,
+            1449,
+            1437
           ],
           [
-            1413,
-            1484,
-            1369
+            1469,
+            1486,
+            0
           ],
           [
             2225,
@@ -2120,12 +2123,24 @@ list:
         ],
         "items": [
           {
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
+            "pinnacle-of-strength": {
+              "amount": ""
+            },
+            "pinnacle-of-strength-crit": {},
+            "berserkers-power": {
+              "amount": "2.91"
+            }
+          },
+          {
             "leg-specialist": {
               "amount": ""
             },
             "roaring-reveille": {},
             "empowered": {
-              "amount": "7"
+              "amount": ""
             },
             "warriors-cunning": {
               "amount": ""
@@ -2133,22 +2148,11 @@ list:
             "vigorous-shouts": {}
           },
           {
-            "warriors-sprint": {
-              "amount": ""
-            },
-            "double-standards-str": {},
-            "double-standards-disc": {},
-            "axe-mastery-one": {},
-            "axe-mastery-axe": {
-              "amount": ""
-            }
-          },
-          {
             "fierce-as-fire": {
-              "amount": "9.6"
+              "amount": "10"
             },
             "guns-and-glory": {
-              "amount": ""
+              "amount": "9.9"
             }
           }
         ]
@@ -2218,7 +2222,8 @@ list:
             },
             "fresh-air": {
               "amount": ""
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "superior-elements": {},
@@ -2306,7 +2311,8 @@ list:
             },
             "fresh-air": {
               "amount": ""
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "superior-elements": {},
@@ -2394,7 +2400,8 @@ list:
             },
             "fresh-air": {
               "amount": ""
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "superior-elements": {},
@@ -2493,7 +2500,11 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "woven-fire": {
+            "amount": "52.6"
+          }
+        }
       }
 
   - name: Condi Weaver Dagger
@@ -2567,7 +2578,167 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "woven-fire": {
+            "amount": "55"
+          }
+        }
+      }
+
+  - name: Condi Weaver Staff*
+    profession: Weaver
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "56"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            1510
+          ],
+          [
+            1507,
+            275,
+            287
+          ],
+          [
+            2177,
+            2180,
+            2131
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "55.2"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": ""
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": "9.7"
+            }
+          },
+          {
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
+          },
+          {
+            "superior-elements": {},
+            "masters-fortitude": {},
+            "masters-fortitude-sword": {},
+            "weavers-prowess": {},
+            "swift-revenge": {
+              "amount": ""
+            },
+            "elemental-polyphony-fire": {
+              "amount": "96.3"
+            },
+            "elemental-polyphony-air": {
+              "amount": "10.1"
+            },
+            "elements-of-rage-base": {},
+            "elements-of-rage-buff": {
+              "amount": "91.9"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "woven-fire": {
+            "amount": "56.9"
+          }
+        }
+      }
+
+  - name: Condi Weaver Scepter*
+    profession: Weaver
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "56"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            1510
+          ],
+          [
+            1507,
+            275,
+            287
+          ],
+          [
+            2177,
+            2180,
+            2131
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "65.3"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": ""
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": "9.4"
+            }
+          },
+          {
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
+          },
+          {
+            "superior-elements": {},
+            "masters-fortitude": {},
+            "masters-fortitude-sword": {},
+            "weavers-prowess": {},
+            "swift-revenge": {
+              "amount": ""
+            },
+            "elemental-polyphony-fire": {
+              "amount": "96"
+            },
+            "elemental-polyphony-air": {
+              "amount": "4.8"
+            },
+            "elements-of-rage-base": {},
+            "elements-of-rage-buff": {
+              "amount": "83.5"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "woven-fire": {
+            "amount": "54.9"
+          }
+        }
       }
 
   - name: Hybrid Weaver
@@ -2630,7 +2801,8 @@ list:
             },
             "fresh-air": {
               "amount": "48"
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "superior-elements": {},
@@ -2655,7 +2827,11 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "woven-fire": {
+            "amount": "52"
+          }
+        }
       }
 
   - name: Condi Tempest
@@ -2780,7 +2956,8 @@ list:
             },
             "fresh-air": {
               "amount": "60"
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "gathered-focus": {},
@@ -2798,7 +2975,7 @@ list:
         }
       }
 
-  - name: Power Catalyst
+  - name: Power Catalyst*
     profession: Catalyst
     traits: |-
       {
@@ -2828,13 +3005,13 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "24.3"
+              "amount": "28.3"
             },
             "burning-precision": {},
             "burning-rage": {},
             "power-overwhelming": {},
             "power-overwhelming-2": {
-              "amount": "24.3"
+              "amount": "28.3"
             },
             "pyromancers-training": {},
             "persisting-flames": {
@@ -2851,14 +3028,15 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "37.9"
+              "amount": "17.3"
             },
             "bolt-to-the-heart": {
               "amount": ""
             },
             "fresh-air": {
               "amount": ""
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "hardened-auras": {
@@ -2876,11 +3054,11 @@ list:
       {
         "skills": {
           "flame-wheel": {
-            "amount": "90"
+            "amount": "98.6"
           },
           "crescent-wind": {},
           "relentless-fire": {
-            "amount": "47.6"
+            "amount": "50.91"
           }
         }
       }
@@ -2908,7 +3086,7 @@ list:
           ],
           [
             2252,
-            2247,
+            2234,
             2251
           ]
         ],
@@ -2945,7 +3123,8 @@ list:
             },
             "fresh-air": {
               "amount": ""
-            }
+            },
+            "zephyrs-speed": {}
           },
           {
             "hardened-auras": {
@@ -2955,7 +3134,8 @@ list:
             "empowering-auras": {
               "amount": "4.8"
             },
-            "empowered-empowerment": {}
+            "empowered-empowerment": {},
+            "spectacular-sphere": {}
           }
         ]
       }
@@ -3061,12 +3241,12 @@ list:
           [
             363,
             358,
-            361
+            2028
           ],
           [
-            1886,
+            1962,
             2015,
-            1986
+            2033
           ]
         ],
         "items": [
@@ -3092,21 +3272,80 @@ list:
         "skills": {}
       }
 
-  - name: Power Slb Marks (allies)
+  - name: Condi Untamed Axe*
+    profession: Untamed
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "30",
+          "32",
+          "72"
+        ],
+        "selectedTraits": [
+          [
+            1069,
+            1846,
+            1888
+          ],
+          [
+            1072,
+            0,
+            1066
+          ],
+          [
+            2301,
+            2263,
+            2271
+          ]
+        ],
+        "items": [
+          {
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {},
+            "sharpened-edges": {
+              "amount": "4.47"
+            }
+          },
+          {
+            "honed-axes": {},
+            "honed-axes-axe": {
+              "amount": "100"
+            }
+          },
+          {
+            "natural-fortitude": {},
+            "ferocious-symbiosis": {
+              "amount": ""
+            },
+            "vow-of-the-untamed-pet": {},
+            "vow-of-the-untamed-you": {
+              "amount": "7.5"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Power Slb Skirm
     profession: Soulbeast
     traits: |-
       {
         "showAll": false,
         "selectedLines": [
-          "8",
+          "30",
           "32",
           "55"
         ],
         "selectedTraits": [
           [
-            1014,
-            1000,
-            996
+            0,
+            1016,
+            1888
           ],
           [
             1606,
@@ -3116,15 +3355,14 @@ list:
           [
             2071,
             2161,
-            2128
+            2143
           ]
         ],
         "items": [
           {
-            "farsighted": {},
-            "predators-onslaught": {
-              "amount": ""
-            }
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {}
           },
           {
             "honed-axes": {},
@@ -3151,13 +3389,7 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-the-wild": {},
-          "one-wolf-pack-sic-em": {
-            "amount": "1.116"
-          },
-          "one-wolf-pack-no-sic-em": {
-            "amount": "0.186"
-          }
+          "signet-of-the-wild": {}
         }
       }
 
@@ -3185,7 +3417,7 @@ list:
           [
             2071,
             2161,
-            2128
+            2143
           ]
         ],
         "items": [
@@ -3220,215 +3452,7 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-the-wild": {},
-          "one-wolf-pack-sic-em": {
-            "amount": "0.372"
-          },
-          "one-wolf-pack-no-sic-em": {
-            "amount": "0.186"
-          }
-        }
-      }
-
-  - name: Power Slb Skirm (allies)
-    profession: Soulbeast
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "30",
-          "32",
-          "55"
-        ],
-        "selectedTraits": [
-          [
-            0,
-            1016,
-            1888
-          ],
-          [
-            1606,
-            970,
-            1066
-          ],
-          [
-            2071,
-            2161,
-            2128
-          ]
-        ],
-        "items": [
-          {
-            "hidden-barbs": {},
-            "hunters-tactics": {},
-            "vicious-quarry": {}
-          },
-          {
-            "honed-axes": {},
-            "honed-axes-axe": {
-              "amount": ""
-            }
-          },
-          {
-            "furious-strength": {
-              "amount": ""
-            },
-            "twice-as-vicious": {
-              "amount": ""
-            },
-            "oppressive-superiority": {},
-            "archetype-ferocious": {},
-            "pack-alpha-merged": {},
-            "loud-whistle-merged": {},
-            "pets-prowess-merged": {},
-            "honed-axes-merged": {}
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {
-          "signet-of-the-wild": {},
-          "one-wolf-pack-sic-em": {
-            "amount": "1.072"
-          },
-          "one-wolf-pack-no-sic-em": {
-            "amount": "0.186"
-          }
-        }
-      }
-
-  - name: Power Slb Skirm
-    profession: Soulbeast
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "30",
-          "32",
-          "55"
-        ],
-        "selectedTraits": [
-          [
-            0,
-            1016,
-            1888
-          ],
-          [
-            1606,
-            970,
-            1066
-          ],
-          [
-            2071,
-            2161,
-            2128
-          ]
-        ],
-        "items": [
-          {
-            "hidden-barbs": {},
-            "hunters-tactics": {},
-            "vicious-quarry": {}
-          },
-          {
-            "honed-axes": {},
-            "honed-axes-axe": {
-              "amount": ""
-            }
-          },
-          {
-            "furious-strength": {
-              "amount": ""
-            },
-            "twice-as-vicious": {
-              "amount": ""
-            },
-            "oppressive-superiority": {},
-            "archetype-ferocious": {},
-            "pack-alpha-merged": {},
-            "loud-whistle-merged": {},
-            "pets-prowess-merged": {},
-            "honed-axes-merged": {}
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {
-          "signet-of-the-wild": {},
-          "one-wolf-pack-sic-em": {
-            "amount": "0.372"
-          },
-          "one-wolf-pack-no-sic-em": {
-            "amount": "0.186"
-          }
-        }
-      }
-
-  - name: Condi Slb SB (allies)
-    profession: Soulbeast
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "30",
-          "33",
-          "55"
-        ],
-        "selectedTraits": [
-          [
-            1069,
-            1846,
-            1912
-          ],
-          [
-            1099,
-            1101,
-            1701
-          ],
-          [
-            2071,
-            2161,
-            2128
-          ]
-        ],
-        "items": [
-          {
-            "hidden-barbs": {},
-            "hunters-tactics": {},
-            "vicious-quarry": {},
-            "sharpened-edges": {
-              "amount": "3.65"
-            }
-          },
-          {
-            "oakheart-salve": {},
-            "taste-for-danger": {},
-            "ambidexterity": {},
-            "ambidexterity-2": {
-              "amount": ""
-            },
-            "poison-master": {}
-          },
-          {
-            "furious-strength": {
-              "amount": ""
-            },
-            "twice-as-vicious": {
-              "amount": "45"
-            },
-            "oppressive-superiority": {},
-            "archetype-deadly": {}
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {
-          "one-wolf-pack-no-sic-em-sharpened": {
-            "amount": "1.22"
-          }
+          "signet-of-the-wild": {}
         }
       }
 
@@ -3491,77 +3515,7 @@ list:
       }
     skills: |-
       {
-        "skills": {
-          "one-wolf-pack-no-sic-em-sharpened": {
-            "amount": "0.52"
-          }
-        }
-      }
-
-  - name: Condi Slb D/T A/D (allies)
-    profession: Soulbeast
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "30",
-          "33",
-          "55"
-        ],
-        "selectedTraits": [
-          [
-            1069,
-            1846,
-            1064
-          ],
-          [
-            1099,
-            1101,
-            1701
-          ],
-          [
-            2071,
-            2161,
-            2128
-          ]
-        ],
-        "items": [
-          {
-            "hidden-barbs": {},
-            "hunters-tactics": {},
-            "vicious-quarry": {},
-            "sharpened-edges": {
-              "amount": "3.66"
-            }
-          },
-          {
-            "oakheart-salve": {},
-            "taste-for-danger": {},
-            "ambidexterity": {},
-            "ambidexterity-2": {
-              "amount": "100"
-            },
-            "poison-master": {}
-          },
-          {
-            "furious-strength": {
-              "amount": ""
-            },
-            "twice-as-vicious": {
-              "amount": "45"
-            },
-            "oppressive-superiority": {},
-            "archetype-deadly": {}
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {
-          "one-wolf-pack-no-sic-em-sharpened": {
-            "amount": "1.21"
-          }
-        }
+        "skills": {}
       }
 
   - name: Condi Slb D/T A/D
@@ -3623,14 +3577,10 @@ list:
       }
     skills: |-
       {
-        "skills": {
-          "one-wolf-pack-no-sic-em-sharpened": {
-            "amount": "0.51"
-          }
-        }
+        "skills": {}
       }
 
-  - name: Hybrid Slb (allies)
+  - name: Hybrid Slb OS*
     profession: Soulbeast
     traits: |-
       {
@@ -3654,7 +3604,7 @@ list:
           [
             2071,
             2161,
-            2128
+            2143
           ]
         ],
         "items": [
@@ -3663,7 +3613,7 @@ list:
             "hunters-tactics": {},
             "vicious-quarry": {},
             "sharpened-edges": {
-              "amount": "3.69"
+              "amount": "3.56"
             }
           },
           {
@@ -3677,7 +3627,7 @@ list:
               "amount": ""
             },
             "twice-as-vicious": {
-              "amount": "82"
+              "amount": "80.5"
             },
             "oppressive-superiority": {},
             "archetype-deadly": {},
@@ -3690,84 +3640,7 @@ list:
       }
     skills: |-
       {
-        "skills": {
-          "one-wolf-pack-sic-em-sharpened": {
-            "amount": "1.13"
-          },
-          "one-wolf-pack-no-sic-em-sharpened": {
-            "amount": "0.08"
-          }
-        }
-      }
-
-  - name: Hybrid Slb
-    profession: Soulbeast
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "30",
-          "32",
-          "55"
-        ],
-        "selectedTraits": [
-          [
-            1069,
-            1846,
-            1888
-          ],
-          [
-            1606,
-            970,
-            1066
-          ],
-          [
-            2071,
-            2161,
-            2128
-          ]
-        ],
-        "items": [
-          {
-            "hidden-barbs": {},
-            "hunters-tactics": {},
-            "vicious-quarry": {},
-            "sharpened-edges": {
-              "amount": "3.69"
-            }
-          },
-          {
-            "honed-axes": {},
-            "honed-axes-axe": {
-              "amount": "100"
-            }
-          },
-          {
-            "furious-strength": {
-              "amount": ""
-            },
-            "twice-as-vicious": {
-              "amount": "82"
-            },
-            "oppressive-superiority": {},
-            "archetype-deadly": {},
-            "pack-alpha-merged": {},
-            "loud-whistle-merged": {},
-            "pets-prowess-merged": {},
-            "honed-axes-merged": {}
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {
-          "one-wolf-pack-sic-em-sharpened": {
-            "amount": "0.43"
-          },
-          "one-wolf-pack-no-sic-em-sharpened": {
-            "amount": "0.08"
-          }
-        }
+        "skills": {}
       }
 
   # - name: Pure Shortbow Slb BM
@@ -4058,7 +3931,7 @@ list:
         "selectedTraits": [
           [
             1767,
-            1786,
+            1765,
             1800
           ],
           [
@@ -4384,7 +4257,7 @@ list:
         "skills": {}
       }
 
-  - name: Power Herald DE
+  - name: Power (Quickness) Herald DE*
     profession: Herald
     traits: |-
       {
@@ -4397,7 +4270,7 @@ list:
         "selectedTraits": [
           [
             1767,
-            1786,
+            1765,
             1800
           ],
           [
@@ -4456,7 +4329,90 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "burst-of-strength": {
+            "amount": ""
+          }
+        }
+      }
+
+  - name: Power Herald FP*
+    profession: Herald
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "15",
+          "3",
+          "52"
+        ],
+        "selectedTraits": [
+          [
+            1767,
+            1765,
+            1800
+          ],
+          [
+            1761,
+            1774,
+            1719
+          ],
+          [
+            1813,
+            1738,
+            1803
+          ]
+        ],
+        "items": [
+          {
+            "unsuspecting-strikes": {
+              "amount": ""
+            },
+            "destructive-impulses-base": {},
+            "destructive-impulses-dual": {
+              "amount": "100"
+            },
+            "notoriety": {
+              "amount": ""
+            },
+            "targeted-destruction": {
+              "amount": ""
+            },
+            "swift-termination": {
+              "amount": ""
+            }
+          },
+          {
+            "rising-tide": {
+              "amount": ""
+            },
+            "ferocious-aggression": {
+              "amount": ""
+            },
+            "roiling-mists": {}
+          },
+          {
+            "draconic-fortitude": {},
+            "reinforced-potency-base": {},
+            "reinforced-potency-boons": {
+              "amount": ""
+            },
+            "forceful-persistence-nonherald": {
+              "amount": "49.9"
+            },
+            "forceful-persistence-herald": {
+              "amount": "2.23"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "burst-of-strength": {
+            "amount": "27.6"
+          }
+        }
       }
 
   - name: Condi Herald
@@ -4611,54 +4567,35 @@ list:
       {
         "showAll": false,
         "selectedLines": [
+          "",
           "12",
-          "15",
           "63"
         ],
         "selectedTraits": [
           [
-            1822,
-            1818,
+            0,
+            0,
+            0
+          ],
+          [
+            1823,
+            0,
             1815
           ],
           [
-            1767,
-            1786,
-            1754
-          ],
-          [
-            2120,
+            0,
             2108,
             2182
           ]
         ],
         "items": [
+          {},
           {
-            "tranquil-balance": {
-              "amount": ""
-            },
             "life-attunement": {},
             "invoking-harmony": {
               "amount": ""
-            }
-          },
-          {
-            "unsuspecting-strikes": {
-              "amount": ""
             },
-            "destructive-impulses-base": {},
-            "destructive-impulses-dual": {
-              "amount": ""
-            },
-            "notoriety": {
-              "amount": ""
-            },
-            "targeted-destruction": {
-              "amount": ""
-            },
-            "swift-termination": {
-              "amount": ""
-            }
+            "serene-rejuvenation": {}
           },
           {
             "ambush-commander": {
@@ -4691,7 +4628,7 @@ list:
         "selectedTraits": [
           [
             1767,
-            1786,
+            1765,
             1800
           ],
           [
@@ -4894,6 +4831,74 @@ list:
         "skills": {}
       }
 
+  - name: Power Alacrity Mechanist (inaccurate)
+    profession: Mechanist
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "38",
+          "6",
+          "70"
+        ],
+        "selectedTraits": [
+          [
+            1914,
+            1923,
+            526
+          ],
+          [
+            1882,
+            1892,
+            1947
+          ],
+          [
+            2296,
+            2276,
+            2281
+          ]
+        ],
+        "items": [
+          {
+            "chemical-rounds": {},
+            "high-caliber": {},
+            "hematic-focus": {},
+            "thermal-vision": {},
+            "no-scope": {
+              "amount": ""
+            },
+            "serrated-steel": {},
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": {},
+            "sharpshooter": {
+              "amount": "???"
+            }
+          },
+          {
+            "glass-cannon": {
+              "amount": ""
+            },
+            "explosive-temper": {
+              "amount": ""
+            },
+            "blast-shield": {},
+            "shaped-charge": {
+              "amount": ""
+            },
+            "big-boomer": {}
+          },
+          {}
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "force-signet": {}
+        }
+      }
+
   - name: Condi Mechanist J-Drive
     profession: Mechanist
     traits: |-
@@ -5005,6 +5010,72 @@ list:
             "incendiary-powder": {},
             "sharpshooter": {
               "amount": "4.01"
+            }
+          },
+          {
+            "glass-cannon": {
+              "amount": ""
+            },
+            "explosive-temper": {
+              "amount": ""
+            },
+            "blast-shield": {},
+            "shaped-charge": {
+              "amount": ""
+            },
+            "big-boomer": {}
+          },
+          {}
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Condi Alac Mechanist (inaccurate)
+    profession: Mechanist
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "38",
+          "6",
+          "70"
+        ],
+        "selectedTraits": [
+          [
+            1878,
+            2006,
+            433
+          ],
+          [
+            1882,
+            1892,
+            505
+          ],
+          [
+            2296,
+            2276,
+            2281
+          ]
+        ],
+        "items": [
+          {
+            "chemical-rounds": {},
+            "high-caliber": {},
+            "hematic-focus": {},
+            "thermal-vision": {},
+            "no-scope": {
+              "amount": ""
+            },
+            "serrated-steel": {},
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": {},
+            "sharpshooter": {
+              "amount": "4"
             }
           },
           {
@@ -5223,6 +5294,49 @@ list:
               "amount": ""
             }
           }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Heal Mechanist
+    profession: Mechanist
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "47",
+          "29",
+          "70"
+        ],
+        "selectedTraits": [
+          [
+            394,
+            1834,
+            1916
+          ],
+          [
+            521,
+            470,
+            473
+          ],
+          [
+            2296,
+            2276,
+            2281
+          ]
+        ],
+        "items": [
+          {
+            "over-shield": {},
+            "energy-amplifier": {}
+          },
+          {
+            "compounding-chemicals": {}
+          },
+          {}
         ]
       }
     skills: |-
@@ -5679,7 +5793,9 @@ list:
             "havoc-specialist": {
               "amount": ""
             },
-            "bounding-dodger": {},
+            "bounding-dodger": {
+              "amount": "100"
+            },
             "lotus-training": {}
           }
         ]
@@ -5747,7 +5863,9 @@ list:
             "havoc-specialist": {
               "amount": ""
             },
-            "bounding-dodger": {},
+            "bounding-dodger": {
+              "amount": "100"
+            },
             "lotus-training": {}
           }
         ]
@@ -5759,7 +5877,7 @@ list:
         }
       }
 
-  - name: Condi Daredevil
+  - name: Condi Daredevil*
     profession: Daredevil
     traits: |-
       {
@@ -5802,7 +5920,7 @@ list:
           {
             "preparedness": {},
             "lead-attacks": {
-              "amount": "11.5"
+              "amount": "11.4"
             },
             "deadly-ambush": {}
           },
@@ -5963,7 +6081,7 @@ list:
         }
       }
 
-  - name: DPS Specter
+  - name: DPS Specter*
     profession: Specter
     traits: |-
       {
@@ -6006,7 +6124,7 @@ list:
           {
             "preparedness": {},
             "lead-attacks": {
-              "amount": "13.6"
+              "amount": "13.8"
             },
             "deadly-ambush": {}
           },

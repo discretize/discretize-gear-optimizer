@@ -100,6 +100,9 @@
       subText: 100%
       modifiers:
         damage:
+          Strike Damage: [15%, mult]
+      wvwModifiers:
+        damage:
           Strike Damage: [10%, mult]
       gw2id: 1947
       defaultEnabled: true
@@ -132,6 +135,7 @@
 
     - id: high-caliber
       text: High Caliber
+      subText: 100% melee
       modifiers:
         attributes:
           Critical Chance: 15%
@@ -141,6 +145,9 @@
     - id: hematic-focus
       text: Hematic Focus
       modifiers:
+        attributes:
+          Critical Chance: 15%
+      wvwModifiers:
         attributes:
           Critical Chance: 10%
       minor: true
@@ -164,10 +171,7 @@
 
     - id: no-scope
       text: No Scope
-      amountData:
-        label: '% melee'
-        default: 100
-        quantityEntered: 100
+      subText: 100% fury
       modifiers:
         attributes:
           Ferocity: [150, buff]
@@ -261,7 +265,7 @@
       text: Iron Blooded
       amountData:
         label: 'boons'
-        default: 8
+        default: 10
         quantityEntered: 1
         disableBlacklist: true
       modifiers:

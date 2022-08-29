@@ -1,11 +1,11 @@
 const defaultBoonTemplates = {
   fractal: {
-    Power: 'Power (spotter)',
-    Condi: 'Condi',
+    Power: 'Realistic',
+    Condi: 'Realistic',
   },
   raid: {
-    Power: 'Benchmark',
-    Condi: 'Benchmark',
+    Power: 'Realistic',
+    Condi: 'Realistic',
   },
 };
 

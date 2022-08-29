@@ -115,6 +115,11 @@ export interface OptimizerCoreSettings {
   maxToughness: number | null;
   minHealth: number | null;
   minCritChance: number | null;
+  minDamage: number | null;
+  minHealing: number | null;
+  minOutgoingHealing: number | null;
+  minQuicknessDuration: number | null;
+  minSurvivability: number | null;
   maxResults: number;
   primaryInfusion: InfusionName | '';
   secondaryInfusion: InfusionName | '';
@@ -127,10 +132,10 @@ export interface OptimizerCoreSettings {
 
   // these are in addition to the input
   infusionMode: InfusionMode;
-  forcedRing: boolean;
-  forcedAcc: boolean;
-  forcedWep: boolean;
-  forcedArmor: boolean;
+  identicalRing: boolean;
+  identicalAcc: boolean;
+  identicalWep: boolean;
+  identicalArmor: boolean;
   slots: number; // The length of the former slots array
   runsAfterThisSlot: number[];
   affixesArray: AffixName[][];
@@ -156,6 +161,7 @@ type OptimizerCoreMinimalSettings = Pick<
   | 'rankby'
   | 'shouldDisplayExtras'
   | 'extrasCombination'
+  | 'modifiers'
 >;
 type Gear = AffixName[];
 type GearStats = Record<string, number>;
@@ -195,6 +201,7 @@ export class OptimizerCore {
       rankby: settings.rankby,
       shouldDisplayExtras: settings.shouldDisplayExtras,
       extrasCombination: settings.extrasCombination,
+      modifiers: settings.modifiers,
     };
 
     let applyInfusionsFunction: OptimizerCore['applyInfusionsFunction'];
@@ -281,10 +288,10 @@ export class OptimizerCore {
        * Each check is disabled if forcing one or more of those slots to a specific gear type.
        */
       if (
-        (!settings.forcedRing && nextSlot === 9 && gear[nextSlot - 2] > gear[nextSlot - 1]) ||
-        (!settings.forcedAcc && nextSlot === 11 && gear[nextSlot - 2] > gear[nextSlot - 1]) ||
-        (!settings.forcedWep && nextSlot === 14 && gear[nextSlot - 2] > gear[nextSlot - 1]) ||
-        (!settings.forcedArmor && nextSlot === 6 && (gear[1] > gear[3] || gear[3] > gear[5]))
+        (settings.identicalRing && nextSlot === 9 && gear[nextSlot - 2] > gear[nextSlot - 1]) ||
+        (settings.identicalAcc && nextSlot === 11 && gear[nextSlot - 2] > gear[nextSlot - 1]) ||
+        (settings.identicalWep && nextSlot === 14 && gear[nextSlot - 2] > gear[nextSlot - 1]) ||
+        (settings.identicalArmor && nextSlot === 6 && (gear[1] > gear[3] || gear[3] > gear[5]))
       ) {
         // bump calculationRuns by the number of runs we just skipped
         calculationRuns += settings.runsAfterThisSlot[nextSlot];
@@ -562,36 +569,33 @@ export class OptimizerCore {
       return false;
     }
 
-    switch (settings.rankby) {
-      case 'Damage':
-        const powerDamageScore = this.calcPower(character, damageMultiplier);
+    if (settings.rankby === 'Damage' || settings.minDamage) {
+      const powerDamageScore = this.calcPower(character, damageMultiplier);
 
-        // cache condi result based on cdmg and expertise
-        let condiDamageScore = 0;
-        if (settings.disableCondiResultCache) {
-          condiDamageScore = this.calcCondi(
-            character,
-            damageMultiplier,
-            settings.relevantConditions,
-          );
-        } else if (settings.relevantConditions.length > 0) {
-          const CONDI_CACHE_ID = attributes['Expertise'] + attributes['Condition Damage'] * 10000;
-          condiDamageScore =
-            this.condiResultCache?.get(CONDI_CACHE_ID) ||
-            this.calcCondi(character, damageMultiplier, settings.relevantConditions);
-          this.condiResultCache?.set(CONDI_CACHE_ID, condiDamageScore);
-        }
+      // cache condi result based on cdmg and expertise
+      let condiDamageScore = 0;
+      if (settings.disableCondiResultCache) {
+        condiDamageScore = this.calcCondi(character, damageMultiplier, settings.relevantConditions);
+      } else if (settings.relevantConditions.length > 0) {
+        const CONDI_CACHE_ID = attributes['Expertise'] + attributes['Condition Damage'] * 10000;
+        condiDamageScore =
+          this.condiResultCache?.get(CONDI_CACHE_ID) ||
+          this.calcCondi(character, damageMultiplier, settings.relevantConditions);
+        this.condiResultCache?.set(CONDI_CACHE_ID, condiDamageScore);
+      }
 
-        attributes['Damage'] =
-          powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] || 0);
-        break;
-      case 'Survivability':
-        this.calcSurvivability(character, damageMultiplier);
-        break;
-      case 'Healing':
-        this.calcHealing(character);
-        break;
-      // no default
+      attributes['Damage'] =
+        powerDamageScore + condiDamageScore + (character.attributes['Flat DPS'] || 0);
+    }
+    if (settings.rankby === 'Healing' || settings.minHealing) {
+      this.calcHealing(character);
+    }
+    if (settings.rankby === 'Survivability' || settings.minSurvivability) {
+      this.calcSurvivability(character, damageMultiplier);
+    }
+
+    if (!skipValidation && this.checkInvalidIndicators(character)) {
+      return false;
     }
 
     return true;
@@ -676,13 +680,34 @@ export class OptimizerCore {
     const invalid =
       (settings.minBoonDuration !== null &&
         attributes['Boon Duration'] < settings.minBoonDuration / 100) ||
+      (settings.minQuicknessDuration !== null &&
+        attributes['Boon Duration'] + (attributes['Quickness Duration'] ?? 0) <
+          settings.minQuicknessDuration / 100) ||
       (settings.minHealingPower !== null &&
         attributes['Healing Power'] < settings.minHealingPower) ||
       (settings.minToughness !== null && attributes['Toughness'] < settings.minToughness) ||
       (settings.maxToughness !== null && attributes['Toughness'] > settings.maxToughness) ||
       (settings.minHealth !== null && attributes['Health'] < settings.minHealth) ||
       (settings.minCritChance !== null &&
-        attributes['Critical Chance'] < settings.minCritChance / 100);
+        attributes['Critical Chance'] < settings.minCritChance / 100) ||
+      (settings.minOutgoingHealing !== null &&
+        (attributes['Outgoing Healing'] ?? 0) < settings.minOutgoingHealing / 100);
+    if (invalid) {
+      character.valid = false;
+    }
+
+    return invalid;
+  }
+
+  checkInvalidIndicators(character: Character) {
+    const { settings } = this;
+    const { attributes } = character;
+
+    const invalid =
+      (settings.minDamage !== null && attributes['Damage'] < settings.minDamage) ||
+      (settings.minHealing !== null && attributes['Healing'] < settings.minHealing) ||
+      (settings.minSurvivability !== null &&
+        attributes['Survivability'] < settings.minSurvivability);
     if (invalid) {
       character.valid = false;
     }
@@ -700,14 +725,20 @@ export class OptimizerCore {
     attributes['Effective Power'] =
       attributes['Power'] * (1 + critChance * (critDmg - 1)) * damageMultiplier['Strike Damage'];
 
+    attributes['NonCrit Effective Power'] = attributes['Power'] * damageMultiplier['Strike Damage'];
+
     // 2597: standard enemy armor value, also used for ingame damage tooltips
     let powerDamage =
-      ((attributes['Power Coefficient'] || 0) / 2597) * attributes['Effective Power'];
+      ((attributes['Power Coefficient'] || 0) / 2597) * attributes['Effective Power'] +
+      ((attributes['NonCrit Power Coefficient'] || 0) / 2597) *
+        attributes['NonCrit Effective Power'];
+
     attributes['Power DPS'] = powerDamage;
 
     if (attributes['Power2 Coefficient']) {
       if (settings.profession === 'Mesmer') {
-        const phantasmCritDmg = attributes['Phantasm Critical Damage'];
+        const phantasmCritDmg =
+          attributes['Phantasm Critical Damage'] * damageMultiplier['Phantasm Critical Damage'];
         const phantasmCritChance = clamp(attributes['Phantasm Critical Chance'], 0, 1);
 
         attributes['Phantasm Effective Power'] =
@@ -721,7 +752,7 @@ export class OptimizerCore {
         powerDamage += phantasmPowerDamage;
       } else {
         const alternativeCritDmg =
-          attributes['Alternative Critical Damage'] * damageMultiplier['Critical Damage'];
+          attributes['Critical Damage'] * damageMultiplier['Alternative Critical Damage'];
         const alternativeCritChance = clamp(attributes['Alternative Critical Chance'], 0, 1);
 
         attributes['Alternative Effective Power'] =

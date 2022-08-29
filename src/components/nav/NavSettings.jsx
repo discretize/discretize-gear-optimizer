@@ -23,7 +23,7 @@ import {
 import { PARAMS, setQueryParm } from '../../utils/queryParam';
 import LanguageSelection from '../baseComponents/LanguageSelection';
 import Settings from '../baseComponents/Settings';
-import ReappplyTemplateDialog from './ReappplyTemplateDialog';
+import ReapplyTemplateDialog from './ReapplyTemplateDialog';
 
 const useStyles = makeStyles()((theme) => ({
   divider: {
@@ -128,7 +128,7 @@ export default function NavSettings({
               ))}
             </RadioGroup>
           </FormControl>
-          <ReappplyTemplateDialog open={open} handleClose={handleClose} />
+          <ReapplyTemplateDialog open={open} handleClose={handleClose} />
         </>
       )}
     </Settings>

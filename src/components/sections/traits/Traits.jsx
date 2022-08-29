@@ -185,7 +185,7 @@ const Traits = () => {
                       handleAmountChange={handleAmountChange(index, id)}
                       value={amount}
                       disabled={!visible || !enabled}
-                      maxWidth={38}
+                      maxWidth={amountData?.label === 'dps' ? 58 : 38}
                     />
                   </Box>
                 ) : null}
