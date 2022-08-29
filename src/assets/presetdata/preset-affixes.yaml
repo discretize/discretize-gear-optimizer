@@ -145,13 +145,13 @@ list:
         "minQuicknessDuration": 38
       }
 
-  - name: Power Alacrity Mechanist 40%
+  - name: Power Alacrity Mechanist 55%
     hidden: true
     value: >-
       {
         "affixes": ["Berserker", "Diviner"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 40,
+        "minBoonDuration": 55,
         "minQuicknessDuration": 0
       }
 

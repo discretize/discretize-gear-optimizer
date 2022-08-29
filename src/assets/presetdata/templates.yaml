@@ -794,7 +794,7 @@ list:
       #   id: mech-alac-power
       #   specialization: Mechanist
       #   boonType: Condi
-      #   priority: Power Alacrity Mechanist 40%
+      #   priority: Power Alacrity Mechanist 55%
       #   distribution: Power Alacrity Mechanist (inaccurate)
       #   traits: Power Alacrity Mechanist (inaccurate)
       #   fractal:
@@ -807,7 +807,7 @@ list:
         id: mech-alac-power
         specialization: Mechanist
         boonType: Condi
-        priority: Power Alacrity Mechanist 40%
+        priority: Power Alacrity Mechanist 55%
         distribution: No Simulation
         traits: Power Alacrity Mechanist (inaccurate)
         fractal:
@@ -820,7 +820,7 @@ list:
         id: mech-alac-power-conc
         specialization: Mechanist
         boonType: Condi
-        priority: Power Alacrity Mechanist 40%
+        priority: Power Alacrity Mechanist 55%
         distribution: No Simulation
         traits: Power Alacrity Mechanist (inaccurate)
         fractal:
