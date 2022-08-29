@@ -37,7 +37,7 @@ const Skills = ({ data }) => {
             checked={enabled}
             label={
               <Box display="flex">
-                <Skill id={gw2id} disableLink />
+                {gw2id && <Skill id={gw2id} disableLink />}
                 {subText && (
                   <Typography sx={{ fontWeight: 200, marginLeft: 1 }}>
                     {
@@ -60,7 +60,7 @@ const Skills = ({ data }) => {
               handleAmountChange={handleAmountChange(id)}
               value={amount}
               disabled={!enabled}
-              maxWidth={38}
+              maxWidth={amountData?.label === 'dps' ? 58 : 38}
             />
           </Box>
         ) : null}

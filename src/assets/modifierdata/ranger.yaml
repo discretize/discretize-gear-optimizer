@@ -1,6 +1,17 @@
 - section: Skills
   items:
 
+    - id: pet-dps
+      text: ''
+      subText: Total Flat Pet Damage (no modifiers)
+      amountData:
+        label: 'dps'
+        default: 0
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Flat DPS: 1
+
     - id: signet-of-stone
       text: Signet of Stone
       modifiers:
