@@ -304,6 +304,7 @@
 
 - section: Herald
   id: 52
+  note: Shiro lifesteal is not currently simulated separately.
   items:
 
     - id: draconic-fortitude

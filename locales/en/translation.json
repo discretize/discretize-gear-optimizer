@@ -782,6 +782,7 @@
   "traitNote_Mech condition damage is only accurate with the conductive alloys trait. Mech power damage is not currently accurate at all. Use this optimizer with condi DPS mechanist only.": "Mech condition damage is only accurate with the conductive alloys trait. Mech power damage is not currently accurate at all. Use this optimizer with condi DPS mechanist only.",
   "traitNote_Non-constant critical chance is not currently simulated. Using dragon gear to take advantage of >100% critical chance with full berserker may be a DPS loss in reality.": "Non-constant critical chance is not currently simulated. Using dragon gear to take advantage of >100% critical chance with full berserker may be a DPS loss in reality.",
   "traitNote_Pet damage is not currently simulated.": "Pet damage is not currently simulated.",
+  "traitNote_Shiro lifesteal is not currently simulated separately.": "Shiro lifesteal is not currently simulated separately.",
   "traitSubText": "",
   "traitSubText_100%": "100%",
   "traitSubText_100% burning enemy": "100% burning enemy",
