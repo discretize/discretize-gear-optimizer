@@ -999,14 +999,14 @@ list:
         extras: Power Boon Daredevil
         weaponType: Two-handed
 
-      - name: Condi Daredevil (outdated)
+      - name: Condi Daredevil*
         id: cdd
         specialization: Daredevil
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Daredevil
-        traits: Condi Daredevil
-        extras: Condi Daredevil
+        distribution: Condi Daredevil*
+        traits: Condi Daredevil*
+        extras: Condi Daredevil*
         weaponType: Dual wield
 
       - name: Power Staff Daredevil (outdated)

@@ -1606,7 +1606,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Daredevil
+  - name: Condi Daredevil*
     profession: Daredevil
     value: |-
       {
