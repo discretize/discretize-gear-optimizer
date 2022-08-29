@@ -1874,7 +1874,7 @@ list:
         }
       }
 
-  - name: Condi Bers
+  - name: Condi (Quickness) Berserker*
     profession: Berserker
     traits: |-
       {
@@ -1915,10 +1915,10 @@ list:
             },
             "bloodlust": {},
             "furious": {
-              "amount": ""
+              "amount": "20"
             },
             "bloodlust-on-crit": {
-              "amount": "3.17"
+              "amount": "2.94"
             },
             "blade-master-base-bugged": {},
             "furious-burst": {}
@@ -1927,8 +1927,6 @@ list:
             "warriors-sprint": {
               "amount": ""
             },
-            "double-standards-str": {},
-            "double-standards-disc": {},
             "axe-mastery-one": {},
             "axe-mastery-axe": {
               "amount": ""

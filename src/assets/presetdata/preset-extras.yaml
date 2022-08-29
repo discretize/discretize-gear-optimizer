@@ -648,7 +648,7 @@ list:
         }
       }
 
-  - name: Condi Bers
+  - name: Condi Berserker*
     profession: Berserker
     value: |-
       {
@@ -666,7 +666,8 @@ list:
             "salsa-topped-veggie-flatbread": {},
             "cilantro-and-cured-meat-flatbread": {}
           }
-        }
+        },
+        "lifestealAmount": "3.7"
       }
 
   - name: Condi Quickness Bers

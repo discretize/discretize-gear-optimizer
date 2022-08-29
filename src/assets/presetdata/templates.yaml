@@ -385,18 +385,18 @@ list:
         boonType: Condi
         priority: Condi Quickness Berserker 40%
         distribution: Condi Quickness Bers
-        traits: Condi Bers
+        traits: Condi (Quickness) Berserker*
         extras: Condi Quickness Bers
         weaponType: Two-handed
 
-      - name: Condi Bers (outdated)
+      - name: Condi Berserker*
         id: cbers-dps
         specialization: Berserker
         boonType: Condi
         priority: Condi DPS
-        distribution: None
-        traits: Condi Bers
-        extras: Condi Bers
+        distribution: Condi Berserker*
+        traits: Condi (Quickness) Berserker*
+        extras: Condi Berserker*
         weaponType: Two-handed
 
       - name: Power Bers (outdated)
