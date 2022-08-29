@@ -155,6 +155,16 @@ list:
         "minQuicknessDuration": 0
       }
 
+  - name: Power Quickness Herald 30%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 30
+      }
+
   - name: Power Quickness Herald 45%
     hidden: true
     value: >-

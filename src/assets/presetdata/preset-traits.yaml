@@ -4179,7 +4179,7 @@ list:
         "skills": {}
       }
 
-  - name: Power (Quickness) Herald DE
+  - name: Power (Quickness) Herald DE*
     profession: Herald
     traits: |-
       {

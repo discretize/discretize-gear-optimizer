@@ -646,17 +646,17 @@ list:
   - class: Revenant
     builds:
 
-      - name: Quickness Power Herald (outdated)
+      - name: Quickness Power Herald Consume*
         id: herald-quick
         specialization: Herald
         boonType: Power
-        priority: Power Quickness Herald 45%
-        distribution: Power Quickness Herald
-        traits: Power (Quickness) Herald DE
+        priority: Power Quickness Herald 30%
+        distribution: Power Quickness Herald*
+        traits: Power (Quickness) Herald DE*
         fractal:
-          extras: Power Quickness Herald (Fractal)
+          extras: Power Quickness Herald (Fractal)*
         raid:
-          extras: Power Quickness Herald (Raid)
+          extras: Power Quickness Herald (Raid)*
         weaponType: Dual wield
 
       - name: Condi Herald (outdated)
@@ -675,7 +675,7 @@ list:
         boonType: Power
         priority: Power DPS (no dragon)
         distribution: Power Herald DE
-        traits: Power (Quickness) Herald DE
+        traits: Power (Quickness) Herald DE*
         fractal:
           extras: Power (Fractal)
         raid:

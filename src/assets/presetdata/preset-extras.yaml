@@ -1161,7 +1161,7 @@ list:
         }
       }
 
-  - name: Power Quickness Herald (Raid)
+  - name: Power Quickness Herald (Raid)*
     profession: Herald
     value: |-
       {
@@ -1174,7 +1174,7 @@ list:
           },
           "Sigil2": {
             "air": {
-              "amount": "3.0"
+              "amount": ""
             },
             "accuracy": {},
             "impact/night/slaying-only-3": {},
@@ -1192,7 +1192,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Power Quickness Herald (Fractal)
+  - name: Power Quickness Herald (Fractal)*
     profession: Herald
     value: |-
       {
