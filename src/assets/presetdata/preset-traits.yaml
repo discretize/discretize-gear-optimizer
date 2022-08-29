@@ -4258,6 +4258,85 @@ list:
         }
       }
 
+  - name: Power Herald FP*
+    profession: Herald
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "15",
+          "3",
+          "52"
+        ],
+        "selectedTraits": [
+          [
+            1767,
+            1765,
+            1800
+          ],
+          [
+            1761,
+            1774,
+            1719
+          ],
+          [
+            1813,
+            1738,
+            1803
+          ]
+        ],
+        "items": [
+          {
+            "unsuspecting-strikes": {
+              "amount": ""
+            },
+            "destructive-impulses-base": {},
+            "destructive-impulses-dual": {
+              "amount": "100"
+            },
+            "notoriety": {
+              "amount": ""
+            },
+            "targeted-destruction": {
+              "amount": ""
+            },
+            "swift-termination": {
+              "amount": ""
+            }
+          },
+          {
+            "rising-tide": {
+              "amount": ""
+            },
+            "ferocious-aggression": {
+              "amount": ""
+            },
+            "roiling-mists": {}
+          },
+          {
+            "draconic-fortitude": {},
+            "reinforced-potency-base": {},
+            "reinforced-potency-boons": {
+              "amount": ""
+            },
+            "forceful-persistence-nonherald": {
+              "amount": "49.9"
+            },
+            "forceful-persistence-herald": {
+              "amount": "2.23"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "burst-of-strength": {
+            "amount": "27.6"
+          }
+        }
+      }
+
   - name: Condi Herald
     profession: Herald
     traits: |-

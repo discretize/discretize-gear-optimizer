@@ -525,11 +525,11 @@ list:
 
   # not including ally lifesteal
   # todo: convert 268dps to self lifesteal
-  - name: Power Herald DE*
+  - name: Power Herald FP*
     profession: Herald
     value: >-
       {
-        "values2": { "Power": 3412, "Power2": 0, "Burning": 0.76, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2849, "Power2": 0, "Burning": 0.76, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Umbra'

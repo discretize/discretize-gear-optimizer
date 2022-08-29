@@ -669,13 +669,13 @@ list:
         extras: Condi Herald
         weaponType: Dual wield
 
-      - name: Power Herald DE*
+      - name: Power Herald FP*
         id: herald
         specialization: Herald
         boonType: Power
         priority: Power DPS
-        distribution: Power Herald DE*
-        traits: Power (Quickness) Herald DE*
+        distribution: Power Herald FP*
+        traits: Power Herald FP*
         fractal:
           extras: Power (Fractal)
         raid:
