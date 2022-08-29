@@ -524,18 +524,17 @@ list:
         log: https://dps.report/NGpa-20220826-012124_golem
 
   # not including ally lifesteal
-  # add 250 dps for buffed FoN: 27912 + 250 = 28162 power
-  # AP
-  - name: Power Herald DE
+  # todo: convert 268dps to self lifesteal
+  - name: Power Herald DE*
     profession: Herald
     value: >-
       {
-        "values2": { "Power": 3192, "Power2": 0, "Burning": 1.46, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3412, "Power2": 0, "Burning": 0.76, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[Inn] Xorxy'
-        url: https://www.youtube.com/watch?v=9yfpvu0_A-s
-        log: https://dps.report/v6ov-20211016-003439_golem
+      - author: 'Umbra'
+        url: https://www.youtube.com/watch?v=nJLZUoI7NgA
+        log: https://dps.report/ZD1f-20220826-122357_golem
 
   # power: 5246 + 7181 lifesteal = 6027, burn: 7122, bleed: 1003, poison: 2941, torment: 13000, total: 30093
   # 12 boons, AP
