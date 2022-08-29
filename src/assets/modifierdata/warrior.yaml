@@ -226,6 +226,7 @@
 
     - id: furious
       text: Furious
+      subText: not automatically adjusted with crit chance!
       amountData:
         label: 'stacks'
         default: 21
