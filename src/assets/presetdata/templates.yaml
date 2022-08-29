@@ -472,8 +472,18 @@ list:
         priority: Condi DPS
         distribution: Condi Weaver Staff (Large)*
         traits: Condi Weaver Staff*
-        extras: Condi Weaver Staff*
+        extras: Condi Weaver*
         weaponType: Two-handed
+
+      - name: Condi Weaver Scepter*
+        id: cwea-scepter
+        specialization: Weaver
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Weaver Scepter*
+        traits: Condi Weaver Scepter*
+        extras: Condi Weaver*
+        weaponType: Dual wield
 
       - name: Condi Weaver Sword (outdated)
         id: cwea-sw

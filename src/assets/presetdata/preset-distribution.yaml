@@ -352,6 +352,17 @@ list:
         url: https://www.youtube.com/watch?v=zjQ3e_09eB8
         log: https://dps.report/KyoI-20220824-095213_golem
 
+  - name: Condi Weaver Scepter*
+    profession: Weaver
+    value: >-
+      {
+        "values2": { "Power": 2083, "Power2": 0, "Burning": 14.33, "Bleeding": 8.19, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Fennec'
+        url: https://www.youtube.com/watch?v=cal9A21TVsQ
+        log: https://dps.report/NgbV-20220829-141352_golem
+
   # no jade bot
   # force bursting, slightly suboptimal gear (15 malign 3 precise)
   - name: Hybrid Weaver

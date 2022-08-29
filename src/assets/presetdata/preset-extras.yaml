@@ -756,7 +756,7 @@ list:
         }
       }
 
-  - name: Condi Weaver Staff*
+  - name: Condi Weaver*
     profession: Weaver
     value: |-
       {

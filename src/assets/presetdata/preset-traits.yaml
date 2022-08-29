@@ -2663,6 +2663,84 @@ list:
         }
       }
 
+  - name: Condi Weaver Scepter*
+    profession: Weaver
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "26",
+          "56"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            1510
+          ],
+          [
+            1507,
+            275,
+            287
+          ],
+          [
+            2177,
+            2180,
+            2131
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "65.3"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": ""
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": "9.4"
+            }
+          },
+          {
+            "serrated-stones": {},
+            "strength-of-stone": {},
+            "geomancers-training": {}
+          },
+          {
+            "superior-elements": {},
+            "masters-fortitude": {},
+            "masters-fortitude-sword": {},
+            "weavers-prowess": {},
+            "swift-revenge": {
+              "amount": ""
+            },
+            "elemental-polyphony-fire": {
+              "amount": "96"
+            },
+            "elemental-polyphony-air": {
+              "amount": "4.8"
+            },
+            "elements-of-rage-base": {},
+            "elements-of-rage-buff": {
+              "amount": "83.5"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "woven-fire": {
+            "amount": "54.9"
+          }
+        }
+      }
+
   - name: Hybrid Weaver
     profession: Weaver
     traits: |-
