@@ -203,6 +203,7 @@ export const sigilDict = [
   'air',
   'ruby-orb',
   'no-item-sigil',
+  'fire-sigil',
 ];
 
 export const enhancementDict = [

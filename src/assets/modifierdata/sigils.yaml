@@ -45,6 +45,17 @@
           NonCrit Power Coefficient: 759.55
       gw2id: 24554
 
+    - id: fire-sigil
+      text: Superior Sigil of Fire
+      amountData:
+        label: '/10s'
+        default: 1.9
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          NonCrit Power Coefficient: 586.925
+      gw2id: 24548
+
     - id: severance-perma
       text: Superior Sigil of Severance
       subText: (100% uptime)
