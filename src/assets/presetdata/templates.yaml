@@ -689,7 +689,7 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: Power (Raid, air)
         weaponType: Dual wield
 
       - name: Alacrity Condi Ren Invo

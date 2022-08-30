@@ -84,6 +84,35 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Power (Raid, air)
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "thief": {},
+            "scholar": {},
+            "eagle": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-only-3": {},
+            "accuracy": {},
+            "air": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
 
   # just reduced lifesteal frequency
   - name: Bladesworn*
