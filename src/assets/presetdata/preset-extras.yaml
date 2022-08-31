@@ -1692,7 +1692,9 @@ list:
       {
         "extras": {
           "Sigil1": {
-            "torment": {},
+            "torment": {
+              "amount": "1.72"
+            },
             "bursting": {}
           },
           "Sigil2": {

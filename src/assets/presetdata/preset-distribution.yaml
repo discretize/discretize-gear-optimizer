@@ -1012,13 +1012,14 @@ list:
         url: https://www.youtube.com/watch?v=si71D-O4kf8
         log: https://dps.report/7zEL-20200721-034734_golem
 
-  # https://optimizer.discretize.eu/?s=QqygohE8v1
+  # https://optimizer.discretize.eu/?s=1RFuOGz_v1
   # bugged log: has leeching venoms
+  # 1.72 torment proc rate (from evtc tool)
   - name: DPS Specter (allies)*
     profession: Specter
     value: >-
       {
-        "values2": { "Power": 2316, "Power2": 0, "Burning": 0, "Bleeding": 2.43, "Poisoned": 15.8, "Torment": 20.47, "Confusion": 0 }
+        "values2": { "Power": 2316, "Power2": 0, "Burning": 0, "Bleeding": 2.43, "Poisoned": 15.8, "Torment": 20.65, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
