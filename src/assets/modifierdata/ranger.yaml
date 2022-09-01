@@ -26,6 +26,17 @@
           Ferocity: [180, buff]
       gw2id: 12491
 
+    - id: vulture-stance
+      text: Vulture Stance
+      amountData:
+        label: 'hit/s'
+        default: 0
+        quantityEntered: 1
+      modifiers:
+        attributes:
+          Poison Coefficient: 6
+      gw2id: 40498
+
     # pve: .95 * 690.5 * 1.25 = 820.0
     # wvw: .63 * 690.5 * 1.25 = 543.8
     - id: one-wolf-pack-sic-em
