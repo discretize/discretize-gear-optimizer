@@ -1760,7 +1760,9 @@ list:
             },
             "bursting": {},
             "concentration": {},
-            "torment": {},
+            "torment": {
+              "amount": "1.52"
+            },
             "demons": {}
           },
           "Sigil2": {
@@ -1769,7 +1771,9 @@ list:
             },
             "bursting": {},
             "concentration": {},
-            "torment": {},
+            "torment": {
+              "amount": "1.52"
+            },
             "demons": {}
           },
           "Runes": {

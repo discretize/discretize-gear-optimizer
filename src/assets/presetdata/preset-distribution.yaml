@@ -1038,12 +1038,14 @@ list:
     credit:
       - author: 'Iskarel'
 
-  # 11 doom/133s, full rit renegade doom demons benedict toxic malign, bountiful theft
+  # non public 48% log:
+  # https://optimizer.discretize.eu/?s=TNyZnFClv1
+  # 1.52 torment proc rate (from evtc tool on carrion spec, which has the same critchance)
   - name: Alacrity Specter (allies)
     profession: Specter
     value: >-
       {
-        "values2": { "Power": 1845, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 14.77, "Torment": 20.55, "Confusion": 0 }
+        "values2": { "Power": 1813, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 13.82, "Torment": 18.59, "Confusion": 0 }
       }
     noCreditOkay: true
 
