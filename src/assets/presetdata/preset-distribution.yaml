@@ -665,12 +665,12 @@ list:
     profession: Holosmith
     value: >-
       {
-        "values2": { "Power": 3153, "Power2": 0, "Burning": 3.09, "Bleeding": 8.57, "Poisoned": 2.75, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3260, "Power2": 0, "Burning": 2.51, "Bleeding": 8.42, "Poisoned": 2.62, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[XVII] ster'
-        url: https://www.youtube.com/watch?v=aemjSrxAN_c
-        log: https://dps.report/8W5H-20210512-045910_golem
+        url: https://www.youtube.com/watch?v=Qb014B16Z5s
+        log: https://dps.report/TIUm-20220829-180728_golem
 
   # power: 7803, burn: 17705, bleed: 7184, poison: 3741, confusion: [7.735 stacks at 66.86% duration]
   # old confusion balance
