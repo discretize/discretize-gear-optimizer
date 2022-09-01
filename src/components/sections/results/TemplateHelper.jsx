@@ -143,11 +143,13 @@ const TemplateHelper = ({ character }) => {
             if (name === 'Clone') type = 'Clone';
             if (name?.startsWith('Illusionary')) type = 'Phantasm';
 
-            minionCounts[type].names.add(name);
-
             for (const skill of targetDamageDist?.[0]?.[0] ?? []) {
               const { indirectDamage, connectedHits: minionHits, crit: minionCrits } = skill;
               if (indirectDamage) continue;
+              if (!minionHits && !minionCrits) continue;
+
+              minionCounts[type].names.add(name);
+
               console.log(minionCrits, minionHits);
               minionCounts[type].minionHits += minionHits ?? 0;
               minionCounts[type].minionCrits += minionCrits ?? 0;
