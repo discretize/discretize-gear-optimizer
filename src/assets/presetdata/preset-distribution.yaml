@@ -1029,6 +1029,7 @@ list:
   # https://optimizer.discretize.eu/?s=wpWaF0plv1
   # https://dps.report/pfgp-20220827-121511_golem
   # bugged log: has leeching venoms
+  # 1.52 torment proc rate (from evtc tool)
   - name: DPS Barrier Specter (allies)*
     profession: Specter
     value: >-

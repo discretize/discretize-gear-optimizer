@@ -1725,7 +1725,10 @@ list:
         "extras": {
           "Sigil1": {
             "bursting": {},
-            "demons": {}
+            "demons": {},
+            "torment": {
+              "amount": "1.52"
+            }
           },
           "Sigil2": {
             "doom": {
