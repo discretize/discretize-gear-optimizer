@@ -70,6 +70,19 @@ list:
         extras: Quickness Condi Chrono*
         weaponType: Dual wield
 
+      - name: Alacrity Power Chrono GS*
+        id: pchrono-alac-gs
+        specialization: Chronomancer
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Alacrity Power Chrono GS*
+        traits: Alacrity Power Chrono GS*
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid, furious)
+        weaponType: Two-handed
+
       - name: Power Chrono IA GS*
         id: pchrono-ia-gs
         specialization: Chronomancer
