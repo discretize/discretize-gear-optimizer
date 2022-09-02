@@ -272,7 +272,7 @@ list:
         "skills": {}
       }
 
-  - name: Alacrity Power Chrono GS
+  - name: Alacrity Power Chrono GS*
     profession: Chronomancer
     traits: |-
       {

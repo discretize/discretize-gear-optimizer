@@ -781,7 +781,7 @@ list:
         url: https://www.youtube.com/watch?v=4SsM2FhqSU0
         log: https://dps.report/5pxz-20220824-141459_golem
 
-  - name: Alacrity Power Chrono GS
+  - name: Alacrity Power Chrono GS*
     profession: Chronomancer
     value: >-
       {
