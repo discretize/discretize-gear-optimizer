@@ -661,7 +661,7 @@ list:
   #     }
 
   # berserker
-  - name: Power Holo ECSU
+  - name: Power Holo ECSU*
     profession: Holosmith
     value: >-
       {

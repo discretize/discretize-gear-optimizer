@@ -777,17 +777,17 @@ list:
           extras: Power Scrapper (Raid)
         weaponType: Two-handed
 
-      - name: Power Holo ECSU
+      - name: Power Holo ECSU*
         id: pholo-ecsu
         specialization: Holosmith
         boonType: Power
         priority: Power DPS
-        distribution: Power Holo ECSU
-        traits: Power Holo ECSU
+        distribution: Power Holo ECSU*
+        traits: Power Holo ECSU*
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power Holo (Raid)
+          extras: Power Holo (Raid)*
         weaponType: Dual wield
 
       - name: Condi Holo
