@@ -4691,7 +4691,7 @@ list:
         "skills": {}
       }
 
-  - name: Power Holo ECSU
+  - name: Power Holo ECSU*
     profession: Holosmith
     traits: |-
       {

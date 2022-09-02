@@ -1045,7 +1045,7 @@ list:
         }
       }
 
-  - name: Power Holo (Raid)
+  - name: Power Holo (Raid)*
     profession: Holosmith
     value: |-
       {
