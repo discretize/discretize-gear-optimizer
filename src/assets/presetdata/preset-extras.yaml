@@ -177,6 +177,37 @@ list:
         "lifestealAmount": ""
       }
 
+  - name: Power Boon (Fractal)
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "scholar": {},
+            "eagle": {},
+            "thief": {}
+          },
+          "Sigil1": {
+            "force": {},
+            "accuracy": {}
+          },
+          "Sigil2": {
+            "impact/night/slaying-both": {},
+            "accuracy": {},
+            "concentration": {}
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "plate-of-beef-carpaccio-with-salsa-garnish": {},
+            "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Heal
     value: |-
       {

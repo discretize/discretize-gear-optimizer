@@ -781,6 +781,18 @@ list:
         url: https://www.youtube.com/watch?v=4SsM2FhqSU0
         log: https://dps.report/5pxz-20220824-141459_golem
 
+  # impact
+  - name: Quickness Power Chrono GS+Focus*
+    profession: Chronomancer
+    value: >-
+      {
+        "values2": { "Power": 2830, "Power2": 1002, "Burning": 0, "Bleeding": 0.83, "Poisoned": 0, "Torment": 0, "Confusion": 1.13 }
+      }
+    credit:
+      - author: '[CnD] Tipcat'
+        url: https://www.youtube.com/watch?v=yK0MNj1WIHo
+        log: https://dps.report/ffej-20220817-160705_golem
+
   - name: Alacrity Power Chrono GS*
     profession: Chronomancer
     value: >-
