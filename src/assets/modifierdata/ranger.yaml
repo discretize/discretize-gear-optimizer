@@ -34,7 +34,7 @@
         quantityEntered: 1
       modifiers:
         attributes:
-          Poison Coefficient: 6
+          Poison Coefficient: 4
       gw2id: 40498
 
     # pve: .95 * 690.5 * 1.25 = 820.0
