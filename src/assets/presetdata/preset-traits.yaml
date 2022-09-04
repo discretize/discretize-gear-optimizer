@@ -3709,7 +3709,14 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "one-wolf-pack-sic-em-sharpened": {
+            "amount": "0.1682"
+          },
+          "vulture-stance": {
+            "amount": "0.6326"
+          }
+        }
       }
 
   # - name: Pure Shortbow Slb BM

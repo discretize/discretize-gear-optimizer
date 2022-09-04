@@ -632,7 +632,7 @@ list:
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 2520, "Power2": 0, "Burning": 2.25, "Bleeding": 23.28, "Poisoned": 5.67, "Torment": 0.05, "Confusion": 0 }
+        "values2": { "Power": 2382, "Power2": 0, "Burning": 2.25, "Bleeding": 23.11, "Poisoned": 3.14, "Torment": 0.05, "Confusion": 0 }
       }
     credit:
       - author: Umbra
