@@ -564,6 +564,6 @@
         quantityEntered: 1
       modifiers:
         damage:
-          All Damage: [3%, unknown]
+          Strike Damage: [3%, unknown]
       gw2id: 2274
       defaultEnabled: true
