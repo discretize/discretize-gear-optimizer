@@ -20,7 +20,7 @@
       text: Force Signet
       modifiers:
         damage:
-          Strike Damage: [10%, unknown]
+          Strike Damage: [10%, add] # tested by Crone
       gw2id: 63253
 
     - id: force-signet-traited
@@ -28,7 +28,7 @@
       subText: traited
       modifiers:
         damage:
-          Strike Damage: [12%, unknown]
+          Strike Damage: [12%, add] # tested by Crone
       gw2id: 63253
 
     - id: superconducting-signet
