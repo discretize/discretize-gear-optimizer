@@ -191,6 +191,8 @@
   id: 50
   items:
 
+    # affects lifesteal
+    # https://discord.com/channels/380901000200060929/1017105862357176341/1017167619478003792
     - id: soul-barbs
       text: Soul Barbs
       amountData:
@@ -199,8 +201,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, add]
-          Condition Damage: [10%, add]
+          All Damage: [10%, add]
       gw2id: 894
       defaultEnabled: true
 

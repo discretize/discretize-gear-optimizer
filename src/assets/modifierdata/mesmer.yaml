@@ -363,6 +363,8 @@
       gw2id: 2202
       defaultEnabled: false
 
+    # does not affect lifesteal despite "all text" description
+    # https://discord.com/channels/380901000200060929/1017105862357176341/1017167619478003792
     - id: deadly-blades
       text: Deadly Blades
       minor: true
@@ -372,7 +374,8 @@
         quantityEntered: 100
       modifiers:
         damage:
-          All Damage: [5%, unknown]
+          Strike Damage: [5%, unknown]
+          Condition Damage: [5%, unknown]
       gw2id: 2204
       defaultEnabled: true
 
