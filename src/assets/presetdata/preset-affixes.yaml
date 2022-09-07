@@ -205,6 +205,16 @@ list:
         "minQuicknessDuration": 10.3
       }
 
+  - name: Quickness Power Chrono 21%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 21.6
+      }
+
   - name: Condi Quickness Harbinger 23%
     hidden: true
     value: >-

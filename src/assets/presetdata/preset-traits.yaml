@@ -272,6 +272,74 @@ list:
         "skills": {}
       }
 
+  - name: Quickness Power Chrono GS+Focus*
+    profession: Chronomancer
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "10",
+          "1",
+          "40"
+        ],
+        "selectedTraits": [
+          [
+            686,
+            713,
+            681
+          ],
+          [
+            701,
+            708,
+            692
+          ],
+          [
+            1995,
+            1978,
+            2022
+          ]
+        ],
+        "items": [
+          {
+            "fragility": {
+              "amount": ""
+            },
+            "egotism": {
+              "amount": ""
+            },
+            "vicious-expression": {
+              "amount": ""
+            },
+            "empowered-illusions": {}
+          },
+          {
+            "fencers-finesse": {
+              "amount": "6.06"
+            },
+            "superiority-complex-base": {},
+            "superiority-complex": {
+              "amount": ""
+            },
+            "phantasmal-fury": {},
+            "sharper-images-phantasm": {
+              "amount": "1.74"
+            },
+            "sharper-images-clone": {
+              "amount": "0.93"
+            }
+          },
+          {
+            "danger-time": {},
+            "chronophantasma": {},
+            "improved-alacrity": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
   - name: Alacrity Power Chrono GS*
     profession: Chronomancer
     traits: |-

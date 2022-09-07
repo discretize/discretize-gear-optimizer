@@ -60,6 +60,19 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
+      - name: Quickness Power Chrono GS+Focus*
+        id: pchrono-stm-gs-focus
+        specialization: Chronomancer
+        boonType: Power
+        priority: Quickness Power Chrono 21%
+        distribution: Quickness Power Chrono GS+Focus*
+        traits: Quickness Power Chrono GS+Focus*
+        fractal:
+          extras: Power Boon (Fractal)
+        raid:
+          extras: Power Boon (Raid)
+        weaponType: Two-handed
+
       - name: Quickness Condi Chrono*
         id: condi-chrono-stm
         specialization: Chronomancer
