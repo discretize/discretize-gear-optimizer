@@ -560,17 +560,17 @@ list:
         url: https://www.youtube.com/watch?v=zdfRVJxWWZ4
         log: https://dps.report/BhB9-20210516-172118_golem
 
-  # force impact force air
+  # force air force air
   - name: DPS Vindicator
     profession: Vindicator
     value: >-
       {
-        "values2": { "Power": 3450, "Power2": 0, "Burning": 0.61, "Bleeding": 0, "Poisoned": 0, "Torment": 1.86, "Confusion": 0 }
+        "values2": { "Power": 3100, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 1.93, "Confusion": 0 }
       }
     credit:
-      - author: 'Fennec'
-        url: https://www.youtube.com/watch?v=gItQj2jezkc
-        log: https://dps.report/Q54J-20220302-145450_golem
+      - author: beng / L3m0n
+        url: https://www.youtube.com/watch?v=O3ERT0JPCZg
+        log: https://dps.report/W3hE-20220824-202151_golem
 
   - name: Condi Untamed Axe*
     profession: Untamed
