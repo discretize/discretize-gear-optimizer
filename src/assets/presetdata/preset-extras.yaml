@@ -1311,7 +1311,8 @@ list:
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {}
           }
-        }
+        },
+        "lifestealAmount": "3.85"
       }
 
   - name: DPS Vindicator (Raid)
@@ -1325,14 +1326,19 @@ list:
           "Sigil1": {
             "force": {}
           },
-          "Sigil2": {},
+          "Sigil2": {
+            "air": {
+              "amount": 2.9
+            }
+          },
           "Enhancement": {
             "superior-sharpening-stone": {}
           },
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {}
           }
-        }
+        },
+        "lifestealAmount": "3.85"
       }
 
   - name: Power Alacrity Mechanist (Fractal, inaccurate)

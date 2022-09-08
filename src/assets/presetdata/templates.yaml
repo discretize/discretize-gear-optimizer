@@ -738,7 +738,7 @@ list:
         extras: Condi Ren
         weaponType: Two-handed
 
-      - name: Power Vindicator (outdated)
+      - name: Power Vindicator*
         id: vindi
         specialization: Vindicator
         boonType: Power
