@@ -1068,13 +1068,26 @@ list:
         extras: Condi Deadeye
         weaponType: Dual wield
 
-      - name: Power Rifle Deadeye (outdated)
-        id: rifleded
+      - name: Rifle Deadeye (Premeditation)*
+        id: rifleded-premed
         specialization: Deadeye
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Rifle Deadeye
-        traits: Rifle Deadeye
+        distribution: Rifle Deadeye (Premeditation)*
+        traits: Rifle Deadeye (Premeditation)*
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
+        weaponType: Two-handed
+
+      - name: Rifle Deadeye (Silent Scope)*
+        id: rifleded-silent
+        specialization: Deadeye
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Rifle Deadeye (Silent Scope)*
+        traits: Rifle Deadeye (Silent Scope)*
         fractal:
           extras: Power (Fractal)
         raid:

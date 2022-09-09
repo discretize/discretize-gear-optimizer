@@ -1024,16 +1024,27 @@ list:
         url: https://www.youtube.com/watch?v=2v69_eHCMO8
         log: https://www.dps.report/vmjE-20220827-105554_golem
 
-  - name: Rifle Deadeye
+  - name: Rifle Deadeye (Premeditation)*
     profession: Deadeye
     value: >-
       {
-        "values2": { "Power": 3383, "Power2": 0, "Burning": 0.53, "Bleeding": 0.39, "Poisoned": 1.8, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3416, "Power2": 0, "Burning": 0, "Bleeding": 0.5, "Poisoned": 1.73, "Torment": 0.46, "Confusion": 0 }
       }
     credit:
-      - author: '[CnD] Lunar'
-        url: https://www.youtube.com/watch?v=si71D-O4kf8
-        log: https://dps.report/7zEL-20200721-034734_golem
+      - author: 'Iskarel'
+        url: https://www.youtube.com/watch?v=qkbodbKnhwc
+        log: https://dps.report/f1kw-20220826-220619_golem
+
+  - name: Rifle Deadeye (Silent Scope)*
+    profession: Deadeye
+    value: >-
+      {
+        "values2": { "Power": 3576, "Power2": 0, "Burning": 0, "Bleeding": 0.36, "Poisoned": 0.91, "Torment": 0.22, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Iskarel'
+        url: https://www.youtube.com/watch?v=gKHVIlkX308
+        log: https://dps.report/hlBF-20220825-163531_golem
 
   # https://optimizer.discretize.eu/?s=1RFuOGz_v1
   # bugged log: has leeching venoms
