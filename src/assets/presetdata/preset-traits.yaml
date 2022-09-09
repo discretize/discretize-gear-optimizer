@@ -5488,7 +5488,7 @@ list:
         "skills": {}
       }
 
-  - name: DPS Scourge
+  - name: DPS Scourge*
     profession: Scourge
     traits: |-
       {
