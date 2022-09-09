@@ -938,14 +938,14 @@ list:
         extras: DPS Harbinger
         weaponType: Dual wield
 
-      - name: Condi Scourge
+      - name: Condi Scourge*
         id: scourge
         specialization: Scourge
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Scourge
-        traits: DPS Scourge
-        extras: DPS Scourge
+        distribution: Condi Scourge*
+        traits: DPS Scourge*
+        extras: DPS Scourge*
         weaponType: Dual wield
 
       - name: Power Reaper (outdated)

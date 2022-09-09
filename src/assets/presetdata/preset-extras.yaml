@@ -1488,7 +1488,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: DPS Scourge
+  - name: DPS Scourge*
     profession: Scourge
     value: |-
       {

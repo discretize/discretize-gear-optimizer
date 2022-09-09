@@ -930,7 +930,7 @@ list:
         log: https://dps.report/3K6u-20220818-152539_golem
 
   # nightmare icicle
-  - name: Condi Scourge
+  - name: Condi Scourge*
     profession: Scourge
     value: >-
       {
