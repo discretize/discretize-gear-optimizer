@@ -122,7 +122,7 @@ const Infusions = () => {
                   <Item id={79722} disableLink />
                   <HelperIcon
                     text={t(
-                      'Adds 150% of your Agony Resistance to Precision, Toughness, and Concentration.',
+                      'Adds 150% of your Agony Resistance to Vitality, Toughness, and Concentration.',
                     )}
                     size="small"
                   />
