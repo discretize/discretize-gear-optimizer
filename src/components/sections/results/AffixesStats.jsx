@@ -13,7 +13,7 @@ const AffixesStats = ({ data, title }) => {
               <TableCell>
                 <Attribute name={attribute} style={{ fontSize: '20px', color: '#AAAAAA' }} />
               </TableCell>
-              <TableCell>{data[attribute]}</TableCell>
+              <TableCell align="right">{data[attribute]}</TableCell>
             </TableRow>
           ))}
         </TableBody>

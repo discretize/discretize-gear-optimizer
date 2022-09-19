@@ -58,7 +58,7 @@ const SpecialDurations = ({ data: attributes }) => {
                   className={classes.gw2Item}
                 />
               </TableCell>
-              <TableCell>{roundTwo(value * 100)}%</TableCell>
+              <TableCell align="right">{roundTwo(value * 100)}%</TableCell>
             </TableRow>
           ))}
           {boonEntries.map(([attribute, value]) => (
@@ -66,7 +66,7 @@ const SpecialDurations = ({ data: attributes }) => {
               <TableCell>
                 <Boon name={attribute.split(' ')[0]} text={attribute} className={classes.gw2Item} />
               </TableCell>
-              <TableCell>{roundTwo(value * 100)}%</TableCell>
+              <TableCell align="right">{roundTwo(value * 100)}%</TableCell>
             </TableRow>
           ))}
         </TableBody>

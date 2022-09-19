@@ -36,7 +36,7 @@ const OutputDistribution = ({ title, data }) => {
                   <Condition name={damageType.name} className={classes.gw2Item} />
                 )}
               </TableCell>
-              <TableCell>{damageType.value}</TableCell>
+              <TableCell align="right">{damageType.value}</TableCell>
             </TableRow>
           ))}
         </TableBody>

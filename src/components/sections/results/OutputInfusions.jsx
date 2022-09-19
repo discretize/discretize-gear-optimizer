@@ -27,7 +27,7 @@ const OutputInfusions = ({ data }) => {
               <TableCell>
                 <Item id={INFUSION_IDS[attribute]} className={classes.gw2Item} />
               </TableCell>
-              <TableCell>{count}</TableCell>
+              <TableCell align="right">{count}</TableCell>
             </TableRow>
           ))}
         </TableBody>
