@@ -891,7 +891,7 @@ export function setupCombinations(reduxState: any) {
       shouldDisplayExtras,
       extrasCombination,
       distribution,
-      baseAttributes: settings_baseAttributes,
+      baseAttributes: { ...settings_baseAttributes }, // object shape performance optimization
       modifiers,
       relevantConditions: settings_relevantConditions,
       disableCondiResultCache: settings_disableCondiResultCache,
