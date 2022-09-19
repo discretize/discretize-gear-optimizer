@@ -13,6 +13,7 @@ export default defineConfig({
         build: resolve(__dirname, 'build/index.html'),
       },
     },
+    target: 'es2020',
   },
   plugins: [react(), yamlImporter()],
 });
