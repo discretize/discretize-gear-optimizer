@@ -23,8 +23,6 @@ import type {
   Modifiers,
 } from './optimizerSetup';
 
-const roundTwo = (num: number) => Math.round(num * 100) / 100;
-
 /**
  * Scales a modifier value linearly up or down by a user-specified amount, in accordance with the
  * amountData from the modifier data YAML.
@@ -869,7 +867,7 @@ export class OptimizerCore {
 
     results.indicators = {};
     for (const attribute of Attributes.INDICATORS) {
-      results.indicators[attribute] = roundTwo(attributes[attribute]);
+      results.indicators[attribute] = attributes[attribute];
     }
 
     // baseline for comparing adding/subtracting +5 infusions
@@ -883,9 +881,8 @@ export class OptimizerCore {
       temp.baseAttributes[attribute] += 5;
 
       this.updateAttributes(temp, true);
-      results.effectivePositiveValues[attribute] = roundTwo(
-        temp.attributes['Damage'] - baseline.attributes['Damage'],
-      );
+      results.effectivePositiveValues[attribute] =
+        temp.attributes['Damage'] - baseline.attributes['Damage'];
     }
 
     // effective loss by not having +5 infusions
@@ -895,9 +892,8 @@ export class OptimizerCore {
       temp.baseAttributes[attribute] = Math.max(temp.baseAttributes[attribute] - 5, 0);
 
       this.updateAttributes(temp, true);
-      results.effectiveNegativeValues[attribute] = roundTwo(
-        temp.attributes['Damage'] - baseline.attributes['Damage'],
-      );
+      results.effectiveNegativeValues[attribute] =
+        temp.attributes['Damage'] - baseline.attributes['Damage'];
     }
 
     // effective damage distribution
