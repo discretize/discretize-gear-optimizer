@@ -914,7 +914,7 @@ export class OptimizerCore {
     for (const key of Object.keys(settings.distribution)) {
       if (attributes[`${key} DPS`] === undefined) continue;
 
-      results.damageBreakdown[`${key}`] = attributes[`${key} DPS`].toFixed(2);
+      results.damageBreakdown[`${key}`] = attributes[`${key} DPS`];
     }
 
     // template helper data

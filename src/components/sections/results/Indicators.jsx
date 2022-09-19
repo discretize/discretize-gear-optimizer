@@ -22,7 +22,7 @@ const AffixesStats = ({ data }) => {
                   {indicator}{' '}
                 </Typography>
               </TableCell>
-              <TableCell align="right">{data[indicator]}</TableCell>
+              <TableCell align="right">{data[indicator].toFixed?.(2) ?? data[indicator]}</TableCell>
             </TableRow>
           ))}
         </TableBody>

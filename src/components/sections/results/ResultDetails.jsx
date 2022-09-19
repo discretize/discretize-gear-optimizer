@@ -11,6 +11,7 @@ import ErrorBoundary from '../../baseComponents/ErrorBoundary';
 import AffixesStats from './AffixesStats';
 import AppliedModifiers from './AppliedModifiers';
 import Bonuses from './Bonuses';
+import EffectiveGainLoss from './EffectiveGainLoss';
 import Indicators from './Indicators';
 import OutputDistribution from './OutputDistribution';
 import OutputInfusions from './OutputInfusions';
@@ -87,11 +88,11 @@ const ResultDetails = () => {
           <OutputDistribution title={t('Effective Distribution')} data={effectiveDistribution} />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <AffixesStats
+          <EffectiveGainLoss
             data={character.results.effectivePositiveValues}
             title={t('Damage increase from +5 of attribute')}
           />
-          <AffixesStats
+          <EffectiveGainLoss
             data={character.results.effectiveNegativeValues}
             title={t('Damage loss from -5 of attribute')}
           />
