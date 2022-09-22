@@ -1,8 +1,9 @@
+import { Chip } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProfession } from '../../../state/slices/controlsSlice';
-import { changeExtras } from '../../../state/slices/extras';
+import { changeExtras, copySigils } from '../../../state/slices/extras';
 import data from '../../../utils/data';
 import { PROFESSIONS } from '../../../utils/gw2-data';
 import Presets from '../../baseComponents/Presets';
@@ -36,6 +37,8 @@ const ExtrasSection = () => {
     [dispatch],
   );
 
+  const onClickCopy = React.useCallback(() => dispatch(copySigils()), [dispatch]);
+
   return (
     <Section
       title={t('Runes & Sigils & Food')}
@@ -55,6 +58,12 @@ const ExtrasSection = () => {
             }
             label={t('Enable custom mismatched sigils (todo)')}
           /> */}
+          <Chip
+            style={{ margin: 4 }}
+            variant="outlined"
+            onClick={onClickCopy}
+            label={t('Copy selected sigils to both slots')}
+          />
           {profession !== '' && (
             <Presets
               data={extrasPresets}

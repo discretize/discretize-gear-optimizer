@@ -47,6 +47,14 @@ export const extrasSlice = createSlice({
     changeLifestealAmount: (state, action) => {
       state.lifestealAmount = action.payload;
     },
+    copySigils: (state) => {
+      const previousSigil1 = original(state.extras.Sigil1);
+      const previousSigil2 = original(state.extras.Sigil2);
+      const merged = { ...previousSigil1, ...previousSigil2 };
+
+      state.extras.Sigil1 = merged;
+      state.extras.Sigil2 = merged;
+    },
   },
   extraReducers: {
     [changeAll]: (state, action) => {
@@ -172,5 +180,10 @@ export const getExtrasCombinationsAndModifiers = createSelector(
   },
 );
 
-export const { changeExtraIds, changeExtraAmount, changeExtras, changeLifestealAmount } =
-  extrasSlice.actions;
+export const {
+  changeExtraIds,
+  changeExtraAmount,
+  changeExtras,
+  changeLifestealAmount,
+  copySigils,
+} = extrasSlice.actions;

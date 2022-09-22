@@ -42,6 +42,7 @@
   "Copy Settings to clipboard": "Copy Settings to clipboard",
   "Copy build": "Copy build",
   "Copy from selected character": "Copy from selected character",
+  "Copy selected sigils to both slots": "Copy selected sigils to both slots",
   "Core game changes are updated for the June 28 and August 23 game patches, but preset coefficients and trait selections are not yet updated. Most gear results will be correctly optimized, but DPS estimates will be wrong.<br/><br/>Only templates with * asterisks are currently generated from post-patch logs.": "Core game changes are updated for the June 28 and August 23 game patches, but preset coefficients and trait selections are not yet updated. Most gear results will be correctly optimized, but DPS estimates will be wrong.<br/><br/>Only templates with * asterisks are currently generated from post-patch logs.",
   "Create build templates that can be used for the gear optimizer.": "Create build templates that can be used for the gear optimizer.",
   "Create templates for the discretize.eu website. Please check the discretize-guides repo for more information.": "Create templates for the discretize.eu website. Please check the discretize-guides repo for more information.",
