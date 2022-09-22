@@ -1,5 +1,5 @@
-import { createSlice, original } from '@reduxjs/toolkit';
-import { WAITING } from '../optimizer/status';
+import { createSelector, createSlice, original } from '@reduxjs/toolkit';
+import { RUNNING, WAITING } from '../optimizer/status';
 
 const roundThree = (num) => Math.round(num * 1000) / 1000;
 
@@ -154,6 +154,10 @@ export const getDisplayAttributes = (state) => state.optimizer.control.displayAt
 export const getTallTable = (state) => state.optimizer.control.tallTable;
 export const getSelectedCharacter = (state) => state.optimizer.control.selectedCharacter;
 export const getError = (state) => state.optimizer.control.error;
+
+export const getPageTitle = createSelector(getStatus, getProgress, (status, progress) =>
+  status === RUNNING ? `${progress}% - Discretize Gear Optimizer` : 'Discretize Gear Optimizer',
+);
 
 export const {
   changeAll,

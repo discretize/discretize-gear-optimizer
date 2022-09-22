@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getProfession } from '../state/slices/controlsSlice';
 import { getExpertMode } from '../state/slices/userSettings';
+import PageTitle from './baseComponents/PageTitle';
 import NavBar from './nav/NavBar';
 import AffixesSection from './sections/affixes/AffixesSection';
 import BossSection from './sections/boss/BossSection';
@@ -37,6 +38,7 @@ const GearOptimizer = () => {
 
   return (
     <>
+      <PageTitle />
       <NavBar />
       <Box>
         {profession === '' && (
