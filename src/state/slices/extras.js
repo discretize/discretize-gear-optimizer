@@ -126,6 +126,8 @@ const allowedDuplicateSigils = [
   'impact/night/slaying-both',
   'impact/night/slaying-only-3',
   'no-item-sigil',
+  'ruby-orb',
+  'platinum-doubloon',
 ];
 
 export const getExtrasCombinationsAndModifiers = createSelector(
