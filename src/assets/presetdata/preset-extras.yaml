@@ -115,7 +115,7 @@ list:
 
 
   # just reduced lifesteal frequency
-  - name: Bladesworn*
+  - name: Bladesworn
     value: |-
       {
         "extras": {

@@ -2218,10 +2218,10 @@ list:
           },
           {
             "fierce-as-fire": {
-              "amount": "10"
+              "amount": "9.9"
             },
             "guns-and-glory": {
-              "amount": "9.9"
+              "amount": ""
             }
           }
         ]
@@ -2231,7 +2231,7 @@ list:
         "skills": {}
       }
 
-  - name: DPS Bladesworn Tactics*
+  - name: DPS Bladesworn Tactics
     profession: Bladesworn
     traits: |-
       {
@@ -2286,10 +2286,10 @@ list:
           },
           {
             "fierce-as-fire": {
-              "amount": "10"
+              "amount": "9.9"
             },
             "guns-and-glory": {
-              "amount": "9.9"
+              "amount": ""
             }
           }
         ]

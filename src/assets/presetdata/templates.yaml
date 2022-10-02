@@ -389,20 +389,20 @@ list:
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Bladesworn*
+          extras: Bladesworn
         weaponType: Dual wield
 
-      - name: Power Bladesworn*
+      - name: Power Bladesworn (outdated)
         id: bls-dps
         specialization: Bladesworn
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: DPS Bladesworn Tactics*
-        traits: DPS Bladesworn Tactics*
+        distribution: DPS Bladesworn Tactics
+        traits: DPS Bladesworn Tactics
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Bladesworn*
+          extras: Bladesworn
         weaponType: Dual wield
 
       - name: Quickness Condi Bers (outdated)
