@@ -110,7 +110,7 @@
       text: Berserker's Power
       amountData:
         label: 'stacks'
-        default: ???
+        default: 0
         quantityEntered: 1
       modifiers:
         damage:
