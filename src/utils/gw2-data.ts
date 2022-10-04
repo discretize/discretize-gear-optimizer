@@ -1143,12 +1143,12 @@ export const conditionDataWvW = {
     factor: 0.06,
   },
   Torment: {
-    baseDamage: 31.8,
-    factor: 0.09,
+    baseDamage: 26,
+    factor: 0.07,
   },
   TormentMoving: {
-    baseDamage: 15.9,
-    factor: 0.045,
+    baseDamage: 19.8,
+    factor: 0.054,
   },
   Confusion: {
     baseDamage: 11,

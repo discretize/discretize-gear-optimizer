@@ -1969,7 +1969,7 @@ list:
             },
             "pinnacle-of-strength-crit": {},
             "berserkers-power": {
-              "amount": ""
+              "amount": "???"
             }
           },
           {
@@ -2011,7 +2011,7 @@ list:
         }
       }
 
-  - name: Condi (Quickness) Berserker*
+  - name: Condi (Quickness) Berserker
     profession: Berserker
     traits: |-
       {
@@ -2132,7 +2132,7 @@ list:
             },
             "pinnacle-of-strength-crit": {},
             "berserkers-power": {
-              "amount": ""
+              "amount": "???"
             }
           },
           {
@@ -2204,7 +2204,7 @@ list:
             },
             "pinnacle-of-strength-crit": {},
             "berserkers-power": {
-              "amount": "2.91"
+              "amount": "???"
             }
           },
           {
@@ -2268,7 +2268,7 @@ list:
             },
             "pinnacle-of-strength-crit": {},
             "berserkers-power": {
-              "amount": "2.91"
+              "amount": "???"
             }
           },
           {

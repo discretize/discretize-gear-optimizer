@@ -411,18 +411,18 @@ list:
         boonType: Condi
         priority: Condi Quickness Berserker 40%
         distribution: Condi Quickness Bers
-        traits: Condi (Quickness) Berserker*
+        traits: Condi (Quickness) Berserker
         extras: Condi Quickness Bers
         weaponType: Two-handed
 
-      - name: Condi Berserker*
+      - name: Condi Berserker (outdated)
         id: cbers-dps
         specialization: Berserker
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Berserker*
-        traits: Condi (Quickness) Berserker*
-        extras: Condi Berserker*
+        distribution: Condi Berserker
+        traits: Condi (Quickness) Berserker
+        extras: Condi Berserker
         weaponType: Two-handed
 
       - name: Power Bers (outdated)
@@ -718,7 +718,7 @@ list:
           extras: Power (Raid, air)
         weaponType: Dual wield
 
-      - name: Alacrity Condi Ren Invo
+      - name: Alacrity Condi Ren Invo (outdated)
         id: cren-alac-invo
         specialization: Renegade
         boonType: Condi
@@ -741,7 +741,7 @@ list:
           extras: Power Alac Ren (Raid)
         weaponType: Two-handed
 
-      - name: Condi Ren Invo
+      - name: Condi Ren Invo (outdated)
         id: cren-invo
         specialization: Renegade
         boonType: Condi
@@ -751,7 +751,7 @@ list:
         extras: Condi Ren
         weaponType: Two-handed
 
-      - name: Power Vindicator*
+      - name: Power Vindicator (outdated)
         id: vindi
         specialization: Vindicator
         boonType: Power

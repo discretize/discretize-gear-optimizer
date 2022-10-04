@@ -342,16 +342,12 @@
 
     - id: natural-mender
       text: Natural Mender
-      amountData:
-        label: 'stacks'
-        default: 10
-        quantityEntered: 1
       modifiers:
         attributes:
-          Outgoing Healing: 2%
+          Outgoing Healing: 20%
       wvwModifiers:
         attributes:
-          Outgoing Healing: 1.5%
+          Outgoing Healing: 15%
       minor: true
       gw2id: 1992
       defaultEnabled: true
