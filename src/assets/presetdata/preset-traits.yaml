@@ -2011,7 +2011,7 @@ list:
         }
       }
 
-  - name: Condi (Quickness) Berserker*
+  - name: Condi (Quickness) Berserker
     profession: Berserker
     traits: |-
       {

@@ -709,7 +709,7 @@ list:
         }
       }
 
-  - name: Condi Berserker*
+  - name: Condi Berserker
     profession: Berserker
     value: |-
       {

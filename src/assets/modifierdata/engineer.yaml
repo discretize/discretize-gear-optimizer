@@ -278,6 +278,18 @@
   id: 21
   items:
 
+    - id: takedown-round
+      text: Takedown Round
+      amountData:
+        label: '% uptime'
+        default: 0
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Strike Damage: [10%, unknown]
+      gw2id: 1832
+      defaultEnabled: true
+
     - id: excessive-energy
       text: Excessive Energy
       amountData:
@@ -309,9 +321,7 @@
 
     - id: impact-savant
       text: Impact Savant
-      modifiers:
-        attributes:
-          Vitality: [-180, buff]
+      modifiers: {}
       minor: true
       gw2id: 1877
       defaultEnabled: true

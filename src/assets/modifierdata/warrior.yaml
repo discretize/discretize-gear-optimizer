@@ -110,11 +110,11 @@
       text: Berserker's Power
       amountData:
         label: 'stacks'
-        default: 3
+        default: ???
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [7%, add]
+          Strike Damage: [5.25%, add]
       gw2id: 1437
       defaultEnabled: true
 
@@ -453,16 +453,6 @@
       gw2id: 2046
       defaultEnabled: true
 
-    - id: fatal-frenzy-toughness
-      text: Fatal Frenzy
-      subText: toughness during berserk
-      minor: true
-      modifiers:
-        attributes:
-          Toughness: [-300, buff]
-      gw2id: 2046
-      defaultEnabled: true
-
     - id: bloody-roar
       text: Bloody Roar
       amountData:
@@ -474,7 +464,7 @@
           Strike Damage: [25%, mult]
       wvwModifiers:
         damage:
-          Strike Damage: [15%, mult]
+          Strike Damage: [10%, mult]
       gw2id: 1928
       defaultEnabled: true
 
