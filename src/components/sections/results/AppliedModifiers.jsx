@@ -34,6 +34,9 @@ const AppliedModifiers = ({ character }) => {
 
   const appliedModifiers = character?.settings?.appliedModifiers ?? [];
 
+  const gameMode = character?.settings?.gameMode;
+  const isWvW = gameMode === 'wvw';
+
   return (
     <>
       <Accordion>
@@ -49,7 +52,7 @@ const AppliedModifiers = ({ character }) => {
         <AccordionDetails>
           <Table padding="none">
             <TableBody>
-              {appliedModifiers.map(({ type, id, modifiers, amount, amountData }) => {
+              {appliedModifiers.map(({ type, id, modifiers, wvwModifiers, amount, amountData }) => {
                 const { value: amountInput } = parseAmount(amount);
                 const multiplierNote = amountData
                   ? `${roundTwo(scaleValue(1, amountInput, amountData))}x`
@@ -62,7 +65,10 @@ const AppliedModifiers = ({ character }) => {
                     <TableCell style={{ paddingRight: 8 }}>
                       <Typography variant="body2">{multiplierNote}</Typography>
                     </TableCell>
-                    <TableCell>{JSON.stringify(modifiers)}</TableCell>
+                    <TableCell>
+                      {isWvW && wvwModifiers ? 'WvW: ' : ''}
+                      {JSON.stringify(isWvW ? wvwModifiers ?? modifiers : modifiers)}
+                    </TableCell>
                   </TableRow>
                 );
               })}

@@ -13,12 +13,13 @@ import type {
   ProfessionName,
   WeaponHandednessType,
 } from '../../utils/gw2-data';
-import { Attributes, conditionData, INFUSION_BONUS } from '../../utils/gw2-data';
+import { Attributes, conditionData, conditionDataWvW, INFUSION_BONUS } from '../../utils/gw2-data';
 import { enumArrayIncludes } from '../../utils/usefulFunctions';
 import type {
   AppliedModifier,
   CachedFormState,
   DistributionNameInternal,
+  GameMode,
   InfusionMode,
   Modifiers,
 } from './optimizerSetup';
@@ -129,6 +130,7 @@ export interface OptimizerCoreSettings {
   distribution: Record<DistributionNameInternal, number>;
   attackRate: number;
   movementUptime: number;
+  gameMode: GameMode;
 
   // these are in addition to the input
   infusionMode: InfusionMode;
@@ -162,6 +164,7 @@ type OptimizerCoreMinimalSettings = Pick<
   | 'shouldDisplayExtras'
   | 'extrasCombination'
   | 'modifiers'
+  | 'gameMode'
 >;
 type Gear = AffixName[];
 type GearStats = Record<string, number>;
@@ -188,6 +191,7 @@ export class OptimizerCore {
   isChanged = true;
   uniqueIDCounter = 0;
   randomId = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+  conditionData: typeof conditionData;
 
   constructor(settings: OptimizerCoreSettings) {
     this.settings = settings;
@@ -202,7 +206,9 @@ export class OptimizerCore {
       shouldDisplayExtras: settings.shouldDisplayExtras,
       extrasCombination: settings.extrasCombination,
       modifiers: settings.modifiers,
+      gameMode: settings.gameMode,
     };
+    this.conditionData = settings.gameMode === 'wvw' ? conditionDataWvW : conditionData;
 
     let applyInfusionsFunction: OptimizerCore['applyInfusionsFunction'];
     switch (settings.infusionMode) {
@@ -779,7 +785,7 @@ export class OptimizerCore {
   }
 
   conditionDamageTick = (condition: ConditionName, cdmg: number, mult: number): number =>
-    (conditionData[condition].factor * cdmg + conditionData[condition].baseDamage) * mult;
+    (this.conditionData[condition].factor * cdmg + this.conditionData[condition].baseDamage) * mult;
 
   calcCondi(
     character: Character,

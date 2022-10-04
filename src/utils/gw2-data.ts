@@ -1129,6 +1129,36 @@ export const conditionData = {
     factor: 0.0975,
   },
 };
+export const conditionDataWvW = {
+  Burning: {
+    baseDamage: 131,
+    factor: 0.155,
+  },
+  Bleeding: {
+    baseDamage: 22,
+    factor: 0.06,
+  },
+  Poison: {
+    baseDamage: 33.5,
+    factor: 0.06,
+  },
+  Torment: {
+    baseDamage: 31.8,
+    factor: 0.09,
+  },
+  TormentMoving: {
+    baseDamage: 15.9,
+    factor: 0.045,
+  },
+  Confusion: {
+    baseDamage: 11,
+    factor: 0.03,
+  },
+  ConfusionActive: {
+    baseDamage: 49.5,
+    factor: 0.0975,
+  },
+};
 export type ConditionName = keyof typeof conditionData;
 
 export const damagingConditions: ConditionName[] = [

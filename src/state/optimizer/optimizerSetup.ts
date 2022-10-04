@@ -83,6 +83,9 @@ import { getGameMode } from '../slices/userSettings';
 import type { OptimizerCoreSettings } from './optimizerCore';
 import { clamp, scaleValue } from './optimizerCore';
 
+// currently a duplicate of navsettings.jsx
+export type GameMode = 'fractals' | 'raids' | 'wvw';
+
 interface Combination {
   extrasCombination: Record<string, string>;
   extrasModifiers: AppliedModifier[];
@@ -282,7 +285,8 @@ export function setupCombinations(reduxState: any) {
     const attackRateText: string = getAttackRate(reduxState);
     const movementUptimeText: string = getMovementUptime(reduxState);
 
-    const isWvW: boolean = getGameMode(reduxState) === 'wvw';
+    const gameMode = getGameMode(reduxState) as GameMode;
+    const isWvW: boolean = gameMode === 'wvw';
 
     // todo: consolidate error handling
     if (profession === '') {
@@ -909,6 +913,7 @@ export function setupCombinations(reduxState: any) {
       identicalWep: settings_identicalWep,
       affixStatsArray: settings_affixStatsArray,
       runsAfterThisSlot: settings_runsAfterThisSlot,
+      gameMode,
     };
 
     console.log('Input option:', combination);
