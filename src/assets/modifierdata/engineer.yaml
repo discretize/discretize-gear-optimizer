@@ -286,7 +286,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, unknown]
+          Strike Damage: [10%, mult] # tested by Crone
       gw2id: 1832
       defaultEnabled: true
 
