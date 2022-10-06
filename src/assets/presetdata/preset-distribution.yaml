@@ -579,6 +579,17 @@ list:
         url: https://www.youtube.com/watch?v=O3ERT0JPCZg
         log: https://dps.report/W3hE-20220824-202151_golem
 
+  - name: Condi Alacrity Untamed A/A Hammer*
+    profession: Untamed
+    value: >-
+      {
+        "values2": { "Power": 2834, "Power2": 0, "Burning": 0, "Bleeding": 25.46, "Poisoned": 3.77, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Baym
+        url: https://www.youtube.com/watch?v=qt7y7K4kPao
+        log: https://dps.report/48qt-20220824-193816_golem
+
   - name: Condi Untamed Axe*
     profession: Untamed
     value: >-

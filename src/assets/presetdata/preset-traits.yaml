@@ -3479,6 +3479,70 @@ list:
         "skills": {}
       }
 
+  - name: Condi Alacrity Untamed A/A Hammer*
+    profession: Untamed
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "30",
+          "25",
+          "72"
+        ],
+        "selectedTraits": [
+          [
+            1069,
+            1846,
+            1888
+          ],
+          [
+            1062,
+            965,
+            1038
+          ],
+          [
+            2301,
+            2263,
+            2271
+          ]
+        ],
+        "items": [
+          {
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {},
+            "sharpened-edges": {
+              "amount": "3.74"
+            }
+          },
+          {
+            "bountiful-hunter": {
+              "amount": ""
+            },
+            "instinctive-reaction": {},
+            "lingering-magic": {}
+          },
+          {
+            "natural-fortitude": {},
+            "ferocious-symbiosis": {
+              "amount": ""
+            },
+            "vow-of-the-untamed-pet": {},
+            "vow-of-the-untamed-you": {
+              "amount": "28.6"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "pet-dps": {
+            "amount": "6340"
+          }
+        }
+      }
+
   - name: Condi Untamed Axe*
     profession: Untamed
     traits: |-
