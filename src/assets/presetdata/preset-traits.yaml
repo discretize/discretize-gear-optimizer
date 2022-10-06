@@ -2974,6 +2974,73 @@ list:
         }
       }
 
+  - name: Alacrity Hybrid Tempest*
+    profession: Tempest
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "31",
+          "37",
+          "48"
+        ],
+        "selectedTraits": [
+          [
+            296,
+            325,
+            1510
+          ],
+          [
+            253,
+            265,
+            1511
+          ],
+          [
+            1952,
+            1902,
+            2033
+          ]
+        ],
+        "items": [
+          {
+            "empowering-flame": {
+              "amount": "46"
+            },
+            "burning-precision": {},
+            "burning-rage": {},
+            "power-overwhelming": {},
+            "power-overwhelming-2": {
+              "amount": ""
+            },
+            "pyromancers-training": {},
+            "persisting-flames": {
+              "amount": "9.9"
+            }
+          },
+          {
+            "elemental-enchantment": {},
+            "elemental-surge": {
+              "amount": ""
+            },
+            "bountiful-power": {
+              "amount": ""
+            }
+          },
+          {
+            "gathered-focus": {},
+            "hardy-conduit": {},
+            "transcendent-tempest": {
+              "amount": "62"
+            },
+            "gathered-focus-2": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
   - name: Condi Tempest
     profession: Tempest
     traits: |-

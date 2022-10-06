@@ -888,6 +888,32 @@ list:
         }
       }
 
+  - name: Alacrity Hybrid Tempest*
+    profession: Tempest
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "flame-legion-2": {}
+          },
+          "Sigil1": {
+            "bursting": {}
+          },
+          "Sigil2": {
+            "torment": {},
+            "concentration": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {},
+            "toxic-maintenance-oil": {}
+          },
+          "Nourishment": {
+            "spherified-cilantro-oyster-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Tempest
     profession: Tempest
     value: |-

@@ -335,6 +335,16 @@ list:
         "minQuicknessDuration": 0
       }
 
+  - name: Alacrity Hybrid Tempest 57%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Grieving", "Celestial"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 57,
+        "minQuicknessDuration": 0
+      }
+
   - name: Condi Alacrity Mechanist 50%
     hidden: true
     value: >-
