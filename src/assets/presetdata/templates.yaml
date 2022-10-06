@@ -928,6 +928,19 @@ list:
         extras: Quickness Harbinger
         weaponType: Dual wield
 
+      - name: Quickness Power Harbinger (approx)*
+        id: qharb-power
+        specialization: Harbinger
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Quickness Power Harbinger (approx)*
+        traits: Quickness Power Harbinger*
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid, furious)
+        weaponType: Two-handed
+
       - name: Condi Harbinger (slightly outdated)
         id: charb
         specialization: Harbinger

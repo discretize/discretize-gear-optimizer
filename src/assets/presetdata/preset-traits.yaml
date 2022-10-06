@@ -5813,6 +5813,74 @@ list:
         "skills": {}
       }
 
+  - name: Quickness Power Harbinger*
+    profession: Harbinger
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "53",
+          "50",
+          "64"
+        ],
+        "selectedTraits": [
+          [
+            914,
+            829,
+            853
+          ],
+          [
+            898,
+            894,
+            893
+          ],
+          [
+            2188,
+            2220,
+            2194
+          ]
+        ],
+        "items": [
+          {
+            "spiteful-talisman": {
+              "amount": ""
+            },
+            "awaken-the-pain": {
+              "amount": ""
+            },
+            "close-to-death": {
+              "amount": ""
+            }
+          },
+          {
+            "soul-barbs": {
+              "amount": "90"
+            },
+            "vital-persistence": {},
+            "death-perception": {}
+          },
+          {
+            "wicked-corruption-base": {},
+            "wicked-corruption": {
+              "amount": "18.6"
+            },
+            "septic-corruption": {
+              "amount": ""
+            },
+            "alchemic-vigor": {},
+            "implacable-foe": {},
+            "twisted-medicine": {},
+            "dark-gunslinger": {},
+            "cascading-corruption": {},
+            "doom-approaches": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
   - name: Condi Deadeye
     profession: Deadeye
     traits: |-

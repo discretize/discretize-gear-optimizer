@@ -990,6 +990,17 @@ list:
       - author: '[CnD] Aphrodite Lady'
         url: https://www.youtube.com/watch?v=zcFY7nNhZwg
 
+  - name: Quickness Power Harbinger (approx)*
+    profession: Harbinger
+    value: >-
+      {
+        "values2": { "Power": 1589, "Power2": 1520, "Burning": 0.13, "Bleeding": 2.44, "Poisoned": 2.14, "Torment": 9.49, "Confusion": 0.13 }
+      }
+    credit:
+      - author: '[CnD] Aphrodite Lady'
+        url: https://www.youtube.com/watch?v=hyunt1U3YHQ
+        log: https://dps.report/wtGt-20220902-132134_golem
+
   - name: Condi Deadeye
     profession: Deadeye
     value: >-
