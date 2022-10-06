@@ -1029,16 +1029,16 @@ list:
         url: https://www.youtube.com/watch?v=1yAvjWJoAyE
         log: https://dps.report/zCoq-20211001-043146_golem
 
-  - name: Staff Daredevil
+  - name: Power Staff Daredevil*
     profession: Daredevil
     value: >-
       {
-        "values2": { "Power": 2712, "Power2": 0, "Burning": 0.62, "Bleeding": 0, "Poisoned": 0.96, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2924, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0.94, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Left'
-        url: https://www.youtube.com/watch?v=UD7TaxND8vc
-        log: https://dps.report/iSRR-20200320-131145_golem
+        url: https://www.youtube.com/watch?v=5AekaqupaN8
+        log: https://dps.report/wYRI-20220824-133048_golem
 
   # afflicted kimchi
   - name: Condi Daredevil*

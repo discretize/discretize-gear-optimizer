@@ -1063,7 +1063,7 @@ list:
         specialization: Daredevil
         boonType: Power
         priority: Power Boon Daredevil 99.7%
-        distribution: Staff Daredevil
+        distribution: Power Staff Daredevil*
         traits: Power Boon Daredevil
         extras: Power Boon Daredevil
         weaponType: Two-handed
@@ -1078,17 +1078,17 @@ list:
         extras: Condi Daredevil*
         weaponType: Dual wield
 
-      - name: Power Staff Daredevil (outdated)
+      - name: Power Staff Daredevil*
         id: staffdd
         specialization: Daredevil
         boonType: Power
         priority: Power DPS
-        distribution: Staff Daredevil
-        traits: Staff Daredevil
+        distribution: Power Staff Daredevil*
+        traits: Power Staff Daredevil*
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Staff Daredevil (Raid)
+          extras: Power Staff Daredevil*
         weaponType: Two-handed
 
       - name: Condi Deadeye (outdated)

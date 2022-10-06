@@ -1648,7 +1648,7 @@ list:
         }
       }
 
-  - name: Staff Daredevil (Raid)
+  - name: Power Staff Daredevil*
     profession: Daredevil
     value: |-
       {

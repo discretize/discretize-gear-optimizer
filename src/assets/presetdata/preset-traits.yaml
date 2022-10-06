@@ -6083,7 +6083,7 @@ list:
         "skills": {}
       }
 
-  - name: Staff Daredevil
+  - name: Power Staff Daredevil*
     profession: Daredevil
     traits: |-
       {
@@ -6121,6 +6121,9 @@ list:
             "potent-poison": {},
             "executioner": {
               "amount": ""
+            },
+            "revealed-training-revealed": {
+              "amount": "7.75"
             }
           },
           {
@@ -6144,7 +6147,7 @@ list:
               "amount": ""
             },
             "bounding-dodger": {
-              "amount": "100"
+              "amount": "67"
             },
             "lotus-training": {}
           }
