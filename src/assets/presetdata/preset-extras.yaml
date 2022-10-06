@@ -488,7 +488,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Willbender
+  - name: Condi Willbender*
     profession: Willbender
     value: |-
       {

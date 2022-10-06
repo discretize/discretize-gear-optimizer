@@ -278,14 +278,14 @@ list:
         extras: Condi Alacrity Willbender
         weaponType: Dual wield
 
-      - name: Condi Willbender Sword
+      - name: Condi Willbender Sword*
         id: cwb-sw
         specialization: Willbender
         boonType: Condi
         priority: Hybrid DPS
-        distribution: Condi Willbender Sword
-        traits: Condi Willbender
-        extras: Condi Willbender
+        distribution: Condi Willbender Sword*
+        traits: Condi Willbender*
+        extras: Condi Willbender*
         weaponType: Dual wield
 
       - name: Condi Willbender GS (outdated)
@@ -294,8 +294,8 @@ list:
         boonType: Condi
         priority: Hybrid DPS
         distribution: Condi Willbender GS
-        traits: Condi Willbender
-        extras: Condi Willbender
+        traits: Condi Willbender*
+        extras: Condi Willbender*
         weaponType: Two-handed
 
       - name: Power Willbender Virtues (outdated)
