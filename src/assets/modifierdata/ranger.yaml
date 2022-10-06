@@ -532,10 +532,10 @@
       subText: player unleashed
       modifiers:
         damage:
-          All Damage: [25%, unknown]
+          Strike Damage: [25%, unknown]
       wvwModifiers:
         damage:
-          All Damage: [15%, unknown]
+          Strike Damage: [15%, unknown]
       minor: true
       gw2id: 2269
       defaultEnabled: true

@@ -3445,7 +3445,7 @@ list:
             "hunters-tactics": {},
             "vicious-quarry": {},
             "sharpened-edges": {
-              "amount": "4.47"
+              "amount": "4.49"
             }
           },
           {
@@ -3461,14 +3461,18 @@ list:
             },
             "vow-of-the-untamed-pet": {},
             "vow-of-the-untamed-you": {
-              "amount": "7.5"
+              "amount": "7.24"
             }
           }
         ]
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "pet-dps": {
+            "amount": "8113"
+          }
+        }
       }
 
   - name: Power Slb Skirm
