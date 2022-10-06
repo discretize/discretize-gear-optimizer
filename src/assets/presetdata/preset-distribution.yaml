@@ -1052,7 +1052,7 @@ list:
         url: https://www.youtube.com/watch?v=2v69_eHCMO8
         log: https://www.dps.report/vmjE-20220827-105554_golem
 
-  - name: Rifle Deadeye (Premeditation)*
+  - name: Rifle Deadeye Premeditation*
     profession: Deadeye
     value: >-
       {
@@ -1063,7 +1063,7 @@ list:
         url: https://www.youtube.com/watch?v=qkbodbKnhwc
         log: https://dps.report/f1kw-20220826-220619_golem
 
-  - name: Rifle Deadeye (Silent Scope)*
+  - name: Rifle Deadeye Silent Scope*
     profession: Deadeye
     value: >-
       {

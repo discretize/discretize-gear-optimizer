@@ -6360,7 +6360,7 @@ list:
         "skills": {}
       }
 
-  - name: Rifle Deadeye (Premeditation)*
+  - name: Rifle Deadeye Premeditation*
     profession: Deadeye
     traits: |-
       {
@@ -6434,7 +6434,7 @@ list:
         }
       }
 
-  - name: Rifle Deadeye (Silent Scope)*
+  - name: Rifle Deadeye Silent Scope*
     profession: Deadeye
     traits: |-
       {
