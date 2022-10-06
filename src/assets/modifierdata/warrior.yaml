@@ -582,7 +582,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          All Damage: [1%, unknown]
+          Strike Damage: [1%, add] # tested by ReMagic
       gw2id: 2302
       defaultEnabled: true
 
