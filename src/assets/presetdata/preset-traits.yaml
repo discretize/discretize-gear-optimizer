@@ -684,78 +684,78 @@ list:
         }
       }
 
-  - name: Condi Virtuoso (sharpening sorrow)
-    profession: Virtuoso
-    traits: |-
-      {
-        "showAll": false,
-        "selectedLines": [
-          "24",
-          "1",
-          "66"
-        ],
-        "selectedTraits": [
-          [
-            721,
-            1690,
-            733
-          ],
-          [
-            701,
-            708,
-            692
-          ],
-          [
-            2202,
-            2207,
-            2223
-          ]
-        ],
-        "items": [
-          {
-            "compounding-power": {
-              "amount": ""
-            },
-            "Phantasmal Force": {
-              "amount": ""
-            }
-          },
-          {
-            "fencers-finesse": {
-              "amount": "5.41"
-            },
-            "superiority-complex-base": {},
-            "superiority-complex": {
-              "amount": ""
-            },
-            "sharper-images-phantasm": {
-              "amount": "1.75"
-            },
-            "phantasmal-fury-virtuoso": {}
-          },
-          {
-            "mental-focus": {
-              "amount": ""
-            },
-            "deadly-blades": {
-              "amount": "96.7"
-            },
-            "sharpening-sorrow": {},
-            "quiet-intensity": {},
-            "bloodsong": {},
-            "jagged-mind": {
-              "amount": "5.03"
-            }
-          }
-        ]
-      }
-    skills: |-
-      {
-        "skills": {
-          "signet-of-domination": {},
-          "signet-of-midnight": {}
-        }
-      }
+  # - name: Condi Virtuoso (sharpening sorrow)
+  #   profession: Virtuoso
+  #   traits: |-
+  #     {
+  #       "showAll": false,
+  #       "selectedLines": [
+  #         "24",
+  #         "1",
+  #         "66"
+  #       ],
+  #       "selectedTraits": [
+  #         [
+  #           721,
+  #           1690,
+  #           733
+  #         ],
+  #         [
+  #           701,
+  #           708,
+  #           692
+  #         ],
+  #         [
+  #           2202,
+  #           2207,
+  #           2223
+  #         ]
+  #       ],
+  #       "items": [
+  #         {
+  #           "compounding-power": {
+  #             "amount": ""
+  #           },
+  #           "Phantasmal Force": {
+  #             "amount": ""
+  #           }
+  #         },
+  #         {
+  #           "fencers-finesse": {
+  #             "amount": "5.41"
+  #           },
+  #           "superiority-complex-base": {},
+  #           "superiority-complex": {
+  #             "amount": ""
+  #           },
+  #           "sharper-images-phantasm": {
+  #             "amount": "1.75"
+  #           },
+  #           "phantasmal-fury-virtuoso": {}
+  #         },
+  #         {
+  #           "mental-focus": {
+  #             "amount": ""
+  #           },
+  #           "deadly-blades": {
+  #             "amount": "96.7"
+  #           },
+  #           "sharpening-sorrow": {},
+  #           "quiet-intensity": {},
+  #           "bloodsong": {},
+  #           "jagged-mind": {
+  #             "amount": "5.03"
+  #           }
+  #         }
+  #       ]
+  #     }
+  #   skills: |-
+  #     {
+  #       "skills": {
+  #         "signet-of-domination": {},
+  #         "signet-of-midnight": {}
+  #       }
+  #     }
 
   - name: Condi Virtuoso (chaos)*
     profession: Virtuoso

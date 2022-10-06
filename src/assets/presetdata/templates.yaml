@@ -14,15 +14,15 @@ list:
         extras: Condi Virtuoso*
         weaponType: Dual wield
 
-      - name: Condi Virtuoso (sharpening sorrow)
-        id: cvirt-sorrow
-        specialization: Virtuoso
-        boonType: Condi
-        priority: Condi DPS Rampager
-        distribution: Condi Virtuoso (sharpening sorrow)
-        traits: Condi Virtuoso (sharpening sorrow)
-        extras: Condi Virtuoso*
-        weaponType: Dual wield
+      # - name: Condi Virtuoso (sharpening sorrow)
+      #   id: cvirt-sorrow
+      #   specialization: Virtuoso
+      #   boonType: Condi
+      #   priority: Condi DPS Rampager
+      #   distribution: Condi Virtuoso (sharpening sorrow)
+      #   traits: Condi Virtuoso (sharpening sorrow)
+      #   extras: Condi Virtuoso*
+      #   weaponType: Dual wield
 
       - name: Condi Virtuoso (chaos)*
         id: cvirt-chaos
