@@ -330,7 +330,7 @@ list:
         }
       }
 
-  - name: Condi Virtuoso*
+  - name: Condi Virtuoso Dueling*
     profession: Virtuoso
     value: |-
       {
@@ -359,7 +359,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Virtuoso (chaos)*
+  - name: Condi Virtuoso Chaos*
     profession: Virtuoso
     value: |-
       {

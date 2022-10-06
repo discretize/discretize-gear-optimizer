@@ -611,7 +611,7 @@ list:
         }
       }
 
-  - name: Condi Virtuoso*
+  - name: Condi Virtuoso Dueling*
     profession: Virtuoso
     traits: |-
       {
@@ -757,7 +757,7 @@ list:
   #       }
   #     }
 
-  - name: Condi Virtuoso (chaos)*
+  - name: Condi Virtuoso Chaos*
     profession: Virtuoso
     traits: |-
       {

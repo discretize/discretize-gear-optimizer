@@ -4,14 +4,14 @@ list:
   - class: Mesmer
     builds:
 
-      - name: Condi Virtuoso*
+      - name: Condi Virtuoso Dueling*
         id: cvirt
         specialization: Virtuoso
         boonType: Condi
         priority: Condi DPS Rampager
-        distribution: Condi Virtuoso*
-        traits: Condi Virtuoso*
-        extras: Condi Virtuoso*
+        distribution: Condi Virtuoso Dueling*
+        traits: Condi Virtuoso Dueling*
+        extras: Condi Virtuoso Dueling*
         weaponType: Dual wield
 
       # - name: Condi Virtuoso (sharpening sorrow)
@@ -21,17 +21,17 @@ list:
       #   priority: Condi DPS Rampager
       #   distribution: Condi Virtuoso (sharpening sorrow)
       #   traits: Condi Virtuoso (sharpening sorrow)
-      #   extras: Condi Virtuoso*
+      #   extras: Condi Virtuoso Dueling*
       #   weaponType: Dual wield
 
-      - name: Condi Virtuoso (chaos)*
+      - name: Condi Virtuoso Chaos*
         id: cvirt-chaos
         specialization: Virtuoso
         boonType: Condi
         priority: Condi DPS Rampager
-        distribution: Condi Virtuoso (chaos)*
-        traits: Condi Virtuoso (chaos)*
-        extras: Condi Virtuoso (chaos)*
+        distribution: Condi Virtuoso Chaos*
+        traits: Condi Virtuoso Chaos*
+        extras: Condi Virtuoso Chaos*
         weaponType: Dual wield
 
       - name: Power Virtuoso GS*

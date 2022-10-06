@@ -897,7 +897,7 @@ list:
         log: https://dps.report/WItI-20220804-134453_golem
 
   # https://optimizer.discretize.eu/?s=ReeYNhV3v1
-  - name: Condi Virtuoso*
+  - name: Condi Virtuoso Dueling*
     profession: Virtuoso
     value: >-
       {
@@ -922,7 +922,7 @@ list:
   #     - author: 'REMagic'
 
   # https://optimizer.discretize.eu/?s=tC0aBKlpv1
-  - name: Condi Virtuoso (chaos)*
+  - name: Condi Virtuoso Chaos*
     profession: Virtuoso
     value: >-
       {
