@@ -1317,7 +1317,7 @@ list:
         }
       }
 
-  - name: CFB DPS 5 page
+  - name: CFB DPS 5 page*
     profession: Firebrand
     traits: |-
       {
@@ -1383,6 +1383,9 @@ list:
         "skills": {
           "signet-of-wrath": {
             "amount": ""
+          },
+          "mantra-of-flame": {
+            "amount": "1.23"
           }
         }
       }

@@ -150,30 +150,26 @@ list:
         url: https://www.youtube.com/watch?v=mCOEGlJkRJ0
         log: https://dps.report/z2Zl-20220316-172733_golem
 
-  # 12 boons
-  # sinister amulet ring acc acc back
-  # NO JADE BOT (in arc log, probably - seems bugged)
-  - name: CFB (5 page RF, allies)
+  - name: CFB (5 page RF, allies)*
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2157, "Power2": 0, "Burning": 16.22, "Bleeding": 3.46, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2169, "Power2": 0, "Burning": 15.12, "Bleeding": 3.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=mqnlk-j1e0Q
-        log: https://dps.report/YM0x-20220314-200134_golem
+        url: https://www.youtube.com/watch?v=M5oUudcmGKY
+        log: https://dps.report/PlrD-20220703-123541_golem
 
-  # burn 26678
-  - name: CFB (5 page RF, no allies)
+  - name: CFB (5 page RF, no allies)*
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2157, "Power2": 0, "Burning": 14.09, "Bleeding": 3.46, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2199, "Power2": 0, "Burning": 12.55, "Bleeding": 3.5, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=mqnlk-j1e0Q
+        url: https://www.youtube.com/watch?v=M5oUudcmGKY
 
   # 12 boons
   # sinister amulet ring acc acc back

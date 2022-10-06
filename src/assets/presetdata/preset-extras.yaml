@@ -565,7 +565,7 @@ list:
         }
       }
 
-  - name: CFB DPS (5 page, balthazar)
+  - name: CFB DPS (5 page, balthazar)*
     profession: Firebrand
     value: |-
       {
