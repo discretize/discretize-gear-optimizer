@@ -135,14 +135,14 @@ list:
       #     extras: Power (Raid, furious)
       #   weaponType: Two-handed
 
-      - name: Alacrity Staff Mirage (outdated)
+      - name: Alacrity Staff Mirage*
         id: alacmirage
         specialization: Mirage
         boonType: Condi
         priority: Condi Alacrity Mirage 27%
-        distribution: Staff Mirage
-        traits: Staff Mirage
-        extras: Alacrity Mirage (Raid)
+        distribution: Alacrity Staff Mirage*
+        traits: Alacrity Staff Mirage*
+        extras: Alacrity Staff Mirage*
         weaponType: Two-handed
 
       - name: Condi Axe Mirage*

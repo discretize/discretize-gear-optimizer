@@ -231,7 +231,7 @@ list:
         }
       }
 
-  - name: Alacrity Mirage (Raid)
+  - name: Alacrity Staff Mirage*
     profession: Mirage
     value: |-
       {

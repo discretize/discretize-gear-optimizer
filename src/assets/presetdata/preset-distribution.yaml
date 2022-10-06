@@ -839,18 +839,17 @@ list:
         url: https://www.youtube.com/watch?v=3VQqzxB6Pn8
         log: https://dps.report/mv3g-20210604-005500_golem
 
-  # removed 126 power damage from lifesteal food
-  # full viper toxic oil
-  - name: Staff Mirage
+  # 27% ritualist
+  - name: Alacrity Staff Mirage*
     profession: Mirage
     value: >-
       {
-        "values2": { "Power": 1206, "Power2": 60, "Burning": 0.54, "Bleeding": 10.79, "Poisoned": 0.81, "Torment": 15.07, "Confusion": 17.32 }
+        "values2": { "Power": 1263, "Power2": 0, "Burning": 0, "Bleeding": 11.59, "Poisoned": 0.62, "Torment": 14.73, "Confusion": 16.99 }
       }
     credit:
       - author: '[CnD] Xyonon'
-        url: https://www.youtube.com/watch?v=Lg85Tj1-QeQ
-        log: https://dps.report/u9Cu-20210910-041935_golem
+        url: https://www.youtube.com/watch?v=I00jkaQqEHQ
+        log: https://dps.report/6Kpz-20220711-175021_golem
 
   - name: Axe Mirage (Deception Torch)*
     profession: Mirage

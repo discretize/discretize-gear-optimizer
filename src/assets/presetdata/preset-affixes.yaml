@@ -231,7 +231,7 @@ list:
       {
         "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 27.4,
+        "minBoonDuration": 27,
         "minQuicknessDuration": 0
       }
 

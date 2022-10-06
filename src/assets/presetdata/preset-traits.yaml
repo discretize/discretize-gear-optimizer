@@ -477,7 +477,7 @@ list:
         }
       }
 
-  - name: Staff Mirage
+  - name: Alacrity Staff Mirage*
     profession: Mirage
     traits: |-
       {
@@ -527,7 +527,7 @@ list:
               "amount": ""
             },
             "sharper-images-clone": {
-              "amount": "2.50"
+              "amount": "2.38"
             },
             "sharper-images-phantasm": {
               "amount": "0.04"
