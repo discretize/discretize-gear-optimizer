@@ -1248,7 +1248,8 @@ list:
           "Enhancement": {
             "toxic-focusing-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": "4.4"
       }
 
   - name: Power Quickness Herald (Raid)*

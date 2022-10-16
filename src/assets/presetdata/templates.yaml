@@ -761,7 +761,7 @@ list:
           extras: Power Alac Ren (Raid)
         weaponType: Two-handed
 
-      - name: Condi Ren Invo (outdated)
+      - name: Condi Ren Invo*
         id: cren-invo
         specialization: Renegade
         boonType: Condi

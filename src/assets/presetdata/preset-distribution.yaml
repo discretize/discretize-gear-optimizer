@@ -507,24 +507,23 @@ list:
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 2122, "Power2": 0, "Burning": 5.24, "Bleeding": 14.2, "Poisoned": 1.83, "Torment": 17.87, "Confusion": 0 }
+        "values2": { "Power": 2011, "Power2": 0, "Burning": 4.48, "Bleeding": 14.48, "Poisoned": 4.07, "Torment": 18.32, "Confusion": 0 }
       }
     credit:
-      - author: '[Inn] Xorxy'
-        url: https://www.youtube.com/watch?v=pVKQNutvFIU
-        log: https://dps.report/YPqz-20220309-020938_golem
+      - author: '[InS] Laoshi'
+        url: https://www.youtube.com/watch?v=9wOyiE2Bvts
+        log: https://dps.report/EeYd-20221008-182313_golem
 
-  # full viper, asparagus food
   - name: Condi Renegade Invocation (no allies)
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 2122, "Power2": 0, "Burning": 5.24, "Bleeding": 10.2, "Poisoned": 1.83, "Torment": 17.87, "Confusion": 0 }
+        "values2": { "Power": 2011, "Power2": 0, "Burning": 4.48, "Bleeding": 10.48, "Poisoned": 4.07, "Torment": 18.32, "Confusion": 0 }
       }
     credit:
-      - author: '[Inn] Xorxy'
-        url: https://www.youtube.com/watch?v=pVKQNutvFIU
-        log: https://dps.report/YPqz-20220309-020938_golem
+      - author: '[InS] Laoshi'
+        url: https://www.youtube.com/watch?v=9wOyiE2Bvts
+        log: https://dps.report/EeYd-20221008-182313_golem
 
   # not including ally lifesteal
   # todo: convert 100dps to self lifesteal
