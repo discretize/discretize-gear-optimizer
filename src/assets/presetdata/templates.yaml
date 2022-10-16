@@ -438,17 +438,17 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Power Banner SPB (outdated)
-        id: spb-bs
+      - name: Power Quickness Spellbreaker*
+        id: spb-quick
         specialization: Spellbreaker
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Banner Spellbreaker
-        traits: Power Banner SPB
+        distribution: Power Quickness Spellbreaker
+        traits: Power Quickness Spellbreaker
         fractal:
-          extras: Power (Fractal)
+          extras: Power Boon (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: Power Boon (Raid)
         weaponType: Dual wield
 
   - class: Elementalist

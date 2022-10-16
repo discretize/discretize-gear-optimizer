@@ -59,17 +59,16 @@ list:
         url: https://www.youtube.com/watch?v=-F-I0bdSJ-w
         log: https://dps.report/Ag4J-20220825-111159_golem
 
-  # accuracy; optimized for 3 attacker's insight I guess w/e (assassin coat legs, full mighty)
-  - name: Power Banner Spellbreaker
+  - name: Power Quickness Spellbreaker
     profession: Spellbreaker
     value: >-
       {
-        "values2": { "Power": 2617, "Power2": 0, "Burning": 0.59, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2547, "Power2": 0, "Burning": 0, "Bleeding": 0.85, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[CnD] Bekko'
-        url: https://www.youtube.com/watch?v=br9AGRrKHY8
-        log: https://dps.report/jpAe-20210515-174310_golem
+      - author: 'Baym'
+        url: https://www.youtube.com/watch?v=rVQtNtIHHxM
+        log: https://dps.report/2Wtv-20221008-134648_golem
 
   # 100% crit (thief accuracy, assassin shoulders amulet, furious)
   - name: DPS Bladesworn Tactics

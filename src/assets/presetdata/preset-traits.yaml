@@ -2098,7 +2098,7 @@ list:
         "skills": {}
       }
 
-  - name: Power Banner SPB
+  - name: Power Quickness Spellbreaker
     profession: Spellbreaker
     traits: |-
       {
@@ -2135,7 +2135,7 @@ list:
             },
             "pinnacle-of-strength-crit": {},
             "berserkers-power": {
-              "amount": "???"
+              "amount": "4"
             }
           },
           {
@@ -2155,10 +2155,13 @@ list:
               "amount": ""
             },
             "attackers-insight": {
-              "amount": "4"
+              "amount": "4.15"
             },
             "magebane-tether": {
-              "amount": ""
+              "amount": "65.9"
+            },
+            "sun-and-moon-style": {
+              "amount": "55.7"
             }
           }
         ]
@@ -2166,7 +2169,6 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-might": {}
         }
       }
 
