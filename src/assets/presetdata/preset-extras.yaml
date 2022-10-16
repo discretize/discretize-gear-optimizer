@@ -920,19 +920,22 @@ list:
       {
         "extras": {
           "Runes": {
-            "elementalist": {}
+            "elementalist": {},
+            "baelfire": {}
           },
           "Sigil1": {
             "bursting": {}
           },
           "Sigil2": {
-            "smoldering": {}
+            "smoldering": {},
+            "earth": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
           },
           "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
+            "salsa-topped-veggie-flatbread": {},
+            "plate-of-kimchi-pancakes": {}
           }
         }
       }
