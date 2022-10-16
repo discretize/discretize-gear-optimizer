@@ -438,17 +438,17 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Power Banner SPB (outdated)
-        id: spb-bs
+      - name: Power Quickness Spellbreaker*
+        id: spb-quick
         specialization: Spellbreaker
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Banner Spellbreaker
-        traits: Power Banner SPB
+        distribution: Power Quickness Spellbreaker
+        traits: Power Quickness Spellbreaker
         fractal:
-          extras: Power (Fractal)
+          extras: Power Boon (Fractal)
         raid:
-          extras: Power (Raid)
+          extras: Power Boon (Raid)
         weaponType: Dual wield
 
   - class: Elementalist
@@ -464,11 +464,11 @@ list:
         extras: Alacrity Hybrid Tempest*
         weaponType: Dual wield
 
-      - name: Condi Tempest (outdated)
+      - name: Condi Tempest*
         id: ctemp
         specialization: Tempest
         boonType: Condi
-        priority: Condi DPS
+        priority: Condi Tempest
         distribution: Condi Tempest
         traits: Condi Tempest
         extras: Condi Tempest
@@ -487,7 +487,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Power Weaver (outdated)
+      - name: Power Weaver*
         id: pwea
         specialization: Weaver
         boonType: Power
@@ -761,7 +761,7 @@ list:
           extras: Power Alac Ren (Raid)
         weaponType: Two-handed
 
-      - name: Condi Ren Invo (outdated)
+      - name: Condi Ren Invo*
         id: cren-invo
         specialization: Renegade
         boonType: Condi
@@ -771,7 +771,7 @@ list:
         extras: Condi Ren
         weaponType: Two-handed
 
-      - name: Power Vindicator (outdated)
+      - name: Power Vindicator*
         id: vindi
         specialization: Vindicator
         boonType: Power

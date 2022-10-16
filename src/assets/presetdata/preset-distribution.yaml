@@ -59,17 +59,16 @@ list:
         url: https://www.youtube.com/watch?v=-F-I0bdSJ-w
         log: https://dps.report/Ag4J-20220825-111159_golem
 
-  # accuracy; optimized for 3 attacker's insight I guess w/e (assassin coat legs, full mighty)
-  - name: Power Banner Spellbreaker
+  - name: Power Quickness Spellbreaker
     profession: Spellbreaker
     value: >-
       {
-        "values2": { "Power": 2617, "Power2": 0, "Burning": 0.59, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2547, "Power2": 0, "Burning": 0, "Bleeding": 0.85, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[CnD] Bekko'
-        url: https://www.youtube.com/watch?v=br9AGRrKHY8
-        log: https://dps.report/jpAe-20210515-174310_golem
+      - author: 'Baym'
+        url: https://www.youtube.com/watch?v=rVQtNtIHHxM
+        log: https://dps.report/2Wtv-20221008-134648_golem
 
   # 100% crit (thief accuracy, assassin shoulders amulet, furious)
   - name: DPS Bladesworn Tactics
@@ -306,12 +305,12 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 3603, "Power2": 0, "Burning": 6.7, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3768, "Power2": 0, "Burning": 5.62, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: 'Fines'
-        url: https://www.youtube.com/watch?v=x2sRASCvRMY
-        log: https://dps.report/zjWV-20210518-004634_golem
+      - author: 'Fennec'
+        url: https://www.youtube.com/watch?v=WnteRwBjWKs
+        log: https://dps.report/uIm3-20220918-161524_golem
 
   # no jade bot
   - name: Condi Weaver Sword
@@ -387,12 +386,12 @@ list:
     profession: Tempest
     value: >-
       {
-        "values2": { "Power": 3529, "Power2": 0, "Burning": 12.16, "Bleeding": 16.29, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3227, "Power2": 0, "Burning": 10.94, "Bleeding": 13.52, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[NA] Crone'
-        url: https://www.youtube.com/watch?v=iE8E7wzwSaQ
-        log: https://dps.report/PIGw-20210620-161840_golem
+      - author: 'Dánmander'
+        url: https://www.youtube.com/watch?v=jw8AlS_KphU
+        log: https://dps.report/WRmO-20221001-135318_golem
 
   - name: Power Tempest
     profession: Tempest
@@ -508,24 +507,23 @@ list:
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 2122, "Power2": 0, "Burning": 5.24, "Bleeding": 14.2, "Poisoned": 1.83, "Torment": 17.87, "Confusion": 0 }
+        "values2": { "Power": 2011, "Power2": 0, "Burning": 4.48, "Bleeding": 14.48, "Poisoned": 4.07, "Torment": 18.32, "Confusion": 0 }
       }
     credit:
-      - author: '[Inn] Xorxy'
-        url: https://www.youtube.com/watch?v=pVKQNutvFIU
-        log: https://dps.report/YPqz-20220309-020938_golem
+      - author: '[InS] Laoshi'
+        url: https://www.youtube.com/watch?v=9wOyiE2Bvts
+        log: https://dps.report/EeYd-20221008-182313_golem
 
-  # full viper, asparagus food
   - name: Condi Renegade Invocation (no allies)
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 2122, "Power2": 0, "Burning": 5.24, "Bleeding": 10.2, "Poisoned": 1.83, "Torment": 17.87, "Confusion": 0 }
+        "values2": { "Power": 2011, "Power2": 0, "Burning": 4.48, "Bleeding": 10.48, "Poisoned": 4.07, "Torment": 18.32, "Confusion": 0 }
       }
     credit:
-      - author: '[Inn] Xorxy'
-        url: https://www.youtube.com/watch?v=pVKQNutvFIU
-        log: https://dps.report/YPqz-20220309-020938_golem
+      - author: '[InS] Laoshi'
+        url: https://www.youtube.com/watch?v=9wOyiE2Bvts
+        log: https://dps.report/EeYd-20221008-182313_golem
 
   # not including ally lifesteal
   # todo: convert 100dps to self lifesteal
@@ -572,12 +570,12 @@ list:
     profession: Vindicator
     value: >-
       {
-        "values2": { "Power": 3100, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 1.93, "Confusion": 0 }
+        "values2": { "Power": 3363, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: beng / L3m0n
-        url: https://www.youtube.com/watch?v=O3ERT0JPCZg
-        log: https://dps.report/W3hE-20220824-202151_golem
+        url: https://www.youtube.com/watch?v=Xj3ty22Daqk
+        log: https://dps.report/2eGS-20221009-123358_golem
 
   - name: Condi Alacrity Untamed A/A Hammer*
     profession: Untamed

@@ -345,6 +345,15 @@ list:
         "minQuicknessDuration": 0
       }
 
+  - name: Condi Tempest
+    value: >-
+      {
+        "affixes": ["Viper", "Grieving", "Sinister"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 0
+      }
+
   - name: Condi Alacrity Mechanist 50%
     hidden: true
     value: >-

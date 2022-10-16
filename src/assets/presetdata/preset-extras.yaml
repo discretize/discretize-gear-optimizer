@@ -920,19 +920,22 @@ list:
       {
         "extras": {
           "Runes": {
-            "elementalist": {}
+            "elementalist": {},
+            "baelfire": {}
           },
           "Sigil1": {
             "bursting": {}
           },
           "Sigil2": {
-            "smoldering": {}
+            "smoldering": {},
+            "earth": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
           },
           "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
+            "salsa-topped-veggie-flatbread": {},
+            "plate-of-kimchi-pancakes": {}
           }
         }
       }
@@ -1245,7 +1248,8 @@ list:
           "Enhancement": {
             "toxic-focusing-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": "4.4"
       }
 
   - name: Power Quickness Herald (Raid)*
@@ -1386,7 +1390,7 @@ list:
           },
           "Sigil2": {
             "air": {
-              "amount": 2.9
+              "amount": 3.1
             }
           },
           "Enhancement": {
@@ -1396,7 +1400,7 @@ list:
             "cilantro-lime-sous-vide-steak": {}
           }
         },
-        "lifestealAmount": "3.85"
+        "lifestealAmount": "4.2"
       }
 
   - name: Power Alacrity Mechanist (Fractal, inaccurate)
