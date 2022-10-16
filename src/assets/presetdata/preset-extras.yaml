@@ -1389,7 +1389,7 @@ list:
           },
           "Sigil2": {
             "air": {
-              "amount": 2.9
+              "amount": 3.1
             }
           },
           "Enhancement": {
@@ -1399,7 +1399,7 @@ list:
             "cilantro-lime-sous-vide-steak": {}
           }
         },
-        "lifestealAmount": "3.85"
+        "lifestealAmount": "4.2"
       }
 
   - name: Power Alacrity Mechanist (Fractal, inaccurate)
