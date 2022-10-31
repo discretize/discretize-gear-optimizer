@@ -2172,6 +2172,85 @@ list:
         }
       }
 
+  - name: Power Spellbreaker GS
+    profession: Spellbreaker
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "4",
+          "11",
+          "61"
+        ],
+        "selectedTraits": [
+          [
+            1444,
+            1449,
+            1437
+          ],
+          [
+            1469,
+            1486,
+            0
+          ],
+          [
+            2107,
+            2095,
+            2060
+          ]
+        ],
+        "items": [
+          {
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
+            "pinnacle-of-strength": {
+              "amount": ""
+            },
+            "pinnacle-of-strength-crit": {},
+            "berserkers-power": {
+              "amount": "4"
+            },
+            "peak-performance-2": {
+              "amount": "28.3"
+            }
+          },
+          {
+            "leg-specialist": {
+              "amount": ""
+            },
+            "roaring-reveille": {},
+            "empowered": {
+              "amount": ""
+            },
+            "warriors-cunning": {
+              "amount": ""
+            },
+            "vigorous-shouts": {}
+          },
+          {
+            "pure-strike-base": {},
+            "pure-strike-boonless": {
+              "amount": ""
+            },
+            "attackers-insight": {
+              "amount": "2.81"
+            },
+            "magebane-tether": {
+              "amount": "76.3"
+            },
+            "sun-and-moon-style": {
+              "amount": "52.8"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+        }
+      }
+
   - name: Quickness Bladesworn
     profession: Bladesworn
     traits: |-
