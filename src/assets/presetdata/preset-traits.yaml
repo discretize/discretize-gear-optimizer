@@ -2273,7 +2273,7 @@ list:
             },
             "pinnacle-of-strength-crit": {},
             "berserkers-power": {
-              "amount": "???"
+              "amount": "4"
             }
           },
           {
@@ -2291,7 +2291,7 @@ list:
           },
           {
             "fierce-as-fire": {
-              "amount": "9.9"
+              "amount": "10"
             },
             "guns-and-glory": {
               "amount": ""

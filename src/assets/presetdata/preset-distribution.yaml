@@ -73,12 +73,12 @@ list:
     profession: Bladesworn
     value: >-
       {
-        "values2": { "Power": 4659, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4560, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: 'Costa Primo'
-        url: https://www.youtube.com/watch?v=Zd31Qr7gWJk
-        log: https://dps.report/6uMK-20220704-170031_golem
+      - author: Evo
+        url: https://www.youtube.com/watch?v=88nzpHXKwFU
+        log: https://dps.report/brm9-20220810-112155_golem
 
   # https://www.youtube.com/watch?v=aIUZegO1_EA
   # RHS
