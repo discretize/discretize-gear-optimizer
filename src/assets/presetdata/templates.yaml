@@ -379,12 +379,12 @@ list:
   - class: Warrior
     builds:
 
-      - name: Quickness Bladesworn (wip)
+      - name: Quickness Power Bladesworn*
         id: bls-quick
         specialization: Bladesworn
         boonType: Power
         priority: Power Quickness Bladesworn 2.6%
-        distribution: None
+        distribution: Power Quickness Bladesworn
         traits: Quickness Bladesworn
         fractal:
           extras: Power (Fractal)

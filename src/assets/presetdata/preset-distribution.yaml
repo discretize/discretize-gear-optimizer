@@ -68,6 +68,17 @@ list:
         url: https://www.youtube.com/watch?v=rVQtNtIHHxM
         log: https://dps.report/2Wtv-20221008-134648_golem
 
+  - name: Power Quickness Bladesworn
+    profession: Bladesworn
+    value: >-
+      {
+        "values2": { "Power": 3897, "Power2": 0, "Burning": 0, "Bleeding": 0.81, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Costa Primo'
+        url: https://www.youtube.com/watch?v=QPrh0p0k-G8
+        log: https://dps.report/cmft-20220807-174306_golem
+
   # 100% crit (thief accuracy, assassin shoulders amulet, furious)
   - name: DPS Bladesworn Tactics
     profession: Bladesworn
