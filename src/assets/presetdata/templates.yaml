@@ -425,13 +425,13 @@ list:
         extras: Condi Berserker
         weaponType: Two-handed
 
-      - name: Power Bers (outdated)
+      - name: Power Berserker*
         id: pbers
         specialization: Berserker
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power DPS Bers
-        traits: Power Banner Bers Strength
+        distribution: Power Berserker
+        traits: Power Berserker
         fractal:
           extras: Power (Fractal)
         raid:

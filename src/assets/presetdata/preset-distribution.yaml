@@ -23,18 +23,16 @@ list:
       }
     noCreditOkay: true
 
-  # strength/discipline
-  # thief rune
-  - name: Power DPS Bers
+  - name: Power Berserker
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 3079, "Power2": 0, "Burning": 0.73, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3092, "Power2": 0, "Burning": 1.15, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[SC] Luna'
-        url: https://youtube.com/watch/NkoFpwfcxfw
-        log: https://dps.report/FfCw-20210530-072038_golem
+      - author: Baseraver
+        url: https://www.youtube.com/watch?v=ei4yU96pRTM
+        log: https://dps.report/47WQ-20221004-184753_golem
 
   # includes geo/earth + doom/torment
   - name: Condi Quickness Bers

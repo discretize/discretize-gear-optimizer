@@ -1935,7 +1935,7 @@ list:
         }
       }
 
-  - name: Power Banner Bers Strength
+  - name: Power Berserker
     profession: Berserker
     traits: |-
       {
@@ -1953,11 +1953,11 @@ list:
           ],
           [
             1413,
-            1484,
+            1489,
             1369
           ],
           [
-            0,
+            2039,
             2011,
             1928
           ]
@@ -1972,7 +1972,7 @@ list:
             },
             "pinnacle-of-strength-crit": {},
             "berserkers-power": {
-              "amount": "???"
+              "amount": "4"
             }
           },
           {
@@ -1989,18 +1989,18 @@ list:
           {
             "blood-reaction-base": {},
             "blood-reaction-with": {
-              "amount": ""
+              "amount": "91"
             },
             "heat-the-soul": {},
             "heat-the-soul-with": {
               "amount": ""
             },
             "fatal-frenzy-power-condi": {
-              "amount": ""
+              "amount": "91"
             },
             "fatal-frenzy-toughness": {},
             "bloody-roar": {
-              "amount": ""
+              "amount": "91"
             },
             "king-of-fires": {},
             "eternal-champion": {}
