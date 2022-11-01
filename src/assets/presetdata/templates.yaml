@@ -438,7 +438,20 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Power Quickness Spellbreaker*
+      - name: Power Spellbreaker GS*
+        id: spb-power-gs
+        specialization: Spellbreaker
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Spellbreaker GS
+        traits: Power Spellbreaker GS
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
+        weaponType: Dual wield
+
+      - name: Quickness Power Spellbreaker*
         id: spb-quick
         specialization: Spellbreaker
         boonType: Power
