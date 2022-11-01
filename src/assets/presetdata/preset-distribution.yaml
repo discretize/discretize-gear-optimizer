@@ -23,18 +23,28 @@ list:
       }
     noCreditOkay: true
 
-  # strength/discipline
-  # thief rune
-  - name: Power DPS Bers
+  # Bugged (additive) bloody roar
+  - name: Power Berserker
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 3079, "Power2": 0, "Burning": 0.73, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3269, "Power2": 0, "Burning": 1.15, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[SC] Luna'
-        url: https://youtube.com/watch/NkoFpwfcxfw
-        log: https://dps.report/FfCw-20210530-072038_golem
+      - author: Baseraver
+        url: https://www.youtube.com/watch?v=ei4yU96pRTM
+        log: https://dps.report/47WQ-20221004-184753_golem
+
+  - name: Power Spellbreaker GS
+    profession: Spellbreaker
+    value: >-
+      {
+        "values2": { "Power": 2890, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: 'DaniDomum'
+        url: https://www.youtube.com/watch?v=rVQtNtIHHxM
+        log: https://dps.report/2Wtv-20221008-134648_golem
 
   # includes geo/earth + doom/torment
   - name: Condi Quickness Bers
@@ -70,17 +80,28 @@ list:
         url: https://www.youtube.com/watch?v=rVQtNtIHHxM
         log: https://dps.report/2Wtv-20221008-134648_golem
 
+  - name: Power Quickness Bladesworn
+    profession: Bladesworn
+    value: >-
+      {
+        "values2": { "Power": 3897, "Power2": 0, "Burning": 0, "Bleeding": 0.81, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Costa Primo'
+        url: https://www.youtube.com/watch?v=QPrh0p0k-G8
+        log: https://dps.report/cmft-20220807-174306_golem
+
   # 100% crit (thief accuracy, assassin shoulders amulet, furious)
   - name: DPS Bladesworn Tactics
     profession: Bladesworn
     value: >-
       {
-        "values2": { "Power": 4659, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4560, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: 'Costa Primo'
-        url: https://www.youtube.com/watch?v=Zd31Qr7gWJk
-        log: https://dps.report/6uMK-20220704-170031_golem
+      - author: Evo
+        url: https://www.youtube.com/watch?v=88nzpHXKwFU
+        log: https://dps.report/brm9-20220810-112155_golem
 
   # https://www.youtube.com/watch?v=aIUZegO1_EA
   # RHS

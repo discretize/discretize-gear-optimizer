@@ -461,10 +461,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [25%, mult]
+          Strike Damage: [25%, add] # bug from Aug 23 update
       wvwModifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Strike Damage: [10%, add]
       gw2id: 1928
       defaultEnabled: true
 

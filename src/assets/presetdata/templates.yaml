@@ -379,12 +379,12 @@ list:
   - class: Warrior
     builds:
 
-      - name: Quickness Bladesworn (wip)
+      - name: Quickness Power Bladesworn*
         id: bls-quick
         specialization: Bladesworn
         boonType: Power
         priority: Power Quickness Bladesworn 2.6%
-        distribution: None
+        distribution: Power Quickness Bladesworn
         traits: Quickness Bladesworn
         fractal:
           extras: Power (Fractal)
@@ -392,7 +392,7 @@ list:
           extras: Bladesworn
         weaponType: Dual wield
 
-      - name: Power Bladesworn (outdated)
+      - name: Power Bladesworn*
         id: bls-dps
         specialization: Bladesworn
         boonType: Power
@@ -425,20 +425,33 @@ list:
         extras: Condi Berserker
         weaponType: Two-handed
 
-      - name: Power Bers (outdated)
+      - name: Power Berserker*
         id: pbers
         specialization: Berserker
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power DPS Bers
-        traits: Power Banner Bers Strength
+        distribution: Power Berserker
+        traits: Power Berserker
         fractal:
           extras: Power (Fractal)
         raid:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Power Quickness Spellbreaker*
+      - name: Power Spellbreaker GS*
+        id: spb-power-gs
+        specialization: Spellbreaker
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Spellbreaker GS
+        traits: Power Spellbreaker GS
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
+        weaponType: Dual wield
+
+      - name: Quickness Power Spellbreaker*
         id: spb-quick
         specialization: Spellbreaker
         boonType: Power

@@ -1935,7 +1935,7 @@ list:
         }
       }
 
-  - name: Power Banner Bers Strength
+  - name: Power Berserker
     profession: Berserker
     traits: |-
       {
@@ -1953,11 +1953,11 @@ list:
           ],
           [
             1413,
-            1484,
+            1489,
             1369
           ],
           [
-            0,
+            2039,
             2011,
             1928
           ]
@@ -1972,7 +1972,7 @@ list:
             },
             "pinnacle-of-strength-crit": {},
             "berserkers-power": {
-              "amount": "???"
+              "amount": "4"
             }
           },
           {
@@ -1989,18 +1989,18 @@ list:
           {
             "blood-reaction-base": {},
             "blood-reaction-with": {
-              "amount": ""
+              "amount": "91"
             },
             "heat-the-soul": {},
             "heat-the-soul-with": {
               "amount": ""
             },
             "fatal-frenzy-power-condi": {
-              "amount": ""
+              "amount": "91"
             },
             "fatal-frenzy-toughness": {},
             "bloody-roar": {
-              "amount": ""
+              "amount": "91"
             },
             "king-of-fires": {},
             "eternal-champion": {}
@@ -2172,6 +2172,85 @@ list:
         }
       }
 
+  - name: Power Spellbreaker GS
+    profession: Spellbreaker
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "4",
+          "11",
+          "61"
+        ],
+        "selectedTraits": [
+          [
+            1444,
+            1449,
+            1437
+          ],
+          [
+            1469,
+            1486,
+            0
+          ],
+          [
+            2107,
+            2095,
+            2060
+          ]
+        ],
+        "items": [
+          {
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
+            "pinnacle-of-strength": {
+              "amount": ""
+            },
+            "pinnacle-of-strength-crit": {},
+            "berserkers-power": {
+              "amount": "4"
+            },
+            "peak-performance-2": {
+              "amount": "28.3"
+            }
+          },
+          {
+            "leg-specialist": {
+              "amount": ""
+            },
+            "roaring-reveille": {},
+            "empowered": {
+              "amount": ""
+            },
+            "warriors-cunning": {
+              "amount": ""
+            },
+            "vigorous-shouts": {}
+          },
+          {
+            "pure-strike-base": {},
+            "pure-strike-boonless": {
+              "amount": ""
+            },
+            "attackers-insight": {
+              "amount": "2.81"
+            },
+            "magebane-tether": {
+              "amount": "76.3"
+            },
+            "sun-and-moon-style": {
+              "amount": "52.8"
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+        }
+      }
+
   - name: Quickness Bladesworn
     profession: Bladesworn
     traits: |-
@@ -2209,7 +2288,7 @@ list:
             },
             "pinnacle-of-strength-crit": {},
             "berserkers-power": {
-              "amount": "???"
+              "amount": "4"
             }
           },
           {
@@ -2223,7 +2302,7 @@ list:
           },
           {
             "fierce-as-fire": {
-              "amount": "9.9"
+              "amount": "9.7"
             },
             "guns-and-glory": {
               "amount": ""
@@ -2273,7 +2352,7 @@ list:
             },
             "pinnacle-of-strength-crit": {},
             "berserkers-power": {
-              "amount": "???"
+              "amount": "4"
             }
           },
           {
@@ -2291,7 +2370,7 @@ list:
           },
           {
             "fierce-as-fire": {
-              "amount": "9.9"
+              "amount": "10"
             },
             "guns-and-glory": {
               "amount": ""
