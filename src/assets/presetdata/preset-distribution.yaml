@@ -23,11 +23,12 @@ list:
       }
     noCreditOkay: true
 
+  # Bugged (additive) bloody roar
   - name: Power Berserker
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 3092, "Power2": 0, "Burning": 1.15, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3269, "Power2": 0, "Burning": 1.15, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Baseraver
