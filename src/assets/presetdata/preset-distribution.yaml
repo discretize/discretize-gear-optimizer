@@ -978,16 +978,14 @@ list:
         log: https://dps.report/0Pzn-20220630-021720_golem
 
   # "Reaper does approximately 29.28% of its damage outside of shroud" - https://discord.com/channels/380901000200060929/381160724409614356/828683461074092113
+  # scuffed approximation of https://www.youtube.com/watch?v=Ot2efWvtJYg
   - name: Power Reaper
     profession: Reaper
     value: >-
       {
-        "values2": { "Power": 1154, "Power2": 2115, "Burning": 0.57, "Bleeding": 0, "Poisoned": 1.03, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1121, "Power2": 2160, "Burning": 0, "Bleeding": 0.77, "Poisoned": 2.31, "Torment": 0, "Confusion": 0 }
       }
-    credit:
-      - author: '[SC] Westet'
-        url: https://www.youtube.com/watch?v=I1Tjyfk-DKI
-        log: https://dps.report/1MCV-20200715-182303_golem
+    noCreditOkay: true
 
   # sini shld coat glov boot amul ear, rest viper
   - name: Condi Reaper
