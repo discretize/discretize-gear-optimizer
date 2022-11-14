@@ -638,16 +638,14 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [2%, unknown]
-          Condition Damage: [2%, unknown]
+          Strike Damage: [3%, unknown]
+          Condition Damage: [3%, unknown]
       gw2id: 2247
       defaultEnabled: true
 
     - id: spectacular-sphere
       text: Spectacular Sphere
-      modifiers:
-        damage:
-          All Damage: [-10%, unknown]
+      modifiers: {}
       wvwModifiers: {}
       gw2id: 2234
       defaultEnabled: true
