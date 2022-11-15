@@ -167,6 +167,15 @@
       gw2id: 1343
       defaultEnabled: true
 
+    - id: unsuspecting-foe-full
+      text: Unsuspecting Foe
+      subText: 100% Uptime # variable crit chance would be inaccurate
+      modifiers:
+        attributes:
+          Critical Chance: 25%
+      gw2id: 1315
+      defaultEnabled: true
+
     - id: blade-master
       text: Blademaster
       subText: 'base, intended: 120 expertise'
@@ -268,12 +277,17 @@
       gw2id: 1372
       defaultEnabled: true
 
-    - id: armored-attack
-      text: Armored Attack
+    - id: merciless-hammer
+      text: Unsuspecting Foe
+      subText: 'against defiant foes'
+      amountData:
+        label: '% hammer/mace skills'
+        default: 30 # approximated from october hammer qspb log
+        quantityEntered: 30
       modifiers:
-        conversion:
-          Power: {Toughness: 10%}
-      gw2id: 1379
+        damage:
+          Strike Damage: [20%, unknown]
+      gw2id: 1367
       defaultEnabled: true
 
     - id: hardened-armor
@@ -284,6 +298,18 @@
         damage:
           Damage Reduction: [10%, unknown]
       gw2id: 1380
+      defaultEnabled: true
+
+    - id: stalwart-strength
+      text: Stalwart Strength
+      amountData:
+        label: '% stability uptime'
+        default: 100 # approximated from october hammer qspb log
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Strike Damage: [10%, unknown]
+      gw2id: 1708
       defaultEnabled: true
 
 - section: Tactics
