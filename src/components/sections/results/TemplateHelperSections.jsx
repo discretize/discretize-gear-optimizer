@@ -15,7 +15,7 @@ import ModalContent from './BuildShareModal/ModalContent';
 import GW2Combat from './GW2Combat';
 import TemplateHelper from './TemplateHelper';
 
-const indent = (str, amount) => str.replace(/^/gm, ' '.repeat(amount));
+// const indent = (str, amount) => str.replace(/^/gm, ' '.repeat(amount));
 function idToWeapon(id) {
   return Object.values(WEAPONS).find((weapon) => weapon.gw2id === id)?.name;
 }
@@ -28,7 +28,7 @@ const TemplateHelperSections = ({ character }) => {
 
   const onClick = (asJson = false) => {
     const { attributes, gear, settings, infusions: infusionsRaw } = character;
-    const { profession } = settings;
+    const { profession, specialization } = settings;
     const { buffs } = settings.cachedFormState.buffs;
 
     // Calculate extras
@@ -158,6 +158,7 @@ const TemplateHelperSections = ({ character }) => {
     const template = {
       attributes: {
         profession,
+        specialization,
         data: attributes,
       },
       armor,
