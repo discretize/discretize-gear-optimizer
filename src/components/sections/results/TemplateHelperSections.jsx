@@ -6,6 +6,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { allExtrasModifiersById, buffModifiers } from '../../../assets/modifierdata';
 import { getSkills, getWeapons } from '../../../state/slices/buildPage';
+import { getTraitLines, getTraits } from '../../../state/slices/traits';
 import { getGameMode } from '../../../state/slices/userSettings';
 import { infusionIds, WEAPONS } from '../../../utils/gw2-data';
 import { createAssumedBuffs } from '../../../utils/toLazyToType-usefulFunctions';
@@ -25,6 +26,8 @@ const TemplateHelperSections = ({ character }) => {
   const weapons = useSelector(getWeapons);
   const skills = useSelector(getSkills);
   const gameMode = useSelector(getGameMode);
+  const traitSelection = useSelector(getTraits);
+  const traitLines = useSelector(getTraitLines);
 
   const onClick = (asJson = false) => {
     const { attributes, gear, settings, infusions: infusionsRaw } = character;
@@ -58,6 +61,7 @@ const TemplateHelperSections = ({ character }) => {
     const weapData = {
       ...(w11
         ? {
+            weapon1MainId: w11,
             weapon1MainType: idToWeapon(w11),
             weapon1MainSigil1Id: sigil1Id,
             weapon1MainAffix: gear[12],
@@ -70,6 +74,7 @@ const TemplateHelperSections = ({ character }) => {
             weapon1MainSigil2Id: sigil2Id,
           }
         : {
+            weapon1OffId: w12,
             weapon1OffType: idToWeapon(w12),
             weapon1OffSigilId: sigil2Id,
             weapon1OffAffix: gear[13],
@@ -78,6 +83,7 @@ const TemplateHelperSections = ({ character }) => {
 
       ...(w21
         ? {
+            weapon2MainId: w21,
             weapon2MainType: idToWeapon(w21),
             weapon2MainSigil1Id: sigil1Id,
             weapon2MainAffix: gear[12],
@@ -91,6 +97,7 @@ const TemplateHelperSections = ({ character }) => {
             weapon2MainSigil2Id: sigil2Id,
           }
         : {
+            weapon2OffId: w22,
             weapon2OffType: idToWeapon(w22),
             weapon2OffSigilId: sigil2Id,
             weapon2OffAffix: gear[13],
@@ -168,6 +175,10 @@ const TemplateHelperSections = ({ character }) => {
       skills,
       // legends,
       assumedBuffs: { value: assumedBuffs },
+      traits: {
+        selection: traitSelection,
+        lines: traitLines,
+      },
     };
 
     const charString = Object.keys(template)
