@@ -177,14 +177,17 @@ const TemplateHelperSections = ({ character }) => {
       assumedBuffs: { value: assumedBuffs },
       traits: {
         selection: traitSelection,
-        lines: traitLines,
+        lines: traitLines.map((line) => parseInt(line, 10)),
       },
     };
 
+    /*
     const charString = Object.keys(template)
       .map((key) => `${key}={${JSON.stringify(template[key])}}`)
       .join(' ');
-    let toCopy = `<Character ${charString}>\n\n</Character>`;
+      */
+    const charString = JSON.stringify(template);
+    let toCopy = `<Character title="" gear='${charString}'>\n\n</Character>`;
     if (asJson) {
       toCopy = JSON.stringify(template);
     }
