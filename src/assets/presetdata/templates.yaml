@@ -425,7 +425,7 @@ list:
         extras: Condi Berserker
         weaponType: Two-handed
 
-      - name: Power Berserker (Outdated)
+      - name: Power Berserker (Approx.)
         id: pbers
         specialization: Berserker
         boonType: Power
