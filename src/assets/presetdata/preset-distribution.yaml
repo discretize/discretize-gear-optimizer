@@ -145,7 +145,7 @@ list:
   # 12 boons
   # viper glove boot ring ear ear back, rest grieving, balth, fishy
   # NO JADE BOT (in arc log, probably - seems bugged)
-  - name: Condi Willbender Sword*
+  - name: Condi Willbender Sword
     profession: Willbender
     value: >-
       {
@@ -170,7 +170,7 @@ list:
         url: https://www.youtube.com/watch?v=mCOEGlJkRJ0
         log: https://dps.report/z2Zl-20220316-172733_golem
 
-  - name: CFB (5 page RF, allies)*
+  - name: CFB (5 Page RF, Allies)
     profession: Firebrand
     value: >-
       {
@@ -194,7 +194,7 @@ list:
   # 12 boons
   # sinister amulet ring acc acc back
   # NO JADE BOT (in arc log, probably - seems bugged)
-  - name: CFB (8 page, allies)
+  - name: CFB (8 Page, Allies)
     profession: Firebrand
     value: >-
       {
@@ -219,7 +219,7 @@ list:
   # 10 boons
   # ritualist shld coat glov boot, weighty terms
   # T10 JADE BOT and reinforced armor (in video)
-  - name: Condi Quickbrand (allies)*
+  - name: Condi Quickbrand (Allies)
     profession: Firebrand
     value: >-
       {
@@ -357,7 +357,7 @@ list:
         url: https://www.youtube.com/watch?v=5XgoudKAKRw
         log: https://dps.report/g1E9-20210609-022715_golem
 
-  - name: Condi Weaver Staff (Large)*
+  - name: Condi Weaver Staff (Large)
     profession: Weaver
     value: >-
       {
@@ -368,7 +368,7 @@ list:
         url: https://www.youtube.com/watch?v=zjQ3e_09eB8
         log: https://dps.report/KyoI-20220824-095213_golem
 
-  - name: Condi Weaver Scepter*
+  - name: Condi Weaver Scepter
     profession: Weaver
     value: >-
       {
@@ -392,7 +392,7 @@ list:
         url: https://www.youtube.com/watch?v=s7ASBjZq5GY
         log: https://dps.report/gVsR-20210516-155431_golem
 
-  - name: Alacrity Hybrid Tempest*
+  - name: Alacrity Hybrid Tempest
     profession: Tempest
     value: >-
       {
@@ -425,7 +425,7 @@ list:
         url: https://www.youtube.com/watch?v=5IXjEP0fSsw
         log: https://dps.report/0B8L-20211120-200426_golem
 
-  - name: Power Catalyst*
+  - name: Power Catalyst
     profession: Catalyst
     value: >-
       {
@@ -549,7 +549,7 @@ list:
   # not including ally lifesteal
   # todo: convert 100dps to self lifesteal
   # https://optimizer.discretize.eu/?s=cKARhrHqv1
-  - name: Power Quickness Herald*
+  - name: Power Quickness Herald
     profession: Herald
     value: >-
       {
@@ -562,7 +562,7 @@ list:
 
   # not including ally lifesteal
   # todo: convert 268dps to self lifesteal
-  - name: Power Herald FP*
+  - name: Power Herald FP
     profession: Herald
     value: >-
       {
@@ -598,7 +598,7 @@ list:
         url: https://www.youtube.com/watch?v=Xj3ty22Daqk
         log: https://dps.report/2eGS-20221009-123358_golem
 
-  - name: Condi Alacrity Untamed A/A Hammer*
+  - name: Condi Alacrity Untamed A/A Hammer
     profession: Untamed
     value: >-
       {
@@ -609,7 +609,7 @@ list:
         url: https://www.youtube.com/watch?v=qt7y7K4kPao
         log: https://dps.report/48qt-20220824-193816_golem
 
-  - name: Condi Untamed Axe*
+  - name: Condi Untamed Axe
     profession: Untamed
     value: >-
       {
@@ -665,7 +665,7 @@ list:
     credit:
       - author: Snow Crows
 
-  - name: Hybrid Slb OS (A/T D/A)*
+  - name: Hybrid Slb OS (A/T D/A)
     profession: Soulbeast
     value: >-
       {
@@ -698,7 +698,7 @@ list:
   #     }
 
   # berserker
-  - name: Power Holo ECSU*
+  - name: Power Holo ECSU
     profession: Holosmith
     value: >-
       {
@@ -807,7 +807,7 @@ list:
         log: https://dps.report/ulws-20220804-153218_golem
 
   # impact
-  - name: Quickness Power Chrono GS*
+  - name: Quickness Power Chrono GS
     profession: Chronomancer
     value: >-
       {
@@ -819,7 +819,7 @@ list:
         log: https://dps.report/5pxz-20220824-141459_golem
 
   # concentration
-  - name: Quickness Power Chrono GS+Focus*
+  - name: Quickness Power Chrono GS+Focus
     profession: Chronomancer
     value: >-
       {
@@ -830,7 +830,7 @@ list:
         url: https://www.youtube.com/watch?v=yK0MNj1WIHo
         log: https://dps.report/ffej-20220817-160705_golem
 
-  - name: Alacrity Power Chrono GS*
+  - name: Alacrity Power Chrono GS
     profession: Chronomancer
     value: >-
       {
@@ -881,7 +881,7 @@ list:
         log: https://dps.report/mv3g-20210604-005500_golem
 
   # 27% ritualist
-  - name: Alacrity Staff Mirage*
+  - name: Alacrity Staff Mirage
     profession: Mirage
     value: >-
       {
@@ -892,7 +892,7 @@ list:
         url: https://www.youtube.com/watch?v=I00jkaQqEHQ
         log: https://dps.report/6Kpz-20220711-175021_golem
 
-  - name: Axe Mirage (Deception Torch)*
+  - name: Axe Mirage (Deception Torch)
     profession: Mirage
     value: >-
       {
@@ -904,7 +904,7 @@ list:
         log: https://dps.report/une5-20220723-180845_golem
 
   # rit: shoulders coat gloves leggings, domi midnight, mischief, rendang icicle
-  - name: Quickness Condi Chrono*
+  - name: Quickness Condi Chrono
     profession: Chronomancer
     value: >-
       {
@@ -916,7 +916,7 @@ list:
         log: https://dps.report/WItI-20220804-134453_golem
 
   # https://optimizer.discretize.eu/?s=ReeYNhV3v1
-  - name: Condi Virtuoso Dueling*
+  - name: Condi Virtuoso Dueling
     profession: Virtuoso
     value: >-
       {
@@ -941,7 +941,7 @@ list:
   #     - author: 'REMagic'
 
   # https://optimizer.discretize.eu/?s=tC0aBKlpv1
-  - name: Condi Virtuoso Chaos*
+  - name: Condi Virtuoso Chaos
     profession: Virtuoso
     value: >-
       {
@@ -954,7 +954,7 @@ list:
       - author: 'Masel'
 
   # accuracy, assassin legs, 4 precise (2007 prec)
-  - name: Power Virtuoso GS*
+  - name: Power Virtuoso GS
     profession: Virtuoso
     value: >-
       {
@@ -966,7 +966,7 @@ list:
         log: https://dps.report/3K6u-20220818-152539_golem
 
   # nightmare icicle
-  - name: Condi Scourge*
+  - name: Condi Scourge
     profession: Scourge
     value: >-
       {
@@ -1024,7 +1024,7 @@ list:
       - author: '[CnD] Aphrodite Lady'
         url: https://www.youtube.com/watch?v=zcFY7nNhZwg
 
-  - name: Quickness Power Harbinger (approx)*
+  - name: Quickness Power Harbinger (Approx.)
     profession: Harbinger
     value: >-
       {
@@ -1046,7 +1046,7 @@ list:
         url: https://www.youtube.com/watch?v=1yAvjWJoAyE
         log: https://dps.report/zCoq-20211001-043146_golem
 
-  - name: Power Staff Daredevil*
+  - name: Power Staff Daredevil
     profession: Daredevil
     value: >-
       {
@@ -1058,7 +1058,7 @@ list:
         log: https://dps.report/wYRI-20220824-133048_golem
 
   # afflicted kimchi
-  - name: Condi Daredevil*
+  - name: Condi Daredevil
     profession: Daredevil
     value: >-
       {
@@ -1069,7 +1069,7 @@ list:
         url: https://www.youtube.com/watch?v=2v69_eHCMO8
         log: https://www.dps.report/vmjE-20220827-105554_golem
 
-  - name: Rifle Deadeye Premeditation*
+  - name: Rifle Deadeye Premeditation
     profession: Deadeye
     value: >-
       {
@@ -1080,7 +1080,7 @@ list:
         url: https://www.youtube.com/watch?v=qkbodbKnhwc
         log: https://dps.report/f1kw-20220826-220619_golem
 
-  - name: Rifle Deadeye Silent Scope*
+  - name: Rifle Deadeye Silent Scope
     profession: Deadeye
     value: >-
       {
@@ -1094,7 +1094,7 @@ list:
   # https://optimizer.discretize.eu/?s=1RFuOGz_v1
   # bugged log: has leeching venoms
   # 1.72 torment proc rate (from evtc tool)
-  - name: DPS Specter (allies)*
+  - name: DPS Specter (Allies)
     profession: Specter
     value: >-
       {
@@ -1109,7 +1109,7 @@ list:
   # https://dps.report/pfgp-20220827-121511_golem
   # bugged log: has leeching venoms
   # 1.52 torment proc rate (from evtc tool)
-  - name: DPS Barrier Specter (allies)*
+  - name: DPS Barrier Specter (Allies)
     profession: Specter
     value: >-
       {

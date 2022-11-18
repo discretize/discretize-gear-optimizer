@@ -9,9 +9,9 @@ list:
         specialization: Virtuoso
         boonType: Condi
         priority: Condi DPS Rampager
-        distribution: Condi Virtuoso Dueling*
-        traits: Condi Virtuoso Dueling*
-        extras: Condi Virtuoso Dueling*
+        distribution: Condi Virtuoso Dueling
+        traits: Condi Virtuoso Dueling
+        extras: Condi Virtuoso Dueling
         weaponType: Dual wield
 
       # - name: Condi Virtuoso (sharpening sorrow)
@@ -21,7 +21,7 @@ list:
       #   priority: Condi DPS Rampager
       #   distribution: Condi Virtuoso (sharpening sorrow)
       #   traits: Condi Virtuoso (sharpening sorrow)
-      #   extras: Condi Virtuoso Dueling*
+      #   extras: Condi Virtuoso Dueling
       #   weaponType: Dual wield
 
       - name: Condi Virtuoso Chaos
@@ -29,9 +29,9 @@ list:
         specialization: Virtuoso
         boonType: Condi
         priority: Condi DPS Rampager
-        distribution: Condi Virtuoso Chaos*
-        traits: Condi Virtuoso Chaos*
-        extras: Condi Virtuoso Chaos*
+        distribution: Condi Virtuoso Chaos
+        traits: Condi Virtuoso Chaos
+        extras: Condi Virtuoso Chaos
         weaponType: Dual wield
 
       - name: Power Virtuoso GS
@@ -39,8 +39,8 @@ list:
         specialization: Virtuoso
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Virtuoso GS*
-        traits: Power Virtuoso*
+        distribution: Power Virtuoso GS
+        traits: Power Virtuoso
         fractal:
           extras: Power (Fractal)
         raid:
@@ -52,8 +52,8 @@ list:
         specialization: Chronomancer
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Quickness Power Chrono GS*
-        traits: Quickness Power Chrono GS*
+        distribution: Quickness Power Chrono GS
+        traits: Quickness Power Chrono GS
         fractal:
           extras: Power (Fractal)
         raid:
@@ -65,8 +65,8 @@ list:
         specialization: Chronomancer
         boonType: Power
         priority: Quickness Power Chrono 21%
-        distribution: Quickness Power Chrono GS+Focus*
-        traits: Quickness Power Chrono GS+Focus*
+        distribution: Quickness Power Chrono GS+Focus
+        traits: Quickness Power Chrono GS+Focus
         fractal:
           extras: Power Boon (Fractal)
         raid:
@@ -78,9 +78,9 @@ list:
         specialization: Chronomancer
         boonType: Condi
         priority: Quickness Condi Chrono 10%
-        distribution: Quickness Condi Chrono*
-        traits: Quickness Condi Chrono*
-        extras: Quickness Condi Chrono*
+        distribution: Quickness Condi Chrono
+        traits: Quickness Condi Chrono
+        extras: Quickness Condi Chrono
         weaponType: Dual wield
 
       - name: Alacrity Power Chrono GS (Outdated)
@@ -88,8 +88,8 @@ list:
         specialization: Chronomancer
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Alacrity Power Chrono GS*
-        traits: Alacrity Power Chrono GS*
+        distribution: Alacrity Power Chrono GS
+        traits: Alacrity Power Chrono GS
         fractal:
           extras: Power (Fractal)
         raid:
@@ -140,9 +140,9 @@ list:
         specialization: Mirage
         boonType: Condi
         priority: Condi Alacrity Mirage 27%
-        distribution: Alacrity Staff Mirage*
-        traits: Alacrity Staff Mirage*
-        extras: Alacrity Staff Mirage*
+        distribution: Alacrity Staff Mirage
+        traits: Alacrity Staff Mirage
+        extras: Alacrity Staff Mirage
         weaponType: Two-handed
 
       - name: Condi Axe Mirage
@@ -150,9 +150,9 @@ list:
         specialization: Mirage
         boonType: Condi
         priority: Condi DPS
-        distribution: Axe Mirage (Deception Torch)*
-        traits: Axe Mirage*
-        extras: DPS Mirage (Raid)*
+        distribution: Axe Mirage (Deception Torch)
+        traits: Axe Mirage
+        extras: DPS Mirage (Raid)
         weaponType: Dual wield
 
   - class: Guardian
@@ -163,9 +163,9 @@ list:
         specialization: Firebrand
         boonType: Condi
         priority: Condi Quickbrand 49
-        distribution: Condi Quickbrand (allies)*
-        traits: Condi Quickbrand*
-        extras: Condi Quickbrand*
+        distribution: Condi Quickbrand (Allies)
+        traits: Condi Quickbrand
+        extras: Condi Quickbrand
         weaponType: Dual wield
 
       - name: Quickness Condi Firebrand 79% (Outdated)
@@ -173,9 +173,9 @@ list:
         specialization: Firebrand
         boonType: Condi
         priority: Condi Quickbrand 79
-        distribution: Condi Quickbrand (allies)*
-        traits: Condi Quickbrand*
-        extras: Condi Quickbrand*
+        distribution: Condi Quickbrand (Allies)
+        traits: Condi Quickbrand
+        extras: Condi Quickbrand
         weaponType: Dual wield
 
       - name: Quickness Power Firebrand (Outdated)
@@ -214,9 +214,9 @@ list:
         specialization: Firebrand
         boonType: Condi
         priority: Condi DPS
-        distribution: CFB (5 page RF, allies)*
-        traits: CFB DPS 5 page*
-        extras: CFB DPS (5 page, balthazar)*
+        distribution: CFB (5 Page RF, Allies)
+        traits: CFB DPS 5 Page
+        extras: CFB DPS (5 Page, Balthazar)
         weaponType: Dual wield
 
       - name: Condi Firebrand 8 Page (Outdated)
@@ -224,9 +224,9 @@ list:
         specialization: Firebrand
         boonType: Condi
         priority: Condi DPS
-        distribution: CFB (8 page, allies)
-        traits: CFB DPS 8 page
-        extras: CFB DPS (8 page, balthazar)
+        distribution: CFB (8 Page, Allies)
+        traits: CFB DPS 8 Page
+        extras: CFB DPS (8 Page, Balthazar)
         weaponType: Dual wield
 
       - name: Power DH Radiance (Outdated)
@@ -283,9 +283,9 @@ list:
         specialization: Willbender
         boonType: Condi
         priority: Hybrid DPS
-        distribution: Condi Willbender Sword*
-        traits: Condi Willbender*
-        extras: Condi Willbender*
+        distribution: Condi Willbender Sword
+        traits: Condi Willbender
+        extras: Condi Willbender
         weaponType: Dual wield
 
       - name: Condi Willbender GS (Outdated)
@@ -294,8 +294,8 @@ list:
         boonType: Condi
         priority: Hybrid DPS
         distribution: Condi Willbender GS
-        traits: Condi Willbender*
-        extras: Condi Willbender*
+        traits: Condi Willbender
+        extras: Condi Willbender
         weaponType: Two-handed
 
       - name: Power Willbender Virtues (Outdated)
@@ -472,9 +472,9 @@ list:
         specialization: Tempest
         boonType: Condi
         priority: Alacrity Hybrid Tempest 57%
-        distribution: Alacrity Hybrid Tempest*
-        traits: Alacrity Hybrid Tempest*
-        extras: Alacrity Hybrid Tempest*
+        distribution: Alacrity Hybrid Tempest
+        traits: Alacrity Hybrid Tempest
+        extras: Alacrity Hybrid Tempest
         weaponType: Dual wield
 
       - name: Condi Tempest
@@ -519,9 +519,9 @@ list:
         specialization: Weaver
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Weaver Staff (Large)*
-        traits: Condi Weaver Staff*
-        extras: Condi Weaver*
+        distribution: Condi Weaver Staff (Large)
+        traits: Condi Weaver Staff
+        extras: Condi Weaver
         weaponType: Two-handed
 
       - name: Condi Weaver Scepter (Outdated)
@@ -529,9 +529,9 @@ list:
         specialization: Weaver
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Weaver Scepter*
-        traits: Condi Weaver Scepter*
-        extras: Condi Weaver*
+        distribution: Condi Weaver Scepter
+        traits: Condi Weaver Scepter
+        extras: Condi Weaver
         weaponType: Dual wield
 
       - name: Condi Weaver Sword (Outdated)
@@ -572,7 +572,7 @@ list:
         specialization: Catalyst
         boonType: Power
         priority: Power Quickness Catalyst 38%
-        distribution: Power Catalyst*
+        distribution: Power Catalyst
         traits: Power Quickness Catalyst
         fractal:
           extras: Power (Fractal)
@@ -585,8 +585,8 @@ list:
         specialization: Catalyst
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Power Catalyst*
-        traits: Power Catalyst*
+        distribution: Power Catalyst
+        traits: Power Catalyst
         fractal:
           extras: Power (Fractal)
         raid:
@@ -621,9 +621,9 @@ list:
         specialization: Untamed
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Alacrity Untamed A/A Hammer*
-        traits: Condi Alacrity Untamed A/A Hammer*
-        extras: Condi Untamed Axe*
+        distribution: Condi Alacrity Untamed A/A Hammer
+        traits: Condi Alacrity Untamed A/A Hammer
+        extras: Condi Untamed Axe
         weaponType: Two-handed
 
       - name: Condi Untamed Axe
@@ -631,9 +631,9 @@ list:
         specialization: Untamed
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Untamed Axe*
-        traits: Condi Untamed Axe*
-        extras: Condi Untamed Axe*
+        distribution: Condi Untamed Axe
+        traits: Condi Untamed Axe
+        extras: Condi Untamed Axe
         weaponType: Dual wield
 
       - name: Power Slb Skirm (Outdated)
@@ -667,9 +667,9 @@ list:
         specialization: Soulbeast
         boonType: Condi
         priority: Hybrid DPS
-        distribution: Hybrid Slb OS (A/T D/A)*
-        traits: Hybrid Slb OS*
-        extras: Hybrid Slb*
+        distribution: Hybrid Slb OS (A/T D/A)
+        traits: Hybrid Slb OS
+        extras: Hybrid Slb
         weaponType: Dual wield
 
       - name: Condi Slb SB (Outdated)
@@ -720,12 +720,12 @@ list:
         specialization: Herald
         boonType: Power
         priority: Power Quickness Herald 30%
-        distribution: Power Quickness Herald*
-        traits: Power (Quickness) Herald DE*
+        distribution: Power Quickness Herald
+        traits: Power Quickness Herald DE
         fractal:
-          extras: Power Quickness Herald (Fractal)*
+          extras: Power Quickness Herald (Fractal)
         raid:
-          extras: Power Quickness Herald (Raid)*
+          extras: Power Quickness Herald (Raid)
         weaponType: Dual wield
 
       - name: Condi Herald (Outdated)
@@ -743,8 +743,8 @@ list:
         specialization: Herald
         boonType: Power
         priority: Power DPS
-        distribution: Power Herald FP*
-        traits: Power Herald FP*
+        distribution: Power Herald FP
+        traits: Power Herald FP
         fractal:
           extras: Power (Fractal)
         raid:
@@ -841,12 +841,12 @@ list:
         specialization: Holosmith
         boonType: Power
         priority: Power DPS
-        distribution: Power Holo ECSU*
-        traits: Power Holo ECSU*
+        distribution: Power Holo ECSU
+        traits: Power Holo ECSU
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power Holo (Raid)*
+          extras: Power Holo (Raid)
         weaponType: Dual wield
 
       - name: Condi Holo (Outdated)
@@ -961,13 +961,13 @@ list:
         extras: Quickness Harbinger
         weaponType: Dual wield
 
-      - name: Quickness Power Harbinger (Approx)
+      - name: Quickness Power Harbinger (Approx.)
         id: qharb-power
         specialization: Harbinger
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Quickness Power Harbinger (approx)*
-        traits: Quickness Power Harbinger*
+        distribution: Quickness Power Harbinger (Approx.)
+        traits: Quickness Power Harbinger
         fractal:
           extras: Power (Fractal)
         raid:
@@ -989,9 +989,9 @@ list:
         specialization: Scourge
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Scourge*
-        traits: DPS Scourge*
-        extras: DPS Scourge*
+        distribution: Condi Scourge
+        traits: DPS Scourge
+        extras: DPS Scourge
         weaponType: Dual wield
 
       - name: Power Reaper (Outdated)
@@ -1046,9 +1046,9 @@ list:
         specialization: Specter
         boonType: Condi
         priority: Condi DPS
-        distribution: DPS Specter (allies)*
-        traits: DPS Specter*
-        extras: DPS Specter*
+        distribution: DPS Specter (Allies)
+        traits: DPS Specter
+        extras: DPS Specter
         weaponType: Dual wield
 
       - name: Condi Barrier "Carrion" Specter
@@ -1056,9 +1056,9 @@ list:
         specialization: Specter
         boonType: Condi
         priority: Condi Barrier Specter
-        distribution: DPS Barrier Specter (allies)*
-        traits: DPS Specter*
-        extras: Condi Barrier Specter*
+        distribution: DPS Barrier Specter (Allies)
+        traits: DPS Specter
+        extras: Condi Barrier Specter
         weaponType: Dual wield
 
       - name: Boon Condi Daredevil (no log) (Outdated)
@@ -1076,7 +1076,7 @@ list:
         specialization: Daredevil
         boonType: Power
         priority: Power Boon Daredevil 99.7%
-        distribution: Power Staff Daredevil*
+        distribution: Power Staff Daredevil
         traits: Power Boon Daredevil
         extras: Power Boon Daredevil
         weaponType: Two-handed
@@ -1086,9 +1086,9 @@ list:
         specialization: Daredevil
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Daredevil*
-        traits: Condi Daredevil*
-        extras: Condi Daredevil*
+        distribution: Condi Daredevil
+        traits: Condi Daredevil
+        extras: Condi Daredevil
         weaponType: Dual wield
 
       - name: Power Staff Daredevil
@@ -1096,12 +1096,12 @@ list:
         specialization: Daredevil
         boonType: Power
         priority: Power DPS
-        distribution: Power Staff Daredevil*
-        traits: Power Staff Daredevil*
+        distribution: Power Staff Daredevil
+        traits: Power Staff Daredevil
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power Staff Daredevil*
+          extras: Power Staff Daredevil
         weaponType: Two-handed
 
       - name: Condi Deadeye (Outdated)
@@ -1119,8 +1119,8 @@ list:
         specialization: Deadeye
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Rifle Deadeye Premeditation*
-        traits: Rifle Deadeye Premeditation*
+        distribution: Rifle Deadeye Premeditation
+        traits: Rifle Deadeye Premeditation
         fractal:
           extras: Power (Fractal)
         raid:
@@ -1132,8 +1132,8 @@ list:
         specialization: Deadeye
         boonType: Power
         priority: Power DPS (no dragon)
-        distribution: Rifle Deadeye Silent Scope*
-        traits: Rifle Deadeye Silent Scope*
+        distribution: Rifle Deadeye Silent Scope
+        traits: Rifle Deadeye Silent Scope
         fractal:
           extras: Power (Fractal)
         raid:
