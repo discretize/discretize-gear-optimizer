@@ -561,5 +561,8 @@
       modifiers:
         damage:
           Strike Damage: [4%, unknown]
+      wvwModifiers:
+        damage:
+          Strike Damage: [3%, unknown]
       gw2id: 2274
       defaultEnabled: true

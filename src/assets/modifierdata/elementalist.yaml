@@ -640,6 +640,10 @@
         damage:
           Strike Damage: [3%, unknown]
           Condition Damage: [3%, unknown]
+      wvwWodifiers:
+        damage:
+          Strike Damage: [2%, unknown]
+          Condition Damage: [2%, unknown]
       gw2id: 2247
       defaultEnabled: true
 
