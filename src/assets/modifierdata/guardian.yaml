@@ -421,6 +421,41 @@
       gw2id: 1908
       defaultEnabled: true
 
+    - id: heavy-light-defiant
+      text: Heavy Light
+      subText: against defiant foes, base
+      modifiers:
+        damage:
+          Strike Damage: [10%, unknown]
+      gw2id: 1963
+      defaultEnabled: true
+
+    - id: heavy-light-defiant-disabled
+      text: Heavy Light
+      subText: against defiant foes, bonus
+      amountData:
+        label: '% disabled'
+        default: 0
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Strike Damage: [5%, unknown] # sure hope this is additive...?
+      gw2id: 1963
+      defaultEnabled: true
+
+    - id: heavy-light-disabled
+      text: Heavy Light
+      subText: against non-defiant foes, bonus
+      amountData:
+        label: '% disabled'
+        default: 0
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Strike Damage: [15%, unknown]
+      gw2id: 1963
+      defaultEnabled: false
+
     - id: big-game-hunter
       text: Big Game Hunter
       amountData:
