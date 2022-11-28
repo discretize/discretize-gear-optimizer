@@ -278,7 +278,7 @@
       defaultEnabled: true
 
     - id: merciless-hammer
-      text: Unsuspecting Foe
+      text: Merciless Hammer
       subText: 'against defiant foes'
       amountData:
         label: '% hammer/mace skills'
