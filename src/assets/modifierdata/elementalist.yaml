@@ -237,8 +237,9 @@
 
     - id: stormsoul
       text: Stormsoul
+      subText: disabled/defiant
       amountData:
-        label: '% disabled'
+        label: '% uptime'
         default: 100
         quantityEntered: 100
       modifiers:

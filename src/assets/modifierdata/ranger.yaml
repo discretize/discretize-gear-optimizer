@@ -137,8 +137,9 @@
 
     - id: predators-onslaught
       text: Predator's Onslaught
+      subText: impaired/defiant
       amountData:
-        label: '% impaired'
+        label: '% uptime'
         default: 100
         quantityEntered: 100
       modifiers:
