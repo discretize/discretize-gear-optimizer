@@ -310,6 +310,9 @@
       text: Chronophantasma
       modifiers:
         damage:
+          Phantasm Damage: [100%, mult]
+      wvwModifiers:
+        damage:
           Phantasm Damage: [75%, mult]
       gw2id: 1890
       defaultEnabled: true
