@@ -544,6 +544,9 @@
         quantityEntered: 100
       modifiers:
         damage:
+          Strike Damage: [15%, add]
+      wvwModifiers:
+        damage:
           Strike Damage: [10%, add]
       gw2id: 2061
       defaultEnabled: true
@@ -590,6 +593,10 @@
         default: 100
         quantityEntered: 100
       modifiers:
+        damage:
+          Condition Damage: [10%, add]
+          Strike Damage: [10%, add] # untested; please confirm!
+      wvwModifiers:
         damage:
           Condition Damage: [5%, add]
           Strike Damage: [5%, add] # untested; please confirm!
