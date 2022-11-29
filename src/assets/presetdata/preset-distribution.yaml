@@ -326,7 +326,7 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 3768, "Power2": 0, "Burning": 5.62, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3626, "Power2": 0, "Burning": 5.62, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Fennec'
@@ -338,7 +338,7 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 2728, "Power2": 0, "Burning": 11.78, "Bleeding": 14.92, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2626, "Power2": 0, "Burning": 11.78, "Bleeding": 14.92, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[SC] Roul'
@@ -350,7 +350,7 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 2172, "Power2": 0, "Burning": 12.01, "Bleeding": 17.55, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2091, "Power2": 0, "Burning": 12.01, "Bleeding": 17.55, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Ryan'
@@ -361,7 +361,7 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 3233, "Power2": 0, "Burning": 10.32, "Bleeding": 16.06, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3103, "Power2": 0, "Burning": 10.32, "Bleeding": 16.06, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Fennec'
@@ -372,7 +372,7 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 2083, "Power2": 0, "Burning": 14.33, "Bleeding": 8.19, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2005, "Power2": 0, "Burning": 14.33, "Bleeding": 8.19, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Fennec'
@@ -385,7 +385,7 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 3235, "Power2": 0, "Burning": 12.9, "Bleeding": 0.94, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3114, "Power2": 0, "Burning": 12.9, "Bleeding": 0.94, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[SC] Roul'
