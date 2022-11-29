@@ -217,7 +217,7 @@
       text: Death Perception
       modifiers:
         attributes:
-          Critical Chance: 10%
+          Critical Chance: 15%
         damage:
           Alternative Critical Damage: [15%, unknown]
       gw2id: 893
