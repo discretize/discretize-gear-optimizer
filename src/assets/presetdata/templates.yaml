@@ -438,7 +438,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Power Spellbreaker GS
+      - name: Power Spellbreaker GS (Outdated)
         id: spb-power-gs
         specialization: Spellbreaker
         boonType: Power
