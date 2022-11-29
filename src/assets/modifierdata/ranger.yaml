@@ -137,8 +137,9 @@
 
     - id: predators-onslaught
       text: Predator's Onslaught
+      subText: impaired/defiant
       amountData:
-        label: '% impaired'
+        label: '% uptime'
         default: 100
         quantityEntered: 100
       modifiers:
@@ -559,6 +560,9 @@
         default: 5
         quantityEntered: 1
       modifiers:
+        damage:
+          Strike Damage: [4%, unknown]
+      wvwModifiers:
         damage:
           Strike Damage: [3%, unknown]
       gw2id: 2274

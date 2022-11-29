@@ -231,7 +231,7 @@ list:
         }
       }
 
-  - name: Alacrity Staff Mirage*
+  - name: Alacrity Staff Mirage
     profession: Mirage
     value: |-
       {
@@ -254,7 +254,7 @@ list:
         }
       }
 
-  - name: DPS Mirage (Raid)*
+  - name: DPS Mirage (Raid)
     profession: Mirage
     value: |-
       {
@@ -276,7 +276,7 @@ list:
         }
       }
 
-  - name: Quickness Condi Chrono*
+  - name: Quickness Condi Chrono
     profession: Chronomancer
     value: |-
       {
@@ -330,7 +330,7 @@ list:
         }
       }
 
-  - name: Condi Virtuoso Dueling*
+  - name: Condi Virtuoso Dueling
     profession: Virtuoso
     value: |-
       {
@@ -359,7 +359,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Virtuoso Chaos*
+  - name: Condi Virtuoso Chaos
     profession: Virtuoso
     value: |-
       {
@@ -488,7 +488,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Willbender*
+  - name: Condi Willbender
     profession: Willbender
     value: |-
       {
@@ -565,7 +565,7 @@ list:
         }
       }
 
-  - name: CFB DPS (5 page, balthazar)*
+  - name: CFB DPS (5 Page, Balthazar)
     profession: Firebrand
     value: |-
       {
@@ -588,7 +588,7 @@ list:
         }
       }
 
-  - name: CFB DPS (8 page, balthazar)
+  - name: CFB DPS (8 Page, Balthazar)
     profession: Firebrand
     value: |-
       {
@@ -611,7 +611,7 @@ list:
         }
       }
 
-  - name: Condi Quickbrand*
+  - name: Condi Quickbrand
     profession: Firebrand
     value: |-
       {
@@ -817,7 +817,7 @@ list:
         }
       }
 
-  - name: Condi Weaver*
+  - name: Condi Weaver
     profession: Weaver
     value: |-
       {
@@ -888,7 +888,7 @@ list:
         }
       }
 
-  - name: Alacrity Hybrid Tempest*
+  - name: Alacrity Hybrid Tempest
     profession: Tempest
     value: |-
       {
@@ -990,7 +990,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Untamed Axe*
+  - name: Condi Untamed Axe
     profession: Untamed
     value: |-
       {
@@ -1040,7 +1040,7 @@ list:
         }
       }
 
-  - name: Hybrid Slb*
+  - name: Hybrid Slb
     profession: Soulbeast
     value: |-
       {
@@ -1106,7 +1106,7 @@ list:
         }
       }
 
-  - name: Power Holo (Raid)*
+  - name: Power Holo (Raid)
     profession: Holosmith
     value: |-
       {
@@ -1252,7 +1252,7 @@ list:
         "lifestealAmount": "4.4"
       }
 
-  - name: Power Quickness Herald (Raid)*
+  - name: Power Quickness Herald (Raid)
     profession: Herald
     value: |-
       {
@@ -1283,7 +1283,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Power Quickness Herald (Fractal)*
+  - name: Power Quickness Herald (Fractal)
     profession: Herald
     value: |-
       {
@@ -1524,7 +1524,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: DPS Scourge*
+  - name: DPS Scourge
     profession: Scourge
     value: |-
       {
@@ -1652,7 +1652,7 @@ list:
         }
       }
 
-  - name: Power Staff Daredevil*
+  - name: Power Staff Daredevil
     profession: Daredevil
     value: |-
       {
@@ -1705,7 +1705,7 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Daredevil*
+  - name: Condi Daredevil
     profession: Daredevil
     value: |-
       {
@@ -1755,7 +1755,7 @@ list:
         }
       }
 
-  - name: DPS Specter*
+  - name: DPS Specter
     profession: Specter
     value: |-
       {
@@ -1787,7 +1787,7 @@ list:
         "lifestealAmount": "3.5"
       }
 
-  - name: Condi Barrier Specter*
+  - name: Condi Barrier Specter
     profession: Specter
     value: |-
       {

@@ -204,7 +204,7 @@ list:
         "skills": {}
       }
 
-  - name: Quickness Power Chrono GS*
+  - name: Quickness Power Chrono GS
     profession: Chronomancer
     traits: |-
       {
@@ -272,7 +272,7 @@ list:
         "skills": {}
       }
 
-  - name: Quickness Power Chrono GS+Focus*
+  - name: Quickness Power Chrono GS+Focus
     profession: Chronomancer
     traits: |-
       {
@@ -340,7 +340,7 @@ list:
         "skills": {}
       }
 
-  - name: Alacrity Power Chrono GS*
+  - name: Alacrity Power Chrono GS
     profession: Chronomancer
     traits: |-
       {
@@ -409,7 +409,7 @@ list:
       }
 
 
-  - name: Axe Mirage*
+  - name: Axe Mirage
     profession: Mirage
     traits: |-
       {
@@ -477,7 +477,7 @@ list:
         }
       }
 
-  - name: Alacrity Staff Mirage*
+  - name: Alacrity Staff Mirage
     profession: Mirage
     traits: |-
       {
@@ -549,7 +549,7 @@ list:
         }
       }
 
-  - name: Quickness Condi Chrono*
+  - name: Quickness Condi Chrono
     profession: Chronomancer
     traits: |-
       {
@@ -611,7 +611,7 @@ list:
         }
       }
 
-  - name: Condi Virtuoso Dueling*
+  - name: Condi Virtuoso Dueling
     profession: Virtuoso
     traits: |-
       {
@@ -757,7 +757,7 @@ list:
   #       }
   #     }
 
-  - name: Condi Virtuoso Chaos*
+  - name: Condi Virtuoso Chaos
     profession: Virtuoso
     traits: |-
       {
@@ -827,7 +827,7 @@ list:
         }
       }
 
-  - name: Power Virtuoso*
+  - name: Power Virtuoso
     profession: Virtuoso
     traits: |-
       {
@@ -1175,7 +1175,7 @@ list:
         }
       }
 
-  - name: Condi Willbender*
+  - name: Condi Willbender
     profession: Willbender
     traits: |-
       {
@@ -1249,7 +1249,7 @@ list:
         }
       }
 
-  - name: Condi Quickbrand*
+  - name: Condi Quickbrand
     profession: Firebrand
     traits: |-
       {
@@ -1317,7 +1317,7 @@ list:
         }
       }
 
-  - name: CFB DPS 5 page*
+  - name: CFB DPS 5 Page
     profession: Firebrand
     traits: |-
       {
@@ -1390,7 +1390,7 @@ list:
         }
       }
 
-  - name: CFB DPS 8 page
+  - name: CFB DPS 8 Page
     profession: Firebrand
     traits: |-
       {
@@ -2579,7 +2579,7 @@ list:
           ],
           [
             232,
-            214,
+            1502,
             226
           ],
           [
@@ -2806,7 +2806,7 @@ list:
         }
       }
 
-  - name: Condi Weaver Staff*
+  - name: Condi Weaver Staff
     profession: Weaver
     traits: |-
       {
@@ -2884,7 +2884,7 @@ list:
         }
       }
 
-  - name: Condi Weaver Scepter*
+  - name: Condi Weaver Scepter
     profession: Weaver
     traits: |-
       {
@@ -3055,7 +3055,7 @@ list:
         }
       }
 
-  - name: Alacrity Hybrid Tempest*
+  - name: Alacrity Hybrid Tempest
     profession: Tempest
     traits: |-
       {
@@ -3263,7 +3263,7 @@ list:
         }
       }
 
-  - name: Power Catalyst*
+  - name: Power Catalyst
     profession: Catalyst
     traits: |-
       {
@@ -3560,7 +3560,7 @@ list:
         "skills": {}
       }
 
-  - name: Condi Alacrity Untamed A/A Hammer*
+  - name: Condi Alacrity Untamed A/A Hammer
     profession: Untamed
     traits: |-
       {
@@ -3624,7 +3624,7 @@ list:
         }
       }
 
-  - name: Condi Untamed Axe*
+  - name: Condi Untamed Axe
     profession: Untamed
     traits: |-
       {
@@ -3936,7 +3936,7 @@ list:
         "skills": {}
       }
 
-  - name: Hybrid Slb OS*
+  - name: Hybrid Slb OS
     profession: Soulbeast
     traits: |-
       {
@@ -4620,7 +4620,7 @@ list:
         "skills": {}
       }
 
-  - name: Power (Quickness) Herald DE*
+  - name: Power Quickness Herald DE
     profession: Herald
     traits: |-
       {
@@ -4699,7 +4699,7 @@ list:
         }
       }
 
-  - name: Power Herald FP*
+  - name: Power Herald FP
     profession: Herald
     traits: |-
       {
@@ -5054,7 +5054,7 @@ list:
         "skills": {}
       }
 
-  - name: Power Holo ECSU*
+  - name: Power Holo ECSU
     profession: Holosmith
     traits: |-
       {
@@ -5707,7 +5707,7 @@ list:
         "skills": {}
       }
 
-  - name: DPS Scourge*
+  - name: DPS Scourge
     profession: Scourge
     traits: |-
       {
@@ -6032,7 +6032,7 @@ list:
         "skills": {}
       }
 
-  - name: Quickness Power Harbinger*
+  - name: Quickness Power Harbinger
     profession: Harbinger
     traits: |-
       {
@@ -6164,7 +6164,7 @@ list:
         "skills": {}
       }
 
-  - name: Power Staff Daredevil*
+  - name: Power Staff Daredevil
     profession: Daredevil
     traits: |-
       {
@@ -6311,7 +6311,7 @@ list:
         }
       }
 
-  - name: Condi Daredevil*
+  - name: Condi Daredevil
     profession: Daredevil
     traits: |-
       {
@@ -6441,7 +6441,7 @@ list:
         "skills": {}
       }
 
-  - name: Rifle Deadeye Premeditation*
+  - name: Rifle Deadeye Premeditation
     profession: Deadeye
     traits: |-
       {
@@ -6515,7 +6515,7 @@ list:
         }
       }
 
-  - name: Rifle Deadeye Silent Scope*
+  - name: Rifle Deadeye Silent Scope
     profession: Deadeye
     traits: |-
       {
@@ -6589,7 +6589,7 @@ list:
         }
       }
 
-  - name: DPS Specter*
+  - name: DPS Specter
     profession: Specter
     traits: |-
       {

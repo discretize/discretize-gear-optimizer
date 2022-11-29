@@ -237,8 +237,9 @@
 
     - id: stormsoul
       text: Stormsoul
+      subText: disabled/defiant
       amountData:
-        label: '% disabled'
+        label: '% uptime'
         default: 100
         quantityEntered: 100
       modifiers:
@@ -543,6 +544,9 @@
         quantityEntered: 100
       modifiers:
         damage:
+          Strike Damage: [15%, add]
+      wvwModifiers:
+        damage:
           Strike Damage: [10%, add]
       gw2id: 2061
       defaultEnabled: true
@@ -589,6 +593,10 @@
         default: 100
         quantityEntered: 100
       modifiers:
+        damage:
+          Condition Damage: [10%, add]
+          Strike Damage: [10%, add] # untested; please confirm!
+      wvwModifiers:
         damage:
           Condition Damage: [5%, add]
           Strike Damage: [5%, add] # untested; please confirm!
@@ -639,6 +647,10 @@
         quantityEntered: 1
       modifiers:
         damage:
+          Strike Damage: [3%, unknown]
+          Condition Damage: [3%, unknown]
+      wvwModifiers:
+        damage:
           Strike Damage: [2%, unknown]
           Condition Damage: [2%, unknown]
       gw2id: 2247
@@ -646,9 +658,7 @@
 
     - id: spectacular-sphere
       text: Spectacular Sphere
-      modifiers:
-        damage:
-          All Damage: [-10%, unknown]
+      modifiers: {}
       wvwModifiers: {}
       gw2id: 2234
       defaultEnabled: true
