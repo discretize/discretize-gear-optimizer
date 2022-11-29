@@ -92,6 +92,10 @@
       modifiers:
         attributes:
           Power Coefficient: 483.3
+          Burning Coefficient: 14.4
+      wvwModifiers:
+        attributes:
+          Power Coefficient: 483.3
           Burning Coefficient: 4.8
       gw2id: 46148
 
@@ -105,6 +109,10 @@
         default: 1.5
         quantityEntered: 10
       modifiers:
+        attributes:
+          Power Coefficient: 483.3
+          Burning Coefficient: 12
+      wvwModifiers:
         attributes:
           Power Coefficient: 483.3
           Burning Coefficient: 4
