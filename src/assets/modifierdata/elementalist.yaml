@@ -591,6 +591,7 @@
       modifiers:
         damage:
           Condition Damage: [5%, add]
+          Strike Damage: [5%, add] # untested; please confirm!
       gw2id: 2131
       defaultEnabled: true
 
