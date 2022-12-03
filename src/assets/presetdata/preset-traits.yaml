@@ -2980,7 +2980,7 @@ list:
           ],
           [
             232,
-            214,
+            1502,
             1503
           ],
           [
@@ -3015,13 +3015,13 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "33"
+              "amount": "35"
             },
             "bolt-to-the-heart": {
               "amount": ""
             },
             "fresh-air": {
-              "amount": "48"
+              "amount": "46"
             },
             "zephyrs-speed": {}
           },
@@ -3034,10 +3034,10 @@ list:
               "amount": ""
             },
             "elemental-polyphony-fire": {
-              "amount": "67"
+              "amount": "65"
             },
             "elemental-polyphony-air": {
-              "amount": "60"
+              "amount": "61"
             },
             "elements-of-rage-base": {},
             "elements-of-rage-buff": {
@@ -3050,7 +3050,7 @@ list:
       {
         "skills": {
           "woven-fire": {
-            "amount": "52"
+            "amount": "51"
           }
         }
       }

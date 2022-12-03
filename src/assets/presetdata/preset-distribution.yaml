@@ -379,18 +379,17 @@ list:
         url: https://www.youtube.com/watch?v=cal9A21TVsQ
         log: https://dps.report/NgbV-20220829-141352_golem
 
-  # no jade bot
-  # force bursting, slightly suboptimal gear (15 malign 3 precise)
+  # 15 mal/3 spite
   - name: Hybrid Weaver
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 3114, "Power2": 0, "Burning": 12.9, "Bleeding": 0.94, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3230, "Power2": 0, "Burning": 11.73, "Bleeding": 1.82, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[SC] Roul'
-        url: https://www.youtube.com/watch?v=s7ASBjZq5GY
-        log: https://dps.report/gVsR-20210516-155431_golem
+        url: https://www.youtube.com/watch?v=jCE0CjrS4z4
+        log: https://dps.report/vJAR-20221202-184528_golem
 
   - name: Alacrity Hybrid Tempest
     profession: Tempest

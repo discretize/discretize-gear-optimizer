@@ -554,7 +554,7 @@ list:
         extras: Condi Weaver Dagger
         weaponType: Dual wield
 
-      - name: Hybrid Weaver (Outdated)
+      - name: Hybrid Weaver
         id: hwea
         specialization: Weaver
         boonType: Condi
