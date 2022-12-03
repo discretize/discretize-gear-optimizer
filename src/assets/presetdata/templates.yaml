@@ -500,7 +500,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Power Weaver (Approx.)
+      - name: Power Weaver
         id: pwea
         specialization: Weaver
         boonType: Power
