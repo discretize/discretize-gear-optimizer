@@ -817,6 +817,34 @@ list:
         }
       }
 
+  # Torment procs chosen to make log get 0 stacks
+  - name: Condi Weaver Scepter
+    profession: Weaver
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "elementalist": {}
+          },
+          "Sigil1": {
+            "earth": {}
+          },
+          "Sigil2": {
+            "torment": {
+              "amount": "1.88"
+            }
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
+          },
+          "Nourishment": {
+            "salsa-topped-veggie-flatbread": {},
+            "cilantro-and-cured-meat-flatbread": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Condi Weaver
     profession: Weaver
     value: |-

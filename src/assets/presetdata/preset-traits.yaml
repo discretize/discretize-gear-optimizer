@@ -2941,14 +2941,14 @@ list:
               "amount": ""
             },
             "elemental-polyphony-fire": {
-              "amount": "96"
+              "amount": "96.3"
             },
             "elemental-polyphony-air": {
-              "amount": "4.8"
+              "amount": "7.6"
             },
             "elements-of-rage-base": {},
             "elements-of-rage-buff": {
-              "amount": "83.5"
+              "amount": "82.1"
             }
           }
         ]
@@ -2957,7 +2957,7 @@ list:
       {
         "skills": {
           "woven-fire": {
-            "amount": "54.9"
+            "amount": "55.2"
           }
         }
       }

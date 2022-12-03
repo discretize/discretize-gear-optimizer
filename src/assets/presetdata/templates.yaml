@@ -524,14 +524,14 @@ list:
         extras: Condi Weaver
         weaponType: Two-handed
 
-      - name: Condi Weaver Scepter (Outdated)
+      - name: Condi Weaver Scepter
         id: cwea-scepter
         specialization: Weaver
         boonType: Condi
         priority: Condi DPS
         distribution: Condi Weaver Scepter
         traits: Condi Weaver Scepter
-        extras: Condi Weaver
+        extras: Condi Weaver Scepter
         weaponType: Dual wield
 
       - name: Condi Weaver Sword (Outdated)
