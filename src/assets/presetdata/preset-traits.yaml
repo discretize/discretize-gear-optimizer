@@ -3202,7 +3202,7 @@ list:
           ],
           [
             232,
-            214,
+            1502,
             1503
           ],
           [
@@ -3224,7 +3224,7 @@ list:
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": "7.5"
+              "amount": "7"
             }
           },
           {
@@ -3237,13 +3237,13 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "80"
+              "amount": "75.8"
             },
             "bolt-to-the-heart": {
               "amount": ""
             },
             "fresh-air": {
-              "amount": "60"
+              "amount": "71"
             },
             "zephyrs-speed": {}
           },
@@ -3251,7 +3251,7 @@ list:
             "gathered-focus": {},
             "hardy-conduit": {},
             "transcendent-tempest": {
-              "amount": "71"
+              "amount": "67.2"
             }
           }
         ]
