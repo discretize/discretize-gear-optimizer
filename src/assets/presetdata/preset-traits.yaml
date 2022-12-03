@@ -3281,7 +3281,7 @@ list:
           ],
           [
             232,
-            214,
+            1502,
             226
           ],
           [
@@ -3293,17 +3293,17 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "28.3"
+              "amount": "28"
             },
             "burning-precision": {},
             "burning-rage": {},
             "power-overwhelming": {},
             "power-overwhelming-2": {
-              "amount": "28.3"
+              "amount": "28"
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": "5.3"
+              "amount": "5.4"
             }
           },
           {
@@ -3316,7 +3316,7 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "17.3"
+              "amount": "18.6"
             },
             "bolt-to-the-heart": {
               "amount": ""
@@ -3332,7 +3332,7 @@ list:
             },
             "elemental-empowerment": {},
             "empowering-auras": {
-              "amount": "4.8"
+              "amount": "4.6"
             },
             "empowered-empowerment": {}
           }
@@ -3342,11 +3342,11 @@ list:
       {
         "skills": {
           "flame-wheel": {
-            "amount": "98.6"
+            "amount": "99"
           },
           "crescent-wind": {},
           "relentless-fire": {
-            "amount": "50.91"
+            "amount": "50.6"
           }
         }
       }
