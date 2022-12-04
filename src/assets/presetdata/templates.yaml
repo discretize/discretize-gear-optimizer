@@ -487,7 +487,7 @@ list:
         extras: Condi Tempest
         weaponType: Dual wield
 
-      - name: Power Tempest (Outdated)
+      - name: Power Tempest
         id: ptemp
         specialization: Tempest
         boonType: Power
@@ -524,14 +524,14 @@ list:
         extras: Condi Weaver
         weaponType: Two-handed
 
-      - name: Condi Weaver Scepter (Outdated)
+      - name: Condi Weaver Scepter
         id: cwea-scepter
         specialization: Weaver
         boonType: Condi
         priority: Condi DPS
         distribution: Condi Weaver Scepter
         traits: Condi Weaver Scepter
-        extras: Condi Weaver
+        extras: Condi Weaver Scepter
         weaponType: Dual wield
 
       - name: Condi Weaver Sword (Outdated)
@@ -554,7 +554,7 @@ list:
         extras: Condi Weaver Dagger
         weaponType: Dual wield
 
-      - name: Hybrid Weaver (Outdated)
+      - name: Hybrid Weaver
         id: hwea
         specialization: Weaver
         boonType: Condi
@@ -580,7 +580,7 @@ list:
           extras: Power Quickness Catalyst (Raid)
         weaponType: Two-handed
 
-      - name: Power Catalyst (Outdated)
+      - name: Power Catalyst
         id: power-cat
         specialization: Catalyst
         boonType: Power

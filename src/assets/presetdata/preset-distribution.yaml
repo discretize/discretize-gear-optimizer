@@ -368,29 +368,29 @@ list:
         url: https://www.youtube.com/watch?v=zjQ3e_09eB8
         log: https://dps.report/KyoI-20220824-095213_golem
 
+  # Without eles (distribution still comparable, lower rng)
   - name: Condi Weaver Scepter
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 2005, "Power2": 0, "Burning": 14.33, "Bleeding": 8.19, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2139, "Power2": 0, "Burning": 14.99, "Bleeding": 7.72, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: 'Fennec'
-        url: https://www.youtube.com/watch?v=cal9A21TVsQ
-        log: https://dps.report/NgbV-20220829-141352_golem
+      - author: '[SC] Roul'
+        url: https://www.youtube.com/watch?v=C98z6HwLkog
+        log: https://dps.report/1a54-20221130-171715_golem
 
-  # no jade bot
-  # force bursting, slightly suboptimal gear (15 malign 3 precise)
+  # 15 mal/3 spite
   - name: Hybrid Weaver
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 3114, "Power2": 0, "Burning": 12.9, "Bleeding": 0.94, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3230, "Power2": 0, "Burning": 11.73, "Bleeding": 1.82, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[SC] Roul'
-        url: https://www.youtube.com/watch?v=s7ASBjZq5GY
-        log: https://dps.report/gVsR-20210516-155431_golem
+        url: https://www.youtube.com/watch?v=jCE0CjrS4z4
+        log: https://dps.report/vJAR-20221202-184528_golem
 
   - name: Alacrity Hybrid Tempest
     profession: Tempest
@@ -414,27 +414,28 @@ list:
         url: https://www.youtube.com/watch?v=jw8AlS_KphU
         log: https://dps.report/WRmO-20221001-135318_golem
 
+  # gear is missing one infusion (and not crit capped?)
   - name: Power Tempest
     profession: Tempest
     value: >-
       {
-        "values2": { "Power": 4408, "Power2": 0, "Burning": 4.4, "Bleeding": 4.4, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4778, "Power2": 0, "Burning": 4.37, "Bleeding": 4.22, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[SC] Roul'
-        url: https://www.youtube.com/watch?v=5IXjEP0fSsw
-        log: https://dps.report/0B8L-20211120-200426_golem
+        url: https://www.youtube.com/watch?v=4i5TFegDNXg
+        log: https://dps.report/6Kzq-20221201-114817_golem
 
   - name: Power Catalyst
     profession: Catalyst
     value: >-
       {
-        "values2": { "Power": 3125, "Power2": 0, "Burning": 4.51, "Bleeding": 6.15, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3596, "Power2": 0, "Burning": 4.01, "Bleeding": 5.57, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[SC] Obvious Trash'
-        url: https://www.youtube.com/watch?v=v2UVt1HZYlw
-        log: https://dps.report/fX61-20220713-211905_golem
+      - author: '[SC] Roul'
+        url: https://www.youtube.com/watch?v=jmsKAZ_ROSQ
+        log: https://dps.report/7UHQ-20221130-152858_golem
 
   - name: Power Quickness Catalyst
     profession: Catalyst
