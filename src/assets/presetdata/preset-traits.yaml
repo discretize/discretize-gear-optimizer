@@ -6238,7 +6238,12 @@ list:
       {
         "skills": {
           "signet-of-agility": {},
-          "assassins-signet": {}
+          "assassins-signet": {
+            "amount": "7.7"
+          },
+          "assassins-signet-active": {
+            "amount": "30.4"
+          }
         }
       }
 
