@@ -318,20 +318,16 @@ list:
       }
     noCreditOkay: true
 
-  # small hitbox, ****superior elements****, raging storm
-  # no jade bot
-  # power: 34138 (subtracted 149 dps from lifesteal food), burn: 2773, total: 36911
-  # scholar rune, not flame legion
   - name: Power Weaver (BTTH, small)
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 3626, "Power2": 0, "Burning": 5.62, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3694, "Power2": 0, "Burning": 6.27, "Bleeding": 6.94, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: 'Fennec'
-        url: https://www.youtube.com/watch?v=WnteRwBjWKs
-        log: https://dps.report/uIm3-20220918-161524_golem
+      - author: '[SC] Fallen'
+        url: https://www.youtube.com/watch?v=Gn7xPci-DC4
+        log: https://dps.report/NeQ8-20221130-115328_golem
 
   # no jade bot
   - name: Condi Weaver Sword
