@@ -6441,6 +6441,167 @@ list:
         "skills": {}
       }
 
+  - name: Power Deadeye Daggers M7
+    profession: Deadeye
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "28",
+          "35",
+          "58"
+        ],
+        "selectedTraits": [
+          [
+            1245,
+            1704,
+            1269
+          ],
+          [
+            1268,
+            1272,
+            1904
+          ],
+          [
+            2145,
+            2160,
+            2111
+          ]
+        ],
+        "items": [
+          {
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
+            "revealed-training-revealed": {
+              "amount": "80"
+            },
+            "exposed-weakness": {
+              "amount": ""
+            },
+            "potent-poison": {},
+            "executioner": {
+              "amount": ""
+            },
+            "dagger-training-dagger": {}
+          },
+          {
+            "keen-observer": {},
+            "twin-fangs-scholar": {},
+            "twin-fangs-flank": {},
+            "practiced-tolerance": {},
+            "ferocious-strikes": {
+              "amount": ""
+            },
+            "no-quarter": {
+              "amount": ""
+            }
+          },
+          {
+            "silent-scope-base": {},
+            "silent-scope-rifle": {},
+            "premeditation-base": {},
+            "premeditation": {
+              "amount": ""
+            },
+            "iron-sight": {},
+            "be-quick-or-be-killed": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "assassins-signet": {
+            "amount": "33.5"
+          },
+          "signet-of-agility": {},
+          "assassins-signet-active": {
+            "amount": "22.1"
+          }
+        }
+      }
+
+  - name: Power Deadeye Daggers BQoBK
+    profession: Deadeye
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "28",
+          "35",
+          "58"
+        ],
+        "selectedTraits": [
+          [
+            1245,
+            1704,
+            1269
+          ],
+          [
+            1268,
+            1272,
+            1904
+          ],
+          [
+            2145,
+            2160,
+            2093
+          ]
+        ],
+        "items": [
+          {
+            "dagger-training-base": {},
+            "deadly-ambition": {},
+            "revealed-training-base": {},
+            "revealed-training-revealed": {
+              "amount": "68"
+            },
+            "exposed-weakness": {
+              "amount": ""
+            },
+            "potent-poison": {},
+            "executioner": {
+              "amount": ""
+            },
+            "dagger-training-dagger": {}
+          },
+          {
+            "keen-observer": {},
+            "twin-fangs-scholar": {},
+            "twin-fangs-flank": {},
+            "practiced-tolerance": {},
+            "ferocious-strikes": {
+              "amount": ""
+            },
+            "no-quarter": {
+              "amount": ""
+            }
+          },
+          {
+            "silent-scope-base": {},
+            "silent-scope-rifle": {},
+            "premeditation-base": {},
+            "premeditation": {
+              "amount": ""
+            },
+            "iron-sight": {},
+            "be-quick-or-be-killed": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "assassins-signet": {
+            "amount": "31"
+          },
+          "assassins-signet-active": {
+            "amount": "24.6"
+          }
+        }
+      }
+
   - name: Rifle Deadeye Premeditation
     profession: Deadeye
     traits: |-

@@ -1070,6 +1070,28 @@ list:
         url: https://www.youtube.com/watch?v=2v69_eHCMO8
         log: https://www.dps.report/vmjE-20220827-105554_golem
 
+  - name: Power Deadeye Daggers M7
+    profession: Deadeye
+    value: >-
+      {
+        "values2": { "Power": 3721, "Power2": 0, "Burning": 0, "Bleeding": 1.98, "Poisoned": 3.51, "Torment": 2.13, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Incera'
+        url: https://www.youtube.com/watch?v=-9XWPLBP1e0
+        log: https://dps.report/ZuuL-20221130-040247_golem
+
+  - name: Power Deadeye Daggers BQoBK
+    profession: Deadeye
+    value: >-
+      {
+        "values2": { "Power": 3192, "Power2": 0, "Burning": 0, "Bleeding": 3.86, "Poisoned": 6.7, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Iskarel'
+        url: https://www.youtube.com/watch?v=roV_hRP7AVY
+        log: https://dps.report/tpmp-20221130-042530_golem
+
   - name: Rifle Deadeye Premeditation
     profession: Deadeye
     value: >-
