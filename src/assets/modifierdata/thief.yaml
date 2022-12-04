@@ -4,6 +4,10 @@
     - id: assassins-signet
       text: Assassin's Signet
       subText: passive
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
         attributes:
           Power: [180, buff]
