@@ -23,17 +23,17 @@ list:
       }
     noCreditOkay: true
 
-  # Bugged (additive) bloody roar
+  # Uses impact/hydro sigils, hydro not taken into consideration
   - name: Power Berserker
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 3269, "Power2": 0, "Burning": 1.15, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3316, "Power2": 0, "Burning": 1.13, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Baseraver
-        url: https://www.youtube.com/watch?v=ei4yU96pRTM
-        log: https://dps.report/47WQ-20221004-184753_golem
+        url: https://www.youtube.com/watch?v=_w7l8a4cbBM
+        log: https://dps.report/sXWQ-20221130-191047_golem
 
   - name: Power Spellbreaker GS
     profession: Spellbreaker
