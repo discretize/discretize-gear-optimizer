@@ -415,7 +415,7 @@ list:
         extras: Condi Quickness Bers
         weaponType: Two-handed
 
-      - name: Condi Berserker (Outdated)
+      - name: Condi Berserker
         id: cbers-dps
         specialization: Berserker
         boonType: Condi

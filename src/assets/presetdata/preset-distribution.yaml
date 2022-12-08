@@ -62,12 +62,12 @@ list:
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 2254, "Power2": 0, "Burning": 12.61, "Bleeding": 13.01, "Poisoned": 2.04, "Torment": 1.33, "Confusion": 0 }
+        "values2": { "Power": 2212, "Power2": 0, "Burning": 12.48, "Bleeding": 12.28, "Poisoned": 2.12, "Torment": 1.3, "Confusion": 0 }
       }
     credit:
       - author: 'Costa Primo'
-        url: https://www.youtube.com/watch?v=-F-I0bdSJ-w
-        log: https://dps.report/Ag4J-20220825-111159_golem
+        url: https://www.youtube.com/watch?v=QN7prnuoWj4
+        log: https://dps.report/LCY0-20221203-210602_golem
 
   - name: Power Quickness Spellbreaker
     profession: Spellbreaker
