@@ -451,6 +451,19 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
+      - name: Power Spellbreaker Hammer
+        id: spb-power-hammer
+        specialization: Spellbreaker
+        boonType: Power
+        priority: Power DPS (no dragon)
+        distribution: Power Spellbreaker Hammer
+        traits: Power Spellbreaker Hammer
+        fractal:
+          extras: Power (Fractal)
+        raid:
+          extras: Power (Raid)
+        weaponType: Dual wield
+
       - name: Quickness Power Spellbreaker (Outdated)
         id: spb-quick
         specialization: Spellbreaker
