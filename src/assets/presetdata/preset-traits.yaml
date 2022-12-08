@@ -2172,6 +2172,7 @@ list:
         }
       }
 
+  # Tether uptime can be calculated from Damage Modifiers tab
   - name: Power Spellbreaker GS
     profession: Spellbreaker
     traits: |-
@@ -2212,7 +2213,7 @@ list:
               "amount": "4"
             },
             "peak-performance-2": {
-              "amount": "28.3"
+              "amount": "29.3"
             }
           },
           {
@@ -2234,13 +2235,13 @@ list:
               "amount": ""
             },
             "attackers-insight": {
-              "amount": "2.81"
+              "amount": "2.8"
             },
             "magebane-tether": {
-              "amount": "76.3"
+              "amount": "75.3"
             },
             "sun-and-moon-style": {
-              "amount": "52.8"
+              "amount": ""
             }
           }
         ]
@@ -2248,6 +2249,8 @@ list:
     skills: |-
       {
         "skills": {
+          "signet-of-might": {},
+          "signet-of-fury": {}
         }
       }
 

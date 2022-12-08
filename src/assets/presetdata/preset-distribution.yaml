@@ -39,12 +39,12 @@ list:
     profession: Spellbreaker
     value: >-
       {
-        "values2": { "Power": 2890, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2909, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'DaniDomum'
-        url: https://www.youtube.com/watch?v=rVQtNtIHHxM
-        log: https://dps.report/2Wtv-20221008-134648_golem
+        url: https://www.youtube.com/watch?v=Y47L5J18cS8
+        log: https://dps.report/Be28-20221130-122045_golem
 
   # includes geo/earth + doom/torment
   - name: Condi Quickness Bers

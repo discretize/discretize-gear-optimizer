@@ -551,8 +551,8 @@
       subText: mainhand dagger; boonless
       amountData:
         label: '% uptime'
-        default: 100
-        quantityEntered: 100
+        default: 50
+        quantityEntered: 50
       modifiers:
         damage:
           Strike Damage: [10%, mult]
