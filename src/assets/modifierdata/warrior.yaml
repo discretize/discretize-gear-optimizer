@@ -257,15 +257,6 @@
   id: 22
   items:
 
-    - id: thick-skin
-      text: Thick Skin
-      subText: 100% scholar
-      minor: true
-      modifiers:
-        damage:
-          Damage Reduction: [5%, unknown]
-      gw2id: 1350
-
     - id: cull-the-weak
       text: Cull the Weak
       amountData:
