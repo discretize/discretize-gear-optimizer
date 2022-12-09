@@ -419,6 +419,7 @@
         damage:
           Strike Damage: [15%, mult]
       gw2id: 1926
+      defaultEnabled: false
 
     - id: hunters-fortification
       text: Hunter's Fortification
@@ -572,3 +573,4 @@
         damage:
           Strike Damage: [10%, mult] # as per Cat
       gw2id: 2201
+      defaultEnabled: false

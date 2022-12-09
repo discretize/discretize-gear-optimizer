@@ -52,6 +52,7 @@
         damage:
           Strike Damage: [7%, add]
       gw2id: 1444
+      defaultEnabled: false
 
     - id: forceful-greatsword
       text: Forceful Greatsword
@@ -73,6 +74,7 @@
         attributes:
           Power: [120, converted] # from sheet by Bekko
       gw2id: 1338
+      defaultEnabled: false
 
     - id: great-fortitude
       text: Great Fortitude
@@ -193,6 +195,7 @@
         attributes:
           Expertise: [160, converted]
       gw2id: 1333
+      defaultEnabled: false
 
     - id: blade-master-2
       text: Blademaster
@@ -558,6 +561,7 @@
         damage:
           Strike Damage: [10%, mult]
       gw2id: 2095
+      defaultEnabled: false
 
     - id: attackers-insight
       text: Attacker's Insight

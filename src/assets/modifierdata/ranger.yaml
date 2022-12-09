@@ -134,6 +134,7 @@
         damage:
           Strike Damage: [15%, mult]
       gw2id: 1000
+      defaultEnabled: false
 
     - id: predators-onslaught
       text: Predator's Onslaught
@@ -199,6 +200,7 @@
         attributes:
           Condition Duration: 10%
       gw2id: 1912
+      defaultEnabled: false
 
     - id: vicious-quarry
       text: Vicious Quarry
@@ -415,6 +417,7 @@
           Toughness: [200, buff]
           Vitality: [100, buff]
       minor: true
+      defaultEnabled: false
 
     - id: archetype-deadly
       subText: Archetype Deadly (ConDmg/Prec)
@@ -427,6 +430,7 @@
           Condition Damage: [200, buff]
           Precision: [100, buff]
       minor: true
+      defaultEnabled: false
 
     - id: archetype-versatile
       subText: Archetype Versatile (Vit/Conc)
@@ -439,6 +443,7 @@
           Vitality: [200, buff]
           Concentration: [225, buff]
       minor: true
+      defaultEnabled: false
 
     - id: archetype-ferocious
       subText: Archetype Ferocious (Pwr/Feroc)
@@ -451,6 +456,7 @@
           Power: [100, buff]
           Ferocity: [100, buff]
       minor: true
+      defaultEnabled: false
 
     - id: archetype-supportive
       subText: Archetype Supportive (Vit/Heal)
@@ -463,6 +469,7 @@
           Vitality: [100, buff]
           Outgoing Healing: 25%
       minor: true
+      defaultEnabled: false
 
     - id: pack-alpha-merged
       subText: merged
@@ -482,6 +489,7 @@
           Vitality: [75, buff]
       minor: true
       gw2id: 1900
+      defaultEnabled: false
 
     - id: loud-whistle-merged
       subText: merged
@@ -490,6 +498,7 @@
           Strike Damage: [10%, mult]
       minor: true
       gw2id: 974
+      defaultEnabled: false
 
     - id: pets-prowess-merged
       subText: merged
@@ -501,6 +510,7 @@
           Ferocity: [150, buff]
       minor: true
       gw2id: 1065
+      defaultEnabled: false
 
     - id: honed-axes-merged
       subText: merged, base
@@ -509,6 +519,7 @@
           Ferocity: [120, buff]
       minor: true
       gw2id: 1066
+      defaultEnabled: false
 
 - section: Untamed
   id: 72
@@ -552,6 +563,7 @@
           Damage Reduction: [10%, unknown]
       minor: true
       gw2id: 2269
+      defaultEnabled: false
 
     - id: ferocious-symbiosis
       text: Ferocious Symbiosis

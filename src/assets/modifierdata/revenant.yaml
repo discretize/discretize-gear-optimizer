@@ -84,6 +84,7 @@
         damage:
           Damage Reduction: [10%, unknown]
       gw2id: 1728
+      defaultEnabled: false
 
     - id: dwarven-battle-training
       text: Dwarven Battle Training
@@ -313,6 +314,7 @@
         damage:
           Damage Reduction: [15%, unknown]
       gw2id: 1825
+      defaultEnabled: false
 
 - section: Herald
   id: 52
@@ -339,6 +341,7 @@
         damage:
           Damage Reduction: [1.5%, unknown]
       gw2id: 1730
+      defaultEnabled: false
 
     - id: reinforced-potency-base
       text: Reinforced Potency

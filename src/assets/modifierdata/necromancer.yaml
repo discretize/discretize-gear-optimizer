@@ -252,6 +252,7 @@
           Concentration: [45, converted]
           Expertise: [45, converted]
       gw2id: 2121
+      defaultEnabled: false
 
     - id: sand-sage-2x
       text: Sand Sage
@@ -266,6 +267,7 @@
           Concentration: [90, converted]
           Expertise: [90, converted]
       gw2id: 2121
+      defaultEnabled: false
 
     - id: sand-sage-3x
       text: Sand Sage
@@ -293,6 +295,7 @@
         damage:
           Damage Reduction: [3%, unknown]
       gw2id: 2096
+      defaultEnabled: false
 
     - id: blood-as-sand-2x
       text: Blood as Sand
@@ -305,6 +308,7 @@
         damage:
           Damage Reduction: [6%, unknown]
       gw2id: 2096
+      defaultEnabled: false
 
     - id: blood-as-sand-3x
       text: Blood as Sand
