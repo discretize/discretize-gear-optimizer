@@ -419,6 +419,7 @@
         damage:
           Strike Damage: [15%, mult]
       gw2id: 1926
+      defaultEnabled: false
 
     - id: hunters-fortification
       text: Hunter's Fortification
@@ -519,6 +520,7 @@
         attributes:
           Power: [120, unknown]
       gw2id: 2190
+      defaultEnabled: true
 
     - id: conceited-curate
       text: Conceited Curate
@@ -526,6 +528,7 @@
         attributes:
           Healing Power: [120, unknown]
       gw2id: 2187
+      defaultEnabled: true
 
     - id: lethal-tempo
       text: Lethal Tempo
@@ -570,3 +573,4 @@
         damage:
           Strike Damage: [10%, mult] # as per Cat
       gw2id: 2201
+      defaultEnabled: false

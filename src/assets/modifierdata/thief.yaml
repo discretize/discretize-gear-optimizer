@@ -52,6 +52,7 @@
         attributes:
           Power: [80, converted]
       gw2id: 1245
+      defaultEnabled: false
 
     - id: deadly-ambition
       text: Deadly Ambition
@@ -83,6 +84,7 @@
         attributes:
           Power: [120, buff]
       gw2id: 1704
+      defaultEnabled: false
 
     - id: exposed-weakness
       text: Exposed Weakness

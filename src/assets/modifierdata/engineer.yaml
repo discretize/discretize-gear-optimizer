@@ -248,6 +248,7 @@
         attributes:
           Outgoing Healing: 7%
       gw2id: 521
+      defaultEnabled: false
 
     - id: compounding-chemicals
       text: Compounding Chemicals

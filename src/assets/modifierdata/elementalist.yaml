@@ -307,6 +307,7 @@
         damage:
           Damage Reduction: [7%, unknown]
       gw2id: 278
+      defaultEnabled: false
 
     - id: serrated-stones
       text: Serrated Stones

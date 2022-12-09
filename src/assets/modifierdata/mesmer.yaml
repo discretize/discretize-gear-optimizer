@@ -82,6 +82,7 @@
         attributes:
           Phantasm Critical Chance: 20%
       gw2id: 701
+      defaultEnabled: false
 
     - id: phantasmal-fury-virtuoso
       text: Phantasmal Fury
@@ -223,6 +224,7 @@
         attributes:
           Condition Damage: [120, converted] # tested by marcus
       gw2id: 669
+      defaultEnabled: false
 
     - id: chaotic-persistence
       text: Chaotic Persistence
