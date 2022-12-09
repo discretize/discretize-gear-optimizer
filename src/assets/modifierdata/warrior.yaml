@@ -130,6 +130,7 @@
         attributes:
           Critical Chance: 5%
       gw2id: 1342
+      defaultEnabled: true
 
     - id: wounding-precision
       text: Wounding Precision

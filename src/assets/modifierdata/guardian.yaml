@@ -519,6 +519,7 @@
         attributes:
           Power: [120, unknown]
       gw2id: 2190
+      defaultEnabled: true
 
     - id: conceited-curate
       text: Conceited Curate
@@ -526,6 +527,7 @@
         attributes:
           Healing Power: [120, unknown]
       gw2id: 2187
+      defaultEnabled: true
 
     - id: lethal-tempo
       text: Lethal Tempo
