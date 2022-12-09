@@ -808,12 +808,12 @@ list:
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 2959, "Power2": 838, "Burning": 0, "Bleeding": 0.73, "Poisoned": 0, "Torment": 0, "Confusion": 0.96 }
+        "values2": { "Power": 3220, "Power2": 846, "Burning": 0, "Bleeding": 0.87, "Poisoned": 0, "Torment": 0, "Confusion": 0.91 }
       }
     credit:
       - author: '[CnD] Tipcat'
-        url: https://www.youtube.com/watch?v=4SsM2FhqSU0
-        log: https://dps.report/5pxz-20220824-141459_golem
+        url: https://www.youtube.com/watch?v=XRPqrOi7tMo
+        log: https://dps.report/aj9k-20221206-110420_golem
 
   # concentration
   - name: Quickness Power Chrono GS+Focus
