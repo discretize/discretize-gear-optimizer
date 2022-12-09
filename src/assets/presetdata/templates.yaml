@@ -96,7 +96,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Power Chrono IA GS (Outdated)
+      - name: Power Chrono IA GS
         id: pchrono-ia-gs
         specialization: Chronomancer
         boonType: Power
