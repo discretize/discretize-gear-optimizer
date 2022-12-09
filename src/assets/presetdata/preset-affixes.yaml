@@ -225,13 +225,13 @@ list:
         "minQuicknessDuration": 23
       }
 
-  - name: Condi Alacrity Mirage 27%
+  - name: Condi Alacrity Mirage 0%
     hidden: true
     value: >-
       {
         "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 27,
+        "minBoonDuration": 0,
         "minQuicknessDuration": 0
       }
 
