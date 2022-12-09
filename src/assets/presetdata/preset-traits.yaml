@@ -2055,10 +2055,10 @@ list:
             },
             "bloodlust": {},
             "furious": {
-              "amount": "20"
+              "amount": "21"
             },
             "bloodlust-on-crit": {
-              "amount": "2.94"
+              "amount": "3.02"
             },
             "blade-master-base-bugged": {},
             "furious-burst": {}
@@ -2082,7 +2082,7 @@ list:
               "amount": ""
             },
             "fatal-frenzy-power-condi": {
-              "amount": ""
+              "amount": "98"
             },
             "fatal-frenzy-toughness": {},
             "bloody-roar": {
@@ -2172,6 +2172,7 @@ list:
         }
       }
 
+  # Tether uptime can be calculated from Damage Modifiers tab
   - name: Power Spellbreaker GS
     profession: Spellbreaker
     traits: |-
@@ -2212,7 +2213,7 @@ list:
               "amount": "4"
             },
             "peak-performance-2": {
-              "amount": "28.3"
+              "amount": "29.3"
             }
           },
           {
@@ -2234,13 +2235,13 @@ list:
               "amount": ""
             },
             "attackers-insight": {
-              "amount": "2.81"
+              "amount": "2.8"
             },
             "magebane-tether": {
-              "amount": "76.3"
+              "amount": "75.3"
             },
             "sun-and-moon-style": {
-              "amount": "52.8"
+              "amount": ""
             }
           }
         ]
@@ -2248,6 +2249,88 @@ list:
     skills: |-
       {
         "skills": {
+          "signet-of-might": {},
+          "signet-of-fury": {}
+        }
+      }
+
+  - name: Power Spellbreaker Hammer
+    profession: Spellbreaker
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "4",
+          "22",
+          "61"
+        ],
+        "selectedTraits": [
+          [
+            1444,
+            1449,
+            1437
+          ],
+          [
+            1372,
+            1367,
+            1708
+          ],
+          [
+            2107,
+            2095,
+            2060
+          ]
+        ],
+        "items": [
+          {
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
+            "pinnacle-of-strength": {
+              "amount": ""
+            },
+            "pinnacle-of-strength-crit": {},
+            "berserkers-power": {
+              "amount": "4"
+            },
+            "peak-performance-2": {
+              "amount": "29"
+            }
+          },
+          {
+            "cull-the-weak": {
+              "amount": ""
+            },
+            "merciless-hammer": {
+              "amount": "40"
+            },
+            "hardened-armor": {},
+            "stalwart-strength": {
+              "amount": ""
+            }
+          },
+          {
+            "pure-strike-base": {},
+            "pure-strike-boonless": {
+              "amount": ""
+            },
+            "attackers-insight": {
+              "amount": "4.7"
+            },
+            "magebane-tether": {
+              "amount": "74"
+            },
+            "sun-and-moon-style": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-might": {},
+          "signet-of-fury": {}
         }
       }
 

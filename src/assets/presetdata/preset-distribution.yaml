@@ -23,28 +23,39 @@ list:
       }
     noCreditOkay: true
 
-  # Bugged (additive) bloody roar
+  # Uses impact/hydro sigils, hydro not taken into consideration
   - name: Power Berserker
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 3269, "Power2": 0, "Burning": 1.15, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3316, "Power2": 0, "Burning": 1.13, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Baseraver
-        url: https://www.youtube.com/watch?v=ei4yU96pRTM
-        log: https://dps.report/47WQ-20221004-184753_golem
+        url: https://www.youtube.com/watch?v=_w7l8a4cbBM
+        log: https://dps.report/sXWQ-20221130-191047_golem
 
   - name: Power Spellbreaker GS
     profession: Spellbreaker
     value: >-
       {
-        "values2": { "Power": 2890, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2909, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'DaniDomum'
-        url: https://www.youtube.com/watch?v=rVQtNtIHHxM
-        log: https://dps.report/2Wtv-20221008-134648_golem
+        url: https://www.youtube.com/watch?v=Y47L5J18cS8
+        log: https://dps.report/Be28-20221130-122045_golem
+
+  - name: Power Spellbreaker Hammer
+    profession: Spellbreaker
+    value: >-
+      {
+        "values2": { "Power": 2221, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: 'DaniDomum'
+        url: https://www.youtube.com/watch?v=cLXtPAzTzKw
+        log: https://dps.report/hj0c-20221204-150307_golem
 
   # includes geo/earth + doom/torment
   - name: Condi Quickness Bers
@@ -62,12 +73,12 @@ list:
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 2254, "Power2": 0, "Burning": 12.61, "Bleeding": 13.01, "Poisoned": 2.04, "Torment": 1.33, "Confusion": 0 }
+        "values2": { "Power": 2212, "Power2": 0, "Burning": 12.48, "Bleeding": 12.28, "Poisoned": 2.12, "Torment": 1.3, "Confusion": 0 }
       }
     credit:
       - author: 'Costa Primo'
-        url: https://www.youtube.com/watch?v=-F-I0bdSJ-w
-        log: https://dps.report/Ag4J-20220825-111159_golem
+        url: https://www.youtube.com/watch?v=QN7prnuoWj4
+        log: https://dps.report/LCY0-20221203-210602_golem
 
   - name: Power Quickness Spellbreaker
     profession: Spellbreaker
