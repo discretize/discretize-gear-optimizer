@@ -193,6 +193,13 @@ const testModifiers = async () => {
           }
         }
 
+        if (!fileIsExtra && !fileName.includes('buffs') && sectionName !== 'Skills') {
+          gentleAssert(
+            [true, false].includes(defaultEnabled),
+            `err: ${id} is missing defaultEnabled!`,
+          );
+        }
+
         if (minor && !subText && !amountData) {
           gentleAssert(
             defaultEnabled,
