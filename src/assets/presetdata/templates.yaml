@@ -55,7 +55,7 @@ list:
         distribution: Quickness Power Chrono GS
         traits: Quickness Power Chrono GS
         fractal:
-          extras: Power (Fractal)
+          extras: Power Boon (Fractal)
         raid:
           extras: Power Boon (Raid)
         weaponType: Two-handed
