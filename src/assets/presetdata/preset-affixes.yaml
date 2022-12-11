@@ -205,6 +205,16 @@ list:
         "minQuicknessDuration": 10.3
       }
 
+  - name: Quickness Power Chrono 10%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 10
+      }
+
   - name: Quickness Power Chrono 21%
     hidden: true
     value: >-
@@ -225,13 +235,13 @@ list:
         "minQuicknessDuration": 23
       }
 
-  - name: Condi Alacrity Mirage 27%
+  - name: Condi Alacrity Mirage 0%
     hidden: true
     value: >-
       {
         "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 27,
+        "minBoonDuration": 0,
         "minQuicknessDuration": 0
       }
 

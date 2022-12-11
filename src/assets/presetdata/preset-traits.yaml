@@ -51,10 +51,10 @@ list:
             },
             "phantasmal-fury": {},
             "sharper-images-phantasm": {
-              "amount": "4.07"
+              "amount": "4.21"
             },
             "sharper-images-clone": {
-              "amount": "1.06"
+              "amount": "1.18"
             }
           },
           {
@@ -246,7 +246,7 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": "5.7"
+              "amount": "5.8"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
@@ -254,10 +254,10 @@ list:
             },
             "phantasmal-fury": {},
             "sharper-images-phantasm": {
-              "amount": "1.24"
+              "amount": "1.25"
             },
             "sharper-images-clone": {
-              "amount": "0.90"
+              "amount": "0.96"
             }
           },
           {
@@ -527,7 +527,7 @@ list:
               "amount": ""
             },
             "sharper-images-clone": {
-              "amount": "2.38"
+              "amount": "2.67"
             },
             "sharper-images-phantasm": {
               "amount": "0.04"

@@ -807,24 +807,24 @@ list:
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 2976, "Power2": 1332, "Burning": 0, "Bleeding": 0.91, "Poisoned": 0, "Torment": 0, "Confusion": 0.83 }
+        "values2": { "Power": 3123, "Power2": 1363, "Burning": 0, "Bleeding": 1.09, "Poisoned": 0, "Torment": 0, "Confusion": 0.73 }
       }
     credit:
       - author: 'Luxroy'
-        url: https://www.youtube.com/watch?v=YfEK5GyAIL4
-        log: https://dps.report/ulws-20220804-153218_golem
+        url: https://www.youtube.com/watch?v=_V0dyC1aIl0
+        log: https://dps.report/4U2Z-20221207-132946_golem
 
   # impact
   - name: Quickness Power Chrono GS
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 2959, "Power2": 838, "Burning": 0, "Bleeding": 0.73, "Poisoned": 0, "Torment": 0, "Confusion": 0.96 }
+        "values2": { "Power": 3220, "Power2": 846, "Burning": 0, "Bleeding": 0.87, "Poisoned": 0, "Torment": 0, "Confusion": 0.91 }
       }
     credit:
       - author: '[CnD] Tipcat'
-        url: https://www.youtube.com/watch?v=4SsM2FhqSU0
-        log: https://dps.report/5pxz-20220824-141459_golem
+        url: https://www.youtube.com/watch?v=XRPqrOi7tMo
+        log: https://dps.report/aj9k-20221206-110420_golem
 
   # concentration
   - name: Quickness Power Chrono GS+Focus
@@ -888,17 +888,16 @@ list:
         url: https://www.youtube.com/watch?v=3VQqzxB6Pn8
         log: https://dps.report/mv3g-20210604-005500_golem
 
-  # 27% ritualist
   - name: Alacrity Staff Mirage
     profession: Mirage
     value: >-
       {
-        "values2": { "Power": 1263, "Power2": 0, "Burning": 0, "Bleeding": 11.59, "Poisoned": 0.62, "Torment": 14.73, "Confusion": 16.99 }
+        "values2": { "Power": 1098, "Power2": 86, "Burning": 0, "Bleeding": 11.98, "Poisoned": 0.09, "Torment": 15.66, "Confusion": 17.79 }
       }
     credit:
-      - author: '[CnD] Xyonon'
-        url: https://www.youtube.com/watch?v=I00jkaQqEHQ
-        log: https://dps.report/6Kpz-20220711-175021_golem
+      - author: FidelOo
+        url: https://www.youtube.com/watch?v=36QsfyS8aBQ
+        log: https://dps.report/3VjJ-20221203-024743_golem
 
   - name: Axe Mirage (Deception Torch)
     profession: Mirage

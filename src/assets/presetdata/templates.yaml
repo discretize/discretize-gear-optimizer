@@ -47,17 +47,17 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Quickness Power Chrono GS (Outdated)
+      - name: Quickness Power Chrono GS 10%
         id: pchrono-stm-gs
         specialization: Chronomancer
         boonType: Power
-        priority: Power DPS (no dragon)
+        priority: Quickness Power Chrono 10%
         distribution: Quickness Power Chrono GS
         traits: Quickness Power Chrono GS
         fractal:
           extras: Power (Fractal)
         raid:
-          extras: Power (Raid, furious)
+          extras: Power Boon (Raid)
         weaponType: Two-handed
 
       - name: Quickness Power Chrono GS+Focus (Outdated)
@@ -96,7 +96,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Power Chrono IA GS (Outdated)
+      - name: Power Chrono IA GS
         id: pchrono-ia-gs
         specialization: Chronomancer
         boonType: Power
@@ -135,11 +135,11 @@ list:
       #     extras: Power (Raid, furious)
       #   weaponType: Two-handed
 
-      - name: Alacrity Staff Mirage (Outdated)
+      - name: Alacrity Staff Mirage
         id: alacmirage
         specialization: Mirage
         boonType: Condi
-        priority: Condi Alacrity Mirage 27%
+        priority: Condi Alacrity Mirage 0%
         distribution: Alacrity Staff Mirage
         traits: Alacrity Staff Mirage
         extras: Alacrity Staff Mirage
