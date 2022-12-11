@@ -51,7 +51,7 @@ list:
         id: pchrono-stm-gs
         specialization: Chronomancer
         boonType: Power
-        priority: Power DPS (no dragon)
+        priority: Quickness Power Chrono 10%
         distribution: Quickness Power Chrono GS
         traits: Quickness Power Chrono GS
         fractal:
