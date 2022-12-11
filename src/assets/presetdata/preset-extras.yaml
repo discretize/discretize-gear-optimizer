@@ -320,7 +320,8 @@ list:
             "concentration": {}
           },
           "Enhancement": {
-            "superior-sharpening-stone": {}
+            "superior-sharpening-stone": {},
+            "furious-sharpening-stone": {}
           },
           "Nourishment": {
             "cilantro-lime-sous-vide-steak": {},
