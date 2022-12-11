@@ -276,6 +276,61 @@ list:
         }
       }
 
+  - name: Quickness Power Chrono Conc/Impact (Fractal)
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "thief": {},
+            "scholar": {},
+            "eagle": {}
+          },
+          "Sigil1": {
+            "force": {},
+            "impact/night/slaying-both": {}
+          },
+          "Sigil2": {
+            "concentration": {}
+          },
+          "Enhancement": {
+            "slaying-potion": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
+  - name: Quickness Power Chrono Conc/Impact
+    value: |-
+      {
+        "extras": {
+          "Runes": {
+            "thief": {},
+            "scholar": {},
+            "eagle": {}
+          },
+          "Sigil1": {
+            "force": {}
+          },
+          "Sigil2": {
+            "concentration": {}
+          },
+          "Enhancement": {
+            "superior-sharpening-stone": {}
+          },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      }
+
   - name: Quickness Condi Chrono
     profession: Chronomancer
     value: |-
@@ -1893,3 +1948,4 @@ list:
         },
         "lifestealAmount": "3.5"
       }
+
