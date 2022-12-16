@@ -573,12 +573,12 @@ list:
     profession: Herald
     value: >-
       {
-        "values2": { "Power": 2849, "Power2": 0, "Burning": 0.76, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2838, "Power2": 0, "Burning": 1.43, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Umbra'
-        url: https://www.youtube.com/watch?v=nJLZUoI7NgA
-        log: https://dps.report/ZD1f-20220826-122357_golem
+        url: https://www.youtube.com/watch?v=DJtoo1abq9U
+        log: https://dps.report/rW1Q-20221202-011416_golem
 
   # power: 5246 + 7181 lifesteal = 6027, burn: 7122, bleed: 1003, poison: 2941, torment: 13000, total: 30093
   # 12 boons, AP

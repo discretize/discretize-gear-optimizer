@@ -764,7 +764,7 @@ list:
         extras: Condi Herald
         weaponType: Dual wield
 
-      - name: Power Herald FP (Outdated)
+      - name: Power Herald FP
         id: herald
         specialization: Herald
         boonType: Power
