@@ -1458,7 +1458,7 @@ list:
             "cilantro-lime-sous-vide-steak": {}
           }
         },
-        "lifestealAmount": "3.85"
+        "lifestealAmount": "3.9"
       }
 
   - name: DPS Vindicator (Raid)
@@ -1484,7 +1484,7 @@ list:
             "cilantro-lime-sous-vide-steak": {}
           }
         },
-        "lifestealAmount": "4.2"
+        "lifestealAmount": "3.9"
       }
 
   - name: Power Alacrity Mechanist (Fractal, inaccurate)
