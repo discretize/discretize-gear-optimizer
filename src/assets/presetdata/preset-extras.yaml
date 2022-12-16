@@ -1420,12 +1420,14 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Condi Herald
+  - name: Condi Quickness Herald
     profession: Herald
     value: |-
       {
         "extras": {
           "Runes": {
+            "tempest": {},
+            "leadership": {},
             "nightmare": {}
           },
           "Sigil1": {},
@@ -1434,9 +1436,11 @@ list:
             "master-tuning-crystal": {}
           },
           "Nourishment": {
+            "cilantro-and-cured-meat-flatbread": {},
             "salsa-topped-veggie-flatbread": {}
           }
-        }
+        },
+        "lifestealAmount": "3.6"
       }
 
   - name: DPS Vindicator (Fractal)
@@ -1458,7 +1462,7 @@ list:
             "cilantro-lime-sous-vide-steak": {}
           }
         },
-        "lifestealAmount": "3.85"
+        "lifestealAmount": "3.9"
       }
 
   - name: DPS Vindicator (Raid)
@@ -1484,7 +1488,7 @@ list:
             "cilantro-lime-sous-vide-steak": {}
           }
         },
-        "lifestealAmount": "4.2"
+        "lifestealAmount": "3.9"
       }
 
   - name: Power Alacrity Mechanist (Fractal, inaccurate)

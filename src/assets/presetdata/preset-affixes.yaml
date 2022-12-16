@@ -175,6 +175,15 @@ list:
         "minQuicknessDuration": 45
       }
 
+  - name: Condi Quickness Herald 25.2%
+    value: >-
+      {
+        "affixes": ["Viper", "Sinister", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 25.2
+      }
+
   - name: Power Boon Daredevil 99.7%
     hidden: true
     value: >-

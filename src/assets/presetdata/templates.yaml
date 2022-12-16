@@ -741,7 +741,7 @@ list:
   - class: Revenant
     builds:
 
-      - name: Quickness Power Herald Consume (Outdated)
+      - name: Quickness Power Herald Consume
         id: herald-quick
         specialization: Herald
         boonType: Power
@@ -754,17 +754,17 @@ list:
           extras: Power Quickness Herald (Raid)
         weaponType: Dual wield
 
-      - name: Condi Herald (Outdated)
-        id: cherald
+      - name: Quickness Condi Herald
+        id: cherald-quick
         specialization: Herald
         boonType: Condi
-        priority: Condi DPS
-        distribution: Condi Herald
-        traits: Condi Herald
-        extras: Condi Herald
+        priority: Condi Quickness Herald 25.2%
+        distribution: Condi Quickness Herald
+        traits: Condi Quickness Herald
+        extras: Condi Quickness Herald
         weaponType: Dual wield
 
-      - name: Power Herald FP (Outdated)
+      - name: Power Herald FP
         id: herald
         specialization: Herald
         boonType: Power
@@ -810,11 +810,11 @@ list:
         extras: Condi Ren
         weaponType: Two-handed
 
-      - name: Power Vindicator (Outdated)
+      - name: Power Vindicator
         id: vindi
         specialization: Vindicator
         boonType: Power
-        priority: Power DPS (no dragon)
+        priority: Power DPS
         distribution: DPS Vindicator
         traits: DPS Vindicator
         fractal:
