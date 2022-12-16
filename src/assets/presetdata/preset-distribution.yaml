@@ -555,18 +555,17 @@ list:
         log: https://dps.report/EeYd-20221008-182313_golem
 
   # not including ally lifesteal
-  # todo: convert 100dps to self lifesteal
-  # https://optimizer.discretize.eu/?s=cKARhrHqv1
+  # todo: convert 122dps to self lifesteal
   - name: Power Quickness Herald
     profession: Herald
     value: >-
       {
-        "values2": { "Power": 2791, "Power2": 0, "Burning": 1.16, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2821, "Power2": 0, "Burning": 1.44, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Umbra
-        url: https://www.youtube.com/watch?v=0m0_JMW9TFE
-        log: https://dps.report/NGpa-20220826-012124_golem
+        url: https://www.youtube.com/watch?v=OqC4P6LQ1uI
+        log: https://dps.report/Qw02-20221201-233631_golem
 
   # not including ally lifesteal
   # todo: convert 268dps to self lifesteal

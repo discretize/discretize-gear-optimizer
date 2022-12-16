@@ -741,7 +741,7 @@ list:
   - class: Revenant
     builds:
 
-      - name: Quickness Power Herald Consume (Outdated)
+      - name: Quickness Power Herald Consume
         id: herald-quick
         specialization: Herald
         boonType: Power
