@@ -580,18 +580,16 @@ list:
         url: https://www.youtube.com/watch?v=DJtoo1abq9U
         log: https://dps.report/rW1Q-20221202-011416_golem
 
-  # power: 5246 + 7181 lifesteal = 6027, burn: 7122, bleed: 1003, poison: 2941, torment: 13000, total: 30093
-  # 12 boons, AP
-  - name: Condi Herald
+  - name: Condi Quickness Herald
     profession: Herald
     value: >-
       {
-        "values2": { "Power": 1900, "Power2": 0, "Burning": 5.1, "Bleeding": 2.2, "Poisoned": 6, "Torment": 17.1, "Confusion": 0 }
+        "values2": { "Power": 1636, "Power2": 0, "Burning": 5.48, "Bleeding": 2.09, "Poisoned": 6.87, "Torment": 18.21, "Confusion": 0 }
       }
     credit:
-      - author: '[Aves] Leder'
-        url: https://www.youtube.com/watch?v=zdfRVJxWWZ4
-        log: https://dps.report/BhB9-20210516-172118_golem
+      - author: 'Umbra'
+        url: https://www.youtube.com/watch?v=zLD3MJt4XH8
+        log: https://dps.report/EU7k-20221203-213656_golem
 
   # force air force air
   - name: DPS Vindicator

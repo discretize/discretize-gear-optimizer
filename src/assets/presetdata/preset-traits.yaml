@@ -4861,14 +4861,14 @@ list:
         }
       }
 
-  - name: Condi Herald
+  - name: Condi Quickness Herald
     profession: Herald
     traits: |-
       {
         "showAll": false,
         "selectedLines": [
           "14",
-          "15",
+          "3",
           "52"
         ],
         "selectedTraits": [
@@ -4878,12 +4878,12 @@ list:
             1795
           ],
           [
-            1767,
-            1786,
-            1754
+            1761,
+            1774,
+            1749
           ],
           [
-            1813,
+            1806,
             1738,
             1772
           ]
@@ -4897,22 +4897,13 @@ list:
             "yearning-empowerment": {}
           },
           {
-            "unsuspecting-strikes": {
+            "rising-tide": {
               "amount": ""
             },
-            "destructive-impulses-base": {},
-            "destructive-impulses-dual": {
-              "amount": "100"
-            },
-            "notoriety": {
+            "ferocious-aggression": {
               "amount": ""
             },
-            "targeted-destruction": {
-              "amount": ""
-            },
-            "swift-termination": {
-              "amount": ""
-            }
+            "roiling-mists": {}
           },
           {
             "draconic-fortitude": {},
@@ -4931,7 +4922,11 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "burst-of-strength": {
+            "amount": "85.9"
+          }
+        }
       }
 
   - name: Power DPS Ren
