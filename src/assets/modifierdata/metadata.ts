@@ -285,12 +285,16 @@ export interface AmountData {
 export interface ModifierItem {
   id: string;
   text?: string;
+  textOverride?: string;
   subText?: string;
   minor?: boolean;
   amountData?: AmountData;
   hasLifesteal?: boolean;
   modifiers: Modifiers;
+  wvwModifiers?: Modifiers;
   gw2id?: number;
+  displayIds?: number[];
+  priceIds?: number[];
   defaultEnabled?: boolean;
   type?: string;
 }
