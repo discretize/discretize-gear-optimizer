@@ -135,7 +135,7 @@ const testModifiers = async () => {
 
         gentleAssert(
           !Object.keys(otherKeys).length,
-          `err: this script is missing validation for ${JSON.stringify(otherKeys)}`,
+          `err: this script is missing validation for ${JSON.stringify(otherKeys)} in ${id}`,
         );
 
         if (schemaKeys[fileName]) {
@@ -167,17 +167,36 @@ const testModifiers = async () => {
         );
 
         if (amountData) {
-          gentleAssert(typeof amountData.label === 'string', `err: missing amount label in ${id}`);
+          const {
+            label,
+            default: amountDefault,
+            quantityEntered,
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            disableBlacklist,
+            defaultInput,
+            ...otherAmountKeys
+          } = amountData;
+
           gentleAssert(
-            typeof amountData.default === 'number',
-            `err: missing amount default in ${id}`,
+            !Object.keys(otherAmountKeys).length,
+            `err: this script is missing validation for ${JSON.stringify(
+              otherAmountKeys,
+            )} in ${id}'s amountData`,
           );
+          gentleAssert(typeof label === 'string', `err: missing amount label in ${id}`);
+          gentleAssert(typeof amountDefault === 'number', `err: missing amount default in ${id}`);
           gentleAssert(
-            typeof amountData.quantityEntered === 'number',
+            typeof quantityEntered === 'number',
             `err: missing amount quantityEntered in ${id}`,
           );
-          if (amountData.quantityEntered === 100 && amountData.label?.[0] !== '%') {
+          if (quantityEntered === 100 && label?.[0] !== '%') {
             gentleAssert(false, `err: did you forget a percent sign in ${id}'s amount label?`);
+          }
+          if (defaultInput) {
+            gentleAssert(
+              !amountDefault,
+              `err: ${id}'s defaultInput overrides a nonzero default amount`,
+            );
           }
         }
 

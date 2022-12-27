@@ -115,6 +115,7 @@
       amountData:
         label: 'hit/s'
         default: 0
+        defaultInput: ???
         quantityEntered: 1
       modifiers:
         conversionAfterBuffs:
@@ -129,6 +130,7 @@
       amountData:
         label: 'hit/s'
         default: 0
+        defaultInput: ???
         quantityEntered: 1
       modifiers:
         conversionAfterBuffs:
@@ -361,6 +363,7 @@
       amountData:
         label: 'hit/s'
         default: 0
+        defaultInput: ???
         quantityEntered: 1
       modifiers:
         conversionAfterBuffs:

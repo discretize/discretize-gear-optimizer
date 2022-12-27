@@ -13,7 +13,7 @@ const getInitialItems = (traitline) => {
     allItemData
       .filter((itemData) => itemData.defaultEnabled)
       .map((itemData) => {
-        const value = itemData.amountData ? { amount: '' } : {};
+        const value = itemData.amountData ? { amount: itemData.amountData.defaultInput ?? '' } : {};
         return [itemData.id, value];
       }),
   );
@@ -53,7 +53,9 @@ export const traitsSlice = createSlice({
 
       if (enabled) {
         const itemData = allClassModifiersById[id];
-        state.items[index][id] = itemData?.amountData ? { amount: '' } : {};
+        state.items[index][id] = itemData?.amountData
+          ? { amount: itemData?.amountData?.defaultInput ?? '' }
+          : {};
       } else {
         delete state.items[index][id];
       }
