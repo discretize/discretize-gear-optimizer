@@ -56,6 +56,8 @@ Each class has a section for skills and a section for each traitline's traits. N
 
 > should align with [src/assets/modifierdata/metadata.js](../../../src/assets/modifierdata/metadata.js)
 
+These fields apply to the required `modifiers` and optional `wvwModifiers` sections. `wvwModifiers`, if present, will override `modifiers` in WvW mode.
+
 ### damage
 
 `key: [percentage amount, stacking mode]`
@@ -214,6 +216,10 @@ Usually unused (the optimizer just simulates the ingame UI using the gw2-UI libr
 
 > todo: possibly deprecate or remove this
 
+#### textOverride (optional)
+
+Used to override the UI text when representing something like "a slaying potion" that isn't represented by the single ingame item shown.
+
 #### subText (optional)
 
 Clarification text used to specify under what conditions this effect is being simulated and/or what sub-effect this is if there's more than one item for a trait.
@@ -228,7 +234,15 @@ Minor traits without subtext or amount data are assumed to be always-on; if this
 
 Numerical GW2 id of this effect. To find this, hover your mouse over the chatcode in the box on the right side of the GW2 wiki or file search in the files in [src/utils/mapping](../../../src/utils/mapping). Make sure your item is described in `subText` if not specifying a GW2 id to display.
 
-#### type (optional, buffs)
+#### displayIds (optional; extras only)
+
+Array of numerical GW2 ids to show in the selection modal, if more than one item in the game has this effect.
+
+#### priceIds (optional; extras only)
+
+Array of numerical GW2 ids to select the cheapest price from if "show prices" is checked in the selection modal, if more than one item in the game has this effect. (This can be more complete than the priceIds list, which must be short enough not to overflow the UI.)
+
+#### type (buffs only)
 
 > source: [src/components/sections/buffs/Buffs.jsx](../../../src/components/sections/buffs/Buffs.jsx)
 
@@ -236,6 +250,10 @@ Numerical GW2 id of this effect. To find this, hover your mouse over the chatcod
 
 (Food, utilities, runes, and sigils are always items; skills are always skills; traits are always traits. This can be changed if needed.)
 
-#### defaultEnabled (optional, traits)
+#### defaultEnabled (traits only)
 
 Specifies if this effect's checkbox should be checked when the user selects the corresponding trait for the first time. Often true. This is a judgement call; just try and make reasonable assumptions about the most likely setup with this trait selected.
+
+#### hasLifesteal (optional; food only)
+
+Specifies if this food effect should add lifesteal equal to the "lifesteal frequency" box in the UI.
