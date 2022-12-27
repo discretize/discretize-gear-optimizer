@@ -194,7 +194,7 @@ Note that strings beginning with a % character must be quoted in YAML files.
 
 The default quantity to simulate if the user does not specify one. This is a judgement call; just try and make reasonable assumptions about the most likely setup with this trait selected.
 
-### defaultInput
+### defaultInput (optional)
 
 Initial text to fill the quantity box with; use `???` to indicate that the user definitely needs to specify this quantity manually to use this effect.
 
