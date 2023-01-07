@@ -234,23 +234,23 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2181, "Power2": 0, "Burning": 13.48, "Bleeding": 2.46, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2183, "Power2": 0, "Burning": 14.89, "Bleeding": 3.51, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=2phGf78VtaU
-        log: https://dps.report/97jG-20220701-141403_golem
+        url: https://www.youtube.com/watch?v=LBxfNYeAqXU
+        log: https://dps.report/vz84-20221217-161514_golem
 
-  - name: Condi Quickbrand (no allies)*
+  - name: Condi Quickbrand (No Allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2189, "Power2": 0, "Burning": 11.99, "Bleeding": 2.51, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2202, "Power2": 0, "Burning": 12.77, "Bleeding": 3.52, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=2phGf78VtaU
-        log: https://dps.report/4b5x-20220630-205054_golem
+        url: https://www.youtube.com/watch?v=LBxfNYeAqXU
+        log: https://dps.report/nQw1-20221217-170857_golem
 
   # - name: Hybrid FB (Virtues, no allies)
   #   profession: Firebrand

@@ -171,7 +171,7 @@ list:
   - class: Guardian
     builds:
 
-      - name: Quickness Condi Firebrand 49% (Outdated)
+      - name: Quickness Condi Firebrand 49%
         id: cqfb-firebrand-49
         specialization: Firebrand
         boonType: Condi
@@ -181,7 +181,7 @@ list:
         extras: Condi Quickbrand
         weaponType: Dual wield
 
-      - name: Quickness Condi Firebrand 79% (Outdated)
+      - name: Quickness Condi Firebrand 79%
         id: cqfb-firebrand-79
         specialization: Firebrand
         boonType: Condi
