@@ -185,22 +185,23 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2169, "Power2": 0, "Burning": 15.12, "Bleeding": 3.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2213, "Power2": 0, "Burning": 15.87, "Bleeding": 4.88, "Poisoned": 0, "Torment": 0.37, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=M5oUudcmGKY
-        log: https://dps.report/PlrD-20220703-123541_golem
+        url: https://www.youtube.com/watch?v=xOZ85aMWWVI
+        log: https://dps.report/UTXj-20221215-165719_golem
 
-  - name: CFB (5 page RF, no allies)*
+  - name: CFB (5 Page RF, No Allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2199, "Power2": 0, "Burning": 12.55, "Bleeding": 3.5, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2238, "Power2": 0, "Burning": 13.1, "Bleeding": 4.91, "Poisoned": 0, "Torment": 0.38, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=M5oUudcmGKY
+        url: https://www.youtube.com/watch?v=xOZ85aMWWVI
+        log: https://dps.report/5khD-20221215-172651_golem
 
   # 12 boons
   # sinister amulet ring acc acc back
