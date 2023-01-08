@@ -153,19 +153,16 @@ list:
       }
     noCreditOkay: true
 
-  # 12 boons
-  # viper glove boot ring ear ear back, rest grieving, balth, fishy
-  # NO JADE BOT (in arc log, probably - seems bugged)
   - name: Condi Willbender Sword
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 2723, "Power2": 0, "Burning": 13.36, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2761, "Power2": 0, "Burning": 13.09, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=MkEqyxM44VI
-        log: https://dps.report/z9OQ-20220708-145241_golem
+        url: https://www.youtube.com/watch?v=6Ub2Rlz9V-s
+        log: https://dps.report/eo3D-20221204-132527_golem
 
   # 12 boons
   # viper glove boot ring ear ear back, rest grieving, flame legion, fishy
@@ -185,22 +182,23 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2169, "Power2": 0, "Burning": 15.12, "Bleeding": 3.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2213, "Power2": 0, "Burning": 15.87, "Bleeding": 4.88, "Poisoned": 0, "Torment": 0.37, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=M5oUudcmGKY
-        log: https://dps.report/PlrD-20220703-123541_golem
+        url: https://www.youtube.com/watch?v=xOZ85aMWWVI
+        log: https://dps.report/UTXj-20221215-165719_golem
 
-  - name: CFB (5 page RF, no allies)*
+  - name: CFB (5 Page RF, No Allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2199, "Power2": 0, "Burning": 12.55, "Bleeding": 3.5, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2238, "Power2": 0, "Burning": 13.1, "Bleeding": 4.91, "Poisoned": 0, "Torment": 0.38, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=M5oUudcmGKY
+        url: https://www.youtube.com/watch?v=xOZ85aMWWVI
+        log: https://dps.report/5khD-20221215-172651_golem
 
   # 12 boons
   # sinister amulet ring acc acc back
@@ -234,23 +232,23 @@ list:
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2181, "Power2": 0, "Burning": 13.48, "Bleeding": 2.46, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2183, "Power2": 0, "Burning": 14.89, "Bleeding": 3.51, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=2phGf78VtaU
-        log: https://dps.report/97jG-20220701-141403_golem
+        url: https://www.youtube.com/watch?v=LBxfNYeAqXU
+        log: https://dps.report/vz84-20221217-161514_golem
 
-  - name: Condi Quickbrand (no allies)*
+  - name: Condi Quickbrand (No Allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2189, "Power2": 0, "Burning": 11.99, "Bleeding": 2.51, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2202, "Power2": 0, "Burning": 12.77, "Bleeding": 3.52, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=2phGf78VtaU
-        log: https://dps.report/4b5x-20220630-205054_golem
+        url: https://www.youtube.com/watch?v=LBxfNYeAqXU
+        log: https://dps.report/nQw1-20221217-170857_golem
 
   # - name: Hybrid FB (Virtues, no allies)
   #   profession: Firebrand
