@@ -1131,7 +1131,6 @@ list:
         log: https://dps.report/KzkD-20220827-170023_golem
 
   # https://optimizer.discretize.eu/?s=wpWaF0plv1
-  # https://dps.report/pfgp-20220827-121511_golem
   # bugged log: has leeching venoms
   # 1.52 torment proc rate (from evtc tool)
   - name: DPS Barrier Specter (Allies)
@@ -1142,6 +1141,8 @@ list:
       }
     credit:
       - author: 'Iskarel'
+        url: https://www.youtube.com/watch?v=xYsGEFE6jn0
+        log: https://dps.report/pfgp-20220827-121511_golem
 
   # non public 48% log:
   # https://optimizer.discretize.eu/?s=TNyZnFClv1
