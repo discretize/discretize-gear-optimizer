@@ -1016,18 +1016,16 @@ list:
       }
     noCreditOkay: true
 
-  # arc bugged (septic corruption 1%); condis reduced
   # game bug: alchemic vigor converted at 360
-  # ritualist coat leg, condi food (either; rendang here), tormenting, double torment, 9 malign 9 spiteful
   - name: Quickness Harbinger
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 2202, "Power2": 0, "Burning": 1.67, "Bleeding": 9.33, "Poisoned": 5.97, "Torment": 17.13, "Confusion": 0 }
+        "values2": { "Power": 2293, "Power2": 0, "Burning": 1.23, "Bleeding": 12.32, "Poisoned": 6.22, "Torment": 16.1, "Confusion": 0 }
       }
     credit:
-      - author: '[CnD] Aphrodite Lady'
-        url: https://www.youtube.com/watch?v=zcFY7nNhZwg
+      - author: 'Zargholl'
+        url: https://www.youtube.com/watch?v=UFSV-7rfFZM
 
   - name: Quickness Power Harbinger (Approx.)
     profession: Harbinger

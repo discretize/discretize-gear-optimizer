@@ -1713,7 +1713,8 @@ list:
             "meaty-asparagus-skewer": {}
           },
           "Enhancement": {
-            "master-tuning-crystal": {}
+            "master-tuning-crystal": {},
+            "toxic-focusing-crystal": {}
           }
         },
         "lifestealAmount": ""
