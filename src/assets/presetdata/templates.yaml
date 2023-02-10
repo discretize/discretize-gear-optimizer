@@ -977,7 +977,7 @@ list:
   - class: Necromancer
     builds:
 
-      - name: Quickness Harbinger (Outdated)
+      - name: Quickness Harbinger
         id: qharb
         specialization: Harbinger
         boonType: Condi
