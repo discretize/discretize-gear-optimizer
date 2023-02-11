@@ -606,7 +606,7 @@ list:
           extras: Power Quickness Catalyst (Raid)
         weaponType: Two-handed
 
-      - name: Power Catalyst (Outdated)
+      - name: Power Catalyst
         id: power-cat
         specialization: Catalyst
         boonType: Power
