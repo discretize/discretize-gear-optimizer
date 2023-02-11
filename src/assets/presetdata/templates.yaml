@@ -862,7 +862,7 @@ list:
           extras: Power Scrapper (Raid)
         weaponType: Two-handed
 
-      - name: Power Holo ECSU (Outdated)
+      - name: Power Holo ECSU
         id: pholo-ecsu
         specialization: Holosmith
         boonType: Power
