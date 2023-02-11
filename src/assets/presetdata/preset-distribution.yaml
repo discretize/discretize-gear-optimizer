@@ -1004,17 +1004,17 @@ list:
         url: https://www.youtube.com/watch?v=prk0ZwXwLlA
         log: https://dps.report/dlNX-20210928-041540_golem
 
-  # https://www.youtube.com/watch?v=TLNU5y7jZnA
-  # arc bugged (septic corruption 1%); condis reduced
   # game bug: alchemic vigor converted at 360
-  # meaty asparagus, nightmare, 4 geo / 97s, ??? torment, 11.6 blight avg, 6 malign 12 spiteful
   - name: DPS Harbinger
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 2264, "Power2": 0, "Burning": 1.77, "Bleeding": 8.67, "Poisoned": 5.83, "Torment": 20.97, "Confusion": 0 }
+        "values2": { "Power": 2336, "Power2": 0, "Burning": 1.15, "Bleeding": 10.45, "Poisoned": 5.8, "Torment": 20.81, "Confusion": 0 }
       }
-    noCreditOkay: true
+    credit:
+      - author: 'Sarulias'
+        url: https://www.youtube.com/watch?v=omCnhWr8tyM
+        log: https://dps.report/ViK3-20221201-114322_golem
 
   # game bug: alchemic vigor converted at 360
   - name: Quickness Harbinger
@@ -1026,6 +1026,7 @@ list:
     credit:
       - author: 'Zargholl'
         url: https://www.youtube.com/watch?v=UFSV-7rfFZM
+        log: https://dps.report/OGwg-20221206-025727_golem
 
   - name: Quickness Power Harbinger (Approx.)
     profession: Harbinger
