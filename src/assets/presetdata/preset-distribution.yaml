@@ -62,12 +62,12 @@ list:
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 1740, "Power2": 0, "Burning": 10.38, "Bleeding": 15.31, "Poisoned": 1.97, "Torment": 1.21, "Confusion": 0 }
+        "values2": { "Power": 2079, "Power2": 0, "Burning": 10.67, "Bleeding": 14.03, "Poisoned": 1.96, "Torment": 1.24, "Confusion": 0 }
       }
     credit:
       - author: 'Costa Primo'
-        url: https://www.youtube.com/watch?v=nXUtdasJCXY
-        log: https://dps.report/8fBf-20210514-231817_golem
+        url: https://www.youtube.com/watch?v=ubcps4VBviU
+        log: https://dps.report/M6J4-20220825-123005_golem
 
   - name: Condi Berserker
     profession: Berserker
