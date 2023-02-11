@@ -446,12 +446,12 @@ list:
     profession: Catalyst
     value: >-
       {
-        "values2": { "Power": 3118, "Power2": 0, "Burning": 3.94, "Bleeding": 5.04, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3417, "Power2": 0, "Burning": 3.65, "Bleeding": 6.71, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[SC] Roul'
-        url: https://www.youtube.com/watch?v=b0mRrQ1fQFI
-        log: https://dps.report/TbZW-20220330-160041_golem
+      - author: Cody
+        url: https://www.youtube.com/watch?v=92XCBnuU5jM
+        log: https://dps.report/MtKD-20221221-124558_golem
 
   # https://discord.com/channels/380901000200060929/888049167455379532/907951956864163870
   # power: 13422, burn: 18047, bleed: 11426, total: 42895

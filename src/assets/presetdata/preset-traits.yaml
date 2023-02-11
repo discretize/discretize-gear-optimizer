@@ -3440,19 +3440,19 @@ list:
       {
         "showAll": false,
         "selectedLines": [
-          "31",
+          "37",
           "41",
           "67"
         ],
         "selectedTraits": [
           [
-            296,
-            334,
-            1510
+            253,
+            265,
+            1511
           ],
           [
             232,
-            214,
+            1502,
             226
           ],
           [
@@ -3463,18 +3463,12 @@ list:
         ],
         "items": [
           {
-            "empowering-flame": {
-              "amount": "23.1"
+            "elemental-enchantment": {},
+            "elemental-surge": {
+              "amount": ""
             },
-            "burning-precision": {},
-            "burning-rage": {},
-            "power-overwhelming": {},
-            "power-overwhelming-2": {
-              "amount": "23.1"
-            },
-            "pyromancers-training": {},
-            "persisting-flames": {
-              "amount": "5.3"
+            "bountiful-power": {
+              "amount": ""
             }
           },
           {
@@ -3487,7 +3481,7 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "36.2"
+              "amount": "32.2"
             },
             "bolt-to-the-heart": {
               "amount": ""
@@ -3514,11 +3508,11 @@ list:
       {
         "skills": {
           "flame-wheel": {
-            "amount": "92.6"
+            "amount": "94.4"
           },
           "crescent-wind": {},
           "relentless-fire": {
-            "amount": "47.9"
+            "amount": "38.4"
           }
         }
       }

@@ -135,14 +135,16 @@ list:
         "minQuicknessDuration": 33.3
       }
 
-  - name: Power Quickness Catalyst 38%
+  # Math on SC Help Desk says 8.3 bare minimum, Arcane is baseline 12%
+  # https://discord.com/channels/380901000200060929/471364822496444416/964202302791647283
+  - name: Power Quickness Catalyst 8.3%
     hidden: true
     value: >-
       {
         "affixes": ["Berserker", "Assassin", "Diviner"],
         "optimizeFor": "Damage",
         "minBoonDuration": 0,
-        "minQuicknessDuration": 38
+        "minQuicknessDuration": 8.33
       }
 
   - name: Power Alacrity Mechanist 55%
