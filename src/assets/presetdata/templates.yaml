@@ -242,7 +242,7 @@ list:
         extras: CFB DPS (8 Page, Balthazar)
         weaponType: Dual wield
 
-      - name: Power DH Radiance (Outdated)
+      - name: Power DH Radiance
         id: dh-radiance
         specialization: Dragonhunter
         boonType: Power
