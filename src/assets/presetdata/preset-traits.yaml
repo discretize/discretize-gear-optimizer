@@ -2055,10 +2055,10 @@ list:
             },
             "bloodlust": {},
             "furious": {
-              "amount": "21"
+              "amount": "20"
             },
             "bloodlust-on-crit": {
-              "amount": "3.02"
+              "amount": "2.83"
             },
             "blade-master-base-bugged": {},
             "furious-burst": {}
@@ -2082,7 +2082,7 @@ list:
               "amount": ""
             },
             "fatal-frenzy-power-condi": {
-              "amount": "98"
+              "amount": "69.5"
             },
             "fatal-frenzy-toughness": {},
             "bloody-roar": {
