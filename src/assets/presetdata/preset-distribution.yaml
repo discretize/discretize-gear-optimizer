@@ -435,12 +435,12 @@ list:
     profession: Catalyst
     value: >-
       {
-        "values2": { "Power": 3596, "Power2": 0, "Burning": 4.01, "Bleeding": 5.57, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3294, "Power2": 0, "Burning": 4.07, "Bleeding": 5.49, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[SC] Roul'
-        url: https://www.youtube.com/watch?v=jmsKAZ_ROSQ
-        log: https://dps.report/7UHQ-20221130-152858_golem
+        url: https://www.youtube.com/watch?v=a405zazuMZw
+        log: https://dps.report/9pYO-20221213-215347_golem
 
   - name: Power Quickness Catalyst
     profession: Catalyst
