@@ -16,7 +16,7 @@
       gw2id: 5571
 
     - id: woven-fire
-      text: Weave Self
+      text: Woven Fire
       subText: woven fire / perfect weave
       amountData:
         label: '% uptime'
@@ -25,6 +25,18 @@
       modifiers:
         damage:
           Condition Damage: [20%, add]
+      gw2id: 43638
+
+    - id: woven-air
+      text: Woven Air
+      subText: woven air / perfect weave
+      amountData:
+        label: '% uptime'
+        default: 36
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Strike Damage: [20%, unknown]
       gw2id: 43638
 
     - id: flame-wheel
