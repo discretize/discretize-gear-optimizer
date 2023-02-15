@@ -51,7 +51,7 @@
           Strike Damage: [10%, mult]
       wvwModifiers:
         damage:
-          Strike Damage: [5%, mult]
+          Strike Damage: [10%, mult]
       gw2id: 713
       defaultEnabled: true
 

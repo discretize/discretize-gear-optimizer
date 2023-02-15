@@ -62,12 +62,12 @@ list:
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 1740, "Power2": 0, "Burning": 10.38, "Bleeding": 15.31, "Poisoned": 1.97, "Torment": 1.21, "Confusion": 0 }
+        "values2": { "Power": 2079, "Power2": 0, "Burning": 10.67, "Bleeding": 14.03, "Poisoned": 1.96, "Torment": 1.24, "Confusion": 0 }
       }
     credit:
       - author: 'Costa Primo'
-        url: https://www.youtube.com/watch?v=nXUtdasJCXY
-        log: https://dps.report/8fBf-20210514-231817_golem
+        url: https://www.youtube.com/watch?v=ubcps4VBviU
+        log: https://dps.report/M6J4-20220825-123005_golem
 
   - name: Condi Berserker
     profession: Berserker
@@ -114,15 +114,16 @@ list:
         url: https://www.youtube.com/watch?v=88nzpHXKwFU
         log: https://dps.report/brm9-20220810-112155_golem
 
-  # https://www.youtube.com/watch?v=aIUZegO1_EA
-  # RHS
   - name: DH Radiance
     profession: Dragonhunter
     value: >-
       {
-        "values2": { "Power": 3361, "Power2": 0, "Burning": 1.92, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3863, "Power2": 0, "Burning": 2.62, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
-    noCreditOkay: true
+    credit:
+      - author: Derm
+        url: https://www.youtube.com/watch?v=5TeoWaya2xs
+        log: https://dps.report/SNuX-20230111-015647_golem
 
   # https://www.youtube.com/watch?v=iaMQVvspJFE
   # 12 boons; thief rune, accuracy
@@ -435,23 +436,23 @@ list:
     profession: Catalyst
     value: >-
       {
-        "values2": { "Power": 3596, "Power2": 0, "Burning": 4.01, "Bleeding": 5.57, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3294, "Power2": 0, "Burning": 4.07, "Bleeding": 5.49, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[SC] Roul'
-        url: https://www.youtube.com/watch?v=jmsKAZ_ROSQ
-        log: https://dps.report/7UHQ-20221130-152858_golem
+        url: https://www.youtube.com/watch?v=a405zazuMZw
+        log: https://dps.report/9pYO-20221213-215347_golem
 
   - name: Power Quickness Catalyst
     profession: Catalyst
     value: >-
       {
-        "values2": { "Power": 3118, "Power2": 0, "Burning": 3.94, "Bleeding": 5.04, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3417, "Power2": 0, "Burning": 3.65, "Bleeding": 6.71, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[SC] Roul'
-        url: https://www.youtube.com/watch?v=b0mRrQ1fQFI
-        log: https://dps.report/TbZW-20220330-160041_golem
+      - author: Cody
+        url: https://www.youtube.com/watch?v=92XCBnuU5jM
+        log: https://dps.report/MtKD-20221221-124558_golem
 
   # https://discord.com/channels/380901000200060929/888049167455379532/907951956864163870
   # power: 13422, burn: 18047, bleed: 11426, total: 42895
@@ -700,17 +701,17 @@ list:
   #       "values2": { "Power": 1610, "Power2": 0, "Burning": 2.3, "Bleeding": 19.5, "Poisoned": 4.9, "Torment": 0, "Confusion": 0 }
   #     }
 
-  # berserker
+  # Slightly higher log than video received from Cody
   - name: Power Holo ECSU
     profession: Holosmith
     value: >-
       {
-        "values2": { "Power": 3260, "Power2": 0, "Burning": 2.51, "Bleeding": 8.42, "Poisoned": 2.62, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3551, "Power2": 0, "Burning": 2.94, "Bleeding": 9.02, "Poisoned": 2.82, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[XVII] ster'
-        url: https://www.youtube.com/watch?v=Qb014B16Z5s
-        log: https://dps.report/TIUm-20220829-180728_golem
+      - author: Cody
+        url: https://www.youtube.com/watch?v=iKpNrLWJchU
+        log: https://dps.report/C8rh-20230112-212337_golem
 
   # power: 7803, burn: 17705, bleed: 7184, poison: 3741, confusion: [7.735 stacks at 66.86% duration]
   # old confusion balance
@@ -1004,30 +1005,29 @@ list:
         url: https://www.youtube.com/watch?v=prk0ZwXwLlA
         log: https://dps.report/dlNX-20210928-041540_golem
 
-  # https://www.youtube.com/watch?v=TLNU5y7jZnA
-  # arc bugged (septic corruption 1%); condis reduced
   # game bug: alchemic vigor converted at 360
-  # meaty asparagus, nightmare, 4 geo / 97s, ??? torment, 11.6 blight avg, 6 malign 12 spiteful
   - name: DPS Harbinger
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 2264, "Power2": 0, "Burning": 1.77, "Bleeding": 8.67, "Poisoned": 5.83, "Torment": 20.97, "Confusion": 0 }
+        "values2": { "Power": 2336, "Power2": 0, "Burning": 1.15, "Bleeding": 10.45, "Poisoned": 5.8, "Torment": 20.81, "Confusion": 0 }
       }
-    noCreditOkay: true
+    credit:
+      - author: 'Sarulias'
+        url: https://www.youtube.com/watch?v=omCnhWr8tyM
+        log: https://dps.report/ViK3-20221201-114322_golem
 
-  # arc bugged (septic corruption 1%); condis reduced
   # game bug: alchemic vigor converted at 360
-  # ritualist coat leg, condi food (either; rendang here), tormenting, double torment, 9 malign 9 spiteful
   - name: Quickness Harbinger
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 2202, "Power2": 0, "Burning": 1.67, "Bleeding": 9.33, "Poisoned": 5.97, "Torment": 17.13, "Confusion": 0 }
+        "values2": { "Power": 2293, "Power2": 0, "Burning": 1.23, "Bleeding": 12.32, "Poisoned": 6.22, "Torment": 16.1, "Confusion": 0 }
       }
     credit:
-      - author: '[CnD] Aphrodite Lady'
-        url: https://www.youtube.com/watch?v=zcFY7nNhZwg
+      - author: 'Zargholl'
+        url: https://www.youtube.com/watch?v=UFSV-7rfFZM
+        log: https://dps.report/OGwg-20221206-025727_golem
 
   - name: Quickness Power Harbinger (Approx.)
     profession: Harbinger
@@ -1133,7 +1133,6 @@ list:
         log: https://dps.report/KzkD-20220827-170023_golem
 
   # https://optimizer.discretize.eu/?s=wpWaF0plv1
-  # https://dps.report/pfgp-20220827-121511_golem
   # bugged log: has leeching venoms
   # 1.52 torment proc rate (from evtc tool)
   - name: DPS Barrier Specter (Allies)
@@ -1144,17 +1143,20 @@ list:
       }
     credit:
       - author: 'Iskarel'
+        url: https://www.youtube.com/watch?v=xYsGEFE6jn0
+        log: https://dps.report/pfgp-20220827-121511_golem
 
-  # non public 48% log:
-  # https://optimizer.discretize.eu/?s=TNyZnFClv1
   # 1.52 torment proc rate (from evtc tool on carrion spec, which has the same critchance)
   - name: Alacrity Specter (allies)
     profession: Specter
     value: >-
       {
-        "values2": { "Power": 1813, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 13.82, "Torment": 18.59, "Confusion": 0 }
+        "values2": { "Power": 1903, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 14.33, "Torment": 18.23, "Confusion": 0 }
       }
-    noCreditOkay: true
+    credit:
+      - author: 'Iskarel'
+        url: https://www.youtube.com/watch?v=m24fDZee1bc
+        log: https://dps.report/KKWN-20220902-160446_golem
 
   # writ, carrion/viper mix
   - name: '[beta1] DPS Specter Endless Night'

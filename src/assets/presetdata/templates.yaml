@@ -291,7 +291,7 @@ list:
         extras: Condi Alacrity Willbender
         weaponType: Dual wield
 
-      - name: Condi Willbender Sword
+      - name: Condi Willbender Sword (Outdated)
         id: cwb-sw
         specialization: Willbender
         boonType: Condi
@@ -392,7 +392,7 @@ list:
   - class: Warrior
     builds:
 
-      - name: Quickness Power Bladesworn
+      - name: Quickness Power Bladesworn (Outdated)
         id: bls-quick
         specialization: Bladesworn
         boonType: Power
@@ -405,7 +405,7 @@ list:
           extras: Bladesworn
         weaponType: Dual wield
 
-      - name: Power Bladesworn
+      - name: Power Bladesworn (Outdated)
         id: bls-dps
         specialization: Bladesworn
         boonType: Power
@@ -428,7 +428,7 @@ list:
         extras: Condi Quickness Bers
         weaponType: Two-handed
 
-      - name: Condi Berserker
+      - name: Condi Berserker (Outdated)
         id: cbers-dps
         specialization: Berserker
         boonType: Condi
@@ -526,7 +526,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Power Weaver
+      - name: Power Weaver (Outdated)
         id: pwea
         specialization: Weaver
         boonType: Power
@@ -540,7 +540,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Condi Weaver Staff
+      - name: Condi Weaver Staff (Outdated)
         id: cwea-staff
         specialization: Weaver
         boonType: Condi
@@ -550,7 +550,7 @@ list:
         extras: Condi Weaver
         weaponType: Two-handed
 
-      - name: Condi Weaver Scepter
+      - name: Condi Weaver Scepter (Outdated)
         id: cwea-scepter
         specialization: Weaver
         boonType: Condi
@@ -580,7 +580,7 @@ list:
         extras: Condi Weaver Dagger
         weaponType: Dual wield
 
-      - name: Hybrid Weaver
+      - name: Hybrid Weaver (Outdated)
         id: hwea
         specialization: Weaver
         boonType: Condi
@@ -593,11 +593,11 @@ list:
           extras: Hybrid Weaver (Raid)
         weaponType: Dual wield
 
-      - name: Quickness Power Catalyst (Outdated)
+      - name: Quickness Power Catalyst
         id: power-cat-quick
         specialization: Catalyst
         boonType: Power
-        priority: Power Quickness Catalyst 38%
+        priority: Power Quickness Catalyst 8.3%
         distribution: Power Catalyst
         traits: Power Quickness Catalyst
         fractal:
@@ -606,7 +606,7 @@ list:
           extras: Power Quickness Catalyst (Raid)
         weaponType: Two-handed
 
-      - name: Power Catalyst (Outdated)
+      - name: Power Catalyst
         id: power-cat
         specialization: Catalyst
         boonType: Power
@@ -688,7 +688,7 @@ list:
           extras: Power (Raid)
         weaponType: Two-handed
 
-      - name: Hybrid Slb OS
+      - name: Hybrid Slb OS (Outdated)
         id: hslb
         specialization: Soulbeast
         boonType: Condi
@@ -862,7 +862,7 @@ list:
           extras: Power Scrapper (Raid)
         weaponType: Two-handed
 
-      - name: Power Holo ECSU (Outdated)
+      - name: Power Holo ECSU
         id: pholo-ecsu
         specialization: Holosmith
         boonType: Power
@@ -977,7 +977,7 @@ list:
   - class: Necromancer
     builds:
 
-      - name: Quickness Harbinger (Outdated)
+      - name: Quickness Harbinger
         id: qharb
         specialization: Harbinger
         boonType: Condi
@@ -1000,7 +1000,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Condi Harbinger (Outdated)
+      - name: Condi Harbinger
         id: charb
         specialization: Harbinger
         boonType: Condi
@@ -1047,7 +1047,7 @@ list:
   - class: Thief
     builds:
 
-      - name: Alacrity Specter 57% (Outdated)
+      - name: Alacrity Specter 57%
         id: specter-alac
         specialization: Specter
         boonType: Condi
@@ -1057,7 +1057,7 @@ list:
         extras: Alacrity Specter
         weaponType: Dual wield
 
-      - name: Alacrity Specter 60% (Outdated)
+      - name: Alacrity Specter 60%
         id: specter-alac-60
         specialization: Specter
         boonType: Condi
@@ -1117,7 +1117,7 @@ list:
         extras: Condi Daredevil
         weaponType: Dual wield
 
-      - name: Power Staff Daredevil
+      - name: Power Staff Daredevil (Outdated)
         id: staffdd
         specialization: Daredevil
         boonType: Power
