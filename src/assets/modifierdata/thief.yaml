@@ -132,7 +132,6 @@
 
     - id: keen-observer
       text: Keen Observer
-      subText: 100% scholar
       minor: true
       modifiers:
         attributes:
