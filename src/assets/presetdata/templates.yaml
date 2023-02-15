@@ -242,7 +242,7 @@ list:
         extras: CFB DPS (8 Page, Balthazar)
         weaponType: Dual wield
 
-      - name: Power DH Radiance
+      - name: Power DH Radiance (Outdated)
         id: dh-radiance
         specialization: Dragonhunter
         boonType: Power
@@ -291,7 +291,7 @@ list:
         extras: Condi Alacrity Willbender
         weaponType: Dual wield
 
-      - name: Condi Willbender Sword
+      - name: Condi Willbender Sword (Outdated)
         id: cwb-sw
         specialization: Willbender
         boonType: Condi
@@ -392,7 +392,7 @@ list:
   - class: Warrior
     builds:
 
-      - name: Quickness Power Bladesworn
+      - name: Quickness Power Bladesworn (Outdated)
         id: bls-quick
         specialization: Bladesworn
         boonType: Power
@@ -405,7 +405,7 @@ list:
           extras: Bladesworn
         weaponType: Dual wield
 
-      - name: Power Bladesworn
+      - name: Power Bladesworn (Outdated)
         id: bls-dps
         specialization: Bladesworn
         boonType: Power
@@ -418,7 +418,7 @@ list:
           extras: Bladesworn
         weaponType: Dual wield
 
-      - name: Quickness Condi Bers
+      - name: Quickness Condi Bers (Outdated)
         id: cbers
         specialization: Berserker
         boonType: Condi
@@ -428,7 +428,7 @@ list:
         extras: Condi Quickness Bers
         weaponType: Two-handed
 
-      - name: Condi Berserker
+      - name: Condi Berserker (Outdated)
         id: cbers-dps
         specialization: Berserker
         boonType: Condi
@@ -526,7 +526,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Power Weaver
+      - name: Power Weaver (Outdated)
         id: pwea
         specialization: Weaver
         boonType: Power
@@ -540,7 +540,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Condi Weaver Staff
+      - name: Condi Weaver Staff (Outdated)
         id: cwea-staff
         specialization: Weaver
         boonType: Condi
@@ -550,7 +550,7 @@ list:
         extras: Condi Weaver
         weaponType: Two-handed
 
-      - name: Condi Weaver Scepter
+      - name: Condi Weaver Scepter (Outdated)
         id: cwea-scepter
         specialization: Weaver
         boonType: Condi
@@ -580,7 +580,7 @@ list:
         extras: Condi Weaver Dagger
         weaponType: Dual wield
 
-      - name: Hybrid Weaver
+      - name: Hybrid Weaver (Outdated)
         id: hwea
         specialization: Weaver
         boonType: Condi
@@ -688,7 +688,7 @@ list:
           extras: Power (Raid)
         weaponType: Two-handed
 
-      - name: Hybrid Slb OS
+      - name: Hybrid Slb OS (Outdated)
         id: hslb
         specialization: Soulbeast
         boonType: Condi
@@ -1117,7 +1117,7 @@ list:
         extras: Condi Daredevil
         weaponType: Dual wield
 
-      - name: Power Staff Daredevil
+      - name: Power Staff Daredevil (Outdated)
         id: staffdd
         specialization: Daredevil
         boonType: Power
