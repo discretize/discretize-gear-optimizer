@@ -181,21 +181,12 @@
 
     - id: blade-master
       text: Blademaster
-      subText: 'base, intended: 120 expertise'
+      subText: 'base: 120 expertise'
       modifiers:
         attributes:
           Expertise: [120, converted] # confirmed from bench hero panel
       gw2id: 1333
       defaultEnabled: true
-
-    - id: blade-master-base-bugged
-      text: Blademaster
-      subText: 'base, bugged: 160 expertise'
-      modifiers:
-        attributes:
-          Expertise: [160, converted]
-      gw2id: 1333
-      defaultEnabled: false
 
     - id: blade-master-2
       text: Blademaster
