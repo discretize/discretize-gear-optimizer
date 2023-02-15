@@ -346,15 +346,29 @@
       gw2id: 621
       defaultEnabled: true
 
+    - id: unscathed-contender-health
+      text: Unscathed Contender
+      subText: with scholar
+      amountData:
+        label: '% scholar'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Strike Damage: [7%, add]
+      gw2id: 624
+      defaultEnabled: true
+
     - id: unscathed-contender
       text: Unscathed Contender
+      subText: with aegis
       amountData:
         label: '% aegis'
         default: 100
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [20%, add]
+          Strike Damage: [7%, add]
       gw2id: 624
       defaultEnabled: true
 
