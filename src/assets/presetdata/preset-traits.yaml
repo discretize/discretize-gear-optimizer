@@ -2060,6 +2060,7 @@ list:
             "bloodlust-on-crit": {
               "amount": "2.83"
             },
+            "blade-master-base-bugged": {},
             "furious-burst": {}
           },
           {
