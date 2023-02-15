@@ -2050,6 +2050,7 @@ list:
             "deep-strikes": {
               "amount": ""
             },
+            "blade-master": {},
             "blade-master-2": {
               "amount": ""
             },
@@ -2060,7 +2061,6 @@ list:
             "bloodlust-on-crit": {
               "amount": "2.83"
             },
-            "blade-master-base-bugged": {},
             "furious-burst": {}
           },
           {
