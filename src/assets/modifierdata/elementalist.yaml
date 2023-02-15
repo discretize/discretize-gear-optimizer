@@ -496,7 +496,7 @@
       subText: 100% uptime
       modifiers:
         attributes:
-          Critical Chance: 10%
+          Critical Chance: 15%
       wvwModifiers:
         attributes:
           Critical Chance: 15%
