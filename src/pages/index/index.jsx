@@ -23,9 +23,14 @@ const IndexPage = () => {
   const [alertOpen, setAlertOpen] = React.useState([true, true]);
 
   const ALERTS = [
-    <b>
-      <Trans>The optimizer is out of date as of the Feb 14 game patch.</Trans>
-    </b>,
+    <Trans>
+      Core game changes are updated for the November 29th game patch, but preset coefficients and
+      trait selections may not yet be completely updated. Most gear results will be correctly
+      optimized, but DPS estimates and comparisons may be wrong.
+      <br />
+      <br />
+      Templates not marked as Outdated are up to date.
+    </Trans>,
     <Trans>
       The gear optimizer is still being developed! Please report issues or suggest improvements in
       the Discretize{' '}
