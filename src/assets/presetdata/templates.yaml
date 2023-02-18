@@ -629,7 +629,7 @@ list:
         extras: '[beta1] Condi Catalyst'
         weaponType: Two-handed
 
-      - name: Heal Tempest (Outdated)
+      - name: Heal Tempest
         id: healtemp
         specialization: Tempest
         boonType: Power

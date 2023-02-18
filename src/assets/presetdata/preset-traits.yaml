@@ -3593,15 +3593,15 @@ list:
       {
         "showAll": false,
         "selectedLines": [
-          "",
+          "37",
           "17",
           "48"
         ],
         "selectedTraits": [
           [
-            0,
-            0,
-            0
+            253,
+            265,
+            238
           ],
           [
             363,
@@ -3615,7 +3615,15 @@ list:
           ]
         ],
         "items": [
-          {},
+          {
+            "elemental-enchantment": {},
+            "elemental-surge": {
+              "amount": ""
+            },
+            "bountiful-power": {
+              "amount": ""
+            }
+          },
           {
             "piercing-blades": {},
             "flow-like-water": {
@@ -3628,7 +3636,8 @@ list:
             "hardy-conduit": {},
             "transcendent-tempest": {
               "amount": ""
-            }
+            },
+            "gathered-focus-2": {}
           }
         ]
       }
