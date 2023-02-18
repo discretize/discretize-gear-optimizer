@@ -379,7 +379,7 @@ list:
         extras: Hybrid FB Traveler
         weaponType: Two-handed
 
-      - name: Heal Quickness Firebrand (Outdated)
+      - name: Heal Quickness Firebrand
         id: hb
         specialization: Firebrand
         boonType: Power
