@@ -728,7 +728,7 @@ list:
         extras: Condi Druid
         weaponType: Two-handed
 
-      - name: Heal Alacrity Druid (Outdated)
+      - name: Heal Alacrity Druid
         id: druid
         specialization: Druid
         boonType: Power
