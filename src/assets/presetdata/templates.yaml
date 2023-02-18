@@ -974,7 +974,7 @@ list:
         extras: Heal
         weaponType: Dual wield
 
-      - name: Heal Alacrity Mech (Outdated)
+      - name: Heal Alacrity Mech
         id: healmech
         specialization: Mechanist
         boonType: Power
