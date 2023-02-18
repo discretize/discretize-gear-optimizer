@@ -823,7 +823,7 @@ list:
           extras: DPS Vindicator (Raid)
         weaponType: Two-handed
 
-      - name: Heal Alacrity Ren (Outdated)
+      - name: Heal Alacrity Ren
         id: healren
         specialization: Renegade
         boonType: Power
