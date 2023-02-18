@@ -379,7 +379,7 @@ list:
         extras: Hybrid FB Traveler
         weaponType: Two-handed
 
-      - name: Heal Quickness Firebrand (Outdated)
+      - name: Heal Quickness Firebrand
         id: hb
         specialization: Firebrand
         boonType: Power
@@ -629,7 +629,7 @@ list:
         extras: '[beta1] Condi Catalyst'
         weaponType: Two-handed
 
-      - name: Heal Tempest (Outdated)
+      - name: Heal Tempest
         id: healtemp
         specialization: Tempest
         boonType: Power
@@ -728,7 +728,7 @@ list:
         extras: Condi Druid
         weaponType: Two-handed
 
-      - name: Heal Alacrity Druid (Outdated)
+      - name: Heal Alacrity Druid
         id: druid
         specialization: Druid
         boonType: Power
@@ -823,13 +823,23 @@ list:
           extras: DPS Vindicator (Raid)
         weaponType: Two-handed
 
-      - name: Heal Alacrity Ren (Outdated)
+      - name: Heal Alacrity Ren
         id: healren
         specialization: Renegade
         boonType: Power
         priority: Heal
         distribution: None
         traits: Heal Ren
+        extras: Heal
+        weaponType: Two-handed
+
+      - name: Heal Quickness Herald
+        id: heal-herald
+        specialization: Herald
+        boonType: Power
+        priority: Heal
+        distribution: None
+        traits: Heal Herald
         extras: Heal
         weaponType: Two-handed
 
@@ -954,7 +964,7 @@ list:
       #   extras: Condi Alac Mechanist (inaccurate)
       #   weaponType: Dual wield
 
-      - name: Heal Quickness Scrapper (Outdated)
+      - name: Heal Quickness Scrapper
         id: healscrapper
         specialization: Scrapper
         boonType: Power
@@ -964,7 +974,7 @@ list:
         extras: Heal
         weaponType: Dual wield
 
-      - name: Heal Alacrity Mech (Outdated)
+      - name: Heal Alacrity Mech
         id: healmech
         specialization: Mechanist
         boonType: Power
