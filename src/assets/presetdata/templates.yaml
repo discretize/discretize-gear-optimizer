@@ -383,7 +383,10 @@ list:
         id: hb
         specialization: Firebrand
         boonType: Power
-        priority: Heal
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
         distribution: None
         traits: Healbrand
         extras: Heal
@@ -633,7 +636,10 @@ list:
         id: healtemp
         specialization: Tempest
         boonType: Power
-        priority: Heal
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
         distribution: None
         traits: Heal Tempest
         extras: Heal
@@ -732,7 +738,10 @@ list:
         id: druid
         specialization: Druid
         boonType: Power
-        priority: Heal
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
         distribution: None
         traits: Heal Druid
         extras: Heal
@@ -827,7 +836,10 @@ list:
         id: healren
         specialization: Renegade
         boonType: Power
-        priority: Heal
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
         distribution: None
         traits: Heal Ren
         extras: Heal
@@ -837,7 +849,10 @@ list:
         id: heal-herald
         specialization: Herald
         boonType: Power
-        priority: Heal
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
         distribution: None
         traits: Heal Herald
         extras: Heal
@@ -968,7 +983,10 @@ list:
         id: healscrapper
         specialization: Scrapper
         boonType: Power
-        priority: Heal
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
         distribution: None
         traits: Heal Scrapper
         extras: Heal
@@ -978,7 +996,10 @@ list:
         id: healmech
         specialization: Mechanist
         boonType: Power
-        priority: Heal
+        fractal:
+          priority: Heal (Fractal)
+        raid:
+          priority: Heal (Raid)
         distribution: None
         traits: Heal Mechanist
         extras: Heal
