@@ -964,7 +964,7 @@ list:
       #   extras: Condi Alac Mechanist (inaccurate)
       #   weaponType: Dual wield
 
-      - name: Heal Quickness Scrapper (Outdated)
+      - name: Heal Quickness Scrapper
         id: healscrapper
         specialization: Scrapper
         boonType: Power
