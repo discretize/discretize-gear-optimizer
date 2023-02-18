@@ -833,6 +833,16 @@ list:
         extras: Heal
         weaponType: Two-handed
 
+      - name: Heal Quickness Herald
+        id: heal-herald
+        specialization: Herald
+        boonType: Power
+        priority: Heal
+        distribution: None
+        traits: Heal Herald
+        extras: Heal
+        weaponType: Two-handed
+
   - class: Engineer
     builds:
 
