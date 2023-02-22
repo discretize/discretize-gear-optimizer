@@ -1750,14 +1750,17 @@ list:
             "inspired-virtue": {
               "amount": ""
             },
-            "unscathed-contender": {
-              "amount": ""
-            },
             "virtue-of-retribution": {},
             "inspiring-virtue": {
+              "amount": "79"
+            },
+            "power-of-the-virtuous": {},
+            "unscathed-contender-health": {
               "amount": ""
             },
-            "power-of-the-virtuous": {}
+            "unscathed-contender": {
+              "amount": ""
+            }
           },
           {
             "fiery-wrath": {},

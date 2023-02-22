@@ -311,7 +311,7 @@ list:
         extras: Condi Willbender
         weaponType: Two-handed
 
-      - name: Power Willbender Virtues (Outdated)
+      - name: Power Willbender Virtues
         id: pwb-virtues
         specialization: Willbender
         boonType: Power
