@@ -874,7 +874,7 @@ list:
           extras: Quickness Scrapper (Raid)
         weaponType: Two-handed
 
-      - name: Power Scrapper (Outdated)
+      - name: Power Scrapper
         id: pscrap
         specialization: Scrapper
         boonType: Power

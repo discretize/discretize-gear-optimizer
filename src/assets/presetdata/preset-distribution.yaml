@@ -775,17 +775,16 @@ list:
         url: https://www.youtube.com/watch?v=dMdGeWnKaRA
         log: https://dps.report/Hjvb-20220312-192709_golem
 
-  # berserker
   - name: Power Scrapper
     profession: Scrapper
     value: >-
       {
-        "values2": { "Power": 2713, "Power2": 0, "Burning": 0.74, "Bleeding": 8.17, "Poisoned": 4.03, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3302, "Power2": 0, "Burning": 0, "Bleeding": 3.14, "Poisoned": 3.87, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[CnD] Xyonon'
-        url: https://www.youtube.com/watch?v=yGg0pqSu8RA
-        log: https://dps.report/iGev-20210526-215831_golem
+      - author: 'Aralyth'
+        url: https://www.youtube.com/watch?v=n0X117MhmlU
+        log: https://dps.report/SJTF-20230216-171115_golem
 
   # diviner amulet, 1x ring
   - name: Quickness Scrapper

@@ -5645,7 +5645,7 @@ list:
             },
             "incendiary-powder": {},
             "sharpshooter": {
-              "amount": "3.6"
+              "amount": "4.1"
             }
           },
           {
@@ -5663,7 +5663,7 @@ list:
           },
           {
             "object-in-motion": {
-              "amount": ""
+              "amount": "2.28"
             },
             "impact-savant": {},
             "kinetic-accelerators": {},
