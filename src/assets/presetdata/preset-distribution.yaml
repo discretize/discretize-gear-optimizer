@@ -28,12 +28,12 @@ list:
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 3316, "Power2": 0, "Burning": 1.13, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3441, "Power2": 0, "Burning": 1.09, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Baseraver
-        url: https://www.youtube.com/watch?v=_w7l8a4cbBM
-        log: https://dps.report/sXWQ-20221130-191047_golem
+        url: https://www.youtube.com/watch?v=Ll6kBkiEO00
+        log: https://dps.report/4gCd-20230214-204655_golem
 
   - name: Power Spellbreaker GS
     profession: Spellbreaker

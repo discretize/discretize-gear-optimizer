@@ -1986,24 +1986,24 @@ list:
             "double-standards-disc": {},
             "axe-mastery-one": {},
             "axe-mastery-axe": {
-              "amount": ""
+              "amount": "68"
             }
           },
           {
             "blood-reaction-base": {},
             "blood-reaction-with": {
-              "amount": "91"
+              "amount": "90"
             },
             "heat-the-soul": {},
             "heat-the-soul-with": {
               "amount": ""
             },
             "fatal-frenzy-power-condi": {
-              "amount": "91"
+              "amount": "90"
             },
             "fatal-frenzy-toughness": {},
             "bloody-roar": {
-              "amount": "91"
+              "amount": "90"
             },
             "king-of-fires": {},
             "eternal-champion": {}
