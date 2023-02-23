@@ -2059,10 +2059,10 @@ list:
             },
             "bloodlust": {},
             "furious": {
-              "amount": "20"
+              "amount": "21.3"
             },
             "bloodlust-on-crit": {
-              "amount": "2.83"
+              "amount": "3.03"
             },
             "furious-burst": {}
           },
@@ -2085,7 +2085,7 @@ list:
               "amount": ""
             },
             "fatal-frenzy-power-condi": {
-              "amount": "69.5"
+              "amount": "98"
             },
             "fatal-frenzy-toughness": {},
             "bloody-roar": {

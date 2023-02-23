@@ -69,16 +69,17 @@ list:
         url: https://www.youtube.com/watch?v=ubcps4VBviU
         log: https://dps.report/M6J4-20220825-123005_golem
 
+  # Sundering leap for higher potential number
   - name: Condi Berserker
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 2212, "Power2": 0, "Burning": 12.48, "Bleeding": 12.28, "Poisoned": 2.12, "Torment": 1.3, "Confusion": 0 }
+        "values2": { "Power": 2102, "Power2": 0, "Burning": 12.16, "Bleeding": 13.19, "Poisoned": 2.17, "Torment": 1.22, "Confusion": 0 }
       }
     credit:
       - author: 'Costa Primo'
-        url: https://www.youtube.com/watch?v=QN7prnuoWj4
-        log: https://dps.report/LCY0-20221203-210602_golem
+        url: https://www.youtube.com/watch?v=u0oIU0DSspE
+        log: https://dps.report/aSwf-20230216-210051_golem
 
   - name: Power Quickness Spellbreaker
     profession: Spellbreaker
