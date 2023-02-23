@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { allClassModifiersById } from '../../assets/modifierdata';
 import { changeAll, changeProfession, setBuildTemplate } from './controlsSlice';
 
@@ -50,18 +50,17 @@ export const skillsSlice = createSlice({
 
 export const getSkills = (state) => state.optimizer.form.skills.skills;
 
-export const getSkillsModifiers = createSelector(
-  (state) => state.optimizer.form.skills,
-  (skills) => {
-    const result = [];
-    Object.entries(skills.skills).forEach(([id, value]) => {
-      const itemData = allClassModifiersById[id];
-      if (!itemData) return;
+export const getSkillsModifiers = (state) => {
+  const { skills } = state.optimizer.form;
 
-      result.push({ id, ...itemData, amount: value?.amount });
-    });
-    return result;
-  },
-);
+  const result = [];
+  Object.entries(skills.skills).forEach(([id, value]) => {
+    const itemData = allClassModifiersById[id];
+    if (!itemData) return;
+
+    result.push({ id, ...itemData, amount: value?.amount });
+  });
+  return result;
+};
 
 export const { toggleSkill, setSkillAmount, changeSkills } = skillsSlice.actions;

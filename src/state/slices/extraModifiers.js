@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { changeAll } from './controlsSlice';
 
 export const extraModifiersSlice = createSlice({
@@ -26,14 +26,12 @@ export const extraModifiersSlice = createSlice({
 export const getExtraModifiersError = (state) => state.optimizer.form.extraModifiers.error;
 export const getExtraModifiersTextBox = (state) => state.optimizer.form.extraModifiers.textBox;
 
-export const getExtraModifiersModifiers = createSelector(
-  (state) => state.optimizer.form.extraModifiers,
-  (extraModifiers) => {
-    return extraModifiers.extraModifiers.map((data, index) => ({
-      id: `extraModifier ${index + 1}`,
-      modifiers: data,
-    }));
-  },
-);
+export const getExtraModifiersModifiers = (state) => {
+  const { extraModifiers } = state.optimizer.form;
+  return extraModifiers.extraModifiers.map((data, index) => ({
+    id: `extraModifier ${index + 1}`,
+    modifiers: data,
+  }));
+};
 
 export const { changeExtraModifiers, changeExtraModifiersError } = extraModifiersSlice.actions;

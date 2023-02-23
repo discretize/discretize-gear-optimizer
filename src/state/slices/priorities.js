@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { WeaponTypes } from '../../utils/gw2-data';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 
@@ -91,16 +91,15 @@ export const getExoticsData = (state) => state.optimizer.form.priorities.exotics
 export const getUsedExoticsData = (state) =>
   pick(state.optimizer.form.priorities.exotics.data, state.optimizer.form.priorities.affixes);
 
-export const getCustomAffixData = createSelector(
-  (state) => state.optimizer.form.priorities.customAffix,
-  (customAffix) => {
-    const type = customAffix?.type || 'triple';
-    const major = customAffix?.bonuses?.major || [];
-    const minor = customAffix?.bonuses?.minor || [];
+export const getCustomAffixData = (state) => {
+  const { customAffix } = state.optimizer.form.priorities;
 
-    return { type, bonuses: { major, minor } };
-  },
-);
+  const type = customAffix?.type || 'triple';
+  const major = customAffix?.bonuses?.major || [];
+  const minor = customAffix?.bonuses?.minor || [];
+
+  return { type, bonuses: { major, minor } };
+};
 
 export const {
   changePriority,
