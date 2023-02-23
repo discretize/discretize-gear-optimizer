@@ -3000,7 +3000,7 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "65.3"
+              "amount": "65.5"
             },
             "burning-precision": {},
             "burning-rage": {},
@@ -3010,7 +3010,7 @@ list:
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": "9.4"
+              "amount": "9.5"
             }
           },
           {
@@ -3027,14 +3027,14 @@ list:
               "amount": ""
             },
             "elemental-polyphony-fire": {
-              "amount": "96.3"
+              "amount": "96"
             },
             "elemental-polyphony-air": {
-              "amount": "7.6"
+              "amount": "7.1"
             },
             "elements-of-rage-base": {},
             "elements-of-rage-buff": {
-              "amount": "82.1"
+              "amount": "84.1"
             }
           }
         ]
@@ -3043,8 +3043,12 @@ list:
       {
         "skills": {
           "woven-fire": {
-            "amount": "55.2"
-          }
+            "amount": "53.9"
+          },
+          "woven-air": {
+            "amount": "54.8"
+          },
+          "signet-of-fire": {}
         }
       }
 

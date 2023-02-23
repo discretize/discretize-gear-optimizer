@@ -380,12 +380,12 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 2139, "Power2": 0, "Burning": 14.99, "Bleeding": 7.72, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2089, "Power2": 0, "Burning": 14.98, "Bleeding": 8.19, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[SC] Roul'
-        url: https://www.youtube.com/watch?v=C98z6HwLkog
-        log: https://dps.report/1a54-20221130-171715_golem
+      - author: Ryan
+        url: https://www.youtube.com/watch?v=6y6GPyibdVQ
+        log: https://dps.report/MZfE-20230221-213716_golem
 
   # 15 mal/3 spite
   - name: Hybrid Weaver

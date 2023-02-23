@@ -553,7 +553,7 @@ list:
         extras: Condi Weaver
         weaponType: Two-handed
 
-      - name: Condi Weaver Scepter (Outdated)
+      - name: Condi Weaver Scepter
         id: cwea-scepter
         specialization: Weaver
         boonType: Condi
