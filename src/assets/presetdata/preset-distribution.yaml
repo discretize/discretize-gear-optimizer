@@ -1058,17 +1058,29 @@ list:
         url: https://www.youtube.com/watch?v=5AekaqupaN8
         log: https://dps.report/wYRI-20220824-133048_golem
 
-  # afflicted kimchi
+  - name: Condi Daredevil (No Allies)
+    profession: Daredevil
+    value: >-
+      {
+        "values2": { "Power": 1348, "Power2": 0, "Burning": 0, "Bleeding": 25.72, "Poisoned": 10.39, "Torment": 1.66, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Left'
+        url: https://www.youtube.com/watch?v=gKnb5aRz5nk
+        log: https://www.dps.report/84Ov-20230216-152900_golem
+
+  # messed up log start from mesmer existing
+  # scuffed approximation by taking total damage and dividing by approximate duration (99.143)
   - name: Condi Daredevil
     profession: Daredevil
     value: >-
       {
-        "values2": { "Power": 1308, "Power2": 0, "Burning": 0, "Bleeding": 25.81, "Poisoned": 16.03, "Torment": 1.66, "Confusion": 0 }
+        "values2": { "Power": 1513, "Power2": 0, "Burning": 0, "Bleeding": 25.8, "Poisoned": 16.09, "Torment": 1.74, "Confusion": 0 }
       }
     credit:
       - author: 'Left'
-        url: https://www.youtube.com/watch?v=2v69_eHCMO8
-        log: https://www.dps.report/vmjE-20220827-105554_golem
+        url: https://www.youtube.com/watch?v=gKnb5aRz5nk
+        log: https://www.dps.report/WZp4-20230216-142041_golem
 
   - name: Power Deadeye Daggers M7
     profession: Deadeye

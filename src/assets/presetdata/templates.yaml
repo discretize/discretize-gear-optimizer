@@ -1138,7 +1138,7 @@ list:
         extras: Power Boon Daredevil
         weaponType: Two-handed
 
-      - name: Condi Daredevil (Outdated)
+      - name: Condi Daredevil
         id: cdd
         specialization: Daredevil
         boonType: Condi
