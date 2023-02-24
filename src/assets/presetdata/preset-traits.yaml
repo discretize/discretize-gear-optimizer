@@ -5971,11 +5971,7 @@ list:
       }
     skills: |-
       {
-        "skills": {
-          "signet-of-spite": {
-            "amount": ""
-          }
-        }
+        "skills": {}
       }
 
   - name: Condi Reaper
