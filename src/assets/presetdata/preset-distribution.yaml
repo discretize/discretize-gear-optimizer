@@ -482,25 +482,23 @@ list:
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 1928, "Power2": 0, "Burning": 5.15, "Bleeding": 14.69, "Poisoned": 1.97, "Torment": 16.64, "Confusion": 0 }
+        "values2": { "Power": 1912, "Power2": 0, "Burning": 4.31, "Bleeding": 14.27, "Poisoned": 3.62, "Torment": 16.83, "Confusion": 0 }
       }
     credit:
-      - author: '[Inn] Xorxy'
-        url: https://www.youtube.com/watch?v=jI-4rT32uqc
-        log: https://dps.report/pzqt-20220319-012000_golem
+      - author: Umbra
+        url: https://www.youtube.com/watch?v=nF9Xh19BB4w
+        log: https://dps.report/S4Zh-20230214-191402_golem
 
-  # asparagus food, 13 malign 5 mystical
   - name: Condi Alac Invocation (no allies)
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 1928, "Power2": 0, "Burning": 5.15, "Bleeding": 10.69, "Poisoned": 1.97, "Torment": 16.64, "Confusion": 0 }
+        "values2": { "Power": 1912, "Power2": 0, "Burning": 4.31, "Bleeding": 10.27, "Poisoned": 3.62, "Torment": 16.83, "Confusion": 0 }
       }
     credit:
-      - author: '[Inn] Xorxy'
-        url: https://www.youtube.com/watch?v=jI-4rT32uqc
-        log: https://dps.report/pzqt-20220319-012000_golem
-
+      - author: Umbra
+        url: https://www.youtube.com/watch?v=nF9Xh19BB4w
+        log: https://dps.report/S4Zh-20230214-191402_golem
 
   # add razorclaw casts every 20sec to simulate allies
   # 4 players * 10 pulses * 2 seconds / 20 sec = 4.00 avg bleed

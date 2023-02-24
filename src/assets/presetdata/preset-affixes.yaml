@@ -304,13 +304,13 @@ list:
         "minQuicknessDuration": 0
       }
 
-  - name: Condi Alacrity Renegade 78%
+  - name: Condi Alacrity Renegade 37.5%
     hidden: true
     value: >-
       {
         "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 78,
+        "minBoonDuration": 37.5,
         "minQuicknessDuration": 0
       }
 

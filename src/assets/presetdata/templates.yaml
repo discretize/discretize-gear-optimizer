@@ -786,11 +786,11 @@ list:
           extras: Power (Raid, air)
         weaponType: Dual wield
 
-      - name: Alacrity Condi Ren Invo (Outdated)
+      - name: Alacrity Condi Ren Invo
         id: cren-alac-invo
         specialization: Renegade
         boonType: Condi
-        priority: Condi Alacrity Renegade 78%
+        priority: Condi Alacrity Renegade 37.5%
         distribution: Condi Alac Invocation
         traits: Condi Alac Ren Invo
         extras: Condi Alac Ren
