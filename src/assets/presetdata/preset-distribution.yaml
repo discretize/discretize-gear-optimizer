@@ -1108,12 +1108,12 @@ list:
     profession: Deadeye
     value: >-
       {
-        "values2": { "Power": 3416, "Power2": 0, "Burning": 0, "Bleeding": 0.5, "Poisoned": 1.73, "Torment": 0.46, "Confusion": 0 }
+        "values2": { "Power": 3669, "Power2": 0, "Burning": 0, "Bleeding": 0.42, "Poisoned": 1.83, "Torment": 0.5, "Confusion": 0 }
       }
     credit:
       - author: 'Iskarel'
-        url: https://www.youtube.com/watch?v=qkbodbKnhwc
-        log: https://dps.report/f1kw-20220826-220619_golem
+        url: https://www.youtube.com/watch?v=52La8OgG69w
+        log: https://dps.report/yDtd-20230214-221732_golem
 
   - name: Rifle Deadeye Silent Scope
     profession: Deadeye
