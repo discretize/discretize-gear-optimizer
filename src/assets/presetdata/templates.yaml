@@ -796,18 +796,18 @@ list:
         extras: Condi Alac Ren
         weaponType: Two-handed
 
-      - name: Alacrity Power Ren (Outdated)
+      - name: Alacrity Power Ren
         id: pren
         specialization: Renegade
         boonType: Power
-        priority: Power Boon
+        priority: Power Alacrity Renegade 37.5%
         distribution: Alacrity Renegade
         traits: Power Alac Ren
         fractal:
           extras: Power (Fractal)
         raid:
           extras: Power Alac Ren (Raid)
-        weaponType: Two-handed
+        weaponType: Dual wield
 
       - name: Condi Ren Invo
         id: cren-invo

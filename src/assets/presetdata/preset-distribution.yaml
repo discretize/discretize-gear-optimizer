@@ -465,19 +465,16 @@ list:
       }
     noCreditOkay: true
 
-
-  # swift termination
-  # assassin helm diviner rest, force conc, writ, AP
   - name: Alacrity Renegade
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 3299, "Power2": 0, "Burning": 1.72, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3388, "Power2": 0, "Burning": 1.21, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: '[dT/XVII] Seatek'
-        url: https://www.youtube.com/watch?v=8AjCfDsKJnw
-        log: https://dps.report/MLi6-20220406-015848_golem
+        url: https://www.youtube.com/watch?v=04IvsuiXc10
+        log: https://dps.report/ra1b-20230205-003441_golem
 
   # add razorclaw casts every 20sec to simulate allies
   # 4 players * 10 pulses * 2 seconds / 20 sec = 4.00 avg bleed

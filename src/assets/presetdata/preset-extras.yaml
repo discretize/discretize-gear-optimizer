@@ -1404,6 +1404,7 @@ list:
             "force": {}
           },
           "Sigil2": {
+            "air": {},
             "concentration": {}
           },
           "Enhancement": {
