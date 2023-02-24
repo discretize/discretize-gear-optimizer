@@ -1210,7 +1210,7 @@ list:
           extras: Power (Raid)
         weaponType: Two-handed
 
-      - name: Rifle Deadeye Silent Scope (Outdated)
+      - name: Rifle Deadeye Silent Scope
         id: rifleded-silent
         specialization: Deadeye
         boonType: Power

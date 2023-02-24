@@ -6860,7 +6860,7 @@ list:
             "deadly-ambition": {},
             "revealed-training-base": {},
             "revealed-training-revealed": {
-              "amount": "75.8"
+              "amount": "75.9"
             },
             "exposed-weakness": {
               "amount": ""
@@ -6897,7 +6897,12 @@ list:
     skills: |-
       {
         "skills": {
-          "assassins-signet": {}
+          "assassins-signet": {
+            "amount": "47.7"
+          },
+          "assassins-signet-active": {
+            "amount": "19.5"
+          }
         }
       }
 
