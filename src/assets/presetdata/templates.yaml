@@ -311,7 +311,7 @@ list:
         extras: Condi Willbender
         weaponType: Two-handed
 
-      - name: Power Willbender Virtues (Outdated)
+      - name: Power Willbender Virtues
         id: pwb-virtues
         specialization: Willbender
         boonType: Power
@@ -431,7 +431,7 @@ list:
         extras: Condi Quickness Bers
         weaponType: Two-handed
 
-      - name: Condi Berserker (Outdated)
+      - name: Condi Berserker
         id: cbers-dps
         specialization: Berserker
         boonType: Condi
@@ -553,7 +553,7 @@ list:
         extras: Condi Weaver
         weaponType: Two-handed
 
-      - name: Condi Weaver Scepter (Outdated)
+      - name: Condi Weaver Scepter
         id: cwea-scepter
         specialization: Weaver
         boonType: Condi
@@ -786,21 +786,21 @@ list:
           extras: Power (Raid, air)
         weaponType: Dual wield
 
-      - name: Alacrity Condi Ren Invo (Outdated)
+      - name: Alacrity Condi Ren Invo
         id: cren-alac-invo
         specialization: Renegade
         boonType: Condi
-        priority: Condi Alacrity Renegade 78%
+        priority: Condi Alacrity Renegade 37.5%
         distribution: Condi Alac Invocation
         traits: Condi Alac Ren Invo
         extras: Condi Alac Ren
         weaponType: Two-handed
 
-      - name: Alacrity Power Ren (Outdated)
+      - name: Alacrity Power Ren
         id: pren
         specialization: Renegade
         boonType: Power
-        priority: Power Boon
+        priority: Power Alacrity Renegade 37.5%
         distribution: Alacrity Renegade
         traits: Power Alac Ren
         fractal:
@@ -874,7 +874,7 @@ list:
           extras: Quickness Scrapper (Raid)
         weaponType: Two-handed
 
-      - name: Power Scrapper (Outdated)
+      - name: Power Scrapper
         id: pscrap
         specialization: Scrapper
         boonType: Power
@@ -1138,7 +1138,7 @@ list:
         extras: Power Boon Daredevil
         weaponType: Two-handed
 
-      - name: Condi Daredevil (Outdated)
+      - name: Condi Daredevil
         id: cdd
         specialization: Daredevil
         boonType: Condi
@@ -1197,7 +1197,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Rifle Deadeye Premeditation (Outdated)
+      - name: Rifle Deadeye Premeditation
         id: rifleded-premed
         specialization: Deadeye
         boonType: Power
@@ -1210,7 +1210,7 @@ list:
           extras: Power (Raid)
         weaponType: Two-handed
 
-      - name: Rifle Deadeye Silent Scope (Outdated)
+      - name: Rifle Deadeye Silent Scope
         id: rifleded-silent
         specialization: Deadeye
         boonType: Power

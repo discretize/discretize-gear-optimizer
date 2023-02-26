@@ -295,13 +295,22 @@ list:
         "minQuicknessDuration": 92
       }
 
-  - name: Condi Alacrity Renegade 78%
+  - name: Power Alacrity Renegade 37.5%
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner", "Dragon"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 37.5,
+        "minQuicknessDuration": 0
+      }
+
+  - name: Condi Alacrity Renegade 37.5%
     hidden: true
     value: >-
       {
         "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 78,
+        "minBoonDuration": 37.5,
         "minQuicknessDuration": 0
       }
 

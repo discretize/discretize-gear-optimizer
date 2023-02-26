@@ -1750,14 +1750,17 @@ list:
             "inspired-virtue": {
               "amount": ""
             },
-            "unscathed-contender": {
-              "amount": ""
-            },
             "virtue-of-retribution": {},
             "inspiring-virtue": {
+              "amount": "79"
+            },
+            "power-of-the-virtuous": {},
+            "unscathed-contender-health": {
               "amount": ""
             },
-            "power-of-the-virtuous": {}
+            "unscathed-contender": {
+              "amount": ""
+            }
           },
           {
             "fiery-wrath": {},
@@ -1983,24 +1986,24 @@ list:
             "double-standards-disc": {},
             "axe-mastery-one": {},
             "axe-mastery-axe": {
-              "amount": ""
+              "amount": "68"
             }
           },
           {
             "blood-reaction-base": {},
             "blood-reaction-with": {
-              "amount": "91"
+              "amount": "90"
             },
             "heat-the-soul": {},
             "heat-the-soul-with": {
               "amount": ""
             },
             "fatal-frenzy-power-condi": {
-              "amount": "91"
+              "amount": "90"
             },
             "fatal-frenzy-toughness": {},
             "bloody-roar": {
-              "amount": "91"
+              "amount": "90"
             },
             "king-of-fires": {},
             "eternal-champion": {}
@@ -2056,10 +2059,10 @@ list:
             },
             "bloodlust": {},
             "furious": {
-              "amount": "20"
+              "amount": "21.3"
             },
             "bloodlust-on-crit": {
-              "amount": "2.83"
+              "amount": "3.03"
             },
             "furious-burst": {}
           },
@@ -2082,7 +2085,7 @@ list:
               "amount": ""
             },
             "fatal-frenzy-power-condi": {
-              "amount": "69.5"
+              "amount": "98"
             },
             "fatal-frenzy-toughness": {},
             "bloody-roar": {
@@ -2997,7 +3000,7 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "65.3"
+              "amount": "65.5"
             },
             "burning-precision": {},
             "burning-rage": {},
@@ -3007,7 +3010,7 @@ list:
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": "9.4"
+              "amount": "9.5"
             }
           },
           {
@@ -3024,14 +3027,14 @@ list:
               "amount": ""
             },
             "elemental-polyphony-fire": {
-              "amount": "96.3"
+              "amount": "96"
             },
             "elemental-polyphony-air": {
-              "amount": "7.6"
+              "amount": "7.1"
             },
             "elements-of-rage-base": {},
             "elements-of-rage-buff": {
-              "amount": "82.1"
+              "amount": "84.1"
             }
           }
         ]
@@ -3040,8 +3043,12 @@ list:
       {
         "skills": {
           "woven-fire": {
-            "amount": "55.2"
-          }
+            "amount": "53.9"
+          },
+          "woven-air": {
+            "amount": "54.8"
+          },
+          "signet-of-fire": {}
         }
       }
 
@@ -5642,7 +5649,7 @@ list:
             },
             "incendiary-powder": {},
             "sharpshooter": {
-              "amount": "3.6"
+              "amount": "4.1"
             }
           },
           {
@@ -5660,7 +5667,7 @@ list:
           },
           {
             "object-in-motion": {
-              "amount": ""
+              "amount": "2.28"
             },
             "impact-savant": {},
             "kinetic-accelerators": {},
@@ -5964,11 +5971,7 @@ list:
       }
     skills: |-
       {
-        "skills": {
-          "signet-of-spite": {
-            "amount": ""
-          }
-        }
+        "skills": {}
       }
 
   - name: Condi Reaper
@@ -6497,7 +6500,7 @@ list:
           {
             "preparedness": {},
             "lead-attacks": {
-              "amount": "11.4"
+              "amount": "11.3"
             },
             "deadly-ambush": {}
           },
@@ -6778,7 +6781,7 @@ list:
             "deadly-ambition": {},
             "revealed-training-base": {},
             "revealed-training-revealed": {
-              "amount": "61"
+              "amount": "60.3"
             },
             "exposed-weakness": {
               "amount": ""
@@ -6815,7 +6818,12 @@ list:
     skills: |-
       {
         "skills": {
-          "assassins-signet": {}
+          "assassins-signet": {
+            "amount": "29"
+          },
+          "assassins-signet-active": {
+            "amount": "24.8"
+          }
         }
       }
 
@@ -6852,7 +6860,7 @@ list:
             "deadly-ambition": {},
             "revealed-training-base": {},
             "revealed-training-revealed": {
-              "amount": "75.8"
+              "amount": "75.9"
             },
             "exposed-weakness": {
               "amount": ""
@@ -6889,7 +6897,12 @@ list:
     skills: |-
       {
         "skills": {
-          "assassins-signet": {}
+          "assassins-signet": {
+            "amount": "47.7"
+          },
+          "assassins-signet-active": {
+            "amount": "19.5"
+          }
         }
       }
 
