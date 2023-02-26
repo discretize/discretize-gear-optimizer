@@ -807,7 +807,7 @@ list:
           extras: Power (Fractal)
         raid:
           extras: Power Alac Ren (Raid)
-        weaponType: Dual wield
+        weaponType: Two-handed
 
       - name: Condi Ren Invo
         id: cren-invo
