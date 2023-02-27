@@ -1,4 +1,4 @@
-import { createSelector, createSlice, original } from '@reduxjs/toolkit';
+import { createSlice, original } from '@reduxjs/toolkit';
 import { allExtrasModifiersById } from '../../assets/modifierdata';
 import { mapValues } from '../../utils/usefulFunctions';
 import { changeAll, setBuildTemplate } from './controlsSlice';
@@ -86,7 +86,7 @@ export const extrasSlice = createSlice({
 });
 
 export const getExtrasData = (state) => state.optimizer.form.extras.extras;
-export const getExtrasIds = createSelector(getExtrasData, (data) => mapValues(data, Object.keys));
+export const getExtrasIds = (state) => mapValues(getExtrasData(state), Object.keys);
 
 export const getLifestealAmount = (state) => state.optimizer.form.extras.lifestealAmount;
 
@@ -138,47 +138,46 @@ const allowedDuplicateSigils = [
   'platinum-doubloon',
 ];
 
-export const getExtrasCombinationsAndModifiers = createSelector(
-  getExtrasIds,
-  getExtrasData,
-  getLifestealAmount,
-  (ids, data, lifestealAmount) => {
-    const allExtrasCombinations = findCombinations(ids);
-    const extrasCombinations = allExtrasCombinations.filter(({ Sigil1, Sigil2 }) => {
-      // remove duplicate sigils
-      if (Sigil1 && Sigil2 && Sigil1 === Sigil2 && !allowedDuplicateSigils.includes(Sigil1))
-        return false;
+export const getExtrasCombinationsAndModifiers = (state) => {
+  const ids = getExtrasIds(state);
+  const data = getExtrasData(state);
+  const lifestealAmount = getLifestealAmount(state);
 
-      if (ids.Sigil1.includes(Sigil2) && ids.Sigil2.includes(Sigil1)) {
-        // potential duplicate; deduplicate in arbitrary order
-        if (Sigil1 > Sigil2) return false;
-      }
-      return true;
-    });
+  const allExtrasCombinations = findCombinations(ids);
+  const extrasCombinations = allExtrasCombinations.filter(({ Sigil1, Sigil2 }) => {
+    // remove duplicate sigils
+    if (Sigil1 && Sigil2 && Sigil1 === Sigil2 && !allowedDuplicateSigils.includes(Sigil1))
+      return false;
 
-    console.log('extrasCombinations', extrasCombinations);
+    if (ids.Sigil1.includes(Sigil2) && ids.Sigil2.includes(Sigil1)) {
+      // potential duplicate; deduplicate in arbitrary order
+      if (Sigil1 > Sigil2) return false;
+    }
+    return true;
+  });
 
-    const getModifiers = (extrasCombination) => {
-      const allModifiers = Object.entries(extrasCombination)
-        .filter(([_, id]) => id)
-        .map(([type, id]) => {
-          if (!allExtrasModifiersById[id]) throw new Error(`missing data for extras id: ${id}`);
-          const itemData = allExtrasModifiersById[id];
+  console.log('extrasCombinations', extrasCombinations);
 
-          return { id, ...itemData, amount: data[type][id]?.amount };
-        });
-      if (allExtrasModifiersById?.[extrasCombination?.Nourishment]?.hasLifesteal) {
-        allModifiers.push({ ...lifestealData, amount: lifestealAmount });
-      }
-      return allModifiers;
-    };
+  const getModifiers = (extrasCombination) => {
+    const allModifiers = Object.entries(extrasCombination)
+      .filter(([_, id]) => id)
+      .map(([type, id]) => {
+        if (!allExtrasModifiersById[id]) throw new Error(`missing data for extras id: ${id}`);
+        const itemData = allExtrasModifiersById[id];
 
-    return extrasCombinations.map((extrasCombination) => ({
-      extrasCombination,
-      extrasModifiers: getModifiers(extrasCombination),
-    }));
-  },
-);
+        return { id, ...itemData, amount: data[type][id]?.amount };
+      });
+    if (allExtrasModifiersById?.[extrasCombination?.Nourishment]?.hasLifesteal) {
+      allModifiers.push({ ...lifestealData, amount: lifestealAmount });
+    }
+    return allModifiers;
+  };
+
+  return extrasCombinations.map((extrasCombination) => ({
+    extrasCombination,
+    extrasModifiers: getModifiers(extrasCombination),
+  }));
+};
 
 export const {
   changeExtraIds,

@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import {
   allClassModifiersById,
   classModifiers,
@@ -99,46 +99,44 @@ export const getTraitLines = (state) => state.optimizer.form.traits.selectedLine
 export const getTraits = (state) => state.optimizer.form.traits.selectedTraits;
 export const getTraitItems = (state) => state.optimizer.form.traits.items;
 
-export const getTraitsModifiers = createSelector(
-  (state) => state.optimizer.form.traits,
-  (traits) => {
-    const allSelectedTraits = traits.selectedTraits.flat(2);
+export const getTraitsModifiers = (state) => {
+  const { traits } = state.optimizer.form;
 
-    const result = [];
-    traits.items.forEach((object) => {
-      Object.entries(object).forEach(([id, value]) => {
-        if (!value) return; // used to set value to false instead of deleting
-        const itemData = allClassModifiersById[id];
-        if (!itemData) return;
+  const allSelectedTraits = traits.selectedTraits.flat(2);
 
-        const visible = itemData.minor || allSelectedTraits.includes(itemData.gw2id);
-        if (visible) {
-          result.push({ id, ...itemData, amount: value?.amount });
-        }
-      });
+  const result = [];
+  traits.items.forEach((object) => {
+    Object.entries(object).forEach(([id, value]) => {
+      if (!value) return; // used to set value to false instead of deleting
+      const itemData = allClassModifiersById[id];
+      if (!itemData) return;
+
+      const visible = itemData.minor || allSelectedTraits.includes(itemData.gw2id);
+      if (visible) {
+        result.push({ id, ...itemData, amount: value?.amount });
+      }
     });
-    return result;
-  },
-);
+  });
+  return result;
+};
 
-export const getCurrentSpecialization = createSelector(
-  getProfession,
-  getTraitLines,
-  (profession, selectedLines) => {
-    const { eliteSpecializations } = PROFESSIONS.find((prof) => prof.profession === profession);
-    // contains the names of the selected trait lines
-    const selectedTraitLinesNames = selectedLines
-      .map((id) => classModifiers[profession].find((section) => section?.id === Number(id)))
-      .filter((section) => section !== undefined)
-      .map((section) => section.section);
+export const getCurrentSpecialization = (state) => {
+  const profession = getProfession(state);
+  const selectedLines = getTraitLines(state);
 
-    // currently selected specialization. In case multiple elite specializations are selected, only the first one is counted.
-    // In case no specialization is selected, the variable defaults to the core profession
-    const currentSpecialization =
-      selectedTraitLinesNames.find((spec) => eliteSpecializations.includes(spec)) || profession;
-    return currentSpecialization;
-  },
-);
+  const { eliteSpecializations } = PROFESSIONS.find((prof) => prof.profession === profession);
+  // contains the names of the selected trait lines
+  const selectedTraitLinesNames = selectedLines
+    .map((id) => classModifiers[profession].find((section) => section?.id === Number(id)))
+    .filter((section) => section !== undefined)
+    .map((section) => section.section);
+
+  // currently selected specialization. In case multiple elite specializations are selected, only the first one is counted.
+  // In case no specialization is selected, the variable defaults to the core profession
+  const currentSpecialization =
+    selectedTraitLinesNames.find((spec) => eliteSpecializations.includes(spec)) || profession;
+  return currentSpecialization;
+};
 
 export const {
   toggleShowAll,

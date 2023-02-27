@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { buffModifiersById } from '../../assets/modifierdata';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 
@@ -81,18 +81,16 @@ export const buffsSlice = createSlice({
 export const getBuffs = (state) => state.optimizer.form.buffs.buffs;
 export const getBuffAmounts = (state) => state.optimizer.form.buffs.amounts;
 
-export const getBuffsModifiers = createSelector(
-  (state) => state.optimizer.form.buffs,
-  (buffs) => {
-    const enabledModifiers = Object.keys(buffs.buffs).filter((key) => buffs.buffs[key]);
+export const getBuffsModifiers = (state) => {
+  const { buffs } = state.optimizer.form;
+  const enabledModifiers = Object.keys(buffs.buffs).filter((key) => buffs.buffs[key]);
 
-    return enabledModifiers
-      .filter((id) => buffModifiersById[id])
-      .map((id) => {
-        const itemData = buffModifiersById[id];
-        return { id, ...itemData, amount: buffs.amounts?.[id] };
-      });
-  },
-);
+  return enabledModifiers
+    .filter((id) => buffModifiersById[id])
+    .map((id) => {
+      const itemData = buffModifiersById[id];
+      return { id, ...itemData, amount: buffs.amounts?.[id] };
+    });
+};
 
 export const { changeBuff, replaceBuffs, changeBuffAmount } = buffsSlice.actions;
