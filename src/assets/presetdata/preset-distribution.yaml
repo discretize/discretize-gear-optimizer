@@ -85,12 +85,12 @@ list:
     profession: Spellbreaker
     value: >-
       {
-        "values2": { "Power": 2547, "Power2": 0, "Burning": 0, "Bleeding": 0.85, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2671, "Power2": 0, "Burning": 0, "Bleeding": 0.87, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Baym'
-        url: https://www.youtube.com/watch?v=rVQtNtIHHxM
-        log: https://dps.report/2Wtv-20221008-134648_golem
+        url: https://www.youtube.com/watch?v=xT9DZDcwBzI
+        log: https://dps.report/HzZk-20221213-184016_golem
 
   - name: Power Quickness Bladesworn
     profession: Bladesworn

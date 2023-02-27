@@ -2149,7 +2149,7 @@ list:
             "double-standards-disc": {},
             "axe-mastery-one": {},
             "axe-mastery-axe": {
-              "amount": ""
+              "amount": "65"
             }
           },
           {
@@ -2158,13 +2158,13 @@ list:
               "amount": ""
             },
             "attackers-insight": {
-              "amount": "4.15"
+              "amount": "4"
             },
             "magebane-tether": {
-              "amount": "65.9"
+              "amount": "72"
             },
             "sun-and-moon-style": {
-              "amount": "55.7"
+              "amount": "65"
             }
           }
         ]

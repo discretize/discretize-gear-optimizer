@@ -480,7 +480,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Quickness Power Spellbreaker (Outdated)
+      - name: Quickness Power Spellbreaker
         id: spb-quick
         specialization: Spellbreaker
         boonType: Power
