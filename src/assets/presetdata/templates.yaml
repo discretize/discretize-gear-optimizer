@@ -158,6 +158,16 @@ list:
         extras: Alacrity Staff Mirage
         weaponType: Two-handed
 
+      - name: Alacrity Staff / Axe Mirage
+        id: alac-staxe-mirage
+        specialization: Mirage
+        boonType: Condi
+        priority: Condi Alacrity Mirage 0%
+        distribution: Alacrity Staff / Axe Mirage
+        traits: Alacrity Staff / Axe Mirage
+        extras: Alacrity Staff Mirage
+        weaponType: Two-handed
+
       - name: Condi Axe Mirage
         id: axe-mirage-deception-torch
         specialization: Mirage

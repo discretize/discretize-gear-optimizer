@@ -913,6 +913,17 @@ list:
         url: https://www.youtube.com/watch?v=36QsfyS8aBQ
         log: https://dps.report/3VjJ-20221203-024743_golem
 
+  - name: Alacrity Staff / Axe Mirage
+    profession: Mirage
+    value: >-
+      {
+        "values2": { "Power": 1682, "Power2": 209, "Burning": 0, "Bleeding": 12.91, "Poisoned": 0.61, "Torment": 18.48, "Confusion": 16.62 }
+      }
+    credit:
+      - author: Mastro
+        url: https://www.youtube.com/watch?v=OzsjeQQ7Xio
+        log: https://dps.report/tzYP-20230222-184348_golem
+
   - name: Axe Mirage (Deception Torch)
     profession: Mirage
     value: >-

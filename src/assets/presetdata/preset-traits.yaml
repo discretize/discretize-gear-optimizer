@@ -549,6 +549,78 @@ list:
         }
       }
 
+  - name: Alacrity Staff / Axe Mirage
+    profession: Mirage
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "45",
+          "1",
+          "59"
+        ],
+        "selectedTraits": [
+          [
+            670,
+            669,
+            1687
+          ],
+          [
+            700,
+            1889,
+            1950
+          ],
+          [
+            2110,
+            2098,
+            2070
+          ]
+        ],
+        "items": [
+          {
+            "illusionary-defense": {
+              "amount": ""
+            },
+            "illusionary-membrane": {
+              "amount": ""
+            },
+            "chaotic-potency": {},
+            "chaotic-potency-2": {
+              "amount": ""
+            },
+            "chaotic-persistence": {}
+          },
+          {
+            "fencers-finesse": {
+              "amount": ""
+            },
+            "superiority-complex-base": {},
+            "superiority-complex": {
+              "amount": ""
+            },
+            "sharper-images-clone": {
+              "amount": "2.84"
+            },
+            "sharper-images-phantasm": {
+              "amount": "0.4"
+            },
+            "phantasmal-fury": {}
+          },
+          {
+            "nomads-endurance": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-domination": {},
+          "signet-of-midnight": {}
+        }
+      }
+
   - name: Quickness Condi Chrono
     profession: Chronomancer
     traits: |-
