@@ -1249,7 +1249,7 @@ list:
         }
       }
 
-  - name: Condi Quickbrand
+  - name: Condi Quickbrand WT
     profession: Firebrand
     traits: |-
       {
@@ -1314,6 +1314,76 @@ list:
       {
         "skills": {
           "mantra-of-flame": {}
+        }
+      }
+
+  - name: Condi Quickbrand LL
+    profession: Firebrand
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "16",
+          "46",
+          "62"
+        ],
+        "selectedTraits": [
+          [
+            566,
+            567,
+            1686
+          ],
+          [
+            617,
+            587,
+            622
+          ],
+          [
+            2101,
+            2116,
+            2179
+          ]
+        ],
+        "items": [
+          {
+            "right-hand-strength": {},
+            "right-hand-strength-1h": {
+              "amount": "100"
+            },
+            "radiant-fire": {},
+            "retribution": {
+              "amount": ""
+            },
+            "radiant-power": {},
+            "amplified-wrath": {},
+            "righteous-instincts": {}
+          },
+          {
+            "inspired-virtue": {
+              "amount": ""
+            },
+            "unscathed-contender": {
+              "amount": ""
+            },
+            "virtue-of-retribution": {},
+            "inspiring-virtue": {
+              "amount": ""
+            },
+            "power-of-the-virtuous": {}
+          },
+          {
+            "imbued-haste": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "mantra-of-flame": {
+            "amount": "1.2"
+          }
         }
       }
 
