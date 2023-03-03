@@ -96,7 +96,7 @@ list:
         extras: Quickness Condi Chrono
         weaponType: Dual wield
 
-      - name: Alacrity Power Chrono GS (Outdated)
+      - name: Alacrity Power Chrono GS
         id: pchrono-alac-gs
         specialization: Chronomancer
         boonType: Power
