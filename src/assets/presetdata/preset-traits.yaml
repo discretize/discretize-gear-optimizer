@@ -382,7 +382,7 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": "5.5"
+              "amount": "6.6"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
@@ -390,10 +390,10 @@ list:
             },
             "phantasmal-fury": {},
             "sharper-images-phantasm": {
-              "amount": "1.24"
+              "amount": "1.07"
             },
             "sharper-images-clone": {
-              "amount": "0.90"
+              "amount": "0.66"
             }
           },
           {
@@ -531,6 +531,78 @@ list:
             },
             "sharper-images-phantasm": {
               "amount": "0.04"
+            },
+            "phantasmal-fury": {}
+          },
+          {
+            "nomads-endurance": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "signet-of-domination": {},
+          "signet-of-midnight": {}
+        }
+      }
+
+  - name: Alacrity Staff / Axe Mirage
+    profession: Mirage
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "45",
+          "1",
+          "59"
+        ],
+        "selectedTraits": [
+          [
+            670,
+            669,
+            1687
+          ],
+          [
+            700,
+            1889,
+            1950
+          ],
+          [
+            2110,
+            2098,
+            2070
+          ]
+        ],
+        "items": [
+          {
+            "illusionary-defense": {
+              "amount": ""
+            },
+            "illusionary-membrane": {
+              "amount": ""
+            },
+            "chaotic-potency": {},
+            "chaotic-potency-2": {
+              "amount": ""
+            },
+            "chaotic-persistence": {}
+          },
+          {
+            "fencers-finesse": {
+              "amount": ""
+            },
+            "superiority-complex-base": {},
+            "superiority-complex": {
+              "amount": ""
+            },
+            "sharper-images-clone": {
+              "amount": "2.84"
+            },
+            "sharper-images-phantasm": {
+              "amount": "0.4"
             },
             "phantasmal-fury": {}
           },
@@ -1249,7 +1321,7 @@ list:
         }
       }
 
-  - name: Condi Quickbrand
+  - name: Condi Quickbrand WT
     profession: Firebrand
     traits: |-
       {
@@ -1314,6 +1386,76 @@ list:
       {
         "skills": {
           "mantra-of-flame": {}
+        }
+      }
+
+  - name: Condi Quickbrand LL
+    profession: Firebrand
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "16",
+          "46",
+          "62"
+        ],
+        "selectedTraits": [
+          [
+            566,
+            567,
+            1686
+          ],
+          [
+            617,
+            587,
+            622
+          ],
+          [
+            2101,
+            2116,
+            2179
+          ]
+        ],
+        "items": [
+          {
+            "right-hand-strength": {},
+            "right-hand-strength-1h": {
+              "amount": "100"
+            },
+            "radiant-fire": {},
+            "retribution": {
+              "amount": ""
+            },
+            "radiant-power": {},
+            "amplified-wrath": {},
+            "righteous-instincts": {}
+          },
+          {
+            "inspired-virtue": {
+              "amount": ""
+            },
+            "unscathed-contender": {
+              "amount": ""
+            },
+            "virtue-of-retribution": {},
+            "inspiring-virtue": {
+              "amount": ""
+            },
+            "power-of-the-virtuous": {}
+          },
+          {
+            "imbued-haste": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "mantra-of-flame": {
+            "amount": "1.2"
+          }
         }
       }
 
@@ -1385,7 +1527,7 @@ list:
             "amount": ""
           },
           "mantra-of-flame": {
-            "amount": "1.23"
+            "amount": "1.26"
           }
         }
       }
@@ -2149,7 +2291,7 @@ list:
             "double-standards-disc": {},
             "axe-mastery-one": {},
             "axe-mastery-axe": {
-              "amount": ""
+              "amount": "65"
             }
           },
           {
@@ -2158,13 +2300,13 @@ list:
               "amount": ""
             },
             "attackers-insight": {
-              "amount": "4.15"
+              "amount": "4"
             },
             "magebane-tether": {
-              "amount": "65.9"
+              "amount": "72"
             },
             "sun-and-moon-style": {
-              "amount": "55.7"
+              "amount": "65"
             }
           }
         ]
@@ -2677,17 +2819,17 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "55.4"
+              "amount": "49.8"
             },
             "burning-precision": {},
             "burning-rage": {},
             "power-overwhelming": {},
             "power-overwhelming-2": {
-              "amount": "55.4"
+              "amount": "49.8"
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": "9.3"
+              "amount": "8.9"
             }
           },
           {
@@ -2700,7 +2842,7 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "31"
+              "amount": "42.1"
             },
             "bolt-to-the-heart": {
               "amount": ""
@@ -2719,10 +2861,10 @@ list:
               "amount": ""
             },
             "elemental-polyphony-fire": {
-              "amount": "67.6"
+              "amount": "72.5"
             },
             "elemental-polyphony-air": {
-              "amount": "58"
+              "amount": "61.8"
             },
             "elements-of-rage-base": {},
             "elements-of-rage-buff": {
@@ -2733,7 +2875,14 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "woven-fire": {
+            "amount": "48.7"
+          },
+          "woven-air": {
+            "amount": "47.9"
+          }
+        }
       }
 
   - name: Condi Weaver Sword
@@ -5700,7 +5849,7 @@ list:
           ],
           [
             1882,
-            1892,
+            482,
             1947
           ],
           [
@@ -5724,7 +5873,7 @@ list:
             },
             "incendiary-powder": {},
             "sharpshooter": {
-              "amount": "3.54"
+              "amount": "3.8"
             }
           },
           {
@@ -5986,14 +6135,14 @@ list:
         ],
         "selectedTraits": [
           [
-            2013,
+            815,
             816,
             801
           ],
           [
-            875,
+            898,
             894,
-            905
+            893
           ],
           [
             2020,
@@ -6011,12 +6160,12 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "2.74"
+              "amount": "3.16"
             }
           },
           {
             "soul-barbs": {
-              "amount": "85"
+              "amount": "97"
             },
             "vital-persistence": {},
             "death-perception": {}

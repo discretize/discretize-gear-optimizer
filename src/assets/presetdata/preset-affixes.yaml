@@ -324,6 +324,16 @@ list:
         "minQuicknessDuration": 35
       }
 
+  - name: Condi Quickbrand 40%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 40
+      }
+
   - name: Condi Quickbrand 49
     hidden: true
     value: >-

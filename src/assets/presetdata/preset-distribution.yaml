@@ -85,12 +85,12 @@ list:
     profession: Spellbreaker
     value: >-
       {
-        "values2": { "Power": 2547, "Power2": 0, "Burning": 0, "Bleeding": 0.85, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2671, "Power2": 0, "Burning": 0, "Bleeding": 0.87, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Baym'
-        url: https://www.youtube.com/watch?v=rVQtNtIHHxM
-        log: https://dps.report/2Wtv-20221008-134648_golem
+        url: https://www.youtube.com/watch?v=xT9DZDcwBzI
+        log: https://dps.report/HzZk-20221213-184016_golem
 
   - name: Power Quickness Bladesworn
     profession: Bladesworn
@@ -180,27 +180,28 @@ list:
         url: https://www.youtube.com/watch?v=mCOEGlJkRJ0
         log: https://dps.report/z2Zl-20220316-172733_golem
 
+  # 0.13 represents above-average torment sigil timing relative to log duration
   - name: CFB (5 Page RF, Allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2213, "Power2": 0, "Burning": 15.87, "Bleeding": 4.88, "Poisoned": 0, "Torment": 0.37, "Confusion": 0 }
+        "values2": { "Power": 2140, "Power2": 0, "Burning": 16.91, "Bleeding": 4.79, "Poisoned": 0, "Torment": 0.13, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=xOZ85aMWWVI
-        log: https://dps.report/UTXj-20221215-165719_golem
+        url: https://www.youtube.com/watch?v=573l3HApHkQ
+        log: https://dps.report/CPur-20230226-192749_golem
 
   - name: CFB (5 Page RF, No Allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2238, "Power2": 0, "Burning": 13.1, "Bleeding": 4.91, "Poisoned": 0, "Torment": 0.38, "Confusion": 0 }
+        "values2": { "Power": 2160, "Power2": 0, "Burning": 14.32, "Bleeding": 4.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=xOZ85aMWWVI
-        log: https://dps.report/5khD-20221215-172651_golem
+        url: https://www.youtube.com/watch?v=573l3HApHkQ
+        log: https://dps.report/PeVd-20230226-194816_golem
 
   # 12 boons
   # sinister amulet ring acc acc back
@@ -230,7 +231,7 @@ list:
   # 10 boons
   # ritualist shld coat glov boot, weighty terms
   # T10 JADE BOT and reinforced armor (in video)
-  - name: Condi Quickbrand (Allies)
+  - name: Condi Quickbrand (WT, Allies)
     profession: Firebrand
     value: >-
       {
@@ -241,7 +242,7 @@ list:
         url: https://www.youtube.com/watch?v=LBxfNYeAqXU
         log: https://dps.report/vz84-20221217-161514_golem
 
-  - name: Condi Quickbrand (No Allies)
+  - name: Condi Quickbrand (WT, No Allies)
     profession: Firebrand
     value: >-
       {
@@ -251,6 +252,29 @@ list:
       - author: 'Support Hero'
         url: https://www.youtube.com/watch?v=LBxfNYeAqXU
         log: https://dps.report/nQw1-20221217-170857_golem
+
+  # Solo log adjusted upwards to match with-allies dps (no log for the with allies bench)
+  - name: Condi Quickbrand (LL, Allies, Approx.)
+    profession: Firebrand
+    value: >-
+      {
+        "values2": { "Power": 2023, "Power2": 0, "Burning": 16.65, "Bleeding": 3.51, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Support Hero'
+        url: https://www.youtube.com/watch?v=zGr5pn7jn2A
+        log: https://dps.report/GP0v-20230228-174716_golem
+
+  - name: Condi Quickbrand (LL, No Allies)
+    profession: Firebrand
+    value: >-
+      {
+        "values2": { "Power": 2023, "Power2": 0, "Burning": 13.95, "Bleeding": 3.34, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Support Hero'
+        url: https://www.youtube.com/watch?v=zGr5pn7jn2A
+        log: https://dps.report/GP0v-20230228-174716_golem
 
   # - name: Hybrid FB (Virtues, no allies)
   #   profession: Firebrand
@@ -333,12 +357,12 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 3694, "Power2": 0, "Burning": 6.27, "Bleeding": 6.94, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3758, "Power2": 0, "Burning": 5.96, "Bleeding": 3.5, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[SC] Fallen'
-        url: https://www.youtube.com/watch?v=Gn7xPci-DC4
-        log: https://dps.report/NeQ8-20221130-115328_golem
+      - author: 'Ryan'
+        url: https://www.youtube.com/watch?v=nS-udOqtqAQ
+        log: https://dps.report/jpIq-20230218-140800_golem
 
   # no jade bot
   - name: Condi Weaver Sword
@@ -782,17 +806,16 @@ list:
         url: https://www.youtube.com/watch?v=n0X117MhmlU
         log: https://dps.report/SJTF-20230216-171115_golem
 
-  # diviner amulet, 1x ring
   - name: Quickness Scrapper
     profession: Scrapper
     value: >-
       {
-        "values2": { "Power": 2683, "Power2": 0, "Burning": 0.62, "Bleeding": 4.57, "Poisoned": 4.17, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3233, "Power2": 0, "Burning": 0.06, "Bleeding": 5.27, "Poisoned": 4.78, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[CnD] Xyonon'
-        url: https://www.youtube.com/watch?v=oD7fBTMmWFE
-        log: https://dps.report/uRLc-20210823-152656_golem
+      - author: 'Jan'
+        url: https://www.youtube.com/watch?v=g2MW3fWYOn0
+        log: https://dps.report/1xQZ-20220827-191906_golem
 
   - name: Power Chrono IA GS
     profession: Chronomancer
@@ -833,12 +856,12 @@ list:
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 2790, "Power2": 776, "Burning": 0, "Bleeding": 0.2, "Poisoned": 0, "Torment": 0, "Confusion": 0.97 }
+        "values2": { "Power": 3334, "Power2": 504, "Burning": 0, "Bleeding": 0.61, "Poisoned": 0, "Torment": 0, "Confusion": 0.62 }
       }
     credit:
       - author: '[CnD] Tipcat'
-        url: https://www.youtube.com/watch?v=CNgLxluhCbc
-        log: https://dps.report/IAKt-20220825-132510_golem
+        url: https://www.youtube.com/watch?v=jWuZI03lVaM
+        log: https://dps.report/rXY9-20230225-232150_golem
 
   # DT focus domi/duel
   # asassin leg acc acc
@@ -889,6 +912,17 @@ list:
       - author: FidelOo
         url: https://www.youtube.com/watch?v=36QsfyS8aBQ
         log: https://dps.report/3VjJ-20221203-024743_golem
+
+  - name: Alacrity Staff / Axe Mirage
+    profession: Mirage
+    value: >-
+      {
+        "values2": { "Power": 1682, "Power2": 209, "Burning": 0, "Bleeding": 12.91, "Poisoned": 0.61, "Torment": 18.48, "Confusion": 16.62 }
+      }
+    credit:
+      - author: Mastro
+        url: https://www.youtube.com/watch?v=OzsjeQQ7Xio
+        log: https://dps.report/tzYP-20230222-184348_golem
 
   - name: Axe Mirage (Deception Torch)
     profession: Mirage
@@ -994,12 +1028,12 @@ list:
     profession: Reaper
     value: >-
       {
-        "values2": { "Power": 2378, "Power2": 0, "Burning": 2.04, "Bleeding": 40.85, "Poisoned": 2.82, "Torment": 4.16, "Confusion": 0 }
+        "values2": { "Power": 2834, "Power2": 0, "Burning": 0.19, "Bleeding": 42.47, "Poisoned": 4.38, "Torment": 3.91, "Confusion": 0 }
       }
     credit:
-      - author: 'Incera'
-        url: https://www.youtube.com/watch?v=prk0ZwXwLlA
-        log: https://dps.report/dlNX-20210928-041540_golem
+      - author: 'Sarulias'
+        url: https://www.youtube.com/watch?v=XdUdlhRqJFk
+        log: https://dps.report/bfKV-20230225-075200_golem
 
   # game bug: alchemic vigor converted at 360
   - name: DPS Harbinger

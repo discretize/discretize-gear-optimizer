@@ -96,7 +96,7 @@ list:
         extras: Quickness Condi Chrono
         weaponType: Dual wield
 
-      - name: Alacrity Power Chrono GS (Outdated)
+      - name: Alacrity Power Chrono GS
         id: pchrono-alac-gs
         specialization: Chronomancer
         boonType: Power
@@ -158,6 +158,16 @@ list:
         extras: Alacrity Staff Mirage
         weaponType: Two-handed
 
+      - name: Alacrity Staff / Axe Mirage
+        id: alac-staxe-mirage
+        specialization: Mirage
+        boonType: Condi
+        priority: Condi Alacrity Mirage 0%
+        distribution: Alacrity Staff / Axe Mirage
+        traits: Alacrity Staff / Axe Mirage
+        extras: Alacrity Staff Mirage
+        weaponType: Two-handed
+
       - name: Condi Axe Mirage
         id: axe-mirage-deception-torch
         specialization: Mirage
@@ -171,13 +181,23 @@ list:
   - class: Guardian
     builds:
 
+      - name: Quickness Condi Firebrand 40%
+        id: cqfb-firebrand-40
+        specialization: Firebrand
+        boonType: Condi
+        priority: Condi Quickbrand 40%
+        distribution: Condi Quickbrand (LL, Allies, Approx.)
+        traits: Condi Quickbrand LL
+        extras: Condi Quickbrand
+        weaponType: Dual wield
+
       - name: Quickness Condi Firebrand 49%
         id: cqfb-firebrand-49
         specialization: Firebrand
         boonType: Condi
         priority: Condi Quickbrand 49
-        distribution: Condi Quickbrand (Allies)
-        traits: Condi Quickbrand
+        distribution: Condi Quickbrand (WT, Allies)
+        traits: Condi Quickbrand WT
         extras: Condi Quickbrand
         weaponType: Dual wield
 
@@ -186,8 +206,8 @@ list:
         specialization: Firebrand
         boonType: Condi
         priority: Condi Quickbrand 79
-        distribution: Condi Quickbrand (Allies)
-        traits: Condi Quickbrand
+        distribution: Condi Quickbrand (WT, Allies)
+        traits: Condi Quickbrand WT
         extras: Condi Quickbrand
         weaponType: Dual wield
 
@@ -480,7 +500,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Quickness Power Spellbreaker (Outdated)
+      - name: Quickness Power Spellbreaker
         id: spb-quick
         specialization: Spellbreaker
         boonType: Power
@@ -529,7 +549,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Power Weaver (Outdated)
+      - name: Power Weaver
         id: pwea
         specialization: Weaver
         boonType: Power
@@ -861,7 +881,7 @@ list:
   - class: Engineer
     builds:
 
-      - name: Quickness Scrapper (Outdated)
+      - name: Quickness Scrapper
         id: qscrap
         specialization: Scrapper
         boonType: Power
@@ -1064,7 +1084,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Condi Reaper (Outdated)
+      - name: Condi Reaper
         id: creaper
         specialization: Reaper
         boonType: Condi
@@ -1148,7 +1168,7 @@ list:
         extras: Condi Daredevil
         weaponType: Dual wield
 
-      - name: Power Staff Daredevil (Outdated)
+      - name: Power Staff Daredevil
         id: staffdd
         specialization: Daredevil
         boonType: Power

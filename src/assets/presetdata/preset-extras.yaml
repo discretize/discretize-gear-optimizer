@@ -679,7 +679,8 @@ list:
             "smoldering": {}
           },
           "Runes": {
-            "firebrand-firebrand": {}
+            "firebrand-firebrand": {},
+            "renegade": {}
           },
           "Nourishment": {
             "fishy-rice-bowl": {}
@@ -687,7 +688,8 @@ list:
           "Enhancement": {
             "toxic-focusing-crystal": {},
             "magnanimous-tuning-crystal": {},
-            "toxic-maintenance-oil": {}
+            "toxic-maintenance-oil": {},
+            "magnanimous-maintenance-oil": {}
           }
         }
       }
