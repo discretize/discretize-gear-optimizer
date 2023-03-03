@@ -871,7 +871,7 @@ list:
   - class: Engineer
     builds:
 
-      - name: Quickness Scrapper (Outdated)
+      - name: Quickness Scrapper
         id: qscrap
         specialization: Scrapper
         boonType: Power

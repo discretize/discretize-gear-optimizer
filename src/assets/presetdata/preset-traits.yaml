@@ -5777,7 +5777,7 @@ list:
           ],
           [
             1882,
-            1892,
+            482,
             1947
           ],
           [
@@ -5801,7 +5801,7 @@ list:
             },
             "incendiary-powder": {},
             "sharpshooter": {
-              "amount": "3.54"
+              "amount": "3.8"
             }
           },
           {

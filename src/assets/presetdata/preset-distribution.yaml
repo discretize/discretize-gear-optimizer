@@ -806,17 +806,16 @@ list:
         url: https://www.youtube.com/watch?v=n0X117MhmlU
         log: https://dps.report/SJTF-20230216-171115_golem
 
-  # diviner amulet, 1x ring
   - name: Quickness Scrapper
     profession: Scrapper
     value: >-
       {
-        "values2": { "Power": 2683, "Power2": 0, "Burning": 0.62, "Bleeding": 4.57, "Poisoned": 4.17, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3233, "Power2": 0, "Burning": 0.06, "Bleeding": 5.27, "Poisoned": 4.78, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[CnD] Xyonon'
-        url: https://www.youtube.com/watch?v=oD7fBTMmWFE
-        log: https://dps.report/uRLc-20210823-152656_golem
+      - author: 'Jan'
+        url: https://www.youtube.com/watch?v=g2MW3fWYOn0
+        log: https://dps.report/1xQZ-20220827-191906_golem
 
   - name: Power Chrono IA GS
     profession: Chronomancer
