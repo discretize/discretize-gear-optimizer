@@ -1017,12 +1017,12 @@ list:
     profession: Reaper
     value: >-
       {
-        "values2": { "Power": 2378, "Power2": 0, "Burning": 2.04, "Bleeding": 40.85, "Poisoned": 2.82, "Torment": 4.16, "Confusion": 0 }
+        "values2": { "Power": 2834, "Power2": 0, "Burning": 0.19, "Bleeding": 42.47, "Poisoned": 4.38, "Torment": 3.91, "Confusion": 0 }
       }
     credit:
-      - author: 'Incera'
-        url: https://www.youtube.com/watch?v=prk0ZwXwLlA
-        log: https://dps.report/dlNX-20210928-041540_golem
+      - author: 'Sarulias'
+        url: https://www.youtube.com/watch?v=XdUdlhRqJFk
+        log: https://dps.report/bfKV-20230225-075200_golem
 
   # game bug: alchemic vigor converted at 360
   - name: DPS Harbinger

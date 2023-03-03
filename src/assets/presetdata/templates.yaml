@@ -1074,7 +1074,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Condi Reaper (Outdated)
+      - name: Condi Reaper
         id: creaper
         specialization: Reaper
         boonType: Condi

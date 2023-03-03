@@ -6063,14 +6063,14 @@ list:
         ],
         "selectedTraits": [
           [
-            2013,
+            815,
             816,
             801
           ],
           [
-            875,
+            898,
             894,
-            905
+            893
           ],
           [
             2020,
@@ -6088,12 +6088,12 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "2.74"
+              "amount": "3.16"
             }
           },
           {
             "soul-barbs": {
-              "amount": "85"
+              "amount": "97"
             },
             "vital-persistence": {},
             "death-perception": {}
