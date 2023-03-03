@@ -539,7 +539,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Power Weaver (Outdated)
+      - name: Power Weaver
         id: pwea
         specialization: Weaver
         boonType: Power

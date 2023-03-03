@@ -2747,17 +2747,17 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "55.4"
+              "amount": "49.8"
             },
             "burning-precision": {},
             "burning-rage": {},
             "power-overwhelming": {},
             "power-overwhelming-2": {
-              "amount": "55.4"
+              "amount": "49.8"
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": "9.3"
+              "amount": "8.9"
             }
           },
           {
@@ -2770,7 +2770,7 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "31"
+              "amount": "42.1"
             },
             "bolt-to-the-heart": {
               "amount": ""
@@ -2789,10 +2789,10 @@ list:
               "amount": ""
             },
             "elemental-polyphony-fire": {
-              "amount": "67.6"
+              "amount": "72.5"
             },
             "elemental-polyphony-air": {
-              "amount": "58"
+              "amount": "61.8"
             },
             "elements-of-rage-base": {},
             "elements-of-rage-buff": {
@@ -2803,7 +2803,14 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "woven-fire": {
+            "amount": "48.7"
+          },
+          "woven-air": {
+            "amount": "47.9"
+          }
+        }
       }
 
   - name: Condi Weaver Sword
