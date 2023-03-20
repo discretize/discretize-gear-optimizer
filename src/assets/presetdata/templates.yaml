@@ -311,7 +311,7 @@ list:
         extras: Condi Alacrity Willbender
         weaponType: Dual wield
 
-      - name: Condi Willbender Sword (Outdated)
+      - name: Condi Willbender Sword
         id: cwb-sw
         specialization: Willbender
         boonType: Condi
