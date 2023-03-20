@@ -159,12 +159,12 @@ list:
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 2761, "Power2": 0, "Burning": 13.09, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2829, "Power2": 0, "Burning": 13.89, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=6Ub2Rlz9V-s
-        log: https://dps.report/eo3D-20221204-132527_golem
+        url: https://www.youtube.com/watch?v=5q-ZnzbZ89A
+        log: https://dps.report/OVsj-20230314-233458_golem
 
   # 12 boons
   # viper glove boot ring ear ear back, rest grieving, flame legion, fishy

@@ -197,6 +197,7 @@ export const sigilDict = [
   'mischief-ineptitude',
   'geomancy-torment-cfb5-virtues',
   'geomancy-torment-cfb8-virtues',
+  'air-torment-cwb',
   'geomancy-torment-cwb',
   'geomancy-torment-cwb-alac',
   'geomancy-torment-harb',
