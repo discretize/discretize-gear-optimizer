@@ -13,6 +13,7 @@ import AppliedModifiers from './AppliedModifiers';
 import Bonuses from './Bonuses';
 import EffectiveGainLoss from './EffectiveGainLoss';
 import Indicators from './Indicators';
+import OtherData from './OtherData';
 import OutputDistribution from './OutputDistribution';
 import OutputInfusions from './OutputInfusions';
 import ResultCharacter from './ResultCharacter';
@@ -69,6 +70,8 @@ const ResultDetails = () => {
     }
   });
 
+  const otherData = { [t('Effective Power')]: character.attributes['Effective Power'] };
+
   return (
     <ErrorBoundary location="ResultDetails" resetKeys={[character]}>
       <TextDivider text="Result Character" />
@@ -96,6 +99,7 @@ const ResultDetails = () => {
             data={character.results.effectiveNegativeValues}
             title={t('Damage loss from -5 of attribute')}
           />
+          <OtherData data={otherData} />
         </Grid>
         <Grid item xs={12} sm={6} md={4} />
       </Grid>
