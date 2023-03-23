@@ -728,16 +728,14 @@ export class OptimizerCore {
     const critDmg = attributes['Critical Damage'] * damageMultiplier['Critical Damage'];
     const critChance = clamp(attributes['Critical Chance'], 0, 1);
 
-    attributes['Effective Power'] =
-      attributes['Power'] * (1 + critChance * (critDmg - 1)) * damageMultiplier['Strike Damage'];
-
-    attributes['NonCrit Effective Power'] = attributes['Power'] * damageMultiplier['Strike Damage'];
+    attributes['Effective Power'] = attributes['Power'] * (1 + critChance * (critDmg - 1));
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
     let powerDamage =
-      ((attributes['Power Coefficient'] || 0) / 2597) * attributes['Effective Power'] +
-      ((attributes['NonCrit Power Coefficient'] || 0) / 2597) *
-        attributes['NonCrit Effective Power'];
+      (((attributes['Power Coefficient'] || 0) * attributes['Effective Power'] +
+        (attributes['NonCrit Power Coefficient'] || 0) * attributes['Power']) *
+        damageMultiplier['Strike Damage']) /
+      2597;
 
     attributes['Power DPS'] = powerDamage;
 
@@ -748,12 +746,13 @@ export class OptimizerCore {
         const phantasmCritChance = clamp(attributes['Phantasm Critical Chance'], 0, 1);
 
         attributes['Phantasm Effective Power'] =
-          attributes['Power'] *
-          (1 + phantasmCritChance * (phantasmCritDmg - 1)) *
-          damageMultiplier['Phantasm Damage'];
+          attributes['Power'] * (1 + phantasmCritChance * (phantasmCritDmg - 1));
 
         const phantasmPowerDamage =
-          ((attributes['Power2 Coefficient'] || 0) / 2597) * attributes['Phantasm Effective Power'];
+          ((attributes['Power2 Coefficient'] || 0) *
+            attributes['Phantasm Effective Power'] *
+            damageMultiplier['Phantasm Damage']) /
+          2597;
         attributes['Power2 DPS'] = phantasmPowerDamage;
         powerDamage += phantasmPowerDamage;
       } else {
@@ -763,14 +762,14 @@ export class OptimizerCore {
         const alternativeCritChance = clamp(attributes['Alternative Critical Chance'], 0, 1);
 
         attributes['Alternative Effective Power'] =
-          attributes['Alternative Power'] *
-          (1 + alternativeCritChance * (alternativeCritDmg - 1)) *
-          damageMultiplier['Strike Damage'] *
-          damageMultiplier['Alternative Damage'];
+          attributes['Alternative Power'] * (1 + alternativeCritChance * (alternativeCritDmg - 1));
 
         const alternativePowerDamage =
-          ((attributes['Power2 Coefficient'] || 0) / 2597) *
-          attributes['Alternative Effective Power'];
+          ((attributes['Power2 Coefficient'] || 0) *
+            attributes['Alternative Effective Power'] *
+            damageMultiplier['Strike Damage'] *
+            damageMultiplier['Alternative Damage']) /
+          2597;
         attributes['Power2 DPS'] = alternativePowerDamage;
         powerDamage += alternativePowerDamage;
       }
