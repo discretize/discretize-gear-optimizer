@@ -17,7 +17,7 @@
       text: Vengeful Hammers
       modifiers:
         damage:
-          Damage Reduction: [20%, unknown]
+          Damage Reduction: [20%, mult]
       gw2id: 26557
 
 - section: Corruption
@@ -28,7 +28,7 @@
       text: Acolyte of Torment
       modifiers:
         damage:
-          Torment Damage: [10%, unknown]
+          Torment Damage: [10%, mult]
       gw2id: 1793
       defaultEnabled: true
 
@@ -46,10 +46,10 @@
       subText: 100% resistance
       modifiers:
         damage:
-          Damage Reduction: [20%, unknown]
+          Damage Reduction: [20%, mult]
       wvwModifiers:
         damage:
-          Damage Reduction: [10%, unknown]
+          Damage Reduction: [10%, mult]
       gw2id: 1726
       defaultEnabled: true
 
@@ -82,7 +82,7 @@
       subText: ranged
       modifiers:
         damage:
-          Damage Reduction: [10%, unknown]
+          Damage Reduction: [10%, mult]
       gw2id: 1728
       defaultEnabled: false
 
@@ -104,7 +104,7 @@
       minor: true
       modifiers:
         damage:
-          Damage Reduction: [10%, unknown]
+          Damage Reduction: [10%, mult]
       gw2id: 1713
       defaultEnabled: true
 
@@ -312,7 +312,7 @@
       subText: 100%
       modifiers:
         damage:
-          Damage Reduction: [15%, unknown]
+          Damage Reduction: [15%, mult]
       gw2id: 1825
       defaultEnabled: false
 
@@ -339,7 +339,7 @@
         disableBlacklist: true
       modifiers:
         damage:
-          Damage Reduction: [1.5%, unknown]
+          Damage Reduction: [1.5%, mult]
       gw2id: 1730
       defaultEnabled: false
 
@@ -349,10 +349,10 @@
       minor: true
       modifiers:
         attributes:
-          Concentration: [120, unknown]
+          Concentration: [120, converted]
       wvwModifiers:
         attributes:
-          Concentration: [60, unknown]
+          Concentration: [60, converted]
       gw2id: 1788
       defaultEnabled: true
 
@@ -435,7 +435,7 @@
       text: Heartpiercer
       modifiers:
         damage:
-          Bleeding Damage: [25%, unknown]
+          Bleeding Damage: [25%, mult]
       gw2id: 2092
       defaultEnabled: true
 
@@ -473,7 +473,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, add]
+          Strike Damage: [10%, mult]
       gw2id: 2258
       defaultEnabled: true
 
@@ -487,7 +487,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Power: [240, unknown]
+          Power: [240, converted]
       gw2id: 2229
       defaultEnabled: true
 
@@ -501,7 +501,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Healing Power: [240, unknown]
+          Healing Power: [240, converted]
       gw2id: 2229
       defaultEnabled: true
 
@@ -513,6 +513,6 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [15%, unknown]
+          Strike Damage: [15%, add]
       gw2id: 2257
       defaultEnabled: true
