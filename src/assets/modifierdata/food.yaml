@@ -203,7 +203,7 @@
       text: Plate of Mussels Gnashblade
       modifiers:
         damage:
-          Damage Reduction: [10%, unknown]
+          Damage Reduction: [10%, mult]
         attributes:
           Concentration: [70, converted]
       gw2id: 74969

@@ -26,7 +26,7 @@
       text: Protection
       modifiers:
         damage:
-          Damage Reduction: [33%, unknown]
+          Damage Reduction: [33%, mult]
       type: Boon
 
     - id: vulnerability
