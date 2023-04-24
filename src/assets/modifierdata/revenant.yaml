@@ -172,6 +172,9 @@
       modifiers:
         attributes:
           Critical Chance: 25%
+      wvwModifiers:
+        attributes:
+          Critical Chance: 20%
       gw2id: 1719
       defaultEnabled: true
 
