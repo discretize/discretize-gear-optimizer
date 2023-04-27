@@ -95,3 +95,12 @@
           Strike Damage: [21.2985%, mult]
           Phantasm Damage: [21.2985%, mult]
       type: Text
+
+    - id: lightArmor3
+      text: Low Boss Armor (Qadim)
+      subText: 2293 vs 2597 # tested by remagic
+      modifiers:
+        damage:
+          Strike Damage: [13.2577%, mult]
+          Phantasm Damage: [13.2577%, mult]
+      type: Text
