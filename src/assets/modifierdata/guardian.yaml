@@ -487,7 +487,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [15%, mult]
+          Strike Damage: [20%, mult]
       gw2id: 1955
       defaultEnabled: true
 
