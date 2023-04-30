@@ -472,7 +472,7 @@ list:
           extras: Power (Fractal)
         raid:
           extras: Power (Raid)
-        weaponType: Dual wield
+        weaponType: Two-handed
 
       - name: Power Spellbreaker GS
         id: spb-power-gs
@@ -485,7 +485,7 @@ list:
           extras: Power (Fractal)
         raid:
           extras: Power (Raid)
-        weaponType: Dual wield
+        weaponType: Two-handed
 
       - name: Power Spellbreaker Hammer
         id: spb-power-hammer
@@ -498,7 +498,7 @@ list:
           extras: Power (Fractal)
         raid:
           extras: Power (Raid)
-        weaponType: Dual wield
+        weaponType: Two-handed
 
       - name: Quickness Power Spellbreaker
         id: spb-quick
@@ -511,7 +511,7 @@ list:
           extras: Power Boon (Fractal)
         raid:
           extras: Power Boon (Raid)
-        weaponType: Dual wield
+        weaponType: Two-handed
 
   - class: Elementalist
     builds:
