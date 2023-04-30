@@ -416,6 +416,15 @@
   id: 18
   items:
 
+    - id: smash-brawler-full
+      text: Smash Brawler
+      subText: 100% Uptime # variable crit chance would be inaccurate
+      modifiers:
+        attributes:
+          Critical Chance: 15%
+      gw2id: 2049
+      defaultEnabled: true
+
     - id: blood-reaction-base
       text: Blood Reaction
       subText: base
