@@ -10,7 +10,7 @@ const stats = [
   'Healing Power',
   'Agony Resistance',
 ] as const;
-export type StatName = typeof stats[number];
+export type StatName = (typeof stats)[number];
 
 // added during the "buff" phase, so these cannot be "converted"
 export const alternateStats = [
@@ -33,7 +33,7 @@ export const boons = [
   'Swiftness',
   'Vigor',
 ] as const;
-export type BoonName = typeof boons[number];
+export type BoonName = (typeof boons)[number];
 
 const boonDurations = boons.map((boon) => `${boon} Duration`) as `${BoonName} Duration`[];
 
@@ -60,7 +60,7 @@ export const damagingConditions = [
   'Poison',
   'Torment',
 ] as const;
-export type DamagingConditionName = typeof damagingConditions[number];
+export type DamagingConditionName = (typeof damagingConditions)[number];
 
 const conditionDurations = damagingConditions.map(
   (condition) => `${condition} Duration`,
@@ -109,28 +109,28 @@ export const allDamageKeys = [
   'Phantasm Damage',
   'Phantasm Critical Damage',
 ] as const;
-export type DamageKey = typeof allDamageKeys[number];
+export type DamageKey = (typeof allDamageKeys)[number];
 
 export const allDamageModes = ['add', 'mult', 'target', 'unknown'] as const;
-export type DamageMode = typeof allDamageModes[number];
+export type DamageMode = (typeof allDamageModes)[number];
 
 export const allAttributePointKeys = [...stats, ...alternateStats];
-type AttributePointKey = typeof allAttributePointKeys[number];
+type AttributePointKey = (typeof allAttributePointKeys)[number];
 
 export const allAttributePointModes = ['buff', 'converted', 'unknown'] as const;
-export type AttributePointMode = typeof allAttributePointModes[number];
+export type AttributePointMode = (typeof allAttributePointModes)[number];
 
 export const allAttributeCoefficientKeys = coefficients;
-export type AttributeCoefficientKey = typeof allAttributeCoefficientKeys[number];
+export type AttributeCoefficientKey = (typeof allAttributeCoefficientKeys)[number];
 export const allAttributePercentKeys = percents;
-export type AttributePercentKey = typeof allAttributePercentKeys[number];
+export type AttributePercentKey = (typeof allAttributePercentKeys)[number];
 
 export type AttributeKey = AttributePointKey | AttributeCoefficientKey | AttributePercentKey;
 
 export const allConversionSourceKeys = stats;
-export type ConversionSourceKey = typeof allConversionSourceKeys[number];
+export type ConversionSourceKey = (typeof allConversionSourceKeys)[number];
 export const allConversionDestinationKeys = [...stats, ...percents, ...coefficients] as const;
-export type ConversionDestinationKey = typeof allConversionDestinationKeys[number];
+export type ConversionDestinationKey = (typeof allConversionDestinationKeys)[number];
 
 export const allConversionAfterBuffsSourceKeys = [
   ...stats,
@@ -138,14 +138,14 @@ export const allConversionAfterBuffsSourceKeys = [
   'Clone Critical Chance',
   'Phantasm Critical Chance',
 ] as const;
-export type ConversionAfterBuffsSourceKey = typeof allConversionAfterBuffsSourceKeys[number];
+export type ConversionAfterBuffsSourceKey = (typeof allConversionAfterBuffsSourceKeys)[number];
 export const allConversionAfterBuffsDestinationKeys = [
   ...stats,
   ...percents,
   ...coefficients,
 ] as const;
 export type ConversionAfterBuffsDestinationKey =
-  typeof allConversionAfterBuffsDestinationKeys[number];
+  (typeof allConversionAfterBuffsDestinationKeys)[number];
 
 // these values don't behave well if scaled up and down,
 // so disallow them in modifiers with an amount key

@@ -887,7 +887,7 @@ export const Slots = {
 };
 export type WeaponHandednessType = keyof typeof Slots;
 
-export type SlotsEntry = typeof Slots['Dual wield'];
+export type SlotsEntry = (typeof Slots)['Dual wield'];
 
 // used for forcing slots to a certain affix
 export const ForcedSlots = [
@@ -907,7 +907,7 @@ export const ForcedSlots = [
   'wep2', // 13
 ] as const;
 
-export type ForcedSlotName = typeof ForcedSlots[number];
+export type ForcedSlotName = (typeof ForcedSlots)[number];
 
 export const omnipotionModifiers = {
   // Condi dmg from omnipot has been removed
@@ -1170,7 +1170,7 @@ export const damagingConditions: ConditionName[] = [
 ];
 
 const PrimaryAttributes = ['Power', 'Precision', 'Toughness', 'Vitality'] as const;
-export type PrimaryAttributeName = typeof PrimaryAttributes[number];
+export type PrimaryAttributeName = (typeof PrimaryAttributes)[number];
 
 const SecondaryAttributes = [
   'Ferocity',
@@ -1180,7 +1180,7 @@ const SecondaryAttributes = [
   'Healing Power',
   'Agony Resistance',
 ] as const;
-export type SecondaryAttributeName = typeof SecondaryAttributes[number];
+export type SecondaryAttributeName = (typeof SecondaryAttributes)[number];
 
 const DerivedAttributes = [
   'Critical Chance',
@@ -1190,7 +1190,7 @@ const DerivedAttributes = [
   'Health',
   'Armor',
 ] as const;
-export type DerivedAttributeName = typeof DerivedAttributes[number];
+export type DerivedAttributeName = (typeof DerivedAttributes)[number];
 
 const BoonDurationAttributes = [
   'Aegis Duration',
@@ -1205,7 +1205,7 @@ const BoonDurationAttributes = [
   'Swiftness Duration',
   'Vigor Duration',
 ] as const;
-export type BoonDurationAttributeName = typeof BoonDurationAttributes[number];
+export type BoonDurationAttributeName = (typeof BoonDurationAttributes)[number];
 
 const ConditionDurationAttributes = [
   'Bleeding Duration',
@@ -1223,7 +1223,7 @@ const ConditionDurationAttributes = [
   'Vulnerability Duration',
   'Weakness Duration',
 ] as const;
-export type ConditionDurationAttributeName = typeof ConditionDurationAttributes[number];
+export type ConditionDurationAttributeName = (typeof ConditionDurationAttributes)[number];
 
 const ConditionDamageAttributes = [
   'Bleeding Damage',
@@ -1232,13 +1232,13 @@ const ConditionDamageAttributes = [
   'Poison Damage',
   'Torment Damage',
 ] as const;
-export type ConditionDamageAttributeName = typeof ConditionDamageAttributes[number];
+export type ConditionDamageAttributeName = (typeof ConditionDamageAttributes)[number];
 
 const EffectiveAttributes = ['Effective Power', 'Effective Health', 'Effective Healing'] as const;
-export type EffectiveAttributeName = typeof EffectiveAttributes[number];
+export type EffectiveAttributeName = (typeof EffectiveAttributes)[number];
 
 const Indicators = ['Damage', 'Survivability', 'Healing'] as const;
-export type IndicatorName = typeof Indicators[number];
+export type IndicatorName = (typeof Indicators)[number];
 
 export type AttributeName =
   | PrimaryAttributeName
