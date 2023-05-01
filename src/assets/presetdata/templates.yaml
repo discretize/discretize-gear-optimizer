@@ -47,7 +47,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Quickness Power Chrono GS Conc/Impact
+      - name: Quickness Power Chrono GS Conc/Impact (Approx.)
         id: pchrono-stm-gs-conc
         specialization: Chronomancer
         boonType: Power
@@ -60,7 +60,7 @@ list:
           extras: Quickness Power Chrono Conc/Impact
         weaponType: Two-handed
 
-      - name: Quickness Power Chrono GS 10%
+      - name: Quickness Power Chrono GS 10% (Approx.)
         id: pchrono-stm-gs
         specialization: Chronomancer
         boonType: Power
@@ -96,7 +96,7 @@ list:
         extras: Quickness Condi Chrono
         weaponType: Dual wield
 
-      - name: Alacrity Power Chrono GS
+      - name: Alacrity Power Chrono GS (Approx.)
         id: pchrono-alac-gs
         specialization: Chronomancer
         boonType: Power
@@ -109,7 +109,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Power Chrono IA GS
+      - name: Power Chrono IA GS (Approx.)
         id: pchrono-ia-gs
         specialization: Chronomancer
         boonType: Power
@@ -181,7 +181,7 @@ list:
   - class: Guardian
     builds:
 
-      - name: Quickness Condi Firebrand 40%
+      - name: Quickness Condi Firebrand 40% (Outdated)
         id: cqfb-firebrand-40
         specialization: Firebrand
         boonType: Condi
@@ -191,7 +191,7 @@ list:
         extras: Condi Quickbrand
         weaponType: Dual wield
 
-      - name: Quickness Condi Firebrand 49%
+      - name: Quickness Condi Firebrand 49% (Outdated)
         id: cqfb-firebrand-49
         specialization: Firebrand
         boonType: Condi
@@ -201,7 +201,7 @@ list:
         extras: Condi Quickbrand
         weaponType: Dual wield
 
-      - name: Quickness Condi Firebrand 79%
+      - name: Quickness Condi Firebrand 79% (Outdated)
         id: cqfb-firebrand-79
         specialization: Firebrand
         boonType: Condi
@@ -242,7 +242,7 @@ list:
       #   traits: Condi Quickbrand
       #   extras: CFB w/ Quickness (renegade)
 
-      - name: Condi Firebrand 5 Page RF
+      - name: Condi Firebrand 5 Page RF (Outdated)
         id: cfb-geo
         specialization: Firebrand
         boonType: Condi
@@ -331,7 +331,7 @@ list:
         extras: Condi Willbender
         weaponType: Two-handed
 
-      - name: Power Willbender Virtues
+      - name: Power Willbender Virtues (Outdated)
         id: pwb-virtues
         specialization: Willbender
         boonType: Power
@@ -461,7 +461,7 @@ list:
         extras: Condi Berserker
         weaponType: Two-handed
 
-      - name: Power Berserker (Approx.)
+      - name: Power Berserker (Outdated)
         id: pbers
         specialization: Berserker
         boonType: Power
@@ -472,7 +472,7 @@ list:
           extras: Power (Fractal)
         raid:
           extras: Power (Raid)
-        weaponType: Dual wield
+        weaponType: Two-handed
 
       - name: Power Spellbreaker GS
         id: spb-power-gs
@@ -485,7 +485,7 @@ list:
           extras: Power (Fractal)
         raid:
           extras: Power (Raid)
-        weaponType: Dual wield
+        weaponType: Two-handed
 
       - name: Power Spellbreaker Hammer
         id: spb-power-hammer
@@ -498,7 +498,7 @@ list:
           extras: Power (Fractal)
         raid:
           extras: Power (Raid)
-        weaponType: Dual wield
+        weaponType: Two-handed
 
       - name: Quickness Power Spellbreaker
         id: spb-quick
@@ -511,12 +511,12 @@ list:
           extras: Power Boon (Fractal)
         raid:
           extras: Power Boon (Raid)
-        weaponType: Dual wield
+        weaponType: Two-handed
 
   - class: Elementalist
     builds:
 
-      - name: Alacrity Hybrid Tempest
+      - name: Alacrity Hybrid Tempest (Outdated)
         id: ctemp-alac
         specialization: Tempest
         boonType: Condi
@@ -526,7 +526,7 @@ list:
         extras: Alacrity Hybrid Tempest
         weaponType: Dual wield
 
-      - name: Condi Tempest
+      - name: Condi Tempest (Outdated)
         id: ctemp
         specialization: Tempest
         boonType: Condi
@@ -668,7 +668,7 @@ list:
   - class: Ranger
     builds:
 
-      - name: Condi Alacrity Untamed A/A Hammer
+      - name: Condi Alacrity Untamed A/A Hammer (Outdated)
         id: condi-alacrity-untamed
         specialization: Untamed
         boonType: Condi
@@ -678,7 +678,7 @@ list:
         extras: Condi Untamed Axe
         weaponType: Two-handed
 
-      - name: Condi Untamed Axe
+      - name: Condi Untamed Axe (Outdated)
         id: condi-untamed-axe
         specialization: Untamed
         boonType: Condi
@@ -806,7 +806,7 @@ list:
           extras: Power (Raid, air)
         weaponType: Dual wield
 
-      - name: Alacrity Condi Ren Invo
+      - name: Alacrity Condi Ren Invo (Outdated)
         id: cren-alac-invo
         specialization: Renegade
         boonType: Condi
@@ -816,7 +816,7 @@ list:
         extras: Condi Alac Ren
         weaponType: Two-handed
 
-      - name: Alacrity Power Ren
+      - name: Alacrity Power Ren (Outdated)
         id: pren
         specialization: Renegade
         boonType: Power
@@ -829,7 +829,7 @@ list:
           extras: Power Alac Ren (Raid)
         weaponType: Two-handed
 
-      - name: Condi Ren Invo
+      - name: Condi Ren Invo (Outdated)
         id: cren-invo
         specialization: Renegade
         boonType: Condi
@@ -907,7 +907,7 @@ list:
           extras: Power Scrapper (Raid)
         weaponType: Two-handed
 
-      - name: Power Holo ECSU
+      - name: Power Holo ECSU (Outdated)
         id: pholo-ecsu
         specialization: Holosmith
         boonType: Power
@@ -1038,7 +1038,7 @@ list:
         extras: Quickness Harbinger
         weaponType: Dual wield
 
-      - name: Quickness Power Harbinger (Approx.)
+      - name: Quickness Power Harbinger (Outdated)
         id: qharb-power
         specialization: Harbinger
         boonType: Power
@@ -1071,7 +1071,7 @@ list:
         extras: DPS Scourge
         weaponType: Dual wield
 
-      - name: Power Reaper
+      - name: Power Reaper (Outdated)
         id: preaper
         specialization: Reaper
         boonType: Power
@@ -1084,7 +1084,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Condi Reaper
+      - name: Condi Reaper (Outdated)
         id: creaper
         specialization: Reaper
         boonType: Condi
@@ -1098,7 +1098,7 @@ list:
   - class: Thief
     builds:
 
-      - name: Alacrity Specter 57%
+      - name: Alacrity Specter 57% (Outdated)
         id: specter-alac
         specialization: Specter
         boonType: Condi
@@ -1108,7 +1108,7 @@ list:
         extras: Alacrity Specter
         weaponType: Dual wield
 
-      - name: Alacrity Specter 60%
+      - name: Alacrity Specter 60% (Outdated)
         id: specter-alac-60
         specialization: Specter
         boonType: Condi
