@@ -806,7 +806,7 @@ list:
           extras: Power (Raid, air)
         weaponType: Dual wield
 
-      - name: Alacrity Condi Ren Invo
+      - name: Alacrity Condi Ren Invo (Outdated)
         id: cren-alac-invo
         specialization: Renegade
         boonType: Condi
@@ -816,7 +816,7 @@ list:
         extras: Condi Alac Ren
         weaponType: Two-handed
 
-      - name: Alacrity Power Ren
+      - name: Alacrity Power Ren (Outdated)
         id: pren
         specialization: Renegade
         boonType: Power
@@ -829,7 +829,7 @@ list:
           extras: Power Alac Ren (Raid)
         weaponType: Two-handed
 
-      - name: Condi Ren Invo
+      - name: Condi Ren Invo (Outdated)
         id: cren-invo
         specialization: Renegade
         boonType: Condi
