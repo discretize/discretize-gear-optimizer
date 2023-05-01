@@ -72,6 +72,8 @@
       }
     ],
 
+    "react/function-component-definition": "off",
+
     // typescript:
     "react/jsx-filename-extension": ["warn", { "extensions": [".jsx", ".tsx"] }],
     "import/extensions": [
