@@ -76,7 +76,7 @@ const IndexPage = () => {
               variant="filled"
               severity="info"
               color="subtleThemed"
-              sx={{ marginBottom: 1 }}
+              sx={{ marginBottom: 1, color: '#fff' }}
             >
               {alert}
             </MuiAlert>
