@@ -1038,7 +1038,7 @@ list:
         extras: Quickness Harbinger
         weaponType: Dual wield
 
-      - name: Quickness Power Harbinger (Approx.)
+      - name: Quickness Power Harbinger (Outdated)
         id: qharb-power
         specialization: Harbinger
         boonType: Power
@@ -1071,7 +1071,7 @@ list:
         extras: DPS Scourge
         weaponType: Dual wield
 
-      - name: Power Reaper
+      - name: Power Reaper (Outdated)
         id: preaper
         specialization: Reaper
         boonType: Power
@@ -1084,7 +1084,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Condi Reaper
+      - name: Condi Reaper (Outdated)
         id: creaper
         specialization: Reaper
         boonType: Condi
