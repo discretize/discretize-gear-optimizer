@@ -15,7 +15,10 @@ import {
 } from '../slices/controlsSlice';
 import SagaTypes from './sagaTypes';
 
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const delay = (ms) =>
+  new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
 
 function* runCalc() {
   let state;

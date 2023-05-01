@@ -34,11 +34,9 @@ const InfusionsSection = () => {
       title={title}
       content={<Infusions />}
       helpText={
-        <>
-          <Trans>
-            Select up to 2 types of stat infusions, and optionally limit the quantity allowed.
-          </Trans>
-        </>
+        <Trans>
+          Select up to 2 types of stat infusions, and optionally limit the quantity allowed.
+        </Trans>
       }
       extraInfo={
         <Presets
