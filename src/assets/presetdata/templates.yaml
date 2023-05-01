@@ -47,7 +47,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Quickness Power Chrono GS Conc/Impact
+      - name: Quickness Power Chrono GS Conc/Impact (Approx.)
         id: pchrono-stm-gs-conc
         specialization: Chronomancer
         boonType: Power
@@ -60,7 +60,7 @@ list:
           extras: Quickness Power Chrono Conc/Impact
         weaponType: Two-handed
 
-      - name: Quickness Power Chrono GS 10%
+      - name: Quickness Power Chrono GS 10% (Approx.)
         id: pchrono-stm-gs
         specialization: Chronomancer
         boonType: Power
@@ -96,7 +96,7 @@ list:
         extras: Quickness Condi Chrono
         weaponType: Dual wield
 
-      - name: Alacrity Power Chrono GS
+      - name: Alacrity Power Chrono GS (Approx.)
         id: pchrono-alac-gs
         specialization: Chronomancer
         boonType: Power
@@ -109,7 +109,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Power Chrono IA GS
+      - name: Power Chrono IA GS (Approx.)
         id: pchrono-ia-gs
         specialization: Chronomancer
         boonType: Power
