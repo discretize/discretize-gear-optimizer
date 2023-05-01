@@ -103,8 +103,8 @@ export const getLifestealAmount = (state) => state.optimizer.form.extras.lifeste
  *
  * Note: Mathematically, this is neither a "combination" nor a "permutation."
  *
- * @param {object.<string, string[]>} data - dictionary of arrays of valid values for each key
- * @returns {object.<string, string>[]} - array of every possible dictionary where one value is chosen for each key
+ * @param {{[key: string]: string[]}} data - dictionary of arrays of valid values for each key
+ * @returns {{[key: string]: string[]}} - array of every possible dictionary where one value is chosen for each key
  */
 const findCombinations = (data) => {
   // convert an empty array to a single array of null; no selection is still one possibility!
