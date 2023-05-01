@@ -58,7 +58,6 @@ const SharingSection = () => {
           ) : null}
         </>
       }
-      extraInfo={<></>}
     />
   );
 };

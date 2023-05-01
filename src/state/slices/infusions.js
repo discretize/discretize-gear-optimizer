@@ -132,9 +132,11 @@ const calcAgonyInfusions = (slots, ar) => {
 
   // AR infusion cost is about 1g for +7; doubles with each additional
   const lowerCost = lowerType
-    ? infusionIds[`+${lowerType} Agony Infusion`]?.cost / 10000 || 2 ** (lowerType - 7)
+    ? // eslint-disable-next-line no-unsafe-optional-chaining
+      infusionIds[`+${lowerType} Agony Infusion`]?.cost / 10000 || 2 ** (lowerType - 7)
     : 0;
   const higherCost =
+    // eslint-disable-next-line no-unsafe-optional-chaining
     infusionIds[`+${higherType} Agony Infusion`]?.cost / 10000 || 2 ** (higherType - 7);
   const agonyCost = lowerCount * lowerCost + higherCount * higherCost;
 

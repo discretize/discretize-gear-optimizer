@@ -71,7 +71,8 @@ const BuildPage = () => {
 
   // Component for a trait line, augmented with the name of the trait line
   // TODO maybe move this into react-discretize-components
-  const Traits = ({ id, selected: selectedTraits }) => {
+  // eslint-disable-next-line react/no-unstable-nested-components
+  function Traits({ id, selected: selectedTraits }) {
     return (
       <Box display="flex" mb={1}>
         <Paper elevation={0} className={classes.traitlineRoot}>
@@ -82,7 +83,7 @@ const BuildPage = () => {
         <TraitLine id={id} defaultSelected={selectedTraits} selectable={false} />
       </Box>
     );
-  };
+  }
 
   let assumedBuffs = buffModifiers.flatMap((buff) => buff.items).filter((buff) => buffs[buff.id]);
 

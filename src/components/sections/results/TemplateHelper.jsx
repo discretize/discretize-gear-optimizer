@@ -62,7 +62,9 @@ const TemplateHelper = ({ character }) => {
             return;
           }
 
-          const duration = (data.phases?.[0]?.end - data.phases?.[0]?.start) / 1000;
+          const end = data.phases?.[0]?.end ?? 0;
+          const start = data.phases?.[0]?.start ?? 0;
+          const duration = (end - start) / 1000;
 
           let sum = 0;
           const powerDPS = playerData.dpsTargets?.[0]?.[0]?.powerDps;

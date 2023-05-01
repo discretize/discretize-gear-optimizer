@@ -43,15 +43,13 @@ const DistributionSection = () => {
       title={t('Skill Coefficients')}
       content={<DamageDistribution />}
       extraInfo={
-        <>
-          {profession !== '' && (
-            <Presets
-              data={distributionPresets}
-              handleClick={onTemplateClickDistribution}
-              presetCategory="distribution"
-            />
-          )}
-        </>
+        profession !== '' && (
+          <Presets
+            data={distributionPresets}
+            handleClick={onTemplateClickDistribution}
+            presetCategory="distribution"
+          />
+        )
       }
       helpText={
         <>

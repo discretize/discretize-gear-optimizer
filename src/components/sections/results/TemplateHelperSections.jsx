@@ -196,58 +196,53 @@ const TemplateHelperSections = ({ character }) => {
   };
 
   return (
-    <>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography>
-            <Trans>Development</Trans>
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Grid container>
-            <Grid item xs={12}>
-              <Section
-                title={t('Website Templates')}
-                helpText={
-                  <Trans>
-                    Create templates for the discretize.eu website. Please check the
-                    discretize-guides repo for more information.
-                  </Trans>
-                }
-                content={
-                  <ModalContent
-                    character={character}
-                    buttons={[
-                      { label: 'Copy Build to clipboard', onClick, icon: ContentCopyIcon },
-                      { label: 'Copy JSON', onClick: () => onClick(true), icon: ContentCopyIcon },
-                    ]}
-                  />
-                }
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Section
-                title={t('Optimizer Templates')}
-                content={<TemplateHelper character={character} />}
-                helpText={
-                  <Trans>Create build templates that can be used for the gear optimizer.</Trans>
-                }
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Section
-                title={t('gw2combat project')}
-                content={<GW2Combat character={character} />}
-              />
-            </Grid>
+    <Accordion>
+      <AccordionSummary
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls="panel1a-content"
+        id="panel1a-header"
+      >
+        <Typography>
+          <Trans>Development</Trans>
+        </Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        <Grid container>
+          <Grid item xs={12}>
+            <Section
+              title={t('Website Templates')}
+              helpText={
+                <Trans>
+                  Create templates for the discretize.eu website. Please check the discretize-guides
+                  repo for more information.
+                </Trans>
+              }
+              content={
+                <ModalContent
+                  character={character}
+                  buttons={[
+                    { label: 'Copy Build to clipboard', onClick, icon: ContentCopyIcon },
+                    { label: 'Copy JSON', onClick: () => onClick(true), icon: ContentCopyIcon },
+                  ]}
+                />
+              }
+            />
           </Grid>
-        </AccordionDetails>
-      </Accordion>
-    </>
+          <Grid item xs={12}>
+            <Section
+              title={t('Optimizer Templates')}
+              content={<TemplateHelper character={character} />}
+              helpText={
+                <Trans>Create build templates that can be used for the gear optimizer.</Trans>
+              }
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Section title={t('gw2combat project')} content={<GW2Combat character={character} />} />
+          </Grid>
+        </Grid>
+      </AccordionDetails>
+    </Accordion>
   );
 };
 export default React.memo(TemplateHelperSections);

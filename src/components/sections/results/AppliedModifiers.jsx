@@ -38,55 +38,53 @@ const AppliedModifiers = ({ character }) => {
   const isWvW = gameMode === 'wvw';
 
   return (
-    <>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+    <Accordion>
+      <AccordionSummary
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls="panel1a-content"
+        id="panel1a-header"
+      >
+        <Typography className={classes.heading}>
+          <Trans>Applied Modifers</Trans>
+        </Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        <Table padding="none">
+          <TableBody>
+            {appliedModifiers.map(({ type, id, modifiers, wvwModifiers, amount, amountData }) => {
+              const { value: amountInput } = parseAmount(amount);
+              const multiplierNote = amountData
+                ? `${roundTwo(scaleValue(1, amountInput, amountData))}x`
+                : '';
+              return (
+                <TableRow hover key={`${type} ${id}`}>
+                  <TableCell>
+                    <Typography className={classes.gw2Item}> {id} </Typography>
+                  </TableCell>
+                  <TableCell style={{ paddingRight: 8 }}>
+                    <Typography variant="body2">{multiplierNote}</Typography>
+                  </TableCell>
+                  <TableCell>
+                    {isWvW && wvwModifiers ? 'WvW: ' : ''}
+                    {JSON.stringify(isWvW ? wvwModifiers ?? modifiers : modifiers)}
+                  </TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+        <Button
+          variant="contained"
+          onClick={() => {
+            navigator.clipboard.writeText(JSON.stringify(character, null, 2));
+            // eslint-disable-next-line no-alert
+            alert('copied raw character data JSON!');
+          }}
         >
-          <Typography className={classes.heading}>
-            <Trans>Applied Modifers</Trans>
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Table padding="none">
-            <TableBody>
-              {appliedModifiers.map(({ type, id, modifiers, wvwModifiers, amount, amountData }) => {
-                const { value: amountInput } = parseAmount(amount);
-                const multiplierNote = amountData
-                  ? `${roundTwo(scaleValue(1, amountInput, amountData))}x`
-                  : '';
-                return (
-                  <TableRow hover key={`${type} ${id}`}>
-                    <TableCell>
-                      <Typography className={classes.gw2Item}> {id} </Typography>
-                    </TableCell>
-                    <TableCell style={{ paddingRight: 8 }}>
-                      <Typography variant="body2">{multiplierNote}</Typography>
-                    </TableCell>
-                    <TableCell>
-                      {isWvW && wvwModifiers ? 'WvW: ' : ''}
-                      {JSON.stringify(isWvW ? wvwModifiers ?? modifiers : modifiers)}
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
-            </TableBody>
-          </Table>
-          <Button
-            variant="contained"
-            onClick={() => {
-              navigator.clipboard.writeText(JSON.stringify(character, null, 2));
-              // eslint-disable-next-line no-alert
-              alert('copied raw character data JSON!');
-            }}
-          >
-            {t('copy raw data to clipboard')}
-          </Button>
-        </AccordionDetails>
-      </Accordion>
-    </>
+          {t('copy raw data to clipboard')}
+        </Button>
+      </AccordionDetails>
+    </Accordion>
   );
 };
 

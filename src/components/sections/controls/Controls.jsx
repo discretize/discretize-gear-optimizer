@@ -86,76 +86,74 @@ const ControlsBox = () => {
   }
 
   return (
-    <>
-      <Box display="flex" flexWrap="wrap">
-        <Box>
-          <Button
-            variant="outlined"
-            color="primary"
-            className={classes.button}
-            onClick={onStartCalculate}
-            classes={{ label: classes.label }}
-            disabled={status === RUNNING || profession === ''}
-          >
-            {status === RUNNING ? (
-              <ProgressIcon className={classes.icon} />
-            ) : (
-              <EqualizerRoundedIcon className={classes.icon} />
-            )}
-            <Typography>
-              <Trans>Calculate</Trans>
-            </Typography>
-          </Button>
-        </Box>
-        <Box>
-          <Button
-            variant="outlined"
-            color="primary"
-            className={classes.button}
-            onClick={(e) => dispatch({ type: SagaTypes.Stop })}
-            disabled={status !== RUNNING}
-          >
-            <Cancel className={classNames(classes.icon)} />
-            <Typography style={{ marginLeft: 8 }}>
-              <Trans>Stop</Trans>
-            </Typography>
-          </Button>
-        </Box>
-        <Box flexGrow={1}>
-          {status === STOPPED ? (
-            <Button
-              variant="outlined"
-              color="primary"
-              className={classes.button}
-              onClick={(e) => dispatch({ type: SagaTypes.Resume })}
-            >
-              <ProgressIcon className={classes.icon} />
-              <Typography style={{ marginLeft: 8 }}>
-                <Trans>Resume</Trans>
-              </Typography>
-            </Button>
-          ) : null}
-        </Box>
-
-        <Box alignSelf="center" display="flex" m={1} maxWidth={300}>
-          <Typography variant="caption" className={classes.errorText}>
-            {error}
+    <Box display="flex" flexWrap="wrap">
+      <Box>
+        <Button
+          variant="outlined"
+          color="primary"
+          className={classes.button}
+          onClick={onStartCalculate}
+          classes={{ label: classes.label }}
+          disabled={status === RUNNING || profession === ''}
+        >
+          {status === RUNNING ? (
+            <ProgressIcon className={classes.icon} />
+          ) : (
+            <EqualizerRoundedIcon className={classes.icon} />
+          )}
+          <Typography>
+            <Trans>Calculate</Trans>
           </Typography>
-        </Box>
-        <Box alignSelf="center">
-          <Chip
-            sx={{ marginRight: 1 }}
-            label={
-              <>
-                <Trans>Status:</Trans> {firstUppercase(status)} {icon}
-              </>
-            }
-            color={[SUCCESS, WAITING, RUNNING].includes(status) ? 'primary' : 'secondary'}
-          />
-          <ResultTableSettings />
-        </Box>
+        </Button>
       </Box>
-    </>
+      <Box>
+        <Button
+          variant="outlined"
+          color="primary"
+          className={classes.button}
+          onClick={(e) => dispatch({ type: SagaTypes.Stop })}
+          disabled={status !== RUNNING}
+        >
+          <Cancel className={classNames(classes.icon)} />
+          <Typography style={{ marginLeft: 8 }}>
+            <Trans>Stop</Trans>
+          </Typography>
+        </Button>
+      </Box>
+      <Box flexGrow={1}>
+        {status === STOPPED ? (
+          <Button
+            variant="outlined"
+            color="primary"
+            className={classes.button}
+            onClick={(e) => dispatch({ type: SagaTypes.Resume })}
+          >
+            <ProgressIcon className={classes.icon} />
+            <Typography style={{ marginLeft: 8 }}>
+              <Trans>Resume</Trans>
+            </Typography>
+          </Button>
+        ) : null}
+      </Box>
+
+      <Box alignSelf="center" display="flex" m={1} maxWidth={300}>
+        <Typography variant="caption" className={classes.errorText}>
+          {error}
+        </Typography>
+      </Box>
+      <Box alignSelf="center">
+        <Chip
+          sx={{ marginRight: 1 }}
+          label={
+            <>
+              <Trans>Status:</Trans> {firstUppercase(status)} {icon}
+            </>
+          }
+          color={[SUCCESS, WAITING, RUNNING].includes(status) ? 'primary' : 'secondary'}
+        />
+        <ResultTableSettings />
+      </Box>
+    </Box>
   );
 };
 
