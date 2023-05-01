@@ -516,7 +516,7 @@ list:
   - class: Elementalist
     builds:
 
-      - name: Alacrity Hybrid Tempest
+      - name: Alacrity Hybrid Tempest (Outdated)
         id: ctemp-alac
         specialization: Tempest
         boonType: Condi
@@ -526,7 +526,7 @@ list:
         extras: Alacrity Hybrid Tempest
         weaponType: Dual wield
 
-      - name: Condi Tempest
+      - name: Condi Tempest (Outdated)
         id: ctemp
         specialization: Tempest
         boonType: Condi
