@@ -4,14 +4,14 @@ import { globals } from '@discretize/react-discretize-components';
 import { Global } from '@emotion/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import IndexPage from '../src/pages/build/index';
 import createStore from '../src/state/createStore';
 import muiTheme from '../src/utils/placeholder-unused-theme';
 
-import 'typeface-fira-mono';
 import '@discretize/typeface-menomonia';
+import 'typeface-fira-mono';
 import 'typeface-muli';
 import 'typeface-raleway';
 
@@ -19,7 +19,9 @@ import '../src/utils/i18n';
 
 const store = createStore();
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(
   <React.StrictMode>
     <Provider store={store}>
       <Global styles={globals} />
@@ -30,5 +32,4 @@ ReactDOM.render(
       </ThemeProvider>
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root'),
 );

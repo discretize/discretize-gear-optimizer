@@ -5,7 +5,7 @@ import '@discretize/typeface-menomonia';
 import { Global } from '@emotion/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import 'typeface-fira-mono';
 import 'typeface-muli';
@@ -17,7 +17,9 @@ import IndexPage from './index';
 
 const store = createStore();
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(
   <React.StrictMode>
     <Provider store={store}>
       <Global styles={globals} />
@@ -28,5 +30,4 @@ ReactDOM.render(
       </ThemeProvider>
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root'),
 );
