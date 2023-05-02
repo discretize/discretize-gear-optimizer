@@ -53,7 +53,7 @@
     "i18next": "^22.4.15",
     "js-yaml": "^4.1.0",
     "json-url": "^3.0.0",
-    "material-ui-popup-state": "^2.0.0",
+    "material-ui-popup-state": "^5.0.8",
     "pako": "^2.0.4",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
