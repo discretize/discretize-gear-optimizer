@@ -1028,7 +1028,7 @@ list:
   - class: Necromancer
     builds:
 
-      - name: Quickness Harbinger
+      - name: Quickness Harbinger (Outdated)
         id: qharb
         specialization: Harbinger
         boonType: Condi
@@ -1051,7 +1051,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Condi Harbinger
+      - name: Condi Harbinger (Outdated)
         id: charb
         specialization: Harbinger
         boonType: Condi
