@@ -10,9 +10,9 @@ jobs:
 
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
+        uses: actions/checkout@v3
 
-      - uses: actionsx/prettier@v2
+      - uses: actionsx/prettier@v3
         with:
           # prettier CLI arguments.
           args: --check .
