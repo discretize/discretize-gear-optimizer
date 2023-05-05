@@ -418,7 +418,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Condition Damage: [0.5%, unknown]
+          Condition Damage: [0.5%, add] # tested by ReMagic
       gw2id: 2185
       defaultEnabled: true
 
