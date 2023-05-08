@@ -13,13 +13,15 @@ function firstUppercase(text: string | undefined | null): string {
  * error so text boxes can display the error validation state
  */
 function parseNumber<Default>(
-  text: string | null | undefined,
+  input: number | string | null | undefined,
   defaultValue: Default,
   integerMode: boolean, // if true, parse as integer instead of float
 ): { value: number | Default; error: boolean } {
-  if (text === '' || text === null || text === undefined) {
+  if (input === '' || input === null || input === undefined) {
     return { value: defaultValue, error: false };
   }
+  const text = String(input).replace('%', '');
+
   const value = integerMode ? parseInt(text, 10) : parseFloat(text);
 
   // this covers quirks like parseFloat('1hello') being 1
@@ -31,12 +33,17 @@ function parseNumber<Default>(
   return { value, error: false };
 }
 
-export const parseAmount = (text: string) => parseNumber(text, null, false);
-export const parseAr = (text: string) => parseNumber(text, 0, true);
-export const parseInfusionCount = (text: string) => parseNumber(text, 18, true);
-export const parseDistribution = (text: string) => parseNumber(text, 0, false);
-export const parsePriority = (text: string) => parseNumber(text, null, false);
-export const parseBoss = (text: string) => parseNumber(text, null, false);
+export const parseAmount = (text: number | string | null | undefined) =>
+  parseNumber(text, null, false);
+export const parseAr = (text: number | string | null | undefined) => parseNumber(text, 0, true);
+export const parseInfusionCount = (text: number | string | null | undefined) =>
+  parseNumber(text, 18, true);
+export const parseDistribution = (text: number | string | null | undefined) =>
+  parseNumber(text, 0, false);
+export const parsePriority = (text: number | string | null | undefined) =>
+  parseNumber(text, null, false);
+export const parseBoss = (text: number | string | null | undefined) =>
+  parseNumber(text, null, false);
 
 export const getWeight = (profession: ProfessionName) => {
   // Calculate weight class
