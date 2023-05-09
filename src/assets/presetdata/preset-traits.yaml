@@ -3231,7 +3231,7 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "57"
+              "amount": "53.3"
             },
             "burning-precision": {},
             "burning-rage": {},
@@ -3241,7 +3241,7 @@ list:
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": ""
+              "amount": "9.5"
             }
           },
           {
@@ -3254,13 +3254,13 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "35"
+              "amount": "35.3"
             },
             "bolt-to-the-heart": {
               "amount": ""
             },
             "fresh-air": {
-              "amount": "46"
+              "amount": "48.5"
             },
             "zephyrs-speed": {}
           },
@@ -3273,10 +3273,10 @@ list:
               "amount": ""
             },
             "elemental-polyphony-fire": {
-              "amount": "65"
+              "amount": "65.8"
             },
             "elemental-polyphony-air": {
-              "amount": "61"
+              "amount": "63.1"
             },
             "elements-of-rage-base": {},
             "elements-of-rage-buff": {
@@ -3289,7 +3289,10 @@ list:
       {
         "skills": {
           "woven-fire": {
-            "amount": "51"
+            "amount": "53"
+          },
+          "woven-air": {
+            "amount": "54.1"
           }
         }
       }
