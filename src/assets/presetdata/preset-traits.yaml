@@ -499,7 +499,7 @@ list:
             1950
           ],
           [
-            2141,
+            2110,
             2178,
             2070
           ]
@@ -527,10 +527,10 @@ list:
               "amount": ""
             },
             "sharper-images-clone": {
-              "amount": "2.67"
+              "amount": "2.59"
             },
             "sharper-images-phantasm": {
-              "amount": "0.04"
+              "amount": "0.3"
             },
             "phantasmal-fury": {}
           },
