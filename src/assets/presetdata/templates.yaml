@@ -920,7 +920,7 @@ list:
           extras: Power Holo (Raid)
         weaponType: Dual wield
 
-      - name: Condi Holo (Outdated)
+      - name: Condi Holo
         id: cholo
         specialization: Holosmith
         boonType: Condi

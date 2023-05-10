@@ -732,18 +732,16 @@ list:
         url: https://www.youtube.com/watch?v=iKpNrLWJchU
         log: https://dps.report/C8rh-20230112-212337_golem
 
-  # power: 7803, burn: 17705, bleed: 7184, poison: 3741, confusion: [7.735 stacks at 66.86% duration]
-  # old confusion balance
   - name: Condi Holo
     profession: Holosmith
     value: >-
       {
-        "values2": { "Power": 2363, "Power2": 0, "Burning": 11.26, "Bleeding": 10.33, "Poisoned": 8.03, "Torment": 0, "Confusion": 4.6 }
+        "values2": { "Power": 2604, "Power2": 0, "Burning": 15.15, "Bleeding": 10.59, "Poisoned": 7.97, "Torment": 0, "Confusion": 4.31 }
       }
     credit:
-      - author: '[CnD] Lunar'
-        url: https://www.youtube.com/watch?v=ZuBId0hZ0mo
-        log: https://dps.report/qsSO-20200715-025640_golem
+      - author: beng / L3m0n
+        url: https://www.youtube.com/watch?v=CS-MXiP2kr4
+        log: https://dps.report/maus-20230505-172224_golem
 
   # has lifesteal food; subtracy 127 power dps
   # mech does burning (???) - import tool breaks
