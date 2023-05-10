@@ -62,12 +62,12 @@ list:
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 2079, "Power2": 0, "Burning": 10.67, "Bleeding": 14.03, "Poisoned": 1.96, "Torment": 1.24, "Confusion": 0 }
+        "values2": { "Power": 2104, "Power2": 0, "Burning": 10.29, "Bleeding": 15.77, "Poisoned": 1.93, "Torment": 1.16, "Confusion": 0 }
       }
     credit:
       - author: 'Costa Primo'
-        url: https://www.youtube.com/watch?v=ubcps4VBviU
-        log: https://dps.report/M6J4-20220825-123005_golem
+        url: https://www.youtube.com/watch?v=h1BlQAMiKsY
+        log: https://dps.report/44iU-20230416-120753_golem
 
   # Sundering leap for higher potential number
   - name: Condi Berserker

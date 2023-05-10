@@ -441,7 +441,7 @@ list:
           extras: Bladesworn
         weaponType: Dual wield
 
-      - name: Quickness Condi Bers (Outdated)
+      - name: Quickness Condi Bers
         id: cbers
         specialization: Berserker
         boonType: Condi
