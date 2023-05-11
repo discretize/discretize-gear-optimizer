@@ -152,7 +152,7 @@ list:
         id: alacmirage
         specialization: Mirage
         boonType: Condi
-        priority: Condi Alacrity Mirage 0%
+        priority: Condi Alacrity Mirage 30%
         distribution: Alacrity Staff Mirage
         traits: Alacrity Staff Mirage
         extras: Alacrity Staff Mirage
@@ -441,7 +441,7 @@ list:
           extras: Bladesworn
         weaponType: Dual wield
 
-      - name: Quickness Condi Bers (Outdated)
+      - name: Quickness Condi Bers
         id: cbers
         specialization: Berserker
         boonType: Condi
@@ -516,7 +516,7 @@ list:
   - class: Elementalist
     builds:
 
-      - name: Alacrity Hybrid Tempest (Outdated)
+      - name: Alacrity Hybrid Tempest
         id: ctemp-alac
         specialization: Tempest
         boonType: Condi
@@ -603,7 +603,7 @@ list:
         extras: Condi Weaver Dagger
         weaponType: Dual wield
 
-      - name: Hybrid Weaver (Outdated)
+      - name: Hybrid Weaver
         id: hwea
         specialization: Weaver
         boonType: Condi
@@ -839,7 +839,7 @@ list:
         extras: Condi Ren
         weaponType: Two-handed
 
-      - name: Power Vindicator (Outdated)
+      - name: Power Vindicator
         id: vindi
         specialization: Vindicator
         boonType: Power
@@ -920,7 +920,7 @@ list:
           extras: Power Holo (Raid)
         weaponType: Dual wield
 
-      - name: Condi Holo (Outdated)
+      - name: Condi Holo
         id: cholo
         specialization: Holosmith
         boonType: Condi

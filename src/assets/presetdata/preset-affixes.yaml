@@ -265,6 +265,16 @@ list:
         "minQuicknessDuration": 0
       }
 
+  - name: Condi Alacrity Mirage 30%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 30,
+        "minQuicknessDuration": 0
+      }
+
   - name: Condi Quickness Berserker 40%
     hidden: true
     value: >-

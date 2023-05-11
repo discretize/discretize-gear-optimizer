@@ -62,12 +62,12 @@ list:
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 2079, "Power2": 0, "Burning": 10.67, "Bleeding": 14.03, "Poisoned": 1.96, "Torment": 1.24, "Confusion": 0 }
+        "values2": { "Power": 2104, "Power2": 0, "Burning": 10.29, "Bleeding": 15.77, "Poisoned": 1.93, "Torment": 1.16, "Confusion": 0 }
       }
     credit:
       - author: 'Costa Primo'
-        url: https://www.youtube.com/watch?v=ubcps4VBviU
-        log: https://dps.report/M6J4-20220825-123005_golem
+        url: https://www.youtube.com/watch?v=h1BlQAMiKsY
+        log: https://dps.report/44iU-20230416-120753_golem
 
   # Sundering leap for higher potential number
   - name: Condi Berserker
@@ -411,28 +411,27 @@ list:
         url: https://www.youtube.com/watch?v=6y6GPyibdVQ
         log: https://dps.report/MZfE-20230221-213716_golem
 
-  # 15 mal/3 spite
   - name: Hybrid Weaver
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 3230, "Power2": 0, "Burning": 11.73, "Bleeding": 1.82, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3328, "Power2": 0, "Burning": 11.76, "Bleeding": 1.88, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[SC] Roul'
-        url: https://www.youtube.com/watch?v=jCE0CjrS4z4
-        log: https://dps.report/vJAR-20221202-184528_golem
+      - author: '[SC] Trace'
+        url: https://www.youtube.com/watch?v=sU5-g4wBsgw
+        log: https://dps.report/4kbg-20230312-075239_golem
 
   - name: Alacrity Hybrid Tempest
     profession: Tempest
     value: >-
       {
-        "values2": { "Power": 3057, "Power2": 0, "Burning": 10.32, "Bleeding": 11.45, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3118, "Power2": 0, "Burning": 10.84, "Bleeding": 12.23, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Umbra
-        url: https://www.youtube.com/watch?v=hd2Wj1oweG8
-        log: https://dps.report/btXO-20221004-202115_golem
+      - author: 'Dánmander'
+        url: https://www.youtube.com/watch?v=M3ZgexzwctE
+        log: https://dps.report/kLLn-20230503-182011_golem
 
   - name: Condi Tempest
     profession: Tempest
@@ -615,12 +614,12 @@ list:
     profession: Vindicator
     value: >-
       {
-        "values2": { "Power": 3537, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 3.07, "Confusion": 0 }
+        "values2": { "Power": 3676, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 3.1, "Confusion": 0 }
       }
     credit:
       - author: beng / L3m0n
-        url: https://www.youtube.com/watch?v=iNqYMGbGU0E
-        log: https://dps.report/zeOf-20221201-171756_golem
+        url: https://www.youtube.com/watch?v=J8aDZhvJFqM
+        log: https://dps.report/DWk6-20230510-145934_golem
 
   - name: Condi Alacrity Untamed A/A Hammer
     profession: Untamed
@@ -733,18 +732,16 @@ list:
         url: https://www.youtube.com/watch?v=iKpNrLWJchU
         log: https://dps.report/C8rh-20230112-212337_golem
 
-  # power: 7803, burn: 17705, bleed: 7184, poison: 3741, confusion: [7.735 stacks at 66.86% duration]
-  # old confusion balance
   - name: Condi Holo
     profession: Holosmith
     value: >-
       {
-        "values2": { "Power": 2363, "Power2": 0, "Burning": 11.26, "Bleeding": 10.33, "Poisoned": 8.03, "Torment": 0, "Confusion": 4.6 }
+        "values2": { "Power": 2604, "Power2": 0, "Burning": 15.15, "Bleeding": 10.59, "Poisoned": 7.97, "Torment": 0, "Confusion": 4.31 }
       }
     credit:
-      - author: '[CnD] Lunar'
-        url: https://www.youtube.com/watch?v=ZuBId0hZ0mo
-        log: https://dps.report/qsSO-20200715-025640_golem
+      - author: beng / L3m0n
+        url: https://www.youtube.com/watch?v=CS-MXiP2kr4
+        log: https://dps.report/maus-20230505-172224_golem
 
   # has lifesteal food; subtracy 127 power dps
   # mech does burning (???) - import tool breaks
@@ -906,12 +903,12 @@ list:
     profession: Mirage
     value: >-
       {
-        "values2": { "Power": 1098, "Power2": 86, "Burning": 0, "Bleeding": 11.98, "Poisoned": 0.09, "Torment": 15.66, "Confusion": 17.79 }
+        "values2": { "Power": 1124, "Power2": 174, "Burning": 0, "Bleeding": 12.52, "Poisoned": 0.39, "Torment": 15.21, "Confusion": 18.41 }
       }
     credit:
       - author: FidelOo
-        url: https://www.youtube.com/watch?v=36QsfyS8aBQ
-        log: https://dps.report/3VjJ-20221203-024743_golem
+        url: https://www.youtube.com/watch?v=jo4eNrLmxtg
+        log: https://dps.report/nECF-20230503-161902_golem
 
   - name: Alacrity Staff / Axe Mirage
     profession: Mirage

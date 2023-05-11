@@ -499,7 +499,7 @@ list:
             1950
           ],
           [
-            2141,
+            2110,
             2178,
             2070
           ]
@@ -527,10 +527,10 @@ list:
               "amount": ""
             },
             "sharper-images-clone": {
-              "amount": "2.67"
+              "amount": "2.59"
             },
             "sharper-images-phantasm": {
-              "amount": "0.04"
+              "amount": "0.3"
             },
             "phantasmal-fury": {}
           },
@@ -2201,10 +2201,10 @@ list:
             },
             "bloodlust": {},
             "furious": {
-              "amount": "21.3"
+              "amount": "19.1"
             },
             "bloodlust-on-crit": {
-              "amount": "3.03"
+              "amount": "2.82"
             },
             "furious-burst": {}
           },
@@ -2227,7 +2227,7 @@ list:
               "amount": ""
             },
             "fatal-frenzy-power-condi": {
-              "amount": "98"
+              "amount": "72.7"
             },
             "fatal-frenzy-toughness": {},
             "bloody-roar": {
@@ -3231,7 +3231,7 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "57"
+              "amount": "53.3"
             },
             "burning-precision": {},
             "burning-rage": {},
@@ -3241,7 +3241,7 @@ list:
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": ""
+              "amount": "9.5"
             }
           },
           {
@@ -3254,13 +3254,13 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "35"
+              "amount": "35.3"
             },
             "bolt-to-the-heart": {
               "amount": ""
             },
             "fresh-air": {
-              "amount": "46"
+              "amount": "48.5"
             },
             "zephyrs-speed": {}
           },
@@ -3273,10 +3273,10 @@ list:
               "amount": ""
             },
             "elemental-polyphony-fire": {
-              "amount": "65"
+              "amount": "65.8"
             },
             "elemental-polyphony-air": {
-              "amount": "61"
+              "amount": "63.1"
             },
             "elements-of-rage-base": {},
             "elements-of-rage-buff": {
@@ -3289,7 +3289,10 @@ list:
       {
         "skills": {
           "woven-fire": {
-            "amount": "51"
+            "amount": "53"
+          },
+          "woven-air": {
+            "amount": "54.1"
           }
         }
       }
@@ -3324,7 +3327,7 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "46"
+              "amount": "48"
             },
             "burning-precision": {},
             "burning-rage": {},
@@ -5460,7 +5463,7 @@ list:
             },
             "incendiary-powder": {},
             "sharpshooter": {
-              "amount": "4.51"
+              "amount": "4.32"
             }
           },
           {
