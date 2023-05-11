@@ -614,12 +614,12 @@ list:
     profession: Vindicator
     value: >-
       {
-        "values2": { "Power": 3537, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 3.07, "Confusion": 0 }
+        "values2": { "Power": 3676, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 3.1, "Confusion": 0 }
       }
     credit:
       - author: beng / L3m0n
-        url: https://www.youtube.com/watch?v=iNqYMGbGU0E
-        log: https://dps.report/zeOf-20221201-171756_golem
+        url: https://www.youtube.com/watch?v=J8aDZhvJFqM
+        log: https://dps.report/DWk6-20230510-145934_golem
 
   - name: Condi Alacrity Untamed A/A Hammer
     profession: Untamed
