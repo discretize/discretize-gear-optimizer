@@ -408,17 +408,6 @@
           Condition Damage: [70, converted]
       gw2id: 76359
 
-    - id: ghost-pepper-popper-reaper
-      text: Ghost Pepper Popper
-      subText: (night; condi reaper, 2.5 crit/sec)
-      modifiers:
-        attributes:
-          Bleeding Coefficient: 16
-      wvwModifiers:
-        attributes:
-          Bleeding Coefficient: 8
-      gw2id: 12479
-
 - section: Hybrid Food
   items:
 
