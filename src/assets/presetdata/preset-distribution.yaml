@@ -426,7 +426,7 @@ list:
     profession: Tempest
     value: >-
       {
-        "values2": { "Power": 3118, "Power2": 0, "Burning": 10.84, "Bleeding": 12.23, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3094, "Power2": 0, "Burning": 10.83, "Bleeding": 12.22, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Dánmander'
