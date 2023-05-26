@@ -1,4 +1,6 @@
+/* eslint-disable no-await-in-loop */
 /* eslint-disable no-console */
+import * as Comlink from 'comlink';
 import { put, select, take, takeEvery, takeLatest } from 'redux-saga/effects';
 import { calculate } from '../optimizer/optimizer';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../optimizer/status';
@@ -35,7 +37,14 @@ function* runCalc() {
 
     const originalSelectedCharacter = yield select(getSelectedCharacter);
 
-    const resultGenerator = calculate(reduxState);
+    // const resultGenerator = calculate(reduxState);
+    const link = Comlink.wrap(
+      new Worker(new URL('../optimizer/worker', import.meta.url), {
+        type: 'module',
+      }),
+    );
+    yield link.setup(reduxState);
+
     let done = false;
     let value;
 
@@ -48,7 +57,9 @@ function* runCalc() {
     const listThrottle = 3;
 
     while (true) {
-      ({ value, done } = yield resultGenerator.next());
+      // ({ value, done } = yield resultGenerator.next());
+      ({ value, done } = yield link.next());
+
       const { percent, isChanged, list, filteredList } = value;
       currentList = list;
       currentFilteredList = filteredList;
