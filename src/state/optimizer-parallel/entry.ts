@@ -7,26 +7,25 @@ const getAffixId = (affix: string) => Object.keys(Affix).indexOf(affix);
 // should make this a settings variable or something
 const NUM_THREADS = 16;
 
-function calculate(reduxState: any) {
+function calculate(reduxState: any, isWasm: boolean) {
   console.log('Parallel Optimizer');
   console.log('State', reduxState);
 
   // prepare affixes
-  const affixes = reduxState.optimizer.form.priorities.affixes;
+  const { affixes } = reduxState.optimizer.form.priorities;
   const forcedSlots = reduxState.optimizer.form.forcedSlots.slots;
 
   // merge affixes with forced slots to create an array of affixes for each slot
   const affixArray = forcedSlots.map((slot: string, index: number) => {
     if (!slot) {
       return affixes.map(getAffixId);
-    } else {
-      return [getAffixId(slot)];
     }
+    return [getAffixId(slot)];
   });
 
   const layer = getLayerNumber(affixArray, NUM_THREADS);
 
-  console.log('Creating ' + NUM_THREADS + ' threads to calculate ' + layer + ' layers');
+  console.log(`Creating ${NUM_THREADS} threads to calculate ${layer} layers`);
   const workers = [...Array(NUM_THREADS)].map((_, index) => {
     return {
       status: 'created',
@@ -80,6 +79,9 @@ function calculate(reduxState: any) {
   workers.forEach(({ worker }) => {
     worker.postMessage({
       type: START,
+      data: {
+        isWasm,
+      },
     });
   });
 }

@@ -15,15 +15,22 @@ onmessage = (e) => {
 
     case START:
       console.log('Worker start', chunks);
-      start();
+      start(e.data.data.isWasm);
       break;
     default:
       throw new Error('Unknown message type', e.data.type);
   }
 };
 
-function start() {
-  // time the calculation
+async function start(wasm = false) {
+  if (wasm) {
+    // this doesnt currently work
+    const starttime = performance.now();
+    await wasm_bindgen('/pkg/wasm_module_bg.wasm');
+    const data = calculate(JSON.stringify(chunks), JSON.stringify(affixArray));
+    const time = performance.now() - starttime;
+    return { time, data };
+  }
 
   let counter = 0;
   chunks.forEach((chunk) => {
