@@ -5,7 +5,7 @@ import { FINISHED, SETUP, START } from './workerMessageTypes';
 const getAffixId = (affix: string) => Object.keys(Affix).indexOf(affix);
 
 // should make this a settings variable or something
-const NUM_THREADS = 16;
+const NUM_THREADS = 4;
 
 function calculate(reduxState: any, isWasm: boolean) {
   console.log('Parallel Optimizer');

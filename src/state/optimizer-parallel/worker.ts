@@ -28,15 +28,14 @@ async function start(wasm = false) {
     // await wasm module initialization
     await init();
 
-    const starttime = performance.now();
-
     // call wasm function with chunks and affixArray
     const data = calculate(JSON.stringify(chunks), JSON.stringify(affixArray));
 
-    const time = performance.now() - starttime;
-    console.log('WASM time', time, 'ms');
-    console.log('WASM data', data);
-    return { data };
+    postMessage({
+      type: FINISHED,
+      data: { leafnodes: data },
+    });
+    return;
   }
 
   let counter = 0;
