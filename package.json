@@ -31,7 +31,7 @@
     "extractLocaleEn": "babel --config-file ./babel-extract-en.config.js 'src/**/*.{js,jsx,ts,tsx}' > /dev/null && node cleanupLocale.js",
     "extractLocaleCMD": "babel --config-file ./babel-extract.config.js \"src/**/*.{js,jsx,ts,tsx}\" > NUL",
     "cleanupLocale": "node cleanupLocale.js",
-    "wasm": "wasm-pack build wasm_module --out-dir ../src/state/optimizer-parallel/pkg --target no-modules"
+    "wasm": "wasm-pack build ./wasm_module --target web"
   },
   "resolutions": {
     "@discretize/gw2-ui-new": "^0.1.2"
@@ -70,7 +70,8 @@
     "typeface-muli": "^1.1.13",
     "typeface-raleway": "^1.1.13",
     "urlsafe-base64": "^1.0.0",
-    "wasm-pack": "^0.11.1"
+    "wasm-pack": "^0.11.1",
+    "wasm_module": "file:./wasm_module"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.7",
@@ -106,8 +107,7 @@
     "gh-pages": "^3.2.3",
     "prettier": "^2.4.1",
     "typescript": "~5.0.4",
-    "vite": "^4.3.4",
-    "vite-plugin-wasm": "^3.2.2",
+    "vite": "^4.3.9",
     "vite-plugin-wasm-pack": "^0.1.12",
     "wrangler": "^2.18.0"
   }

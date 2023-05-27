@@ -23,7 +23,6 @@ import {
 import { getPriority } from '../../../state/slices/priorities';
 import ProgressIcon from '../../baseComponents/ProgressIcon';
 import ResultTableSettings from './ResultTableSettings';
-import { wrap } from 'comlink';
 
 const useStyles = makeStyles()((theme) => ({
   errorText: {
@@ -40,9 +39,6 @@ const useStyles = makeStyles()((theme) => ({
   },
   chipIcon: { marginBottom: '-6px !important' },
 }));
-
-const w = new Worker('/worker.js');
-const worker = wrap(w);
 
 const ControlsBox = () => {
   const { classes } = useStyles();

@@ -1,3 +1,4 @@
+import init, { calculate } from 'wasm_module';
 import { descendSubtreeDFS } from './affixTree';
 import { FINISHED, SETUP, START } from './workerMessageTypes';
 
@@ -24,12 +25,18 @@ onmessage = (e) => {
 
 async function start(wasm = false) {
   if (wasm) {
-    // this doesnt currently work
+    // await wasm module initialization
+    await init();
+
     const starttime = performance.now();
-    await wasm_bindgen('/pkg/wasm_module_bg.wasm');
+
+    // call wasm function with chunks and affixArray
     const data = calculate(JSON.stringify(chunks), JSON.stringify(affixArray));
+
     const time = performance.now() - starttime;
-    return { time, data };
+    console.log('WASM time', time, 'ms');
+    console.log('WASM data', data);
+    return { data };
   }
 
   let counter = 0;
