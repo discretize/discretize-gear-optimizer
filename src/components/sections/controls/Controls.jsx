@@ -8,8 +8,9 @@ import { Box, Button, Chip, Typography } from '@mui/material';
 import classNames from 'classnames';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, useStore } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import calculate from '../../../state/optimizer-parallel/entry';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import SagaTypes from '../../../state/sagas/sagaTypes';
 import {
@@ -43,6 +44,7 @@ const ControlsBox = () => {
   const { classes } = useStyles();
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const store = useStore();
 
   const status = useSelector(getStatus);
   const error = useSelector(getError);
@@ -50,7 +52,7 @@ const ControlsBox = () => {
   const weaponType = useSelector(getPriority('weaponType'));
   const profession = useSelector(getProfession);
 
-  const onStartCalculate = (e) => {
+  const onStartCalculate = (type) => (e) => {
     if (affixes.length < 1) {
       dispatch(changeError(t('Select at least one affix in the priorities section!')));
       dispatch(changeStatus(ERROR));
@@ -64,8 +66,12 @@ const ControlsBox = () => {
 
     console.log('calculate');
 
-    dispatch(changeError(''));
-    dispatch({ type: SagaTypes.Start });
+    if (type == 'sequential') {
+      dispatch(changeError(''));
+      dispatch({ type: SagaTypes.Start });
+    } else {
+      calculate(store.getState());
+    }
   };
 
   let icon;
@@ -92,7 +98,7 @@ const ControlsBox = () => {
           variant="outlined"
           color="primary"
           className={classes.button}
-          onClick={onStartCalculate}
+          onClick={onStartCalculate('sequential')}
           classes={{ label: classes.label }}
           disabled={status === RUNNING || profession === ''}
         >
@@ -103,6 +109,24 @@ const ControlsBox = () => {
           )}
           <Typography>
             <Trans>Calculate</Trans>
+          </Typography>
+        </Button>
+
+        <Button
+          variant="outlined"
+          color="primary"
+          className={classes.button}
+          onClick={onStartCalculate('parallel')}
+          classes={{ label: classes.label }}
+          disabled={status === RUNNING || profession === ''}
+        >
+          {status === RUNNING ? (
+            <ProgressIcon className={classes.icon} />
+          ) : (
+            <EqualizerRoundedIcon className={classes.icon} />
+          )}
+          <Typography>
+            <Trans>Parallel</Trans>
           </Typography>
         </Button>
       </Box>
