@@ -4,6 +4,10 @@ use serde_json::Value;
 use wasm_bindgen::prelude::*;
 use web_sys::console;
 
+mod gw2data;
+
+use gw2data::Affix;
+
 fn parse_string_to_vector(input: &str) -> Option<Vec<Vec<i8>>> {
     let json_value: Value = serde_json::from_str(input).ok()?;
     let outer_vec = json_value.as_array()?;
@@ -89,5 +93,6 @@ pub fn calculate(js_chunks: String, js_affix_array: String) -> i32 {
 
     // -- done with parsing --
     let counter = start(&chunks, &affix_array);
+
     return counter;
 }
