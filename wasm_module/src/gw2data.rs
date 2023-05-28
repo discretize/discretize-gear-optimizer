@@ -1,382 +1,165 @@
+use std::{default, fmt, vec};
+
 use enum_iterator::{all, Sequence};
+use web_sys::console;
 
-/**
- * EXPERIMENTAL STRCUCTS
- */
-pub struct StatCollection {
-    helm: ItemStats,
-    shoulders: ItemStats,
-    chest: ItemStats,
-    gloves: ItemStats,
-    leggings: ItemStats,
-    boots: ItemStats,
-    amulet: ItemStats,
-    ring: ItemStats,
-    accessory: ItemStats,
-    back_item: ItemStats,
-    one_handed_weapon: ItemStats,
-    two_handed_weapon: ItemStats,
-}
-
-pub struct ItemStats {
-    triple: Stats,
-    quadruple: Stats,
-    celestial: Stats,
-}
-
+#[derive(Debug, Default)]
 pub struct Stats {
-    major: i32,
-    minor: i32,
-}
-pub fn ascended_item() -> StatCollection {
-    return StatCollection {
-        helm: ItemStats {
-            triple: Stats {
-                major: 63,
-                minor: 45,
-            },
-            quadruple: Stats {
-                major: 54,
-                minor: 30,
-            },
-            celestial: Stats {
-                major: 30,
-                minor: 30,
-            },
-        },
-        shoulders: ItemStats {
-            triple: Stats {
-                major: 47,
-                minor: 34,
-            },
-            quadruple: Stats {
-                major: 40,
-                minor: 22,
-            },
-            celestial: Stats {
-                major: 22,
-                minor: 22,
-            },
-        },
-        chest: ItemStats {
-            triple: Stats {
-                major: 141,
-                minor: 101,
-            },
-            quadruple: Stats {
-                major: 121,
-                minor: 67,
-            },
-            celestial: Stats {
-                major: 67,
-                minor: 67,
-            },
-        },
-        gloves: ItemStats {
-            triple: Stats {
-                major: 47,
-                minor: 34,
-            },
-            quadruple: Stats {
-                major: 40,
-                minor: 22,
-            },
-            celestial: Stats {
-                major: 22,
-                minor: 22,
-            },
-        },
-        leggings: ItemStats {
-            triple: Stats {
-                major: 94,
-                minor: 67,
-            },
-            quadruple: Stats {
-                major: 81,
-                minor: 44,
-            },
-            celestial: Stats {
-                major: 44,
-                minor: 44,
-            },
-        },
-        boots: ItemStats {
-            triple: Stats {
-                major: 47,
-                minor: 34,
-            },
-            quadruple: Stats {
-                major: 40,
-                minor: 22,
-            },
-            celestial: Stats {
-                major: 22,
-                minor: 22,
-            },
-        },
-        amulet: ItemStats {
-            triple: Stats {
-                major: 157,
-                minor: 108,
-            },
-            quadruple: Stats {
-                major: 133,
-                minor: 71,
-            },
-            celestial: Stats {
-                major: 72,
-                minor: 72,
-            },
-        },
-        ring: ItemStats {
-            triple: Stats {
-                major: 126,
-                minor: 85,
-            },
-            quadruple: Stats {
-                major: 106,
-                minor: 56,
-            },
-            celestial: Stats {
-                major: 57,
-                minor: 57,
-            },
-        },
-        accessory: ItemStats {
-            triple: Stats {
-                major: 110,
-                minor: 74,
-            },
-            quadruple: Stats {
-                major: 92,
-                minor: 49,
-            },
-            celestial: Stats {
-                major: 50,
-                minor: 50,
-            },
-        },
-        back_item: ItemStats {
-            triple: Stats {
-                major: 63,
-                minor: 40,
-            },
-            quadruple: Stats {
-                major: 52,
-                minor: 27,
-            },
-            celestial: Stats {
-                major: 28,
-                minor: 28,
-            },
-        },
-        one_handed_weapon: ItemStats {
-            triple: Stats {
-                major: 125,
-                minor: 90,
-            },
-            quadruple: Stats {
-                major: 108,
-                minor: 59,
-            },
-            celestial: Stats {
-                major: 59,
-                minor: 59,
-            },
-        },
-        two_handed_weapon: ItemStats {
-            triple: Stats {
-                major: 251,
-                minor: 179,
-            },
-            quadruple: Stats {
-                major: 215,
-                minor: 118,
-            },
-            celestial: Stats {
-                major: 118,
-                minor: 118,
-            },
-        },
-    };
+    major: u32,
+    minor: u32,
 }
 
-pub fn exotic_item() -> StatCollection {
-    return StatCollection {
-        helm: ItemStats {
-            triple: Stats {
-                major: 60,
-                minor: 43,
+#[derive(Debug, Default)]
+pub struct Slot {
+    pub affix: Affix,
+    pub stats: Stats,
+    pub slot_type: Slots,
+}
+
+#[derive(Debug, Default)]
+pub struct Character {
+    pub stats: CharacterStats,
+    pub slots: [Slot; 14],
+}
+
+impl Character {
+    pub fn set_affix(&mut self, index: usize, affix: Affix) {
+        self.slots[index].affix = affix;
+    }
+
+    pub fn set_stats(&mut self, index: usize, stats: Stats) {
+        self.slots[index].stats = stats;
+    }
+}
+
+#[derive(Default, Debug)] // init with 0
+pub struct CharacterStats {
+    pub power: u32,
+    pub precision: u32,
+    pub toughness: u32,
+    pub vitality: u32,
+    pub condition_damage: u32,
+    pub healing_power: u32,
+    pub boon_duration: u32,
+    pub ferocity: u32,
+    pub expertise: u32,
+    pub concentration: u32,
+}
+impl CharacterStats {
+    pub fn clear(&mut self) {
+        self.power = 0;
+        self.precision = 0;
+        self.toughness = 0;
+        self.vitality = 0;
+        self.condition_damage = 0;
+        self.healing_power = 0;
+        self.boon_duration = 0;
+        self.ferocity = 0;
+        self.expertise = 0;
+        self.concentration = 0;
+    }
+
+    pub fn add_attribute_value(&mut self, attribute: &Attribute, value: u32) {
+        match attribute {
+            Attribute::Primary(primary_attr) => match primary_attr {
+                PrimaryAttributeName::Power => self.power += value,
+                PrimaryAttributeName::Precision => self.precision += value,
+                PrimaryAttributeName::Toughness => self.toughness += value,
+                PrimaryAttributeName::Vitality => self.vitality += value,
             },
-            quadruple: Stats {
-                major: 51,
-                minor: 28,
+            Attribute::Secondary(secondary_attr) => match secondary_attr {
+                SecondaryAttributeName::Ferocity => self.ferocity += value,
+                SecondaryAttributeName::ConditionDamage => self.condition_damage += value,
+                SecondaryAttributeName::Expertise => self.expertise += value,
+                SecondaryAttributeName::Concentration => self.concentration += value,
+                SecondaryAttributeName::HealingPower => self.healing_power += value,
+                SecondaryAttributeName::AgonyResistance => {
+                    // Handle the case when AgonyResistance is requested
+                    // You can either return a default value or handle it separately
+                    // depending on your use case.
+                    // For now, let's return 0 as a default value.
+                    console::log_1(&"AgonyResistance is not implemented yet".into());
+                }
             },
-            celestial: Stats {
-                major: 28,
-                minor: 28,
-            },
-        },
-        shoulders: ItemStats {
-            triple: Stats {
-                major: 45,
-                minor: 32,
-            },
-            quadruple: Stats {
-                major: 38,
-                minor: 21,
-            },
-            celestial: Stats {
-                major: 21,
-                minor: 21,
-            },
-        },
-        chest: ItemStats {
-            triple: Stats {
-                major: 134,
-                minor: 96,
-            },
-            quadruple: Stats {
-                major: 115,
-                minor: 63,
-            },
-            celestial: Stats {
-                major: 63,
-                minor: 63,
-            },
-        },
-        gloves: ItemStats {
-            triple: Stats {
-                major: 45,
-                minor: 32,
-            },
-            quadruple: Stats {
-                major: 38,
-                minor: 21,
-            },
-            celestial: Stats {
-                major: 21,
-                minor: 21,
-            },
-        },
-        leggings: ItemStats {
-            triple: Stats {
-                major: 90,
-                minor: 64,
-            },
-            quadruple: Stats {
-                major: 77,
-                minor: 42,
-            },
-            celestial: Stats {
-                major: 42,
-                minor: 42,
-            },
-        },
-        boots: ItemStats {
-            triple: Stats {
-                major: 45,
-                minor: 32,
-            },
-            quadruple: Stats {
-                major: 38,
-                minor: 21,
-            },
-            celestial: Stats {
-                major: 21,
-                minor: 21,
-            },
-        },
-        amulet: ItemStats {
-            triple: Stats {
-                major: 145,
-                minor: 100,
-            },
-            quadruple: Stats {
-                major: 122,
-                minor: 66,
-            },
-            celestial: Stats {
-                major: 68,
-                minor: 68,
-            },
-        },
-        ring: ItemStats {
-            triple: Stats {
-                major: 115,
-                minor: 79,
-            },
-            quadruple: Stats {
-                major: 97,
-                minor: 52,
-            },
-            celestial: Stats {
-                major: 54,
-                minor: 54,
-            },
-        },
-        accessory: ItemStats {
-            triple: Stats {
-                major: 100,
-                minor: 68,
-            },
-            quadruple: Stats {
-                major: 84,
-                minor: 45,
-            },
-            celestial: Stats {
-                major: 47,
-                minor: 47,
-            },
-        },
-        back_item: ItemStats {
-            triple: Stats {
-                major: 55,
-                minor: 36,
-            },
-            quadruple: Stats {
-                major: 46,
-                minor: 24,
-            },
-            celestial: Stats {
-                major: 26,
-                minor: 26,
-            },
-        },
-        one_handed_weapon: ItemStats {
-            triple: Stats {
-                major: 120,
-                minor: 85,
-            },
-            quadruple: Stats {
-                major: 102,
-                minor: 56,
-            },
-            celestial: Stats {
-                major: 56,
-                minor: 56,
-            },
-        },
-        two_handed_weapon: ItemStats {
-            triple: Stats {
-                major: 239,
-                minor: 171,
-            },
-            quadruple: Stats {
-                major: 205,
-                minor: 113,
-            },
-            celestial: Stats {
-                major: 113,
-                minor: 113,
-            },
-        },
-    };
+            Attribute::None => {}
+        }
+    }
+}
+
+impl fmt::Display for CharacterStats {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(
+            f,
+            "CharacterStats:\n\
+            Power: {}\n\
+            Precision: {}\n\
+            Toughness: {}\n\
+            Vitality: {}\n\
+            Condition Damage: {}\n\
+            Healing Power: {}\n\
+            Boon Duration: {}\n\
+            Ferocity: {}\n\
+            Expertise: {}\n\
+            Concentration: {}",
+            self.power,
+            self.precision,
+            self.toughness,
+            self.vitality,
+            self.condition_damage,
+            self.healing_power,
+            self.boon_duration,
+            self.ferocity,
+            self.expertise,
+            self.concentration,
+        )
+    }
 }
 
 /**
  * BEGIN ENUMS
  */
+pub enum Rarity {
+    Ascended = 0,
+    Exotic = 1,
+}
+
+#[derive(Debug, Default)]
+pub enum Slots {
+    Helm = 0,
+    Shoulders = 1,
+    Chest = 2,
+    Gloves = 3,
+    Leggings = 4,
+    Boots = 5,
+    Amulet = 6,
+    Ring = 7,
+    Accessory = 8,
+    BackItem = 9,
+    OneHandedWeapon = 10,
+    TwoHandedWeapon = 11,
+    #[default]
+    None = -1,
+}
+
+pub fn slot_from_indexed_array(index: usize) -> Slots {
+    match index {
+        0 => Slots::Helm,
+        1 => Slots::Shoulders,
+        2 => Slots::Chest,
+        3 => Slots::Gloves,
+        4 => Slots::Leggings,
+        5 => Slots::Boots,
+        6 => Slots::Amulet,
+        7 => Slots::Ring,
+        8 => Slots::Ring,
+        9 => Slots::Accessory,
+        10 => Slots::Accessory,
+        11 => Slots::BackItem,
+        12 => Slots::OneHandedWeapon,
+        13 => Slots::TwoHandedWeapon,
+        _ => panic!("Invalid index for Slots enum"),
+    }
+}
 
 pub enum AffixTypes {
     Triple,
@@ -384,28 +167,171 @@ pub enum AffixTypes {
     Celestial,
 }
 impl AffixTypes {
-    pub fn get_affixes(&self) -> Vec<Stats> {
+    pub fn get_affix(&self, slot: Slots, _rarity: Rarity) -> Stats {
+        // todo implement match for rarity
         match self {
-            AffixTypes::Triple => vec![],
-            AffixTypes::Quadruple => vec![],
-            AffixTypes::Celestial => vec![],
-        }
-    }
-
-    pub fn get_affix(&self, slot: usize) -> Stats {
-        match self {
-            AffixTypes::Triple => vec![],
-            AffixTypes::Quadruple => vec![],
-            AffixTypes::Celestial => vec![],
+            AffixTypes::Triple => match slot {
+                Slots::Helm => Stats {
+                    major: 60,
+                    minor: 43,
+                },
+                Slots::Shoulders => Stats {
+                    major: 45,
+                    minor: 32,
+                },
+                Slots::Chest => Stats {
+                    major: 134,
+                    minor: 96,
+                },
+                Slots::Gloves => Stats {
+                    major: 45,
+                    minor: 32,
+                },
+                Slots::Leggings => Stats {
+                    major: 90,
+                    minor: 64,
+                },
+                Slots::Boots => Stats {
+                    major: 45,
+                    minor: 32,
+                },
+                Slots::Amulet => Stats {
+                    major: 145,
+                    minor: 100,
+                },
+                Slots::Ring => Stats {
+                    major: 115,
+                    minor: 79,
+                },
+                Slots::Accessory => Stats {
+                    major: 100,
+                    minor: 68,
+                },
+                Slots::BackItem => Stats {
+                    major: 55,
+                    minor: 36,
+                },
+                Slots::OneHandedWeapon => Stats {
+                    major: 120,
+                    minor: 85,
+                },
+                Slots::TwoHandedWeapon => Stats {
+                    major: 239,
+                    minor: 171,
+                },
+            },
+            AffixTypes::Quadruple => match slot {
+                Slots::Helm => Stats {
+                    major: 51,
+                    minor: 28,
+                },
+                Slots::Shoulders => Stats {
+                    major: 38,
+                    minor: 21,
+                },
+                Slots::Chest => Stats {
+                    major: 114,
+                    minor: 63,
+                },
+                Slots::Gloves => Stats {
+                    major: 38,
+                    minor: 21,
+                },
+                Slots::Leggings => Stats {
+                    major: 77,
+                    minor: 42,
+                },
+                Slots::Boots => Stats {
+                    major: 38,
+                    minor: 21,
+                },
+                Slots::Amulet => Stats {
+                    major: 122,
+                    minor: 66,
+                },
+                Slots::Ring => Stats {
+                    major: 97,
+                    minor: 52,
+                },
+                Slots::Accessory => Stats {
+                    major: 84,
+                    minor: 45,
+                },
+                Slots::BackItem => Stats {
+                    major: 46,
+                    minor: 24,
+                },
+                Slots::OneHandedWeapon => Stats {
+                    major: 102,
+                    minor: 56,
+                },
+                Slots::TwoHandedWeapon => Stats {
+                    major: 205,
+                    minor: 113,
+                },
+            },
+            AffixTypes::Celestial => match slot {
+                Slots::Helm => Stats {
+                    major: 28,
+                    minor: 28,
+                },
+                Slots::Shoulders => Stats {
+                    major: 21,
+                    minor: 21,
+                },
+                Slots::Chest => Stats {
+                    major: 63,
+                    minor: 63,
+                },
+                Slots::Gloves => Stats {
+                    major: 21,
+                    minor: 21,
+                },
+                Slots::Leggings => Stats {
+                    major: 42,
+                    minor: 42,
+                },
+                Slots::Boots => Stats {
+                    major: 21,
+                    minor: 21,
+                },
+                Slots::Amulet => Stats {
+                    major: 66,
+                    minor: 66,
+                },
+                Slots::Ring => Stats {
+                    major: 54,
+                    minor: 54,
+                },
+                Slots::Accessory => Stats {
+                    major: 47,
+                    minor: 47,
+                },
+                Slots::BackItem => Stats {
+                    major: 26,
+                    minor: 26,
+                },
+                Slots::OneHandedWeapon => Stats {
+                    major: 56,
+                    minor: 56,
+                },
+                Slots::TwoHandedWeapon => Stats {
+                    major: 113,
+                    minor: 113,
+                },
+            },
         }
     }
 }
 
+#[derive(Debug)]
 pub enum Attribute {
     Primary(PrimaryAttributeName),
     Secondary(SecondaryAttributeName),
+    None,
 }
 
+#[derive(Debug)]
 pub enum PrimaryAttributeName {
     Power,
     Precision,
@@ -413,6 +339,7 @@ pub enum PrimaryAttributeName {
     Vitality,
 }
 
+#[derive(Debug)]
 pub enum SecondaryAttributeName {
     Ferocity,
     ConditionDamage,
@@ -422,49 +349,97 @@ pub enum SecondaryAttributeName {
     AgonyResistance,
 }
 
-#[derive(Sequence, Debug, Clone, Copy)]
+#[derive(Sequence, Debug, Clone, Copy, Default)]
 pub enum Affix {
-    Berserker = 0,
-    Assassin = 1,
-    Harrier = 2,
-    Commander = 3,
-    Minstrel = 4,
-    Magi = 5,
-    Marauder = 6,
-    Cleric = 7,
-    Nomad = 8,
-    Zealot = 9,
-    Viper = 10,
-    Sinister = 11,
-    Grieving = 12,
-    Seraph = 13,
-    Marshal = 14,
-    Giver = 15,
-    Knight = 16,
-    Trailblazer = 17,
-    Plaguedoctor = 18,
-    Carrion = 19,
-    Rabid = 20,
-    Dire = 21,
-    Vigilant = 22,
-    Valkyrie = 23,
-    Cavalier = 24,
-    Celestial = 25,
-    Diviner = 26,
-    Soldier = 27,
-    Sentinel = 28,
-    Wanderer = 29,
-    Apothecary = 30,
-    Shaman = 31,
-    Crusader = 32,
-    Rampager = 33,
-    Settler = 34,
-    Bringer = 35,
-    Ritualist = 36,
-    Dragon = 37,
+    Custom = 0,
+    Berserker = 1,
+    Assassin = 2,
+    Harrier = 3,
+    Commander = 4,
+    Minstrel = 5,
+    Magi = 6,
+    Marauder = 7,
+    Cleric = 8,
+    Nomad = 9,
+    Zealot = 10,
+    Viper = 11,
+    Sinister = 12,
+    Grieving = 13,
+    Seraph = 14,
+    Marshal = 15,
+    Giver = 16,
+    Knight = 17,
+    Trailblazer = 18,
+    Plaguedoctor = 19,
+    Carrion = 20,
+    Rabid = 21,
+    Dire = 22,
+    Vigilant = 23,
+    Valkyrie = 24,
+    Cavalier = 25,
+    Celestial = 26,
+    Diviner = 27,
+    Soldier = 28,
+    Sentinel = 29,
+    Wanderer = 30,
+    Apothecary = 31,
+    Shaman = 32,
+    Crusader = 33,
+    Rampager = 34,
+    Settler = 35,
+    Bringer = 36,
+    Ritualist = 37,
+    Dragon = 38,
+    #[default]
+    None = -1,
 }
 
 impl Affix {
+    pub fn to_string(&self) -> String {
+        match self {
+            Affix::Custom => "Custom".to_string(),
+            Affix::Berserker => "Berserker".to_string(),
+            Affix::Assassin => "Assassin".to_string(),
+            Affix::Harrier => "Harrier".to_string(),
+            Affix::Commander => "Commander".to_string(),
+            Affix::Minstrel => "Minstrel".to_string(),
+            Affix::Magi => "Magi".to_string(),
+            Affix::Marauder => "Marauder".to_string(),
+            Affix::Cleric => "Cleric".to_string(),
+            Affix::Nomad => "Nomad".to_string(),
+            Affix::Zealot => "Zealot".to_string(),
+            Affix::Viper => "Viper".to_string(),
+            Affix::Sinister => "Sinister".to_string(),
+            Affix::Grieving => "Grieving".to_string(),
+            Affix::Seraph => "Seraph".to_string(),
+            Affix::Marshal => "Marshal".to_string(),
+            Affix::Giver => "Giver".to_string(),
+            Affix::Knight => "Knight".to_string(),
+            Affix::Trailblazer => "Trailblazer".to_string(),
+            Affix::Plaguedoctor => "Plaguedoctor".to_string(),
+            Affix::Carrion => "Carrion".to_string(),
+            Affix::Rabid => "Rabid".to_string(),
+            Affix::Dire => "Dire".to_string(),
+            Affix::Vigilant => "Vigilant".to_string(),
+            Affix::Valkyrie => "Valkyrie".to_string(),
+            Affix::Cavalier => "Cavalier".to_string(),
+            Affix::Celestial => "Celestial".to_string(),
+            Affix::Diviner => "Diviner".to_string(),
+            Affix::Soldier => "Soldier".to_string(),
+            Affix::Sentinel => "Sentinel".to_string(),
+            Affix::Wanderer => "Wanderer".to_string(),
+            Affix::Apothecary => "Apothecary".to_string(),
+            Affix::Shaman => "Shaman".to_string(),
+            Affix::Crusader => "Crusader".to_string(),
+            Affix::Rampager => "Rampager".to_string(),
+            Affix::Settler => "Settler".to_string(),
+            Affix::Bringer => "Bringer".to_string(),
+            Affix::Ritualist => "Ritualist".to_string(),
+            Affix::Dragon => "Dragon".to_string(),
+            Affix::None => "".to_string(),
+        }
+    }
+
     pub fn from_number(num: i8) -> Option<Affix> {
         for variant in all::<Affix>().collect::<Vec<_>>() {
             if variant as i8 == num {
@@ -496,8 +471,26 @@ impl Affix {
             default => "Unknown",
         }
     }
+
+    pub fn add_stats(&self, slot: Slots, rarity: Rarity) {
+        let affix_type = self.type_name();
+        let stats = affix_type.get_affix(slot, rarity);
+
+        let majors = self.major_bonuses();
+        let minors = self.minor_bonuses();
+
+        // majors.iter().for_each(|attribute| {
+        //     character_stats.add_attribute_value(attribute, stats.major);
+        // });
+
+        // minors.iter().for_each(|attribute| {
+        //     character_stats.add_attribute_value(attribute, stats.minor);
+        // });
+    }
+
     pub fn major_bonuses(&self) -> Vec<Attribute> {
         match self {
+            Affix::Custom => vec![],
             Affix::Berserker => vec![Attribute::Primary(PrimaryAttributeName::Power)],
             Affix::Assassin => vec![Attribute::Primary(PrimaryAttributeName::Precision)],
             Affix::Harrier => vec![Attribute::Primary(PrimaryAttributeName::Power)],
@@ -599,6 +592,7 @@ impl Affix {
 
     pub fn minor_bonuses(&self) -> Vec<Attribute> {
         match self {
+            Affix::Custom => vec![],
             Affix::Berserker => vec![
                 Attribute::Primary(PrimaryAttributeName::Precision),
                 Attribute::Secondary(SecondaryAttributeName::Ferocity),

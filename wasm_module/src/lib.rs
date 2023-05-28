@@ -1,52 +1,17 @@
-use std::cell::RefCell;
+use std::{borrow::BorrowMut, cell::RefCell, char};
 
-use serde_json::Value;
 use wasm_bindgen::prelude::*;
 use web_sys::console;
 
 mod gw2data;
+mod utils;
 
-use gw2data::Affix;
+use gw2data::{slot_from_indexed_array, Affix, Character, CharacterStats};
 
-fn parse_string_to_vector(input: &str) -> Option<Vec<Vec<i8>>> {
-    let json_value: Value = serde_json::from_str(input).ok()?;
-    let outer_vec = json_value.as_array()?;
-
-    let mut result = Vec::new();
-
-    for inner_value in outer_vec {
-        let inner_vec = inner_value.as_array()?;
-        let mut parsed_inner_vec = Vec::new();
-
-        for value in inner_vec {
-            let parsed_value = value.as_i64()? as i8;
-            parsed_inner_vec.push(parsed_value);
-        }
-
-        result.push(parsed_inner_vec);
-    }
-
-    Some(result)
-}
-
-pub fn pretty_print_vector(vector: Vec<Vec<i8>>) {
-    let formatted_string = vector
-        .iter()
-        .map(|inner_vec| {
-            let inner_string = inner_vec
-                .iter()
-                .map(|value| value.to_string())
-                .collect::<Vec<String>>()
-                .join(", ");
-            format!("[{}]", inner_string)
-        })
-        .collect::<Vec<String>>()
-        .join(", ");
-
-    console::log_1(&JsValue::from_str(&format!("[{}]", formatted_string)));
-}
-
-pub fn descend_subtree_dfs(affix_array: &[Vec<i8>], subtree: &[i8], leaf_callback: &dyn Fn(&[i8])) {
+pub fn descend_subtree_dfs<F>(affix_array: &[Vec<Affix>], subtree: &[Affix], leaf_callback: &mut F)
+where
+    F: FnMut(&[Affix]),
+{
     let current_layer = subtree.len();
 
     if current_layer == affix_array.len() {
@@ -55,7 +20,7 @@ pub fn descend_subtree_dfs(affix_array: &[Vec<i8>], subtree: &[i8], leaf_callbac
     } else {
         let permutation_options = &affix_array[current_layer];
 
-        let mut new_subtree: Vec<i8> = Vec::with_capacity(subtree.len() + 1);
+        let mut new_subtree: Vec<Affix> = Vec::with_capacity(subtree.len() + 1);
         new_subtree.clear();
         new_subtree.extend_from_slice(subtree);
 
@@ -67,15 +32,42 @@ pub fn descend_subtree_dfs(affix_array: &[Vec<i8>], subtree: &[i8], leaf_callbac
     }
 }
 
-pub fn start(chunks: &Vec<Vec<i8>>, affix_array: &Vec<Vec<i8>>) -> i32 {
+/**
+ * This function calculates the stats for a given character.
+ *
+ * absolutely critical, it gets called for every single affix permutation
+ */
+pub fn calculate_stats(character: &mut Character) {
+    character.slots.iter().for_each(|slot| {
+        // get the slot's affixes
+        slot.affix.add_stats(slot)
+    });
+}
+
+/**
+ * Starts the calculation.
+ */
+pub fn start(chunks: &Vec<Vec<Affix>>, affix_array: &Vec<Vec<Affix>>) -> i32 {
     let counter = RefCell::new(0);
+    let mut character = Character::default();
+
+    let mut callback = |subtree: &[Affix]| {
+        // Leaf callback implementation
+
+        // set stats of character slots to subtree affixes
+        for (index, affix) in subtree.iter().enumerate() {
+            character.set_affix(index, *affix)
+        }
+
+        // calculate stats for character
+        calculate_stats(&mut character);
+
+        *counter.borrow_mut() += 1;
+    };
 
     for chunk in chunks {
         // start dfs into tree
-        descend_subtree_dfs(&affix_array, &chunk, &|_subtree: &[i8]| {
-            // Leaf callback implementation
-            *counter.borrow_mut() += 1;
-        });
+        descend_subtree_dfs(&affix_array, &chunk, &mut callback);
     }
 
     return counter.into_inner();
@@ -83,11 +75,29 @@ pub fn start(chunks: &Vec<Vec<i8>>, affix_array: &Vec<Vec<i8>>) -> i32 {
 
 #[wasm_bindgen]
 pub fn calculate(js_chunks: String, js_affix_array: String) -> i32 {
-    let chunks = parse_string_to_vector(&js_chunks).unwrap();
-    // pretty_print_vector(chunks.clone());
+    let opt_chunks = utils::parse_string_to_vector(&js_chunks);
+    let chunks = match opt_chunks {
+        Some(chunks) => chunks,
+        None => {
+            console::log_1(&JsValue::from_str("Error parsing chunks"));
+            return -1;
+        }
+    };
+    let chunks = utils::vec_i8_to_affix(chunks);
+
+    // utils::pretty_print_vector(chunks.clone());
     // console::log_1(&JsValue::from_str(&js_chunks));
 
-    let affix_array = parse_string_to_vector(&js_affix_array).unwrap();
+    let affix_array = utils::parse_string_to_vector(&js_affix_array);
+    let affix_array = match affix_array {
+        Some(affix_array) => affix_array,
+        None => {
+            console::log_1(&JsValue::from_str("Error parsing affix array"));
+            return -1;
+        }
+    };
+    let affix_array = utils::vec_i8_to_affix(affix_array);
+
     //pretty_print_vector(affix_array.clone());
     // console::log_1(&JsValue::from_str(&js_affix_array));
 
