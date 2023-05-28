@@ -6,7 +6,7 @@ use web_sys::console;
 mod gw2data;
 mod utils;
 
-use gw2data::{slot_from_indexed_array, Affix, Character, CharacterStats};
+use gw2data::{add_stats, slot_from_indexed_array, Affix, Character, CharacterStats, Rarity};
 
 pub fn descend_subtree_dfs<F>(affix_array: &[Vec<Affix>], subtree: &[Affix], leaf_callback: &mut F)
 where
@@ -38,10 +38,17 @@ where
  * absolutely critical, it gets called for every single affix permutation
  */
 pub fn calculate_stats(character: &mut Character) {
-    character.slots.iter().for_each(|slot| {
+    character.clear();
+
+    for (index, slot) in character.slots.iter().enumerate() {
         // get the slot's affixes
-        slot.affix.add_stats(slot)
-    });
+        add_stats(
+            character,
+            slot.affix,
+            slot_from_indexed_array(index),
+            Rarity::Ascended,
+        )
+    }
 }
 
 /**

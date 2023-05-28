@@ -12,8 +12,6 @@ pub struct Stats {
 #[derive(Debug, Default)]
 pub struct Slot {
     pub affix: Affix,
-    pub stats: Stats,
-    pub slot_type: Slots,
 }
 
 #[derive(Debug, Default)]
@@ -23,12 +21,15 @@ pub struct Character {
 }
 
 impl Character {
-    pub fn set_affix(&mut self, index: usize, affix: Affix) {
-        self.slots[index].affix = affix;
+    pub fn clear(&mut self) {
+        self.stats.clear();
+        self.slots.iter_mut().for_each(|slot| {
+            slot.affix = Affix::default();
+        });
     }
 
-    pub fn set_stats(&mut self, index: usize, stats: Stats) {
-        self.slots[index].stats = stats;
+    pub fn set_affix(&mut self, index: usize, affix: Affix) {
+        self.slots[index].affix = affix;
     }
 }
 
@@ -171,6 +172,7 @@ impl AffixTypes {
         // todo implement match for rarity
         match self {
             AffixTypes::Triple => match slot {
+                Slots::None => Stats { major: 0, minor: 0 },
                 Slots::Helm => Stats {
                     major: 60,
                     minor: 43,
@@ -221,6 +223,7 @@ impl AffixTypes {
                 },
             },
             AffixTypes::Quadruple => match slot {
+                Slots::None => Stats { major: 0, minor: 0 },
                 Slots::Helm => Stats {
                     major: 51,
                     minor: 28,
@@ -271,6 +274,7 @@ impl AffixTypes {
                 },
             },
             AffixTypes::Celestial => match slot {
+                Slots::None => Stats { major: 0, minor: 0 },
                 Slots::Helm => Stats {
                     major: 28,
                     minor: 28,
@@ -472,24 +476,9 @@ impl Affix {
         }
     }
 
-    pub fn add_stats(&self, slot: Slots, rarity: Rarity) {
-        let affix_type = self.type_name();
-        let stats = affix_type.get_affix(slot, rarity);
-
-        let majors = self.major_bonuses();
-        let minors = self.minor_bonuses();
-
-        // majors.iter().for_each(|attribute| {
-        //     character_stats.add_attribute_value(attribute, stats.major);
-        // });
-
-        // minors.iter().for_each(|attribute| {
-        //     character_stats.add_attribute_value(attribute, stats.minor);
-        // });
-    }
-
     pub fn major_bonuses(&self) -> Vec<Attribute> {
         match self {
+            Affix::None => vec![],
             Affix::Custom => vec![],
             Affix::Berserker => vec![Attribute::Primary(PrimaryAttributeName::Power)],
             Affix::Assassin => vec![Attribute::Primary(PrimaryAttributeName::Precision)],
@@ -592,6 +581,7 @@ impl Affix {
 
     pub fn minor_bonuses(&self) -> Vec<Attribute> {
         match self {
+            Affix::None => vec![],
             Affix::Custom => vec![],
             Affix::Berserker => vec![
                 Attribute::Primary(PrimaryAttributeName::Precision),
@@ -750,5 +740,104 @@ impl Affix {
                 Attribute::Primary(PrimaryAttributeName::Vitality),
             ],
         }
+    }
+}
+
+// new function - should be efficient, no memory is allocated
+pub fn add_stats(character: &mut Character, affix: Affix, slot: Slots, rarity: Rarity) {
+    let affix_type = affix.type_name();
+    // let stats = affix_type.get_affix(slot, rarity);
+
+    match affix_type {
+        AffixTypes::Triple => match slot {
+            Slots::Helm => match affix {
+                Affix::Custom => {}
+                Affix::Berserker => match rarity {
+                    Rarity::Ascended => {
+                        character.stats.add_attribute_value(
+                            &Attribute::Primary(PrimaryAttributeName::Power),
+                            60,
+                        );
+                        character.stats.add_attribute_value(
+                            &Attribute::Primary(PrimaryAttributeName::Precision),
+                            43,
+                        );
+                        character.stats.add_attribute_value(
+                            &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                            43,
+                        );
+                    }
+                    Rarity::Exotic => todo!(),
+                },
+                Affix::Assassin => match rarity {
+                    Rarity::Ascended => {
+                        character.stats.add_attribute_value(
+                            &Attribute::Primary(PrimaryAttributeName::Precision),
+                            60,
+                        );
+                        character.stats.add_attribute_value(
+                            &Attribute::Primary(PrimaryAttributeName::Power),
+                            43,
+                        );
+                        character.stats.add_attribute_value(
+                            &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                            43,
+                        );
+                    }
+                    Rarity::Exotic => todo!(),
+                },
+                Affix::Harrier => todo!(),
+                Affix::Commander => todo!(),
+                Affix::Minstrel => todo!(),
+                Affix::Magi => todo!(),
+                Affix::Marauder => todo!(),
+                Affix::Cleric => todo!(),
+                Affix::Nomad => todo!(),
+                Affix::Zealot => todo!(),
+                Affix::Viper => todo!(),
+                Affix::Sinister => todo!(),
+                Affix::Grieving => todo!(),
+                Affix::Seraph => todo!(),
+                Affix::Marshal => todo!(),
+                Affix::Giver => todo!(),
+                Affix::Knight => todo!(),
+                Affix::Trailblazer => todo!(),
+                Affix::Plaguedoctor => todo!(),
+                Affix::Carrion => todo!(),
+                Affix::Rabid => todo!(),
+                Affix::Dire => todo!(),
+                Affix::Vigilant => todo!(),
+                Affix::Valkyrie => todo!(),
+                Affix::Cavalier => todo!(),
+                Affix::Celestial => todo!(),
+                Affix::Diviner => todo!(),
+                Affix::Soldier => todo!(),
+                Affix::Sentinel => todo!(),
+                Affix::Wanderer => todo!(),
+                Affix::Apothecary => todo!(),
+                Affix::Shaman => todo!(),
+                Affix::Crusader => todo!(),
+                Affix::Rampager => todo!(),
+                Affix::Settler => todo!(),
+                Affix::Bringer => todo!(),
+                Affix::Ritualist => todo!(),
+                Affix::Dragon => todo!(),
+                Affix::None => todo!(),
+            },
+            Slots::Shoulders => todo!(),
+            Slots::Chest => todo!(),
+            Slots::Gloves => todo!(),
+            Slots::Leggings => todo!(),
+            Slots::Boots => todo!(),
+            Slots::Amulet => todo!(),
+            Slots::Ring => todo!(),
+            Slots::Accessory => todo!(),
+            Slots::BackItem => todo!(),
+            Slots::OneHandedWeapon => todo!(),
+            Slots::TwoHandedWeapon => todo!(),
+            Slots::None => todo!(),
+        },
+        AffixTypes::Quadruple => todo!(),
+        AffixTypes::Celestial => todo!(),
     }
 }
