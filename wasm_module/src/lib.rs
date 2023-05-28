@@ -1,4 +1,4 @@
-use std::{borrow::BorrowMut, cell::RefCell, char};
+use std::cell::RefCell;
 
 use wasm_bindgen::prelude::*;
 use web_sys::console;
@@ -6,7 +6,7 @@ use web_sys::console;
 mod gw2data;
 mod utils;
 
-use gw2data::{add_stats, slot_from_indexed_array, Affix, Character, CharacterStats, Rarity};
+use gw2data::{add_stats, slot_from_indexed_array, Affix, Character, Rarity};
 
 pub fn descend_subtree_dfs<F>(affix_array: &[Vec<Affix>], subtree: &[Affix], leaf_callback: &mut F)
 where
@@ -33,25 +33,6 @@ where
 }
 
 /**
- * This function calculates the stats for a given character.
- *
- * absolutely critical, it gets called for every single affix permutation
- */
-pub fn calculate_stats(character: &mut Character) {
-    character.clear();
-
-    for (index, slot) in character.slots.iter().enumerate() {
-        // get the slot's affixes
-        add_stats(
-            character,
-            slot.affix,
-            slot_from_indexed_array(index),
-            Rarity::Ascended,
-        )
-    }
-}
-
-/**
  * Starts the calculation.
  */
 pub fn start(chunks: &Vec<Vec<Affix>>, affix_array: &Vec<Vec<Affix>>) -> i32 {
@@ -60,14 +41,19 @@ pub fn start(chunks: &Vec<Vec<Affix>>, affix_array: &Vec<Vec<Affix>>) -> i32 {
 
     let mut callback = |subtree: &[Affix]| {
         // Leaf callback implementation
-
+        character.clear();
         // set stats of character slots to subtree affixes
         for (index, affix) in subtree.iter().enumerate() {
-            character.set_affix(index, *affix)
-        }
+            character.set_affix(index, *affix);
 
-        // calculate stats for character
-        calculate_stats(&mut character);
+            // calculate stats for character
+            add_stats(
+                &mut character.stats,
+                *affix,
+                slot_from_indexed_array(index),
+                Rarity::Ascended,
+            )
+        }
 
         *counter.borrow_mut() += 1;
     };

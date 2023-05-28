@@ -1,4 +1,4 @@
-use std::{default, fmt, vec};
+use std::{fmt, vec};
 
 use enum_iterator::{all, Sequence};
 use web_sys::console;
@@ -458,24 +458,6 @@ impl Affix {
         *self as i8
     }
 
-    pub fn type_name(&self) -> AffixTypes {
-        match self {
-            Affix::Berserker => AffixTypes::Triple,
-            Affix::Assassin => AffixTypes::Triple,
-            // ... match other variants
-            default => AffixTypes::Triple,
-        }
-    }
-
-    pub fn category(&self) -> &'static str {
-        match self {
-            Affix::Berserker => "Power DPS",
-            Affix::Assassin => "Power DPS",
-            // ... match other variants
-            default => "Unknown",
-        }
-    }
-
     pub fn major_bonuses(&self) -> Vec<Attribute> {
         match self {
             Affix::None => vec![],
@@ -744,100 +726,835 @@ impl Affix {
 }
 
 // new function - should be efficient, no memory is allocated
-pub fn add_stats(character: &mut Character, affix: Affix, slot: Slots, rarity: Rarity) {
-    let affix_type = affix.type_name();
+pub fn add_stats(stats: &mut CharacterStats, affix: Affix, slot: Slots, rarity: Rarity) {
     // let stats = affix_type.get_affix(slot, rarity);
 
-    match affix_type {
-        AffixTypes::Triple => match slot {
-            Slots::Helm => match affix {
-                Affix::Custom => {}
-                Affix::Berserker => match rarity {
-                    Rarity::Ascended => {
-                        character.stats.add_attribute_value(
-                            &Attribute::Primary(PrimaryAttributeName::Power),
-                            60,
-                        );
-                        character.stats.add_attribute_value(
-                            &Attribute::Primary(PrimaryAttributeName::Precision),
-                            43,
-                        );
-                        character.stats.add_attribute_value(
-                            &Attribute::Secondary(SecondaryAttributeName::Ferocity),
-                            43,
-                        );
-                    }
-                    Rarity::Exotic => todo!(),
-                },
-                Affix::Assassin => match rarity {
-                    Rarity::Ascended => {
-                        character.stats.add_attribute_value(
-                            &Attribute::Primary(PrimaryAttributeName::Precision),
-                            60,
-                        );
-                        character.stats.add_attribute_value(
-                            &Attribute::Primary(PrimaryAttributeName::Power),
-                            43,
-                        );
-                        character.stats.add_attribute_value(
-                            &Attribute::Secondary(SecondaryAttributeName::Ferocity),
-                            43,
-                        );
-                    }
-                    Rarity::Exotic => todo!(),
-                },
-                Affix::Harrier => todo!(),
-                Affix::Commander => todo!(),
-                Affix::Minstrel => todo!(),
-                Affix::Magi => todo!(),
-                Affix::Marauder => todo!(),
-                Affix::Cleric => todo!(),
-                Affix::Nomad => todo!(),
-                Affix::Zealot => todo!(),
-                Affix::Viper => todo!(),
-                Affix::Sinister => todo!(),
-                Affix::Grieving => todo!(),
-                Affix::Seraph => todo!(),
-                Affix::Marshal => todo!(),
-                Affix::Giver => todo!(),
-                Affix::Knight => todo!(),
-                Affix::Trailblazer => todo!(),
-                Affix::Plaguedoctor => todo!(),
-                Affix::Carrion => todo!(),
-                Affix::Rabid => todo!(),
-                Affix::Dire => todo!(),
-                Affix::Vigilant => todo!(),
-                Affix::Valkyrie => todo!(),
-                Affix::Cavalier => todo!(),
-                Affix::Celestial => todo!(),
-                Affix::Diviner => todo!(),
-                Affix::Soldier => todo!(),
-                Affix::Sentinel => todo!(),
-                Affix::Wanderer => todo!(),
-                Affix::Apothecary => todo!(),
-                Affix::Shaman => todo!(),
-                Affix::Crusader => todo!(),
-                Affix::Rampager => todo!(),
-                Affix::Settler => todo!(),
-                Affix::Bringer => todo!(),
-                Affix::Ritualist => todo!(),
-                Affix::Dragon => todo!(),
-                Affix::None => todo!(),
+    match slot {
+        Slots::Helm => match affix {
+            Affix::Custom => {}
+            Affix::Berserker => match rarity {
+                Rarity::Ascended => {
+                    stats.add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 60);
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        43,
+                    );
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        43,
+                    );
+                }
+                Rarity::Exotic => todo!(),
             },
-            Slots::Shoulders => todo!(),
-            Slots::Chest => todo!(),
-            Slots::Gloves => todo!(),
-            Slots::Leggings => todo!(),
-            Slots::Boots => todo!(),
-            Slots::Amulet => todo!(),
-            Slots::Ring => todo!(),
-            Slots::Accessory => todo!(),
-            Slots::BackItem => todo!(),
-            Slots::OneHandedWeapon => todo!(),
-            Slots::TwoHandedWeapon => todo!(),
-            Slots::None => todo!(),
+            Affix::Assassin => match rarity {
+                Rarity::Ascended => {
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        60,
+                    );
+                    stats.add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 43);
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        43,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Harrier => todo!(),
+            Affix::Commander => todo!(),
+            Affix::Minstrel => todo!(),
+            Affix::Magi => todo!(),
+            Affix::Marauder => todo!(),
+            Affix::Cleric => todo!(),
+            Affix::Nomad => todo!(),
+            Affix::Zealot => todo!(),
+            Affix::Viper => todo!(),
+            Affix::Sinister => todo!(),
+            Affix::Grieving => todo!(),
+            Affix::Seraph => todo!(),
+            Affix::Marshal => todo!(),
+            Affix::Giver => todo!(),
+            Affix::Knight => todo!(),
+            Affix::Trailblazer => todo!(),
+            Affix::Plaguedoctor => todo!(),
+            Affix::Carrion => todo!(),
+            Affix::Rabid => todo!(),
+            Affix::Dire => todo!(),
+            Affix::Vigilant => todo!(),
+            Affix::Valkyrie => todo!(),
+            Affix::Cavalier => todo!(),
+            Affix::Celestial => todo!(),
+            Affix::Diviner => todo!(),
+            Affix::Soldier => todo!(),
+            Affix::Sentinel => todo!(),
+            Affix::Wanderer => todo!(),
+            Affix::Apothecary => todo!(),
+            Affix::Shaman => todo!(),
+            Affix::Crusader => todo!(),
+            Affix::Rampager => todo!(),
+            Affix::Settler => todo!(),
+            Affix::Bringer => todo!(),
+            Affix::Ritualist => todo!(),
+            Affix::Dragon => todo!(),
+            Affix::None => todo!(),
         },
-        AffixTypes::Quadruple => todo!(),
-        AffixTypes::Celestial => todo!(),
+        Slots::Shoulders => match affix {
+            Affix::Custom => todo!(),
+            Affix::Berserker => match rarity {
+                Rarity::Ascended => {
+                    stats.add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 47);
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        34,
+                    );
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        34,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Assassin => match rarity {
+                Rarity::Ascended => {
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        47,
+                    );
+                    stats.add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 34);
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        34,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Harrier => todo!(),
+            Affix::Commander => todo!(),
+            Affix::Minstrel => todo!(),
+            Affix::Magi => todo!(),
+            Affix::Marauder => todo!(),
+            Affix::Cleric => todo!(),
+            Affix::Nomad => todo!(),
+            Affix::Zealot => todo!(),
+            Affix::Viper => todo!(),
+            Affix::Sinister => todo!(),
+            Affix::Grieving => todo!(),
+            Affix::Seraph => todo!(),
+            Affix::Marshal => todo!(),
+            Affix::Giver => todo!(),
+            Affix::Knight => todo!(),
+            Affix::Trailblazer => todo!(),
+            Affix::Plaguedoctor => todo!(),
+            Affix::Carrion => todo!(),
+            Affix::Rabid => todo!(),
+            Affix::Dire => todo!(),
+            Affix::Vigilant => todo!(),
+            Affix::Valkyrie => todo!(),
+            Affix::Cavalier => todo!(),
+            Affix::Celestial => todo!(),
+            Affix::Diviner => todo!(),
+            Affix::Soldier => todo!(),
+            Affix::Sentinel => todo!(),
+            Affix::Wanderer => todo!(),
+            Affix::Apothecary => todo!(),
+            Affix::Shaman => todo!(),
+            Affix::Crusader => todo!(),
+            Affix::Rampager => todo!(),
+            Affix::Settler => todo!(),
+            Affix::Bringer => todo!(),
+            Affix::Ritualist => todo!(),
+            Affix::Dragon => todo!(),
+            Affix::None => todo!(),
+        },
+        Slots::Chest => match affix {
+            Affix::Custom => todo!(),
+            Affix::Berserker => match rarity {
+                Rarity::Ascended => {
+                    stats
+                        .add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 141);
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        101,
+                    );
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        101,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Assassin => match rarity {
+                Rarity::Ascended => {
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        141,
+                    );
+                    stats
+                        .add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 101);
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        101,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Harrier => todo!(),
+            Affix::Commander => todo!(),
+            Affix::Minstrel => todo!(),
+            Affix::Magi => todo!(),
+            Affix::Marauder => todo!(),
+            Affix::Cleric => todo!(),
+            Affix::Nomad => todo!(),
+            Affix::Zealot => todo!(),
+            Affix::Viper => todo!(),
+            Affix::Sinister => todo!(),
+            Affix::Grieving => todo!(),
+            Affix::Seraph => todo!(),
+            Affix::Marshal => todo!(),
+            Affix::Giver => todo!(),
+            Affix::Knight => todo!(),
+            Affix::Trailblazer => todo!(),
+            Affix::Plaguedoctor => todo!(),
+            Affix::Carrion => todo!(),
+            Affix::Rabid => todo!(),
+            Affix::Dire => todo!(),
+            Affix::Vigilant => todo!(),
+            Affix::Valkyrie => todo!(),
+            Affix::Cavalier => todo!(),
+            Affix::Celestial => todo!(),
+            Affix::Diviner => todo!(),
+            Affix::Soldier => todo!(),
+            Affix::Sentinel => todo!(),
+            Affix::Wanderer => todo!(),
+            Affix::Apothecary => todo!(),
+            Affix::Shaman => todo!(),
+            Affix::Crusader => todo!(),
+            Affix::Rampager => todo!(),
+            Affix::Settler => todo!(),
+            Affix::Bringer => todo!(),
+            Affix::Ritualist => todo!(),
+            Affix::Dragon => todo!(),
+            Affix::None => todo!(),
+        },
+        Slots::Gloves => match affix {
+            Affix::Custom => todo!(),
+            Affix::Berserker => match rarity {
+                Rarity::Ascended => {
+                    stats.add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 47);
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        34,
+                    );
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        34,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Assassin => match rarity {
+                Rarity::Ascended => {
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        47,
+                    );
+                    stats.add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 34);
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        34,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Harrier => todo!(),
+            Affix::Commander => todo!(),
+            Affix::Minstrel => todo!(),
+            Affix::Magi => todo!(),
+            Affix::Marauder => todo!(),
+            Affix::Cleric => todo!(),
+            Affix::Nomad => todo!(),
+            Affix::Zealot => todo!(),
+            Affix::Viper => todo!(),
+            Affix::Sinister => todo!(),
+            Affix::Grieving => todo!(),
+            Affix::Seraph => todo!(),
+            Affix::Marshal => todo!(),
+            Affix::Giver => todo!(),
+            Affix::Knight => todo!(),
+            Affix::Trailblazer => todo!(),
+            Affix::Plaguedoctor => todo!(),
+            Affix::Carrion => todo!(),
+            Affix::Rabid => todo!(),
+            Affix::Dire => todo!(),
+            Affix::Vigilant => todo!(),
+            Affix::Valkyrie => todo!(),
+            Affix::Cavalier => todo!(),
+            Affix::Celestial => todo!(),
+            Affix::Diviner => todo!(),
+            Affix::Soldier => todo!(),
+            Affix::Sentinel => todo!(),
+            Affix::Wanderer => todo!(),
+            Affix::Apothecary => todo!(),
+            Affix::Shaman => todo!(),
+            Affix::Crusader => todo!(),
+            Affix::Rampager => todo!(),
+            Affix::Settler => todo!(),
+            Affix::Bringer => todo!(),
+            Affix::Ritualist => todo!(),
+            Affix::Dragon => todo!(),
+            Affix::None => todo!(),
+        },
+        Slots::Leggings => match affix {
+            Affix::Custom => todo!(),
+            Affix::Berserker => match rarity {
+                Rarity::Ascended => {
+                    stats.add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 94);
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        67,
+                    );
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        67,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Assassin => match rarity {
+                Rarity::Ascended => {
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        94,
+                    );
+                    stats.add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 67);
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        67,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Harrier => todo!(),
+            Affix::Commander => todo!(),
+            Affix::Minstrel => todo!(),
+            Affix::Magi => todo!(),
+            Affix::Marauder => todo!(),
+            Affix::Cleric => todo!(),
+            Affix::Nomad => todo!(),
+            Affix::Zealot => todo!(),
+            Affix::Viper => todo!(),
+            Affix::Sinister => todo!(),
+            Affix::Grieving => todo!(),
+            Affix::Seraph => todo!(),
+            Affix::Marshal => todo!(),
+            Affix::Giver => todo!(),
+            Affix::Knight => todo!(),
+            Affix::Trailblazer => todo!(),
+            Affix::Plaguedoctor => todo!(),
+            Affix::Carrion => todo!(),
+            Affix::Rabid => todo!(),
+            Affix::Dire => todo!(),
+            Affix::Vigilant => todo!(),
+            Affix::Valkyrie => todo!(),
+            Affix::Cavalier => todo!(),
+            Affix::Celestial => todo!(),
+            Affix::Diviner => todo!(),
+            Affix::Soldier => todo!(),
+            Affix::Sentinel => todo!(),
+            Affix::Wanderer => todo!(),
+            Affix::Apothecary => todo!(),
+            Affix::Shaman => todo!(),
+            Affix::Crusader => todo!(),
+            Affix::Rampager => todo!(),
+            Affix::Settler => todo!(),
+            Affix::Bringer => todo!(),
+            Affix::Ritualist => todo!(),
+            Affix::Dragon => todo!(),
+            Affix::None => todo!(),
+        },
+        Slots::Boots => match affix {
+            Affix::Custom => todo!(),
+            Affix::Berserker => match rarity {
+                Rarity::Ascended => {
+                    stats.add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 47);
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        34,
+                    );
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        34,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Assassin => match rarity {
+                Rarity::Ascended => {
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        47,
+                    );
+                    stats.add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 34);
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        34,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Harrier => todo!(),
+            Affix::Commander => todo!(),
+            Affix::Minstrel => todo!(),
+            Affix::Magi => todo!(),
+            Affix::Marauder => todo!(),
+            Affix::Cleric => todo!(),
+            Affix::Nomad => todo!(),
+            Affix::Zealot => todo!(),
+            Affix::Viper => todo!(),
+            Affix::Sinister => todo!(),
+            Affix::Grieving => todo!(),
+            Affix::Seraph => todo!(),
+            Affix::Marshal => todo!(),
+            Affix::Giver => todo!(),
+            Affix::Knight => todo!(),
+            Affix::Trailblazer => todo!(),
+            Affix::Plaguedoctor => todo!(),
+            Affix::Carrion => todo!(),
+            Affix::Rabid => todo!(),
+            Affix::Dire => todo!(),
+            Affix::Vigilant => todo!(),
+            Affix::Valkyrie => todo!(),
+            Affix::Cavalier => todo!(),
+            Affix::Celestial => todo!(),
+            Affix::Diviner => todo!(),
+            Affix::Soldier => todo!(),
+            Affix::Sentinel => todo!(),
+            Affix::Wanderer => todo!(),
+            Affix::Apothecary => todo!(),
+            Affix::Shaman => todo!(),
+            Affix::Crusader => todo!(),
+            Affix::Rampager => todo!(),
+            Affix::Settler => todo!(),
+            Affix::Bringer => todo!(),
+            Affix::Ritualist => todo!(),
+            Affix::Dragon => todo!(),
+            Affix::None => todo!(),
+        },
+        Slots::Amulet => match affix {
+            Affix::Custom => todo!(),
+            Affix::Berserker => match rarity {
+                Rarity::Ascended => {
+                    stats
+                        .add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 157);
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        108,
+                    );
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        108,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Assassin => match rarity {
+                Rarity::Ascended => {
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        157,
+                    );
+                    stats
+                        .add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 108);
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        108,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Harrier => todo!(),
+            Affix::Commander => todo!(),
+            Affix::Minstrel => todo!(),
+            Affix::Magi => todo!(),
+            Affix::Marauder => todo!(),
+            Affix::Cleric => todo!(),
+            Affix::Nomad => todo!(),
+            Affix::Zealot => todo!(),
+            Affix::Viper => todo!(),
+            Affix::Sinister => todo!(),
+            Affix::Grieving => todo!(),
+            Affix::Seraph => todo!(),
+            Affix::Marshal => todo!(),
+            Affix::Giver => todo!(),
+            Affix::Knight => todo!(),
+            Affix::Trailblazer => todo!(),
+            Affix::Plaguedoctor => todo!(),
+            Affix::Carrion => todo!(),
+            Affix::Rabid => todo!(),
+            Affix::Dire => todo!(),
+            Affix::Vigilant => todo!(),
+            Affix::Valkyrie => todo!(),
+            Affix::Cavalier => todo!(),
+            Affix::Celestial => todo!(),
+            Affix::Diviner => todo!(),
+            Affix::Soldier => todo!(),
+            Affix::Sentinel => todo!(),
+            Affix::Wanderer => todo!(),
+            Affix::Apothecary => todo!(),
+            Affix::Shaman => todo!(),
+            Affix::Crusader => todo!(),
+            Affix::Rampager => todo!(),
+            Affix::Settler => todo!(),
+            Affix::Bringer => todo!(),
+            Affix::Ritualist => todo!(),
+            Affix::Dragon => todo!(),
+            Affix::None => todo!(),
+        },
+        Slots::Ring => match affix {
+            Affix::Custom => todo!(),
+            Affix::Berserker => match rarity {
+                Rarity::Ascended => {
+                    stats
+                        .add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 126);
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        85,
+                    );
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        85,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Assassin => match rarity {
+                Rarity::Ascended => {
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        126,
+                    );
+                    stats.add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 85);
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        85,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Harrier => todo!(),
+            Affix::Commander => todo!(),
+            Affix::Minstrel => todo!(),
+            Affix::Magi => todo!(),
+            Affix::Marauder => todo!(),
+            Affix::Cleric => todo!(),
+            Affix::Nomad => todo!(),
+            Affix::Zealot => todo!(),
+            Affix::Viper => todo!(),
+            Affix::Sinister => todo!(),
+            Affix::Grieving => todo!(),
+            Affix::Seraph => todo!(),
+            Affix::Marshal => todo!(),
+            Affix::Giver => todo!(),
+            Affix::Knight => todo!(),
+            Affix::Trailblazer => todo!(),
+            Affix::Plaguedoctor => todo!(),
+            Affix::Carrion => todo!(),
+            Affix::Rabid => todo!(),
+            Affix::Dire => todo!(),
+            Affix::Vigilant => todo!(),
+            Affix::Valkyrie => todo!(),
+            Affix::Cavalier => todo!(),
+            Affix::Celestial => todo!(),
+            Affix::Diviner => todo!(),
+            Affix::Soldier => todo!(),
+            Affix::Sentinel => todo!(),
+            Affix::Wanderer => todo!(),
+            Affix::Apothecary => todo!(),
+            Affix::Shaman => todo!(),
+            Affix::Crusader => todo!(),
+            Affix::Rampager => todo!(),
+            Affix::Settler => todo!(),
+            Affix::Bringer => todo!(),
+            Affix::Ritualist => todo!(),
+            Affix::Dragon => todo!(),
+            Affix::None => todo!(),
+        },
+        Slots::Accessory => match affix {
+            Affix::Custom => todo!(),
+            Affix::Berserker => match rarity {
+                Rarity::Ascended => {
+                    stats
+                        .add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 110);
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        74,
+                    );
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        74,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Assassin => match rarity {
+                Rarity::Ascended => {
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        110,
+                    );
+                    stats.add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 74);
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        74,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Harrier => todo!(),
+            Affix::Commander => todo!(),
+            Affix::Minstrel => todo!(),
+            Affix::Magi => todo!(),
+            Affix::Marauder => todo!(),
+            Affix::Cleric => todo!(),
+            Affix::Nomad => todo!(),
+            Affix::Zealot => todo!(),
+            Affix::Viper => todo!(),
+            Affix::Sinister => todo!(),
+            Affix::Grieving => todo!(),
+            Affix::Seraph => todo!(),
+            Affix::Marshal => todo!(),
+            Affix::Giver => todo!(),
+            Affix::Knight => todo!(),
+            Affix::Trailblazer => todo!(),
+            Affix::Plaguedoctor => todo!(),
+            Affix::Carrion => todo!(),
+            Affix::Rabid => todo!(),
+            Affix::Dire => todo!(),
+            Affix::Vigilant => todo!(),
+            Affix::Valkyrie => todo!(),
+            Affix::Cavalier => todo!(),
+            Affix::Celestial => todo!(),
+            Affix::Diviner => todo!(),
+            Affix::Soldier => todo!(),
+            Affix::Sentinel => todo!(),
+            Affix::Wanderer => todo!(),
+            Affix::Apothecary => todo!(),
+            Affix::Shaman => todo!(),
+            Affix::Crusader => todo!(),
+            Affix::Rampager => todo!(),
+            Affix::Settler => todo!(),
+            Affix::Bringer => todo!(),
+            Affix::Ritualist => todo!(),
+            Affix::Dragon => todo!(),
+            Affix::None => todo!(),
+        },
+        Slots::BackItem => match affix {
+            Affix::Custom => todo!(),
+            Affix::Berserker => match rarity {
+                Rarity::Ascended => {
+                    stats.add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 63);
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        40,
+                    );
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        40,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Assassin => match rarity {
+                Rarity::Ascended => {
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        63,
+                    );
+                    stats.add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 40);
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        40,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Harrier => todo!(),
+            Affix::Commander => todo!(),
+            Affix::Minstrel => todo!(),
+            Affix::Magi => todo!(),
+            Affix::Marauder => todo!(),
+            Affix::Cleric => todo!(),
+            Affix::Nomad => todo!(),
+            Affix::Zealot => todo!(),
+            Affix::Viper => todo!(),
+            Affix::Sinister => todo!(),
+            Affix::Grieving => todo!(),
+            Affix::Seraph => todo!(),
+            Affix::Marshal => todo!(),
+            Affix::Giver => todo!(),
+            Affix::Knight => todo!(),
+            Affix::Trailblazer => todo!(),
+            Affix::Plaguedoctor => todo!(),
+            Affix::Carrion => todo!(),
+            Affix::Rabid => todo!(),
+            Affix::Dire => todo!(),
+            Affix::Vigilant => todo!(),
+            Affix::Valkyrie => todo!(),
+            Affix::Cavalier => todo!(),
+            Affix::Celestial => todo!(),
+            Affix::Diviner => todo!(),
+            Affix::Soldier => todo!(),
+            Affix::Sentinel => todo!(),
+            Affix::Wanderer => todo!(),
+            Affix::Apothecary => todo!(),
+            Affix::Shaman => todo!(),
+            Affix::Crusader => todo!(),
+            Affix::Rampager => todo!(),
+            Affix::Settler => todo!(),
+            Affix::Bringer => todo!(),
+            Affix::Ritualist => todo!(),
+            Affix::Dragon => todo!(),
+            Affix::None => todo!(),
+        },
+        Slots::OneHandedWeapon => match affix {
+            Affix::Custom => todo!(),
+            Affix::Berserker => match rarity {
+                Rarity::Ascended => {
+                    stats
+                        .add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 125);
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        90,
+                    );
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        90,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Assassin => match rarity {
+                Rarity::Ascended => {
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        125,
+                    );
+                    stats.add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 90);
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        90,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Harrier => todo!(),
+            Affix::Commander => todo!(),
+            Affix::Minstrel => todo!(),
+            Affix::Magi => todo!(),
+            Affix::Marauder => todo!(),
+            Affix::Cleric => todo!(),
+            Affix::Nomad => todo!(),
+            Affix::Zealot => todo!(),
+            Affix::Viper => todo!(),
+            Affix::Sinister => todo!(),
+            Affix::Grieving => todo!(),
+            Affix::Seraph => todo!(),
+            Affix::Marshal => todo!(),
+            Affix::Giver => todo!(),
+            Affix::Knight => todo!(),
+            Affix::Trailblazer => todo!(),
+            Affix::Plaguedoctor => todo!(),
+            Affix::Carrion => todo!(),
+            Affix::Rabid => todo!(),
+            Affix::Dire => todo!(),
+            Affix::Vigilant => todo!(),
+            Affix::Valkyrie => todo!(),
+            Affix::Cavalier => todo!(),
+            Affix::Celestial => todo!(),
+            Affix::Diviner => todo!(),
+            Affix::Soldier => todo!(),
+            Affix::Sentinel => todo!(),
+            Affix::Wanderer => todo!(),
+            Affix::Apothecary => todo!(),
+            Affix::Shaman => todo!(),
+            Affix::Crusader => todo!(),
+            Affix::Rampager => todo!(),
+            Affix::Settler => todo!(),
+            Affix::Bringer => todo!(),
+            Affix::Ritualist => todo!(),
+            Affix::Dragon => todo!(),
+            Affix::None => todo!(),
+        },
+        Slots::TwoHandedWeapon => match affix {
+            Affix::Custom => todo!(),
+            Affix::Berserker => match rarity {
+                Rarity::Ascended => {
+                    stats
+                        .add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 251);
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        179,
+                    );
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        179,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Assassin => match rarity {
+                Rarity::Ascended => {
+                    stats.add_attribute_value(
+                        &Attribute::Primary(PrimaryAttributeName::Precision),
+                        251,
+                    );
+                    stats
+                        .add_attribute_value(&Attribute::Primary(PrimaryAttributeName::Power), 179);
+                    stats.add_attribute_value(
+                        &Attribute::Secondary(SecondaryAttributeName::Ferocity),
+                        179,
+                    );
+                }
+                Rarity::Exotic => todo!(),
+            },
+            Affix::Harrier => todo!(),
+            Affix::Commander => todo!(),
+            Affix::Minstrel => todo!(),
+            Affix::Magi => todo!(),
+            Affix::Marauder => todo!(),
+            Affix::Cleric => todo!(),
+            Affix::Nomad => todo!(),
+            Affix::Zealot => todo!(),
+            Affix::Viper => todo!(),
+            Affix::Sinister => todo!(),
+            Affix::Grieving => todo!(),
+            Affix::Seraph => todo!(),
+            Affix::Marshal => todo!(),
+            Affix::Giver => todo!(),
+            Affix::Knight => todo!(),
+            Affix::Trailblazer => todo!(),
+            Affix::Plaguedoctor => todo!(),
+            Affix::Carrion => todo!(),
+            Affix::Rabid => todo!(),
+            Affix::Dire => todo!(),
+            Affix::Vigilant => todo!(),
+            Affix::Valkyrie => todo!(),
+            Affix::Cavalier => todo!(),
+            Affix::Celestial => todo!(),
+            Affix::Diviner => todo!(),
+            Affix::Soldier => todo!(),
+            Affix::Sentinel => todo!(),
+            Affix::Wanderer => todo!(),
+            Affix::Apothecary => todo!(),
+            Affix::Shaman => todo!(),
+            Affix::Crusader => todo!(),
+            Affix::Rampager => todo!(),
+            Affix::Settler => todo!(),
+            Affix::Bringer => todo!(),
+            Affix::Ritualist => todo!(),
+            Affix::Dragon => todo!(),
+            Affix::None => todo!(),
+        },
+        Slots::None => todo!(),
     }
 }
