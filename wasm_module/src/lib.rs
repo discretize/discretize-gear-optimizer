@@ -48,7 +48,7 @@ pub fn start(chunks: &Vec<Vec<Affix>>, affix_array: &Vec<Vec<Affix>>) -> i32 {
 
             // calculate stats for character
             add_stats(
-                &mut character.stats,
+                &mut character.attributes,
                 *affix,
                 slot_from_indexed_array(index),
                 Rarity::Ascended,

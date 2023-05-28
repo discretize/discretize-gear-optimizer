@@ -4,6 +4,7 @@ import { FINISHED, SETUP, START } from './workerMessageTypes';
 
 let chunks: number[][];
 let affixArray: number[][];
+let settings;
 
 onmessage = (e) => {
   console.log('worker received message', e.data);

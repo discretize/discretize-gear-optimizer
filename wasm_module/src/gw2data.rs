@@ -16,13 +16,13 @@ pub struct Slot {
 
 #[derive(Debug, Default)]
 pub struct Character {
-    pub stats: CharacterStats,
+    pub attributes: AttributesCollection,
     pub slots: [Slot; 14],
 }
 
 impl Character {
     pub fn clear(&mut self) {
-        self.stats.clear();
+        self.attributes.clear();
         self.slots.iter_mut().for_each(|slot| {
             slot.affix = Affix::default();
         });
@@ -34,7 +34,7 @@ impl Character {
 }
 
 #[derive(Default, Debug)] // init with 0
-pub struct CharacterStats {
+pub struct AttributesCollection {
     pub power: u32,
     pub precision: u32,
     pub toughness: u32,
@@ -46,7 +46,7 @@ pub struct CharacterStats {
     pub expertise: u32,
     pub concentration: u32,
 }
-impl CharacterStats {
+impl AttributesCollection {
     pub fn clear(&mut self) {
         self.power = 0;
         self.precision = 0;
@@ -87,7 +87,7 @@ impl CharacterStats {
     }
 }
 
-impl fmt::Display for CharacterStats {
+impl fmt::Display for AttributesCollection {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(
             f,
@@ -726,7 +726,7 @@ impl Affix {
 }
 
 // new function - should be efficient, no memory is allocated
-pub fn add_stats(stats: &mut CharacterStats, affix: Affix, slot: Slots, rarity: Rarity) {
+pub fn add_stats(stats: &mut AttributesCollection, affix: Affix, slot: Slots, rarity: Rarity) {
     // let stats = affix_type.get_affix(slot, rarity);
 
     match slot {
