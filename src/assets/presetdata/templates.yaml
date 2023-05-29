@@ -1028,11 +1028,11 @@ list:
   - class: Necromancer
     builds:
 
-      - name: Quickness Harbinger (Outdated)
+      - name: Quickness Harbinger
         id: qharb
         specialization: Harbinger
         boonType: Condi
-        priority: Condi Quickness Harbinger 23%
+        priority: Condi Quickness Harbinger 12.8%
         distribution: Quickness Harbinger
         traits: Quickness Harbinger
         extras: Quickness Harbinger

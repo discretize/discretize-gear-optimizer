@@ -245,14 +245,14 @@ list:
         "minQuicknessDuration": 21.6
       }
 
-  - name: Condi Quickness Harbinger 23%
+  - name: Condi Quickness Harbinger 12.8%
     hidden: true
     value: >-
       {
         "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
         "minBoonDuration": 0,
-        "minQuicknessDuration": 23
+        "minQuicknessDuration": 12.8
       }
 
   - name: Condi Alacrity Mirage 0%

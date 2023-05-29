@@ -6294,7 +6294,7 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "3.2"
+              "amount": "3"
             }
           },
           {
@@ -6309,7 +6309,7 @@ list:
               "amount": ""
             },
             "septic-corruption": {
-              "amount": "15.1"
+              "amount": "21.2"
             },
             "alchemic-vigor": {},
             "implacable-foe": {},
@@ -6322,7 +6322,11 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "signet-of-spite": {
+            "amount": "16.4"
+          }
+        }
       }
 
   - name: Quickness Power Harbinger
