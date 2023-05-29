@@ -6227,7 +6227,7 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "3.23"
+              "amount": "3.02"
             }
           },
           {
@@ -6242,7 +6242,7 @@ list:
               "amount": ""
             },
             "septic-corruption": {
-              "amount": "15.8"
+              "amount": "21.6"
             },
             "alchemic-vigor": {},
             "implacable-foe": {},

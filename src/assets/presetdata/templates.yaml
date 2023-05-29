@@ -1051,7 +1051,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Condi Harbinger (Outdated)
+      - name: Condi Harbinger
         id: charb
         specialization: Harbinger
         boonType: Condi

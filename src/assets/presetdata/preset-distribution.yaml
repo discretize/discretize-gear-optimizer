@@ -1032,17 +1032,16 @@ list:
         url: https://www.youtube.com/watch?v=XdUdlhRqJFk
         log: https://dps.report/bfKV-20230225-075200_golem
 
-  # game bug: alchemic vigor converted at 360
   - name: DPS Harbinger
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 2336, "Power2": 0, "Burning": 1.15, "Bleeding": 10.45, "Poisoned": 5.8, "Torment": 20.81, "Confusion": 0 }
+        "values2": { "Power": 2280, "Power2": 0, "Burning": 1.63, "Bleeding": 7.75, "Poisoned": 7.83, "Torment": 21.68, "Confusion": 0.63 }
       }
     credit:
       - author: 'Sarulias'
-        url: https://www.youtube.com/watch?v=omCnhWr8tyM
-        log: https://dps.report/ViK3-20221201-114322_golem
+        url: https://www.youtube.com/watch?v=fwbcLsRFLes
+        log: https://dps.report/gPxU-20230506-103307_golem
 
   # game bug: alchemic vigor converted at 360
   - name: Quickness Harbinger
