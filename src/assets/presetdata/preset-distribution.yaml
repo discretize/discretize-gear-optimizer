@@ -81,6 +81,18 @@ list:
         url: https://www.youtube.com/watch?v=u0oIU0DSspE
         log: https://dps.report/aSwf-20230216-210051_golem
 
+  - name: Power Quickness Berserker
+    profession: Berserker
+    value: >-
+      {
+        "values2": { "Power": 3466, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Evo'
+        url: https://www.youtube.com/watch?v=85iwbyRS66E
+        log: https://gw2wingman.nevermindcreations.de/log/20230514-061129_StdGolem_kill
+
+
   - name: Power Quickness Spellbreaker
     profession: Spellbreaker
     value: >-

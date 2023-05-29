@@ -461,6 +461,19 @@ list:
         extras: Condi Berserker
         weaponType: Two-handed
 
+      - name: Quickness Power Bers
+        id: pbers-quick
+        specialization: Berserker
+        boonType: Power
+        priority: Power Quickness Berserker 35.6%
+        distribution: Power Quickness Berserker
+        traits: Power Quickness Berserker
+        fractal:
+          extras: Power Boon (Fractal)
+        raid:
+          extras: Power Boon (Raid)
+        weaponType: Two-handed
+
       - name: Power Berserker (Outdated)
         id: pbers
         specialization: Berserker

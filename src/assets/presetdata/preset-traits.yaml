@@ -2159,6 +2159,84 @@ list:
         }
       }
 
+  - name: Power Quickness Berserker
+    profession: Berserker
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "4",
+          "51",
+          "18"
+        ],
+        "selectedTraits": [
+          [
+            1444,
+            1449,
+            1437
+          ],
+          [
+            1413,
+            1484,
+            1369
+          ],
+          [
+            2049,
+            2011,
+            1928
+          ]
+        ],
+        "items": [
+          {
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
+            "pinnacle-of-strength": {
+              "amount": ""
+            },
+            "pinnacle-of-strength-crit": {},
+            "berserkers-power": {
+              "amount": "4"
+            }
+          },
+          {
+            "warriors-sprint": {
+              "amount": ""
+            },
+            "double-standards-str": {},
+            "double-standards-disc": {},
+            "axe-mastery-one": {},
+            "axe-mastery-axe": {
+              "amount": "50"
+            }
+          },
+          {
+            "blood-reaction-base": {},
+            "blood-reaction-with": {
+              "amount": "82.5"
+            },
+            "heat-the-soul": {},
+            "heat-the-soul-with": {
+              "amount": ""
+            },
+            "fatal-frenzy-power-condi": {
+              "amount": "82.5"
+            },
+            "fatal-frenzy-toughness": {},
+            "bloody-roar": {
+              "amount": "82.5"
+            },
+            "king-of-fires": {},
+            "eternal-champion": {},
+            "smash-brawler-full": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
   - name: Condi (Quickness) Berserker
     profession: Berserker
     traits: |-
