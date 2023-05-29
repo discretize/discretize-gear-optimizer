@@ -6163,12 +6163,12 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "3.16"
+              "amount": "3.23"
             }
           },
           {
             "soul-barbs": {
-              "amount": "97"
+              "amount": "96"
             },
             "vital-persistence": {},
             "death-perception": {}
