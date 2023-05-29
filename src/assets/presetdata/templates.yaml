@@ -816,7 +816,7 @@ list:
         extras: Condi Alac Ren
         weaponType: Two-handed
 
-      - name: Alacrity Power Ren (Outdated)
+      - name: Alacrity Power Ren
         id: pren
         specialization: Renegade
         boonType: Power
