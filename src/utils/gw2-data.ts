@@ -44,7 +44,7 @@ export type AffixName =
   | 'Ritualist'
   | 'Dragon';
 
-type AffixNameOrCustom = AffixName | 'Custom';
+export type AffixNameOrCustom = AffixName | 'Custom';
 export interface AffixData {
   type: 'triple' | 'quadruple' | 'celestial';
   category: string;
@@ -1169,10 +1169,10 @@ export const damagingConditions: ConditionName[] = [
   'Torment',
 ];
 
-const PrimaryAttributes = ['Power', 'Precision', 'Toughness', 'Vitality'] as const;
+export const PrimaryAttributes = ['Power', 'Precision', 'Toughness', 'Vitality'] as const;
 export type PrimaryAttributeName = (typeof PrimaryAttributes)[number];
 
-const SecondaryAttributes = [
+export const SecondaryAttributes = [
   'Ferocity',
   'Condition Damage',
   'Expertise',

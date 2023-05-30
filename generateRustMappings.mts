@@ -1,0 +1,109 @@
+// @ts-nocheck
+import { writeFileSync } from 'fs';
+import {
+  Affix,
+  AffixNameOrCustom,
+  AscendedItem,
+  ExoticItem,
+  PrimaryAttributes,
+} from './src/utils/gw2-data.ts';
+
+const OUTPUT_PATH = 'wasm_module/src/mappings.rs';
+
+const SLOTS_MAPPING = [
+  { rust: 'Helm', js: 'HELM' },
+  { rust: 'Shoulders', js: 'SHOULDERS' },
+  { rust: 'Chest', js: 'CHEST' },
+  { rust: 'Gloves', js: 'GLOVES' },
+  { rust: 'Leggings', js: 'LEGGINGS' },
+  { rust: 'Boots', js: 'BOOTS' },
+  { rust: 'Amulet', js: 'AMULET' },
+  { rust: 'Ring', js: 'RING' },
+  { rust: 'Accessory', js: 'ACCESSORY' },
+  { rust: 'BackItem', js: 'BACK_ITEM' },
+  { rust: 'TwoHandedWeapon', js: 'TWOHANDED_WEAPON' },
+  { rust: 'OneHandedWeapon', js: 'ONEHANDED_WEAPON' },
+];
+const RARITY_MAPPING = [
+  {
+    rust: 'Ascended',
+  },
+  {
+    rust: 'Exotic',
+  },
+];
+
+function getRustAttribute(str) {
+  const adjustedStr = str.replaceAll(' ', '');
+  if (PrimaryAttributes.includes(str)) {
+    return `Attribute::Primary(PrimaryAttributeName::${adjustedStr})`;
+  }
+  return `Attribute::Secondary(SecondaryAttributeName::${adjustedStr})`;
+}
+
+function findStats(slot: string, affix: AffixNameOrCustom, rarity: string) {
+  let slotStats = null;
+  // eslint-disable-next-line default-case
+  switch (rarity) {
+    case 'Ascended':
+      slotStats = AscendedItem[slot];
+      break;
+    case 'Exotic':
+      slotStats = ExoticItem[slot];
+      break;
+  }
+
+  // find out affix type
+  const affixType = Affix[affix].type;
+
+  return slotStats[affixType];
+}
+
+let output = '// AUTOMATICALLY GENERATED FILE\n';
+output += '// DO NOT EDIT\n\n';
+output +=
+  '\nuse crate::gw2data::{Affix, AttributesCollection, Rarity, Slots, Attribute, PrimaryAttributeName, SecondaryAttributeName};\n\n';
+output +=
+  'pub fn add_stats(stats: &mut AttributesCollection, affix: Affix, slot: Slots, rarity: Rarity) {';
+
+output += '\n';
+output += 'match slot {';
+
+output += '\n\tSlots::None => {},';
+SLOTS_MAPPING.forEach((slot) => {
+  output += `\n\tSlots::${slot.rust} => match affix {`;
+
+  output += '\n\t\tAffix::None => {},';
+  // match affixes now
+  Object.keys(Affix).forEach((affix) => {
+    output += `\n\t\tAffix::${affix} => match rarity {`;
+
+    // match rarity now
+    RARITY_MAPPING.forEach((rarity) => {
+      output += `\n\t\t\tRarity::${rarity.rust} => {`;
+      // add stats here
+      const stats = findStats(slot.js, affix, rarity.rust);
+      Affix[affix].bonuses.major.forEach((bonus) => {
+        output += `\n\t\t\t\tstats.add_attribute_value(&${getRustAttribute(bonus)}, ${
+          stats.major
+        });`;
+      });
+
+      Affix[affix].bonuses.minor.forEach((bonus) => {
+        output += `\n\t\t\t\tstats.add_attribute_value(&${getRustAttribute(bonus)}, ${
+          stats.minor
+        });`;
+      });
+
+      output += '\n\t\t\t},';
+    });
+
+    output += '\n\t\t},';
+  });
+
+  output += '}\n\t';
+});
+
+output += '}\n}';
+
+writeFileSync(OUTPUT_PATH, output);

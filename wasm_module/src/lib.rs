@@ -1,12 +1,14 @@
 use std::cell::RefCell;
 
+use mappings::add_stats;
 use wasm_bindgen::prelude::*;
 use web_sys::console;
 
 mod gw2data;
+mod mappings;
 mod utils;
 
-use gw2data::{add_stats, slot_from_indexed_array, Affix, Character, Rarity};
+use gw2data::{slot_from_indexed_array, Affix, Character, Rarity};
 
 pub fn descend_subtree_dfs<F>(affix_array: &[Vec<Affix>], subtree: &[Affix], leaf_callback: &mut F)
 where
@@ -50,7 +52,7 @@ pub fn start(chunks: &Vec<Vec<Affix>>, affix_array: &Vec<Vec<Affix>>) -> i32 {
             add_stats(
                 &mut character.attributes,
                 *affix,
-                slot_from_indexed_array(index),
+                slot_from_indexed_array(index, true),
                 Rarity::Ascended,
             )
         }
