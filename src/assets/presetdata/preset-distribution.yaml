@@ -131,12 +131,12 @@ list:
     profession: Dragonhunter
     value: >-
       {
-        "values2": { "Power": 3863, "Power2": 0, "Burning": 2.62, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4085, "Power2": 0, "Burning": 2.59, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Derm
-        url: https://www.youtube.com/watch?v=5TeoWaya2xs
-        log: https://dps.report/SNuX-20230111-015647_golem
+      - author: Shavy
+        url: https://www.youtube.com/watch?v=7-nqp2Ths3s
+        log: https://dps.report/GQ29-20230504-221813_golem
 
   # https://www.youtube.com/watch?v=iaMQVvspJFE
   # 12 boons; thief rune, accuracy
