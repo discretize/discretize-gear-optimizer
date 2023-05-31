@@ -1,14 +1,12 @@
 use std::cell::RefCell;
 
-use mappings::add_stats;
 use wasm_bindgen::prelude::*;
 use web_sys::console;
 
 mod gw2data;
-mod mappings;
 mod utils;
 
-use gw2data::{slot_from_indexed_array, Affix, Character, Rarity};
+use gw2data::{Affix, Character, Combination};
 
 pub fn descend_subtree_dfs<F>(affix_array: &[Vec<Affix>], subtree: &[Affix], leaf_callback: &mut F)
 where
@@ -37,24 +35,28 @@ where
 /**
  * Starts the calculation.
  */
-pub fn start(chunks: &Vec<Vec<Affix>>, affix_array: &Vec<Vec<Affix>>) -> i32 {
+pub fn start(chunks: &Vec<Vec<Affix>>, combinations: &Vec<Combination>) -> i32 {
     let counter = RefCell::new(0);
     let mut character = Character::default();
+    let affix_array = &combinations[0].affixesArray;
+    let affix_stats = &combinations[0].affixStatsArray;
 
     let mut callback = |subtree: &[Affix]| {
         // Leaf callback implementation
         character.clear();
-        // set stats of character slots to subtree affixes
+
         for (index, affix) in subtree.iter().enumerate() {
+            // all of this is neglible compared to base_attributes.add_attributes
             character.set_affix(index, *affix);
 
-            // calculate stats for character
-            add_stats(
-                &mut character.attributes,
-                *affix,
-                slot_from_indexed_array(index, true),
-                Rarity::Ascended,
-            )
+            let index_in_affix_array = affix_array[index]
+                .iter()
+                .position(|&r| r.to_number() == affix.to_number())
+                .unwrap();
+            let attributes_to_add = &affix_stats[index][index_in_affix_array];
+
+            // this call is expensive!
+            character.add_attributes(attributes_to_add);
         }
 
         *counter.borrow_mut() += 1;
@@ -62,14 +64,16 @@ pub fn start(chunks: &Vec<Vec<Affix>>, affix_array: &Vec<Vec<Affix>>) -> i32 {
 
     for chunk in chunks {
         // start dfs into tree
-        descend_subtree_dfs(&affix_array, &chunk, &mut callback);
+        descend_subtree_dfs(affix_array, &chunk, &mut callback);
     }
 
     return counter.into_inner();
 }
 
 #[wasm_bindgen]
-pub fn calculate(js_chunks: String, js_affix_array: String) -> i32 {
+pub fn calculate(js_chunks: String, js_combinations: String) -> i32 {
+    console::log_1(&JsValue::from_str("calculate() called"));
+
     let opt_chunks = utils::parse_string_to_vector(&js_chunks);
     let chunks = match opt_chunks {
         Some(chunks) => chunks,
@@ -80,24 +84,18 @@ pub fn calculate(js_chunks: String, js_affix_array: String) -> i32 {
     };
     let chunks = utils::vec_i8_to_affix(chunks);
 
-    // utils::pretty_print_vector(chunks.clone());
-    // console::log_1(&JsValue::from_str(&js_chunks));
+    let combinations: Vec<Combination> = serde_json::from_str(&js_combinations).unwrap();
 
-    let affix_array = utils::parse_string_to_vector(&js_affix_array);
-    let affix_array = match affix_array {
-        Some(affix_array) => affix_array,
-        None => {
-            console::log_1(&JsValue::from_str("Error parsing affix array"));
-            return -1;
-        }
-    };
-    let affix_array = utils::vec_i8_to_affix(affix_array);
-
-    //pretty_print_vector(affix_array.clone());
-    // console::log_1(&JsValue::from_str(&js_affix_array));
+    // console::log_1(&JsValue::from_str("Parsed combinations"));
+    //print parsed combinations from serde_json
+    // console::log_1(&JsValue::from_str(&format!("{:?}", combinations)));
+    // console::log_1(&JsValue::from_str(&format!(
+    //     "{:?}",
+    //     combinations[0].baseAttributes
+    // )));
 
     // -- done with parsing --
-    let counter = start(&chunks, &affix_array);
+    let counter = start(&chunks, &combinations);
 
     return counter;
 }

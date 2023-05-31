@@ -1,28 +1,57 @@
-import { Affix } from '../../utils/gw2-data';
+import { Affix, AttributeName, Attributes, Indicators, WeaponTypes } from '../../utils/gw2-data';
+import { Combination, setupCombinations } from '../optimizer/optimizerSetup';
 import { getAffixCombinations, getLayerNumber } from './affixTree';
 import { FINISHED, SETUP, START } from './workerMessageTypes';
 
-const getAffixId = (affix: string) => Object.keys(Affix).indexOf(affix);
+const getAffixId = (affix: string) => (affix ? Object.keys(Affix).indexOf(affix) : null);
+const getAttributeId = (attribute: AttributeName) =>
+  Object.values(Attributes).flat(1).indexOf(attribute);
+const getWeaponTypeId = (weaponType: string) => Object.values(WeaponTypes).indexOf(weaponType);
 
-// should make this a settings variable or something
+// should make this a settings variable or something later on
 const NUM_THREADS = 4;
+
+// replace string values with their corresponding IDs.
+// in rust we use enums, which are i32 indexed, so we need to convert the strings to numbers
+function modifyCombinations(combinations: Combination[]): any {
+  const toReturn = combinations.map((combination) => combination.settings || {}) as any[];
+
+  for (let i = 0; i < combinations.length; i++) {
+    const combination = combinations[i];
+
+    if (combination.settings) {
+      toReturn[i].rankby = Indicators.indexOf(combination.settings?.rankby);
+      toReturn[i].weaponType = getWeaponTypeId(combination.settings?.weaponType);
+      toReturn[i].forcedAffixes = combination.settings?.forcedAffixes.map(getAffixId);
+      toReturn[i].affixesArray = combination.settings?.affixesArray.map((slot) =>
+        slot.map((affix) => getAffixId(affix)),
+      );
+      toReturn[i].affixStatsArray = combination.settings?.affixStatsArray.map((slot) =>
+        slot.map((affixes) =>
+          affixes.map((affix) => [getAttributeId(affix[0] as AttributeName), affix[1]]),
+        ),
+      );
+    }
+  }
+
+  return toReturn;
+}
 
 function calculate(reduxState: any, isWasm: boolean) {
   console.log('Parallel Optimizer');
   console.log('State', reduxState);
 
-  // prepare affixes
-  const { affixes } = reduxState.optimizer.form.priorities;
-  const forcedSlots = reduxState.optimizer.form.forcedSlots.slots;
+  // get the extra combinations from the redux state
+  // also adjust the settings to be usable by rust (we use c-like enums there)
+  const combinations = modifyCombinations(setupCombinations(reduxState));
 
-  // merge affixes with forced slots to create an array of affixes for each slot
-  const affixArray = forcedSlots.map((slot: string, index: number) => {
-    if (!slot) {
-      return affixes.map(getAffixId);
-    }
-    return [getAffixId(slot)];
-  });
+  console.log(combinations);
+  if (combinations.length === 0) {
+    console.error('No combinations found');
+    return;
+  }
 
+  const affixArray = combinations[0]?.affixesArray;
   const layer = getLayerNumber(affixArray, NUM_THREADS);
 
   console.log(`Creating ${NUM_THREADS} threads to calculate ${layer} layers`);
@@ -34,20 +63,18 @@ function calculate(reduxState: any, isWasm: boolean) {
     };
   });
 
-  const combinations = getAffixCombinations(affixArray, layer);
-  console.log('Combinations', combinations);
+  const affixcombinations = getAffixCombinations(affixArray, layer);
 
   // split work into NUM_THREADS chunks, each chunk getting a number of subtrees to calculate
-  const chunks = splitCombinations(combinations);
-  console.log('Chunks', chunks);
+  const chunks = splitCombinations(affixcombinations);
 
   // send chunks to workers
   workers.forEach(({ worker }, index) => {
     worker.postMessage({
       type: SETUP,
       data: {
-        affixArray,
         chunks: chunks[index],
+        combinations,
       },
     });
   });

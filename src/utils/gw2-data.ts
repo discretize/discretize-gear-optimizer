@@ -1237,7 +1237,7 @@ export type ConditionDamageAttributeName = (typeof ConditionDamageAttributes)[nu
 const EffectiveAttributes = ['Effective Power', 'Effective Health', 'Effective Healing'] as const;
 export type EffectiveAttributeName = (typeof EffectiveAttributes)[number];
 
-const Indicators = ['Damage', 'Survivability', 'Healing'] as const;
+export const Indicators = ['Damage', 'Survivability', 'Healing'] as const;
 export type IndicatorName = (typeof Indicators)[number];
 
 export type AttributeName =

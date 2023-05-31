@@ -32,7 +32,7 @@ pub fn parse_string_to_vector(input: &str) -> Option<Vec<Vec<i8>>> {
     Some(result)
 }
 
-pub fn pretty_print_vector(vector: Vec<Vec<Affix>>) {
+pub fn _pretty_print_vector(vector: Vec<Vec<Affix>>) {
     let formatted_string = vector
         .iter()
         .map(|inner_vec| {

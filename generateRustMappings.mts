@@ -8,6 +8,13 @@ import {
   PrimaryAttributes,
 } from './src/utils/gw2-data.ts';
 
+/*
+WARNING
+
+it is uncertain if we will use this file in the future.
+
+*/
+
 const OUTPUT_PATH = 'wasm_module/src/mappings.rs';
 
 const SLOTS_MAPPING = [
@@ -35,10 +42,7 @@ const RARITY_MAPPING = [
 
 function getRustAttribute(str) {
   const adjustedStr = str.replaceAll(' ', '');
-  if (PrimaryAttributes.includes(str)) {
-    return `Attribute::Primary(PrimaryAttributeName::${adjustedStr})`;
-  }
-  return `Attribute::Secondary(SecondaryAttributeName::${adjustedStr})`;
+  return `Attribute::${adjustedStr})`;
 }
 
 function findStats(slot: string, affix: AffixNameOrCustom, rarity: string) {
@@ -61,6 +65,7 @@ function findStats(slot: string, affix: AffixNameOrCustom, rarity: string) {
 
 let output = '// AUTOMATICALLY GENERATED FILE\n';
 output += '// DO NOT EDIT\n\n';
+// todo imports adjustment
 output +=
   '\nuse crate::gw2data::{Affix, AttributesCollection, Rarity, Slots, Attribute, PrimaryAttributeName, SecondaryAttributeName};\n\n';
 output +=
