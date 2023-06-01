@@ -1,7 +1,11 @@
 use wasm_bindgen::JsValue;
 use web_sys::console;
 
-use crate::gw2data::{Affix, Character, Combination};
+use crate::{
+    gw2data::{Affix, Attribute, Character, Combination},
+    utils::clamp,
+    utils::round_even,
+};
 use std::cell::RefCell;
 
 /// Uses depth-first search to calculate all possible combinations of affixes for the given subtree.
@@ -14,15 +18,16 @@ pub fn descend_subtree_dfs<F>(
     affix_array: &[Vec<Affix>],
     subtree: &[Affix],
     max_depth: usize,
+    combination: &Combination,
     leaf_callback: &mut F,
 ) where
-    F: FnMut(&[Affix]),
+    F: FnMut(&[Affix], &Combination),
 {
     let current_layer = subtree.len();
 
     if current_layer == max_depth {
         // if we reached leafs of the tree, call the function
-        leaf_callback(subtree);
+        leaf_callback(subtree, combination);
     } else {
         let permutation_options = &affix_array[current_layer];
 
@@ -32,7 +37,13 @@ pub fn descend_subtree_dfs<F>(
 
         for &option in permutation_options {
             new_subtree.push(option);
-            descend_subtree_dfs(affix_array, &new_subtree, max_depth, leaf_callback);
+            descend_subtree_dfs(
+                affix_array,
+                &new_subtree,
+                max_depth,
+                combination,
+                leaf_callback,
+            );
             new_subtree.pop();
         }
     }
@@ -53,14 +64,20 @@ pub fn start(chunks: &Vec<Vec<Affix>>, combinations: &Vec<Combination>) -> i32 {
     let max_depth = &combinations[0].slots;
 
     // this callback is called for every affix combination (leaf). this is where we calculate the resulting stats
-    let mut callback = |subtree: &[Affix]| {
+    // crucuial to optimize every call in this function as it will be called millions of times
+    let mut callback = |subtree: &[Affix], combination: &Combination| {
         // Leaf callback implementation
         character.clear();
 
+        // add base attributes from settings to character
+        //character.add_attributes(combination.baseAttributes);
+
         for (index, affix) in subtree.iter().enumerate() {
             // all of this is neglible compared to base_attributes.add_attributes
+
             character.set_affix(index, *affix);
 
+            // find out stats for each affix and add them to the character
             let index_in_affix_array = affix_array[index]
                 .iter()
                 .position(|&r| r.to_number() == affix.to_number())
@@ -68,7 +85,9 @@ pub fn start(chunks: &Vec<Vec<Affix>>, combinations: &Vec<Combination>) -> i32 {
             let attributes_to_add = &affix_stats[index][index_in_affix_array];
 
             // this call is expensive!
-            character.add_attributes(attributes_to_add);
+            character.add_base_attributes(attributes_to_add);
+
+            calc_stats(&mut character, combination, false);
         }
 
         *counter.borrow_mut() += 1;
@@ -76,8 +95,117 @@ pub fn start(chunks: &Vec<Vec<Affix>>, combinations: &Vec<Combination>) -> i32 {
 
     for chunk in chunks {
         // start dfs into tree
-        descend_subtree_dfs(affix_array, &chunk, *max_depth as usize, &mut callback);
+
+        // TODO
+        // will need to add another for loop here to iterate over all combinations
+        // there are two options for this:
+        // 1. add another for loop here and iterate over all combinations; start DFS in total #combinations * #chunks times
+        // 2. loop over combination in callback and start DFS only #chunks times
+        // ```
+        // for _ in 0..combinations.len() {
+        //     descend_subtree_dfs(affix_array, &chunk, *max_depth as usize, &mut callback);
+        // }
+        // ```
+
+        descend_subtree_dfs(
+            affix_array,
+            &chunk,
+            *max_depth as usize,
+            &combinations[0],
+            &mut callback,
+        );
     }
 
     return counter.into_inner();
+}
+
+pub fn calc_stats(character: &mut Character, settings: &Combination, no_rounding: bool) {
+    character.attributes = character.base_attributes.clone();
+
+    let attributes = &mut character.attributes;
+
+    let round = |val: f32| {
+        if no_rounding {
+            val
+        } else {
+            round_even(val)
+        }
+    };
+
+    for (attribute, conversion) in &settings.modifiers.convert {
+        let maybe_round = |val: f32| {
+            if attribute.is_point_key() {
+                round(val)
+            } else {
+                val
+            }
+        };
+
+        for (source, percent) in conversion {
+            attributes[*attribute as usize] =
+                maybe_round(character.base_attributes[*source as usize] * percent);
+        }
+    }
+
+    for (attribute, bonus) in &settings.modifiers.buff {
+        attributes[*attribute as usize] += bonus;
+    }
+
+    attributes[Attribute::CriticalChance as usize] +=
+        (attributes[Attribute::Precision as usize] - 1000.0) / 21.0 / 1000.0;
+    attributes[Attribute::CriticalDamage as usize] +=
+        attributes[Attribute::Ferocity as usize] / 15.0 / 100.0;
+    attributes[Attribute::BoonDuration as usize] +=
+        attributes[Attribute::Concentration as usize] / 15.0 / 100.0;
+
+    attributes[Attribute::Health as usize] = round(
+        attributes[Attribute::Health as usize] + attributes[Attribute::Vitality as usize] * 10.0,
+    ) * (1.0 + attributes[Attribute::MaxHealth as usize]);
+
+    // clones/phantasms/shroud
+    //TODO
+
+    // convertAfterBuffs
+    for (attribute, conversion) in &settings.modifiers.convertAfterBuffs {
+        let maybe_round = |val: f32| {
+            if attribute.is_point_key() {
+                round(val)
+            } else {
+                val
+            }
+        };
+
+        for (source, percent) in conversion {
+            match *source {
+                Attribute::CriticalChance => {
+                    attributes[*attribute as usize] = maybe_round(
+                        clamp(attributes[Attribute::CriticalChance as usize], 0.0, 1.0) * percent,
+                    );
+                }
+                Attribute::CloneCriticalChance => {
+                    attributes[*attribute as usize] = maybe_round(
+                        clamp(
+                            attributes[Attribute::CloneCriticalChance as usize],
+                            0.0,
+                            1.0,
+                        ) * percent,
+                    );
+                }
+                Attribute::PhantasmCriticalChance => {
+                    attributes[*attribute as usize] = maybe_round(
+                        clamp(
+                            attributes[Attribute::PhantasmCriticalChance as usize],
+                            0.0,
+                            1.0,
+                        ) * percent,
+                    );
+                }
+
+                _ => {
+                    attributes[*attribute as usize] =
+                        maybe_round(attributes[*source as usize] * percent);
+                }
+            }
+        }
+    }
 }

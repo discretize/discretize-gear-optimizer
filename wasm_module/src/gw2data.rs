@@ -5,7 +5,6 @@ use enum_iterator::{all, Sequence};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use serde_repr::{Deserialize_repr, Serialize_repr};
-use web_sys::console;
 
 // BEGIN combination related
 
@@ -47,7 +46,7 @@ pub struct Combination {
     pub slots: u8, // amount of occupied slots. typically, 13 for two-handed weapons, 14 for dual wield
     pub runsAfterThisSlot: Vec<u32>,
     pub affixesArray: [Vec<Affix>; 14],
-    pub affixStatsArray: [Vec<Vec<(Attribute, u32)>>; 14],
+    pub affixStatsArray: [Vec<Vec<(Attribute, f32)>>; 14],
     pub baseAttributes: Value, // generic type
     pub modifiers: Modifiers,
     pub disableCondiResultCache: bool,
@@ -102,11 +101,11 @@ pub struct Distribution {
 #[allow(non_snake_case)]
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Modifiers {
-    damageMultiplier: Value,
-    damageMultiplierBreakdown: Value,
-    buff: Vec<(String, f32)>, // todo fix these String typings, they are supposed to be Attributes
-    convert: Vec<(String, Vec<(String, f32)>)>, // todo fix these String typings
-    convertAfterBuffs: Vec<(String, Vec<(String, f32)>)>, // todo fix these String typings
+    pub damageMultiplier: Value,
+    pub damageMultiplierBreakdown: Value,
+    pub buff: Vec<(Attribute, f32)>, // todo fix these String typings, they are supposed to be Attributes
+    pub convert: Vec<(Attribute, Vec<(Attribute, f32)>)>, // todo fix these String typings
+    pub convertAfterBuffs: Vec<(Attribute, Vec<(Attribute, f32)>)>, // todo fix these String typings
 }
 
 // END combination related
@@ -117,7 +116,8 @@ pub struct Modifiers {
 pub struct Character {
     // attributes indexed by Attribute enum
     // array instead of struct since this is muuuuuuuuch faster than matching with enum
-    pub base_attributes: [u32; 57],
+    pub base_attributes: [f32; ATTRIBUTE_COUNT],
+    pub attributes: [f32; ATTRIBUTE_COUNT],
     pub slots: [Affix; 14],
 }
 
@@ -126,7 +126,7 @@ impl Character {
         //self.base_attributes.clear();
 
         self.base_attributes.iter_mut().for_each(|attr| {
-            *attr = 0;
+            *attr = 0.0;
         });
 
         // clear slots
@@ -139,21 +139,18 @@ impl Character {
         self.slots[index] = affix;
     }
 
-    pub fn add_attributes(&mut self, attributes: &Vec<(Attribute, u32)>) {
+    pub fn add_base_attributes(&mut self, attributes: &Vec<(Attribute, f32)>) {
         attributes.iter().for_each(|(attr, value)| {
             self.base_attributes[*attr as usize] += value;
         });
-    }
-
-    pub fn get_attribute(&self, attr: Attribute) -> u32 {
-        self.base_attributes[attr as usize]
     }
 }
 
 impl Default for Character {
     fn default() -> Self {
         Self {
-            base_attributes: [0; 57],
+            base_attributes: [0.0; ATTRIBUTE_COUNT],
+            attributes: [0.0; ATTRIBUTE_COUNT],
             slots: [Affix::default(); 14],
         }
     }
@@ -205,25 +202,31 @@ pub fn slot_from_indexed_array(index: usize, twohanded: bool) -> Slots {
     }
 }
 
-#[derive(Debug, Serialize_repr, Deserialize_repr, Default, Clone, Copy)]
+const ATTRIBUTE_COUNT: usize = 73;
+
+#[derive(Debug, Sequence, Serialize_repr, Deserialize_repr, Default, Clone, Copy)]
 #[repr(u8)]
 pub enum Attribute {
+    // primary
     Power,
     Precision,
     Toughness,
     Vitality,
+    // secondary
     Ferocity,
     ConditionDamage,
     Expertise,
     Concentration,
     HealingPower,
     AgonyResistance,
+    // derived
     CriticalChance,
     CriticalDamage,
     ConditionDuration,
     BoonDuration,
     Health,
     Armor,
+    // boon duration
     AegisDuration,
     FuryDuration,
     MightDuration,
@@ -235,6 +238,7 @@ pub enum Attribute {
     StabilityDuration,
     SwiftnessDuration,
     VigorDuration,
+    // condition duration
     BleedingDuration,
     BlindDuration,
     BurningDuration,
@@ -249,22 +253,46 @@ pub enum Attribute {
     TormentDuration,
     VulnerabilityDuration,
     WeaknessDuration,
-    Bleeding,
-    Burning,
-    Confusion,
-    Poison,
-    Torment,
+    // conditions ????
+    BleedingCoefficient,
+    BurningCoefficient,
+    ConfusionCoefficient,
+    PoisonCoefficient,
+    TormentCoefficient,
+    // condition damage
     BleedingDamage,
     BurningDamage,
     ConfusionDamage,
     PoisonDamage,
     TormentDamage,
+    // effective attributes
     EffectivePower,
     EffectiveHealth,
     EffectiveHealing,
+    // indicators
     Damage,
     Survivability,
     Healing,
+    // alternative power, no idea whats that for
+    AltPower,
+    AltPrecision,
+    AltFerocity,
+    AltCriticalChance,
+    AltEffectivePower,
+    AltCriticalDamage,
+    // profession specific
+    CloneCriticalChance,
+    PhantasmCriticalChance,
+    PhantasmDamage,
+    SiphonBaseCoefficient,
+    SiphonDPS,
+
+    // misc
+    StrikeDamage,
+    MaxHealth,
+    OutgoingHealing,
+    AllDamage,
+    DamageReduction,
     #[default]
     None = 255,
 }
@@ -292,16 +320,16 @@ impl Attribute {
         }
     }
 
+    pub fn is_point_key(&self) -> bool {
+        return self.is_primary() || self.is_secondary(); // todo: add alternative stats
+    }
+
     pub fn get_indicators() -> Vec<Attribute> {
         vec![
             Attribute::Damage,
             Attribute::Survivability,
             Attribute::Healing,
         ]
-    }
-
-    pub fn count() -> usize {
-        return 57;
     }
 
     // other methods for derived attributes

@@ -4,8 +4,44 @@ import { getAffixCombinations, getLayerNumber } from './affixTree';
 import { FINISHED, SETUP, START } from './workerMessageTypes';
 
 const getAffixId = (affix: string) => (affix ? Object.keys(Affix).indexOf(affix) : null);
-const getAttributeId = (attribute: AttributeName) =>
-  Object.values(Attributes).flat(1).indexOf(attribute);
+const getAttributeId = (attribute: AttributeName) => {
+  const attributes = [
+    ...Object.values(Attributes).flat(1),
+    'Alternative Power',
+    'Alternative Precision',
+    'Alternative Ferocity',
+    'Alternative Critical Chance',
+    'Alternative Effective Power',
+    'Alternative Critical Damage',
+
+    // profession specific
+    'Clone Critical Chance',
+    'Phantasm Critical Chance',
+    'Phantasm Damage',
+    'Siphon Base Coefficient',
+    'SiphonDPS',
+
+    // misc
+    'Strike Damage',
+    'Maximum Health',
+    'Outgoing Healing',
+    'All Damage',
+    'Damage Reduction',
+  ];
+  attributes[41] = 'Bleeding Coefficient';
+  attributes[42] = 'Burning Coefficient';
+  attributes[43] = 'Confusion Coefficient';
+  attributes[44] = 'Poison Coefficient';
+  attributes[45] = 'Torment Coefficient';
+
+  const index = attributes.indexOf(attribute);
+  if (index === -1) {
+    console.log(attributes);
+    throw new Error(`Attribute ${attribute} not found`);
+  }
+
+  return index;
+};
 const getWeaponTypeId = (weaponType: string) => Object.values(WeaponTypes).indexOf(weaponType);
 
 // should make this a settings variable or something later on
@@ -42,8 +78,22 @@ function modifyCombinations(combinations: Combination[]): any {
         toReturn[i].affixStatsArray.push([]);
       }
 
+      toReturn[i].modifiers.buff = combination.settings?.modifiers.buff.map((mod) => [
+        getAttributeId(mod[0] as AttributeName),
+        mod[1],
+      ]);
+      toReturn[i].modifiers.convert = combination.settings?.modifiers.convert.map((mod) => [
+        getAttributeId(mod[0] as AttributeName),
+        mod[1].map((convert) => [getAttributeId(convert[0] as AttributeName), convert[1]]),
+      ]);
+      toReturn[i].modifiers.convertAfterBuffs =
+        combination.settings?.modifiers.convertAfterBuffs.map((mod) => [
+          getAttributeId(mod[0] as AttributeName),
+          mod[1].map((convert) => [getAttributeId(convert[0] as AttributeName), convert[1]]),
+        ]);
+
       // we are not interested in these objects in rust - for now
-      delete toReturn[i].shjouldDisplayExtras;
+      delete toReturn[i].shouldDisplayExtras;
       delete toReturn[i].appliedModifiers;
       delete toReturn[i].cachedFormState;
       delete toReturn[i].extrasCombination;
@@ -62,6 +112,7 @@ function calculate(reduxState: any, isWasm: boolean) {
   const combinations = modifyCombinations(setupCombinations(reduxState));
 
   console.log(combinations);
+
   if (combinations.length === 0) {
     console.error('No combinations found');
     return;

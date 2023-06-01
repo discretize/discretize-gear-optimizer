@@ -59,3 +59,24 @@ pub fn vec_i8_to_affix(vec: Vec<Vec<i8>>) -> Vec<Vec<Affix>> {
         })
         .collect::<Vec<Vec<Affix>>>()
 }
+
+pub fn round_even(number: f32) -> f32 {
+    if (number % 1.0) == 0.5 {
+        let floor = number.floor();
+        if (floor % 2.0) == 0.0 {
+            return floor;
+        }
+        return floor + 1.0;
+    }
+    number.round()
+}
+
+pub fn clamp(input: f32, min: f32, max: f32) -> f32 {
+    if input < min {
+        return min;
+    }
+    if input > max {
+        return max;
+    }
+    input
+}
