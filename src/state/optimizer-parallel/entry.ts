@@ -31,6 +31,22 @@ function modifyCombinations(combinations: Combination[]): any {
           affixes.map((affix) => [getAttributeId(affix[0] as AttributeName), affix[1]]),
         ),
       );
+
+      // in rust we assume that the arrays are always 14 long
+      if (toReturn[i].affixesArray.length === 13) {
+        // add one more empty slot
+        toReturn[i].affixesArray.push([]);
+      }
+      if (toReturn[i].affixStatsArray.length === 13) {
+        // add one more empty slot
+        toReturn[i].affixStatsArray.push([]);
+      }
+
+      // we are not interested in these objects in rust - for now
+      delete toReturn[i].shjouldDisplayExtras;
+      delete toReturn[i].appliedModifiers;
+      delete toReturn[i].cachedFormState;
+      delete toReturn[i].extrasCombination;
     }
   }
 

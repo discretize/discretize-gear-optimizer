@@ -15,7 +15,7 @@ pub struct Combination {
     pub profession: String,
     pub specialization: String,
     pub weaponType: WeaponHandednessType,
-    pub forcedAffixes: [Option<i8>; 14],
+    pub forcedAffixes: [Option<u8>; 14],
     pub rankby: Indicator,
     pub minBoonDuration: Option<f32>,
     pub minHealingPower: Option<f32>,
@@ -28,12 +28,12 @@ pub struct Combination {
     pub minOutgoingHealing: Option<f32>,
     pub minQuicknessDuration: Option<f32>,
     pub minSurviability: Option<f32>,
-    pub maxResults: i32,
+    pub maxResults: u32,
     pub primaryInfusion: String,   // todo
     pub secondaryInfusion: String, // todo
-    pub primaryMaxInfusions: i32,
-    pub secondaryMaxInfusions: i32,
-    pub maxInfusions: i32,
+    pub primaryMaxInfusions: u32,
+    pub secondaryMaxInfusions: u32,
+    pub maxInfusions: u32,
     pub distribution: Distribution,
     pub attackRate: f32,
     pub movementUptime: f32,
@@ -44,12 +44,14 @@ pub struct Combination {
     pub identicalAcc: bool,
     pub identicalWep: bool,
     pub identicalArmor: bool,
-    pub slots: i8, // length of the former slots array, we dont need that any more
+    pub slots: u8, // amount of occupied slots. typically, 13 for two-handed weapons, 14 for dual wield
     pub runsAfterThisSlot: Vec<u32>,
     pub affixesArray: [Vec<Affix>; 14],
     pub affixStatsArray: [Vec<Vec<(Attribute, u32)>>; 14],
     pub baseAttributes: Value, // generic type
     pub modifiers: Modifiers,
+    pub disableCondiResultCache: bool,
+    pub relevantConditions: Vec<String>,
 }
 
 #[derive(Debug, Deserialize_repr, Serialize_repr)]
