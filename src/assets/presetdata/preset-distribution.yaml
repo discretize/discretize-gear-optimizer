@@ -334,12 +334,12 @@ list:
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 4302, "Power2": 0, "Burning": 5.14, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4387, "Power2": 0, "Burning": 5.59, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Incera
-        url: https://www.youtube.com/watch?v=47EAEhQJnwo
-        log: https://dps.report/hgw2-20230220-004711_golem
+      - author: Andy
+        url: https://www.youtube.com/watch?v=282m_ydQUdY
+        log: https://dps.report/Ixw2-20230502-200305_golem
 
   # 12 boons, celefood toxiccrystal, 14%
   - name: Condi Alacrity Willbender
