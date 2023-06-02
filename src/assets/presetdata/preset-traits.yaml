@@ -2661,6 +2661,9 @@ list:
             "pinnacle-of-strength-crit": {},
             "berserkers-power": {
               "amount": "4"
+            },
+            "peak-performance-2": {
+              "amount": "4.4"
             }
           },
           {

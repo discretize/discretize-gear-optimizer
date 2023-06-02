@@ -115,17 +115,16 @@ list:
         url: https://www.youtube.com/watch?v=QPrh0p0k-G8
         log: https://dps.report/cmft-20220807-174306_golem
 
-  # 100% crit (thief accuracy, assassin shoulders amulet, furious)
   - name: DPS Bladesworn Tactics
     profession: Bladesworn
     value: >-
       {
-        "values2": { "Power": 4560, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4571, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Evo
-        url: https://www.youtube.com/watch?v=88nzpHXKwFU
-        log: https://dps.report/brm9-20220810-112155_golem
+        url: https://www.youtube.com/watch?v=bh2FuVpJB7E
+        log: https://gw2wingman.nevermindcreations.de/log/20230512-052547_StdGolem_kill
 
   - name: DH Radiance
     profession: Dragonhunter
