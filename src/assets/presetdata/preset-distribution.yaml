@@ -1019,18 +1019,18 @@ list:
         log: https://dps.report/0Pzn-20220630-021720_golem
 
   # "Reaper does approximately 29.28% of its damage outside of shroud" - https://discord.com/channels/380901000200060929/381160724409614356/828683461074092113
-  # With YaaW this is closer to 34%
-  # scuffed approximation by splitting power damage 0.34 - 0.66
+  # With YaaW this is closer to 33%
+  # scuffed approximation by splitting power damage 0.33 - 0.67
   - name: Power Reaper
     profession: Reaper
     value: >-
       {
-        "values2": { "Power": 1493, "Power2": 2322, "Burning": 0, "Bleeding": 0.72, "Poisoned": 2.18, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1658, "Power2": 2696, "Burning": 0, "Bleeding": 0.31, "Poisoned": 2.1, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[SC] Westet'
-        url: https://www.youtube.com/watch?v=TjnkULNZuTU
-        log: https://dps.report/61Dw-20230214-203311_golem
+      - author: '[InS] Laoshi'
+        url: https://www.youtube.com/watch?v=lx09i7VV3JE
+        log: https://dps.report/XI5L-20230521-175913_golem
 
   - name: Condi Reaper
     profession: Reaper

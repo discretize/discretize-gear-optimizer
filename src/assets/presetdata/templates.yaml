@@ -1084,7 +1084,7 @@ list:
         extras: DPS Scourge
         weaponType: Dual wield
 
-      - name: Power Reaper (Outdated)
+      - name: Power Reaper
         id: preaper
         specialization: Reaper
         boonType: Power
