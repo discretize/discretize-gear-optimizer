@@ -2104,7 +2104,7 @@ list:
             1369
           ],
           [
-            2039,
+            2049,
             2011,
             1928
           ]
@@ -2130,27 +2130,28 @@ list:
             "double-standards-disc": {},
             "axe-mastery-one": {},
             "axe-mastery-axe": {
-              "amount": "68"
+              "amount": "63"
             }
           },
           {
             "blood-reaction-base": {},
             "blood-reaction-with": {
-              "amount": "90"
+              "amount": "100"
             },
             "heat-the-soul": {},
             "heat-the-soul-with": {
               "amount": ""
             },
             "fatal-frenzy-power-condi": {
-              "amount": "90"
+              "amount": "100"
             },
             "fatal-frenzy-toughness": {},
             "bloody-roar": {
-              "amount": "90"
+              "amount": "100"
             },
             "king-of-fires": {},
-            "eternal-champion": {}
+            "eternal-champion": {},
+            "smash-brawler-full": {}
           }
         ]
       }
