@@ -2,7 +2,7 @@ use serde_json::Value;
 use wasm_bindgen::JsValue;
 use web_sys::console;
 
-use crate::gw2data::Affix;
+use crate::gw2data::{Affix, Attribute, Attributes};
 
 /**
  * Parses a string into a vector of vectors of i8.
@@ -79,4 +79,12 @@ pub fn clamp(input: f32, min: f32, max: f32) -> f32 {
         return max;
     }
     input
+}
+
+pub fn print_attr(attr: &Attributes) {
+    for i in 0..attr.len() {
+        let attribute: Attribute = unsafe { ::std::mem::transmute(i as u8) };
+
+        console::log_1(&JsValue::from_str(&format!("{}: {}\n", attribute, attr[i])));
+    }
 }

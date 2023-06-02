@@ -5,6 +5,7 @@ use web_sys::console;
 
 mod gw2data;
 mod optimizer_core;
+mod result;
 mod utils;
 
 use gw2data::Combination;
@@ -16,31 +17,27 @@ use gw2data::Combination;
 /// - `js_combinations` - a stringified JSON array of combination objects
 ///
 #[wasm_bindgen]
-pub fn calculate(js_chunks: String, js_combinations: String) -> i32 {
-    console::log_1(&JsValue::from_str("calculate() called"));
-
+pub fn calculate(js_chunks: String, js_combinations: String) -> Option<String> {
     let opt_chunks = utils::parse_string_to_vector(&js_chunks);
     let chunks = match opt_chunks {
         Some(chunks) => chunks,
         None => {
             console::log_1(&JsValue::from_str("Error parsing chunks"));
-            return -1;
+            return None;
         }
     };
     let chunks = utils::vec_i8_to_affix(chunks);
 
     let combinations: Vec<Combination> = serde_json::from_str(&js_combinations).unwrap();
 
-    // console::log_1(&JsValue::from_str("Parsed combinations"));
-    //print parsed combinations from serde_json
-    // console::log_1(&JsValue::from_str(&format!("{:?}", combinations)));
-    // console::log_1(&JsValue::from_str(&format!(
-    //     "{:?}",
-    //     combinations[0].baseAttributes
-    // )));
+    // calculate the result (maxResult best characters) for the given chunks
+    let result = start(&chunks, &combinations);
 
-    // -- done with parsing --
-    let counter = start(&chunks, &combinations);
+    // parse to string
+    let result_str = serde_json::to_string(&result);
 
-    return counter;
+    match result_str {
+        Ok(result_str) => return Some(result_str),
+        Err(_) => None,
+    }
 }

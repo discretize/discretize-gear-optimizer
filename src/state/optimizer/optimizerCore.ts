@@ -569,6 +569,7 @@ export class OptimizerCore {
     character.valid = true;
 
     this.calcStats(character);
+
     const { attributes } = character;
 
     if (!skipValidation && this.checkInvalid(character)) {

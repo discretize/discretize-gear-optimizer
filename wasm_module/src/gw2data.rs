@@ -15,7 +15,7 @@ pub struct Combination {
     pub specialization: String,
     pub weaponType: WeaponHandednessType,
     pub forcedAffixes: [Option<u8>; 14],
-    pub rankby: Indicator,
+    pub rankby: Attribute,
     pub minBoonDuration: Option<f32>,
     pub minHealingPower: Option<f32>,
     pub minToughness: Option<f32>,
@@ -47,7 +47,7 @@ pub struct Combination {
     pub runsAfterThisSlot: Vec<u32>,
     pub affixesArray: [Vec<Affix>; 14],
     pub affixStatsArray: [Vec<Vec<(Attribute, f32)>>; 14],
-    pub baseAttributes: Value, // generic type
+    pub baseAttributes: Vec<(Attribute, f32)>,
     pub modifiers: Modifiers,
     pub disableCondiResultCache: bool,
     pub relevantConditions: Vec<String>,
@@ -68,24 +68,6 @@ impl fmt::Display for WeaponHandednessType {
     }
 }
 
-#[derive(Debug, Deserialize_repr, Serialize_repr)]
-#[repr(u8)]
-pub enum Indicator {
-    Damage,
-    Survivability,
-    Healing,
-}
-
-impl fmt::Display for Indicator {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        match self {
-            Indicator::Damage => write!(f, "Damage"),
-            Indicator::Survivability => write!(f, "Survivability"),
-            Indicator::Healing => write!(f, "Healing"),
-        }
-    }
-}
-
 #[allow(non_snake_case)]
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Distribution {
@@ -101,58 +83,127 @@ pub struct Distribution {
 #[allow(non_snake_case)]
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Modifiers {
-    pub damageMultiplier: Value,
+    pub damageMultiplier: [(String, f32); 14],
     pub damageMultiplierBreakdown: Value,
     pub buff: Vec<(Attribute, f32)>, // todo fix these String typings, they are supposed to be Attributes
     pub convert: Vec<(Attribute, Vec<(Attribute, f32)>)>, // todo fix these String typings
     pub convertAfterBuffs: Vec<(Attribute, Vec<(Attribute, f32)>)>, // todo fix these String typings
 }
 
+impl Modifiers {
+    pub fn get_dmg_multiplier(&self, attr: Attribute) -> f32 {
+        match attr {
+            Attribute::StrikeDamage => return self.damageMultiplier[0].1,
+            Attribute::ConditionDamage => return self.damageMultiplier[1].1,
+            Attribute::SiphonDPS => return self.damageMultiplier[2].1,
+            Attribute::DamageTaken => return self.damageMultiplier[3].1,
+            Attribute::CriticalDamage => return self.damageMultiplier[4].1,
+            Attribute::BleedingDamage => return self.damageMultiplier[5].1,
+            Attribute::BurningDamage => return self.damageMultiplier[6].1,
+            Attribute::ConfusionDamage => return self.damageMultiplier[7].1,
+            Attribute::PoisonDamage => return self.damageMultiplier[8].1,
+            Attribute::TormentDamage => return self.damageMultiplier[9].1,
+            Attribute::AltDamage => return self.damageMultiplier[10].1,
+            Attribute::AltCriticalDamage => return self.damageMultiplier[11].1,
+            Attribute::PhantasmDamage => return self.damageMultiplier[12].1,
+            Attribute::PhantasmCriticalDamage => return self.damageMultiplier[13].1,
+            _ => -1.0,
+        }
+    }
+}
+
 // END combination related
 
 // BEGIN character related
 
-#[derive(Debug)]
+pub trait AttributesArray {
+    fn get(&self, attr: Attribute) -> f32;
+    fn set(&mut self, attr: Attribute, value: f32);
+    fn add(&mut self, attr: Attribute, value: f32);
+}
+
+pub type Attributes = [f32; ATTRIBUTE_COUNT];
+impl AttributesArray for Attributes {
+    #[inline(always)]
+    fn get(&self, attr: Attribute) -> f32 {
+        self[attr as usize]
+    }
+
+    #[inline(always)]
+    fn set(&mut self, attr: Attribute, value: f32) {
+        self[attr as usize] = value;
+    }
+
+    #[inline(always)]
+    fn add(&mut self, attr: Attribute, value: f32) {
+        self[attr as usize] += value;
+    }
+}
+
+#[derive(Debug, Copy, Clone, Serialize)]
+#[repr(align(64))] // cache line alignment
 pub struct Character {
     // attributes indexed by Attribute enum
     // array instead of struct since this is muuuuuuuuch faster than matching with enum
-    pub base_attributes: [f32; ATTRIBUTE_COUNT],
-    pub attributes: [f32; ATTRIBUTE_COUNT],
-    pub slots: [Affix; 14],
+    #[serde(with = "serde_arrays")]
+    pub base_attributes: Attributes,
+    #[serde(with = "serde_arrays")]
+    pub attributes: Attributes,
+    pub rankby: Attribute,
+    pub gear: [Affix; 14],
+}
+mod serde_arrays {
+    use serde::Serialize;
+
+    pub fn serialize<S, T>(array: &[T; 84], serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+        T: Serialize,
+    {
+        array[..].serialize(serializer)
+    }
 }
 
 impl Character {
-    pub fn clear(&mut self) {
-        //self.base_attributes.clear();
+    pub fn new(rankby: Attribute) -> Self {
+        Character {
+            base_attributes: [0.0; ATTRIBUTE_COUNT],
+            attributes: [0.0; ATTRIBUTE_COUNT],
+            rankby,
+            gear: [Affix::None; 14],
+        }
+    }
 
+    pub fn clear(&mut self) {
         self.base_attributes.iter_mut().for_each(|attr| {
             *attr = 0.0;
         });
 
-        // clear slots
-        self.slots.iter_mut().for_each(|slot| {
-            *slot = Affix::default();
+        self.attributes.iter_mut().for_each(|attr| {
+            *attr = 0.0;
         });
     }
 
-    pub fn set_affix(&mut self, index: usize, affix: Affix) {
-        self.slots[index] = affix;
+    pub fn score(&self) -> f32 {
+        return self.attributes.get(self.rankby);
     }
-
-    pub fn add_base_attributes(&mut self, attributes: &Vec<(Attribute, f32)>) {
-        attributes.iter().for_each(|(attr, value)| {
-            self.base_attributes[*attr as usize] += value;
-        });
-    }
-}
-
-impl Default for Character {
-    fn default() -> Self {
-        Self {
-            base_attributes: [0.0; ATTRIBUTE_COUNT],
-            attributes: [0.0; ATTRIBUTE_COUNT],
-            slots: [Affix::default(); 14],
-        }
+    pub fn copy_to(&self, other: &mut Character) {
+        other
+            .base_attributes
+            .iter_mut()
+            .zip(self.base_attributes.iter())
+            .for_each(|(a, b)| *a = *b);
+        other
+            .attributes
+            .iter_mut()
+            .zip(self.attributes.iter())
+            .for_each(|(a, b)| *a = *b);
+        other.rankby = self.rankby;
+        other
+            .gear
+            .iter_mut()
+            .zip(self.gear.iter())
+            .for_each(|(a, b)| *a = *b);
     }
 }
 
@@ -202,7 +253,8 @@ pub fn slot_from_indexed_array(index: usize, twohanded: bool) -> Slots {
     }
 }
 
-const ATTRIBUTE_COUNT: usize = 73;
+// align to 64 bytes = 4 attributes per cache line
+const ATTRIBUTE_COUNT: usize = 84; // actually only 81 attributes, but we need to align to 64 bytes;
 
 #[derive(Debug, Sequence, Serialize_repr, Deserialize_repr, Default, Clone, Copy)]
 #[repr(u8)]
@@ -280,19 +332,29 @@ pub enum Attribute {
     AltCriticalChance,
     AltEffectivePower,
     AltCriticalDamage,
+    AltDamage,
     // profession specific
     CloneCriticalChance,
     PhantasmCriticalChance,
     PhantasmDamage,
+    PhantasmCriticalDamage,
     SiphonBaseCoefficient,
     SiphonDPS,
+    SiphonDamage,
 
     // misc
     StrikeDamage,
     MaxHealth,
     OutgoingHealing,
     AllDamage,
+    DamageTaken,
     DamageReduction,
+    PowerCoefficient,
+    NonCritPowerCoefficient,
+    NonCritEffectivePower,
+    Power2DPS,
+    Power2Coefficient,
+    FlatDPS,
     #[default]
     None = 255,
 }
@@ -320,8 +382,20 @@ impl Attribute {
         }
     }
 
+    pub fn is_alternative(&self) -> bool {
+        match self {
+            Attribute::AltPower => true,
+            Attribute::AltPrecision => true,
+            Attribute::AltFerocity => true,
+            Attribute::AltCriticalChance => true,
+            Attribute::AltEffectivePower => true,
+            Attribute::AltCriticalDamage => true,
+            _ => false,
+        }
+    }
+
     pub fn is_point_key(&self) -> bool {
-        return self.is_primary() || self.is_secondary(); // todo: add alternative stats
+        return self.is_primary() || self.is_secondary() || self.is_alternative();
     }
 
     pub fn get_indicators() -> Vec<Attribute> {
@@ -332,7 +406,102 @@ impl Attribute {
         ]
     }
 
+    pub fn to_stringg(&self) -> &str {
+        match self {
+            Attribute::Power => "Power",
+            Attribute::Precision => "Precision",
+            Attribute::Toughness => "Toughness",
+            Attribute::Vitality => "Vitality",
+            Attribute::Ferocity => "Ferocity",
+            Attribute::ConditionDamage => "Condition Damage",
+            Attribute::Expertise => "Expertise",
+            Attribute::Concentration => "Concentration",
+            Attribute::HealingPower => "Healing Power",
+            Attribute::AgonyResistance => "Agony Resistance",
+            Attribute::CriticalChance => "Critical Chance",
+            Attribute::CriticalDamage => "Critical Damage",
+            Attribute::ConditionDuration => "Condition Duration",
+            Attribute::BoonDuration => "Boon Duration",
+            Attribute::Health => "Health",
+            Attribute::Armor => "Armor",
+            Attribute::AegisDuration => "Aegis Duration",
+            Attribute::FuryDuration => "Fury Duration",
+            Attribute::MightDuration => "Might Duration",
+            Attribute::ProtectionDuration => "Protection Duration",
+            Attribute::QuicknessDuration => "Quickness Duration",
+            Attribute::RegenerationDuration => "Regeneration Duration",
+            Attribute::ResistanceDuration => "Resistance Duration",
+            Attribute::ResolutionDuration => "Resolution Duration",
+            Attribute::StabilityDuration => "Stability Duration",
+            Attribute::SwiftnessDuration => "Swiftness Duration",
+            Attribute::VigorDuration => "Vigor Duration",
+            Attribute::BleedingDuration => "Bleeding Duration",
+            Attribute::BlindDuration => "Blind Duration",
+            Attribute::BurningDuration => "Burning Duration",
+            Attribute::ChilledDuration => "Chilled Duration",
+            Attribute::ConfusionDuration => "Confusion Duration",
+            Attribute::CrippledDuration => "Crippled Duration",
+            Attribute::FearDuration => "Fear Duration",
+            Attribute::ImmobileDuration => "Immobile Duration",
+            Attribute::PoisonDuration => "Poison Duration",
+            Attribute::SlowDuration => "Slow Duration",
+            Attribute::TauntDuration => "Taunt Duration",
+            Attribute::TormentDuration => "Torment Duration",
+            Attribute::VulnerabilityDuration => "Vulnerability Duration",
+            Attribute::WeaknessDuration => "Weakness Duration",
+            Attribute::BleedingCoefficient => "Bleeding Coefficient",
+            Attribute::BurningCoefficient => "Burning Coefficient",
+            Attribute::ConfusionCoefficient => "Confusion Coefficient",
+            Attribute::PoisonCoefficient => "Poison Coefficient",
+            Attribute::TormentCoefficient => "Torment Coefficient",
+            Attribute::BleedingDamage => "Bleeding Damage",
+            Attribute::BurningDamage => "Burning Damage",
+            Attribute::ConfusionDamage => "Confusion Damage",
+            Attribute::PoisonDamage => "Poison Damage",
+            Attribute::TormentDamage => "Torment Damage",
+            Attribute::EffectivePower => "Effective Power",
+            Attribute::EffectiveHealth => "Effective Health",
+            Attribute::EffectiveHealing => "Effective Healing",
+            Attribute::AltPower => "Alt Power",
+            Attribute::AltPrecision => "Alt Precision",
+            Attribute::AltFerocity => "Alt Ferocity",
+            Attribute::AltCriticalChance => "Alt Critical Chance",
+            Attribute::AltEffectivePower => "Alt Effective Power",
+            Attribute::AltCriticalDamage => "Alt Critical Damage",
+            Attribute::AltDamage => "Alt Damage",
+            Attribute::CloneCriticalChance => "Clone Critical Chance",
+            Attribute::PhantasmCriticalChance => "Phantasm Critical Chance",
+            Attribute::PhantasmDamage => "Phantasm Damage",
+            Attribute::PhantasmCriticalDamage => "Phantasm Critical Damage",
+            Attribute::SiphonBaseCoefficient => "Siphon Base Coefficient",
+            Attribute::SiphonDPS => "Siphon DPS",
+            Attribute::SiphonDamage => "Siphon Damage",
+            Attribute::StrikeDamage => "Strike Damage",
+            Attribute::MaxHealth => "Max Health",
+            Attribute::OutgoingHealing => "Outgoing Healing",
+            Attribute::AllDamage => "All Damage",
+            Attribute::DamageTaken => "Damage Taken",
+            Attribute::DamageReduction => "Damage Reduction",
+            Attribute::PowerCoefficient => "Power Coefficient",
+            Attribute::NonCritPowerCoefficient => "Non Crit Power Coefficient",
+            Attribute::NonCritEffectivePower => "Non Crit Effective Power",
+            Attribute::Power2DPS => "Power2 DPS",
+            Attribute::Power2Coefficient => "Power2 Coefficient",
+            Attribute::FlatDPS => "Flat DPS",
+            Attribute::None => "None",
+            Attribute::Damage => "Damage",
+            Attribute::Survivability => "Survivability",
+            Attribute::Healing => "Healing",
+        }
+    }
+
     // other methods for derived attributes
+}
+
+impl fmt::Display for Attribute {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{}", self.to_stringg())
+    }
 }
 
 #[derive(Sequence, Debug, Clone, Copy, Default, Serialize_repr, Deserialize_repr)]

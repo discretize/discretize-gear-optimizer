@@ -9,9 +9,9 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 # deps to compile for web
-wasm-bindgen = "0.2.63"
-js-sys = "0.3.51"
-web-sys = {version = "0.3", features = ["console"]}
+wasm-bindgen = {version = "0.2.86", features = []}
+js-sys = "0.3.63"
+web-sys = {version = "0.3.63", features = ["console"]}
 
 # these are actually requried for the optimizer
 serde_json = "1.0.96"
@@ -26,3 +26,4 @@ wasm-bindgen-test = "0.3.13"
 # either "s" or 3. "s" is small bundle size, 3 is fast execution
 opt-level = 3 
 lto = true # This gives LLVM many more opportunities to inline and prune functions. Not only will it make the .wasm smaller, but it will also make it faster at runtime!
+
