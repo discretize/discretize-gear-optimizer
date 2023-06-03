@@ -1,4 +1,4 @@
-use wasm_bindgen::JsValue;
+use wasm_bindgen::{prelude::wasm_bindgen, JsCast, JsValue};
 use web_sys::console;
 
 use crate::{
@@ -74,11 +74,15 @@ pub fn start(chunks: &Vec<Vec<Affix>>, combinations: &Vec<Combination>) -> Resul
             character.combination_id = i as u32;
 
             // calculate stats for this combination
-            test_character(&mut character, setting, subtree);
+            let valid = test_character(&mut character, setting, subtree);
 
-            // insert into result_characters if better than worst character
-            result.insert(&character);
+            if valid {
+                // insert into result_characters if better than worst character
+                result.insert(&character);
+            }
             *counter.borrow_mut() += 1;
+
+            // post message to js
         }
     };
 
@@ -112,7 +116,7 @@ pub fn start(chunks: &Vec<Vec<Affix>>, combinations: &Vec<Combination>) -> Resul
     return result;
 }
 
-fn test_character(character: &mut Character, settings: &Combination, subtree: &[Affix]) {
+fn test_character(character: &mut Character, settings: &Combination, subtree: &[Affix]) -> bool {
     // add base attributes from settings to character
     settings.baseAttributes.iter().for_each(|(key, value)| {
         character.base_attributes.set_a(*key, *value);
@@ -134,12 +138,16 @@ fn test_character(character: &mut Character, settings: &Combination, subtree: &[
     }
 
     // calculate stats for the character
-    update_attributes(character, settings, false);
+    return update_attributes(character, settings, false);
 }
 
-fn update_attributes(character: &mut Character, settings: &Combination, no_rounding: bool) {
+fn update_attributes(character: &mut Character, settings: &Combination, no_rounding: bool) -> bool {
     calc_stats(character, settings, no_rounding);
     //print_attr(&character.attributes);
+
+    if character.is_invalid(settings) {
+        return false;
+    }
 
     let power_damage_score = calc_power(character, &settings);
     let condi_damage_score = calc_condi(character, &settings, &settings.relevantConditions);
@@ -151,6 +159,8 @@ fn update_attributes(character: &mut Character, settings: &Combination, no_round
 
     // todo calcSurvivability
     // todo calcHealing
+
+    return true;
 }
 
 fn calc_stats(character: &mut Character, settings: &Combination, no_rounding: bool) {

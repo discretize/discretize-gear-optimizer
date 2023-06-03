@@ -1,3 +1,4 @@
+import { Character } from '../optimizer/optimizerCore';
 import { setupCombinations } from '../optimizer/optimizerSetup';
 import { getAffixCombinations, getLayerNumber } from './affixTree';
 import { FINISHED, SETUP, START } from './workerMessageTypes';
@@ -58,7 +59,7 @@ function calculate(reduxState: any, isWasm: boolean) {
     worker.onmessage = (e) => {
       console.log('Worker message', e.data);
 
-      if (e.data.type === 'FINISHED') {
+      if (e.data.type === FINISHED) {
         results.push(e.data.data);
         workers[index].status = FINISHED;
 
@@ -68,8 +69,8 @@ function calculate(reduxState: any, isWasm: boolean) {
             .flat(1)
             .sort((a, b) => b.attributes[b.settings.rankby] - a.attributes[a.settings.rankby])
             .slice(0, results[0][0].settings.maxResults);
-          console.log('All workers finished');
-          console.log('Results', sortedResults);
+
+          onFinish(sortedResults);
           const endTime = performance.now();
           console.log('Time', endTime - startTime, 'ms');
         }
@@ -88,6 +89,11 @@ function calculate(reduxState: any, isWasm: boolean) {
       },
     });
   });
+}
+
+function onFinish(results: Character[]) {
+  console.log('All workers finished');
+  console.log('Results', results);
 }
 
 /**

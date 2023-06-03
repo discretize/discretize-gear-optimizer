@@ -86,7 +86,6 @@ async function start(wasm = false) {
       total_threads,
       thread_num,
     );
-
     postMessage({
       type: FINISHED,
       data: transformResults(JSON.parse(data || '[]'), combinations),

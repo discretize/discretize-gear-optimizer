@@ -326,8 +326,60 @@ impl Character {
     pub fn score(&self) -> f32 {
         return self.attributes.get_a(self.rankby);
     }
+
+    pub fn is_invalid(&self, settings: &Combination) -> bool {
+        let invalid = (settings.minBoonDuration.is_some()
+            && self.attributes.get_a(Attribute::BoonDuration)
+                < settings.minBoonDuration.unwrap() / 100.0)
+            || (settings.minQuicknessDuration.is_some()
+                && self.attributes.get_a(Attribute::BoonDuration)
+                    + self.attributes.get_a(Attribute::QuicknessDuration)
+                    < settings.minQuicknessDuration.unwrap() / 100.0)
+            || (settings.minHealingPower.is_some()
+                && self.attributes.get_a(Attribute::HealingPower)
+                    < settings.minHealingPower.unwrap())
+            || (settings.minToughness.is_some()
+                && self.attributes.get_a(Attribute::Toughness) < settings.minToughness.unwrap())
+            || (settings.maxToughness.is_some()
+                && self.attributes.get_a(Attribute::Toughness) > settings.maxToughness.unwrap())
+            || (settings.minHealth.is_some()
+                && self.attributes.get_a(Attribute::Health) < settings.minHealth.unwrap())
+            || (settings.minCritChance.is_some()
+                && self.attributes.get_a(Attribute::CriticalChance)
+                    < settings.minCritChance.unwrap() / 100.0)
+            || (settings.minOutgoingHealing.is_some()
+                && self.attributes.get_a(Attribute::OutgoingHealing)
+                    < settings.minOutgoingHealing.unwrap() / 100.0);
+
+        invalid
+    }
 }
 
+#[derive(Debug, Clone, Serialize)]
+#[repr(align(64))] // cache line alignment
+pub struct ResultCharacter {
+    // attributes indexed by Attribute enum
+    // array instead of struct since this is muuuuuuuuch faster than matching with enum
+    #[serde(with = "serde_arrays")]
+    pub base_attributes: Attributes,
+    #[serde(with = "serde_arrays")]
+    pub attributes: Attributes,
+
+    pub gear: [Affix; 14],
+    pub gear_stats: [f32; 10],
+    pub combination_id: u32,
+}
+impl ResultCharacter {
+    pub fn from(character: &Character) -> Self {
+        ResultCharacter {
+            base_attributes: character.base_attributes,
+            attributes: character.attributes,
+            gear: character.gear,
+            gear_stats: [0.0; 10],
+            combination_id: character.combination_id,
+        }
+    }
+}
 // END character related
 
 pub enum Rarity {

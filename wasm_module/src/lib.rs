@@ -36,10 +36,11 @@ pub fn calculate(
     let combinations: Vec<Combination> = serde_json::from_str(&js_combinations).unwrap();
 
     // calculate the result (maxResult best characters) for the given chunks
-    let result = start(&chunks, &combinations);
+    let mut result = start(&chunks, &combinations);
+    result.on_complete(&combinations);
 
     // parse to string
-    let result_str = serde_json::to_string(&result);
+    let result_str = serde_json::to_string(&result.best_characters);
 
     match result_str {
         Ok(result_str) => return Some(result_str),

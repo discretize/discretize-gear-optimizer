@@ -163,8 +163,8 @@ const arrayToObject = (array: any[]) => {
 
 function transformResults(results: any, combinations: Combination[]): Character[] {
   const resultList: Character[] = [];
-  console.log(combinations);
-  results.best_characters.forEach((character: any) => {
+
+  results.forEach((character: any) => {
     character.attributes = character.attributes.map((attribute: any, index: number) => {
       return [getAttributeName(index), attribute];
     });
@@ -183,7 +183,11 @@ function transformResults(results: any, combinations: Combination[]): Character[
       baseAttributes: character.base_attributes,
       attributes: arrayToObject(character.attributes),
       gear: character.gear.map(getAffixName),
-      gearStats: {},
+      gearStats: arrayToObject(
+        character.gear_stats.map((stat, index) => {
+          return [getAttributeName(index), stat];
+        }),
+      ),
       id: undefined,
       results: undefined,
       settings: {
