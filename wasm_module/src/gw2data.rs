@@ -95,7 +95,7 @@ impl Modifiers {
         match attr {
             Attribute::StrikeDamage => return self.damageMultiplier[0].1,
             Attribute::ConditionDamage => return self.damageMultiplier[1].1,
-            Attribute::SiphonDPS => return self.damageMultiplier[2].1,
+            Attribute::SiphonDamage => return self.damageMultiplier[2].1,
             Attribute::DamageTaken => return self.damageMultiplier[3].1,
             Attribute::CriticalDamage => return self.damageMultiplier[4].1,
             Attribute::BleedingDamage => return self.damageMultiplier[5].1,
@@ -107,6 +107,7 @@ impl Modifiers {
             Attribute::AltCriticalDamage => return self.damageMultiplier[11].1,
             Attribute::PhantasmDamage => return self.damageMultiplier[12].1,
             Attribute::PhantasmCriticalDamage => return self.damageMultiplier[13].1,
+            // we will likely notice it in case our result is negative
             _ => -1.0,
         }
     }
@@ -117,25 +118,25 @@ impl Modifiers {
 // BEGIN character related
 
 pub trait AttributesArray {
-    fn get(&self, attr: Attribute) -> f32;
-    fn set(&mut self, attr: Attribute, value: f32);
-    fn add(&mut self, attr: Attribute, value: f32);
+    fn get_a(&self, attr: Attribute) -> f32;
+    fn set_a(&mut self, attr: Attribute, value: f32);
+    fn add_a(&mut self, attr: Attribute, value: f32);
 }
 
 pub type Attributes = [f32; ATTRIBUTE_COUNT];
 impl AttributesArray for Attributes {
     #[inline(always)]
-    fn get(&self, attr: Attribute) -> f32 {
+    fn get_a(&self, attr: Attribute) -> f32 {
         self[attr as usize]
     }
 
     #[inline(always)]
-    fn set(&mut self, attr: Attribute, value: f32) {
+    fn set_a(&mut self, attr: Attribute, value: f32) {
         self[attr as usize] = value;
     }
 
     #[inline(always)]
-    fn add(&mut self, attr: Attribute, value: f32) {
+    fn add_a(&mut self, attr: Attribute, value: f32) {
         self[attr as usize] += value;
     }
 }
@@ -187,7 +188,7 @@ impl Character {
     }
 
     pub fn score(&self) -> f32 {
-        return self.attributes.get(self.rankby);
+        return self.attributes.get_a(self.rankby);
     }
 }
 
@@ -339,6 +340,7 @@ pub enum Attribute {
     Power2DPS,
     Power2Coefficient,
     FlatDPS,
+    PowerDPS,
     #[default]
     None = 255,
 }
@@ -476,6 +478,7 @@ impl Attribute {
             Attribute::Damage => "Damage",
             Attribute::Survivability => "Survivability",
             Attribute::Healing => "Healing",
+            Attribute::PowerDPS => "Power DPS",
         }
     }
 

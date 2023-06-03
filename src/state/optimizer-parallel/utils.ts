@@ -34,6 +34,7 @@ const attributes = [
   'Power2 DPS',
   'Power2 Coefficient',
   'Flat DPS',
+  'Power DPS',
 ];
 attributes[41] = 'Bleeding Coefficient';
 attributes[42] = 'Burning Coefficient';

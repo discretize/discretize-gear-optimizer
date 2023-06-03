@@ -111,7 +111,7 @@ pub fn start(chunks: &Vec<Vec<Affix>>, combinations: &Vec<Combination>) -> Resul
 fn test_character(character: &mut Character, settings: &Combination, subtree: &[Affix]) {
     // add base attributes from settings to character
     settings.baseAttributes.iter().for_each(|(key, value)| {
-        character.base_attributes.set(*key, *value);
+        character.base_attributes.set_a(*key, *value);
     });
 
     for (index, affix) in subtree.iter().enumerate() {
@@ -122,9 +122,8 @@ fn test_character(character: &mut Character, settings: &Combination, subtree: &[
             .unwrap();
         let attributes_to_add = &settings.affixStatsArray[index][index_in_affix_array];
 
-        // this call is expensive!
         attributes_to_add.iter().for_each(|(key, value)| {
-            character.base_attributes.add(*key, *value);
+            character.base_attributes.add_a(*key, *value);
         });
 
         character.gear[index] = *affix;
@@ -141,14 +140,12 @@ fn update_attributes(character: &mut Character, settings: &Combination, no_round
     let power_damage_score = calc_power(character, &settings);
     let condi_damage_score = 0.0;
 
-    character.attributes.set(
-        Attribute::Damage,
-        power_damage_score + condi_damage_score + character.attributes.get(Attribute::FlatDPS),
-    );
-
     // todo calcCondi
 
-    // todo update damage
+    character.attributes.set_a(
+        Attribute::Damage,
+        power_damage_score + condi_damage_score + character.attributes.get_a(Attribute::FlatDPS),
+    );
 
     // todo calcSurvivability
     // todo calcHealing
@@ -188,36 +185,36 @@ fn calc_stats(character: &mut Character, settings: &Combination, no_rounding: bo
         };
 
         for (source, percent) in conversion {
-            attributes.add(
+            attributes.add_a(
                 *attribute,
-                maybe_round(base_attributes.get(*source) * percent),
+                maybe_round(base_attributes.get_a(*source) * percent),
             );
         }
     }
 
     // handle buff modifiers, these are simply added to the existing attributes
     for (attribute, bonus) in &settings.modifiers.buff {
-        attributes.add(*attribute, *bonus);
+        attributes.add_a(*attribute, *bonus);
     }
 
     // recalculate attributes
-    attributes.add(
+    attributes.add_a(
         Attribute::CriticalChance,
-        (attributes.get(Attribute::Precision) - 1000.0) / 21.0 / 100.0,
+        (attributes.get_a(Attribute::Precision) - 1000.0) / 21.0 / 100.0,
     );
-    attributes.add(
+    attributes.add_a(
         Attribute::CriticalDamage,
-        attributes.get(Attribute::Ferocity) / 15.0 / 100.0,
+        attributes.get_a(Attribute::Ferocity) / 15.0 / 100.0,
     );
-    attributes.add(
+    attributes.add_a(
         Attribute::BoonDuration,
-        attributes.get(Attribute::Concentration) / 15.0 / 100.0,
+        attributes.get_a(Attribute::Concentration) / 15.0 / 100.0,
     );
-    attributes.set(
+    attributes.set_a(
         Attribute::Health,
         round(
-            (attributes.get(Attribute::Health) + attributes.get(Attribute::Vitality) * 10.0)
-                * (1.0 + attributes.get(Attribute::MaxHealth)),
+            (attributes.get_a(Attribute::Health) + attributes.get_a(Attribute::Vitality) * 10.0)
+                * (1.0 + attributes.get_a(Attribute::MaxHealth)),
         ),
     );
 
@@ -237,35 +234,38 @@ fn calc_stats(character: &mut Character, settings: &Combination, no_rounding: bo
         for (source, percent) in conversion {
             match *source {
                 Attribute::CriticalChance => {
-                    attributes.set(
+                    attributes.add_a(
                         Attribute::CriticalChance,
                         maybe_round(
-                            clamp(attributes.get(Attribute::CriticalChance), 0.0, 1.0) * percent,
+                            clamp(attributes.get_a(Attribute::CriticalChance), 0.0, 1.0) * percent,
                         ),
                     );
                 }
                 Attribute::CloneCriticalChance => {
                     // replace macro with set
-                    attributes.set(
+                    attributes.add_a(
                         Attribute::CloneCriticalChance,
                         maybe_round(
-                            clamp(attributes.get(Attribute::CloneCriticalChance), 0.0, 1.0)
+                            clamp(attributes.get_a(Attribute::CloneCriticalChance), 0.0, 1.0)
                                 * percent,
                         ),
                     );
                 }
                 Attribute::PhantasmCriticalChance => {
-                    attributes.set(
+                    attributes.add_a(
                         Attribute::PhantasmCriticalChance,
                         maybe_round(
-                            clamp(attributes.get(Attribute::PhantasmCriticalChance), 0.0, 1.0)
-                                * percent,
+                            clamp(
+                                attributes.get_a(Attribute::PhantasmCriticalChance),
+                                0.0,
+                                1.0,
+                            ) * percent,
                         ),
                     );
                 }
 
                 _ => {
-                    attributes.set(*attribute, maybe_round(attributes.get(*source) * percent));
+                    attributes.add_a(*attribute, maybe_round(attributes.get_a(*source) * percent));
                 }
             }
         }
@@ -276,41 +276,41 @@ pub fn calc_power(character: &mut Character, settings: &Combination) -> f32 {
     let attributes = &mut character.attributes;
     let mods = &settings.modifiers;
 
-    let crit_dmg = attributes.get(Attribute::CriticalDamage)
+    let crit_dmg = attributes.get_a(Attribute::CriticalDamage)
         * mods.get_dmg_multiplier(Attribute::CriticalDamage);
-    let crit_chance = clamp(attributes.get(Attribute::CriticalChance), 0.0, 1.0);
+    let crit_chance = clamp(attributes.get_a(Attribute::CriticalChance), 0.0, 1.0);
 
-    attributes.set(
+    attributes.set_a(
         Attribute::EffectivePower,
-        attributes.get(Attribute::Power)
+        attributes.get_a(Attribute::Power)
             * (1.0 + crit_chance * (crit_dmg - 1.0))
             * mods.get_dmg_multiplier(Attribute::StrikeDamage),
     );
-    attributes.set(
+    attributes.set_a(
         Attribute::NonCritEffectivePower,
-        attributes.get(Attribute::Power) * mods.get_dmg_multiplier(Attribute::StrikeDamage),
+        attributes.get_a(Attribute::Power) * mods.get_dmg_multiplier(Attribute::StrikeDamage),
     );
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
-    let power_damage = (attributes.get(Attribute::PowerCoefficient) / 2597.0)
-        * attributes.get(Attribute::EffectivePower)
-        + (attributes.get(Attribute::NonCritPowerCoefficient) / 2597.0)
-            * attributes.get(Attribute::NonCritEffectivePower);
+    let power_damage = (attributes.get_a(Attribute::PowerCoefficient) / 2597.0)
+        * attributes.get_a(Attribute::EffectivePower)
+        + (attributes.get_a(Attribute::NonCritPowerCoefficient) / 2597.0)
+            * attributes.get_a(Attribute::NonCritEffectivePower);
     // this is nowhere read again?
-    // attributes.set(Attribute::PowerDPS, power_damage);
+    attributes.set_a(Attribute::PowerDPS, power_damage);
 
-    if attributes.get(Attribute::Power2Coefficient) > 0.0 {
+    if attributes.get_a(Attribute::Power2Coefficient) > 0.0 {
         // do stuff
         //TODO implement power2 calc
     } else {
-        attributes.set(Attribute::Power2DPS, 0.0);
+        attributes.set_a(Attribute::Power2DPS, 0.0);
     }
 
-    let siphon_damage = attributes.get(Attribute::SiphonBaseCoefficient)
+    let siphon_damage = attributes.get_a(Attribute::SiphonBaseCoefficient)
         * mods.get_dmg_multiplier(Attribute::SiphonDamage);
-    attributes.set(
+    attributes.set_a(
         Attribute::SiphonDPS,
-        siphon_damage * attributes.get(Attribute::EffectivePower),
+        siphon_damage * attributes.get_a(Attribute::EffectivePower),
     );
 
     return power_damage + siphon_damage;

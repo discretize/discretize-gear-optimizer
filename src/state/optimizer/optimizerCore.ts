@@ -780,7 +780,7 @@ export class OptimizerCore {
     }
 
     const siphonDamage =
-      (character.attributes['Siphon Base Coefficient'] || 0) * damageMultiplier['Siphon Damage'];
+      (attributes['Siphon Base Coefficient'] || 0) * damageMultiplier['Siphon Damage'];
     attributes['Siphon DPS'] = siphonDamage;
 
     return powerDamage + siphonDamage;
