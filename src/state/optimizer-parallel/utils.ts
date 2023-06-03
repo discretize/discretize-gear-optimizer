@@ -1,4 +1,5 @@
 import { Affix, AttributeName, Attributes, WeaponTypes } from '../../utils/gw2-data';
+import { Character } from '../optimizer/optimizerCore';
 import { Combination } from '../optimizer/optimizerSetup';
 
 const attributes = [
@@ -42,7 +43,7 @@ attributes[45] = 'Torment Coefficient';
 
 const getAffixId = (affix: string) => (affix ? Object.keys(Affix).indexOf(affix) : null);
 const getAttributeId = (attribute: AttributeName) => {
-  // corresponds to gw2data.rs -> Attribute enum. musthave same order
+  // corresponds to gw2data.rs -> Attribute enum. musth ave same order
 
   const index = attributes.indexOf(attribute);
   if (index === -1) {
@@ -54,14 +55,18 @@ const getAttributeId = (attribute: AttributeName) => {
 const getWeaponTypeId = (weaponType: string) => Object.values(WeaponTypes).indexOf(weaponType);
 
 const getAttributeName = (attributeId: number) => {
-  // corresponds to gw2data.rs -> Attribute enum. musthave same order
+  // corresponds to gw2data.rs -> Attribute enum. must have same order
   return attributes[attributeId];
+};
+
+const getAffixName = (affixId: number) => {
+  return Object.keys(Affix)[affixId];
 };
 
 // replace string values with their corresponding IDs.
 // in rust we use enums, which are i32 indexed, so we need to convert the strings to numbers
 function modifyCombinations(combinations: Combination[]): any {
-  const toReturn = combinations.map((combination) => combination.settings || {}) as any[];
+  const toReturn = [...combinations].map((combination) => combination.settings || {}) as any[];
 
   for (let i = 0; i < combinations.length; i++) {
     const combination = combinations[i];
@@ -123,26 +128,40 @@ function modifyCombinations(combinations: Combination[]): any {
   return toReturn;
 }
 
-function transformResults(results: any) {
-  results.forEach((res) =>
-    res.best_characters.forEach((character: any) => {
-      character.attributes = character.attributes.map((attribute: any, index) => {
-        return [getAttributeName(index), attribute];
-      });
-      // remove all entries with 0 value
-      character.attributes = character.attributes.filter((attribute: any) => attribute[1] !== 0);
+function transformResults(results: any, combinations: Combination[]): Character[] {
+  const resultList: Character[] = [];
+  console.log(combinations);
+  results.best_characters.forEach((character: any) => {
+    character.attributes = character.attributes.map((attribute: any, index: number) => {
+      return [getAttributeName(index), attribute];
+    });
+    // remove all entries with 0 value
+    character.attributes = character.attributes.filter((attribute: any) => attribute[1] !== 0);
 
-      character.base_attributes = character.base_attributes.map((attribute: any, index) => {
-        return [getAttributeName(index), attribute];
-      });
-      // remove all entries with 0 value
-      character.base_attributes = character.base_attributes.filter(
-        (attribute: any) => attribute[1] !== 0,
-      );
-    }),
-  );
+    character.base_attributes = character.base_attributes.map((attribute: any, index: number) => {
+      return [getAttributeName(index), attribute];
+    });
+    // remove all entries with 0 value
+    character.base_attributes = character.base_attributes.filter(
+      (attribute: any) => attribute[1] !== 0,
+    );
 
-  return results;
+    resultList.push({
+      baseAttributes: character.base_attributes,
+      attributes: character.attributes,
+      gear: character.gear.map(getAffixName),
+      gearStats: {},
+      id: undefined,
+      results: undefined,
+      settings: {
+        ...combinations[character.combination_id]?.settings,
+        extrasCombination: combinations[character.combination_id]?.extrasCombination,
+      },
+      valid: true,
+    });
+  });
+
+  return resultList;
 }
 
 export {

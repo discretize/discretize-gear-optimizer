@@ -151,6 +151,7 @@ pub struct Character {
     pub attributes: Attributes,
     pub rankby: Attribute,
     pub gear: [Affix; 14],
+    pub combination_id: u32,
 }
 mod serde_arrays {
     use serde::Serialize;
@@ -171,6 +172,7 @@ impl Character {
             attributes: [0.0; ATTRIBUTE_COUNT],
             rankby,
             gear: [Affix::None; 14],
+            combination_id: std::u32::MAX,
         }
     }
 
@@ -186,24 +188,6 @@ impl Character {
 
     pub fn score(&self) -> f32 {
         return self.attributes.get(self.rankby);
-    }
-    pub fn copy_to(&self, other: &mut Character) {
-        other
-            .base_attributes
-            .iter_mut()
-            .zip(self.base_attributes.iter())
-            .for_each(|(a, b)| *a = *b);
-        other
-            .attributes
-            .iter_mut()
-            .zip(self.attributes.iter())
-            .for_each(|(a, b)| *a = *b);
-        other.rankby = self.rankby;
-        other
-            .gear
-            .iter_mut()
-            .zip(self.gear.iter())
-            .for_each(|(a, b)| *a = *b);
     }
 }
 

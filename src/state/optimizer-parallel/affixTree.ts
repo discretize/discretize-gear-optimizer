@@ -7,7 +7,7 @@
  * @param layer desired layer
  * @returns all affix permutations for the given layer
  */
-export function getAffixCombinations(affixArray: number[][], layer: number) {
+export function getAffixCombinations<T>(affixArray: T[][], layer: number) {
   const queue = [...affixArray[0].map((affix) => [affix])];
 
   // descend into tree
@@ -40,10 +40,10 @@ export function getAffixCombinations(affixArray: number[][], layer: number) {
  * @param subtree the current subtree
  * @param leafCallback callback to be called when a leaf is reached
  */
-export function descendSubtreeDFS(
-  affixArray: number[][],
-  subtree: number[],
-  leafCallback: (subtree: number[]) => void,
+export function descendSubtreeDFS<T>(
+  affixArray: T[][],
+  subtree: T[],
+  leafCallback: (nextSubtree: T[]) => void,
 ) {
   const currentLayer = subtree.length;
 
@@ -68,14 +68,14 @@ export function descendSubtreeDFS(
  * @param hwThreads number of desired threads
  * @returns layer number
  */
-export function getLayerNumber(affixArray: number[][], hwThreads: number) {
+export function getLayerNumber<T>(affixArray: T[][], hwThreads: number) {
   let layer = 1;
   while (true) {
     const nodes = nodesInLayer(affixArray, layer);
     if (nodes === -1) {
       throw new Error('Selected too many hardware threads for the given problem');
     }
-    if (nodes > hwThreads) {
+    if (nodes >= hwThreads) {
       break;
     }
     layer++;
@@ -90,7 +90,7 @@ export function getLayerNumber(affixArray: number[][], hwThreads: number) {
  * @param layer the layer to calculate the number of nodes for
  * @returns number of nodes in the layer or -1 if the layer is invalid
  */
-export function nodesInLayer(affixArray: number[][], layer: number) {
+export function nodesInLayer<T>(affixArray: T[][], layer: number) {
   if (layer > affixArray.length) {
     return -1;
   }

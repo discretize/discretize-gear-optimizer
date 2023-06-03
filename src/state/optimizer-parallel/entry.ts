@@ -1,13 +1,5 @@
-import { Affix, AttributeName, Attributes, WeaponTypes } from '../../utils/gw2-data';
-import { Combination, setupCombinations } from '../optimizer/optimizerSetup';
+import { setupCombinations } from '../optimizer/optimizerSetup';
 import { getAffixCombinations, getLayerNumber } from './affixTree';
-import {
-  getAffixId,
-  getAttributeId,
-  getWeaponTypeId,
-  modifyCombinations,
-  transformResults,
-} from './utils';
 import { FINISHED, SETUP, START } from './workerMessageTypes';
 
 // should make this a settings variable or something later on
@@ -18,17 +10,20 @@ function calculate(reduxState: any, isWasm: boolean) {
   console.log('State', reduxState);
 
   // get the extra combinations from the redux state
-  // also adjust the settings to be usable by rust (we use c-like enums there)
-  const combinations = modifyCombinations(setupCombinations(reduxState));
-
-  console.log(combinations);
+  const combinations = setupCombinations(reduxState);
 
   if (combinations.length === 0) {
     console.error('No combinations found');
     return;
   }
 
-  const affixArray = combinations[0]?.affixesArray;
+  const affixArray = combinations[0].settings?.affixesArray;
+
+  if (!affixArray) {
+    console.error('No affixes found');
+    return;
+  }
+
   const layer = getLayerNumber(affixArray, NUM_THREADS);
 
   console.log(`Creating ${NUM_THREADS} threads to calculate ${layer} layers`);
@@ -56,26 +51,28 @@ function calculate(reduxState: any, isWasm: boolean) {
     });
   });
 
-  const startTime = performance.now();
   // attach listener
-  const results = [];
+  const results: any[][] = [];
   workers.forEach(({ worker }, index) => {
     worker.onmessage = (e) => {
       console.log('Worker message', e.data);
+
       if (e.data.type === 'FINISHED') {
-        results.push(JSON.parse(e.data.data));
+        results.push(e.data.data);
         workers[index].status = FINISHED;
 
         // check if all workers finished
         if (workers.every(({ status }) => status === FINISHED)) {
           console.log('All workers finished');
-          console.log('Results', transformResults(results));
+          console.log('Results', results.flat(1));
           const endTime = performance.now();
           console.log('Time', endTime - startTime, 'ms');
         }
       }
     };
   });
+
+  const startTime = performance.now();
 
   // start workers
   workers.forEach(({ worker }) => {
@@ -94,8 +91,8 @@ function calculate(reduxState: any, isWasm: boolean) {
  *
  * @param combinations all possible affix combinations
  */
-function splitCombinations(combinations: number[][]) {
-  const chunks = [...Array(NUM_THREADS)].map(() => [] as number[][]);
+function splitCombinations<T>(combinations: T[][]) {
+  const chunks = [...Array(NUM_THREADS)].map(() => [] as T[][]);
 
   let chunkIndex = 0;
   combinations.forEach((combination) => {

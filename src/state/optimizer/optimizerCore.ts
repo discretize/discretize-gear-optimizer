@@ -168,7 +168,7 @@ type OptimizerCoreMinimalSettings = Pick<
 >;
 type Gear = AffixName[];
 type GearStats = Record<string, number>;
-interface Character {
+export interface Character {
   id?: string;
   settings: OptimizerCoreMinimalSettings;
   attributes: Record<AttributeName, number>;

@@ -51,7 +51,7 @@ pub fn descend_subtree_dfs<F>(
 /// * `combinations` - A vector of extras combinations. To calculate the best runes and sigils we must calculate the resulting stats for each combination of extras. Also contains important optimizer settings.
 pub fn start(chunks: &Vec<Vec<Affix>>, combinations: &Vec<Combination>) -> Result {
     let rankby = combinations[0].rankby;
-    let mut result: Result = Result::new(rankby, combinations[0].maxResults as usize);
+    let mut result: Result = Result::new(combinations[0].maxResults as usize);
 
     let counter = RefCell::new(0);
     let mut character = Character::new(rankby);
@@ -63,9 +63,13 @@ pub fn start(chunks: &Vec<Vec<Affix>>, combinations: &Vec<Combination>) -> Resul
     let mut callback = |subtree: &[Affix]| {
         // Leaf callback implementation
 
-        for setting in combinations.iter() {
+        // iterate over all combinations
+        for i in 0..combinations.len() {
+            let setting = &combinations[i];
             character.clear();
+            character.combination_id = i as u32;
 
+            // calculate stats for this combination
             test_character(&mut character, setting, subtree);
 
             // insert into result_characters if better than worst character
@@ -96,13 +100,18 @@ pub fn start(chunks: &Vec<Vec<Affix>>, combinations: &Vec<Combination>) -> Resul
         );
     }
 
+    // console::log_1(&JsValue::from_str(&format!(
+    //     "Total combinations: {}",
+    //     counter.borrow()
+    // )));
+
     return result;
 }
 
 fn test_character(character: &mut Character, settings: &Combination, subtree: &[Affix]) {
     // add base attributes from settings to character
     settings.baseAttributes.iter().for_each(|(key, value)| {
-        character.base_attributes.add(*key, *value);
+        character.base_attributes.set(*key, *value);
     });
 
     for (index, affix) in subtree.iter().enumerate() {
@@ -147,7 +156,13 @@ fn update_attributes(character: &mut Character, settings: &Combination, no_round
 
 fn calc_stats(character: &mut Character, settings: &Combination, no_rounding: bool) {
     // move base attributes to attributes as default
-    character.attributes = character.base_attributes.clone();
+    // not sure which method is faster, but I think the for loop is faster:
+    // 1. for loop
+    // 2. clone
+    for i in 0..character.base_attributes.len() {
+        character.attributes[i] = character.base_attributes[i]
+    }
+    //character.attributes = character.base_attributes.clone();
 
     // get references to play with
     let attributes = &mut character.attributes;

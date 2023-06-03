@@ -1,16 +1,17 @@
 import init, { calculate } from 'wasm_module';
-import { descendSubtreeDFS } from './affixTree';
+import { Combination } from '../optimizer/optimizerSetup';
+import { getAffixId, modifyCombinations, transformResults } from './utils';
 import { FINISHED, SETUP, START } from './workerMessageTypes';
 
 let chunks: number[][];
-let combinations;
+let combinations: Combination[];
 
 onmessage = (e) => {
   console.log('worker received message', e.data);
 
   switch (e.data.type) {
     case SETUP:
-      chunks = e.data.data.chunks;
+      chunks = e.data.data.chunks.map((chunk: string[]) => chunk.map(getAffixId));
       combinations = e.data.data.combinations;
       break;
 
@@ -32,7 +33,8 @@ async function start(wasm = false) {
     const data = calculate(
       JSON.stringify(chunks),
       JSON.stringify(
-        combinations,
+        // also adjust the settings to be usable by rust (we use c-like enums there)
+        modifyCombinations(combinations),
         // only pick the values we are currently parsing
         // combinations.map((c) => ({
         //   profession: c.profession,
@@ -78,23 +80,28 @@ async function start(wasm = false) {
         // })),
       ),
     );
+
     postMessage({
       type: FINISHED,
-      data,
+      data: transformResults(JSON.parse(data || '[]'), combinations),
     });
-    return;
   }
-  // start JS run
-  let counter = 0;
-  chunks.forEach((chunk) => {
-    descendSubtreeDFS(combinations[0].affixesArray, chunk, (leaf) => {
-      // do something for the leaf node
-      counter++;
-    });
-  });
+  // start JS run - currently not working
+  // let counter = 0;
+  // chunks.forEach((chunk) => {
+  //   const affixes = combinations[0].settings?.affixesArray;
+  //   if (!affixes) {
+  //     throw new Error('No affixes');
+  //   }
 
-  postMessage({
-    type: FINISHED,
-    data: { leafnodes: counter },
-  });
+  //   descendSubtreeDFS(affixes, chunk, (_) => {
+  //     // do something for the leaf node
+  //     counter++;
+  //   });
+  // });
+
+  // postMessage({
+  //   type: FINISHED,
+  //   data: { leafnodes: counter },
+  // });
 }
