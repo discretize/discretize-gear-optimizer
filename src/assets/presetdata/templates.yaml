@@ -331,7 +331,7 @@ list:
         extras: Condi Willbender
         weaponType: Two-handed
 
-      - name: Power Willbender Virtues (Outdated)
+      - name: Power Willbender Virtues
         id: pwb-virtues
         specialization: Willbender
         boonType: Power
@@ -428,7 +428,7 @@ list:
           extras: Bladesworn
         weaponType: Dual wield
 
-      - name: Power Bladesworn (Outdated)
+      - name: Power Bladesworn
         id: bls-dps
         specialization: Bladesworn
         boonType: Power
@@ -474,7 +474,7 @@ list:
           extras: Power Boon (Raid)
         weaponType: Two-handed
 
-      - name: Power Berserker (Outdated)
+      - name: Power Berserker (Approx.)
         id: pbers
         specialization: Berserker
         boonType: Power
@@ -1084,7 +1084,7 @@ list:
         extras: DPS Scourge
         weaponType: Dual wield
 
-      - name: Power Reaper (Outdated)
+      - name: Power Reaper
         id: preaper
         specialization: Reaper
         boonType: Power

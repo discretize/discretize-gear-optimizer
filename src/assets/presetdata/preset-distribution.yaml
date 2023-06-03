@@ -23,17 +23,17 @@ list:
       }
     noCreditOkay: true
 
-  # Uses impact/hydro sigils, hydro not taken into consideration
+  # Uses air/hydro sigils, not taken into consideration
   - name: Power Berserker
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 3441, "Power2": 0, "Burning": 1.09, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3789, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Baseraver
-        url: https://www.youtube.com/watch?v=Ll6kBkiEO00
-        log: https://dps.report/4gCd-20230214-204655_golem
+        url: https://www.youtube.com/watch?v=_EZx5RsGy84
+        log: https://dps.report/0ImQ-20230502-185448_golem
 
   - name: Power Spellbreaker GS
     profession: Spellbreaker
@@ -115,17 +115,16 @@ list:
         url: https://www.youtube.com/watch?v=QPrh0p0k-G8
         log: https://dps.report/cmft-20220807-174306_golem
 
-  # 100% crit (thief accuracy, assassin shoulders amulet, furious)
   - name: DPS Bladesworn Tactics
     profession: Bladesworn
     value: >-
       {
-        "values2": { "Power": 4560, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4571, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Evo
-        url: https://www.youtube.com/watch?v=88nzpHXKwFU
-        log: https://dps.report/brm9-20220810-112155_golem
+        url: https://www.youtube.com/watch?v=bh2FuVpJB7E
+        log: https://gw2wingman.nevermindcreations.de/log/20230512-052547_StdGolem_kill
 
   - name: DH Radiance
     profession: Dragonhunter
@@ -335,12 +334,12 @@ list:
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 4302, "Power2": 0, "Burning": 5.14, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4387, "Power2": 0, "Burning": 5.59, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Incera
-        url: https://www.youtube.com/watch?v=47EAEhQJnwo
-        log: https://dps.report/hgw2-20230220-004711_golem
+      - author: Andy
+        url: https://www.youtube.com/watch?v=282m_ydQUdY
+        log: https://dps.report/Ixw2-20230502-200305_golem
 
   # 12 boons, celefood toxiccrystal, 14%
   - name: Condi Alacrity Willbender
@@ -1019,18 +1018,18 @@ list:
         log: https://dps.report/0Pzn-20220630-021720_golem
 
   # "Reaper does approximately 29.28% of its damage outside of shroud" - https://discord.com/channels/380901000200060929/381160724409614356/828683461074092113
-  # With YaaW this is closer to 34%
-  # scuffed approximation by splitting power damage 0.34 - 0.66
+  # With YaaW this is closer to 33%
+  # scuffed approximation by splitting power damage 0.33 - 0.67
   - name: Power Reaper
     profession: Reaper
     value: >-
       {
-        "values2": { "Power": 1493, "Power2": 2322, "Burning": 0, "Bleeding": 0.72, "Poisoned": 2.18, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1658, "Power2": 2696, "Burning": 0, "Bleeding": 0.31, "Poisoned": 2.1, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[SC] Westet'
-        url: https://www.youtube.com/watch?v=TjnkULNZuTU
-        log: https://dps.report/61Dw-20230214-203311_golem
+      - author: '[InS] Laoshi'
+        url: https://www.youtube.com/watch?v=lx09i7VV3JE
+        log: https://dps.report/XI5L-20230521-175913_golem
 
   - name: Condi Reaper
     profession: Reaper
