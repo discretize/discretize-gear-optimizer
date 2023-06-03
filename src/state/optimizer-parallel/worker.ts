@@ -5,6 +5,8 @@ import { FINISHED, SETUP, START } from './workerMessageTypes';
 
 let chunks: number[][];
 let combinations: Combination[];
+let thread_num = -1;
+let total_threads = -1;
 
 onmessage = (e) => {
   console.log('worker received message', e.data);
@@ -13,6 +15,8 @@ onmessage = (e) => {
     case SETUP:
       chunks = e.data.data.chunks.map((chunk: string[]) => chunk.map(getAffixId));
       combinations = e.data.data.combinations;
+      thread_num = e.data.data.thread_num;
+      total_threads = e.data.data.total_threads;
       break;
 
     case START:
@@ -79,6 +83,8 @@ async function start(wasm = false) {
         //   relevantConditions: c.relevantConditions,
         // })),
       ),
+      total_threads,
+      thread_num,
     );
 
     postMessage({

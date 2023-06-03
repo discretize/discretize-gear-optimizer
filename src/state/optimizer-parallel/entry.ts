@@ -46,6 +46,8 @@ function calculate(reduxState: any, isWasm: boolean) {
       data: {
         chunks: chunks[index],
         combinations,
+        thread_num: index,
+        total_threads: NUM_THREADS,
       },
     });
   });
@@ -62,8 +64,12 @@ function calculate(reduxState: any, isWasm: boolean) {
 
         // check if all workers finished
         if (workers.every(({ status }) => status === FINISHED)) {
+          const sortedResults = results
+            .flat(1)
+            .sort((a, b) => b.attributes[b.settings.rankby] - a.attributes[a.settings.rankby])
+            .slice(0, results[0][0].settings.maxResults);
           console.log('All workers finished');
-          console.log('Results', results.flat(1));
+          console.log('Results', sortedResults);
           const endTime = performance.now();
           console.log('Time', endTime - startTime, 'ms');
         }

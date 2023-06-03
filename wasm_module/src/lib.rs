@@ -17,7 +17,12 @@ use gw2data::Combination;
 /// - `js_combinations` - a stringified JSON array of combination objects
 ///
 #[wasm_bindgen]
-pub fn calculate(js_chunks: String, js_combinations: String) -> Option<String> {
+pub fn calculate(
+    js_chunks: String,
+    js_combinations: String,
+    _total_threads: u8,
+    _thread_num: u8,
+) -> Option<String> {
     let opt_chunks = utils::parse_string_to_vector(&js_chunks);
     let chunks = match opt_chunks {
         Some(chunks) => chunks,

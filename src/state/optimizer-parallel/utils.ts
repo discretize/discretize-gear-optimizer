@@ -155,8 +155,8 @@ function modifyCombinations(combinations: Combination[]): any {
 
 const arrayToObject = (array: any[]) => {
   const map = {};
-  array.forEach((element) => {
-    map[element[0]] = element[1];
+  array.forEach(([key, value]) => {
+    map[key] = value;
   });
   return map;
 };
@@ -189,6 +189,7 @@ function transformResults(results: any, combinations: Combination[]): Character[
       settings: {
         ...combinations[character.combination_id]?.settings,
         extrasCombination: combinations[character.combination_id]?.extrasCombination,
+        rankby: getAttributeName(combinations[character.combination_id]?.settings?.rankby),
       },
       valid: true,
     });

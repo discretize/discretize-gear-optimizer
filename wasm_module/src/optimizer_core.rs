@@ -51,7 +51,11 @@ pub fn descend_subtree_dfs<F>(
 /// * `combinations` - A vector of extras combinations. To calculate the best runes and sigils we must calculate the resulting stats for each combination of extras. Also contains important optimizer settings.
 pub fn start(chunks: &Vec<Vec<Affix>>, combinations: &Vec<Combination>) -> Result {
     let rankby = combinations[0].rankby;
-    let mut result: Result = Result::new(combinations[0].maxResults as usize);
+    // calculate the number of results we need to store;
+    let result_num = combinations[0].maxResults; // as f32 / total_threads as f32;
+
+    // we store our results in a Result object
+    let mut result: Result = Result::new(result_num as usize);
 
     let counter = RefCell::new(0);
     let mut character = Character::new(rankby);
