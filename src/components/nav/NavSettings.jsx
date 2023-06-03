@@ -7,13 +7,18 @@ import {
   RadioGroup,
   Switch,
   Typography,
+  TextField,
 } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import SagaTypes from '../../state/sagas/sagaTypes';
-import { getSelectedTemplate } from '../../state/slices/controlsSlice';
+import {
+  changeHwThreads,
+  getHwThreads,
+  getSelectedTemplate,
+} from '../../state/slices/controlsSlice';
 import {
   changeExpertMode,
   changeGameMode,
@@ -44,6 +49,7 @@ export default function NavSettings({
     language: languageDisabled,
     expertMode: expertModeDisabled,
     gameMode: gameModeDisabled,
+    hwThreads: hwThreadsDisabled,
   } = {},
 }) {
   const { t } = useTranslation();
@@ -56,6 +62,7 @@ export default function NavSettings({
   const expertMode = useSelector(getExpertMode);
   const gameMode = useSelector(getGameMode);
   const selectedTemplate = useSelector(getSelectedTemplate);
+  const hwThreads = useSelector(getHwThreads);
 
   const [open, setOpen] = React.useState(false);
 
@@ -85,7 +92,18 @@ export default function NavSettings({
     const isFractalsChanged = isFractalsNew !== isFractalsOld;
     if (isFractalsChanged && selectedTemplate && selectedTemplate.length > 0) setOpen(true);
   };
+  const changeHwThreadsHandler = (e) => {
+    const newHwThreads = e.target.value;
 
+    // only allow numbers
+    if (!newHwThreads.match(/^[0-9]*$/)) {
+      return;
+    }
+    // parse to int
+    const newHwThreadsInt = parseInt(newHwThreads, 10);
+
+    dispatch(changeHwThreads(newHwThreadsInt));
+  };
   return (
     <Settings maxWidth={400}>
       <Typography variant="h6" sx={{ width: 300 }}>
@@ -129,6 +147,20 @@ export default function NavSettings({
             </RadioGroup>
           </FormControl>
           <ReapplyTemplateDialog open={open} handleClose={handleClose} />
+        </>
+      )}
+
+      {!hwThreadsDisabled && (
+        <>
+          <Divider className={classes.divider} />
+          <TextField
+            label={t('Hardware Threads')}
+            helperText={t('Number of threads to use for calculations')}
+            size="small"
+            value={hwThreads}
+            onChange={changeHwThreadsHandler}
+            inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+          />
         </>
       )}
     </Settings>

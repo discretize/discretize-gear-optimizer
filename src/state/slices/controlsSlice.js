@@ -60,6 +60,7 @@ export const controlSlice = createSlice({
     selectedTemplate: '',
     status: WAITING,
     profession: '',
+    hwThreads: 4,
   },
   reducers: {
     changeAll: (state, action) => {
@@ -137,11 +138,16 @@ export const controlSlice = createSlice({
     changeError: (state, action) => {
       state.error = action.payload;
     },
+    changeHwThreads: (state, action) => {
+      console.log(action.payload);
+      state.hwThreads = action.payload;
+    },
   },
 });
 
 export const getProfession = (state) => state.optimizer.control.profession;
 export const getSelectedTemplate = (state) => state.optimizer.control.selectedTemplate;
+export const getHwThreads = (state) => state.optimizer.control.hwThreads;
 export const getProgress = (state) => state.optimizer.control.progress;
 export const getSelectedSpecialization = (state) => state.optimizer.control.selectedSpecialization;
 export const getStatus = (state) => state.optimizer.control.status;
@@ -175,6 +181,7 @@ export const {
   setBuildTemplate,
   changeSelectedCharacter,
   changeError,
+  changeHwThreads,
 } = controlSlice.actions;
 
 export default controlSlice.reducer;

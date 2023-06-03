@@ -2,10 +2,9 @@ import { setupCombinations } from '../optimizer/optimizerSetup';
 import { getAffixCombinations, getLayerNumber } from './affixTree';
 import { FINISHED, SETUP, START } from './workerMessageTypes';
 
-// should make this a settings variable or something later on
-const NUM_THREADS = 1;
-
 function calculate(reduxState: any, isWasm: boolean) {
+  const NUM_THREADS = reduxState.optimizer.control.hwThreads;
+
   console.log('Parallel Optimizer');
   console.log('State', reduxState);
 
@@ -38,7 +37,7 @@ function calculate(reduxState: any, isWasm: boolean) {
   const affixcombinations = getAffixCombinations(affixArray, layer);
 
   // split work into NUM_THREADS chunks, each chunk getting a number of subtrees to calculate
-  const chunks = splitCombinations(affixcombinations);
+  const chunks = splitCombinations(affixcombinations, NUM_THREADS);
 
   // send chunks to workers
   workers.forEach(({ worker }, index) => {
@@ -90,8 +89,9 @@ function calculate(reduxState: any, isWasm: boolean) {
  * combinations are split in a round-robin fashion
  *
  * @param combinations all possible affix combinations
+ * @param NUM_THREADS number of threads to use
  */
-function splitCombinations<T>(combinations: T[][]) {
+function splitCombinations<T>(combinations: T[][], NUM_THREADS = 4) {
   const chunks = [...Array(NUM_THREADS)].map(() => [] as T[][]);
 
   let chunkIndex = 0;
