@@ -1,9 +1,29 @@
-import { Affix, AttributeName, Attributes, WeaponTypes } from '../../utils/gw2-data';
+import { get } from 'http';
+import {
+  Affix,
+  AttributeName,
+  Attributes,
+  ConditionName,
+  WeaponTypes,
+  damagingConditions,
+} from '../../utils/gw2-data';
 import { Character } from '../optimizer/optimizerCore';
 import { Combination } from '../optimizer/optimizerSetup';
 
 const attributes = [
   ...Object.values(Attributes).flat(1),
+  'Bleeding Stacks',
+  'Burning Stacks',
+  'Confusion Stacks',
+  'Poison Stacks',
+  'Torment Stacks',
+
+  'Bleeding DPS',
+  'Burning DPS',
+  'Confusion DPS',
+  'Poison DPS',
+  'Torment DPS',
+
   'Alternative Power',
   'Alternative Precision',
   'Alternative Ferocity',
@@ -18,8 +38,8 @@ const attributes = [
   'Phantasm Damage',
   'Phantasm Critical Damage',
   'Siphon Base Coefficient',
-  'SiphonDPS',
-  'SiphonDamage',
+  'Siphon DPS',
+  'Siphon Damage',
 
   // misc
   'Strike Damage',
@@ -54,6 +74,8 @@ const getAttributeId = (attribute: AttributeName) => {
   return index;
 };
 const getWeaponTypeId = (weaponType: string) => Object.values(WeaponTypes).indexOf(weaponType);
+const getConditionId = (condition: string) =>
+  Object.values(damagingConditions).indexOf(condition as ConditionName);
 
 const getAttributeName = (attributeId: number) => {
   // corresponds to gw2data.rs -> Attribute enum. must have same order
@@ -118,6 +140,8 @@ function modifyCombinations(combinations: Combination[]): any {
         ([key, value]) => [getAttributeId(key as AttributeName), value],
       );
 
+      toReturn[i].relevantConditions = combination.settings?.relevantConditions.map(getConditionId);
+
       // we are not interested in these objects in rust - for now
       delete toReturn[i].shouldDisplayExtras;
       delete toReturn[i].appliedModifiers;
@@ -128,6 +152,14 @@ function modifyCombinations(combinations: Combination[]): any {
 
   return toReturn;
 }
+
+const arrayToObject = (array: any[]) => {
+  const map = {};
+  array.forEach((element) => {
+    map[element[0]] = element[1];
+  });
+  return map;
+};
 
 function transformResults(results: any, combinations: Combination[]): Character[] {
   const resultList: Character[] = [];
@@ -149,7 +181,7 @@ function transformResults(results: any, combinations: Combination[]): Character[
 
     resultList.push({
       baseAttributes: character.base_attributes,
-      attributes: character.attributes,
+      attributes: arrayToObject(character.attributes),
       gear: character.gear.map(getAffixName),
       gearStats: {},
       id: undefined,

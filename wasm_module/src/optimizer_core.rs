@@ -2,7 +2,7 @@ use wasm_bindgen::JsValue;
 use web_sys::console;
 
 use crate::{
-    gw2data::{Affix, Attribute, AttributesArray, Character, Combination},
+    gw2data::{Affix, Attribute, AttributesArray, Character, Combination, Condition},
     result::Result,
     utils::round_even,
     utils::{clamp, print_attr},
@@ -138,9 +138,7 @@ fn update_attributes(character: &mut Character, settings: &Combination, no_round
     //print_attr(&character.attributes);
 
     let power_damage_score = calc_power(character, &settings);
-    let condi_damage_score = 0.0;
-
-    // todo calcCondi
+    let condi_damage_score = calc_condi(character, &settings, &settings.relevantConditions);
 
     character.attributes.set_a(
         Attribute::Damage,
@@ -235,7 +233,7 @@ fn calc_stats(character: &mut Character, settings: &Combination, no_rounding: bo
             match *source {
                 Attribute::CriticalChance => {
                     attributes.add_a(
-                        Attribute::CriticalChance,
+                        *attribute,
                         maybe_round(
                             clamp(attributes.get_a(Attribute::CriticalChance), 0.0, 1.0) * percent,
                         ),
@@ -244,7 +242,7 @@ fn calc_stats(character: &mut Character, settings: &Combination, no_rounding: bo
                 Attribute::CloneCriticalChance => {
                     // replace macro with set
                     attributes.add_a(
-                        Attribute::CloneCriticalChance,
+                        *attribute,
                         maybe_round(
                             clamp(attributes.get_a(Attribute::CloneCriticalChance), 0.0, 1.0)
                                 * percent,
@@ -253,7 +251,7 @@ fn calc_stats(character: &mut Character, settings: &Combination, no_rounding: bo
                 }
                 Attribute::PhantasmCriticalChance => {
                     attributes.add_a(
-                        Attribute::PhantasmCriticalChance,
+                        *attribute,
                         maybe_round(
                             clamp(
                                 attributes.get_a(Attribute::PhantasmCriticalChance),
@@ -308,10 +306,93 @@ pub fn calc_power(character: &mut Character, settings: &Combination) -> f32 {
 
     let siphon_damage = attributes.get_a(Attribute::SiphonBaseCoefficient)
         * mods.get_dmg_multiplier(Attribute::SiphonDamage);
-    attributes.set_a(
-        Attribute::SiphonDPS,
-        siphon_damage * attributes.get_a(Attribute::EffectivePower),
-    );
+
+    attributes.set_a(Attribute::SiphonDPS, siphon_damage);
 
     return power_damage + siphon_damage;
+}
+
+/// Calculates a damage tick for a given condition
+///
+/// # Arguments
+/// - `condition` - the condition to calculate the damage for
+/// - `cdmg` - the condition damage of the character
+/// - `mult` - the damage multiplier
+/// - `wvw` - whether the calculation is for wvw or not
+/// - `special` - whether the calculation is for a special condition or not such as ConfusionActive or TormentMoving
+fn condition_damage_tick(
+    condition: &Condition,
+    cdmg: f32,
+    mult: f32,
+    wvw: bool,
+    special: bool,
+) -> f32 {
+    (condition.get_factor(wvw, special) * cdmg + condition.get_base_damage(wvw, special)) * mult
+}
+
+pub fn calc_condi(
+    character: &mut Character,
+    settings: &Combination,
+    relevant_conditions: &Vec<Condition>,
+) -> f32 {
+    let attributes = &mut character.attributes;
+    let mods = &settings.modifiers;
+
+    attributes.add_a(
+        Attribute::ConditionDuration,
+        attributes.get_a(Attribute::Expertise) / 15.0 / 100.0,
+    );
+
+    let mut condi_damage_score = 0.0;
+    // iterate over all (relevant) conditions
+    for condition in relevant_conditions.iter() {
+        let cdmg = attributes.get_a(Attribute::ConditionDamage);
+        let mult = mods.get_dmg_multiplier(Attribute::ConditionDamage)
+            * mods.get_dmg_multiplier(condition.get_damage_attribute());
+
+        match condition {
+            Condition::Confusion => {
+                attributes.set_a(
+                    Attribute::ConfusionDamage,
+                    condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), false)
+                        + condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), true)
+                            * settings.attackRate,
+                );
+            }
+            Condition::Torment => {
+                attributes.set_a(
+                    Attribute::TormentDamage,
+                    condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), false)
+                        * (1.0 - settings.movementUptime)
+                        + condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), true)
+                            * settings.movementUptime,
+                );
+            }
+            _ => attributes.set_a(
+                condition.get_damage_attribute(),
+                condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), false),
+            ),
+        }
+
+        let coeff = attributes.get_a(condition.get_coefficient_attribute());
+
+        let duration = 1.0
+            + clamp(
+                attributes.get_a(condition.get_duration_attribute())
+                    + attributes.get_a(Attribute::ConditionDuration),
+                0.0,
+                1.0,
+            );
+
+        let stacks = coeff * duration;
+        attributes.set_a(condition.get_stacks_attribute(), stacks);
+
+        let dmgattr = attributes.get_a(condition.get_damage_attribute());
+        let dps = stacks * if dmgattr > 0.0 { dmgattr } else { 1.0 };
+        attributes.set_a(condition.get_dps_attribute(), dps);
+
+        condi_damage_score += dps;
+    }
+
+    condi_damage_score
 }

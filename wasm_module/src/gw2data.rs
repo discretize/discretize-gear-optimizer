@@ -50,7 +50,13 @@ pub struct Combination {
     pub baseAttributes: Vec<(Attribute, f32)>,
     pub modifiers: Modifiers,
     pub disableCondiResultCache: bool,
-    pub relevantConditions: Vec<String>,
+    pub relevantConditions: Vec<Condition>,
+}
+
+impl Combination {
+    pub fn is_wvw(&self) -> bool {
+        self.gameMode.eq("wvw")
+    }
 }
 
 #[derive(Debug, Deserialize_repr, Serialize_repr)]
@@ -113,6 +119,134 @@ impl Modifiers {
     }
 }
 
+#[derive(Debug, Deserialize_repr, Serialize_repr)]
+#[repr(u8)]
+pub enum Condition {
+    Bleeding,
+    Burning,
+    Confusion,
+    Poison,
+    Torment,
+}
+
+impl Condition {
+    /// returns the index for the coefficient attribute the Attributes array in Character
+    pub fn get_coefficient_attribute(&self) -> Attribute {
+        match self {
+            Condition::Bleeding => Attribute::BleedingCoefficient,
+            Condition::Burning => Attribute::BurningCoefficient,
+            Condition::Confusion => Attribute::ConfusionCoefficient,
+            Condition::Poison => Attribute::PoisonCoefficient,
+            Condition::Torment => Attribute::TormentCoefficient,
+        }
+    }
+    /// returns the index for the damage attribute the Attributes array in Character
+    pub fn get_damage_attribute(&self) -> Attribute {
+        match self {
+            Condition::Bleeding => Attribute::BleedingDamage,
+            Condition::Burning => Attribute::BurningDamage,
+            Condition::Confusion => Attribute::ConfusionDamage,
+            Condition::Poison => Attribute::PoisonDamage,
+            Condition::Torment => Attribute::TormentDamage,
+        }
+    }
+
+    pub fn get_duration_attribute(&self) -> Attribute {
+        match self {
+            Condition::Bleeding => Attribute::BleedingDuration,
+            Condition::Burning => Attribute::BurningDuration,
+            Condition::Confusion => Attribute::ConfusionDuration,
+            Condition::Poison => Attribute::PoisonDuration,
+            Condition::Torment => Attribute::TormentDuration,
+        }
+    }
+
+    pub fn get_stacks_attribute(&self) -> Attribute {
+        match self {
+            Condition::Bleeding => Attribute::BleedingStacks,
+            Condition::Burning => Attribute::BurningStacks,
+            Condition::Confusion => Attribute::ConfusionStacks,
+            Condition::Poison => Attribute::PoisonStacks,
+            Condition::Torment => Attribute::TormentStacks,
+        }
+    }
+
+    pub fn get_dps_attribute(&self) -> Attribute {
+        match self {
+            Condition::Bleeding => Attribute::BleedingDPS,
+            Condition::Burning => Attribute::BurningDPS,
+            Condition::Confusion => Attribute::ConfusionDPS,
+            Condition::Poison => Attribute::PoisonDPS,
+            Condition::Torment => Attribute::TormentDPS,
+        }
+    }
+
+    /// Returns the base damage of a condition
+    ///
+    /// # Arguments
+    /// - `is_wvw` - whether the calculation is for wvw or not, by default assumes pve
+    /// - `is_special` - whether the calculation is for special/actions conditions or not, by default assumes not. Only Torment and Confusion have special variants
+    pub fn get_base_damage(&self, is_wvw: bool, is_special: bool) -> f32 {
+        match self {
+            Condition::Bleeding => 22.0,
+            Condition::Burning => 131.0,
+            Condition::Confusion => {
+                if is_special {
+                    49.5
+                } else {
+                    11.0
+                }
+            }
+            Condition::Poison => 33.5,
+            Condition::Torment => {
+                if is_wvw {
+                    if is_special {
+                        19.8
+                    } else {
+                        26.0
+                    }
+                } else {
+                    if is_special {
+                        22.0
+                    } else {
+                        31.8
+                    }
+                }
+            }
+        }
+    }
+
+    pub fn get_factor(&self, is_wvw: bool, is_special: bool) -> f32 {
+        match self {
+            Condition::Bleeding => 0.06,
+            Condition::Burning => 0.155,
+            Condition::Confusion => {
+                if is_special {
+                    0.0975
+                } else {
+                    0.03
+                }
+            }
+            Condition::Poison => 0.06,
+            Condition::Torment => {
+                if is_wvw {
+                    if is_special {
+                        0.054
+                    } else {
+                        0.07
+                    }
+                } else {
+                    if is_special {
+                        0.06
+                    } else {
+                        0.09
+                    }
+                }
+            }
+        }
+    }
+}
+
 // END combination related
 
 // BEGIN character related
@@ -157,7 +291,9 @@ pub struct Character {
 mod serde_arrays {
     use serde::Serialize;
 
-    pub fn serialize<S, T>(array: &[T; 84], serializer: S) -> Result<S::Ok, S::Error>
+    use super::ATTRIBUTE_COUNT;
+
+    pub fn serialize<S, T>(array: &[T; ATTRIBUTE_COUNT], serializer: S) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer,
         T: Serialize,
@@ -239,7 +375,7 @@ pub fn slot_from_indexed_array(index: usize, twohanded: bool) -> Slots {
 }
 
 // align to 64 bytes = 4 attributes per cache line
-const ATTRIBUTE_COUNT: usize = 84; // actually only 81 attributes, but we need to align to 64 bytes;
+const ATTRIBUTE_COUNT: usize = 96; // actually only 95 attributes, but we need to align to 64 bytes;
 
 #[derive(Debug, Sequence, Serialize_repr, Deserialize_repr, Default, Clone, Copy)]
 #[repr(u8)]
@@ -290,7 +426,7 @@ pub enum Attribute {
     TormentDuration,
     VulnerabilityDuration,
     WeaknessDuration,
-    // conditions ????
+    // conditions stuff
     BleedingCoefficient,
     BurningCoefficient,
     ConfusionCoefficient,
@@ -310,6 +446,18 @@ pub enum Attribute {
     Damage,
     Survivability,
     Healing,
+    // condition stacks
+    BleedingStacks,
+    BurningStacks,
+    ConfusionStacks,
+    PoisonStacks,
+    TormentStacks,
+    //condition dps
+    BleedingDPS,
+    BurningDPS,
+    ConfusionDPS,
+    PoisonDPS,
+    TormentDPS,
     // alternative power, no idea whats that for
     AltPower,
     AltPrecision,
@@ -479,6 +627,16 @@ impl Attribute {
             Attribute::Survivability => "Survivability",
             Attribute::Healing => "Healing",
             Attribute::PowerDPS => "Power DPS",
+            Attribute::BleedingStacks => "Bleeding Stacks",
+            Attribute::BurningStacks => "Burning Stacks",
+            Attribute::ConfusionStacks => "Confusion Stacks",
+            Attribute::PoisonStacks => "Poison Stacks",
+            Attribute::TormentStacks => "Torment Stacks",
+            Attribute::BleedingDPS => "Bleeding DPS",
+            Attribute::BurningDPS => "Burning DPS",
+            Attribute::ConfusionDPS => "Confusion DPS",
+            Attribute::PoisonDPS => "Poison DPS",
+            Attribute::TormentDPS => "Torment DPS",
         }
     }
 
