@@ -3,6 +3,8 @@ name = "wasm_module"
 version = "0.1.0"
 authors = ["gw2princeps <gw2@princeps.biz>"]
 edition = "2021"
+description = "Gear Optimizer core implementation in Rust"
+repository = "https://github.com/discretize/discretize-gear-optimizer"
 
 [lib]
 crate-type = ["cdylib", "rlib"]

@@ -1,8 +1,7 @@
+use crate::data::{affix::Affix, attribute::Attribute, character::Attributes};
 use serde_json::Value;
 use wasm_bindgen::JsValue;
 use web_sys::console;
-
-use crate::gw2data::{Affix, Attribute, Attributes};
 
 /**
  * Parses a string into a vector of vectors of i8.
@@ -81,7 +80,7 @@ pub fn clamp(input: f32, min: f32, max: f32) -> f32 {
     input
 }
 
-pub fn print_attr(attr: &Attributes) {
+pub fn _print_attr(attr: &Attributes) {
     for i in 0..attr.len() {
         let attribute: Attribute = unsafe { ::std::mem::transmute(i as u8) };
 

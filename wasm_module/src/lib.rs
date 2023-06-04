@@ -1,14 +1,13 @@
+use data::settings::Settings;
 use optimizer_core::start;
 
 use wasm_bindgen::prelude::*;
 use web_sys::console;
 
-mod gw2data;
+mod data;
 mod optimizer_core;
 mod result;
 mod utils;
-
-use gw2data::Combination;
 
 /// entry point from JS
 ///
@@ -33,7 +32,7 @@ pub fn calculate(
     };
     let chunks = utils::vec_i8_to_affix(chunks);
 
-    let combinations: Vec<Combination> = serde_json::from_str(&js_combinations).unwrap();
+    let combinations: Vec<Settings> = serde_json::from_str(&js_combinations).unwrap();
 
     // calculate the result (maxResult best characters) for the given chunks
     let mut result = start(&chunks, &combinations);

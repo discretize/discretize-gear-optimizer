@@ -1,6 +1,10 @@
-use crate::gw2data::{Character, Combination, ResultCharacter};
 use serde::Serialize;
 use std::vec;
+
+use crate::data::{
+    character::{Character, ResultCharacter},
+    settings::Settings,
+};
 
 #[derive(Debug, Serialize)]
 pub struct Result {
@@ -52,7 +56,7 @@ impl Result {
         self.worst_score = self.characters.last().unwrap().score();
     }
 
-    pub fn on_complete(&mut self, combinations: &Vec<Combination>) {
+    pub fn on_complete(&mut self, combinations: &Vec<Settings>) {
         // convert the characters to ResultCharacters
         self.characters
             .iter()
