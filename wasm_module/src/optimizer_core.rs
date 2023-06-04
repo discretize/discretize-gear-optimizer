@@ -9,6 +9,9 @@ use crate::{
     utils::{clamp, round_even},
 };
 use std::cell::RefCell;
+use wasm_bindgen::prelude::*;
+use wasm_bindgen::JsCast;
+use web_sys::DedicatedWorkerGlobalScope;
 
 /// Uses depth-first search to calculate all possible combinations of affixes for the given subtree.
 ///
@@ -44,6 +47,11 @@ pub fn descend_subtree_dfs<F>(
     }
 }
 
+#[wasm_bindgen]
+extern "C" {
+    #[wasm_bindgen(js_namespace = console)]
+    fn log(s: &str);
+}
 /// Starts the optimization process. Calculates all possible combinations for the given chunk (subtree) of the affix tree.
 /// This process is independent of the other chunks.
 ///
@@ -84,6 +92,20 @@ pub fn start(chunks: &Vec<Vec<Affix>>, combinations: &Vec<Settings>) -> Result {
             *counter.borrow_mut() += 1;
 
             // post message to js
+            if *counter.borrow() % 100000 == 0 {
+                // neither of these work - comment them in/out
+
+                // method 1
+                let worker_global_scope: DedicatedWorkerGlobalScope = js_sys::global()
+                    .unchecked_into::<web_sys::WorkerGlobalScope>()
+                    .unchecked_into();
+                worker_global_scope
+                    .post_message(&JsValue::from_str("yadda"))
+                    .unwrap();
+
+                // method 2
+                log(&format!("Hello, !"));
+            }
         }
     };
 

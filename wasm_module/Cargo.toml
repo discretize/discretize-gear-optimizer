@@ -7,13 +7,13 @@ description = "Gear Optimizer core implementation in Rust"
 repository = "https://github.com/discretize/discretize-gear-optimizer"
 
 [lib]
-crate-type = ["cdylib", "rlib"]
+crate-type = ["cdylib", "rlib"] # cdylib is for wasm, rlib is for testing
 
 [dependencies]
 # deps to compile for web
 wasm-bindgen = {version = "0.2.86", features = []}
-js-sys = "0.3.63"
-web-sys = {version = "0.3.63", features = ["console"]}
+js-sys = { version = "0.3.63", features = []}
+web-sys = { version = "0.3.63", features = ["console", "Window", "Client", "Worker", "WorkerGlobalScope", "DedicatedWorkerGlobalScope", "MessageEvent"]}
 
 # these are actually requried for the optimizer
 serde_json = "1.0.96"
