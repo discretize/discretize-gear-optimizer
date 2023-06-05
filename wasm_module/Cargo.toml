@@ -13,7 +13,7 @@ crate-type = ["cdylib", "rlib"]
 # deps to compile for web
 wasm-bindgen = {version = "0.2.86", features = []}
 js-sys = "0.3.63"
-web-sys = {version = "0.3.63", features = ["console"]}
+web-sys = {version = "0.3.63", features = ["console", "DedicatedWorkerGlobalScope"]}
 
 # these are actually requried for the optimizer
 serde_json = "1.0.96"

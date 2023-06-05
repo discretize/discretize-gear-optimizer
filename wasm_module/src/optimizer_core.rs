@@ -4,11 +4,17 @@ use crate::{
         attribute::Attribute,
         character::{AttributesArray, Character},
         settings::{Condition, Settings},
+        PROGRESS_UPDATE_INTERVALL,
     },
     result::Result,
     utils::{clamp, round_even},
 };
-use std::cell::RefCell;
+use std::{
+    alloc::System,
+    cell::RefCell,
+    time::{Instant, SystemTime},
+};
+use wasm_bindgen::{JsCast, JsValue};
 
 /// Uses depth-first search to calculate all possible combinations of affixes for the given subtree.
 ///
@@ -55,6 +61,11 @@ pub fn start(chunks: &Vec<Vec<Affix>>, combinations: &Vec<Settings>) -> Result {
     // calculate the number of results we need to store;
     let result_num = combinations[0].maxResults; // as f32 / total_threads as f32;
 
+    // needed to post messages to js
+    let workerglobal = js_sys::global()
+        .dyn_into::<web_sys::DedicatedWorkerGlobalScope>()
+        .unwrap();
+
     // we store our results in a Result object
     let mut result: Result = Result::new(result_num as usize);
 
@@ -83,7 +94,17 @@ pub fn start(chunks: &Vec<Vec<Affix>>, combinations: &Vec<Settings>) -> Result {
             }
             *counter.borrow_mut() += 1;
 
+            // instant avoids system call, more performant than SystemTime
+
             // post message to js
+            if *counter.borrow() % PROGRESS_UPDATE_INTERVALL == 0 {
+                workerglobal
+                    .post_message(&JsValue::from_str(&format!(
+                        "progress: {}",
+                        counter.borrow()
+                    )))
+                    .ok();
+            }
         }
     };
 
