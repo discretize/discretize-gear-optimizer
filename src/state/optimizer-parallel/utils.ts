@@ -202,6 +202,23 @@ function transformResults(results: any, combinations: Combination[]): Character[
   return resultList;
 }
 
+function getTotalCombinations(combinations: Combination[]) {
+  const affixesArray = combinations[0].settings?.affixesArray;
+
+  if (!affixesArray) {
+    return -1;
+  }
+
+  let total = 1;
+  affixesArray.forEach((slot) => {
+    total *= slot.length;
+  });
+
+  total *= combinations.length;
+
+  return total;
+}
+
 export {
   getAffixId,
   getAttributeId,
@@ -209,4 +226,5 @@ export {
   getAttributeName,
   modifyCombinations,
   transformResults,
+  getTotalCombinations,
 };

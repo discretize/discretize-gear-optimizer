@@ -98,10 +98,20 @@ pub fn start(chunks: &Vec<Vec<Affix>>, combinations: &Vec<Settings>) -> Result {
 
             // post message to js
             if *counter.borrow() % PROGRESS_UPDATE_INTERVALL == 0 {
+                // let obj = js_sys::Object::new();
+                // js_sys::Reflect::set(
+                //     &obj,
+                //     &JsValue::from_str("type"),
+                //     &JsValue::from_str("PROGRESS"),
+                // )
+                // .ok();
+
+                // js_sys::Reflect::set(&obj, &JsValue::from_str("data"), counter.borrow());
                 workerglobal
                     .post_message(&JsValue::from_str(&format!(
-                        "progress: {}",
-                        counter.borrow()
+                        "{{ \"type\": \"PROGRESS\", \"data\": {{ \"total\": {}, \"new\": {} }} }}",
+                        counter.borrow(),
+                        PROGRESS_UPDATE_INTERVALL
                     )))
                     .ok();
             }

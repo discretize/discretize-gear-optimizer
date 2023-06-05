@@ -1,5 +1,6 @@
 const SETUP = 'SETUP';
 const START = 'START';
 const FINISHED = 'FINISHED';
+const PROGRESS = 'PROGRESS';
 
-export { SETUP, START, FINISHED };
+export { SETUP, START, FINISHED, PROGRESS };

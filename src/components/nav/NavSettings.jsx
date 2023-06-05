@@ -8,6 +8,7 @@ import {
   Switch,
   Typography,
   TextField,
+  Checkbox,
 } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
@@ -16,7 +17,9 @@ import { makeStyles } from 'tss-react/mui';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import {
   changeHwThreads,
+  changeMulticore,
   getHwThreads,
+  getMulticore,
   getSelectedTemplate,
 } from '../../state/slices/controlsSlice';
 import {
@@ -49,7 +52,8 @@ export default function NavSettings({
     language: languageDisabled,
     expertMode: expertModeDisabled,
     gameMode: gameModeDisabled,
-    hwThreads: hwThreadsDisabled,
+
+    threading: threadingDisabled,
   } = {},
 }) {
   const { t } = useTranslation();
@@ -63,6 +67,7 @@ export default function NavSettings({
   const gameMode = useSelector(getGameMode);
   const selectedTemplate = useSelector(getSelectedTemplate);
   const hwThreads = useSelector(getHwThreads);
+  const enableMulticore = useSelector(getMulticore);
 
   const [open, setOpen] = React.useState(false);
 
@@ -104,6 +109,12 @@ export default function NavSettings({
 
     dispatch(changeHwThreads(newHwThreadsInt));
   };
+
+  const changeMulticoreHandler = (e) => {
+    const newMulticore = e.target.checked;
+    dispatch(changeMulticore(newMulticore));
+  };
+
   return (
     <Settings maxWidth={400}>
       <Typography variant="h6" sx={{ width: 300 }}>
@@ -150,11 +161,19 @@ export default function NavSettings({
         </>
       )}
 
-      {!hwThreadsDisabled && (
+      {!threadingDisabled && (
         <>
           <Divider className={classes.divider} />
+          <FormControlLabel
+            control={<Checkbox defaultChecked />}
+            label={t('Enable experimental multicore processing')}
+            sx={{ mb: 3 }}
+            checked={enableMulticore}
+            onChange={changeMulticoreHandler}
+          />
+
           <TextField
-            label={t('Hardware Threads')}
+            label={t('Threads')}
             helperText={t('Number of threads to use for calculations')}
             size="small"
             value={hwThreads}

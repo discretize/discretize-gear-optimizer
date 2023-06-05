@@ -17,6 +17,7 @@ import {
   changeError,
   changeStatus,
   getError,
+  getMulticore,
   getProfession,
   getStatus,
 } from '../../../state/slices/controlsSlice';
@@ -51,8 +52,9 @@ const ControlsBox = () => {
   const affixes = useSelector(getPriority('affixes'));
   const weaponType = useSelector(getPriority('weaponType'));
   const profession = useSelector(getProfession);
+  const multicore = useSelector(getMulticore);
 
-  const onStartCalculate = (type, isWasm) => (e) => {
+  const onStartCalculate = (e) => {
     if (affixes.length < 1) {
       dispatch(changeError(t('Select at least one affix in the priorities section!')));
       dispatch(changeStatus(ERROR));
@@ -66,11 +68,11 @@ const ControlsBox = () => {
 
     console.log('calculate');
 
-    if (type === 'sequential') {
+    if (!multicore) {
       dispatch(changeError(''));
       dispatch({ type: SagaTypes.Start });
     } else {
-      calculate(store.getState(), isWasm);
+      calculate(store.getState(), dispatch);
     }
   };
 
@@ -98,7 +100,7 @@ const ControlsBox = () => {
           variant="outlined"
           color="primary"
           className={classes.button}
-          onClick={onStartCalculate('sequential')}
+          onClick={onStartCalculate}
           classes={{ label: classes.label }}
           disabled={status === RUNNING || profession === ''}
         >
@@ -109,42 +111,6 @@ const ControlsBox = () => {
           )}
           <Typography>
             <Trans>Calculate</Trans>
-          </Typography>
-        </Button>
-
-        <Button
-          variant="outlined"
-          color="primary"
-          className={classes.button}
-          onClick={onStartCalculate('parallel', false)}
-          classes={{ label: classes.label }}
-          disabled={status === RUNNING || profession === ''}
-        >
-          {status === RUNNING ? (
-            <ProgressIcon className={classes.icon} />
-          ) : (
-            <EqualizerRoundedIcon className={classes.icon} />
-          )}
-          <Typography>
-            <Trans>Parallel JS</Trans>
-          </Typography>
-        </Button>
-
-        <Button
-          variant="outlined"
-          color="primary"
-          className={classes.button}
-          onClick={onStartCalculate('parallel', true)}
-          classes={{ label: classes.label }}
-          disabled={status === RUNNING || profession === ''}
-        >
-          {status === RUNNING ? (
-            <ProgressIcon className={classes.icon} />
-          ) : (
-            <EqualizerRoundedIcon className={classes.icon} />
-          )}
-          <Typography>
-            <Trans>Parallel WASM</Trans>
           </Typography>
         </Button>
       </Box>

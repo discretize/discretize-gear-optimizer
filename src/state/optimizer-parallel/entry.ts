@@ -1,16 +1,27 @@
+import { Dispatch } from 'react';
 import { Character } from '../optimizer/optimizerCore';
 import { setupCombinations } from '../optimizer/optimizerSetup';
+import { RUNNING } from '../optimizer/status';
+import { changeProgress, changeStatus } from '../slices/controlsSlice';
 import { getAffixCombinations, getLayerNumber } from './affixTree';
-import { FINISHED, SETUP, START } from './workerMessageTypes';
+import { FINISHED, PROGRESS, SETUP, START } from './workerMessageTypes';
+import { getTotalCombinations } from './utils';
 
-function calculate(reduxState: any, isWasm: boolean) {
+let dispatch: Dispatch<any>;
+
+// fuck typing redux
+function calculate(reduxState: any, dispatchMethod: Dispatch<any>) {
   const NUM_THREADS = reduxState.optimizer.control.hwThreads;
+  dispatch = dispatchMethod;
 
+  dispatch(changeStatus(RUNNING));
+  dispatch(changeProgress(0));
   console.log('Parallel Optimizer');
   console.log('State', reduxState);
 
   // get the extra combinations from the redux state
   const combinations = setupCombinations(reduxState);
+  const totalCombinations = getTotalCombinations(combinations);
 
   if (combinations.length === 0) {
     console.error('No combinations found');
@@ -40,6 +51,8 @@ function calculate(reduxState: any, isWasm: boolean) {
   // split work into NUM_THREADS chunks, each chunk getting a number of subtrees to calculate
   const chunks = splitCombinations(affixcombinations, NUM_THREADS);
 
+  let currentProgress = 0;
+
   // send chunks to workers
   workers.forEach(({ worker }, index) => {
     worker.postMessage({
@@ -57,23 +70,41 @@ function calculate(reduxState: any, isWasm: boolean) {
   const results: any[][] = [];
   workers.forEach(({ worker }, index) => {
     worker.onmessage = (e) => {
-      console.log('Worker message', e.data);
+      let message = e.data;
+      if (typeof e.data === 'string') {
+        message = JSON.parse(e.data);
+      }
 
-      if (e.data.type === FINISHED) {
-        results.push(e.data.data);
-        workers[index].status = FINISHED;
+      switch (message.type) {
+        case FINISHED:
+          results.push(message.data);
+          workers[index].status = FINISHED;
 
-        // check if all workers finished
-        if (workers.every(({ status }) => status === FINISHED)) {
-          const sortedResults = results
-            .flat(1)
-            .sort((a, b) => b.attributes[b.settings.rankby] - a.attributes[a.settings.rankby])
-            .slice(0, results[0][0].settings.maxResults);
+          // check if all workers finished
+          if (workers.every(({ status }) => status === FINISHED)) {
+            const sortedResults = results
+              .flat(1)
+              .sort((a, b) => b.attributes[b.settings.rankby] - a.attributes[a.settings.rankby])
+              .slice(0, results[0][0].settings.maxResults);
 
-          onFinish(sortedResults);
-          const endTime = performance.now();
-          console.log('Time', endTime - startTime, 'ms');
-        }
+            onFinish(sortedResults);
+            const endTime = performance.now();
+            console.log('Time', endTime - startTime, 'ms');
+          }
+          break;
+
+        case PROGRESS:
+          currentProgress += message.data.new;
+
+          // eslint-disable-next-line no-case-declarations
+          const progress = Math.round((currentProgress / totalCombinations) * 100);
+          // dispatch as a percentage of total combinations
+          console.log('Progress', currentProgress, '/', totalCombinations, '=', progress, '%');
+          dispatch(changeProgress(progress));
+
+          break;
+        default:
+          throw new Error('Unknown message type ', message.type);
       }
     };
   });
@@ -84,9 +115,6 @@ function calculate(reduxState: any, isWasm: boolean) {
   workers.forEach(({ worker }) => {
     worker.postMessage({
       type: START,
-      data: {
-        isWasm,
-      },
     });
   });
 }
@@ -94,6 +122,12 @@ function calculate(reduxState: any, isWasm: boolean) {
 function onFinish(results: Character[]) {
   console.log('All workers finished');
   console.log('Results', results);
+
+  if (!dispatch) {
+    throw new Error('Dispatch not set');
+  }
+
+  dispatch(changeStatus(FINISHED));
 }
 
 /**
