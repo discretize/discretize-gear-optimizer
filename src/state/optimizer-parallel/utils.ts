@@ -1,13 +1,17 @@
-import { get } from 'http';
 import {
   Affix,
+  AffixName,
   AttributeName,
   Attributes,
   ConditionName,
   WeaponTypes,
   damagingConditions,
 } from '../../utils/gw2-data';
-import { Character } from '../optimizer/optimizerCore';
+import {
+  Character,
+  OptimizerCoreMinimalSettings,
+  OptimizerCoreSettings,
+} from '../optimizer/optimizerCore';
 import { Combination } from '../optimizer/optimizerSetup';
 
 const attributes = [
@@ -62,7 +66,7 @@ attributes[43] = 'Confusion Coefficient';
 attributes[44] = 'Poison Coefficient';
 attributes[45] = 'Torment Coefficient';
 
-const getAffixId = (affix: string) => (affix ? Object.keys(Affix).indexOf(affix) : null);
+const getAffixId = (affix: AffixName | null) => (affix ? Object.keys(Affix).indexOf(affix) : null);
 const getAttributeId = (attribute: AttributeName) => {
   // corresponds to gw2data.rs -> Attribute enum. musth ave same order
 
@@ -89,7 +93,10 @@ const getAffixName = (affixId: number) => {
 // replace string values with their corresponding IDs.
 // in rust we use enums, which are i32 indexed, so we need to convert the strings to numbers
 function modifyCombinations(combinations: Combination[]): any {
-  const toReturn = [...combinations].map((combination) => combination.settings || {}) as any[];
+  // deep copy combinations
+  const toReturn = JSON.parse(JSON.stringify(combinations)).map(
+    (combination: Combination) => combination.settings || {},
+  ) as any[];
 
   for (let i = 0; i < combinations.length; i++) {
     const combination = combinations[i];
@@ -142,19 +149,19 @@ function modifyCombinations(combinations: Combination[]): any {
 
       toReturn[i].relevantConditions = combination.settings?.relevantConditions.map(getConditionId);
 
-      // we are not interested in these objects in rust - for now
-      delete toReturn[i].shouldDisplayExtras;
-      delete toReturn[i].appliedModifiers;
-      delete toReturn[i].cachedFormState;
-      delete toReturn[i].extrasCombination;
+      // we are not interested in these objects in rust
+      // delete toReturn[i].shouldDisplayExtras;
+      // delete toReturn[i].appliedModifiers;
+      // delete toReturn[i].cachedFormState;
+      // delete toReturn[i].extrasCombination;
     }
   }
 
   return toReturn;
 }
 
-const arrayToObject = (array: any[]) => {
-  const map = {};
+const arrayToObject = <T>(array: [string | number, T][]): Record<string | number, T> => {
+  const map: Record<string | number, T> = {};
   array.forEach(([key, value]) => {
     map[key] = value;
   });
@@ -179,21 +186,54 @@ function transformResults(results: any, combinations: Combination[]): Character[
       (attribute: any) => attribute[1] !== 0,
     );
 
+    if (!combinations[character.combination_id]?.settings) {
+      throw new Error(`Combination ${character.combination_id} not found`);
+    }
+
+    const {
+      cachedFormState,
+      profession,
+      specialization,
+      weaponType,
+      appliedModifiers,
+      rankby,
+      shouldDisplayExtras,
+      extrasCombination,
+      modifiers,
+      gameMode,
+    } = combinations[character.combination_id].settings as OptimizerCoreSettings;
+
+    const settings: OptimizerCoreMinimalSettings = {
+      cachedFormState,
+      profession,
+      specialization,
+      weaponType,
+      appliedModifiers,
+      rankby,
+      shouldDisplayExtras,
+      extrasCombination,
+      modifiers,
+      gameMode,
+    };
+
     resultList.push({
-      baseAttributes: character.base_attributes,
+      baseAttributes: arrayToObject(character.base_attributes),
       attributes: arrayToObject(character.attributes),
       gear: character.gear.map(getAffixName),
       gearStats: arrayToObject(
-        character.gear_stats.map((stat, index) => {
+        character.gear_stats.map((stat: number, index: number) => {
           return [getAttributeName(index), stat];
         }),
       ),
       id: undefined,
-      results: undefined,
-      settings: {
-        ...combinations[character.combination_id]?.settings,
-        extrasCombination: combinations[character.combination_id]?.extrasCombination,
-        rankby: getAttributeName(combinations[character.combination_id]?.settings?.rankby),
+      settings,
+      results: {
+        ...character.results,
+        indicators: {
+          Damage: 0,
+          Healing: 0,
+          Survivability: 0,
+        },
       },
       valid: true,
     });

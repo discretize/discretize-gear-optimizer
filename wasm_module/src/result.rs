@@ -1,9 +1,12 @@
 use serde::Serialize;
 use std::vec;
 
-use crate::data::{
-    character::{Character, ResultCharacter},
-    settings::Settings,
+use crate::{
+    data::{
+        character::{Character, ResultCharacter},
+        settings::Settings,
+    },
+    optimizer_core::update_attributes,
 };
 
 #[derive(Debug, Serialize)]
@@ -84,6 +87,18 @@ impl Result {
                     .iter()
                     .for_each(|a| character.gear_stats[a.0 as usize] += a.1);
             }
+
+            calc_results(character, settings);
         }
     }
+}
+
+fn calc_results(character: &mut ResultCharacter, settings: &Settings) {
+    let mut results = character.results;
+    // results.value is assigned when calling ResultCharacter::from
+    // we skip indicators in rust to avoid redundancy
+
+    // baseline for comparing adding/subtracting +5 infusions
+    let baseline = character.clone();
+    update_attributes(&mut character.to_character(), settings, true);
 }

@@ -173,7 +173,11 @@ fn test_character(character: &mut Character, settings: &Settings, subtree: &[Aff
     return update_attributes(character, settings, false);
 }
 
-fn update_attributes(character: &mut Character, settings: &Settings, no_rounding: bool) -> bool {
+pub fn update_attributes(
+    character: &mut Character,
+    settings: &Settings,
+    no_rounding: bool,
+) -> bool {
     calc_stats(character, settings, no_rounding);
     //print_attr(&character.attributes);
 

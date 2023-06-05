@@ -2,7 +2,7 @@ import { Dispatch } from 'react';
 import { Character } from '../optimizer/optimizerCore';
 import { setupCombinations } from '../optimizer/optimizerSetup';
 import { RUNNING } from '../optimizer/status';
-import { changeProgress, changeStatus } from '../slices/controlsSlice';
+import { changeList, changeProgress, changeStatus } from '../slices/controlsSlice';
 import { getAffixCombinations, getLayerNumber } from './affixTree';
 import { FINISHED, PROGRESS, SETUP, START } from './workerMessageTypes';
 import { getTotalCombinations } from './utils';
@@ -22,13 +22,13 @@ function calculate(reduxState: any, dispatchMethod: Dispatch<any>) {
   // get the extra combinations from the redux state
   const combinations = setupCombinations(reduxState);
   const totalCombinations = getTotalCombinations(combinations);
-
   if (combinations.length === 0) {
     console.error('No combinations found');
     return;
   }
 
   const affixArray = combinations[0].settings?.affixesArray;
+  let maxResults = combinations[0].settings?.maxResults;
 
   if (!affixArray) {
     console.error('No affixes found');
@@ -82,10 +82,11 @@ function calculate(reduxState: any, dispatchMethod: Dispatch<any>) {
 
           // check if all workers finished
           if (workers.every(({ status }) => status === FINISHED)) {
+            console.log(results[0][0]);
             const sortedResults = results
               .flat(1)
               .sort((a, b) => b.attributes[b.settings.rankby] - a.attributes[a.settings.rankby])
-              .slice(0, results[0][0].settings.maxResults);
+              .slice(0, maxResults);
 
             onFinish(sortedResults);
             const endTime = performance.now();
@@ -128,6 +129,7 @@ function onFinish(results: Character[]) {
   }
 
   dispatch(changeStatus(FINISHED));
+  dispatch(changeList(results));
 }
 
 /**

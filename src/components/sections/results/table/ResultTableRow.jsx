@@ -68,7 +68,7 @@ const ResultTableRow = ({
         />
       </TableCell>
       <TableCell scope="row">
-        {value.toFixed(0)}
+        {value?.toFixed(0)}
         {comparisonText ? (
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
             {comparisonText}

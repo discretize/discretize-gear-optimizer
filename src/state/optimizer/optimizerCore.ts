@@ -153,7 +153,7 @@ export interface OptimizerCoreSettings {
   cachedFormState: CachedFormState;
   extrasCombination: Record<string, string>;
 }
-type OptimizerCoreMinimalSettings = Pick<
+export type OptimizerCoreMinimalSettings = Pick<
   OptimizerCoreSettings,
   | 'cachedFormState'
   | 'profession'

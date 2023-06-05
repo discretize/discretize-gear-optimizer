@@ -1,3 +1,4 @@
+#![allow(non_snake_case)]
 use super::{
     affix::Affix,
     attribute::{Attribute, ATTRIBUTE_COUNT},
@@ -122,8 +123,19 @@ pub struct ResultCharacter {
     pub gear: [Affix; 14],
     pub gear_stats: [f32; 10],
     pub combination_id: u32,
+
+    pub results: Results,
 }
 impl ResultCharacter {
+    pub fn to_character(&self) -> Character {
+        Character {
+            base_attributes: self.base_attributes,
+            attributes: self.attributes,
+            rankby: Attribute::Power,
+            gear: self.gear,
+            combination_id: self.combination_id,
+        }
+    }
     pub fn from(character: &Character) -> Self {
         ResultCharacter {
             base_attributes: character.base_attributes,
@@ -131,6 +143,117 @@ impl ResultCharacter {
             gear: character.gear,
             gear_stats: [0.0; 10],
             combination_id: character.combination_id,
+            results: Results {
+                value: character.score(),
+                coefficientHelper: CoefficientHelper {
+                    Bleeding: CoefficientDetails {
+                        slope: 0.0,
+                        intercept: 0.0,
+                    },
+                    Burning: CoefficientDetails {
+                        slope: 0.0,
+                        intercept: 0.0,
+                    },
+                    Confusion: CoefficientDetails {
+                        slope: 0.0,
+                        intercept: 0.0,
+                    },
+                    Poison: CoefficientDetails {
+                        slope: 0.0,
+                        intercept: 0.0,
+                    },
+                    Power: CoefficientDetails {
+                        slope: 0.0,
+                        intercept: 0.0,
+                    },
+                    Power2: CoefficientDetails {
+                        slope: 0.0,
+                        intercept: 0.0,
+                    },
+                    Torment: CoefficientDetails {
+                        slope: 0.0,
+                        intercept: 0.0,
+                    },
+                },
+                damageBreakdown: DamageBreakdown {
+                    Bleeding: 0.0,
+                    Burning: 0.0,
+                    Confusion: 0.0,
+                    Poison: 0.0,
+                    Power: 0.0,
+                    Power2: 0.0,
+                    Torment: 0.0,
+                },
+                effectiveDamageDistribution: DamageBreakdown {
+                    Bleeding: 0.0,
+                    Burning: 0.0,
+                    Confusion: 0.0,
+                    Poison: 0.0,
+                    Power: 0.0,
+                    Power2: 0.0,
+                    Torment: 0.0,
+                },
+                effectiveNegativeValues: EffectiveValues {
+                    ConditionDamage: 0.0,
+                    Expertise: 0.0,
+                    Ferocity: 0.0,
+                    Power: 0.0,
+                    Precision: 0.0,
+                },
+                effectivePositiveValues: EffectiveValues {
+                    ConditionDamage: 0.0,
+                    Expertise: 0.0,
+                    Ferocity: 0.0,
+                    Power: 0.0,
+                    Precision: 0.0,
+                },
+            },
         }
     }
+}
+#[derive(Debug, Clone, Copy, Serialize)]
+pub struct Results {
+    pub coefficientHelper: CoefficientHelper,
+    pub damageBreakdown: DamageBreakdown,
+    pub effectiveDamageDistribution: DamageBreakdown,
+    pub effectiveNegativeValues: EffectiveValues,
+    pub effectivePositiveValues: EffectiveValues,
+    pub value: f32,
+}
+
+#[derive(Debug, Clone, Copy, Serialize)]
+pub struct CoefficientHelper {
+    pub Bleeding: CoefficientDetails,
+    pub Burning: CoefficientDetails,
+    pub Confusion: CoefficientDetails,
+    pub Poison: CoefficientDetails,
+    pub Power: CoefficientDetails,
+    pub Power2: CoefficientDetails,
+    pub Torment: CoefficientDetails,
+}
+
+#[derive(Debug, Clone, Copy, Serialize)]
+pub struct CoefficientDetails {
+    pub slope: f32,
+    pub intercept: f32,
+}
+
+#[derive(Debug, Clone, Copy, Serialize)]
+pub struct DamageBreakdown {
+    pub Bleeding: f32,
+    pub Burning: f32,
+    pub Confusion: f32,
+    pub Poison: f32,
+    pub Power: f32,
+    pub Power2: f32,
+    pub Torment: f32,
+}
+
+#[derive(Debug, Clone, Copy, Serialize)]
+pub struct EffectiveValues {
+    pub ConditionDamage: f32,
+    pub Expertise: f32,
+    pub Ferocity: f32,
+    pub Power: f32,
+    pub Precision: f32,
 }
