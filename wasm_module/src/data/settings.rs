@@ -42,7 +42,7 @@ pub struct Settings {
     pub identicalWep: bool,
     pub identicalArmor: bool,
     pub slots: u8, // amount of occupied slots. typically, 13 for two-handed weapons, 14 for dual wield
-    pub runsAfterThisSlot: Vec<u32>,
+    // pub runsAfterThisSlot: Vec<u32>, this crashes for more than 5 affixes
     pub affixesArray: [Vec<Affix>; 14],
     pub affixStatsArray: [Vec<Vec<(Attribute, f32)>>; 14],
     pub baseAttributes: Vec<(Attribute, f32)>,
