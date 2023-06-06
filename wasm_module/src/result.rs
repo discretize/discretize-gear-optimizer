@@ -94,11 +94,11 @@ impl Result {
 }
 
 fn calc_results(character: &mut ResultCharacter, settings: &Settings) {
-    let mut results = character.results;
+    let mut _results = character.results;
     // results.value is assigned when calling ResultCharacter::from
     // we skip indicators in rust to avoid redundancy
 
     // baseline for comparing adding/subtracting +5 infusions
-    let baseline = character.clone();
+    let _baseline = character.clone();
     update_attributes(&mut character.to_character(), settings, true);
 }

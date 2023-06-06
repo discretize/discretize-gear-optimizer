@@ -32,7 +32,7 @@
     "extractLocaleEn": "babel --config-file ./babel-extract-en.config.js 'src/**/*.{js,jsx,ts,tsx}' > /dev/null && node cleanupLocale.js",
     "extractLocaleCMD": "babel --config-file ./babel-extract.config.js \"src/**/*.{js,jsx,ts,tsx}\" > NUL",
     "cleanupLocale": "node cleanupLocale.js",
-    "wasm": "wasm-pack build ./wasm_module --target web",
+    "wasm": "wasm-pack build ./wasm_module --target web --release",
     "wasm-build-data": "ts-node-esm generateRustMappings.mts"
   },
   "resolutions": {
