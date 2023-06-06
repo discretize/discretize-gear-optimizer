@@ -87,15 +87,15 @@ function calculate(reduxState: any, dispatchMethod: Dispatch<any>) {
 
           // check if all workers finished
           if (workers.every(({ status }) => status === FINISHED)) {
-            console.log(results[0][0]);
+            const endTime = performance.now();
+            console.log('Time', endTime - startTime, 'ms');
+
             const sortedResults = results
               .flat(1)
               .sort((a, b) => b.attributes[b.settings.rankby] - a.attributes[a.settings.rankby])
               .slice(0, maxResults);
 
             onFinish(sortedResults);
-            const endTime = performance.now();
-            console.log('Time', endTime - startTime, 'ms');
           }
           break;
 

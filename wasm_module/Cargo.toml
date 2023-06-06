@@ -16,6 +16,8 @@ js-sys = "0.3.63"
 web-sys = {version = "0.3.63", features = ["console", "DedicatedWorkerGlobalScope"]}
 criterion = {version = "0.5.1", default-features = false}
 
+#web_time = "0.2.0"
+
 # these are actually requried for the optimizer
 serde_json = "1.0.96"
 serde = { version = "1.0.163", features = ["derive"] }

@@ -29,9 +29,15 @@ onmessage = (e) => {
 };
 
 async function start() {
+  let now = performance.now();
   // await wasm module initialization
   await init();
 
+  console.log('Wasm module initialized in', performance.now() - now, 'ms');
+
+  now = performance.now();
+
+  // console.log(JSON.stringify(modifyCombinations(combinations)));
   // call wasm function with chunks and affixArray
   const data = calculate(
     JSON.stringify(chunks),
@@ -85,6 +91,9 @@ async function start() {
     total_threads,
     thread_num,
   );
+
+  console.log('Wasm calculation finished in', performance.now() - now, 'ms');
+
   postMessage({
     type: FINISHED,
     data: transformResults(JSON.parse(data || '[]'), combinations),
