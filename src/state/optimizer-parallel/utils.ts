@@ -229,10 +229,10 @@ function transformResults(results: any, combinations: Combination[]): Character[
       gear: character.gear.map(getAffixName).slice(0, slots),
       gearStats: arrayToObject(
         character.gear_stats
-          .filter((stat: number) => stat > 0)
           .map((stat: number, index: number) => {
             return [getAttributeName(index), stat];
-          }),
+          })
+          .filter(([_, stat]: [any, number]) => stat > 0),
       ),
       id: undefined,
       settings,
