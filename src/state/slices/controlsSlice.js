@@ -60,7 +60,7 @@ export const controlSlice = createSlice({
     selectedTemplate: '',
     status: WAITING,
     profession: '',
-    multicore: false,
+    multicore: true,
     hwThreads: 4,
   },
   reducers: {

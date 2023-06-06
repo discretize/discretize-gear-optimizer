@@ -193,8 +193,8 @@ pub fn update_attributes(
         power_damage_score + condi_damage_score + character.attributes.get_a(Attribute::FlatDPS),
     );
 
-    // todo calcSurvivability
-    // todo calcHealing
+    calc_survivability(character, &settings);
+    calc_healing(character, &settings);
 
     return true;
 }
@@ -445,4 +445,43 @@ pub fn calc_condi(
     }
 
     condi_damage_score
+}
+
+fn calc_survivability(character: &mut Character, settings: &Settings) {
+    let attributes = &mut character.attributes;
+    let mods = &settings.modifiers;
+
+    attributes.add_a(Attribute::Armor, attributes.get_a(Attribute::Toughness));
+
+    attributes.set_a(
+        Attribute::EffectiveHealth,
+        attributes.get_a(Attribute::Health)
+            * attributes.get_a(Attribute::Armor)
+            * (1.0 / mods.get_dmg_multiplier(Attribute::DamageTaken)),
+    );
+
+    attributes.set_a(
+        Attribute::Survivability,
+        attributes.get_a(Attribute::EffectiveHealth) / 1967.0,
+    );
+}
+
+fn calc_healing(character: &mut Character, _settings: &Settings) {
+    let attributes = &mut character.attributes;
+    //let mods = &settings.modifiers;
+
+    // reasonably representative skill: druid celestial avatar 4 pulse
+    // 390 base, 0.3 coefficient
+    attributes.set_a(
+        Attribute::EffectiveHealing,
+        (attributes.get_a(Attribute::HealingPower) * 0.3 + 390.0)
+            * (1.0 + attributes.get_a(Attribute::OutgoingHealing)),
+    );
+
+    // TODO add bountiful maintenance oil
+
+    attributes.set_a(
+        Attribute::Healing,
+        attributes.get_a(Attribute::EffectiveHealing),
+    );
 }

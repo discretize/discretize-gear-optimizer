@@ -2,7 +2,12 @@ import { Dispatch } from 'react';
 import { Character } from '../optimizer/optimizerCore';
 import { setupCombinations } from '../optimizer/optimizerSetup';
 import { RUNNING } from '../optimizer/status';
-import { changeList, changeProgress, changeStatus } from '../slices/controlsSlice';
+import {
+  changeList,
+  changeProgress,
+  changeSelectedCharacter,
+  changeStatus,
+} from '../slices/controlsSlice';
 import { getAffixCombinations, getLayerNumber } from './affixTree';
 import { FINISHED, PROGRESS, SETUP, START } from './workerMessageTypes';
 import { getTotalCombinations } from './utils';
@@ -130,6 +135,7 @@ function onFinish(results: Character[]) {
 
   dispatch(changeStatus(FINISHED));
   dispatch(changeList(results));
+  dispatch(changeSelectedCharacter(results[0]));
 }
 
 /**

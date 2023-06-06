@@ -176,7 +176,7 @@ function transformResults(results: any, combinations: Combination[]): Character[
       return [getAttributeName(index), attribute];
     });
     // remove all entries with 0 value
-    character.attributes = character.attributes.filter((attribute: any) => attribute[1] !== 0);
+    // character.attributes = character.attributes.filter((attribute: any) => attribute[1] !== 0);
 
     character.base_attributes = character.base_attributes.map((attribute: any, index: number) => {
       return [getAttributeName(index), attribute];
@@ -201,6 +201,7 @@ function transformResults(results: any, combinations: Combination[]): Character[
       extrasCombination,
       modifiers,
       gameMode,
+      slots,
     } = combinations[character.combination_id].settings as OptimizerCoreSettings;
 
     const settings: OptimizerCoreMinimalSettings = {
@@ -216,24 +217,28 @@ function transformResults(results: any, combinations: Combination[]): Character[
       gameMode,
     };
 
+    const indicators = {
+      Damage: character.attributes[54][1],
+      Survivability: character.attributes[55][1],
+      Healing: character.attributes[56][1],
+    };
+
     resultList.push({
       baseAttributes: arrayToObject(character.base_attributes),
       attributes: arrayToObject(character.attributes),
-      gear: character.gear.map(getAffixName),
+      gear: character.gear.map(getAffixName).slice(0, slots),
       gearStats: arrayToObject(
-        character.gear_stats.map((stat: number, index: number) => {
-          return [getAttributeName(index), stat];
-        }),
+        character.gear_stats
+          .filter((stat: number) => stat > 0)
+          .map((stat: number, index: number) => {
+            return [getAttributeName(index), stat];
+          }),
       ),
       id: undefined,
       settings,
       results: {
         ...character.results,
-        indicators: {
-          Damage: 0,
-          Healing: 0,
-          Survivability: 0,
-        },
+        indicators,
       },
       valid: true,
     });
