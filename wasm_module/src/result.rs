@@ -3,6 +3,7 @@ use std::vec;
 
 use crate::{
     data::{
+        attribute::Attribute,
         character::{Character, ResultCharacter},
         settings::Settings,
     },
@@ -94,11 +95,63 @@ impl Result {
 }
 
 fn calc_results(character: &mut ResultCharacter, settings: &Settings) {
-    let mut _results = character.results;
+    let attributes = character.attributes;
     // results.value is assigned when calling ResultCharacter::from
     // we skip indicators in rust to avoid redundancy
 
     // baseline for comparing adding/subtracting +5 infusions
-    let _baseline = character.clone();
-    update_attributes(&mut character.to_character(), settings, true);
+    let mut baseline = character.clone().to_character();
+    update_attributes(&mut baseline, settings, true);
+
+    // effective gain/loss from +5 attributes
+    for (index, attribute) in [
+        Attribute::Power,
+        Attribute::Precision,
+        Attribute::Ferocity,
+        Attribute::ConditionDamage,
+        Attribute::Expertise,
+    ]
+    .iter()
+    .enumerate()
+    {
+        let mut copy = character.clone().to_character();
+        // add +5 infusions
+        copy.base_attributes[*attribute as usize] = copy.base_attributes[*attribute as usize] + 5.0;
+
+        update_attributes(&mut copy, settings, true);
+        character.results.effectivePositiveValues[index] = copy.attributes
+            [Attribute::Damage as usize]
+            - baseline.attributes[Attribute::Damage as usize];
+
+        // subtract -5 infusions
+        copy = character.clone().to_character();
+        copy.base_attributes[*attribute as usize] =
+            f32::max(copy.base_attributes[*attribute as usize] - 5.0, 0.0);
+
+        update_attributes(&mut copy, settings, true);
+        character.results.effectiveNegativeValues[index] = copy.attributes
+            [Attribute::Damage as usize]
+            - baseline.attributes[Attribute::Damage as usize];
+    }
+
+    for (index, attribute) in [
+        Attribute::PowerDPS,
+        Attribute::Power2DPS,
+        Attribute::BleedingDPS,
+        Attribute::BurningDPS,
+        Attribute::ConfusionDPS,
+        Attribute::PoisonDPS,
+        Attribute::TormentDPS,
+    ]
+    .iter()
+    .enumerate()
+    {
+        // effective damage distribution
+        character.results.effectiveDamageDistribution[index] =
+            character.attributes[*attribute as usize] / attributes[Attribute::Damage as usize]
+                * 100.0;
+
+        // damage breakdown
+        character.results.damageBreakdown[index] = character.attributes[*attribute as usize];
+    }
 }

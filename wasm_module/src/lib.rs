@@ -53,3 +53,23 @@ pub fn calculate(
         Err(_) => None,
     }
 }
+
+#[wasm_bindgen]
+pub fn calculate_threaded(
+    js_chunks: String,
+    js_combinations: String,
+    _num_threads: u32,
+) -> Option<String> {
+    let opt_chunks = utils::parse_string_to_vector(&js_chunks);
+    let chunks = match opt_chunks {
+        Some(chunks) => chunks,
+        None => {
+            console::log_1(&JsValue::from_str("Error parsing chunks"));
+            return None;
+        }
+    };
+    let _chunks = utils::vec_i8_to_affix(chunks);
+    let _combinations: Vec<Settings> = serde_json::from_str(&js_combinations).unwrap();
+    // todo
+    None
+}

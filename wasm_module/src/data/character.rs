@@ -175,38 +175,10 @@ impl ResultCharacter {
                         intercept: 0.0,
                     },
                 },
-                damageBreakdown: DamageBreakdown {
-                    Bleeding: 0.0,
-                    Burning: 0.0,
-                    Confusion: 0.0,
-                    Poison: 0.0,
-                    Power: 0.0,
-                    Power2: 0.0,
-                    Torment: 0.0,
-                },
-                effectiveDamageDistribution: DamageBreakdown {
-                    Bleeding: 0.0,
-                    Burning: 0.0,
-                    Confusion: 0.0,
-                    Poison: 0.0,
-                    Power: 0.0,
-                    Power2: 0.0,
-                    Torment: 0.0,
-                },
-                effectiveNegativeValues: EffectiveValues {
-                    ConditionDamage: 0.0,
-                    Expertise: 0.0,
-                    Ferocity: 0.0,
-                    Power: 0.0,
-                    Precision: 0.0,
-                },
-                effectivePositiveValues: EffectiveValues {
-                    ConditionDamage: 0.0,
-                    Expertise: 0.0,
-                    Ferocity: 0.0,
-                    Power: 0.0,
-                    Precision: 0.0,
-                },
+                damageBreakdown: [0.0; 7],
+                effectiveDamageDistribution: [0.0; 7],
+                effectiveNegativeValues: [0.0; 5],
+                effectivePositiveValues: [0.0; 5],
             },
         }
     }
@@ -214,10 +186,10 @@ impl ResultCharacter {
 #[derive(Debug, Clone, Copy, Serialize)]
 pub struct Results {
     pub coefficientHelper: CoefficientHelper,
-    pub damageBreakdown: DamageBreakdown,
-    pub effectiveDamageDistribution: DamageBreakdown,
-    pub effectiveNegativeValues: EffectiveValues,
-    pub effectivePositiveValues: EffectiveValues,
+    pub damageBreakdown: [f32; 7],
+    pub effectiveDamageDistribution: [f32; 7],
+    pub effectiveNegativeValues: [f32; 5],
+    pub effectivePositiveValues: [f32; 5],
     pub value: f32,
 }
 
@@ -236,24 +208,4 @@ pub struct CoefficientHelper {
 pub struct CoefficientDetails {
     pub slope: f32,
     pub intercept: f32,
-}
-
-#[derive(Debug, Clone, Copy, Serialize)]
-pub struct DamageBreakdown {
-    pub Bleeding: f32,
-    pub Burning: f32,
-    pub Confusion: f32,
-    pub Poison: f32,
-    pub Power: f32,
-    pub Power2: f32,
-    pub Torment: f32,
-}
-
-#[derive(Debug, Clone, Copy, Serialize)]
-pub struct EffectiveValues {
-    pub ConditionDamage: f32,
-    pub Expertise: f32,
-    pub Ferocity: f32,
-    pub Power: f32,
-    pub Precision: f32,
 }

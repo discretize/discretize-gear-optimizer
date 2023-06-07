@@ -90,8 +90,6 @@ pub fn start(
             }
             *counter.borrow_mut() += 1;
 
-            // instant avoids system call, more performant than SystemTime
-
             // post message to js
             if *counter.borrow() % PROGRESS_UPDATE_INTERVALL == 0 {
                 workerglobal.and_then(|w| {
@@ -175,7 +173,6 @@ pub fn update_attributes(
     no_rounding: bool,
 ) -> bool {
     calc_stats(character, settings, no_rounding);
-    //print_attr(&character.attributes);
 
     if character.is_invalid(settings) {
         return false;
@@ -263,7 +260,37 @@ fn calc_stats(character: &mut Character, settings: &Settings, no_rounding: bool)
     );
 
     // clones/phantasms/shroud
-    //TODO
+    if settings.profession.eq("Mesmer") {
+        attributes.add_a(
+            Attribute::CloneCriticalChance,
+            (attributes.get_a(Attribute::Precision) - 1000.0) / 21.0 / 100.0,
+        );
+        attributes.add_a(
+            Attribute::PhantasmCriticalChance,
+            (attributes.get_a(Attribute::Precision) - 1000.0) / 21.0 / 100.0,
+        );
+        attributes.add_a(
+            Attribute::PhantasmCriticalDamage,
+            attributes.get_a(Attribute::Ferocity) / 15.0 / 100.0,
+        );
+    } else if attributes.get_a(Attribute::Power2Coefficient) > 0.0 {
+        attributes.set_a(
+            Attribute::AltPower,
+            attributes.get_a(Attribute::AltPower) + attributes.get_a(Attribute::Power),
+        );
+        attributes.set_a(
+            Attribute::AltCriticalChance,
+            attributes.get_a(Attribute::AltCriticalChance)
+                + attributes.get_a(Attribute::CriticalChance)
+                + attributes.get_a(Attribute::AltPrecision) / 21.0 / 100.0,
+        );
+        attributes.set_a(
+            Attribute::AltCriticalDamage,
+            attributes.get_a(Attribute::AltCriticalDamage)
+                + attributes.get_a(Attribute::CriticalDamage)
+                + attributes.get_a(Attribute::AltFerocity) / 15.0 / 100.0,
+        );
+    }
 
     // handle convertAfterBuffs modifiers
     for (attribute, conversion) in &settings.modifiers.convertAfterBuffs {
@@ -336,7 +363,7 @@ pub fn calc_power(character: &mut Character, settings: &Settings) -> f32 {
     );
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
-    let power_damage = (attributes.get_a(Attribute::PowerCoefficient) / 2597.0)
+    let mut power_damage = (attributes.get_a(Attribute::PowerCoefficient) / 2597.0)
         * attributes.get_a(Attribute::EffectivePower)
         + (attributes.get_a(Attribute::NonCritPowerCoefficient) / 2597.0)
             * attributes.get_a(Attribute::NonCritEffectivePower);
@@ -345,7 +372,44 @@ pub fn calc_power(character: &mut Character, settings: &Settings) -> f32 {
 
     if attributes.get_a(Attribute::Power2Coefficient) > 0.0 {
         // do stuff
-        //TODO implement power2 calc
+        if settings.profession.eq("Mesmer") {
+            let phantasm_crit_dmg = attributes.get_a(Attribute::PhantasmCriticalDamage)
+                * mods.get_dmg_multiplier(Attribute::PhantasmCriticalDamage);
+            let phantasm_crit_chance = clamp(
+                attributes.get_a(Attribute::PhantasmCriticalChance),
+                0.0,
+                1.0,
+            );
+
+            attributes.set_a(
+                Attribute::PhantasmEffectivePower,
+                attributes.get_a(Attribute::Power)
+                    * (1.0 + phantasm_crit_chance * (phantasm_crit_dmg - 1.0))
+                    * mods.get_dmg_multiplier(Attribute::PhantasmDamage),
+            );
+
+            let phantasm_power_damage = (attributes.get_a(Attribute::Power2Coefficient) / 2597.0)
+                * attributes.get_a(Attribute::PhantasmEffectivePower);
+            attributes.set_a(Attribute::Power2DPS, phantasm_power_damage);
+            power_damage += phantasm_power_damage;
+        } else {
+            let alt_crit_dmg = attributes.get_a(Attribute::AltCriticalDamage)
+                * mods.get_dmg_multiplier(Attribute::AltCriticalDamage);
+            let alt_crit_chance = clamp(attributes.get_a(Attribute::AltCriticalChance), 0.0, 1.0);
+
+            attributes.set_a(
+                Attribute::AltEffectivePower,
+                attributes.get_a(Attribute::AltPower)
+                    * (1.0 + alt_crit_chance * (alt_crit_dmg - 1.0))
+                    * mods.get_dmg_multiplier(Attribute::StrikeDamage)
+                    * mods.get_dmg_multiplier(Attribute::AltDamage),
+            );
+
+            let alt_power_damage = (attributes.get_a(Attribute::Power2Coefficient) / 2597.0)
+                * attributes.get_a(Attribute::AltEffectivePower);
+            attributes.set_a(Attribute::Power2DPS, alt_power_damage);
+            power_damage += alt_power_damage;
+        }
     } else {
         attributes.set_a(Attribute::Power2DPS, 0.0);
     }
@@ -464,7 +528,6 @@ fn calc_survivability(character: &mut Character, settings: &Settings) {
 
 fn calc_healing(character: &mut Character, _settings: &Settings) {
     let attributes = &mut character.attributes;
-    //let mods = &settings.modifiers;
 
     // reasonably representative skill: druid celestial avatar 4 pulse
     // 390 base, 0.3 coefficient

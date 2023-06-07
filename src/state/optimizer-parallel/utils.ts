@@ -41,6 +41,7 @@ const attributes = [
   'Phantasm Critical Chance',
   'Phantasm Damage',
   'Phantasm Critical Damage',
+  'Phantasm Effective Power',
   'Siphon Base Coefficient',
   'Siphon DPS',
   'Siphon Damage',
@@ -190,6 +191,9 @@ function transformResults(results: any, combinations: Combination[]): Character[
       throw new Error(`Combination ${character.combination_id} not found`);
     }
 
+    const convAttr = (values: string[], arr: number[]) =>
+      Object.fromEntries(values.map((attr, i) => [attr, arr[i]]));
+
     const {
       cachedFormState,
       profession,
@@ -223,6 +227,27 @@ function transformResults(results: any, combinations: Combination[]): Character[
       Healing: character.attributes[56][1],
     };
 
+    const charResults = {
+      ...character.results,
+      effectivePositiveValues: convAttr(
+        ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'],
+        character.results.effectivePositiveValues,
+      ),
+      effectiveNegativeValues: convAttr(
+        ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'],
+        character.results.effectiveNegativeValues,
+      ),
+      damageBreakdown: convAttr(
+        ['Power', 'Power2', 'Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment'],
+        character.results.damageBreakdown,
+      ),
+      effectiveDamageDistribution: convAttr(
+        ['Power', 'Power2', 'Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment'],
+        character.results.effectiveDamageDistribution,
+      ),
+      indicators,
+    };
+
     resultList.push({
       baseAttributes: arrayToObject(character.base_attributes),
       attributes: arrayToObject(character.attributes),
@@ -236,10 +261,7 @@ function transformResults(results: any, combinations: Combination[]): Character[
       ),
       id: undefined,
       settings,
-      results: {
-        ...character.results,
-        indicators,
-      },
+      results: charResults,
       valid: true,
     });
   });

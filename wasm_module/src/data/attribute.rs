@@ -99,6 +99,7 @@ pub enum Attribute {
     PhantasmCriticalChance,
     PhantasmDamage,
     PhantasmCriticalDamage,
+    PhantasmEffectivePower,
     SiphonBaseCoefficient,
     SiphonDPS,
     SiphonDamage,
@@ -257,6 +258,7 @@ impl Attribute {
             Attribute::ConfusionDPS => "Confusion DPS",
             Attribute::PoisonDPS => "Poison DPS",
             Attribute::TormentDPS => "Torment DPS",
+            Attribute::PhantasmEffectivePower => "Phantasm Effective Power",
         }
     }
 
