@@ -11,6 +11,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector, useStore } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import calculate from '../../../state/optimizer-parallel/entry';
+import { RESUME, STOP } from '../../../state/optimizer-parallel/workerMessageTypes';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import SagaTypes from '../../../state/sagas/sagaTypes';
 import {
@@ -46,6 +47,7 @@ const ControlsBox = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const store = useStore();
+  const [worker, setWorker] = React.useState(null);
 
   const status = useSelector(getStatus);
   const error = useSelector(getError);
@@ -72,7 +74,24 @@ const ControlsBox = () => {
       dispatch(changeError(''));
       dispatch({ type: SagaTypes.Start });
     } else {
-      calculate(store.getState(), dispatch);
+      const workers = calculate(store.getState(), dispatch);
+      setWorker(workers);
+    }
+  };
+
+  const onResumeCalculate = (e) => {
+    if (!multicore) {
+      dispatch({ type: SagaTypes.Resume });
+    } else {
+      worker.forEach((w) => w.worker.postMessage({ type: RESUME }));
+    }
+  };
+
+  const onStopCalculate = (e) => {
+    if (!multicore) {
+      dispatch({ type: SagaTypes.Stop });
+    } else {
+      worker.forEach((w) => w.worker.postMessage({ type: STOP }));
     }
   };
 
@@ -119,7 +138,7 @@ const ControlsBox = () => {
           variant="outlined"
           color="primary"
           className={classes.button}
-          onClick={(e) => dispatch({ type: SagaTypes.Stop })}
+          onClick={onStopCalculate}
           disabled={status !== RUNNING}
         >
           <Cancel className={classNames(classes.icon)} />
@@ -134,7 +153,7 @@ const ControlsBox = () => {
             variant="outlined"
             color="primary"
             className={classes.button}
-            onClick={(e) => dispatch({ type: SagaTypes.Resume })}
+            onClick={onResumeCalculate}
           >
             <ProgressIcon className={classes.icon} />
             <Typography style={{ marginLeft: 8 }}>

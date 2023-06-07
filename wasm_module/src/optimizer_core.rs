@@ -92,11 +92,17 @@ pub fn start(
 
             // post message to js
             if *counter.borrow() % PROGRESS_UPDATE_INTERVALL == 0 {
+                result.on_complete(combinations);
+
+                // get json value of best characters
+                let best_json = serde_json::to_string(&result.best_characters).unwrap();
+
                 workerglobal.and_then(|w| {
                     w.post_message(&JsValue::from_str(&format!(
-                        "{{ \"type\": \"PROGRESS\", \"data\": {{ \"total\": {}, \"new\": {} }} }}",
+                        "{{ \"type\": \"PROGRESS\", \"data\": {{ \"total\": {}, \"new\": {}, \"results\": {} }} }}",
                         counter.borrow(),
-                        PROGRESS_UPDATE_INTERVALL
+                        PROGRESS_UPDATE_INTERVALL,
+                        best_json
                     )))
                     .ok()
                 });

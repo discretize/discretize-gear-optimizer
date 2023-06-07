@@ -2,5 +2,7 @@ const SETUP = 'SETUP';
 const START = 'START';
 const FINISHED = 'FINISHED';
 const PROGRESS = 'PROGRESS';
+const RESUME = 'RESUME';
+const STOP = 'STOP';
 
-export { SETUP, START, FINISHED, PROGRESS };
+export { SETUP, START, FINISHED, PROGRESS, RESUME, STOP };

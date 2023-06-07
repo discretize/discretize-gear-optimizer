@@ -13,7 +13,7 @@ crate-type = ["cdylib", "rlib"]
 # deps to compile for web
 wasm-bindgen = {version = "0.2.86", features = []}
 js-sys = "0.3.63"
-web-sys = {version = "0.3.63", features = ["console", "DedicatedWorkerGlobalScope"]}
+web-sys = {version = "0.3.63", features = ["console", "DedicatedWorkerGlobalScope", "MessageEvent"]}
 criterion = {version = "0.5.1", default-features = false}
 
 #web_time = "0.2.0"

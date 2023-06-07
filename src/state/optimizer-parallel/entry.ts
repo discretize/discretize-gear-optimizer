@@ -10,9 +10,10 @@ import {
 } from '../slices/controlsSlice';
 import { getAffixCombinations, getLayerNumber } from './affixTree';
 import { FINISHED, PROGRESS, SETUP, START } from './workerMessageTypes';
-import { getTotalCombinations } from './utils';
+import { getTotalCombinations, transformResults } from './utils';
 
 let dispatch: Dispatch<any>;
+const PROGRESS_UPDATE_INTERVALL = 1000000;
 
 // fuck typing redux
 function calculate(reduxState: any, dispatchMethod: Dispatch<any>) {
@@ -33,7 +34,7 @@ function calculate(reduxState: any, dispatchMethod: Dispatch<any>) {
   }
 
   const affixArray = combinations[0].settings?.affixesArray;
-  let maxResults = combinations[0].settings?.maxResults;
+  const maxResults = combinations[0].settings?.maxResults;
 
   if (!affixArray) {
     console.error('No affixes found');
@@ -106,7 +107,12 @@ function calculate(reduxState: any, dispatchMethod: Dispatch<any>) {
           const progress = Math.round((currentProgress / totalCombinations) * 100);
           // dispatch as a percentage of total combinations
           console.log('Progress', currentProgress, '/', totalCombinations, '=', progress, '%');
-          dispatch(changeProgress(progress));
+
+          // only update the list for the first thread that sends an update
+          if (currentProgress % (NUM_THREADS * PROGRESS_UPDATE_INTERVALL) === 0) {
+            dispatch(changeProgress(progress));
+            dispatch(changeList(transformResults(message.data.results, combinations)));
+          }
 
           break;
         default:
@@ -123,6 +129,8 @@ function calculate(reduxState: any, dispatchMethod: Dispatch<any>) {
       type: START,
     });
   });
+
+  return workers;
 }
 
 function onFinish(results: Character[]) {

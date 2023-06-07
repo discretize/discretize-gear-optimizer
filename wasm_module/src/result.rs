@@ -61,6 +61,8 @@ impl Result {
     }
 
     pub fn on_complete(&mut self, combinations: &Vec<Settings>) {
+        self.best_characters.clear();
+
         // convert the characters to ResultCharacters
         self.characters
             .iter()

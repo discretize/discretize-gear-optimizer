@@ -2,7 +2,7 @@ use data::settings::Settings;
 use optimizer_core::start;
 
 use wasm_bindgen::prelude::*;
-use web_sys::console;
+use web_sys::{console, MessageEvent};
 
 // public so that the benches can access it
 pub mod data;
@@ -40,6 +40,14 @@ pub fn calculate(
     let workerglobal = js_sys::global()
         .dyn_into::<web_sys::DedicatedWorkerGlobalScope>()
         .unwrap();
+
+    // receive messages from js
+    // let on_message_callback = Closure::wrap(Box::new(move |event: MessageEvent| {
+    //     let data = event.data();
+    //     console::log_1(&data);
+    // }) as Box<dyn FnMut(MessageEvent)>);
+
+    // workerglobal.set_onmessage(Some(on_message_callback.as_ref().unchecked_ref()));
 
     // calculate the result (maxResult best characters) for the given chunks
     let mut result = start(&chunks, &combinations, Some(&workerglobal));
