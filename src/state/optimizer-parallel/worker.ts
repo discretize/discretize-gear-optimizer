@@ -1,4 +1,5 @@
-import init, { calculate } from 'wasm_module';
+/* eslint-disable camelcase */
+import init, { calculate, calculate_with_heuristics } from 'wasm_module';
 import { Combination } from '../optimizer/optimizerSetup';
 import { getAffixId, modifyCombinations, transformResults } from './utils';
 import { FINISHED, SETUP, START } from './workerMessageTypes';
@@ -21,14 +22,14 @@ onmessage = (e) => {
 
     case START:
       console.log('Worker start', chunks);
-      start();
+      start(e.data.data.withHeuristics);
       break;
     default:
       throw new Error('Unknown message type', e.data.type);
   }
 };
 
-async function start() {
+async function start(withHeurisics = false) {
   let now = performance.now();
   // await wasm module initialization
   await init();
@@ -37,16 +38,16 @@ async function start() {
 
   now = performance.now();
 
+  const calcFn = withHeurisics ? calculate_with_heuristics : calculate;
+
   // console.log(JSON.stringify(modifyCombinations(combinations)));
   // call wasm function with chunks and affixArray
-  const data = calculate(
+  const data = calcFn(
     JSON.stringify(chunks),
     JSON.stringify(
       // also adjust the settings to be usable by rust (we use c-like enums there)
       modifyCombinations(combinations),
     ),
-    total_threads,
-    thread_num,
   );
 
   console.log('Wasm calculation finished in', performance.now() - now, 'ms');

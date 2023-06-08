@@ -94,6 +94,29 @@ impl Result {
             calc_results(character, settings);
         }
     }
+
+    /// Returns an array of length settings.len() that contains the weighted percentage of characters that belong to each combination
+    /// Weighted means that a character that is ranked higher in the result list will have a higher weight.
+    /// The results are multiplied by 100. So if the result is 50, it means that likely 50% of the good characters will belong to this combination
+    ///
+    /// # Arguments
+    /// - `settings` - the settings array that is used to calculate the results
+    pub fn get_weighted_combinations(&self, settings: &Vec<Settings>) -> Vec<u32> {
+        let mut combination_count = vec![0; settings.len()];
+
+        for (rank, character) in self.characters.iter().enumerate() {
+            let combination_id = character.combination_id as usize;
+            combination_count[combination_id] += (self.characters.len() - rank) as u32;
+        }
+
+        // convert to percentage
+        let sum: u32 = combination_count.iter().sum();
+        combination_count
+            .iter_mut()
+            .for_each(|c| *c = (*c as f32 / sum as f32 * 100.0) as u32);
+
+        combination_count
+    }
 }
 
 fn calc_results(character: &mut ResultCharacter, settings: &Settings) {

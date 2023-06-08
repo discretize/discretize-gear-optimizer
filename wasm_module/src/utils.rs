@@ -1,4 +1,5 @@
-use crate::data::{affix::Affix, attribute::Attribute, character::Attributes};
+use crate::data::{affix::Affix, attribute::Attribute, character::Attributes, settings::Settings};
+use rand::Rng;
 use serde_json::Value;
 use wasm_bindgen::JsValue;
 use web_sys::console;
@@ -86,4 +87,34 @@ pub fn _print_attr(attr: &Attributes) {
 
         console::log_1(&JsValue::from_str(&format!("{}: {}\n", attribute, attr[i])));
     }
+}
+
+/// Returns a random combination of affixes
+///
+/// # Arguments
+/// - `affixes_array` - The array of affixes from which to choose
+/// - `slots` - The number of slots to pick from the affixes_array
+pub fn get_random_affix_combination(affixes_array: &[Vec<Affix>; 14], slots: usize) -> [Affix; 14] {
+    let mut rng = rand::thread_rng();
+
+    let mut result: [Affix; 14] = [Affix::None; 14];
+    for i in 0..slots {
+        let affixes = &affixes_array[i];
+
+        let random_index = rng.gen_range(0..affixes.len()) as usize;
+        result[i] = affixes[random_index];
+    }
+    result
+}
+
+/// Returns the total number of combinations that the given settings will produce
+///
+/// # Arguments
+/// - `settings` - The settings list
+pub fn get_total_combinations(settings: &Vec<Settings>) -> u128 {
+    let mut result = 1;
+    for affixes in settings[0].affixesArray.iter() {
+        result *= affixes.len() as u128;
+    }
+    result * settings.len() as u128
 }

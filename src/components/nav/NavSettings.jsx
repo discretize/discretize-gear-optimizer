@@ -1,4 +1,5 @@
 import {
+  Checkbox,
   Divider,
   FormControl,
   FormControlLabel,
@@ -6,9 +7,8 @@ import {
   Radio,
   RadioGroup,
   Switch,
-  Typography,
   TextField,
-  Checkbox,
+  Typography,
 } from '@mui/material';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
@@ -16,8 +16,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import {
+  changeHeuristics,
   changeHwThreads,
   changeMulticore,
+  getHeuristics,
   getHwThreads,
   getMulticore,
   getSelectedTemplate,
@@ -68,6 +70,7 @@ export default function NavSettings({
   const selectedTemplate = useSelector(getSelectedTemplate);
   const hwThreads = useSelector(getHwThreads);
   const enableMulticore = useSelector(getMulticore);
+  const enableHeuristics = useSelector(getHeuristics);
 
   const [open, setOpen] = React.useState(false);
 
@@ -113,6 +116,11 @@ export default function NavSettings({
   const changeMulticoreHandler = (e) => {
     const newMulticore = e.target.checked;
     dispatch(changeMulticore(newMulticore));
+  };
+
+  const changeHeuristicsHandler = (e) => {
+    const newHeuristics = e.target.checked;
+    dispatch(changeHeuristics(newHeuristics));
   };
 
   return (
@@ -179,6 +187,14 @@ export default function NavSettings({
             value={hwThreads}
             onChange={changeHwThreadsHandler}
             inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+          />
+
+          <FormControlLabel
+            control={<Checkbox defaultChecked />}
+            label={t('Enable heuristics')}
+            sx={{ mb: 3 }}
+            checked={enableHeuristics}
+            onChange={changeHeuristicsHandler}
           />
         </>
       )}

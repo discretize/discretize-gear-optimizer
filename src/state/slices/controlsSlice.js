@@ -61,7 +61,8 @@ export const controlSlice = createSlice({
     status: WAITING,
     profession: '',
     multicore: true,
-    hwThreads: 4,
+    hwThreads: navigator.hardwareConcurrency || 4,
+    heuristics: true,
   },
   reducers: {
     changeAll: (state, action) => {
@@ -145,6 +146,9 @@ export const controlSlice = createSlice({
     changeMulticore: (state, action) => {
       state.multicore = action.payload;
     },
+    changeHeuristics: (state, action) => {
+      state.heuristics = action.payload;
+    },
   },
 });
 
@@ -164,6 +168,7 @@ export const getTallTable = (state) => state.optimizer.control.tallTable;
 export const getSelectedCharacter = (state) => state.optimizer.control.selectedCharacter;
 export const getError = (state) => state.optimizer.control.error;
 export const getMulticore = (state) => state.optimizer.control.multicore;
+export const getHeuristics = (state) => state.optimizer.control.heuristics;
 
 export const getPageTitle = createSelector(getStatus, getProgress, (status, progress) =>
   status === RUNNING ? `${progress}% - Discretize Gear Optimizer` : 'Discretize Gear Optimizer',
@@ -187,6 +192,7 @@ export const {
   changeError,
   changeHwThreads,
   changeMulticore,
+  changeHeuristics,
 } = controlSlice.actions;
 
 export default controlSlice.reducer;

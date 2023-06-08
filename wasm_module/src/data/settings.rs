@@ -7,7 +7,7 @@ use serde_repr::{Deserialize_repr, Serialize_repr};
 use super::{affix::Affix, attribute::Attribute};
 
 #[allow(non_snake_case)] // must allow since this comes from JS
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Settings {
     pub profession: String,
     pub specialization: String,
@@ -57,7 +57,7 @@ impl Settings {
     }
 }
 
-#[derive(Debug, Deserialize_repr, Serialize_repr)]
+#[derive(Debug, Deserialize_repr, Serialize_repr, Clone)]
 #[repr(u8)]
 pub enum WeaponHandednessType {
     DualWield,
@@ -73,7 +73,7 @@ impl fmt::Display for WeaponHandednessType {
 }
 
 #[allow(non_snake_case)]
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Distribution {
     pub Bleeding: f32,
     pub Burning: f32,
@@ -85,7 +85,7 @@ pub struct Distribution {
 }
 
 #[allow(non_snake_case)]
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Modifiers {
     pub damageMultiplier: [(String, f32); 14],
     pub damageMultiplierBreakdown: Value,
@@ -117,7 +117,7 @@ impl Modifiers {
     }
 }
 
-#[derive(Debug, Deserialize_repr, Serialize_repr)]
+#[derive(Debug, Deserialize_repr, Serialize_repr, Clone)]
 #[repr(u8)]
 pub enum Condition {
     Bleeding,

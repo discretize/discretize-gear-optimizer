@@ -104,9 +104,9 @@ function calculate(reduxState: any, dispatchMethod: Dispatch<any>) {
           currentProgress += message.data.new;
 
           // eslint-disable-next-line no-case-declarations
-          const progress = Math.round((currentProgress / totalCombinations) * 100);
+          const progress = Math.round((currentProgress / message.data.total) * 100);
           // dispatch as a percentage of total combinations
-          console.log('Progress', currentProgress, '/', totalCombinations, '=', progress, '%');
+          console.log('Progress', currentProgress, '/', message.data.total, '=', progress, '%');
 
           // only update the list for the first thread that sends an update
           if (currentProgress % (NUM_THREADS * PROGRESS_UPDATE_INTERVALL) === 0) {
@@ -127,6 +127,9 @@ function calculate(reduxState: any, dispatchMethod: Dispatch<any>) {
   workers.forEach(({ worker }) => {
     worker.postMessage({
       type: START,
+      data: {
+        withHeuristics: reduxState.optimizer.control.heuristics,
+      },
     });
   });
 
