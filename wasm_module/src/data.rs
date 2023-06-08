@@ -2,6 +2,7 @@ pub mod affix;
 pub mod attribute;
 pub mod character;
 pub mod misc;
+pub mod resultcharacter;
 pub mod settings;
 
 /// how frequently (in calculation runs) should progress updates be sent to the main thread

@@ -192,7 +192,7 @@ function transformResults(results: any, combinations: Combination[]): Character[
     }
 
     const convAttr = (values: string[], arr: number[]) =>
-      Object.fromEntries(values.map((attr, i) => [attr, arr[i]]));
+      Object.fromEntries(values.map((attr, i) => [attr, arr[i] || 0]));
 
     const {
       cachedFormState,

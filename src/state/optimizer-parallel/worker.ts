@@ -2,7 +2,7 @@
 import init, { calculate, calculate_with_heuristics } from 'wasm_module';
 import { Combination } from '../optimizer/optimizerSetup';
 import { getAffixId, modifyCombinations, transformResults } from './utils';
-import { FINISHED, SETUP, START } from './workerMessageTypes';
+import { FINISHED, SETUP, START, STOP } from './workerMessageTypes';
 
 let chunks: number[][];
 let combinations: Combination[];
@@ -23,6 +23,9 @@ onmessage = (e) => {
     case START:
       console.log('Worker start', chunks);
       start(e.data.data.withHeuristics);
+      break;
+
+    case STOP:
       break;
     default:
       throw new Error('Unknown message type', e.data.type);

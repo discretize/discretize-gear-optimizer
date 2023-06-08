@@ -111,7 +111,8 @@ function calculate(reduxState: any, dispatchMethod: Dispatch<any>) {
           // only update the list for the first thread that sends an update
           if (currentProgress % (NUM_THREADS * PROGRESS_UPDATE_INTERVALL) === 0) {
             dispatch(changeProgress(progress));
-            dispatch(changeList(transformResults(message.data.results, combinations)));
+            if (message.data.results.length > 0)
+              dispatch(changeList(transformResults(message.data.results, combinations)));
           }
 
           break;

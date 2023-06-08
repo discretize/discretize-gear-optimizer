@@ -112,9 +112,27 @@ pub fn get_random_affix_combination(affixes_array: &[Vec<Affix>; 14], slots: usi
 /// # Arguments
 /// - `settings` - The settings list
 pub fn get_total_combinations(settings: &Vec<Settings>) -> u128 {
-    let mut result = 1;
-    for affixes in settings[0].affixesArray.iter() {
-        result *= affixes.len() as u128;
+    let mut result = settings.len() as u128;
+    let affixes_array = &settings[0].affixesArray;
+    let slots = settings[0].slots;
+
+    for i in 0..slots {
+        result *= affixes_array[i as usize].len() as u128;
     }
-    result * settings.len() as u128
+
+    result
+}
+
+pub mod serde_arrays {
+    use serde::Serialize;
+
+    use crate::data::attribute::ATTRIBUTE_COUNT;
+
+    pub fn serialize<S, T>(array: &[T; ATTRIBUTE_COUNT], serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+        T: Serialize,
+    {
+        array[..].serialize(serializer)
+    }
 }
