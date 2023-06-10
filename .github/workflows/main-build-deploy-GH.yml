@@ -1,9 +1,6 @@
 # Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
 
-env:
-  BASE: /discretize-gear-optimizer/
-
 on:
   # Runs on pushes targeting the default branch
   push:
@@ -41,7 +38,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Build
-        run: yarn build
+        run: yarn build --base /discretize-gear-optimizer/
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
