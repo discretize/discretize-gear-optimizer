@@ -2,7 +2,7 @@
 name: Deploy static content to Pages
 
 env:
-  BASE_URL: /discretize-gear-optimizer/
+  BASE: /discretize-gear-optimizer/
 
 on:
   # Runs on pushes targeting the default branch
