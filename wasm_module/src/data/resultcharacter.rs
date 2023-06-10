@@ -3,6 +3,7 @@ use super::{
     affix::Affix,
     attribute::Attribute,
     character::{Attributes, Character},
+    combination::Combination,
     settings::Settings,
 };
 use crate::{optimizer_core::update_attributes, utils::serde_arrays};
@@ -109,14 +110,14 @@ pub struct CoefficientDetails {
 }
 
 impl ResultCharacter {
-    pub fn calc_results(&mut self, settings: &Settings) {
+    pub fn calc_results(&mut self, settings: &Settings, combination: &Combination) {
         let attributes = self.attributes;
         // results.value is assigned when calling ResultCharacter::from
         // we skip indicators in rust to avoid redundancy
 
         // baseline for comparing adding/subtracting +5 infusions
         let mut baseline = self.clone().to_character();
-        update_attributes(&mut baseline, settings, true);
+        update_attributes(&mut baseline, settings, combination, true);
 
         // effective gain/loss from +5 attributes
         for (index, attribute) in [
@@ -134,7 +135,7 @@ impl ResultCharacter {
             copy.base_attributes[*attribute as usize] =
                 copy.base_attributes[*attribute as usize] + 5.0;
 
-            update_attributes(&mut copy, settings, true);
+            update_attributes(&mut copy, settings, combination, true);
             self.results.effectivePositiveValues[index] = copy.attributes
                 [Attribute::Damage as usize]
                 - baseline.attributes[Attribute::Damage as usize];
@@ -144,7 +145,7 @@ impl ResultCharacter {
             copy.base_attributes[*attribute as usize] =
                 f32::max(copy.base_attributes[*attribute as usize] - 5.0, 0.0);
 
-            update_attributes(&mut copy, settings, true);
+            update_attributes(&mut copy, settings, combination, true);
             self.results.effectiveNegativeValues[index] = copy.attributes
                 [Attribute::Damage as usize]
                 - baseline.attributes[Attribute::Damage as usize];

@@ -1,4 +1,7 @@
-use crate::data::{character::Character, resultcharacter::ResultCharacter, settings::Settings};
+use crate::data::{
+    character::Character, combination::Combination, resultcharacter::ResultCharacter,
+    settings::Settings,
+};
 use serde::Serialize;
 use std::vec;
 #[derive(Debug, Serialize)]
@@ -51,7 +54,7 @@ impl Result {
         self.worst_score = self.characters.last().unwrap().score();
     }
 
-    pub fn on_complete(&mut self, combinations: &Vec<Settings>) {
+    pub fn on_complete(&mut self, settings: &Settings, combinations: &Vec<Combination>) {
         self.best_characters.clear();
 
         // convert the characters to ResultCharacters
@@ -61,7 +64,7 @@ impl Result {
 
         for character in self.best_characters.iter_mut() {
             // find the combination that this character belongs to
-            let settings = combinations.get(character.combination_id as usize).unwrap();
+            let combination = combinations.get(character.combination_id as usize).unwrap();
 
             // add gear stats to the character
             for (index, affix) in character.gear.iter().enumerate() {
@@ -83,7 +86,7 @@ impl Result {
             }
 
             // fills the character.results object with additional details about the character
-            character.calc_results(settings);
+            character.calc_results(settings, combination);
         }
     }
 
@@ -93,8 +96,8 @@ impl Result {
     ///
     /// # Arguments
     /// - `settings` - the settings array that is used to calculate the results
-    pub fn get_weighted_combinations(&self, settings: &Vec<Settings>) -> Vec<u32> {
-        let mut combination_count = vec![0; settings.len()];
+    pub fn get_weighted_combinations(&self, combinations: &Vec<Combination>) -> Vec<u32> {
+        let mut combination_count = vec![0; combinations.len()];
 
         for (rank, character) in self.characters.iter().enumerate() {
             let combination_id = character.combination_id as usize;

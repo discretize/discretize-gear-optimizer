@@ -1,6 +1,7 @@
 pub mod affix;
 pub mod attribute;
 pub mod character;
+pub mod combination;
 pub mod misc;
 pub mod resultcharacter;
 pub mod settings;

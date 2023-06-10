@@ -1,7 +1,6 @@
 use std::fmt;
 
 use serde::{Deserialize, Serialize};
-use serde_json::Value;
 use serde_repr::{Deserialize_repr, Serialize_repr};
 
 use super::{affix::Affix, attribute::Attribute};
@@ -28,32 +27,26 @@ pub struct Settings {
     pub maxResults: u32,
     pub primaryInfusion: String,   // todo
     pub secondaryInfusion: String, // todo
-    pub primaryMaxInfusions: u32,
-    pub secondaryMaxInfusions: u32,
-    pub maxInfusions: u32,
+    pub primaryMaxInfusions: u8,
+    pub secondaryMaxInfusions: u8,
+    pub maxInfusions: u8, // max 18
     pub distribution: Distribution,
     pub attackRate: f32,
     pub movementUptime: f32,
     pub gameMode: String,
-
     pub infusionMode: String,
     pub identicalRing: bool,
     pub identicalAcc: bool,
     pub identicalWep: bool,
     pub identicalArmor: bool,
     pub slots: u8, // amount of occupied slots. typically, 13 for two-handed weapons, 14 for dual wield
-    // pub runsAfterThisSlot: Vec<u32>, this crashes for more than 5 affixes
     pub affixesArray: [Vec<Affix>; 14],
     pub affixStatsArray: [Vec<Vec<(Attribute, f32)>>; 14],
-    pub baseAttributes: Vec<(Attribute, f32)>,
-    pub modifiers: Modifiers,
-    pub disableCondiResultCache: bool,
-    pub relevantConditions: Vec<Condition>,
 }
 
 impl Settings {
     pub fn is_wvw(&self) -> bool {
-        self.gameMode.eq("wvw")
+        false // self.gameMode.eq("wvw")
     }
 }
 
@@ -82,39 +75,6 @@ pub struct Distribution {
     pub Power: f32,
     pub Power2: f32,
     pub Torment: f32,
-}
-
-#[allow(non_snake_case)]
-#[derive(Debug, Serialize, Deserialize, Clone)]
-pub struct Modifiers {
-    pub damageMultiplier: [(String, f32); 14],
-    pub damageMultiplierBreakdown: Value,
-    pub buff: Vec<(Attribute, f32)>, // todo fix these String typings, they are supposed to be Attributes
-    pub convert: Vec<(Attribute, Vec<(Attribute, f32)>)>, // todo fix these String typings
-    pub convertAfterBuffs: Vec<(Attribute, Vec<(Attribute, f32)>)>, // todo fix these String typings
-}
-
-impl Modifiers {
-    pub fn get_dmg_multiplier(&self, attr: Attribute) -> f32 {
-        match attr {
-            Attribute::StrikeDamage => return self.damageMultiplier[0].1,
-            Attribute::ConditionDamage => return self.damageMultiplier[1].1,
-            Attribute::SiphonDamage => return self.damageMultiplier[2].1,
-            Attribute::DamageTaken => return self.damageMultiplier[3].1,
-            Attribute::CriticalDamage => return self.damageMultiplier[4].1,
-            Attribute::BleedingDamage => return self.damageMultiplier[5].1,
-            Attribute::BurningDamage => return self.damageMultiplier[6].1,
-            Attribute::ConfusionDamage => return self.damageMultiplier[7].1,
-            Attribute::PoisonDamage => return self.damageMultiplier[8].1,
-            Attribute::TormentDamage => return self.damageMultiplier[9].1,
-            Attribute::AltDamage => return self.damageMultiplier[10].1,
-            Attribute::AltCriticalDamage => return self.damageMultiplier[11].1,
-            Attribute::PhantasmDamage => return self.damageMultiplier[12].1,
-            Attribute::PhantasmCriticalDamage => return self.damageMultiplier[13].1,
-            // we will likely notice it in case our result is negative
-            _ => -1.0,
-        }
-    }
 }
 
 #[derive(Debug, Deserialize_repr, Serialize_repr, Clone)]

@@ -1,7 +1,7 @@
 import { Dispatch } from 'react';
-import { Character } from '../optimizer/optimizerCore';
-import { setupCombinations } from '../optimizer/optimizerSetup';
-import { RUNNING } from '../optimizer/status';
+import { Character, OptimizerCoreSettings } from '../optimizer/optimizerCore';
+import { AppliedModifier, setupCombinations } from './optimizerSetup';
+import { ERROR, RUNNING } from '../optimizer/status';
 import {
   changeList,
   changeProgress,
@@ -10,7 +10,11 @@ import {
 } from '../slices/controlsSlice';
 import { getAffixCombinations, getLayerNumber } from './affixTree';
 import { FINISHED, PROGRESS, SETUP, START } from './workerMessageTypes';
-import { getTotalCombinations, transformResults } from './utils';
+import { getBuffsModifiers } from '../slices/buffs';
+import { getExtraModifiersModifiers } from '../slices/extraModifiers';
+import { getInfusionsModifiers } from '../slices/infusions';
+import { getSkillsModifiers } from '../slices/skills';
+import { getTraitsModifiers } from '../slices/traits';
 
 let dispatch: Dispatch<any>;
 const PROGRESS_UPDATE_INTERVALL = 1000000;
@@ -26,15 +30,17 @@ function calculate(reduxState: any, dispatchMethod: Dispatch<any>) {
   console.log('State', reduxState);
 
   // get the extra combinations from the redux state
-  const combinations = setupCombinations(reduxState);
-  const totalCombinations = getTotalCombinations(combinations);
+  const [settings, combinations, resultData] = setupCombinations(reduxState);
+  console.log('Settings ', settings);
+  console.log('Combinations ', combinations);
+
   if (combinations.length === 0) {
     console.error('No combinations found');
     return;
   }
 
-  const affixArray = combinations[0].settings?.affixesArray;
-  const maxResults = combinations[0].settings?.maxResults;
+  const affixArray = settings?.affixesArray;
+  const maxResults = settings?.maxResults;
 
   if (!affixArray) {
     console.error('No affixes found');
@@ -42,6 +48,10 @@ function calculate(reduxState: any, dispatchMethod: Dispatch<any>) {
   }
 
   const layer = getLayerNumber(affixArray, NUM_THREADS);
+  const affixcombinations = getAffixCombinations(affixArray, layer);
+
+  // split work into NUM_THREADS chunks, each chunk getting a number of subtrees to calculate
+  const chunks = splitCombinations(affixcombinations, NUM_THREADS);
 
   console.log(`Creating ${NUM_THREADS} threads to calculate ${layer} layers`);
   const workers = [...Array(NUM_THREADS)].map((_, index) => {
@@ -52,22 +62,18 @@ function calculate(reduxState: any, dispatchMethod: Dispatch<any>) {
     };
   });
 
-  const affixcombinations = getAffixCombinations(affixArray, layer);
-
-  // split work into NUM_THREADS chunks, each chunk getting a number of subtrees to calculate
-  const chunks = splitCombinations(affixcombinations, NUM_THREADS);
-
   let currentProgress = 0;
-
   // send chunks to workers
   workers.forEach(({ worker }, index) => {
     worker.postMessage({
       type: SETUP,
       data: {
         chunks: chunks[index],
+        settings,
         combinations,
         thread_num: index,
         total_threads: NUM_THREADS,
+        resultProperties: getResultProperties(reduxState, resultData),
       },
     });
   });
@@ -82,6 +88,10 @@ function calculate(reduxState: any, dispatchMethod: Dispatch<any>) {
       }
 
       switch (message.type) {
+        case ERROR:
+          console.error('Error', message.data);
+          dispatch(changeStatus(ERROR));
+          break;
         case FINISHED:
           results.push(message.data);
           workers[index].status = FINISHED;
@@ -111,8 +121,8 @@ function calculate(reduxState: any, dispatchMethod: Dispatch<any>) {
           // only update the list for the first thread that sends an update
           if (currentProgress % (NUM_THREADS * PROGRESS_UPDATE_INTERVALL) === 0) {
             dispatch(changeProgress(progress));
-            if (message.data.results.length > 0)
-              dispatch(changeList(transformResults(message.data.results, combinations)));
+            // if (message.data.results.length > 0)
+            //  dispatch(changeList(transformResults(message.data.results, combinations)));
           }
 
           break;
@@ -168,5 +178,44 @@ function splitCombinations<T>(combinations: T[][], NUM_THREADS = 4) {
 
   return chunks;
 }
+
+export type ResultProperties = {
+  cachedFormState: OptimizerCoreSettings['cachedFormState'];
+  sharedModifiers: AppliedModifier[];
+  allExtrasData: {
+    extrasModifiers: AppliedModifier[];
+    extrasCombination: Record<string, string>;
+  }[];
+};
+
+const getResultProperties: (
+  reduxState: any,
+  resultData: {
+    extrasModifiers: AppliedModifier[];
+    extrasCombination: Record<string, string>;
+  }[],
+) => ResultProperties = (reduxState: any, resultData) => {
+  const state = reduxState.optimizer;
+
+  const sharedModifiers: AppliedModifier[] = [
+    ...(getBuffsModifiers(reduxState) || []),
+    ...(getExtraModifiersModifiers(reduxState) || []),
+    ...(getInfusionsModifiers(reduxState) || []),
+    ...(getSkillsModifiers(reduxState) || []),
+    ...(getTraitsModifiers(reduxState) || []),
+  ];
+
+  return {
+    cachedFormState: {
+      traits: state.form.traits,
+      skills: state.form.skills,
+      extras: state.form.extras,
+      buffs: state.form.buffs, // buffs are also needed to share a build and display the assumed buffs for the result
+      priorities: state.form.priorities,
+    },
+    sharedModifiers,
+    allExtrasData: resultData,
+  };
+};
 
 export default calculate;

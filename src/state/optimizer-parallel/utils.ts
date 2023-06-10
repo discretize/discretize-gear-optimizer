@@ -7,12 +7,9 @@ import {
   WeaponTypes,
   damagingConditions,
 } from '../../utils/gw2-data';
-import {
-  Character,
-  OptimizerCoreMinimalSettings,
-  OptimizerCoreSettings,
-} from '../optimizer/optimizerCore';
-import { Combination } from '../optimizer/optimizerSetup';
+import { Character, OptimizerCoreMinimalSettings } from '../optimizer/optimizerCore';
+import { ResultProperties } from './entry';
+import { Combination, Settings } from './optimizerSetup';
 
 const attributes = [
   ...Object.values(Attributes).flat(1),
@@ -91,74 +88,79 @@ const getAffixName = (affixId: number) => {
   return Object.keys(Affix)[affixId];
 };
 
+function settingsToWorkerString(settings: Settings): string {
+  // deep copy combinations
+  const toReturn = JSON.parse(JSON.stringify(settings));
+
+  toReturn.rankby = getAttributeId(settings.rankby as AttributeName);
+  toReturn.weaponType = getWeaponTypeId(settings.weaponType);
+  toReturn.forcedAffixes = settings.forcedAffixes.map(getAffixId);
+  toReturn.affixesArray = settings.affixesArray.map((slot) =>
+    slot.map((affix) => getAffixId(affix)),
+  );
+  toReturn.affixStatsArray = settings.affixStatsArray.map((slot) =>
+    slot.map((affixes) =>
+      affixes.map((affix) => [getAttributeId(affix[0] as AttributeName), affix[1]]),
+    ),
+  );
+
+  // in rust we assume that the arrays are always 14 long
+  if (toReturn.affixesArray.length === 13) {
+    // add one more empty slot
+    toReturn.affixesArray.push([]);
+  }
+  if (toReturn.affixStatsArray.length === 13) {
+    // add one more empty slot
+    toReturn.affixStatsArray.push([]);
+  }
+
+  delete toReturn.shouldDisplayExtras;
+
+  return JSON.stringify(toReturn);
+}
+
 // replace string values with their corresponding IDs.
 // in rust we use enums, which are i32 indexed, so we need to convert the strings to numbers
-function modifyCombinations(combinations: Combination[]): any {
+function combinationsToWorkerString(combinations: Combination[]): any {
   // deep copy combinations
-  const toReturn = JSON.parse(JSON.stringify(combinations)).map(
-    (combination: Combination) => combination.settings || {},
-  ) as any[];
+  const toReturn = JSON.parse(JSON.stringify(combinations));
 
   for (let i = 0; i < combinations.length; i++) {
     const combination = combinations[i];
 
-    if (combination.settings) {
-      toReturn[i].rankby = getAttributeId(combination.settings?.rankby as AttributeName);
-      toReturn[i].weaponType = getWeaponTypeId(combination.settings?.weaponType);
-      toReturn[i].forcedAffixes = combination.settings.forcedAffixes.map(getAffixId);
-      toReturn[i].affixesArray = combination.settings?.affixesArray.map((slot) =>
-        slot.map((affix) => getAffixId(affix)),
-      );
-      toReturn[i].affixStatsArray = combination.settings?.affixStatsArray.map((slot) =>
-        slot.map((affixes) =>
-          affixes.map((affix) => [getAttributeId(affix[0] as AttributeName), affix[1]]),
-        ),
-      );
+    toReturn[i].modifiers.buff = combination.modifiers.buff.map((mod) => [
+      getAttributeId(mod[0] as AttributeName),
+      mod[1],
+    ]);
+    toReturn[i].modifiers.convert = combination.modifiers.convert.map((mod) => [
+      getAttributeId(mod[0] as AttributeName),
+      mod[1].map((convert) => [getAttributeId(convert[0] as AttributeName), convert[1]]),
+    ]);
+    toReturn[i].modifiers.convertAfterBuffs = combination.modifiers.convertAfterBuffs.map((mod) => [
+      getAttributeId(mod[0] as AttributeName),
+      mod[1].map((convert) => [getAttributeId(convert[0] as AttributeName), convert[1]]),
+    ]);
 
-      // in rust we assume that the arrays are always 14 long
-      if (toReturn[i].affixesArray.length === 13) {
-        // add one more empty slot
-        toReturn[i].affixesArray.push([]);
-      }
-      if (toReturn[i].affixStatsArray.length === 13) {
-        // add one more empty slot
-        toReturn[i].affixStatsArray.push([]);
-      }
+    // replace space in key of object with underscore
+    toReturn[i].modifiers.damageMultiplier = Object.entries(
+      combination.modifiers.damageMultiplier,
+    ).map(([key, value]) => [key.replaceAll(' ', ''), value]);
 
-      toReturn[i].modifiers.buff = combination.settings?.modifiers.buff.map((mod) => [
-        getAttributeId(mod[0] as AttributeName),
-        mod[1],
-      ]);
-      toReturn[i].modifiers.convert = combination.settings?.modifiers.convert.map((mod) => [
-        getAttributeId(mod[0] as AttributeName),
-        mod[1].map((convert) => [getAttributeId(convert[0] as AttributeName), convert[1]]),
-      ]);
-      toReturn[i].modifiers.convertAfterBuffs =
-        combination.settings?.modifiers.convertAfterBuffs.map((mod) => [
-          getAttributeId(mod[0] as AttributeName),
-          mod[1].map((convert) => [getAttributeId(convert[0] as AttributeName), convert[1]]),
-        ]);
+    toReturn[i].baseAttributes = Object.entries(combination.baseAttributes).map(([key, value]) => [
+      getAttributeId(key as AttributeName),
+      value,
+    ]);
 
-      // replace space in key of object with underscore
-      toReturn[i].modifiers.damageMultiplier = Object.entries(
-        combination.settings?.modifiers.damageMultiplier,
-      ).map(([key, value]) => [key.replaceAll(' ', ''), value]);
+    toReturn[i].relevantConditions = combination.relevantConditions.map(getConditionId);
 
-      toReturn[i].baseAttributes = Object.entries(combination.settings?.baseAttributes).map(
-        ([key, value]) => [getAttributeId(key as AttributeName), value],
-      );
-
-      toReturn[i].relevantConditions = combination.settings?.relevantConditions.map(getConditionId);
-
-      // we are not interested in these objects in rust
-      // delete toReturn[i].shouldDisplayExtras;
-      // delete toReturn[i].appliedModifiers;
-      // delete toReturn[i].cachedFormState;
-      // delete toReturn[i].extrasCombination;
-    }
+    // we are not interested in these objects in rust
+    // delete toReturn[i].shouldDisplayExtras;
+    // delete toReturn[i].appliedModifiers;
+    // delete toReturn[i].cachedFormState;
+    // delete toReturn[i].extrasCombination;
   }
 
-  return toReturn;
+  return JSON.stringify(toReturn);
 }
 
 const arrayToObject = <T>(array: [string | number, T][]): Record<string | number, T> => {
@@ -169,7 +171,12 @@ const arrayToObject = <T>(array: [string | number, T][]): Record<string | number
   return map;
 };
 
-function transformResults(results: any, combinations: Combination[]): Character[] {
+function enhanceResults(
+  results: any,
+  settings: Settings,
+  combinations: Combination[],
+  resultProperties: ResultProperties,
+): Character[] {
   const resultList: Character[] = [];
 
   results.forEach((character: any) => {
@@ -187,28 +194,25 @@ function transformResults(results: any, combinations: Combination[]): Character[
       (attribute: any) => attribute[1] !== 0,
     );
 
-    if (!combinations[character.combination_id]?.settings) {
+    if (!combinations[character.combination_id]) {
       throw new Error(`Combination ${character.combination_id} not found`);
     }
 
     const convAttr = (values: string[], arr: number[]) =>
       Object.fromEntries(values.map((attr, i) => [attr, arr[i] || 0]));
 
-    const {
-      cachedFormState,
-      profession,
-      specialization,
-      weaponType,
-      appliedModifiers,
-      rankby,
-      shouldDisplayExtras,
-      extrasCombination,
-      modifiers,
-      gameMode,
-      slots,
-    } = combinations[character.combination_id].settings as OptimizerCoreSettings;
+    const { profession, specialization, weaponType, rankby, shouldDisplayExtras, gameMode, slots } =
+      settings;
 
-    const settings: OptimizerCoreMinimalSettings = {
+    const { cachedFormState, sharedModifiers, allExtrasData } = resultProperties;
+    const { modifiers } = combinations[character.combination_id];
+
+    const appliedModifiers = [
+      ...sharedModifiers,
+      ...allExtrasData[character.combination_id].extrasModifiers,
+    ];
+
+    const characterSettings: OptimizerCoreMinimalSettings = {
       cachedFormState,
       profession,
       specialization,
@@ -216,8 +220,11 @@ function transformResults(results: any, combinations: Combination[]): Character[
       appliedModifiers,
       rankby,
       shouldDisplayExtras,
-      extrasCombination,
-      modifiers,
+      extrasCombination: allExtrasData[character.combination_id].extrasCombination,
+      modifiers: {
+        ...modifiers,
+        damageMultiplierBreakdown: {},
+      },
       gameMode,
     };
 
@@ -260,7 +267,7 @@ function transformResults(results: any, combinations: Combination[]): Character[
           .filter(([_, stat]: [any, number]) => stat > 0),
       ),
       id: undefined,
-      settings,
+      settings: characterSettings,
       results: charResults,
       valid: true,
     });
@@ -269,29 +276,28 @@ function transformResults(results: any, combinations: Combination[]): Character[
   return resultList;
 }
 
-function getTotalCombinations(combinations: Combination[]) {
-  const affixesArray = combinations[0].settings?.affixesArray;
+function getTotalCombinations(settings: Settings, combinationCount: number) {
+  const { affixesArray } = settings;
 
   if (!affixesArray) {
     return -1;
   }
 
-  let total = 1;
+  let total = combinationCount;
   affixesArray.forEach((slot) => {
     total *= slot.length;
   });
-
-  total *= combinations.length;
 
   return total;
 }
 
 export {
+  combinationsToWorkerString,
+  enhanceResults,
   getAffixId,
   getAttributeId,
-  getWeaponTypeId,
   getAttributeName,
-  modifyCombinations,
-  transformResults,
   getTotalCombinations,
+  getWeaponTypeId,
+  settingsToWorkerString,
 };

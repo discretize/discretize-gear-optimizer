@@ -1,4 +1,7 @@
-use crate::data::{affix::Affix, attribute::Attribute, character::Attributes, settings::Settings};
+use crate::data::{
+    affix::Affix, attribute::Attribute, character::Attributes, combination::Combination,
+    settings::Settings,
+};
 use rand::Rng;
 use serde_json::Value;
 use wasm_bindgen::JsValue;
@@ -47,6 +50,38 @@ pub fn _pretty_print_vector(vector: Vec<Vec<Affix>>) {
         .join(", ");
 
     console::log_1(&JsValue::from_str(&format!("[{}]", formatted_string)));
+}
+
+pub fn parse_args(
+    js_chunks: String,
+    js_settings: String,
+    js_combinations: String,
+) -> Option<(Vec<Vec<Affix>>, Settings, Vec<Combination>)> {
+    let chunks = match parse_string_to_vector(&js_chunks) {
+        Some(chunks) => vec_i8_to_affix(chunks),
+        None => {
+            console::log_1(&JsValue::from_str("Error parsing chunks"));
+            return None;
+        }
+    };
+
+    let settings = match serde_json::from_str(&js_settings) {
+        Ok(settings) => settings,
+        Err(_) => {
+            console::log_1(&JsValue::from_str("Error parsing settings"));
+            return None;
+        }
+    };
+
+    let combinations: Vec<Combination> = match serde_json::from_str(&js_combinations) {
+        Ok(combinations) => combinations,
+        Err(_) => {
+            console::log_1(&JsValue::from_str("Error parsing combinations"));
+            return None;
+        }
+    };
+
+    Some((chunks, settings, combinations))
 }
 
 pub fn vec_i8_to_affix(vec: Vec<Vec<i8>>) -> Vec<Vec<Affix>> {
@@ -111,10 +146,10 @@ pub fn get_random_affix_combination(affixes_array: &[Vec<Affix>; 14], slots: usi
 ///
 /// # Arguments
 /// - `settings` - The settings list
-pub fn get_total_combinations(settings: &Vec<Settings>) -> u128 {
-    let mut result = settings.len() as u128;
-    let affixes_array = &settings[0].affixesArray;
-    let slots = settings[0].slots;
+pub fn get_total_combinations(settings: &Settings, extras_combination_count: usize) -> u128 {
+    let mut result = extras_combination_count as u128;
+    let affixes_array = &settings.affixesArray;
+    let slots = settings.slots;
 
     for i in 0..slots {
         result *= affixes_array[i as usize].len() as u128;

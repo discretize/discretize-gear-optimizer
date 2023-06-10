@@ -1,13 +1,22 @@
 /* eslint-disable camelcase */
 import init, { calculate, calculate_with_heuristics } from 'wasm_module';
-import { Combination } from '../optimizer/optimizerSetup';
-import { getAffixId, modifyCombinations, transformResults } from './utils';
+import { ERROR } from '../optimizer/status';
+import { Combination, Settings } from './optimizerSetup';
+import {
+  combinationsToWorkerString,
+  enhanceResults,
+  getAffixId,
+  settingsToWorkerString,
+} from './utils';
 import { FINISHED, SETUP, START, STOP } from './workerMessageTypes';
+import { ResultProperties } from './entry';
 
 let chunks: number[][];
 let combinations: Combination[];
-let thread_num = -1;
-let total_threads = -1;
+let settings: Settings;
+// let threadNum = -1;
+// let totalThreads = -1;
+let resultProperties: ResultProperties;
 
 onmessage = (e) => {
   console.log('worker received message', e.data);
@@ -16,8 +25,10 @@ onmessage = (e) => {
     case SETUP:
       chunks = e.data.data.chunks.map((chunk: string[]) => chunk.map(getAffixId));
       combinations = e.data.data.combinations;
-      thread_num = e.data.data.thread_num;
-      total_threads = e.data.data.total_threads;
+      settings = e.data.data.settings;
+      // threadNum = e.data.data.thread_num;
+      // totalThreads = e.data.data.total_threads;
+      resultProperties = e.data.data.resultProperties;
       break;
 
     case START:
@@ -43,20 +54,26 @@ async function start(withHeurisics = false) {
 
   const calcFn = withHeurisics ? calculate_with_heuristics : calculate;
 
-  // console.log(JSON.stringify(modifyCombinations(combinations)));
-  // call wasm function with chunks and affixArray
-  const data = calcFn(
-    JSON.stringify(chunks),
-    JSON.stringify(
-      // also adjust the settings to be usable by rust (we use c-like enums there)
-      modifyCombinations(combinations),
-    ),
-  );
+  try {
+    // also adjust the settings to be usable by rust (we use c-like enums there)
+    const data = calcFn(
+      JSON.stringify(chunks),
+      settingsToWorkerString(settings),
+      combinationsToWorkerString(combinations),
+    );
 
-  console.log('Wasm calculation finished in', performance.now() - now, 'ms');
+    console.log('Wasm calculation finished in', performance.now() - now, 'ms');
 
-  postMessage({
-    type: FINISHED,
-    data: transformResults(JSON.parse(data || '[]'), combinations),
-  });
+    console.log(JSON.parse(data || '[]'));
+
+    postMessage({
+      type: FINISHED,
+      data: enhanceResults(JSON.parse(data || '[]'), settings, combinations, resultProperties),
+    });
+  } catch (e) {
+    postMessage({
+      type: ERROR,
+      data: e,
+    });
+  }
 }
