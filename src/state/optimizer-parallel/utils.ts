@@ -173,7 +173,7 @@ function enhanceResults(
 ): Character[] {
   const resultList: Character[] = [];
 
-  results.forEach((character: any) => {
+  results.forEach((character: any, index: number) => {
     character.attributes = character.attributes.map((attribute: any, index: number) => {
       return [getAttributeName(index), attribute];
     });
@@ -260,7 +260,7 @@ function enhanceResults(
           })
           .filter(([_, stat]: [any, number]) => stat > 0),
       ),
-      id: undefined,
+      id: `${index}_${character.combination_id}_${Math.random()}`,
       settings: characterSettings,
       results: charResults,
       valid: true,
