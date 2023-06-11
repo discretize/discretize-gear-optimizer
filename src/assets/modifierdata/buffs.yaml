@@ -63,6 +63,13 @@
           Vitality: [15, converted]
       type: Text
 
+    - id: reinforced-armor        
+      text: Reinforced Armor
+      modifiers:
+        conversionAfterBuffs:
+          Vitality: {Vitality: 5%}
+      type: Text
+
 - section: Effects
   items:
     - id: exposed

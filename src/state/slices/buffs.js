@@ -21,6 +21,7 @@ export const buffsSlice = createSlice({
       strengthInNumbers: false,
       'jade-bot-base': false,
       'jade-bot-per-tier': false,
+      'reinforced-armor': false,
       baneSignet: false,
       signetOfJudgment: false,
       signetOfMercy: false,
