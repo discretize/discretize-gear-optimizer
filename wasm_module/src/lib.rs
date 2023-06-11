@@ -1,7 +1,6 @@
 use optimizer_core::{start, start_with_heuristics};
 use utils::parse_args;
 use wasm_bindgen::prelude::*;
-use web_sys::console;
 
 // public so that the benches can access it
 pub mod data;
@@ -23,11 +22,12 @@ pub fn calculate(
     js_settings: String,
     js_combinations: String,
 ) -> Option<String> {
-    let args = parse_args(js_chunks, js_settings, js_combinations);
-    let (chunks, settings, combinations) = match args {
-        Some(args) => args,
-        None => return None,
-    };
+    let (chunks, settings, combinations) =
+        match parse_args(js_chunks, js_settings, Some(js_combinations)) {
+            Some(args) => args,
+            None => return None,
+        };
+    let combinations: Vec<data::combination::Combination> = combinations.unwrap();
 
     // needed to post messages to js. this is done via the global scope
     // since we might also want to execute the core on another target (x86, ... ) where wasm-bindgen
@@ -63,11 +63,12 @@ pub fn calculate_with_heuristics(
     js_settings: String,
     js_combinations: String,
 ) -> Option<String> {
-    let args = parse_args(js_chunks, js_settings, js_combinations);
-    let (chunks, settings, combinations) = match args {
-        Some(args) => args,
-        None => return None,
-    };
+    let (chunks, settings, combinations) =
+        match parse_args(js_chunks, js_settings, Some(js_combinations)) {
+            Some(args) => args,
+            None => return None,
+        };
+    let combinations: Vec<data::combination::Combination> = combinations.unwrap();
 
     let workerglobal = js_sys::global()
         .dyn_into::<web_sys::DedicatedWorkerGlobalScope>()
@@ -83,4 +84,26 @@ pub fn calculate_with_heuristics(
         Ok(result_str) => return Some(result_str),
         Err(_) => None,
     }
+}
+
+// experimental, should calculate the combinations on the worker and not in js
+#[wasm_bindgen]
+pub fn calculate_with_heuristics_own_combination(
+    js_chunks: String,
+    js_settings: String,
+) -> Option<String> {
+    #[allow(unused_variables)]
+    let (chunks, settings, _) = match parse_args(js_chunks, js_settings, None) {
+        Some(args) => args,
+        None => return None,
+    };
+
+    #[allow(unused_variables)]
+    let workerglobal = js_sys::global()
+        .dyn_into::<web_sys::DedicatedWorkerGlobalScope>()
+        .unwrap();
+
+    // calculate combinations
+
+    None
 }

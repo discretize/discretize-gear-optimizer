@@ -1,7 +1,6 @@
-use std::fmt;
-
 use serde::{Deserialize, Serialize};
 use serde_repr::{Deserialize_repr, Serialize_repr};
+use std::fmt;
 
 use super::{affix::Affix, attribute::Attribute};
 
@@ -42,6 +41,7 @@ pub struct Settings {
     pub slots: u8, // amount of occupied slots. typically, 13 for two-handed weapons, 14 for dual wield
     pub affixesArray: [Vec<Affix>; 14],
     pub affixStatsArray: [Vec<Vec<(Attribute, f32)>>; 14],
+    // pub extras: Extras, // TODO pass extras to wasm and calculate combinations here
 }
 
 impl Settings {
@@ -204,3 +204,32 @@ impl Condition {
         }
     }
 }
+
+// #[derive(Debug, Serialize, Deserialize, Clone)]
+// pub struct Extras {
+//     pub ids: [Vec<u32>; 5], // 5 extras types
+//     pub modifiers: Vec<ExtrasModifiers>,
+// }
+
+// #[derive(Debug, Serialize, Deserialize, Clone)]
+// pub struct ExtrasModifiers {
+//     pub id: u32,
+//     pub modifiers: Modifiers,
+// }
+
+// #[derive(Debug, Deserialize_repr, Serialize_repr, Clone)]
+// #[repr(u8)]
+// pub enum ModifierType {
+//     Mult,
+//     Add,
+//     Target,
+//     Unknown,
+//     Converted,
+//     Buff,
+// }
+
+// #[derive(Debug, Serialize, Deserialize, Clone)]
+// pub struct Modifiers {
+//     pub attributes: Option<Vec<(Attribute, (f32, ModifierType))>>,
+//     pub damage
+// }

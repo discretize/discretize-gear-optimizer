@@ -152,12 +152,6 @@ function combinationsToWorkerString(combinations: Combination[]): any {
     ]);
 
     toReturn[i].relevantConditions = combination.relevantConditions.map(getConditionId);
-
-    // we are not interested in these objects in rust
-    // delete toReturn[i].shouldDisplayExtras;
-    // delete toReturn[i].appliedModifiers;
-    // delete toReturn[i].cachedFormState;
-    // delete toReturn[i].extrasCombination;
   }
 
   return JSON.stringify(toReturn);

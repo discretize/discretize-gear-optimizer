@@ -55,8 +55,8 @@ pub fn _pretty_print_vector(vector: Vec<Vec<Affix>>) {
 pub fn parse_args(
     js_chunks: String,
     js_settings: String,
-    js_combinations: String,
-) -> Option<(Vec<Vec<Affix>>, Settings, Vec<Combination>)> {
+    js_combinations: Option<String>,
+) -> Option<(Vec<Vec<Affix>>, Settings, Option<Vec<Combination>>)> {
     let chunks = match parse_string_to_vector(&js_chunks) {
         Some(chunks) => vec_i8_to_affix(chunks),
         None => {
@@ -73,12 +73,15 @@ pub fn parse_args(
         }
     };
 
-    let combinations: Vec<Combination> = match serde_json::from_str(&js_combinations) {
-        Ok(combinations) => combinations,
-        Err(_) => {
-            console::log_1(&JsValue::from_str("Error parsing combinations"));
-            return None;
-        }
+    let combinations: Option<Vec<Combination>> = match js_combinations {
+        Some(js_combinations) => match serde_json::from_str(&js_combinations) {
+            Ok(combinations) => Some(combinations),
+            Err(_) => {
+                console::log_1(&JsValue::from_str("Error parsing combinations"));
+                return None;
+            }
+        },
+        None => None,
     };
 
     Some((chunks, settings, combinations))

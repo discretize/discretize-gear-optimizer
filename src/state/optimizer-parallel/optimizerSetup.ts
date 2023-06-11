@@ -60,7 +60,9 @@ import { getDistributionNew } from '../slices/distribution';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
 import {
   getExtrasCombinationsAndModifiers as getExtrasCombinationsAndModifiersRaw,
+  getExtrasData,
   getExtrasIds,
+  getLifestealAmount,
 } from '../slices/extras';
 import { getForcedSlots } from '../slices/forcedSlots';
 import {
@@ -83,6 +85,7 @@ import { getGameMode } from '../slices/userSettings';
 import type { OptimizerCoreSettings } from '../optimizer/optimizerCore';
 import { clamp, scaleValue } from '../optimizer/optimizerCore';
 import type { Combination as CombinationOld } from '../optimizer/optimizerSetup';
+import { allExtrasModifiersById } from '../../assets/modifierdata';
 
 // currently a duplicate of navsettings.jsx
 export type GameMode = 'fractals' | 'raids' | 'wvw';
@@ -94,7 +97,7 @@ export interface Combination {
   disableCondiResultCache: boolean;
 }
 
-export type Settings = Omit<
+type _Settings = Omit<
   OptimizerCoreSettings,
   | 'baseAttributes'
   | 'modifiers'
@@ -105,6 +108,17 @@ export type Settings = Omit<
   | 'relevantConditions'
   | 'disableCondiResultCache'
 >;
+
+export type Settings = _Settings & {
+  extras: {
+    ids: number[][];
+    modifiers: {
+      id: any;
+      modifiers: any;
+      amount: number;
+    }[];
+  };
+};
 
 type MultiplierName =
   | 'Strike Damage'
@@ -628,7 +642,6 @@ function createSettings(reduxState: any): Settings {
   const movementUptimeText: string = getMovementUptime(reduxState);
 
   const gameMode = getGameMode(reduxState) as GameMode;
-  const isWvW: boolean = gameMode === 'wvw';
 
   // todo: consolidate error handling
   if (profession === '') {
@@ -843,6 +856,43 @@ function createSettings(reduxState: any): Settings {
       }),
     );
 
+  // EXPERIMENTAL
+  // collect extras combination data so that all combinations can be calculated in rust
+  const extrasNames = getExtrasIds(reduxState);
+  const extrasData = getExtrasData(reduxState);
+  const lifestealAmount = getLifestealAmount(reduxState);
+
+  const allExtrasModifiers = Object.values(extrasNames)
+    .flat()
+    .map((extrasName) => allExtrasModifiersById[extrasName])
+    .map((extra) => ({ id: extra.gw2id, modifiers: extra.modifiers, amount: 0 }));
+
+  const extrasIds = Object.values(
+    Object.entries(extrasNames).map(([_, namesList]) =>
+      namesList.map((name) => allExtrasModifiersById[name].gw2id),
+    ),
+  ) as Settings['extras']['ids'];
+
+  if (
+    Object.keys(reduxState.optimizer.form.extras.extras.Nourishment).some(
+      (id) => allExtrasModifiersById[id].hasLifesteal,
+    )
+  ) {
+    allExtrasModifiers.push({
+      id: 0,
+      modifiers: {
+        attributes: {
+          'Siphon Base Coefficient': 325,
+        },
+      },
+      amount: lifestealAmount,
+    });
+  }
+
+  console.log(extrasIds);
+  console.log(extrasData);
+  console.log(allExtrasModifiers);
+
   const settings: Settings = {
     profession,
     weaponType,
@@ -879,6 +929,10 @@ function createSettings(reduxState: any): Settings {
     identicalWep: settings_identicalWep,
     affixStatsArray: settings_affixStatsArray,
     gameMode,
+    extras: {
+      ids: extrasIds,
+      modifiers: allExtrasModifiers,
+    },
   };
 
   return settings;
