@@ -61,7 +61,7 @@ export const controlSlice = createSlice({
     status: WAITING,
     profession: '',
     multicore: true,
-    hwThreads: navigator.hardwareConcurrency || 4,
+    hwThreads: 1, //navigator.hardwareConcurrency || 4,
     heuristics: true,
   },
   reducers: {

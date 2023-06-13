@@ -73,6 +73,10 @@ pub fn parse_args(
         }
     };
 
+    console::log_1(&JsValue::from_str(
+        format!("Settings: {:?}", js_combinations).as_str(),
+    ));
+
     let combinations: Option<Vec<Combination>> = match js_combinations {
         Some(js_combinations) => match serde_json::from_str(&js_combinations) {
             Ok(combinations) => Some(combinations),

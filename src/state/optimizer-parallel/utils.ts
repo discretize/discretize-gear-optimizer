@@ -1,3 +1,4 @@
+import { allExtrasModifiersById } from '../../assets/modifierdata';
 import {
   Affix,
   AffixName,
@@ -8,6 +9,7 @@ import {
   damagingConditions,
 } from '../../utils/gw2-data';
 import { Character, OptimizerCoreMinimalSettings } from '../optimizer/optimizerCore';
+import { getExtrasIds } from '../slices/extras';
 import { ResultProperties } from './entry';
 import { Combination, Settings } from './optimizerSetup';
 
@@ -64,7 +66,14 @@ attributes[43] = 'Confusion Coefficient';
 attributes[44] = 'Poison Coefficient';
 attributes[45] = 'Torment Coefficient';
 
-const getAffixId = (affix: AffixName | null) => (affix ? Object.keys(Affix).indexOf(affix) : null);
+const getAffixId = (affix: AffixName) => {
+  const index = Object.keys(Affix).indexOf(affix as string);
+  if (index === -1) {
+    throw new Error(`Affix ${affix} not found`);
+  }
+
+  return index;
+};
 const getAttributeId = (attribute: AttributeName) => {
   // corresponds to gw2data.rs -> Attribute enum. musth ave same order
 
@@ -94,7 +103,7 @@ function settingsToWorkerString(settings: Settings): string {
 
   toReturn.rankby = getAttributeId(settings.rankby as AttributeName);
   toReturn.weaponType = getWeaponTypeId(settings.weaponType);
-  toReturn.forcedAffixes = settings.forcedAffixes.map(getAffixId);
+  toReturn.forcedAffixes = settings.forcedAffixes.map((fa) => (fa ? getAffixId(fa) : null));
   toReturn.affixesArray = settings.affixesArray.map((slot) =>
     slot.map((affix) => getAffixId(affix)),
   );
@@ -123,38 +132,64 @@ function settingsToWorkerString(settings: Settings): string {
 // in rust we use enums, which are i32 indexed, so we need to convert the strings to numbers
 function combinationsToWorkerString(combinations: Combination[]): any {
   // deep copy combinations
-  const toReturn = JSON.parse(JSON.stringify(combinations));
+  const toReturn: any[] = []; // JSON.parse(JSON.stringify(combinations));
 
   for (let i = 0; i < combinations.length; i++) {
-    const combination = combinations[i];
-
-    toReturn[i].modifiers.buff = combination.modifiers.buff.map((mod) => [
-      getAttributeId(mod[0] as AttributeName),
-      mod[1],
-    ]);
-    toReturn[i].modifiers.convert = combination.modifiers.convert.map((mod) => [
-      getAttributeId(mod[0] as AttributeName),
-      mod[1].map((convert) => [getAttributeId(convert[0] as AttributeName), convert[1]]),
-    ]);
-    toReturn[i].modifiers.convertAfterBuffs = combination.modifiers.convertAfterBuffs.map((mod) => [
-      getAttributeId(mod[0] as AttributeName),
-      mod[1].map((convert) => [getAttributeId(convert[0] as AttributeName), convert[1]]),
-    ]);
-
-    // replace space in key of object with underscore
-    toReturn[i].modifiers.damageMultiplier = Object.entries(
-      combination.modifiers.damageMultiplier,
-    ).map(([key, value]) => [key.replaceAll(' ', ''), value]);
-
-    toReturn[i].baseAttributes = Object.entries(combination.baseAttributes).map(([key, value]) => [
-      getAttributeId(key as AttributeName),
-      value,
-    ]);
-
-    toReturn[i].relevantConditions = combination.relevantConditions.map(getConditionId);
+    const combination = combinationtoWasmFormat(combinations[i]);
+    toReturn.push(combination);
   }
 
   return JSON.stringify(toReturn);
+}
+
+function combinationtoWasmFormat(combination: Combination): any {
+  const toReturn = {
+    modifiers: {
+      buff: [],
+      convert: [],
+      convertAfterBuffs: [],
+      damageMultiplier: [],
+    },
+    baseAttributes: {},
+    relevantConditions: [],
+    disableCondiResultCache: combination.disableCondiResultCache,
+  };
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  toReturn.modifiers.buff = combination.modifiers.buff.map((mod) => [
+    getAttributeId(mod[0] as AttributeName),
+    mod[1],
+  ]);
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  toReturn.modifiers.convert = combination.modifiers.convert.map((mod) => [
+    getAttributeId(mod[0] as AttributeName),
+    mod[1].map((convert) => [getAttributeId(convert[0] as AttributeName), convert[1]]),
+  ]);
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  toReturn.modifiers.convertAfterBuffs = combination.modifiers.convertAfterBuffs.map((mod) => [
+    getAttributeId(mod[0] as AttributeName),
+    mod[1].map((convert) => [getAttributeId(convert[0] as AttributeName), convert[1]]),
+  ]);
+
+  // replace space in key of object with underscore
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  toReturn.modifiers.damageMultiplier = Object.entries(combination.modifiers.damageMultiplier).map(
+    ([key, value]) => [key.replaceAll(' ', ''), value],
+  );
+
+  toReturn.baseAttributes = Object.entries(combination.baseAttributes).map(([key, value]) => [
+    getAttributeId(key as AttributeName),
+    value,
+  ]);
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  toReturn.relevantConditions = combination.relevantConditions.map(getConditionId);
+
+  return toReturn;
 }
 
 const arrayToObject = <T>(array: [string | number, T][]): Record<string | number, T> => {
@@ -255,8 +290,8 @@ function enhanceResults(
       gear: character.gear.map(getAffixName).slice(0, slots),
       gearStats: arrayToObject(
         character.gear_stats
-          .map((stat: number, index: number) => {
-            return [getAttributeName(index), stat];
+          .map((stat: number, index1: number) => {
+            return [getAttributeName(index1), stat];
           })
           .filter(([_, stat]: [any, number]) => stat > 0),
       ),
@@ -270,19 +305,24 @@ function enhanceResults(
   return resultList;
 }
 
-function getTotalCombinations(settings: Settings, combinationCount: number) {
-  const { affixesArray } = settings;
-
-  if (!affixesArray) {
+function getTotalCombinations<T>(array: T[][], combinationCount: number) {
+  if (!array) {
     return -1;
   }
 
   let total = combinationCount;
-  affixesArray.forEach((slot) => {
+  array.forEach((slot) => {
     total *= slot.length;
   });
 
   return total;
+}
+
+function getExtrasIdsCombinations(reduxState: any): string[][] {
+  const extrasNames = getExtrasIds(reduxState);
+  const extrasIds = Object.values(extrasNames);
+
+  return extrasIds;
 }
 
 export {
@@ -294,4 +334,6 @@ export {
   getTotalCombinations,
   getWeaponTypeId,
   settingsToWorkerString,
+  getExtrasIdsCombinations,
+  combinationtoWasmFormat,
 };

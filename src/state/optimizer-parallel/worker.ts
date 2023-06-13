@@ -1,49 +1,52 @@
 /* eslint-disable camelcase */
-import init, { calculate, calculate_with_heuristics } from 'wasm_module';
-import { ERROR } from '../optimizer/status';
-import { Combination, Settings } from './optimizerSetup';
+import init, { calculate, calculate_heuristics_only, calculate_with_heuristics } from 'wasm_module';
+import { allExtrasModifiersById } from '../../assets/modifierdata';
+import { AffixName } from '../../utils/gw2-data';
+import type { Combination as CombinationOld } from '../optimizer/optimizerSetup';
+import {
+  allowedDuplicateSigils,
+  getExtrasData,
+  getLifestealAmount,
+  lifestealData,
+} from '../slices/extras';
+import { ResultProperties } from './entry';
+import { Combination, Settings, createCombination } from './optimizerSetup';
+import { descendSubtreeDFS } from './tree';
 import {
   combinationsToWorkerString,
   enhanceResults,
   getAffixId,
   settingsToWorkerString,
 } from './utils';
-import { FINISHED, SETUP, START, STOP } from './workerMessageTypes';
-import { ResultProperties } from './entry';
+import {
+  ERROR,
+  FINISHED,
+  FINISHED_HEURISTICS,
+  MessageType,
+  isStartHeuristicsMessage,
+  isStartMessage,
+} from './workerMessageTypes';
 
-let chunks: number[][];
-let combinations: Combination[];
-let settings: Settings;
-// let threadNum = -1;
-// let totalThreads = -1;
-let resultProperties: ResultProperties;
-
-onmessage = (e) => {
+onmessage = (e: MessageEvent<MessageType>) => {
   console.log('worker received message', e.data);
 
-  switch (e.data.type) {
-    case SETUP:
-      chunks = e.data.data.chunks.map((chunk: string[]) => chunk.map(getAffixId));
-      combinations = e.data.data.combinations;
-      settings = e.data.data.settings;
-      // threadNum = e.data.data.thread_num;
-      // totalThreads = e.data.data.total_threads;
-      resultProperties = e.data.data.resultProperties;
-      break;
+  if (isStartMessage(e.data)) {
+    const { chunks, settings, combinations, resultProperties, withHeuristics } = e.data;
+    start(chunks, settings, combinations, resultProperties, withHeuristics);
+  } else if (isStartHeuristicsMessage(e.data)) {
+    const { chunks, extrasIds, reduxState, settings } = e.data;
 
-    case START:
-      console.log('Worker start', chunks);
-      start(e.data.data.withHeuristics);
-      break;
-
-    case STOP:
-      break;
-    default:
-      throw new Error('Unknown message type', e.data.type);
+    start_heuristics(chunks, extrasIds, reduxState, settings);
   }
 };
 
-async function start(withHeurisics = false) {
+async function start(
+  chunks: string[][],
+  settings: Settings,
+  combinations: Combination[],
+  resultProperties: ResultProperties,
+  withHeurisics: boolean,
+) {
   let now = performance.now();
   // await wasm module initialization
   await init();
@@ -53,18 +56,19 @@ async function start(withHeurisics = false) {
   now = performance.now();
 
   const calcFn = withHeurisics ? calculate_with_heuristics : calculate;
+  const transformedChunks = chunks.map((chunk: string[]) =>
+    chunk.map((value) => getAffixId(value as AffixName)),
+  );
 
   try {
     // also adjust the settings to be usable by rust (we use c-like enums there)
     const data = calcFn(
-      JSON.stringify(chunks),
+      JSON.stringify(transformedChunks),
       settingsToWorkerString(settings),
       combinationsToWorkerString(combinations),
     );
 
     console.log('Wasm calculation finished in', performance.now() - now, 'ms');
-
-    console.log(JSON.parse(data || '[]'));
 
     postMessage({
       type: FINISHED,
@@ -76,4 +80,120 @@ async function start(withHeurisics = false) {
       data: e,
     });
   }
+}
+const bestList: [Combination, CombinationOld][] = [];
+
+async function start_heuristics(
+  chunks: string[][],
+  extrasIds: string[][],
+  reduxState: any,
+  settings: Settings,
+) {
+  await init();
+
+  const data = getExtrasData(reduxState);
+  const lifestealAmount = getLifestealAmount(reduxState);
+
+  const getModifiers = (extrasCombination: Record<string, string>) => {
+    const allModifiers = Object.entries(extrasCombination)
+      .filter(([_, id]) => id)
+      .map(([type, id]) => {
+        if (!allExtrasModifiersById[id]) throw new Error(`missing data for extras id: ${id}`);
+        const itemData = allExtrasModifiersById[id];
+        return { id, ...itemData, amount: data[type][id]?.amount };
+      });
+    if (allExtrasModifiersById?.[extrasCombination?.Nourishment]?.hasLifesteal) {
+      allModifiers.push({ ...lifestealData, amount: lifestealAmount });
+    }
+    return allModifiers;
+  };
+
+  let combinationId = 0;
+  let currentChunkList: [Combination, CombinationOld][] = [];
+
+  const callback = async (leaf: string[]) => {
+    if (leaf[1] === leaf[2] && !allowedDuplicateSigils.includes(leaf[1])) {
+      return;
+    }
+
+    const extras = {
+      Runes: leaf[0],
+      Sigil1: leaf[1],
+      Sigil2: leaf[2],
+      Enhancement: leaf[3],
+      Nourishment: leaf[4],
+    };
+
+    const combinationOld: CombinationOld = {
+      extrasCombination: extras,
+      extrasModifiers: getModifiers(extras),
+    };
+
+    const combination = createCombination(combinationOld, reduxState);
+    currentChunkList.push([combination, combinationOld]);
+
+    if (currentChunkList.length === 100000) {
+      wrapper_calc_wasm_heuristics(settings, currentChunkList);
+      // reset chunk list
+      currentChunkList = [];
+      console.log('finished run', combinationId);
+    }
+
+    // this implements the calculation via JS core
+    // const optimizerCore: OptimizerCore = new OptimizerCore({
+    //   ...settings,
+    //   ...combination,
+    //   maxResults: BENCHMARK_RUNS,
+    // });
+    // optimizerCore.list = bestList;
+    // // generate random gear
+    // for (let i = 0; i < BENCHMARK_RUNS; i++) {
+    //   const gear: Gear = [];
+    //   const gearStats: GearStats = {};
+
+    //   for (let i = 0; i < settings.slots; i++) {
+    //     const selections = settings.affixesArray[i];
+    //     const index = Math.floor(Math.random() * selections.length);
+    //     gear.push(selections[index]);
+
+    //     for (const [stat, bonus] of settings.affixStatsArray[i][index]) {
+    //       gearStats[stat] = (gearStats[stat] || 0) + bonus;
+    //     }
+    //   }
+
+    //   optimizerCore.testCharacter(gear, gearStats);
+    // }
+
+    // bestList = optimizerCore.list;
+    combinationId++;
+  };
+
+  const now = performance.now();
+  // await all descends
+  await Promise.all(chunks.map((chunk) => descendSubtreeDFS(extrasIds, chunk, callback)));
+
+  if (currentChunkList.length > 0) {
+    wrapper_calc_wasm_heuristics(settings, currentChunkList);
+  }
+
+  console.log('Heuristics Wasm calculation finished in', performance.now() - now, 'ms');
+
+  console.log(bestList);
+  postMessage({
+    type: FINISHED_HEURISTICS,
+    data: bestList,
+  });
+}
+
+function wrapper_calc_wasm_heuristics(settings: Settings, chunks: [Combination, CombinationOld][]) {
+  console.log('chunks', chunks);
+  const resStr = calculate_heuristics_only(
+    settingsToWorkerString(settings),
+    combinationsToWorkerString(chunks.map((c) => c[0])),
+  );
+  const combinationIds: number[] = JSON.parse(resStr || '[]');
+  // find combinations for the ids
+  const res = combinationIds.map((id) => chunks[id]);
+
+  bestList.push(...res);
 }

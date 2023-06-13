@@ -105,12 +105,7 @@ pub fn start(
 /// * `settings` - The settings. Contains important optimizer settings.
 /// * `combinations` - A vector of extras combinations. To calculate the best runes and sigils we must calculate the resulting stats for each combination of extras. Also contains important optimizer settings.
 /// * `workerglobal` - The web worker global scope. Used to post messages to the JS code.
-pub fn start_with_heuristics(
-    chunks: &Vec<Vec<Affix>>,
-    settings: &Settings,
-    combinations: &Vec<Combination>,
-    workerglobal: Option<&DedicatedWorkerGlobalScope>,
-) -> Result {
+pub fn start_with_heuristics(settings: &Settings, combinations: &Vec<Combination>) -> Vec<u32> {
     let mut result = Result::new(BENCHMARK_ITERATIONS_PER_SETTING as usize);
 
     // benchmark a few results first to get a good heuristics which combinations to test first
@@ -136,19 +131,24 @@ pub fn start_with_heuristics(
     // count occurences of settings in result
     let weighted_combinations = result.get_weighted_combinations(combinations);
 
-    let mut picked_combinations: Vec<Combination> = Vec::new();
-    // only pick those combinations that have at least a 10% likelyhood of being "good"
-    for (index, combination) in combinations.iter().enumerate() {
-        if weighted_combinations[index] > 10 {
-            picked_combinations.push(combination.clone());
-        }
-    }
+    let picked_combinations: Vec<u32> = weighted_combinations
+        .iter()
+        .enumerate()
+        .filter_map(|(index, value)| {
+            if *value > 10 {
+                Some(index as u32)
+            } else {
+                None
+            }
+        })
+        .collect();
+
     console::log_1(&JsValue::from_str(&format!(
         "Finished heuristics. Picked {} combinations",
         picked_combinations.len()
     )));
 
-    return start(chunks, &settings, &picked_combinations, workerglobal);
+    picked_combinations
 }
 
 /// Uses depth-first search to calculate all possible combinations of affixes for the given subtree.
@@ -185,7 +185,7 @@ pub fn descend_subtree_dfs<F>(
     }
 }
 
-fn test_character(
+pub fn test_character(
     character: &mut Character,
     settings: &Settings,
     combination: &Combination,

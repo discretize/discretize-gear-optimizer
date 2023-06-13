@@ -1,6 +1,7 @@
 use optimizer_core::{start, start_with_heuristics};
 use utils::parse_args;
 use wasm_bindgen::prelude::*;
+use web_sys::console;
 
 // public so that the benches can access it
 pub mod data;
@@ -74,7 +75,20 @@ pub fn calculate_with_heuristics(
         .dyn_into::<web_sys::DedicatedWorkerGlobalScope>()
         .unwrap();
 
-    let mut result = start_with_heuristics(&chunks, &settings, &combinations, Some(&workerglobal));
+    // receive list of combinationIds
+    let picked_combination_ids = start_with_heuristics(&settings, &combinations);
+    // transform into combination structs
+    let mut picked_combinations = vec![];
+    for id in picked_combination_ids {
+        picked_combinations.push(combinations.get(id as usize).unwrap().clone());
+    }
+
+    let mut result = start(
+        &chunks,
+        &settings,
+        &picked_combinations,
+        Some(&workerglobal),
+    );
     result.on_complete(&settings, &combinations);
 
     // parse to string
@@ -106,4 +120,25 @@ pub fn calculate_with_heuristics_own_combination(
     // calculate combinations
 
     None
+}
+
+#[wasm_bindgen]
+pub fn calculate_heuristics_only(js_settings: String, js_combinations: String) -> Option<String> {
+    let (_, settings, combinations) =
+        match parse_args("[]".into(), js_settings, Some(js_combinations)) {
+            Some(args) => args,
+            None => return None,
+        };
+    let combinations: Vec<data::combination::Combination> = combinations.unwrap();
+
+    let picked_combination_ids = start_with_heuristics(&settings, &combinations);
+    // transform into combination structs
+    // let mut picked_combinations = vec![];
+    // for id in picked_combination_ids {
+    //     picked_combinations.push(combinations.get(id as usize).unwrap().clone());
+    // }
+
+    // parse to string
+    let result_str = serde_json::to_string(&picked_combination_ids);
+    result_str.ok()
 }

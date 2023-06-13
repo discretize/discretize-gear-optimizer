@@ -1,23 +1,49 @@
 import { Dispatch } from 'react';
 import { Character, OptimizerCoreSettings } from '../optimizer/optimizerCore';
-import { AppliedModifier, setupCombinations } from './optimizerSetup';
 import { ERROR, RUNNING } from '../optimizer/status';
+import { getBuffsModifiers } from '../slices/buffs';
 import {
   changeList,
   changeProgress,
   changeSelectedCharacter,
   changeStatus,
+  getHeuristics,
 } from '../slices/controlsSlice';
-import { getAffixCombinations, getLayerNumber } from './affixTree';
-import { FINISHED, PROGRESS, SETUP, START } from './workerMessageTypes';
-import { getBuffsModifiers } from '../slices/buffs';
 import { getExtraModifiersModifiers } from '../slices/extraModifiers';
 import { getInfusionsModifiers } from '../slices/infusions';
 import { getSkillsModifiers } from '../slices/skills';
 import { getTraitsModifiers } from '../slices/traits';
+import {
+  AppliedModifier,
+  Combination,
+  ResultData,
+  Settings,
+  createSettings,
+  setupNormal,
+} from './optimizerSetup';
+import { getLayerCombinations, getLayerNumber } from './tree';
+import { getExtrasIdsCombinations, getTotalCombinations } from './utils';
+import {
+  FINISHED,
+  MessageType,
+  START,
+  START_HEURISTICS,
+  StartHeuristicsMessage,
+  isErrorMessage,
+  isFinishHeuristicsMessage,
+  isFinishMessage,
+  isProgressMessage,
+} from './workerMessageTypes';
+
+interface Worker {
+  status: 'created' | 'running' | 'stopped' | 'finished' | 'error' | 'finished_heuristics';
+  workerId: number;
+  worker: globalThis.Worker;
+}
 
 let dispatch: Dispatch<any>;
 const PROGRESS_UPDATE_INTERVALL = 1000000;
+let currentProgress = 0;
 
 // fuck typing redux
 function calculate(reduxState: any, dispatchMethod: Dispatch<any>) {
@@ -26,35 +52,18 @@ function calculate(reduxState: any, dispatchMethod: Dispatch<any>) {
 
   dispatch(changeStatus(RUNNING));
   dispatch(changeProgress(0));
+
   console.log('Parallel Optimizer');
   console.log('State', reduxState);
 
-  // get the extra combinations from the redux state
-  const [settings, combinations, resultData] = setupCombinations(reduxState);
-  console.log('Settings ', settings);
-  console.log('Combinations ', combinations);
+  const withHeuristics: boolean = getHeuristics(reduxState);
 
-  if (combinations.length === 0) {
-    console.error('No combinations found');
-    return;
-  }
+  const settings: Settings = createSettings(reduxState);
+  let combinations: Combination[] = [];
+  let resultData: ResultData[] = [];
 
-  const affixArray = settings?.affixesArray;
-  const maxResults = settings?.maxResults;
-
-  if (!affixArray) {
-    console.error('No affixes found');
-    return;
-  }
-
-  const layer = getLayerNumber(affixArray, NUM_THREADS);
-  const affixcombinations = getAffixCombinations(affixArray, layer);
-
-  // split work into NUM_THREADS chunks, each chunk getting a number of subtrees to calculate
-  const chunks = splitCombinations(affixcombinations, NUM_THREADS);
-
-  console.log(`Creating ${NUM_THREADS} threads to calculate ${layer} layers`);
-  const workers = [...Array(NUM_THREADS)].map((_, index) => {
+  console.log(`Creating ${NUM_THREADS} threads`);
+  const workers: Worker[] = [...Array(NUM_THREADS)].map((_, index) => {
     return {
       status: 'created',
       workerId: index,
@@ -62,102 +71,127 @@ function calculate(reduxState: any, dispatchMethod: Dispatch<any>) {
     };
   });
 
-  let currentProgress = 0;
-  // send chunks to workers
-  workers.forEach(({ worker }, index) => {
-    worker.postMessage({
-      type: SETUP,
-      data: {
-        chunks: chunks[index],
-        settings,
-        combinations,
-        thread_num: index,
-        total_threads: NUM_THREADS,
-        resultProperties: getResultProperties(reduxState, resultData),
-      },
-    });
-  });
+  // setup combinations
+  if (!withHeuristics) {
+    // get the extra combinations from the redux state
+    const [_combinations, _resultData] = setupNormal(reduxState);
 
-  // attach listener
-  const results: any[][] = [];
-  workers.forEach(({ worker }, index) => {
-    worker.onmessage = (e) => {
-      let message = e.data;
-      if (typeof e.data === 'string') {
-        message = JSON.parse(e.data);
-      }
+    if (_combinations.length === 0) {
+      console.error('No combinations found');
+      return;
+    }
 
-      switch (message.type) {
-        case ERROR:
-          console.error('Error', message.data);
-          dispatch(changeStatus(ERROR));
-          break;
-        case FINISHED:
-          results.push(message.data);
-          workers[index].status = FINISHED;
+    combinations = _combinations;
+    resultData = _resultData;
 
-          // check if all workers finished
-          if (workers.every(({ status }) => status === FINISHED)) {
-            const endTime = performance.now();
-            console.log('Time', endTime - startTime, 'ms');
+    runCalc(reduxState, workers, combinations, resultData, settings, NUM_THREADS, false);
+  } else {
+    const extrasIds = getExtrasIdsCombinations(reduxState);
+    const actualThreadNumber = Math.min(NUM_THREADS, getTotalCombinations(extrasIds, 1));
 
-            const sortedResults = results
-              .flat(1)
-              .sort((a, b) => b.attributes[b.settings.rankby] - a.attributes[a.settings.rankby])
-              .slice(0, maxResults);
+    const layer = getLayerNumber(extrasIds, actualThreadNumber);
+    const layerCombinations = getLayerCombinations(extrasIds, layer);
+    const chunks = splitCombinations(layerCombinations, actualThreadNumber);
 
-            onFinish(sortedResults);
+    workers.forEach((workerObj, index) => {
+      workerObj.worker.onmessage = (e) => {
+        console.log('Message from worker', e.data);
+        if (isFinishHeuristicsMessage(e.data)) {
+          workerObj.status = 'finished_heuristics';
+          // check if all workers are finished
+          const allFinished = workers.every(
+            (locWorker) => locWorker.status === 'finished_heuristics',
+          );
+          const combs = e.data.data.map((c) => c[0]);
+          const res = e.data.data.map((c) => c[1]);
+          combinations.push(...combs);
+          resultData.push(...res);
+
+          if (allFinished) {
+            console.log("All workers finished heuristics, let's start the real calculation");
+            console.log('Combinations', resultData);
+            runCalc(reduxState, workers, combinations, resultData, settings, NUM_THREADS, true);
           }
-          break;
-
-        case PROGRESS:
-          currentProgress += message.data.new;
-
-          // eslint-disable-next-line no-case-declarations
-          const progress = Math.round((currentProgress / message.data.total) * 100);
-          // dispatch as a percentage of total combinations
-          console.log('Progress', currentProgress, '/', message.data.total, '=', progress, '%');
-
-          // only update the list for the first thread that sends an update
-          if (currentProgress % (NUM_THREADS * PROGRESS_UPDATE_INTERVALL) === 0) {
-            dispatch(changeProgress(progress));
-            // if (message.data.results.length > 0)
-            //  dispatch(changeList(transformResults(message.data.results, combinations)));
-          }
-
-          break;
-        default:
-          throw new Error('Unknown message type ', message.type);
+        }
+      };
+      if (index >= actualThreadNumber) {
+        workerObj.status = 'finished_heuristics';
+      } else {
+        const message: StartHeuristicsMessage = {
+          type: START_HEURISTICS,
+          chunks: chunks[index],
+          extrasIds,
+          reduxState,
+          settings,
+        };
+        workerObj.worker.postMessage(message);
       }
-    };
-  });
-
-  const startTime = performance.now();
-
-  // start workers
-  workers.forEach(({ worker }) => {
-    worker.postMessage({
-      type: START,
-      data: {
-        withHeuristics: reduxState.optimizer.control.heuristics,
-      },
     });
-  });
+
+    return;
+  }
 
   return workers;
 }
 
-function onFinish(results: Character[]) {
-  console.log('All workers finished');
-  console.log('Results', results);
+let results = [] as Character[][];
 
-  if (!dispatch) {
-    throw new Error('Dispatch not set');
+function onMessage(
+  e: MessageEvent<MessageType>,
+  index: number,
+  workers: Worker[],
+  maxResults: number,
+  numThreads: number,
+) {
+  console.log('Message', e.data);
+
+  let message = e.data;
+  if (typeof e.data === 'string') {
+    message = JSON.parse(e.data);
   }
 
-  dispatch(changeStatus(FINISHED));
-  dispatch(changeList(results));
-  dispatch(changeSelectedCharacter(results[0]));
+  if (isFinishMessage(message)) {
+    results.push(message.data);
+    workers[index].status = 'finished';
+
+    // check if all workers finished
+    if (workers.every(({ status }) => status === 'finished')) {
+      const sortedResults = results
+        .flat(1)
+        .sort((a, b) => b.attributes[b.settings.rankby] - a.attributes[a.settings.rankby])
+        .slice(0, maxResults);
+
+      console.log('All workers finished');
+      console.log('Results', sortedResults);
+
+      if (!dispatch) {
+        throw new Error('Dispatch not set');
+      }
+
+      dispatch(changeStatus(FINISHED));
+      dispatch(changeList(sortedResults));
+      dispatch(changeSelectedCharacter(sortedResults[0]));
+    }
+  } else if (isProgressMessage(message)) {
+    currentProgress += message.new;
+
+    // eslint-disable-next-line no-case-declarations
+    const progress = Math.round((currentProgress / message.total) * 100);
+    // dispatch as a percentage of total combinations
+    console.log('Progress', currentProgress, '/', message.total, '=', progress, '%');
+
+    // only update the list for the first thread that sends an update
+    if (currentProgress % (numThreads * PROGRESS_UPDATE_INTERVALL) === 0) {
+      dispatch(changeProgress(progress));
+      // if (message.data.results.length > 0)
+      //  dispatch(changeList(transformResults(message.data.results, combinations)));
+    }
+  } else if (isErrorMessage(message)) {
+    console.error('Error', message.data);
+    dispatch(changeStatus(ERROR));
+  } else {
+    console.error('Unknown message', message);
+  }
 }
 
 /**
@@ -188,13 +222,10 @@ export type ResultProperties = {
   }[];
 };
 
-const getResultProperties: (
+const getResultProperties: (reduxState: any, resultData: ResultData[]) => ResultProperties = (
   reduxState: any,
-  resultData: {
-    extrasModifiers: AppliedModifier[];
-    extrasCombination: Record<string, string>;
-  }[],
-) => ResultProperties = (reduxState: any, resultData) => {
+  resultData,
+) => {
   const state = reduxState.optimizer;
 
   const sharedModifiers: AppliedModifier[] = [
@@ -218,4 +249,47 @@ const getResultProperties: (
   };
 };
 
+function runCalc(
+  reduxState: any,
+  workers: Worker[],
+  combinations: Combination[],
+  resultData: ResultData[],
+  settings: Settings,
+  NUM_THREADS: number,
+  withHeuristics: boolean,
+) {
+  const affixArray = settings?.affixesArray;
+  if (!affixArray) {
+    console.error('No affixes found');
+    return;
+  }
+  const layer = getLayerNumber(affixArray, NUM_THREADS);
+  const affixcombinations = getLayerCombinations(affixArray, layer);
+
+  // split work into NUM_THREADS chunks, each chunk getting a number of subtrees to calculate
+  const chunks = splitCombinations(affixcombinations, NUM_THREADS);
+
+  const maxResults = settings?.maxResults;
+  // attach listener
+  workers.forEach(({ worker }, index) => {
+    worker.onmessage = (e: MessageEvent<MessageType>) =>
+      onMessage(e, index, workers, maxResults, NUM_THREADS);
+  });
+
+  currentProgress = 0;
+  results = [];
+  // start workers
+  workers.forEach(({ worker }, index) => {
+    worker.postMessage({
+      type: START,
+      chunks: chunks[index],
+      settings,
+      combinations,
+      thread_num: index,
+      total_threads: NUM_THREADS,
+      resultProperties: getResultProperties(reduxState, resultData),
+      withHeuristics,
+    });
+  });
+}
 export default calculate;

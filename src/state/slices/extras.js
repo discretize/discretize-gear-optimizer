@@ -130,7 +130,7 @@ const findCombinations = (data) => {
   return combinations;
 };
 
-const allowedDuplicateSigils = [
+export const allowedDuplicateSigils = [
   'impact/night/slaying-both',
   'impact/night/slaying-only-3',
   'no-item-sigil',
