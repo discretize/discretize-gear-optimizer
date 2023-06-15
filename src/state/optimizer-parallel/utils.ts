@@ -208,7 +208,7 @@ export function combinationtoWasmFormat(combination: Combination): any {
  * @param {number} combinationCount number of combinations to multiply the total with
  * @returns {number} total number of combinations
  */
-export function getTotalCombinations<T>(array: T[][], combinationCount: number) {
+export function getTotalCombinations<T>(array: T[][], combinationCount: number): number {
   if (!array) {
     return -1;
   }
@@ -249,7 +249,7 @@ export function getExtrasIdsCombinations(reduxState: any): string[][] {
  * @param {T[][]} combinations all possible affix combinations
  * @param {number} NUM_THREADS number of threads to use
  */
-export function splitCombinations<T>(combinations: T[][], NUM_THREADS = 4): T[][][] {
+export function splitCombinations<T>(combinations: T[][], NUM_THREADS: number = 4): T[][][] {
   const chunks: T[][][] = [...Array(NUM_THREADS)].map(() => [] as T[][]);
 
   let chunkIndex = 0;
