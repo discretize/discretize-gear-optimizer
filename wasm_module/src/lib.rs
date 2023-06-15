@@ -101,6 +101,7 @@ pub fn calculate_with_heuristics(
 }
 
 // experimental, should calculate the combinations on the worker and not in js
+// will require a function that transforms the JS modifier data into something parseable by rust.
 #[wasm_bindgen]
 pub fn calculate_with_heuristics_own_combination(
     js_chunks: String,
@@ -122,6 +123,11 @@ pub fn calculate_with_heuristics_own_combination(
     None
 }
 
+/// Calculates heuristics for the given combinations and returns the ids of the best ones
+///
+/// # Arguments
+/// - `js_settings` - a stringified JSON object of settings
+/// - `js_combinations` - a stringified JSON array of combination objects
 #[wasm_bindgen]
 pub fn calculate_heuristics_only(js_settings: String, js_combinations: String) -> Option<String> {
     let (_, settings, combinations) =

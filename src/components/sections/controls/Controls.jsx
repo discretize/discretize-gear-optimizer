@@ -10,8 +10,8 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector, useStore } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
-import calculate from '../../../state/optimizer-parallel/entry';
-import { RESUME, STOP } from '../../../state/optimizer-parallel/workerMessageTypes';
+import calculate from '../../../state/optimizer-parallel/calculate';
+import { RESUME, STOP } from '../../../state/optimizer-parallel/worker/workerMessageTypes';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import SagaTypes from '../../../state/sagas/sagaTypes';
 import {

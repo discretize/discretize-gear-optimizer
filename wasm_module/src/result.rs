@@ -6,14 +6,16 @@ use serde::Serialize;
 use std::vec;
 #[derive(Debug, Serialize)]
 pub struct Result {
-    // this holds the finalized characters that will be returned to js
-    // only computed after calling on_complete
+    /// this holds the finalized characters that will be returned to js
+    /// only computed after calling on_complete
     pub best_characters: Vec<ResultCharacter>,
 
-    // only used for local calculations; not returned to js
+    /// only used for local calculations; not returned to js
     characters: Vec<Character>,
 
     max_results: usize,
+
+    /// current worst score
     worst_score: f32,
 }
 
@@ -27,6 +29,11 @@ impl Result {
         }
     }
 
+    /// Inserts a character into the result list.
+    /// Will only insert the character if it is better than the worst character we already have found
+    ///
+    /// # Arguments
+    /// - `character` - the character to insert
     pub fn insert(&mut self, character: &Character) {
         let score = character.score();
 
@@ -54,6 +61,13 @@ impl Result {
         self.worst_score = self.characters.last().unwrap().score();
     }
 
+    /// This function should be called after the calculation is complete.
+    /// It will fill the best_characters array with the characters and enhance them with additional information
+    /// needed for a clean display in the UI
+    ///
+    /// # Arguments
+    /// - `settings` - the settings array that is used to calculate the results
+    /// - `combinations` - the combinations array that is used to calculate the results
     pub fn on_complete(&mut self, settings: &Settings, combinations: &Vec<Combination>) {
         self.best_characters.clear();
 
@@ -90,12 +104,15 @@ impl Result {
         }
     }
 
-    /// Returns an array of length settings.len() that contains the weighted percentage of characters that belong to each combination
+    /// Returns an array of length combinations.len() that contains the weighted percentage of characters that belong to each combination
     /// Weighted means that a character that is ranked higher in the result list will have a higher weight.
     /// The results are multiplied by 100. So if the result is 50, it means that likely 50% of the good characters will belong to this combination
     ///
     /// # Arguments
     /// - `settings` - the settings array that is used to calculate the results
+    ///
+    /// # Returns
+    /// An array of length combinations.len() that contains the weighted percentage of characters that belong to each combination
     pub fn get_weighted_combinations(&self, combinations: &Vec<Combination>) -> Vec<u32> {
         let mut combination_count = vec![0; combinations.len()];
 

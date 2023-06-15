@@ -10,7 +10,7 @@ use crate::{
     result::Result,
     utils::{clamp, get_random_affix_combination, get_total_combinations, round_even},
 };
-use std::cell::RefCell;
+use std::{cell::RefCell, collections::HashMap};
 use wasm_bindgen::JsValue;
 use web_sys::{console, DedicatedWorkerGlobalScope};
 
@@ -66,14 +66,29 @@ pub fn start(
                 result.on_complete(settings, combinations);
 
                 // get json value of best characters
-                let best_json = serde_json::to_string(&result.best_characters).unwrap();
+                let mut best_combinations: Vec<Combination> = vec![];
+                let mut combination_indices: HashMap<u32, usize> = HashMap::new();
+                let mut best_characters = result.best_characters.clone();
+
+                best_characters.iter_mut().for_each(|character| {
+                    let combination = combinations.get(character.combination_id as usize).unwrap();
+                    let current_id = character.combination_id;
+                    if let Some(comb_index) = combination_indices.get(&current_id) {
+                        character.combination_id = *comb_index as u32;
+                    } else {
+                        let comb_index = best_combinations.len();
+                        combination_indices.insert(current_id, comb_index);
+                        best_combinations.push(combination.clone());
+                        character.combination_id = comb_index as u32;
+                    }
+                });
+                let best_character_json = serde_json::to_string(&best_characters).unwrap();
+                let best_combinations_json = serde_json::to_string(&best_combinations).unwrap();
 
                 workerglobal.and_then(|w| {
                     w.post_message(&JsValue::from_str(&format!(
-                        "{{ \"type\": \"PROGRESS\", \"data\": {{ \"total\": {}, \"new\": {}, \"results\": {} }} }}",
-                        total_combinations,
-                        PROGRESS_UPDATE_INTERVALL,
-                        best_json
+                        "{{ \"type\": \"PROGRESS\", \"total\": {}, \"new\": {}, \"results\": {}, \"combinations\": {} }}",
+                        total_combinations, PROGRESS_UPDATE_INTERVALL,best_character_json, best_combinations_json
                     )))
                     .ok()
                 });

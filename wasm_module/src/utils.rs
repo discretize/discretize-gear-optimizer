@@ -7,13 +7,17 @@ use serde_json::Value;
 use wasm_bindgen::JsValue;
 use web_sys::console;
 
-/**
- * Parses a string into a vector of vectors of i8.
- *
- * The passed input from JS is a string - wasm_bindgen does not yet
- * support passing arrays. This methods parses the string into a
- * vector of vectors of i8.
- */
+/// Parses a string into a vector of vectors of i8.
+///
+/// The passed input from JS is a string - wasm_bindgen does not yet
+/// support passing arrays. This methods parses the string into a
+/// vector of vectors of i8.
+///
+/// # Arguments
+/// - `input` - The string to parse
+///
+/// # Returns
+/// A vector of vectors of i8 if the parsing was successful, None otherwise
 pub fn parse_string_to_vector(input: &str) -> Option<Vec<Vec<i8>>> {
     let json_value: Value = serde_json::from_str(input).ok()?;
     let outer_vec = json_value.as_array()?;
@@ -73,10 +77,6 @@ pub fn parse_args(
         }
     };
 
-    console::log_1(&JsValue::from_str(
-        format!("Settings: {:?}", js_combinations).as_str(),
-    ));
-
     let combinations: Option<Vec<Combination>> = match js_combinations {
         Some(js_combinations) => match serde_json::from_str(&js_combinations) {
             Ok(combinations) => Some(combinations),
@@ -113,6 +113,17 @@ pub fn round_even(number: f32) -> f32 {
     number.round()
 }
 
+/// Returns the value clamped between min and max
+///  - if input < min, returns min
+///  - if input > max, returns max
+///
+/// # Arguments
+/// - `input` - The value to clamp
+/// - `min` - The minimum value
+/// - `max` - The maximum value
+///
+/// # Returns
+/// The clamped value
 pub fn clamp(input: f32, min: f32, max: f32) -> f32 {
     if input < min {
         return min;
@@ -123,19 +134,14 @@ pub fn clamp(input: f32, min: f32, max: f32) -> f32 {
     input
 }
 
-pub fn _print_attr(attr: &Attributes) {
-    for i in 0..attr.len() {
-        let attribute: Attribute = unsafe { ::std::mem::transmute(i as u8) };
-
-        console::log_1(&JsValue::from_str(&format!("{}: {}\n", attribute, attr[i])));
-    }
-}
-
 /// Returns a random combination of affixes
 ///
 /// # Arguments
 /// - `affixes_array` - The array of affixes from which to choose
 /// - `slots` - The number of slots to pick from the affixes_array
+///
+/// # Returns
+/// An array of affixes
 pub fn get_random_affix_combination(affixes_array: &[Vec<Affix>; 14], slots: usize) -> [Affix; 14] {
     let mut rng = rand::thread_rng();
 
@@ -153,6 +159,7 @@ pub fn get_random_affix_combination(affixes_array: &[Vec<Affix>; 14], slots: usi
 ///
 /// # Arguments
 /// - `settings` - The settings list
+/// - `extras_combination_count` - The number of extra combinations that will be multiplied to the total
 pub fn get_total_combinations(settings: &Settings, extras_combination_count: usize) -> u128 {
     let mut result = extras_combination_count as u128;
     let affixes_array = &settings.affixesArray;
@@ -165,6 +172,7 @@ pub fn get_total_combinations(settings: &Settings, extras_combination_count: usi
     result
 }
 
+// Helper function for serializing arrays of attributes
 pub mod serde_arrays {
     use serde::Serialize;
 

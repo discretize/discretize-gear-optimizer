@@ -61,7 +61,7 @@ export const controlSlice = createSlice({
     status: WAITING,
     profession: '',
     multicore: true,
-    hwThreads: 1, //navigator.hardwareConcurrency || 4,
+    hwThreads: navigator.hardwareConcurrency || 4, // 4 seems to be a sensible default
     heuristics: true,
   },
   reducers: {
@@ -98,6 +98,16 @@ export const controlSlice = createSlice({
     },
     changeList: (state, action) => {
       return { ...state, list: action.payload };
+    },
+    addToList: (state, action) => {
+      // insert all characters of payload such that the order of the list is kept
+      // slice to 100 characters
+      const newList = [...state.list, ...action.payload.data];
+      newList.sort(
+        (a, b) => b.attributes[action.payload.rankby] - a.attributes[action.payload.rankby],
+      );
+
+      return { ...state, list: newList.slice(0, 100) };
     },
     changeFilteredList: (state, action) => {
       return { ...state, filteredList: action.payload };
@@ -193,6 +203,7 @@ export const {
   changeHwThreads,
   changeMulticore,
   changeHeuristics,
+  addToList,
 } = controlSlice.actions;
 
 export default controlSlice.reducer;

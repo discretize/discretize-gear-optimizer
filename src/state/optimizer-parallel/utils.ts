@@ -1,4 +1,3 @@
-import { allExtrasModifiersById } from '../../assets/modifierdata';
 import {
   Affix,
   AffixName,
@@ -8,9 +7,7 @@ import {
   WeaponTypes,
   damagingConditions,
 } from '../../utils/gw2-data';
-import { Character, OptimizerCoreMinimalSettings } from '../optimizer/optimizerCore';
 import { getExtrasIds } from '../slices/extras';
-import { ResultProperties } from './entry';
 import { Combination, Settings } from './optimizerSetup';
 
 const attributes = [
@@ -66,7 +63,7 @@ attributes[43] = 'Confusion Coefficient';
 attributes[44] = 'Poison Coefficient';
 attributes[45] = 'Torment Coefficient';
 
-const getAffixId = (affix: AffixName) => {
+export const getAffixId = (affix: AffixName) => {
   const index = Object.keys(Affix).indexOf(affix as string);
   if (index === -1) {
     throw new Error(`Affix ${affix} not found`);
@@ -74,7 +71,7 @@ const getAffixId = (affix: AffixName) => {
 
   return index;
 };
-const getAttributeId = (attribute: AttributeName) => {
+export const getAttributeId = (attribute: AttributeName) => {
   // corresponds to gw2data.rs -> Attribute enum. musth ave same order
 
   const index = attributes.indexOf(attribute);
@@ -84,20 +81,21 @@ const getAttributeId = (attribute: AttributeName) => {
 
   return index;
 };
-const getWeaponTypeId = (weaponType: string) => Object.values(WeaponTypes).indexOf(weaponType);
-const getConditionId = (condition: string) =>
+export const getWeaponTypeId = (weaponType: string) =>
+  Object.values(WeaponTypes).indexOf(weaponType);
+export const getConditionId = (condition: string) =>
   Object.values(damagingConditions).indexOf(condition as ConditionName);
 
-const getAttributeName = (attributeId: number) => {
+export const getAttributeName = (attributeId: number) => {
   // corresponds to gw2data.rs -> Attribute enum. must have same order
   return attributes[attributeId];
 };
 
-const getAffixName = (affixId: number) => {
+export const getAffixName = (affixId: number) => {
   return Object.keys(Affix)[affixId];
 };
 
-function settingsToWorkerString(settings: Settings): string {
+export function settingsToWorkerString(settings: Settings): string {
   // deep copy combinations
   const toReturn = JSON.parse(JSON.stringify(settings));
 
@@ -130,7 +128,7 @@ function settingsToWorkerString(settings: Settings): string {
 
 // replace string values with their corresponding IDs.
 // in rust we use enums, which are i32 indexed, so we need to convert the strings to numbers
-function combinationsToWorkerString(combinations: Combination[]): any {
+export function combinationsToWorkerString(combinations: Combination[]): any {
   // deep copy combinations
   const toReturn: any[] = []; // JSON.parse(JSON.stringify(combinations));
 
@@ -142,7 +140,15 @@ function combinationsToWorkerString(combinations: Combination[]): any {
   return JSON.stringify(toReturn);
 }
 
-function combinationtoWasmFormat(combination: Combination): any {
+/**
+ * Converts a combination to the format expected by the wasm code.
+ * Result is not typed. Reason being, working with strings is not efficient, hence we have to convert
+ * the strings to numbers.
+ *
+ * @param {Combination} combination the combination to convert
+ * @returns {any} the combination in the format expected by the wasm code
+ */
+export function combinationtoWasmFormat(combination: Combination): any {
   const toReturn = {
     modifiers: {
       buff: [],
@@ -192,120 +198,17 @@ function combinationtoWasmFormat(combination: Combination): any {
   return toReturn;
 }
 
-const arrayToObject = <T>(array: [string | number, T][]): Record<string | number, T> => {
-  const map: Record<string | number, T> = {};
-  array.forEach(([key, value]) => {
-    map[key] = value;
-  });
-  return map;
-};
-
-function enhanceResults(
-  results: any,
-  settings: Settings,
-  combinations: Combination[],
-  resultProperties: ResultProperties,
-): Character[] {
-  const resultList: Character[] = [];
-
-  results.forEach((character: any, index: number) => {
-    character.attributes = character.attributes.map((attribute: any, index: number) => {
-      return [getAttributeName(index), attribute];
-    });
-    // remove all entries with 0 value
-    // character.attributes = character.attributes.filter((attribute: any) => attribute[1] !== 0);
-
-    character.base_attributes = character.base_attributes.map((attribute: any, index: number) => {
-      return [getAttributeName(index), attribute];
-    });
-    // remove all entries with 0 value
-    character.base_attributes = character.base_attributes.filter(
-      (attribute: any) => attribute[1] !== 0,
-    );
-
-    if (!combinations[character.combination_id]) {
-      throw new Error(`Combination ${character.combination_id} not found`);
-    }
-
-    const convAttr = (values: string[], arr: number[]) =>
-      Object.fromEntries(values.map((attr, i) => [attr, arr[i] || 0]));
-
-    const { profession, specialization, weaponType, rankby, shouldDisplayExtras, gameMode, slots } =
-      settings;
-
-    const { cachedFormState, sharedModifiers, allExtrasData } = resultProperties;
-    const { modifiers } = combinations[character.combination_id];
-
-    const appliedModifiers = [
-      ...sharedModifiers,
-      ...allExtrasData[character.combination_id].extrasModifiers,
-    ];
-
-    const characterSettings: OptimizerCoreMinimalSettings = {
-      cachedFormState,
-      profession,
-      specialization,
-      weaponType,
-      appliedModifiers,
-      rankby,
-      shouldDisplayExtras,
-      extrasCombination: allExtrasData[character.combination_id].extrasCombination,
-      modifiers: {
-        ...modifiers,
-        damageMultiplierBreakdown: {},
-      },
-      gameMode,
-    };
-
-    const indicators = {
-      Damage: character.attributes[54][1],
-      Survivability: character.attributes[55][1],
-      Healing: character.attributes[56][1],
-    };
-
-    const charResults = {
-      ...character.results,
-      effectivePositiveValues: convAttr(
-        ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'],
-        character.results.effectivePositiveValues,
-      ),
-      effectiveNegativeValues: convAttr(
-        ['Power', 'Precision', 'Ferocity', 'Condition Damage', 'Expertise'],
-        character.results.effectiveNegativeValues,
-      ),
-      damageBreakdown: convAttr(
-        ['Power', 'Power2', 'Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment'],
-        character.results.damageBreakdown,
-      ),
-      effectiveDamageDistribution: convAttr(
-        ['Power', 'Power2', 'Bleeding', 'Burning', 'Confusion', 'Poison', 'Torment'],
-        character.results.effectiveDamageDistribution,
-      ),
-      indicators,
-    };
-
-    resultList.push({
-      baseAttributes: arrayToObject(character.base_attributes),
-      attributes: arrayToObject(character.attributes),
-      gear: character.gear.map(getAffixName).slice(0, slots),
-      gearStats: arrayToObject(
-        character.gear_stats
-          .map((stat: number, index1: number) => {
-            return [getAttributeName(index1), stat];
-          })
-          .filter(([_, stat]: [any, number]) => stat > 0),
-      ),
-      id: `${index}_${character.combination_id}_${Math.random()}`,
-      settings: characterSettings,
-      results: charResults,
-      valid: true,
-    });
-  });
-
-  return resultList;
-}
-
-function getTotalCombinations<T>(array: T[][], combinationCount: number) {
+/**
+ * Calculates the total number of ways to combine elements in the array. For each slot in the array,
+ * the number of combinations is multiplied with the number of elements in the slot (choices).
+ * The total number of combinations is then multiplied with the number of variations of the other combinations, e.g. extras.
+ *
+ * @template T
+ * @param {T[][]} array array to calculate the total number of combinations for
+ * @param {number} combinationCount number of combinations to multiply the total with
+ * @returns {number} total number of combinations
+ */
+export function getTotalCombinations<T>(array: T[][], combinationCount: number) {
   if (!array) {
     return -1;
   }
@@ -318,22 +221,42 @@ function getTotalCombinations<T>(array: T[][], combinationCount: number) {
   return total;
 }
 
-function getExtrasIdsCombinations(reduxState: any): string[][] {
+/**
+ * Transform the redux state into an array containing arrays of extras ids.
+ * Reason being so that the order in the array is always the same.
+ *
+ * @param {any} reduxState redux state
+ * @returns {string[][]} array of arrays of extras ids
+ */
+export function getExtrasIdsCombinations(reduxState: any): string[][] {
   const extrasNames = getExtrasIds(reduxState);
-  const extrasIds = Object.values(extrasNames);
+  const extrasIds = [
+    extrasNames.Runes,
+    extrasNames.Sigil1,
+    extrasNames.Sigil2,
+    extrasNames.Enhancement,
+    extrasNames.Nourishment,
+  ];
 
   return extrasIds;
 }
 
-export {
-  combinationsToWorkerString,
-  enhanceResults,
-  getAffixId,
-  getAttributeId,
-  getAttributeName,
-  getTotalCombinations,
-  getWeaponTypeId,
-  settingsToWorkerString,
-  getExtrasIdsCombinations,
-  combinationtoWasmFormat,
-};
+/**
+ * Splits the work into NUM_THREADS chunks, each chunk getting an array of subtrees to calculate
+ * combinations are split in a round-robin fashion
+ *
+ * @template T
+ * @param {T[][]} combinations all possible affix combinations
+ * @param {number} NUM_THREADS number of threads to use
+ */
+export function splitCombinations<T>(combinations: T[][], NUM_THREADS = 4): T[][][] {
+  const chunks: T[][][] = [...Array(NUM_THREADS)].map(() => [] as T[][]);
+
+  let chunkIndex = 0;
+  combinations.forEach((combination) => {
+    chunks[chunkIndex].push(combination);
+    chunkIndex = (chunkIndex + 1) % NUM_THREADS;
+  });
+
+  return chunks;
+}

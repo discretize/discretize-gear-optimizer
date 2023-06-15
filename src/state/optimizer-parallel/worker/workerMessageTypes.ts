@@ -1,37 +1,27 @@
-import { Character } from '../optimizer/optimizerCore';
-import { ResultProperties } from './entry';
-import { Combination, Settings } from './optimizerSetup';
-import type { Combination as CombinationOld } from '../optimizer/optimizerSetup';
+import { Character } from '../../optimizer/optimizerCore';
+import { Combination, Settings } from '../optimizerSetup';
+import type { Combination as CombinationOld } from '../../optimizer/optimizerSetup';
+import { ResultProperties } from '../results';
 
-const SETUP = 'SETUP';
-const START = 'START';
-const FINISHED = 'FINISHED';
-const PROGRESS = 'PROGRESS';
-const RESUME = 'RESUME';
-const STOP = 'STOP';
-const ERROR = 'ERROR';
-const START_HEURISTICS = 'START_HEURISTICS';
-const FINISHED_HEURISTICS = 'FINISHED_HEURISTICS';
+// All messages exchanged between the main thread and the worker threads are typed here
 
-export {
-  SETUP,
-  START,
-  FINISHED,
-  PROGRESS,
-  RESUME,
-  STOP,
-  ERROR,
-  START_HEURISTICS,
-  FINISHED_HEURISTICS,
-};
+export const SETUP = 'SETUP';
+export const START = 'START';
+export const FINISHED = 'FINISHED';
+export const PROGRESS = 'PROGRESS';
+export const RESUME = 'RESUME';
+export const STOP = 'STOP';
+export const ERROR = 'ERROR';
+export const START_HEURISTICS = 'START_HEURISTICS';
+export const FINISHED_HEURISTICS = 'FINISHED_HEURISTICS';
 
 export type MessageType =
   | StartMessage
-  | FinishMessage
+  | FinishedMessage
   | ProgressMessage
   | ErrorMessage
   | StartHeuristicsMessage
-  | FinishHeuristicsMessage;
+  | FinishedHeuristicsMessage;
 
 export interface StartMessage {
   type: typeof START;
@@ -48,11 +38,11 @@ export interface StartHeuristicsMessage {
   reduxState: any;
   settings: Settings;
 }
-export interface FinishMessage {
+export interface FinishedMessage {
   type: typeof FINISHED;
   data: Character[];
 }
-export interface FinishHeuristicsMessage {
+export interface FinishedHeuristicsMessage {
   type: typeof FINISHED_HEURISTICS;
   data: [Combination, CombinationOld][];
 }
@@ -60,16 +50,18 @@ export interface ProgressMessage {
   type: typeof PROGRESS;
   new: number;
   total: number;
+  results: Character[];
+  combinations: Combination[];
 }
 export interface ErrorMessage {
   type: typeof ERROR;
-  data: string;
+  data: any;
 }
 
 export function isStartMessage(message: MessageType): message is StartMessage {
   return message.type === START;
 }
-export function isFinishMessage(message: MessageType): message is FinishMessage {
+export function isFinishMessage(message: MessageType): message is FinishedMessage {
   return message.type === FINISHED;
 }
 export function isProgressMessage(message: MessageType): message is ProgressMessage {
@@ -83,6 +75,6 @@ export function isStartHeuristicsMessage(message: MessageType): message is Start
 }
 export function isFinishHeuristicsMessage(
   message: MessageType,
-): message is FinishHeuristicsMessage {
+): message is FinishedHeuristicsMessage {
   return message.type === FINISHED_HEURISTICS;
 }
