@@ -173,7 +173,7 @@ export default function NavSettings({
         <>
           <Divider className={classes.divider} />
           <FormControlLabel
-            control={<Checkbox defaultChecked />}
+            control={<Checkbox />}
             label={t('Enable experimental multicore processing')}
             sx={{ mb: 3 }}
             checked={enableMulticore}
@@ -190,7 +190,7 @@ export default function NavSettings({
           />
 
           <FormControlLabel
-            control={<Checkbox defaultChecked />}
+            control={<Checkbox />}
             label={t('Enable heuristics')}
             sx={{ mb: 3 }}
             checked={enableHeuristics}
