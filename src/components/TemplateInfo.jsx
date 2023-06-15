@@ -1,7 +1,7 @@
 import { Profession } from '@discretize/gw2-ui-new';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { Link } from '@mui/material';
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import creditData from '../assets/presetdata/credit.yaml';
@@ -39,7 +39,8 @@ const BeginningLinks = ({ credit }) =>
     .map((entry) => <Author name={entry.author} />)
     .reduce((prev, curr) => [prev, ', ', curr]);
 
-const EndingLinks = ({ credit }) => credit.slice(-1).map((entry) => <Author name={entry.author} />);
+const EndingLinks = ({ credit }) =>
+  credit.slice(-1).map((entry) => <Author key={entry.author} name={entry.author} />);
 
 export default function TemplateInfo() {
   const selectedDistribution = useSelector(getSelectedDistribution);
@@ -64,16 +65,16 @@ export default function TemplateInfo() {
           log by <EndingLinks credit={credit} />!
         </Trans>
       )}
-      {credit.map((entry) =>
-        creditData[entry.author]?.authorUrl && entry.url ? (
-          <>
+      {credit
+        .filter((entry) => creditData[entry.author]?.authorUrl && entry.url)
+        .map((entry) => (
+          <Fragment key={`${entry.url}`}>
             {' '}
             <Link href={entry.url} target="_blank" rel="noreferrer">
               <OpenInNewIcon fontSize="inherit" />
             </Link>
-          </>
-        ) : null,
-      )}
+          </Fragment>
+        ))}
     </Info>
   );
 }
