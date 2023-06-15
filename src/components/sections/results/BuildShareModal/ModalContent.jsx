@@ -101,7 +101,7 @@ export default function ModalContent({ character, buttons }) {
           >
             {React.Children.toArray(
               useableWeapons.offHand.map(({ name }) => (
-                <MenuItem value={getWeaponId(name)}>
+                <MenuItem key={name} value={getWeaponId(name)}>
                   <Item id={getWeaponId(name)} disableText className={classes.weaponItem} />
                   {` ${name}`}
                 </MenuItem>
@@ -123,7 +123,7 @@ export default function ModalContent({ character, buttons }) {
         >
           {React.Children.toArray(
             useableWeapons.mainHand.map(({ name }) => (
-              <MenuItem value={getWeaponId(name)}>
+              <MenuItem key={name} value={getWeaponId(name)}>
                 <Item id={getWeaponId(name)} disableText className={classes.weaponItem} />
                 {` ${name}`}
               </MenuItem>
@@ -141,7 +141,7 @@ export default function ModalContent({ character, buttons }) {
           >
             {React.Children.toArray(
               useableWeapons.offHand.map(({ name }) => (
-                <MenuItem value={getWeaponId(name)}>
+                <MenuItem key={name} value={getWeaponId(name)}>
                   <Item id={getWeaponId(name)} disableText className={classes.weaponItem} />
                   {` ${name}`}
                 </MenuItem>
@@ -190,6 +190,7 @@ export default function ModalContent({ character, buttons }) {
       <ButtonGroup variant="contained" color="primary">
         {buttons.map(({ label, icon: ButtonIcon, onClick }, index) => (
           <Button
+            key={label}
             startIcon={buttonState[index] ? <DoneIcon /> : <ButtonIcon />}
             disabled={buttonState[index]}
             onClick={() => {
