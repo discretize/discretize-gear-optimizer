@@ -1,8 +1,8 @@
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
-import yamlImporter from './plugins/YAMLImporter';
 import wasmPack from 'vite-plugin-wasm-pack';
+import yamlImporter from './plugins/YAMLImporter';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -22,6 +22,6 @@ export default defineConfig({
   plugins: [react(), yamlImporter(), wasmPack('./wasm_module')],
   worker: {
     format: 'iife',
-    plugins: [wasmPack('./wasm_module')],
+    plugins: [yamlImporter(), wasmPack('./wasm_module')],
   },
 });
