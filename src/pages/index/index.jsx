@@ -24,12 +24,12 @@ const IndexPage = () => {
 
   const ALERTS = [
     <Trans>
-      Core game changes are updated for the May 2nd game patch, but preset coefficients and trait
-      selections may not yet be completely updated. Most gear results will be correctly optimized,
-      but DPS estimates and comparisons may be wrong.
+      Core game changes, preset coefficients, and trait selections are not fully updated for the
+      July 27th game patch. Most gear results will be correctly optimized, but DPS estimates and
+      comparisons may be wrong.
       <br />
       <br />
-      Templates not marked as Outdated are up to date.
+      Templates not marked as Outdated are expected to be up to date.
     </Trans>,
     <Trans>
       The gear optimizer is still being developed! Please report issues or suggest improvements in
