@@ -428,7 +428,7 @@ list:
           extras: Bladesworn
         weaponType: Dual wield
 
-      - name: Power Bladesworn
+      - name: Power Bladesworn (Outdated)
         id: bls-dps
         specialization: Bladesworn
         boonType: Power
