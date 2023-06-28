@@ -25,7 +25,7 @@ const IndexPage = () => {
   const ALERTS = [
     <Trans>
       Core game changes, preset coefficients, and trait selections are not fully updated for the
-      July 27th game patch. Most gear results will be correctly optimized, but DPS estimates and
+      June 27th game patch. Most gear results will be correctly optimized, but DPS estimates and
       comparisons may be wrong.
       <br />
       <br />
