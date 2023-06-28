@@ -499,6 +499,19 @@
       gw2id: 1839
       defaultEnabled: true
 
+    - id: tempestuous-aria
+      text: Tempestuous Aria
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Strike Damage: [10%, unknown]
+          Condition Damage: [10%, unknown]
+      gw2id: 1891
+      defaultEnabled: true
+
 - section: Weaver
   id: 56
   items:
