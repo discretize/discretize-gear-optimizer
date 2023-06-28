@@ -129,6 +129,9 @@
       subText: melee, not accurate
       modifiers:
         damage:
+          Strike Damage: [10%, mult]
+      wvwModifiers:
+        damage:
           Strike Damage: [5%, mult]
       gw2id: 1000
       defaultEnabled: true
@@ -137,6 +140,9 @@
       text: Farsighted
       subText: ranged, not accurate
       modifiers:
+        damage:
+          Strike Damage: [25%, mult]
+      wvwModifiers:
         damage:
           Strike Damage: [15%, mult]
       gw2id: 1000
