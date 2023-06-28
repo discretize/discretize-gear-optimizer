@@ -30,7 +30,9 @@
     "extractLocale": "babel --config-file ./babel-extract.config.js 'src/**/*.{js,jsx,ts,tsx}' > /dev/null",
     "extractLocaleEn": "babel --config-file ./babel-extract-en.config.js 'src/**/*.{js,jsx,ts,tsx}' > /dev/null && node cleanupLocale.js",
     "extractLocaleCMD": "babel --config-file ./babel-extract.config.js \"src/**/*.{js,jsx,ts,tsx}\" > NUL",
-    "cleanupLocale": "node cleanupLocale.js"
+    "cleanupLocale": "node cleanupLocale.js",
+    "wasm": ":",
+    "wasm-build-data": ":"
   },
   "resolutions": {
     "@discretize/gw2-ui-new": "^0.1.2"
