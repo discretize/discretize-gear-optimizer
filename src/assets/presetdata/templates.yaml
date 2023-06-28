@@ -4,7 +4,7 @@ list:
   - class: Mesmer
     builds:
 
-      - name: Condi Virtuoso Dueling
+      - name: Condi Virtuoso Dueling (Outdated)
         id: cvirt
         specialization: Virtuoso
         boonType: Condi
@@ -24,7 +24,7 @@ list:
       #   extras: Condi Virtuoso Dueling
       #   weaponType: Dual wield
 
-      - name: Condi Virtuoso Chaos
+      - name: Condi Virtuoso Chaos (Outdated)
         id: cvirt-chaos
         specialization: Virtuoso
         boonType: Condi
@@ -34,7 +34,7 @@ list:
         extras: Condi Virtuoso Chaos
         weaponType: Dual wield
 
-      - name: Power Virtuoso GS
+      - name: Power Virtuoso GS (Outdated)
         id: pvirt-gs
         specialization: Virtuoso
         boonType: Power
@@ -47,7 +47,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Quickness Power Chrono GS Conc/Impact (Approx.)
+      - name: Quickness Power Chrono GS Conc/Impact (Outdated)
         id: pchrono-stm-gs-conc
         specialization: Chronomancer
         boonType: Power
@@ -60,7 +60,7 @@ list:
           extras: Quickness Power Chrono Conc/Impact
         weaponType: Two-handed
 
-      - name: Quickness Power Chrono GS 10% (Approx.)
+      - name: Quickness Power Chrono GS 10% (Outdated)
         id: pchrono-stm-gs
         specialization: Chronomancer
         boonType: Power
@@ -86,7 +86,7 @@ list:
           extras: Power Boon (Raid)
         weaponType: Two-handed
 
-      - name: Quickness Condi Chrono
+      - name: Quickness Condi Chrono (Outdated)
         id: condi-chrono-stm
         specialization: Chronomancer
         boonType: Condi
@@ -96,7 +96,7 @@ list:
         extras: Quickness Condi Chrono
         weaponType: Dual wield
 
-      - name: Alacrity Power Chrono GS (Approx.)
+      - name: Alacrity Power Chrono GS (Outdated)
         id: pchrono-alac-gs
         specialization: Chronomancer
         boonType: Power
@@ -148,7 +148,7 @@ list:
       #     extras: Power (Raid, furious)
       #   weaponType: Two-handed
 
-      - name: Alacrity Staff Mirage
+      - name: Alacrity Staff Mirage (Outdated)
         id: alacmirage
         specialization: Mirage
         boonType: Condi
@@ -158,7 +158,7 @@ list:
         extras: Alacrity Staff Mirage
         weaponType: Two-handed
 
-      - name: Alacrity Staff / Axe Mirage
+      - name: Alacrity Staff / Axe Mirage (Outdated)
         id: alac-staxe-mirage
         specialization: Mirage
         boonType: Condi
@@ -168,7 +168,7 @@ list:
         extras: Alacrity Staff Mirage
         weaponType: Two-handed
 
-      - name: Condi Axe Mirage
+      - name: Condi Axe Mirage (Outdated)
         id: axe-mirage-deception-torch
         specialization: Mirage
         boonType: Condi
@@ -311,7 +311,7 @@ list:
         extras: Condi Alacrity Willbender
         weaponType: Dual wield
 
-      - name: Condi Willbender Sword
+      - name: Condi Willbender Sword (Outdated)
         id: cwb-sw
         specialization: Willbender
         boonType: Condi
@@ -331,7 +331,7 @@ list:
         extras: Condi Willbender
         weaponType: Two-handed
 
-      - name: Power Willbender Virtues
+      - name: Power Willbender Virtues (Outdated)
         id: pwb-virtues
         specialization: Willbender
         boonType: Power
@@ -428,7 +428,7 @@ list:
           extras: Bladesworn
         weaponType: Dual wield
 
-      - name: Power Bladesworn
+      - name: Power Bladesworn (Outdated)
         id: bls-dps
         specialization: Bladesworn
         boonType: Power
@@ -441,7 +441,7 @@ list:
           extras: Bladesworn
         weaponType: Dual wield
 
-      - name: Quickness Condi Bers
+      - name: Quickness Condi Bers (Outdated)
         id: cbers
         specialization: Berserker
         boonType: Condi
@@ -451,7 +451,7 @@ list:
         extras: Condi Quickness Bers
         weaponType: Two-handed
 
-      - name: Condi Berserker
+      - name: Condi Berserker (Outdated)
         id: cbers-dps
         specialization: Berserker
         boonType: Condi
@@ -461,7 +461,7 @@ list:
         extras: Condi Berserker
         weaponType: Two-handed
 
-      - name: Quickness Power Bers
+      - name: Quickness Power Bers (Outdated)
         id: pbers-quick
         specialization: Berserker
         boonType: Power
@@ -474,7 +474,7 @@ list:
           extras: Power Boon (Raid)
         weaponType: Two-handed
 
-      - name: Power Berserker (Approx.)
+      - name: Power Berserker (Outdated)
         id: pbers
         specialization: Berserker
         boonType: Power
@@ -513,7 +513,7 @@ list:
           extras: Power (Raid)
         weaponType: Two-handed
 
-      - name: Quickness Power Spellbreaker
+      - name: Quickness Power Spellbreaker (Outdated)
         id: spb-quick
         specialization: Spellbreaker
         boonType: Power
@@ -529,7 +529,7 @@ list:
   - class: Elementalist
     builds:
 
-      - name: Alacrity Hybrid Tempest
+      - name: Alacrity Hybrid Tempest (Outdated)
         id: ctemp-alac
         specialization: Tempest
         boonType: Condi
@@ -549,7 +549,7 @@ list:
         extras: Condi Tempest
         weaponType: Dual wield
 
-      - name: Power Tempest
+      - name: Power Tempest (Outdated)
         id: ptemp
         specialization: Tempest
         boonType: Power
@@ -562,7 +562,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Power Weaver
+      - name: Power Weaver (Outdated)
         id: pwea
         specialization: Weaver
         boonType: Power
@@ -629,7 +629,7 @@ list:
           extras: Hybrid Weaver (Raid)
         weaponType: Dual wield
 
-      - name: Quickness Power Catalyst
+      - name: Quickness Power Catalyst (Outdated)
         id: power-cat-quick
         specialization: Catalyst
         boonType: Power
@@ -783,7 +783,7 @@ list:
   - class: Revenant
     builds:
 
-      - name: Quickness Power Herald Consume
+      - name: Quickness Power Herald Consume (Outdated)
         id: herald-quick
         specialization: Herald
         boonType: Power
@@ -796,7 +796,7 @@ list:
           extras: Power Quickness Herald (Raid)
         weaponType: Dual wield
 
-      - name: Quickness Condi Herald
+      - name: Quickness Condi Herald (Outdated)
         id: cherald-quick
         specialization: Herald
         boonType: Condi
@@ -806,7 +806,7 @@ list:
         extras: Condi Quickness Herald
         weaponType: Dual wield
 
-      - name: Power Herald FP
+      - name: Power Herald FP (Outdated)
         id: herald
         specialization: Herald
         boonType: Power
@@ -894,7 +894,7 @@ list:
   - class: Engineer
     builds:
 
-      - name: Quickness Scrapper
+      - name: Quickness Scrapper (Outdated)
         id: qscrap
         specialization: Scrapper
         boonType: Power
@@ -933,7 +933,7 @@ list:
           extras: Power Holo (Raid)
         weaponType: Dual wield
 
-      - name: Condi Holo
+      - name: Condi Holo (Outdated)
         id: cholo
         specialization: Holosmith
         boonType: Condi
@@ -1041,7 +1041,7 @@ list:
   - class: Necromancer
     builds:
 
-      - name: Quickness Harbinger
+      - name: Quickness Harbinger (Outdated)
         id: qharb
         specialization: Harbinger
         boonType: Condi
@@ -1064,7 +1064,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Condi Harbinger
+      - name: Condi Harbinger (Outdated)
         id: charb
         specialization: Harbinger
         boonType: Condi
@@ -1074,7 +1074,7 @@ list:
         extras: DPS Harbinger
         weaponType: Dual wield
 
-      - name: Condi Scourge
+      - name: Condi Scourge (Outdated)
         id: scourge
         specialization: Scourge
         boonType: Condi
@@ -1131,7 +1131,7 @@ list:
         extras: Alacrity Specter
         weaponType: Dual wield
 
-      - name: Condi Specter
+      - name: Condi Specter (Outdated)
         id: specter
         specialization: Specter
         boonType: Condi
@@ -1141,7 +1141,7 @@ list:
         extras: DPS Specter
         weaponType: Dual wield
 
-      - name: Condi Barrier "Carrion" Specter
+      - name: Condi Barrier "Carrion" Specter (Outdated)
         id: specter-carrion
         specialization: Specter
         boonType: Condi
@@ -1181,7 +1181,7 @@ list:
         extras: Condi Daredevil
         weaponType: Dual wield
 
-      - name: Power Staff Daredevil
+      - name: Power Staff Daredevil (Outdated)
         id: staffdd
         specialization: Daredevil
         boonType: Power
@@ -1204,7 +1204,7 @@ list:
         extras: Condi Deadeye
         weaponType: Dual wield
 
-      - name: Power Deadeye Daggers M7
+      - name: Power Deadeye Daggers M7 (Outdated)
         id: pded-daggers-m7
         specialization: Deadeye
         boonType: Power
@@ -1217,7 +1217,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Power Deadeye Daggers BQoBK
+      - name: Power Deadeye Daggers BQoBK (Outdated)
         id: pded-daggers-bqobk
         specialization: Deadeye
         boonType: Power
@@ -1230,7 +1230,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Rifle Deadeye Premeditation
+      - name: Rifle Deadeye Premeditation (Outdated)
         id: rifleded-premed
         specialization: Deadeye
         boonType: Power
@@ -1243,7 +1243,7 @@ list:
           extras: Power (Raid)
         weaponType: Two-handed
 
-      - name: Rifle Deadeye Silent Scope
+      - name: Rifle Deadeye Silent Scope (Outdated)
         id: rifleded-silent
         specialization: Deadeye
         boonType: Power

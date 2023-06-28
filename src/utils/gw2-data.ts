@@ -1121,12 +1121,12 @@ export const conditionData = {
     factor: 0.06,
   },
   Confusion: {
-    baseDamage: 11,
-    factor: 0.03,
+    baseDamage: 18.25,
+    factor: 0.05,
   },
   ConfusionActive: {
-    baseDamage: 49.5,
-    factor: 0.0975,
+    baseDamage: 16.34,
+    factor: 0.0325,
   },
 };
 export const conditionDataWvW = {
