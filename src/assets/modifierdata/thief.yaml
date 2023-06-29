@@ -430,7 +430,7 @@
         conversion:
           Healing Power: {Condition Damage: 7%}
         attributes:
-          Healing Power: [60, unknown]
+          Condition Damage: [90, unknown]
       gw2id: 2284
       defaultEnabled: true
 
@@ -443,7 +443,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Healing Power: [60, unknown]
+          Condition Damage: [90, unknown]
       gw2id: 2284
       defaultEnabled: true
 
