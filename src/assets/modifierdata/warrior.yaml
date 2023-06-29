@@ -500,7 +500,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [25%, mult]
+          Strike Damage: [20%, mult]
       wvwModifiers:
         damage:
           Strike Damage: [10%, mult]
