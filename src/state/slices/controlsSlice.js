@@ -60,7 +60,7 @@ export const controlSlice = createSlice({
     selectedTemplate: '',
     status: WAITING,
     profession: '',
-    multicore: true,
+    multicore: false,
     hwThreads: navigator.hardwareConcurrency || 4, // 4 seems to be a sensible default
     heuristics: true,
   },
