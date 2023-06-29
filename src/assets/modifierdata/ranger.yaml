@@ -229,6 +229,24 @@
       gw2id: 1888
       defaultEnabled: true
 
+    - id: striders-strength
+      text: Strider's Strength
+      subText: base
+      modifiers:
+        attributes:
+          Power: [120, buff] # buff unconfirmed
+      gw2id: 1700
+      defaultEnabled: true
+
+    - id: striders-strength-sword
+      text: Strider's Strength
+      subText: with sword
+      modifiers:
+        attributes:
+          Power: [120, buff] # buff unconfirmed
+      gw2id: 1700
+      defaultEnabled: true
+
 - section: Wilderness Survival
   id: 33
   items:
