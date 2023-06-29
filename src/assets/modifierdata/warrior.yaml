@@ -360,6 +360,9 @@
       modifiers:
         damage:
           Strike Damage: [25%, mult]
+      wvwModifiers:
+        damage:
+          Strike Damage: [7%, mult]
       gw2id: 1486
       defaultEnabled: true
 
