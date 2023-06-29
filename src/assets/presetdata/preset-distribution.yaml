@@ -23,17 +23,17 @@ list:
       }
     noCreditOkay: true
 
-  # Uses impact/hydro sigils, hydro not taken into consideration
+  # Uses air/hydro sigils, not taken into consideration
   - name: Power Berserker
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 3441, "Power2": 0, "Burning": 1.09, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3789, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Baseraver
-        url: https://www.youtube.com/watch?v=Ll6kBkiEO00
-        log: https://dps.report/4gCd-20230214-204655_golem
+        url: https://www.youtube.com/watch?v=_EZx5RsGy84
+        log: https://dps.report/0ImQ-20230502-185448_golem
 
   - name: Power Spellbreaker GS
     profession: Spellbreaker
@@ -81,6 +81,18 @@ list:
         url: https://www.youtube.com/watch?v=u0oIU0DSspE
         log: https://dps.report/aSwf-20230216-210051_golem
 
+  - name: Power Quickness Berserker
+    profession: Berserker
+    value: >-
+      {
+        "values2": { "Power": 3466, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: 'Evo'
+        url: https://www.youtube.com/watch?v=85iwbyRS66E
+        log: https://gw2wingman.nevermindcreations.de/log/20230514-061129_StdGolem_kill
+
+
   - name: Power Quickness Spellbreaker
     profession: Spellbreaker
     value: >-
@@ -103,28 +115,27 @@ list:
         url: https://www.youtube.com/watch?v=QPrh0p0k-G8
         log: https://dps.report/cmft-20220807-174306_golem
 
-  # 100% crit (thief accuracy, assassin shoulders amulet, furious)
   - name: DPS Bladesworn Tactics
     profession: Bladesworn
     value: >-
       {
-        "values2": { "Power": 4560, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4571, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Evo
-        url: https://www.youtube.com/watch?v=88nzpHXKwFU
-        log: https://dps.report/brm9-20220810-112155_golem
+        url: https://www.youtube.com/watch?v=bh2FuVpJB7E
+        log: https://gw2wingman.nevermindcreations.de/log/20230512-052547_StdGolem_kill
 
   - name: DH Radiance
     profession: Dragonhunter
     value: >-
       {
-        "values2": { "Power": 3863, "Power2": 0, "Burning": 2.62, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4085, "Power2": 0, "Burning": 2.59, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Derm
-        url: https://www.youtube.com/watch?v=5TeoWaya2xs
-        log: https://dps.report/SNuX-20230111-015647_golem
+      - author: Shavy
+        url: https://www.youtube.com/watch?v=7-nqp2Ths3s
+        log: https://dps.report/GQ29-20230504-221813_golem
 
   # https://www.youtube.com/watch?v=iaMQVvspJFE
   # 12 boons; thief rune, accuracy
@@ -323,12 +334,12 @@ list:
     profession: Willbender
     value: >-
       {
-        "values2": { "Power": 4302, "Power2": 0, "Burning": 5.14, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 4387, "Power2": 0, "Burning": 5.59, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Incera
-        url: https://www.youtube.com/watch?v=47EAEhQJnwo
-        log: https://dps.report/hgw2-20230220-004711_golem
+      - author: Andy
+        url: https://www.youtube.com/watch?v=282m_ydQUdY
+        log: https://dps.report/Ixw2-20230502-200305_golem
 
   # 12 boons, celefood toxiccrystal, 14%
   - name: Condi Alacrity Willbender
@@ -492,12 +503,12 @@ list:
     profession: Renegade
     value: >-
       {
-        "values2": { "Power": 3388, "Power2": 0, "Burning": 1.21, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3532, "Power2": 0, "Burning": 0.78, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[dT/XVII] Seatek'
-        url: https://www.youtube.com/watch?v=04IvsuiXc10
-        log: https://dps.report/ra1b-20230205-003441_golem
+      - author: 'Umbra'
+        url: https://www.youtube.com/watch?v=s1OXN6HRLTo
+        log: https://dps.report/8LBy-20230515-192958_golem
 
   # add razorclaw casts every 20sec to simulate allies
   # 4 players * 10 pulses * 2 seconds / 20 sec = 4.00 avg bleed
@@ -1007,54 +1018,52 @@ list:
         log: https://dps.report/0Pzn-20220630-021720_golem
 
   # "Reaper does approximately 29.28% of its damage outside of shroud" - https://discord.com/channels/380901000200060929/381160724409614356/828683461074092113
-  # With YaaW this is closer to 34%
-  # scuffed approximation by splitting power damage 0.34 - 0.66
+  # With YaaW this is closer to 33%
+  # scuffed approximation by splitting power damage 0.33 - 0.67
   - name: Power Reaper
     profession: Reaper
     value: >-
       {
-        "values2": { "Power": 1493, "Power2": 2322, "Burning": 0, "Bleeding": 0.72, "Poisoned": 2.18, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1658, "Power2": 2696, "Burning": 0, "Bleeding": 0.31, "Poisoned": 2.1, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: '[SC] Westet'
-        url: https://www.youtube.com/watch?v=TjnkULNZuTU
-        log: https://dps.report/61Dw-20230214-203311_golem
+      - author: '[InS] Laoshi'
+        url: https://www.youtube.com/watch?v=lx09i7VV3JE
+        log: https://dps.report/XI5L-20230521-175913_golem
 
-  # sini shld coat glov boot amul ear, rest viper
   - name: Condi Reaper
     profession: Reaper
     value: >-
       {
-        "values2": { "Power": 2834, "Power2": 0, "Burning": 0.19, "Bleeding": 42.47, "Poisoned": 4.38, "Torment": 3.91, "Confusion": 0 }
+        "values2": { "Power": 3177, "Power2": 0, "Burning": 0.21, "Bleeding": 47.02, "Poisoned": 2.69, "Torment": 4.48, "Confusion": 0 }
       }
     credit:
       - author: 'Sarulias'
-        url: https://www.youtube.com/watch?v=XdUdlhRqJFk
-        log: https://dps.report/bfKV-20230225-075200_golem
+        url: https://www.youtube.com/watch?v=TmPOk72GbCM
+        log: https://dps.report/KAdA-20230506-114320_golem
 
-  # game bug: alchemic vigor converted at 360
   - name: DPS Harbinger
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 2336, "Power2": 0, "Burning": 1.15, "Bleeding": 10.45, "Poisoned": 5.8, "Torment": 20.81, "Confusion": 0 }
+        "values2": { "Power": 2280, "Power2": 0, "Burning": 1.63, "Bleeding": 7.75, "Poisoned": 7.83, "Torment": 21.68, "Confusion": 0.63 }
       }
     credit:
       - author: 'Sarulias'
-        url: https://www.youtube.com/watch?v=omCnhWr8tyM
-        log: https://dps.report/ViK3-20221201-114322_golem
+        url: https://www.youtube.com/watch?v=fwbcLsRFLes
+        log: https://dps.report/gPxU-20230506-103307_golem
 
-  # game bug: alchemic vigor converted at 360
+  # approximates earth/bursting as bursting only
   - name: Quickness Harbinger
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 2293, "Power2": 0, "Burning": 1.23, "Bleeding": 12.32, "Poisoned": 6.22, "Torment": 16.1, "Confusion": 0 }
+        "values2": { "Power": 2303, "Power2": 0, "Burning": 1.76, "Bleeding": 10.82, "Poisoned": 5.83, "Torment": 18.11, "Confusion": 0.73 }
       }
     credit:
-      - author: 'Zargholl'
-        url: https://www.youtube.com/watch?v=UFSV-7rfFZM
-        log: https://dps.report/OGwg-20221206-025727_golem
+      - author: 'Sarulias'
+        url: https://www.youtube.com/watch?v=yd3epOQ_duo
+        log: https://dps.report/B6zX-20230507-085416_golem
 
   - name: Quickness Power Harbinger (Approx.)
     profession: Harbinger

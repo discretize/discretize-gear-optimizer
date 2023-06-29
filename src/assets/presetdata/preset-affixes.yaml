@@ -114,6 +114,16 @@ list:
         "minQuicknessDuration": 0
       }
 
+  - name: Power Quickness Berserker 35.6%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 35.66
+      }
+
   - name: Power Alacrity Willbender 14%
     hidden: true
     value: >-
@@ -245,14 +255,14 @@ list:
         "minQuicknessDuration": 21.6
       }
 
-  - name: Condi Quickness Harbinger 23%
+  - name: Condi Quickness Harbinger 12.8%
     hidden: true
     value: >-
       {
         "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
         "minBoonDuration": 0,
-        "minQuicknessDuration": 23
+        "minQuicknessDuration": 12.8
       }
 
   - name: Condi Alacrity Mirage 0%

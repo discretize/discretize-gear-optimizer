@@ -1024,7 +1024,9 @@ list:
             "zealots-aggression": {},
             "pure-of-sight": {},
             "hunters-fortification": {},
-            "big-game-hunter": {}
+            "big-game-hunter": {
+              "amount": "71"
+            }
           }
         ]
       }
@@ -2102,7 +2104,7 @@ list:
             1369
           ],
           [
-            2039,
+            2049,
             2011,
             1928
           ]
@@ -2128,27 +2130,28 @@ list:
             "double-standards-disc": {},
             "axe-mastery-one": {},
             "axe-mastery-axe": {
-              "amount": "68"
+              "amount": "63"
             }
           },
           {
             "blood-reaction-base": {},
             "blood-reaction-with": {
-              "amount": "90"
+              "amount": "100"
             },
             "heat-the-soul": {},
             "heat-the-soul-with": {
               "amount": ""
             },
             "fatal-frenzy-power-condi": {
-              "amount": "90"
+              "amount": "100"
             },
             "fatal-frenzy-toughness": {},
             "bloody-roar": {
-              "amount": "90"
+              "amount": "100"
             },
             "king-of-fires": {},
-            "eternal-champion": {}
+            "eternal-champion": {},
+            "smash-brawler-full": {}
           }
         ]
       }
@@ -2157,6 +2160,84 @@ list:
         "skills": {
           "signet-of-might": {}
         }
+      }
+
+  - name: Power Quickness Berserker
+    profession: Berserker
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "4",
+          "51",
+          "18"
+        ],
+        "selectedTraits": [
+          [
+            1444,
+            1449,
+            1437
+          ],
+          [
+            1413,
+            1484,
+            1369
+          ],
+          [
+            2049,
+            2011,
+            1928
+          ]
+        ],
+        "items": [
+          {
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
+            "pinnacle-of-strength": {
+              "amount": ""
+            },
+            "pinnacle-of-strength-crit": {},
+            "berserkers-power": {
+              "amount": "4"
+            }
+          },
+          {
+            "warriors-sprint": {
+              "amount": ""
+            },
+            "double-standards-str": {},
+            "double-standards-disc": {},
+            "axe-mastery-one": {},
+            "axe-mastery-axe": {
+              "amount": "50"
+            }
+          },
+          {
+            "blood-reaction-base": {},
+            "blood-reaction-with": {
+              "amount": "82.5"
+            },
+            "heat-the-soul": {},
+            "heat-the-soul-with": {
+              "amount": ""
+            },
+            "fatal-frenzy-power-condi": {
+              "amount": "82.5"
+            },
+            "fatal-frenzy-toughness": {},
+            "bloody-roar": {
+              "amount": "82.5"
+            },
+            "king-of-fires": {},
+            "eternal-champion": {},
+            "smash-brawler-full": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
       }
 
   - name: Condi (Quickness) Berserker
@@ -2581,6 +2662,9 @@ list:
             "pinnacle-of-strength-crit": {},
             "berserkers-power": {
               "amount": "4"
+            },
+            "peak-performance-2": {
+              "amount": "4.4"
             }
           },
           {
@@ -6163,12 +6247,12 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "3.16"
+              "amount": "3.23"
             }
           },
           {
             "soul-barbs": {
-              "amount": "97"
+              "amount": "96"
             },
             "vital-persistence": {},
             "death-perception": {}
@@ -6227,7 +6311,7 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "3.23"
+              "amount": "3.02"
             }
           },
           {
@@ -6242,7 +6326,7 @@ list:
               "amount": ""
             },
             "septic-corruption": {
-              "amount": "15.8"
+              "amount": "21.6"
             },
             "alchemic-vigor": {},
             "implacable-foe": {},
@@ -6294,7 +6378,7 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "3.2"
+              "amount": "3"
             }
           },
           {
@@ -6309,7 +6393,7 @@ list:
               "amount": ""
             },
             "septic-corruption": {
-              "amount": "15.1"
+              "amount": "21.2"
             },
             "alchemic-vigor": {},
             "implacable-foe": {},
@@ -6322,7 +6406,11 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "signet-of-spite": {
+            "amount": "16.4"
+          }
+        }
       }
 
   - name: Quickness Power Harbinger

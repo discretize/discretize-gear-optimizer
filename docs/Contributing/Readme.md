@@ -56,11 +56,11 @@ At present, this project is built directly off `staging` while in beta; the plan
 
 ### Hosting:
 
-The optimizer is currently hosted on [Github Pages](https://pages.github.com/). Merging into the `main` branch of this repository will automatically deploy to Github Pages using the [gh-pages](https://www.npmjs.com/package/gh-pages) package in a Github action, unless the description of the head commit (the merge commit, if you are merging a PR) contains `[skip ci]`.
+The optimizer is currently hosted on [Cloudflare Pages](https://pages.cloudflare.com/). Commiting to the `staging` branch will automatically deploy to Cloudflare pages using the github action found in `../../.github/workflows/staging-cf.yml` unless the description of the head commit (the merge commit, if you are merging a PR) contains `[skip ci]`. This build can be accessed at [optimizer.discretize.eu](https://optimizer.discretize.eu/).
 
-For the optimizer staging environment we are using [Cloudflare Pages](https://pages.cloudflare.com/). Commiting to the `staging` branch will automatically deploy to Cloudflare pages using the github action found in `../../.github/workflows/staging-cf.yml`. This build can be accessed at [discretize-optimizer.pages.dev](https://discretize-optimizer.pages.dev/).
+For users that cannot access Cloudflare, there is a mirror hosted on [Github Pages](https://pages.github.com/) at [discretize.github.io/discretize-gear-optimizer](https://discretize.github.io/discretize-gear-optimizer/). Merging into the `main` branch of this repository will automatically deploy to Github Pages using the [gh-pages](https://www.npmjs.com/package/gh-pages) package in a Github action.
 
-Opening a pullrequest will deploy a preview version to Cloudflare pages as well (action in `../../.github/workflows/previews-cf.yml`). A bot will notify about the deployment in the pullrequest. Every commit in a pullrequest will rebuild the preview. If you want to skip deploying a preview build, use `skip ci` in the commit description.
+Opening a pull request will deploy a preview version to Cloudflare pages as well (action in `../../.github/workflows/previews-cf.yml`). A bot will notify about the deployment in the pullrequest. Every commit in a pullrequest will rebuild the preview. If you want to skip deploying a preview build, use `skip ci` in the commit description.
 
 Previews can be disabled with a [no previews] comment anywhere in the PR description body, and can be force-enabled in draft PRs with a [draft previews] comment.
 

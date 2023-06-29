@@ -8,6 +8,8 @@ To learn about how the math works and its limitations, see [How It Works](<How I
 
 The optimizer is hosted publicly at [optimizer.discretize.eu](https://optimizer.discretize.eu/). Development branches that are not from forks can be previewed using the automatic Cloudflare preview links in the branch thread.
 
+There is a mirror of the optimizer at [discretize.github.io/discretize-gear-optimizer](https://discretize.github.io/discretize-gear-optimizer/) if the primary host cannot be accessed.
+
 If you have an idea for a feature or improvement or find a bug, create a new issue in the Issues tab of this repository, or send us a message in our [Discord server](https://discord.gg/UDT2W6an2R)!
 
 ## Features
