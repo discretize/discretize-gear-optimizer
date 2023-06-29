@@ -1,5 +1,55 @@
 - section: Skills
   items:
+    - id: facet-of-darkness-draconic-echo
+      text: Facet of Darkness
+      subText: draconic echo passive, 100% uptime
+      modifiers:
+        attributes:
+          Critical Chance: 5%
+      gw2id: 28379
+      defaultEnabled: false
+
+    - id: facet-of-elements-draconic-echo
+      text: Facet of Elements
+      subText: draconic echo passive
+      amountData:
+        label: '% uptime'
+        default: 20
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Condition Damage: [5%, unknown]
+      gw2id: 27014
+
+    - id: facet-of-strength-draconic-echo
+      text: Facet of Strength
+      subText: draconic echo passive
+      amountData:
+        label: '% uptime'
+        default: 20
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Strike Damage: [5%, unknown]
+      gw2id: 26644
+
+    - id: facet-of-chaos-draconic-echo
+      text: Facet of Chaos (Draconic Echo)
+      subText: draconic echo passive, 100% uptime
+      modifiers:
+        damage:
+          Damage Reduction: [5%, unknown]
+      gw2id: 27760
+      defaultEnabled: false
+
+    - id: facet-of-nature-draconic-echo
+      text: Facet of Nature (Draconic Echo)
+      subText: draconic echo passive, 100% uptime
+      modifiers:
+        attributes:
+          Concentration: [75, buff] # unconfirmed
+      gw2id: 29371
+      defaultEnabled: false
 
     - id: burst-of-strength
       text: Burst of Strength
