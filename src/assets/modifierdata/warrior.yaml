@@ -436,7 +436,8 @@
       subText: base
       modifiers:
         conversion:
-          Ferocity: {Precision: 7%}
+          Ferocity: {Precision: 10%}
+          Condition Damage: {Power: 10%}
       gw2id: 2011
       defaultEnabled: true
 
@@ -449,7 +450,8 @@
         quantityEntered: 100
       modifiers:
         conversion:
-          Ferocity: {Precision: 7%}
+          Ferocity: {Precision: 10%}
+          Condition Damage: {Power: 10%}
       gw2id: 2011
       defaultEnabled: true
 
