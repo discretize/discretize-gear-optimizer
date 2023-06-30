@@ -508,7 +508,7 @@
       modifiers:
         damage:
           Strike Damage: [10%, unknown]
-          Condition Damage: [10%, unknown]
+          Condition Damage: [10%, add] # unconfirmed
       gw2id: 1891
       defaultEnabled: true
 
