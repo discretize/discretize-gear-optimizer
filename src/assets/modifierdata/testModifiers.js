@@ -320,6 +320,12 @@ function parseDamage(damage, id, amountData) {
         `set mode unknown for critical damage for now`,
       );
 
+      // so far (mid 2023), every +condition damage output bonus that's been tested has been additive
+      gentleAssert(
+        key !== 'Condition Damage' || mode !== 'unknown' || mode !== 'mult',
+        `set mode add for condition damage and comment that it's unconfirmed (remove this test if anyone finds a multiplicative one!)`,
+      );
+
       if (mode === 'target') {
         gentleAssert(damage['Phantasm Damage'] !== undefined, `${id} is missing phantasm damage`);
       }

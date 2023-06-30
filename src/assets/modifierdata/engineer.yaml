@@ -35,7 +35,7 @@
       text: Superconducting Signet
       modifiers:
         damage:
-          Condition Damage: [10%, unknown]
+          Condition Damage: [10%, add] #unconfirmed
       gw2id: 63113
 
     - id: superconducting-signet-traited
@@ -43,7 +43,7 @@
       subText: traited
       modifiers:
         damage:
-          Condition Damage: [12%, unknown]
+          Condition Damage: [12%, add] #unconfirmed
       gw2id: 63113
 
 - section: Explosives
