@@ -333,6 +333,9 @@
       text: Kinetic Accelerators
       modifiers:
         conversion:
+          Concentration: {Power: 13%}
+      wvwModifiers:
+        conversion:
           Concentration: {Power: 10%}
       gw2id: 2052
       defaultEnabled: true

@@ -360,6 +360,9 @@
       modifiers:
         damage:
           Strike Damage: [25%, mult]
+      wvwModifiers:
+        damage:
+          Strike Damage: [7%, mult]
       gw2id: 1486
       defaultEnabled: true
 
@@ -433,7 +436,8 @@
       subText: base
       modifiers:
         conversion:
-          Ferocity: {Precision: 7%}
+          Ferocity: {Precision: 10%}
+          Condition Damage: {Power: 10%}
       gw2id: 2011
       defaultEnabled: true
 
@@ -446,7 +450,8 @@
         quantityEntered: 100
       modifiers:
         conversion:
-          Ferocity: {Precision: 7%}
+          Ferocity: {Precision: 10%}
+          Condition Damage: {Power: 10%}
       gw2id: 2011
       defaultEnabled: true
 
@@ -495,7 +500,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [25%, mult]
+          Strike Damage: [20%, mult]
       wvwModifiers:
         damage:
           Strike Damage: [10%, mult]

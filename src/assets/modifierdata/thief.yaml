@@ -207,15 +207,16 @@
   id: 54
   items:
 
-    - id: endless-stamina
-      text: Endless Stamina
+    - id: fluid-strikes
+      text: Fluid Strikes
       minor: true
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
       modifiers:
-        attributes:
-          Concentration: [240, buff]
-      wvwModifiers:
-        attributes:
-          Concentration: [60, buff]
+        damage:
+          Strike Damage: [10%, unknown]
       gw2id: 1242
       defaultEnabled: true
 
@@ -430,7 +431,7 @@
         conversion:
           Healing Power: {Condition Damage: 7%}
         attributes:
-          Healing Power: [60, unknown]
+          Condition Damage: [90, unknown]
       gw2id: 2284
       defaultEnabled: true
 
@@ -443,7 +444,7 @@
         quantityEntered: 100
       modifiers:
         attributes:
-          Healing Power: [60, unknown]
+          Condition Damage: [90, unknown]
       gw2id: 2284
       defaultEnabled: true
 

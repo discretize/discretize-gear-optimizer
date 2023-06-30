@@ -129,6 +129,9 @@
       subText: melee, not accurate
       modifiers:
         damage:
+          Strike Damage: [10%, mult]
+      wvwModifiers:
+        damage:
           Strike Damage: [5%, mult]
       gw2id: 1000
       defaultEnabled: true
@@ -137,6 +140,9 @@
       text: Farsighted
       subText: ranged, not accurate
       modifiers:
+        damage:
+          Strike Damage: [25%, mult]
+      wvwModifiers:
         damage:
           Strike Damage: [15%, mult]
       gw2id: 1000
@@ -221,6 +227,24 @@
           Ferocity: [250, buff]
           Critical Chance: 10%
       gw2id: 1888
+      defaultEnabled: true
+
+    - id: striders-strength
+      text: Strider's Strength
+      subText: base
+      modifiers:
+        attributes:
+          Power: [120, buff] # buff unconfirmed
+      gw2id: 1700
+      defaultEnabled: true
+
+    - id: striders-strength-sword
+      text: Strider's Strength
+      subText: with sword
+      modifiers:
+        attributes:
+          Power: [120, buff] # buff unconfirmed
+      gw2id: 1700
       defaultEnabled: true
 
 - section: Wilderness Survival
