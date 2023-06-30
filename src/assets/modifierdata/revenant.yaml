@@ -21,10 +21,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Condition Damage: [10%, unknown]
+          Condition Damage: [10%, add] #unconfirmed
       wvwModifiers:
         damage:
-          Condition Damage: [5%, unknown]
+          Condition Damage: [5%, add] #unconfirmed
       gw2id: 27014
 
     - id: facet-of-strength-draconic-echo

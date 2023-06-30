@@ -48,7 +48,7 @@
       modifiers:
         damage:
           Strike Damage: [10%, unknown]
-          Condition Damage: [10%, unknown]
+          Condition Damage: [10%, add] #unconfirmed
       gw2id: 62758
 
     - id: crescent-wind
@@ -71,11 +71,11 @@
       modifiers:
         damage:
           Strike Damage: [10%, unknown]
-          Condition Damage: [10%, unknown]
+          Condition Damage: [10%, add] #unconfirmed
       wvwModifiers:
         damage:
           Strike Damage: [15%, unknown]
-          Condition Damage: [15%, unknown]
+          Condition Damage: [15%, add] #unconfirmed
       gw2id: 62965
 
     # - id: flame-axe
@@ -674,11 +674,11 @@
       modifiers:
         damage:
           Strike Damage: [3%, unknown]
-          Condition Damage: [3%, unknown]
+          Condition Damage: [3%, add] #unconfirmed
       wvwModifiers:
         damage:
           Strike Damage: [2%, unknown]
-          Condition Damage: [2%, unknown]
+          Condition Damage: [2%, add] #unconfirmed
       gw2id: 2247
       defaultEnabled: true
 
