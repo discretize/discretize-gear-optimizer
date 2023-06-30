@@ -150,9 +150,9 @@ impl Condition {
             Condition::Burning => 131.0,
             Condition::Confusion => {
                 if is_special {
-                    49.5
+                    16.34
                 } else {
-                    11.0
+                    18.25
                 }
             }
             Condition::Poison => 33.5,
@@ -180,9 +180,9 @@ impl Condition {
             Condition::Burning => 0.155,
             Condition::Confusion => {
                 if is_special {
-                    0.0975
+                    0.0325
                 } else {
-                    0.03
+                    0.05
                 }
             }
             Condition::Poison => 0.06,
