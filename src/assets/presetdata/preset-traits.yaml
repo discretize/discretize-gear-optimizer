@@ -4265,6 +4265,75 @@ list:
         "skills": {}
       }
 
+  - name: Condi Slb D/D SB
+    profession: Soulbeast
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "30",
+          "33",
+          "55"
+        ],
+        "selectedTraits": [
+          [
+            1069,
+            1846,
+            1912
+          ],
+          [
+            1099,
+            1101,
+            1701
+          ],
+          [
+            2071,
+            2161,
+            2128
+          ]
+        ],
+        "items": [
+          {
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {},
+            "sharpened-edges": {
+              "amount": "3.02"
+            }
+          },
+          {
+            "oakheart-salve": {},
+            "taste-for-danger": {},
+            "ambidexterity": {},
+            "ambidexterity-2": {
+              "amount": "50"
+            },
+            "poison-master": {}
+          },
+          {
+            "furious-strength": {
+              "amount": ""
+            },
+            "twice-as-vicious": {
+              "amount": "84.16"
+            },
+            "oppressive-superiority": {},
+            "archetype-deadly": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "one-wolf-pack-no-sic-em-sharpened": {
+            "amount": "0.14"
+          },
+          "vulture-stance": {
+            "amount": "1.68"
+          }
+        }
+      }
+
   - name: Hybrid Slb OS
     profession: Soulbeast
     traits: |-

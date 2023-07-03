@@ -1108,22 +1108,27 @@ list:
       {
         "extras": {
           "Sigil1": {
-            "bursting": {}
+            "bursting": {},
+            "earth": {}
           },
           "Sigil2": {
+            "agony": {},
             "earth": {}
           },
           "Runes": {
-            "krait": {}
+            "krait": {},
+            "thorns": {}
           },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
-            "bowl-of-kimchi-tofu-stew": {}
+            "bowl-of-kimchi-tofu-stew": {},
+            "plate-of-kimchi-pancakes": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Hybrid Slb
