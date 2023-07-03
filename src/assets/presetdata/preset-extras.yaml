@@ -1176,18 +1176,21 @@ list:
     value: |-
       {
         "extras": {
-          "Runes": {
-            "lich": {}
-          },
           "Sigil1": {
-            "malice": {}
+            "earth": {}
           },
-          "Sigil2": {},
-          "Enhancement": {
-            "toxic-maintenance-oil": {}
+          "Sigil2": {
+            "bursting": {},
+            "geomancy": {}
+          },
+          "Runes": {
+            "krait": {}
           },
           "Nourishment": {
-            "salsa-topped-veggie-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {}
+          },
+          "Enhancement": {
+            "toxic-focusing-crystal": {}
           }
         }
       }

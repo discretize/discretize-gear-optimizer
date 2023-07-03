@@ -757,12 +757,12 @@ list:
         extras: Condi Slb
         weaponType: Dual wield
 
-      - name: Condi Druid (Outdated)
+      - name: Condi Druid
         id: condidruid
         specialization: Druid
-        boonType: Power
-        priority: Condi Hybrid Druid 52%
-        distribution: None
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Druid
         traits: Condi Druid
         extras: Condi Druid
         weaponType: Two-handed

@@ -723,13 +723,18 @@ list:
   #       url: https://www.youtube.com/watch?v=70F-uEOb-Bg
   #       log: https://dps.report/Oq8d-20210609-135312_golem
 
-  # https://www.youtube.com/watch?v=5Wipvn8loPk (very old)
-  # - name: Condi Druid (approx.)
-  #   profession: Druid
-  #   value: >-
-  #     {
-  #       "values2": { "Power": 1610, "Power2": 0, "Burning": 2.3, "Bleeding": 19.5, "Poisoned": 4.9, "Torment": 0, "Confusion": 0 }
-  #     }
+  # Gear of log is optimized for 100% bleeding with 100% loyf uptime (realistic
+  # in a fight with dodging) but the log itself has only 5% loyf
+  - name: Condi Druid
+    profession: Druid
+    value: >-
+      {
+        "values2": { "Power": 1587, "Power2": 0, "Burning": 2.37, "Bleeding": 36.59, "Poisoned": 13.17, "Torment": 0.03, "Confusion": 0 }
+      }
+    credit:
+      - author: '[CnD] Tipcat'
+        url: https://www.youtube.com/watch?v=II1pfW01vMc
+        log: https://dps.report/T27X-20230701-154750_golem
 
   # Slightly higher log than video received from Cody
   - name: Power Holo ECSU

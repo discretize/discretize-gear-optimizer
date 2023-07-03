@@ -4401,42 +4401,49 @@ list:
         "showAll": false,
         "selectedLines": [
           "30",
-          "25",
+          "33",
           "5"
         ],
         "selectedTraits": [
           [
             1069,
-            1016,
+            1846,
             1912
           ],
           [
-            1062,
-            965,
-            1038
+            1099,
+            1101,
+            1701
           ],
           [
-            0,
-            0,
-            2057
+            1935,
+            2056,
+            2055
           ]
         ],
         "items": [
           {
             "hidden-barbs": {},
             "hunters-tactics": {},
-            "light-on-your-feet": {},
-            "vicious-quarry": {}
+            "vicious-quarry": {},
+            "sharpened-edges": {
+              "amount": "4.18"
+            }
           },
           {
-            "bountiful-hunter": {
+            "oakheart-salve": {},
+            "taste-for-danger": {},
+            "ambidexterity": {},
+            "ambidexterity-2": {
               "amount": ""
             },
-            "instinctive-reaction": {},
-            "lingering-magic": {}
+            "poison-master": {}
           },
           {
             "natural-mender": {
+              "amount": ""
+            },
+            "natural-balance": {
               "amount": ""
             }
           }
@@ -4444,7 +4451,11 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "pet-dps": {
+            "amount": "2124"
+          }
+        }
       }
 
   - name: Heal Druid
