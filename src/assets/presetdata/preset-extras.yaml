@@ -1136,21 +1136,25 @@ list:
     value: |-
       {
         "extras": {
-          "Sigil1": {},
-          "Sigil2": {},
+          "Sigil1": {
+            "earth": {}
+          },
+          "Sigil2": {
+            "bursting": {}
+          },
           "Runes": {
             "krait": {}
           },
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "plate-of-kimchi-pancakes": {},
-            "spherified-cilantro-oyster-soup": {},
-            "salsa-topped-veggie-flatbread": {}
+            "spherified-cilantro-oyster-soup": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   # - name: Pure Shortbow Slb BM

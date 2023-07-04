@@ -727,13 +727,13 @@ list:
           extras: Power (Raid)
         weaponType: Two-handed
 
-      - name: Hybrid Slb OS (Outdated)
+      - name: Hybrid Slb LotP (Approx.)
         id: hslb
         specialization: Soulbeast
         boonType: Condi
         priority: Hybrid DPS
-        distribution: Hybrid Slb OS (A/T D/A)
-        traits: Hybrid Slb OS
+        distribution: Hybrid Slb A/T D/A (LotP)
+        traits: Hybrid Slb LotP
         extras: Hybrid Slb
         weaponType: Dual wield
 

@@ -711,16 +711,27 @@ list:
         url: https://www.youtube.com/watch?v=57D-xrFdf70
         log: https://dps.report/Y7w9-20230629-181009_golem
 
-  - name: Hybrid Slb OS (A/T D/A)
+  # - name: Hybrid Slb OS (A/T D/A)
+  #   profession: Soulbeast
+  #   value: >-
+  #     {
+  #       "values2": { "Power": 2382, "Power2": 0, "Burning": 2.25, "Bleeding": 23.11, "Poisoned": 3.14, "Torment": 0.05, "Confusion": 0 }
+  #     }
+  #   credit:
+  #     - author: Umbra
+  #       url: https://www.youtube.com/watch?v=SgCNpLWO-KA
+  #       log: https://dps.report/qHdT-20220712-170120_golem
+
+  - name: Hybrid Slb A/T D/A (LotP)
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 2382, "Power2": 0, "Burning": 2.25, "Bleeding": 23.11, "Poisoned": 3.14, "Torment": 0.05, "Confusion": 0 }
+        "values2": { "Power": 2531, "Power2": 0, "Burning": 2.12, "Bleeding": 19.45, "Poisoned": 2.56, "Torment": 0.04, "Confusion": 0 }
       }
     credit:
-      - author: Umbra
-        url: https://www.youtube.com/watch?v=SgCNpLWO-KA
-        log: https://dps.report/qHdT-20220712-170120_golem
+      - author: Pip
+        url: https://www.youtube.com/watch?v=JuZyk0XhypM
+        log: https://dps.report/aZbB-20230628-221125_golem
 
   # im sorry
   # koi cake
