@@ -304,20 +304,27 @@ list:
       }
     noCreditOkay: true
 
-  # - name: Hybrid FB (Honor, no allies)
-  #   profession: Firebrand
-  #   value: >-
-  #     {
-  #       "values2": { "Power": 2242, "Power2": 0, "Burning": 10.5, "Bleeding": 3.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-  #     }
-
-  - name: Hybrid FB Honor
+  - name: Hybrid FB (Honor, No Allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2242, "Power2": 0, "Burning": 12.2, "Bleeding": 3.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2203, "Power2": 0, "Burning": 9.05, "Bleeding": 16.22, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
-    noCreditOkay: true
+    credit:
+      - author: Ostro
+        url: https://www.youtube.com/watch?v=JMOfyIn0A5g
+        log: https://dps.report/nc8C-20230701-014927_golem
+
+  - name: Hybrid FB (Honor, Allies)
+    profession: Firebrand
+    value: >-
+      {
+        "values2": { "Power": 2014, "Power2": 0, "Burning": 10.92, "Bleeding": 16.16, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Ostro
+        url: https://www.youtube.com/watch?v=JMOfyIn0A5g
+        log: https://dps.report/qV8u-20230701-014606_golem
 
   # https://www.youtube.com/watch?v=-OiH1BLuJpo
   # https://dps.report/QdzV-35062rwb_golem

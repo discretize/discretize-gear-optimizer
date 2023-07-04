@@ -1692,9 +1692,9 @@ list:
             558
           ],
           [
-            2101,
+            2075,
             2116,
-            2159
+            2179
           ]
         ],
         "items": [
@@ -1728,7 +1728,11 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "mantra-of-flame": {
+            "amount": ""
+          }
+        }
       }
 
   - name: Healbrand

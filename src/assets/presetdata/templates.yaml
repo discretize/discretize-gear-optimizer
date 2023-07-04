@@ -389,12 +389,12 @@ list:
         extras: Hybrid FB Traveler
         weaponType: Two-handed
 
-      - name: Hybrid FB Honor (Outdated)
-        id: hycfb-honor-leadership
+      - name: Hybrid FB Honor
+        id: hycfb-honor
         specialization: Firebrand
         boonType: Condi
-        priority: Condi Hybrid Firebrand 40%
-        distribution: Hybrid FB Honor
+        priority: Condi Hybrid Firebrand 78%
+        distribution: Hybrid FB (Honor, Allies)
         traits: Hybrid FB Honor
         extras: Hybrid FB Traveler
         weaponType: Two-handed

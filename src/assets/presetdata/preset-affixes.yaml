@@ -225,6 +225,16 @@ list:
         "minQuicknessDuration": 40
       }
 
+  - name: Condi Hybrid Firebrand 78%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Seraph", "Celestial"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 78
+      }
+
   - name: Quickness Condi Chrono 10%
     hidden: true
     value: >-

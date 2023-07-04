@@ -750,21 +750,27 @@ list:
       {
         "extras": {
           "Runes": {
-            "traveler": {}
+            "traveler": {},
+            "monk": {},
+            "leadership": {}
           },
           "Sigil1": {
-            "bursting": {}
+            "bursting": {},
+            "concentration": {}
           },
           "Sigil2": {
             "smoldering": {}
           },
           "Enhancement": {
-            "master-tuning-crystal": {}
+            "master-tuning-crystal": {},
+            "magnanimous-maintenance-oil": {}
           },
           "Nourishment": {
-            "cilantro-and-cured-meat-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "spherified-cilantro-oyster-soup": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: Condi Berserker
