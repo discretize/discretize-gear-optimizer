@@ -986,7 +986,9 @@ list:
             "bursting": {}
           },
           "Sigil2": {
-            "torment": {},
+            "torment": {
+              "amount": "1.87"
+            },
             "concentration": {}
           },
           "Enhancement": {

@@ -3403,15 +3403,15 @@ list:
             1511
           ],
           [
-            1952,
-            1902,
+            1886,
+            1891,
             2033
           ]
         ],
         "items": [
           {
             "empowering-flame": {
-              "amount": "48"
+              "amount": "48.5"
             },
             "burning-precision": {},
             "burning-rage": {},
@@ -3421,7 +3421,7 @@ list:
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": "9.9"
+              "amount": "9.8"
             }
           },
           {
@@ -3430,7 +3430,7 @@ list:
               "amount": ""
             },
             "bountiful-power": {
-              "amount": "10.6"
+              "amount": "10.2"
             }
           },
           {
@@ -3439,7 +3439,10 @@ list:
             "transcendent-tempest": {
               "amount": "62"
             },
-            "gathered-focus-2": {}
+            "gathered-focus-2": {},
+            "tempestuous-aria": {
+              "amount": ""
+            }
           }
         ]
       }
