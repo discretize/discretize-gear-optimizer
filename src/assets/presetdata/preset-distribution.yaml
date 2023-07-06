@@ -304,20 +304,27 @@ list:
       }
     noCreditOkay: true
 
-  # - name: Hybrid FB (Honor, no allies)
-  #   profession: Firebrand
-  #   value: >-
-  #     {
-  #       "values2": { "Power": 2242, "Power2": 0, "Burning": 10.5, "Bleeding": 3.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
-  #     }
-
-  - name: Hybrid FB Honor
+  - name: Hybrid FB (Honor, No Allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2242, "Power2": 0, "Burning": 12.2, "Bleeding": 3.7, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2203, "Power2": 0, "Burning": 9.05, "Bleeding": 16.22, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
-    noCreditOkay: true
+    credit:
+      - author: Ostro
+        url: https://www.youtube.com/watch?v=JMOfyIn0A5g
+        log: https://dps.report/nc8C-20230701-014927_golem
+
+  - name: Hybrid FB (Honor, Allies)
+    profession: Firebrand
+    value: >-
+      {
+        "values2": { "Power": 2014, "Power2": 0, "Burning": 10.92, "Bleeding": 16.16, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+      }
+    credit:
+      - author: Ostro
+        url: https://www.youtube.com/watch?v=JMOfyIn0A5g
+        log: https://dps.report/qV8u-20230701-014606_golem
 
   # https://www.youtube.com/watch?v=-OiH1BLuJpo
   # https://dps.report/QdzV-35062rwb_golem
@@ -437,12 +444,12 @@ list:
     profession: Tempest
     value: >-
       {
-        "values2": { "Power": 3094, "Power2": 0, "Burning": 10.83, "Bleeding": 12.22, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3070, "Power2": 0, "Burning": 11.78, "Bleeding": 11.98, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Dánmander'
-        url: https://www.youtube.com/watch?v=M3ZgexzwctE
-        log: https://dps.report/kLLn-20230503-182011_golem
+        url: https://www.youtube.com/watch?v=XN0BMPviEjQ
+        log: https://dps.report/NwjR-20230628-160448_golem
 
   - name: Condi Tempest
     profession: Tempest
@@ -699,16 +706,39 @@ list:
     credit:
       - author: Snow Crows
 
-  - name: Hybrid Slb OS (A/T D/A)
+  # Approximated with full solo hits/cast of vulture stance (36)
+  - name: Condi Slb D/D SB
     profession: Soulbeast
     value: >-
       {
-        "values2": { "Power": 2382, "Power2": 0, "Burning": 2.25, "Bleeding": 23.11, "Poisoned": 3.14, "Torment": 0.05, "Confusion": 0 }
+        "values2": { "Power": 1668, "Power2": 0, "Burning": 0, "Bleeding": 24.25, "Poisoned": 12.28, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: Umbra
-        url: https://www.youtube.com/watch?v=SgCNpLWO-KA
-        log: https://dps.report/qHdT-20220712-170120_golem
+      - author: Pip
+        url: https://www.youtube.com/watch?v=57D-xrFdf70
+        log: https://dps.report/Y7w9-20230629-181009_golem
+
+  # - name: Hybrid Slb OS (A/T D/A)
+  #   profession: Soulbeast
+  #   value: >-
+  #     {
+  #       "values2": { "Power": 2382, "Power2": 0, "Burning": 2.25, "Bleeding": 23.11, "Poisoned": 3.14, "Torment": 0.05, "Confusion": 0 }
+  #     }
+  #   credit:
+  #     - author: Umbra
+  #       url: https://www.youtube.com/watch?v=SgCNpLWO-KA
+  #       log: https://dps.report/qHdT-20220712-170120_golem
+
+  - name: Hybrid Slb A/T D/A (LotP)
+    profession: Soulbeast
+    value: >-
+      {
+        "values2": { "Power": 2531, "Power2": 0, "Burning": 2.12, "Bleeding": 19.45, "Poisoned": 2.56, "Torment": 0.04, "Confusion": 0 }
+      }
+    credit:
+      - author: Pip
+        url: https://www.youtube.com/watch?v=JuZyk0XhypM
+        log: https://dps.report/aZbB-20230628-221125_golem
 
   # im sorry
   # koi cake
@@ -723,13 +753,18 @@ list:
   #       url: https://www.youtube.com/watch?v=70F-uEOb-Bg
   #       log: https://dps.report/Oq8d-20210609-135312_golem
 
-  # https://www.youtube.com/watch?v=5Wipvn8loPk (very old)
-  # - name: Condi Druid (approx.)
-  #   profession: Druid
-  #   value: >-
-  #     {
-  #       "values2": { "Power": 1610, "Power2": 0, "Burning": 2.3, "Bleeding": 19.5, "Poisoned": 4.9, "Torment": 0, "Confusion": 0 }
-  #     }
+  # Gear of log is optimized for 100% bleeding with 100% loyf uptime (realistic
+  # in a fight with dodging) but the log itself has only 5% loyf
+  - name: Condi Druid
+    profession: Druid
+    value: >-
+      {
+        "values2": { "Power": 1587, "Power2": 0, "Burning": 2.37, "Bleeding": 36.59, "Poisoned": 13.17, "Torment": 0.03, "Confusion": 0 }
+      }
+    credit:
+      - author: '[CnD] Tipcat'
+        url: https://www.youtube.com/watch?v=II1pfW01vMc
+        log: https://dps.report/T27X-20230701-154750_golem
 
   # Slightly higher log than video received from Cody
   - name: Power Holo ECSU

@@ -1692,9 +1692,9 @@ list:
             558
           ],
           [
-            2101,
+            2075,
             2116,
-            2159
+            2179
           ]
         ],
         "items": [
@@ -1728,7 +1728,11 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "mantra-of-flame": {
+            "amount": ""
+          }
+        }
       }
 
   - name: Healbrand
@@ -3403,15 +3407,15 @@ list:
             1511
           ],
           [
-            1952,
-            1902,
+            1886,
+            1891,
             2033
           ]
         ],
         "items": [
           {
             "empowering-flame": {
-              "amount": "48"
+              "amount": "48.5"
             },
             "burning-precision": {},
             "burning-rage": {},
@@ -3421,7 +3425,7 @@ list:
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": "9.9"
+              "amount": "9.8"
             }
           },
           {
@@ -3430,7 +3434,7 @@ list:
               "amount": ""
             },
             "bountiful-power": {
-              "amount": "10.6"
+              "amount": "10.2"
             }
           },
           {
@@ -3439,7 +3443,10 @@ list:
             "transcendent-tempest": {
               "amount": "62"
             },
-            "gathered-focus-2": {}
+            "gathered-focus-2": {},
+            "tempestuous-aria": {
+              "amount": ""
+            }
           }
         ]
       }
@@ -4265,6 +4272,75 @@ list:
         "skills": {}
       }
 
+  - name: Condi Slb D/D SB
+    profession: Soulbeast
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "30",
+          "33",
+          "55"
+        ],
+        "selectedTraits": [
+          [
+            1069,
+            1846,
+            1912
+          ],
+          [
+            1099,
+            1101,
+            1701
+          ],
+          [
+            2071,
+            2161,
+            2128
+          ]
+        ],
+        "items": [
+          {
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {},
+            "sharpened-edges": {
+              "amount": "3.02"
+            }
+          },
+          {
+            "oakheart-salve": {},
+            "taste-for-danger": {},
+            "ambidexterity": {},
+            "ambidexterity-2": {
+              "amount": "50"
+            },
+            "poison-master": {}
+          },
+          {
+            "furious-strength": {
+              "amount": ""
+            },
+            "twice-as-vicious": {
+              "amount": "84.16"
+            },
+            "oppressive-superiority": {},
+            "archetype-deadly": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "one-wolf-pack-no-sic-em-sharpened": {
+            "amount": "0.14"
+          },
+          "vulture-stance": {
+            "amount": "1.68"
+          }
+        }
+      }
+
   - name: Hybrid Slb OS
     profession: Soulbeast
     traits: |-
@@ -4335,6 +4411,76 @@ list:
         }
       }
 
+  - name: Hybrid Slb LotP
+    profession: Soulbeast
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "30",
+          "32",
+          "55"
+        ],
+        "selectedTraits": [
+          [
+            1069,
+            1846,
+            1888
+          ],
+          [
+            1072,
+            970,
+            1066
+          ],
+          [
+            2071,
+            2161,
+            2128
+          ]
+        ],
+        "items": [
+          {
+            "hidden-barbs": {},
+            "hunters-tactics": {},
+            "vicious-quarry": {},
+            "sharpened-edges": {
+              "amount": "3.62"
+            }
+          },
+          {
+            "honed-axes": {},
+            "honed-axes-axe": {
+              "amount": "100"
+            }
+          },
+          {
+            "furious-strength": {
+              "amount": ""
+            },
+            "twice-as-vicious": {
+              "amount": "81"
+            },
+            "oppressive-superiority": {},
+            "archetype-deadly": {},
+            "pack-alpha-merged": {},
+            "loud-whistle-merged": {},
+            "pets-prowess-merged": {},
+            "honed-axes-merged": {}
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {
+          "one-wolf-pack-sic-em-sharpened": {
+            "amount": "0.21"
+          },
+          "vulture-stance": {
+            "amount": "1.7"
+          }
+        }
+      }
+
   # - name: Pure Shortbow Slb BM
   #   profession: Soulbeast
   #   traits: |-
@@ -4401,42 +4547,49 @@ list:
         "showAll": false,
         "selectedLines": [
           "30",
-          "25",
+          "33",
           "5"
         ],
         "selectedTraits": [
           [
             1069,
-            1016,
+            1846,
             1912
           ],
           [
-            1062,
-            965,
-            1038
+            1099,
+            1101,
+            1701
           ],
           [
-            0,
-            0,
-            2057
+            1935,
+            2056,
+            2055
           ]
         ],
         "items": [
           {
             "hidden-barbs": {},
             "hunters-tactics": {},
-            "light-on-your-feet": {},
-            "vicious-quarry": {}
+            "vicious-quarry": {},
+            "sharpened-edges": {
+              "amount": "4.18"
+            }
           },
           {
-            "bountiful-hunter": {
+            "oakheart-salve": {},
+            "taste-for-danger": {},
+            "ambidexterity": {},
+            "ambidexterity-2": {
               "amount": ""
             },
-            "instinctive-reaction": {},
-            "lingering-magic": {}
+            "poison-master": {}
           },
           {
             "natural-mender": {
+              "amount": ""
+            },
+            "natural-balance": {
               "amount": ""
             }
           }
@@ -4444,7 +4597,11 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "pet-dps": {
+            "amount": "2124"
+          }
+        }
       }
 
   - name: Heal Druid

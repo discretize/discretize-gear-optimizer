@@ -389,12 +389,12 @@ list:
         extras: Hybrid FB Traveler
         weaponType: Two-handed
 
-      - name: Hybrid FB Honor (Outdated)
-        id: hycfb-honor-leadership
+      - name: Hybrid FB Honor
+        id: hycfb-honor
         specialization: Firebrand
         boonType: Condi
-        priority: Condi Hybrid Firebrand 40%
-        distribution: Hybrid FB Honor
+        priority: Condi Hybrid Firebrand 78%
+        distribution: Hybrid FB (Honor, Allies)
         traits: Hybrid FB Honor
         extras: Hybrid FB Traveler
         weaponType: Two-handed
@@ -529,11 +529,11 @@ list:
   - class: Elementalist
     builds:
 
-      - name: Alacrity Hybrid Tempest (Outdated)
+      - name: Alacrity Hybrid Tempest
         id: ctemp-alac
         specialization: Tempest
         boonType: Condi
-        priority: Alacrity Hybrid Tempest 57%
+        priority: Alacrity Hybrid Tempest 28%
         distribution: Alacrity Hybrid Tempest
         traits: Alacrity Hybrid Tempest
         extras: Alacrity Hybrid Tempest
@@ -727,13 +727,13 @@ list:
           extras: Power (Raid)
         weaponType: Two-handed
 
-      - name: Hybrid Slb OS (Outdated)
+      - name: Hybrid Slb LotP (Approx.)
         id: hslb
         specialization: Soulbeast
         boonType: Condi
         priority: Hybrid DPS
-        distribution: Hybrid Slb OS (A/T D/A)
-        traits: Hybrid Slb OS
+        distribution: Hybrid Slb A/T D/A (LotP)
+        traits: Hybrid Slb LotP
         extras: Hybrid Slb
         weaponType: Dual wield
 
@@ -747,22 +747,30 @@ list:
         extras: Condi Slb
         weaponType: Two-handed
 
-      - name: Condi Slb D/T A/D (Outdated)
-        id: cslb-dtad
+      # - name: Condi Slb D/T A/D (Outdated)
+      #   id: cslb-dtad
+      #   specialization: Soulbeast
+      #   boonType: Condi
+      #   priority: Condi DPS
+      #   distribution: Condi Slb (D/T A/D)
+      #   traits: Condi Slb D/T A/D
+
+      - name: Condi Slb D/D SB
+        id: cslb-ddsb
         specialization: Soulbeast
         boonType: Condi
         priority: Condi DPS
-        distribution: Condi Slb (D/T A/D)
-        traits: Condi Slb D/T A/D
+        distribution: Condi Slb D/D SB
+        traits: Condi Slb D/D SB
         extras: Condi Slb
         weaponType: Dual wield
 
-      - name: Condi Druid (Outdated)
+      - name: Condi Druid
         id: condidruid
         specialization: Druid
-        boonType: Power
-        priority: Condi Hybrid Druid 52%
-        distribution: None
+        boonType: Condi
+        priority: Condi DPS
+        distribution: Condi Druid
         traits: Condi Druid
         extras: Condi Druid
         weaponType: Two-handed

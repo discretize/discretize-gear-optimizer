@@ -386,6 +386,18 @@
       gw2id: 1992
       defaultEnabled: true
 
+    - id: natural-balance
+      text: Natural Balance
+      amountData:
+        label: '% uptime'
+        default: 100
+        quantityEntered: 100
+      modifiers:
+        damage:
+          Condition Damage: [10%, add] # unconfirmed
+      gw2id: 2056
+      defaultEnabled: true
+
 - section: Soulbeast
   id: 55
   note: >-
