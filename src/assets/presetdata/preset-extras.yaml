@@ -1002,7 +1002,8 @@ list:
             "toxic-maintenance-oil": {}
           },
           "Nourishment": {
-            "spherified-cilantro-oyster-soup": {}
+            "spherified-cilantro-oyster-soup": {},
+            "cilantro-and-cured-meat-flatbread": {}
           }
         },
         "lifestealAmount": ""
