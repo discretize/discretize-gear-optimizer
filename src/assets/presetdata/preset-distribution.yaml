@@ -876,12 +876,12 @@ list:
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 3220, "Power2": 846, "Burning": 0, "Bleeding": 0.87, "Poisoned": 0, "Torment": 0, "Confusion": 0.91 }
+        "values2": { "Power": 3337, "Power2": 1036, "Burning": 0, "Bleeding": 0.68, "Poisoned": 0, "Torment": 0, "Confusion": 0.81 }
       }
     credit:
       - author: '[CnD] Tipcat'
-        url: https://www.youtube.com/watch?v=XRPqrOi7tMo
-        log: https://dps.report/aj9k-20221206-110420_golem
+        url: https://www.youtube.com/watch?v=-ILwD0mMl3M
+        log: https://dps.report/3bs5-20230709-133638_golem
 
   # concentration
   - name: Quickness Power Chrono GS+Focus
@@ -899,12 +899,12 @@ list:
     profession: Chronomancer
     value: >-
       {
-        "values2": { "Power": 3334, "Power2": 504, "Burning": 0, "Bleeding": 0.61, "Poisoned": 0, "Torment": 0, "Confusion": 0.62 }
+        "values2": { "Power": 3337, "Power2": 1036, "Burning": 0, "Bleeding": 0.68, "Poisoned": 0, "Torment": 0, "Confusion": 0.81 }
       }
     credit:
       - author: '[CnD] Tipcat'
-        url: https://www.youtube.com/watch?v=jWuZI03lVaM
-        log: https://dps.report/rXY9-20230225-232150_golem
+        url: https://www.youtube.com/watch?v=-ILwD0mMl3M
+        log: https://dps.report/3bs5-20230709-133638_golem
 
   # DT focus domi/duel
   # asassin leg acc acc
