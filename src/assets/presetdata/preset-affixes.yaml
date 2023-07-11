@@ -245,6 +245,16 @@ list:
         "minQuicknessDuration": 10.3
       }
 
+  - name: Boon Power Chrono 0%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 0
+      }
+
   - name: Quickness Power Chrono 10%
     hidden: true
     value: >-
