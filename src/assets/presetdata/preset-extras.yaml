@@ -1697,6 +1697,7 @@ list:
           },
           "Sigil2": {
             "geomancy-torment-harb": {},
+            "earth-torment-harb": {},
             "torment": {
               "amount": "1.85"
             }

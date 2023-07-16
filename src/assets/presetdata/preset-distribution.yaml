@@ -1081,12 +1081,12 @@ list:
     profession: Harbinger
     value: >-
       {
-        "values2": { "Power": 2280, "Power2": 0, "Burning": 1.63, "Bleeding": 7.75, "Poisoned": 7.83, "Torment": 21.68, "Confusion": 0.63 }
+        "values2": { "Power": 2335, "Power2": 0, "Burning": 1.64, "Bleeding": 8.52, "Poisoned": 6.24, "Torment": 22.2, "Confusion": 0.62 }
       }
     credit:
       - author: 'Sarulias'
-        url: https://www.youtube.com/watch?v=fwbcLsRFLes
-        log: https://dps.report/gPxU-20230506-103307_golem
+        url: https://www.youtube.com/watch?v=H8HSxOe0F_w
+        log: https://dps.report/iX8i-20230709-182710_golem
 
   # approximates earth/bursting as bursting only
   - name: Quickness Harbinger
