@@ -34,7 +34,7 @@ list:
         extras: Condi Virtuoso Chaos
         weaponType: Dual wield
 
-      - name: Power Virtuoso GS (Outdated)
+      - name: Power Virtuoso GS
         id: pvirt-gs
         specialization: Virtuoso
         boonType: Power
