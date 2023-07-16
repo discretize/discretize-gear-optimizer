@@ -4,7 +4,7 @@ list:
   - class: Mesmer
     builds:
 
-      - name: Condi Virtuoso Dueling (Outdated)
+      - name: Condi Virtuoso Dueling
         id: cvirt
         specialization: Virtuoso
         boonType: Condi

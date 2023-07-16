@@ -995,12 +995,12 @@ list:
     profession: Virtuoso
     value: >-
       {
-        "values2": { "Power": 2854, "Power2": 896, "Burning": 0, "Bleeding": 0.18, "Poisoned": 0.04, "Torment": 8.12, "Confusion": 3.46 }
+        "values2": { "Power": 3064, "Power2": 923, "Burning": 0, "Bleeding": -0.87, "Poisoned": 0.01, "Torment": 8.89, "Confusion": 3.35 }
       }
     credit:
       - author: 'REMagic'
-        url: https://www.youtube.com/watch?v=WNCn66u-nhQ
-        log: https://dps.report/xE4Z-20220807-013444_golem
+        url: https://www.youtube.com/watch?v=0gVZuCXMg84
+        log: https://dps.report/Rg1w-20230701-125257_golem
 
   # simulated from above log (currently outdated)
   # remove 19 phantasmal blades procs in 97 sec

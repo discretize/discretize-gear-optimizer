@@ -721,14 +721,14 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": "5.41"
+              "amount": "5.49"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
             "sharper-images-phantasm": {
-              "amount": "1.75"
+              "amount": "1.87"
             },
             "phantasmal-fury-virtuoso": {}
           },
@@ -737,13 +737,13 @@ list:
               "amount": ""
             },
             "deadly-blades": {
-              "amount": "96.7"
+              "amount": "100"
             },
             "sharpening-sorrow": {},
             "quiet-intensity": {},
             "bloodsong": {},
             "jagged-mind": {
-              "amount": "5.21"
+              "amount": "6.04"
             }
           }
         ]
