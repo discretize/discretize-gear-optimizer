@@ -24,7 +24,7 @@ list:
       #   extras: Condi Virtuoso Dueling
       #   weaponType: Dual wield
 
-      - name: Condi Virtuoso Chaos (Outdated)
+      - name: Condi Virtuoso Chaos
         id: cvirt-chaos
         specialization: Virtuoso
         boonType: Condi
