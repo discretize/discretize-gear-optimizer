@@ -6514,7 +6514,7 @@ list:
         ],
         "selectedTraits": [
           [
-            2013,
+            1883,
             816,
             801
           ],
@@ -6539,7 +6539,7 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "3"
+              "amount": "2.97"
             }
           },
           {
@@ -6554,7 +6554,7 @@ list:
               "amount": ""
             },
             "septic-corruption": {
-              "amount": "21.2"
+              "amount": "20.9"
             },
             "alchemic-vigor": {},
             "implacable-foe": {},
@@ -6569,7 +6569,7 @@ list:
       {
         "skills": {
           "signet-of-spite": {
-            "amount": "16.4"
+            "amount": "14.5"
           }
         }
       }
