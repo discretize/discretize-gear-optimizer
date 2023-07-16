@@ -1163,7 +1163,7 @@ list:
         extras: Condi Daredevil
         weaponType: Dual wield
 
-      - name: Power Staff Daredevil (Outdated)
+      - name: Power Staff Daredevil
         id: staffdd
         specialization: Daredevil
         boonType: Power

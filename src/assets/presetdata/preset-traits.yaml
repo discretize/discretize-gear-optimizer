@@ -6742,7 +6742,7 @@ list:
               "amount": ""
             },
             "revealed-training-revealed": {
-              "amount": "7.75"
+              "amount": "6"
             }
           },
           {
@@ -6766,7 +6766,7 @@ list:
               "amount": ""
             },
             "bounding-dodger": {
-              "amount": "67"
+              "amount": "78.3"
             },
             "lotus-training": {}
           }
@@ -6775,12 +6775,11 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-agility": {},
           "assassins-signet": {
-            "amount": "7.7"
+            "amount": "42.9"
           },
           "assassins-signet-active": {
-            "amount": "30.4"
+            "amount": "20.1"
           }
         }
       }

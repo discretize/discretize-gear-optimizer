@@ -1126,12 +1126,12 @@ list:
     profession: Daredevil
     value: >-
       {
-        "values2": { "Power": 2925, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0.94, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3362, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 2.95, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Left'
-        url: https://www.youtube.com/watch?v=5AekaqupaN8
-        log: https://dps.report/wYRI-20220824-133048_golem
+        url: https://www.youtube.com/watch?v=nIGSw-6wyKw
+        log: https://www.dps.report/lo1Z-20230629-124023_golem
 
   - name: Condi Daredevil (No Allies)
     profession: Daredevil
