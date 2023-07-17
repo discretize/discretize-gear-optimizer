@@ -239,30 +239,27 @@ list:
       - author: 'Support Hero'
         url: https://www.youtube.com/watch?v=_GFennqOKVg
 
-  # 10 boons
-  # ritualist shld coat glov boot, weighty terms
-  # T10 JADE BOT and reinforced armor (in video)
   - name: Condi Quickbrand (WT, Allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2183, "Power2": 0, "Burning": 14.89, "Bleeding": 3.51, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1807, "Power2": 0, "Burning": 12.91, "Bleeding": 13.76, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=LBxfNYeAqXU
-        log: https://dps.report/vz84-20221217-161514_golem
+      - author: Ostro
+        url: https://www.youtube.com/watch?v=1FpisomEybw
+        log: https://dps.report/oWmb-20230710-230617_golem
 
   - name: Condi Quickbrand (WT, No Allies)
     profession: Firebrand
     value: >-
       {
-        "values2": { "Power": 2202, "Power2": 0, "Burning": 12.77, "Bleeding": 3.52, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 1912, "Power2": 0, "Burning": 11.52, "Bleeding": 14, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: 'Support Hero'
-        url: https://www.youtube.com/watch?v=LBxfNYeAqXU
-        log: https://dps.report/nQw1-20221217-170857_golem
+      - author: Ostro
+        url: https://www.youtube.com/watch?v=1FpisomEybw
+        log: https://dps.report/xiiO-20230710-235809_golem
 
   # Solo log adjusted upwards to match with-allies dps (no log for the with allies bench)
   - name: Condi Quickbrand (LL, Allies, Approx.)
