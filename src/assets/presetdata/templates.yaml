@@ -216,25 +216,25 @@ list:
       #   traits: Condi Quickbrand
       #   extras: CFB w/ Quickness (renegade)
 
-      - name: Condi Firebrand 5 Page RF (Outdated)
+      - name: Condi Firebrand 5 Page RF
         id: cfb-geo
         specialization: Firebrand
         boonType: Condi
         priority: Condi DPS
         distribution: CFB (5 Page RF, Allies)
         traits: CFB DPS 5 Page
-        extras: CFB DPS (5 Page, Balthazar)
+        extras: Condi Firebrand
         weaponType: Dual wield
 
-      - name: Condi Firebrand 8 Page (Outdated)
-        id: cfb-8-balth
-        specialization: Firebrand
-        boonType: Condi
-        priority: Condi DPS
-        distribution: CFB (8 Page, Allies)
-        traits: CFB DPS 8 Page
-        extras: CFB DPS (8 Page, Balthazar)
-        weaponType: Dual wield
+      # - name: Condi Firebrand 8 Page (Outdated)
+      #   id: cfb-8-balth
+      #   specialization: Firebrand
+      #   boonType: Condi
+      #   priority: Condi DPS
+      #   distribution: CFB (8 Page, Allies)
+      #   traits: CFB DPS 8 Page
+      #   extras: CFB DPS (8 Page, Balthazar)
+      #   weaponType: Dual wield
 
       - name: Power DH Radiance
         id: dh-radiance
