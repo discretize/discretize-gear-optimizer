@@ -371,12 +371,12 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 3758, "Power2": 0, "Burning": 5.96, "Bleeding": 3.5, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3833, "Power2": 0, "Burning": 5.72, "Bleeding": 3.14, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Ryan'
-        url: https://www.youtube.com/watch?v=nS-udOqtqAQ
-        log: https://dps.report/jpIq-20230218-140800_golem
+        url: https://www.youtube.com/watch?v=GgZ3xWRKtDs
+        log: https://dps.report/i0o0-20230706-075619_golem
 
   # no jade bot
   - name: Condi Weaver Sword

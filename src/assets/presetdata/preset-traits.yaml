@@ -2907,17 +2907,17 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "49.8"
+              "amount": "50.4"
             },
             "burning-precision": {},
             "burning-rage": {},
             "power-overwhelming": {},
             "power-overwhelming-2": {
-              "amount": "49.8"
+              "amount": "50.4"
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": "8.9"
+              "amount": "8.8"
             }
           },
           {
@@ -2930,7 +2930,7 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "42.1"
+              "amount": "44"
             },
             "bolt-to-the-heart": {
               "amount": ""
@@ -2949,10 +2949,10 @@ list:
               "amount": ""
             },
             "elemental-polyphony-fire": {
-              "amount": "72.5"
+              "amount": "74.3"
             },
             "elemental-polyphony-air": {
-              "amount": "61.8"
+              "amount": "66.7"
             },
             "elements-of-rage-base": {},
             "elements-of-rage-buff": {
@@ -2965,10 +2965,10 @@ list:
       {
         "skills": {
           "woven-fire": {
-            "amount": "48.7"
+            "amount": "48.4"
           },
           "woven-air": {
-            "amount": "47.9"
+            "amount": "47.7"
           }
         }
       }
