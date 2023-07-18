@@ -205,6 +205,7 @@ export const sigilDict = [
   'ruby-orb',
   'no-item-sigil',
   'fire-sigil',
+  'earth-torment-harb',
 ];
 
 export const enhancementDict = [

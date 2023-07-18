@@ -621,27 +621,31 @@ list:
         }
       }
 
-  - name: CFB DPS (5 Page, Balthazar)
+  - name: Condi Firebrand
     profession: Firebrand
     value: |-
       {
         "extras": {
           "Runes": {
-            "balthazar": {}
+            "balthazar": {},
+            "renegade": {}
           },
           "Sigil1": {
             "bursting": {}
           },
           "Sigil2": {
-            "geomancy-torment-cfb5-virtues": {}
+            "geomancy-torment-cfb5-virtues": {},
+            "smoldering": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {}
           },
           "Nourishment": {
-            "cilantro-and-cured-meat-flatbread": {}
+            "cilantro-and-cured-meat-flatbread": {},
+            "fishy-rice-bowl": {}
           }
-        }
+        },
+        "lifestealAmount": ""
       }
 
   - name: CFB DPS (8 Page, Balthazar)
@@ -1697,6 +1701,7 @@ list:
           },
           "Sigil2": {
             "geomancy-torment-harb": {},
+            "earth-torment-harb": {},
             "torment": {
               "amount": "1.85"
             }

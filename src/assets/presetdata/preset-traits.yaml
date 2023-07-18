@@ -721,14 +721,14 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": "5.41"
+              "amount": "5.49"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
             "sharper-images-phantasm": {
-              "amount": "1.75"
+              "amount": "1.87"
             },
             "phantasmal-fury-virtuoso": {}
           },
@@ -737,13 +737,13 @@ list:
               "amount": ""
             },
             "deadly-blades": {
-              "amount": "96.7"
+              "amount": "100"
             },
             "sharpening-sorrow": {},
             "quiet-intensity": {},
             "bloodsong": {},
             "jagged-mind": {
-              "amount": "5.21"
+              "amount": "6.04"
             }
           }
         ]
@@ -880,7 +880,7 @@ list:
               "amount": ""
             },
             "deadly-blades": {
-              "amount": "96.4"
+              "amount": "100"
             },
             "sharpening-sorrow": {},
             "quiet-intensity": {},
@@ -940,14 +940,14 @@ list:
           },
           {
             "fencers-finesse": {
-              "amount": "4.79"
+              "amount": "4.69"
             },
             "superiority-complex-base": {},
             "superiority-complex": {
               "amount": ""
             },
             "sharper-images-phantasm": {
-              "amount": "1.81"
+              "amount": "1.7"
             },
             "phantasmal-fury-virtuoso": {}
           },
@@ -956,7 +956,7 @@ list:
               "amount": ""
             },
             "deadly-blades": {
-              "amount": "76.8"
+              "amount": "90.8"
             },
             "sharpening-sorrow": {},
             "quiet-intensity": {},
@@ -1345,7 +1345,7 @@ list:
             622
           ],
           [
-            2101,
+            2075,
             2063,
             2179
           ]
@@ -1529,7 +1529,7 @@ list:
             "amount": ""
           },
           "mantra-of-flame": {
-            "amount": "1.26"
+            "amount": ""
           }
         }
       }
@@ -2134,7 +2134,7 @@ list:
             "double-standards-disc": {},
             "axe-mastery-one": {},
             "axe-mastery-axe": {
-              "amount": "63"
+              "amount": "75"
             }
           },
           {
@@ -2907,17 +2907,17 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "49.8"
+              "amount": "50.4"
             },
             "burning-precision": {},
             "burning-rage": {},
             "power-overwhelming": {},
             "power-overwhelming-2": {
-              "amount": "49.8"
+              "amount": "50.4"
             },
             "pyromancers-training": {},
             "persisting-flames": {
-              "amount": "8.9"
+              "amount": "8.8"
             }
           },
           {
@@ -2930,7 +2930,7 @@ list:
             },
             "aeromancers-training": {},
             "aeromancers-training-2": {
-              "amount": "42.1"
+              "amount": "44"
             },
             "bolt-to-the-heart": {
               "amount": ""
@@ -2949,10 +2949,10 @@ list:
               "amount": ""
             },
             "elemental-polyphony-fire": {
-              "amount": "72.5"
+              "amount": "74.3"
             },
             "elemental-polyphony-air": {
-              "amount": "61.8"
+              "amount": "66.7"
             },
             "elements-of-rage-base": {},
             "elements-of-rage-buff": {
@@ -2965,10 +2965,10 @@ list:
       {
         "skills": {
           "woven-fire": {
-            "amount": "48.7"
+            "amount": "48.4"
           },
           "woven-air": {
-            "amount": "47.9"
+            "amount": "47.7"
           }
         }
       }
@@ -3508,7 +3508,11 @@ list:
             "hardy-conduit": {},
             "transcendent-tempest": {
               "amount": "62"
-            }
+            },
+            "tempestuous-aria": {
+              "amount": ""
+            },
+            "gathered-focus-2": {}
           }
         ]
       }
@@ -6468,7 +6472,7 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "3.02"
+              "amount": "3.07"
             }
           },
           {
@@ -6483,7 +6487,7 @@ list:
               "amount": ""
             },
             "septic-corruption": {
-              "amount": "21.6"
+              "amount": "21.4"
             },
             "alchemic-vigor": {},
             "implacable-foe": {},
@@ -6495,7 +6499,11 @@ list:
       }
     skills: |-
       {
-        "skills": {}
+        "skills": {
+          "signet-of-spite": {
+            "amount": "11.9"
+          }
+        }
       }
 
   - name: Quickness Harbinger
@@ -6510,7 +6518,7 @@ list:
         ],
         "selectedTraits": [
           [
-            2013,
+            1883,
             816,
             801
           ],
@@ -6535,7 +6543,7 @@ list:
             },
             "lingering-curse": {},
             "barbed-precision-on-crit": {
-              "amount": "3"
+              "amount": "2.97"
             }
           },
           {
@@ -6550,7 +6558,7 @@ list:
               "amount": ""
             },
             "septic-corruption": {
-              "amount": "21.2"
+              "amount": "20.9"
             },
             "alchemic-vigor": {},
             "implacable-foe": {},
@@ -6565,7 +6573,7 @@ list:
       {
         "skills": {
           "signet-of-spite": {
-            "amount": "16.4"
+            "amount": "14.5"
           }
         }
       }
@@ -6742,7 +6750,7 @@ list:
               "amount": ""
             },
             "revealed-training-revealed": {
-              "amount": "7.75"
+              "amount": "6"
             }
           },
           {
@@ -6766,7 +6774,7 @@ list:
               "amount": ""
             },
             "bounding-dodger": {
-              "amount": "67"
+              "amount": "78.3"
             },
             "lotus-training": {}
           }
@@ -6775,12 +6783,11 @@ list:
     skills: |-
       {
         "skills": {
-          "signet-of-agility": {},
           "assassins-signet": {
-            "amount": "7.7"
+            "amount": "42.9"
           },
           "assassins-signet-active": {
-            "amount": "30.4"
+            "amount": "20.1"
           }
         }
       }

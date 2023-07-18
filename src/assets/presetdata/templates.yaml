@@ -4,7 +4,7 @@ list:
   - class: Mesmer
     builds:
 
-      - name: Condi Virtuoso Dueling (Outdated)
+      - name: Condi Virtuoso Dueling
         id: cvirt
         specialization: Virtuoso
         boonType: Condi
@@ -24,7 +24,7 @@ list:
       #   extras: Condi Virtuoso Dueling
       #   weaponType: Dual wield
 
-      - name: Condi Virtuoso Chaos (Outdated)
+      - name: Condi Virtuoso Chaos
         id: cvirt-chaos
         specialization: Virtuoso
         boonType: Condi
@@ -34,7 +34,7 @@ list:
         extras: Condi Virtuoso Chaos
         weaponType: Dual wield
 
-      - name: Power Virtuoso GS (Outdated)
+      - name: Power Virtuoso GS
         id: pvirt-gs
         specialization: Virtuoso
         boonType: Power
@@ -155,31 +155,31 @@ list:
   - class: Guardian
     builds:
 
-      - name: Quickness Condi Firebrand 40% (Outdated)
-        id: cqfb-firebrand-40
-        specialization: Firebrand
-        boonType: Condi
-        priority: Condi Quickbrand 40%
-        distribution: Condi Quickbrand (LL, Allies, Approx.)
-        traits: Condi Quickbrand LL
-        extras: Condi Quickbrand
-        weaponType: Dual wield
+      # - name: Quickness Condi Firebrand 40% (Outdated)
+      #   id: cqfb-firebrand-40
+      #   specialization: Firebrand
+      #   boonType: Condi
+      #   priority: Condi Quickbrand 40%
+      #   distribution: Condi Quickbrand (LL, Allies, Approx.)
+      #   traits: Condi Quickbrand LL
+      #   extras: Condi Quickbrand
+      #   weaponType: Dual wield
 
-      - name: Quickness Condi Firebrand 49% (Outdated)
-        id: cqfb-firebrand-49
-        specialization: Firebrand
-        boonType: Condi
-        priority: Condi Quickbrand 49
-        distribution: Condi Quickbrand (WT, Allies)
-        traits: Condi Quickbrand WT
-        extras: Condi Quickbrand
-        weaponType: Dual wield
+      # - name: Quickness Condi Firebrand 49% (Outdated)
+      #   id: cqfb-firebrand-49
+      #   specialization: Firebrand
+      #   boonType: Condi
+      #   priority: Condi Quickbrand 49
+      #   distribution: Condi Quickbrand (WT, Allies)
+      #   traits: Condi Quickbrand WT
+      #   extras: Condi Quickbrand
+      #   weaponType: Dual wield
 
-      - name: Quickness Condi Firebrand 79% (Outdated)
-        id: cqfb-firebrand-79
+      - name: Quickness Condi Firebrand 77%
+        id: cqfb-firebrand-77
         specialization: Firebrand
         boonType: Condi
-        priority: Condi Quickbrand 79
+        priority: Condi Quickbrand 77%
         distribution: Condi Quickbrand (WT, Allies)
         traits: Condi Quickbrand WT
         extras: Condi Quickbrand
@@ -216,25 +216,25 @@ list:
       #   traits: Condi Quickbrand
       #   extras: CFB w/ Quickness (renegade)
 
-      - name: Condi Firebrand 5 Page RF (Outdated)
+      - name: Condi Firebrand 5 Page RF
         id: cfb-geo
         specialization: Firebrand
         boonType: Condi
         priority: Condi DPS
         distribution: CFB (5 Page RF, Allies)
         traits: CFB DPS 5 Page
-        extras: CFB DPS (5 Page, Balthazar)
+        extras: Condi Firebrand
         weaponType: Dual wield
 
-      - name: Condi Firebrand 8 Page (Outdated)
-        id: cfb-8-balth
-        specialization: Firebrand
-        boonType: Condi
-        priority: Condi DPS
-        distribution: CFB (8 Page, Allies)
-        traits: CFB DPS 8 Page
-        extras: CFB DPS (8 Page, Balthazar)
-        weaponType: Dual wield
+      # - name: Condi Firebrand 8 Page (Outdated)
+      #   id: cfb-8-balth
+      #   specialization: Firebrand
+      #   boonType: Condi
+      #   priority: Condi DPS
+      #   distribution: CFB (8 Page, Allies)
+      #   traits: CFB DPS 8 Page
+      #   extras: CFB DPS (8 Page, Balthazar)
+      #   weaponType: Dual wield
 
       - name: Power DH Radiance
         id: dh-radiance
@@ -448,7 +448,7 @@ list:
           extras: Power Boon (Raid)
         weaponType: Two-handed
 
-      - name: Power Berserker (Outdated)
+      - name: Power Berserker
         id: pbers
         specialization: Berserker
         boonType: Power
@@ -513,7 +513,7 @@ list:
         extras: Alacrity Hybrid Tempest
         weaponType: Dual wield
 
-      - name: Condi Tempest (Outdated)
+      - name: Condi Tempest
         id: ctemp
         specialization: Tempest
         boonType: Condi
@@ -536,7 +536,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Power Weaver (Outdated)
+      - name: Power Weaver
         id: pwea
         specialization: Weaver
         boonType: Power
@@ -1023,7 +1023,7 @@ list:
   - class: Necromancer
     builds:
 
-      - name: Quickness Harbinger (Outdated)
+      - name: Quickness Harbinger
         id: qharb
         specialization: Harbinger
         boonType: Condi
@@ -1046,7 +1046,7 @@ list:
           extras: Power (Raid, furious)
         weaponType: Two-handed
 
-      - name: Condi Harbinger (Outdated)
+      - name: Condi Harbinger
         id: charb
         specialization: Harbinger
         boonType: Condi
@@ -1163,7 +1163,7 @@ list:
         extras: Condi Daredevil
         weaponType: Dual wield
 
-      - name: Power Staff Daredevil (Outdated)
+      - name: Power Staff Daredevil
         id: staffdd
         specialization: Daredevil
         boonType: Power

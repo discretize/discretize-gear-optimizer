@@ -343,6 +343,24 @@
       gw2id: 24605
       priceIds: []
 
+    # attempt at creating something similar to the above geo-torment setup
+    # earth is 6 seconds every 2 and a bit seconds
+    # torment is 10 seconds every 5 and a bit seconds
+    # time on scepter (earth) is ~15.6 -> 6.7 procs
+    # time on pistol (torment) is ~25.3
+    # 6.7 gets to be rounded up since the sigil will be off cooldown at the
+    # start of the time on scepter, 7 procs / 40.9 seconds = 1.03
+    # similar math, torment then gets 6 procs / 40.9 seconds = 1.47
+    - id: earth-torment-harb
+      text: 'Earth + Torment Harbinger'
+      textOverride: 'Earth + Torment Harbinger'
+      modifiers:
+        attributes:
+          Bleeding Coefficient: 1.03
+          Torment Coefficient: 1.47
+      gw2id: 24560
+      priceIds: []
+
 - section: Stacking Sigils
   items:
 
