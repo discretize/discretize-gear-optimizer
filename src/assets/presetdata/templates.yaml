@@ -513,7 +513,7 @@ list:
         extras: Alacrity Hybrid Tempest
         weaponType: Dual wield
 
-      - name: Condi Tempest (Outdated)
+      - name: Condi Tempest
         id: ctemp
         specialization: Tempest
         boonType: Condi

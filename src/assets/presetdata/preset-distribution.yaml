@@ -451,12 +451,12 @@ list:
     profession: Tempest
     value: >-
       {
-        "values2": { "Power": 3227, "Power2": 0, "Burning": 10.94, "Bleeding": 13.52, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3638, "Power2": 0, "Burning": 11.51, "Bleeding": 16.14, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: 'Dánmander'
-        url: https://www.youtube.com/watch?v=jw8AlS_KphU
-        log: https://dps.report/WRmO-20221001-135318_golem
+      - author: '[NA] Crone'
+        url: https://www.youtube.com/watch?v=nedRTduluWU
+        log: https://dps.report/I4Gj-20230713-114812_golem
 
   # gear is missing one infusion (and not crit capped?)
   - name: Power Tempest

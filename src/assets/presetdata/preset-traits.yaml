@@ -3508,7 +3508,11 @@ list:
             "hardy-conduit": {},
             "transcendent-tempest": {
               "amount": "62"
-            }
+            },
+            "tempestuous-aria": {
+              "amount": ""
+            },
+            "gathered-focus-2": {}
           }
         ]
       }
