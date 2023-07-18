@@ -201,6 +201,7 @@ export const sigilDict = [
   'geomancy-torment-cwb',
   'geomancy-torment-cwb-alac',
   'geomancy-torment-harb',
+  'earth-torment-harb',
   'air',
   'ruby-orb',
   'no-item-sigil',
