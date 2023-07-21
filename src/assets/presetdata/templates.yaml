@@ -550,7 +550,7 @@ list:
           extras: Power (Raid)
         weaponType: Dual wield
 
-      - name: Condi Weaver Staff (Outdated)
+      - name: Condi Weaver Staff
         id: cwea-staff
         specialization: Weaver
         boonType: Condi

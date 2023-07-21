@@ -3159,7 +3159,7 @@ list:
         "items": [
           {
             "empowering-flame": {
-              "amount": "55.2"
+              "amount": "54.9"
             },
             "burning-precision": {},
             "burning-rage": {},
@@ -3186,14 +3186,14 @@ list:
               "amount": ""
             },
             "elemental-polyphony-fire": {
-              "amount": "96.3"
+              "amount": "80.6"
             },
             "elemental-polyphony-air": {
-              "amount": "10.1"
+              "amount": "10.8"
             },
             "elements-of-rage-base": {},
             "elements-of-rage-buff": {
-              "amount": "91.9"
+              "amount": "92"
             }
           }
         ]
@@ -3202,7 +3202,10 @@ list:
       {
         "skills": {
           "woven-fire": {
-            "amount": "56.9"
+            "amount": "54.8"
+          },
+          "woven-air": {
+            "amount": "39"
           }
         }
       }

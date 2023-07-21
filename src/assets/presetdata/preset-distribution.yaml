@@ -406,12 +406,12 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 3103, "Power2": 0, "Burning": 10.32, "Bleeding": 16.06, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3096, "Power2": 0, "Burning": 10.35, "Bleeding": 16.51, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Fennec'
-        url: https://www.youtube.com/watch?v=zjQ3e_09eB8
-        log: https://dps.report/KyoI-20220824-095213_golem
+        url: https://www.youtube.com/watch?v=4cj0BEcXCpc
+        log: https://dps.report/5ShG-20230714-032530_golem
 
   # Without eles (distribution still comparable, lower rng)
   - name: Condi Weaver Scepter
