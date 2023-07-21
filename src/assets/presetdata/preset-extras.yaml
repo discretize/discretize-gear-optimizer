@@ -1292,32 +1292,30 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: Quickness Scrapper (Raid)
+  - name: Condi Quickness Scrapper
     profession: Scrapper
     value: |-
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "firebrand": {}
           },
           "Sigil1": {
-            "force": {}
+            "bursting": {}
           },
           "Sigil2": {
-            "impact/night/slaying-only-3": {},
-            "accuracy": {},
-            "concentration": {}
+            "malice": {}
           },
           "Enhancement": {
-            "superior-sharpening-stone": {}
+            "master-tuning-crystal": {},
+            "toxic-focusing-crystal": {}
           },
           "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {},
-            "plate-of-coq-au-vin-with-salsa": {},
+            "salsa-topped-veggie-flatbread": {},
+            "cilantro-and-cured-meat-flatbread": {},
             "spherified-cilantro-oyster-soup": {}
           }
-        },
-        "lifestealAmount": ""
+        }
       }
 
   - name: Condi Alac Ren

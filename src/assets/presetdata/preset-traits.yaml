@@ -6082,7 +6082,7 @@ list:
         "skills": {}
       }
 
-  - name: Quickness Scrapper
+  - name: Quickness Power Scrapper
     profession: Scrapper
     traits: |-
       {
@@ -6124,7 +6124,82 @@ list:
             },
             "incendiary-powder": {},
             "sharpshooter": {
-              "amount": "3.8"
+              "amount": "3.97"
+            }
+          },
+          {
+            "glass-cannon": {
+              "amount": ""
+            },
+            "explosive-temper": {
+              "amount": ""
+            },
+            "blast-shield": {},
+            "shaped-charge": {
+              "amount": ""
+            },
+            "big-boomer": {}
+          },
+          {
+            "object-in-motion": {
+              "amount": ""
+            },
+            "impact-savant": {},
+            "kinetic-accelerators": {},
+            "applied-force": {
+              "amount": ""
+            }
+          }
+        ]
+      }
+    skills: |-
+      {
+        "skills": {}
+      }
+
+  - name: Quickness Condi Scrapper
+    profession: Scrapper
+    traits: |-
+      {
+        "showAll": false,
+        "selectedLines": [
+          "38",
+          "6",
+          "43"
+        ],
+        "selectedTraits": [
+          [
+            1878,
+            2006,
+            433
+          ],
+          [
+            1882,
+            482,
+            505
+          ],
+          [
+            1917,
+            1860,
+            2052
+          ]
+        ],
+        "items": [
+          {
+            "chemical-rounds": {},
+            "high-caliber": {},
+            "hematic-focus": {},
+            "thermal-vision": {},
+            "no-scope": {
+              "amount": ""
+            },
+            "serrated-steel": {},
+            "modified-ammunition": {
+              "amount": ""
+            },
+            "incendiary-powder": {},
+            "sharpshooter": {
+              "amount": "3.87"
             }
           },
           {
