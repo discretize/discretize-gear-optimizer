@@ -389,7 +389,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [1.5%, mult]
+          Strike Damage: [1%, mult]
       wvwModifiers:
         damage:
           Strike Damage: [1%, mult]
@@ -401,7 +401,7 @@
       minor: true
       modifiers:
         damage:
-          Strike Damage: [15%, mult]
+          Strike Damage: [10%, mult]
           Damage Reduction: [15%, unknown]
       wvwModifiers:
         damage:
@@ -460,32 +460,13 @@
       gw2id: 2272
       defaultEnabled: true
 
-    - id: larcenous-torment
-      text: Larcenous Torment
-      modifiers:
-        damage:
-          Torment Damage: [10%, unknown]
-      gw2id: 2290
-      defaultEnabled: true
-
     - id: strength-of-shadows-base
       text: Strength of Shadows
       subText: base
       modifiers:
         conversion:
           Expertise: {Vitality: 13%}
-      gw2id: 2264
-      defaultEnabled: true
-
-    - id: strength-of-shadows-condis
-      text: Strength of Shadows
-      amountData:
-        label: 'conditions'
-        default: 10
-        quantityEntered: 1
-        disableBlacklist: true
-      modifiers:
         damage:
-          Damage Reduction: [2%, unknown]
+          Torment Damage: [25%, add] # unconfirmed
       gw2id: 2264
       defaultEnabled: true
