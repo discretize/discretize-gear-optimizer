@@ -411,13 +411,21 @@
       gw2id: 1730
       defaultEnabled: false
 
+    - id: elevated-compassion
+      text: Elevated Compassion
+      modifiers:
+        conversion:
+          Concentration: {Power: 13%}
+      gw2id: 1746
+      defaultEnabled: true
+
     - id: reinforced-potency-base
       text: Reinforced Potency
       subText: base
       minor: true
       modifiers:
         attributes:
-          Concentration: [120, converted]
+          Concentration: [240, converted]
       wvwModifiers:
         attributes:
           Concentration: [60, converted]
