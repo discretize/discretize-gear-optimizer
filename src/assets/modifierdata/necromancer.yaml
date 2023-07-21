@@ -232,17 +232,36 @@
     - id: fell-beacon
       text: Fell Beacon
       modifiers:
+        damage:
+          Burning Damage: [10%, add] # unconfirmed
         conversion:
           Expertise: {Condition Damage: 7%}
       wvwModifiers:
+        damage:
+          Burning Damage: [10%, add] # unconfirmed
         conversion:
           Expertise: {Condition Damage: 4%}
       gw2id: 2074
       defaultEnabled: true
 
-    - id: sand-sage-1x
+    - id: sand-sage-active
       text: Sand Sage
-      subText: 1x
+      subText: with active shade
+      minor: true
+      modifiers:
+        attributes:
+          Concentration: [225, converted]
+          Expertise: [225, converted]
+      wvwModifiers:
+        attributes:
+          Concentration: [150, converted]
+          Expertise: [150, converted]
+      gw2id: 2121
+      defaultEnabled: true
+
+    - id: sand-sage-1x-old
+      text: Sand Sage
+      subText: 1x (old)
       minor: true
       modifiers:
         attributes:
@@ -255,9 +274,9 @@
       gw2id: 2121
       defaultEnabled: false
 
-    - id: sand-sage-2x
+    - id: sand-sage-2x-old
       text: Sand Sage
-      subText: 2x
+      subText: 2x (old)
       minor: true
       modifiers:
         attributes:
@@ -270,9 +289,9 @@
       gw2id: 2121
       defaultEnabled: false
 
-    - id: sand-sage-3x
+    - id: sand-sage-3x-old
       text: Sand Sage
-      subText: 3x
+      subText: 3x (old)
       minor: true
       modifiers:
         attributes:
@@ -283,11 +302,24 @@
           Concentration: [135, converted]
           Expertise: [135, converted]
       gw2id: 2121
+      defaultEnabled: false
+
+    - id: blood-as-sand-active
+      text: Blood as Sand
+      subText: with active sand shade
+      minor: true
+      modifiers:
+        damage:
+          Damage Reduction: [15%, unknown]
+      wvwModifiers:
+        damage:
+          Damage Reduction: [7%, unknown]
+      gw2id: 2096
       defaultEnabled: true
 
-    - id: blood-as-sand-1x
+    - id: blood-as-sand-1x-old
       text: Blood as Sand
-      subText: 1x
+      subText: 1x (old)
       minor: true
       modifiers:
         damage:
@@ -298,9 +330,9 @@
       gw2id: 2096
       defaultEnabled: false
 
-    - id: blood-as-sand-2x
+    - id: blood-as-sand-2x-old
       text: Blood as Sand
-      subText: 2x
+      subText: 2x (old)
       minor: true
       modifiers:
         damage:
@@ -311,9 +343,9 @@
       gw2id: 2096
       defaultEnabled: false
 
-    - id: blood-as-sand-3x
+    - id: blood-as-sand-3x-old
       text: Blood as Sand
-      subText: 3x
+      subText: 3x (old)
       minor: true
       modifiers:
         damage:
@@ -322,17 +354,17 @@
         damage:
           Damage Reduction: [9%, unknown]
       gw2id: 2096
-      defaultEnabled: true
+      defaultEnabled: false
 
     - id: demonic-lore
       text: Demonic Lore
       subText: torment only
       modifiers:
         damage:
-          Torment Damage: [25%, unknown]
+          Torment Damage: [33%, add] # unconfirmed
       wvwModifiers:
         damage:
-          Torment Damage: [33%, unknown]
+          Torment Damage: [33%, add] # unconfirmed
       gw2id: 2164
       defaultEnabled: true
 
