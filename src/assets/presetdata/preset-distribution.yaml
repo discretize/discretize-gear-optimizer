@@ -28,12 +28,12 @@ list:
     profession: Berserker
     value: >-
       {
-        "values2": { "Power": 3573, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3850, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Baseraver
-        url: https://www.youtube.com/watch?v=iN1SK9sTUYk
-        log: https://dps.report/XdQm-20230630-192923_golem
+        url: https://www.youtube.com/watch?v=ec_sG681eJs
+        log: https://dps.report/ke6e-20230719-163514_golem
 
   - name: Power Spellbreaker GS
     profession: Spellbreaker
@@ -104,16 +104,16 @@ list:
         url: https://www.youtube.com/watch?v=xT9DZDcwBzI
         log: https://dps.report/HzZk-20221213-184016_golem
 
-  - name: Power Quickness Bladesworn
+  - name: Power Alacrity Bladesworn
     profession: Bladesworn
     value: >-
       {
-        "values2": { "Power": 3897, "Power2": 0, "Burning": 0, "Bleeding": 0.81, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3916, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: 'Costa Primo'
-        url: https://www.youtube.com/watch?v=QPrh0p0k-G8
-        log: https://dps.report/cmft-20220807-174306_golem
+      - author: Evo
+        url: https://www.youtube.com/watch?v=I7N_w15FL94
+        log: https://dps.report/Jigl-20230717-221233_golem
 
   - name: DPS Bladesworn Tactics
     profession: Bladesworn
@@ -406,12 +406,12 @@ list:
     profession: Weaver
     value: >-
       {
-        "values2": { "Power": 3103, "Power2": 0, "Burning": 10.32, "Bleeding": 16.06, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3096, "Power2": 0, "Burning": 10.35, "Bleeding": 16.51, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: 'Fennec'
-        url: https://www.youtube.com/watch?v=zjQ3e_09eB8
-        log: https://dps.report/KyoI-20220824-095213_golem
+        url: https://www.youtube.com/watch?v=4cj0BEcXCpc
+        log: https://dps.report/5ShG-20230714-032530_golem
 
   # Without eles (distribution still comparable, lower rng)
   - name: Condi Weaver Scepter
@@ -845,16 +845,27 @@ list:
         url: https://www.youtube.com/watch?v=n0X117MhmlU
         log: https://dps.report/SJTF-20230216-171115_golem
 
-  - name: Quickness Scrapper
+  - name: Quickness Power Scrapper
     profession: Scrapper
     value: >-
       {
-        "values2": { "Power": 3233, "Power2": 0, "Burning": 0.06, "Bleeding": 5.27, "Poisoned": 4.78, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3397, "Power2": 0, "Burning": 0, "Bleeding": 4.01, "Poisoned": 3.3, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: 'Jan'
-        url: https://www.youtube.com/watch?v=g2MW3fWYOn0
-        log: https://dps.report/1xQZ-20220827-191906_golem
+      - author: '[NA] Crone'
+        url: https://www.youtube.com/watch?v=cKQ9-9gHe0Q
+        log: https://dps.report/jbc7-20230707-213937_golem
+
+  - name: Quickness Condi Scrapper
+    profession: Scrapper
+    value: >-
+      {
+        "values2": { "Power": 1952, "Power2": 0, "Burning": 8.91, "Bleeding": 11.34, "Poisoned": 11.87, "Torment": 0, "Confusion": 4.66 }
+      }
+    credit:
+      - author: '[NA] Crone'
+        url: https://www.youtube.com/watch?v=CqJpumNHF4E
+        log: https://dps.report/eLRb-20230715-052530_golem
 
   - name: Power Chrono IA GS
     profession: Chronomancer
@@ -1195,19 +1206,17 @@ list:
         url: https://www.youtube.com/watch?v=iou6Wx7NQ4w
         log: https://dps.report/OK9l-20230214-214155_golem
 
-  # https://optimizer.discretize.eu/?s=1RFuOGz_v1
-  # bugged log: has leeching venoms
-  # 1.72 torment proc rate (from evtc tool)
+  # 1.72 torment proc rate (from evtc tool applied to previous log)
   - name: DPS Specter (Allies)
     profession: Specter
     value: >-
       {
-        "values2": { "Power": 2316, "Power2": 0, "Burning": 0, "Bleeding": 2.43, "Poisoned": 15.8, "Torment": 20.65, "Confusion": 0 }
+        "values2": { "Power": 2620, "Power2": 0, "Burning": 0, "Bleeding": 2.58, "Poisoned": 15.96, "Torment": 20.48, "Confusion": 0 }
       }
     credit:
       - author: 'Incera'
-        url: https://www.youtube.com/watch?v=5adAPDBnIIs
-        log: https://dps.report/KzkD-20220827-170023_golem
+        url: https://www.youtube.com/watch?v=pg7GEcnZ2Kw
+        log: https://dps.report/iBWl-20230720-182745_golem
 
   # https://optimizer.discretize.eu/?s=wpWaF0plv1
   # bugged log: has leeching venoms

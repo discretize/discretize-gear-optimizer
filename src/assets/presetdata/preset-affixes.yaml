@@ -104,13 +104,13 @@ list:
         "minQuicknessDuration": 0
       }
 
-  - name: Power Quickness Bladesworn 2.6%
+  - name: Power Alacrity Bladesworn 0%
     hidden: true
     value: >-
       {
         "affixes": ["Berserker", "Assassin", "Diviner"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 2.6,
+        "minBoonDuration": 0,
         "minQuicknessDuration": 0
       }
 
@@ -144,14 +144,24 @@ list:
         "minQuicknessDuration": 25
       }
 
-  - name: Power Quickness Scrapper 33.3%
+  - name: Power Quickness Scrapper 23.3%
     hidden: true
     value: >-
       {
-        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "affixes": ["Berserker", "Diviner", "Dragon"],
         "optimizeFor": "Damage",
         "minBoonDuration": 0,
-        "minQuicknessDuration": 33.3
+        "minQuicknessDuration": 23.3
+      }
+
+  - name: Condi Quickness Scrapper 28.7%
+    hidden: true
+    value: >-
+      {
+        "affixes": ["Viper", "Ritualist"],
+        "optimizeFor": "Damage",
+        "minBoonDuration": 0,
+        "minQuicknessDuration": 28.78
       }
 
   # Math on SC Help Desk says 8.3 bare minimum, Arcane is baseline 12%
