@@ -104,16 +104,16 @@ list:
         url: https://www.youtube.com/watch?v=xT9DZDcwBzI
         log: https://dps.report/HzZk-20221213-184016_golem
 
-  - name: Power Quickness Bladesworn
+  - name: Power Alacrity Bladesworn
     profession: Bladesworn
     value: >-
       {
-        "values2": { "Power": 3897, "Power2": 0, "Burning": 0, "Bleeding": 0.81, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 3916, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
-      - author: 'Costa Primo'
-        url: https://www.youtube.com/watch?v=QPrh0p0k-G8
-        log: https://dps.report/cmft-20220807-174306_golem
+      - author: Evo
+        url: https://www.youtube.com/watch?v=I7N_w15FL94
+        log: https://dps.report/Jigl-20230717-221233_golem
 
   - name: DPS Bladesworn Tactics
     profession: Bladesworn

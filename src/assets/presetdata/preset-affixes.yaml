@@ -104,13 +104,13 @@ list:
         "minQuicknessDuration": 0
       }
 
-  - name: Power Quickness Bladesworn 2.6%
+  - name: Power Alacrity Bladesworn 0%
     hidden: true
     value: >-
       {
         "affixes": ["Berserker", "Assassin", "Diviner"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 2.6,
+        "minBoonDuration": 0,
         "minQuicknessDuration": 0
       }
 

@@ -2564,14 +2564,14 @@ list:
         }
       }
 
-  - name: Quickness Bladesworn
+  - name: Alacrity Bladesworn
     profession: Bladesworn
     traits: |-
       {
         "showAll": false,
         "selectedLines": [
           "4",
-          "51",
+          "11",
           "68"
         ],
         "selectedTraits": [
@@ -2581,14 +2581,14 @@ list:
             1437
           ],
           [
-            1413,
-            1484,
-            1369
+            1469,
+            1486,
+            1667
           ],
           [
             2225,
             2302,
-            2239
+            2245
           ]
         ],
         "items": [
@@ -2601,21 +2601,25 @@ list:
             },
             "pinnacle-of-strength-crit": {},
             "berserkers-power": {
-              "amount": "4"
+              "amount": "3.9"
             }
           },
           {
-            "warriors-sprint": {
+            "leg-specialist": {
               "amount": ""
             },
-            "axe-mastery-one": {},
-            "axe-mastery-axe": {
+            "roaring-reveille": {},
+            "empowered": {
               "amount": ""
-            }
+            },
+            "warriors-cunning": {
+              "amount": ""
+            },
+            "vigorous-shouts": {}
           },
           {
             "fierce-as-fire": {
-              "amount": "9.7"
+              "amount": "10"
             },
             "guns-and-glory": {
               "amount": ""

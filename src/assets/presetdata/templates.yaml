@@ -389,13 +389,13 @@ list:
   - class: Warrior
     builds:
 
-      - name: Quickness Power Bladesworn (Outdated)
-        id: bls-quick
+      - name: Alacrity Power Bladesworn
+        id: bls-alac
         specialization: Bladesworn
         boonType: Power
-        priority: Power Quickness Bladesworn 2.6%
-        distribution: Power Quickness Bladesworn
-        traits: Quickness Bladesworn
+        priority: Power Alacrity Bladesworn 0%
+        distribution: Power Alacrity Bladesworn
+        traits: Alacrity Bladesworn
         fractal:
           extras: Power (Fractal)
         raid:
