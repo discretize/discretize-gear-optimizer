@@ -1122,7 +1122,7 @@ list:
         extras: Alacrity Specter
         weaponType: Dual wield
 
-      - name: Condi Specter (Outdated)
+      - name: Condi Specter
         id: specter
         specialization: Specter
         boonType: Condi
