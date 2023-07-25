@@ -749,13 +749,11 @@ list:
   #       url: https://www.youtube.com/watch?v=70F-uEOb-Bg
   #       log: https://dps.report/Oq8d-20210609-135312_golem
 
-  # Gear of log is optimized for 100% bleeding with 100% loyf uptime (realistic
-  # in a fight with dodging) but the log itself has only 5% loyf
   - name: Condi Druid
     profession: Druid
     value: >-
       {
-        "values2": { "Power": 1587, "Power2": 0, "Burning": 2.37, "Bleeding": 36.59, "Poisoned": 13.17, "Torment": 0.03, "Confusion": 0 }
+        "values2": { "Power": 1578, "Power2": 0, "Burning": 2.32, "Bleeding": 34.01, "Poisoned": 12.9, "Torment": 0.02, "Confusion": 0 }
       }
     credit:
       - author: '[CnD] Tipcat'
