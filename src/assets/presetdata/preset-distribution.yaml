@@ -778,12 +778,12 @@ list:
     profession: Holosmith
     value: >-
       {
-        "values2": { "Power": 2604, "Power2": 0, "Burning": 15.15, "Bleeding": 10.59, "Poisoned": 7.97, "Torment": 0, "Confusion": 4.31 }
+        "values2": { "Power": 2840, "Power2": 0, "Burning": 15.01, "Bleeding": 12.27, "Poisoned": 9.1, "Torment": 0, "Confusion": 4.31 }
       }
     credit:
       - author: beng / L3m0n
-        url: https://www.youtube.com/watch?v=CS-MXiP2kr4
-        log: https://dps.report/maus-20230505-172224_golem
+        url: https://www.youtube.com/watch?v=mEEIhCStcoY
+        log: https://dps.report/3v66-20230721-173243_golem
 
   # has lifesteal food; subtracy 127 power dps
   # mech does burning (???) - import tool breaks
