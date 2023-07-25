@@ -5301,7 +5301,7 @@ list:
           [
             1806,
             1738,
-            1772
+            1746
           ]
         ],
         "items": [
@@ -5332,7 +5332,8 @@ list:
             },
             "forceful-persistence-herald": {
               "amount": ""
-            }
+            },
+            "elevated-compassion": {}
           }
         ]
       }
@@ -5340,7 +5341,7 @@ list:
       {
         "skills": {
           "burst-of-strength": {
-            "amount": "85.9"
+            "amount": "86.1"
           }
         }
       }

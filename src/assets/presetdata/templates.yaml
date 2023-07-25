@@ -778,11 +778,11 @@ list:
           extras: Power Quickness Herald (Raid)
         weaponType: Dual wield
 
-      - name: Quickness Condi Herald (Outdated)
+      - name: Quickness Condi Herald
         id: cherald-quick
         specialization: Herald
         boonType: Condi
-        priority: Condi Quickness Herald 25.2%
+        priority: Condi Quickness Herald 0%
         distribution: Condi Quickness Herald
         traits: Condi Quickness Herald
         extras: Condi Quickness Herald

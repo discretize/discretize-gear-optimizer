@@ -616,12 +616,12 @@ list:
     profession: Herald
     value: >-
       {
-        "values2": { "Power": 1636, "Power2": 0, "Burning": 5.48, "Bleeding": 2.09, "Poisoned": 6.87, "Torment": 18.21, "Confusion": 0 }
+        "values2": { "Power": 1672, "Power2": 0, "Burning": 5.53, "Bleeding": 2.27, "Poisoned": 6.95, "Torment": 18.39, "Confusion": 0 }
       }
     credit:
       - author: 'Umbra'
-        url: https://www.youtube.com/watch?v=zLD3MJt4XH8
-        log: https://dps.report/EU7k-20221203-213656_golem
+        url: https://www.youtube.com/watch?v=I3ROr28p7hA
+        log: https://dps.report/lEMC-20230722-015455_golem
 
   # force air force air
   - name: DPS Vindicator
