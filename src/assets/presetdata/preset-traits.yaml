@@ -7482,9 +7482,9 @@ list:
             1187
           ],
           [
-            2275,
-            2285,
-            2264
+            2284,
+            2290,
+            2289
           ]
         ],
         "items": [
@@ -7503,7 +7503,7 @@ list:
           {
             "preparedness": {},
             "lead-attacks": {
-              "amount": "13.3"
+              "amount": "12.7"
             },
             "deadly-ambush": {}
           },
