@@ -5118,7 +5118,7 @@ list:
         "skills": {}
       }
 
-  - name: Power Quickness Herald DE
+  - name: Power Quickness Herald
     profession: Herald
     traits: |-
       {
@@ -5140,9 +5140,9 @@ list:
             1719
           ],
           [
-            1813,
+            1806,
             1738,
-            1772
+            1746
           ]
         ],
         "items": [
@@ -5184,7 +5184,8 @@ list:
             },
             "forceful-persistence-herald": {
               "amount": ""
-            }
+            },
+            "elevated-compassion": {}
           }
         ]
       }
@@ -5192,7 +5193,7 @@ list:
       {
         "skills": {
           "burst-of-strength": {
-            "amount": "87.7"
+            "amount": "89.1"
           }
         }
       }

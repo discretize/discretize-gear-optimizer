@@ -592,12 +592,12 @@ list:
     profession: Herald
     value: >-
       {
-        "values2": { "Power": 2821, "Power2": 0, "Burning": 1.44, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2862, "Power2": 0, "Burning": 1.54, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Umbra
-        url: https://www.youtube.com/watch?v=OqC4P6LQ1uI
-        log: https://dps.report/Qw02-20221201-233631_golem
+        url: https://www.youtube.com/watch?v=3TEy_DgLw4w
+        log: https://dps.report/RwCx-20230722-004858_golem
 
   # not including ally lifesteal
   # todo: convert 268dps to self lifesteal

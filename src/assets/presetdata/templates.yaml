@@ -765,13 +765,13 @@ list:
   - class: Revenant
     builds:
 
-      - name: Quickness Power Herald Consume (Outdated)
+      - name: Quickness Power Herald
         id: herald-quick
         specialization: Herald
         boonType: Power
-        priority: Power Quickness Herald 30%
+        priority: Power Quickness Herald 0%
         distribution: Power Quickness Herald
-        traits: Power Quickness Herald DE
+        traits: Power Quickness Herald
         fractal:
           extras: Power Quickness Herald (Fractal)
         raid:
