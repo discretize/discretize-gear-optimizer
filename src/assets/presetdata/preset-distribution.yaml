@@ -592,12 +592,12 @@ list:
     profession: Herald
     value: >-
       {
-        "values2": { "Power": 2821, "Power2": 0, "Burning": 1.44, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
+        "values2": { "Power": 2862, "Power2": 0, "Burning": 1.54, "Bleeding": 0, "Poisoned": 0, "Torment": 0, "Confusion": 0 }
       }
     credit:
       - author: Umbra
-        url: https://www.youtube.com/watch?v=OqC4P6LQ1uI
-        log: https://dps.report/Qw02-20221201-233631_golem
+        url: https://www.youtube.com/watch?v=3TEy_DgLw4w
+        log: https://dps.report/RwCx-20230722-004858_golem
 
   # not including ally lifesteal
   # todo: convert 268dps to self lifesteal
@@ -616,12 +616,12 @@ list:
     profession: Herald
     value: >-
       {
-        "values2": { "Power": 1636, "Power2": 0, "Burning": 5.48, "Bleeding": 2.09, "Poisoned": 6.87, "Torment": 18.21, "Confusion": 0 }
+        "values2": { "Power": 1672, "Power2": 0, "Burning": 5.53, "Bleeding": 2.27, "Poisoned": 6.95, "Torment": 18.39, "Confusion": 0 }
       }
     credit:
       - author: 'Umbra'
-        url: https://www.youtube.com/watch?v=zLD3MJt4XH8
-        log: https://dps.report/EU7k-20221203-213656_golem
+        url: https://www.youtube.com/watch?v=I3ROr28p7hA
+        log: https://dps.report/lEMC-20230722-015455_golem
 
   # force air force air
   - name: DPS Vindicator
@@ -749,13 +749,11 @@ list:
   #       url: https://www.youtube.com/watch?v=70F-uEOb-Bg
   #       log: https://dps.report/Oq8d-20210609-135312_golem
 
-  # Gear of log is optimized for 100% bleeding with 100% loyf uptime (realistic
-  # in a fight with dodging) but the log itself has only 5% loyf
   - name: Condi Druid
     profession: Druid
     value: >-
       {
-        "values2": { "Power": 1587, "Power2": 0, "Burning": 2.37, "Bleeding": 36.59, "Poisoned": 13.17, "Torment": 0.03, "Confusion": 0 }
+        "values2": { "Power": 1578, "Power2": 0, "Burning": 2.32, "Bleeding": 34.01, "Poisoned": 12.9, "Torment": 0.02, "Confusion": 0 }
       }
     credit:
       - author: '[CnD] Tipcat'
@@ -778,12 +776,12 @@ list:
     profession: Holosmith
     value: >-
       {
-        "values2": { "Power": 2604, "Power2": 0, "Burning": 15.15, "Bleeding": 10.59, "Poisoned": 7.97, "Torment": 0, "Confusion": 4.31 }
+        "values2": { "Power": 2840, "Power2": 0, "Burning": 15.01, "Bleeding": 12.27, "Poisoned": 9.1, "Torment": 0, "Confusion": 4.31 }
       }
     credit:
       - author: beng / L3m0n
-        url: https://www.youtube.com/watch?v=CS-MXiP2kr4
-        log: https://dps.report/maus-20230505-172224_golem
+        url: https://www.youtube.com/watch?v=mEEIhCStcoY
+        log: https://dps.report/3v66-20230721-173243_golem
 
   # has lifesteal food; subtracy 127 power dps
   # mech does burning (???) - import tool breaks

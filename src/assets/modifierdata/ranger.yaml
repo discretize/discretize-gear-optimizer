@@ -388,13 +388,12 @@
 
     - id: natural-balance
       text: Natural Balance
-      amountData:
-        label: '% uptime'
-        default: 100
-        quantityEntered: 100
+      subText: 100% uptime
       modifiers:
         damage:
           Condition Damage: [10%, add] # unconfirmed
+        attributes:
+          Condition Duration: 10%
       gw2id: 2056
       defaultEnabled: true
 

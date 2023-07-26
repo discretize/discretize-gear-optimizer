@@ -186,14 +186,14 @@ list:
         "minQuicknessDuration": 0
       }
 
-  - name: Power Quickness Herald 30%
+  - name: Power Quickness Herald 0%
     hidden: true
     value: >-
       {
-        "affixes": ["Berserker", "Assassin", "Diviner"],
+        "affixes": ["Berserker", "Diviner", "Dragon"],
         "optimizeFor": "Damage",
         "minBoonDuration": 0,
-        "minQuicknessDuration": 30
+        "minQuicknessDuration": 0
       }
 
   - name: Power Quickness Herald 45%
@@ -206,13 +206,13 @@ list:
         "minQuicknessDuration": 45
       }
 
-  - name: Condi Quickness Herald 25.2%
+  - name: Condi Quickness Herald 0%
     value: >-
       {
         "affixes": ["Viper", "Sinister", "Ritualist"],
         "optimizeFor": "Damage",
         "minBoonDuration": 0,
-        "minQuicknessDuration": 25.2
+        "minQuicknessDuration": 0
       }
 
   - name: Power Boon Daredevil 99.7%
