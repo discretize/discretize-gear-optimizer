@@ -1230,17 +1230,17 @@ list:
         url: https://www.youtube.com/watch?v=xYsGEFE6jn0
         log: https://dps.report/pfgp-20220827-121511_golem
 
-  # 1.52 torment proc rate (from evtc tool on carrion spec, which has the same critchance) (not updated but likely accurate enough)
+  # 1.52 torment proc rate (from evtc tool on carrion spec, which has the same critchance)
   - name: Alacrity Specter (allies)
     profession: Specter
     value: >-
       {
-        "values2": { "Power": 2833, "Power2": 0, "Burning": 0, "Bleeding": 2.51, "Poisoned": 16.1, "Torment": 20.47, "Confusion": 0 }
+        "values2": { "Power": 1903, "Power2": 0, "Burning": 0, "Bleeding": 0, "Poisoned": 14.33, "Torment": 18.23, "Confusion": 0 }
       }
     credit:
-      - author: 'Senapi'
-        url: https://www.youtube.com/watch?v=x8js5Ium3z4
-        log: https://dps.report/M4K3-20230723-001607_golem
+      - author: 'Iskarel'
+        url: https://www.youtube.com/watch?v=m24fDZee1bc
+        log: https://dps.report/KKWN-20220902-160446_golem
 
   # writ, carrion/viper mix
   - name: '[beta1] DPS Specter Endless Night'

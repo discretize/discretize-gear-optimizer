@@ -404,13 +404,13 @@ list:
         "minQuicknessDuration": 77.4
       }
 
-  - name: Condi Alacrity Specter 40%
+  - name: Condi Alacrity Specter 57%
     hidden: true
     value: >-
       {
         "affixes": ["Viper", "Ritualist"],
         "optimizeFor": "Damage",
-        "minBoonDuration": 40.2,
+        "minBoonDuration": 56.7,
         "minQuicknessDuration": 0
       }
 
