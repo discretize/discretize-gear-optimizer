@@ -1,19 +1,22 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-alert */
 /* eslint-disable dot-notation */
 /* eslint-disable import/prefer-default-export */
 
-import { traitSectionsById } from '../../../assets/modifierdata/index';
+import { allExtrasModifiersById, traitSectionsById } from '../../../assets/modifierdata/index';
 import { damagingConditions } from '../../../assets/modifierdata/metadata';
 
 const formatCharacterData = async (character) => {
   const {
     settings: {
       profession,
+      specialization,
       cachedFormState,
       extrasCombination,
       modifiers: { damageMultiplier },
     },
     attributes,
+    gearStats,
   } = character;
 
   const {
@@ -40,7 +43,7 @@ const formatCharacterData = async (character) => {
     // trait_ids: allTraits,
   };
 
-  const { Runes, Nourishment, Enhancement } = extrasCombination;
+  const { Sigils, Runes, Nourishment, Enhancement } = extrasCombination;
 
   const specificConditionDurations = Object.fromEntries(
     damagingConditions.map((name) => {
@@ -53,9 +56,23 @@ const formatCharacterData = async (character) => {
 
   const critDmg = attributes['Critical Damage'] * damageMultiplier['Critical Damage'];
 
+  const toLowerSnakeCaseAttr = (str) => str.replaceAll(' ', '_').toLowerCase();
+
+  const formattedGearStats = Object.entries(gearStats).map(([key, value]) => [
+    toLowerSnakeCaseAttr(key),
+    value,
+  ]);
+
+  const getModifierInfo = (id) => {
+    const { gw2id, text } = allExtrasModifiersById[id] ?? {};
+    return { gw2id, name: text, optimizer_id: id };
+  };
+
   const result = {
     base_class: profession.toLowerCase(),
-    attributes: {
+    profession: specialization.toLowerCase(),
+    /*
+    buffed_attributes: Object.entries({
       power: attributes['Power'],
       precision: attributes['Precision'],
       toughness: attributes['Toughness'],
@@ -73,12 +90,14 @@ const formatCharacterData = async (character) => {
       condition_duration_pct: attributes['Condition Duration'] * 100,
       max_health: attributes['Health'],
       ...specificConditionDurations,
-    },
+    }),
+    */
     ...formattedTraits,
-    solve_sigils_later: {},
-    rune: Runes,
-    nourishment: Nourishment,
-    enhancement: Enhancement,
+    sigils: getModifierInfo(Sigils),
+    rune: getModifierInfo(Runes),
+    nourishment: getModifierInfo(Nourishment),
+    enhancement: getModifierInfo(Enhancement),
+    attributes: formattedGearStats,
   };
 
   return JSON.stringify(result, null, 2);
