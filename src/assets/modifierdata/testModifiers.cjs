@@ -7,7 +7,7 @@ const fs = require('fs/promises');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const yaml = require('js-yaml');
 const path = require('path');
-const { requireTS } = require('../../utils/require-ts.js');
+const { requireTS } = require('../../utils/require-ts.cjs');
 
 const { buffsDict, enhancementDict, nourishmentDict, runesDict, sigilDict } = requireTS(
   path.join(__dirname, '../../components/url-state/schema/SchemaDicts.js'),
