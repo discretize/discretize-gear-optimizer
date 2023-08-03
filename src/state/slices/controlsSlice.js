@@ -62,7 +62,7 @@ export const controlSlice = createSlice({
     profession: '',
     multicore: false,
     hwThreads: navigator.hardwareConcurrency || 4, // 4 seems to be a sensible default
-    heuristics: true,
+    heuristics: false,
   },
   reducers: {
     changeAll: (state, action) => {

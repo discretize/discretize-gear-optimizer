@@ -54,7 +54,6 @@ export default function NavSettings({
     language: languageDisabled,
     expertMode: expertModeDisabled,
     gameMode: gameModeDisabled,
-
     threading: threadingDisabled,
   } = {},
 }) {
@@ -188,7 +187,7 @@ export default function NavSettings({
             onChange={changeHwThreadsHandler}
             inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
           />
-
+          {/*
           <FormControlLabel
             control={<Checkbox />}
             label={t('Enable heuristics')}
@@ -196,6 +195,7 @@ export default function NavSettings({
             checked={enableHeuristics}
             onChange={changeHeuristicsHandler}
           />
+          */}
         </>
       )}
     </Settings>
