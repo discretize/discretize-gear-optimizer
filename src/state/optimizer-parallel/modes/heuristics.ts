@@ -40,8 +40,8 @@ export default function runCalcHeuristics(
         const allFinished = workers
           .slice(0, effectiveThreads)
           .every((locWorker) => locWorker.status === 'finished_heuristics');
-        const combs = e.data.data.map((c) => c[0]);
-        const res = e.data.data.map((c) => c[1]);
+        const combs = e.data.data.map((chunk) => chunk[0]);
+        const res = e.data.data.map((chunk) => chunk[1]);
         combinations.push(...combs);
         resultData.push(...res);
 

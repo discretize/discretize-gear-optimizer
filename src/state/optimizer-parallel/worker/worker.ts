@@ -176,7 +176,7 @@ async function start_heuristics(
 function calcWasmHeuristics(settings: Settings, chunks: [Combination, CombinationOld][]) {
   const resStr = calculate_heuristics_only(
     settingsToWorkerString(settings),
-    combinationsToWorkerString(chunks.map((c) => c[0])),
+    combinationsToWorkerString(chunks.map((chunk) => chunk[0])),
   );
   const combinationIds: number[] = JSON.parse(resStr || '[]');
   // find combinations for the ids

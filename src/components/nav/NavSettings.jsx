@@ -69,6 +69,8 @@ export default function NavSettings({
   const selectedTemplate = useSelector(getSelectedTemplate);
   const hwThreads = useSelector(getHwThreads);
   const enableMulticore = useSelector(getMulticore);
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const enableHeuristics = useSelector(getHeuristics);
 
   const [open, setOpen] = React.useState(false);
@@ -117,6 +119,7 @@ export default function NavSettings({
     dispatch(changeMulticore(newMulticore));
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const changeHeuristicsHandler = (e) => {
     const newHeuristics = e.target.checked;
     dispatch(changeHeuristics(newHeuristics));

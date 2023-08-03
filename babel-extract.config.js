@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 const YAML = require('js-yaml');
 const fs = require('fs');
-const { requireTS } = require('./src/utils/require-ts.js');
+const { requireTS } = require('./src/utils/require-ts.cjs');
 
 const { GEAR_SLOTS, Affix } = requireTS('./src/utils/gw2-data.ts');
 

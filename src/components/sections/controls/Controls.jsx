@@ -47,7 +47,7 @@ const ControlsBox = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const store = useStore();
-  const [worker, setWorker] = React.useState(null);
+  const [workers, setWorkers] = React.useState(null);
 
   const status = useSelector(getStatus);
   const error = useSelector(getError);
@@ -74,8 +74,8 @@ const ControlsBox = () => {
       dispatch(changeError(''));
       dispatch({ type: SagaTypes.Start });
     } else {
-      const workers = calculate(store.getState(), dispatch);
-      setWorker(workers);
+      const workersNew = calculate(store.getState(), dispatch);
+      setWorkers(workersNew);
     }
   };
 
@@ -83,7 +83,7 @@ const ControlsBox = () => {
     if (!multicore) {
       dispatch({ type: SagaTypes.Resume });
     } else {
-      worker.forEach((w) => w.worker.postMessage({ type: RESUME }));
+      workers.forEach(({ worker }) => worker.postMessage({ type: RESUME }));
     }
   };
 
@@ -91,7 +91,7 @@ const ControlsBox = () => {
     if (!multicore) {
       dispatch({ type: SagaTypes.Stop });
     } else {
-      worker.forEach((w) => w.worker.postMessage({ type: STOP }));
+      workers.forEach(({ worker }) => worker.postMessage({ type: STOP }));
     }
   };
 
