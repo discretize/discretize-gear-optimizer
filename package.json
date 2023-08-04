@@ -2,7 +2,6 @@
   "name": "discretize-gear-optimizer",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
   "description": "Discretize Gear Optimizer",
   "author": "marcustyphoon, gw2princeps, metagame",
   "engines": {
