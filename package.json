@@ -32,7 +32,7 @@
     "extractLocaleCMD": "babel --config-file ./babel-extract.config.js \"src/**/*.{js,jsx,ts,tsx}\" > NUL",
     "cleanupLocale": "node cleanupLocale.js",
     "wasm": "wasm-pack build ./wasm_module --target web --release",
-    "wasm-build-data": "ts-node-esm generateRustMappings.mts"
+    "wasm-build-data": "ts-node-esm generateRustMappings.ts"
   },
   "resolutions": {
     "@discretize/gw2-ui-new": "^0.1.2"
