@@ -10,6 +10,7 @@ import BackgroundImage from '../../components/baseComponents/BackgroundImage';
 import ErrorBoundary from '../../components/baseComponents/ErrorBoundary';
 import Layout from '../../components/baseComponents/Layout';
 import GearOptimizer from '../../components/GearOptimizer';
+import Footer from '../../components/sections/footer/Footer';
 import URLStateImport from '../../components/url-state/URLStateImport';
 import SagaTypes from '../../state/sagas/sagaTypes';
 import { getGameMode } from '../../state/slices/userSettings';
@@ -86,9 +87,11 @@ const IndexPage = () => {
           <Trans>Gear Optimizer</Trans>
         </Typography>
         <ErrorBoundary location="GearOptimizer">
-          <GearOptimizer />{' '}
+          <GearOptimizer />
         </ErrorBoundary>
       </Layout>
+
+      <Footer />
     </APILanguageProvider>
   );
 };
