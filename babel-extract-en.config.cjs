@@ -38,7 +38,7 @@ module.exports = {
   presets: ['@babel/preset-typescript', '@babel/preset-react'],
   plugins: [
     [
-      './extract_context_injection',
+      './extract_context_injection/index.cjs',
       {
         buildTemplateName: [
           ...new Set(templates.list.flatMap((item) => item.builds).map((item) => item.name)),
@@ -121,7 +121,7 @@ module.exports = {
     [
       'i18next-extract',
       {
-        locales: ['en', 'zh', 'de'],
+        locales: ['en'],
         keySeparator: null,
         nsSeparator: null,
         keyAsDefaultValue: ['en'],
