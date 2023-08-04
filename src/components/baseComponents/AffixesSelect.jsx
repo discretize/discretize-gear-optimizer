@@ -87,7 +87,7 @@ const AffixesSelect = ({ name, multiple, onChange, value: affixes }) => {
               )}
             </Box>
           )}
-          {option.label === 'Custom' ? (
+          {option.label === 'Custom' || option.label.includes(' ') ? (
             <Item
               id={mistBandId}
               disableIcon
