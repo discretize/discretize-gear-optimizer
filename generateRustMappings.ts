@@ -1,3 +1,4 @@
+/* eslint-disable */
 // @ts-nocheck
 const { writeFileSync } = require('fs');
 const { requireTS } = require('./src/utils/require-ts.js');
