@@ -2,7 +2,6 @@
   "name": "discretize-gear-optimizer",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
   "description": "Discretize Gear Optimizer",
   "author": "marcustyphoon, gw2princeps, metagame",
   "engines": {
@@ -26,14 +25,14 @@
     "eslint": "eslint --ignore-path .gitignore --max-warnings 0 . --ext .js,.jsx,.ts,.tsx",
     "updateMappings": "node updateMappings.js",
     "deploy": "vite build && gh-pages -d dist",
-    "testModifiers": "node ./src/assets/modifierdata/testModifiers.cjs",
-    "testPresets": "node ./src/assets/presetdata/testPresets.cjs",
+    "testModifiers": "node ./src/assets/modifierdata/testModifiers.js",
+    "testPresets": "node ./src/assets/presetdata/testPresets.js",
     "extractLocale": "babel --config-file ./babel-extract.config.js 'src/**/*.{js,jsx,ts,tsx}' > /dev/null",
     "extractLocaleEn": "babel --config-file ./babel-extract-en.config.js 'src/**/*.{js,jsx,ts,tsx}' > /dev/null && node cleanupLocale.js",
     "extractLocaleCMD": "babel --config-file ./babel-extract.config.js \"src/**/*.{js,jsx,ts,tsx}\" > NUL",
     "cleanupLocale": "node cleanupLocale.js",
     "wasm": "wasm-pack build ./wasm_module --target web --release",
-    "wasm-build-data": "ts-node-esm generateRustMappings.mts"
+    "wasm-build-data": "ts-node-esm generateRustMappings.ts"
   },
   "resolutions": {
     "@discretize/gw2-ui-new": "^0.1.2"

@@ -7,7 +7,7 @@ const fs = require('fs/promises');
 const path = require('path');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const yaml = require('js-yaml');
-const { requireTS } = require('../../utils/require-ts.cjs');
+const { requireTS } = require('../../utils/require-ts.js');
 
 const { templateTransform } = requireTS(path.join(__dirname, './templateTransform.js'));
 

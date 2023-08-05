@@ -25,7 +25,7 @@
     "module": "es2020",
     "resolveJsonModule": true,
     "jsx": "react-jsx",
-    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "exclude": ["node_modules/**/*"]
 }
