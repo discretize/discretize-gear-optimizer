@@ -1,0 +1,6980 @@
+[
+  {
+    "profession": "Warrior",
+    "weaponType": 1,
+    "forcedAffixes": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "rankby": 54,
+    "minBoonDuration": 0,
+    "minHealingPower": null,
+    "minToughness": null,
+    "maxToughness": null,
+    "minHealth": null,
+    "minCritChance": null,
+    "minDamage": null,
+    "minHealing": null,
+    "minSurvivability": null,
+    "minOutgoingHealing": null,
+    "minQuicknessDuration": 0,
+    "maxResults": 50,
+    "attackRate": 0.4,
+    "movementUptime": 0,
+    "specialization": "Berserker",
+    "appliedModifiers": [
+      {
+        "id": "might",
+        "text": "Might",
+        "amountData": { "label": "x", "default": 25, "quantityEntered": 1 },
+        "modifiers": { "attributes": { "Power": [30, "buff"], "Condition Damage": [30, "buff"] } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "fury",
+        "text": "Fury",
+        "modifiers": { "attributes": { "Critical Chance": "25%" } },
+        "wvwModifiers": { "attributes": { "Critical Chance": "20%" } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "protection",
+        "text": "Protection",
+        "modifiers": { "damage": { "Damage Reduction": ["33%", "mult"] } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "vulnerability",
+        "text": "Vulnerability",
+        "amountData": { "label": "x", "default": 25, "quantityEntered": 1 },
+        "modifiers": {
+          "damage": {
+            "Strike Damage": ["1%", "target"],
+            "Condition Damage": ["1%", "target"],
+            "Phantasm Damage": ["1%", "target"]
+          }
+        },
+        "type": "Condition",
+        "section": "Boons"
+      },
+      {
+        "id": "jade-bot-base",
+        "text": "Jade Bot",
+        "subText": "(select both boxes)",
+        "modifiers": { "attributes": { "Vitality": [85, "converted"] } },
+        "type": "Text",
+        "section": "Other buffs"
+      },
+      {
+        "id": "jade-bot-per-tier",
+        "text": "Jade Bot Tier",
+        "amountData": { "label": "", "default": 10, "quantityEntered": 1 },
+        "modifiers": { "attributes": { "Vitality": [15, "converted"] } },
+        "type": "Text",
+        "section": "Other buffs"
+      },
+      {
+        "id": "agony-resistance",
+        "modifiers": { "attributes": { "Agony Resistance": [162, "converted"] } }
+      },
+      {
+        "id": "omnipotion",
+        "modifiers": {
+          "damage": {
+            "Strike Damage": ["15%", "add"],
+            "Condition Damage": ["15%", "add"],
+            "Damage Reduction": ["25%", "add"]
+          },
+          "conversion": {
+            "Vitality": { "Agony Resistance": "150%" },
+            "Toughness": { "Agony Resistance": "150%" },
+            "Concentration": { "Agony Resistance": "150%" }
+          }
+        }
+      },
+      {
+        "id": "signet-of-might",
+        "text": "Signet of Might",
+        "modifiers": { "attributes": { "Power": [180, "buff"] } },
+        "gw2id": 14404,
+        "section": "Skills"
+      },
+      {
+        "id": "peak-performance",
+        "text": "Peak Performance",
+        "subText": "passive",
+        "modifiers": { "damage": { "Strike Damage": ["5%", "add"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["3%", "add"] } },
+        "gw2id": 1444,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "great-fortitude",
+        "text": "Great Fortitude",
+        "modifiers": {
+          "conversion": { "Vitality": { "Power": "10%" }, "Ferocity": { "Power": "10%" } }
+        },
+        "gw2id": 1449,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "pinnacle-of-strength",
+        "text": "Pinnacle Of Strength",
+        "minor": true,
+        "amountData": { "label": "might", "default": 25, "quantityEntered": 25 },
+        "modifiers": { "attributes": { "Power": [250, "buff"] } },
+        "gw2id": 1453,
+        "defaultEnabled": true,
+        "section": "Strength",
+        "amount": ""
+      },
+      {
+        "id": "pinnacle-of-strength-crit",
+        "text": "Pinnacle Of Strength",
+        "subText": "passive",
+        "minor": true,
+        "modifiers": { "attributes": { "Critical Chance": "5%" } },
+        "gw2id": 1453,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "berserkers-power",
+        "text": "Berserker's Power",
+        "amountData": { "label": "stacks", "default": 0, "quantityEntered": 1 },
+        "modifiers": { "damage": { "Strike Damage": ["5.25%", "add"] } },
+        "gw2id": 1437,
+        "defaultEnabled": true,
+        "section": "Strength",
+        "amount": "4"
+      },
+      {
+        "id": "warriors-sprint",
+        "text": "Warrior's Sprint",
+        "amountData": { "label": "% swiftness", "default": 100, "quantityEntered": 100 },
+        "modifiers": { "damage": { "Strike Damage": ["10%", "add"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["3%", "add"] } },
+        "gw2id": 1413,
+        "defaultEnabled": true,
+        "section": "Discipline",
+        "amount": ""
+      },
+      {
+        "id": "axe-mastery-one",
+        "text": "Axe Mastery",
+        "subText": "base",
+        "modifiers": { "attributes": { "Ferocity": [120, "converted"] } },
+        "gw2id": 1369,
+        "defaultEnabled": true,
+        "section": "Discipline"
+      },
+      {
+        "id": "axe-mastery-axe",
+        "text": "Axe Mastery",
+        "subText": "with axe",
+        "amountData": { "label": "% uptime", "default": 100, "quantityEntered": 100 },
+        "modifiers": { "attributes": { "Ferocity": [120, "converted"] } },
+        "gw2id": 1369,
+        "defaultEnabled": true,
+        "section": "Discipline",
+        "amount": "68"
+      },
+      {
+        "id": "blood-reaction-base",
+        "text": "Blood Reaction",
+        "subText": "base",
+        "modifiers": { "conversion": { "Ferocity": { "Precision": "7%" } } },
+        "gw2id": 2011,
+        "defaultEnabled": true,
+        "section": "Berserker"
+      },
+      {
+        "id": "blood-reaction-with",
+        "text": "Blood Reaction",
+        "subText": "bonus",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "modifiers": { "conversion": { "Ferocity": { "Precision": "7%" } } },
+        "gw2id": 2011,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "fatal-frenzy-power-condi",
+        "text": "Fatal Frenzy",
+        "subText": "power/condition damage",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "minor": true,
+        "modifiers": {
+          "attributes": { "Power": [300, "buff"], "Condition Damage": [300, "buff"] }
+        },
+        "gw2id": 2046,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "bloody-roar",
+        "text": "Bloody Roar",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "modifiers": { "damage": { "Strike Damage": ["25%", "mult"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["10%", "mult"] } },
+        "gw2id": 1928,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "thief",
+        "text": "Superior Rune of the Thief",
+        "subText": "(100% flanking)",
+        "modifiers": {
+          "damage": { "Strike Damage": ["10%", "mult"] },
+          "attributes": { "Precision": [300, "converted"], "Condition Damage": [100, "converted"] }
+        },
+        "gw2id": 24818,
+        "section": "Power Runes"
+      },
+      {
+        "id": "force",
+        "text": "Superior Sigil of Force",
+        "modifiers": { "damage": { "Strike Damage": ["5%", "add"] } },
+        "gw2id": 24615,
+        "section": "Power Sigils"
+      },
+      {
+        "id": "impact/night/slaying-both",
+        "text": "Superior Sigil of Impact/Night/Slaying",
+        "textOverride": "Sigil of Impact/Night/Slaying",
+        "subText": "(both 7%/3%)",
+        "modifiers": { "damage": { "Strike Damage": ["3%", "add", "7%", "mult"] } },
+        "gw2id": 24868,
+        "section": "Power Sigils"
+      },
+      {
+        "id": "slaying-potion",
+        "text": "Slaying Potion",
+        "textOverride": "Slaying Potion",
+        "modifiers": {
+          "damage": { "Strike Damage": ["10%", "mult"], "Damage Reduction": ["10%", "unknown"] }
+        },
+        "gw2id": 50082,
+        "priceIds": [],
+        "section": "Power Utilities"
+      },
+      {
+        "id": "cilantro-lime-sous-vide-steak",
+        "text": "Cilantro Lime Sous-Vide Steak",
+        "hasLifesteal": true,
+        "modifiers": {
+          "attributes": { "Power": [100, "converted"], "Ferocity": [70, "converted"] }
+        },
+        "gw2id": 91805,
+        "section": "Power Food"
+      },
+      {
+        "id": "food-lifesteal-effect",
+        "amountData": { "label": "/10s", "default": 4.3, "quantityEntered": 10 },
+        "modifiers": { "attributes": { "Siphon Base Coefficient": 325 } },
+        "amount": ""
+      }
+    ],
+    "cachedFormState": {
+      "traits": {
+        "showAll": false,
+        "selectedLines": ["4", "51", "18"],
+        "selectedTraits": [
+          [1444, 1449, 1437],
+          [1413, 1489, 1369],
+          [2039, 2011, 1928]
+        ],
+        "items": [
+          {
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
+            "pinnacle-of-strength": { "amount": "" },
+            "pinnacle-of-strength-crit": {},
+            "berserkers-power": { "amount": "4" }
+          },
+          {
+            "warriors-sprint": { "amount": "" },
+            "double-standards-str": {},
+            "double-standards-disc": {},
+            "axe-mastery-one": {},
+            "axe-mastery-axe": { "amount": "68" }
+          },
+          {
+            "blood-reaction-base": {},
+            "blood-reaction-with": { "amount": "90" },
+            "heat-the-soul": {},
+            "heat-the-soul-with": { "amount": "" },
+            "fatal-frenzy-power-condi": { "amount": "90" },
+            "fatal-frenzy-toughness": {},
+            "bloody-roar": { "amount": "90" },
+            "king-of-fires": {},
+            "eternal-champion": {}
+          }
+        ]
+      },
+      "skills": { "skills": { "signet-of-might": {} } },
+      "extras": {
+        "extras": {
+          "Runes": { "thief": {}, "scholar": {}, "eagle": {} },
+          "Sigil1": { "force": {} },
+          "Sigil2": { "impact/night/slaying-both": {} },
+          "Enhancement": { "slaying-potion": {} },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      },
+      "buffs": {
+        "buffs": {
+          "might": true,
+          "fury": true,
+          "protection": true,
+          "vulnerability": true,
+          "bannerOfStrength": false,
+          "bannerOfDiscipline": false,
+          "bannerOfTactics": false,
+          "bannerOfDefense": false,
+          "empowerAllies": false,
+          "spotter": false,
+          "frostSpirit": false,
+          "pinpointDistribution": false,
+          "strengthInNumbers": false,
+          "jade-bot-base": true,
+          "jade-bot-per-tier": true,
+          "baneSignet": false,
+          "signetOfJudgment": false,
+          "signetOfMercy": false,
+          "signetOfWrath": false,
+          "assassinsPresence": false,
+          "riteDwarf": false,
+          "exposed": false,
+          "lightArmor": false
+        },
+        "amounts": {}
+      },
+      "priorities": {
+        "optimizeFor": "Damage",
+        "weaponType": "Two-handed",
+        "minBoonDuration": 0,
+        "minHealingPower": "",
+        "minToughness": "",
+        "maxToughness": "",
+        "minHealth": "",
+        "minCritChance": "",
+        "minDamage": "",
+        "minHealing": "",
+        "minSurvivability": "",
+        "minOutgoingHealing": "",
+        "minQuicknessDuration": 0,
+        "affixes": ["Berserker", "Assassin", "Dragon"],
+        "exclusions": { "enabled": false, "data": {} },
+        "exotics": { "enabled": false, "data": {} },
+        "customAffix": {},
+        "customAffixTextBox": "",
+        "customAffixError": ""
+      }
+    },
+    "shouldDisplayExtras": {
+      "Runes": true,
+      "Sigil1": false,
+      "Sigil2": false,
+      "Enhancement": false,
+      "Nourishment": true
+    },
+    "extrasCombination": {
+      "Runes": "thief",
+      "Sigil1": "force",
+      "Sigil2": "impact/night/slaying-both",
+      "Enhancement": "slaying-potion",
+      "Nourishment": "cilantro-lime-sous-vide-steak"
+    },
+    "distribution": {
+      "Power": 3441,
+      "Power2": 0,
+      "Burning": 1.09,
+      "Bleeding": 0,
+      "Poison": 0,
+      "Torment": 0,
+      "Confusion": 0
+    },
+    "baseAttributes": [
+      [14, 9212],
+      [15, 1271],
+      [0, 1100],
+      [1, 1300],
+      [2, 1000],
+      [3, 1235],
+      [4, 271.6],
+      [5, 100],
+      [6, 0],
+      [7, 0],
+      [8, 0],
+      [9, 162],
+      [12, 0],
+      [13, 0],
+      [10, 0.35],
+      [11, 1.5],
+      [87, 3441],
+      [91, 0],
+      [42, 1.09],
+      [41, 0],
+      [44, 0],
+      [45, 0],
+      [43, 0],
+      [92, 0],
+      [78, 139.75]
+    ],
+    "modifiers": {
+      "damageMultiplier": [
+        ["StrikeDamage", 3.1521899062500007],
+        ["ConditionDamage", 1.4375],
+        ["SiphonDamage", 1],
+        ["DamageTaken", 0.45225],
+        ["CriticalDamage", 1],
+        ["BleedingDamage", 1],
+        ["BurningDamage", 1],
+        ["ConfusionDamage", 1],
+        ["PoisonDamage", 1],
+        ["TormentDamage", 1],
+        ["AlternativeDamage", 1],
+        ["AlternativeCriticalDamage", 1],
+        ["PhantasmDamage", 1.25],
+        ["PhantasmCriticalDamage", 1]
+      ],
+      "damageMultiplierBreakdown": {
+        "Strike Damage": { "mult": 1.5860075000000002, "add": 1.59, "target": 1.25 },
+        "Condition Damage": { "mult": 1, "add": 1.15, "target": 1.25 },
+        "Siphon Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Damage Taken": { "mult": 0.603, "add": 0.75, "target": 1 },
+        "Critical Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Bleeding Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Burning Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Confusion Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Poison Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Torment Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Alternative Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Alternative Critical Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Phantasm Damage": { "mult": 1, "add": 1, "target": 1.25 },
+        "Phantasm Critical Damage": { "mult": 1, "add": 1, "target": 1 }
+      },
+      "buff": [
+        [0, 1450],
+        [5, 1020]
+      ],
+      "convert": [
+        [
+          3,
+          [
+            [9, 1.5],
+            [0, 0.1]
+          ]
+        ],
+        [2, [[9, 1.5]]],
+        [7, [[9, 1.5]]],
+        [
+          4,
+          [
+            [0, 0.1],
+            [1, 0.133]
+          ]
+        ]
+      ],
+      "convertAfterBuffs": []
+    },
+    "relevantConditions": [1],
+    "disableCondiResultCache": false,
+    "maxInfusions": 18,
+    "primaryInfusion": "",
+    "primaryMaxInfusions": 0,
+    "secondaryInfusion": "",
+    "secondaryMaxInfusions": 0,
+    "infusionMode": "None",
+    "slots": 13,
+    "affixesArray": [
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      []
+    ],
+    "identicalArmor": true,
+    "identicalRing": true,
+    "identicalAcc": true,
+    "identicalWep": false,
+    "affixStatsArray": [
+      [
+        [
+          [0, 63],
+          [1, 45],
+          [4, 45]
+        ],
+        [
+          [1, 63],
+          [0, 45],
+          [4, 45]
+        ],
+        [
+          [0, 54],
+          [4, 54],
+          [1, 30],
+          [3, 30]
+        ]
+      ],
+      [
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ],
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ],
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ]
+      ],
+      [
+        [
+          [1, 141],
+          [0, 101],
+          [4, 101]
+        ],
+        [
+          [0, 121],
+          [4, 121],
+          [1, 67],
+          [3, 67]
+        ],
+        [
+          [0, 141],
+          [1, 101],
+          [4, 101]
+        ]
+      ],
+      [
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ],
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ],
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ]
+      ],
+      [
+        [
+          [0, 81],
+          [4, 81],
+          [1, 44],
+          [3, 44]
+        ],
+        [
+          [0, 94],
+          [1, 67],
+          [4, 67]
+        ],
+        [
+          [1, 94],
+          [0, 67],
+          [4, 67]
+        ]
+      ],
+      [
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ],
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ],
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ]
+      ],
+      [
+        [
+          [0, 157],
+          [1, 108],
+          [4, 108]
+        ],
+        [
+          [1, 157],
+          [0, 108],
+          [4, 108]
+        ],
+        [
+          [0, 133],
+          [4, 133],
+          [1, 71],
+          [3, 71]
+        ]
+      ],
+      [
+        [
+          [0, 106],
+          [4, 106],
+          [1, 56],
+          [3, 56]
+        ],
+        [
+          [0, 126],
+          [1, 85],
+          [4, 85]
+        ],
+        [
+          [1, 126],
+          [0, 85],
+          [4, 85]
+        ]
+      ],
+      [
+        [
+          [1, 126],
+          [0, 85],
+          [4, 85]
+        ],
+        [
+          [0, 106],
+          [4, 106],
+          [1, 56],
+          [3, 56]
+        ],
+        [
+          [0, 126],
+          [1, 85],
+          [4, 85]
+        ]
+      ],
+      [
+        [
+          [0, 110],
+          [1, 74],
+          [4, 74]
+        ],
+        [
+          [1, 110],
+          [0, 74],
+          [4, 74]
+        ],
+        [
+          [0, 92],
+          [4, 92],
+          [1, 49],
+          [3, 49]
+        ]
+      ],
+      [
+        [
+          [0, 92],
+          [4, 92],
+          [1, 49],
+          [3, 49]
+        ],
+        [
+          [0, 110],
+          [1, 74],
+          [4, 74]
+        ],
+        [
+          [1, 110],
+          [0, 74],
+          [4, 74]
+        ]
+      ],
+      [
+        [
+          [1, 63],
+          [0, 40],
+          [4, 40]
+        ],
+        [
+          [0, 52],
+          [4, 52],
+          [1, 27],
+          [3, 27]
+        ],
+        [
+          [0, 63],
+          [1, 40],
+          [4, 40]
+        ]
+      ],
+      [
+        [
+          [0, 251],
+          [1, 179],
+          [4, 179]
+        ],
+        [
+          [1, 251],
+          [0, 179],
+          [4, 179]
+        ],
+        [
+          [0, 215],
+          [4, 215],
+          [1, 118],
+          [3, 118]
+        ]
+      ],
+      []
+    ],
+    "runsAfterThisSlot": [
+      1594323, 531441, 177147, 59049, 19683, 6561, 2187, 729, 243, 81, 27, 9, 3, 1
+    ],
+    "gameMode": "fractals"
+  },
+  {
+    "profession": "Warrior",
+    "weaponType": 1,
+    "forcedAffixes": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "rankby": 54,
+    "minBoonDuration": 0,
+    "minHealingPower": null,
+    "minToughness": null,
+    "maxToughness": null,
+    "minHealth": null,
+    "minCritChance": null,
+    "minDamage": null,
+    "minHealing": null,
+    "minSurvivability": null,
+    "minOutgoingHealing": null,
+    "minQuicknessDuration": 0,
+    "maxResults": 50,
+    "attackRate": 0.4,
+    "movementUptime": 0,
+    "specialization": "Berserker",
+    "appliedModifiers": [
+      {
+        "id": "might",
+        "text": "Might",
+        "amountData": { "label": "x", "default": 25, "quantityEntered": 1 },
+        "modifiers": { "attributes": { "Power": [30, "buff"], "Condition Damage": [30, "buff"] } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "fury",
+        "text": "Fury",
+        "modifiers": { "attributes": { "Critical Chance": "25%" } },
+        "wvwModifiers": { "attributes": { "Critical Chance": "20%" } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "protection",
+        "text": "Protection",
+        "modifiers": { "damage": { "Damage Reduction": ["33%", "mult"] } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "vulnerability",
+        "text": "Vulnerability",
+        "amountData": { "label": "x", "default": 25, "quantityEntered": 1 },
+        "modifiers": {
+          "damage": {
+            "Strike Damage": ["1%", "target"],
+            "Condition Damage": ["1%", "target"],
+            "Phantasm Damage": ["1%", "target"]
+          }
+        },
+        "type": "Condition",
+        "section": "Boons"
+      },
+      {
+        "id": "jade-bot-base",
+        "text": "Jade Bot",
+        "subText": "(select both boxes)",
+        "modifiers": { "attributes": { "Vitality": [85, "converted"] } },
+        "type": "Text",
+        "section": "Other buffs"
+      },
+      {
+        "id": "jade-bot-per-tier",
+        "text": "Jade Bot Tier",
+        "amountData": { "label": "", "default": 10, "quantityEntered": 1 },
+        "modifiers": { "attributes": { "Vitality": [15, "converted"] } },
+        "type": "Text",
+        "section": "Other buffs"
+      },
+      {
+        "id": "agony-resistance",
+        "modifiers": { "attributes": { "Agony Resistance": [162, "converted"] } }
+      },
+      {
+        "id": "omnipotion",
+        "modifiers": {
+          "damage": {
+            "Strike Damage": ["15%", "add"],
+            "Condition Damage": ["15%", "add"],
+            "Damage Reduction": ["25%", "add"]
+          },
+          "conversion": {
+            "Vitality": { "Agony Resistance": "150%" },
+            "Toughness": { "Agony Resistance": "150%" },
+            "Concentration": { "Agony Resistance": "150%" }
+          }
+        }
+      },
+      {
+        "id": "signet-of-might",
+        "text": "Signet of Might",
+        "modifiers": { "attributes": { "Power": [180, "buff"] } },
+        "gw2id": 14404,
+        "section": "Skills"
+      },
+      {
+        "id": "peak-performance",
+        "text": "Peak Performance",
+        "subText": "passive",
+        "modifiers": { "damage": { "Strike Damage": ["5%", "add"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["3%", "add"] } },
+        "gw2id": 1444,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "great-fortitude",
+        "text": "Great Fortitude",
+        "modifiers": {
+          "conversion": { "Vitality": { "Power": "10%" }, "Ferocity": { "Power": "10%" } }
+        },
+        "gw2id": 1449,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "pinnacle-of-strength",
+        "text": "Pinnacle Of Strength",
+        "minor": true,
+        "amountData": { "label": "might", "default": 25, "quantityEntered": 25 },
+        "modifiers": { "attributes": { "Power": [250, "buff"] } },
+        "gw2id": 1453,
+        "defaultEnabled": true,
+        "section": "Strength",
+        "amount": ""
+      },
+      {
+        "id": "pinnacle-of-strength-crit",
+        "text": "Pinnacle Of Strength",
+        "subText": "passive",
+        "minor": true,
+        "modifiers": { "attributes": { "Critical Chance": "5%" } },
+        "gw2id": 1453,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "berserkers-power",
+        "text": "Berserker's Power",
+        "amountData": { "label": "stacks", "default": 0, "quantityEntered": 1 },
+        "modifiers": { "damage": { "Strike Damage": ["5.25%", "add"] } },
+        "gw2id": 1437,
+        "defaultEnabled": true,
+        "section": "Strength",
+        "amount": "4"
+      },
+      {
+        "id": "warriors-sprint",
+        "text": "Warrior's Sprint",
+        "amountData": { "label": "% swiftness", "default": 100, "quantityEntered": 100 },
+        "modifiers": { "damage": { "Strike Damage": ["10%", "add"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["3%", "add"] } },
+        "gw2id": 1413,
+        "defaultEnabled": true,
+        "section": "Discipline",
+        "amount": ""
+      },
+      {
+        "id": "axe-mastery-one",
+        "text": "Axe Mastery",
+        "subText": "base",
+        "modifiers": { "attributes": { "Ferocity": [120, "converted"] } },
+        "gw2id": 1369,
+        "defaultEnabled": true,
+        "section": "Discipline"
+      },
+      {
+        "id": "axe-mastery-axe",
+        "text": "Axe Mastery",
+        "subText": "with axe",
+        "amountData": { "label": "% uptime", "default": 100, "quantityEntered": 100 },
+        "modifiers": { "attributes": { "Ferocity": [120, "converted"] } },
+        "gw2id": 1369,
+        "defaultEnabled": true,
+        "section": "Discipline",
+        "amount": "68"
+      },
+      {
+        "id": "blood-reaction-base",
+        "text": "Blood Reaction",
+        "subText": "base",
+        "modifiers": { "conversion": { "Ferocity": { "Precision": "7%" } } },
+        "gw2id": 2011,
+        "defaultEnabled": true,
+        "section": "Berserker"
+      },
+      {
+        "id": "blood-reaction-with",
+        "text": "Blood Reaction",
+        "subText": "bonus",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "modifiers": { "conversion": { "Ferocity": { "Precision": "7%" } } },
+        "gw2id": 2011,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "fatal-frenzy-power-condi",
+        "text": "Fatal Frenzy",
+        "subText": "power/condition damage",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "minor": true,
+        "modifiers": {
+          "attributes": { "Power": [300, "buff"], "Condition Damage": [300, "buff"] }
+        },
+        "gw2id": 2046,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "bloody-roar",
+        "text": "Bloody Roar",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "modifiers": { "damage": { "Strike Damage": ["25%", "mult"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["10%", "mult"] } },
+        "gw2id": 1928,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "thief",
+        "text": "Superior Rune of the Thief",
+        "subText": "(100% flanking)",
+        "modifiers": {
+          "damage": { "Strike Damage": ["10%", "mult"] },
+          "attributes": { "Precision": [300, "converted"], "Condition Damage": [100, "converted"] }
+        },
+        "gw2id": 24818,
+        "section": "Power Runes"
+      },
+      {
+        "id": "force",
+        "text": "Superior Sigil of Force",
+        "modifiers": { "damage": { "Strike Damage": ["5%", "add"] } },
+        "gw2id": 24615,
+        "section": "Power Sigils"
+      },
+      {
+        "id": "impact/night/slaying-both",
+        "text": "Superior Sigil of Impact/Night/Slaying",
+        "textOverride": "Sigil of Impact/Night/Slaying",
+        "subText": "(both 7%/3%)",
+        "modifiers": { "damage": { "Strike Damage": ["3%", "add", "7%", "mult"] } },
+        "gw2id": 24868,
+        "section": "Power Sigils"
+      },
+      {
+        "id": "slaying-potion",
+        "text": "Slaying Potion",
+        "textOverride": "Slaying Potion",
+        "modifiers": {
+          "damage": { "Strike Damage": ["10%", "mult"], "Damage Reduction": ["10%", "unknown"] }
+        },
+        "gw2id": 50082,
+        "priceIds": [],
+        "section": "Power Utilities"
+      },
+      {
+        "id": "plate-of-coq-au-vin-with-salsa",
+        "text": "Plate of Coq Au Vin with Salsa",
+        "hasLifesteal": true,
+        "modifiers": {
+          "attributes": { "Power": [100, "converted"], "Precision": [70, "converted"] }
+        },
+        "gw2id": 91709,
+        "section": "Power Food"
+      },
+      {
+        "id": "food-lifesteal-effect",
+        "amountData": { "label": "/10s", "default": 4.3, "quantityEntered": 10 },
+        "modifiers": { "attributes": { "Siphon Base Coefficient": 325 } },
+        "amount": ""
+      }
+    ],
+    "cachedFormState": {
+      "traits": {
+        "showAll": false,
+        "selectedLines": ["4", "51", "18"],
+        "selectedTraits": [
+          [1444, 1449, 1437],
+          [1413, 1489, 1369],
+          [2039, 2011, 1928]
+        ],
+        "items": [
+          {
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
+            "pinnacle-of-strength": { "amount": "" },
+            "pinnacle-of-strength-crit": {},
+            "berserkers-power": { "amount": "4" }
+          },
+          {
+            "warriors-sprint": { "amount": "" },
+            "double-standards-str": {},
+            "double-standards-disc": {},
+            "axe-mastery-one": {},
+            "axe-mastery-axe": { "amount": "68" }
+          },
+          {
+            "blood-reaction-base": {},
+            "blood-reaction-with": { "amount": "90" },
+            "heat-the-soul": {},
+            "heat-the-soul-with": { "amount": "" },
+            "fatal-frenzy-power-condi": { "amount": "90" },
+            "fatal-frenzy-toughness": {},
+            "bloody-roar": { "amount": "90" },
+            "king-of-fires": {},
+            "eternal-champion": {}
+          }
+        ]
+      },
+      "skills": { "skills": { "signet-of-might": {} } },
+      "extras": {
+        "extras": {
+          "Runes": { "thief": {}, "scholar": {}, "eagle": {} },
+          "Sigil1": { "force": {} },
+          "Sigil2": { "impact/night/slaying-both": {} },
+          "Enhancement": { "slaying-potion": {} },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      },
+      "buffs": {
+        "buffs": {
+          "might": true,
+          "fury": true,
+          "protection": true,
+          "vulnerability": true,
+          "bannerOfStrength": false,
+          "bannerOfDiscipline": false,
+          "bannerOfTactics": false,
+          "bannerOfDefense": false,
+          "empowerAllies": false,
+          "spotter": false,
+          "frostSpirit": false,
+          "pinpointDistribution": false,
+          "strengthInNumbers": false,
+          "jade-bot-base": true,
+          "jade-bot-per-tier": true,
+          "baneSignet": false,
+          "signetOfJudgment": false,
+          "signetOfMercy": false,
+          "signetOfWrath": false,
+          "assassinsPresence": false,
+          "riteDwarf": false,
+          "exposed": false,
+          "lightArmor": false
+        },
+        "amounts": {}
+      },
+      "priorities": {
+        "optimizeFor": "Damage",
+        "weaponType": "Two-handed",
+        "minBoonDuration": 0,
+        "minHealingPower": "",
+        "minToughness": "",
+        "maxToughness": "",
+        "minHealth": "",
+        "minCritChance": "",
+        "minDamage": "",
+        "minHealing": "",
+        "minSurvivability": "",
+        "minOutgoingHealing": "",
+        "minQuicknessDuration": 0,
+        "affixes": ["Berserker", "Assassin", "Dragon"],
+        "exclusions": { "enabled": false, "data": {} },
+        "exotics": { "enabled": false, "data": {} },
+        "customAffix": {},
+        "customAffixTextBox": "",
+        "customAffixError": ""
+      }
+    },
+    "shouldDisplayExtras": {
+      "Runes": true,
+      "Sigil1": false,
+      "Sigil2": false,
+      "Enhancement": false,
+      "Nourishment": true
+    },
+    "extrasCombination": {
+      "Runes": "thief",
+      "Sigil1": "force",
+      "Sigil2": "impact/night/slaying-both",
+      "Enhancement": "slaying-potion",
+      "Nourishment": "plate-of-coq-au-vin-with-salsa"
+    },
+    "distribution": {
+      "Power": 3441,
+      "Power2": 0,
+      "Burning": 1.09,
+      "Bleeding": 0,
+      "Poison": 0,
+      "Torment": 0,
+      "Confusion": 0
+    },
+    "baseAttributes": [
+      [14, 9212],
+      [15, 1271],
+      [0, 1100],
+      [1, 1370],
+      [2, 1000],
+      [3, 1235],
+      [4, 201.6],
+      [5, 100],
+      [6, 0],
+      [7, 0],
+      [8, 0],
+      [9, 162],
+      [12, 0],
+      [13, 0],
+      [10, 0.35],
+      [11, 1.5],
+      [87, 3441],
+      [91, 0],
+      [42, 1.09],
+      [41, 0],
+      [44, 0],
+      [45, 0],
+      [43, 0],
+      [92, 0],
+      [78, 139.75]
+    ],
+    "modifiers": {
+      "damageMultiplier": [
+        ["StrikeDamage", 3.1521899062500007],
+        ["ConditionDamage", 1.4375],
+        ["SiphonDamage", 1],
+        ["DamageTaken", 0.45225],
+        ["CriticalDamage", 1],
+        ["BleedingDamage", 1],
+        ["BurningDamage", 1],
+        ["ConfusionDamage", 1],
+        ["PoisonDamage", 1],
+        ["TormentDamage", 1],
+        ["AlternativeDamage", 1],
+        ["AlternativeCriticalDamage", 1],
+        ["PhantasmDamage", 1.25],
+        ["PhantasmCriticalDamage", 1]
+      ],
+      "damageMultiplierBreakdown": {
+        "Strike Damage": { "mult": 1.5860075000000002, "add": 1.59, "target": 1.25 },
+        "Condition Damage": { "mult": 1, "add": 1.15, "target": 1.25 },
+        "Siphon Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Damage Taken": { "mult": 0.603, "add": 0.75, "target": 1 },
+        "Critical Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Bleeding Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Burning Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Confusion Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Poison Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Torment Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Alternative Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Alternative Critical Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Phantasm Damage": { "mult": 1, "add": 1, "target": 1.25 },
+        "Phantasm Critical Damage": { "mult": 1, "add": 1, "target": 1 }
+      },
+      "buff": [
+        [0, 1450],
+        [5, 1020]
+      ],
+      "convert": [
+        [
+          3,
+          [
+            [9, 1.5],
+            [0, 0.1]
+          ]
+        ],
+        [2, [[9, 1.5]]],
+        [7, [[9, 1.5]]],
+        [
+          4,
+          [
+            [0, 0.1],
+            [1, 0.133]
+          ]
+        ]
+      ],
+      "convertAfterBuffs": []
+    },
+    "relevantConditions": [1],
+    "disableCondiResultCache": false,
+    "maxInfusions": 18,
+    "primaryInfusion": "",
+    "primaryMaxInfusions": 0,
+    "secondaryInfusion": "",
+    "secondaryMaxInfusions": 0,
+    "infusionMode": "None",
+    "slots": 13,
+    "affixesArray": [
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      []
+    ],
+    "identicalArmor": true,
+    "identicalRing": true,
+    "identicalAcc": true,
+    "identicalWep": false,
+    "affixStatsArray": [
+      [
+        [
+          [0, 63],
+          [1, 45],
+          [4, 45]
+        ],
+        [
+          [1, 63],
+          [0, 45],
+          [4, 45]
+        ],
+        [
+          [0, 54],
+          [4, 54],
+          [1, 30],
+          [3, 30]
+        ]
+      ],
+      [
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ],
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ],
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ]
+      ],
+      [
+        [
+          [1, 141],
+          [0, 101],
+          [4, 101]
+        ],
+        [
+          [0, 121],
+          [4, 121],
+          [1, 67],
+          [3, 67]
+        ],
+        [
+          [0, 141],
+          [1, 101],
+          [4, 101]
+        ]
+      ],
+      [
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ],
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ],
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ]
+      ],
+      [
+        [
+          [0, 81],
+          [4, 81],
+          [1, 44],
+          [3, 44]
+        ],
+        [
+          [0, 94],
+          [1, 67],
+          [4, 67]
+        ],
+        [
+          [1, 94],
+          [0, 67],
+          [4, 67]
+        ]
+      ],
+      [
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ],
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ],
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ]
+      ],
+      [
+        [
+          [0, 157],
+          [1, 108],
+          [4, 108]
+        ],
+        [
+          [1, 157],
+          [0, 108],
+          [4, 108]
+        ],
+        [
+          [0, 133],
+          [4, 133],
+          [1, 71],
+          [3, 71]
+        ]
+      ],
+      [
+        [
+          [0, 106],
+          [4, 106],
+          [1, 56],
+          [3, 56]
+        ],
+        [
+          [0, 126],
+          [1, 85],
+          [4, 85]
+        ],
+        [
+          [1, 126],
+          [0, 85],
+          [4, 85]
+        ]
+      ],
+      [
+        [
+          [1, 126],
+          [0, 85],
+          [4, 85]
+        ],
+        [
+          [0, 106],
+          [4, 106],
+          [1, 56],
+          [3, 56]
+        ],
+        [
+          [0, 126],
+          [1, 85],
+          [4, 85]
+        ]
+      ],
+      [
+        [
+          [0, 110],
+          [1, 74],
+          [4, 74]
+        ],
+        [
+          [1, 110],
+          [0, 74],
+          [4, 74]
+        ],
+        [
+          [0, 92],
+          [4, 92],
+          [1, 49],
+          [3, 49]
+        ]
+      ],
+      [
+        [
+          [0, 92],
+          [4, 92],
+          [1, 49],
+          [3, 49]
+        ],
+        [
+          [0, 110],
+          [1, 74],
+          [4, 74]
+        ],
+        [
+          [1, 110],
+          [0, 74],
+          [4, 74]
+        ]
+      ],
+      [
+        [
+          [1, 63],
+          [0, 40],
+          [4, 40]
+        ],
+        [
+          [0, 52],
+          [4, 52],
+          [1, 27],
+          [3, 27]
+        ],
+        [
+          [0, 63],
+          [1, 40],
+          [4, 40]
+        ]
+      ],
+      [
+        [
+          [0, 251],
+          [1, 179],
+          [4, 179]
+        ],
+        [
+          [1, 251],
+          [0, 179],
+          [4, 179]
+        ],
+        [
+          [0, 215],
+          [4, 215],
+          [1, 118],
+          [3, 118]
+        ]
+      ],
+      []
+    ],
+    "runsAfterThisSlot": [
+      1594323, 531441, 177147, 59049, 19683, 6561, 2187, 729, 243, 81, 27, 9, 3, 1
+    ],
+    "gameMode": "fractals"
+  },
+  {
+    "profession": "Warrior",
+    "weaponType": 1,
+    "forcedAffixes": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "rankby": 54,
+    "minBoonDuration": 0,
+    "minHealingPower": null,
+    "minToughness": null,
+    "maxToughness": null,
+    "minHealth": null,
+    "minCritChance": null,
+    "minDamage": null,
+    "minHealing": null,
+    "minSurvivability": null,
+    "minOutgoingHealing": null,
+    "minQuicknessDuration": 0,
+    "maxResults": 50,
+    "attackRate": 0.4,
+    "movementUptime": 0,
+    "specialization": "Berserker",
+    "appliedModifiers": [
+      {
+        "id": "might",
+        "text": "Might",
+        "amountData": { "label": "x", "default": 25, "quantityEntered": 1 },
+        "modifiers": { "attributes": { "Power": [30, "buff"], "Condition Damage": [30, "buff"] } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "fury",
+        "text": "Fury",
+        "modifiers": { "attributes": { "Critical Chance": "25%" } },
+        "wvwModifiers": { "attributes": { "Critical Chance": "20%" } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "protection",
+        "text": "Protection",
+        "modifiers": { "damage": { "Damage Reduction": ["33%", "mult"] } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "vulnerability",
+        "text": "Vulnerability",
+        "amountData": { "label": "x", "default": 25, "quantityEntered": 1 },
+        "modifiers": {
+          "damage": {
+            "Strike Damage": ["1%", "target"],
+            "Condition Damage": ["1%", "target"],
+            "Phantasm Damage": ["1%", "target"]
+          }
+        },
+        "type": "Condition",
+        "section": "Boons"
+      },
+      {
+        "id": "jade-bot-base",
+        "text": "Jade Bot",
+        "subText": "(select both boxes)",
+        "modifiers": { "attributes": { "Vitality": [85, "converted"] } },
+        "type": "Text",
+        "section": "Other buffs"
+      },
+      {
+        "id": "jade-bot-per-tier",
+        "text": "Jade Bot Tier",
+        "amountData": { "label": "", "default": 10, "quantityEntered": 1 },
+        "modifiers": { "attributes": { "Vitality": [15, "converted"] } },
+        "type": "Text",
+        "section": "Other buffs"
+      },
+      {
+        "id": "agony-resistance",
+        "modifiers": { "attributes": { "Agony Resistance": [162, "converted"] } }
+      },
+      {
+        "id": "omnipotion",
+        "modifiers": {
+          "damage": {
+            "Strike Damage": ["15%", "add"],
+            "Condition Damage": ["15%", "add"],
+            "Damage Reduction": ["25%", "add"]
+          },
+          "conversion": {
+            "Vitality": { "Agony Resistance": "150%" },
+            "Toughness": { "Agony Resistance": "150%" },
+            "Concentration": { "Agony Resistance": "150%" }
+          }
+        }
+      },
+      {
+        "id": "signet-of-might",
+        "text": "Signet of Might",
+        "modifiers": { "attributes": { "Power": [180, "buff"] } },
+        "gw2id": 14404,
+        "section": "Skills"
+      },
+      {
+        "id": "peak-performance",
+        "text": "Peak Performance",
+        "subText": "passive",
+        "modifiers": { "damage": { "Strike Damage": ["5%", "add"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["3%", "add"] } },
+        "gw2id": 1444,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "great-fortitude",
+        "text": "Great Fortitude",
+        "modifiers": {
+          "conversion": { "Vitality": { "Power": "10%" }, "Ferocity": { "Power": "10%" } }
+        },
+        "gw2id": 1449,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "pinnacle-of-strength",
+        "text": "Pinnacle Of Strength",
+        "minor": true,
+        "amountData": { "label": "might", "default": 25, "quantityEntered": 25 },
+        "modifiers": { "attributes": { "Power": [250, "buff"] } },
+        "gw2id": 1453,
+        "defaultEnabled": true,
+        "section": "Strength",
+        "amount": ""
+      },
+      {
+        "id": "pinnacle-of-strength-crit",
+        "text": "Pinnacle Of Strength",
+        "subText": "passive",
+        "minor": true,
+        "modifiers": { "attributes": { "Critical Chance": "5%" } },
+        "gw2id": 1453,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "berserkers-power",
+        "text": "Berserker's Power",
+        "amountData": { "label": "stacks", "default": 0, "quantityEntered": 1 },
+        "modifiers": { "damage": { "Strike Damage": ["5.25%", "add"] } },
+        "gw2id": 1437,
+        "defaultEnabled": true,
+        "section": "Strength",
+        "amount": "4"
+      },
+      {
+        "id": "warriors-sprint",
+        "text": "Warrior's Sprint",
+        "amountData": { "label": "% swiftness", "default": 100, "quantityEntered": 100 },
+        "modifiers": { "damage": { "Strike Damage": ["10%", "add"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["3%", "add"] } },
+        "gw2id": 1413,
+        "defaultEnabled": true,
+        "section": "Discipline",
+        "amount": ""
+      },
+      {
+        "id": "axe-mastery-one",
+        "text": "Axe Mastery",
+        "subText": "base",
+        "modifiers": { "attributes": { "Ferocity": [120, "converted"] } },
+        "gw2id": 1369,
+        "defaultEnabled": true,
+        "section": "Discipline"
+      },
+      {
+        "id": "axe-mastery-axe",
+        "text": "Axe Mastery",
+        "subText": "with axe",
+        "amountData": { "label": "% uptime", "default": 100, "quantityEntered": 100 },
+        "modifiers": { "attributes": { "Ferocity": [120, "converted"] } },
+        "gw2id": 1369,
+        "defaultEnabled": true,
+        "section": "Discipline",
+        "amount": "68"
+      },
+      {
+        "id": "blood-reaction-base",
+        "text": "Blood Reaction",
+        "subText": "base",
+        "modifiers": { "conversion": { "Ferocity": { "Precision": "7%" } } },
+        "gw2id": 2011,
+        "defaultEnabled": true,
+        "section": "Berserker"
+      },
+      {
+        "id": "blood-reaction-with",
+        "text": "Blood Reaction",
+        "subText": "bonus",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "modifiers": { "conversion": { "Ferocity": { "Precision": "7%" } } },
+        "gw2id": 2011,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "fatal-frenzy-power-condi",
+        "text": "Fatal Frenzy",
+        "subText": "power/condition damage",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "minor": true,
+        "modifiers": {
+          "attributes": { "Power": [300, "buff"], "Condition Damage": [300, "buff"] }
+        },
+        "gw2id": 2046,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "bloody-roar",
+        "text": "Bloody Roar",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "modifiers": { "damage": { "Strike Damage": ["25%", "mult"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["10%", "mult"] } },
+        "gw2id": 1928,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "thief",
+        "text": "Superior Rune of the Thief",
+        "subText": "(100% flanking)",
+        "modifiers": {
+          "damage": { "Strike Damage": ["10%", "mult"] },
+          "attributes": { "Precision": [300, "converted"], "Condition Damage": [100, "converted"] }
+        },
+        "gw2id": 24818,
+        "section": "Power Runes"
+      },
+      {
+        "id": "force",
+        "text": "Superior Sigil of Force",
+        "modifiers": { "damage": { "Strike Damage": ["5%", "add"] } },
+        "gw2id": 24615,
+        "section": "Power Sigils"
+      },
+      {
+        "id": "impact/night/slaying-both",
+        "text": "Superior Sigil of Impact/Night/Slaying",
+        "textOverride": "Sigil of Impact/Night/Slaying",
+        "subText": "(both 7%/3%)",
+        "modifiers": { "damage": { "Strike Damage": ["3%", "add", "7%", "mult"] } },
+        "gw2id": 24868,
+        "section": "Power Sigils"
+      },
+      {
+        "id": "slaying-potion",
+        "text": "Slaying Potion",
+        "textOverride": "Slaying Potion",
+        "modifiers": {
+          "damage": { "Strike Damage": ["10%", "mult"], "Damage Reduction": ["10%", "unknown"] }
+        },
+        "gw2id": 50082,
+        "priceIds": [],
+        "section": "Power Utilities"
+      },
+      {
+        "id": "curry-butternut-squash-soup",
+        "text": "Bowl of Curry Butternut Squash Soup",
+        "modifiers": {
+          "attributes": { "Precision": [100, "converted"], "Ferocity": [70, "converted"] }
+        },
+        "gw2id": 12486,
+        "section": "Power Food"
+      }
+    ],
+    "cachedFormState": {
+      "traits": {
+        "showAll": false,
+        "selectedLines": ["4", "51", "18"],
+        "selectedTraits": [
+          [1444, 1449, 1437],
+          [1413, 1489, 1369],
+          [2039, 2011, 1928]
+        ],
+        "items": [
+          {
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
+            "pinnacle-of-strength": { "amount": "" },
+            "pinnacle-of-strength-crit": {},
+            "berserkers-power": { "amount": "4" }
+          },
+          {
+            "warriors-sprint": { "amount": "" },
+            "double-standards-str": {},
+            "double-standards-disc": {},
+            "axe-mastery-one": {},
+            "axe-mastery-axe": { "amount": "68" }
+          },
+          {
+            "blood-reaction-base": {},
+            "blood-reaction-with": { "amount": "90" },
+            "heat-the-soul": {},
+            "heat-the-soul-with": { "amount": "" },
+            "fatal-frenzy-power-condi": { "amount": "90" },
+            "fatal-frenzy-toughness": {},
+            "bloody-roar": { "amount": "90" },
+            "king-of-fires": {},
+            "eternal-champion": {}
+          }
+        ]
+      },
+      "skills": { "skills": { "signet-of-might": {} } },
+      "extras": {
+        "extras": {
+          "Runes": { "thief": {}, "scholar": {}, "eagle": {} },
+          "Sigil1": { "force": {} },
+          "Sigil2": { "impact/night/slaying-both": {} },
+          "Enhancement": { "slaying-potion": {} },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      },
+      "buffs": {
+        "buffs": {
+          "might": true,
+          "fury": true,
+          "protection": true,
+          "vulnerability": true,
+          "bannerOfStrength": false,
+          "bannerOfDiscipline": false,
+          "bannerOfTactics": false,
+          "bannerOfDefense": false,
+          "empowerAllies": false,
+          "spotter": false,
+          "frostSpirit": false,
+          "pinpointDistribution": false,
+          "strengthInNumbers": false,
+          "jade-bot-base": true,
+          "jade-bot-per-tier": true,
+          "baneSignet": false,
+          "signetOfJudgment": false,
+          "signetOfMercy": false,
+          "signetOfWrath": false,
+          "assassinsPresence": false,
+          "riteDwarf": false,
+          "exposed": false,
+          "lightArmor": false
+        },
+        "amounts": {}
+      },
+      "priorities": {
+        "optimizeFor": "Damage",
+        "weaponType": "Two-handed",
+        "minBoonDuration": 0,
+        "minHealingPower": "",
+        "minToughness": "",
+        "maxToughness": "",
+        "minHealth": "",
+        "minCritChance": "",
+        "minDamage": "",
+        "minHealing": "",
+        "minSurvivability": "",
+        "minOutgoingHealing": "",
+        "minQuicknessDuration": 0,
+        "affixes": ["Berserker", "Assassin", "Dragon"],
+        "exclusions": { "enabled": false, "data": {} },
+        "exotics": { "enabled": false, "data": {} },
+        "customAffix": {},
+        "customAffixTextBox": "",
+        "customAffixError": ""
+      }
+    },
+    "shouldDisplayExtras": {
+      "Runes": true,
+      "Sigil1": false,
+      "Sigil2": false,
+      "Enhancement": false,
+      "Nourishment": true
+    },
+    "extrasCombination": {
+      "Runes": "thief",
+      "Sigil1": "force",
+      "Sigil2": "impact/night/slaying-both",
+      "Enhancement": "slaying-potion",
+      "Nourishment": "curry-butternut-squash-soup"
+    },
+    "distribution": {
+      "Power": 3441,
+      "Power2": 0,
+      "Burning": 1.09,
+      "Bleeding": 0,
+      "Poison": 0,
+      "Torment": 0,
+      "Confusion": 0
+    },
+    "baseAttributes": [
+      [14, 9212],
+      [15, 1271],
+      [0, 1000],
+      [1, 1400],
+      [2, 1000],
+      [3, 1235],
+      [4, 271.6],
+      [5, 100],
+      [6, 0],
+      [7, 0],
+      [8, 0],
+      [9, 162],
+      [12, 0],
+      [13, 0],
+      [10, 0.35],
+      [11, 1.5],
+      [87, 3441],
+      [91, 0],
+      [42, 1.09],
+      [41, 0],
+      [44, 0],
+      [45, 0],
+      [43, 0],
+      [92, 0]
+    ],
+    "modifiers": {
+      "damageMultiplier": [
+        ["StrikeDamage", 3.1521899062500007],
+        ["ConditionDamage", 1.4375],
+        ["SiphonDamage", 1],
+        ["DamageTaken", 0.45225],
+        ["CriticalDamage", 1],
+        ["BleedingDamage", 1],
+        ["BurningDamage", 1],
+        ["ConfusionDamage", 1],
+        ["PoisonDamage", 1],
+        ["TormentDamage", 1],
+        ["AlternativeDamage", 1],
+        ["AlternativeCriticalDamage", 1],
+        ["PhantasmDamage", 1.25],
+        ["PhantasmCriticalDamage", 1]
+      ],
+      "damageMultiplierBreakdown": {
+        "Strike Damage": { "mult": 1.5860075000000002, "add": 1.59, "target": 1.25 },
+        "Condition Damage": { "mult": 1, "add": 1.15, "target": 1.25 },
+        "Siphon Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Damage Taken": { "mult": 0.603, "add": 0.75, "target": 1 },
+        "Critical Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Bleeding Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Burning Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Confusion Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Poison Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Torment Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Alternative Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Alternative Critical Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Phantasm Damage": { "mult": 1, "add": 1, "target": 1.25 },
+        "Phantasm Critical Damage": { "mult": 1, "add": 1, "target": 1 }
+      },
+      "buff": [
+        [0, 1450],
+        [5, 1020]
+      ],
+      "convert": [
+        [
+          3,
+          [
+            [9, 1.5],
+            [0, 0.1]
+          ]
+        ],
+        [2, [[9, 1.5]]],
+        [7, [[9, 1.5]]],
+        [
+          4,
+          [
+            [0, 0.1],
+            [1, 0.133]
+          ]
+        ]
+      ],
+      "convertAfterBuffs": []
+    },
+    "relevantConditions": [1],
+    "disableCondiResultCache": false,
+    "maxInfusions": 18,
+    "primaryInfusion": "",
+    "primaryMaxInfusions": 0,
+    "secondaryInfusion": "",
+    "secondaryMaxInfusions": 0,
+    "infusionMode": "None",
+    "slots": 13,
+    "affixesArray": [
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      []
+    ],
+    "identicalArmor": true,
+    "identicalRing": true,
+    "identicalAcc": true,
+    "identicalWep": false,
+    "affixStatsArray": [
+      [
+        [
+          [0, 63],
+          [1, 45],
+          [4, 45]
+        ],
+        [
+          [1, 63],
+          [0, 45],
+          [4, 45]
+        ],
+        [
+          [0, 54],
+          [4, 54],
+          [1, 30],
+          [3, 30]
+        ]
+      ],
+      [
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ],
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ],
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ]
+      ],
+      [
+        [
+          [1, 141],
+          [0, 101],
+          [4, 101]
+        ],
+        [
+          [0, 121],
+          [4, 121],
+          [1, 67],
+          [3, 67]
+        ],
+        [
+          [0, 141],
+          [1, 101],
+          [4, 101]
+        ]
+      ],
+      [
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ],
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ],
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ]
+      ],
+      [
+        [
+          [0, 81],
+          [4, 81],
+          [1, 44],
+          [3, 44]
+        ],
+        [
+          [0, 94],
+          [1, 67],
+          [4, 67]
+        ],
+        [
+          [1, 94],
+          [0, 67],
+          [4, 67]
+        ]
+      ],
+      [
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ],
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ],
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ]
+      ],
+      [
+        [
+          [0, 157],
+          [1, 108],
+          [4, 108]
+        ],
+        [
+          [1, 157],
+          [0, 108],
+          [4, 108]
+        ],
+        [
+          [0, 133],
+          [4, 133],
+          [1, 71],
+          [3, 71]
+        ]
+      ],
+      [
+        [
+          [0, 106],
+          [4, 106],
+          [1, 56],
+          [3, 56]
+        ],
+        [
+          [0, 126],
+          [1, 85],
+          [4, 85]
+        ],
+        [
+          [1, 126],
+          [0, 85],
+          [4, 85]
+        ]
+      ],
+      [
+        [
+          [1, 126],
+          [0, 85],
+          [4, 85]
+        ],
+        [
+          [0, 106],
+          [4, 106],
+          [1, 56],
+          [3, 56]
+        ],
+        [
+          [0, 126],
+          [1, 85],
+          [4, 85]
+        ]
+      ],
+      [
+        [
+          [0, 110],
+          [1, 74],
+          [4, 74]
+        ],
+        [
+          [1, 110],
+          [0, 74],
+          [4, 74]
+        ],
+        [
+          [0, 92],
+          [4, 92],
+          [1, 49],
+          [3, 49]
+        ]
+      ],
+      [
+        [
+          [0, 92],
+          [4, 92],
+          [1, 49],
+          [3, 49]
+        ],
+        [
+          [0, 110],
+          [1, 74],
+          [4, 74]
+        ],
+        [
+          [1, 110],
+          [0, 74],
+          [4, 74]
+        ]
+      ],
+      [
+        [
+          [1, 63],
+          [0, 40],
+          [4, 40]
+        ],
+        [
+          [0, 52],
+          [4, 52],
+          [1, 27],
+          [3, 27]
+        ],
+        [
+          [0, 63],
+          [1, 40],
+          [4, 40]
+        ]
+      ],
+      [
+        [
+          [0, 251],
+          [1, 179],
+          [4, 179]
+        ],
+        [
+          [1, 251],
+          [0, 179],
+          [4, 179]
+        ],
+        [
+          [0, 215],
+          [4, 215],
+          [1, 118],
+          [3, 118]
+        ]
+      ],
+      []
+    ],
+    "runsAfterThisSlot": [
+      1594323, 531441, 177147, 59049, 19683, 6561, 2187, 729, 243, 81, 27, 9, 3, 1
+    ],
+    "gameMode": "fractals"
+  },
+  {
+    "profession": "Warrior",
+    "weaponType": 1,
+    "forcedAffixes": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "rankby": 54,
+    "minBoonDuration": 0,
+    "minHealingPower": null,
+    "minToughness": null,
+    "maxToughness": null,
+    "minHealth": null,
+    "minCritChance": null,
+    "minDamage": null,
+    "minHealing": null,
+    "minSurvivability": null,
+    "minOutgoingHealing": null,
+    "minQuicknessDuration": 0,
+    "maxResults": 50,
+    "attackRate": 0.4,
+    "movementUptime": 0,
+    "specialization": "Berserker",
+    "appliedModifiers": [
+      {
+        "id": "might",
+        "text": "Might",
+        "amountData": { "label": "x", "default": 25, "quantityEntered": 1 },
+        "modifiers": { "attributes": { "Power": [30, "buff"], "Condition Damage": [30, "buff"] } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "fury",
+        "text": "Fury",
+        "modifiers": { "attributes": { "Critical Chance": "25%" } },
+        "wvwModifiers": { "attributes": { "Critical Chance": "20%" } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "protection",
+        "text": "Protection",
+        "modifiers": { "damage": { "Damage Reduction": ["33%", "mult"] } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "vulnerability",
+        "text": "Vulnerability",
+        "amountData": { "label": "x", "default": 25, "quantityEntered": 1 },
+        "modifiers": {
+          "damage": {
+            "Strike Damage": ["1%", "target"],
+            "Condition Damage": ["1%", "target"],
+            "Phantasm Damage": ["1%", "target"]
+          }
+        },
+        "type": "Condition",
+        "section": "Boons"
+      },
+      {
+        "id": "jade-bot-base",
+        "text": "Jade Bot",
+        "subText": "(select both boxes)",
+        "modifiers": { "attributes": { "Vitality": [85, "converted"] } },
+        "type": "Text",
+        "section": "Other buffs"
+      },
+      {
+        "id": "jade-bot-per-tier",
+        "text": "Jade Bot Tier",
+        "amountData": { "label": "", "default": 10, "quantityEntered": 1 },
+        "modifiers": { "attributes": { "Vitality": [15, "converted"] } },
+        "type": "Text",
+        "section": "Other buffs"
+      },
+      {
+        "id": "agony-resistance",
+        "modifiers": { "attributes": { "Agony Resistance": [162, "converted"] } }
+      },
+      {
+        "id": "omnipotion",
+        "modifiers": {
+          "damage": {
+            "Strike Damage": ["15%", "add"],
+            "Condition Damage": ["15%", "add"],
+            "Damage Reduction": ["25%", "add"]
+          },
+          "conversion": {
+            "Vitality": { "Agony Resistance": "150%" },
+            "Toughness": { "Agony Resistance": "150%" },
+            "Concentration": { "Agony Resistance": "150%" }
+          }
+        }
+      },
+      {
+        "id": "signet-of-might",
+        "text": "Signet of Might",
+        "modifiers": { "attributes": { "Power": [180, "buff"] } },
+        "gw2id": 14404,
+        "section": "Skills"
+      },
+      {
+        "id": "peak-performance",
+        "text": "Peak Performance",
+        "subText": "passive",
+        "modifiers": { "damage": { "Strike Damage": ["5%", "add"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["3%", "add"] } },
+        "gw2id": 1444,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "great-fortitude",
+        "text": "Great Fortitude",
+        "modifiers": {
+          "conversion": { "Vitality": { "Power": "10%" }, "Ferocity": { "Power": "10%" } }
+        },
+        "gw2id": 1449,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "pinnacle-of-strength",
+        "text": "Pinnacle Of Strength",
+        "minor": true,
+        "amountData": { "label": "might", "default": 25, "quantityEntered": 25 },
+        "modifiers": { "attributes": { "Power": [250, "buff"] } },
+        "gw2id": 1453,
+        "defaultEnabled": true,
+        "section": "Strength",
+        "amount": ""
+      },
+      {
+        "id": "pinnacle-of-strength-crit",
+        "text": "Pinnacle Of Strength",
+        "subText": "passive",
+        "minor": true,
+        "modifiers": { "attributes": { "Critical Chance": "5%" } },
+        "gw2id": 1453,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "berserkers-power",
+        "text": "Berserker's Power",
+        "amountData": { "label": "stacks", "default": 0, "quantityEntered": 1 },
+        "modifiers": { "damage": { "Strike Damage": ["5.25%", "add"] } },
+        "gw2id": 1437,
+        "defaultEnabled": true,
+        "section": "Strength",
+        "amount": "4"
+      },
+      {
+        "id": "warriors-sprint",
+        "text": "Warrior's Sprint",
+        "amountData": { "label": "% swiftness", "default": 100, "quantityEntered": 100 },
+        "modifiers": { "damage": { "Strike Damage": ["10%", "add"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["3%", "add"] } },
+        "gw2id": 1413,
+        "defaultEnabled": true,
+        "section": "Discipline",
+        "amount": ""
+      },
+      {
+        "id": "axe-mastery-one",
+        "text": "Axe Mastery",
+        "subText": "base",
+        "modifiers": { "attributes": { "Ferocity": [120, "converted"] } },
+        "gw2id": 1369,
+        "defaultEnabled": true,
+        "section": "Discipline"
+      },
+      {
+        "id": "axe-mastery-axe",
+        "text": "Axe Mastery",
+        "subText": "with axe",
+        "amountData": { "label": "% uptime", "default": 100, "quantityEntered": 100 },
+        "modifiers": { "attributes": { "Ferocity": [120, "converted"] } },
+        "gw2id": 1369,
+        "defaultEnabled": true,
+        "section": "Discipline",
+        "amount": "68"
+      },
+      {
+        "id": "blood-reaction-base",
+        "text": "Blood Reaction",
+        "subText": "base",
+        "modifiers": { "conversion": { "Ferocity": { "Precision": "7%" } } },
+        "gw2id": 2011,
+        "defaultEnabled": true,
+        "section": "Berserker"
+      },
+      {
+        "id": "blood-reaction-with",
+        "text": "Blood Reaction",
+        "subText": "bonus",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "modifiers": { "conversion": { "Ferocity": { "Precision": "7%" } } },
+        "gw2id": 2011,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "fatal-frenzy-power-condi",
+        "text": "Fatal Frenzy",
+        "subText": "power/condition damage",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "minor": true,
+        "modifiers": {
+          "attributes": { "Power": [300, "buff"], "Condition Damage": [300, "buff"] }
+        },
+        "gw2id": 2046,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "bloody-roar",
+        "text": "Bloody Roar",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "modifiers": { "damage": { "Strike Damage": ["25%", "mult"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["10%", "mult"] } },
+        "gw2id": 1928,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "scholar",
+        "text": "Superior Rune of the Scholar",
+        "subText": "(100% active bonus)",
+        "modifiers": {
+          "damage": { "Strike Damage": ["5%", "mult"] },
+          "attributes": { "Power": [175, "converted"], "Ferocity": [225, "converted"] }
+        },
+        "gw2id": 24836,
+        "section": "Power Runes"
+      },
+      {
+        "id": "force",
+        "text": "Superior Sigil of Force",
+        "modifiers": { "damage": { "Strike Damage": ["5%", "add"] } },
+        "gw2id": 24615,
+        "section": "Power Sigils"
+      },
+      {
+        "id": "impact/night/slaying-both",
+        "text": "Superior Sigil of Impact/Night/Slaying",
+        "textOverride": "Sigil of Impact/Night/Slaying",
+        "subText": "(both 7%/3%)",
+        "modifiers": { "damage": { "Strike Damage": ["3%", "add", "7%", "mult"] } },
+        "gw2id": 24868,
+        "section": "Power Sigils"
+      },
+      {
+        "id": "slaying-potion",
+        "text": "Slaying Potion",
+        "textOverride": "Slaying Potion",
+        "modifiers": {
+          "damage": { "Strike Damage": ["10%", "mult"], "Damage Reduction": ["10%", "unknown"] }
+        },
+        "gw2id": 50082,
+        "priceIds": [],
+        "section": "Power Utilities"
+      },
+      {
+        "id": "cilantro-lime-sous-vide-steak",
+        "text": "Cilantro Lime Sous-Vide Steak",
+        "hasLifesteal": true,
+        "modifiers": {
+          "attributes": { "Power": [100, "converted"], "Ferocity": [70, "converted"] }
+        },
+        "gw2id": 91805,
+        "section": "Power Food"
+      },
+      {
+        "id": "food-lifesteal-effect",
+        "amountData": { "label": "/10s", "default": 4.3, "quantityEntered": 10 },
+        "modifiers": { "attributes": { "Siphon Base Coefficient": 325 } },
+        "amount": ""
+      }
+    ],
+    "cachedFormState": {
+      "traits": {
+        "showAll": false,
+        "selectedLines": ["4", "51", "18"],
+        "selectedTraits": [
+          [1444, 1449, 1437],
+          [1413, 1489, 1369],
+          [2039, 2011, 1928]
+        ],
+        "items": [
+          {
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
+            "pinnacle-of-strength": { "amount": "" },
+            "pinnacle-of-strength-crit": {},
+            "berserkers-power": { "amount": "4" }
+          },
+          {
+            "warriors-sprint": { "amount": "" },
+            "double-standards-str": {},
+            "double-standards-disc": {},
+            "axe-mastery-one": {},
+            "axe-mastery-axe": { "amount": "68" }
+          },
+          {
+            "blood-reaction-base": {},
+            "blood-reaction-with": { "amount": "90" },
+            "heat-the-soul": {},
+            "heat-the-soul-with": { "amount": "" },
+            "fatal-frenzy-power-condi": { "amount": "90" },
+            "fatal-frenzy-toughness": {},
+            "bloody-roar": { "amount": "90" },
+            "king-of-fires": {},
+            "eternal-champion": {}
+          }
+        ]
+      },
+      "skills": { "skills": { "signet-of-might": {} } },
+      "extras": {
+        "extras": {
+          "Runes": { "thief": {}, "scholar": {}, "eagle": {} },
+          "Sigil1": { "force": {} },
+          "Sigil2": { "impact/night/slaying-both": {} },
+          "Enhancement": { "slaying-potion": {} },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      },
+      "buffs": {
+        "buffs": {
+          "might": true,
+          "fury": true,
+          "protection": true,
+          "vulnerability": true,
+          "bannerOfStrength": false,
+          "bannerOfDiscipline": false,
+          "bannerOfTactics": false,
+          "bannerOfDefense": false,
+          "empowerAllies": false,
+          "spotter": false,
+          "frostSpirit": false,
+          "pinpointDistribution": false,
+          "strengthInNumbers": false,
+          "jade-bot-base": true,
+          "jade-bot-per-tier": true,
+          "baneSignet": false,
+          "signetOfJudgment": false,
+          "signetOfMercy": false,
+          "signetOfWrath": false,
+          "assassinsPresence": false,
+          "riteDwarf": false,
+          "exposed": false,
+          "lightArmor": false
+        },
+        "amounts": {}
+      },
+      "priorities": {
+        "optimizeFor": "Damage",
+        "weaponType": "Two-handed",
+        "minBoonDuration": 0,
+        "minHealingPower": "",
+        "minToughness": "",
+        "maxToughness": "",
+        "minHealth": "",
+        "minCritChance": "",
+        "minDamage": "",
+        "minHealing": "",
+        "minSurvivability": "",
+        "minOutgoingHealing": "",
+        "minQuicknessDuration": 0,
+        "affixes": ["Berserker", "Assassin", "Dragon"],
+        "exclusions": { "enabled": false, "data": {} },
+        "exotics": { "enabled": false, "data": {} },
+        "customAffix": {},
+        "customAffixTextBox": "",
+        "customAffixError": ""
+      }
+    },
+    "shouldDisplayExtras": {
+      "Runes": true,
+      "Sigil1": false,
+      "Sigil2": false,
+      "Enhancement": false,
+      "Nourishment": true
+    },
+    "extrasCombination": {
+      "Runes": "scholar",
+      "Sigil1": "force",
+      "Sigil2": "impact/night/slaying-both",
+      "Enhancement": "slaying-potion",
+      "Nourishment": "cilantro-lime-sous-vide-steak"
+    },
+    "distribution": {
+      "Power": 3441,
+      "Power2": 0,
+      "Burning": 1.09,
+      "Bleeding": 0,
+      "Poison": 0,
+      "Torment": 0,
+      "Confusion": 0
+    },
+    "baseAttributes": [
+      [14, 9212],
+      [15, 1271],
+      [0, 1275],
+      [1, 1000],
+      [2, 1000],
+      [3, 1235],
+      [4, 496.6],
+      [5, 0],
+      [6, 0],
+      [7, 0],
+      [8, 0],
+      [9, 162],
+      [12, 0],
+      [13, 0],
+      [10, 0.35],
+      [11, 1.5],
+      [87, 3441],
+      [91, 0],
+      [42, 1.09],
+      [41, 0],
+      [44, 0],
+      [45, 0],
+      [43, 0],
+      [92, 0],
+      [78, 139.75]
+    ],
+    "modifiers": {
+      "damageMultiplier": [
+        ["StrikeDamage", 3.008908546875001],
+        ["ConditionDamage", 1.4375],
+        ["SiphonDamage", 1],
+        ["DamageTaken", 0.45225],
+        ["CriticalDamage", 1],
+        ["BleedingDamage", 1],
+        ["BurningDamage", 1],
+        ["ConfusionDamage", 1],
+        ["PoisonDamage", 1],
+        ["TormentDamage", 1],
+        ["AlternativeDamage", 1],
+        ["AlternativeCriticalDamage", 1],
+        ["PhantasmDamage", 1.25],
+        ["PhantasmCriticalDamage", 1]
+      ],
+      "damageMultiplierBreakdown": {
+        "Strike Damage": { "mult": 1.5139162500000003, "add": 1.59, "target": 1.25 },
+        "Condition Damage": { "mult": 1, "add": 1.15, "target": 1.25 },
+        "Siphon Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Damage Taken": { "mult": 0.603, "add": 0.75, "target": 1 },
+        "Critical Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Bleeding Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Burning Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Confusion Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Poison Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Torment Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Alternative Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Alternative Critical Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Phantasm Damage": { "mult": 1, "add": 1, "target": 1.25 },
+        "Phantasm Critical Damage": { "mult": 1, "add": 1, "target": 1 }
+      },
+      "buff": [
+        [0, 1450],
+        [5, 1020]
+      ],
+      "convert": [
+        [
+          3,
+          [
+            [9, 1.5],
+            [0, 0.1]
+          ]
+        ],
+        [2, [[9, 1.5]]],
+        [7, [[9, 1.5]]],
+        [
+          4,
+          [
+            [0, 0.1],
+            [1, 0.133]
+          ]
+        ]
+      ],
+      "convertAfterBuffs": []
+    },
+    "relevantConditions": [1],
+    "disableCondiResultCache": false,
+    "maxInfusions": 18,
+    "primaryInfusion": "",
+    "primaryMaxInfusions": 0,
+    "secondaryInfusion": "",
+    "secondaryMaxInfusions": 0,
+    "infusionMode": "None",
+    "slots": 13,
+    "affixesArray": [
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      []
+    ],
+    "identicalArmor": true,
+    "identicalRing": true,
+    "identicalAcc": true,
+    "identicalWep": false,
+    "affixStatsArray": [
+      [
+        [
+          [0, 63],
+          [1, 45],
+          [4, 45]
+        ],
+        [
+          [1, 63],
+          [0, 45],
+          [4, 45]
+        ],
+        [
+          [0, 54],
+          [4, 54],
+          [1, 30],
+          [3, 30]
+        ]
+      ],
+      [
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ],
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ],
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ]
+      ],
+      [
+        [
+          [1, 141],
+          [0, 101],
+          [4, 101]
+        ],
+        [
+          [0, 121],
+          [4, 121],
+          [1, 67],
+          [3, 67]
+        ],
+        [
+          [0, 141],
+          [1, 101],
+          [4, 101]
+        ]
+      ],
+      [
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ],
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ],
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ]
+      ],
+      [
+        [
+          [0, 81],
+          [4, 81],
+          [1, 44],
+          [3, 44]
+        ],
+        [
+          [0, 94],
+          [1, 67],
+          [4, 67]
+        ],
+        [
+          [1, 94],
+          [0, 67],
+          [4, 67]
+        ]
+      ],
+      [
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ],
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ],
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ]
+      ],
+      [
+        [
+          [0, 157],
+          [1, 108],
+          [4, 108]
+        ],
+        [
+          [1, 157],
+          [0, 108],
+          [4, 108]
+        ],
+        [
+          [0, 133],
+          [4, 133],
+          [1, 71],
+          [3, 71]
+        ]
+      ],
+      [
+        [
+          [0, 106],
+          [4, 106],
+          [1, 56],
+          [3, 56]
+        ],
+        [
+          [0, 126],
+          [1, 85],
+          [4, 85]
+        ],
+        [
+          [1, 126],
+          [0, 85],
+          [4, 85]
+        ]
+      ],
+      [
+        [
+          [1, 126],
+          [0, 85],
+          [4, 85]
+        ],
+        [
+          [0, 106],
+          [4, 106],
+          [1, 56],
+          [3, 56]
+        ],
+        [
+          [0, 126],
+          [1, 85],
+          [4, 85]
+        ]
+      ],
+      [
+        [
+          [0, 110],
+          [1, 74],
+          [4, 74]
+        ],
+        [
+          [1, 110],
+          [0, 74],
+          [4, 74]
+        ],
+        [
+          [0, 92],
+          [4, 92],
+          [1, 49],
+          [3, 49]
+        ]
+      ],
+      [
+        [
+          [0, 92],
+          [4, 92],
+          [1, 49],
+          [3, 49]
+        ],
+        [
+          [0, 110],
+          [1, 74],
+          [4, 74]
+        ],
+        [
+          [1, 110],
+          [0, 74],
+          [4, 74]
+        ]
+      ],
+      [
+        [
+          [1, 63],
+          [0, 40],
+          [4, 40]
+        ],
+        [
+          [0, 52],
+          [4, 52],
+          [1, 27],
+          [3, 27]
+        ],
+        [
+          [0, 63],
+          [1, 40],
+          [4, 40]
+        ]
+      ],
+      [
+        [
+          [0, 251],
+          [1, 179],
+          [4, 179]
+        ],
+        [
+          [1, 251],
+          [0, 179],
+          [4, 179]
+        ],
+        [
+          [0, 215],
+          [4, 215],
+          [1, 118],
+          [3, 118]
+        ]
+      ],
+      []
+    ],
+    "runsAfterThisSlot": [
+      1594323, 531441, 177147, 59049, 19683, 6561, 2187, 729, 243, 81, 27, 9, 3, 1
+    ],
+    "gameMode": "fractals"
+  },
+  {
+    "profession": "Warrior",
+    "weaponType": 1,
+    "forcedAffixes": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "rankby": 54,
+    "minBoonDuration": 0,
+    "minHealingPower": null,
+    "minToughness": null,
+    "maxToughness": null,
+    "minHealth": null,
+    "minCritChance": null,
+    "minDamage": null,
+    "minHealing": null,
+    "minSurvivability": null,
+    "minOutgoingHealing": null,
+    "minQuicknessDuration": 0,
+    "maxResults": 50,
+    "attackRate": 0.4,
+    "movementUptime": 0,
+    "specialization": "Berserker",
+    "appliedModifiers": [
+      {
+        "id": "might",
+        "text": "Might",
+        "amountData": { "label": "x", "default": 25, "quantityEntered": 1 },
+        "modifiers": { "attributes": { "Power": [30, "buff"], "Condition Damage": [30, "buff"] } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "fury",
+        "text": "Fury",
+        "modifiers": { "attributes": { "Critical Chance": "25%" } },
+        "wvwModifiers": { "attributes": { "Critical Chance": "20%" } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "protection",
+        "text": "Protection",
+        "modifiers": { "damage": { "Damage Reduction": ["33%", "mult"] } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "vulnerability",
+        "text": "Vulnerability",
+        "amountData": { "label": "x", "default": 25, "quantityEntered": 1 },
+        "modifiers": {
+          "damage": {
+            "Strike Damage": ["1%", "target"],
+            "Condition Damage": ["1%", "target"],
+            "Phantasm Damage": ["1%", "target"]
+          }
+        },
+        "type": "Condition",
+        "section": "Boons"
+      },
+      {
+        "id": "jade-bot-base",
+        "text": "Jade Bot",
+        "subText": "(select both boxes)",
+        "modifiers": { "attributes": { "Vitality": [85, "converted"] } },
+        "type": "Text",
+        "section": "Other buffs"
+      },
+      {
+        "id": "jade-bot-per-tier",
+        "text": "Jade Bot Tier",
+        "amountData": { "label": "", "default": 10, "quantityEntered": 1 },
+        "modifiers": { "attributes": { "Vitality": [15, "converted"] } },
+        "type": "Text",
+        "section": "Other buffs"
+      },
+      {
+        "id": "agony-resistance",
+        "modifiers": { "attributes": { "Agony Resistance": [162, "converted"] } }
+      },
+      {
+        "id": "omnipotion",
+        "modifiers": {
+          "damage": {
+            "Strike Damage": ["15%", "add"],
+            "Condition Damage": ["15%", "add"],
+            "Damage Reduction": ["25%", "add"]
+          },
+          "conversion": {
+            "Vitality": { "Agony Resistance": "150%" },
+            "Toughness": { "Agony Resistance": "150%" },
+            "Concentration": { "Agony Resistance": "150%" }
+          }
+        }
+      },
+      {
+        "id": "signet-of-might",
+        "text": "Signet of Might",
+        "modifiers": { "attributes": { "Power": [180, "buff"] } },
+        "gw2id": 14404,
+        "section": "Skills"
+      },
+      {
+        "id": "peak-performance",
+        "text": "Peak Performance",
+        "subText": "passive",
+        "modifiers": { "damage": { "Strike Damage": ["5%", "add"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["3%", "add"] } },
+        "gw2id": 1444,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "great-fortitude",
+        "text": "Great Fortitude",
+        "modifiers": {
+          "conversion": { "Vitality": { "Power": "10%" }, "Ferocity": { "Power": "10%" } }
+        },
+        "gw2id": 1449,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "pinnacle-of-strength",
+        "text": "Pinnacle Of Strength",
+        "minor": true,
+        "amountData": { "label": "might", "default": 25, "quantityEntered": 25 },
+        "modifiers": { "attributes": { "Power": [250, "buff"] } },
+        "gw2id": 1453,
+        "defaultEnabled": true,
+        "section": "Strength",
+        "amount": ""
+      },
+      {
+        "id": "pinnacle-of-strength-crit",
+        "text": "Pinnacle Of Strength",
+        "subText": "passive",
+        "minor": true,
+        "modifiers": { "attributes": { "Critical Chance": "5%" } },
+        "gw2id": 1453,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "berserkers-power",
+        "text": "Berserker's Power",
+        "amountData": { "label": "stacks", "default": 0, "quantityEntered": 1 },
+        "modifiers": { "damage": { "Strike Damage": ["5.25%", "add"] } },
+        "gw2id": 1437,
+        "defaultEnabled": true,
+        "section": "Strength",
+        "amount": "4"
+      },
+      {
+        "id": "warriors-sprint",
+        "text": "Warrior's Sprint",
+        "amountData": { "label": "% swiftness", "default": 100, "quantityEntered": 100 },
+        "modifiers": { "damage": { "Strike Damage": ["10%", "add"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["3%", "add"] } },
+        "gw2id": 1413,
+        "defaultEnabled": true,
+        "section": "Discipline",
+        "amount": ""
+      },
+      {
+        "id": "axe-mastery-one",
+        "text": "Axe Mastery",
+        "subText": "base",
+        "modifiers": { "attributes": { "Ferocity": [120, "converted"] } },
+        "gw2id": 1369,
+        "defaultEnabled": true,
+        "section": "Discipline"
+      },
+      {
+        "id": "axe-mastery-axe",
+        "text": "Axe Mastery",
+        "subText": "with axe",
+        "amountData": { "label": "% uptime", "default": 100, "quantityEntered": 100 },
+        "modifiers": { "attributes": { "Ferocity": [120, "converted"] } },
+        "gw2id": 1369,
+        "defaultEnabled": true,
+        "section": "Discipline",
+        "amount": "68"
+      },
+      {
+        "id": "blood-reaction-base",
+        "text": "Blood Reaction",
+        "subText": "base",
+        "modifiers": { "conversion": { "Ferocity": { "Precision": "7%" } } },
+        "gw2id": 2011,
+        "defaultEnabled": true,
+        "section": "Berserker"
+      },
+      {
+        "id": "blood-reaction-with",
+        "text": "Blood Reaction",
+        "subText": "bonus",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "modifiers": { "conversion": { "Ferocity": { "Precision": "7%" } } },
+        "gw2id": 2011,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "fatal-frenzy-power-condi",
+        "text": "Fatal Frenzy",
+        "subText": "power/condition damage",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "minor": true,
+        "modifiers": {
+          "attributes": { "Power": [300, "buff"], "Condition Damage": [300, "buff"] }
+        },
+        "gw2id": 2046,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "bloody-roar",
+        "text": "Bloody Roar",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "modifiers": { "damage": { "Strike Damage": ["25%", "mult"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["10%", "mult"] } },
+        "gw2id": 1928,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "scholar",
+        "text": "Superior Rune of the Scholar",
+        "subText": "(100% active bonus)",
+        "modifiers": {
+          "damage": { "Strike Damage": ["5%", "mult"] },
+          "attributes": { "Power": [175, "converted"], "Ferocity": [225, "converted"] }
+        },
+        "gw2id": 24836,
+        "section": "Power Runes"
+      },
+      {
+        "id": "force",
+        "text": "Superior Sigil of Force",
+        "modifiers": { "damage": { "Strike Damage": ["5%", "add"] } },
+        "gw2id": 24615,
+        "section": "Power Sigils"
+      },
+      {
+        "id": "impact/night/slaying-both",
+        "text": "Superior Sigil of Impact/Night/Slaying",
+        "textOverride": "Sigil of Impact/Night/Slaying",
+        "subText": "(both 7%/3%)",
+        "modifiers": { "damage": { "Strike Damage": ["3%", "add", "7%", "mult"] } },
+        "gw2id": 24868,
+        "section": "Power Sigils"
+      },
+      {
+        "id": "slaying-potion",
+        "text": "Slaying Potion",
+        "textOverride": "Slaying Potion",
+        "modifiers": {
+          "damage": { "Strike Damage": ["10%", "mult"], "Damage Reduction": ["10%", "unknown"] }
+        },
+        "gw2id": 50082,
+        "priceIds": [],
+        "section": "Power Utilities"
+      },
+      {
+        "id": "plate-of-coq-au-vin-with-salsa",
+        "text": "Plate of Coq Au Vin with Salsa",
+        "hasLifesteal": true,
+        "modifiers": {
+          "attributes": { "Power": [100, "converted"], "Precision": [70, "converted"] }
+        },
+        "gw2id": 91709,
+        "section": "Power Food"
+      },
+      {
+        "id": "food-lifesteal-effect",
+        "amountData": { "label": "/10s", "default": 4.3, "quantityEntered": 10 },
+        "modifiers": { "attributes": { "Siphon Base Coefficient": 325 } },
+        "amount": ""
+      }
+    ],
+    "cachedFormState": {
+      "traits": {
+        "showAll": false,
+        "selectedLines": ["4", "51", "18"],
+        "selectedTraits": [
+          [1444, 1449, 1437],
+          [1413, 1489, 1369],
+          [2039, 2011, 1928]
+        ],
+        "items": [
+          {
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
+            "pinnacle-of-strength": { "amount": "" },
+            "pinnacle-of-strength-crit": {},
+            "berserkers-power": { "amount": "4" }
+          },
+          {
+            "warriors-sprint": { "amount": "" },
+            "double-standards-str": {},
+            "double-standards-disc": {},
+            "axe-mastery-one": {},
+            "axe-mastery-axe": { "amount": "68" }
+          },
+          {
+            "blood-reaction-base": {},
+            "blood-reaction-with": { "amount": "90" },
+            "heat-the-soul": {},
+            "heat-the-soul-with": { "amount": "" },
+            "fatal-frenzy-power-condi": { "amount": "90" },
+            "fatal-frenzy-toughness": {},
+            "bloody-roar": { "amount": "90" },
+            "king-of-fires": {},
+            "eternal-champion": {}
+          }
+        ]
+      },
+      "skills": { "skills": { "signet-of-might": {} } },
+      "extras": {
+        "extras": {
+          "Runes": { "thief": {}, "scholar": {}, "eagle": {} },
+          "Sigil1": { "force": {} },
+          "Sigil2": { "impact/night/slaying-both": {} },
+          "Enhancement": { "slaying-potion": {} },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      },
+      "buffs": {
+        "buffs": {
+          "might": true,
+          "fury": true,
+          "protection": true,
+          "vulnerability": true,
+          "bannerOfStrength": false,
+          "bannerOfDiscipline": false,
+          "bannerOfTactics": false,
+          "bannerOfDefense": false,
+          "empowerAllies": false,
+          "spotter": false,
+          "frostSpirit": false,
+          "pinpointDistribution": false,
+          "strengthInNumbers": false,
+          "jade-bot-base": true,
+          "jade-bot-per-tier": true,
+          "baneSignet": false,
+          "signetOfJudgment": false,
+          "signetOfMercy": false,
+          "signetOfWrath": false,
+          "assassinsPresence": false,
+          "riteDwarf": false,
+          "exposed": false,
+          "lightArmor": false
+        },
+        "amounts": {}
+      },
+      "priorities": {
+        "optimizeFor": "Damage",
+        "weaponType": "Two-handed",
+        "minBoonDuration": 0,
+        "minHealingPower": "",
+        "minToughness": "",
+        "maxToughness": "",
+        "minHealth": "",
+        "minCritChance": "",
+        "minDamage": "",
+        "minHealing": "",
+        "minSurvivability": "",
+        "minOutgoingHealing": "",
+        "minQuicknessDuration": 0,
+        "affixes": ["Berserker", "Assassin", "Dragon"],
+        "exclusions": { "enabled": false, "data": {} },
+        "exotics": { "enabled": false, "data": {} },
+        "customAffix": {},
+        "customAffixTextBox": "",
+        "customAffixError": ""
+      }
+    },
+    "shouldDisplayExtras": {
+      "Runes": true,
+      "Sigil1": false,
+      "Sigil2": false,
+      "Enhancement": false,
+      "Nourishment": true
+    },
+    "extrasCombination": {
+      "Runes": "scholar",
+      "Sigil1": "force",
+      "Sigil2": "impact/night/slaying-both",
+      "Enhancement": "slaying-potion",
+      "Nourishment": "plate-of-coq-au-vin-with-salsa"
+    },
+    "distribution": {
+      "Power": 3441,
+      "Power2": 0,
+      "Burning": 1.09,
+      "Bleeding": 0,
+      "Poison": 0,
+      "Torment": 0,
+      "Confusion": 0
+    },
+    "baseAttributes": [
+      [14, 9212],
+      [15, 1271],
+      [0, 1275],
+      [1, 1070],
+      [2, 1000],
+      [3, 1235],
+      [4, 426.6],
+      [5, 0],
+      [6, 0],
+      [7, 0],
+      [8, 0],
+      [9, 162],
+      [12, 0],
+      [13, 0],
+      [10, 0.35],
+      [11, 1.5],
+      [87, 3441],
+      [91, 0],
+      [42, 1.09],
+      [41, 0],
+      [44, 0],
+      [45, 0],
+      [43, 0],
+      [92, 0],
+      [78, 139.75]
+    ],
+    "modifiers": {
+      "damageMultiplier": [
+        ["StrikeDamage", 3.008908546875001],
+        ["ConditionDamage", 1.4375],
+        ["SiphonDamage", 1],
+        ["DamageTaken", 0.45225],
+        ["CriticalDamage", 1],
+        ["BleedingDamage", 1],
+        ["BurningDamage", 1],
+        ["ConfusionDamage", 1],
+        ["PoisonDamage", 1],
+        ["TormentDamage", 1],
+        ["AlternativeDamage", 1],
+        ["AlternativeCriticalDamage", 1],
+        ["PhantasmDamage", 1.25],
+        ["PhantasmCriticalDamage", 1]
+      ],
+      "damageMultiplierBreakdown": {
+        "Strike Damage": { "mult": 1.5139162500000003, "add": 1.59, "target": 1.25 },
+        "Condition Damage": { "mult": 1, "add": 1.15, "target": 1.25 },
+        "Siphon Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Damage Taken": { "mult": 0.603, "add": 0.75, "target": 1 },
+        "Critical Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Bleeding Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Burning Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Confusion Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Poison Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Torment Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Alternative Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Alternative Critical Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Phantasm Damage": { "mult": 1, "add": 1, "target": 1.25 },
+        "Phantasm Critical Damage": { "mult": 1, "add": 1, "target": 1 }
+      },
+      "buff": [
+        [0, 1450],
+        [5, 1020]
+      ],
+      "convert": [
+        [
+          3,
+          [
+            [9, 1.5],
+            [0, 0.1]
+          ]
+        ],
+        [2, [[9, 1.5]]],
+        [7, [[9, 1.5]]],
+        [
+          4,
+          [
+            [0, 0.1],
+            [1, 0.133]
+          ]
+        ]
+      ],
+      "convertAfterBuffs": []
+    },
+    "relevantConditions": [1],
+    "disableCondiResultCache": false,
+    "maxInfusions": 18,
+    "primaryInfusion": "",
+    "primaryMaxInfusions": 0,
+    "secondaryInfusion": "",
+    "secondaryMaxInfusions": 0,
+    "infusionMode": "None",
+    "slots": 13,
+    "affixesArray": [
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      []
+    ],
+    "identicalArmor": true,
+    "identicalRing": true,
+    "identicalAcc": true,
+    "identicalWep": false,
+    "affixStatsArray": [
+      [
+        [
+          [0, 63],
+          [1, 45],
+          [4, 45]
+        ],
+        [
+          [1, 63],
+          [0, 45],
+          [4, 45]
+        ],
+        [
+          [0, 54],
+          [4, 54],
+          [1, 30],
+          [3, 30]
+        ]
+      ],
+      [
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ],
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ],
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ]
+      ],
+      [
+        [
+          [1, 141],
+          [0, 101],
+          [4, 101]
+        ],
+        [
+          [0, 121],
+          [4, 121],
+          [1, 67],
+          [3, 67]
+        ],
+        [
+          [0, 141],
+          [1, 101],
+          [4, 101]
+        ]
+      ],
+      [
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ],
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ],
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ]
+      ],
+      [
+        [
+          [0, 81],
+          [4, 81],
+          [1, 44],
+          [3, 44]
+        ],
+        [
+          [0, 94],
+          [1, 67],
+          [4, 67]
+        ],
+        [
+          [1, 94],
+          [0, 67],
+          [4, 67]
+        ]
+      ],
+      [
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ],
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ],
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ]
+      ],
+      [
+        [
+          [0, 157],
+          [1, 108],
+          [4, 108]
+        ],
+        [
+          [1, 157],
+          [0, 108],
+          [4, 108]
+        ],
+        [
+          [0, 133],
+          [4, 133],
+          [1, 71],
+          [3, 71]
+        ]
+      ],
+      [
+        [
+          [0, 106],
+          [4, 106],
+          [1, 56],
+          [3, 56]
+        ],
+        [
+          [0, 126],
+          [1, 85],
+          [4, 85]
+        ],
+        [
+          [1, 126],
+          [0, 85],
+          [4, 85]
+        ]
+      ],
+      [
+        [
+          [1, 126],
+          [0, 85],
+          [4, 85]
+        ],
+        [
+          [0, 106],
+          [4, 106],
+          [1, 56],
+          [3, 56]
+        ],
+        [
+          [0, 126],
+          [1, 85],
+          [4, 85]
+        ]
+      ],
+      [
+        [
+          [0, 110],
+          [1, 74],
+          [4, 74]
+        ],
+        [
+          [1, 110],
+          [0, 74],
+          [4, 74]
+        ],
+        [
+          [0, 92],
+          [4, 92],
+          [1, 49],
+          [3, 49]
+        ]
+      ],
+      [
+        [
+          [0, 92],
+          [4, 92],
+          [1, 49],
+          [3, 49]
+        ],
+        [
+          [0, 110],
+          [1, 74],
+          [4, 74]
+        ],
+        [
+          [1, 110],
+          [0, 74],
+          [4, 74]
+        ]
+      ],
+      [
+        [
+          [1, 63],
+          [0, 40],
+          [4, 40]
+        ],
+        [
+          [0, 52],
+          [4, 52],
+          [1, 27],
+          [3, 27]
+        ],
+        [
+          [0, 63],
+          [1, 40],
+          [4, 40]
+        ]
+      ],
+      [
+        [
+          [0, 251],
+          [1, 179],
+          [4, 179]
+        ],
+        [
+          [1, 251],
+          [0, 179],
+          [4, 179]
+        ],
+        [
+          [0, 215],
+          [4, 215],
+          [1, 118],
+          [3, 118]
+        ]
+      ],
+      []
+    ],
+    "runsAfterThisSlot": [
+      1594323, 531441, 177147, 59049, 19683, 6561, 2187, 729, 243, 81, 27, 9, 3, 1
+    ],
+    "gameMode": "fractals"
+  },
+  {
+    "profession": "Warrior",
+    "weaponType": 1,
+    "forcedAffixes": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "rankby": 54,
+    "minBoonDuration": 0,
+    "minHealingPower": null,
+    "minToughness": null,
+    "maxToughness": null,
+    "minHealth": null,
+    "minCritChance": null,
+    "minDamage": null,
+    "minHealing": null,
+    "minSurvivability": null,
+    "minOutgoingHealing": null,
+    "minQuicknessDuration": 0,
+    "maxResults": 50,
+    "attackRate": 0.4,
+    "movementUptime": 0,
+    "specialization": "Berserker",
+    "appliedModifiers": [
+      {
+        "id": "might",
+        "text": "Might",
+        "amountData": { "label": "x", "default": 25, "quantityEntered": 1 },
+        "modifiers": { "attributes": { "Power": [30, "buff"], "Condition Damage": [30, "buff"] } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "fury",
+        "text": "Fury",
+        "modifiers": { "attributes": { "Critical Chance": "25%" } },
+        "wvwModifiers": { "attributes": { "Critical Chance": "20%" } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "protection",
+        "text": "Protection",
+        "modifiers": { "damage": { "Damage Reduction": ["33%", "mult"] } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "vulnerability",
+        "text": "Vulnerability",
+        "amountData": { "label": "x", "default": 25, "quantityEntered": 1 },
+        "modifiers": {
+          "damage": {
+            "Strike Damage": ["1%", "target"],
+            "Condition Damage": ["1%", "target"],
+            "Phantasm Damage": ["1%", "target"]
+          }
+        },
+        "type": "Condition",
+        "section": "Boons"
+      },
+      {
+        "id": "jade-bot-base",
+        "text": "Jade Bot",
+        "subText": "(select both boxes)",
+        "modifiers": { "attributes": { "Vitality": [85, "converted"] } },
+        "type": "Text",
+        "section": "Other buffs"
+      },
+      {
+        "id": "jade-bot-per-tier",
+        "text": "Jade Bot Tier",
+        "amountData": { "label": "", "default": 10, "quantityEntered": 1 },
+        "modifiers": { "attributes": { "Vitality": [15, "converted"] } },
+        "type": "Text",
+        "section": "Other buffs"
+      },
+      {
+        "id": "agony-resistance",
+        "modifiers": { "attributes": { "Agony Resistance": [162, "converted"] } }
+      },
+      {
+        "id": "omnipotion",
+        "modifiers": {
+          "damage": {
+            "Strike Damage": ["15%", "add"],
+            "Condition Damage": ["15%", "add"],
+            "Damage Reduction": ["25%", "add"]
+          },
+          "conversion": {
+            "Vitality": { "Agony Resistance": "150%" },
+            "Toughness": { "Agony Resistance": "150%" },
+            "Concentration": { "Agony Resistance": "150%" }
+          }
+        }
+      },
+      {
+        "id": "signet-of-might",
+        "text": "Signet of Might",
+        "modifiers": { "attributes": { "Power": [180, "buff"] } },
+        "gw2id": 14404,
+        "section": "Skills"
+      },
+      {
+        "id": "peak-performance",
+        "text": "Peak Performance",
+        "subText": "passive",
+        "modifiers": { "damage": { "Strike Damage": ["5%", "add"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["3%", "add"] } },
+        "gw2id": 1444,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "great-fortitude",
+        "text": "Great Fortitude",
+        "modifiers": {
+          "conversion": { "Vitality": { "Power": "10%" }, "Ferocity": { "Power": "10%" } }
+        },
+        "gw2id": 1449,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "pinnacle-of-strength",
+        "text": "Pinnacle Of Strength",
+        "minor": true,
+        "amountData": { "label": "might", "default": 25, "quantityEntered": 25 },
+        "modifiers": { "attributes": { "Power": [250, "buff"] } },
+        "gw2id": 1453,
+        "defaultEnabled": true,
+        "section": "Strength",
+        "amount": ""
+      },
+      {
+        "id": "pinnacle-of-strength-crit",
+        "text": "Pinnacle Of Strength",
+        "subText": "passive",
+        "minor": true,
+        "modifiers": { "attributes": { "Critical Chance": "5%" } },
+        "gw2id": 1453,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "berserkers-power",
+        "text": "Berserker's Power",
+        "amountData": { "label": "stacks", "default": 0, "quantityEntered": 1 },
+        "modifiers": { "damage": { "Strike Damage": ["5.25%", "add"] } },
+        "gw2id": 1437,
+        "defaultEnabled": true,
+        "section": "Strength",
+        "amount": "4"
+      },
+      {
+        "id": "warriors-sprint",
+        "text": "Warrior's Sprint",
+        "amountData": { "label": "% swiftness", "default": 100, "quantityEntered": 100 },
+        "modifiers": { "damage": { "Strike Damage": ["10%", "add"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["3%", "add"] } },
+        "gw2id": 1413,
+        "defaultEnabled": true,
+        "section": "Discipline",
+        "amount": ""
+      },
+      {
+        "id": "axe-mastery-one",
+        "text": "Axe Mastery",
+        "subText": "base",
+        "modifiers": { "attributes": { "Ferocity": [120, "converted"] } },
+        "gw2id": 1369,
+        "defaultEnabled": true,
+        "section": "Discipline"
+      },
+      {
+        "id": "axe-mastery-axe",
+        "text": "Axe Mastery",
+        "subText": "with axe",
+        "amountData": { "label": "% uptime", "default": 100, "quantityEntered": 100 },
+        "modifiers": { "attributes": { "Ferocity": [120, "converted"] } },
+        "gw2id": 1369,
+        "defaultEnabled": true,
+        "section": "Discipline",
+        "amount": "68"
+      },
+      {
+        "id": "blood-reaction-base",
+        "text": "Blood Reaction",
+        "subText": "base",
+        "modifiers": { "conversion": { "Ferocity": { "Precision": "7%" } } },
+        "gw2id": 2011,
+        "defaultEnabled": true,
+        "section": "Berserker"
+      },
+      {
+        "id": "blood-reaction-with",
+        "text": "Blood Reaction",
+        "subText": "bonus",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "modifiers": { "conversion": { "Ferocity": { "Precision": "7%" } } },
+        "gw2id": 2011,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "fatal-frenzy-power-condi",
+        "text": "Fatal Frenzy",
+        "subText": "power/condition damage",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "minor": true,
+        "modifiers": {
+          "attributes": { "Power": [300, "buff"], "Condition Damage": [300, "buff"] }
+        },
+        "gw2id": 2046,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "bloody-roar",
+        "text": "Bloody Roar",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "modifiers": { "damage": { "Strike Damage": ["25%", "mult"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["10%", "mult"] } },
+        "gw2id": 1928,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "scholar",
+        "text": "Superior Rune of the Scholar",
+        "subText": "(100% active bonus)",
+        "modifiers": {
+          "damage": { "Strike Damage": ["5%", "mult"] },
+          "attributes": { "Power": [175, "converted"], "Ferocity": [225, "converted"] }
+        },
+        "gw2id": 24836,
+        "section": "Power Runes"
+      },
+      {
+        "id": "force",
+        "text": "Superior Sigil of Force",
+        "modifiers": { "damage": { "Strike Damage": ["5%", "add"] } },
+        "gw2id": 24615,
+        "section": "Power Sigils"
+      },
+      {
+        "id": "impact/night/slaying-both",
+        "text": "Superior Sigil of Impact/Night/Slaying",
+        "textOverride": "Sigil of Impact/Night/Slaying",
+        "subText": "(both 7%/3%)",
+        "modifiers": { "damage": { "Strike Damage": ["3%", "add", "7%", "mult"] } },
+        "gw2id": 24868,
+        "section": "Power Sigils"
+      },
+      {
+        "id": "slaying-potion",
+        "text": "Slaying Potion",
+        "textOverride": "Slaying Potion",
+        "modifiers": {
+          "damage": { "Strike Damage": ["10%", "mult"], "Damage Reduction": ["10%", "unknown"] }
+        },
+        "gw2id": 50082,
+        "priceIds": [],
+        "section": "Power Utilities"
+      },
+      {
+        "id": "curry-butternut-squash-soup",
+        "text": "Bowl of Curry Butternut Squash Soup",
+        "modifiers": {
+          "attributes": { "Precision": [100, "converted"], "Ferocity": [70, "converted"] }
+        },
+        "gw2id": 12486,
+        "section": "Power Food"
+      }
+    ],
+    "cachedFormState": {
+      "traits": {
+        "showAll": false,
+        "selectedLines": ["4", "51", "18"],
+        "selectedTraits": [
+          [1444, 1449, 1437],
+          [1413, 1489, 1369],
+          [2039, 2011, 1928]
+        ],
+        "items": [
+          {
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
+            "pinnacle-of-strength": { "amount": "" },
+            "pinnacle-of-strength-crit": {},
+            "berserkers-power": { "amount": "4" }
+          },
+          {
+            "warriors-sprint": { "amount": "" },
+            "double-standards-str": {},
+            "double-standards-disc": {},
+            "axe-mastery-one": {},
+            "axe-mastery-axe": { "amount": "68" }
+          },
+          {
+            "blood-reaction-base": {},
+            "blood-reaction-with": { "amount": "90" },
+            "heat-the-soul": {},
+            "heat-the-soul-with": { "amount": "" },
+            "fatal-frenzy-power-condi": { "amount": "90" },
+            "fatal-frenzy-toughness": {},
+            "bloody-roar": { "amount": "90" },
+            "king-of-fires": {},
+            "eternal-champion": {}
+          }
+        ]
+      },
+      "skills": { "skills": { "signet-of-might": {} } },
+      "extras": {
+        "extras": {
+          "Runes": { "thief": {}, "scholar": {}, "eagle": {} },
+          "Sigil1": { "force": {} },
+          "Sigil2": { "impact/night/slaying-both": {} },
+          "Enhancement": { "slaying-potion": {} },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      },
+      "buffs": {
+        "buffs": {
+          "might": true,
+          "fury": true,
+          "protection": true,
+          "vulnerability": true,
+          "bannerOfStrength": false,
+          "bannerOfDiscipline": false,
+          "bannerOfTactics": false,
+          "bannerOfDefense": false,
+          "empowerAllies": false,
+          "spotter": false,
+          "frostSpirit": false,
+          "pinpointDistribution": false,
+          "strengthInNumbers": false,
+          "jade-bot-base": true,
+          "jade-bot-per-tier": true,
+          "baneSignet": false,
+          "signetOfJudgment": false,
+          "signetOfMercy": false,
+          "signetOfWrath": false,
+          "assassinsPresence": false,
+          "riteDwarf": false,
+          "exposed": false,
+          "lightArmor": false
+        },
+        "amounts": {}
+      },
+      "priorities": {
+        "optimizeFor": "Damage",
+        "weaponType": "Two-handed",
+        "minBoonDuration": 0,
+        "minHealingPower": "",
+        "minToughness": "",
+        "maxToughness": "",
+        "minHealth": "",
+        "minCritChance": "",
+        "minDamage": "",
+        "minHealing": "",
+        "minSurvivability": "",
+        "minOutgoingHealing": "",
+        "minQuicknessDuration": 0,
+        "affixes": ["Berserker", "Assassin", "Dragon"],
+        "exclusions": { "enabled": false, "data": {} },
+        "exotics": { "enabled": false, "data": {} },
+        "customAffix": {},
+        "customAffixTextBox": "",
+        "customAffixError": ""
+      }
+    },
+    "shouldDisplayExtras": {
+      "Runes": true,
+      "Sigil1": false,
+      "Sigil2": false,
+      "Enhancement": false,
+      "Nourishment": true
+    },
+    "extrasCombination": {
+      "Runes": "scholar",
+      "Sigil1": "force",
+      "Sigil2": "impact/night/slaying-both",
+      "Enhancement": "slaying-potion",
+      "Nourishment": "curry-butternut-squash-soup"
+    },
+    "distribution": {
+      "Power": 3441,
+      "Power2": 0,
+      "Burning": 1.09,
+      "Bleeding": 0,
+      "Poison": 0,
+      "Torment": 0,
+      "Confusion": 0
+    },
+    "baseAttributes": [
+      [14, 9212],
+      [15, 1271],
+      [0, 1175],
+      [1, 1100],
+      [2, 1000],
+      [3, 1235],
+      [4, 496.6],
+      [5, 0],
+      [6, 0],
+      [7, 0],
+      [8, 0],
+      [9, 162],
+      [12, 0],
+      [13, 0],
+      [10, 0.35],
+      [11, 1.5],
+      [87, 3441],
+      [91, 0],
+      [42, 1.09],
+      [41, 0],
+      [44, 0],
+      [45, 0],
+      [43, 0],
+      [92, 0]
+    ],
+    "modifiers": {
+      "damageMultiplier": [
+        ["StrikeDamage", 3.008908546875001],
+        ["ConditionDamage", 1.4375],
+        ["SiphonDamage", 1],
+        ["DamageTaken", 0.45225],
+        ["CriticalDamage", 1],
+        ["BleedingDamage", 1],
+        ["BurningDamage", 1],
+        ["ConfusionDamage", 1],
+        ["PoisonDamage", 1],
+        ["TormentDamage", 1],
+        ["AlternativeDamage", 1],
+        ["AlternativeCriticalDamage", 1],
+        ["PhantasmDamage", 1.25],
+        ["PhantasmCriticalDamage", 1]
+      ],
+      "damageMultiplierBreakdown": {
+        "Strike Damage": { "mult": 1.5139162500000003, "add": 1.59, "target": 1.25 },
+        "Condition Damage": { "mult": 1, "add": 1.15, "target": 1.25 },
+        "Siphon Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Damage Taken": { "mult": 0.603, "add": 0.75, "target": 1 },
+        "Critical Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Bleeding Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Burning Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Confusion Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Poison Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Torment Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Alternative Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Alternative Critical Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Phantasm Damage": { "mult": 1, "add": 1, "target": 1.25 },
+        "Phantasm Critical Damage": { "mult": 1, "add": 1, "target": 1 }
+      },
+      "buff": [
+        [0, 1450],
+        [5, 1020]
+      ],
+      "convert": [
+        [
+          3,
+          [
+            [9, 1.5],
+            [0, 0.1]
+          ]
+        ],
+        [2, [[9, 1.5]]],
+        [7, [[9, 1.5]]],
+        [
+          4,
+          [
+            [0, 0.1],
+            [1, 0.133]
+          ]
+        ]
+      ],
+      "convertAfterBuffs": []
+    },
+    "relevantConditions": [1],
+    "disableCondiResultCache": false,
+    "maxInfusions": 18,
+    "primaryInfusion": "",
+    "primaryMaxInfusions": 0,
+    "secondaryInfusion": "",
+    "secondaryMaxInfusions": 0,
+    "infusionMode": "None",
+    "slots": 13,
+    "affixesArray": [
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      []
+    ],
+    "identicalArmor": true,
+    "identicalRing": true,
+    "identicalAcc": true,
+    "identicalWep": false,
+    "affixStatsArray": [
+      [
+        [
+          [0, 63],
+          [1, 45],
+          [4, 45]
+        ],
+        [
+          [1, 63],
+          [0, 45],
+          [4, 45]
+        ],
+        [
+          [0, 54],
+          [4, 54],
+          [1, 30],
+          [3, 30]
+        ]
+      ],
+      [
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ],
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ],
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ]
+      ],
+      [
+        [
+          [1, 141],
+          [0, 101],
+          [4, 101]
+        ],
+        [
+          [0, 121],
+          [4, 121],
+          [1, 67],
+          [3, 67]
+        ],
+        [
+          [0, 141],
+          [1, 101],
+          [4, 101]
+        ]
+      ],
+      [
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ],
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ],
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ]
+      ],
+      [
+        [
+          [0, 81],
+          [4, 81],
+          [1, 44],
+          [3, 44]
+        ],
+        [
+          [0, 94],
+          [1, 67],
+          [4, 67]
+        ],
+        [
+          [1, 94],
+          [0, 67],
+          [4, 67]
+        ]
+      ],
+      [
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ],
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ],
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ]
+      ],
+      [
+        [
+          [0, 157],
+          [1, 108],
+          [4, 108]
+        ],
+        [
+          [1, 157],
+          [0, 108],
+          [4, 108]
+        ],
+        [
+          [0, 133],
+          [4, 133],
+          [1, 71],
+          [3, 71]
+        ]
+      ],
+      [
+        [
+          [0, 106],
+          [4, 106],
+          [1, 56],
+          [3, 56]
+        ],
+        [
+          [0, 126],
+          [1, 85],
+          [4, 85]
+        ],
+        [
+          [1, 126],
+          [0, 85],
+          [4, 85]
+        ]
+      ],
+      [
+        [
+          [1, 126],
+          [0, 85],
+          [4, 85]
+        ],
+        [
+          [0, 106],
+          [4, 106],
+          [1, 56],
+          [3, 56]
+        ],
+        [
+          [0, 126],
+          [1, 85],
+          [4, 85]
+        ]
+      ],
+      [
+        [
+          [0, 110],
+          [1, 74],
+          [4, 74]
+        ],
+        [
+          [1, 110],
+          [0, 74],
+          [4, 74]
+        ],
+        [
+          [0, 92],
+          [4, 92],
+          [1, 49],
+          [3, 49]
+        ]
+      ],
+      [
+        [
+          [0, 92],
+          [4, 92],
+          [1, 49],
+          [3, 49]
+        ],
+        [
+          [0, 110],
+          [1, 74],
+          [4, 74]
+        ],
+        [
+          [1, 110],
+          [0, 74],
+          [4, 74]
+        ]
+      ],
+      [
+        [
+          [1, 63],
+          [0, 40],
+          [4, 40]
+        ],
+        [
+          [0, 52],
+          [4, 52],
+          [1, 27],
+          [3, 27]
+        ],
+        [
+          [0, 63],
+          [1, 40],
+          [4, 40]
+        ]
+      ],
+      [
+        [
+          [0, 251],
+          [1, 179],
+          [4, 179]
+        ],
+        [
+          [1, 251],
+          [0, 179],
+          [4, 179]
+        ],
+        [
+          [0, 215],
+          [4, 215],
+          [1, 118],
+          [3, 118]
+        ]
+      ],
+      []
+    ],
+    "runsAfterThisSlot": [
+      1594323, 531441, 177147, 59049, 19683, 6561, 2187, 729, 243, 81, 27, 9, 3, 1
+    ],
+    "gameMode": "fractals"
+  },
+  {
+    "profession": "Warrior",
+    "weaponType": 1,
+    "forcedAffixes": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "rankby": 54,
+    "minBoonDuration": 0,
+    "minHealingPower": null,
+    "minToughness": null,
+    "maxToughness": null,
+    "minHealth": null,
+    "minCritChance": null,
+    "minDamage": null,
+    "minHealing": null,
+    "minSurvivability": null,
+    "minOutgoingHealing": null,
+    "minQuicknessDuration": 0,
+    "maxResults": 50,
+    "attackRate": 0.4,
+    "movementUptime": 0,
+    "specialization": "Berserker",
+    "appliedModifiers": [
+      {
+        "id": "might",
+        "text": "Might",
+        "amountData": { "label": "x", "default": 25, "quantityEntered": 1 },
+        "modifiers": { "attributes": { "Power": [30, "buff"], "Condition Damage": [30, "buff"] } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "fury",
+        "text": "Fury",
+        "modifiers": { "attributes": { "Critical Chance": "25%" } },
+        "wvwModifiers": { "attributes": { "Critical Chance": "20%" } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "protection",
+        "text": "Protection",
+        "modifiers": { "damage": { "Damage Reduction": ["33%", "mult"] } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "vulnerability",
+        "text": "Vulnerability",
+        "amountData": { "label": "x", "default": 25, "quantityEntered": 1 },
+        "modifiers": {
+          "damage": {
+            "Strike Damage": ["1%", "target"],
+            "Condition Damage": ["1%", "target"],
+            "Phantasm Damage": ["1%", "target"]
+          }
+        },
+        "type": "Condition",
+        "section": "Boons"
+      },
+      {
+        "id": "jade-bot-base",
+        "text": "Jade Bot",
+        "subText": "(select both boxes)",
+        "modifiers": { "attributes": { "Vitality": [85, "converted"] } },
+        "type": "Text",
+        "section": "Other buffs"
+      },
+      {
+        "id": "jade-bot-per-tier",
+        "text": "Jade Bot Tier",
+        "amountData": { "label": "", "default": 10, "quantityEntered": 1 },
+        "modifiers": { "attributes": { "Vitality": [15, "converted"] } },
+        "type": "Text",
+        "section": "Other buffs"
+      },
+      {
+        "id": "agony-resistance",
+        "modifiers": { "attributes": { "Agony Resistance": [162, "converted"] } }
+      },
+      {
+        "id": "omnipotion",
+        "modifiers": {
+          "damage": {
+            "Strike Damage": ["15%", "add"],
+            "Condition Damage": ["15%", "add"],
+            "Damage Reduction": ["25%", "add"]
+          },
+          "conversion": {
+            "Vitality": { "Agony Resistance": "150%" },
+            "Toughness": { "Agony Resistance": "150%" },
+            "Concentration": { "Agony Resistance": "150%" }
+          }
+        }
+      },
+      {
+        "id": "signet-of-might",
+        "text": "Signet of Might",
+        "modifiers": { "attributes": { "Power": [180, "buff"] } },
+        "gw2id": 14404,
+        "section": "Skills"
+      },
+      {
+        "id": "peak-performance",
+        "text": "Peak Performance",
+        "subText": "passive",
+        "modifiers": { "damage": { "Strike Damage": ["5%", "add"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["3%", "add"] } },
+        "gw2id": 1444,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "great-fortitude",
+        "text": "Great Fortitude",
+        "modifiers": {
+          "conversion": { "Vitality": { "Power": "10%" }, "Ferocity": { "Power": "10%" } }
+        },
+        "gw2id": 1449,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "pinnacle-of-strength",
+        "text": "Pinnacle Of Strength",
+        "minor": true,
+        "amountData": { "label": "might", "default": 25, "quantityEntered": 25 },
+        "modifiers": { "attributes": { "Power": [250, "buff"] } },
+        "gw2id": 1453,
+        "defaultEnabled": true,
+        "section": "Strength",
+        "amount": ""
+      },
+      {
+        "id": "pinnacle-of-strength-crit",
+        "text": "Pinnacle Of Strength",
+        "subText": "passive",
+        "minor": true,
+        "modifiers": { "attributes": { "Critical Chance": "5%" } },
+        "gw2id": 1453,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "berserkers-power",
+        "text": "Berserker's Power",
+        "amountData": { "label": "stacks", "default": 0, "quantityEntered": 1 },
+        "modifiers": { "damage": { "Strike Damage": ["5.25%", "add"] } },
+        "gw2id": 1437,
+        "defaultEnabled": true,
+        "section": "Strength",
+        "amount": "4"
+      },
+      {
+        "id": "warriors-sprint",
+        "text": "Warrior's Sprint",
+        "amountData": { "label": "% swiftness", "default": 100, "quantityEntered": 100 },
+        "modifiers": { "damage": { "Strike Damage": ["10%", "add"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["3%", "add"] } },
+        "gw2id": 1413,
+        "defaultEnabled": true,
+        "section": "Discipline",
+        "amount": ""
+      },
+      {
+        "id": "axe-mastery-one",
+        "text": "Axe Mastery",
+        "subText": "base",
+        "modifiers": { "attributes": { "Ferocity": [120, "converted"] } },
+        "gw2id": 1369,
+        "defaultEnabled": true,
+        "section": "Discipline"
+      },
+      {
+        "id": "axe-mastery-axe",
+        "text": "Axe Mastery",
+        "subText": "with axe",
+        "amountData": { "label": "% uptime", "default": 100, "quantityEntered": 100 },
+        "modifiers": { "attributes": { "Ferocity": [120, "converted"] } },
+        "gw2id": 1369,
+        "defaultEnabled": true,
+        "section": "Discipline",
+        "amount": "68"
+      },
+      {
+        "id": "blood-reaction-base",
+        "text": "Blood Reaction",
+        "subText": "base",
+        "modifiers": { "conversion": { "Ferocity": { "Precision": "7%" } } },
+        "gw2id": 2011,
+        "defaultEnabled": true,
+        "section": "Berserker"
+      },
+      {
+        "id": "blood-reaction-with",
+        "text": "Blood Reaction",
+        "subText": "bonus",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "modifiers": { "conversion": { "Ferocity": { "Precision": "7%" } } },
+        "gw2id": 2011,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "fatal-frenzy-power-condi",
+        "text": "Fatal Frenzy",
+        "subText": "power/condition damage",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "minor": true,
+        "modifiers": {
+          "attributes": { "Power": [300, "buff"], "Condition Damage": [300, "buff"] }
+        },
+        "gw2id": 2046,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "bloody-roar",
+        "text": "Bloody Roar",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "modifiers": { "damage": { "Strike Damage": ["25%", "mult"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["10%", "mult"] } },
+        "gw2id": 1928,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "eagle",
+        "text": "Superior Rune of the Eagle",
+        "subText": "(50% below half health)",
+        "modifiers": {
+          "damage": { "Strike Damage": ["5%", "mult"] },
+          "attributes": { "Precision": [175, "converted"], "Ferocity": [225, "converted"] }
+        },
+        "gw2id": 24723,
+        "section": "Power Runes"
+      },
+      {
+        "id": "force",
+        "text": "Superior Sigil of Force",
+        "modifiers": { "damage": { "Strike Damage": ["5%", "add"] } },
+        "gw2id": 24615,
+        "section": "Power Sigils"
+      },
+      {
+        "id": "impact/night/slaying-both",
+        "text": "Superior Sigil of Impact/Night/Slaying",
+        "textOverride": "Sigil of Impact/Night/Slaying",
+        "subText": "(both 7%/3%)",
+        "modifiers": { "damage": { "Strike Damage": ["3%", "add", "7%", "mult"] } },
+        "gw2id": 24868,
+        "section": "Power Sigils"
+      },
+      {
+        "id": "slaying-potion",
+        "text": "Slaying Potion",
+        "textOverride": "Slaying Potion",
+        "modifiers": {
+          "damage": { "Strike Damage": ["10%", "mult"], "Damage Reduction": ["10%", "unknown"] }
+        },
+        "gw2id": 50082,
+        "priceIds": [],
+        "section": "Power Utilities"
+      },
+      {
+        "id": "cilantro-lime-sous-vide-steak",
+        "text": "Cilantro Lime Sous-Vide Steak",
+        "hasLifesteal": true,
+        "modifiers": {
+          "attributes": { "Power": [100, "converted"], "Ferocity": [70, "converted"] }
+        },
+        "gw2id": 91805,
+        "section": "Power Food"
+      },
+      {
+        "id": "food-lifesteal-effect",
+        "amountData": { "label": "/10s", "default": 4.3, "quantityEntered": 10 },
+        "modifiers": { "attributes": { "Siphon Base Coefficient": 325 } },
+        "amount": ""
+      }
+    ],
+    "cachedFormState": {
+      "traits": {
+        "showAll": false,
+        "selectedLines": ["4", "51", "18"],
+        "selectedTraits": [
+          [1444, 1449, 1437],
+          [1413, 1489, 1369],
+          [2039, 2011, 1928]
+        ],
+        "items": [
+          {
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
+            "pinnacle-of-strength": { "amount": "" },
+            "pinnacle-of-strength-crit": {},
+            "berserkers-power": { "amount": "4" }
+          },
+          {
+            "warriors-sprint": { "amount": "" },
+            "double-standards-str": {},
+            "double-standards-disc": {},
+            "axe-mastery-one": {},
+            "axe-mastery-axe": { "amount": "68" }
+          },
+          {
+            "blood-reaction-base": {},
+            "blood-reaction-with": { "amount": "90" },
+            "heat-the-soul": {},
+            "heat-the-soul-with": { "amount": "" },
+            "fatal-frenzy-power-condi": { "amount": "90" },
+            "fatal-frenzy-toughness": {},
+            "bloody-roar": { "amount": "90" },
+            "king-of-fires": {},
+            "eternal-champion": {}
+          }
+        ]
+      },
+      "skills": { "skills": { "signet-of-might": {} } },
+      "extras": {
+        "extras": {
+          "Runes": { "thief": {}, "scholar": {}, "eagle": {} },
+          "Sigil1": { "force": {} },
+          "Sigil2": { "impact/night/slaying-both": {} },
+          "Enhancement": { "slaying-potion": {} },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      },
+      "buffs": {
+        "buffs": {
+          "might": true,
+          "fury": true,
+          "protection": true,
+          "vulnerability": true,
+          "bannerOfStrength": false,
+          "bannerOfDiscipline": false,
+          "bannerOfTactics": false,
+          "bannerOfDefense": false,
+          "empowerAllies": false,
+          "spotter": false,
+          "frostSpirit": false,
+          "pinpointDistribution": false,
+          "strengthInNumbers": false,
+          "jade-bot-base": true,
+          "jade-bot-per-tier": true,
+          "baneSignet": false,
+          "signetOfJudgment": false,
+          "signetOfMercy": false,
+          "signetOfWrath": false,
+          "assassinsPresence": false,
+          "riteDwarf": false,
+          "exposed": false,
+          "lightArmor": false
+        },
+        "amounts": {}
+      },
+      "priorities": {
+        "optimizeFor": "Damage",
+        "weaponType": "Two-handed",
+        "minBoonDuration": 0,
+        "minHealingPower": "",
+        "minToughness": "",
+        "maxToughness": "",
+        "minHealth": "",
+        "minCritChance": "",
+        "minDamage": "",
+        "minHealing": "",
+        "minSurvivability": "",
+        "minOutgoingHealing": "",
+        "minQuicknessDuration": 0,
+        "affixes": ["Berserker", "Assassin", "Dragon"],
+        "exclusions": { "enabled": false, "data": {} },
+        "exotics": { "enabled": false, "data": {} },
+        "customAffix": {},
+        "customAffixTextBox": "",
+        "customAffixError": ""
+      }
+    },
+    "shouldDisplayExtras": {
+      "Runes": true,
+      "Sigil1": false,
+      "Sigil2": false,
+      "Enhancement": false,
+      "Nourishment": true
+    },
+    "extrasCombination": {
+      "Runes": "eagle",
+      "Sigil1": "force",
+      "Sigil2": "impact/night/slaying-both",
+      "Enhancement": "slaying-potion",
+      "Nourishment": "cilantro-lime-sous-vide-steak"
+    },
+    "distribution": {
+      "Power": 3441,
+      "Power2": 0,
+      "Burning": 1.09,
+      "Bleeding": 0,
+      "Poison": 0,
+      "Torment": 0,
+      "Confusion": 0
+    },
+    "baseAttributes": [
+      [14, 9212],
+      [15, 1271],
+      [0, 1100],
+      [1, 1175],
+      [2, 1000],
+      [3, 1235],
+      [4, 496.6],
+      [5, 0],
+      [6, 0],
+      [7, 0],
+      [8, 0],
+      [9, 162],
+      [12, 0],
+      [13, 0],
+      [10, 0.35],
+      [11, 1.5],
+      [87, 3441],
+      [91, 0],
+      [42, 1.09],
+      [41, 0],
+      [44, 0],
+      [45, 0],
+      [43, 0],
+      [92, 0],
+      [78, 139.75]
+    ],
+    "modifiers": {
+      "damageMultiplier": [
+        ["StrikeDamage", 3.008908546875001],
+        ["ConditionDamage", 1.4375],
+        ["SiphonDamage", 1],
+        ["DamageTaken", 0.45225],
+        ["CriticalDamage", 1],
+        ["BleedingDamage", 1],
+        ["BurningDamage", 1],
+        ["ConfusionDamage", 1],
+        ["PoisonDamage", 1],
+        ["TormentDamage", 1],
+        ["AlternativeDamage", 1],
+        ["AlternativeCriticalDamage", 1],
+        ["PhantasmDamage", 1.25],
+        ["PhantasmCriticalDamage", 1]
+      ],
+      "damageMultiplierBreakdown": {
+        "Strike Damage": { "mult": 1.5139162500000003, "add": 1.59, "target": 1.25 },
+        "Condition Damage": { "mult": 1, "add": 1.15, "target": 1.25 },
+        "Siphon Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Damage Taken": { "mult": 0.603, "add": 0.75, "target": 1 },
+        "Critical Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Bleeding Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Burning Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Confusion Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Poison Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Torment Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Alternative Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Alternative Critical Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Phantasm Damage": { "mult": 1, "add": 1, "target": 1.25 },
+        "Phantasm Critical Damage": { "mult": 1, "add": 1, "target": 1 }
+      },
+      "buff": [
+        [0, 1450],
+        [5, 1020]
+      ],
+      "convert": [
+        [
+          3,
+          [
+            [9, 1.5],
+            [0, 0.1]
+          ]
+        ],
+        [2, [[9, 1.5]]],
+        [7, [[9, 1.5]]],
+        [
+          4,
+          [
+            [0, 0.1],
+            [1, 0.133]
+          ]
+        ]
+      ],
+      "convertAfterBuffs": []
+    },
+    "relevantConditions": [1],
+    "disableCondiResultCache": false,
+    "maxInfusions": 18,
+    "primaryInfusion": "",
+    "primaryMaxInfusions": 0,
+    "secondaryInfusion": "",
+    "secondaryMaxInfusions": 0,
+    "infusionMode": "None",
+    "slots": 13,
+    "affixesArray": [
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      []
+    ],
+    "identicalArmor": true,
+    "identicalRing": true,
+    "identicalAcc": true,
+    "identicalWep": false,
+    "affixStatsArray": [
+      [
+        [
+          [0, 63],
+          [1, 45],
+          [4, 45]
+        ],
+        [
+          [1, 63],
+          [0, 45],
+          [4, 45]
+        ],
+        [
+          [0, 54],
+          [4, 54],
+          [1, 30],
+          [3, 30]
+        ]
+      ],
+      [
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ],
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ],
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ]
+      ],
+      [
+        [
+          [1, 141],
+          [0, 101],
+          [4, 101]
+        ],
+        [
+          [0, 121],
+          [4, 121],
+          [1, 67],
+          [3, 67]
+        ],
+        [
+          [0, 141],
+          [1, 101],
+          [4, 101]
+        ]
+      ],
+      [
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ],
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ],
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ]
+      ],
+      [
+        [
+          [0, 81],
+          [4, 81],
+          [1, 44],
+          [3, 44]
+        ],
+        [
+          [0, 94],
+          [1, 67],
+          [4, 67]
+        ],
+        [
+          [1, 94],
+          [0, 67],
+          [4, 67]
+        ]
+      ],
+      [
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ],
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ],
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ]
+      ],
+      [
+        [
+          [0, 157],
+          [1, 108],
+          [4, 108]
+        ],
+        [
+          [1, 157],
+          [0, 108],
+          [4, 108]
+        ],
+        [
+          [0, 133],
+          [4, 133],
+          [1, 71],
+          [3, 71]
+        ]
+      ],
+      [
+        [
+          [0, 106],
+          [4, 106],
+          [1, 56],
+          [3, 56]
+        ],
+        [
+          [0, 126],
+          [1, 85],
+          [4, 85]
+        ],
+        [
+          [1, 126],
+          [0, 85],
+          [4, 85]
+        ]
+      ],
+      [
+        [
+          [1, 126],
+          [0, 85],
+          [4, 85]
+        ],
+        [
+          [0, 106],
+          [4, 106],
+          [1, 56],
+          [3, 56]
+        ],
+        [
+          [0, 126],
+          [1, 85],
+          [4, 85]
+        ]
+      ],
+      [
+        [
+          [0, 110],
+          [1, 74],
+          [4, 74]
+        ],
+        [
+          [1, 110],
+          [0, 74],
+          [4, 74]
+        ],
+        [
+          [0, 92],
+          [4, 92],
+          [1, 49],
+          [3, 49]
+        ]
+      ],
+      [
+        [
+          [0, 92],
+          [4, 92],
+          [1, 49],
+          [3, 49]
+        ],
+        [
+          [0, 110],
+          [1, 74],
+          [4, 74]
+        ],
+        [
+          [1, 110],
+          [0, 74],
+          [4, 74]
+        ]
+      ],
+      [
+        [
+          [1, 63],
+          [0, 40],
+          [4, 40]
+        ],
+        [
+          [0, 52],
+          [4, 52],
+          [1, 27],
+          [3, 27]
+        ],
+        [
+          [0, 63],
+          [1, 40],
+          [4, 40]
+        ]
+      ],
+      [
+        [
+          [0, 251],
+          [1, 179],
+          [4, 179]
+        ],
+        [
+          [1, 251],
+          [0, 179],
+          [4, 179]
+        ],
+        [
+          [0, 215],
+          [4, 215],
+          [1, 118],
+          [3, 118]
+        ]
+      ],
+      []
+    ],
+    "runsAfterThisSlot": [
+      1594323, 531441, 177147, 59049, 19683, 6561, 2187, 729, 243, 81, 27, 9, 3, 1
+    ],
+    "gameMode": "fractals"
+  },
+  {
+    "profession": "Warrior",
+    "weaponType": 1,
+    "forcedAffixes": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "rankby": 54,
+    "minBoonDuration": 0,
+    "minHealingPower": null,
+    "minToughness": null,
+    "maxToughness": null,
+    "minHealth": null,
+    "minCritChance": null,
+    "minDamage": null,
+    "minHealing": null,
+    "minSurvivability": null,
+    "minOutgoingHealing": null,
+    "minQuicknessDuration": 0,
+    "maxResults": 50,
+    "attackRate": 0.4,
+    "movementUptime": 0,
+    "specialization": "Berserker",
+    "appliedModifiers": [
+      {
+        "id": "might",
+        "text": "Might",
+        "amountData": { "label": "x", "default": 25, "quantityEntered": 1 },
+        "modifiers": { "attributes": { "Power": [30, "buff"], "Condition Damage": [30, "buff"] } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "fury",
+        "text": "Fury",
+        "modifiers": { "attributes": { "Critical Chance": "25%" } },
+        "wvwModifiers": { "attributes": { "Critical Chance": "20%" } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "protection",
+        "text": "Protection",
+        "modifiers": { "damage": { "Damage Reduction": ["33%", "mult"] } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "vulnerability",
+        "text": "Vulnerability",
+        "amountData": { "label": "x", "default": 25, "quantityEntered": 1 },
+        "modifiers": {
+          "damage": {
+            "Strike Damage": ["1%", "target"],
+            "Condition Damage": ["1%", "target"],
+            "Phantasm Damage": ["1%", "target"]
+          }
+        },
+        "type": "Condition",
+        "section": "Boons"
+      },
+      {
+        "id": "jade-bot-base",
+        "text": "Jade Bot",
+        "subText": "(select both boxes)",
+        "modifiers": { "attributes": { "Vitality": [85, "converted"] } },
+        "type": "Text",
+        "section": "Other buffs"
+      },
+      {
+        "id": "jade-bot-per-tier",
+        "text": "Jade Bot Tier",
+        "amountData": { "label": "", "default": 10, "quantityEntered": 1 },
+        "modifiers": { "attributes": { "Vitality": [15, "converted"] } },
+        "type": "Text",
+        "section": "Other buffs"
+      },
+      {
+        "id": "agony-resistance",
+        "modifiers": { "attributes": { "Agony Resistance": [162, "converted"] } }
+      },
+      {
+        "id": "omnipotion",
+        "modifiers": {
+          "damage": {
+            "Strike Damage": ["15%", "add"],
+            "Condition Damage": ["15%", "add"],
+            "Damage Reduction": ["25%", "add"]
+          },
+          "conversion": {
+            "Vitality": { "Agony Resistance": "150%" },
+            "Toughness": { "Agony Resistance": "150%" },
+            "Concentration": { "Agony Resistance": "150%" }
+          }
+        }
+      },
+      {
+        "id": "signet-of-might",
+        "text": "Signet of Might",
+        "modifiers": { "attributes": { "Power": [180, "buff"] } },
+        "gw2id": 14404,
+        "section": "Skills"
+      },
+      {
+        "id": "peak-performance",
+        "text": "Peak Performance",
+        "subText": "passive",
+        "modifiers": { "damage": { "Strike Damage": ["5%", "add"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["3%", "add"] } },
+        "gw2id": 1444,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "great-fortitude",
+        "text": "Great Fortitude",
+        "modifiers": {
+          "conversion": { "Vitality": { "Power": "10%" }, "Ferocity": { "Power": "10%" } }
+        },
+        "gw2id": 1449,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "pinnacle-of-strength",
+        "text": "Pinnacle Of Strength",
+        "minor": true,
+        "amountData": { "label": "might", "default": 25, "quantityEntered": 25 },
+        "modifiers": { "attributes": { "Power": [250, "buff"] } },
+        "gw2id": 1453,
+        "defaultEnabled": true,
+        "section": "Strength",
+        "amount": ""
+      },
+      {
+        "id": "pinnacle-of-strength-crit",
+        "text": "Pinnacle Of Strength",
+        "subText": "passive",
+        "minor": true,
+        "modifiers": { "attributes": { "Critical Chance": "5%" } },
+        "gw2id": 1453,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "berserkers-power",
+        "text": "Berserker's Power",
+        "amountData": { "label": "stacks", "default": 0, "quantityEntered": 1 },
+        "modifiers": { "damage": { "Strike Damage": ["5.25%", "add"] } },
+        "gw2id": 1437,
+        "defaultEnabled": true,
+        "section": "Strength",
+        "amount": "4"
+      },
+      {
+        "id": "warriors-sprint",
+        "text": "Warrior's Sprint",
+        "amountData": { "label": "% swiftness", "default": 100, "quantityEntered": 100 },
+        "modifiers": { "damage": { "Strike Damage": ["10%", "add"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["3%", "add"] } },
+        "gw2id": 1413,
+        "defaultEnabled": true,
+        "section": "Discipline",
+        "amount": ""
+      },
+      {
+        "id": "axe-mastery-one",
+        "text": "Axe Mastery",
+        "subText": "base",
+        "modifiers": { "attributes": { "Ferocity": [120, "converted"] } },
+        "gw2id": 1369,
+        "defaultEnabled": true,
+        "section": "Discipline"
+      },
+      {
+        "id": "axe-mastery-axe",
+        "text": "Axe Mastery",
+        "subText": "with axe",
+        "amountData": { "label": "% uptime", "default": 100, "quantityEntered": 100 },
+        "modifiers": { "attributes": { "Ferocity": [120, "converted"] } },
+        "gw2id": 1369,
+        "defaultEnabled": true,
+        "section": "Discipline",
+        "amount": "68"
+      },
+      {
+        "id": "blood-reaction-base",
+        "text": "Blood Reaction",
+        "subText": "base",
+        "modifiers": { "conversion": { "Ferocity": { "Precision": "7%" } } },
+        "gw2id": 2011,
+        "defaultEnabled": true,
+        "section": "Berserker"
+      },
+      {
+        "id": "blood-reaction-with",
+        "text": "Blood Reaction",
+        "subText": "bonus",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "modifiers": { "conversion": { "Ferocity": { "Precision": "7%" } } },
+        "gw2id": 2011,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "fatal-frenzy-power-condi",
+        "text": "Fatal Frenzy",
+        "subText": "power/condition damage",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "minor": true,
+        "modifiers": {
+          "attributes": { "Power": [300, "buff"], "Condition Damage": [300, "buff"] }
+        },
+        "gw2id": 2046,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "bloody-roar",
+        "text": "Bloody Roar",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "modifiers": { "damage": { "Strike Damage": ["25%", "mult"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["10%", "mult"] } },
+        "gw2id": 1928,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "eagle",
+        "text": "Superior Rune of the Eagle",
+        "subText": "(50% below half health)",
+        "modifiers": {
+          "damage": { "Strike Damage": ["5%", "mult"] },
+          "attributes": { "Precision": [175, "converted"], "Ferocity": [225, "converted"] }
+        },
+        "gw2id": 24723,
+        "section": "Power Runes"
+      },
+      {
+        "id": "force",
+        "text": "Superior Sigil of Force",
+        "modifiers": { "damage": { "Strike Damage": ["5%", "add"] } },
+        "gw2id": 24615,
+        "section": "Power Sigils"
+      },
+      {
+        "id": "impact/night/slaying-both",
+        "text": "Superior Sigil of Impact/Night/Slaying",
+        "textOverride": "Sigil of Impact/Night/Slaying",
+        "subText": "(both 7%/3%)",
+        "modifiers": { "damage": { "Strike Damage": ["3%", "add", "7%", "mult"] } },
+        "gw2id": 24868,
+        "section": "Power Sigils"
+      },
+      {
+        "id": "slaying-potion",
+        "text": "Slaying Potion",
+        "textOverride": "Slaying Potion",
+        "modifiers": {
+          "damage": { "Strike Damage": ["10%", "mult"], "Damage Reduction": ["10%", "unknown"] }
+        },
+        "gw2id": 50082,
+        "priceIds": [],
+        "section": "Power Utilities"
+      },
+      {
+        "id": "plate-of-coq-au-vin-with-salsa",
+        "text": "Plate of Coq Au Vin with Salsa",
+        "hasLifesteal": true,
+        "modifiers": {
+          "attributes": { "Power": [100, "converted"], "Precision": [70, "converted"] }
+        },
+        "gw2id": 91709,
+        "section": "Power Food"
+      },
+      {
+        "id": "food-lifesteal-effect",
+        "amountData": { "label": "/10s", "default": 4.3, "quantityEntered": 10 },
+        "modifiers": { "attributes": { "Siphon Base Coefficient": 325 } },
+        "amount": ""
+      }
+    ],
+    "cachedFormState": {
+      "traits": {
+        "showAll": false,
+        "selectedLines": ["4", "51", "18"],
+        "selectedTraits": [
+          [1444, 1449, 1437],
+          [1413, 1489, 1369],
+          [2039, 2011, 1928]
+        ],
+        "items": [
+          {
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
+            "pinnacle-of-strength": { "amount": "" },
+            "pinnacle-of-strength-crit": {},
+            "berserkers-power": { "amount": "4" }
+          },
+          {
+            "warriors-sprint": { "amount": "" },
+            "double-standards-str": {},
+            "double-standards-disc": {},
+            "axe-mastery-one": {},
+            "axe-mastery-axe": { "amount": "68" }
+          },
+          {
+            "blood-reaction-base": {},
+            "blood-reaction-with": { "amount": "90" },
+            "heat-the-soul": {},
+            "heat-the-soul-with": { "amount": "" },
+            "fatal-frenzy-power-condi": { "amount": "90" },
+            "fatal-frenzy-toughness": {},
+            "bloody-roar": { "amount": "90" },
+            "king-of-fires": {},
+            "eternal-champion": {}
+          }
+        ]
+      },
+      "skills": { "skills": { "signet-of-might": {} } },
+      "extras": {
+        "extras": {
+          "Runes": { "thief": {}, "scholar": {}, "eagle": {} },
+          "Sigil1": { "force": {} },
+          "Sigil2": { "impact/night/slaying-both": {} },
+          "Enhancement": { "slaying-potion": {} },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      },
+      "buffs": {
+        "buffs": {
+          "might": true,
+          "fury": true,
+          "protection": true,
+          "vulnerability": true,
+          "bannerOfStrength": false,
+          "bannerOfDiscipline": false,
+          "bannerOfTactics": false,
+          "bannerOfDefense": false,
+          "empowerAllies": false,
+          "spotter": false,
+          "frostSpirit": false,
+          "pinpointDistribution": false,
+          "strengthInNumbers": false,
+          "jade-bot-base": true,
+          "jade-bot-per-tier": true,
+          "baneSignet": false,
+          "signetOfJudgment": false,
+          "signetOfMercy": false,
+          "signetOfWrath": false,
+          "assassinsPresence": false,
+          "riteDwarf": false,
+          "exposed": false,
+          "lightArmor": false
+        },
+        "amounts": {}
+      },
+      "priorities": {
+        "optimizeFor": "Damage",
+        "weaponType": "Two-handed",
+        "minBoonDuration": 0,
+        "minHealingPower": "",
+        "minToughness": "",
+        "maxToughness": "",
+        "minHealth": "",
+        "minCritChance": "",
+        "minDamage": "",
+        "minHealing": "",
+        "minSurvivability": "",
+        "minOutgoingHealing": "",
+        "minQuicknessDuration": 0,
+        "affixes": ["Berserker", "Assassin", "Dragon"],
+        "exclusions": { "enabled": false, "data": {} },
+        "exotics": { "enabled": false, "data": {} },
+        "customAffix": {},
+        "customAffixTextBox": "",
+        "customAffixError": ""
+      }
+    },
+    "shouldDisplayExtras": {
+      "Runes": true,
+      "Sigil1": false,
+      "Sigil2": false,
+      "Enhancement": false,
+      "Nourishment": true
+    },
+    "extrasCombination": {
+      "Runes": "eagle",
+      "Sigil1": "force",
+      "Sigil2": "impact/night/slaying-both",
+      "Enhancement": "slaying-potion",
+      "Nourishment": "plate-of-coq-au-vin-with-salsa"
+    },
+    "distribution": {
+      "Power": 3441,
+      "Power2": 0,
+      "Burning": 1.09,
+      "Bleeding": 0,
+      "Poison": 0,
+      "Torment": 0,
+      "Confusion": 0
+    },
+    "baseAttributes": [
+      [14, 9212],
+      [15, 1271],
+      [0, 1100],
+      [1, 1245],
+      [2, 1000],
+      [3, 1235],
+      [4, 426.6],
+      [5, 0],
+      [6, 0],
+      [7, 0],
+      [8, 0],
+      [9, 162],
+      [12, 0],
+      [13, 0],
+      [10, 0.35],
+      [11, 1.5],
+      [87, 3441],
+      [91, 0],
+      [42, 1.09],
+      [41, 0],
+      [44, 0],
+      [45, 0],
+      [43, 0],
+      [92, 0],
+      [78, 139.75]
+    ],
+    "modifiers": {
+      "damageMultiplier": [
+        ["StrikeDamage", 3.008908546875001],
+        ["ConditionDamage", 1.4375],
+        ["SiphonDamage", 1],
+        ["DamageTaken", 0.45225],
+        ["CriticalDamage", 1],
+        ["BleedingDamage", 1],
+        ["BurningDamage", 1],
+        ["ConfusionDamage", 1],
+        ["PoisonDamage", 1],
+        ["TormentDamage", 1],
+        ["AlternativeDamage", 1],
+        ["AlternativeCriticalDamage", 1],
+        ["PhantasmDamage", 1.25],
+        ["PhantasmCriticalDamage", 1]
+      ],
+      "damageMultiplierBreakdown": {
+        "Strike Damage": { "mult": 1.5139162500000003, "add": 1.59, "target": 1.25 },
+        "Condition Damage": { "mult": 1, "add": 1.15, "target": 1.25 },
+        "Siphon Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Damage Taken": { "mult": 0.603, "add": 0.75, "target": 1 },
+        "Critical Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Bleeding Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Burning Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Confusion Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Poison Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Torment Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Alternative Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Alternative Critical Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Phantasm Damage": { "mult": 1, "add": 1, "target": 1.25 },
+        "Phantasm Critical Damage": { "mult": 1, "add": 1, "target": 1 }
+      },
+      "buff": [
+        [0, 1450],
+        [5, 1020]
+      ],
+      "convert": [
+        [
+          3,
+          [
+            [9, 1.5],
+            [0, 0.1]
+          ]
+        ],
+        [2, [[9, 1.5]]],
+        [7, [[9, 1.5]]],
+        [
+          4,
+          [
+            [0, 0.1],
+            [1, 0.133]
+          ]
+        ]
+      ],
+      "convertAfterBuffs": []
+    },
+    "relevantConditions": [1],
+    "disableCondiResultCache": false,
+    "maxInfusions": 18,
+    "primaryInfusion": "",
+    "primaryMaxInfusions": 0,
+    "secondaryInfusion": "",
+    "secondaryMaxInfusions": 0,
+    "infusionMode": "None",
+    "slots": 13,
+    "affixesArray": [
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      []
+    ],
+    "identicalArmor": true,
+    "identicalRing": true,
+    "identicalAcc": true,
+    "identicalWep": false,
+    "affixStatsArray": [
+      [
+        [
+          [0, 63],
+          [1, 45],
+          [4, 45]
+        ],
+        [
+          [1, 63],
+          [0, 45],
+          [4, 45]
+        ],
+        [
+          [0, 54],
+          [4, 54],
+          [1, 30],
+          [3, 30]
+        ]
+      ],
+      [
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ],
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ],
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ]
+      ],
+      [
+        [
+          [1, 141],
+          [0, 101],
+          [4, 101]
+        ],
+        [
+          [0, 121],
+          [4, 121],
+          [1, 67],
+          [3, 67]
+        ],
+        [
+          [0, 141],
+          [1, 101],
+          [4, 101]
+        ]
+      ],
+      [
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ],
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ],
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ]
+      ],
+      [
+        [
+          [0, 81],
+          [4, 81],
+          [1, 44],
+          [3, 44]
+        ],
+        [
+          [0, 94],
+          [1, 67],
+          [4, 67]
+        ],
+        [
+          [1, 94],
+          [0, 67],
+          [4, 67]
+        ]
+      ],
+      [
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ],
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ],
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ]
+      ],
+      [
+        [
+          [0, 157],
+          [1, 108],
+          [4, 108]
+        ],
+        [
+          [1, 157],
+          [0, 108],
+          [4, 108]
+        ],
+        [
+          [0, 133],
+          [4, 133],
+          [1, 71],
+          [3, 71]
+        ]
+      ],
+      [
+        [
+          [0, 106],
+          [4, 106],
+          [1, 56],
+          [3, 56]
+        ],
+        [
+          [0, 126],
+          [1, 85],
+          [4, 85]
+        ],
+        [
+          [1, 126],
+          [0, 85],
+          [4, 85]
+        ]
+      ],
+      [
+        [
+          [1, 126],
+          [0, 85],
+          [4, 85]
+        ],
+        [
+          [0, 106],
+          [4, 106],
+          [1, 56],
+          [3, 56]
+        ],
+        [
+          [0, 126],
+          [1, 85],
+          [4, 85]
+        ]
+      ],
+      [
+        [
+          [0, 110],
+          [1, 74],
+          [4, 74]
+        ],
+        [
+          [1, 110],
+          [0, 74],
+          [4, 74]
+        ],
+        [
+          [0, 92],
+          [4, 92],
+          [1, 49],
+          [3, 49]
+        ]
+      ],
+      [
+        [
+          [0, 92],
+          [4, 92],
+          [1, 49],
+          [3, 49]
+        ],
+        [
+          [0, 110],
+          [1, 74],
+          [4, 74]
+        ],
+        [
+          [1, 110],
+          [0, 74],
+          [4, 74]
+        ]
+      ],
+      [
+        [
+          [1, 63],
+          [0, 40],
+          [4, 40]
+        ],
+        [
+          [0, 52],
+          [4, 52],
+          [1, 27],
+          [3, 27]
+        ],
+        [
+          [0, 63],
+          [1, 40],
+          [4, 40]
+        ]
+      ],
+      [
+        [
+          [0, 251],
+          [1, 179],
+          [4, 179]
+        ],
+        [
+          [1, 251],
+          [0, 179],
+          [4, 179]
+        ],
+        [
+          [0, 215],
+          [4, 215],
+          [1, 118],
+          [3, 118]
+        ]
+      ],
+      []
+    ],
+    "runsAfterThisSlot": [
+      1594323, 531441, 177147, 59049, 19683, 6561, 2187, 729, 243, 81, 27, 9, 3, 1
+    ],
+    "gameMode": "fractals"
+  },
+  {
+    "profession": "Warrior",
+    "weaponType": 1,
+    "forcedAffixes": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "rankby": 54,
+    "minBoonDuration": 0,
+    "minHealingPower": null,
+    "minToughness": null,
+    "maxToughness": null,
+    "minHealth": null,
+    "minCritChance": null,
+    "minDamage": null,
+    "minHealing": null,
+    "minSurvivability": null,
+    "minOutgoingHealing": null,
+    "minQuicknessDuration": 0,
+    "maxResults": 50,
+    "attackRate": 0.4,
+    "movementUptime": 0,
+    "specialization": "Berserker",
+    "appliedModifiers": [
+      {
+        "id": "might",
+        "text": "Might",
+        "amountData": { "label": "x", "default": 25, "quantityEntered": 1 },
+        "modifiers": { "attributes": { "Power": [30, "buff"], "Condition Damage": [30, "buff"] } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "fury",
+        "text": "Fury",
+        "modifiers": { "attributes": { "Critical Chance": "25%" } },
+        "wvwModifiers": { "attributes": { "Critical Chance": "20%" } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "protection",
+        "text": "Protection",
+        "modifiers": { "damage": { "Damage Reduction": ["33%", "mult"] } },
+        "type": "Boon",
+        "section": "Boons"
+      },
+      {
+        "id": "vulnerability",
+        "text": "Vulnerability",
+        "amountData": { "label": "x", "default": 25, "quantityEntered": 1 },
+        "modifiers": {
+          "damage": {
+            "Strike Damage": ["1%", "target"],
+            "Condition Damage": ["1%", "target"],
+            "Phantasm Damage": ["1%", "target"]
+          }
+        },
+        "type": "Condition",
+        "section": "Boons"
+      },
+      {
+        "id": "jade-bot-base",
+        "text": "Jade Bot",
+        "subText": "(select both boxes)",
+        "modifiers": { "attributes": { "Vitality": [85, "converted"] } },
+        "type": "Text",
+        "section": "Other buffs"
+      },
+      {
+        "id": "jade-bot-per-tier",
+        "text": "Jade Bot Tier",
+        "amountData": { "label": "", "default": 10, "quantityEntered": 1 },
+        "modifiers": { "attributes": { "Vitality": [15, "converted"] } },
+        "type": "Text",
+        "section": "Other buffs"
+      },
+      {
+        "id": "agony-resistance",
+        "modifiers": { "attributes": { "Agony Resistance": [162, "converted"] } }
+      },
+      {
+        "id": "omnipotion",
+        "modifiers": {
+          "damage": {
+            "Strike Damage": ["15%", "add"],
+            "Condition Damage": ["15%", "add"],
+            "Damage Reduction": ["25%", "add"]
+          },
+          "conversion": {
+            "Vitality": { "Agony Resistance": "150%" },
+            "Toughness": { "Agony Resistance": "150%" },
+            "Concentration": { "Agony Resistance": "150%" }
+          }
+        }
+      },
+      {
+        "id": "signet-of-might",
+        "text": "Signet of Might",
+        "modifiers": { "attributes": { "Power": [180, "buff"] } },
+        "gw2id": 14404,
+        "section": "Skills"
+      },
+      {
+        "id": "peak-performance",
+        "text": "Peak Performance",
+        "subText": "passive",
+        "modifiers": { "damage": { "Strike Damage": ["5%", "add"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["3%", "add"] } },
+        "gw2id": 1444,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "great-fortitude",
+        "text": "Great Fortitude",
+        "modifiers": {
+          "conversion": { "Vitality": { "Power": "10%" }, "Ferocity": { "Power": "10%" } }
+        },
+        "gw2id": 1449,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "pinnacle-of-strength",
+        "text": "Pinnacle Of Strength",
+        "minor": true,
+        "amountData": { "label": "might", "default": 25, "quantityEntered": 25 },
+        "modifiers": { "attributes": { "Power": [250, "buff"] } },
+        "gw2id": 1453,
+        "defaultEnabled": true,
+        "section": "Strength",
+        "amount": ""
+      },
+      {
+        "id": "pinnacle-of-strength-crit",
+        "text": "Pinnacle Of Strength",
+        "subText": "passive",
+        "minor": true,
+        "modifiers": { "attributes": { "Critical Chance": "5%" } },
+        "gw2id": 1453,
+        "defaultEnabled": true,
+        "section": "Strength"
+      },
+      {
+        "id": "berserkers-power",
+        "text": "Berserker's Power",
+        "amountData": { "label": "stacks", "default": 0, "quantityEntered": 1 },
+        "modifiers": { "damage": { "Strike Damage": ["5.25%", "add"] } },
+        "gw2id": 1437,
+        "defaultEnabled": true,
+        "section": "Strength",
+        "amount": "4"
+      },
+      {
+        "id": "warriors-sprint",
+        "text": "Warrior's Sprint",
+        "amountData": { "label": "% swiftness", "default": 100, "quantityEntered": 100 },
+        "modifiers": { "damage": { "Strike Damage": ["10%", "add"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["3%", "add"] } },
+        "gw2id": 1413,
+        "defaultEnabled": true,
+        "section": "Discipline",
+        "amount": ""
+      },
+      {
+        "id": "axe-mastery-one",
+        "text": "Axe Mastery",
+        "subText": "base",
+        "modifiers": { "attributes": { "Ferocity": [120, "converted"] } },
+        "gw2id": 1369,
+        "defaultEnabled": true,
+        "section": "Discipline"
+      },
+      {
+        "id": "axe-mastery-axe",
+        "text": "Axe Mastery",
+        "subText": "with axe",
+        "amountData": { "label": "% uptime", "default": 100, "quantityEntered": 100 },
+        "modifiers": { "attributes": { "Ferocity": [120, "converted"] } },
+        "gw2id": 1369,
+        "defaultEnabled": true,
+        "section": "Discipline",
+        "amount": "68"
+      },
+      {
+        "id": "blood-reaction-base",
+        "text": "Blood Reaction",
+        "subText": "base",
+        "modifiers": { "conversion": { "Ferocity": { "Precision": "7%" } } },
+        "gw2id": 2011,
+        "defaultEnabled": true,
+        "section": "Berserker"
+      },
+      {
+        "id": "blood-reaction-with",
+        "text": "Blood Reaction",
+        "subText": "bonus",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "modifiers": { "conversion": { "Ferocity": { "Precision": "7%" } } },
+        "gw2id": 2011,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "fatal-frenzy-power-condi",
+        "text": "Fatal Frenzy",
+        "subText": "power/condition damage",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "minor": true,
+        "modifiers": {
+          "attributes": { "Power": [300, "buff"], "Condition Damage": [300, "buff"] }
+        },
+        "gw2id": 2046,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "bloody-roar",
+        "text": "Bloody Roar",
+        "amountData": { "label": "% berserk", "default": 70, "quantityEntered": 100 },
+        "modifiers": { "damage": { "Strike Damage": ["25%", "mult"] } },
+        "wvwModifiers": { "damage": { "Strike Damage": ["10%", "mult"] } },
+        "gw2id": 1928,
+        "defaultEnabled": true,
+        "section": "Berserker",
+        "amount": "90"
+      },
+      {
+        "id": "eagle",
+        "text": "Superior Rune of the Eagle",
+        "subText": "(50% below half health)",
+        "modifiers": {
+          "damage": { "Strike Damage": ["5%", "mult"] },
+          "attributes": { "Precision": [175, "converted"], "Ferocity": [225, "converted"] }
+        },
+        "gw2id": 24723,
+        "section": "Power Runes"
+      },
+      {
+        "id": "force",
+        "text": "Superior Sigil of Force",
+        "modifiers": { "damage": { "Strike Damage": ["5%", "add"] } },
+        "gw2id": 24615,
+        "section": "Power Sigils"
+      },
+      {
+        "id": "impact/night/slaying-both",
+        "text": "Superior Sigil of Impact/Night/Slaying",
+        "textOverride": "Sigil of Impact/Night/Slaying",
+        "subText": "(both 7%/3%)",
+        "modifiers": { "damage": { "Strike Damage": ["3%", "add", "7%", "mult"] } },
+        "gw2id": 24868,
+        "section": "Power Sigils"
+      },
+      {
+        "id": "slaying-potion",
+        "text": "Slaying Potion",
+        "textOverride": "Slaying Potion",
+        "modifiers": {
+          "damage": { "Strike Damage": ["10%", "mult"], "Damage Reduction": ["10%", "unknown"] }
+        },
+        "gw2id": 50082,
+        "priceIds": [],
+        "section": "Power Utilities"
+      },
+      {
+        "id": "curry-butternut-squash-soup",
+        "text": "Bowl of Curry Butternut Squash Soup",
+        "modifiers": {
+          "attributes": { "Precision": [100, "converted"], "Ferocity": [70, "converted"] }
+        },
+        "gw2id": 12486,
+        "section": "Power Food"
+      }
+    ],
+    "cachedFormState": {
+      "traits": {
+        "showAll": false,
+        "selectedLines": ["4", "51", "18"],
+        "selectedTraits": [
+          [1444, 1449, 1437],
+          [1413, 1489, 1369],
+          [2039, 2011, 1928]
+        ],
+        "items": [
+          {
+            "peak-performance": {},
+            "forceful-greatsword": {},
+            "great-fortitude": {},
+            "pinnacle-of-strength": { "amount": "" },
+            "pinnacle-of-strength-crit": {},
+            "berserkers-power": { "amount": "4" }
+          },
+          {
+            "warriors-sprint": { "amount": "" },
+            "double-standards-str": {},
+            "double-standards-disc": {},
+            "axe-mastery-one": {},
+            "axe-mastery-axe": { "amount": "68" }
+          },
+          {
+            "blood-reaction-base": {},
+            "blood-reaction-with": { "amount": "90" },
+            "heat-the-soul": {},
+            "heat-the-soul-with": { "amount": "" },
+            "fatal-frenzy-power-condi": { "amount": "90" },
+            "fatal-frenzy-toughness": {},
+            "bloody-roar": { "amount": "90" },
+            "king-of-fires": {},
+            "eternal-champion": {}
+          }
+        ]
+      },
+      "skills": { "skills": { "signet-of-might": {} } },
+      "extras": {
+        "extras": {
+          "Runes": { "thief": {}, "scholar": {}, "eagle": {} },
+          "Sigil1": { "force": {} },
+          "Sigil2": { "impact/night/slaying-both": {} },
+          "Enhancement": { "slaying-potion": {} },
+          "Nourishment": {
+            "cilantro-lime-sous-vide-steak": {},
+            "plate-of-coq-au-vin-with-salsa": {},
+            "curry-butternut-squash-soup": {}
+          }
+        },
+        "lifestealAmount": ""
+      },
+      "buffs": {
+        "buffs": {
+          "might": true,
+          "fury": true,
+          "protection": true,
+          "vulnerability": true,
+          "bannerOfStrength": false,
+          "bannerOfDiscipline": false,
+          "bannerOfTactics": false,
+          "bannerOfDefense": false,
+          "empowerAllies": false,
+          "spotter": false,
+          "frostSpirit": false,
+          "pinpointDistribution": false,
+          "strengthInNumbers": false,
+          "jade-bot-base": true,
+          "jade-bot-per-tier": true,
+          "baneSignet": false,
+          "signetOfJudgment": false,
+          "signetOfMercy": false,
+          "signetOfWrath": false,
+          "assassinsPresence": false,
+          "riteDwarf": false,
+          "exposed": false,
+          "lightArmor": false
+        },
+        "amounts": {}
+      },
+      "priorities": {
+        "optimizeFor": "Damage",
+        "weaponType": "Two-handed",
+        "minBoonDuration": 0,
+        "minHealingPower": "",
+        "minToughness": "",
+        "maxToughness": "",
+        "minHealth": "",
+        "minCritChance": "",
+        "minDamage": "",
+        "minHealing": "",
+        "minSurvivability": "",
+        "minOutgoingHealing": "",
+        "minQuicknessDuration": 0,
+        "affixes": ["Berserker", "Assassin", "Dragon"],
+        "exclusions": { "enabled": false, "data": {} },
+        "exotics": { "enabled": false, "data": {} },
+        "customAffix": {},
+        "customAffixTextBox": "",
+        "customAffixError": ""
+      }
+    },
+    "shouldDisplayExtras": {
+      "Runes": true,
+      "Sigil1": false,
+      "Sigil2": false,
+      "Enhancement": false,
+      "Nourishment": true
+    },
+    "extrasCombination": {
+      "Runes": "eagle",
+      "Sigil1": "force",
+      "Sigil2": "impact/night/slaying-both",
+      "Enhancement": "slaying-potion",
+      "Nourishment": "curry-butternut-squash-soup"
+    },
+    "distribution": {
+      "Power": 3441,
+      "Power2": 0,
+      "Burning": 1.09,
+      "Bleeding": 0,
+      "Poison": 0,
+      "Torment": 0,
+      "Confusion": 0
+    },
+    "baseAttributes": [
+      [14, 9212],
+      [15, 1271],
+      [0, 1000],
+      [1, 1275],
+      [2, 1000],
+      [3, 1235],
+      [4, 496.6],
+      [5, 0],
+      [6, 0],
+      [7, 0],
+      [8, 0],
+      [9, 162],
+      [12, 0],
+      [13, 0],
+      [10, 0.35],
+      [11, 1.5],
+      [87, 3441],
+      [91, 0],
+      [42, 1.09],
+      [41, 0],
+      [44, 0],
+      [45, 0],
+      [43, 0],
+      [92, 0]
+    ],
+    "modifiers": {
+      "damageMultiplier": [
+        ["StrikeDamage", 3.008908546875001],
+        ["ConditionDamage", 1.4375],
+        ["SiphonDamage", 1],
+        ["DamageTaken", 0.45225],
+        ["CriticalDamage", 1],
+        ["BleedingDamage", 1],
+        ["BurningDamage", 1],
+        ["ConfusionDamage", 1],
+        ["PoisonDamage", 1],
+        ["TormentDamage", 1],
+        ["AlternativeDamage", 1],
+        ["AlternativeCriticalDamage", 1],
+        ["PhantasmDamage", 1.25],
+        ["PhantasmCriticalDamage", 1]
+      ],
+      "damageMultiplierBreakdown": {
+        "Strike Damage": { "mult": 1.5139162500000003, "add": 1.59, "target": 1.25 },
+        "Condition Damage": { "mult": 1, "add": 1.15, "target": 1.25 },
+        "Siphon Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Damage Taken": { "mult": 0.603, "add": 0.75, "target": 1 },
+        "Critical Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Bleeding Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Burning Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Confusion Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Poison Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Torment Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Alternative Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Alternative Critical Damage": { "mult": 1, "add": 1, "target": 1 },
+        "Phantasm Damage": { "mult": 1, "add": 1, "target": 1.25 },
+        "Phantasm Critical Damage": { "mult": 1, "add": 1, "target": 1 }
+      },
+      "buff": [
+        [0, 1450],
+        [5, 1020]
+      ],
+      "convert": [
+        [
+          3,
+          [
+            [9, 1.5],
+            [0, 0.1]
+          ]
+        ],
+        [2, [[9, 1.5]]],
+        [7, [[9, 1.5]]],
+        [
+          4,
+          [
+            [0, 0.1],
+            [1, 0.133]
+          ]
+        ]
+      ],
+      "convertAfterBuffs": []
+    },
+    "relevantConditions": [1],
+    "disableCondiResultCache": false,
+    "maxInfusions": 18,
+    "primaryInfusion": "",
+    "primaryMaxInfusions": 0,
+    "secondaryInfusion": "",
+    "secondaryMaxInfusions": 0,
+    "infusionMode": "None",
+    "slots": 13,
+    "affixesArray": [
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      [38, 1, 2],
+      [2, 38, 1],
+      [1, 2, 38],
+      []
+    ],
+    "identicalArmor": true,
+    "identicalRing": true,
+    "identicalAcc": true,
+    "identicalWep": false,
+    "affixStatsArray": [
+      [
+        [
+          [0, 63],
+          [1, 45],
+          [4, 45]
+        ],
+        [
+          [1, 63],
+          [0, 45],
+          [4, 45]
+        ],
+        [
+          [0, 54],
+          [4, 54],
+          [1, 30],
+          [3, 30]
+        ]
+      ],
+      [
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ],
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ],
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ]
+      ],
+      [
+        [
+          [1, 141],
+          [0, 101],
+          [4, 101]
+        ],
+        [
+          [0, 121],
+          [4, 121],
+          [1, 67],
+          [3, 67]
+        ],
+        [
+          [0, 141],
+          [1, 101],
+          [4, 101]
+        ]
+      ],
+      [
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ],
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ],
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ]
+      ],
+      [
+        [
+          [0, 81],
+          [4, 81],
+          [1, 44],
+          [3, 44]
+        ],
+        [
+          [0, 94],
+          [1, 67],
+          [4, 67]
+        ],
+        [
+          [1, 94],
+          [0, 67],
+          [4, 67]
+        ]
+      ],
+      [
+        [
+          [1, 47],
+          [0, 34],
+          [4, 34]
+        ],
+        [
+          [0, 40],
+          [4, 40],
+          [1, 22],
+          [3, 22]
+        ],
+        [
+          [0, 47],
+          [1, 34],
+          [4, 34]
+        ]
+      ],
+      [
+        [
+          [0, 157],
+          [1, 108],
+          [4, 108]
+        ],
+        [
+          [1, 157],
+          [0, 108],
+          [4, 108]
+        ],
+        [
+          [0, 133],
+          [4, 133],
+          [1, 71],
+          [3, 71]
+        ]
+      ],
+      [
+        [
+          [0, 106],
+          [4, 106],
+          [1, 56],
+          [3, 56]
+        ],
+        [
+          [0, 126],
+          [1, 85],
+          [4, 85]
+        ],
+        [
+          [1, 126],
+          [0, 85],
+          [4, 85]
+        ]
+      ],
+      [
+        [
+          [1, 126],
+          [0, 85],
+          [4, 85]
+        ],
+        [
+          [0, 106],
+          [4, 106],
+          [1, 56],
+          [3, 56]
+        ],
+        [
+          [0, 126],
+          [1, 85],
+          [4, 85]
+        ]
+      ],
+      [
+        [
+          [0, 110],
+          [1, 74],
+          [4, 74]
+        ],
+        [
+          [1, 110],
+          [0, 74],
+          [4, 74]
+        ],
+        [
+          [0, 92],
+          [4, 92],
+          [1, 49],
+          [3, 49]
+        ]
+      ],
+      [
+        [
+          [0, 92],
+          [4, 92],
+          [1, 49],
+          [3, 49]
+        ],
+        [
+          [0, 110],
+          [1, 74],
+          [4, 74]
+        ],
+        [
+          [1, 110],
+          [0, 74],
+          [4, 74]
+        ]
+      ],
+      [
+        [
+          [1, 63],
+          [0, 40],
+          [4, 40]
+        ],
+        [
+          [0, 52],
+          [4, 52],
+          [1, 27],
+          [3, 27]
+        ],
+        [
+          [0, 63],
+          [1, 40],
+          [4, 40]
+        ]
+      ],
+      [
+        [
+          [0, 251],
+          [1, 179],
+          [4, 179]
+        ],
+        [
+          [1, 251],
+          [0, 179],
+          [4, 179]
+        ],
+        [
+          [0, 215],
+          [4, 215],
+          [1, 118],
+          [3, 118]
+        ]
+      ],
+      []
+    ],
+    "runsAfterThisSlot": [
+      1594323, 531441, 177147, 59049, 19683, 6561, 2187, 729, 243, 81, 27, 9, 3, 1
+    ],
+    "gameMode": "fractals"
+  }
+]

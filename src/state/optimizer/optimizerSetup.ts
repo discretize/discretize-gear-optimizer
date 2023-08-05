@@ -86,7 +86,7 @@ import { clamp, scaleValue } from './optimizerCore';
 // currently a duplicate of navsettings.jsx
 export type GameMode = 'fractals' | 'raids' | 'wvw';
 
-interface Combination {
+export interface Combination {
   extrasCombination: Record<string, string>;
   extrasModifiers: AppliedModifier[];
   settings?: OptimizerCoreSettings;

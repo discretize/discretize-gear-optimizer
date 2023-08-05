@@ -13,7 +13,8 @@ list:
         "protection": true,
         "vulnerability": true,
         "jade-bot-base": true,
-        "jade-bot-per-tier": true
+        "jade-bot-per-tier": true,
+        "reinforced-armor": true
       }
 
   - name: Condi
@@ -26,7 +27,8 @@ list:
         "vulnerability": true,
         "assassinsPresence": true,
         "jade-bot-base": true,
-        "jade-bot-per-tier": true
+        "jade-bot-per-tier": true,
+        "reinforced-armor": true
       }
 
   - name: Power (no spotter)
@@ -40,7 +42,8 @@ list:
         "frostSpirit": true,
         "assassinsPresence": true,
         "jade-bot-base": true,
-        "jade-bot-per-tier": true
+        "jade-bot-per-tier": true,
+        "reinforced-armor": true
       }
 
   - name: Power (spotter)
@@ -55,7 +58,8 @@ list:
         "frostSpirit": true,
         "assassinsPresence": true,
         "jade-bot-base": true,
-        "jade-bot-per-tier": true
+        "jade-bot-per-tier": true,
+        "reinforced-armor": true
       }
 
   - name: Benchmark
@@ -72,5 +76,6 @@ list:
         "frostSpirit": true,
         "spotter": true,
         "jade-bot-base": true,
-        "jade-bot-per-tier": true
+        "jade-bot-per-tier": true,
+        "reinforced-armor": true
       }

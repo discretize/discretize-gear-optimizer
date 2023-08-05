@@ -343,4 +343,5 @@ export const buffsDict = [
   'jade-bot-per-tier',
   'lightArmor2',
   'lightArmor3',
+  'reinforced-armor',
 ];

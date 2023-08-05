@@ -153,7 +153,7 @@ export interface OptimizerCoreSettings {
   cachedFormState: CachedFormState;
   extrasCombination: Record<string, string>;
 }
-type OptimizerCoreMinimalSettings = Pick<
+export type OptimizerCoreMinimalSettings = Pick<
   OptimizerCoreSettings,
   | 'cachedFormState'
   | 'profession'
@@ -166,9 +166,9 @@ type OptimizerCoreMinimalSettings = Pick<
   | 'modifiers'
   | 'gameMode'
 >;
-type Gear = AffixName[];
-type GearStats = Record<string, number>;
-interface Character {
+export type Gear = AffixName[];
+export type GearStats = Record<string, number>;
+export interface Character {
   id?: string;
   settings: OptimizerCoreMinimalSettings;
   attributes: Record<AttributeName, number>;
@@ -569,6 +569,7 @@ export class OptimizerCore {
     character.valid = true;
 
     this.calcStats(character);
+
     const { attributes } = character;
 
     if (!skipValidation && this.checkInvalid(character)) {
@@ -779,7 +780,7 @@ export class OptimizerCore {
     }
 
     const siphonDamage =
-      (character.attributes['Siphon Base Coefficient'] || 0) * damageMultiplier['Siphon Damage'];
+      (attributes['Siphon Base Coefficient'] || 0) * damageMultiplier['Siphon Damage'];
     attributes['Siphon DPS'] = siphonDamage;
 
     return powerDamage + siphonDamage;

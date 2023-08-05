@@ -31,8 +31,8 @@
     "extractLocaleEn": "babel --config-file ./babel-extract-en.config.js 'src/**/*.{js,jsx,ts,tsx}' > /dev/null && node cleanupLocale.js",
     "extractLocaleCMD": "babel --config-file ./babel-extract.config.js \"src/**/*.{js,jsx,ts,tsx}\" > NUL",
     "cleanupLocale": "node cleanupLocale.js",
-    "wasm": ":",
-    "wasm-build-data": ":"
+    "wasm": "wasm-pack build ./wasm_module --target web --release",
+    "wasm-build-data": "ts-node-esm generateRustMappings.ts"
   },
   "resolutions": {
     "@discretize/gw2-ui-new": "^0.1.2"
@@ -52,6 +52,7 @@
     "arraybuffer-equal": "^1.0.4",
     "buffer": "^6.0.3",
     "classnames": "^2.3.1",
+    "comlink": "^4.4.1",
     "i18next": "^22.4.15",
     "js-yaml": "^4.1.0",
     "json-url": "^3.0.0",
@@ -69,7 +70,9 @@
     "typeface-fira-mono": "^1.1.13",
     "typeface-muli": "^1.1.13",
     "typeface-raleway": "^1.1.13",
-    "urlsafe-base64": "^1.0.0"
+    "urlsafe-base64": "^1.0.0",
+    "wasm-pack": "^0.11.1",
+    "wasm_module": "file:./wasm_module"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.7",
@@ -104,8 +107,10 @@
     "esm": "^3.2.25",
     "gh-pages": "^3.2.3",
     "prettier": "^2.4.1",
+    "ts-node": "^10.9.1",
     "typescript": "~5.0.4",
-    "vite": "^4.3.4",
+    "vite": "^4.3.9",
+    "vite-plugin-wasm-pack": "^0.1.12",
     "wrangler": "^2.18.0"
   }
 }

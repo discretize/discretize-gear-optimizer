@@ -1,4 +1,5 @@
 import {
+  Checkbox,
   Divider,
   FormControl,
   FormControlLabel,
@@ -6,6 +7,7 @@ import {
   Radio,
   RadioGroup,
   Switch,
+  TextField,
   Typography,
 } from '@mui/material';
 import React from 'react';
@@ -13,7 +15,15 @@ import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import SagaTypes from '../../state/sagas/sagaTypes';
-import { getSelectedTemplate } from '../../state/slices/controlsSlice';
+import {
+  changeHeuristics,
+  changeHwThreads,
+  changeMulticore,
+  getHeuristics,
+  getHwThreads,
+  getMulticore,
+  getSelectedTemplate,
+} from '../../state/slices/controlsSlice';
 import {
   changeExpertMode,
   changeGameMode,
@@ -44,6 +54,7 @@ export default function NavSettings({
     language: languageDisabled,
     expertMode: expertModeDisabled,
     gameMode: gameModeDisabled,
+    threading: threadingDisabled,
   } = {},
 }) {
   const { t } = useTranslation();
@@ -56,6 +67,11 @@ export default function NavSettings({
   const expertMode = useSelector(getExpertMode);
   const gameMode = useSelector(getGameMode);
   const selectedTemplate = useSelector(getSelectedTemplate);
+  const hwThreads = useSelector(getHwThreads);
+  const enableMulticore = useSelector(getMulticore);
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const enableHeuristics = useSelector(getHeuristics);
 
   const [open, setOpen] = React.useState(false);
 
@@ -84,6 +100,29 @@ export default function NavSettings({
     const isFractalsOld = gameMode === 'fractals';
     const isFractalsChanged = isFractalsNew !== isFractalsOld;
     if (isFractalsChanged && selectedTemplate && selectedTemplate.length > 0) setOpen(true);
+  };
+  const changeHwThreadsHandler = (e) => {
+    const newHwThreads = e.target.value;
+
+    // only allow numbers
+    if (!newHwThreads.match(/^[0-9]*$/)) {
+      return;
+    }
+    // parse to int
+    const newHwThreadsInt = parseInt(newHwThreads, 10);
+
+    dispatch(changeHwThreads(newHwThreadsInt));
+  };
+
+  const changeMulticoreHandler = (e) => {
+    const newMulticore = e.target.checked;
+    dispatch(changeMulticore(newMulticore));
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const changeHeuristicsHandler = (e) => {
+    const newHeuristics = e.target.checked;
+    dispatch(changeHeuristics(newHeuristics));
   };
 
   return (
@@ -129,6 +168,37 @@ export default function NavSettings({
             </RadioGroup>
           </FormControl>
           <ReapplyTemplateDialog open={open} handleClose={handleClose} />
+        </>
+      )}
+
+      {!threadingDisabled && (
+        <>
+          <Divider className={classes.divider} />
+          <FormControlLabel
+            control={<Checkbox />}
+            label={t('Enable experimental multicore processing')}
+            sx={{ mb: 3 }}
+            checked={enableMulticore}
+            onChange={changeMulticoreHandler}
+          />
+
+          <TextField
+            label={t('Threads')}
+            helperText={t('Number of threads to use for calculations')}
+            size="small"
+            value={hwThreads}
+            onChange={changeHwThreadsHandler}
+            inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+          />
+          {/*
+          <FormControlLabel
+            control={<Checkbox />}
+            label={t('Enable heuristics')}
+            sx={{ mb: 3 }}
+            checked={enableHeuristics}
+            onChange={changeHeuristicsHandler}
+          />
+          */}
         </>
       )}
     </Settings>

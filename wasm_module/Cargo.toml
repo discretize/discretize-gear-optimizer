@@ -1,0 +1,45 @@
+[package]
+name = "wasm_module"
+version = "0.1.0"
+authors = ["gw2princeps <gw2@princeps.biz>"]
+edition = "2021"
+description = "Gear Optimizer core implementation in Rust"
+repository = "https://github.com/discretize/discretize-gear-optimizer"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+default = ["console_error_panic_hook"]
+
+[dependencies]
+# deps to compile for web
+wasm-bindgen = {version = "0.2.86", features = []}
+js-sys = "0.3.63"
+web-sys = {version = "0.3.63", features = ["console", "DedicatedWorkerGlobalScope", "MessageEvent"]}
+criterion = {version = "0.5.1", default-features = false}
+
+
+console_error_panic_hook = { version = "0.1.1", optional = true }
+
+# these are actually requried for the optimizer
+serde_json = "1.0.96"
+serde = { version = "1.0.163", features = ["derive"] }
+serde_repr = "0.1" # required for c-like enums
+enum-iterator = "1.4.1"
+
+rand = { version = "0.8.5", features = [] }
+getrandom = { version = "0.2", features = ["js"] }
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3.13"
+
+[profile.release]
+# either "s" or 3. "s" is small bundle size, 3 is fast execution
+opt-level = 3 
+lto = true # This gives LLVM many more opportunities to inline and prune functions. Not only will it make the .wasm smaller, but it will also make it faster at runtime!
+
+
+[[bench]]
+name = "core"
+harness = false
