@@ -826,7 +826,7 @@ export function setupCombinations(reduxState: any) {
             number,
           ][];
           for (const [type, bonus] of bonuses) {
-            for (const stat of Affix[affix].bonuses[type]) {
+            for (const stat of Affix[affix].bonuses[type] ?? []) {
               statTotals[stat] = (statTotals[stat] || 0) + bonus;
             }
           }

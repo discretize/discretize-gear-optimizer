@@ -81,6 +81,14 @@ const ResultTableRow = ({
           textDecoration = 'underline dotted #ffa405';
         if (!exoticRarity(affix, index) && mostCommonRarity !== 'ascended')
           textDecoration = 'underline dotted #fb3e8d';
+
+        const affixFragments = affix.split(/(?=[A-Z])/).filter((fragment) => fragment !== 'And');
+        const multiWordAffix = affixFragments.length > 1;
+
+        const shortAffix = affixFragments
+          .map((fragment) => fragment.slice(0, multiWordAffix ? 3 : 4))
+          .join('');
+
         return (
           // eslint-disable-next-line react/no-array-index-key
           <TableCell align="center" key={affix + index} padding="none">
@@ -92,7 +100,7 @@ const ResultTableRow = ({
                 color: mostCommonAffix && mostCommonAffix !== affix ? '#00cccc' : 'inherit',
               }}
             >
-              {affix.slice(0, 4)}
+              {shortAffix}
             </Typography>
           </TableCell>
         );

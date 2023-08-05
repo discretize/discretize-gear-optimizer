@@ -43,6 +43,9 @@ pub enum Affix {
     Bringer = 36,
     Ritualist = 37,
     Dragon = 38,
+    BerserkerValkyrie = 39,
+    RabidApothecary = 40,
+    DireRabid = 41,
     #[default]
     None = 255,
 }
@@ -89,6 +92,9 @@ impl Affix {
             Affix::Bringer => "Bringer".to_string(),
             Affix::Ritualist => "Ritualist".to_string(),
             Affix::Dragon => "Dragon".to_string(),
+            Affix::BerserkerValkyrie => "BerserkerValkyrie".to_string(),
+            Affix::RabidApothecary => "RabidApothecary".to_string(),
+            Affix::DireRabid => "DireRabid".to_string(),
             Affix::None => "".to_string(),
         }
     }

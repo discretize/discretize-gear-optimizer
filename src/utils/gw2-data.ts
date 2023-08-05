@@ -42,15 +42,20 @@ export type AffixName =
   | 'Settler'
   | 'Bringer'
   | 'Ritualist'
-  | 'Dragon';
+  | 'Dragon'
+  | 'BerserkerValkyrie'
+  | 'RabidApothecary'
+  | 'DireRabid';
 
 export type AffixNameOrCustom = AffixName | 'Custom';
 export interface AffixData {
-  type: 'triple' | 'quadruple' | 'celestial';
+  type: 'triple' | 'quadruple' | 'celestial' | 'ascendedMismatchedTrinket';
   category: string;
   bonuses: {
     major: (PrimaryAttributeName | SecondaryAttributeName)[];
     minor: (PrimaryAttributeName | SecondaryAttributeName)[];
+    jewelMajor?: (PrimaryAttributeName | SecondaryAttributeName)[];
+    jewelMinor?: (PrimaryAttributeName | SecondaryAttributeName)[];
   };
 }
 export const Affix: Record<AffixNameOrCustom, AffixData> = {
@@ -366,6 +371,36 @@ export const Affix: Record<AffixNameOrCustom, AffixData> = {
       minor: ['Precision', 'Vitality'],
     },
   },
+  BerserkerValkyrie: {
+    type: 'ascendedMismatchedTrinket',
+    category: 'Open World',
+    bonuses: {
+      major: ['Power'],
+      minor: ['Precision', 'Ferocity'],
+      jewelMajor: ['Power'],
+      jewelMinor: ['Vitality', 'Ferocity'],
+    },
+  },
+  RabidApothecary: {
+    type: 'ascendedMismatchedTrinket',
+    category: 'Open World',
+    bonuses: {
+      major: ['Condition Damage'],
+      minor: ['Toughness', 'Precision'],
+      jewelMajor: ['Healing Power'],
+      jewelMinor: ['Condition Damage', 'Toughness'],
+    },
+  },
+  DireRabid: {
+    type: 'ascendedMismatchedTrinket',
+    category: 'Open World',
+    bonuses: {
+      major: ['Condition Damage'],
+      minor: ['Toughness', 'Vitality'],
+      jewelMajor: ['Condition Damage'],
+      jewelMinor: ['Toughness', 'Precision'],
+    },
+  },
 };
 
 export const ExoticItem = {
@@ -382,6 +417,12 @@ export const ExoticItem = {
       major: 28,
       minor: 28,
     },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
   },
   SHOULDERS: {
     triple: {
@@ -395,6 +436,12 @@ export const ExoticItem = {
     celestial: {
       major: 21,
       minor: 21,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
     },
   },
   CHEST: {
@@ -410,6 +457,12 @@ export const ExoticItem = {
       major: 63,
       minor: 63,
     },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
   },
   GLOVES: {
     triple: {
@@ -423,6 +476,12 @@ export const ExoticItem = {
     celestial: {
       major: 21,
       minor: 21,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
     },
   },
   LEGGINGS: {
@@ -438,6 +497,12 @@ export const ExoticItem = {
       major: 42,
       minor: 42,
     },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
   },
   BOOTS: {
     triple: {
@@ -451,6 +516,12 @@ export const ExoticItem = {
     celestial: {
       major: 21,
       minor: 21,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
     },
   },
   AMULET: {
@@ -466,6 +537,12 @@ export const ExoticItem = {
       major: 68,
       minor: 68,
     },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
   },
   RING: {
     triple: {
@@ -479,6 +556,12 @@ export const ExoticItem = {
     celestial: {
       major: 54,
       minor: 54,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
     },
   },
   ACCESSORY: {
@@ -494,6 +577,12 @@ export const ExoticItem = {
       major: 47,
       minor: 47,
     },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
   },
   BACK_ITEM: {
     triple: {
@@ -507,6 +596,12 @@ export const ExoticItem = {
     celestial: {
       major: 26,
       minor: 26,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
     },
   },
   ONEHANDED_WEAPON: {
@@ -522,6 +617,12 @@ export const ExoticItem = {
       major: 56,
       minor: 56,
     },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
   },
   TWOHANDED_WEAPON: {
     triple: {
@@ -535,6 +636,12 @@ export const ExoticItem = {
     celestial: {
       major: 113,
       minor: 113,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
     },
   },
 };
@@ -553,6 +660,12 @@ export const AscendedItem = {
       major: 30,
       minor: 30,
     },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
   },
   SHOULDERS: {
     triple: {
@@ -566,6 +679,12 @@ export const AscendedItem = {
     celestial: {
       major: 22,
       minor: 22,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
     },
   },
   CHEST: {
@@ -581,6 +700,12 @@ export const AscendedItem = {
       major: 67,
       minor: 67,
     },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
   },
   GLOVES: {
     triple: {
@@ -594,6 +719,12 @@ export const AscendedItem = {
     celestial: {
       major: 22,
       minor: 22,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
     },
   },
   LEGGINGS: {
@@ -609,6 +740,12 @@ export const AscendedItem = {
       major: 44,
       minor: 44,
     },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
   },
   BOOTS: {
     triple: {
@@ -622,6 +759,12 @@ export const AscendedItem = {
     celestial: {
       major: 22,
       minor: 22,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
     },
   },
   AMULET: {
@@ -637,6 +780,12 @@ export const AscendedItem = {
       major: 72,
       minor: 72,
     },
+    ascendedMismatchedTrinket: {
+      major: 157 - 32,
+      minor: 108 - 18,
+      jewelMajor: 32,
+      jewelMinor: 18,
+    },
   },
   RING: {
     triple: {
@@ -650,6 +799,12 @@ export const AscendedItem = {
     celestial: {
       major: 57,
       minor: 57,
+    },
+    ascendedMismatchedTrinket: {
+      major: 126 - 32,
+      minor: 85 - 18,
+      jewelMajor: 32,
+      jewelMinor: 18,
     },
   },
   ACCESSORY: {
@@ -665,6 +820,12 @@ export const AscendedItem = {
       major: 50,
       minor: 50,
     },
+    ascendedMismatchedTrinket: {
+      major: 110 - 32,
+      minor: 74 - 18,
+      jewelMajor: 32,
+      jewelMinor: 18,
+    },
   },
   BACK_ITEM: {
     triple: {
@@ -678,6 +839,12 @@ export const AscendedItem = {
     celestial: {
       major: 28,
       minor: 28,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
     },
   },
   ONEHANDED_WEAPON: {
@@ -693,6 +860,12 @@ export const AscendedItem = {
       major: 59,
       minor: 59,
     },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
+    },
   },
   TWOHANDED_WEAPON: {
     triple: {
@@ -706,6 +879,12 @@ export const AscendedItem = {
     celestial: {
       major: 118,
       minor: 118,
+    },
+    ascendedMismatchedTrinket: {
+      major: 0,
+      minor: 0,
+      jewelMajor: 0,
+      jewelMinor: 0,
     },
   },
 };
