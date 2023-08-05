@@ -4,8 +4,8 @@
 const axios = require('axios');
 const fs = require('fs');
 // eslint-disable-next-line import/no-unresolved
-const itemstatMapping = require('./src/utils/mapping/itemstats.json');
-const specializationMapping = require('./src/utils/mapping/specializations.json');
+// const itemstatMapping = require('./src/utils/mapping/itemstats.json');
+// const specializationMapping = require('./src/utils/mapping/specializations.json');
 
 const MAX_ITEMS_PER_REQUEST = 200;
 const MAPPINGS_PATH = './src/utils/mapping/';
