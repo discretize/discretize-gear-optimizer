@@ -82,12 +82,12 @@ const ResultTableRow = ({
         if (!exoticRarity(affix, index) && mostCommonRarity !== 'ascended')
           textDecoration = 'underline dotted #fb3e8d';
 
-        const affixFragments = affix.split(' ').filter((fragment) => fragment !== 'and');
+        const affixFragments = affix.split(/(?=[A-Z])/).filter((fragment) => fragment !== 'and');
         const multiWordAffix = affixFragments.length > 1;
 
         const shortAffix = affixFragments
           .map((fragment) => fragment.slice(0, multiWordAffix ? 3 : 4))
-          .join('+');
+          .join('');
 
         return (
           // eslint-disable-next-line react/no-array-index-key

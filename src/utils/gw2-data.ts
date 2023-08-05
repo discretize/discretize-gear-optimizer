@@ -43,9 +43,9 @@ export type AffixName =
   | 'Bringer'
   | 'Ritualist'
   | 'Dragon'
-  | 'Berserker and Valkyrie'
-  | 'Rabid and Apothecary'
-  | 'Dire and Rabid';
+  | 'BerserkerValkyrie'
+  | 'RabidApothecary'
+  | 'DireRabid';
 
 export type AffixNameOrCustom = AffixName | 'Custom';
 export interface AffixData {
@@ -371,7 +371,7 @@ export const Affix: Record<AffixNameOrCustom, AffixData> = {
       minor: ['Precision', 'Vitality'],
     },
   },
-  'Berserker and Valkyrie': {
+  BerserkerValkyrie: {
     type: 'ascendedMismatchedTrinket',
     category: 'Open World',
     bonuses: {
@@ -381,7 +381,7 @@ export const Affix: Record<AffixNameOrCustom, AffixData> = {
       jewelMinor: ['Vitality', 'Ferocity'],
     },
   },
-  'Rabid and Apothecary': {
+  RabidApothecary: {
     type: 'ascendedMismatchedTrinket',
     category: 'Open World',
     bonuses: {
@@ -391,8 +391,8 @@ export const Affix: Record<AffixNameOrCustom, AffixData> = {
       jewelMinor: ['Condition Damage', 'Toughness'],
     },
   },
-  'Dire and Rabid': {
-    type: 'triple',
+  DireRabid: {
+    type: 'ascendedMismatchedTrinket',
     category: 'Open World',
     bonuses: {
       major: ['Condition Damage'],
