@@ -82,7 +82,7 @@ const ResultTableRow = ({
         if (!exoticRarity(affix, index) && mostCommonRarity !== 'ascended')
           textDecoration = 'underline dotted #fb3e8d';
 
-        const affixFragments = affix.split(/(?=[A-Z])/).filter((fragment) => fragment !== 'and');
+        const affixFragments = affix.split(/(?=[A-Z])/).filter((fragment) => fragment !== 'And');
         const multiWordAffix = affixFragments.length > 1;
 
         const shortAffix = affixFragments
