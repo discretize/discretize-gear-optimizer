@@ -15,3 +15,5 @@ install.bat
 
 .DS_Store
 .mf/
+
+wasm_module/target/

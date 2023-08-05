@@ -60,6 +60,9 @@ export const controlSlice = createSlice({
     selectedTemplate: '',
     status: WAITING,
     profession: '',
+    multicore: false,
+    hwThreads: navigator.hardwareConcurrency || 4, // 4 seems to be a sensible default
+    heuristics: false,
   },
   reducers: {
     changeAll: (state, action) => {
@@ -95,6 +98,16 @@ export const controlSlice = createSlice({
     },
     changeList: (state, action) => {
       return { ...state, list: action.payload };
+    },
+    addToList: (state, action) => {
+      // insert all characters of payload such that the order of the list is kept
+      // slice to 100 characters
+      const newList = [...state.list, ...action.payload.data];
+      newList.sort(
+        (a, b) => b.attributes[action.payload.rankby] - a.attributes[action.payload.rankby],
+      );
+
+      return { ...state, list: newList.slice(0, 100) };
     },
     changeFilteredList: (state, action) => {
       return { ...state, filteredList: action.payload };
@@ -137,11 +150,21 @@ export const controlSlice = createSlice({
     changeError: (state, action) => {
       state.error = action.payload;
     },
+    changeHwThreads: (state, action) => {
+      state.hwThreads = action.payload;
+    },
+    changeMulticore: (state, action) => {
+      state.multicore = action.payload;
+    },
+    changeHeuristics: (state, action) => {
+      state.heuristics = action.payload;
+    },
   },
 });
 
 export const getProfession = (state) => state.optimizer.control.profession;
 export const getSelectedTemplate = (state) => state.optimizer.control.selectedTemplate;
+export const getHwThreads = (state) => state.optimizer.control.hwThreads;
 export const getProgress = (state) => state.optimizer.control.progress;
 export const getSelectedSpecialization = (state) => state.optimizer.control.selectedSpecialization;
 export const getStatus = (state) => state.optimizer.control.status;
@@ -154,6 +177,8 @@ export const getDisplayAttributes = (state) => state.optimizer.control.displayAt
 export const getTallTable = (state) => state.optimizer.control.tallTable;
 export const getSelectedCharacter = (state) => state.optimizer.control.selectedCharacter;
 export const getError = (state) => state.optimizer.control.error;
+export const getMulticore = (state) => state.optimizer.control.multicore;
+export const getHeuristics = (state) => state.optimizer.control.heuristics;
 
 export const getPageTitle = createSelector(getStatus, getProgress, (status, progress) =>
   status === RUNNING ? `${progress}% - Discretize Gear Optimizer` : 'Discretize Gear Optimizer',
@@ -175,6 +200,10 @@ export const {
   setBuildTemplate,
   changeSelectedCharacter,
   changeError,
+  changeHwThreads,
+  changeMulticore,
+  changeHeuristics,
+  addToList,
 } = controlSlice.actions;
 
 export default controlSlice.reducer;

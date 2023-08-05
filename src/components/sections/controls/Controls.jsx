@@ -8,14 +8,17 @@ import { Box, Button, Chip, Typography } from '@mui/material';
 import classNames from 'classnames';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, useStore } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
+import calculate from '../../../state/optimizer-parallel/calculate';
+import { RESUME, STOP } from '../../../state/optimizer-parallel/worker/workerMessageTypes';
 import { ERROR, RUNNING, STOPPED, SUCCESS, WAITING } from '../../../state/optimizer/status';
 import SagaTypes from '../../../state/sagas/sagaTypes';
 import {
   changeError,
   changeStatus,
   getError,
+  getMulticore,
   getProfession,
   getStatus,
 } from '../../../state/slices/controlsSlice';
@@ -43,12 +46,15 @@ const ControlsBox = () => {
   const { classes } = useStyles();
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const store = useStore();
+  const [workers, setWorkers] = React.useState(null);
 
   const status = useSelector(getStatus);
   const error = useSelector(getError);
   const affixes = useSelector(getPriority('affixes'));
   const weaponType = useSelector(getPriority('weaponType'));
   const profession = useSelector(getProfession);
+  const multicore = useSelector(getMulticore);
 
   const onStartCalculate = (e) => {
     if (affixes.length < 1) {
@@ -64,8 +70,29 @@ const ControlsBox = () => {
 
     console.log('calculate');
 
-    dispatch(changeError(''));
-    dispatch({ type: SagaTypes.Start });
+    if (!multicore) {
+      dispatch(changeError(''));
+      dispatch({ type: SagaTypes.Start });
+    } else {
+      const workersNew = calculate(store.getState(), dispatch);
+      setWorkers(workersNew);
+    }
+  };
+
+  const onResumeCalculate = (e) => {
+    if (!multicore) {
+      dispatch({ type: SagaTypes.Resume });
+    } else {
+      workers.forEach(({ worker }) => worker.postMessage({ type: RESUME }));
+    }
+  };
+
+  const onStopCalculate = (e) => {
+    if (!multicore) {
+      dispatch({ type: SagaTypes.Stop });
+    } else {
+      workers.forEach(({ worker }) => worker.postMessage({ type: STOP }));
+    }
   };
 
   let icon;
@@ -111,7 +138,7 @@ const ControlsBox = () => {
           variant="outlined"
           color="primary"
           className={classes.button}
-          onClick={(e) => dispatch({ type: SagaTypes.Stop })}
+          onClick={onStopCalculate}
           disabled={status !== RUNNING}
         >
           <Cancel className={classNames(classes.icon)} />
@@ -126,7 +153,7 @@ const ControlsBox = () => {
             variant="outlined"
             color="primary"
             className={classes.button}
-            onClick={(e) => dispatch({ type: SagaTypes.Resume })}
+            onClick={onResumeCalculate}
           >
             <ProgressIcon className={classes.icon} />
             <Typography style={{ marginLeft: 8 }}>

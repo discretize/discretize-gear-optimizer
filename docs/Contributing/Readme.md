@@ -30,11 +30,19 @@ After cloning the repository, install its dependencies with:
 yarn install
 ```
 
+Build the experimental Rust/Webassembly core with:
+
+```sh
+yarn wasm
+```
+
 To start the vite development server, which will build the site on your computer and update with your changes in real time, use:
 
 ```sh
 yarn develop
 ```
+
+Note that the Rust/Webassembly code will not update in real time; the `yarn wasm` command must be rerun to compile any changes to it.
 
 ### Pull Requests
 

@@ -84,7 +84,7 @@ const Priorities = () => {
         >
           {OPTIMIZATION_GOALS.map((goal) => (
             <FormControlLabel
-              key={goal}
+              key={`goal_${goal}`}
               value={goal}
               control={<Radio color="primary" />}
               // i18next-extract-mark-context-next-line ["Damage","Survivability","Healing"]
@@ -133,21 +133,21 @@ const Priorities = () => {
     {
       type: 'minDamage',
       value: minDamage,
-      label: [<Trans>Min.</Trans>, ' ', t('Damage')],
+      label: [<Trans key="rc_1">Min.</Trans>, ' ', t('Damage')],
     },
     {
       type: 'minHealing',
       value: minHealing,
-      label: [<Trans>Min.</Trans>, ' ', t('Healing')],
+      label: [<Trans key="rc_2">Min.</Trans>, ' ', t('Healing')],
     },
     {
       type: 'minSurvivability',
       value: minSurvivability,
-      label: [<Trans>Min.</Trans>, ' ', t('Survivability')],
+      label: [<Trans key="rc_3">Min.</Trans>, ' ', t('Survivability')],
     },
   ].map(({ type, label, value }) => {
     return (
-      <Grid key={type} item xs={6} md={4} className={classes.box}>
+      <Grid key={`resultConstraints${type}`} item xs={6} md={4} className={classes.box}>
         <FormControl className={classes.formControl} variant="standard">
           <InputLabel htmlFor={`${type}-input-with-icon-adornment`}>{label}</InputLabel>
           <Input
@@ -167,53 +167,77 @@ const Priorities = () => {
     {
       type: 'minToughness',
       value: minToughness,
-      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Toughness" disableLink />],
+      label: [
+        <Trans key="sC_1">Min.</Trans>,
+        ' ',
+        <Attribute key="sC_3" name="Toughness" disableLink />,
+      ],
     },
     {
       type: 'maxToughness',
       value: maxToughness,
-      label: [<Trans>Max.</Trans>, ' ', <Attribute name="Toughness" disableLink />],
+      label: [
+        <Trans key="sC_1">Max.</Trans>,
+        ' ',
+        <Attribute key="sC_3" name="Toughness" disableLink />,
+      ],
     },
     {
       type: 'minBoonDuration',
       value: minBoonDuration,
-      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Boon Duration" disableLink />],
+      label: [
+        <Trans key="sC_1">Min.</Trans>,
+        ' ',
+        <Attribute key="sC_3" name="Boon Duration" disableLink />,
+      ],
     },
     {
       type: 'minHealingPower',
       value: minHealingPower,
-      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Healing Power" disableLink />],
+      label: [
+        <Trans key="sC_1">Min.</Trans>,
+        ' ',
+        <Attribute key="sC_3" name="Healing Power" disableLink />,
+      ],
     },
     {
       type: 'minHealth',
       value: minHealth,
-      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Health" disableLink />],
+      label: [
+        <Trans key="sC_1">Min.</Trans>,
+        ' ',
+        <Attribute key="sC_3" name="Health" disableLink />,
+      ],
     },
     {
       type: 'minCritChance',
       value: minCritChance,
-      label: [<Trans>Min.</Trans>, ' ', <Attribute name="Critical Chance" disableLink />],
+      label: [
+        <Trans key="sC_1">Min.</Trans>,
+        ' ',
+        <Attribute key="sC_3" name="Critical Chance" disableLink />,
+      ],
     },
     {
       type: 'minOutgoingHealing',
       value: minOutgoingHealing,
-      label: [<Trans>Min.</Trans>, ' ', t('% Outgoing Healing')],
+      label: [<Trans key="sC_1">Min.</Trans>, ' ', t('% Outgoing Healing')],
     },
     {
       type: 'minQuicknessDuration',
       value: minQuicknessDuration,
       label: [
-        <Trans>Min.</Trans>,
+        <Trans key="sC_1">Min.</Trans>,
         ' ',
-        <>
+        <React.Fragment key="sC_3">
           <Boon name="Quickness" disableLink />
           {t(' duration')}
-        </>,
+        </React.Fragment>,
       ],
     },
   ].map(({ type, label, value }) => {
     return (
-      <Grid key={type} item xs={6} md={4} className={classes.box}>
+      <Grid key={`statsConstraints${type}`} item xs={6} md={4} className={classes.box}>
         <FormControl className={classes.formControl} variant="standard">
           <InputLabel htmlFor={`${type}-input-with-icon-adornment`}>{label}</InputLabel>
           <Input
