@@ -37,6 +37,8 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: yarn install
+      - name: Compile WASM
+        run: yarn wasm
       - name: Build
         run: yarn build --base /discretize-gear-optimizer/
       - name: Setup Pages
