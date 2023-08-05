@@ -1,4 +1,4 @@
-name: Test Modifiers
+name: "Test: Lint Rust"
 
 on:
   workflow_dispatch:
