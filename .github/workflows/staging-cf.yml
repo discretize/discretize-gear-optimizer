@@ -1,4 +1,5 @@
-name: 'Build and Deploy - staging cf'
+name: 'Deploy: Cloudflare'
+
 on:
   push:
     branches:
