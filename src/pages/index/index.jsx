@@ -24,15 +24,16 @@ const IndexPage = () => {
 
   const [alertOpen, setAlertOpen] = React.useState([true, true]);
 
-  const ALERTS = [
+  const RED_ALERTS = [
     <Trans>
-      Core game changes are updated for the July 18th game patch, but preset coefficients and trait
-      selections may not yet be completely updated. Most gear results will be correctly optimized,
-      but DPS estimates and comparisons may be wrong.
+      🎉 Secrets of the Obscure has been released! 🎉
       <br />
       <br />
-      Templates not marked as Outdated are expected to be up to date.
+      The gear optimizer has not yet been updated with the changes to runes and relics.
     </Trans>,
+  ];
+
+  const ALERTS = [
     <Trans>
       The gear optimizer is still being developed! Please report issues or suggest improvements in
       the Discretize{' '}
@@ -57,6 +58,32 @@ const IndexPage = () => {
       <BackgroundImage gameMode={gameMode} />
       <Layout>
         <URLStateImport sagaType={SagaTypes.ImportFormState} clearUrlOnSuccess />
+        {RED_ALERTS.map((alert, index) => (
+          <Collapse key={`alert-${index.toString()}`} in={alertOpen[index]}>
+            <MuiAlert
+              action={
+                <IconButton
+                  aria-label="close"
+                  color="inherit"
+                  size="small"
+                  onClick={() => {
+                    const newAlertOpen = [...alertOpen];
+                    newAlertOpen[index] = false;
+                    setAlertOpen(newAlertOpen);
+                  }}
+                >
+                  <CloseIcon fontSize="inherit" />
+                </IconButton>
+              }
+              elevation={6}
+              variant="filled"
+              severity="error"
+              sx={{ marginBottom: 1, color: '#fff' }}
+            >
+              {alert}
+            </MuiAlert>
+          </Collapse>
+        ))}
         {ALERTS.map((alert, index) => (
           <Collapse key={`alert-${index.toString()}`} in={alertOpen[index]}>
             <MuiAlert

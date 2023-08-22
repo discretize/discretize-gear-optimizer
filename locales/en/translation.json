@@ -43,7 +43,6 @@
   "Copy build": "Copy build",
   "Copy from selected character": "Copy from selected character",
   "Copy selected sigils to both slots": "Copy selected sigils to both slots",
-  "Core game changes are updated for the July 18th game patch, but preset coefficients and trait selections may not yet be completely updated. Most gear results will be correctly optimized, but DPS estimates and comparisons may be wrong.<br/><br/>Templates not marked as Outdated are expected to be up to date.": "Core game changes are updated for the July 18th game patch, but preset coefficients and trait selections may not yet be completely updated. Most gear results will be correctly optimized, but DPS estimates and comparisons may be wrong.<br/><br/>Templates not marked as Outdated are expected to be up to date.",
   "Create build templates that can be used for the gear optimizer.": "Create build templates that can be used for the gear optimizer.",
   "Create templates for the discretize.eu website. Please check the discretize-guides repo for more information.": "Create templates for the discretize.eu website. Please check the discretize-guides repo for more information.",
   "Ctrl+d": "Ctrl+d",
@@ -789,7 +788,7 @@
   "preset_trait_Power Quickbrand": "Power Quickbrand",
   "preset_trait_Power Quickness Berserker": "Power Quickness Berserker",
   "preset_trait_Power Quickness Catalyst": "Power Quickness Catalyst",
-  "preset_trait_Power Quickness Herald": "preset_trait_Power Quickness Herald",
+  "preset_trait_Power Quickness Herald": "Power Quickness Herald",
   "preset_trait_Power Quickness Spellbreaker": "Power Quickness Spellbreaker",
   "preset_trait_Power Reaper": "Power Reaper",
   "preset_trait_Power Scrapper": "Power Scrapper",
@@ -949,7 +948,7 @@
   "traitSubText_virtuoso": "virtuoso",
   "traitSubText_virtuoso (bugged version)": "virtuoso (bugged version)",
   "traitSubText_with 1h weapon": "with 1h weapon",
-  "traitSubText_with active sand shade": "traitSubText_with active sand shade",
+  "traitSubText_with active sand shade": "with active sand shade",
   "traitSubText_with active shade": "with active shade",
   "traitSubText_with aegis": "with aegis",
   "traitSubText_with axe": "with axe",
@@ -963,5 +962,6 @@
   "traitSubText_with staff": "with staff",
   "traitSubText_with sword": "with sword",
   "traitSubText_with torch": "with torch",
-  "traitSubText_with torch/dagger": "with torch/dagger"
+  "traitSubText_with torch/dagger": "with torch/dagger",
+  "🎉 Secrets of the Obscure has been released! 🎉<br/><br/>The gear optimizer has not yet been updated with the changes to runes and relics.": "🎉 Secrets of the Obscure has been released! 🎉<br/><br/>The gear optimizer has not yet been updated with the changes to runes and relics."
 }
