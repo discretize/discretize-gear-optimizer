@@ -9,7 +9,7 @@ const yaml = require('js-yaml');
 const path = require('path');
 const { requireTS } = require('../../utils/require-ts.js');
 
-const { buffsDict, enhancementDict, nourishmentDict, runesDict, sigilDict } = requireTS(
+const { buffsDict, enhancementDict, nourishmentDict, runesDict, relicsDict, sigilDict } = requireTS(
   path.join(__dirname, '../../components/url-state/schema/SchemaDicts.js'),
 );
 // import specializationData from '../../utils/mapping/specializations.json' assert { type: 'json' };
@@ -33,6 +33,7 @@ const {
 
 const schemaKeys = {
   'runes.yaml': runesDict,
+  'relics.yaml': relicsDict,
   'sigils.yaml': sigilDict,
   'food.yaml': nourishmentDict,
   'utility.yaml': enhancementDict,
@@ -80,7 +81,7 @@ const testModifiers = async () => {
     const fileIds = new Set();
     const allDataByGw2id = new Map();
 
-    const fileIsExtra = ['food', 'utility', 'runes', 'sigils'].some((name) =>
+    const fileIsExtra = ['food', 'utility', 'runes', 'relics', 'sigils'].some((name) =>
       fileName.includes(name),
     );
 

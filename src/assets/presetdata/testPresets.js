@@ -203,6 +203,14 @@ const testModifiers = async () => {
 
           if (type === 'extras') {
             const extrasData = JSON.parse(match.value);
+            ['Sigil1', 'Sigil2', 'Runes', 'Relics', 'Nourishment', 'Enhancement'].forEach(
+              (extrasType) => {
+                gentleAssert(
+                  typeof extrasData.extras[extrasType] === 'object',
+                  `${extrasType} missing in ${name}`,
+                );
+              },
+            );
             if (isFractals) {
               if (
                 extrasData.extras.Sigil1?.['impact/night/slaying-only-3'] ||
