@@ -132,6 +132,7 @@ export default function ResultTableSettings() {
               ['Combinations', t('All Combinations')],
               ['Sigils', t('Sigils')],
               ['Runes', t('Runes')],
+              ['Relics', t('Relics')],
               ['Nourishment', t('Food')],
               ['Enhancement', t('Utility')],
             ].map(([value, label]) => (
@@ -147,8 +148,8 @@ export default function ResultTableSettings() {
 
           <FormHelperText>
             <Trans>
-              Displays only the top result for each rune, sigil, food, or utility option or each
-              combination of all of the above (up to 100 results).
+              Displays only the top result for each rune, relic, sigil, food, or utility option or
+              each combination of all of the above (up to 100 results).
             </Trans>
           </FormHelperText>
         </FormControl>

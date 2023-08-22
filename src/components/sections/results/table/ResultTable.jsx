@@ -162,6 +162,7 @@ const StickyHeadTable = () => {
   const displaySigil1 = shouldDisplay('Sigil1');
   const displaySigil2 = shouldDisplay('Sigil2');
   const displayRunes = shouldDisplay('Runes');
+  const displayRelics = shouldDisplay('Relics');
   const displayNourishment = shouldDisplay('Nourishment');
   const displayEnhancement = shouldDisplay('Enhancement');
   const displayExtras = React.useMemo(
@@ -169,10 +170,18 @@ const StickyHeadTable = () => {
       Sigil1: displaySigil1,
       Sigil2: displaySigil2,
       Runes: displayRunes,
+      Relics: displayRelics,
       Nourishment: displayNourishment,
       Enhancement: displayEnhancement,
     }),
-    [displaySigil1, displaySigil2, displayRunes, displayNourishment, displayEnhancement],
+    [
+      displaySigil1,
+      displaySigil2,
+      displayRunes,
+      displayRelics,
+      displayNourishment,
+      displayEnhancement,
+    ],
   );
 
   const displayAttributes = useSelector(getDisplayAttributes);

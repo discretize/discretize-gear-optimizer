@@ -1,0 +1,8 @@
+- section: Placeholder Items
+  items:
+
+    - id: no-item-relic
+      text: No Item (doesn't give any stats)
+      subText: No Item (doesn't give any stats)
+      modifiers: {}
+      # gw2id intentionally omitted

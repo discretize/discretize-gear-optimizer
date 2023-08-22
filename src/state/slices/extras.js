@@ -3,7 +3,7 @@ import { allExtrasModifiersById } from '../../assets/modifierdata';
 import { mapValues } from '../../utils/usefulFunctions';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 
-export const extrasTypes = ['Sigil1', 'Sigil2', 'Runes', 'Nourishment', 'Enhancement'];
+export const extrasTypes = ['Sigil1', 'Sigil2', 'Runes', 'Relics', 'Nourishment', 'Enhancement'];
 
 export const lifestealData = {
   id: 'food-lifesteal-effect',
@@ -26,6 +26,7 @@ export const extrasSlice = createSlice({
       Sigil1: {},
       Sigil2: {},
       Runes: {},
+      Relics: {},
       Nourishment: {},
       Enhancement: {},
     },
