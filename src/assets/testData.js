@@ -56,6 +56,9 @@ const schemaKeys = {
 
 const modifierDirectory = './src/assets/modifierdata/';
 
+const allTraitIds = new Set();
+const allExtrasIds = new Set();
+
 const testModifiers = async () => {
   const specializationDataJSON = await fs.readFile('./src/utils/mapping/specializations.json');
   const specializationData = JSON.parse(specializationDataJSON.toString());
@@ -63,9 +66,6 @@ const testModifiers = async () => {
   const files = (await fs.readdir(modifierDirectory)).filter(
     (filename) => path.extname(filename) === '.yaml',
   );
-
-  const allTraitIds = new Set();
-  const allExtrasIds = new Set();
 
   for (const fileName of files) {
     console.log(`  - ${fileName}`);
@@ -637,6 +637,11 @@ const testPresets = async () => {
                 gentleAssert(
                   typeof extrasData.extras[extrasType] === 'object',
                   `${extrasType} missing in ${name}`,
+                );
+
+                // checks that extras reference valid modifier data entries
+                Object.keys(extrasData.extras[extrasType]).forEach((key) =>
+                  gentleAssert(allExtrasIds.has(key), `invalid extras key ${key}`),
                 );
               },
             );
