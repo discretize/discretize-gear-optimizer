@@ -9,23 +9,23 @@
           Ferocity: [225, converted]
       gw2id: 24836
 
-    - id: scholar-90
-      text: Superior Rune of the Scholar
-      subText: same as above; for compatibility
-      modifiers:
-        attributes:
-          Power: [175, converted]
-          Ferocity: [225, converted]
-      gw2id: 24836
+    # - id: scholar-90
+    #   text: Superior Rune of the Scholar
+    #   subText: same as above; for compatibility
+    #   modifiers:
+    #     attributes:
+    #       Power: [175, converted]
+    #       Ferocity: [225, converted]
+    #   gw2id: 24836
 
-    - id: scholar-without
-      text: Superior Rune of the Scholar
-      subText: same as above; for compatibility
-      modifiers:
-        attributes:
-          Power: [175, converted]
-          Ferocity: [225, converted]
-      gw2id: 24836
+    # - id: scholar-without
+    #   text: Superior Rune of the Scholar
+    #   subText: same as above; for compatibility
+    #   modifiers:
+    #     attributes:
+    #       Power: [175, converted]
+    #       Ferocity: [225, converted]
+    #   gw2id: 24836
 
     - id: eagle
       text: Superior Rune of the Eagle
@@ -35,23 +35,23 @@
           Ferocity: [225, converted]
       gw2id: 24723
 
-    - id: eagle-perma
-      text: Superior Rune of the Eagle
-      subText: same as above; for compatibility
-      modifiers:
-        attributes:
-          Precision: [175, converted]
-          Ferocity: [225, converted]
-      gw2id: 24723
+    # - id: eagle-perma
+    #   text: Superior Rune of the Eagle
+    #   subText: same as above; for compatibility
+    #   modifiers:
+    #     attributes:
+    #       Precision: [175, converted]
+    #       Ferocity: [225, converted]
+    #   gw2id: 24723
 
-    - id: eagle-never
-      text: Superior Rune of the Eagle
-      subText: same as above; for compatibility
-      modifiers:
-        attributes:
-          Precision: [175, converted]
-          Ferocity: [225, converted]
-      gw2id: 24723
+    # - id: eagle-never
+    #   text: Superior Rune of the Eagle
+    #   subText: same as above; for compatibility
+    #   modifiers:
+    #     attributes:
+    #       Precision: [175, converted]
+    #       Ferocity: [225, converted]
+    #   gw2id: 24723
 
     - id: thief
       text: Superior Rune of the Thief
@@ -119,23 +119,23 @@
           Precision: [100, converted]
       gw2id: 24803
 
-    - id: mesmer-0
-      text: Superior Rune of the Mesmer
-      subText: same as above; for compatibility
-      modifiers:
-        attributes:
-          Power: [175, converted]
-          Precision: [100, converted]
-      gw2id: 24803
+    # - id: mesmer-0
+    #   text: Superior Rune of the Mesmer
+    #   subText: same as above; for compatibility
+    #   modifiers:
+    #     attributes:
+    #       Power: [175, converted]
+    #       Precision: [100, converted]
+    #   gw2id: 24803
 
-    - id: mesmer-100
-      text: Superior Rune of the Mesmer
-      subText: same as above; for compatibility
-      modifiers:
-        attributes:
-          Power: [175, converted]
-          Precision: [100, converted]
-      gw2id: 24803
+    # - id: mesmer-100
+    #   text: Superior Rune of the Mesmer
+    #   subText: same as above; for compatibility
+    #   modifiers:
+    #     attributes:
+    #       Power: [175, converted]
+    #       Precision: [100, converted]
+    #   gw2id: 24803
 
     - id: fire
       text: Superior Rune of the Fire
@@ -199,15 +199,15 @@
           Quickness Duration: 30%
       gw2id: 83338
 
-    - id: firebrand-firebrand
-      text: Superior Rune of the Firebrand
-      subText: same as above; for compatibility
-      modifiers:
-        attributes:
-          Condition Damage: [175, converted]
-          Boon Duration: 10%
-          Quickness Duration: 30%
-      gw2id: 83338
+    # - id: firebrand-firebrand
+    #   text: Superior Rune of the Firebrand
+    #   subText: same as above; for compatibility
+    #   modifiers:
+    #     attributes:
+    #       Condition Damage: [175, converted]
+    #       Boon Duration: 10%
+    #       Quickness Duration: 30%
+    #   gw2id: 83338
 
     - id: surging-and-ruby-orb
       text: Superior Rune of Surging (5x) + Ruby Orb
@@ -497,14 +497,14 @@
           Bleeding Duration: 50%
       gw2id: 24762
 
-    - id: krait-no-elite
-      text: Superior Rune of the Krait
-      subText: same as above; for compatibility
-      modifiers:
-        attributes:
-          Condition Damage: [175, converted]
-          Bleeding Duration: 50%
-      gw2id: 24762
+    # - id: krait-no-elite
+    #   text: Superior Rune of the Krait
+    #   subText: same as above; for compatibility
+    #   modifiers:
+    #     attributes:
+    #       Condition Damage: [175, converted]
+    #       Bleeding Duration: 50%
+    #   gw2id: 24762
 
     - id: mad-king
       text: Superior Rune of the Mad King
