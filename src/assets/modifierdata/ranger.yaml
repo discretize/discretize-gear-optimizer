@@ -615,7 +615,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [4%, unknown]
+          Strike Damage: [5%, unknown]
       wvwModifiers:
         damage:
           Strike Damage: [3%, unknown]

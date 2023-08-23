@@ -10,6 +10,7 @@ list:
             "scholar": {},
             "eagle": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -36,6 +37,7 @@ list:
             "scholar": {},
             "eagle": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -64,6 +66,7 @@ list:
             "scholar": {},
             "eagle": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -93,6 +96,7 @@ list:
             "scholar": {},
             "eagle": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -124,6 +128,7 @@ list:
             "scholar": {},
             "eagle": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -153,6 +158,7 @@ list:
             "eagle": {},
             "thief": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {},
             "accuracy": {}
@@ -187,6 +193,7 @@ list:
             "eagle": {},
             "thief": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {},
             "accuracy": {}
@@ -216,6 +223,7 @@ list:
           "Runes": {
             "monk": {}
           },
+          "Relics": {},
           "Sigil1": {
             "concentration": {}
           },
@@ -239,6 +247,7 @@ list:
           "Runes": {
             "nightmare": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -262,6 +271,7 @@ list:
           "Runes": {
             "nightmare": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -285,6 +295,7 @@ list:
             "scholar": {},
             "eagle": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {},
             "impact/night/slaying-both": {}
@@ -313,6 +324,7 @@ list:
             "scholar": {},
             "eagle": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -349,6 +361,7 @@ list:
           "Runes": {
             "perplexity": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "spherified-cilantro-oyster-soup": {}
@@ -376,6 +389,7 @@ list:
           "Runes": {
             "perplexity": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {}
           },
@@ -403,6 +417,7 @@ list:
           "Runes": {
             "krait": {}
           },
+          "Relics": {},
           "Nourishment": {
             "plate-of-kimchi-pancakes": {},
             "fancy-potato-and-leek-soup": {},
@@ -431,6 +446,7 @@ list:
           "Runes": {
             "krait": {}
           },
+          "Relics": {},
           "Nourishment": {
             "spherified-cilantro-oyster-soup": {},
             "fancy-potato-and-leek-soup": {},
@@ -453,6 +469,7 @@ list:
             "eagle": {},
             "thief": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -481,6 +498,7 @@ list:
           "Runes": {
             "thief": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -504,6 +522,7 @@ list:
           "Runes": {
             "thief": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -527,6 +546,7 @@ list:
           "Runes": {
             "thief": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -559,6 +579,7 @@ list:
             "balthazar": {},
             "flame-legion-2": {}
           },
+          "Relics": {},
           "Nourishment": {
             "fishy-rice-bowl": {},
             "cilantro-and-cured-meat-flatbread": {}
@@ -585,6 +606,7 @@ list:
             "balthazar": {},
             "flame-legion-2": {}
           },
+          "Relics": {},
           "Nourishment": {
             "fishy-rice-bowl": {},
             "cilantro-and-cured-meat-flatbread": {},
@@ -606,6 +628,7 @@ list:
           "Runes": {
             "balthazar": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -630,6 +653,7 @@ list:
             "balthazar": {},
             "renegade": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -656,6 +680,7 @@ list:
           "Runes": {
             "balthazar": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -683,9 +708,10 @@ list:
             "smoldering": {}
           },
           "Runes": {
-            "firebrand-firebrand": {},
+            "firebrand": {},
             "renegade": {}
           },
+          "Relics": {},
           "Nourishment": {
             "fishy-rice-bowl": {}
           },
@@ -711,9 +737,10 @@ list:
             "geomancy-torment-cfb5-virtues": {}
           },
           "Runes": {
-            "firebrand-firebrand": {},
+            "firebrand": {},
             "balthazar": {}
           },
+          "Relics": {},
           "Nourishment": {
             "fishy-rice-bowl": {},
             "cilantro-and-cured-meat-flatbread": {}
@@ -734,6 +761,7 @@ list:
   #       "Runes": {
   #           "balthazar": {}
   #       },
+  #       "Relics": {},
   #       "Sigil1": {
   #           "bursting": {}
   #       },
@@ -758,6 +786,7 @@ list:
             "monk": {},
             "leadership": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {},
             "concentration": {}
@@ -785,6 +814,7 @@ list:
           "Runes": {
             "renegade": {}
           },
+          "Relics": {},
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
@@ -807,6 +837,7 @@ list:
           "Runes": {
             "firebrand": {}
           },
+          "Relics": {},
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
@@ -828,6 +859,7 @@ list:
   #         "Runes": {
   #           "flame-legion": {}
   #         },
+  #       "Relics": {},
   #         "Sigil1": {
   #           "force": {}
   #         },
@@ -851,6 +883,7 @@ list:
           "Runes": {
             "elementalist": {}
           },
+          "Relics": {},
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
@@ -876,6 +909,7 @@ list:
           "Runes": {
             "elementalist": {}
           },
+          "Relics": {},
           "Nourishment": {
             "salsa-topped-veggie-flatbread": {}
           },
@@ -894,6 +928,7 @@ list:
           "Runes": {
             "elementalist": {}
           },
+          "Relics": {},
           "Sigil1": {
             "earth": {}
           },
@@ -921,6 +956,7 @@ list:
           "Runes": {
             "elementalist": {}
           },
+          "Relics": {},
           "Sigil1": {
             "earth": {}
           },
@@ -946,6 +982,7 @@ list:
           "Runes": {
             "flame-legion": {}
           },
+          "Relics": {},
           "Sigil1": {
             "impact/night/slaying-both": {}
           },
@@ -969,6 +1006,7 @@ list:
           "Runes": {
             "flame-legion": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -992,6 +1030,7 @@ list:
           "Runes": {
             "flame-legion-2": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -1022,6 +1061,7 @@ list:
             "elementalist": {},
             "baelfire": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -1047,6 +1087,7 @@ list:
           "Runes": {
             "nightmare": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -1070,6 +1111,7 @@ list:
             "eagle": {},
             "thief": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1104,6 +1146,7 @@ list:
           "Runes": {
             "krait": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "plate-of-kimchi-pancakes": {}
@@ -1132,6 +1175,7 @@ list:
             "krait": {},
             "thorns": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "bowl-of-kimchi-tofu-stew": {},
@@ -1158,6 +1202,7 @@ list:
           "Runes": {
             "krait": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "plate-of-kimchi-pancakes": {},
@@ -1184,6 +1229,7 @@ list:
   #         "Runes": {
   #           "krait": {}
   #         },
+  #         "Relics": {},
   #         "Nourishment": {
   #           "salsa-topped-veggie-flatbread": {}
   #         },
@@ -1208,6 +1254,7 @@ list:
           "Runes": {
             "krait": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {}
           },
@@ -1225,6 +1272,7 @@ list:
           "Runes": {
             "scholar": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1251,6 +1299,7 @@ list:
           "Runes": {
             "renegade": {}
           },
+          "Relics": {},
           "Sigil1": {
             "malice": {}
           },
@@ -1274,6 +1323,7 @@ list:
           "Runes": {
             "scholar": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1300,6 +1350,7 @@ list:
           "Runes": {
             "firebrand": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -1329,6 +1380,7 @@ list:
             "leadership": {},
             "nightmare": {}
           },
+          "Relics": {},
           "Nourishment": {
             "meaty-asparagus-skewer": {},
             "salsa-eggs-benedict": {},
@@ -1354,6 +1406,7 @@ list:
           "Runes": {
             "nightmare": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "meaty-asparagus-skewer": {}
@@ -1373,6 +1426,7 @@ list:
           "Runes": {
             "scholar": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1404,6 +1458,7 @@ list:
           "Runes": {
             "scholar": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1429,6 +1484,7 @@ list:
           "Runes": {
             "scholar": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1460,6 +1516,7 @@ list:
             "leadership": {},
             "nightmare": {}
           },
+          "Relics": {},
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
@@ -1481,6 +1538,7 @@ list:
           "Runes": {
             "scholar": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1503,6 +1561,7 @@ list:
           "Runes": {
             "scholar": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1530,6 +1589,7 @@ list:
           "Runes": {
             "strength": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1552,6 +1612,7 @@ list:
           "Runes": {
             "strength": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1576,6 +1637,7 @@ list:
           "Runes": {
             "strength": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1602,6 +1664,7 @@ list:
           "Runes": {
             "elementalist": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -1626,6 +1689,7 @@ list:
           "Runes": {
             "aristocracy": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -1650,6 +1714,7 @@ list:
           "Runes": {
             "nightmare": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -1677,6 +1742,7 @@ list:
           "Runes": {
             "krait": {}
           },
+          "Relics": {},
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
@@ -1708,6 +1774,7 @@ list:
             "nightmare": {},
             "tormenting": {}
           },
+          "Relics": {},
           "Nourishment": {
             "meaty-asparagus-skewer": {},
             "cilantro-and-cured-meat-flatbread": {}
@@ -1738,6 +1805,7 @@ list:
             "tormenting": {},
             "nightmare": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "salsa-topped-veggie-flatbread": {},
@@ -1759,6 +1827,7 @@ list:
           "Runes": {
             "nightmare": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -1780,6 +1849,7 @@ list:
           "Runes": {
             "scholar": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1806,6 +1876,7 @@ list:
             "eagle": {},
             "thief": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1838,8 +1909,9 @@ list:
           },
           "Runes": {
             "afflicted": {},
-            "krait-no-elite": {}
+            "krait": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "plate-of-kimchi-pancakes": {},
@@ -1860,6 +1932,7 @@ list:
           "Runes": {
             "firebrand": {}
           },
+          "Relics": {},
           "Sigil1": {
             "concentration": {}
           },
@@ -1895,6 +1968,7 @@ list:
           "Runes": {
             "tormenting": {}
           },
+          "Relics": {},
           "Nourishment": {
             "bowl-of-kimchi-tofu-stew": {},
             "cilantro-and-cured-meat-flatbread": {}
@@ -1928,6 +2002,7 @@ list:
             "tormenting": {},
             "scavenging": {}
           },
+          "Relics": {},
           "Nourishment": {
             "bowl-of-kimchi-tofu-stew": {},
             "cilantro-and-cured-meat-flatbread": {},
@@ -1973,6 +2048,7 @@ list:
             "scavenging": {},
             "leadership": {}
           },
+          "Relics": {},
           "Nourishment": {
             "salsa-eggs-benedict": {},
             "meaty-asparagus-skewer": {},

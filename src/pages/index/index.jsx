@@ -24,16 +24,13 @@ const IndexPage = () => {
 
   const [alertOpen, setAlertOpen] = React.useState([true, true]);
 
-  const RED_ALERTS = [
+  const ALERTS = [
     <Trans>
       🎉 Secrets of the Obscure has been released! 🎉
       <br />
-      <br />
-      The gear optimizer has not yet been updated with the changes to runes and relics.
+      Core game changes are updated for the patch, but relics are a work in progress and templates
+      are not updated at all. Proceed with caution!
     </Trans>,
-  ];
-
-  const ALERTS = [
     <Trans>
       The gear optimizer is still being developed! Please report issues or suggest improvements in
       the Discretize{' '}
@@ -58,32 +55,6 @@ const IndexPage = () => {
       <BackgroundImage gameMode={gameMode} />
       <Layout>
         <URLStateImport sagaType={SagaTypes.ImportFormState} clearUrlOnSuccess />
-        {RED_ALERTS.map((alert, index) => (
-          <Collapse key={`alert-${index.toString()}`} in={alertOpen[index]}>
-            <MuiAlert
-              action={
-                <IconButton
-                  aria-label="close"
-                  color="inherit"
-                  size="small"
-                  onClick={() => {
-                    const newAlertOpen = [...alertOpen];
-                    newAlertOpen[index] = false;
-                    setAlertOpen(newAlertOpen);
-                  }}
-                >
-                  <CloseIcon fontSize="inherit" />
-                </IconButton>
-              }
-              elevation={6}
-              variant="filled"
-              severity="error"
-              sx={{ marginBottom: 1, color: '#fff' }}
-            >
-              {alert}
-            </MuiAlert>
-          </Collapse>
-        ))}
         {ALERTS.map((alert, index) => (
           <Collapse key={`alert-${index.toString()}`} in={alertOpen[index]}>
             <MuiAlert
