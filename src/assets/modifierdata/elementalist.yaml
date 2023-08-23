@@ -490,8 +490,8 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [15%, add]
-          Condition Damage: [15%, add]
+          Strike Damage: [25%, add]
+          Condition Damage: [25%, add]
       wvwModifiers:
         damage:
           Strike Damage: [7%, add]
@@ -570,7 +570,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [15%, add]
+          Strike Damage: [10%, add]
       wvwModifiers:
         damage:
           Strike Damage: [10%, add]
