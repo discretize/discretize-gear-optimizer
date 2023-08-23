@@ -35,11 +35,8 @@ jobs:
         run: yarn install --frozen-lockfile
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
 
-      - name: Test modifier data
-        run: yarn testModifiers
-
-      - name: Test preset data
-        run: yarn testPresets
+      - name: Test modifier and preset data
+        run: yarn testData
 
       - name: Lint with ESLint
         run: yarn eslint
