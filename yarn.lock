@@ -1148,6 +1148,16 @@
     react "^18.2.0"
     react-dom "^18.2.0"
 
+"@discretize/gw2-ui-new@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@discretize/gw2-ui-new/-/gw2-ui-new-0.1.3.tgz#2f644de4e2091700ba60cc672a344d2338fb4f67"
+  integrity sha512-T/5cXSlsIx+KaikjEWYGr/xPpgPQxfplTK3zoWybmr0raEkMiKeh8OyLurpW3mY5jEgoN/6OcD+Veu4pIG444Q==
+  dependencies:
+    "@discretize/typeface-menomonia" "^0.1.3"
+    clsx "^1.1.1"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+
 "@discretize/object-compression@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@discretize/object-compression/-/object-compression-1.0.3.tgz#5c6d8cb150194d6bc2167cc14a73eb24057deff8"
