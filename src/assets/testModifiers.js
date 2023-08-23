@@ -7,12 +7,12 @@ const fs = require('fs/promises');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const yaml = require('js-yaml');
 const path = require('path');
-const { requireTS } = require('../../utils/require-ts.js');
+const { requireTS } = require('../utils/require-ts.js');
 
 const { buffsDict, enhancementDict, nourishmentDict, runesDict, relicsDict, sigilDict } = requireTS(
-  path.join(__dirname, '../../components/url-state/schema/SchemaDicts.js'),
+  path.join(__dirname, '../components/url-state/schema/SchemaDicts.js'),
 );
-// import specializationData from '../../utils/mapping/specializations.json' assert { type: 'json' };
+// import specializationData from '../utils/mapping/specializations.json' assert { type: 'json' };
 const {
   allAttributeCoefficientKeys,
   allAttributePercentKeys,
@@ -29,7 +29,7 @@ const {
   damageKeysBlacklist,
   alternateStats,
   // mayBeConvertedToBlacklist,
-} = requireTS(path.join(__dirname, './metadata.ts'));
+} = requireTS(path.join(__dirname, './modifierdata/metadata.ts'));
 
 const schemaKeys = {
   'runes.yaml': runesDict,
