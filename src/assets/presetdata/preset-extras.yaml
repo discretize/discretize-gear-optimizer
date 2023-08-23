@@ -708,7 +708,7 @@ list:
             "smoldering": {}
           },
           "Runes": {
-            "firebrand-firebrand": {},
+            "firebrand": {},
             "renegade": {}
           },
           "Relics": {},
@@ -737,7 +737,7 @@ list:
             "geomancy-torment-cfb5-virtues": {}
           },
           "Runes": {
-            "firebrand-firebrand": {},
+            "firebrand": {},
             "balthazar": {}
           },
           "Relics": {},
@@ -1909,7 +1909,7 @@ list:
           },
           "Runes": {
             "afflicted": {},
-            "krait-no-elite": {}
+            "krait": {}
           },
           "Relics": {},
           "Nourishment": {
