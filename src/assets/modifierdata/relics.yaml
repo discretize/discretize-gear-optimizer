@@ -3,110 +3,133 @@
 
     - id: thief-relic
       text: Relic of the Thief
+      textOverride: Relic of the Thief
       subText: 5 stacks
       modifiers:
         damage:
           Strike Damage: [5%, unknown]
-      gw2id: 100916
+      # gw2id: 100916
+      gw2id: 24818
 
     - id: fireworks-relic
       text: Relic of Fireworks
+      textOverride: Relic of Fireworks
       subText: 100% uptime
       modifiers:
         damage:
           Strike Damage: [10%, unknown]
-      gw2id: 100947
+      # gw2id: 100947
+      gw2id: 89999
 
     - id: brawler-relic
       text: Relic of the Brawler
+      textOverride: Relic of the Brawler
       subText: 50% uptime
       modifiers:
         damage:
           Strike Damage: [5%, unknown]
-      gw2id: 100527
+      # gw2id: 100527
+      gw2id: 24833
 
     - id: weaver-relic
       text: Relic of the Weaver
+      textOverride: Relic of the Weaver
       subText: 50% uptime
       modifiers:
         damage:
           Strike Damage: [5%, unknown]
-      gw2id: 100914
+      # gw2id: 100914
+      gw2id: 83423
 
     - id: deadeye-relic
       text: Relic of the Deadeye
+      textOverride: Relic of the Deadeye
       subText: 100% uptime
       modifiers:
         damage:
           Strike Damage: [10%, unknown]
-      gw2id: 100924
+      # gw2id: 100924
+      gw2id: 82791
 
 - section: Hybrid Relics
   items:
 
     - id: dragonhunter-relic
       text: Relic of the Dragonhunter
+      textOverride: Relic of the Dragonhunter
       subText: 100% uptime
       modifiers:
         damage:
           Strike Damage: [10%, unknown]
           Condition Damage: [10%, add] # unconfirmed
-      gw2id: 100090
+      # gw2id: 100090
+      gw2id: 74978
 
 - section: Condition Relics
   items:
 
     - id: aristocracy-relic
       text: Relic of the Aristocracy
+      textOverride: Relic of the Aristocracy
       subText: 5 stacks
       modifiers:
         attributes:
           Condition Duration: 15%
-      gw2id: 100849
+      # gw2id: 100849
+      gw2id: 24845
 
     - id: scourge-relic
       text: Relic of the Scourge
+      textOverride: Relic of the Scourge
       subText: 10 stacks
       modifiers:
         attributes:
           Condition Duration: 15%
-      gw2id: 100368
+      # gw2id: 100368
+      gw2id: 83663
 
 - section: Support Relics
   items:
 
     - id: herald-relic
       text: Relic of the Herald
+      textOverride: Relic of the Herald
       subText: 10 stacks
       modifiers:
         attributes:
           Concentration: [150, unknown]
-      gw2id: 100219
+      # gw2id: 100219
+      gw2id: 76100
 
     - id: firebrand-relic
       text: Relic of the Firebrand
+      textOverride: Relic of the Firebrand
       subText: while active
       modifiers:
         attributes:
           Boon Duration: 20%
-      gw2id: 100453
+      # gw2id: 100453
+      gw2id: 83338
 
 - section: Heal Relics
   items:
 
     - id: monk-relic
       text: Relic of the Monk
+      textOverride: Relic of the Monk
       subText: 10 stacks
       modifiers:
         attributes:
           Outgoing Healing: 10%
-      gw2id: 100031
+      # gw2id: 100031
+      gw2id: 24842
 
 - section: Placeholder Items
   items:
 
     - id: no-item-relic
       text: No Item (doesn't give any stats)
+      textOverride: No Item (doesn't give any stats)
       subText: No Item (doesn't give any stats)
       modifiers: {}
       # gw2id intentionally omitted
