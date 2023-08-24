@@ -12,7 +12,7 @@ const extrasLabels = {
   Sigil1: <Item id={24615} disableLink disableText disableTooltip style={{ fontSize: 18 }} />,
   Sigil2: <Item id={24615} disableLink disableText disableTooltip style={{ fontSize: 18 }} />,
   Runes: <Item id={24836} disableLink disableText disableTooltip style={{ fontSize: 18 }} />,
-  Relics: <Item id={77359} disableLink disableText disableTooltip style={{ fontSize: 18 }} />,
+  Relics: <Item id={100916} disableLink disableText disableTooltip style={{ fontSize: 18 }} />,
   Nourishment: (
     <ConsumableEffect disableLink disableText name="Nourishment" style={{ fontSize: 18 }} />
   ),

@@ -47,7 +47,7 @@ const Extras = () => {
       <ExtraSelection
         type="Relics"
         text={t('Relics')}
-        label={<Item id={77359} disableLink disableTooltip text={t('Relics')} />}
+        label={<Item id={100916} disableLink disableTooltip text={t('Relics')} />}
         modifierData={extrasModifiers.relics}
         modifierDataById={allExtrasModifiersById}
       />
