@@ -75,7 +75,7 @@ export const joinWith = (array, separator) =>
   array.flatMap((element) => [element, separator]).slice(0, -1);
 
 function ModalContent(props) {
-  const { type, modifierData, modifierDataById: data, priceData } = props;
+  const { type, modifierData, modifierDataById: data, priceData, showAttributes } = props;
 
   const { classes } = useStyles();
   const { t } = useTranslation();
@@ -200,73 +200,123 @@ function ModalContent(props) {
                 }
               </FormLabel>
               <FormGroup>
-                {options.map(({ id, gw2id, displayIds, subText, textOverride }) => (
-                  <Box
-                    sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
-                  >
-                    <FormControlLabel
-                      key={id}
-                      control={
-                        <Checkbox
-                          name={id}
-                          checked={currentIds.includes(id)}
-                          onChange={handleCheckboxChange}
-                        />
-                      }
-                      label={
-                        <>
-                          {displayIds ? (
-                            joinWith(
-                              displayIds.map((displayId) => (
-                                <Item
-                                  id={displayId ?? placeholderItem}
-                                  disableLink
-                                  text={textOverride ?? formatApiText}
-                                  disableText={!displayId}
-                                  disableTooltip={!displayId}
-                                />
-                              )),
-                              ' / ',
-                            )
-                          ) : (
-                            <Item
-                              id={gw2id ?? placeholderItem}
-                              disableLink
-                              text={textOverride ?? formatApiText}
-                              disableText={!gw2id}
-                              disableTooltip={!gw2id}
-                            />
-                          )}
-                          {subText && (
-                            <Typography variant="caption" sx={{ marginLeft: 1, fontWeight: 200 }}>
-                              {
-                                // i18next-extract-mark-context-next-line {{extraSubText}}
-                                t('extraSubText', { context: subText })
-                              }
-                            </Typography>
-                          )}
-                          {/* {priceIds && (
-                            <span style={{ fontSize: '0.6em' }}>
-                              <br />
-                              {priceIds.map((id) => (
-                                <Item id={id} />
-                              ))}
-                            </span>
-                          )} */}
-                        </>
-                      }
-                    />
-                    {priceData[id] !== undefined ? (
-                      <Typography variant="body2">
-                        {priceData[id].cheapestId ? (
+                {options.map(({ id, gw2id, displayIds, subText, textOverride, modifiers }) => (
+                  <>
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                      }}
+                    >
+                      <FormControlLabel
+                        key={id}
+                        control={
+                          <Checkbox
+                            name={id}
+                            checked={currentIds.includes(id)}
+                            onChange={handleCheckboxChange}
+                          />
+                        }
+                        label={
                           <>
-                            <Item id={priceData[id].cheapestId} disableText />{' '}
+                            {displayIds ? (
+                              joinWith(
+                                displayIds.map((displayId) => (
+                                  <Item
+                                    id={displayId ?? placeholderItem}
+                                    disableLink
+                                    text={textOverride ?? formatApiText}
+                                    disableText={!displayId}
+                                    disableTooltip={!displayId}
+                                  />
+                                )),
+                                ' / ',
+                              )
+                            ) : (
+                              <Item
+                                id={gw2id ?? placeholderItem}
+                                disableLink
+                                text={textOverride ?? formatApiText}
+                                disableText={!gw2id}
+                                disableTooltip={!gw2id}
+                              />
+                            )}
+                            {subText && (
+                              <Typography variant="caption" sx={{ marginLeft: 1, fontWeight: 200 }}>
+                                {
+                                  // i18next-extract-mark-context-next-line {{extraSubText}}
+                                  t('extraSubText', { context: subText })
+                                }
+                              </Typography>
+                            )}
+                            {/* {priceIds && (
+                              <span style={{ fontSize: '0.6em' }}>
+                                <br />
+                                {priceIds.map((id) => (
+                                  <Item id={id} />
+                                ))}
+                              </span>
+                            )} */}
                           </>
-                        ) : null}
-                        <Coin value={priceData[id].price} />
+                        }
+                      />
+                      {priceData[id] !== undefined ? (
+                        <Typography variant="body2">
+                          {priceData[id].cheapestId ? (
+                            <>
+                              <Item id={priceData[id].cheapestId} disableText />{' '}
+                            </>
+                          ) : null}
+                          <Coin value={priceData[id].price} />
+                        </Typography>
+                      ) : null}
+                    </Box>
+                    {showAttributes && (
+                      <Typography
+                        variant="caption"
+                        sx={{ marginLeft: 5, fontWeight: 200, maxWidth: 500, whiteSpace: 'wrap' }}
+                      >
+                        {[
+                          modifiers?.attributes
+                            ? ` ${Object.entries(modifiers?.attributes)
+                                .map(
+                                  ([key, value]) =>
+                                    `${Array.isArray(value) ? value[0] : value} ${key}`,
+                                )
+                                .join(', ')}`
+                            : '',
+                          modifiers?.damage
+                            ? ` ${Object.entries(modifiers?.damage)
+                                .map(
+                                  ([key, value]) =>
+                                    `${
+                                      Array.isArray(value) && value.length === 2 ? value[0] : value
+                                    } ${key}`,
+                                )
+                                .join(', ')}`
+                            : '',
+                          modifiers?.conversion
+                            ? ` ${Object.entries(modifiers?.conversion)
+                                .map(
+                                  ([key, value]) =>
+                                    `${Object.entries(value)
+                                      .map(([source, amount]) => `${amount} ${source}`)
+                                      .join(' and ')} to ${key}`,
+                                )
+                                .join(', ')}`
+                            : '',
+                          modifiers?.conversionAfterBuffs
+                            ? ` ${Object.entries(modifiers?.conversionAfterBuffs)
+                                .map(([key]) => `Conversion to ${key}`)
+                                .join(', ')}`
+                            : '',
+                        ]
+                          .filter(Boolean)
+                          .join(', ')}
                       </Typography>
-                    ) : null}
-                  </Box>
+                    )}
+                  </>
                 ))}
               </FormGroup>
             </FormControl>
