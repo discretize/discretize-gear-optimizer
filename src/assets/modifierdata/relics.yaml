@@ -62,11 +62,18 @@
       modifiers: {}
       # gw2id intentionally omitted
 
+    # 1.0 coefficient, 690.5 strength, 7 hits
     - id: cerus-relic
-      text: 'Relic of Cerus: not yet implemented'
-      subText: 'Relic of Cerus: not yet implemented'
-      modifiers: {}
-      # gw2id intentionally omitted
+      text: Relic of Cerus
+      subText: (unconfirmed)
+      amountData:
+        label: '/10s'
+        default: 0
+        quantityEntered: 10
+      modifiers:
+        attributes:
+          Power Coefficient: 4833.5
+      gw2id: 100074
 
     - id: dagda-relic
       text: 'Relic of Dagda: not yet implemented'
