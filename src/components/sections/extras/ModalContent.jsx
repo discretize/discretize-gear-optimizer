@@ -124,6 +124,23 @@ function ModalContent(props) {
     dispatch(changeExtraIds({ type, ids: [...currentIds, ...tmp] }));
   }, [filteredItems, dispatch, currentIds, type]);
 
+  const toggleAllInSection = React.useCallback(
+    (sectionLabel) => {
+      const idsInSection = filteredItems
+        .find(([label]) => label === sectionLabel)[1]
+        .map(({ id }) => id);
+      const allSelected = idsInSection.every((id) => currentIds.includes(id));
+
+      if (allSelected) {
+        const filtered = currentIds.filter((id) => !idsInSection.includes(id));
+        dispatch(changeExtraIds({ type, ids: filtered }));
+      } else {
+        dispatch(changeExtraIds({ type, ids: [...currentIds, ...idsInSection] }));
+      }
+    },
+    [filteredItems, dispatch, currentIds, type],
+  );
+
   const unselectAllVisible = React.useCallback(() => {
     const tmp = filteredItems.flatMap((array) => array[1]).map(({ id }) => id);
     const filtered = currentIds.filter((id) => !tmp.includes(id));
@@ -193,7 +210,15 @@ function ModalContent(props) {
         return (
           <div>
             <FormControl sx={{ margin: 1, width: '100%' }} component="fieldset" variant="standard">
-              <FormLabel component="legend">
+              <FormLabel
+                component="legend"
+                sx={(theme) => ({
+                  '&:hover': {
+                    color: theme.palette.primary.main,
+                  },
+                })}
+                onClick={() => toggleAllInSection(label)}
+              >
                 {
                   // i18next-extract-mark-context-next-line {{extraSection}}
                   t('extraSection', { context: label })
