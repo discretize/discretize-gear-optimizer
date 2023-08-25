@@ -3,7 +3,10 @@
 
     - id: thief-relic
       text: Relic of the Thief
-      subText: 5 stacks
+      amountData:
+        label: 'stacks'
+        default: 5
+        quantityEntered: 5
       modifiers:
         damage:
           Strike Damage: [5%, unknown]
@@ -11,7 +14,10 @@
 
     - id: fireworks-relic
       text: Relic of Fireworks
-      subText: 100% uptime
+      amountData:
+        label: '% uptime'
+        default: 0
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, unknown]
@@ -19,23 +25,32 @@
 
     - id: brawler-relic
       text: Relic of the Brawler
-      subText: 50% uptime
+      amountData:
+        label: '% uptime'
+        default: 50
+        quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [5%, unknown]
+          Strike Damage: [10%, unknown]
       gw2id: 100527
 
     - id: weaver-relic
       text: Relic of the Weaver
-      subText: 50% uptime
+      amountData:
+        label: '% uptime'
+        default: 0
+        quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [5%, unknown]
+          Strike Damage: [10%, unknown]
       gw2id: 100194
 
     - id: deadeye-relic
       text: Relic of the Deadeye
-      subText: 100% uptime
+      amountData:
+        label: '% uptime'
+        default: 0
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, unknown]
@@ -46,7 +61,10 @@
 
     - id: dragonhunter-relic
       text: Relic of the Dragonhunter
-      subText: 100% uptime
+      amountData:
+        label: '% uptime'
+        default: 0
+        quantityEntered: 100
       modifiers:
         damage:
           Strike Damage: [10%, unknown]
@@ -85,7 +103,7 @@
 
     - id: firebrand-relic
       text: Relic of the Firebrand
-      subText: while active
+      subText: after final mantra
       modifiers:
         attributes:
           Boon Duration: 20%
@@ -96,7 +114,10 @@
 
     - id: monk-relic
       text: Relic of the Monk
-      subText: 10 stacks
+      amountData:
+        label: 'stacks'
+        default: 10
+        quantityEntered: 10
       modifiers:
         attributes:
           Outgoing Healing: 10%
