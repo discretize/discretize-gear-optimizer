@@ -306,47 +306,59 @@ function ModalContent(props) {
                           variant="caption"
                           sx={{ marginLeft: 5, fontWeight: 200, maxWidth: 500, whiteSpace: 'wrap' }}
                         >
-                          {amountData
-                            ? t('(varies)')
-                            : [
-                                modifiers?.attributes
-                                  ? ` ${Object.entries(modifiers?.attributes)
-                                      .map(
-                                        ([key, value]) =>
-                                          `${Array.isArray(value) ? value[0] : value} ${key}`,
-                                      )
-                                      .join(', ')}`
-                                  : '',
-                                modifiers?.damage
-                                  ? ` ${Object.entries(modifiers?.damage)
-                                      .map(
-                                        ([key, value]) =>
-                                          `${
-                                            Array.isArray(value) && value.length === 2
-                                              ? value[0]
-                                              : value
-                                          } ${key}`,
-                                      )
-                                      .join(', ')}`
-                                  : '',
-                                modifiers?.conversion
-                                  ? ` ${Object.entries(modifiers?.conversion)
-                                      .map(
-                                        ([key, value]) =>
-                                          `${Object.entries(value)
-                                            .map(([source, amount]) => `${amount} ${source}`)
-                                            .join(' and ')} to ${key}`,
-                                      )
-                                      .join(', ')}`
-                                  : '',
-                                modifiers?.conversionAfterBuffs
-                                  ? ` ${Object.entries(modifiers?.conversionAfterBuffs)
-                                      .map(([key]) => `Conversion to ${key}`)
-                                      .join(', ')}`
-                                  : '',
-                              ]
-                                .filter(Boolean)
-                                .join(', ')}
+                          {
+                            /* eslint-disable no-nested-ternary */
+                            [
+                              modifiers?.attributes
+                                ? ` ${Object.entries(modifiers?.attributes)
+                                    .map(
+                                      ([key, value]) =>
+                                        `${
+                                          amountData
+                                            ? ''
+                                            : Array.isArray(value) && value.length === 2
+                                            ? value[0]
+                                            : value
+                                        } ${key}`,
+                                    )
+                                    .join(', ')}`
+                                : '',
+                              modifiers?.damage
+                                ? ` ${Object.entries(modifiers?.damage)
+                                    .map(
+                                      ([key, value]) =>
+                                        `${
+                                          amountData
+                                            ? ''
+                                            : Array.isArray(value) && value.length === 2
+                                            ? value[0]
+                                            : value
+                                        } ${key}`,
+                                    )
+                                    .join(', ')}`
+                                : '',
+                              modifiers?.conversion
+                                ? ` ${Object.entries(modifiers?.conversion)
+                                    .map(
+                                      ([key, value]) =>
+                                        `${Object.entries(value)
+                                          .map(
+                                            ([source, amount]) =>
+                                              `${amountData ? '' : amount} ${source}`,
+                                          )
+                                          .join(' and ')} to ${key}`,
+                                    )
+                                    .join(', ')}`
+                                : '',
+                              modifiers?.conversionAfterBuffs
+                                ? ` ${Object.entries(modifiers?.conversionAfterBuffs)
+                                    .map(([key]) => `Conversion to ${key}`)
+                                    .join(', ')}`
+                                : '',
+                            ]
+                              .filter(Boolean)
+                              .join(', ') + (amountData ? ` ${t('(varies)')}` : '')
+                          }
                         </Typography>
                       )}
                     </>
