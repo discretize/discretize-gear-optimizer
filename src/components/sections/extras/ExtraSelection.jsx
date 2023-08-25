@@ -96,6 +96,7 @@ export default function ExtraSelection(props) {
 
   const [priceData, setPriceData] = React.useState({});
   const [showPriceData, setShowPriceData] = React.useState(false);
+  const [showAttributes, setShowAttributes] = React.useState(type === 'Runes');
 
   const getPriceData = React.useCallback(async () => {
     const allItems = modifierData
@@ -260,7 +261,11 @@ export default function ExtraSelection(props) {
             <CloseIcon />
           </IconButton>
         </DialogTitle>
-        <ModalContent {...props} priceData={showPriceData ? priceData : {}} />
+        <ModalContent
+          {...props}
+          priceData={showPriceData ? priceData : {}}
+          showAttributes={showAttributes}
+        />
         <DialogActions>
           <FormControlLabel
             control={<Checkbox checked={showPriceData} onChange={handlePriceChange} />}
@@ -269,6 +274,18 @@ export default function ExtraSelection(props) {
                 {t('Show prices')} <Label>{t('Ctrl+p')}</Label>
               </>
             }
+            sx={{ ml: 0, mr: 'auto' }}
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={showAttributes}
+                onChange={(e) => {
+                  setShowAttributes(e.target.checked);
+                }}
+              />
+            }
+            label={t('Show bonuses')}
             sx={{ ml: 0, mr: 'auto' }}
           />
 
