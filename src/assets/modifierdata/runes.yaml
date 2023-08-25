@@ -49,8 +49,8 @@
       text: Superior Rune of the Deadeye
       modifiers:
         attributes:
-          Power: [175, converted]
           Precision: [125, converted]
+          Power: [175, converted]
           Ferocity: [100, converted]
       gw2id: 82791
 
@@ -84,8 +84,8 @@
       text: Superior Rune of Infiltration
       modifiers:
         attributes:
-          Power: [175, converted]
           Precision: [225, converted]
+          Power: [175, converted]
       gw2id: 24703
 
     - id: ranger
@@ -121,9 +121,9 @@
       text: Superior Rune of the Privateer
       modifiers:
         attributes:
+          Precision: [125, converted]
           Power: [175, converted]
           Might Duration: 30%
-          Precision: [125, converted]
       gw2id: 67342
 
     # 275 stat total
@@ -141,8 +141,8 @@
       text: Superior Rune of the Spellbreaker
       modifiers:
         attributes:
-          Power: [175, converted]
           Precision: [100, converted]
+          Power: [175, converted]
           Vitality: [125, converted]
       gw2id: 84749
 
@@ -150,8 +150,8 @@
       text: Superior Rune of the Mesmer
       modifiers:
         attributes:
-          Power: [175, converted]
           Precision: [100, converted]
+          Power: [175, converted]
       gw2id: 24803
 
     # - id: mesmer-0
@@ -321,8 +321,8 @@
       text: Superior Rune of the Chronomancer
       modifiers:
         attributes:
-          Power: [175, converted]
           Precision: [100, converted]
+          Power: [175, converted]
           Boon Duration: 10%
       gw2id: 73399
 
@@ -420,9 +420,9 @@
       text: Superior Rune of the Reaper
       modifiers:
         attributes:
+          Precision: [125, converted]
           Power: [175, converted]
           Toughness: [100, converted]
-          Precision: [125, converted]
       gw2id: 70829
 
     - id: scrapper
