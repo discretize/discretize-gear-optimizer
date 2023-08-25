@@ -102,17 +102,25 @@
           Condition Damage: [10%, add] # unconfirmed
       gw2id: 100090
 
+    # - id: isgarren-relic
+    #   text: Relic of Isgarren
+    #   amountData:
+    #     label: '% uptime'
+    #     default: 0
+    #     quantityEntered: 100
+    #   modifiers:
+    #     damage:
+    #       Strike Damage: [10%, unknown]
+    #       Condition Damage: [10%, unknown] #remove one of...
+    #     attributes:
+    #       Condition Duration: 10% #...these; we don't know which it is right now
+    #   gw2id: 99997
+
     - id: isgarren-relic
-      text: Relic of Isgarren
-      amountData:
-        label: '% uptime'
-        default: 0
-        quantityEntered: 100
-      modifiers:
-        damage:
-          Strike Damage: [10%, unknown]
-          Condition Damage: [10%, add] # unconfirmed
-      gw2id: 99997
+      text: 'Relic of Isgarren: not yet implemented'
+      subText: 'Relic of Isgarren: not yet implemented'
+      modifiers: {}
+      # gw2id intentionally omitted
 
     - id: peitha-relic
       text: 'Relic of Peitha: not yet implemented'
