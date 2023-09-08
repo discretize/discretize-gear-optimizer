@@ -54,7 +54,7 @@ const formatCharacterData = async (character) => {
     }),
   );
 
-  const critDmg = attributes['Critical Damage'] * damageMultiplier['Critical Damage'];
+  const critDmg = attributes['Critical Damage'] * damageMultiplier['Outgoing Critical Damage'];
 
   const toLowerSnakeCaseAttr = (str) => str.replaceAll(' ', '_').toLowerCase();
 

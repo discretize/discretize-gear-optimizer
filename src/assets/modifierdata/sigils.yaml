@@ -5,7 +5,7 @@
       text: Superior Sigil of Force
       modifiers:
         damage:
-          Strike Damage: [5%, add]
+          Outgoing Strike Damage: [5%, add]
       gw2id: 24615
 
     - id: accuracy
@@ -21,7 +21,7 @@
       subText: (both 7%/3%)
       modifiers:
         damage:
-          Strike Damage: [3%, add, 7%, mult]
+          Outgoing Strike Damage: [3%, add, 7%, mult]
       gw2id: 24868
 
     - id: impact/night/slaying-only-3
@@ -30,7 +30,7 @@
       subText: (only 3%)
       modifiers:
         damage:
-          Strike Damage: [3%, add]
+          Outgoing Strike Damage: [3%, add]
       gw2id: 24868
 
     - id: air
@@ -124,7 +124,7 @@
       text: Superior Sigil of Bursting
       modifiers:
         damage:
-          Condition Damage: [5%, add]
+          Outgoing Condition Damage: [5%, add]
       gw2id: 44944
 
     - id: agony

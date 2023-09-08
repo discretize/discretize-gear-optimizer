@@ -82,7 +82,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [5%, mult]
+          Outgoing Strike Damage: [5%, mult]
       gw2id: 12471
       displayIds: [12471, 79793]
       priceIds: [12471, 79793]

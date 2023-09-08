@@ -29,9 +29,9 @@ Each class has a section for skills and a section for each traitline's traits. N
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
-          All Damage: [20%, add]
-          Critical Damage: [20%, unknown]
+          Outgoing Strike Damage: [10%, mult]
+          Outgoing All Damage: [20%, add]
+          Outgoing Critical Damage: [20%, unknown]
           Burning Damage: [33%, unknown]
         attributes:
           Ferocity: [100, converted]
@@ -70,17 +70,17 @@ Two 50% multiplicative modifiers combine like this: 1 + (0.50 + 0.50) = 2.00 => 
 
 **Keys:**
 
-- Strike Damage
-- Condition Damage
-- All Damage
+- Outgoing Strike Damage
+- Outgoing Condition Damage
+- Outgoing All Damage
 - Damage Reduction
 - Condition Damage Reduction
-- Critical Damage
-- Bleeding Damage
-- Burning Damage
-- Confusion Damage
-- Poison Damage
-- Torment Damage
+- Outgoing Critical Damage
+- Outgoing Bleeding Damage
+- Outgoing Burning Damage
+- Outgoing Confusion Damage
+- Outgoing Poison Damage
+- Outgoing Torment Damage
 
 (Note that the individual conditions' stacking modes don't currently matter, as I don't know of a way to have more than one.)
 
@@ -101,7 +101,7 @@ Use "add" for certain damage buffs that stack additively with each other.
 
 Use "target" for damage buffs that are the result of an effect not on the player but on the target (vulnerability + exposed), which stack additively with each other separately from the other category. Yep, GW2's math is weird.
 
-If an effect has both an additive and a multiplicative component, you can specify both with e.g. `Strike Damage: [3%, add, 7%, mult]`. Yep, the syntax is kinda bad, sorry.
+If an effect has both an additive and a multiplicative component, you can specify both with e.g. `Outgoing Strike Damage: [3%, add, 7%, mult]`. Yep, the syntax is kinda bad, sorry.
 
 ### attributes
 

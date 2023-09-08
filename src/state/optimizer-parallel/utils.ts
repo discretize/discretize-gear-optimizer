@@ -30,24 +30,18 @@ const attributes = [
   'Alternative Critical Chance',
   'Alternative Effective Power',
   'Alternative Critical Damage',
-  'Alternative Damage',
 
   // profession specific
   'Clone Critical Chance',
   'Phantasm Critical Chance',
-  'Phantasm Damage',
   'Phantasm Critical Damage',
   'Phantasm Effective Power',
   'Siphon Base Coefficient',
   'Siphon DPS',
-  'Siphon Damage',
 
   // misc
-  'Strike Damage',
   'Maximum Health',
   'Outgoing Healing',
-  'All Damage',
-  'Damage Taken',
   'Damage Reduction',
   'Power Coefficient',
   'NonCrit Power Coefficient',
@@ -56,6 +50,24 @@ const attributes = [
   'Power2 Coefficient',
   'Flat DPS',
   'Power DPS',
+
+  // damage
+  'Outgoing Strike Damage',
+  'Outgoing Condition Damage',
+  'Outgoing Siphon Damage',
+  'Incoming Strike Damage',
+  'Outgoing Critical Damage',
+  'Outgoing Bleeding Damage',
+  'Outgoing Burning Damage',
+  'Outgoing Confusion Damage',
+  'Outgoing Poison Damage',
+  'Outgoing Torment Damage',
+  'Outgoing Alternative Damage',
+  'Outgoing Alternative Critical Damage',
+  'Outgoing Phantasm Damage',
+  'Outgoing Phantasm Critical Damage',
+
+  'Outgoing All Damage',
 ];
 attributes[41] = 'Bleeding Coefficient';
 attributes[42] = 'Burning Coefficient';

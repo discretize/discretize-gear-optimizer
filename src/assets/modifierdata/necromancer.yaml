@@ -34,7 +34,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 914
       defaultEnabled: true
 
@@ -59,7 +59,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [20%, mult]
+          Outgoing Strike Damage: [20%, mult]
       gw2id: 853
       defaultEnabled: true
 
@@ -161,7 +161,7 @@
       text: Putrid Defense
       modifiers:
         damage:
-          Poison Damage: [15%, unknown]
+          Outgoing Poison Damage: [15%, unknown]
       gw2id: 857
       defaultEnabled: true
 
@@ -202,7 +202,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          All Damage: [10%, add]
+          Outgoing All Damage: [10%, add]
       gw2id: 894
       defaultEnabled: true
 
@@ -220,7 +220,7 @@
         attributes:
           Critical Chance: 15%
         damage:
-          Alternative Critical Damage: [15%, unknown]
+          Outgoing Alternative Critical Damage: [15%, unknown]
       gw2id: 893
       defaultEnabled: true
 
@@ -233,12 +233,12 @@
       text: Fell Beacon
       modifiers:
         damage:
-          Burning Damage: [10%, add] # unconfirmed
+          Outgoing Burning Damage: [10%, add] # unconfirmed
         conversion:
           Expertise: {Condition Damage: 7%}
       wvwModifiers:
         damage:
-          Burning Damage: [10%, add] # unconfirmed
+          Outgoing Burning Damage: [10%, add] # unconfirmed
         conversion:
           Expertise: {Condition Damage: 4%}
       gw2id: 2074
@@ -361,10 +361,10 @@
       subText: torment only
       modifiers:
         damage:
-          Torment Damage: [33%, add] # unconfirmed
+          Outgoing Torment Damage: [33%, add] # unconfirmed
       wvwModifiers:
         damage:
-          Torment Damage: [33%, add] # unconfirmed
+          Outgoing Torment Damage: [33%, add] # unconfirmed
       gw2id: 2164
       defaultEnabled: true
 
@@ -380,7 +380,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 1969
       defaultEnabled: true
 
@@ -402,10 +402,10 @@
       minor: true
       modifiers:
         damage:
-          Strike Damage: [15%, mult]
+          Outgoing Strike Damage: [15%, mult]
       wvwModifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 2018
       defaultEnabled: true
 
@@ -426,7 +426,7 @@
       subText: base
       modifiers:
         damage:
-          Critical Damage: [10%, unknown]
+          Outgoing Critical Damage: [10%, unknown]
       gw2id: 2188
       defaultEnabled: true
 
@@ -438,7 +438,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [0.5%, add] # tested by ReMagic
+          Outgoing Strike Damage: [0.5%, add] # tested by ReMagic
       gw2id: 2188
       defaultEnabled: true
 
@@ -450,10 +450,10 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Condition Damage: [0.25%, add] # tested by ReMagic
+          Outgoing Condition Damage: [0.25%, add] # tested by ReMagic
       wvwModifiers:
         damage:
-          Condition Damage: [0.5%, add]
+          Outgoing Condition Damage: [0.5%, add]
       gw2id: 2185
       defaultEnabled: true
 

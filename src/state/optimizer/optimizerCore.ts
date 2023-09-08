@@ -726,13 +726,16 @@ export class OptimizerCore {
     const { settings } = this;
     const { attributes } = character;
 
-    const critDmg = attributes['Critical Damage'] * damageMultiplier['Critical Damage'];
+    const critDmg = attributes['Critical Damage'] * damageMultiplier['Outgoing Critical Damage'];
     const critChance = clamp(attributes['Critical Chance'], 0, 1);
 
     attributes['Effective Power'] =
-      attributes['Power'] * (1 + critChance * (critDmg - 1)) * damageMultiplier['Strike Damage'];
+      attributes['Power'] *
+      (1 + critChance * (critDmg - 1)) *
+      damageMultiplier['Outgoing Strike Damage'];
 
-    attributes['NonCrit Effective Power'] = attributes['Power'] * damageMultiplier['Strike Damage'];
+    attributes['NonCrit Effective Power'] =
+      attributes['Power'] * damageMultiplier['Outgoing Strike Damage'];
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
     let powerDamage =
@@ -745,13 +748,14 @@ export class OptimizerCore {
     if (attributes['Power2 Coefficient']) {
       if (settings.profession === 'Mesmer') {
         const phantasmCritDmg =
-          attributes['Phantasm Critical Damage'] * damageMultiplier['Phantasm Critical Damage'];
+          attributes['Phantasm Critical Damage'] *
+          damageMultiplier['Outgoing Phantasm Critical Damage'];
         const phantasmCritChance = clamp(attributes['Phantasm Critical Chance'], 0, 1);
 
         attributes['Phantasm Effective Power'] =
           attributes['Power'] *
           (1 + phantasmCritChance * (phantasmCritDmg - 1)) *
-          damageMultiplier['Phantasm Damage'];
+          damageMultiplier['Outgoing Phantasm Damage'];
 
         const phantasmPowerDamage =
           ((attributes['Power2 Coefficient'] || 0) / 2597) * attributes['Phantasm Effective Power'];
@@ -760,14 +764,14 @@ export class OptimizerCore {
       } else {
         const alternativeCritDmg =
           attributes['Alternative Critical Damage'] *
-          damageMultiplier['Alternative Critical Damage'];
+          damageMultiplier['Outgoing Alternative Critical Damage'];
         const alternativeCritChance = clamp(attributes['Alternative Critical Chance'], 0, 1);
 
         attributes['Alternative Effective Power'] =
           attributes['Alternative Power'] *
           (1 + alternativeCritChance * (alternativeCritDmg - 1)) *
-          damageMultiplier['Strike Damage'] *
-          damageMultiplier['Alternative Damage'];
+          damageMultiplier['Outgoing Strike Damage'] *
+          damageMultiplier['Outgoing Alternative Damage'];
 
         const alternativePowerDamage =
           ((attributes['Power2 Coefficient'] || 0) / 2597) *
@@ -780,7 +784,7 @@ export class OptimizerCore {
     }
 
     const siphonDamage =
-      (attributes['Siphon Base Coefficient'] || 0) * damageMultiplier['Siphon Damage'];
+      (attributes['Siphon Base Coefficient'] || 0) * damageMultiplier['Outgoing Siphon Damage'];
     attributes['Siphon DPS'] = siphonDamage;
 
     return powerDamage + siphonDamage;
@@ -801,7 +805,9 @@ export class OptimizerCore {
     let condiDamageScore = 0;
     for (const condition of relevantConditions) {
       const cdmg = attributes['Condition Damage'];
-      const mult = damageMultiplier['Condition Damage'] * damageMultiplier[`${condition} Damage`];
+      const mult =
+        damageMultiplier['Outgoing Condition Damage'] *
+        damageMultiplier[`Outgoing ${condition} Damage`];
 
       switch (condition) {
         case 'Torment':
@@ -840,7 +846,7 @@ export class OptimizerCore {
     attributes['Armor'] += attributes['Toughness'];
 
     attributes['Effective Health'] =
-      attributes['Health'] * attributes['Armor'] * (1 / damageMultiplier['Damage Taken']);
+      attributes['Health'] * attributes['Armor'] * (1 / damageMultiplier['Incoming Strike Damage']);
 
     attributes['Survivability'] = attributes['Effective Health'] / 1967;
   }

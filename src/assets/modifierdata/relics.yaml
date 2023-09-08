@@ -9,7 +9,7 @@
         quantityEntered: 5
       modifiers:
         damage:
-          Strike Damage: [5%, unknown]
+          Outgoing Strike Damage: [5%, unknown]
       gw2id: 100916
 
     - id: fireworks-relic
@@ -20,7 +20,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, unknown]
       gw2id: 100947
 
     - id: brawler-relic
@@ -31,7 +31,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, unknown]
       gw2id: 100527
 
     - id: weaver-relic
@@ -42,7 +42,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, unknown]
       gw2id: 100194
 
     - id: deadeye-relic
@@ -53,7 +53,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, unknown]
       gw2id: 100924
 
     - id: citadel-relic
@@ -98,8 +98,8 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, unknown]
-          Condition Damage: [10%, add] # unconfirmed
+          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Condition Damage: [10%, add] # unconfirmed
       gw2id: 100090
 
     # - id: isgarren-relic
@@ -110,8 +110,8 @@
     #     quantityEntered: 100
     #   modifiers:
     #     damage:
-    #       Strike Damage: [10%, unknown]
-    #       Condition Damage: [10%, unknown] #remove one of...
+    #       Outgoing Strike Damage: [10%, unknown]
+    #       Outgoing Condition Damage: [10%, unknown] #remove one of...
     #     attributes:
     #       Condition Duration: 10% #...these; we don't know which it is right now
     #   gw2id: 99997

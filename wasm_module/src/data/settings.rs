@@ -101,11 +101,11 @@ impl Condition {
     /// returns the index for the damage attribute the Attributes array in Character
     pub fn get_damage_attribute(&self) -> Attribute {
         match self {
-            Condition::Bleeding => Attribute::BleedingDamage,
-            Condition::Burning => Attribute::BurningDamage,
-            Condition::Confusion => Attribute::ConfusionDamage,
-            Condition::Poison => Attribute::PoisonDamage,
-            Condition::Torment => Attribute::TormentDamage,
+            Condition::Bleeding => Attribute::OutgoingBleedingDamage,
+            Condition::Burning => Attribute::OutgoingBurningDamage,
+            Condition::Confusion => Attribute::OutgoingConfusionDamage,
+            Condition::Poison => Attribute::OutgoingPoisonDamage,
+            Condition::Torment => Attribute::OutgoingTormentDamage,
         }
     }
 
