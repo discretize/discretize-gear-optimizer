@@ -22,7 +22,7 @@ This is optional if you just want to contribute to the optimizer's database and 
 
 This project requires [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com/). We recommend installing Node using a version manager like NVM so you can easily switch to the correct version for different projects ([here are some methods to do so](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)).
 
-Setting up your editor with [EditorConfig](https://editorconfig.org/), [ESLint](https://eslint.org/), and [Prettier](https://prettier.io/) integrations is also recommended.
+Setting up your editor with [EditorConfig](https://editorconfig.org/), [ESLint](https://eslint.org/), and [dprint](https://dprint.dev/) integrations is also recommended.
 
 After cloning the repository, install its dependencies with:
 

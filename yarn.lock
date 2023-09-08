@@ -1188,6 +1188,36 @@
   resolved "https://registry.yarnpkg.com/@discretize/typeface-menomonia/-/typeface-menomonia-0.1.3.tgz#33f2ca1ae2dae67afe61ea42d1e65f5b9bbd6d25"
   integrity sha512-ySpM/tSXGFGGgBuv5KEHTVwdOYjcXCAmB8wwgKUCgWCsU0XlGGBPpoBwJUMxsW6fFCP/8a8Pv89Tpj5YMLt2Sw==
 
+"@dprint/darwin-arm64@0.40.2":
+  version "0.40.2"
+  resolved "https://registry.yarnpkg.com/@dprint/darwin-arm64/-/darwin-arm64-0.40.2.tgz#b77535c3e0d3e6c15eafe4db290f42f1c456da4a"
+  integrity sha512-qharMFhxpNq9brgvHLbqzzAgVgPWSHLfzNLwWWhKcGOUUDUIilfAo3SlvOz6w4nQiIifLpYZOvZqK7Lpf9mSSw==
+
+"@dprint/darwin-x64@0.40.2":
+  version "0.40.2"
+  resolved "https://registry.yarnpkg.com/@dprint/darwin-x64/-/darwin-x64-0.40.2.tgz#06fe3f4ed700ea6ef617ebd199269ef4371b9dfa"
+  integrity sha512-FPDdOTVr1JfqtLBTCvqlihWslTy3LBUoi3H1gaqIazCKMj2dB9voFWkBiMT+REMHDrlVsoSpFAfsliNr/y7HPA==
+
+"@dprint/linux-arm64-glibc@0.40.2":
+  version "0.40.2"
+  resolved "https://registry.yarnpkg.com/@dprint/linux-arm64-glibc/-/linux-arm64-glibc-0.40.2.tgz#417ca4baa4be2fb0ff717188c48512b96435cd86"
+  integrity sha512-GmUWfKwEwXA+onvewX9hEJSMcd9V184+uRbEhI5tG28tBP9+IjQhrY7jCjxPvaZA+EvzNPnAy5D1wbJdlNLBNA==
+
+"@dprint/linux-x64-glibc@0.40.2":
+  version "0.40.2"
+  resolved "https://registry.yarnpkg.com/@dprint/linux-x64-glibc/-/linux-x64-glibc-0.40.2.tgz#fbb3c2e881452e26ac230c0c1a6a818edb68a862"
+  integrity sha512-vMHAHdsOY+2thieSWbIrIioDfPgvipwUgd0MZUWOqycTrXU6kLyi2B+5J/2Jc+QO3CiLIbumQd2FH/0vB1eWqA==
+
+"@dprint/linux-x64-musl@0.40.2":
+  version "0.40.2"
+  resolved "https://registry.yarnpkg.com/@dprint/linux-x64-musl/-/linux-x64-musl-0.40.2.tgz#af6cbc6487cd0dc87d5401991f1be4b0d16e7629"
+  integrity sha512-nFSbDWd9ORyOhJ7a+RmE39WbuPoQ3OQutIgfAmfikiu/wENzEwxxv4QJ7aFnBaoZb0wuVEEpXShr8vY4p0exkg==
+
+"@dprint/win32-x64@0.40.2":
+  version "0.40.2"
+  resolved "https://registry.yarnpkg.com/@dprint/win32-x64/-/win32-x64-0.40.2.tgz#42b7763a73e91bf95b62b0e90bca49c7b193bb4e"
+  integrity sha512-qF4VCQzFTZYD61lbQqXLU/IwUTbLK22CancO+uVtXmZRoKU9GaVjcBhMUB7URxsa8rvxWHhHT6ldillI/aOWCg==
+
 "@emotion/babel-plugin@^11.10.8":
   version "11.10.8"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin/-/babel-plugin-11.10.8.tgz#bae325c902937665d00684038fd5294223ef9e1d"
@@ -2970,6 +3000,18 @@ dotenv@^10.0.0:
   version "10.0.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-10.0.0.tgz#3d4227b8fb95f81096cdd2b66653fb2c7085ba81"
   integrity sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==
+
+dprint@^0.40.2:
+  version "0.40.2"
+  resolved "https://registry.yarnpkg.com/dprint/-/dprint-0.40.2.tgz#63fc61bdb53af66a97481d9f8103185cb447b466"
+  integrity sha512-3LdyUV0itEW59UPtsRA2StOWOu8FyOW+BgvJpH/tACRHKi0z5gaQnvSxdS3mbG7dgtEhdRnGg6JoiQyGib6NTg==
+  optionalDependencies:
+    "@dprint/darwin-arm64" "0.40.2"
+    "@dprint/darwin-x64" "0.40.2"
+    "@dprint/linux-arm64-glibc" "0.40.2"
+    "@dprint/linux-x64-glibc" "0.40.2"
+    "@dprint/linux-x64-musl" "0.40.2"
+    "@dprint/win32-x64" "0.40.2"
 
 electron-to-chromium@^1.4.284:
   version "1.4.380"
@@ -4813,11 +4855,6 @@ prelude-ls@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
-
-prettier@^2.4.1:
-  version "2.8.8"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.8.tgz#e8c5d7e98a4305ffe3de2e1fc4aca1a71c28b1da"
-  integrity sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==
 
 process-nextick-args@~2.0.0:
   version "2.0.1"

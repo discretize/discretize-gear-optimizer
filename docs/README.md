@@ -41,7 +41,7 @@ See the Projects tab of this repository for planned features and improvements an
 - [redux](https://github.com/reduxjs/redux) and
 - [redux-saga](https://github.com/redux-saga/redux-saga) to manage our state
 - [Material UI v5](https://material-ui.com/) and [emotion](https://emotion.sh/docs/introduction) for styling
-- [ESLint](https://github.com/eslint/eslint), [Prettier](https://github.com/prettier/prettier) and [EditorConfig](https://editorconfig.org/) for linting and formatting
+- [ESLint](https://github.com/eslint/eslint), [dprint](https://dprint.dev/) and [EditorConfig](https://editorconfig.org/) for linting and formatting
 
 ## License
 
