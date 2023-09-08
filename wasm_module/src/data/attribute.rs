@@ -2,8 +2,8 @@ use enum_iterator::Sequence;
 use serde_repr::{Deserialize_repr, Serialize_repr};
 use std::fmt;
 
-// align to 64 bytes = 4 attributes per cache line
-pub const ATTRIBUTE_COUNT: usize = 96; // actually only 95 attributes, but we need to align to 64 bytes;
+// align to 64 bytes = 2 attributes per cache line
+pub const ATTRIBUTE_COUNT: usize = 104;
 
 #[derive(Debug, Sequence, Serialize_repr, Deserialize_repr, Default, Clone, Copy)]
 #[repr(u8)]
