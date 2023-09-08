@@ -1,7 +1,7 @@
 node_modules/
 _backup/
 .idea/
-.vscode/*
+.vscode/
 dist/
 misc/
 .history
@@ -17,5 +17,3 @@ install.bat
 .mf/
 
 wasm_module/target/
-
-!.vscode/settings.json
