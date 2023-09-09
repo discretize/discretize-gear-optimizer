@@ -5,8 +5,8 @@ import {
   BoonDurationAttributes,
   ConditionCoefficientAttributes,
   ConditionDurationAttributes,
-  ConditionName,
   ConditionTickAttributes,
+  DamagingConditionName,
   DerivedAttributes,
   EffectiveAttributes,
   Indicators,
@@ -108,7 +108,7 @@ export const getAttributeId = (attribute: AttributeName) => {
 export const getWeaponTypeId = (weaponType: string) =>
   Object.values(WeaponTypes).indexOf(weaponType);
 export const getConditionId = (condition: string) =>
-  Object.values(damagingConditions).indexOf(condition as ConditionName);
+  Object.values(damagingConditions).indexOf(condition as DamagingConditionName);
 
 export const getAttributeName = (attributeId: number) => {
   // corresponds to gw2data.rs -> Attribute enum. must have same order

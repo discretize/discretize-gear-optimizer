@@ -29,7 +29,6 @@ import {
 import type {
   AffixData,
   AffixName,
-  ConditionName,
   ForcedSlotName,
   IndicatorName,
   InfusionName,
@@ -43,6 +42,7 @@ import {
   conditionData,
   ForcedSlots,
   Slots,
+  damagingConditions,
 } from '../../utils/gw2-data';
 import {
   enumArrayIncludes,
@@ -642,13 +642,12 @@ export function setupCombinations(reduxState: any) {
 
     /* Relevant Conditions + Condi Caching Toggle */
 
-    const settings_relevantConditions: OptimizerCoreSettings['relevantConditions'] = (
-      Object.keys(conditionData) as ConditionName[]
-    ).filter(
-      (condition) =>
-        (settings_baseAttributes[`${condition} Coefficient`] ?? 0) > 0 ||
-        extraRelevantConditions[condition],
-    );
+    const settings_relevantConditions: OptimizerCoreSettings['relevantConditions'] =
+      damagingConditions.filter(
+        (condition) =>
+          (settings_baseAttributes[`${condition} Coefficient`] ?? 0) > 0 ||
+          extraRelevantConditions[condition],
+      );
 
     // if any condition coefficnents are the result of a conversion, the same cdmg + expertise does
     // not mean the same condition dps; disable caching if so

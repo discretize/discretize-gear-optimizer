@@ -8,6 +8,7 @@ import { allAttributePointKeys } from '../../assets/modifierdata/metadata';
 import type {
   AffixName,
   ConditionName,
+  DamagingConditionName,
   IndicatorName,
   InfusionName,
   ProfessionName,
@@ -145,7 +146,7 @@ export interface OptimizerCoreSettings {
   baseAttributes: Record<AttributeName, number>;
   modifiers: Modifiers;
   disableCondiResultCache: boolean;
-  relevantConditions: ConditionName[];
+  relevantConditions: DamagingConditionName[];
 
   // these aren't used by the optimizer, they're just attached to the results
   shouldDisplayExtras: Record<string, boolean>;
@@ -796,7 +797,7 @@ export class OptimizerCore {
   calcCondi(
     character: Character,
     damageMultiplier: Record<string, number>,
-    relevantConditions: ConditionName[],
+    relevantConditions: readonly DamagingConditionName[],
   ) {
     const { settings } = this;
     const { attributes } = character;
