@@ -10,7 +10,7 @@ env:
   NODE_VERSION: 18
 
 jobs:
-  testModifiers:
+  testRust:
     runs-on: ubuntu-latest
     timeout-minutes: 5
 

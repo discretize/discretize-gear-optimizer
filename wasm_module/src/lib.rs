@@ -3,7 +3,7 @@
 use optimizer_core::{start, start_with_heuristics};
 use utils::parse_args;
 use wasm_bindgen::prelude::*;
-use web_sys::console;
+// use web_sys::console;
 
 // public so that the benches can access it
 pub mod data;

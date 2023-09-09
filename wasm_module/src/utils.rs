@@ -1,7 +1,4 @@
-use crate::data::{
-    affix::Affix, attribute::Attribute, character::Attributes, combination::Combination,
-    settings::Settings,
-};
+use crate::data::{affix::Affix, combination::Combination, settings::Settings};
 use rand::Rng;
 use serde_json::Value;
 use wasm_bindgen::JsValue;
