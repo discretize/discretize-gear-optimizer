@@ -49,7 +49,7 @@ const useStyles = makeStyles()((theme) => ({
     fontWeight: 200,
   },
   item: {
-    cursor: 'url(/images/cursors/green.png),pointer',
+    cursor: `url(${import.meta.env.BASE_URL}images/cursors/green.png),pointer`,
   },
 }));
 
