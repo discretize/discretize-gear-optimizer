@@ -17,6 +17,8 @@ export interface WorkerWrapper {
   worker: globalThis.Worker;
 }
 
+const createdWorkers: globalThis.Worker[] = [];
+
 // fuck typing redux
 export default function calculate(reduxState: any, dispatch: Dispatch<any>): WorkerWrapper[] {
   const selectedMaxThreads = reduxState.optimizer.control.hwThreads;
@@ -35,10 +37,13 @@ export default function calculate(reduxState: any, dispatch: Dispatch<any>): Wor
   console.log(`Creating ${selectedMaxThreads} threads`);
   // create all threads. later on we may or may not use them depending on the presented problem
   const workers: WorkerWrapper[] = [...Array(selectedMaxThreads)].map((_, index) => {
+    createdWorkers[index] ??= new Worker(new URL('./worker/worker.ts', import.meta.url), {
+      type: 'module',
+    });
     return {
       status: 'created',
       workerId: index,
-      worker: new Worker(new URL('./worker/worker.ts', import.meta.url), { type: 'module' }),
+      worker: createdWorkers[index],
     };
   });
 
