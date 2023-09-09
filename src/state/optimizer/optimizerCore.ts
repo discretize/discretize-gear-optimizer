@@ -811,17 +811,17 @@ export class OptimizerCore {
 
       switch (condition) {
         case 'Torment':
-          attributes[`Torment Damage`] =
+          attributes[`Torment Damage Tick`] =
             this.conditionDamageTick('Torment', cdmg, mult) * (1 - settings.movementUptime) +
             this.conditionDamageTick('TormentMoving', cdmg, mult) * settings.movementUptime;
           break;
         case 'Confusion':
-          attributes[`Confusion Damage`] =
+          attributes[`Confusion Damage Tick`] =
             this.conditionDamageTick('Confusion', cdmg, mult) +
             this.conditionDamageTick('ConfusionActive', cdmg, mult) * settings.attackRate;
           break;
         default:
-          attributes[`${condition} Damage`] = this.conditionDamageTick(condition, cdmg, mult);
+          attributes[`${condition} Damage Tick`] = this.conditionDamageTick(condition, cdmg, mult);
       }
 
       const duration =
@@ -831,7 +831,7 @@ export class OptimizerCore {
       const stacks = (attributes[`${condition} Coefficient`] || 0) * duration;
       attributes[`${condition} Stacks`] = stacks;
 
-      const DPS = stacks * (attributes[`${condition} Damage`] || 1);
+      const DPS = stacks * (attributes[`${condition} Damage Tick`] || 1);
       attributes[`${condition} DPS`] = DPS;
 
       condiDamageScore += DPS;

@@ -546,12 +546,12 @@ pub fn calc_condi(
     for condition in relevant_conditions.iter() {
         let cdmg = attributes.get_a(Attribute::ConditionDamage);
         let mult = mods.get_dmg_multiplier(Attribute::OutgoingConditionDamage)
-            * mods.get_dmg_multiplier(condition.get_damage_attribute());
+            * mods.get_dmg_multiplier(condition.get_damage_mod_attribute());
 
         match condition {
             Condition::Confusion => {
                 attributes.set_a(
-                    Attribute::ConfusionDamage,
+                    Attribute::ConfusionDamageTick,
                     condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), false)
                         + condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), true)
                             * settings.attackRate,
@@ -559,7 +559,7 @@ pub fn calc_condi(
             }
             Condition::Torment => {
                 attributes.set_a(
-                    Attribute::TormentDamage,
+                    Attribute::TormentDamageTick,
                     condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), false)
                         * (1.0 - settings.movementUptime)
                         + condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), true)
@@ -567,7 +567,7 @@ pub fn calc_condi(
                 );
             }
             _ => attributes.set_a(
-                condition.get_damage_attribute(),
+                condition.get_damage_tick_attribute(),
                 condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), false),
             ),
         }
@@ -585,8 +585,8 @@ pub fn calc_condi(
         let stacks = coeff * duration;
         attributes.set_a(condition.get_stacks_attribute(), stacks);
 
-        let dmgattr = attributes.get_a(condition.get_damage_attribute());
-        let dps = stacks * if dmgattr > 0.0 { dmgattr } else { 1.0 };
+        let tick_attr = attributes.get_a(condition.get_damage_tick_attribute());
+        let dps = stacks * if tick_attr > 0.0 { tick_attr } else { 1.0 };
         attributes.set_a(condition.get_dps_attribute(), dps);
 
         condi_damage_score += dps;

@@ -1340,13 +1340,14 @@ export const conditionDataWvW = {
 };
 export type ConditionName = keyof typeof conditionData;
 
-export const damagingConditions: ConditionName[] = [
+export const damagingConditions = [
   'Bleeding',
   'Burning',
   'Confusion',
   'Poison',
   'Torment',
-];
+] as const;
+export type DamagingConditionName = (typeof damagingConditions)[number];
 
 export const PrimaryAttributes = ['Power', 'Precision', 'Toughness', 'Vitality'] as const;
 export type PrimaryAttributeName = (typeof PrimaryAttributes)[number];
@@ -1361,7 +1362,7 @@ export const SecondaryAttributes = [
 ] as const;
 export type SecondaryAttributeName = (typeof SecondaryAttributes)[number];
 
-const DerivedAttributes = [
+export const DerivedAttributes = [
   'Critical Chance',
   'Critical Damage',
   'Condition Duration',
@@ -1371,7 +1372,7 @@ const DerivedAttributes = [
 ] as const;
 export type DerivedAttributeName = (typeof DerivedAttributes)[number];
 
-const BoonDurationAttributes = [
+export const BoonDurationAttributes = [
   'Aegis Duration',
   'Fury Duration',
   'Might Duration',
@@ -1386,7 +1387,7 @@ const BoonDurationAttributes = [
 ] as const;
 export type BoonDurationAttributeName = (typeof BoonDurationAttributes)[number];
 
-const ConditionDurationAttributes = [
+export const ConditionDurationAttributes = [
   'Bleeding Duration',
   'Blind Duration',
   'Burning Duration',
@@ -1404,16 +1405,38 @@ const ConditionDurationAttributes = [
 ] as const;
 export type ConditionDurationAttributeName = (typeof ConditionDurationAttributes)[number];
 
-const ConditionDamageAttributes = [
+export type ConditionDamageAttributeName = `${DamagingConditionName} Damage`;
+export const ConditionDamageAttributes: readonly ConditionDamageAttributeName[] = [
   'Bleeding Damage',
   'Burning Damage',
   'Confusion Damage',
   'Poison Damage',
   'Torment Damage',
 ] as const;
-export type ConditionDamageAttributeName = (typeof ConditionDamageAttributes)[number];
 
-const EffectiveAttributes = ['Effective Power', 'Effective Health', 'Effective Healing'] as const;
+export type ConditionCoefficientAttributeName = `${DamagingConditionName} Coefficient`;
+export const ConditionCoefficientAttributes: readonly ConditionCoefficientAttributeName[] = [
+  'Bleeding Coefficient',
+  'Burning Coefficient',
+  'Confusion Coefficient',
+  'Poison Coefficient',
+  'Torment Coefficient',
+] as const;
+
+export type ConditionTickAttributeName = `${DamagingConditionName} Damage Tick`;
+export const ConditionTickAttributes: readonly ConditionTickAttributeName[] = [
+  'Bleeding Damage Tick',
+  'Burning Damage Tick',
+  'Confusion Damage Tick',
+  'Poison Damage Tick',
+  'Torment Damage Tick',
+] as const;
+
+export const EffectiveAttributes = [
+  'Effective Power',
+  'Effective Health',
+  'Effective Healing',
+] as const;
 export type EffectiveAttributeName = (typeof EffectiveAttributes)[number];
 
 export const Indicators = ['Damage', 'Survivability', 'Healing'] as const;
