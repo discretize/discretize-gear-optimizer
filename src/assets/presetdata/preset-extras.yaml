@@ -6,10 +6,15 @@ list:
       {
         "extras": {
           "Runes": {
-            "thief": {},
             "scholar": {},
-            "eagle": {}
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -32,10 +37,15 @@ list:
       {
         "extras": {
           "Runes": {
-            "thief": {},
             "scholar": {},
-            "eagle": {}
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -60,10 +70,15 @@ list:
       {
         "extras": {
           "Runes": {
-            "thief": {},
             "scholar": {},
-            "eagle": {}
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -89,10 +104,15 @@ list:
       {
         "extras": {
           "Runes": {
-            "thief": {},
             "scholar": {},
-            "eagle": {}
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -120,10 +140,15 @@ list:
       {
         "extras": {
           "Runes": {
-            "thief": {},
             "scholar": {},
-            "eagle": {}
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -150,9 +175,17 @@ list:
         "extras": {
           "Runes": {
             "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
             "eagle": {},
-            "thief": {}
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "leadership": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {},
             "accuracy": {}
@@ -184,9 +217,17 @@ list:
         "extras": {
           "Runes": {
             "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
             "eagle": {},
-            "thief": {}
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "leadership": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {},
             "accuracy": {}
@@ -214,8 +255,10 @@ list:
       {
         "extras": {
           "Runes": {
-            "monk": {}
+            "monk": {},
+            "water": {}
           },
+          "Relics": {},
           "Sigil1": {
             "concentration": {}
           },
@@ -237,8 +280,16 @@ list:
       {
         "extras": {
           "Runes": {
-            "nightmare": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {},
+            "leadership": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -260,8 +311,15 @@ list:
       {
         "extras": {
           "Runes": {
-            "nightmare": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -274,62 +332,6 @@ list:
             "salsa-topped-veggie-flatbread": {}
           }
         }
-      }
-
-  - name: Quickness Power Chrono Conc/Impact (Fractal)
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "thief": {},
-            "scholar": {},
-            "eagle": {}
-          },
-          "Sigil1": {
-            "force": {},
-            "impact/night/slaying-both": {}
-          },
-          "Sigil2": {
-            "concentration": {}
-          },
-          "Enhancement": {
-            "slaying-potion": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {},
-            "plate-of-coq-au-vin-with-salsa": {},
-            "curry-butternut-squash-soup": {}
-          }
-        },
-        "lifestealAmount": ""
-      }
-
-  - name: Quickness Power Chrono Conc/Impact
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "thief": {},
-            "scholar": {},
-            "eagle": {}
-          },
-          "Sigil1": {
-            "force": {}
-          },
-          "Sigil2": {
-            "concentration": {}
-          },
-          "Enhancement": {
-            "superior-sharpening-stone": {},
-            "furious-sharpening-stone": {}
-          },
-          "Nourishment": {
-            "cilantro-lime-sous-vide-steak": {},
-            "plate-of-coq-au-vin-with-salsa": {},
-            "curry-butternut-squash-soup": {}
-          }
-        },
-        "lifestealAmount": ""
       }
 
   - name: Quickness Condi Chrono
@@ -349,6 +351,7 @@ list:
           "Runes": {
             "perplexity": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "spherified-cilantro-oyster-soup": {}
@@ -376,6 +379,7 @@ list:
           "Runes": {
             "perplexity": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {}
           },
@@ -403,6 +407,7 @@ list:
           "Runes": {
             "krait": {}
           },
+          "Relics": {},
           "Nourishment": {
             "plate-of-kimchi-pancakes": {},
             "fancy-potato-and-leek-soup": {},
@@ -431,6 +436,7 @@ list:
           "Runes": {
             "krait": {}
           },
+          "Relics": {},
           "Nourishment": {
             "spherified-cilantro-oyster-soup": {},
             "fancy-potato-and-leek-soup": {},
@@ -450,9 +456,17 @@ list:
         "extras": {
           "Runes": {
             "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
             "eagle": {},
-            "thief": {}
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "firebrand": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -479,8 +493,15 @@ list:
       {
         "extras": {
           "Runes": {
-            "thief": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -502,8 +523,15 @@ list:
       {
         "extras": {
           "Runes": {
-            "thief": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -525,8 +553,17 @@ list:
       {
         "extras": {
           "Runes": {
-            "thief": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "leadership": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -556,9 +593,18 @@ list:
             "air-torment-cwb": {}
           },
           "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
             "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
             "flame-legion-2": {}
           },
+          "Relics": {},
           "Nourishment": {
             "fishy-rice-bowl": {},
             "cilantro-and-cured-meat-flatbread": {}
@@ -582,9 +628,19 @@ list:
             "geomancy-torment-cwb-alac": {}
           },
           "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
             "balthazar": {},
-            "flame-legion-2": {}
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {},
+            "leadership": {}
           },
+          "Relics": {},
           "Nourishment": {
             "fishy-rice-bowl": {},
             "cilantro-and-cured-meat-flatbread": {},
@@ -598,38 +654,24 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: CFB w/ Quickness (balthazar)
-    profession: Firebrand
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "balthazar": {}
-          },
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {
-            "geomancy-torment-cfb5-virtues": {}
-          },
-          "Enhancement": {
-            "toxic-maintenance-oil": {}
-          },
-          "Nourishment": {
-            "cilantro-and-cured-meat-flatbread": {}
-          }
-        }
-      }
-
   - name: Condi Firebrand
     profession: Firebrand
     value: |-
       {
         "extras": {
           "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
             "balthazar": {},
-            "renegade": {}
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -648,29 +690,6 @@ list:
         "lifestealAmount": ""
       }
 
-  - name: CFB DPS (8 Page, Balthazar)
-    profession: Firebrand
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "balthazar": {}
-          },
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {
-            "geomancy-torment-cfb8-virtues": {}
-          },
-          "Enhancement": {
-            "toxic-focusing-crystal": {}
-          },
-          "Nourishment": {
-            "cilantro-and-cured-meat-flatbread": {}
-          }
-        }
-      }
-
   - name: Condi Quickbrand
     profession: Firebrand
     value: |-
@@ -683,40 +702,21 @@ list:
             "smoldering": {}
           },
           "Runes": {
-            "firebrand-firebrand": {},
-            "renegade": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {},
+            "firebrand": {}
           },
+          "Relics": {},
           "Nourishment": {
             "fishy-rice-bowl": {}
-          },
-          "Enhancement": {
-            "toxic-focusing-crystal": {},
-            "magnanimous-tuning-crystal": {},
-            "toxic-maintenance-oil": {},
-            "magnanimous-maintenance-oil": {}
-          }
-        }
-      }
-
-  - name: Condi Quickbrand Ritualist (inaccurate)
-    profession: Firebrand
-    value: |-
-      {
-        "extras": {
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {
-            "smoldering": {},
-            "geomancy-torment-cfb5-virtues": {}
-          },
-          "Runes": {
-            "firebrand-firebrand": {},
-            "balthazar": {}
-          },
-          "Nourishment": {
-            "fishy-rice-bowl": {},
-            "cilantro-and-cured-meat-flatbread": {}
           },
           "Enhancement": {
             "toxic-focusing-crystal": {},
@@ -732,8 +732,19 @@ list:
   #   value: |-
   #     {
   #       "Runes": {
-  #           "balthazar": {}
+  #         "balthazar": {},
+  #         "renegade": {},
+  #         "berserker": {},
+  #         "trapper": {},
+  #         "nightmare": {},
+  #         "tempest": {},
+  #         "lich": {},
+  #         "weaver": {},
+  #         "baelfire": {},
+  #         "flame-legion-2": {},
+  #         "firebrand": {}
   #       },
+  #       "Relics": {},
   #       "Sigil1": {
   #           "bursting": {}
   #       },
@@ -753,11 +764,8 @@ list:
     value: |-
       {
         "extras": {
-          "Runes": {
-            "traveler": {},
-            "monk": {},
-            "leadership": {}
-          },
+          "Runes": {},
+          "Relics": {},
           "Sigil1": {
             "bursting": {},
             "concentration": {}
@@ -783,8 +791,18 @@ list:
       {
         "extras": {
           "Runes": {
-            "renegade": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
           },
+          "Relics": {},
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
@@ -805,8 +823,19 @@ list:
       {
         "extras": {
           "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {},
             "firebrand": {}
           },
+          "Relics": {},
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
@@ -828,6 +857,7 @@ list:
   #         "Runes": {
   #           "flame-legion": {}
   #         },
+  #       "Relics": {},
   #         "Sigil1": {
   #           "force": {}
   #         },
@@ -849,8 +879,18 @@ list:
       {
         "extras": {
           "Runes": {
-            "elementalist": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
           },
+          "Relics": {},
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
@@ -874,8 +914,18 @@ list:
             "bursting": {}
           },
           "Runes": {
-            "elementalist": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
           },
+          "Relics": {},
           "Nourishment": {
             "salsa-topped-veggie-flatbread": {}
           },
@@ -892,8 +942,18 @@ list:
       {
         "extras": {
           "Runes": {
-            "elementalist": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
           },
+          "Relics": {},
           "Sigil1": {
             "earth": {}
           },
@@ -919,8 +979,18 @@ list:
       {
         "extras": {
           "Runes": {
-            "elementalist": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
           },
+          "Relics": {},
           "Sigil1": {
             "earth": {}
           },
@@ -944,8 +1014,18 @@ list:
       {
         "extras": {
           "Runes": {
-            "flame-legion": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
           },
+          "Relics": {},
           "Sigil1": {
             "impact/night/slaying-both": {}
           },
@@ -967,8 +1047,18 @@ list:
       {
         "extras": {
           "Runes": {
-            "flame-legion": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -990,8 +1080,19 @@ list:
       {
         "extras": {
           "Runes": {
-            "flame-legion-2": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {},
+            "leadership": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -1019,9 +1120,18 @@ list:
       {
         "extras": {
           "Runes": {
-            "elementalist": {},
-            "baelfire": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -1045,8 +1155,18 @@ list:
       {
         "extras": {
           "Runes": {
-            "nightmare": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -1067,9 +1187,17 @@ list:
         "extras": {
           "Runes": {
             "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
             "eagle": {},
-            "thief": {}
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "firebrand": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1102,8 +1230,18 @@ list:
             "geomancy": {}
           },
           "Runes": {
-            "krait": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {},
+            "afflicted": {},
+            "thorns": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "plate-of-kimchi-pancakes": {}
@@ -1129,9 +1267,18 @@ list:
             "earth": {}
           },
           "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
             "krait": {},
+            "mad-king": {},
+            "afflicted": {},
             "thorns": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "bowl-of-kimchi-tofu-stew": {},
@@ -1156,8 +1303,16 @@ list:
             "bursting": {}
           },
           "Runes": {
-            "krait": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "plate-of-kimchi-pancakes": {},
@@ -1184,6 +1339,7 @@ list:
   #         "Runes": {
   #           "krait": {}
   #         },
+  #         "Relics": {},
   #         "Nourishment": {
   #           "salsa-topped-veggie-flatbread": {}
   #         },
@@ -1206,8 +1362,19 @@ list:
             "geomancy": {}
           },
           "Runes": {
-            "krait": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {},
+            "afflicted": {},
+            "thorns": {},
+            "leadership": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {}
           },
@@ -1223,8 +1390,15 @@ list:
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1249,8 +1423,18 @@ list:
       {
         "extras": {
           "Runes": {
-            "renegade": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
           },
+          "Relics": {},
           "Sigil1": {
             "malice": {}
           },
@@ -1272,8 +1456,15 @@ list:
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1298,8 +1489,19 @@ list:
       {
         "extras": {
           "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {},
             "firebrand": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -1326,9 +1528,16 @@ list:
           "Sigil1": {},
           "Sigil2": {},
           "Runes": {
-            "leadership": {},
-            "nightmare": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "leadership": {}
           },
+          "Relics": {},
           "Nourishment": {
             "meaty-asparagus-skewer": {},
             "salsa-eggs-benedict": {},
@@ -1352,8 +1561,15 @@ list:
           "Sigil1": {},
           "Sigil2": {},
           "Runes": {
-            "nightmare": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "meaty-asparagus-skewer": {}
@@ -1371,8 +1587,18 @@ list:
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "firebrand": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1402,8 +1628,18 @@ list:
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "firebrand": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1427,8 +1663,18 @@ list:
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "leadership": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1456,10 +1702,16 @@ list:
       {
         "extras": {
           "Runes": {
+            "trapper": {},
+            "nightmare": {},
             "tempest": {},
-            "leadership": {},
-            "nightmare": {}
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "firebrand": {}
           },
+          "Relics": {},
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
@@ -1479,8 +1731,15 @@ list:
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1501,8 +1760,15 @@ list:
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1530,6 +1796,7 @@ list:
           "Runes": {
             "strength": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1552,6 +1819,7 @@ list:
           "Runes": {
             "strength": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1576,6 +1844,7 @@ list:
           "Runes": {
             "strength": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1600,8 +1869,18 @@ list:
       {
         "extras": {
           "Runes": {
-            "elementalist": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -1618,38 +1897,21 @@ list:
         "lifestealAmount": "3.4"
       }
 
-  - name: Condi Alac Mechanist (inaccurate)
-    profession: Mechanist
-    value: |-
-      {
-        "extras": {
-          "Runes": {
-            "aristocracy": {}
-          },
-          "Sigil1": {
-            "bursting": {}
-          },
-          "Sigil2": {
-            "malice": {}
-          },
-          "Enhancement": {
-            "toxic-maintenance-oil": {}
-          },
-          "Nourishment": {
-            "cilantro-and-cured-meat-flatbread": {}
-          }
-        },
-        "lifestealAmount": ""
-      }
-
   - name: DPS Scourge
     profession: Scourge
     value: |-
       {
         "extras": {
           "Runes": {
-            "nightmare": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -1675,8 +1937,16 @@ list:
       {
         "extras": {
           "Runes": {
-            "krait": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {}
           },
+          "Relics": {},
           "Sigil1": {},
           "Sigil2": {},
           "Enhancement": {
@@ -1705,9 +1975,16 @@ list:
             }
           },
           "Runes": {
+            "trapper": {},
             "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {},
             "tormenting": {}
           },
+          "Relics": {},
           "Nourishment": {
             "meaty-asparagus-skewer": {},
             "cilantro-and-cured-meat-flatbread": {}
@@ -1735,9 +2012,17 @@ list:
             "geomancy-torment-cwb-alac": {}
           },
           "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
             "tormenting": {},
-            "nightmare": {}
+            "firebrand": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "salsa-topped-veggie-flatbread": {},
@@ -1757,8 +2042,18 @@ list:
       {
         "extras": {
           "Runes": {
-            "nightmare": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {},
+            "afflicted": {},
+            "thorns": {}
           },
+          "Relics": {},
           "Sigil1": {
             "bursting": {}
           },
@@ -1778,8 +2073,15 @@ list:
       {
         "extras": {
           "Runes": {
-            "scholar": {}
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1803,9 +2105,18 @@ list:
       {
         "extras": {
           "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
             "eagle": {},
-            "thief": {}
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "firebrand": {}
           },
+          "Relics": {},
           "Sigil1": {
             "force": {}
           },
@@ -1837,9 +2148,18 @@ list:
             "doom": {}
           },
           "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {},
             "afflicted": {},
-            "krait-no-elite": {}
+            "thorns": {}
           },
+          "Relics": {},
           "Nourishment": {
             "cilantro-and-cured-meat-flatbread": {},
             "plate-of-kimchi-pancakes": {},
@@ -1858,8 +2178,19 @@ list:
       {
         "extras": {
           "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {},
+            "afflicted": {},
+            "thorns": {},
             "firebrand": {}
           },
+          "Relics": {},
           "Sigil1": {
             "concentration": {}
           },
@@ -1893,8 +2224,16 @@ list:
             "bursting": {}
           },
           "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {},
             "tormenting": {}
           },
+          "Relics": {},
           "Nourishment": {
             "bowl-of-kimchi-tofu-stew": {},
             "cilantro-and-cured-meat-flatbread": {}
@@ -1925,9 +2264,16 @@ list:
             }
           },
           "Runes": {
-            "tormenting": {},
-            "scavenging": {}
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {},
+            "tormenting": {}
           },
+          "Relics": {},
           "Nourishment": {
             "bowl-of-kimchi-tofu-stew": {},
             "cilantro-and-cured-meat-flatbread": {},
@@ -1940,7 +2286,6 @@ list:
         "lifestealAmount": "3.5"
       }
 
-  # credit to Boz in SC discord for the scavenging idea!
   - name: Alacrity Specter
     profession: Specter
     value: |-
@@ -1969,10 +2314,17 @@ list:
             "demons": {}
           },
           "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
             "renegade": {},
-            "scavenging": {},
+            "berserker": {},
+            "weaver": {},
+            "tormenting": {},
             "leadership": {}
           },
+          "Relics": {},
           "Nourishment": {
             "salsa-eggs-benedict": {},
             "meaty-asparagus-skewer": {},

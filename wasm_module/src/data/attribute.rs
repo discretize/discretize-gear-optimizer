@@ -2,8 +2,8 @@ use enum_iterator::Sequence;
 use serde_repr::{Deserialize_repr, Serialize_repr};
 use std::fmt;
 
-// align to 64 bytes = 4 attributes per cache line
-pub const ATTRIBUTE_COUNT: usize = 96; // actually only 95 attributes, but we need to align to 64 bytes;
+// align to 64 bytes = 2 attributes per cache line
+pub const ATTRIBUTE_COUNT: usize = 104;
 
 #[derive(Debug, Sequence, Serialize_repr, Deserialize_repr, Default, Clone, Copy)]
 #[repr(u8)]
@@ -60,12 +60,12 @@ pub enum Attribute {
     ConfusionCoefficient,
     PoisonCoefficient,
     TormentCoefficient,
-    // condition damage
-    BleedingDamage,
-    BurningDamage,
-    ConfusionDamage,
-    PoisonDamage,
-    TormentDamage,
+    // condition damage tick
+    BleedingDamageTick,
+    BurningDamageTick,
+    ConfusionDamageTick,
+    PoisonDamageTick,
+    TormentDamageTick,
     // effective attributes
     EffectivePower,
     EffectiveHealth,
@@ -93,23 +93,17 @@ pub enum Attribute {
     AltCriticalChance,
     AltEffectivePower,
     AltCriticalDamage,
-    AltDamage,
     // profession specific
     CloneCriticalChance,
     PhantasmCriticalChance,
-    PhantasmDamage,
     PhantasmCriticalDamage,
     PhantasmEffectivePower,
     SiphonBaseCoefficient,
     SiphonDPS,
-    SiphonDamage,
 
     // misc
-    StrikeDamage,
     MaxHealth,
     OutgoingHealing,
-    AllDamage,
-    DamageTaken,
     DamageReduction,
     PowerCoefficient,
     NonCritPowerCoefficient,
@@ -118,6 +112,25 @@ pub enum Attribute {
     Power2Coefficient,
     FlatDPS,
     PowerDPS,
+
+    // damage
+    OutgoingStrikeDamage,
+    OutgoingConditionDamage,
+    OutgoingSiphonDamage,
+    IncomingStrikeDamage,
+    OutgoingCriticalDamage,
+    OutgoingBleedingDamage,
+    OutgoingBurningDamage,
+    OutgoingConfusionDamage,
+    OutgoingPoisonDamage,
+    OutgoingTormentDamage,
+    OutgoingAltDamage,
+    OutgoingAltCriticalDamage,
+    OutgoingPhantasmDamage,
+    OutgoingPhantasmCriticalDamage,
+
+    OutgoingAllDamage,
+
     #[default]
     None = 255,
 }
@@ -145,20 +158,17 @@ impl Attribute {
         }
     }
 
-    pub fn is_alternative(&self) -> bool {
+    pub fn is_alternative_point(&self) -> bool {
         match self {
             Attribute::AltPower => true,
             Attribute::AltPrecision => true,
             Attribute::AltFerocity => true,
-            Attribute::AltCriticalChance => true,
-            Attribute::AltEffectivePower => true,
-            Attribute::AltCriticalDamage => true,
             _ => false,
         }
     }
 
     pub fn is_point_key(&self) -> bool {
-        return self.is_primary() || self.is_secondary() || self.is_alternative();
+        return self.is_primary() || self.is_secondary() || self.is_alternative_point();
     }
 
     pub fn to_stringg(&self) -> &str {
@@ -209,11 +219,11 @@ impl Attribute {
             Attribute::ConfusionCoefficient => "Confusion Coefficient",
             Attribute::PoisonCoefficient => "Poison Coefficient",
             Attribute::TormentCoefficient => "Torment Coefficient",
-            Attribute::BleedingDamage => "Bleeding Damage",
-            Attribute::BurningDamage => "Burning Damage",
-            Attribute::ConfusionDamage => "Confusion Damage",
-            Attribute::PoisonDamage => "Poison Damage",
-            Attribute::TormentDamage => "Torment Damage",
+            Attribute::BleedingDamageTick => "Bleeding Damage Tick",
+            Attribute::BurningDamageTick => "Burning Damage Tick",
+            Attribute::ConfusionDamageTick => "Confusion Damage Tick",
+            Attribute::PoisonDamageTick => "Poison Damage Tick",
+            Attribute::TormentDamageTick => "Torment Damage Tick",
             Attribute::EffectivePower => "Effective Power",
             Attribute::EffectiveHealth => "Effective Health",
             Attribute::EffectiveHealing => "Effective Healing",
@@ -223,19 +233,13 @@ impl Attribute {
             Attribute::AltCriticalChance => "Alt Critical Chance",
             Attribute::AltEffectivePower => "Alt Effective Power",
             Attribute::AltCriticalDamage => "Alt Critical Damage",
-            Attribute::AltDamage => "Alt Damage",
             Attribute::CloneCriticalChance => "Clone Critical Chance",
             Attribute::PhantasmCriticalChance => "Phantasm Critical Chance",
-            Attribute::PhantasmDamage => "Phantasm Damage",
             Attribute::PhantasmCriticalDamage => "Phantasm Critical Damage",
             Attribute::SiphonBaseCoefficient => "Siphon Base Coefficient",
             Attribute::SiphonDPS => "Siphon DPS",
-            Attribute::SiphonDamage => "Siphon Damage",
-            Attribute::StrikeDamage => "Strike Damage",
             Attribute::MaxHealth => "Max Health",
             Attribute::OutgoingHealing => "Outgoing Healing",
-            Attribute::AllDamage => "All Damage",
-            Attribute::DamageTaken => "Damage Taken",
             Attribute::DamageReduction => "Damage Reduction",
             Attribute::PowerCoefficient => "Power Coefficient",
             Attribute::NonCritPowerCoefficient => "Non Crit Power Coefficient",
@@ -259,6 +263,23 @@ impl Attribute {
             Attribute::PoisonDPS => "Poison DPS",
             Attribute::TormentDPS => "Torment DPS",
             Attribute::PhantasmEffectivePower => "Phantasm Effective Power",
+
+            Attribute::OutgoingStrikeDamage => "Outgoing Strike Damage",
+            Attribute::OutgoingConditionDamage => "Outgoing Condition Damage",
+            Attribute::OutgoingSiphonDamage => "Outgoing Siphon Damage",
+            Attribute::IncomingStrikeDamage => "Incoming Strike Damage",
+            Attribute::OutgoingCriticalDamage => "Outgoing Critical Damage",
+            Attribute::OutgoingBleedingDamage => "Outgoing Bleeding Damage",
+            Attribute::OutgoingBurningDamage => "Outgoing Burning Damage",
+            Attribute::OutgoingConfusionDamage => "Outgoing Confusion Damage",
+            Attribute::OutgoingPoisonDamage => "Outgoing Poison Damage",
+            Attribute::OutgoingTormentDamage => "Outgoing Torment Damage",
+            Attribute::OutgoingAltDamage => "Outgoing Alt Damage",
+            Attribute::OutgoingAltCriticalDamage => "Outgoing Alt Critical Damage",
+            Attribute::OutgoingPhantasmDamage => "Outgoing Phantasm Damage",
+            Attribute::OutgoingPhantasmCriticalDamage => "Outgoing Phantasm Critical Damage",
+
+            Attribute::OutgoingAllDamage => "Outgoing All Damage",
         }
     }
 

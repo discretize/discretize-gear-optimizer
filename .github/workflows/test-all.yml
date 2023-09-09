@@ -1,4 +1,4 @@
-name: Check PR
+name: 'Test: All Tests'
 
 on:
   workflow_dispatch:
@@ -35,11 +35,8 @@ jobs:
         run: yarn install --frozen-lockfile
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
 
-      - name: Test modifiers
-        run: yarn testModifiers
-
-      - name: Test presets
-        run: yarn testPresets
+      - name: Test modifier and preset data
+        run: yarn testData
 
       - name: Lint with ESLint
         run: yarn eslint

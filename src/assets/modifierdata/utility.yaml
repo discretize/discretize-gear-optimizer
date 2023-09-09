@@ -6,7 +6,7 @@
       textOverride: Slaying Potion
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
           Damage Reduction: [10%, unknown]
       gw2id: 50082
       priceIds: []

@@ -29,7 +29,6 @@ import {
 import type {
   AffixData,
   AffixName,
-  ConditionName,
   ForcedSlotName,
   IndicatorName,
   InfusionName,
@@ -43,6 +42,7 @@ import {
   conditionData,
   ForcedSlots,
   Slots,
+  damagingConditions,
 } from '../../utils/gw2-data';
 import {
   enumArrayIncludes,
@@ -93,20 +93,20 @@ export interface Combination {
 }
 
 type MultiplierName =
-  | 'Strike Damage'
-  | 'Condition Damage'
-  | 'Siphon Damage'
-  | 'Damage Taken'
-  | 'Critical Damage'
-  | 'Bleeding Damage'
-  | 'Burning Damage'
-  | 'Confusion Damage'
-  | 'Poison Damage'
-  | 'Torment Damage'
-  | 'Alternative Damage'
-  | 'Alternative Critical Damage'
-  | 'Phantasm Damage'
-  | 'Phantasm Critical Damage';
+  | 'Outgoing Strike Damage'
+  | 'Outgoing Condition Damage'
+  | 'Outgoing Siphon Damage'
+  | 'Incoming Strike Damage'
+  | 'Outgoing Critical Damage'
+  | 'Outgoing Bleeding Damage'
+  | 'Outgoing Burning Damage'
+  | 'Outgoing Confusion Damage'
+  | 'Outgoing Poison Damage'
+  | 'Outgoing Torment Damage'
+  | 'Outgoing Alternative Damage'
+  | 'Outgoing Alternative Critical Damage'
+  | 'Outgoing Phantasm Damage'
+  | 'Outgoing Phantasm Critical Damage';
 
 export interface AppliedModifier {
   id: string;
@@ -364,20 +364,20 @@ export function setupCombinations(reduxState: any) {
       convertAfterBuffs: {},
     };
     const initialMultipliers: Record<MultiplierName, number> = {
-      'Strike Damage': 1,
-      'Condition Damage': 1,
-      'Siphon Damage': 1,
-      'Damage Taken': 1,
-      'Critical Damage': 1,
-      'Bleeding Damage': 1,
-      'Burning Damage': 1,
-      'Confusion Damage': 1,
-      'Poison Damage': 1,
-      'Torment Damage': 1,
-      'Alternative Damage': 1,
-      'Alternative Critical Damage': 1,
-      'Phantasm Damage': 1,
-      'Phantasm Critical Damage': 1,
+      'Outgoing Strike Damage': 1,
+      'Outgoing Condition Damage': 1,
+      'Outgoing Siphon Damage': 1,
+      'Incoming Strike Damage': 1,
+      'Outgoing Critical Damage': 1,
+      'Outgoing Bleeding Damage': 1,
+      'Outgoing Burning Damage': 1,
+      'Outgoing Confusion Damage': 1,
+      'Outgoing Poison Damage': 1,
+      'Outgoing Torment Damage': 1,
+      'Outgoing Alternative Damage': 1,
+      'Outgoing Alternative Critical Damage': 1,
+      'Outgoing Phantasm Damage': 1,
+      'Outgoing Phantasm Critical Damage': 1,
     };
     const allDmgMult = {
       mult: { ...initialMultipliers },
@@ -448,7 +448,7 @@ export function setupCombinations(reduxState: any) {
 
       for (const [attribute, allPairs] of Object.entries(damage) as [DamageKey, DamageValue][]) {
         // damage, i.e.
-        //   Strike Damage: [3%, add, 7%, mult]
+        //   Outgoing Strike Damage: [3%, add, 7%, mult]
 
         const allPairsMut = [...allPairs];
         while (allPairsMut.length) {
@@ -458,37 +458,37 @@ export function setupCombinations(reduxState: any) {
           const scaledAmount = scaleValue(parsePercent(percentAmount), amountInput, amountData);
 
           switch (attribute) {
-            case 'Strike Damage':
-            case 'Condition Damage':
-            case 'Bleeding Damage':
-            case 'Burning Damage':
-            case 'Confusion Damage':
-            case 'Poison Damage':
-            case 'Torment Damage':
-            case 'Alternative Damage':
-            case 'Phantasm Damage':
+            case 'Outgoing Strike Damage':
+            case 'Outgoing Condition Damage':
+            case 'Outgoing Bleeding Damage':
+            case 'Outgoing Burning Damage':
+            case 'Outgoing Confusion Damage':
+            case 'Outgoing Poison Damage':
+            case 'Outgoing Torment Damage':
+            case 'Outgoing Alternative Damage':
+            case 'Outgoing Phantasm Damage':
               dmgBuff(attribute, scaledAmount, addOrMult);
               break;
-            case 'All Damage':
-              dmgBuff('Strike Damage', scaledAmount, addOrMult);
-              dmgBuff('Condition Damage', scaledAmount, addOrMult);
-              dmgBuff('Siphon Damage', scaledAmount, addOrMult);
+            case 'Outgoing All Damage':
+              dmgBuff('Outgoing Strike Damage', scaledAmount, addOrMult);
+              dmgBuff('Outgoing Condition Damage', scaledAmount, addOrMult);
+              dmgBuff('Outgoing Siphon Damage', scaledAmount, addOrMult);
               break;
             case 'Damage Reduction':
               const negativeAmount = -scaledAmount;
-              dmgBuff('Damage Taken', negativeAmount, addOrMult);
+              dmgBuff('Incoming Strike Damage', negativeAmount, addOrMult);
               break;
-            case 'Critical Damage':
+            case 'Outgoing Critical Damage':
               // assuming multiplicative until someone tests  twin fangs + ferocious strikes
-              dmgBuff('Critical Damage', scaledAmount, 'mult');
+              dmgBuff('Outgoing Critical Damage', scaledAmount, 'mult');
               break;
-            case 'Alternative Critical Damage':
+            case 'Outgoing Alternative Critical Damage':
               // as of this comment, this is only death perception
-              dmgBuff('Alternative Critical Damage', scaledAmount, 'mult');
+              dmgBuff('Outgoing Alternative Critical Damage', scaledAmount, 'mult');
               break;
-            case 'Phantasm Critical Damage':
+            case 'Outgoing Phantasm Critical Damage':
               // currently unused as far as I know
-              dmgBuff('Phantasm Critical Damage', scaledAmount, 'mult');
+              dmgBuff('Outgoing Phantasm Critical Damage', scaledAmount, 'mult');
               break;
 
             default:
@@ -642,13 +642,12 @@ export function setupCombinations(reduxState: any) {
 
     /* Relevant Conditions + Condi Caching Toggle */
 
-    const settings_relevantConditions: OptimizerCoreSettings['relevantConditions'] = (
-      Object.keys(conditionData) as ConditionName[]
-    ).filter(
-      (condition) =>
-        (settings_baseAttributes[`${condition} Coefficient`] ?? 0) > 0 ||
-        extraRelevantConditions[condition],
-    );
+    const settings_relevantConditions: OptimizerCoreSettings['relevantConditions'] =
+      damagingConditions.filter(
+        (condition) =>
+          (settings_baseAttributes[`${condition} Coefficient`] ?? 0) > 0 ||
+          extraRelevantConditions[condition],
+      );
 
     // if any condition coefficnents are the result of a conversion, the same cdmg + expertise does
     // not mean the same condition dps; disable caching if so

@@ -1,6 +1,4 @@
-
-  
-name: 'Build and Deploy - pullrequest CF'
+name: 'Deploy: Cloudflare PR Preview'
 on:
   pull_request:
     types: [opened, reopened, synchronize, ready_for_review]

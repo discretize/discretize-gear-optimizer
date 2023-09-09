@@ -6,6 +6,7 @@ import Guardian from './guardian.yaml';
 import Mesmer from './mesmer.yaml';
 import Necromancer from './necromancer.yaml';
 import Ranger from './ranger.yaml';
+import relics from './relics.yaml';
 import Revenant from './revenant.yaml';
 import runes from './runes.yaml';
 import sigils from './sigils.yaml';
@@ -49,6 +50,7 @@ export const extrasModifiers = {
   food,
   utility,
   runes,
+  relics,
   sigils,
 };
 export const allExtrasModifiersById = allById(extrasModifiers);

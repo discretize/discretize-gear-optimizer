@@ -45,6 +45,13 @@ const Extras = () => {
         modifierDataById={allExtrasModifiersById}
       />
       <ExtraSelection
+        type="Relics"
+        text={t('Relics')}
+        label={<Item id={100916} disableLink disableTooltip text={t('Relics')} />}
+        modifierData={extrasModifiers.relics}
+        modifierDataById={allExtrasModifiersById}
+      />
+      <ExtraSelection
         type="Nourishment"
         text={t('Nourishment')}
         label={<ConsumableEffect disableLink name="Nourishment" text={t('Nourishment')} />}

@@ -43,7 +43,7 @@ const formatCharacterData = async (character) => {
     // trait_ids: allTraits,
   };
 
-  const { Sigils, Runes, Nourishment, Enhancement } = extrasCombination;
+  const { Sigils, Runes, Relics, Nourishment, Enhancement } = extrasCombination;
 
   const specificConditionDurations = Object.fromEntries(
     damagingConditions.map((name) => {
@@ -54,7 +54,7 @@ const formatCharacterData = async (character) => {
     }),
   );
 
-  const critDmg = attributes['Critical Damage'] * damageMultiplier['Critical Damage'];
+  const critDmg = attributes['Critical Damage'] * damageMultiplier['Outgoing Critical Damage'];
 
   const toLowerSnakeCaseAttr = (str) => str.replaceAll(' ', '_').toLowerCase();
 
@@ -95,6 +95,7 @@ const formatCharacterData = async (character) => {
     ...formattedTraits,
     sigils: getModifierInfo(Sigils),
     rune: getModifierInfo(Runes),
+    relic: getModifierInfo(Relics),
     nourishment: getModifierInfo(Nourishment),
     enhancement: getModifierInfo(Enhancement),
     attributes: formattedGearStats,

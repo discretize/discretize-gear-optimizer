@@ -129,10 +129,10 @@
       subText: melee, not accurate
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       wvwModifiers:
         damage:
-          Strike Damage: [5%, mult]
+          Outgoing Strike Damage: [5%, mult]
       gw2id: 1000
       defaultEnabled: true
 
@@ -141,10 +141,10 @@
       subText: ranged, not accurate
       modifiers:
         damage:
-          Strike Damage: [25%, mult]
+          Outgoing Strike Damage: [25%, mult]
       wvwModifiers:
         damage:
-          Strike Damage: [15%, mult]
+          Outgoing Strike Damage: [15%, mult]
       gw2id: 1000
       defaultEnabled: false
 
@@ -157,7 +157,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [15%, mult]
+          Outgoing Strike Damage: [15%, mult]
       gw2id: 996
       defaultEnabled: true
 
@@ -183,7 +183,7 @@
       text: Hidden Barbs
       modifiers:
         damage:
-          Bleeding Damage: [33%, unknown]
+          Outgoing Bleeding Damage: [33%, unknown]
       gw2id: 1846
       defaultEnabled: true
 
@@ -192,12 +192,12 @@
       subText: 100% flanking
       modifiers:
         damage:
-          Strike Damage: [15%, mult]
+          Outgoing Strike Damage: [15%, mult]
         attributes:
           Critical Chance: 10%
       wvwModifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
         attributes:
           Critical Chance: 10%
       minor: true
@@ -209,7 +209,7 @@
       subText: 100% uptime
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
         attributes:
           Condition Duration: 10%
       gw2id: 1912
@@ -303,7 +303,7 @@
       text: Poison Master
       modifiers:
         damage:
-          Poison Damage: [25%, unknown]
+          Outgoing Poison Damage: [25%, unknown]
       gw2id: 1701
       defaultEnabled: true
 
@@ -319,7 +319,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [1%, mult]
+          Outgoing Strike Damage: [1%, mult]
       gw2id: 1062
       defaultEnabled: true
 
@@ -391,7 +391,7 @@
       subText: 100% uptime
       modifiers:
         damage:
-          Condition Damage: [10%, add] # unconfirmed
+          Outgoing Condition Damage: [10%, add] # unconfirmed
         attributes:
           Condition Duration: 10%
       gw2id: 2056
@@ -411,10 +411,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [15%, add]
+          Outgoing Strike Damage: [15%, add]
       wvwModifiers:
         damage:
-          Strike Damage: [7%, add]
+          Outgoing Strike Damage: [7%, add]
       minor: true
       gw2id: 2156
       defaultEnabled: true
@@ -427,12 +427,12 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, add]
-          Condition Damage: [10%, add]
+          Outgoing Strike Damage: [10%, add]
+          Outgoing Condition Damage: [10%, add]
       wvwModifiers:
         damage:
-          Strike Damage: [5%, add]
-          Condition Damage: [5%, add]
+          Outgoing Strike Damage: [5%, add]
+          Outgoing Condition Damage: [5%, add]
       minor: true
       gw2id: 2127
       defaultEnabled: true
@@ -442,7 +442,7 @@
       subText: 100% uptime
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
         attributes:
           Condition Duration: 10%
       gw2id: 2143
@@ -537,7 +537,7 @@
       subText: merged
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       minor: true
       gw2id: 974
       defaultEnabled: false
@@ -586,10 +586,10 @@
       subText: player unleashed
       modifiers:
         damage:
-          Strike Damage: [25%, unknown]
+          Outgoing Strike Damage: [25%, unknown]
       wvwModifiers:
         damage:
-          Strike Damage: [15%, unknown]
+          Outgoing Strike Damage: [15%, unknown]
       minor: true
       gw2id: 2269
       defaultEnabled: true
@@ -615,9 +615,9 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [4%, unknown]
+          Outgoing Strike Damage: [5%, unknown]
       wvwModifiers:
         damage:
-          Strike Damage: [3%, unknown]
+          Outgoing Strike Damage: [3%, unknown]
       gw2id: 2274
       defaultEnabled: true

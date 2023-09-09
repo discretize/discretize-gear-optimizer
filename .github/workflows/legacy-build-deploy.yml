@@ -1,4 +1,4 @@
-name: '[Old] build and deploy'
+name: '[Legacy] Deploy: AWS'
 
 on:
   push:

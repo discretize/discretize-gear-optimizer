@@ -26,12 +26,10 @@ const IndexPage = () => {
 
   const ALERTS = [
     <Trans>
-      Core game changes are updated for the July 18th game patch, but preset coefficients and trait
-      selections may not yet be completely updated. Most gear results will be correctly optimized,
-      but DPS estimates and comparisons may be wrong.
+      🎉 Secrets of the Obscure has been released! 🎉
       <br />
-      <br />
-      Templates not marked as Outdated are expected to be up to date.
+      Core game changes are updated for the patch, but relics are a work in progress and templates
+      are not updated at all. Proceed with caution!
     </Trans>,
     <Trans>
       The gear optimizer is still being developed! Please report issues or suggest improvements in

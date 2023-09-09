@@ -1,0 +1,199 @@
+
+
+power DPS
+
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {}
+          },
+
+power boon 
+
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "leadership": {}
+          },
+
+power boon quickness
+
+          "Runes": {
+            "scholar": {},
+            "dragonhunter": {},
+            "golemancer": {},
+            "deadeye": {},
+            "eagle": {},
+            "infiltration": {},
+            "ranger": {},
+            "pack": {},
+            "fireworks": {},
+            "firebrand": {}
+          },
+
+condi, does burning
+
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {}
+          },
+
+condi quickness, does burning
+
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {},
+            "firebrand": {}
+          },
+
+condi alacrity, does burning
+
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "balthazar": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "baelfire": {},
+            "flame-legion-2": {},
+            "leadership": {}
+          },
+
+condi, does bleeding and poison 
+
+
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {},
+            "afflicted": {},
+            "thorns": {}
+          },
+
+condi, does bleeding 
+
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "krait": {},
+            "mad-king": {}
+          },
+
+
+condi, does torment
+
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {},
+            "tormenting": {}
+          },
+
+condi alacrity, does torment
+
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "tormenting": {},
+            "leadership": {}
+          },
+
+condi quickness, does torment
+
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "tormenting": {},
+            "firebrand": {}
+          },
+
+condi, does a bunch
+
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "weaver": {},
+            "berserker": {},
+            "renegade": {}
+          },
+
+condi alacrity, does a bunch
+
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "leadership": {}
+          },
+
+condi quickness, does a bunch
+
+          "Runes": {
+            "trapper": {},
+            "nightmare": {},
+            "tempest": {},
+            "lich": {},
+            "renegade": {},
+            "berserker": {},
+            "weaver": {},
+            "firebrand": {}
+          },

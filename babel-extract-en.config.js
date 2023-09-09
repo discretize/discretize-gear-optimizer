@@ -31,6 +31,7 @@ const professions = {
 const extra = {
   sigils: YAML.load(fs.readFileSync('./src/assets/modifierdata/sigils.yaml', 'utf8')),
   runes: YAML.load(fs.readFileSync('./src/assets/modifierdata/runes.yaml', 'utf8')),
+  relics: YAML.load(fs.readFileSync('./src/assets/modifierdata/relics.yaml', 'utf8')),
   food: YAML.load(fs.readFileSync('./src/assets/modifierdata/food.yaml', 'utf8')),
   utility: YAML.load(fs.readFileSync('./src/assets/modifierdata/utility.yaml', 'utf8')),
 };

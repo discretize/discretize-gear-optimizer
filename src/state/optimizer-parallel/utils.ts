@@ -2,8 +2,16 @@ import {
   Affix,
   AffixName,
   AttributeName,
-  Attributes,
-  ConditionName,
+  BoonDurationAttributes,
+  ConditionCoefficientAttributes,
+  ConditionDurationAttributes,
+  ConditionTickAttributes,
+  DamagingConditionName,
+  DerivedAttributes,
+  EffectiveAttributes,
+  Indicators,
+  PrimaryAttributes,
+  SecondaryAttributes,
   WeaponTypes,
   damagingConditions,
 } from '../../utils/gw2-data';
@@ -11,7 +19,16 @@ import { getExtrasIds } from '../slices/extras';
 import { Combination, Settings } from './optimizerSetup';
 
 const attributes = [
-  ...Object.values(Attributes).flat(1),
+  ...PrimaryAttributes,
+  ...SecondaryAttributes,
+  ...DerivedAttributes,
+  ...BoonDurationAttributes,
+  ...ConditionDurationAttributes,
+  ...ConditionCoefficientAttributes,
+  ...ConditionTickAttributes,
+  ...EffectiveAttributes,
+  ...Indicators,
+
   'Bleeding Stacks',
   'Burning Stacks',
   'Confusion Stacks',
@@ -30,24 +47,18 @@ const attributes = [
   'Alternative Critical Chance',
   'Alternative Effective Power',
   'Alternative Critical Damage',
-  'Alternative Damage',
 
   // profession specific
   'Clone Critical Chance',
   'Phantasm Critical Chance',
-  'Phantasm Damage',
   'Phantasm Critical Damage',
   'Phantasm Effective Power',
   'Siphon Base Coefficient',
   'Siphon DPS',
-  'Siphon Damage',
 
   // misc
-  'Strike Damage',
   'Maximum Health',
   'Outgoing Healing',
-  'All Damage',
-  'Damage Taken',
   'Damage Reduction',
   'Power Coefficient',
   'NonCrit Power Coefficient',
@@ -56,12 +67,25 @@ const attributes = [
   'Power2 Coefficient',
   'Flat DPS',
   'Power DPS',
+
+  // damage
+  'Outgoing Strike Damage',
+  'Outgoing Condition Damage',
+  'Outgoing Siphon Damage',
+  'Incoming Strike Damage',
+  'Outgoing Critical Damage',
+  'Outgoing Bleeding Damage',
+  'Outgoing Burning Damage',
+  'Outgoing Confusion Damage',
+  'Outgoing Poison Damage',
+  'Outgoing Torment Damage',
+  'Outgoing Alternative Damage',
+  'Outgoing Alternative Critical Damage',
+  'Outgoing Phantasm Damage',
+  'Outgoing Phantasm Critical Damage',
+
+  'Outgoing All Damage',
 ];
-attributes[41] = 'Bleeding Coefficient';
-attributes[42] = 'Burning Coefficient';
-attributes[43] = 'Confusion Coefficient';
-attributes[44] = 'Poison Coefficient';
-attributes[45] = 'Torment Coefficient';
 
 export const getAffixId = (affix: AffixName) => {
   const index = Object.keys(Affix).indexOf(affix as string);
@@ -84,7 +108,7 @@ export const getAttributeId = (attribute: AttributeName) => {
 export const getWeaponTypeId = (weaponType: string) =>
   Object.values(WeaponTypes).indexOf(weaponType);
 export const getConditionId = (condition: string) =>
-  Object.values(damagingConditions).indexOf(condition as ConditionName);
+  Object.values(damagingConditions).indexOf(condition as DamagingConditionName);
 
 export const getAttributeName = (attributeId: number) => {
   // corresponds to gw2data.rs -> Attribute enum. must have same order

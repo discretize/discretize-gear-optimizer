@@ -434,18 +434,19 @@ pub fn calc_power(
     let mods = &combination.modifiers;
 
     let crit_dmg = attributes.get_a(Attribute::CriticalDamage)
-        * mods.get_dmg_multiplier(Attribute::CriticalDamage);
+        * mods.get_dmg_multiplier(Attribute::OutgoingCriticalDamage);
     let crit_chance = clamp(attributes.get_a(Attribute::CriticalChance), 0.0, 1.0);
 
     attributes.set_a(
         Attribute::EffectivePower,
         attributes.get_a(Attribute::Power)
             * (1.0 + crit_chance * (crit_dmg - 1.0))
-            * mods.get_dmg_multiplier(Attribute::StrikeDamage),
+            * mods.get_dmg_multiplier(Attribute::OutgoingStrikeDamage),
     );
     attributes.set_a(
         Attribute::NonCritEffectivePower,
-        attributes.get_a(Attribute::Power) * mods.get_dmg_multiplier(Attribute::StrikeDamage),
+        attributes.get_a(Attribute::Power)
+            * mods.get_dmg_multiplier(Attribute::OutgoingStrikeDamage),
     );
 
     // 2597: standard enemy armor value, also used for ingame damage tooltips
@@ -460,7 +461,7 @@ pub fn calc_power(
         // do stuff
         if settings.profession.eq("Mesmer") {
             let phantasm_crit_dmg = attributes.get_a(Attribute::PhantasmCriticalDamage)
-                * mods.get_dmg_multiplier(Attribute::PhantasmCriticalDamage);
+                * mods.get_dmg_multiplier(Attribute::OutgoingPhantasmCriticalDamage);
             let phantasm_crit_chance = clamp(
                 attributes.get_a(Attribute::PhantasmCriticalChance),
                 0.0,
@@ -471,7 +472,7 @@ pub fn calc_power(
                 Attribute::PhantasmEffectivePower,
                 attributes.get_a(Attribute::Power)
                     * (1.0 + phantasm_crit_chance * (phantasm_crit_dmg - 1.0))
-                    * mods.get_dmg_multiplier(Attribute::PhantasmDamage),
+                    * mods.get_dmg_multiplier(Attribute::OutgoingPhantasmDamage),
             );
 
             let phantasm_power_damage = (attributes.get_a(Attribute::Power2Coefficient) / 2597.0)
@@ -480,15 +481,15 @@ pub fn calc_power(
             power_damage += phantasm_power_damage;
         } else {
             let alt_crit_dmg = attributes.get_a(Attribute::AltCriticalDamage)
-                * mods.get_dmg_multiplier(Attribute::AltCriticalDamage);
+                * mods.get_dmg_multiplier(Attribute::OutgoingAltCriticalDamage);
             let alt_crit_chance = clamp(attributes.get_a(Attribute::AltCriticalChance), 0.0, 1.0);
 
             attributes.set_a(
                 Attribute::AltEffectivePower,
                 attributes.get_a(Attribute::AltPower)
                     * (1.0 + alt_crit_chance * (alt_crit_dmg - 1.0))
-                    * mods.get_dmg_multiplier(Attribute::StrikeDamage)
-                    * mods.get_dmg_multiplier(Attribute::AltDamage),
+                    * mods.get_dmg_multiplier(Attribute::OutgoingStrikeDamage)
+                    * mods.get_dmg_multiplier(Attribute::OutgoingAltDamage),
             );
 
             let alt_power_damage = (attributes.get_a(Attribute::Power2Coefficient) / 2597.0)
@@ -501,7 +502,7 @@ pub fn calc_power(
     }
 
     let siphon_damage = attributes.get_a(Attribute::SiphonBaseCoefficient)
-        * mods.get_dmg_multiplier(Attribute::SiphonDamage);
+        * mods.get_dmg_multiplier(Attribute::OutgoingSiphonDamage);
 
     attributes.set_a(Attribute::SiphonDPS, siphon_damage);
 
@@ -544,13 +545,13 @@ pub fn calc_condi(
     // iterate over all (relevant) conditions
     for condition in relevant_conditions.iter() {
         let cdmg = attributes.get_a(Attribute::ConditionDamage);
-        let mult = mods.get_dmg_multiplier(Attribute::ConditionDamage)
-            * mods.get_dmg_multiplier(condition.get_damage_attribute());
+        let mult = mods.get_dmg_multiplier(Attribute::OutgoingConditionDamage)
+            * mods.get_dmg_multiplier(condition.get_damage_mod_attribute());
 
         match condition {
             Condition::Confusion => {
                 attributes.set_a(
-                    Attribute::ConfusionDamage,
+                    Attribute::ConfusionDamageTick,
                     condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), false)
                         + condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), true)
                             * settings.attackRate,
@@ -558,7 +559,7 @@ pub fn calc_condi(
             }
             Condition::Torment => {
                 attributes.set_a(
-                    Attribute::TormentDamage,
+                    Attribute::TormentDamageTick,
                     condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), false)
                         * (1.0 - settings.movementUptime)
                         + condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), true)
@@ -566,7 +567,7 @@ pub fn calc_condi(
                 );
             }
             _ => attributes.set_a(
-                condition.get_damage_attribute(),
+                condition.get_damage_tick_attribute(),
                 condition_damage_tick(condition, cdmg, mult, settings.is_wvw(), false),
             ),
         }
@@ -584,8 +585,8 @@ pub fn calc_condi(
         let stacks = coeff * duration;
         attributes.set_a(condition.get_stacks_attribute(), stacks);
 
-        let dmgattr = attributes.get_a(condition.get_damage_attribute());
-        let dps = stacks * if dmgattr > 0.0 { dmgattr } else { 1.0 };
+        let tick_attr = attributes.get_a(condition.get_damage_tick_attribute());
+        let dps = stacks * if tick_attr > 0.0 { tick_attr } else { 1.0 };
         attributes.set_a(condition.get_dps_attribute(), dps);
 
         condi_damage_score += dps;
@@ -604,7 +605,7 @@ fn calc_survivability(character: &mut Character, combination: &Combination) {
         Attribute::EffectiveHealth,
         attributes.get_a(Attribute::Health)
             * attributes.get_a(Attribute::Armor)
-            * (1.0 / mods.get_dmg_multiplier(Attribute::DamageTaken)),
+            * (1.0 / mods.get_dmg_multiplier(Attribute::IncomingStrikeDamage)),
     );
 
     attributes.set_a(

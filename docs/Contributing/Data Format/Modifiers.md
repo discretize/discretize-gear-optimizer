@@ -2,7 +2,7 @@
 
 The data located in [/src/assets/modifierdata](../../../src/assets/modifierdata) specifies what effect each trait, passive-buffing skill, rune, sigil, food, utility, and buff has on your character.
 
-You can run `yarn testModifiers` in a clone of the repository to run the testModifiers.js script, which will check every YAML file in this folder for most possible mistakes or omissions. This script will be run automatically by GitHub when you push to a the source branch of an open pull request, including draft PRs, so don't worry if you don't want to set up NPM and Yarn just for this!
+You can run `yarn testData` in a clone of the repository to run the testData.js script, which will check every YAML file in this folder for most possible mistakes or omissions. This script will be run automatically by GitHub when you push to a the source branch of an open pull request, including draft PRs, so don't worry if you don't want to set up NPM and Yarn just for this!
 
 Note that this script is not perfect and may have bugs, so ask in Discord if something seems off or if you're not sure what the problem is!
 
@@ -29,9 +29,9 @@ Each class has a section for skills and a section for each traitline's traits. N
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
-          All Damage: [20%, add]
-          Critical Damage: [20%, unknown]
+          Outgoing Strike Damage: [10%, mult]
+          Outgoing All Damage: [20%, add]
+          Outgoing Critical Damage: [20%, unknown]
           Burning Damage: [33%, unknown]
         attributes:
           Ferocity: [100, converted]
@@ -70,17 +70,17 @@ Two 50% multiplicative modifiers combine like this: 1 + (0.50 + 0.50) = 2.00 => 
 
 **Keys:**
 
-- Strike Damage
-- Condition Damage
-- All Damage
+- Outgoing Strike Damage
+- Outgoing Condition Damage
+- Outgoing All Damage
 - Damage Reduction
 - Condition Damage Reduction
-- Critical Damage
-- Bleeding Damage
-- Burning Damage
-- Confusion Damage
-- Poison Damage
-- Torment Damage
+- Outgoing Critical Damage
+- Outgoing Bleeding Damage
+- Outgoing Burning Damage
+- Outgoing Confusion Damage
+- Outgoing Poison Damage
+- Outgoing Torment Damage
 
 (Note that the individual conditions' stacking modes don't currently matter, as I don't know of a way to have more than one.)
 
@@ -101,7 +101,7 @@ Use "add" for certain damage buffs that stack additively with each other.
 
 Use "target" for damage buffs that are the result of an effect not on the player but on the target (vulnerability + exposed), which stack additively with each other separately from the other category. Yep, GW2's math is weird.
 
-If an effect has both an additive and a multiplicative component, you can specify both with e.g. `Strike Damage: [3%, add, 7%, mult]`. Yep, the syntax is kinda bad, sorry.
+If an effect has both an additive and a multiplicative component, you can specify both with e.g. `Outgoing Strike Damage: [3%, add, 7%, mult]`. Yep, the syntax is kinda bad, sorry.
 
 ### attributes
 

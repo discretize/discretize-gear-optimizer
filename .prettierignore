@@ -17,3 +17,5 @@ install.bat
 *.iml
 
 .DS_Store
+
+wasm_module/pkg/

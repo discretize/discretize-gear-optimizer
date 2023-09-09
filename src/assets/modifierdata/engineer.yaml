@@ -20,7 +20,7 @@
       text: Force Signet
       modifiers:
         damage:
-          Strike Damage: [10%, add] # tested by Crone
+          Outgoing Strike Damage: [10%, add] # tested by Crone
       gw2id: 63253
 
     - id: force-signet-traited
@@ -28,14 +28,14 @@
       subText: traited
       modifiers:
         damage:
-          Strike Damage: [12%, add] # tested by Crone
+          Outgoing Strike Damage: [12%, add] # tested by Crone
       gw2id: 63253
 
     - id: superconducting-signet
       text: Superconducting Signet
       modifiers:
         damage:
-          Condition Damage: [10%, add] #unconfirmed
+          Outgoing Condition Damage: [10%, add] #unconfirmed
       gw2id: 63113
 
     - id: superconducting-signet-traited
@@ -43,7 +43,7 @@
       subText: traited
       modifiers:
         damage:
-          Condition Damage: [12%, add] #unconfirmed
+          Outgoing Condition Damage: [12%, add] #unconfirmed
       gw2id: 63113
 
 - section: Explosives
@@ -58,7 +58,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 1882
       defaultEnabled: true
 
@@ -91,7 +91,7 @@
         quantityEntered: 25
       modifiers:
         damage:
-          Strike Damage: [12.5%, mult]
+          Outgoing Strike Damage: [12.5%, mult]
       gw2id: 429
       defaultEnabled: true
 
@@ -100,10 +100,10 @@
       subText: 100%
       modifiers:
         damage:
-          Strike Damage: [15%, mult]
+          Outgoing Strike Damage: [15%, mult]
       wvwModifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 1947
       defaultEnabled: true
 
@@ -159,12 +159,12 @@
       text: Thermal Vision
       modifiers:
         damage:
-          Condition Damage: [5%, add]
+          Outgoing Condition Damage: [5%, add]
         attributes:
           Expertise: [150, converted]
       wvwModifiers:
         damage:
-          Condition Damage: [5%, add]
+          Outgoing Condition Damage: [5%, add]
         attributes:
           Expertise: [60, converted]
       gw2id: 2006
@@ -199,7 +199,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [2%, mult]
+          Outgoing Strike Damage: [2%, mult]
       gw2id: 526
       defaultEnabled: true
 
@@ -289,7 +289,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult] # tested by Crone
+          Outgoing Strike Damage: [10%, mult] # tested by Crone
       gw2id: 1832
       defaultEnabled: true
 
@@ -301,7 +301,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, add]
+          Outgoing Strike Damage: [10%, add]
       minor: true
       gw2id: 1936
       defaultEnabled: true
@@ -318,7 +318,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [5%, mult]
+          Outgoing Strike Damage: [5%, mult]
       gw2id: 1860
       defaultEnabled: true
 
@@ -364,7 +364,7 @@
         quantityEntered: 150
       modifiers:
         damage:
-          Strike Damage: [22.5%, mult] # 0.15 per 1 heat
+          Outgoing Strike Damage: [22.5%, mult] # 0.15 per 1 heat
       minor: true
       gw2id: 2122
       defaultEnabled: true

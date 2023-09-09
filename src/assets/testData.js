@@ -7,12 +7,26 @@ const fs = require('fs/promises');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const yaml = require('js-yaml');
 const path = require('path');
-const { requireTS } = require('../../utils/require-ts.js');
+const { requireTS } = require('../utils/require-ts.js');
 
-const { buffsDict, enhancementDict, nourishmentDict, runesDict, sigilDict } = requireTS(
-  path.join(__dirname, '../../components/url-state/schema/SchemaDicts.js'),
+const { templateTransform } = requireTS(path.join(__dirname, './presetdata/templateTransform.js'));
+
+// causes the script to fail if condition is false, but does not stop execution
+const gentleAssert = (condition, message) => {
+  if (!condition) {
+    console.error(`❌ ${message} ❌`);
+    process.exitCode = 1;
+  }
+};
+
+/**
+ * test modifiers
+ */
+
+const { buffsDict, enhancementDict, nourishmentDict, runesDict, relicsDict, sigilDict } = requireTS(
+  path.join(__dirname, '../components/url-state/schema/SchemaDicts.js'),
 );
-// import specializationData from '../../utils/mapping/specializations.json' assert { type: 'json' };
+// import specializationData from '../utils/mapping/specializations.json' assert { type: 'json' };
 const {
   allAttributeCoefficientKeys,
   allAttributePercentKeys,
@@ -29,40 +43,33 @@ const {
   damageKeysBlacklist,
   alternateStats,
   // mayBeConvertedToBlacklist,
-} = requireTS(path.join(__dirname, './metadata.ts'));
+} = requireTS(path.join(__dirname, './modifierdata/metadata.ts'));
 
 const schemaKeys = {
   'runes.yaml': runesDict,
+  'relics.yaml': relicsDict,
   'sigils.yaml': sigilDict,
   'food.yaml': nourishmentDict,
   'utility.yaml': enhancementDict,
   'buffs.yaml': buffsDict,
 };
 
-const directory = './src/assets/modifierdata/';
+const modifierDirectory = './src/assets/modifierdata/';
 
-// causes the script to fail if condition is false, but does not stop execution
-const gentleAssert = (condition, message) => {
-  if (!condition) {
-    console.error(`❌ ${message} ❌`);
-    process.exitCode = 1;
-  }
-};
+const allTraitIds = new Set();
+const allExtrasIds = new Set();
 
 const testModifiers = async () => {
   const specializationDataJSON = await fs.readFile('./src/utils/mapping/specializations.json');
   const specializationData = JSON.parse(specializationDataJSON.toString());
 
-  const files = (await fs.readdir(directory)).filter(
+  const files = (await fs.readdir(modifierDirectory)).filter(
     (filename) => path.extname(filename) === '.yaml',
   );
 
-  const allTraitIds = new Set();
-  const allExtrasIds = new Set();
-
   for (const fileName of files) {
     console.log(`  - ${fileName}`);
-    const fileData = await fs.readFile(`${directory}${fileName}`);
+    const fileData = await fs.readFile(`${modifierDirectory}${fileName}`);
 
     let data;
     try {
@@ -80,7 +87,7 @@ const testModifiers = async () => {
     const fileIds = new Set();
     const allDataByGw2id = new Map();
 
-    const fileIsExtra = ['food', 'utility', 'runes', 'sigils'].some((name) =>
+    const fileIsExtra = ['food', 'utility', 'runes', 'relics', 'sigils'].some((name) =>
       fileName.includes(name),
     );
 
@@ -308,7 +315,7 @@ function parseDamage(damage, id, amountData) {
     if (amountData && !amountData.disableBlacklist && damageKeysBlacklist.includes(key))
       gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
 
-    // handle more than 2 pairs i.e. Strike Damage: [3%, add, 7%, mult]
+    // handle more than 2 pairs i.e. Outgoing Strike Damage: [3%, add, 7%, mult]
     const allPairsMut = [...allPairs];
     while (allPairsMut.length) {
       const [amount, mode] = allPairsMut.splice(0, 2);
@@ -316,18 +323,21 @@ function parseDamage(damage, id, amountData) {
       parsePercent(amount, key, id);
       gentleAssert(allDamageModes.includes(mode), `invalid val ${allPairs} for ${key} in ${id}`);
       gentleAssert(
-        key !== 'Critical Damage' || mode === 'unknown',
+        key !== 'Outgoing Critical Damage' || mode === 'unknown',
         `set mode unknown for critical damage for now`,
       );
 
       // so far (mid 2023), every +condition damage output bonus that's been tested has been additive
       gentleAssert(
-        key !== 'Condition Damage' || mode !== 'unknown' || mode !== 'mult',
+        key !== 'Outgoing Condition Damage' || mode !== 'unknown' || mode !== 'mult',
         `set mode add for condition damage and comment that it's unconfirmed (remove this test if anyone finds a multiplicative one!)`,
       );
 
       if (mode === 'target') {
-        gentleAssert(damage['Phantasm Damage'] !== undefined, `${id} is missing phantasm damage`);
+        gentleAssert(
+          damage['Outgoing Phantasm Damage'] !== undefined,
+          `${id} is missing phantasm damage`,
+        );
       }
     }
   }
@@ -437,10 +447,260 @@ function parseNumber(value, key, id) {
   );
 }
 
-testModifiers()
-  .catch((e) => gentleAssert(false, e.message))
-  .then(() => {
-    if (!process.exitCode) {
-      console.log('🎉 no major errors 🎉');
+/**
+ * test presets
+ */
+
+const presetDirectory = './src/assets/presetdata/';
+
+// const types = {
+//   name
+//   id
+//   specialization
+//   boons
+//   priority
+//   distribution
+//   traits
+//   extras
+// };
+
+const types = {
+  boons: 'preset-buffs',
+  priority: 'preset-affixes',
+  distribution: 'preset-distribution',
+  traits: 'preset-traits',
+  extras: 'preset-extras',
+  infusions: 'preset-infusions',
+};
+
+const testTypes = ['boons', 'priority', 'distribution', 'traits', 'extras'];
+
+const testPresets = async () => {
+  // const files = (await fs.readdir(directory)).filter(
+  //   (filename) => path.extname(filename) === '.yaml',
+  // );
+
+  // const allTraitIds = new Set();
+  // const allExtrasIds = new Set();
+
+  const fileData = await fs.readFile(`${presetDirectory}templates.yaml`);
+
+  let templates;
+  try {
+    templates = yaml.load(fileData);
+    gentleAssert(templates, `err: templates.yaml is missing`);
+  } catch (e) {
+    gentleAssert(false, `err: templates.yaml is invalid YAML`);
+    return;
+  }
+
+  const data = {};
+  for (const [type, fileName] of Object.entries(types)) {
+    try {
+      // eslint-disable-next-line no-shadow
+      const fileData = await fs.readFile(`${presetDirectory}${fileName}.yaml`);
+      data[type] = yaml.load(fileData).list;
+      gentleAssert(data[type], `err: ${fileName}.yaml is missing`);
+    } catch (e) {
+      gentleAssert(false, `err: ${fileName}.yaml is invalid YAML`);
+      return;
     }
-  });
+  }
+
+  const creditData = await fs.readFile(`${presetDirectory}credit.yaml`);
+
+  let credit;
+  try {
+    credit = yaml.load(creditData);
+    gentleAssert(templates, `err: credit.yaml is missing`);
+  } catch (e) {
+    gentleAssert(false, `err: credit.yaml is invalid YAML`);
+    return;
+  }
+
+  for (const [type, entries] of Object.entries(data)) {
+    for (const entry of entries) {
+      try {
+        if (type === 'traits') {
+          JSON.parse(entry.traits);
+          JSON.parse(entry.skills);
+        } else {
+          JSON.parse(entry.value);
+        }
+      } catch (e) {
+        gentleAssert(false, `err: the ${entry.name} ${type} entry is invalid JSON`);
+      }
+      if (type === 'distribution') {
+        if (!entry.noCreditOkay) {
+          if (entry.credit && Array.isArray(entry.credit)) {
+            entry.credit.forEach((creditEntry) => {
+              gentleAssert(
+                credit[creditEntry.author],
+                `err: ${creditEntry.author} is not listed in credit.yaml! (${entry.name})`,
+              );
+              if (creditEntry.url && credit[creditEntry.author]) {
+                gentleAssert(
+                  credit[creditEntry.author]?.authorUrl,
+                  `err: ${entry.name} has a url, but ${creditEntry.author} in credit.yaml does not! This user may want to be anonymous.`,
+                );
+              }
+            });
+          } else {
+            gentleAssert(false, `err: the ${entry.name} ${type} entry is missing credit!`);
+          }
+        }
+      }
+    }
+  }
+
+  for (const type of Object.keys(types)) {
+    const potentialDuplicates = {};
+
+    for (const entry of data[type]) {
+      const { name, value, traits, skills } = entry;
+      const entryValue = value || traits + skills;
+
+      if (potentialDuplicates[entryValue]) {
+        potentialDuplicates[entryValue].push(name);
+      } else {
+        potentialDuplicates[entryValue] = [name];
+      }
+    }
+    for (const names of Object.values(potentialDuplicates)) {
+      if (names.length > 1) {
+        console.log(`note: the ${type} ${names.join(' / ')} are duplicates!`);
+      }
+    }
+  }
+
+  const ids = new Set();
+
+  for (const section of templates.list) {
+    for (const item of section.builds) {
+      const {
+        name = 'missing name',
+        id,
+        // specialization,
+        // boons,
+        // priority,
+        // distribution,
+        // traits,
+        // extras,
+        // weaponType,
+      } = item;
+
+      if (id) {
+        gentleAssert(!ids.has(id), `err: templates has duplicate id ${id}`);
+        ids.add(id);
+      }
+
+      const checkNullRecursively = (obj) => {
+        for (const value of Object.values(obj)) {
+          if (value === null || value === undefined) {
+            gentleAssert(false, `err: ${name} has a null or undefined value!`);
+          } else if (typeof value === 'object') {
+            checkNullRecursively(value);
+          }
+        }
+      };
+      checkNullRecursively(item);
+    }
+  }
+
+  // test valid references in both fractal and raid modes
+  for (const section of templates.list) {
+    for (const isFractals of [true, false]) {
+      const mode = isFractals ? 'fractal' : 'raid';
+      for (const unmodifiedItem of section.builds) {
+        const item = templateTransform(unmodifiedItem, isFractals);
+        const {
+          name = 'missing name',
+          // id,
+          specialization,
+          // boons,
+          // priority,
+          // distribution,
+          // traits,
+          // extras,
+          weaponType,
+        } = item;
+
+        for (const type of testTypes) {
+          const match = data[type].find((pre) => pre.name === item[type]);
+          gentleAssert(match, `err: ${name}'s ${type} is not found! (mode: ${mode})`);
+          if (match) match.used = true;
+          const profIsFine = !match.profession || match?.profession === specialization;
+          if (!profIsFine)
+            console.log(`❓ ${name}'s ${type}'s profession is wrong! (mode: ${mode})`);
+
+          if (type === 'extras') {
+            const extrasData = JSON.parse(match.value);
+            ['Sigil1', 'Sigil2', 'Runes', 'Relics', 'Nourishment', 'Enhancement'].forEach(
+              (extrasType) => {
+                gentleAssert(
+                  typeof extrasData.extras[extrasType] === 'object',
+                  `${extrasType} missing in ${name}`,
+                );
+
+                // checks that extras reference valid modifier data entries
+                Object.keys(extrasData.extras[extrasType]).forEach((key) =>
+                  gentleAssert(allExtrasIds.has(key), `invalid extras key ${key}`),
+                );
+              },
+            );
+            if (isFractals) {
+              if (
+                extrasData.extras.Sigil1?.['impact/night/slaying-only-3'] ||
+                extrasData.extras.Sigil2?.['impact/night/slaying-only-3']
+              ) {
+                gentleAssert(false, `err: ${name} has the wrong impact sigil in ${mode} mode!`);
+              }
+              if (extrasData.extras.Enhancement?.['superior-sharpening-stone']) {
+                gentleAssert(false, `err: ${name} has no slaying potion in ${mode} mode!`);
+              }
+            } else {
+              // eslint-disable-next-line no-lonely-if
+              if (
+                extrasData.extras.Sigil1?.['impact/night/slaying-both'] ||
+                extrasData.extras.Sigil2?.['impact/night/slaying-both']
+              ) {
+                gentleAssert(false, `err: ${name} has the wrong impact sigil in ${mode} mode!`);
+              }
+              if (extrasData.extras.Enhancement?.['slaying-potion']) {
+                gentleAssert(false, `err: ${name} has a slaying potion in ${mode} mode!`);
+              }
+            }
+          }
+        }
+
+        gentleAssert(
+          ['Dual wield', 'Two-handed'].includes(weaponType),
+          `err: ${name}'s weaponType is not valid! (mode: ${mode})`,
+        );
+      }
+    }
+  }
+
+  // for (const [type, entries] of Object.entries(data)) {
+  //   if (!testTypes.includes(type)) return;
+  //   for (const entry of entries) {
+  //     if (!entry.used) {
+  //       console.log(`note: the ${type} ${entry.name} is not used in a template!`);
+  //     }
+  //   }
+  // }
+};
+
+(async () => {
+  console.log('testing modifier data:');
+  await testModifiers().catch((e) => gentleAssert(false, e.message));
+
+  console.log('');
+
+  console.log('testing preset data:');
+  await testPresets().catch((e) => gentleAssert(false, e.message));
+
+  if (!process.exitCode) {
+    console.log('🎉 no major errors 🎉');
+  }
+})();
