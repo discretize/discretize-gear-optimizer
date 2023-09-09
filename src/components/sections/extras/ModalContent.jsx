@@ -98,12 +98,16 @@ function ModalContent(props) {
     [data, modifierData],
   );
 
+  const searchTerms = search.split(',').map((term) => term.trim().toLowerCase());
+
   const filteredItems = Object.entries(grouped).map(([label, options]) => {
-    const searched = options.filter(
-      ({ text, gw2id, modifiers = {} }) =>
-        text.toLowerCase().includes(search.toLowerCase()) ||
-        `${gw2id}`.includes(search) ||
-        JSON.stringify(modifiers).toLowerCase().includes(search),
+    const searched = options.filter(({ text, gw2id, modifiers = {} }) =>
+      searchTerms.some(
+        (term) =>
+          text.toLowerCase().includes(term) ||
+          `${gw2id}`.includes(term) ||
+          JSON.stringify(modifiers).toLowerCase().includes(term),
+      ),
     );
     return [label, searched];
   });
