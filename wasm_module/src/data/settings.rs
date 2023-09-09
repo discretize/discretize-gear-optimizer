@@ -4,6 +4,8 @@ use std::fmt;
 
 use super::{affix::Affix, attribute::Attribute};
 
+// dummy comment
+
 #[allow(non_snake_case)] // must allow since this comes from JS
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Settings {
