@@ -21,10 +21,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Condition Damage: [10%, add] #unconfirmed
+          Outgoing Condition Damage: [10%, add] #unconfirmed
       wvwModifiers:
         damage:
-          Condition Damage: [5%, add] #unconfirmed
+          Outgoing Condition Damage: [5%, add] #unconfirmed
       gw2id: 27014
 
     - id: facet-of-strength-draconic-echo
@@ -36,10 +36,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, unknown]
       wvwModifiers:
         damage:
-          Strike Damage: [5%, unknown]
+          Outgoing Strike Damage: [5%, unknown]
       gw2id: 26644
 
     - id: facet-of-chaos-draconic-echo
@@ -75,7 +75,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [25%, add]
+          Outgoing Strike Damage: [25%, add]
       gw2id: 28113
 
     - id: vengeful-hammers
@@ -93,7 +93,7 @@
       text: Acolyte of Torment
       modifiers:
         damage:
-          Torment Damage: [10%, mult]
+          Outgoing Torment Damage: [10%, mult]
       gw2id: 1793
       defaultEnabled: true
 
@@ -159,7 +159,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 1740
       defaultEnabled: true
 
@@ -181,7 +181,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          All Damage: [10%, add]
+          Outgoing All Damage: [10%, add]
       gw2id: 1779
       defaultEnabled: true
 
@@ -208,10 +208,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       wvwModifiers:
         damage:
-          Strike Damage: [7%, mult]
+          Outgoing Strike Damage: [7%, mult]
       gw2id: 1761
       defaultEnabled: true
 
@@ -224,10 +224,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          All Damage: [10%, add]
+          Outgoing All Damage: [10%, add]
       wvwModifiers:
         damage:
-          All Damage: [7%, add]
+          Outgoing All Damage: [7%, add]
       gw2id: 1758
       defaultEnabled: true
 
@@ -256,10 +256,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [20%, mult]
+          Outgoing Strike Damage: [20%, mult]
       wvwModifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 1767
       defaultEnabled: true
 
@@ -269,7 +269,7 @@
       minor: true
       modifiers:
         damage:
-          All Damage: [5%, add]
+          Outgoing All Damage: [5%, add]
       gw2id: 1724
       defaultEnabled: true
 
@@ -283,10 +283,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          All Damage: [2.5%, add]
+          Outgoing All Damage: [2.5%, add]
       wvwModifiers:
         damage:
-          All Damage: [5%, add]
+          Outgoing All Damage: [5%, add]
       gw2id: 1724
       defaultEnabled: true
 
@@ -312,7 +312,7 @@
       minor: true
       modifiers:
         damage:
-          Strike Damage: [12.5%, mult]
+          Outgoing Strike Damage: [12.5%, mult]
       gw2id: 1792
       defaultEnabled: true
 
@@ -324,7 +324,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [20%, mult]
+          Outgoing Strike Damage: [20%, mult]
       gw2id: 1800
       defaultEnabled: true
 
@@ -441,10 +441,10 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [1.5%, mult]
+          Outgoing Strike Damage: [1.5%, mult]
       wvwModifiers:
         damage:
-          Strike Damage: [1%, mult]
+          Outgoing Strike Damage: [1%, mult]
       gw2id: 1788
       defaultEnabled: true
 
@@ -457,7 +457,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [15%, add] # add according to wiki
+          Outgoing Strike Damage: [15%, add] # add according to wiki
       gw2id: 1803
       defaultEnabled: true
 
@@ -470,10 +470,10 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [5%, add] # add according to wiki
+          Outgoing Strike Damage: [5%, add] # add according to wiki
       wvwModifiers:
         damage:
-          Strike Damage: [3%, add]
+          Outgoing Strike Damage: [3%, add]
       gw2id: 1803
       defaultEnabled: true
 
@@ -490,11 +490,11 @@
         quantityEntered: 1
       modifiers:
         damage:
-          All Damage: [2%, add]
+          Outgoing All Damage: [2%, add]
       wvwModifiers:
         damage:
-          Strike Damage: [1%, add]
-          Condition Damage: [2%, add]
+          Outgoing Strike Damage: [1%, add]
+          Outgoing Condition Damage: [2%, add]
       gw2id: 2181
       defaultEnabled: true
 
@@ -511,7 +511,7 @@
       text: Heartpiercer
       modifiers:
         damage:
-          Bleeding Damage: [25%, mult]
+          Outgoing Bleeding Damage: [25%, mult]
       gw2id: 2092
       defaultEnabled: true
 
@@ -533,7 +533,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          All Damage: [1%, add]
+          Outgoing All Damage: [1%, add]
       gw2id: 2100
       defaultEnabled: true
 
@@ -549,7 +549,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 2258
       defaultEnabled: true
 
@@ -589,6 +589,6 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [15%, add]
+          Outgoing Strike Damage: [15%, add]
       gw2id: 2257
       defaultEnabled: true

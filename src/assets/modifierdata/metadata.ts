@@ -71,8 +71,8 @@ const conditionCoefficients = damagingConditions.map(
 ) as `${DamagingConditionName} Coefficient`[];
 
 const conditionDamages = damagingConditions.map(
-  (condition) => `${condition} Damage`,
-) as `${DamagingConditionName} Damage`[];
+  (condition) => `Outgoing ${condition} Damage`,
+) as `Outgoing ${DamagingConditionName} Damage`[];
 
 export const percents = [
   'Critical Chance',
@@ -97,17 +97,17 @@ const coefficients = [
 ] as const;
 
 export const allDamageKeys = [
-  'Strike Damage',
-  'Condition Damage',
-  'All Damage',
+  'Outgoing Strike Damage',
+  'Outgoing Condition Damage',
+  'Outgoing All Damage',
   'Damage Reduction',
   // 'Condition Damage Reduction',
-  'Critical Damage',
+  'Outgoing Critical Damage',
   ...conditionDamages,
-  'Alternative Damage',
-  'Alternative Critical Damage',
-  'Phantasm Damage',
-  'Phantasm Critical Damage',
+  'Outgoing Alternative Damage',
+  'Outgoing Alternative Critical Damage',
+  'Outgoing Phantasm Damage',
+  'Outgoing Phantasm Critical Damage',
 ] as const;
 export type DamageKey = (typeof allDamageKeys)[number];
 
@@ -184,10 +184,10 @@ export const exampleItem = `
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
-          All Damage: [20%, add]
-          Critical Damage: [20%, unknown]
-          Burning Damage: [33%, unknown]
+          Outgoing Strike Damage: [10%, mult]
+          Outgoing All Damage: [20%, add]
+          Outgoing Critical Damage: [20%, unknown]
+          Outgoing Burning Damage: [33%, unknown]
         attributes:
           Ferocity: [100, converted]
           Healing Power: [30, buff]
@@ -205,10 +205,10 @@ export const exampleItem = `
       defaultEnabled: true`;
 
 export const exampleModifiers = `damage:
-  Strike Damage: [10%, mult]
-  All Damage: [20%, add]
-  Critical Damage: [20%, unknown]
-  Burning Damage: [33%, unknown]
+  Outgoing Strike Damage: [10%, mult]
+  Outgoing All Damage: [20%, add]
+  Outgoing Critical Damage: [20%, unknown]
+  Outgoing Burning Damage: [33%, unknown]
 attributes:
   Ferocity: [100, converted]
   Healing Power: [30, buff]
@@ -224,10 +224,10 @@ conversion:
 
 export const exampleModifiersJson = `{
   "damage": {
-    "Strike Damage": [ "10%", "mult" ],
-    "All Damage": [ "20%", "add" ],
-    "Critical Damage": [ "20%", "unknown" ],
-    "Burning Damage": [ "33%", "unknown" ]
+    "Outgoing Strike Damage": [ "10%", "mult" ],
+    "Outgoing All Damage": [ "20%", "add" ],
+    "Outgoing Critical Damage": [ "20%", "unknown" ],
+    "Outgoing Burning Damage": [ "33%", "unknown" ]
   },
   "attributes": {
     "Ferocity": [ 100, "converted" ],

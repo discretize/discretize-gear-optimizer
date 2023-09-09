@@ -23,7 +23,7 @@
       text: Empowered Illusions
       modifiers:
         damage:
-          Phantasm Damage: [15%, unknown]
+          Outgoing Phantasm Damage: [15%, unknown]
       gw2id: 682
       defaultEnabled: true
 
@@ -36,7 +36,7 @@
         quantityEntered: 25
       modifiers:
         damage:
-          Strike Damage: [12.5%, mult]
+          Outgoing Strike Damage: [12.5%, mult]
       gw2id: 1941
       defaultEnabled: true
 
@@ -48,10 +48,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       wvwModifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 713
       defaultEnabled: true
 
@@ -63,8 +63,8 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [15%, mult]
-          Phantasm Damage: [15%, unknown]
+          Outgoing Strike Damage: [15%, mult]
+          Outgoing Phantasm Damage: [15%, unknown]
       gw2id: 681
       defaultEnabled: true
 
@@ -155,7 +155,7 @@
       subText: base
       modifiers:
         damage:
-          Critical Damage: [15%, unknown]
+          Outgoing Critical Damage: [15%, unknown]
       gw2id: 692
       defaultEnabled: true
 
@@ -168,7 +168,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Critical Damage: [10%, unknown]
+          Outgoing Critical Damage: [10%, unknown]
       gw2id: 692
       defaultEnabled: true
 
@@ -201,7 +201,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Condition Damage: [10%, add]
+          Outgoing Condition Damage: [10%, add]
       gw2id: 667
       defaultEnabled: true
 
@@ -266,7 +266,7 @@
         quantityEntered: 5
       modifiers:
         damage:
-          Strike Damage: [10%, add]
+          Outgoing Strike Damage: [10%, add]
         attributes:
           Condition Damage: [150, buff]
       minor: true
@@ -281,7 +281,7 @@
         quantityEntered: 25
       modifiers:
         damage:
-          Phantasm Damage: [25%, unknown]
+          Outgoing Phantasm Damage: [25%, unknown]
       gw2id: 733
       defaultEnabled: true
 
@@ -306,7 +306,7 @@
       subText: critical damage bonus only
       modifiers:
         damage:
-          Critical Damage: [10%, unknown]
+          Outgoing Critical Damage: [10%, unknown]
       gw2id: 1978
       defaultEnabled: true
 
@@ -314,10 +314,10 @@
       text: Chronophantasma
       modifiers:
         damage:
-          Phantasm Damage: [100%, mult]
+          Outgoing Phantasm Damage: [100%, mult]
       wvwModifiers:
         damage:
-          Phantasm Damage: [75%, mult]
+          Outgoing Phantasm Damage: [75%, mult]
       gw2id: 1890
       defaultEnabled: true
 
@@ -350,10 +350,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult] # tested by Snappy Joe
+          Outgoing Strike Damage: [10%, mult] # tested by Snappy Joe
       wvwModifiers:
         damage:
-          Strike Damage: [7%, mult]
+          Outgoing Strike Damage: [7%, mult]
       gw2id: 2208
       defaultEnabled: true
 
@@ -382,8 +382,8 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [5%, unknown]
-          Condition Damage: [5%, add] #unconfirmed
+          Outgoing Strike Damage: [5%, unknown]
+          Outgoing Condition Damage: [5%, add] #unconfirmed
       gw2id: 2204
       defaultEnabled: true
 
@@ -417,6 +417,6 @@
       text: Bloodsong
       modifiers:
         damage:
-          Bleeding Damage: [25%, unknown]
+          Outgoing Bleeding Damage: [25%, unknown]
       gw2id: 2223
       defaultEnabled: true

@@ -24,7 +24,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Condition Damage: [20%, add]
+          Outgoing Condition Damage: [20%, add]
       gw2id: 43638
 
     - id: woven-air
@@ -36,7 +36,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, unknown]
+          Outgoing Strike Damage: [10%, unknown]
       gw2id: 43638
 
     - id: flame-wheel
@@ -47,8 +47,8 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, unknown]
-          Condition Damage: [10%, add] #unconfirmed
+          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Condition Damage: [10%, add] #unconfirmed
       gw2id: 62758
 
     - id: crescent-wind
@@ -70,12 +70,12 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, unknown]
-          Condition Damage: [10%, add] #unconfirmed
+          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Condition Damage: [10%, add] #unconfirmed
       wvwModifiers:
         damage:
-          Strike Damage: [15%, unknown]
-          Condition Damage: [15%, add] #unconfirmed
+          Outgoing Strike Damage: [15%, unknown]
+          Outgoing Condition Damage: [15%, add] #unconfirmed
       gw2id: 62965
 
     # - id: flame-axe
@@ -198,7 +198,7 @@
       minor: true
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 319
       defaultEnabled: true
 
@@ -210,7 +210,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [1%, add]
+          Outgoing Strike Damage: [1%, add]
       gw2id: 1510
       defaultEnabled: true
 
@@ -256,7 +256,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       gw2id: 1502
       defaultEnabled: true
 
@@ -291,7 +291,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [20%, mult]
+          Outgoing Strike Damage: [20%, mult]
       gw2id: 226
       defaultEnabled: true
 
@@ -325,7 +325,7 @@
       text: Serrated Stones
       modifiers:
         damage:
-          Strike Damage: [5%, mult]
+          Outgoing Strike Damage: [5%, mult]
         attributes:
           Bleeding Duration: 20%
       gw2id: 1507
@@ -357,10 +357,10 @@
       subText: base
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       wvwModifiers:
         damage:
-          Strike Damage: [5%, mult]
+          Outgoing Strike Damage: [5%, mult]
       gw2id: 363
       defaultEnabled: true
 
@@ -372,10 +372,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       wvwModifiers:
         damage:
-          Strike Damage: [5%, mult]
+          Outgoing Strike Damage: [5%, mult]
       gw2id: 363
       defaultEnabled: true
 
@@ -387,10 +387,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, mult]
+          Outgoing Strike Damage: [10%, mult]
       wvwModifiers:
         damage:
-          Strike Damage: [5%, mult]
+          Outgoing Strike Damage: [5%, mult]
       gw2id: 349
       defaultEnabled: true
 
@@ -439,7 +439,7 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [2%, mult]
+          Outgoing Strike Damage: [2%, mult]
       gw2id: 1511
       defaultEnabled: true
 
@@ -490,12 +490,12 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [25%, add]
-          Condition Damage: [25%, add]
+          Outgoing Strike Damage: [25%, add]
+          Outgoing Condition Damage: [25%, add]
       wvwModifiers:
         damage:
-          Strike Damage: [7%, add]
-          Condition Damage: [7%, add]
+          Outgoing Strike Damage: [7%, add]
+          Outgoing Condition Damage: [7%, add]
       gw2id: 1839
       defaultEnabled: true
 
@@ -507,8 +507,8 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, unknown]
-          Condition Damage: [10%, add] # unconfirmed
+          Outgoing Strike Damage: [10%, unknown]
+          Outgoing Condition Damage: [10%, add] # unconfirmed
       gw2id: 1891
       defaultEnabled: true
 
@@ -551,12 +551,12 @@
       subText: 100% uptime
       modifiers:
         damage:
-          Condition Damage: [10%, add]
+          Outgoing Condition Damage: [10%, add]
         attributes:
           Condition Duration: 20%
       wvwModifiers:
         damage:
-          Condition Damage: [10%, add]
+          Outgoing Condition Damage: [10%, add]
         attributes:
           Condition Duration: 7%
       gw2id: 2180
@@ -570,10 +570,10 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, add]
+          Outgoing Strike Damage: [10%, add]
       wvwModifiers:
         damage:
-          Strike Damage: [10%, add]
+          Outgoing Strike Damage: [10%, add]
       gw2id: 2061
       defaultEnabled: true
 
@@ -620,12 +620,12 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Condition Damage: [10%, add]
-          Strike Damage: [10%, add] # untested; please confirm!
+          Outgoing Condition Damage: [10%, add]
+          Outgoing Strike Damage: [10%, add] # untested; please confirm!
       wvwModifiers:
         damage:
-          Condition Damage: [5%, add]
-          Strike Damage: [5%, add] # untested; please confirm!
+          Outgoing Condition Damage: [5%, add]
+          Outgoing Strike Damage: [5%, add] # untested; please confirm!
       gw2id: 2131
       defaultEnabled: true
 
@@ -673,12 +673,12 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [3%, unknown]
-          Condition Damage: [3%, add] #unconfirmed
+          Outgoing Strike Damage: [3%, unknown]
+          Outgoing Condition Damage: [3%, add] #unconfirmed
       wvwModifiers:
         damage:
-          Strike Damage: [2%, unknown]
-          Condition Damage: [2%, add] #unconfirmed
+          Outgoing Strike Damage: [2%, unknown]
+          Outgoing Condition Damage: [2%, add] #unconfirmed
       gw2id: 2247
       defaultEnabled: true
 

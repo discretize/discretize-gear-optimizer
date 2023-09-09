@@ -315,7 +315,7 @@ function parseDamage(damage, id, amountData) {
     if (amountData && !amountData.disableBlacklist && damageKeysBlacklist.includes(key))
       gentleAssert(false, `err: ${key} is a bad idea in an entry with an amount like ${id}`);
 
-    // handle more than 2 pairs i.e. Strike Damage: [3%, add, 7%, mult]
+    // handle more than 2 pairs i.e. Outgoing Strike Damage: [3%, add, 7%, mult]
     const allPairsMut = [...allPairs];
     while (allPairsMut.length) {
       const [amount, mode] = allPairsMut.splice(0, 2);
@@ -323,18 +323,21 @@ function parseDamage(damage, id, amountData) {
       parsePercent(amount, key, id);
       gentleAssert(allDamageModes.includes(mode), `invalid val ${allPairs} for ${key} in ${id}`);
       gentleAssert(
-        key !== 'Critical Damage' || mode === 'unknown',
+        key !== 'Outgoing Critical Damage' || mode === 'unknown',
         `set mode unknown for critical damage for now`,
       );
 
       // so far (mid 2023), every +condition damage output bonus that's been tested has been additive
       gentleAssert(
-        key !== 'Condition Damage' || mode !== 'unknown' || mode !== 'mult',
+        key !== 'Outgoing Condition Damage' || mode !== 'unknown' || mode !== 'mult',
         `set mode add for condition damage and comment that it's unconfirmed (remove this test if anyone finds a multiplicative one!)`,
       );
 
       if (mode === 'target') {
-        gentleAssert(damage['Phantasm Damage'] !== undefined, `${id} is missing phantasm damage`);
+        gentleAssert(
+          damage['Outgoing Phantasm Damage'] !== undefined,
+          `${id} is missing phantasm damage`,
+        );
       }
     }
   }

@@ -37,9 +37,9 @@
         quantityEntered: 1
       modifiers:
         damage:
-          Strike Damage: [1%, target]
-          Condition Damage: [1%, target]
-          Phantasm Damage: [1%, target]
+          Outgoing Strike Damage: [1%, target]
+          Outgoing Condition Damage: [1%, target]
+          Outgoing Phantasm Damage: [1%, target]
       type: Condition
 
 - section: Other buffs
@@ -63,7 +63,7 @@
           Vitality: [15, converted]
       type: Text
 
-    - id: reinforced-armor        
+    - id: reinforced-armor
       text: Reinforced Armor
       modifiers:
         conversionAfterBuffs:
@@ -80,9 +80,9 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Strike Damage: [10%, target]
-          Condition Damage: [20%, target]
-          Phantasm Damage: [10%, target]
+          Outgoing Strike Damage: [10%, target]
+          Outgoing Condition Damage: [20%, target]
+          Outgoing Phantasm Damage: [10%, target]
       type: CommonEffect
 
     - id: lightArmor
@@ -90,8 +90,8 @@
       subText: 1910 vs 2597
       modifiers:
         damage:
-          Strike Damage: [35.9686%, mult]
-          Phantasm Damage: [35.9686%, mult]
+          Outgoing Strike Damage: [35.9686%, mult]
+          Outgoing Phantasm Damage: [35.9686%, mult]
       type: Text
 
     - id: lightArmor2
@@ -99,8 +99,8 @@
       subText: 2141 vs 2597
       modifiers:
         damage:
-          Strike Damage: [21.2985%, mult]
-          Phantasm Damage: [21.2985%, mult]
+          Outgoing Strike Damage: [21.2985%, mult]
+          Outgoing Phantasm Damage: [21.2985%, mult]
       type: Text
 
     - id: lightArmor3
@@ -108,6 +108,6 @@
       subText: 2293 vs 2597 # tested by remagic
       modifiers:
         damage:
-          Strike Damage: [13.2577%, mult]
-          Phantasm Damage: [13.2577%, mult]
+          Outgoing Strike Damage: [13.2577%, mult]
+          Outgoing Phantasm Damage: [13.2577%, mult]
       type: Text
