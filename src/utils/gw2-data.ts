@@ -1361,7 +1361,7 @@ export const SecondaryAttributes = [
 ] as const;
 export type SecondaryAttributeName = (typeof SecondaryAttributes)[number];
 
-const DerivedAttributes = [
+export const DerivedAttributes = [
   'Critical Chance',
   'Critical Damage',
   'Condition Duration',
@@ -1371,7 +1371,7 @@ const DerivedAttributes = [
 ] as const;
 export type DerivedAttributeName = (typeof DerivedAttributes)[number];
 
-const BoonDurationAttributes = [
+export const BoonDurationAttributes = [
   'Aegis Duration',
   'Fury Duration',
   'Might Duration',
@@ -1386,7 +1386,7 @@ const BoonDurationAttributes = [
 ] as const;
 export type BoonDurationAttributeName = (typeof BoonDurationAttributes)[number];
 
-const ConditionDurationAttributes = [
+export const ConditionDurationAttributes = [
   'Bleeding Duration',
   'Blind Duration',
   'Burning Duration',
@@ -1404,7 +1404,7 @@ const ConditionDurationAttributes = [
 ] as const;
 export type ConditionDurationAttributeName = (typeof ConditionDurationAttributes)[number];
 
-const ConditionDamageAttributes = [
+export const ConditionDamageAttributes = [
   'Bleeding Damage',
   'Burning Damage',
   'Confusion Damage',
@@ -1413,7 +1413,29 @@ const ConditionDamageAttributes = [
 ] as const;
 export type ConditionDamageAttributeName = (typeof ConditionDamageAttributes)[number];
 
-const EffectiveAttributes = ['Effective Power', 'Effective Health', 'Effective Healing'] as const;
+export const ConditionCoefficientAttributes = [
+  'Bleeding Coefficient',
+  'Burning Coefficient',
+  'Confusion Coefficient',
+  'Poison Coefficient',
+  'Torment Coefficient',
+] as const;
+export type ConditionCoefficientAttributeName = (typeof ConditionCoefficientAttributes)[number];
+
+export const ConditionTickAttributes = [
+  'Bleeding Damage Tick',
+  'Burning Damage Tick',
+  'Confusion Damage Tick',
+  'Poison Damage Tick',
+  'Torment Damage Tick',
+] as const;
+export type ConditionTickAttributeName = (typeof ConditionTickAttributes)[number];
+
+export const EffectiveAttributes = [
+  'Effective Power',
+  'Effective Health',
+  'Effective Healing',
+] as const;
 export type EffectiveAttributeName = (typeof EffectiveAttributes)[number];
 
 export const Indicators = ['Damage', 'Survivability', 'Healing'] as const;

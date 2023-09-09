@@ -2,8 +2,16 @@ import {
   Affix,
   AffixName,
   AttributeName,
-  Attributes,
+  BoonDurationAttributes,
+  ConditionCoefficientAttributes,
+  ConditionDurationAttributes,
   ConditionName,
+  ConditionTickAttributes,
+  DerivedAttributes,
+  EffectiveAttributes,
+  Indicators,
+  PrimaryAttributes,
+  SecondaryAttributes,
   WeaponTypes,
   damagingConditions,
 } from '../../utils/gw2-data';
@@ -11,7 +19,16 @@ import { getExtrasIds } from '../slices/extras';
 import { Combination, Settings } from './optimizerSetup';
 
 const attributes = [
-  ...Object.values(Attributes).flat(1),
+  ...PrimaryAttributes,
+  ...SecondaryAttributes,
+  ...DerivedAttributes,
+  ...BoonDurationAttributes,
+  ...ConditionDurationAttributes,
+  ...ConditionCoefficientAttributes,
+  ...ConditionTickAttributes,
+  ...EffectiveAttributes,
+  ...Indicators,
+
   'Bleeding Stacks',
   'Burning Stacks',
   'Confusion Stacks',
@@ -69,11 +86,6 @@ const attributes = [
 
   'Outgoing All Damage',
 ];
-attributes[41] = 'Bleeding Coefficient';
-attributes[42] = 'Burning Coefficient';
-attributes[43] = 'Confusion Coefficient';
-attributes[44] = 'Poison Coefficient';
-attributes[45] = 'Torment Coefficient';
 
 export const getAffixId = (affix: AffixName) => {
   const index = Object.keys(Affix).indexOf(affix as string);
