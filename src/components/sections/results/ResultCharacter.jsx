@@ -1,9 +1,14 @@
 import { Character, firstUppercase } from '@discretize/react-discretize-components';
 import React from 'react';
+import { FormControlLabel, Switch } from '@mui/material';
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import { Classes, INFUSION_IDS, WeaponTypes } from '../../../utils/gw2-data';
 import { getWeight } from '../../../utils/usefulFunctions';
 import ErrorBoundary from '../../baseComponents/ErrorBoundary';
+
+const CustomSwitch = ({ onChange, label }) => (
+  <FormControlLabel control={<Switch onChange={onChange} />} label={label} />
+);
 
 export default function ResultCharacter({ character, weapons, skills, assumedBuffs }) {
   const { profession, specialization, weaponType, cachedFormState, extrasCombination } =
@@ -201,6 +206,7 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
             alt="Profession"
           />
         }
+        switchElement={CustomSwitch}
       />
     </ErrorBoundary>
   );
