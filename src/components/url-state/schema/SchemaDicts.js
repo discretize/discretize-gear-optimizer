@@ -187,6 +187,35 @@ export const runesDict = [
   'daredevil',
 ];
 
+export const relicsDict = [
+  'no-item-relic',
+  'thief-relic',
+  'fireworks-relic',
+  'brawler-relic',
+  'weaver-relic',
+  'deadeye-relic',
+  'citadel-relic',
+  'cerus-relic',
+  'dagda-relic',
+  'wizards-tower-relic',
+  'dragonhunter-relic',
+  'isgarren-relic',
+  'peitha-relic',
+  'aristocracy-relic',
+  'scourge-relic',
+  'fractal-relic',
+  'akeem-relic',
+  'vass-relic',
+  'sunless-relic',
+  'afflicted-relic',
+  'nightmare-relic',
+  'mirage-relic',
+  'krait-relic',
+  'herald-relic',
+  'firebrand-relic',
+  'monk-relic',
+];
+
 export const sigilDict = [
   'force',
   'accuracy',
