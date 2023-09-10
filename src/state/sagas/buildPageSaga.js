@@ -4,7 +4,7 @@ import { all, put, select, take, takeLeading } from 'redux-saga/effects';
 import {
   BuildPageSchema,
   version as schemaVersion,
-} from '../../components/url-state/schema/BuildPageSchema_v2';
+} from '../../components/url-state/schema/BuildPageSchema_v3';
 import { buffsDict } from '../../components/url-state/schema/SchemaDicts';
 import { PARAMS } from '../../utils/queryParam';
 import { changeBuildPage, changeCharacter, getSkills, getWeapons } from '../slices/buildPage';
