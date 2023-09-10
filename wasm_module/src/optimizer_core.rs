@@ -531,7 +531,7 @@ pub fn calc_condi(
     character: &mut Character,
     settings: &Settings,
     combination: &Combination,
-    relevant_conditions: &Vec<Condition>,
+    relevant_conditions: &[Condition],
 ) -> f32 {
     let attributes = &mut character.attributes;
     let mods = &combination.modifiers;

@@ -68,7 +68,7 @@ impl Result {
     /// # Arguments
     /// - `settings` - the settings array that is used to calculate the results
     /// - `combinations` - the combinations array that is used to calculate the results
-    pub fn on_complete(&mut self, settings: &Settings, combinations: &Vec<Combination>) {
+    pub fn on_complete(&mut self, settings: &Settings, combinations: &[Combination]) {
         self.best_characters.clear();
 
         // convert the characters to ResultCharacters

@@ -137,34 +137,29 @@ pub enum Attribute {
 
 impl Attribute {
     pub fn is_primary(&self) -> bool {
-        match self {
-            Attribute::Power => true,
-            Attribute::Precision => true,
-            Attribute::Toughness => true,
-            Attribute::Vitality => true,
-            _ => false,
-        }
+        matches!(
+            self,
+            Attribute::Power | Attribute::Precision | Attribute::Toughness | Attribute::Vitality
+        )
     }
 
     pub fn is_secondary(&self) -> bool {
-        match self {
-            Attribute::Ferocity => true,
-            Attribute::ConditionDamage => true,
-            Attribute::Expertise => true,
-            Attribute::Concentration => true,
-            Attribute::HealingPower => true,
-            Attribute::AgonyResistance => true,
-            _ => false,
-        }
+        matches!(
+            self,
+            Attribute::Ferocity
+                | Attribute::ConditionDamage
+                | Attribute::Expertise
+                | Attribute::Concentration
+                | Attribute::HealingPower
+                | Attribute::AgonyResistance
+        )
     }
 
     pub fn is_alternative_point(&self) -> bool {
-        match self {
-            Attribute::AltPower => true,
-            Attribute::AltPrecision => true,
-            Attribute::AltFerocity => true,
-            _ => false,
-        }
+        matches!(
+            self,
+            Attribute::AltPower | Attribute::AltPrecision | Attribute::AltFerocity
+        )
     }
 
     pub fn is_point_key(&self) -> bool {
