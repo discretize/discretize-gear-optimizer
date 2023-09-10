@@ -8,7 +8,7 @@ import { allExtrasModifiersById, buffModifiers } from '../../../assets/modifierd
 import { getSkills, getWeapons } from '../../../state/slices/buildPage';
 import { getTraitLines, getTraits } from '../../../state/slices/traits';
 import { getGameMode } from '../../../state/slices/userSettings';
-import { infusionIds, WEAPONS } from '../../../utils/gw2-data';
+import { WEAPONS, infusionIds } from '../../../utils/gw2-data';
 import { createAssumedBuffs } from '../../../utils/toLazyToType-usefulFunctions';
 import { getWeight } from '../../../utils/usefulFunctions';
 import Section from '../../baseComponents/Section';
@@ -41,6 +41,7 @@ const TemplateHelperSections = ({ character }) => {
       Enhancement: utility,
       Nourishment: food,
       Runes: runeStringId,
+      Relics: relics,
     } = settings.extrasCombination;
 
     const foodId = allExtrasModifiersById[food]?.gw2id;
@@ -55,6 +56,7 @@ const TemplateHelperSections = ({ character }) => {
           .flat()
       : [];
     const infusions = infusionsTemp.concat(Array(18 - infusionsTemp.length).fill(49432));
+    const relicId = allExtrasModifiersById[relics]?.gw2id;
 
     const { mainhand1: w11, offhand1: w12, mainhand2: w21, offhand2: w22 } = weapons;
 
@@ -171,7 +173,7 @@ const TemplateHelperSections = ({ character }) => {
       armor,
       weapon: weapData,
       backAndTrinket,
-      consumables: { foodId, utilityId },
+      consumables: { foodId, utilityId, relicId },
       skills,
       // legends,
       assumedBuffs: { value: assumedBuffs },

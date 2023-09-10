@@ -32,6 +32,7 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
     Enhancement: utility,
     Nourishment: food,
     Runes: runeStringId,
+    Relics: relics,
   } = extrasCombination || cachedFormState.extras; // fallback for builds from before extras refactor
 
   const foodId = allExtrasModifiersById[food]?.gw2id;
@@ -179,6 +180,8 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
     skillsPropsAPI = skills;
   }
 
+  const relicId = allExtrasModifiersById[relics]?.gw2id;
+
   return (
     <ErrorBoundary location="Character" resetKeys={[character]}>
       <Character
@@ -186,7 +189,7 @@ export default function ResultCharacter({ character, weapons, skills, assumedBuf
         armor={armorPropsAPI}
         weapon={weaponPropsAPI}
         backAndTrinket={backAndTrinketPropsAPI}
-        consumables={{ foodId, utilityId }}
+        consumables={{ foodId, utilityId, relicId }}
         skills={skillsPropsAPI}
         assumedBuffs={{ value: assumedBuffs }}
         imageElement={
