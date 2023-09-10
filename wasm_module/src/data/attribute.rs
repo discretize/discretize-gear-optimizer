@@ -168,7 +168,7 @@ impl Attribute {
     }
 
     pub fn is_point_key(&self) -> bool {
-        return self.is_primary() || self.is_secondary() || self.is_alternative_point();
+        self.is_primary() || self.is_secondary() || self.is_alternative_point()
     }
 
     pub fn to_stringg(&self) -> &str {

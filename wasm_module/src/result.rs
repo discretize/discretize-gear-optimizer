@@ -24,7 +24,7 @@ impl Result {
         Result {
             best_characters: vec![],
             worst_score: f32::MIN,
-            max_results: max_results,
+            max_results,
             characters: vec![],
         }
     }
@@ -53,7 +53,7 @@ impl Result {
 
         // insert the new character
         self.characters
-            .splice(insert_position..insert_position, [character.clone()]);
+            .splice(insert_position..insert_position, [*character]);
         if self.characters.len() > self.max_results {
             self.characters.pop();
         }

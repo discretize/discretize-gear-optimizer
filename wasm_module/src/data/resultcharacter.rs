@@ -132,8 +132,7 @@ impl ResultCharacter {
         {
             let mut copy = self.clone().to_character();
             // add +5 infusions
-            copy.base_attributes[*attribute as usize] =
-                copy.base_attributes[*attribute as usize] + 5.0;
+            copy.base_attributes[*attribute as usize] += 5.0;
 
             update_attributes(&mut copy, settings, combination, true);
             self.results.effectivePositiveValues[index] = copy.attributes
