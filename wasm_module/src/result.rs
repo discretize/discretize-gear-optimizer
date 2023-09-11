@@ -53,7 +53,7 @@ impl Result {
 
         // insert the new character
         self.characters
-            .splice(insert_position..insert_position, [*character]);
+            .splice(insert_position..insert_position, [character.clone()]);
         if self.characters.len() > self.max_results {
             self.characters.pop();
         }
