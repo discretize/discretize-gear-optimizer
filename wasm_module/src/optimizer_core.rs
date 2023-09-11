@@ -100,13 +100,13 @@ pub fn start(
         // start dfs into tree
         descend_subtree_dfs(
             &settings.affixesArray,
-            &chunk,
+            chunk,
             max_depth as usize,
             &mut callback,
         );
     }
 
-    return result;
+    result
 }
 
 /// Runs a couple benchmarking runs first to get a good heuristics which combinations to test first.
@@ -235,7 +235,7 @@ pub fn test_character(
     }
 
     // calculate stats for the character
-    return update_attributes(character, settings, combination, false);
+    update_attributes(character, settings, combination, false)
 }
 
 pub fn update_attributes(
@@ -266,7 +266,7 @@ pub fn update_attributes(
     calc_survivability(character, combination);
     calc_healing(character);
 
-    return true;
+    true
 }
 
 fn calc_stats(
@@ -506,7 +506,7 @@ pub fn calc_power(
 
     attributes.set_a(Attribute::SiphonDPS, siphon_damage);
 
-    return power_damage + siphon_damage;
+    power_damage + siphon_damage
 }
 
 /// Calculates a damage tick for a given condition
@@ -531,7 +531,7 @@ pub fn calc_condi(
     character: &mut Character,
     settings: &Settings,
     combination: &Combination,
-    relevant_conditions: &Vec<Condition>,
+    relevant_conditions: &[Condition],
 ) -> f32 {
     let attributes = &mut character.attributes;
     let mods = &combination.modifiers;

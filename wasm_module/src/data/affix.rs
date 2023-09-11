@@ -100,12 +100,10 @@ impl Affix {
     }
 
     pub fn from_number(num: i8) -> Option<Affix> {
-        for variant in all::<Affix>().collect::<Vec<_>>() {
-            if variant as i8 == num {
-                return Some(variant);
-            }
-        }
-        None
+        all::<Affix>()
+            .collect::<Vec<_>>()
+            .into_iter()
+            .find(|&variant| variant as i8 == num)
     }
 
     // implement copy trait

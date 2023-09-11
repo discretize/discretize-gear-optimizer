@@ -68,11 +68,11 @@ impl Character {
     }
 
     pub fn score(&self) -> f32 {
-        return self.attributes.get_a(self.rankby);
+        self.attributes.get_a(self.rankby)
     }
 
     pub fn is_invalid(&self, settings: &Settings) -> bool {
-        let invalid = (settings.minBoonDuration.is_some()
+        (settings.minBoonDuration.is_some()
             && self.attributes.get_a(Attribute::BoonDuration)
                 < settings.minBoonDuration.unwrap() / 100.0)
             || (settings.minQuicknessDuration.is_some()
@@ -93,8 +93,6 @@ impl Character {
                     < settings.minCritChance.unwrap() / 100.0)
             || (settings.minOutgoingHealing.is_some()
                 && self.attributes.get_a(Attribute::OutgoingHealing)
-                    < settings.minOutgoingHealing.unwrap() / 100.0);
-
-        invalid
+                    < settings.minOutgoingHealing.unwrap() / 100.0)
     }
 }
