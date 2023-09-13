@@ -174,12 +174,10 @@ impl Condition {
                     } else {
                         26.0
                     }
+                } else if is_special {
+                    22.0
                 } else {
-                    if is_special {
-                        22.0
-                    } else {
-                        31.8
-                    }
+                    31.8
                 }
             }
         }
@@ -204,12 +202,10 @@ impl Condition {
                     } else {
                         0.07
                     }
+                } else if is_special {
+                    0.06
                 } else {
-                    if is_special {
-                        0.06
-                    } else {
-                        0.09
-                    }
+                    0.09
                 }
             }
         }

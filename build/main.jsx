@@ -1,5 +1,6 @@
 import '@discretize/gw2-ui-new/dist/default_style.css';
 import '@discretize/gw2-ui-new/dist/index.css';
+import '@discretize/react-discretize-components/dist/index.css';
 import { globals } from '@discretize/globals';
 import { Global } from '@emotion/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
@@ -9,6 +10,7 @@ import { Provider } from 'react-redux';
 import IndexPage from '../src/pages/build/index';
 import createStore from '../src/state/createStore';
 import muiTheme from '../src/utils/placeholder-unused-theme';
+import '../src/utils/rdc-styles.css';
 
 import '@discretize/typeface-menomonia';
 import 'typeface-fira-mono';

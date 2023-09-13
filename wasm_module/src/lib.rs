@@ -55,7 +55,7 @@ pub fn calculate(
     let result_str = serde_json::to_string(&result.best_characters);
 
     match result_str {
-        Ok(result_str) => return Some(result_str),
+        Ok(result_str) => Some(result_str),
         Err(_) => None,
     }
 }
@@ -97,7 +97,7 @@ pub fn calculate_with_heuristics(
     let result_str = serde_json::to_string(&result.best_characters);
 
     match result_str {
-        Ok(result_str) => return Some(result_str),
+        Ok(result_str) => Some(result_str),
         Err(_) => None,
     }
 }
