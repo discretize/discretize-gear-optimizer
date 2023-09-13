@@ -31,7 +31,11 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
   const { buffs } = character.settings.cachedFormState.buffs;
 
   const { attributes: allAttributes, gear, settings, infusions } = character;
-  const { specialization, weaponType, extrasCombination } = settings;
+  const {
+    specialization,
+    weaponType,
+    extrasCombination: { Enhancement, Nourishment, Runes, Sigil1, Sigil2 },
+  } = settings;
 
   // TODO ================================================================
   // TODO ==       ON NEXT SCHEMA UPGRADE ADD JADE BOT TIER             ==
@@ -49,7 +53,13 @@ function* exportStateCharacter({ newPage, copyToClipboard }) {
     gear,
     infusions: JSON.stringify(infusions) || '',
     settings: {
-      extrasCombination,
+      extrasCombination: {
+        Enhancement,
+        Nourishment,
+        Runes,
+        Sigil1,
+        Sigil2,
+      },
       profession,
       specialization,
       weaponType,
