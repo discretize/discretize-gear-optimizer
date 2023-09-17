@@ -75,7 +75,7 @@
         quantityEntered: 100
       modifiers:
         damage:
-          Outgoing Strike Damage: [25%, add]
+          Outgoing Strike Damage: [15%, add]
       gw2id: 28113
 
     - id: vengeful-hammers
