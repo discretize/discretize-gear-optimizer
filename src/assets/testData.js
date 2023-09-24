@@ -587,7 +587,7 @@ const testPresets = async () => {
         // traits,
         // extras,
         // weaponType,
-        outdated
+        outdated,
       } = item;
 
       if (id) {
@@ -595,7 +595,10 @@ const testPresets = async () => {
         ids.add(id);
       }
 
-      gentleAssert(typeof outdated === 'boolean', `err: template ${name}'s outdated status should be true or false`);
+      gentleAssert(
+        typeof outdated === 'boolean',
+        `err: template ${name}'s outdated status should be true or false`,
+      );
 
       const checkNullRecursively = (obj) => {
         for (const value of Object.values(obj)) {

@@ -56,8 +56,8 @@ const Navbar = () => {
   const selectedTemplateName = useSelector(getSelectedTemplate);
 
   const selectedTemplate = data.templates.list
-                .find((elem) => elem.class === profession)
-                ?.builds?.find((elem) => elem.name === selectedTemplateName);
+    .find((elem) => elem.class === profession)
+    ?.builds?.find((elem) => elem.name === selectedTemplateName);
 
   const isFractals = gamemode === 'fractals';
 
@@ -259,9 +259,11 @@ const Navbar = () => {
                       name={elem.specialization}
                       disableLink
                       // i18next-extract-mark-context-next-line {{buildTemplateName}}
-                      text={t('buildTemplateName', { context: elem.name }) +
-                      // i18next-extract-mark-context-next-line {{buildTemplateOutdated}}
-                        t('buildTemplateOutdated', { context: elem.outdated.toString() })}
+                      text={
+                        t('buildTemplateName', { context: elem.name }) +
+                        // i18next-extract-mark-context-next-line {{buildTemplateOutdated}}
+                        t('buildTemplateOutdated', { context: elem.outdated.toString() })
+                      }
                     />
                   </MenuItem>
                 ))}
@@ -282,7 +284,7 @@ const Navbar = () => {
                 // i18next-extract-mark-context-next-line {{buildTemplateName}}
                 t('buildTemplateName', { context: selectedTemplateName }) +
                 // i18next-extract-mark-context-next-line {{buildTemplateOutdated}}
-                  t('buildTemplateOutdated', { context: (!!selectedTemplate?.outdated).toString() })
+                t('buildTemplateOutdated', { context: (!!selectedTemplate?.outdated).toString() })
               }
               disableLink
             />
