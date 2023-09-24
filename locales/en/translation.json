@@ -407,6 +407,8 @@
   "buildTemplateName_Rifle Deadeye Premeditation (Outdated)": "Rifle Deadeye Premeditation (Outdated)",
   "buildTemplateName_Rifle Deadeye Silent Scope (Outdated)": "Rifle Deadeye Silent Scope (Outdated)",
   "buildTemplateName_[beta1] Condi Catalyst (Outdated)": "[beta1] Condi Catalyst (Outdated)",
+  "buildTemplateOutdated_false": "",
+  "buildTemplateOutdated_true": " (Outdated)",
   "copy raw data to clipboard": "copy raw data to clipboard",
   "extraSection_???": "???",
   "extraSection_Additional Condition Runes": "Additional Condition Runes",
