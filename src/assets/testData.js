@@ -587,12 +587,18 @@ const testPresets = async () => {
         // traits,
         // extras,
         // weaponType,
+        outdated,
       } = item;
 
       if (id) {
         gentleAssert(!ids.has(id), `err: templates has duplicate id ${id}`);
         ids.add(id);
       }
+
+      gentleAssert(
+        typeof outdated === 'boolean',
+        `err: template ${name}'s outdated status should be true or false`,
+      );
 
       const checkNullRecursively = (obj) => {
         for (const value of Object.values(obj)) {
