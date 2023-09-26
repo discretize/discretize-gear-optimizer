@@ -1,4 +1,5 @@
 name: 'Deploy: Cloudflare PR Preview'
+
 on:
   pull_request:
     types: [opened, reopened, synchronize, ready_for_review]
@@ -9,6 +10,9 @@ env:
 jobs:
   deployment:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
     if: >
       !contains(github.event.head_commit.message, 'skip ci') &&
       !contains(github.event.pull_request.body, '[no previews]') &&
@@ -16,15 +20,32 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      - name: Generate preview
-        env:
-          APIKEY: ${{ secrets.CF_GLOBAL_APIKEY }}
-        if: env.APIKEY != null
-        uses: tomjschuster/cloudflare-pages-deploy-action@v0
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node
+        uses: actions/setup-node@v3
         with:
-          account-id: '${{ secrets.CF_ACCOUNT_ID }}'
-          project-name: '${{ env.PAGES_PROJECT_NAME }}'
-          api-key: '${{ secrets.CF_GLOBAL_APIKEY }}'
-          email: '${{ secrets.CF_EMAIL }}'
-          preview: true
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+      - name: Cache dependencies
+        id: node-modules-cache
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+      - name: Compile WASM
+        run: yarn wasm
+      - name: Build
+        run: yarn build
+      - name: Publish Preview to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CF_GLOBAL_APIKEY }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          projectName: ${{ env.PAGES_PROJECT_NAME }}
+          directory: './dist'
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          wranglerVersion: '3'
