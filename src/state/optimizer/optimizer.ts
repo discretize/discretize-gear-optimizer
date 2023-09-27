@@ -1,25 +1,49 @@
-import { characterLT, OptimizerCore } from './optimizerCore';
-import { setupCombinations } from './optimizerSetup';
+import {
+  CalculateGenerator,
+  Character,
+  characterLT,
+  OptimizerCore,
+  OptimizerCoreSettings,
+} from './optimizerCore';
+import { ExtrasCombinationEntry, setupCombinations } from './optimizerSetup';
 
-const isArrayDifferent = (a, b) => {
+const isArrayDifferent = (a: any[], b: any[]) => {
   if (a.length !== b.length) return true;
   return a.some((_, i) => a[i] !== b[i]);
 };
 
 // todo: convert this file to a web worker handler
 
+interface Combination extends ExtrasCombinationEntry {
+  settings: OptimizerCoreSettings;
+  core: OptimizerCore;
+  calculation: CalculateGenerator;
+  done: boolean;
+  list: Character[];
+  calculationRuns: number;
+}
+
 // eslint-disable-next-line import/prefer-default-export
-export function* calculate(reduxState) {
+export function* calculate(reduxState: any) {
   /**
    * set up input
    */
 
-  const combinations = setupCombinations(reduxState);
-
-  for (const combination of combinations) {
-    combination.core = new OptimizerCore(combination.settings);
-    combination.calculation = combination.core.calculate();
-  }
+  const combinations: Combination[] = setupCombinations(reduxState).map(
+    ([combination, settings]) => {
+      const core = new OptimizerCore(settings);
+      const calculation = core.calculate();
+      return {
+        ...combination,
+        settings,
+        core,
+        calculation,
+        done: false,
+        list: [],
+        calculationRuns: 0,
+      };
+    },
+  );
 
   /**
    * iteration
@@ -29,8 +53,8 @@ export function* calculate(reduxState) {
   const globalCalculationTotal = runsAfterThisSlot[0] * combinations.length;
 
   let i = 0;
-  let globalList = [];
-  let globalFilteredList = [];
+  let globalList: Character[] = [];
+  let globalFilteredList: Character[] = [];
 
   let globalWorstScore = 0;
 
@@ -49,11 +73,11 @@ export function* calculate(reduxState) {
       combination.done = true;
     }
 
-    if (isChanged) {
+    if (isChanged && newList) {
       combination.list = newList;
 
       const newGlobalList = combinations
-        .flatMap(({ list }) => list || [])
+        .flatMap(({ list }) => list)
         // eslint-disable-next-line no-loop-func
         .filter((character) => character.attributes[rankby] >= globalWorstScore)
         .sort((a, b) => characterLT(a, b, rankby))
@@ -67,7 +91,7 @@ export function* calculate(reduxState) {
       }
 
       const newGlobalFilteredList = combinations
-        .map(({ list }) => list?.[0])
+        .map(({ list }) => list[0])
         .filter(Boolean)
         .sort((a, b) => characterLT(a, b, rankby));
 
@@ -78,12 +102,9 @@ export function* calculate(reduxState) {
 
     console.log(`option ${currentIndex} progress: ${calculationRuns} / ${runsAfterThisSlot[0]}`);
 
-    combination.calculationRuns = calculationRuns;
+    combination.calculationRuns = calculationRuns ?? 0;
 
-    const globalCalculationRuns = combinations.reduce(
-      (prev, cur) => prev + (cur.calculationRuns ?? 0),
-      0,
-    );
+    const globalCalculationRuns = combinations.reduce((prev, cur) => prev + cur.calculationRuns, 0);
     console.log(`total progress: ${globalCalculationRuns} / ${globalCalculationTotal}`);
 
     const result = {
