@@ -11,13 +11,11 @@ import { Provider } from 'react-redux';
 import 'typeface-fira-mono';
 import 'typeface-muli';
 import 'typeface-raleway';
-import createStore from '../../state/createStore';
+import store from '../../state/store';
 import '../../utils/i18n';
 import muiTheme from '../../utils/placeholder-unused-theme';
 import '../../utils/rdc-styles.css';
 import IndexPage from './index';
-
-const store = createStore();
 
 const container = document.getElementById('root');
 const root = createRoot(container);

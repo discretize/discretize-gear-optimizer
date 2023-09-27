@@ -8,7 +8,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import IndexPage from '../src/pages/build/index';
-import createStore from '../src/state/createStore';
+import store from '../src/state/store';
 import muiTheme from '../src/utils/placeholder-unused-theme';
 import '../src/utils/rdc-styles.css';
 
@@ -18,8 +18,6 @@ import 'typeface-muli';
 import 'typeface-raleway';
 
 import '../src/utils/i18n';
-
-const store = createStore();
 
 const container = document.getElementById('root');
 const root = createRoot(container);
