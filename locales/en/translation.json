@@ -1,4 +1,5 @@
 {
+  " (Outdated)": " (Outdated)",
   " duration": " duration",
   "% Outgoing Healing": "% Outgoing Healing",
   "(under construction)": "(under construction)",
@@ -407,8 +408,6 @@
   "buildTemplateName_Rifle Deadeye Premeditation": "Rifle Deadeye Premeditation",
   "buildTemplateName_Rifle Deadeye Silent Scope": "Rifle Deadeye Silent Scope",
   "buildTemplateName_[beta1] Condi Catalyst": "[beta1] Condi Catalyst",
-  "buildTemplateOutdated_false": "",
-  "buildTemplateOutdated_true": " (Outdated)",
   "copy raw data to clipboard": "copy raw data to clipboard",
   "extraSection_???": "???",
   "extraSection_Additional Condition Runes": "Additional Condition Runes",

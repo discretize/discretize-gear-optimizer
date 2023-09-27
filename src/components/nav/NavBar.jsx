@@ -258,11 +258,10 @@ const Navbar = () => {
                     <Profession
                       name={elem.specialization}
                       disableLink
-                      // i18next-extract-mark-context-next-line {{buildTemplateName}}
                       text={
+                        // i18next-extract-mark-context-next-line {{buildTemplateName}}
                         t('buildTemplateName', { context: elem.name }) +
-                        // i18next-extract-mark-context-next-line {{buildTemplateOutdated}}
-                        t('buildTemplateOutdated', { context: elem.outdated.toString() })
+                        (elem.outdated ? t(' (Outdated)') : '')
                       }
                     />
                   </MenuItem>
@@ -283,8 +282,7 @@ const Navbar = () => {
               text={
                 // i18next-extract-mark-context-next-line {{buildTemplateName}}
                 t('buildTemplateName', { context: selectedTemplateName }) +
-                // i18next-extract-mark-context-next-line {{buildTemplateOutdated}}
-                t('buildTemplateOutdated', { context: (!!selectedTemplate?.outdated).toString() })
+                (selectedTemplate?.outdated ? t(' (Outdated)') : '')
               }
               disableLink
             />
