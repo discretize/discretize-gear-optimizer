@@ -56,7 +56,7 @@ import {
 } from '../../utils/usefulFunctions';
 import type { OptimizerCoreSettings } from '../optimizer/optimizerCore';
 import { clamp, scaleValue } from '../optimizer/optimizerCore';
-import type { Combination as CombinationOld } from '../optimizer/optimizerSetup';
+import type { ExtrasCombinationEntry } from '../optimizer/optimizerSetup';
 import { getAttackRate, getMovementUptime } from '../slices/boss';
 import { getBuffsModifiers } from '../slices/buffs';
 import { getProfession } from '../slices/controlsSlice';
@@ -201,7 +201,7 @@ export type InfusionMode = 'None' | 'Primary' | 'Few' | 'Secondary' | 'Secondary
 // explicitly typed; override this
 const getExtrasCombinationsAndModifiers = getExtrasCombinationsAndModifiersRaw as any as (
   state: any,
-) => CombinationOld[];
+) => ExtrasCombinationEntry[];
 
 export interface CachedFormState {
   traits: Record<string, any>;
@@ -217,23 +217,26 @@ export interface ResultData {
 
 export function setupNormal(reduxState: any): [Combination[], ResultData[]] {
   // do not mutate selector result; it may be reused if the same calculation is run twice
-  const combinationsRaw: CombinationOld[] = getExtrasCombinationsAndModifiers(reduxState).map(
-    (combination) => ({ ...combination }),
-  );
+  const extrasCombinationEntries: ExtrasCombinationEntry[] = getExtrasCombinationsAndModifiers(
+    reduxState,
+  ).map((combination) => ({ ...combination }));
 
-  const resultData = combinationsRaw.map((combination) => ({
-    extrasModifiers: combination.extrasModifiers,
-    extrasCombination: combination.extrasCombination,
+  const resultData = extrasCombinationEntries.map((entry) => ({
+    extrasModifiers: entry.extrasModifiers,
+    extrasCombination: entry.extrasCombination,
   }));
 
-  const combinations = combinationsRaw.map((combination) =>
-    createCombination(combination, reduxState),
+  const combinations = extrasCombinationEntries.map(({ extrasModifiers }) =>
+    createCombination(extrasModifiers, reduxState),
   );
 
   return [combinations, resultData];
 }
 
-export function createCombination(combination: CombinationOld, reduxState: any): Combination {
+export function createCombination(
+  extrasModifiers: AppliedModifier[],
+  reduxState: any,
+): Combination {
   const profession: ProfessionName | '' = getProfession(reduxState);
   if (profession === '') {
     throw new Error('missing profession!');
@@ -255,7 +258,6 @@ export function createCombination(combination: CombinationOld, reduxState: any):
     ...(getTraitsModifiers(reduxState) || []),
   ];
 
-  const { extrasModifiers } = combination;
   const appliedModifiers = [...sharedModifiers, ...extrasModifiers];
 
   /* Base Attributes */

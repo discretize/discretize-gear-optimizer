@@ -3,7 +3,7 @@
 import init, { calculate, calculate_heuristics_only, calculate_with_heuristics } from 'wasm_module';
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import { AffixName } from '../../../utils/gw2-data';
-import type { Combination as CombinationOld } from '../../optimizer/optimizerSetup';
+import type { ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
 import {
   allowedDuplicateSigils,
   getExtrasData,
@@ -81,7 +81,7 @@ async function start(
     postMessage(message);
   }
 }
-const bestList: [Combination, CombinationOld][] = [];
+const bestList: [Combination, ExtrasCombinationEntry][] = [];
 
 /**
  * Runs heuristics to figure out which extras combinations are likely good.
@@ -118,7 +118,7 @@ async function start_heuristics(
   };
 
   // store combinations here; we batch process them
-  let currentChunkList: [Combination, CombinationOld][] = [];
+  let currentChunkList: [Combination, ExtrasCombinationEntry][] = [];
 
   // callback that is called for every leaf of the extras combination tree
   // we calculate the attributes and modifiers of the combination here
@@ -135,13 +135,13 @@ async function start_heuristics(
       Nourishment: leaf[4],
     };
 
-    const combinationOld: CombinationOld = {
+    const extrasCombinationEntry: ExtrasCombinationEntry = {
       extrasCombination: extras,
       extrasModifiers: getModifiers(extras),
     };
 
-    const combination = createCombination(combinationOld, reduxState);
-    currentChunkList.push([combination, combinationOld]);
+    const combination = createCombination(extrasCombinationEntry.extrasModifiers, reduxState);
+    currentChunkList.push([combination, extrasCombinationEntry]);
 
     if (currentChunkList.length % 10000 === 0) {
       // add progress message
@@ -174,7 +174,7 @@ async function start_heuristics(
   postMessage(message);
 }
 
-function calcWasmHeuristics(settings: Settings, chunks: [Combination, CombinationOld][]) {
+function calcWasmHeuristics(settings: Settings, chunks: [Combination, ExtrasCombinationEntry][]) {
   const resStr = calculate_heuristics_only(
     settingsToWorkerString(settings),
     combinationsToWorkerString(chunks.map((chunk) => chunk[0])),
