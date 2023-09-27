@@ -258,8 +258,8 @@ const Navbar = () => {
                     <Profession
                       name={elem.specialization}
                       disableLink
-                      // i18next-extract-mark-context-next-line {{buildTemplateName}}
                       text={
+                        // i18next-extract-mark-context-next-line {{buildTemplateName}}
                         t('buildTemplateName', { context: elem.name }) +
                         (elem.outdated ? t(' (Outdated)') : '')
                       }
