@@ -159,7 +159,7 @@ export const getCurrentSpecialization = (state: RootState): string => {
   const { eliteSpecializations } = PROFESSIONS.find((prof) => prof.profession === profession);
   // contains the names of the selected trait lines
   const selectedTraitLinesNames = selectedLines
-    .map((id) => classModifiers[profession].find((section) => section?.id === Number(id)))
+    .map((id) => classModifiers[profession].find((section: any) => section?.id === Number(id)))
     .filter((section) => section !== undefined)
     .map((section) => section.section);
 
