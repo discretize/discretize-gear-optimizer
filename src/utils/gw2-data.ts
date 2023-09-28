@@ -4,6 +4,8 @@
  * ------------------------------------------------------------------------
  */
 
+import { objectKeys } from './usefulFunctions';
+
 export type AffixName =
   | 'Berserker'
   | 'Assassin'
@@ -1465,21 +1467,23 @@ export const Attributes = {
 export const MAX_INFUSIONS = 18;
 export const INFUSION_BONUS = 5;
 
-export const PROFESSIONS = [
-  { profession: 'Warrior', eliteSpecializations: ['Spellbreaker', 'Berserker', 'Bladesworn'] },
-  { profession: 'Revenant', eliteSpecializations: ['Herald', 'Renegade', 'Vindicator'] },
-  { profession: 'Guardian', eliteSpecializations: ['Dragonhunter', 'Firebrand', 'Willbender'] },
-  { profession: 'Ranger', eliteSpecializations: ['Druid', 'Soulbeast', 'Untamed'] },
-  { profession: 'Engineer', eliteSpecializations: ['Scrapper', 'Holosmith', 'Mechanist'] },
-  { profession: 'Elementalist', eliteSpecializations: ['Tempest', 'Weaver', 'Catalyst'] },
-  { profession: 'Mesmer', eliteSpecializations: ['Chronomancer', 'Mirage', 'Virtuoso'] },
-  { profession: 'Necromancer', eliteSpecializations: ['Scourge', 'Reaper', 'Harbinger'] },
-  { profession: 'Thief', eliteSpecializations: ['Daredevil', 'Deadeye', 'Specter'] },
-] as const;
+export const SPECIALIZATIONS = {
+  Warrior: ['Spellbreaker', 'Berserker', 'Bladesworn'],
+  Revenant: ['Herald', 'Renegade', 'Vindicator'],
+  Guardian: ['Dragonhunter', 'Firebrand', 'Willbender'],
+  Ranger: ['Druid', 'Soulbeast', 'Untamed'],
+  Engineer: ['Scrapper', 'Holosmith', 'Mechanist'],
+  Elementalist: ['Tempest', 'Weaver', 'Catalyst'],
+  Mesmer: ['Chronomancer', 'Mirage', 'Virtuoso'],
+  Necromancer: ['Scourge', 'Reaper', 'Harbinger'],
+  Thief: ['Daredevil', 'Deadeye', 'Specter'],
+} as const;
+
+export const PROFESSIONS = objectKeys(SPECIALIZATIONS);
 
 export type ProfessionOrSpecializationName =
-  | (typeof PROFESSIONS)[number]['profession']
-  | (typeof PROFESSIONS)[number]['eliteSpecializations'][number];
+  | keyof typeof SPECIALIZATIONS
+  | (typeof SPECIALIZATIONS)[keyof typeof SPECIALIZATIONS][number];
 
 export const GEAR_SLOTS = [
   {

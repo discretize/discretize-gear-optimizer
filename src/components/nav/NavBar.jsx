@@ -221,19 +221,19 @@ const Navbar = () => {
     <Toolbar>
       <Box flexGrow={1}>
         {PROFESSIONS.map((prof, index) => (
-          <React.Fragment key={prof.profession}>
+          <React.Fragment key={prof}>
             <Button
               onClick={() => {
                 dispatch({ type: SagaTypes.Stop });
                 if (expertMode) {
-                  dispatch(changeProfession(prof.profession));
+                  dispatch(changeProfession(prof));
                 }
               }}
-              variant={prof.profession === profession ? 'contained' : 'text'}
+              variant={prof === profession ? 'contained' : 'text'}
               color="inherit"
               {...bindHover(popupState[index])}
             >
-              <Profession name={prof.profession} disableLink disableText className={classes.icon} />
+              <Profession name={prof} disableLink disableText className={classes.icon} />
             </Button>
 
             <Menu
@@ -247,13 +247,11 @@ const Navbar = () => {
               }}
             >
               {data.templates.list
-                .find((elem) => elem.class === prof.profession)
+                .find((elem) => elem.class === prof)
                 ?.builds?.map((elem) => (
                   <MenuItem
                     key={elem.name}
-                    onClick={(e) =>
-                      handleTemplateSelect(popupState[index], elem.name, prof.profession)
-                    }
+                    onClick={(e) => handleTemplateSelect(popupState[index], elem.name, prof)}
                   >
                     <Profession
                       name={elem.specialization}

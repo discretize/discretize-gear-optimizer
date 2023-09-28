@@ -4,10 +4,11 @@ import {
   classModifiers,
   traitSectionsById,
 } from '../../assets/modifierdata';
-import { PROFESSIONS } from '../../utils/gw2-data';
+import { SPECIALIZATIONS } from '../../utils/gw2-data';
 import { changeAll, changeProfession, getProfession, setBuildTemplate } from './controlsSlice';
 import { AppliedModifier } from '../optimizer/optimizerSetup';
 import { RootState } from '../store';
+import { enumArrayIncludes } from '../../utils/usefulFunctions';
 
 interface TraitValue {
   amount?: string;
@@ -156,7 +157,7 @@ export const getCurrentSpecialization = (state: RootState): string => {
   if (!profession) throw new Error('no selected profession!');
   const selectedLines = getTraitLines(state);
 
-  const { eliteSpecializations } = PROFESSIONS.find((prof) => prof.profession === profession);
+  const eliteSpecializations = SPECIALIZATIONS[profession];
   // contains the names of the selected trait lines
   const selectedTraitLinesNames = selectedLines
     .map((id) => classModifiers[profession].find((section: any) => section?.id === Number(id)))
@@ -166,7 +167,8 @@ export const getCurrentSpecialization = (state: RootState): string => {
   // currently selected specialization. In case multiple elite specializations are selected, only the first one is counted.
   // In case no specialization is selected, the variable defaults to the core profession
   const currentSpecialization =
-    selectedTraitLinesNames.find((spec) => eliteSpecializations.includes(spec)) || profession;
+    selectedTraitLinesNames.find((spec: string) => enumArrayIncludes(eliteSpecializations, spec)) ||
+    profession;
   return currentSpecialization;
 };
 

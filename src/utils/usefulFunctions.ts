@@ -61,6 +61,8 @@ export const objectEntries = Object.entries as <Type extends object>(
   value: Type,
 ) => Array<[keyof Type, Type[keyof Type]]>;
 
+export const objectKeys = Object.keys as <Type extends object>(value: Type) => Array<keyof Type>;
+
 /*
  * Like Array.prototype.map(), but for key-value objects.
  * Creates a new key-value object containing the key-value pairs of the input object, except the

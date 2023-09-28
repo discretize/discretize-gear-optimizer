@@ -6,7 +6,7 @@ import { getProfession } from '../../../state/slices/controlsSlice';
 import { changeSkills } from '../../../state/slices/skills';
 import { changeTraits, getShowAllTraits, toggleShowAll } from '../../../state/slices/traits';
 import data from '../../../utils/data';
-import { PROFESSIONS } from '../../../utils/gw2-data';
+import { SPECIALIZATIONS } from '../../../utils/gw2-data';
 import Presets from '../../baseComponents/Presets';
 import Section from '../../baseComponents/Section';
 import Traits from './Traits';
@@ -20,7 +20,7 @@ const TraitsSection = () => {
 
   let traitsPresets;
   if (profession) {
-    const { eliteSpecializations } = PROFESSIONS.find((entry) => entry.profession === profession);
+    const eliteSpecializations = SPECIALIZATIONS[profession];
     traitsPresets = data.presetTraits.list.filter((preset) => {
       return (
         !preset.profession ||
