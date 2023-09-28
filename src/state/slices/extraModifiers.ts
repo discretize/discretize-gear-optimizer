@@ -17,8 +17,11 @@ export const extraModifiersSlice = createSlice({
   name: 'extraModifiers',
   initialState,
   reducers: {
-    changeExtraModifiers: (state, action) => {
-      state[action.payload.key] = action.payload.value;
+    changeExtraModifiers: (state, action: PayloadAction<any[]>) => {
+      state.extraModifiers = action.payload;
+    },
+    changeExtraModifiersText: (state, action: PayloadAction<string>) => {
+      state.textBox = action.payload;
     },
     changeExtraModifiersError: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
@@ -45,4 +48,5 @@ export const getExtraModifiersModifiers = (state: RootState): AppliedModifier[] 
   }));
 };
 
-export const { changeExtraModifiers, changeExtraModifiersError } = extraModifiersSlice.actions;
+export const { changeExtraModifiers, changeExtraModifiersText, changeExtraModifiersError } =
+  extraModifiersSlice.actions;

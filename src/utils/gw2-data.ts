@@ -896,8 +896,6 @@ export const WeaponTypes = {
   twoHanded: 'Two-handed',
 } as const;
 
-export type WeaponTypesValue = (typeof WeaponTypes)[keyof typeof WeaponTypes];
-
 export const Slots = {
   'Dual wield': [
     {

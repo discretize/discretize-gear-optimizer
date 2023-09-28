@@ -3,8 +3,8 @@ import {
   AffixData,
   AffixNameOrCustom,
   IndicatorName,
+  WeaponHandednessType,
   WeaponTypes,
-  WeaponTypesValue,
 } from '../../utils/gw2-data';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 import { RootState } from '../store';
@@ -19,7 +19,7 @@ const pick = (object: Record<string, any>, keysToPick: string[]) =>
 
 const initialState: {
   optimizeFor: IndicatorName;
-  weaponType: WeaponTypesValue;
+  weaponType: WeaponHandednessType;
   minBoonDuration: string;
   minHealingPower: string;
   minToughness: string;
@@ -71,12 +71,37 @@ const initialState: {
   customAffixError: '',
 };
 
+type ConstraintKey =
+  | 'minBoonDuration'
+  | 'minHealingPower'
+  | 'minToughness'
+  | 'maxToughness'
+  | 'minHealth'
+  | 'minCritChance'
+  | 'minDamage'
+  | 'minHealing'
+  | 'minSurvivability'
+  | 'minOutgoingHealing'
+  | 'minQuicknessDuration';
+
 export const prioritiesSlice = createSlice({
   name: 'priorities',
   initialState,
   reducers: {
-    changePriority: (state, action) => {
+    changeConstraint: (state, action: PayloadAction<{ key: ConstraintKey; value: string }>) => {
       state[action.payload.key] = action.payload.value;
+    },
+    changePriorities: (state, action) => {
+      return { ...state, ...action.payload };
+    },
+    changeOptimizeFor: (state, action: PayloadAction<IndicatorName>) => {
+      state.optimizeFor = action.payload;
+    },
+    changeWeaponType: (state, action: PayloadAction<WeaponHandednessType>) => {
+      state.weaponType = action.payload;
+    },
+    changeAffixes: (state, action: PayloadAction<AffixNameOrCustom[]>) => {
+      state.affixes = action.payload;
     },
     changeExclusion: (
       state,
@@ -114,6 +139,15 @@ export const prioritiesSlice = createSlice({
         state.exotics.data = {};
       }
     },
+    changeCustomAffixTextBox: (state, action: PayloadAction<string>) => {
+      state.customAffixTextBox = action.payload;
+    },
+    changeCustomAffix: (state, action: PayloadAction<Partial<AffixData>>) => {
+      state.customAffix = action.payload;
+    },
+    changeCustomAffixError: (state, action: PayloadAction<string>) => {
+      state.customAffixError = action.payload;
+    },
   },
 
   extraReducers: (builder) => {
@@ -131,7 +165,13 @@ export const prioritiesSlice = createSlice({
   },
 });
 
-export const getPriority = (key) => (state: RootState) => state.optimizer.form.priorities[key];
+export const getConstraint = (key: ConstraintKey) => (state: RootState) =>
+  state.optimizer.form.priorities[key];
+
+export const getOptimizeFor = (state: RootState) => state.optimizer.form.priorities.optimizeFor;
+export const getAffixes = (state: RootState) => state.optimizer.form.priorities.affixes;
+export const getWeaponType = (state: RootState) => state.optimizer.form.priorities.weaponType;
+
 export const getExclusionsEnabled = (state: RootState) =>
   state.optimizer.form.priorities.exclusions.enabled;
 export const getExoticsEnabled = (state: RootState) =>
@@ -142,6 +182,10 @@ export const getExoticsData = (state: RootState) => state.optimizer.form.priorit
 export const getUsedExoticsData = (state: RootState) =>
   pick(state.optimizer.form.priorities.exotics.data, state.optimizer.form.priorities.affixes);
 
+export const getCustomAffixText = (state: RootState) =>
+  state.optimizer.form.priorities.customAffixTextBox;
+export const getCustomAffixError = (state: RootState) =>
+  state.optimizer.form.priorities.customAffixError;
 export const getCustomAffixData = (state: RootState) => {
   const { customAffix } = state.optimizer.form.priorities;
 
@@ -153,10 +197,17 @@ export const getCustomAffixData = (state: RootState) => {
 };
 
 export const {
-  changePriority,
+  changeConstraint,
+  changePriorities,
+  changeOptimizeFor,
+  changeWeaponType,
+  changeAffixes,
   changeExclusion,
   changeExclusionsEnabled,
   changeExotic,
   changeAllExotic,
   changeExoticsEnabled,
+  changeCustomAffixTextBox,
+  changeCustomAffix,
+  changeCustomAffixError,
 } = prioritiesSlice.actions;

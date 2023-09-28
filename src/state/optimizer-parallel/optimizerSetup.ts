@@ -34,7 +34,6 @@ import type {
   IndicatorName,
   InfusionName,
   ProfessionName,
-  WeaponHandednessType,
 } from '../../utils/gw2-data';
 import {
   Attributes,
@@ -76,10 +75,13 @@ import {
   getSecondaryMaxInfusions,
 } from '../slices/infusions';
 import {
+  getAffixes,
   getCustomAffixData,
   getExclusionData,
   getExoticsData,
-  getPriority,
+  getOptimizeFor,
+  getConstraint,
+  getWeaponType,
 } from '../slices/priorities';
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
@@ -617,20 +619,20 @@ export function createSettings(reduxState: any): Settings {
   const forcedSlots: (AffixName | null)[] = getForcedSlots(reduxState);
   const exclusions: Partial<Record<AffixName, boolean[]>> = getExclusionData(reduxState);
   const exotics: Partial<Record<AffixName, boolean[]>> = getExoticsData(reduxState);
-  const optimizeFor: IndicatorName = getPriority('optimizeFor')(reduxState);
-  const weaponType: WeaponHandednessType = getPriority('weaponType')(reduxState);
-  const minBoonDurationText: string = getPriority('minBoonDuration')(reduxState);
-  const minHealingPowerText: string = getPriority('minHealingPower')(reduxState);
-  const minToughnessText: string = getPriority('minToughness')(reduxState);
-  const maxToughnessText: string = getPriority('maxToughness')(reduxState);
-  const minHealthText: string = getPriority('minHealth')(reduxState);
-  const minCritChanceText: string = getPriority('minCritChance')(reduxState);
-  const minDamageText: string = getPriority('minDamage')(reduxState);
-  const minHealingText: string = getPriority('minHealing')(reduxState);
-  const minOutgoingHealingText: string = getPriority('minOutgoingHealing')(reduxState);
-  const minQuicknessDurationText: string = getPriority('minQuicknessDuration')(reduxState);
-  const minSurvivabilityText: string = getPriority('minSurvivability')(reduxState);
-  const affixes: AffixName[] = getPriority('affixes')(reduxState);
+  const optimizeFor: IndicatorName = getOptimizeFor(reduxState);
+  const weaponType = getWeaponType(reduxState);
+  const minBoonDurationText: string = getConstraint('minBoonDuration')(reduxState);
+  const minHealingPowerText: string = getConstraint('minHealingPower')(reduxState);
+  const minToughnessText: string = getConstraint('minToughness')(reduxState);
+  const maxToughnessText: string = getConstraint('maxToughness')(reduxState);
+  const minHealthText: string = getConstraint('minHealth')(reduxState);
+  const minCritChanceText: string = getConstraint('minCritChance')(reduxState);
+  const minDamageText: string = getConstraint('minDamage')(reduxState);
+  const minHealingText: string = getConstraint('minHealing')(reduxState);
+  const minOutgoingHealingText: string = getConstraint('minOutgoingHealing')(reduxState);
+  const minQuicknessDurationText: string = getConstraint('minQuicknessDuration')(reduxState);
+  const minSurvivabilityText: string = getConstraint('minSurvivability')(reduxState);
+  const affixes = getAffixes(reduxState);
   const unmodifiedDistribution: Record<DistributionNameUI, number> = getDistributionNew(reduxState);
   const attackRateText: string = getAttackRate(reduxState);
   const movementUptimeText: string = getMovementUptime(reduxState);

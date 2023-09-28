@@ -11,7 +11,13 @@ import yaml from 'js-yaml';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { changePriority, getPriority } from '../../../state/slices/priorities';
+import {
+  changeCustomAffix,
+  changeCustomAffixError,
+  changeCustomAffixTextBox,
+  getCustomAffixError,
+  getCustomAffixText,
+} from '../../../state/slices/priorities';
 
 export const exampleAffix = `type: quadruple
 bonuses:
@@ -54,16 +60,16 @@ function parseInput(str) {
 const CustomAffix = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const errorMsg = useSelector(getPriority('customAffixError'));
-  const text = useSelector(getPriority('customAffixTextBox'));
+  const errorMsg = useSelector(getCustomAffixError);
+  const text = useSelector(getCustomAffixText);
 
   const handleChange = (e) => {
     const val = e.target.value;
-    dispatch(changePriority({ key: 'customAffixTextBox', value: val }));
+    dispatch(changeCustomAffixTextBox(val));
 
     const { data, error } = parseInput(val);
-    dispatch(changePriority({ key: 'customAffix', value: data }));
-    dispatch(changePriority({ key: 'customAffixError', value: error ? t('Invalid Format.') : '' }));
+    dispatch(changeCustomAffix(data));
+    dispatch(changeCustomAffixError(error ? t('Invalid Format.') : ''));
   };
 
   return (
