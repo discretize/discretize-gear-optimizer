@@ -1,3 +1,4 @@
+import { objectEntries, objectFromEntries } from 'ts-extras';
 import type { ProfessionName } from './gw2-data';
 import { Classes, Defense } from './gw2-data';
 
@@ -62,11 +63,13 @@ export const getWeight = (profession: ProfessionName) => {
  * Creates a new key-value object containing the key-value pairs of the input object, except the
  * values are transformed by the input function.
  */
-export function mapValues<In, Out>(
-  obj: Record<string, In>,
+export function mapValues<Key extends string, In, Out>(
+  obj: Record<Key, In>,
   callbackFn: (v: In) => Out,
-): Record<string, Out> {
-  return Object.fromEntries(Object.entries(obj).map(([key, value]) => [key, callbackFn(value)]));
+) {
+  return objectFromEntries(
+    objectEntries(obj).map(([key, value]) => [key, callbackFn(value)]),
+  ) as Record<Key, Out>;
 }
 
 /*

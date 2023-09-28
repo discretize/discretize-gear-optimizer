@@ -8,7 +8,7 @@ import { allExtrasModifiersById, buffModifiers } from '../../../assets/modifierd
 import { getSkills, getWeapons } from '../../../state/slices/buildPage';
 import { getTraitLines, getTraits } from '../../../state/slices/traits';
 import { getGameMode } from '../../../state/slices/userSettings';
-import { WEAPONS, infusionIds } from '../../../utils/gw2-data';
+import { WEAPONS, statInfusionIds } from '../../../utils/gw2-data';
 import { createAssumedBuffs } from '../../../utils/toLazyToType-usefulFunctions';
 import { getWeight } from '../../../utils/usefulFunctions';
 import Section from '../../baseComponents/Section';
@@ -52,7 +52,9 @@ const TemplateHelperSections = ({ character }) => {
     const runeName = runeStringId ? rune.text.replace(/(Superior|Rune|of|the)/g, '').trim() : '';
     const infusionsTemp = infusionsRaw
       ? Object.entries(infusionsRaw)
-          .map(([type, count]) => [...Array(count).fill(infusionIds['+9 Stat Infusion'][type].id)])
+          .map(([type, count]) => [
+            ...Array(count).fill(statInfusionIds['+9 Stat Infusion'][type].id),
+          ])
           .flat()
       : [];
     const infusions = infusionsTemp.concat(Array(18 - infusionsTemp.length).fill(49432));

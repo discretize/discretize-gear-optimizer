@@ -1,10 +1,12 @@
 /* eslint-disable camelcase */
+import { objectEntries } from 'ts-extras';
 // eslint-disable-next-line import/no-unresolved
 import init, { calculate, calculate_heuristics_only, calculate_with_heuristics } from 'wasm_module';
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
 import { AffixName } from '../../../utils/gw2-data';
 import type { ExtrasCombinationEntry } from '../../optimizer/optimizerSetup';
 import {
+  ExtrasCombination,
   allowedDuplicateSigils,
   getExtrasData,
   getLifestealAmount,
@@ -103,8 +105,8 @@ async function start_heuristics(
   const data = getExtrasData(reduxState);
   const lifestealAmount = getLifestealAmount(reduxState);
 
-  const getModifiers = (extrasCombination: Record<string, string>) => {
-    const allModifiers = Object.entries(extrasCombination)
+  const getModifiers = (extrasCombination: ExtrasCombination) => {
+    const allModifiers = objectEntries(extrasCombination)
       .filter(([_, id]) => id)
       .map(([type, id]) => {
         if (!allExtrasModifiersById[id]) throw new Error(`missing data for extras id: ${id}`);

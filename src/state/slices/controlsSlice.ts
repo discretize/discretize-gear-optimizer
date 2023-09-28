@@ -1,9 +1,17 @@
-import { createSelector, createSlice, original } from '@reduxjs/toolkit';
-import { RUNNING, WAITING } from '../optimizer/status';
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { PayloadAction, createSelector, createSlice, original } from '@reduxjs/toolkit';
+import { OptimizerStatus, RUNNING, WAITING } from '../optimizer/status';
+import { RootState } from '../store';
+import { Character } from '../optimizer/optimizerCore';
+import {
+  IndicatorName,
+  ProfessionName,
+  ProfessionOrSpecializationName,
+} from '../../utils/gw2-data';
 
-const roundThree = (num) => Math.round(num * 1000) / 1000;
+const roundThree = (num: number) => Math.round(num * 1000) / 1000;
 
-const logAttributeDiff = (newCharacter, oldCharacter) => {
+const logAttributeDiff = (newCharacter: Character | null, oldCharacter: Character | null) => {
   if (
     oldCharacter?.attributes &&
     oldCharacter?.baseAttributes &&
@@ -12,32 +20,40 @@ const logAttributeDiff = (newCharacter, oldCharacter) => {
   ) {
     console.groupCollapsed('Selected Character Comparison');
     const baseAttributeComparisonEntries = Object.keys(newCharacter.baseAttributes)
-      .map((key) => [
-        key,
-        {
-          value: roundThree(newCharacter.baseAttributes[key] - oldCharacter.baseAttributes[key]),
-          percent: roundThree(
-            ((newCharacter.baseAttributes[key] - oldCharacter.baseAttributes[key]) /
-              oldCharacter.baseAttributes[key]) *
-              100,
-          ),
-        },
-      ])
+      .map(
+        (key) =>
+          [
+            key,
+            {
+              value: roundThree(
+                newCharacter.baseAttributes[key] - oldCharacter.baseAttributes[key],
+              ),
+              percent: roundThree(
+                ((newCharacter.baseAttributes[key] - oldCharacter.baseAttributes[key]) /
+                  oldCharacter.baseAttributes[key]) *
+                  100,
+              ),
+            },
+          ] as const,
+      )
       .filter(([_key, value]) => value.value);
     console.log('Base attributes changed (not including modifiers):');
     console.table(Object.fromEntries(baseAttributeComparisonEntries));
     const attributeComparisonEntries = Object.keys(newCharacter.attributes)
-      .map((key) => [
-        key,
-        {
-          value: roundThree(newCharacter.attributes[key] - oldCharacter.attributes[key]),
-          percent: roundThree(
-            ((newCharacter.attributes[key] - oldCharacter.attributes[key]) /
-              oldCharacter.attributes[key]) *
-              100,
-          ),
-        },
-      ])
+      .map(
+        (key) =>
+          [
+            key,
+            {
+              value: roundThree(newCharacter.attributes[key] - oldCharacter.attributes[key]),
+              percent: roundThree(
+                ((newCharacter.attributes[key] - oldCharacter.attributes[key]) /
+                  oldCharacter.attributes[key]) *
+                  100,
+              ),
+            },
+          ] as const,
+      )
       .filter(([_key, value]) => value.value);
     console.log('Final attributes changed:');
     console.table(Object.fromEntries(attributeComparisonEntries));
@@ -45,30 +61,63 @@ const logAttributeDiff = (newCharacter, oldCharacter) => {
   }
 };
 
+type FilterMode =
+  | 'None'
+  | 'Combinations'
+  | 'Sigils'
+  | 'Runes'
+  | 'Relics'
+  | 'Nourishment'
+  | 'Enhancement';
+
+type DisplayAttributes = ('Toughness' | 'Boon Duration' | 'Health' | 'Critical Chance')[];
+
+const initialState: {
+  list: Character[];
+  filteredList: Character[];
+  saved: Character[];
+  compareByPercent: boolean;
+  tallTable: boolean;
+  filterMode: FilterMode;
+  displayAttributes: DisplayAttributes;
+  progress: number;
+  selectedCharacter: Character | null;
+  selectedTemplate: string;
+  status: OptimizerStatus;
+  profession: ProfessionName | '';
+  selectedSpecialization: ProfessionOrSpecializationName | '';
+  multicore: boolean;
+  hwThreads: number;
+  heuristics: boolean;
+  error: string;
+} = {
+  list: [],
+  filteredList: [],
+  saved: [],
+  compareByPercent: false,
+  tallTable: false,
+  filterMode: 'None',
+  displayAttributes: [],
+  progress: 0,
+  selectedCharacter: null,
+  selectedTemplate: '',
+  status: WAITING,
+  profession: '',
+  selectedSpecialization: '',
+  multicore: false,
+  hwThreads: navigator.hardwareConcurrency || 4, // 4 seems to be a sensible default
+  heuristics: false,
+  error: '',
+};
+
 export const controlSlice = createSlice({
   name: 'control',
-  initialState: {
-    list: [],
-    filteredList: [],
-    saved: [],
-    compareByPercent: false,
-    tallTable: false,
-    filterMode: 'None',
-    displayAttributes: [],
-    progress: 0,
-    selectedCharacter: null,
-    selectedTemplate: '',
-    status: WAITING,
-    profession: '',
-    multicore: false,
-    hwThreads: navigator.hardwareConcurrency || 4, // 4 seems to be a sensible default
-    heuristics: false,
-  },
+  initialState,
   reducers: {
     changeAll: (state, action) => {
       return { ...state, ...action.payload?.control };
     },
-    changeProfession: (state, action) => {
+    changeProfession: (state, action: PayloadAction<ProfessionName>) => {
       if (state.profession !== action.payload) {
         // reset state on profession change
         return {
@@ -90,16 +139,16 @@ export const controlSlice = createSlice({
         profession,
       };
     },
-    changeStatus: (state, action) => {
+    changeStatus: (state, action: PayloadAction<OptimizerStatus>) => {
       state.status = action.payload;
     },
-    changeProgress: (state, action) => {
+    changeProgress: (state, action: PayloadAction<number>) => {
       state.progress = action.payload;
     },
-    changeList: (state, action) => {
+    changeList: (state, action: PayloadAction<Character[]>) => {
       return { ...state, list: action.payload };
     },
-    addToList: (state, action) => {
+    addToList: (state, action: PayloadAction<{ rankby: IndicatorName; data: Character[] }>) => {
       // insert all characters of payload such that the order of the list is kept
       // slice to 100 characters
       const newList = [...state.list, ...action.payload.data];
@@ -109,18 +158,25 @@ export const controlSlice = createSlice({
 
       return { ...state, list: newList.slice(0, 100) };
     },
-    changeFilteredList: (state, action) => {
+    changeFilteredList: (state, action: PayloadAction<Character[]>) => {
       return { ...state, filteredList: action.payload };
     },
-    updateResults: (state, action) => {
+    updateResults: (
+      state,
+      action: PayloadAction<{
+        list: Character[];
+        filteredList: Character[];
+        progress: number;
+      }>,
+    ) => {
       const { list, filteredList, progress } = action.payload;
       state.progress = progress;
       if (list) state.list = list;
       if (filteredList) state.filteredList = filteredList;
     },
-    toggleSaved: (state, action) => {
+    toggleSaved: (state, action: PayloadAction<Character>) => {
       // required to use reference equality check with immer.js
-      const originalSaved = original(state.saved);
+      const originalSaved = original(state.saved)!;
 
       if (originalSaved.includes(action.payload)) {
         state.saved = originalSaved.filter((character) => character !== action.payload);
@@ -128,57 +184,58 @@ export const controlSlice = createSlice({
         state.saved.push(action.payload);
       }
     },
-    changeCompareByPercent: (state, action) => {
+    changeCompareByPercent: (state, action: PayloadAction<boolean>) => {
       state.compareByPercent = action.payload;
     },
-    changeFilterMode: (state, action) => {
+    changeFilterMode: (state, action: PayloadAction<FilterMode>) => {
       state.filterMode = action.payload;
     },
-    changeDisplayAttributes: (state, action) => {
+    changeDisplayAttributes: (state, action: PayloadAction<DisplayAttributes>) => {
       state.displayAttributes = action.payload;
     },
-    changeTallTable: (state, action) => {
+    changeTallTable: (state, action: PayloadAction<boolean>) => {
       state.tallTable = action.payload;
     },
-    changeSelectedCharacter: (state, action) => {
-      const oldCharacter = state.selectedCharacter ? original(state.selectedCharacter) : null;
+    changeSelectedCharacter: (state, action: PayloadAction<Character | null>) => {
+      const oldCharacter = state.selectedCharacter ? original(state.selectedCharacter)! : null;
       const newCharacter = action.payload;
       logAttributeDiff(newCharacter, oldCharacter);
 
       state.selectedCharacter = action.payload;
     },
-    changeError: (state, action) => {
+    changeError: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
     },
-    changeHwThreads: (state, action) => {
+    changeHwThreads: (state, action: PayloadAction<number>) => {
       state.hwThreads = action.payload;
     },
-    changeMulticore: (state, action) => {
+    changeMulticore: (state, action: PayloadAction<boolean>) => {
       state.multicore = action.payload;
     },
-    changeHeuristics: (state, action) => {
+    changeHeuristics: (state, action: PayloadAction<boolean>) => {
       state.heuristics = action.payload;
     },
   },
 });
 
-export const getProfession = (state) => state.optimizer.control.profession;
-export const getSelectedTemplate = (state) => state.optimizer.control.selectedTemplate;
-export const getHwThreads = (state) => state.optimizer.control.hwThreads;
-export const getProgress = (state) => state.optimizer.control.progress;
-export const getSelectedSpecialization = (state) => state.optimizer.control.selectedSpecialization;
-export const getStatus = (state) => state.optimizer.control.status;
-export const getList = (state) => state.optimizer.control.list;
-export const getFilteredList = (state) => state.optimizer.control.filteredList;
-export const getSaved = (state) => state.optimizer.control.saved;
-export const getCompareByPercent = (state) => state.optimizer.control.compareByPercent;
-export const getFilterMode = (state) => state.optimizer.control.filterMode;
-export const getDisplayAttributes = (state) => state.optimizer.control.displayAttributes;
-export const getTallTable = (state) => state.optimizer.control.tallTable;
-export const getSelectedCharacter = (state) => state.optimizer.control.selectedCharacter;
-export const getError = (state) => state.optimizer.control.error;
-export const getMulticore = (state) => state.optimizer.control.multicore;
-export const getHeuristics = (state) => state.optimizer.control.heuristics;
+export const getProfession = (state: RootState) => state.optimizer.control.profession;
+export const getSelectedTemplate = (state: RootState) => state.optimizer.control.selectedTemplate;
+export const getHwThreads = (state: RootState) => state.optimizer.control.hwThreads;
+export const getProgress = (state: RootState) => state.optimizer.control.progress;
+export const getSelectedSpecialization = (state: RootState) =>
+  state.optimizer.control.selectedSpecialization;
+export const getStatus = (state: RootState) => state.optimizer.control.status;
+export const getList = (state: RootState) => state.optimizer.control.list;
+export const getFilteredList = (state: RootState) => state.optimizer.control.filteredList;
+export const getSaved = (state: RootState) => state.optimizer.control.saved;
+export const getCompareByPercent = (state: RootState) => state.optimizer.control.compareByPercent;
+export const getFilterMode = (state: RootState) => state.optimizer.control.filterMode;
+export const getDisplayAttributes = (state: RootState) => state.optimizer.control.displayAttributes;
+export const getTallTable = (state: RootState) => state.optimizer.control.tallTable;
+export const getSelectedCharacter = (state: RootState) => state.optimizer.control.selectedCharacter;
+export const getError = (state: RootState) => state.optimizer.control.error;
+export const getMulticore = (state: RootState) => state.optimizer.control.multicore;
+export const getHeuristics = (state: RootState) => state.optimizer.control.heuristics;
 
 export const getPageTitle = createSelector(getStatus, getProgress, (status, progress) =>
   status === RUNNING ? `${progress}% - Discretize Gear Optimizer` : 'Discretize Gear Optimizer',

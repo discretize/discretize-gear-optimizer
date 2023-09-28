@@ -1,48 +1,54 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { buffModifiersById } from '../../assets/modifierdata';
 import { changeAll, setBuildTemplate } from './controlsSlice';
+import { RootState } from '../store';
+import { AppliedModifier } from '../optimizer/optimizerSetup';
+
+// todo: specify buff keys
+type Buffs = Record<string, boolean>;
+type BuffAmounts = Record<string, string>;
+
+const initialState: { buffs: Buffs; amounts: BuffAmounts } = {
+  buffs: {
+    might: false,
+    fury: false,
+    protection: false,
+    vulnerability: false,
+    bannerOfStrength: false,
+    bannerOfDiscipline: false,
+    bannerOfTactics: false,
+    bannerOfDefense: false,
+    empowerAllies: false,
+    spotter: false,
+    frostSpirit: false,
+    pinpointDistribution: false,
+    strengthInNumbers: false,
+    'jade-bot-base': false,
+    'jade-bot-per-tier': false,
+    'reinforced-armor': false,
+    baneSignet: false,
+    signetOfJudgment: false,
+    signetOfMercy: false,
+    signetOfWrath: false,
+    assassinsPresence: false,
+    riteDwarf: false,
+    exposed: false,
+    lightArmor: false,
+  },
+  amounts: {},
+};
 
 export const buffsSlice = createSlice({
   name: 'buffs',
-
-  initialState: {
-    buffs: {
-      might: false,
-      fury: false,
-      protection: false,
-      vulnerability: false,
-      bannerOfStrength: false,
-      bannerOfDiscipline: false,
-      bannerOfTactics: false,
-      bannerOfDefense: false,
-      empowerAllies: false,
-      spotter: false,
-      frostSpirit: false,
-      pinpointDistribution: false,
-      strengthInNumbers: false,
-      'jade-bot-base': false,
-      'jade-bot-per-tier': false,
-      'reinforced-armor': false,
-      baneSignet: false,
-      signetOfJudgment: false,
-      signetOfMercy: false,
-      signetOfWrath: false,
-      assassinsPresence: false,
-      riteDwarf: false,
-      exposed: false,
-      lightArmor: false,
-    },
-    amounts: {},
-  },
-
+  initialState,
   reducers: {
-    changeBuff: (state, action) => {
+    changeBuff: (state, action: PayloadAction<{ key: string; value: boolean }>) => {
       state.buffs[action.payload.key] = action.payload.value;
     },
-    changeBuffAmount: (state, action) => {
+    changeBuffAmount: (state, action: PayloadAction<{ key: string; value: string }>) => {
       state.amounts[action.payload.key] = action.payload.value;
     },
-    replaceBuffs: (state, action) => {
+    replaceBuffs: (state, action: PayloadAction<Partial<Buffs>>) => {
       return {
         ...state,
         buffs: {
@@ -56,7 +62,7 @@ export const buffsSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(changeAll, (state, action) => {
-      const removeOldBuffs = (data) => {
+      const removeOldBuffs = (data: Buffs | BuffAmounts) => {
         if (!data) return data;
         const validEntries = Object.entries(data).filter(([key]) => buffModifiersById[key]);
         return Object.fromEntries(validEntries);
@@ -72,7 +78,7 @@ export const buffsSlice = createSlice({
     builder.addCase(setBuildTemplate, (state, action) => {
       const { buffPreset } = action.payload;
 
-      const buffs = {};
+      const buffs: Buffs = {};
       [...Object.keys(state.buffs)].forEach((key) => {
         buffs[key] = false;
         if (key in buffPreset) buffs[key] = buffPreset[key];
@@ -83,10 +89,10 @@ export const buffsSlice = createSlice({
   },
 });
 
-export const getBuffs = (state) => state.optimizer.form.buffs.buffs;
-export const getBuffAmounts = (state) => state.optimizer.form.buffs.amounts;
+export const getBuffs = (state: RootState) => state.optimizer.form.buffs.buffs;
+export const getBuffAmounts = (state: RootState) => state.optimizer.form.buffs.amounts;
 
-export const getBuffsModifiers = (state) => {
+export const getBuffsModifiers = (state: RootState): AppliedModifier[] => {
   const { buffs } = state.optimizer.form;
   const enabledModifiers = Object.keys(buffs.buffs).filter((key) => buffs.buffs[key]);
 

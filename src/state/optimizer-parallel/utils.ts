@@ -13,6 +13,7 @@ import {
   PrimaryAttributes,
   SecondaryAttributes,
   WeaponTypes,
+  WeaponTypesValue,
   damagingConditions,
 } from '../../utils/gw2-data';
 import { getExtrasIds } from '../slices/extras';
@@ -105,7 +106,7 @@ export const getAttributeId = (attribute: AttributeName) => {
 
   return index;
 };
-export const getWeaponTypeId = (weaponType: string) =>
+export const getWeaponTypeId = (weaponType: WeaponTypesValue) =>
   Object.values(WeaponTypes).indexOf(weaponType);
 export const getConditionId = (condition: string) =>
   Object.values(damagingConditions).indexOf(condition as DamagingConditionName);

@@ -1,46 +1,73 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { changeAll, setBuildTemplate } from './controlsSlice';
+import { RootState } from '../store';
 
 const clone =
   typeof structuredClone === 'function'
-    ? (value) => structuredClone(value)
-    : (value) => JSON.parse(JSON.stringify(value));
+    ? (value: any) => structuredClone(value)
+    : (value: any) => JSON.parse(JSON.stringify(value));
+
+interface Distribution {
+  Power: number;
+  Power2: number;
+  Burning: number;
+  Bleeding: number;
+  Poisoned: number;
+  Torment: number;
+  Confusion: number;
+}
+
+interface DistributionText {
+  Power: string | number;
+  Power2: string | number;
+  Burning: string | number;
+  Bleeding: string | number;
+  Poisoned: string | number;
+  Torment: string | number;
+  Confusion: string | number;
+}
+
+const initialState: {
+  selectedDistribution: string;
+  version: number;
+  values1: Record<string, never>; // no longer used
+  values2: Distribution;
+  textBoxes: DistributionText;
+} = {
+  selectedDistribution: '',
+  version: 2,
+  values1: {},
+  values2: {
+    Power: 3000,
+    Power2: 0,
+    Burning: 0,
+    Bleeding: 0,
+    Poisoned: 0,
+    Torment: 0,
+    Confusion: 0,
+  },
+  textBoxes: {
+    Power: '3000',
+    Power2: '0',
+    Burning: '0',
+    Bleeding: '0',
+    Poisoned: '0',
+    Torment: '0',
+    Confusion: '0',
+  },
+};
 
 export const distributionSlice = createSlice({
   name: 'distribution',
-
-  initialState: {
-    selectedDistribution: '',
-    version: 2,
-    values1: {},
-    values2: {
-      Power: 3000,
-      Power2: 0,
-      Burning: 0,
-      Bleeding: 0,
-      Poisoned: 0,
-      Torment: 0,
-      Confusion: 0,
-    },
-    textBoxes: {
-      Power: '3000',
-      Power2: '0',
-      Burning: '0',
-      Bleeding: '0',
-      Poisoned: '0',
-      Torment: '0',
-      Confusion: '0',
-    },
-  },
-
+  initialState,
   reducers: {
-    changeDistributionNew: (state, action) => {
+    changeDistributionNew: (state, action: PayloadAction<{ index: string; value: number }>) => {
       return {
         ...state,
         values2: { ...state.values2, [action.payload.index]: action.payload.value },
       };
     },
-    changeTextBoxes: (state, action) => {
+    changeTextBoxes: (state, action: PayloadAction<{ index: string; value: string }>) => {
       return {
         ...state,
         textBoxes: {
@@ -49,7 +76,7 @@ export const distributionSlice = createSlice({
         },
       };
     },
-    changeAllDistributionNew: (state, action) => {
+    changeAllDistributionNew: (state, action: PayloadAction<Distribution>) => {
       console.log(action);
       return {
         ...state,
@@ -57,7 +84,7 @@ export const distributionSlice = createSlice({
         textBoxes: action.payload,
       };
     },
-    changeAllDistributions: (state, action) => {
+    changeAllDistributions: (state, action: PayloadAction<{ name: string; value: string }>) => {
       const { name, value } = action.payload;
       try {
         const distributionPreset = JSON.parse(value);
@@ -101,9 +128,9 @@ export const distributionSlice = createSlice({
   },
 });
 
-export const getDistributionNew = (state) => state.optimizer.form.distribution.values2;
-export const getTextBoxes = (state) => state.optimizer.form.distribution.textBoxes;
-export const getSelectedDistribution = (state) =>
+export const getDistributionNew = (state: RootState) => state.optimizer.form.distribution.values2;
+export const getTextBoxes = (state: RootState) => state.optimizer.form.distribution.textBoxes;
+export const getSelectedDistribution = (state: RootState) =>
   state.optimizer.form.distribution.selectedDistribution;
 
 export const {

@@ -26,7 +26,7 @@ export default function calculate(reduxState: any, dispatch: Dispatch<any>): Wor
   dispatch(changeStatus(RUNNING));
   dispatch(changeList([]));
   dispatch(changeProgress(0));
-  dispatch(changeSelectedCharacter(undefined));
+  dispatch(changeSelectedCharacter(null));
 
   console.log('Parallel Optimizer');
   console.log('State', reduxState);

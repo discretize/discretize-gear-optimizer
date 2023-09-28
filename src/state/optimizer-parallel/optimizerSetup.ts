@@ -135,10 +135,10 @@ type MultiplierName =
   | 'Outgoing Phantasm Critical Damage';
 
 export interface AppliedModifier {
-  id: string;
-  visible: boolean;
-  enabled: boolean;
-  amount: string;
+  id?: string;
+  visible?: boolean;
+  enabled?: boolean;
+  amount?: string;
   modifiers: YamlModifiers;
   wvwModifiers?: YamlModifiers;
   amountData?: AmountData;
@@ -615,8 +615,8 @@ export function createSettings(reduxState: any): Settings {
   const primaryMaxInfusionsText: string = getPrimaryMaxInfusions(reduxState);
   const secondaryMaxInfusionsText: string = getSecondaryMaxInfusions(reduxState);
   const forcedSlots: (AffixName | null)[] = getForcedSlots(reduxState);
-  const exclusions: Record<AffixName, boolean[]> = getExclusionData(reduxState);
-  const exotics: Record<AffixName, boolean[]> = getExoticsData(reduxState);
+  const exclusions: Partial<Record<AffixName, boolean[]>> = getExclusionData(reduxState);
+  const exotics: Partial<Record<AffixName, boolean[]>> = getExoticsData(reduxState);
   const optimizeFor: IndicatorName = getPriority('optimizeFor')(reduxState);
   const weaponType: WeaponHandednessType = getPriority('weaponType')(reduxState);
   const minBoonDurationText: string = getPriority('minBoonDuration')(reduxState);

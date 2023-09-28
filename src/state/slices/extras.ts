@@ -1,6 +1,9 @@
-import { createSlice, original } from '@reduxjs/toolkit';
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { PayloadAction, createSlice, original } from '@reduxjs/toolkit';
+import { objectEntries } from 'ts-extras';
 import { allExtrasModifiersById } from '../../assets/modifierdata';
 import { mapValues } from '../../utils/usefulFunctions';
+import { RootState } from '../store';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 
 export const extrasTypes = ['Sigil1', 'Sigil2', 'Runes', 'Relics', 'Nourishment', 'Enhancement'];
@@ -19,35 +22,58 @@ export const lifestealData = {
   },
 };
 
+interface ExtraValue {
+  amount?: string;
+}
+type ExtrasType = 'Sigil1' | 'Sigil2' | 'Runes' | 'Relics' | 'Nourishment' | 'Enhancement';
+
+// todo: specify extras keys
+type ExtrasValues = Record<string, ExtraValue>;
+
+export type ExtrasCombination = Record<ExtrasType, string>;
+
+const initialState: {
+  extras: {
+    Sigil1: ExtrasValues;
+    Sigil2: ExtrasValues;
+    Runes: ExtrasValues;
+    Relics: ExtrasValues;
+    Nourishment: ExtrasValues;
+    Enhancement: ExtrasValues;
+  };
+  lifestealAmount: string;
+} = {
+  extras: {
+    Sigil1: {},
+    Sigil2: {},
+    Runes: {},
+    Relics: {},
+    Nourishment: {},
+    Enhancement: {},
+  },
+  lifestealAmount: '',
+};
+
 export const extrasSlice = createSlice({
   name: 'extras',
-
-  initialState: {
-    extras: {
-      Sigil1: {},
-      Sigil2: {},
-      Runes: {},
-      Relics: {},
-      Nourishment: {},
-      Enhancement: {},
-    },
-    lifestealAmount: '',
-  },
-
+  initialState,
   reducers: {
-    changeExtraIds: (state, action) => {
+    changeExtraIds: (state, action: PayloadAction<{ type: ExtrasType; ids: string[] }>) => {
       const { type, ids } = action.payload;
-      const previousState = original(state.extras[type]);
+      const previousState = original(state.extras[type])!;
       state.extras[type] = Object.fromEntries(ids.map((key) => [key, previousState[key] || {}]));
     },
-    changeExtraAmount: (state, action) => {
+    changeExtraAmount: (
+      state,
+      action: PayloadAction<{ type: ExtrasType; id: string; amount: string }>,
+    ) => {
       const { type, id, amount } = action.payload;
       state.extras[type][id].amount = amount;
     },
     changeExtras: (state, action) => {
       return { ...state, ...action.payload };
     },
-    changeLifestealAmount: (state, action) => {
+    changeLifestealAmount: (state, action: PayloadAction<string>) => {
       state.lifestealAmount = action.payload;
     },
     copySigils: (state) => {
@@ -90,10 +116,10 @@ export const extrasSlice = createSlice({
   },
 });
 
-export const getExtrasData = (state) => state.optimizer.form.extras.extras;
-export const getExtrasIds = (state) => mapValues(getExtrasData(state), Object.keys);
+export const getExtrasData = (state: RootState) => state.optimizer.form.extras.extras;
+export const getExtrasIds = (state: RootState) => mapValues(getExtrasData(state), Object.keys);
 
-export const getLifestealAmount = (state) => state.optimizer.form.extras.lifestealAmount;
+export const getLifestealAmount = (state: RootState) => state.optimizer.form.extras.lifestealAmount;
 
 // todo: document and clean this up and maybe move it elsewhere?
 /**
@@ -109,17 +135,17 @@ export const getLifestealAmount = (state) => state.optimizer.form.extras.lifeste
  * Note: Mathematically, this is neither a "combination" nor a "permutation."
  *
  * @param {{[key: string]: string[]}} data - dictionary of arrays of valid values for each key
- * @returns {{[key: string]: string[]}} - array of every possible dictionary where one value is chosen for each key
+ * @returns {{[key: string]: string[]}[]} - array of every possible dictionary where one value is chosen for each key
  */
-const findCombinations = (data) => {
+function findCombinations<Key extends string>(data: Record<Key, string[]>) {
   // convert an empty array to a single array of null; no selection is still one possibility!
-  const entries = Object.entries(data).map(([key, value]) => {
+  const entries = objectEntries(data).map(([key, value]) => {
     const fixedValue = Array.isArray(value) && value.length > 0 ? value : [''];
-    return [key, fixedValue];
+    return [key, fixedValue] as const;
   });
 
-  const combinations = [];
-  const recursivelyFindCombinations = (prev = {}, i = 0) => {
+  const combinations: Record<Key, string>[] = [];
+  const recursivelyFindCombinations = (prev: Partial<Record<Key, string>> = {}, i = 0) => {
     const [type, options] = entries[i];
     if (entries[i + 1]) {
       for (const option of options) {
@@ -133,7 +159,7 @@ const findCombinations = (data) => {
   };
   recursivelyFindCombinations();
   return combinations;
-};
+}
 
 export const allowedDuplicateSigils = [
   'impact/night/slaying-both',
@@ -143,12 +169,12 @@ export const allowedDuplicateSigils = [
   'platinum-doubloon',
 ];
 
-export const getExtrasCombinationsAndModifiers = (state) => {
+export const getExtrasCombinationsAndModifiers = (state: RootState) => {
   const ids = getExtrasIds(state);
   const data = getExtrasData(state);
   const lifestealAmount = getLifestealAmount(state);
 
-  const allExtrasCombinations = findCombinations(ids);
+  const allExtrasCombinations: ExtrasCombination[] = findCombinations(ids);
   const extrasCombinations = allExtrasCombinations.filter(({ Sigil1, Sigil2 }) => {
     // remove duplicate sigils
     if (Sigil1 && Sigil2 && Sigil1 === Sigil2 && !allowedDuplicateSigils.includes(Sigil1))
@@ -163,8 +189,8 @@ export const getExtrasCombinationsAndModifiers = (state) => {
 
   console.log('extrasCombinations', extrasCombinations);
 
-  const getModifiers = (extrasCombination) => {
-    const allModifiers = Object.entries(extrasCombination)
+  const getModifiers = (extrasCombination: ExtrasCombination) => {
+    const allModifiers = objectEntries(extrasCombination)
       .filter(([_, id]) => id)
       .map(([type, id]) => {
         if (!allExtrasModifiersById[id]) throw new Error(`missing data for extras id: ${id}`);

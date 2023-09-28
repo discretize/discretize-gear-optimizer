@@ -1,20 +1,26 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { changeAll } from './controlsSlice';
+import { RootState } from '../store';
+import { AppliedModifier } from '../optimizer/optimizerSetup';
+
+const initialState: {
+  error: string;
+  extraModifiers: any[];
+  textBox: string;
+} = {
+  error: '',
+  extraModifiers: [],
+  textBox: '',
+};
 
 export const extraModifiersSlice = createSlice({
   name: 'extraModifiers',
-
-  initialState: {
-    error: '',
-    extraModifiers: [],
-    textBox: '',
-  },
-
+  initialState,
   reducers: {
     changeExtraModifiers: (state, action) => {
       state[action.payload.key] = action.payload.value;
     },
-    changeExtraModifiersError: (state, action) => {
+    changeExtraModifiersError: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
     },
   },
@@ -26,10 +32,12 @@ export const extraModifiersSlice = createSlice({
   },
 });
 
-export const getExtraModifiersError = (state) => state.optimizer.form.extraModifiers.error;
-export const getExtraModifiersTextBox = (state) => state.optimizer.form.extraModifiers.textBox;
+export const getExtraModifiersError = (state: RootState) =>
+  state.optimizer.form.extraModifiers.error;
+export const getExtraModifiersTextBox = (state: RootState) =>
+  state.optimizer.form.extraModifiers.textBox;
 
-export const getExtraModifiersModifiers = (state) => {
+export const getExtraModifiersModifiers = (state: RootState): AppliedModifier[] => {
   const { extraModifiers } = state.optimizer.form;
   return extraModifiers.extraModifiers.map((data, index) => ({
     id: `extraModifier ${index + 1}`,

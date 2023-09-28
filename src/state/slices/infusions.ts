@@ -1,42 +1,62 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit';
-import { infusionIds, omnipotionModifiers } from '../../utils/gw2-data';
+import { PayloadAction, createSelector, createSlice } from '@reduxjs/toolkit';
+import { InfusionName, agonyInfusionIds, omnipotionModifiers } from '../../utils/gw2-data';
 import { parseAmount, parseAr, parseInfusionCount } from '../../utils/usefulFunctions';
+import { RootState } from '../store';
 import { changeAll } from './controlsSlice';
 import { changeGameMode, loadedSettings } from './userSettings';
+import { AppliedModifier } from '../optimizer/optimizerSetup';
 
 const isFractal = loadedSettings.gameMode === 'fractals';
 
+const initialState: {
+  omnipotion: boolean;
+  ar: string;
+  maxInfusions: string;
+  primaryInfusion: InfusionName | '';
+  secondaryInfusion: InfusionName | '';
+  primaryMaxInfusions: string;
+  secondaryMaxInfusions: string;
+  helperData: {
+    enabled: boolean;
+    slots: number;
+    impedence: number;
+    attunement: number;
+    singularity: boolean;
+    tear: boolean;
+    freeWvW: boolean;
+    ownedMatrix: number;
+  };
+} = {
+  omnipotion: isFractal,
+  ar: isFractal ? '162' : '',
+  maxInfusions: '18',
+  primaryInfusion: '',
+  secondaryInfusion: '',
+  primaryMaxInfusions: '',
+  secondaryMaxInfusions: '',
+  helperData: {
+    enabled: false,
+    slots: 18,
+    impedence: 0,
+    attunement: 0,
+    singularity: false,
+    tear: false,
+    freeWvW: true,
+    ownedMatrix: 0,
+  },
+};
+
 export const infusionsSlice = createSlice({
   name: 'infusions',
-
-  initialState: {
-    omnipotion: isFractal,
-    ar: isFractal ? '162' : '',
-    maxInfusions: '18',
-    primaryInfusion: '',
-    secondaryInfusion: '',
-    primaryMaxInfusions: '',
-    secondaryMaxInfusions: '',
-    helperData: {
-      enabled: false,
-      slots: 18,
-      impedence: 0,
-      attunement: 0,
-      singularity: false,
-      tear: false,
-      freeWvW: true,
-      ownedMatrix: 0,
-    },
-  },
-
+  initialState,
   reducers: {
-    changeAR: (state, action) => {
+    changeAR: (state, action: PayloadAction<string>) => {
       state.ar = action.payload;
     },
-    changeOmnipotion: (state, action) => {
+    changeOmnipotion: (state, action: PayloadAction<boolean>) => {
       state.omnipotion = action.payload;
     },
-    changeMaxInfusions: (state, action) => {
+    changeMaxInfusions: (state, action: PayloadAction<string>) => {
       state.maxInfusions = action.payload;
     },
     changeInfusion: (state, action) => {
@@ -45,31 +65,31 @@ export const infusionsSlice = createSlice({
     changeInfusions: (state, action) => {
       return { ...state, ...action.payload };
     },
-    changeHelperEnabled: (state, action) => {
+    changeHelperEnabled: (state, action: PayloadAction<boolean>) => {
       state.helperData.enabled = action.payload;
     },
-    changeSlots: (state, action) => {
+    changeSlots: (state, action: PayloadAction<number>) => {
       state.helperData.slots = action.payload;
       if (Number(state.maxInfusions) > state.helperData.slots) {
         state.maxInfusions = String(action.payload);
       }
     },
-    changeImpedence: (state, action) => {
+    changeImpedence: (state, action: PayloadAction<number>) => {
       state.helperData.impedence = action.payload;
     },
-    changeAttunement: (state, action) => {
+    changeAttunement: (state, action: PayloadAction<number>) => {
       state.helperData.attunement = action.payload;
     },
-    changeSingularity: (state, action) => {
+    changeSingularity: (state, action: PayloadAction<boolean>) => {
       state.helperData.singularity = action.payload;
     },
-    changeTear: (state, action) => {
+    changeTear: (state, action: PayloadAction<boolean>) => {
       state.helperData.tear = action.payload;
     },
-    changeFreeWvW: (state, action) => {
+    changeFreeWvW: (state, action: PayloadAction<boolean>) => {
       state.helperData.freeWvW = action.payload;
     },
-    changeOwnedMatrix: (state, action) => {
+    changeOwnedMatrix: (state, action: PayloadAction<number>) => {
       state.helperData.ownedMatrix = action.payload;
     },
   },
@@ -88,17 +108,20 @@ export const infusionsSlice = createSlice({
   },
 });
 
-export const getAR = (state) => state.optimizer.form.infusions.ar;
-export const getOmniPotion = (state) => state.optimizer.form.infusions.omnipotion;
-export const getMaxInfusions = (state) => state.optimizer.form.infusions.maxInfusions;
-export const getPrimaryInfusion = (state) => state.optimizer.form.infusions.primaryInfusion;
-export const getSecondaryInfusion = (state) => state.optimizer.form.infusions.secondaryInfusion;
-export const getPrimaryMaxInfusions = (state) => state.optimizer.form.infusions.primaryMaxInfusions;
-export const getSecondaryMaxInfusions = (state) =>
+export const getAR = (state: RootState) => state.optimizer.form.infusions.ar;
+export const getOmniPotion = (state: RootState) => state.optimizer.form.infusions.omnipotion;
+export const getMaxInfusions = (state: RootState) => state.optimizer.form.infusions.maxInfusions;
+export const getPrimaryInfusion = (state: RootState) =>
+  state.optimizer.form.infusions.primaryInfusion;
+export const getSecondaryInfusion = (state: RootState) =>
+  state.optimizer.form.infusions.secondaryInfusion;
+export const getPrimaryMaxInfusions = (state: RootState) =>
+  state.optimizer.form.infusions.primaryMaxInfusions;
+export const getSecondaryMaxInfusions = (state: RootState) =>
   state.optimizer.form.infusions.secondaryMaxInfusions;
-export const getHelperData = (state) => state.optimizer.form.infusions.helperData;
+export const getHelperData = (state: RootState) => state.optimizer.form.infusions.helperData;
 
-export const getInfusionsModifiers = (state) => {
+export const getInfusionsModifiers = (state: RootState): AppliedModifier[] => {
   const { infusions } = state.optimizer.form;
 
   const result = [];
@@ -109,7 +132,7 @@ export const getInfusionsModifiers = (state) => {
       id: 'agony-resistance',
       modifiers: {
         attributes: {
-          'Agony Resistance': [value || 0, 'converted'],
+          'Agony Resistance': [value || 0, 'converted'] as [number, 'converted'],
         },
       },
     });
@@ -124,7 +147,7 @@ export const getInfusionsModifiers = (state) => {
   return result;
 };
 
-const calcAgonyInfusions = (slots, ar) => {
+const calcAgonyInfusions = (slots: number, ar: number) => {
   if (slots === 0) return { agonyCost: 0, agonyText: '', agonyArray: [] };
   // eslint-disable-next-line no-param-reassign
   if (ar < 0) ar = 0;
@@ -134,14 +157,17 @@ const calcAgonyInfusions = (slots, ar) => {
   const higherCount = ar % slots;
   const lowerCount = slots - higherCount;
 
-  // AR infusion cost is about 1g for +7; doubles with each additional
-  const lowerCost = lowerType
-    ? // eslint-disable-next-line no-unsafe-optional-chaining
-      infusionIds[`+${lowerType} Agony Infusion`]?.cost / 10000 || 2 ** (lowerType - 7)
-    : 0;
-  const higherCost =
-    // eslint-disable-next-line no-unsafe-optional-chaining
-    infusionIds[`+${higherType} Agony Infusion`]?.cost / 10000 || 2 ** (higherType - 7);
+  const getInfusionCost = (type: number) => {
+    const costCopper = agonyInfusionIds[`+${lowerType} Agony Infusion`]?.cost;
+
+    return costCopper
+      ? costCopper / 10000
+      : // AR infusion cost is about 1g for +7; doubles with each additional
+        2 ** (type - 7);
+  };
+
+  const lowerCost = lowerType ? getInfusionCost(lowerType) : 0;
+  const higherCost = getInfusionCost(higherType);
   const agonyCost = lowerCount * lowerCost + higherCount * higherCost;
 
   const agonyArray = [
@@ -208,7 +234,7 @@ export const getHelperResult = createSelector(
     let five = 0;
     let zero = 0;
 
-    const infusionCost = (num) => 2 ** (num - 7);
+    const infusionCost = (num: number) => 2 ** (num - 7);
     const fiveCost = 3 * infusionCost(5);
     const fiveMatrix = 5;
     const sevenCost = 3 * infusionCost(7);
@@ -269,7 +295,7 @@ export const getHelperResult = createSelector(
       }
     }
 
-    if (!bestResult) {
+    if (!bestResult || !bestResultWithoutMatrix) {
       return { error: 'Target AR is too high!' };
     }
 

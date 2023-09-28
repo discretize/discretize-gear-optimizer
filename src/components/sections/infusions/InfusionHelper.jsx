@@ -36,7 +36,7 @@ import {
   getPrimaryInfusion,
   getSecondaryInfusion,
 } from '../../../state/slices/infusions';
-import { infusionIds } from '../../../utils/gw2-data';
+import { agonyInfusionIds, statInfusionIds } from '../../../utils/gw2-data';
 import { parseAr, parseInfusionCount } from '../../../utils/usefulFunctions';
 import CheckboxComponent from '../../baseComponents/CheckboxComponent';
 
@@ -324,7 +324,7 @@ const InfusionHelper = () => {
 
             <Typography variant="body2">
               {resultArray.map((text, i) => {
-                const infusionData = infusionIds[text];
+                const infusionData = statInfusionIds[text] ?? agonyInfusionIds[text];
 
                 const firstStatId = infusionData?.[primaryInfusion]?.id;
                 const secondStatId = infusionData?.[secondaryInfusion]?.id;

@@ -894,7 +894,9 @@ export type ItemSlot = keyof typeof AscendedItem;
 export const WeaponTypes = {
   dualWield: 'Dual wield',
   twoHanded: 'Two-handed',
-};
+} as const;
+
+export type WeaponTypesValue = (typeof WeaponTypes)[keyof typeof WeaponTypes];
 
 export const Slots = {
   'Dual wield': [
@@ -1091,9 +1093,9 @@ export type ForcedSlotName = (typeof ForcedSlots)[number];
 export const omnipotionModifiers = {
   // Condi dmg from omnipot has been removed
   'damage': {
-    'Outgoing Strike Damage': ['15%', 'add'],
-    'Outgoing Condition Damage': ['15%', 'add'],
-    'Damage Reduction': ['25%', 'add'],
+    'Outgoing Strike Damage': ['15%', 'add'] as [string, 'add'],
+    'Outgoing Condition Damage': ['15%', 'add'] as [string, 'add'],
+    'Damage Reduction': ['25%', 'add'] as [string, 'add'],
   },
   'conversion': {
     'Vitality': { 'Agony Resistance': '150%' },
@@ -1475,7 +1477,11 @@ export const PROFESSIONS = [
   { profession: 'Mesmer', eliteSpecializations: ['Chronomancer', 'Mirage', 'Virtuoso'] },
   { profession: 'Necromancer', eliteSpecializations: ['Scourge', 'Reaper', 'Harbinger'] },
   { profession: 'Thief', eliteSpecializations: ['Daredevil', 'Deadeye', 'Specter'] },
-];
+] as const;
+
+export type ProfessionOrSpecializationName =
+  | (typeof PROFESSIONS)[number]['profession']
+  | (typeof PROFESSIONS)[number]['eliteSpecializations'][number];
 
 export const GEAR_SLOTS = [
   {
@@ -1549,7 +1555,7 @@ export const INFUSION_IDS = {
 
 export type InfusionName = keyof typeof INFUSION_IDS;
 
-export const infusionIds = {
+export const agonyInfusionIds: Record<string, { id: number; cost?: number }> = {
   '+1 Agony Infusion': { id: 49424, cost: 7 },
   '+2 Agony Infusion': { id: 49425, cost: 164 },
   '+3 Agony Infusion': { id: 49426, cost: 478 },
@@ -1574,7 +1580,9 @@ export const infusionIds = {
   '+22 Agony Infusion': { id: 49445 },
   '+23 Agony Infusion': { id: 49446 },
   '+24 Agony Infusion': { id: 49447 },
+};
 
+export const statInfusionIds = {
   '+9 Stat Infusion': {
     'Power': { id: 37131 },
     'Precision': { id: 37132 },
