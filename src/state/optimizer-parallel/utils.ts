@@ -17,6 +17,7 @@ import {
   damagingConditions,
 } from '../../utils/gw2-data';
 import { getExtrasIds } from '../slices/extras';
+import { RootState } from '../store';
 import { Combination, Settings } from './optimizerSetup';
 
 const attributes = [
@@ -253,7 +254,7 @@ export function getTotalCombinations<T>(array: T[][], combinationCount: number):
  * @param {any} reduxState redux state
  * @returns {string[][]} array of arrays of extras ids
  */
-export function getExtrasIdsCombinations(reduxState: any): string[][] {
+export function getExtrasIdsCombinations(reduxState: RootState): string[][] {
   const extrasNames = getExtrasIds(reduxState);
   const extrasIds = [
     extrasNames.Runes,

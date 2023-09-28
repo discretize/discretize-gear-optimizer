@@ -27,6 +27,7 @@ import {
 } from './workerMessageTypes';
 import { ResultProperties, enhanceResults } from '../results';
 import { objectEntries } from '../../../utils/usefulFunctions';
+import { RootState } from '../../store';
 
 onmessage = (e: MessageEvent<MessageType>) => {
   console.log('worker received message', e.data);
@@ -91,13 +92,13 @@ const bestList: [Combination, ExtrasCombinationEntry][] = [];
  *
  * @param {string[][]} chunks array of subtrees to calculate (extras combinations tree)
  * @param {string[][]} extrasIds choices of extras for each extras slot
- * @param {any} reduxState
+ * @param {RootState} reduxState
  * @param {Settings} settings
  */
 async function start_heuristics(
   chunks: string[][],
   extrasIds: string[][],
-  reduxState: any,
+  reduxState: RootState,
   settings: Settings,
 ) {
   await init();

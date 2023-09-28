@@ -26,14 +26,7 @@ import {
   allAttributePointKeys,
   allConversionAfterBuffsSourceKeys,
 } from '../../assets/modifierdata/metadata';
-import type {
-  AffixData,
-  AffixName,
-  ForcedSlotName,
-  IndicatorName,
-  InfusionName,
-  ProfessionName,
-} from '../../utils/gw2-data';
+import type { AffixData, AffixName, ForcedSlotName } from '../../utils/gw2-data';
 import {
   Affix as unmodifiedAffix,
   Attributes,
@@ -82,6 +75,7 @@ import {
 import { getSkillsModifiers } from '../slices/skills';
 import { getCurrentSpecialization, getTraitsModifiers } from '../slices/traits';
 import { getGameMode } from '../slices/userSettings';
+import { RootState } from '../store';
 import type { OptimizerCoreSettings } from './optimizerCore';
 import { clamp, scaleValue } from './optimizerCore';
 
@@ -218,13 +212,13 @@ export interface CachedFormState {
 // }
 
 export function setupCombinations(
-  reduxState: any,
+  reduxState: RootState,
 ): [ExtrasCombinationEntry, OptimizerCoreSettings][] {
   const state = reduxState.optimizer;
 
-  const specialization: string = getCurrentSpecialization(reduxState);
+  const specialization = getCurrentSpecialization(reduxState);
 
-  const sharedModifiers: AppliedModifier[] = [
+  const sharedModifiers = [
     ...(getBuffsModifiers(reduxState) || []),
     ...(getExtraModifiersModifiers(reduxState) || []),
     ...(getInfusionsModifiers(reduxState) || []),
@@ -245,9 +239,9 @@ export function setupCombinations(
   console.log('Redux State:', state);
 
   // do not mutate selector result; it may be reused if the same calculation is run twice
-  const combinations: ExtrasCombinationEntry[] = getExtrasCombinationsAndModifiers(reduxState).map(
-    (combination) => ({ ...combination }),
-  );
+  const combinations = getExtrasCombinationsAndModifiers(reduxState).map((combination) => ({
+    ...combination,
+  }));
 
   const data: [ExtrasCombinationEntry, OptimizerCoreSettings][] = combinations.map(
     ({ extrasCombination, extrasModifiers }) => {
@@ -260,36 +254,35 @@ export function setupCombinations(
         priorities: state.form.priorities,
       };
 
-      const profession: ProfessionName | '' = getProfession(reduxState);
-      const primaryInfusion: InfusionName | '' = getPrimaryInfusion(reduxState);
-      const secondaryInfusion: InfusionName | '' = getSecondaryInfusion(reduxState);
-      const maxInfusionsText: string = getMaxInfusions(reduxState);
-      const primaryMaxInfusionsText: string = getPrimaryMaxInfusions(reduxState);
-      const secondaryMaxInfusionsText: string = getSecondaryMaxInfusions(reduxState);
-      const forcedSlots: (AffixName | null)[] = getForcedSlots(reduxState);
-      const exclusions: Partial<Record<AffixName, boolean[]>> = getExclusionData(reduxState);
-      const exotics: Partial<Record<AffixName, boolean[]>> = getExoticsData(reduxState);
-      const optimizeFor: IndicatorName = getOptimizeFor(reduxState);
+      const profession = getProfession(reduxState);
+      const primaryInfusion = getPrimaryInfusion(reduxState);
+      const secondaryInfusion = getSecondaryInfusion(reduxState);
+      const maxInfusionsText = getMaxInfusions(reduxState);
+      const primaryMaxInfusionsText = getPrimaryMaxInfusions(reduxState);
+      const secondaryMaxInfusionsText = getSecondaryMaxInfusions(reduxState);
+      const forcedSlots = getForcedSlots(reduxState);
+      const exclusions = getExclusionData(reduxState);
+      const exotics = getExoticsData(reduxState);
+      const optimizeFor = getOptimizeFor(reduxState);
       const weaponType = getWeaponType(reduxState);
-      const minBoonDurationText: string = getConstraint('minBoonDuration')(reduxState);
-      const minHealingPowerText: string = getConstraint('minHealingPower')(reduxState);
-      const minToughnessText: string = getConstraint('minToughness')(reduxState);
-      const maxToughnessText: string = getConstraint('maxToughness')(reduxState);
-      const minHealthText: string = getConstraint('minHealth')(reduxState);
-      const minCritChanceText: string = getConstraint('minCritChance')(reduxState);
-      const minDamageText: string = getConstraint('minDamage')(reduxState);
-      const minHealingText: string = getConstraint('minHealing')(reduxState);
-      const minOutgoingHealingText: string = getConstraint('minOutgoingHealing')(reduxState);
-      const minQuicknessDurationText: string = getConstraint('minQuicknessDuration')(reduxState);
-      const minSurvivabilityText: string = getConstraint('minSurvivability')(reduxState);
+      const minBoonDurationText = getConstraint('minBoonDuration')(reduxState);
+      const minHealingPowerText = getConstraint('minHealingPower')(reduxState);
+      const minToughnessText = getConstraint('minToughness')(reduxState);
+      const maxToughnessText = getConstraint('maxToughness')(reduxState);
+      const minHealthText = getConstraint('minHealth')(reduxState);
+      const minCritChanceText = getConstraint('minCritChance')(reduxState);
+      const minDamageText = getConstraint('minDamage')(reduxState);
+      const minHealingText = getConstraint('minHealing')(reduxState);
+      const minOutgoingHealingText = getConstraint('minOutgoingHealing')(reduxState);
+      const minQuicknessDurationText = getConstraint('minQuicknessDuration')(reduxState);
+      const minSurvivabilityText = getConstraint('minSurvivability')(reduxState);
       const affixes = getAffixes(reduxState);
-      const unmodifiedDistribution: Record<DistributionNameUI, number> =
-        getDistributionNew(reduxState);
-      const attackRateText: string = getAttackRate(reduxState);
-      const movementUptimeText: string = getMovementUptime(reduxState);
+      const unmodifiedDistribution = getDistributionNew(reduxState);
+      const attackRateText = getAttackRate(reduxState);
+      const movementUptimeText = getMovementUptime(reduxState);
 
       const gameMode = getGameMode(reduxState) as GameMode;
-      const isWvW: boolean = gameMode === 'wvw';
+      const isWvW = gameMode === 'wvw';
 
       // todo: consolidate error handling
       if (profession === '') {

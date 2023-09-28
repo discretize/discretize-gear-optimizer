@@ -151,7 +151,7 @@ export const getTraitsModifiers = (state: RootState): AppliedModifier[] => {
   return result;
 };
 
-export const getCurrentSpecialization = (state: RootState) => {
+export const getCurrentSpecialization = (state: RootState): string => {
   const profession = getProfession(state);
   if (!profession) throw new Error('no selected profession!');
   const selectedLines = getTraitLines(state);

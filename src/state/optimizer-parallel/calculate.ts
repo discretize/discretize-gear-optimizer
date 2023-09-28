@@ -1,4 +1,3 @@
-import { Dispatch } from 'redux';
 import { RUNNING } from '../optimizer/status';
 import {
   changeList,
@@ -9,7 +8,8 @@ import {
 } from '../slices/controlsSlice';
 import runCalcHeuristics from './modes/heuristics';
 import runCalcNormal from './modes/normal';
-import { Settings, createSettings, setupNormal } from './optimizerSetup';
+import { createSettings, setupNormal } from './optimizerSetup';
+import { AppDispatch, RootState } from '../store';
 
 export interface WorkerWrapper {
   status: 'created' | 'running' | 'stopped' | 'finished' | 'error' | 'finished_heuristics';
@@ -19,8 +19,7 @@ export interface WorkerWrapper {
 
 const createdWorkers: globalThis.Worker[] = [];
 
-// fuck typing redux
-export default function calculate(reduxState: any, dispatch: Dispatch<any>): WorkerWrapper[] {
+export default function calculate(reduxState: RootState, dispatch: AppDispatch): WorkerWrapper[] {
   const selectedMaxThreads = reduxState.optimizer.control.hwThreads;
 
   dispatch(changeStatus(RUNNING));
@@ -31,8 +30,8 @@ export default function calculate(reduxState: any, dispatch: Dispatch<any>): Wor
   console.log('Parallel Optimizer');
   console.log('State', reduxState);
 
-  const withHeuristics: boolean = getHeuristics(reduxState);
-  const settings: Settings = createSettings(reduxState);
+  const withHeuristics = getHeuristics(reduxState);
+  const settings = createSettings(reduxState);
 
   console.log(`Creating ${selectedMaxThreads} threads`);
   // create all threads. later on we may or may not use them depending on the presented problem

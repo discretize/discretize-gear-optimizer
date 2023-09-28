@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { buffModifiersById } from '../../assets/modifierdata';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 import { RootState } from '../store';
-import { AppliedModifier } from '../optimizer/optimizerSetup';
+import type { AppliedModifier } from '../optimizer/optimizerSetup';
 
 // todo: specify buff keys
 type Buffs = Record<string, boolean>;
