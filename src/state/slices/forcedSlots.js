@@ -3,9 +3,11 @@ import { changeAll } from './controlsSlice';
 
 export const forcedSlotsSlice = createSlice({
   name: 'forcedSlots',
+
   initialState: {
     slots: Array(14).fill(null),
   },
+
   reducers: {
     changeForcedSlot: (state, action) => {
       state.slots[action.payload.index] = action.payload.value;
@@ -17,10 +19,11 @@ export const forcedSlotsSlice = createSlice({
       state.slots = action.payload;
     },
   },
-  extraReducers: {
-    [changeAll]: (state, action) => {
+
+  extraReducers: (builder) => {
+    builder.addCase(changeAll, (state, action) => {
       return { ...state, ...action.payload?.form?.forcedSlots };
-    },
+    });
   },
 });
 

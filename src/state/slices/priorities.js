@@ -9,6 +9,7 @@ const pick = (object, keysToPick) =>
   Object.fromEntries(keysToPick.filter((key) => key in object).map((key) => [key, object[key]]));
 export const prioritiesSlice = createSlice({
   name: 'priorities',
+
   initialState: {
     optimizeFor: 'Damage',
     weaponType: WeaponTypes.dualWield,
@@ -36,6 +37,7 @@ export const prioritiesSlice = createSlice({
     customAffixTextBox: '',
     customAffixError: '',
   },
+
   reducers: {
     changePriority: (state, action) => {
       state[action.payload.key] = action.payload.value;
@@ -69,17 +71,19 @@ export const prioritiesSlice = createSlice({
       }
     },
   },
-  extraReducers: {
-    [changeAll]: (state, action) => {
+
+  extraReducers: (builder) => {
+    builder.addCase(changeAll, (state, action) => {
       return { ...state, ...action.payload?.form?.priorities };
-    },
-    [setBuildTemplate]: (state, action) => {
+    });
+
+    builder.addCase(setBuildTemplate, (state, action) => {
       const {
         prioritiesPreset = {},
         build: { weaponType },
       } = action.payload;
       return { ...state, ...prioritiesPreset, ...(weaponType ? { weaponType } : {}) };
-    },
+    });
   },
 });
 

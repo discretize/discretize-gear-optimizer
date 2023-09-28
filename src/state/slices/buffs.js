@@ -4,6 +4,7 @@ import { changeAll, setBuildTemplate } from './controlsSlice';
 
 export const buffsSlice = createSlice({
   name: 'buffs',
+
   initialState: {
     buffs: {
       might: false,
@@ -33,6 +34,7 @@ export const buffsSlice = createSlice({
     },
     amounts: {},
   },
+
   reducers: {
     changeBuff: (state, action) => {
       state.buffs[action.payload.key] = action.payload.value;
@@ -51,8 +53,9 @@ export const buffsSlice = createSlice({
       };
     },
   },
-  extraReducers: {
-    [changeAll]: (state, action) => {
+
+  extraReducers: (builder) => {
+    builder.addCase(changeAll, (state, action) => {
       const removeOldBuffs = (data) => {
         if (!data) return data;
         const validEntries = Object.entries(data).filter(([key]) => buffModifiersById[key]);
@@ -64,8 +67,9 @@ export const buffsSlice = createSlice({
 
       console.log({ buffs, amounts, validData });
       return { ...state, ...validData };
-    },
-    [setBuildTemplate]: (state, action) => {
+    });
+
+    builder.addCase(setBuildTemplate, (state, action) => {
       const { buffPreset } = action.payload;
 
       const buffs = {};
@@ -75,7 +79,7 @@ export const buffsSlice = createSlice({
       });
 
       return { buffs, amounts: state.amounts };
-    },
+    });
   },
 });
 

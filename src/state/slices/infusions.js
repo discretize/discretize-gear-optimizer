@@ -8,6 +8,7 @@ const isFractal = loadedSettings.gameMode === 'fractals';
 
 export const infusionsSlice = createSlice({
   name: 'infusions',
+
   initialState: {
     omnipotion: isFractal,
     ar: isFractal ? '162' : '',
@@ -27,6 +28,7 @@ export const infusionsSlice = createSlice({
       ownedMatrix: 0,
     },
   },
+
   reducers: {
     changeAR: (state, action) => {
       state.ar = action.payload;
@@ -71,16 +73,18 @@ export const infusionsSlice = createSlice({
       state.helperData.ownedMatrix = action.payload;
     },
   },
-  extraReducers: {
-    [changeAll]: (state, action) => {
+
+  extraReducers: (builder) => {
+    builder.addCase(changeAll, (state, action) => {
       return { ...state, ...action.payload?.form?.infusions };
-    },
-    [changeGameMode]: (state, action) => {
+    });
+
+    builder.addCase(changeGameMode, (state, action) => {
       if (action.payload === 'fractals') {
         return { ...state, omnipotion: true, ar: '162' };
       }
       return { ...state, omnipotion: false, ar: '0' };
-    },
+    });
   },
 });
 

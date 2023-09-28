@@ -3,11 +3,13 @@ import { changeAll } from './controlsSlice';
 
 export const extraModifiersSlice = createSlice({
   name: 'extraModifiers',
+
   initialState: {
     error: '',
     extraModifiers: [],
     textBox: '',
   },
+
   reducers: {
     changeExtraModifiers: (state, action) => {
       state[action.payload.key] = action.payload.value;
@@ -16,10 +18,11 @@ export const extraModifiersSlice = createSlice({
       state.error = action.payload;
     },
   },
-  extraReducers: {
-    [changeAll]: (state, action) => {
+
+  extraReducers: (builder) => {
+    builder.addCase(changeAll, (state, action) => {
       return { ...state, ...action.payload?.form?.extraModifiers };
-    },
+    });
   },
 });
 

@@ -3,10 +3,12 @@ import { changeAll } from './controlsSlice';
 
 export const bossSlice = createSlice({
   name: 'boss',
+
   initialState: {
     attackRate: '0.4',
     movementUptime: '0',
   },
+
   reducers: {
     changeAttackRate: (state, action) => {
       state.attackRate = action.payload;
@@ -15,10 +17,11 @@ export const bossSlice = createSlice({
       state.movementUptime = action.payload;
     },
   },
-  extraReducers: {
-    [changeAll]: (state, action) => {
+
+  extraReducers: (builder) => {
+    builder.addCase(changeAll, (state, action) => {
       return { ...state, ...action.payload?.form?.boss };
-    },
+    });
   },
 });
 

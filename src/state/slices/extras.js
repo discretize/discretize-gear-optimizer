@@ -21,6 +21,7 @@ export const lifestealData = {
 
 export const extrasSlice = createSlice({
   name: 'extras',
+
   initialState: {
     extras: {
       Sigil1: {},
@@ -32,6 +33,7 @@ export const extrasSlice = createSlice({
     },
     lifestealAmount: '',
   },
+
   reducers: {
     changeExtraIds: (state, action) => {
       const { type, ids } = action.payload;
@@ -57,8 +59,9 @@ export const extrasSlice = createSlice({
       state.extras.Sigil2 = merged;
     },
   },
-  extraReducers: {
-    [changeAll]: (state, action) => {
+
+  extraReducers: (builder) => {
+    builder.addCase(changeAll, (state, action) => {
       // best effort conversion of old data from before multiple selection
       if (action.payload?.form?.extras?.Runes) {
         const convertedExtras = mapValues(action.payload.form.extras, (data) => {
@@ -78,11 +81,12 @@ export const extrasSlice = createSlice({
       }
 
       return { ...state, ...action.payload?.form?.extras };
-    },
-    [setBuildTemplate]: (state, action) => {
+    });
+
+    builder.addCase(setBuildTemplate, (state, action) => {
       const { extrasPreset = {} } = action.payload;
       return { ...state, ...extrasPreset };
-    },
+    });
   },
 });
 
