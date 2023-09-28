@@ -21,6 +21,7 @@ const getInitialItems = (traitline) => {
 
 export const traitsSlice = createSlice({
   name: 'traits',
+
   initialState: {
     showAll: false,
     selectedLines: ['', '', ''],
@@ -31,6 +32,7 @@ export const traitsSlice = createSlice({
     ],
     items: [{}, {}, {}],
   },
+
   reducers: {
     toggleShowAll: (state, action) => {
       state.showAll = action.payload;
@@ -69,11 +71,13 @@ export const traitsSlice = createSlice({
       return { ...state, ...action.payload };
     },
   },
-  extraReducers: {
-    [changeAll]: (state, action) => {
+
+  extraReducers: (builder) => {
+    builder.addCase(changeAll, (state, action) => {
       return { ...state, ...action.payload?.form?.traits };
-    },
-    [changeProfession]: (state, action) => {
+    });
+
+    builder.addCase(changeProfession, (state, action) => {
       if (state.profession !== action.payload) {
         return {
           ...state,
@@ -86,11 +90,12 @@ export const traitsSlice = createSlice({
           items: [{}, {}, {}],
         };
       }
-    },
-    [setBuildTemplate]: (state, action) => {
+    });
+
+    builder.addCase(setBuildTemplate, (state, action) => {
       const { traitsPreset = {} } = action.payload;
       return { ...state, ...traitsPreset };
-    },
+    });
   },
 });
 

@@ -27,10 +27,12 @@ if (!gameModeParam) setQueryParm({ key: PARAMS.GAMEMODE, value: loadedSettings.g
 
 export const userSettingsSlice = createSlice({
   name: 'userSettings',
+
   initialState: {
     expertMode: loadedSettings?.expertMode,
     gameMode: loadedSettings?.gameMode,
   },
+
   reducers: {
     changeAllUserSettings: (state, action) => {
       return { ...state, ...action.payload?.userSettings };
@@ -42,14 +44,15 @@ export const userSettingsSlice = createSlice({
       state.gameMode = action.payload;
     },
   },
-  extraReducers: {
-    [changeAll]: (state, action) => {
+
+  extraReducers: (builder) => {
+    builder.addCase(changeAll, (state, action) => {
       if (action.payload?.userSettings?.gameMode) {
         setQueryParm({ key: PARAMS.GAMEMODE, value: action.payload.userSettings.gameMode });
       }
 
       return { ...state, ...action.payload?.userSettings };
-    },
+    });
   },
 });
 

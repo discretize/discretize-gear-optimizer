@@ -8,6 +8,7 @@ const clone =
 
 export const distributionSlice = createSlice({
   name: 'distribution',
+
   initialState: {
     selectedDistribution: '',
     version: 2,
@@ -31,6 +32,7 @@ export const distributionSlice = createSlice({
       Confusion: '0',
     },
   },
+
   reducers: {
     changeDistributionNew: (state, action) => {
       return {
@@ -72,15 +74,17 @@ export const distributionSlice = createSlice({
       return state;
     },
   },
-  extraReducers: {
-    [changeAll]: (state, action) => {
+
+  extraReducers: (builder) => {
+    builder.addCase(changeAll, (state, action) => {
       const newState = clone(action.payload?.form?.distribution);
       newState.values2.Power2 ??= 0;
       newState.textBoxes.Power2 ??= '0';
 
       return { ...state, ...newState };
-    },
-    [setBuildTemplate]: (state, action) => {
+    });
+
+    builder.addCase(setBuildTemplate, (state, action) => {
       const { distributionPreset, selectedDistribution } = action.payload;
 
       if (distributionPreset) {
@@ -93,7 +97,7 @@ export const distributionSlice = createSlice({
         };
       }
       return state;
-    },
+    });
   },
 });
 

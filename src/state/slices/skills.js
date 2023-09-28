@@ -4,9 +4,11 @@ import { changeAll, changeProfession, setBuildTemplate } from './controlsSlice';
 
 export const skillsSlice = createSlice({
   name: 'skills',
+
   initialState: {
     skills: {},
   },
+
   reducers: {
     toggleSkill: (state, action) => {
       const { id, enabled } = action.payload;
@@ -29,22 +31,25 @@ export const skillsSlice = createSlice({
       return { ...state, ...action.payload };
     },
   },
-  extraReducers: {
-    [changeAll]: (state, action) => {
+
+  extraReducers: (builder) => {
+    builder.addCase(changeAll, (state, action) => {
       return { ...state, ...action.payload?.form?.skills };
-    },
-    [changeProfession]: (state, action) => {
+    });
+
+    builder.addCase(changeProfession, (state, action) => {
       if (state.profession !== action.payload) {
         return {
           ...state,
           skills: {},
         };
       }
-    },
-    [setBuildTemplate]: (state, action) => {
+    });
+
+    builder.addCase(setBuildTemplate, (state, action) => {
       const { skillsPreset = {} } = action.payload;
       return { ...state, ...skillsPreset };
-    },
+    });
   },
 });
 
