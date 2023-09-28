@@ -1,4 +1,3 @@
-import { objectEntries, objectFromEntries } from 'ts-extras';
 import type { ProfessionName } from './gw2-data';
 import { Classes, Defense } from './gw2-data';
 
@@ -58,6 +57,10 @@ export const getWeight = (profession: ProfessionName) => {
   return 'Light';
 };
 
+export const objectEntries = Object.entries as <Type extends object>(
+  value: Type,
+) => Array<[keyof Type, Type[keyof Type]]>;
+
 /*
  * Like Array.prototype.map(), but for key-value objects.
  * Creates a new key-value object containing the key-value pairs of the input object, except the
@@ -67,7 +70,7 @@ export function mapValues<Key extends string, In, Out>(
   obj: Record<Key, In>,
   callbackFn: (v: In) => Out,
 ) {
-  return objectFromEntries(
+  return Object.fromEntries(
     objectEntries(obj).map(([key, value]) => [key, callbackFn(value)]),
   ) as Record<Key, Out>;
 }

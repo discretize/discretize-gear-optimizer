@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-import { objectEntries } from 'ts-extras';
 // eslint-disable-next-line import/no-unresolved
 import init, { calculate, calculate_heuristics_only, calculate_with_heuristics } from 'wasm_module';
 import { allExtrasModifiersById } from '../../../assets/modifierdata';
@@ -27,6 +26,7 @@ import {
   FinishedHeuristicsMessage,
 } from './workerMessageTypes';
 import { ResultProperties, enhanceResults } from '../results';
+import { objectEntries } from '../../../utils/usefulFunctions';
 
 onmessage = (e: MessageEvent<MessageType>) => {
   console.log('worker received message', e.data);

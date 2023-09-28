@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { PayloadAction, createSlice, original } from '@reduxjs/toolkit';
-import { objectEntries } from 'ts-extras';
 import { allExtrasModifiersById } from '../../assets/modifierdata';
-import { mapValues } from '../../utils/usefulFunctions';
+import { mapValues, objectEntries } from '../../utils/usefulFunctions';
 import { RootState } from '../store';
 import { changeAll, setBuildTemplate } from './controlsSlice';
 
