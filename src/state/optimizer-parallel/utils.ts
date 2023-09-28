@@ -262,6 +262,7 @@ export function getExtrasIdsCombinations(reduxState: RootState): string[][] {
     extrasNames.Sigil2,
     extrasNames.Enhancement,
     extrasNames.Nourishment,
+    extrasNames.Relics,
   ];
 
   return extrasIds;
