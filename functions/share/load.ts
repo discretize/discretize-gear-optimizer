@@ -1,8 +1,11 @@
 /* eslint-disable import/prefer-default-export */
 import { PARAMS } from '../../src/utils/queryParam';
 
-// TODO add typings https://github.com/cloudflare/workers-types/blob/771ce7591e63bf47f36b39d60afb86e1fe8d404b/manual-ts/pages.d.ts
-export async function onRequestGet(context) {
+interface Env {
+  SHORT_LINKS: KVNamespace;
+}
+
+export const onRequestGet: PagesFunction<Env> = async (context) => {
   // Contents of context object
   const {
     request, // same as existing Worker API
@@ -18,4 +21,4 @@ export async function onRequestGet(context) {
   return new Response(value, {
     'headers': { 'Content-Type': 'application/json' },
   });
-}
+};
