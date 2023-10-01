@@ -13,10 +13,8 @@ jobs:
     permissions:
       contents: read
       deployments: write
-    env:
-      APIKEY: ${{ secrets.CF_GLOBAL_APIKEY }}
     if: >
-      env.APIKEY != null &&
+      secrets.CF_GLOBAL_APIKEY != null &&
       !contains(github.event.head_commit.message, 'skip ci') &&
       !contains(github.event.pull_request.body, '[no previews]') &&
       (contains(github.event.pull_request.body, '[draft previews]') || github.event.pull_request.draft == false)
